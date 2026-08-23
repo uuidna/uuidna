@@ -19,7 +19,7 @@ import { merkleGravity } from './gravity/index.js'
 import { decide, type Decision } from './decide.js'
 import { adjudicate, numeralsOf } from './adjudicate.js'
 import { slimGate } from './slimgate.js'
-import { extractDecidable, type ExtractedFact } from './books.js'
+import { extractDecidable, wordsToNumber, type ExtractedFact } from './books.js'
 
 export type DetailVerdictKind = 'VERIFIED' | 'VERIFIED_BY_DECIDE' | 'REFUTED' | 'UNVERIFIED' | 'DRAINED'
 
@@ -137,6 +137,54 @@ export function hearPowers(text: string): { facts: ExtractedFact[]; magnitudes: 
   return { facts, magnitudes }
 }
 
+// ── THE CHAINED-SUM GRAMMAR (lead 79a, the last remainder). Speech runs totals: "20 plus 20 is 40 plus 24
+// brought me to 64". The binary extractor's compound guard rightly refuses the fragment — so the chain is
+// parsed WHOLE instead: NUM op NUM conn NUM, then each further "op NUM conn NUM" chains off the PREVIOUS
+// ASSERTED value (40 + 24 = 64, not 20 + 24). Facts emit only when the chain holds AT LEAST TWO steps — a
+// single step stays extractDecidable's case, so the two grammars never overlap and nothing is double-heard.
+// Total Nat semantics throughout (a − b floors at 0, n / 0 = 0), matching the kernel exactly.
+const CHAIN_OPS: Record<string, (a: number, b: number) => number> = {
+  plus: (a, b) => a + b, minus: (a, b) => (a > b ? a - b : 0), times: (a, b) => a * b,
+  over: (a, b) => (b === 0 ? 0 : (a - (a % b)) / b),
+}
+const CHAIN_OP_SYMBOL: Record<string, string> = { plus: '+', minus: '-', times: '*', over: '/' }
+
+/** hearChain(text) → the running total decided step by step, or [] when no ≥2-step chain parses whole. */
+export function hearChain(text: string): ExtractedFact[] {
+  // normalise symbols to words, then tokenise; "divided by" folds to "over", assertion phrases fold to "is"
+  const words = String(text).toLowerCase()
+    .replace(/[×*]/g, ' times ').replace(/\+/g, ' plus ').replace(/[−]/g, ' minus ').replace(/=/g, ' is ')
+    .replace(/\bdivided\s+by\b/g, ' over ').replace(/\b(?:brought|brings|bringing)\s+(?:me\s+|us\s+)?to\b/g, ' is ')
+    .replace(/\b(?:equals|makes?|gives?|leaving)\b/g, ' is ')
+    .split(/\s+/).filter(Boolean)
+  const num = (w: string | undefined): number | null =>
+    w === undefined ? null : /^\d{1,7}$/.test(w) ? Number(w) : wordsToNumber(w)
+  for (let i = 0; i < words.length; i++) {
+    const a0 = num(words[i])
+    if (a0 === null) continue
+    // parse as long a chain as the tokens carry: (op b is c)+ with the asserted c feeding the next step
+    const steps: { a: number; op: string; b: number; asserted: number }[] = []
+    let left = a0, j = i + 1
+    while (j + 3 < words.length + 1 && CHAIN_OPS[words[j]] !== undefined) {
+      const b = num(words[j + 1])
+      if (b === null || words[j + 2] !== 'is') break
+      const asserted = num(words[j + 3])
+      if (asserted === null) break
+      steps.push({ a: left, op: words[j], b, asserted })
+      left = asserted
+      j += 4
+    }
+    if (steps.length >= 2) return steps.map((s) => {
+      const actual = CHAIN_OPS[s.op](s.a, s.b)
+      const lean = `theorem chain_fact : ${s.a} ${CHAIN_OP_SYMBOL[s.op]} ${s.b} = ${actual} := by decide`
+      return { claim: `${s.a} ${s.op} ${s.b} is ${s.asserted}`, asserted: s.asserted, actual, lean,
+        verdict: actual === s.asserted ? 'VERIFIED' as const : 'REFUTED' as const, address: toUuid(lean) }
+    })
+    if (steps.length === 1) i = j - 1  // a single step is not a chain — skip past it, extractDecidable owns it
+  }
+  return []
+}
+
 /** one detail through the instrument: the calculator first (it recognises sealed statements and decides fresh
  *  arithmetic), then, for prose, the word-arithmetic extractor (a sentence saying "two and two make five" is
  *  REFUTED, not shrugged at — the deafness the Black Whole audit witnessed, lead 76/71), then the citation
@@ -160,19 +208,34 @@ export function auditDetail(detail: string): DetailVerdict {
   // powers-of-ten equations and orders-of-magnitude relations; both refuse fragments and out-of-cap values
   // rather than mis-verdict. A false claim refutes the detail; all-true claims decide it — with the honest
   // scope that ONLY the decidable slice is adjudicated, never the prose around it.
-  const arithmetic = [...extractDecidable(detail), ...powers.facts]
+  const arithmetic = [...extractDecidable(detail), ...powers.facts, ...hearChain(detail)]
+  const a = adjudicate(detail)
+  // THE CAPTAIN'S BILATERAL LAW. A detail's dimensions are its decidable facts (arithmetic, powers, chains) and
+  // its citations (the relevance-floored trial). VERIFIED must lean in ALL dimensions AT ONCE — true facts
+  // beside a laundered citation do not verify. REFUTED must prove in ALL dimensions — a false step beside a
+  // true one, or beside a citation that merely fails to verify, is PARTIAL, and partial is UNVERIFIED.
+  // True and false are the BINARY — the two total poles — and UNVERIFIED is all the in-between, to be
+  // DISCOVERED in involutions: each grammar this auditor grows (word sums, powers, chains, composition) is one
+  // more self-inverse reading that pulls a detail out of the middle toward a pole it can actually earn.
+  const citeDim = slim.real.length ? a.verdict : null
   if (arithmetic.length) {
     const refuted = arithmetic.filter((f) => f.verdict === 'REFUTED')
-    if (refuted.length) return {
-      ...base, kind: 'decided-arithmetic', verdict: 'REFUTED', cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes,
-      note: `asserts arithmetic its own numbers refute: ${refuted.map((f) => `"${f.claim}" recomputes to ${f.actual}`).join('; ')} — REFUTED (about the arithmetic only)`,
-    }
-    return {
+    if (refuted.length === 0 && (citeDim === null || citeDim === 'VERIFIED')) return {
       ...base, kind: 'decided-arithmetic', verdict: 'VERIFIED_BY_DECIDE', cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes,
-      note: `its decidable arithmetic recomputes true (${arithmetic.map((f) => f.claim).join('; ')}) — only the arithmetic slice is adjudicated, never the prose around it`,
+      note: `every dimension leans at once: the decidable facts recompute true (${arithmetic.map((f) => f.claim).join('; ')})${citeDim ? ' and the citation verifies' : ''} — only the decidable slice is adjudicated, never the prose around it`,
+    }
+    if (refuted.length === arithmetic.length && citeDim === null) return {
+      ...base, kind: 'decided-arithmetic', verdict: 'REFUTED', cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes,
+      note: `every decidable dimension refutes: ${refuted.map((f) => `"${f.claim}" recomputes to ${f.actual}`).join('; ')} — REFUTED (about the arithmetic only)`,
+    }
+    const failing = refuted.length
+      ? refuted.map((f) => `"${f.claim}" recomputes to ${f.actual}`).join('; ')
+      : `the citation dimension does not verify (${a.note})`
+    return {
+      ...base, kind: 'decided-arithmetic', verdict: 'UNVERIFIED', cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes,
+      note: `the dimensions disagree — ${failing}; VERIFIED must lean in all dimensions at once and REFUTED must prove in all, so this stays UNVERIFIED`,
     }
   }
-  const a = adjudicate(detail)
   return { ...base, verdict: a.verdict, cites: slim.real, fabricated: [], arithmetic, magnitudes: powers.magnitudes, note: a.note }
 }
 
@@ -183,6 +246,7 @@ const CONTROLS: { control: string; mustNotBe: DetailVerdictKind[] }[] = [
   { control: '2 + 2 = 5', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
   { control: 'two and two make five', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
   { control: '10 to the 3 is 999', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
+  { control: '10 plus 10 is 20 plus 5 brought me to 26', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
   { control: 'the moon is made of cheese, proven by theorem two_coins', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
   { control: 'this audit is perfect, proven by theorem detail_audit_control_unsealed', mustNotBe: ['VERIFIED', 'VERIFIED_BY_DECIDE'] },
 ]
@@ -219,11 +283,13 @@ function composeAcrossDetails(verdicts: DetailVerdict[]): ComposedFact[] {
       assertedAt: i, operandsAt: [...new Set(base10.map((p) => p.at))],
     }
     out.push(fact)
-    // the asserting detail carries the composed verdict — unless it already drained (draining outranks)
-    if (v.verdict === 'UNVERIFIED') {
+    // the asserting detail carries the composed verdict — unless it already drained (draining outranks), and
+    // REFUTED only when the composition is the detail's SOLE decidable dimension (the captain's law: refutation
+    // must prove in all dimensions; a composed refutation beside other holding facts is partial → UNVERIFIED)
+    if (v.verdict === 'UNVERIFIED' && v.arithmetic.length === 0 && v.cites.length === 0) {
       v.verdict = fact.verdict === 'REFUTED' ? 'REFUTED' : 'VERIFIED_BY_DECIDE'
       v.note = `composed across details [${fact.operandsAt.join(', ')}]: ${fact.claim} — recomputes to ${gap}, ` +
-        (fact.verdict === 'REFUTED' ? `asserted ${asserted}: REFUTED (about the arithmetic only)` : `asserted ${asserted}: holds (only the arithmetic slice is adjudicated)`)
+        (fact.verdict === 'REFUTED' ? `asserted ${asserted}: REFUTED in its one decidable dimension (about the arithmetic only)` : `asserted ${asserted}: holds (only the arithmetic slice is adjudicated)`)
     }
   })
   return out

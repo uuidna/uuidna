@@ -9,7 +9,7 @@ import { auditDetails, auditDetail, splitDetails } from '../detail-audit.js'
 test('the controls are pre-registered, run first, and all rejected — the instrument can fail', () => {
   const a = auditDetails('anything at all.')
   assert.equal(a.outcome, 'audited')
-  assert.equal(a.controls.length, 6, 'six controls: digit arithmetic, word arithmetic, power equation, laundered citation, fabricated citation, cross-detail composition')
+  assert.equal(a.controls.length, 7, 'seven controls: digit arithmetic, word arithmetic, power equation, chained sum, laundered citation, fabricated citation, cross-detail composition')
   for (const c of a.controls) assert.equal(c.rejected, true, `control accepted — the instrument cannot discriminate: ${c.control} → ${c.got}`)
 })
 
@@ -60,9 +60,31 @@ test('the tool hears word arithmetic — a false spoken sum is REFUTED, a true o
   assert.equal(wrong.arithmetic[0].actual, 4)
   const right = auditDetail('twenty plus twenty is forty')
   assert.equal(right.verdict, 'VERIFIED_BY_DECIDE')
-  assert.match(right.note, /only the arithmetic slice/, 'the honest scope must ride the verdict')
-  const compound = auditDetail('the edge of the metric 20 plus 20 is 40 plus 24 brought me to 64 tetrahedron')
-  assert.equal(compound.verdict, 'UNVERIFIED', 'the compound guard still refuses fragments rather than mis-verdict — lead 71\'s deeper work')
+  assert.match(right.note, /only the decidable slice/, 'the honest scope must ride the verdict')
+})
+
+// ── lead 79a, the last remainder: the chained sum. The chain parses WHOLE — each asserted intermediate feeds
+// the next step — and emits only at ≥2 steps, so it never collides with the binary extractor's compound guard.
+// And the captain's law rides every verdict: REFUTED must prove in ALL dimensions; a false step among true
+// ones is a partial refutation, and a partial refutation stays UNVERIFIED.
+test('the chained sum parses whole — the film\'s sentence finally decides', () => {
+  const film = auditDetail('the edge of the metric 20 plus 20 is 40 plus 24 brought me to 64 tetrahedron')
+  assert.equal(film.verdict, 'VERIFIED_BY_DECIDE', 'both steps recompute: 20+20=40, then 40+24=64')
+  assert.equal(film.arithmetic.length, 2)
+  assert.deepEqual(film.arithmetic.map((f) => f.actual), [40, 64])
+  const allFalse = auditDetail('10 plus 10 is 21 plus 5 brought me to 27')
+  assert.equal(allFalse.verdict, 'REFUTED', 'every step false (10+10=20≠21, 21+5=26≠27) — refuted in all dimensions')
+})
+
+test('the captain\'s bilateral law: both stamps are earned in all dimensions or not at all', () => {
+  const mixed = auditDetail('10 plus 10 is 20 plus 5 brought me to 26')
+  assert.equal(mixed.verdict, 'UNVERIFIED', 'step one holds (10+10=20), step two fails (20+5=25≠26) — a partial refutation stays UNVERIFIED')
+  assert.match(mixed.note, /dimensions disagree/)
+  assert.equal(auditDetail('two and two make five').verdict, 'REFUTED', 'a sole false fact IS total — its one dimension refutes')
+  const laundered = auditDetail('the moon is cheese and 2 plus 2 is 4, proven by theorem two_coins')
+  assert.equal(laundered.verdict, 'UNVERIFIED', 'true arithmetic beside a laundered citation — VERIFIED must lean in all dimensions at once')
+  const falseBesideCite = auditDetail('the moon is cheese and 2 plus 2 is 5, proven by theorem two_coins')
+  assert.equal(falseBesideCite.verdict, 'UNVERIFIED', 'a false fact beside an unverifying citation is partial — REFUTED must prove in all dimensions')
 })
 
 test('a fabricated citation outranks true arithmetic — draining is the gate\'s law', () => {
