@@ -140,7 +140,7 @@ A handle is eight hexbits, so it names **${HANDLE_SPAN.toLocaleString('en-US')}*
 address it can take. That is the space; the rest is what is accounted inside it.
 
 - **${ledgerMass().toLocaleString('en-US')} superpositions** decided across the ledger, every one walked rather than sampled
-- **${(theorems().length * COINS).toLocaleString('en-US')} coins** in existence — ${COINS} per sealed theorem, and only that (theorem two_coins: the conserved denomination)
+- **${(theorems().length * COINS).toLocaleString('en-US')} coins paid** — the CONSERVED PRICE, ${COINS} per sealed theorem (theorem two_coins: the fixed denomination paid IN). But each theorem carries its own PRICE TAG — its decided mass, from ${theorems().map(decidedMass).reduce((m, x) => (x < m ? x : m), Infinity)} to ${theorems().map(decidedMass).reduce((m, x) => (x > m ? x : m), 0).toLocaleString('en-US')} superpositions — so what the coins BUY is never flat: the cost is 2 every time, the value never is
 - **${((ledgerMass() - ledgerMass() % (theorems().length * COINS)) / (theorems().length * COINS))} superpositions per coin**, floored: what one coin covers today
 
 SIX DIRECTIONS leave every residue, which is why a per-coin figure needs them stated beside it: the 60-degree

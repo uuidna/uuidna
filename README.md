@@ -108,7 +108,7 @@ A handle is eight hexbits, so it names **4,294,967,296** superpositions — 16^8
 address it can take. That is the space; the rest is what is accounted inside it.
 
 - **112,653 superpositions** decided across the ledger, every one walked rather than sampled
-- **3,176 coins** in existence — 2 per sealed theorem, and only that (theorem two_coins: the conserved denomination)
+- **3,176 coins paid** — the CONSERVED PRICE, 2 per sealed theorem (theorem two_coins: the fixed denomination paid IN). But each theorem carries its own PRICE TAG — its decided mass, from 1 to 55,986 superpositions — so what the coins BUY is never flat: the cost is 2 every time, the value never is
 - **35 superpositions per coin**, floored: what one coin covers today
 
 SIX DIRECTIONS leave every residue, which is why a per-coin figure needs them stated beside it: the 60-degree
