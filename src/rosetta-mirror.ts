@@ -50,6 +50,15 @@ honesty_gate_is_theorem_not_oracle 27
 overclaim_with_fake_cite_fails 27
 fraud_verdict_is_exactly_one 19
 fabricated_cite_stays_unverified 19
+#Antikythera.lean
+metonic_is_the_intercalation 19
+metonic_spiral_five_turns 19
+callippic_corrects_by_four 19
+saros_counts_on_a_prime 19
+saros_spiral_leaves_three 19
+exeligmos_closes_the_day 19
+pin_and_slot_equal_teeth 19
+hunting_teeth_wear_even 19
 #Astronomy.lean
 sky_turns_15_per_hour 19
 zodiac_ecliptic_360 19
