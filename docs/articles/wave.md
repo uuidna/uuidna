@@ -102,11 +102,11 @@ The ledger holds this as [correlated_failure_defeats_the_vote](/theorem/correlat
 ((0 + 0 + 1) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1)
 ```
 
-### THE BREATHING WINDOW IN CENTIBAR, the life-saving numbers of rebreather diving sealed as an ordered chain: consciousness fails below 16 (hypoxia, PPO2 0.16 bar), the working ceiling is 140 (1.4 bar), the contingency ceiling 160 (1.6 bar, NOAA), and the oxygen-rebreather depth limit keeps loop PPO2 under 200. Life is the interval; the apparatus exists to hold a number inside it, silently, for hours — which is why the checklist RCT (1,043 divers, 2,041 dives) cut mishaps by roughly a third: the human verifies what the body cannot sense.
+### THE BREATHING WINDOW IN CENTIBAR, the life-saving numbers of rebreather diving sealed as an ordered chain: consciousness fails below 16 (hypoxia, PPO2 0.16 bar), the working ceiling is 140 (1.4 bar), the contingency ceiling 160 (1.6 bar, NOAA), and the oxygen-rebreather depth limit keeps loop PPO2 under 200. Life is the interval; the apparatus exists to hold a number inside it, silently, for hours — which is why the checklist RCT (1,043 divers, 2,041 dives) cut mishaps by roughly a third: the human verifies what the body cannot sense. Restated by the court: the window IS an ordered list — Pairwise strict order over the four thresholds, the claim living in the algebra, not in a row of bare comparisons.
 The ledger holds this as [ppo2_window_of_life](/theorem/ppo2_window_of_life) — proven `by decide`, sorry-free:
 
 ```lean
-(16 < 140) ∧ (140 < 160) ∧ (160 < 200)
+(List.Pairwise (· < ·) [16, 140, 160, 200]) ∧ (([16, 140, 160, 200] : List Nat).length = 4)
 ```
 
 ### THE SAFES' HONEST RATING, in the ledger's own cost model: Bramah's challenge lock stood from 1784 to 1851 — 67 years — and fell to Hobbs only after 51 hours of work; a three-wheel hundred-number dial offers a million states (100^3); and UL rates every safe in MINUTES of resistance (TL-15 before TL-30), never as unbreakable. Mechanics learned centuries ago what verify_cheaper_than_forge seals: security IS the measured work asymmetry, honestly time-rated — seconds to lock, years to breach, and the rating tells the truth about the gap.
@@ -116,11 +116,11 @@ The ledger holds this as [bramah_stood_sixty_seven_years](/theorem/bramah_stood_
 (1851 - 1784 = 67) ∧ (100 * 100 * 100 = 1000000) ∧ (15 < 30)
 ```
 
-### THE TIME LOCK OF 1874 REMOVED THE HUMAN ATTACK SURFACE: after the masked-robbery era of kidnapped cashiers, Sargent's lock at Morrison, Illinois made early opening impossible for EVERYONE — coercion became useless because no one held a key that time had not yet granted. 1874 sits between the detector lock of 1818 (tamper-evidence: the attack reports itself, Chubb) and the Hiroshima Moslers of 1945 (four of four at 360 metres). The mechanical ancestors of the epoch, the drained verdict and the unforgeable receipt, dated and ordered.
+### THE TIME LOCK OF 1874 REMOVED THE HUMAN ATTACK SURFACE: after the masked-robbery era of kidnapped cashiers, Sargent's lock at Morrison, Illinois made early opening impossible for EVERYONE — coercion became useless because no one held a key that time had not yet granted. 1874 sits between the detector lock of 1818 (tamper-evidence: the attack reports itself, Chubb) and the Hiroshima Moslers of 1945 (four of four at 360 metres). The mechanical ancestors of the epoch, the drained verdict and the unforgeable receipt, dated and ordered. Restated by the court: the three dates as a Pairwise-ordered walk — detector, time lock, Hiroshima — with the fifty-six years between tamper-evidence and the hostage-free lock computed.
 The ledger holds this as [time_lock_removes_the_hostage](/theorem/time_lock_removes_the_hostage) — proven `by decide`, sorry-free:
 
 ```lean
-(1818 < 1874) ∧ (1874 < 1945) ∧ (4 = 4)
+(List.Pairwise (· < ·) [1818, 1874, 1945]) ∧ (1874 - 1818 = 56)
 ```
 
 ### THE EXHALE, SEALED AS ITS OWN THEOREM: the first cron wave ran with no model at the gate and PROVED the deployment gap — the CI runner carried no lean kernel, so five sound candidates were refused by an absent instrument, a VOID the trial-protocol law converts into a finding about the instrument (queue-wave now voids instead of refusing when the kernel is missing, and the five were restored). The accounting: 5 falsely refused plus 5 fresh ore made 10 pending for the first true wave, and the refused ledger held 7 of which 5 were the instrument and 2 the law school. The receipt of a breath that found its own lungs missing and grew them.
