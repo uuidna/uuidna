@@ -1209,7 +1209,7 @@ _No parameters._
 
 ### `uuidna_coin_ledger`
 
-THE CAPTAIN-COIN ACCOUNT: who paid the two coins, when and where, in messaging handles — the agent (initialize clientInfo.name) folded to its handle, WHEN as the deposit's own handle (time is data, never a clock), WHERE as op+surface. Optional {handle} reverse-looks-up rows. HONEST: coins are records of judged work, not value; every row recomputes; the census receipt is order-invariant. Returns {payments,totalCoins,agents,receipt,honest} or the matching rows.
+THE CAPTAIN-COIN ACCOUNT: who paid the two coins, when and where, in messaging handles — the agent (initialize clientInfo.name) folded to its handle, WHEN as the deposit's own handle (the timestamp is the handle itself — theorem drift_is_named_or_caught), WHERE as op+surface. Optional {handle} reverse-looks-up rows. HONEST: coins are records of judged work, not value; every row recomputes; the census receipt is order-invariant. Returns {payments,totalCoins,agents,receipt,honest} or the matching rows.
 
 **Parameters**
 

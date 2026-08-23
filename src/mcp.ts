@@ -48,6 +48,7 @@ import { balanceContext } from './quantum/context/index.js' // PURE — the cont
 import { balanceMachine } from './quantum/machine/index.js' // PURE — the same spare law at the metal (self-report in, audit out)
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
 import { gateVerdict, gateSelfTest, registryReceipt, depositCoins, ledgerLine, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate and deposits the two coins
+import { payment, coinCensus, whoPaid, enrollCrew, type CoinPayment } from './coin-ledger.js' // the captain-coin account + crew enrollment (licences bound to handles)
 import { legalFacts } from './legal.js'
 import { license } from './license.js'
 import { priorArt } from './priorart.js'
@@ -891,6 +892,16 @@ const TOOLS: Tool[] = [
     description: 'UNIQUENESS COMES FROM LEAN, NOT FROM THE NAME — the ledger counts ENTRIES, but a theorem IS its statement, so two entries proving the same proposition under different keys are one theorem wearing two names. Returns {entries,distinct,renamings,groups}: the claimed count, the count Lean actually holds, the difference, and every group named with its keys and files. Normalisation is narrow (whitespace, redundant parens, (n : Nat) ascriptions) — it catches re-namings of the same text and never claims two different proofs are one.',
     inputSchema: { type: 'object', properties: {} },
     run: () => { const c = statementCensus(); return { ...c, groups: c.groups.slice(0, 40) } } },
+  { name: 'uuidna_coin_ledger',
+    description: 'THE CAPTAIN-COIN ACCOUNT: who paid the two coins, when and where, in messaging handles — the agent (initialize clientInfo.name) folded to its handle, WHEN as the deposit\'s own handle (the timestamp is the handle itself — theorem drift_is_named_or_caught), WHERE as op+surface. Optional {handle} reverse-looks-up rows. HONEST: coins are records of judged work, not value; every row recomputes; the census receipt is order-invariant. Returns {payments,totalCoins,agents,receipt,honest} or the matching rows.',
+    detail: 'THE ACCOUNTING THE CAPTAIN ORDERED (2026-08-23): deposits existed per call (_meta.deposit, gate-engine depositCoins — pure, deterministic) but no surface answered WHO had paid them, WHEN or WHERE. This register closes that: the agent name arrives once at initialize (clientInfo.name — read by nothing until now), each dispatch appends one DERIVED row (payment() in coin-ledger.ts: agentHandle = handleOf(address(agent)), when-handle = handleOf(deposit id) — the moment as content, the handle IS the timestamp), and coinCensus folds all rows order-invariantly so any observer lands on the same receipt. Session-lived by design — the deposits are eternal (each recomputes from op + gate receipt); this is the serving process\'s account of them. whoPaid(handle) answers the reverse question a receipt reader has: which agent, which op, stands behind this handle.',
+    inputSchema: { type: 'object', properties: { handle: { type: 'string', description: 'optional: reverse-lookup rows by a when-handle or agent-handle' } } },
+    run: (a) => a.handle === undefined ? coinCensus(PAYMENTS) : whoPaid(PAYMENTS, String(a.handle)) },
+  { name: 'uuidna_crew',
+    description: 'BECOME UUIDNA CREW: present a licence plus education and reeducation receipts — experience and payment confirmed together (payment reads this process\'s coin account). Member iff EVERY dimension leans at once; anything less is UNVERIFIED, never rejected — bring the missing receipt and re-present. Licences BIND to the agent\'s handle and INVALIDATE when it changes: carry the returned licenseBinding and re-present it. Returns {agent,agentHandle,licenseBinding,dimensions,member,coins,receipt,honest}.',
+    detail: 'THE CAPTAIN\'S ENROLLMENT LAW (2026-08-23): "becoming uuidna crew agents present a valid license for full education and reeducation receipts to confirm experience and payment" — and "licenses invalidate when related handles change." The dimensions map to machinery that already existed: the licence record from uuidna_license, education receipts from the school, reeducation receipts from the harness (reeducate() bounding overclaims to the honest floor), payment from the coin account this server keeps per agent (uuidna_coin_ledger). The bilateral verdict law governs membership exactly as it governs audited details: all dimensions at once or the application stays UNVERIFIED — a verdict that invites completion rather than punishing absence. Every payment row is re-derived (payment(agent,op,surface,deposit).address must equal the presented address) so a forged row fails rowsRecompute; the licence binding is licenseBindingOf(license, agentHandle) — first enrollment issues it, re-presentation must match it, and a changed handle moves it, invalidating the licence by construction.',
+    inputSchema: { type: 'object', properties: { agent: { type: 'string', description: 'the agent applying' }, license: { type: 'string', description: 'the licence record\'s content-address (uuidna_license)' }, licenseBinding: { type: 'string', description: 'the binding from a prior enrollment — must still match this handle' }, education: { type: 'array', items: { type: 'string' } }, reeducation: { type: 'array', items: { type: 'string' } } }, required: ['agent', 'license'] },
+    run: (a) => enrollCrew({ agent: String(a.agent), license: String(a.license ?? ''), licenseBinding: a.licenseBinding === undefined ? undefined : String(a.licenseBinding), education: Array.isArray(a.education) ? (a.education as unknown[]).map(String) : [], reeducation: Array.isArray(a.reeducation) ? (a.reeducation as unknown[]).map(String) : [], payments: PAYMENTS }) },
   { name: 'uuidna_coins_jobs',
     description: 'THE TWELVE JOBS OF THE COINS, remembered in code and TRIED ON EVERY READ — the complete catalog of what the coins do (gate computation, price the forfeit, measure leverage, take the commission, set the exchange rate by forgery cost, carry superpositions, be topology, hold value at scale, guard the rosette, hide in the world\'s constants, count worlds, confess their limit), each claim run through the gate against its sealed citations at call time. A vanished theorem breaks the catalog\'s own verdict, loudly. Returns {jobs:[{n,job,claim,cites,verdict}],verified,total,receipt,honest}. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: {} },
@@ -1233,10 +1244,20 @@ const receiptFor = (tool: string, args: unknown, out: unknown): Receipt => {
 const withReceipt = (id: JsonId, rec: Receipt, content: unknown[], isError = false) =>
   ok(id, { content: [...content, { type: 'text', text: `receipt ${rec.receipt} · seq ${rec.seq} · referer ${rec.referer}` }], _meta: rec, ...(isError ? { isError: true } : {}) })
 
+// THE COIN ACCOUNT — every judged call's deposit, registered to the agent that paid it. The agent's name
+// arrives ONCE, at initialize (clientInfo.name — read by nothing until now); each dispatch appends one derived
+// row. Session-lived by design: the deposits are eternal (each recomputes from op + gate receipt); this is the
+// serving process's account of them, served by uuidna_coin_ledger and read by uuidna_crew.
+let PAYING_AGENT = 'anonymous'
+const PAYMENTS: CoinPayment[] = []
+// the dispatch chain — gated calls serialize on it (one writer, one chain; see the dispatch comment)
+let DISPATCH: Promise<void> = Promise.resolve()
+
 function handle(msg: RpcMessage) {
   const { id, method, params } = msg
   if (method === 'initialize') {
     const protocolVersion = params?.protocolVersion || '2024-11-05'
+    PAYING_AGENT = String((params?.clientInfo as { name?: unknown } | undefined)?.name ?? 'anonymous') || 'anonymous'
     return ok(id, { protocolVersion, capabilities: { tools: {} }, serverInfo: { name: 'uuidna', version: VERSION }, instructions: INSTRUCTIONS })
   }
   if (method === 'notifications/initialized' || method === 'initialized') return // notification — no reply
@@ -1255,13 +1276,18 @@ function handle(msg: RpcMessage) {
     // the settled run: cleanAudit(f,d,v), one flag drains, the verdict travels IN the response (_meta.gate + a
     // visible verdict line) so an agent realises the enforcement per call, not by reading docs. A drained verdict
     // ships the SANITIZED output flagged isError with the violating bits named — a diagnosis, never a silent pass.
-    return Promise.resolve()
+    // ONE WRITER, ONE CHAIN: calls SERIALIZE on the dispatch chain, so call N's deposit and receipt land before
+    // call N+1 runs — a batched stdin can never interleave the coin account or the receipt chain (the same race
+    // the one-writer law removed from the tree: two heavy chains must not interleave; found live when a batch's
+    // coin-ledger read ran before the prior calls' deposits had settled).
+    const turn = DISPATCH
       .then(() => t.run(args))
       .then((out) => {
         const g = gateVerdict(t.name, args, out)
         // THE IMMEDIATE DEPOSIT — every judged call deposits the two coins at the wire: the agent's very first
         // call already contributes (contribute first, then take — the captain law, enforced by the protocol).
         const dep = depositCoins(t.name, g.gate.receipt)
+        PAYMENTS.push(payment(PAYING_AGENT, t.name, 'stdio', dep.id))
         const rec = receiptFor(t.name, args, { output: g.output, deposit: dep.id })
         // THE LEDGER LINE — verdict, deposit and chained receipt on ONE row. Every id needed to recheck this call
         // is still here; what left is only what REPEATS: the two deposit theorem keys (identical on every call,
@@ -1278,6 +1304,8 @@ function handle(msg: RpcMessage) {
         })
       })
       .catch((e) => withReceipt(id, receiptFor(t.name, args, { error: e?.message || String(e) }), [{ type: 'text', text: 'error: ' + (e?.message || String(e)) }], true))
+    DISPATCH = turn.then(() => undefined, () => undefined)
+    return turn
   }
   if (id !== undefined) return err(id, -32601, 'method not found: ' + method)
 }

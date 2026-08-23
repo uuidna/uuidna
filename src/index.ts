@@ -79,6 +79,12 @@ export { adjudicate, adjudicateAll, proveVerdict, verifyUuidna, type Verdict, ty
 // then the citation trial), controls FIRST (a control accepted voids the audit — the instrument must be able to
 // fail), fold every detail's receipt with its verdict to ONE order-invariant receipt. Integrity, not truth.
 export { auditDetails, auditDetail, splitDetails, type DetailAudit, type DetailVerdict, type DetailVerdictKind, type ControlRun } from './detail-audit.js'
+
+// coin-ledger — WHO PAID THE CAPTAIN'S COINS, WHEN AND WHERE, IN MESSAGING HANDLES: each gated call's deposit
+// registered as a derived row (agent handle, when = the deposit's own handle — time as content, where = op +
+// surface), folded to an order-invariant per-agent census; crew enrollment on presented receipts, licences
+// bound to handles and invalidated when they change. An account of records, never of value.
+export { payment, coinCensus, whoPaid, enrollCrew, licenseBindingOf, type CoinPayment, type CoinCensus, type AgentAccount, type CrewApplication, type CrewEnrollment } from './coin-ledger.js'
 export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from './corroborate.js'
 
 // QUANTUM ENTANGLEMENT — the four physical frames (crypto/bio/chemo/physical) verify every theorem

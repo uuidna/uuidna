@@ -464,8 +464,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000005726",
-   "completionPrice": "0.00000011452"
+   "promptPrice": "0.00000005586",
+   "completionPrice": "0.00000011172"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -1213,8 +1213,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k2.6",
    "name": "MoonshotAI: Kimi K2.6",
    "contextTokens": 262144,
-   "promptPrice": "0.0000005415",
-   "completionPrice": "0.00000228"
+   "promptPrice": "0.00000095",
+   "completionPrice": "0.000004"
   },
   {
    "id": "moonshotai/kimi-k2.7-code",
@@ -2228,8 +2228,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-30b-a3b",
    "name": "Qwen: Qwen3 30B A3B",
    "contextTokens": 131072,
-   "promptPrice": "0.00000013",
-   "completionPrice": "0.00000052"
+   "promptPrice": "0.00000012",
+   "completionPrice": "0.0000005"
   },
   {
    "id": "qwen/qwen3-30b-a3b-instruct-2507",
@@ -2662,7 +2662,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "thinkingmachines/inkling",
    "name": "Thinking Machines: Inkling",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000095",
+   "promptPrice": "0.000001",
    "completionPrice": "0.00000405"
   },
   {
