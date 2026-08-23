@@ -36,6 +36,20 @@ jobs:
       - name: 'LEAN GREEN — the development pass: walk the gate, cure what is deterministic'
         run: |
           npm run develop
+      - name: 'KERNEL CACHE — the judge is heavy, carry it between bells'
+        uses: actions/cache@v4
+        with:
+          path: ~/.elan
+          key: elan-${{ runner.os }}-${{ hashFiles('lean-toolchain') }}
+      - name: 'KERNEL — install the judge (elan resolves the repo-pinned toolchain)'
+        run: |
+          if [ ! -x "$HOME/.elan/bin/elan" ]; then
+            curl -sSfL https://elan.lean-lang.org/elan-init.sh | sh -s -- -y --default-toolchain none
+          fi
+          echo "$HOME/.elan/bin" >> $GITHUB_PATH
+          "$HOME/.elan/bin/elan" toolchain install "$(cat lean-toolchain)" || true
+          "$HOME/.elan/bin/elan" default "$(cat lean-toolchain)"
+          "$HOME/.elan/bin/lean" --version
       - name: 'WAVE — the conveyor lifts sealable candidates, the kernel adjudicating'
         run: |
           node dist/scripts/queue-wave.js

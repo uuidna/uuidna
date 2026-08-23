@@ -1,5 +1,11 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "key": "cron_judges_by_itself",
+      "why": "THE CRON'S FIRST OWN VERDICT — the probe deposited the moment the kernel was installed into the school: 17 · 19 = 323, two primes and their product, judged and sealed by the CI runner's own lean with no model and no human hand anywhere between deposit and origin. If this theorem is in the ledger, the captain's order \"install the kernel on ci so the cron judges by itself\" is not a claim but a receipt.",
+      "lean": "theorem cron_judges_by_itself : 17 * 19 = 323 := by decide"
+    }
+  ],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
