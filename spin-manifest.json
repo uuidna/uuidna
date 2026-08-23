@@ -9,7 +9,7 @@
     "support-audit.json": "d78900877bc489fd",
     "research-leads.json": "8a79a461c8638c99",
     ".zenodo.json": "5c5ac0e3b001855a",
-    "reports.json": "39ceb76614748d8d",
+    "reports.json": "09a4873b9d018207",
     "lean/statement-index.json": "18b307ed4c928feb",
     "README.md": "3d30c7fa440f8ebf",
     "llm.txt": "a2f58b0f915d857d",
@@ -1602,8 +1602,8 @@
     "lean/vectorequilibrium-manifest.json": "bd853f5a67168351",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd",
     "lean/wave-manifest.json": "16c5ea35e1838531",
-    "lean/wave-queue.json": "67c15d7b76158962",
+    "lean/wave-queue.json": "c184db8205048c0a",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "e3d4199e-9a42-86e9-86a6-4d06b0a920ab"
+  "receipt": "7150daec-7a00-809e-8a20-fe7821fbe8f8"
 }
