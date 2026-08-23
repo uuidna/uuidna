@@ -148,7 +148,7 @@ page regrows without it.
 - **Interleaving effect size, overall (recorded value: 0.42 (95% CI 0.34-0.50), k=238, I2=77.3%)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`s_fourth_is_identity`](/theorem/s_fourth_is_identity) · [`real_pauli_group_order_8`](/theorem/real_pauli_group_order_8) · [`dark_fringe_is_the_half_turn`](/theorem/dark_fringe_is_the_half_turn) </small>
-  <br><small>sealed neighbors: [`absolute_zero_and_kelvin`](/theorem/absolute_zero_and_kelvin) · [`fringe_pattern_reflects_dz`](/theorem/fringe_pattern_reflects_dz) · [`electric_power`](/theorem/electric_power) </small>
+  <br><small>sealed neighbors: [`absolute_zero_and_kelvin`](/theorem/absolute_zero_and_kelvin) · [`fringe_pattern_reflects_dz`](/theorem/fringe_pattern_reflects_dz) · [`pluck_preserves_bound_at_the_window`](/theorem/pluck_preserves_bound_at_the_window) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Interleaving HARMS word learning (recorded value: -0.39 (95% CI -0.64 to -0.14), k=13)**
   <br><small>door: the research ledger</small>
