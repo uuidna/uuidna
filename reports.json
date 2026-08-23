@@ -22,37 +22,37 @@
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1604,
+        "theoremsMeasured": 1610,
         "ledgerKeys": 1610,
-        "unmeasured": 6,
+        "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "8e2851b1-2c21-8247-aa06-cfccd8a78c5b"
+      "address": "172d038b-059e-851f-9de0-7c0518d11d0b"
     },
     {
       "title": "Citation audit",
       "source": "audit-citations.json",
       "present": true,
       "facts": {
-        "publications": 81,
-        "sealedTheorems": 1604,
+        "publications": 82,
+        "sealedTheorems": 1610,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "fea5a5d4-cfe9-80a0-a738-309bf5dd9bfc"
+      "address": "9ff7d9ce-13d5-8c9b-b529-8f9e0eccfcd9"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 522,
-        "roots": 347,
-        "supported": 522,
+        "modules": 523,
+        "roots": 348,
+        "supported": 523,
         "dead": 0,
-        "receipt": "0d337594-1856-8d3d-a60f-69df8d2bf85d"
+        "receipt": "aaffa09d-2a56-8ee6-8677-7c08f24d8baf"
       },
-      "address": "39c77bd0-6ab5-81fa-9257-814608007e04"
+      "address": "d7aac6b2-3d51-806a-a9ac-c0ec28e989c6"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "f6b495453f6ed450",
-        "unifiedFold": "5d9d8d761b0da26c"
+        "foldReceipt": "cb3f537b79ced2e5",
+        "unifiedFold": "295b838e82e450d5"
       },
-      "address": "cf7e0309-c21b-8a48-993e-6426928ad06f"
+      "address": "b96b60f4-001a-8574-83f9-e7cc13557c99"
     }
   ],
-  "receipt": "16167185-2eb3-832c-9302-9e1fbb17fada",
+  "receipt": "c9f739dd-e2ad-8221-b712-19630c023a09",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
