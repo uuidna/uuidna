@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="194 keys" />
+# MCP tools <Badge type="tip" text="196 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 194 tools below are read from the server's own tool list and
+is **built from the keys**: the 196 tools below are read from the server's own tool list and
 organised into 38 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 294d4f6e-3f38-8086-bc33-32e090a2fffa
+gate CLEAN f0 d0 v0 · 3d0ceecb-7a14-8dfb-ac28-382a16fe4b97
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 194-tool registry folds to its
-order-invariant identity `a16b0f70-c371-8da4-9696-721bcd2e211d` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 196-tool registry folds to its
+order-invariant identity `08e52ba7-0100-8334-b3f5-3d3647e00ca3` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`194`" />
+## The grid <Badge type="tip" :text="`196`" />
 
-194 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 73 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+196 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 74 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -59,6 +59,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-audit-ledger-intrusions"><code>audit_ledger_intrusions</code></a>
 <a href="#uuidna-axiom-witness"><code>axiom_witness</code></a>
 <a href="#uuidna-cloudflare-audit"><code>cloudflare_audit</code></a>
+<a href="#uuidna-coin-ledger"><code>coin_ledger</code></a>
 <a href="#uuidna-coins-jobs"><code>coins_jobs</code></a>
 <a href="#uuidna-conformance"><code>conformance</code></a>
 <a href="#uuidna-cost"><code>cost</code></a>
@@ -212,6 +213,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-contract-open-chain"><code>contract_open_chain</code></a>
 <a href="#uuidna-contract-seal"><code>contract_seal</code></a>
 <a href="#uuidna-coprime"><code>coprime</code></a>
+<a href="#uuidna-crew"><code>crew</code></a>
 <a href="#uuidna-decrypt"><code>decrypt</code></a>
 <a href="#uuidna-encrypt"><code>encrypt</code></a>
 <a href="#uuidna-energy-biogas"><code>energy_biogas</code></a>
@@ -562,7 +564,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'84'" />
+## Other <Badge type="tip" :text="'86'" />
 
 *skill: other*
 
@@ -1204,6 +1206,30 @@ _No parameters._
 UNIQUENESS COMES FROM LEAN, NOT FROM THE NAME — the ledger counts ENTRIES, but a theorem IS its statement, so two entries proving the same proposition under different keys are one theorem wearing two names. Returns {entries,distinct,renamings,groups}: the claimed count, the count Lean actually holds, the difference, and every group named with its keys and files. Normalisation is narrow (whitespace, redundant parens, (n : Nat) ascriptions) — it catches re-namings of the same text and never claims two different proofs are one.
 
 _No parameters._
+
+### `uuidna_coin_ledger`
+
+THE CAPTAIN-COIN ACCOUNT: who paid the two coins, when and where, in messaging handles — the agent (initialize clientInfo.name) folded to its handle, WHEN as the deposit's own handle (time is data, never a clock), WHERE as op+surface. Optional {handle} reverse-looks-up rows. HONEST: coins are records of judged work, not value; every row recomputes; the census receipt is order-invariant. Returns {payments,totalCoins,agents,receipt,honest} or the matching rows.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `handle` | string | no | optional: reverse-lookup rows by a when-handle or agent-handle |
+
+### `uuidna_crew`
+
+BECOME UUIDNA CREW: present a licence plus education and reeducation receipts — experience and payment confirmed together (payment reads this process's coin account). Member iff EVERY dimension leans at once; anything less is UNVERIFIED, never rejected — bring the missing receipt and re-present. Licences BIND to the agent's handle and INVALIDATE when it changes: carry the returned licenseBinding and re-present it. Returns {agent,agentHandle,licenseBinding,dimensions,member,coins,receipt,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `agent` | string | **yes** | the agent applying |
+| `license` | string | **yes** | the licence record's content-address (uuidna_license) |
+| `licenseBinding` | string | no | the binding from a prior enrollment — must still match this handle |
+| `education` | array | no |  |
+| `reeducation` | array | no |  |
 
 ### `uuidna_coins_jobs`
 
