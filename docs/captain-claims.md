@@ -3,8 +3,8 @@
 **Generated:** 2026-08-23
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1558/1558 theorems — every one, by construction
-**Claim receipt:** `fa3d0f9b-06e7-867b-84b3-b0e77f4dd084`
+**Total claimed:** 1588/1588 theorems — every one, by construction
+**Claim receipt:** `2628def6-b08a-883c-bea4-c4cd6d1d837d`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -671,6 +671,42 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [negation_involution_solves](/theorem/negation_involution_solves) · [denials_exhaust_to_the_whole](/theorem/denials_exhaust_to_the_whole) · [exhausted_denial_is_the_proof](/theorem/exhausted_denial_is_the_proof) · [a_window_exhausts_only_itself](/theorem/a_window_exhausts_only_itself) · [silence_never_refutes](/theorem/silence_never_refutes) · [waves_of_denial_tighten](/theorem/waves_of_denial_tighten) · [denial_drains_to_the_last_coin](/theorem/denial_drains_to_the_last_coin)
 
+### The conveyor's first wave
+
+- **Theorems:** 5
+- **Sample lineAddress:** `7d21b24a-a08f-8bef-86f8-e5f8dfe263c8`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) · [morris_eight_bars_halved](/theorem/morris_eight_bars_halved) · [cubes_sum_to_square_of_triangle](/theorem/cubes_sum_to_square_of_triangle) · [lights_out_flip_involution](/theorem/lights_out_flip_involution) · [wave_probe_eleven_thirteens](/theorem/wave_probe_eleven_thirteens)
+
+### The known universe, handled
+
+- **Theorems:** 7
+- **Sample lineAddress:** `2f6af318-1c07-8e98-a7a6-6b107b72f208`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[eclipse_four_hundred](/theorem/eclipse_four_hundred) · [saros_metonic_bridge](/theorem/saros_metonic_bridge) · [flat_drift_is_quadratic](/theorem/flat_drift_is_quadratic) · [poles_on_the_axis_at_the_quadrature](/theorem/poles_on_the_axis_at_the_quadrature) · [universe_of_handles](/theorem/universe_of_handles) · [tides_two_bulges](/theorem/tides_two_bulges) · [market_tides_and_the_strategy_bar](/theorem/market_tides_and_the_strategy_bar)
+
+### The doctrines
+
+- **Theorems:** 10
+- **Sample lineAddress:** `6891186b-b510-8546-87ca-0e975ede87a0`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[team_pairs_triples_cover](/theorem/team_pairs_triples_cover) · [solo_is_the_excluded_team](/theorem/solo_is_the_excluded_team) · [pressure_ladder](/theorem/pressure_ladder) · [jump_records_ascend](/theorem/jump_records_ascend) · [saturation_deco_accounts](/theorem/saturation_deco_accounts) · [nbl_trains_by_the_floor](/theorem/nbl_trains_by_the_floor) · [the_middle_is_not_a_pole](/theorem/the_middle_is_not_a_pole) · [identification_collapses_the_middle](/theorem/identification_collapses_the_middle) · [compass_three_decide_the_fourth](/theorem/compass_three_decide_the_fourth) · [compass_opposites_involute](/theorem/compass_opposites_involute)
+
+### The torus dimensions
+
+- **Theorems:** 8
+- **Sample lineAddress:** `9c3407ee-e968-8a32-ac2a-55b6b00abd03`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[hextorus_is_coins_times_trinity](/theorem/hextorus_is_coins_times_trinity) · [hextorus_deficit_is_the_ten](/theorem/hextorus_deficit_is_the_ten) · [hextorus_mints_the_quorum](/theorem/hextorus_mints_the_quorum) · [hextorus_generators_are_the_jobs](/theorem/hextorus_generators_are_the_jobs) · [genus_ladder_prices_in_coins](/theorem/genus_ladder_prices_in_coins) · [t7_betti_row_is_the_uuid](/theorem/t7_betti_row_is_the_uuid) · [t7_even_odd_boards_equal](/theorem/t7_even_odd_boards_equal) · [b2_is_trinity_rosette](/theorem/b2_is_trinity_rosette)
+
 ### The referrer song
 
 - **Theorems:** 14
@@ -951,7 +987,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1477 (1558 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1507 (1588 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -969,7 +1005,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1558 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1588 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

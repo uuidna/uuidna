@@ -1,18 +1,18 @@
 {
-  "key": "24fdb754-01e9-8c99-9305-a636f1fca170",
-  "publications": 75,
-  "sealedTheorems": 1558,
+  "key": "2f1d58ec-9517-85a5-870b-fe8d41f245a4",
+  "publications": 79,
+  "sealedTheorems": 1588,
   "fabricated": 0,
   "uncited": 1,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 1356,
-    "theorems": 1558,
+    "claims": 1386,
+    "theorems": 1588,
     "bijection": false,
     "digitalRoots": {
-      "claims": 6,
-      "theorems": 1,
-      "publications": 3
+      "claims": 9,
+      "theorems": 4,
+      "publications": 7
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
   },
@@ -527,6 +527,34 @@
       "slug": "negation",
       "claims": 7,
       "cited": 7,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "wave",
+      "claims": 5,
+      "cited": 5,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "universe",
+      "claims": 7,
+      "cited": 7,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "doctrine",
+      "claims": 10,
+      "cited": 10,
+      "uncited": [],
+      "fabricated": []
+    },
+    {
+      "slug": "torus",
+      "claims": 8,
+      "cited": 8,
       "uncited": [],
       "fabricated": []
     },

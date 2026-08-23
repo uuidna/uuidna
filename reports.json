@@ -5,17 +5,17 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1477,
-        "keys": 1558,
+        "distinct": 1507,
+        "keys": 1588,
         "renamings": 81,
-        "principles": 75,
-        "skills": 100,
+        "principles": 79,
+        "skills": 104,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "37a4efe6-e770-8799-998a-412bf3055b35"
+        "ledgerReceipt": "66146005-daa8-8401-a1f3-791793854875"
       },
-      "address": "3924f702-8bf4-8000-af2b-30d3dfe231fe"
+      "address": "b036440e-335f-8e9b-bf9b-e9d3679a00b9"
     },
     {
       "title": "Heartbeat coverage",
@@ -23,12 +23,12 @@
       "present": true,
       "facts": {
         "theoremsMeasured": 1558,
-        "ledgerKeys": 1558,
-        "unmeasured": 0,
+        "ledgerKeys": 1588,
+        "unmeasured": 30,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "a7593e50-3402-8dce-8449-752d2663d98a"
+      "address": "0ccdcdc7-bb90-8935-bb54-c09cbb07d962"
     },
     {
       "title": "Citation audit",
@@ -46,13 +46,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 490,
-        "roots": 332,
-        "supported": 490,
+        "modules": 491,
+        "roots": 333,
+        "supported": 491,
         "dead": 0,
-        "receipt": "f4a7f8b1-aecd-80fb-be0e-8a106067a9da"
+        "receipt": "730ad114-6f74-899d-9249-49ac9fdae31b"
       },
-      "address": "6000757c-6904-805f-8974-9fb8f330889c"
+      "address": "29490d6c-3977-8eb9-9395-5db1f00276c1"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "703c45677e6b9b9e",
-        "unifiedFold": "3b1ef6736251689e"
+        "foldReceipt": "c0365563c56fe359",
+        "unifiedFold": "73f67ea52998fed2"
       },
-      "address": "3f522f4c-3478-8887-ab07-08f871070d15"
+      "address": "19dd6809-7cbc-811d-b524-626f433386f7"
     }
   ],
-  "receipt": "381b1b71-240a-8f5e-8a7a-0d13039e0a87",
+  "receipt": "7ccc18bf-dce1-8ba4-bc30-bdb1e860d5ea",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

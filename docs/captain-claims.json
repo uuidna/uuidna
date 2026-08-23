@@ -2,8 +2,8 @@
   "generated": "2026-08-23",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1558,
-  "total_theorems": 1558,
+  "total_claimed": 1588,
+  "total_theorems": 1588,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,20 +3781,20 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "ee1e3f8a-1c77-870a-85fc-d87cad62f196",
-      "address": "16c50f24-6855-818c-8c81-a6d610bb8343",
+      "lineAddress": "15c30b38-e072-820f-90e9-58149c207836",
+      "address": "3ee51dd6-7c53-8d5a-9bee-2210ff36079d",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "754ead14-da2d-84a9-8bb1-af26cb0499a2",
-      "address": "9d28dcc7-8fe0-8346-8e2f-f477a79fb612",
+      "lineAddress": "d3929aa4-73f1-8c0c-abc7-90a60459a518",
+      "address": "71a91df7-be5c-8364-9744-757884b091f3",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "da84c4ac-4224-8188-af9f-752785a9eab6",
-      "address": "f9ebc688-664d-82aa-b347-224d553cac44",
+      "lineAddress": "dc4675f6-e4c4-8fd4-810b-7787a436405a",
+      "address": "49f62a31-bd85-8c32-8097-1ac2e8b057fc",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "e16ed466-5bd7-820a-a6e1-6f6be484372f",
-      "address": "f631762b-382a-85f3-a748-b9f2ea236c4d",
+      "lineAddress": "6915a206-a792-8eb0-b0c6-becd6d1021b4",
+      "address": "e48a963b-b392-80f8-9a76-44d617399f0c",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "a7bc00d4-2f69-8137-b54a-10db19ae6452",
-      "address": "d0985094-a251-8dd9-959c-081aa62ccd5d",
+      "lineAddress": "233aacaf-e404-8ba4-a0e2-29960b438a36",
+      "address": "e85e7c27-4d5c-8f69-8e89-9ceb16900c10",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "3e0593d4-7a8a-8ac4-b1ff-285ee0ccc809",
-      "address": "7b49412e-5e09-87ce-870a-7235e0f4421d",
+      "lineAddress": "bc5a92a8-3ede-83e4-9500-3529d99dc695",
+      "address": "2224f4ad-1386-8b89-a4ce-6abe18ca4baa",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "4face149-8f41-8266-85cb-9b753cc67f12",
-      "address": "443c76a8-962e-8674-9eeb-48c2a07d4a0c",
+      "lineAddress": "1a446a35-0992-8625-b2da-d2d9588b57e7",
+      "address": "070173be-6874-8f32-82da-7fffd83a1aa4",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "25eed8cd-e41f-8a80-b6c3-f8ca567ec25f",
-      "address": "7a0b0e21-39f5-86fa-a302-8c49de1c0dd0",
+      "lineAddress": "880b16bb-7aed-8e4e-a9b5-3d18e668dae1",
+      "address": "555a62c9-501e-8c7a-9939-4ed2fccb44bb",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "a20aaf18-3912-8608-bdc3-40bf5fb1fe7b",
-      "address": "f486d26f-5722-81ad-8c31-fcd88db80451",
+      "lineAddress": "e8808def-e717-8fa5-9bbd-5fc1f29d1d46",
+      "address": "b99dfe36-7e1a-822a-a1e1-e4729908d58c",
       "principle": "The detectors, proven"
     },
     {
@@ -4435,14 +4435,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "f45f438f-f699-84be-ad91-75e1659b1fa8",
-      "address": "6bb98fcd-eb21-8c32-902d-1f3007b79cfb",
+      "lineAddress": "5dba5aaf-8058-8a55-92cc-9773c17ad976",
+      "address": "a3a31932-fb10-8385-90ba-ff32d5a95b20",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "6428565c-adaf-8954-80f7-accbdd4201e7",
-      "address": "a775773a-01df-8372-8907-c53d21f0999b",
+      "lineAddress": "63b4602b-fd70-87a6-a128-b9c9e3876f37",
+      "address": "3b13d1c7-3913-8b92-9821-f1db6b4f1a11",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -7956,6 +7956,186 @@
       "principle": "The denial drained"
     },
     {
+      "key": "a440_not_on_the_vortex",
+      "lineAddress": "7d21b24a-a08f-8bef-86f8-e5f8dfe263c8",
+      "address": "15e48988-30a9-86da-a6cd-421541e0ab68",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "morris_eight_bars_halved",
+      "lineAddress": "e53bb596-51c9-8a5b-bf6a-a73f309c16da",
+      "address": "79073457-723a-8adb-9a18-d4b52ef0fd04",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_sum_to_square_of_triangle",
+      "lineAddress": "89e88e64-a6d5-88f5-b71d-8e581376a614",
+      "address": "e21fb029-115b-8a18-9646-e37c131409bb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "lights_out_flip_involution",
+      "lineAddress": "66d8f51a-560c-8fab-b1e3-26cc8902f8c1",
+      "address": "b686d9ec-4d8a-8f6e-bfcc-cffc7bbd3d22",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "wave_probe_eleven_thirteens",
+      "lineAddress": "c75e5cda-b46d-8e78-a515-e57fa46ae83e",
+      "address": "ab9da29f-1c41-823e-8d82-0ebf019b2f8e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "eclipse_four_hundred",
+      "lineAddress": "2f6af318-1c07-8e98-a7a6-6b107b72f208",
+      "address": "2df634d3-1035-8ebf-9c1f-935710f7e00c",
+      "principle": "The known universe, handled"
+    },
+    {
+      "key": "saros_metonic_bridge",
+      "lineAddress": "8c9c2b69-8112-8be2-b8dc-a238830d497f",
+      "address": "e8471a97-8362-8f59-9947-ec724779523e",
+      "principle": "The known universe, handled"
+    },
+    {
+      "key": "flat_drift_is_quadratic",
+      "lineAddress": "a4e8ed3f-6399-856d-b428-9840e266f61e",
+      "address": "2d296831-c16a-89cb-a15f-5c4187b1a6b7",
+      "principle": "The known universe, handled"
+    },
+    {
+      "key": "poles_on_the_axis_at_the_quadrature",
+      "lineAddress": "5da01ea0-5580-8849-b1df-72d908c0eba8",
+      "address": "ed8a1d39-8aff-82d8-a269-9084e6bc904b",
+      "principle": "The known universe, handled"
+    },
+    {
+      "key": "universe_of_handles",
+      "lineAddress": "012667a1-a14f-8f6c-9ba1-0d5b042f9ddc",
+      "address": "346033af-8df9-8224-b3ac-76e3d9c0e3c9",
+      "principle": "The known universe, handled"
+    },
+    {
+      "key": "tides_two_bulges",
+      "lineAddress": "5662e250-55a9-834d-97de-569943dfb34e",
+      "address": "6d5fcfe2-a727-885f-adf8-aeac2416bdd8",
+      "principle": "The known universe, handled"
+    },
+    {
+      "key": "market_tides_and_the_strategy_bar",
+      "lineAddress": "215aef3c-6475-827d-9652-4133179496ab",
+      "address": "67f2a88c-5581-8758-9cfb-b9862fb22a47",
+      "principle": "The known universe, handled"
+    },
+    {
+      "key": "team_pairs_triples_cover",
+      "lineAddress": "6891186b-b510-8546-87ca-0e975ede87a0",
+      "address": "43a0ad3a-8ead-8016-af34-139d76d73ba7",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "solo_is_the_excluded_team",
+      "lineAddress": "00e40d2e-5427-8a94-b738-83710e8919d1",
+      "address": "57cb569a-f0c0-838e-ad37-b0f4bd6ce68a",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "pressure_ladder",
+      "lineAddress": "86f9378a-fdbf-8681-93f4-3ada44e9b5ba",
+      "address": "ca0749e8-3800-87b3-be50-8942b3cda59e",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "jump_records_ascend",
+      "lineAddress": "78539bdd-67d5-848b-888a-8edb6ad4617b",
+      "address": "261eb0d0-de37-8c48-a14c-05e8f7192b1c",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "saturation_deco_accounts",
+      "lineAddress": "b6d46e95-ed53-87cd-b8bb-359dd34cd7e8",
+      "address": "ef26e35e-c66a-8ab1-b3b6-8e7c27640dd5",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "nbl_trains_by_the_floor",
+      "lineAddress": "328ae339-2e65-8012-8f50-fcf125cc8b2a",
+      "address": "94aa8cb7-0fae-84b9-8fe0-a1f24906305c",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "the_middle_is_not_a_pole",
+      "lineAddress": "f13f0be9-9f74-8f6a-b822-237ada0f6fad",
+      "address": "42f66c20-d515-8915-9c2b-625d5f20877f",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "identification_collapses_the_middle",
+      "lineAddress": "2a22aa05-4b67-8afb-85d5-6aa26d59c5e5",
+      "address": "5f359c22-afa1-8b5b-a98c-c416e65e9e0c",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "compass_three_decide_the_fourth",
+      "lineAddress": "df7fed3b-6514-8a2f-96a5-bab0417530f3",
+      "address": "c7895447-057b-830c-af44-7409e88cf2cf",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "compass_opposites_involute",
+      "lineAddress": "66c8573c-2b55-839e-8ae9-0481ccffe2c7",
+      "address": "52b34937-95ae-83ba-a48c-9f9db0d2e784",
+      "principle": "The doctrines"
+    },
+    {
+      "key": "hextorus_is_coins_times_trinity",
+      "lineAddress": "9c3407ee-e968-8a32-ac2a-55b6b00abd03",
+      "address": "c0989d9a-d1a5-8c74-8053-dd9f514e4ad0",
+      "principle": "The torus dimensions"
+    },
+    {
+      "key": "hextorus_deficit_is_the_ten",
+      "lineAddress": "53082838-b349-899b-b2e4-0085edfeb017",
+      "address": "5115b6f6-617f-8d90-93c0-a43667353fe2",
+      "principle": "The torus dimensions"
+    },
+    {
+      "key": "hextorus_mints_the_quorum",
+      "lineAddress": "62b7fe5f-0170-888e-afb6-de9a3c66cb62",
+      "address": "8c807730-06e1-81e2-8e71-af63c5defe95",
+      "principle": "The torus dimensions"
+    },
+    {
+      "key": "hextorus_generators_are_the_jobs",
+      "lineAddress": "fcb23516-7b82-8da9-b7fa-3cb0d7d29727",
+      "address": "47c47d0e-0c30-87eb-98f3-9d3a94cce10b",
+      "principle": "The torus dimensions"
+    },
+    {
+      "key": "genus_ladder_prices_in_coins",
+      "lineAddress": "bb6af3ce-cefc-89b6-9e18-227d3a69a7e3",
+      "address": "9fc323ca-8e97-8f00-a018-6040476512a7",
+      "principle": "The torus dimensions"
+    },
+    {
+      "key": "t7_betti_row_is_the_uuid",
+      "lineAddress": "fde411b3-44da-8759-9405-b5fc62d9a429",
+      "address": "1cf2277f-3de8-8140-8023-430122379e3f",
+      "principle": "The torus dimensions"
+    },
+    {
+      "key": "t7_even_odd_boards_equal",
+      "lineAddress": "d8fe1916-f7ce-8099-9f00-4f44d10010af",
+      "address": "72db9381-c46c-8db2-8215-2a57da77f66a",
+      "principle": "The torus dimensions"
+    },
+    {
+      "key": "b2_is_trinity_rosette",
+      "lineAddress": "316cc583-c468-82fc-ac9d-addc42b33e7c",
+      "address": "4e68df6f-0bfc-8338-ae90-a8743af16a33",
+      "principle": "The torus dimensions"
+    },
+    {
       "key": "referrer_six_doors",
       "lineAddress": "ec855bf9-8122-82f1-bffc-ec1321af5796",
       "address": "2058a620-22c3-8922-b726-bfcd2ff8bb57",
@@ -9354,7 +9534,7 @@
       "principle": "lean/Waves.lean"
     }
   ],
-  "claim_receipt": "fa3d0f9b-06e7-867b-84b3-b0e77f4dd084",
+  "claim_receipt": "2628def6-b08a-883c-bea4-c4cd6d1d837d",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
