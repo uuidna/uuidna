@@ -1707,6 +1707,17 @@ cubes_sum_to_square_of_triangle 19
 lights_out_flip_involution 19
 wave_probe_eleven_thirteens 18
 pilgrims_walk_must_cycle 18
+scrubber_margin_holds 18
+chubb_stood_thirty_three_years 18
+freedive_records_ascend 18
+fock_window_exceeds_a_monthly_toll 18
+checklist_trial_two_dives_each 18
+three_cell_vote_majority 18
+correlated_failure_defeats_the_vote 18
+ppo2_window_of_life 18
+bramah_stood_sixty_seven_years 18
+time_lock_removes_the_hostage 18
+first_cron_wave_receipt 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

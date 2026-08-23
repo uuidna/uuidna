@@ -59,7 +59,7 @@ page regrows without it.
 - **Fujishima-Honda experimental details: 500 W xenon lamp, few-mA currents, quantum efficiency ~0.1, bias required (recorded value: as stated)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`compass_opposites_involute`](/theorem/compass_opposites_involute) · [`complement_fixes_the_half`](/theorem/complement_fixes_the_half) </small>
-  <br><small>sealed neighbors: [`gematria_ignores_order`](/theorem/gematria_ignores_order) · [`mombh_quantum_edge_redshifts_into_filter_gap`](/theorem/mombh_quantum_edge_redshifts_into_filter_gap) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) </small>
+  <br><small>sealed neighbors: [`three_cell_vote_majority`](/theorem/three_cell_vote_majority) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) · [`mombh_quantum_edge_redshifts_into_filter_gap`](/theorem/mombh_quantum_edge_redshifts_into_filter_gap) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **The 85% rule does NOT apply to curriculum design (recorded value: optimum is 85% under Gaussian noise, 82% Laplacian, 75% Cauchy)**
   <br><small>door: the research ledger</small>
@@ -102,7 +102,7 @@ page regrows without it.
 - **refused[] in this very file is read by NO finder. Seven readers open leads.json; none looks at the refusals.**
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`lights_out_flip_involution`](/theorem/lights_out_flip_involution) · [`morris_eight_bars_halved`](/theorem/morris_eight_bars_halved) </small>
-  <br><small>sealed neighbors: [`four_vectors_reach_the_uuid`](/theorem/four_vectors_reach_the_uuid) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) · [`fold_reads_by_handle_not_by_tile`](/theorem/fold_reads_by_handle_not_by_tile) </small>
+  <br><small>sealed neighbors: [`four_vectors_reach_the_uuid`](/theorem/four_vectors_reach_the_uuid) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) · [`first_cron_wave_receipt`](/theorem/first_cron_wave_receipt) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Four-stroke cycle completes in two crankshaft revolutions (recorded value: 2)**
   <br><small>door: the research ledger</small>
@@ -205,7 +205,7 @@ page regrows without it.
 - **The hosted MCP bills a call that is missing a required argument**
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`missing_pair_involution`](/theorem/missing_pair_involution) </small>
-  <br><small>sealed neighbors: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`captain_commission_two_coins`](/theorem/captain_commission_two_coins) · [`billing_closes_at_every_count`](/theorem/billing_closes_at_every_count) </small>
+  <br><small>sealed neighbors: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`captain_commission_two_coins`](/theorem/captain_commission_two_coins) · [`first_cron_wave_receipt`](/theorem/first_cron_wave_receipt) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## antikythera — 1 open

@@ -37,6 +37,14 @@ function validate(c: Candidate, sealed: ReadonlyMap<string, unknown>): string | 
 }
 
 /** probe(c) → null when the kernel accepts the statement alone, else the diagnostic (bounded). */
+/** the instrument must exist before it may judge — an absent kernel VOIDS the wave (candidates stay pending),
+ *  it never refuses: a refusal is a verdict and only the kernel may issue one (learned from the first cron
+ *  wave, which falsely refused five sound candidates with "lean: not found" — the trial-protocol law applied:
+ *  a trial whose instrument is missing carries no information about the subject). */
+function kernelPresent(): boolean {
+  try { execSync('lean --version', { cwd: ROOT, stdio: 'pipe' }); return true } catch { return false }
+}
+
 function probe(c: Candidate): string | null {
   writeFileSync(PROBE, c.lean + '\n')
   try { execSync(`lean ${JSON.stringify(PROBE)}`, { cwd: ROOT, stdio: 'pipe' }); return null }
@@ -52,6 +60,7 @@ function main(): void {
     process.exit(1)
   }
   if (!q.pending.length) { console.log('queue-wave — pending is empty; a quiet run is health') ; return }
+  if (!kernelPresent()) { console.log('queue-wave — VOID: no lean kernel on this host; ' + q.pending.length + ' candidate(s) stay pending for a host that can judge') ; return }
   const sealed = theoremByKey()
   const accepted: Accepted[] = [], refused: Refused[] = []
   for (const c of q.pending) {

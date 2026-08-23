@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:6b2750bf-6d11-8a03-8ff6-063ea3728ca2",
+  "@id": "urn:uuid:928fbbbf-2b85-8ecc-95bd-40067a178d67",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -17624,11 +17624,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:260e4fbb-6dbc-8745-ac14-12e9b213f268",
+        "@id": "urn:uuid:b5d7ef15-0bdd-8db7-b301-321a61e846dd",
         "@type": "ScholarlyArticle",
         "headline": "EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 6, 18]).foldl (· + ·) 0 = 1598) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 6, 18] = [6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 6, 18])",
-        "identifier": "dcef43c4-378d-81f2-8949-a43bfe5fe37d",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 17, 18]).foldl (· + ·) 0 = 1609) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 17, 18] = [6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 17, 18])",
+        "identifier": "9e15e524-2c93-83c0-a99d-7f7faeab7c99",
         "url": "https://uuidna.com/theorem/reach_all_decide",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -18800,11 +18800,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:55a46f18-f206-8f65-b5e3-92ba4c5b1129",
+        "@id": "urn:uuid:e85a8a7b-557e-8617-8e93-465f666deeca",
         "@type": "ScholarlyArticle",
-        "headline": "every generated theorem carries prose IN the Lean — 1562 of 1562 documented across 106 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 6, 18].foldl (· + ·) 0) = 1562) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 6, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 6, 18])",
-        "identifier": "53d5e16b-eb63-826f-8fed-86a0689b976a",
+        "headline": "every generated theorem carries prose IN the Lean — 1573 of 1573 documented across 106 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 17, 18].foldl (· + ·) 0) = 1573) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 17, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 15, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 13, 17, 18])",
+        "identifier": "76bb1623-d1b1-8a4e-b81e-5e10f827b992",
         "url": "https://uuidna.com/theorem/prose_coverage_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18828,11 +18828,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6f2e3005-11b0-8559-879e-0572747cff4c",
+        "@id": "urn:uuid:b31184a9-4d8f-8a6d-9332-d580745afa2e",
         "@type": "ScholarlyArticle",
-        "headline": "the prose round-trips exactly — 1562 of 1562 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
-        "abstract": "(1562 + 0 = 1562) ∧ (0 = 0)",
-        "identifier": "547e2cbd-8778-8d75-ae32-33a0128e1f4f",
+        "headline": "the prose round-trips exactly — 1573 of 1573 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
+        "abstract": "(1573 + 0 = 1573) ∧ (0 = 0)",
+        "identifier": "7c69edd1-0443-8b74-a229-3e6a71dd2769",
         "url": "https://uuidna.com/theorem/prose_round_trips",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18856,11 +18856,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:89aeaf4d-da9f-89be-95a7-950c67a55f6c",
+        "@id": "urn:uuid:fd00a1c9-a58f-8851-9e02-427e7e47b87e",
         "@type": "ScholarlyArticle",
-        "headline": "no doc comment contains an unescaped -/ — 0 found across 1562; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
-        "abstract": "(0 + 1562 = 1562) ∧ (0 = 0)",
-        "identifier": "42e79fc3-8307-82c4-9302-ae2e16e81eeb",
+        "headline": "no doc comment contains an unescaped -/ — 0 found across 1573; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
+        "abstract": "(0 + 1573 = 1573) ∧ (0 = 0)",
+        "identifier": "24edd565-b595-8e81-92ce-44b70b456a74",
         "url": "https://uuidna.com/theorem/prose_terminator_escaped",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18884,11 +18884,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:c294adbd-f930-89b4-b0b4-cbd72a4b1673",
+        "@id": "urn:uuid:94d59d1b-8887-8cbd-8388-dfce004dcd9c",
         "@type": "ScholarlyArticle",
-        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1562 informative against 0 bare, of 1562; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
-        "abstract": "(0 < 1562) ∧ (0 + 1562 = 1562)",
-        "identifier": "3cfe5e6d-9898-8314-b7ca-edbab1c7af2b",
+        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 1573 informative against 0 bare, of 1573; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
+        "abstract": "(0 < 1573) ∧ (0 + 1573 = 1573)",
+        "identifier": "322811e1-7517-8989-9f3d-8a929417ff84",
         "url": "https://uuidna.com/theorem/prose_beats_restatement",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18912,11 +18912,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:d1ba8e6e-7252-874e-b391-9e9f7cbc28de",
+        "@id": "urn:uuid:ce6d2b94-7a1a-83a9-a497-e94cedc79081",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 317808 characters across 1562 doc comments in 106 wings fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1078, 1237, 1545, 3368, 3345, 3111, 1892, 2906, 2142, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1736, 1372, 960, 4419, 2363, 5075, 1465, 3409, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 3217, 1188, 753, 3412, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5377, 1937, 3396, 1946, 1430, 1412, 919, 1453, 2148, 3304, 805, 5704, 2905, 1522, 3958, 3675, 524, 3313, 2363, 8985].foldl (· + ·) 0) = 317808) ∧ (317808 % 9 = 0) ∧ (0 < 9)",
-        "identifier": "c5a9b871-94e3-8e7c-8da1-b05fab4953a2",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 323253 characters across 1573 doc comments in 106 wings fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1237, 1545, 3368, 3345, 3111, 1892, 2906, 2142, 2609, 1487, 774, 1526, 1758, 3857, 3451, 4156, 9501, 2242, 1597, 1239, 13779, 5016, 1319, 1736, 1372, 960, 4419, 2363, 5075, 1465, 3409, 1604, 3293, 761, 3008, 1358, 2171, 2848, 1506, 1335, 1330, 2272, 1848, 10005, 959, 4087, 4189, 1452, 3105, 1577, 1629, 1217, 3217, 1188, 753, 3412, 5728, 15957, 1575, 1188, 1833, 1962, 1393, 2602, 1479, 1572, 1800, 934, 1019, 2126, 12903, 7910, 10650, 6250, 1646, 987, 1488, 1539, 3510, 3069, 2097, 789, 1488, 3198, 6182, 5377, 1937, 3396, 1946, 1430, 1412, 919, 1453, 2148, 3304, 805, 5704, 2905, 1522, 3958, 3675, 524, 3313, 7808, 8985].foldl (· + ·) 0) = 323253) ∧ (323253 % 9 = 0) ∧ (0 < 9)",
+        "identifier": "a0b7684c-7a07-825a-9fa8-4f5180e4c152",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -18940,11 +18940,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:1766da1b-e9c7-88e7-b69b-bcf4dc1dffcd",
+        "@id": "urn:uuid:53cd4e79-b353-8908-86c7-c7478a0739b5",
         "@type": "ScholarlyArticle",
         "headline": "the audit is TOTAL over what a generator writes — 106 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
-        "abstract": "(0 < 106) ∧ (0 < 3) ∧ (1562 = 1562 + 0)",
-        "identifier": "04ac2a26-1541-8e00-8721-24a55eaedf13",
+        "abstract": "(0 < 106) ∧ (0 < 3) ∧ (1573 = 1573 + 0)",
+        "identifier": "54728711-89a7-83ec-ac69-d36615c05a3f",
         "url": "https://uuidna.com/theorem/prose_audit_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -20676,11 +20676,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2801dc37-5c3e-86ee-9fcb-ffdb40859e26",
+        "@id": "urn:uuid:894ec955-34d3-803f-96ce-891088ab6737",
         "@type": "ScholarlyArticle",
         "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 109 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.",
-        "abstract": "([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 6, 18].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 6, 18].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
-        "identifier": "46cf83bb-f539-8fa7-8856-ee961e43e01d",
+        "abstract": "([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 17, 18].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 17, 18].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
+        "identifier": "243a8f49-bbe2-8fd5-873e-83e8dc71ea50",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -20704,11 +20704,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ea287aa1-54d3-8c72-8683-1e45dd499a78",
+        "@id": "urn:uuid:3969011b-5a7c-8e7d-bcee-1ae41872c10d",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 109 measured wing counts and lands on 1596 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 6, 18].foldl (· + ·) 0) = 1596) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 6, 18].length = 109) ∧ (109 < 1596)",
-        "identifier": "31abcc0e-e54a-802d-bb38-7b51370d6262",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 109 measured wing counts and lands on 1607 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 17, 18].foldl (· + ·) 0) = 1607) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 9, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 14, 8, 16, 6, 13, 11, 6, 10, 4, 8, 11, 7, 7, 5, 7, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 11, 11, 8, 6, 8, 3, 6, 6, 11, 6, 17, 8, 6, 13, 7, 1, 15, 13, 16, 17, 18].length = 109) ∧ (109 < 1607)",
+        "identifier": "1d820aa9-3629-8cec-8194-84557ca8c72b",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -37874,6 +37874,314 @@
         "abstract": "((List.range 81).all (fun v => (([v % 3, v / 3 % 3, v / 9 % 3, v / 27 % 3].eraseDups).length ≤ 3))) ∧ (16 ^ 8 = 4294967296)",
         "identifier": "6e5bca75-d6d0-883d-a6b4-50d940ec0ea7",
         "url": "https://uuidna.com/theorem/pilgrims_walk_must_cycle",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:8e7833a4-8974-8869-ab63-4d83d01a684f",
+        "@type": "ScholarlyArticle",
+        "headline": "THE SCRUBBER'S SAFETY MARGIN, PROVEN: soda lime absorbs 23 L of CO2 per 100 g, so a 2.5 kg canister holds 23 x 25 = 575 L of theoretical capacity; the CE rating drives it at 1.6 L/min of CO2 - 96 L per hour - so the 3-hour rating consumes 96 x 3 = 288 L, and 288 < 575: the rated duration sits under HALF the chemistry's capacity. The life-saving apparatus is rated the way UL rates safes - honestly, in time, with the margin real and computable. Same soda lime, same margin discipline, in every anesthesia circle system.",
+        "abstract": "(23 * 25 = 575) ∧ (96 * 3 = 288) ∧ (288 < 575)",
+        "identifier": "8cc955c8-7ede-840a-9f69-3e6c2b3363cd",
+        "url": "https://uuidna.com/theorem/scrubber_margin_holds",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:16b3ae6f-182b-8d0f-88a3-5cf7ceaa1daf",
+        "@type": "ScholarlyArticle",
+        "headline": "THE DETECTOR LOCK'S REIGN: Jeremiah Chubb's 1818 tamper-reporting lock stood unpicked until Hobbs at the 1851 Great Exhibition - 33 years - and Hobbs' repeat pick took 7 minutes against his first 25: the attack, once learned, is cheap to repeat, which is why tamper-EVIDENCE (the lock reporting the attempt) mattered more than tamper-resistance. The mechanical ancestor of the moved address that proves its own forgery.",
+        "abstract": "(1851 - 1818 = 33) ∧ (7 < 25)",
+        "identifier": "9343f7a6-6cda-835c-b92c-a3506ee8d1ef",
+        "url": "https://uuidna.com/theorem/chubb_stood_thirty_three_years",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:9155fadb-ef9d-80d8-bd29-e8ff963882b6",
+        "@type": "ScholarlyArticle",
+        "headline": "THE BREATH-HOLD RUNGS OF THE LADDER: constant-weight 130 m (Molchanov) sits below No-Limits 214 m (Nitsch), and the deepest rung reads 1 + 214/10 = 22 atmospheres by the floor - a human on one breath of surface air holding two-tenths of a Comex saturation. The diving ladder's bottom rung for an unassisted lung, integer-exact at the literature's 10 m per atmosphere.",
+        "abstract": "(130 < 214) ∧ (1 + 214 / 10 = 22)",
+        "identifier": "8ba9521a-ccfb-8381-a92b-fcf02b7fc1ea",
+        "url": "https://uuidna.com/theorem/freedive_records_ascend",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:805f4de0-cd32-8cd2-8b70-9878552893a7",
+        "@type": "ScholarlyArticle",
+        "headline": "THE FATALITY STUDY'S HONEST WINDOW: Fock counted 181 recreational rebreather deaths across 1998-2010 - a 12-year window of 144 months - and 181 > 144: more than one death per month, every month, for twelve years. The number that made checklists a moral argument rather than a preference; the ~10x-open-circuit rate rides in the prose as the literature's figure.",
+        "abstract": "(2010 - 1998 = 12) ∧ (12 * 12 = 144) ∧ (181 > 144)",
+        "identifier": "a9ec2dae-b0a9-8bdf-9b24-71b0afee655e",
+        "url": "https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:f19124b7-ecd9-8966-ac8e-5b3ee7ffb9f6",
+        "@type": "ScholarlyArticle",
+        "headline": "THE CHECKLIST TRIAL'S SHAPE: Ranapurwala's cluster-randomized trial enrolled 1,043 divers across 2,041 dives, and 2041 < 1043 x 2 = 2086 - just under two dives per diver, the bound sealed. The trial cut all mishaps by roughly a third; the percentages stay in the prose as the study's measurements, the enrollment arithmetic seals here. Pre-registration, a control, and counts that recompute: the trading-strategy bar, met by the diving world first.",
+        "abstract": "(1043 * 2 = 2086) ∧ (2041 < 2086)",
+        "identifier": "b85ff46d-be4e-8550-876e-35c25519fad9",
+        "url": "https://uuidna.com/theorem/checklist_trial_two_dives_each",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:51491d6d-2050-8e5c-85e4-63e1a55d4943",
+        "@type": "ScholarlyArticle",
+        "headline": "MECHANICS DISCOVERS QUANTUM ELECTRONICS: the rebreather carries THREE oxygen cells and takes the 2-of-3 vote because one cell can lie — and the vote is floor arithmetic: the sum of three bits over 2 is the majority, [0,0,0]->0, [1,0,0]->0, [1,1,0]->1, [1,1,1]->1. This is the majority gate of electronics AND the decode of the three-qubit repetition code of quantum error correction: one flipped bit is outvoted, exactly one mechanical practice, one classical gate and one quantum code wearing the same table. From the rebreather research (DAN, Shearwater): the mechanical discipline preceded and predicts the electronic and quantum forms.",
+        "abstract": "((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) ∧ ((1 + 1 + 1) / 2 = 1)",
+        "identifier": "c173172c-e03e-8e28-9ac3-10b5a437e14a",
+        "url": "https://uuidna.com/theorem/three_cell_vote_majority",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:e0312823-933e-8032-91ac-08281dccf625",
+        "@type": "ScholarlyArticle",
+        "headline": "WHY NEVER REPLACE ALL THREE CELLS AT ONCE: two cells from the same batch aging alike fail TOGETHER, and two liars outvote one honest witness — (0+0+1)/2 = 0 kills the true reading — the same reason correlated errors defeat the three-qubit repetition code. Diversity is not a preference: it is what the majority table requires to mean anything. The rebreather manuals (rEvo, DAN) state it as practice; the arithmetic states it as law.",
+        "abstract": "((0 + 0 + 1) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1)",
+        "identifier": "857ac36b-2004-8267-a212-96923cfc321a",
+        "url": "https://uuidna.com/theorem/correlated_failure_defeats_the_vote",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:54ab7e2e-82c7-86b4-8245-adc2cf1a8479",
+        "@type": "ScholarlyArticle",
+        "headline": "THE BREATHING WINDOW IN CENTIBAR, the life-saving numbers of rebreather diving sealed as an ordered chain: consciousness fails below 16 (hypoxia, PPO2 0.16 bar), the working ceiling is 140 (1.4 bar), the contingency ceiling 160 (1.6 bar, NOAA), and the oxygen-rebreather depth limit keeps loop PPO2 under 200. Life is the interval; the apparatus exists to hold a number inside it, silently, for hours — which is why the checklist RCT (1,043 divers, 2,041 dives) cut mishaps by roughly a third: the human verifies what the body cannot sense. Restated by the court: the window IS an ordered list — Pairwise strict order over the four thresholds, the claim living in the algebra, not in a row of bare comparisons.",
+        "abstract": "(List.Pairwise (· < ·) [16, 140, 160, 200]) ∧ (([16, 140, 160, 200] : List Nat).length = 4)",
+        "identifier": "5fe6cc0c-2cd9-8882-8b55-ea6a569ff1f7",
+        "url": "https://uuidna.com/theorem/ppo2_window_of_life",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:bd049214-75b2-8af4-b5b8-fc24ce18ccfd",
+        "@type": "ScholarlyArticle",
+        "headline": "THE SAFES' HONEST RATING, in the ledger's own cost model: Bramah's challenge lock stood from 1784 to 1851 — 67 years — and fell to Hobbs only after 51 hours of work; a three-wheel hundred-number dial offers a million states (100^3); and UL rates every safe in MINUTES of resistance (TL-15 before TL-30), never as unbreakable. Mechanics learned centuries ago what verify_cheaper_than_forge seals: security IS the measured work asymmetry, honestly time-rated — seconds to lock, years to breach, and the rating tells the truth about the gap.",
+        "abstract": "(1851 - 1784 = 67) ∧ (100 * 100 * 100 = 1000000) ∧ (15 < 30)",
+        "identifier": "28deea85-ac88-88f2-b697-2d008b31106a",
+        "url": "https://uuidna.com/theorem/bramah_stood_sixty_seven_years",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:6062af26-4823-8931-8ae5-ddc3419b39b9",
+        "@type": "ScholarlyArticle",
+        "headline": "THE TIME LOCK OF 1874 REMOVED THE HUMAN ATTACK SURFACE: after the masked-robbery era of kidnapped cashiers, Sargent's lock at Morrison, Illinois made early opening impossible for EVERYONE — coercion became useless because no one held a key that time had not yet granted. 1874 sits between the detector lock of 1818 (tamper-evidence: the attack reports itself, Chubb) and the Hiroshima Moslers of 1945 (four of four at 360 metres). The mechanical ancestors of the epoch, the drained verdict and the unforgeable receipt, dated and ordered. Restated by the court: the three dates as a Pairwise-ordered walk — detector, time lock, Hiroshima — with the fifty-six years between tamper-evidence and the hostage-free lock computed.",
+        "abstract": "(List.Pairwise (· < ·) [1818, 1874, 1945]) ∧ (1874 - 1818 = 56)",
+        "identifier": "0feeab8b-f520-8b2f-afc5-2ba816d8abeb",
+        "url": "https://uuidna.com/theorem/time_lock_removes_the_hostage",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:89fdb016-0234-865e-9016-0a250b817183",
+        "@type": "ScholarlyArticle",
+        "headline": "THE EXHALE, SEALED AS ITS OWN THEOREM: the first cron wave ran with no model at the gate and PROVED the deployment gap — the CI runner carried no lean kernel, so five sound candidates were refused by an absent instrument, a VOID the trial-protocol law converts into a finding about the instrument (queue-wave now voids instead of refusing when the kernel is missing, and the five were restored). The accounting: 5 falsely refused plus 5 fresh ore made 10 pending for the first true wave, and the refused ledger held 7 of which 5 were the instrument and 2 the law school. The receipt of a breath that found its own lungs missing and grew them.",
+        "abstract": "(5 + 5 = 10) ∧ (7 = 5 + 2) ∧ (10 + 1 = 11)",
+        "identifier": "aa8de5dd-1b75-8659-b2d2-d958bc26af30",
+        "url": "https://uuidna.com/theorem/first_cron_wave_receipt",
         "keywords": "wave, The conveyor's first wave",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

@@ -2,8 +2,8 @@
   "generated": "2026-08-23",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1611,
-  "total_theorems": 1611,
+  "total_claimed": 1622,
+  "total_theorems": 1622,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -8124,6 +8124,72 @@
       "principle": "The conveyor's first wave"
     },
     {
+      "key": "scrubber_margin_holds",
+      "lineAddress": "8e7833a4-8974-8869-ab63-4d83d01a684f",
+      "address": "8cc955c8-7ede-840a-9f69-3e6c2b3363cd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "chubb_stood_thirty_three_years",
+      "lineAddress": "16b3ae6f-182b-8d0f-88a3-5cf7ceaa1daf",
+      "address": "9343f7a6-6cda-835c-b92c-a3506ee8d1ef",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "freedive_records_ascend",
+      "lineAddress": "9155fadb-ef9d-80d8-bd29-e8ff963882b6",
+      "address": "8ba9521a-ccfb-8381-a92b-fcf02b7fc1ea",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "fock_window_exceeds_a_monthly_toll",
+      "lineAddress": "805f4de0-cd32-8cd2-8b70-9878552893a7",
+      "address": "a9ec2dae-b0a9-8bdf-9b24-71b0afee655e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "checklist_trial_two_dives_each",
+      "lineAddress": "f19124b7-ecd9-8966-ac8e-5b3ee7ffb9f6",
+      "address": "b85ff46d-be4e-8550-876e-35c25519fad9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "three_cell_vote_majority",
+      "lineAddress": "51491d6d-2050-8e5c-85e4-63e1a55d4943",
+      "address": "c173172c-e03e-8e28-9ac3-10b5a437e14a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "correlated_failure_defeats_the_vote",
+      "lineAddress": "e0312823-933e-8032-91ac-08281dccf625",
+      "address": "857ac36b-2004-8267-a212-96923cfc321a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "ppo2_window_of_life",
+      "lineAddress": "2280e91d-9b23-8e3b-b9d8-72a1fba6c44a",
+      "address": "5db19446-ba23-8696-959f-db352e4b62e2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "bramah_stood_sixty_seven_years",
+      "lineAddress": "bd049214-75b2-8af4-b5b8-fc24ce18ccfd",
+      "address": "28deea85-ac88-88f2-b697-2d008b31106a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "time_lock_removes_the_hostage",
+      "lineAddress": "2be99280-96fc-8343-a55e-4963a31dcc01",
+      "address": "2b5e2719-94bb-8424-9af3-032b3dea9a98",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "first_cron_wave_receipt",
+      "lineAddress": "89fdb016-0234-865e-9016-0a250b817183",
+      "address": "aa8de5dd-1b75-8659-b2d2-d958bc26af30",
+      "principle": "The conveyor's first wave"
+    },
+    {
       "key": "eclipse_four_hundred",
       "lineAddress": "2f6af318-1c07-8e98-a7a6-6b107b72f208",
       "address": "2df634d3-1035-8ebf-9c1f-935710f7e00c",
@@ -9672,7 +9738,7 @@
       "principle": "lean/Waves.lean"
     }
   ],
-  "claim_receipt": "96d5b549-354b-88ef-a48f-50d6d035c012",
+  "claim_receipt": "e94a8ba5-162c-8f54-b310-04647d1a1897",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
