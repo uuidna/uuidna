@@ -196,7 +196,7 @@ export const DRAIN_PATHS: readonly string[] = [
   // the song from the ledger — page and exact-integer WAV, both derived from Song.lean seals by gen-song
   'docs/song.md', 'docs/public/song.wav',
   // the release anthem — the whole ledger sung in place, derived from Anthem.lean seals by gen-anthem
-  'docs/anthem.md', 'docs/public/anthem.wav',
+  'docs/anthem.md',
   // the referrer song — the doors and the walk census; the audio computes IN THE BROWSER (no asset, the captain's rule)
   'docs/referrer-song.md',
   // the school of open doors — the unverified in topics, derived by gen-open-questions
@@ -249,7 +249,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-handle-chunks': ['src/chunks'],
   'gen-analytics': ['docs/analytics.md'],
   'gen-song': ['docs/song.md', 'docs/public/song.wav'],
-  'gen-anthem': ['docs/anthem.md', 'docs/public/anthem.wav'],
+  'gen-anthem': ['docs/anthem.md'],
   'gen-referrer-song': ['docs/referrer-song.md'],
   'gen-open-questions': ['docs/open-questions.md'],
   'gen-os': ['docs/os.md'],

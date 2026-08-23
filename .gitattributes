@@ -41,7 +41,6 @@ book-leads.json merge=derived
 docs/song.md merge=derived
 docs/public/song.wav merge=derived
 docs/anthem.md merge=derived
-docs/public/anthem.wav merge=derived
 docs/referrer-song.md merge=derived
 docs/open-questions.md merge=derived
 docs/os.md merge=derived

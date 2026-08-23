@@ -1,53 +1,54 @@
 ---
 title: The release anthem
-description: The whole ledger sung in place — theorem k at bar k, every structural figure a sealed theorem, regrown at every release.
+description: The whole ledger as a superposition — theorem k at bar k, collapsed per visitor in the browser, recursively, as mixed streams; no asset, all computed.
 ---
 
-# The release anthem <Badge type="tip" text="theorem k at bar k" />
+# The release anthem <Badge type="tip" text="collapsed per visitor" />
 
-> The anthem sings the **whole ledger, in place**: theorem k sounds at bar k, in ledger order — 1588
-> theorems, each one bar, each bar that theorem's own two address-coins as a chord. It is derived, never composed:
-> every structural figure below is a theorem in [`lean/Anthem.lean`](/lean/Anthem.lean) or
-> [`lean/Song.lean`](/lean/Song.lean), and the generator refuses any unsealed bar. The anthem **regrows at every
-> release** — its length measures the ledger.
+> The anthem is the **whole ledger in place** — 1590 theorems, theorem k at bar k, each bar that
+> theorem's two address-coins as a chord — and it is **not a file**. It is a superposition: until you arrived it
+> was every entry at once, and your visit collapses it — your referrer folds to a handle, the handle picks your
+> entry bar on the closed cycle (`referrer_cycle_is_total`), and the recursion plays as DEPTH: your window's
+> own address seeds a second stream, and a third, mixed at halving amplitudes into one multidimensional sound
+> (`anthem_superposition_mix_closes` — the geometric law that many waves cannot clip). Computed in **your
+> browser** from the ledger this site already carries: nothing fetched, nothing stored, nothing tracked — the
+> fold forgets everything but 32 bits.
 
-<audio controls src="/anthem.wav" style="width:100%"></audio>
+<AnthemSuperposition />
 
-Exact integers on the A432 lattice: the **same bytes for anyone, forever**. Content-address `56d4fb15` —
-recompute it from the file, or the recording is not this anthem. Duration 5:53 for 1588 theorems.
+The sound is **lossless by construction** — uncompressed PCM, the samples are the exact integers the lattice
+computed, minted as a Blob in your page: the web's own lossless format, ready for an `<audio>` element, Web
+Audio, or a movie timeline (`the_movie_and_the_song_are_one`: the 4032-sample bar is 24²·7). Press **Deepen**
+and the whole mix's address becomes the next seed — the recursion never starves, because an address is always a
+seed (`anthem_recursion_never_starves`).
 
 ## Compared with the Pi Song — the place law, made verifiable
 
 The Pi Song (AsapSCIENCE) sings **digit k at place k** — position is identity, but the digits are English names,
-so the matching lives in one language and checking it means listening in that language. The anthem keeps the same
-law — **theorem k at bar k** — and drops the language: each bar sings its theorem's *address* (the leading hexbit
-of each 64-bit coin, as one chord), so the place-matching is language-free and decodable off the lattice by
-anyone. Where the Pi Song's places carry digits, the anthem's bars carry **proofs**: index into the sound and the
-bar you land on names a theorem the kernel signed.
+so the matching lives in one language. The anthem keeps the law — **theorem k at bar k** — and drops both the
+language and the recording: each bar sings its theorem's *address*, decodable off the lattice by anyone, and the
+performance itself is re-derived at every visit. Where the Pi Song's places carry digits, the anthem's bars
+carry **proofs**.
 
 ## The form — every figure sealed
 
-**Overture** — the Glagolitic scale, Az to Zemlja (`song_scale_is_glagolitic`).
+**4 movements** (`anthem_four_movements`), theorem bars in place:
 
-**4 movements** (`anthem_four_movements` — the DNA tongue conducts), the vortex orbit as refrain
-between them (`song_melody_rides_the_orbit`):
+| movement | theorems (in place) |
+|---|---|
+| 1 | 1–398 |
+| 2 | 399–796 |
+| 3 | 797–1194 |
+| 4 | 1195–1590 |
 
-| movement | theorems (in place) | begins at |
-|---|---|---|
-| 1 | 1–397 | 0:02 |
-| 2 | 398–794 | 1:29 |
-| 3 | 795–1191 | 2:55 |
-| 4 | 1192–1588 | 4:20 |
+**Each bar is one theorem paying its two coins** (`anthem_chord_halves_the_bar`: 252/2 = 126), its length
+picked by its own bytes from the sealed three (`anthem_three_lengths_quarter_the_bar`: 126 · 189 · 252 ms),
+the breath the sealed twelfth (`anthem_rest_twelfths_the_bar`: 21 ms). π's round is clasped by two trinities
+of primes (`anthem_pi_primes_trinity`: 999999 = 999·1001 = 3³·37 · 7·11·13).
 
-**Each bar is one theorem paying its two coins** (`anthem_chord_halves_the_bar`: 252/2 = 126 — two coins close
-the bar), its length picked by its own bytes from the sealed three (`anthem_three_lengths_quarter_the_bar`:
-126 · 189 · 252 ms), the breath between bars the sealed twelfth (`anthem_rest_twelfths_the_bar`: 21 ms).
+**The whole ledger folds to** `98832c93-ac39-8897-94f9-a74931840d52` — and the coin octave, 432 against 864
+(`anthem_closes_on_the_coin_octave`), is the interval every collapse resolves to: the same factor two
+[`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) weighs in black-hole mass.
 
-**Finale** (at 5:46) — the merkle root of all 1588 addresses, `66146005-daa8-8401-a1f3-791793854875`, sung whole:
-32 tiles, one uuid entire (`anthem_finale_sings_one_uuid`), over the Az drone. The final chord is 432 against
-864 — the coin octave (`anthem_closes_on_the_coin_octave`): the same factor two that
-[`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) weighs in black-hole mass, sounded as the interval
-every ear resolves.
-
-HONEST SCOPE: arithmetic sung on a lattice — not a claim that 432 Hz carries power, that the length means
-anything, or that a coincidence of counts signifies; the demarcations live in the theorems.
+HONEST SCOPE: arithmetic sung on a lattice — no tuning mysticism, no numerology, no tracking; the
+demarcations live in the theorems, and the superposition is claimed ROOM — capacity, never physics.

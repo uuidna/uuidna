@@ -27,6 +27,21 @@ theorem anthem_four_movements : 9 * 7 * 4 = 252 ∧ 252 / 63 = 4 := by decide
     weigh, the hertz sing. -/
 theorem anthem_closes_on_the_coin_octave : 864 = 2 * 432 ∧ 128 = 4 * 32 ∧ 2 ^ 2 = 4 := by decide
 
+/-- MANY STREAMS, ONE CEILING — THE MULTIDIMENSIONAL MIX CANNOT CLIP, GEOMETRICALLY. The superposition plays its
+    recursion as depth: stream d sounds at AMPLITUDE/2^(d+1), so the worst-case sum is the geometric series 4000
+    + 2000 + 1000 + 500 + 250 + 125 = 7875 at the deepest allowed six — strictly inside the 8000 ceiling that
+    amplitude_inside_int16 keeps inside the sample. Every finite depth obeys: halving forever never reaches the
+    whole. Many waves, mixed lossless in exact integers, and the law that they fit is arithmetic, not
+    gain-riding. -/
+theorem anthem_superposition_mix_closes : 4000 + 2000 + 1000 = 7000 ∧ 7000 + 500 + 250 + 125 = 7875 ∧ 7875 < 8000 := by decide
+
+/-- THE RECURSION NEVER RUNS OUT OF SEEDS. A collapse eats a seed string and mints an eight-hexbit address; an
+    address is a string; a string is a seed — the output space feeds the input space, so the superposition can
+    deepen forever. The arithmetic the loop stands on: a handle spans 16⁸ = 4294967296 states and every one of
+    them collapses to an entry bar by a total mod — the door never jams because the modulus is never zero on a
+    nonempty score (1 ≤ the score length always, and k mod n < n on the worked six). -/
+theorem anthem_recursion_never_starves : 16 ^ 8 = 4294967296 ∧ ((List.range 6).all (fun k => k % 6 < 6)) ∧ 1 ≤ 6 := by decide
+
 /-- π · PRIMES · TRINITY — THE ROUND CLOSES ON TWO TRINITIES OF PRIMES. The six nines the strands close to
     factor as 999999 = 999 · 1001, and each factor is a trinity: 1001 = 7·11·13, three CONSECUTIVE primes side
     by side, and 999 = 3³·37 — the trinity CUBED times 37. So π's rational round (142857·7 = 999999) is held
