@@ -416,6 +416,17 @@ air_oxygen_toxic_deep 19
 gas_blend_by_partial_pressure 19
 helium_reduces_narcosis 19
 ascent_needs_a_stop 19
+#Doctrine.lean
+team_pairs_triples_cover 19
+solo_is_the_excluded_team 19
+pressure_ladder 19
+jump_records_ascend 19
+saturation_deco_accounts 19
+nbl_trains_by_the_floor 19
+the_middle_is_not_a_pole 19
+identification_collapses_the_middle 19
+compass_three_decide_the_fourth 19
+compass_opposites_involute 19
 #DoubleTorus.lean
 chi_measures_genus 19
 handles_give_generators 19
@@ -1577,6 +1588,15 @@ wgs84_polar_shorter 23
 eratosthenes_fiftieth_circle 23
 horizon_distance_finite 19
 bulge_exceeds_relief 23
+#Torus.lean
+hextorus_is_coins_times_trinity 19
+hextorus_deficit_is_the_ten 19
+hextorus_mints_the_quorum 19
+hextorus_generators_are_the_jobs 19
+genus_ladder_prices_in_coins 19
+t7_betti_row_is_the_uuid 19
+t7_even_odd_boards_equal 19
+b2_is_trinity_rosette 19
 #Trinities.lean
 trinities_span_powers 19
 trinity_exceeds_qubit 19
@@ -1598,6 +1618,14 @@ type_scale_octave 27
 a_series_halving 27
 ream_is_five_hundred 27
 recto_odd_verso_even 27
+#Universe.lean
+eclipse_four_hundred 19
+saros_metonic_bridge 19
+flat_drift_is_quadratic 19
+poles_on_the_axis_at_the_quadrature 19
+universe_of_handles 19
+tides_two_bulges 19
+market_tides_and_the_strategy_bar 19
 #UuidMix.lean
 uuid_mix_census_is_quantum 19
 #Uuidna.lean
@@ -1647,6 +1675,12 @@ doubling_digit_sum 18
 magic_numbers 18
 proton_fit 18
 self_seal 18
+#Wave.lean
+a440_not_on_the_vortex 19
+morris_eight_bars_halved 19
+cubes_sum_to_square_of_triangle 19
+lights_out_flip_involution 19
+wave_probe_eleven_thirteens 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19
