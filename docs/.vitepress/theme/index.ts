@@ -8,6 +8,7 @@ import Terminal from './Terminal.vue'
 import HexbitPlayer from './HexbitPlayer.vue'
 import AnthemSuperposition from './AnthemSuperposition.vue'
 import SchoolTools from './SchoolTools.vue'
+import BookRoom from './BookRoom.vue'
 import ReferrerNav from './ReferrerNav.vue'
 import ReadAloud from './ReadAloud.vue'
 import LinkAuditor from './LinkAuditor.vue'
@@ -80,6 +81,8 @@ export default {
     app.component('AnthemSuperposition', AnthemSuperposition)
     // The school's three instruments — test/edit/build, pure coding-shelf apps computed in the visitor's browser.
     app.component('SchoolTools', SchoolTools)
+    // The reading room — read, find facts, try quotes: the books shelf computed in the visitor's browser.
+    app.component('BookRoom', BookRoom)
     // THE TERMINAL ON THE MCP — a singularity, not a mirror: the toolbox is learned live from the wire's own
     // tools/list (the page carries no list to drift), and every command is a real tools/call through the same
     // gate, deposit, and receipt as any MCP client. The pure half is quantum/apps/terminal; this is the shell.
