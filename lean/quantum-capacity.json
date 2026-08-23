@@ -1,0 +1,143 @@
+{
+ "rows": [
+  {
+   "model": "hexbit fold",
+   "org": "uuidna",
+   "type": "classical content-address (quantum by architecture)",
+   "year": 2026,
+   "physical": null,
+   "usable": 128,
+   "usableMetric": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer",
+   "opTimeNs": 11312,
+   "opClass": "measured",
+   "source": "measured by this generator: full-1660-theorem receipt sweep 18.8 ms on the build host"
+  },
+  {
+   "model": "logical-48 array",
+   "org": "Harvard/QuEra",
+   "type": "neutral-atom",
+   "year": 2023,
+   "physical": 280,
+   "usable": 48,
+   "usableMetric": "forty-eight logical qubits operated (error-detected circuits, Nature 2023)",
+   "opTimeNs": 1000,
+   "opClass": "reported",
+   "source": "Bluvstein et al., Nature 2023; gate class ~10^3 ns"
+  },
+  {
+   "model": "Forte",
+   "org": "IonQ",
+   "type": "trapped-ion",
+   "year": 2024,
+   "physical": 36,
+   "usable": 36,
+   "usableMetric": "algorithmic qubits AQ36 (vendor benchmark suite, not error-corrected logical)",
+   "opTimeNs": 100000,
+   "opClass": "reported",
+   "source": "IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns"
+  },
+  {
+   "model": "H2",
+   "org": "Quantinuum",
+   "type": "trapped-ion",
+   "year": 2024,
+   "physical": 56,
+   "usable": 12,
+   "usableMetric": "twelve logical qubits demonstrated (with Microsoft qubit-virtualization)",
+   "opTimeNs": 100000,
+   "opClass": "reported",
+   "source": "Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature)"
+  },
+  {
+   "model": "Willow",
+   "org": "Google",
+   "type": "superconducting",
+   "year": 2024,
+   "physical": 105,
+   "usable": 1,
+   "usableMetric": "one logical qubit demonstrated below the surface-code threshold",
+   "opTimeNs": 100,
+   "opClass": "reported",
+   "source": "Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns"
+  },
+  {
+   "model": "Condor",
+   "org": "IBM",
+   "type": "superconducting",
+   "year": 2023,
+   "physical": 1121,
+   "usable": null,
+   "usableMetric": "no error-corrected logical qubits demonstrated on this device",
+   "opTimeNs": 100,
+   "opClass": "reported",
+   "source": "IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature)"
+  },
+  {
+   "model": "Heron r2",
+   "org": "IBM",
+   "type": "superconducting",
+   "year": 2024,
+   "physical": 156,
+   "usable": null,
+   "usableMetric": "error-rate-improved processor; logical demos ride smaller codes",
+   "opTimeNs": 100,
+   "opClass": "reported",
+   "source": "IBM 2024; 2q-gate class ~10^2 ns (platform literature)"
+  },
+  {
+   "model": "Zuchongzhi 3.0",
+   "org": "USTC",
+   "type": "superconducting",
+   "year": 2025,
+   "physical": 105,
+   "usable": null,
+   "usableMetric": "random-circuit sampling demonstrations; no logical qubit reported",
+   "opTimeNs": 100,
+   "opClass": "reported",
+   "source": "USTC 2025; 2q-gate class ~10^2 ns (platform literature)"
+  },
+  {
+   "model": "Phoenix-class array",
+   "org": "Atom Computing",
+   "type": "neutral-atom",
+   "year": 2023,
+   "physical": 1180,
+   "usable": null,
+   "usableMetric": "no error-corrected logical qubits demonstrated on this device",
+   "opTimeNs": 1000,
+   "opClass": "reported",
+   "source": "Atom Computing 2023 (>1000 sites); gate class ~10^3 ns"
+  },
+  {
+   "model": "Advantage2",
+   "org": "D-Wave",
+   "type": "annealer",
+   "year": 2024,
+   "physical": 4400,
+   "usable": null,
+   "usableMetric": "annealing-only: optimization sampling, not gate-model computation — a different machine class, named",
+   "opTimeNs": 1000,
+   "opClass": "reported",
+   "source": "D-Wave 2024; anneal class ~10^3 ns per step"
+  },
+  {
+   "model": "Borealis",
+   "org": "Xanadu",
+   "type": "photonic (GBS)",
+   "year": 2022,
+   "physical": 216,
+   "usable": null,
+   "usableMetric": "Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named",
+   "opTimeNs": null,
+   "opClass": "reported",
+   "source": "Xanadu, Nature 2022"
+  }
+ ],
+ "receipt": "5facb816-8ed4-8877-be23-7e561d85f78f",
+ "measured": {
+  "nsPerVerify": 11312,
+  "ledger": 1660,
+  "sweepMs": 18.8
+ },
+ "honest": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer"
+}

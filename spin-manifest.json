@@ -6,12 +6,12 @@
     "lean/axioms.json": "001228f3d133849f",
     "docs/mcp.md": "7096d6ec54088479",
     "audit-citations.json": "8500a034076c8fa3",
-    "support-audit.json": "b3eb09f6e0378511",
-    "research-leads.json": "612d639f9e6f832f",
+    "support-audit.json": "de4da8e12cc688c6",
+    "research-leads.json": "21198ff39b9c8cae",
     ".zenodo.json": "2b7de5510787800e",
     "reports.json": "4fa6f179bead8f83",
     "lean/statement-index.json": "0ccf0d0b37878980",
-    "README.md": "6ec9a62e8bb282fe",
+    "README.md": "a0f89b95a0a38975",
     "llm.txt": "696c3433052482b3",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -1568,6 +1568,8 @@
     "lean/propulsion-manifest.json": "dd4ce996a8f18260",
     "lean/prosetrial-manifest.json": "f29c531397f588fd",
     "lean/psychology-manifest.json": "573f1cc3d653898b",
+    "lean/quantum-capacity.json": "545d05f4f85386cc",
+    "lean/quantum-capacity.md": "9be7b442fb0887c2",
     "lean/quantum-manifest.json": "cc3daca37bf3899a",
     "lean/readings-manifest.json": "a5f340bef0708c7c",
     "lean/reasoning-manifest.json": "deb3b05237f48b3a",
@@ -1611,5 +1613,5 @@
     "lean/wave-queue.json": "b545c1f6acbb8994",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "0d994c82-1e46-8e94-8a5f-0faee4894a0a"
+  "receipt": "d8d03d1c-e145-829e-b958-56815506c520"
 }
