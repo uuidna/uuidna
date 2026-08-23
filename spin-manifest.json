@@ -6,10 +6,10 @@
     "lean/axioms.json": "8526e2c4911d86ff",
     "docs/mcp.md": "a56317f045338baf",
     "audit-citations.json": "75bf42cd79ec8179",
-    "support-audit.json": "bbd75e3d0753892c",
-    "research-leads.json": "3ad5ae246db38a3b",
+    "support-audit.json": "6fc4979f6743823c",
+    "research-leads.json": "e346a256ce258d8f",
     ".zenodo.json": "2a4eba1fcec183d2",
-    "reports.json": "18bb8eb5eab38c66",
+    "reports.json": "fd60367709ac8a46",
     "lean/statement-index.json": "e2f6f76a4d708195",
     "README.md": "f2a3c07723638e40",
     "llm.txt": "7602e912972a8f92",
@@ -1604,8 +1604,8 @@
     "lean/vectorequilibrium-manifest.json": "bd853f5a67168351",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd",
     "lean/wave-manifest.json": "a6e3fca26a818325",
-    "lean/wave-queue.json": "4e6311c44a8c8588",
+    "lean/wave-queue.json": "cb60d4c7fdab8c6f",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "3323801c-0f21-8d6d-8b4e-567d33ed988d"
+  "receipt": "e0b7600e-fd82-8f5b-9c77-48eb44909892"
 }
