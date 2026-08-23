@@ -7,7 +7,9 @@
 // 2^(1/12) — not a by-decide), pluck_preserves_bound (needs its bounded-∀ form specified in the lead first).
 // HONEST SCOPE: integer tables sealed; the amplitude ceiling, the tuning frequencies and the dance figures are
 // the leads' measurements and the literature's, cited in prose. COMPUTE → GENERATE → VERIFY.
-import { emit } from './lean-gen.js'
+import { readFileSync, existsSync } from 'node:fs'
+import { join } from 'node:path'
+import { emit, ROOT } from './lean-gen.js'
 
 const FACTS = [
   // ── lead 74: the headroom seals ──
@@ -51,6 +53,14 @@ const FACTS = [
     lean: 'theorem lights_out_flip_involution : (List.map (fun x => (x + 1) % 2) (List.map (fun x => (x + 1) % 2) [0, 1, 0, 1]) = [0, 1, 0, 1]) ∧ (7 % 2 = 1) := by decide' },
 ]
 
+// THE CONVEYOR'S INTAKE — accepted candidates from lean/wave-queue.json (validated and kernel-probed by
+// queue-wave.ts) lift into this wing verbatim: no js mirror required, the kernel already judged each alone and
+// judges the whole wing again here. The wing GROWS wave by wave; the hand-authored facts above were wave one.
+const queuePath = join(ROOT, 'lean', 'wave-queue.json')
+const lifted = existsSync(queuePath)
+  ? (JSON.parse(readFileSync(queuePath, 'utf8')) as { accepted?: { key: string; why: string; lean: string }[] }).accepted ?? []
+  : []
+
 emit({ file: 'Wave.lean', skill: 'wave',
   header: 'WAVE — the conveyor\'s first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism\'s residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus\' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed.',
-  facts: FACTS.map((f) => ({ ...f, name: f.why })) })
+  facts: [...FACTS, ...lifted].map((f) => ({ ...f, name: f.why })) })

@@ -36,6 +36,10 @@ jobs:
       - name: 'LEAN GREEN — the development pass: walk the gate, cure what is deterministic'
         run: |
           npm run develop
+      - name: 'WAVE — the conveyor lifts sealable candidates, the kernel adjudicating'
+        run: |
+          node dist/scripts/queue-wave.js
+          npm run lean
       - name: DRAIN — commit and push the derived drift (a quiet run is health)
         run: |
           git config user.name "uuidna-school"

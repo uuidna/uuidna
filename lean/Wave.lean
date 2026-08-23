@@ -36,3 +36,8 @@ theorem cubes_sum_to_square_of_triangle : (1 + 8 = 3 ^ 2) ∧ (1 + 8 + 27 = 6 ^ 
     involution again — while flipping SEVEN consecutive positions changes each an odd number of times (7 ≡ 1 mod
     2), so seven-flips act exactly like single flips on parity. The hypercube query's decidable floor. -/
 theorem lights_out_flip_involution : (List.map (fun x => (x + 1) % 2) (List.map (fun x => (x + 1) % 2) [0, 1, 0, 1]) = [0, 1, 0, 1]) ∧ (7 % 2 = 1) := by decide
+
+/-- THE CONVEYOR'S OWN PROBE — the first candidate to ride the route with no model at the gate: 11 · 13 = 143,
+    two primes and their product, deposited pending so validate → kernel-probe → accept → lift → gate proves
+    itself end to end. -/
+theorem wave_probe_eleven_thirteens : 11 * 13 = 143 := by decide

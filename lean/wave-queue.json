@@ -1,0 +1,25 @@
+{
+  "pending": [],
+  "accepted": [
+    {
+      "key": "wave_probe_eleven_thirteens",
+      "why": "THE CONVEYOR'S OWN PROBE — the first candidate to ride the route with no model at the gate: 11 · 13 = 143, two primes and their product, deposited pending so validate → kernel-probe → accept → lift → gate proves itself end to end.",
+      "lean": "theorem wave_probe_eleven_thirteens : 11 * 13 = 143 := by decide",
+      "receipt": "c75e5cda-b46d-8e78-a515-e57fa46ae83e"
+    }
+  ],
+  "refused": [
+    {
+      "key": "tet_semitone_no_integer_lattice",
+      "why": "the 12-TET semitone 2^(1/12) is irrational — no integer lattice carries any public song (queue lead 73).",
+      "lean": "",
+      "reason": "not a by-decide: irrationality needs a rationality argument, a different proof class — left for the model, honestly"
+    },
+    {
+      "key": "pluck_preserves_bound",
+      "why": "a truncating scale k/r with k ≤ r never grows a sample (queue lead 74).",
+      "lean": "",
+      "reason": "the bounded ∀ form is owed by the lead before any runner may lift it — refused until the statement is specified"
+    }
+  ]
+}
