@@ -92,7 +92,15 @@ const RECEIPT_COVERED: readonly RegExp[] = [
  *  and it was precisely that invisible instrument whose absence produced the most confusing failures. A list derived
  *  only from what is visible would have been silent about the one that mattered. So each is declared WITH the arms
  *  it voids, and `covers` is what the report uses to separate "the tree is wrong" from "this host cannot tell". */
-export interface Instrument { file: string; why: string; covers: readonly RegExp[]; remedy: string }
+export interface Instrument {
+  file: string
+  why: string
+  covers: readonly RegExp[]
+  remedy: string
+  /** where this tool commonly lives when it IS installed but is not on PATH — probed only after `command -v`
+   *  fails, so the preflight can tell "you do not have it" apart from "you have it and cannot see it". */
+  alsoLookIn?: readonly string[]
+}
 
 /** WHAT A GATE OWES ITS READER WHEN AN INSTRUMENT IS MISSING.
  *
@@ -111,6 +119,9 @@ export const INSTRUMENTS: readonly Instrument[] = [
   { file: 'git', why: 'the derived-layer arm asks git what moved', remedy: 'install git', covers: [/^git /] },
   { file: 'lean', why: 're-proves every wing and witnesses the axioms — spawned by lean-all and lean-axioms, so it appears nowhere in the chain',
     remedy: 'install the toolchain the repo pins: elan, then `elan toolchain install $(cat lean-toolchain)`',
+    // elan's default home. Probed only when PATH lookup fails, so an INSTALLED-but-unseen kernel is reported as
+    // that rather than as an absent one — the distinction this preflight got wrong on its first outing.
+    alsoLookIn: ['~/.elan/bin/lean', '~/.elan/bin/lean.exe'],
     covers: [/npm run lean$/, /lean-axioms\.js/, /^npm run axioms$/] },
 ]
 
@@ -187,15 +198,36 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
   const shell = shellOrExit('gate-all')
 
   // THE PREFLIGHT — every instrument probed before any verdict is issued, through the shell the steps will use.
+  //
+  // AND "NOT ON PATH" IS NOT "NOT INSTALLED". The first version of this probe reported a missing PATH lookup as
+  // "absent on this host" and told the reader to install a toolchain they already had: Lean 4.33.0, the exact
+  // pin, sat in ~/.elan/bin through every gate run of the night while the axiom arm read VOID. VOID reads as
+  // "not a failure", so nobody looked — which is the very disease this preflight was written to cure, recurring
+  // one level up in the cure itself. A found-but-unreachable tool now says so, and says where it is.
+  const found = (cmd: string): boolean => {
+    try { execFileSync(shell.file, shell.argv(cmd), { cwd: ROOT, env: shell.env(process.env), stdio: 'pipe' }); return true }
+    catch { return false }
+  }
+  const unreachable = new Map<string, string>()   // instrument -> where it actually lives
   const absent = INSTRUMENTS.filter((i) => {
-    try { execFileSync(shell.file, shell.argv(`command -v ${i.file}`), { cwd: ROOT, env: shell.env(process.env), stdio: 'pipe' }); return false } catch { return true }
+    if (found(`command -v ${i.file}`)) return false
+    for (const where of i.alsoLookIn ?? []) {
+      if (found(`test -x ${where}`)) { unreachable.set(i.file, where); break }
+    }
+    return true
   })
   /** is this step one an absent instrument voids? then its verdict is not about the tree */
   const voided = (cmd: string): Instrument | undefined => absent.find((i) => matches(i.covers, cmd))
   if (absent.length) {
-    console.log(`gate-all — PREFLIGHT: ${absent.length} instrument(s) absent on this host. What they cover is VOID, not failed:`)
-    for (const i of absent) console.log(`  · ${i.file} — ${i.why}\n    FIX ${i.remedy}`)
-    console.log('  (the rest of the gate still runs: an absent instrument voids its own arms and no others)\n')
+    console.log(`gate-all — PREFLIGHT: ${absent.length} instrument(s) NOT REACHABLE from this process. What they cover is VOID, not failed:`)
+    for (const i of absent) {
+      const at = unreachable.get(i.file)
+      console.log(`  · ${i.file} — ${i.why}`)
+      console.log(at
+        ? `    INSTALLED at ${at} but NOT ON THIS PROCESS'S PATH — add it and re-run; do not install anything`
+        : `    FIX ${i.remedy}`)
+    }
+    console.log('  (the rest of the gate still runs: an unreachable instrument voids its own arms and no others)\n')
   }
 
   // the receipt is consulted ONCE, against the tree as it stands when the gate begins
@@ -272,7 +304,7 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
   const voidNotice = (): void => {
     if (!voids.length) return
     console.error(`\n  ${voids.length} arm(s) VOID — not failures, and not verdicts either; nothing measured them:`)
-    for (const v of voids) console.error(`  · ${label(v.cmd)}  — needs ${voided(v.cmd)!.file}, absent on this host`)
+    for (const v of voids) console.error(`  · ${label(v.cmd)}  — needs ${voided(v.cmd)!.file}, not reachable from this process`)
     console.error(`  FIX ${[...new Set(voids.map((v) => voided(v.cmd)!.remedy))].join('; ')}`)
   }
 
