@@ -10,3 +10,5 @@ export { build, type Composition } from './state-builder.js'
 export { sayDoOf, chart, type CommitRecord, type SayDo, type PolygraphChart } from './polygraph.js'
 // UNVERIFIED made a pointer — the trial's open verdict carrying the involutions around it (lead 88)
 export { noticeOf, type Notice } from './notice.js'
+// the message of record, standardised — glyphs, seal, TL;DR, each carrying what only it can (lead 80)
+export { envelopeOf, readEnvelope, type Envelope, type Reading } from './messaging-handle.js'
