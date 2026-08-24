@@ -56,6 +56,25 @@ export function handleOf(address: string): string {
  *  Same-looking code, different acts. */
 export const seedOf = (address: string): number => parseInt(handleOf(address), 16)
 
+/** laneOf(address, lanes) → which executor this work belongs to, decided by the address itself.
+ *
+ *  THE ADDRESS IS ALREADY THE ROUTING DECISION. A handle is eight hex characters off a content-address, so its
+ *  bits are uniform by construction — which makes the residue a balanced shard key that needs no scheduler, no
+ *  queue state and no coordination between lanes. The same input lands on the same lane on every host and every
+ *  run, which is the property an arrival-order pool cannot offer: there, assignment depends on who finished first,
+ *  so two runs of identical work distribute differently and a timing that moves cannot be attributed.
+ *
+ *  This is the mod-9 router of src/hardware one level up — addressing as a residue rather than a range — and it
+ *  is safe here for the same reason the fold tree is: merkleGravity is order-invariant, so which lane did which
+ *  piece cannot change the result, only when it arrives.
+ *
+ *  WHAT IT COSTS, SAID PLAINLY. Deterministic assignment is NOT work-conserving. An arrival-order pool never lets
+ *  a lane idle while work remains; a keyed one can finish five buckets and sit waiting on the sixth, because the
+ *  residue knows nothing about how long a piece takes. That trade is real and belongs to the caller: take this
+ *  where reproducibility is worth more than makespan, and the arrival pool where it is not. */
+export const laneOf = (address: string, lanes: number): number =>
+  lanes < 2 ? 0 : seedOf(address) % lanes
+
 /** split a handle into its four parts: cc9c0011 -> ['cc','9c','00','11'] */
 export function handleParts(handle: string): string[] {
   if (!isHandle(handle)) throw new Error(`handle must be eight lowercase hex characters, got ${JSON.stringify(handle)}`)

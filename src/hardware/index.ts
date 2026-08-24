@@ -57,3 +57,6 @@ export const spec = (): { widthsAreTiles: boolean; uuidIsFourHandles: boolean; t
   tileStates: 2 ** HEXBIT_BITS,
   wordTiles: UUID_HEXBITS / 4,
 })
+
+// the lanes face — the executor trinity, re-exported so src/hardware stays one name for one concept
+export { LANES, trinity, gpuEligiblePpm, kernelPercent, HANDLE_BITS, HANDLE_SPAN, type Lane, type Seat } from './lanes/index.js'

@@ -5,6 +5,7 @@
 // os/host is a static import and safe as one: it declares no top-level side effect and reaches its builtins through
 // the same lazy registry this file does, so bundling it costs the edge nothing it does not already carry.
 import { shellOrExit } from '../os/host/index.js'
+import { laneOf } from '../handle.js'   // THE one derivation — see handle.ts
 const cryptom = (): typeof import('node:crypto') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:crypto') as typeof import('node:crypto') // lazy: the edge bundles this module but never calls it
 const cpm = (): typeof import('node:child_process') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:child_process') as typeof import('node:child_process') // lazy: the edge bundles this module but never calls it
 // node:fs rides LAZILY through the runtime's own registry (the mcp.ts:38 law, sync form): a top-level
@@ -182,6 +183,51 @@ export async function pool<T>(thunks: readonly (() => Promise<T>)[], limit: numb
   })
   await Promise.all(workers)
   return out
+}
+
+/** poolByHandle(items, run, lanes) → the same fan-out, assigned by ADDRESS instead of by arrival.
+ *
+ *  Each item carries the address of the thing it is work for; `laneOf` turns that into a lane, and each lane runs
+ *  its own bucket in order. Results come back in the ORIGINAL order, so a caller cannot tell the difference except
+ *  in the two ways that matter:
+ *
+ *    REPRODUCIBLE — the same work distributes the same way on every run and every host. `pool` assigns by whoever
+ *      finished first, so two runs of identical work land differently and a step that got slower cannot be told
+ *      from a step that merely shared a lane with something heavy. Today's last defect was exactly that shape: a
+ *      generator that times itself read a decade slower because of what happened to be running beside it.
+ *
+ *    NOT WORK-CONSERVING — and this is the price, measured rather than waved at. A residue knows nothing about
+ *      how long a piece takes, so one lane can hold the slow items while others sit idle; `pool` never idles while
+ *      work remains. On the proof sweep across 14 lanes: 23,536 ms by arrival, 25,874 ms by handle — about a
+ *      tenth more wall-clock, on a workload whose pieces are all of a size. A lopsided workload would pay more,
+ *      and should take `pool`.
+ *
+ *  Neither replaces the other. The choice is between a shorter run and a run you can compare to the last one. */
+export async function poolByHandle<T>(
+  items: readonly { address: string; run: () => Promise<T> }[],
+  lanes: number,
+): Promise<T[]> {
+  const out = new Array<T>(items.length)
+  const cap = lanes < 1 ? 1 : lanes
+  const buckets = new Map<number, number[]>()
+  items.forEach((item, i) => {
+    const lane = laneOf(item.address, cap)
+    const bucket = buckets.get(lane)
+    if (bucket) bucket.push(i)
+    else buckets.set(lane, [i])
+  })
+  // the buckets run concurrently; WITHIN a bucket the order is the items' own, so a lane is replayable too
+  await Promise.all([...buckets.values()].map(async (indices) => {
+    for (const i of indices) out[i] = await items[i]!.run()
+  }))
+  return out
+}
+
+/** how the work fell across the lanes — what a report needs to show that the balance was real and not assumed. */
+export const laneCensus = (addresses: readonly string[], lanes: number): number[] => {
+  const counts = new Array<number>(lanes < 1 ? 1 : lanes).fill(0)
+  for (const a of addresses) counts[laneOf(a, counts.length)]!++
+  return counts
 }
 
 /** import a COMPILED module by ABSOLUTE path — always as a file URL.

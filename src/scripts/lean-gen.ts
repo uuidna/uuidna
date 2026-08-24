@@ -10,7 +10,7 @@ import { fileURLToPath } from 'node:url'
 import { toUuid } from '../address.js'
 import { hmacSha256 } from '../sha256.js'
 
-import { ROOT, pool } from './api.js'
+import { ROOT, poolByHandle } from './api.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 export { ROOT }
 
@@ -274,14 +274,19 @@ export async function provePending(lanes: number): Promise<{ proved: number; fai
   if (!queued.length) return { proved: 0, failed: [] }
   const cache = readProofCache()
   const failed: PendingProof[] = []
-  const results = await pool(queued.map((p) => () => new Promise<boolean>((resolve) => {
+  // THE WING'S OWN ADDRESS CHOOSES ITS LANE (handle.ts's laneOf). A wing's address is the content-address of its
+  // Lean text, so the assignment is a property of what is being proved rather than of who happened to finish
+  // first: the same wing proves on the same lane every run, on every host. That is what makes a proof sweep
+  // COMPARABLE run to run — and comparability is not a luxury here, because the last defect of the day was a
+  // generator whose self-timing moved a decade for no reason but which siblings it shared the machine with.
+  const results = await poolByHandle(queued.map((p) => ({ address: p.address, run: () => new Promise<boolean>((resolve) => {
     execFile('lean', [p.path], { cwd: ROOT, maxBuffer: MAXBUF }, (err, stdout, stderr) => {
       if (!err) return resolve(true)
       const diag = (String(stdout || '') + String(stderr || '')).trim()
       console.error('✗ lean/' + p.file + ' — Lean verification FAILED:\n' + (diag || String(err)))
       resolve(false)
     })
-  })), lanes)
+  }) })), lanes)
   results.forEach((ok, i) => {
     const p = queued[i]!
     if (ok) { cache[p.file] = signProofEntry(p.file, p.address); console.log('✓ lean/' + p.file + ' — ' + p.theorems + ' theorems, verified sorry-free (receipt ' + handleOf(p.address) + ' cached — the next unchanged run verifies free).') }
