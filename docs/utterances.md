@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="758 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="761 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 758 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 761 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `3495200e` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `659a08dc` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -785,13 +785,16 @@ additive spec fields never move an identity — the receipt folds ids
 a field that would require inventing a value is absent BY NAME
 ```
 
-**one-writer** — 4 utterances
+**one-writer** — 7 utterances
 
 ```text
 one writer wins; a STRANGER is refused with the holder NAMED (a descendant passes — that is reentrancy)
 a dead holder is stale by pid-liveness — reclaimed on the next acquire, no clock consulted
 only the holder releases; releasing a live stranger\
 a corrupt lock file never wedges the tree
+a free tree is acquired with zero polls — waiting costs nothing when nothing holds
+a DEAD holder is reclaimed by the wait — stale-reclaim is inherited, not reimplemented
+CONTROL — a LIVE stranger is announced once and refused at the ceiling, never waited on forever
 ```
 
 **open-questions** — 3 utterances
