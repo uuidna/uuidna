@@ -24,8 +24,9 @@ test('a lane is decided by the address, so the same work lands in the same place
 })
 
 test('THE BALANCE IS MEASURED ON THE LIVE LEDGER, not hoped for', () => {
-  // 1689 real theorem addresses across 14 lanes. Perfect balance is not the claim — uniformity is — so the test
-  // is that no lane carries wildly more than its share. A key that clumped would show here and nowhere else.
+  // every real theorem address the ledger holds, across 14 lanes. Perfect balance is not the claim — uniformity
+  // is — so the test is that no lane carries wildly more than its share, computed from the census rather than
+  // from a number written here. A key that clumped would show up here and nowhere else.
   const addresses = theorems().map((t) => t.address)
   const lanes = 14
   const counts = laneCensus(addresses, lanes)
@@ -48,10 +49,10 @@ test('poolByHandle returns results in the ORIGINAL order, whatever lane ran them
 })
 
 test('the GPU lane carries the MEASUREMENT that decided it, not an opinion about chips', () => {
-  // "runs faster on a GPU" is a claim about a workload, and the workload is the thing that answers it. All pure
-  // uuidna compute over the whole ledger is 0.59 ms; the gate is 100,087 ms; the critical path is 111 Lean
-  // PROCESSES. So the device-eligible share is a few parts per million and the kernel holds roughly a third —
-  // which is why the lane is specified rather than built, and why the note has to say so out loud.
+  // "runs faster on a GPU" is a claim about a workload, and the workload is the thing that answers it. The
+  // recorded run in hardware/lanes holds the three figures; what this asserts is the SHAPE they imply — that the
+  // device-eligible share is a few parts per million while the Lean kernel holds roughly a third — which is why
+  // the lane is specified rather than built, and why the note has to say so out loud.
   assert.ok(gpuEligiblePpm() < 100, `the device-eligible share must be tiny and stated: got ${gpuEligiblePpm()} ppm`)
   assert.ok(kernelPercent() >= 25, `the Lean kernel dominates and no lane assignment touches it: got ${kernelPercent()}%`)
   const gpu = LANES.find((l) => l.name === 'GPU')!

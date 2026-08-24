@@ -12,7 +12,7 @@
 import { execSync, execFileSync } from 'node:child_process'
 import { readFileSync, writeFileSync, unlinkSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT } from './api.js'
+import { ROOT, pauseSeconds } from './api.js'
 import { childProbe } from '../os/host/index.js'
 
 export interface Writer { pid: number; purpose: string }
@@ -71,7 +71,10 @@ export function acquire(purpose: string, pid: number, path = LOCK_PATH): { ok: t
 // re-invents is a queue the machine owes them. awaitAcquire polls the same acquire() — so reentrancy, stale
 // reclaim and atomicity are inherited, not re-implemented — and the poll is a SUBPROCESS sleep, never a clock:
 // staleness is still decided by pid liveness alone.
-const POLL = 'sleep 2'
+// the poll waits through the HOST's shell (api.pauseSeconds): `sleep` is a program on a POSIX host and nothing
+// at all on Windows, where execSync reached cmd.exe and the wait threw instead of waiting — the control test that
+// proves a working holder EARNS an extension died on its own instrument rather than on the property.
+const POLL_SECONDS = 2
 /** the ceiling is a FINDING, not a queue: a writer that has stopped WORKING must be named to a human rather
  *  than waited on forever. Reaching this count is not itself the finding — see awaitAcquire, which asks
  *  working() before it refuses. Elapsed polls open the question; the process table answers it. */
@@ -128,7 +131,7 @@ export function awaitAcquire(
       onExtend(r.holder, extensions)
       polls = 0   // it is working; the clock it outran was never the evidence
     }
-    execSync(POLL)
+    pauseSeconds(POLL_SECONDS)
   }
 }
 
