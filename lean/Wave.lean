@@ -417,3 +417,14 @@ theorem pluck_preserves_bound : ((List.range 129).all (fun k => 8000 * k / 128 �
     captain's doctrine off-planet, lead 109). HONEST SCOPE: the day-count arithmetic of the sourced dive seals;
     the physiology is the literature's, reported. -/
 theorem saturation_deco_dominates : (13 + 24 + 6 = 43) ∧ (13 < 24) := by decide
+
+/-- THE ANTHEM SINGS RFC 4122 OUT LOUD, and nobody noticed until an instrument with a control asked. Every bar
+    sounds two coins — the address's first hexbit and its seventeenth — and the seventeenth is the RFC 4122
+    VARIANT nibble, held to the form 10xx: exactly the four values 8, 9, a, b, and no others. So the anthem's
+    lower voice can sound only FOUR of the sixteen lattice tiles while its upper voice ranges over all sixteen.
+    The arithmetic, decided: of the sixteen nibbles exactly four satisfy n/4 = 2 (the 10xx form), those four are
+    [8,9,10,11], and 4 · 4 = 16 — the variant costs precisely two bits, which is two of the four the nibble
+    carries. The harmony of every uuid-derived chord in this tree is therefore a standard's signature, not a
+    choice. HONEST SCOPE: this seals the NIBBLE ARITHMETIC of the variant field; that a given ledger's addresses
+    spread evenly across it is a measurement (observed 402/430/419/429 over 1680 bars), never a theorem. -/
+theorem the_second_voice_is_the_variant : ((List.range 16).filter (fun n => n / 4 == 2) = [8,9,10,11]) ∧ (((List.range 16).filter (fun n => n / 4 == 2)).length = 4) ∧ (4 * 4 = 16) := by decide

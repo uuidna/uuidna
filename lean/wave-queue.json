@@ -1,5 +1,11 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "key": "monero_cpu_breakeven_is_thirteen_kilohash",
+      "why": "At the measured live figures (XMR 427.32 USD, Monero network 6.11 GH/s RandomX, ~65W at 0.25 USD/kWh) a CPU earns 30 milli-dollars per kH/s per day against a fixed 390 milli-dollar daily power cost, so every rate below 13 kH/s runs at a loss and 13 kH/s is the exact break-even. Walked over every rate below the boundary rather than asserted at one point.",
+      "lean": "theorem monero_cpu_breakeven_is_thirteen_kilohash : ((List.range 13).all (fun k => 30 * k < 390)) ∧ (30 * 13 = 390) ∧ (30 * 10 = 300) := by decide"
+    }
+  ],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
@@ -288,6 +294,12 @@
       "why": "THE DECOMPRESSION OUTWEIGHS THE WORK (lead 109's last candidate): the sourced 43-day saturation dive decomposes as 13 days of compression and work-up, 24 of decompression, 6 at depth — 13 + 24 + 6 = 43 — and the load-bearing inequality is 13 < 24: the return costs more days than the descent, the one law that binds diver and astronaut alike (the pre-breathe IS the deco stop; Henry and Dalton, one law, two fluids — the captain's doctrine off-planet, lead 109). HONEST SCOPE: the day-count arithmetic of the sourced dive seals; the physiology is the literature's, reported.",
       "lean": "theorem saturation_deco_dominates : (13 + 24 + 6 = 43) ∧ (13 < 24) := by decide",
       "receipt": "ffde717d-4b7d-82d0-a7d0-07f5bcc584fe"
+    },
+    {
+      "key": "the_second_voice_is_the_variant",
+      "why": "THE ANTHEM SINGS RFC 4122 OUT LOUD, and nobody noticed until an instrument with a control asked. Every bar sounds two coins — the address's first hexbit and its seventeenth — and the seventeenth is the RFC 4122 VARIANT nibble, held to the form 10xx: exactly the four values 8, 9, a, b, and no others. So the anthem's lower voice can sound only FOUR of the sixteen lattice tiles while its upper voice ranges over all sixteen. The arithmetic, decided: of the sixteen nibbles exactly four satisfy n/4 = 2 (the 10xx form), those four are [8,9,10,11], and 4 · 4 = 16 — the variant costs precisely two bits, which is two of the four the nibble carries. The harmony of every uuid-derived chord in this tree is therefore a standard's signature, not a choice. HONEST SCOPE: this seals the NIBBLE ARITHMETIC of the variant field; that a given ledger's addresses spread evenly across it is a measurement (observed 402/430/419/429 over 1680 bars), never a theorem.",
+      "lean": "theorem the_second_voice_is_the_variant : ((List.range 16).filter (fun n => n / 4 == 2) = [8,9,10,11]) ∧ (((List.range 16).filter (fun n => n / 4 == 2)).length = 4) ∧ (4 * 4 = 16) := by decide",
+      "receipt": "f893a48e-7a32-8eb8-af39-51858c475347"
     }
   ],
   "refused": [
