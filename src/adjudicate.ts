@@ -11,7 +11,12 @@ import { merkleGravity } from './gravity/index.js'
 import { imprint, readImprint } from './imprint.js'
 
 export type VerdictKind = 'VERIFIED' | 'UNVERIFIED'
-export interface Verdict { statement: string; verdict: VerdictKind; receipt: string; note: string; develop: string[] }
+export interface Verdict {
+  statement: string; verdict: VerdictKind; receipt: string; note: string; develop: string[]
+  /** every REAL cited seal behind this verdict, each carrying its own Lean line — the caller RECHECKS the line
+   *  against the kernel instead of trusting the verdict (the ledger already carries it; now the answer does too) */
+  cites?: { key: string; lean: string; address: string }[]
+}
 
 // THE STATUS-DNA COLLISION CHECK IS GONE, AND SO IS ITS INPUT. It refused a solve-claim contradicting a
 // world-status marker carried in a sealed theorem's own name ("— OPEN", "— SOLVED (Perelman, 2003)"). Every
@@ -228,7 +233,12 @@ export function adjudicate(statement: string, decidableTest?: () => boolean): Ve
       ? 'cites a theorem not sealed in the ledger — verifies nothing, UNVERIFIED (not false)'
       : 'no decidable test and no sealed citation — UNVERIFIED; bring a proof to verify it'
   }
-  return { statement, verdict, receipt, note, develop: developPlan(statement, verdict, slim.fabricated, verdict === 'UNVERIFIED' && slim.verdict === 'VERIFIED' ? slim.real : []) }
+  // the cited seals ride WITH the verdict — key, Lean line, address — so any caller rechecks instead of trusting
+  const cites = slim.real
+    .map((k) => theoremByKey().get(k))
+    .filter((t): t is NonNullable<typeof t> => t !== undefined)
+    .map((t) => ({ key: t.key, lean: t.lean, address: t.address }))
+  return { statement, verdict, receipt, note, develop: developPlan(statement, verdict, slim.fabricated, verdict === 'UNVERIFIED' && slim.verdict === 'VERIFIED' ? slim.real : []), ...(cites.length ? { cites } : {}) }
 }
 
 // ── THE TRIAL IN ALL DIMENSIONS — a universal claim is tried at EVERY point of its named range, never at one.

@@ -13,15 +13,17 @@ export interface StatementVerdict {
   address?: string
   tactic?: string
   file?: string
+  /** the sealed Lean line itself — the caller RECHECKS this against the kernel instead of trusting the verdict */
+  lean?: string
   note: string
 }
 
 // the statement → theorem index, content-addressed. Built once, O(1) lookups thereafter (the fast path).
-let INDEX: Map<string, { key: string; address: string; tactic: string; file: string }> | null = null
-const index = (): Map<string, { key: string; address: string; tactic: string; file: string }> => {
+let INDEX: Map<string, { key: string; address: string; tactic: string; file: string; lean: string }> | null = null
+const index = (): Map<string, { key: string; address: string; tactic: string; file: string; lean: string }> => {
   if (INDEX) return INDEX
   INDEX = new Map()
-  for (const t of theorems()) INDEX.set(t.statement.trim(), { key: t.key, address: t.address, tactic: t.tactic, file: t.file })
+  for (const t of theorems()) INDEX.set(t.statement.trim(), { key: t.key, address: t.address, tactic: t.tactic, file: t.file, lean: t.lean })
   return INDEX
 }
 
@@ -36,7 +38,7 @@ export function verifyStatement(statement: string): StatementVerdict {
   const intact = recomputed === hit.address
   return {
     verdict: intact ? 'VERIFIED' : 'UNVERIFIED',
-    key: hit.key, address: hit.address, tactic: hit.tactic, file: hit.file,
+    key: hit.key, address: hit.address, tactic: hit.tactic, file: hit.file, lean: hit.lean,
     note: intact
       ? `VERIFIED in O(1): this statement IS the sealed theorem ${hit.key} (${hit.tactic}, ${hit.file}); its content-address recomputes to ${hit.address}`
       : 'address mismatch on recompute — the ledger entry does not verify (tamper or drift)',
