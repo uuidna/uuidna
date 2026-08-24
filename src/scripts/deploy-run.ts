@@ -25,22 +25,20 @@
 //   · HONEST FAILURE: no retries at all here. A deploy is an outward act; a retry loop around an outward act is
 //     how a half-shipped state gets papered over. One pass, named failure, human decides.
 import { readFileSync } from 'node:fs'
-import { spawnSync } from 'node:child_process'
 import { join } from 'node:path'
-import { ROOT } from './api.js'
+import { ROOT, streamStep } from './api.js'
 import { theoremByKey } from '../theorems/index.js'
 
 const DRY = process.argv.includes('--dry')
 const TRIALS = 'https://uuidna.com/trials'
 const MCP = 'https://uuidna.com/mcp'
 
-function step(name: string, cmd: string): string {
-  console.log(`\ndeploy-run · ${name} — ${cmd}`)
-  const r = spawnSync(cmd, { shell: true, cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-  const out = (r.stdout ?? '') + (r.stderr ?? '')
-  process.stdout.write(out)
-  if (r.status !== 0) { console.error(`✗ deploy-run — ${name} failed; nothing further runs (an outward act never rides a red step)`); process.exit(1) }
-  return out
+// ONE declaration for the step runner (api.ts's streamStep): the work streams live while it happens AND the
+// text is captured — a deploy's build and upload are minutes long, and a watcher must see them move.
+async function step(name: string, cmd: string): Promise<string> {
+  const r = await streamStep(`deploy-run · ${name}`, cmd)
+  if (!r.ok) { console.error(`✗ deploy-run — ${name} failed; nothing further runs (an outward act never rides a red step)`); process.exit(1) }
+  return r.out
 }
 
 /** the newest sealed cargo: the conveyor appends, so the tail of `accepted` that the ledger holds is the key
@@ -72,14 +70,14 @@ async function liveAddressOf(key: string): Promise<string> {
 }
 
 // ── 1 · PREFLIGHT — only what origin holds, and only on a green tree ────────────────────────────────────────
-step('fetch origin', 'git fetch origin main')
-const ahead = step('ahead of origin', 'git rev-list --count origin/main..HEAD').trim()
-const behind = step('behind origin', 'git rev-list --count HEAD..origin/main').trim()
+await step('fetch origin', 'git fetch origin main')
+const ahead = (await step('ahead of origin', 'git rev-list --count origin/main..HEAD')).trim()
+const behind = (await step('behind origin', 'git rev-list --count HEAD..origin/main')).trim()
 if (ahead !== '0' || behind !== '0') {
   console.error(`✗ deploy-run — the tree is ${ahead} ahead and ${behind} behind origin; a deploy serves what NOBODY can recompute unless origin holds it. Run \`npm run wave\` (or pull) first.`)
   process.exit(1)
 }
-step('guard', 'npm run guard')
+await step('guard', 'npm run guard')
 
 const cargo = newestSealedKey()
 console.log(`\ndeploy-run · the derived citation: ${cargo.key} (${cargo.address}) — the newest sealed cargo, and the deploy's own witness`)
@@ -93,9 +91,9 @@ else {
 }
 
 // ── 3 · BUILD AND SHIP ──────────────────────────────────────────────────────────────────────────────────────
-step('build the site', 'npm run docs:build')
+await step('build the site', 'npm run docs:build')
 if (DRY) { console.log('\ndeploy-run · --dry: the worker is NOT shipped; stopping before the outward act.'); process.exit(0) }
-step('ship the worker', 'npx wrangler deploy')
+await step('ship the worker', 'npx wrangler deploy')
 
 // ── 4 · THE DOUBLE PROOF — cross-surface identity, then the self-licensing receipt ──────────────────────────
 const live = await liveAddressOf(cargo.key)

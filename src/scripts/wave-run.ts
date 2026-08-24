@@ -18,9 +18,9 @@
 //   · CARGO-AWARE: lean + axioms run only when the conveyor ACCEPTED something — an empty wave still
 //     guards and reconciles (the derived layer may owe a sync), but never re-proves for nothing.
 import { readFileSync } from 'node:fs'
-import { execSync, spawnSync } from 'node:child_process'
+import { execSync } from 'node:child_process'
 import { join } from 'node:path'
-import { ROOT } from './api.js'
+import { ROOT, streamStep } from './api.js'
 
 const QUEUE = join(ROOT, 'lean', 'wave-queue.json')
 const acceptedCount = (): number => {
@@ -28,12 +28,26 @@ const acceptedCount = (): number => {
 }
 
 /** run one step, print EVERYTHING it said (pass or fail), return {ok, out}. */
-function step(name: string, cmd: string): { ok: boolean; out: string } {
-  console.log(`\nwave-run · ${name} — ${cmd}`)
-  const r = spawnSync(cmd, { shell: true, cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
-  const out = (r.stdout ?? '') + (r.stderr ?? '')
-  process.stdout.write(out)
-  return { ok: r.status === 0, out }
+// the step runner is ONE declaration (api.ts's streamStep): it streams the work live AND captures the text this
+// runner needs to sort a reconcile failure into its named transient classes. A private copy here would be the
+// same crack twice — and it was: this file's own capture-then-print made a twenty-two-minute lock-wait read as
+// a stall while everything was fine.
+/** THE ORPHAN LAW: a runner launched from a shell that later dies keeps working forever, unwatched. Two such
+ *  strays were live in this machine's process table while four sessions fought for ten cores, and a peer's
+ *  test suite went 40s → 782s from the contention alone. NOT MINE, as it happened — the process ages ruled my
+ *  own launches out, which is the same evidence discipline the tree uses for a contested file: read the table,
+ *  do not confess from conscientiousness any more than accuse from suspicion. The hazard is real regardless,
+ *  so the runner now decides its own life the way this tree decides every other staleness — BY LIVENESS, never
+ *  by a clock: when ppid reads 1 the launcher is gone, so stop before starting the next step. Stopping early
+ *  is a FAILURE, not a success: it exits non-zero so an arc receipt can never fold an abandoned run as done. */
+function orphaned(): boolean { return process.ppid === 1 }
+
+const step = async (name: string, cmd: string): Promise<{ ok: boolean; out: string }> => {
+  if (orphaned()) {
+    console.error('wave-run — ORPHANED: the shell that launched this run is gone, so nobody is reading. Stopping before the next step rather than working unwatched (the load a stray runner adds is paid by every session on this machine).')
+    process.exit(1)
+  }
+  return streamStep(`wave-run · ${name}`, cmd)
 }
 
 /** the held-tree class: wait for the NAMED pid to exit (probe, never kill), bounded by COUNTING probes —
@@ -48,22 +62,22 @@ function waitForPid(pid: number, probes: number): boolean {
 }
 
 const before = acceptedCount()
-const wave = step('convey', 'node dist/scripts/queue-wave.js')
+const wave = await step('convey', 'node dist/scripts/queue-wave.js')
 if (!wave.ok) process.exit(1)
 
 if (acceptedCount() > before) {
   for (const [name, cmd] of [['lift (lean)', 'npm run lean'], ['witness (axioms)', 'npm run axioms']] as const) {
-    if (!step(name, cmd).ok) { console.error(`wave-run — ${name} failed; the wave stops at its exact link`); process.exit(1) }
+    if (!(await step(name, cmd)).ok) { console.error(`wave-run — ${name} failed; the wave stops at its exact link`); process.exit(1) }
   }
 } else {
   console.log('wave-run · no new cargo — lift and witness skipped (an empty wave never re-proves for nothing)')
 }
 
-if (!step('guard', 'npm run guard').ok) { console.error('wave-run — guard red; fix the named charge, never ride past it'); process.exit(1) }
+if (!(await step('guard', 'npm run guard')).ok) { console.error('wave-run — guard red; fix the named charge, never ride past it'); process.exit(1) }
 
 // reconcile, with ONLY the two named transient classes retried (bounded: 3 attempts, then loud failure)
 for (let attempt = 1; attempt <= 3; attempt++) {
-  const r = step(`reconcile (attempt ${attempt})`, 'npm run reconcile')
+  const r = await step(`reconcile (attempt ${attempt})`, 'npm run reconcile')
   if (r.ok) { console.log('\nwave-run — COMPLETE: conveyed, sealed, reconciled to origin.'); process.exit(0) }
   const held = r.out.match(/HELD by pid (\d+)/)
   if (held) {

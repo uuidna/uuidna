@@ -144,6 +144,32 @@ export function teeStep(label: string, cmd: string, cwd: string = ROOT): StepRes
   }
 }
 
+/** streamStep(label, cmd) → run a step, STREAM its output live AND capture it — teeStep's sibling for the LONG
+ *  ones. THE CRACK THIS CLOSES (the captain's order, 2026-08-24: "fold the streaming crack"): teeStep runs
+ *  execSync and prints the whole output AFTER the step returns, which is right for a step that takes a second
+ *  and a lie for one that takes minutes — the watcher reads silence where the machine is working. Caught live:
+ *  an arc's log sat unchanged for twenty-two minutes while its reconcile waited, correctly and quietly, on
+ *  another session's lock; nothing was wrong and nothing said so. The runner still needs the TEXT (it sorts a
+ *  reconcile failure into its named transient classes), so the fold is BOTH, from one spawn with two consumers.
+ *
+ *  NOT a pipe to tee: `cmd | tee file` streams and captures, and swallows the exit code — the trap this tree
+ *  keeps a pipes finder for, and the one that let a failed run report success earlier the same day. The code is
+ *  read from the child's own 'close' event, where it cannot be lost.
+ *
+ *  ASYNC by necessity: streaming means watching a process that is still alive, which a synchronous call
+ *  forbids. teeStep stays exactly as it is for the short steps its callers were written around. */
+export function streamStep(label: string, cmd: string, cwd: string = ROOT): Promise<StepResult> {
+  process.stdout.write(`\n── ${label} ──\n`)
+  return new Promise((resolve) => {
+    const child = cpm().spawn(cmd, { shell: true, cwd })
+    let out = ''
+    child.stdout?.on('data', (c: Buffer) => { out += c.toString(); process.stdout.write(c) })
+    child.stderr?.on('data', (c: Buffer) => { out += c.toString(); process.stderr.write(c) })
+    child.on('error', (e: Error) => resolve({ ok: false, out: out + String(e.message), tail: lastLines(out + String(e.message)) }))
+    child.on('close', (code: number | null) => resolve({ ok: code === 0, out, tail: lastLines(out) }))
+  })
+}
+
 /** THE DRAIN'S OWN PATHS — every artifact the unattended drain REGENERATES, and nothing else. The seal and reconcile
  *  used `git add -A`, which on a shared tree sweeps a sibling session's in-flight SOURCE edits into a commit whose
  *  message describes something else: four times in one day work landed under a title about unrelated work, and in this
