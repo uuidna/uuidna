@@ -1500,6 +1500,12 @@ tour_contra_reflects_each_digit 19
 tour_contra_involutes 19
 tour_contra_rungs_sum_ten 19
 sequence_and_coins_are_one 19
+#Singularity.lean
+one_source_is_exactly_one 19
+surfaces_cost_one_fold 19
+agreement_is_decided_by_address 19
+drift_needs_two_to_hide_in 19
+the_singularity_is_the_dry_law_at_scale 19
 #Software.lean
 codec_split_recompose_lossless 19
 map_preserves_length 19

@@ -2,8 +2,8 @@
   "generated": "2026-08-24",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1669,
-  "total_theorems": 1669,
+  "total_claimed": 1674,
+  "total_theorems": 1674,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,20 +3781,20 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "73fa8baf-7085-8056-a7df-840ef309def0",
-      "address": "26846b2f-7011-827e-9d23-76fe5b3fe355",
+      "lineAddress": "2861d560-561a-81ec-9a73-79aabfbee213",
+      "address": "c723a37d-0cf5-8d74-9df2-4305e7aa2825",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "2899641e-482d-89fc-ac87-548780b50703",
-      "address": "1e3306cf-0000-84d1-9693-86cc603dc744",
+      "lineAddress": "d71edfd1-52a8-8ddc-a8b2-805504a1e16b",
+      "address": "70c72b1b-d77a-8b03-a7e3-3cfbe37f3494",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "78d2bb8d-36b9-8144-b380-75cc496d66bc",
-      "address": "003fb215-125f-82e3-a3a9-6f93186eb00d",
+      "lineAddress": "4705ffbb-da1e-893c-97a5-e819405113c2",
+      "address": "26b68096-4c67-8a67-b362-d47ce6ceb4a7",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "d39ccba0-f142-83fe-8758-2d994fcc33a4",
-      "address": "c5d7edba-b6ab-8890-836a-d57f3e0df143",
+      "lineAddress": "c9829985-718e-8f6d-b3de-56f4c936fcfd",
+      "address": "1942ec59-7c1d-8c6c-8ec1-b14b02cea817",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "639ef08b-1f74-8867-91ec-e46b96572975",
-      "address": "ac90c381-9266-8e07-8f74-9c4a7d5fce30",
+      "lineAddress": "13d41817-6962-8fe9-9e07-9a34fcdaed26",
+      "address": "918502fd-ebc9-8ebc-9cdb-00ea344bf495",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "c2666b66-7b92-80d7-88ce-e22d1862b802",
-      "address": "14d5dad1-b37d-8bc2-997e-1c9a69f74f4f",
+      "lineAddress": "7fdfccf5-8e96-8da2-8eec-eb9f4cb82ea3",
+      "address": "bfb6fbd3-5da2-8a4b-b515-0023d837a9a5",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "d0aac0b3-8bf5-8fdc-9329-5cd178eb19d9",
-      "address": "0b873d36-d9d3-8fb3-81bb-2361da3cdfe4",
+      "lineAddress": "9f47f654-246e-88b3-ae8f-697a17044d9f",
+      "address": "0328cc67-f854-86ef-96ab-b93900627399",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "051a59e6-af7c-8efc-8227-4c77d9b37f48",
-      "address": "972609ba-34c5-8222-8bb5-f825ed54c7b2",
+      "lineAddress": "6d87f0b9-b26f-8bdf-a82d-1b12d3f54a2c",
+      "address": "fe426bbb-f1e0-8d3d-a5d0-861aa23cb80d",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "3bbfc040-89ff-866f-b938-a4161472ce6c",
-      "address": "ec00e26d-b5f7-8325-ab29-1d0ba330b391",
+      "lineAddress": "aeccb0d0-14b4-84d3-a5ac-9dcae295f536",
+      "address": "4702880a-f523-84c0-a9f4-74bec3d633d9",
       "principle": "The detectors, proven"
     },
     {
@@ -4435,14 +4435,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "b7e389a8-4761-8932-8c17-8a4d3a0feec1",
-      "address": "4c046415-2b8a-840e-8dc1-b2431fc94441",
+      "lineAddress": "5d65b406-a2b2-84f7-81fd-5c2ad303540f",
+      "address": "0349b1a6-55ba-8301-b15f-91809b601046",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "e784456a-ae2a-8bf0-99a5-cc51b3a03b72",
-      "address": "83cdd824-c1f2-8efb-a984-e2cc963f9528",
+      "lineAddress": "e97bfe16-5220-8e10-8a3f-b8915bf30c9f",
+      "address": "39a289d9-b851-84e8-a8e8-ef0fe3742990",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -7926,6 +7926,36 @@
       "principle": "The release anthem"
     },
     {
+      "key": "one_source_is_exactly_one",
+      "lineAddress": "5e5d96e5-7cfd-8c7d-9888-6da2c02b3600",
+      "address": "41c6b49a-a049-83a7-bff4-cfacfad9ae7c",
+      "principle": "One source, many surfaces"
+    },
+    {
+      "key": "surfaces_cost_one_fold",
+      "lineAddress": "00ae0803-398d-8201-91fa-947a9f631f39",
+      "address": "eb83b59e-573f-8004-92fa-7a659d6b8e4c",
+      "principle": "One source, many surfaces"
+    },
+    {
+      "key": "agreement_is_decided_by_address",
+      "lineAddress": "6eced948-6f5b-86c2-a110-646c77a696d8",
+      "address": "79a2e2bc-ea1d-890f-9b09-5aee6007369d",
+      "principle": "One source, many surfaces"
+    },
+    {
+      "key": "drift_needs_two_to_hide_in",
+      "lineAddress": "d4f84528-52cf-8324-b955-ab4f0ac061a7",
+      "address": "b05b9f8b-ea45-83a9-976b-f85f5a1f8942",
+      "principle": "One source, many surfaces"
+    },
+    {
+      "key": "the_singularity_is_the_dry_law_at_scale",
+      "lineAddress": "805289d5-ff9f-8ecd-8caf-e63283367411",
+      "address": "8a89a667-27b5-88be-8bcd-42deb9066820",
+      "principle": "One source, many surfaces"
+    },
+    {
       "key": "four_movements_are_the_tongues",
       "lineAddress": "e218241f-1635-86bc-bb2a-d847f244b8c1",
       "address": "8b99cb8f-6cca-8e23-a18d-d37f36c94957",
@@ -10020,7 +10050,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "354ac840-de34-872c-9b20-9efd81eeffa1",
+  "claim_receipt": "68685a00-3ab4-8dee-ba55-a19a4c9aefc7",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
