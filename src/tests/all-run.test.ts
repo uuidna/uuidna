@@ -33,3 +33,23 @@ test('the arc receipt is order-invariant across observers but moves with the ver
     'an arc missing a phase is a different act, and addresses as one')
   assert.match(arcReceipt(complete), /^[0-9a-f-]{36}$/, 'the arc folds to one address')
 })
+
+// ── IMPORTING THE ARC MUST NOT RUN THE ARC. The finder for the worst defect this file ever had.
+//
+// all-run.ts carried no main guard, so the `import { PHASES }` at the top of THIS FILE executed the whole arc —
+// and the arc's last phase is `ship`, which is deploy-run.js: contribute the coins, build the worker, push it to
+// the live edge. Writing the perfectly correct test above armed a production deploy on every run of the
+// tree-wide suite. It never fired only because the reconcile phase blocked on another session's writer lock and
+// died there first; the lock, built for a different hazard entirely, is the only reason a unit test did not ship.
+// So this test exists to make the guard structural rather than remembered.
+test('the arc is inert when IMPORTED — a module that ships when named is not a module', () => {
+  const src = readFileSync(join(ROOT, 'src/scripts/all-run.ts'), 'utf8')
+  // the guard itself, in the tree's own established shape (one-writer.ts and every other runner test argv[1])
+  assert.match(src, /const isMain = process\.argv\[1\]\?\.endsWith\('all-run\.js'\)/,
+    'all-run must gate its execution on being the invoked command')
+  assert.match(src, /if \(isMain\) \{\s*runArc\(\)/, 'and the arc body must run only under that gate')
+  // the control that makes this meaningful: the arc really does reach an irreversible outward act, so the
+  // guard is protecting something. If `ship` ever leaves PHASES this assertion should be revisited, not deleted.
+  assert.ok(PHASES.some((p) => p.name === 'ship' && p.cmd.includes('deploy-run')),
+    'the last phase is a real deploy — that is WHY the guard is load-bearing')
+})

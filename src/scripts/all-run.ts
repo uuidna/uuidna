@@ -42,6 +42,25 @@ if (process.argv.includes('--dry')) {
   process.exit(0)
 }
 
+// THE ARC RUNS ONLY WHEN IT IS THE COMMAND, NEVER WHEN IT IS AN IMPORT (2026-08-24).
+//
+// This file had no main guard, so every `import { PHASES } from './all-run.js'` EXECUTED the arc — and PHASES
+// ends in `ship`, which is `deploy-run.js`: contribute the coins, build the worker, push it to the live edge.
+// all-run.test.ts imports PHASES to assert the manifest states the order in SOURCE, which is exactly the right
+// test to write; merely writing it armed a production deploy on every run of the tree-wide suite. It never
+// fired only because the reconcile phase blocked on another session's writer lock and the arc died there
+// first — the lock, built for a different hazard, is the only reason a unit test did not ship the worker.
+//
+// A MODULE THAT DOES SOMETHING OUTWARD WHEN NAMED IS NOT A MODULE. Every other runner in this tree already
+// guards this way (one-writer.ts, gen-handle-chunks.ts and the rest test process.argv[1] against their own
+// filename); this one was the exception, and the exception is the one whose last phase is irreversible. The
+// guard costs a line and removes the entire class: importing gives you the manifest, running gives you the arc.
+const isMain = process.argv[1]?.endsWith('all-run.js') ?? false
+if (isMain) {
+  runArc()
+}
+
+function runArc(): void {
 console.log('all — THE ARC: deposit to origin to edge, one manifest, one receipt.\n')
 const leaves: string[] = []
 for (const p of PHASES) {
@@ -60,3 +79,4 @@ for (const p of PHASES) {
   }
 }
 console.log(`\n✓ all — THE ARC COMPLETE: ${PHASES.map((p) => p.name).join(' → ')}, folded to one receipt ${arcReceipt(leaves)}`)
+}
