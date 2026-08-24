@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000522174",
-   "completionPrice": "0.000001044348"
+   "promptPrice": "0.000000522",
+   "completionPrice": "0.000001044"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -1010,8 +1010,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "minimax/minimax-m2.7",
    "name": "MiniMax: MiniMax M2.7",
    "contextTokens": 204800,
-   "promptPrice": "0.00000024",
-   "completionPrice": "0.00000096"
+   "promptPrice": "0.0000003",
+   "completionPrice": "0.0000012"
   },
   {
    "id": "minimax/minimax-m3",

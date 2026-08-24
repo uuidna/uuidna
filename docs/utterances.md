@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="847 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="848 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 847 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 848 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `5f75080c` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `0671995b` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -553,10 +553,11 @@ mobility counts name their seals at the corners of the map
 the engine is deterministic and prefers the mate it can see
 ```
 
-**gate-all** — 11 utterances
+**gate-all** — 12 utterances
 
 ```text
 the plan is READ from the chain, so it cannot drift from what audit runs
+the manifest runner is a generator, though its name lacks the hyphen its children have
 the three classes are told apart by what a step DOES
 every failing CHECK is reported in a single pass
 read-only checks run CONCURRENTLY — the linear walk was the slowness
