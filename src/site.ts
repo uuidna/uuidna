@@ -63,7 +63,7 @@ const LABELS: Readonly<Record<string, string>> = {
   '/quantum': 'What quantum means', '/quantum-cryptography': 'Quantum Cryptography (course)',
   '/rosetta': 'Rosette rays', '/rosetta-glagolitic': 'The Glagolitic hypothesis', '/search': 'Search',
   '/publications': 'Publications', '/news': 'News (computed)', '/articles': 'Articles (computed)',
-  '/games': 'Games', '/song': 'The song ♪', '/anthem': 'The anthem ♪', '/referrer-song': 'The referrer song ♪', '/symphony': 'The ledger symphony ♪', '/school': 'The school', '/store': 'The store 🛍', '/tools': 'School tools 🛠', '/reading-room': 'Reading room 📖', '/apps': 'The app store ◆', '/open-questions': 'Open questions ◯', '/evasion': 'The evasion ticker ▤', '/terminal': 'The terminal ⌨', '/mcp': 'MCP tools', '/chat': 'Chat', '/books': 'Books',
+  '/games': 'Games', '/song': 'The song ♪', '/anthem': 'The anthem ♪', '/referrer-song': 'The referrer song ♪', '/symphony': 'The ledger symphony ♪', '/school': 'The school', '/store': 'The store 🛍', '/tools': 'School tools 🛠', '/reading-room': 'Reading room 📖', '/apps': 'The app store ◆', '/open-questions': 'Open questions ◯', '/evasion': 'The evasion ticker ▤', '/utterances': 'The utterances ❝', '/patents': 'The patents faculty ⚙', '/terminal': 'The terminal ⌨', '/mcp': 'MCP tools', '/chat': 'Chat', '/books': 'Books',
   '/guides': 'Guides', '/quantum-messaging': 'Quantum messaging', '/dimensions': 'Reading dimensions ◈',
   '/captain': "The captain's coins", '/doctrine': 'The doctrine', '/succession': 'Succession',
   '/captain-claims': 'Captain claims', '/tests': 'The tests', '/analytics': 'Analytics', '/deploy': 'Deploy',

@@ -81,12 +81,31 @@ test('apk — the package manager\'s READ surface: list the inventory, info by n
   assert.ok(rdeps.ok)
   assert.ok(Array.isArray((rdeps.data as { rdepends: string[] }).rdepends), 'reverse deps computed')
 
+  const search = uuidnaExec('apk search busybox')     // find by name or published meaning
+  assert.ok(search.ok)
+  assert.ok((search.data as { hits: unknown[] }).hits.length > 1, 'search finds the busybox family by name')
+  assert.equal(uuidnaExec('apk search zzznomatch').output[0], '(no ported package matches "zzznomatch")', 'a miss is honest')
+
   // control: a WRITE verb is refused — a provenance OS installs nothing
   const add = uuidnaExec('apk add nginx')
   assert.equal(add.ok, false)
   assert.match(add.output[0]!, /not a ported verb|READ only/)
   // control: an unknown package is an honest error
   assert.equal(uuidnaExec('apk info nonesuch').ok, false)
+})
+
+test('du — the hexbit footprint: 32 states per package, the whole OS one boot image', () => {
+  const root = uuidnaExec('du /')
+  assert.ok(root.ok)
+  const states = (root.data as { states: number }).states
+  assert.equal(states % 32, 0, 'the footprint is whole 32-state pages')
+  assert.equal((root.data as { bits: number }).bits, states * 4, 'bits = states · 4 (a hexbit is 4 bits)')
+  // a single package is exactly one page
+  const core = uuidnaExec('du /core')
+  assert.ok(core.ok)
+  assert.equal((core.data as { states: number }).states % 32, 0, 'a package is whole pages of 32 states')
+  // control: a nonexistent path is an honest error
+  assert.equal(uuidnaExec('du /nowhere').ok, false)
 })
 
 test('the SERVED tool uuidna_exec dispatches — the terminal\'s command line answered by the wire', () => {

@@ -1,0 +1,59 @@
+# AUTOMATE RELEASE, TEN DIMENSIONS GREEN (lead 99, the captain's order 2026-08-24: "automate release in github
+# tested for 100% coverage of all 10 dimensions"). On a version tag the FULL gate runs — the kernel re-proves
+# every theorem (UUIDNA_PROVE_ALL=1), the audit walks its whole chain, and inside it the DIMENSIONAL GATE: the
+# fusion census enumerates all 2^10 = 1024 subsets of the ten RFC 9562 schemas and asserts Pascal's row exactly
+# (generate.js exits 1 on any drift — theorem uuid_mix_census_is_quantum). Only a tree that survives ALL of it
+# may ship. THE DEPLOY STEP is present and guarded: it runs when the repository holds CLOUDFLARE_API_TOKEN +
+# CLOUDFLARE_ACCOUNT_ID as secrets (queue 0b — the captain pastes them once and "computed, not typed" becomes
+# true through DELIVERY); until then the job reports the gap honestly and the tag still proves the tree. The
+# two-chain Zenodo minting (publish.yml) is untouched — this workflow adds the site's own delivery, nothing else.
+name: release
+on:
+  push:
+    tags: ['v*']
+  workflow_dispatch: {}
+
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  # THE WHOLE GATE — kernel, audit chain, dimensional census, tests: the tag ships only what survives everything.
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with: { node-version: 22, cache: npm }
+      - name: install exact (lockfile law)
+        run: npm ci
+      - name: install lean toolchain
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: "the full gate — kernel re-proof, audit chain, the 1024-subset dimensional census"
+        run: UUIDNA_PROVE_ALL=1 npm run audit
+
+  # THE DELIVERY — guarded on the secrets the captain holds; absent, the gap is REPORTED, never hidden.
+  deploy:
+    needs: gate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - name: build the site
+        run: npm run docs:build
+      # secrets are not readable in `if:` — the lawful door is env (an expression over secrets IS allowed there)
+      - name: deploy to Cloudflare (runs only when the secrets exist)
+        env:
+          HAS_CF: ${{ secrets.CLOUDFLARE_API_TOKEN != '' }}
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ "$HAS_CF" = "true" ]; then npx wrangler deploy
+          else echo "::notice::release gate PASSED but the site was not deployed — CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are not set (queue 0b: the captain's paste closes this gap forever)"; fi

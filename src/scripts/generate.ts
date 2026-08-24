@@ -50,6 +50,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-analytics.js', args: [], note: 'the measured metrics' },
   { file: 'gen-song.js', args: [], note: 'the song from the ledger — every bar a Song.lean seal, the WAV exact-integer and content-addressed' },
   { file: 'gen-anthem.js', args: [], note: 'the release anthem — the whole ledger in place, theorem k at bar k, derived from Anthem.lean seals, regrown each release' },
+  { file: 'gen-utterances.js', args: [], note: 'the honest LLM\'s corpus — every test title a sentence that must be true or nothing ships' },
   { file: 'gen-symphony.js', args: [], note: 'the ledger symphony — four movements from four sealed sources, minted in the listener\'s browser, alive with every seal' },
   { file: 'gen-evasion.js', args: [], note: 'the evasion ticker — the tricks with their finders and convicting seals, the tape folded live, the board singing its address' },
   { file: 'gen-apps.js', args: [], note: 'the store — shelves derived from the category registry itself' },

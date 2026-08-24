@@ -773,7 +773,10 @@ export function negationGaps(): Gap[] {
     /\/theorem\/[a-z0-9_]+|theorem\s+[a-z][a-z0-9_]{4,}/i.test(ctx) ||
     [...ctx.matchAll(/\b([a-z][a-z0-9_]{6,})\b/g)].some((m) => keys.has(m[1]))
   for (const f of readdirSync(join(ROOT, 'docs')).filter((n) => n.endsWith('.md'))) {
-    const txt = fileText(join(ROOT, 'docs', f))
+    // USE VERSUS MENTION, the fence arm (the count-pin finder's precedent): a fenced code block is QUOTED DATA —
+    // a boundary phrase inside it is the quoted text's own scope, not this page's claim. The utterances corpus
+    // (758 test titles, each with its honest "never a…") taught this finder what the hex-literal taught that one.
+    const txt = fileText(join(ROOT, 'docs', f)).replace(/```[\s\S]*?```/g, (b) => ' '.repeat(b.length))
     for (const m of txt.matchAll(NEG)) {
       const at = m.index ?? 0
       if (pointed(txt.slice(at < REACH ? 0 : at - REACH, at + REACH))) continue

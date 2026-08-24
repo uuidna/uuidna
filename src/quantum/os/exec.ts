@@ -82,13 +82,13 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'cat', 'which', 'stat', 'pwd', 'echo', 'apk', 'help'] as const
+export const APPLETS = ['ls', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'apk', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
 
 /** the apk sub-verbs uuidna ports — the package manager's READ surface only: list the inventory, show a package
- *  by NAME, query its dependencies forward and back. NEVER add/del/update — a provenance OS installs nothing
- *  (theorem the_os_is_bootable_quantum); the sealed mirror IS the installed world, queried, never mutated. */
-export const APK_VERBS = ['list', 'info', 'depends', 'rdepends'] as const
+ *  by NAME, search it, query its dependencies forward and back. NEVER add/del/update — a provenance OS installs
+ *  nothing (theorem the_os_is_bootable_quantum); the sealed mirror IS the installed world, queried, never mutated. */
+export const APK_VERBS = ['list', 'info', 'search', 'depends', 'rdepends'] as const
 
 /** resolve a package by name (busybox) or by route (/terminal); the two directions `which` walks. */
 const specByName = (name: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => s.name === name)
@@ -154,6 +154,21 @@ export function uuidnaExec(line: string): ExecResult {
       emit([text], { text, address: addr, hexbits: compileToHexbits(addr) })
       break
     }
+    case 'du': {                                                     // disk usage, the quantum way: the hexbit footprint (compiled states)
+      const p = norm(args[0] ?? '/')
+      if (p === '/') {                                               // the whole OS: the boot image = every package's page + the receipt page
+        const b = os.port.boot
+        emit([`${b.count}\tstates  (${b.count / 32} pages · ${b.count * 4} bits)  /`],
+          { path: '/', states: b.count, pages: b.count / 32, bits: b.count * 4, address: b.address })
+      } else {
+        const under = specs.filter((s) => { const r = norm(s.route); return r === p || r.startsWith(p + '/') })
+        if (!under.length) { err(`du: ${p}: no such path in the virtual OS`); break }
+        const states = under.length * 32                             // each package compiles to exactly 32 states (128 bits)
+        emit([`${states}\tstates  (${under.length} package${under.length > 1 ? 's' : ''} · ${states * 4} bits)  ${p}`],
+          { path: p, packages: under.length, states, bits: states * 4 })
+      }
+      break
+    }
     case 'apk': {                                                    // the package manager — READ surface only, over the sealed mirror
       const verb = args[0] ?? ''
       const name = args[1] ?? ''
@@ -166,6 +181,13 @@ export function uuidnaExec(line: string): ExecResult {
         emit([`${s.name}-${s.version} description:`, `  ${s.meaning}`, `${s.name}-${s.version} webpage:`, `  ${s.route}`,
           `${s.name}-${s.version} depends on:`, ...(s.deps.length ? s.deps.map((d) => '  ' + d) : ['  (none)'])],
           { name: s.name, version: s.version, route: s.route, meaning: s.meaning, checksum: s.checksum, deps: s.deps, address: s.address })
+      } else if (verb === 'search') {                                // find packages by name or published meaning
+        const q = name.toLowerCase()
+        if (!q) { err('apk search: a search term is required, e.g. `apk search shell`'); break }
+        const hits = specs.filter((s) => s.name.toLowerCase().includes(q) || s.meaning.toLowerCase().includes(q))
+          .sort((a, b) => (a.name < b.name ? -1 : 1))
+        emit(hits.length ? hits.map((s) => `${s.name}-${s.version}  ${s.meaning}`) : [`(no ported package matches "${name}")`],
+          { query: name, hits: hits.map((s) => ({ name: s.name, route: s.route })) })
       } else if (verb === 'depends') {                               // forward deps — what this package pulls in
         const s = specByName(name, specs)
         if (!s) { err(`apk depends: ${name}: not a ported package`); break }
@@ -178,8 +200,9 @@ export function uuidnaExec(line: string): ExecResult {
       break
     }
     case 'help': emit(['applets: ' + APPLETS.join(' '),
-      'ls <path> · cat <route> · which <name|route> · stat <path> · pwd · echo <text>',
-      'apk list · apk info <name> · apk depends <name> · apk rdepends <name>  (read-only — installs nothing)',
+      'ls <path> · cat <route> · which <name|route> · stat <path> · du <path> · pwd · echo <text>',
+      'apk list · apk info <name> · apk search <term> · apk depends <name> · apk rdepends <name>  (read-only — installs nothing)',
+      'du reports the HEXBIT FOOTPRINT (32 states = 128 bits per package); the whole OS is one boot image',
       'the whole toolbox is uuidna\'s own logic over the virtual OS — no binary is ever run'],
       { applets: APPLETS, apk: APK_VERBS }); break
     case '': err('exec: empty command — try `help`'); break
