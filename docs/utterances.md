@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="853 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="918 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 853 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 918 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `3b9c8c0e` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `7f720663` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -553,11 +553,12 @@ mobility counts name their seals at the corners of the map
 the engine is deterministic and prefers the mate it can see
 ```
 
-**gate-all** — 12 utterances
+**gate-all** — 14 utterances
 
 ```text
 the plan is READ from the chain, so it cannot drift from what audit runs
 the manifest runner is a generator, though its name lacks the hyphen its children have
+a step is classified by what it RUNS — 'npm run <name>' is resolved through the manifest
 the three classes are told apart by what a step DOES
 every failing CHECK is reported in a single pass
 read-only checks run CONCURRENTLY — the linear walk was the slowness
@@ -568,6 +569,7 @@ an all-green chain reports no failures and never aborts
 pool honours its limit and preserves result order
 every instrument names the arms it voids, and the invisible one is covered
 labels stay short enough to read as a table
+an ENVIRONMENT PREFIX is not part of the command — the third costume of one mistake
 ```
 
 **gate-paths** — 4 utterances
@@ -693,7 +695,7 @@ CONTROL — a non-hexbit character is refused by name, never guessed at
 the reading round-trips — the words point back to the states that made them
 ```
 
-**host** — 8 utterances
+**host** — 10 utterances
 
 ```text
 resolveShell — a POSIX host gets sh; the recipe runs one command string
@@ -702,6 +704,8 @@ resolveShell — the recipe carries the environment that makes the shell a WHOLE
 capacity — measured, never assumed, and it always leaves the machine room to breathe
 hostProfile — the reading moves between hosts, the fold does not move on one
 childProbe — every host has a way to ask, and "none" never reads as "one"
+parentProbe — every host has a way to walk UP, and "no answer" never reads as a parent
+parentProbe finds the REAL parent of THIS process — the recipe is run, not merely described
 loadMeasurable — the one host whose load average is a permanent zero is named as unmeasured
 speedup — an exact integer ratio in hundredths, and zero rather than a number it did not earn
 ```
@@ -718,7 +722,7 @@ the OS is bootable quantum — the boot image is the compiled specs in boot orde
 the receipt is stable, recomputable, and CHANGE-SENSITIVE — the instrument can fail
 ```
 
-**lanes** — 5 utterances
+**lanes** — 6 utterances
 
 ```text
 a lane is decided by the address, so the same work lands in the same place every run
@@ -726,6 +730,7 @@ THE BALANCE IS MEASURED ON THE LIVE LEDGER, not hoped for
 poolByHandle returns results in the ORIGINAL order, whatever lane ran them
 the GPU lane carries the MEASUREMENT that decided it, not an opinion about chips
 the trinity seats exactly one empty chair, and it claims nothing
+the handle units are hexbit\
 ```
 
 **laws** — 1 utterances
@@ -869,6 +874,17 @@ CONTROL — a tampered envelope refuses: the reader can fail, so its acceptances
 the form is stated, so a receiver never has to guess the reading order
 ```
 
+**microdata** — 6 utterances
+
+```text
+EVERY figure carries its class and its source — no bare numbers leave the report
+the emitted node passes the SAME vocabulary gate seo.ts and gen-feed.ts pass
+THE GATE BITES — an unvetted term is refused, so the audit is not decorative
+every vetted term resolves to a real schema.org URL, not a plausible-looking one
+identity follows the RECEIPT, so the same report reseals and a changed one does not
+a dimensionless figure OMITS the unit rather than sending an empty one
+```
+
 **models** — 3 utterances
 
 ```text
@@ -911,10 +927,12 @@ a holder with a live child reads WORKING, and the same holder reads not-working 
 a pid that cannot have children answers no rather than throwing
 ```
 
-**one-writer** — 9 utterances
+**one-writer** — 11 utterances
 
 ```text
 one writer wins; a STRANGER is refused with the holder NAMED (a descendant passes — that is reentrancy)
+reentrancy is the WALK, not just the holder: a descendant a REAL HOP away passes
+the ppid walk is paid for ONCE — a refusal loop must not spawn a process table per poll
 a dead holder is stale by pid-liveness — reclaimed on the next acquire, no clock consulted
 only the holder releases; releasing a live stranger\
 a corrupt lock file never wedges the tree
@@ -931,6 +949,23 @@ CONTROL — a holder that IS working EXTENDS past the ceiling, and the lane is t
 placement is deterministic and one shared word is not a topic
 the involution magnets are involution-shaped, every one
 topics group and sort with the frontier last
+```
+
+**os-apps** — 12 utterances
+
+```text
+every harmony rule names a skill the ledger actually has sealed theorems for
+an app whose declared purpose the ledger has arithmetic for is harmonised
+THE REFUSALS — every one of these was a real false positive against the live index
+an ordinary package with no sealed arithmetic behind it harmonises with NOTHING
+subpackage variants fold to their project, so a tally counts things and not publications
+a ported app is an identity — deterministic address, uuidna/<name>, 32 hexbit states
+a harmonised app carries a witness that IS in the ledger; an unharmonised one carries null, not a guess
+the catalogue counts packages AND projects, and reports the unharmonised majority
+the catalogue root is ORDER-INVARIANT — two readers of the same index get the same proof of the set
+the honest scope travels in the catalogue, not only in a comment
+A TWO-MEMBER GZIP IS READ TO THE END — the shape APKINDEX.tar.gz actually has
+the decoder returns EMPTY rather than a wrong answer when the member is not there
 ```
 
 **os-exec-run** — 8 utterances
@@ -1096,6 +1131,57 @@ the gate BITES a fabricated citation — a note that invents a proof is refused
 editing is re-addressing — a revision re-fingerprints, and an edit that overreaches is refused
 similarity is derived from difference — pattern recognition, inclusion–exclusion exact
 a proof-backed sentence keeps its strong words — backing clears the gate
+```
+
+**quantum-advantage** — 16 utterances
+
+```text
+every level that was measured produces a row, in the datapath order
+A LEVEL THAT WAS NOT MEASURED IS DROPPED, NEVER DEFAULTED — and the report says it is incomplete
+a measurement of zero measured NOTHING, so it is refused rather than rendered as a perfect score
+REACH IS DECLARED, COST AND FIDELITY ARE MEASURED — the classes never collapse into one
+THE SEALED COST IS THE DECADE, NOT THE RAW TIMING — the row carries no figure that drifts
+ops-per-second is DERIVED from the cost decade, so the two can never disagree
+fidelity is stated as a BOUND over its own denominator, never as a proof of zero
+the baseline is REPORTED and its expectation is COMPUTED from the same op count
+EVERY ROW CITES A SEALED THEOREM BY KEY, so the gate can read the claim it publishes
+the report receipt follows the HOST as well as the rows — two machines cannot share one seal
+the honest scope survives in the report itself, not only in a comment
+THE SEAL IS WARRANTED BY AGREEMENT, NOT BY A THRESHOLD — split estimates are refused
+ONE estimate is trivially unanimous, so it does not count as agreement
+the row carries the AGREEMENT as its warrant — margin and spread stay computable but unsealed
+marginOf measures distance to the NEARER boundary, in exact integer hundredths
+the integer ratio helpers hold no float
+```
+
+**quantum-dispatch** — 9 utterances
+
+```text
+a claim that cites its own sealed witness is dispatched as a quantum message
+THE LAUNDERING CASE — a real sealed witness the claim does not cite is REFUSED
+a claim citing a proof that is NOT in the ledger is drained
+a claim citing NOTHING is refused — an uncited boast is not publishable as witnessed
+dispatch NEVER throws — a generator holding a half-built derived layer gets data, not a crash
+ONE REFUSAL SHUTS THE WHOLE WRITE — a report may not silently drop the line it could not back
+a clear run reports clear, and its refusal report is empty rather than noisy
+the run receipt is deterministic and moves with the claims
+"verified" is stated as backing, never as endorsement
+```
+
+**quantum-driver** — 11 utterances
+
+```text
+every witness in the battery cites a theorem that IS sealed in the ledger
+the sealed quantum algebra executes EXACTLY on this host — every witness, zero disagreements
+THE BATTERY BITES — a witness whose code is wrong is COUNTED, not smoothed away
+A WITNESS CITING AN UNSEALED THEOREM IS REFUSED BEFORE IT RUNS — and never enters the count
+a shrinking battery shows up as a shrinking COUNT, not as an unchanged green verdict
+sweeps multiply the executions and the bound, and the count travels with the claim
+the device is THIS host, folded — recomputable rather than asserted
+the device never claims to be quantum — the honest scope is IN the record, not around it
+EVERY LEVEL PROBE MEASURES ITS OWN LEVEL — a pass does many units, and only that level\
+every level probe agrees with the sealed values it checks
+the ledger probe re-addresses theorems from the SAME preimage the ledger sealed them with
 ```
 
 **quantum-message-encoding** — 5 utterances
@@ -1445,6 +1531,15 @@ every gated file is sealed by spin
 an EMPTY manifest refuses, rather than agreeing with everything
 a DIRECTORY entry seals every file beneath it
 a sealed manifest still detects a tampered file, and passes an intact one
+```
+
+**steady-state** — 4 utterances
+
+```text
+THE COLD PASS IS NOT THE OUTLIER — the theory this module was first built on, refuted and kept refuted
+THE DECADE REPRODUCES — the property the sealed layer needs and did not have
+A MEMOISED SWEEP IS CAUGHT — the estimator must not be allowed to converge on a cache
+the floor is never above the mean — the estimator picks the host, not the mood
 ```
 
 **stream-step** — 3 utterances

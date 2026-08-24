@@ -3,8 +3,8 @@
 **Generated:** 2026-08-24
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1689/1689 theorems — every one, by construction
-**Claim receipt:** `ca8e492a-ac92-82bb-958d-13915b09ea77`
+**Total claimed:** 1690/1690 theorems — every one, by construction
+**Claim receipt:** `d9e77bed-7f9f-8756-a09d-dbd138e03b1c`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -916,12 +916,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The installs
 
-- **Theorems:** 11
+- **Theorems:** 12
 - **Sample lineAddress:** `ccc4cb34-1f6f-8472-a51c-c8955c6e47e4`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed) · [every_install_and_its_path_named_once](/theorem/every_install_and_its_path_named_once) · [home_is_the_meta_package](/theorem/home_is_the_meta_package) · [home_reaches_every_install](/theorem/home_reaches_every_install) · [the_port_rises_from_the_floor](/theorem/the_port_rises_from_the_floor) · [the_services_hold_each_other_up](/theorem/the_services_hold_each_other_up) · [the_terminal_is_the_toolbox](/theorem/the_terminal_is_the_toolbox) · [the_foundation_depends_on_nothing](/theorem/the_foundation_depends_on_nothing) · [every_path_carries_its_published_meaning](/theorem/every_path_carries_its_published_meaning) · [a_spec_compiles_to_hexbits](/theorem/a_spec_compiles_to_hexbits) · [the_os_is_bootable_quantum](/theorem/the_os_is_bootable_quantum)
+[default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed) · [every_install_and_its_path_named_once](/theorem/every_install_and_its_path_named_once) · [home_is_the_meta_package](/theorem/home_is_the_meta_package) · [home_reaches_every_install](/theorem/home_reaches_every_install) · [the_port_rises_from_the_floor](/theorem/the_port_rises_from_the_floor) · [the_services_hold_each_other_up](/theorem/the_services_hold_each_other_up) · [the_terminal_is_the_toolbox](/theorem/the_terminal_is_the_toolbox) · [the_foundation_depends_on_nothing](/theorem/the_foundation_depends_on_nothing) · [every_path_carries_its_published_meaning](/theorem/every_path_carries_its_published_meaning) · [a_spec_compiles_to_hexbits](/theorem/a_spec_compiles_to_hexbits) · [the_os_is_bootable_quantum](/theorem/the_os_is_bootable_quantum) · [the_install_set_names_the_bytes_it_rests_on](/theorem/the_install_set_names_the_bytes_it_rests_on)
 
 ### The isometry
 
@@ -1059,7 +1059,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1608 (1689 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1609 (1690 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1077,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1689 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1690 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
