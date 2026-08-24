@@ -36,6 +36,8 @@ const GENERATORS: Gen[] = [
   { file: 'gen-captain-claims.js', args: [], note: 'the captain claims' },
   { file: 'gen-reports.js', args: [], note: 'reports as accounting — computed from the ledger' },
   { file: 'gen-quantum-capacity.js', args: [], note: 'the quantum capacity report — every model one metric, uuidna measured live, sealed with receipt' },
+  { file: 'gen-expose.js', args: [], note: 'the discovery board — the live coordinates where clusters expose unsealed structure, one uuidna_expose call rendered' },
+  { file: 'gen-waves.js', args: [], note: 'the conveyor board — pending, accepted with seals, and the law school roster, from the queue\'s own record' },
   { file: 'gen-readme.js', args: [], note: 'the published capacity, every figure derived' },
   { file: 'gen-llm.js', args: [], note: 'llm.txt' },
   { file: 'gen-leads.js', args: [], note: 'leads.md' },
