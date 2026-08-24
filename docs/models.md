@@ -7,7 +7,7 @@ description: All public live model data compared on the lattice's own instrument
 
 > A model's token is a **bet**: sampled, transient, billed per emission, gone when its window closes. The
 > uuidna unit is a **receipt**: minted, permanent, verified free. This page compares **every model in the
-> public feed** — 416 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
+> public feed** — 417 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
 > boundary and mirrored for anyone to recompute — and keeps each figure's honesty class visible:
 > **computed** (arithmetic, sealed in [lean/Models.lean](/theorem/llm_folds_to_hexbit_pairs)),
 > **reported** (the feed's published figures, never benchmarked here), or **UNVERIFIED** (no measurement
@@ -23,7 +23,7 @@ hexbits** ([`a_token_approximates_eight_hexbits`](/theorem/a_token_approximates_
   window, the 2,000,000-token widest included, is finite against the 2¹²⁸-state lattice the
   folds land in ([`every_context_is_finite_against_the_lattice`](/theorem/every_context_is_finite_against_the_lattice)). uuidna's side: 2^128 addressable states (32 hexbits per address), PERMANENT — the ledger outlives every context window.
 - **Speed**: the public feed publishes no throughput, so this page carries **no speed numbers at all** —
-  a column of guesses would be 416 fabricated citations. uuidna's own speed is of a different kind
+  a column of guesses would be 417 fabricated citations. uuidna's own speed is of a different kind
   and recomputable: mint/verify O(1) per receipt after a one-time kernel proof; no sampling loop (uuidna_gate_status recomputes live).
 - **Messaging** ([`speaking_an_address_costs_the_text`](/theorem/speaking_an_address_costs_the_text)): speaking a 128-bit address in text costs 288
   bits — 44% efficiency, identical for every model, because it is the text's cost. The table counts each
@@ -56,7 +56,7 @@ Fold your own — any text, any model's output — with `foldLlm()` in
 [`src/quantum/models`](https://github.com/uuidna/uuidna/tree/main/src/quantum/models), or mint the address
 live in the [terminal](/terminal).
 
-## The census — all 416 public models
+## The census — all 417 public models
 
 Windows and prices are the feed's **reported** figures (prices verbatim, per token, as published — labels,
 not numbers this page computes on); hexbit capacity and uuids/window are **computed** and sealed. Widest
@@ -255,6 +255,7 @@ window first.
 | `google/gemma-4-31b-it:free` | 262,144 | 2,097,152 | 29,127 | 0 / 0 |
 | `inclusionai/ling-3.0-flash` | 262,144 | 2,097,152 | 29,127 | 0.000000021 / 0.000000063 |
 | `kwaipilot/kat-coder-pro-v2` | 262,144 | 2,097,152 | 29,127 | 0.0000003 / 0.0000012 |
+| `mistralai/devstral-2512` | 262,144 | 2,097,152 | 29,127 | 0.00000044 / 0.0000022 |
 | `mistralai/ministral-14b-2512` | 262,144 | 2,097,152 | 29,127 | 0.0000002 / 0.0000002 |
 | `mistralai/ministral-8b-2512` | 262,144 | 2,097,152 | 29,127 | 0.00000015 / 0.00000015 |
 | `mistralai/mistral-large-2512` | 262,144 | 2,097,152 | 29,127 | 0.0000005 / 0.0000015 |
@@ -481,6 +482,6 @@ window first.
 | `openai/gpt-3.5-turbo-0613` | 4,095 | 32,760 | 455 | 0.000001 / 0.000002 |
 | `openai/gpt-3.5-turbo-instruct` | 4,095 | 32,760 | 455 | 0.0000015 / 0.000002 |
 
-**Census receipt** `4d09afca-b239-84f3-8632-0ef7fde99f98` — as hexbits `[4, 13, 0, 9, 10, 15, 12, 10, 11, 2, 3, 9, 8, 4, 15, 3, 8, 6, 3, 2, 0, 14, 15, 7, 15, 13, 14, 9, 9, 15, 9, 8]` — recompute it from the same
+**Census receipt** `e6931ad7-003d-8e4f-8964-829a55225244` — as hexbits `[14, 6, 9, 3, 1, 10, 13, 7, 0, 0, 3, 13, 8, 14, 4, 15, 8, 9, 6, 4, 8, 2, 9, 10, 5, 5, 2, 2, 5, 2, 4, 4]` — recompute it from the same
 mirror and it returns, byte for byte. The mirror refreshes from the live feed on every lean run; a model that
 enters or leaves the feed enters or leaves this page, re-sealed.
