@@ -19,6 +19,11 @@ if [ $green -ne 0 ]; then
   exit $green
 fi
 
+# THE RECEIPT IS WRITTEN WHERE IT WAS EARNED (lead 121a): green just proved tests and guard on exactly this
+# tree, so the fingerprint is minted here and the full gate verifies it at O(1) instead of recomputing — one
+# byte of drift between here and there fails --verify and the gate runs everything in full.
+node dist/scripts/gate-receipt.js || echo "pre-push: the receipt could not be minted — the full gate will recompute in full (nothing hidden, nothing skipped)"
+
 echo "pre-push: running the readiness gate (npm run next) — a failing gate blocks the push."
 npm run next
 status=$?
