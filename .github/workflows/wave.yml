@@ -1,0 +1,65 @@
+# AUTOMATE ALL — THE CONVEYOR GETS ITS CLOCK (the captain's order, 2026-08-24: "automate all"). Every other
+# repeating act in this tree already runs itself: the port checks Alpine daily (port.yml), the desk researches
+# (research.yml), the tag proves and delivers (release.yml), the push proves the tree (deploy.yml). The one
+# remaining hand-typed loop was THE WAVE — convey the queue, lift the cargo, prove, guard, reconcile to origin —
+# which `npm run wave` already folds into one command (wave-run.js, the queue-holder's build). This workflow is
+# that command's clock.
+#
+# WHAT IT DOES NOT DO, ON PURPOSE:
+#   · It does not DEPLOY. Delivery is the captain's word (queue 0b); release.yml carries it, tag-gated.
+#   · It does not INVENT. wave-run only conveys what the queue already holds and what the generators derive —
+#     no new claim enters the ledger from a cron, because a seal needs an author who can answer for it.
+#   · It does not RACE. The one-writer law is wave-run's own: a held tree is waited out, never forced, and the
+#     concurrency group below means two waves never overlap even across dispatch and schedule.
+#   · It does not CENSOR. wave-run prints every sub-step in full, pass or fail (lead 120) — and a failed wave
+#     leaves the tree exactly where the gate stopped it, with the charge sheet in the run log.
+# THE SCHOOL'S CLOCK STAYS HUMAN by its own note (school.yml is dispatch-only, deliberately) — this is the
+# CONVEYOR's clock, not the school's, and the distinction is the point: machinery may run itself; teaching waits
+# for a teacher.
+name: wave
+on:
+  schedule:
+    # twice a day, offset off the hour so it never lands inside another workflow's minute
+    - cron: '41 7 * * *'
+    - cron: '41 19 * * *'
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: 'Report what the wave would convey, and stop before the reconcile'
+        type: boolean
+        default: false
+
+concurrency:
+  group: wave
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  wave:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v7
+        with: { node-version: 22, cache: npm }
+      - name: install exact (lockfile law)
+        run: npm ci
+      - name: install lean toolchain (the kernel signs what the wave lifts)
+        run: |
+          curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: identify the runner as itself (a commit's author must be nameable)
+        run: |
+          git config user.name  'uuidna wave'
+          git config user.email 'wave@uuidna.com'
+      - name: "the wave — convey, lift, prove, guard, reconcile (uncensored: every sub-step prints in full)"
+        env:
+          DRY: ${{ inputs.dry }}
+        run: |
+          if [ "$DRY" = "true" ]; then npm run state; echo "::notice::dry wave — state reported, nothing conveyed"; exit 0; fi
+          npm run wave
+      - name: name the outcome (a silent runner is a runner nobody can audit)
+        if: always()
+        run: npm run state || echo "::warning::state unreadable — the wave stopped before the tree settled"
