@@ -1,0 +1,90 @@
+# AUTOMATE PORT UPDATES — the Alpine port keeps itself current, gate-verified (the captain's order, 2026-08-24;
+# "always alpine latest"). Once a day a CHEAP check reads Alpine latest-stable at the os/ boundary and asks the
+# PURE portDelta comparator whether the pinned mirror still IS latest. On a quiet day (the common case — stable
+# Alpine moves ~twice a year) it costs one fetch and stops. Only when upstream actually MOVED does the expensive
+# job run: UUIDNA_TRACK_LATEST=1 reconcile — lean-installs rewrites the mirror from the SAME upstream read,
+# regenerates the whole derived layer (uuidna_ls / exec / registry / port follow, they all read defaultInstalls),
+# re-proves every theorem, re-seals, and pushes ONLY if the gate accepts. The two-handle law holds: the mirror is
+# deterministic upstream data, so the computing handle may follow it; nothing of meaning is minted. Nothing is
+# installed, linked, or run — the port is of the INTEGRITY and MEANING (theorem the_os_is_bootable_quantum).
+name: port
+on:
+  schedule:
+    - cron: '23 5 * * *'
+  workflow_dispatch:
+    inputs:
+      force_reconcile:
+        description: 'Run the reconcile even if the check reports the port already current'
+        type: boolean
+        default: false
+
+concurrency:
+  group: port-update
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  # THE CHEAP CHECK — one fetch, one pure comparison, no Lean. Decides whether the port moved.
+  check:
+    runs-on: ubuntu-latest
+    outputs:
+      stale: ${{ steps.freshness.outputs.stale }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+      - name: Build
+        run: npm run build
+      - name: FRESHNESS — the pinned port vs Alpine latest-stable, decided by the pure comparator
+        id: freshness
+        env:
+          UUIDNA_TRACK_LATEST: '1'
+        run: |
+          set -uo pipefail
+          node dist/scripts/port-update.js
+          code=$?
+          if [ "$code" -eq 0 ]; then
+            echo "stale=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::the pinned Alpine port is already current — nothing to update"
+          elif [ "$code" -eq 1 ]; then
+            echo "stale=true" >> "$GITHUB_OUTPUT"
+            echo "::notice::Alpine moved — the port is stale; the reconcile job will open the update"
+          else
+            echo "::error::port-update failed with exit $code (upstream unreachable or the pin is incoherent) — see the log"
+            exit "$code"
+          fi
+
+  # THE GATED UPDATE — runs ONLY when the check found the port stale (or a human forced it). Full reconcile with
+  # Lean, so the refreshed mirror is re-proven and re-sealed before it can land.
+  update:
+    runs-on: ubuntu-latest
+    needs: check
+    if: needs.check.outputs.stale == 'true' || (github.event_name == 'workflow_dispatch' && inputs.force_reconcile)
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+      - name: Install Lean (elan, toolchain pinned by lean-toolchain)
+        run: |
+          curl -sSfL https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
+          echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
+      - name: Warm the pinned toolchain
+        run: lean --version
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+      - name: RECONCILE — refresh the mirror from upstream, regenerate, re-prove, re-seal, and push if the gate accepts
+        env:
+          UUIDNA_TRACK_LATEST: '1'
+        run: |
+          git config user.name "uuidna-port"
+          git config user.email "port@uuidna.com"
+          npm run reconcile

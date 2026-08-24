@@ -166,6 +166,70 @@ export function installFor(route: string): InstallSpec | null {
   return defaultInstalls().specs.find((s) => s.route === route) ?? null
 }
 
+// ── AUTOMATE PORT UPDATES — the port keeps itself current, observably (the captain's order, 2026-08-24) ──────
+// The mirror already refreshes at the os/ boundary on every lean run (lean-installs, auto-discovered by lean-all)
+// and rewrites ONLY when upstream moved; every surface reads defaultInstalls() so a moved mirror updates them
+// all. What was missing was OBSERVABILITY and a DECIDABLE staleness test — a port update you cannot see or
+// verify is not automated, it is hoped. portStatus() is the offline, deterministic status of the pinned port;
+// portDelta(upstream) is the PURE comparator that decides whether an update is due and names exactly what moved
+// (the fetch happens at the boundary, outside these pure functions). Together they let one command — and one
+// MCP call — report the port and CATCH a stale pin, so the freshness becomes a signal instead of a silence.
+
+/** The pinned port at a glance — deterministic, offline, edge-clean: the release it is the world of, the package
+ *  count, the boot image's shape, the one receipt. This is the port made OBSERVABLE. */
+export interface PortStatus {
+  branch: string; repo: string; arch: string
+  release: { version: string; rootfsSha256: string }
+  count: number; routes: number; floor: string
+  receipt: string; bootReceipt: string; bootStates: number
+  honest: string
+}
+export function portStatus(): PortStatus {
+  const p = defaultInstalls()
+  return {
+    branch: p.branch, repo: p.repo, arch: p.arch, release: p.release,
+    count: p.count, routes: p.specs.length, floor: p.specs[0]!.id,
+    receipt: p.receipt, bootReceipt: p.boot.address, bootStates: p.boot.count,
+    honest: 'The pinned Alpine port made observable: the release the committed mirror is the world of, its package ' +
+      'count and boot shape, folded to one receipt. Integrity and provenance, never execution — the port is of the ' +
+      'INTEGRITY and MEANING of the packages, nothing installed, linked, or run (theorem the_os_is_bootable_quantum).',
+  }
+}
+
+/** One package's move between the pinned mirror and upstream. */
+export interface PortChange { name: string; from: string; to: string }
+/** The decidable answer to "is a port update due, and exactly what moved?" — PURE over a supplied upstream
+ *  mirror (the network read is the caller's, at the boundary). `current` is true iff nothing moved at all. */
+export interface PortDelta {
+  current: boolean
+  releaseFrom: string; releaseTo: string; releaseChanged: boolean
+  countFrom: number; countTo: number
+  changed: PortChange[]; added: string[]; removed: string[]
+  receipt: string
+}
+export function portDelta(upstream: InstallsMirror): PortDelta {
+  const pinned = INSTALLS_MIRROR
+  const key = (p: MirrorPackage): string => p.version + '|' + p.checksum
+  const pinnedMap = new Map(pinned.packages.map((p) => [p.name, p]))
+  const upMap = new Map(upstream.packages.map((p) => [p.name, p]))
+  const changed: PortChange[] = []
+  for (const [name, up] of upMap) {
+    const was = pinnedMap.get(name)
+    if (was && key(was) !== key(up)) changed.push({ name, from: key(was), to: key(up) })
+  }
+  const added = [...upMap.keys()].filter((n) => !pinnedMap.has(n)).sort()
+  const removed = [...pinnedMap.keys()].filter((n) => !upMap.has(n)).sort()
+  const releaseChanged = pinned.release.version !== upstream.release.version
+  changed.sort((a, b) => (a.name < b.name ? -1 : 1))
+  const current = !releaseChanged && changed.length === 0 && added.length === 0 && removed.length === 0
+  return {
+    current, releaseFrom: pinned.release.version, releaseTo: upstream.release.version, releaseChanged,
+    countFrom: pinned.count, countTo: upstream.packages.length, changed, added, removed,
+    receipt: toUuid('port-delta|' + pinned.release.version + '>' + upstream.release.version + '|' +
+      changed.map((c) => c.name + ':' + c.to).join(',') + '|+' + added.join(',') + '|-' + removed.join(',')),
+  }
+}
+
 // ── BOOT — every surface runs FROM uuidnaOS (the captain's order, 2026-08-23) ───────────────────────────────
 // Boot means what the seal means (the_os_is_bootable_quantum): the VERIFIED LOADING of the compiled default
 // install — never execution. bootOS() verifies the whole image and returns the ground a surface stands on;
