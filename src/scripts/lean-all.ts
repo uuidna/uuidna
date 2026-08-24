@@ -10,15 +10,18 @@
 // forces every spawn.
 //
 // WHAT THE CACHE CAN AND CANNOT PROMISE. A STALE entry is safe: the text moved, its address moved, the file
-// re-proves. A FORGED entry is not — proof-cache.json is committed and nothing validates it, so an entry naming
-// the current text's address makes this gate answer "verified by receipt" for text the kernel never signed.
-// The cure is not to trust the cache harder: the RELEASE consults no cache. `npm run audit` sets
-// UUIDNA_PROVE_ALL=1, so everything shipped is kernel-signed in that run. The cache is for local iteration.
+// re-proves. A FORGED entry was not — proof-cache.json is committed, and before the signed cache nothing
+// validated it, so an entry naming the current text's address made this gate answer "verified by receipt" for
+// text the kernel never signed. NOW (queue captain-item 4, the mechanism half): a host holding
+// UUIDNA_PROOF_KEY mints `address|hmac` entries and DISTRUSTS any entry unsigned or mis-signed — the forgery
+// is caught locally on keyed hosts. A keyless host keeps the weaker address-match floor, named; and the
+// RELEASE still consults no cache: `npm run audit` sets UUIDNA_PROVE_ALL=1, so everything shipped is
+// kernel-signed in that run regardless of any key.
 import { execSync } from 'node:child_process'
 import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { MAXBUF, readProofCache, writeProofCache } from './lean-gen.js'
+import { MAXBUF, readProofCache, writeProofCache, signProofEntry, proofEntryValid } from './lean-gen.js'
 import { toUuid } from '../address.js'
 import { ROOT } from './api.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
@@ -57,13 +60,13 @@ const cache = readProofCache()
 for (const f of HAND_WRITTEN) {
   const text = readFileSync(join(LEAN, f), 'utf8')
   const address = toUuid(text)
-  if (cache[f] === address && !process.env.UUIDNA_PROVE_ALL) {
+  if (proofEntryValid(cache[f], f, address) && !process.env.UUIDNA_PROVE_ALL) {
     console.log('✓ lean/' + f + ' — hand-written, verified by receipt (unchanged at ' + handleOf(address) + ')')
     continue
   }
   try {
     execSync('lean ' + JSON.stringify(join(LEAN, f)), { cwd: ROOT, stdio: 'inherit', maxBuffer: MAXBUF })
-    cache[f] = address
+    cache[f] = signProofEntry(f, address)
     writeProofCache(cache)
     console.log('✓ lean/' + f + ' — hand-written, verified sorry-free (receipt ' + handleOf(address) + ' cached).')
   } catch {

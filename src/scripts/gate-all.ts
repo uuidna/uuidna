@@ -32,7 +32,7 @@
 //                 These run alone, in chain order, after the fan-out.
 //
 //   node dist/scripts/gate-all.js [--dry] [-j N]   · --dry prints the classified plan without running it
-import { execFile } from 'node:child_process'
+import { execFile, execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { availableParallelism } from 'node:os'
 import { join } from 'node:path'
@@ -63,6 +63,19 @@ const TREE_TOUCHING: readonly RegExp[] = [
   /^git diff/,
 ]
 
+/** THE GATE HONORS ITS RECEIPTS (queue lead 121a, two-session quorum). The pre-push green gate proves tests
+ *  and guard on the exact tree being pushed, and writes gate-receipt.json fingerprinting the very inputs those
+ *  checks read (src + lean). deploy.yml already trusts that receipt instead of recomputing; this extends the
+ *  SAME checkable trust to the full gate: when --verify passes for the current tree, the steps the receipt
+ *  covers are verified by receipt, not re-run — prove once at O(N), verify at O(1)
+ *  (verify_beats_recompute_by_magnitudes). One byte moved and --verify fails, so everything runs in full: the
+ *  skip is never trust, always verification. Only the receipt's own covered checks qualify — the docs suite
+ *  and every generator read outside the fingerprint and always run. */
+const RECEIPT_COVERED: readonly RegExp[] = [
+  /^node --test dist\/tests\/\*\.test\.js$/,
+  /\bdist\/scripts\/guard\.js$/,
+]
+
 export type Kind = 'generator' | 'check' | 'serial-check'
 export interface Step { cmd: string; kind: Kind }
 export interface Verdict { cmd: string; kind: Kind; exit: number; out: string }
@@ -78,9 +91,13 @@ export function kindOf(cmd: string): Kind {
 export const plan = (auditScript: string): Step[] =>
   auditScript.split(' && ').map((c) => c.trim()).map((cmd) => ({ cmd, kind: kindOf(cmd) }))
 
-/** short label for a step, for the summary table. */
+/** short label for a step, for the summary table. A `node --test <glob>` step names its SUITE — the generic
+ *  strip used to eat everything after the first ` --`, so the 50-second main suite printed as bare "node": a
+ *  timing census with a stranger in it (lead 132b's cheapest fold — a report can only shrink what it names). */
 export const label = (cmd: string): string =>
-  cmd.replace('node dist/scripts/', '').replace(/\.js\b/, '').replace(/ --.*$/, '').replace(/^npm run /, 'npm:').slice(0, 46)
+  cmd.startsWith('node --test ')
+    ? ('test ' + cmd.replace('node --test ', '').replace(/\/\*.*$/, '')).slice(0, 46)
+    : cmd.replace('node dist/scripts/', '').replace(/\.js\b/, '').replace(/ --.*$/, '').replace(/^npm run /, 'npm:').slice(0, 46)
 
 /** run `thunks` with at most `limit` in flight, preserving result order. */
 export async function pool<T>(thunks: readonly (() => Promise<T>)[], limit: number): Promise<T[]> {
@@ -138,9 +155,18 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
     process.exit(0)
   }
 
+  // the receipt is consulted ONCE, against the tree as it stands when the gate begins
+  let receiptGood = false
+  try { execFileSync('node', ['dist/scripts/gate-receipt.js', '--verify'], { cwd: ROOT, stdio: 'pipe' }); receiptGood = true } catch { receiptGood = false }
+  if (receiptGood) console.log('gate-all — gate-receipt --verify PASSES for this tree: receipt-covered checks verify at O(1) (lead 121a)')
+
   console.log(`gate-all — ${count('generator')} generators in order, then ${count('check')} checks CONCURRENTLY (-j ${limit}), then ${count('serial-check')} alone …\n`)
   const started = Date.now()
   const { verdicts, aborted } = await runPlan(steps, (cmd) => new Promise((resolve) => {
+    if (receiptGood && matches(RECEIPT_COVERED, cmd)) {
+      console.log(`  ✓ ${label(cmd).padEnd(46)}      by receipt`)
+      return resolve({ exit: 0, out: 'verified by gate-receipt — the green gate proved this on the identical tree' })
+    }
     const t0 = Date.now()
     execFile('sh', ['-c', cmd], { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }, (err, stdout, stderr) => {
       const exit = err ? ((err as { code?: number }).code ?? 1) : 0

@@ -8,6 +8,7 @@ import { execSync } from 'node:child_process'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { toUuid } from '../address.js'
+import { hmacSha256 } from '../sha256.js'
 
 import { ROOT } from './api.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
@@ -26,6 +27,30 @@ export const writeProofCache = (c: Record<string, string>): void => {
   const sorted: Record<string, string> = {}
   for (const k of Object.keys(c).sort()) sorted[k] = c[k]!
   writeFileSync(CACHE_PATH, JSON.stringify(sorted, null, 1) + '\n')
+}
+
+// ── THE SIGNED PROOF CACHE (queue captain-item 4, the MECHANISM half — the policy flip stays the captain's).
+// The hole this closes: proof-cache.json is committed and nothing validated it, so an entry naming the current
+// text's address made the delta gate answer "verified by receipt" for text the kernel never signed. Now a mint
+// on a host holding UUIDNA_PROOF_KEY writes `address|hmac(key, file:address)` — and a KEY-BEARING host
+// DISTRUSTS any entry that is unsigned or mis-signed, re-proving instead. A keyless host keeps today's floor
+// (address match), honestly weaker; the release's UUIDNA_PROVE_ALL stays the final authority either way. The
+// key is a machine secret in the environment, never committed — only a real kernel run on a keyed host mints.
+const PROOF_KEY = process.env.UUIDNA_PROOF_KEY
+const utf8 = (s: string): Uint8Array => new TextEncoder().encode(s)
+const hexOf = (b: Uint8Array): string => Array.from(b, (x) => x.toString(16).padStart(2, '0')).join('')
+/** the entry a REAL kernel run mints: signed where the host holds the key, bare address where it does not. */
+export const signProofEntry = (file: string, address: string): string =>
+  PROOF_KEY ? address + '|' + hexOf(hmacSha256(utf8(PROOF_KEY), utf8(file + ':' + address))) : address
+/** may this entry stand for this file's current address? A key-bearing host requires the signature. */
+export const proofEntryValid = (entry: string | undefined, file: string, address: string): boolean => {
+  if (!entry) return false
+  const bar = entry.indexOf('|')
+  const addr = bar === -1 ? entry : entry.slice(0, bar)
+  if (addr !== address) return false                      // the text moved — always re-prove
+  if (!PROOF_KEY) return true                             // keyless: address match is the (weaker, named) floor
+  if (bar === -1) return false                            // keyed host, unsigned entry: distrust, re-prove
+  return entry.slice(bar + 1) === hexOf(hmacSha256(utf8(PROOF_KEY), utf8(file + ':' + address)))
 }
 export const m9 = (n: number): number => ((n % 9) + 9) % 9
 // range — THE ONE range walk every generator's js mirror shares. `(List.range n).all (…)` is the commonest shape
@@ -192,7 +217,7 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   // that wrote the file and then FAILED verification leaves a different text behind with the cache unmoved, so a
   // later correct run would match the cache, skip the write, and leave the bad file standing. Compare content.
   const onDisk = existsSync(leanPath) ? readFileSync(leanPath, 'utf8') : ''
-  if (cache[file] === address && onDisk === lean && existsSync(manifestPath) && !process.env.UUIDNA_PROVE_ALL) {
+  if (proofEntryValid(cache[file], file, address) && onDisk === lean && existsSync(manifestPath) && !process.env.UUIDNA_PROVE_ALL) {
     console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified by receipt (unchanged at ' + handleOf(address) + '; the kernel signed this exact text — UUIDNA_PROVE_ALL=1 re-proves)')
     return facts.length
   }
@@ -208,7 +233,7 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
     console.error('✗ lean/' + file + ' — Lean verification FAILED:\n' + (diag || String(e)))
     process.exit(1)
   }
-  cache[file] = address
+  cache[file] = signProofEntry(file, address)
   writeProofCache(cache)
   console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified sorry-free (receipt ' + handleOf(address) + ' cached — the next unchanged run verifies free).')
   return facts.length

@@ -104,5 +104,7 @@ test('pool honours its limit and preserves result order', async () => {
 test('labels stay short enough to read as a table', () => {
   assert.equal(label('node dist/scripts/exercise-dormant.js'), 'exercise-dormant')
   assert.equal(label('npm run build'), 'npm:build')
+  assert.equal(label('node --test dist/tests/*.test.js'), 'test dist/tests', 'a test step names its suite — the 50-second stranger of lead 132b, never again bare "node"')
+  assert.equal(label('node --test docs/.vitepress/theme/*.test.ts'), 'test docs/.vitepress/theme')
   assert.ok(label('git diff --exit-code -- lean/ src/theorems/generated.ts README.md llm.txt').length <= 46)
 })
