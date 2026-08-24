@@ -13,9 +13,9 @@ import { toUuid } from '../../address.js'
 import { handleOf } from '../../handle.js'
 import { renderStates, type HexbitRecording } from './hexbit-player.js'
 
-export const BAR_MS = 252                 // 9·7·4 — the four tongues' bar
+export const BAR_MS = 9 * 7 * 4           // the four tongues' bar — computed, so the reason cannot drift from the value
 export const FRAMES_PER_BAR = 24          // the film ring inside every bar (4032 = 24·168)
-export const SAMPLES_PER_FRAME = 168      // 24·7 — nothing left over
+export const SAMPLES_PER_FRAME = 24 * 7   // nothing left over — FRAMES_PER_BAR × the seven, stated as the product it is
 export const GAP_MS = 40                  // the breath between bars, the player's own
 
 export interface Keyframe {

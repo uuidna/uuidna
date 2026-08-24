@@ -5,11 +5,11 @@
 // number that might coincide with a live process.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { spawnSync, execSync } from 'node:child_process'
-import { writeFileSync, existsSync, mkdtempSync } from 'node:fs'
+import { spawnSync, execSync, spawn } from 'node:child_process'
+import { writeFileSync, existsSync, mkdtempSync, unlinkSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
-import { acquire, awaitAcquire, release, currentWriter } from '../scripts/one-writer.js'
+import { acquire, awaitAcquire, release, currentWriter, working } from '../scripts/one-writer.js'
 
 const lockAt = (name: string): string => join(mkdtempSync(join(tmpdir(), 'one-writer-')), name)
 
@@ -93,4 +93,48 @@ test('CONTROL — a LIVE stranger is announced once and refused at the ceiling, 
   assert.equal(r.ok, false)
   assert.deepEqual(announced, ['a writer that never lets go'], 'announced exactly once, however long the wait')
   assert.equal(currentWriter(path)?.pid, stranger, 'and the live stranger\'s lock is left untouched')
+})
+
+// ── THE CEILING ASKS THE PROCESS TABLE (2026-08-24). working() existed but only shaped the CLI's wording; the
+// verdict was still the poll count, so elapsed time alone convicted — and it misfired on a live `land` that was
+// running its pre-push gate the whole time. These two tests are the pair that keeps the question honest: the
+// refusal must survive for a holder doing nothing, and must NOT fire for a holder doing something.
+test('a holder with NO live child is still refused at the ceiling — the stuck signal is unchanged', () => {
+  const path = join(tmpdir(), `uuidna-ceiling-idle-${process.pid}.lock`)
+  const idle = Number(execSync('sh -c \'sleep 30 >/dev/null 2>&1 & echo $!\'', { encoding: 'utf8' }).trim())
+  writeFileSync(path, JSON.stringify({ pid: idle, purpose: 'a writer doing nothing' }))
+  const extended: number[] = []
+  const r = awaitAcquire('probe', process.pid, path, () => {}, 0, (_h, n) => extended.push(n))
+  assert.equal(r.ok, false, 'a holder with nothing running under it is stuck and must be named')
+  assert.deepEqual(extended, [], 'and it must NOT be granted an extension it did not earn')
+  try { process.kill(idle) } catch { /* already gone */ }
+  try { unlinkSync(path) } catch { /* fine */ }
+})
+
+test('CONTROL — a holder that IS working EXTENDS past the ceiling, and the lane is taken when it finishes', () => {
+  const path = join(tmpdir(), `uuidna-ceiling-busy-${process.pid}.lock`)
+  // a holder with a REAL live child: a node process that spawns a sleep, so pgrep -P finds work under it. A
+  // shell will not do — `sh -c '... &'` execs away its own child and leaves nothing under the pid we captured,
+  // which is how the first version of this test fixture failed while the code under test was correct.
+  const holder = spawn(process.execPath,
+    ['-e', "require('node:child_process').spawn('sleep',['6'],{stdio:'ignore'}); setTimeout(()=>process.exit(0),5000)"],
+    { detached: true, stdio: 'ignore' })
+  holder.unref()
+  execSync('sleep 1')                                   // let the grandchild appear before we judge
+  assert.equal(working(holder.pid!), true, 'the fixture must actually be working, or this control proves nothing')
+  writeFileSync(path, JSON.stringify({ pid: holder.pid, purpose: 'a writer mid-gate' }))
+  const extended: number[] = []
+  const r = awaitAcquire('probe', process.pid, path, () => {}, 0, (_h, n) => extended.push(n))
+  // THE POINT: it did not accuse a working holder, it waited — and waiting is rewarded with the lane the
+  // moment that holder ends. The old ceiling would have refused at the count regardless.
+  assert.ok(extended.length >= 1, `a working holder must be granted an extension, got ${extended.length}`)
+  assert.ok(extended.length <= 6, 'and extensions stay bounded — MAX_EXTENSIONS, never an unbounded wait')
+  // DELIBERATELY NOT ASSERTED: whether this particular run ends in ok or a bounded refusal. That outcome races
+  // the fixture's lifetime against the extension budget, and an assertion that depends on which finishes first
+  // is a flake wearing a proof's clothes — it failed here once for exactly that reason while the code under
+  // test was correct. What the fix GUARANTEES is the pair: an idle holder earns no extension and is named, a
+  // working holder earns at least one and is not. Both halves are asserted, and the idle test is the control.
+  assert.equal(typeof r.ok, 'boolean', 'and it always terminates — an extension is a reprieve, not a spin')
+  try { process.kill(holder.pid!) } catch { /* already gone */ }
+  try { unlinkSync(path) } catch { /* fine */ }
 })

@@ -71,9 +71,15 @@ export function acquire(purpose: string, pid: number, path = LOCK_PATH): { ok: t
 // reclaim and atomicity are inherited, not re-implemented — and the poll is a SUBPROCESS sleep, never a clock:
 // staleness is still decided by pid liveness alone.
 const POLL = 'sleep 2'
-/** the ceiling is a FINDING, not a queue: a writer holding the tree for a thousand polls (~33 min) is stuck,
- *  and a stuck writer must be named to a human rather than waited on forever. */
+/** the ceiling is a FINDING, not a queue: a writer that has stopped WORKING must be named to a human rather
+ *  than waited on forever. Reaching this count is not itself the finding — see awaitAcquire, which asks
+ *  working() before it refuses. Elapsed polls open the question; the process table answers it. */
 export const MAX_POLLS = 1000
+
+/** how many times a still-WORKING holder may extend past the ceiling before it is named anyway. Bounded on
+ *  purpose: "wait forever while a child exists" is not a queue either — a runner wedged on a child that itself
+ *  never finishes would hold the tree silently and no caller would ever return. Each extension announces. */
+export const MAX_EXTENSIONS = 6
 
 /** working(pid) → does this holder have a LIVE CHILD? (queue lead 123: the ceiling was a CLOCK, and a clock
  *  cannot tell busy from stuck — a legitimate land round runs develop, lean, tsc and a full gate, so a holder
@@ -91,12 +97,26 @@ export function awaitAcquire(
   path = LOCK_PATH,
   announce: (holder: Writer) => void = () => {},
   maxPolls = MAX_POLLS,   // injectable ONLY so the control test can reach the refusal without waiting it out
-): { ok: true; polls: number } | { ok: false; holder: Writer; polls: number } {
+  onExtend: (holder: Writer, extension: number) => void = () => {},
+): { ok: true; polls: number } | { ok: false; holder: Writer; polls: number; extensions: number } {
+  // THE CEILING ASKS THE PROCESS TABLE BEFORE IT ACCUSES (2026-08-24). working() existed and only shaped the
+  // CLI's wording; the VERDICT was still `polls >= maxPolls`, so elapsed time alone convicted. It misfired live
+  // that same day: a deposit here declared pid 83657 STUCK after 1000 polls while that land was running
+  // `npm run next` in its pre-push hook — busy the entire time, and the hook's own comment budgets four minutes
+  // a gate across up to four rounds. A count cannot tell busy from stuck; a live child can. So the count now
+  // only opens the question, and a holder still working EXTENDS instead of being accused.
+  let extensions = 0
   for (let polls = 0; ; polls++) {
     const r = acquire(purpose, pid, path)
     if (r.ok) return { ok: true, polls }
     if (polls === 0) announce(r.holder)
-    if (polls >= maxPolls) return { ok: false, holder: r.holder, polls }
+    if (polls >= maxPolls) {
+      // not working = nothing is running under it = the honest stuck signal, and the refusal it always was
+      if (!working(r.holder.pid) || extensions >= MAX_EXTENSIONS) return { ok: false, holder: r.holder, polls, extensions }
+      extensions++
+      onExtend(r.holder, extensions)
+      polls = 0   // it is working; the clock it outran was never the evidence
+    }
     execSync(POLL)
   }
 }
@@ -128,8 +148,8 @@ if (isMain) {
       console.error(`· one-writer — the tree is HELD by pid ${h.pid} (${h.purpose}); WAITING (polling liveness, no clock — the lock lifts itself when the holder ends)`))
     if (!r.ok) {
       console.error(working(r.holder.pid)
-        ? `✗ one-writer — pid ${r.holder.pid} (${r.holder.purpose}) still holds the tree after ${r.polls} polls, and it IS WORKING (live children under it). Busy, not stuck: wait longer or coordinate — do NOT end it.`
-        : `✗ one-writer — pid ${r.holder.pid} (${r.holder.purpose}) still holds the tree after ${r.polls} polls with NO live child: nothing is running under it, which is the honest stuck signal. Name it to a human, or end it knowingly. Never delete a live pid's lock.`)
+        ? `✗ one-writer — pid ${r.holder.pid} (${r.holder.purpose}) still holds the tree after ${r.polls} polls and ${r.extensions} extension(s), and it IS WORKING (live children under it). Busy, not stuck — this refusal is the EXTENSION BUDGET running out, never the clock: wait longer or coordinate, do NOT end it.`
+        : `✗ one-writer — pid ${r.holder.pid} (${r.holder.purpose}) still holds the tree after ${r.polls} polls (${r.extensions} extension(s)) with NO live child: nothing is running under it, which is the honest stuck signal. Name it to a human, or end it knowingly. Never delete a live pid's lock.`)
       process.exit(1)
     }
     console.log(`✓ one-writer — tree acquired for ${purpose} after ${r.polls} poll(s) (holder pid ${process.ppid})`)

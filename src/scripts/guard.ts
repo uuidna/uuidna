@@ -15,7 +15,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -148,6 +148,9 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'citations', run: () => citationsGaps() },
   // A NAME IS NOT A PROOF: every conjunct comparing two bare literals means the key carries the claim alone.
   { name: 'literal', run: () => literalGaps() },
+  // A DERIVATION IN A COMMENT IS A DERIVATION NOTHING CHECKS: a literal whose own comment states the arithmetic
+  // that produces it should compute it instead, or the value and its reason drift apart in silence.
+  { name: 'constant', run: () => constantGaps() },
   // a file grep cannot read is a file no finder above ever scanned.
   { name: 'binary', run: () => binaryGaps() },
   // a deleted generator whose build output survives still runs, against a ledger that has moved on.

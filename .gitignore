@@ -9,3 +9,4 @@ handles.js
 .wrangler/
 *.mcpb
 .uuidna-writer.lock
+generator-metrics.json

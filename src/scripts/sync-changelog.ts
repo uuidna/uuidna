@@ -11,7 +11,7 @@ import { dirname, join } from 'node:path'
 import { runTrial, THEOREMS, PRINCIPLES, statementCensus } from '../index.js'
 import { ROOT } from './api.js'
 
-const TARGET = 1024 // the v1.0.0 milestone (2^10) — the one stated goal, a named constant, not a magic number
+const TARGET = 2 ** 10 // the v1.0.0 milestone — the one stated goal, computed from the power its comment claimed
 const count = THEOREMS.length
 const principles = new Set(THEOREMS.map((t) => t.principle)).size
 const receipt = runTrial().receipt
