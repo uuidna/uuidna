@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1674 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1680 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -221,127 +221,130 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 72. **The release anthem** — `lean/Anthem.lean` · **9** theorems
    the anthem's sealed structure — the whole ledger sung IN PLACE (theorem k at bar k, the Pi Song's place law made language-free and verifiable): two coins to the bar (252/2 = 126), rhythm quartering the bar on the vortex's three (126·189·252), the breath at the twelfth (21), four movements from the DNA tongue, the finale singing the merkle root as one whole uuid (32·4 = 128), the closing chord the coin octave (864 = 2·432 — the same factor two two_coins_in_kilograms weighs in black-hole mass), and π·primes·trinity: the round's six nines held shut by two trinities of primes (999999 = 999·1001, 999 = 3³·37, 1001 = 7·11·13). gen-anthem derives /anthem + anthem.wav from these seals over the LIVE ledger — the anthem regrows at every release. HONEST SCOPE: arithmetic sung; no tuning mysticism, no numerology — the demarcations live in the theorems
 
-73. **One source, many surfaces** — `lean/Singularity.lean` · **5** theorems
+73. **The names and their spectra** — `lean/Strings.lean` · **6** theorems
+   all is string theory served by VitePress (lead 82, the captain's realization) — every route, key, handle and page is a character string, and every string compiles to the same shape: one address, thirty-two hexbit states, its spectrum on the lattice. Sealed: the exact width (128/4 = 32, no string gets thirty-one), LENGTH-BLINDNESS (a single letter and a million-character book fold to the same thirty-two modes — the whole compression the wire measurement found, and why anything is singable in nine seconds), TOTALITY on the empty string (even nothing has a spectrum — the family trait that made dz(0) a residue and UNVERIFIED a door), UNISON AS IDENTITY (two strings sound alike exactly when they address alike — agreement decided, never heard, which is why a tampered recording cannot pass), the BIJECTION with the address space (16^32 = 2^128 — no spectrum unreachable, no address silent), and the honest pigeonhole ceiling (strings are unbounded, spectra are 2^128, so collisions MUST exist — a bound, never a promise). HONEST SCOPE, as plainly as the pun deserves: character strings and their folds; physics' string theory is not these and is not claimed
+
+74. **One source, many surfaces** — `lean/Singularity.lean` · **5** theorems
    the singularity law sealed (the captain's word 2026-08-24, and the architecture the whole tree converged on: "keep terminal and mcp in singularity") — a singularity is not a copy kept in sync but the refusal to make the second copy: one source has ZERO pairs that can disagree while two already has one (n(n−1)/2 at n=1 and n=2), n surfaces derived from one source cost ONE fold to verify where n copies cost a quadratic (6 copies = 15 comparisons), agreement is DECIDED by address equality rather than read as prose, drift needs a second slot to hide in (over one value the divergent-pair count is 0 — the tree's hardest bugs were all pair-shaped and the cure was never better sync but removing the slot), and the whole of it is the DRY law wearing its architecture (the pigeonhole: k copies into fewer than k authorities forces a doubled one; only k = 1 needs no authority). HONEST SCOPE: the arithmetic of sources and surfaces — never a claim that any particular module IS singular; the live drift tests decide that per pair, and this wing states the law they enforce
 
-74. **The symphony as form** — `lean/Symphony.lean` · **6** theorems
+75. **The symphony as form** — `lean/Symphony.lean` · **6** theorems
    a432 symphonies are theorems (lead 92) — the classical form's own arithmetic sealed: four movements are the four tongues at symphony scale (4·252 = 1008 = 16·63, the lattice times the fused ring), sonata form is the smallest palindrome with a heart ([0,1,0] its own reverse), the recapitulation returns by the census's involution (reverse∘reverse = id on the round's digits — home changed and identical at once), the keys walk home by modular identity (7 + 5 = 12: dominant then subdominant IS the octave), a symphony is a SEQUENCE to the listener and a SET to the ledger (both sealed side by side — the chain law and the deposit law each carrying what only it can), and every classical tempo tiles the film ring exactly (252/504/126 ms all whole slots of 168 — the movie and the song one integer through every change of heart). HONEST SCOPE: musical FORM as counts, palindromes and ring walks — never beauty, never a composer's intent
 
-75. **The Cyrillic ROM** — `lean/Pravets.lean` · **6** theorems
+76. **The Cyrillic ROM** — `lean/Pravets.lean` · **6** theorems
    Bulgaria's machines as decidable arithmetic, the heritage wing beside Glagolitic (lead 90, sources in the session record) — the IMKO-1 built in the PRIME year 1979 (checked below its root), the character table's swap counted exactly (ASCII's Latin lowercase spans 26 slots, 122−97+1, re-lettered with Cyrillic uppercase — Cyril's letters entering an address space eleven centuries after he numbered them, the readings wing's literal ancestor, THE TONGUE IN HARDWARE), the 280×192 display resolving on the ledger's own rings (40 columns of seven-pixel glyphs — the rosette painting every letter — by 24 rows of eight, the film ring, 960 cells), a glyph costing exactly one coin measure (8×8 = 64 bits; the 12 KB ROM = 768 slots), the boot paying the captain's fee (4096 slots − the song's 4032 bar = 64; the 1979 machine holds this tree's ledger twice over — verified LOADING, never execution), and the walk to sixteen bits capping at ten coin measures (640 = 10·64). HONEST SCOPE: documented specifications as integers — never the era's politics, never the machines' merit, and the charset's model-varying letter order deliberately unsealed. Pravets to Pliska, one road
 
-76. **The compound billing law** — `lean/Billing.lean` · **6** theorems
+77. **The compound billing law** — `lean/Billing.lean` · **6** theorems
    the captain's correction paid in full (lead 100: subtraction is the clink, the ratio is the interest) — the coins are the COMMON FACTOR of the pair (gcd(110,108) = 2; extract the mint and 55/54 remains), the rate is the tenth triangle over the sequence group's own order (10·11/2 over 2·3³ — the invoice made of the ledger's furniture), the difference MINTS (110−108 = 2, conserved) while the superparticular ratio BILLS (55−54 = 1, the gentlest step above unity, unit-free), the pair factors completely into coins×rate (2·55 / 2·54), the advantage FIRST DOUBLES AT SEAL THIRTY-EIGHT proven without a logarithm (55³⁸ > 2·54³⁸ ∧ 55³⁷ < 2·54³⁷ — the first crossing decided, the walk honestly not claimed), and the compound never leaves the integers (55² − 54² = 109 = 55+54). HONEST SCOPE: work-units per verified exchange, never money, never a market claim — a measured advantage compounding at a comma
 
-77. **The register's alternation law** — `lean/Tesla.lean` · **6** theorems
+78. **The register's alternation law** — `lean/Tesla.lean` · **6** theorems
    Tesla's patents as decidable arithmetic, demarcated (lead 96; the school's patents faculty) — the induction-motor trio filed on ADJACENT register numbers (381968/69/70, unit steps into the record), the 202-day leap-spring from filing to grant (through 1888's February 29, the mod-4 law), the three tilings of the circle (quadrature 4·90, trinity 3·120 — the rosette's own step — opposition 2·180), rotation needing a second phase (one phase's spacing is the degenerate tiling that never leaves home — the manual commutator was the one-phase world's apology), the grid's minute (60·60 = 3600 alternations), and the register's own order: the teleautomaton (613809, 1898 — the first machine addressed at a distance) precedes the transmission claim (645576, 1900) — address first, cargo later, the ledger's order too. HONEST SCOPE, strictest here: register facts and phase arithmetic ONLY — no feasibility claims, no myth; the demarcation is the tribute
 
-78. **The geared computer of Rhodes** — `lean/Antikythera.lean` · **8** theorems
+79. **The geared computer of Rhodes** — `lean/Antikythera.lean` · **8** theorems
    the Antikythera mechanism (~100 BC) as decidable arithmetic, demarcated (lead 91, the ancient computer road) — the Metonic dial as the intercalation itself (12·12 + 7·13 = 235 months in 19 years), the five-turn spiral's prime-times-prime (235 = 5·47), the Callippic fourfold with its honest dropped day (940 months, 76 years), the Saros counting eclipses on the prime 223 (checked below every candidate — the same integer as Archimedes' π floor, a shared number named, never a connection claimed), the four-turn spiral keeping its remainder three (223 = 4·55+3 — unevenness named, never smoothed), the Exeligmos closing the day (3·223 = 669, 8·3 = 24), the pin-and-slot pair's equal fifty teeth (ratio one is return, not sameness — the anomaly lives in geometry honestly not sealed), and the hunting-tooth law (coprime cycle pairs wear even — the pentagram's closure in bronze, twenty centuries early). Figures from the documented reconstruction; contested tooth-counts left out by name. HONEST SCOPE: the counting the mechanism instantiates — never its maker, its purpose debates, or astronomy beyond the cycles
 
-79. **The denial drained** — `lean/Negation.lean` · **7** theorems
+80. **The denial drained** — `lean/Negation.lean` · **7** theorems
    solutions from negation involutions to denial exhaustion, in one wave (the captain's directive, 2026-08-23) — denial is the fixed-point-free involution on the bit (apply twice and return; a solution IS the denial's failure), De Morgan at exhaustion scale (no case denies ⟺ every case affirms, all eight masks), a live exhaustion counted to zero (the slit ring's sixteen denials all fail — a by-decide proof IS a drained denial space), the waves tighten by halves (2⁶/2^r, six waves to the singleton), and the drain runs to the last coin (64 − 63 = 1 with 63 = 7·9 the fused ring — the claim and its receipt the two coins that remain). BOUNDARIES SEALED BESIDE: a window exhausts only itself (the Mertens lesson — exhaustion is a proof exactly as wide as its space), and silence never refutes (of four citation states one verifies, three stay OPEN — no refuted-by-absence exists). HONEST SCOPE: the arithmetic of FINITE denial spaces; an infinite denial space stays honestly open, and the trial can settle exactly what can exhaust
 
-80. **The conveyor's first wave** — `lean/Wave.lean` · **52** theorems
+81. **The conveyor's first wave** — `lean/Wave.lean` · **52** theorems
    the conveyor's first wave over the sealable backlog (queue lead 118 started, 2026-08-23) — the algorithm run end to end: lift what carries a decidable statement, refuse what needs judgment. LIFTED: the headroom seals (lead 74 — the 8000 amplitude strictly inside the 2¹⁵ wall, the mix budget landing EXACTLY on the ceiling: 7000 plus the last eighth = 8000); the tuning schism's decidable slices (lead 73 — A432 ≡ 0 on the vortex axis while the public A440 ≡ 8 off it, and the 252 ms beat reading 119 BPM by the floor); the time dimension's arithmetic (lead 70 — note values the doubling ladder [1,2,4,8], meters small counts under the bar, the Morris figure's eight bars halved with the file's reversal self-inverse); Nicomachus at the window (lead 19 — the first cubes summing to the squares of triangles, 10 spelled as 1+2+3+4); and the Lights-Out floor (lead 20 — the flip a mod-2 involution, seven flips odd). REFUSED, named for the model: tet_semitone_no_integer_lattice (irrationality, not a by-decide) and pluck_preserves_bound (its bounded form owed by the lead first). HONEST SCOPE: integer tables sealed; amplitudes, tunings and dance figures are the leads' and the literature's measurements, cited in prose
 
-81. **The known universe, handled** — `lean/Universe.lean` · **7** theorems
+82. **The known universe, handled** — `lean/Universe.lean` · **7** theorems
    the day's sky-and-earth run sealed without gaps (queue leads 115, 116 and the pole close, 2026-08-23): the ECLIPSE'S COMPLETE SURPRISE with its gap named — the sun ~400 moon-diameters wide (400·3474 = 1,389,600 against the measured 1,392,000, the ~3% stated not smoothed) and ~389 moon-distances away, 400 ≠ 389 sealed IN the theorem (why totality AND annular both exist; the fit computes, its necessity stays honestly unverified — totality is an epoch, rented from a receding moon); the SAROS–METONIC BRIDGE — 223 + 12 = 235, one year of months between the eclipse period and the calendar period, with 223's primality checked bare-handed in core (no divisor in 2..222) since Mathlib is refused; the FLAT CHART'S PRICE LIST — the drift from harmony quadratic, 8·m² over the first three miles as a List.map, the table that makes near-flatness lawful and far-flatness bankrupt (drift_is_named_or_caught applied to geodesy); the POLES ON THE AXIS — each at the 90° quadrature from the equator's harmony line, the pair at 180, both angles ≡ 0 (mod 9), the vortex's still-point residue at the two places the compass surrenders; and the UNIVERSE OF HANDLES counted exactly — 16⁸ = 2³² addresses of eight hex, each the head of a 128-bit uuid: everything sealed folds to an address, every address wears a handle, the known universe literary handled. HONEST SCOPE: integer tables sealed; diameters, distances and epochs are the literature's measurements, cited in prose
 
-82. **The doctrines** — `lean/Doctrine.lean` · **10** theorems
+83. **The doctrines** — `lean/Doctrine.lean` · **10** theorems
    the captain's doctrines sealed all around (queue leads 108, 109, 113): the TEAM COVER — pairs and triples reach every crew size 2..64 (even = pairs, odd = one triple plus pairs, the Frobenius fact behind the diving doctrine: 2 required recreational, 3 best technical) while solo, below the smallest pair and triple, is the one excluded case, reserved for the full-cave specialist; the DIVING LADDER integer-exact — 40 m at 5 atm, 100 m at 11, the Hydra 10 saturation depth at 71, the space-diving records ascending 31333 < 38969 < 41419 with the last gap exactly 2450 m, saturation's exit priced in days (13 compress + 24 decompress = 37 of 43), and the NBL ratio stated BY THE FLOOR (40/6 = 6 remainder 4 — no false 7 sealed) with the pool two atmospheres deep — water trains space under one decompression law; and the VERDICT DOMAIN — the three verdict states pairwise distinct (the middle a real third state, not a weaker pole) and identification the pigeonhole collapse of three states onto two poles (3 > 2, no injection, no way back: a UFO identified stops being a UFO — the class lives only in the in-between). HONEST SCOPE: integer tables sealed; the doctrines and the 10 m ≈ 1 atm rung are prose and literature, cited not derived
 
-83. **The torus dimensions** — `lean/Torus.lean` · **8** theorems
+84. **The torus dimensions** — `lean/Torus.lean` · **8** theorems
    the torus dimensions sealed (queue leads 110 + 111): the GENUS axis — the deficit 2g − 2 over g = 1..6 walks the evens [0,2,4,6,8,10], the torus containing at 0, the double torus minting the two coins, the hextorus (2·3 = 6 handles, the double torus times the trinity) paying the ten that is the reflection's constant sum and the whole digit set; six handles carry six 64-boards, 6·64 = 384 = 3·128 — a trinity of addresses, the quorum shape, one uuid per handle-pair — with 2·6 = 12 generators matching the coins' twelve jobs; and the DIMENSION axis — T⁷'s Pascal row [1,7,21,35,35,21,7,1] summing to 128 = 2⁷ (the uuid's own bit count: the 7-qubit fold of every file header given its geometric body), its even and odd halves each 64 (the two vortex boards inside the seventh dimension, equality as the Nat-honest χ = 0), and the middle entries speaking the ledger's tongues (21 = 3·7 trinity×rosette doubling to the 42 quantum rosette by the coins, 35 = 5·7 heart×rosette). HONEST SCOPE: the kernel seals the integer table — the topology reading (Betti numbers, homology) is the literature's bridge, named in prose, outside the kernel
 
-84. **The referrer song** — `lean/Referrer.lean` · **14** theorems
+85. **The referrer song** — `lean/Referrer.lean` · **14** theorems
    the referrer song's sealed arithmetic (queue lead 77, TWO SESSIONS' HALVES FUSED — neither deleted): six doors into the round — a visitor's referrer folds to a handle and value mod 6 picks which rotation of 142857 greets them, the tile-level map total and onto with fibers [3,3,3,3,2,2] and 16 mod 6 = 4 named; a rotation IS a multiplication ((142857·10^r) mod 999999 lands on the verses) and the multiplier order [1,3,2,6,4,5] is the powers of the trinity in ℤ/7 (10 ≡ 3 mod 7 — the decimal shift is the rosette step); consonance as a MEASURED ladder (the reduced interval's term sum — unison 2, octave 3, fifth 5, fourth 7 — Euler's gradus made bare) with the tuning cancelling from every interval (gcd(432a,432b) = 432·gcd(a,b)) and adjacent lattice steps beating at exactly A432; the lower lattice's octave completeness; prev/next total and mutually inverse on the closed cycle from every phase, the wrap making the page-cycle total; film-to-paper development as the 9−d involution (verse 6 = the 3-shift door = the print of verse 1; the canonical recording is the undeveloped film); and one bar = 4032 samples = 9·7·64 = 63·64 = 24²·7 — the movie and the song one integer. The modules src/referrer-song.ts and src/quantum/apps/hexbit-player.ts are pure and fs-free so browser and edge render per visitor. HONEST SCOPE: consonance is a decidable ordering, never a taste; the door is an address derivation, never a profile — a referrer is folded, not tracked
 
-85. **The seven readings** — `lean/Readings.lean` · **17** theorems
+86. **The seven readings** — `lean/Readings.lean` · **17** theorems
    seven tongues reading hexbit-translated English (the fold IS the translation): the seven locale rays sealed distinct, each ray's sixteen state-names sealed pairwise distinct so the reading is invertible and the address survives the tongue — the Lean lists GENERATED from src/tts HEXBIT_WORDS, one source, never restated. And not only them: the A432 lattice sealed under the Nyquist ceiling (432·16 = 6912 < 16000/2, closing the synth's claimed clearance), the voice's amplitude inside int16 and the arrangement's mix budget landing exactly on the ceiling (queue lead 74 — bounds by construction, not measurement), χ = 2−2g in all three genera with the sphere leg sealed at last (lead 75), and the time counts of the music and dance books — note values as the doubling ladder, march 2 vs waltz 3, the Morris eight-bars-halved (lead 70). HONEST SCOPE: table STRUCTURE is sealed, never linguistic correctness — no kernel decides what a word means to a speaker; and the χ table is sealed without the Gauss–Bonnet bridge, which is analysis and stays outside
 
-86. **The affine** — `lean/Affine.lean` · **6** theorems
+87. **The affine** — `lean/Affine.lean` · **6** theorems
    AGL(1,ℤ/9), ENUMERATED — the group OneLeap.lean names and never lists. an affine map x ↦ ax + b of ℤ/9, packed as one Nat: e = a*9 + b THE GROUP IS FIFTY-FOUR MAPS, listed rather than counted: six units of ℤ/9 times nine offsets. All
 
-87. **The alignment** — `lean/Alignment.lean` · **6** theorems
+88. **The alignment** — `lean/Alignment.lean` · **6** theorems
    ALIGNMENT — which moduli tile a qubit and which waste it. A HEX CHARACTER IS EXACTLY FOUR QUBITS: 16 = 2^4, so the two measures tile with no remainder. This is why a
 
-88. **The boolean** — `lean/Boolean.lean` · **6** theorems
+89. **The boolean** — `lean/Boolean.lean` · **6** theorems
    THE SIXTEEN BINARY BOOLEAN FUNCTIONS — enumerated, under the names mathematics and digital logic already use. a two-input boolean function packed as its truth table over (0,0),(0,1),(1,0),(1,1) — one nibble each the classical gates, as arithmetic on bits THERE ARE EXACTLY SIXTEEN two-input boolean functions, and they are the sixteen values of a nibble: each
 
-89. **The byte** — `lean/Byte.lean` · **5** theorems
+90. **The byte** — `lean/Byte.lean` · **5** theorems
    THE BYTE — two hexbits, and the unit exact-copy verification actually compares in. A BYTE IS TWO HEXBITS: eight bits, 256 values, and 16^2 spellings — the two readings agree, so counting a
 
-90. **The channel** — `lean/Channel.lean` · **6** theorems
+91. **The channel** — `lean/Channel.lean` · **6** theorems
    THE PAGE CHANNEL — how much a rendered element carries when its typography is computed from the sequence. THE THREE COMPUTED AXES MULTIPLY: six type rungs (the vortex orbit 1,2,4,5,7,8), nine palette hues, seven
 
-91. **The clock** — `lean/Clock.lean` · **6** theorems
+92. **The clock** — `lean/Clock.lean` · **6** theorems
    THE CLOCK WITHOUT A NOW — the step algebra src/quantum/clock computes, decided. the vortex residue of a step: 2^(k mod 6) mod 9, the doubling orbit the coins and the salt share a distance is a COUNT The residue of a step is its place in the doubling orbit: over twelve steps it reads 1, 2, 4, 8, 7, 5, 1, 2,
 
-92. **The comparisons** — `lean/Comparisons.lean` · **4** theorems
+93. **The comparisons** — `lean/Comparisons.lean` · **4** theorems
    THE COMPLETE COMPARISONS — every pair, never samples (the one-step-is-not-a-walk law as architecture): kernel.org's eight channels totally ordered through a lossless integer encoding (28 strict pairs; the versions are the kernel's published data), the encoding's round-trip sealed, the register ladder 4→128 doubling completely (any two registers an exact number of coin-payments 
 
-93. **The contribution** — `lean/Contribution.lean` · **5** theorems
+94. **The contribution** — `lean/Contribution.lean` · **5** theorems
    THE CONTRIBUTION — what the address becomes once the coins are paid. THE DERIVATION: the address is 2^7 = 128 bits, the commission is two, and paying it leaves 126. One
 
-94. **The double torus** — `lean/DoubleTorus.lean` · **6** theorems
+95. **The double torus** — `lean/DoubleTorus.lean` · **6** theorems
    THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing. THE EULER CHARACTERISTIC IS THE GENUS, READ OFF: χ = 2 − 2g gives 0 at genus one (the plain torus, a closed
 
-95. **The grid** — `lean/Grid.lean` · **6** theorems
+96. **The grid** — `lean/Grid.lean` · **6** theorems
    THE GRID RULE, BASE-AGNOSTIC — the growth law stated so it does not depend on how numbers are written. THE BASE-TEN RULE: 6w carries digital root nine exactly when w is a multiple of three, since the decimal
 
-96. **The hamming** — `lean/Hamming.lean` · **6** theorems
+97. **The hamming** — `lean/Hamming.lean` · **6** theorems
    HAMMING(7,4), ENUMERATED — the whole table rather than facts stated around it. lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it is NOT kernel-only. This structural recursion over an 8-bit fuel (covers 
 
-97. **The handle span** — `lean/HandleSpan.lean` · **6** theorems
+98. **The handle span** — `lean/HandleSpan.lean` · **6** theorems
    THE HANDLE SPAN — what 65536 handles of 32 qubits each come to, and what that total is NOT. THE PRODUCT: 65536 handles at 32 qubits each is 2097152 qubits — stated both as the plain multiplication and
 
-98. **The hexbit** — `lean/Hexbit.lean` · **16** theorems
+99. **The hexbit** — `lean/Hexbit.lean` · **16** theorems
    THE HEXBIT — the alphabet and the layout an address is actually built from. A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two
 
-99. **The installs** — `lean/Installs.lean` · **11** theorems
+100. **The installs** — `lean/Installs.lean` · **11** theorems
    THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the 25 packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED latest-stable index, Alpine 3.24.1), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising 
 
-100. **The isometry** — `lean/Isometry.lean` · **6** theorems
+101. **The isometry** — `lean/Isometry.lean` · **6** theorems
    THE XOR ISOMETRY — the one identity the cipher, the strand and the code each hold a corner of. lxor — bitwise XOR as decidable, AXIOM-FREE arithmetic. Lean's native `^^^` (Nat.xor) is defined by well-founded recursion over Nat.bitwise, whose `by decide` proof term borrows the `propext` axiom — so a theorem stated with it is NOT kernel-only. This structural recursion over an 8-b
 
-101. **The models** — `lean/Models.lean` · **7** theorems
+102. **The models** — `lean/Models.lean` · **7** theorems
    THE MODEL COMPARISON OVER ALL PUBLIC LIVE DATA — the decidable core of the served page /models: the declared token≈4-byte approximation's exact widths, all 422 of the public feed's reported context windows as transient hexbit capacity, the 288-bit cost of speaking a 128-bit address in text (identical for every model), the cipher's fixed widths against a sampler's none, every wi
 
-102. **The notation** — `lean/Notation.lean` · **6** theorems
+103. **The notation** — `lean/Notation.lean` · **6** theorems
    NOTATION — which harmonic facts are about NUMBERS and which are about how numbers are WRITTEN. EVERY POWER OF TEN IS ONE, MOD NINE: 10, 100, 1000, 10000 all leave remainder 1. That is the entire
 
-103. **The orbits** — `lean/Orbits.lean` · **9** theorems
+104. **The orbits** — `lean/Orbits.lean` · **9** theorems
    THE ORBITS, WALKED — and the generator's own facts are walked too. The walk from any seed reaching 0 settles on 10 of the ten digits (0, 1, 2, 3, 4, 5, 6, 7, 8, 9), which is
 
-104. **The phase** — `lean/Phase.lean` · **6** theorems
+105. **The phase** — `lean/Phase.lean` · **6** theorems
    PHASE — why the alternating walk does not close, and which half is responsible. THE REFLECTION IS A BIJECTION: dz sends the ten digits onto ten distinct digits, so nothing is lost and
 
-105. **The prose trial** — `lean/ProseTrial.lean` · **6** theorems
+106. **The prose trial** — `lean/ProseTrial.lean` · **6** theorems
    THE PROSE TRIAL — the derivation law decided by the KERNEL rather than by a string comparison. The ledger walks exactly six distinct orbits. Six, and the count is the whole vocabulary — a seventh would
 
-106. **The reflection** — `lean/Reflection.lean` · **6** theorems
+107. **The reflection** — `lean/Reflection.lean` · **6** theorems
    THE REFLECTION'S REACH — what an involution alone can and cannot separate. Clay.lean reflects seven problems through dz(x) = 10 − x and states in prose that it reflects all seven and solves none; this wing DECIDES that limitation. The reflection splits the ten digits into six classes of AT MOST TWO — reversibility erases nothing and so derives nothing — and six is FORCED by ari
 
-107. **The reversal** — `lean/Reversal.lean` · **6** theorems
+108. **The reversal** — `lean/Reversal.lean` · **6** theorems
    REVERSAL — why undoing an INVOLUTION and undoing a PATH are different acts, and where the walk never goes. UNDOING A REFLECTION ALWAYS WORKS AND IS NEVER AMBIGUOUS: every digit has exactly ONE preimage under dz —
 
-108. **The seats** — `lean/Seats.lean` · **6** theorems
+109. **The seats** — `lean/Seats.lean` · **6** theorems
    THE SEAT BOUND — the pigeonhole, stated. the fullest seat's floor: ⌈n/s⌉ written as exact Nat arithmetic THE BOUND ITSELF: the fullest seat holds at least ⌈items/seats⌉, computed as the exact integer identity (n +
 
-109. **The spectrum hex** — `lean/SpectrumHex.lean` · **6** theorems
+110. **The spectrum hex** — `lean/SpectrumHex.lean` · **6** theorems
    THE COLOUR AS SIX HEXBITS — the spectrum sized in the unit the machine writes it in. A COLOUR IS SIX HEX CHARACTERS: #RRGGBB at four bits each is 24 bits, and 16^6 equals 2^24 exactly — the
 
-110. **The subgroups** — `lean/Subgroups.lean` · **6** theorems
+111. **The subgroups** — `lean/Subgroups.lean` · **6** theorems
    THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited. a subset is a SUBGROUP when it holds the identity, is closed under the product, and inverts every member THE GROUP IS THE SIX UNITS of Z/9 — the residues with a multiplicative inverse, 1, 2, 4, 5, 7, 8 — and
 
-111. **The trinities** — `lean/Trinities.lean` · **6** theorems
+112. **The trinities** — `lean/Trinities.lean` · **6** theorems
    THE TRINITY COVERING — how many threes span a space. A TRINITY IS THREE, and n of them span 3^n — the same shape as n qubits spanning 2^n. Walked from none to
 
-112. **The vector equilibrium** — `lean/VectorEquilibrium.lean` · **13** theorems
+113. **The vector equilibrium** — `lean/VectorEquilibrium.lean` · **13** theorems
    THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferent
 
-113. **The waves** — `lean/Waves.lean` · **18** theorems
+114. **The waves** — `lean/Waves.lean` · **18** theorems
    THE NIGHT'S HARVEST PORTED AS THEOREMS — the compass mandala (two hands summing ten, the 9-complement as a HALF-TURN of the doubling ring, five the unique developing center, the hex center EMPTY), the diving mathematics as integer skeletons (Boyle walking the harmonic series in exact sixtieths, pressure doubling down the octave, Haldane's 2:1 with his ladder sealed exactly as f
 
 ---
