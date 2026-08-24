@@ -5,6 +5,7 @@
 // two injected thin wrappers, heartbeats again, spin drift, derived diff — every one of which was already true on
 // the first pass. Independence is also the licence to run them CONCURRENTLY: the first version of this script
 // collected all the verdicts but still walked them linearly, which is why it was slow.
+import { INSTRUMENTS } from '../scripts/gate-all.js'
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { plan, kindOf, runPlan, pool, label } from '../scripts/gate-all.js'
@@ -99,6 +100,24 @@ test('pool honours its limit and preserves result order', async () => {
   assert.deepEqual(out, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 'order must survive concurrency')
   assert.ok(peak <= 4, `the limit must hold; peak was ${peak}`)
   assert.ok(peak > 1, 'and it must actually run more than one at a time')
+})
+
+test('every instrument names the arms it voids, and the invisible one is covered', () => {
+  // The lesson this list exists to hold: run without the Lean kernel, the gate reported SIX failures, and every
+  // one was the same absent program wearing a different costume — the proof arms it runs, plus the derived-layer
+  // arms that fail downstream on a layer the absent kernel never regenerated. An arm nothing measured must not be
+  // counted as a finding about the tree.
+  const covers = (cmd: string) => INSTRUMENTS.filter((i) => i.covers.some((re) => re.test(cmd))).map((i) => i.file)
+  assert.deepEqual(covers('UUIDNA_PROVE_ALL=1 npm run lean').sort(), ['lean', 'node'])
+  assert.deepEqual(covers('npm run axioms').sort(), ['lean', 'node', 'npm'])
+  assert.deepEqual(covers('node dist/scripts/spin.js'), ['node'], 'spin is NOT voided by the kernel — it reads the tree, and a real drift there is a real finding')
+  for (const i of INSTRUMENTS) {
+    assert.ok(i.remedy.length > 10, `${i.file} states how to install it`)
+    assert.ok(i.why.length > 10, `${i.file} states what goes dark without it`)
+  }
+  // lean appears nowhere in package.json's chain — declared precisely because it cannot be derived
+  const lean = INSTRUMENTS.find((i) => i.file === 'lean')!
+  assert.ok(lean.why.includes('nowhere in the chain'), 'the declaration says why it is declared rather than derived')
 })
 
 test('labels stay short enough to read as a table', () => {

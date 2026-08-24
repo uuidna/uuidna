@@ -35,7 +35,7 @@
 import { execFile, execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT } from './api.js'
+import { ROOT, pool } from './api.js'
 import { capacity, hostProfile, shellOrExit, renderSpeedup, speedup } from '../os/host/index.js'
 
 /** A step is a GENERATOR when it produces the inputs later steps read.
@@ -76,6 +76,35 @@ const RECEIPT_COVERED: readonly RegExp[] = [
   /\bdist\/scripts\/guard\.js$/,
 ]
 
+/** An instrument the chain needs, and what goes dark without it.
+ *
+ *  WHY THIS LIST IS DECLARED AND NOT DERIVED. The programs a step spawns DIRECTLY can be read off the chain, but the
+ *  ones that matter most cannot: `lean` is never named in package.json — lean-axioms spawns it, three layers down —
+ *  and it was precisely that invisible instrument whose absence produced the most confusing failures. A list derived
+ *  only from what is visible would have been silent about the one that mattered. So each is declared WITH the arms
+ *  it voids, and `covers` is what the report uses to separate "the tree is wrong" from "this host cannot tell". */
+export interface Instrument { file: string; why: string; covers: readonly RegExp[]; remedy: string }
+
+/** WHAT A GATE OWES ITS READER WHEN AN INSTRUMENT IS MISSING.
+ *
+ *  Run on a machine without the toolchain, this gate reported six failures and every one of them was a lie of the
+ *  same shape: `npm run lean` "failed" because no kernel existed to succeed, and `spin` and `git diff` then failed
+ *  downstream on a derived layer the absent kernel never regenerated. Nothing said "absent" anywhere; the operator
+ *  is handed six findings and has to discover by hand that they are one missing program wearing six costumes. The
+ *  tree already holds the principle — an absent instrument VOIDS, it does not verdict (lean-axioms says exactly
+ *  that when its own spawn fails) — and the gate that front-runs everything did not keep it.
+ *
+ *  So the instruments are probed FIRST, through the same resolved shell the steps will use (probing a different PATH
+ *  than the steps see would be its own lie), and what is missing is named once, up front, with the remedy. */
+export const INSTRUMENTS: readonly Instrument[] = [
+  { file: 'node', why: 'every step is a node process', remedy: 'install Node (the engines field declares the floor)', covers: [/./] },
+  { file: 'npm', why: 'the chain dispatches npm scripts', remedy: 'install Node, which ships npm', covers: [/^npm run /] },
+  { file: 'git', why: 'the derived-layer arm asks git what moved', remedy: 'install git', covers: [/^git /] },
+  { file: 'lean', why: 're-proves every wing and witnesses the axioms — spawned by lean-all and lean-axioms, so it appears nowhere in the chain',
+    remedy: 'install the toolchain the repo pins: elan, then `elan toolchain install $(cat lean-toolchain)`',
+    covers: [/npm run lean$/, /lean-axioms\.js/, /^npm run axioms$/] },
+]
+
 export type Kind = 'generator' | 'check' | 'serial-check'
 export interface Step { cmd: string; kind: Kind }
 export interface Verdict { cmd: string; kind: Kind; exit: number; out: string }
@@ -99,23 +128,9 @@ export const label = (cmd: string): string =>
     ? ('test ' + cmd.replace('node --test ', '').replace(/\/\*.*$/, '')).slice(0, 46)
     : cmd.replace('node dist/scripts/', '').replace(/\.js\b/, '').replace(/ --.*$/, '').replace(/^npm run /, 'npm:').slice(0, 46)
 
-/** run `thunks` with at most `limit` in flight, preserving result order. */
-export async function pool<T>(thunks: readonly (() => Promise<T>)[], limit: number): Promise<T[]> {
-  const out = new Array<T>(thunks.length)
-  let next = 0
-  // integer comparison, not Math.* — the determinism scan hard-rejects host Math calls everywhere, no exemption
-  const cap = limit < 1 ? 1 : limit
-  const span = thunks.length || 1
-  const workers = Array.from({ length: cap < span ? cap : span }, async () => {
-    for (;;) {
-      const i = next++
-      if (i >= thunks.length) return
-      out[i] = await thunks[i]()
-    }
-  })
-  await Promise.all(workers)
-  return out
-}
+// the lane pool now lives in the scripts' singularity — lean-gen fans the kernel spawns with the same one, and a
+// second copy is exactly what `dry` refuses. Re-exported so this module's own readers keep their import.
+export { pool } from './api.js'
 
 /** Generators in order (abort on failure), then every read-only check CONCURRENTLY, then the tree-touching checks
  *  alone in chain order. Returns every verdict rendered. */
@@ -162,6 +177,18 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
   // THE SHELL IS RESOLVED ONCE, BEFORE ANY STEP RUNS — unresolvable refuses here rather than failing 29 times.
   const shell = shellOrExit('gate-all')
 
+  // THE PREFLIGHT — every instrument probed before any verdict is issued, through the shell the steps will use.
+  const absent = INSTRUMENTS.filter((i) => {
+    try { execFileSync(shell.file, shell.argv(`command -v ${i.file}`), { cwd: ROOT, env: shell.env(process.env), stdio: 'pipe' }); return false } catch { return true }
+  })
+  /** is this step one an absent instrument voids? then its verdict is not about the tree */
+  const voided = (cmd: string): Instrument | undefined => absent.find((i) => matches(i.covers, cmd))
+  if (absent.length) {
+    console.log(`gate-all — PREFLIGHT: ${absent.length} instrument(s) absent on this host. What they cover is VOID, not failed:`)
+    for (const i of absent) console.log(`  · ${i.file} — ${i.why}\n    FIX ${i.remedy}`)
+    console.log('  (the rest of the gate still runs: an absent instrument voids its own arms and no others)\n')
+  }
+
   // the receipt is consulted ONCE, against the tree as it stands when the gate begins
   let receiptGood = false
   try { execFileSync('node', ['dist/scripts/gate-receipt.js', '--verify'], { cwd: ROOT, stdio: 'pipe' }); receiptGood = true } catch { receiptGood = false }
@@ -196,7 +223,12 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
     })
   }), limit)
 
-  const failed = verdicts.filter((v) => v.exit !== 0)
+  // A FAILURE IS A FINDING ONLY IF SOMETHING WAS ACTUALLY MEASURED. Everything an absent instrument covers is
+  // reported as VOID with the instrument named — never counted among the findings, and never silently dropped
+  // either: an unmeasured arm is a hole in the gate, and a hole stated is worth more than a verdict invented.
+  const stopped = verdicts.filter((v) => v.exit !== 0)
+  const failed = stopped.filter((v) => !voided(v.cmd))
+  const voids = stopped.filter((v) => voided(v.cmd))
   const wall = Date.now() - started
 
   /** THE FAN-OUT'S OWN RECEIPT. The gate reported per-step milliseconds and then said nothing about what running
@@ -226,10 +258,27 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
     console.error('  Every later step reads what it produces, so the remaining verdicts would be meaningless.')
     process.exit(1)
   }
-  if (!failed.length) {
+  /** the voided arms, named with the instrument that was missing — printed on every ending, green or not, because
+   *  a gate with unmeasured arms has not proved the tree even when everything it COULD measure passed. */
+  const voidNotice = (): void => {
+    if (!voids.length) return
+    console.error(`\n  ${voids.length} arm(s) VOID — not failures, and not verdicts either; nothing measured them:`)
+    for (const v of voids) console.error(`  · ${label(v.cmd)}  — needs ${voided(v.cmd)!.file}, absent on this host`)
+    console.error(`  FIX ${[...new Set(voids.map((v) => voided(v.cmd)!.remedy))].join('; ')}`)
+  }
+
+  if (!failed.length && !voids.length) {
     console.log(`✓ gate-all — all ${count('check') + count('serial-check')} checks green in ONE pass (${wall}ms wall-clock).`)
     report()
     process.exit(0)
+  }
+  if (!failed.length) {
+    // Everything measurable passed and something was not measurable. That is not green: the difference between
+    // "the tree is sound" and "the tree is sound as far as this host can see" is the whole of the gate's meaning.
+    console.log(`· gate-all — every arm this host CAN measure is green (${wall}ms), but the gate is INCOMPLETE.`)
+    report()
+    voidNotice()
+    process.exit(1)
   }
   for (const f of failed) {
     console.error(`\n${'─'.repeat(78)}\n✗ ${label(f.cmd)} (exit ${f.exit})\n${'─'.repeat(78)}`)
@@ -238,6 +287,7 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
   console.error(`\n✗ gate-all — ${failed.length} of ${count('check') + count('serial-check')} checks FAILED, all computed in one pass (${wall}ms):\n`)
   for (const f of failed) console.error(`  · ${label(f.cmd)}  (exit ${f.exit})`)
   report()
+  voidNotice()
   console.error('\n  These are simultaneous— the && chain would have shown you ONE of them per run.')
   process.exit(1)
 }

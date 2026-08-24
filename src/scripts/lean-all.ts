@@ -21,9 +21,10 @@ import { execSync } from 'node:child_process'
 import { readdirSync, existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
-import { MAXBUF, readProofCache, writeProofCache, signProofEntry, proofEntryValid } from './lean-gen.js'
+import { MAXBUF, readProofCache, writeProofCache, signProofEntry, proofEntryValid, pendingProofs, provePending } from './lean-gen.js'
 import { toUuid } from '../address.js'
 import { ROOT } from './api.js'
+import { capacity } from '../os/host/index.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
 const SCRIPTS = join(ROOT, 'dist', 'scripts')
@@ -50,6 +51,19 @@ for (const g of generators) {
     console.error('\n✗ lean-all — generator FAILED: ' + g + '\n  ' + String(e).slice(0, 300))
     process.exit(1)
   }
+}
+
+// 1b) THE KERNEL, ACROSS THE MACHINE. Every generator above wrote its wing and QUEUED its verification rather
+// than blocking on it; the wings are independent standalone files, so nothing orders one against another and the
+// whole queue drains over the host's measured lanes. This is the step the gate's own census named as the critical
+// path — 114,402 ms of the 114,409 ms floor, one kernel process at a time on a sixteen-core machine.
+const lanes = capacity().lanes
+const queued = pendingProofs().length
+if (queued) console.log(`lean-all — ${queued} wing(s) to prove, ${lanes} lanes …`)
+const { failed } = await provePending(lanes)
+if (failed.length) {
+  console.error(`\n✗ lean-all — ${failed.length} wing(s) FAILED the kernel: ${failed.map((f) => f.file).join(', ')}`)
+  process.exit(1)
 }
 
 // 2) hand-authored proofs (no generator writes them) — verified with `lean`, through the SAME receipt cache:

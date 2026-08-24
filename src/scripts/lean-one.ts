@@ -8,6 +8,8 @@ import { readdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { HERE } from './api.js'
+import { provePending } from './lean-gen.js'
+import { capacity } from '../os/host/index.js'
 
 const NOT_A_DOMAIN = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js', 'lean-one.js'])
 const domains = (): string[] =>
@@ -25,3 +27,8 @@ if (!existsSync(path)) {
   process.exit(1)
 }
 await import(pathToFileURL(path).href)
+// the generator WRITES its wing and queues the kernel call (lean-gen's PENDING); the entry point drains it. One
+// domain is one spawn, so the lane count changes nothing here — draining does, because a wing left unproved is a
+// generated file nobody signed.
+const { failed } = await provePending(capacity().lanes)
+if (failed.length) process.exit(1)

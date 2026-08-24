@@ -5,7 +5,7 @@
 // os/host is a static import and safe as one: it declares no top-level side effect and reaches its builtins through
 // the same lazy registry this file does, so bundling it costs the edge nothing it does not already carry.
 import { shellOrExit } from '../os/host/index.js'
-const cryptom =(): typeof import('node:crypto') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:crypto') as typeof import('node:crypto') // lazy: the edge bundles this module but never calls it
+const cryptom = (): typeof import('node:crypto') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:crypto') as typeof import('node:crypto') // lazy: the edge bundles this module but never calls it
 const cpm = (): typeof import('node:child_process') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:child_process') as typeof import('node:child_process') // lazy: the edge bundles this module but never calls it
 // node:fs rides LAZILY through the runtime's own registry (the mcp.ts:38 law, sync form): a top-level
 // import rides every bundle that reaches this module, and the edge worker has no filesystem.
@@ -138,6 +138,29 @@ export const relJoin = (...parts: string[]): string => parts.join('/').replace(/
 export const pauseSeconds = (n: number): void => {
   const sh = shellOrExit('pause')
   cpm().spawnSync(sh.file, sh.argv(`sleep ${n}`), { env: sh.env(process.env) })
+}
+
+/** run `thunks` with at most `limit` in flight, preserving result order.
+ *
+ *  Declared HERE because two runners now need it and a second copy is what the `dry` law refuses: gate-all fans
+ *  the audit's independent checks across the machine, and lean-gen fans the kernel spawns that re-prove the wings.
+ *  Both are the same shape — independent work, a lane count, order-preserving results — and the second one to want
+ *  it should find it rather than write it again. */
+export async function pool<T>(thunks: readonly (() => Promise<T>)[], limit: number): Promise<T[]> {
+  const out = new Array<T>(thunks.length)
+  let next = 0
+  // integer comparison, not Math.* — the determinism scan hard-rejects host Math calls everywhere, no exemption
+  const cap = limit < 1 ? 1 : limit
+  const span = thunks.length || 1
+  const workers = Array.from({ length: cap < span ? cap : span }, async () => {
+    for (;;) {
+      const i = next++
+      if (i >= thunks.length) return
+      out[i] = await thunks[i]!()
+    }
+  })
+  await Promise.all(workers)
+  return out
 }
 
 /** import a COMPILED module by ABSOLUTE path — always as a file URL.

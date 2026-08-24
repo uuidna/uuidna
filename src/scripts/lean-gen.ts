@@ -4,13 +4,13 @@
 // bridge — {key,name} per theorem), and shells out to `lean` to verify the file compiles sorry-free. One helper,
 // no repetition. Integrity.
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
-import { execSync } from 'node:child_process'
+import { execFile } from 'node:child_process'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { toUuid } from '../address.js'
 import { hmacSha256 } from '../sha256.js'
 
-import { ROOT } from './api.js'
+import { ROOT, pool } from './api.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 export { ROOT }
 
@@ -223,18 +223,70 @@ export function emit({ file, header, facts, defs = '', skill }: EmitArgs): numbe
   }
   writeFileSync(leanPath, lean)
   writeFileSync(manifestPath, manifest)
-  try {
-    execSync('lean ' + JSON.stringify(join(ROOT, 'lean', file)), { cwd: ROOT, stdio: 'pipe', maxBuffer: MAXBUF })
-  } catch (e) {
-    // stdio:'pipe' captures Lean's diagnostic ON the thrown error — print it (the actual proof failure) named to the
-    // file, so a broken generator surfaces its OWN error instead of an opaque Node status dump, then drain.
-    const err = e as { stdout?: Buffer | string; stderr?: Buffer | string }
-    const diag = (String(err.stdout || '') + String(err.stderr || '')).trim()
-    console.error('✗ lean/' + file + ' — Lean verification FAILED:\n' + (diag || String(e)))
-    process.exit(1)
-  }
-  cache[file] = signProofEntry(file, address)
-  writeProofCache(cache)
-  console.log('✓ lean/' + file + ' — ' + facts.length + ' theorems, verified sorry-free (receipt ' + handleOf(address) + ' cached — the next unchanged run verifies free).')
+  // THE SPAWN IS QUEUED, NOT TAKEN (see PENDING below). Everything above this line is this generator's own work
+  // and stays exactly where it was; the kernel call is the one part that belongs to the machine rather than to
+  // the wing, and it is the part that was costing 97% of the gate.
+  PENDING.push({ file, path: leanPath, address, theorems: facts.length })
   return facts.length
+}
+
+/** A wing written to disk and waiting for the kernel's signature. */
+export interface PendingProof { file: string; path: string; address: string; theorems: number }
+
+// ── THE KERNEL SPAWNS BELONG TO THE MACHINE, NOT TO THE WING ────────────────────────────────────────────────
+//
+// Each generator used to prove its own wing inline: write the file, block on `lean`, cache, return. Correct, and
+// strictly sequential — ~90 wings, one kernel process at a time, measured by the gate's own census at 114,402 ms
+// on a 16-core machine, which is 97% of the concurrent phase's floor while fifteen cores did nothing. The gate had
+// been fanning its checks out across the machine for some time; the single step inside those checks that dominates
+// every run was still a queue of one.
+//
+// The wings are independent by construction — each is a standalone .lean file with no Mathlib and no cross-imports
+// (that is why `by decide` works at all), so nothing orders one against another. Independence is the licence to
+// run them TOGETHER, the same reasoning gate-all already applies one level up. So emit() writes and REGISTERS, and
+// the entry points drain this queue across the host's real lanes.
+//
+// THE CACHE IS WRITTEN ONCE, AFTER. Ninety concurrent writers to one proof-cache.json is a lost-update race that
+// would silently drop signatures and cost re-proving later. It is written once when the drain finishes — and it is
+// written EVEN IF a wing failed, so the work the kernel did sign is never thrown away by a sibling's failure.
+const PENDING: PendingProof[] = []
+/** what is written and still unsigned — a caller may inspect it, and the drain empties it */
+export const pendingProofs = (): readonly PendingProof[] => PENDING
+
+// THE QUEUE MAY NOT BE ABANDONED. Deferring the spawn buys the machine, and it opens one hole that the inline
+// version could not have: a process that writes wings and exits WITHOUT draining leaves generated .lean files on
+// disk that no kernel ever signed — and they look exactly like signed ones. That is the failure this tree refuses
+// everywhere else (a claim with no proof behind it), so it is made loud here rather than left to discipline: any
+// exit with the queue non-empty names the unproved wings and fails, whatever the exit code was going to be.
+process.on('exit', () => {
+  if (!PENDING.length) return
+  process.exitCode = 1
+  console.error(`\n✗ lean-gen — ${PENDING.length} wing(s) were WRITTEN AND NEVER PROVED: ${PENDING.map((p) => p.file).join(', ')}`)
+  console.error('  A generated wing with no kernel signature is a claim with no proof. The entry point must call provePending().')
+})
+
+/** provePending(lanes) → run the queued kernel verifications concurrently; returns what failed.
+ *
+ *  A wing that fails prints the kernel's OWN diagnostic named to its file, exactly as the inline spawn did — the
+ *  fan-out changes when the spawns happen, never what a failure tells you. */
+export async function provePending(lanes: number): Promise<{ proved: number; failed: PendingProof[] }> {
+  const queued = PENDING.splice(0, PENDING.length)
+  if (!queued.length) return { proved: 0, failed: [] }
+  const cache = readProofCache()
+  const failed: PendingProof[] = []
+  const results = await pool(queued.map((p) => () => new Promise<boolean>((resolve) => {
+    execFile('lean', [p.path], { cwd: ROOT, maxBuffer: MAXBUF }, (err, stdout, stderr) => {
+      if (!err) return resolve(true)
+      const diag = (String(stdout || '') + String(stderr || '')).trim()
+      console.error('✗ lean/' + p.file + ' — Lean verification FAILED:\n' + (diag || String(err)))
+      resolve(false)
+    })
+  })), lanes)
+  results.forEach((ok, i) => {
+    const p = queued[i]!
+    if (ok) { cache[p.file] = signProofEntry(p.file, p.address); console.log('✓ lean/' + p.file + ' — ' + p.theorems + ' theorems, verified sorry-free (receipt ' + handleOf(p.address) + ' cached — the next unchanged run verifies free).') }
+    else failed.push(p)
+  })
+  writeProofCache(cache)   // every signature the kernel DID give, kept — a sibling's failure discards nobody's work
+  return { proved: results.filter(Boolean).length, failed }
 }
