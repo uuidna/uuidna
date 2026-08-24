@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 46 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 49 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 45 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 48 siblings below.
 
-**46 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 22 of its 46 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
+**49 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 25 of its 49 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 46 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 49 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -331,6 +331,27 @@ The ledger holds this as [uuid_mix_census_halves](/theorem/uuid_mix_census_halve
 
 ```lean
 (1 + 45 + 210 + 210 + 45 + 1 = 512) ∧ (10 + 120 + 252 + 120 + 10 = 512) ∧ (512 + 512 = 1024)
+```
+
+### THE EIGHT DECOMPOSES INTO ITS HISTORICAL STEPS (lead 130, following the drift lead; beside a440_drifts_eight_from_the_lattice): concert pitch did not jump — it WALKED: the French diapason normal of 1859 fixed A435 (a REPORTED date and figure, the record's), sitting 435 − 432 = 3 above the harmonic lattice, and ISO 16's A440 stands 440 − 435 = 5 above that — the sealed drift of 8 is exactly the sum of the two historical steps, 5 + 3 = 8. A drift accounted stepwise is a drift with a history, not an accident; each convention paid its own leg. HONEST SCOPE: the arithmetic of the steps seals; the dates and the institutions are the record's, reported.
+The ledger holds this as [a440_drift_walked_in_history](/theorem/a440_drift_walked_in_history) — proven `by decide`, sorry-free:
+
+```lean
+(440 - 435 = 5) ∧ (435 - 432 = 3) ∧ (5 + 3 = 8)
+```
+
+### THE MONEY DOMAIN JOINS THE DRIFT LAW (lead 130, all-domains sweep continued): the pre-1971 pound ran the duodecimal-vigesimal lattice — 12 pence a shilling, 20 shillings a pound, 12 · 20 = 240 pence — and Decimal Day harmonised it to the decimal lattice by RECOINING: one shilling became exactly five new pence, 20 · 5 = 100. The same shape as Gregory deleting ten days: a drift left for centuries is paid in lived units — the human effect (REPORTED, the record's): rounded prices and a generation converting in its head. The old lattice was not wrong; it was a convention whose drift from decimal was finally named and paid at a declared rate. HONEST SCOPE: the two lattices' arithmetic seals; the social history is reported.
+The ledger holds this as [decimal_day_recoined_the_pound](/theorem/decimal_day_recoined_the_pound) — proven `by decide`, sorry-free:
+
+```lean
+(12 * 20 = 240) ∧ (20 * 5 = 100)
+```
+
+### THE TEMPERATURE DOMAIN, WITH ITS TRUNCATION NAMED (lead 130's last named ore: the 273 floor): Celsius is Kelvin with the drift 273 named — the integer floor of the true offset 273.15 (the .15 is TRUNCATED here and SAID so, never smoothed: lead 130's own law) — and the harmonisation is that the SPAN survives the shift exactly: water's hundred degrees ride unchanged, 273 + 100 = 373 and 373 − 273 = 100. A shifted origin with a conserved span is the drift law's cleanest case: the convention moves the zero, physics keeps the interval. HONEST SCOPE: integer floors of the reported offsets; the exact 273.15 and the 2019 SI redefinition stay in the literature, reported.
+The ledger holds this as [kelvin_floor_carries_the_hundred](/theorem/kelvin_floor_carries_the_hundred) — proven `by decide`, sorry-free:
+
+```lean
+(273 + 100 = 373) ∧ (373 - 273 = 100)
 ```
 
 

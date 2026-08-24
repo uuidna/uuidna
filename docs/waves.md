@@ -19,7 +19,7 @@ laid as a table; the coordinates that feed it live on [the discovery board](/exp
 
 ## Accepted — the cargo, each with its seal
 
-42 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+45 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -67,6 +67,9 @@ theorem page and recompute either.
 | [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) | [`9ed5088b`](/theorem/usable_gap_is_two_to_eighty) | `eaa476a6` |
 | [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) | [`0a180651`](/theorem/capacity_order_is_forced) | `54a48485` |
 | [`uuid_mix_census_halves`](/theorem/uuid_mix_census_halves) | [`efc24cc3`](/theorem/uuid_mix_census_halves) | `10ed6e85` |
+| [`a440_drift_walked_in_history`](/theorem/a440_drift_walked_in_history) | [`85df06e1`](/theorem/a440_drift_walked_in_history) | `e00c5e60` |
+| [`decimal_day_recoined_the_pound`](/theorem/decimal_day_recoined_the_pound) | [`34276361`](/theorem/decimal_day_recoined_the_pound) | `e403d3d7` |
+| [`kelvin_floor_carries_the_hundred`](/theorem/kelvin_floor_carries_the_hundred) | [`379f6e5f`](/theorem/kelvin_floor_carries_the_hundred) | `c83358ea` |
 
 ## Refused — the law school's enrollment roster
 

@@ -1761,6 +1761,9 @@ handle_capacity_is_quantum_by_architecture 18
 usable_gap_is_two_to_eighty 18
 capacity_order_is_forced 18
 uuid_mix_census_halves 18
+a440_drift_walked_in_history 18
+decimal_day_recoined_the_pound 18
+kelvin_floor_carries_the_hundred 22
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19
@@ -1784,10 +1787,11 @@ the_promotion_chain_doubles_home 19`
 export const CLAIMS = `bulge_exceeds_relief WGS 84
 eratosthenes_fiftieth_circle Eratosthenes
 hardware_above_landauer Landauer
+kelvin_floor_carries_the_hundred SI
 landauer_bound_derived SI
 light_speed_rounds_to_300000 SI
 reversible_erases_nothing Landauer
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 8, falsifier: 63 }
+export const FLOOR = { witness: 9, falsifier: 63 }

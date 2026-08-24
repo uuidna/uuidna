@@ -362,3 +362,30 @@ theorem capacity_order_is_forced : ((([128, 48, 36, 12, 1] : List Nat).zip [48, 
     10+120+252+120+10 = 512, together the sealed 1024 — the alternating-binomial identity at n = 10, the same
     2^9 + 2^9 = 2^10 doubling the coins measure. -/
 theorem uuid_mix_census_halves : (1 + 45 + 210 + 210 + 45 + 1 = 512) ∧ (10 + 120 + 252 + 120 + 10 = 512) ∧ (512 + 512 = 1024) := by decide
+
+/-- THE EIGHT DECOMPOSES INTO ITS HISTORICAL STEPS (lead 130, following the drift lead; beside
+    a440_drifts_eight_from_the_lattice): concert pitch did not jump — it WALKED: the French diapason normal of
+    1859 fixed A435 (a REPORTED date and figure, the record's), sitting 435 − 432 = 3 above the harmonic
+    lattice, and ISO 16's A440 stands 440 − 435 = 5 above that — the sealed drift of 8 is exactly the sum of the
+    two historical steps, 5 + 3 = 8. A drift accounted stepwise is a drift with a history, not an accident; each
+    convention paid its own leg. HONEST SCOPE: the arithmetic of the steps seals; the dates and the institutions
+    are the record's, reported. -/
+theorem a440_drift_walked_in_history : (440 - 435 = 5) ∧ (435 - 432 = 3) ∧ (5 + 3 = 8) := by decide
+
+/-- THE MONEY DOMAIN JOINS THE DRIFT LAW (lead 130, all-domains sweep continued): the pre-1971 pound ran the
+    duodecimal-vigesimal lattice — 12 pence a shilling, 20 shillings a pound, 12 · 20 = 240 pence — and Decimal
+    Day harmonised it to the decimal lattice by RECOINING: one shilling became exactly five new pence, 20 · 5 =
+    100. The same shape as Gregory deleting ten days: a drift left for centuries is paid in lived units — the
+    human effect (REPORTED, the record's): rounded prices and a generation converting in its head. The old
+    lattice was not wrong; it was a convention whose drift from decimal was finally named and paid at a declared
+    rate. HONEST SCOPE: the two lattices' arithmetic seals; the social history is reported. -/
+theorem decimal_day_recoined_the_pound : (12 * 20 = 240) ∧ (20 * 5 = 100) := by decide
+
+/-- THE TEMPERATURE DOMAIN, WITH ITS TRUNCATION NAMED (lead 130's last named ore: the 273 floor): Celsius is
+    Kelvin with the drift 273 named — the integer floor of the true offset 273.15 (the .15 is TRUNCATED here and
+    SAID so, never smoothed: lead 130's own law) — and the harmonisation is that the SPAN survives the shift
+    exactly: water's hundred degrees ride unchanged, 273 + 100 = 373 and 373 − 273 = 100. A shifted origin with
+    a conserved span is the drift law's cleanest case: the convention moves the zero, physics keeps the
+    interval. HONEST SCOPE: integer floors of the reported offsets; the exact 273.15 and the 2019 SI
+    redefinition stay in the literature, reported. -/
+theorem kelvin_floor_carries_the_hundred : (273 + 100 = 373) ∧ (373 - 273 = 100) := by decide
