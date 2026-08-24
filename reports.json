@@ -22,13 +22,13 @@
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1663,
+        "theoremsMeasured": 1666,
         "ledgerKeys": 1666,
-        "unmeasured": 3,
+        "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "1713a41d-be28-8891-8559-baf56610dae6"
+      "address": "78aa2da9-2aa8-86e2-9904-fd0b0948aa88"
     },
     {
       "title": "Citation audit",
@@ -36,10 +36,10 @@
       "present": true,
       "facts": {
         "publications": 112,
-        "sealedTheorems": 1663,
+        "sealedTheorems": 1666,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "3c82661b-b091-8453-82f8-be022b92112f"
+      "address": "3a1a5dd0-16e4-8490-a6d5-8db1b5c35fca"
     },
     {
       "title": "Support audit",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "cb7aa17c71105a88",
-        "unifiedFold": "36b4ca2accd03b53"
+        "foldReceipt": "c1bf94e791902d63",
+        "unifiedFold": "a291275d8bfe93ee"
       },
-      "address": "ea9b2b2a-76ce-8038-949d-b17d44a61691"
+      "address": "42d86f8c-709c-8ad6-9a1b-e766c35db0e7"
     }
   ],
-  "receipt": "d4807a37-4fed-8c21-a83d-f5ac29ed7f65",
+  "receipt": "a3936e74-bab3-85b5-abd2-77ef8d59a79f",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
