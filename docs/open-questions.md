@@ -122,7 +122,7 @@ page regrows without it.
 - **Four-stroke cycle completes in two crankshaft revolutions (recorded value: 2)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`compass_opposites_involute`](/theorem/compass_opposites_involute) </small>
-  <br><small>sealed neighbors: [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census) · [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) · [`a_chain_shares_its_gateway_ends`](/theorem/a_chain_shares_its_gateway_ends) </small>
+  <br><small>sealed neighbors: [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census) · [`the_second_voice_is_the_variant`](/theorem/the_second_voice_is_the_variant) · [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## chemistry — 4 open
@@ -189,7 +189,7 @@ page regrows without it.
 - **roundTrips() disagrees with a verified byte-exact imprint round-trip**
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`states_are_the_swap_fixed_bytes`](/theorem/states_are_the_swap_fixed_bytes) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`reversible_erases_nothing`](/theorem/reversible_erases_nothing) </small>
-  <br><small>sealed neighbors: [`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth) · [`light_speed_rounds_to_300000`](/theorem/light_speed_rounds_to_300000) · [`landauer_bound_derived`](/theorem/landauer_bound_derived) </small>
+  <br><small>sealed neighbors: [`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth) · [`light_speed_rounds_to_300000`](/theorem/light_speed_rounds_to_300000) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## reflection — 2 open

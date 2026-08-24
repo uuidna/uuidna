@@ -227,6 +227,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/song.md', 'docs/public/song.wav',
   // the release anthem — the whole ledger sung in place, derived from Anthem.lean seals by gen-anthem
   'docs/anthem.md',
+  // the session roster — every device's crews, carried by origin because a socket only spans one machine
+  'lean/sessions.json',
   // the referrer song — the doors and the walk census; the audio computes IN THE BROWSER (no asset, the captain's rule)
   'docs/referrer-song.md',
   // the school of open doors — the unverified in topics, derived by gen-open-questions

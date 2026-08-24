@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 52 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 55 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 51 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 54 siblings below.
 
-**52 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 27 of its 52 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
+**55 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 29 of its 55 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 52 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 55 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -373,6 +373,27 @@ The ledger holds this as [saturation_deco_dominates](/theorem/saturation_deco_do
 
 ```lean
 (13 + 24 + 6 = 43) ∧ (13 < 24)
+```
+
+### THE ANTHEM SINGS RFC 4122 OUT LOUD, and nobody noticed until an instrument with a control asked. Every bar sounds two coins — the address's first hexbit and its seventeenth — and the seventeenth is the RFC 4122 VARIANT nibble, held to the form 10xx: exactly the four values 8, 9, a, b, and no others. So the anthem's lower voice can sound only FOUR of the sixteen lattice tiles while its upper voice ranges over all sixteen. The arithmetic, decided: of the sixteen nibbles exactly four satisfy n/4 = 2 (the 10xx form), those four are [8,9,10,11], and 4 · 4 = 16 — the variant costs precisely two bits, which is two of the four the nibble carries. The harmony of every uuid-derived chord in this tree is therefore a standard's signature, not a choice. HONEST SCOPE: this seals the NIBBLE ARITHMETIC of the variant field; that a given ledger's addresses spread evenly across it is a measurement (observed 402/430/419/429 over 1680 bars), never a theorem.
+The ledger holds this as [the_second_voice_is_the_variant](/theorem/the_second_voice_is_the_variant) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun n => n / 4 == 2) = [8,9,10,11]) ∧ (((List.range 16).filter (fun n => n / 4 == 2)).length = 4) ∧ (4 * 4 = 16)
+```
+
+### At the measured live figures (XMR 427.32 USD, Monero network 6.11 GH/s RandomX, ~65W at 0.25 USD/kWh) a CPU earns 30 milli-dollars per kH/s per day against a fixed 390 milli-dollar daily power cost, so every rate below 13 kH/s runs at a loss and 13 kH/s is the exact break-even. Walked over every rate below the boundary rather than asserted at one point.
+The ledger holds this as [monero_cpu_breakeven_is_thirteen_kilohash](/theorem/monero_cpu_breakeven_is_thirteen_kilohash) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 13).all (fun k => 30 * k < 390)) ∧ (30 * 13 = 390) ∧ (30 * 10 = 300)
+```
+
+### A HANDLE ROUTES WORK WITH NO COORDINATION AT ALL — max output at min cost, and the cost is exactly zero shared state. A handle spans 16^8 = 4294967296 values, so routing a job by handle mod N picks a worker with NO table, NO consensus, NO lookup and NO round-trip: the address the work already carries IS the routing decision, computed in one modulo on whichever machine holds it. THE BALANCE IS EXACT WHERE N DIVIDES THE SPAN: for every power of two up to 256 the span divides evenly (4294967296 = 2^32, and 2^32 / 2^k is whole for k ≤ 8), so each of the N workers owns precisely the same number of handle values — 2 workers take 2147483648 each, 16 take 268435456 each, 256 take 16777216 each, and no worker is ever handed a larger share by the arithmetic. HONEST SCOPE, and it is the whole caveat: an EQUAL SHARE OF THE ADDRESS SPACE is not an equal share of the work — that holds only if handles arrive uniformly (a measurement about traffic, never a theorem) and if jobs cost the same (a claim about the work, not about addresses). Where N does not divide the span the remainder is a real bias, the same honesty moduli_waste_states already keeps.
+The ledger holds this as [handles_balance_the_load_for_free](/theorem/handles_balance_the_load_for_free) — proven `by decide`, sorry-free:
+
+```lean
+(16 ^ 8 = 4294967296) ∧ ((List.range 9).all (fun k => 4294967296 % (2 ^ k) == 0)) ∧ (4294967296 / 2 = 2147483648) ∧ (4294967296 / 16 = 268435456) ∧ (4294967296 / 256 = 16777216)
 ```
 
 

@@ -428,3 +428,22 @@ theorem saturation_deco_dominates : (13 + 24 + 6 = 43) ∧ (13 < 24) := by decid
     choice. HONEST SCOPE: this seals the NIBBLE ARITHMETIC of the variant field; that a given ledger's addresses
     spread evenly across it is a measurement (observed 402/430/419/429 over 1680 bars), never a theorem. -/
 theorem the_second_voice_is_the_variant : ((List.range 16).filter (fun n => n / 4 == 2) = [8,9,10,11]) ∧ (((List.range 16).filter (fun n => n / 4 == 2)).length = 4) ∧ (4 * 4 = 16) := by decide
+
+/-- At the measured live figures (XMR 427.32 USD, Monero network 6.11 GH/s RandomX, ~65W at 0.25 USD/kWh) a CPU
+    earns 30 milli-dollars per kH/s per day against a fixed 390 milli-dollar daily power cost, so every rate
+    below 13 kH/s runs at a loss and 13 kH/s is the exact break-even. Walked over every rate below the boundary
+    rather than asserted at one point. -/
+theorem monero_cpu_breakeven_is_thirteen_kilohash : ((List.range 13).all (fun k => 30 * k < 390)) ∧ (30 * 13 = 390) ∧ (30 * 10 = 300) := by decide
+
+/-- A HANDLE ROUTES WORK WITH NO COORDINATION AT ALL — max output at min cost, and the cost is exactly zero
+    shared state. A handle spans 16^8 = 4294967296 values, so routing a job by handle mod N picks a worker with
+    NO table, NO consensus, NO lookup and NO round-trip: the address the work already carries IS the routing
+    decision, computed in one modulo on whichever machine holds it. THE BALANCE IS EXACT WHERE N DIVIDES THE
+    SPAN: for every power of two up to 256 the span divides evenly (4294967296 = 2^32, and 2^32 / 2^k is whole
+    for k ≤ 8), so each of the N workers owns precisely the same number of handle values — 2 workers take
+    2147483648 each, 16 take 268435456 each, 256 take 16777216 each, and no worker is ever handed a larger share
+    by the arithmetic. HONEST SCOPE, and it is the whole caveat: an EQUAL SHARE OF THE ADDRESS SPACE is not an
+    equal share of the work — that holds only if handles arrive uniformly (a measurement about traffic, never a
+    theorem) and if jobs cost the same (a claim about the work, not about addresses). Where N does not divide
+    the span the remainder is a real bias, the same honesty moduli_waste_states already keeps. -/
+theorem handles_balance_the_load_for_free : (16 ^ 8 = 4294967296) ∧ ((List.range 9).all (fun k => 4294967296 % (2 ^ k) == 0)) ∧ (4294967296 / 2 = 2147483648) ∧ (4294967296 / 16 = 268435456) ∧ (4294967296 / 256 = 16777216) := by decide

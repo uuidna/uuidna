@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="809 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="830 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 809 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 830 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `96b85aaf` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `06e5a904` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -110,6 +110,18 @@ passes on the first probe when the site is already current — no needless waiti
 an empty expectation fails immediately rather than waiting out the bound
 ```
 
+**balancer** — 7 utterances
+
+```text
+two machines that never speak route the same job to the same worker
+the share is EXACT where the fleet divides the span — 2, 16 and 256 workers
+CONTROL — an uneven fleet NAMES its tail instead of hiding it
+every worker is reachable and every job is placed — no handle falls off the fleet
+the CENSUS is a measurement and may disagree with the arithmetic — it is the one to believe
+CONTROL — a fleet of none is refused by name, never divided by
+the routing cost is stated where a test can reach it: nothing shared, nothing asked
+```
+
 **book-read** — 8 utterances
 
 ```text
@@ -194,6 +206,14 @@ the census folds order-invariantly and accounts per agent
 crew leans in all dimensions at once — and a forged payment row fails to recompute
 licences invalidate when related handles change — the binding is to the handle
 enrollment is UNVERIFIED, never rejected — the honest note names what to bring
+```
+
+**constant-gaps** — 3 utterances
+
+```text
+the tree is clean — every prose derivation has been swept onto an expression
+the swept constants still hold their exact values — a sweep must not move a number
+CONTROL — a derivation the code ALREADY computes must NOT be flagged
 ```
 
 **context-budget** — 5 utterances
@@ -927,6 +947,17 @@ the registry is sorted by id — a stable order, so the fold is order-free of in
 the SERVED tool uuidna_registry dispatches: the whole live catalogue folds with the OS to one receipt
 ```
 
+**os-related** — 6 utterances
+
+```text
+a ported package the wings name is PORTED — related, and already carried
+a name occurring only inside a ported package\
+an ordinary-English name is UNDECIDED — claimed neither related nor unrelated
+CONTROL — the instrument CAN report an uncarried package; it is not closed by construction
+over the REAL port: every ported package is named, and the receipt is change-sensitive
+the SERVED tool adjudicates against the SHIPPED ledger — a narrower haystack than the Lean sources
+```
+
 **packages** — 1 utterances
 
 ```text
@@ -1293,6 +1324,16 @@ the executor DISCOVERS that dz reverses and doubling does not
 text enters through its content-address, and the same text always lands the same way
 order matters almost everywhere — the two steps do not commute
 the walk is bounded and the report is total — no field is left undefined
+```
+
+**sessions** — 5 utterances
+
+```text
+a session identity is stable across its life, and distinct per host, purpose and birth
+CONTROL — announcing updates only my own line; another crew\
+staleness is LEDGER DISTANCE, not time — no clock is consulted anywhere
+a polite departure gives the line back; a crash lets it age out instead
+two devices with the same roster fold to the same receipt — and a single changed line moves it
 ```
 
 **site-contents** — 7 utterances

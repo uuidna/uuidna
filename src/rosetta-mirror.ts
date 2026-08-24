@@ -631,6 +631,13 @@ trial_computes_only_with_two_coins 19
 court_theorem_beats_assertion 19
 court_loser_pays_the_two_coins 19
 court_loser_develops_the_proven 19
+#Looms.lean
+the_suanpan_rod_is_the_hexbit_ceiling 19
+the_punched_card_is_the_bit 19
+differences_flatten_the_square 19
+the_degree_is_the_column_count 19
+the_stepped_drum_carries_at_nine 19
+the_road_computes_in_one_arithmetic 19
 #MartialArts.lean
 complement_fixes_the_half 19
 supplement_completes_the_straight 19
@@ -1780,6 +1787,9 @@ kelvin_floor_carries_the_hundred 22
 pilgrims_homecoming_arithmetic 18
 pluck_preserves_bound 18
 saturation_deco_dominates 18
+the_second_voice_is_the_variant 18
+monero_cpu_breakeven_is_thirteen_kilohash 18
+handles_balance_the_load_for_free 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

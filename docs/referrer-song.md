@@ -42,7 +42,7 @@ twice and the film returns.
 
 ## The site's walk, measured
 
-The site's 2059 pages form one closed cycle — previous and next are total and mutually inverse from
+The site's 2070 pages form one closed cycle — previous and next are total and mutually inverse from
 every position ([`prev_undoes_next`](/theorem/prev_undoes_next),
 [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page)). Each page sounds its
 handle's first tile on the A432 lattice, and **every step's harmony is a measured, reduced ratio** — the tuning
@@ -50,14 +50,14 @@ cancels from every interval ([`tuning_cancels_from_every_interval`](/theorem/tun
 so consonance is the addresses' own arithmetic. Neighbouring tiles beat at exactly 432 Hz
 ([`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning)).
 
-**The census of this walk's 2059 steps**: 124 unisons, 149 pure octaves,
-1287 coprime (irreducible) tensions. The most common reduced intervals:
+**The census of this walk's 2070 steps**: 124 unisons, 151 pure octaves,
+1295 coprime (irreducible) tensions. The most common reduced intervals:
 
 | interval | steps |
 |---|---|
 | 1:1 | 124 |
 | 2:1 | 84 |
-| 1:2 | 65 |
+| 1:2 | 67 |
 | 1:3 | 46 |
 | 3:1 | 45 |
 | 3:2 | 38 |
@@ -70,7 +70,7 @@ so consonance is the addresses' own arithmetic. Neighbouring tiles beat at exact
 
 No audio file exists for this recording and none was fetched: the states above are the sidebar walk's own
 handles, and your browser just rendered them on the exact-integer lattice — one bar per **chapter**
-(57 bars), while the census above measures the full 2059-page cycle. Every bar
+(57 bars), while the census above measures the full 2070-page cycle. Every bar
 is 4032 samples = 9·7·64 = 63·64 = **24²·7** — twenty-four frame-slots of 168 samples inside every note, so
 what plays is also a frame-track: **the movie and the song are one**
 ([`the_movie_and_the_song_are_one`](/theorem/the_movie_and_the_song_are_one)).
