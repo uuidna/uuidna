@@ -51,6 +51,15 @@ const GENERATOR_PATTERNS: readonly RegExp[] = [
   /^npm run lean$/,
   /^npm run build$/,
   /\bgen-[a-z-]+\.js/,
+  // THE MANIFEST RUNNER IS A GENERATOR, AND THE NAME ALMOST HID IT. generate.js runs the sixteen gen-* emitters
+  // and writes the derived layer; every one of its children matches the pattern above and it does not, for want of
+  // a hyphen. Classified as a CHECK it went into the fan-out — writing the derived layer beside thirteen other
+  // steps — and one of the emitters it runs MEASURES ITSELF: gen-quantum-capacity times a sweep over the whole
+  // ledger and seals the DECADE of the per-verify figure. Measured under contention that reading is a decade
+  // slower, so the seal moved, and `spin` reported drift in a tree where nothing had actually changed. A step that
+  // measures time cannot share the machine, for the same reason the test runners cannot — the number it returns
+  // would be about the load rather than about the tree.
+  /\bgenerate\.js/,
   /\blean-axioms\.js/,
   /vitepress build/,
 ]

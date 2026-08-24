@@ -23,6 +23,15 @@ test('the plan is READ from the chain, so it cannot drift from what audit runs',
     ['generator', 'generator', 'generator', 'check', 'generator', 'check', 'check', 'serial-check', 'serial-check'])
 })
 
+test('the manifest runner is a generator, though its name lacks the hyphen its children have', () => {
+  // The miss cost a real verdict: classified as a check, generate.js wrote the derived layer inside the fan-out,
+  // and the emitter it runs that TIMES ITSELF (gen-quantum-capacity seals the decade of a per-verify sweep) took
+  // its reading under contention. A decade slower, a moved seal, and spin reporting drift in a tree where nothing
+  // had changed. Pinned so the classification cannot regress to matching on the name.
+  assert.equal(kindOf('node dist/scripts/generate.js'), 'generator')
+  assert.equal(kindOf('node dist/scripts/gen-mcp.js'), 'generator', 'its children were always classified correctly')
+})
+
 test('the three classes are told apart by what a step DOES', () => {
   assert.equal(kindOf('node dist/scripts/gen-mcp.js'), 'generator', 'gen-* writes inputs for later steps')
   assert.equal(kindOf('npx vitepress build docs'), 'generator')
