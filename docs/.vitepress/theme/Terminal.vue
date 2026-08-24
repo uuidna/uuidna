@@ -16,8 +16,11 @@ const receipt = ref<{ address: string; hexbits: number[] } | null>(null)
 const scroller = ref<HTMLElement | null>(null)
 let id = 0
 
-// the SAME wire this site serves: same-origin /mcp on a licensed uuidna host; the canonical wire from anywhere else
-const endpoint = /\.?uuidna\.(com|net|org)$/.test(location.hostname) ? `${location.origin}/mcp` : 'https://uuidna.com/mcp'
+// the SAME wire this site serves: same-origin /mcp on a licensed uuidna host; the canonical wire from anywhere else.
+// GUARDED FOR SSR: `location` is a browser global absent when VitePress renders the page on the server — reading it
+// at setup() crashed the static build (every page, ReferenceError). During SSR there is no host to be same-origin
+// with, so the canonical wire is exactly right; on the client, setup re-runs at hydration and picks the real origin.
+const endpoint = typeof location !== 'undefined' && /\.?uuidna\.(com|net|org)$/.test(location.hostname) ? `${location.origin}/mcp` : 'https://uuidna.com/mcp'
 
 const print = async (text: string) => {
   lines.value.push(...text.split('\n'))
