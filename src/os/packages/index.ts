@@ -52,13 +52,54 @@ export const untarMember = (tar: Uint8Array, member: string): string => {
 /** fetchAlpineIndex(arch, repo, branch) → read the PUBLISHED apk index and parse each package's (name, version,
  *  checksum). Network + platform gunzip + pure-TS untar; the document is DATA. Best-effort: a down
  *  mirror or a shape drift yields []. */
+const inflate = async (bytes: Uint8Array): Promise<Uint8Array | null> => {
+  try {
+    const ds = new DecompressionStream('gzip')
+    return new Uint8Array(await new Response(new Blob([bytes as unknown as BlobPart]).stream().pipeThrough(ds)).arrayBuffer())
+  } catch {
+    return null
+  }
+}
+
+/** APKINDEX.tar.gz IS NOT ONE GZIP STREAM. It is two valid gzip members concatenated — apk writes the signature
+ *  as the first and the index itself as the second — and `DecompressionStream('gzip')` decodes only the first,
+ *  then rejects everything after it as trailing junk. So the whole-buffer recipe returns the SIGNATURE and never
+ *  the index, and because every such read is wrapped in a best-effort catch it comes back as an EMPTY CATALOGUE:
+ *  a live read that looks like an empty upstream instead of a broken decoder.
+ *
+ *  IT LIVES HERE, in the lowest layer that owns `untarMember`, because it was previously defined one layer up in
+ *  os/apps — which imports FROM this module, so the two modules that needed it most could not reach it without a
+ *  cycle and kept their own broken copies instead. Measured 2026-08-25 against the same live URL: os/apps read
+ *  5961 packages while os/packages read 0 and os/installs returned null. The cure was in the tree and unreachable
+ *  from the code that needed it; one home, in the layer everything can import.
+ *
+ *  THE FIX STAYS ON WEB PRIMITIVES — no node:zlib, so the edge keeps the same code. A gzip member begins with the
+ *  magic 1f 8b 08, so the candidate starts are enumerable; each is tried and the one that INFLATES CLEANLY and
+ *  untars to a member the caller asked for is the answer. It is a search, not a guess: a wrong offset is rejected
+ *  by the decoder, never accepted on a hunch, and a buffer where nothing works returns '' rather than a partial. */
+export async function untarGzipMember(gz: Uint8Array, member: string): Promise<string> {
+  const starts: number[] = []
+  for (let i = 0; i + 3 < gz.length; i++) {
+    if (gz[i] === 0x1f && gz[i + 1] === 0x8b && gz[i + 2] === 0x08 && gz[i + 3]! < 0x20) starts.push(i)
+  }
+  // LAST member first: the index is the final one in every apk archive, and the final member is also the only
+  // one guaranteed to inflate with nothing after it.
+  for (const at of starts.reverse()) {
+    const tar = await inflate(gz.slice(at))
+    if (!tar) continue
+    const found = untarMember(tar, member)
+    if (found) return found
+  }
+  return ''
+}
+
 export async function fetchAlpineIndex(arch = 'x86_64', repo = 'main', branch = 'latest-stable'): Promise<{ name: string; version: string; checksum: string }[]> {
   try {
     const url = `${CDN}/${branch}/${repo}/${arch}/APKINDEX.tar.gz`
     const gz = new Uint8Array(await (await fetch(url)).arrayBuffer())
-    const ds = new DecompressionStream('gzip')
-    const tar = new Uint8Array(await new Response(new Blob([gz]).stream().pipeThrough(ds)).arrayBuffer())
-    const apkindex = untarMember(tar, 'APKINDEX')
+    // the member SEARCH, never the whole-buffer decode — see untarGzipMember above for why this returned [] for
+    // every live index until 2026-08-25, and why that silence read as an empty Alpine rather than as a bug
+    const apkindex = await untarGzipMember(gz, 'APKINDEX')
     if (!apkindex) return []
     return apkindex.split('\n\n').filter((r) => r.includes('P:')).map((r) => ({
       name: (r.match(/^P:(.+)$/m) || [])[1] ?? '',

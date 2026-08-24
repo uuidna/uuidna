@@ -7,6 +7,13 @@ variants of the same project are folded together. Every one of them now has a uu
 a 128-bit content-address over the exact published tuple (name, version, arch, repo, branch, Alpine's own
 checksum), recomputable by anyone holding the same index.
 
+**That is 2 of 16 published indexes — 12% of the catalogue,
+not all of it.** Alpine builds `main` and `community` for 8 architectures and publishes an index for
+each; this port reads `x86_64` and leaves 14 published indexes deliberately unread. The
+count above is large and true and has a denominator, and the denominator is stated here because a figure that
+sounds comprehensive is the one that most needs it. The unread pairs were probed, not assumed: a port cannot
+earn coverage by declining to look.
+
 **92% of them harmonise with nothing.** That is the number this
 report leads with, because it is the one that carries information: the ledger has sealed arithmetic for
 typesetting, calendars, codecs, checksums and ciphers, and none whatever for a Perl binding or a Kubernetes
@@ -38,8 +45,8 @@ verified. Nothing here reads a line of any app's code.
 packages and holds none of their bytes. What is ported is the published metadata, folded to an address —
 which is what makes a deployment able to *prove* which exact upstream releases it rests on.
 
-Catalogue root (every ported address, order-invariant): `aac07ef3-61a4-8d6d-8ea3-ea60f928f4f2`
-Catalogue address: `362855ef-2bc6-83d0-970e-20f245cf00c9` · handle `362855ef`
+Catalogue root (every ported address, order-invariant): `64181824-61db-8a2e-9437-48dbd6cb95d1`
+Catalogue address: `d07b5e92-7d80-80f0-844b-c1c9dc44ec18` · handle `d07b5e92`
 
 Every line above left through the gate as a witnessed quantum message: 13 claims, each bound to a
 sealed theorem the claim itself cites, 0 refused. Dispatch receipt: `ae572682-3680-8af7-bdfa-3d43d853a9df`.

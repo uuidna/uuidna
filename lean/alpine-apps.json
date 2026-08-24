@@ -96,7 +96,7 @@
    "fold": "c097d538-3a87-87e7-a118-6883f5e9e64b"
   }
  ],
- "root": "aac07ef3-61a4-8d6d-8ea3-ea60f928f4f2",
+ "root": "64181824-61db-8a2e-9437-48dbd6cb95d1",
  "sample": [
   {
    "id": "uuidna/perl-list-utilsby-doc",
@@ -1277,7 +1277,7 @@
  ],
  "hexbitsPerApp": 32,
  "honest": "PROVENANCE, NEVER EXECUTION. Every entry is Alpine's own published metadata — name, version, arch, repo, branch, and Alpine's own checksum — folded to a content-address anyone with the same index recomputes. uuidna does not install, link, unpack, boot or run any of these packages, and holds none of their bytes. HARMONISED means the ledger has sealed arithmetic for what the app declares it does, and the heaviest theorem of that skill is bound to it as a witness; it does NOT mean the app was verified, tested, or proven correct — nothing here inspects an app's code. UNHARMONISED is the honest majority and is counted, not hidden: a scheme that found a theorem for everything would have said nothing.",
- "address": "362855ef-2bc6-83d0-970e-20f245cf00c9",
+ "address": "d07b5e92-7d80-80f0-844b-c1c9dc44ec18",
  "dispatch": {
   "dispatches": [
    {
@@ -1532,5 +1532,12 @@
   "refused": [],
   "clear": true,
   "receipt": "ae572682-3680-8af7-bdfa-3d43d853a9df"
+ },
+ "coverage": {
+  "published": 16,
+  "read": 2,
+  "unread": 14,
+  "breadth": 0.125,
+  "receipt": "8fbd312b-a781-84c0-8dd0-b4d5c74c64bc"
  }
 }

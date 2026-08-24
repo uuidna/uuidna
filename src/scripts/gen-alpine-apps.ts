@@ -27,6 +27,7 @@ import { ROOT } from './api.js'
 import { fetchCatalogue, catalogueAddress } from '../os/apps/index.js'
 import { dispatchAll, refusalReport, type Claimed } from '../quantum/dispatch/index.js'
 import { handleOf } from '../handle.js'
+import { classifyIndex, coverageOf, type IndexCell } from '../os/apps/coverage.js'
 
 const repos = ['main', 'community']
 const catalogue = await fetchCatalogue(repos)
@@ -42,6 +43,39 @@ if (!catalogue) {
 }
 
 const address = catalogueAddress(catalogue)
+
+// ── THE DENOMINATOR, WHICH THIS REPORT DID NOT STATE. Every figure above is honest about itself and none of them
+// says what fraction of Alpine it is. Alpine publishes an APKINDEX for every (repo × architecture) pair on the
+// branch; this port reads ONE architecture. Measured 2026-08-25: sixteen published, two read — 12.5%. The report
+// hid nothing (it names `arch: x86_64`) and disclosed nothing either, because a reader had to know unaided that
+// x86_64 is one of eight. The number that sounds comprehensive is the one that most needs its denominator.
+//
+// The pairs this port does not read are probed with a HEAD — cheap, no bandwidth — so they are counted as
+// PUBLISHED-BUT-UNREAD rather than assumed away. Without that, the port could report full coverage by the simple
+// method of never looking, which is the failure this whole audit is named after arrived at through arithmetic.
+const ARCHES = ['x86_64', 'x86', 'aarch64', 'armv7', 'armhf', 'ppc64le', 's390x', 'riscv64']
+const probeBytes = async (repo: string, arch: string): Promise<number> => {
+  try {
+    const r = await fetch(`https://dl-cdn.alpinelinux.org/alpine/${catalogue.branch}/${repo}/${arch}/APKINDEX.tar.gz`, { method: 'HEAD' })
+    return r.ok ? Number(r.headers.get('content-length') ?? 0) : 0
+  } catch { return -1 }
+}
+const cells: IndexCell[] = []
+for (const repo of repos) {
+  for (const arch of ARCHES) {
+    const bytes = await probeBytes(repo, arch)
+    if (bytes < 0) continue                                  // an unreachable probe is counted in NEITHER direction
+    const read = arch === catalogue.arch
+    cells.push(classifyIndex(repo, arch, read, bytes, read ? 1 : 0))
+  }
+}
+const coverage = coverageOf(catalogue.branch, cells)
+if (coverage.undecodable > 0) {
+  console.error(`✗ gen-alpine-apps — ${coverage.undecodable} index(es) served a substantial body and decoded to nothing.`)
+  console.error('  That is this tree\'s READER failing, not an empty upstream. NOTHING WAS WRITTEN.')
+  process.exit(1)
+}
+console.log(`  coverage — ${coverage.read}/${coverage.published} published indexes read (${(coverage.breadth * 100).toFixed(1)}%), ${coverage.unread} published and deliberately unread`)
 
 // EVERY CLAIM LEAVES AS A WITNESSED MESSAGE. One line per harmonised skill, each citing the sealed theorem
 // bound to it, plus the scope line that says what porting does and does not mean — witnessed by the theorem
@@ -82,6 +116,13 @@ variants of the same project are folded together. Every one of them now has a uu
 a 128-bit content-address over the exact published tuple (name, version, arch, repo, branch, Alpine's own
 checksum), recomputable by anyone holding the same index.
 
+**That is ${coverage.read} of ${coverage.published} published indexes — ${pct(coverage.read, coverage.published)}% of the catalogue,
+not all of it.** Alpine builds \`${repos.join('\` and \`')}\` for ${ARCHES.length} architectures and publishes an index for
+each; this port reads \`${catalogue.arch}\` and leaves ${coverage.unread} published indexes deliberately unread. The
+count above is large and true and has a denominator, and the denominator is stated here because a figure that
+sounds comprehensive is the one that most needs it. The unread pairs were probed, not assumed: a port cannot
+earn coverage by declining to look.
+
 **${pct(catalogue.unharmonised, catalogue.count)}% of them harmonise with nothing.** That is the number this
 report leads with, because it is the one that carries information: the ledger has sealed arithmetic for
 typesetting, calendars, codecs, checksums and ciphers, and none whatever for a Perl binding or a Kubernetes
@@ -110,7 +151,12 @@ sealed theorem the claim itself cites, ${run.refused.length} refused. Dispatch r
 is honest at the \`src/os\` boundary and nowhere else in this tree.*
 <!-- alpine-apps:end -->`
 
-writeFileSync(join(ROOT, 'lean', 'alpine-apps.json'), JSON.stringify({ ...catalogue, address, dispatch: run }, null, 1) + '\n')
+// coverage travels WITH the catalogue: the count and its denominator are one fact, and a consumer that can read
+// the first without the second is exactly how "28630 packages" came to sound like all of Alpine
+writeFileSync(join(ROOT, 'lean', 'alpine-apps.json'), JSON.stringify({
+  ...catalogue, address, dispatch: run,
+  coverage: { published: coverage.published, read: coverage.read, unread: coverage.unread, breadth: coverage.breadth, receipt: coverage.receipt },
+}, null, 1) + '\n')
 writeFileSync(join(ROOT, 'lean', 'alpine-apps.md'), block + '\n')
 
 console.log(`✓ gen-alpine-apps — ${catalogue.count} packages / ${catalogue.origins} projects ported from ${repos.join(' + ')} (${catalogue.branch}, ${catalogue.arch})`)

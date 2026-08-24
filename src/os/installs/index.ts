@@ -6,7 +6,7 @@
 // exact mirror bytes for scripts/lean-installs to commit. Best-effort and honest: a down mirror yields null
 // and the committed mirror stands; a closure is NEVER fabricated. The response is DATA: parsed, closed over,
 // content-addressed — never installed, linked, booted, or executed. Integrity, not execution.
-import { untarMember } from '../packages/index.js'
+import { untarGzipMember } from '../packages/index.js'
 import { fetchAlpineLatest } from '../alpine/index.js'
 import { type InstallsMirror } from '../../quantum/os/mirror.js'
 
@@ -26,9 +26,10 @@ const parseIndex = (apkindex: string): IndexRecord[] =>
 export async function fetchDefaultInstalls(branch = 'latest-stable', repo = 'main', arch = 'x86_64'): Promise<InstallsMirror | null> {
   try {
     const gz = new Uint8Array(await (await fetch(`${CDN}/${branch}/${repo}/${arch}/APKINDEX.tar.gz`)).arrayBuffer())
-    const ds = new DecompressionStream('gzip')
-    const tar = new Uint8Array(await new Response(new Blob([gz]).stream().pipeThrough(ds)).arrayBuffer())
-    const recs = parseIndex(untarMember(tar, 'APKINDEX'))
+    // the member SEARCH, never the whole-buffer decode. Until 2026-08-25 this read the first gzip member — the
+    // signature — and so returned null for every live index, which the caller could not tell from "Alpine has no
+    // default install set". See untarGzipMember in os/packages for the format and the measurement.
+    const recs = parseIndex(await untarGzipMember(gz, 'APKINDEX'))
     const byName = new Map(recs.map((r) => [r.name, r]))
     const providers = new Map<string, string>()
     for (const r of recs) for (const pv of r.provides) { const key = pv.split('=')[0]!; if (!providers.has(key)) providers.set(key, r.name) }

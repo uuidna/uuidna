@@ -28,7 +28,7 @@
 // wall-clock-dependent act — reading what upstream calls "latest" right now — lives at the bottom, in the
 // fetcher, which is honest at src/os and nowhere else. A down mirror yields an empty catalogue, never a
 // fabricated checksum.
-import { uuidnaPackage, untarMember, type UuidnaPackage } from '../packages/index.js'
+import { uuidnaPackage, untarMember, untarGzipMember, type UuidnaPackage } from '../packages/index.js'
 import { theorems } from '../../theorems/index.js'
 import { compileToHexbits, UUID_HEXBITS } from '../../hexbit/index.js'
 import { merkleGravity } from '../../gravity/index.js'
@@ -251,46 +251,12 @@ const parseIndex = (apkindex: string): IndexPackage[] =>
     const g = (k: string) => (r.match(new RegExp(`^${k}:(.+)$`, 'm')) || [])[1] ?? ''
     return { name: g('P'), version: g('V'), checksum: g('C'), desc: g('T') }
   }).filter((p) => p.name && p.version && p.checksum)
-
-/** inflate one gzip stream, or null if it is not one. The rejection is DATA, not an exception, because the
- *  caller below deliberately tries offsets that will fail. */
-const inflate = async (bytes: Uint8Array): Promise<Uint8Array | null> => {
-  try {
-    const ds = new DecompressionStream('gzip')
-    return new Uint8Array(await new Response(new Blob([bytes as unknown as BlobPart]).stream().pipeThrough(ds)).arrayBuffer())
-  } catch {
-    return null
-  }
-}
-
-/** APKINDEX.tar.gz IS NOT ONE GZIP STREAM. It is two valid gzip members concatenated — apk writes the signature
- *  as the first and the index itself as the second — and `DecompressionStream('gzip')` decodes only the first,
- *  then rejects everything after it as trailing junk. So the whole-buffer recipe returns the SIGNATURE and
- *  never the index, and because the read is wrapped in a best-effort catch it comes back as an empty catalogue:
- *  a live read that looks like an empty upstream instead of a broken decoder. (This is worth stating plainly
- *  because the same whole-buffer recipe is written in os/packages and os/installs, where the same silence
- *  applies — see the note in scripts/gen-alpine-apps.)
- *
- *  THE FIX STAYS ON WEB PRIMITIVES — no node:zlib, so the edge keeps the same code. A gzip member begins with
- *  the magic 1f 8b 08, so the candidate starts are enumerable; each is tried and the one that INFLATES CLEANLY
- *  and untars to a member the caller asked for is the answer. It is a search, not a guess: a wrong offset is
- *  rejected by the decoder, never accepted on a hunch, and a buffer where nothing works returns null rather
- *  than a partial answer. */
-export async function untarGzipMember(gz: Uint8Array, member: string): Promise<string> {
-  const starts: number[] = []
-  for (let i = 0; i + 3 < gz.length; i++) {
-    if (gz[i] === 0x1f && gz[i + 1] === 0x8b && gz[i + 2] === 0x08 && gz[i + 3] < 0x20) starts.push(i)
-  }
-  // LAST member first: the index is the final one in every apk archive, and the final member is also the only
-  // one guaranteed to inflate with nothing after it.
-  for (const at of starts.reverse()) {
-    const tar = await inflate(gz.slice(at))
-    if (!tar) continue
-    const found = untarMember(tar, member)
-    if (found) return found
-  }
-  return ''
-}
+// THE GZIP MEMBER SEARCH MOVED DOWN A LAYER, and the move is the finding rather than a tidy-up. It was defined
+// HERE, and os/packages and os/installs — which import from this module and so could not import it back without
+// a cycle — each kept their own whole-buffer decode and returned an empty catalogue for every live index. The
+// cure existed in the tree and was unreachable from the two places that needed it. It now lives beside
+// untarMember in os/packages, where every layer can reach it; re-exported here so existing callers are unmoved.
+export { untarGzipMember } from '../packages/index.js'
 
 /** fetchRepoIndex(repo, branch, arch) → every package Alpine publishes in one repository, right now. Network +
  *  the platform's own gunzip + the pure-TS untar os/packages already owns; the document is DATA and is parsed,
