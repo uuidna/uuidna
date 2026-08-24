@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="785 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="792 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 785 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 792 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `6e5467ee` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `b1afeffe` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -46,6 +46,18 @@ the arc receipt is order-invariant across observers but moves with the verdicts
 ```text
 alpineRelease PINS an exact release — recomputable, and the filename follows Alpine convention
 verifyAlpineRootfs — uuidna re-hashes YOUR bytes with its own SHA-256 (exact-copy proof, no host crypto)
+```
+
+**anthem-stream** — 7 utterances
+
+```text
+one position, one sample — the lifted formulas equal the buffered ones exactly
+THE PROPERTY — the stream is bit-identical to the file across bars and their breaths
+CONTROL — the block size cannot change what is heard (a cursor is not a buffer)
+the stream is a ROUND — it re-enters at the first bar and never ends
+THE WORKLET COPY IS TESTED, NOT TRUSTED — its process() matches the module it was lifted from
+an empty score is silence, never a crash — a stream with nothing to play still fills its block
+the sample rate the stream computes at is the lattice\
 ```
 
 **anthem-superposition** — 8 utterances
