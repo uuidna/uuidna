@@ -107,4 +107,46 @@ export default defineConfig({
     // the theorem/publication pages' ScholarlyArticle was the last unaligned surface ("align all", 2026-08-16).
     infuseQuantumPayload(pageData as never, routeOf)
   },
+
+  // ── buildEnd — THE ONE ARTIFACT THIS TREE NEVER SEALED WAS THE ONE THE WORLD RECEIVES.
+  //
+  // Every other surface here carries a recomputable receipt: the ledger, the derived layer, the gate itself. The
+  // SITE had none. `vitepress build docs` exiting 0 proves the tree renders; it says nothing about WHAT was
+  // rendered, so a page silently lost — a route that stopped being generated, a dynamic path whose loader
+  // returned an empty list — ships as a green build. That is the same shape as every instrument corrected in this
+  // tree recently: the check observed "the build succeeded" and was read as "the site is what we think it is".
+  //
+  // buildEnd runs after SSG completes and before the CLI exits (the official hook signature is
+  // `(siteConfig: SiteConfig) => Awaitable<void>`), which is the only moment the finished output exists and the
+  // process is still alive to fold it. So the pages are counted and their paths folded to ONE address, printed
+  // for the build log and written beside the output. A number that changes when the site changes is a receipt; a
+  // number nobody computes is how a missing page goes unnoticed.
+  //
+  // IT REPORTS, IT DOES NOT GATE. Deciding a page count is "wrong" needs a sealed expectation to compare against,
+  // and inventing a threshold here would be the constant-wearing-the-clothes-of-a-law mistake this tree spent the
+  // day removing. It states what shipped; comparing successive receipts is what catches the loss.
+  async buildEnd(siteConfig) {
+    const { readdir, writeFile } = await import('node:fs/promises')
+    const { join, relative } = await import('node:path')
+    const { toUuid } = await import('../../src/address.js')
+
+    const out = siteConfig.outDir
+    const walk = async (dir: string): Promise<string[]> => {
+      const entries = await readdir(dir, { withFileTypes: true })
+      const found = await Promise.all(entries.map(async (e) => {
+        const abs = join(dir, e.name)
+        if (e.isDirectory()) return walk(abs)
+        return e.name.endsWith('.html') ? [abs] : []
+      }))
+      return found.flat()
+    }
+
+    // ORDER-INVARIANT BY CONSTRUCTION: the paths are sorted before folding, so the receipt is a property of the
+    // set of pages published and not of the order the filesystem happened to hand them back.
+    const pages = (await walk(out)).map((p) => relative(out, p).replace(/\\/g, '/')).sort()
+    const receipt = toUuid(`site|${pages.length}|${pages.join('|')}`)
+    await writeFile(join(out, 'build-receipt.json'), JSON.stringify({ pages: pages.length, receipt }, null, 1) + '\n')
+    console.log(`\n  site receipt — ${pages.length} pages published, receipt ${receipt}`)
+    console.log('  (recompute: fold the sorted relative paths of every .html under the out dir)\n')
+  },
 })
