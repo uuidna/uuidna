@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1689 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1690 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -305,7 +305,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 100. **The hexbit** — `lean/Hexbit.lean` · **16** theorems
    THE HEXBIT — the alphabet and the layout an address is actually built from. A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two
 
-101. **The installs** — `lean/Installs.lean` · **11** theorems
+101. **The installs** — `lean/Installs.lean` · **12** theorems
    THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the 25 packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED latest-stable index, Alpine 3.24.1), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising 
 
 102. **The isometry** — `lean/Isometry.lean` · **6** theorems
