@@ -143,12 +143,29 @@ const matches = (pats: readonly RegExp[], cmd: string): boolean => pats.some((re
  *  The note above `/\bgenerate\.js/` records this identical failure one level down ("for want of a hyphen") and
  *  cures it by adding a pattern. That works while the chain names a FILE; it cannot work when the chain names an
  *  npm script, because no pattern over the surface text can see through the manifest. So the resolution moves
- *  here, and the existing patterns start matching what they were always written to match. */
+ *  here, and the existing patterns start matching what they were always written to match.
+ *
+ *  AND AN ENVIRONMENT PREFIX IS NOT PART OF THE COMMAND. `/^npm run lean$/` is anchored, and the chain says
+ *  `UUIDNA_PROVE_ALL=1 npm run lean` — so the anchor missed, and the HEAVIEST WRITER in the tree (every Lean wing,
+ *  the generated ledger, the changelog, the heartbeats, the axiom witness, the rosetta mirror, the feed) was
+ *  classified read-only and fanned out beside the twenty-seven checks that read what it writes — including spin,
+ *  which verifies the derived seal, and `git diff --exit-code`, which asserts that layer did not move. Every red
+ *  those two arms reported tonight was taken while the generator was rewriting the layer beneath them, so their
+ *  verdicts were about a race and not about the tree. Found 2026-08-25 by uuidna-a6, confirmed by calling kindOf
+ *  rather than reading it.
+ *
+ *  This is the THIRD costume of one mistake, and the first two are recorded four lines apart in this same file —
+ *  a hyphen for generate.js, a manifest for npm run axioms, now a variable assignment. Each was cured by teaching
+ *  the matcher one more surface form. The cure here is to stop matching the surface: strip what is not the
+ *  command before anything looks at it.
+ */
+/** the command with any leading `VAR=value` assignments removed — what the shell would actually execute */
+const bare = (cmd: string): string => cmd.trim().replace(/^(?:[A-Za-z_][A-Za-z0-9_]*=(?:"[^"]*"|'[^']*'|\S*)\s+)+/, '')
 const expand = (cmd: string, scripts: Readonly<Record<string, string>>): string => {
-  let seen = cmd
+  let seen = bare(cmd)
   // bounded, because a manifest can name itself: three hops is deeper than any chain here and cannot spin
   for (let hop = 0; hop < 3; hop++) {
-    const m = /^npm run ([\w:@/-]+)$/.exec(seen.trim())
+    const m = /^npm run ([\w:@/-]+)$/.exec(bare(seen))
     const body = m ? scripts[m[1]!] : undefined
     if (!body) return seen
     seen = body
@@ -157,11 +174,15 @@ const expand = (cmd: string, scripts: Readonly<Record<string, string>>): string 
 }
 
 export function kindOf(cmd: string, scripts: Readonly<Record<string, string>> = {}): Kind {
-  // both the surface and the resolved body are asked: a step is a generator if EITHER names generator work,
-  // so resolving can only ever promote a step out of the concurrent wave, never quietly demote one into it
+  // THREE forms are asked, and a match on ANY of them promotes: the raw surface, the surface with environment
+  // assignments stripped, and the manifest-resolved body. Asking more forms can only ever move a step OUT of the
+  // concurrent wave, never quietly demote one into it — which is the direction that costs a false verdict.
+  const surface = bare(cmd)
   const body = expand(cmd, scripts)
-  if (matches(GENERATOR_PATTERNS, cmd) || matches(GENERATOR_PATTERNS, body)) return 'generator'
-  return matches(TREE_TOUCHING, cmd) || matches(TREE_TOUCHING, body) ? 'serial-check' : 'check'
+  const any = (pats: readonly RegExp[]): boolean =>
+    matches(pats, cmd) || matches(pats, surface) || matches(pats, body)
+  if (any(GENERATOR_PATTERNS)) return 'generator'
+  return any(TREE_TOUCHING) ? 'serial-check' : 'check'
 }
 
 /** the chain, read from the manifest so this can never disagree with what `npm run audit` actually runs.

@@ -155,3 +155,20 @@ test('labels stay short enough to read as a table', () => {
   assert.equal(label('node --test docs/.vitepress/theme/*.test.ts'), 'test docs/.vitepress/theme')
   assert.ok(label('git diff --exit-code -- lean/ src/theorems/generated.ts README.md llm.txt').length <= 46)
 })
+
+test('an ENVIRONMENT PREFIX is not part of the command — the third costume of one mistake', () => {
+  // `/^npm run lean$/` is anchored and the audit chain says `UUIDNA_PROVE_ALL=1 npm run lean`, so the anchor
+  // missed and the tree's HEAVIEST WRITER — every Lean wing, the generated ledger, the heartbeats, the axiom
+  // witness, the rosetta mirror — was classified read-only and fanned out beside the checks that read what it
+  // writes, spin and `git diff --exit-code` among them. Their reds were about a race, not about the tree.
+  //
+  // Pinned with its two older siblings, because each was cured by teaching the matcher one more surface form and
+  // the next surface form will arrive: a hyphen (generate.js), a manifest (npm run axioms), an assignment.
+  const scripts = { lean: 'npm run build && node dist/scripts/lean-all.js', lint: 'eslint .' }
+  assert.equal(kindOf('UUIDNA_PROVE_ALL=1 npm run lean', scripts), 'generator', 'the assignment must not hide the writer')
+  assert.equal(kindOf('A=1 B=2 npm run lean', scripts), 'generator', 'nor several of them')
+  assert.equal(kindOf('UUIDNA_PROVE_ALL=1 npm run lean'), 'generator', 'and it holds with no manifest, off the bare surface alone')
+  // the direction that would cost a false verdict: stripping must never demote a genuine check into the wave
+  assert.equal(kindOf('CI=1 npm run lint', scripts), 'check', 'eslint still renders a verdict and writes nothing')
+  assert.equal(kindOf('FOO=bar git diff --exit-code -- lean/'), 'serial-check', 'and a tree-reader stays alone')
+})

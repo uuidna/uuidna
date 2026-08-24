@@ -613,6 +613,7 @@ the_foundation_depends_on_nothing 19
 every_path_carries_its_published_meaning 19
 a_spec_compiles_to_hexbits 19
 the_os_is_bootable_quantum 19
+the_install_set_names_the_bytes_it_rests_on 19
 #Isometry.lean
 xor_preserves_distance 19
 reuse_leaks_by_isometry 19
@@ -922,7 +923,7 @@ weber_fechner_log_ladder 19
 developmental_stages_double 19
 dunbar_layers_triple_and_round 19
 #Quantum.lean
-bell_born_weights 19
+bell_born_weights 27
 bell_normalized 19
 bell_perfect_correlation 19
 bell_no_signaling 19
@@ -930,7 +931,7 @@ superposition_h0 19
 ghz3_two_outcomes 19
 ghz3_normalized 19
 cnot_truth_table 19
-cnot_involution 19
+cnot_involution 27
 toffoli_truth_table 19
 swap_truth_table 19
 s_squared_is_z 19
@@ -1682,7 +1683,7 @@ eclipse_four_hundred 19
 saros_metonic_bridge 19
 flat_drift_is_quadratic 19
 poles_on_the_axis_at_the_quadrature 19
-universe_of_handles 19
+universe_of_handles 27
 tides_two_bulges 19
 market_tides_and_the_strategy_bar 19
 #UuidMix.lean

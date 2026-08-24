@@ -14,7 +14,7 @@
 //
 // THE FIRST DIAGNOSIS, WHICH WAS WRONG: twelve sweeps in one process read 10662 ns on pass 0 and 48-132 ns
 // afterwards, and that was read as JIT compilation — cold start swamping the work. It is not. toUuid memoises
-// every seed in an unbounded Map, so pass 0 folded 1689 addresses and passes 1-11 served them from a cache.
+// every seed in an unbounded Map, so pass 0 folded the whole ledger and passes 1-11 served it from a cache.
 // The 280x was the CACHE, not the compiler. Measured properly, a cold sweep costs only 1.07x to 1.19x a warm
 // memo-free one, because a single pass over the ledger has no cache hits in it at all — every statement is
 // distinct. The original single-pass method was very nearly sound.

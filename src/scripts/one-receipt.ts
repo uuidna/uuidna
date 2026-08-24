@@ -1147,7 +1147,15 @@ export function dormantGaps(): Gap[] {
   const declared: string[] = existsSync(listPath) ? (JSON.parse(fileText(listPath)) as { scripts: string[] }).scripts : []
 
   const live: string[] = []
-  for (const f of readdirSync(dir).filter((x) => x.endsWith('.ts') && x !== 'api.ts')) {
+// PURE-EXPORTS HELPERS ARE NOT SCRIPTS, AND DORMANCY CANNOT APPLY TO THEM. This exemption named api.ts alone,
+// which read as a special case for one file when it is really a CATEGORY: a module at the scripts boundary that
+// declares only exports has no entry point, so "nothing ever runs it" is true of it by construction and says
+// nothing about decay. It lives here rather than in src/ for a reason the library layer enforces — these helpers
+// READ THE CLOCK, and the determinism scan admits a wall-clock read at the scripts boundary and nowhere else.
+// The category is named once, with the members listed and the test for membership stated: no entry-point guard,
+// no top-level execution, exercised by its CALLERS and by its own suite rather than by being spawned.
+const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts'])
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.ts') && !PURE_HELPERS.has(x))) {
     // DISCOVERED, not named: lean-all.ts readdirs every lean-*.ts, so a wing runs on every build with no mention
     if (/^lean-/.test(f)) continue
     const base = f.replace(/\.ts$/, '')
