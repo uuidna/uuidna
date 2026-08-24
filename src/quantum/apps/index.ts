@@ -17,3 +17,5 @@ export { testClaim, type ClaimTest, type ControlRun, start, applyStride, undo, u
 export { readPassage, findFacts, rankShelf, tryQuote, type Reading, type FactFinding, type BookLead, type ShelfEntry, type QuoteVerdict } from './categories/books/index.js'
 export { drillOf, attemptDrill, foldFeedback, meterLoop, CLOSES_AT, prerequisitesOf, walkTo, type Drill, type FeedbackFold, type LoopMeter, type Walk } from './categories/practice/index.js'
 export { startState, legalFrom, allLegal, applyMove, statusOf, bestMove, nimSum, nimVerdict, mobilityOf, type ChessState, type NimVerdict, type Mobility } from './categories/gaming/index.js'
+// the trading floor — the desk, the census, the leverage and the compound over the sealed billing (lead 89)
+export { costOf, walletCensus, chargeFor, leverageOf, compoundAt, type WorkloadCost, type WalletCensus, type Leverage, type Compound } from './categories/trading/index.js'

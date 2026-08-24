@@ -45,6 +45,12 @@ categories/practice — THE PRACTICE SHELF (lead 81c, the captain's "next 4/4 co
 
 `drillOf` · `attemptDrill` · `foldFeedback` · `meterLoop` · `CLOSES_AT` · `prerequisitesOf` · `walkTo` — live at [/school](/school)
 
+## trading — 8 instruments
+
+categories/trading — THE TRADING FLOOR (lead 89's missing shelf: the captain named [trading|gaming|coding|…] and this was the one category never built). Four instruments over the ledger's own billing arithmetic — the desk that prices a workload, the census that counts what has been minted, the leverage that measures what a receipt spares a verifier, and the compound that reads the rate at which a growing ledger spares re-derivation. Every figure is IMPORTED from the sealed billing surface or com
+
+`costOf` · `walletCensus` · `chargeFor` · `leverageOf` · `compoundAt` · `RATE_NUM` · `RATE_DEN` · `FIRST_DOUBLING` — live at [/trading](/trading)
+
 ## Honest scope
 
 A store that sells nothing: every app is free, local, and silent — no telemetry, no accounts, no assets fetched.
