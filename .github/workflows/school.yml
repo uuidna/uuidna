@@ -60,6 +60,15 @@ jobs:
       # the landing carries it, and an untaught objection is FILED to lean/circle-findings.json rather than
       # dying in a log, so an unattended stop reaches the sentry and the registrar instead of nobody. It adds
       # no power: the same gated commands, no bypass, nothing sealed the kernel did not prove.
+      # ROSTER — THE SCHOOL IS A SESSION TOO, and the truest first entry on the cross-device roster: it runs on
+      # a device (this runner), for a purpose, at a ledger height, exactly like every human crew. Announcing
+      # here is not ceremony — it is what makes the roster answer "who is touching the tree right now" during
+      # the one window when the answer is most often "the schedule, and nobody knew". It departs after the
+      # drain so a finished run gives its line back rather than ageing out by drift.
+      - name: 'ROSTER — the school announces itself to every device'
+        run: |
+          node dist/scripts/session.js announce "the resident school — janitor, conveyor, registrar"
+          node dist/scripts/session.js roster
       - name: 'CIRCLE — re-enter on the loop''s own verdict; file the stop if there is one'
         continue-on-error: true
         run: |
@@ -81,6 +90,7 @@ jobs:
             git commit -m "Heartbeat: the school verifies itself and drains the derived drift — gate-clean, sessionless. Backed by theorem two_coins"
             git push
             echo "drained and pushed"
+            node dist/scripts/session.js depart "the resident school — janitor, conveyor, registrar" || true
           else
             echo "quiet — the tree is a fixed point"
           fi
