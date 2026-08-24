@@ -54,6 +54,16 @@ jobs:
         run: |
           node dist/scripts/queue-wave.js
           npm run lean
+      # CIRCLE — the loop's re-entry, on the schedule that already runs everything else (queue lead 131, the
+      # captain's "close the circle"). develop heals and land lands; what was still human was NOTICING that new
+      # ore had arrived and running them again. --once keeps this tick bounded — the census reports the work,
+      # the landing carries it, and an untaught objection is FILED to lean/circle-findings.json rather than
+      # dying in a log, so an unattended stop reaches the sentry and the registrar instead of nobody. It adds
+      # no power: the same gated commands, no bypass, nothing sealed the kernel did not prove.
+      - name: 'CIRCLE — re-enter on the loop''s own verdict; file the stop if there is one'
+        continue-on-error: true
+        run: |
+          node dist/scripts/circle.js --once
       - name: DRAIN — commit and push the derived drift (a quiet run is health)
         run: |
           git config user.name "uuidna-school"
