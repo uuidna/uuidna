@@ -12,7 +12,7 @@ import {
   sealStream, openStream, sealChain, openChain,
   contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract,
   auditText, auditTranslation, auditBook, bookArticle, linkBookFacts, auditMovie, auditVideo, auditZenodo, auditStandard, beaconAnchor, nistConstant, auditCve, auditDetails,
-  bookContents, readChapter, readBook, gridReport, gridSeat, grid, PROJECTED, wings,
+  bookContents, readChapter, readBook, gridReport, gridSeat, grid, PROJECTED, wings, gridGaps, pairsGaps,
   pairsReport, pairSeat, pairs, transpose, DIMENSIONS,
   corroborateWithResearch, domainWave, corroborate, entangle, fileReport, deepResearch,
   gcdInt, starPolygon, fibonacciCycle, rotate, crt, recomputableCost, securityAudit, verifyStatement, transformUntilVerified, pentagramHologramFractal, pentagramStream, spin, pentagramMonographs, exploitFold, conformance, depositTrial,
@@ -28,6 +28,8 @@ import {
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll } from './index.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
 import { handleOf } from './handle.js'   // THE one derivation of a handle from an address
+import { depositCandidates, type WaveCandidate } from './wave-deposit.js'   // the wire's door into the conveyor (lead 131)
+import { ROOT } from './scripts/api.js'  // repo root, edge-guarded (resolves '/' where no node registry exists)
 import { speak, speechCensus } from './speech.js' // what a handle SAYS, read off the sealed walk — no phrase table
 import { schoolApiRegistry, schoolApiFetch, pairEducationToJobs } from './school-apis.js' // the European education APIs behind one door — ESCO / Eurostat / GISCO fetched, OOAPI served
 import { skillSurface, skillIndex } from './skills.js' // THE CAPABILITY AXIS, SERVED AS A DIMENSION — one computed surface over every skill the wings carry, never one tool per skill
@@ -412,6 +414,23 @@ const TOOLS: Tool[] = [
     detail: 'THE FOLD THIS IS: the Black Whole session (queue 79/transcript-audit) ran by hand — scratchpad curl for oEmbed, a hand-held transcript, a hand-driven detail audit; five receipts of manual work. This tool is that session folded into the surface, so the next video costs a call, not a session. The metadata is what the platform PUBLICLY POSTS via oEmbed — REPORTED data, content-addressed with auditText; caption endpoints require the platform\'s own authorization, so captions are SUPPLIED by the caller (that boundary is named, not smoothed over) and default to the newline delimiter — ASR captions carry no punctuation, the line is the honest detail boundary. The caption audit is the full uuidna_audit_details instrument: controls first (an accepted control VOIDS the audit), every detail adjudicated (sealed statements VERIFY, fresh arithmetic decides, prose runs the citation trial, a fabricated citation DRAINS), folded order-invariantly through merkleGravity. Verdicts settle arithmetic and citations, never the world (theorem provenance_integrity_not_content_truth). Returns the metadata audit + {videoId,author,authorUrl,provider,captions?}.',
     inputSchema: { type: 'object', properties: { url: { type: 'string', description: 'a YouTube watch URL or bare 11-character video id' }, captions: { type: 'string', description: 'caption/transcript text to adjudicate detail by detail' }, delimiter: { type: 'string', description: 'detail boundary for the captions (default: newline)' } }, required: ['url'] },
     run: (a) => auditVideo(String(a.url), { captions: a.captions === undefined ? undefined : String(a.captions), delimiter: a.delimiter === undefined ? undefined : String(a.delimiter) }) },
+  { name: 'uuidna_expose',
+    description: 'THE COORDINATES WHERE UNSEALED STRUCTURE EXPOSES ITSELF (lead 131, the discovery half of the one-call loop): walk the ledger\'s own coordinate surfaces and return where clusters point at missing seals — LONELY theorems (a computing principle with no neighbour: the cluster of one, asking for its second), GRID gaps (the 432 grid\'s own report of broken seats), PAIR gaps. Pure and offline — the coordinates compute from the sealed ledger alone, folded to one receipt. HONEST: a coordinate is WHERE to dig, never a theorem — what it exposes becomes real only when a candidate rides uuidna_wave_deposit and the KERNEL seals it. Returns {lonely,gridGaps,pairsGaps,counts,receipt,honest}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => {
+      const lonely = theorems()
+        .filter((t) => theoremNeighbours(t.key).neighbours.length === 0)
+        .map((t) => ({ key: t.key, file: t.file, principle: t.principle }))
+      const g = gridGaps(), p = pairsGaps()
+      const counts = { lonely: lonely.length, gridGaps: g.length, pairsGaps: p.length }
+      return { lonely, gridGaps: g, pairsGaps: p, counts,
+        receipt: toUuid(['expose', ...lonely.map((l) => l.key), String(g.length), String(p.length)].join('|')),
+        honest: 'coordinates, never theorems: each entry is WHERE unsealed structure exposes itself — a lonely principle, a broken seat — and becomes real only when a candidate rides uuidna_wave_deposit and the kernel seals it' }
+    } },
+  { name: 'uuidna_wave_deposit',
+    description: 'SAVE THEOREM CANDIDATES IN ONE CALL (lead 131, the deposit half of the loop): pass {candidates:[{key,why,lean}]} and each is validated at the conveyor\'s OWN door (the same laws queue-wave enforces — lawful key, a real why, `by decide` only, no sorry/axiom, not already sealed or queued); the lawful land in lean/wave-queue.json pending, where the resident half-hourly wave probes each alone with the KERNEL as the judge. HONEST: the deposit buys VALIDATION and QUEUEING, never a seal — refusals return with reasons named, and a validated candidate is PENDING until the kernel speaks. Host-side only (a Worker has no filesystem — capability absence, declared). Returns {deposited,refused,pending,receipt,honest}.',
+    inputSchema: { type: 'object', properties: { candidates: { type: 'array', description: 'the candidates, each {key, why, lean}', items: { type: 'object', properties: { key: { type: 'string' }, why: { type: 'string' }, lean: { type: 'string' } }, required: ['key', 'why', 'lean'] } } }, required: ['candidates'] },
+    run: (a) => depositCandidates(a.candidates as WaveCandidate[], ROOT + '/lean/wave-queue.json') },
   { name: 'uuidna_audit_record',
     description: 'Fetch an OPEN-ACCESS Zenodo research record by id (via the public Zenodo REST API, developers.zenodo.org, no key) and content-address its PUBLIC metadata — title, DOI, creators, date — to a recomputable provenance fingerprint + structure + honesty gate. HONEST AND BOUNDED: it fingerprints the public metadata only, NOT the deposited files or their content, which uuidna does not fetch or reproduce. A check digit and a uuid are the same idea at different scales. Returns the audit + the DOI. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: { recordId: { type: 'integer', description: 'a Zenodo record id, e.g. 1234567' } }, required: ['recordId'] },

@@ -355,3 +355,10 @@ theorem usable_gap_is_two_to_eighty : (48 < 128) ∧ (128 - 48 = 80) ∧ (2 ^ 12
     observer sorting the same published numbers gets the same table. The figures will move as the field
     publishes; the order AT these figures is sealed, and the report reseals at every generation. -/
 theorem capacity_order_is_forced : ((([128, 48, 36, 12, 1] : List Nat).zip [48, 36, 12, 1]).all (fun p => Nat.blt p.snd p.fst) = true) ∧ (128 - 48 = 80) := by decide
+
+/-- THE LOOP'S FIRST LIVE CARGO (lead 131, deposited through uuidna_wave_deposit itself, from a coordinate
+    uuidna_expose returned — receipt c15d5f95 named uuid_mix_census_is_quantum a cluster of one): Pascal's row
+    10 splits exactly in half by parity — the even-cardinality subsets count 1+45+210+210+45+1 = 512 and the odd
+    10+120+252+120+10 = 512, together the sealed 1024 — the alternating-binomial identity at n = 10, the same
+    2^9 + 2^9 = 2^10 doubling the coins measure. -/
+theorem uuid_mix_census_halves : (1 + 45 + 210 + 210 + 45 + 1 = 512) ∧ (10 + 120 + 252 + 120 + 10 = 512) ∧ (512 + 512 = 1024) := by decide

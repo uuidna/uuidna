@@ -158,6 +158,7 @@ const EDGE_ABSENT: Record<string, string> = {
   "uuidna_audit_translation": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_audit_movie": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_audit_record": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
+  "uuidna_wave_deposit": 'CAPABILITY: writes lean/wave-queue.json and a Worker has no filesystem — deposits are host-side; the edge can expose coordinates (uuidna_expose serves there) but never hold the queue',
   "uuidna_aead_decrypt": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_snapshot": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_school_apis": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',

@@ -39,6 +39,16 @@ test('involute — the tool computes an involution with its fixed points', () =>
   assert.deepEqual(r.fixed, ['2'], 'the middle element is the fixed point of the reversal')
 })
 
+test('expose — the coordinates of unsealed structure compute, fold, and stay coordinates', () => {
+  const r = call('uuidna_expose')
+  assert.ok(Array.isArray(r.lonely) && Array.isArray(r.gridGaps) && Array.isArray(r.pairsGaps), 'three coordinate surfaces')
+  assert.equal(r.counts.lonely, r.lonely.length, 'the count is the list, not a remembered number')
+  for (const l of r.lonely) assert.ok(l.key && l.file, 'a lonely coordinate names its theorem and wing')
+  assert.match(r.receipt, /^[0-9a-f-]{36}$/, 'the coordinates fold to one receipt')
+  assert.equal(call('uuidna_expose').receipt, r.receipt, 'deterministic — same ledger, same coordinates, same receipt')
+  assert.match(r.honest, /never (a )?theorem/i, 'the honest scope says coordinates are not theorems')
+})
+
 test('conformance, axiom_witness, gate_status — the self-audits report clean and consistent', () => {
   assert.ok(call('uuidna_conformance').checks.every((c: { pass: boolean }) => c.pass), 'every conformance check passes')
   const aw = call('uuidna_axiom_witness')

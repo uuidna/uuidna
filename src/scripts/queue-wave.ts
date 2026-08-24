@@ -12,6 +12,7 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { toUuid } from '../address.js'
 import { theoremByKey } from '../theorems/index.js'
+import { validateCandidate } from '../wave-deposit.js'   // THE ONE DECLARATION of the door laws — shared with the wire's deposit tool
 
 const QUEUE = join(ROOT, 'lean', 'wave-queue.json')
 const PROBE = join(ROOT, 'lean', '_wave_probe.lean')
@@ -21,20 +22,10 @@ export interface Accepted extends Candidate { receipt: string }
 export interface Refused extends Candidate { reason: string }
 export interface WaveQueue { pending: Candidate[]; accepted: Accepted[]; refused: Refused[] }
 
-const KEY = /^[a-z][a-z0-9_]{3,60}$/
-
-/** validate(c) → the reason this candidate cannot even reach the kernel, or null when it may. */
-function validate(c: Candidate, sealed: ReadonlyMap<string, unknown>): string | null {
-  if (!KEY.test(c.key)) return 'key is not a lawful theorem key'
-  if (typeof c.why !== 'string' || c.why.length < 20) return 'why is missing — a theorem presents with its prose'
-  if (typeof c.lean !== 'string') return 'lean statement missing'
-  if (!c.lean.startsWith(`theorem ${c.key} : `)) return 'lean must state exactly `theorem <key> : ...`'
-  if (!c.lean.trimEnd().endsWith(':= by decide')) return 'the court decides lean: the proof must be `by decide`'
-  if (/\bsorry\b|\baxiom\b/.test(c.lean)) return 'sorry/axiom are refused at the door'
-  if ((c.lean.match(/\btheorem\b/g) ?? []).length !== 1) return 'one candidate, one theorem'
-  if (sealed.has(c.key)) return 'key already sealed in the ledger'
-  return null
-}
+// the door laws (key shape, why floor, by-decide court, sorry/axiom refusal, sealed-dupe) live in ONE place —
+// src/wave-deposit.ts's validateCandidate — because the wire's deposit tool and this runner must refuse
+// identically or the conveyor has two doors with different locks.
+const validate = validateCandidate
 
 /** probe(c) → null when the kernel accepts the statement alone, else the diagnostic (bounded). */
 /** the instrument must exist before it may judge — an absent kernel VOIDS the wave (candidates stay pending),
