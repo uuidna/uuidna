@@ -1764,6 +1764,9 @@ uuid_mix_census_halves 18
 a440_drift_walked_in_history 18
 decimal_day_recoined_the_pound 18
 kelvin_floor_carries_the_hundred 22
+pilgrims_homecoming_arithmetic 18
+pluck_preserves_bound 18
+saturation_deco_dominates 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

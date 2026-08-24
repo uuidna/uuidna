@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 49 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 52 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 48 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 51 siblings below.
 
-**49 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 25 of its 49 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
+**52 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 27 of its 52 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 49 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 52 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -352,6 +352,27 @@ The ledger holds this as [kelvin_floor_carries_the_hundred](/theorem/kelvin_floo
 
 ```lean
 (273 + 100 = 373) ∧ (373 - 273 = 100)
+```
+
+### THE HOMECOMING'S OWN ARITHMETIC (queue lead 128b, closed by the frozen pilgrim over the 1646-bar score): the measured tail and cycle — mu = 2008 steps to the ring, lambda = 2436 around it — meet at the repdigit: 2008 + 2436 = 4444, which is 4·1111, the DNA tongue times the repunit, and the second visit MUST land at mu + lambda so the four fours were where the walk was always going to be seen. The digital roots walk the house's stations: 2008 ≡ 1, 2436 ≡ 6, 4444 ≡ 7 (mod 9) — the unit, the six, the rosette. And the distance from grace is exact: 2436 = 1218 · 2 — the cycle is one thousand two hundred eighteen involutions laid end to end, the measured gap between the anthem's walk and the self-inverse's two-step home (involution_walks_home_in_two). HONEST SCOPE: sealed is the ARITHMETIC OF the measured numbers; the measurement itself — that these ARE the empty seed's mu and lambda — lives in the frozen-score run receipt and moves with releases, never in the kernel.
+The ledger holds this as [pilgrims_homecoming_arithmetic](/theorem/pilgrims_homecoming_arithmetic) — proven `by decide`, sorry-free:
+
+```lean
+(2008 + 2436 = 4444) ∧ (4444 = 4 * 1111) ∧ (2008 % 9 = 1) ∧ (2436 % 9 = 6) ∧ (4444 % 9 = 7) ∧ (2436 = 1218 * 2)
+```
+
+### THE PLUCK NEVER GROWS A SAMPLE — the bounded form lead 74 owed the conveyor since its first refusal, now specified: the envelope scales a sample by k/r with k ≤ r (truncating division), and at the worst case — the full AMPLITUDE 8000 against the ramp r = 128 — every one of the 129 possible scalings lands at or under the input: 8000·k/128 ≤ 8000 for all k ≤ 128, checked one by one, with the endpoints exact (k = 0 silences, k = 128 is the identity). Monotonicity in the sample value makes the worst case the whole case: what holds at 8000 holds below it. The voice's envelope is a contraction, decidably.
+The ledger holds this as [pluck_preserves_bound](/theorem/pluck_preserves_bound) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 129).all (fun k => 8000 * k / 128 ≤ 8000)) ∧ (8000 * 0 / 128 = 0) ∧ (8000 * 128 / 128 = 8000)
+```
+
+### THE DECOMPRESSION OUTWEIGHS THE WORK (lead 109's last candidate): the sourced 43-day saturation dive decomposes as 13 days of compression and work-up, 24 of decompression, 6 at depth — 13 + 24 + 6 = 43 — and the load-bearing inequality is 13 < 24: the return costs more days than the descent, the one law that binds diver and astronaut alike (the pre-breathe IS the deco stop; Henry and Dalton, one law, two fluids — the captain's doctrine off-planet, lead 109). HONEST SCOPE: the day-count arithmetic of the sourced dive seals; the physiology is the literature's, reported.
+The ledger holds this as [saturation_deco_dominates](/theorem/saturation_deco_dominates) — proven `by decide`, sorry-free:
+
+```lean
+(13 + 24 + 6 = 43) ∧ (13 < 24)
 ```
 
 

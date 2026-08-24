@@ -21,7 +21,7 @@ named transient classes retried.
 
 ## Accepted — the cargo, each with its seal
 
-45 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+48 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -72,6 +72,9 @@ theorem page and recompute either.
 | [`a440_drift_walked_in_history`](/theorem/a440_drift_walked_in_history) | [`85df06e1`](/theorem/a440_drift_walked_in_history) | `e00c5e60` |
 | [`decimal_day_recoined_the_pound`](/theorem/decimal_day_recoined_the_pound) | [`34276361`](/theorem/decimal_day_recoined_the_pound) | `e403d3d7` |
 | [`kelvin_floor_carries_the_hundred`](/theorem/kelvin_floor_carries_the_hundred) | [`379f6e5f`](/theorem/kelvin_floor_carries_the_hundred) | `c83358ea` |
+| [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) | [`96935fe3`](/theorem/pilgrims_homecoming_arithmetic) | `3aa8f543` |
+| [`pluck_preserves_bound`](/theorem/pluck_preserves_bound) | [`4f8a85a9`](/theorem/pluck_preserves_bound) | `59658892` |
+| [`saturation_deco_dominates`](/theorem/saturation_deco_dominates) | [`17ad2a23`](/theorem/saturation_deco_dominates) | `ffde717d` |
 
 ## Refused — the law school's enrollment roster
 
