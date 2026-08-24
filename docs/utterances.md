@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="804 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="809 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 804 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 809 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `28e334f8` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `96b85aaf` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -811,6 +811,16 @@ a receipt MOVES when the value moves
 every registered measurement runs and returns a receipt
 wing-parity holds in BOTH directions
 no handle fails to recover itself from its path
+```
+
+**messaging-handle** — 5 utterances
+
+```text
+the glyphs ARE the address — 32 of them, derived, never decorative
+the round-trip returns the exact text, and says so honestly
+a wrong passphrase refuses — it never guesses and never half-opens
+CONTROL — a tampered envelope refuses: the reader can fail, so its acceptances mean something
+the form is stated, so a receiver never has to guess the reading order
 ```
 
 **models** — 3 utterances
