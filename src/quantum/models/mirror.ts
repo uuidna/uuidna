@@ -464,15 +464,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000005026",
-   "completionPrice": "0.00000010052"
+   "promptPrice": "0.0000000574",
+   "completionPrice": "0.0000001148"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
    "name": "DeepSeek: DeepSeek V4 Flash 0731",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000008",
-   "completionPrice": "0.00000018"
+   "promptPrice": "0.00000014",
+   "completionPrice": "0.00000028"
   },
   {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000396894",
-   "completionPrice": "0.000000793788"
+   "promptPrice": "0.000000526176",
+   "completionPrice": "0.000001052352"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -1031,8 +1031,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "minimax/minimax-m2.7",
    "name": "MiniMax: MiniMax M2.7",
    "contextTokens": 204800,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000012"
+   "promptPrice": "0.00000024",
+   "completionPrice": "0.00000096"
   },
   {
    "id": "minimax/minimax-m3",
@@ -2396,8 +2396,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-397b-a17b",
    "name": "Qwen: Qwen3.5 397B A17B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000039",
-   "completionPrice": "0.00000234"
+   "promptPrice": "0.0000005",
+   "completionPrice": "0.0000036"
   },
   {
    "id": "qwen/qwen3.5-9b",
@@ -2431,8 +2431,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.6-27b",
    "name": "Qwen: Qwen3.6 27B",
    "contextTokens": 262144,
-   "promptPrice": "0.0000006",
-   "completionPrice": "0.0000036"
+   "promptPrice": "0.00000032",
+   "completionPrice": "0.0000032"
   },
   {
    "id": "qwen/qwen3.6-35b-a3b",
@@ -2915,7 +2915,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
    "promptPrice": "0.00000004",
-   "completionPrice": "0.00000013"
+   "completionPrice": "0.00000008"
   },
   {
    "id": "~google/gemini-flash-latest",
