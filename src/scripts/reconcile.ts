@@ -14,7 +14,7 @@
 import { execSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT, stageDerived } from './api.js'
-import { acquire, release } from './one-writer.js'
+import { acquire, awaitAcquire, release, LOCK_PATH } from './one-writer.js'
 
 const run = (cmd: string): void => { console.log('  · ' + cmd); execSync(cmd, { stdio: 'inherit' }) }
 const out = (cmd: string): string => execSync(cmd).toString().trim()
@@ -34,9 +34,16 @@ const msg = process.argv.slice(2).filter((a) => a !== '--derive-only').join(' ')
 // the interleaved-writers class the coherent self-heal below exists to cure after the fact — this refuses it
 // BEFORE the fact. The lock is pid-liveness-stale (no clock): a crashed reconcile never wedges the tree, and a
 // LIVE audit or peer reconcile is named with the cure (wait, or coordinate over messaging) instead of raced.
-const gate = acquire('reconcile', process.pid)
+// AND IT WAITS RATHER THAN DYING (2026-08-24): refusing was right and incomplete — every session that met the
+// refusal wrote the same `while kill -0 <pid>` shell by hand, seven times in one weekend, which is the manual
+// crack this law exists to close. The queue is the lock's own now: announce the holder, poll its liveness, take
+// the tree the moment it is free. `--no-wait` keeps the old refusal for a caller that would rather be told.
+const gate = process.argv.includes('--no-wait')
+  ? acquire('reconcile', process.pid)
+  : awaitAcquire('reconcile', process.pid, LOCK_PATH, (h) =>
+      console.error(`· reconcile — the tree is HELD by pid ${h.pid} (${h.purpose}); WAITING for it (no clock: the lock lifts when the holder ends, and a dead holder is reclaimed)`))
 if (!gate.ok) {
-  console.error(`✗ reconcile — the tree is HELD by pid ${gate.holder.pid} (${gate.holder.purpose}); a second writer would interleave the derived layer. Wait, or coordinate — never race.`)
+  console.error(`✗ reconcile — pid ${gate.holder.pid} (${gate.holder.purpose}) holds the tree; a second writer would interleave the derived layer. Wait, or coordinate — never race.`)
   process.exit(1)
 }
 process.on('exit', () => release(process.pid))   // the holder lets go however the chain ends; a crash is stale by pid

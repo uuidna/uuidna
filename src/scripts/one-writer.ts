@@ -64,6 +64,33 @@ export function acquire(purpose: string, pid: number, path = LOCK_PATH): { ok: t
   return { ok: false, holder: { pid: 0, purpose: 'contended — two acquirers raced twice; run again' } }
 }
 
+// ── THE WAIT, FOLDED IN (2026-08-24: the crack this lock still left open). acquire() REFUSES and names the
+// holder — correct, and every session that met the refusal then hand-wrote the same shell:
+// `while kill -0 <pid>; do sleep 10; done`. Seven sessions, seven copies, one law: a queue that every caller
+// re-invents is a queue the machine owes them. awaitAcquire polls the same acquire() — so reentrancy, stale
+// reclaim and atomicity are inherited, not re-implemented — and the poll is a SUBPROCESS sleep, never a clock:
+// staleness is still decided by pid liveness alone.
+const POLL = 'sleep 2'
+/** the ceiling is a FINDING, not a queue: a writer holding the tree for a thousand polls (~33 min) is stuck,
+ *  and a stuck writer must be named to a human rather than waited on forever. */
+export const MAX_POLLS = 1000
+
+export function awaitAcquire(
+  purpose: string,
+  pid: number,
+  path = LOCK_PATH,
+  announce: (holder: Writer) => void = () => {},
+  maxPolls = MAX_POLLS,   // injectable ONLY so the control test can reach the refusal without waiting it out
+): { ok: true; polls: number } | { ok: false; holder: Writer; polls: number } {
+  for (let polls = 0; ; polls++) {
+    const r = acquire(purpose, pid, path)
+    if (r.ok) return { ok: true, polls }
+    if (polls === 0) announce(r.holder)
+    if (polls >= maxPolls) return { ok: false, holder: r.holder, polls }
+    execSync(POLL)
+  }
+}
+
 /** release(pid, path) → let the tree go — only the holder (or a dead lock) releases; releasing someone
  *  else's LIVE lock is exactly the interleaving the law exists to stop, so it is refused. */
 export function release(pid: number, path = LOCK_PATH): boolean {
@@ -85,6 +112,15 @@ if (isMain) {
       process.exit(1)
     }
     console.log(`✓ one-writer — tree acquired for ${purpose} (holder pid ${process.ppid}; stale-proof by pid liveness, no clock)`)
+  } else if (cmd === 'await') {
+    // the QUEUE the callers were writing by hand — one word instead of a shell loop each
+    const r = awaitAcquire(purpose, process.ppid, LOCK_PATH, (h) =>
+      console.error(`· one-writer — the tree is HELD by pid ${h.pid} (${h.purpose}); WAITING (polling liveness, no clock — the lock lifts itself when the holder ends)`))
+    if (!r.ok) {
+      console.error(`✗ one-writer — pid ${r.holder.pid} (${r.holder.purpose}) still holds the tree after ${r.polls} polls. A writer this long is STUCK, not busy: name it to a human, or kill it knowingly. Never delete a live pid's lock.`)
+      process.exit(1)
+    }
+    console.log(`✓ one-writer — tree acquired for ${purpose} after ${r.polls} poll(s) (holder pid ${process.ppid})`)
   } else if (cmd === 'release') {
     console.log(release(process.ppid)
       ? `✓ one-writer — tree released (${purpose})`
