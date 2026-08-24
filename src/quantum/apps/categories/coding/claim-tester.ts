@@ -8,9 +8,10 @@
 // HONEST SCOPE: the verdict algebra is integrity, not truth — VERIFIED means cited-and-sealed or recomputed-true,
 // UNVERIFIED means unproven-as-stated (never false); the tool settles arithmetic and citations, never the world.
 import { adjudicate, type Verdict } from '../../../../adjudicate.js'
+import { noticeOf, type Notice } from './notice.js'
 
 export interface ControlRun { name: string; statement: string; verdict: string; rejected: boolean }
-export interface ClaimTest { controls: ControlRun[]; instrumentValid: boolean; subject: Verdict | null; honest: string }
+export interface ClaimTest { controls: ControlRun[]; instrumentValid: boolean; subject: Verdict | null; notice: Notice | null; honest: string }
 
 // each canary lives in a field literally named `control:` — the declared-control idiom the citations finder
 // reads (a canary exists to be refused; a ledger that never holds its key is the design, not a fabrication).
@@ -27,10 +28,13 @@ export function testClaim(claim: string, decidableTest?: () => boolean): ClaimTe
     return { name: c.name, statement: c.control, verdict: v.verdict, rejected: v.verdict !== 'VERIFIED' }
   })
   const instrumentValid = controls.every((c) => c.rejected)
+  // the subject's verdict IS the notice's — one call, so the tester and the trial can never differ
+  const notice = instrumentValid ? noticeOf(claim, decidableTest) : null
   return {
     controls,
     instrumentValid,
-    subject: instrumentValid ? adjudicate(claim, decidableTest) : null,
+    subject: notice,
+    notice,
     honest: instrumentValid
       ? 'controls all rejected — the instrument can fail, so its verdict on your claim means something'
       : 'a control VERIFIED — the instrument is broken and adjudicates nothing (a void names the instrument, not your claim)',

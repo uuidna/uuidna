@@ -8,3 +8,5 @@ export { start, applyStride, undo, unitSquaresToOne, UNITS_24, FRAME_RING, type 
 export { build, type Composition } from './state-builder.js'
 // the say-do gap made decidable — a commit's message against its own diff (lead 98, the polygraph)
 export { sayDoOf, chart, type CommitRecord, type SayDo, type PolygraphChart } from './polygraph.js'
+// UNVERIFIED made a pointer — the trial's open verdict carrying the involutions around it (lead 88)
+export { noticeOf, type Notice } from './notice.js'
