@@ -18,11 +18,51 @@
 // It does NOT mean the theorems are true — no gate here judges content. Integrity.
 import { execSync, spawnSync } from 'node:child_process'
 import { join } from 'node:path'
-import { ROOT, HERE } from './api.js'
+import { ROOT, HERE, lastLines } from './api.js'
+import { shellOrExit } from '../os/host/index.js'
 
-interface Arm { name: string; why: string; run: () => boolean }
+/** What an arm returns. THREE states, never two — the whole point of this file's night.
+ *
+ *  A boolean arm can only say "not zero", and tonight five separate instruments in this tree reported a limit of
+ *  their own construction as a verdict about the world: a lock certifying exclusivity it never held, a preflight
+ *  calling an installed toolchain absent, a classifier letting the ledger's writer race its own verifiers, a
+ *  receipt printing green for work never re-run, and a gate whose subject was the working tree rather than the
+ *  commit. Each was a two-state instrument asked a three-state question.
+ *
+ *  So: PASS, FAIL with the evidence that convicted it, or UNMEASURED with the reason nothing could be learned.
+ *  UNMEASURED is never silently PASS — it stops the run exactly as a failure does, because a gate that cannot see
+ *  is not a gate that approves. It is reported differently because the CURE is different: a failure is fixed in
+ *  the tree, an unmeasured arm is fixed in the instrument. */
+type Verdict = { ok: true } | { ok: false; why: string; unmeasured?: boolean }
 
-const sh = (cmd: string): boolean => spawnSync('sh', ['-c', cmd], { cwd: ROOT, stdio: 'ignore' }).status === 0
+interface Arm { name: string; why: string; run: () => Verdict }
+
+const pass: Verdict = { ok: true }
+const fail = (why: string): Verdict => ({ ok: false, why })
+
+/** Run a step through the HOST's shell and return what actually happened.
+ *
+ *  THE FOURTH COSTUME OF ONE MISTAKE. This was `spawnSync('sh', …, { stdio: 'ignore' }).status === 0` — hardcoded
+ *  `sh`, which is a program on a POSIX host and nothing at all on Windows (the same assumption as `sleep`, `ps -o`
+ *  and `pgrep -P` before it), and output DISCARDED, so the arm could report a denial without ever reporting the
+ *  charge. Worse than either: a spawn that never ran returns status null, and `null === 0` is false, so "I could
+ *  not run this" and "this ran and failed" were the same answer. The tests arm failed here while the identical
+ *  command passed 923/923 by hand, and the instrument was built so that nobody could see why. */
+const sh = (cmd: string): Verdict => {
+  const shell = shellOrExit('green')
+  const r = spawnSync(shell.file, shell.argv(cmd), {
+    cwd: ROOT, env: shell.env(process.env), encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+  })
+  const said = ((r.stdout ?? '') + (r.stderr ?? '')).trimEnd()
+  // never RAN: no exit status to read. The distinction the old form could not make.
+  if (r.error || r.status === null) {
+    return { ok: false, unmeasured: true, why: `${cmd}\n  could not be run: ${r.error?.message ?? `killed by ${r.signal}`}` }
+  }
+  if (r.status === 0) return pass
+  return fail(`${cmd} exited ${r.status}\n${lastLines(said, 15)}`)
+}
+/** git's own answer, or '' when it refuses. Kept boolean-shaped on purpose: these arms read git plumbing that
+ *  cannot fail without git itself being absent, which the shell resolution above would already have named. */
 const out = (cmd: string): string => { try { return execSync(cmd, { cwd: ROOT }).toString().trim() } catch { return '' } }
 
 const full = process.argv.includes('--full')      // include the kernel (~700s); omitted, the delta cache stands
@@ -30,16 +70,17 @@ const push = process.argv.includes('--push')      // push if — and only if —
 
 const ARMS: Arm[] = [
   { name: 'behind', why: 'origin must hold nothing we lack — a push over a divergence is a merge decided blind',
-    run: () => { execSync('git fetch origin --quiet', { cwd: ROOT }); return out('git rev-list --count HEAD..origin/main') === '0' } },
+    run: () => { execSync('git fetch origin --quiet', { cwd: ROOT })
+      const n = out('git rev-list --count HEAD..origin/main')
+      return n === '0' ? pass : fail(`origin holds ${n} commit(s) this branch lacks — rebase before pushing`) } },
 
   { name: 'index', why: 'the staged set must be ours — a commit sweeps whatever another session left in the index into our message',
     run: () => {
       const staged = out('git diff --cached --name-only').split('\n').filter(Boolean)
-      if (!staged.length) return true
-      // derived staged without its source is exactly what precede reports; either both or neither
+      if (!staged.length) return pass
       const sources = out('git diff --name-only').split('\n').filter((f) => f.startsWith('lean/') && f.endsWith('.lean'))
-      return sources.length === 0
-    } },
+      return sources.length === 0 ? pass
+        : fail(`${staged.length} derived path(s) staged while ${sources.length} lean source(s) are modified and unstaged — stage both or neither`) } },
 
   { name: 'types', why: 'tsc with noEmitOnError — a type error must not write dist for the next step to run',
     run: () => sh('npm run build') },
@@ -56,9 +97,19 @@ const ARMS: Arm[] = [
 
 const failed: string[] = []
 for (const arm of ARMS) {
-  const ok = arm.run()
-  console.log(`${ok ? '✓' : '✗'} green — ${arm.name.padEnd(7)} ${ok ? 'passes' : 'FAILS'}   ${arm.why}`)
-  if (!ok) { failed.push(arm.name); break }      // FAIL FAST: the next arm costs more than this one
+  const v = arm.run()
+  const mark = v.ok ? '✓' : v.unmeasured ? '·' : '✗'
+  const verdict = v.ok ? 'passes' : v.unmeasured ? 'UNMEASURED' : 'FAILS'
+  console.log(`${mark} green — ${arm.name.padEnd(7)} ${verdict.padEnd(10)} ${arm.why}`)
+  if (!v.ok) {
+    // THE CHARGE IS READ ALOUD. A gate that blocks while hiding its finding forces the next hand to re-run it
+    // just to learn the accusation — and this arm discarded its output entirely, which is how a green suite and
+    // a red gate coexisted for an hour with nobody able to see the difference.
+    console.error(v.unmeasured
+      ? `\n  the instrument could not measure this — fix the INSTRUMENT, not the tree:\n  ${v.why}`
+      : `\n  ${v.why}`)
+    failed.push(arm.name); break                 // FAIL FAST: the next arm costs more than this one
+  }
 }
 
 if (failed.length) {
