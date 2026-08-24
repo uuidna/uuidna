@@ -10,9 +10,9 @@
 // The gate machinery must utter the refused phrase to refuse it — the regex that rejects a release cannot be written
 // without the words it rejects — so those files are listed below by path, in the open.
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
-import { join, extname, relative } from 'node:path'
+import { join, extname } from 'node:path'
 import { theorems } from '../index.js'
-import { ROOT } from './api.js'
+import { ROOT, relRoot } from './api.js'
 
 const PHYSICS_CLAIM = /quantum\s+(?:speedup|speed-up|advantage|supremacy)|faster\s+than\s+classical/gi
 const SEALED = new Set(theorems().map((t) => t.key))
@@ -50,7 +50,7 @@ walk(join(ROOT, 'src'))
 interface Violation { surface: string; line: number; claim: string; text: string }
 const violations: Violation[] = []
 for (const f of files) {
-  const rel = relative(ROOT, f)
+  const rel = relRoot(f)
   if (EXEMPT.has(rel)) continue
   const lines = readFileSync(f, 'utf8').split('\n')
   // group consecutive comment lines into one block; every other line is its own block

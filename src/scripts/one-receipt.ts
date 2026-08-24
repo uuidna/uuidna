@@ -20,13 +20,13 @@ import { createHash } from 'node:crypto'
 import { messagingSeal } from '../quantum/message/index.js'
 import { execSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
-import { join, dirname, resolve, relative } from 'node:path'
+import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUuid, quantumAura, auraDecode, auraAlphabet, statementCensus } from '../index.js'
 import { MCP_CATALOG, callTool } from '../mcp.js'
 import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
-import { ROOT, rd, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
+import { ROOT, rd, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
 
 // ONE READ PER FILE, SHARED. `binary` scans bytes and `hexbit` scans text over the SAME tracked source, and each was
 // re-reading every file from disk — the cache-immutable-reads law applied to the read itself. The buffer is the one
@@ -290,9 +290,9 @@ export async function cryptoGaps(): Promise<Gap[]> {
   const dist = join(ROOT, 'dist')
   if (!existsSync(join(dist, 'sha256.js'))) return [{ what: 'no built crypto to audit', fix: 'npm run build' }]
   const enc = new TextEncoder()
-  const sha = await import(join(dist, 'sha256.js'))
-  const im = await import(join(dist, 'imprint.js'))
-  const cr = await import(join(dist, 'crypt.js'))
+  const sha = await importAbs<typeof import('../sha256.js')>(join(dist, 'sha256.js'))
+  const im = await importAbs<typeof import('../imprint.js')>(join(dist, 'imprint.js'))
+  const cr = await importAbs<typeof import('../crypt.js')>(join(dist, 'crypt.js'))
   const eq = (a: Uint8Array, b: Uint8Array) => a.length === b.length && a.every((x, i) => x === b[i])
   // reversible primitives — the inverse must actually invert (both directions)
   try { const sealed = cr.encrypt('the quick brown fox', 'pass', 7); if (cr.decrypt(sealed, 'pass') !== 'the quick brown fox') gaps.push({ what: 'crypt: decrypt does not invert encrypt', fix: 'the AEAD round-trip is broken — fix src/crypt.ts so decrypt(encrypt(m)) = m' }) } catch (e) { gaps.push({ what: 'crypt: encrypt/decrypt threw — ' + (e as Error).message.slice(0, 40), fix: 'restore the reversible direction in src/crypt.ts' }) }
@@ -568,8 +568,8 @@ export function vacuousGaps(): Gap[] {
 // The posture is decidable; the per-guess TIMING is measurement and stays at the heartbeats boundary. ──
 export async function reGaps(): Promise<Gap[]> {
   const gaps: Gap[] = []
-  const { roundTrips, imprintTextChain, readImprintTextChain, CAPACITY } = await import(join(ROOT, 'dist/imprint.js'))
-  const { ITER, MAX_ITER } = await import(join(ROOT, 'dist/crypt.js'))
+  const { roundTrips, imprintTextChain, readImprintTextChain, CAPACITY } = await importAbs<typeof import('../imprint.js')>(join(ROOT, 'dist/imprint.js'))
+  const { ITER, MAX_ITER } = await importAbs<typeof import('../crypt.js')>(join(ROOT, 'dist/crypt.js'))
   if (CAPACITY !== 128 - 6 - 7) gaps.push({ what: `transport capacity ${CAPACITY} ≠ 115 = 128−6−7`, fix: 'the codec drifted from theorem imprint_capacity_chain — restore the derivation in src/imprint.ts' })
   if (!roundTrips('10110011101')) gaps.push({ what: 'transport round-trip broken — readImprint(imprint(m)) ≠ m', fix: 'the bijection is the design; repair src/imprint.ts until roundTrips holds for every message ≤ 115 bits' })
   const probe = 'reverse me'
@@ -1390,7 +1390,7 @@ export async function coherentGaps(): Promise<Gap[]> {
   const gaps: Gap[] = []
   const dist = join(ROOT, 'dist')
   if (!existsSync(join(dist, 'index.js'))) return [{ what: 'dist/index.js missing — no build to probe', fix: 'npm run build' }]
-  const have = new Set(Object.keys(await import(join(dist, 'index.js'))))
+  const have = new Set(Object.keys(await importAbs<typeof import('../index.js')>(join(dist, 'index.js'))))
   const walk = (d: string) => {
     for (const e of readdirSync(d, { withFileTypes: true })) {
       const p = join(d, e.name)
@@ -2027,7 +2027,7 @@ export function deadkeyGaps(): Gap[] {
     ...walk(join(ROOT, 'packages'), '.md'),
   ]
   for (const f of surfaces) {
-    const rel = relative(ROOT, f)
+    const rel = relRoot(f)
     fileLines(f).forEach((l, i) => {
       for (const m of l.matchAll(/`([a-z][a-z0-9]*(?:_[a-z0-9]+){2,})`/g)) {
         const k = m[1]!

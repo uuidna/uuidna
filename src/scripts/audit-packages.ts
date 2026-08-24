@@ -6,11 +6,12 @@
 
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs'
 import { join } from 'node:path'
+import { ROOT } from './api.js'
 
 const PACKAGES = ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge']
 // the ONE declared support floor — read from the root manifest, never frozen here (a constant copied into a
 // checker is a second source of truth, and the checker always wins the argument it should have lost)
-const ROOT_ENGINE: string | undefined = JSON.parse(readFileSync(join(process.cwd(), 'package.json'), 'utf-8')).engines?.node
+const ROOT_ENGINE: string | undefined = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf-8')).engines?.node
 const REQUIRED_FILES = ['package.json', 'tsconfig.json', 'src/index.ts', 'LICENSE', 'README.md']
 const REQUIRED_FIELDS = {
   'package.json': ['name', 'version', 'description', 'type', 'license', 'author', 'homepage', 'repository', 'main', 'types', 'exports', 'engines', 'sideEffects', 'files', 'scripts', 'dependencies', 'devDependencies'],
@@ -25,7 +26,11 @@ interface AuditResult {
 
 function auditPackage(pkg: string): AuditResult {
   const result: AuditResult = { package: pkg, errors: [], warnings: [] }
-  const pkgDir = join(import.meta.url.replace('file://', ''), '../../..', 'packages', pkg)
+  // A URL IS NOT A PATH. This walked up from `import.meta.url` with the scheme chopped off by hand, which leaves
+  // `/C:/…` on Windows — not a path any filesystem call resolves, so EVERY required file read as missing and the
+  // audit reported 37 errors against six packages that were entirely intact. The repo root already has one
+  // declared derivation (scripts/api.ts); using it is both the fix and what the `dry` law asks for anyway.
+  const pkgDir = join(ROOT, 'packages', pkg)
 
   // 1. STRUCTURE: required files exist
   for (const file of REQUIRED_FILES) {

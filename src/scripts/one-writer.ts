@@ -9,10 +9,11 @@
 // holder is dead is reclaimed on the next acquire; no Date, no timeout, no guess. The CLI stores the PARENT
 // pid (process.ppid), because in an `a && b && c` chain each link is its own short-lived process while the
 // shell running the chain lives exactly as long as the work does.
-import { execSync } from 'node:child_process'
+import { execSync, execFileSync } from 'node:child_process'
 import { readFileSync, writeFileSync, unlinkSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
+import { childProbe } from '../os/host/index.js'
 
 export interface Writer { pid: number; purpose: string }
 
@@ -87,8 +88,18 @@ export const MAX_EXTENSIONS = 6
  *  `npm run lean` and `tsc` running as its children, mid-cure. Children are the WORK made observable; time is
  *  data, never a verdict.) No child means nothing is running under it — the honest stuck signal. */
 export function working(pid: number): boolean {
-  try { return execSync(`pgrep -P ${pid}`, { encoding: 'utf8', stdio: 'pipe' }).trim().length > 0 }
-  catch { return false }   // pgrep exits nonzero when there are no children — that IS the answer
+  // THE PROBE IS THE HOST'S, NOT ONE HOST'S (os/host). This asked `pgrep -P` everywhere; where pgrep does not
+  // exist the catch read the missing PROGRAM exactly as it reads a real "no children", so every holder answered
+  // not-working and the stuck signal fired on precisely the busy landings it exists to protect. A verdict that
+  // cannot distinguish "no children" from "no instrument" is not a verdict.
+  const probe = childProbe()
+  try {
+    return probe.reads(execFileSync(probe.file, probe.args(pid), { encoding: 'utf8', stdio: 'pipe' }), 0)
+  } catch (e) {
+    // A nonzero exit is still an ANSWER for a probe that says "none" that way (pgrep does), so its own stdout is
+    // read rather than discarded. Only a probe that produced nothing at all falls through to false.
+    return probe.reads(String((e as { stdout?: string }).stdout ?? ''), 1)
+  }
 }
 
 export function awaitAcquire(

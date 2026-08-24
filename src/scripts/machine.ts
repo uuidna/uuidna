@@ -12,6 +12,7 @@
 import { cpus, loadavg, totalmem, freemem } from 'node:os'
 import { execSync } from 'node:child_process'
 import { balanceMachine, type MachineWriter } from '../quantum/machine/index.js'
+import { loadMeasurable } from '../os/host/index.js'
 
 const centi = (x: number): number => (x * 100) - ((x * 100) % 1)   // ×100, floored to integer by remainder, no float builtins
 const mb = (b: number): number => (b - (b % 1048576)) / 1048576
@@ -35,9 +36,18 @@ const b = balanceMachine({
   writers,
 })
 
-console.log(`machine — ${b.cores} cores · load ${b.loadPermille}‰ · mem free ${b.memFreePermille}‰ · floor ${b.safeFloorPermille}‰`)
+// THE INSTRUMENT IS CHECKED BEFORE ITS READING IS BELIEVED (os/host). Where the host keeps no load average, the
+// zero Node hands back is an ABSENCE wearing a measurement's clothes — and a spare-floor test fed a permanent zero
+// is a test that passes forever, including while every core burns. The memory arm is measured on every host and
+// still stands; only the CPU verdict is withheld, and it is withheld OUT LOUD.
+const measured = loadMeasurable()
+console.log(`machine — ${b.cores} cores · load ${measured ? b.loadPermille + '‰' : 'NOT MEASURABLE on this host'} · mem free ${b.memFreePermille}‰ · floor ${b.safeFloorPermille}‰`)
 for (const w of b.writers.slice(0, 6)) console.log(`  ${String(w.sharePermille).padStart(4)}‰  ${w.name}`)
-console.log((b.balanced ? '✓ ' : '· ') + b.verdict)
+if (measured) console.log((b.balanced ? '✓ ' : '· ') + b.verdict)
+else {
+  console.log(`· CPU verdict WITHHELD — this host publishes no load average, so the reading would be a permanent zero and the spare-floor test could never say no. Memory: ${b.memBalanced ? 'balanced' : 'under the floor'} (${b.memFreePermille}‰ free against a ${b.safeFloorPermille}‰ floor).`)
+  console.log('  to judge CPU here, read a per-process share instead (the writers above) — an absent instrument voids, it does not verdict.')
+}
 console.log(`  receipt ${b.receipt}`)
 // a resource reading is a DIAGNOSTIC, never a build failure: FOLD means "pause a writer before a heavy run",
 // which is advice to a human/land, not a broken tree — so it always exits 0 (exercise-dormant runs it clean).

@@ -34,9 +34,9 @@
 //   node dist/scripts/gate-all.js [--dry] [-j N]   · --dry prints the classified plan without running it
 import { execFile, execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
-import { availableParallelism } from 'node:os'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
+import { capacity, hostProfile, shellOrExit, renderSpeedup, speedup } from '../os/host/index.js'
 
 /** A step is a GENERATOR when it produces the inputs later steps read.
  *
@@ -146,8 +146,12 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
   const audit = (JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }).scripts.audit
   const steps = plan(audit)
   const count = (k: Kind) => steps.filter((s) => s.kind === k).length
+  // THE MACHINE IS READ, NOT ASSUMED (os/host). The lane count came from an inline `availableParallelism() - 2`
+  // here and the shell from a bare 'sh' below; both are host facts, and a host fact written at a call site is a
+  // host fact nothing names. The driver answers both, so this runner is only its own logic.
+  const host = hostProfile()
   const jArg = process.argv.indexOf('-j')
-  const limit = jArg > 0 ? Number(process.argv[jArg + 1]) || 1 : (availableParallelism() - 2 < 2 ? 2 : availableParallelism() - 2)
+  const limit = jArg > 0 ? Number(process.argv[jArg + 1]) || 1 : capacity().lanes
 
   if (process.argv.includes('--dry')) {
     for (const s of steps) console.log(`  ${({ generator: 'GEN   ', check: 'CHECK ', 'serial-check': 'SERIAL' })[s.kind]} ${label(s.cmd)}`)
@@ -155,27 +159,66 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
     process.exit(0)
   }
 
+  // THE SHELL IS RESOLVED ONCE, BEFORE ANY STEP RUNS — unresolvable refuses here rather than failing 29 times.
+  const shell = shellOrExit('gate-all')
+
   // the receipt is consulted ONCE, against the tree as it stands when the gate begins
   let receiptGood = false
   try { execFileSync('node', ['dist/scripts/gate-receipt.js', '--verify'], { cwd: ROOT, stdio: 'pipe' }); receiptGood = true } catch { receiptGood = false }
   if (receiptGood) console.log('gate-all — gate-receipt --verify PASSES for this tree: receipt-covered checks verify at O(1) (lead 121a)')
 
-  console.log(`gate-all — ${count('generator')} generators in order, then ${count('check')} checks CONCURRENTLY (-j ${limit}), then ${count('serial-check')} alone …\n`)
+  console.log(`gate-all — host ${host.cpu} · ${host.logical} logical, ${host.memoryGiB} GiB, ${host.platform}/${host.arch} · shell ${shell.file} (${shell.source}) · receipt ${host.receipt}`)
+  console.log(`gate-all — ${count('generator')} generators in order, then ${count('check')} checks CONCURRENTLY (-j ${limit} of ${host.logical}, ${host.reserved} lanes reserved), then ${count('serial-check')} alone …\n`)
   const started = Date.now()
+  // Every step's own duration AND the instants it spanned. The duration alone cannot price the fan-out: with 29
+  // checks over 14 lanes the phase is longer than its slowest member (two full waves), so reporting the slowest
+  // step AS the phase would state a speedup nobody measured. The span between the first check starting and the
+  // last one finishing IS the phase, so it is recorded rather than inferred.
+  const spent = new Map<string, number>()
+  const span = new Map<string, { from: number; to: number }>()
   const { verdicts, aborted } = await runPlan(steps, (cmd) => new Promise((resolve) => {
     if (receiptGood && matches(RECEIPT_COVERED, cmd)) {
       console.log(`  ✓ ${label(cmd).padEnd(46)}      by receipt`)
       return resolve({ exit: 0, out: 'verified by gate-receipt — the green gate proved this on the identical tree' })
     }
     const t0 = Date.now()
-    execFile('sh', ['-c', cmd], { cwd: ROOT, maxBuffer: 64 * 1024 * 1024 }, (err, stdout, stderr) => {
-      const exit = err ? ((err as { code?: number }).code ?? 1) : 0
-      console.log(`  ${exit === 0 ? '✓' : '✗'} ${label(cmd).padEnd(46)} ${String(Date.now() - t0).padStart(7)}ms`)
+    execFile(shell.file, shell.argv(cmd), { cwd: ROOT, env: shell.env(process.env), maxBuffer: 64 * 1024 * 1024 }, (err, stdout, stderr) => {
+      // a spawn failure carries a STRING code (ENOENT), not an exit status — coerced to 1 so a host problem reads
+      // as "failed", never as the nonsense "exit ENOENT" the missing-shell run actually printed
+      const raw = err ? (err as { code?: number | string }).code : 0
+      const exit = typeof raw === 'number' ? raw : (err ? 1 : 0)
+      const done = Date.now()
+      const ms = done - t0
+      spent.set(cmd, ms)
+      span.set(cmd, { from: t0, to: done })
+      console.log(`  ${exit === 0 ? '✓' : '✗'} ${label(cmd).padEnd(46)} ${String(ms).padStart(7)}ms`)
       resolve({ exit, out: stdout + stderr })
     })
   }), limit)
 
   const failed = verdicts.filter((v) => v.exit !== 0)
+  const wall = Date.now() - started
+
+  /** THE FAN-OUT'S OWN RECEIPT. The gate reported per-step milliseconds and then said nothing about what running
+   *  them together was worth — so "concurrent" was an adjective in the header rather than a measured claim. The
+   *  concurrent phase's serial sum is what the `&&` chain would have spent on the same steps; the phase's real
+   *  elapsed time is what this machine spent instead; the ratio is the gain, and the slowest step is the floor no
+   *  lane count can lower (the wall-clock of a fan-out IS its slowest member). Printed with the steps that set
+   *  that floor, because a ratio tells you how much you gained and only the critical path tells you where the
+   *  next gain is. */
+  const concurrent = verdicts.filter((v) => v.kind === 'check' && spent.has(v.cmd))
+  const serialSum = concurrent.reduce((a, v) => a + (spent.get(v.cmd) ?? 0), 0)
+  const slowest = [...concurrent].sort((a, b) => (spent.get(b.cmd) ?? 0) - (spent.get(a.cmd) ?? 0)).slice(0, 3)
+  const report = (): void => {
+    if (!concurrent.length) return
+    const marks = concurrent.map((v) => span.get(v.cmd)!).filter(Boolean)
+    const phase = marks.reduce((a, m) => (m.to > a ? m.to : a), 0) - marks.reduce((a, m) => (m.from < a ? m.from : a), marks[0].from)
+    const floor = spent.get(slowest[0].cmd) ?? 0
+    console.log(`\n  fan-out — ${concurrent.length} checks over ${limit} lanes: ${serialSum}ms serial → ${phase}ms measured, ${renderSpeedup(speedup(serialSum, phase))}`)
+    console.log(`  critical path — the ${floor}ms floor no lane count lowers: ${slowest.map((v) => `${label(v.cmd)} ${spent.get(v.cmd)}ms`).join(' · ')}`)
+    console.log(`  host ${host.address} — the machine these figures were measured on, folded so the next reader can tell whether it was the same one`)
+  }
+
   console.log(`\n${'═'.repeat(78)}`)
   if (aborted) {
     console.error(verdicts[verdicts.length - 1].out)
@@ -184,15 +227,17 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
     process.exit(1)
   }
   if (!failed.length) {
-    console.log(`✓ gate-all — all ${count('check') + count('serial-check')} checks green in ONE pass (${Date.now() - started}ms wall-clock).`)
+    console.log(`✓ gate-all — all ${count('check') + count('serial-check')} checks green in ONE pass (${wall}ms wall-clock).`)
+    report()
     process.exit(0)
   }
   for (const f of failed) {
     console.error(`\n${'─'.repeat(78)}\n✗ ${label(f.cmd)} (exit ${f.exit})\n${'─'.repeat(78)}`)
     console.error(f.out.trimEnd().split('\n').slice(-40).join('\n'))
   }
-  console.error(`\n✗ gate-all — ${failed.length} of ${count('check') + count('serial-check')} checks FAILED, all computed in one pass (${Date.now() - started}ms):\n`)
+  console.error(`\n✗ gate-all — ${failed.length} of ${count('check') + count('serial-check')} checks FAILED, all computed in one pass (${wall}ms):\n`)
   for (const f of failed) console.error(`  · ${label(f.cmd)}  (exit ${f.exit})`)
+  report()
   console.error('\n  These are simultaneous— the && chain would have shown you ONE of them per run.')
   process.exit(1)
 }

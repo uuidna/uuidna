@@ -14,7 +14,7 @@
 // Recomputable by anyone from this same tree. Integrity.
 
 import { readFileSync, readdirSync, existsSync } from 'node:fs'
-import { dirname, join, relative } from 'node:path'
+import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import {
   computes, runTrial, THEOREMS,
@@ -22,9 +22,9 @@ import {
   encrypt, decrypt, sealSequence, verifyEnvelope,
 } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
-import { ROOT, rd } from './api.js'
+import { ROOT, rd, relRoot } from './api.js'
 
-const rel = (p: string) => relative(ROOT, p)
+const rel = (p: string) => relRoot(p)
 const MAX_UNIT = 2000 // cap each prose unit — computes()'s per-match scan is superlinear; bound the input (no DoS)
 
 type Severity = 'high' | 'medium' | 'review'

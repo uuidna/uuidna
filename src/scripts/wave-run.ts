@@ -20,7 +20,7 @@
 import { readFileSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { join } from 'node:path'
-import { ROOT, streamStep } from './api.js'
+import { ROOT, streamStep, pauseSeconds } from './api.js'
 
 const QUEUE = join(ROOT, 'lean', 'wave-queue.json')
 const acceptedCount = (): number => {
@@ -56,7 +56,7 @@ const step = async (name: string, cmd: string): Promise<{ ok: boolean; out: stri
 function waitForPid(pid: number, probes: number): boolean {
   for (let i = 0; i < probes; i++) {
     try { process.kill(pid, 0) } catch { return true }   // gone — the tree is free
-    execSync('sleep 5')
+    pauseSeconds(5)
   }
   try { process.kill(pid, 0); return false } catch { return true }
 }

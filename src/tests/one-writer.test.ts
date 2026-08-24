@@ -5,17 +5,29 @@
 // number that might coincide with a live process.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { spawnSync, execSync, spawn } from 'node:child_process'
+import { spawnSync, execFileSync, spawn } from 'node:child_process'
 import { writeFileSync, existsSync, mkdtempSync, unlinkSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 import { acquire, awaitAcquire, release, currentWriter, working } from '../scripts/one-writer.js'
+import { resolveShell, type PosixShell } from '../os/host/index.js'
+
+// THE INSTRUMENT NEEDS A SHELL, AND THE SHELL IS RESOLVED, NOT ASSUMED (os/host). These are the two places the
+// suite spawns a REAL process to get a real pid — a dead one and a live stranger — and both did it through bare
+// POSIX names (`true`, `sh`) that a Windows host does not have on PATH. The spawn then failed rather than the
+// property, so the control that exists to prove this test CAN say no was the thing that broke.
+const SHELL: PosixShell = ((): PosixShell => {
+  const s = resolveShell()
+  if (s.ok) return s
+  throw new Error(`one-writer.test needs a shell to spawn a real pid: ${s.reason} — ${s.remedy}`)
+})()
+const inShell = (cmd: string): string => execFileSync(SHELL.file, SHELL.argv(cmd), { encoding: 'utf8', env: SHELL.env(process.env) })
 
 const lockAt = (name: string): string => join(mkdtempSync(join(tmpdir(), 'one-writer-')), name)
 
 // a pid that is REALLY dead: a child that already exited (its pid was ours to observe, and it is gone)
 const deadPid = (): number => {
-  const child = spawnSync('true')
+  const child = spawnSync(SHELL.file, SHELL.argv('exit 0'), { env: SHELL.env(process.env) })
   assert.ok(child.pid && child.status === 0)
   return child.pid!
 }
@@ -85,7 +97,12 @@ test('CONTROL — a LIVE stranger is announced once and refused at the ceiling, 
   // a LIVE TRUE STRANGER: a grandchild orphaned by its parent's exit, so its ancestry is init → it and holds
   // neither us nor our line. (pid 1 will NOT do — init is EVERY process's ancestor, so the reentrancy check
   // passes a lock naming it; that hole is what this control found on its way in, deposited as a lead.)
-  const stranger = Number(execSync('sh -c \'sleep 30 >/dev/null 2>&1 & echo $!\'', { encoding: 'utf8' }).trim())
+  // THE PID MUST BE THE ONE THE OS KILLS BY, NOT THE ONE THE SHELL COUNTS BY. `$!` is the OS pid on a POSIX host
+  // and an MSYS pid under Git for Windows — a different namespace entirely, so `process.kill(pid, 0)` found
+  // nothing, called the live stranger dead, reclaimed its lock and let the acquire SUCCEED. The control that
+  // exists to prove this test can say no was quietly saying yes. MSYS publishes the real one at
+  // /proc/<pid>/winpid; where that file does not exist (every POSIX host), `$!` was already right.
+  const stranger = Number(inShell('sleep 30 >/dev/null 2>&1 & cat /proc/$!/winpid 2>/dev/null || echo $!').trim())
   writeFileSync(path, JSON.stringify({ pid: stranger, purpose: 'a writer that never lets go' }))
   const announced: string[] = []
   // the ceiling is injected at 0 so the refusal is reachable without waiting out MAX_POLLS in a test
@@ -101,7 +118,7 @@ test('CONTROL — a LIVE stranger is announced once and refused at the ceiling, 
 // refusal must survive for a holder doing nothing, and must NOT fire for a holder doing something.
 test('a holder with NO live child is still refused at the ceiling — the stuck signal is unchanged', () => {
   const path = join(tmpdir(), `uuidna-ceiling-idle-${process.pid}.lock`)
-  const idle = Number(execSync('sh -c \'sleep 30 >/dev/null 2>&1 & echo $!\'', { encoding: 'utf8' }).trim())
+  const idle = Number(inShell('sleep 30 >/dev/null 2>&1 & cat /proc/$!/winpid 2>/dev/null || echo $!').trim())
   writeFileSync(path, JSON.stringify({ pid: idle, purpose: 'a writer doing nothing' }))
   const extended: number[] = []
   const r = awaitAcquire('probe', process.pid, path, () => {}, 0, (_h, n) => extended.push(n))
@@ -116,11 +133,14 @@ test('CONTROL — a holder that IS working EXTENDS past the ceiling, and the lan
   // a holder with a REAL live child: a node process that spawns a sleep, so pgrep -P finds work under it. A
   // shell will not do — `sh -c '... &'` execs away its own child and leaves nothing under the pid we captured,
   // which is how the first version of this test fixture failed while the code under test was correct.
+  // the grandchild is another NODE process, not `sleep`: the fixture must exist on every host, and a `sleep` that
+  // is not a program leaves nothing under the holder — the control would then read not-working and prove nothing,
+  // which is the same way its first version failed while the code under test was correct.
   const holder = spawn(process.execPath,
-    ['-e', "require('node:child_process').spawn('sleep',['6'],{stdio:'ignore'}); setTimeout(()=>process.exit(0),5000)"],
+    ['-e', "require('node:child_process').spawn(process.execPath,['-e','setTimeout(()=>{},6000)'],{stdio:'ignore'}); setTimeout(()=>process.exit(0),5000)"],
     { detached: true, stdio: 'ignore' })
   holder.unref()
-  execSync('sleep 1')                                   // let the grandchild appear before we judge
+  inShell('sleep 1')                                    // let the grandchild appear before we judge
   assert.equal(working(holder.pid!), true, 'the fixture must actually be working, or this control proves nothing')
   writeFileSync(path, JSON.stringify({ pid: holder.pid, purpose: 'a writer mid-gate' }))
   const extended: number[] = []

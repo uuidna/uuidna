@@ -6,25 +6,25 @@
 // "the rest" the purge removes. This is a pure static decision (a reachability closure over the import edges), so CI
 // and the trial decide it with no agent judgment: run it, read the verdict. Integrity.
 import { readFileSync, readdirSync, existsSync, writeFileSync } from 'node:fs'
-import { join, dirname, resolve, relative } from 'node:path'
+import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { merkleFold } from '../address.js'
 import { toUuid } from '../address.js'
-import { ROOT } from './api.js'
+import { ROOT, relRoot, relJoin } from './api.js'
 
 const SRC = join(ROOT, 'src')
 
 // Every .ts under src/ (the modules under audit), as repo-relative paths.
 const walk = (d: string): string[] => readdirSync(d, { withFileTypes: true }).flatMap((e) =>
   e.isDirectory() ? walk(join(d, e.name)) : e.name.endsWith('.ts') ? [join(d, e.name)] : [])
-const all = walk(SRC).map((f) => relative(ROOT, f)).sort()
+const all = walk(SRC).map(relRoot).sort()
 
 // Resolve a relative import specifier (written with a .js extension, NodeNext style) to the .ts it compiles from.
 const resolveImport = (fromFile: string, spec: string): string | null => {
   if (!spec.startsWith('.')) return null // a bare specifier is a dependency
   const base = resolve(ROOT, dirname(fromFile), spec)
   for (const cand of [base.replace(/\.js$/, '.ts'), base + '.ts', join(base, 'index.ts')])
-    if (existsSync(cand)) return relative(ROOT, cand)
+    if (existsSync(cand)) return relRoot(cand)
   return null
 }
 
@@ -53,7 +53,7 @@ const workerReached = ((): string[] => {
   if (!existsSync(join(ROOT, wf))) return []
   const text = readFileSync(join(ROOT, wf), 'utf8')
   const specs = [...text.matchAll(/(?:from|import)\s*\(?\s*['"](\.\/dist\/[^'"]+)\.js['"]/g)].map((m) => m[1])
-  return [...new Set(specs.map((s) => join('src', s.replace(/^\.\/dist\//, '') + '.ts')).filter((c) => existsSync(join(ROOT, c))))]
+  return [...new Set(specs.map((s) => relJoin('src', s.replace(/^\.\/dist\//, '') + '.ts')).filter((c) => existsSync(join(ROOT, c))))]
 })()
 
 const reached = new Set<string>([...roots, ...workerReached])

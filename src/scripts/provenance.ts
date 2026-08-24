@@ -7,12 +7,12 @@
 // content-addressed and fold, order-invariantly, to ONE recomputable receipt. It can FAIL (exit 1) — the opposite of
 // a trial rigged to pass. Integrity.
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
-import { join, dirname, relative } from 'node:path'
+import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems, merkleFold, toUuid } from '../index.js'
 import { overreachOf } from '../prose-gate.js'
 import { MCP_CATALOG } from '../mcp.js'
-import { ROOT, rd } from './api.js'
+import { ROOT, rd, relRoot } from './api.js'
 
 // The floor lives in ONE tested place — src/prose-gate.ts (overreachOf → slimGate) — so the audit and the self-trial
 // share the exact same detector: a unit drains only for citing a FABRICATED theorem. This script
@@ -51,7 +51,7 @@ const scan = (surface: string, text: string, backedBy?: string): void => {
 if (existsSync(join(ROOT, 'README.md'))) scan('README.md', rd('README.md'))
 if (existsSync(join(ROOT, 'lean/PRINCIPLE.md'))) scan('lean/PRINCIPLE.md', rd('lean/PRINCIPLE.md'))
 const walk = (d: string): string[] => existsSync(d) ? readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? walk(join(d, e.name)) : /\.md$/.test(e.name) ? [join(d, e.name)] : []) : []
-for (const f of walk(join(ROOT, 'docs'))) scan(relative(ROOT, f), readFileSync(f, 'utf8'))
+for (const f of walk(join(ROOT, 'docs'))) scan(relRoot(f), readFileSync(f, 'utf8'))
 for (const t of MCP_CATALOG) scan('mcp:' + t.name, t.description)
 
 // INLINE DOCS as an audit surface too — the theorem descriptions (the "why", rendered on every theorem page) and
@@ -68,7 +68,7 @@ for (const f of readdirSync(join(ROOT, 'lean')).filter((f) => f.endsWith('.lean'
 // citation, not a claim — handled by de-quoting in scan(), below).
 const GATE_FILES = /(provenance|gate|audit|adjudicate)\.ts$/
 const tsFiles = (d: string): string[] => existsSync(d) ? readdirSync(d, { withFileTypes: true }).flatMap((e) => e.isDirectory() ? tsFiles(join(d, e.name)) : /\.ts$/.test(e.name) ? [join(d, e.name)] : []) : []
-for (const f of tsFiles(join(ROOT, 'src')).filter((f) => !GATE_FILES.test(f))) scan(relative(ROOT, f), [...readFileSync(f, 'utf8').matchAll(/^\s*\/\/\s?(.*)$/gm)].map((m) => m[1]).join('\n'))
+for (const f of tsFiles(join(ROOT, 'src')).filter((f) => !GATE_FILES.test(f))) scan(relRoot(f), [...readFileSync(f, 'utf8').matchAll(/^\s*\/\/\s?(.*)$/gm)].map((m) => m[1]).join('\n'))
 
 // fold the findings to ONE recomputable receipt (order-invariant), recomputable by anyone from this same tree.
 const receipt = findings.length ? merkleFold(findings.map((f) => f.address)) : toUuid('provenance-clean')

@@ -17,19 +17,36 @@
 import test from 'node:test'
 import assert from 'node:assert'
 import { execFileSync } from 'node:child_process'
+import { mkdtempSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
 import { extractMedicineFacts, extractClimateFacts, extractEconomicsFacts } from '../desk/news/domains/index.js'
 
 const PROBE_TIMEOUT_MS = 15000
 const DOMAINS = new URL('../desk/news/domains/index.js', import.meta.url).href
 const RENDER = new URL('../render.js', import.meta.url).href
 
-/** run one adversarial probe in a killable child; returns false if it had to be killed */
+/** run one adversarial probe in a killable child; returns false if — and ONLY if — it had to be killed.
+ *
+ *  THE PROBE GOES THROUGH A FILE, NOT THE COMMAND LINE. These probes carry adversarial input by construction, and
+ *  adversarial input here means BIG: the forged SVG is 64 KB, which is past what Windows accepts as a command line
+ *  at all. Passed via `-e`, the child never started, the catch below read that as "did not finish", and the suite
+ *  accused readHero of hanging on a host where it had not been called once. The input is data — it belongs in a
+ *  file the child reads, where its size is nobody's limit.
+ *
+ *  AND A PROBE THAT CANNOT RUN NOW SAYS SO. Returning false for every failure made "killed at the timeout" and
+ *  "never launched" the same answer, which is how an absent instrument gets to deliver a guilty verdict. Only the
+ *  kill returns false; anything else throws with what the child actually said. */
 const completes = (expr: string): boolean => {
+  const file = join(mkdtempSync(join(tmpdir(), 'redos-probe-')), 'probe.mjs')
+  writeFileSync(file, expr)
   try {
-    execFileSync(process.execPath, ['--input-type=module', '-e', expr], { timeout: PROBE_TIMEOUT_MS, stdio: 'pipe' })
+    execFileSync(process.execPath, [file], { timeout: PROBE_TIMEOUT_MS, stdio: 'pipe' })
     return true
-  } catch {
-    return false
+  } catch (e) {
+    const err = e as { killed?: boolean; signal?: string | null; status?: number | null; stderr?: Buffer | string }
+    if (err.killed === true || (err.signal !== null && err.signal !== undefined)) return false   // the hang this file exists to catch
+    throw new Error(`the probe never ran, so nothing was measured (exit ${String(err.status)}): ${String(err.stderr ?? '').trim().slice(0, 300)}`)
   }
 }
 

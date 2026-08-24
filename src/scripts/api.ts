@@ -2,7 +2,10 @@
 // resolution, file reads, the 16-hex fold, the GAP+FIX reporter); this module is the singularity they all import
 // from — standardisation and DRY use of one api, so a script is only its own logic. The `one-receipt dry` finder
 // objects (GAP + exact FIX) to any script that re-declares what lives here — the duplication class cannot regrow.
-const cryptom = (): typeof import('node:crypto') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:crypto') as typeof import('node:crypto') // lazy: the edge bundles this module but never calls it
+// os/host is a static import and safe as one: it declares no top-level side effect and reaches its builtins through
+// the same lazy registry this file does, so bundling it costs the edge nothing it does not already carry.
+import { shellOrExit } from '../os/host/index.js'
+const cryptom =(): typeof import('node:crypto') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:crypto') as typeof import('node:crypto') // lazy: the edge bundles this module but never calls it
 const cpm = (): typeof import('node:child_process') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:child_process') as typeof import('node:child_process') // lazy: the edge bundles this module but never calls it
 // node:fs rides LAZILY through the runtime's own registry (the mcp.ts:38 law, sync form): a top-level
 // import rides every bundle that reaches this module, and the edge worker has no filesystem.
@@ -109,6 +112,43 @@ export function invokesFile(corpus: string, base: string): boolean {
   // to grow its own copy of the rule — so it lives here, where they already both look.
   return new RegExp("file:\\s*'" + base.replace(/-/g, '[-]') + "\\.js'").test(corpus)
 }
+// ── THE PATH HAS ONE SPELLING. A repo-relative path is DATA here, not a filesystem gesture: the finders compare it
+// against literals (`src/scripts/`), the reports print it, and the sealed artifacts FOLD it. So its separator is
+// part of a content address, and a separator that depends on the host is an address that depends on the host —
+// which is precisely what this ledger exists to refuse.
+//
+// It was not theoretical. Run on a Windows development machine, `relative()` returned `src\scripts\one-receipt.ts`,
+// and every finder that compares against the POSIX literal quietly stopped matching: the support audit found 138
+// roots and ZERO scripts, declared 227 live modules dead, and wrote that verdict into support-audit.json and
+// research-leads.json as committed fact. Nothing errored. The audit reported confidently, and was wrong about most
+// of the tree — the exact failure mode a green check is supposed to rule out.
+//
+// So the conversion happens ONCE, at the boundary where a host path becomes repo data, and never at the comparisons
+// (there are dozens, and the next one added would forget). Everything downstream sees one spelling.
+/** a repo-relative path in the ONE canonical spelling — POSIX separators, on every host */
+export const relRoot = (abs: string): string => pathm().relative(ROOT, abs).replace(/\\/g, '/')
+/** join repo-relative segments in the canonical spelling — the same law for a path BUILT rather than derived */
+export const relJoin = (...parts: string[]): string => parts.join('/').replace(/\\/g, '/')
+
+/** pauseSeconds(n) → wait n seconds through the host's own shell.
+ *
+ *  Never a clock read (the determinism scan admits none), and never a bare `sleep`, which is a program on a POSIX
+ *  host and nothing at all on Windows: the lock's probe-wait shelled out to it and, finding nothing, spun through
+ *  180 instant no-ops and pronounced a live holder immortal — a wait that waited no time is a queue in name only. */
+export const pauseSeconds = (n: number): void => {
+  const sh = shellOrExit('pause')
+  cpm().spawnSync(sh.file, sh.argv(`sleep ${n}`), { env: sh.env(process.env) })
+}
+
+/** import a COMPILED module by ABSOLUTE path — always as a file URL.
+ *
+ *  A POSIX absolute path happens to be a usable module specifier, so `import(join(dist, 'x.js'))` reads as correct
+ *  and is correct — there. On Windows the same expression hands the loader `C:\…`, which it reads as a URL with the
+ *  scheme `c:` and refuses outright. The specifier form is a host fact, so it is settled once, here, rather than at
+ *  each of the six call sites that had quietly assumed one host. */
+export const importAbs = <T = Record<string, unknown>>(abs: string): Promise<T> =>
+  import(urlm().pathToFileURL(abs).href) as Promise<T>
+
 /** read a repo-relative file as utf8 */
 export const rd = (p: string): string => fsm().readFileSync(pathm().join(ROOT, p), 'utf8')
 /** does a repo-relative path exist */
@@ -161,7 +201,12 @@ export function teeStep(label: string, cmd: string, cwd: string = ROOT): StepRes
 export function streamStep(label: string, cmd: string, cwd: string = ROOT): Promise<StepResult> {
   process.stdout.write(`\n── ${label} ──\n`)
   return new Promise((resolve) => {
-    const child = cpm().spawn(cmd, { shell: true, cwd })
+    // THE SHELL IS THE HOST'S (os/host), not `shell: true`. Node's shorthand picks cmd.exe on Windows, which does
+    // not expand the globs these steps carry — `npm run test` would hand node a literal pattern, match no files
+    // and exit 0, so a suite that ran nothing would report as a suite that passed. The resolved recipe is a POSIX
+    // shell on every host, with the toolchain PATH that makes it a whole one.
+    const sh = shellOrExit(label)
+    const child = cpm().spawn(sh.file, sh.argv(cmd), { cwd, env: sh.env(process.env) })
     let out = ''
     child.stdout?.on('data', (c: Buffer) => { out += c.toString(); process.stdout.write(c) })
     child.stderr?.on('data', (c: Buffer) => { out += c.toString(); process.stderr.write(c) })
