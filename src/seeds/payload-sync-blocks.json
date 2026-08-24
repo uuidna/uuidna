@@ -26263,7 +26263,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 416 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 416, not the vendors."
+                      "text": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 417 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 417, not the vendors."
                     }
                   ]
                 },
@@ -26273,7 +26273,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(((modelContextRows.map (fun r => r.length)).sum) = 416) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)"
+                      "text": "(((modelContextRows.map (fun r => r.length)).sum) = 417) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)"
                     }
                   ]
                 },
@@ -26283,14 +26283,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 416) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide"
+                      "text": "theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 417) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "2a677dac-2ef8-88ea-a220-39de8f49b386"
+          "uuidnaAddress": "9c241531-7142-89b7-a42b-c54c312cce94"
         },
         {
           "blockType": "theorem",
@@ -26306,7 +26306,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "MESSAGING, MEASURED AT THE WIRE: a uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 416 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted)."
+                      "text": "MESSAGING, MEASURED AT THE WIRE: a uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 417 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted)."
                     }
                   ]
                 },
@@ -26333,7 +26333,7 @@
               ]
             }
           },
-          "uuidnaAddress": "1c5b2f1b-a347-8ddc-bb24-884eaad56256"
+          "uuidnaAddress": "a8e83ddb-59e8-8c6b-837c-49143c376b79"
         },
         {
           "blockType": "theorem",
@@ -26392,7 +26392,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 416 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all."
+                      "text": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 417 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all."
                     }
                   ]
                 },
@@ -26419,7 +26419,7 @@
               ]
             }
           },
-          "uuidnaAddress": "bfcab8ff-5a19-873e-800d-c72bfe3cba55"
+          "uuidnaAddress": "d85e9647-8e8f-8546-a119-e617c94a79e2"
         },
         {
           "blockType": "theorem",
@@ -26508,8 +26508,8 @@
           "uuidnaAddress": "2de6f384-c5fa-8da0-bf58-19f16a2dbe49"
         }
       ],
-      "uuidnaVersion": "c6532b21-ade4-826a-9736-1e1a83990000",
-      "uuidnaAddress": "7c89f4f2-7416-8126-9c92-b40fa16bf798"
+      "uuidnaVersion": "c6532b21-add5-8a9d-9506-2c8383740000",
+      "uuidnaAddress": "0033d3dc-60bc-87e6-a3f6-1824b2d29db9"
     },
     {
       "slug": "molecular",
