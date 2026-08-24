@@ -16,20 +16,25 @@ import { steadyStateNs } from '../scripts/steady-state.js'
 import { theorems, toUuid } from '../index.js'
 
 const T = theorems()
-const sweep = () => { const seen = new Set<string>(); for (const t of T) seen.add(toUuid(t.statement)) }
+// the seed VARIES with the pass — toUuid memoises, and a sweep that re-asks the same statements measures the
+// cache rather than the fold (see the module's own account; this is the bug these tests exist to keep out)
+const sweep = (pass: number) => { const seen = new Set<string>(); for (const t of T) seen.add(toUuid(`${pass}:${t.statement}`)) }
 
 // THE COLD PASS, TIMED FIRST — before any warm-up in this process, or there is nothing cold left to observe.
 const cold0 = performance.now()
-sweep()
+sweep(-1)
 const coldNs = ((performance.now() - cold0) * 1e6) / T.length
 
-test('the cold pass is an outlier, which is why timing one of them sealed the wrong order of magnitude', () => {
+test('THE COLD PASS IS NOT THE OUTLIER — the theory this module was first built on, refuted and kept refuted', () => {
+  // This test previously asserted the OPPOSITE: that a cold sweep costs at least 2x the steady floor, because
+  // 10662 ns on pass 0 against 48 ns afterwards looked like JIT. It was the memo. A single sweep of the ledger
+  // has no cache hits at all — every statement is distinct — so the original single-pass method was very nearly
+  // sound, and the 280x belonged to toUuid's Map. The test is inverted rather than deleted because the wrong
+  // theory is intuitive enough that someone will reach for it again; this fails if they do.
   const s = steadyStateNs(sweep, T.length)
-  // measured on the build host the gap was ~280x (10662 ns cold against a 38 ns floor); asserting only 2x keeps
-  // the test honest on a slow or busy machine while still failing loudly if the cold tax ever vanishes — in which
-  // case the old single-pass measurement was sound and this module should go, not be kept out of politeness
-  assert.ok(coldNs > s.ns * 2,
-    `the first sweep of a fresh process must cost visibly more than the steady floor, got cold ${coldNs.toFixed(0)} ns vs floor ${s.ns} ns`)
+  assert.ok(coldNs < s.ns * 3,
+    `a cold sweep of DISTINCT seeds must be close to the warm floor (measured 1.07x-1.19x), got cold ${coldNs.toFixed(0)} ns vs floor ${s.ns} ns — ` +
+    'if these differ by a lot, something other than compilation is being timed, and last time it was a cache')
 })
 
 test('THE DECADE REPRODUCES — the property the sealed layer needs and did not have', () => {
@@ -42,13 +47,27 @@ test('THE DECADE REPRODUCES — the property the sealed layer needs and did not 
   assert.equal(a.decade, String(a.ns).length - 1)
 })
 
+test('A MEMOISED SWEEP IS CAUGHT — the estimator must not be allowed to converge on a cache', () => {
+  // The bug this whole module was corrected for: warm-then-floor over IDENTICAL input measured toUuid's memo,
+  // reported 20 ns against a real fold of thousands, and sealed it — stable, reproducible, and a hundred times
+  // wrong. Stability cannot detect it; only measuring both quantities and comparing them can. If this assertion
+  // ever fails, either the memo is gone (then delete this test) or the varying seed stopped varying.
+  const varied = steadyStateNs(sweep, T.length)
+  const constant = steadyStateNs(() => { const seen = new Set<string>(); for (const t of T) seen.add(toUuid(t.statement)) }, T.length)
+  assert.ok(varied.ns > constant.ns * 4,
+    `folding fresh seeds must cost visibly more than re-asking cached ones, got varied ${varied.ns} ns vs repeated ${constant.ns} ns — ` +
+    'if these are close, the "measurement" is reading a cache and the sealed figure is fiction')
+})
+
 test('the floor is never above the mean — the estimator picks the host, not the mood', () => {
   const s = steadyStateNs(sweep, T.length)
   let total = 0
   const runs = 5
   for (let i = 0; i < runs; i++) {
     const t0 = performance.now()
-    sweep()
+    // indices far above the ones steadyStateNs just used: reusing them would hit the memo it filled, and these
+    // passes would come in under the floor — the test would fail for the opposite of the reason it is checking
+    sweep(1000 + i)
     total += ((performance.now() - t0) * 1e6) / T.length
   }
   // this is the one-sidedness itself, checked rather than asserted in the prose: interruptions can only ADD, so

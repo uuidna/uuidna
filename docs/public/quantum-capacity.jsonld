@@ -1,0 +1,254 @@
+{
+  "@context": "https://schema.org",
+  "@id": "urn:uuid:62720f63-6b3d-872b-82f5-30ce5b92e2be",
+  "@type": "Dataset",
+  "name": "uuidna quantum capacity report",
+  "description": "Total and usable quantum capacity per known model type, every figure carrying the technique it was determined by and the source that named it. Architectural comparison bounded by theorem n_qubit_dimension; uuidna is classical by declaration and claims no physics quantum advantage.",
+  "url": "https://uuidna.com/quantum-capacity.jsonld",
+  "identifier": "6a71ca14-93f1-842b-8d2e-6520f41156bb",
+  "isAccessibleForFree": true,
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "uuidna hexbit fold (2026) — usable capacity",
+      "value": 128,
+      "unitText": "qubits",
+      "measurementTechnique": "declared",
+      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer — measured by this generator: full-1690-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "uuidna hexbit fold (2026) — operation time",
+      "value": 1000,
+      "unitText": "ns",
+      "measurementTechnique": "measured",
+      "citation": "measured by this generator: full-1690-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Harvard/QuEra logical-48 array (2023) — physical qubits",
+      "value": 280,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "Bluvstein et al., Nature 2023; gate class ~10^3 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Harvard/QuEra logical-48 array (2023) — usable capacity",
+      "value": 48,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "forty-eight logical qubits operated (error-detected circuits, Nature 2023) — Bluvstein et al., Nature 2023; gate class ~10^3 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Harvard/QuEra logical-48 array (2023) — operation time",
+      "value": 1000,
+      "unitText": "ns",
+      "measurementTechnique": "reported",
+      "citation": "Bluvstein et al., Nature 2023; gate class ~10^3 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IonQ Forte (2024) — physical qubits",
+      "value": 36,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IonQ Forte (2024) — usable capacity",
+      "value": 36,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "algorithmic qubits AQ36 (vendor benchmark suite, not error-corrected logical) — IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IonQ Forte (2024) — operation time",
+      "value": 100000,
+      "unitText": "ns",
+      "measurementTechnique": "reported",
+      "citation": "IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Quantinuum H2 (2024) — physical qubits",
+      "value": 56,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Quantinuum H2 (2024) — usable capacity",
+      "value": 12,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "twelve logical qubits demonstrated (with Microsoft qubit-virtualization) — Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Quantinuum H2 (2024) — operation time",
+      "value": 100000,
+      "unitText": "ns",
+      "measurementTechnique": "reported",
+      "citation": "Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Google Willow (2024) — physical qubits",
+      "value": 105,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Google Willow (2024) — usable capacity",
+      "value": 1,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "one logical qubit demonstrated below the surface-code threshold — Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Google Willow (2024) — operation time",
+      "value": 100,
+      "unitText": "ns",
+      "measurementTechnique": "reported",
+      "citation": "Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IBM Condor (2023) — physical qubits",
+      "value": 1121,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IBM Condor (2023) — usable capacity",
+      "value": "none demonstrated",
+      "measurementTechnique": "reported",
+      "citation": "no error-corrected logical qubits demonstrated on this device — IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IBM Condor (2023) — operation time",
+      "value": 100,
+      "unitText": "ns",
+      "measurementTechnique": "reported",
+      "citation": "IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IBM Heron r2 (2024) — physical qubits",
+      "value": 156,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "IBM 2024; 2q-gate class ~10^2 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IBM Heron r2 (2024) — usable capacity",
+      "value": "none demonstrated",
+      "measurementTechnique": "reported",
+      "citation": "error-rate-improved processor; logical demos ride smaller codes — IBM 2024; 2q-gate class ~10^2 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "IBM Heron r2 (2024) — operation time",
+      "value": 100,
+      "unitText": "ns",
+      "measurementTechnique": "reported",
+      "citation": "IBM 2024; 2q-gate class ~10^2 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "USTC Zuchongzhi 3.0 (2025) — physical qubits",
+      "value": 105,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "USTC 2025; 2q-gate class ~10^2 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "USTC Zuchongzhi 3.0 (2025) — usable capacity",
+      "value": "none demonstrated",
+      "measurementTechnique": "reported",
+      "citation": "random-circuit sampling demonstrations; no logical qubit reported — USTC 2025; 2q-gate class ~10^2 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "USTC Zuchongzhi 3.0 (2025) — operation time",
+      "value": 100,
+      "unitText": "ns",
+      "measurementTechnique": "reported",
+      "citation": "USTC 2025; 2q-gate class ~10^2 ns (platform literature)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Atom Computing Phoenix-class array (2023) — physical qubits",
+      "value": 1180,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "Atom Computing 2023 (>1000 sites); gate class ~10^3 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Atom Computing Phoenix-class array (2023) — usable capacity",
+      "value": "none demonstrated",
+      "measurementTechnique": "reported",
+      "citation": "no error-corrected logical qubits demonstrated on this device — Atom Computing 2023 (>1000 sites); gate class ~10^3 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Atom Computing Phoenix-class array (2023) — operation time",
+      "value": 1000,
+      "unitText": "ns",
+      "measurementTechnique": "reported",
+      "citation": "Atom Computing 2023 (>1000 sites); gate class ~10^3 ns"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "D-Wave Advantage2 (2024) — physical qubits",
+      "value": 4400,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "D-Wave 2024; anneal class ~10^3 ns per step"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "D-Wave Advantage2 (2024) — usable capacity",
+      "value": "none demonstrated",
+      "measurementTechnique": "reported",
+      "citation": "annealing-only: optimization sampling, not gate-model computation — a different machine class, named — D-Wave 2024; anneal class ~10^3 ns per step"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "D-Wave Advantage2 (2024) — operation time",
+      "value": 1000,
+      "unitText": "ns",
+      "measurementTechnique": "reported",
+      "citation": "D-Wave 2024; anneal class ~10^3 ns per step"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Xanadu Borealis (2022) — physical qubits",
+      "value": 216,
+      "unitText": "qubits",
+      "measurementTechnique": "reported",
+      "citation": "Xanadu, Nature 2022"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Xanadu Borealis (2022) — usable capacity",
+      "value": "none demonstrated",
+      "measurementTechnique": "reported",
+      "citation": "Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named — Xanadu, Nature 2022"
+    }
+  ]
+}
