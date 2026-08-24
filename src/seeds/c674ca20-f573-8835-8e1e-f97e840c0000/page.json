@@ -1,0 +1,249 @@
+{
+  "file": "ProseTrial.lean",
+  "slug": "prosetrial",
+  "status": "usable",
+  "address": "c942febb-edbe-8e7b-9402-359f92b3cf14",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "ProseTrial.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/ProseTrial.lean — GENERATED. THE PROSE TRIAL — the derivation law decided by the KERNEL rather than by a string comparison. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\r\n\r\ndef orbits : List (List Nat) := [[0,1,2,3,4,5,6,7,8,9],[0,1,3,4,5,6,7,9],[0,1,9],[0],[0,1,3,5,7,9],[0,1,5,9]]\r\n\r\ndef dz (d : Nat) : Nat := if d = 0 then 0 else 10 - d\r\n\r\n/-- The ledger walks exactly six distinct orbits. Six, and the count is the whole vocabulary — a seventh would\r\n    be a word nothing proves. -/\r\ntheorem orbits_number_six : orbits.length = 6 := by decide\r\n\r\n/-- THE ORDER IS THE LENGTH. A walk's order — the period any motion derived from it must have — is exactly how\r\n    many digits its orbit reaches, taken by the kernel rather than asserted: [10, 8, 3, 1, 6, 4]. -/\r\ntheorem order_measures_orbit : orbits.map (fun o => o.length) = [10,8,3,1,6,4] := by decide\r\n\r\n/-- A FORGED ORDER IS REFUSED, and the refusal is on this line. Move one order by one and the derived list no\r\n    longer equals it — so a period a person chose can never pass as a period the walk measured. -/\r\ntheorem forged_order_refused : (orbits.map (fun o => o.length) = [10,8,3,1,6,4]) ∧ (orbits.map (fun o => o.length) ≠ [10,8,3,1,6,5]) := by decide\r\n\r\n/-- Every orbit is closed under the reflection dz(x) = 10 − x: the mirror of each member is already a member, so\r\n    reflecting a finished walk adds no digit and the vocabulary cannot grow by looking at itself. -/\r\ntheorem orbits_reflect_onto_themselves : orbits.all (fun o => o.all (fun d => o.contains (dz d))) := by decide\r\n\r\n/-- No two of the six are the same walk — the vocabulary has six words and not five wearing six names. Pairwise\r\n    distinct, decided rather than assumed. -/\r\ntheorem orbits_are_distinct : (orbits.map (fun o => o.length)).eraseDups.length = 6 := by decide\r\n\r\n/-- Zero is in every orbit: dz fixes it, so no walk can leave it behind. The one digit every handle in the\r\n    ledger reaches, whatever it folds from. -/\r\ntheorem every_orbit_holds_zero : orbits.all (fun o => o.contains 0) := by decide\r\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-orbits_number_six",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The ledger walks exactly six distinct orbits. Six, and the count is the whole vocabulary — a seventh would be a word nothing proves."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "orbits.length = 6"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem orbits_number_six : orbits.length = 6 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-order_measures_orbit",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE ORDER IS THE LENGTH. A walk's order — the period any motion derived from it must have — is exactly how many digits its orbit reaches, taken by the kernel rather than asserted: [10, 8, 3, 1, 6, 4]."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "orbits.map (fun o => o.length) = [10,8,3,1,6,4]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem order_measures_orbit : orbits.map (fun o => o.length) = [10,8,3,1,6,4] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-forged_order_refused",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A FORGED ORDER IS REFUSED, and the refusal is on this line. Move one order by one and the derived list no longer equals it — so a period a person chose can never pass as a period the walk measured."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(orbits.map (fun o => o.length) = [10,8,3,1,6,4]) ∧ (orbits.map (fun o => o.length) ≠ [10,8,3,1,6,5])"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem forged_order_refused : (orbits.map (fun o => o.length) = [10,8,3,1,6,4]) ∧ (orbits.map (fun o => o.length) ≠ [10,8,3,1,6,5]) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-orbits_reflect_onto_themselves",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Every orbit is closed under the reflection dz(x) = 10 − x: the mirror of each member is already a member, so reflecting a finished walk adds no digit and the vocabulary cannot grow by looking at itself."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "orbits.all (fun o => o.all (fun d => o.contains (dz d)))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem orbits_reflect_onto_themselves : orbits.all (fun o => o.all (fun d => o.contains (dz d))) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-orbits_are_distinct",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "No two of the six are the same walk — the vocabulary has six words and not five wearing six names. Pairwise distinct, decided rather than assumed."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(orbits.map (fun o => o.length)).eraseDups.length = 6"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem orbits_are_distinct : (orbits.map (fun o => o.length)).eraseDups.length = 6 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-every_orbit_holds_zero",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Zero is in every orbit: dz fixes it, so no walk can leave it behind. The one digit every handle in the ledger reaches, whatever it folds from."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "orbits.all (fun o => o.contains 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem every_orbit_holds_zero : orbits.all (fun o => o.contains 0) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

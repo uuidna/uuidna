@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="838 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="847 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 838 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 847 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `8d5fc5cd` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `5f75080c` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -31,6 +31,18 @@ composes with toUuid exactly like the rest of the address layer
 ```text
 the numeral reader sees words, digits, compounds — and the LENGTH of a decided list
 the numeral rule adds NO false positive over the live ledger
+```
+
+**agent-memory** — 7 utterances
+
+```text
+a fact IS its address — storing it twice grows nothing, and no comparison was asked to decide that
+recall answers, and answers NOTHING for what was never stored
+a recollection from elsewhere is CHECKED, not trusted — tamper with either half and it is refused
+two agents agree by comparing 128 bits, and merge order cannot change what they agree on
+the empty memory is a state like any other, and forgetting leaves the old fold answerable
+shelves list identically for any two agents holding the same facts
+THE HONEST LIMIT — exact identity is not semantic identity, and this store does not pretend it is
 ```
 
 **all-run** — 4 utterances
@@ -109,18 +121,6 @@ an unreachable site is retried and reported as unreachable
 recovers when the site is down at first and answers correctly later
 passes on the first probe when the site is already current — no needless waiting
 an empty expectation fails immediately rather than waiting out the bound
-```
-
-**balancer** — 7 utterances
-
-```text
-two machines that never speak route the same job to the same worker
-the share is EXACT where the fleet divides the span — 2, 16 and 256 workers
-CONTROL — an uneven fleet NAMES its tail instead of hiding it
-every worker is reachable and every job is placed — no handle falls off the fleet
-the CENSUS is a measurement and may disagree with the arithmetic — it is the one to believe
-CONTROL — a fleet of none is refused by name, never divided by
-the routing cost is stated where a test can reach it: nothing shared, nothing asked
 ```
 
 **book-read** — 8 utterances
@@ -553,7 +553,7 @@ mobility counts name their seals at the corners of the map
 the engine is deterministic and prefers the mate it can see
 ```
 
-**gate-all** — 10 utterances
+**gate-all** — 11 utterances
 
 ```text
 the plan is READ from the chain, so it cannot drift from what audit runs
@@ -565,6 +565,7 @@ a failing GENERATOR still aborts — later steps read what it never wrote
 a check failing never stops the generators or the checks that follow it
 an all-green chain reports no failures and never aborts
 pool honours its limit and preserves result order
+every instrument names the arms it voids, and the invisible one is covered
 labels stay short enough to read as a table
 ```
 
@@ -689,6 +690,19 @@ English text folds to one handle and all seven rays read it — seven texts, one
 the reading is exact — state a is "ten" in English, "десет" in Bulgarian, "十" in Chinese
 CONTROL — a non-hexbit character is refused by name, never guessed at
 the reading round-trips — the words point back to the states that made them
+```
+
+**host** — 8 utterances
+
+```text
+resolveShell — a POSIX host gets sh; the recipe runs one command string
+resolveShell — THIS host resolves, and never to a shell that cannot expand a glob
+resolveShell — the recipe carries the environment that makes the shell a WHOLE one
+capacity — measured, never assumed, and it always leaves the machine room to breathe
+hostProfile — the reading moves between hosts, the fold does not move on one
+childProbe — every host has a way to ask, and "none" never reads as "one"
+loadMeasurable — the one host whose load average is a permanent zero is named as unmeasured
+speedup — an exact integer ratio in hundredths, and zero rather than a number it did not earn
 ```
 
 **installs** — 7 utterances

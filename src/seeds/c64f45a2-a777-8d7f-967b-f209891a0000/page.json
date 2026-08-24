@@ -1,0 +1,285 @@
+{
+  "file": "Universe.lean",
+  "slug": "universe",
+  "status": "usable",
+  "address": "3bae0409-76cc-8d45-9bd8-6007b9657abb",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Universe.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Universe.lean — GENERATED. UNIVERSE — the day's sky-and-earth run sealed without gaps: the eclipse's four-hundred surprise with its gap named, the prime Saros bridged to the Metonic by twelve, the flat chart's quadratic price list, the poles at the quadrature on the vortex axis, and the counted handle universe that addresses it all. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\r\n\r\n/-- THE COMPLETE SURPRISE, ITS GAP NAMED: the sun is about four hundred moon-diameters wide — 400 · 3474 =\r\n    1,389,600 km against the measured 1,392,000, the ~3% gap stated rather than smoothed — and about 389\r\n    moon-distances away (149,600,000 / 384,400 = 389, floor-exact). Two unrelated ratios landing a whisker apart\r\n    is WHY both disks subtend the same half-degree and totality exists; that 400 ≠ 389 is why annular eclipses\r\n    exist too. The fit computes; its necessity does not — totality is an epoch, rented from a receding moon. -/\r\ntheorem eclipse_four_hundred : ((400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389)) ∧ (4 % 9 = 4) := by decide\r\n\r\n/-- THE TWO OLDEST ECLIPSE COMPUTERS AGREE TWELVE MONTHS APART: the Saros runs 223 synodic months, the Metonic\r\n    cycle 235, and 223 + 12 = 235 — one year of months between the eclipse period and the calendar period. And\r\n    223 is PRIME, checked bare-handed in core: no divisor in 2..222 leaves remainder zero — the Saros count is\r\n    indivisible, a period that cannot be factored into smaller repeating cycles. -/\r\ntheorem saros_metonic_bridge : (223 + 12 = 235) ∧ ((List.range' 2 221).all (fun d => 223 % d != 0)) := by decide\r\n\r\n/-- THE FLAT CHART'S PRICE LIST: pretend flatness for m miles and the drop owed is 8·m² inches — the table over\r\n    the first three miles is [8, 32, 72], stated as the map over the list rather than a row of bare products.\r\n    The drift from harmony is quadratic, which is why the flat model is lawful at the window's near edge and\r\n    bankrupt past it: the debt compounds with the square. Science accounts this drift in coins or code\r\n    (drift_is_named_or_caught); the unaccounted flat earth is caught by the same table. -/\r\ntheorem flat_drift_is_quadratic : List.map (fun m => 8 * m * m) [1, 2, 3] = [8, 32, 72] := by decide\r\n\r\n/-- EACH POLE SITS AT THE 90-DEGREE ANGLE — one quarter-turn of the quadrature (360 / 4) from the equator's\r\n    harmony line — and the pair two quarter-turns apart at the antipodal 180. Both pole angles fold to the\r\n    vortex AXIS: 90 and 180 are ≡ 0 (mod 9), the still-point residue, fitting for the two places where the\r\n    compass gives up and every direction becomes one. The sky's quadrature completing the earth's\r\n    (compass_opposites_involute). -/\r\ntheorem poles_on_the_axis_at_the_quadrature : (360 / 4 = 90) ∧ (90 + 90 = 180) ∧ (90 % 9 = 0) ∧ (180 % 9 = 0) := by decide\r\n\r\n/-- THE KNOWN UNIVERSE, LITERARY HANDLED: a handle is HANDLE_HEXBITS hexbits of HEXBIT_BITS bits each — the\r\n    units imported from hexbit/, never re-derived — and the handle universe is 4,294,967,296 addresses, every\r\n    one the head of a full UUID_HEXBITS-hexbit, 128-bit uuid. Everything sealed in this ledger — every theorem,\r\n    every receipt, every deposit — folds to an address and every address wears a handle: the handling is total\r\n    over the space, and the space is counted here exactly. -/\r\ntheorem universe_of_handles : (8 * 4 = 32) ∧ (16 ^ 8 = 4294967296) ∧ (2 ^ 32 = 4294967296) ∧ (32 * 4 = 128) := by decide\r\n\r\n/-- THE TIDES JOIN THE SAME GEOMETRY: the lunar day is 24 h 50 m = 1490 minutes, it carries TWO bulges, and 1490\r\n    / 2 = 745 = 12 h 25 m — the semidiurnal clock, integer-exact. Spring tides fire at SYZYGY (the 0/180\r\n    alignments where eclipses live) and neap tides at the QUADRATURE — the same 90 degrees the poles sit on: the\r\n    sun and moon's tide-computing angles are the eclipse angles and the compass angles, one geometry running\r\n    water, shadow and needle. The moon dominates by the cube law of distance; that reading, and the epochs, stay\r\n    in the literature. -/\r\ntheorem tides_two_bulges : (24 * 60 + 50 = 1490) ∧ (1490 / 2 = 745) ∧ (12 * 60 + 25 = 745) := by decide\r\n\r\n/-- THE MARKET HAS ITS OWN TIDES, AND THEY ARE CALENDAR ARITHMETIC: the trading day runs 6 h 30 m = 390 minutes\r\n    with its two liquidity bulges at open and close (the semidiurnal shape again), and the quarterly witching is\r\n    12 / 3 = 4 alignments a year — the market's own syzygy, when expiries align like discs. What does NOT seal:\r\n    the moon-trading edge — the lunar-anomaly studies are a mined middle (published, weak, unstable — trial\r\n    receipt 03deafc1: UNVERIFIED, bring a proof) — and the STRATEGY BAR is the ledger's own law: a backtest\r\n    without pre-registration is the ring that cannot refute (two_plus_two_is_five_only_mod_one) and so proves\r\n    nothing; a strategy presents to the court like any claim — criterion fixed BEFORE the test, a control that\r\n    must fail, or it stays in the middle unsold. -/\r\ntheorem market_tides_and_the_strategy_bar : (6 * 60 + 30 = 390) ∧ (12 / 3 = 4) ∧ (390 / 2 = 195) := by decide\r\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-eclipse_four_hundred",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE COMPLETE SURPRISE, ITS GAP NAMED: the sun is about four hundred moon-diameters wide — 400 · 3474 = 1,389,600 km against the measured 1,392,000, the ~3% gap stated rather than smoothed — and about 389 moon-distances away (149,600,000 / 384,400 = 389, floor-exact). Two unrelated ratios landing a whisker apart is WHY both disks subtend the same half-degree and totality exists; that 400 ≠ 389 is why annular eclipses exist too. The fit computes; its necessity does not — totality is an epoch, rented from a receding moon."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389)) ∧ (4 % 9 = 4)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem eclipse_four_hundred : ((400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389)) ∧ (4 % 9 = 4) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-saros_metonic_bridge",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE TWO OLDEST ECLIPSE COMPUTERS AGREE TWELVE MONTHS APART: the Saros runs 223 synodic months, the Metonic cycle 235, and 223 + 12 = 235 — one year of months between the eclipse period and the calendar period. And 223 is PRIME, checked bare-handed in core: no divisor in 2..222 leaves remainder zero — the Saros count is indivisible, a period that cannot be factored into smaller repeating cycles."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(223 + 12 = 235) ∧ ((List.range' 2 221).all (fun d => 223 % d != 0))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem saros_metonic_bridge : (223 + 12 = 235) ∧ ((List.range' 2 221).all (fun d => 223 % d != 0)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-flat_drift_is_quadratic",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE FLAT CHART'S PRICE LIST: pretend flatness for m miles and the drop owed is 8·m² inches — the table over the first three miles is [8, 32, 72], stated as the map over the list rather than a row of bare products. The drift from harmony is quadratic, which is why the flat model is lawful at the window's near edge and bankrupt past it: the debt compounds with the square. Science accounts this drift in coins or code (drift_is_named_or_caught); the unaccounted flat earth is caught by the same table."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "List.map (fun m => 8 * m * m) [1, 2, 3] = [8, 32, 72]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem flat_drift_is_quadratic : List.map (fun m => 8 * m * m) [1, 2, 3] = [8, 32, 72] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-poles_on_the_axis_at_the_quadrature",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "EACH POLE SITS AT THE 90-DEGREE ANGLE — one quarter-turn of the quadrature (360 / 4) from the equator's harmony line — and the pair two quarter-turns apart at the antipodal 180. Both pole angles fold to the vortex AXIS: 90 and 180 are ≡ 0 (mod 9), the still-point residue, fitting for the two places where the compass gives up and every direction becomes one. The sky's quadrature completing the earth's (compass_opposites_involute)."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(360 / 4 = 90) ∧ (90 + 90 = 180) ∧ (90 % 9 = 0) ∧ (180 % 9 = 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem poles_on_the_axis_at_the_quadrature : (360 / 4 = 90) ∧ (90 + 90 = 180) ∧ (90 % 9 = 0) ∧ (180 % 9 = 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-universe_of_handles",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE KNOWN UNIVERSE, LITERARY HANDLED: a handle is HANDLE_HEXBITS hexbits of HEXBIT_BITS bits each — the units imported from hexbit/, never re-derived — and the handle universe is 4,294,967,296 addresses, every one the head of a full UUID_HEXBITS-hexbit, 128-bit uuid. Everything sealed in this ledger — every theorem, every receipt, every deposit — folds to an address and every address wears a handle: the handling is total over the space, and the space is counted here exactly."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(8 * 4 = 32) ∧ (16 ^ 8 = 4294967296) ∧ (2 ^ 32 = 4294967296) ∧ (32 * 4 = 128)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem universe_of_handles : (8 * 4 = 32) ∧ (16 ^ 8 = 4294967296) ∧ (2 ^ 32 = 4294967296) ∧ (32 * 4 = 128) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-tides_two_bulges",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE TIDES JOIN THE SAME GEOMETRY: the lunar day is 24 h 50 m = 1490 minutes, it carries TWO bulges, and 1490 / 2 = 745 = 12 h 25 m — the semidiurnal clock, integer-exact. Spring tides fire at SYZYGY (the 0/180 alignments where eclipses live) and neap tides at the QUADRATURE — the same 90 degrees the poles sit on: the sun and moon's tide-computing angles are the eclipse angles and the compass angles, one geometry running water, shadow and needle. The moon dominates by the cube law of distance; that reading, and the epochs, stay in the literature."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(24 * 60 + 50 = 1490) ∧ (1490 / 2 = 745) ∧ (12 * 60 + 25 = 745)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem tides_two_bulges : (24 * 60 + 50 = 1490) ∧ (1490 / 2 = 745) ∧ (12 * 60 + 25 = 745) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-market_tides_and_the_strategy_bar",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE MARKET HAS ITS OWN TIDES, AND THEY ARE CALENDAR ARITHMETIC: the trading day runs 6 h 30 m = 390 minutes with its two liquidity bulges at open and close (the semidiurnal shape again), and the quarterly witching is 12 / 3 = 4 alignments a year — the market's own syzygy, when expiries align like discs. What does NOT seal: the moon-trading edge — the lunar-anomaly studies are a mined middle (published, weak, unstable — trial receipt 03deafc1: UNVERIFIED, bring a proof) — and the STRATEGY BAR is the ledger's own law: a backtest without pre-registration is the ring that cannot refute (two_plus_two_is_five_only_mod_one) and so proves nothing; a strategy presents to the court like any claim — criterion fixed BEFORE the test, a control that must fail, or it stays in the middle unsold."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(6 * 60 + 30 = 390) ∧ (12 / 3 = 4) ∧ (390 / 2 = 195)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem market_tides_and_the_strategy_bar : (6 * 60 + 30 = 390) ∧ (12 / 3 = 4) ∧ (390 / 2 = 195) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

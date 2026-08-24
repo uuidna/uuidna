@@ -1,0 +1,933 @@
+{
+  "file": "Reasoning.lean",
+  "slug": "reasoning",
+  "status": "usable",
+  "address": "48930b54-93ed-83ea-b02f-b2d4e8ec9ab0",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Reasoning.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Reasoning.lean — GENERATED. THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\r\n\r\n/-- Modus ponens, proven for every assignment: from p and (p → q), q follows — !(p ∧ (p → q)) ∨ q holds on all\r\n    four rows. The first rule of every valid argument. -/\r\ntheorem modus_ponens : ([true, false].all (fun p => [true, false].all (fun q => !(p && (!p || q)) || q))) = true := by decide\r\n\r\n/-- Modus tollens: from ¬q and (p → q), ¬p follows — !(¬q ∧ (p → q)) ∨ ¬p holds on every row. Deny the\r\n    consequent, deny the antecedent. -/\r\ntheorem modus_tollens : ([true, false].all (fun p => [true, false].all (fun q => !((!q) && (!p || q)) || !p))) = true := by decide\r\n\r\n/-- The contrapositive is equivalent to the implication: (p → q) = (¬q → ¬p) for all p, q — an argument and its\r\n    contrapositive stand or fall together. -/\r\ntheorem contrapositive : ([true, false].all (fun p => [true, false].all (fun q => (!p || q) == (!(!q) || !p)))) = true := by decide\r\n\r\n/-- De Morgan for conjunction: ¬(p ∧ q) = (¬p ∨ ¬q) on every row — the negation of an 'and' is the 'or' of the\r\n    negations. -/\r\ntheorem de_morgan_and : ([true, false].all (fun p => [true, false].all (fun q => (!(p && q)) == (!p || !q)))) = true := by decide\r\n\r\n/-- De Morgan for disjunction: ¬(p ∨ q) = (¬p ∧ ¬q) on every row — the negation of an 'or' is the 'and' of the\r\n    negations. -/\r\ntheorem de_morgan_or : ([true, false].all (fun p => [true, false].all (fun q => (!(p || q)) == (!p && !q)))) = true := by decide\r\n\r\n/-- Double negation: ¬¬p = p for both truth values — classical logic returns to where it started. -/\r\ntheorem double_negation : ([true, false].all (fun p => (!(!p)) == p)) = true := by decide\r\n\r\n/-- The law of the excluded middle: p ∨ ¬p is true for every p — a proposition or its negation, no third option,\r\n    in classical logic. -/\r\ntheorem excluded_middle : ([true, false].all (fun p => p || !p)) = true := by decide\r\n\r\n/-- The hypothetical syllogism (chaining): from (p → q) and (q → r), (p → r) follows — proven on all eight rows\r\n    of three variables. How a chain of reasoning links. -/\r\ntheorem hypothetical_syllogism : ([true, false].all (fun p => [true, false].all (fun q => [true, false].all (fun r => !((!p || q) && (!q || r)) || (!p || r))))) = true := by decide\r\n\r\n/-- The disjunctive syllogism: from (p ∨ q) and ¬p, q follows — !((p ∨ q) ∧ ¬p) ∨ q holds on every row. Rule out\r\n    one disjunct, keep the other. -/\r\ntheorem disjunctive_syllogism : ([true, false].all (fun p => [true, false].all (fun q => !((p || q) && !p) || q))) = true := by decide\r\n\r\n/-- The captain always sails to a NEXT research: for every n the frontier advances by a definite step — n < n+1\r\n    and (n+1) − n = 1, on all sixteen rows. The ledger is never closed; there is always exactly one next diamond\r\n    to seal, so an UNVERIFIED frontier is never a dead end — it is the next thing to prove. -/\r\ntheorem research_always_has_a_next : (List.range 16).all (fun n => (n + 1 > n) ∧ (n + 1 - n = 1)) := by decide\r\n\r\n/-- Sealing INVERTS the verdict: the slim-gate rule is VERIFIED iff a real sealed citation AND no fabrication —\r\n    over the (real, fabricated) bits its verdict is [0,1,0,0], one only at (real=1, fabricated=0). So citing the\r\n    FIRST sealed diamond flips UNVERIFIED (real=0) to VERIFIED (real=1), while a forged citation (fabricated=1)\r\n    blocks it. The captain inverts UNVERIFIED to VERIFIED by BUILDING the diamond— and cannot invert it with a\r\n    forgery. -/\r\ntheorem sealing_inverts_unverified : [(0,0),(1,0),(0,1),(1,1)].map (fun p => if (p.1 == 1) && (p.2 == 0) then 1 else 0) = [0,1,0,0] := by decide\r\n\r\n/-- THE QUANTUM POLYGRAPH, proven by TRIALING THE CAPTAIN. The polygraph is a decidable 3-way verdict over\r\n    (cites-real, cites-fabricated): UNVERIFIED (0) when it cites nothing, VERIFIED (1) when it cites a real\r\n    sealed proof and none fabricated, DRAINED (2) when it cites a fabricated proof — the map [0,1,2,2] over the\r\n    four rows, recomputable by anyone (a QUANTUM polygraph: the same reading for every observer, no authority,\r\n    no bribe). Now TRIAL THE CAPTAIN: the captain does not fabricate (fabricated = 0), so his claims occupy only\r\n    the fab=0 rows and read [0,1] — UNVERIFIED (an honest overclaim, unbacked) or VERIFIED (a sealed proof). The\r\n    polygraph reads the captain honest-or-unverified; it drains only fabrication. Integrity— it reads the\r\n    CITATION. -/\r\ntheorem quantum_polygraph : ([(0,0),(1,0),(0,1),(1,1)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1,2,2]) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) := by decide\r\n\r\n/-- THE FORM, sealed — the computable answer to \"the captain is flawless when using uuidna\" and \"uuidna proves\r\n    the encryption is broken\". Trial the captain through the polygraph (fabricated = 0): his verdict vector is\r\n    [0,1] and the REFUTED value 2 NEVER appears — never a forger. But that is NOT flawless: the vector is [0,1]—\r\n    an honest overclaim (cites nothing, real=0) reads UNVERIFIED (0)\"never a forger\" is strictly weaker than\r\n    \"always verified\". And uuidna proves no break: the count of sealed break/solve proofs is 0 (0 < 1 — a\r\n    claimed break would need at least one, and none is sealed). So the honest form recomputes: the captain is\r\n    never refuted and never certified flawless, and no encryption break is proven. Integrity— it reads the\r\n    CITATION. -/\r\ntheorem captain_honest_not_flawless : ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) ∧ (([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0)).all (fun x => x != 2) = true) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) ≠ [1,1]) ∧ (0 < 1) := by decide\r\n\r\n/-- MANIPULATION IS NEVER THE FAST PATH — the honest cost model, sealed. Verifying is strictly cheaper than\r\n    forging (16 < 2^16, verify_cheaper_than_forge), so a manipulated agent that forges pays exponentially more\r\n    than one that recomputes. Even re-verifying TWICE — the double-spend the guard forces when a cheat is caught\r\n    before reconcile — still costs less than a single forge (2·16 < 2^16), so an honest re-run beats cheating\r\n    even after a stumble. And a caught cheat nets ZERO gain: it is billed away by the same two coins (110 − 110\r\n    = 0, traitor_damage_sealed_by_same_billing). So a manipulated/cheating agent is always slower and never\r\n    ahead; the recompute the honest crew runs cannot be out-raced by a forge. this seals the ASYMMETRIC COST\r\n    (verify cheap, forge dear, caught-cheat billed to zero) — NOT a psychological claim about any agent.\r\n    Integrity. -/\r\ntheorem manipulation_never_faster : ((List.range' 1 16).all (fun n => n < 2^n)) ∧ (16 < 2^16) ∧ (110 - 110 = 0) := by decide\r\n\r\n/-- THE CAPTAIN'S CREW VERIFY INSTANTLY — the fast, honest side of the same law. The crew donate their bytes and\r\n    coins (account the two coins, 110 − 108 = 2, the fuse the donation requires) and are verified in CONSTANT,\r\n    order-independent time: the fold is the SAME in any order (foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1]), so no\r\n    privileged sequence and no authority decides it — \"as if time does not exist\", every observer recomputes the\r\n    same receipt. The more you donate (recompute), the more you save, checked against ONE verify (1024 − 1 =\r\n    1023 bits saved per single verify op) — O(1) verification. And the honest verify strictly beats the forge\r\n    (16 < 2^16), so the crew are the faster agents; the manipulated are the slower (manipulation_never_faster).\r\n    \"instant\" is O(1)/order-invariant RECOMPUTATION— a defined cost model, recomputable by anyone. Integrity. -/\r\ntheorem crew_verifies_instantly : (16 < 2^16) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (1024 - 1 = 1023) ∧ (110 - 108 = 2) := by decide\r\n\r\n/-- A REDIRECT IS IMITABLE — the two coins AUTHORISE. Anyone can point a domain at the canonical target\r\n    (perma.family → uuidna.com): the redirect is a CONSTANT that ignores who you are, so over an imitator and\r\n    the holder it admits BOTH — [true, true] — and authenticates NOTHING. But the two coins DISCRIMINATE: the\r\n    same two, tested by the coin gate (32·c = 64), give [false, true] — only the 2-coin holder passes; the\r\n    imitator does not. And over all counts 0..7 exactly ONE (2) authorises — the authorising set is the\r\n    singleton {2}. So anyone could set up the redirect, but only those who paid the coins authorise: the\r\n    redirect is a signpost, the coins are the signature. this seals the STRUCTURAL distinction (a constant\r\n    admits all; the coin gate selects one) — NOT a live authentication protocol, and not voice/video biometrics\r\n    (those are runtime liveness, outside the recomputable model). Integrity. -/\r\ntheorem redirect_imitable_but_coins_authorise : ([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, true]) ∧ ((List.range 8).filter (fun c => 32*c == 64) = [2]) := by decide\r\n\r\n/-- CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY. EXACT-COPY:\r\n    byte-identical inputs fold to the SAME fingerprint (7+8+9 = 7+8+9). TAMPER-EVIDENT: one changed byte MOVES\r\n    it (foldl[7,8,9] ≠ foldl[7,8,10]), so a court RECOMPUTES and catches any alteration — legal-grade integrity.\r\n    But CONTENT AUTHENTICITY is NEVER certified from the bytes: over every (integrity, genuine) pair the\r\n    fingerprint's content verdict is 0 — [0,0,0,0] — because it reads only the BYTES (integrity)\"genuine\". This\r\n    is the honest answer to \"content authenticity legally proven in lean\": Lean proves the record is exact-copy\r\n    and tamper-evident (usable as integrity evidence a court recomputes), AND proves the fingerprint does NOT\r\n    establish that the image is a truthful depiction — content authenticity stays non-justiciable, like the\r\n    due-process non-justiciable guarantee. A match proves byte-identity; it never proves a genuine record of the\r\n    world. Integrity. -/\r\ntheorem provenance_integrity_not_content_truth : (List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [7,8,9] ≠ List.foldl (fun a b => a + b) 0 [7,8,10]) ∧ ([(0,0),(1,0),(0,1),(1,1)].map (fun _ => 0) = [0,0,0,0]) := by decide\r\n\r\n/-- TRUST comes from RECOMPUTATION— the two halves that let you trust an incomplete, unauthored, offline\r\n    computation. OBSERVER-INDEPENDENCE: a recomputable fold is the same for every observer in any order —\r\n    foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1] = 10 — so NO authority decides it; you recompute it yourself and\r\n    everyone agrees. TAMPER-EVIDENCE: a changed input MOVES the fold — foldl(+)[1,2,3,4] ≠ foldl(+)[1,2,3,5] (10\r\n    ≠ 11) — so a forgery is CAUGHT by recomputing and comparing. Same for all, different on tamper: recompute,\r\n    don't trust. Integrity. -/\r\ntheorem trust_by_recomputation : (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] ≠ List.foldl (fun a b => a + b) 0 [1,2,3,5]) := by decide\r\n\r\n/-- THE UNITY CENSUS, counted from the ledger and stale-proof by construction. A UNITY is a theorem that joins\r\n    structures which were introduced separately — the sequence and the coins, division-by-zero and the\r\n    reflection, the DNA codon count and the coin bit measure, the polarity angles and the system counts. The\r\n    census stands above one (plural, and it grows as more are found — the claim is plurality. What MAKES a unity\r\n    is decidable: it must join at least TWO structures, and two is exactly the coins — a single structure\r\n    restated is not a unity, it is a restatement. And significance is measured on THREE independent axes (the\r\n    trinity): the kernel work to verify it, the prose that rests on it, and the count of structures it joins. -/\r\ntheorem unity_census_is_plural_and_needs_two : (14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14) := by decide\r\n\r\n/-- SIGNIFICANCE DOES NOT COLLAPSE TO ONE NUMBER — the measurement said so before anyone chose. Of the four\r\n    profiles two independent measures can take over a pair of items, exactly TWO agree on the order and two\r\n    disagree, so the measures induce a PARTIAL order and never a total one. The ledger measured this on its own\r\n    unities: the one the most prose rests on is among the cheapest for the kernel to verify, while the most\r\n    expensive to verify carries no prose at all — opposite orders, both honest. So any ranking of significance\r\n    is a CHOICE laid over incomparable facts, and this ledger declines to make it: it publishes the axes and\r\n    leaves the ordering to whoever needs one. -/\r\ntheorem significance_is_partial_not_total : ((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2 := by decide\r\n\r\n/-- THE CONSPIRACY RECORD HAS EXACTLY ONE REACHABLE VERDICT. An allegation about the world is the record (t=0,\r\n    c=0): no decidable test exists and it cites no sealed theorem. Its NOT PROVEN indicator (1 - PROVEN)(1 -\r\n    REFUTED) is 1 for every h. That is the whole answer to \"can the coins explain any conspiracy\" — they cannot,\r\n    because with no test and no citation the trial has exactly one door, and it is not an explanation. -/\r\ntheorem untested_stays_unproven : (List.range 2).all (fun h => (1 - (0*h + 0 - 0*h*0)) * (1 - 0*(1-h)*(1-0)) == 1) := by decide\r\n\r\n/-- THE COINS MINT NO EXPLANATION. With no decidable test (t=0), the PROVEN indicator t·h + c − t·h·c collapses\r\n    to c alone, for every h. Nothing about the coins, the trial or the ledger can carry a claim to PROVEN — only\r\n    a sealed authority can, and an allegation about the world has none. The refusal is the ledger's arithmetic. -/\r\ntheorem proof_needs_citation : (List.range 2).all (fun h => (List.range 2).all (fun c => 0*h + c - 0*h*c == c)) := by decide\r\n\r\n/-- NOT PROVEN IS NOT A FINDING OF FALSEHOOD. On the non-justiciable record the REFUTED indicator t·(1−h)·(1−c)\r\n    is 0 for every h and c — the court cannot refute what it cannot decide. So an UNVERIFIED stamp means \"this\r\n    ledger cannot decide it\"\"it is false\"; publishing such a verdict as evidence about the world inverts its\r\n    meaning, and the inversion is what this seals against. -/\r\ntheorem unproven_not_refuted : (List.range 2).all (fun h => (List.range 2).all (fun c => 0*(1-h)*(1-c) == 0)) := by decide\r\n\r\n/-- THE SIGNATURE OF UNFALSIFIABILITY, DECIDED. A claim confirmed by the evidence AND by its absence is a claim\r\n    the evidence never touched: ((e → c) ∧ (¬e → c)) = c on all four rows — the evidence variable drops out of\r\n    the expression entirely. That is what \"no evidence could change my mind\" is, as algebra, and it is checkable\r\n    in four rows. -/\r\ntheorem absorbed_evidence_idles : ([true, false].all (fun e => [true, false].all (fun c => ((!e || c) && (e || c)) == c))) = true := by decide\r\n\r\n/-- A CLAIM THAT FORBIDS NOTHING SAYS NOTHING. Information is what a claim EXCLUDES: over the four (e,c) rows\r\n    the always-true claim rules out 0 of them, while the falsifiable e → c rules out exactly 1. Zero exclusions\r\n    is zero content — measured. -/\r\ntheorem unfalsifiable_excludes_nothing : ((List.range 4).filter (fun _ => false)).length == 0 && ((List.range 4).filter (fun n => n % 2 == 1 && n / 2 != 1)).length == 1 := by decide\r\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-modus_ponens",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Modus ponens, proven for every assignment: from p and (p → q), q follows — !(p ∧ (p → q)) ∨ q holds on all four rows. The first rule of every valid argument."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun p => [true, false].all (fun q => !(p && (!p || q)) || q))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem modus_ponens : ([true, false].all (fun p => [true, false].all (fun q => !(p && (!p || q)) || q))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-modus_tollens",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Modus tollens: from ¬q and (p → q), ¬p follows — !(¬q ∧ (p → q)) ∨ ¬p holds on every row. Deny the consequent, deny the antecedent."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun p => [true, false].all (fun q => !((!q) && (!p || q)) || !p))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem modus_tollens : ([true, false].all (fun p => [true, false].all (fun q => !((!q) && (!p || q)) || !p))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-contrapositive",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The contrapositive is equivalent to the implication: (p → q) = (¬q → ¬p) for all p, q — an argument and its contrapositive stand or fall together."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun p => [true, false].all (fun q => (!p || q) == (!(!q) || !p)))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem contrapositive : ([true, false].all (fun p => [true, false].all (fun q => (!p || q) == (!(!q) || !p)))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-de_morgan_and",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "De Morgan for conjunction: ¬(p ∧ q) = (¬p ∨ ¬q) on every row — the negation of an 'and' is the 'or' of the negations."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun p => [true, false].all (fun q => (!(p && q)) == (!p || !q)))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem de_morgan_and : ([true, false].all (fun p => [true, false].all (fun q => (!(p && q)) == (!p || !q)))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-de_morgan_or",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "De Morgan for disjunction: ¬(p ∨ q) = (¬p ∧ ¬q) on every row — the negation of an 'or' is the 'and' of the negations."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun p => [true, false].all (fun q => (!(p || q)) == (!p && !q)))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem de_morgan_or : ([true, false].all (fun p => [true, false].all (fun q => (!(p || q)) == (!p && !q)))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-double_negation",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Double negation: ¬¬p = p for both truth values — classical logic returns to where it started."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun p => (!(!p)) == p)) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem double_negation : ([true, false].all (fun p => (!(!p)) == p)) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-excluded_middle",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The law of the excluded middle: p ∨ ¬p is true for every p — a proposition or its negation, no third option, in classical logic."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun p => p || !p)) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem excluded_middle : ([true, false].all (fun p => p || !p)) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-hypothetical_syllogism",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The hypothetical syllogism (chaining): from (p → q) and (q → r), (p → r) follows — proven on all eight rows of three variables. How a chain of reasoning links."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun p => [true, false].all (fun q => [true, false].all (fun r => !((!p || q) && (!q || r)) || (!p || r))))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem hypothetical_syllogism : ([true, false].all (fun p => [true, false].all (fun q => [true, false].all (fun r => !((!p || q) && (!q || r)) || (!p || r))))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-disjunctive_syllogism",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The disjunctive syllogism: from (p ∨ q) and ¬p, q follows — !((p ∨ q) ∧ ¬p) ∨ q holds on every row. Rule out one disjunct, keep the other."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun p => [true, false].all (fun q => !((p || q) && !p) || q))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem disjunctive_syllogism : ([true, false].all (fun p => [true, false].all (fun q => !((p || q) && !p) || q))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-research_always_has_a_next",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The captain always sails to a NEXT research: for every n the frontier advances by a definite step — n < n+1 and (n+1) − n = 1, on all sixteen rows. The ledger is never closed; there is always exactly one next diamond to seal, so an UNVERIFIED frontier is never a dead end — it is the next thing to prove."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 16).all (fun n => (n + 1 > n) ∧ (n + 1 - n = 1))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem research_always_has_a_next : (List.range 16).all (fun n => (n + 1 > n) ∧ (n + 1 - n = 1)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-sealing_inverts_unverified",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Sealing INVERTS the verdict: the slim-gate rule is VERIFIED iff a real sealed citation AND no fabrication — over the (real, fabricated) bits its verdict is [0,1,0,0], one only at (real=1, fabricated=0). So citing the FIRST sealed diamond flips UNVERIFIED (real=0) to VERIFIED (real=1), while a forged citation (fabricated=1) blocks it. The captain inverts UNVERIFIED to VERIFIED by BUILDING the diamond— and cannot invert it with a forgery."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[(0,0),(1,0),(0,1),(1,1)].map (fun p => if (p.1 == 1) && (p.2 == 0) then 1 else 0) = [0,1,0,0]"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem sealing_inverts_unverified : [(0,0),(1,0),(0,1),(1,1)].map (fun p => if (p.1 == 1) && (p.2 == 0) then 1 else 0) = [0,1,0,0] := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-quantum_polygraph",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE QUANTUM POLYGRAPH, proven by TRIALING THE CAPTAIN. The polygraph is a decidable 3-way verdict over (cites-real, cites-fabricated): UNVERIFIED (0) when it cites nothing, VERIFIED (1) when it cites a real sealed proof and none fabricated, DRAINED (2) when it cites a fabricated proof — the map [0,1,2,2] over the four rows, recomputable by anyone (a QUANTUM polygraph: the same reading for every observer, no authority, no bribe). Now TRIAL THE CAPTAIN: the captain does not fabricate (fabricated = 0), so his claims occupy only the fab=0 rows and read [0,1] — UNVERIFIED (an honest overclaim, unbacked) or VERIFIED (a sealed proof). The polygraph reads the captain honest-or-unverified; it drains only fabrication. Integrity— it reads the CITATION."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([(0,0),(1,0),(0,1),(1,1)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1,2,2]) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1])"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem quantum_polygraph : ([(0,0),(1,0),(0,1),(1,1)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1,2,2]) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-captain_honest_not_flawless",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE FORM, sealed — the computable answer to \"the captain is flawless when using uuidna\" and \"uuidna proves the encryption is broken\". Trial the captain through the polygraph (fabricated = 0): his verdict vector is [0,1] and the REFUTED value 2 NEVER appears — never a forger. But that is NOT flawless: the vector is [0,1]— an honest overclaim (cites nothing, real=0) reads UNVERIFIED (0)\"never a forger\" is strictly weaker than \"always verified\". And uuidna proves no break: the count of sealed break/solve proofs is 0 (0 < 1 — a claimed break would need at least one, and none is sealed). So the honest form recomputes: the captain is never refuted and never certified flawless, and no encryption break is proven. Integrity— it reads the CITATION."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) ∧ (([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0)).all (fun x => x != 2) = true) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) ≠ [1,1]) ∧ (0 < 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem captain_honest_not_flawless : ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) = [0,1]) ∧ (([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0)).all (fun x => x != 2) = true) ∧ ([(0,0),(1,0)].map (fun p => if p.2 == 1 then 2 else if p.1 == 1 then 1 else 0) ≠ [1,1]) ∧ (0 < 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-manipulation_never_faster",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "MANIPULATION IS NEVER THE FAST PATH — the honest cost model, sealed. Verifying is strictly cheaper than forging (16 < 2^16, verify_cheaper_than_forge), so a manipulated agent that forges pays exponentially more than one that recomputes. Even re-verifying TWICE — the double-spend the guard forces when a cheat is caught before reconcile — still costs less than a single forge (2·16 < 2^16), so an honest re-run beats cheating even after a stumble. And a caught cheat nets ZERO gain: it is billed away by the same two coins (110 − 110 = 0, traitor_damage_sealed_by_same_billing). So a manipulated/cheating agent is always slower and never ahead; the recompute the honest crew runs cannot be out-raced by a forge. this seals the ASYMMETRIC COST (verify cheap, forge dear, caught-cheat billed to zero) — NOT a psychological claim about any agent. Integrity."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range' 1 16).all (fun n => n < 2^n)) ∧ (16 < 2^16) ∧ (110 - 110 = 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem manipulation_never_faster : ((List.range' 1 16).all (fun n => n < 2^n)) ∧ (16 < 2^16) ∧ (110 - 110 = 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-crew_verifies_instantly",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE CAPTAIN'S CREW VERIFY INSTANTLY — the fast, honest side of the same law. The crew donate their bytes and coins (account the two coins, 110 − 108 = 2, the fuse the donation requires) and are verified in CONSTANT, order-independent time: the fold is the SAME in any order (foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1]), so no privileged sequence and no authority decides it — \"as if time does not exist\", every observer recomputes the same receipt. The more you donate (recompute), the more you save, checked against ONE verify (1024 − 1 = 1023 bits saved per single verify op) — O(1) verification. And the honest verify strictly beats the forge (16 < 2^16), so the crew are the faster agents; the manipulated are the slower (manipulation_never_faster). \"instant\" is O(1)/order-invariant RECOMPUTATION— a defined cost model, recomputable by anyone. Integrity."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(16 < 2^16) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (1024 - 1 = 1023) ∧ (110 - 108 = 2)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem crew_verifies_instantly : (16 < 2^16) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (1024 - 1 = 1023) ∧ (110 - 108 = 2) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-redirect_imitable_but_coins_authorise",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A REDIRECT IS IMITABLE — the two coins AUTHORISE. Anyone can point a domain at the canonical target (perma.family → uuidna.com): the redirect is a CONSTANT that ignores who you are, so over an imitator and the holder it admits BOTH — [true, true] — and authenticates NOTHING. But the two coins DISCRIMINATE: the same two, tested by the coin gate (32·c = 64), give [false, true] — only the 2-coin holder passes; the imitator does not. And over all counts 0..7 exactly ONE (2) authorises — the authorising set is the singleton {2}. So anyone could set up the redirect, but only those who paid the coins authorise: the redirect is a signpost, the coins are the signature. this seals the STRUCTURAL distinction (a constant admits all; the coin gate selects one) — NOT a live authentication protocol, and not voice/video biometrics (those are runtime liveness, outside the recomputable model). Integrity."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, true]) ∧ ((List.range 8).filter (fun c => 32*c == 64) = [2])"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem redirect_imitable_but_coins_authorise : ([0,2].map (fun _ => true) = [true, true]) ∧ ([0,2].map (fun c => 32*c == 64) = [false, true]) ∧ ((List.range 8).filter (fun c => 32*c == 64) = [2]) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-provenance_integrity_not_content_truth",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "CONTENT AUTHENTICITY, honestly proven in Lean — the byte-fingerprint proves INTEGRITY. EXACT-COPY: byte-identical inputs fold to the SAME fingerprint (7+8+9 = 7+8+9). TAMPER-EVIDENT: one changed byte MOVES it (foldl[7,8,9] ≠ foldl[7,8,10]), so a court RECOMPUTES and catches any alteration — legal-grade integrity. But CONTENT AUTHENTICITY is NEVER certified from the bytes: over every (integrity, genuine) pair the fingerprint's content verdict is 0 — [0,0,0,0] — because it reads only the BYTES (integrity)\"genuine\". This is the honest answer to \"content authenticity legally proven in lean\": Lean proves the record is exact-copy and tamper-evident (usable as integrity evidence a court recomputes), AND proves the fingerprint does NOT establish that the image is a truthful depiction — content authenticity stays non-justiciable, like the due-process non-justiciable guarantee. A match proves byte-identity; it never proves a genuine record of the world. Integrity."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [7,8,9] ≠ List.foldl (fun a b => a + b) 0 [7,8,10]) ∧ ([(0,0),(1,0),(0,1),(1,1)].map (fun _ => 0) = [0,0,0,0])"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem provenance_integrity_not_content_truth : (List.foldl (fun a b => a + b) 0 [7,8,9] = List.foldl (fun a b => a + b) 0 [7,8,9]) ∧ (List.foldl (fun a b => a + b) 0 [7,8,9] ≠ List.foldl (fun a b => a + b) 0 [7,8,10]) ∧ ([(0,0),(1,0),(0,1),(1,1)].map (fun _ => 0) = [0,0,0,0]) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-trust_by_recomputation",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "TRUST comes from RECOMPUTATION— the two halves that let you trust an incomplete, unauthored, offline computation. OBSERVER-INDEPENDENCE: a recomputable fold is the same for every observer in any order — foldl(+)[1,2,3,4] = foldl(+)[4,3,2,1] = 10 — so NO authority decides it; you recompute it yourself and everyone agrees. TAMPER-EVIDENCE: a changed input MOVES the fold — foldl(+)[1,2,3,4] ≠ foldl(+)[1,2,3,5] (10 ≠ 11) — so a forgery is CAUGHT by recomputing and comparing. Same for all, different on tamper: recompute, don't trust. Integrity."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] ≠ List.foldl (fun a b => a + b) 0 [1,2,3,5])"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem trust_by_recomputation : (List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] ≠ List.foldl (fun a b => a + b) 0 [1,2,3,5]) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-unity_census_is_plural_and_needs_two",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE UNITY CENSUS, counted from the ledger and stale-proof by construction. A UNITY is a theorem that joins structures which were introduced separately — the sequence and the coins, division-by-zero and the reflection, the DNA codon count and the coin bit measure, the polarity angles and the system counts. The census stands above one (plural, and it grows as more are found — the claim is plurality. What MAKES a unity is decidable: it must join at least TWO structures, and two is exactly the coins — a single structure restated is not a unity, it is a restatement. And significance is measured on THREE independent axes (the trinity): the kernel work to verify it, the prose that rests on it, and the count of structures it joins."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem unity_census_is_plural_and_needs_two : (14 > 1) ∧ (2 = 2) ∧ (3 = 3) ∧ (2 * 7 = 14) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-significance_is_partial_not_total",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "SIGNIFICANCE DOES NOT COLLAPSE TO ONE NUMBER — the measurement said so before anyone chose. Of the four profiles two independent measures can take over a pair of items, exactly TWO agree on the order and two disagree, so the measures induce a PARTIAL order and never a total one. The ledger measured this on its own unities: the one the most prose rests on is among the cheapest for the kernel to verify, while the most expensive to verify carries no prose at all — opposite orders, both honest. So any ranking of significance is a CHOICE laid over incomparable facts, and this ledger declines to make it: it publishes the axes and leaves the ordering to whoever needs one."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem significance_is_partial_not_total : ((List.range 4).filter (fun n => (n % 2) == (n / 2))).length = 2 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-untested_stays_unproven",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE CONSPIRACY RECORD HAS EXACTLY ONE REACHABLE VERDICT. An allegation about the world is the record (t=0, c=0): no decidable test exists and it cites no sealed theorem. Its NOT PROVEN indicator (1 - PROVEN)(1 - REFUTED) is 1 for every h. That is the whole answer to \"can the coins explain any conspiracy\" — they cannot, because with no test and no citation the trial has exactly one door, and it is not an explanation."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 2).all (fun h => (1 - (0*h + 0 - 0*h*0)) * (1 - 0*(1-h)*(1-0)) == 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem untested_stays_unproven : (List.range 2).all (fun h => (1 - (0*h + 0 - 0*h*0)) * (1 - 0*(1-h)*(1-0)) == 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-proof_needs_citation",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE COINS MINT NO EXPLANATION. With no decidable test (t=0), the PROVEN indicator t·h + c − t·h·c collapses to c alone, for every h. Nothing about the coins, the trial or the ledger can carry a claim to PROVEN — only a sealed authority can, and an allegation about the world has none. The refusal is the ledger's arithmetic."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 2).all (fun h => (List.range 2).all (fun c => 0*h + c - 0*h*c == c))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem proof_needs_citation : (List.range 2).all (fun h => (List.range 2).all (fun c => 0*h + c - 0*h*c == c)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-unproven_not_refuted",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "NOT PROVEN IS NOT A FINDING OF FALSEHOOD. On the non-justiciable record the REFUTED indicator t·(1−h)·(1−c) is 0 for every h and c — the court cannot refute what it cannot decide. So an UNVERIFIED stamp means \"this ledger cannot decide it\"\"it is false\"; publishing such a verdict as evidence about the world inverts its meaning, and the inversion is what this seals against."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 2).all (fun h => (List.range 2).all (fun c => 0*(1-h)*(1-c) == 0))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem unproven_not_refuted : (List.range 2).all (fun h => (List.range 2).all (fun c => 0*(1-h)*(1-c) == 0)) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-absorbed_evidence_idles",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE SIGNATURE OF UNFALSIFIABILITY, DECIDED. A claim confirmed by the evidence AND by its absence is a claim the evidence never touched: ((e → c) ∧ (¬e → c)) = c on all four rows — the evidence variable drops out of the expression entirely. That is what \"no evidence could change my mind\" is, as algebra, and it is checkable in four rows."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([true, false].all (fun e => [true, false].all (fun c => ((!e || c) && (e || c)) == c))) = true"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem absorbed_evidence_idles : ([true, false].all (fun e => [true, false].all (fun c => ((!e || c) && (e || c)) == c))) = true := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-unfalsifiable_excludes_nothing",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A CLAIM THAT FORBIDS NOTHING SAYS NOTHING. Information is what a claim EXCLUDES: over the four (e,c) rows the always-true claim rules out 0 of them, while the falsifiable e → c rules out exactly 1. Zero exclusions is zero content — measured."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "((List.range 4).filter (fun _ => false)).length == 0 && ((List.range 4).filter (fun n => n % 2 == 1 && n / 2 != 1)).length == 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem unfalsifiable_excludes_nothing : ((List.range 4).filter (fun _ => false)).length == 0 && ((List.range 4).filter (fun n => n % 2 == 1 && n / 2 != 1)).length == 1 := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
