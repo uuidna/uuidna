@@ -5,6 +5,7 @@
 // so the coins are of the freshly-rotated layer). Verify is the fast check a developer runs BEFORE the slow O(N)
 // gate: "has my derived layer drifted since the last seal?" answered in one fold per file, no re-derivation.
 import { readFileSync, writeFileSync, existsSync, statSync, readdirSync } from 'node:fs'
+import { execFileSync } from 'node:child_process'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { DERIVED_FILES, sealSpin, verifySpin, type SpinManifest } from '../spin.js'
@@ -13,8 +14,40 @@ import { ROOT } from './api.js'
 // At repo ROOT (with the other derived-layer artifacts: audit-citations.json, support-audit.json, research-leads.json)
 // — NOT under lean/, where the `*-manifest.json` glob belongs to lean-ledger's theorem-name manifests (a different shape).
 const MANIFEST = join(ROOT, 'spin-manifest.json')
+/** The paths git will actually carry — its INDEX, which is HEAD plus whatever has been staged.
+ *
+ *  A SEAL DESCRIBES THE TREE, NOT THE DIRECTORY (2026-08-25). The walk below reads directories off disk, so
+ *  sealing `lean/` sealed every file lying in lean/ — including UNTRACKED output from another session's
+ *  half-finished generator. 363cc8ff did exactly that: its spin-manifest names lean/alpine-apps.{json,md} and
+ *  lean/quantum-advantage.{json,md}, four files that exist in no commit anywhere in this repository. A clean
+ *  checkout of that very commit fails `spin --verify` immediately, on four phantoms — the seal is a receipt for
+ *  work that is not there.
+ *
+ *  The index is the right authority because it is exactly what the commit will contain: a newly generated
+ *  derived file that has been `git add`ed IS listed and so IS sealed, which keeps reconcile's generate-add-seal
+ *  flow working, while a file merely sitting in the directory is not. That also makes the seal INDEPENDENT OF
+ *  WHERE IT IS COMPUTED — the same commit seals identically in a clean worktree and in a shared checkout with
+ *  four sessions' debris in it, which it emphatically did not before.
+ *
+ *  A missing git is NAMED, not silently tolerated: without it this cannot tell tracked from untracked, and a
+ *  sealer that cannot make that distinction is the thing being fixed. It refuses rather than seals blind. */
+const indexed = (): Set<string> | null => {
+  try {
+    const out = execFileSync('git', ['ls-files', '-z', '--', ...DERIVED_FILES], { cwd: ROOT, encoding: 'utf8', stdio: 'pipe' })
+    const paths = out.split('\0').filter(Boolean)
+    return paths.length ? new Set(paths) : null
+  } catch { return null }
+}
+
 const read = (): Record<string, string> => {
   const files: Record<string, string> = {}
+  const tracked = indexed()
+  if (!tracked) {
+    console.error('✗ spin — cannot ask git which derived files are TRACKED, so a seal here could absorb untracked')
+    console.error('  files that exist in no commit (it has: see 363cc8ff). Refusing rather than sealing blind.')
+    console.error('  Fix: run inside the git working tree, with git on PATH.')
+    process.exit(1)
+  }
   // A DERIVED_FILES entry may be a DIRECTORY — lean/ and src/chunks are gated wholesale by the audit chain, and
   // sealing only the plain-file entries left the wings, every domain manifest and the whole chunk store un-rotated.
   // Walk directories into their files so the sealer covers exactly what the gate diffs.
@@ -22,6 +55,8 @@ const read = (): Record<string, string> => {
     const abs = join(ROOT, rel)
     if (!existsSync(abs)) return
     if (statSync(abs).isDirectory()) { for (const e of readdirSync(abs)) walk(rel + '/' + e); return }
+    // git reports posix separators; the walk builds them the same way, so this compares like with like
+    if (!tracked.has(rel)) return
     files[rel] = readFileSync(abs, 'utf8')
   }
   for (const p of DERIVED_FILES) walk(p)
