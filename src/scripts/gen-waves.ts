@@ -42,7 +42,9 @@ The conveyor (queue-wave) is how theorem candidates become seals with no model a
 deposited as \`{key, why, lean}\` — by a session, or over the wire in one \`uuidna_wave_deposit\` call — the
 runner validates it at the door, the KERNEL probes it alone, survivors lift into Wave.lean on the next lean
 run, and refusals enroll at the law school with their reasons named. This page is the queue file's own record,
-laid as a table; the coordinates that feed it live on [the discovery board](/expose).
+laid as a table; the coordinates that feed it live on [the discovery board](/expose). The whole wave runs as
+ONE command — \`npm run wave\` — convey, lift, witness, guard, reconcile, with locks waited out and only the
+named transient classes retried.
 
 ## Pending — deposited, awaiting the kernel
 

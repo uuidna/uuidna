@@ -97,6 +97,7 @@
     "setup:git": "git config core.hooksPath hooks && git config merge.derived.driver \"true\" && git config merge.derived.name \"derived layer — keep one side; reconcile recomputes the truth\" && echo \"✓ git configured: hooks + the derived merge driver\"",
     "state": "npm run build && node dist/scripts/state.js",
     "x": "npm run build && node dist/scripts/run.js",
+    "wave": "npm run build && node dist/scripts/wave-run.js",
     "corpus": "npm run build && node dist/scripts/discover-books.js --write && node dist/scripts/mine-wikisource.js bg --search Ботев --limit 8 && node dist/scripts/decode-book.js 84 && node dist/scripts/iq-books.js --n 4"
   },
   "devDependencies": {
