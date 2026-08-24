@@ -7,6 +7,7 @@ import UrlAudit from './UrlAudit.vue'
 import Terminal from './Terminal.vue'
 import HexbitPlayer from './HexbitPlayer.vue'
 import AnthemSuperposition from './AnthemSuperposition.vue'
+import AnthemLive from './AnthemLive.vue'
 import SchoolTools from './SchoolTools.vue'
 import BookRoom from './BookRoom.vue'
 import HexbitAnimator from './HexbitAnimator.vue'
@@ -80,6 +81,7 @@ export default {
     // no asset fetched (the captain's rule: no assets; all computes in browser; hexbit quantum apps only).
     app.component('HexbitPlayer', HexbitPlayer)
     app.component('AnthemSuperposition', AnthemSuperposition)
+    app.component('AnthemLive', AnthemLive)
     // The school's three instruments — test/edit/build, pure coding-shelf apps computed in the visitor's browser.
     app.component('SchoolTools', SchoolTools)
     // The reading room — read, find facts, try quotes: the books shelf computed in the visitor's browser.

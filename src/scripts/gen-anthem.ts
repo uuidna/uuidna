@@ -64,6 +64,17 @@ description: The whole ledger as a superposition — theorem k at bar k, collaps
 
 <AnthemSuperposition />
 
+## Live — the same music, with no file and no ending
+
+The recording above is minted whole before it plays. This one is not minted at all: an **AudioWorklet**
+computes each sample from its position in your own audio thread — O(1) memory, no download, and no last byte,
+so it can play as long as you let it. It is the SAME music, bit-identical to the file, and that is a test
+(\`src/tests/anthem-stream.test.ts\` drives both paths and compares sample for sample, the worklet's own
+inlined copy included). What a stream trades away is the whole-artifact address; what it keeps is the receipt
+that matters — the seed and the score, from which any segment recomputes.
+
+<AnthemLive />
+
 The sound is **lossless by construction** — uncompressed PCM, the samples are the exact integers the lattice
 computed, minted as a Blob in your page: the web's own lossless format, ready for an \`<audio>\` element, Web
 Audio, or a movie timeline (\`the_movie_and_the_song_are_one\`: the 4032-sample bar is 24²·7). Press **Deepen**
