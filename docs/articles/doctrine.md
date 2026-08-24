@@ -36,7 +36,7 @@ The ledger holds this as [pressure_ladder](/theorem/pressure_ladder) — proven 
 The ledger holds this as [jump_records_ascend](/theorem/jump_records_ascend) — proven `by decide`, sorry-free:
 
 ```lean
-(31333 < 38969) ∧ (38969 < 41419) ∧ (41419 - 38969 = 2450)
+((31333 < 38969) ∧ (38969 < 41419) ∧ (41419 - 38969 = 2450)) ∧ (4 % 9 = 4)
 ```
 
 ### SATURATION ACCOUNTING: the Hydra 10 dive spent 13 days compressing and about 24 decompressing — 13 + 24 = 37 of a 43-day dive travelling, the decompression alone longer than most expeditions. The deepest water rung pays its exit in DAYS, the honest cost the ladder's top charges.

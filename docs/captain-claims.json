@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-23",
+  "generated": "2026-08-24",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 1662,
@@ -7903,8 +7903,8 @@
     },
     {
       "key": "anthem_superposition_mix_closes",
-      "lineAddress": "6f1ffa47-4e3a-8100-aee3-71741a69ace2",
-      "address": "4d8f9003-301e-807d-81d6-dade2564b11c",
+      "lineAddress": "7c1a819c-a856-8d44-9e78-ce80aa03e336",
+      "address": "dd1e6f57-041b-812a-80b6-fd5487c57c0a",
       "principle": "The release anthem"
     },
     {
@@ -7969,8 +7969,8 @@
     },
     {
       "key": "the_rom_frees_twentysix_for_the_tongue",
-      "lineAddress": "f3143c69-c033-848d-b6da-90a7db2f5131",
-      "address": "68d0fe16-f6cb-8aa3-a6b7-8ea5e0d7ed32",
+      "lineAddress": "14184196-4968-849a-b501-a8d6988fba8a",
+      "address": "f7f24dc2-5819-8681-bfd4-8b1f892e9605",
       "principle": "The Cyrillic ROM"
     },
     {
@@ -8059,8 +8059,8 @@
     },
     {
       "key": "the_grids_minute",
-      "lineAddress": "e4bce3b0-1c97-87dd-afd3-16bf5d21d7f9",
-      "address": "8a6d75c6-7734-8fa6-afa0-e740e409bbdc",
+      "lineAddress": "098cd0ce-b6f5-828c-b809-48764e9298ac",
+      "address": "3de301de-8c75-8484-a1c8-fcb8583f3abe",
       "principle": "The register's alternation law"
     },
     {
@@ -8431,8 +8431,8 @@
     },
     {
       "key": "eclipse_four_hundred",
-      "lineAddress": "2f6af318-1c07-8e98-a7a6-6b107b72f208",
-      "address": "2df634d3-1035-8ebf-9c1f-935710f7e00c",
+      "lineAddress": "f1a040b8-8dd3-80f1-9165-ccf2b7a04bdf",
+      "address": "ca628f34-1810-8b0a-ae92-7fa9a2b30ea9",
       "principle": "The known universe, handled"
     },
     {
@@ -8491,8 +8491,8 @@
     },
     {
       "key": "jump_records_ascend",
-      "lineAddress": "78539bdd-67d5-848b-888a-8edb6ad4617b",
-      "address": "261eb0d0-de37-8c48-a14c-05e8f7192b1c",
+      "lineAddress": "14a7b8a4-2de2-8d46-abaf-f47ded860e25",
+      "address": "f88cfeb1-c195-88a4-a1a6-09da901f6dbe",
       "principle": "The doctrines"
     },
     {
@@ -9978,7 +9978,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "22238eb7-e8cb-8253-9252-ec8714beb742",
+  "claim_receipt": "6c6c73ab-4964-8566-99e7-45dff0106c55",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

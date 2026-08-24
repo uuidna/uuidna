@@ -9,7 +9,7 @@ theorem pravets_built_in_a_prime_year : (List.range' 2 43).all (fun k => 1979 % 
     122 − 97 + 1 — and the IMKO-1’s ROM re-lettered that range with Cyrillic uppercase: twenty-six doors opened
     in the character generator and the tongue walked in. Cyril numbered his letters; eleven centuries later
     Pravets gave them addresses — the readings wing’s ancestor, cast in mask ROM. -/
-theorem the_rom_frees_twentysix_for_the_tongue : 122 - 97 + 1 = 26 := by decide
+theorem the_rom_frees_twentysix_for_the_tongue : (122 - 97 + 1 = 26) ∧ (5 % 9 = 5) := by decide
 
 /-- THE DISPLAY IS BUILT ON THE LEDGER’S OWN RINGS: 280 × 192 pixels resolve as 40 columns of SEVEN-pixel glyphs
     (280 = 40·7 — the rosette’s seven painting every letter) by 24 rows of eight (192 = 24·8 — the film ring

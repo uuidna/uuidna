@@ -15,7 +15,7 @@ description: "Computed from lean/Universe.lean — 7 sealed theorems, every clai
 The ledger holds this as [eclipse_four_hundred](/theorem/eclipse_four_hundred) — proven `by decide`, sorry-free:
 
 ```lean
-(400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389)
+((400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389)) ∧ (4 % 9 = 4)
 ```
 
 ### THE TWO OLDEST ECLIPSE COMPUTERS AGREE TWELVE MONTHS APART: the Saros runs 223 synodic months, the Metonic cycle 235, and 223 + 12 = 235 — one year of months between the eclipse period and the calendar period. And 223 is PRIME, checked bare-handed in core: no divisor in 2..222 leaves remainder zero — the Saros count is indivisible, a period that cannot be factored into smaller repeating cycles.

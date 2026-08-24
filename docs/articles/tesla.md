@@ -43,7 +43,7 @@ The ledger holds this as [alternation_needs_a_second_phase](/theorem/alternation
 The ledger holds this as [the_grids_minute](/theorem/the_grids_minute) — proven `by decide`, sorry-free:
 
 ```lean
-60 * 60 = 3600
+(60 * 60 = 3600) ∧ (6 % 9 = 6)
 ```
 
 ### THE REMOTE CAME BEFORE THE WIRELESS POWER CLAIM, BY THE REGISTER’S OWN ORDER: 613809 (the teleautomaton, 1898 — a vessel commanded by coded waves, the first machine addressed at a distance) precedes 645576 (the transmission system, 1900) by 31767 register steps and two years: messages travelled before power was even claimed to. The register orders the ideas: address first, cargo later — the same order this ledger keeps.

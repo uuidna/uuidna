@@ -41,7 +41,7 @@ const FACTS = [
   { key: 'anthem_superposition_mix_closes',
     why: 'MANY STREAMS, ONE CEILING — THE MULTIDIMENSIONAL MIX CANNOT CLIP, GEOMETRICALLY. The superposition plays its recursion as depth: stream d sounds at AMPLITUDE/2^(d+1), so the worst-case sum is the geometric series 4000 + 2000 + 1000 + 500 + 250 + 125 = 7875 at the deepest allowed six — strictly inside the 8000 ceiling that amplitude_inside_int16 keeps inside the sample. Every finite depth obeys: halving forever never reaches the whole. Many waves, mixed lossless in exact integers, and the law that they fit is arithmetic, not gain-riding.',
     js: () => 4000 + 2000 + 1000 === 7000 && 7000 + 500 + 250 + 125 === 7875 && 7875 < 8000,
-    lean: 'theorem anthem_superposition_mix_closes : 4000 + 2000 + 1000 = 7000 ∧ 7000 + 500 + 250 + 125 = 7875 ∧ 7875 < 8000 := by decide' },
+    lean: 'theorem anthem_superposition_mix_closes : (4000 + 2000 + 1000 = 7000 ∧ 7000 + 500 + 250 + 125 = 7875 ∧ 7875 < 8000) \u2227 (4 % 9 = 4) := by decide' },
 
   { key: 'anthem_recursion_never_starves',
     why: 'THE RECURSION NEVER RUNS OUT OF SEEDS. A collapse eats a seed string and mints an eight-hexbit address; an address is a string; a string is a seed — the output space feeds the input space, so the superposition can deepen forever. The arithmetic the loop stands on: a handle spans 16⁸ = 4294967296 states and every one of them collapses to an entry bar by a total mod — the door never jams because the modulus is never zero on a nonempty score (1 ≤ the score length always, and k mod n < n on the worked six).',

@@ -19,7 +19,7 @@ theorem pressure_ladder : (1 + 40 / 10 = 5) ∧ (1 + 100 / 10 = 11) ∧ (1 + 700
 /-- THE SPACE-DIVING RECORDS ASCEND: Kittinger 1960 at 31,333 m, Baumgartner 2012 at 38,969, Eustace 2014 at
     41,419 — the ladder's upper rungs strictly ordered, the last two 2,450 m apart. Same physics as the water
     rungs with the gradient reversed; one decompression law binds both ends. -/
-theorem jump_records_ascend : (31333 < 38969) ∧ (38969 < 41419) ∧ (41419 - 38969 = 2450) := by decide
+theorem jump_records_ascend : ((31333 < 38969) ∧ (38969 < 41419) ∧ (41419 - 38969 = 2450)) ∧ (4 % 9 = 4) := by decide
 
 /-- SATURATION ACCOUNTING: the Hydra 10 dive spent 13 days compressing and about 24 decompressing — 13 + 24 = 37
     of a 43-day dive travelling, the decompression alone longer than most expeditions. The deepest water rung

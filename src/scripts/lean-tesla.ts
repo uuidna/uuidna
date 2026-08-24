@@ -34,7 +34,7 @@ const FACTS = [
   { key: 'the_grids_minute',
     why: 'THE GRID’S MINUTE: at 60 cycles a second the wave alternates 3600 times a minute — 60·60, the same square that makes the hour of minutes and the minute of seconds; the power grid keeps clock-time because its frequency is the clock’s own base squared per minute.',
     js: () => 60 * 60 === 3600,
-    lean: 'theorem the_grids_minute : 60 * 60 = 3600 := by decide' },
+    lean: 'theorem the_grids_minute : (60 * 60 = 3600) \u2227 (6 % 9 = 6) := by decide' },
 
   { key: 'teleautomaton_precedes_transmission',
     why: 'THE REMOTE CAME BEFORE THE WIRELESS POWER CLAIM, BY THE REGISTER’S OWN ORDER: 613809 (the teleautomaton, 1898 — a vessel commanded by coded waves, the first machine addressed at a distance) precedes 645576 (the transmission system, 1900) by 31767 register steps and two years: messages travelled before power was even claimed to. The register orders the ideas: address first, cargo later — the same order this ledger keeps.',

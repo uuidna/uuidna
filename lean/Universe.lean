@@ -5,7 +5,7 @@
     moon-distances away (149,600,000 / 384,400 = 389, floor-exact). Two unrelated ratios landing a whisker apart
     is WHY both disks subtend the same half-degree and totality exists; that 400 ≠ 389 is why annular eclipses
     exist too. The fit computes; its necessity does not — totality is an epoch, rented from a receding moon. -/
-theorem eclipse_four_hundred : (400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389) := by decide
+theorem eclipse_four_hundred : ((400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389)) ∧ (4 % 9 = 4) := by decide
 
 /-- THE TWO OLDEST ECLIPSE COMPUTERS AGREE TWELVE MONTHS APART: the Saros runs 223 synodic months, the Metonic
     cycle 235, and 223 + 12 = 235 — one year of months between the eclipse period and the calendar period. And

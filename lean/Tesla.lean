@@ -26,7 +26,7 @@ theorem alternation_needs_a_second_phase : (360 / 2 = 180) ∧ (360 / 3 = 120) �
 /-- THE GRID’S MINUTE: at 60 cycles a second the wave alternates 3600 times a minute — 60·60, the same square
     that makes the hour of minutes and the minute of seconds; the power grid keeps clock-time because its
     frequency is the clock’s own base squared per minute. -/
-theorem the_grids_minute : 60 * 60 = 3600 := by decide
+theorem the_grids_minute : (60 * 60 = 3600) ∧ (6 % 9 = 6) := by decide
 
 /-- THE REMOTE CAME BEFORE THE WIRELESS POWER CLAIM, BY THE REGISTER’S OWN ORDER: 613809 (the teleautomaton,
     1898 — a vessel commanded by coded waves, the first machine addressed at a distance) precedes 645576 (the

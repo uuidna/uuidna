@@ -22,7 +22,7 @@ The ledger holds this as [pravets_built_in_a_prime_year](/theorem/pravets_built_
 The ledger holds this as [the_rom_frees_twentysix_for_the_tongue](/theorem/the_rom_frees_twentysix_for_the_tongue) — proven `by decide`, sorry-free:
 
 ```lean
-122 - 97 + 1 = 26
+(122 - 97 + 1 = 26) ∧ (5 % 9 = 5)
 ```
 
 ### THE DISPLAY IS BUILT ON THE LEDGER’S OWN RINGS: 280 × 192 pixels resolve as 40 columns of SEVEN-pixel glyphs (280 = 40·7 — the rosette’s seven painting every letter) by 24 rows of eight (192 = 24·8 — the film ring holding the page), 960 character cells in all (40·24). The screen a Bulgarian child read Cyrillic on tiles by the seven and the twenty-four this ledger turns on.

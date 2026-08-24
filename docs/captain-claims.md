@@ -1,10 +1,10 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-08-23
+**Generated:** 2026-08-24
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Total claimed:** 1662/1662 theorems — every one, by construction
-**Claim receipt:** `22238eb7-e8cb-8253-9252-ec8714beb742`
+**Claim receipt:** `6c6c73ab-4964-8566-99e7-45dff0106c55`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -728,7 +728,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The known universe, handled
 
 - **Theorems:** 7
-- **Sample lineAddress:** `2f6af318-1c07-8e98-a7a6-6b107b72f208`
+- **Sample lineAddress:** `f1a040b8-8dd3-80f1-9165-ccf2b7a04bdf`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
@@ -1032,7 +1032,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1580 (1662 entries, 82 re-namings — a theorem is its Lean |
+| sealed propositions | 1581 (1662 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the

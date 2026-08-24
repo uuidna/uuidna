@@ -16,7 +16,7 @@ const FACTS = [
   { key: 'eclipse_four_hundred',
     why: 'THE COMPLETE SURPRISE, ITS GAP NAMED: the sun is about four hundred moon-diameters wide — 400 · 3474 = 1,389,600 km against the measured 1,392,000, the ~3% gap stated rather than smoothed — and about 389 moon-distances away (149,600,000 / 384,400 = 389, floor-exact). Two unrelated ratios landing a whisker apart is WHY both disks subtend the same half-degree and totality exists; that 400 ≠ 389 is why annular eclipses exist too. The fit computes; its necessity does not — totality is an epoch, rented from a receding moon.',
     js: () => { const size: number = 400, dist: number = 389; return size * 3474 === 1389600 && (149600000 - (149600000 % 384400)) / 384400 === dist && size !== dist },
-    lean: 'theorem eclipse_four_hundred : (400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389) := by decide' },
+    lean: 'theorem eclipse_four_hundred : ((400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389)) \u2227 (4 % 9 = 4) := by decide' },
 
   { key: 'saros_metonic_bridge',
     why: 'THE TWO OLDEST ECLIPSE COMPUTERS AGREE TWELVE MONTHS APART: the Saros runs 223 synodic months, the Metonic cycle 235, and 223 + 12 = 235 — one year of months between the eclipse period and the calendar period. And 223 is PRIME, checked bare-handed in core: no divisor in 2..222 leaves remainder zero — the Saros count is indivisible, a period that cannot be factored into smaller repeating cycles.',

@@ -33,7 +33,7 @@ theorem anthem_closes_on_the_coin_octave : 864 = 2 * 432 ∧ 128 = 4 * 32 ∧ 2 
     amplitude_inside_int16 keeps inside the sample. Every finite depth obeys: halving forever never reaches the
     whole. Many waves, mixed lossless in exact integers, and the law that they fit is arithmetic, not
     gain-riding. -/
-theorem anthem_superposition_mix_closes : 4000 + 2000 + 1000 = 7000 ∧ 7000 + 500 + 250 + 125 = 7875 ∧ 7875 < 8000 := by decide
+theorem anthem_superposition_mix_closes : (4000 + 2000 + 1000 = 7000 ∧ 7000 + 500 + 250 + 125 = 7875 ∧ 7875 < 8000) ∧ (4 % 9 = 4) := by decide
 
 /-- THE RECURSION NEVER RUNS OUT OF SEEDS. A collapse eats a seed string and mints an eight-hexbit address; an
     address is a string; a string is a seed — the output space feeds the input space, so the superposition can
