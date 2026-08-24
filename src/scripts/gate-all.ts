@@ -131,14 +131,43 @@ export interface Verdict { cmd: string; kind: Kind; exit: number; out: string }
 
 const matches = (pats: readonly RegExp[], cmd: string): boolean => pats.some((re) => re.test(cmd))
 
-export function kindOf(cmd: string): Kind {
-  if (matches(GENERATOR_PATTERNS, cmd)) return 'generator'
-  return matches(TREE_TOUCHING, cmd) ? 'serial-check' : 'check'
+/** expand(cmd, scripts) → what the step actually RUNS, following `npm run <name>` through the manifest.
+ *
+ *  A STEP IS WHAT IT RUNS, NOT WHAT IT IS CALLED, and classifying the surface string is how the same mistake got
+ *  in twice. GENERATOR_PATTERNS carries `/\blean-axioms\.js/` — and the chain says `npm run axioms`, which
+ *  contains no such text, so that pattern could never once have fired. `npm run axioms` is
+ *  `npm run build && node dist/scripts/lean-axioms.js`: it BUILDS, and it was landing in the concurrent wave to
+ *  write dist while twenty-seven other checks read it. Caught 2026-08-25 in a clean worktree — the arm failed
+ *  inside the fan-out and passed standing alone, which is the signature of a race and not of a defect.
+ *
+ *  The note above `/\bgenerate\.js/` records this identical failure one level down ("for want of a hyphen") and
+ *  cures it by adding a pattern. That works while the chain names a FILE; it cannot work when the chain names an
+ *  npm script, because no pattern over the surface text can see through the manifest. So the resolution moves
+ *  here, and the existing patterns start matching what they were always written to match. */
+const expand = (cmd: string, scripts: Readonly<Record<string, string>>): string => {
+  let seen = cmd
+  // bounded, because a manifest can name itself: three hops is deeper than any chain here and cannot spin
+  for (let hop = 0; hop < 3; hop++) {
+    const m = /^npm run ([\w:@/-]+)$/.exec(seen.trim())
+    const body = m ? scripts[m[1]!] : undefined
+    if (!body) return seen
+    seen = body
+  }
+  return seen
 }
 
-/** the chain, read from the manifest so this can never disagree with what `npm run audit` actually runs. */
-export const plan = (auditScript: string): Step[] =>
-  auditScript.split(' && ').map((c) => c.trim()).map((cmd) => ({ cmd, kind: kindOf(cmd) }))
+export function kindOf(cmd: string, scripts: Readonly<Record<string, string>> = {}): Kind {
+  // both the surface and the resolved body are asked: a step is a generator if EITHER names generator work,
+  // so resolving can only ever promote a step out of the concurrent wave, never quietly demote one into it
+  const body = expand(cmd, scripts)
+  if (matches(GENERATOR_PATTERNS, cmd) || matches(GENERATOR_PATTERNS, body)) return 'generator'
+  return matches(TREE_TOUCHING, cmd) || matches(TREE_TOUCHING, body) ? 'serial-check' : 'check'
+}
+
+/** the chain, read from the manifest so this can never disagree with what `npm run audit` actually runs.
+ *  `scripts` is that same manifest's script map — passing it is what lets a step be classified by its BODY. */
+export const plan = (auditScript: string, scripts: Readonly<Record<string, string>> = {}): Step[] =>
+  auditScript.split(' && ').map((c) => c.trim()).map((cmd) => ({ cmd, kind: kindOf(cmd, scripts) }))
 
 /** short label for a step, for the summary table. A `node --test <glob>` step names its SUITE — the generic
  *  strip used to eat everything after the first ` --`, so the 50-second main suite printed as bare "node": a
@@ -178,8 +207,11 @@ export async function runPlan(
 }
 
 if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
-  const audit = (JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }).scripts.audit
-  const steps = plan(audit)
+  const scripts = (JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }).scripts
+  const audit = scripts.audit
+  // the WHOLE script map, not just the audit line: a step that says `npm run <name>` is classified by what that
+  // name resolves to, so the manifest has to travel with the chain it came from
+  const steps = plan(audit, scripts)
   const count = (k: Kind) => steps.filter((s) => s.kind === k).length
   // THE MACHINE IS READ, NOT ASSUMED (os/host). The lane count came from an inline `availableParallelism() - 2`
   // here and the shell from a bare 'sh' below; both are host facts, and a host fact written at a call site is a

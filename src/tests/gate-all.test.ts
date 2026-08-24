@@ -32,6 +32,25 @@ test('the manifest runner is a generator, though its name lacks the hyphen its c
   assert.equal(kindOf('node dist/scripts/gen-mcp.js'), 'generator', 'its children were always classified correctly')
 })
 
+test('a step is classified by what it RUNS — `npm run <name>` is resolved through the manifest', () => {
+  // THE PATTERN THAT COULD NEVER FIRE. GENERATOR_PATTERNS has carried /\blean-axioms\.js/ for as long as it has
+  // existed, and the audit chain says `npm run axioms` — a string containing no such text. So the pattern matched
+  // nothing, ever, and the step landed in the concurrent wave while its body is
+  // `npm run build && node dist/scripts/lean-axioms.js`: it BUILDS. It was writing dist beside twenty-seven checks
+  // reading dist. Observed 2026-08-25 in a clean worktree — the arm FAILED inside the fan-out and PASSED standing
+  // alone, which is a race's signature and not a defect's.
+  //
+  // It is the generate.js mistake one level up, and it is why the cure moved from adding another pattern to
+  // resolving the name: no pattern over the surface text can see through the manifest.
+  const scripts = { axioms: 'npm run build && node dist/scripts/lean-axioms.js', lint: 'eslint .' }
+  assert.equal(kindOf('npm run axioms'), 'check', 'unresolved, the surface text names nothing generator-shaped — this is the bug')
+  assert.equal(kindOf('npm run axioms', scripts), 'generator', 'resolved, it builds, so it must not share the wave')
+  // a step whose body genuinely checks is left where it was — resolving must not sweep everything into the ordered phase
+  assert.equal(kindOf('npm run lint', scripts), 'check', 'eslint renders a verdict and writes nothing')
+  // an unknown name resolves to itself rather than throwing: a manifest that does not list it is not a crash
+  assert.equal(kindOf('npm run nowhere', scripts), 'check')
+})
+
 test('the three classes are told apart by what a step DOES', () => {
   assert.equal(kindOf('node dist/scripts/gen-mcp.js'), 'generator', 'gen-* writes inputs for later steps')
   assert.equal(kindOf('npx vitepress build docs'), 'generator')
