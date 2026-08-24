@@ -1,0 +1,128 @@
+{
+  "@context": "https://schema.org",
+  "@id": "urn:uuid:95526030-8f18-8663-ba78-ebb33a5aa8bf",
+  "@type": "Dataset",
+  "name": "uuidna quantum advantage report — measured per level",
+  "description": "The architectural advantage measured at every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). uuidna is classical and claims no physics quantum advantage — the sealed bound is theorem n_qubit_dimension.",
+  "url": "https://uuidna.com/quantum-advantage.jsonld",
+  "identifier": "b3634fd3-c5bd-86cb-8bdc-cb9abe7a25e0",
+  "isAccessibleForFree": true,
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "hexbit tile — reach",
+      "value": "2^4",
+      "measurementTechnique": "declared",
+      "citation": "true by construction — theorem nand_functionally_complete"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "hexbit tile — operation cost",
+      "value": "10^1",
+      "unitText": "ns (order of magnitude)",
+      "measurementTechnique": "measured",
+      "citation": "steady-state floor over 6553600 hexbit tile compiled from an address on AMD Ryzen 7 9800X3D 8-Core Processor (win32/x64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "hexbit tile — disagreements with the sealed value",
+      "value": 0,
+      "unitText": "disagreements",
+      "measurementTechnique": "measured",
+      "citation": "12000 decisions executed on AMD Ryzen 7 9800X3D 8-Core Processor; a bound of better than one in 12000, never a proof of zero"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "handle — reach",
+      "value": "2^32",
+      "measurementTechnique": "declared",
+      "citation": "true by construction — theorem handle_string_spans_the_quarter"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "handle — operation cost",
+      "value": "10^2",
+      "unitText": "ns (order of magnitude)",
+      "measurementTechnique": "measured",
+      "citation": "steady-state floor over 204800 handle read to its value and residue on AMD Ryzen 7 9800X3D 8-Core Processor (win32/x64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "handle — disagreements with the sealed value",
+      "value": 0,
+      "unitText": "disagreements",
+      "measurementTechnique": "measured",
+      "citation": "12000 decisions executed on AMD Ryzen 7 9800X3D 8-Core Processor; a bound of better than one in 12000, never a proof of zero"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "uuid — reach",
+      "value": "2^128",
+      "measurementTechnique": "declared",
+      "citation": "true by construction — theorem handle_capacity_is_quantum_by_architecture"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "uuid — operation cost",
+      "value": "10^3",
+      "unitText": "ns (order of magnitude)",
+      "measurementTechnique": "measured",
+      "citation": "steady-state floor over 204800 address folded from a distinct seed on AMD Ryzen 7 9800X3D 8-Core Processor (win32/x64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "uuid — disagreements with the sealed value",
+      "value": 0,
+      "unitText": "disagreements",
+      "measurementTechnique": "measured",
+      "citation": "12000 decisions executed on AMD Ryzen 7 9800X3D 8-Core Processor; a bound of better than one in 12000, never a proof of zero"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sealed ledger — reach",
+      "value": "the whole sealed ledger",
+      "measurementTechnique": "declared",
+      "citation": "true by construction — theorem n_qubit_dimension"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sealed ledger — operation cost",
+      "value": "10^3",
+      "unitText": "ns (order of magnitude)",
+      "measurementTechnique": "measured",
+      "citation": "steady-state floor over 169000 theorem statement re-addressed in a full sweep on AMD Ryzen 7 9800X3D 8-Core Processor (win32/x64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sealed ledger — disagreements with the sealed value",
+      "value": 0,
+      "unitText": "disagreements",
+      "measurementTechnique": "measured",
+      "citation": "13520 decisions executed on AMD Ryzen 7 9800X3D 8-Core Processor; a bound of better than one in 13520, never a proof of zero"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sealed quantum algebra — decisions executed on this host",
+      "value": 12099,
+      "unitText": "decisions",
+      "measurementTechnique": "measured",
+      "citation": "37 witnesses over 109 sweeps on AMD Ryzen 7 9800X3D 8-Core Processor; each decides a proposition sealed in the Lean ledger"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "sealed quantum algebra — disagreements",
+      "value": 0,
+      "unitText": "disagreements",
+      "measurementTechnique": "measured",
+      "citation": "better than one disagreement per 12099 executions on this host — a bound from the count, not a proof of zero"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "reported physical two-qubit gate error class",
+      "value": 1000,
+      "unitText": "errors per million operations",
+      "measurementTechnique": "reported",
+      "citation": "platform literature, ~10^-3 two-qubit physical error class; per-device sources are named in the capacity report"
+    }
+  ]
+}

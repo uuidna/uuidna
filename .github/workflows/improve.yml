@@ -1,0 +1,66 @@
+# THE DERIVED LAYER MUST HAVE A FIXED POINT, AND CI IS WHERE THAT IS WORTH CHECKING.
+#
+# The failure this exists to catch has already happened in this repository and cost a run of commits. A generator
+# sealed a RAW wall-clock timing, so every run produced a different answer; README.md and lean/quantum-capacity.*
+# alternated between exactly two states; and successive `Reconcile:` commits in the log were each other's undoing
+# rather than anyone's fix. Every individual run looked like progress, which is precisely why no human caught it —
+# you cannot see an oscillation from inside one pass of it.
+#
+# THE CHECK IS ONE LINE OF REASONING: run each generator, run it AGAIN, and require the second run to reproduce
+# the first byte for byte. A generator that cannot reproduce its own output has no fixed point, and a derived
+# layer built from it can never converge no matter how many times anyone reconciles. auto-improve drives that to
+# convergence and exits nonzero if it does not reach one, naming the generator that kept moving.
+#
+# THIS JOB WRITES NOTHING BACK. No commit, no push, no tag, no deploy — it regenerates into the runner's own
+# checkout and throws it away. That is deliberate and it is the difference between this and port.yml, which is
+# allowed to push because it is reconciling a pin against a named upstream. Here there is no upstream to follow;
+# the question is only whether our own generators are stable, and a job that answered it by committing would be
+# adding the very drift it exists to detect.
+#
+# NOT WIRED INTO THE GATE, and that is not an oversight. auto-improve takes .uuidna-writer.lock for the whole run
+# and refuses when another writer holds it. Inside the audit chain — which already holds that lock — it would
+# deadlock against itself, so it stays a job of its own on a schedule and on demand. Drop the `schedule:` block
+# if the weekly run is not wanted; `workflow_dispatch` alone keeps the check available at zero standing cost.
+name: improve
+
+on:
+  schedule:
+    # Mondays, early — far from the release window and from port.yml's 05:23 daily run
+    - cron: '17 6 * * 1'
+  workflow_dispatch:
+    inputs:
+      rounds:
+        description: 'How many rounds to allow before declaring no fixed point'
+        type: string
+        default: '4'
+
+concurrency:
+  group: improve
+  cancel-in-progress: true
+
+# READ ONLY. The job never writes to the repository, so it is never granted the ability to.
+permissions:
+  contents: read
+
+jobs:
+  fixed-point:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '26'
+      - name: Install deps
+        run: npm install --no-audit --no-fund
+      - name: Build
+        run: npm run build
+
+      - name: FIXED POINT — every generator must reproduce its own output byte for byte
+        run: node dist/scripts/auto-improve.js --rounds "${{ inputs.rounds || '4' }}"
+
+      # A convergence run that changed nothing proves the point; one that changed files and THEN converged is
+      # also a pass (the checkout was simply behind). What fails is not converging at all. The diff is printed
+      # either way, because "which files moved" is the first thing anyone reading a red run will want.
+      - name: What moved
+        if: always()
+        run: git --no-pager diff --stat
