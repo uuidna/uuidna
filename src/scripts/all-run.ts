@@ -35,11 +35,12 @@ export const phaseLeaf = (name: string, ok: boolean): string => toUuid(`phase|${
 /** the arc's receipt: order-invariant over the phase leaves, so two observers fold the same act to one address */
 export const arcReceipt = (leaves: readonly string[]): string => merkleGravity([...leaves])
 
-if (process.argv.includes('--dry')) {
+/** the classified plan — inside the guard like everything else, because it also calls process.exit, and an
+ *  import that exits the importing process is a second way for a module to act when it was only named. */
+function dryPlan(): void {
   console.log('all — the arc, classified (nothing run):')
   for (const p of PHASES) console.log(`  ${p.name.padEnd(6)} ${p.cmd.padEnd(38)} ${p.note}`)
   console.log(`  arc receipt if every phase passes: ${arcReceipt(PHASES.map((p) => phaseLeaf(p.name, true)))}`)
-  process.exit(0)
 }
 
 // THE ARC RUNS ONLY WHEN IT IS THE COMMAND, NEVER WHEN IT IS AN IMPORT (2026-08-24).
@@ -61,6 +62,9 @@ if (isMain) {
 }
 
 function runArc(): void {
+// --dry prints the plan and runs NOTHING; it lives inside the guard because it is a mode of the arc, and
+// because leaving it outside would put a process.exit back on the import path the guard just closed.
+if (process.argv.includes('--dry')) { dryPlan(); return }
 console.log('all — THE ARC: deposit to origin to edge, one manifest, one receipt.\n')
 const leaves: string[] = []
 for (const p of PHASES) {
@@ -80,3 +84,4 @@ for (const p of PHASES) {
 }
 console.log(`\n✓ all — THE ARC COMPLETE: ${PHASES.map((p) => p.name).join(' → ')}, folded to one receipt ${arcReceipt(leaves)}`)
 }
+
