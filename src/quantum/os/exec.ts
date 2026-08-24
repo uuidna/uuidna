@@ -62,3 +62,101 @@ export function uuidnaLs(path = '/'): LsResult {
     receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt, honest: HONEST,
   }
 }
+
+// ── THE BUSYBOX EXECUTOR — THE WHOLE TOOLBOX PORTED TO MCP THROUGH ONE DOOR (the captain's order, 2026-08-24:
+// "Port all to mcp"; lead 129 phase a) ──────────────────────────────────────────────────────────────────────
+// busybox on Alpine is ONE binary carrying MANY applets (ls, cat, which, ...) — so uuidna ports it as ONE tool
+// carrying many applets, each uuidna's OWN pure reimplementation of the utility's LOGIC over the VIRTUAL
+// filesystem (the install port's routes), run INSIDE the booted sandbox, NEVER Alpine's binary. This is the
+// singularity 85 at the metal: `ls /terminal`, `cat /core`, `which busybox` are the terminal's own command
+// lines, now answered by the wire. HONEST SCOPE (the_os_is_bootable_quantum): nothing executes — an applet
+// reads the sealed spec and folds an answer; the tool's LOGIC is uuidna's, its IDENTITY is the busybox package.
+
+/** one applet run: the parsed line, its output as text lines AND as structured data, folded to one receipt. */
+export interface ExecResult {
+  line: string; applet: string; args: string[]; ok: boolean
+  output: string[]; data: unknown
+  receipt: string; hexbits: number[]; sealed: string; honest: string
+}
+
+/** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
+ *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
+ *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
+export const APPLETS = ['ls', 'cat', 'which', 'stat', 'pwd', 'echo', 'help'] as const
+export type Applet = (typeof APPLETS)[number]
+
+/** resolve a package by name (busybox) or by route (/terminal); the two directions `which` walks. */
+const specByName = (name: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => s.name === name)
+const specByRoute = (route: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => norm(s.route) === norm(route))
+
+/** uuidnaExec(line) → run one busybox command line in the virtual uuidnaOS. Boots first (a drifted world runs
+ *  nothing), splits `applet args...`, dispatches to the ported applet, and folds the whole run to one receipt.
+ *  The whole toolbox through one door: uuidna's logic, busybox's identity, never a binary. */
+export function uuidnaExec(line: string): ExecResult {
+  const os = bootOS()                                                // verified loading, or nothing runs
+  const specs = os.port.specs
+  const toks = String(line).trim().split(/\s+/).filter(Boolean)
+  const applet = (toks[0] ?? '') as string
+  const args = toks.slice(1)
+  let ok = true
+  let output: string[] = []
+  let data: unknown = null
+
+  const emit = (o: string[], d: unknown): void => { output = o; data = d }
+  const err = (msg: string): void => { ok = false; output = [msg]; data = { error: msg } }
+
+  switch (applet) {
+    case 'ls': {                                                     // list a directory of the virtual OS
+      const r = uuidnaLs(args[0] ?? '/')
+      emit(r.entries.map((e) => (e.kind === 'dir' ? e.name + '/' : e.name)), r)
+      break
+    }
+    case 'cat': {                                                    // read a file: the package's provenance record
+      const s = specByRoute(args[0] ?? '', specs)
+      if (!s) { err(`cat: ${args[0] ?? ''}: no ported package at that route`); break }
+      emit(
+        [`${s.id}  ${s.version}`, `route:    ${s.route}`, `meaning:  ${s.meaning}`,
+         `checksum: ${s.checksum}`, `deps:     ${s.deps.join(' ') || '(none)'}`, `address:  ${s.address}`],
+        s,
+      )
+      break
+    }
+    case 'which': {                                                  // resolve a name → route, or a route → name
+      const a = args[0] ?? ''
+      const byName = specByName(a, specs)
+      const byRoute = specByRoute(a, specs)
+      if (byName) emit([byName.route], { name: a, route: byName.route, id: byName.id })
+      else if (byRoute) emit([byRoute.name], { route: norm(a), name: byRoute.name, id: byRoute.id })
+      else err(`which: ${a}: not a ported package name or route`)
+      break
+    }
+    case 'stat': {                                                   // file metadata from the sealed spec
+      const p = norm(args[0] ?? '/')
+      const s = specByRoute(p, specs)
+      if (s) emit([`${s.id}  pkg  ${s.deps.length} deps  addr ${s.address}`],
+        { path: p, kind: 'pkg', id: s.id, version: s.version, deps: s.deps.length, address: s.address, hexbits: s.hexbits.length })
+      else {
+        const entries = childrenOf(p, specs)
+        if (entries.length) emit([`${p}  dir  ${entries.length} entries`], { path: p, kind: 'dir', entries: entries.length })
+        else err(`stat: ${p}: no such path in the virtual OS`)
+      }
+      break
+    }
+    case 'pwd': emit(['/'], { path: '/' }); break                    // the virtual OS has one root
+    case 'echo': {                                                   // echo in the quantum OS folds its argument to an address
+      const text = args.join(' ')
+      const addr = toUuid('echo|' + text)
+      emit([text], { text, address: addr, hexbits: compileToHexbits(addr) })
+      break
+    }
+    case 'help': emit(['applets: ' + APPLETS.join(' '),
+      'ls <path> · cat <route> · which <name|route> · stat <path> · pwd · echo <text> · help',
+      'the whole toolbox is uuidna\'s own logic over the virtual OS — no binary is ever run'],
+      { applets: APPLETS }); break
+    case '': err('exec: empty command — try `help`'); break
+    default: err(`exec: ${applet}: not a ported applet (try \`help\`); uuidna ports the busybox filesystem family, faking none`)
+  }
+
+  const receipt = toUuid('exec|' + applet + '|' + args.join(' ') + '|' + (ok ? '0' : '1') + '|' + output.join('\n'))
+  return { line: String(line).trim(), applet, args, ok, output, data, receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt, honest: HONEST }
+}

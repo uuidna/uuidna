@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="201 keys" />
+# MCP tools <Badge type="tip" text="202 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 201 tools below are read from the server's own tool list and
+is **built from the keys**: the 202 tools below are read from the server's own tool list and
 organised into 38 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 3ae9e51c-c961-8da6-b1b5-1cad9eb28edd
+gate CLEAN f0 d0 v0 · e42fb2a4-e065-8bae-9e56-8d1f8033c648
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 201-tool registry folds to its
-order-invariant identity `548e76e2-251e-862b-a593-b2df911c40cf` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 202-tool registry folds to its
+order-invariant identity `e32db378-7720-8740-a7d8-30caac4ec1a8` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`201`" />
+## The grid <Badge type="tip" :text="`202`" />
 
-201 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 77 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+202 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 77 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -162,6 +162,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-engine"><code>engine</code></a>
 <a href="#uuidna-entangle"><code>entangle</code></a>
 <a href="#uuidna-evidence"><code>evidence</code></a>
+<a href="#uuidna-exec"><code>exec</code></a>
 <a href="#uuidna-forensics"><code>forensics</code></a>
 <a href="#uuidna-gate"><code>gate</code></a>
 <a href="#uuidna-gravity"><code>gravity</code></a>
@@ -569,7 +570,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'91'" />
+## Other <Badge type="tip" :text="'92'" />
 
 *skill: other*
 
@@ -1099,6 +1100,16 @@ LIST A DIRECTORY OF THE VIRTUAL uuidnaOS — the first Alpine-package tool. Pass
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `path` | string | no | a virtual-OS path, e.g. "/" (default), "/terminal", "/core" |
+
+### `uuidna_exec`
+
+RUN THE BUSYBOX TOOLBOX IN THE VIRTUAL uuidnaOS — the whole ported utility family through ONE door. busybox on Alpine is one binary carrying many applets, so this is one tool carrying many: pass {line} as a command, e.g. "ls /terminal", "cat /core", "which busybox", "stat /trust", "echo hi", "pwd", "help". Each applet is uuidna's OWN pure reimplementation of the utility's logic over the virtual filesystem (the install port's routes), computed inside the booted sandbox. `cat &lt;route&gt;` reads a package's provenance record (id/version/checksum/deps/address); `which &lt;name|route&gt;` walks both ways; `stat` reads metadata from the sealed spec; an applet uuidna does NOT port (rm, sh, …) is refused, never faked or run — a provenance OS deletes and executes nothing (theorem the_os_is_bootable_quantum). Returns {line,applet,args,ok,output,data,receipt,hexbits,sealed,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `line` | string | **yes** | a busybox command line, e.g. "ls /terminal", "cat /core", "which busybox", "help" |
 
 ### `uuidna_registry`
 
