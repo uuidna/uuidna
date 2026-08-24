@@ -1760,6 +1760,7 @@ teleportation_costs_the_two_coins 18
 handle_capacity_is_quantum_by_architecture 18
 usable_gap_is_two_to_eighty 18
 capacity_order_is_forced 18
+uuid_mix_census_halves 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

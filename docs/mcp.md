@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="199 keys" />
+# MCP tools <Badge type="tip" text="201 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 199 tools below are read from the server's own tool list and
+is **built from the keys**: the 201 tools below are read from the server's own tool list and
 organised into 38 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · abb074be-dd0e-8b45-b4bc-8991b0d91313
+gate CLEAN f0 d0 v0 · 3ae9e51c-c961-8da6-b1b5-1cad9eb28edd
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 199-tool registry folds to its
-order-invariant identity `76d6fd83-e1a8-842d-80bd-0f88b824a335` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 201-tool registry folds to its
+order-invariant identity `548e76e2-251e-862b-a593-b2df911c40cf` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`199`" />
+## The grid <Badge type="tip" :text="`201`" />
 
-199 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 76 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+201 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 77 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -71,6 +71,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-editorial"><code>editorial</code></a>
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
+<a href="#uuidna-expose"><code>expose</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
 <a href="#uuidna-full-anti-fraud-audit"><code>full_anti_fraud_audit</code></a>
@@ -205,6 +206,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-verify-envelope"><code>verify_envelope</code></a>
 <a href="#uuidna-verify-statement"><code>verify_statement</code></a>
 <a href="#uuidna-wave"><code>wave</code></a>
+<a href="#uuidna-wave-deposit"><code>wave_deposit</code></a>
 <a href="#uuidna-agent-contribute"><code>agent_contribute</code></a>
 <a href="#uuidna-audit-coin-claim"><code>audit_coin_claim</code></a>
 <a href="#uuidna-audit-translation"><code>audit_translation</code></a>
@@ -567,7 +569,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'89'" />
+## Other <Badge type="tip" :text="'91'" />
 
 *skill: other*
 
@@ -827,6 +829,22 @@ Audit a PUBLIC video listing by URL or id: fingerprint its posted oEmbed metadat
 | `url` | string | **yes** | a YouTube watch URL or bare 11-character video id |
 | `captions` | string | no | caption/transcript text to adjudicate detail by detail |
 | `delimiter` | string | no | detail boundary for the captions (default: newline) |
+
+### `uuidna_expose`
+
+THE COORDINATES WHERE UNSEALED STRUCTURE EXPOSES ITSELF (lead 131, the discovery half of the one-call loop): walk the ledger's own coordinate surfaces and return where clusters point at missing seals — LONELY theorems (a computing principle with no neighbour: the cluster of one, asking for its second), GRID gaps (the 432 grid's own report of broken seats), PAIR gaps. Pure and offline — the coordinates compute from the sealed ledger alone, folded to one receipt. HONEST: a coordinate is WHERE to dig, never a theorem — what it exposes becomes real only when a candidate rides uuidna_wave_deposit and the KERNEL seals it. Returns {lonely,gridGaps,pairsGaps,counts,receipt,honest}.
+
+_No parameters._
+
+### `uuidna_wave_deposit`
+
+SAVE THEOREM CANDIDATES IN ONE CALL (lead 131, the deposit half of the loop): pass {candidates:[{key,why,lean}]} and each is validated at the conveyor's OWN door (the same laws queue-wave enforces: lawful key, real why, `by decide` only, no sorry/axiom, no dupes); the lawful land in lean/wave-queue.json pending, where the resident wave probes each alone, the KERNEL the judge. HONEST: the deposit buys VALIDATION and QUEUEING, never a seal (theorem provenance_integrity_not_content_truth) — refusals return with reasons named; a validated candidate is PENDING until the kernel speaks. Host-side only (no filesystem at the edge — capability, declared). Returns {deposited,refused,pending,receipt,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `candidates` | array | **yes** | the candidates, each {key, why, lean} |
 
 ### `uuidna_snapshot`
 

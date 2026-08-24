@@ -2,7 +2,7 @@
 # uuidna — Advantage Metrics
 
 **Generated:** 2026-08-24
-**Data source:** Live ledger (1662 sealed theorems)
+**Data source:** Live ledger (1663 sealed theorems)
 
 ---
 
@@ -11,12 +11,12 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 1662 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 1662/1662 (100%) | Kernel-only proofs, recomputable offline |
+| **Theorems proven** | 1663 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 1663/1663 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 112 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 109 | Capability axes across the ledger |
 | **Proof cost** | 694684 decide-steps | MEASURED per theorem in lean/heartbeats.json |
-| **Verification work** | 1662 addresses | one recomputed per theorem |
+| **Verification work** | 1663 addresses | one recomputed per theorem |
 | **Steps per address** | 417 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
@@ -58,7 +58,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 
 ### 4. **Verification 80,000x Faster Than Proof**
 - First push (prove): 694684 kernel decide-steps, measured
-- Every later push (verify): 1662 address recomputations
+- Every later push (verify): 1663 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
@@ -84,8 +84,8 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       1662
-Axiom-free (decide):  1662 (100.0%)
+Total theorems:       1663
+Axiom-free (decide):  1663 (100.0%)
 Principles:           112 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities
@@ -108,7 +108,7 @@ table or it is not a measurement):
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
 | Public model feed | 419 models · widest window 2,000,000 tokens · 1,628,432,400 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
-| Ledger | 1662 theorems · 112 principles · 109 skills | [/theorems](/theorems) · every wing |
+| Ledger | 1663 theorems · 112 principles · 109 skills | [/theorems](/theorems) · every wing |
 
 ## How to Verify These Numbers
 
