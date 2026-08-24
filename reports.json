@@ -22,13 +22,13 @@
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1662,
+        "theoremsMeasured": 1663,
         "ledgerKeys": 1663,
-        "unmeasured": 1,
+        "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "6f27918c-af17-8196-99dc-027cfb3c2f7a"
+      "address": "025a7cfe-b65b-8845-8874-33e8c60d5a73"
     },
     {
       "title": "Citation audit",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 112,
-        "sealedTheorems": 1662,
+        "sealedTheorems": 1663,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "a9965850-c0ea-86d9-8366-b8e5b539e8ba"
+      "address": "3c82661b-b091-8453-82f8-be022b92112f"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 541,
-        "roots": 361,
-        "supported": 541,
+        "modules": 543,
+        "roots": 362,
+        "supported": 543,
         "dead": 0,
-        "receipt": "c8891284-2500-87c7-ade4-2168a207842c"
+        "receipt": "77aecc93-5986-83b6-b867-53c803d2036f"
       },
-      "address": "f5123f9f-89ea-8a6d-9fff-469c6a7766d0"
+      "address": "8500a1af-8e00-8347-9dd9-5c7329f1791d"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "b23d6b907f57a3c6",
-        "unifiedFold": "d851c85d23f9a849"
+        "foldReceipt": "1991372b4f03a76d",
+        "unifiedFold": "09ecb5eea1650272"
       },
-      "address": "376b015c-127b-8fb0-895e-da2760fe8d64"
+      "address": "ebb622eb-14f0-8492-9187-040330509265"
     }
   ],
-  "receipt": "8fb5bd19-7035-8652-8498-63564d9f33ed",
+  "receipt": "6983c73d-1f06-8fe2-b557-cc26ff20d6c1",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

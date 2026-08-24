@@ -2,14 +2,14 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "ed9da06dd5ed6738",
+      "theorems": "bd113a8758fa2c37",
       "principles": "6c2ca56e2ebffac7",
       "monographs": "94d859eb41424caf"
     },
     "served": {
       "packages": "5aacd0af35a35c23",
       "exports": "0b8c10e1e86dca15",
-      "mcp": "f7c5cd917e86f77c"
+      "mcp": "1be8a92c0b5c2e9b"
     },
     "proven": {
       "tests": "c9527d4896a07019",
@@ -28,32 +28,32 @@
     }
   },
   "trinity_folds": {
-    "sealed": "c4ef5989ea6fbe19e74ebe6e9c72297c",
-    "served": "c18fcac1fb639ae884bae71f0e22e949",
+    "sealed": "a005632185403fc2f28093bcb55ed38b",
+    "served": "1ce41655417fc3526990562fa679054d",
     "proven": "938e5244673fb34f13456e942a8b93f7",
     "record": "401f453ee25ccacbb64c037b139e5569",
     "walks": "f37eaea166d9fec79b11b0e61b66004d"
   },
-  "unified_fold": "d851c85d23f9a849",
-  "receipt": "b23d6b907f57a3c6",
+  "unified_fold": "09ecb5eea1650272",
+  "receipt": "1991372b4f03a76d",
   "rosette_receipt": {
     "rays": [
       "07a5bba0065d949e",
       "25a2a9bcced1fc36",
-      "fc55fca8a91ec8d8",
+      "c8044a10e8d8efc7",
       "a20454282e566346",
       "ee0ac1e818d844d9",
       "a761502744407dcd",
-      "92957b6bc65dcaa4"
+      "3299ce1ea5307806"
     ],
-    "concurrence": "01d1b8a74934550a8a7a6af690c39c9d"
+    "concurrence": "8ae1056c203996f19ee9fc2bbd2e2778"
   },
   "aura": {
-    "rgb": "#3fd564",
-    "hsl": "hsl(135, 64%, 54%)",
+    "rgb": "#98d241",
+    "hsl": "hsl(84, 62%, 54%)",
     "alphabet": "b6819334641853db",
-    "movie": "01e8e8e4db57d3e9",
-    "lessons": "811d81363ba8d110",
+    "movie": "b99b954ec23bf263",
+    "lessons": "0a55352b1b350aeb",
     "report": "940001b6ff9bd2fc",
     "session": "94010c0d1310be23",
     "coverage": {
@@ -72,12 +72,12 @@
     },
     "dimensions": {
       "residue": 2,
-      "ray": 1,
+      "ray": 0,
       "wave": 4,
-      "hue": 135,
-      "sat": 64,
+      "hue": 84,
+      "sat": 62,
       "light": 54,
-      "period": 14,
+      "period": 12,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64
