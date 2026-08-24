@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="832 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="837 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 832 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 837 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `0a2f1a89` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `3a9b7f4c` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -896,7 +896,7 @@ a free tree is acquired with zero polls — waiting costs nothing when nothing h
 a DEAD holder is reclaimed by the wait — stale-reclaim is inherited, not reimplemented
 CONTROL — a LIVE stranger is announced once and refused at the ceiling, never waited on forever
 a holder with NO live child is still refused at the ceiling — the stuck signal is unchanged
-CONTROL — a holder that IS working EXTENDS past the ceiling instead of being accused
+CONTROL — a holder that IS working EXTENDS past the ceiling, and the lane is taken when it finishes
 ```
 
 **open-questions** — 3 utterances
@@ -1460,6 +1460,16 @@ reflects, reveal, holofractal, security_audit, cloudflare_audit — the reflecti
 ```text
 the under-tested set is DECLARED and does not grow — new tools earn a test or a deliberate baseline entry
 the census is honest — directly-exercised and aggregate-only partition the tools exactly
+```
+
+**trading-shelf** — 5 utterances
+
+```text
+the census counts two coins per sealed thing and CHECKS the conservation
+the leverage never reports a negative saving — the sealed floor holds
+the compound counts whole doublings at the sealed threshold and keeps the ratio exact
+the desk prices a workload from the sealed billing surface
+CONTROL — every instrument states its scope IN the answer, so the disclaimer cannot be lost in transit
 ```
 
 **trial-dimensions** — 6 utterances
