@@ -82,8 +82,13 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'cat', 'which', 'stat', 'pwd', 'echo', 'help'] as const
+export const APPLETS = ['ls', 'cat', 'which', 'stat', 'pwd', 'echo', 'apk', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
+
+/** the apk sub-verbs uuidna ports — the package manager's READ surface only: list the inventory, show a package
+ *  by NAME, query its dependencies forward and back. NEVER add/del/update — a provenance OS installs nothing
+ *  (theorem the_os_is_bootable_quantum); the sealed mirror IS the installed world, queried, never mutated. */
+export const APK_VERBS = ['list', 'info', 'depends', 'rdepends'] as const
 
 /** resolve a package by name (busybox) or by route (/terminal); the two directions `which` walks. */
 const specByName = (name: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => s.name === name)
@@ -149,10 +154,34 @@ export function uuidnaExec(line: string): ExecResult {
       emit([text], { text, address: addr, hexbits: compileToHexbits(addr) })
       break
     }
+    case 'apk': {                                                    // the package manager — READ surface only, over the sealed mirror
+      const verb = args[0] ?? ''
+      const name = args[1] ?? ''
+      if (verb === 'list') {                                         // the whole ported inventory, one line each
+        const rows = [...specs].sort((a, b) => (a.name < b.name ? -1 : 1))
+        emit(rows.map((s) => `${s.name}-${s.version}  ${s.route}`), { installed: rows.length, packages: rows.map((s) => ({ name: s.name, version: s.version, route: s.route })) })
+      } else if (verb === 'info') {                                  // a package BY NAME (cat is by route) — its provenance record
+        const s = specByName(name, specs)
+        if (!s) { err(`apk info: ${name}: not a ported package (try \`apk list\`)`); break }
+        emit([`${s.name}-${s.version} description:`, `  ${s.meaning}`, `${s.name}-${s.version} webpage:`, `  ${s.route}`,
+          `${s.name}-${s.version} depends on:`, ...(s.deps.length ? s.deps.map((d) => '  ' + d) : ['  (none)'])],
+          { name: s.name, version: s.version, route: s.route, meaning: s.meaning, checksum: s.checksum, deps: s.deps, address: s.address })
+      } else if (verb === 'depends') {                               // forward deps — what this package pulls in
+        const s = specByName(name, specs)
+        if (!s) { err(`apk depends: ${name}: not a ported package`); break }
+        emit(s.deps.length ? s.deps : ['(none)'], { name: s.name, depends: s.deps })
+      } else if (verb === 'rdepends') {                              // reverse deps — who pulls THIS package in
+        if (!specByName(name, specs)) { err(`apk rdepends: ${name}: not a ported package`); break }
+        const rdeps = specs.filter((s) => s.deps.includes(name)).map((s) => s.name).sort()
+        emit(rdeps.length ? rdeps : ['(none)'], { name, rdepends: rdeps })
+      } else err(`apk: ${verb || '(missing)'}: not a ported verb — READ only: ${APK_VERBS.join(' ')} (a provenance OS installs nothing)`)
+      break
+    }
     case 'help': emit(['applets: ' + APPLETS.join(' '),
-      'ls <path> · cat <route> · which <name|route> · stat <path> · pwd · echo <text> · help',
+      'ls <path> · cat <route> · which <name|route> · stat <path> · pwd · echo <text>',
+      'apk list · apk info <name> · apk depends <name> · apk rdepends <name>  (read-only — installs nothing)',
       'the whole toolbox is uuidna\'s own logic over the virtual OS — no binary is ever run'],
-      { applets: APPLETS }); break
+      { applets: APPLETS, apk: APK_VERBS }); break
     case '': err('exec: empty command — try `help`'); break
     default: err(`exec: ${applet}: not a ported applet (try \`help\`); uuidna ports the busybox filesystem family, faking none`)
   }

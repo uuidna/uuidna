@@ -62,6 +62,33 @@ test('deterministic AND change-sensitive AND honest on the unknown — the execu
   assert.ok(!APPLETS.includes('rm' as never), 'rm is deliberately not an applet — a provenance OS deletes nothing')
 })
 
+test('apk — the package manager\'s READ surface: list the inventory, info by name, deps forward and back', () => {
+  const list = uuidnaExec('apk list')
+  assert.ok(list.ok)
+  assert.ok((list.data as { installed: number }).installed >= 25, 'the whole ported inventory is listed')
+  assert.ok(list.output.some((l) => l.startsWith('musl-')), 'musl is in the inventory with its version')
+
+  const info = uuidnaExec('apk info busybox')
+  assert.ok(info.ok)
+  assert.equal((info.data as { name: string }).name, 'busybox', 'info resolves BY NAME (cat is by route)')
+  assert.ok(info.output.some((l) => l.includes('description')), 'the record shows the description')
+
+  const deps = uuidnaExec('apk depends alpine-base')  // the meta package pulls in the base set
+  assert.ok(deps.ok)
+  assert.ok((deps.data as { depends: string[] }).depends.length > 0, 'alpine-base has forward deps')
+
+  const rdeps = uuidnaExec('apk rdepends musl')       // who depends on the C library
+  assert.ok(rdeps.ok)
+  assert.ok(Array.isArray((rdeps.data as { rdepends: string[] }).rdepends), 'reverse deps computed')
+
+  // control: a WRITE verb is refused — a provenance OS installs nothing
+  const add = uuidnaExec('apk add nginx')
+  assert.equal(add.ok, false)
+  assert.match(add.output[0]!, /not a ported verb|READ only/)
+  // control: an unknown package is an honest error
+  assert.equal(uuidnaExec('apk info nonesuch').ok, false)
+})
+
 test('the SERVED tool uuidna_exec dispatches — the terminal\'s command line answered by the wire', () => {
   const r = callTool('uuidna_exec', { line: 'cat /terminal' }) as ReturnType<typeof uuidnaExec>
   assert.ok(r.ok, 'cat /terminal succeeds through the served tool')
