@@ -10,13 +10,18 @@
 // The true number of claim×fold trials actually run is printed below, honestly. It CAN fail (exit 1);
 // a gate rigged to pass would make "ready" mean nothing. Integrity. Legal soundness. Quantum honesty.
 import { lonelyGaps } from './one-receipt.js'
+import { ROOT } from './api.js'
 import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, type PageNode } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 
 const VERSION = JSON.parse(readFileSync(new URL('../../package.json', import.meta.url), 'utf8')).version as string
-const ROOT = new URL('../..', import.meta.url).pathname
+// A URL's pathname IS NOT A PATH. `new URL('../..').pathname` yields `/C:/Users/…` on Windows, so every join built
+// from it produced `C:\C:\Users\…` and the readiness trial died at ARM 5 reading a README that exists — the third
+// appearance of this exact confusion in this tree (the six dynamic imports, audit-packages' hand-chopped scheme,
+// and here). The scripts layer already derives the root correctly, once, and `dry` asks that it be imported rather
+// than re-derived; importing it is both the fix and the law.
 const ROSETTE = 7
 let trials = 0            // the true count of individual checks folded into the readiness
 const fails: string[] = []
