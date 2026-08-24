@@ -1,6 +1,7 @@
 #!/usr/bin/env node
-// @non-harmonic: measures wall-clock (performance.now, node:perf_hooks) — used ONLY to MEASURE, the same named
-// exemption crypto-measure.ts carries; and writes the derived report files. Never imported by the harmonic core.
+// @non-harmonic: measures wall-clock (through steady-state.ts, which holds the perf_hooks stopwatch) — used ONLY
+// to MEASURE, the same named exemption crypto-measure.ts carries; and writes the derived report files. Never
+// imported by the harmonic core.
 // gen-quantum-capacity — THE QUANTUM CAPACITY REPORT, generated and sealed (the captain's order, 2026-08-23:
 // the complete white paper at README and home carries the capacity-and-use report with strict measurements —
 // total capacity and use in columns per type of known quantum model, evident for every model without preference,
@@ -19,8 +20,8 @@
 //     itself sealed: theorem capacity_order_is_forced, and the gap: theorem usable_gap_is_two_to_eighty.
 import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { performance } from 'node:perf_hooks'
 import { ROOT } from './api.js'
+import { steadyStateNs } from './steady-state.js'
 import { toUuid } from '../address.js'
 import { theorems } from '../theorems/index.js'
 import { handleOf } from '../handle.js'
@@ -73,16 +74,18 @@ const REPORTED: Row[] = [
  *  THE VALUE STORED IS THE DECADE, not the raw figure — a raw timing drifts the sealed derived layer on every
  *  run (spin hard-rejects that, and lead 104's law forbids pinning a moving value); the DECADE (order of
  *  magnitude, the school's own unit for measured kernel costs) is stable across runs and still strict: an
- *  order change is exactly the regression worth resealing over. The raw figure prints to the console only. */
+ *  order change is exactly the regression worth resealing over. The raw figure prints to the console only.
+ *
+ *  THE DECADE ONLY RESEALS IF THE MEASUREMENT IS OF THE WORK. This function used to time ONE sweep in a fresh
+ *  process, which times the JIT: 10662 ns on the first pass against 48-132 ns on the passes after it, noise wide
+ *  enough to straddle the 10^3/10^4 boundary. So the sealed layer had no fixed point and flip-flopped between two
+ *  coins for a run of commits. steady-state.ts holds the cure and the full account: warm first, then take the
+ *  floor — the floor because host noise is one-sided and can only ever add. */
 function measureUuidna(): { nsDecade: number; ledger: number; rawNs: number } {
   const T = theorems()
-  const t0 = performance.now()
-  const seen = new Set<string>()
-  for (const t of T) seen.add(toUuid(t.statement))
-  const ms = performance.now() - t0
-  // no Math.* anywhere (the determinism hard-reject has no exemption): digit count carries the decade
-  const rawNs = Number(((ms * 1e6) / T.length).toFixed(0))
-  return { nsDecade: String(rawNs).length - 1, ledger: T.length, rawNs }
+  const sweep = () => { const seen = new Set<string>(); for (const t of T) seen.add(toUuid(t.statement)) }
+  const s = steadyStateNs(sweep, T.length)
+  return { nsDecade: s.decade, ledger: T.length, rawNs: s.ns }
 }
 
 const digitsOfPow2 = (n: number): number => (2n ** BigInt(n)).toString().length
