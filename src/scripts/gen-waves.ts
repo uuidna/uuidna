@@ -44,7 +44,11 @@ runner validates it at the door, the KERNEL probes it alone, survivors lift into
 run, and refusals enroll at the law school with their reasons named. This page is the queue file's own record,
 laid as a table; the coordinates that feed it live on [the discovery board](/expose). The whole wave runs as
 ONE command — \`npm run wave\` — convey, lift, witness, guard, reconcile, with locks waited out and only the
-named transient classes retried.
+named transient classes retried. The deploy is its twin: \`npm run ship\` contributes the two coins first,
+builds, ships the worker, requires the LIVE edge to address the newest sealed cargo exactly as the local
+ledger does, and mints the post-deploy proof citing that same key — a citation that exists only in the ledger
+the deploy shipped, so the proof licenses itself. Both together are \`npm run all\`: deposit to origin to
+edge, one command, every receipt named.
 
 ## Pending — deposited, awaiting the kernel
 
