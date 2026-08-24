@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="792 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="804 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 792 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 804 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `b1afeffe` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `28e334f8` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -617,6 +617,20 @@ seedOf is the handle read as a number, over the LIVE ledger and not over example
 the derivations that are deliberately NOT seedOf keep their own width and domain
 buildChunks is computed ONCE — the same object, not an equal one
 the key index resolves EXACTLY what a linear scan resolves, over every live key
+```
+
+**harmony-scan** — 9 utterances
+
+```text
+the interval is the reduced ratio of the tiles, and the ladder names the small ones
+the structural scan is a census — every bar counted, the widest located by number
+a healthy recording agrees with its score, and the panel carries its receipt and its scope
+CONTROL — a mix over the sealed ceiling is FLAGGED, not passed
+CONTROL — a recording of a DIFFERENT song fails the cross-check, though both are valid audio
+CONTROL — the measured pitch can disagree: a tone off the lattice reads off it
+the apparatus reads the artifact as handed to it — a WAV this tree wrote comes back as its samples
+silence alone is no song: an empty recording is voiceless and says so
+THE APPARATUS\
 ```
 
 **hero-channel** — 4 utterances
@@ -1352,6 +1366,14 @@ every gated file is sealed by spin
 an EMPTY manifest refuses, rather than agreeing with everything
 a DIRECTORY entry seals every file beneath it
 a sealed manifest still detects a tampered file, and passes an intact one
+```
+
+**stream-step** — 3 utterances
+
+```text
+a passing step captures its output and reports ok
+a FAILING step reports ok:false — the exit code survives, which a pipe would have eaten
+stderr is captured alongside stdout — a runner classifies what a step said, wherever it said it
 ```
 
 **terminal** — 7 utterances

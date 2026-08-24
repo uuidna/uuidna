@@ -1571,6 +1571,13 @@ beam_reactions 19
 truss_maxwell_rule 19
 stress_is_force_over_area 19
 hookes_law 19
+#Strings.lean
+every_string_has_thirty_two_modes 19
+the_spectrum_is_length_blind 19
+the_empty_string_still_sounds 19
+unison_is_collision 19
+the_spectra_exhaust_the_address_space 19
+collisions_are_forced_by_the_ceiling 19
 #Structures.lean
 maxwells_rule_truss 19
 redundancy_pays_one 19

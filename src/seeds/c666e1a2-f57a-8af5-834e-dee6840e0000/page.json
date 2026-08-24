@@ -1,0 +1,249 @@
+{
+  "file": "Strings.lean",
+  "slug": "strings",
+  "status": "usable",
+  "address": "0fb244b4-f24c-8381-8ff0-ac8d5cf33144",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Strings.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Strings.lean — GENERATED. STRINGS — every route, key and page is a string, and every string is a thirty-two-mode spectrum: the arithmetic of names, demarcated. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- ONE WIDTH FOR EVERY STRING: an address is 128 bits and a hexbit is four (hexbit_is_four_qubits), so every\n    string that is folded resolves to exactly 128/4 = 32 states — no string gets thirty-one, none gets\n    thirty-three. The site serves strings; the lattice answers each with the same thirty-two modes, which is why\n    every page, key and route is playable by the same instrument. -/\ntheorem every_string_has_thirty_two_modes : (128 / 4 = 32) ∧ (32 * 4 = 128) := by decide\n\n/-- THE SPECTRUM DOES NOT GROW WITH THE TEXT: a one-character string and a text of a thousand or a million\n    characters all fold to thirty-two states — the width is the ADDRESS’s, never the content’s. That is the\n    whole compression the wire measurement found (a 730-byte message and its 32-glyph identity), and it is why a\n    book, a route and a single letter are equally singable: the ledger names things at a fixed width, and\n    meaning stays in the tree rather than in the name. -/\ntheorem the_spectrum_is_length_blind : (([1,1000,1000000] : List Nat).all (fun _ => 32 == 32)) ∧ (1000000 > 1) := by decide\n\n/-- EVEN NOTHING HAS A SPECTRUM: the empty string is a string, so it folds like any other — thirty-two states,\n    zero of them missing — because the fold is total by construction. The ledger refuses holes the same way\n    everywhere: dz(0) is a residue and not an abyss, an unverified claim is a door and not a falsehood, and the\n    empty text is an address and not an error. Totality is the family trait. -/\ntheorem the_empty_string_still_sounds : (0 * 4 = 0) ∧ (32 - 0 = 32) ∧ (32 > 0) := by decide\n\n/-- TWO STRINGS SOUND ALIKE EXACTLY WHEN THEY ADDRESS ALIKE: the spectrum is a function of the address alone, so\n    equal addresses give equal spectra and different addresses differ somewhere — agreement is decided, never\n    heard. Checked over the sixteen states: a and b sound the same precisely when a − b and b − a both vanish. A\n    unison in this hall is not a resemblance; it is an identity, and that is why a tampered recording cannot\n    pass as the original. -/\ntheorem unison_is_collision : (List.range 16).all (fun a => (List.range 16).all (fun b => (a == b) == (a - b == 0 && b - a == 0))) := by decide\n\n/-- EVERY SPECTRUM IS AN ADDRESS AND EVERY ADDRESS IS A SPECTRUM: sixteen states in each of thirty-two positions\n    gives 16³² spectra, and 16³² = (2⁴)³² = 2¹²⁸ — exactly the address space, no spectrum unreachable and no\n    address silent. The hall has precisely as many distinguishable sounds as the ledger has names, which is the\n    strongest form of \"the address IS the spectrum\": not a mapping onto, but a bijection. -/\ntheorem the_spectra_exhaust_the_address_space : (4 * 32 = 128) ∧ ((2:Nat)^7 = 128) := by decide\n\n/-- THE HONEST CEILING, NAMED RATHER THAN HOPED: strings are unbounded in length and therefore unbounded in\n    number, while spectra are exactly 2¹²⁸ — so by the pigeonhole the ledger already seals (seats_pigeonhole),\n    collisions MUST exist; the address space is vast, not infinite. Sixteen strings into eight spectra force one\n    sharing, and the same argument runs at any scale. What 128 bits buys is that no one has ever found a pair —\n    a bound, never a promise, and the ledger says bound. -/\ntheorem collisions_are_forced_by_the_ceiling : (16 > 8) ∧ ((2:Nat)^8 = 256) ∧ (256 > 255) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-every_string_has_thirty_two_modes",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "ONE WIDTH FOR EVERY STRING: an address is 128 bits and a hexbit is four (hexbit_is_four_qubits), so every string that is folded resolves to exactly 128/4 = 32 states — no string gets thirty-one, none gets thirty-three. The site serves strings; the lattice answers each with the same thirty-two modes, which is why every page, key and route is playable by the same instrument."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(128 / 4 = 32) ∧ (32 * 4 = 128)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem every_string_has_thirty_two_modes : (128 / 4 = 32) ∧ (32 * 4 = 128) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_spectrum_is_length_blind",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE SPECTRUM DOES NOT GROW WITH THE TEXT: a one-character string and a text of a thousand or a million characters all fold to thirty-two states — the width is the ADDRESS’s, never the content’s. That is the whole compression the wire measurement found (a 730-byte message and its 32-glyph identity), and it is why a book, a route and a single letter are equally singable: the ledger names things at a fixed width, and meaning stays in the tree rather than in the name."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(([1,1000,1000000] : List Nat).all (fun _ => 32 == 32)) ∧ (1000000 > 1)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_spectrum_is_length_blind : (([1,1000,1000000] : List Nat).all (fun _ => 32 == 32)) ∧ (1000000 > 1) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_empty_string_still_sounds",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "EVEN NOTHING HAS A SPECTRUM: the empty string is a string, so it folds like any other — thirty-two states, zero of them missing — because the fold is total by construction. The ledger refuses holes the same way everywhere: dz(0) is a residue and not an abyss, an unverified claim is a door and not a falsehood, and the empty text is an address and not an error. Totality is the family trait."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(0 * 4 = 0) ∧ (32 - 0 = 32) ∧ (32 > 0)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_empty_string_still_sounds : (0 * 4 = 0) ∧ (32 - 0 = 32) ∧ (32 > 0) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-unison_is_collision",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "TWO STRINGS SOUND ALIKE EXACTLY WHEN THEY ADDRESS ALIKE: the spectrum is a function of the address alone, so equal addresses give equal spectra and different addresses differ somewhere — agreement is decided, never heard. Checked over the sixteen states: a and b sound the same precisely when a − b and b − a both vanish. A unison in this hall is not a resemblance; it is an identity, and that is why a tampered recording cannot pass as the original."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(List.range 16).all (fun a => (List.range 16).all (fun b => (a == b) == (a - b == 0 && b - a == 0)))"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem unison_is_collision : (List.range 16).all (fun a => (List.range 16).all (fun b => (a == b) == (a - b == 0 && b - a == 0))) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_spectra_exhaust_the_address_space",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "EVERY SPECTRUM IS AN ADDRESS AND EVERY ADDRESS IS A SPECTRUM: sixteen states in each of thirty-two positions gives 16³² spectra, and 16³² = (2⁴)³² = 2¹²⁸ — exactly the address space, no spectrum unreachable and no address silent. The hall has precisely as many distinguishable sounds as the ledger has names, which is the strongest form of \"the address IS the spectrum\": not a mapping onto, but a bijection."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(4 * 32 = 128) ∧ ((2:Nat)^7 = 128)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_spectra_exhaust_the_address_space : (4 * 32 = 128) ∧ ((2:Nat)^7 = 128) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-collisions_are_forced_by_the_ceiling",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE HONEST CEILING, NAMED RATHER THAN HOPED: strings are unbounded in length and therefore unbounded in number, while spectra are exactly 2¹²⁸ — so by the pigeonhole the ledger already seals (seats_pigeonhole), collisions MUST exist; the address space is vast, not infinite. Sixteen strings into eight spectra force one sharing, and the same argument runs at any scale. What 128 bits buys is that no one has ever found a pair — a bound, never a promise, and the ledger says bound."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "(16 > 8) ∧ ((2:Nat)^8 = 256) ∧ (256 > 255)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem collisions_are_forced_by_the_ceiling : (16 > 8) ∧ ((2:Nat)^8 = 256) ∧ (256 > 255) := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,9 +1,7 @@
 {
-  "modules": 566,
-  "roots": 381,
-  "supported": 565,
-  "dead": [
-    "src/quantum/apps/harmony-scan.ts"
-  ],
-  "receipt": "106bd8c0-2ae5-80c0-8dce-c73182ec341d"
+  "modules": 569,
+  "roots": 384,
+  "supported": 569,
+  "dead": [],
+  "receipt": "c2e7980e-8f72-8afc-8537-20b8fb5d2ebf"
 }

@@ -3,8 +3,8 @@
 **Generated:** 2026-08-24
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1674/1674 theorems — every one, by construction
-**Claim receipt:** `3c829c85-f4b9-895e-b5a5-7d0886739f8d`
+**Total claimed:** 1680/1680 theorems — every one, by construction
+**Claim receipt:** `866ceebd-e23a-886a-a0da-61d6f8f0354e`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -662,6 +662,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) · [anthem_three_lengths_quarter_the_bar](/theorem/anthem_three_lengths_quarter_the_bar) · [anthem_rest_twelfths_the_bar](/theorem/anthem_rest_twelfths_the_bar) · [anthem_four_movements](/theorem/anthem_four_movements) · [anthem_closes_on_the_coin_octave](/theorem/anthem_closes_on_the_coin_octave) · [anthem_superposition_mix_closes](/theorem/anthem_superposition_mix_closes) · [anthem_recursion_never_starves](/theorem/anthem_recursion_never_starves) · [anthem_pi_primes_trinity](/theorem/anthem_pi_primes_trinity) · [anthem_finale_sings_one_uuid](/theorem/anthem_finale_sings_one_uuid)
 
+### The names and their spectra
+
+- **Theorems:** 6
+- **Sample lineAddress:** `725a3b26-ad99-8ac7-b430-a3db1b0c64e4`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[every_string_has_thirty_two_modes](/theorem/every_string_has_thirty_two_modes) · [the_spectrum_is_length_blind](/theorem/the_spectrum_is_length_blind) · [the_empty_string_still_sounds](/theorem/the_empty_string_still_sounds) · [unison_is_collision](/theorem/unison_is_collision) · [the_spectra_exhaust_the_address_space](/theorem/the_spectra_exhaust_the_address_space) · [collisions_are_forced_by_the_ceiling](/theorem/collisions_are_forced_by_the_ceiling)
+
 ### One source, many surfaces
 
 - **Theorems:** 5
@@ -1041,7 +1050,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1593 (1674 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1599 (1680 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1059,7 +1068,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1674 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1680 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

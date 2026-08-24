@@ -25,10 +25,10 @@ belongs beside it (same principle, same wing — the reader's craft, not a scrip
 
 ## Grid gaps — the 432 grid's own report
 
-- **113 wings is harmonic in neither base — 6 × 113 = 678 leaves 3 mod 9 and 3 mod 15**
+- **114 wings is harmonic in decimal only — 6 × 114 = 684 leaves 0 mod 9 and 9 mod 15**
   — fix: a count divisible by FIFTEEN is harmonic in both bases (lcm(3,5) = 15): 105 or 120 wings. Three-at-a-time was the decimal rule; five-at-a-time is the hexadecimal one, and fifteen is base-agnostic
-- **the grid is 678 seats— the ledger moved to 113 wings**
-  — fix: either restore 72 wings, or re-seal the width: k432's 16 × 27 no longer reads as 6 × 113
+- **the grid is 684 seats— the ledger moved to 114 wings**
+  — fix: either restore 72 wings, or re-seal the width: k432's 16 × 27 no longer reads as 6 × 114
 
 ## Pair gaps
 

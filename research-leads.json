@@ -1,34 +1,4 @@
 {
-  "leads": [
-    {
-      "module": "src/quantum/apps/harmony-scan.ts",
-      "capability": [
-        "LADDER",
-        "nameOf",
-        "Interval",
-        "intervalOf",
-        "Bar",
-        "Structural",
-        "scanStructure",
-        "Vitals",
-        "scanVitals",
-        "measuredHz",
-        "Panel",
-        "HONEST",
-        "scanSong",
-        "pcmOfWav"
-      ],
-      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
-      "develop": {
-        "local": [
-          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
-          "promote its claim to a Lean theorem so the trial verifies it",
-          "find the existing caller it was meant to serve, and connect it"
-        ],
-        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
-      },
-      "receipt": "16d5148d-1a25-8f58-8536-1279de7990d3"
-    }
-  ],
-  "receipt": "106bd8c0-2ae5-80c0-8dce-c73182ec341d"
+  "leads": [],
+  "receipt": "c2e7980e-8f72-8afc-8537-20b8fb5d2ebf"
 }

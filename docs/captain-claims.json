@@ -2,8 +2,8 @@
   "generated": "2026-08-24",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1674,
-  "total_theorems": 1674,
+  "total_claimed": 1680,
+  "total_theorems": 1680,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,20 +3781,20 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "2861d560-561a-81ec-9a73-79aabfbee213",
-      "address": "c723a37d-0cf5-8d74-9df2-4305e7aa2825",
+      "lineAddress": "f6aecf3f-b406-8b85-8ce1-d71a9e0b785c",
+      "address": "d0f41b05-df94-80d4-9551-b0fbd82ec2f1",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "d71edfd1-52a8-8ddc-a8b2-805504a1e16b",
-      "address": "70c72b1b-d77a-8b03-a7e3-3cfbe37f3494",
+      "lineAddress": "95e3c131-0921-803e-889a-9290bbd9b492",
+      "address": "2d1bd82e-21a7-8d53-82ae-01a82090b6cb",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "4705ffbb-da1e-893c-97a5-e819405113c2",
-      "address": "26b68096-4c67-8a67-b362-d47ce6ceb4a7",
+      "lineAddress": "ed6d0b03-9fe5-8311-9449-fb618c42e5d2",
+      "address": "a0d26ca1-07c1-8fdc-9697-8c4682736250",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "c9829985-718e-8f6d-b3de-56f4c936fcfd",
-      "address": "1942ec59-7c1d-8c6c-8ec1-b14b02cea817",
+      "lineAddress": "9869be33-4f52-8b1d-905e-902d2e5b9fb7",
+      "address": "686f2482-c275-8305-bb6c-cbca97d53f30",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "13d41817-6962-8fe9-9e07-9a34fcdaed26",
-      "address": "918502fd-ebc9-8ebc-9cdb-00ea344bf495",
+      "lineAddress": "43a8cd91-daf2-8dbe-9967-6a0224f47c93",
+      "address": "f7a7f527-4415-8e70-8f5b-1ea22fe8ae26",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "7fdfccf5-8e96-8da2-8eec-eb9f4cb82ea3",
-      "address": "bfb6fbd3-5da2-8a4b-b515-0023d837a9a5",
+      "lineAddress": "6861306d-9b58-86d3-bea4-409a72433539",
+      "address": "e3d42ab2-06ed-8922-b8f3-cf0d0ad0023a",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "9f47f654-246e-88b3-ae8f-697a17044d9f",
-      "address": "0328cc67-f854-86ef-96ab-b93900627399",
+      "lineAddress": "81718220-6a95-8526-b5ff-2c0f6464475d",
+      "address": "3174bc73-e8ad-8978-aeff-9dc49ed792bf",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "6d87f0b9-b26f-8bdf-a82d-1b12d3f54a2c",
-      "address": "fe426bbb-f1e0-8d3d-a5d0-861aa23cb80d",
+      "lineAddress": "b5d25f37-f285-8048-a52e-28a06bca4f98",
+      "address": "00c0e8b1-9733-85c3-9be9-601d4982de9a",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "aeccb0d0-14b4-84d3-a5ac-9dcae295f536",
-      "address": "4702880a-f523-84c0-a9f4-74bec3d633d9",
+      "lineAddress": "70503e1d-843c-8604-ba73-ee49f3d68393",
+      "address": "436ac4c2-6a5f-8797-b072-f6243e76cb1c",
       "principle": "The detectors, proven"
     },
     {
@@ -4435,14 +4435,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "5d65b406-a2b2-84f7-81fd-5c2ad303540f",
-      "address": "0349b1a6-55ba-8301-b15f-91809b601046",
+      "lineAddress": "e4d3029a-ff97-8799-a563-fdf3a8da74b2",
+      "address": "013c6bcb-7a1a-8a3d-b2aa-4eec3967ce5d",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "e97bfe16-5220-8e10-8a3f-b8915bf30c9f",
-      "address": "39a289d9-b851-84e8-a8e8-ef0fe3742990",
+      "lineAddress": "b1286192-3a22-8766-bddc-4dc61e2bfa3a",
+      "address": "837f9f2c-ca4c-8eab-b441-16bbf76694be",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -7926,6 +7926,42 @@
       "principle": "The release anthem"
     },
     {
+      "key": "every_string_has_thirty_two_modes",
+      "lineAddress": "725a3b26-ad99-8ac7-b430-a3db1b0c64e4",
+      "address": "2f47f05a-3a69-8e98-97f1-8b838e037ce5",
+      "principle": "The names and their spectra"
+    },
+    {
+      "key": "the_spectrum_is_length_blind",
+      "lineAddress": "f64a982b-1e68-874c-927a-49799d7a3da1",
+      "address": "08e6907d-3f96-8574-9ea6-94581b3e5b64",
+      "principle": "The names and their spectra"
+    },
+    {
+      "key": "the_empty_string_still_sounds",
+      "lineAddress": "81a51483-e4f2-8da4-bf2e-b30b62a46ada",
+      "address": "8a0d0f02-5d3c-81d9-a4bf-6dc997be92f9",
+      "principle": "The names and their spectra"
+    },
+    {
+      "key": "unison_is_collision",
+      "lineAddress": "0d070b34-7052-8692-94df-aae73d7309d7",
+      "address": "44f2d91f-3ef6-8ab0-91ef-555e340e461e",
+      "principle": "The names and their spectra"
+    },
+    {
+      "key": "the_spectra_exhaust_the_address_space",
+      "lineAddress": "a918a567-3dbb-8366-ac09-e9872aca3ba4",
+      "address": "b6d5091c-2062-835b-b91c-6d0b557b284f",
+      "principle": "The names and their spectra"
+    },
+    {
+      "key": "collisions_are_forced_by_the_ceiling",
+      "lineAddress": "39f1c97b-55d4-82e9-9c79-8b494845646c",
+      "address": "51bf5346-eaef-83f3-827f-18147213fb81",
+      "principle": "The names and their spectra"
+    },
+    {
       "key": "one_source_is_exactly_one",
       "lineAddress": "5e5d96e5-7cfd-8c7d-9888-6da2c02b3600",
       "address": "41c6b49a-a049-83a7-bff4-cfacfad9ae7c",
@@ -10050,7 +10086,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "3c829c85-f4b9-895e-b5a5-7d0886739f8d",
+  "claim_receipt": "866ceebd-e23a-886a-a0da-61d6f8f0354e",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
