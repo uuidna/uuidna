@@ -9,7 +9,7 @@
     "support-audit.json": "d1f71100c0158d21",
     "research-leads.json": "c8729b5ce1b08ce0",
     ".zenodo.json": "0ff9978a59a88bbc",
-    "reports.json": "60c137c8cbee8931",
+    "reports.json": "5c6597c353f18b11",
     "lean/statement-index.json": "e79c0e3c8e288dc3",
     "README.md": "340d462742448de2",
     "llm.txt": "aa74c71910508e30",
@@ -1564,7 +1564,7 @@
     "lean/photography-manifest.json": "0d368abd272485df",
     "lean/pravets-manifest.json": "40c733ed8d4e80d8",
     "lean/production-manifest.json": "020b56a2d3db8735",
-    "lean/proof-cache.json": "3d824f89fcd881fb",
+    "lean/proof-cache.json": "638d090dac8f8258",
     "lean/propulsion-manifest.json": "dd4ce996a8f18260",
     "lean/prosetrial-manifest.json": "f29c531397f588fd",
     "lean/psychology-manifest.json": "573f1cc3d653898b",
@@ -1613,5 +1613,5 @@
     "lean/wave-queue.json": "b19ba210e0ed83d7",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "2950793e-fa90-87a8-ae6d-5ac7f56d94d7"
+  "receipt": "031ad2b0-2321-893c-add8-097db12923af"
 }
