@@ -9379,8 +9379,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "7729a195-e0a4-8423-b8bd-27d3018f49d0",
-      "address": "325181ea-8412-8b60-a164-60e8fa17b08d",
+      "lineAddress": "6aa3bbd9-b5f7-82a7-ad8b-7a2ae57b6c43",
+      "address": "d60c8a85-2d22-8d33-b9c2-cd0304f94740",
       "principle": "The models"
     },
     {
@@ -9978,7 +9978,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "6c6c73ab-4964-8566-99e7-45dff0106c55",
+  "claim_receipt": "f2c5fd49-7419-869c-82a8-f2def6ef0897",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

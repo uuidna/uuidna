@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 422,
+ "count": 419,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -818,32 +818,11 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000075"
   },
   {
-   "id": "inclusionai/ling-2.6-1t",
-   "name": "inclusionAI: Ling-2.6-1T",
-   "contextTokens": 262144,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.000000625"
-  },
-  {
-   "id": "inclusionai/ling-2.6-flash",
-   "name": "inclusionAI: Ling-2.6-flash",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000001",
-   "completionPrice": "0.00000003"
-  },
-  {
    "id": "inclusionai/ling-3.0-flash",
    "name": "Ling-3.0-flash",
    "contextTokens": 262144,
    "promptPrice": "0.000000021",
    "completionPrice": "0.000000063"
-  },
-  {
-   "id": "inclusionai/ring-2.6-1t",
-   "name": "inclusionAI: Ring-2.6-1T",
-   "contextTokens": 262144,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.000000625"
   },
   {
    "id": "kwaipilot/kat-coder-air-v2.5",

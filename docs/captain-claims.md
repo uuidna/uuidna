@@ -4,7 +4,7 @@
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Total claimed:** 1662/1662 theorems — every one, by construction
-**Claim receipt:** `6c6c73ab-4964-8566-99e7-45dff0106c55`
+**Claim receipt:** `f2c5fd49-7419-869c-82a8-f2def6ef0897`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
