@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "11d1a6c8-6e83-810f-a371-a463156dd83f"
+        "ledgerReceipt": "17bb9b20-aea3-8368-aecf-0864eb11cba6"
       },
-      "address": "6f041a9a-f688-84bc-a92d-4dc860c9f372"
+      "address": "63e55975-1291-8881-b5ad-fdb10ffbad8c"
     },
     {
       "title": "Heartbeat coverage",
@@ -76,6 +76,6 @@
       "address": "0b14e3c8-14ed-83c1-844a-2ad6d9a09a06"
     }
   ],
-  "receipt": "e228d9e2-c3b1-8447-9cc5-cd5a147c6327",
+  "receipt": "ded143a1-6f56-8d15-99ea-1bbd01e3ade0",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

@@ -106,7 +106,7 @@ table or it is not a measurement):
 | census | measured | where it is sealed / served |
 |---|---|---|
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
-| Public model feed | 419 models · widest window 2,000,000 tokens · 1,628,432,400 transient hexbits across all windows | [/models](/models) · `Models.lean` |
+| Public model feed | 416 models · widest window 2,000,000 tokens · 1,623,287,824 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
 | Ledger | 1666 theorems · 112 principles · 109 skills | [/theorems](/theorems) · every wing |
 
