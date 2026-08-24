@@ -10,5 +10,11 @@
     "verdict": "land stopped on an objection with no taught cure",
     "gap": "✗ land — pid 83657 (land) still holds the tree; one landing at a time is the whole point.",
     "commit": "11fe8b3b"
+  },
+  {
+    "round": 2,
+    "verdict": "land stopped on an objection with no taught cure",
+    "gap": "✗ land — the gate denied with NO taught cure. Its verdict follows verbatim; a human decides here:",
+    "commit": "81b5a3e5"
   }
 ]
