@@ -32,13 +32,20 @@ let failed = false
 // accepted it, so the ledger is downstream of them. Two distinct failures are reported — an entry no wing declares
 // is an INVENTION, and a real key whose statement no longer matches its wing is DRIFT.
 const WINGS = join(ROOT, 'lean')
-const wingSource = readdirSync(WINGS).filter((f: string) => f.endsWith('.lean'))
-  .map((f: string) => readFileSync(join(WINGS, f), 'utf8')).join('\n')
+const wingFiles = readdirSync(WINGS).filter((f: string) => f.endsWith('.lean'))
+const wingText = new Map(wingFiles.map((f: string) => [f, readFileSync(join(WINGS, f), 'utf8')]))
+const wingSource = [...wingText.values()].join('\n')
 const forged = forgedAgainstWings(theorems(), wingSource)
 if (forged.length) {
   failed = true
   console.error(`✗ guard — ${forged.length} ledger entr(ies) NOT witnessed by any wing:`)
-  for (const f of forged.slice(0, 8)) console.error(`    ${f.key} — ${f.kind === 'no-wing' ? 'no wing declares it (INVENTION)' : 'its wing states something else (DRIFT)'}`)
+  // THE INVESTIGATOR IS HANDED THE WINGS (queue lead 119c): a DRIFT that does not name where the key is
+  // declared sends the investigator grepping — today the wings are named in the charge itself.
+  for (const f of forged.slice(0, 8)) {
+    const declaredIn = wingFiles.filter((w) => (wingText.get(w) ?? '').includes('theorem ' + f.key + ' '))
+    const where = declaredIn.length ? ` — declared in: ${declaredIn.join(', ')}` : ''
+    console.error(`    ${f.key} — ${f.kind === 'no-wing' ? 'no wing declares it (INVENTION)' : 'its wing states something else (DRIFT)'}${where}`)
+  }
   console.error('  fix: seal it in a wing, or remove it from the ledger. The ledger may not carry what the kernel never saw.')
 } else console.log(`✓ guard — all ${theorems().length} ledger entries witnessed by a wing`)
 

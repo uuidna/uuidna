@@ -1,7 +1,7 @@
 {
   "why": "Each Lean line, indexed by its statement, with every key that seals it. A wing verifies STANDALONE — no lean file imports another — so a fact needed in two wings is re-proven in both, on purpose, and that cost is declared here rather than discovered by census. A statement sealed twice inside ONE file is never declared: it buys no independence and one of the two must go. This list may only SHRINK.",
-  "distinct": 1585,
-  "keys": 1666,
+  "distinct": 1588,
+  "keys": 1669,
   "renamings": 81,
   "reuse": {
     "(1 * 1) % 9 = 1": [

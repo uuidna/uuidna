@@ -6,7 +6,7 @@
 // with the diagnostic named — a refusal is a RESULT, not an error; the run exits 0 either way and only a
 // malformed queue file exits 1. The model's remaining role is exactly the refusals: tokens only at the
 // frontier, mechanized. Run by the school cron; a quiet run is health.
-import { readFileSync, writeFileSync, existsSync, unlinkSync } from 'node:fs'
+import { readFileSync, writeFileSync, existsSync, unlinkSync, readdirSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
@@ -36,6 +36,17 @@ function kernelPresent(): boolean {
   try { execSync('lean --version', { cwd: ROOT, stdio: 'pipe' }); return true } catch { return false }
 }
 
+/** the LIVE wings — a key may be seconds-old in a neighbour's uncommitted wing while the built ledger lags;
+ *  the Readings collision (2026-08-23) lived exactly in that gap, so the conveyor checks the lean/ tree too
+ *  (queue lead 119a, delivered). */
+function liveWingHolds(key: string): string | null {
+  const dir = join(ROOT, 'lean')
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.lean'))) {
+    if (readFileSync(join(dir, f), 'utf8').includes('theorem ' + key + ' ')) return f
+  }
+  return null
+}
+
 function probe(c: Candidate): string | null {
   writeFileSync(PROBE, c.lean + '\n')
   try { execSync(`lean ${JSON.stringify(PROBE)}`, { cwd: ROOT, stdio: 'pipe' }); return null }
@@ -55,7 +66,8 @@ function main(): void {
   const sealed = theoremByKey()
   const accepted: Accepted[] = [], refused: Refused[] = []
   for (const c of q.pending) {
-    const bad = validate(c, sealed) ?? probe(c)
+    const wing = liveWingHolds(c.key)
+    const bad = (wing ? `key already declared in the live wing ${wing} (the built ledger may lag a neighbour's flight)` : null) ?? validate(c, sealed) ?? probe(c)
     if (bad) refused.push({ key: c.key, why: c.why, lean: c.lean, reason: bad })
     else accepted.push({ key: c.key, why: c.why, lean: c.lean, receipt: toUuid(c.lean) })
   }

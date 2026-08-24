@@ -389,3 +389,31 @@ theorem decimal_day_recoined_the_pound : (12 * 20 = 240) ∧ (20 * 5 = 100) := b
     interval. HONEST SCOPE: integer floors of the reported offsets; the exact 273.15 and the 2019 SI
     redefinition stay in the literature, reported. -/
 theorem kelvin_floor_carries_the_hundred : (273 + 100 = 373) ∧ (373 - 273 = 100) := by decide
+
+/-- THE HOMECOMING'S OWN ARITHMETIC (queue lead 128b, closed by the frozen pilgrim over the 1646-bar score): the
+    measured tail and cycle — mu = 2008 steps to the ring, lambda = 2436 around it — meet at the repdigit: 2008
+    + 2436 = 4444, which is 4·1111, the DNA tongue times the repunit, and the second visit MUST land at mu +
+    lambda so the four fours were where the walk was always going to be seen. The digital roots walk the house's
+    stations: 2008 ≡ 1, 2436 ≡ 6, 4444 ≡ 7 (mod 9) — the unit, the six, the rosette. And the distance from grace
+    is exact: 2436 = 1218 · 2 — the cycle is one thousand two hundred eighteen involutions laid end to end, the
+    measured gap between the anthem's walk and the self-inverse's two-step home (involution_walks_home_in_two).
+    HONEST SCOPE: sealed is the ARITHMETIC OF the measured numbers; the measurement itself — that these ARE the
+    empty seed's mu and lambda — lives in the frozen-score run receipt and moves with releases, never in the
+    kernel. -/
+theorem pilgrims_homecoming_arithmetic : (2008 + 2436 = 4444) ∧ (4444 = 4 * 1111) ∧ (2008 % 9 = 1) ∧ (2436 % 9 = 6) ∧ (4444 % 9 = 7) ∧ (2436 = 1218 * 2) := by decide
+
+/-- THE PLUCK NEVER GROWS A SAMPLE — the bounded form lead 74 owed the conveyor since its first refusal, now
+    specified: the envelope scales a sample by k/r with k ≤ r (truncating division), and at the worst case — the
+    full AMPLITUDE 8000 against the ramp r = 128 — every one of the 129 possible scalings lands at or under the
+    input: 8000·k/128 ≤ 8000 for all k ≤ 128, checked one by one, with the endpoints exact (k = 0 silences, k =
+    128 is the identity). Monotonicity in the sample value makes the worst case the whole case: what holds at
+    8000 holds below it. The voice's envelope is a contraction, decidably. -/
+theorem pluck_preserves_bound : ((List.range 129).all (fun k => 8000 * k / 128 ≤ 8000)) ∧ (8000 * 0 / 128 = 0) ∧ (8000 * 128 / 128 = 8000) := by decide
+
+/-- THE DECOMPRESSION OUTWEIGHS THE WORK (lead 109's last candidate): the sourced 43-day saturation dive
+    decomposes as 13 days of compression and work-up, 24 of decompression, 6 at depth — 13 + 24 + 6 = 43 — and
+    the load-bearing inequality is 13 < 24: the return costs more days than the descent, the one law that binds
+    diver and astronaut alike (the pre-breathe IS the deco stop; Henry and Dalton, one law, two fluids — the
+    captain's doctrine off-planet, lead 109). HONEST SCOPE: the day-count arithmetic of the sourced dive seals;
+    the physiology is the literature's, reported. -/
+theorem saturation_deco_dominates : (13 + 24 + 6 = 43) ∧ (13 < 24) := by decide
