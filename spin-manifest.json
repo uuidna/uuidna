@@ -1505,7 +1505,7 @@
     "lean/chess-manifest.json": "cb0675eb2fe98f82",
     "lean/chessgames-manifest.json": "a39902a8d0148e76",
     "lean/cipher-manifest.json": "99ef928eb1de8d08",
-    "lean/circle-findings.json": "ee6fcde32977807e",
+    "lean/circle-findings.json": "7c3ba8e9cb408cdb",
     "lean/clay-manifest.json": "2798b25f26e28e7c",
     "lean/clock-manifest.json": "9b8b44cf48b680e2",
     "lean/codes-manifest.json": "c707ae7c63e98340",
@@ -1618,5 +1618,5 @@
     "lean/wave-queue.json": "b19ba210e0ed83d7",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "a29c500b-5bec-8527-8b3d-9e36b5c441e0"
+  "receipt": "49f4ee17-0f0f-86d7-a48c-7099f569ae12"
 }
