@@ -448,6 +448,10 @@ Proof. Ledger. Verify. Done.
 
 ---
 
+${readFileSync(join(ROOT_DIR, 'lean', 'quantum-capacity.md'), 'utf8').trim()}
+
+---
+
 ## License
 
 **CC BY-NC-ND 4.0** — © Tsvetan Rouschev. Free to read and redistribute **unchanged, with attribution,

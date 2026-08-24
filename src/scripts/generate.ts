@@ -35,6 +35,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-handle-chunks.js', args: [], note: 'the chunked handle payloads' },
   { file: 'gen-captain-claims.js', args: [], note: 'the captain claims' },
   { file: 'gen-reports.js', args: [], note: 'reports as accounting — computed from the ledger' },
+  { file: 'gen-quantum-capacity.js', args: [], note: 'the quantum capacity report — every model one metric, uuidna measured live, sealed with receipt' },
   { file: 'gen-readme.js', args: [], note: 'the published capacity, every figure derived' },
   { file: 'gen-llm.js', args: [], note: 'llm.txt' },
   { file: 'gen-leads.js', args: [], note: 'leads.md' },
