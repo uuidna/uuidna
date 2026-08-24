@@ -109,3 +109,11 @@ for (let attempt = 1; attempt <= 3; attempt++) {
   console.error('wave-run — reconcile failed OUTSIDE the named transient classes; failing loudly with the full output above (an unnamed failure retried is a denial erased)')
   process.exit(1)
 }
+
+// THE EXHAUSTED LANE — and the worst bug this runner has had. The loop above `continue`s when the tree is held,
+// so three attempts against three different live writers fell off the END of the loop, and a script that ends
+// without exiting exits ZERO: the wave reported success having never reconciled, the arc folded "wave: ok" into
+// its receipt, and the address said an act happened that did not. A receipt that certifies a lie is worse than
+// no receipt. A run that ends without reaching its goal says so, always, and loudly.
+console.error('\n✗ wave-run — THE LANE NEVER OPENED: every reconcile attempt was held by a live writer, so the wave did NOT reconcile and nothing was pushed. This is a FAILURE, not a quiet success — the tree is simply too busy right now; wait for the writers to finish and run again.')
+process.exit(1)
