@@ -85,6 +85,23 @@ for (let attempt = 1; attempt <= 3; attempt++) {
     if (!waitForPid(Number(held[1]), 180)) { console.error('wave-run — the holder outlasted 180 probes; a human decides (lead 113: message it, never kill it)'); process.exit(1) }
     continue
   }
+  // THE QUIET-RUN CLASS — and the reason this check reads the WORLD instead of the exit code. reconcile exits
+  // non-zero when it finds nothing of the drain's to commit, which is not a failure: it is the wave arriving
+  // somewhere already reconciled. Trusting the code alone stopped a whole arc on a tree that was perfectly in
+  // sync. So the verdict is taken from the STATE — origin holds everything and we hold everything origin has —
+  // which is the wave's actual goal; the exit code was only ever a proxy for it. The same law queue-wave keeps
+  // one file over: a quiet run is health.
+  if (/nothing to commit/.test(r.out)) {
+    execSync('git fetch origin main', { cwd: ROOT, stdio: 'pipe' })
+    const ahead = execSync('git rev-list --count origin/main..HEAD', { cwd: ROOT, encoding: 'utf8' }).trim()
+    const behind = execSync('git rev-list --count HEAD..origin/main', { cwd: ROOT, encoding: 'utf8' }).trim()
+    if (ahead === '0' && behind === '0') {
+      console.log('\nwave-run — COMPLETE: nothing of the drain\'s to commit and the tree already matches origin (0 ahead, 0 behind) — a quiet run is health, and the state says so, not the exit code.')
+      process.exit(0)
+    }
+    console.error(`wave-run — reconcile had nothing to commit, but the tree is ${ahead} ahead and ${behind} behind origin: NOT reconciled, and the quiet answer would have been a lie.`)
+    process.exit(1)
+  }
   if (/NON-QUANTUM DRIFT|push REJECTED/.test(r.out) && attempt < 3) {
     console.log('wave-run · the derived-drift class — the first pass regenerated, the second seals (the hook\'s own prescription)')
     continue
