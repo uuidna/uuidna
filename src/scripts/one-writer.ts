@@ -9,11 +9,11 @@
 // holder is dead is reclaimed on the next acquire; no Date, no timeout, no guess. The CLI stores the PARENT
 // pid (process.ppid), because in an `a && b && c` chain each link is its own short-lived process while the
 // shell running the chain lives exactly as long as the work does.
-import { execSync, execFileSync } from 'node:child_process'
+import { execFileSync } from 'node:child_process'
 import { readFileSync, writeFileSync, unlinkSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, pauseSeconds } from './api.js'
-import { childProbe } from '../os/host/index.js'
+import { childProbe, parentProbe } from '../os/host/index.js'
 
 export interface Writer { pid: number; purpose: string }
 
@@ -22,17 +22,53 @@ export const LOCK_PATH = join(ROOT, '.uuidna-writer.lock')
 
 const alive = (pid: number): boolean => { try { process.kill(pid, 0); return true } catch { return false } }
 
-// isAncestor(holder, pid) → walk pid's ppid chain (ps, macOS has no /proc) until init; the holder passing its
-// OWN descendants is lead 91's reentrancy: land holds the tree, land's reconcile child may write — a stranger
-// still may not. Deterministic, clockless; a failed ps reads as "not an ancestor" (refuse, never guess).
-const isAncestor = (holder: number, pid: number): boolean => {
+// isAncestor(holder, pid) → walk pid's ppid chain (the host's own process table, macOS has no /proc) until init;
+// the holder passing its OWN descendants is lead 91's reentrancy: land holds the tree, land's reconcile child may
+// write — a stranger still may not. Deterministic, clockless; a probe that answers nothing reads as "not an
+// ancestor" (refuse, never guess).
+//
+// THE WALK ASKS THE HOST (os/host parentProbe), it does not assume one. This was `ps -o ppid= -p`, and `-o` is
+// procps rather than POSIX ps: the ps in Git for Windows answers `unknown option -- o`, the catch read that
+// missing FLAG as a real "not an ancestor", and lead 91's reentrancy was silently un-made on this host — the
+// holder's own children refused the tree they already held. Third time in this file for one shape (pgrep -P,
+// then `sleep`, now this), which is why the cure is the same one: name the instrument in the driver.
+// A PROCESS'S OWN ANCESTRY IS FIXED, SO IT IS WALKED ONCE (2026-08-24, caught by its own suite). The walk costs
+// one SPAWN PER HOP, and acquire() calls it on every refusal — so awaitAcquire, which polls acquire() up to
+// MAX_POLLS times, made it a spawn per hop PER POLL: 32 hops × 1000 polls of PowerShell start-up. The one-writer
+// suite went from ~12 seconds to over seven minutes and the regression was MINE, introduced by fixing the flag.
+// The old `ps -o` hid it perfectly: it threw on the first hop, so the loop cost one failed spawn and returned
+// false. A broken instrument is cheap precisely because it does no work — repairing it is what revealed the price.
+//
+// Nothing about this pid's ancestors can change while this process runs (a parent that dies leaves the chain
+// stale, and a stale ancestor is a DEAD one — which currentWriter already rejects by liveness before we are ever
+// asked). So the chain is a constant of the process, and a constant is computed once.
+const ancestry = new Map<number, readonly number[]>()
+
+const ancestorsOf = (pid: number): readonly number[] => {
+  const cached = ancestry.get(pid)
+  if (cached) return cached
+  const probe = parentProbe()
+  const chain: number[] = []
   let p = pid
   for (let hop = 0; hop < 32 && p > 1; hop++) {
-    if (p === holder) return true
-    try { p = Number(execSync(`ps -o ppid= -p ${p}`, { encoding: 'utf8' }).trim()) || 0 } catch { return false }
+    chain.push(p)
+    let next = 0
+    try { next = probe.reads(execFileSync(probe.file, probe.args(p), { encoding: 'utf8', stdio: 'pipe' })) }
+    catch { next = 0 }
+    // no answer ends the walk exactly where the old catch ended it — the members checked are the same, so the
+    // verdict is the same: a holder not found among them is not an ancestor, and we refuse rather than guess
+    if (next === 0) { p = 0; break }
+    p = next
   }
-  return p === holder
+  chain.push(p)
+  ancestry.set(pid, chain)
+  return chain
 }
+
+const isAncestor = (holder: number, pid: number): boolean =>
+  // the trivial ancestor answers before any spawn — the holder writing under its own lock is the common case,
+  // and it must not pay for a process-table walk to learn what it already knows
+  holder === pid || ancestorsOf(pid).includes(holder)
 
 /** currentWriter(path) → the LIVE holder, or null (no lock, unreadable lock, or a holder whose pid is dead —
  *  a dead holder is stale by definition, whatever the file says). */

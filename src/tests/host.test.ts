@@ -1,12 +1,18 @@
 // os/host — THE DEVELOPMENT MACHINE'S DRIVER, tested. It resolves a host (which shell can run a step, how many
-// lanes the machine really has) and folds what it read to a receipt. It never spawns, so there is nothing here to
-// execute — these tests exercise the RESOLUTION and the arithmetic, and each carries the mutation that breaks it
-// (the falsifiability law in scripts/api.ts: an audit that cannot say no is not an audit).
+// lanes the machine really has) and folds what it read to a receipt. The driver itself never spawns — it states
+// recipes and the caller runs them — so these tests mostly exercise the RESOLUTION and the arithmetic, and each
+// carries the mutation that breaks it (the falsifiability law in scripts/api.ts: an audit that cannot say no is
+// not an audit).
+// ONE TEST DOES SPAWN, on purpose: a recipe checked only against expected strings is checked against this file's
+// opinion of the host, not against the host. `ps -o ppid=` passed every such check for as long as it existed and
+// was never once run here, which is precisely how a flag Windows does not have survived in the lock's reentrancy
+// walk. So parentProbe's recipe is executed against a fact the process already knows — its own ppid.
 // Distinct from machine.test.ts, which tests the pure LOAD balancer: that one asks how busy the metal is, this one
 // asks what the metal IS and how to run a step on it.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { capacity, childProbe, hostProfile, loadMeasurable, renderSpeedup, resolveShell, speedup } from '../os/host/index.js'
+import { execFileSync } from 'node:child_process'
+import { capacity, childProbe, hostProfile, loadMeasurable, parentProbe, renderSpeedup, resolveShell, speedup } from '../os/host/index.js'
 import { UUID } from './api.js'
 
 test('resolveShell — a POSIX host gets sh; the recipe runs one command string', () => {
@@ -90,6 +96,33 @@ test('childProbe — every host has a way to ask, and "none" never reads as "one
   assert.equal(win.reads('1\r\n', 0), true)
   assert.equal(win.reads('', 1), false, 'no output at all is no evidence of work')
   assert.match(win.args(1).join(' '), /ProcessId -ne \$PID/, 'the asking shell is a child of the pid being asked about, and must not count as its work')
+})
+
+test('parentProbe — every host has a way to walk UP, and "no answer" never reads as a parent', () => {
+  const posix = parentProbe('linux')
+  assert.equal(posix.file, 'ps')
+  assert.deepEqual(posix.args(4321), ['-o', 'ppid=', '-p', '4321'])
+  assert.equal(posix.reads('  1234\n'), 1234, 'procps pads the column; the number is the answer')
+  assert.equal(posix.reads(''), 0, 'an unknown pid prints nothing, and nothing is not a parent')
+
+  const win = parentProbe('win32')
+  // THE FLAG THAT WAS NOT THERE: the ps in Git for Windows has no -o, so the POSIX recipe answers
+  // `unknown option -- o` and one-writer's catch read a missing FLAG as a real "not an ancestor" — refusing
+  // the holder's own children the tree they already held.
+  assert.notEqual(win.file, 'ps', 'the -o flag is procps, not POSIX ps — this host must not be handed it')
+  assert.equal(win.file, 'powershell')
+  assert.match(win.args(4321).join(' '), /ProcessId=4321/)
+  assert.equal(win.reads('7788\r\n'), 7788)
+  assert.equal(win.reads('\r\n'), 0, 'a pid that no longer exists prints blank, which ends the walk')
+})
+
+test('parentProbe finds the REAL parent of THIS process — the recipe is run, not merely described', () => {
+  // a probe is only as good as the host answering it, so one of them is actually spawned. Node already knows
+  // its own parent, and the host must agree with it: this is the assertion the broken `ps -o` would have failed
+  // on any Windows host, and no table of expected strings can fail in its place.
+  const probe = parentProbe()
+  const out = execFileSync(probe.file, probe.args(process.pid), { encoding: 'utf8', stdio: 'pipe' })
+  assert.equal(probe.reads(out), process.ppid, `the host must name this process's real parent (${process.ppid})`)
 })
 
 test('loadMeasurable — the one host whose load average is a permanent zero is named as unmeasured', () => {

@@ -85,6 +85,17 @@ export interface HandleValue { handle: string; value: number; span: number; resi
 export const HANDLE_HEXBITS = 8
 export const HANDLE_SPAN = 16 ** HANDLE_HEXBITS      // 2^32 — every value a handle can take
 
+/** the same handle counted in BITS — 8 tiles of 4. Here because it was the missing form: hardware/lanes needed a
+ *  handle's WIDTH, hexbit exported only its SPAN, and so lanes computed the width itself and then the span from
+ *  it — `2 ** ((UUID_HEXBITS / 4) * HEXBIT_BITS)`. That gave the tree a SECOND export named HANDLE_SPAN, reaching
+ *  4,294,967,296 by a different route, and both were public (src/index re-exports hexbit's, src/hardware
+ *  re-exports lanes'). They agreed by arithmetic rather than by delegation, which is the condition this module
+ *  was written to end: a unit with two definitions is not a standard, it is a coincidence with a maintenance
+ *  schedule. Note where it had already been noticed and mis-cured — `universe_of_handles` seals
+ *  `(16 ^ 8 = 4294967296) ∧ (2 ^ 32 = 4294967296)`, PROVING the two routes agree instead of removing the second
+ *  one. A proof that two definitions coincide is not a fold; it is the duplication, notarised. */
+export const HANDLE_BITS = HANDLE_HEXBITS * HEXBIT_BITS
+
 export const valueOf = (handle: string): HandleValue => {
   const value = parseInt(handle, 16)
   const residue = value % 9

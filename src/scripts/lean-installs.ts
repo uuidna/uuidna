@@ -21,6 +21,7 @@ import { emit, NTH_DEF, type Fact } from './lean-gen.js'
 import { ROOT } from './api.js'
 import { fetchDefaultInstalls, renderMirror } from '../os/installs/index.js'
 import { routeOf, compileToHexbits, portFrom, buildOrder } from '../quantum/os/index.js'
+import { alpineRelease } from '../os/alpine/index.js'
 import { INSTALLS_MIRROR, type InstallsMirror } from '../quantum/os/mirror.js'
 
 // ── always latest: refresh the mirror at the boundary, best-effort, then seal from the SAME data ─────────────
@@ -85,6 +86,15 @@ const homeOut = edges.filter(([a]) => a === HOME).length
 const root = names.map((_, i) => i).find((s) => s * s === N)
 const port = portFrom(data)   // hexbit compile facts ride the same minting the surfaces use
 
+// THE ANCHOR, COMPILED. The release tuple is pinned through os/alpine's own alpineRelease — the function the MCP
+// surface and the provenance manifest already use — so the address sealed here and the address a caller recomputes
+// are one derivation, never two that agree. compileToHexbits does the nibble reading for both, which is the same
+// unit the specs and the boot image are compiled with.
+const ANCHOR = (() => {
+  const rel = alpineRelease(data.release.version, data.arch, data.release.rootfsSha256)
+  return { rel, nibbles: compileToHexbits(rel.rootfsSha256), address: compileToHexbits(rel.address) }
+})()
+
 const L = {
   names: `[${names.map((n) => JSON.stringify(n)).join(', ')}]`,
   routes: `[${routes.map((r) => JSON.stringify(r)).join(', ')}]`,
@@ -114,7 +124,19 @@ def invOrder : List Nat := ${L.inv}
 -- THE BOOT IMAGE, VERBATIM, ONE PAGE PER SPEC: every spec compiled from its published source to 32 hexbit
 -- states, one page each, laid down in boot (build) order — firmware and up — with the port receipt's 32
 -- states as the closing page
-def bootPages : List (List Nat) := [${port.specs.map((s) => `[${s.hexbits.join(', ')}]`).join(', ')}, [${port.hexbits.join(', ')}]]`
+def bootPages : List (List Nat) := [${port.specs.map((s) => `[${s.hexbits.join(', ')}]`).join(', ')}, [${port.hexbits.join(', ')}]]
+
+-- THE EXTERNAL ANCHOR, ON THE LATTICE. Alpine's PUBLISHED rootfs SHA-256 for the release this install set is the
+-- world of, compiled the way every other spec here is compiled: one nibble per hex character, 64 states of 16.
+-- Until this def existed the sealed layer named WHICH RELEASE and never WHICH BYTES — the digest lived only in the
+-- generated mirror and in prose, so upstream re-cutting a release, or an edit to that one line, would leave every
+-- proof passing and every receipt recomputing. A version is a label; the digest is the evidence.
+-- It is a LIST OF NIBBLES rather than a String on purpose: this wing depends on no axiom beyond the kernel — not
+-- even propext — and a String literal cannot be reduced by decide without reaching for native_decide, which is
+-- an axiom. The lattice was already the file's own idiom, so the anchor joins it rather than importing a new one.
+def rootfsNibbles : List Nat := [${ANCHOR.nibbles.join(', ')}]
+-- the pinned tuple (version, arch, flavor, digest) folded to its content-address, the same 32 states a spec wears
+def releaseAddress : List Nat := [${ANCHOR.address.join(', ')}]`
 
 const FACTS: Fact[] = [
   { key: 'default_install_is_dependency_closed',
@@ -184,10 +206,26 @@ const FACTS: Fact[] = [
       port.boot.states.slice(-32).join(',') === port.hexbits.join(',') &&
       port.boot.states.join(',') === [...port.specs.flatMap((s) => s.hexbits), ...port.hexbits].join(','),
     stmt: `(bootPages.length = ${N + 1}) ∧ (${N + 1} * 32 = ${32 * (N + 1)}) ∧ (bootPages.all (fun p => p.length = 32)) ∧ (bootPages.all (fun p => p.all (fun h => h < 16)))` },
+
+  { key: 'the_install_set_names_the_bytes_it_rests_on',
+    why: `THE SEAL NAMES WHICH BYTES, NOT ONLY WHICH RELEASE. This install set is the dependency closure of a PARTICULAR Alpine rootfs, and the thing that makes that a provenance claim rather than a label is the digest Alpine PUBLISHED for it: ${ANCHOR.rel.rootfsSha256} — Alpine ${data.release.version}/${data.arch}, ${ANCHOR.rel.file}. It is sealed here compiled to the lattice everything else in this wing is compiled to: 64 nibbles of 16 states, 64 · 4 = 256 bits, a SHA-256 exactly. The pinned tuple (version, arch, flavor, digest) folds to ${ANCHOR.rel.address}, carried as its 32 states. WHAT THIS CLOSES: the digest previously existed only in the generated mirror and in prose, so nothing in the proof layer, the manifest, or any test asserted it — upstream re-cutting a release, or an edit to that single line, would leave all ${N} packages, every route, the closure, the build order and the boot image sealing exactly as before. The structure was total and the anchor was unheld. Change the digest now and 64 sealed states move, the address's 32 move with them, and the receipt moves. WHAT IT DOES NOT CLAIM: that your rootfs matches — that is verifyAlpineRootfs's job, against these bytes, with uuidna's own pure-TS SHA-256. This seals the ANCHOR the check is made against, so the thing being compared to is itself content-addressed and cannot drift unnoticed. Nothing is booted, linked or executed.`,
+    js: () => {
+      const d = data.release.rootfsSha256
+      // the digest is a SHA-256 in the form it is published in, and the seal is READ FROM IT rather than beside it
+      return /^[0-9a-f]{64}$/.test(d) && d === ANCHOR.rel.rootfsSha256 &&
+        ANCHOR.nibbles.length === 64 && ANCHOR.nibbles.every((h) => Number.isInteger(h) && h >= 0 && h < 16) &&
+        ANCHOR.nibbles.join('') === [...d].map((c) => parseInt(c, 16)).join('') &&
+        64 * 4 === 256 &&
+        // the address is the one os/alpine mints, and the arch/version sealed are the mirror's own
+        ANCHOR.address.length === 32 && ANCHOR.address.every((h) => h >= 0 && h < 16) &&
+        ANCHOR.address.join(',') === compileToHexbits(alpineRelease(data.release.version, data.arch, d).address).join(',') &&
+        ANCHOR.rel.version === data.release.version && ANCHOR.rel.arch === data.arch
+    },
+    stmt: `(rootfsNibbles.length = 64) ∧ (64 * 4 = 256) ∧ (rootfsNibbles.all (fun h => h < 16)) ∧ (releaseAddress.length = 32) ∧ (releaseAddress.all (fun h => h < 16))` },
 ]
 
 for (const f of FACTS) if (!f.js!()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Installs.lean', skill: 'installs', defs,
-  header: `THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the ${N} packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED ${data.branch} index, Alpine ${data.release.version}), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising from the floor with the published cycle named, the terminal the toolbox, the foundation depending on nothing, every meaning verbatim, every spec compiled from source to 32 hexbit states, and the BOOT IMAGE sealed verbatim (${32 * (N + 1)} on-lattice states, build-ordered, receipt-closed) — the OS bootable on the lattice, never on a CPU. Integrity and meaning, never execution.`,
+  header: `THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the ${N} packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED ${data.branch} index, Alpine ${data.release.version}), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising from the floor with the published cycle named, the terminal the toolbox, the foundation depending on nothing, every meaning verbatim, every spec compiled from source to 32 hexbit states, and the BOOT IMAGE sealed verbatim (${32 * (N + 1)} on-lattice states, build-ordered, receipt-closed) — the OS bootable on the lattice, never on a CPU — and THE EXTERNAL ANCHOR the whole port rests on: Alpine's PUBLISHED rootfs SHA-256 for ${data.release.version}/${data.arch}, compiled to 64 on-lattice nibbles so the seal names which BYTES and not only which release. Integrity and meaning, never execution.`,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

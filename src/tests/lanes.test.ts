@@ -7,9 +7,11 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { laneOf, handleOf } from '../handle.js'
-import { LANES, trinity, HANDLE_BITS, gpuEligiblePpm, kernelPercent } from '../hardware/lanes/index.js'
-import { laneCensus, poolByHandle } from '../scripts/api.js'
+import { LANES, trinity, HANDLE_BITS, HANDLE_SPAN, gpuEligiblePpm, kernelPercent } from '../hardware/lanes/index.js'
+import { laneCensus, poolByHandle, ROOT } from '../scripts/api.js'
 import { theorems, toUuid } from '../index.js'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 
 test('a lane is decided by the address, so the same work lands in the same place every run', () => {
   const a = toUuid('a wing of the ledger')
@@ -79,4 +81,22 @@ test('the trinity seats exactly one empty chair, and it claims nothing', () => {
   assert.match(qpu.note, /does not claim an advantage/, 'the readiness trial checks this on every run; so does this test')
   assert.ok(!LANES.some((l) => l.seat === 'measured' && l.name !== 'CPU'),
     'a seat may only read MEASURED once something has actually been measured on it')
+})
+
+// ── THE HANDLE UNITS ARE HEXBIT'S (2026-08-24). lanes computed `HANDLE_BITS = (UUID_HEXBITS / 4) * HEXBIT_BITS`
+// and `HANDLE_SPAN = 2 ** HANDLE_BITS` itself, which gave the tree TWO public exports named HANDLE_SPAN — src/index
+// re-exports hexbit's `16 ** HANDLE_HEXBITS`, src/hardware re-exported this one — reaching 4,294,967,296 by two
+// routes. Value equality is exactly what such a pair has, so a test that only compares the numbers cannot fail on
+// the duplication: it IS the duplication's alibi. The source is read instead.
+test('the handle units are hexbit\'s ONE definition, re-exported — never a second arithmetic', async () => {
+  const hexbit = await import('../hexbit/index.js')
+  assert.equal(HANDLE_BITS, hexbit.HANDLE_BITS, 'the width lanes uses must BE the unit\'s width')
+  assert.equal(HANDLE_SPAN, hexbit.HANDLE_SPAN, 'and the span likewise')
+  assert.equal(HANDLE_SPAN, 4294967296, '16^8 — the handle universe, counted once')
+
+  const src = readFileSync(join(ROOT, 'src', 'hardware', 'lanes', 'index.ts'), 'utf8')
+  assert.ok(!/HANDLE_(BITS|SPAN)\s*=/.test(src),
+    'lanes must RE-EXPORT the handle units, never assign them — `universe_of_handles` seals that they are ' +
+    'imported from hexbit/ and never re-derived, and this file was the counterexample to that theorem')
+  assert.match(src, /export \{ HANDLE_BITS, HANDLE_SPAN \}/, 'and it still names what it uses, rather than hiding the dependency')
 })

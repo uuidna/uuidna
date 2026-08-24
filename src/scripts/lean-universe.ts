@@ -10,7 +10,7 @@
 // not owned — and NO law demands the coincidence: as necessity it stays honestly unverified while its
 // arithmetic seals. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'
-import { HEXBIT_BITS, HANDLE_HEXBITS, UUID_HEXBITS } from '../hexbit/index.js'   // THE unit — imported, never re-derived
+import { HANDLE_BITS, HANDLE_SPAN, UUID_BITS } from '../hexbit/index.js'   // THE unit — imported, never re-derived
 
 const FACTS = [
   { key: 'eclipse_four_hundred',
@@ -35,7 +35,13 @@ const FACTS = [
 
   { key: 'universe_of_handles',
     why: 'THE KNOWN UNIVERSE, LITERARY HANDLED: a handle is HANDLE_HEXBITS hexbits of HEXBIT_BITS bits each — the units imported from hexbit/, never re-derived — and the handle universe is 4,294,967,296 addresses, every one the head of a full UUID_HEXBITS-hexbit, 128-bit uuid. Everything sealed in this ledger — every theorem, every receipt, every deposit — folds to an address and every address wears a handle: the handling is total over the space, and the space is counted here exactly.',
-    js: () => HANDLE_HEXBITS * HEXBIT_BITS === 32 && 16 ** HANDLE_HEXBITS === 4294967296 && 2 ** (HANDLE_HEXBITS * HEXBIT_BITS) === 4294967296 && UUID_HEXBITS * HEXBIT_BITS === 128,
+    // EACH CONJUNCT READS THROUGH THE UNIT NOW (2026-08-24), which is what the why claims and what the checker
+    // itself was not doing: it re-derived the handle's width as `HANDLE_HEXBITS * HEXBIT_BITS` and its span as a
+    // literal, so the one witness to "never re-derived" re-derived them. hexbit exports both forms, so both are
+    // imported. The third conjunct is the one worth naming: `2 ^ 32 = 4294967296` is NOT a reconciliation of two
+    // rival definitions — it is the COHERENCE of the unit's two forms, that the span counted in bits and the span
+    // counted in hexbits are one number. It reads `2 ** HANDLE_BITS === HANDLE_SPAN` because that is what it says.
+    js: () => HANDLE_BITS === 32 && HANDLE_SPAN === 4294967296 && 2 ** HANDLE_BITS === HANDLE_SPAN && UUID_BITS === 128,
     lean: 'theorem universe_of_handles : (8 * 4 = 32) ∧ (16 ^ 8 = 4294967296) ∧ (2 ^ 32 = 4294967296) ∧ (32 * 4 = 128) := by decide' },
 
   { key: 'tides_two_bulges',

@@ -230,6 +230,58 @@ export function childProbe(platform: string = process.platform): ChildProbe {
   }
 }
 
+/** How to ask this host for a pid's PARENT — the recipe, plus how to read the answer back. Same split as the
+ *  shell and the child probe: the driver states it, the caller spawns it. */
+export interface ParentProbe {
+  file: string
+  args: (pid: number) => string[]
+  /** the parent pid, or 0 for "no answer" — an unknown pid, a walk that reached the top, an unreadable reply */
+  reads: (stdout: string) => number
+  note: string
+}
+
+/** parentProbe(platform) → the host's way of answering "who spawned this pid?"
+ *
+ *  THE THIRD APPEARANCE OF ONE MISTAKE, IN THE FILE THAT NAMES THE OTHER TWO (2026-08-24). one-writer's
+ *  reentrancy check walks a pid's ppid chain to decide whether a would-be second writer is the holder's own
+ *  descendant — lead 91: land holds the tree, land's reconcile child may write, a stranger may not. It walked it
+ *  with `ps -o ppid= -p`, and the `-o` flag is not POSIX ps, it is procps: the ps shipped in Git for Windows
+ *  answers `unknown option -- o` and exits nonzero. The catch around it reads a missing FLAG exactly as it reads
+ *  a real "not an ancestor" — false — so on this host the holder's own children were refused the tree, and lead
+ *  91's fix was silently un-made. The gate printed the ps error and the refusal on the same run, side by side.
+ *
+ *  It is the same shape as `pgrep -P` (childProbe, above) and as `sleep` (api.pauseSeconds): a POSIX program
+ *  assumed to exist everywhere, wrapped in a catch that cannot tell a missing instrument from a real no. Three
+ *  times in one file is not three bugs; it is one law arriving late — ASK THE HOST, and let the driver say how
+ *  the answer reads, because only the recipe knows which silence means what.
+ *
+ *  WHY NOT MSYS ps's OWN PPID COLUMN, which `ps -l` does print. Because it prints it in the MSYS pid namespace,
+ *  and this lock stores OS pids — the same two-namespace confusion the control test already had to fix when `$!`
+ *  handed it an MSYS pid and `process.kill(pid, 0)` called a live stranger dead. The CIM query answers in the
+ *  namespace Node's own `process.pid` and `process.ppid` speak, which is the one the lock is written in.
+ *
+ *  COST, stated because it is not free: one spawn per hop, and a PowerShell start is not cheap. The walk is
+ *  bounded at 32 hops, real chains are a handful deep, and nothing reaches here except a CONTENDED acquire — the
+ *  path that was about to refuse a writer anyway. Correctness at the cost of a slow no is the right trade; a fast
+ *  wrong no is what this is fixing. */
+export function parentProbe(platform: string = process.platform): ParentProbe {
+  if (platform !== 'win32') return {
+    file: 'ps',
+    args: (pid) => ['-o', 'ppid=', '-p', String(pid)],
+    // procps prints the ppid alone and exits nonzero for an unknown pid — blank reads as 0, which ends the walk
+    reads: (stdout) => Number(stdout.trim()) || 0,
+    note: 'ps -o ppid= -p — the POSIX process table',
+  }
+  return {
+    file: 'powershell',
+    args: (pid) => ['-NoProfile', '-NonInteractive', '-Command', `(Get-CimInstance Win32_Process -Filter "ProcessId=${pid}").ParentProcessId`],
+    // a pid that no longer exists yields $null, and $null.ParentProcessId prints nothing — blank is the honest
+    // "no answer", and it ends the walk rather than being mistaken for a parent
+    reads: (stdout) => Number(stdout.trim()) || 0,
+    note: 'Get-CimInstance Win32_Process — the Windows process table, in the pid namespace Node itself uses (ps here has no -o)',
+  }
+}
+
 /** loadMeasurable(platform) → can this host report a load average at all?
  *
  *  Windows keeps no load average, and Node does not pretend otherwise in spirit — but it does in shape: loadavg()

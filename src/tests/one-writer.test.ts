@@ -48,6 +48,52 @@ test('one writer wins; a STRANGER is refused with the holder NAMED (a descendant
   assert.deepEqual(acquire('child-write', process.pid, path), { ok: true }, 'the holder itself (trivial ancestor) passes')
 })
 
+test('reentrancy is the WALK, not just the holder: a descendant a REAL HOP away passes', () => {
+  // WHY THIS EXISTS AS A SEPARATE TEST. The case above passes at hop ZERO — `p === holder` returns true before
+  // the process table is ever consulted — so it holds identically whether the ppid walk works or is broken. And
+  // it was broken: `ps -o ppid= -p` used a procps flag that the ps in Git for Windows does not have, the catch
+  // read the missing FLAG as a real "not an ancestor", and every descendant of a holder was refused the tree its
+  // own parent held. The suite was green throughout, because the only reentrancy assertion never took a step.
+  //
+  // One real hop is all it takes to notice, and it needs no fixture: this process HAS a live parent, and the OS
+  // agrees about who it is. Holding the lock as our parent makes us a genuine descendant one hop down, so the
+  // acquire can only succeed by walking — hop 0 is us and is not the holder; hop 1 must find the ppid.
+  const path = lockAt('e.lock')
+  assert.notEqual(process.ppid, process.pid, 'a process is not its own parent — the hop must be real')
+  writeFileSync(path, JSON.stringify({ pid: process.ppid, purpose: 'land (our actual parent)' }))
+  assert.deepEqual(acquire('reconcile', process.pid, path), { ok: true },
+    'the holder\'s child must pass — refusing it IS lead 91, and it is what a broken ppid walk does')
+  assert.equal(currentWriter(path)?.pid, process.ppid, 'and the lock stays the ANCESTOR\'s — a descendant never rewrites it')
+
+  // the control, so this cannot pass by simply never refusing: pid 1 is alive and is NOT our descendant.
+  writeFileSync(path, JSON.stringify({ pid: process.pid, purpose: 'audit' }))
+  assert.equal(acquire('reconcile', 1, path).ok, false, 'a stranger is still refused — the walk did not become a yes-machine')
+})
+
+test('the ppid walk is paid for ONCE — a refusal loop must not spawn a process table per poll', () => {
+  // THE REGRESSION THIS EXISTS FOR, because correctness alone could not see it. Fixing `ps -o` made the walk
+  // actually WORK, and a working walk costs one spawn per hop — so acquire(), which walks on every refusal,
+  // turned awaitAcquire's poll loop into hops × polls PowerShell start-ups. This suite went from ~12 seconds to
+  // over seven minutes, and every assertion in it still passed: the lock was correct and unusable at the same
+  // time. A broken instrument is cheap because it does no work, so repairing one can only ever make things
+  // slower — which means the repair has to be measured, not just proven right.
+  const path = lockAt('f.lock')
+  // the holder must be a LIVE STRANGER, so acquire actually refuses and actually walks. pid 1 will not do — as
+  // the ceiling test above already records, init is every process's ancestor, so the walk correctly finds it and
+  // the refusal never happens. Using it here cost this test its first run: it asserted a refusal against a holder
+  // the lock was right to admit, which is the test being wrong about the world rather than the code being wrong.
+  const stranger = Number(inShell('sleep 30 >/dev/null 2>&1 & cat /proc/$!/winpid 2>/dev/null || echo $!').trim())
+  writeFileSync(path, JSON.stringify({ pid: stranger, purpose: 'a live stranger' }))
+  const t0 = process.hrtime.bigint()
+  for (let i = 0; i < 40; i++) assert.equal(acquire('reconcile', process.pid, path).ok, false)
+  const perCallMs = Number((process.hrtime.bigint() - t0) / 1000000n) / 40
+  // A CEILING, NOT A BENCHMARK. The walk is cached after the first call, so 40 refusals should cost about one
+  // walk. The bound is loose enough that a slow, loaded host passes and tight enough that a spawn-per-hop-per-
+  // call cannot: uncached, each refusal is several hundred ms of process start-up on this platform.
+  assert.ok(perCallMs < 50, `a repeated refusal must reuse the walk, not redo it: ${perCallMs} ms per acquire`)
+  try { process.kill(stranger) } catch { /* already gone */ }
+})
+
 test('a dead holder is stale by pid-liveness — reclaimed on the next acquire, no clock consulted', () => {
   const path = lockAt('b.lock')
   writeFileSync(path, JSON.stringify({ pid: deadPid(), purpose: 'audit (crashed)' }))

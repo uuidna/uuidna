@@ -17,7 +17,7 @@
 // device this machine does not have — an instrument reporting what it never measured, which is the one defect
 // class this tree spends the most effort refusing. The seat is a NOTICE, not a capability: it says where a real
 // device would attach, and it says the ledger has never seen one.
-import { HEXBIT_BITS, UUID_HEXBITS } from '../../hexbit/index.js'
+import { HANDLE_BITS, HANDLE_SPAN } from '../../hexbit/index.js'
 
 /** How real a seat is. MEASURED — it runs and its figures come from running it. SPECIFIED — the conditions are
  *  stated and nothing is built. EMPTY — named so a reader knows where it would go, and claimed for nothing. */
@@ -74,9 +74,14 @@ export const LANES: readonly Lane[] = [
  *  what the others hold. That is the mod-9 router of src/hardware one level up: addressing by residue, not range.
  *
  *  The evenness is a property of the key, so it is stated as one and CHECKED (see laneCensus in scripts/api and
- *  the tests): a claim that the shard key balances is exactly the kind that reads true and is never verified. */
-export const HANDLE_BITS = (UUID_HEXBITS / 4) * HEXBIT_BITS
-export const HANDLE_SPAN = 2 ** HANDLE_BITS
+ *  the tests): a claim that the shard key balances is exactly the kind that reads true and is never verified.
+ *
+ *  AND THE HANDLE IS HEXBIT'S, NOT THIS FILE'S. These two were computed here — `(UUID_HEXBITS / 4) * HEXBIT_BITS`
+ *  and `2 ** HANDLE_BITS` — which made a second public HANDLE_SPAN (src/index re-exports hexbit's, src/hardware
+ *  re-exported this one) reaching the same 4,294,967,296 by a different route. `universe_of_handles` seals that
+ *  the units are "imported from hexbit/, never re-derived"; this file was the counterexample to the theorem the
+ *  ledger holds. Re-exported now, so there is one definition and this module still names what it uses. */
+export { HANDLE_BITS, HANDLE_SPAN }
 
 // ── THE READING THAT DECIDED THE GPU SEAT — A RECORD OF ONE RUN, not a live figure. "Runs faster on a GPU" is a
 // claim about a workload rather than about a chip, so the workload was measured and the numbers below are what it
@@ -98,12 +103,54 @@ export const HANDLE_SPAN = 2 ** HANDLE_BITS
 // CPU lanes, 4.86x). A GPU has nothing to offer a process that spawns a type-checker.
 //
 // WHERE THE ANSWER WOULD FLIP, stated so the claim is falsifiable rather than merely denied: the break-even is
-// the corpus size, not the chip. Around a few million addresses the transfer amortises and a device lane starts
-// to pay — a ledger three orders of magnitude larger than this one, or a bulk imprint over a large corpus. The
-// GPU seat stays specified for exactly that day, and the figure above is what it has to beat.
+// the corpus size, not the chip — and it is ARITHMETIC, so it is computed below (gpuBreakEvenAddresses) rather
+// than asserted here. This paragraph used to end "around a few million addresses the transfer amortises", a
+// figure that appeared nowhere else and that nothing checked; when the arithmetic was finally written down it
+// disagreed with the sentence three lines above it, which puts the CPU at ~2,000 addresses in the time a device
+// round trip takes to begin. Both cannot be the break-even. They are answers to two different questions, and
+// separating them is the whole of the fix:
+//
+//   STOPS LOSING — the point where a device lane is no longer worse. Pure arithmetic on two device figures,
+//     computed by gpuBreakEvenAddresses; for the overhead this file's own prose implies, it is ~2,000 addresses.
+//   STARTS MATTERING — the point where the fold is a visible share of a run rather than a rounding error. That
+//     is gpuEligiblePpm, and it stays a rounding error for corpora far past the first threshold: even a few
+//     million addresses is ~46 ms of CPU fold against a hundred-second gate. This is the "few million".
+//
+// A lane that has merely stopped losing is not worth building, which is why the seat stays specified past the
+// first threshold and why the honest reading of this file is the second number, not the first.
 const MEASURED_GATE_MS = 100087
 const MEASURED_KERNEL_MS = 30762
 const MEASURED_COMPUTE_MS_HUNDREDTHS = 59   // 0.59 ms, in hundredths — this tree runs no floats
+
+/** what one address costs the CPU to fold, in nanoseconds — measured, and the only figure here this repository
+ *  has actually taken (0.554 ms of fold over the whole ledger, divided by the addresses in it). */
+export const CPU_NS_PER_ADDRESS = 23
+
+/** What a device would cost, as the two numbers that decide it. BOTH ARE INPUTS, AND NEITHER IS MEASURED HERE:
+ *  this repository has no GPU reading and will not invent one, so the model takes a device's figures and says
+ *  what corpus THAT device would need. Supplying numbers is the caller's act, and it is the caller's claim. */
+export interface DeviceCost {
+  /** the fixed price of using the device at all: launch, submit, round trip — paid whatever the size */
+  overheadNs: number
+  /** what each address costs once the work is on its way — transfer plus compute, per element */
+  perAddressNs: number
+}
+
+/** gpuBreakEvenAddresses(cost) → the corpus size at which a device lane STOPS LOSING to the CPU.
+ *
+ *  n · CPU = overhead + n · perAddress, solved for n: the overhead divided by the per-address gain. Integer
+ *  division throughout — this tree runs no floats, so the answer floors and is exact.
+ *
+ *  ZERO MEANS NEVER, not "immediately". A device that is not strictly cheaper per address than 23 ns has no
+ *  break-even at any size: every extra address widens the gap rather than closing it, and the overhead is never
+ *  amortised because there is nothing to amortise it against. Returning a huge number there would read as a
+ *  threshold a big enough corpus could reach, and no corpus can. */
+export const gpuBreakEvenAddresses = (cost: DeviceCost): number => {
+  const gain = CPU_NS_PER_ADDRESS - cost.perAddressNs
+  if (gain <= 0) return 0
+  const n = cost.overheadNs
+  return (n - (n % gain)) / gain
+}
 
 /** the share of a gate pass that a device lane could address at all, in parts per million, as an integer. */
 export const gpuEligiblePpm = (): number => {
