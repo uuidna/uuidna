@@ -60,7 +60,7 @@ export function relatedPackages(names: readonly string[], hay: string): RelatedR
   const port = defaultInstalls()
   const ported = new Set(port.specs.map((s) => s.name))
   // the ported packages' own published descriptions — the quotes the ledger legitimately carries
-  const descriptions = port.specs.map((s) => s.meaning).join('  ')
+  const descriptions = port.specs.map((s) => s.meaning).join('  ')
 
   const hits = names.filter((n) => n.length > 3 && mentions(n, hay))
   const inPort: string[] = []
