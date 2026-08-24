@@ -6,8 +6,8 @@
     "lean/axioms.json": "1e5b6f3959738e10",
     "docs/mcp.md": "ff382320083182d9",
     "audit-citations.json": "e25c81eb835b88b2",
-    "support-audit.json": "890b0bb4084a88f4",
-    "research-leads.json": "933a7601d84b8fd5",
+    "support-audit.json": "05c2752598cd89e1",
+    "research-leads.json": "1067fbcfa90e80c5",
     ".zenodo.json": "4ce27c9b22cb8af6",
     "reports.json": "6f113f51aeda89bd",
     "lean/statement-index.json": "607ba75fcc2b837b",
@@ -1504,6 +1504,7 @@
     "lean/chess-manifest.json": "cb0675eb2fe98f82",
     "lean/chessgames-manifest.json": "a39902a8d0148e76",
     "lean/cipher-manifest.json": "99ef928eb1de8d08",
+    "lean/circle-findings.json": "ee6fcde32977807e",
     "lean/clay-manifest.json": "2798b25f26e28e7c",
     "lean/clock-manifest.json": "9b8b44cf48b680e2",
     "lean/codes-manifest.json": "c707ae7c63e98340",
@@ -1615,5 +1616,5 @@
     "lean/wave-queue.json": "b19ba210e0ed83d7",
     "lean/waves-manifest.json": "fd25caf2595e8fb7"
   },
-  "receipt": "bd2fd872-ed73-888d-bdc8-ce34e145dd5e"
+  "receipt": "2d3e05b5-dd1e-8384-859d-cb59427e78a8"
 }
