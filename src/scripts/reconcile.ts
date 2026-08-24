@@ -11,13 +11,12 @@
 //
 // Nothing is committed if the reconcile leaves the tree unchanged (the derived layer already matched). account.js
 // fails loudly if the ledger does not reconcile, aborting before any commit/push. Integrity.
-import { execSync } from 'node:child_process'
 import { join } from 'node:path'
-import { ROOT, stageDerived } from './api.js'
+import { ROOT, stageDerived, shellRun, shellOut } from './api.js'
 import { acquire, awaitAcquire, release, LOCK_PATH } from './one-writer.js'
 
-const run = (cmd: string): void => { console.log('  · ' + cmd); execSync(cmd, { stdio: 'inherit' }) }
-const out = (cmd: string): string => execSync(cmd).toString().trim()
+const run = (cmd: string): void => { console.log('  · ' + cmd); shellRun(cmd) }
+const out = (cmd: string): string => shellOut(cmd)
 // --derive-only STOPS AFTER THE SEAL. The whole chain below is the re-derivation; the commit and push are a
 // SEPARATE, OUTWARD act bolted onto the end of it. develop's cure for spin drift used to be plain `reconcile`,
 // which meant a routine self-heal could publish to origin — so the pass that exists to make the gate green

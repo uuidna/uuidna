@@ -130,6 +130,27 @@ export const relRoot = (abs: string): string => pathm().relative(ROOT, abs).repl
 /** join repo-relative segments in the canonical spelling — the same law for a path BUILT rather than derived */
 export const relJoin = (...parts: string[]): string => parts.join('/').replace(/\\/g, '/')
 
+/** shellRun(cmd) → run a command through the host's own shell, streaming to this process's stdio; THROWS on a
+ *  non-zero exit, exactly as execSync did, so a caller's error handling is unchanged.
+ *
+ *  WHY NOT execSync. Its default shell is cmd.exe on Windows, and the chain's commands are POSIX: `VAR=1 npm run
+ *  lean` is an environment prefix to a POSIX shell and an unknown program to cmd, which is how a reconcile died
+ *  with "'UUIDNA_TRACK_LATEST' is not recognized" — the command was never wrong, the shell was never asked. Globs
+ *  fail the same way, and worse, because an unexpanded pattern matches nothing and still exits 0. */
+export const shellRun = (cmd: string, cwd: string = ROOT): void => {
+  const sh = shellOrExit('run')
+  const r = cpm().spawnSync(sh.file, sh.argv(cmd), { cwd, env: sh.env(process.env), stdio: 'inherit' })
+  if (r.status !== 0) throw new Error(`shellRun failed (exit ${r.status}): ${cmd}`)
+}
+
+/** shellOut(cmd) → the command's stdout, through the same host shell. Throws on a non-zero exit. */
+export const shellOut = (cmd: string, cwd: string = ROOT): string => {
+  const sh = shellOrExit('run')
+  const r = cpm().spawnSync(sh.file, sh.argv(cmd), { cwd, env: sh.env(process.env), encoding: 'utf8' })
+  if (r.status !== 0) throw new Error(`shellOut failed (exit ${r.status}): ${cmd}\n${r.stderr ?? ''}`)
+  return (r.stdout ?? '').trim()
+}
+
 /** pauseSeconds(n) → wait n seconds through the host's own shell.
  *
  *  Never a clock read (the determinism scan admits none), and never a bare `sleep`, which is a program on a POSIX
