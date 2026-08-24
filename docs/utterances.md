@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="766 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="771 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 766 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 771 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `718bb1f6` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `53517992` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -886,6 +886,16 @@ any change to the Lean mints a NEW version: the uuid moves with the contents, de
 filtering is free: a folder listing filters by status decoded from the names
 the seed is a stamped, verifiable nested page: parent + one nested child page per theorem
 payload sync speaks only the standard shapes: pages, nested-docs parent, drafts _status, lexical content
+```
+
+**polygraph** — 5 utterances
+
+```text
+a kept promise reads clean: every path the message names, the diff contains
+a broken promise is named with its commit — the say-do gap, decided by set arithmetic
+the empty case verifies — a message naming no path promises no path
+CONTROL — the needle moves both ways: the same chart charges the gap and clears the keeper
+prose that is not a path is never charged — the finder does not guess at nouns
 ```
 
 **practice-shelf** — 4 utterances

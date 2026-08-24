@@ -22,6 +22,8 @@ import { pathToFileURL } from 'node:url'
 import { toUuid, merkleGravity } from '../index.js'
 import { coins } from '../index.js'
 import { ROOT } from './api.js'
+import { levelOf } from '../school.js'
+import { writeFileSync, readFileSync } from 'node:fs'
 
 interface Gen { file: string; args: string[]; note: string }
 // THE MANIFEST — dependency order, the shell chain's order preserved where it existed, orphans folded in at the
@@ -63,6 +65,7 @@ const GENERATORS: Gen[] = [
 ]
 
 const results: Array<{ file: string; ok: boolean; leaf: string }> = []
+const metrics: Array<{ file: string; ms: number; decade: number }> = []
 console.log('  THE ONE GENERATOR — every emitter, one manifest, one fused receipt.')
 // ONE PROCESS, not one per generator. Each emitter was a spawned node — sixteen interpreter boots at ~130ms apiece,
 // so the boots cost an order of magnitude more than the work (5.3s of which 0.2s was generating). Dynamic import runs
@@ -74,8 +77,14 @@ for (const g of GENERATORS) {
   let ok = true
   try { await import(pathToFileURL(path).href) } catch (e) { ok = false; console.log(`    ✗ ${g.file} — ${(e as Error).message}`) }
   // THE ONE-SECOND LAW NEEDS A METER, so the meter ships: any generator over 250ms names itself and its cost.
-  const ms = Number(process.hrtime.bigint() - t0) / 1e6
-  if (ms > 250) console.log(`    · ${g.file} took ${ms.toFixed(0)} ms`)
+  // AND THE METER IS NOW A METRIC (2026-08-24). Printing it named the slow generator and then lost it with the
+  // scrollback, so nothing could say whether a generator got slower — the one question a meter exists to answer.
+  // Every generator is RECORDED, not just the ones over the line, and the record is reported below.
+  // EXACT INTEGER MILLISECONDS, by BigInt division of the nanosecond counter — no float, no Math.*, which the
+  // determinism hard-reject forbids here as everywhere (a meter that had to round could not live in this tree).
+  const msInt = Number((process.hrtime.bigint() - t0) / 1_000_000n)
+  metrics.push({ file: g.file, ms: msInt, decade: levelOf(msInt) })
+  if (msInt > 250) console.log(`    · ${g.file} took ${msInt} ms`)
   results.push({ file: g.file, ok, leaf: toUuid(`generator|${g.file}|${g.args.join(' ')}|${ok ? 'ok' : 'fail'}`) })
   console.log(`    ${ok ? '✓' : '✗'} ${g.file.padEnd(24)} ${g.note}`)
   if (!ok) process.exit(1)
@@ -111,4 +120,55 @@ console.log(`    coins      : ${D} schemas × ${coins()} = ${deposit} deposited 
 console.log(`    census     : ${census.join(' + ')} = ${total} = 2^${D}${total === 1024 ? "  (Pascal's row 10 — uuid_mix_census_is_quantum)" : ''}`)
 console.log(`    base fold  : ${base}`)
 console.log(`    FUSED      : ${fused}`)
+// ── THE GENERATOR METRICS — SLOW IS REPORTED, NOT SCROLLED PAST ───────────────────────────────────────────────
+// The meter above named a slow generator and then lost it. "Is gen-song getting slower?" was unanswerable, so
+// nobody asked it, so a generator could drift from 30ms to 900ms one commit at a time with every run printing a
+// line nobody diffed. The record answers it: every generator, its DECADE, and the delta against the last run.
+//
+// A DECADE IS SEALED, A RAW NUMBER IS LOGGED — gen-quantum-capacity's law, applied here for the same reason:
+// wall-clock ms differ every run on every host (gen-song measured 302ms and 499ms an hour apart), so a raw
+// figure committed anywhere would dirty the tree on every run and teach everyone to ignore the diff. The decade
+// is a property of the GENERATOR; the raw ms is a property of THIS RUN AND THIS MACHINE. Only the first can
+// mean anything tomorrow.
+//
+// The file is GITIGNORED — a timing is state, exactly like the writer lock, never source. It exists so two runs
+// can be compared, not so a run can be committed.
+const METRICS = join(ROOT, 'generator-metrics.json')
+const prev: Record<string, number> = (() => {
+  try { return JSON.parse(readFileSync(METRICS, 'utf8')).decades ?? {} } catch { return {} }
+})()
+
+const slowest = [...metrics].sort((a, b) => b.ms - a.ms)
+const totalMs = metrics.reduce((a, m) => a + m.ms, 0)
+// a generator is REPORTED SLOW by its decade, not by a hand-picked threshold: 100ms+ is decade 100 or above.
+const slow = slowest.filter((m) => m.decade >= 100)
+
+console.log(`\n    ── generator metrics — ${metrics.length} generators, ${totalMs} ms total (decade sealed, raw logged) ──`)
+if (slow.length === 0) console.log('    every generator lands under decade 100 — nothing to name')
+for (const m of slow) {
+  const was = prev[m.file]
+  const move = was === undefined ? 'new' : was === m.decade ? `steady at ${was}` : was < m.decade ? `SLOWER: ${was} → ${m.decade}` : `faster: ${was} → ${m.decade}`
+  console.log(`    ${m.file.padEnd(26)} decade ${String(m.decade).padStart(4)}   (raw ${m.ms} ms this run)   ${move}`)
+}
+// the REGRESSION is the finding: a generator whose decade climbed is named loudly, because that is the whole
+// point of keeping the record — the meter that only printed could never have said this.
+//
+// BOUNDED TO THE SLOW BAND, and that bound was MEASURED, not guessed. The first version fired on any climb and
+// immediately cried wolf: gen-prose-evidence.js, a sub-15ms generator, crossed the 10ms line between two runs
+// of the same unchanged code and got announced as a regression. Below decade 100 this meter is reading node's
+// scheduler, not the generator, and a warning that fires on noise is a warning everyone learns to scroll past —
+// the precise failure this record exists to end. So a climb is a finding only where the signal is real.
+const regressed = metrics.filter((m) => prev[m.file] !== undefined && m.decade > prev[m.file]! && m.decade >= 100)
+if (regressed.length > 0) console.log(`    ⚠ ${regressed.length} generator(s) climbed a decade since the last run: ${regressed.map((m) => m.file).join(', ')}`)
+
+writeFileSync(METRICS, JSON.stringify({
+  generators: metrics.length,
+  totalMs,
+  // the SEALED half — decades only, stable across runs and hosts
+  decades: Object.fromEntries(metrics.map((m) => [m.file, m.decade])),
+  // the LOGGED half — this run, this machine, explicitly not a fact about the generator
+  rawMs: Object.fromEntries(metrics.map((m) => [m.file, m.ms])),
+  note: 'decades reseal and are comparable across runs; rawMs is this run on this host only. Gitignored: a timing is state, never source.',
+}, null, 2) + '\n')
+
 console.log('\n✓ generate — all generators merged, fused across every dimensional combination, one receipt.')

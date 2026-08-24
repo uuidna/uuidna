@@ -190,7 +190,7 @@ export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySe
 
 // crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
 // envelope. No native WebCrypto — nothing but latest TypeScript, KAT-verified against the standards' vectors.
-export { encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, type Sealed } from './crypt.js'
+export { encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, deriveKeyPure, kdfInstrument, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, type Sealed } from './crypt.js'
 export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
 export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './chacha.js'
 // stream — encrypted uuid messaging streams: onion-seal (N ChaCha20-Poly1305 layers, bounded) carried entirely

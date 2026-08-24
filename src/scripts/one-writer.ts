@@ -75,6 +75,16 @@ const POLL = 'sleep 2'
  *  and a stuck writer must be named to a human rather than waited on forever. */
 export const MAX_POLLS = 1000
 
+/** working(pid) → does this holder have a LIVE CHILD? (queue lead 123: the ceiling was a CLOCK, and a clock
+ *  cannot tell busy from stuck — a legitimate land round runs develop, lean, tsc and a full gate, so a holder
+ *  can be forty minutes old and perfectly busy. Proven live 2026-08-24: a holder the ceiling called STUCK had
+ *  `npm run lean` and `tsc` running as its children, mid-cure. Children are the WORK made observable; time is
+ *  data, never a verdict.) No child means nothing is running under it — the honest stuck signal. */
+export function working(pid: number): boolean {
+  try { return execSync(`pgrep -P ${pid}`, { encoding: 'utf8', stdio: 'pipe' }).trim().length > 0 }
+  catch { return false }   // pgrep exits nonzero when there are no children — that IS the answer
+}
+
 export function awaitAcquire(
   purpose: string,
   pid: number,
@@ -117,7 +127,9 @@ if (isMain) {
     const r = awaitAcquire(purpose, process.ppid, LOCK_PATH, (h) =>
       console.error(`· one-writer — the tree is HELD by pid ${h.pid} (${h.purpose}); WAITING (polling liveness, no clock — the lock lifts itself when the holder ends)`))
     if (!r.ok) {
-      console.error(`✗ one-writer — pid ${r.holder.pid} (${r.holder.purpose}) still holds the tree after ${r.polls} polls. A writer this long is STUCK, not busy: name it to a human, or kill it knowingly. Never delete a live pid's lock.`)
+      console.error(working(r.holder.pid)
+        ? `✗ one-writer — pid ${r.holder.pid} (${r.holder.purpose}) still holds the tree after ${r.polls} polls, and it IS WORKING (live children under it). Busy, not stuck: wait longer or coordinate — do NOT end it.`
+        : `✗ one-writer — pid ${r.holder.pid} (${r.holder.purpose}) still holds the tree after ${r.polls} polls with NO live child: nothing is running under it, which is the honest stuck signal. Name it to a human, or end it knowingly. Never delete a live pid's lock.`)
       process.exit(1)
     }
     console.log(`✓ one-writer — tree acquired for ${purpose} after ${r.polls} poll(s) (holder pid ${process.ppid})`)

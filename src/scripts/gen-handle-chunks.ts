@@ -32,21 +32,45 @@ export interface HandleChunk {
   files: string[]
 }
 
-/** buildChunks() — pure, deterministic, no I/O: every distinct proven fact, content-addressed and handled. */
+/** buildChunks() — pure, deterministic, no I/O: every distinct proven fact, content-addressed and handled.
+ *
+ *  MEMOISED, because "pure, deterministic, no I/O" is exactly the licence to compute a thing once. Its whole
+ *  input is `theorems()` — a compiled static module, immutable for the life of the process — so a second call
+ *  cannot observe anything the first did not. The memo is LAZY (computed at first call, never at module scope),
+ *  which keeps the edge bundle's no-module-scope-work law intact. */
+let CHUNKS: HandleChunk[] | undefined
 export function buildChunks(): HandleChunk[] {
-  return allStatementChunks()
+  return (CHUNKS ??= allStatementChunks()
     .map((c) => {
       const address = toUuid('chunk:' + c.statement.replace(/\s+/g, ''))
       return { handle: handleOf(address), address, statement: c.statement, tactic: c.tactic, keys: c.keys, files: c.files }
     })
-    .sort((a, b) => a.handle.localeCompare(b.handle))
+    .sort((a, b) => a.handle.localeCompare(b.handle)))
+}
+
+/** THE JOIN, READ ONCE — key → the hexbit handle of the fact it cites.
+ *
+ *  This index is the docstring below made real. `chunkHandleOf` used to rebuild every chunk and then scan them
+ *  linearly, so resolving the ledger's own keys cost a full rebuild per key: 1674 keys x ~1200 chunks, measured
+ *  at 6.4 SECONDS for one sweep, and handle.test.ts sweeps in every test — 35s of a 65s suite spent recomputing
+ *  a map that never changes. The advice "build the map once instead" was correct and unenforceable while the
+ *  convenient call sat next to it; so the map IS the function now, and the advice cannot be declined.
+ *
+ *  ORDER IS PRESERVED EXACTLY. The old `.find` returned the FIRST chunk in handle order whose keys held the key,
+ *  so the index keeps the first writer and never overwrites — a key cited by two chunks resolves to the same
+ *  handle it always did. Same answer, O(1) instead of O(chunks x keys). */
+let BY_KEY: Map<string, string> | undefined
+function keyIndex(): Map<string, string> {
+  if (BY_KEY) return BY_KEY
+  const m = new Map<string, string>()
+  for (const c of buildChunks()) for (const k of c.keys) if (!m.has(k)) m.set(k, c.handle)
+  return (BY_KEY = m)
 }
 
 /** chunkHandleOf(key) — resolve a theorem KEY to the handle of the fact it cites (the has_and_belongs_to_many
- *  join, read from the key's side). A caller resolving many keys should build the map once instead: this is a
- *  convenience for the occasional single lookup. */
+ *  join, read from the key's side). O(1) against the index above; the first call builds it. */
 export function chunkHandleOf(key: string): string | undefined {
-  return buildChunks().find((c) => c.keys.includes(key))?.handle
+  return keyIndex().get(key)
 }
 
 const OUT = join(ROOT, 'src/chunks')

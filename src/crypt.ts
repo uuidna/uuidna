@@ -55,12 +55,52 @@ const foldEnvelope = (alg: string, salt: string, nonce: string, ct: string, tag:
 // derivation string — NOT FNV: keying a secret's memo on a non-cryptographic hash would return the WRONG key on a
 // collision, so the map key must be collision-resistant (the value is the derived key.
 const kdfCache = new Map<string, Uint8Array>()
+
+// ── THE SAME DERIVATION, ON THE FASTEST LAWFUL INSTRUMENT ────────────────────────────────────────────────────
+// PBKDF2-HMAC-SHA256 is a STANDARD, not a choice: for one (pass, salt, iter, dkLen) there is exactly one correct
+// output, so a host that implements it in C and ./sha256's pure TS are the same function with different costs —
+// measured here at 1794 ms against 71 ms for the 600k derivation, 25x, bit-identical, and both agreeing with the
+// published PBKDF2-HMAC-SHA256 vectors (crypto-kdf-parity.test.ts holds all of that, vectors included, so the
+// claim is checked rather than asserted). The work factor is UNTOUCHED — ITER is still 600,000 and every
+// iteration is still performed. Only the machine doing them changed.
+//
+// THE PURE PATH REMAINS THE DEFINITION. It is what runs where no host KDF exists, it is what the KAT pins, and
+// it is what makes this package dependency-free — so it is a fallback, never a deletion. The builtin resolves
+// LAZILY through process.getBuiltinModule (boundary.ts's law: no static `node:` import may enter this module, or
+// the edge bundle stops building), and anything unexpected — no getBuiltinModule, no node:crypto, no pbkdf2Sync
+// — falls through to the pure implementation rather than throwing.
+type Pbkdf2Sync = (p: Uint8Array, s: Uint8Array, i: number, len: number, digest: string) => Uint8Array
+let hostKdf: Pbkdf2Sync | null | undefined   // undefined = not yet looked for; null = looked, absent
+const hostPbkdf2 = (): Pbkdf2Sync | null => {
+  if (hostKdf !== undefined) return hostKdf
+  try {
+    const g = (process as unknown as { getBuiltinModule?: (id: string) => unknown }).getBuiltinModule
+    const mod = typeof g === 'function' ? g.call(process, 'node:crypto') as { pbkdf2Sync?: Pbkdf2Sync } : undefined
+    hostKdf = typeof mod?.pbkdf2Sync === 'function' ? mod.pbkdf2Sync : null
+  } catch { hostKdf = null }
+  return hostKdf
+}
+
 const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array => {
   const memoKey = b64(sha256(enc.encode('uuidna-kdf-v1|' + iter + '|' + b64(salt) + '|' + b64(pass)))) // collision-resistant memo key
   let key = kdfCache.get(memoKey)
-  if (!key) { key = pbkdf2Sha256(pass, salt, iter, 32); kdfCache.set(memoKey, key) }
+  if (!key) {
+    const host = hostPbkdf2()
+    // new Uint8Array(...) normalises the host's Buffer to the exact type the rest of this module handles
+    key = host ? new Uint8Array(host(pass, salt, iter, 32, 'sha256')) : pbkdf2Sha256(pass, salt, iter, 32)
+    kdfCache.set(memoKey, key)
+  }
   return key
 }
+
+/** THE PURE DERIVATION, REACHABLE — so the parity test can compare the two paths, and so a caller that must have
+ *  the dependency-free one can ask for it by name. Not used by encrypt/decrypt: they take the fast lawful path. */
+export const deriveKeyPure = (pass: Uint8Array, salt: Uint8Array, iter: number, dkLen = 32): Uint8Array =>
+  pbkdf2Sha256(pass, salt, iter, dkLen)
+
+/** which instrument this runtime derives on — 'host' (C, via node:crypto) or 'pure' (./sha256). Observable so a
+ *  deployment can SAY which path it took instead of assuming. */
+export const kdfInstrument = (): 'host' | 'pure' => (hostPbkdf2() ? 'host' : 'pure')
 
 /** A sealed envelope: the ChaCha20-Poly1305 ciphertext + tag, its public parameters, and its 7d-fold address.
  *  `v:2` envelopes carry `seq`, the advancing-sequence step that freshens the salt (closing the equality leak). */

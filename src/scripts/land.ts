@@ -12,7 +12,7 @@
 // --no-verify does not appear in this file, and an untaught denial is the loop's honest end, not an obstacle.
 import { execSync } from 'node:child_process'
 import { ROOT } from './api.js'
-import { acquire, release } from './one-writer.js'
+import { acquire, awaitAcquire, release, LOCK_PATH, working } from './one-writer.js'
 
 const ROUNDS = 4   // bounded: more than the worst day needed once every cure is taught; never a spin loop
 
@@ -30,9 +30,22 @@ const CURES: { name: string; when: RegExp; cmd: string }[] = [
   { name: 'stale derived layer', when: /STALE DERIVED LAYER|git-diff of generated/, cmd: 'node dist/scripts/reconcile.js --derive-only' },
 ]
 
-const gate = acquire('land', process.pid)
+// AND IT WAITS RATHER THAN DYING (2026-08-24): the refusal was right and incomplete — the ONE manual step
+// left in the whole loop was a person re-running this command after a neighbour's writer cleared. The queue
+// is the LOCK'S own (awaitAcquire), not a shell re-written here: that is the eighth hand-copy this law exists
+// to stop, and delegating inherits reentrancy, stale reclaim and atomicity instead of re-implementing them.
+// `--no-wait` keeps the old refusal for a caller that would rather be told.
+const gate = process.argv.includes('--no-wait')
+  ? acquire('land', process.pid)
+  : awaitAcquire('land', process.pid, LOCK_PATH, (h) =>
+      console.error(`· land — the lane is HELD by pid ${h.pid} (${h.purpose}); WAITING for it (no clock: the lock lifts when the holder ends, and a dead holder is reclaimed)`))
 if (!gate.ok) {
-  console.error(`✗ land — the tree is HELD by pid ${gate.holder.pid} (${gate.holder.purpose}); one landing at a time is the whole point.`)
+  console.error(`✗ land — pid ${gate.holder.pid} (${gate.holder.purpose}) still holds the tree; one landing at a time is the whole point.`)
+  // WORK, NOT CLOCK (queue lead 123, found live when this very message accused a holder whose children were
+  // npm run lean and tsc, mid-cure): a holder with live children is BUSY and must not be ended.
+  console.error(working(gate.holder.pid)
+    ? '  It IS WORKING — live children are running under it. Busy, not stuck: wait longer or coordinate, and do NOT end it.'
+    : '  NO live child runs under it — the honest stuck signal. Name it to a human, or end it knowingly. Never delete a live pid\'s lock.')
   process.exit(1)
 }
 process.on('exit', () => release(process.pid))

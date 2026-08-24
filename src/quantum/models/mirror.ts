@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 419,
+ "count": 417,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -464,15 +464,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000000574",
-   "completionPrice": "0.0000001148"
+   "promptPrice": "0.000000056",
+   "completionPrice": "0.000000112"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
    "name": "DeepSeek: DeepSeek V4 Flash 0731",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000014",
-   "completionPrice": "0.00000028"
+   "promptPrice": "0.0000000658",
+   "completionPrice": "0.0000001316"
   },
   {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000526176",
-   "completionPrice": "0.000001052352"
+   "promptPrice": "0.000000522174",
+   "completionPrice": "0.000001044348"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -1035,6 +1035,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000009"
   },
   {
+   "id": "mistralai/devstral-2512",
+   "name": "Mistral: Devstral 2 2512",
+   "contextTokens": 262144,
+   "promptPrice": "0.00000044",
+   "completionPrice": "0.0000022"
+  },
+  {
    "id": "mistralai/ministral-14b-2512",
    "name": "Mistral: Ministral 3 14B 2512",
    "contextTokens": 262144,
@@ -1185,8 +1192,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k2.5",
    "name": "MoonshotAI: Kimi K2.5",
    "contextTokens": 262144,
-   "promptPrice": "0.00000045",
-   "completionPrice": "0.00000225"
+   "promptPrice": "0.0000006",
+   "completionPrice": "0.000003"
   },
   {
    "id": "moonshotai/kimi-k2.6",
@@ -1280,13 +1287,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000002"
   },
   {
-   "id": "nvidia/nemotron-3-nano-30b-a3b:free",
-   "name": "NVIDIA: Nemotron 3 Nano 30B A3B (free)",
-   "contextTokens": 256000,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
    "id": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
    "name": "NVIDIA: Nemotron 3 Nano Omni (free)",
    "contextTokens": 256000,
@@ -1346,20 +1346,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "nvidia/nemotron-3.5-lightning:free",
    "name": "NVIDIA: Nemotron 3.5 Lightning (free)",
    "contextTokens": 1000000,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
-   "id": "nvidia/nemotron-nano-12b-v2-vl:free",
-   "name": "NVIDIA: Nemotron Nano 12B 2 VL (free)",
-   "contextTokens": 128000,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
-   "id": "nvidia/nemotron-nano-9b-v2:free",
-   "name": "NVIDIA: Nemotron Nano 9B V2 (free)",
-   "contextTokens": 128000,
    "promptPrice": "0",
    "completionPrice": "0"
   },
@@ -2199,7 +2185,7 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "qwen/qwen3-235b-a22b-thinking-2507",
    "name": "Qwen: Qwen3 235B A22B Thinking 2507",
-   "contextTokens": 262144,
+   "contextTokens": 131072,
    "promptPrice": "0.00000023",
    "completionPrice": "0.0000023"
   },

@@ -9,7 +9,7 @@ import assert from 'node:assert/strict'
 import {
   isHandle, handleOf, seedOf, handleParts, handlePath, handleOfPath, handleDirs, pathOrderMatchesHandleOrder, HANDLE_ROOT,
 } from '../handle.js'
-import { chunkHandleOf } from '../scripts/gen-handle-chunks.js'
+import { chunkHandleOf, buildChunks } from '../scripts/gen-handle-chunks.js'
 import { theorems } from '../index.js'
 import { readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -160,4 +160,36 @@ test('the derivations that are deliberately NOT seedOf keep their own width and 
   assert.notEqual(hex.slice(0, 13), hex.slice(0, 8), 'stream.ts steps THIRTEEN hex, a wider step on purpose')
   assert.notEqual(Number(BigInt('0x' + hex) % 7n), seedOf(a) % 7,
     'the rosette folds the WHOLE address mod 7 — a different domain')
+})
+
+// ── THE JOIN IS AN INDEX, NOT A SCAN — the finder for the defect this suite itself was paying for.
+//
+// chunkHandleOf used to call buildChunks() on every lookup and then scan the result linearly, so resolving the
+// ledger's own keys rebuilt every chunk once per key: 6.4 SECONDS for one sweep, and `live()` above sweeps in
+// every test — 35s of a 65s suite spent recomputing a map that cannot change. It was fixed by making the map
+// the function. This test is why it stays fixed.
+//
+// NO CLOCK. A wall-time budget would assert the cure by measuring the machine, and would go flaky on a loaded
+// CI box — this tree decides staleness by liveness and identity, never by a timer, and a performance test can
+// hold the same law. Memoisation has an EXACT observable: the builder hands back the same object. That is
+// checkable, deterministic, and fails the moment someone deletes the memo.
+test('buildChunks is computed ONCE — the same object, not an equal one', () => {
+  const a = buildChunks()
+  const b = buildChunks()
+  assert.equal(a === b, true, 'a second build means every chunkHandleOf lookup rebuilds the whole ledger again')
+  // the control: identity is a real claim here, not something every array satisfies
+  assert.notEqual(a, a.slice(), 'a copy must NOT pass — otherwise this test cannot fail')
+})
+
+test('the key index resolves EXACTLY what a linear scan resolves, over every live key', () => {
+  const T = theorems()
+  const chunks = buildChunks()
+  // the OLD implementation, verbatim: first chunk in handle order whose keys hold the key
+  const linear = (key: string): string | undefined => chunks.find((c) => c.keys.includes(key))?.handle
+  const disagree = T.filter((t) => linear(t.key) !== chunkHandleOf(t.key))
+  assert.deepEqual(disagree.map((t) => t.key), [], 'the index must return what the scan returned — faster, never different')
+  // the controls: the comparator must distinguish, and a key nothing cites must resolve to nothing on both sides
+  assert.equal(chunkHandleOf('not_a_theorem_key_zzz'), undefined)
+  assert.equal(linear('not_a_theorem_key_zzz'), undefined)
+  assert.notEqual(chunkHandleOf(T[0]!.key), chunkHandleOf('not_a_theorem_key_zzz'))
 })

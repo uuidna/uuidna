@@ -6,3 +6,5 @@
 export { testClaim, type ClaimTest, type ControlRun } from './claim-tester.js'
 export { start, applyStride, undo, unitSquaresToOne, UNITS_24, FRAME_RING, type EditState } from './frame-editor.js'
 export { build, type Composition } from './state-builder.js'
+// the say-do gap made decidable — a commit's message against its own diff (lead 98, the polygraph)
+export { sayDoOf, chart, type CommitRecord, type SayDo, type PolygraphChart } from './polygraph.js'
