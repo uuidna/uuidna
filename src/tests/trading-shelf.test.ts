@@ -5,11 +5,16 @@
 import { test } from 'node:test'
 import assert from 'node:assert'
 import { costOf, walletCensus, leverageOf, compoundAt, RATE_NUM, RATE_DEN, FIRST_DOUBLING } from '../quantum/apps/categories/trading/index.js'
+import { theorems } from '../theorems/index.js'
+
+// THE LIVE SCALE, DERIVED (lead 104, and this file's own words: "at the live scale, not promised"). The count
+// was pinned as a literal, which made that promise false the moment the ledger grew, and tripped no-pinned-counts.
+const LEDGER = theorems().length
 
 test('the census counts two coins per sealed thing and CHECKS the conservation', () => {
-  const c = walletCensus(1689, 1689)
+  const c = walletCensus(LEDGER, LEDGER)
   assert.equal(c.perExchange, 2)
-  assert.equal(c.minted, 2 * (1689 + 1689))
+  assert.equal(c.minted, 2 * (LEDGER + LEDGER))
   assert.equal(c.conserved, true, 'conservation is checked at the live scale, not promised')
 })
 
