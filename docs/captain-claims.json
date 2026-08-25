@@ -2,8 +2,8 @@
   "generated": "2026-08-25",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1701,
-  "total_theorems": 1701,
+  "total_claimed": 1703,
+  "total_theorems": 1703,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,8 +3781,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "78301a86-3526-8ae7-93c9-1d4d17c4b52b",
-      "address": "e14147df-090b-865c-a13b-7194a70e1f3e",
+      "lineAddress": "2b69d23c-88e1-8acb-b5aa-a0d9a8c52e22",
+      "address": "4d5464ce-cd16-8f79-880f-3496fa54ae4a",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3793,8 +3793,8 @@
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "73aa35f2-445b-8e4f-8faf-3cd65c164ef7",
-      "address": "b67fdfa9-c1e5-8929-acbc-c9183519ef4b",
+      "lineAddress": "45f0babd-b5da-88e4-a3dc-aff00653f570",
+      "address": "abac5a81-0413-83cd-8bb4-25d5cf856da2",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4453,14 +4453,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "ac35dba7-4fd0-8862-96c9-8047d6653fb9",
-      "address": "76c73ff4-06f2-8d87-9d75-c1207079600a",
+      "lineAddress": "35931cfd-6a36-8eab-a4c4-8ccbec0ff685",
+      "address": "c8f69033-fd7b-879e-b921-bb36bc867242",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "994d6a5d-6510-8f3c-9a20-3c0e801cab58",
-      "address": "ec187464-f092-8075-a36c-0b8f2daa8da2",
+      "lineAddress": "f48ee2ea-7368-8196-be0f-b057d29da14b",
+      "address": "faf1c2b9-9ae7-84be-9bdf-6f831cdbe026",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -6735,6 +6735,18 @@
       "key": "the_reform_is_exactly_three_days_in_four_hundred",
       "lineAddress": "a898143f-9e93-8f73-8e8a-87c068afde14",
       "address": "688a7172-b37e-8e6c-b320-f2199d447c1b",
+      "principle": "The calendar"
+    },
+    {
+      "key": "the_record_has_holes_the_rule_does_not",
+      "lineAddress": "7e506e62-fe89-8fad-9e84-610a77f5da89",
+      "address": "25a5c9ed-e488-8450-a835-7de11c3a2048",
+      "principle": "The calendar"
+    },
+    {
+      "key": "a_gapless_index_admits_nothing_between",
+      "lineAddress": "39e17454-670c-849c-b62e-54908c5d6664",
+      "address": "238dc342-f12c-8148-9de6-c9013d6ae8bc",
       "principle": "The calendar"
     },
     {
@@ -10212,7 +10224,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "c2201899-be15-8a68-b1af-8f31f18b9a32",
+  "claim_receipt": "0799069a-9b07-8d2b-ae04-35b073703a52",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

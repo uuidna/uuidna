@@ -135,7 +135,7 @@ page regrows without it.
 - **The 85% rule does NOT apply to curriculum design (recorded value: optimum is 85% under Gaussian noise, 82% Laplacian, 75% Cauchy)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`negation_involution_solves`](/theorem/negation_involution_solves) · [`involution_census_self_explains`](/theorem/involution_census_self_explains) </small>
-  <br><small>sealed neighbors: [`hebbian_coincidence_table`](/theorem/hebbian_coincidence_table) · [`nim_misere_differs`](/theorem/nim_misere_differs) · [`agreement_is_decided_by_address`](/theorem/agreement_is_decided_by_address) </small>
+  <br><small>sealed neighbors: [`hebbian_coincidence_table`](/theorem/hebbian_coincidence_table) · [`nim_misere_differs`](/theorem/nim_misere_differs) · [`the_record_has_holes_the_rule_does_not`](/theorem/the_record_has_holes_the_rule_does_not) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Expanding intervals do NOT beat fixed intervals (recorded value: g = 0.034, 95% CI [-0.10, 0.17], I2 = 0%)**
   <br><small>door: the research ledger</small>
@@ -288,7 +288,7 @@ page regrows without it.
 - **Cognitive load theory is near-unfalsifiable as commonly applied (recorded value: every outcome fits post-hoc)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`negation_involution_solves`](/theorem/negation_involution_solves) · [`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive) </small>
-  <br><small>sealed neighbors: [`universe_of_handles`](/theorem/universe_of_handles) · [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page) · [`the_tempi_tile_the_film`](/theorem/the_tempi_tile_the_film) </small>
+  <br><small>sealed neighbors: [`universe_of_handles`](/theorem/universe_of_handles) · [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) · [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## open frontier — 6 open

@@ -5,30 +5,30 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1620,
-        "keys": 1701,
+        "distinct": 1622,
+        "keys": 1703,
         "renamings": 81,
         "principles": 115,
         "skills": 112,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "One leap (1)",
-        "ledgerReceipt": "f584df7a-56ef-8ed9-886e-68463d74e1a8"
+        "ledgerReceipt": "4c064aa4-9145-802e-a461-a8efd04620e0"
       },
-      "address": "754040d6-2e03-824a-907e-cf32b324eeb8"
+      "address": "814da99f-5bc2-87c6-9a96-524afd47ba1a"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1701,
-        "ledgerKeys": 1701,
+        "theoremsMeasured": 1703,
+        "ledgerKeys": 1703,
         "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "0011286f-c967-86ea-8bc2-a9b79a5c28ad"
+      "address": "030570f7-6a2b-8b24-82e2-3a3aacf028cb"
     },
     {
       "title": "Citation audit",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 115,
-        "sealedTheorems": 1701,
+        "sealedTheorems": 1703,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "ec98e016-d579-8f05-b999-98cabeee9d87"
+      "address": "7da01a26-612d-8763-8919-b07c99ac057d"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 633,
-        "roots": 422,
-        "supported": 633,
+        "modules": 635,
+        "roots": 423,
+        "supported": 635,
         "dead": 0,
-        "receipt": "96ad5a32-a90e-8cf8-beec-b38d564e8895"
+        "receipt": "5e88bee5-4256-8d76-843d-66d174f6bda4"
       },
-      "address": "4e2b7978-3218-83f2-b3ba-728823806b95"
+      "address": "ce20d201-ab07-88e9-98d5-30ec85e2af79"
     },
     {
       "title": "Package inventory",
@@ -76,6 +76,6 @@
       "address": "2848f4a0-dee7-8b6f-a6dd-455bc7cd1f40"
     }
   ],
-  "receipt": "839dc41c-e79e-8932-8c7d-8359b96ee47a",
+  "receipt": "907a3f14-caa3-8e73-927a-721d09e6e7ca",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

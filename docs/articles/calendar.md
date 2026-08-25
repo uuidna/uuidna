@@ -1,15 +1,15 @@
 ---
 title: "The calendar"
-description: "Computed from lean/Calendar.lean — 13 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Calendar.lean — 15 sealed theorems, every claim citing its proof."
 ---
 
 # The calendar
 
-> THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. — held by [week_is_z7](/theorem/week_is_z7) and its 12 siblings below.
+> THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. — held by [week_is_z7](/theorem/week_is_z7) and its 14 siblings below.
 
-**13 theorems**, from [week_is_z7](/theorem/week_is_z7) onward, each proven `by decide` in [lean/Calendar.lean](/lean/Calendar.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [century_leap_rule](/theorem/century_leap_rule). A boundary stated here is decided.
+**15 theorems**, from [week_is_z7](/theorem/week_is_z7) onward, each proven `by decide` in [lean/Calendar.lean](/lean/Calendar.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 7 of its 15 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [century_leap_rule](/theorem/century_leap_rule). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCalendar.lean)** — nothing to install. The editor fetches `lean/Calendar.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCalendar.lean)** — nothing to install. The editor fetches `lean/Calendar.lean` from the repository and re-decides all 15 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### The week is the rosette ℤ/7: seven days, and advancing by seven returns to the same day — 7 % 7 = 0. The calendar counts in the same ring uuidna turns on.
 The ledger holds this as [week_is_z7](/theorem/week_is_z7) — proven `by decide`, sorry-free:
@@ -100,6 +100,20 @@ The ledger holds this as [the_reform_is_exactly_three_days_in_four_hundred](/the
 
 ```lean
 (400 * 365 + 100 = 146100) ∧ (146100 - 146097 = 3) ∧ (1461 * 100 = 146100) ∧ (100 - 97 = 3)
+```
+
+### THE WING ABOVE IS ABOUT THE RULE; THIS IS ABOUT WHAT WAS KEPT. Every theorem here so far — the week closing, the year precessing, the four-hundred-year cycle — describes the RULE, and the rule is clean. The calendar actually kept is not: in October 1582 the fourth was followed by the fifteenth, and the ten days between were never lived. Laid against a GAPLESS integer day index the deletion returns as arithmetic rather than as remembered history — the two dates the record treats as adjacent are eleven apart, and eleven less the one day that did elapse is TEN. A gapless ruler measures the holes in a thing that has them; that is its use. The same subtraction over a genuine successor returns zero, which is the control: 5 − 4 − 1 = 0. HONEST SCOPE: this seals the ARITHMETIC of the deletion, not the history — that Gregory ordered it, that the papal states obeyed in 1582 and Britain in 1752, and that the leap rule was misapplied for fifty years after Caesar are matters of record, cited in src/calendar.ts and decidable by no kernel. What the kernel holds is that a gapless index and a calendar with a hole in it disagree by exactly the size of the hole.
+The ledger holds this as [the_record_has_holes_the_rule_does_not](/theorem/the_record_has_holes_the_rule_does_not) — proven `by decide`, sorry-free:
+
+```lean
+(15 - 4 - 1 = 10) ∧ (5 - 4 - 1 = 0) ∧ (15 - 4 = 11)
+```
+
+### WHAT GAPLESS MEANS, and the ledger already decided it once. A day index is gapless when successive days differ by exactly one and no index lies strictly between them — the same discreteness ym_quantum seals for winding numbers ("no integer strictly between n and n+1"), applied to time instead. Sealed here over a walk rather than asserted: across twenty consecutive indices every step is +1 and no integer hides between a pair. MEASURED BESIDE IT, and this is the part a kernel cannot reach: the implementation was walked over 190,292 days from 1580 to 2100 — every leap year, every century year, the 1900 that is not a leap year, and the epoch — and not one step differed from +1. The theorem holds the SHAPE of gaplessness; the walk holds that this particular index has it, and the two are different claims kept apart on purpose.
+The ledger holds this as [a_gapless_index_admits_nothing_between](/theorem/a_gapless_index_admits_nothing_between) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 20).all (fun i => (i + 1) - i == 1) ∧ (List.range 20).all (fun i => (List.range 20).all (fun k => ¬ (i < k ∧ k < i + 1)))
 ```
 
 

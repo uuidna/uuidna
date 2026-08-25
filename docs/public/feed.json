@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:32171356-293e-80a4-9a0a-87b52a2917a0",
+  "@id": "urn:uuid:c1b244e0-dc1e-8b75-a14d-43e9700a71fe",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -17624,11 +17624,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:78301a86-3526-8ae7-93c9-1d4d17c4b52b",
+        "@id": "urn:uuid:2b69d23c-88e1-8acb-b5aa-a0d9a8c52e22",
         "@type": "ScholarlyArticle",
         "headline": "EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 13, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 15, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18]).foldl (· + ·) 0 = 1688) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 13, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 15, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18] = [6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 13, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 15, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18])",
-        "identifier": "e14147df-090b-865c-a13b-7194a70e1f3e",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 15, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18]).foldl (· + ·) 0 = 1690) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 15, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18] = [6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 15, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18])",
+        "identifier": "4d5464ce-cd16-8f79-880f-3496fa54ae4a",
         "url": "https://uuidna.com/theorem/reach_all_decide",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -17680,11 +17680,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:73aa35f2-445b-8e4f-8faf-3cd65c164ef7",
+        "@id": "urn:uuid:45f0babd-b5da-88e4-a3dc-aff00653f570",
         "@type": "ScholarlyArticle",
-        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 256, and it is a window — the largest enumeration any theorem here performs, across 81 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number",
-        "abstract": "([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 4, 8, 27, 200, 16, 1, 10, 181, 5, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 6, 10, 7, 10, 10, 4, 32, 5, 9, 7, 1, 32, 1, 9, 7, 2, 64, 10, 11, 256, 32].all (fun w => w ≤ 256)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 64, 27, 16, 12, 8, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 4, 8, 27, 200, 16, 1, 10, 181, 5, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 6, 10, 7, 10, 10, 4, 32, 5, 9, 7, 1, 32, 1, 9, 7, 2, 64, 10, 11, 256, 32].any (fun w => w == 256)) ∧ (256 < 257)",
-        "identifier": "b67fdfa9-c1e5-8929-acbc-c9183519ef4b",
+        "headline": "THE WIDEST WINDOW IN THE LEDGER IS 256, and it is a window — the largest enumeration any theorem here performs, across 82 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number",
+        "abstract": "([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 8, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 4, 8, 27, 200, 16, 1, 10, 181, 5, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 6, 10, 7, 10, 10, 4, 32, 5, 9, 7, 1, 32, 1, 9, 7, 2, 64, 10, 11, 256, 32].all (fun w => w ≤ 256)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 8, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 4, 8, 27, 200, 16, 1, 10, 181, 5, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 6, 10, 7, 10, 10, 4, 32, 5, 9, 7, 1, 32, 1, 9, 7, 2, 64, 10, 11, 256, 32].any (fun w => w == 256)) ∧ (256 < 257)",
+        "identifier": "abac5a81-0413-83cd-8bb4-25d5cf856da2",
         "url": "https://uuidna.com/theorem/reach_window_finite",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -20760,11 +20760,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ac35dba7-4fd0-8862-96c9-8047d6653fb9",
+        "@id": "urn:uuid:35931cfd-6a36-8eab-a4c4-8ccbec0ff685",
         "@type": "ScholarlyArticle",
         "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the 114 neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.",
-        "abstract": "([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 13, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 13, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
-        "identifier": "76c73ff4-06f2-8d87-9d75-c1207079600a",
+        "abstract": "([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18].all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18].all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))",
+        "identifier": "c8f69033-fd7b-879e-b921-bb36bc867242",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -20788,11 +20788,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:994d6a5d-6510-8f3c-9a20-3c0e801cab58",
+        "@id": "urn:uuid:f48ee2ea-7368-8196-be0f-b057d29da14b",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 114 measured wing counts and lands on 1686 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 13, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18].foldl (· + ·) 0) = 1686) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 13, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18].length = 114) ∧ (114 < 1686)",
-        "identifier": "ec187464-f092-8075-a36c-0b8f2daa8da2",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 114 measured wing counts and lands on 1688 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18].foldl (· + ·) 0) = 1688) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 27, 7, 6, 8, 25, 17, 7, 4, 5, 64, 8, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 16, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 1, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 52, 17, 25, 14, 6, 5, 7, 6, 234, 148, 7, 7, 6, 9, 28, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 13, 16, 57, 18].length = 114) ∧ (114 < 1688)",
+        "identifier": "faf1c2b9-9ae7-84be-9bdf-6f831cdbe026",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -31406,6 +31406,62 @@
         "abstract": "(400 * 365 + 100 = 146100) ∧ (146100 - 146097 = 3) ∧ (1461 * 100 = 146100) ∧ (100 - 97 = 3)",
         "identifier": "688a7172-b37e-8e6c-b320-f2199d447c1b",
         "url": "https://uuidna.com/theorem/the_reform_is_exactly_three_days_in_four_hundred",
+        "keywords": "calendar, The calendar",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Calendar.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:7e506e62-fe89-8fad-9e84-610a77f5da89",
+        "@type": "ScholarlyArticle",
+        "headline": "THE WING ABOVE IS ABOUT THE RULE; THIS IS ABOUT WHAT WAS KEPT. Every theorem here so far — the week closing, the year precessing, the four-hundred-year cycle — describes the RULE, and the rule is clean. The calendar actually kept is not: in October 1582 the fourth was followed by the fifteenth, and the ten days between were never lived. Laid against a GAPLESS integer day index the deletion returns as arithmetic rather than as remembered history — the two dates the record treats as adjacent are eleven apart, and eleven less the one day that did elapse is TEN. A gapless ruler measures the holes in a thing that has them; that is its use. The same subtraction over a genuine successor returns zero, which is the control: 5 − 4 − 1 = 0. HONEST SCOPE: this seals the ARITHMETIC of the deletion, not the history — that Gregory ordered it, that the papal states obeyed in 1582 and Britain in 1752, and that the leap rule was misapplied for fifty years after Caesar are matters of record, cited in src/calendar.ts and decidable by no kernel. What the kernel holds is that a gapless index and a calendar with a hole in it disagree by exactly the size of the hole.",
+        "abstract": "(15 - 4 - 1 = 10) ∧ (5 - 4 - 1 = 0) ∧ (15 - 4 = 11)",
+        "identifier": "25a5c9ed-e488-8450-a835-7de11c3a2048",
+        "url": "https://uuidna.com/theorem/the_record_has_holes_the_rule_does_not",
+        "keywords": "calendar, The calendar",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Calendar.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:39e17454-670c-849c-b62e-54908c5d6664",
+        "@type": "ScholarlyArticle",
+        "headline": "WHAT GAPLESS MEANS, and the ledger already decided it once. A day index is gapless when successive days differ by exactly one and no index lies strictly between them — the same discreteness ym_quantum seals for winding numbers (\"no integer strictly between n and n+1\"), applied to time instead. Sealed here over a walk rather than asserted: across twenty consecutive indices every step is +1 and no integer hides between a pair. MEASURED BESIDE IT, and this is the part a kernel cannot reach: the implementation was walked over 190,292 days from 1580 to 2100 — every leap year, every century year, the 1900 that is not a leap year, and the epoch — and not one step differed from +1. The theorem holds the SHAPE of gaplessness; the walk holds that this particular index has it, and the two are different claims kept apart on purpose.",
+        "abstract": "(List.range 20).all (fun i => (i + 1) - i == 1) ∧ (List.range 20).all (fun i => (List.range 20).all (fun k => ¬ (i < k ∧ k < i + 1)))",
+        "identifier": "238dc342-f12c-8148-9de6-c9013d6ae8bc",
+        "url": "https://uuidna.com/theorem/a_gapless_index_admits_nothing_between",
         "keywords": "calendar, The calendar",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Calendar.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
