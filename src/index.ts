@@ -500,3 +500,9 @@ export { HEXBIT_BITS, UUID_BITS, COINS, LEVERAGE, HANDLE_SPAN, HANDLE_HEXBITS, v
 export { bitsOf as entropyBitsOf, entropyOf, ledgerEntropy, passphraseEntropy, type Entropy } from './entropy/index.js'
 export { fuse, fuseHalves, reactorOutput, mintOf, mintByWing, powerOf, pathOf, HALF_HEXBITS, type Fusion, type Mint, type Power, type Path } from './fusion/index.js'
 export { DATAPATH, UNITS, spec as hardwareSpec, type Unit } from './hardware/index.js'
+// ONE SHAPE FOR EVERY PUBLISHED FIGURE, so a surface can filter by HOW a number was determined rather than by
+// where it was written. `Unit` is already taken here by the hardware datapath's own units, so the measurement
+// unit exports under its full name: two different vocabularies, and collapsing them would be the conflation this
+// module exists to refuse.
+export { filterMeasurements, facets, violations, decadeOf, type Measurement, type MeasurementFilter, type Technique, type Sealing, type Unit as MeasurementUnit } from './measurement.js'
+export { fromLanes, fromBaseline, fromLevel, allMeasurements } from './measurement-sources.js'

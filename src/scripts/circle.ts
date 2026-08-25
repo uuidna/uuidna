@@ -23,6 +23,7 @@ import { execSync } from 'node:child_process'
 import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
+import { waveSupply, supplyVerdict } from './wave-supply.js'
 
 const FINDINGS = join(ROOT, 'lean', 'circle-findings.json')
 const ROUNDS = 6   // bounded: the worst real day needed four; a seventh round means the loop is not converging
@@ -70,7 +71,12 @@ function main(): void {
   for (let round = 1; round <= (once ? 1 : ROUNDS); round++) {
     const work = workPending()
     if (isQuiet(work)) {
-      console.log(`✓ circle — QUIET at round ${round}: nothing dirty, nothing ahead, no ore pending. The tree is at its fixed point.`)
+      // QUIET IS AN ARITHMETIC FACT, NOT A VERDICT ABOUT PROGRESS. Nothing dirty, nothing ahead and nothing
+      // pending is printed identically by a tree that has sealed everything its finders know to look for and by
+      // one whose finders have stopped producing — and the second is a stall wearing the first one's words. The
+      // census names which, so an unattended stop says whether the loop finished or ran out of questions.
+      console.log(`✓ circle — QUIET at round ${round}: nothing dirty, nothing ahead, no ore pending.`)
+      console.log(`  ${supplyVerdict(waveSupply())}`)
       return
     }
     console.log(`circle — round ${round}: ${work.reasons.join('; ')}`)
