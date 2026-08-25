@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="941 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="945 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 941 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 945 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `35ef4c30` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `2768bfd6` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -391,6 +391,15 @@ verify is a keyless tamper-check
 gate drains a fabricated citation and reveals everything else
 trial returns one answer — VERIFIED or UNVERIFIED, all else void
 an unknown route 404s
+```
+
+**deadkey** — 4 utterances
+
+```text
+THE CONTROL — the finder can say NO, which it has never been asked to prove
+ONE underscore is key-shaped — the 6.4% the old rule could not see
+a sealed key, an MCP tool name and a declared non-citation are all EXEMPT, and for different reasons
+the LIVE tree cites no dead key — tests included, which is new
 ```
 
 **detail-audit** — 13 utterances
