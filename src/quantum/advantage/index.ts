@@ -197,9 +197,23 @@ export interface QuantumBaseline {
  *  here where they would drift out of step with it. */
 export const REPORTED_BASELINE: QuantumBaseline = {
   name: 'gate-model physical two-qubit gate (superconducting / trapped-ion class)',
+  // THIS FIGURE IS UNSOURCED, AND SAYING SO IS THE POINT. It was written as an order-of-magnitude stand-in for
+  // "the ~10^-3 two-qubit physical error class the platforms publish", with its per-device sources delegated to
+  // the capacity report. A multi-source research pass then went looking for those sources and came back with
+  // NOTHING USABLE: every claim bearing on two-qubit gate error rates, gate times and cross-platform variance
+  // was refuted in adversarial verification, and the refuted material pointed in BOTH directions at once —
+  // neutral atoms possibly above 10^-3, the best trapped-ion possibly below. The same pass found five of the
+  // capacity report's nine rows unverifiable and one materially wrong (the Harvard/QuEra 48 is error-DETECTED,
+  // not error-corrected), so the delegation pointed at figures that are themselves unchecked.
+  //
+  // So this is not `reported` in the sense the honesty classes mean — nobody's publication was read to get it.
+  // It is an ASSUMPTION the comparison runs on, which in this tree's own vocabulary is an EXPOSED AXIOM, and it
+  // is registered as one in axiom-hunt so it appears in lean/exposed-axioms.json as a lead rather than sitting
+  // in a report looking like a citation. The comparison it feeds is a DECADE comparison and survives being
+  // coarse; what it does not survive is being mistaken for something a source confirmed.
   errorsPerMillion: 1000,
   gateNs: 100,
-  source: 'platform literature, ~10^-3 two-qubit physical error class; per-device sources are named in the capacity report',
+  source: 'UNVERIFIED assumption, not a citation: the ~10^-3 two-qubit physical error class is widely stated, and a multi-source verification pass (2026-08-25) refuted every claim it could reach about gate error rates — in both directions — so no source stands behind this number here. Registered as an exposed axiom; the comparison is a decade comparison and is reported as one.',
 }
 
 /** ONE ROW OF THE ADVANTAGE REPORT — a level, its three axes, and the class of every figure on it. */

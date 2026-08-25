@@ -39,8 +39,21 @@ import { urlOf } from './site/index.js'
  *  own row (2^128 addresses usable, error-free) is not a measurement and is not anyone's publication — it
  *  follows from how addresses are built. Folding it in with `reported` would dress a self-assertion as a cited
  *  external result, which is precisely the substitution this module exists to prevent; a figure's class is
- *  worth carrying only if the flattering class is unavailable when it does not apply. */
-export type HonestyClass = 'reported' | 'measured' | 'computed' | 'declared'
+ *  worth carrying only if the flattering class is unavailable when it does not apply.
+ *
+ *  `assumed` was ADDED 2026-08-25, by the route this comment invites: a report needed a class the list did not
+ *  have, so it is written down here rather than invented at the call site. The quantum-advantage report compares
+ *  measured fidelity against "the ~10^-3 two-qubit gate error class", and a multi-source verification pass went
+ *  looking for the sources behind that number and refuted every claim it could reach — in both directions. So
+ *  the figure is not `reported`: nobody's publication was read to get it. It is not `measured`, `computed` or
+ *  `declared` either. It is an ASSUMPTION the comparison runs on, and with only four classes available the
+ *  honest choice was between mislabelling it `reported` and dropping the comparison entirely.
+ *
+ *  That is the failure this vocabulary exists to prevent, arriving from the other side: a closed list is only
+ *  honest while it can name every state a real figure occupies, and a missing class pushes a figure into the
+ *  nearest flattering one. `assumed` is the unflattering state — a number the report runs on and cannot source
+ *  — and naming it costs nothing while leaving it unnamed cost a citation that was never made. */
+export type HonestyClass = 'reported' | 'measured' | 'computed' | 'declared' | 'assumed'
 
 export interface Figure {
   /** what this figure is OF, specific enough to stand alone once lifted out of its table row */

@@ -190,8 +190,12 @@ const figures: Figure[] = [
   { name: 'sealed quantum algebra — disagreements', value: proof.disagreements, unitText: 'disagreements',
     measurementTechnique: 'measured',
     citation: proof.bound },
-  { name: 'reported physical two-qubit gate error class', value: report.baseline.errorsPerMillion, unitText: 'errors per million operations',
-    measurementTechnique: 'reported',
+  // CLASSED `assumed`, NOT `reported` — the difference is the whole point of carrying a class at all. It read
+  // `reported` until a verification pass went looking for the publications behind it and refuted every claim it
+  // could reach, in both directions. A figure nobody's paper was read to obtain is not a citation, and calling
+  // it one is the exact substitution the honesty classes exist to prevent.
+  { name: 'two-qubit gate error class used as the comparison baseline', value: report.baseline.errorsPerMillion, unitText: 'errors per million operations',
+    measurementTechnique: 'assumed',
     citation: report.baseline.source },
 ]
 

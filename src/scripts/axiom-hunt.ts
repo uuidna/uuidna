@@ -11,6 +11,7 @@ import {
 } from '../index.js'
 import { MAX_MESSAGE_QUBITS } from '../quantum/message/index.js'
 import { MAX_SERVED_QUBITS } from '../mcp.js'
+import { REPORTED_BASELINE } from '../quantum/advantage/index.js'
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
@@ -28,6 +29,15 @@ const CANDIDATES: Candidate[] = [
   // an audit whose summary line reads "no axioms in use".
   { key: 'served_qubit_ceiling', assumes: 'the hosted surface refuses above MAX_SERVED_QUBITS = 12 (4096 amplitudes), at or below the library cap', where: 'src/mcp.ts',
     live: () => MAX_SERVED_QUBITS === 12 && MAX_SERVED_QUBITS <= MAX_MESSAGE_QUBITS && (1 << MAX_SERVED_QUBITS) === 4096 },
+  // THE ADVANTAGE REPORT'S BASELINE, and it is registered here because a research pass went looking for its
+  // sources and found none it could confirm. The figure stands in for "the ~10^-3 two-qubit physical gate error
+  // class" and feeds a published comparison; every claim the pass could reach about gate error rates was refuted
+  // in adversarial verification, pointing in both directions at once. An unsourced constant driving a published
+  // comparison is an assumption wearing a citation's clothes — exactly what this hunter is for — so it is named
+  // as an axiom rather than left to read as `reported`. Sealing it means finding what actually forces the class,
+  // per platform, from calibration data rather than announcements.
+  { key: 'gate_error_baseline_class', assumes: 'the comparison baseline is 1000 errors per million two-qubit gates (the ~10^-3 class), unverified by any source this tree has read', where: 'src/quantum/advantage/index.ts',
+    live: () => REPORTED_BASELINE.errorsPerMillion === 1000 && REPORTED_BASELINE.gateNs === 100 },
   { key: 'aead_nonce_and_salt_bits', assumes: 'the nonce is NONCE_BYTES=12 B = 96 bits (RFC 8439), the salt SALT_BYTES=16 B = 128 bits, nonce strictly inside the address width', where: 'src/crypt.ts', live: () => NONCE_BYTES === 12 && SALT_BYTES === 16 && NONCE_BYTES * 8 === 96 && SALT_BYTES * 8 === 128 && NONCE_BYTES * 8 < ADDRESS_BITS },
   { key: 'onion_layers_power_of_two', assumes: 'MAX_LAYERS = 16 = 2^4, at most the 128 address bits', where: 'src/stream.ts', live: () => MAX_LAYERS === 16 && 16 === 2 ** 4 && MAX_LAYERS <= ADDRESS_BITS },
   { key: 'imprint_capacity_within_address', assumes: 'CAPACITY = 115 < 128 — the imprint fits strictly inside its address, 13 bits of seam', where: 'src/imprint.ts', live: () => CAPACITY === 115 && CAPACITY < ADDRESS_BITS },
