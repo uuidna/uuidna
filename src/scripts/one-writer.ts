@@ -10,10 +10,11 @@
 // pid (process.ppid), because in an `a && b && c` chain each link is its own short-lived process while the
 // shell running the chain lives exactly as long as the work does.
 import { execFileSync } from 'node:child_process'
-import { readFileSync, writeFileSync, unlinkSync } from 'node:fs'
-import { join } from 'node:path'
+import { readFileSync, writeFileSync, unlinkSync, mkdirSync } from 'node:fs'
+import { join, dirname } from 'node:path'
 import { ROOT, pauseSeconds } from './api.js'
 import { childProbe, parentProbe, bornProbe } from '../os/host/index.js'
+import { judge, chargeSheet, COVERED, sessionPath, type OpenManifest } from '../dirty-paths.js'
 
 export interface Writer {
   pid: number
@@ -251,8 +252,72 @@ if (isMain) {
     console.log(release(process.ppid)
       ? `✓ one-writer — tree released (${purpose})`
       : '· one-writer — not the holder; leaving the live lock alone (releasing another writer IS the interleaving)')
+  } else if (cmd === 'open') {
+    // ── THE SAME LAW ONE SCOPE IN. The lock answers "who holds the TREE"; these two answer "whose is this FILE".
+    // They live here rather than in a script of their own for the reason a peer put plainly: a new top-level
+    // script needs wiring, and its three doors are a package.json entry the scripts law refuses as a thin
+    // wrapper, a 33rd line on a list whose own header says it MAY ONLY SHRINK, or a chain step that always
+    // exits 0 — which is an instrument that cannot fail, the exact thing this tree spent the day removing.
+    // A verb on an already-wired dispatcher needs none of the three, and this dispatcher already owns the
+    // subject: it is the shared-checkout coordination tool, and this is shared-checkout coordination.
+    const sid = process.env.UUIDNA_SESSION ?? ''
+    if (!sid) {
+      console.error('✗ one-writer open — no UUIDNA_SESSION, so this session cannot name itself and a manifest')
+      console.error('  written now could not be found again. Refusing rather than writing one nobody can read.')
+      console.error('  FIX export UUIDNA_SESSION=<a name stable for this session>, then open again.')
+      process.exit(1)
+    }
+    const m = openSession(sid)
+    console.log(`✓ one-writer open — session ${sid} found ${m.dirtyAtOpen.length} path(s) already dirty at HEAD ${m.head.slice(0, 8)}`)
+    console.log('  a path outside what this scan covered reads UNKNOWN, which is NOT the same as clean')
+  } else if (cmd === 'mine') {
+    const rest = process.argv.slice(3)
+    const cut = rest.indexOf('--also')
+    const paths = (cut === -1 ? rest : rest.slice(0, cut)).filter(Boolean)
+    const allowed = cut === -1 ? [] : rest.slice(cut + 1).filter((a) => a !== '--also')
+    if (!paths.length) {
+      console.error('usage: one-writer.js mine <path>… [--also <path>…]')
+      process.exit(1)
+    }
+    const { verdicts, ok, blocking } = judge(paths, readSession(process.env.UUIDNA_SESSION ?? ''), allowed)
+    for (const v of verdicts) console.log(`  ${v.ownership.padEnd(8)} ${v.path}`)
+    if (ok) {
+      console.log(`✓ one-writer mine — ${verdicts.length} path(s), none carrying work this session did not start`)
+    } else {
+      console.error(`\n✗ one-writer mine — ${blocking.length} path(s) carry work this session did not start:\n`)
+      for (const line of chargeSheet(blocking)) console.error(line)
+      console.error('\n  A file is not a unit of authorship when several sessions share one checkout, and')
+      console.error('  `git commit -- <path>` takes the whole file\'s WORKING TREE, not just your hunks.')
+      process.exit(1)
+    }
   } else {
-    console.error('usage: one-writer.js acquire <purpose> | release <purpose>')
+    console.error('usage: one-writer.js acquire <purpose> | await <purpose> | release <purpose>')
+    console.error('       one-writer.js open                      record what this session found on arrival')
+    console.error('       one-writer.js mine <path>… [--also …]   whose work is in these paths')
     process.exit(1)
   }
+}
+
+// ── THE SESSION MANIFEST — the host side of src/dirty-paths.ts, which stays pure so it can be tested without a
+// git checkout. Reading and writing live here for the same reason acquire() lives here rather than in a library:
+// spawning is the scripts boundary's job, and the law it enforces is the library's.
+export function openSession(sid: string): OpenManifest {
+  const head = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: ROOT, encoding: 'utf8', stdio: 'pipe' }).trim()
+  // tracked modifications AND untracked files: a peer's half-written NEW file is exactly as much theirs as a
+  // peer's edit to an existing one, and the sweep that caused this took both kinds
+  const dirtyAtOpen = execFileSync('git', ['status', '--porcelain', '-z', '--untracked-files=all'],
+    { cwd: ROOT, encoding: 'utf8', stdio: 'pipe' })
+    .split('\0').filter(Boolean).map((e) => e.slice(3)).filter(Boolean)
+  const manifest: OpenManifest = { dirtyAtOpen, covered: [...COVERED], head }
+  const p = sessionPath(ROOT, sid)
+  mkdirSync(dirname(p), { recursive: true })
+  writeFileSync(p, JSON.stringify(manifest, null, 2) + '\n')
+  return manifest
+}
+
+/** null when there is no manifest, and null means UNKNOWN rather than clean — see the three-answers note in
+ *  src/dirty-paths.ts. An unreadable manifest is the same: it cannot speak, so it does not. */
+export function readSession(sid: string): OpenManifest | null {
+  if (!sid) return null
+  try { return JSON.parse(readFileSync(sessionPath(ROOT, sid), 'utf8')) as OpenManifest } catch { return null }
 }

@@ -86,6 +86,18 @@ export function judge(
   return { verdicts, ok: blocking.length === 0, blocking }
 }
 
+/** THE SCAN COVERS THE WHOLE TREE, and says so rather than implying it. `git status --porcelain
+ *  --untracked-files=all` with no pathspec sees every path git can see, so '.' is the honest coverage. An
+ *  earlier draft listed four roots, which UNDERSTATED what had been measured and manufactured false UNKNOWNs for
+ *  root files — a smaller error than claiming more than you know, and still an instrument not matching its own
+ *  reading. */
+export const COVERED = ['.'] as const
+
+/** where a session's manifest lives — beside the writer lock, gitignored for the same reason: a session's own
+ *  state is never source. One file per session, because two sessions in one checkout each need their own answer
+ *  to "what did I find", and a shared one would be the very confusion this module exists to end. */
+export const sessionPath = (root: string, sid: string): string => `${root}/.uuidna-sessions/${sid}.json`
+
 /** the charge sheet — one line per blocking path, each carrying the exact cure for ITS answer, because the two
  *  answers want different acts: a foreign path wants a conversation, an unknown one wants a manifest. */
 export const chargeSheet = (blocking: readonly Verdict[]): string[] =>
