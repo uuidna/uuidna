@@ -2880,7 +2880,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
    "promptPrice": "0.000000035",
-   "completionPrice": "0.00000016"
+   "completionPrice": "0.00000028"
   },
   {
    "id": "~google/gemini-flash-latest",

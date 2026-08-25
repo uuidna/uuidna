@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1298 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1301 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1298 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1301 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `7bae3021` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `e954e98b` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -680,6 +680,14 @@ knight_near_centre_six — the knight leap set recomputed at the square one step
 knight_edge_four — the knight leap set recomputed on the edge file, with the four lost leaps identified as exactly those crossing the edge; an edgeless board, the centre square and the king must fail
 knight_near_corner_three — the knight leap set recomputed beside the corner and separated from the corner square itself; an edgeless board, the corner, and the king must fail
 king_edge_five — the king neighbourhood recomputed on the edge and pinned by the whole-board total of 420, which the decomposition 4x3 + 24x5 + 36x8 must reproduce; an edgeless board, a four-square edge, the corner and the knight must fail
+```
+
+**falsifiers-coin-mint** — 3 utterances
+
+```text
+the reimplementation IS the mint — without this control every number in this file measures a fiction
+A CHOSEN 32-BIT WORD OF THE MINT IS FORGEABLE IN 2^16 — measured by producing the preimage
+a uuid carries NO evidence of its own mint — the format cannot say captain, or FNV, or SHA-256
 ```
 
 **falsifiers-coins** — 20 utterances
