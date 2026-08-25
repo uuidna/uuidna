@@ -109,6 +109,7 @@ export {
 export * from './loop-closure-auto-fold.js'
 
 // THE SCHOOL — weekly automation (automate/improvement) and the practice feedback loop (practice/feedback/loop)
+export * from './collection/index.js'
 export * from './school/index.js'
 
 // BILLING — the two-coin price sheet; APIS — the outward ask; TTS — theorems read aloud (all reachable, none dead)
