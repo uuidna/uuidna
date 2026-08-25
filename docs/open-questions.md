@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**50 open doors** across 12 topics, derived from the tree's own records — the held leads,
+**48 open doors** across 12 topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
@@ -21,7 +21,7 @@ express the claim as an exact predicate over it, run the [tester](/tools) with i
 drains, seal it ([the wave](/theorem/denial_drains_to_the_last_coin)). The door then closes as a count, and this
 page regrows without it.
 
-## wave — 29 open
+## wave — 27 open
 
 - **The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…**
   <br><small>door: the held leads</small>
@@ -57,16 +57,6 @@ page regrows without it.
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`z7_inverse_table_and_wilson`](/theorem/z7_inverse_table_and_wilson) </small>
   <br><small>sealed neighbors: [`agl9_exponent_is_eighteen_with_no_element_of_that_order`](/theorem/agl9_exponent_is_eighteen_with_no_element_of_that_order) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`debruijn_order_three_census_is_two_rotation_orbits`](/theorem/debruijn_order_three_census_is_two_rotation_orbits) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`development_is_the_complement`](/theorem/development_is_the_complement) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) </small>
-  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`closure_is_coprime`](/theorem/closure_is_coprime) · [`sequence_and_coins_are_one`](/theorem/sequence_and_coins_are_one) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **roundTrips() disagrees with a verified byte-exact imprint round-trip**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`states_are_the_swap_fixed_bytes`](/theorem/states_are_the_swap_fixed_bytes) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`reversible_erases_nothing`](/theorem/reversible_erases_nothing) </small>
-  <br><small>sealed neighbors: [`byte_weight_splits_across_its_two_tiles`](/theorem/byte_weight_splits_across_its_two_tiles) · [`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth) · [`parity_bit_rejects_half_the_byte_tamper_set`](/theorem/parity_bit_rejects_half_the_byte_tamper_set) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **An N-qubit register's state is a 2^N-dimensional complex vector, and full-state classical simulation costs scale exponentially in N (recorded value: 2^N)**
   <br><small>door: the research ledger</small>

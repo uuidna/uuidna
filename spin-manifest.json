@@ -5,11 +5,11 @@
     "CHANGELOG.md": "6827b9ae593a81a5",
     "lean/axioms.json": "1a9479955f768437",
     "docs/mcp.md": "80bc4eef5c3f82ff",
-    "audit-citations.json": "7be64938656380eb",
+    "audit-citations.json": "c32b130107218347",
     "support-audit.json": "55b3d34766cc891e",
     "research-leads.json": "bec370bb76f58ebe",
     ".zenodo.json": "ff90a0835c7d88eb",
-    "reports.json": "7a7ac19f43548a23",
+    "reports.json": "9620fca641808539",
     "lean/statement-index.json": "06a35e26c7898d12",
     "README.md": "2ba8df1ac9478838",
     "llm.txt": "2bdd86033f088969",
@@ -1456,6 +1456,7 @@
     "lean/Ephemeris.lean": "746eaeeba3f882a8",
     "lean/exploits-manifest.json": "4f83a8b31e6d82aa",
     "lean/Exploits.lean": "66dd5d3ac47585f5",
+    "lean/exposed-axioms.json": "1e0e193c8a92821a",
     "lean/findings.json": "bac2a8fb97d18287",
     "lean/glagolitic-manifest.json": "6ce32e75c76b8257",
     "lean/Glagolitic.lean": "bf01ba72f4078d0f",
@@ -1480,7 +1481,7 @@
     "lean/Installs.lean": "d1662298f8c58737",
     "lean/isometry-manifest.json": "67d91c8f67d28b44",
     "lean/Isometry.lean": "70b41265966e88ca",
-    "lean/leads.json": "c00e7bcbf9488911",
+    "lean/leads.json": "4e1181a1d8d48345",
     "lean/legal-manifest.json": "e71b72d2ebb58fdd",
     "lean/Legal.lean": "690e47de8b5f85f8",
     "lean/looms-manifest.json": "27aa01dca8fe8ff0",
@@ -1625,5 +1626,5 @@
     "lean/waves-manifest.json": "fd25caf2595e8fb7",
     "lean/Waves.lean": "4be29174f5748e47"
   },
-  "receipt": "d1b4250b-8636-89b7-be48-9fb9da92a63a"
+  "receipt": "22043cb7-dd76-87de-9ed6-d90c8532909d"
 }
