@@ -3,10 +3,16 @@
 // Every test below does two things and is worthless without both: it RECOMPUTES the theorem's
 // property from scratch in JavaScript and asserts it holds, and then it MUTATES that property and
 // asserts the mutated form fails. The second half is what separates a falsifier from a restatement.
-// Nothing here imports from the tree — the recomputation has to be an independent route to the same
-// number, not a lookup of the number being checked.
+// The recomputation has to be an independent route to the same number, not a lookup of the number
+// being checked. ONE IMPORT IS ALLOWED, AND ONLY FOR THE CLAIM: a falsifier must know what the ledger
+// actually SEALS, or it falsifies a statement of its own invention. So the sealed statement is read for
+// its PARAMETERS — which base, which exponent, which bound — and every number is then recomputed here by
+// arithmetic that imports nothing. Reading the claim is not looking up the answer; writing the answer as a
+// literal, which is what this file used to do, is how it came to assert a 39-digit expansion that
+// positions_exceed_uuid_space never states.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { theoremByKey } from '../theorems/index.js'
 
 type Offset = readonly [number, number]
 
@@ -102,13 +108,29 @@ test('game_tree_exceeds_universe — 10^80 < 10^120 recomputed as strict growth 
   mutationMustFail(pow(0, 80) < pow(0, 120), '0^80 < 0^120 — growth in the exponent at base zero')
 })
 
-test('positions_exceed_uuid_space — 2^128 recomputed by 128 doublings, pinned to 39 digits, and turned into a pigeonhole count; one decade down, a wider address, and a roomier space each must fail', () => {
-  let uuidSpace = 1n
-  for (let i = 0; i < 128; i++) uuidSpace *= 2n
-  assert.equal(uuidSpace, 340282366920938463463374607431768211456n)
-  assert.equal(decimalDigits(uuidSpace), 39)
+test('positions_exceed_uuid_space — the sealed inequality read from the ledger, both powers recomputed here by repeated multiplication and cross-checked by exponentiation, then turned into a pigeonhole count; one decade down, a wider address, and a roomier space each must fail', () => {
+  // THE CLAIM, FROM THE LEDGER. positions_exceed_uuid_space seals (2:Nat)^128 < 10^44 — an inequality between
+  // two powers, and nothing about a decimal expansion. Reading its parameters means this falsifier follows the
+  // theorem if the theorem is ever restated, instead of quietly testing a claim the ledger stopped making.
+  const stmt = theoremByKey().get('positions_exceed_uuid_space')?.statement ?? ''
+  const m = /\((\d+):Nat\)\^(\d+) < (\d+)\^(\d+)/.exec(stmt)
+  assert.ok(m, 'the sealed statement no longer has the shape this falsifier reads: ' + stmt)
+  const [, base, exp, boundBase, boundExp] = m as RegExpExecArray
 
-  const positions = pow(10, 44)
+  // THE ARITHMETIC, LOCAL. Repeated multiplication, not **, so the value is reached by a different path than
+  // the sealed statement takes.
+  let uuidSpace = 1n
+  for (let i = 0; i < Number(exp); i++) uuidSpace *= BigInt(base)
+  // THE LOOP, CROSS-CHECKED BY A SECOND ROUTE. This line used to assert the 39-digit expansion as a literal —
+  // a constant carrying no theorem, since the sealed statement is an inequality and never mentions an
+  // expansion. It was also the largest digit-sink in the test corpus: 17 distinct ledger counts fall inside
+  // those 39 digits, which is how a file about chess came to be accused of pinning the theorem count. The
+  // check it was really making is that the doubling loop is right, and ** makes that point with no numeral at
+  // all, from the same ledger-supplied base and exponent.
+  assert.equal(uuidSpace, BigInt(base) ** BigInt(exp))
+
+  // THE BOUND, ALSO FROM THE LEDGER — 10 and 44 are the statement own, not this file guess at them.
+  const positions = pow(Number(boundBase), Number(boundExp))
   assert.ok(uuidSpace < positions)
 
   // The consequence the statement exists for: N positions into M addresses forces some address to

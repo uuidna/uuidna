@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1143 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1297 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1143 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1297 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `3e32e764` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `a23eab66` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -239,7 +239,7 @@ no inflation: every minted coin comes from minting a theorem — the supply is c
 the ledger valued: total coins = superpositions × 2, recomputable and deterministic
 ```
 
-**catalogue** — 12 utterances
+**catalogue** — 14 utterances
 
 ```text
 the catalogue carries ALL of Alpine, not the boot closure
@@ -254,6 +254,8 @@ a package\
 the closure check resolves through PROVIDES, not just names — the other half of the edge
 a runtime with NO filesystem is primed, not crippled
 primeCatalogueFrom reports an unreachable catalogue as ABSENT, never as an empty Alpine
+the chunked walk returns EXACTLY the synchronous walk — a scheduling change, never a scope change
+the chunk size changes the SCHEDULE and nothing else
 ```
 
 **circle** — 4 utterances
@@ -339,6 +341,23 @@ trials as quantum private secure messaging: a filing proves the constitution WIT
 
 ```text
 every theorem is credited — a named historical result it reflects, or the captain claims it by law
+```
+
+**crossref** — 12 utterances
+
+```text
+a DOI is found in prose and stripped of the punctuation that ends the sentence
+the endpoint encodes the slash, which Crossref requires and a raw path would break
+mailto is added only when a caller gives one — a library must not disclose an identity nobody chose
+the envelope is read into the fields a citation is checked against
+a registered DOI resolves and an invented one does not — the whole point of the module
+AN ANSWER FOR A DIFFERENT DOI IS NOT AN ANSWER — the resolver must not vouch for what was not asked
+no DOI at all reports NOT CHECKABLE, never a clean bill of health
+the honest note refuses the stronger reading a resolved DOI invites
+the search URL asks for a subject and only the fields a candidate is judged on
+a subject returns real candidates, parsed into the same Citation shape
+EVERY RESULT IS MARKED UNJUDGED, and the type will not let it be otherwise
+a dead search is empty candidates, never an invented one
 ```
 
 **crypto-bounds** — 1 utterances
@@ -462,7 +481,7 @@ the LIVE tree cites no dead key — tests included, which is new
 ```text
 the hand-maintained records do NOT auto-resolve — a conflict in them is a question, not a coin flip
 the genuinely derived layer KEEPS the driver — this is a correction, not a retreat
-a generator that writes a literal path is INVOKED by the chain, or it is rot waiting to happen
+a generator that writes ANY path is INVOKED by the chain, or it is rot waiting to happen
 ```
 
 **detail-audit** — 13 utterances
@@ -631,6 +650,179 @@ reduce_is_order_invariant — the fold is blind to the order it is handed
 z7fermat — every non-multiple of 7 raised to the sixth returns to 1
 three_no_inverse — 3 is the digit ℤ/9 will not invert
 doubling_circuit — six doublings close the ring of units
+```
+
+**falsifiers-audit** — 8 utterances
+
+```text
+flag_truth_table — recompute h·(1−d)·(1−b) across all eight states and compare to the sealed row; a detector that drops the backing factor must not reproduce it
+flag_requires_hollow — recompute flag ≤ h at every state (honest prose is never flagged); a detector that drops the hollow factor must violate the bound
+backing_clears — recompute flag·b = 0 at every state (a sealed-theorem link clears the claim); the mutant that drops the backing factor must leave a nonzero product
+exactly_one_flag — recount the firing states (a gate that never fires proves nothing); mutants that drop a clearance must fire more than once
+flag_matches_spec — recompute the arithmetic detector against an independently written boolean specification at all eight states; a mutated specification must stop agreeing
+witnesses_locate_faults — simulate majority voting to rederive the 2t+1 bound; the mutated bound 2t must fail to locate, splitting evenly instead
+prose_coverage_total — refold the per-wing doc-comment counts and assert every single wing is load-bearing; perturbing any one wing must break the total
+prose_folds_receipt — refold every wing the census walks of prose to one ℤ/9 receipt by digit-summing instead of by remainder; a single extra character in any wing must move the digit
+```
+
+**falsifiers-chessgames** — 12 utterances
+
+```text
+game_tree_exceeds_universe — 10^80 < 10^120 recomputed as strict growth of b^n in n across many bases; reversing it, and running it at base 1 and base 0 where growth stops, must fail
+positions_exceed_uuid_space — the sealed inequality read from the ledger, both powers recomputed here by repeated multiplication and cross-checked by exponentiation, then turned into a pigeonhole count; one decade down, a wider address, and a roomier space each must fail
+positions_within_naive_bound — 13^64 recomputed twice by different routes (64 multiplications vs six squarings) and pinned to 72 digits; the reverse, the next decade up, and a twelve-state alphabet must fail
+one_game_is_a_speck — the decade crossover for 6000 is recomputed as k=4 and the fold cost is walked ply by ply; the decade below, the non-strict form, and an enumerated 100-ply branch must fail
+board_3d_is_two_nine — 8^3 and 2^9 recomputed by separate loops and the exponent of two recovered by halving; 2^8, 2^10 and an exponent of six must fail
+board_dims_add_three — [8^1,8^2,8^3] recomputed and each exponent of two recovered as exactly 3d for d up to eight; a step of two per dimension, and 8^4 as 2^13, must fail
+hyperchess_eight_dimensions — 8^8 and 2^24 recomputed by separate loops and 2^8 recovered by doubling; 2^23, 2^25 and 255 must fail
+no_maximal_board — the chain 8^d < 8^(d+1) recomputed for twenty dimensions with a strictly larger board past the largest named; the reversed step and the flat side-1 chain must fail
+knight_near_centre_six — the knight leap set recomputed at the square one step in from the edge, cross-checked against the whole-board total of 336 and its distribution; an edgeless board, a (1,3) leaper and the king must fail
+knight_edge_four — the knight leap set recomputed on the edge file, with the four lost leaps identified as exactly those crossing the edge; an edgeless board, the centre square and the king must fail
+knight_near_corner_three — the knight leap set recomputed beside the corner and separated from the corner square itself; an edgeless board, the corner, and the king must fail
+king_edge_five — the king neighbourhood recomputed on the edge and pinned by the whole-board total of 420, which the decomposition 4x3 + 24x5 + 36x8 must reproduce; an edgeless board, a four-square edge, the corner and the knight must fail
+```
+
+**falsifiers-coins** — 20 utterances
+
+```text
+minting_is_two_per_theorem — build the supply coin by coin and check it is 2n and even; a mint of 3 or 1 per theorem must fail the same build
+billing_closes_at_every_count — the per-theorem price recomputed as a division with remainder; a bill of 2n+1 must fail to close
+wallet_counts_worlds — deposits paired to collapsed worlds as an explicit bijection; three coins a deposit must break the pairing
+two_coins_are_switch_and_track — entangled 2n against a chain n+1, walked to twelve; a shared track must destroy the meet-at-one
+captain_computes_only_with_two_coins — search the whole coin range for what reaches the save; any per-coin rate but 32 must miss two
+captain_coins_respected_at_scale — find the crossover where 2^n first outruns the two-coin save; a growing save or a polynomial cost must move it off seven
+superposition_outcomes_to_64 — enumerate the basis strings of n qubits and count DISTINCT ones; a linear register or a stuck wire must not produce the doubling list
+bill_never_negative — the clamp recomputed against raw JavaScript subtraction, which does NOT clamp; the unclamped bill must fail
+coins_unique_operation_agreement — sweep 0..12 for n+n = n·n = n^n; swapping the tower for a second product must admit zero and lose uniqueness
+coin_and_heart_generate_the_scales — compute the multiplicative group mod 9 and its element orders; {2,4} must fail to generate, and its scales must come out wrong
+coins_over_all_rosetta_combinations — enumerate all 2^5 anchorings and total the per-leg coins; paying per combination, or over four legs, must miss 160
+safe_width_is_thirteen_hexbits — round-trip 2^(4h)−1 through a double for every width to sixteen; admitting fourteen tiles must fail, because fourteen rounds SILENTLY
+discovery_buys_coverage_never_supply — vary coverage against a supply that must not move; a supply tied to coverage must flatten the rate
+heartbeat_share_resolves_at_four_hexbits — sweep the powers of sixteen for the first that gives the cheapest theorem a non-zero share; the third power, and ten thousand, must both lose it
+hexbit_bit_hook_is_linear — expand real hex strings to bit strings and invert; a hook that pads to three, or offsets by one, must fail the round trip
+handle_carries_hexbits_and_coins — cut a real 32-hexbit identity into handles and reassemble it; any width but eight must fail to cover it evenly
+fold_reads_by_handle_not_by_tile — both readings partition the same identity; a handle width that does not divide 32 must fail to cover it, and the read-count ratio must move
+captain_singularity — factor every quantity in the ladder and search for a second origin; a quantity with any odd factor, or an anchor of three, must fail
+minting_is_free_and_forging_is_not — recompute the verify/forge ratio at full width in BigInt; a polynomial forge, or a mint that charges, must fail the asymmetry
+fold_compresses_without_bound_and_never_recovers — a real fixed-width fold walked for a pigeonhole collision; a lossless growing fold must fail BOTH halves
+```
+
+**falsifiers-editing** — 14 utterances
+
+```text
+dropframe_per_hour — the drop rule walked minute by minute gives 108; dropping at EVERY minute must not
+dropframe_entangles_the_coins — 108 reached three independent ways; a hexagon must break all three
+frame_index_is_z24 — the frame field is the ring of 24; a field of 25 must fail to wrap
+frames_per_minute — a cursor built second by second crosses 1440 frames; 25 fps must not
+uhd_is_four_times_hd — a UHD frame is tiled EXACTLY by four HD frames; a half-height UHD must not be
+widescreen_wider_than_academy — the pillarbox is positive; a 16:9 clip in 16:9 must give no bars
+rule_of_thirds_power_points — two lines each way make 9 cells and 4 crossings; one line each way must not
+crossfade_overlap — the dissolve is inclusion–exclusion on the timeline; a butt cut must not span 84
+audio_samples_per_frame — 48000 samples chop evenly into 24 frames; 44100 must leave a remainder
+frame_ring_undo_involutive — every stride of the 24-frame ring undoes itself; in a ring of 25 it must not
+reverse_cut_is_undone_by_itself — reversing a 24-frame shot twice restores it; once, or with a slip, must not
+hour_of_film_is_a_day_of_seconds — the hour of frames and the day of seconds are counted apart and meet at 86400
+dropframe_is_one_thousandth — the hour drops exactly a thousandth of its frame-numbers; no-exemption must not
+angle_of_the_cut — six 30° moves reach the 180° axis; six moves of any other minimum must not
+```
+
+**falsifiers-nim** — 13 utterances
+
+```text
+nim_sum_is_xor — heaps 3,5,7 fold to 1 by the rebuilt lxor; the polarity mutant and the flat-place mutant must not
+nim_pposition_is_zero — heaps 1,2,3 fold to 0; moving one heap by a single stone must destroy the zero
+nim_equal_heaps_cancel — lxor n n = 0 across 0..15, and lxor n (n+1) is zero for no n at all
+nim_empty_heap_neutral — lxor n 0 = n across 0..15, while lxor n 1 = n holds for no n
+nim_sum_commutes — lxor a b = lxor b a on all 64 pairs below 8; the shift-add stand-in must disagree somewhere
+nim_sum_associates — lxor regroups freely on all 512 triples below 8; the shift-add stand-in must not
+nim_lone_heap_wins — lxor 0 n is nonzero for every n in 1..15, and admitting n = 0 must break that claim
+nim_winning_move_exists — from 1,2,4 exactly one move reaches nim-sum 0, and from the P-position 1,2,3 none does
+grundy_sum_is_xor — zero nim-sum coincides with equal heaps on all 64 pairs; addition mod 8 must break the coincidence
+nim_four_powers — the distinct powers 1,2,4,8 fold to 15 because no bits collide; repeat a power and they do
+nim_misere_differs — an ODD count of one-stone heaps folds to 1; make the count even and the sealed value fails
+nim_max_is_a_diamond_nilpotent — 15 lands on residue 6 mod 9 and 6 squares to 0; no other nonzero residue but 3 does
+the 81 nimsum_a_b entries — each sealed value is refolded twice, and each sealed value with one bit flipped must fail
+```
+
+**falsifiers-rosette** — 8 utterances
+
+```text
+z7rays_seven — the residue classes reached by counting successors number exactly seven; a ring of eight rays must break the sealed 7
+z7primitive_root_3 — powers of 3 traced by repeated multiplication cover all six units in the sealed order; 2 has order three and must fail the same trace
+z7reflection_center — d ↦ 7−d is self-inverse with exactly one fixed point; on an even ring it fixes two, so the sealed single centre must fail there
+rosette_pairs_twentyone — enumerating the unordered pairs of the seven rays yields 21; letting a ray pair with itself yields 28 and must break the sealed count
+rosette_quantum_fortytwo — making each of the 21 pairs order-sensitive enumerates 42 directed edges; the undirected enumeration must fail that count
+rosette_quantum_doubling_is_two_coins — the pair enumeration, the coin width and the 110−108 gap all report the factor 2; an undirected quantum rosette or a 127-bit address must break it
+z7fermat — every non-zero ray to the sixth returns 1 under repeated multiplication; the fifth power, and a composite ring, must both fail the same quantifier
+z7units_sum_21 — summing the six non-zero rays gives 21 = 3·7; a six-ray or eight-ray rosette sums elsewhere and must break it
+```
+
+**falsifiers-sequence** — 25 utterances
+
+```text
+mirror_congruence — recompute (10−d) ≡ (1−d) mod 9 over 1..9; shifting the constant off 1 must fail
+agl_order_54 — recompute |AGL(1,ℤ/9)| as (count of units)·9; counting all residues, or working mod 8, must fail
+commutator_is_shift — recompute [σ_a, μ] on ℤ/9; only a=2 yields x↦x+1, a=4 must fail
+one_orbit — recompute transitivity of the shifts on ℤ/9; the proper subgroup ⟨3⟩ must fail to be transitive
+ten_pairs — recompute d + m(d) = 10 over 1..9 with the mirror m; the polar map 9−d must fail it
+polar_nine_pairs — recompute d + polar(d) = 9 over 1..8; the mirror dz must fail it
+partition_six_three — recompute the unit/non-unit split of 1..9 mod 9; the split mod 10 must not be 6+3
+seams_two — recompute the carry seams around the tour; the near-miss tour 0124675369 must not have two
+one_strip — recompute the inverted rail as dz over the forward rail; polar rails must fail to close at 5
+double_strand — recompute strand B as dz over strand A and pair to 10 at every position; a rotated strand must fail
+polarities_plus_minus — recompute the ± pairs from dz below the heart; admitting the self-polar 5 must fail
+forward_reflected_mirror — recompute B = A.map(m) and A = B.map(m) as one involution; m = 9−d must fail
+every_digit_has_neighbours — recompute totality, surjectivity and self-inverse of dz; dropping the ÷0 case must fail
+salt_conv_leaks_equality — recompute that a content-only salt is constant in the step; the sequence salt must fail to leak
+salt_conv_step_is_division_by_zero — recompute the step fibre of the content-only salt as all 9; the sequence salt must fail
+salt_seq_injective — recompute equal-salt ⇔ equal-step for the sequence salt; the content-only salt must fail
+salt_seq_fibre_singleton — recompute every sequence-salt fibre as a singleton; the content-only salt must fail
+five_is_the_halving — recompute ((2x mod 9)·h) mod 9 = x over all of ℤ/9; only h=5 holds, h=4 must fail
+five_orbit_reverses_doubling — recompute the ×5 orbit and the reversed ×2 orbit; the ×4 orbit must fail to match
+reverse_walks_inverse — recompute each unit paired with its OWN inverse in ℤ/9; pairing 2 with 7 must fail
+only_five_carries_the_three_singularities — recompute the digits carrying all three roles; truncating a rail or swapping dz for polar must fail
+tour_contra_reflects_each_digit — recompute the contra by mapping dz over the 12-step walk; polar must fail to produce it
+tour_contra_involutes — recompute dz applied twice over the walk as the identity; a non-involution must fail
+tour_contra_rungs_sum_ten — recompute every rung of the walk as 10, resting at the void; the polar rungs must fail
+sequence_and_coins_are_one — recompute the ⟨2⟩ orbit, its sum and its length from the coin alone; the coin 4 must fail all three
+```
+
+**falsifiers-wave** — 33 utterances
+
+```text
+stride_cycle_is_modulus_over_gcd — the orbit of a stride is recomputed by enumeration and must equal n/gcd(s,n), filling the ring exactly when the stride is coprime; the mutation that reads the cycle as n/s must fail
+stride_first_return_is_the_cycle_length — the first k with k*s === 0 (mod n) is found by search and must equal n/gcd(s,n); the mutation that reads the first return as the stride itself must fail
+two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime — the joint state count is enumerated and must equal a*b/gcd(a,b), equalling a*b exactly when coprime; the mutation that always uses the product must fail
+merkle_depth_iff_leaf_bound — folding a level by ceil(w/2) k times is recomputed and reaches a single root exactly when n <= 2^k; the mutation that folds by floor(w/2) must fail
+merkle_shape_moves_root_iff_nonassociative — the balanced and left-spine folds of four leaves are recomputed and agree only when the first two leaves are zero; the mutation that folds with associative addition must fail
+merkle_odd_level_padding_costs_above_leaf_count — the internal nodes of the fold are counted and must be at least n-1, with equality exactly at the powers of two; the mutation that claims equality for every leaf count must fail
+hamming_triangle_inequality — the four-bit distance is recomputed for every triple and must obey d(a,c) <= d(a,b)+d(b,c) with a tight case at 0,5,15; the mutation that squares the distance must fail
+hamming_differences_are_the_code — the sixteen words are closed under difference, every word is realised as a difference, and every difference has weight 0, 3, 4 or 7; the mutation that flips one bit of one word must fail
+xor_translation_is_sharply_transitive — each translate is recomputed as a bijection of the sixteen words, exactly one translation carries a to b, and translating twice returns home; the mutation that translates by conjunction must fail
+subtraction_game_123_grundy_is_mod4 — the Grundy values are recomputed by minimum excludant and must equal n mod 4, no move preserving the residue and every smaller residue being reachable; the mutation that adds 4 to the move set must fail
+nim_bouton_three_heap_closure — the losing positions are recomputed as the zero set of the bitwise heap sum, closed under every move and escapable from every non-zero position; the mutation that sums the heaps modulo eight must fail
+crt21_idempotents_invert_the_pairing — the two residue channels are recombined by 7 and 15 and must rebuild every x mod 21, the coefficients being orthogonal idempotents that sum to one; the mutation that swaps the two coefficients must fail
+crt21_units_have_exponent_six — the twelve units mod 21 are enumerated and every one is killed by the sixth power although the group has order twelve; the mutation that claims the third power suffices must fail
+z7_quadratic_residues_euler — the squares mod 7 are enumerated to {1,2,4} and the cube of a residue is recomputed as the exact test for being a square; the mutation that tests with the square instead of the cube must fail
+z7_primitive_roots_are_three_and_five — the order of each unit is recomputed as the number of DISTINCT powers, giving [1,3,6,3,6,2] and exactly two generators; the mutation that counts powers without discarding repeats must fail
+z7_inverse_table_and_wilson — every non-zero residue mod 7 is given its inverse by search, only 1 and 6 are their own, and the product of all six is 6; the mutation that runs the same census at the composite modulus 8 must fail
+grid_rectangle_euler_is_one — the vertices, edges and faces of every m by n grid are counted and V - E + F must be 1; the mutation that counts only the 2mn interior-style edges must fail
+involution_walks_home_in_two — the maps on four points that undo themselves are enumerated to 10, splitting as 1 + 6 + 3 by cycle type; the mutation that asks for maps of order dividing three must fail
+involution_counts_obey_their_recurrence — the self-inverse maps on 1..5 points are counted by brute force to 1,2,4,10,26 and must satisfy I(n) = I(n-1) + (n-1)*I(n-2); the mutation that uses n instead of n-1 must fail
+s4_fixed_point_and_cycle_census — the 24 permutations of four points are enumerated and their fixed-point census is [9,8,6,0,1] carrying 24 fixed points in total; the mutation that drops the surjectivity requirement must fail
+s4_parity_splits_evenly_its_involutions_do_not — inversions are counted to split the 24 permutations 12/12 while the 10 self-inverse ones split 4/6; the mutation that claims the involutions split evenly must fail
+agl9_exponent_is_eighteen_with_no_element_of_that_order — the 54 affine maps on nine points have their orders recomputed to a multiset whose least common multiple is 18 while no element reaches it; the mutation that reads the exponent off the largest order must fail
+entanglement_completes_one_at_a_time — the pair count is recomputed as n(n-1)/2 and each new party must add exactly n-1 pairs; the mutation that credits the newcomer with n pairs must fail
+tet_semitone_no_integer_lattice — the whole window of p and q is searched for p^12 = 2*q^12 and none exists; the mutation that drops the exponent to one must fail, proving the search can find a solution when there is one
+z9_digit_sum_folds_to_the_residue_in_three — the decimal digit sum is folded three times and must land on (n-1) mod 9 + 1, hitting 9 exactly on the multiples of 9 and respecting products; the mutation that reads the fold as n mod 9 must fail
+parity_bit_rejects_half_the_byte_tamper_set — every single-bit tamper of every byte is recomputed and must move the parity, splitting the non-zero bytes 128 against 127; the mutation that tampers with two bits must fail, because parity is blind to it
+byte_weight_splits_across_its_two_tiles — the weight of a byte is recomputed as the sum of its two nibble weights, giving the census [1,8,28,56,70,56,28,8,1]; the mutation that combines the nibble weights by exclusive-or must fail
+tile_tamper_distance_census_is_binomial — the nibble-to-nibble distances are recomputed by exclusive-or and censused to [16,64,96,64,16]; the mutation that measures distance by arithmetic difference must fail
+monotone_two_bit_gates_are_threshold — the sixteen two-input gates are sieved for monotonicity to [0,8,10,12,14,15] and each monotone one is matched to a weight-threshold form; the mutation that declares exclusive-or monotone must fail
+post_classes_leave_only_nor_and_nand — the five closed classes are recomputed as sieves over the sixteen gates and only 1 and 7 survive all five; the mutation that stops requiring the gate to break one must fail
+three_cell_vote_majority — the majority of three bits is recomputed as floor of the half-sum and matched against the full truth table; the mutation that divides the sum by three must fail
+correlated_failure_defeats_the_vote — the vote is recomputed on two cells that fail together and returns the wrong answer, so agreement is shown not to be evidence; the mutation that claims the vote survives any two agreeing cells must fail
+pilgrims_walk_must_cycle — every four-digit base-three walk is enumerated and can never show four distinct digits; the mutation that widens the alphabet to base four must fail
 ```
 
 **falsifiers.generated** — 3 utterances
@@ -1108,7 +1300,7 @@ wing-parity holds in BOTH directions
 no handle fails to recover itself from its path
 ```
 
-**measurement** — 8 utterances
+**measurement** — 10 utterances
 
 ```text
 a reader can ask for only what was actually MEASURED — the filter every honest surface needs
@@ -1119,6 +1311,8 @@ facets are built from the DATA, so a new unit can never go missing from a contro
 THE EXPENSIVE LAW — a measured time sealed exact is NAMED, and the healthy tree is silent
 a measured figure with no denominator is a claim wearing an observation’s clothes
 decadeOf is integer arithmetic — the determinism scan admits no host Math call anywhere
+an empty result over an empty input reports itself UNCHECKED, never clean
+a checked-and-clean list is DIFFERENT from an unchecked one, which is the whole point
 ```
 
 **messaging-handle** — 5 utterances
@@ -1922,13 +2116,14 @@ the under-tested set is DECLARED and does not grow — new tools earn a test or 
 the census is honest — directly-exercised and aggregate-only partition the tools exactly
 ```
 
-**tool-scope** — 5 utterances
+**tool-scope** — 6 utterances
 
 ```text
 the three tools that motivated this module classify as they actually behave
 parameter COUNT is not reach — the conflation the existing rating cannot see
 a name in BOTH vocabularies resolves to the ledger reading
 the census over the REAL served catalogue, and it must not be all one thing
+an unheard-of parameter is UNMEASURED, never quietly promoted to self
 the filter returns a usable subset and preserves catalogue order
 ```
 
@@ -2066,6 +2261,15 @@ the live census reads the real tree and states what it cannot see
 the whole ledger as one wave-run — sandboxed, chained, every hook heard, count derived
 the chain is order-sensitive and deterministic — the transcript cannot be quietly rearranged
 afterWave may REFUSE — a short wave stops the run at its exact link
+```
+
+**worker-discovery** — 4 utterances
+
+```text
+the well-known door is declared, so pasting the BARE HOST can mount the wire
+THE DISCOVERY DOCUMENT IS ONE DECLARATION — two copies would drift, which is the whole reason for the dry law
+every static page carries the endpoint in a Link header — "paste any uuidna.com link" means ANY
+the additions are ADDITIVE — the protocol path is untouched
 ```
 
 ## Honest scope

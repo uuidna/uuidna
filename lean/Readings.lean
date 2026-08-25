@@ -97,7 +97,7 @@ theorem note_values_are_doublings : 1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 �
     ONE PLACE THIS WING TOUCHES A MEASURED CONSTANT, so the authority is named: they are m·√(N·ln2/4π) evaluated
     at N = 128 and N = 32 on the CODATA recommended Planck mass, 2.176434(24)×10⁻⁸ kg (NIST/CODATA 2022,
     unchanged from the 2018 adjustment), and the ROUNDING IS STATED rather than smoothed — the exact figures are
-    5.7834×10⁻⁸ and 2.8917×10⁻⁸ kg, quoted above to three significant figures. That constant's entire
+    5.7831×10⁻⁸ and 2.8915×10⁻⁸ kg, quoted above to three significant figures. That constant's entire
     uncertainty is G's: since the 2019 SI redefinition h and c are exact by definition, and G is not. The
     area-entropy law the derivation rests on is Bekenstein, "Black Holes and Entropy", Phys. Rev. D 7, 2333
     (1973), with Hawking, "Particle creation by black holes", Communications in Mathematical Physics 43, 199

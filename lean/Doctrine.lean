@@ -28,8 +28,9 @@ theorem pressure_ladder : (1 + 40 / 10 = 5) ∧ (1 + 100 / 10 = 11) ∧ (1 + 700
     figure of 102,800 ft, converted and truncated to 31,333 m; the other two are ratified by the Fédération
     Aéronautique Internationale, which certifies these records, at 38,969.4 m (2012) and 41,419 m (2014). This
     wing truncates the first to 38,969, so the 2,450 m it seals is the distance between TRUNCATED integers and
-    about half a metre short of the ratified difference. The kernel confirms the ordering; it would confirm the
-    same ordering over three wrong numbers. -/
+    about four tenths of a metre LONGER than the ratified difference (41,419 - 38,969.4 = 2,449.6), because
+    truncating the SUBTRAHEND widens a gap rather than narrowing it. The kernel confirms the ordering; it would
+    confirm the same ordering over three wrong numbers. -/
 theorem jump_records_ascend : ((31333 < 38969) ∧ (38969 < 41419) ∧ (41419 - 38969 = 2450)) ∧ (4 % 9 = 4) := by decide
 
 /-- SATURATION ACCOUNTING: the Hydra 10 dive spent 13 days compressing and about 24 decompressing — 13 + 24 = 37

@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The conveyor's first wave (467)",
         "smallestPrinciple": "One leap (1)",
-        "ledgerReceipt": "83050382-c9af-83e4-b2d2-4e6a992c896d"
+        "ledgerReceipt": "92866f49-4052-8bef-87f9-0d81bae532b3"
       },
-      "address": "c870421f-a2d2-8262-b376-9a071146992a"
+      "address": "d6675a12-1891-888e-830c-36ce26699858"
     },
     {
       "title": "Heartbeat coverage",
@@ -46,13 +46,13 @@
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 658,
-        "roots": 440,
-        "supported": 658,
+        "modules": 669,
+        "roots": 450,
+        "supported": 669,
         "dead": 0,
-        "receipt": "3d1ccff2-a31c-88f9-9a35-ee6913172358"
+        "receipt": "573064da-53b1-8556-9cd8-cc6520734388"
       },
-      "address": "66ab1988-a4f3-891c-9d65-d7b90f0cfda4"
+      "address": "d7fb818d-f0d3-872d-a90d-182a467e53d2"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "b4ac5c2b6cb99fa7",
-        "unifiedFold": "c3b4309966fc62b7"
+        "foldReceipt": "e9e26816184e31e5",
+        "unifiedFold": "eeee350626b1cee4"
       },
-      "address": "c3968a67-e9a0-8e5a-915e-111477361e7e"
+      "address": "ace0550c-0ac8-8303-b07d-63520f27933a"
     }
   ],
-  "receipt": "7cef3eb6-e885-80ae-9e10-673b83e7e35d",
+  "receipt": "814914a1-d774-8741-ab9f-38e02481e143",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

@@ -110,13 +110,16 @@ export interface CandidateSource { citation: Citation; judged: false }
 /** searchSources(subject, get) → what Crossref offers for a subject, as CANDIDATES.
  *
  *  WHY THIS RETURNS CANDIDATES AND NEVER ATTACHES ONE. The witness leg is granted by a keyword roster, so a script
- *  that took the first hit for every unwitnessed theorem would score all 2090 of them by tomorrow — and the leg
+ *  that took the first hit for every unwitnessed theorem would score every one of them by tomorrow — and the leg
  *  would then measure nothing at all. rosetta.ts calls that the vacuity trap and names the cost: destroy the only
  *  measurement that located today's errors. Scarcity is not this leg's weakness, it is what it MEASURES.
  *
  *  And the deeper reason is one this tree has already paid for. Citation-existence cannot tell a source that
  *  SUPPORTS a claim from one that DENIES it — the gate stamped "uuidna achieves quantum advantage" VERIFIED
- *  against a theorem whose own last clause says it is not a speedup. Crossref has exactly that gap: it reports
+ *  against theorem n_qubit_dimension — whose own name ends "it is NOT a speedup or a quantum advantage".
+ *  WHAT THAT THEOREM STATES is a dimension and a COST, not an advantage: [1,2,3,4,5] qubits span [2,4,8,16,32]
+ *  amplitudes, which is precisely why simulating such a register classically is expensive. The bound is on the
+ *  SIMULATION. Crossref has exactly that gap: it reports
  *  what a publisher deposited, never whether the work bears on the claim citing it. Automating the attachment
  *  would reproduce that defect once per theorem instead of once.
  *
