@@ -264,7 +264,7 @@ if (isMain) {
     if (!sid) {
       console.error('✗ one-writer open — no UUIDNA_SESSION, so this session cannot name itself and a manifest')
       console.error('  written now could not be found again. Refusing rather than writing one nobody can read.')
-      console.error('  FIX export UUIDNA_SESSION=<a name stable for this session>, then open again.')
+      console.error('  FIX export UUIDNA_SESSION=<session-name>, then open again.')
       process.exit(1)
     }
     const m = openSession(sid)

@@ -158,17 +158,25 @@ test('A TWO-MEMBER GZIP IS READ TO THE END — the shape APKINDEX.tar.gz actuall
   const index = await gzip(tarOf('APKINDEX', 'P:freetype\nV:1.0.0-r0\nC:Q1abc=\nT:A free font engine\n'))
   const both = concat(signature, index)
 
-  // the whole-buffer recipe every fetcher in this tree writes: it decodes the FIRST member and rejects the rest
-  let wholeBufferFailed = false
+  // THE CONTROL MEASURES THE PLATFORM INSTEAD OF REQUIRING IT TO STAY BROKEN (2026-08-26, Node 26). It used to
+  // assert that the whole-buffer recipe REJECTS a concatenated gzip, and it carried its own expiry note: "if
+  // this ever passes, the platform learned to concatenate members and the walk below is merely redundant."
+  // Node 26 learned exactly that — DecompressionStream now returns BOTH members — so the assertion was failing
+  // on the platform improving, which is the one thing a control must never do. Redundant HERE is not redundant
+  // everywhere: workerd and older runtimes still stop at the first member, so the walk stays and is still the
+  // decoder the tree ships; what the control now records is which of the two worlds it ran in.
+  let naive: string | null = null
   try {
     const ds = new DecompressionStream('gzip')
-    await new Response(new Blob([both as unknown as BlobPart]).stream().pipeThrough(ds)).arrayBuffer()
+    naive = new TextDecoder().decode(await new Response(new Blob([both as unknown as BlobPart]).stream().pipeThrough(ds)).arrayBuffer())
   } catch {
-    wholeBufferFailed = true
+    naive = null   // the runtime stopped at the first member — the world the walk was written for
   }
-  assert.equal(wholeBufferFailed, true,
-    'if this ever passes, the platform learned to concatenate members and the walk below is merely redundant')
+  // whichever world, the ORDER is the invariant that matters: the signature is member one, never the index.
+  if (naive !== null) assert.ok(naive.includes('not the index'),
+    'a concatenating runtime still yields the signature FIRST — the index is never member one')
 
+  // THE GUARANTEE, asserted identically in BOTH worlds: the walk reaches the SECOND member.
   const found = await untarGzipMember(both, 'APKINDEX')
   assert.match(found, /^P:freetype/, 'the index is the SECOND member; reading only the first returns the signature')
 })
