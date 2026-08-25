@@ -694,6 +694,7 @@ exhausted_denial_is_the_proof 19
 a_window_exhausts_only_itself 19
 silence_never_refutes 19
 waves_of_denial_tighten 19
+no_instrument_narrower_than_its_question 19
 denial_drains_to_the_last_coin 19
 #Neuro.lean
 subthreshold_silent 19

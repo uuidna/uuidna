@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1690 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1691 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -245,7 +245,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 80. **The geared computer of Rhodes** — `lean/Antikythera.lean` · **8** theorems
    the Antikythera mechanism (~100 BC) as decidable arithmetic, demarcated (lead 91, the ancient computer road) — the Metonic dial as the intercalation itself (12·12 + 7·13 = 235 months in 19 years), the five-turn spiral's prime-times-prime (235 = 5·47), the Callippic fourfold with its honest dropped day (940 months, 76 years), the Saros counting eclipses on the prime 223 (checked below every candidate — the same integer as Archimedes' π floor, a shared number named, never a connection claimed), the four-turn spiral keeping its remainder three (223 = 4·55+3 — unevenness named, never smoothed), the Exeligmos closing the day (3·223 = 669, 8·3 = 24), the pin-and-slot pair's equal fifty teeth (ratio one is return, not sameness — the anomaly lives in geometry honestly not sealed), and the hunting-tooth law (coprime cycle pairs wear even — the pentagram's closure in bronze, twenty centuries early). Figures from the documented reconstruction; contested tooth-counts left out by name. HONEST SCOPE: the counting the mechanism instantiates — never its maker, its purpose debates, or astronomy beyond the cycles
 
-81. **The denial drained** — `lean/Negation.lean` · **7** theorems
+81. **The denial drained** — `lean/Negation.lean` · **8** theorems
    solutions from negation involutions to denial exhaustion, in one wave (the captain's directive, 2026-08-23) — denial is the fixed-point-free involution on the bit (apply twice and return; a solution IS the denial's failure), De Morgan at exhaustion scale (no case denies ⟺ every case affirms, all eight masks), a live exhaustion counted to zero (the slit ring's sixteen denials all fail — a by-decide proof IS a drained denial space), the waves tighten by halves (2⁶/2^r, six waves to the singleton), and the drain runs to the last coin (64 − 63 = 1 with 63 = 7·9 the fused ring — the claim and its receipt the two coins that remain). BOUNDARIES SEALED BESIDE: a window exhausts only itself (the Mertens lesson — exhaustion is a proof exactly as wide as its space), and silence never refutes (of four citation states one verifies, three stay OPEN — no refuted-by-absence exists). HONEST SCOPE: the arithmetic of FINITE denial spaces; an infinite denial space stays honestly open, and the trial can settle exactly what can exhaust
 
 82. **The conveyor's first wave** — `lean/Wave.lean` · **55** theorems
