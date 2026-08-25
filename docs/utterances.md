@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1309 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1319 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1309 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1319 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `341f88ca` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `a94b9312` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -155,6 +155,21 @@ an unreachable site is retried and reported as unreachable
 recovers when the site is down at first and answers correctly later
 passes on the first probe when the site is already current — no needless waiting
 an empty expectation fails immediately rather than waiting out the bound
+```
+
+**balancer** — 10 utterances
+
+```text
+two machines that never speak route the same job to the same worker
+the share is EXACT where the fleet divides the span — 2, 16 and 256 workers
+CONTROL — an uneven fleet NAMES its tail instead of hiding it
+every worker is reachable and every job is placed — no handle falls off the fleet
+the CENSUS is a measurement and may disagree with the arithmetic — it is the one to believe
+CONTROL — a fleet of none is refused by name, never divided by
+CONTROL — the two voices agree on what a fleet is: shares refuses every fleet routeOf refuses
+CONTROL — a non-handle is refused, never routed to NaN and silently dropped
+CONTROL — census cannot report more jobs than it placed
+the routing cost is stated where a test can reach it: nothing shared, nothing asked
 ```
 
 **book-read** — 8 utterances
