@@ -141,12 +141,27 @@ async function main() {
     }
   }
 
+  // THE WITNESS NAMES ITS DENOMINATOR, AND IS NOT WRITTEN BY A RUN THAT KNEW IT FAILED (2026-08-25).
+  //
+  // The receipt was `{ audited, axiomFree, offenders, asked }` — and `axiomFree = audited − offenders`, so on a
+  // clean sweep the two agree WHATEVER `audited` happens to be. A full audit writes "1691 audited, 1691
+  // axiom-free"; an audit that could not see five theorems writes "1686 audited, 1686 axiom-free", and the file
+  // reads exactly as complete. Nothing in it said what it was measuring against, so it had no way to express
+  // "I could not cover my subject" — the file's range held one value where the question has three (covered,
+  // short, offending). That is no_instrument_narrower_than_its_question, in the one artifact whose entire job is
+  // certifying the trust base.
+  //
+  // AND IT WAS WRITTEN BEFORE THE VERDICT. The drain below already refuses on `unseen`, and the console already
+  // printed `audited/total`; but the write happened first, so a failing run still left a complete-looking
+  // axioms.json on disk. The console knew and the artifact did not, and the artifact is what everything
+  // downstream reads. Observed live by a peer: `npm run lean` regenerated the ledger to 1691 and left a witness
+  // saying 1690/1690 — true, complete-looking, and short by exactly the theorem it was supposed to certify.
+  //
+  // Two changes, and neither alone is enough: `total` gives the file the vocabulary, and moving the write past
+  // the drain means a run that has already decided it failed does not get to leave a receipt. A stale witness is
+  // then the worst case, and a stale one is at least a statement somebody made about a tree that existed.
   const axiomFree = audited - Object.keys(offenders).length
-  const receipt = { audited, axiomFree, offenders, asked: askedKey }
-  if (!check) {
-    writeFileSync(join(ROOT, 'lean', 'axioms.json'), JSON.stringify(receipt) + '\n')
-    console.log('wrote lean/axioms.json — ' + audited + ' theorems audited, keyed by content-address')
-  }
+  const receipt = { audited, total: T.length, axiomFree, offenders, asked: askedKey }
 
   console.log('\n=== axiom audit — the whole ledger ===')
   console.log('theorems audited :', audited + '/' + T.length + (unseen.length ? ` (${unseen.length} UNSEEN)` : ''))
@@ -162,8 +177,15 @@ async function main() {
       for (const [addr, ax] of Object.entries(offenders)) console.error('   ' + keyOf[addr] + ' — [' + ax.join(', ') + ']')
     }
     if (unseen.length) console.error('\n✗ ' + unseen.length + ' theorem(s) produced no axiom verdict: ' + unseen.slice(0, 8).join(', ') + (unseen.length > 8 ? ' …' : ''))
+    console.error('\n  lean/axioms.json was NOT written: this run could not cover the ledger, so it has nothing')
+    console.error('  to certify. Whatever witness is on disk is the previous one — stale, and honestly stale.')
     process.exitCode = 1
     return
+  }
+  // PAST THE DRAIN, so this receipt is only ever written by a run that covered its whole subject
+  if (!check) {
+    writeFileSync(join(ROOT, 'lean', 'axioms.json'), JSON.stringify(receipt) + '\n')
+    console.log('wrote lean/axioms.json — ' + audited + '/' + T.length + ' theorems audited, keyed by content-address')
   }
   console.log('\n✓ every theorem depends on NO axioms — the ledger recomputes from the kernel alone.')
 }
