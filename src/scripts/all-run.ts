@@ -21,6 +21,9 @@
 import { spawnSync } from 'node:child_process'
 import { toUuid, merkleGravity } from '../index.js'
 import { ROOT } from './api.js'
+import { shellOrExit } from '../os/host/index.js'
+
+const SHELL = shellOrExit('all')
 
 interface Phase { name: string; cmd: string; note: string }
 
@@ -30,8 +33,19 @@ export const PHASES: readonly Phase[] = [
   { name: 'ship', cmd: 'node dist/scripts/deploy-run.js', note: 'contribute first, build, ship the worker, verify the live edge, prove the deploy' },
 ]
 
+/** How a phase ended. THREE outcomes, because the arc receipt is an outward artifact and two cannot carry the
+ *  difference that matters: a phase that RAN AND FAILED and a phase that NEVER RAN are different facts about the
+ *  world, and folding them to one address publishes the first when the second happened.
+ *
+ *  `spawnSync` returns `status: null` when the command never started — a missing shell, an unresolvable binary,
+ *  a signal. `r.status === 0` maps that null to false, so the leaf said "fail" for a phase the machine never
+ *  attempted. This file's own comment two paragraphs down claims the receipt tells a complete arc from one that
+ *  "stopped at its exact link" — it could not tell either from an arc that never took a step. */
+export type PhaseOutcome = 'ok' | 'fail' | 'unmeasured'
+
 /** the leaf a phase folds to — its name and how it ended, nothing else (an arc is WHICH phases, and their verdicts) */
-export const phaseLeaf = (name: string, ok: boolean): string => toUuid(`phase|${name}|${ok ? 'ok' : 'fail'}`)
+export const phaseLeaf = (name: string, outcome: PhaseOutcome | boolean): string =>
+  toUuid(`phase|${name}|${typeof outcome === 'boolean' ? (outcome ? 'ok' : 'fail') : outcome}`)
 /** the arc's receipt: order-invariant over the phase leaves, so two observers fold the same act to one address */
 export const arcReceipt = (leaves: readonly string[]): string => merkleGravity([...leaves])
 
@@ -71,14 +85,21 @@ for (const p of PHASES) {
   console.log(`\n══ all · ${p.name} — ${p.note}`)
   // the build is the phase's own first step (each runner is invoked through its npm script's build in CI; here
   // the arc builds ONCE up front, so a phase never rebuilds what the phase before it just compiled)
-  const r = spawnSync(p.cmd, { shell: true, cwd: ROOT, stdio: 'inherit' })
-  const ok = r.status === 0
-  leaves.push(phaseLeaf(p.name, ok))
-  if (!ok) {
+  const r = spawnSync(SHELL.file, SHELL.argv(p.cmd), { cwd: ROOT, env: SHELL.env(process.env), stdio: 'inherit' })
+  // THREE OUTCOMES. status is null when the command never STARTED, and `=== 0` used to map that to "fail" — so
+  // the receipt published a phase the machine had attempted when it had not. The shell comes from os/host for
+  // the same reason every other spawn in this tree does: `shell: true` picks cmd.exe on Windows, and a phase
+  // that cannot be launched is exactly the case this distinction exists to name.
+  const outcome: PhaseOutcome = r.error || r.status === null ? 'unmeasured' : r.status === 0 ? 'ok' : 'fail'
+  leaves.push(phaseLeaf(p.name, outcome))
+  if (outcome !== 'ok') {
     // FAIL-FAST, AND FOLD ANYWAY: the arc receipt of a failed arc is still an address — a run that stopped at
     // its exact link is a fact worth addressing, not a hole. The exit code carries the failure; the receipt
-    // carries WHICH arc it was.
-    console.error(`\n✗ all — the arc stopped at ${p.name} (exit ${r.status}); arc receipt ${arcReceipt(leaves)}`)
+    // carries WHICH arc it was — and now WHICH KIND of ending, so an arc that could not start folds elsewhere
+    // than one that ran and was refused.
+    console.error(outcome === 'unmeasured'
+      ? `\n· all — the arc could not RUN ${p.name}: ${r.error?.message ?? `killed by ${r.signal}`}; arc receipt ${arcReceipt(leaves)}`
+      : `\n✗ all — the arc stopped at ${p.name} (exit ${r.status}); arc receipt ${arcReceipt(leaves)}`)
     process.exit(r.status ?? 1)
   }
 }

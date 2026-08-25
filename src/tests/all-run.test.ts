@@ -53,3 +53,23 @@ test('the arc is inert when IMPORTED — a module that ships when named is not a
   assert.ok(PHASES.some((p) => p.name === 'ship' && p.cmd.includes('deploy-run')),
     'the last phase is a real deploy — that is WHY the guard is load-bearing')
 })
+
+test('a phase that NEVER RAN folds elsewhere than one that ran and failed', () => {
+  // THE OUTWARD FORM OF TONIGHT'S DEFECT. spawnSync returns status null when the command never started — a
+  // missing shell, an unresolvable binary, a signal — and `r.status === 0` mapped that null to false, so the
+  // leaf said "fail" for a phase the machine never attempted. The arc receipt is PUBLISHED, so that is not a
+  // misleading log line; it is an address asserting an attempt that did not happen.
+  const ranAndFailed = phaseLeaf('ship', 'fail')
+  const neverRan = phaseLeaf('ship', 'unmeasured')
+  assert.notEqual(neverRan, ranAndFailed, 'the receipt must tell an arc that was refused from one that could not start')
+  assert.notEqual(neverRan, phaseLeaf('ship', 'ok'))
+
+  // and the whole arc inherits the distinction, which is the point — the leaf is only a means
+  const stopped = arcReceipt([phaseLeaf('wave', 'ok'), ranAndFailed])
+  const stalled = arcReceipt([phaseLeaf('wave', 'ok'), neverRan])
+  assert.notEqual(stopped, stalled, 'two arcs that ended differently must not share one address')
+
+  // the boolean form still means what it always meant, so every existing caller and receipt is unmoved
+  assert.equal(phaseLeaf('wave', true), phaseLeaf('wave', 'ok'))
+  assert.equal(phaseLeaf('wave', false), phaseLeaf('wave', 'fail'))
+})
