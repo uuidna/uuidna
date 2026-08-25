@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The conveyor's first wave (466)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "960ef148-023b-8a76-ab2e-25587881de2f"
+        "ledgerReceipt": "b9f71f80-2976-811d-bac0-d391c767e8ee"
       },
-      "address": "a7097e8f-a245-860a-bfda-c6e556cdeca9"
+      "address": "fa8a966f-2023-8c97-821e-d0b563bb010a"
     },
     {
       "title": "Heartbeat coverage",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 115,
-        "sealedTheorems": 1696,
+        "sealedTheorems": 2105,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "686bc192-33f8-8285-827e-48b872caa4bb"
+      "address": "694eba92-73d7-8263-a86d-97aff6877923"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 633,
-        "roots": 422,
-        "supported": 633,
+        "modules": 645,
+        "roots": 431,
+        "supported": 645,
         "dead": 0,
-        "receipt": "96ad5a32-a90e-8cf8-beec-b38d564e8895"
+        "receipt": "426fca33-f219-8a63-9ebf-7f2c5e6d6bd2"
       },
-      "address": "4e2b7978-3218-83f2-b3ba-728823806b95"
+      "address": "da473632-16ae-8c2c-9b4f-3f272f7032c5"
     },
     {
       "title": "Package inventory",
@@ -76,6 +76,6 @@
       "address": "5f09afb4-c1f6-855e-a2bd-13c0168ca4c0"
     }
   ],
-  "receipt": "ffce8c71-edcc-8938-b70e-682fe68ee68a",
+  "receipt": "2e051754-f359-8238-b306-049e44647798",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
