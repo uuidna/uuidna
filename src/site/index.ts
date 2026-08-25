@@ -18,6 +18,25 @@ export const SITE = {
   mark: '🪙',                                   // the coin, worn by the site title and the footer
   tagline: 'A mathematically-proven economic system',
   repo: 'https://github.com/uuidna/uuidna',
+  // THE SPONSORSHIP, in the one place the site's identity lives — the rule this file's own header states, applied to
+  // a link that was already breaking it: SiteFooter.vue hard-typed this same URL under "The captain", and a literal
+  // standing in a second surface is precisely the drift declared-once exists to end. Both surfaces now read this.
+  //
+  // WHY NOT themeConfig.carbonAds, which is the slot this serves and is three lines to enable. Two reasons that are
+  // the same reason twice. FIRST, the values in its documented example are placeholders ('your-carbon-code'), and
+  // shipping them requests cdn.carbonads.com with a serve id that does not exist: the aside renders an empty box
+  // that LOOKS configured and serves nothing — the absence-rendered-as-a-clean-result this tree keeps catching, this
+  // time built on purpose. SECOND, and the one that would still stand with real credentials: Carbon is a third-party
+  // script that fetches at read time and decides what a reader sees on an authority no reader can audit. A site whose
+  // entire argument is that every figure recomputes from a sealed ledger cannot rent its aside to a network nobody
+  // can recompute. Served from here instead — one link, no script, no fetch, no third party.
+  sponsor: {
+    url: 'https://revolut.me/ceccec',
+    handle: 'revolut.me/ceccec',
+    // stated without pressure, because the sentence is true either way and the work does not become less free if
+    // nobody pays: a page that manufactures obligation would be making a claim the ledger cannot seal
+    message: 'Free to read, free to recompute, and proven either way. If it was worth something to you, send a coin.',
+  },
 } as const
 
 /** The Payload shape uuidna emits into — standard collection names only, so a vanilla instance recognises it
