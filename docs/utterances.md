@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="929 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="941 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 929 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 941 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `6af88ea7` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `35ef4c30` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -201,6 +201,23 @@ the more dimensions, the more coins: a theorem used across distinct domains mult
 monotone: the more sealed superpositions, the more coins — sealing never devalues
 no inflation: every minted coin comes from minting a theorem — the supply is closed
 the ledger valued: total coins = superpositions × 2, recomputable and deterministic
+```
+
+**catalogue** — 12 utterances
+
+```text
+the catalogue carries ALL of Alpine, not the boot closure
+a package OUTSIDE the boot closure is now ANSWERED, with upstream\
+INSTALLED, AVAILABLE and ABSENT are three DIFFERENT answers
+an ABSENT catalogue reports ABSENCE, never a miss — the fourth state
+search is bounded and ranked, and reports the total it did not show
+rdepends walks the WHOLE published graph, not the 25 that boot
+the committed catalogue is a FUNCTION of upstream — sorted, headed, and reproducible
+every package tests ITSELF, and the suite reports its own denominator
+a package\
+the closure check resolves through PROVIDES, not just names — the other half of the edge
+a runtime with NO filesystem is primed, not crippled
+primeCatalogueFrom reports an unreachable catalogue as ABSENT, never as an empty Alpine
 ```
 
 **circle** — 4 utterances
