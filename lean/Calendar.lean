@@ -42,11 +42,17 @@ theorem months_sum_leap_366 : [31,29,31,30,31,30,31,31,30,31,30,31].foldl (· + 
     NO month was a whole number of weeks, and the count refused it immediately. The exception IS the content. -/
 theorem february_is_the_only_month_of_whole_weeks : ([31,28,31,30,31,30,31,31,30,31,30,31].filter (fun m => m % 7 == 0)).length = 1 ∧ 28 % 7 = 0 ∧ 30 % 7 = 2 ∧ 31 % 7 = 3 := by decide
 
-/-- THE CONTROL FOR THE GREGORIAN CLOSURE. The Julian rule leaps every fourth year with no century exception, so
-    its calendar closes at TWENTY-EIGHT years — 10227 days, a whole number of weeks — while four Julian years
-    alone do not (1461 % 7 = 5). Sealed beside gregorian_cycle_400_years because a closure means nothing without
-    a span that fails to close: the difference between 28 and 400 is exactly what the century rule costs, and
-    without this contrast the 400 reads as arithmetic rather than as a consequence of the reform. -/
+/-- THE CONTROL FOR THE GREGORIAN CLOSURE, AND IT CLOSES ONLY IN THE CALENDAR'S OWN BOOKKEEPING. The Julian rule
+    leaps every fourth year with no century exception, so its weekday-and-date pairing returns after
+    TWENTY-EIGHT years — 10227 days, a whole number of weeks, and twenty-eight is the SMALLEST such span (four
+    Julian years do not: 1461 % 7 = 5). WHAT THIS CLOSURE DOES NOT ACCOUNT FOR, corrected 2026-08-25 after the
+    first draft claimed flatly that "the calendar closes": a cycle in weekdays is not a cycle in TIME. The
+    Julian year assumes 365¼ days against a tropical year of about 365.2422, so across those same twenty-eight
+    years the calendar has slipped roughly 0.22 days against the sun and a full day every ~128 years — the drift
+    that made the reform necessary. The pairing returns; the season does not. Sealed beside
+    gregorian_cycle_400_years because a closure means nothing without a span that fails to close, and now beside
+    its own boundary because a closure means less than it sounds when the unit it closes in is the calendar's
+    own. -/
 theorem julian_cycle_closes_at_twenty_eight : 28 * 365 + 7 = 10227 ∧ 10227 % 7 = 0 ∧ 4 * 365 + 1 = 1461 ∧ 1461 % 7 = 5 := by decide
 
 /-- The 400-year cycle stated as the number it is: 146097 = 20871 × 7, so the calendar returns after twenty
@@ -57,3 +63,15 @@ theorem julian_cycle_closes_at_twenty_eight : 28 * 365 + 7 = 10227 ∧ 10227 % 7
     follows by multiplication. A fact and its consequence, sealed together and labelled, rather than counted
     twice. -/
 theorem the_gregorian_cycle_counted_in_weeks : 146097 = 20871 * 7 ∧ 146097 = 63 * 2319 ∧ 63 = 7 * 9 ∧ 20871 % 9 = 0 := by decide
+
+/-- WHAT THE CENTURY RULE ACTUALLY COSTS, and the one part of the drift that IS decidable. Both calendars are
+    exact rational rules: a Julian year is 1461/4 days and a Gregorian year 146097/400, so over four hundred
+    years Julian counts 146100 days and Gregorian 146097 — the reform removes exactly THREE, the three centuries
+    in four that stop being leap years. That difference is why the two cycles close at twenty-eight and four
+    hundred rather than at the same span. THE BOUNDARY, stated because the interesting question lies just past
+    it: this settles the two RULES against each other and says nothing about either against the sun. The
+    tropical year is a MEASURED quantity, not a decided one — roughly 365.2422 days — so how fast a calendar
+    drifts against the season is an empirical claim that belongs in prose with its source, never in a by-decide
+    theorem. What the kernel can hold is the difference between two rules; what it cannot hold is the year
+    itself. -/
+theorem the_reform_is_exactly_three_days_in_four_hundred : (400 * 365 + 100 = 146100) ∧ (146100 - 146097 = 3) ∧ (1461 * 100 = 146100) ∧ (100 - 97 = 3) := by decide

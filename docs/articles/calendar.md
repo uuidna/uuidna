@@ -1,15 +1,15 @@
 ---
 title: "The calendar"
-description: "Computed from lean/Calendar.lean — 12 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Calendar.lean — 13 sealed theorems, every claim citing its proof."
 ---
 
 # The calendar
 
-> THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. — held by [week_is_z7](/theorem/week_is_z7) and its 11 siblings below.
+> THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. — held by [week_is_z7](/theorem/week_is_z7) and its 12 siblings below.
 
-**12 theorems**, from [week_is_z7](/theorem/week_is_z7) onward, each proven `by decide` in [lean/Calendar.lean](/lean/Calendar.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 12 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [century_leap_rule](/theorem/century_leap_rule). A boundary stated here is decided.
+**13 theorems**, from [week_is_z7](/theorem/week_is_z7) onward, each proven `by decide` in [lean/Calendar.lean](/lean/Calendar.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [century_leap_rule](/theorem/century_leap_rule). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCalendar.lean)** — nothing to install. The editor fetches `lean/Calendar.lean` from the repository and re-decides all 12 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCalendar.lean)** — nothing to install. The editor fetches `lean/Calendar.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### The week is the rosette ℤ/7: seven days, and advancing by seven returns to the same day — 7 % 7 = 0. The calendar counts in the same ring uuidna turns on.
 The ledger holds this as [week_is_z7](/theorem/week_is_z7) — proven `by decide`, sorry-free:
@@ -81,7 +81,7 @@ The ledger holds this as [february_is_the_only_month_of_whole_weeks](/theorem/fe
 ([31,28,31,30,31,30,31,31,30,31,30,31].filter (fun m => m % 7 == 0)).length = 1 ∧ 28 % 7 = 0 ∧ 30 % 7 = 2 ∧ 31 % 7 = 3
 ```
 
-### THE CONTROL FOR THE GREGORIAN CLOSURE. The Julian rule leaps every fourth year with no century exception, so its calendar closes at TWENTY-EIGHT years — 10227 days, a whole number of weeks — while four Julian years alone do not (1461 % 7 = 5). Sealed beside gregorian_cycle_400_years because a closure means nothing without a span that fails to close: the difference between 28 and 400 is exactly what the century rule costs, and without this contrast the 400 reads as arithmetic rather than as a consequence of the reform.
+### THE CONTROL FOR THE GREGORIAN CLOSURE, AND IT CLOSES ONLY IN THE CALENDAR'S OWN BOOKKEEPING. The Julian rule leaps every fourth year with no century exception, so its weekday-and-date pairing returns after TWENTY-EIGHT years — 10227 days, a whole number of weeks, and twenty-eight is the SMALLEST such span (four Julian years do not: 1461 % 7 = 5). WHAT THIS CLOSURE DOES NOT ACCOUNT FOR, corrected 2026-08-25 after the first draft claimed flatly that "the calendar closes": a cycle in weekdays is not a cycle in TIME. The Julian year assumes 365¼ days against a tropical year of about 365.2422, so across those same twenty-eight years the calendar has slipped roughly 0.22 days against the sun and a full day every ~128 years — the drift that made the reform necessary. The pairing returns; the season does not. Sealed beside gregorian_cycle_400_years because a closure means nothing without a span that fails to close, and now beside its own boundary because a closure means less than it sounds when the unit it closes in is the calendar's own.
 The ledger holds this as [julian_cycle_closes_at_twenty_eight](/theorem/julian_cycle_closes_at_twenty_eight) — proven `by decide`, sorry-free:
 
 ```lean
@@ -93,6 +93,13 @@ The ledger holds this as [the_gregorian_cycle_counted_in_weeks](/theorem/the_gre
 
 ```lean
 146097 = 20871 * 7 ∧ 146097 = 63 * 2319 ∧ 63 = 7 * 9 ∧ 20871 % 9 = 0
+```
+
+### WHAT THE CENTURY RULE ACTUALLY COSTS, and the one part of the drift that IS decidable. Both calendars are exact rational rules: a Julian year is 1461/4 days and a Gregorian year 146097/400, so over four hundred years Julian counts 146100 days and Gregorian 146097 — the reform removes exactly THREE, the three centuries in four that stop being leap years. That difference is why the two cycles close at twenty-eight and four hundred rather than at the same span. THE BOUNDARY, stated because the interesting question lies just past it: this settles the two RULES against each other and says nothing about either against the sun. The tropical year is a MEASURED quantity, not a decided one — roughly 365.2422 days — so how fast a calendar drifts against the season is an empirical claim that belongs in prose with its source, never in a by-decide theorem. What the kernel can hold is the difference between two rules; what it cannot hold is the year itself.
+The ledger holds this as [the_reform_is_exactly_three_days_in_four_hundred](/theorem/the_reform_is_exactly_three_days_in_four_hundred) — proven `by decide`, sorry-free:
+
+```lean
+(400 * 365 + 100 = 146100) ∧ (146100 - 146097 = 3) ∧ (1461 * 100 = 146100) ∧ (100 - 97 = 3)
 ```
 
 

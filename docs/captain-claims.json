@@ -2,8 +2,8 @@
   "generated": "2026-08-25",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1699,
-  "total_theorems": 1699,
+  "total_claimed": 1701,
+  "total_theorems": 1701,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,8 +3781,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "3646dcbc-4ac4-8545-bcd2-bbe38a70af34",
-      "address": "b4d198c0-60ea-8a1a-88c6-4777630b9164",
+      "lineAddress": "9ce0dd59-edc1-8a8c-a3a9-b7a73309b196",
+      "address": "44a30570-815f-86ef-84a6-37e937143d0f",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4453,14 +4453,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "88ee3343-3a44-8cc7-861e-6c722c97aa63",
-      "address": "75f49823-882a-8d99-b388-c08b9c30bc51",
+      "lineAddress": "aabb6ef1-112e-8006-8cab-40954b141443",
+      "address": "21e501ac-a229-8f6d-a95a-00ed08d156b8",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "a97479ba-cc92-82e3-9511-cb7326f0c2da",
-      "address": "2849c261-e63c-8e19-855e-a1e3a9ccafe4",
+      "lineAddress": "b1c5914e-75c2-8728-89e2-c0f0c79a9a38",
+      "address": "09a5c878-bd95-8805-9722-550f83c2718d",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -6732,6 +6732,12 @@
       "principle": "The calendar"
     },
     {
+      "key": "the_reform_is_exactly_three_days_in_four_hundred",
+      "lineAddress": "a898143f-9e93-8f73-8e8a-87c068afde14",
+      "address": "688a7172-b37e-8e6c-b320-f2199d447c1b",
+      "principle": "The calendar"
+    },
+    {
       "key": "inch_is_seventytwo_points",
       "lineAddress": "f4018bd6-b739-87db-817b-a6ae665d20f7",
       "address": "0ec3cbb5-f41f-8722-95f4-af7c49b8bfac",
@@ -7839,6 +7845,12 @@
       "key": "uuid_mix_census_is_quantum",
       "lineAddress": "163fbc40-578e-8de3-af4e-0c5945e8168b",
       "address": "3996446b-15d8-8a25-aed6-a02d5734c5f1",
+      "principle": "The uuid mix space"
+    },
+    {
+      "key": "the_mix_space_is_its_own_mirror",
+      "lineAddress": "94c996c1-7762-8cea-9e6c-112da256f58f",
+      "address": "9e4e2248-769c-8510-b451-092b63fd9c9a",
       "principle": "The uuid mix space"
     },
     {
@@ -10200,7 +10212,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "08baa0e3-4b49-872c-839c-a96496e60087",
+  "claim_receipt": "896682af-11d9-8c09-9f71-6befe46848f1",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

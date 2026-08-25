@@ -1,0 +1,465 @@
+{
+  "file": "Calendar.lean",
+  "slug": "calendar",
+  "status": "usable",
+  "address": "8b5a044d-9a9d-81d6-aac0-f5a0ac12179b",
+  "page": {
+    "root": {
+      "type": "root",
+      "children": [
+        {
+          "type": "heading",
+          "tag": "h1",
+          "children": [
+            {
+              "type": "text",
+              "text": "Calendar.lean — the sealed source"
+            }
+          ]
+        },
+        {
+          "type": "code",
+          "language": "lean",
+          "children": [
+            {
+              "type": "text",
+              "text": "-- lean/Calendar.lean — GENERATED. THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- The week is the rosette ℤ/7: seven days, and advancing by seven returns to the same day — 7 % 7 = 0. The\n    calendar counts in the same ring uuidna turns on. -/\ntheorem week_is_z7 : [0,1,2,3,4,5,6].length = 7 ∧ 7 % 7 = 0 := by decide\n\n/-- A common year is 365 = 52·7 + 1 days, so 365 % 7 = 1: every ordinary year the weekday of a fixed date\n    advances by exactly one — New Year walks forward a day a year. -/\ntheorem common_year_shifts_one : 365 % 7 = 1 := by decide\n\n/-- A leap year is 366 days, and 366 % 7 = 2: a fixed date jumps forward TWO weekdays across a leap year — the\n    extra day is the extra shift. -/\ntheorem leap_year_shifts_two : 366 % 7 = 2 := by decide\n\n/-- The Gregorian rule keeps 97 leap years per 400: every 4th year (100), minus the centuries (4), plus every\n    400th (1) — 100 − 4 + 1 = 97. Just short of the Julian 100, tuned to the tropical year. -/\ntheorem leap_years_per_400 : 100 - 4 + 1 = 97 := by decide\n\n/-- The whole Gregorian calendar repeats EXACTLY every 400 years: 400·365 + 97 = 146097 days, and 146097 % 7 = 0\n    — a whole number of weeks, so the same dates fall on the same weekdays, forever. -/\ntheorem gregorian_cycle_400_years : 400 * 365 + 97 = 146097 ∧ 146097 % 7 = 0 := by decide\n\n/-- The century exception, decided: 2000 is a leap year (2000 % 400 = 0) but 1900 is not (1900 % 100 = 0 yet\n    1900 % 400 ≠ 0) — the rule that made the Gregorian reform, on two famous years. -/\ntheorem century_leap_rule : 2000 % 400 = 0 ∧ 1900 % 100 = 0 ∧ 1900 % 400 ≠ 0 := by decide\n\n/-- The doomsday rule for the even months: in a common year 4/4, 6/6, 8/8, 10/10 and 12/12 fall on day-of-year\n    94, 157, 220, 283, 346 — each 63 = 9·7 apart, so all ≡ 3 (mod 7). Five dates, one weekday, every year. -/\ntheorem doomsday_even_months : [94,157,220,283,346].all (fun d => d % 7 == 3) := by decide\n\n/-- The twelve months of a common year sum to 365: [31,28,31,30,31,30,31,31,30,31,30,31] folds to 365 — the year\n    closed, February short. -/\ntheorem months_sum_common_365 : [31,28,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 365 := by decide\n\n/-- A leap year gives February its 29th and the twelve months sum to 366: [31,29,31,30,31,30,31,31,30,31,30,31]\n    folds to 366 — exactly one more day than the common year. -/\ntheorem months_sum_leap_366 : [31,29,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 366 := by decide\n\n/-- Of the twelve months exactly ONE is a whole number of weeks: a common February, 28 = 4·7. Thirty leaves two\n    over and thirty-one leaves three, so every other month starts on a different weekday than it ended — which\n    is why only February can repeat its shape. COUNTED, not asserted: the first draft of this fact claimed that\n    NO month was a whole number of weeks, and the count refused it immediately. The exception IS the content. -/\ntheorem february_is_the_only_month_of_whole_weeks : ([31,28,31,30,31,30,31,31,30,31,30,31].filter (fun m => m % 7 == 0)).length = 1 ∧ 28 % 7 = 0 ∧ 30 % 7 = 2 ∧ 31 % 7 = 3 := by decide\n\n/-- THE CONTROL FOR THE GREGORIAN CLOSURE, AND IT CLOSES ONLY IN THE CALENDAR'S OWN BOOKKEEPING. The Julian rule\n    leaps every fourth year with no century exception, so its weekday-and-date pairing returns after\n    TWENTY-EIGHT years — 10227 days, a whole number of weeks, and twenty-eight is the SMALLEST such span (four\n    Julian years do not: 1461 % 7 = 5). WHAT THIS CLOSURE DOES NOT ACCOUNT FOR, corrected 2026-08-25 after the\n    first draft claimed flatly that \"the calendar closes\": a cycle in weekdays is not a cycle in TIME. The\n    Julian year assumes 365¼ days against a tropical year of about 365.2422, so across those same twenty-eight\n    years the calendar has slipped roughly 0.22 days against the sun and a full day every ~128 years — the drift\n    that made the reform necessary. The pairing returns; the season does not. Sealed beside\n    gregorian_cycle_400_years because a closure means nothing without a span that fails to close, and now beside\n    its own boundary because a closure means less than it sounds when the unit it closes in is the calendar's\n    own. -/\ntheorem julian_cycle_closes_at_twenty_eight : 28 * 365 + 7 = 10227 ∧ 10227 % 7 = 0 ∧ 4 * 365 + 1 = 1461 ∧ 1461 % 7 = 5 := by decide\n\n/-- The 400-year cycle stated as the number it is: 146097 = 20871 × 7, so the calendar returns after twenty\n    thousand eight hundred and seventy-one weeks exactly. AND THE HONEST SCOPE, because the factorisation\n    invites more than it earns: 146097 = 63 · 2319 with 63 = 7·9, the fused ring — but only the SEVEN is a fact\n    about calendars, earned by the 97-leap-day rule and able to come out otherwise. The nine is ordinary\n    arithmetic and NOT a second witness: 146097 = 7 · 20871 and 20871 is itself divisible by nine, so that half\n    follows by multiplication. A fact and its consequence, sealed together and labelled, rather than counted\n    twice. -/\ntheorem the_gregorian_cycle_counted_in_weeks : 146097 = 20871 * 7 ∧ 146097 = 63 * 2319 ∧ 63 = 7 * 9 ∧ 20871 % 9 = 0 := by decide\n\n/-- WHAT THE CENTURY RULE ACTUALLY COSTS, and the one part of the drift that IS decidable. Both calendars are\n    exact rational rules: a Julian year is 1461/4 days and a Gregorian year 146097/400, so over four hundred\n    years Julian counts 146100 days and Gregorian 146097 — the reform removes exactly THREE, the three centuries\n    in four that stop being leap years. That difference is why the two cycles close at twenty-eight and four\n    hundred rather than at the same span. THE BOUNDARY, stated because the interesting question lies just past\n    it: this settles the two RULES against each other and says nothing about either against the sun. The\n    tropical year is a MEASURED quantity, not a decided one — roughly 365.2422 days — so how fast a calendar\n    drifts against the season is an empirical claim that belongs in prose with its source, never in a by-decide\n    theorem. What the kernel can hold is the difference between two rules; what it cannot hold is the year\n    itself. -/\ntheorem the_reform_is_exactly_three_days_in_four_hundred : (400 * 365 + 100 = 146100) ∧ (146100 - 146097 = 3) ∧ (1461 * 100 = 146100) ∧ (100 - 97 = 3) := by decide\n"
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-week_is_z7",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The week is the rosette ℤ/7: seven days, and advancing by seven returns to the same day — 7 % 7 = 0. The calendar counts in the same ring uuidna turns on."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[0,1,2,3,4,5,6].length = 7 ∧ 7 % 7 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem week_is_z7 : [0,1,2,3,4,5,6].length = 7 ∧ 7 % 7 = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-common_year_shifts_one",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A common year is 365 = 52·7 + 1 days, so 365 % 7 = 1: every ordinary year the weekday of a fixed date advances by exactly one — New Year walks forward a day a year."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "365 % 7 = 1"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem common_year_shifts_one : 365 % 7 = 1 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-leap_year_shifts_two",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A leap year is 366 days, and 366 % 7 = 2: a fixed date jumps forward TWO weekdays across a leap year — the extra day is the extra shift."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "366 % 7 = 2"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem leap_year_shifts_two : 366 % 7 = 2 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-leap_years_per_400",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The Gregorian rule keeps 97 leap years per 400: every 4th year (100), minus the centuries (4), plus every 400th (1) — 100 − 4 + 1 = 97. Just short of the Julian 100, tuned to the tropical year."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "100 - 4 + 1 = 97"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem leap_years_per_400 : 100 - 4 + 1 = 97 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-gregorian_cycle_400_years",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The whole Gregorian calendar repeats EXACTLY every 400 years: 400·365 + 97 = 146097 days, and 146097 % 7 = 0 — a whole number of weeks, so the same dates fall on the same weekdays, forever."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "400 * 365 + 97 = 146097 ∧ 146097 % 7 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem gregorian_cycle_400_years : 400 * 365 + 97 = 146097 ∧ 146097 % 7 = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-century_leap_rule",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The century exception, decided: 2000 is a leap year (2000 % 400 = 0) but 1900 is not (1900 % 100 = 0 yet 1900 % 400 ≠ 0) — the rule that made the Gregorian reform, on two famous years."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "2000 % 400 = 0 ∧ 1900 % 100 = 0 ∧ 1900 % 400 ≠ 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem century_leap_rule : 2000 % 400 = 0 ∧ 1900 % 100 = 0 ∧ 1900 % 400 ≠ 0 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-doomsday_even_months",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The doomsday rule for the even months: in a common year 4/4, 6/6, 8/8, 10/10 and 12/12 fall on day-of-year 94, 157, 220, 283, 346 — each 63 = 9·7 apart, so all ≡ 3 (mod 7). Five dates, one weekday, every year."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[94,157,220,283,346].all (fun d => d % 7 == 3)"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem doomsday_even_months : [94,157,220,283,346].all (fun d => d % 7 == 3) := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-months_sum_common_365",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The twelve months of a common year sum to 365: [31,28,31,30,31,30,31,31,30,31,30,31] folds to 365 — the year closed, February short."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[31,28,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 365"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem months_sum_common_365 : [31,28,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 365 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-months_sum_leap_366",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "A leap year gives February its 29th and the twelve months sum to 366: [31,29,31,30,31,30,31,31,30,31,30,31] folds to 366 — exactly one more day than the common year."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "[31,29,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 366"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem months_sum_leap_366 : [31,29,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 366 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-february_is_the_only_month_of_whole_weeks",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "Of the twelve months exactly ONE is a whole number of weeks: a common February, 28 = 4·7. Thirty leaves two over and thirty-one leaves three, so every other month starts on a different weekday than it ended — which is why only February can repeat its shape. COUNTED, not asserted: the first draft of this fact claimed that NO month was a whole number of weeks, and the count refused it immediately. The exception IS the content."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "([31,28,31,30,31,30,31,31,30,31,30,31].filter (fun m => m % 7 == 0)).length = 1 ∧ 28 % 7 = 0 ∧ 30 % 7 = 2 ∧ 31 % 7 = 3"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem february_is_the_only_month_of_whole_weeks : ([31,28,31,30,31,30,31,31,30,31,30,31].filter (fun m => m % 7 == 0)).length = 1 ∧ 28 % 7 = 0 ∧ 30 % 7 = 2 ∧ 31 % 7 = 3 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-julian_cycle_closes_at_twenty_eight",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "THE CONTROL FOR THE GREGORIAN CLOSURE. The Julian rule leaps every fourth year with no century exception, so its calendar closes at TWENTY-EIGHT years — 10227 days, a whole number of weeks — while four Julian years alone do not (1461 % 7 = 5). Sealed beside gregorian_cycle_400_years because a closure means nothing without a span that fails to close: the difference between 28 and 400 is exactly what the century rule costs, and without this contrast the 400 reads as arithmetic rather than as a consequence of the reform."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "28 * 365 + 7 = 10227 ∧ 10227 % 7 = 0 ∧ 4 * 365 + 1 = 1461 ∧ 1461 % 7 = 5"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem julian_cycle_closes_at_twenty_eight : 28 * 365 + 7 = 10227 ∧ 10227 % 7 = 0 ∧ 4 * 365 + 1 = 1461 ∧ 1461 % 7 = 5 := by decide"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "page",
+          "slug": "theorem-the_gregorian_cycle_counted_in_weeks",
+          "children": [
+            {
+              "type": "heading",
+              "tag": "h2",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "The 400-year cycle stated as the number it is: 146097 = 20871 × 7, so the calendar returns after twenty thousand eight hundred and seventy-one weeks exactly. AND THE HONEST SCOPE, because the factorisation invites more than it earns: 146097 = 63 · 2319 with 63 = 7·9, the fused ring — but only the SEVEN is a fact about calendars, earned by the 97-leap-day rule and able to come out otherwise. The nine is ordinary arithmetic and NOT a second witness: 146097 = 7 · 20871 and 20871 is itself divisible by nine, so that half follows by multiplication. A fact and its consequence, sealed together and labelled, rather than counted twice."
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "146097 = 20871 * 7 ∧ 146097 = 63 * 2319 ∧ 63 = 7 * 9 ∧ 20871 % 9 = 0"
+                }
+              ]
+            },
+            {
+              "type": "code",
+              "language": "lean",
+              "children": [
+                {
+                  "type": "text",
+                  "text": "theorem the_gregorian_cycle_counted_in_weeks : 146097 = 20871 * 7 ∧ 146097 = 63 * 2319 ∧ 63 = 7 * 9 ∧ 20871 % 9 = 0 := by decide"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
