@@ -12,7 +12,7 @@
     "reports.json": "96d13bd13f098c10",
     "lean/statement-index.json": "ee6304346e298e90",
     "README.md": "83c4dc243a68881b",
-    "llm.txt": "08a1776440b58525",
+    "llm.txt": "021d7926b886817d",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
     "src/chunks/00/476e9d.json": "cc81754bbb7287bb",
@@ -1599,7 +1599,7 @@
     "lean/Thermodynamics.lean": "4f0158c3515c84fa",
     "lean/tides-manifest.json": "fc18ddce67318cbb",
     "lean/Tides.lean": "144b41c91a91888d",
-    "lean/tool-exercise-baseline.json": "c2874d4109738432",
+    "lean/tool-exercise-baseline.json": "25fa21195a358220",
     "lean/topography-manifest.json": "ab89d419b4fc8f77",
     "lean/Topography.lean": "fdcc182ac27b82c1",
     "lean/torus-manifest.json": "24fd85fc1f808ea7",
@@ -1625,5 +1625,5 @@
     "lean/waves-manifest.json": "fd25caf2595e8fb7",
     "lean/Waves.lean": "4be29174f5748e47"
   },
-  "receipt": "f48a9704-0348-85d1-97f7-ed5113a5f643"
+  "receipt": "398519de-d918-8253-84e4-565db9b54e9c"
 }
