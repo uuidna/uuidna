@@ -62,3 +62,28 @@ docs/os.md merge=derived
 docs/store.md merge=derived
 docs/models.md merge=derived
 src/chunks/** merge=derived
+
+# ── THE RECORDS UNDER A DIRECTORY ENTRY THAT ARE NOT DERIVED (2026-08-25) ────────────────────────────────────
+# A DRAIN_PATHS entry with no dot becomes a DIRECTORY glob above — 'lean' becomes lean/**. That is right for the
+# WINGS: every .lean file there is written by its generator, so both sides of a conflict are correct outputs and
+# the recomputation settles it. It is far too wide for the hand-maintained JSON living beside them, and the
+# driver is not a merge at all: merge.derived.driver is `true`, which keeps one side and DISCARDS the other in
+# silence, on the promise that a reconcile recomputes the truth. NOTHING recomputes these.
+#
+# Measured before this list existed: lean/wave-queue.json is a DEPOSIT record — mcp.ts writes it through
+# depositCandidates, gen-waves only READS it, and it appears nowhere in reconcile's derive block or generate's
+# manifest. One checkout held 462 accepted deposits where origin held 53, and the wings regenerate from a queue
+# that no longer names them, so src/firewall, src/knowledge and src/resonance are zero files on origin and
+# thirteen sealed theorems went with them. Partial, which is why it went unnoticed: whichever side won lived.
+#
+# UNSET, NOT RE-CLASSIFIED, and NOT removed from DRAIN_PATHS — the staging behaviour reconcile depends on is a
+# separate question from whether a merge may discard a side. `!merge` restores the ordinary three-way merge, so
+# a real conflict here produces CONFLICT MARKERS an author resolves. A visible conflict is recoverable; a silent
+# discard is not.
+lean/wave-queue.json !merge
+lean/leads.json !merge
+lean/research-ledger.json !merge
+lean/dormant-scripts.json !merge
+lean/mcp-context-budget.json !merge
+lean/tool-exercise-baseline.json !merge
+.gitattributes !merge
