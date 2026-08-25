@@ -223,3 +223,17 @@ test('every step that writes the tracked tree is classified as a GENERATOR, not 
   // and a step that merely mentions proving is not a writer
   assert.equal(kindOf('node dist/scripts/proof-check.js'), 'check')
 })
+
+test('THE .json TRAP — a pattern must not match a FILENAME in another command\'s arguments', () => {
+  // SHIPPED AND CAUGHT WITHIN THE MINUTE (2026-08-25). `.js` is a PREFIX of `.json`, so an unanchored
+  // /\baudit-citations\.js/ matched the string "audit-citations.json" sitting in the argument list of
+  // `git diff --exit-code -- …`. That reclassified the step that READS the tree as a GENERATOR, and the gate
+  // refused with "GENERATOR FAILED: git diff" — correctly, and about my own pattern rather than about the tree.
+  const diff = 'git diff --exit-code -- lean/ audit-citations.json support-audit.json research-leads.json'
+  assert.equal(kindOf(diff), 'serial-check',
+    'the tree-reader is a serial check; a generator pattern matching one of its ARGUMENTS inverts the whole plan')
+  // and each anchored pattern still matches the thing it is for
+  assert.equal(kindOf('node dist/scripts/audit-citations.js'), 'generator')
+  assert.equal(kindOf('node dist/scripts/support.js --check'), 'generator')
+  assert.equal(kindOf('node dist/scripts/rosetta.js'), 'generator')
+})

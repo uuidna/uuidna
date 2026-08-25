@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "One leap (1)",
-        "ledgerReceipt": "4c064aa4-9145-802e-a461-a8efd04620e0"
+        "ledgerReceipt": "4e7cfc8a-5c84-8d4f-a37a-f5774c3f1584"
       },
-      "address": "814da99f-5bc2-87c6-9a96-524afd47ba1a"
+      "address": "b1f13b67-9b17-8dc7-85a7-90c3a336cd5f"
     },
     {
       "title": "Heartbeat coverage",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "42ffbba5e57a89ea",
-        "unifiedFold": "8394372208e78123"
+        "foldReceipt": "6b6412770671a643",
+        "unifiedFold": "52dee756e861be74"
       },
-      "address": "2848f4a0-dee7-8b6f-a6dd-455bc7cd1f40"
+      "address": "cc38b245-11a5-81e4-b85d-2b9ede067bdf"
     }
   ],
-  "receipt": "907a3f14-caa3-8e73-927a-721d09e6e7ca",
+  "receipt": "1f634276-204b-85ac-8627-cabbf439feda",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

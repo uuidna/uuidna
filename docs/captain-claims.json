@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "24846567-b605-8e0d-80b0-1aea34be4aab",
-      "address": "d954ff1f-d1ce-8930-886d-28fd4f87ddd5",
+      "lineAddress": "0af20762-6daf-81b8-9459-b5b498697b49",
+      "address": "a9b09b03-9936-81b3-a0db-cbd99b577fb0",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "c66467fd-06ec-8ce6-ac2a-e2e4325be5ac",
-      "address": "6a1402d0-64cb-8d88-8f23-69e1f9a8dc76",
+      "lineAddress": "6040a792-05ed-8307-a3ba-3ae9c9145634",
+      "address": "1668bab5-ad3e-8d36-b2fc-491cf02d4a18",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "b02b7d8f-b988-846e-a7b1-b8459091d339",
-      "address": "c7942fe2-be6f-8f7b-854b-fb7f1aa50b25",
+      "lineAddress": "4313c0f9-fafc-87f6-882c-cf12141e8b40",
+      "address": "1f0ec48d-0a08-81fe-9654-126ba0e12152",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "cf2e9b16-3d3a-860e-9c33-8c9abe0e3511",
-      "address": "42032945-b1db-88da-93ae-119a9f08f74d",
+      "lineAddress": "4d178bab-8bd9-8c9e-8002-3f40cd182ef3",
+      "address": "8559616a-3444-8b01-a366-943144b478b6",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "6b541a20-7691-8098-81c6-d8f185dbd6a0",
-      "address": "2e105b37-6896-898d-81d5-5902327dceaf",
+      "lineAddress": "52aa9a53-acee-82bf-bfd8-5d02b598fefc",
+      "address": "3c6495a2-a37f-8b33-ba7a-9bfeca4c195b",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "cfc3a15b-6770-8325-8064-e76887a42c18",
-      "address": "793a4282-3ac1-86a5-b673-7c0b97348e4c",
+      "lineAddress": "91770746-65d3-85e6-8281-6c4ee4cfa651",
+      "address": "f79ce74e-c0d8-8105-b893-357873ce2457",
       "principle": "The detectors, proven"
     },
     {
@@ -10224,7 +10224,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "0799069a-9b07-8d2b-ae04-35b073703a52",
+  "claim_receipt": "4ed42ab1-0cf2-8ec4-947c-5dbf5026cc22",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

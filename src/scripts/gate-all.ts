@@ -65,7 +65,7 @@ const GENERATOR_PATTERNS: readonly RegExp[] = [
   // Every cure so far has been to teach the matcher one more surface form, and each time the next form arrived —
   // so it is worth saying plainly that this pattern is a patch on a classifier that reads names, and the durable
   // fix is for a runner to DECLARE what it writes rather than be recognised by how it is spelled.
-  /\bprove-all\.js/,
+  /\bprove-all\.js\b/,
   // AND THREE MORE THE NAME HID, found by asking the opposite question (2026-08-25). Rather than wait for a fifth
   // costume, every step the plan called a CHECK was read for a filesystem write. Three of them write:
   //   audit-citations.js → audit-citations.json      support.js → support-audit.json, research-leads.json
@@ -77,9 +77,9 @@ const GENERATOR_PATTERNS: readonly RegExp[] = [
   // The test beside this now asserts the PROPERTY rather than the list: no step classified as a check may contain
   // a filesystem write. That is the rule this list should eventually be derived from, and until then it is what
   // catches the next one without anybody noticing a symptom first.
-  /\baudit-citations\.js/,
-  /\bsupport\.js/,
-  /\brosetta\.js/,
+  /\baudit-citations\.js\b/,
+  /\bsupport\.js\b/,
+  /\brosetta\.js\b/,
   // ONE INVOCATION, NOT THE WHOLE SCRIPT. one-receipt.js is run FIVE times in the chain and only `messaging`
   // writes (lean/messaging-witness.json); dormant, skills, micro and binary report and write nothing. Ordering
   // the script would drag four read-only steps out of the concurrent wave for nothing, so the pattern names the
@@ -116,7 +116,6 @@ const GENERATOR_PATTERNS: readonly RegExp[] = [
   // cure is a step DECLARING that it writes — prove-all.ts already declares `@non-harmonic: spawns the lean
   // chain`, so the vocabulary exists — and reading a declaration is not a change to make unilaterally at the end
   // of a long session. Recorded here as the finding; the pattern below is the stopgap.
-  /\bprove-all\.js/,
   /vitepress build/,
 ]
 
