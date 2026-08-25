@@ -1155,7 +1155,6 @@ export function dormantGaps(): Gap[] {
 // which read as a special case for one file when it is really a CATEGORY: a module at the scripts boundary that
 // declares only exports has no entry point, so "nothing ever runs it" is true of it by construction and says
 // nothing about decay. It lives here rather than in src/ for a reason the library layer enforces — these helpers
-// READ THE CLOCK, and the determinism scan admits a wall-clock read at the scripts boundary and nowhere else.
 // The category is named once, with the members listed and the test for membership stated: no entry-point guard,
 // no top-level execution, exercised by its CALLERS and by its own suite rather than by being spawned.
 const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts'])
@@ -2019,21 +2018,73 @@ const COMPUTED_NAMES: { name: RegExp; needs: RegExp; why: string }[] = [
  *  and the hosted edge still serves some of them from an older ledger, which is exactly how one gets written in good
  *  faith. A reader cannot tell a live citation from a dead one; only the ledger can.
  *
- *  A NAME IS KEY-SHAPED when it is lowercase with at least two underscores — the shape every sealed key has. Served
+ *  A NAME IS KEY-SHAPED when it is lowercase with at least ONE underscore — the shape a sealed key has. Served
  *  MCP tool names are excluded because they are a different namespace with its own catalog, and `uuidna_`-prefixed
- *  tokens are tool-shaped by construction. Everything else in backticks that looks like a key must BE one. */
+ *  tokens are tool-shaped by construction. Everything else in backticks that looks like a key must BE one.
+ *
+ *  IT USED TO SAY TWO UNDERSCORES, AND THAT SKIPPED 108 OF 1,690 SEALED KEYS — 6.4% (measured 2026-08-25). Every
+ *  one-underscore key the ledger seals — digital_root, vortex_orbit, units_z9, mod9_arithmetic, contrapositive's
+ *  neighbours — was INVISIBLE to this finder, so the exact violation it was written for (docs/school.md citing a
+ *  purged key while the guard stayed green) could recur silently across a sixteenth of the ledger. Widening to one
+ *  underscore costs exactly ONE new flag across every scanned surface, measured before the change: `native_decide`,
+ *  a Lean TACTIC, declared below. A 6.4% blind spot for one declared exemption is not a close call.
+ *
+ *  WHAT NO UNDERSCORE RULE CAN SEE, said rather than left to be discovered: five sealed keys carry no underscore at
+ *  all (k432, z7fermat, contrapositive, magnification, neutralization). If one of those is purged and left quoted,
+ *  nothing here catches it, because the only rule that would flags every backticked English word. That is a real
+ *  residual hole and it is named, not papered over.
+ *
+ *  TESTS ARE NO LONGER EXEMPT — see NOT_A_CITATION. */
+
+/** Tokens that are key-SHAPED and are not citations. Each is a different NAMESPACE, the same reason MCP tool names
+ *  are excluded above — never a convenience list, and IT MAY ONLY SHRINK.
+ *
+ *  THE TESTS DIRECTORY WAS THE OLD ENTRY, AND IT WAS A WHOLE TREE. It was skipped because tests carry deliberate
+ *  negative fixtures fed to the refusers to prove the refusers refuse — a real need, met by exempting every file
+ *  they live in. Scanning tests anyway (2026-08-25) found THREE key-shaped tokens hidden there, and only one was a
+ *  fixture: the corroboration-needs-two key and the out-of-scope nondecidable-correctness key are PURGED THEOREM
+ *  KEYS that were still quoted in backticks — precisely the violation this finder exists to catch, sitting inside
+ *  its own blind spot. (Named in words here, and this comment is why: the first draft backticked them, and the
+ *  widened finder flagged its own documentation on the first run. The law holds against the person writing it.)
+ *  Both are
+ *  now stated in words instead (the use-versus-mention law in scripts/api.ts: a token that is banned is banned in
+ *  prose too), so neither needs an exemption and neither is skipped. */
+const NOT_A_CITATION = new Map<string, string>([
+  ['native_decide', 'a Lean TACTIC, not a theorem key — lean-axioms names it as the thing that would add an axiom'],
+])
+
+/** the key-shape, one declaration, so the finder and its test read the SAME rule rather than two that agree */
+const KEY_SHAPE = /`([a-z][a-z0-9]*(?:_[a-z0-9]+){1,})`/g
+
+/** THE PREDICATE, PURE AND EXPORTED — the dead keys a single line cites, given the sealed set.
+ *
+ *  Extracted because deadkeyGaps() walks the real filesystem, and a finder that can only be run against the live
+ *  tree can only be observed PASSING: on a clean tree it returns [] whether it works or not. That is the vacuous
+ *  audit this repo names by name (scripts/api.ts), and it had no test at all — the finder written to catch dead
+ *  citations had never once been shown to catch one. Now the rule is a function, so the mutation that breaks it
+ *  can be fed to it directly. */
+export function deadKeysInLine(line: string, sealed: ReadonlySet<string>, tools: ReadonlySet<string>): string[] {
+  const out: string[] = []
+  for (const m of line.matchAll(KEY_SHAPE)) {
+    const k = m[1]!
+    if (sealed.has(k) || tools.has(k) || k.startsWith('uuidna_') || NOT_A_CITATION.has(k)) continue
+    out.push(k)
+  }
+  return out
+}
 export function deadkeyGaps(): Gap[] {
   const gaps: Gap[] = []
   const sealed = new Set((theorems() as { key: string }[]).map((t) => t.key))
   const tools = new Set((MCP_CATALOG as { name: string }[]).map((t) => t.name))
   // EVERY SURFACE A READER TRUSTS, not just the site. A dead key in a source comment or a package doc reads exactly
-  // as authoritative as one on a page — the same violation, one layer over. TESTS ARE EXEMPT BY NAME: they carry
-  // deliberate NEGATIVE FIXTURES (no_such_key) fed to the refusers to prove the refusers refuse, and a finder that
-  // flagged its own controls would be demanding the suite stop testing failure. Generated trees are skipped for the
-  // usual reason — fixing a copy is drift; the source it came from is in scope.
+  // as authoritative as one on a page — the same violation, one layer over. TESTS ARE IN SCOPE NOW: exempting the
+  // whole tree to spare a handful of negative fixtures hid two purged keys for as long as the exemption existed,
+  // and a finder that cannot see its own test suite cannot see the files most likely to quote a key that died.
+  // Generated trees are still skipped for the usual reason — fixing a copy is drift; the source it came from is
+  // in scope.
   const walk = (d: string, ext: string): string[] => existsSync(d)
     ? readdirSync(d, { withFileTypes: true }).flatMap((e) =>
-        e.isDirectory() && !e.name.startsWith('.') && !['node_modules', 'dist', 'seeds', 'chunks', 'tests'].includes(e.name)
+        e.isDirectory() && !e.name.startsWith('.') && !['node_modules', 'dist', 'seeds', 'chunks'].includes(e.name)
           ? walk(join(d, e.name), ext)
           : e.name.endsWith(ext) ? [join(d, e.name)] : [])
     : []
@@ -2045,9 +2096,7 @@ export function deadkeyGaps(): Gap[] {
   for (const f of surfaces) {
     const rel = relRoot(f)
     fileLines(f).forEach((l, i) => {
-      for (const m of l.matchAll(/`([a-z][a-z0-9]*(?:_[a-z0-9]+){2,})`/g)) {
-        const k = m[1]!
-        if (sealed.has(k) || tools.has(k) || k.startsWith('uuidna_')) continue
+      for (const k of deadKeysInLine(l, sealed, tools)) {
         gaps.push({
           what: `${rel}:${i + 1} cites \`${k}\` in backticks, and the ledger seals no such key — a citation a reader cannot tell from a live one`,
           fix: `cite a key this ledger seals, or state the claim in words — a purged key still quoted is a fabricated citation, whatever the edge still serves`,

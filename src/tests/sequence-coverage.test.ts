@@ -110,7 +110,8 @@ test('the recursive walk FIRES when a step is missing — the control for the cl
 // ── THE RELATION CARRIES ITS REFERRER. A neighbourhood is defined BY the principle that refers its members to one
 // another, and returning the members without it cost twice: the served tool looked the theorem up a second time
 // just to name the domain it had already used, and a bare `[]` answered two different questions with one word —
-// `vortex_one_leap` is genuinely ALONE in its principle ("One leap") while `no_such_key` is not a theorem at all.
+// `vortex_one_leap` is genuinely ALONE in its principle ("One leap") while the unknown-key fixture is not a
+// theorem at all (the fixture is a string in the code below; naming it in prose would make this comment cite it).
 // Both said []. That is an absence and a refusal rendered identically, live for two of the ledger's principles.
 test('a lone theorem and an unknown key are DIFFERENT answers', () => {
   const lone = theorems().find((t) => theorems().filter((x) => x.principle === t.principle).length === 1)

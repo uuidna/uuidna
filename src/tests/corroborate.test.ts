@@ -29,7 +29,9 @@ test('corroboration needs TWO INDEPENDENT SOURCES — the sealed theorem', () =>
     'two independent sources clear the bar')
   assert.equal(corroborate('x', []).verdict, 'UNVERIFIED', 'silence is not-yet')
 
-  // The rule no longer cites a theorem, so there is no citation to check. `corroboration_needs_two` stated
+  // The rule no longer cites a theorem, so there is no citation to check. The purged one — named in words
+  // here rather than backticked, because a dead key in backticks is a citation a reader cannot tell from a live
+  // one — was the corroboration-needs-two key, and it stated
   // `1 < 2` — two bare literals, which the kernel confirms without ever reaching independence, sources or
   // corroboration. The threshold lives in corroborate.ts, and the assertions above are what hold it: they fail
   // if one source ever clears the bar, which no comparison of 1 to 2 could detect.
