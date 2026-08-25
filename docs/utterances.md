@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="978 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="995 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 978 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 995 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `d1fc050e` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `63d03474` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -919,6 +919,19 @@ wing-parity holds in BOTH directions
 no handle fails to recover itself from its path
 ```
 
+**measurement** — 8 utterances
+
+```text
+a reader can ask for only what was actually MEASURED — the filter every honest surface needs
+axes compose, and an omitted axis filters nothing
+minOver demands the denominator a bound was taken over
+a filter is a VIEW and never reorders — a reordering view invents a ranking nobody expressed
+facets are built from the DATA, so a new unit can never go missing from a control
+THE EXPENSIVE LAW — a measured time sealed exact is NAMED, and the healthy tree is silent
+a measured figure with no denominator is a claim wearing an observation’s clothes
+decadeOf is integer arithmetic — the determinism scan admits no host Math call anywhere
+```
+
 **messaging-handle** — 5 utterances
 
 ```text
@@ -1391,6 +1404,16 @@ the report makes plain which findings may anchor a theorem and which may not
 the tool dispatches through the served surface and is listed in the catalogue
 ```
 
+**research-tension** — 5 utterances
+
+```text
+a finding citing a theorem that is not sealed is FABRICATED — a citation to nothing verifies nothing
+THE PARADOX THE LAW EXISTS TO FORBID — a sealed theorem resting on a source that may not anchor
+a MEASURED finding anchoring a theorem is OVERSEALED — a measurement gets a bracket or nothing
+AN UNLINKED FINDING IS SILENT, NOT CLEAN — the conflation this whole check exists to refuse
+the report states its own reach whenever anything IS linked
+```
+
 **rosetta-legs** — 8 utterances
 
 ```text
@@ -1778,6 +1801,15 @@ what carries no id is returned as given — never an invented id
 ```text
 every refusal class refuses, and the lawful candidate passes — the door can fail
 a deposit lands only the lawful, returns refusals with reasons, and never writes a refusal
+```
+
+**wave-supply** — 4 utterances
+
+```text
+DRY and SUPPLIED are different verdicts, and the wording never lets them read alike
+a DRY verdict NAMES every empty finder, so the stop is attributable to one of them
+exhausted means EVERY source and the conveyor, never just the conveyor
+the live census reads the real tree and states what it cannot see
 ```
 
 **waves** — 3 utterances
