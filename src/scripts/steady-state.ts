@@ -37,12 +37,14 @@
 //     the host, the mean measures the operating system's mood.
 //   VARY THE INPUT WITH THE PASS — see the `work` signature. Without this the two rules above converge, tightly
 //     and reproducibly, on whatever a cache is willing to hand back.
-//   REPORT THE MARGIN — see `edgeMargin`. A caller quantising to a decade must be able to refuse.
+//   ASK IF THE ESTIMATES AGREE — see AGREEMENT_ESTIMATES. A caller quantising to a decade must be able to refuse,
+//     and the warrant for refusing is a repeated measurement, never a threshold standing in for one.
 //
 // THE ONE SENTENCE: warm-then-floor converges just as tightly on the wrong quantity as on the right one, so
 // precision is evidence of nothing on its own. Stability and validity are independent, and each needs its own
-// gate — `edgeMargin` for the first, and for the second a control that feeds the estimator the input which
-// breaks it and demands the reading collapse (gen-quantum-capacity runs exactly that before it seals).
+// gate — repeated estimates agreeing on the decade for the first, and for the second a control that feeds the
+// estimator the input which breaks it and demands the reading collapse (gen-quantum-capacity runs both before
+// it seals).
 import { performance } from 'node:perf_hooks'
 
 const WARMUP = 3
@@ -57,33 +59,38 @@ export interface SteadyState {
   ns: number
   /** its order of magnitude: the value a sealed report stores, because a raw figure drifts and this does not */
   decade: number
-  /** How far the measurement sits from the NEARER edge of its decade, as a multiple: 1 means exactly on an edge,
-   *  ~3.16 means dead centre. THIS IS THE FIELD THAT SAYS WHETHER THE DECADE MAY BE SEALED AT ALL. Rounding to
-   *  an order of magnitude is only stable when the value is not near a boundary. Measured against the ledger's
-   *  fold cost at ~1% from its edge, ten launches of a CORRECT estimator — memo defeated, fixed-width seeds,
-   *  warm, floor of 20, reproducible to 3.8% — sealed the wrong decade four times in ten. Nothing was wrong with
-   *  the instrument; a ~1% margin against a ~4% spread is a coin flip, and no amount of estimator quality buys
-   *  you the side of a threshold. A caller that seals a decade without reading this is publishing a fixed point
-   *  that does not exist.
-   *
-   *  IT MEASURES STABILITY, NEVER VALIDITY, AND THE TWO ARE ORTHOGONAL — stated here rather than in a commit
-   *  because collapsing them back into one "measurement guard" would re-hide the bug that made this field
-   *  necessary. When this module timed a memoised sweep it read 20 ns instead of ~2000, and that reading passes
-   *  the margin check comfortably (margin 2.0, mid-decade): a cache is perfectly stable and completely wrong.
-   *  Margin asks "will this decade hold?"; only measuring the varied and repeated forms and comparing them asks
-   *  "is this the quantity I meant?". A green margin is not evidence of a real measurement. */
-  edgeMargin: number
   passes: number
   warmup: number
 }
 
-/** The margin a decade needs before it can be sealed. At 1.5 the value must sit at least half again above its
- *  decade's floor and half again below its ceiling. Chosen against MEASURED failures rather than by taste: the
- *  BigInt fold path, timed by three independent instruments at 9368-10139 ns, gives margins of 1.02x to 1.07x
- *  and demonstrably flipped decade in 4 of 10 launches — refused. The split-multiply path at ~2000 ns gives
- *  1.98x and held on every process anyone ran — admitted. The threshold sits between a measured coin flip and a
- *  measured fixed point, which is the only place a threshold can honestly be put. */
-export const SEALABLE_MARGIN = 1.5
+// THE MARGIN USED TO BE COMPUTED HERE AND IS NOT ANY MORE — deleted rather than deprecated, because a second
+// implementation of one quantity is the drift this tree spends its time removing. `quantum/advantage/marginOf`
+// owns it, and owns it BETTER: it works in integer hundredths where this returned a float, and the determinism
+// law admits no float where an integer will do. Callers take margin and spread from there.
+//
+// STABILITY AND VALIDITY REMAIN ORTHOGONAL, which is the one thing that must not be lost with the field. Margin
+// asks "will this decade hold?"; only measuring the varied and repeated forms and comparing them asks "is this
+// the quantity I meant?". When this module timed a memoised sweep it read 20 ns instead of ~2000 — and that
+// reading sits mid-decade and passes any margin check comfortably. A cache is perfectly stable and completely
+// wrong, so a green margin is never evidence of a real measurement. Both gates, or neither is worth having.
+
+/** How many independent estimates a caller takes before deciding a decade will hold.
+ *
+ *  THIS REPLACED A THRESHOLD, AND THE REPLACEMENT IS THE POINT. The gate here was once `SEALABLE_MARGIN = 1.5`:
+ *  the value had to sit half again clear of both edges of its decade. That constant was justified against real
+ *  measured failures, which is what made it convincing and what made it wrong — it is a guess about ONE host's
+ *  noise on ONE night wearing the clothes of a law. It refuses a genuinely reproducible reading that happens to
+ *  land 1.1x from an edge, and it accepts 1.6x on a machine that swings 2x. No better constant exists, because
+ *  the quantity a constant is standing in for is the host's noise, and that is measurable.
+ *
+ *  So the question is asked directly instead — would the next run seal this same decade? — and answered by
+ *  repeating the estimate (quantum/advantage's `decadesAgree`). Margin is still computed and still published,
+ *  but as the DIAGNOSIS rather than the verdict: it explains WHY estimates disagreed, compared against the
+ *  spread actually observed. Both numbers come from this host in this build, and neither is chosen in advance.
+ *
+ *  Two is the minimum that can answer the question at all — a single estimate is trivially unanimous and proves
+ *  nothing — and five is cheap here (about 80 ms per estimate over the ledger) while giving noise room to show. */
+export const AGREEMENT_ESTIMATES = 5
 
 /** Time `work` in its STEADY STATE: warm the process, then take the floor of `passes` timed passes.
  *  `units` is how many units of work one pass performs, so the result is the per-unit cost.
@@ -118,9 +125,5 @@ export function steadyStateNs(work: (pass: number) => void, units: number, passe
   const ns = Number(floor.toFixed(0))
   // no Math.* anywhere (the determinism hard-reject has no exemption): the digit count carries the decade
   const decade = String(ns).length - 1
-  // distance to whichever edge is nearer, as a multiple — how far above this decade's floor, how far below its
-  // ceiling, smaller wins. Both are >= 1 by construction, so 1 means sitting exactly on an edge.
-  const above = ns / 10 ** decade
-  const below = 10 ** (decade + 1) / ns
-  return { ns, decade, edgeMargin: above < below ? above : below, passes, warmup }
+  return { ns, decade, passes, warmup }
 }

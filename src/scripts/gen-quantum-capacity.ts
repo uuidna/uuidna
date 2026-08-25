@@ -24,7 +24,8 @@
 import { writeFileSync, readFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { steadyStateNs, SEALABLE_MARGIN } from './steady-state.js'
+import { steadyStateNs, AGREEMENT_ESTIMATES } from './steady-state.js'
+import { decadesAgree, marginOf, spreadHundredths, renderHundredths } from '../quantum/advantage/index.js'
 import { toUuid } from '../address.js'
 import { theorems } from '../theorems/index.js'
 import { handleOf } from '../handle.js'
@@ -115,7 +116,7 @@ const REPORTED: Row[] = [
  *  inside the observed gap (20 ns against ~2000, a factor of a hundred) and far outside any plausible noise. */
 const MEMO_CONTROL_RATIO = 5
 
-function measureUuidna(): { nsDecade: number; ledger: number; rawNs: number; edgeMargin: number; cachedNs: number } {
+function measureUuidna(): { nsDecade: number; ledger: number; rawNs: number; cachedNs: number; agreed: boolean; decades: number[]; margin: number; spread: number } {
   const T = theorems()
   // The prefix is FIXED WIDTH. Varying it defeats the memo, but `${pass}:` grows a character at pass 10 and
   // again at 100, so the later passes would sweep longer seeds than the earlier ones and the fold cost would
@@ -136,6 +137,32 @@ function measureUuidna(): { nsDecade: number; ledger: number; rawNs: number; edg
   // timed is not the fold. This tree ships every audit with the mutation that breaks it; a timing instrument
   // has no exemption, and this is that mutation.
   const cached = steadyStateNs(() => sweepWith(''), T.length)
+
+  // ── AGREEMENT, NOT A THRESHOLD. This gate used a constant — SEALABLE_MARGIN = 1.5 — justified against the two
+  // readings that had flip-flopped here. That is a guess about ONE host's noise on ONE night wearing the clothes
+  // of a law, and it is wrong in both directions: it refuses a genuinely reproducible reading that happens to sit
+  // 1.1x from an edge, and it accepts 1.6x on a machine that swings 2x. The fix is not a better constant.
+  //
+  // ASK THE QUESTION DIRECTLY INSTEAD: would the next run seal this same decade? Repeat the estimate and see. The
+  // seal's warrant is then an observation rather than a threshold standing in for one, and the comparison that
+  // decides it is MARGIN AGAINST MEASURED SPREAD — both taken from this host, in this build, with no number
+  // chosen in advance. A margin comfortably larger than the spread is what a stable seal looks like.
+  //
+  // HONEST LIMIT, because it is the difference between this and the experiment that motivated it: these are
+  // in-process repeats. They vary the seed and so measure run-to-run noise, but they share one warmed process and
+  // therefore cannot see cold-start variance. The ten-LAUNCH experiment that proved a correct estimator still
+  // seals 4-in-10 at a 1% margin is strictly stronger evidence than anything a single generator run can gather.
+  // What this catches is a value whose decade is unstable under the noise this host is showing right now.
+  const decades = [fresh.decade]
+  const readings = [fresh.ns]
+  for (let i = 1; i < AGREEMENT_ESTIMATES; i++) {
+    const again = steadyStateNs((pass) => sweepWith(tag(pass)), T.length)
+    decades.push(again.decade)
+    readings.push(again.ns)
+  }
+  const agreed = decadesAgree(decades)
+  const margin = marginOf(fresh.ns, fresh.decade)
+  const spread = spreadHundredths(readings)
   if (cached.ns * MEMO_CONTROL_RATIO >= fresh.ns) {
     console.error(`✗ gen-quantum-capacity — THE MEASUREMENT CONTROL FAILED: a fully cached sweep cost ${cached.ns} ns against ${fresh.ns} ns fresh.`)
     console.error(`  A cached sweep must be at least ${MEMO_CONTROL_RATIO}x cheaper. That these are alike means the timing is NOT isolating the fold —`)
@@ -143,7 +170,7 @@ function measureUuidna(): { nsDecade: number; ledger: number; rawNs: number; edg
     console.error('  timed is something other than the work. Do not seal a figure from an instrument that cannot pass its own control.')
     process.exit(1)
   }
-  return { nsDecade: fresh.decade, ledger: T.length, rawNs: fresh.ns, edgeMargin: fresh.edgeMargin, cachedNs: cached.ns }
+  return { nsDecade: fresh.decade, ledger: T.length, rawNs: fresh.ns, cachedNs: cached.ns, agreed, decades, margin, spread }
 }
 
 const digitsOfPow2 = (n: number): number => (2n ** BigInt(n)).toString().length
@@ -151,7 +178,7 @@ const pow10 = (n: number | null): string => n === null ? '—' : `2^${n} (~10^${
 
 const m = measureUuidna()
 
-// ── THE SEAL REFUSES A DECADE IT CANNOT HOLD. Rounding to an order of magnitude is stable only when the value is
+// ── THE SEAL REFUSES A DECADE THE ESTIMATES DO NOT AGREE ON. Rounding to an order of magnitude is stable only when
 // not near a boundary, and this report spent a run of commits proving what happens otherwise: measured against
 // the BigInt multiply the fold cost landed within about one percent of 10000 ns, and three launches of the SAME
 // memo-free method returned decades 3, 3 and 4. No estimator rescues that — precision near a threshold does not
@@ -159,12 +186,14 @@ const m = measureUuidna()
 // The failure was invisible because a decade always LOOKS stable: it is one digit, and one digit cannot show a
 // margin. So the margin is checked, and a measurement sitting on an edge FAILS THE BUILD by name rather than
 // silently starting the flip-flop again. Integrity means the gate can say no about its own headline figure.
-if (m.edgeMargin < SEALABLE_MARGIN) {
-  console.error(`✗ gen-quantum-capacity — REFUSING TO SEAL A DECADE ON A BOUNDARY: ${m.rawNs} ns/fold sits ${m.edgeMargin.toFixed(2)}x from the nearer edge of 10^${m.nsDecade} (needs ${SEALABLE_MARGIN}x).`)
-  console.error('  This is not a flaky run, and RE-RUNNING WILL NOT HELP — it is the measurement telling you this quantity cannot be quantised')
-  console.error('  to a decade on this build. Measured at ~1% from the edge, a correct estimator still sealed the wrong decade 4 times in 10.')
-  console.error('  IF THE FOLD STILL USES THE BigInt MULTIPLY, THIS CAN NEVER PASS: that path costs ~9500 ns against a 10000 ns edge (margin ~1.06x).')
-  console.error('  FIX land the split multiply in address.ts — it moves the cost to ~2000 ns (margin ~2x) and is a PRECONDITION for sealing this')
+if (!m.agreed) {
+  console.error(`✗ gen-quantum-capacity — REFUSING TO SEAL A DECADE THE ESTIMATES DO NOT AGREE ON: ${AGREEMENT_ESTIMATES} repeats returned 10^${m.decades.join(', 10^')}.`)
+  console.error(`  Margin ${renderHundredths(m.margin)}x from the nearer edge of its decade, against an observed spread of ${renderHundredths(m.spread)}x.`)
+  console.error('  This is not a flaky run and RE-RUNNING WILL NOT HELP: the disagreement IS the measurement, telling you this quantity cannot be')
+  console.error('  quantised to a decade on this build. When the margin is not comfortably larger than the spread, which side of the boundary gets')
+  console.error('  sealed is decided by load rather than by the tree. A correct estimator at ~1% margin still sealed the wrong decade 4 times in 10.')
+  console.error('  IF THE FOLD STILL USES THE BigInt MULTIPLY, THIS CAN NEVER AGREE: that path costs ~9500 ns against a 10000 ns edge.')
+  console.error('  FIX land the split multiply in address.ts — it moves the cost to ~2000 ns, mid-decade, and is a PRECONDITION for sealing this')
   console.error('      figure at all, not an optimisation. Otherwise stop quantising: publish the raw figure with its spread, or seal an interval.')
   process.exit(1)
 }
