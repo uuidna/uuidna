@@ -84,7 +84,14 @@ test('apk — the package manager\'s READ surface: list the inventory, info by n
   const search = uuidnaExec('apk search busybox')     // find by name or published meaning
   assert.ok(search.ok)
   assert.ok((search.data as { hits: unknown[] }).hits.length > 1, 'search finds the busybox family by name')
-  assert.equal(uuidnaExec('apk search zzznomatch').output[0], '(no ported package matches "zzznomatch")', 'a miss is honest')
+  // A MISS IS STILL HONEST, AND NOW IT IS HONEST ABOUT MORE (2026-08-25). It used to read "(no ported package
+  // matches …)" against the 25 that boot — a sentence a caller reads as "Alpine does not have this", true of
+  // 25 packages and false of the other 28,614. With the whole published index catalogued, a miss now names the
+  // denominator it searched and says the name is absent UPSTREAM, which is a claim it has earned.
+  const miss = uuidnaExec('apk search zzznomatch')
+  assert.equal(miss.ok, false, 'a genuine miss is a refusal, not an empty success')
+  assert.match(miss.output[0]!, /no such package/)
+  assert.match(miss.output[0]!, /Absent UPSTREAM/, 'and it distinguishes absent-from-Alpine from merely-unported')
 
   // control: a WRITE verb is refused — a provenance OS installs nothing
   const add = uuidnaExec('apk add nginx')

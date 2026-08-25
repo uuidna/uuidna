@@ -16,6 +16,7 @@
 // run; the routes are an authored translation, declared; the meanings are the repository's own words.
 // COMPUTE → GENERATE → VERIFY.
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
+import { spawnSync } from 'node:child_process'
 import { join } from 'node:path'
 import { emit, NTH_DEF, type Fact } from './lean-gen.js'
 import { ROOT } from './api.js'
@@ -37,6 +38,18 @@ if (live) {
   if (current !== rendered) {
     writeFileSync(path, rendered)
     console.log(`✓ os/installs/mirror — upstream moved, re-pinned to Alpine ${live.release.version} (${live.count} default installs)`)
+  }
+  // AND THE CATALOGUE MOVES WITH IT. The boot mirror (what boots — alpine-base's closure) and the catalogue
+  // (what EXISTS — every published package, what apk answers from) are two views of ONE upstream read. Refreshed
+  // apart they would drift into describing different Alpine releases, and the surface would report a version
+  // from one and a dependency edge from the other with no sign that they disagreed. Same boundary, same act.
+  const cat = spawnSync(process.execPath, [join(ROOT, 'dist', 'scripts', 'gen-alpine-catalogue.js')], { cwd: ROOT, encoding: 'utf8' })
+  if (cat.error || cat.status !== 0) {
+    // NOT FATAL, AND NOT SILENT. The boot mirror is already re-pinned and the ledger must still seal; a stale
+    // catalogue is honest (it names the release it was written from) where a half-written one would not be.
+    console.log(`· os/installs — the catalogue did NOT refresh (${cat.error?.message ?? `exit ${cat.status}`}); the committed one stands and still names its own release`)
+  } else {
+    console.log('✓ os/installs/catalogue — refreshed from the same upstream read, so mirror and catalogue name one Alpine')
   }
 } else {
   console.log('· os/installs — upstream unreachable; the committed mirror stands (Alpine ' + data.release.version + ')')

@@ -10,3 +10,4 @@ handles.js
 *.mcpb
 .uuidna-writer.lock
 generator-metrics.json
+docs/public/alpine-catalogue.tsv

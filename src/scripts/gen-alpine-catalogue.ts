@@ -1,0 +1,109 @@
+#!/usr/bin/env node
+// @non-harmonic: reads Alpine's PUBLISHED indexes over the network — the os/ boundary, where a live "latest"
+// read is honest, and nowhere else.
+//
+// gen-alpine-catalogue — PORT ALL OF ALPINE, not just what boots.
+//
+// THE GAP THIS CLOSES, MEASURED (2026-08-25). The install port compiles alpine-base's dependency closure: 25
+// packages. Alpine latest-stable/x86_64 publishes 5,961 in main and 22,678 in community — 28,639. So every
+// served `apk search`/`apk info` answered for 0.087% of Alpine and said "no ported package matches" for the
+// rest, which is the defect this tree keeps finding in other clothes: a NOT-PORTED answer and a NOT-IN-ALPINE
+// answer were the same string. A developer resting a project on uuidna.com asked whether it knew `nodejs` and
+// was told no, when the true answer is "yes, and here is its exact published version, checksum and closure".
+//
+// WHY THE WHOLE INDEX FITS. A package compiles to 32 hexbit states — 128 bits. All 28,639 is 916,448 states,
+// 0.44 MiB of state; the catalogue that carries their meaning is 5.7 MB of text and reads in ~180 ms. There was
+// never a cost argument for the gap, only the absence of a generator.
+//
+// WHAT IS PORTED IS THE INTEGRITY AND THE MEANING, NEVER THE RUNTIME. Each row names upstream's own bytes (the
+// published checksum) and upstream's own words (the published description). Nothing is installed, linked,
+// unpacked or executed — theorem the_os_is_bootable_quantum. The response is DATA.
+//
+// The file is TSV, one package per line, because git deltas text between Alpine releases and a JSON re-indent
+// would rewrite every line. Columns: repo, name, version, checksum, description, space-separated deps.
+import { writeFileSync, mkdirSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from './api.js'
+import { untarGzipMember } from '../os/packages/index.js'
+import { CATALOGUE_FILE, CATALOGUE_COLUMNS, type CataloguePackage } from '../quantum/os/catalogue.js'
+
+const CDN = 'https://dl-cdn.alpinelinux.org/alpine'
+const REPOS = ['main', 'community'] as const
+
+/** parse one APKINDEX body into its records — the same field letters os/installs reads, kept to the two the
+ *  catalogue can honestly carry plus what `apk depends` needs. */
+const parseIndex = (apkindex: string, repo: string): CataloguePackage[] =>
+  apkindex.split('\n\n').filter((r) => r.includes('P:')).map((r) => {
+    const g = (k: string): string => (r.match(new RegExp(`^${k}:(.+)$`, 'm')) || [])[1] ?? ''
+    return {
+      repo, name: g('P'), version: g('V'), checksum: g('C'),
+      // tabs and newlines are the row and column separators — a description carrying one would split the row,
+      // so they are folded to spaces HERE rather than trusted not to occur upstream
+      desc: g('T').replace(/[\t\r\n]+/g, ' ').trim(),
+      deps: g('D').split(' ').filter(Boolean),
+      provides: g('p').split(' ').filter(Boolean),
+    }
+  }).filter((p) => p.name)
+
+async function main(): Promise<void> {
+  const branch = process.env.UUIDNA_ALPINE_BRANCH ?? 'latest-stable'
+  const arch = process.env.UUIDNA_ALPINE_ARCH ?? 'x86_64'
+  const all: CataloguePackage[] = []
+  const counts: Record<string, number> = {}
+
+  for (const repo of REPOS) {
+    const url = `${CDN}/${branch}/${repo}/${arch}/APKINDEX.tar.gz`
+    let recs: CataloguePackage[] = []
+    try {
+      const res = await fetch(url)
+      if (!res.ok) throw new Error(`HTTP ${res.status}`)
+      const gz = new Uint8Array(await res.arrayBuffer())
+      // the member SEARCH, never the whole-buffer decode: APKINDEX.tar.gz is TWO concatenated gzip members
+      // (the signature, then the index), and decoding the first returns the signature — which for a long time
+      // read as "Alpine has no packages". See untarGzipMember in os/packages.
+      recs = parseIndex(await untarGzipMember(gz, 'APKINDEX'), repo)
+    } catch (e) {
+      // A REPO THAT COULD NOT BE READ IS NOT A REPO WITH NO PACKAGES. Writing a catalogue that silently lost
+      // 22,678 packages would publish a smaller Alpine as though upstream had shrunk, and every later `apk
+      // search` would answer "no such package" with total confidence. Refuse instead.
+      console.error(`✗ gen-alpine-catalogue — ${repo} could not be READ (${e instanceof Error ? e.message : String(e)})`)
+      console.error('  the catalogue is NOT rewritten: a partial index published as a whole one is a false negative')
+      console.error(`  for every package in ${repo}, and silence is exactly what this generator exists to end.`)
+      process.exit(1)
+    }
+    if (!recs.length) {
+      console.error(`✗ gen-alpine-catalogue — ${repo} parsed to ZERO packages; upstream does not ship an empty repo,`)
+      console.error('  so this is a shape drift in the index format, not a fact about Alpine. Refusing to seal it.')
+      process.exit(1)
+    }
+    counts[repo] = recs.length
+    all.push(...recs)
+    console.log(`  ${repo.padEnd(10)} ${String(recs.length).padStart(6)} packages`)
+  }
+
+  // sorted so the file is a FUNCTION of upstream and not of fetch order — two runs against one Alpine release
+  // must produce byte-identical output, or the derived layer never reaches a fixed point (see spin).
+  all.sort((a, b) => (a.repo === b.repo ? (a.name < b.name ? -1 : a.name > b.name ? 1 : 0) : a.repo < b.repo ? -1 : 1))
+
+  const header = `# uuidna alpine catalogue — GENERATED by scripts/gen-alpine-catalogue. DO NOT EDIT.\n`
+    + `# branch=${branch} arch=${arch} repos=${REPOS.join(',')} packages=${all.length}\n`
+    + `# ${CATALOGUE_COLUMNS.join('\t')}\n`
+  const body = all.map((p) => [p.repo, p.name, p.version, p.checksum, p.desc, p.deps.join(' '), p.provides.join(' ')].join('\t')).join('\n')
+
+  const out = join(ROOT, CATALOGUE_FILE)
+  mkdirSync(join(ROOT, CATALOGUE_FILE, '..'), { recursive: true })
+  writeFileSync(out, header + body + '\n')
+
+  // AND SERVE IT, because uuidnaOS runs in the browser too and a tab cannot open mirror/ off the filesystem.
+  // docs/public is vitepress's static root, so this lands at /alpine-catalogue.tsv for primeCatalogueFrom.
+  // It is a BUILD ARTIFACT (gitignored): one committed copy in mirror/, one served copy derived from it, so the
+  // two can never disagree about what Alpine says.
+  const served = join(ROOT, 'docs', 'public', 'alpine-catalogue.tsv')
+  mkdirSync(join(ROOT, 'docs', 'public'), { recursive: true })
+  writeFileSync(served, header + body + '\n')
+  console.log(`✓ gen-alpine-catalogue — ${all.length} packages (${Object.entries(counts).map(([r, n]) => `${r} ${n}`).join(' · ')})`)
+  console.log(`  → ${CATALOGUE_FILE}  ${(Buffer.byteLength(header + body) / 1024 / 1024).toFixed(2)} MiB`)
+  console.log(`  the boot closure stays 25 packages; these ${all.length} are what apk can now ANSWER for.`)
+}
+
+await main()

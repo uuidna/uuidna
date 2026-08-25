@@ -10,6 +10,7 @@
 // So `uuidna_ls /terminal` does NOT invoke busybox; it computes what the ported /terminal directory contains
 // from the sealed spec. The tool's LOGIC is uuidna's; the tool's IDENTITY is the busybox package (coreutils/
 // ls lives in busybox on Alpine). Integrity and computation, never execution.
+import { catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends } from './catalogue.js'
 import { toUuid } from '../../address.js'
 import { bootOS, compileToHexbits, type InstallSpec } from './index.js'
 
@@ -89,6 +90,25 @@ export type Applet = (typeof APPLETS)[number]
  *  by NAME, search it, query its dependencies forward and back. NEVER add/del/update — a provenance OS installs
  *  nothing (theorem the_os_is_bootable_quantum); the sealed mirror IS the installed world, queried, never mutated. */
 export const APK_VERBS = ['list', 'info', 'search', 'depends', 'rdepends'] as const
+
+/** THE THREE STATES A PACKAGE QUERY CAN END IN, kept apart in the one place they are worded.
+ *
+ *  Before the catalogue there were two: found among the 25 that boot, or the string "not a ported package" —
+ *  which a caller deciding what to rest a project on reads as "Alpine does not have this". For 28,614 of
+ *  Alpine's 28,639 packages that reading was wrong, and it was wrong with total confidence.
+ *
+ *  Now: INSTALLED (in the boot closure), AVAILABLE (published by Alpine, catalogued here, not booted), or
+ *  genuinely ABSENT. And a fourth that must never wear the third's clothes — the catalogue could not be READ,
+ *  which is a fact about this host and says nothing whatever about Alpine. */
+const apkMiss = (verb: string, name: string): string => {
+  const st = catalogueState()
+  if (!st.present)
+    return `apk ${verb}: ${name}: UNKNOWN HERE — the catalogue is absent (${st.why}). `
+      + 'This is a fact about this host, NOT about Alpine: the package may well exist upstream. '
+      + 'Only the boot closure was searched.'
+  return `apk ${verb}: ${name}: no such package — searched all ${st.count} packages Alpine publishes on the pinned `
+    + 'branch, plus the boot closure. Absent UPSTREAM, not merely unported.'
+}
 
 /** resolve a package by name (busybox) or by route (/terminal); the two directions `which` walks. */
 const specByName = (name: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => s.name === name)
@@ -177,25 +197,70 @@ export function uuidnaExec(line: string): ExecResult {
         emit(rows.map((s) => `${s.name}-${s.version}  ${s.route}`), { installed: rows.length, packages: rows.map((s) => ({ name: s.name, version: s.version, route: s.route })) })
       } else if (verb === 'info') {                                  // a package BY NAME (cat is by route) — its provenance record
         const s = specByName(name, specs)
-        if (!s) { err(`apk info: ${name}: not a ported package (try \`apk list\`)`); break }
-        emit([`${s.name}-${s.version} description:`, `  ${s.meaning}`, `${s.name}-${s.version} webpage:`, `  ${s.route}`,
-          `${s.name}-${s.version} depends on:`, ...(s.deps.length ? s.deps.map((d) => '  ' + d) : ['  (none)'])],
-          { name: s.name, version: s.version, route: s.route, meaning: s.meaning, checksum: s.checksum, deps: s.deps, address: s.address })
+        if (s) {
+          emit([`${s.name}-${s.version} description:`, `  ${s.meaning}`, `${s.name}-${s.version} webpage:`, `  ${s.route}`,
+            `${s.name}-${s.version} depends on:`, ...(s.deps.length ? s.deps.map((d) => '  ' + d) : ['  (none)'])],
+            { name: s.name, version: s.version, route: s.route, meaning: s.meaning, checksum: s.checksum, deps: s.deps, address: s.address, state: 'INSTALLED' })
+          break
+        }
+        // NOT IN THE BOOT CLOSURE IS NOT NOT-IN-ALPINE. The catalogue answers for every published package.
+        const c = cataloguePackage(name)
+        if (c) {
+          emit([`${c.name}-${c.version} description:`, `  ${c.desc}`, `${c.name}-${c.version} repository:`, `  ${c.repo}`,
+            `${c.name}-${c.version} checksum:`, `  ${c.checksum}`,
+            `${c.name}-${c.version} depends on:`, ...(c.deps.length ? c.deps.map((d) => '  ' + d) : ['  (none)']),
+            `(AVAILABLE — published by Alpine, not in the boot closure; nothing is installed either way)`],
+            { name: c.name, version: c.version, repo: c.repo, meaning: c.desc, checksum: c.checksum, deps: c.deps, state: 'AVAILABLE' })
+          break
+        }
+        err(apkMiss('info', name))
       } else if (verb === 'search') {                                // find packages by name or published meaning
         const q = name.toLowerCase()
         if (!q) { err('apk search: a search term is required, e.g. `apk search shell`'); break }
-        const hits = specs.filter((s) => s.name.toLowerCase().includes(q) || s.meaning.toLowerCase().includes(q))
+        const installed = specs.filter((s) => s.name.toLowerCase().includes(q) || s.meaning.toLowerCase().includes(q))
           .sort((a, b) => (a.name < b.name ? -1 : 1))
-        emit(hits.length ? hits.map((s) => `${s.name}-${s.version}  ${s.meaning}`) : [`(no ported package matches "${name}")`],
-          { query: name, hits: hits.map((s) => ({ name: s.name, route: s.route })) })
+        const cat = catalogueSearch(name)
+        const inBoot = new Set(installed.map((s) => s.name))
+        const available = cat.hits.filter((c) => !inBoot.has(c.name))
+        const st = catalogueState()
+        if (!installed.length && !available.length) { err(apkMiss('search', name)); break }
+        emit([
+          ...installed.map((s) => `${s.name}-${s.version}  [installed]  ${s.meaning}`),
+          ...available.map((c) => `${c.name}-${c.version}  [${c.repo}]  ${c.desc}`),
+          ...(cat.total > cat.hits.length ? [`… ${cat.total - cat.hits.length} more of ${cat.total} matches (refine the term)`] : []),
+          ...(st.present ? [] : [`(catalogue ABSENT here — ${st.why}; only the ${specs.length} boot packages were searched)`]),
+        ], {
+          query: name,
+          // `hits` is KEPT and is every match, installed and available together. Growing a served shape is
+          // additive or it is a break: a caller reading `hits` predates the catalogue and must not lose its key
+          // because the answer got better. installed/available are the new, finer cut alongside it.
+          hits: [
+            ...installed.map((s) => ({ name: s.name, route: s.route, state: 'INSTALLED' as const })),
+            ...available.map((c) => ({ name: c.name, version: c.version, repo: c.repo, state: 'AVAILABLE' as const })),
+          ],
+          installed: installed.map((s) => ({ name: s.name, route: s.route })),
+          available: available.map((c) => ({ name: c.name, version: c.version, repo: c.repo })),
+          total: installed.length + cat.total, shown: installed.length + available.length, catalogue: st,
+        })
       } else if (verb === 'depends') {                               // forward deps — what this package pulls in
         const s = specByName(name, specs)
-        if (!s) { err(`apk depends: ${name}: not a ported package`); break }
-        emit(s.deps.length ? s.deps : ['(none)'], { name: s.name, depends: s.deps })
+        if (s) { emit(s.deps.length ? s.deps : ['(none)'], { name: s.name, depends: s.deps, state: 'INSTALLED' }); break }
+        const c = cataloguePackage(name)
+        if (c) { emit(c.deps.length ? c.deps : ['(none)'], { name: c.name, depends: c.deps, state: 'AVAILABLE' }); break }
+        err(apkMiss('depends', name))
       } else if (verb === 'rdepends') {                              // reverse deps — who pulls THIS package in
-        if (!specByName(name, specs)) { err(`apk rdepends: ${name}: not a ported package`); break }
-        const rdeps = specs.filter((s) => s.deps.includes(name)).map((s) => s.name).sort()
-        emit(rdeps.length ? rdeps : ['(none)'], { name, rdepends: rdeps })
+        const known = specByName(name, specs) ?? cataloguePackage(name)
+        if (!known) { err(apkMiss('rdepends', name)); break }
+        // the reverse edge over the WHOLE published graph, not over the 25 that boot — the boot names are kept
+        // first because "who in the running world needs this" is a different question from "who could"
+        const inBoot = specs.filter((s) => s.deps.includes(name)).map((s) => s.name).sort()
+        const cat = catalogueRdepends(name)
+        const rest = cat.hits.filter((n) => !inBoot.includes(n))
+        emit([
+          ...inBoot.map((n) => `${n}  [installed]`), ...rest,
+          ...(cat.total > cat.hits.length ? [`… ${cat.total - cat.hits.length} more of ${cat.total}`] : []),
+          ...(inBoot.length || rest.length ? [] : ['(none)']),
+        ], { name, rdepends: [...inBoot, ...rest], installedRdepends: inBoot, total: cat.total })
       } else err(`apk: ${verb || '(missing)'}: not a ported verb — READ only: ${APK_VERBS.join(' ')} (a provenance OS installs nothing)`)
       break
     }

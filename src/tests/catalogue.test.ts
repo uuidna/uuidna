@@ -1,0 +1,196 @@
+// catalogue — ALL OF ALPINE AT THE SURFACE, and the three states that were two.
+//
+// MEASURED BEFORE (2026-08-25): the install port compiles alpine-base's closure — 25 packages — and `apk search`
+// filtered exactly those. Alpine publishes 28,639 on latest-stable/x86_64 (main 5,961 · community 22,678), so the
+// surface answered for 0.087% of Alpine and said "(no ported package matches "nodejs")" for the rest. That string
+// is a claim about uuidna's port; a caller choosing what to rest a project on reads it as a claim about ALPINE,
+// and for 28,614 packages that reading was wrong with total confidence.
+//
+// The defect is the one this tree keeps finding in new clothes: NOT-PORTED and NOT-IN-ALPINE were one value. The
+// cure is a third and a fourth state, and these tests hold all four apart.
+import { test } from 'node:test'
+import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { uuidnaExec } from '../quantum/os/exec.js'
+import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, primeCatalogue, primeCatalogueFrom, cataloguePrimed } from '../quantum/os/catalogue.js'
+import { ROOT } from '../scripts/api.js'
+
+test('the catalogue carries ALL of Alpine, not the boot closure', () => {
+  const st = catalogueState()
+  assert.equal(st.present, true, `the committed catalogue must be readable — ${st.why ?? ''}`)
+  // the exact number moves with every Alpine release, so the ASSERTION is the order of magnitude, not a frozen
+  // count (this repo has a finder for pinned counts). What must never regress is 25.
+  assert.ok(st.count > 20000, `Alpine publishes tens of thousands of packages; catalogued ${st.count}`)
+  assert.equal(catalogue().length, st.count, 'the state must report the set it actually holds')
+})
+
+test('a package OUTSIDE the boot closure is now ANSWERED, with upstream\'s own version and checksum', () => {
+  // the exact case from the report: `apk search nodejs` used to return "(no ported package matches)".
+  const node = cataloguePackage('nodejs')
+  assert.ok(node, 'nodejs is published by Alpine and must be findable')
+  assert.equal(node.repo, 'main')
+  assert.match(node.version, /^\d+\./, 'a real published version, not a placeholder')
+  assert.match(node.checksum, /^Q1/, 'upstream\'s PUBLISHED checksum — provenance, never a recomputation')
+  assert.ok(node.deps.length > 0, 'and its published dependency edge, which `apk depends` now walks')
+
+  const r = uuidnaExec('apk search nodejs')
+  assert.equal(r.ok, true)
+  assert.ok(r.output.some((l) => l.startsWith('nodejs-')), 'the surface returns it, not a miss')
+  assert.ok(!r.output.some((l) => l.includes('no ported package matches')), 'the old string must never come back')
+})
+
+test('INSTALLED, AVAILABLE and ABSENT are three DIFFERENT answers', () => {
+  // (1) in the boot closure — installed, and still carrying its route in the virtual OS
+  const inst = uuidnaExec('apk info busybox')
+  assert.equal(inst.ok, true)
+  assert.equal((inst.data as { state: string }).state, 'INSTALLED')
+  assert.ok(inst.output.some((l) => l.includes('webpage')), 'an installed package keeps its uuidnaOS route')
+
+  // (2) published by Alpine but not booted — available, and SAID to be available rather than silently listed
+  const avail = uuidnaExec('apk info nodejs')
+  assert.equal(avail.ok, true)
+  assert.equal((avail.data as { state: string }).state, 'AVAILABLE')
+  assert.ok(avail.output.some((l) => l.includes('AVAILABLE')), 'the distinction is stated to the reader, not only in data')
+
+  // (3) not published at all — a refusal that names its DENOMINATOR, so the claim is checkable
+  const gone = uuidnaExec('apk info zzz-no-such-package-anywhere')
+  assert.equal(gone.ok, false)
+  assert.match(gone.output[0]!, /no such package/)
+  assert.match(gone.output[0]!, /28\d{3}|\d{5}/, 'it states how many packages it actually searched')
+  assert.match(gone.output[0]!, /Absent UPSTREAM/, 'and that this is a claim about Alpine, which it has earned')
+
+  // and the three must not collide
+  assert.notEqual((inst.data as { state: string }).state, (avail.data as { state: string }).state)
+  assert.equal(gone.ok, false)
+  assert.equal(inst.ok, true)
+})
+
+// ── THE MUTATION THAT BREAKS IT (the falsifiability law in scripts/api.ts). The whole value of the change is that
+// an UNREADABLE CATALOGUE never renders as "Alpine does not have this". That is a fourth state, it is the one a
+// caller is most likely to be misled by, and it cannot be reached by deleting the file in a shared checkout — so
+// the parser and the wording are driven directly.
+test('an ABSENT catalogue reports ABSENCE, never a miss — the fourth state', () => {
+  // the parser is the load path's whole content, so an empty/garbage read is exercised where it actually decides
+  assert.deepEqual(parseCatalogue(''), [], 'nothing read is no packages')
+  assert.deepEqual(parseCatalogue('# only a header\n'), [], 'a header alone is not a package')
+  assert.deepEqual(parseCatalogue('main\tfoo\t1.0\tQ1x\tdesc\tbar baz\tso:libfoo.so'), [
+    { repo: 'main', name: 'foo', version: '1.0', checksum: 'Q1x', desc: 'desc', deps: ['bar', 'baz'], provides: ['so:libfoo.so'] },
+  ], 'a real row parses by position')
+  // a row written before the provides column existed must still parse, with an empty provides rather than a crash
+  assert.deepEqual(parseCatalogue('main\tfoo\t1.0\tQ1x\tdesc\tbar')[0]!.provides, [], 'a short row degrades, it does not throw')
+
+  // THE POINT: zero packages and a present catalogue are different worlds, and the state type is what carries it.
+  // If load() ever reported {present:true,count:0} for an unreadable file, apkMiss would say "no such package in
+  // Alpine, searched all 0" — confidently wrong. Pinned as a property of the type's own contract:
+  const st = catalogueState()
+  assert.equal(st.present, st.count > 0, 'present and non-empty must agree — the two ways to be empty stay one')
+  assert.equal(st.why === null, st.present, 'a catalogue that is absent must SAY WHY; one that is present has no why')
+})
+
+test('search is bounded and ranked, and reports the total it did not show', () => {
+  const r = catalogueSearch('lib', 10)
+  assert.equal(r.hits.length, 10, 'the cap holds — 28,639 rows must never land in a caller\'s context')
+  assert.ok(r.total > 10, 'and the true count is still reported, so the cap is visible rather than silent')
+  // an exact name outranks a substring: `apk search musl` must not bury musl under musl-dev-doc-whatever
+  const m = catalogueSearch('musl', 5)
+  assert.equal(m.hits[0]!.name, 'musl', 'an exact hit ranks first')
+  assert.deepEqual(catalogueSearch('', 5), { hits: [], total: 0 }, 'an empty query matches nothing rather than everything')
+})
+
+test('rdepends walks the WHOLE published graph, not the 25 that boot', () => {
+  // musl is depended on by far more than the boot closure contains; the boot names are kept first because
+  // "who in the running world needs this" is a different question from "who could".
+  const r = catalogueRdepends('musl')
+  assert.ok(r.total >= 5, `the published reverse edge must be real: got ${r.total}`)
+  const surfaced = uuidnaExec('apk rdepends musl')
+  assert.equal(surfaced.ok, true)
+  assert.ok(surfaced.output.some((l) => l.includes('[installed]')), 'boot packages are marked, not merged away')
+})
+
+test('the committed catalogue is a FUNCTION of upstream — sorted, headed, and reproducible', () => {
+  const text = readFileSync(join(ROOT, CATALOGUE_FILE), 'utf8')
+  assert.match(text, /^# uuidna alpine catalogue — GENERATED/, 'it names its generator, so nobody hand-edits it')
+  assert.match(text, /packages=\d+/, 'and carries the count it was written with')
+  // sort order is what makes two runs against one Alpine release byte-identical; without it the derived layer
+  // never reaches a fixed point and spin would report drift on every regeneration.
+  const rows = parseCatalogue(text)
+  const byRepo = rows.filter((r) => r.repo === 'main').map((r) => r.name)
+  assert.deepEqual(byRepo, [...byRepo].sort(), 'main is sorted by name — the file must not depend on fetch order')
+  assert.ok(rows.every((r) => r.name && r.version), 'every row carries a name and a version')
+})
+
+// ── EACH PACKAGE TESTS ITSELF (2026-08-25). Not one test over the catalogue — a verdict per package, from its own
+// published record, since uuidnaOS runs nothing and cannot test by executing.
+test('every package tests ITSELF, and the suite reports its own denominator', () => {
+  const r = testAllPackages()
+  assert.equal(r.present, true)
+  assert.equal(r.tested, catalogueState().count, 'the suite must test every catalogued package, not a sample')
+  assert.equal(r.passed + r.failed, r.tested, 'every package lands in exactly one bucket')
+  assert.ok(r.passed / r.tested > 0.99, `Alpine\'s published metadata is coherent: ${r.passed}/${r.tested}`)
+})
+
+test('a package\'s self-test CAN FAIL — all four checks, driven by hand', () => {
+  // THE FALSIFIABILITY LAW. A suite reporting 28,634/28,639 proves nothing unless a bad record actually fails,
+  // so each check is broken deliberately. Without this the whole audit could be `ok: true` and look identical.
+  const good = cataloguePackage('musl')!
+  assert.equal(packageSelfTest(good).ok, true, 'a real package passes')
+
+  const badName = packageSelfTest({ ...good, name: 'not a valid name!' })
+  assert.equal(badName.ok, false)
+  assert.equal(badName.checks.find((c) => c.check === 'identity')!.ok, false)
+
+  const badVersion = packageSelfTest({ ...good, version: 'not-a-version' })
+  assert.equal(badVersion.checks.find((c) => c.check === 'identity')!.ok, false, 'a version must start with a digit')
+
+  // PROVENANCE is the one that makes the port a port: a digest that decodes to the wrong length names nothing
+  assert.equal(packageSelfTest({ ...good, checksum: 'Q1tooshort' }).checks.find((c) => c.check === 'provenance')!.ok, false)
+  assert.equal(packageSelfTest({ ...good, checksum: '' }).checks.find((c) => c.check === 'provenance')!.ok, false)
+  assert.equal(packageSelfTest({ ...good, checksum: 'XX' + good.checksum.slice(2) }).checks.find((c) => c.check === 'provenance')!.ok, false,
+    'the Q1 prefix is apk\'s published form and is not optional')
+
+  // CLOSURE — the check that only a COMPLETE world can run. At 25 packages nearly every dep pointed outside,
+  // so "unresolved" was the normal case and the check could not have discriminated at all.
+  const dangling = packageSelfTest({ ...good, deps: ['so:libthis-does-not-exist.so.999'] })
+  assert.equal(dangling.ok, false)
+  assert.deepEqual(dangling.unresolved, ['so:libthis-does-not-exist.so.999'])
+  assert.equal(packageSelfTest({ ...good, deps: ['!conflict-marker'] }).checks.find((c) => c.check === 'closure')!.ok, true,
+    'a conflict marker excludes and is not a dependency to resolve')
+})
+
+test('the closure check resolves through PROVIDES, not just names — the other half of the edge', () => {
+  // so:/cmd:/pc: deps name a capability, never a package. Without the published `provides` column they would all
+  // dangle, and 28,639 packages would each fail a check that was really the catalogue's own missing field.
+  const node = cataloguePackage('nodejs')!
+  assert.ok(node.deps.some((d) => d.startsWith('so:')), 'nodejs depends on shared objects by capability')
+  assert.equal(packageSelfTest(node).checks.find((c) => c.check === 'closure')!.ok, true,
+    'and every one of them resolves to a package that PROVIDES it')
+})
+
+// ── IT RUNS IN THE BROWSER (2026-08-25). uuidnaOS is a PWA; a host with no synchronous filesystem must be a
+// FULL host, not a crippled one that answers "absent" to every question.
+test('a runtime with NO filesystem is primed, not crippled', async () => {
+  const text = readFileSync(join(ROOT, CATALOGUE_FILE), 'utf8')
+  const st = primeCatalogue(text)
+  assert.equal(st.present, true)
+  assert.ok(st.count > 20000, 'the browser gets the WHOLE catalogue, not a subset')
+  assert.equal(cataloguePrimed(), true)
+  // and the sync surface still works afterwards — uuidnaExec is sync by design and must not become async
+  // because one host opens files differently
+  assert.ok(cataloguePackage('nodejs'), 'the sync accessors read the primed world')
+
+  // priming with a shape drift is ABSENT, never an empty Alpine — the same distinction, at the browser's door
+  const drift = primeCatalogue('# header only\n')
+  assert.equal(drift.present, false)
+  assert.match(drift.why!, /zero packages/)
+  primeCatalogue(text)                                    // restore for any test that follows
+})
+
+test('primeCatalogueFrom reports an unreachable catalogue as ABSENT, never as an empty Alpine', async () => {
+  // the offline PWA case: no cache entry and no network. It must not read as "Alpine has no packages".
+  const st = await primeCatalogueFrom('http://127.0.0.1:1/no-such-catalogue.tsv')
+  assert.equal(st.present, false)
+  assert.equal(st.count, 0)
+  assert.match(st.why!, /failed|HTTP/, 'it names what went wrong, so a host fault is not read as a fact about Alpine')
+  primeCatalogue(readFileSync(join(ROOT, CATALOGUE_FILE), 'utf8'))
+})
