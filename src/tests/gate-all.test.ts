@@ -172,3 +172,17 @@ test('an ENVIRONMENT PREFIX is not part of the command — the third costume of 
   assert.equal(kindOf('CI=1 npm run lint', scripts), 'check', 'eslint still renders a verdict and writes nothing')
   assert.equal(kindOf('FOO=bar git diff --exit-code -- lean/'), 'serial-check', 'and a tree-reader stays alone')
 })
+
+test('the RELEASE PROVER is a generator, and its rename is the fourth costume of one mistake', () => {
+  // MEASURED 2026-08-25, and self-inflicted. The audit's link 2 was `UUIDNA_PROVE_ALL=1 npm run lean`, matched as
+  // a generator once the env prefix is stripped. Replacing it with the runner that makes the release gate work on
+  // a cmd.exe host changed its NAME and nothing else — and the classifier reads names, so the tree's heaviest
+  // writer was reclassified read-only and fanned out beside spin and `git diff --exit-code`, which read what it
+  // writes. It announced itself as drift in a tree where nothing had changed but who was writing during the read.
+  assert.equal(kindOf('node dist/scripts/prove-all.js'), 'generator',
+    'the runner that re-proves the whole ledger must never share the wave with a step that reads it')
+  // its predecessor stays classified, so the rule that caught the env prefix is not quietly dropped
+  assert.equal(kindOf('UUIDNA_PROVE_ALL=1 npm run lean'), 'generator')
+  // and the pattern must be NARROW — a step that merely mentions proving is not a writer
+  assert.equal(kindOf('node dist/scripts/proof-check.js'), 'check', 'the match is the runner, not the word')
+})

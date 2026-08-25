@@ -51,6 +51,21 @@ const GENERATOR_PATTERNS: readonly RegExp[] = [
   /^npm run lean$/,
   /^npm run build$/,
   /\bgen-[a-z-]+\.js/,
+  // THE FOURTH COSTUME, AND I SEWED IT MYSELF (2026-08-25). The audit's link 2 was
+  // `UUIDNA_PROVE_ALL=1 npm run lean` — matched as a generator by the two rules above, once the env prefix is
+  // stripped. I replaced it with `node dist/scripts/prove-all.js` to make the release gate runnable on a host
+  // whose npm hands scripts to cmd.exe, and the runner's NAME matches nothing here. So the tree's HEAVIEST WRITER
+  // — every Lean wing, the generated ledger, the axiom witness, the proof cache, the heartbeats, the rosetta
+  // mirror — was reclassified read-only and fanned out beside the checks that read what it writes. spin and
+  // `git diff --exit-code` among them, which is exactly how it announced itself: drift in a tree where the only
+  // thing that had changed was who was writing during the read.
+  //
+  // The first three costumes were a missing hyphen (generate.js), a manifest indirection (npm run axioms) and an
+  // env prefix (UUIDNA_PROVE_ALL=1). This is the fourth: a step that KEPT its behaviour and changed its spelling.
+  // Every cure so far has been to teach the matcher one more surface form, and each time the next form arrived —
+  // so it is worth saying plainly that this pattern is a patch on a classifier that reads names, and the durable
+  // fix is for a runner to DECLARE what it writes rather than be recognised by how it is spelled.
+  /\bprove-all\.js/,
   // THE MANIFEST RUNNER IS A GENERATOR, AND THE NAME ALMOST HID IT. generate.js runs the sixteen gen-* emitters
   // and writes the derived layer; every one of its children matches the pattern above and it does not, for want of
   // a hyphen. Classified as a CHECK it went into the fan-out — writing the derived layer beside thirteen other
@@ -61,6 +76,28 @@ const GENERATOR_PATTERNS: readonly RegExp[] = [
   // would be about the load rather than about the tree.
   /\bgenerate\.js/,
   /\blean-axioms\.js/,
+  // THE HEAVIEST WRITER IN THE TREE, AND THE FOURTH RENAME TO SLIP THIS LIST (2026-08-25). prove-all.js spawns
+  // the whole lean chain — lean-all, lean-gen, lean-ledger, lean-installs — so it rewrites every wing and the
+  // generated ledger. Classified a CHECK it ran in the fan-out, which put it AFTER every generator, and the
+  // chain's own order says the opposite: prove-all is step 2 and `npm run axioms` is step 13. So the axiom
+  // witness was written against the ledger as it stood BEFORE the re-prove regenerated it.
+  //
+  // Measured in an integration gate rather than reasoned about: the run left lean/axioms.json reading
+  // {"audited":1696,"total":1696,"axiomFree":1696} — internally consistent, complete-looking — while the
+  // regenerated ledger held 2092. Short by 396, and nothing in the artifact could say so. `total` names the
+  // denominator the AUDIT used, not the one that EXISTS, so an audit of a tree that changed underneath it still
+  // reads whole. That is the same instrument being narrower than its question, one layer further out than the
+  // version this file already documents.
+  //
+  // AND THE PATTERN LIST IS THE WRONG MECHANISM, which is worth stating rather than fixing four times: it has now
+  // missed generate.js (for want of a hyphen), `npm run axioms` (the chain named a script, the pattern named the
+  // file behind it), `UUIDNA_PROVE_ALL=1 npm run lean` (an anchored regex against an env-prefixed command), and
+  // now prove-all.js (a rename to a wrapper that matches nothing). kindOf's manifest resolution catches the npm
+  // form; it cannot see through a node script that SPAWNS, because there is no manifest to resolve. The durable
+  // cure is a step DECLARING that it writes — prove-all.ts already declares `@non-harmonic: spawns the lean
+  // chain`, so the vocabulary exists — and reading a declaration is not a change to make unilaterally at the end
+  // of a long session. Recorded here as the finding; the pattern below is the stopgap.
+  /\bprove-all\.js/,
   /vitepress build/,
 ]
 
