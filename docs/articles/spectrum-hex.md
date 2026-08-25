@@ -39,7 +39,7 @@ The ledger holds this as [shorthand_covers_one_in_four_thousand](/theorem/shorth
 ((16:Nat)^3 = 4096) ∧ ((16:Nat)^6 / (16:Nat)^3 = 4096) ∧ ((16:Nat)^3 * 4096 = 16777216)
 ```
 
-### THE HUE WHEEL DOES NOT DIVIDE BY SIXTEEN: 16 x 22 = 352 and 16 x 23 = 368 straddle 360, so no whole-degree step cuts the circle into sixteen. It divides by NINE at 40 degrees and by SIX at 60 — the storage is hexadecimal while the geometry is not, and the line proves the failure rather than leaving it implied.
+### THE HUE WHEEL DOES NOT DIVIDE BY SIXTEEN: 16 x 22 = 352 and 16 x 23 = 368 straddle 360, so no whole-degree step cuts the circle into sixteen. It divides by NINE at forty degrees and by SIX at sixty — the storage is hexadecimal while the geometry is not, and the line proves the failure rather than leaving it implied. Every degree named here is the whole-turn convention divided by an integer, not a quantity anyone observed.
 The ledger holds this as [spectrum_refuses_sixteen](/theorem/spectrum_refuses_sixteen) — proven `by decide`, sorry-free:
 
 ```lean

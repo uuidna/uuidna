@@ -29,6 +29,6 @@ npm run next
 status=$?
 if [ $status -ne 0 ]; then
   echo "pre-push: GATE FAILED (exit $status) — push BLOCKED. Fix the denial, or bypass knowingly with --no-verify (owned, not hidden)."
-  echo "pre-push: MOST failures after adding theorems are a STALE DERIVED LAYER (a git-diff of generated.ts / PRINCIPLE.md / heartbeats.json / docs/mcp.md / audit-citations.json). The fix is one command:  npm run reconcile  — it regenerates, syncs the heartbeats, commits, and re-pushes. A genuine overclaim or unsealed proof must be fixed at the source instead."
+  echo "pre-push: MOST failures after adding theorems are a STALE DERIVED LAYER (a git-diff of generated.ts / PRINCIPLE.md / heartbeats.json / docs/mcp.md / audit-citations.json). The fix on a SHARED tree is:  npm run reconcile -- --derive-only  — it regenerates, syncs the heartbeats and re-seals, and publishes NOTHING. Plain `npm run reconcile` does the same then stages, commits and pushes, and it stages DRAIN_PATHS as DIRECTORIES — on a checkout several sessions share that sweeps somebody else's untracked files into your commit. A genuine overclaim or unsealed proof must be fixed at the source instead."
 fi
 exit $status

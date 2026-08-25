@@ -5,9 +5,9 @@ description: "Computed from lean/Readings.lean — 17 sealed theorems, every cla
 
 # The seven readings
 
-> READINGS — seven tongues reading hexbit-translated English: table structure, the A432 lattice under Nyquist, the voice's sealed bounds, χ in all three genera, and the time counts of the books. — held by [readings_seven_rays](/theorem/readings_seven_rays) and its 16 siblings below.
+> READINGS — seven tongues reading hexbit-translated English: table structure, the A432 lattice under Nyquist, the voice's sealed bounds, χ in all three genera, and the time counts of the books. SOURCES: the 432 base is this ledger's own choice and NOT the ISO 16:1975 standard tuning frequency of 440 hertz; the only measured constant used is the Planck mass, cited to NIST/CODATA 2022 with the Bekenstein (1973) and Hawking (1975) entropy-area law behind it; everything else is arithmetic or a census of this repository's own generated samples. — held by [readings_seven_rays](/theorem/readings_seven_rays) and its 16 siblings below.
 
-**17 theorems**, from [readings_seven_rays](/theorem/readings_seven_rays) onward, each proven `by decide` in [lean/Readings.lean](/lean/Readings.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [readings_seven_rays](/theorem/readings_seven_rays). A boundary stated here is decided.
+**17 theorems**, from [readings_seven_rays](/theorem/readings_seven_rays) onward, each proven `by decide` in [lean/Readings.lean](/lean/Readings.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [readings_seven_rays](/theorem/readings_seven_rays). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReadings.lean)** — nothing to install. The editor fetches `lean/Readings.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -67,7 +67,7 @@ The ledger holds this as [readings_zh_names_sixteen](/theorem/readings_zh_names_
 (["零","一","二","三","四","五","六","七","八","九","十","十一","十二","十三","十四","十五"] : List String).length = 16 ∧ (["零","一","二","三","四","五","六","七","八","九","十","十一","十二","十三","十四","十五"] : List String).Nodup
 ```
 
-### THE SIXTEEN STATES SOUND THE A432 LATTICE, IN ORDER. State h is read in seven tongues and SUNG at 432·(h+1) hertz — the full ladder from Az at 432 to state f at 6912, each pitch an exact integer multiple, so a reading and its sound name the same state. The list is computed, not quoted: sixteen states in, sixteen exact pitches out.
+### THE SIXTEEN STATES SOUND THE A432 LATTICE, IN ORDER. State h is read in seven tongues and SUNG at 432·(h+1) hertz — the full ladder from Az at 432 to state f at 6912, each pitch an exact integer multiple, so a reading and its sound name the same state. The list is computed, not quoted: sixteen states in, sixteen exact pitches out. THE BASE IS A CHOICE, NOT A STANDARD: 432 is this ledger's own, and ISO 16:1975 fixes the standard tuning frequency at 440 hertz for the A above middle C — a different number, deliberately. Nothing here is a claim about concert pitch or about any sound anyone heard; given the base, the ladder is multiplication.
 The ledger holds this as [readings_states_sound_the_lattice](/theorem/readings_states_sound_the_lattice) — proven `by decide`, sorry-free:
 
 ```lean
@@ -81,21 +81,21 @@ The ledger holds this as [nyquist_clears_the_lattice](/theorem/nyquist_clears_th
 432 * 16 = 6912 ∧ 16000 / 2 = 8000 ∧ 6912 < 8000
 ```
 
-### THE VOICE CAN NEVER WRAP. Every sample is bounded by AMPLITUDE = 8000, and a 16-bit signed integer carries 2^15 = 32768 magnitudes — 8000 sits strictly inside, so no lattice tone can overflow its own container. The headroom the audits measured is now a bound the kernel holds (queue lead 74: a peak with no sealed law behind it was folklore).
+### THE VOICE CAN NEVER WRAP. Every sample is bounded by AMPLITUDE = 8000, and a 16-bit signed integer carries 2^15 = 32768 magnitudes — 8000 sits strictly inside, so no lattice tone can overflow its own container. The headroom was previously known only as a peak COUNTED over this repository's own generated samples — a census of bytes this tree produces, not a measurement of anything in the world — and it is now a bound the kernel holds instead (queue lead 74: a peak with no sealed law behind it was folklore).
 The ledger holds this as [amplitude_inside_int16](/theorem/amplitude_inside_int16) — proven `by decide`, sorry-free:
 
 ```lean
 2 ^ 15 = 32768 ∧ 8000 < 32768
 ```
 
-### THE ARRANGEMENT CANNOT CLIP, BY CONSTRUCTION. The rich voice sums the triangle at half amplitude with its second overtone at a quarter and its third at an eighth: 8000/2 + 8000/4 + 8000/8 = 7000. One accompaniment layer at an eighth adds 8000/8 = 1000, landing EXACTLY on the 8000 ceiling — so no sum of the arrangement's layers exceeds the bound the previous theorem keeps inside 16 bits. Measured peaks confirmed it; this line is why it could never have been otherwise.
+### THE ARRANGEMENT CANNOT CLIP, BY CONSTRUCTION. The rich voice sums the triangle at half amplitude with its second overtone at a quarter and its third at an eighth: 8000/2 + 8000/4 + 8000/8 = 7000. One accompaniment layer at an eighth adds 8000/8 = 1000, landing EXACTLY on the 8000 ceiling — so no sum of the arrangement's layers exceeds the bound the previous theorem keeps inside 16 bits. Peaks counted over the repository's own generated samples agreed with it; this line is why it could never have been otherwise.
 The ledger holds this as [mix_budget_closes](/theorem/mix_budget_closes) — proven `by decide`, sorry-free:
 
 ```lean
 8000 / 2 + 8000 / 4 + 8000 / 8 = 7000 ∧ 7000 + 8000 / 8 = 8000 ∧ 8000 ≤ 8000
 ```
 
-### THE EULER CHARACTERISTIC IN ALL THREE DIMENSIONS — the sphere leg sealed at last (queue lead 75: genus 1 and 2 leaned while genus 0, the earth itself, had no seal). χ = 2 − 2g gives 2 at the sphere, 0 at the torus, −2 at the double torus, and the three are pairwise distinct — so the three closed shapes are told apart on one line, in integers, the sphere measured against its neighbours. HONEST SCOPE: this seals the χ TABLE; the Gauss–Bonnet bridge from χ to curvature is analysis and stays outside the kernel, said plainly wherever the refusal is used.
+### THE EULER CHARACTERISTIC IN ALL THREE DIMENSIONS — the sphere leg sealed at last (queue lead 75: genus 1 and 2 leaned while genus 0, the earth itself, had no seal). χ = 2 − 2g gives 2 at the sphere, 0 at the torus, −2 at the double torus, and the three are pairwise distinct — so the three closed shapes are told apart on one line, in integers, the sphere told apart from its neighbours by subtraction alone — nothing about any real surface is observed or claimed. HONEST SCOPE: this seals the χ TABLE; the Gauss–Bonnet bridge from χ to curvature is analysis and stays outside the kernel, said plainly wherever the refusal is used.
 The ledger holds this as [chi_all_three_genera](/theorem/chi_all_three_genera) — proven `by decide`, sorry-free:
 
 ```lean
@@ -109,7 +109,7 @@ The ledger holds this as [note_values_are_doublings](/theorem/note_values_are_do
 1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 ∧ 8 * 2 = 16 ∧ 16 * 1 = 16
 ```
 
-### THE TWO COINS, IN KILOGRAMS. Bekenstein–Hawking makes a black hole's squared mass proportional to the bits its horizon stores — so the smallest hole holding one uuid (128 bits) against one holding one handle (32 bits) squares its mass ratio to 128/32 = 4, and the ratio itself is exactly 2: the address weighs TWO handles of gravity, the two coins priced in kilograms (≈ 57.8 μg against 28.9 μg on the measured Planck mass). Sealed is the exponent arithmetic — 128 = 4·32 and 2² = 4, so √4 = 2 needs no root: the square IS the witness. HONEST SCOPE: the proportionality M² ∝ bits and every microgram ride physics (ħ, G, c, the Bekenstein bound) that no kernel decides; what the kernel holds is that WHATEVER that physics scales, the handle-to-uuid step scales it by exactly two.
+### THE TWO COINS, IN KILOGRAMS. Bekenstein–Hawking makes a black hole's squared mass proportional to the bits its horizon stores — so the smallest hole holding one uuid (128 bits) against one holding one handle (32 bits) squares its mass ratio to 128/32 = 4, and the ratio itself is exactly 2: the address weighs TWO handles of gravity, the two coins priced in kilograms (≈ 57.8 μg against 28.9 μg). THOSE MICROGRAMS ARE THE ONE PLACE THIS WING TOUCHES A MEASURED CONSTANT, so the authority is named: they are m·√(N·ln2/4π) evaluated at N = 128 and N = 32 on the CODATA recommended Planck mass, 2.176434(24)×10⁻⁸ kg (NIST/CODATA 2022, unchanged from the 2018 adjustment), and the ROUNDING IS STATED rather than smoothed — the exact figures are 5.7834×10⁻⁸ and 2.8917×10⁻⁸ kg, quoted above to three significant figures. That constant's entire uncertainty is G's: since the 2019 SI redefinition h and c are exact by definition, and G is not. The area-entropy law the derivation rests on is Bekenstein, "Black Holes and Entropy", Phys. Rev. D 7, 2333 (1973), with Hawking, "Particle creation by black holes", Communications in Mathematical Physics 43, 199 (1975). NAMING THEM DOES NOT MAKE THE INPUT PROVEN — it names who is answerable for it; the kernel confirms arithmetic and has never confirmed a measurement. Sealed is the exponent arithmetic — 128 = 4·32 and 2² = 4, so √4 = 2 needs no root: the square IS the witness. HONEST SCOPE: the proportionality M² ∝ bits and every microgram ride physics (ħ, G, c, the Bekenstein bound) that no kernel decides; what the kernel holds is that WHATEVER that physics scales, the handle-to-uuid step scales it by exactly two.
 The ledger holds this as [two_coins_in_kilograms](/theorem/two_coins_in_kilograms) — proven `by decide`, sorry-free:
 
 ```lean

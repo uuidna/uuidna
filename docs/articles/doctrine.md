@@ -5,9 +5,9 @@ description: "Computed from lean/Doctrine.lean — 10 sealed theorems, every cla
 
 # The doctrines
 
-> DOCTRINE — the captain's doctrines sealed: pairs and triples cover every crew with solo the excluded case, the diving ladder's pressures and records integer-exact from 40 m to 41,419 m with saturation's day-priced exit and the NBL's floor-honest ratio, and the verdict domain's three real states with identification the pigeonhole collapse onto the poles. — held by [team_pairs_triples_cover](/theorem/team_pairs_triples_cover) and its 9 siblings below.
+> DOCTRINE — the captain's doctrines sealed: pairs and triples cover every crew with solo the excluded case, the diving ladder's pressures and records integer-exact from 40 m to 41,419 m with saturation's day-priced exit and the NBL's floor-honest ratio, and the verdict domain's three real states with identification the pigeonhole collapse onto the poles. The physical quantities are not the kernel's: the atmosphere is the CGPM definition (1954) at the NOAA Diving Manual's 10 m working rung, the jump altitudes are the Fédération Aéronautique Internationale's ratifications and the U.S. Air Force's Excelsior figure, the saturation days are Comex's (1992) and the pool figures NASA's — each rounded to an integer rung, as each fact says. The kernel confirms the arithmetic over them, never the measurements themselves. — held by [team_pairs_triples_cover](/theorem/team_pairs_triples_cover) and its 9 siblings below.
 
-**10 theorems**, from [team_pairs_triples_cover](/theorem/team_pairs_triples_cover) onward, each proven `by decide` in [lean/Doctrine.lean](/lean/Doctrine.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [the_middle_is_not_a_pole](/theorem/the_middle_is_not_a_pole). A boundary stated here is decided.
+**10 theorems**, from [team_pairs_triples_cover](/theorem/team_pairs_triples_cover) onward, each proven `by decide` in [lean/Doctrine.lean](/lean/Doctrine.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pressure_ladder](/theorem/pressure_ladder). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FDoctrine.lean)** — nothing to install. The editor fetches `lean/Doctrine.lean` from the repository and re-decides all 10 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -25,28 +25,28 @@ The ledger holds this as [solo_is_the_excluded_team](/theorem/solo_is_the_exclud
 (1 < 2) ∧ (1 < 3) ∧ (0 * 2 + 0 * 3 = 0)
 ```
 
-### THE PRESSURE LADDER, INTEGER-EXACT at the literature's 10 m ≈ 1 atm rung: the recreational floor at 40 m sits at 5 atmospheres, deep technical at 100 m at 11, and the Comex Hydra 10 saturation record depth of ~700 m at 71 — the ladder every diving type climbs and every decompression law prices.
+### THE PRESSURE LADDER, INTEGER-EXACT at the diving literature's 10 m ≈ 1 atm rung: the recreational floor at 40 m sits at 5 atmospheres, deep technical at 100 m at 11, and the Comex Hydra 10 saturation record depth of ~700 m at 71 — the ladder every diving type climbs and every decompression law prices. SOURCES, since these are quantities somebody measured rather than arithmetic: one atmosphere is 101 325 Pa by definition (10th CGPM, 1954), which stands about 10.1 m of seawater, and 10 m is the working rung the NOAA Diving Manual uses — so the ROUNDING is about one percent per rung and is deliberate, the price of an integer table. 40 m is the recreational agencies' limit (PADI/RSTC), not a physical edge; 701 m is Comex's own Hydra 10 chamber dive at Marseille (Comex S.A., 1992), taken here as ~700. The kernel checks the division, never the depths.
 The ledger holds this as [pressure_ladder](/theorem/pressure_ladder) — proven `by decide`, sorry-free:
 
 ```lean
 (1 + 40 / 10 = 5) ∧ (1 + 100 / 10 = 11) ∧ (1 + 700 / 10 = 71)
 ```
 
-### THE SPACE-DIVING RECORDS ASCEND: Kittinger 1960 at 31,333 m, Baumgartner 2012 at 38,969, Eustace 2014 at 41,419 — the ladder's upper rungs strictly ordered, the last two 2,450 m apart. Same physics as the water rungs with the gradient reversed; one decompression law binds both ends.
+### THE SPACE-DIVING RECORDS ASCEND: Kittinger 1960 at 31,333 m, Baumgartner 2012 at 38,969, Eustace 2014 at 41,419 — the ladder's upper rungs strictly ordered, the last two 2,450 m apart. Same physics as the water rungs with the gradient reversed; one decompression law binds both ends. SOURCES, because three altitudes are three measurements and not a derivation: Kittinger's is the U.S. Air Force's Project Excelsior III figure of 102,800 ft, converted and truncated to 31,333 m; the other two are ratified by the Fédération Aéronautique Internationale, which certifies these records, at 38,969.4 m (2012) and 41,419 m (2014). This wing truncates the first to 38,969, so the 2,450 m it seals is the distance between TRUNCATED integers and about half a metre short of the ratified difference. The kernel confirms the ordering; it would confirm the same ordering over three wrong numbers.
 The ledger holds this as [jump_records_ascend](/theorem/jump_records_ascend) — proven `by decide`, sorry-free:
 
 ```lean
 ((31333 < 38969) ∧ (38969 < 41419) ∧ (41419 - 38969 = 2450)) ∧ (4 % 9 = 4)
 ```
 
-### SATURATION ACCOUNTING: the Hydra 10 dive spent 13 days compressing and about 24 decompressing — 13 + 24 = 37 of a 43-day dive travelling, the decompression alone longer than most expeditions. The deepest water rung pays its exit in DAYS, the honest cost the ladder's top charges.
+### SATURATION ACCOUNTING: the Hydra 10 dive spent 13 days compressing and about 24 decompressing — 13 + 24 = 37 of a 43-day dive travelling, the decompression alone longer than most expeditions. The deepest water rung pays its exit in DAYS, the honest cost the ladder's top charges. SOURCE: the day counts are Comex's own account of its Hydra 10 hydreliox dive (Comex S.A., 1992) — the operator is the authority for its own experiment, and nobody re-measured it here. The kernel checks that 13 + 24 = 37 and that 37 < 43; it has nothing to say about whether the dive lasted 43 days.
 The ledger holds this as [saturation_deco_accounts](/theorem/saturation_deco_accounts) — proven `by decide`, sorry-free:
 
 ```lean
 (13 + 24 = 37) ∧ (37 < 43) ∧ (43 - 37 = 6)
 ```
 
-### WATER TRAINS SPACE AT SEVEN-ISH TO ONE, stated by the floor as Nat division demands: NASA's crews log ~40 pool hours per ~6 EVA hours, and 40 / 6 = 6 with remainder 4 — the floor is 6, the remainder is named, and no false 7 is sealed. The pool is 12 m deep: space is reached through two atmospheres of water.
+### WATER TRAINS SPACE AT SEVEN-ISH TO ONE, stated by the floor as Nat division demands: NASA's crews log ~40 pool hours per ~6 EVA hours, and 40 / 6 = 6 with remainder 4 — the floor is 6, the remainder is named, and no false 7 is sealed. The pool is 12 m deep: space is reached through two atmospheres of water. SOURCE for both figures: NASA's Neutral Buoyancy Laboratory at Johnson Space Center, which publishes the training ratio as roughly seven pool hours per EVA hour and the pool as 40 feet deep — about 12.2 m, ROUNDED to 12 here so the rung lands on an integer. The ratio is approximate at the source, which is precisely why the wing seals the floor and names the remainder instead of sealing a 7 the source never claimed exactly.
 The ledger holds this as [nbl_trains_by_the_floor](/theorem/nbl_trains_by_the_floor) — proven `by decide`, sorry-free:
 
 ```lean

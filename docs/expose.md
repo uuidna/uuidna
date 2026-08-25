@@ -10,8 +10,8 @@ structure points at missing seals, and it regenerates on every reconcile — a b
 history of yesterday's. The loop it opens is two calls: `uuidna_expose` finds the coordinates, and
 `uuidna_wave_deposit` saves candidates into [the conveyor](/waves), where the kernel judges each alone.
 
-**Counts:** 2 lonely · 2 grid gap(s) · 0 pair gap(s) ·
-fold receipt `c15d5f95-a7f0-8204-952e-536eacbdceb6`
+**Counts:** 1 lonely · 2 grid gap(s) · 0 pair gap(s) ·
+fold receipt `f2ad774a-6b7e-8c4b-b82b-461b3d0b4eaa`
 
 ## Lonely principles — clusters of one, asking for their second
 
@@ -21,7 +21,6 @@ belongs beside it (same principle, same wing — the reader's craft, not a scrip
 | theorem | wing | principle |
 |---------|------|-----------|
 | [`vortex_one_leap`](/theorem/vortex_one_leap) | OneLeap.lean | One leap |
-| [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) | UuidMix.lean | The uuid mix space |
 
 ## Grid gaps — the 432 grid's own report
 

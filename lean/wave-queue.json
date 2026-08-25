@@ -2694,6 +2694,84 @@
       "why": "A BOUNDED WALK'S SILENCE IS NOT EVIDENCE ABOUT THE UNBOUNDED CLAIM, decided rather than asserted. Two searches of identical shape over identical bounds (p in 1..30, q in 1..24): the first finds no p, q with p^12 = 2*q^12, and the unbounded statement there is true — 2^(1/12) is irrational. The second finds no p, q with p^12 = 31^12 * q^12, and the unbounded statement there is FALSE: p = 31, q = 1 satisfies it, one step past the walk, and the third conjunct exhibits that witness. Same shape, same silence, opposite truth. This is the falsifying control for the scope caveat carried by tet_semitone_no_integer_lattice, which states in prose that a bounded search cannot establish irrationality; the caveat is now decided by the kernel instead of trusted. HONEST SCOPE: it shows that THIS form of bounded search cannot distinguish the two cases. It is not a general theory of what finite methods can decide.",
       "lean": "theorem bounded_silence_is_not_evidence : ((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 2 * q ^ 12))) ∧ ((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 31 ^ 12 * q ^ 12))) ∧ (31 ^ 12 = 31 ^ 12 * 1 ^ 12) := by decide",
       "receipt": "9acf386b-02ba-86ba-af9c-2d3ca72bf1e1"
+    },
+    {
+      "key": "self_inverse_mod_2_number_1",
+      "why": "Exactly 1 residue(s) of Z/2 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_2_number_1 : ((List.range 2).filter (fun x => (x * x) % 2 == 1)).length = 1 := by decide",
+      "receipt": "8a566e20-79c4-8f02-b4ee-9d97eb80fe9a"
+    },
+    {
+      "key": "self_inverse_mod_3_number_2",
+      "why": "Exactly 2 residue(s) of Z/3 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_3_number_2 : ((List.range 3).filter (fun x => (x * x) % 3 == 1)).length = 2 := by decide",
+      "receipt": "17768d1e-3b96-8ffa-a44f-b045aa0b3dad"
+    },
+    {
+      "key": "self_inverse_mod_4_number_2",
+      "why": "Exactly 2 residue(s) of Z/4 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_4_number_2 : ((List.range 4).filter (fun x => (x * x) % 4 == 1)).length = 2 := by decide",
+      "receipt": "08be3df2-d767-80d7-8304-065ff54c8f87"
+    },
+    {
+      "key": "self_inverse_mod_23_number_2",
+      "why": "Exactly 2 residue(s) of Z/23 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_23_number_2 : ((List.range 23).filter (fun x => (x * x) % 23 == 1)).length = 2 := by decide",
+      "receipt": "9620357c-ad0d-8d84-ad2e-3219e6d42128"
+    },
+    {
+      "key": "self_inverse_mod_29_number_2",
+      "why": "Exactly 2 residue(s) of Z/29 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_29_number_2 : ((List.range 29).filter (fun x => (x * x) % 29 == 1)).length = 2 := by decide",
+      "receipt": "ddf064a7-a02a-8c22-a428-8afbe0cf27eb"
+    },
+    {
+      "key": "self_inverse_mod_31_number_2",
+      "why": "Exactly 2 residue(s) of Z/31 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_31_number_2 : ((List.range 31).filter (fun x => (x * x) % 31 == 1)).length = 2 := by decide",
+      "receipt": "268e7089-36c4-899d-bbc4-942be985ab84"
+    },
+    {
+      "key": "self_inverse_mod_37_number_2",
+      "why": "Exactly 2 residue(s) of Z/37 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_37_number_2 : ((List.range 37).filter (fun x => (x * x) % 37 == 1)).length = 2 := by decide",
+      "receipt": "43156816-6b12-8ae0-9c82-7059a15ee323"
+    },
+    {
+      "key": "self_inverse_mod_41_number_2",
+      "why": "Exactly 2 residue(s) of Z/41 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_41_number_2 : ((List.range 41).filter (fun x => (x * x) % 41 == 1)).length = 2 := by decide",
+      "receipt": "ac4f7864-77e1-83ba-982a-ae2fe8c68e7f"
+    },
+    {
+      "key": "self_inverse_mod_42_number_4",
+      "why": "Exactly 4 residue(s) of Z/42 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_42_number_4 : ((List.range 42).filter (fun x => (x * x) % 42 == 1)).length = 4 := by decide",
+      "receipt": "2ed042cb-13db-8e45-b57a-01b38b39581b"
+    },
+    {
+      "key": "self_inverse_mod_43_number_2",
+      "why": "Exactly 2 residue(s) of Z/43 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_43_number_2 : ((List.range 43).filter (fun x => (x * x) % 43 == 1)).length = 2 := by decide",
+      "receipt": "8c7ab4ea-b9a5-8493-a7aa-635f2f985748"
+    },
+    {
+      "key": "self_inverse_mod_46_number_2",
+      "why": "Exactly 2 residue(s) of Z/46 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_46_number_2 : ((List.range 46).filter (fun x => (x * x) % 46 == 1)).length = 2 := by decide",
+      "receipt": "a4093f8c-56e8-8eea-a51a-359308efe8bf"
+    },
+    {
+      "key": "self_inverse_mod_47_number_2",
+      "why": "Exactly 2 residue(s) of Z/47 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.",
+      "lean": "theorem self_inverse_mod_47_number_2 : ((List.range 47).filter (fun x => (x * x) % 47 == 1)).length = 2 := by decide",
+      "receipt": "4cc653dd-1972-8d75-9170-3acce90225a2"
+    },
+    {
+      "key": "no_power_of_three_is_a_power_of_two",
+      "why": "WALKED: every pair (a,b) with 1 <= a <= 12 and 1 <= b <= 19 — 228 pairs — and no power of three equals a power of two at any of them; 0 clashes found. The second conjunct pins the comma itself, 3^12 - 2^19 = 7153, to the same walk. WHY IT MATTERS: the ledger already seals gcd(3,2) = 1 (closure_is_coprime) and already seals the comma as a measured integer (pythagorean_comma_is_the_drift), but nothing decided the link between them — that the spiral of fifths CANNOT close, at any exponent, because two coprime primes share no common power. The comma was therefore an observed instance where a decided law belongs. SCOPE NOT EXCEEDED: exactly the 12x19 rectangle is walked; this is not a proof for general a and b, and calling it one would be the overclaim the gate exists to drain.",
+      "lean": "theorem no_power_of_three_is_a_power_of_two : ((List.range' 1 12).all (fun a => (List.range' 1 19).all (fun b => 3 ^ a != 2 ^ b))) ∧ (3 ^ 12 - 2 ^ 19 = 7153) := by decide",
+      "receipt": "8d545659-cf5e-88b1-bee8-f55dabd17131"
     }
   ],
   "refused": [

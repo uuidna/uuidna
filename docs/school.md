@@ -57,7 +57,7 @@ When practice stalls on a theorem, the gap is almost never the theorem itself �
 skipped. The fix is never to invent a bridging theorem (a restatement is not a unity,
 [`unity_census_is_plural_and_needs_two`](/theorem/unity_census_is_plural_and_needs_two)); it is to **reorder the walk** so the sealed prerequisite comes
 first. And the prerequisite relation is not curated: it is scanned from the ledger itself — every sealed name
-that cites another sealed key IS a citation edge, 87 prerequisites over 103 edges at this
+that cites another sealed key IS a citation edge, 116 prerequisites over 137 edges at this
 generation, ranked by how many theorems rest on each. Walk the most-cited first; each row lists up to its first
 three citers alphabetically, and the count carries the rest.
 
@@ -70,24 +70,37 @@ three citers alphabetically, and the count carries the rest.
 | [`a440_drifts_eight_from_the_lattice`](/theorem/a440_drifts_eight_from_the_lattice) | 2 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard), [`a440_drift_walked_in_history`](/theorem/a440_drift_walked_in_history) |
 | [`bell_basis_orthogonal`](/theorem/bell_basis_orthogonal) | 2 | [`hexbit_slit_cross_is_overlap`](/theorem/hexbit_slit_cross_is_overlap), [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) |
 | [`charge_balance_neutral`](/theorem/charge_balance_neutral) | 2 | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything), [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) |
+| [`distance_is_symmetric`](/theorem/distance_is_symmetric) | 2 | [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality), [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial) |
 | [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) | 2 | [`slit_on_the_hexbit_ring`](/theorem/slit_on_the_hexbit_ring), [`which_path_conserves_the_total`](/theorem/which_path_conserves_the_total) |
+| [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) | 2 | [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence), [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) |
 | [`moduli_waste_states`](/theorem/moduli_waste_states) | 2 | [`door_of_the_referrer`](/theorem/door_of_the_referrer), [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) |
+| [`pythagorean_comma_is_the_drift`](/theorem/pythagorean_comma_is_the_drift) | 2 | [`no_power_of_three_is_a_power_of_two`](/theorem/no_power_of_three_is_a_power_of_two), [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) |
 | [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) | 2 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen), [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) |
+| [`tet_semitone_no_integer_lattice`](/theorem/tet_semitone_no_integer_lattice) | 2 | [`bounded_silence_is_not_evidence`](/theorem/bounded_silence_is_not_evidence), [`tet_semitone_no_rational_at_the_window`](/theorem/tet_semitone_no_rational_at_the_window) |
 | [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) | 2 | [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census), [`uuid_mix_census_halves`](/theorem/uuid_mix_census_halves) |
+| [`xor_preserves_distance`](/theorem/xor_preserves_distance) | 2 | [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial), [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) |
 | [`a440_not_on_the_vortex`](/theorem/a440_not_on_the_vortex) | 1 | [`a440_drifts_eight_from_the_lattice`](/theorem/a440_drifts_eight_from_the_lattice) |
 | [`abo_klein_four`](/theorem/abo_klein_four) | 1 | [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) |
 | [`amplitude_inside_int16`](/theorem/amplitude_inside_int16) | 1 | [`anthem_superposition_mix_closes`](/theorem/anthem_superposition_mix_closes) |
+| [`axes_stride_coprime`](/theorem/axes_stride_coprime) | 1 | [`stride_cycle_is_modulus_over_gcd`](/theorem/stride_cycle_is_modulus_over_gcd) |
 | [`bell_no_signaling`](/theorem/bell_no_signaling) | 1 | [`all_signaling_duality`](/theorem/all_signaling_duality) |
 | [`bell_stabilized_by_xx`](/theorem/bell_stabilized_by_xx) | 1 | [`hexbit_slit_visibility`](/theorem/hexbit_slit_visibility) |
 | [`binary_kilo_drift_compounds`](/theorem/binary_kilo_drift_compounds) | 1 | [`the_buyer_sees_thirty_five_missing`](/theorem/the_buyer_sees_thirty_five_missing) |
 | [`blood_types_eight`](/theorem/blood_types_eight) | 1 | [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) |
+| [`byte_holds_two_hexbits`](/theorem/byte_holds_two_hexbits) | 1 | [`byte_weight_splits_across_its_two_tiles`](/theorem/byte_weight_splits_across_its_two_tiles) |
 | [`captain_computes_only_with_two_coins`](/theorem/captain_computes_only_with_two_coins) | 1 | [`trial_computes_only_with_two_coins`](/theorem/trial_computes_only_with_two_coins) |
+| [`cassini_golden_page`](/theorem/cassini_golden_page) | 1 | [`fibonacci_identity_sums_close_and_neighbours_are_coprime`](/theorem/fibonacci_identity_sums_close_and_neighbours_are_coprime) |
+| [`closure_is_coprime`](/theorem/closure_is_coprime) | 1 | [`no_power_of_three_is_a_power_of_two`](/theorem/no_power_of_three_is_a_power_of_two) |
+| [`codon_frame_rotates_rosette`](/theorem/codon_frame_rotates_rosette) | 1 | [`stride_cycle_is_modulus_over_gcd`](/theorem/stride_cycle_is_modulus_over_gcd) |
 | [`colour_complement_involution`](/theorem/colour_complement_involution) | 1 | [`reflection_is_total_by_the_key`](/theorem/reflection_is_total_by_the_key) |
 | [`compass_opposites_involute`](/theorem/compass_opposites_involute) | 1 | [`poles_on_the_axis_at_the_quadrature`](/theorem/poles_on_the_axis_at_the_quadrature) |
 | [`complement_fixes_the_half`](/theorem/complement_fixes_the_half) | 1 | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) |
 | [`containment_is_genus_one`](/theorem/containment_is_genus_one) | 1 | [`genus_ladder_prices_in_coins`](/theorem/genus_ladder_prices_in_coins) |
+| [`crt_pairs_are_a_bijection`](/theorem/crt_pairs_are_a_bijection) | 1 | [`two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime`](/theorem/two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime) |
 | [`dark_fringe_is_the_half_turn`](/theorem/dark_fringe_is_the_half_turn) | 1 | [`the_hex_center_is_empty`](/theorem/the_hex_center_is_empty) |
 | [`diamond_involution`](/theorem/diamond_involution) | 1 | [`complement_fixes_the_half`](/theorem/complement_fixes_the_half) |
+| [`differences_flatten_the_square`](/theorem/differences_flatten_the_square) | 1 | [`path_column_differences_close`](/theorem/path_column_differences_close) |
+| [`digital_root`](/theorem/digital_root) | 1 | [`z9_digit_sum_folds_to_the_residue_in_three`](/theorem/z9_digit_sum_folds_to_the_residue_in_three) |
 | [`digits_split_five_five`](/theorem/digits_split_five_five) | 1 | [`seventh_covers_reflection_cannot`](/theorem/seventh_covers_reflection_cannot) |
 | [`double_strand`](/theorem/double_strand) | 1 | [`uuidna_is_dna_times_the_two_coins`](/theorem/uuidna_is_dna_times_the_two_coins) |
 | [`double_torus_boards_are_the_address`](/theorem/double_torus_boards_are_the_address) | 1 | [`hextorus_mints_the_quorum`](/theorem/hextorus_mints_the_quorum) |
@@ -97,6 +110,7 @@ three citers alphabetically, and the count carries the rest.
 | [`eclipse_four_hundred`](/theorem/eclipse_four_hundred) | 1 | [`astronomy_eight_planets`](/theorem/astronomy_eight_planets) |
 | [`egyptian_five_harmonise_the_circle`](/theorem/egyptian_five_harmonise_the_circle) | 1 | [`seasons_return_in_eighteen_years`](/theorem/seasons_return_in_eighteen_years) |
 | [`epact_eleven_harmonised_by_meton`](/theorem/epact_eleven_harmonised_by_meton) | 1 | [`ramadan_walks_the_year_in_a_life`](/theorem/ramadan_walks_the_year_in_a_life) |
+| [`fifth_cycles_all_twelve`](/theorem/fifth_cycles_all_twelve) | 1 | [`stride_cycle_is_modulus_over_gcd`](/theorem/stride_cycle_is_modulus_over_gcd) |
 | [`five_orbit_reverses_doubling`](/theorem/five_orbit_reverses_doubling) | 1 | [`reverse_walks_inverse`](/theorem/reverse_walks_inverse) |
 | [`flat_drift_is_quadratic`](/theorem/flat_drift_is_quadratic) | 1 | [`geography_degree_and_dozen`](/theorem/geography_degree_and_dozen) |
 | [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) | 1 | [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged) |
@@ -104,28 +118,37 @@ three citers alphabetically, and the count carries the rest.
 | [`full_quorum_of_three`](/theorem/full_quorum_of_three) | 1 | [`hextorus_mints_the_quorum`](/theorem/hextorus_mints_the_quorum) |
 | [`gematria_forces_collisions`](/theorem/gematria_forces_collisions) | 1 | [`collisions_under_one`](/theorem/collisions_under_one) |
 | [`generators_are_two_and_five`](/theorem/generators_are_two_and_five) | 1 | [`coin_and_heart_generate_the_scales`](/theorem/coin_and_heart_generate_the_scales) |
+| [`gregorian_cycle_400_years`](/theorem/gregorian_cycle_400_years) | 1 | [`julian_cycle_closes_at_twenty_eight`](/theorem/julian_cycle_closes_at_twenty_eight) |
 | [`gregorian_cycle_closes_on_the_week`](/theorem/gregorian_cycle_closes_on_the_week) | 1 | [`gregory_deleted_ten_days`](/theorem/gregory_deleted_ten_days) |
+| [`grundy_sum_is_xor`](/theorem/grundy_sum_is_xor) | 1 | [`nim_bouton_three_heap_closure`](/theorem/nim_bouton_three_heap_closure) |
 | [`handle_is_the_first_group`](/theorem/handle_is_the_first_group) | 1 | [`payload_carries_the_strand`](/theorem/payload_carries_the_strand) |
 | [`handles_give_generators`](/theorem/handles_give_generators) | 1 | [`hextorus_generators_are_the_jobs`](/theorem/hextorus_generators_are_the_jobs) |
 | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) | 1 | [`every_string_has_thirty_two_modes`](/theorem/every_string_has_thirty_two_modes) |
 | [`hexbit_slit_cross_is_overlap`](/theorem/hexbit_slit_cross_is_overlap) | 1 | [`which_path_conserves_the_total`](/theorem/which_path_conserves_the_total) |
+| [`idempotents_zero_one`](/theorem/idempotents_zero_one) | 1 | [`z9_has_exactly_three_ideals`](/theorem/z9_has_exactly_three_ideals) |
 | [`involution_census_self_explains`](/theorem/involution_census_self_explains) | 1 | [`dark_fringe_is_the_half_turn`](/theorem/dark_fringe_is_the_half_turn) |
-| [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) | 1 | [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) |
+| [`involution_replaces_the_raised_ceiling`](/theorem/involution_replaces_the_raised_ceiling) | 1 | [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) |
 | [`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted) | 1 | [`trial_computes_only_with_two_coins`](/theorem/trial_computes_only_with_two_coins) |
 | [`manipulation_never_faster`](/theorem/manipulation_never_faster) | 1 | [`crew_verifies_instantly`](/theorem/crew_verifies_instantly) |
 | [`merkle_sort_invariant`](/theorem/merkle_sort_invariant) | 1 | [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census) |
 | [`metonic_cycle`](/theorem/metonic_cycle) | 1 | [`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) |
 | [`n_qubit_dimension`](/theorem/n_qubit_dimension) | 1 | [`optimisation_space_is_qubit_dimension`](/theorem/optimisation_space_is_qubit_dimension) |
+| [`nilpotent_iff_triple`](/theorem/nilpotent_iff_triple) | 1 | [`z9_has_exactly_three_ideals`](/theorem/z9_has_exactly_three_ideals) |
+| [`nim_misere_differs`](/theorem/nim_misere_differs) | 1 | [`nim_misere_bouton_closure`](/theorem/nim_misere_bouton_closure) |
+| [`nim_winning_move_exists`](/theorem/nim_winning_move_exists) | 1 | [`nim_bouton_three_heap_closure`](/theorem/nim_bouton_three_heap_closure) |
 | [`nimsum_1_2`](/theorem/nimsum_1_2) | 1 | [`grundy_sum_is_xor`](/theorem/grundy_sum_is_xor) |
 | [`no_go_zone`](/theorem/no_go_zone) | 1 | [`four_points_is_45`](/theorem/four_points_is_45) |
 | [`no_perpetual_motion`](/theorem/no_perpetual_motion) | 1 | [`reversible_erases_nothing`](/theorem/reversible_erases_nothing) |
 | [`nyquist_half_samplerate`](/theorem/nyquist_half_samplerate) | 1 | [`nyquist_clears_the_lattice`](/theorem/nyquist_clears_the_lattice) |
 | [`octave_of_light_doubles`](/theorem/octave_of_light_doubles) | 1 | [`octave_codon_address`](/theorem/octave_codon_address) |
 | [`optimisation_space_is_qubit_dimension`](/theorem/optimisation_space_is_qubit_dimension) | 1 | [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) |
+| [`otp_self_inverse`](/theorem/otp_self_inverse) | 1 | [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) |
 | [`oxidation_states_sum`](/theorem/oxidation_states_sum) | 1 | [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) |
+| [`pentagram_step_coprime_five`](/theorem/pentagram_step_coprime_five) | 1 | [`stride_cycle_is_modulus_over_gcd`](/theorem/stride_cycle_is_modulus_over_gcd) |
 | [`pluck_preserves_bound`](/theorem/pluck_preserves_bound) | 1 | [`pluck_preserves_bound_at_the_window`](/theorem/pluck_preserves_bound_at_the_window) |
-| [`pythagorean_comma_is_the_drift`](/theorem/pythagorean_comma_is_the_drift) | 1 | [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) |
 | [`queen_corner_twentyone`](/theorem/queen_corner_twentyone) | 1 | [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) |
+| [`rosette_and_vortex_are_coprime`](/theorem/rosette_and_vortex_are_coprime) | 1 | [`two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime`](/theorem/two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime) |
+| [`rosette_orbit`](/theorem/rosette_orbit) | 1 | [`z7_primitive_roots_are_three_and_five`](/theorem/z7_primitive_roots_are_three_and_five) |
 | [`sanitize_bidi_points_are_nine`](/theorem/sanitize_bidi_points_are_nine) | 1 | [`fold_trojan_source_bidi`](/theorem/fold_trojan_source_bidi) |
 | [`sanitize_max_depth_is_two_pow_five`](/theorem/sanitize_max_depth_is_two_pow_five) | 1 | [`fold_resource_dos`](/theorem/fold_resource_dos) |
 | [`sanitize_poison_keys_are_three`](/theorem/sanitize_poison_keys_are_three) | 1 | [`fold_prototype_pollution`](/theorem/fold_prototype_pollution) |
@@ -136,13 +159,16 @@ three citers alphabetically, and the count carries the rest.
 | [`store_fold_order_invariant`](/theorem/store_fold_order_invariant) | 1 | [`merkle_sort_invariant`](/theorem/merkle_sort_invariant) |
 | [`t7_betti_row_is_the_uuid`](/theorem/t7_betti_row_is_the_uuid) | 1 | [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) |
 | [`tamper_changes_tag`](/theorem/tamper_changes_tag) | 1 | [`fold_integrity_tamper`](/theorem/fold_integrity_tamper) |
+| [`tamper_set_counts_eight_thousand`](/theorem/tamper_set_counts_eight_thousand) | 1 | [`parity_bit_rejects_half_the_byte_tamper_set`](/theorem/parity_bit_rejects_half_the_byte_tamper_set) |
 | [`tens_complement_involutive`](/theorem/tens_complement_involutive) | 1 | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) |
 | [`the_page_admits_sixteen`](/theorem/the_page_admits_sixteen) | 1 | [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) |
+| [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial) | 1 | [`parity_bit_rejects_half_the_byte_tamper_set`](/theorem/parity_bit_rejects_half_the_byte_tamper_set) |
 | [`torus_betti_alternates_to_zero`](/theorem/torus_betti_alternates_to_zero) | 1 | [`t7_even_odd_boards_equal`](/theorem/t7_even_odd_boards_equal) |
 | [`traitor_damage_sealed_by_same_billing`](/theorem/traitor_damage_sealed_by_same_billing) | 1 | [`manipulation_never_faster`](/theorem/manipulation_never_faster) |
 | [`trial_computes_only_with_two_coins`](/theorem/trial_computes_only_with_two_coins) | 1 | [`court_loser_pays_the_two_coins`](/theorem/court_loser_pays_the_two_coins) |
 | [`trinity_edit_is_three`](/theorem/trinity_edit_is_three) | 1 | [`hextorus_mints_the_quorum`](/theorem/hextorus_mints_the_quorum) |
 | [`trinity_exceeds_qubit`](/theorem/trinity_exceeds_qubit) | 1 | [`the_middle_is_not_a_pole`](/theorem/the_middle_is_not_a_pole) |
+| [`trinity_rosette_coprime`](/theorem/trinity_rosette_coprime) | 1 | [`crt21_idempotents_invert_the_pairing`](/theorem/crt21_idempotents_invert_the_pairing) |
 | [`two_coins`](/theorem/two_coins) | 1 | [`containment_is_genus_one`](/theorem/containment_is_genus_one) |
 | [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) | 1 | [`anthem_closes_on_the_coin_octave`](/theorem/anthem_closes_on_the_coin_octave) |
 | [`two_order_six`](/theorem/two_order_six) | 1 | [`octave_codon_address`](/theorem/octave_codon_address) |
@@ -150,6 +176,9 @@ three citers alphabetically, and the count carries the rest.
 | [`universe_of_handles`](/theorem/universe_of_handles) | 1 | [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) |
 | [`uuidna_is_dna_times_the_two_coins`](/theorem/uuidna_is_dna_times_the_two_coins) | 1 | [`octave_codon_address`](/theorem/octave_codon_address) |
 | [`visible_under_one_octave`](/theorem/visible_under_one_octave) | 1 | [`octave_codon_address`](/theorem/octave_codon_address) |
+| [`words_stand_three_apart`](/theorem/words_stand_three_apart) | 1 | [`hamming_differences_are_the_code`](/theorem/hamming_differences_are_the_code) |
+| [`ym_quantum`](/theorem/ym_quantum) | 1 | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) |
+| [`z7primitive_root_3`](/theorem/z7primitive_root_3) | 1 | [`z7_primitive_roots_are_three_and_five`](/theorem/z7_primitive_roots_are_three_and_five) |
 <!-- /prereqs -->
 
 ## The session lessons — a real semester's transcript
@@ -178,7 +207,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    fingerprint what their (principle, theorem set) already fixed — **1 hexbit** of pure restatement
    ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)), priced in the unit and not in milliseconds, because a wall-clock figure moves
    with the host and a practice carrying a number that moves goes stale.
-   **The boundary:** the same reasoning was turned on the 1690-frame aura film and it was wrong. The aura IS
+   **The boundary:** the same reasoning was turned on the 2114-frame aura film and it was wrong. The aura IS
    a pure function of the address, so the digests do move together — but folding addresses computes no aura, and the
    leaf keeps the name. An aura is only an aura if it is DERIVED from the algebra: ray from ℤ/7, wave from the ℤ/9
    vortex orbit, hue by the A432 step ([`z7rays_seven`](/theorem/z7rays_seven)). A value named for a computation must be computed by
@@ -668,17 +697,17 @@ or judgment — those stay with the student; the court decides meaning. Integrit
 <!-- wings: GENERATED by scripts/gen-school — every sealed wing, so none is invisible -->
 ## The wings — all 115, computed from the ledger
 
-Every wing the ledger seals, largest first: 1690 theorems across 115 wings and 107 skills.
+Every wing the ledger seals, largest first: 2114 theorems across 115 wings and 107 skills.
 This table is derived at generation — a wing sealed today appears here today, and one that is renamed cannot linger.
 Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 
 | Wing | File | Skill | Theorems | Open |
 | --- | --- | --- | ---: | --- |
+| The conveyor's first wave | `Wave.lean` | wave | 467 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) |
 | The ring ℤ/9 | `Ring.lean` | z9-ring | 234 | [`z9add_0_0`](/theorem/z9add_0_0) |
 | The rosette ℤ/7 | `Rosette.lean` | z7-rosette | 148 | [`rosette_pairs_twentyone`](/theorem/rosette_pairs_twentyone) |
 | The heaps | `Nim.lean` | nim | 93 | [`grundy_sum_is_xor`](/theorem/grundy_sum_is_xor) |
 | The 8×8 core | `Core.lean` | z9-ring | 64 | [`mul9_1_1`](/theorem/mul9_1_1) |
-| The conveyor's first wave | `Wave.lean` | wave | 55 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard) |
 | The quantum computer | `Quantum.lean` | quantum | 52 | [`all_signaling_duality`](/theorem/all_signaling_duality) |
 | The sequence & reflection group | `Sequence.lean` | sequence | 28 | [`agl_order_54`](/theorem/agl_order_54) |
 | The cipher & the strand | `Cipher.lean` | cipher | 27 | [`adversarial_privacy_is_unanimous`](/theorem/adversarial_privacy_is_unanimous) |
@@ -690,15 +719,16 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The detectors, proven | `Audit.lean` | audit | 17 | [`backing_clears`](/theorem/backing_clears) |
 | Applied structure — the science pairs | `BioPhysics.lean` | science-pairs | 17 | [`abo_klein_four`](/theorem/abo_klein_four) |
 | The colour wheel | `Colour.lean` | colour | 17 | [`alphabet_digital_root_is_nine`](/theorem/alphabet_digital_root_is_nine) |
+| The hardware-verifiable binary algebra | `Hardware.lean` | hardware | 17 | [`and_gate_truth_table`](/theorem/and_gate_truth_table) |
 | The seven readings | `Readings.lean` | readings | 17 | [`amplitude_inside_int16`](/theorem/amplitude_inside_int16) |
 | The lay of the land | `Topography.lean` | topography | 17 | [`back_bearing_mod_360`](/theorem/back_bearing_mod_360) |
 | Self-discovered | `Discover.lean` | vortex | 16 | [`generators_are_two_and_five`](/theorem/generators_are_two_and_five) |
 | The hexbit | `Hexbit.lean` | hexbit | 16 | [`alphabet_names_each_nibble`](/theorem/alphabet_names_each_nibble) |
+| The software-verifiable algebra | `Software.lean` | software | 16 | [`append_length_adds`](/theorem/append_length_adds) |
 | Ported from millennium-solutions | `Vortex.lean` | z9-ring | 16 | [`doubling_circuit`](/theorem/doubling_circuit) |
-| The software-verifiable algebra | `Software.lean` | software | 15 | [`append_length_adds`](/theorem/append_length_adds) |
+| The calendar | `Calendar.lean` | calendar | 15 | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) |
 | The vortex algebra | `Uuidna.lean` | vortex | 15 | [`billing_arith`](/theorem/billing_arith) |
 | The cut | `Editing.lean` | editing | 14 | [`angle_of_the_cut`](/theorem/angle_of_the_cut) |
-| The hardware-verifiable binary algebra | `Hardware.lean` | hardware | 14 | [`and_gate_truth_table`](/theorem/and_gate_truth_table) |
 | The referrer song | `Referrer.lean` | referrer | 14 | [`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning) |
 | Anti-fraud detection | `AntiFraud.lean` | anti-fraud | 13 | [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) |
 | The chessboard | `Chess.lean` | chess | 13 | [`bishop_stays_on_colour`](/theorem/bishop_stays_on_colour) |
@@ -721,7 +751,6 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The legal vocabulary | `Legal.lean` | legal | 10 | [`court_loser_develops_the_proven`](/theorem/court_loser_develops_the_proven) |
 | The mix | `Production.lean` | music-production | 10 | [`chromatic_is_z12`](/theorem/chromatic_is_z12) |
 | The release anthem | `Anthem.lean` | anthem | 9 | [`anthem_chord_halves_the_bar`](/theorem/anthem_chord_halves_the_bar) |
-| The calendar | `Calendar.lean` | calendar | 9 | [`century_leap_rule`](/theorem/century_leap_rule) |
 | The reactions domain | `Chemistry.lean` | chemistry | 9 | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) |
 | The linear optimum | `Optimisation.lean` | optimisation | 9 | [`assignment_two_by_two_optimum`](/theorem/assignment_two_by_two_optimum) |
 | The orbits | `Orbits.lean` | orbits | 9 | [`covering_seeds_are_named`](/theorem/covering_seeds_are_named) |
@@ -732,6 +761,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | Diving — trimix gas laws | `Diving.lean` | diving | 8 | [`absolute_pressure_at_depth`](/theorem/absolute_pressure_at_depth) |
 | The harmony of pairs | `Harmony.lean` | science-pairs | 8 | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) |
 | The matching | `Matching.lean` | matching | 8 | [`edges_are_half_the_degree_sum`](/theorem/edges_are_half_the_degree_sum) |
+| The denial drained | `Negation.lean` | negation | 8 | [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself) |
 | The exposure | `Photography.lean` | photography | 8 | [`equivalent_exposure`](/theorem/equivalent_exposure) |
 | The instrument | `Psychology.lean` | psychology | 8 | [`big_five_factors_pentad`](/theorem/big_five_factors_pentad) |
 | The spectrum | `Spectrum.lean` | spectrum | 8 | [`inverse_at_fixed_c`](/theorem/inverse_at_fixed_c) |
@@ -742,7 +772,6 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The time coordinate | `Ephemeris.lean` | ephemeris | 7 | [`gregorian_leap_rule`](/theorem/gregorian_leap_rule) |
 | The models | `Models.lean` | models | 7 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) |
 | The bond domain | `Molecular.lean` | molecular | 7 | [`bond_order_n2_o2`](/theorem/bond_order_n2_o2) |
-| The denial drained | `Negation.lean` | negation | 7 | [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself) |
 | The OS-integrity algebra | `Os.lean` | os | 7 | [`boundary_is_exactly_two_named_modules`](/theorem/boundary_is_exactly_two_named_modules) |
 | The report | `Report.lean` | reporting | 7 | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) |
 | The points-of-sail domain | `Sailing.lean` | sailing | 7 | [`balanced_helm_holds_course`](/theorem/balanced_helm_holds_course) |
@@ -787,8 +816,8 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The document fold | `Editor.lean` | editor | 4 | [`editor_empty_doc_folds_zero`](/theorem/editor_empty_doc_folds_zero) |
 | The stance and the angle | `MartialArts.lean` | martial-arts | 4 | [`chain_joints_are_links_minus_one`](/theorem/chain_joints_are_links_minus_one) |
 | Maxwell's rule | `Structures.lean` | structures | 3 | [`maxwells_rule_truss`](/theorem/maxwells_rule_truss) |
+| The uuid mix space | `UuidMix.lean` | uuidmix | 2 | [`the_mix_space_is_its_own_mirror`](/theorem/the_mix_space_is_its_own_mirror) |
 | One leap | `OneLeap.lean` | vortex | 1 | [`vortex_one_leap`](/theorem/vortex_one_leap) |
-| The uuid mix space | `UuidMix.lean` | uuidmix | 1 | [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) |
 <!-- /wings -->
 
 <!-- clay: GENERATED by scripts/gen-school — each lesson is its theorem's own sealed text -->

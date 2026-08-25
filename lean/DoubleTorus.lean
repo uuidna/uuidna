@@ -1,7 +1,7 @@
 -- lean/DoubleTorus.lean — GENERATED. THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- THE EULER CHARACTERISTIC IS THE GENUS, READ OFF: χ = 2 − 2g gives 0 at genus one (the plain torus, a closed
-    pipe) and −2 at genus two, so −χ = 2 — the two coins. Both genera on one line, so the number is measured
+    pipe) and −2 at genus two, so −χ = 2 — the two coins. Both genera on one line, so the number is CHECKED
     against its neighbour rather than stated alone. -/
 theorem chi_measures_genus : (((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)) ∧ (-((2:Int) - 2 * 2) = 2) := by decide
 

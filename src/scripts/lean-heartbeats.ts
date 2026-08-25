@@ -34,6 +34,14 @@ for (const file of [...new Set(T.map((t) => t.file))]) {
     const lines = content.split('\n')
     const out: string[] = []
     const TOP = /^(theorem |def |abbrev |notation |namespace|end |--)/
+    // A WING'S OPTIONS ARE PART OF ITS SOURCE, and the probe was rebuilding the definitions without them. A wing
+    // that raises maxRecDepth to elaborate a large fold proves fine in place and is UNMEASURABLE in a probe that
+    // does not carry the raise — the theorem passes the kernel and the instrument measuring it fails, so it lands
+    // as "unmeasured" and reads like a gap in the ledger rather than a gap in the prober.
+    // Found by fixing Software.lean's recursion limit and watching cube_seals_at_completeness_only stay the one
+    // unmeasured theorem out of the whole ledger. This is `no_instrument_narrower_than_its_question` — a key this
+    // ledger already seals — applied to the instrument that measures the ledger.
+    for (const line of lines) if (/^set_option /.test(line)) out.push(line)
     for (let i = 0; i < lines.length; i++) {
       if (/^(def|abbrev|notation) /.test(lines[i])) {
         out.push(lines[i])

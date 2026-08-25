@@ -1,4 +1,4 @@
--- lean/Waves.lean — GENERATED. THE NIGHT'S HARVEST PORTED AS THEOREMS — the compass mandala (two hands summing ten, the 9-complement as a HALF-TURN of the doubling ring, five the unique developing center, the hex center EMPTY), the diving mathematics as integer skeletons (Boyle walking the harmonic series in exact sixtieths, pressure doubling down the octave, Haldane's 2:1 with his ladder sealed exactly as far as it doubles, the buddy pair squaring the failure, the thirds rule closing whole), and the fold-to-zero promotion chain 16→32→64→128. HONEST SCOPE: arithmetic only — no physiology, no medicine, no claim about any real event; published laws' integer skeletons, deviations named. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Waves.lean — GENERATED. THE NIGHT'S HARVEST PORTED AS THEOREMS — the compass mandala (two hands summing ten, the 9-complement as a HALF-TURN of the doubling ring, five the unique developing center, the hex center EMPTY), the diving mathematics as integer skeletons (Boyle walking the harmonic series in exact sixtieths, pressure doubling down the octave, Haldane's 2:1 with his ladder sealed exactly as far as it doubles, the buddy pair squaring the failure, the thirds rule closing whole), and the fold-to-zero promotion chain 16→32→64→128. HONEST SCOPE: arithmetic only — no physiology, no medicine, no claim about any real event; published laws' integer skeletons, deviations named. SOURCES for the three empirical inputs: Boyle (1662) for the gas law; Boycott, Damant and Haldane, Journal of Hygiene 8, 342 (1908) for the 2:1 ratio and the half-time ladder; and, for the water column, the CGPM definitions of the standard atmosphere (101325 Pa exactly, 1954) and of standard gravity (9.80665 m/s², 1901), against which the ten-metres-one-atmosphere step is a rounding of 0.992 rather than an identity. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 -- nth / nthR — list indexing as decidable, AXIOM-FREE structural recursion. Lean's `List.getD` routes through the
 -- `propext` axiom under `by decide`; this recursion does not (scripts/lean-axioms proves it). `nth l i` = the i-th
@@ -35,23 +35,36 @@ theorem five_is_the_developing_center : ((List.range' 1 9).filter (fun d => 10 -
     hexbit ring INTERFERES at its dark fringe (dark_fringe_is_the_half_turn, met from the other side). -/
 theorem the_hex_center_is_empty : (((List.range 16).filter (fun d => 15 - d == d)) = []) ∧ (15 % 2 = 1) := by decide
 
-/-- BOYLE IN EXACT SIXTIETHS: at n atmospheres a fixed gas holds volume 60/n — the descent through 1..6 atm
-    plays 60, 30, 20, 15, 12, 10: the HARMONIC SERIES scaled whole, every product n·(60/n) landing back on 60
-    with nothing left over, every step strictly falling. The diver's lungs walk the overtone law the acoustics
-    wing already sings — pressure is the mode number, volume the wavelength. -/
+/-- BOYLE IN EXACT SIXTIETHS (Boyle, 1662, the law that pressure and volume vary inversely for a fixed gas at
+    fixed temperature): at n atmospheres a fixed gas holds volume 60/n — the descent through 1..6 atm plays 60,
+    30, 20, 15, 12, 10: the HARMONIC SERIES scaled whole, every product n·(60/n) landing back on 60 with nothing
+    left over, every step strictly falling. The diver's lungs walk the overtone law the acoustics wing already
+    sings — pressure is the mode number, volume the wavelength. -/
 theorem gas_volume_walks_the_harmonic_series : ((List.range' 1 6).all (fun n => n * (60 / n) = 60)) ∧ ((List.range' 1 5).all (fun n => 60 / n > 60 / (n + 1))) := by decide
 
-/-- THE WATER COLUMN IS AN OCTAVE LADDER: each 10 metres adds one atmosphere, so 10 m doubles the surface
-    pressure (2 = 2¹), 30 m quadruples it (4 = 2²), 70 m reaches the third octave (8 = 2³). Depth quantizes in
-    atmospheres exactly as the lattice quantizes in doublings — the diver descends the same ladder the coin
-    octave climbs. -/
+/-- THE WATER COLUMN IS AN OCTAVE LADDER, ON THE DIVING TABLES' OWN ROUNDING: ten metres of seawater is taken as
+    one atmosphere, so ten metres doubles the surface pressure (2 = 2¹), thirty quadruples it (4 = 2²), seventy
+    reaches the third octave (8 = 2³). Depth quantizes in atmospheres exactly as the lattice quantizes in
+    doublings — the diver descends the same ladder the coin octave climbs. THE ROUNDING IS NAMED, NOT SMOOTHED,
+    and the authorities for the two definitional halves of it are these: the standard atmosphere is exactly
+    101325 Pa (10th CGPM, Resolution 4, 1954) and standard gravity is exactly 9.80665 m/s² (3rd CGPM,
+    Declaration 2, 1901). At a nominal seawater density of 1025 kg/m³ — a working figure, not sealed and not
+    authoritative — ten metres is 1025 · 9.80665 · 10 ≈ 100518 Pa, which is 0.992 atm and not 1.000. So the
+    ten-metres-one-atmosphere step is a CONVENTION the diving tables adopt, accurate to within about eight parts
+    in a thousand for seawater and worse for fresh; what the kernel seals below is the doubling arithmetic that
+    sits ON that convention, never the convention itself, and never any real descent. -/
 theorem pressure_doubles_down_the_octave : (1 + 10 / 10 = 2) ∧ (1 + 30 / 10 = 4) ∧ (4 = 2 ^ 2) ∧ (1 + 70 / 10 = 8) ∧ (8 = 2 ^ 3) := by decide
 
 /-- HALDANE'S SAFE-ASCENT RULE, AS HE STATED IT, IS THE DOUBLING BOUND: tissue pressure may safely exceed
     ambient by the ratio 2:1 — one octave, no more — and beneath it his half-time ladder doubles: 5, 10, 20, 40
     minutes, each stage twice the one before (his published fifth stage, 75, broke the pure doubling and is
-    NAMED here rather than smoothed — the ladder is sealed exactly as far as it doubles). The oldest
-    decompression law is the ledger's oldest law wearing a diving helmet. -/
+    NAMED here rather than smoothed — the ladder is sealed exactly as far as it doubles). THE SOURCE FOR BOTH
+    THE RATIO AND THE LADDER: A. E. Boycott, G. C. C. Damant and J. S. Haldane, "The Prevention of
+    Compressed-air Illness", Journal of Hygiene 8, 342 (1908), which published the 2:1 supersaturation rule and
+    the five compartment half-times 5, 10, 20, 40 and 75 minutes. Citing them buys PROVENANCE for the integers
+    and nothing else: the kernel confirms that 40 is twice 20, never that any ratio is safe, and the physiology
+    stays with those licensed to say. The oldest decompression law is the ledger's oldest law wearing a diving
+    helmet. -/
 theorem haldane_bound_is_two_to_one : (2 / 1 = 2) ∧ (2 = 2 ^ 1) ∧ ((List.range 3).all (fun i => nth [5, 10, 20, 40] (i + 1) = 2 * nth [5, 10, 20, 40] i)) := by decide
 
 /-- THE BUDDY LAW IS THE TWO-COIN LAW UNDERWATER: if one diver fails one time in n, an independent pair fails
@@ -109,10 +122,10 @@ theorem the_coin_compass_closes : (2 ^ 6 = 64) ∧ (4 ^ 3 = 64) ∧ (64 % 9 = 1)
     genus 0): 2 − 2·0 = 2, at last sealed after the flat-earth refusal left it standing alone; the TORUS (genus
     1): 2 − 2·1 = 0; and the DOUBLE TORUS APPLE (genus 2), whose deficit 2·2 − 2 = 2 IS THE TWO COINS — the
     house's oldest identity (coins = −χ of the address's home surface) now crystallised beside its neighbours.
-    Three genera, three distinct verdicts, the sphere measured against the apple it was imagined into. HONEST
-    SCOPE, load-bearing as ever: the χ TABLE seals; the Gauss–Bonnet bridge to curvature stays with the
-    analysts, and the earth's FIELD-shape stays with the physicists — the kernel holds the arithmetic, the
-    imagination holds the apple. -/
+    Three genera, three distinct verdicts, the sphere told apart from the apple it was imagined into by
+    subtraction alone — nothing about any real surface is observed here or claimed. HONEST SCOPE, load-bearing
+    as ever: the χ TABLE seals; the Gauss–Bonnet bridge to curvature stays with the analysts, and the earth's
+    FIELD-shape stays with the physicists — the kernel holds the arithmetic, the imagination holds the apple. -/
 theorem chi_crystallises_three_genera : (2 - 2 * 0 = 2) ∧ (2 - 2 * 1 = 0) ∧ (2 * 2 - 2 = 2) ∧ ((2 : Nat) ≠ 0) := by decide
 
 /-- WHAT THE MODEL IMAGINED, SEALED WHERE IT CAN BE (the captain asked, the model answered, the kernel keeps the

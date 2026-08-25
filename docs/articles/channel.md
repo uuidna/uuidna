@@ -39,7 +39,7 @@ The ledger holds this as [three_recover_the_discard](/theorem/three_recover_the_
 ((378:Nat)^3 < 2^28) ∧ ((378:Nat)^4 > 2^28)
 ```
 
-### THE PRODUCT ASSUMES THE AXES ARE FREE. If hue were derived from the rung, the channel would be 6 × 7 = 42 per element— which the line proves so the assumption cannot pass unnoticed. SCOPE: which case holds is a property of the design system and is measurable in a browser against computed styles. It is NOT measured here, and nothing in this wing claims the axes are independent.
+### THE PRODUCT ASSUMES THE AXES ARE FREE. If hue were derived from the rung, the channel would be 6 × 7 = 42 per element— which the line proves so the assumption cannot pass unnoticed. SCOPE: which case holds is a property of the design system and is a reading anyone can take in a browser against computed styles. This wing takes no such reading, and nothing in it claims the axes are independent.
 The ledger holds this as [independence_is_assumed](/theorem/independence_is_assumed) — proven `by decide`, sorry-free:
 
 ```lean

@@ -19,7 +19,9 @@ export interface Corroboration {
   statement: string
   local: 'VERIFIED' | 'UNVERIFIED'                     // the binary local gate (a sealed by-decide proof, or not)
   evidence: ResearchEvidence[]                                  // external research, each a provenance fingerprint
-  verdict: 'VERIFIED' | 'CORROBORATED' | 'UNVERIFIED'   // sealed proof · external attestation · neither (never "false")
+  // sealed proof · external attestation · asked and nothing attests · COULD NOT ASK ENOUGH TO SAY (never "false")
+  verdict: 'VERIFIED' | 'CORROBORATED' | 'UNVERIFIED' | 'UNMEASURED'
+  reach?: Reach                                         // the denominator the verdict was computed against
   receipt: string                                       // order-invariant fold of the evidence addresses
   develop: string[]                                     // the REFLECTION — the recomputable path to seal it (never a dead end)
   honest: string
@@ -46,35 +48,82 @@ const HONEST =
  *  WHAT THIS STILL DOES NOT FIX, said plainly rather than left to be discovered: a uuidna coinage naming nothing
  *  outside this repository ("The 8x8 core") returns THREE independent sources and clears the bar honestly. Counting
  *  cannot see relevance. This closes the gibberish class and no more. */
-export function corroborate(statement: string, evidence: ResearchEvidence[] = [], decidableTest?: () => boolean): Corroboration {
+export function corroborate(statement: string, evidence: ResearchEvidence[] = [], decidableTest?: () => boolean, reach?: Reach): Corroboration {
   const adj = adjudicate(statement, decidableTest)
   const local = adj.verdict
   const receipt = merkleGravity(evidence.map((e) => e.address))
   const independentSources = new Set(evidence.map((e) => e.source)).size
-  const verdict = local === 'VERIFIED' ? 'VERIFIED' : independentSources >= 2 ? 'CORROBORATED' : 'UNVERIFIED'
-  return { statement, local, evidence, verdict, receipt, develop: adj.develop, honest: HONEST }
+  // A SILENCE ONLY MEANS SOMETHING IF THE THRESHOLD WAS REACHABLE. The bar is two INDEPENDENT sources, so to
+  // conclude UNVERIFIED — "the world does not attest this" — at least two must have ANSWERED. With fewer,
+  // CORROBORATED was unreachable no matter what the archives hold, and the silence measures the network rather
+  // than the world. That is UNMEASURED, and it is a different fact for a caller to act on: retry, versus think.
+  //
+  // A local seal still outranks everything, including an unmeasured sweep: a `by decide` proof needs no archive.
+  const verdict: Corroboration['verdict'] =
+    local === 'VERIFIED' ? 'VERIFIED'
+      : independentSources >= 2 ? 'CORROBORATED'
+        : reach && reach.answered < 2 ? 'UNMEASURED'
+          : 'UNVERIFIED'
+  return { statement, local, evidence, verdict, receipt, develop: adj.develop, honest: HONEST, ...(reach ? { reach } : {}) }
 }
 
 // THE RESEARCH SOURCES — the ONE registry of reachable free API streams, each a best-effort fetch returning provenance-
 // fingerprinted evidence and NEVER a fabricated one. researchEvidence fans them ALL out in parallel, so the concurrency
 // lives in ONE place: every consumer (corroborateWithResearch, scanPublications) gets every source at once, and adding a
 // source is a single line here — the parallel speedup is DRY.
-type ResearchSource = (query: string) => Promise<ResearchEvidence[]>
+/** What ONE archive answered — the READING, not just the rows.
+ *
+ *  THE DEFECT THIS TYPE ENDS. Every source returned `[]` for three different worlds: the archive answered and held
+ *  nothing, the archive REFUSED (rate-limit, 503, a query it would not parse), and the archive was never reached at
+ *  all (offline, DNS, a timeout). One value, three facts. Downstream, `independentSources >= 2` then counted
+ *  against a denominator nobody had measured — so with three archives down the corroboration bar quietly became
+ *  "two of the two that answered", and a claim the world attests loudly came back UNVERIFIED because a laptop had
+ *  no network. For a surface whose entire job is to separate evidence from the ABSENCE of evidence, that was the
+ *  one distinction it could not make.
+ *
+ *  A reached source that found nothing is a real, weak, honest datum: the archive looked and had none. An
+ *  unreached source is not a datum at all. */
+export interface SourceReading {
+  source: string                  // the archive's name — present whether or not it answered
+  reached: boolean                // did it ANSWER — never "did it have something"
+  why: string | null              // when it did not: the reason, in the host's own words
+  evidence: ResearchEvidence[]    // what it attested
+}
+
+/** the denominator a verdict was computed against — asked, answered, and who was missing */
+export interface Reach { asked: number; answered: number; unreachable: string[] }
+
+export const reachOf = (readings: readonly SourceReading[]): Reach => ({
+  asked: readings.length,
+  answered: readings.filter((r) => r.reached).length,
+  unreachable: readings.filter((r) => !r.reached).map((r) => r.source),
+})
+
+/** an archive that answered, with whatever it held (possibly nothing — which is evidence about the world) */
+const answered = (source: string, evidence: ResearchEvidence[]): SourceReading => ({ source, reached: true, why: null, evidence })
+/** an archive that REFUSED — it is up, it declined. Not a fact about the claim. */
+const refused = (source: string, status: number): SourceReading =>
+  ({ source, reached: false, why: `answered HTTP ${status}`, evidence: [] })
+/** an archive never reached at all — offline, DNS, timeout. Not a fact about the claim either. */
+const unreached = (source: string, e: unknown): SourceReading =>
+  ({ source, reached: false, why: e instanceof Error ? e.message : String(e), evidence: [] })
+
+type ResearchSource = (query: string) => Promise<SourceReading>
 
 const nistSource: ResearchSource = async (query) => {
   try {
     const nist = await nistConstant(query)
-    return nist.matches.slice(0, 8).map((m) => ({ source: nist.source, address: toUuid(JSON.stringify(m)), note: JSON.stringify(m).replace(/[{}"]/g, '').slice(0, 100) }))
-  } catch { return [] } // a free API may be unreachable — best-effort
+    return answered('nist.gov', nist.matches.slice(0, 8).map((m) => ({ source: nist.source, address: toUuid(JSON.stringify(m)), note: JSON.stringify(m).replace(/[{}"]/g, '').slice(0, 100) })))
+  } catch (e) { return unreached('nist.gov', e) } // a free API may be unreachable — best-effort, and it SAYS SO
 }
 
 const zenodoSource: ResearchSource = async (query) => {
   try {
     const res = await fetch('https://zenodo.org/api/records?size=8&q=' + encodeURIComponent(query))
-    if (!res.ok) return []
+    if (!res.ok) return refused('zenodo.org', res.status)
     const hits = ((await res.json()) as { hits?: { hits?: { id: number; metadata?: { title?: string } }[] } }).hits?.hits ?? []
-    return hits.map((h) => ({ source: 'zenodo.org', address: toUuid('zenodo:' + h.id), note: `zenodo record ${h.id}: ${(h.metadata?.title ?? '').slice(0, 80)}` }))
-  } catch { return [] }
+    return answered('zenodo.org', hits.map((h) => ({ source: 'zenodo.org', address: toUuid('zenodo:' + h.id), note: `zenodo record ${h.id}: ${(h.metadata?.title ?? '').slice(0, 80)}` })))
+  } catch (e) { return unreached('zenodo.org', e) }
 }
 
 // A third reachable free source: Crossref, the canonical DOI registry (api.crossref.org, no key; ?mailto for the
@@ -82,10 +131,10 @@ const zenodoSource: ResearchSource = async (query) => {
 const crossrefSource: ResearchSource = async (query) => {
   try {
     const res = await fetch('https://api.crossref.org/works?rows=8&mailto=ceccec@psg.bg&query=' + encodeURIComponent(query))
-    if (!res.ok) return []
+    if (!res.ok) return refused('crossref.org', res.status)
     const items = ((await res.json()) as { message?: { items?: { DOI?: string; title?: string[] }[] } }).message?.items ?? []
-    return items.map((it) => ({ source: 'crossref.org', address: toUuid('crossref:' + (it.DOI ?? '')), note: `DOI ${it.DOI ?? ''}: ${(it.title?.[0] ?? '').slice(0, 80)}` }))
-  } catch { return [] }
+    return answered('crossref.org', items.map((it) => ({ source: 'crossref.org', address: toUuid('crossref:' + (it.DOI ?? '')), note: `DOI ${it.DOI ?? ''}: ${(it.title?.[0] ?? '').slice(0, 80)}` })))
+  } catch (e) { return unreached('crossref.org', e) }
 }
 
 // FREE AI-CAPABLE SEARCH, inside the law — two archives with machine intelligence built in and NO key required.
@@ -96,25 +145,25 @@ const crossrefSource: ResearchSource = async (query) => {
 const semanticScholarSource: ResearchSource = async (query) => {
   try {
     const res = await fetch('https://api.semanticscholar.org/graph/v1/paper/search?limit=8&fields=title,tldr,externalIds&query=' + encodeURIComponent(query))
-    if (!res.ok) return []
+    if (!res.ok) return refused('semanticscholar.org', res.status)
     const papers = ((await res.json()) as { data?: { paperId?: string; title?: string; tldr?: { text?: string } }[] }).data ?? []
-    return papers.map((p) => ({
+    return answered('semanticscholar.org', papers.map((p) => ({
       source: 'semanticscholar.org', address: toUuid('s2:' + (p.paperId ?? '')),
       note: `S2 ${(p.title ?? '').slice(0, 60)}${p.tldr?.text ? ' — AI tldr: ' + p.tldr.text.slice(0, 90) : ''}`,
-    }))
-  } catch { return [] }
+    })))
+  } catch (e) { return unreached('semanticscholar.org', e) }
 }
 
 const openAlexSource: ResearchSource = async (query) => {
   try {
     const res = await fetch('https://api.openalex.org/works?per-page=8&mailto=ceccec@psg.bg&search=' + encodeURIComponent(query))
-    if (!res.ok) return []
+    if (!res.ok) return refused('openalex.org', res.status)
     const works = ((await res.json()) as { results?: { id?: string; display_name?: string; primary_topic?: { display_name?: string } }[] }).results ?? []
-    return works.map((w) => ({
+    return answered('openalex.org', works.map((w) => ({
       source: 'openalex.org', address: toUuid('openalex:' + (w.id ?? '')),
       note: `OpenAlex ${(w.display_name ?? '').slice(0, 70)}${w.primary_topic?.display_name ? ' [' + w.primary_topic.display_name.slice(0, 30) + ']' : ''}`,
-    }))
-  } catch { return [] }
+    })))
+  } catch (e) { return unreached('openalex.org', e) }
 }
 
 const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource, semanticScholarSource, openAlexSource]
@@ -126,7 +175,14 @@ export const RESEARCH_SOURCE_NAMES: readonly string[] = ['nist.gov', 'zenodo.org
  *  Evidence item. The responses are DATA — content-addressed. Best-effort: a down/empty stream yields
  *  no evidence, never a fabricated one. The one parallel fan-out every research consumer shares (DRY). */
 export async function researchEvidence(query: string): Promise<ResearchEvidence[]> {
-  return (await Promise.all(RESEARCH_SOURCES.map((s) => s(query)))).flat()
+  return (await researchSweep(query)).flatMap((r) => r.evidence)
+}
+
+/** researchSweep(query) → the same parallel fan-out, but every archive's READING: what it said AND whether it
+ *  spoke at all. This is the call a verdict should use; researchEvidence keeps its shape for consumers that only
+ *  want the rows (editorial.ts), and loses exactly the thing they never asked for. */
+export async function researchSweep(query: string): Promise<SourceReading[]> {
+  return await Promise.all(RESEARCH_SOURCES.map((s) => s(query)))
 }
 
 /** approve(c) → the HARD gate: ONLY a local by-decide seal (the "quantum" verification — a proof that COMPUTES)
@@ -150,7 +206,10 @@ export function approve(c: Corroboration): Corroboration {
  *  HONEST: it can only CORROBORATE (external evidence) or leave UNVERIFIED — it can NEVER seal; only a by-decide
  *  theorem does, and it can never refute (no counterexample lives in an external stream). */
 export async function corroborateWithResearch(statement: string): Promise<Corroboration> {
-  return corroborate(statement, await researchEvidence(statement))
+  // the SWEEP, not just the rows: the verdict needs to know how many archives actually answered, or it cannot
+  // tell "nothing attests this" from "nobody was asked"
+  const readings = await researchSweep(statement)
+  return corroborate(statement, readings.flatMap((r) => r.evidence), undefined, reachOf(readings))
 }
 
 export interface FirewallResult {

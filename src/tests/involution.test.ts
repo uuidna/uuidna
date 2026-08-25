@@ -8,6 +8,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   INVOLUTIONS, evaluable, holds, applyToElements, involutionSurvives, census, control, digitalRootOf,
+  stripAscriptions,
 } from '../involution/index.js'
 
 const divZero = INVOLUTIONS.find((i) => i.name === 'divZero')!
@@ -99,4 +100,23 @@ test('digitalRootOf lands in 1..9 and moves with the address', () => {
   const a = digitalRootOf('fb4390b8-651d-87a1-aa99-06caf243c6b0')
   assert.ok(a >= 1 && a <= 9)
   assert.notEqual(a, digitalRootOf('ffffffff-ffff-ffff-ffff-ffffffffffff'))
+})
+
+test('A TYPE ASCRIPTION IS NOT ARITHMETIC — stripped before the grammar is consulted', () => {
+  assert.equal(stripAscriptions('((2:Nat)^2 < 2^3)'), '(2^2 < 2^3)')
+  assert.equal(stripAscriptions('(-3 : Int) + 1'), '-3 + 1')
+  assert.equal(stripAscriptions('no ascription here'), 'no ascription here')
+  assert.equal(evaluable('((2:Nat)^2 < 2^3) ∧ (2^3 = 8)'), true, 'reachable now, and it was only ever syntax')
+  assert.equal(holds('((2:Nat)^2 < 2^3) ∧ (2^3 = 8)'), true)
+})
+
+test('THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreached, never true', () => {
+  // the condition this widening was accepted under: a form it cannot FULLY parse must be null, because an
+  // `unreached` is a state a caller counts and a `true` is one they publish. A wider grammar that started
+  // guessing would turn a countable absence into a claim — the exact defect this module exists to refuse.
+  for (const partial of ['(2:Nat)^2 < 2^3 )junk', '1 = 1 ∧', '((2:Nat)^2', '2 = 2 trailing', '(3:Nat)']) {
+    assert.equal(holds(partial), null, `must be unreached, not true: ${partial}`)
+  }
+  // and it still decides falsity rather than refusing it — an instrument that cannot say false says nothing
+  assert.equal(holds('((2:Nat)^2 = 5)'), false)
 })

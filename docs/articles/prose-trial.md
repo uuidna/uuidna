@@ -25,7 +25,7 @@ The ledger holds this as [order_measures_orbit](/theorem/order_measures_orbit) �
 orbits.map (fun o => o.length) = [10,8,3,1,6,4]
 ```
 
-### A FORGED ORDER IS REFUSED, and the refusal is on this line. Move one order by one and the derived list no longer equals it — so a period a person chose can never pass as a period the walk measured.
+### A FORGED ORDER IS REFUSED, and the refusal is on this line. Move one order by one and the derived list no longer equals it — so a period a person chose can never pass as a period the walk actually reaches.
 The ledger holds this as [forged_order_refused](/theorem/forged_order_refused) — proven `by decide`, sorry-free:
 
 ```lean

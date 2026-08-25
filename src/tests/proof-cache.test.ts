@@ -17,13 +17,34 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
+import { PROVE_ALL, PROVED_CHAIN, proveAllEnv } from '../scripts/prove-all.js'
 
 test('the release gate re-proves from the KERNEL — it never accepts the receipt cache', () => {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
   const audit = pkg.scripts.audit ?? ''
-  assert.ok(audit.includes('lean'), 'the audit must prove the ledger at all')
-  assert.match(audit, /UUIDNA_PROVE_ALL=1\s+npm run lean/,
-    'the release path must force every kernel spawn — a delta gate on a committed, unvalidated cache is not a proof')
+  assert.ok(audit.includes('prove-all'), 'the audit must prove the ledger at all')
+
+  // THE LAW IS THE SAME; ITS INSTRUMENT MOVED (2026-08-25). This asserted the literal shell form
+  // `UUIDNA_PROVE_ALL=1 npm run lean` — and by pinning it, made a SHELL ASSUMPTION into a requirement about
+  // PROVING. `VAR=value cmd` is POSIX; npm hands scripts to cmd.exe wherever script-shell is unset, which is the
+  // default on Windows, so the release gate — which is also prepublishOnly — died at link 2 of 36 with
+  // "'UUIDNA_PROVE_ALL' is not recognized" and had never run on that host at all. The test was green throughout,
+  // because it read the string rather than running it.
+  //
+  // What the law actually requires is that every kernel spawn is FORCED, so that a delta gate over a committed,
+  // unvalidated cache cannot pass for a proof. That is now decided by the program: prove-all builds the
+  // environment and spawns the lean chain through the host's own resolved shell. Asserted here in both halves —
+  // the chain invokes the runner, and the runner genuinely sets the flag the six consumers read.
+  assert.match(audit, /node dist\/scripts\/prove-all\.js/,
+    'the release path must force every kernel spawn through the runner that decides it, not through a shell prefix')
+  assert.equal(proveAllEnv({})[PROVE_ALL], '1', 'and the runner must actually set the flag — the law, not the spelling')
+  assert.equal(PROVE_ALL, 'UUIDNA_PROVE_ALL', 'under the exact name lean-all, lean-axioms, lean-gen and the rest read')
+  assert.equal(PROVED_CHAIN, 'npm run lean', 'over the ONE lean chain — a second copy carrying the flag would drift')
+  // the base environment survives: forcing a proof must not strip the PATH the kernel is found on
+  assert.equal(proveAllEnv({ PATH: '/usr/bin' }).PATH, '/usr/bin', 'the flag is added, never substituted for the environment')
+  // and the manifest must not regress to a form only one shell can read
+  assert.doesNotMatch(audit, /[A-Z_]+=\S+\s+npm run/,
+    'no link may carry a POSIX env prefix — npm gives the string to whatever shell it picked, and cmd.exe cannot read one')
   // prepublishOnly IS the publish gate, so the forcing must be on the chain that actually runs before publishing
   assert.match(pkg.scripts.prepublishOnly ?? '', /audit/, 'the audit must be what prepublish runs')
 })

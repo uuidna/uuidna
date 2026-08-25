@@ -44,9 +44,6 @@ the question already stated; nothing is sent until the reader clicks.
 - **`050407c2`** refused[] in this very file is read by NO finder. Seven readers open leads.json; none looks at the refusals.
   <br><small>owes: a finder that fails when a network-touching source names a host listed here, plus a recomputed robots.txt assertion so the boundary can FAIL rather than merely be written down. I proposed crawling chitanka's /api hours after this file refused it, because prose no gate reads is prose that gets walked past.</small>
   <br><small><a href="https://stackoverflow.com/ai-assist?q=refused%5B%5D%20in%20this%20very%20file%20is%20read%20by%20NO%20finder.%20Seven%20readers%20open%20leads.json%3B%20none%20looks%20at%20the%20refusals." target="_blank" rel="noopener">take this one further →</a></small>
-- **`1592e26d`** runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.
-  <br><small>owes: nothing on the export. THE PERIOD CLAIM WAS FALSE and is corrected here rather than deleted: I reported period returning 0 for every non-zero seed as a defect and said every period figure this session was suspect. Measured: the alternating dz/doubling walk genuinely has NO in-phase period — seed 2 returns to itself at step 6 (an EVEN index, out of phase), seeds 1 and 3 never return within 24, and only seed 0 closes in phase at 2 because both maps fix it. period() requires a return at an odd index (a completed dz-then-doubling pair) and that is CORRECT. Returning 0 is an accurate report that no period exists, and the reason is structural: doubling is irreversible, so the walk cannot return to a seed outside its image. The only real defect left is cosmetic — 0 reads like a measured value in a table when it means 'no period'. I diagnosed by reading the code and did not run it.</small>
-  <br><small><a href="https://stackoverflow.com/ai-assist?q=runSequence%20was%20not%20exported%20from%20src%2Findex.ts%20%E2%80%94%20sequence-run.ts's%20header%20said%20the%20primitives%20'had%20no%20front%20door'%20and%20it%20built%20one%2C%20but%20the%20door%20was%20not%20on%20the%20public%20surface.%20EXPORTED%202026-08-21." target="_blank" rel="noopener">take this one further →</a></small>
 - **`2aaac145`** docs/theorem/[key].paths.js and docs/publications/[slug].paths.js already mint a page per handle; the template is scoped to theorem keys and publication slugs.
   <br><small>owes: one template reaching ALL handles — sequence handles, chunk handles, VE handles — the way the crypto layer answers any nonce with one derivation.</small>
   <br><small><a href="https://stackoverflow.com/ai-assist?q=docs%2Ftheorem%2F%5Bkey%5D.paths.js%20and%20docs%2Fpublications%2F%5Bslug%5D.paths.js%20already%20mint%20a%20page%20per%20handle%3B%20the%20template%20is%20scoped%20to%20theorem%20keys%20and%20publication%20slugs." target="_blank" rel="noopener">take this one further →</a></small>
@@ -56,9 +53,6 @@ the question already stated; nothing is sent until the reader clicks.
 - **`8827e107`** The hosted MCP bills a call that is missing a required argument
   <br><small>owes: uuidna.com/mcp accepted uuidna_decide with no input, stringified undefined into the input field, ran the gate CLEAN, deposited two coins and returned UNVERIFIED — a real verdict about a non-claim. Local callTool refuses it correctly (missing required argument: input), so the enforcement exists and is absent from the deployed path. Validate before the deposit: the coins are taken before the verdict is formed.</small>
   <br><small><a href="https://stackoverflow.com/ai-assist?q=The%20hosted%20MCP%20bills%20a%20call%20that%20is%20missing%20a%20required%20argument" target="_blank" rel="noopener">take this one further →</a></small>
-- **`f43ebebc`** roundTrips() disagrees with a verified byte-exact imprint round-trip
-  <br><small>owes: imprintTextChain(addr) then readImprintTextChain returned the address byte-exact over 3 links at 115 bits each, while roundTrips(addr) returned false for the same address. Either the predicate checks a stricter chain form than the text chain, or it is wrong. Read it before trusting either.</small>
-  <br><small><a href="https://stackoverflow.com/ai-assist?q=roundTrips()%20disagrees%20with%20a%20verified%20byte-exact%20imprint%20round-trip" target="_blank" rel="noopener">take this one further →</a></small>
 
 Working on one of these? Take it somewhere with room to think — <a href="https://stackoverflow.com/ai-assist" target="_blank" rel="noopener">Stack Overflow's AI assist</a>
 is one such room. Those links are for you to click: this project asks sanctioned APIs for data and never automates
@@ -88,6 +82,10 @@ a site that declines machines — stackoverflow.com answers 418 to a client, and
   <br><small><a href="https://stackoverflow.com/ai-assist?q=Literature%20has%20poor%20theorem%20yield%20(one%20per%20quarter-million%20characters)" target="_blank" rel="noopener">take this one further →</a></small>
 - **`47a22cc2`** The ledger and the wings had drifted; two theorems were proven and invisible
   <br><small><a href="https://stackoverflow.com/ai-assist?q=The%20ledger%20and%20the%20wings%20had%20drifted%3B%20two%20theorems%20were%20proven%20and%20invisible" target="_blank" rel="noopener">take this one further →</a></small>
+- **`f43ebebc`** roundTrips() disagrees with a verified byte-exact imprint round-trip
+  <br><small><a href="https://stackoverflow.com/ai-assist?q=roundTrips()%20disagrees%20with%20a%20verified%20byte-exact%20imprint%20round-trip" target="_blank" rel="noopener">take this one further →</a></small>
+- **`1592e26d`** runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.
+  <br><small><a href="https://stackoverflow.com/ai-assist?q=runSequence%20was%20not%20exported%20from%20src%2Findex.ts%20%E2%80%94%20sequence-run.ts's%20header%20said%20the%20primitives%20'had%20no%20front%20door'%20and%20it%20built%20one%2C%20but%20the%20door%20was%20not%20on%20the%20public%20surface.%20EXPORTED%202026-08-21." target="_blank" rel="noopener">take this one further →</a></small>
 
 ## Refused — a boundary was read and respected
 
@@ -106,4 +104,4 @@ a site that declines machines — stackoverflow.com answers 418 to a client, and
 
 ---
 
-<small>15 held · 11 refuted · 6 refused · generated from the ledger's leads record</small>
+<small>13 held · 13 refuted · 6 refused · generated from the ledger's leads record</small>

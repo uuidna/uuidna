@@ -78,7 +78,14 @@ if (process.argv.includes('--seal')) {
   } else {
     console.error(`✗ spin --verify — NON-QUANTUM DRIFT: ${drift.length} derived file(s) moved since the last seal (receipt ${receipt} ≠ sealed ${sealedReceipt}):`)
     for (const d of drift) console.error(`    ${d.path}: coin ${d.sealed} → ${d.spun}`)
-    console.error('  Fix: npm run reconcile (re-derive from the ledger + re-seal), or restore the file. Spin hard-rejects drift.')
+    // THE SAFE DOOR NAMED FIRST (2026-08-25). This said "npm run reconcile", which re-derives AND stages AND
+    // commits AND pushes — and stages DRAIN_PATHS as DIRECTORIES, so on a shared checkout it sweeps another
+    // session's untracked files into your commit. Five sessions work this tree. `--derive-only` does the half
+    // that fixes drift and stops before publishing anything, and it existed the whole time while every failure
+    // message pointed at the other one. I hand-rolled its ten steps six times tonight before reading the source.
+    console.error('  Fix: npm run reconcile -- --derive-only   (re-derive from the ledger + re-seal, publishes NOTHING)')
+    console.error('       npm run reconcile                    (the same, then stages, commits and pushes — NOT on a shared tree)')
+    console.error('       or restore the file. Spin hard-rejects drift.')
     process.exit(1)
   }
 }

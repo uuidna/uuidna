@@ -2,8 +2,8 @@
   "generated": "2026-08-25",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1690,
-  "total_theorems": 1690,
+  "total_claimed": 2114,
+  "total_theorems": 2114,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,8 +3781,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "d4293492-16d3-84c1-8d01-4403695b2774",
-      "address": "1eccce95-64cb-82c8-9180-6a37f1b309cd",
+      "lineAddress": "f91e22d5-5f99-87f3-805e-312615ba8e08",
+      "address": "b2e6f434-b8c8-89b7-a6fa-40afda7fc373",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3793,8 +3793,8 @@
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "15ab4f3e-b0d3-8851-96af-e931ef3926ff",
-      "address": "b6144e11-03ba-8530-be4b-91aff25c5ee6",
+      "lineAddress": "e062bfce-f5ae-85e9-bd8c-949981cff475",
+      "address": "4685a435-9a19-8b8f-8a4c-ccc5b118cec7",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4033,38 +4033,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "af6d01e7-174b-857d-9ac1-6a871e5b1fab",
-      "address": "d77469f4-6aa3-8a86-9cf9-3490bbdcd82c",
+      "lineAddress": "72acc27b-22ee-8f9d-861e-476f083b25ce",
+      "address": "0b9071b6-0576-81e0-a90f-a4e73a7de3d3",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "c8bed2be-827a-8d8a-b140-d0585b5ce91c",
-      "address": "ccfd7d00-65c0-8d38-8e57-0d6df21e4a73",
+      "lineAddress": "a647d073-19ac-86fb-b720-37061471bdeb",
+      "address": "fa06f420-214a-8529-9af2-0e197d92294d",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "2a32a895-79d7-8fc5-946b-7c4725d90e9e",
-      "address": "e60604a0-4540-808d-a840-b224a3883617",
+      "lineAddress": "1da94251-3c31-8825-b20c-3f8976283f96",
+      "address": "52982ca2-5ba8-89b8-85c6-174380f7cc5f",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "d5e7a4e9-648a-8d94-92e9-8a670767af8c",
-      "address": "8c11372e-4b75-81cc-a16d-2606fd41fa48",
+      "lineAddress": "00d07432-0241-8e10-91eb-3c7fe119afb5",
+      "address": "b8b11790-ef49-8178-a5df-a68d07d1b978",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "25d8828a-8bf8-8110-acc0-c1dfadf78812",
-      "address": "74877034-0237-8f48-bc32-bdaabf6e8542",
+      "lineAddress": "bf426df8-bba3-8361-84e0-3009d045bde0",
+      "address": "370ea60b-519b-82a6-92a1-7fce0dc46afb",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "cc543539-c9a9-8258-a7b9-07aeb6efdbc0",
-      "address": "07e532ca-8965-8b1a-827d-218d82b2c830",
+      "lineAddress": "2338548f-4e96-84fe-87f4-6f7bb66debb2",
+      "address": "98570d13-9295-8d81-8e8e-73e3f9382d94",
       "principle": "The detectors, proven"
     },
     {
@@ -4368,6 +4368,24 @@
       "principle": "The hardware-verifiable binary algebra"
     },
     {
+      "key": "lanes_partition_the_work",
+      "lineAddress": "3fec2afd-3d74-863d-9112-8fdb67ad468c",
+      "address": "ed4a30c6-b7fe-825d-aef9-a75ef43f863f",
+      "principle": "The hardware-verifiable binary algebra"
+    },
+    {
+      "key": "lanes_balance_within_one",
+      "lineAddress": "7aced84f-889a-8d19-8f1d-936f3832da10",
+      "address": "ea7f277d-e430-8eb4-ba73-e138bba8c438",
+      "principle": "The hardware-verifiable binary algebra"
+    },
+    {
+      "key": "lanes_even_on_complete_system",
+      "lineAddress": "a5eeeffa-afa1-817a-94b5-e42ef7bda2f7",
+      "address": "d34a4501-a4a4-8b79-8720-fa1ee10f9b5c",
+      "principle": "The hardware-verifiable binary algebra"
+    },
+    {
       "key": "codec_split_recompose_lossless",
       "lineAddress": "ad48f4c9-496a-8a26-89d1-dbce6695aa77",
       "address": "ad91d0e5-fc0f-8d0a-afb4-0d9cf8365966",
@@ -4435,14 +4453,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "c1a1661c-5f9b-8f94-9fcf-ab6856eb3a19",
-      "address": "8216e462-2f2c-832b-878a-4c685ba2c97d",
+      "lineAddress": "f9457083-cf7b-8bab-ba95-41f026c2b1fc",
+      "address": "b084588d-7bb4-869c-a1dd-c676698ac975",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "fa3c2c12-93e1-878e-8f17-f839d2fb9df6",
-      "address": "0e32ca3e-9469-857d-8558-741717f41356",
+      "lineAddress": "f313a2dd-695a-81d0-8925-2305c5a7d03f",
+      "address": "a2244c64-54a5-826d-8d1b-c3e5161f08d2",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -4455,6 +4473,12 @@
       "key": "message_carries_address",
       "lineAddress": "541882e7-736d-8159-bca6-3b0f2da3fa64",
       "address": "efb6d8f6-f4b9-8772-a272-fd253553bb28",
+      "principle": "The software-verifiable algebra"
+    },
+    {
+      "key": "no_wing_buys_its_own_ceiling",
+      "lineAddress": "ac5aa783-71df-84a9-895c-9cd420d10f16",
+      "address": "25dbb42e-61a4-8d6b-b414-16e952b5242b",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -6696,6 +6720,42 @@
       "principle": "The calendar"
     },
     {
+      "key": "february_is_the_only_month_of_whole_weeks",
+      "lineAddress": "73c9f888-93c3-8523-8d44-68030a97a8a6",
+      "address": "8d98ddfb-abd3-8057-9936-1f1f3339e23d",
+      "principle": "The calendar"
+    },
+    {
+      "key": "julian_cycle_closes_at_twenty_eight",
+      "lineAddress": "8e81d4e2-f26e-8a86-9c9e-29c743e785a7",
+      "address": "1c6ab62f-ee68-83ff-b9cb-6ba5ef8aa9ac",
+      "principle": "The calendar"
+    },
+    {
+      "key": "the_gregorian_cycle_counted_in_weeks",
+      "lineAddress": "be1db8eb-00a9-81f7-8f06-496341ca1fd1",
+      "address": "7ba309ef-b865-8b92-8151-1b4ada42d750",
+      "principle": "The calendar"
+    },
+    {
+      "key": "the_reform_is_exactly_three_days_in_four_hundred",
+      "lineAddress": "a898143f-9e93-8f73-8e8a-87c068afde14",
+      "address": "688a7172-b37e-8e6c-b320-f2199d447c1b",
+      "principle": "The calendar"
+    },
+    {
+      "key": "the_record_has_holes_the_rule_does_not",
+      "lineAddress": "7e506e62-fe89-8fad-9e84-610a77f5da89",
+      "address": "25a5c9ed-e488-8450-a835-7de11c3a2048",
+      "principle": "The calendar"
+    },
+    {
+      "key": "a_gapless_index_admits_nothing_between",
+      "lineAddress": "39e17454-670c-849c-b62e-54908c5d6664",
+      "address": "238dc342-f12c-8148-9de6-c9013d6ae8bc",
+      "principle": "The calendar"
+    },
+    {
       "key": "inch_is_seventytwo_points",
       "lineAddress": "f4018bd6-b739-87db-817b-a6ae665d20f7",
       "address": "0ec3cbb5-f41f-8722-95f4-af7c49b8bfac",
@@ -7806,6 +7866,12 @@
       "principle": "The uuid mix space"
     },
     {
+      "key": "the_mix_space_is_its_own_mirror",
+      "lineAddress": "94c996c1-7762-8cea-9e6c-112da256f58f",
+      "address": "9e4e2248-769c-8510-b451-092b63fd9c9a",
+      "principle": "The uuid mix space"
+    },
+    {
       "key": "song_pi_roof_opens",
       "lineAddress": "f9e32186-a2c5-8880-8daa-0f2cf658c7bd",
       "address": "a34e9592-3245-8406-abfb-3c9c3d08c68d",
@@ -8256,6 +8322,12 @@
       "principle": "The denial drained"
     },
     {
+      "key": "no_instrument_narrower_than_its_question",
+      "lineAddress": "adf11666-5319-8235-b320-c355760f6983",
+      "address": "6859ef06-3c95-8858-bd28-c5ff99aa35f2",
+      "principle": "The denial drained"
+    },
+    {
       "key": "denial_drains_to_the_last_coin",
       "lineAddress": "cb934635-54d3-86be-b3ce-8c1ac4844aff",
       "address": "31224c9d-6734-8242-bf8b-a42695f78cdd",
@@ -8283,6 +8355,12 @@
       "key": "lights_out_flip_involution",
       "lineAddress": "66d8f51a-560c-8fab-b1e3-26cc8902f8c1",
       "address": "b686d9ec-4d8a-8f6e-bfcc-cffc7bbd3d22",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "involution_replaces_the_raised_ceiling",
+      "lineAddress": "4454b403-2beb-849e-a6ed-db28a7b46476",
+      "address": "40d2a0e0-be98-8f72-8081-15a8a8801865",
       "principle": "The conveyor's first wave"
     },
     {
@@ -8589,6 +8667,2472 @@
       "key": "handles_balance_the_load_for_free",
       "lineAddress": "2c26e590-8b1f-88ea-8d2c-5dbd9acc35c1",
       "address": "452d0f29-ee30-898d-85c3-0be6f6d37b1e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "arity_admits_exactly_one_dependent_trinity",
+      "lineAddress": "f5657b46-edb8-8deb-8014-95430a98f0b7",
+      "address": "a0c93c75-0bbb-816a-a265-aadf82a32399",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "entanglement_completes_one_at_a_time",
+      "lineAddress": "a367c045-227f-8f3d-add5-c0414d612a42",
+      "address": "c0971ee2-4dfd-8a16-8fdb-92b147553c33",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_5_number_4",
+      "lineAddress": "ef16acf9-28a8-8c30-a29b-69a73af74e78",
+      "address": "3eca82ef-29d8-8474-a2b5-29930dc39561",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_5_number_2",
+      "lineAddress": "a5f4866c-a576-8b6e-8acb-60590ea0b442",
+      "address": "6ca540b9-12d1-8eae-afc5-6337ff1fc7bd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_5_number_2",
+      "lineAddress": "fa1ce00e-2903-8904-9162-d9ea6c686e41",
+      "address": "25fd6ff3-828a-8eb2-a5f2-838cd00e5fd1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_5_number_3",
+      "lineAddress": "078fe7d6-9569-8217-9111-608993ee6521",
+      "address": "3eace4a8-45c2-861f-8c2b-91e353569244",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_5_is_4",
+      "lineAddress": "b170bb66-80df-834c-a950-9ed4d8e94fbe",
+      "address": "9150b52d-0af3-893d-a455-3c205333ac01",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_6_number_2",
+      "lineAddress": "62027973-7785-81c8-8325-2ca492b8b47b",
+      "address": "cb7fb0ae-3eef-8e53-b512-26e21da3f446",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_6_number_4",
+      "lineAddress": "8e4d25f6-7f55-8bf6-a6a8-de295438da72",
+      "address": "1272f023-3850-856c-9c7c-4e7c60e5d66e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_6_number_2",
+      "lineAddress": "6360c44f-bea6-8db0-a6f2-d2377cd28ca9",
+      "address": "d0f2219e-7093-8ffe-8af7-cb60da147601",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_6_number_4",
+      "lineAddress": "67b08e6a-2f34-82a4-bcf1-0f4c96e47618",
+      "address": "b92c1936-672d-8d34-a93b-361fa54a34ba",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_7_number_6",
+      "lineAddress": "7a435ae8-4dbc-8be1-a3e2-995e9bf68235",
+      "address": "7b444a62-981a-8a4d-a704-ebae9819b806",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_7_number_2",
+      "lineAddress": "864cd6e7-507c-8f90-9112-1985b6c3667f",
+      "address": "54bbdd16-36a0-8114-9722-97f1a87e883b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_7_number_2",
+      "lineAddress": "6dd8acba-0d3e-8723-85af-2276589bc0eb",
+      "address": "090219c7-78b7-86bd-ab2f-d424976bc64a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_7_number_4",
+      "lineAddress": "f2b36554-635d-8a88-892a-83646171612c",
+      "address": "c234881a-1ae4-8de3-94ba-6cb9d3da5e29",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_7_is_3",
+      "lineAddress": "0e90400c-7f10-8b86-93b9-1a1580cc3b27",
+      "address": "b721a35b-1c6b-85d7-b193-752d18479c62",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_8_number_4",
+      "lineAddress": "75b010c7-e2b8-894e-afab-dce6578f394d",
+      "address": "9bc23a53-28f0-85fb-afbe-8af05621ba68",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_8_number_2",
+      "lineAddress": "c386dd7a-5521-8cc0-89ef-a2dac3015fdd",
+      "address": "ffda493b-6113-8db7-97ab-9e90ee3e7ce7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_8_number_4",
+      "lineAddress": "8be29d37-cce4-8954-baf7-daffdd1f58f5",
+      "address": "0582ea6b-cc94-83a5-92c5-ecb9d0937d11",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_8_number_3",
+      "lineAddress": "b4df54ac-2027-85ef-a7e3-9127f007bd8e",
+      "address": "7eb153c7-3272-84f2-9f78-2a01a998f507",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_10_number_4",
+      "lineAddress": "381580d0-c96f-8af0-b15a-d9d5eaae5455",
+      "address": "a985037a-221d-8ad4-8b16-e7aa93e44456",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_10_number_4",
+      "lineAddress": "ecd7c2a8-87c1-89dd-8c7c-8b5b53aba3c3",
+      "address": "06fc134f-2368-8713-8388-05641d69066f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_10_number_2",
+      "lineAddress": "20f61df8-ce09-8fe2-a2c3-2251096d8de6",
+      "address": "df0fc697-1ed0-8f27-b80c-5194358df2ed",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_10_number_6",
+      "lineAddress": "4958dac2-e562-8d03-8731-5011f90668e2",
+      "address": "ebed4892-f548-85e3-bb6a-ca3851e23e30",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_11_number_10",
+      "lineAddress": "38877f55-74c4-8efd-b0a3-d80e5bb548d3",
+      "address": "a97d29a6-fb8f-8a48-a70f-2887142e8735",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_11_number_2",
+      "lineAddress": "3da7656c-20e3-8be6-a896-babbf9cca94c",
+      "address": "11cc562c-c7a3-8d92-aab7-69ebd34eb29a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_11_number_2",
+      "lineAddress": "94efb168-c615-8d92-a967-8a9d4e7993a3",
+      "address": "b350502c-2aa1-841a-97e7-5dc574b2b5d0",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_11_number_6",
+      "lineAddress": "a546feef-4b04-86b5-b5ff-bc945fe74064",
+      "address": "4cbb70b4-37fd-88b9-9e96-8347ef4581cc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_11_is_10",
+      "lineAddress": "5f47a1e1-8996-823b-a720-6c329078a1ee",
+      "address": "85c2e443-3603-851d-bbb6-c730d32ecac2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_12_number_4",
+      "lineAddress": "a76a0e19-a4d8-82d5-9179-ac148c0ae311",
+      "address": "36b433b1-897f-8261-b26f-9172c374a6bc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_12_number_4",
+      "lineAddress": "b02b134c-7aef-8944-ac30-99880b982c39",
+      "address": "74b24674-3e32-87a9-91fb-5fb9fe0dad42",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_12_number_4",
+      "lineAddress": "d2fcf839-9e60-8e0a-9fa7-b2c80a3a0690",
+      "address": "b253bce9-ca21-8924-971a-896c8ad52a07",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_12_number_4",
+      "lineAddress": "5b4ba6c5-7ebd-8438-9975-974d26523a2a",
+      "address": "70133427-7ab5-8120-a771-aa232d621f8c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_13_number_12",
+      "lineAddress": "29355385-95dc-8360-9808-64b0e4e1e476",
+      "address": "540bde09-8580-8d25-a557-221ea6e192a5",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_13_number_2",
+      "lineAddress": "970c91c2-d7a4-82af-b4b5-153635c9c76e",
+      "address": "74bd8339-6854-8871-9060-4d179761da79",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_13_number_2",
+      "lineAddress": "e679c6fb-5b82-88a9-a371-8f3d9658227b",
+      "address": "82e998da-5b27-8598-92e6-47831dec6d92",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_13_number_7",
+      "lineAddress": "944d1e33-5705-86cb-ae65-7255516f5349",
+      "address": "a80d52c8-3bf9-8c17-a8a7-42187c3700e3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_13_is_12",
+      "lineAddress": "6293e6c9-bd38-8b7c-a730-5f619114dba2",
+      "address": "ce6d788d-53b5-8d34-a868-69542b06c17c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_14_number_6",
+      "lineAddress": "8500e349-1a3b-87ef-a7b5-a3bbd192f6aa",
+      "address": "2387a468-3eec-8fdf-9c6a-e7c3e415ddf6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_14_number_4",
+      "lineAddress": "b99f233f-f0d5-88f1-b9ff-edeb5d3e7646",
+      "address": "ef5cdf29-0b6d-8140-a091-874ad0bf28c3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_14_number_2",
+      "lineAddress": "479e4895-72ae-881c-a430-5454e22fdf6e",
+      "address": "913f06ea-2ddf-8e83-a88f-361ced4d646a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_14_number_8",
+      "lineAddress": "38621554-69cd-8ddd-9b73-2a5a12cc4a54",
+      "address": "2d4f4bcf-aa34-8429-948a-c9bb3e158d73",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_15_number_8",
+      "lineAddress": "629c26bc-7671-8e5c-895d-ae296611cdcc",
+      "address": "ff85087f-2889-81f6-9ef5-f13434084bf4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_15_number_4",
+      "lineAddress": "bc57ce7b-f40b-82de-a5bf-15c1f91fdacb",
+      "address": "b81848f6-ce57-814c-b485-a5504feebe64",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_15_number_4",
+      "lineAddress": "4f0385bf-9f90-8d1b-ba61-01544b5c6a26",
+      "address": "9b1268e4-f81e-888a-9092-624c7ddd8996",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_15_number_6",
+      "lineAddress": "a50d437f-455c-8c7d-9776-cf006dbecbd5",
+      "address": "0526b954-a4e7-86c6-9c5c-714fbb08dc8e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_15_is_4",
+      "lineAddress": "58f0678e-db86-8d2c-be21-e346d17fdd66",
+      "address": "86f78172-c08e-8ae9-8096-0c87324c2555",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_16_number_8",
+      "lineAddress": "b6c8c695-ccca-872a-9596-27b5b5612521",
+      "address": "818629c5-5499-8e08-b019-3383e200a21d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_16_number_2",
+      "lineAddress": "67a489b4-a3ab-88fd-ac56-3e23080ecc51",
+      "address": "4164fc34-fab3-8c4c-a395-5c810e8df17d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_16_number_4",
+      "lineAddress": "b1beaf35-ae42-8736-8e35-3adfda6ba351",
+      "address": "285e5f19-cd7d-85df-9099-8ea4bed7ec4e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_16_number_4",
+      "lineAddress": "7b100dfc-3ded-82b2-a887-c868f5c0c1a3",
+      "address": "bbec1054-b1e5-8367-a97b-186dff2f05ba",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_18_number_6",
+      "lineAddress": "8bf2216f-e56b-80a0-ac95-98fa45c59162",
+      "address": "39226474-7343-80f3-8143-ab37ff318e54",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_18_number_4",
+      "lineAddress": "7158ac49-889d-8937-bc03-742fd4dcf836",
+      "address": "5d4d923a-0a29-81bc-ac26-f20f68d0263b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_18_number_2",
+      "lineAddress": "ae608fef-b5c0-8065-9b79-fb1d92d1bfa9",
+      "address": "7518bd5a-dc67-815d-8bd5-0e0868dd7581",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_18_number_8",
+      "lineAddress": "93d99f47-6142-8778-8fb1-b36fe3255548",
+      "address": "adc16b32-7690-8b7c-8152-9530670d94be",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_20_number_8",
+      "lineAddress": "d8c095be-fd0a-8f3c-b39b-eb37e4ba4030",
+      "address": "d25a8144-56a2-856c-978c-814d760fd44a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_20_number_4",
+      "lineAddress": "ed40efc1-9fff-86ac-a1e8-37f8ced858d5",
+      "address": "baa621a8-df6a-8450-89c2-37e7829804cb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_20_number_4",
+      "lineAddress": "1bbc2c3e-448e-8c65-a5cb-5e1be6dd9c02",
+      "address": "52a92cd9-9eb8-8d52-bcd0-1f77aba9e370",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_20_number_6",
+      "lineAddress": "eafc2e6f-d3f4-866c-b5ab-5780e7bb5fbe",
+      "address": "33101105-8b80-8ba4-8ee0-14d927c4438d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_21_number_12",
+      "lineAddress": "c5cae0ae-e7f2-83ab-bc4e-a1432f7cd456",
+      "address": "09d79eb0-0f91-8a51-ab96-9ccbd1f3906c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_21_number_4",
+      "lineAddress": "a75e770f-e3d9-89be-b9d2-eb296cda4957",
+      "address": "6049f430-0462-816f-ada1-427dbaec8e8f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_21_number_4",
+      "lineAddress": "4acba3d1-0129-8c6e-b4fb-d053c119d949",
+      "address": "28b0d4d5-0764-860f-abcd-d99b3fa7b871",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_21_number_8",
+      "lineAddress": "2969a725-97f2-877e-8e43-f106e640e6f3",
+      "address": "1800ef27-a310-8df0-bb35-d3d626abd25c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_21_is_6",
+      "lineAddress": "5843a63c-679d-8298-9ff6-1f3df8c887f8",
+      "address": "643f4813-3b08-8691-bca9-fa4551a23b8c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_22_number_10",
+      "lineAddress": "b6067cd9-f81a-846c-be9d-9d8a71a41893",
+      "address": "c78d37d3-a2d0-88c5-8b9a-fedf510342b4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_22_number_4",
+      "lineAddress": "41f12a8d-c0cd-8531-9aa5-e0aa6ea0bd64",
+      "address": "dbabddb2-f8f0-8d62-a9d8-5d293f588c68",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_22_number_2",
+      "lineAddress": "ed3729dc-4386-886d-b9e7-7c3e84031e6a",
+      "address": "1a7a6b23-16c1-8ea8-8151-01fffd04b4a5",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_22_number_12",
+      "lineAddress": "ff5dd53f-0613-822d-a624-3d362e62287d",
+      "address": "d260a000-9d25-844c-9470-ed701ce9e367",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_24_number_8",
+      "lineAddress": "9056cd29-9929-8711-bcb5-1b3a2e07fd1c",
+      "address": "0117d47f-5823-827c-9607-7fecdd40df38",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_24_number_4",
+      "lineAddress": "9d6029a7-238f-80b5-a207-95e9b197b509",
+      "address": "227341c2-49f1-8ba7-8854-c738e8a18c74",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_24_number_8",
+      "lineAddress": "fb0bb461-f86a-84c7-8ec7-03063336c411",
+      "address": "093f251a-eb5a-8eaf-85bf-0155f45f1799",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_24_number_6",
+      "lineAddress": "14d22012-c30c-866f-a4b4-a4810262c8ae",
+      "address": "db5955db-5cf5-88b9-9646-2fff034997f6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_25_number_20",
+      "lineAddress": "f3e61495-37f6-8c9d-8526-2f4a3d13d7b4",
+      "address": "17caa53f-c30c-8e64-b8af-56ce1c76ca1f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_25_number_2",
+      "lineAddress": "375449b4-0dc3-8cd1-9e30-da46a2b3d2f5",
+      "address": "1b01f2ba-3db7-8ac1-81fb-b3c66a558212",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_25_number_2",
+      "lineAddress": "c88cd2e5-8870-84f2-9543-e2da3d9b26c5",
+      "address": "26a089ca-2fb8-80ee-a364-5dac4f900a88",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_25_number_11",
+      "lineAddress": "a636a999-5820-8190-9105-eb7d5fdb712a",
+      "address": "1c7963a7-60cd-89eb-a49d-b4c8347bdcfe",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_25_is_20",
+      "lineAddress": "7bac96c8-221c-8191-b75c-a434d926cc6a",
+      "address": "1eb742eb-1bc3-8c08-ae82-efa9b8ddc526",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_26_number_12",
+      "lineAddress": "b05d8c82-e618-8332-adb1-3a3136ad4c6a",
+      "address": "aa95ceff-3a81-8236-bc3a-f274f94d100a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_26_number_4",
+      "lineAddress": "df4fe5be-3b5b-8909-bce4-119779833b0d",
+      "address": "6eaf20c7-f359-8413-b58b-6bc16c0fb84e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_26_number_2",
+      "lineAddress": "56bed41b-a8c1-8966-a34f-87ab447e969e",
+      "address": "e8679f37-c7e9-820f-a8f8-d290f2dada3a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_26_number_14",
+      "lineAddress": "743a348a-a127-8417-b054-97759f9c7b93",
+      "address": "8ddd1fec-faf5-821b-a953-58943a2104e4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_27_number_18",
+      "lineAddress": "37f26cea-bd70-8db2-9fff-e64571bfc92a",
+      "address": "6ac70812-75af-8bff-ba74-1d2f049a42db",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_27_number_2",
+      "lineAddress": "6b0756d3-5b91-8194-a4dd-4b48ece68a00",
+      "address": "64dedf8a-a833-88fd-8a99-33341437e77f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_27_number_2",
+      "lineAddress": "1b114bcf-1b1e-8ca0-8e21-fa621fdaab35",
+      "address": "ed9b07a2-3748-88f9-b257-25675db5eadb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_27_number_11",
+      "lineAddress": "01826a43-59e7-807d-a70c-9678a9ef54f3",
+      "address": "d2e25771-edae-8a65-8663-9ea1d227be49",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_27_is_18",
+      "lineAddress": "84da5d15-a625-8bee-a183-f29c542df2c2",
+      "address": "26f7b979-fe99-8d3b-a463-c3230c9ffff1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_28_number_12",
+      "lineAddress": "053e5d52-a3d8-8b24-bc5c-df310408b752",
+      "address": "0c9b36b3-996e-8019-b202-373191f8f21d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_28_number_4",
+      "lineAddress": "fcebacee-c9a1-8d25-a1b7-9ca90fbf9e58",
+      "address": "7e0f938f-1036-842e-877a-5ad098ffb940",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_28_number_4",
+      "lineAddress": "e40d3657-1e5c-8187-b63c-4f6676121d15",
+      "address": "24a8ab59-2fad-8ddb-9e0d-7577a090f626",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_28_number_8",
+      "lineAddress": "d10df5f5-8326-8ec8-8e97-45a01a2f5133",
+      "address": "3b70a280-7c2a-8917-8ec4-1d8738af5dbb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_30_number_8",
+      "lineAddress": "73557cff-5961-812f-97e0-af33d2b9e46e",
+      "address": "0431c1f6-e914-8256-bf81-2c13183fb32d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_30_number_8",
+      "lineAddress": "33b8ccad-b647-8d4d-8cb8-e603400ae99e",
+      "address": "b1e79f6a-003b-8e17-b930-a3a01afc641a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_30_number_4",
+      "lineAddress": "b07b3ba6-29a6-89e8-b457-93fb76c3db1a",
+      "address": "4d30f3b0-c537-8532-9681-83e201bd33f9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_30_number_12",
+      "lineAddress": "d8fd9e6a-cc8d-81f3-b3c9-2e565822a351",
+      "address": "e68524a1-74e8-8fa1-9f36-2a63a9861b13",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_32_number_16",
+      "lineAddress": "a4a4e3ca-f17a-8f56-b1e6-34b8dda9165d",
+      "address": "1e85dcff-c551-88f0-9968-fada514fe822",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_32_number_2",
+      "lineAddress": "1ca98f15-f91d-82f5-8987-80eb67d5d6cf",
+      "address": "3cf6d36c-dde7-8be6-87b5-407d141b741f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_32_number_4",
+      "lineAddress": "034a8dca-e6b4-8c69-a986-eb7962ea8939",
+      "address": "dc474c7a-f7d9-8023-836c-b4b23c98fbd6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_32_number_7",
+      "lineAddress": "e2707340-2b9a-8257-b46e-bb945fbc0285",
+      "address": "1a9a774e-bddf-80aa-9473-e9b479e07163",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_33_number_20",
+      "lineAddress": "0e9f8ef9-07e5-8951-8d9f-265d266e15ca",
+      "address": "9a0bb863-a2fe-8c3c-9434-06850efc355c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_33_number_4",
+      "lineAddress": "3eef8a1f-d714-89b6-b4bd-046a698b0b73",
+      "address": "992717d2-cea0-84d9-a3ee-7789daf7485f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_33_number_4",
+      "lineAddress": "5a1d5ed0-1ac7-84c7-b9c4-58c93090c24d",
+      "address": "c374b989-bbe8-8781-a1cd-17f098554ba6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_33_number_12",
+      "lineAddress": "fd24904d-738c-8611-9c3b-b7417b54028b",
+      "address": "53d8179d-2c2a-8a27-a660-40ebcbb3979d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_33_is_10",
+      "lineAddress": "05aa37a9-c955-8ab6-9898-aec9416a49d4",
+      "address": "297795e1-ff63-80a0-9a90-4726a63adfe8",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_35_number_24",
+      "lineAddress": "0702c7fa-bab8-8dd0-bb17-07aaeda3e344",
+      "address": "deefa203-eb6a-8b7a-ba5a-01a9681c63b4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_35_number_4",
+      "lineAddress": "7e2ea2db-2e7e-8eb3-9e1f-b65b863d950f",
+      "address": "bce092fe-5d99-8dd3-aa02-e2c3d3ab729e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_35_number_4",
+      "lineAddress": "e7fcb2f7-88f6-8ad4-b51d-e3b9291502f5",
+      "address": "7a28729e-571b-86c2-9123-45c3e55ea3bb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_35_number_12",
+      "lineAddress": "312b7fbc-6503-8b16-bc77-dad8098b520b",
+      "address": "61d1f378-0dd1-8ed1-b5a9-5630f2c773e6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "order_of_two_mod_35_is_12",
+      "lineAddress": "2460c2eb-6ceb-87e7-ac35-c141e7398a47",
+      "address": "7dd85c7b-abf5-8c66-a12d-bb4b04f80d0e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "units_mod_36_number_12",
+      "lineAddress": "9ae0bfe1-af10-8327-a588-4cc1a21cde4d",
+      "address": "3c7f9551-6532-8e29-85ac-ff49102e3471",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "idempotents_mod_36_number_4",
+      "lineAddress": "cbe7b6cc-fa80-87ca-aed1-ac7c62cd0da2",
+      "address": "983c7e19-9a78-8f3a-a7f4-33a93c379f45",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_36_number_4",
+      "lineAddress": "c3eba782-c8f4-8e44-ad0b-b58a11f5f6a0",
+      "address": "bd033de7-ee75-80c9-92b8-8c95696574a0",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "squares_mod_36_number_8",
+      "lineAddress": "02c79239-188d-8e9b-a157-f56f64d6ccaf",
+      "address": "3d467b18-38fa-84bc-b2c5-561f762d20d1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "z9_has_exactly_three_ideals",
+      "lineAddress": "0b94a3b1-c374-87cb-85de-9171d4f5dc37",
+      "address": "0554bf55-bb89-8f2b-a59b-bd7c4af6b1db",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "z9_digit_sum_folds_to_the_residue_in_three",
+      "lineAddress": "99c033bf-c7fa-8586-b4ab-c2519deb90ea",
+      "address": "91e912a9-fe1a-8bcb-a39e-d6d71d8aa405",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "z7_quadratic_residues_euler",
+      "lineAddress": "4a14abac-2d2c-8434-929a-6c7927ee86fe",
+      "address": "62238e11-d885-8895-a291-f86c108c3bbb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "z7_primitive_roots_are_three_and_five",
+      "lineAddress": "bc277114-899b-8ca8-93ef-de9c4081d5b2",
+      "address": "8ebf98ea-042f-8088-a117-cf41437cb747",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "z7_inverse_table_and_wilson",
+      "lineAddress": "e2c3dfd9-574d-817c-9ddb-a52fff9cec33",
+      "address": "9a53c142-6c24-8525-b1a1-a8443aa30fb0",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "crt21_idempotents_invert_the_pairing",
+      "lineAddress": "18a2caec-72f5-8e78-863b-6d9607afb220",
+      "address": "9c287c72-41f2-8dbe-9598-5d4c08553333",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "crt21_units_have_exponent_six",
+      "lineAddress": "e5f20439-49d9-88c2-a5fe-bf00e92aeb1f",
+      "address": "27bba05c-1ffc-8754-b6a4-97b382378df6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "crt21_doubling_orbits_partition",
+      "lineAddress": "cd9c8504-a725-8a4b-8876-3bc9a2195506",
+      "address": "7d28b1b8-5c78-82fb-af93-4a64faba9e8b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "monotone_two_bit_gates_are_threshold",
+      "lineAddress": "4820703d-90da-864c-b41a-593ab322713b",
+      "address": "e6df32c2-7821-8d15-a03b-9601da8c6e0f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_dual_two_bit_gates_ignore_an_input",
+      "lineAddress": "66c675fc-9af7-8cf8-9e66-63a49ccb2596",
+      "address": "709a8095-f01d-8d29-8ed6-f047d155bbe6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "post_classes_leave_only_nor_and_nand",
+      "lineAddress": "da98a11a-b50a-825d-8db0-c3aa8e71ef3b",
+      "address": "2b588cff-1ae5-882e-8b05-bbab6bfbf151",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "byte_weight_splits_across_its_two_tiles",
+      "lineAddress": "41322ad1-6937-8339-9981-d31bd0a837b0",
+      "address": "fc2eda4b-8048-88ec-9448-5b28982ae427",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "parity_bit_rejects_half_the_byte_tamper_set",
+      "lineAddress": "f001af14-a1d2-82db-8345-00e670966c39",
+      "address": "e9b254bf-b2d9-80cc-93ef-173113905eac",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "tile_tamper_distance_census_is_binomial",
+      "lineAddress": "14455130-2b32-8b77-862a-cb284b6a33b6",
+      "address": "add600c1-c237-8ec0-b999-33581930b1ec",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "hamming_triangle_inequality",
+      "lineAddress": "dadbdf67-65c8-82c4-8803-e6b275b841c0",
+      "address": "a3317960-5ca3-813f-8ff0-66ed30c1d810",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "hamming_differences_are_the_code",
+      "lineAddress": "c834c1f7-3c34-845a-910c-fd25db64c950",
+      "address": "cd137f57-5b55-84ac-b263-098c569dc04b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "xor_translation_is_sharply_transitive",
+      "lineAddress": "55b2c271-d8c0-8565-9882-93dd491e2ef4",
+      "address": "7a6aae71-4a9c-864b-8536-fd21893cd61f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nim_bouton_three_heap_closure",
+      "lineAddress": "43530cda-832e-8ac5-912e-8e89d0791454",
+      "address": "836880b1-4bdc-85bc-a89f-0270fd6481d3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nim_misere_bouton_closure",
+      "lineAddress": "74970bda-5f23-8b2f-9df4-14303ffd0c35",
+      "address": "a3879964-b614-816d-89ae-ae9dd17a8bca",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "subtraction_game_123_grundy_is_mod4",
+      "lineAddress": "1d21b177-a577-8522-8f25-510f34249330",
+      "address": "09c0303d-bb7e-89fb-9b48-81f11eb84a49",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "agl9_pair_action_is_sharp_on_unit_differences",
+      "lineAddress": "7215bc66-f0c0-85ee-8f16-f112fb657c72",
+      "address": "c3888188-6bab-8a04-9b14-6fa85d2c133a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "agl9_fixed_point_census_gives_a_single_orbit",
+      "lineAddress": "fe06d599-baf8-84f2-bad7-e667ca1adb17",
+      "address": "b51c3130-4da5-89d4-a089-89f30f645d1b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "agl9_exponent_is_eighteen_with_no_element_of_that_order",
+      "lineAddress": "e55ac07c-bf0c-88ba-9900-f4522b2c3886",
+      "address": "1c21bd79-2d59-855d-b126-9dc8cbe63e17",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "involution_counts_obey_their_recurrence",
+      "lineAddress": "fb5808dd-e6c9-8d57-947f-572304435bda",
+      "address": "c1b9f7c1-bd12-82ff-a980-ce2f5eca8aa1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "s4_fixed_point_and_cycle_census",
+      "lineAddress": "392f65d6-31cb-88fd-b67e-b2f8a703a4ca",
+      "address": "e17d32f8-554a-80f8-aedc-e2f421b10976",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "s4_parity_splits_evenly_its_involutions_do_not",
+      "lineAddress": "cf920895-e260-832b-a78f-44b5914e28c4",
+      "address": "882a4475-c95b-8028-933a-5a6d35151b87",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "grid_rectangle_euler_is_one",
+      "lineAddress": "17781b23-07cf-8a32-ad23-b8dc1cabd306",
+      "address": "b1669b8a-2abb-85b8-a4ba-c5eea8a34741",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "monotone_paths_are_pascal_entries",
+      "lineAddress": "a6df49cd-5405-89ef-b7da-35bd7314e774",
+      "address": "7563cb7b-6780-81ea-aa68-13dee01be23d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "path_column_differences_close",
+      "lineAddress": "f9822d63-3516-8b6b-a799-c400e35da5cf",
+      "address": "36ccc4d0-a951-8cc3-b2b4-80630cc630d3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "stride_cycle_is_modulus_over_gcd",
+      "lineAddress": "41117034-3a28-87a4-ab28-e6b2ff72d97a",
+      "address": "f60fce72-30fb-82f6-a860-f1ccfd6b000b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "stride_first_return_is_the_cycle_length",
+      "lineAddress": "6d659d22-51e4-88b6-8f86-b8ee1d54310e",
+      "address": "e7e4b8d5-fc3b-8875-9c16-75686dc0d919",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime",
+      "lineAddress": "cb7ed1d8-da91-8c7b-816d-c1195310bbeb",
+      "address": "bdd87552-443d-82f5-8d1b-8c588d10a797",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "merkle_depth_iff_leaf_bound",
+      "lineAddress": "9fab061c-d4d7-80f6-9900-5e15d1b1ed2b",
+      "address": "673773b9-62cd-8a5d-9f8e-adb70dd9d390",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "merkle_shape_moves_root_iff_nonassociative",
+      "lineAddress": "e19facac-7891-8835-a4f3-84c5d3ff7780",
+      "address": "af8ab9f1-9a98-8108-ae6e-5a47ea2deb71",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "merkle_odd_level_padding_costs_above_leaf_count",
+      "lineAddress": "d0f2d4ea-51f2-8836-b7d1-0edf88fa00d8",
+      "address": "c9b2d707-18a2-85a4-8ff1-ff34785ddbdf",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "tet_semitone_no_integer_lattice",
+      "lineAddress": "57fcd082-eff0-8116-aed2-25921b768c32",
+      "address": "833a6bd1-2177-861c-b621-66df46a938ea",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_5_number_1",
+      "lineAddress": "3e980f3e-aa64-87fc-ad28-67cde0e106f6",
+      "address": "c606eac2-8a0b-8483-b59b-24676ac35805",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_5_number_5",
+      "lineAddress": "f105357e-35ab-8dc6-9a17-73c6718d90cc",
+      "address": "7db68141-c0e8-85d5-8592-1ae35d004061",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_5_number_5",
+      "lineAddress": "da8802af-e770-8252-b29f-a7ff5c755bfe",
+      "address": "581c8560-3300-8958-bead-04cbf48d82b9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_5_is_4",
+      "lineAddress": "65d7a0d5-5cda-8818-8bfb-ab96a66bbda6",
+      "address": "b5054ff6-56c6-854e-9c10-2fbc33e5a31e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_5_number_2",
+      "lineAddress": "c5d81135-88b9-8a46-95a4-7d0496000d7f",
+      "address": "91cc0057-d3ef-8c7b-89f6-fbd3d7cb51d8",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_5_is_0",
+      "lineAddress": "7bb3a1e9-f626-854d-a7e8-920de8b2891d",
+      "address": "f7e0968f-5367-8cc7-bdcf-d9f15085e5bc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_6_number_1",
+      "lineAddress": "26b2ff7e-a2c6-8f8f-915b-82b9943df705",
+      "address": "c5c14823-d865-8922-8555-fd64b40283a1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_6_number_6",
+      "lineAddress": "e48cf065-c1be-8eeb-95d4-2c856bb465d5",
+      "address": "93e807a5-6b11-8955-addf-c26fdbf831b9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_6_number_4",
+      "lineAddress": "59c700a5-49fd-84e7-840e-d6d6162a9b92",
+      "address": "43d8fe90-4eb7-8c29-b56a-449de10c0199",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_6_is_2",
+      "lineAddress": "75918293-ce28-8f98-a177-642252586d0b",
+      "address": "f356b909-6a4d-82f0-8595-605c43f4a590",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_6_number_4",
+      "lineAddress": "a897edff-1019-8342-bbd5-0af6f90f270b",
+      "address": "20584462-eb2b-8208-b7ce-d014e8e5c857",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_6_is_0",
+      "lineAddress": "7b6a74e1-3233-8890-88a5-daa979b6e3c2",
+      "address": "3994f8ae-ae46-8d89-9185-d418dda6f3f6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_7_number_1",
+      "lineAddress": "64239c50-3aee-8645-b706-f7a032152bbd",
+      "address": "17dfd8de-5435-8cb6-8efd-0b77c316dc62",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_7_number_3",
+      "lineAddress": "a656af9d-ce70-8a02-99da-2aed5c92aebb",
+      "address": "557c0f7d-c07b-8a20-b4a2-eca18c05f6d0",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_7_number_7",
+      "lineAddress": "1a6c7155-dcf4-86ea-be3b-d1fab055e3c2",
+      "address": "ecc85545-eb25-8293-ae6b-b3fecf79df61",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_7_is_6",
+      "lineAddress": "a05551b4-0871-85c9-8766-1348209ba4b8",
+      "address": "11c8c0d2-8b9a-8556-aa63-b6ca174dc618",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_7_number_2",
+      "lineAddress": "3ae49973-0bf1-85a8-8316-f072f59d6ff4",
+      "address": "70f0bdf3-8d3c-8466-9bc9-5055200c7cfb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_7_is_0",
+      "lineAddress": "0a7c201e-8a65-80b6-a66b-278ea2448bb8",
+      "address": "229a1cd5-dd7f-8cbe-88e6-f1c6f613f5ac",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_8_number_4",
+      "lineAddress": "49e612b0-b105-8c98-bdfd-a8087f54efca",
+      "address": "deab0a87-d4d6-836e-b602-fe2b3ca1cf04",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_8_number_5",
+      "lineAddress": "2cadf543-7b20-8a52-a899-ad3a5d5c1f09",
+      "address": "b25a26aa-b66c-8d4b-a269-ed98079d10b4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_8_number_2",
+      "lineAddress": "151ca423-3b91-817b-a0f9-bbe35da394c6",
+      "address": "0518feaf-23a1-84d9-b440-57d5ee17fbe8",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_8_is_2",
+      "lineAddress": "9372926a-235a-871f-be41-9baf7a8c9e4c",
+      "address": "376dc903-98c9-8e24-9bc2-6594e79783c9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_8_number_4",
+      "lineAddress": "37300eff-8a4a-860a-984e-8d23a41e91b4",
+      "address": "7a850f6b-2334-8321-ab13-f149971163a9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_8_is_0",
+      "lineAddress": "86a2eb6c-36d3-88b3-a9ed-1c99d9286f8c",
+      "address": "74c28985-d1ab-8a84-8394-59141d0cba4c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_9_number_3",
+      "lineAddress": "eeed56d3-fd35-8443-9e98-86cb7f95987c",
+      "address": "66f98cd4-976f-85ba-99d1-7c0e3a6e0ea7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_9_number_3",
+      "lineAddress": "ffb5d15e-026d-8fee-8e98-c5bfb3663bfb",
+      "address": "1e87df56-c5e5-8ac8-aa69-c81bf39ab4c4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_9_number_3",
+      "lineAddress": "f0fa97e8-0a74-805d-8817-ba7ab5dbd2e7",
+      "address": "49db6228-bb84-8f9b-96f3-0fa0868f8423",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_9_is_6",
+      "lineAddress": "9feac1ff-d2e5-88dc-8205-ca368a8247fc",
+      "address": "073c5ed2-f88c-8c67-b62f-14cc872231d7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_9_number_3",
+      "lineAddress": "ae2bbd41-ae82-8516-ac3c-fdade2f48f6a",
+      "address": "807e3921-f96f-8b40-804b-95edb3ab88eb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_9_is_0",
+      "lineAddress": "f4bcdcd5-3331-8f03-a57f-b18ce3196ba6",
+      "address": "dfc1c556-f948-89a3-a001-70cb528e5bf3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_10_number_1",
+      "lineAddress": "d8e2e678-96f2-8195-9c1a-01abd44254fa",
+      "address": "1261ab4d-8e3e-8e01-8975-c9490bbfc9c1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_10_number_10",
+      "lineAddress": "156d25b6-2ee8-8dc9-9105-9126ead4e4a3",
+      "address": "388ca5c1-5326-83a1-a8ac-df5efc6bb416",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_10_number_4",
+      "lineAddress": "69e105f5-9db9-8a8b-bc2c-f6b3f67f114a",
+      "address": "47a55b6b-fd36-8a40-8471-8dee504deee9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_10_is_4",
+      "lineAddress": "54dcf781-e2a4-8d97-853e-3ee1962eb593",
+      "address": "bfc7865b-a873-87ef-908f-c327a77517fd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_10_number_4",
+      "lineAddress": "63508dd2-820f-8a53-a5b0-8bee2217870b",
+      "address": "a7c8a913-06e2-8ce8-b835-7beefecd17f5",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_10_is_0",
+      "lineAddress": "4a195790-03e0-8ba1-83b9-c6f95a7bface",
+      "address": "46556329-ccdd-85fd-9b72-16225c140d4e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_11_number_1",
+      "lineAddress": "bf97c173-df2f-8cf4-8caf-c7bcc788029e",
+      "address": "3a669ff8-e702-81b6-83d0-52a1644e917e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_11_number_11",
+      "lineAddress": "83ea13a6-0055-887d-ae70-23aa4144761b",
+      "address": "caf9fdd7-03f5-8bb6-aa34-79d6376bb2e7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_11_number_11",
+      "lineAddress": "51d35c6b-f7c1-8214-bc0e-16c0f61530e2",
+      "address": "efcdf2d3-1a9f-8450-bdd8-5eeaba389380",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_11_is_10",
+      "lineAddress": "482a06b0-913b-86d3-84e6-86d960a84382",
+      "address": "4b641993-c396-8509-9e0d-774f923b58c7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_11_number_2",
+      "lineAddress": "e5f9dfb0-9040-8abe-84f0-ea4d561a7926",
+      "address": "70b35a68-2e75-820a-95a7-059ac4e1de30",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_11_is_0",
+      "lineAddress": "d9d41530-f1c7-882b-8eca-3eb351be4c2e",
+      "address": "9f78f7da-2e68-874e-92ed-ba455d42af03",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_12_number_2",
+      "lineAddress": "32b6c542-c809-82b3-9629-c7df38ce08ba",
+      "address": "74293ec2-6d17-83b3-94c9-346d6a4bb595",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_12_number_9",
+      "lineAddress": "7fd4f65f-b3f2-8506-9fc2-3041298e7573",
+      "address": "7a1da477-0f8e-89d9-a483-71046da26c83",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_12_number_4",
+      "lineAddress": "ec7aa149-c0d5-85a7-a824-94c2690dae16",
+      "address": "f475b274-60da-878c-a4d6-a0a03e814728",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_12_is_2",
+      "lineAddress": "432fd3cd-de12-8190-afe1-8df02093f918",
+      "address": "3636f971-24f2-8b71-a7de-f2cb712869c1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_12_number_6",
+      "lineAddress": "f70a497d-7f67-8e4e-949b-44e89b1db1c6",
+      "address": "c4c31315-7af8-86c1-9193-7c99fb174691",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_12_is_0",
+      "lineAddress": "5fbbbaf8-8524-840b-9fa8-b1571f512450",
+      "address": "c51ead25-bc18-8c6a-bb4e-d800d42abbfc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_13_number_1",
+      "lineAddress": "d7f929ac-9669-86ce-b525-c29b059eb5e7",
+      "address": "ee15b3fe-ef21-8aea-ba36-d099cc5f1c49",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_13_number_5",
+      "lineAddress": "07bbf1a5-cadd-8862-9a6f-265287f0754c",
+      "address": "e5b6e568-44ec-859e-996d-43d5af6cfa58",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_13_number_13",
+      "lineAddress": "38a7c55b-b969-86df-9f10-fed5171339bc",
+      "address": "14952618-d57b-817d-b120-6b44a980104b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_13_is_12",
+      "lineAddress": "fedb2dbf-ca62-8dce-bbb0-93feb9a4b1bc",
+      "address": "287d47cd-89d1-879f-8238-45aaaca95b0e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_13_number_2",
+      "lineAddress": "9b2042fd-e744-89fd-a07d-58e6d01e56e3",
+      "address": "c1758aad-93e1-8d25-8b0d-cf1d0d60e4d9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_13_is_0",
+      "lineAddress": "0f0d8667-248c-8c4c-a35d-95eec5897de7",
+      "address": "5aa47978-67a3-8252-b4f4-f8f23edb7b43",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_14_number_1",
+      "lineAddress": "05d037fc-cc33-8872-a11e-f9ea067bb7ad",
+      "address": "9a03bd19-6d10-8363-adca-672d822b5d6d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_14_number_6",
+      "lineAddress": "6b542232-bf6a-8037-94af-d749e2f50e0b",
+      "address": "9d837f47-1ab5-813f-ae0d-1b49aa7bb9dc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_14_number_4",
+      "lineAddress": "2a03ab1c-6251-810c-8155-f9adb508129b",
+      "address": "1a2d1855-ea6d-8322-9000-b16664125f7e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_14_is_6",
+      "lineAddress": "7c938d7f-d964-8f3d-84e7-192770ffa495",
+      "address": "bfabbe0c-4df0-830b-bbd2-c84a1d3d155a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_14_number_4",
+      "lineAddress": "36d05e0b-574d-8c8a-a0a4-6b242db9ed15",
+      "address": "da663da5-e54f-8202-9dbe-245fb1386fc4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_14_is_0",
+      "lineAddress": "58bb2ed5-a39d-8134-be58-a1469172e791",
+      "address": "e2ee4baa-a1c5-8081-80e7-c1dee4209b02",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_15_number_1",
+      "lineAddress": "5278e0d9-9c1e-8410-ac4a-1b8bf0f0b308",
+      "address": "e520cbf5-6718-8df8-8d6b-31f9a86b3a93",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_15_number_15",
+      "lineAddress": "fcf0f194-de4c-82cd-8082-928bd99d9934",
+      "address": "43d35917-50e5-889b-9c61-1f6332b91214",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_15_number_9",
+      "lineAddress": "d24fc303-b8fa-8789-9501-b6dba3fac195",
+      "address": "8ed69ada-11f9-82e0-932b-ac362b19c146",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_15_is_4",
+      "lineAddress": "fa188f3c-b318-8dcd-89c7-22d2a419b211",
+      "address": "5fbd440c-e7b4-8dbe-bb31-c05925d286c2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_15_number_4",
+      "lineAddress": "5b63749a-f1a2-8e12-a37b-23d857656a0e",
+      "address": "a69adbd4-1bdb-8710-800e-a3e0f0d4e9ca",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_15_is_0",
+      "lineAddress": "53392946-1efb-83b1-b1ae-fa1b9b355d4f",
+      "address": "b520fac9-86ab-8ae1-8770-9ed66073ae13",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_16_number_8",
+      "lineAddress": "3baa99fa-62ad-89d1-9124-b00c67a810f3",
+      "address": "6b51bd32-26cd-83a5-a8e4-6046ebf8405e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_16_number_10",
+      "lineAddress": "622458df-0d64-8d5a-89b0-0f02a13b8cdf",
+      "address": "8750d18f-403f-8a10-9d86-52c60a9188b3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_16_number_2",
+      "lineAddress": "e2dc6292-f812-8cc5-8953-e093f48a74d2",
+      "address": "228707d2-b7ed-8a30-b565-030cbd8ea105",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_16_is_4",
+      "lineAddress": "086651dd-dd04-88ba-b9f9-821d05ad685a",
+      "address": "215a38a1-afb9-8ca7-8184-c5aa8d1d1f01",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_16_number_5",
+      "lineAddress": "c047603b-d407-8967-95f8-e1710963bcd4",
+      "address": "dada661a-a546-8790-a8f9-3403e973825c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_16_is_0",
+      "lineAddress": "7e2aa664-1a9b-8c3a-9098-65ad08c93542",
+      "address": "4eda5661-2346-820a-849d-311bdf63fff9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_17_number_1",
+      "lineAddress": "90f7ad03-faa4-8701-ab50-31bcd5a3ae05",
+      "address": "d5cfeb4b-a2e5-8a1c-97af-97e5546ada2a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_17_number_17",
+      "lineAddress": "bb71fd80-5383-8f37-a368-9ea16218be77",
+      "address": "7c1b024f-7fbd-87a0-9057-0879b1e67f94",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_17_number_17",
+      "lineAddress": "86fd6b40-31e0-8695-9555-a333e8a38180",
+      "address": "36db211a-1d51-8540-9065-ecee9e3240fd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_17_is_16",
+      "lineAddress": "d9fd6fe5-04bf-8143-b20c-90915f06c938",
+      "address": "ed1dac6b-ccc5-8a48-8270-29507e512eec",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_17_number_2",
+      "lineAddress": "8df25553-f553-8f2d-972c-1a5156ecc974",
+      "address": "4f6045dc-61e3-8881-adc9-980be1fbbfb4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_17_is_0",
+      "lineAddress": "644a7350-de44-852e-a1b2-83b9bd442b79",
+      "address": "8722d0a5-f949-8f60-846f-53bb2c93b641",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_18_number_3",
+      "lineAddress": "e934400a-fa60-8ddf-bdb3-a6009448702b",
+      "address": "9ca61edb-a77f-858c-bbb2-081a0e3ef955",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_18_number_6",
+      "lineAddress": "1491f669-d98e-897d-933f-d1aad69fa40c",
+      "address": "bd847adb-1679-840b-9539-d3396255f3fb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_18_number_4",
+      "lineAddress": "1b6842b3-ffd4-82e8-bcfd-c7099291b952",
+      "address": "8cc27db4-52fc-80bb-b91c-3c0289d8209f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_18_is_6",
+      "lineAddress": "3864def8-5be2-8978-89b9-f4242595a592",
+      "address": "921d1022-1ec2-8f49-9507-abc800c62840",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_18_number_6",
+      "lineAddress": "67777969-5f8d-8daa-a771-f74eb7f54b94",
+      "address": "ef60f610-dd60-8109-89b6-719c98ab19aa",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_18_is_0",
+      "lineAddress": "2c2df645-43d0-8e68-8d12-390158b67ba5",
+      "address": "ed2990c7-035a-8934-a270-5e0370b50d33",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_19_number_1",
+      "lineAddress": "107faf1d-8b40-8da5-ac4e-4b19f80c3985",
+      "address": "58dc3b1a-a2d0-8fd5-bfa8-00881a90d0ff",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_19_number_7",
+      "lineAddress": "e23dd500-9e17-86e5-82d9-e49bc3124f32",
+      "address": "4d251114-7cbd-8164-a185-60a0ba671377",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_19_number_19",
+      "lineAddress": "69ad19ee-a59e-834e-99fc-dfb517b4a7b4",
+      "address": "6dde597a-00b6-8fa2-b8fb-7f5ef218cc75",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_19_is_18",
+      "lineAddress": "67a417a2-5b13-83fb-8fe9-accdd62a31b8",
+      "address": "fd9c7956-8f85-855e-8ec2-62e479a5d1b2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_19_number_2",
+      "lineAddress": "ce1965f8-0e81-803f-8731-2262c7c3f21c",
+      "address": "9ed1ac05-c1bd-843b-8efa-9cdbe599cf26",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_19_is_0",
+      "lineAddress": "229871ee-36e6-8830-9a45-535ac7929aa7",
+      "address": "d5b52f3e-835e-898f-a19f-5c540187f5df",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_20_number_2",
+      "lineAddress": "ce243e06-5c41-8f44-8647-9129a8f9d640",
+      "address": "7edecc54-09a2-8280-8015-276204652f88",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_20_number_15",
+      "lineAddress": "d73a0395-9722-89b2-ad52-a7131eeb21ed",
+      "address": "764296fb-e0ca-8df9-806a-cb1647b29a09",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_20_number_4",
+      "lineAddress": "15147407-e7da-8602-bac0-3c8033ce25ef",
+      "address": "44f58755-f6aa-8357-90ad-da7dbe339199",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_20_is_4",
+      "lineAddress": "f4348e46-0111-8ae2-b389-36447bea6082",
+      "address": "86b7ccf4-79bb-8829-8a39-6b90253c6b4a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_20_number_6",
+      "lineAddress": "9434c80b-260d-8fe6-a5ab-c61971b42883",
+      "address": "74cecc7b-b58b-8527-9619-6fdea148cbd2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_20_is_0",
+      "lineAddress": "b90664f7-941d-8bd3-aa30-4dd3a0a67403",
+      "address": "22fab8e6-b747-8976-ae79-d69fced20b05",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_21_number_1",
+      "lineAddress": "0da1e14e-019a-8a4e-be8e-70d59cd95ae2",
+      "address": "e4ae235b-4029-824a-afaa-d9d15dd6b691",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_21_number_9",
+      "lineAddress": "69ec9ae4-6cb4-88e6-a0e6-bbe600ea51b7",
+      "address": "4fa2ed16-763c-8a65-b3d8-caadfa80adbe",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_21_number_9",
+      "lineAddress": "22f767fd-4f49-85ea-aa91-69eafb713ad4",
+      "address": "cca8b578-3488-85f2-8d04-be831ec5e2b7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_21_is_6",
+      "lineAddress": "d084d771-4c43-8fbe-880f-da55200e7e66",
+      "address": "2bc1824b-bfb8-8a25-a271-df0395806fb2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_21_number_4",
+      "lineAddress": "352287a8-fdfa-8cb8-abaa-c78146f33192",
+      "address": "e98e4ddf-3972-8e14-9906-22c2bb383f56",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_21_is_0",
+      "lineAddress": "2bed6c28-4ef4-8e5b-a892-3fbdfe72c7d3",
+      "address": "991f919c-ca6a-8e6b-ac9a-156f34ed98db",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_22_number_1",
+      "lineAddress": "44dbdc9e-4e24-88a3-b42c-3403a0eab661",
+      "address": "44f6f1c0-f131-86d7-92e2-cd4e09dc6dc2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_22_number_22",
+      "lineAddress": "27c9900c-e749-8564-99dc-e4d872f64b89",
+      "address": "7b9bb58a-fe3f-8ea5-b8a9-d174f39083f5",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_22_number_4",
+      "lineAddress": "736a0f01-743b-8a7c-aec2-a9abd70febd6",
+      "address": "c06ac2b3-e478-8481-bd36-bf9e60e043cc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_22_is_10",
+      "lineAddress": "4120e2c0-e19b-8853-aa17-3b201bae9f31",
+      "address": "7607375a-2686-8646-b823-4f248897e405",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_22_number_4",
+      "lineAddress": "88f80cbe-1743-8497-92ba-0a9494f97f16",
+      "address": "37b1e117-1981-8ad4-894e-f7cc9af1367a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_22_is_0",
+      "lineAddress": "7f1a965c-d54d-8db6-b77e-df3383a7d26a",
+      "address": "a2b49f18-dcda-8695-8334-95698a348c37",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_24_number_4",
+      "lineAddress": "943a06bd-c9ca-8dde-b67a-229dfdd60e08",
+      "address": "43765bbf-d69e-8487-989b-cec2a811ccc6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_24_number_15",
+      "lineAddress": "1e8c57e9-a7d7-8d58-b4ef-7ff677d3ff79",
+      "address": "2b56eb1e-0734-8375-a5ab-9f8016815142",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_24_number_4",
+      "lineAddress": "1371f53a-1ea4-8b61-b6e9-04374b0b7ca2",
+      "address": "f5e6960f-2aa5-827c-91e1-e3adaceb0875",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_24_is_2",
+      "lineAddress": "603f5035-b94e-8bb6-9725-b9097052f014",
+      "address": "e85ffa52-8180-8791-bad9-f6d329f55ba6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_24_number_8",
+      "lineAddress": "35e1a84c-43af-8e62-bf08-6cd4f1ac3227",
+      "address": "06f8c6cc-3036-8d7d-8c8b-9d546a42bca8",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_24_is_0",
+      "lineAddress": "bd9e6915-fb2c-804f-a6b3-dd2b32809420",
+      "address": "a591d942-efe1-8ff7-9dbc-51cde1ebe9dd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_25_number_5",
+      "lineAddress": "973467b3-8785-8cf5-8450-db0fd2e41a36",
+      "address": "5920c7df-e7b7-81d3-b210-2a79702483f9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_25_number_21",
+      "lineAddress": "1e01d7e0-a7e4-8f3b-b4a6-d594e4780f25",
+      "address": "34f231b5-f20c-80bf-930f-6eb632dc02f2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_25_number_5",
+      "lineAddress": "ebc3d5e8-1651-842a-8a24-d0d37d5f94d7",
+      "address": "f0ad002e-0c88-8cc5-b9ae-16d4c5f72086",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_25_is_20",
+      "lineAddress": "1a02befa-9319-883f-af28-c90e551d1426",
+      "address": "c3d94f95-caf8-875e-9453-c28f93904490",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_25_number_3",
+      "lineAddress": "931225b2-960e-8e1f-9cea-38a45a9fa705",
+      "address": "71a7dcec-8dd7-8b68-8b82-a7a6cf723727",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_25_is_0",
+      "lineAddress": "f5117a5f-a695-88f7-9193-b9168ef6d680",
+      "address": "2d932ad9-a6d3-8a68-bc04-f34cda66242c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_26_number_1",
+      "lineAddress": "bf51f978-0753-8b21-8059-8dd9706b5fa0",
+      "address": "8c974542-99fd-8547-b3e9-21c31064b3d8",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_26_number_10",
+      "lineAddress": "c4c0c6a5-34da-819e-b22e-00d9db9a4552",
+      "address": "cc9d8cc5-be30-82a3-aa53-792f4e6e39e3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_26_number_4",
+      "lineAddress": "544d802a-3ec1-83f6-8a66-5304a66c6a48",
+      "address": "18e52524-eb6f-8994-aad9-3bc00af6374a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_26_is_12",
+      "lineAddress": "38d0f534-7968-8eb2-918d-ee19407b5b28",
+      "address": "03f32f7a-2c93-81a9-ba21-f8ef8b84d920",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_26_number_4",
+      "lineAddress": "c67ad5f9-b0ab-85c9-aecb-d41eec9f905f",
+      "address": "759d8161-3603-88e3-b7d7-8303c08dd948",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_26_is_0",
+      "lineAddress": "10c3bdad-8cfa-86af-8892-4cecb81afa19",
+      "address": "68c497ee-8fe8-82a5-9dc4-c0c4034b9c93",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_27_number_9",
+      "lineAddress": "51c6c333-e4e4-8ea1-b416-fa88cfa0aaaa",
+      "address": "520f52c3-db2c-8909-ad13-62a46d539a95",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_27_number_7",
+      "lineAddress": "d745a1fe-c090-878a-b9f7-34c5d4c4e292",
+      "address": "ecd5f5e3-aaec-8736-8213-394ad29c95f4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_27_number_3",
+      "lineAddress": "214e3680-ae04-80cc-9199-95f5c29fe57d",
+      "address": "f6144bad-74fe-87ff-9c78-4503d9626a13",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_27_is_18",
+      "lineAddress": "9883f29b-c849-89d8-b0c5-4667279fce0a",
+      "address": "a60b212d-5e51-815b-8731-9d567bca42d7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_27_number_4",
+      "lineAddress": "c7eb1cde-a8e6-8d40-8817-de91c3bd192b",
+      "address": "d1ebab4a-234e-8614-937c-18ec911ac28a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_27_is_0",
+      "lineAddress": "01189d64-be95-82f5-9bad-6b2d9d0bee50",
+      "address": "69292463-f69d-81c6-97e5-fcb3d25d79cc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_28_number_2",
+      "lineAddress": "eaf9eacf-96e8-8415-bf88-6e8c0b6e4ef3",
+      "address": "b6094d74-4176-8a7d-81c3-8a437b7d970c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_28_number_9",
+      "lineAddress": "e7c64c5e-8ead-8cbe-8e0e-b7f616b7b1c8",
+      "address": "fd6ab870-28bd-86a2-92a6-ba41d5aeb63b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_28_number_8",
+      "lineAddress": "896c07fd-0faa-8a9d-8a59-6977c8942054",
+      "address": "56872da2-998c-8c83-aa33-4b4b14cf889a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_28_is_6",
+      "lineAddress": "de1f8fa3-8c7d-82b5-9666-35c036b85399",
+      "address": "9d04fb45-c5c7-89fa-a31a-e804e02af2e1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_28_number_6",
+      "lineAddress": "88bb2870-5c0a-8a37-8c0b-f53def3b93d8",
+      "address": "9ae2cae0-9277-88ad-99cf-768a87748169",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_28_is_0",
+      "lineAddress": "ae2d2abe-be62-8a2a-bee7-cc8f31ccaec3",
+      "address": "57db498d-941b-8e5a-91f7-0ff219db4321",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_30_number_1",
+      "lineAddress": "38eea7ac-7cf0-86f9-8cb9-1f079286e53c",
+      "address": "4b7dd27d-c9c2-867b-bd49-1f34547fa28c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_30_number_30",
+      "lineAddress": "b1e23447-4d9f-85ad-ab36-092ab6f8cbb6",
+      "address": "daf3c6bd-16e5-82c6-9e46-71a60782d449",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_30_number_8",
+      "lineAddress": "819a3120-d404-81b5-86d1-8b50739bf1f5",
+      "address": "c85e1259-3ac0-8403-85ed-86e90fe2531f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_30_is_4",
+      "lineAddress": "8a0d47c0-b676-8016-986f-ef3a11220a0c",
+      "address": "51ca09e8-9ae5-8155-bd0d-0a10224dc70b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_30_number_8",
+      "lineAddress": "68889b6c-3f1b-8640-9032-3f20dc5df8e3",
+      "address": "f7499c3e-8352-8358-b827-4b1e494bdddd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_30_is_0",
+      "lineAddress": "ffd22393-a6f5-8628-bbbb-4ede08532c91",
+      "address": "0f97324a-810c-8d54-8cba-1cd8df9b5439",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_32_number_16",
+      "lineAddress": "e634cf99-9f0a-8077-97b8-e1f9909382a4",
+      "address": "b16f62f6-8dac-8951-9f11-a9c9c34469b4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_32_number_19",
+      "lineAddress": "a7608bdf-2a46-8acf-8561-db19c9d94794",
+      "address": "af590eb1-15c7-8f4e-b9ad-9d2973331112",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_32_number_2",
+      "lineAddress": "472f4f3e-790d-809e-9a46-eeb02bbd8668",
+      "address": "f6314d25-1060-869f-b22b-26635bb01f03",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_32_is_8",
+      "lineAddress": "b0cd30d8-cd3d-878f-a3b8-bcda1d5f4a0c",
+      "address": "45593a37-3212-85ff-b3fd-b1ce3082935c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_32_number_6",
+      "lineAddress": "1de5519d-99ff-89f4-8b9f-4dce6d3d6cb4",
+      "address": "abe79e6e-d961-814b-9b75-01a041ce1ff6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_32_is_0",
+      "lineAddress": "54413385-0aff-81a8-adec-72794763f9fa",
+      "address": "0fd22ffe-7a67-81fd-ac9f-2b2399badff3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_33_number_1",
+      "lineAddress": "f354ef39-9f10-89b5-9a55-2415f690a57e",
+      "address": "b64f0758-62f4-8c2c-8f93-5624b0a616de",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_33_number_33",
+      "lineAddress": "8a34d698-b40a-8fb0-97c6-b028f9d27045",
+      "address": "2d7490ad-3226-84b9-b684-2196ac5ef563",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_33_number_9",
+      "lineAddress": "4b4288fc-93c1-8bd9-a2ac-08d121f778ed",
+      "address": "89b187a6-d8c2-8eca-acde-6f80d1dccbbc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_33_is_10",
+      "lineAddress": "64d5fcaf-89bf-85b0-8c1a-4157dcf75380",
+      "address": "8e5c4044-c62d-8077-9445-42131c6b095b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_33_number_4",
+      "lineAddress": "1a415268-eebb-83b1-a0e1-c6237c11dfe4",
+      "address": "8143a56d-7029-8d0a-8eaf-3636f647d4ed",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_33_is_0",
+      "lineAddress": "eb71d69b-227d-8d65-9b35-c11bc2c06004",
+      "address": "fde226f0-77f8-8614-8211-820f68e78f53",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_34_number_1",
+      "lineAddress": "8eaf7ad3-4445-8bd4-8913-0ec6da821019",
+      "address": "12d5ee94-3081-8f1d-b7d8-6d211c72fc2b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_34_number_34",
+      "lineAddress": "ae062b5c-096e-8c61-a7fb-41ffca4f326a",
+      "address": "c7aa654f-cf69-810f-8b13-14f00ed9d7e6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_34_number_4",
+      "lineAddress": "1bf6b9c0-10be-847c-9bff-198722f570c2",
+      "address": "2849e6e4-b81c-8507-9b0f-9054b834bb77",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_34_is_16",
+      "lineAddress": "2a471bc0-3977-8f61-b9a8-a12282cca683",
+      "address": "8033eb02-4781-8235-812f-a2064c1c6212",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_34_number_4",
+      "lineAddress": "d4933361-863d-8e29-a91d-92944966f741",
+      "address": "6136c235-e053-8818-bedc-ce29ed7da7b2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_34_is_0",
+      "lineAddress": "2afeac08-a931-8537-bdaf-245bcbcd429f",
+      "address": "ad557ce0-282c-8d4d-81f6-a5a57d4f7f93",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_35_number_1",
+      "lineAddress": "91b3027e-c0fa-8dfe-be73-71d39cd8356c",
+      "address": "4331d76f-6949-8f12-a948-7a85f9bc5d06",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_35_number_15",
+      "lineAddress": "ad818192-1482-8cfd-a0bb-8db21b44ec30",
+      "address": "d0ba1def-5837-8da6-b41c-475ab36a9970",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_35_number_9",
+      "lineAddress": "c9fe8f13-d8cb-846d-8af0-212139cda9e0",
+      "address": "8d1f4dac-05d5-8b02-8664-b918540b7a09",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_35_is_12",
+      "lineAddress": "057d0f5f-ddb4-8117-a008-71caf3d7f73e",
+      "address": "df8df7bf-7426-8f0a-99e9-0345d1bfd67a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_35_number_4",
+      "lineAddress": "3e21646a-1768-8439-a5ef-763fe180ed4b",
+      "address": "f69d0fdb-8ae5-823a-b2cd-0fd361c0d4cf",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_35_is_0",
+      "lineAddress": "a0b6503b-1e99-8f61-ac2f-9e8b850d34a5",
+      "address": "b08e21e5-0e67-8cde-9ac8-22d8b3dc80f5",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_36_number_6",
+      "lineAddress": "90e0367e-7a23-8876-8bff-9117b296ab34",
+      "address": "674b8326-a5ca-8420-bea0-66dfb403ce4c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_36_number_9",
+      "lineAddress": "ef8fa087-e8e0-84db-a969-e8722abd6974",
+      "address": "dfbaa70a-c505-8c1e-9522-0e0bbbabb0dc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_36_number_4",
+      "lineAddress": "f81af5df-309f-8a26-bc6d-48e3d5d0b4b2",
+      "address": "c5340729-fef7-87da-a9b8-683f32395bcf",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_36_is_6",
+      "lineAddress": "31c3cdf4-ba15-8d49-a429-8d53c5b8e559",
+      "address": "6ed3ed3a-4612-8b8d-aae4-5b65368fa00b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_36_number_9",
+      "lineAddress": "6568f7a2-1722-875d-beb0-3768bf742f63",
+      "address": "681fff27-d1df-8775-a646-e3e9f44df3a0",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_36_is_0",
+      "lineAddress": "01d58bfa-acc9-86df-8a57-d996078b39e2",
+      "address": "18b49d68-5ddb-8c24-9962-f89bd5ecd0dd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_38_number_1",
+      "lineAddress": "1ad6e896-ab5c-8bb6-860c-bff5fdbaa0d4",
+      "address": "e67cee38-caa4-8c0e-8ac0-570c17990dd9",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_38_number_14",
+      "lineAddress": "efa0d5f3-30f9-8e5b-8b1e-999a6ad00abf",
+      "address": "81c4d53c-f74a-80df-b694-da114da6d94d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_38_number_4",
+      "lineAddress": "48f74814-12e8-8d51-be53-cb0918f93014",
+      "address": "5702d102-1126-8d04-8bf8-55d4916ff2f7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_38_is_18",
+      "lineAddress": "13ecec9e-7376-8ed9-bb98-7097f0fd41cc",
+      "address": "8cb2ab34-f606-8f8a-9dd3-90430aa62789",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_38_number_4",
+      "lineAddress": "43915cc0-170b-8363-9cbd-59643fdd6a6c",
+      "address": "61538ce6-919a-8c0f-84a2-102457cbcdbc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_38_is_0",
+      "lineAddress": "bc03dd46-81c6-8c09-963c-0dd6d4c2b9ee",
+      "address": "932acd88-b80e-81ab-a2a7-0bff2138f0ad",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_39_number_1",
+      "lineAddress": "8037c74a-b475-8bc3-9fe6-81fd4dd5578e",
+      "address": "4ae80c47-dcb2-8301-b74e-6710434f5a7d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_39_number_15",
+      "lineAddress": "62bbe69f-2f8a-8558-a9c7-ca381e128492",
+      "address": "a555bd38-95a0-8ab6-954f-a5ce0ed47efd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_39_number_9",
+      "lineAddress": "1ab560e7-7430-865d-9aac-277439416b15",
+      "address": "d7c77be1-f8fc-8455-9c4a-2801450e1737",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_39_is_12",
+      "lineAddress": "3377cf6e-e18f-8a40-94f2-4d0df181467f",
+      "address": "a01e5b39-6e03-8543-9cca-605e1bf82104",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_39_number_4",
+      "lineAddress": "e34a4084-7e3c-88d8-a952-b7ebb01f0200",
+      "address": "549ce61a-3613-8860-8b01-562b9a28e1a8",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_39_is_0",
+      "lineAddress": "3da228f0-d3dc-8d7b-8c9a-5d70f430359e",
+      "address": "092c9a1d-e981-8024-92f7-97c0fe54fbeb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_40_number_4",
+      "lineAddress": "8a683abc-1d80-82b8-a5fe-32627f6cdd4c",
+      "address": "610fa258-f1b3-818a-ae3e-65a2d84e98df",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_40_number_25",
+      "lineAddress": "d544e4d9-2e7e-83b4-9f91-11efe835d747",
+      "address": "a610f59a-2ee9-8731-9dd8-fd2098ca109d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_40_number_4",
+      "lineAddress": "67f64532-0c47-8ed3-878f-501e5c43ba94",
+      "address": "8404b4b8-111e-8f19-8498-f471ee00307e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_40_is_4",
+      "lineAddress": "4eb1e907-aadc-8993-8799-71f16e4a76e7",
+      "address": "740e691e-f9b8-8a3d-ae54-ce0050fc863c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_40_number_8",
+      "lineAddress": "1ab9c2a3-4aa4-8052-b3b4-4ee7b64b1985",
+      "address": "e8dc19d0-1228-8f78-b395-73a59bbadb94",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_40_is_0",
+      "lineAddress": "24ead68f-e851-82bf-86f2-10dc4c53f685",
+      "address": "44cfe7f1-6a59-8844-a59b-e19cf5b098fe",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_44_number_2",
+      "lineAddress": "063dd059-61ba-8aa4-b141-6ea2d96d5f22",
+      "address": "9c19f5f9-65ad-8f30-b75b-924fca44bee2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_44_number_33",
+      "lineAddress": "96478479-ee69-81e8-8670-2c9117c85918",
+      "address": "b72bdf64-29e7-8d3b-80e3-fb47d1a468bc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_44_number_4",
+      "lineAddress": "11b2822d-437d-87a8-b177-eedb675dcb5b",
+      "address": "af806be7-4e79-8233-bb32-5dd661943b98",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_44_is_10",
+      "lineAddress": "dd75bab2-c3d6-8f5a-949e-e96628242c36",
+      "address": "240dccdb-883f-89e5-955f-9c351292ecb7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_44_number_6",
+      "lineAddress": "2c6b8535-bfef-8086-b512-b2a15be9bedf",
+      "address": "f0e38697-03c9-8d3a-83b7-b5afefed7ef4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_44_is_0",
+      "lineAddress": "642393ee-27d5-8f06-8a5b-3b012bd6b94e",
+      "address": "6922fd67-ac96-8d80-96f2-727fd38e7dc1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_45_number_3",
+      "lineAddress": "4168cad7-02f7-874c-86a3-dbcb4a73b93c",
+      "address": "f91cb00b-9667-8288-a0c2-a057d64fa92b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_45_number_15",
+      "lineAddress": "e6e9224c-d53b-8467-afad-aa46c86f91f5",
+      "address": "49e50f3b-8e67-87fd-b92a-2b2d43665744",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_45_number_15",
+      "lineAddress": "0e162648-41ee-85d9-a17a-fd981ad01b75",
+      "address": "347b9b86-a486-8d09-a349-045fc3a2c468",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_45_is_12",
+      "lineAddress": "41f226f1-66c1-8d69-bee9-5726272b30bd",
+      "address": "dfe47050-4be8-8cfe-9f40-b8474e0e88e7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_45_number_6",
+      "lineAddress": "edf17de5-478b-87ff-b2ae-ab656cb9399c",
+      "address": "9ff3689b-7f15-8406-8561-fc27be1e4a14",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_45_is_0",
+      "lineAddress": "45c21a74-69c6-8a3d-8f58-3575948078b5",
+      "address": "d5955900-893a-8908-ac61-2a9276845cd2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_48_number_8",
+      "lineAddress": "f65d49fb-2123-894e-87f2-06ce89f19479",
+      "address": "0d045813-2928-83f6-8d87-65197304685c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_48_number_30",
+      "lineAddress": "96872111-3add-8d7e-b8f4-27044a5d96c2",
+      "address": "2949f78f-1bc3-83a3-8ce4-4bdf429bb90c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_48_number_4",
+      "lineAddress": "14a11af0-62df-87bd-b9ea-22e4ae21f9f7",
+      "address": "60496c05-aaf5-8506-8f7a-c5cf7530478d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_48_is_4",
+      "lineAddress": "2c10bd4b-8e81-82cd-a882-dd771e2ed4eb",
+      "address": "5aebf5d3-b814-8a24-a091-4ee4068aaea2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_48_number_10",
+      "lineAddress": "5369c8ad-6540-82a3-a36e-3f55d6e0a6ba",
+      "address": "a43e9cee-239c-8dbc-8a6a-4e10f091535a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_48_is_0",
+      "lineAddress": "f7d4326d-01bc-8c21-8d2f-d9187a6b1572",
+      "address": "1459199c-8747-8a50-8f3f-7a95314b58d6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_49_number_7",
+      "lineAddress": "4b432047-91c9-8c89-b66d-40331160a33e",
+      "address": "3f1b6444-9069-8406-8be9-fc654db1d934",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_49_number_15",
+      "lineAddress": "13c175ae-8673-8ee1-b164-f3e96846fe4e",
+      "address": "edc0ebc1-e5e1-8b75-9372-b385f8430fd8",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_49_number_7",
+      "lineAddress": "90914ae1-0775-8c34-aa39-a8f87c773a63",
+      "address": "4f43f132-a183-8b08-89b9-9b23bb09b0ec",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_49_is_42",
+      "lineAddress": "86999e45-c05e-8a9d-8ffe-97d22efb735b",
+      "address": "61e61918-a47b-8a38-9b61-b82f827a173e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_49_number_3",
+      "lineAddress": "578a2a45-49cd-82f7-91f4-7a628bdcc7a3",
+      "address": "e2739b57-3ff6-825b-a9a3-e727f2061062",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_49_is_0",
+      "lineAddress": "798f72bd-d2f5-8508-8d3f-e8974cb78cbf",
+      "address": "16b98283-5787-8c9a-9a98-4d1f5d792f21",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "nilpotents_mod_50_number_5",
+      "lineAddress": "19d3c157-6856-8157-ad3a-d32ff837de64",
+      "address": "186d30c1-ad88-85ba-8f66-291740fa0dbd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cubes_mod_50_number_42",
+      "lineAddress": "4f58f79d-9b6b-8774-b4c2-ca98ccbc0f44",
+      "address": "35eb3211-e333-8b97-aa22-85356beadfef",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "power_fixed_mod_50_number_4",
+      "lineAddress": "d2469bdd-bc85-854c-8bd7-2eb9f1f80e5c",
+      "address": "1190a44b-2241-81aa-bfde-0a3d082174d3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "max_unit_order_mod_50_is_20",
+      "lineAddress": "4e52b329-90d9-80e2-8542-521292dc15c8",
+      "address": "e99d213e-c75b-8334-8433-27e7994f479a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "divisors_of_50_number_6",
+      "lineAddress": "90c6d037-07c6-8542-85f8-be1313b814e3",
+      "address": "99b93d34-88f4-875a-8d73-a85252f5e326",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "unit_sum_mod_50_is_0",
+      "lineAddress": "c9f67de0-0fd8-8ad1-a51a-d818efe3ff65",
+      "address": "f20e48a5-4e5e-8b98-82a6-40aecc0255e8",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "every_graph_on_five_obeys_the_handshake",
+      "lineAddress": "e68b3c98-2546-8063-9857-9be931310605",
+      "address": "ab1dbb4b-5a46-8341-b5db-3f3e33e5288a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "complement_completes_every_graph_on_five",
+      "lineAddress": "1d0d247d-4eb9-8e3c-b6be-c90b694bfa11",
+      "address": "3db99ddb-37ba-8105-9d63-461befaf396c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "mantel_bound_on_five_vertices",
+      "lineAddress": "6bb7fad2-bc6b-80bd-aa48-b9345bcce486",
+      "address": "6dd0c6ab-d888-870d-ac40-a7bf3fb1e0d2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "parity_code_detects_one_but_ties_four_ways",
+      "lineAddress": "1fdabdab-c5d1-89e2-bfd5-7161d3f06507",
+      "address": "0fe67a90-1e4f-8949-82d0-b23b81ab7ac5",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "weight_reads_distance_only_for_linear_codes",
+      "lineAddress": "6a4f5642-399b-8999-9d44-eb6ca0c1dbc6",
+      "address": "2b24941d-7191-8986-ae2b-ae3bf8d8db92",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "fourth_repeat_buys_the_flag_not_the_fix",
+      "lineAddress": "9909e15f-65a7-8f1b-b28b-12514ef93278",
+      "address": "fbcc0523-bc8f-8443-bd7a-50abfa7b6588",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "gray_step_flips_one_bit_and_the_cycle_closes",
+      "lineAddress": "9593c602-d3ee-8dbf-b638-ea05da472770",
+      "address": "751848b5-48e1-873c-8096-68318243695d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "gray_code_is_a_permutation_with_prefix_xor_inverse",
+      "lineAddress": "b71935ca-5b87-821e-8985-ce8f34318d38",
+      "address": "e61c7dd9-34c5-8670-929d-feeaa0b161ba",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "gray_code_reflects_across_the_top_bit",
+      "lineAddress": "4cdf81e2-b080-838e-aa19-28c88a056827",
+      "address": "02852e52-97ec-8cbc-a93b-7bc01b465131",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "catalan_counts_the_dyck_words",
+      "lineAddress": "a6958326-071b-8b83-aba6-bcada129fff9",
+      "address": "0e9a981e-08c5-8073-991d-8f4cf0dedfe3",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "cycle_lemma_picks_one_rotation",
+      "lineAddress": "656af997-c894-8ec1-99ea-78b8a610a1b5",
+      "address": "6d99d3be-55c8-8ea0-9a09-ca4fe704fc64",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "reflection_counts_the_dipping_words",
+      "lineAddress": "59cf995b-de91-85ea-9b33-dd3d3914e3a2",
+      "address": "f2bc05d7-2552-8a20-8d2d-dff6c90573ed",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "partitions_euler_distinct_eq_odd_to_seven",
+      "lineAddress": "5e14c8aa-321e-86d2-a7d2-89e51d6377e5",
+      "address": "182368f6-6986-8cf5-845c-37c67bf15926",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "partitions_conjugate_involution_in_4x4_box",
+      "lineAddress": "ee98248e-d460-8436-b965-01b3eed56d10",
+      "address": "a284643b-84db-8354-8b72-d18513d2b193",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "partitions_into_parts_at_most_three_closed_form_to_twelve",
+      "lineAddress": "6f22670f-d8bc-849e-a3cb-a3fb9073154a",
+      "address": "fa461db8-d2e1-8e80-8581-b67bb6c1fe55",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "fibonacci_identity_sums_close_and_neighbours_are_coprime",
+      "lineAddress": "10e31810-79bf-8bb1-bfad-e65d398aa0af",
+      "address": "2b0c52f5-8d96-8470-aee2-1f4770f7cf7e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "zeckendorf_non_adjacent_representation_is_unique",
+      "lineAddress": "39d05b13-4679-8c27-b93b-4a5b08325399",
+      "address": "fde09aa4-cd13-8e48-8b53-a29856fb174e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "fibonacci_gcd_follows_the_index_gcd",
+      "lineAddress": "6b6591ae-2f90-8a87-986c-91fabba8c5f3",
+      "address": "96f677b8-5463-8041-b524-432b769a346a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "debruijn_order_three_cycle_reads_every_triple_once",
+      "lineAddress": "c8d4bfcc-8428-83e7-8946-8efddc7c3342",
+      "address": "1e60daeb-5a41-867b-b859-dd9438d7ab90",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "debruijn_order_four_cycle_reads_every_quadruple_once",
+      "lineAddress": "acae1026-54fd-8ddb-ae3c-5a38f4b920e3",
+      "address": "0ef97843-927b-8eeb-b3e8-d5bfb559814d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "debruijn_order_three_census_is_two_rotation_orbits",
+      "lineAddress": "b112f054-3b1c-8328-a7ae-e6d94d5ef181",
+      "address": "f7ef2907-be57-8d52-a5b8-d23a6c299184",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "three_wire_sorting_needs_three_comparators",
+      "lineAddress": "cd5750d4-5993-89df-baf3-a589ff6377b4",
+      "address": "191220ed-41fa-8f28-9f1b-58dc5e6c522e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "zero_one_verdict_matches_every_order_type_on_three_wires",
+      "lineAddress": "2d9fd043-84a6-883a-90ce-051cc8001a80",
+      "address": "33730c11-627d-8e1a-bd44-c67612293235",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "four_wire_sorting_needs_five_comparators",
+      "lineAddress": "09daa270-8ca1-8d0e-abda-de40e88dcf53",
+      "address": "92ddb97f-aa14-89ec-92c2-f6cf99bc5bb6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "bell_census_of_restricted_growth_strings",
+      "lineAddress": "9eea06cf-1089-88bb-bd36-e26deb54f1db",
+      "address": "923a5ec8-f1d6-8339-a0a4-ad199b0bbc70",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "stirling_block_census_obeys_its_recurrence",
+      "lineAddress": "4307e611-3496-8748-ae89-7758e640492d",
+      "address": "5623416c-76fb-88dd-a048-b6da0e6b1dd7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "bell_census_is_its_own_binomial_transform",
+      "lineAddress": "b658dd45-1642-80ba-9b73-67c615a0e034",
+      "address": "0ef3c2c8-f4ba-887e-aa8a-5cbcf4cc33d4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "bounded_silence_is_not_evidence",
+      "lineAddress": "9acf386b-02ba-86ba-af9c-2d3ca72bf1e1",
+      "address": "9e03912f-30aa-8797-a13a-c2d87ec433cd",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_2_number_1",
+      "lineAddress": "8a566e20-79c4-8f02-b4ee-9d97eb80fe9a",
+      "address": "c4f905da-e78c-83cb-808f-22b2834ac714",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_3_number_2",
+      "lineAddress": "17768d1e-3b96-8ffa-a44f-b045aa0b3dad",
+      "address": "da7c4c08-3d5b-8bc5-ac8a-004ab1d9ea33",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_4_number_2",
+      "lineAddress": "08be3df2-d767-80d7-8304-065ff54c8f87",
+      "address": "b5e379bb-4aad-8c7a-a5e1-d742539e6ca6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_23_number_2",
+      "lineAddress": "9620357c-ad0d-8d84-ad2e-3219e6d42128",
+      "address": "13aa6120-4286-895f-8551-8122b5744a88",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_29_number_2",
+      "lineAddress": "ddf064a7-a02a-8c22-a428-8afbe0cf27eb",
+      "address": "bad56103-2ab4-8fa4-aa1e-040deb5fb27d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_31_number_2",
+      "lineAddress": "268e7089-36c4-899d-bbc4-942be985ab84",
+      "address": "787647b4-f1e9-8b6c-bce5-2f14bca74943",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_37_number_2",
+      "lineAddress": "43156816-6b12-8ae0-9c82-7059a15ee323",
+      "address": "f5ad3b2a-9c66-835f-b9a9-da6a3e3e0041",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_41_number_2",
+      "lineAddress": "ac4f7864-77e1-83ba-982a-ae2fe8c68e7f",
+      "address": "4e83254d-3880-8f89-832a-0c1cc94b4a85",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_42_number_4",
+      "lineAddress": "2ed042cb-13db-8e45-b57a-01b38b39581b",
+      "address": "03608d2f-82b1-8878-872b-d1319333495c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_43_number_2",
+      "lineAddress": "8c7ab4ea-b9a5-8493-a7aa-635f2f985748",
+      "address": "91fd310e-7110-8d99-a71d-afc147dc7424",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_46_number_2",
+      "lineAddress": "a4093f8c-56e8-8eea-a51a-359308efe8bf",
+      "address": "6b5864de-18b3-87a7-8600-94dedcbbc880",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "self_inverse_mod_47_number_2",
+      "lineAddress": "4cc653dd-1972-8d75-9170-3acce90225a2",
+      "address": "8caa6979-4575-8e54-8f92-c6112e8417a6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "no_power_of_three_is_a_power_of_two",
+      "lineAddress": "8d545659-cf5e-88b1-bee8-f55dabd17131",
+      "address": "fc409bb0-a58c-826e-8a95-71e2cd24596f",
       "principle": "The conveyor's first wave"
     },
     {
@@ -9547,8 +12091,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "1cccfa68-6b3c-8ad3-a990-00a8c7eb131f",
-      "address": "3b1de12b-cf53-825c-866f-634fd5da8def",
+      "lineAddress": "fb77d3eb-a2ff-8efe-8a28-3dabd65aa53c",
+      "address": "201db218-3c35-83c0-83e9-d91c5f7d4071",
       "principle": "The models"
     },
     {
@@ -10146,7 +12690,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "d9e77bed-7f9f-8756-a09d-dbd138e03b1c",
+  "claim_receipt": "9bdd43b6-2036-8e15-920c-1eb427666124",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

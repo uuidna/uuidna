@@ -38,7 +38,7 @@ has dimension 2^n is physics, held here on the same footing as every other **rep
 no `by decide` proof over five numerals can establish it. The gate-model platforms' raw capacity
 dwarfs 2^128 and their trajectory is a different dimension; what the measurements prove is architectural:
 **2^128 usable, deterministic, error-free states are available today at 1000 ns per verified fold
-(measured over the 1690-theorem ledger on the build host, each seed folded fresh)**, while demonstrated
+(measured over the 2114-theorem ledger on the build host, each seed folded fresh)**, while demonstrated
 error-corrected capacity on quantum hardware is still small — the platforms say so themselves, in the sources
 named. What may be carried up to 2^128 is the ARCHITECTURAL claim — every address usable, deterministic,
 error-free — never the timing constant, which belongs to this host and this runtime.

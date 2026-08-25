@@ -65,3 +65,20 @@ theorem full_adder_correct : (List.range 8).all (fun n => lxor (lxor (n%2) (n/2%
 /-- The 2:1 MULTIPLEXER selects: mux s a b = (1−s)·a + s·b equals a when the select is 0 and b when it is 1,
     across all eight rows. Routing as arithmetic — the primitive every datapath is woven from. -/
 theorem mux_selects_input : (List.range 8).all (fun n => (1 - n%2) * (n/2%2) + (n%2) * (n/4%2) == (if n%2 == 0 then n/2%2 else n/4%2)) := by decide
+
+/-- THE LANES PARTITION THE WORK EXACTLY: summing what each of 14 lanes receives from 64 items returns 64 —
+    nothing is lost between lanes and nothing is counted twice. This is WHY no coordination is needed. Residue
+    routing is a partition of the input, so a lane can never need to ask another what it holds; the question a
+    scheduler exists to answer cannot arise. -/
+theorem lanes_partition_the_work : (List.range 14).foldl (fun a l => a + ((List.range 64).filter (fun i => i % 14 == l)).length) 0 = 64 := by decide
+
+/-- THE SHARD IS BALANCED TO WITHIN ONE ITEM, with no coordination and no measurement of load: 64 items over 14
+    lanes give every lane either 4 or 5, never fewer and never more. 64 = 4·14 + 8, so eight lanes take five and
+    six take four. The balance is a property of the residue map itself, which is why it holds without any lane
+    knowing what another is doing. -/
+theorem lanes_balance_within_one : ((List.range 14).map (fun l => ((List.range 64).filter (fun i => i % 14 == l)).length)).all (fun c => c == 4 || c == 5) := by decide
+
+/-- ON A COMPLETE RESIDUE SYSTEM THE SHARD IS EXACTLY EVEN: 56 items over 14 lanes give every lane precisely 4,
+    because 56 is a multiple of 14. The imbalance in the general case is therefore never structural — it is only
+    the remainder, bounded by one item per lane, and it vanishes whenever the work divides. -/
+theorem lanes_even_on_complete_system : (List.range 14).all (fun l => ((List.range 56).filter (fun i => i % 14 == l)).length == 4) := by decide

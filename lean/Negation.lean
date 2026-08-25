@@ -41,6 +41,19 @@ theorem silence_never_refutes : ((([(0,0),(0,1),(1,0),(1,1)] : List (Nat × Nat)
     exhaustion in waves is a ratchet that ends at the singleton the sixty-four buys. -/
 theorem waves_of_denial_tighten : ((List.range 6).all (fun r => 2^6 / 2^r == 2^(6 - r))) ∧ (2^6 / 2^6 = 1) := by decide
 
+/-- AN INSTRUMENT WHOSE RANGE IS NARROWER THAN ITS QUESTION CANNOT BE SOUND — the denial law turned on the
+    measuring apparatus itself. Enumerate EVERY two-valued instrument over a three-answer question: all 2³ = 8
+    of them, and each one collapses some distinct pair of answers to one value. Not most, not typically — all
+    eight, exhaustively, which is what makes it a denial rather than an observation. The second half is the
+    CONTROL that keeps the first from being a slur on instruments in general: among the 3³ = 27 three-valued
+    instruments over the same question, at least one separates all three, so the failure is the NARROWNESS and
+    never the measuring. What this decides is that a two-state answer to a three-state question is unsound BY
+    CONSTRUCTION, before any implementation is inspected — the collapse is a property of the shape, so no care
+    in the code can remove it and no green run can be evidence against it. The consequence for a reader is the
+    useful half: when a healthy case and a broken case return the same value, the instrument has already been
+    refuted, and the run that reports success is reporting the collapse. -/
+theorem no_instrument_narrower_than_its_question : ((List.range 8).all (fun f => (List.range 3).any (fun i => (List.range 3).any (fun j => i < j && (f / 2^i % 2 == f / 2^j % 2))))) ∧ ((List.range 27).any (fun g => (List.range 3).all (fun i => (List.range 3).all (fun j => i == j || !(g / 3^i % 3 == g / 3^j % 3))))) := by decide
+
 /-- THE DRAIN RUNS TO THE LAST COIN. Of the sixty-four states the six waves sweep, sixty-three denials drain
     away — and sixty-three is the fused ring itself, 7·9, the rosette times the vortex — leaving exactly one: 64
     − 63 = 1, the claim that stands. It does not stand alone: with its receipt it is two, the coins conserved —

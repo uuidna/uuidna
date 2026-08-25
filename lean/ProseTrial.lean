@@ -13,7 +13,7 @@ theorem orbits_number_six : orbits.length = 6 := by decide
 theorem order_measures_orbit : orbits.map (fun o => o.length) = [10,8,3,1,6,4] := by decide
 
 /-- A FORGED ORDER IS REFUSED, and the refusal is on this line. Move one order by one and the derived list no
-    longer equals it — so a period a person chose can never pass as a period the walk measured. -/
+    longer equals it — so a period a person chose can never pass as a period the walk actually reaches. -/
 theorem forged_order_refused : (orbits.map (fun o => o.length) = [10,8,3,1,6,4]) ∧ (orbits.map (fun o => o.length) ≠ [10,8,3,1,6,5]) := by decide
 
 /-- Every orbit is closed under the reflection dz(x) = 10 − x: the mirror of each member is already a member, so
