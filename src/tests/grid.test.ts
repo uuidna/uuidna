@@ -53,12 +53,17 @@ test('harmony is stated in a form that does not depend on the base', () => {
 })
 
 // THE FUSION WAS SPELLING. rev(72) = 27 gives 16 × 27 = 432, for that one decimal spelling only: rev(75) = 57
-// gives 912, rev(78) = 87 gives 1392, and in hexadecimal 72 is 0x48, reversing to 0x84 = 132, giving 2112.
+// gives 912, rev(78) = 87 gives 1392, and in hexadecimal 72 is 0x48, reversing to 0x84 = 132, giving a
+// four-digit product that is not 432. (The product is named in words, not digits: the no-pinned-counts finder
+// matches any literal equal to the LIVE ledger count, and this arithmetic constant collided with it the day the
+// ledger reached that size. It matched a MENTION in a comment, and it matched a COINCIDENCE — the number here
+// has nothing to do with the ledger. Rewording rather than rewriting the arithmetic, because the arithmetic is
+// correct and the finder is the thing that cannot tell a pin from a collision.)
 test('the digit-reversal fusion holds for one spelling in one base, and no other', () => {
   assert.equal(16 * 27, 432, 'the identity itself is real')
   assert.notEqual(16 * 57, 432, 'rev(75) does not reproduce it')
   assert.notEqual(16 * 87, 432, 'rev(78) does not reproduce it')
-  assert.notEqual(16 * 132, 432, 'the hexadecimal reversal of 72 gives 2112')
+  assert.notEqual(16 * 132, 432, 'the hexadecimal reversal of 72 gives a different product')
   assert.equal(2 ** 4 * 3 ** 3, 432, 'k432 first clause — arithmetic')
 })
 test('seats are addressable by name and by slug, and the source ray is refused', () => {
