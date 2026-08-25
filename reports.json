@@ -5,30 +5,30 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1610,
-        "keys": 1691,
+        "distinct": 1612,
+        "keys": 1693,
         "renamings": 81,
         "principles": 115,
         "skills": 112,
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "5e63af25-a6b3-86de-9d93-1aac1a6dba4b"
+        "ledgerReceipt": "d7bea4da-d1c4-829f-8b4b-32714651a3bf"
       },
-      "address": "1e5bf3e3-2701-8f30-80f5-738036284d50"
+      "address": "c880d16b-cbf0-85b1-9693-31eaf9a34c7d"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1691,
-        "ledgerKeys": 1691,
+        "theoremsMeasured": 1693,
+        "ledgerKeys": 1693,
         "unmeasured": 0,
         "decideStepsHexbits": 4,
         "decideStepsBits": 20
       },
-      "address": "1c3754e3-5de2-8fbd-98f3-2712ead61ab5"
+      "address": "217e1545-13f3-856f-a374-a05c60a7362b"
     },
     {
       "title": "Citation audit",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 115,
-        "sealedTheorems": 1691,
+        "sealedTheorems": 1693,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "bbf6de9c-e39b-82b6-94e0-92bdb1f88505"
+      "address": "9e77af0b-1ec6-8f67-b092-a2a0a70744fc"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 623,
-        "roots": 417,
-        "supported": 623,
+        "modules": 631,
+        "roots": 421,
+        "supported": 631,
         "dead": 0,
-        "receipt": "9e5e96e6-9911-836c-9299-0ed2524091b0"
+        "receipt": "6b46f7af-c366-870a-8176-4b1fddcd8377"
       },
-      "address": "a8160fd4-0413-85c8-9b20-275b2e8e22e6"
+      "address": "05adcf9d-1055-82f8-983d-aeb5dd7af18d"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "719dec25a7d51fb6",
-        "unifiedFold": "451bcc974064ef04"
+        "foldReceipt": "e61af48a17b767b3",
+        "unifiedFold": "75176988d0b462f8"
       },
-      "address": "e8211e65-d93e-8373-962d-14846763d5a3"
+      "address": "7f9ba96b-0123-87fd-ad2d-688f4ad39c92"
     }
   ],
-  "receipt": "03ff66e3-ad9a-8fd2-bd26-50e89c9d26d2",
+  "receipt": "0a72088f-64d4-87e4-b73a-c27ab2fb7513",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

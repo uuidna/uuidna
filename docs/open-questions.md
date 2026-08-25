@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**49 open doors** across 21 topics, derived from the tree's own records — the held leads,
+**50 open doors** across 21 topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
@@ -21,12 +21,17 @@ express the claim as an exact predicate over it, run the [tester](/tools) with i
 drains, seal it ([the wave](/theorem/denial_drains_to_the_last_coin)). The door then closes as a count, and this
 page regrows without it.
 
-## wave — 8 open
+## wave — 9 open
 
 - **runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.**
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`development_is_the_complement`](/theorem/development_is_the_complement) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) </small>
   <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`closure_is_coprime`](/theorem/closure_is_coprime) · [`sequence_and_coins_are_one`](/theorem/sequence_and_coins_are_one) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **An N-qubit register's state is a 2^N-dimensional complex vector, and full-state classical simulation costs scale exponentially in N (recorded value: 2^N)**
+  <br><small>door: the research ledger</small>
+  <br><small>involutions around: [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`pairs_share_one_centre`](/theorem/pairs_share_one_centre) </small>
+  <br><small>sealed neighbors: [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) · [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`captain_coins_respected_at_scale`](/theorem/captain_coins_respected_at_scale) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **No engine book consulted states degrees of crank rotation per stroke or per cycle (recorded value: absent)**
   <br><small>door: the research ledger</small>
@@ -111,7 +116,7 @@ page regrows without it.
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is &lt; — so the branch is unreachable and the check fails OPEN. Worse, it counts new Set(PRINCIPLES.map(p …**
   <br><small>door: the held leads</small>
-  <br><small>involutions around: [`pairing_is_fixedpoint_free_involution`](/theorem/pairing_is_fixedpoint_free_involution) · [`involution_census_self_explains`](/theorem/involution_census_self_explains) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
+  <br><small>involutions around: [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`pairing_is_fixedpoint_free_involution`](/theorem/pairing_is_fixedpoint_free_involution) · [`involution_census_self_explains`](/theorem/involution_census_self_explains) </small>
   <br><small>sealed neighbors: [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census) · [`collisions_under_one`](/theorem/collisions_under_one) · [`cubes_partition_ledger`](/theorem/cubes_partition_ledger) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **refused[] in this very file is read by NO finder. Seven readers open leads.json; none looks at the refusals.**
@@ -170,7 +175,7 @@ page regrows without it.
 
 - **Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.**
   <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`real_pauli_group_order_8`](/theorem/real_pauli_group_order_8) · [`states_are_the_swap_fixed_bytes`](/theorem/states_are_the_swap_fixed_bytes) </small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`real_pauli_group_order_8`](/theorem/real_pauli_group_order_8) </small>
   <br><small>sealed neighbors: [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`phase_gate_order_ladder`](/theorem/phase_gate_order_ladder) · [`a_symphony_is_a_sequence_not_a_set`](/theorem/a_symphony_is_a_sequence_not_a_set) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **roundTrips() disagrees with a verified byte-exact imprint round-trip**
@@ -260,15 +265,15 @@ page regrows without it.
 
 - **Measurement has no single source: 28 independent recomputations of a theorem count across src/, and 5 of the principle count. one-receipt.ts:394 already states the law — 'the number is read, never chosen' — and nothing e…**
   <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) · [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) </small>
-  <br><small>sealed neighbors: [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) </small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) · [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## singularity — 1 open
 
 - **Classroom interleaving, preregistered cluster RCT (recorded value: 61% vs 38% at one month, d = 0.83 (0.68-0.97), 54 classes)**
   <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`xor_checksum_catches_flip`](/theorem/xor_checksum_catches_flip) · [`no_digit_is_an_exact_complement`](/theorem/no_digit_is_an_exact_complement) </small>
+  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`xor_checksum_catches_flip`](/theorem/xor_checksum_catches_flip) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) </small>
   <br><small>sealed neighbors: [`the_singularity_is_the_dry_law_at_scale`](/theorem/the_singularity_is_the_dry_law_at_scale) · [`two_coins_are_switch_and_track`](/theorem/two_coins_are_switch_and_track) · [`buddy_pair_squares_the_failure`](/theorem/buddy_pair_squares_the_failure) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
@@ -276,7 +281,7 @@ page regrows without it.
 
 - **Interleaving is a DISCRIMINATION intervention, not a spacing one (recorded value: 0.73 immediate succession vs 0.22 when temporally spaced)**
   <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`otp_self_inverse`](/theorem/otp_self_inverse) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
+  <br><small>involutions around: [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`otp_self_inverse`](/theorem/otp_self_inverse) </small>
   <br><small>sealed neighbors: [`alternation_needs_a_second_phase`](/theorem/alternation_needs_a_second_phase) · [`the_singularity_is_the_dry_law_at_scale`](/theorem/the_singularity_is_the_dry_law_at_scale) · [`no_instrument_narrower_than_its_question`](/theorem/no_instrument_narrower_than_its_question) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
