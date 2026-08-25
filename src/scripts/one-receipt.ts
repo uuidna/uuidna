@@ -1975,10 +1975,29 @@ export function orphanGaps(): Gap[] {
  *  computed from `captain_theorem` (32 · 4 = 128, 128 / 2 = 64), and this refuses a second: any
  *  module outside it that divides by 16, floors by 4, or writes the uuid's 32 as a literal beside a hexbit word
  *  is re-deriving what it should import. */
+/*  THE PATHSPEC WAS QUOTED AND THIS FINDER SCANNED NOTHING FOR ITS ENTIRE LIFE (2026-08-25). The call read
+ *  execSync("git ls-files 'src/'"). On Windows execSync spawns cmd.exe, which does NOT strip single quotes, so git
+ *  received the literal pathspec 'src/' — quotes included — matched no path, and exited ZERO. Measured on this
+ *  host: as shipped, 0 files reached the loop; with the quotes removed, 647.
+ *
+ *  IT FAILED BY SUCCEEDING, which is why the `catch` below never helped and nobody ever noticed. An exception
+ *  would have been reported. Instead git said "no error, no files", the loop ran zero times, and unitGaps returned
+ *  the empty array that means "no module re-derives the hexbit unit". A tree with 647 violating files and a
+ *  perfectly clean tree returned the same value — and the green was read as evidence that the unit has one
+ *  definition, when it was only evidence that cmd.exe does not strip quotes.
+ *
+ *  The correct form was already in this file, forty lines up: trackedFiles() calls execSync('git ls-files',
+ *  { cwd: ROOT }) with no quoting. Two other sites carried the same defect and are fixed in the same change —
+ *  the width finder below, and gen-terminology.ts, which builds a public glossary from a module list that was
+ *  likewise always empty.
+ *
+ *  WHAT IT COST: nothing yet. With the pathspec repaired the finder scans all 647 and still reports zero, so no
+ *  module is in fact re-deriving the unit. That is luck rather than enforcement — the law held because people kept
+ *  it, not because anything checked. Fixing the scan is what makes the next violation catchable. */
 export function unitGaps(): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = execSync("git ls-files 'src/'", { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  try { files = execSync('git ls-files src/', { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
   for (const f of files) {
     if (f.startsWith('src/hexbit/') || f.includes('/tests/')) continue
     let src = ''
@@ -2376,7 +2395,7 @@ export function markupGaps(): Gap[] {
   const CARRY = ['div', 'article', 'section', 'span', 'small', 'p', 'a', 'ul', 'li', 'table', 'tr', 'td', 'h1', 'h2', 'h3']
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = execSync("git ls-files 'src/'", { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  try { files = execSync('git ls-files src/', { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
   for (const f of files) {
     if (f.includes('/tests/')) continue
     let src = ''

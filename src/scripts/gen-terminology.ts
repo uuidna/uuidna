@@ -51,7 +51,7 @@ for (const t of ledger) for (const m of (t.name ?? '').matchAll(TERM)) note(m[1]
 // then the module headers, newest file first by the record rather than by name
 let modules: string[] = []
 try {
-  modules = execSync("git ls-files 'src/'", { encoding: 'utf8' }).trim().split('\n')
+  modules = execSync('git ls-files src/', { encoding: 'utf8' }).trim().split('\n')
     .filter((f) => f.endsWith('.ts') && !f.includes('/tests/'))
 } catch { modules = [] }
 for (const f of modules.reverse()) {
