@@ -261,3 +261,59 @@ export function testAllPackages(limitFailures = 25): SuiteResult {
   }
   return { tested: packages.length, passed, failed: packages.length - passed, present: state.present, why: state.why, failures, byCheck }
 }
+
+// ── THE SAME SUITE, WITHOUT HOLDING THE FRAME. uuidnaOS runs this in a browser, where the cost is not the total
+// but the LONGEST UNINTERRUPTED BLOCK: past roughly 50 ms the page stops answering clicks and keystrokes.
+//
+// MEASURED, AND THE FIRST MEASUREMENT WAS THE WRONG ONE. This tree's standard timing discipline is warm-the-callee
+// then take the floor, because a cold pass times the compiler rather than the work — gen-quantum-capacity learned
+// that when one cold sweep read 10662 ns per fold against 48-132 ns warm, wide enough to straddle a decade.
+// Applied here it reports 25 ms, comfortably under the threshold, and it is measuring a pass that never happens:
+// testAllPackages runs ONCE PER PAGE LOAD, so the visitor's only call is the cold one. Cold, in a fresh process:
+// 98, 91, 87, 88 ms. Which pass to time is decided by how often the operation runs in production, and warm-floor
+// is the right rule for a repeated fold and the wrong one for a once-per-load walk.
+//
+// So the work is split, and it splits cleanly because every package's self-test is already independent — nothing
+// here was ever serial by nature, only by construction. Between chunks it yields to the host so a frame can paint.
+//
+// ADDITIVE ON PURPOSE: testAllPackages above is unchanged and still synchronous. Turning it async would ripple
+// through every caller and its own suite, on a tree several sessions are mid-edit in, to fix a stutter.
+//
+// AND IT RUNS TO COMPLETION OR IT DOES NOT ANSWER. A chunked walk that returned what it had finished would be a
+// partial count wearing a full one's clothes — the absence-as-a-clean-result this catalogue's own `present`/`why`
+// pair exists to refuse. There is no early exit: `tested` is the whole catalogue on every path that returns.
+
+/** Hand the host a chance to paint. `scheduler.yield()` where the runtime offers it (Chromium PWAs), otherwise a
+ *  macrotask — both return control to the event loop, which is the whole requirement. Not a clock: nothing here
+ *  reads elapsed time, so the determinism law is untouched. */
+const breathe = (): Promise<void> => {
+  const sch = (globalThis as { scheduler?: { yield?: () => Promise<void> } }).scheduler
+  if (typeof sch?.yield === 'function') return sch.yield()
+  return new Promise<void>((resolve) => { setTimeout(resolve, 0) })
+}
+
+/** testAllPackages, chunked so no single block holds the main thread. Same result, same denominator, same refusal
+ *  when the catalogue is absent — only the scheduling differs. `chunk` is packages per uninterrupted block. */
+export async function testAllPackagesChunked(chunk = 1500, limitFailures = 25): Promise<SuiteResult> {
+  const { packages, state } = load()
+  // THE PARSE IS ITS OWN BLOCK, and separating it is what actually works. Measured: parsing 7 MB of TSV costs
+  // 35 ms and cannot be divided, while the self-test walk costs 56 ms and divides freely. Chunking only the walk
+  // left them fused into one 53 ms span — still over the threshold — because load() ran inside the same
+  // uninterrupted stretch as the first chunk. One yield here separates the indivisible cost from the divisible
+  // one, and the longest block becomes the parse alone.
+  await breathe()
+  const failures: PackageTest[] = []
+  const byCheck: Record<CheckName, number> = { identity: 0, provenance: 0, closure: 0, compile: 0 }
+  let passed = 0
+  for (let i = 0; i < packages.length; i++) {
+    const t = packageSelfTest(packages[i]!)
+    if (t.ok) passed++
+    else {
+      for (const c of t.checks) if (!c.ok) byCheck[c.check]++
+      if (failures.length < limitFailures) failures.push(t)
+    }
+    // the last chunk needs no yield: there is nothing after it to unblock
+    if ((i + 1) % chunk === 0 && i + 1 < packages.length) await breathe()
+  }
+  return { tested: packages.length, passed, failed: packages.length - passed, present: state.present, why: state.why, failures, byCheck }
+}
