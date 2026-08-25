@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE ANTI-FRAUD DETECTORS — generated, and exhaustive where it used to sample. PURE
-// ARITHMETIC: every value is a bit, a count or a claim index; nothing is measured from the world.
+// ARITHMETIC: every value is a bit, a count or a claim index — the detectors are decided by exhaustion over a
+// finite alphabet, never by reading an instrument or observing the world, so this wing owes no authority but the
+// kernel. What it does NOT buy: the kernel confirms the sweep is complete, not that fraud looks like these lists.
 //
 // WHY THIS EXISTS NOW. AntiFraud.lean was hand-written: no generator, so nothing regenerated it and every fact was
 // typed. The sweep found the gap that follows from that — the double-spend detector sampled four hand-picked claim

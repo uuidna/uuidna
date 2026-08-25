@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for NOTATION — which of this ledger's harmonic facts are about NUMBERS and which are about
-// how numbers are WRITTEN. PURE ARITHMETIC: every value is a literal, a base, or a remainder; nothing is measured
-// from the world and no ledger count appears.
+// how numbers are WRITTEN. PURE ARITHMETIC: every value is a literal, a base, or a remainder. No value here is read
+// off an instrument or taken from the world and no ledger count appears, so nothing below owes an authority: a
+// remainder mod 9 answers to the kernel, and naming anyone beside it would be decoration.
 //
 // WHY THIS WING EXISTS. The digital root is the ledger's harmonic marker — digital_root seals 432 % 9 = 0, and the
 // grid, the fold and the receipts all read it. It works for exactly one reason: 10 ≡ 1 (mod 9), so every power of

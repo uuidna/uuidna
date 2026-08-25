@@ -73,8 +73,16 @@ for (const g of generators) {
 
 // 1b) THE KERNEL, ACROSS THE MACHINE. Every generator above wrote its wing and QUEUED its verification rather
 // than blocking on it; the wings are independent standalone files, so nothing orders one against another and the
-// whole queue drains over the host's measured lanes. This is the step the gate's own census named as the critical
-// path — 114,402 ms of the 114,409 ms floor, one kernel process at a time on a sixteen-core machine.
+// whole queue drains over however many lanes capacity() reports for the host it is running on. This is the step the
+// gate's own census named as the critical path — 114,402 ms of the 114,409 ms floor, one kernel process at a time
+// on a sixteen-core machine.
+//
+// THOSE MILLISECONDS ARE A READING OF ONE HOST THROUGH ONE TOOLCHAIN, NOT A CONSTANT, and the authority for them is
+// the instrument rather than any standards body: they were taken on (leanprover/lean4, v4.33.0, 2026) driven from
+// (Node.js v24, 2026) on a sixteen-core Windows machine. A different Lean version, a different core count or a
+// slower disk moves the figure, and none of it is sealed — the instrument is named here precisely so a reader who
+// sees another number can tell a changed machine from a changed repository. Naming the toolchain buys provenance,
+// not proof: the kernel below confirms theorems, and it has never confirmed a timing.
 const lanes = capacity().lanes
 const queued = pendingProofs().length
 if (queued) console.log(`lean-all — ${queued} wing(s) to prove, ${lanes} lanes …`)

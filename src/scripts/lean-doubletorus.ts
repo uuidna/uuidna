@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing. PURE
-// ARITHMETIC: every number is a genus, a count of generators, or a power of two; nothing is measured from the world
-// and no ledger count appears, so nothing here drifts.
+// ARITHMETIC: every number is a genus, a count of generators, or a power of two — topological invariants, which are
+// DEFINED rather than observed, so nothing here is read off an instrument or taken from the world, and no ledger
+// count appears either, so nothing here drifts. χ = 2 − 2g is a definition's consequence and answers to the kernel
+// alone; there is no agency, standard or literature figure behind it to name, and none is claimed.
 //
 // WHAT IS ALREADY SEALED, AND WHAT IS NOT. captain_theorem (2*2 − 2 = 2) and containment_is_genus_one
 // ((2 − 2·1 = 0) ∧ (2 − 2·2 = −2)) already carry the Euler characteristic, and double_torus_boards_are_the_address
@@ -24,7 +26,7 @@ const L = (xs: number[]) => '[' + xs.join(',') + ']'
 
 const FACTS = [
   { key: 'chi_measures_genus',
-    why: 'THE EULER CHARACTERISTIC IS THE GENUS, READ OFF: χ = 2 − 2g gives 0 at genus one (the plain torus, a closed pipe) and −2 at genus two, so −χ = 2 — the two coins. Both genera on one line, so the number is measured against its neighbour rather than stated alone.',
+    why: 'THE EULER CHARACTERISTIC IS THE GENUS, READ OFF: χ = 2 − 2g gives 0 at genus one (the plain torus, a closed pipe) and −2 at genus two, so −χ = 2 — the two coins. Both genera on one line, so the number is CHECKED against its neighbour rather than stated alone.',
     js: () => 2 - 2 * 1 === 0 && 2 - 2 * 2 === -2,
     lean: 'theorem chi_measures_genus : (((2:Int) - 2 * 1 = 0) ∧ ((2:Int) - 2 * 2 = -2)) ∧ (-((2:Int) - 2 * 2) = 2) := by decide' },
 

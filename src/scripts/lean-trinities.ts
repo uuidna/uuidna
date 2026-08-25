@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE TRINITY COVERING — how many threes it takes to span a space. PURE ARITHMETIC: every
-// number is a power or a comparison between powers, nothing is measured from the world, and no ledger count appears,
-// so nothing here drifts as the ledger grows.
+// number is a power or a comparison between powers, no value here is a reading taken from the world, and no ledger
+// count appears, so nothing here drifts as the ledger grows. A wing with no distance, no mass and no duration in it
+// names no standard and no agency, because it owes none: powers of three answer to the kernel alone.
 //
 // WHAT A TRINITY IS HERE. Three. n trinities span 3^n outcomes, exactly as n qubits span 2^n — the fold this project
 // already walks is fifteen leaves as five trinities. A trinity is worth log2(3) = 1.5849625… qubits: MORE than one

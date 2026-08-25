@@ -7,7 +7,10 @@
 // it needs BOTH maps inverted, in reverse order, and doubling has no inverse everywhere. The two acts are not the
 // same act at a different scale; one always succeeds and the other fails in two distinct ways.
 //
-// THE TWO FAILURES, MEASURED. Counting preimages under doubling gives [2,1,1,1,1,1,1,1,1,0]: the digit 0 has TWO
+// THE TWO FAILURES, COUNTED — and counted is the exact word: what follows is a census of preimages over ten digits,
+// pure arithmetic anyone reproduces by applying the two maps to 0..9, not a reading of anything outside this file.
+// There is no distance, no mass, no frequency and no duration in this wing, so it names no standard and no agency,
+// because it owes none. Counting preimages under doubling gives [2,1,1,1,1,1,1,1,1,0]: the digit 0 has TWO
 // preimages (0 and 9 both double onto it), so a reversal there is AMBIGUOUS — the path cannot say which way it
 // came. The digit 9 has NONE, so it is UNREACHED — doubling never produces it, and no reversal arrives there
 // because nothing ever left. Under dz every count is exactly 1: no ambiguity, no unexplored digit.

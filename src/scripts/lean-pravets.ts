@@ -7,6 +7,20 @@
 // space eleven centuries after he numbered them, the readings wing's literal ancestor, THE TONGUE IN HARDWARE.
 // What seals is the documented arithmetic: the prime year, the freed slot count, the screen's own rings, the
 // byte as two tiles, the boot that pays the captain's fee, and the glyph that costs exactly one coin measure.
+//
+// WHERE THE NUMBERS COME FROM, NAMED RATHER THAN LEFT TO THE READER, because a wing that states figures about the
+// physical world owes an authority for them and a session record is not one — nobody outside this tree can open
+// it. ONE figure here has a published standard behind it, and it is the one the heart turns on: that Latin
+// lowercase occupies codes 97 through 122 is fixed by the 7-bit coded character set — ISO 646, the international
+// form of ANSI X3.4 (US-ASCII) — so the twenty-six slots the Cyrillic ROM re-lettered are a standard's count and
+// not this ledger's, and a reader who doubts 122 − 97 + 1 = 26 can open the standard and count the rows.
+// THE MACHINE FIGURES HAVE NO SUCH AUTHORITY AND ARE NOT GIVEN A FALSE ONE: the 1979 build, the 280 by 192
+// display, the 48 KB of RAM beside 12 KB of ROM, and the 640 KB ceiling are taken from the documented record of
+// the machines, and this wing names no primary source for any of them. They enter as INPUTS. What the kernel
+// settles is the arithmetic over them — that 1979 has no divisor below its root, that 280 = 40·7, that
+// 640 = 10·64 — and it settles that whether or not the input is right. Naming who documented a specification
+// would not have proven it either; a citation buys a reader somewhere to go, never a proof.
+//
 // HONEST SCOPE: documented specifications as integer facts — never the era's politics, never the machines'
 // merit, and the charset's exact letter ORDER (which varied by model) deliberately not sealed. Pravets to
 // Pliska, one road. COMPUTE → GENERATE → VERIFY.

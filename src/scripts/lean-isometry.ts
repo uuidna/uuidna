@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE XOR ISOMETRY — the one identity shared by the cipher, the strand and the code.
-// PURE ARITHMETIC: every value is a small integer or a bit count; nothing is measured from the world.
+// PURE ARITHMETIC: every value is a small integer or a bit count. No quantity here is read off an instrument or
+// taken from the world, so the wing owes no authority for a figure — every claim is decided by exhausting the
+// four-bit cube, and exhaustion over a finite domain is its own warrant.
 //
 // WHY. Three wings each hold a corner of the same fact and none of them states it. Cipher.lean seals that the pad is
 // self-inverse and that key reuse leaks the plaintext XOR. BioPhysics.lean seals that base pairing is an involution

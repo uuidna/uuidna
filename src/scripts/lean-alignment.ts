@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for ALIGNMENT — which of this project's moduli tile a qubit and which waste it. PURE
-// ARITHMETIC: every value is a power of two, a base, or a remainder; nothing is measured from the world.
+// ARITHMETIC: every value is a power of two, a base, or a remainder — a fact about NOTATION, not about any
+// substance, so nothing here is read off an instrument or taken from the world. 16 = 2^4 holds wherever counting
+// holds; there is no authority to name for it, and naming one would only borrow weight the kernel already supplies.
 //
 // WHY. A uuid is written in hexadecimal and a qubit is one bit of exponent, so the two are the same substance: 16 =
 // 2^4, and one hex character is EXACTLY four qubits with no remainder. That is why a uuid is a clean 128 and a handle

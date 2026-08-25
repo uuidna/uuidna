@@ -1,6 +1,22 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE HEXBIT — the alphabet and the layout an address is actually built from. PURE
-// ARITHMETIC: every value is a digit index, a group length or a bit count; nothing is measured from the world.
+// ARITHMETIC: every value is a digit index, a group length or a bit count. No value here is read off an instrument
+// or taken from the world.
+//
+// BUT THE LAYOUT IS NOT OURS, AND THAT AUTHORITY IS NAMED HERE RATHER THAN ASSUMED. Sixteen hex symbols, the
+// 8-4-4-4-12 grouping, the thirty-two hex digits, the four hyphens that bring the printed form to thirty-six
+// characters, and the 128-bit width they add up to are fixed by RFC 9562, "Universally Unique IDentifiers
+// (UUIDs)", which obsoletes RFC 4122. Every theorem below that mentions those shapes RECOMPUTES what that
+// standard already fixes; none of them chooses it. State plainly what the citation buys and what it does not: it
+// says where the layout comes from, so a reader who doubts the grouping has somewhere to go and check. It does
+// NOT make any line below proven — the kernel proves the arithmetic over the layout, never the layout itself, and
+// an RFC is a specification a reader can read, not a measurement anyone took.
+//
+// THE TWO LIVE COUNTS QUOTED IN THE SENTENCES BELOW ARE CENSUSES OF THIS REPO'S OWN OUTPUT, not observations of
+// the world: the 400 handles behind the_void_tile_cannot_cross, and the six-bond count over one real address in
+// the_handle_molecule_is_the_mix_census, are tallies over addresses this tree generated. They are quoted as
+// provenance for WHY the theorem was worth sealing, and nothing depends on them — every js() mirror below
+// recomputes its claim from scratch over a finite domain and would decide the same way had the tally never run.
 //
 // WHAT IS ALREADY SEALED, AND NOT REPEATED HERE. Alignment.lean decides that one hex character is EXACTLY four
 // qubits (16 = 2^4, no remainder), that only sixteen tiles a four-qubit cell while 15, 10 and 9 each waste, and

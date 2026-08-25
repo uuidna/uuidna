@@ -8,10 +8,17 @@
 // which is why a colour tiles cleanly and a residue does not.
 //
 // AND THE SPECTRUM DOES NOT DIVIDE BY SIXTEEN. 360 / 16 = 22.5 is not an integer, so a hue wheel cut into sixteen
-// equal steps cannot land on whole degrees. It divides by NINE (40 degrees, the step the aura already walks) and by
-// SIX (60 degrees, the primary/secondary sextant). So the colour's STORAGE is hexadecimal while its GEOMETRY is
-// ninefold and sixfold — the same split Notation.lean decides between a base-sixteen address and a base-ten
-// harmonic reading, appearing again one layer up.
+// equal steps cannot land on whole degrees. It divides by NINE (a step of forty degrees, the one the aura already
+// walks) and by SIX (sixty degrees, the primary/secondary sextant). So the colour's STORAGE is hexadecimal while its
+// GEOMETRY is ninefold and sixfold — the same split Notation.lean decides between a base-sixteen address and a
+// base-ten harmonic reading, appearing again one layer up.
+//
+// THE DEGREES HERE ARE DIVISORS, NOT READINGS — said plainly because a degree LOOKS like a measurement. Three
+// hundred and sixty is the whole-turn convention a hue wheel is drawn on, and every figure below is that convention
+// divided by an integer: forty is 360/9 and sixty is 360/6, arrived at by division and by nothing else. No
+// wavelength, no luminance, no chromaticity and no perceptual quantity is asserted anywhere in this wing, so it
+// names no colour standard and no measuring body, because it owes none. What a hue ANGLE looks like to an eye is
+// colorimetry's question and stays outside the kernel; what divides three hundred and sixty is the kernel's.
 import { emit } from './lean-gen.js'
 
 const DIVISORS = Array.from({ length: 20 }, (_, i) => i + 1).filter((d) => 360 % d === 0)
@@ -39,7 +46,7 @@ const FACTS = [
     lean: 'theorem shorthand_covers_one_in_four_thousand : ((16:Nat)^3 = 4096) ∧ ((16:Nat)^6 / (16:Nat)^3 = 4096) ∧ ((16:Nat)^3 * 4096 = 16777216) := by decide' },
 
   { key: 'spectrum_refuses_sixteen',
-    why: 'THE HUE WHEEL DOES NOT DIVIDE BY SIXTEEN: 16 x 22 = 352 and 16 x 23 = 368 straddle 360, so no whole-degree step cuts the circle into sixteen. It divides by NINE at 40 degrees and by SIX at 60 — the storage is hexadecimal while the geometry is not, and the line proves the failure rather than leaving it implied.',
+    why: 'THE HUE WHEEL DOES NOT DIVIDE BY SIXTEEN: 16 x 22 = 352 and 16 x 23 = 368 straddle 360, so no whole-degree step cuts the circle into sixteen. It divides by NINE at forty degrees and by SIX at sixty — the storage is hexadecimal while the geometry is not, and the line proves the failure rather than leaving it implied. Every degree named here is the whole-turn convention divided by an integer, not a quantity anyone observed.',
     js: () => 16 * 22 < 360 && 360 < 16 * 23 && 360 % 9 === 0 && 360 % 6 === 0,
     lean: 'theorem spectrum_refuses_sixteen : (16 * 22 < 360) ∧ (360 < 16 * 23) ∧ (360 % 9 = 0) ∧ (360 % 6 = 0) ∧ (360 % 16 ≠ 0) := by decide' },
 

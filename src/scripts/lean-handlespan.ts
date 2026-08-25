@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE HANDLE SPAN — what 65536 handles of 32 qubits each come to, and what that total
-// is NOT. PURE ARITHMETIC: every number is a power of two or a product of two of them; nothing is measured from the
-// world and no ledger count appears, so nothing here drifts.
+// is NOT. PURE ARITHMETIC: every number is a power of two or a product of two of them. No quantity here is read off
+// an instrument or taken from the world, and no ledger count appears, so nothing here drifts and nothing here owes
+// an authority — 2^16, 2^5 and 2^21 answer to the kernel alone, and the kernel is the whole of their warrant.
 //
 // THE ARITHMETIC. A handle is the uuid's first segment — 8 hex characters, 4 bits each, so 32 bits spanning 2^32.
 // Take 2^16 = 65536 such handles and the qubit counts ADD while the spans multiply: 2^16 * 2^5 = 2^21, so the total
