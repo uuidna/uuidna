@@ -113,3 +113,41 @@ test('the ledger probe re-addresses theorems from the SAME preimage the ledger s
   assert.equal(ledger.check(), 0)
   assert.equal(ledgerUnits(), theoremByKey().size)
 })
+
+// ── A HAND-TYPED LIST CAN ONLY LAG THE LEDGER IT DRAWS FROM ──────────────────────────────────────────────────
+// WITNESSES is written by hand. The quantum wing is not: it grows whenever anyone seals a theorem. On the night
+// this battery was written another session sealed `ym_quantum`, and the battery reported "37 witnesses ·
+// 12099 decisions · 0 disagreements · verdict EXACT" without ever saying THIRTY-SEVEN OF WHAT — a coverage claim
+// with no denominator, which reads as complete. Guard did not catch it: all eight of its hardcode finders pass
+// over the table. It is the same defect as a decoder that read 2 of 16 Alpine indexes, committed here.
+test('THE BATTERY REPORTS ITS DENOMINATOR — coverage of the wing, not a bare witness count', () => {
+  const p = proveHardwareQuantum(1)
+  const wing = [...theoremByKey().values()].filter((t) => t.skill === 'quantum')
+  assert.equal(p.coverage.wing, wing.length, 'the denominator is counted from the ledger, never from the list')
+  assert.ok(p.coverage.witnessed > 0)
+  assert.ok(p.coverage.witnessed <= p.coverage.wing)
+  assert.equal(p.coverage.witnessed + p.coverage.unwitnessed.length, p.coverage.wing,
+    'witnessed and unwitnessed must partition the wing exactly — a theorem in neither is one nobody is counting')
+})
+
+test('THE UNWITNESSED ARE NAMED, so a growing gap is visible rather than merely absent', () => {
+  const p = proveHardwareQuantum(1)
+  for (const key of p.coverage.unwitnessed) {
+    assert.ok(theoremByKey().has(key), `${key} is named as unwitnessed but is not in the ledger at all`)
+    assert.ok(!WITNESSES.some((w) => w.theorem === key), `${key} is named unwitnessed while a witness decides it`)
+  }
+  assert.match(p.bound, new RegExp(`${p.coverage.witnessed} of the wing's ${p.coverage.wing}`),
+    'the bound must carry its coverage — "0 disagreements" over a partial battery is a claim about the part')
+})
+
+test('a witness deciding a theorem OUTSIDE the wing is disclosed, not silently counted as wing coverage', () => {
+  const p = proveHardwareQuantum(1)
+  const wing = new Set([...theoremByKey().values()].filter((t) => t.skill === 'quantum').map((t) => t.key))
+  for (const key of p.coverage.beyondWing) {
+    assert.ok(theoremByKey().has(key), `${key} is sealed`)
+    assert.ok(!wing.has(key), `${key} is listed as beyond the wing but is in it`)
+  }
+  // the counts must not double-count: every witness is either wing coverage or beyond it
+  assert.equal(p.coverage.witnessed + p.coverage.beyondWing.length, WITNESSES.length,
+    'every witness decides exactly one sealed theorem, inside the wing or outside it')
+})

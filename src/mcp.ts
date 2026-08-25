@@ -28,6 +28,28 @@ import {
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll } from './index.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
 import { handleOf } from './handle.js'   // THE one derivation of a handle from an address
+import { compileToHexbits } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
+
+/** THE SERVED QUBIT CEILING — NAMED, so it can be hunted.
+ *
+ *  It was the literal `12`, written four times: twice as `n > 12` in two guards and twice more inside the error
+ *  strings that quote it. And gen-readme did not import it — it REGEXED it out of this file's source text
+ *  (`/n > (\d+)\) throw new Error/`) to publish "N qubits served over MCP", under a header promising every
+ *  number is "COMPUTED at generation from the ledger and the wired code". Reading a magic number out of source
+ *  with a regex is the weakest possible sense of wired, and it is precisely why nobody could name the constant:
+ *  naming it would have broken the parser.
+ *
+ *  So it could not be reached by `axiom-hunt` either. That hunter binds each assumption to a LIVE imported
+ *  constant and reports it PROVEN or EXPOSED — and an unnamed inline bound is structurally invisible to it. The
+ *  library cap (MAX_MESSAGE_QUBITS) is in that table and proven; this one, which is TIGHTER and is what actually
+ *  governs every hosted caller, was in no table at all. An axiom that was never named cannot be exposed.
+ *
+ *  Named here it becomes an ordinary candidate, and honestly an EXPOSED one: no theorem seals 12. Measured on
+ *  the build host, the simulator sustains 22 qubits in ~2 s and ~1 GB, so 12 (4,096 amplitudes, 2 ms, 6 MB) is
+ *  not forced by the arithmetic. It is plausibly forced by the EDGE runtime's memory ceiling — a 20-qubit state
+ *  measured 282 MB — but that constraint is nowhere stated, which is the gap. A limit with a reason is a
+ *  theorem waiting to be sealed; a limit without one is an axiom in use. */
+export const MAX_SERVED_QUBITS = 12
 import { depositCandidates, type WaveCandidate } from './wave-deposit.js'   // the wire's door into the conveyor (lead 131)
 import { ROOT } from './scripts/api.js'  // repo root, edge-guarded (resolves '/' where no node registry exists)
 import { speak, speechCensus } from './speech.js' // what a handle SAYS, read off the sealed walk — no phrase table
@@ -1085,14 +1107,14 @@ const TOOLS: Tool[] = [
       const ops = a.ops as GateOp[] | undefined
       if (Array.isArray(ops)) {
         const n = Number(a.qubits)
-        if (!Number.isInteger(n) || n < 1 || n > 12) throw new Error('qubits must be an integer in 1..12 for an ops circuit')
+        if (!Number.isInteger(n) || n < 1 || n > MAX_SERVED_QUBITS) throw new Error(`qubits must be an integer in 1..${MAX_SERVED_QUBITS} for an ops circuit`)
         if (ops.length > 4096) throw new Error('circuit too long (max 4096 ops)')
         state = runCircuit(n, ops) // validates gate names + qubit ranges, throws on the unknown
         meta = { circuit: 'custom', gates: ops.length }
       } else {
         const circuit = a.circuit === 'ghz' ? 'ghz' : 'bell'
         const n = a.qubits ? Number(a.qubits) : 3
-        if (circuit === 'ghz' && (!Number.isInteger(n) || n < 1 || n > 12)) throw new Error('qubits must be an integer in 1..12')
+        if (circuit === 'ghz' && (!Number.isInteger(n) || n < 1 || n > MAX_SERVED_QUBITS)) throw new Error(`qubits must be an integer in 1..${MAX_SERVED_QUBITS}`)
         state = circuit === 'ghz' ? ghzState(n) : bellState()
         meta = { circuit }
       }
@@ -1326,6 +1348,22 @@ const withReceipt = (id: JsonId, rec: Receipt, content: unknown[], isError = fal
 // serving process's account of them, served by uuidna_coin_ledger and read by uuidna_crew.
 let PAYING_AGENT = 'anonymous'
 const PAYMENTS: CoinPayment[] = []
+
+/** THE ONE RECORDER, and the reason it is exported: the EDGE deposited without recording.
+ *
+ *  Both surfaces mint the two coins — mcp.ts here and mcp-http.ts at its own dispatch, each calling
+ *  depositCoins — but only this file appended a row, and `PAYMENTS` is module-private, so the edge had no way
+ *  to. Measured on the hosted server 2026-08-25: three gated calls returned three distinct deposit ids while
+ *  uuidna_coin_ledger reported payments 0. The coins were paid, announced, and never accounted, and an empty
+ *  census rendered that as "nobody paid".
+ *
+ *  So the append lives here, once, and both doors call it with their own surface. The edge is stateless, so its
+ *  account still spans only the isolate that served the call — that is a real limit and coinCensus now SAYS it
+ *  (state: 'silent') rather than returning a zero that reads as a finding. A limit named is not a lie; a limit
+ *  rendered as a clean result is. */
+export function recordPayment(op: string, surface: string, depositId: string, agent: string = PAYING_AGENT): void {
+  PAYMENTS.push(payment(agent, op, surface, depositId))
+}
 // the dispatch chain — gated calls serialize on it (one writer, one chain; see the dispatch comment)
 let DISPATCH: Promise<void> = Promise.resolve()
 
@@ -1363,7 +1401,7 @@ function handle(msg: RpcMessage) {
         // THE IMMEDIATE DEPOSIT — every judged call deposits the two coins at the wire: the agent's very first
         // call already contributes (contribute first, then take — the captain law, enforced by the protocol).
         const dep = depositCoins(t.name, g.gate.receipt)
-        PAYMENTS.push(payment(PAYING_AGENT, t.name, 'stdio', dep.id))
+        recordPayment(t.name, 'stdio', dep.id)
         const rec = receiptFor(t.name, args, { output: g.output, deposit: dep.id })
         // THE LEDGER LINE — verdict, deposit and chained receipt on ONE row. Every id needed to recheck this call
         // is still here; what left is only what REPEATS: the two deposit theorem keys (identical on every call,
@@ -1375,7 +1413,22 @@ function handle(msg: RpcMessage) {
             { type: 'text', text: typeof g.output === 'string' ? g.output : JSON.stringify(g.output) },
             { type: 'text', text: ledgerLine(g.gate, dep, rec) },
           ],
-          _meta: { ...rec, gate: g.gate, deposit: dep },
+          // EVERY RESPONSE CARRIES ITS OWN 32 HEXBIT STATES, and it rides in the ENVELOPE for the same reason the
+          // gate verdict and the deposit do: a property that is true of every call is delivered once at the wire,
+          // not repeated in two hundred tool descriptions. Five of 204 tools named `hexbits` in their return shape
+          // and the other 199 delivered none, so the claim that every port compiles to 32 states
+          // (theorem hexbit_is_four_qubits: 32·4 = 128) was true of the addresses and unobservable in the answers.
+          //
+          // WHY NOT PUT IT IN THE DESCRIPTIONS. A tool's address is toUuid('tool:' + name + ':' + description) —
+          // "a drifted description is a changed address", as the tools/list comment above says. Promising hexbits
+          // in 204 descriptions would move 204 sealed addresses, the registry root and the API seal, to say 204
+          // times what the envelope can state once and PROVE for every tool at once.
+          //
+          // The preimage is the GATE RECEIPT — the order-invariant fold of (op, input, output, verdict) — because
+          // both surfaces have it and it is the address of THIS judged call, so the states are of the answer
+          // rather than of the tool. holofractal.ts holds the principle: a blanket "every I/O is …" adjudicates
+          // UNVERIFIED, so the property is COMPUTED per response and a test walks the whole catalogue to show it.
+          _meta: { ...rec, gate: g.gate, deposit: dep, hexbits: compileToHexbits(g.gate.receipt) },
           ...(g.gate.clean ? {} : { isError: true }),
         })
       })

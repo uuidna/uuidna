@@ -240,6 +240,13 @@ exact Gaussian integers, with no floating point at any step, and every result co
 decided by exhaustive case analysis. **${proof.results.length} witnesses · ${proof.sweeps} sweeps ·
 ${proof.executed} decisions · ${proof.disagreements} disagreements · verdict ${proof.verdict}.**
 
+**Coverage: ${proof.coverage.witnessed} of the quantum wing's ${proof.coverage.wing} theorems**, and the ${proof.coverage.unwitnessed.length} this battery
+does not decide are named rather than counted: \`${proof.coverage.unwitnessed.join('`, `')}\`. The battery is a
+hand-written list and a hand-written list can only lag the ledger it draws from — one of those keys was sealed by
+another session on the night this was written, and nothing noticed until the denominator was printed. Several of
+the rest state things this simulator cannot decide exactly (the W state's √3 normalisation), and a witness that
+half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
+
 ${proof.bound.charAt(0).toUpperCase() + proof.bound.slice(1)}.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up

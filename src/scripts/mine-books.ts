@@ -22,7 +22,7 @@
 // by pigeonhole (gematria_forces_collisions), never evidence of a connection.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { fetchGutenberg, extractClaims, extractDecidable, auditText } from '../books.js'
+import { fetchGutenberg, extractClaims, extractDecidable, auditText, stripGutenberg } from '../books.js'
 import { merkleGravity } from '../index.js'
 import { ROOT } from './api.js'
 
@@ -57,9 +57,19 @@ if (process.argv[1] && process.argv[1].endsWith('mine-books.js')) {
   for (const { id } of corpus) {
     try {
       const b = await fetchGutenberg(id)
+      // THE ADDRESS IS OF THE FILE, THE CLAIMS ARE OF THE WORK. auditText keeps the WHOLE fetched text so the
+      // content-address still fingerprints the exact bytes you hold; the miners read the STRIPPED work, because
+      // a Project Gutenberg file wraps the book in a header and a licence footer and legal prose is dense in
+      // numbers. Measured on this corpus before the strip: 13 of 194 leads (7%) came from a wrapper that is 0.8%
+      // of the words — the Foundation's royalty terms and refund window, filed as claims of Smith and Ricardo,
+      // each carrying the book's own address as its provenance.
       const audit = auditText(b.text, { title: b.title, authors: b.authors, source: b.source })
-      const claims = extractClaims(b.text, 500)
-      const arithmetic = extractDecidable(b.text, 100)
+      const { work, stripped } = stripGutenberg(b.text)
+      // A WRAPPER THAT COULD NOT BE LOCATED IS NOT A WRAPPER THAT IS ABSENT — say which, by name, or the next
+      // reader cannot tell a clean text from an unstripped one.
+      if (!stripped) console.log(`    ! ${id} — no Project Gutenberg markers found; mining the file WHOLE, so the wrapper may be included`)
+      const claims = extractClaims(work, 500)
+      const arithmetic = extractDecidable(work, 100)
       const link = { id, title: b.title, authors: b.authors, source: b.source, address: audit.address }
       for (const c of claims)
         leads.push({ claim: c.claim, kind: c.kind, numbers: c.numbers, units: c.units, sentence: c.sentence, address: c.address, book: link })

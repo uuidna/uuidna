@@ -237,10 +237,35 @@ export const dependsOn = (t: Theorem): readonly string[] => {
 }
 
 /** gravity: infinite when the theorem stands on the kernel alone, else the uuid divided by what binds it. */
+/** gravityOf(t) → the uuid's 32 hexbits shared among the theorem's dependencies, IN THE LEDGER'S OWN ARITHMETIC.
+ *
+ *  IT RETURNED `Infinity`, AND THE LEDGER HAS A SEALED THEOREM SAYING IT MUST NOT. `division_by_zero` states
+ *  `(1000 / 0 = 0) ∧ (0 / 0 = 0)` — division by zero is DEFINED as 0 here, by Lean's Nat semantics, and the MCP
+ *  calculator advertises the tree as "founded on division by zero ... x/0 = 0, well-defined". An unbound theorem
+ *  has n = 0, so this expression IS 32/0, and the one value the sealed law forbids is the one this returned.
+ *  1,434 of 1,696 theorems — 85% of the ledger — carried it, and gen-readme published "Infinity hexbits for the
+ *  two coins" for all seven of its headline entries, under a heading calling gravity "coverage priced in the
+ *  ledger's own unit". Infinity is not a price and no reader can check it. Any infinity folds to finite states;
+ *  that is the whole move a content-address makes, and this was the one place the tree exempted itself from it.
+ *
+ *  THE SECOND DEFECT, SAME LINE: `UUID_HEXBITS / n` is FLOAT division. Twelve theorems have three dependencies
+ *  and produced 32/3 = 10.666666666666666, a repeating decimal in a file this tree seals and diffs. Nat division
+ *  floors, so the ledger's own answer is 10. No law caught either: `no-float-math` matches `Math.*` only and
+ *  harmonic-scan rule 2 bans the intrinsics, so a plain `/` that produces a float is unchecked everywhere.
+ *
+ *  Both are one fix — compute it the way the kernel computes it. SAFE AT THIS LEDGER'S SHAPE, checked rather
+ *  than assumed: the deepest theorem has 4 dependencies, so n ≤ 32 always and a floored result is never 0 for a
+ *  bound theorem; 0 therefore means unbound and nothing else. And `byGravity` sorts on the dependency COUNT, not
+ *  on this value, so the ordering is untouched — only the published figure changes, from a non-number to one. */
 export const gravityOf = (t: Theorem): number => {
   const n = dependsOn(t).length
-  return n === 0 ? Infinity : UUID_HEXBITS / n
+  if (n === 0) return 0                                  // 32/0 = 0 — theorem division_by_zero, not Infinity
+  return (UUID_HEXBITS - (UUID_HEXBITS % n)) / n         // Nat division: floors, exact, never a repeating decimal
 }
+
+/** Is this theorem UNBOUND — nothing in the ledger pulls on it? The state `gravityOf` folds to 0 for, named, so a
+ *  reader is not left to infer "no dependencies" from a bare zero and a renderer can say which it means. */
+export const isUnbound = (t: Theorem): boolean => dependsOn(t).length === 0
 
 /** the ledger by gravity — the unbound first, and among equals the one that decides the most. */
 export const byGravity = (): readonly Theorem[] =>

@@ -59,6 +59,13 @@ const JOBS: readonly Job[] = [
     writes: ['lean/quantum-advantage.json', 'lean/quantum-advantage.md', 'docs/public/quantum-advantage.jsonld'] },
   { cmd: 'node dist/scripts/gen-alpine-apps.js',
     writes: ['lean/alpine-apps.json', 'lean/alpine-apps.md'] },
+  // AXIOM-HUNT BECAME A GENERATOR the day it started filing. It ran in the audit chain and wrote nothing — an
+  // exposed axiom lived in console output and never reached a leads surface, so the gap → axiom → theorem chain
+  // broke at the first hop. Now that it seals lean/exposed-axioms.json, that file is derived and owes the same
+  // fixed point as every other: two runs, byte-identical, or the set of assumptions this tree runs on is not
+  // stable enough to be published.
+  { cmd: 'node dist/scripts/axiom-hunt.js',
+    writes: ['lean/exposed-axioms.json'] },
 ]
 
 /** the job's own name, read off the command it runs — never stored twice */

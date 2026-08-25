@@ -16,8 +16,9 @@ import { searchLedger } from './editorial.js'
 import { decide } from './decide.js'
 import { matrixCss } from './css.js'
 import { toUuid } from './address.js'
+import { compileToHexbits } from './hexbit/index.js'   // one unit, both doors — the edge computes the same 32 states
 import { conformance } from './conformance.js'
-import { MCP_CATALOG, callTool, toolHandleOf, apiHandleOf } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
+import { MCP_CATALOG, callTool, toolHandleOf, apiHandleOf, recordPayment } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { coins, billUuidna } from './captain/billing/index.js'
 import { quantumAura } from './aura.js'
@@ -245,11 +246,19 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
         const g = gateVerdict(String(name), (params.arguments as Record<string, unknown>) ?? {}, settled)
         // THE IMMEDIATE DEPOSIT — the edge deposits too: the agent's first hosted call already contributes.
         const dep = depositCoins(String(name), g.gate.receipt)
+        // AND RECORDED, not only minted: the edge deposited without appending a row until 2026-08-25, so every
+        // hosted call paid two coins into an account that never saw them. Its reach is one isolate — the edge is
+        // stateless — which is why an empty census now reports state 'silent' instead of a zero.
+        recordPayment(String(name), 'edge', dep.id)
         // ONE row for verdict + deposit (the edge is stateless, so there is no session receipt to chain) — the same
         // ledgerLine both surfaces share, so the envelope cannot drift between them.
         return rpc(id, {
           content: [{ type: 'text', text: typeof g.output === 'string' ? g.output : JSON.stringify(g.output) }, { type: 'text', text: ledgerLine(g.gate, dep) }],
-          _meta: { gate: g.gate, deposit: dep },
+          // THE SAME 32 STATES ON THIS DOOR — one law, both surfaces. Same preimage (the gate receipt), same
+          // unit computing them (hexbit/compileToHexbits), so the edge cannot deliver a different width or a
+          // different fold than stdio. See the long note at the stdio envelope for why this rides here rather
+          // than in every tool's description.
+          _meta: { gate: g.gate, deposit: dep, hexbits: compileToHexbits(g.gate.receipt) },
           ...(g.gate.clean ? {} : { isError: true }),
         })
       }

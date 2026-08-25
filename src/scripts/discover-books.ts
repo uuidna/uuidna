@@ -33,6 +33,16 @@ export const SUBJECTS: { domain: string; queries: readonly string[] }[] = [
   { domain: 'measurement', queries: ['experimental research', 'metrology', 'weights and measures'] },
   { domain: 'engines', queries: ['gas engine', 'oil engine', 'steam engine', 'producer gas'] },
   { domain: 'navigation', queries: ['yacht sailing', 'navigation', 'seamanship'] },
+  // ECONOMY, and it is the subject this ledger has the most business reading about. The tree already prices work:
+  // the captain's two coins are a conserved fair-exchange invariant, billing charges on the MEASURED advantage
+  // between producing (O(N)) and verifying (O(1)), and coins are recorded as judged work rather than as value.
+  // Those are economic claims, and every one of them is currently settled by uuidna's own arithmetic with no
+  // reading behind it. The classical literature states the questions in the same terms — value against price,
+  // what a measure of value must hold constant, why a token circulates — so a corpus that can quote Smith,
+  // Ricardo, Mill and Bastiat on value and money is the difference between a billing model that asserts its
+  // terms and one that knows what they have meant. HONEST SCOPE, unchanged from every other subject: reading a
+  // book yields leads, never theorems. The desk proposes; the captain disposes.
+  { domain: 'economy', queries: ['political economy', 'wealth of nations', 'money and banking', 'taxation', 'value and price'] },
 ]
 
 export interface Found { id: number; title: string; author: string; domain: string; query: string; downloads: number; library?: string; ref?: string }

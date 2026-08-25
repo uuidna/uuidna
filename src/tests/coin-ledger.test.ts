@@ -69,3 +69,39 @@ test('enrollment is UNVERIFIED, never rejected — the honest note names what to
   assert.match(e.honest, /UNVERIFIED, not rejected/)
   assert.match(e.honest, /educated, reeducated, paid/)
 })
+
+// ── AN EMPTY ACCOUNT IS NOT A FINDING THAT NOBODY PAID ───────────────────────────────────────────────────────
+// Measured on the hosted edge 2026-08-25: three gated calls returned three distinct deposit ids and
+// uuidna_coin_ledger reported payments 0. Both surfaces mint the coins, only stdio appended a row, and
+// `PAYMENTS` was module-private so the edge could not. The census rendered "I keep no account" identically to
+// "no coins were paid" — the same defect as a decoder that read nothing looking like an empty upstream.
+test('a SILENT census is marked silent — an empty register never renders as an account', () => {
+  const c = coinCensus([])
+  assert.equal(c.state, 'silent', 'a reader checking only `payments` cannot tell an empty register from an absent one')
+  assert.equal(c.payments, 0)
+  assert.equal(c.totalCoins, 0)
+  assert.match(c.honest, /NOT A FINDING THAT NOBODY PAID/)
+  assert.match(c.honest, /never as "no coins/)
+})
+
+test('a census WITH rows is an account, and says so', () => {
+  const c = coinCensus([payment('agent-a', 'uuidna_address', 'edge', dep.id)])
+  assert.equal(c.state, 'account')
+  assert.equal(c.payments, 1)
+  assert.equal(c.totalCoins, 2, 'one judged call deposits the two captain coins')
+  assert.doesNotMatch(c.honest, /NOT A FINDING/, 'an account must not carry the silence disclaimer')
+})
+
+test('THE STATES ARE EXHAUSTIVE AND DISJOINT — every census is exactly one of them', () => {
+  for (const rows of [[], [payment('a', 'op', 'edge', dep.id)], [payment('a', 'op', 'stdio', dep.id), payment('b', 'op', 'edge', dep.id)]]) {
+    const c = coinCensus(rows)
+    assert.ok(c.state === 'silent' || c.state === 'account')
+    assert.equal(c.state === 'silent', c.payments === 0, 'silent iff no rows — the state cannot disagree with the count')
+  }
+})
+
+test('the surface travels on the row, so an edge payment is not filed as a stdio one', () => {
+  const rows = [payment('a', 'uuidna_coins', 'edge', dep.id)]
+  assert.equal(rows[0].surface, 'edge')
+  assert.equal(coinCensus(rows).state, 'account')
+})

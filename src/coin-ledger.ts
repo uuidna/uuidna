@@ -46,10 +46,22 @@ export function payment(agent: string, op: string, surface: string, depositId: s
 
 export interface AgentAccount { agent: string; agentHandle: string; payments: number; coins: number; handles: string[] }
 
+/** WHAT AN EMPTY CENSUS IS EVIDENCE OF, made explicit so a consumer cannot read one as the other.
+ *    `account` — rows were recorded, and this is them.
+ *    `silent`  — no rows in THIS process. Not a finding that no coins were paid; the register is per-process and
+ *                a stateless surface holds none, so "I keep no account" and "nobody paid" arrive identically
+ *                unless the census says which it is. Measured live on the hosted edge 2026-08-25: three gated
+ *                calls returned three distinct deposit ids and the census returned payments 0 — the deposits
+ *                were minted and never recorded, because the edge path deposits without appending a row. */
+export type CensusState = 'account' | 'silent'
+
 export interface CoinCensus {
   payments: number
   totalCoins: number
   agents: AgentAccount[]
+  /** whether these figures are an account or a silence — see CensusState. A reader that checks only `payments`
+   *  cannot tell an empty register from an absent one; this field is the whole difference. */
+  state: CensusState
   /** order-invariant fold of every payment row — any observer, any ordering, one receipt */
   receipt: string
   honest: string
@@ -66,14 +78,24 @@ export function coinCensus(rows: readonly CoinPayment[]): CoinCensus {
     acc.handles.push(r.handle)
     byAgent.set(r.agentHandle, acc)
   }
+  const empty = rows.length === 0
   return {
     payments: rows.length,
     totalCoins: rows.reduce((s, r) => s + r.coins, 0),
     agents: [...byAgent.values()].sort((a, b) => (a.agentHandle < b.agentHandle ? -1 : 1)),
+    state: empty ? 'silent' : 'account',
     receipt: merkleGravity(rows.map((r) => r.address)),
-    honest: 'an ACCOUNT of deposit records, not of value: every row recomputes from its op and gate receipt, ' +
-      'the when is the deposit\'s own handle (time as content, never a clock), and the census receipt is ' +
-      'order-invariant — any observer folds the same rows to the same receipt.',
+    honest: empty
+      ? 'SILENT, WHICH IS NOT A FINDING THAT NOBODY PAID. This register is per-process, and the coins are ' +
+        'deposited at the wire by every gated call on every surface. A process that recorded no rows — a ' +
+        'stateless edge isolate serving one request, a fresh CLI, a reader that just started — reports exactly ' +
+        'this, and so does a process where genuinely nothing was paid. The two are NOT distinguishable from ' +
+        'here and must not be rendered alike: read this as "this process holds no account", never as "no coins ' +
+        'were paid". The deposits themselves are eternal and recompute from op + gate receipt; what is missing ' +
+        'is the account of them, not the payment.'
+      : 'an ACCOUNT of deposit records, not of value: every row recomputes from its op and gate receipt, ' +
+        'the when is the deposit\'s own handle (time as content, never a clock), and the census receipt is ' +
+        'order-invariant — any observer folds the same rows to the same receipt.',
   }
 }
 

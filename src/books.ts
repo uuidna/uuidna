@@ -79,6 +79,49 @@ export function auditText(text: string, meta: { title?: string; authors?: string
 /** A decidable arithmetic claim EXTRACTED from a text — the ONLY fragment of a book uuidna can independently seal.
  *  `asserted` is what the prose says; `actual` is what the arithmetic computes; `lean` is uuidna's OWN by-decide
  *  theorem for the true value. VERIFIED when the book's arithmetic holds, REFUTED when uuidna's decide disagrees. */
+/** A Project Gutenberg file is a WRAPPER around a work, and the two must not be read as one text.
+ *
+ *  Measured on Wealth of Nations (id 3300) 2026-08-25: a 142-word header before the START marker, the work
+ *  itself at 381,096 words, and a 2,915-word licence footer after the END marker. That wrapper is 0.8% of the
+ *  file and it produced 7% of the numeric leads mined from it — nine times its share — because legal prose is
+ *  unusually dense in numbers (30 days, 60 days, 90 days, 20 percent, 501(c)(3)). So `mine-books` filed the
+ *  Foundation's royalty terms and refund window as candidate claims of Adam Smith, each carrying the book's own
+ *  content-address as its provenance. Nothing in the tree stripped the wrapper: not books.ts, not mine-books,
+ *  not src/reading.
+ *
+ *  WHY THIS DOES NOT LIVE INSIDE fetchGutenberg. The fetched bytes are the PROVENANCE — auditText content-
+ *  addresses the exact file you hold, and that fingerprint is worth exactly what it is because it covers the
+ *  file rather than an edited version of it. Two different needs: the ADDRESS must be of the bytes, the
+ *  ANALYSIS must be of the work. Stripping at the fetch would silently move every book address in the tree and
+ *  destroy the property the address exists for. So the strip is a separate, pure, opt-in call and each reader
+ *  chooses — which is also why it is exported rather than inlined here.
+ *
+ *  HONEST ON FAILURE: a file with no markers is returned WHOLE with `stripped: false`, never truncated on a
+ *  guess. A wrapper that cannot be located is not a wrapper that is absent, and the flag says which happened. */
+export interface StrippedText { work: string; stripped: boolean; headerWords: number; footerWords: number }
+
+const PG_START = /\*\*\*\s*START OF TH(?:E|IS) PROJECT GUTENBERG[^\n]*\n/i
+const PG_END = /\*\*\*\s*END OF TH(?:E|IS) PROJECT GUTENBERG/i
+const countWords = (s: string): number => s.split(/\s+/).filter(Boolean).length
+
+/** stripGutenberg(text) → the WORK, with the Project Gutenberg header and licence footer removed. Pure. */
+export function stripGutenberg(text: string): StrippedText {
+  const s = PG_START.exec(text)
+  const e = PG_END.exec(text)
+  // both markers, in order, or nothing is removed — a half-matched wrapper is the case where a guess would cut
+  // into the work itself, and losing the opening of a book is worse than carrying a licence at the end of it
+  if (!s || !e || e.index <= s.index + s[0].length) {
+    return { work: text, stripped: false, headerWords: 0, footerWords: 0 }
+  }
+  const from = s.index + s[0].length
+  return {
+    work: text.slice(from, e.index),
+    stripped: true,
+    headerWords: countWords(text.slice(0, from)),
+    footerWords: countWords(text.slice(e.index)),
+  }
+}
+
 export interface ExtractedFact {
   claim: string
   asserted: number

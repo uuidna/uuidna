@@ -58,6 +58,21 @@ jobs:
       - name: FIXED POINT — every generator must reproduce its own output byte for byte
         run: node dist/scripts/auto-improve.js --rounds "${{ inputs.rounds || '4' }}"
 
+      # THE LAW REGISTER MAY ONLY CLOSE. src/laws.ts states five laws; the tree runs 44 enforcers, and the gap
+      # between them is sealed in lean/law-register.json as a baseline that may only shrink. This step fails when
+      # a NEW enforcer appears that no law names — which is the moment the gap is cheapest to close, and the only
+      # moment anyone is looking at that arm. It does not fail on the existing 43: a gate nobody can pass is a
+      # gate nobody runs, and this tree already learned that with lint:strict.
+      - name: LAW REGISTER — no new enforcement without a stated law
+        run: node dist/scripts/audit-law-register.js
+
+      # THE NON-HARMONIC HATCH MAY ONLY CLOSE. harmonic-scan rule (1) exempts whatever declares itself, so its
+      # violation count is definitionally zero — it reports the core harmonic at 18 exemptions and would at 80.
+      # This bounds the set the scanner cannot: today's 18 are sealed, a NEW one fails, surrendering one tightens
+      # the seal. Existing entries are not accused; several are load-bearing boundaries.
+      - name: EXEMPTIONS — the non-harmonic hatch may only close
+        run: node dist/scripts/audit-exemptions.js
+
       # A convergence run that changed nothing proves the point; one that changed files and THEN converged is
       # also a pass (the checkout was simply behind). What fails is not converging at all. The diff is printed
       # either way, because "which files moved" is the first thing anyone reading a red run will want.

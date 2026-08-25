@@ -4,6 +4,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { auditText, auditTranslation, toUuid, digitalRoot, merkleRoot } from '../index.js'
+import { stripGutenberg } from '../books.js'
 import { UUID } from './api.js'
 
 const BOOK = `The Project
@@ -75,4 +76,49 @@ test('a revised translation re-addresses — the change is visible in the pair',
   assert.equal(a1.source.address, a2.source.address) // same source
   assert.notEqual(a1.translation.address, a2.translation.address) // changed translation
   assert.notEqual(a1.pair, a2.pair) // so the binding receipt changes too
+})
+
+// ── THE WRAPPER IS NOT THE WORK ──────────────────────────────────────────────────────────────────────────────
+// A Project Gutenberg file wraps the book in a header and a licence footer, and nothing in this tree stripped
+// them. Measured on Wealth of Nations (3300) 2026-08-25: 142 header words, 381,096 words of Smith, 2,915 words
+// of licence footer. That wrapper is 0.8% of the file and produced 13 of 194 mined leads — 7%, nine times its
+// share, because legal prose is dense in numbers. The Foundation's royalty terms and 30-day refund window were
+// filed as numeric claims of Adam Smith, each carrying the book's own content-address as provenance.
+test('stripGutenberg removes the header and the licence footer, and reports what it removed', () => {
+  const text = [
+    'The Project Gutenberg eBook of Something',
+    'This eBook is for the use of anyone anywhere at no cost.',
+    '*** START OF THE PROJECT GUTENBERG EBOOK SOMETHING ***',
+    'It is natural that what is usually the produce of two days labour should be worth double.',
+    '*** END OF THE PROJECT GUTENBERG EBOOK SOMETHING ***',
+    'You provide a full refund of any money paid within 30 days of receipt.',
+  ].join('\n')
+  const r = stripGutenberg(text)
+  assert.equal(r.stripped, true)
+  assert.match(r.work, /produce of two days labour/)
+  assert.doesNotMatch(r.work, /refund/, 'the licence footer must not survive into the work')
+  assert.doesNotMatch(r.work, /This eBook is for the use/, 'nor the header')
+  assert.ok(r.headerWords > 0 && r.footerWords > 0, 'what was removed is counted, not silently dropped')
+})
+
+test('A TEXT WITH NO MARKERS IS RETURNED WHOLE — an unlocatable wrapper is not an absent one', () => {
+  const plain = 'A book with no Gutenberg markers at all, worth two deer per beaver.'
+  const r = stripGutenberg(plain)
+  assert.equal(r.stripped, false, 'the flag must say the strip did not happen')
+  assert.equal(r.work, plain, 'nothing may be cut on a guess')
+  assert.equal(r.headerWords, 0)
+  assert.equal(r.footerWords, 0)
+})
+
+test('a HALF-matched wrapper cuts nothing — losing the opening of a book is worse than carrying a licence', () => {
+  const startOnly = '*** START OF THE PROJECT GUTENBERG EBOOK X ***\nthe work continues and never ends'
+  assert.equal(stripGutenberg(startOnly).stripped, false)
+  const endFirst = '*** END OF THE PROJECT GUTENBERG EBOOK X ***\nthen a start\n*** START OF THE PROJECT GUTENBERG EBOOK X ***'
+  assert.equal(stripGutenberg(endFirst).stripped, false, 'markers out of order are not a wrapper')
+})
+
+test('the strip is PURE and idempotent — stripping twice is stripping once', () => {
+  const text = '*** START OF THE PROJECT GUTENBERG EBOOK A ***\nthe work\n*** END OF THE PROJECT GUTENBERG EBOOK A ***\nlicence'
+  const once = stripGutenberg(text).work
+  assert.equal(stripGutenberg(once).work, once, 'an already-stripped work has no markers and must survive intact')
 })

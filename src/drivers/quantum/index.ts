@@ -44,8 +44,9 @@ import { compileToHexbits, valueOf, HEXBIT_BITS, UUID_HEXBITS, HANDLE_HEXBITS } 
 import { toUuid } from '../../address.js'
 import { handleOf } from '../../handle.js'
 import { merkleGravity } from '../../gravity/index.js'
-import { theoremByKey, theorems } from '../../theorems/index.js'
+import { theoremByKey, theorems, THEOREMS } from '../../theorems/index.js'
 import { hostProfile, type HostProfile } from '../../os/host/index.js'
+import { MAX_MESSAGE_QUBITS } from '../../quantum/message/index.js'   // the encoder's cap — imported, never restated
 
 // ── THE DEVICE ───────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -74,9 +75,14 @@ const DEVICE_HONEST =
   'No physics quantum advantage is claimed or implied; the sealed bound is theorem n_qubit_dimension, which ' +
   'counts the exponential classical cost of the simulation and is explicitly not a speedup.'
 
-/** The encoder's sealed ceiling, kept as a named constant so a changed cap and an unchanged theorem cannot pass
- *  each other silently (theorem message_qubit_cap_states). */
-export const SIMULABLE_QUBITS = 16
+/** THE ENCODER'S CEILING, IMPORTED RATHER THAN RESTATED — and the first version of this line restated it.
+ *
+ *  It read `export const SIMULABLE_QUBITS = 16` under a comment claiming the constant existed "so a changed cap
+ *  and an unchanged theorem cannot pass each other silently", which is precisely what a SECOND copy of the
+ *  number guarantees will happen: move the encoder's cap to 20 and this stays 16, while the witness below goes
+ *  on asserting that `message_qubit_cap_states` holds — checking a stale ceiling and reporting EXACT. One truth,
+ *  one place. Guard's `dry` finder passed the duplicate, so nothing but reading it would have caught it. */
+export const SIMULABLE_QUBITS = MAX_MESSAGE_QUBITS
 
 export function hostQuantumDevice(): QuantumDevice {
   const host = hostProfile()
@@ -301,8 +307,29 @@ export const WITNESSES: readonly Witness[] = [
       }
       return failures([seen.size === 16]) } },
 
-  { theorem: 'message_qubit_cap_states', cases: 1, what: 'the encoder cap allocates exactly 2^16 = 65536 amplitudes here',
-    run: () => failures([ket0(SIMULABLE_QUBITS).amp.length === 65536]) },
+  // THE NUMBERS COME FROM THE SEALED STATEMENT, NOT FROM THIS FILE — and the two wrong versions before this one
+  // are why. First it read `=== 65536`, a literal duplicating the encoder's cap: change the cap and the witness
+  // checks a stale ceiling while reporting EXACT. Then, de-duplicating it, it read
+  // `ket0(SIMULABLE_QUBITS).amp.length === (1 << SIMULABLE_QUBITS)` — which cannot fail, because ket0(n) builds
+  // an array of length 1<<n BY CONSTRUCTION. Removing a hack had produced a tautology: a green check measuring
+  // nothing, which is strictly worse than the duplicate it replaced.
+  //
+  // The statement `message_qubit_cap_states` seals is exactly `2^16 = 65536`, so the exponent and the count are
+  // READ FROM IT and the code is checked against the ledger rather than against itself. Three decisions, each
+  // able to fail: the encoder's cap has moved off the sealed exponent; the theorem's own arithmetic does not
+  // hold; this host allocates a different number of amplitudes than the theorem decided.
+  { theorem: 'message_qubit_cap_states', cases: 3, what: "the encoder's cap and this host's allocation both match the sealed 2^n = N",
+    run: () => {
+      const sealed = theoremByKey().get('message_qubit_cap_states')?.statement ?? ''
+      const m = /2\^(\d+)\s*=\s*(\d+)/.exec(sealed)
+      if (!m) return 3          // the statement no longer says what this witness reads — a refusal, not a pass
+      const n = Number(m[1]), states = Number(m[2])
+      return failures([
+        MAX_MESSAGE_QUBITS === n,           // the encoder's cap IS the exponent the ledger sealed
+        (1 << n) === states,                // the arithmetic the kernel decided, recomputed here
+        ket0(n).amp.length === states,      // and this silicon allocates exactly that many amplitudes
+      ])
+    } },
 
   { theorem: 'hexbit_slit_visibility', cases: 1, what: 'unrecorded fringes are 4 and 0; a which-path record flattens both to 2',
     run: () => { const unrec = hadamard(ket0(1), 0).amp.map((c) => c.re)          // [1, 1]
@@ -334,10 +361,39 @@ export interface WitnessResult {
   address: string
 }
 
+/** THE DENOMINATOR THIS BATTERY OWES, and it took the captain's own rule to see it: a hand-typed list can only
+ *  ever lag the ledger it draws from.
+ *
+ *  WITNESSES is 37 entries written by hand. The quantum wing holds 51 theorems, so 15 are unwitnessed — and one
+ *  of those, `ym_quantum`, was sealed by another session on the same night this battery was written. Nothing
+ *  noticed: guard is clean, all eight of its hardcode finders pass, and `proveHardwareQuantum` reported
+ *  "37 witnesses · 12099 decisions · 0 disagreements · verdict EXACT" without ever saying THIRTY-SEVEN OF WHAT.
+ *  A coverage claim with no denominator reads as complete, which is exactly the defect this tree spent a night
+ *  cataloguing — a decoder that read 2 of 16 Alpine indexes looks identical to one that read all 16 and found
+ *  little. The battery deserved its own medicine.
+ *
+ *  So the wing is counted on every run and the unwitnessed are NAMED. This is not an accusation of the missing
+ *  fifteen: several state things this simulator cannot decide exactly (the W state's √3 normalisation), and a
+ *  witness that half-checks its theorem is worse than none. What the count buys is that the gap is visible and
+ *  moves, rather than being invisible and growing. */
+export interface WingCoverage {
+  /** theorems in the ledger's quantum wing */
+  wing: number
+  /** of those, how many this battery witnesses */
+  witnessed: number
+  /** the quantum-wing theorems no witness decides — named, never merely counted */
+  unwitnessed: string[]
+  /** witnesses that decide a theorem OUTSIDE the quantum wing (store_fold_order_invariant is one, deliberately:
+   *  the fold the gate permutations use is the same operation, sealed under the memory skill) */
+  beyondWing: string[]
+}
+
 export interface HardwareProof {
   device: QuantumDevice
   sweeps: number
   results: WitnessResult[]
+  /** what fraction of the wing this run actually speaks for */
+  coverage: WingCoverage
   /** total sealed-value decisions executed on this silicon */
   executed: number
   disagreements: number
@@ -396,12 +452,25 @@ export function runWitnesses(list: readonly Witness[], sweeps = 1): HardwareProo
     })
   }
 
+  // THE WING, COUNTED FROM THE LEDGER rather than from the list — so a theorem sealed after this battery was
+  // written shows up as an uncovered one instead of vanishing into a denominator nobody printed.
+  const wing = THEOREMS.filter((t) => t.skill === 'quantum')
+  const decided = new Set(list.map((w) => w.theorem))
+  const coverage: WingCoverage = {
+    wing: wing.length,
+    witnessed: wing.filter((t) => decided.has(t.key)).length,
+    unwitnessed: wing.filter((t) => !decided.has(t.key)).map((t) => t.key).sort(),
+    beyondWing: list.map((w) => w.theorem).filter((k) => !wing.some((t) => t.key === k)).sort(),
+  }
+
   const device = hostQuantumDevice()
   return {
-    device, sweeps, results, executed, disagreements, refused,
+    device, sweeps, results, executed, disagreements, refused, coverage,
     verdict: disagreements === 0 ? 'EXACT' : 'DISAGREED',
+    // THE BOUND CARRIES ITS COVERAGE. "0 disagreements" over a battery that speaks for 37 of 51 wing theorems is
+    // a statement about 37, and a reader given only the disagreement count would take it for all of them.
     bound: disagreements === 0
-      ? `better than one disagreement per ${executed} executions on this host — a bound from the count, not a proof of zero`
+      ? `better than one disagreement per ${executed} executions on this host, across ${coverage.witnessed} of the wing's ${coverage.wing} theorems — a bound from the count, not a proof of zero, and not a claim about the ${coverage.unwitnessed.length} this battery does not decide`
       : `${disagreements} disagreements in ${executed} executions on this host — the algebra did NOT reproduce the sealed values here`,
     receipt: merkleGravity([toUuid(`device:${device.deviceAddress}`), ...results.map((r) => r.address)]),
     honest: PROOF_HONEST,
