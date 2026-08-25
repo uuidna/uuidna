@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**50 open doors** across 21 topics, derived from the tree's own records — the held leads,
+**48 open doors** across 21 topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
@@ -21,13 +21,8 @@ express the claim as an exact predicate over it, run the [tester](/tools) with i
 drains, seal it ([the wave](/theorem/denial_drains_to_the_last_coin)). The door then closes as a count, and this
 page regrows without it.
 
-## wave — 9 open
+## wave — 8 open
 
-- **runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`development_is_the_complement`](/theorem/development_is_the_complement) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) </small>
-  <br><small>sealed neighbors: [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`closure_is_coprime`](/theorem/closure_is_coprime) · [`sequence_and_coins_are_one`](/theorem/sequence_and_coins_are_one) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **An N-qubit register's state is a 2^N-dimensional complex vector, and full-state classical simulation costs scale exponentially in N (recorded value: 2^N)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`pairs_share_one_centre`](/theorem/pairs_share_one_centre) </small>
@@ -171,19 +166,6 @@ page regrows without it.
   <br><small>sealed neighbors: [`only_five_carries_the_three_singularities`](/theorem/only_five_carries_the_three_singularities) · [`xor_fold_is_malleable`](/theorem/xor_fold_is_malleable) · [`board_dims_add_three`](/theorem/board_dims_add_three) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## reasoning — 2 open
-
-- **Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`real_pauli_group_order_8`](/theorem/real_pauli_group_order_8) </small>
-  <br><small>sealed neighbors: [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`phase_gate_order_ladder`](/theorem/phase_gate_order_ladder) · [`a_symphony_is_a_sequence_not_a_set`](/theorem/a_symphony_is_a_sequence_not_a_set) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **roundTrips() disagrees with a verified byte-exact imprint round-trip**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`states_are_the_swap_fixed_bytes`](/theorem/states_are_the_swap_fixed_bytes) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`reversible_erases_nothing`](/theorem/reversible_erases_nothing) </small>
-  <br><small>sealed neighbors: [`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth) · [`light_speed_rounds_to_300000`](/theorem/light_speed_rounds_to_300000) · [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
 ## reflection — 2 open
 
 - **An involution alone is barren: dz reaches exactly two states from any seed, alternating with doubling reaches all ten. The productive partner is the IRREVERSIBLE one — dz is reversible and free, doubling collapses.**
@@ -267,6 +249,14 @@ page regrows without it.
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
   <br><small>sealed neighbors: [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) · [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
+## reasoning — 1 open
+
+- **Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.**
+  <br><small>door: the held leads</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`real_pauli_group_order_8`](/theorem/real_pauli_group_order_8) </small>
+  <br><small>sealed neighbors: [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`phase_gate_order_ladder`](/theorem/phase_gate_order_ladder) · [`a_symphony_is_a_sequence_not_a_set`](/theorem/a_symphony_is_a_sequence_not_a_set) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## singularity — 1 open

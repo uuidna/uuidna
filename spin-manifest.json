@@ -1480,7 +1480,7 @@
     "lean/Installs.lean": "d1662298f8c58737",
     "lean/isometry-manifest.json": "67d91c8f67d28b44",
     "lean/Isometry.lean": "70b41265966e88ca",
-    "lean/leads.json": "c00e7bcbf9488911",
+    "lean/leads.json": "4e1181a1d8d48345",
     "lean/legal-manifest.json": "e71b72d2ebb58fdd",
     "lean/Legal.lean": "690e47de8b5f85f8",
     "lean/looms-manifest.json": "27aa01dca8fe8ff0",
@@ -1625,5 +1625,5 @@
     "lean/waves-manifest.json": "fd25caf2595e8fb7",
     "lean/Waves.lean": "4be29174f5748e47"
   },
-  "receipt": "04f59c92-24d8-8944-bd21-a3f4b4b3251b"
+  "receipt": "401815d5-b5fa-857a-b081-e7572e2fad03"
 }
