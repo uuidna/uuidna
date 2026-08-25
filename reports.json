@@ -5,30 +5,30 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 1615,
-        "keys": 1696,
+        "distinct": 2024,
+        "keys": 2105,
         "renamings": 81,
         "principles": 115,
         "skills": 112,
         "coins": 2,
-        "largestPrinciple": "The ring ℤ/9 (234)",
+        "largestPrinciple": "The conveyor's first wave (466)",
         "smallestPrinciple": "The uuid mix space (1)",
-        "ledgerReceipt": "1a542416-9163-8c67-8423-c88e222602be"
+        "ledgerReceipt": "960ef148-023b-8a76-ab2e-25587881de2f"
       },
-      "address": "621d0f10-e9b3-8d52-8f3e-f1b1f1f8d792"
+      "address": "a7097e8f-a245-860a-bfda-c6e556cdeca9"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 1696,
-        "ledgerKeys": 1696,
+        "theoremsMeasured": 2105,
+        "ledgerKeys": 2105,
         "unmeasured": 0,
-        "decideStepsHexbits": 4,
-        "decideStepsBits": 20
+        "decideStepsHexbits": 5,
+        "decideStepsBits": 21
       },
-      "address": "89547868-2023-885b-83bf-886889117538"
+      "address": "97fb47c8-d2c3-8e7e-99d6-f4b04c851ee1"
     },
     {
       "title": "Citation audit",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "66a8477e7a5e74de",
-        "unifiedFold": "e2d32709a12a7c5c"
+        "foldReceipt": "b5220adb73ef5e42",
+        "unifiedFold": "c94614bdf6d6a512"
       },
-      "address": "0d4b5c17-05ba-8535-aecc-7d07289dae79"
+      "address": "5f09afb4-c1f6-855e-a2bd-13c0168ca4c0"
     }
   ],
-  "receipt": "14a648e9-a5f3-8c0c-9518-0e96b64b1312",
+  "receipt": "ffce8c71-edcc-8938-b70e-682fe68ee68a",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

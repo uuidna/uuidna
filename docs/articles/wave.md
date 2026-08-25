@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 57 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 466 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 56 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 465 siblings below.
 
-**57 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 31 of its 57 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
+**466 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 290 of its 466 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 57 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 466 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -408,6 +408,2869 @@ The ledger holds this as [entanglement_completes_one_at_a_time](/theorem/entangl
 
 ```lean
 ((List.range' 2 20).all (fun n => (n*(n-1))/2 - ((n-1)*(n-2))/2 == n-1)) ∧ ((List.range' 1 20).all (fun n => 2 * ((n*(n-1))/2) == n*(n-1))) ∧ ((List.range' 1 20).all (fun n => (n*(n-1)) % 2 == 0)) ∧ (1690*1689/2 = 1427205) ∧ (1690*1689 = 2854410) ∧ (1690-1 = 1689)
+```
+
+### The units of Z/5 number 4: walked over every residue below 5 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_5_number_4](/theorem/units_mod_5_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 5).filter (fun a => Nat.gcd a 5 == 1)).length = 4
+```
+
+### Z/5 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_5_number_2](/theorem/idempotents_mod_5_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 5).filter (fun x => (x * x) % 5 == x)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/5 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_5_number_2](/theorem/self_inverse_mod_5_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 5).filter (fun x => (x * x) % 5 == 1)).length = 2
+```
+
+### Squaring Z/5 lands on exactly 3 distinct residue(s); the map is counted by walking all 5 inputs and collecting the image.
+The ledger holds this as [squares_mod_5_number_3](/theorem/squares_mod_5_number_3) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 5).map (fun x => (x * x) % 5)).eraseDups).length = 3
+```
+
+### Two has multiplicative order 4 in Z/5: doubling returns to 1 after exactly 4 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_5_is_4](/theorem/order_of_two_mod_5_is_4) — proven `by decide`, sorry-free:
+
+```lean
+(2^4 % 5 = 1) ∧ ((List.range' 1 3).all (fun k => 2^k % 5 != 1))
+```
+
+### The units of Z/6 number 2: walked over every residue below 6 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_6_number_2](/theorem/units_mod_6_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 6).filter (fun a => Nat.gcd a 6 == 1)).length = 2
+```
+
+### Z/6 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_6_number_4](/theorem/idempotents_mod_6_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 6).filter (fun x => (x * x) % 6 == x)).length = 4
+```
+
+### Exactly 2 residue(s) of Z/6 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_6_number_2](/theorem/self_inverse_mod_6_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 6).filter (fun x => (x * x) % 6 == 1)).length = 2
+```
+
+### Squaring Z/6 lands on exactly 4 distinct residue(s); the map is counted by walking all 6 inputs and collecting the image.
+The ledger holds this as [squares_mod_6_number_4](/theorem/squares_mod_6_number_4) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 6).map (fun x => (x * x) % 6)).eraseDups).length = 4
+```
+
+### The units of Z/7 number 6: walked over every residue below 7 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_7_number_6](/theorem/units_mod_7_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 7).filter (fun a => Nat.gcd a 7 == 1)).length = 6
+```
+
+### Z/7 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_7_number_2](/theorem/idempotents_mod_7_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 7).filter (fun x => (x * x) % 7 == x)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/7 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_7_number_2](/theorem/self_inverse_mod_7_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 7).filter (fun x => (x * x) % 7 == 1)).length = 2
+```
+
+### Squaring Z/7 lands on exactly 4 distinct residue(s); the map is counted by walking all 7 inputs and collecting the image.
+The ledger holds this as [squares_mod_7_number_4](/theorem/squares_mod_7_number_4) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 7).map (fun x => (x * x) % 7)).eraseDups).length = 4
+```
+
+### Two has multiplicative order 3 in Z/7: doubling returns to 1 after exactly 3 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_7_is_3](/theorem/order_of_two_mod_7_is_3) — proven `by decide`, sorry-free:
+
+```lean
+(2^3 % 7 = 1) ∧ ((List.range' 1 2).all (fun k => 2^k % 7 != 1))
+```
+
+### The units of Z/8 number 4: walked over every residue below 8 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_8_number_4](/theorem/units_mod_8_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).filter (fun a => Nat.gcd a 8 == 1)).length = 4
+```
+
+### Z/8 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_8_number_2](/theorem/idempotents_mod_8_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).filter (fun x => (x * x) % 8 == x)).length = 2
+```
+
+### Exactly 4 residue(s) of Z/8 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_8_number_4](/theorem/self_inverse_mod_8_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).filter (fun x => (x * x) % 8 == 1)).length = 4
+```
+
+### Squaring Z/8 lands on exactly 3 distinct residue(s); the map is counted by walking all 8 inputs and collecting the image.
+The ledger holds this as [squares_mod_8_number_3](/theorem/squares_mod_8_number_3) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 8).map (fun x => (x * x) % 8)).eraseDups).length = 3
+```
+
+### The units of Z/10 number 4: walked over every residue below 10 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_10_number_4](/theorem/units_mod_10_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 10).filter (fun a => Nat.gcd a 10 == 1)).length = 4
+```
+
+### Z/10 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_10_number_4](/theorem/idempotents_mod_10_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 10).filter (fun x => (x * x) % 10 == x)).length = 4
+```
+
+### Exactly 2 residue(s) of Z/10 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_10_number_2](/theorem/self_inverse_mod_10_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 10).filter (fun x => (x * x) % 10 == 1)).length = 2
+```
+
+### Squaring Z/10 lands on exactly 6 distinct residue(s); the map is counted by walking all 10 inputs and collecting the image.
+The ledger holds this as [squares_mod_10_number_6](/theorem/squares_mod_10_number_6) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 10).map (fun x => (x * x) % 10)).eraseDups).length = 6
+```
+
+### The units of Z/11 number 10: walked over every residue below 11 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_11_number_10](/theorem/units_mod_11_number_10) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 11).filter (fun a => Nat.gcd a 11 == 1)).length = 10
+```
+
+### Z/11 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_11_number_2](/theorem/idempotents_mod_11_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 11).filter (fun x => (x * x) % 11 == x)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/11 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_11_number_2](/theorem/self_inverse_mod_11_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 11).filter (fun x => (x * x) % 11 == 1)).length = 2
+```
+
+### Squaring Z/11 lands on exactly 6 distinct residue(s); the map is counted by walking all 11 inputs and collecting the image.
+The ledger holds this as [squares_mod_11_number_6](/theorem/squares_mod_11_number_6) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 11).map (fun x => (x * x) % 11)).eraseDups).length = 6
+```
+
+### Two has multiplicative order 10 in Z/11: doubling returns to 1 after exactly 10 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_11_is_10](/theorem/order_of_two_mod_11_is_10) — proven `by decide`, sorry-free:
+
+```lean
+(2^10 % 11 = 1) ∧ ((List.range' 1 9).all (fun k => 2^k % 11 != 1))
+```
+
+### The units of Z/12 number 4: walked over every residue below 12 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_12_number_4](/theorem/units_mod_12_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 12).filter (fun a => Nat.gcd a 12 == 1)).length = 4
+```
+
+### Z/12 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_12_number_4](/theorem/idempotents_mod_12_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 12).filter (fun x => (x * x) % 12 == x)).length = 4
+```
+
+### Exactly 4 residue(s) of Z/12 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_12_number_4](/theorem/self_inverse_mod_12_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 12).filter (fun x => (x * x) % 12 == 1)).length = 4
+```
+
+### Squaring Z/12 lands on exactly 4 distinct residue(s); the map is counted by walking all 12 inputs and collecting the image.
+The ledger holds this as [squares_mod_12_number_4](/theorem/squares_mod_12_number_4) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 12).map (fun x => (x * x) % 12)).eraseDups).length = 4
+```
+
+### The units of Z/13 number 12: walked over every residue below 13 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_13_number_12](/theorem/units_mod_13_number_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 13).filter (fun a => Nat.gcd a 13 == 1)).length = 12
+```
+
+### Z/13 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_13_number_2](/theorem/idempotents_mod_13_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 13).filter (fun x => (x * x) % 13 == x)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/13 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_13_number_2](/theorem/self_inverse_mod_13_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 13).filter (fun x => (x * x) % 13 == 1)).length = 2
+```
+
+### Squaring Z/13 lands on exactly 7 distinct residue(s); the map is counted by walking all 13 inputs and collecting the image.
+The ledger holds this as [squares_mod_13_number_7](/theorem/squares_mod_13_number_7) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 13).map (fun x => (x * x) % 13)).eraseDups).length = 7
+```
+
+### Two has multiplicative order 12 in Z/13: doubling returns to 1 after exactly 12 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_13_is_12](/theorem/order_of_two_mod_13_is_12) — proven `by decide`, sorry-free:
+
+```lean
+(2^12 % 13 = 1) ∧ ((List.range' 1 11).all (fun k => 2^k % 13 != 1))
+```
+
+### The units of Z/14 number 6: walked over every residue below 14 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_14_number_6](/theorem/units_mod_14_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 14).filter (fun a => Nat.gcd a 14 == 1)).length = 6
+```
+
+### Z/14 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_14_number_4](/theorem/idempotents_mod_14_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 14).filter (fun x => (x * x) % 14 == x)).length = 4
+```
+
+### Exactly 2 residue(s) of Z/14 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_14_number_2](/theorem/self_inverse_mod_14_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 14).filter (fun x => (x * x) % 14 == 1)).length = 2
+```
+
+### Squaring Z/14 lands on exactly 8 distinct residue(s); the map is counted by walking all 14 inputs and collecting the image.
+The ledger holds this as [squares_mod_14_number_8](/theorem/squares_mod_14_number_8) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 14).map (fun x => (x * x) % 14)).eraseDups).length = 8
+```
+
+### The units of Z/15 number 8: walked over every residue below 15 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_15_number_8](/theorem/units_mod_15_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 15).filter (fun a => Nat.gcd a 15 == 1)).length = 8
+```
+
+### Z/15 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_15_number_4](/theorem/idempotents_mod_15_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 15).filter (fun x => (x * x) % 15 == x)).length = 4
+```
+
+### Exactly 4 residue(s) of Z/15 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_15_number_4](/theorem/self_inverse_mod_15_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 15).filter (fun x => (x * x) % 15 == 1)).length = 4
+```
+
+### Squaring Z/15 lands on exactly 6 distinct residue(s); the map is counted by walking all 15 inputs and collecting the image.
+The ledger holds this as [squares_mod_15_number_6](/theorem/squares_mod_15_number_6) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 15).map (fun x => (x * x) % 15)).eraseDups).length = 6
+```
+
+### Two has multiplicative order 4 in Z/15: doubling returns to 1 after exactly 4 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_15_is_4](/theorem/order_of_two_mod_15_is_4) — proven `by decide`, sorry-free:
+
+```lean
+(2^4 % 15 = 1) ∧ ((List.range' 1 3).all (fun k => 2^k % 15 != 1))
+```
+
+### The units of Z/16 number 8: walked over every residue below 16 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_16_number_8](/theorem/units_mod_16_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun a => Nat.gcd a 16 == 1)).length = 8
+```
+
+### Z/16 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_16_number_2](/theorem/idempotents_mod_16_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun x => (x * x) % 16 == x)).length = 2
+```
+
+### Exactly 4 residue(s) of Z/16 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_16_number_4](/theorem/self_inverse_mod_16_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun x => (x * x) % 16 == 1)).length = 4
+```
+
+### Squaring Z/16 lands on exactly 4 distinct residue(s); the map is counted by walking all 16 inputs and collecting the image.
+The ledger holds this as [squares_mod_16_number_4](/theorem/squares_mod_16_number_4) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 16).map (fun x => (x * x) % 16)).eraseDups).length = 4
+```
+
+### The units of Z/18 number 6: walked over every residue below 18 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_18_number_6](/theorem/units_mod_18_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 18).filter (fun a => Nat.gcd a 18 == 1)).length = 6
+```
+
+### Z/18 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_18_number_4](/theorem/idempotents_mod_18_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 18).filter (fun x => (x * x) % 18 == x)).length = 4
+```
+
+### Exactly 2 residue(s) of Z/18 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_18_number_2](/theorem/self_inverse_mod_18_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 18).filter (fun x => (x * x) % 18 == 1)).length = 2
+```
+
+### Squaring Z/18 lands on exactly 8 distinct residue(s); the map is counted by walking all 18 inputs and collecting the image.
+The ledger holds this as [squares_mod_18_number_8](/theorem/squares_mod_18_number_8) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 18).map (fun x => (x * x) % 18)).eraseDups).length = 8
+```
+
+### The units of Z/20 number 8: walked over every residue below 20 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_20_number_8](/theorem/units_mod_20_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 20).filter (fun a => Nat.gcd a 20 == 1)).length = 8
+```
+
+### Z/20 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_20_number_4](/theorem/idempotents_mod_20_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 20).filter (fun x => (x * x) % 20 == x)).length = 4
+```
+
+### Exactly 4 residue(s) of Z/20 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_20_number_4](/theorem/self_inverse_mod_20_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 20).filter (fun x => (x * x) % 20 == 1)).length = 4
+```
+
+### Squaring Z/20 lands on exactly 6 distinct residue(s); the map is counted by walking all 20 inputs and collecting the image.
+The ledger holds this as [squares_mod_20_number_6](/theorem/squares_mod_20_number_6) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 20).map (fun x => (x * x) % 20)).eraseDups).length = 6
+```
+
+### The units of Z/21 number 12: walked over every residue below 21 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_21_number_12](/theorem/units_mod_21_number_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 21).filter (fun a => Nat.gcd a 21 == 1)).length = 12
+```
+
+### Z/21 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_21_number_4](/theorem/idempotents_mod_21_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 21).filter (fun x => (x * x) % 21 == x)).length = 4
+```
+
+### Exactly 4 residue(s) of Z/21 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_21_number_4](/theorem/self_inverse_mod_21_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 21).filter (fun x => (x * x) % 21 == 1)).length = 4
+```
+
+### Squaring Z/21 lands on exactly 8 distinct residue(s); the map is counted by walking all 21 inputs and collecting the image.
+The ledger holds this as [squares_mod_21_number_8](/theorem/squares_mod_21_number_8) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 21).map (fun x => (x * x) % 21)).eraseDups).length = 8
+```
+
+### Two has multiplicative order 6 in Z/21: doubling returns to 1 after exactly 6 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_21_is_6](/theorem/order_of_two_mod_21_is_6) — proven `by decide`, sorry-free:
+
+```lean
+(2^6 % 21 = 1) ∧ ((List.range' 1 5).all (fun k => 2^k % 21 != 1))
+```
+
+### The units of Z/22 number 10: walked over every residue below 22 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_22_number_10](/theorem/units_mod_22_number_10) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 22).filter (fun a => Nat.gcd a 22 == 1)).length = 10
+```
+
+### Z/22 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_22_number_4](/theorem/idempotents_mod_22_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 22).filter (fun x => (x * x) % 22 == x)).length = 4
+```
+
+### Exactly 2 residue(s) of Z/22 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_22_number_2](/theorem/self_inverse_mod_22_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 22).filter (fun x => (x * x) % 22 == 1)).length = 2
+```
+
+### Squaring Z/22 lands on exactly 12 distinct residue(s); the map is counted by walking all 22 inputs and collecting the image.
+The ledger holds this as [squares_mod_22_number_12](/theorem/squares_mod_22_number_12) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 22).map (fun x => (x * x) % 22)).eraseDups).length = 12
+```
+
+### The units of Z/24 number 8: walked over every residue below 24 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_24_number_8](/theorem/units_mod_24_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 24).filter (fun a => Nat.gcd a 24 == 1)).length = 8
+```
+
+### Z/24 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_24_number_4](/theorem/idempotents_mod_24_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 24).filter (fun x => (x * x) % 24 == x)).length = 4
+```
+
+### Exactly 8 residue(s) of Z/24 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_24_number_8](/theorem/self_inverse_mod_24_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 24).filter (fun x => (x * x) % 24 == 1)).length = 8
+```
+
+### Squaring Z/24 lands on exactly 6 distinct residue(s); the map is counted by walking all 24 inputs and collecting the image.
+The ledger holds this as [squares_mod_24_number_6](/theorem/squares_mod_24_number_6) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 24).map (fun x => (x * x) % 24)).eraseDups).length = 6
+```
+
+### The units of Z/25 number 20: walked over every residue below 25 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_25_number_20](/theorem/units_mod_25_number_20) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 25).filter (fun a => Nat.gcd a 25 == 1)).length = 20
+```
+
+### Z/25 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_25_number_2](/theorem/idempotents_mod_25_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 25).filter (fun x => (x * x) % 25 == x)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/25 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_25_number_2](/theorem/self_inverse_mod_25_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 25).filter (fun x => (x * x) % 25 == 1)).length = 2
+```
+
+### Squaring Z/25 lands on exactly 11 distinct residue(s); the map is counted by walking all 25 inputs and collecting the image.
+The ledger holds this as [squares_mod_25_number_11](/theorem/squares_mod_25_number_11) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 25).map (fun x => (x * x) % 25)).eraseDups).length = 11
+```
+
+### Two has multiplicative order 20 in Z/25: doubling returns to 1 after exactly 20 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_25_is_20](/theorem/order_of_two_mod_25_is_20) — proven `by decide`, sorry-free:
+
+```lean
+(2^20 % 25 = 1) ∧ ((List.range' 1 19).all (fun k => 2^k % 25 != 1))
+```
+
+### The units of Z/26 number 12: walked over every residue below 26 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_26_number_12](/theorem/units_mod_26_number_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 26).filter (fun a => Nat.gcd a 26 == 1)).length = 12
+```
+
+### Z/26 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_26_number_4](/theorem/idempotents_mod_26_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 26).filter (fun x => (x * x) % 26 == x)).length = 4
+```
+
+### Exactly 2 residue(s) of Z/26 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_26_number_2](/theorem/self_inverse_mod_26_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 26).filter (fun x => (x * x) % 26 == 1)).length = 2
+```
+
+### Squaring Z/26 lands on exactly 14 distinct residue(s); the map is counted by walking all 26 inputs and collecting the image.
+The ledger holds this as [squares_mod_26_number_14](/theorem/squares_mod_26_number_14) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 26).map (fun x => (x * x) % 26)).eraseDups).length = 14
+```
+
+### The units of Z/27 number 18: walked over every residue below 27 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_27_number_18](/theorem/units_mod_27_number_18) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 27).filter (fun a => Nat.gcd a 27 == 1)).length = 18
+```
+
+### Z/27 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_27_number_2](/theorem/idempotents_mod_27_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 27).filter (fun x => (x * x) % 27 == x)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/27 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_27_number_2](/theorem/self_inverse_mod_27_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 27).filter (fun x => (x * x) % 27 == 1)).length = 2
+```
+
+### Squaring Z/27 lands on exactly 11 distinct residue(s); the map is counted by walking all 27 inputs and collecting the image.
+The ledger holds this as [squares_mod_27_number_11](/theorem/squares_mod_27_number_11) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 27).map (fun x => (x * x) % 27)).eraseDups).length = 11
+```
+
+### Two has multiplicative order 18 in Z/27: doubling returns to 1 after exactly 18 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_27_is_18](/theorem/order_of_two_mod_27_is_18) — proven `by decide`, sorry-free:
+
+```lean
+(2^18 % 27 = 1) ∧ ((List.range' 1 17).all (fun k => 2^k % 27 != 1))
+```
+
+### The units of Z/28 number 12: walked over every residue below 28 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_28_number_12](/theorem/units_mod_28_number_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 28).filter (fun a => Nat.gcd a 28 == 1)).length = 12
+```
+
+### Z/28 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_28_number_4](/theorem/idempotents_mod_28_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 28).filter (fun x => (x * x) % 28 == x)).length = 4
+```
+
+### Exactly 4 residue(s) of Z/28 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_28_number_4](/theorem/self_inverse_mod_28_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 28).filter (fun x => (x * x) % 28 == 1)).length = 4
+```
+
+### Squaring Z/28 lands on exactly 8 distinct residue(s); the map is counted by walking all 28 inputs and collecting the image.
+The ledger holds this as [squares_mod_28_number_8](/theorem/squares_mod_28_number_8) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 28).map (fun x => (x * x) % 28)).eraseDups).length = 8
+```
+
+### The units of Z/30 number 8: walked over every residue below 30 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_30_number_8](/theorem/units_mod_30_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 30).filter (fun a => Nat.gcd a 30 == 1)).length = 8
+```
+
+### Z/30 carries exactly 8 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_30_number_8](/theorem/idempotents_mod_30_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 30).filter (fun x => (x * x) % 30 == x)).length = 8
+```
+
+### Exactly 4 residue(s) of Z/30 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_30_number_4](/theorem/self_inverse_mod_30_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 30).filter (fun x => (x * x) % 30 == 1)).length = 4
+```
+
+### Squaring Z/30 lands on exactly 12 distinct residue(s); the map is counted by walking all 30 inputs and collecting the image.
+The ledger holds this as [squares_mod_30_number_12](/theorem/squares_mod_30_number_12) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 30).map (fun x => (x * x) % 30)).eraseDups).length = 12
+```
+
+### The units of Z/32 number 16: walked over every residue below 32 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_32_number_16](/theorem/units_mod_32_number_16) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 32).filter (fun a => Nat.gcd a 32 == 1)).length = 16
+```
+
+### Z/32 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_32_number_2](/theorem/idempotents_mod_32_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 32).filter (fun x => (x * x) % 32 == x)).length = 2
+```
+
+### Exactly 4 residue(s) of Z/32 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_32_number_4](/theorem/self_inverse_mod_32_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 32).filter (fun x => (x * x) % 32 == 1)).length = 4
+```
+
+### Squaring Z/32 lands on exactly 7 distinct residue(s); the map is counted by walking all 32 inputs and collecting the image.
+The ledger holds this as [squares_mod_32_number_7](/theorem/squares_mod_32_number_7) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 32).map (fun x => (x * x) % 32)).eraseDups).length = 7
+```
+
+### The units of Z/33 number 20: walked over every residue below 33 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_33_number_20](/theorem/units_mod_33_number_20) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 33).filter (fun a => Nat.gcd a 33 == 1)).length = 20
+```
+
+### Z/33 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_33_number_4](/theorem/idempotents_mod_33_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 33).filter (fun x => (x * x) % 33 == x)).length = 4
+```
+
+### Exactly 4 residue(s) of Z/33 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_33_number_4](/theorem/self_inverse_mod_33_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 33).filter (fun x => (x * x) % 33 == 1)).length = 4
+```
+
+### Squaring Z/33 lands on exactly 12 distinct residue(s); the map is counted by walking all 33 inputs and collecting the image.
+The ledger holds this as [squares_mod_33_number_12](/theorem/squares_mod_33_number_12) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 33).map (fun x => (x * x) % 33)).eraseDups).length = 12
+```
+
+### Two has multiplicative order 10 in Z/33: doubling returns to 1 after exactly 10 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_33_is_10](/theorem/order_of_two_mod_33_is_10) — proven `by decide`, sorry-free:
+
+```lean
+(2^10 % 33 = 1) ∧ ((List.range' 1 9).all (fun k => 2^k % 33 != 1))
+```
+
+### The units of Z/35 number 24: walked over every residue below 35 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_35_number_24](/theorem/units_mod_35_number_24) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 35).filter (fun a => Nat.gcd a 35 == 1)).length = 24
+```
+
+### Z/35 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_35_number_4](/theorem/idempotents_mod_35_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 35).filter (fun x => (x * x) % 35 == x)).length = 4
+```
+
+### Exactly 4 residue(s) of Z/35 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_35_number_4](/theorem/self_inverse_mod_35_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 35).filter (fun x => (x * x) % 35 == 1)).length = 4
+```
+
+### Squaring Z/35 lands on exactly 12 distinct residue(s); the map is counted by walking all 35 inputs and collecting the image.
+The ledger holds this as [squares_mod_35_number_12](/theorem/squares_mod_35_number_12) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 35).map (fun x => (x * x) % 35)).eraseDups).length = 12
+```
+
+### Two has multiplicative order 12 in Z/35: doubling returns to 1 after exactly 12 steps and not before, checked at every intermediate step.
+The ledger holds this as [order_of_two_mod_35_is_12](/theorem/order_of_two_mod_35_is_12) — proven `by decide`, sorry-free:
+
+```lean
+(2^12 % 35 = 1) ∧ ((List.range' 1 11).all (fun k => 2^k % 35 != 1))
+```
+
+### The units of Z/36 number 12: walked over every residue below 36 and kept those coprime to it, so the count is Euler phi computed rather than quoted.
+The ledger holds this as [units_mod_36_number_12](/theorem/units_mod_36_number_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 36).filter (fun a => Nat.gcd a 36 == 1)).length = 12
+```
+
+### Z/36 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.
+The ledger holds this as [idempotents_mod_36_number_4](/theorem/idempotents_mod_36_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 36).filter (fun x => (x * x) % 36 == x)).length = 4
+```
+
+### Exactly 4 residue(s) of Z/36 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.
+The ledger holds this as [self_inverse_mod_36_number_4](/theorem/self_inverse_mod_36_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 36).filter (fun x => (x * x) % 36 == 1)).length = 4
+```
+
+### Squaring Z/36 lands on exactly 8 distinct residue(s); the map is counted by walking all 36 inputs and collecting the image.
+The ledger holds this as [squares_mod_36_number_8](/theorem/squares_mod_36_number_8) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 36).map (fun x => (x * x) % 36)).eraseDups).length = 8
+```
+
+### Enumerates subsets of Z/9 as 8-bit masks over {1..8} with 0 forced into every candidate — so it walks all 256 subsets that contain 0 — and keeps exactly those closed under addition mod 9 and absorbing multiplication by every one of the nine ring elements. Exactly three masks survive: 0 = {0}, 36 = {0,3,6}, 255 = all of Z/9. This is an enumeration over subsets, not over generators, so it does not presuppose that every ideal is principal; the three it finds happen to form a chain. Honest gap: the walk covers only subsets containing 0. That every nonempty additively-closed subset of a finite abelian group contains 0 is true but is reasoning outside the decide, not checked by it. Distinct from the sealed idempotents_zero_one and nilpotent_iff_triple, which are element-level facts and say nothing about the ideal lattice.
+The ledger holds this as [z9_has_exactly_three_ideals](/theorem/z9_has_exactly_three_ideals) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 256).filter (fun m => ((List.range 9).all (fun a => (List.range 9).all (fun b => (!(((a == 0) || ((m / 2^(a-1)) % 2 == 1)) && ((b == 0) || ((m / 2^(b-1)) % 2 == 1)))) || (((a+b) % 9 == 0) || ((m / 2^(((a+b) % 9) - 1)) % 2 == 1))))) && ((List.range 9).all (fun a => (List.range 9).all (fun r => (!((a == 0) || ((m / 2^(a-1)) % 2 == 1))) || (((r*a) % 9 == 0) || ((m / 2^(((r*a) % 9) - 1)) % 2 == 1))))))) = [0, 36, 255]
+```
+
+### Walks every n from 1 to 999 (in five chunks, purely to stay under the default maxRecDepth) and actually performs the decimal digit sum three times: s = hundreds+tens+units, t = digit sum of s, u = digit sum of t. It checks u equals the closed form (n-1)%9+1 and that u = 9 exactly on the multiples of 9. The second conjunct then exhibits, by an existential walk over 1..200, an n whose SECOND iterate is still two digits (n = 199 has digit sum 19, whose digit sum is 10) — so two passes genuinely do not suffice over this range and the third is not decoration. The third conjunct checks casting out nines is multiplicative on the 30x30 product table: the digital root of a*b equals the digital root of the product of the digital roots. Scope is exactly what was walked: n < 1000 and products of factors up to 30; nothing is claimed beyond. The sealed theorem digital_root states the closed form r = if n%9==0 then 9 else n%9 and that r is congruent to n; it never computes a digit sum, so the digit-sum machinery here is what is new.
+The ledger holds this as [z9_digit_sum_folds_to_the_residue_in_three](/theorem/z9_digit_sum_folds_to_the_residue_in_three) — proven `by decide`, sorry-free:
+
+```lean
+([(1, 200), (201, 200), (401, 200), (601, 200), (801, 199)].all (fun p => (List.range' p.1 p.2).all (fun n => let s := n / 100 + (n / 10) % 10 + n % 10; let t := s / 10 + s % 10; let u := t / 10 + t % 10; (u == (n - 1) % 9 + 1) && ((u == 9) == (n % 9 == 0))))) ∧ ((List.range' 1 200).any (fun n => let s := n / 100 + (n / 10) % 10 + n % 10; s / 10 + s % 10 > 9)) ∧ ((List.range' 1 30).all (fun a => (List.range' 1 30).all (fun b => ((a * b - 1) % 9 + 1) == ((((a - 1) % 9 + 1) * ((b - 1) % 9 + 1) - 1) % 9 + 1))))
+```
+
+### Walks the six units of ℤ/7 and shows three things at once. First, the units that are squares mod 7 are exactly [1,2,4] — computed by asking, for each a in 1..6, whether some x in 1..6 has x·x ≡ a. Second, Euler's criterion holds on this ring: for every unit a, the Boolean 'a^3 ≡ 1 (mod 7)' agrees exactly with the Boolean 'a is a square mod 7'. Third, a^3 mod 7 only ever lands on 1 or 6 for a unit, so the cube map sorts the six units into the two Legendre values. This is a finite check over 6 units (with an inner 6-element search for the square test), not a general proof of Euler's criterion — it establishes the criterion for the modulus 7 only. Rosette.lean already holds the mod-7 power table and the a^6 ≡ 1 Fermat walk, but no statement about which residues are squares.
+The ledger holds this as [z7_quadratic_residues_euler](/theorem/z7_quadratic_residues_euler) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 6).filter (fun a => (List.range' 1 6).any (fun x => (x * x) % 7 == a))) = [1, 2, 4] ∧ ((List.range' 1 6).all (fun a => ((a ^ 3) % 7 == 1) == ((List.range' 1 6).any (fun x => (x * x) % 7 == a)))) ∧ ((List.range' 1 6).all (fun a => ((a ^ 3) % 7 == 1) || ((a ^ 3) % 7 == 6)))
+```
+
+### Defines each unit's multiplicative order inline as the number of distinct values in [g^1..g^6] mod 7, then walks all six units. It establishes that the units whose orbit covers all six values — the primitive roots mod 7 — are exactly [3,5], that the full order table across g = 1..6 is [1,3,6,3,6,2], and that every one of those orders divides 6. The ledger already holds z7primitive_root_3 (the single orbit of 3) and rosette_orbit; neither says that 5 is also a primitive root, that 3 and 5 are the ONLY ones, nor gives the order of any other unit. This is a finite walk over 6 generators × 6 exponents; it is an instance at modulus 7, not the general count φ(p−1) of primitive roots nor a general Lagrange theorem.
+The ledger holds this as [z7_primitive_roots_are_three_and_five](/theorem/z7_primitive_roots_are_three_and_five) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 6).filter (fun g => ((List.range' 1 6).map (fun k => (g ^ k) % 7)).eraseDups.length == 6)) = [3, 5] ∧ ((List.range' 1 6).map (fun g => ((List.range' 1 6).map (fun k => (g ^ k) % 7)).eraseDups.length)) = [1, 3, 6, 3, 6, 2] ∧ ((List.range' 1 6).all (fun g => 6 % ((List.range' 1 6).map (fun k => (g ^ k) % 7)).eraseDups.length == 0))
+```
+
+### For each unit a in 1..6 it collects the full list of b in 1..6 with a·b ≡ 1 (mod 7). Every one of those lists is a singleton, and together they are [[1],[4],[5],[2],[3],[6]] — so the walk shows both that each unit is invertible and that its inverse is unique, and it names the inverse. It then singles out the self-inverse units as exactly [1,6], and computes 6! = 1·2·3·4·5·6 ≡ 6 (mod 7), which is Wilson's congruence (p−1)! ≡ −1 at p = 7 — the two self-inverse units being why the other four cancel in pairs. Rosette.lean holds the whole mod-7 multiplication table but never extracts an inverse, never asserts uniqueness of the inverse, and has no factorial. The uniqueness is checked by enumeration over 6×6 pairs at this modulus, not proved for general primes.
+The ledger holds this as [z7_inverse_table_and_wilson](/theorem/z7_inverse_table_and_wilson) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 6).map (fun a => (List.range' 1 6).filter (fun b => (a * b) % 7 == 1))) = [[1], [4], [5], [2], [3], [6]] ∧ ((List.range' 1 6).filter (fun a => (a * a) % 7 == 1)) = [1, 6] ∧ (1 * 2 * 3 * 4 * 5 * 6) % 7 = 6
+```
+
+### Walks both directions of the CRT correspondence for 21 = 3·7 and, unlike an injectivity count, exhibits the INVERSE explicitly. Forward: for all 21 residues x < 21, (7·(x%3) + 15·(x%7)) % 21 = x, so the pair (x mod 3, x mod 7) reconstructs x by a fixed linear formula. Backward: for all 21 pairs (a<3, b<7), the reconstructed value has residues exactly a and b, so the map is onto the full 3×7 grid. The remaining conjuncts name why 7 and 15 are the right coefficients: each is idempotent mod 21 (49%21=7, 225%21=15), they annihilate each other (7·15 % 21 = 0), and they sum to the unit (22 % 21 = 1) — the orthogonal idempotent decomposition the bijection is made of. Two arithmetic conjuncts (gcd 3 7 = 1, 3·7 = 21) anchor the CRT precondition; the gcd fact alone is already sealed as trinity_rosette_coprime, and is included here only as the hypothesis this theorem consumes, not as the content.
+The ledger holds this as [crt21_idempotents_invert_the_pairing](/theorem/crt21_idempotents_invert_the_pairing) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 21).all (fun x => (7 * (x % 3) + 15 * (x % 7)) % 21 == x)) ∧ ((List.range 3).all (fun a => (List.range 7).all (fun b => (((7 * a + 15 * b) % 21) % 3 == a) && (((7 * a + 15 * b) % 21) % 7 == b)))) ∧ ((7 * 7) % 21 = 7) ∧ ((15 * 15) % 21 = 15) ∧ ((7 * 15) % 21 = 0) ∧ ((7 + 15) % 21 = 1) ∧ (Nat.gcd 3 7 = 1) ∧ (3 * 7 = 21)
+```
+
+### Establishes that the unit group of Z/21 is NOT cyclic, by walking all 21 residues. There are exactly 12 units (φ(21) = 12, matching 2·6 from the factors), yet every one of them satisfies a^6 ≡ 1 mod 21 — so the exponent of the group is at most 6, strictly below its order 12, and no single element can generate it. The exponent is exactly 6, witnessed by 5: 5^6 ≡ 1 while 5^2 ≢ 1 and 5^3 ≢ 1. The contrast conjuncts count 6 units in Z/9 and 6 in Z/7, both of which ARE cyclic of that order, so the failure is specific to the 3·7 fusion: lcm(φ(3), φ(7)) = lcm(2,6) = 6 ≠ 12 = 2·6. This is a claim about exponent versus order for these specific moduli, checked by exhaustion, not a general theorem about non-cyclic unit groups.
+The ledger holds this as [crt21_units_have_exponent_six](/theorem/crt21_units_have_exponent_six) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 21).filter (fun a => Nat.gcd a 21 == 1)).length = 12) ∧ ((List.range 21).all (fun a => (Nat.gcd a 21 != 1) || (a ^ 6 % 21 == 1))) ∧ ((5 ^ 6) % 21 = 1) ∧ ((5 ^ 2) % 21 ≠ 1) ∧ ((5 ^ 3) % 21 ≠ 1) ∧ (6 < 12) ∧ (((List.range 9).filter (fun a => Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => Nat.gcd a 7 == 1)).length = 6) ∧ (Nat.lcm 2 6 = 6) ∧ (2 * 6 = 12)
+```
+
+### Computes the full orbit structure of the doubling map x ↦ 2x on Z/21 by walking all 21 residues. Since 2^6 ≡ 1 mod 21, each orbit is {2^k·x : k < 6}; taking each orbit's least element as its representative, the distinct representatives are exactly [0, 1, 3, 5, 7, 9] — six orbits — and their sizes are exactly [1, 6, 3, 6, 2, 3], which sum to 21, so the orbits do partition the ring with nothing lost or doubled. The sizes are the CRT structure read back: 6 = lcm(2,3) where 2 has order 2 mod 3 and order 3 mod 7, and the shorter orbits (3 and 2) are the residues that collapse into one factor — multiples of 3 turning only at the mod-7 rate, multiples of 7 only at the mod-3 rate. The last four conjuncts state those three orders and the lcm directly. The orbit sizes and representatives are the concrete lists this walk returned, not a general formula.
+The ledger holds this as [crt21_doubling_orbits_partition](/theorem/crt21_doubling_orbits_partition) — proven `by decide`, sorry-free:
+
+```lean
+((((List.range 21).map (fun x => ((List.range 6).map (fun k => (2 ^ k * x) % 21)).foldl min 20)).eraseDups) = [0, 1, 3, 5, 7, 9]) ∧ (((((List.range 21).map (fun x => ((List.range 6).map (fun k => (2 ^ k * x) % 21)).foldl min 20)).eraseDups).map (fun r => ((List.range 6).map (fun k => (2 ^ k * r) % 21)).eraseDups.length)) = [1, 6, 3, 6, 2, 3]) ∧ (1 + 6 + 3 + 6 + 2 + 3 = 21) ∧ ((2 ^ 6) % 21 = 1) ∧ ((2 ^ 2) % 3 = 1) ∧ ((2 ^ 3) % 7 = 1) ∧ (Nat.lcm 2 3 = 6)
+```
+
+### Walks all 16 two-input boolean functions in the same nibble/truth-table encoding lean/Boolean.lean already uses (mask m, value at (a,b) is bit 2a+b). Clause one filters by monotonicity — checking every one of the 16 (a,b)<=(c,d) input pairs per mask — and the survivors are exactly the six masks [0,8,10,12,14,15], i.e. constant-0, AND, the second projection, the first projection, OR, constant-1. Clause two searches, for every one of the 16 masks, weights w,v in 0..2 and a cut t in 0..5 and finds that a nonnegative-weight threshold representation exists for exactly the monotone masks and for no other mask. So at two inputs 'monotone' and 'linear-threshold' pick out the same six functions, and that agreement is decided by walking the search space, not assumed. It says nothing about more than two inputs, where the two classes come apart.
+The ledger holds this as [monotone_two_bit_gates_are_threshold](/theorem/monotone_two_bit_gates_are_threshold) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun m => ((List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (List.range 2).all (fun d => !(decide (a <= c) && decide (b <= d)) || decide ((m / 2 ^ (2*a+b)) % 2 <= (m / 2 ^ (2*c+d)) % 2)))))))) = [0,8,10,12,14,15] ∧ ((List.range 16).all (fun m => ((List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (List.range 2).all (fun d => !(decide (a <= c) && decide (b <= d)) || decide ((m / 2 ^ (2*a+b)) % 2 <= (m / 2 ^ (2*c+d)) % 2)))))) == ((List.range 3).any (fun w => (List.range 3).any (fun v => (List.range 6).any (fun t => (List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*a+b)) % 2) == (if t <= w*a + v*b then 1 else 0)))))))))
+```
+
+### Self-duality is f(1-a,1-b) = 1-f(a,b). Filtering the 16 two-input masks by that condition leaves exactly four: [3,5,10,12] — the two projections and their two negations. The second clause then checks each of those four and finds that each is constant in one of its two arguments, so no two-input function that actually uses both inputs is self-dual. The third and fourth clauses walk the 8 three-bit inputs and show majority-of-three IS self-dual and is not equal to any of the three projections, so the property is not empty of genuine functions one bit up. This is a count and a walk over 2- and 3-bit tables only; nothing is claimed for wider inputs.
+The ledger holds this as [self_dual_two_bit_gates_ignore_an_input](/theorem/self_dual_two_bit_gates_ignore_an_input) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun m => ((List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*(1-a)+(1-b))) % 2) == 1 - ((m / 2 ^ (2*a+b)) % 2)))))) = [3,5,10,12] ∧ ([3,5,10,12].all (fun m => ((List.range 2).all (fun a => ((m / 2 ^ (2*a)) % 2) == ((m / 2 ^ (2*a+1)) % 2))) || ((List.range 2).all (fun b => ((m / 2 ^ b) % 2) == ((m / 2 ^ (2+b)) % 2))))) ∧ ((List.range 8).all (fun n => (if 2 <= (1-n%2) + (1-(n/2)%2) + (1-(n/4)%2) then 1 else 0) == 1 - (if 2 <= n%2 + (n/2)%2 + (n/4)%2 then 1 else 0))) ∧ ((List.range 3).all (fun i => (List.range 8).any (fun n => (if 2 <= n%2 + (n/2)%2 + (n/4)%2 then 1 else 0) != (n / 2^i) % 2)))
+```
+
+### Filters the 16 two-input masks by failing all five of Post's closed classes at once — not 0-preserving (f(0,0)=1), not 1-preserving (f(1,1)=0), not monotone, not self-dual, and not affine (no c + wa + zb mod 2 fits the table for any of the 8 coefficient triples). Exactly two masks survive and the filter returns [1,7], which in this file's encoding are NOR's table 1000 and NAND's table 1110. The remaining clauses walk both inputs and rebuild NOT, OR and AND from NOR alone, so the NOR half of the pair is exhibited generating a basis rather than only surviving a filter. Honest limit: the step from 'lies outside all five Post classes' to 'is functionally complete on its own' is Post's theorem, which is cited here and NOT decided by this line. What the kernel checked is the membership count and the NOR reconstruction.
+The ledger holds this as [post_classes_leave_only_nor_and_nand](/theorem/post_classes_leave_only_nor_and_nand) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun m => (m % 2 == 1) && ((m / 8) % 2 == 0) && !((List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (List.range 2).all (fun d => !(decide (a <= c) && decide (b <= d)) || decide ((m / 2 ^ (2*a+b)) % 2 <= (m / 2 ^ (2*c+d)) % 2)))))) && !((List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*(1-a)+(1-b))) % 2) == 1 - ((m / 2 ^ (2*a+b)) % 2)))) && !((List.range 2).any (fun k => (List.range 2).any (fun w => (List.range 2).any (fun z => (List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*a+b)) % 2) == (k + w*a + z*b) % 2)))))))) = [1,7] ∧ ((List.range 2).all (fun a => (1-a)*(1-a) == 1-a)) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => 1 - (1-a)*(1-b) == a + b - a*b))) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => (1-(1-a))*(1-(1-b)) == a*b)))
+```
+
+### Walks all 256 bytes as hi*16+lo over hi,lo < 16 and establishes four things about weight (popcount inlined as a bit-by-bit fold, no helper def). First, the packing is exact: (hi*16+lo)/16 = hi and (hi*16+lo)%16 = lo, so the 16x16 walk really is the 256-byte space. Second, weight is additive across the two hexbit tiles: pop8(byte) = pop4(hi) + pop4(lo) at every byte, and is never above 8. Third, the same additivity holds mod 2, so the byte's parity bit is the XOR of the two tiles' parity bits. Fourth, the weight census of the byte is the row [1,8,28,56,70,56,28,8,1] for weights 0..8, and that row sums to 256. The ledger already seals that a byte is two hexbits by arithmetic (byte_holds_two_hexbits, 2*4=8, 16^2=256); this seals that the CONTENT measure splits the same way the width does, and counts the fibres. It does not claim anything about hashes, addresses, or randomness — it is a census of an 8-bit word by its own bit count.
+The ledger holds this as [byte_weight_splits_across_its_two_tiles](/theorem/byte_weight_splits_across_its_two_tiles) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).all (fun hi => (List.range 16).all (fun lo => (((hi * 16 + lo) / 16 == hi) && ((hi * 16 + lo) % 16 == lo)) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 == (List.range 4).foldl (fun s i => s + hi / 2^i % 2) 0 + (List.range 4).foldl (fun s i => s + lo / 2^i % 2) 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 <= 8)))) ∧ ((List.range 16).all (fun hi => (List.range 16).all (fun lo => (List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == ((List.range 4).foldl (fun s i => s + hi / 2^i % 2) 0 % 2 + (List.range 4).foldl (fun s i => s + lo / 2^i % 2) 0 % 2) % 2))) ∧ ((List.range 9).map (fun k => ((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 == k)).length)).foldl (· + ·) 0) = [1,8,28,56,70,56,28,8,1]) ∧ ([1,8,28,56,70,56,28,8,1].foldl (· + ·) 0 = 256)
+```
+
+### Measures exactly how far one parity bit gets against the byte tamper set the ledger already counts (tamper_set_counts_eight_thousand seals 32*255 = 8160 single-byte alterations; this looks inside one of those 255-element fibres). Two separate walks. (1) Over all 256 bytes and all 8 bit positions, flipping that bit — computed arithmetically, +2^i if the bit is clear and -2^i if it is set — always lands on a different value still below 256, and always flips the byte's weight parity. So a parity bit rejects EVERY single-bit tamper, all 8 of them at every byte, 2048 cases walked. (2) A census of the 255 non-zero alteration patterns by weight parity: exactly 128 have odd weight and exactly 127 have even weight, and 128 + 127 = 255. Since parity changes precisely on odd-weight differences, that is the reach of the check: 128 of the 255 rejected, 127 not. HONEST SCOPE: part (2) is a count of difference patterns by weight parity, and the step from 'odd-weight difference' to 'parity bit rejects' is proved here only for the single-bit case in part (1) — the general equivalence at full byte width is not walked (65536 pairs exceeds the kernel heartbeat limit); it is walked at tile width in tile_tamper_distance_census_is_binomial. No claim is made about adversaries, only about how many of the 255 patterns are odd.
+The ledger holds this as [parity_bit_rejects_half_the_byte_tamper_set](/theorem/parity_bit_rejects_half_the_byte_tamper_set) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).all (fun hi => (List.range 16).all (fun lo => (List.range 8).all (fun i => ((List.range 8).foldl (fun s j => s + (if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) / 2^j % 2) 0 % 2 != (List.range 8).foldl (fun s j => s + (hi * 16 + lo) / 2^j % 2) 0 % 2) && ((if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) != hi * 16 + lo) && ((if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) < 256))))) ∧ (((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (hi * 16 + lo != 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == 1))).length)).foldl (· + ·) 0 = 128) ∧ (((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (hi * 16 + lo != 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == 0))).length)).foldl (· + ·) 0 = 127) ∧ (128 + 127 = 255) ∧ (128 < 255)
+```
+
+### A complete census of the hexbit tile under tamper distance. Distance is inlined as the count of differing bit positions over the four bits, with no helper def. All 256 ordered pairs (a,b) with a,b < 16 are walked and sorted by distance: the fibres are [16,64,96,64,16] for distances 0,1,2,3,4, and they sum to 256, so nothing is missed and nothing is double-counted — the distribution is 16 times the binomial row of 4. The same walk seals two properties on every pair: distance never exceeds 4 (a tile cannot be altered in more than its own four bits), and the parity of the distance equals the parity of the sum of the two tiles' weights — so at tile width the parity bit rejects an alteration exactly when the alteration touches an odd number of bits, an equivalence walked over the whole pair space rather than sampled. Finally the complement 15 - a sits at the maximum distance 4 from a at every one of the sixteen tiles. The ledger already seals that this distance is symmetric and zero only on equals (distance_is_symmetric) and that XOR preserves it (xor_preserves_distance); the census by fibre size and the parity equivalence are not there. Claims nothing beyond the 4-bit tile.
+The ledger holds this as [tile_tamper_distance_census_is_binomial](/theorem/tile_tamper_distance_census_is_binomial) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 5).map (fun k => ((List.range 16).map (fun a => ((List.range 16).filter (fun b => (List.range 4).foldl (fun s i => s + (a / 2^i + b / 2^i) % 2) 0 == k)).length)).foldl (· + ·) 0) = [16,64,96,64,16]) ∧ ([16,64,96,64,16].foldl (· + ·) 0 = 256) ∧ ((List.range 16).all (fun a => (List.range 16).all (fun b => ((List.range 4).foldl (fun s i => s + (a / 2^i + b / 2^i) % 2) 0 <= 4) && ((List.range 4).foldl (fun s i => s + (a / 2^i + b / 2^i) % 2) 0 % 2 == ((List.range 4).foldl (fun s i => s + a / 2^i % 2) 0 + (List.range 4).foldl (fun s i => s + b / 2^i % 2) 0) % 2)))) ∧ ((List.range 16).all (fun a => (List.range 4).foldl (fun s i => s + (a / 2^i + (15 - a) / 2^i) % 2) 0 == 4))
+```
+
+### Walks all 4096 ordered triples over the 4-bit cube and decides d(a,c) <= d(a,b) + d(b,c), where d is the popcount of the XOR, inlined. Isometry.lean's distance_is_symmetric seals symmetry and d(a,b)=0 iff a=b under a docstring that calls the distance a metric; the triangle inequality — the third metric axiom, and the only one that does any work — is not sealed anywhere in the ledger. The line also carries one tight witness (d 0 15 = d 0 5 + d 5 15, i.e. 4 = 2+2) and one slack witness (0 < 8), so the bound is shown to be attained without being an equality in general. Scope: 4-bit words only; nothing here extends the claim to wider words.
+The ledger holds this as [hamming_triangle_inequality](/theorem/hamming_triangle_inequality) — proven `by decide`, sorry-free:
+
+```lean
+(fun (d : Nat → Nat → Nat) => ((List.range 16).all (fun a => (List.range 16).all (fun b => (List.range 16).all (fun c => decide (d a c ≤ d a b + d b c))))) ∧ (d 0 15 = d 0 5 + d 5 15) ∧ (d 0 0 < d 0 15 + d 15 0)) (fun a b => (if a % 2 == b % 2 then 0 else 1) + (if a / 2 % 2 == b / 2 % 2 then 0 else 1) + (if a / 4 % 2 == b / 4 % 2 then 0 else 1) + (if a / 8 % 2 == b / 8 % 2 then 0 else 1))
+```
+
+### Over the same sixteen packed Hamming(7,4) codewords Hamming.lean already lists: all 256 pairwise XORs land back inside the list (closure — the code is linear), every one of the sixteen codewords is realised as some pairwise XOR (so the difference set is exactly the code, not merely contained in it), and every pairwise distance falls in {0,3,4,7}. Neither Hamming.lean nor Codes.lean seals closure under XOR. This is the structural reason the 120-pair minimum-distance walk and the 15-word weight enumerator agree: the distance spectrum IS the weight spectrum, because differences of codewords are codewords. It does not re-derive minimum distance 3 (words_stand_three_apart already holds that) and says nothing about any code other than this one table.
+The ledger holds this as [hamming_differences_are_the_code](/theorem/hamming_differences_are_the_code) — proven `by decide`, sorry-free:
+
+```lean
+(fun (W : List Nat) (x : Nat → Nat → Nat) (w : Nat → Nat) => (W.all (fun a => W.all (fun b => W.contains (x a b)))) ∧ (W.all (fun t => W.any (fun a => W.any (fun b => x a b == t)))) ∧ (W.all (fun a => W.all (fun b => [0,3,4,7].contains (w (x a b))))) ∧ (W.length = 16)) [0,75,42,97,25,82,51,120,7,76,45,102,30,85,52,127] (fun a b => (if a % 2 == b % 2 then 0 else 1) + 2 * (if a / 2 % 2 == b / 2 % 2 then 0 else 1) + 4 * (if a / 4 % 2 == b / 4 % 2 then 0 else 1) + 8 * (if a / 8 % 2 == b / 8 % 2 then 0 else 1) + 16 * (if a / 16 % 2 == b / 16 % 2 then 0 else 1) + 32 * (if a / 32 % 2 == b / 32 % 2 then 0 else 1) + 64 * (if a / 64 % 2 == b / 64 % 2 then 0 else 1)) (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 + n / 16 % 2 + n / 32 % 2 + n / 64 % 2)
+```
+
+### Over the 4-bit cube: each of the sixteen translations x ↦ x XOR k has an image of sixteen distinct values, so every translation is a bijection; for every one of the 256 ordered pairs (a,b) exactly one key k out of sixteen satisfies a XOR k = b, walked as a filter length; and that key is a XOR b, since applying the translation by (a XOR b) to a returns b. The ledger seals that a translation preserves distance (xor_preserves_distance) and that it is self-inverse (otp_self_inverse), but not that the sixteen translations act simply transitively — exactly as many translations as points, and exactly one carrying any given point to any other. That count is what makes the pad a key space with no collisions and no gaps. Scope: 4-bit words only.
+The ledger holds this as [xor_translation_is_sharply_transitive](/theorem/xor_translation_is_sharply_transitive) — proven `by decide`, sorry-free:
+
+```lean
+(fun (x : Nat → Nat → Nat) => ((List.range 16).all (fun k => ((List.range 16).map (fun a => x a k)).eraseDups.length == 16)) ∧ ((List.range 16).all (fun a => (List.range 16).all (fun b => ((List.range 16).filter (fun k => x a k == b)).length == 1))) ∧ ((List.range 16).all (fun a => (List.range 16).all (fun b => x a (x a b) == b)))) (fun a b => (if a % 2 == b % 2 then 0 else 1) + 2 * (if a / 2 % 2 == b / 2 % 2 then 0 else 1) + 4 * (if a / 4 % 2 == b / 4 % 2 then 0 else 1) + 8 * (if a / 8 % 2 == b / 8 % 2 then 0 else 1))
+```
+
+### Walks all 512 three-heap Nim positions with every heap below 8 and checks BOTH halves of Bouton's theorem at each one: when the nim-sum is zero, every legal move (lowering exactly one heap to any strictly smaller size) leaves a nonzero nim-sum; when the nim-sum is nonzero, at least one such move reaches nim-sum zero. Because a move only lowers a heap, the walk is closed under the move relation inside that box, so it pins the P-positions of normal-play three-heap Nim on heaps 0..7 exactly. The ledger already holds equal-heaps-cancel, commutativity, associativity, the two-heap law grundy_sum_is_xor, and a SINGLE witness of a winning move (nim_winning_move_exists, the position 1,2,4); this is the move relation itself walked in both directions, not a witness. XOR is inlined as bitwise parity — bit i of the fold is the parity of the three i-th bits — so no def and no Nat.xor is needed; the formula was cross-checked against a^b^c over all 8^3 triples with zero mismatches. It says nothing about heaps of 8 or more.
+The ledger holds this as [nim_bouton_three_heap_closure](/theorem/nim_bouton_three_heap_closure) — proven `by decide`, sorry-free:
+
+```lean
+((fun X : Nat → Nat → Nat → Nat => (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (!(X a b c == 0) || (((List.range a).all (fun a' => X a' b c != 0)) && ((List.range b).all (fun b' => X a b' c != 0)) && ((List.range c).all (fun c' => X a b c' != 0)))) && ((X a b c == 0) || (((List.range a).any (fun a' => X a' b c == 0)) || ((List.range b).any (fun b' => X a b' c == 0)) || ((List.range c).any (fun c' => X a b c' == 0)))))))) (fun a b c => (a + b + c) % 2 + 2 * ((a / 2 + b / 2 + c / 2) % 2) + 4 * ((a / 4 + b / 4 + c / 4) % 2))) = true
+```
+
+### Walks all 125 three-heap positions with every heap below 5 and checks that the MISÈRE outcome formula — the mover wins exactly when (some heap is at least 2 and the nim-sum is nonzero) or (every heap is at most 1 and the nim-sum is zero) — is closed under the misère move relation: the empty position 0,0,0 is a WIN for the mover (the opponent took the last stone and lost), and at every non-empty position the formula calls it a loss exactly when every legal move hands the opponent a win. That closure plus the terminal case determines the outcome by induction on stones, so on heaps 0..4 the formula IS the misère outcome function. The ledger holds only nim_misere_differs, a single position (1,1,1) noting normal and misère disagree; this is the general rule and the reason for the disagreement — the two rules differ precisely on the all-heaps-at-most-1 branch. Checked at heaps below 5 only; substituting the normal-play predicate for the misère one makes the same walk evaluate false, so the check is not vacuous.
+The ledger holds this as [nim_misere_bouton_closure](/theorem/nim_misere_bouton_closure) — proven `by decide`, sorry-free:
+
+```lean
+((fun X : Nat → Nat → Nat → Nat => (fun W : Nat → Nat → Nat → Bool => (W 0 0 0) && ((List.range 5).all (fun a => (List.range 5).all (fun b => (List.range 5).all (fun c => (a + b + c == 0) || ((!(W a b c)) == (((List.range a).all (fun a' => W a' b c)) && ((List.range b).all (fun b' => W a b' c)) && ((List.range c).all (fun c' => W a b c'))))))))) (fun a b c => ((decide (2 ≤ a) || decide (2 ≤ b) || decide (2 ≤ c)) && (X a b c != 0)) || ((!(decide (2 ≤ a) || decide (2 ≤ b) || decide (2 ≤ c))) && (X a b c == 0)))) (fun a b c => (a + b + c) % 2 + 2 * ((a / 2 + b / 2 + c / 2) % 2) + 4 * ((a / 4 + b / 4 + c / 4) % 2))) = true
+```
+
+### Walks n = 0..39 of the subtraction game with move set {1,2,3} (take one, two or three from a single heap) and checks the mex condition at every n: the candidate Grundy value n mod 4 is attained by NO option n-k (k in 1..3, k at most n), and every value strictly below n mod 4 IS attained by some option. That is exactly 'n mod 4 = mex of the option values', so by induction over the walked range the Grundy function of this game is n mod 4 for n below 40, and the P-positions (Grundy 0) are the multiples of 4. This is a mex computation, which the ledger has none of — its nim wing holds only the XOR fold and its Cayley table, no game whose Grundy value differs from the heap size. Verified for n below 40 only, not for all n; replacing 4 by 5 makes the same walk evaluate false.
+The ledger holds this as [subtraction_game_123_grundy_is_mod4](/theorem/subtraction_game_123_grundy_is_mod4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 40).all (fun n => ([1, 2, 3].all (fun k => !(decide (k ≤ n)) || ((n - k) % 4 != n % 4))) && ((List.range (n % 4)).all (fun v => [1, 2, 3].any (fun k => decide (k ≤ n) && ((n - k) % 4 == v)))))) = true
+```
+
+### Walks all 81 ordered pairs (x,y) in Z/9 x Z/9 and counts, for each, how many of the 54 affine maps send 0 to x and 1 to y. The count is exactly 1 when (y-x) mod 9 is a unit and exactly 0 otherwise; 54 of the 81 pairs are of the first kind and 18 of the remaining ones have x != y. So the group acts freely on the 54 unit-difference pairs (one map per pair, which also re-derives the order 54 as a count of pairs rather than as 6*9), while 18 ordered pairs of distinct points are reachable by no map at all. The last conjunct separately walks all 81 pairs and finds a map carrying x to y for every one, so the action on the 9 points is transitive. Transitive but not 2-transitive: the 18 misses are exactly the pairs whose difference is 3 or 6, the non-unit nonzero residues that exist because 9 is not prime. The sealed Affine.lean records order, closure, identity, inverses and non-commutativity, but nothing about the action on points or pairs.
+The ledger holds this as [agl9_pair_action_is_sharp_on_unit_differences](/theorem/agl9_pair_action_is_sharp_on_unit_differences) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9))).length = 54) ∧ ((List.range 9).all (fun x => (List.range 9).all (fun y => ((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9) && e % 9 == x && (e / 9 + e % 9) % 9 == y)).length == (if [1,2,4,5,7,8].contains ((y + 9 - x) % 9) then 1 else 0)))) ∧ (((List.range 9).map (fun x => ((List.range 9).filter (fun y => [1,2,4,5,7,8].contains ((y + 9 - x) % 9))).length)).foldl (fun s n => s + n) 0 = 54) ∧ (((List.range 9).map (fun x => ((List.range 9).filter (fun y => x != y && !([1,2,4,5,7,8].contains ((y + 9 - x) % 9)))).length)).foldl (fun s n => s + n) 0 = 18) ∧ ((List.range 9).all (fun x => (List.range 9).all (fun y => (List.range 81).any (fun e => [1,2,4,5,7,8].contains (e / 9) && (e / 9 * x + e % 9) % 9 == y))))
+```
+
+### For each of the 54 affine maps, counts the x in Z/9 with (a*x+b) mod 9 = x. The 54 counts sum to 54, and the census of the counts is: 20 maps fix nothing, 27 fix exactly one point, 6 fix exactly three, and 1 (the identity) fixes all nine — those four classes total 54, so no other fixed-point count occurs. The sum being 54 = 54 * 1 is Burnside's count with orbit number 1, i.e. the arithmetic side of the action on the 9 points having a single orbit. What is decided here is the arithmetic identity and the census; reading it as 'one orbit' is Burnside's lemma applied to those numbers, not something the walk itself proves. Nothing in the ledger records fixed-point counts for these maps.
+The ledger holds this as [agl9_fixed_point_census_gives_a_single_orbit](/theorem/agl9_fixed_point_census_gives_a_single_orbit) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9))).length = 54) ∧ ((((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9))).map (fun e => ((List.range 9).filter (fun x => (e / 9 * x + e % 9) % 9 == x)).length)).foldl (fun s n => s + n) 0 = 54) ∧ ([0,1,3,9].map (fun c => ((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9) && ((List.range 9).filter (fun x => (e / 9 * x + e % 9) % 9 == x)).length == c)).length) = [20,27,6,1]) ∧ (20 + 27 + 6 + 1 = 54) ∧ (0 * 20 + 1 * 27 + 3 * 6 + 9 * 1 = 54 * 1)
+```
+
+### Computes, for each of the 54 maps, its actual order — the least k in 1..18 whose k-fold self-composition is the identity x ↦ 1*x+0 — by iterating the composition rule inside the statement, and pins the resulting 54-entry list exactly. Every order divides 18 (and divides 54, the Lagrange check done concretely rather than cited), and for each proper divisor d of 18 some element's order fails to divide d, so 18 is the exponent and not merely an upper bound. The census of orders is 1 element of order 1, 9 of order 2, 8 of order 3, 18 of order 6, 18 of order 9, and zero of order 18, 27 or 54 — summing to 54. So this group of order 54 has exponent 18 while containing no element of order 18, and no element of order 54, hence is not cyclic. The ledger holds the orders of the six unit multipliers in Z/9 (Discover.lean) but no orders for the affine maps themselves.
+The ledger holds this as [agl9_exponent_is_eighteen_with_no_element_of_that_order](/theorem/agl9_exponent_is_eighteen_with_no_element_of_that_order) — proven `by decide`, sorry-free:
+
+```lean
+((((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9))).map (fun e => ((List.range' 1 18).filter (fun k => (List.range k).foldl (fun acc _ => ((e / 9 * (acc / 9)) % 9) * 9 + ((e / 9 * (acc % 9) + e % 9) % 9)) 9 == 9)).headD 0)) = [1,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,2,2,2,2,2,2,2,2,2]) ∧ ([1,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,2,2,2,2,2,2,2,2,2].all (fun o => 18 % o == 0 && 54 % o == 0)) ∧ ([1,2,3,6,9].all (fun d => [1,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,2,2,2,2,2,2,2,2,2].any (fun o => d % o != 0))) ∧ ([1,2,3,6,9,18,27,54].map (fun d => ([1,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,2,2,2,2,2,2,2,2,2].filter (fun o => o == d)).length) = [1,9,8,18,18,0,0,0]) ∧ (1 + 9 + 8 + 18 + 18 = 54)
+```
+
+### Encodes every function f on n points as a base-n digit code c < n^n (f x = c / n^x % n) and counts, by exhaustive walk, the codes with f(f x) = x for all x. The walk returns 1, 2, 4, 10, 26 for n = 1..5, and the same statement checks the three recurrence steps 4 = 2 + 2*1, 10 = 4 + 3*2, 26 = 10 + 4*4. What is new here is the chain and the recurrence: the ledger already holds the n=4 count 10 alone (Wave.lean, involution_walks_home_in_two), and this restates that one value as one link of five. The n=5 walk is chunked as 25 blocks of 125 because a flat List.range 3125 exceeds Lean's default maxRecDepth. This is a check that the counted values satisfy the recurrence at these five points; it is not a proof of the recurrence for general n.
+The ledger holds this as [involution_counts_obey_their_recurrence](/theorem/involution_counts_obey_their_recurrence) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 1).filter (fun c => (List.range 1).all (fun x => c / 1 ^ (c / 1 ^ x % 1) % 1 == x))).length = 1 ∧ ((List.range 4).filter (fun c => (List.range 2).all (fun x => c / 2 ^ (c / 2 ^ x % 2) % 2 == x))).length = 2 ∧ ((List.range 27).filter (fun c => (List.range 3).all (fun x => c / 3 ^ (c / 3 ^ x % 3) % 3 == x))).length = 4 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x))).length = 10 ∧ ((List.range 25).map (fun a => ((List.range 125).filter (fun b => (List.range 5).all (fun x => (a * 125 + b) / 5 ^ ((a * 125 + b) / 5 ^ x % 5) % 5 == x))).length)).sum = 26 ∧ 4 = 2 + 2 * 1 ∧ 10 = 4 + 3 * 2 ∧ 26 = 10 + 4 * 4
+```
+
+### Walks all 256 base-4 digit codes on 4 points, keeps the 24 that are surjective (hence the permutations of 4), and sorts them twice. By fixed-point count k = 0..4 the census is [9, 8, 6, 0, 1] — the 9 is the derangement count on 4 points, and no permutation of 4 fixes exactly 3. By cycle count k = 0..4 the census is [0, 6, 11, 6, 1], counting cycles as the number of points that are the least element of their own orbit (checked by a 4-step fold, which suffices since no orbit on 4 points is longer than 4). The statement also checks that both censuses total 24, that the fixed points across all 24 permutations total 0*9+1*8+2*6+3*0+4*1 = 24, and that the cycles total 0*0+1*6+2*11+3*6+4*1 = 50. Nothing here is proved for general n; it is the n=4 row walked exhaustively.
+The ledger holds this as [s4_fixed_point_and_cycle_census](/theorem/s4_fixed_point_and_cycle_census) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)))).length = 24 ∧ ((List.range 5).map (fun k => ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).filter (fun x => c / 4 ^ x % 4 == x)).length == k)).length)) = [9, 8, 6, 0, 1] ∧ ((List.range 5).map (fun k => ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).filter (fun x => ((List.range 4).foldl (fun (p : Nat × Bool) _ => (c / 4 ^ p.1 % 4, p.2 && decide (x ≤ p.1))) (x, true)).2)).length == k)).length)) = [0, 6, 11, 6, 1] ∧ 0 * 9 + 1 * 8 + 2 * 6 + 3 * 0 + 4 * 1 = 24 ∧ 0 * 0 + 1 * 6 + 2 * 11 + 3 * 6 + 4 * 1 = 50 ∧ 9 + 8 + 6 + 0 + 1 = 24 ∧ 0 + 6 + 11 + 6 + 1 = 24
+```
+
+### Computes each permutation's inversion count inline (pairs i < j with f j < f i) and splits the 24 permutations of 4 points by its parity: 12 even, 12 odd. Restricting the same walk to the self-inverse codes (f(f x) = x for all x) gives 4 even and 6 odd — so the even/odd balance that holds across the whole group fails on its involutions, and 4 + 6 = 10 recovers the known involution count. The statement also walks all 256 codes and finds none that is self-inverse without being surjective, i.e. on this 4-point space f∘f = id already forces f to be a permutation. All of this is the n=4 case walked exhaustively; no general-n claim is made, and parity is measured by inversion count, not by an independently defined sign homomorphism.
+The ledger holds this as [s4_parity_splits_evenly_its_involutions_do_not](/theorem/s4_parity_splits_evenly_its_involutions_do_not) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 0)).length = 12 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 1)).length = 12 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 0)).length = 4 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 1)).length = 6 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x) && !((List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y))))).length = 0 ∧ 12 + 12 = 24 ∧ 4 + 6 = 10 ∧ 4 ≠ 6
+```
+
+### Walks every rectangular grid complex from 1x1 to 8x8 (64 shapes) and checks the Euler characteristic twice over. Clause 1 is chi = 1 for the filled rectangle, stated Nat-safely as V + F = E + 1 with V = (m+1)(n+1), E = m(n+1) + n(m+1), F = mn. Clause 2 is chi = 0 for its boundary, stated as boundary-V = boundary-E where each side is written as the total minus the interior count, so the equality is real arithmetic and not a tautology. Clause 3 pins the 3x3 witness at V=16, E=24, F=9. What this shows is that the disk and the circle are told apart by the same count on the same family of shapes, over the whole walked range. The ledger's existing Euler theorems are the five Platonic solids at chi = 2, the 4-simplex boundary at chi = 0, and the genus formula; none of them is the m-by-n grid rectangle. It does NOT prove chi = 1 for all m,n — only for the 64 walked.
+The ledger holds this as [grid_rectangle_euler_is_one](/theorem/grid_rectangle_euler_is_one) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 8).all (fun m => (List.range' 1 8).all (fun n => ((m+1)*(n+1) + m*n == m*(n+1) + n*(m+1) + 1)))) ∧ ((List.range' 1 8).all (fun m => (List.range' 1 8).all (fun n => ((m+1)*(n+1) - (m-1)*(n-1) == (m*(n+1) + n*(m+1)) - (m*(n-1) + n*(m-1)))))) ∧ ((3+1)*(3+1) = 16) ∧ (3*(3+1) + 3*(3+1) = 24) ∧ (16 + 9 = 24 + 1)
+```
+
+### Counts monotone lattice paths by an actual dynamic program and compares the answer to Pascal's triangle built by an actual recurrence — neither side is a literal. The path count is the row-transfer 'next row = inclusive prefix sums of the previous row' (List.scanl, tail), started from a row of ones, iterated m times; the binomial is the triangle rebuilt by zipWith (0::r) (r++[0]) from [1], iterated m+n times. Clause 1 checks the two agree at all 49 cells with m,n in 0..6. Clause 2 checks the table is symmetric under transposing the grid. Clause 3 pins the main diagonal at [1,2,6,20,70]. The ledger holds Pascal only as literal row sums (row 7 to 128, row 10 to 1024 and its halves); it does not construct the triangle or count paths. This establishes agreement on the walked 7x7 window, not the identity for all m,n.
+The ledger holds this as [monotone_paths_are_pascal_entries](/theorem/monotone_paths_are_pascal_entries) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 7).all (fun m => (List.range 7).all (fun n => ((((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0 == (((List.range (m+n)).foldl (fun r _ => List.zipWith (fun a b => a + b) (0 :: r) (r ++ [0])) [1]).drop m).headD 0)))) ∧ ((List.range 7).all (fun m => (List.range 7).all (fun n => ((((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0 == (((List.range n).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (m+1) 1)).drop m).headD 0)))) ∧ ((List.range 5).map (fun d => (((List.range d).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (d+1) 1)).drop d).headD 0) = [1,2,6,20,70])
+```
+
+### Applies the forward-difference operator to the monotone-path counts and shows the differencing closes back onto the grid itself. For each m in 0..5 it takes the column of path counts to (m,n) for n in 0..10, computed by the same prefix-sum transfer, and differences it: clause 1 says m differences flatten the column to all ones, clause 2 says one more difference flattens it to all zeros, so the column behaves as a degree-m sequence annihilated at step m+1. Clause 3 says a single difference of column m is exactly column m-1 with its head dropped — the grid table is its own discrete antiderivative along that axis. All three sides are computed, none is a literal. Nat subtraction never truncates here because every intermediate difference of these columns is non-negative. The ledger's nearest holding, differences_flatten_the_square, is the second difference of n squared, a single 1-D case; this walks the whole binomial family for m up to 5 and columns of length 11, and nothing more.
+The ledger holds this as [path_column_differences_close](/theorem/path_column_differences_close) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 6).all (fun m => ((List.range m).foldl (fun l _ => List.zipWith (fun a b => b - a) l l.tail) ((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0))) == List.replicate (11 - m) 1)) ∧ ((List.range 6).all (fun m => ((List.range (m+1)).foldl (fun l _ => List.zipWith (fun a b => b - a) l l.tail) ((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0))) == List.replicate (10 - m) 0)) ∧ ((List.range' 1 5).all (fun m => (List.zipWith (fun a b => b - a) ((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0)) (((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0)).tail)) == ((List.range 11).map (fun n => (((List.range (m-1)).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0)).tail))
+```
+
+### Walks every modulus n from 1 to 24 and every stride s from 0 to n-1, and checks two things about the additive orbit {k·s mod n : k < n}: the number of distinct positions it reaches is exactly n / gcd(s, n), and that count equals n exactly when gcd(s, n) = 1. The ledger already holds single instances of the second half (stride 2 on ℤ/5 in pentagram_step_coprime_five, stride 3 on ℤ/7 in codon_frame_rotates_rosette, stride 7 on ℤ/12 in fifth_cycles_all_twelve) but nothing that walks the general law, and lean/Crt.lean's axes_stride_coprime says in its own docstring that it deliberately does not seal it. This walks it over 300 (n, s) pairs. It establishes the equivalence on that finite window only — it is an exhaustive check up to 24, not an induction over all n.
+The ledger holds this as [stride_cycle_is_modulus_over_gcd](/theorem/stride_cycle_is_modulus_over_gcd) — proven `by decide`, sorry-free:
+
+```lean
+(List.range' 1 24).all (fun n => (List.range n).all (fun s => (((List.range n).map (fun k => (k * s) % n)).eraseDups.length == n / Nat.gcd s n) && ((((List.range n).map (fun k => (k * s) % n)).eraseDups.length == n) == (Nat.gcd s n == 1))))
+```
+
+### The companion least-period statement, which counting distinct positions does not give. For every modulus n from 1 to 24 and every stride s from 1 to n, the SMALLEST positive k with k·s ≡ 0 (mod n) — taken as the head of the filtered candidate list, so it is a minimum and not merely some witness — is exactly n / gcd(s, n), and that k does in fact return the walk to zero. So the clock's first homecoming is located, not just its orbit size. Same honest limit: exhaustive over n ≤ 24, no induction.
+The ledger holds this as [stride_first_return_is_the_cycle_length](/theorem/stride_first_return_is_the_cycle_length) — proven `by decide`, sorry-free:
+
+```lean
+(List.range' 1 24).all (fun n => (List.range' 1 n).all (fun s => (((List.range' 1 n).filter (fun k => (k * s) % n == 0)).head? == some (n / Nat.gcd s n)) && (((n / Nat.gcd s n) * s) % n == 0)))
+```
+
+### Two clocks read together. For every pair of moduli a, b from 1 to 9, the joint state k ↦ (k mod a, k mod b) takes exactly (a·b)/gcd(a,b) distinct values — the lcm, not the product — and reaches all a·b pairs exactly when gcd(a,b) = 1; and the first k > 0 at which both hands are back at zero is that same lcm. This states the condition the ledger's CRT page assumes (crt_pairs_are_a_bijection exhibits the 7·9 = 63 bijection; rosette_and_vortex_are_coprime records gcd(9,6) = 3) and supplies the other side of it: what the joint clock actually does when the moduli are NOT coprime — it loses a·b − lcm(a,b) states. Walked over 100 modulus pairs including 7 with 9 and 6 with 9. Exhaustive on that window only.
+The ledger holds this as [two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime](/theorem/two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime) — proven `by decide`, sorry-free:
+
+```lean
+(List.range' 1 10).all (fun a => (List.range' 1 10).all (fun b => (((List.range (a*b)).map (fun k => (k % a) * 16 + (k % b))).eraseDups.length == (a * b) / Nat.gcd a b) && ((((List.range (a*b)).map (fun k => (k % a) * 16 + (k % b))).eraseDups.length == a * b) == (Nat.gcd a b == 1)) && (((List.range' 1 (a*b)).filter (fun k => (k % a == 0) && (k % b == 0))).head? == some ((a * b) / Nat.gcd a b))))
+```
+
+### Walks every leaf count n from 1 to 64 against every depth k from 0 to 7 and shows the fold depth is pinned exactly to the leaf count: reducing the level width k times by the odd-carrying halve w -> (w+1)/2 arrives at width 1 if and only if n <= 2^k. So the least k that reaches a root is ceil(log2 n), and no leaf count reaches a root earlier than its bound allows. The second conjunct pins one concrete slice of that: of the 64 leaf counts walked, exactly 8 fold to a root within 3 levels. Scope: a finite walk over n <= 64 and k <= 7, not an induction, and it is about level widths only -- it says nothing about hash contents.
+The ledger holds this as [merkle_depth_iff_leaf_bound](/theorem/merkle_depth_iff_leaf_bound) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 64).all (fun n => (List.range 8).all (fun k => (((List.range k).foldl (fun w _ => (w + 1) / 2) n) == 1) == decide (n ≤ 2 ^ k)))) ∧ (((List.range' 1 64).filter (fun n => ((List.range 3).foldl (fun w _ => (w + 1) / 2) n) == 1)).length = 8)
+```
+
+### Shows that the bracketing of a 4-leaf fold is load-bearing exactly when the pairwise merge is non-associative. With the non-associative merge f x y = 2x + y, the balanced Merkle root f(f(a,b),f(c,d)) equals the left-linear chain f(f(f(a,b),c),d) if and only if a = 0 and b = 0 -- checked across all 1296 tuples with a,b,c,d < 6, and note c and d drop out of the condition entirely, so only the leftmost pair decides it. The second conjunct runs the same two shapes with associative +, where they agree on every tuple. Honest scope: this is one non-associative representative and one associative representative on a bounded grid, an instance of the associativity principle rather than a general proof of it. It does establish that a Merkle scheme must fix its tree shape unless its merge is associative.
+The ledger holds this as [merkle_shape_moves_root_iff_nonassociative](/theorem/merkle_shape_moves_root_iff_nonassociative) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun d => ((2 * (2 * a + b) + (2 * c + d)) == (2 * (2 * (2 * a + b) + c) + d)) == (a == 0 && b == 0)))))) ∧ ((List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun d => ((a + b) + (c + d)) == (((a + b) + c) + d))))))
+```
+
+### Counts what odd levels cost. For every leaf count n from 1 to 32 the fold is run level by level, carrying the running number of pairwise merges, each level producing (w+1)/2 parents -- the odd-width carry that duplicate-last padding performs. The total merge count is always at least n-1, the internal-node count of a strict binary tree over n leaves, and it hits that floor exactly when n is a power of two (checked against membership in {2^0 .. 2^5}). Every other leaf count pays strictly more merges than an ideal strict binary tree would. Scope: a finite walk over n <= 32 with a fixed 8-level budget that idles once width 1 is reached; it counts merge operations only and makes no claim about the security of the padding.
+The ledger holds this as [merkle_odd_level_padding_costs_above_leaf_count](/theorem/merkle_odd_level_padding_costs_above_leaf_count) — proven `by decide`, sorry-free:
+
+```lean
+(List.range' 1 32).all (fun n => let m := ((List.range 8).foldl (fun (s : Nat × Nat) _ => if s.1 == 1 then s else ((s.1 + 1) / 2, s.2 + (s.1 + 1) / 2)) (n, 0)).2; decide (n - 1 ≤ m) && ((m == n - 1) == ((List.range 6).any (fun k => n == 2 ^ k))))
+```
+
+### THE SEMITONE CARRIES NO SMALL INTEGER LATTICE. If 2^(1/12) were the rational p/q then p^12 = 2*q^12; this walks every pair with p below 30 and q below 24 and finds no such pair, so no rational with a denominator under 24 is the 12-TET semitone. HONEST SCOPE, and it is the reason this candidate was remanded rather than admitted the first time: THIS IS NOT A PROOF OF IRRATIONALITY. Irrationality quantifies over all rationals and needs a rationality argument, which is a different proof class and not decidable. What is sealed here is the bounded witness only — the finite shadow of the claim, in the same manner Clay.lean seals bounded instances of unbounded problems. The original refusal stands as correct; this does not overturn it, it supplies the statement the remand was owed.
+The ledger holds this as [tet_semitone_no_integer_lattice](/theorem/tet_semitone_no_integer_lattice) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 2 * q ^ 12)))
+```
+
+### Z/5 carries exactly 1 nilpotent residue(s) — those whose 5-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 5 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_5_number_1](/theorem/nilpotents_mod_5_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 5).filter (fun x => x ^ 5 % 5 == 0)).length = 1
+```
+
+### Cubing Z/5 lands on exactly 5 distinct residue(s), counted by walking all 5 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_5_number_5](/theorem/cubes_mod_5_number_5) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 5).map (fun x => (x * x * x) % 5)).eraseDups).length = 5
+```
+
+### Exactly 5 residue(s) of Z/5 satisfy x^5 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 5 without assuming primality.
+The ledger holds this as [power_fixed_mod_5_number_5](/theorem/power_fixed_mod_5_number_5) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 5).filter (fun x => x ^ 5 % 5 == x)).length = 5
+```
+
+### No unit of Z/5 has multiplicative order above 4, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 5; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_5_is_4](/theorem/max_unit_order_mod_5_is_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 5).all (fun a => (Nat.gcd a 5 != 1) || (a ^ 4 % 5 == 1))) ∧ ((List.range 5).any (fun a => (Nat.gcd a 5 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 5 != 1))))
+```
+
+### 5 has exactly 2 positive divisor(s), found by trial over every candidate up to 5 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_5_number_2](/theorem/divisors_of_5_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 5).filter (fun k => 5 % k == 0)).length = 2
+```
+
+### The units of Z/5 sum to 0 modulo 5, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_5_is_0](/theorem/unit_sum_mod_5_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 5).filter (fun a => Nat.gcd a 5 == 1)).foldl (fun acc a => (acc + a) % 5) 0) = 0
+```
+
+### Z/6 carries exactly 1 nilpotent residue(s) — those whose 6-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 6 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_6_number_1](/theorem/nilpotents_mod_6_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 6).filter (fun x => x ^ 6 % 6 == 0)).length = 1
+```
+
+### Cubing Z/6 lands on exactly 6 distinct residue(s), counted by walking all 6 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_6_number_6](/theorem/cubes_mod_6_number_6) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 6).map (fun x => (x * x * x) % 6)).eraseDups).length = 6
+```
+
+### Exactly 4 residue(s) of Z/6 satisfy x^6 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 6 without assuming primality.
+The ledger holds this as [power_fixed_mod_6_number_4](/theorem/power_fixed_mod_6_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 6).filter (fun x => x ^ 6 % 6 == x)).length = 4
+```
+
+### No unit of Z/6 has multiplicative order above 2, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 6; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_6_is_2](/theorem/max_unit_order_mod_6_is_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 6).all (fun a => (Nat.gcd a 6 != 1) || (a ^ 2 % 6 == 1))) ∧ ((List.range 6).any (fun a => (Nat.gcd a 6 == 1) && ((List.range' 1 1).all (fun k => a ^ k % 6 != 1))))
+```
+
+### 6 has exactly 4 positive divisor(s), found by trial over every candidate up to 6 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_6_number_4](/theorem/divisors_of_6_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 6).filter (fun k => 6 % k == 0)).length = 4
+```
+
+### The units of Z/6 sum to 0 modulo 6, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_6_is_0](/theorem/unit_sum_mod_6_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 6).filter (fun a => Nat.gcd a 6 == 1)).foldl (fun acc a => (acc + a) % 6) 0) = 0
+```
+
+### Z/7 carries exactly 1 nilpotent residue(s) — those whose 7-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 7 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_7_number_1](/theorem/nilpotents_mod_7_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 7).filter (fun x => x ^ 7 % 7 == 0)).length = 1
+```
+
+### Cubing Z/7 lands on exactly 3 distinct residue(s), counted by walking all 7 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_7_number_3](/theorem/cubes_mod_7_number_3) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 7).map (fun x => (x * x * x) % 7)).eraseDups).length = 3
+```
+
+### Exactly 7 residue(s) of Z/7 satisfy x^7 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 7 without assuming primality.
+The ledger holds this as [power_fixed_mod_7_number_7](/theorem/power_fixed_mod_7_number_7) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 7).filter (fun x => x ^ 7 % 7 == x)).length = 7
+```
+
+### No unit of Z/7 has multiplicative order above 6, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 7; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_7_is_6](/theorem/max_unit_order_mod_7_is_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 7).all (fun a => (Nat.gcd a 7 != 1) || (a ^ 6 % 7 == 1))) ∧ ((List.range 7).any (fun a => (Nat.gcd a 7 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 7 != 1))))
+```
+
+### 7 has exactly 2 positive divisor(s), found by trial over every candidate up to 7 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_7_number_2](/theorem/divisors_of_7_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 7).filter (fun k => 7 % k == 0)).length = 2
+```
+
+### The units of Z/7 sum to 0 modulo 7, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_7_is_0](/theorem/unit_sum_mod_7_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 7).filter (fun a => Nat.gcd a 7 == 1)).foldl (fun acc a => (acc + a) % 7) 0) = 0
+```
+
+### Z/8 carries exactly 4 nilpotent residue(s) — those whose 8-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 8 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_8_number_4](/theorem/nilpotents_mod_8_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).filter (fun x => x ^ 8 % 8 == 0)).length = 4
+```
+
+### Cubing Z/8 lands on exactly 5 distinct residue(s), counted by walking all 8 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_8_number_5](/theorem/cubes_mod_8_number_5) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 8).map (fun x => (x * x * x) % 8)).eraseDups).length = 5
+```
+
+### Exactly 2 residue(s) of Z/8 satisfy x^8 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 8 without assuming primality.
+The ledger holds this as [power_fixed_mod_8_number_2](/theorem/power_fixed_mod_8_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).filter (fun x => x ^ 8 % 8 == x)).length = 2
+```
+
+### No unit of Z/8 has multiplicative order above 2, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 8; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_8_is_2](/theorem/max_unit_order_mod_8_is_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).all (fun a => (Nat.gcd a 8 != 1) || (a ^ 2 % 8 == 1))) ∧ ((List.range 8).any (fun a => (Nat.gcd a 8 == 1) && ((List.range' 1 1).all (fun k => a ^ k % 8 != 1))))
+```
+
+### 8 has exactly 4 positive divisor(s), found by trial over every candidate up to 8 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_8_number_4](/theorem/divisors_of_8_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 8).filter (fun k => 8 % k == 0)).length = 4
+```
+
+### The units of Z/8 sum to 0 modulo 8, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_8_is_0](/theorem/unit_sum_mod_8_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 8).filter (fun a => Nat.gcd a 8 == 1)).foldl (fun acc a => (acc + a) % 8) 0) = 0
+```
+
+### Z/9 carries exactly 3 nilpotent residue(s) — those whose 9-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 9 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_9_number_3](/theorem/nilpotents_mod_9_number_3) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 9).filter (fun x => x ^ 9 % 9 == 0)).length = 3
+```
+
+### Cubing Z/9 lands on exactly 3 distinct residue(s), counted by walking all 9 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_9_number_3](/theorem/cubes_mod_9_number_3) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 9).map (fun x => (x * x * x) % 9)).eraseDups).length = 3
+```
+
+### Exactly 3 residue(s) of Z/9 satisfy x^9 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 9 without assuming primality.
+The ledger holds this as [power_fixed_mod_9_number_3](/theorem/power_fixed_mod_9_number_3) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 9).filter (fun x => x ^ 9 % 9 == x)).length = 3
+```
+
+### No unit of Z/9 has multiplicative order above 6, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 9; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_9_is_6](/theorem/max_unit_order_mod_9_is_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 9).all (fun a => (Nat.gcd a 9 != 1) || (a ^ 6 % 9 == 1))) ∧ ((List.range 9).any (fun a => (Nat.gcd a 9 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 9 != 1))))
+```
+
+### 9 has exactly 3 positive divisor(s), found by trial over every candidate up to 9 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_9_number_3](/theorem/divisors_of_9_number_3) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 9).filter (fun k => 9 % k == 0)).length = 3
+```
+
+### The units of Z/9 sum to 0 modulo 9, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_9_is_0](/theorem/unit_sum_mod_9_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 9).filter (fun a => Nat.gcd a 9 == 1)).foldl (fun acc a => (acc + a) % 9) 0) = 0
+```
+
+### Z/10 carries exactly 1 nilpotent residue(s) — those whose 10-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 10 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_10_number_1](/theorem/nilpotents_mod_10_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 10).filter (fun x => x ^ 10 % 10 == 0)).length = 1
+```
+
+### Cubing Z/10 lands on exactly 10 distinct residue(s), counted by walking all 10 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_10_number_10](/theorem/cubes_mod_10_number_10) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 10).map (fun x => (x * x * x) % 10)).eraseDups).length = 10
+```
+
+### Exactly 4 residue(s) of Z/10 satisfy x^10 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 10 without assuming primality.
+The ledger holds this as [power_fixed_mod_10_number_4](/theorem/power_fixed_mod_10_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 10).filter (fun x => x ^ 10 % 10 == x)).length = 4
+```
+
+### No unit of Z/10 has multiplicative order above 4, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 10; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_10_is_4](/theorem/max_unit_order_mod_10_is_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 10).all (fun a => (Nat.gcd a 10 != 1) || (a ^ 4 % 10 == 1))) ∧ ((List.range 10).any (fun a => (Nat.gcd a 10 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 10 != 1))))
+```
+
+### 10 has exactly 4 positive divisor(s), found by trial over every candidate up to 10 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_10_number_4](/theorem/divisors_of_10_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 10).filter (fun k => 10 % k == 0)).length = 4
+```
+
+### The units of Z/10 sum to 0 modulo 10, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_10_is_0](/theorem/unit_sum_mod_10_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 10).filter (fun a => Nat.gcd a 10 == 1)).foldl (fun acc a => (acc + a) % 10) 0) = 0
+```
+
+### Z/11 carries exactly 1 nilpotent residue(s) — those whose 11-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 11 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_11_number_1](/theorem/nilpotents_mod_11_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 11).filter (fun x => x ^ 11 % 11 == 0)).length = 1
+```
+
+### Cubing Z/11 lands on exactly 11 distinct residue(s), counted by walking all 11 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_11_number_11](/theorem/cubes_mod_11_number_11) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 11).map (fun x => (x * x * x) % 11)).eraseDups).length = 11
+```
+
+### Exactly 11 residue(s) of Z/11 satisfy x^11 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 11 without assuming primality.
+The ledger holds this as [power_fixed_mod_11_number_11](/theorem/power_fixed_mod_11_number_11) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 11).filter (fun x => x ^ 11 % 11 == x)).length = 11
+```
+
+### No unit of Z/11 has multiplicative order above 10, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 11; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_11_is_10](/theorem/max_unit_order_mod_11_is_10) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 11).all (fun a => (Nat.gcd a 11 != 1) || (a ^ 10 % 11 == 1))) ∧ ((List.range 11).any (fun a => (Nat.gcd a 11 == 1) && ((List.range' 1 9).all (fun k => a ^ k % 11 != 1))))
+```
+
+### 11 has exactly 2 positive divisor(s), found by trial over every candidate up to 11 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_11_number_2](/theorem/divisors_of_11_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 11).filter (fun k => 11 % k == 0)).length = 2
+```
+
+### The units of Z/11 sum to 0 modulo 11, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_11_is_0](/theorem/unit_sum_mod_11_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 11).filter (fun a => Nat.gcd a 11 == 1)).foldl (fun acc a => (acc + a) % 11) 0) = 0
+```
+
+### Z/12 carries exactly 2 nilpotent residue(s) — those whose 12-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 12 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_12_number_2](/theorem/nilpotents_mod_12_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 12).filter (fun x => x ^ 12 % 12 == 0)).length = 2
+```
+
+### Cubing Z/12 lands on exactly 9 distinct residue(s), counted by walking all 12 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_12_number_9](/theorem/cubes_mod_12_number_9) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 12).map (fun x => (x * x * x) % 12)).eraseDups).length = 9
+```
+
+### Exactly 4 residue(s) of Z/12 satisfy x^12 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 12 without assuming primality.
+The ledger holds this as [power_fixed_mod_12_number_4](/theorem/power_fixed_mod_12_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 12).filter (fun x => x ^ 12 % 12 == x)).length = 4
+```
+
+### No unit of Z/12 has multiplicative order above 2, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 12; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_12_is_2](/theorem/max_unit_order_mod_12_is_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 12).all (fun a => (Nat.gcd a 12 != 1) || (a ^ 2 % 12 == 1))) ∧ ((List.range 12).any (fun a => (Nat.gcd a 12 == 1) && ((List.range' 1 1).all (fun k => a ^ k % 12 != 1))))
+```
+
+### 12 has exactly 6 positive divisor(s), found by trial over every candidate up to 12 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_12_number_6](/theorem/divisors_of_12_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 12).filter (fun k => 12 % k == 0)).length = 6
+```
+
+### The units of Z/12 sum to 0 modulo 12, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_12_is_0](/theorem/unit_sum_mod_12_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 12).filter (fun a => Nat.gcd a 12 == 1)).foldl (fun acc a => (acc + a) % 12) 0) = 0
+```
+
+### Z/13 carries exactly 1 nilpotent residue(s) — those whose 13-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 13 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_13_number_1](/theorem/nilpotents_mod_13_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 13).filter (fun x => x ^ 13 % 13 == 0)).length = 1
+```
+
+### Cubing Z/13 lands on exactly 5 distinct residue(s), counted by walking all 13 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_13_number_5](/theorem/cubes_mod_13_number_5) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 13).map (fun x => (x * x * x) % 13)).eraseDups).length = 5
+```
+
+### Exactly 13 residue(s) of Z/13 satisfy x^13 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 13 without assuming primality.
+The ledger holds this as [power_fixed_mod_13_number_13](/theorem/power_fixed_mod_13_number_13) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 13).filter (fun x => x ^ 13 % 13 == x)).length = 13
+```
+
+### No unit of Z/13 has multiplicative order above 12, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 13; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_13_is_12](/theorem/max_unit_order_mod_13_is_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 13).all (fun a => (Nat.gcd a 13 != 1) || (a ^ 12 % 13 == 1))) ∧ ((List.range 13).any (fun a => (Nat.gcd a 13 == 1) && ((List.range' 1 11).all (fun k => a ^ k % 13 != 1))))
+```
+
+### 13 has exactly 2 positive divisor(s), found by trial over every candidate up to 13 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_13_number_2](/theorem/divisors_of_13_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 13).filter (fun k => 13 % k == 0)).length = 2
+```
+
+### The units of Z/13 sum to 0 modulo 13, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_13_is_0](/theorem/unit_sum_mod_13_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 13).filter (fun a => Nat.gcd a 13 == 1)).foldl (fun acc a => (acc + a) % 13) 0) = 0
+```
+
+### Z/14 carries exactly 1 nilpotent residue(s) — those whose 14-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 14 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_14_number_1](/theorem/nilpotents_mod_14_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 14).filter (fun x => x ^ 14 % 14 == 0)).length = 1
+```
+
+### Cubing Z/14 lands on exactly 6 distinct residue(s), counted by walking all 14 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_14_number_6](/theorem/cubes_mod_14_number_6) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 14).map (fun x => (x * x * x) % 14)).eraseDups).length = 6
+```
+
+### Exactly 4 residue(s) of Z/14 satisfy x^14 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 14 without assuming primality.
+The ledger holds this as [power_fixed_mod_14_number_4](/theorem/power_fixed_mod_14_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 14).filter (fun x => x ^ 14 % 14 == x)).length = 4
+```
+
+### No unit of Z/14 has multiplicative order above 6, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 14; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_14_is_6](/theorem/max_unit_order_mod_14_is_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 14).all (fun a => (Nat.gcd a 14 != 1) || (a ^ 6 % 14 == 1))) ∧ ((List.range 14).any (fun a => (Nat.gcd a 14 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 14 != 1))))
+```
+
+### 14 has exactly 4 positive divisor(s), found by trial over every candidate up to 14 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_14_number_4](/theorem/divisors_of_14_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 14).filter (fun k => 14 % k == 0)).length = 4
+```
+
+### The units of Z/14 sum to 0 modulo 14, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_14_is_0](/theorem/unit_sum_mod_14_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 14).filter (fun a => Nat.gcd a 14 == 1)).foldl (fun acc a => (acc + a) % 14) 0) = 0
+```
+
+### Z/15 carries exactly 1 nilpotent residue(s) — those whose 15-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 15 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_15_number_1](/theorem/nilpotents_mod_15_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 15).filter (fun x => x ^ 15 % 15 == 0)).length = 1
+```
+
+### Cubing Z/15 lands on exactly 15 distinct residue(s), counted by walking all 15 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_15_number_15](/theorem/cubes_mod_15_number_15) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 15).map (fun x => (x * x * x) % 15)).eraseDups).length = 15
+```
+
+### Exactly 9 residue(s) of Z/15 satisfy x^15 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 15 without assuming primality.
+The ledger holds this as [power_fixed_mod_15_number_9](/theorem/power_fixed_mod_15_number_9) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 15).filter (fun x => x ^ 15 % 15 == x)).length = 9
+```
+
+### No unit of Z/15 has multiplicative order above 4, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 15; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_15_is_4](/theorem/max_unit_order_mod_15_is_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 15).all (fun a => (Nat.gcd a 15 != 1) || (a ^ 4 % 15 == 1))) ∧ ((List.range 15).any (fun a => (Nat.gcd a 15 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 15 != 1))))
+```
+
+### 15 has exactly 4 positive divisor(s), found by trial over every candidate up to 15 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_15_number_4](/theorem/divisors_of_15_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 15).filter (fun k => 15 % k == 0)).length = 4
+```
+
+### The units of Z/15 sum to 0 modulo 15, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_15_is_0](/theorem/unit_sum_mod_15_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 15).filter (fun a => Nat.gcd a 15 == 1)).foldl (fun acc a => (acc + a) % 15) 0) = 0
+```
+
+### Z/16 carries exactly 8 nilpotent residue(s) — those whose 16-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 16 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_16_number_8](/theorem/nilpotents_mod_16_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun x => x ^ 16 % 16 == 0)).length = 8
+```
+
+### Cubing Z/16 lands on exactly 10 distinct residue(s), counted by walking all 16 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_16_number_10](/theorem/cubes_mod_16_number_10) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 16).map (fun x => (x * x * x) % 16)).eraseDups).length = 10
+```
+
+### Exactly 2 residue(s) of Z/16 satisfy x^16 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 16 without assuming primality.
+The ledger holds this as [power_fixed_mod_16_number_2](/theorem/power_fixed_mod_16_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun x => x ^ 16 % 16 == x)).length = 2
+```
+
+### No unit of Z/16 has multiplicative order above 4, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 16; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_16_is_4](/theorem/max_unit_order_mod_16_is_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).all (fun a => (Nat.gcd a 16 != 1) || (a ^ 4 % 16 == 1))) ∧ ((List.range 16).any (fun a => (Nat.gcd a 16 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 16 != 1))))
+```
+
+### 16 has exactly 5 positive divisor(s), found by trial over every candidate up to 16 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_16_number_5](/theorem/divisors_of_16_number_5) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 16).filter (fun k => 16 % k == 0)).length = 5
+```
+
+### The units of Z/16 sum to 0 modulo 16, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_16_is_0](/theorem/unit_sum_mod_16_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 16).filter (fun a => Nat.gcd a 16 == 1)).foldl (fun acc a => (acc + a) % 16) 0) = 0
+```
+
+### Z/17 carries exactly 1 nilpotent residue(s) — those whose 17-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 17 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_17_number_1](/theorem/nilpotents_mod_17_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 17).filter (fun x => x ^ 17 % 17 == 0)).length = 1
+```
+
+### Cubing Z/17 lands on exactly 17 distinct residue(s), counted by walking all 17 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_17_number_17](/theorem/cubes_mod_17_number_17) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 17).map (fun x => (x * x * x) % 17)).eraseDups).length = 17
+```
+
+### Exactly 17 residue(s) of Z/17 satisfy x^17 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 17 without assuming primality.
+The ledger holds this as [power_fixed_mod_17_number_17](/theorem/power_fixed_mod_17_number_17) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 17).filter (fun x => x ^ 17 % 17 == x)).length = 17
+```
+
+### No unit of Z/17 has multiplicative order above 16, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 17; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_17_is_16](/theorem/max_unit_order_mod_17_is_16) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 17).all (fun a => (Nat.gcd a 17 != 1) || (a ^ 16 % 17 == 1))) ∧ ((List.range 17).any (fun a => (Nat.gcd a 17 == 1) && ((List.range' 1 15).all (fun k => a ^ k % 17 != 1))))
+```
+
+### 17 has exactly 2 positive divisor(s), found by trial over every candidate up to 17 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_17_number_2](/theorem/divisors_of_17_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 17).filter (fun k => 17 % k == 0)).length = 2
+```
+
+### The units of Z/17 sum to 0 modulo 17, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_17_is_0](/theorem/unit_sum_mod_17_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 17).filter (fun a => Nat.gcd a 17 == 1)).foldl (fun acc a => (acc + a) % 17) 0) = 0
+```
+
+### Z/18 carries exactly 3 nilpotent residue(s) — those whose 18-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 18 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_18_number_3](/theorem/nilpotents_mod_18_number_3) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 18).filter (fun x => x ^ 18 % 18 == 0)).length = 3
+```
+
+### Cubing Z/18 lands on exactly 6 distinct residue(s), counted by walking all 18 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_18_number_6](/theorem/cubes_mod_18_number_6) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 18).map (fun x => (x * x * x) % 18)).eraseDups).length = 6
+```
+
+### Exactly 4 residue(s) of Z/18 satisfy x^18 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 18 without assuming primality.
+The ledger holds this as [power_fixed_mod_18_number_4](/theorem/power_fixed_mod_18_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 18).filter (fun x => x ^ 18 % 18 == x)).length = 4
+```
+
+### No unit of Z/18 has multiplicative order above 6, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 18; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_18_is_6](/theorem/max_unit_order_mod_18_is_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 18).all (fun a => (Nat.gcd a 18 != 1) || (a ^ 6 % 18 == 1))) ∧ ((List.range 18).any (fun a => (Nat.gcd a 18 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 18 != 1))))
+```
+
+### 18 has exactly 6 positive divisor(s), found by trial over every candidate up to 18 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_18_number_6](/theorem/divisors_of_18_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 18).filter (fun k => 18 % k == 0)).length = 6
+```
+
+### The units of Z/18 sum to 0 modulo 18, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_18_is_0](/theorem/unit_sum_mod_18_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 18).filter (fun a => Nat.gcd a 18 == 1)).foldl (fun acc a => (acc + a) % 18) 0) = 0
+```
+
+### Z/19 carries exactly 1 nilpotent residue(s) — those whose 19-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 19 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_19_number_1](/theorem/nilpotents_mod_19_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 19).filter (fun x => x ^ 19 % 19 == 0)).length = 1
+```
+
+### Cubing Z/19 lands on exactly 7 distinct residue(s), counted by walking all 19 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_19_number_7](/theorem/cubes_mod_19_number_7) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 19).map (fun x => (x * x * x) % 19)).eraseDups).length = 7
+```
+
+### Exactly 19 residue(s) of Z/19 satisfy x^19 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 19 without assuming primality.
+The ledger holds this as [power_fixed_mod_19_number_19](/theorem/power_fixed_mod_19_number_19) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 19).filter (fun x => x ^ 19 % 19 == x)).length = 19
+```
+
+### No unit of Z/19 has multiplicative order above 18, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 19; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_19_is_18](/theorem/max_unit_order_mod_19_is_18) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 19).all (fun a => (Nat.gcd a 19 != 1) || (a ^ 18 % 19 == 1))) ∧ ((List.range 19).any (fun a => (Nat.gcd a 19 == 1) && ((List.range' 1 17).all (fun k => a ^ k % 19 != 1))))
+```
+
+### 19 has exactly 2 positive divisor(s), found by trial over every candidate up to 19 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_19_number_2](/theorem/divisors_of_19_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 19).filter (fun k => 19 % k == 0)).length = 2
+```
+
+### The units of Z/19 sum to 0 modulo 19, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_19_is_0](/theorem/unit_sum_mod_19_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 19).filter (fun a => Nat.gcd a 19 == 1)).foldl (fun acc a => (acc + a) % 19) 0) = 0
+```
+
+### Z/20 carries exactly 2 nilpotent residue(s) — those whose 20-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 20 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_20_number_2](/theorem/nilpotents_mod_20_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 20).filter (fun x => x ^ 20 % 20 == 0)).length = 2
+```
+
+### Cubing Z/20 lands on exactly 15 distinct residue(s), counted by walking all 20 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_20_number_15](/theorem/cubes_mod_20_number_15) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 20).map (fun x => (x * x * x) % 20)).eraseDups).length = 15
+```
+
+### Exactly 4 residue(s) of Z/20 satisfy x^20 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 20 without assuming primality.
+The ledger holds this as [power_fixed_mod_20_number_4](/theorem/power_fixed_mod_20_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 20).filter (fun x => x ^ 20 % 20 == x)).length = 4
+```
+
+### No unit of Z/20 has multiplicative order above 4, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 20; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_20_is_4](/theorem/max_unit_order_mod_20_is_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 20).all (fun a => (Nat.gcd a 20 != 1) || (a ^ 4 % 20 == 1))) ∧ ((List.range 20).any (fun a => (Nat.gcd a 20 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 20 != 1))))
+```
+
+### 20 has exactly 6 positive divisor(s), found by trial over every candidate up to 20 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_20_number_6](/theorem/divisors_of_20_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 20).filter (fun k => 20 % k == 0)).length = 6
+```
+
+### The units of Z/20 sum to 0 modulo 20, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_20_is_0](/theorem/unit_sum_mod_20_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 20).filter (fun a => Nat.gcd a 20 == 1)).foldl (fun acc a => (acc + a) % 20) 0) = 0
+```
+
+### Z/21 carries exactly 1 nilpotent residue(s) — those whose 21-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 21 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_21_number_1](/theorem/nilpotents_mod_21_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 21).filter (fun x => x ^ 21 % 21 == 0)).length = 1
+```
+
+### Cubing Z/21 lands on exactly 9 distinct residue(s), counted by walking all 21 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_21_number_9](/theorem/cubes_mod_21_number_9) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 21).map (fun x => (x * x * x) % 21)).eraseDups).length = 9
+```
+
+### Exactly 9 residue(s) of Z/21 satisfy x^21 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 21 without assuming primality.
+The ledger holds this as [power_fixed_mod_21_number_9](/theorem/power_fixed_mod_21_number_9) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 21).filter (fun x => x ^ 21 % 21 == x)).length = 9
+```
+
+### No unit of Z/21 has multiplicative order above 6, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 21; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_21_is_6](/theorem/max_unit_order_mod_21_is_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 21).all (fun a => (Nat.gcd a 21 != 1) || (a ^ 6 % 21 == 1))) ∧ ((List.range 21).any (fun a => (Nat.gcd a 21 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 21 != 1))))
+```
+
+### 21 has exactly 4 positive divisor(s), found by trial over every candidate up to 21 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_21_number_4](/theorem/divisors_of_21_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 21).filter (fun k => 21 % k == 0)).length = 4
+```
+
+### The units of Z/21 sum to 0 modulo 21, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_21_is_0](/theorem/unit_sum_mod_21_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 21).filter (fun a => Nat.gcd a 21 == 1)).foldl (fun acc a => (acc + a) % 21) 0) = 0
+```
+
+### Z/22 carries exactly 1 nilpotent residue(s) — those whose 22-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 22 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_22_number_1](/theorem/nilpotents_mod_22_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 22).filter (fun x => x ^ 22 % 22 == 0)).length = 1
+```
+
+### Cubing Z/22 lands on exactly 22 distinct residue(s), counted by walking all 22 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_22_number_22](/theorem/cubes_mod_22_number_22) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 22).map (fun x => (x * x * x) % 22)).eraseDups).length = 22
+```
+
+### Exactly 4 residue(s) of Z/22 satisfy x^22 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 22 without assuming primality.
+The ledger holds this as [power_fixed_mod_22_number_4](/theorem/power_fixed_mod_22_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 22).filter (fun x => x ^ 22 % 22 == x)).length = 4
+```
+
+### No unit of Z/22 has multiplicative order above 10, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 22; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_22_is_10](/theorem/max_unit_order_mod_22_is_10) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 22).all (fun a => (Nat.gcd a 22 != 1) || (a ^ 10 % 22 == 1))) ∧ ((List.range 22).any (fun a => (Nat.gcd a 22 == 1) && ((List.range' 1 9).all (fun k => a ^ k % 22 != 1))))
+```
+
+### 22 has exactly 4 positive divisor(s), found by trial over every candidate up to 22 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_22_number_4](/theorem/divisors_of_22_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 22).filter (fun k => 22 % k == 0)).length = 4
+```
+
+### The units of Z/22 sum to 0 modulo 22, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_22_is_0](/theorem/unit_sum_mod_22_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 22).filter (fun a => Nat.gcd a 22 == 1)).foldl (fun acc a => (acc + a) % 22) 0) = 0
+```
+
+### Z/24 carries exactly 4 nilpotent residue(s) — those whose 24-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 24 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_24_number_4](/theorem/nilpotents_mod_24_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 24).filter (fun x => x ^ 24 % 24 == 0)).length = 4
+```
+
+### Cubing Z/24 lands on exactly 15 distinct residue(s), counted by walking all 24 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_24_number_15](/theorem/cubes_mod_24_number_15) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 24).map (fun x => (x * x * x) % 24)).eraseDups).length = 15
+```
+
+### Exactly 4 residue(s) of Z/24 satisfy x^24 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 24 without assuming primality.
+The ledger holds this as [power_fixed_mod_24_number_4](/theorem/power_fixed_mod_24_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 24).filter (fun x => x ^ 24 % 24 == x)).length = 4
+```
+
+### No unit of Z/24 has multiplicative order above 2, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 24; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_24_is_2](/theorem/max_unit_order_mod_24_is_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 24).all (fun a => (Nat.gcd a 24 != 1) || (a ^ 2 % 24 == 1))) ∧ ((List.range 24).any (fun a => (Nat.gcd a 24 == 1) && ((List.range' 1 1).all (fun k => a ^ k % 24 != 1))))
+```
+
+### 24 has exactly 8 positive divisor(s), found by trial over every candidate up to 24 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_24_number_8](/theorem/divisors_of_24_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 24).filter (fun k => 24 % k == 0)).length = 8
+```
+
+### The units of Z/24 sum to 0 modulo 24, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_24_is_0](/theorem/unit_sum_mod_24_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 24).filter (fun a => Nat.gcd a 24 == 1)).foldl (fun acc a => (acc + a) % 24) 0) = 0
+```
+
+### Z/25 carries exactly 5 nilpotent residue(s) — those whose 25-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 25 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_25_number_5](/theorem/nilpotents_mod_25_number_5) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 25).filter (fun x => x ^ 25 % 25 == 0)).length = 5
+```
+
+### Cubing Z/25 lands on exactly 21 distinct residue(s), counted by walking all 25 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_25_number_21](/theorem/cubes_mod_25_number_21) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 25).map (fun x => (x * x * x) % 25)).eraseDups).length = 21
+```
+
+### Exactly 5 residue(s) of Z/25 satisfy x^25 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 25 without assuming primality.
+The ledger holds this as [power_fixed_mod_25_number_5](/theorem/power_fixed_mod_25_number_5) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 25).filter (fun x => x ^ 25 % 25 == x)).length = 5
+```
+
+### No unit of Z/25 has multiplicative order above 20, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 25; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_25_is_20](/theorem/max_unit_order_mod_25_is_20) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 25).all (fun a => (Nat.gcd a 25 != 1) || (a ^ 20 % 25 == 1))) ∧ ((List.range 25).any (fun a => (Nat.gcd a 25 == 1) && ((List.range' 1 19).all (fun k => a ^ k % 25 != 1))))
+```
+
+### 25 has exactly 3 positive divisor(s), found by trial over every candidate up to 25 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_25_number_3](/theorem/divisors_of_25_number_3) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 25).filter (fun k => 25 % k == 0)).length = 3
+```
+
+### The units of Z/25 sum to 0 modulo 25, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_25_is_0](/theorem/unit_sum_mod_25_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 25).filter (fun a => Nat.gcd a 25 == 1)).foldl (fun acc a => (acc + a) % 25) 0) = 0
+```
+
+### Z/26 carries exactly 1 nilpotent residue(s) — those whose 26-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 26 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_26_number_1](/theorem/nilpotents_mod_26_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 26).filter (fun x => x ^ 26 % 26 == 0)).length = 1
+```
+
+### Cubing Z/26 lands on exactly 10 distinct residue(s), counted by walking all 26 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_26_number_10](/theorem/cubes_mod_26_number_10) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 26).map (fun x => (x * x * x) % 26)).eraseDups).length = 10
+```
+
+### Exactly 4 residue(s) of Z/26 satisfy x^26 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 26 without assuming primality.
+The ledger holds this as [power_fixed_mod_26_number_4](/theorem/power_fixed_mod_26_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 26).filter (fun x => x ^ 26 % 26 == x)).length = 4
+```
+
+### No unit of Z/26 has multiplicative order above 12, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 26; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_26_is_12](/theorem/max_unit_order_mod_26_is_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 26).all (fun a => (Nat.gcd a 26 != 1) || (a ^ 12 % 26 == 1))) ∧ ((List.range 26).any (fun a => (Nat.gcd a 26 == 1) && ((List.range' 1 11).all (fun k => a ^ k % 26 != 1))))
+```
+
+### 26 has exactly 4 positive divisor(s), found by trial over every candidate up to 26 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_26_number_4](/theorem/divisors_of_26_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 26).filter (fun k => 26 % k == 0)).length = 4
+```
+
+### The units of Z/26 sum to 0 modulo 26, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_26_is_0](/theorem/unit_sum_mod_26_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 26).filter (fun a => Nat.gcd a 26 == 1)).foldl (fun acc a => (acc + a) % 26) 0) = 0
+```
+
+### Z/27 carries exactly 9 nilpotent residue(s) — those whose 27-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 27 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_27_number_9](/theorem/nilpotents_mod_27_number_9) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 27).filter (fun x => x ^ 27 % 27 == 0)).length = 9
+```
+
+### Cubing Z/27 lands on exactly 7 distinct residue(s), counted by walking all 27 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_27_number_7](/theorem/cubes_mod_27_number_7) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 27).map (fun x => (x * x * x) % 27)).eraseDups).length = 7
+```
+
+### Exactly 3 residue(s) of Z/27 satisfy x^27 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 27 without assuming primality.
+The ledger holds this as [power_fixed_mod_27_number_3](/theorem/power_fixed_mod_27_number_3) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 27).filter (fun x => x ^ 27 % 27 == x)).length = 3
+```
+
+### No unit of Z/27 has multiplicative order above 18, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 27; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_27_is_18](/theorem/max_unit_order_mod_27_is_18) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 27).all (fun a => (Nat.gcd a 27 != 1) || (a ^ 18 % 27 == 1))) ∧ ((List.range 27).any (fun a => (Nat.gcd a 27 == 1) && ((List.range' 1 17).all (fun k => a ^ k % 27 != 1))))
+```
+
+### 27 has exactly 4 positive divisor(s), found by trial over every candidate up to 27 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_27_number_4](/theorem/divisors_of_27_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 27).filter (fun k => 27 % k == 0)).length = 4
+```
+
+### The units of Z/27 sum to 0 modulo 27, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_27_is_0](/theorem/unit_sum_mod_27_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 27).filter (fun a => Nat.gcd a 27 == 1)).foldl (fun acc a => (acc + a) % 27) 0) = 0
+```
+
+### Z/28 carries exactly 2 nilpotent residue(s) — those whose 28-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 28 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_28_number_2](/theorem/nilpotents_mod_28_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 28).filter (fun x => x ^ 28 % 28 == 0)).length = 2
+```
+
+### Cubing Z/28 lands on exactly 9 distinct residue(s), counted by walking all 28 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_28_number_9](/theorem/cubes_mod_28_number_9) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 28).map (fun x => (x * x * x) % 28)).eraseDups).length = 9
+```
+
+### Exactly 8 residue(s) of Z/28 satisfy x^28 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 28 without assuming primality.
+The ledger holds this as [power_fixed_mod_28_number_8](/theorem/power_fixed_mod_28_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 28).filter (fun x => x ^ 28 % 28 == x)).length = 8
+```
+
+### No unit of Z/28 has multiplicative order above 6, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 28; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_28_is_6](/theorem/max_unit_order_mod_28_is_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 28).all (fun a => (Nat.gcd a 28 != 1) || (a ^ 6 % 28 == 1))) ∧ ((List.range 28).any (fun a => (Nat.gcd a 28 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 28 != 1))))
+```
+
+### 28 has exactly 6 positive divisor(s), found by trial over every candidate up to 28 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_28_number_6](/theorem/divisors_of_28_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 28).filter (fun k => 28 % k == 0)).length = 6
+```
+
+### The units of Z/28 sum to 0 modulo 28, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_28_is_0](/theorem/unit_sum_mod_28_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 28).filter (fun a => Nat.gcd a 28 == 1)).foldl (fun acc a => (acc + a) % 28) 0) = 0
+```
+
+### Z/30 carries exactly 1 nilpotent residue(s) — those whose 30-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 30 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_30_number_1](/theorem/nilpotents_mod_30_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 30).filter (fun x => x ^ 30 % 30 == 0)).length = 1
+```
+
+### Cubing Z/30 lands on exactly 30 distinct residue(s), counted by walking all 30 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_30_number_30](/theorem/cubes_mod_30_number_30) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 30).map (fun x => (x * x * x) % 30)).eraseDups).length = 30
+```
+
+### Exactly 8 residue(s) of Z/30 satisfy x^30 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 30 without assuming primality.
+The ledger holds this as [power_fixed_mod_30_number_8](/theorem/power_fixed_mod_30_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 30).filter (fun x => x ^ 30 % 30 == x)).length = 8
+```
+
+### No unit of Z/30 has multiplicative order above 4, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 30; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_30_is_4](/theorem/max_unit_order_mod_30_is_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 30).all (fun a => (Nat.gcd a 30 != 1) || (a ^ 4 % 30 == 1))) ∧ ((List.range 30).any (fun a => (Nat.gcd a 30 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 30 != 1))))
+```
+
+### 30 has exactly 8 positive divisor(s), found by trial over every candidate up to 30 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_30_number_8](/theorem/divisors_of_30_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 30).filter (fun k => 30 % k == 0)).length = 8
+```
+
+### The units of Z/30 sum to 0 modulo 30, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_30_is_0](/theorem/unit_sum_mod_30_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 30).filter (fun a => Nat.gcd a 30 == 1)).foldl (fun acc a => (acc + a) % 30) 0) = 0
+```
+
+### Z/32 carries exactly 16 nilpotent residue(s) — those whose 32-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 32 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_32_number_16](/theorem/nilpotents_mod_32_number_16) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 32).filter (fun x => x ^ 32 % 32 == 0)).length = 16
+```
+
+### Cubing Z/32 lands on exactly 19 distinct residue(s), counted by walking all 32 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_32_number_19](/theorem/cubes_mod_32_number_19) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 32).map (fun x => (x * x * x) % 32)).eraseDups).length = 19
+```
+
+### Exactly 2 residue(s) of Z/32 satisfy x^32 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 32 without assuming primality.
+The ledger holds this as [power_fixed_mod_32_number_2](/theorem/power_fixed_mod_32_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 32).filter (fun x => x ^ 32 % 32 == x)).length = 2
+```
+
+### No unit of Z/32 has multiplicative order above 8, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 32; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_32_is_8](/theorem/max_unit_order_mod_32_is_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 32).all (fun a => (Nat.gcd a 32 != 1) || (a ^ 8 % 32 == 1))) ∧ ((List.range 32).any (fun a => (Nat.gcd a 32 == 1) && ((List.range' 1 7).all (fun k => a ^ k % 32 != 1))))
+```
+
+### 32 has exactly 6 positive divisor(s), found by trial over every candidate up to 32 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_32_number_6](/theorem/divisors_of_32_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 32).filter (fun k => 32 % k == 0)).length = 6
+```
+
+### The units of Z/32 sum to 0 modulo 32, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_32_is_0](/theorem/unit_sum_mod_32_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 32).filter (fun a => Nat.gcd a 32 == 1)).foldl (fun acc a => (acc + a) % 32) 0) = 0
+```
+
+### Z/33 carries exactly 1 nilpotent residue(s) — those whose 33-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 33 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_33_number_1](/theorem/nilpotents_mod_33_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 33).filter (fun x => x ^ 33 % 33 == 0)).length = 1
+```
+
+### Cubing Z/33 lands on exactly 33 distinct residue(s), counted by walking all 33 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_33_number_33](/theorem/cubes_mod_33_number_33) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 33).map (fun x => (x * x * x) % 33)).eraseDups).length = 33
+```
+
+### Exactly 9 residue(s) of Z/33 satisfy x^33 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 33 without assuming primality.
+The ledger holds this as [power_fixed_mod_33_number_9](/theorem/power_fixed_mod_33_number_9) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 33).filter (fun x => x ^ 33 % 33 == x)).length = 9
+```
+
+### No unit of Z/33 has multiplicative order above 10, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 33; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_33_is_10](/theorem/max_unit_order_mod_33_is_10) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 33).all (fun a => (Nat.gcd a 33 != 1) || (a ^ 10 % 33 == 1))) ∧ ((List.range 33).any (fun a => (Nat.gcd a 33 == 1) && ((List.range' 1 9).all (fun k => a ^ k % 33 != 1))))
+```
+
+### 33 has exactly 4 positive divisor(s), found by trial over every candidate up to 33 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_33_number_4](/theorem/divisors_of_33_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 33).filter (fun k => 33 % k == 0)).length = 4
+```
+
+### The units of Z/33 sum to 0 modulo 33, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_33_is_0](/theorem/unit_sum_mod_33_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 33).filter (fun a => Nat.gcd a 33 == 1)).foldl (fun acc a => (acc + a) % 33) 0) = 0
+```
+
+### Z/34 carries exactly 1 nilpotent residue(s) — those whose 34-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 34 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_34_number_1](/theorem/nilpotents_mod_34_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 34).filter (fun x => x ^ 34 % 34 == 0)).length = 1
+```
+
+### Cubing Z/34 lands on exactly 34 distinct residue(s), counted by walking all 34 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_34_number_34](/theorem/cubes_mod_34_number_34) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 34).map (fun x => (x * x * x) % 34)).eraseDups).length = 34
+```
+
+### Exactly 4 residue(s) of Z/34 satisfy x^34 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 34 without assuming primality.
+The ledger holds this as [power_fixed_mod_34_number_4](/theorem/power_fixed_mod_34_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 34).filter (fun x => x ^ 34 % 34 == x)).length = 4
+```
+
+### No unit of Z/34 has multiplicative order above 16, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 34; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_34_is_16](/theorem/max_unit_order_mod_34_is_16) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 34).all (fun a => (Nat.gcd a 34 != 1) || (a ^ 16 % 34 == 1))) ∧ ((List.range 34).any (fun a => (Nat.gcd a 34 == 1) && ((List.range' 1 15).all (fun k => a ^ k % 34 != 1))))
+```
+
+### 34 has exactly 4 positive divisor(s), found by trial over every candidate up to 34 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_34_number_4](/theorem/divisors_of_34_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 34).filter (fun k => 34 % k == 0)).length = 4
+```
+
+### The units of Z/34 sum to 0 modulo 34, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_34_is_0](/theorem/unit_sum_mod_34_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 34).filter (fun a => Nat.gcd a 34 == 1)).foldl (fun acc a => (acc + a) % 34) 0) = 0
+```
+
+### Z/35 carries exactly 1 nilpotent residue(s) — those whose 35-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 35 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_35_number_1](/theorem/nilpotents_mod_35_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 35).filter (fun x => x ^ 35 % 35 == 0)).length = 1
+```
+
+### Cubing Z/35 lands on exactly 15 distinct residue(s), counted by walking all 35 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_35_number_15](/theorem/cubes_mod_35_number_15) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 35).map (fun x => (x * x * x) % 35)).eraseDups).length = 15
+```
+
+### Exactly 9 residue(s) of Z/35 satisfy x^35 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 35 without assuming primality.
+The ledger holds this as [power_fixed_mod_35_number_9](/theorem/power_fixed_mod_35_number_9) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 35).filter (fun x => x ^ 35 % 35 == x)).length = 9
+```
+
+### No unit of Z/35 has multiplicative order above 12, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 35; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_35_is_12](/theorem/max_unit_order_mod_35_is_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 35).all (fun a => (Nat.gcd a 35 != 1) || (a ^ 12 % 35 == 1))) ∧ ((List.range 35).any (fun a => (Nat.gcd a 35 == 1) && ((List.range' 1 11).all (fun k => a ^ k % 35 != 1))))
+```
+
+### 35 has exactly 4 positive divisor(s), found by trial over every candidate up to 35 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_35_number_4](/theorem/divisors_of_35_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 35).filter (fun k => 35 % k == 0)).length = 4
+```
+
+### The units of Z/35 sum to 0 modulo 35, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_35_is_0](/theorem/unit_sum_mod_35_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 35).filter (fun a => Nat.gcd a 35 == 1)).foldl (fun acc a => (acc + a) % 35) 0) = 0
+```
+
+### Z/36 carries exactly 6 nilpotent residue(s) — those whose 36-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 36 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_36_number_6](/theorem/nilpotents_mod_36_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 36).filter (fun x => x ^ 36 % 36 == 0)).length = 6
+```
+
+### Cubing Z/36 lands on exactly 9 distinct residue(s), counted by walking all 36 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_36_number_9](/theorem/cubes_mod_36_number_9) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 36).map (fun x => (x * x * x) % 36)).eraseDups).length = 9
+```
+
+### Exactly 4 residue(s) of Z/36 satisfy x^36 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 36 without assuming primality.
+The ledger holds this as [power_fixed_mod_36_number_4](/theorem/power_fixed_mod_36_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 36).filter (fun x => x ^ 36 % 36 == x)).length = 4
+```
+
+### No unit of Z/36 has multiplicative order above 6, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 36; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_36_is_6](/theorem/max_unit_order_mod_36_is_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 36).all (fun a => (Nat.gcd a 36 != 1) || (a ^ 6 % 36 == 1))) ∧ ((List.range 36).any (fun a => (Nat.gcd a 36 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 36 != 1))))
+```
+
+### 36 has exactly 9 positive divisor(s), found by trial over every candidate up to 36 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_36_number_9](/theorem/divisors_of_36_number_9) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 36).filter (fun k => 36 % k == 0)).length = 9
+```
+
+### The units of Z/36 sum to 0 modulo 36, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_36_is_0](/theorem/unit_sum_mod_36_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 36).filter (fun a => Nat.gcd a 36 == 1)).foldl (fun acc a => (acc + a) % 36) 0) = 0
+```
+
+### Z/38 carries exactly 1 nilpotent residue(s) — those whose 38-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 38 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_38_number_1](/theorem/nilpotents_mod_38_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 38).filter (fun x => x ^ 38 % 38 == 0)).length = 1
+```
+
+### Cubing Z/38 lands on exactly 14 distinct residue(s), counted by walking all 38 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_38_number_14](/theorem/cubes_mod_38_number_14) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 38).map (fun x => (x * x * x) % 38)).eraseDups).length = 14
+```
+
+### Exactly 4 residue(s) of Z/38 satisfy x^38 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 38 without assuming primality.
+The ledger holds this as [power_fixed_mod_38_number_4](/theorem/power_fixed_mod_38_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 38).filter (fun x => x ^ 38 % 38 == x)).length = 4
+```
+
+### No unit of Z/38 has multiplicative order above 18, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 38; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_38_is_18](/theorem/max_unit_order_mod_38_is_18) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 38).all (fun a => (Nat.gcd a 38 != 1) || (a ^ 18 % 38 == 1))) ∧ ((List.range 38).any (fun a => (Nat.gcd a 38 == 1) && ((List.range' 1 17).all (fun k => a ^ k % 38 != 1))))
+```
+
+### 38 has exactly 4 positive divisor(s), found by trial over every candidate up to 38 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_38_number_4](/theorem/divisors_of_38_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 38).filter (fun k => 38 % k == 0)).length = 4
+```
+
+### The units of Z/38 sum to 0 modulo 38, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_38_is_0](/theorem/unit_sum_mod_38_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 38).filter (fun a => Nat.gcd a 38 == 1)).foldl (fun acc a => (acc + a) % 38) 0) = 0
+```
+
+### Z/39 carries exactly 1 nilpotent residue(s) — those whose 39-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 39 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_39_number_1](/theorem/nilpotents_mod_39_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 39).filter (fun x => x ^ 39 % 39 == 0)).length = 1
+```
+
+### Cubing Z/39 lands on exactly 15 distinct residue(s), counted by walking all 39 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_39_number_15](/theorem/cubes_mod_39_number_15) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 39).map (fun x => (x * x * x) % 39)).eraseDups).length = 15
+```
+
+### Exactly 9 residue(s) of Z/39 satisfy x^39 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 39 without assuming primality.
+The ledger holds this as [power_fixed_mod_39_number_9](/theorem/power_fixed_mod_39_number_9) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 39).filter (fun x => x ^ 39 % 39 == x)).length = 9
+```
+
+### No unit of Z/39 has multiplicative order above 12, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 39; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_39_is_12](/theorem/max_unit_order_mod_39_is_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 39).all (fun a => (Nat.gcd a 39 != 1) || (a ^ 12 % 39 == 1))) ∧ ((List.range 39).any (fun a => (Nat.gcd a 39 == 1) && ((List.range' 1 11).all (fun k => a ^ k % 39 != 1))))
+```
+
+### 39 has exactly 4 positive divisor(s), found by trial over every candidate up to 39 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_39_number_4](/theorem/divisors_of_39_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 39).filter (fun k => 39 % k == 0)).length = 4
+```
+
+### The units of Z/39 sum to 0 modulo 39, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_39_is_0](/theorem/unit_sum_mod_39_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 39).filter (fun a => Nat.gcd a 39 == 1)).foldl (fun acc a => (acc + a) % 39) 0) = 0
+```
+
+### Z/40 carries exactly 4 nilpotent residue(s) — those whose 40-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 40 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_40_number_4](/theorem/nilpotents_mod_40_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 40).filter (fun x => x ^ 40 % 40 == 0)).length = 4
+```
+
+### Cubing Z/40 lands on exactly 25 distinct residue(s), counted by walking all 40 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_40_number_25](/theorem/cubes_mod_40_number_25) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 40).map (fun x => (x * x * x) % 40)).eraseDups).length = 25
+```
+
+### Exactly 4 residue(s) of Z/40 satisfy x^40 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 40 without assuming primality.
+The ledger holds this as [power_fixed_mod_40_number_4](/theorem/power_fixed_mod_40_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 40).filter (fun x => x ^ 40 % 40 == x)).length = 4
+```
+
+### No unit of Z/40 has multiplicative order above 4, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 40; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_40_is_4](/theorem/max_unit_order_mod_40_is_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 40).all (fun a => (Nat.gcd a 40 != 1) || (a ^ 4 % 40 == 1))) ∧ ((List.range 40).any (fun a => (Nat.gcd a 40 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 40 != 1))))
+```
+
+### 40 has exactly 8 positive divisor(s), found by trial over every candidate up to 40 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_40_number_8](/theorem/divisors_of_40_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 40).filter (fun k => 40 % k == 0)).length = 8
+```
+
+### The units of Z/40 sum to 0 modulo 40, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_40_is_0](/theorem/unit_sum_mod_40_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 40).filter (fun a => Nat.gcd a 40 == 1)).foldl (fun acc a => (acc + a) % 40) 0) = 0
+```
+
+### Z/44 carries exactly 2 nilpotent residue(s) — those whose 44-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 44 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_44_number_2](/theorem/nilpotents_mod_44_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 44).filter (fun x => x ^ 44 % 44 == 0)).length = 2
+```
+
+### Cubing Z/44 lands on exactly 33 distinct residue(s), counted by walking all 44 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_44_number_33](/theorem/cubes_mod_44_number_33) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 44).map (fun x => (x * x * x) % 44)).eraseDups).length = 33
+```
+
+### Exactly 4 residue(s) of Z/44 satisfy x^44 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 44 without assuming primality.
+The ledger holds this as [power_fixed_mod_44_number_4](/theorem/power_fixed_mod_44_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 44).filter (fun x => x ^ 44 % 44 == x)).length = 4
+```
+
+### No unit of Z/44 has multiplicative order above 10, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 44; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_44_is_10](/theorem/max_unit_order_mod_44_is_10) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 44).all (fun a => (Nat.gcd a 44 != 1) || (a ^ 10 % 44 == 1))) ∧ ((List.range 44).any (fun a => (Nat.gcd a 44 == 1) && ((List.range' 1 9).all (fun k => a ^ k % 44 != 1))))
+```
+
+### 44 has exactly 6 positive divisor(s), found by trial over every candidate up to 44 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_44_number_6](/theorem/divisors_of_44_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 44).filter (fun k => 44 % k == 0)).length = 6
+```
+
+### The units of Z/44 sum to 0 modulo 44, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_44_is_0](/theorem/unit_sum_mod_44_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 44).filter (fun a => Nat.gcd a 44 == 1)).foldl (fun acc a => (acc + a) % 44) 0) = 0
+```
+
+### Z/45 carries exactly 3 nilpotent residue(s) — those whose 45-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 45 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_45_number_3](/theorem/nilpotents_mod_45_number_3) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 45).filter (fun x => x ^ 45 % 45 == 0)).length = 3
+```
+
+### Cubing Z/45 lands on exactly 15 distinct residue(s), counted by walking all 45 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_45_number_15](/theorem/cubes_mod_45_number_15) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 45).map (fun x => (x * x * x) % 45)).eraseDups).length = 15
+```
+
+### Exactly 15 residue(s) of Z/45 satisfy x^45 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 45 without assuming primality.
+The ledger holds this as [power_fixed_mod_45_number_15](/theorem/power_fixed_mod_45_number_15) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 45).filter (fun x => x ^ 45 % 45 == x)).length = 15
+```
+
+### No unit of Z/45 has multiplicative order above 12, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 45; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_45_is_12](/theorem/max_unit_order_mod_45_is_12) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 45).all (fun a => (Nat.gcd a 45 != 1) || (a ^ 12 % 45 == 1))) ∧ ((List.range 45).any (fun a => (Nat.gcd a 45 == 1) && ((List.range' 1 11).all (fun k => a ^ k % 45 != 1))))
+```
+
+### 45 has exactly 6 positive divisor(s), found by trial over every candidate up to 45 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_45_number_6](/theorem/divisors_of_45_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 45).filter (fun k => 45 % k == 0)).length = 6
+```
+
+### The units of Z/45 sum to 0 modulo 45, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_45_is_0](/theorem/unit_sum_mod_45_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 45).filter (fun a => Nat.gcd a 45 == 1)).foldl (fun acc a => (acc + a) % 45) 0) = 0
+```
+
+### Z/48 carries exactly 8 nilpotent residue(s) — those whose 48-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 48 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_48_number_8](/theorem/nilpotents_mod_48_number_8) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 48).filter (fun x => x ^ 48 % 48 == 0)).length = 8
+```
+
+### Cubing Z/48 lands on exactly 30 distinct residue(s), counted by walking all 48 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_48_number_30](/theorem/cubes_mod_48_number_30) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 48).map (fun x => (x * x * x) % 48)).eraseDups).length = 30
+```
+
+### Exactly 4 residue(s) of Z/48 satisfy x^48 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 48 without assuming primality.
+The ledger holds this as [power_fixed_mod_48_number_4](/theorem/power_fixed_mod_48_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 48).filter (fun x => x ^ 48 % 48 == x)).length = 4
+```
+
+### No unit of Z/48 has multiplicative order above 4, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 48; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_48_is_4](/theorem/max_unit_order_mod_48_is_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 48).all (fun a => (Nat.gcd a 48 != 1) || (a ^ 4 % 48 == 1))) ∧ ((List.range 48).any (fun a => (Nat.gcd a 48 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 48 != 1))))
+```
+
+### 48 has exactly 10 positive divisor(s), found by trial over every candidate up to 48 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_48_number_10](/theorem/divisors_of_48_number_10) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 48).filter (fun k => 48 % k == 0)).length = 10
+```
+
+### The units of Z/48 sum to 0 modulo 48, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_48_is_0](/theorem/unit_sum_mod_48_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 48).filter (fun a => Nat.gcd a 48 == 1)).foldl (fun acc a => (acc + a) % 48) 0) = 0
+```
+
+### Z/49 carries exactly 7 nilpotent residue(s) — those whose 49-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 49 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_49_number_7](/theorem/nilpotents_mod_49_number_7) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 49).filter (fun x => x ^ 49 % 49 == 0)).length = 7
+```
+
+### Cubing Z/49 lands on exactly 15 distinct residue(s), counted by walking all 49 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_49_number_15](/theorem/cubes_mod_49_number_15) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 49).map (fun x => (x * x * x) % 49)).eraseDups).length = 15
+```
+
+### Exactly 7 residue(s) of Z/49 satisfy x^49 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 49 without assuming primality.
+The ledger holds this as [power_fixed_mod_49_number_7](/theorem/power_fixed_mod_49_number_7) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 49).filter (fun x => x ^ 49 % 49 == x)).length = 7
+```
+
+### No unit of Z/49 has multiplicative order above 42, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 49; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_49_is_42](/theorem/max_unit_order_mod_49_is_42) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 49).all (fun a => (Nat.gcd a 49 != 1) || (a ^ 42 % 49 == 1))) ∧ ((List.range 49).any (fun a => (Nat.gcd a 49 == 1) && ((List.range' 1 41).all (fun k => a ^ k % 49 != 1))))
+```
+
+### 49 has exactly 3 positive divisor(s), found by trial over every candidate up to 49 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_49_number_3](/theorem/divisors_of_49_number_3) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 49).filter (fun k => 49 % k == 0)).length = 3
+```
+
+### The units of Z/49 sum to 0 modulo 49, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_49_is_0](/theorem/unit_sum_mod_49_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 49).filter (fun a => Nat.gcd a 49 == 1)).foldl (fun acc a => (acc + a) % 49) 0) = 0
+```
+
+### Z/50 carries exactly 5 nilpotent residue(s) — those whose 50-fold power is zero — walked over every residue rather than read off a factorisation. Scope: this counts at modulus 50 only and proves nothing about general m.
+The ledger holds this as [nilpotents_mod_50_number_5](/theorem/nilpotents_mod_50_number_5) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 50).filter (fun x => x ^ 50 % 50 == 0)).length = 5
+```
+
+### Cubing Z/50 lands on exactly 42 distinct residue(s), counted by walking all 50 inputs and collecting the image. Scope: the size of the cube map's image at this modulus, not a statement about when cubing is a bijection in general.
+The ledger holds this as [cubes_mod_50_number_42](/theorem/cubes_mod_50_number_42) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 50).map (fun x => (x * x * x) % 50)).eraseDups).length = 42
+```
+
+### Exactly 4 residue(s) of Z/50 satisfy x^50 = x, walked exhaustively. For a prime modulus every residue does, by Fermat; this states the count that actually holds at 50 without assuming primality.
+The ledger holds this as [power_fixed_mod_50_number_4](/theorem/power_fixed_mod_50_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 50).filter (fun x => x ^ 50 % 50 == x)).length = 4
+```
+
+### No unit of Z/50 has multiplicative order above 20, and at least one attains it — both halves walked over every unit. This bounds the unit group's exponent at modulus 50; it does not compute the Carmichael function in general.
+The ledger holds this as [max_unit_order_mod_50_is_20](/theorem/max_unit_order_mod_50_is_20) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 50).all (fun a => (Nat.gcd a 50 != 1) || (a ^ 20 % 50 == 1))) ∧ ((List.range 50).any (fun a => (Nat.gcd a 50 == 1) && ((List.range' 1 19).all (fun k => a ^ k % 50 != 1))))
+```
+
+### 50 has exactly 6 positive divisor(s), found by trial over every candidate up to 50 itself rather than by factoring. Scope: one integer, counted.
+The ledger holds this as [divisors_of_50_number_6](/theorem/divisors_of_50_number_6) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 50).filter (fun k => 50 % k == 0)).length = 6
+```
+
+### The units of Z/50 sum to 0 modulo 50, computed by walking every residue, keeping the coprime ones and adding. Scope: an arithmetic fact at this modulus; the pairing argument that explains it for m > 2 is not what is checked here.
+The ledger holds this as [unit_sum_mod_50_is_0](/theorem/unit_sum_mod_50_is_0) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 50).filter (fun a => Nat.gcd a 50 == 1)).foldl (fun acc a => (acc + a) % 50) 0) = 0
+```
+
+### WALKED: all 1024 labelled simple graphs on the five vertices 0..4. A graph is a 10-bit mask; bit i is the i-th vertex pair in the fixed order (0,1),(0,2),(0,3),(0,4),(1,2),(1,3),(1,4),(2,3),(2,4),(3,4). The walk is nested 32x32 with m = hi*32 + lo, which enumerates 0..1023 exactly once — the split is only to keep the List.range depth small, not a restriction of the range. For each mask the check recomputes the five vertex degrees from the inlined incidence table [[0,1,2,3],[0,4,5,6],[1,4,7,8],[2,5,7,9],[3,6,8,9]] (row v lists the pair-indices touching vertex v) and the edge count as the popcount of the mask, and SHOWS: degree sum = 2 * edge count, the degree sum is even, and no degree exceeds 4. That is the handshake lemma verified exhaustively on n=5 rather than on one example. SCOPE NOT EXCEEDED: n=5 only, nothing about larger n, no induction, no general-n statement. GAP: decide checks the arithmetic GIVEN the inlined incidence table; it does not itself prove that table is the correct vertex-pair incidence of K5. That table is a hand-supplied constant and the reader must check it against the stated pair order.
+The ledger holds this as [every_graph_on_five_obeys_the_handshake](/theorem/every_graph_on_five_obeys_the_handshake) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 32).all (fun hi => (List.range 32).all (fun lo => let m := hi * 32 + lo; let bit : Nat → Nat := fun i => m / 2 ^ i % 2; let degs := ([[0,1,2,3],[0,4,5,6],[1,4,7,8],[2,5,7,9],[3,6,8,9]] : List (List Nat)).map (fun l => (l.map bit).sum); let e := ((List.range 10).map bit).sum; (degs.sum == 2 * e) && (degs.sum % 2 == 0) && degs.all (fun d => decide (d <= 4)))) = true
+```
+
+### WALKED: the same 1024 labelled graphs on 5 vertices, each paired with its complement, taken as 1023 - m (valid as ordinary Nat subtraction because m <= 1023, so no truncation occurs anywhere in the walk; xor was avoided because Nat.xor drags propext into the proof term). For every mask it SHOWS three things at once: edges(G) + edges(complement G) = 10, the number of pairs in K5; complementing twice returns the same mask, so complementation is an involution on the whole space; and, vertex by vertex via zipWith on the two degree lists, deg_G(v) + deg_complement(v) = 4 for all five vertices. SCOPE NOT EXCEEDED: n=5 only; this is about labelled masks, not isomorphism classes, and says nothing about self-complementary graphs or general n. GAP: as above, the incidence table [[0,1,2,3],[0,4,5,6],[1,4,7,8],[2,5,7,9],[3,6,8,9]] is an inlined constant the decide takes as given; the walk proves the degree identity relative to it, not that it encodes K5.
+The ledger holds this as [complement_completes_every_graph_on_five](/theorem/complement_completes_every_graph_on_five) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 32).all (fun hi => (List.range 32).all (fun lo => let m := hi * 32 + lo; let deg : Nat → List Nat := fun x => ([[0,1,2,3],[0,4,5,6],[1,4,7,8],[2,5,7,9],[3,6,8,9]] : List (List Nat)).map (fun l => (l.map (fun i => x / 2 ^ i % 2)).sum); let e : Nat → Nat := fun x => ((List.range 10).map (fun i => x / 2 ^ i % 2)).sum; (e m + e (1023 - m) == 10) && (1023 - (1023 - m) == m) && (List.zipWith (fun a b => a + b) (deg m) (deg (1023 - m))).all (fun s => s == 4))) = true
+```
+
+### WALKED: all 1024 labelled graphs on 5 vertices. For each mask the triangle count is computed as the number of the ten vertex-triples whose three pair-bits are all set (the product of the three bits is 1 exactly then), using the inlined triple table [[0,1,4],[0,2,5],[0,3,6],[1,2,7],[1,3,8],[2,3,9],[4,5,7],[4,6,8],[5,6,9],[7,8,9]] in the same pair order as the other two. SHOWS: triangle count = 0 implies edge count <= 6, for every one of the 1024 graphs — Mantel's bound at n=5, where floor(25/4) = 6. The statement then adds a tightness witness: mask 126, which is the complete bipartite graph K(2,3) on parts {0,1} and {2,3,4}, has exactly 6 edges and exactly 0 triangles, so the bound 6 is attained and cannot be lowered. SCOPE NOT EXCEEDED: n=5 only. This does NOT prove Mantel or Turan for general n, gives no induction, and does not characterise which graphs meet the bound (the walk finds 10 triangle-free graphs with 6 edges; only one of them, 126, is named here). GAP: the triple table and the pair ordering are hand-supplied constants; decide verifies the implication given them, not that they enumerate the ten triangles of K5.
+The ledger holds this as [mantel_bound_on_five_vertices](/theorem/mantel_bound_on_five_vertices) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 32).all (fun hi => (List.range 32).all (fun lo => let m := hi * 32 + lo; let bit : Nat → Nat := fun i => m / 2 ^ i % 2; let tri := ([[0,1,4],[0,2,5],[0,3,6],[1,2,7],[1,3,8],[2,3,9],[4,5,7],[4,6,8],[5,6,9],[7,8,9]] : List (List Nat)).map (fun t => (t.map bit).foldl (fun a b => a * b) 1); let e := ((List.range 10).map bit).sum; (tri.sum != 0) || decide (e <= 6))) = true ∧ ((List.range 10).map (fun i => 126 / 2 ^ i % 2)).sum = 6 ∧ (([[0,1,4],[0,2,5],[0,3,6],[1,2,7],[1,3,8],[2,3,9],[4,5,7],[4,6,8],[5,6,9],[7,8,9]] : List (List Nat)).map (fun t => (t.map (fun i => 126 / 2 ^ i % 2)).foldl (fun a b => a * b) 1)).sum = 0
+```
+
+### WALKED: all 16 four-bit words; the even-weight subset (the single-parity-check code) counted to 8; all 16x16 ordered pairs for distance; the four single-bit error patterns [1,2,4,8] against every codeword; for every odd-weight word, a count over all 16 words of how many codewords sit at distance 1; the 16 error patterns filtered to the 6 of weight 2, each applied against all 16 codewords. Distance is computed as the per-bit sum of XOR (sum over the four positions of (x_i + y_i) mod 2), never taken from a lemma. SHOWS: the minimum distance is exactly 2 — every distinct codeword pair is at least 2 apart AND some pair is exactly 2, so the bound is attained, not merely respected. Every single flip of a codeword lands on odd weight, hence outside the code: single errors are always detected. But each of the 8 detected (odd-weight) words has exactly FOUR codewords at distance 1, so no nearest-neighbour rule can name the sender — the tie is total, not occasional. And all 6 weight-2 error patterns carry every codeword to a codeword, so double errors are invisible to this code. Detection of one, correction of none, blindness to two — all three read off the same enumeration. SCOPE: n=4 and this one code only, decided by exhaustion over 2^4=16 words. It says nothing about other lengths, other codes, or non-binary alphabets. GAP: it does not prove the general proposition 'minimum distance 2 implies detect 1 and correct 0'; it exhibits that behaviour on one code by enumeration. The phrase 'ties four ways' is a fact about n=4 specifically (each odd-weight word has n=4 neighbours), not a general constant.
+The ledger holds this as [parity_code_detects_one_but_ties_four_ways](/theorem/parity_code_detects_one_but_ties_four_ways) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).countP (fun x => (x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) = 8) ∧ ((List.range 16).all (fun x => (List.range 16).all (fun y => !((x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) || !((y % 2 + y / 2 % 2 + y / 4 % 2 + y / 8 % 2) % 2 == 0) || (x == y) || decide (2 ≤ (x % 2 + y % 2) % 2 + (x / 2 % 2 + y / 2 % 2) % 2 + (x / 4 % 2 + y / 4 % 2) % 2 + (x / 8 % 2 + y / 8 % 2) % 2))) = true) ∧ ((List.range 16).any (fun x => (List.range 16).any (fun y => ((x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) && ((y % 2 + y / 2 % 2 + y / 4 % 2 + y / 8 % 2) % 2 == 0) && (!(x == y)) && (((x % 2 + y % 2) % 2 + (x / 2 % 2 + y / 2 % 2) % 2 + (x / 4 % 2 + y / 4 % 2) % 2 + (x / 8 % 2 + y / 8 % 2) % 2) == 2))) = true) ∧ ((List.range 16).all (fun x => !((x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) || [1, 2, 4, 8].all (fun p => (((x % 2 + p % 2) % 2 + (x / 2 % 2 + p / 2 % 2) % 2 + (x / 4 % 2 + p / 4 % 2) % 2 + (x / 8 % 2 + p / 8 % 2) % 2) % 2 == 1))) = true) ∧ ((List.range 16).all (fun x => ((x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) || ((List.range 16).countP (fun c => ((c % 2 + c / 2 % 2 + c / 4 % 2 + c / 8 % 2) % 2 == 0) && (((x % 2 + c % 2) % 2 + (x / 2 % 2 + c / 2 % 2) % 2 + (x / 4 % 2 + c / 4 % 2) % 2 + (x / 8 % 2 + c / 8 % 2) % 2) == 1)) == 4)) = true) ∧ ((List.range 16).countP (fun e => (e % 2 + e / 2 % 2 + e / 4 % 2 + e / 8 % 2) == 2) = 6) ∧ ((List.range 16).all (fun e => !((e % 2 + e / 2 % 2 + e / 4 % 2 + e / 8 % 2) == 2) || (List.range 16).all (fun c => !((c % 2 + c / 2 % 2 + c / 4 % 2 + c / 8 % 2) % 2 == 0) || (((c % 2 + e % 2) % 2 + (c / 2 % 2 + e / 2 % 2) % 2 + (c / 4 % 2 + e / 4 % 2) % 2 + (c / 8 % 2 + e / 8 % 2) % 2) % 2 == 0))) = true)
+```
+
+### WALKED: the even-weight four-bit code is first IDENTIFIED rather than asserted — filtering all 16 words by even weight is decided to equal exactly [0,3,5,6,9,10,12,15]. Then: all 64 ordered pairs of that code for closure under XOR, where the XOR is CONSTRUCTED as a number (sum of ((a_i+b_i) mod 2)*2^i) and looked up in the code list, not assumed; all 8 codewords for weight; all 64 pairs for distance. Then a second, three-word set [0,14,13] (0000, 1110, 1101) with all 9 of its ordered pairs. SHOWS: for the linear code the two quantities coincide — it is closed under XOR, its least nonzero weight is 2 (every nonzero codeword has weight at least 2, and one has weight exactly 2), and its least distance between distinct codewords is also 2 (at least 2 everywhere, exactly 2 somewhere). For [0,14,13] closure FAILS, decided concretely: 14 XOR 13 = 3 is constructed and shown absent from the set. And there the two quantities come apart — every nonzero member has weight exactly 3, yet two distinct members stand only 2 apart. So reading minimum distance off the weight enumerator would report d=3 for that set and therefore wrongly license single-error correction, when in fact d=2 and it corrects nothing. SCOPE: two specific codes at n=4, decided by exhaustion. GAP — this is the honest limit: it does NOT prove the general theorem 'for a linear code, minimum distance equals minimum nonzero weight'. It verifies that identity on one linear code, and exhibits one non-linear set where it breaks. That establishes linearity is not dispensable; it does not establish that linearity is sufficient in general, and nothing here rules out non-linear sets where the two happen to agree.
+The ledger holds this as [weight_reads_distance_only_for_linear_codes](/theorem/weight_reads_distance_only_for_linear_codes) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).filter (fun z => (z % 2 + z / 2 % 2 + z / 4 % 2 + z / 8 % 2) % 2 == 0) = [0, 3, 5, 6, 9, 10, 12, 15]) ∧ ([0, 3, 5, 6, 9, 10, 12, 15].all (fun a => [0, 3, 5, 6, 9, 10, 12, 15].all (fun b => [0, 3, 5, 6, 9, 10, 12, 15].contains ((a % 2 + b % 2) % 2 + ((a / 2 % 2 + b / 2 % 2) % 2) * 2 + ((a / 4 % 2 + b / 4 % 2) % 2) * 4 + ((a / 8 % 2 + b / 8 % 2) % 2) * 8))) = true) ∧ (([0, 3, 5, 6, 9, 10, 12, 15].filter (fun z => !(z == 0))).all (fun z => decide (2 ≤ z % 2 + z / 2 % 2 + z / 4 % 2 + z / 8 % 2)) = true) ∧ ([0, 3, 5, 6, 9, 10, 12, 15].any (fun z => (z % 2 + z / 2 % 2 + z / 4 % 2 + z / 8 % 2) == 2) = true) ∧ ([0, 3, 5, 6, 9, 10, 12, 15].all (fun a => [0, 3, 5, 6, 9, 10, 12, 15].all (fun b => (a == b) || decide (2 ≤ (a % 2 + b % 2) % 2 + (a / 2 % 2 + b / 2 % 2) % 2 + (a / 4 % 2 + b / 4 % 2) % 2 + (a / 8 % 2 + b / 8 % 2) % 2))) = true) ∧ ([0, 3, 5, 6, 9, 10, 12, 15].any (fun a => [0, 3, 5, 6, 9, 10, 12, 15].any (fun b => (!(a == b)) && (((a % 2 + b % 2) % 2 + (a / 2 % 2 + b / 2 % 2) % 2 + (a / 4 % 2 + b / 4 % 2) % 2 + (a / 8 % 2 + b / 8 % 2) % 2) == 2))) = true) ∧ ([0, 14, 13].contains ((14 % 2 + 13 % 2) % 2 + ((14 / 2 % 2 + 13 / 2 % 2) % 2) * 2 + ((14 / 4 % 2 + 13 / 4 % 2) % 2) * 4 + ((14 / 8 % 2 + 13 / 8 % 2) % 2) * 8) = false) ∧ (([0, 14, 13].filter (fun z => !(z == 0))).all (fun z => (z % 2 + z / 2 % 2 + z / 4 % 2 + z / 8 % 2) == 3) = true) ∧ ([0, 14, 13].all (fun a => [0, 14, 13].all (fun b => (a == b) || decide (2 ≤ (a % 2 + b % 2) % 2 + (a / 2 % 2 + b / 2 % 2) % 2 + (a / 4 % 2 + b / 4 % 2) % 2 + (a / 8 % 2 + b / 8 % 2) % 2))) = true) ∧ ([0, 14, 13].any (fun a => [0, 14, 13].any (fun b => (!(a == b)) && (((a % 2 + b % 2) % 2 + (a / 2 % 2 + b / 2 % 2) % 2 + (a / 4 % 2 + b / 4 % 2) % 2 + (a / 8 % 2 + b / 8 % 2) % 2) == 2))) = true)
+```
+
+### WALKED: two repetition codes side by side. The (3,1) code {000,111} against all 8 three-bit words, and the (4,1) code {0000,1111} against all 16 four-bit words; for each received word, the number of codewords within distance 1 and the number at distance exactly 2, distances computed per-bit. SHOWS the difference between distance 3 and distance 4 as a difference in what the DECODER can do, not just in a number. At d=3: every one of the 8 words has exactly one codeword within distance 1, so majority decoding never ties — it always hands back an answer. That completeness is precisely the defect: for EACH codeword the walk exhibits a word two flips away whose unique nearest codeword is the OTHER one, so a double error is silently miscorrected, with no signal that anything went wrong. At d=4: 10 of the 16 words still have exactly one codeword within distance 1 (so correction capability is unchanged at one error), the remaining 6 sit at distance exactly 2 from BOTH codewords with none nearer, and the walk decides that these two classes exhaust the cube — no third case. And the miscorrection is gone: no word two flips from one codeword lies within distance 1 of the other. So the fourth repeat buys a flag, not a fix. SCOPE: two repetition codes, n=3 and n=4, two codewords each, decided by exhaustion over 8 and 16 words. It does not establish the general relation between minimum distance and correction/detection radius; it exhibits the d=3 versus d=4 contrast on the smallest pair of codes where it appears. GAP: 'corrects one error' for the 4-bit code is read off the census (every word of weight at most 1, and by symmetry weight at least 3, is uniquely decodable) rather than stated and decided as a separate general claim; and the two-way tie at d=4 is a fact about a 2-codeword code — a larger d=4 code would tie differently.
+The ledger holds this as [fourth_repeat_buys_the_flag_not_the_fix](/theorem/fourth_repeat_buys_the_flag_not_the_fix) — proven `by decide`, sorry-free:
+
+```lean
+(((0 % 2 + 7 % 2) % 2 + (0 / 2 % 2 + 7 / 2 % 2) % 2 + (0 / 4 % 2 + 7 / 4 % 2) % 2) = 3) ∧ ((List.range 8).all (fun r => [0, 7].countP (fun c => decide ((r % 2 + c % 2) % 2 + (r / 2 % 2 + c / 2 % 2) % 2 + (r / 4 % 2 + c / 4 % 2) % 2 ≤ 1)) == 1) = true) ∧ ([0, 7].all (fun c => (List.range 8).any (fun r => (((r % 2 + c % 2) % 2 + (r / 2 % 2 + c / 2 % 2) % 2 + (r / 4 % 2 + c / 4 % 2) % 2) == 2) && [0, 7].any (fun d => (!(d == c)) && (((r % 2 + d % 2) % 2 + (r / 2 % 2 + d / 2 % 2) % 2 + (r / 4 % 2 + d / 4 % 2) % 2) == 1)))) = true) ∧ (((0 % 2 + 15 % 2) % 2 + (0 / 2 % 2 + 15 / 2 % 2) % 2 + (0 / 4 % 2 + 15 / 4 % 2) % 2 + (0 / 8 % 2 + 15 / 8 % 2) % 2) = 4) ∧ ((List.range 16).countP (fun r => [0, 15].countP (fun c => decide ((r % 2 + c % 2) % 2 + (r / 2 % 2 + c / 2 % 2) % 2 + (r / 4 % 2 + c / 4 % 2) % 2 + (r / 8 % 2 + c / 8 % 2) % 2 ≤ 1)) == 1) = 10) ∧ ((List.range 16).countP (fun r => ([0, 15].countP (fun c => ((r % 2 + c % 2) % 2 + (r / 2 % 2 + c / 2 % 2) % 2 + (r / 4 % 2 + c / 4 % 2) % 2 + (r / 8 % 2 + c / 8 % 2) % 2) == 2) == 2) && ([0, 15].countP (fun c => decide ((r % 2 + c % 2) % 2 + (r / 2 % 2 + c / 2 % 2) % 2 + (r / 4 % 2 + c / 4 % 2) % 2 + (r / 8 % 2 + c / 8 % 2) % 2 ≤ 1)) == 0)) = 6) ∧ ((List.range 16).all (fun r => ([0, 15].countP (fun c => decide ((r % 2 + c % 2) % 2 + (r / 2 % 2 + c / 2 % 2) % 2 + (r / 4 % 2 + c / 4 % 2) % 2 + (r / 8 % 2 + c / 8 % 2) % 2 ≤ 1)) == 1) || (([0, 15].countP (fun c => ((r % 2 + c % 2) % 2 + (r / 2 % 2 + c / 2 % 2) % 2 + (r / 4 % 2 + c / 4 % 2) % 2 + (r / 8 % 2 + c / 8 % 2) % 2) == 2) == 2) && ([0, 15].countP (fun c => decide ((r % 2 + c % 2) % 2 + (r / 2 % 2 + c / 2 % 2) % 2 + (r / 4 % 2 + c / 4 % 2) % 2 + (r / 8 % 2 + c / 8 % 2) % 2 ≤ 1)) == 0))) = true) ∧ ((List.range 16).all (fun r => [0, 15].all (fun c => !(((r % 2 + c % 2) % 2 + (r / 2 % 2 + c / 2 % 2) % 2 + (r / 4 % 2 + c / 4 % 2) % 2 + (r / 8 % 2 + c / 8 % 2) % 2) == 2) || [0, 15].all (fun d => (d == c) || !(decide ((r % 2 + d % 2) % 2 + (r / 2 % 2 + d / 2 % 2) % 2 + (r / 4 % 2 + d / 4 % 2) % 2 + (r / 8 % 2 + d / 8 % 2) % 2 ≤ 1))))) = true)
+```
+
+### Walks all 32 words of the 5-bit reflected binary code G(n) = n xor (n>>1), built inline as the digit sum over j<5 of ((bit j of n) + (bit j+1 of n)) % 2 times 2^j. Conjunct one computes, for every n in 0..31, the number of positions where G(n) and G((n+1) % 32) differ, and checks it is exactly 1 — the wrap at n=31 is inside the same walk, so closure of the cycle is one of the 32 cases checked, not a separate argument. Conjunct two runs the identical distance count over the plain binary order n to (n+1) % 32 and finds only 16 of the 32 steps are single-bit, so the first conjunct is not something every ordering of 0..31 satisfies. Scope it does not exceed: width 5 only, one fixed N=32. Nothing here is proved for general k, and the recursive reflect-and-prepend construction of the code is never stated — only the closed form is walked. Gap to volunteer: this does not use Lean's Nat.xor. Nat.xor is well-founded-recursive and does not reduce under decide, so bit-difference is written as (x / 2^i + y / 2^i) % 2, an arithmetic surrogate that agrees with bitwise xor on these operands. I confirmed that agreement separately in JavaScript over all 32 values; the decide does not check it. If you reject the surrogate, what is proved is a statement about that arithmetic expression, not about xor as such.
+The ledger holds this as [gray_step_flips_one_bit_and_the_cycle_closes](/theorem/gray_step_flips_one_bit_and_the_cycle_closes) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 32).all (fun n => (((List.range 5).map (fun i => (((((List.range 5).map (fun j => ((n / 2 ^ j + n / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) / 2 ^ i) + ((((List.range 5).map (fun j => ((((n + 1) % 32) / 2 ^ j + ((n + 1) % 32) / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) / 2 ^ i)) % 2)).foldl (· + ·) 0) == 1) ∧ (((List.range 32).filter (fun n => (((List.range 5).map (fun i => (n / 2 ^ i + ((n + 1) % 32) / 2 ^ i) % 2)).foldl (· + ·) 0) == 1)).length == 16)
+```
+
+### Two walks over the same 32 words. Conjunct one: for each target value v in 0..31, it filters the 32 inputs whose Gray image equals v and checks the count is exactly 1. A self-map of a finite range with every fibre of size one is a bijection, so this is the permutation claim checked directly rather than argued — 1024 image computations, no sorting, no injectivity lemma. Conjunct two exhibits the inverse: it recovers n from G(n) by setting bit i of the result to the parity of the bits of G(n) at positions j >= i, the suffix-parity decode, and checks the result equals n for all 32 inputs. So the permutation is not just counted, it is inverted by an explicit formula. Scope it does not exceed: 5 bits, N=32, one width; no induction to general k, and nothing about the order in which the permutation lists values — adjacency is a separate theorem. Gap to volunteer: as above, xor appears only as the arithmetic surrogate (a / 2^i + b / 2^i) % 2 and the suffix parity as a sum mod 2, because Nat.xor does not reduce under decide. The decide checks those arithmetic expressions; the claim that they are xor is my reading, verified separately outside Lean.
+The ledger holds this as [gray_code_is_a_permutation_with_prefix_xor_inverse](/theorem/gray_code_is_a_permutation_with_prefix_xor_inverse) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 32).all (fun v => ((List.range 32).filter (fun n => (((List.range 5).map (fun j => ((n / 2 ^ j + n / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) == v)).length == 1) ∧ (List.range 32).all (fun n => (((List.range 5).map (fun i => (((((List.range 5).map (fun j => if i ≤ j then (((((List.range 5).map (fun t => ((n / 2 ^ t + n / 2 ^ (t + 1)) % 2) * 2 ^ t)).foldl (· + ·) 0) / 2 ^ j) % 2) else 0)).foldl (· + ·) 0) % 2) * 2 ^ i))).foldl (· + ·) 0) == n)
+```
+
+### Checks what the word 'reflected' in reflected binary code actually names, on the 5-bit code. For every n in 0..31 it compares G(n) against G(31 - n), the word at the mirrored index. Conjunct one: the low four bits agree, G(31 - n) % 16 = G(n) % 16 — so the second half of the code is the first half read backwards. Conjunct two: the top bits are complementary, G(31 - n) / 16 + G(n) / 16 = 1 — exactly one of the mirrored pair has bit 4 set. Together: the mirror image of a word is that word with only the leading bit flipped, which is the reflect-and-prepend step of the construction, observed once at the top level. Scope it does not exceed: this is the top-level reflection at width 5 only. It does not check that the same relation holds recursively at widths 4, 3, 2 within the halves, and it proves nothing for general k. Gap to volunteer: same surrogate caveat — G is built from ((bit j) + (bit j+1)) % 2 arithmetic, not from Nat.xor, which does not reduce under decide; I checked the two coincide on 0..31 outside Lean. Also note 31 - n is Nat subtraction, safe here only because n stays below 32 inside List.range 32; the truncation behaviour is never exercised.
+The ledger holds this as [gray_code_reflects_across_the_top_bit](/theorem/gray_code_reflects_across_the_top_bit) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 32).all (fun n => ((((List.range 5).map (fun j => (((31 - n) / 2 ^ j + (31 - n) / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) % 16 == (((List.range 5).map (fun j => ((n / 2 ^ j + n / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) % 16)) ∧ (List.range 32).all (fun n => ((((List.range 5).map (fun j => (((31 - n) / 2 ^ j + (31 - n) / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) / 16 + (((List.range 5).map (fun j => ((n / 2 ^ j + n / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) / 16 == 1))
+```
+
+### Walked: every bit pattern m below 2^(2n) for 2n = 2, 4, 6, 8, reading bit i (LSB first) as the i-th symbol of a bracket word, 1 = open, 0 = close. Kept m when (a) opens equal closes, written 2*opens(2n) = 2n, and (b) every prefix of length k <= 2n satisfies k <= 2*opens(k), i.e. the height never drops below zero. The surviving counts are 1, 2, 5, 14. Scope: exactly four lengths, up to 8 symbols, 4+16+64+256 = 340 words examined in total. Gaps I am not hiding: the decide checks four numbers, it does not prove any recurrence, formula, or the n+1 case; calling 1,2,5,14 'the Catalan numbers C_1..C_4' is a name I attach, not something the kernel checked. I attempted the length-10 sweep (expected 42) and length-12 (expected 132) and dropped them because they exceed Lean's default maxRecDepth; per instruction I kept the walk small rather than raising the limit, so the evidence stops at length 8.
+The ledger holds this as [catalan_counts_the_dyck_words](/theorem/catalan_counts_the_dyck_words) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 4).filter (fun m => decide (2 * ((List.range 2).foldl (fun s i => s + m / 2 ^ i % 2) 0) = 2) && (List.range 3).all (fun k => decide (k ≤ 2 * ((List.range k).foldl (fun s i => s + m / 2 ^ i % 2) 0))))).length = 1 ∧ ((List.range 16).filter (fun m => decide (2 * ((List.range 4).foldl (fun s i => s + m / 2 ^ i % 2) 0) = 4) && (List.range 5).all (fun k => decide (k ≤ 2 * ((List.range k).foldl (fun s i => s + m / 2 ^ i % 2) 0))))).length = 2 ∧ ((List.range 64).filter (fun m => decide (2 * ((List.range 6).foldl (fun s i => s + m / 2 ^ i % 2) 0) = 6) && (List.range 7).all (fun k => decide (k ≤ 2 * ((List.range k).foldl (fun s i => s + m / 2 ^ i % 2) 0))))).length = 5 ∧ ((List.range 256).filter (fun m => decide (2 * ((List.range 8).foldl (fun s i => s + m / 2 ^ i % 2) 0) = 8) && (List.range 9).all (fun k => decide (k ≤ 2 * ((List.range k).foldl (fun s i => s + m / 2 ^ i % 2) 0))))).length = 14
+```
+
+### Walked: for each odd length L = 3, 5, 7 (L = 2n+1 with n = 1, 2, 3), every bit pattern below 2^L, kept those with exactly n+1 ones — 3, 10 and 35 words, and those three counts are themselves part of the checked statement, not asserted on the side. For each kept word the check counts how many of the L cyclic rotations r have every nonempty prefix strictly above zero, written k < 2*opens(k) for k = 1..L, and asserts that count is exactly 1 for every word. It held for all 48 words. Scope: three odd lengths only, 3, 5 and 7; no argument for general n, and no claim about which rotation is the winner, only that there is exactly one. One implementation note worth naming: rotation is done by index arithmetic (r + j) % L on the same integer rather than by building a rotated list, so what the kernel walked is the rotated prefix sums, which is the same content but not a list-level rotation lemma.
+The ledger holds this as [cycle_lemma_picks_one_rotation](/theorem/cycle_lemma_picks_one_rotation) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).filter (fun m => decide ((List.range 3).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 2))).length = 3 ∧ ((List.range 8).filter (fun m => decide ((List.range 3).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 2))).all (fun m => decide (((List.range 3).filter (fun r => (List.range' 1 3).all (fun k => decide (k < 2 * ((List.range k).foldl (fun s j => s + m / 2 ^ ((r + j) % 3) % 2) 0))))).length = 1)) = true ∧ ((List.range 32).filter (fun m => decide ((List.range 5).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 3))).length = 10 ∧ ((List.range 32).filter (fun m => decide ((List.range 5).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 3))).all (fun m => decide (((List.range 5).filter (fun r => (List.range' 1 5).all (fun k => decide (k < 2 * ((List.range k).foldl (fun s j => s + m / 2 ^ ((r + j) % 5) % 2) 0))))).length = 1)) = true ∧ ((List.range 128).filter (fun m => decide ((List.range 7).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 4))).length = 35 ∧ ((List.range 128).filter (fun m => decide ((List.range 7).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 4))).all (fun m => decide (((List.range 7).filter (fun r => (List.range' 1 7).all (fun k => decide (k < 2 * ((List.range k).foldl (fun s j => s + m / 2 ^ ((r + j) % 7) % 2) 0))))).length = 1)) = true
+```
+
+### Walked: every bit pattern below 2^(2n) for 2n = 2, 4, 6, 8, and counted two different sets at each length. First set: words with opens equal to closes that DO dip below zero, i.e. balanced but failing the prefix condition at some k. Second set: words with exactly n+1 ones and no balance condition imposed at all. The two counts came out equal at every length, 1, 4, 15 and 56, and the statement pins each side to that literal so neither can be vacuously zero. Scope: four lengths, 2 through 8, 340 words total. The real gap: this compares cardinalities only. The reflection map — flipping the word after its first dip — is never constructed and never checked, so what is verified is that the two sets have the same size at these four lengths, not that the standard bijection between them works. Reading the second count as the binomial C(2n, n+1) is a name I supply; decide only counted ones-patterns.
+The ledger holds this as [reflection_counts_the_dipping_words](/theorem/reflection_counts_the_dipping_words) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 4).filter (fun m => decide (2 * ((List.range 2).foldl (fun s i => s + m / 2 ^ i % 2) 0) = 2) && !((List.range 3).all (fun k => decide (k ≤ 2 * ((List.range k).foldl (fun s i => s + m / 2 ^ i % 2) 0)))))).length = 1 ∧ ((List.range 4).filter (fun m => decide ((List.range 2).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 2))).length = 1 ∧ ((List.range 16).filter (fun m => decide (2 * ((List.range 4).foldl (fun s i => s + m / 2 ^ i % 2) 0) = 4) && !((List.range 5).all (fun k => decide (k ≤ 2 * ((List.range k).foldl (fun s i => s + m / 2 ^ i % 2) 0)))))).length = 4 ∧ ((List.range 16).filter (fun m => decide ((List.range 4).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 3))).length = 4 ∧ ((List.range 64).filter (fun m => decide (2 * ((List.range 6).foldl (fun s i => s + m / 2 ^ i % 2) 0) = 6) && !((List.range 7).all (fun k => decide (k ≤ 2 * ((List.range k).foldl (fun s i => s + m / 2 ^ i % 2) 0)))))).length = 15 ∧ ((List.range 64).filter (fun m => decide ((List.range 6).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 4))).length = 15 ∧ ((List.range 256).filter (fun m => decide (2 * ((List.range 8).foldl (fun s i => s + m / 2 ^ i % 2) 0) = 8) && !((List.range 9).all (fun k => decide (k ≤ 2 * ((List.range k).foldl (fun s i => s + m / 2 ^ i % 2) 0)))))).length = 56 ∧ ((List.range 256).filter (fun m => decide ((List.range 8).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 5))).length = 56
+```
+
+### Walks n = 1..7 and, for each n, compares two independently enumerated counts. Left side sweeps all 128 subsets s of {1,...,7} (bit i of s selects part i+1) and counts those whose part-sum is exactly n — the partitions of n into DISTINCT parts. Right side sweeps the multiplicity grid a<8, b<3, c<2, d<2 and counts the tuples with a*1 + b*3 + c*5 + d*7 = n — the partitions of n into ODD parts. The decide confirms the two counts agree at every n in 1..7; a node mirror of the same two walks shows the shared values are 1,1,2,2,3,4,5, so the equality is not vacuous on either side. SCOPE: n <= 7 only. This is Euler's distinct-equals-odd identity checked at seven points, not proved — no induction, no generating function, and nothing about n > 7 is checked. GAPS the decide does not check, which are encoding arguments I made outside Lean: (a) that a subset of {1,...,7} is the same object as a distinct-part partition, and that no distinct partition of an n <= 7 needs a part above 7; (b) that the multiplicity caps 8/3/2/2 on parts 1/3/5/7 exclude nothing — they are sufficient because a*1 <= 7, b*3 <= 7, c*5 <= 7, d*7 <= 7 for n <= 7, but the walk cannot see that it is complete; (c) that odd parts 9 and above are absent, again true only because n <= 7. If any cap were too small the theorem would simply be a claim about two truncated counts that happen to match.
+The ledger holds this as [partitions_euler_distinct_eq_odd_to_seven](/theorem/partitions_euler_distinct_eq_odd_to_seven) — proven `by decide`, sorry-free:
+
+```lean
+(List.range' 1 7).all (fun n => ((List.range 128).filter (fun s => (List.range 7).foldl (fun a i => a + (if s / 2 ^ i % 2 == 1 then i + 1 else 0)) 0 == n)).length == (List.range 8).foldl (fun t1 a => t1 + (List.range 3).foldl (fun t3 b => t3 + (List.range 2).foldl (fun t5 c => t5 + (List.range 2).foldl (fun t7 d => t7 + (if a * 1 + b * 3 + c * 5 + d * 7 == n then 1 else 0)) 0) 0) 0) 0)
+```
+
+### Sweeps all 625 tuples (a,b,c,d) in [0,4]^4. The guard b <= a && c <= b && d <= c admits exactly the weakly decreasing ones — 70 tuples, C(8,4), the partitions whose Young diagram fits in a 4x4 box (a node mirror of the same guard confirms the count is 70, so the implication is not vacuously true). For each admitted p the walk builds the conjugate q by the column-counting definition q_j = #{x in p : x >= j} for j = 1..4, then builds r as the conjugate of q the same way, and checks four things: r == p (conjugation is an involution here), sum q == sum p (conjugation preserves the number being partitioned), every entry of q is <= 4 (the conjugate stays in the box), and q is itself weakly decreasing, asserted from the counting definition as #{x in p : x >= j+1} <= #{x in p : x >= j} for j = 1,2,3. So the conjugate is verified to be a partition in the same box, not merely assumed to be. SCOPE: the 4x4 box only — partitions of n <= 16 with at most 4 parts each of size at most 4. Nothing about larger boxes, and no general proof of the involution. GAP the decide does not check: that a weakly decreasing 4-tuple with entries in 0..4 IS a partition in a 4x4 box, and that q as defined by column counts IS the conjugate partition — both are encoding choices I made outside Lean. Trailing zeros stand in for absent parts, which is what lets a fixed-length tuple represent partitions with fewer than 4 parts.
+The ledger holds this as [partitions_conjugate_involution_in_4x4_box](/theorem/partitions_conjugate_involution_in_4x4_box) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 5).all (fun a => (List.range 5).all (fun b => (List.range 5).all (fun c => (List.range 5).all (fun d => (! (b ≤ a && c ≤ b && d ≤ c)) || (let p : List Nat := [a, b, c, d]; let q : List Nat := (List.range' 1 4).map (fun j => (p.filter (fun x => j ≤ x)).length); let r : List Nat := (List.range' 1 4).map (fun j => (q.filter (fun x => j ≤ x)).length); (r == p) && (q.foldl (fun s x => s + x) 0 == p.foldl (fun s x => s + x) 0) && (q.all (fun x => x ≤ 4)) && ((List.range' 1 3).all (fun j => (p.filter (fun x => j + 1 ≤ x)).length ≤ (p.filter (fun x => j ≤ x)).length)))))))
+```
+
+### Walks n = 0..12. For each n it counts the multiplicity triples (a,b,c) over the grid a<13, b<7, c<5 with a + 2b + 3c = n — the partitions of n into parts of size at most 3 — and checks that count equals ((n+3)^2 + 6) / 12 in truncating Nat division, which is the round-to-nearest closed form for p_3(n) written so that the +6 supplies the rounding and Nat truncation supplies the floor. A node mirror of both sides gives 1,1,2,3,4,5,7,8,10,12,14,16,19 at n = 0..12, matching on every point, so neither side is degenerate. Unlike the other two candidates the enumeration grid here is provably complete rather than merely sufficient-looking: a <= n <= 12, 2b <= 12 so b <= 6, 3c <= 12 so c <= 4, so the bounds 13/7/5 cut off nothing for n in range. SCOPE: n <= 12 and parts <= 3 only. This is a 13-point agreement between a walked count and a formula, not a proof that the formula is p_3(n) for all n — no induction and no generating-function argument is present. GAP the decide does not check: that a triple of multiplicities of parts 1, 2, 3 is the same object as a partition into parts of size at most 3, which is an encoding argument I made outside Lean. Also note the identity depends on Nat division truncating; the same expression over the rationals or with a different rounding convention would not be the statement checked.
+The ledger holds this as [partitions_into_parts_at_most_three_closed_form_to_twelve](/theorem/partitions_into_parts_at_most_three_closed_form_to_twelve) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 13).all (fun n => (List.range 13).foldl (fun t1 a => t1 + (List.range 7).foldl (fun t2 b => t2 + (List.range 5).foldl (fun t3 c => t3 + (if a + 2 * b + 3 * c == n then 1 else 0)) 0) 0) 0 == ((n + 3) ^ 2 + 6) / 12)
+```
+
+### WHAT IS WALKED: a 21-term list F0..F20 is first anchored as Fibonacci inside the same decide — F0=0, F1=1, length 21, and F n + F(n+1) = F(n+2) at all 19 positions where the check fits — so the literal is not taken on trust. Then, at each of the 19 indices n<19, four identities are checked against that anchored list: the partial sum closes, (F0+..+Fn) + 1 = F(n+2); the sum of squares closes, F0^2+..+Fn^2 = F n * F(n+1); Cassini in Nat form, F(n+1)^2 + (n mod 2) = F n * F(n+2) + (1 - n mod 2), where the parity term is how the alternating plus-or-minus 1 is carried without Nat subtraction; and gcd(F n, F(n+1)) = 1, consecutive terms coprime. A second walk over k<10 checks the two half-sums: F1+F3+..+F(2k+1) = F(2k+2) and (F0+F2+..+F(2k)) + 1 = F(2k+1). WHAT IT SHOWS: these five identities hold simultaneously on every rung of the walked range, on a list the same check certifies is genuinely Fibonacci. SCOPE NOT EXCEEDED: indices 0 through 20 only. GAP VOLUNTEERED: this is a finite table check, not induction — nothing here establishes any of the five identities for all n; the decide performs no inductive step. Overlap to name honestly: the ledger already holds cassini_golden_page, which is the single instance 5*5 - 3*8 = 1 (that is n=4 of this walk). This does not replace it or generalise beyond the finite list; it places that one instance in a run of 19 consecutive rungs alongside the sum, square-sum, half-sum and coprimality laws.
+The ledger holds this as [fibonacci_identity_sums_close_and_neighbours_are_coprime](/theorem/fibonacci_identity_sums_close_and_neighbours_are_coprime) — proven `by decide`, sorry-free:
+
+```lean
+(let F : List Nat := [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765]; let f : Nat → Nat := fun i => (F.drop i).headD 0; (F.length == 21) && (f 0 == 0) && (f 1 == 1) && ((List.range 19).all (fun n => f n + f (n+1) == f (n+2))) && ((List.range 19).all (fun n => (((List.range (n+1)).foldl (fun s i => s + f i) 0) + 1 == f (n+2)) && (((List.range (n+1)).foldl (fun s i => s + f i * f i) 0) == f n * f (n+1)) && (f (n+1) * f (n+1) + n % 2 == f n * f (n+2) + (1 - n % 2)) && (Nat.gcd (f n) (f (n+1)) == 1))) && ((List.range 10).all (fun k => (((List.range (k+1)).foldl (fun s i => s + f (2*i+1)) 0) == f (2*k+2)) && (((List.range (k+1)).foldl (fun s i => s + f (2*i)) 0) + 1 == f (2*k+1))))) = true
+```
+
+### WHAT IS WALKED: the basis [1,2,3,5,8,13,21] = F2..F8 is first anchored as Fibonacci-shaped inside the same decide (first two entries 1 and 2, then the recurrence at all 5 fitting positions). All 128 subsets of that 7-element basis are then enumerated as bitmasks; a mask is 'non-adjacent' when no two consecutive bits are set. Three finite counts are taken. (1) For every target n in 0..33, the number of non-adjacent masks whose weighted sum is n is exactly 1 — existence and uniqueness recorded as a single count, 34 targets against 128 masks each. (2) No non-adjacent mask sums above 33, so 34 = F9 is the first value out of this basis's reach. (3) There are exactly 34 = F9 non-adjacent masks. WHAT IT SHOWS: (1) alone gives both halves of Zeckendorf on this range; (2) and (3) close the box by making the 34 masks and the 34 targets a bijection, and by exhibiting the count of non-adjacent subsets as itself a Fibonacci number. SCOPE NOT EXCEEDED: basis F2..F8 and targets 0..33 only. GAPS VOLUNTEERED: this is exhaustive enumeration, not the greedy argument — nothing here proves Zeckendorf for arbitrary N, and the decide performs no induction on the basis length. The basis deliberately starts at F2=1 and omits F1=1; that convention is what makes uniqueness true at all, and the check assumes it rather than justifying it. Restricting the basis to F2..F8 is not itself a hole for targets 0..33 (F9=34 already exceeds every target), but that reasoning is mine, not something the decide verifies. The walk was kept at 7 basis elements because the 8-element version hit Lean's default recursion depth; the limit was not raised.
+The ledger holds this as [zeckendorf_non_adjacent_representation_is_unique](/theorem/zeckendorf_non_adjacent_representation_is_unique) — proven `by decide`, sorry-free:
+
+```lean
+(let B : List Nat := [1,2,3,5,8,13,21]; let bit : Nat → Nat → Nat := fun m i => m / 2^i % 2; let msum : Nat → Nat := fun m => (List.range 7).foldl (fun s i => s + bit m i * ((B.drop i).headD 0)) 0; let adj : Nat → Bool := fun m => (List.range 6).any (fun i => (bit m i == 1) && (bit m (i+1) == 1)); (B.length == 7) && ((B.drop 0).headD 0 == 1) && ((B.drop 1).headD 0 == 2) && ((List.range 5).all (fun i => (B.drop i).headD 0 + (B.drop (i+1)).headD 0 == (B.drop (i+2)).headD 0)) && ((List.range 34).all (fun n => ((List.range 128).filter (fun m => (!adj m) && (msum m == n))).length == 1)) && ((List.range 128).all (fun m => adj m || Nat.ble (msum m) 33)) && (((List.range 128).filter (fun m => !adj m)).length == 34)) = true
+```
+
+### WHAT IS WALKED: the same 21-term list F0..F20, again anchored as Fibonacci inside the decide (F0=0, F1=1, length 21, recurrence at all 19 fitting positions). Then two exhaustive index walks. First, all 256 pairs (m,n) with m,n < 16: gcd(F m, F n) = F(gcd(m,n)) — the gcd of two Fibonacci numbers is the Fibonacci number at the gcd of their indices, including the boundary rows where m or n is 0 and F0=0. Second, for m in 3..15 and n < 16, the two Bool tests (F n mod F m == 0) and (n mod m == 0) are checked equal — F m divides F n exactly when m divides n. WHAT IT SHOWS: on the walked indices the divisibility lattice of the Fibonacci numbers is a faithful copy of the divisibility lattice of their indices, and the consecutive-coprimality fact is the m,n adjacent corner of the same table. SCOPE NOT EXCEEDED: indices below 16 for the gcd walk, divisor indices 3..15 against n < 16 for the divisibility walk. GAPS VOLUNTEERED: finite table check, no induction — nothing here proves either law for all indices. The divisibility walk starts at m=3 by choice, not by proof: F1=F2=1 divide everything so the test is vacuous there, and F0=0 makes the remainder test degenerate; those three rows are excluded rather than handled.
+The ledger holds this as [fibonacci_gcd_follows_the_index_gcd](/theorem/fibonacci_gcd_follows_the_index_gcd) — proven `by decide`, sorry-free:
+
+```lean
+(let F : List Nat := [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765]; let f : Nat → Nat := fun i => (F.drop i).headD 0; (F.length == 21) && (f 0 == 0) && (f 1 == 1) && ((List.range 19).all (fun n => f n + f (n+1) == f (n+2))) && ((List.range 16).all (fun m => (List.range 16).all (fun n => Nat.gcd (f m) (f n) == f (Nat.gcd m n)))) && ((List.range 13).all (fun j => (List.range 16).all (fun n => (f n % f (j+3) == 0) == (n % (j+3) == 0))))) = true
+```
+
+### Walks all 8 cyclic positions of one length-8 binary word. The word is not assumed: the first conjunct pins its little-endian bit expansion, (List.range 8).map (fun i => 232 / 2^i % 2) = [0,0,0,1,0,1,1,1], so the number 232 is forced to BE the sequence 00010111 before anything is claimed about it. The second conjunct maps each position i to its 3-bit window (s_i, s_(i+1 mod 8), s_(i+2 mod 8)) read as 4a+2b+c, yielding [0,1,2,5,3,7,6,4]. The (i+1) % 8 and (i+2) % 8 are where the cycle closes — the windows at i=6 and i=7 wrap through the start of the word, and without that wrap those two positions would have no window at all. The last three conjuncts then close the bijection from both sides: 8 windows exist, eraseDups leaves all 8 (pairwise distinct), and every v in 0..7 is contained (surjective onto the 8 three-bit words). Distinct + surjective + counted is exactly-once, and surjectivity is asserted directly rather than inferred, so there is no unchecked step between the walk and the claim. Scope: binary alphabet, order 3, this single sequence. It does not show a De Bruijn sequence exists for any other order or alphabet size, and it is a witness check, not a construction — nothing here derives the sequence, it only confirms the one exhibited.
+The ledger holds this as [debruijn_order_three_cycle_reads_every_triple_once](/theorem/debruijn_order_three_cycle_reads_every_triple_once) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 8).map (fun i => 232 / 2 ^ i % 2) = [0,0,0,1,0,1,1,1]) ∧ ((List.range 8).map (fun i => 4 * (232 / 2 ^ i % 2) + 2 * (232 / 2 ^ ((i + 1) % 8) % 2) + (232 / 2 ^ ((i + 2) % 8) % 2)) = [0,1,2,5,3,7,6,4]) ∧ (([0,1,2,5,3,7,6,4] : List Nat).length = 8) ∧ (([0,1,2,5,3,7,6,4] : List Nat).eraseDups.length = 8) ∧ ((List.range 8).all (fun v => ([0,1,2,5,3,7,6,4] : List Nat).contains v))
+```
+
+### The same walk one order up, to show the order-3 case was not a small-number accident. All 16 cyclic positions of one length-16 binary word are visited. The first conjunct again pins the word rather than assuming it: 62864 expands little-endian to [0,0,0,0,1,0,0,1,1,0,1,0,1,1,1,1], i.e. 0000100110101111. The second maps position i to its 4-bit window (s_i, s_(i+1), s_(i+2), s_(i+3)) mod 16, read as 8a+4b+2c+d, giving [0,1,2,4,9,3,6,13,10,5,11,7,15,14,12,8]. Three positions (i=13,14,15) get their windows only because of the mod-16 wrap, so the closure of the cycle is load-bearing here too. The final three conjuncts close the bijection the same way as at order 3: 16 windows, eraseDups leaves 16 (pairwise distinct), and every v in 0..15 is contained. Scope: binary alphabet, order 4, this single sequence. Checking orders 3 and 4 is not an induction — nothing here says anything about order 5 or beyond, and no general existence or counting law is established by exhibiting two cases.
+The ledger holds this as [debruijn_order_four_cycle_reads_every_quadruple_once](/theorem/debruijn_order_four_cycle_reads_every_quadruple_once) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).map (fun i => 62864 / 2 ^ i % 2) = [0,0,0,0,1,0,0,1,1,0,1,0,1,1,1,1]) ∧ ((List.range 16).map (fun i => 8 * (62864 / 2 ^ i % 2) + 4 * (62864 / 2 ^ ((i + 1) % 16) % 2) + 2 * (62864 / 2 ^ ((i + 2) % 16) % 2) + (62864 / 2 ^ ((i + 3) % 16) % 2)) = [0,1,2,4,9,3,6,13,10,5,11,7,15,14,12,8]) ∧ (([0,1,2,4,9,3,6,13,10,5,11,7,15,14,12,8] : List Nat).length = 16) ∧ (([0,1,2,4,9,3,6,13,10,5,11,7,15,14,12,8] : List Nat).eraseDups.length = 16) ∧ ((List.range 16).all (fun v => ([0,1,2,4,9,3,6,13,10,5,11,7,15,14,12,8] : List Nat).contains v))
+```
+
+### This one is exhaustive rather than a witness: it walks the entire space of length-8 binary words. Every m in 0..255 is decoded little-endian (bit i = m / 2^i % 2), its 8 cyclic 3-windows are formed with the same mod-8 wrap, and m is kept iff those 8 windows are pairwise distinct (eraseDups.length = 8). The survivors are pinned to an exact literal, not merely counted: the filter EQUALS [23,29,46,58,71,92,113,116,139,142,163,184,197,209,226,232]. So 16 of the 256 words are De Bruijn at order 3, and the reader gets the actual 16, including 232 — the witness from the order-3 theorem above, which ties the two results together. The remaining conjuncts earn the phrase 'two rotation orbits' instead of leaving it as commentary. The cyclic right-rotation of an 8-bit word is m ↦ m/2 + (m%2)*128 (shift down, low bit wraps to bit 7). Applying it elementwise to [232,116,58,29,142,71,163,209] returns that same list shifted one step, and likewise for [23,139,197,226,113,184,92,46] — so each list is genuinely a closed 8-cycle under rotation, walked all the way around. The two lists together hold 16 distinct values, and every one of the 16 census members lies in their union; with the census pinned at exactly 16 elements this forces census = orbit-A ∪ orbit-B as sets. Hence the 16 strings are 2 De Bruijn cycles counted once per starting rotation. GAP I should name: the filter predicate checks only that the 8 windows are pairwise DISTINCT, not that they cover 0..7. Coverage follows because each window has the form 4a+2b+c with a,b,c each x%2 and so under 8, making 8 distinct values in an 8-element codomain exhaustive — but that bound is arithmetic the decide does not assert as its own conjunct, so this last step is reasoning, not walked. (The order-3 witness theorem does assert coverage explicitly, for 232.) Further scope: this is order 3 over a binary alphabet only. The count 16 = 2 cycles × 8 rotations agrees with the standard 2^(2^(n-1)-n) cycle count at n=3, but the decide confirms the n=3 number by brute force and proves nothing about that formula.
+The ledger holds this as [debruijn_order_three_census_is_two_rotation_orbits](/theorem/debruijn_order_three_census_is_two_rotation_orbits) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 256).filter (fun m => decide (((List.range 8).map (fun i => 4 * (m / 2 ^ i % 2) + 2 * (m / 2 ^ ((i + 1) % 8) % 2) + (m / 2 ^ ((i + 2) % 8) % 2))).eraseDups.length = 8)) = [23,29,46,58,71,92,113,116,139,142,163,184,197,209,226,232]) ∧ (([232,116,58,29,142,71,163,209] : List Nat).map (fun m => m / 2 + m % 2 * 128) = [116,58,29,142,71,163,209,232]) ∧ (([23,139,197,226,113,184,92,46] : List Nat).map (fun m => m / 2 + m % 2 * 128) = [139,197,226,113,184,92,46,23]) ∧ ((([232,116,58,29,142,71,163,209] ++ [23,139,197,226,113,184,92,46] : List Nat)).eraseDups.length = 16) ∧ (([23,29,46,58,71,92,113,116,139,142,163,184,197,209,226,232] : List Nat).all (fun m => ([232,116,58,29,142,71,163,209] ++ [23,139,197,226,113,184,92,46] : List Nat).contains m))
+```
+
+### WALKED: (a) all 9 = 3^2 sequences of exactly two standard comparators drawn from the three available on 3 wires — (0,1), (0,2), (1,2) — each applied to all 8 zero-one vectors; every one of the 9 leaves at least one vector unsorted. (b) the network (0,1),(1,2),(0,1) applied to all 8 zero-one vectors — non-decreasing output every time. (c) the same network applied to all 27 vectors over {0,1,2} — non-decreasing every time. SHOWS: two standard comparators never sort 3 wires, and a specific three-comparator sequence does. The state is carried as an explicit 3-element List Nat and each comparator rewrites it, so the model is the ordinary one, not an encoding. SCOPE NOT EXCEEDED: 3 wires only; standard comparators only (min written to the lower-indexed wire — networks that write min to the higher wire are not enumerated); the negative half covers sequences of length exactly two. GAPS the decide does not check: single-comparator networks are covered only because [c,c] is among the 9 and a repeated comparator is idempotent — that idempotence is reasoning, not part of the walk; the empty network is not walked at all; and the step from 'sorts all 27 vectors over {0,1,2}' to 'sorts every integer input' is the standard order-type argument (a comparator network's behaviour depends only on the relative order of its inputs), which is outside the decide.
+The ledger holds this as [three_wire_sorting_needs_three_comparators](/theorem/three_wire_sorting_needs_three_comparators) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 9).all (fun code => let net : List (Nat × Nat) := [(([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code % 3)).headD (0, 0), (([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code / 3 % 3)).headD (0, 0)]; !((List.range 8).all (fun m => let s := net.foldl (fun (t : List Nat) (c : Nat × Nat) => let a := (t.drop c.1).headD 0; let b := (t.drop c.2).headD 0; (List.range 3).map (fun k => if k == c.1 then (if a ≤ b then a else b) else if k == c.2 then (if a ≤ b then b else a) else (t.drop k).headD 0)) [m % 2, m / 2 % 2, m / 4 % 2]; (List.range 2).all (fun k => decide ((s.drop k).headD 0 ≤ (s.drop (k + 1)).headD 0))))) = true) ∧ ((List.range 8).all (fun m => let s := ([(0, 1), (1, 2), (0, 1)] : List (Nat × Nat)).foldl (fun (t : List Nat) (c : Nat × Nat) => let a := (t.drop c.1).headD 0; let b := (t.drop c.2).headD 0; (List.range 3).map (fun k => if k == c.1 then (if a ≤ b then a else b) else if k == c.2 then (if a ≤ b then b else a) else (t.drop k).headD 0)) [m % 2, m / 2 % 2, m / 4 % 2]; (List.range 2).all (fun k => decide ((s.drop k).headD 0 ≤ (s.drop (k + 1)).headD 0))) = true) ∧ ((List.range 27).all (fun m => let s := ([(0, 1), (1, 2), (0, 1)] : List (Nat × Nat)).foldl (fun (t : List Nat) (c : Nat × Nat) => let a := (t.drop c.1).headD 0; let b := (t.drop c.2).headD 0; (List.range 3).map (fun k => if k == c.1 then (if a ≤ b then a else b) else if k == c.2 then (if a ≤ b then b else a) else (t.drop k).headD 0)) [m % 3, m / 3 % 3, m / 9 % 3]; (List.range 2).all (fun k => decide ((s.drop k).headD 0 ≤ (s.drop (k + 1)).headD 0))) = true)
+```
+
+### WALKED: all 27 = 3^3 sequences of exactly three standard comparators on 3 wires. For each network two verdicts are computed independently — 'sorts all 8 zero-one vectors' and 'sorts all 27 vectors over {0,1,2}' — and the two verdicts are compared with ==. They agree on every one of the 27. Second conjunct counts the networks whose zero-one verdict is true: exactly 6 of the 27. SHOWS: a finite instance of the zero-one principle quantified over a whole network space rather than a hand-picked network, and the count makes it non-vacuous in both directions — 6 networks sort and 21 do not, so the agreement is not a trivial false == false. SCOPE NOT EXCEEDED: 3 wires; sequences of exactly three standard comparators (min to the lower-indexed wire); alphabet {0,1,2}. GAPS the decide does not check: this is one finite instance, not the general zero-one principle for arbitrary n and arbitrary network length. And the claim that the alphabet {0,1,2} already captures every input — that a 3-element sequence's sorting behaviour depends only on its order type, ties included — is the standard argument, made outside the decide; the walk itself only shows agreement between the binary and the ternary alphabets.
+The ledger holds this as [zero_one_verdict_matches_every_order_type_on_three_wires](/theorem/zero_one_verdict_matches_every_order_type_on_three_wires) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 27).all (fun code => let net : List (Nat × Nat) := [(([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code % 3)).headD (0, 0), (([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code / 3 % 3)).headD (0, 0), (([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code / 9 % 3)).headD (0, 0)]; let sorts := fun (v : List Nat) => let s := net.foldl (fun (t : List Nat) (c : Nat × Nat) => let a := (t.drop c.1).headD 0; let b := (t.drop c.2).headD 0; (List.range 3).map (fun k => if k == c.1 then (if a ≤ b then a else b) else if k == c.2 then (if a ≤ b then b else a) else (t.drop k).headD 0)) v; (List.range 2).all (fun k => decide ((s.drop k).headD 0 ≤ (s.drop (k + 1)).headD 0)); ((List.range 8).all (fun m => sorts [m % 2, m / 2 % 2, m / 4 % 2])) == ((List.range 27).all (fun m => sorts [m % 3, m / 3 % 3, m / 9 % 3]))) = true) ∧ (((List.range 27).filter (fun code => let net : List (Nat × Nat) := [(([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code % 3)).headD (0, 0), (([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code / 3 % 3)).headD (0, 0), (([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code / 9 % 3)).headD (0, 0)]; (List.range 8).all (fun m => let s := net.foldl (fun (t : List Nat) (c : Nat × Nat) => let a := (t.drop c.1).headD 0; let b := (t.drop c.2).headD 0; (List.range 3).map (fun k => if k == c.1 then (if a ≤ b then a else b) else if k == c.2 then (if a ≤ b then b else a) else (t.drop k).headD 0)) [m % 2, m / 2 % 2, m / 4 % 2]; (List.range 2).all (fun k => decide ((s.drop k).headD 0 ≤ (s.drop (k + 1)).headD 0))))).length = 6)
+```
+
+### WALKED: (a) all 1296 = 6^4 sequences of exactly four standard comparators drawn from the six available on 4 wires — (0,1),(0,2),(0,3),(1,2),(1,3),(2,3) — each applied to all 16 zero-one vectors; every one of the 1296 leaves at least one vector unsorted. (b) the five-comparator network (0,1),(2,3),(0,2),(1,3),(1,2) applied to all 16 zero-one vectors — non-decreasing every time. (c) that same network applied to all 256 vectors over {0,1,2,3} — non-decreasing every time. SHOWS: four standard comparators are never enough for 4 wires, and five are, so five is the minimum over this comparator set. ENCODING: unlike the two 3-wire theorems, the wire state here is packed into a single Nat — digit k in base 2 for (a) and (b), base 4 for (c) — because the list-carrying form of the 1296-network walk exceeded Lean's heartbeat budget. The comparator table is packed as i*4+j = [1,2,3,6,7,11]. That the packed 'step' really is a comparator (both digits extracted are present, so the Nat subtraction never truncates) is an encoding fact I confirmed by mirroring the exact arithmetic in JS against a list-based implementation; it is not something the decide checks. SCOPE NOT EXCEEDED: 4 wires; standard comparators only (min to the lower-indexed wire); the negative half covers sequences of length exactly four. GAPS the decide does not check: networks of fewer than four comparators are covered only through repeated comparators being idempotent, an argument outside the walk; and the step from 'sorts all 256 vectors over {0,1,2,3}' to 'sorts every integer input' is the standard order-type argument, also outside the walk.
+The ledger holds this as [four_wire_sorting_needs_five_comparators](/theorem/four_wire_sorting_needs_five_comparators) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 36).all (fun p => (List.range 36).all (fun q => let code := p * 36 + q; let step := fun (n : Nat) (idx : Nat) => let e := (([1, 2, 3, 6, 7, 11] : List Nat).drop idx).headD 0; let i := e / 4; let j := e % 4; let a := n / 2 ^ i % 2; let b := n / 2 ^ j % 2; n - a * 2 ^ i - b * 2 ^ j + (if a ≤ b then a else b) * 2 ^ i + (if a ≤ b then b else a) * 2 ^ j; !((List.range 16).all (fun m => let r := step (step (step (step m (code % 6)) (code / 6 % 6)) (code / 36 % 6)) (code / 216 % 6); (List.range 3).all (fun k => decide (r / 2 ^ k % 2 ≤ r / 2 ^ (k + 1) % 2)))))) = true) ∧ ((List.range 16).all (fun m => let step := fun (n : Nat) (idx : Nat) => let e := (([1, 2, 3, 6, 7, 11] : List Nat).drop idx).headD 0; let i := e / 4; let j := e % 4; let a := n / 2 ^ i % 2; let b := n / 2 ^ j % 2; n - a * 2 ^ i - b * 2 ^ j + (if a ≤ b then a else b) * 2 ^ i + (if a ≤ b then b else a) * 2 ^ j; let r := step (step (step (step (step m 0) 5) 1) 4) 3; (List.range 3).all (fun k => decide (r / 2 ^ k % 2 ≤ r / 2 ^ (k + 1) % 2))) = true) ∧ ((List.range 16).all (fun u => (List.range 16).all (fun v => let m := u * 16 + v; let step := fun (n : Nat) (idx : Nat) => let e := (([1, 2, 3, 6, 7, 11] : List Nat).drop idx).headD 0; let i := e / 4; let j := e % 4; let a := n / 4 ^ i % 4; let b := n / 4 ^ j % 4; n - a * 4 ^ i - b * 4 ^ j + (if a ≤ b then a else b) * 4 ^ i + (if a ≤ b then b else a) * 4 ^ j; let r := step (step (step (step (step m 0) 5) 1) 4) 3; (List.range 3).all (fun k => decide (r / 4 ^ k % 4 ≤ r / 4 ^ (k + 1) % 4)))) = true)
+```
+
+### WALKED: starting from the single length-1 string [0], four rounds of canonical extension, each round replacing every string r by the strings r++[v] for v in 0..max(r)+1. The first conjunct records the population size after each round and pins the sequence to [1,2,5,15,52]. The second conjunct re-runs the same four rounds and checks all 52 surviving strings: each has length 5, and at each of its 5 positions satisfies r[i] <= max(r[0..i-1]) + 1 for i>0 and r[0] <= 0 (forcing r[0]=0) — the restricted-growth condition. SHOWS: the canonical generator emits only restricted-growth strings, and their populations are 1,2,5,15,52. SCOPE NOT EXCEEDED: n <= 5 only. Level 6 (203 strings) already exceeds Lean's default maxRecDepth under `decide`, so the walk was kept small rather than raising the limit; nothing is claimed for n >= 6. GAPS the decide does not check: (a) the bijection between restricted-growth strings and set partitions of an n-element set is NOT decided — reading these counts as 'the number of set partitions' / 'Bell numbers' rests entirely on that unchecked correspondence; (b) exhaustiveness is by construction of the generator, not decided — the converse direction (every valid RGS of length 5 is produced) is not checked; (c) no Nodup check on the 52 strings, so distinctness is likewise unchecked; (d) 1,2,5,15,52 are matched against literals, not derived from an independent definition.
+The ledger holds this as [bell_census_of_restricted_growth_strings](/theorem/bell_census_of_restricted_growth_strings) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 4).foldl (fun p _ => let nxt := (p.2.map (fun r => (List.range (r.foldl Nat.max 0 + 2)).map (fun v => r ++ [v]))).flatten; (p.1 ++ [nxt.length], nxt)) ([1], [([0] : List Nat)])).1 = [1, 2, 5, 15, 52] ∧ ((List.range 4).foldl (fun L _ => (L.map (fun r => (List.range (r.foldl Nat.max 0 + 2)).map (fun v => r ++ [v]))).flatten) [([0] : List Nat)]).all (fun r => (r.length == 5) && (List.range 5).all (fun i => Nat.ble ((r.drop i).headD 0) ((r.take i).foldl Nat.max 0 + (if i == 0 then 0 else 1))))
+```
+
+### WALKED: the same four rounds of canonical restricted-growth extension; after each round the population is bucketed by max(r)+1 (the count of distinct values in the string) into a width-5 row indexed k=1..5. The five rows produced are [1,0,0,0,0], [1,1,0,0,0], [1,3,1,0,0], [1,7,6,1,0], [1,15,25,10,1]. The second conjunct takes that same literal triangle and checks, for every row i=1..4 and every column j=0..4 (k=j+1), that T[i][j] = (j+1)*T[i-1][j] + T[i-1][j-1], with the missing left neighbour at j=0 taken as 0 — 20 term-by-term instances, zero-padded entries included. SHOWS: the block-count census of the walked strings reproduces the Stirling second-kind triangle for n <= 5, and that triangle satisfies S(n,k) = k*S(n-1,k) + S(n-1,k-1) at all 20 of its positions. SCOPE NOT EXCEEDED: n <= 5, k <= 5; rows 6 and 7 are not walked (the walk hits maxRecDepth first). GAPS: (a) the recurrence conjunct runs on the LITERAL triangle, which conjunct 1 separately pins to the walk — the two are joined through a shared literal, not by a decide that quantifies over the walk itself; (b) 'number of blocks' is taken to be max(r)+1 on a restricted-growth string, and the equivalence of that to the block count of the corresponding set partition is not decided; (c) nothing is shown for general n or k — 20 checked instances are not the recurrence.
+The ledger holds this as [stirling_block_census_obeys_its_recurrence](/theorem/stirling_block_census_obeys_its_recurrence) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 4).foldl (fun p _ => let nxt := (p.2.map (fun r => (List.range (r.foldl Nat.max 0 + 2)).map (fun v => r ++ [v]))).flatten; (p.1 ++ [(List.range' 1 5).map (fun k => (nxt.filter (fun r => r.foldl Nat.max 0 + 1 == k)).length)], nxt)) ([[1,0,0,0,0]], [([0] : List Nat)])).1 = [[1,0,0,0,0],[1,1,0,0,0],[1,3,1,0,0],[1,7,6,1,0],[1,15,25,10,1]] ∧ (List.range' 1 4).all (fun i => (List.range 5).all (fun j => let T : List (List Nat) := [[1,0,0,0,0],[1,1,0,0,0],[1,3,1,0,0],[1,7,6,1,0],[1,15,25,10,1]]; let row := (T.drop i).headD []; let prev := (T.drop (i-1)).headD []; ((row.drop j).headD 0) == (j+1) * ((prev.drop j).headD 0) + (if j == 0 then 0 else (prev.drop (j-1)).headD 0)))
+```
+
+### WALKED: the same four rounds of canonical restricted-growth extension, yielding populations [1,2,5,15,52], with a literal 1 prepended for the empty set, giving [1,1,2,5,15,52]. The second conjunct checks, for n=0..4, that B[n+1] = sum over k=0..n of (n!/(k!*(n-k)!))*B[k], where every factorial is computed inline as a product fold over List.range' 1 m and the binomial coefficient is formed by Nat division. That is 5 instances covering 15 binomial-coefficient terms. SHOWS: the walked counts satisfy the binomial-transform recurrence at those 5 instances. SCOPE NOT EXCEEDED: the recurrence is checked for n <= 4 only (targeting B(1)..B(5)); the walk itself stops at n=5 because level 6 exceeds the default maxRecDepth. GAPS: (a) the B(0)=1 entry is stipulated as a literal, not walked — the generator starts at length 1, so the empty partition is asserted rather than enumerated; (b) the recurrence conjunct runs on the literal Bell list, tied to the walk only through conjunct 1's shared literal; (c) the binomial coefficient uses truncating Nat division, exact here only because k <= n — the decide checks the resulting arithmetic, not that the division is exact in general; (d) the combinatorial reading (choosing the block containing a distinguished element) is not decided, and neither is the restricted-growth-string / set-partition bijection on which the name 'Bell' depends.
+The ledger holds this as [bell_census_is_its_own_binomial_transform](/theorem/bell_census_is_its_own_binomial_transform) — proven `by decide`, sorry-free:
+
+```lean
+(1 :: ((List.range 4).foldl (fun p _ => let nxt := (p.2.map (fun r => (List.range (r.foldl Nat.max 0 + 2)).map (fun v => r ++ [v]))).flatten; (p.1 ++ [nxt.length], nxt)) ([1], [([0] : List Nat)])).1) = [1,1,2,5,15,52] ∧ (List.range 5).all (fun n => let B : List Nat := [1,1,2,5,15,52]; let fact := fun m => (List.range' 1 m).foldl (fun a b => a * b) 1; ((B.drop (n+1)).headD 0) == (List.range (n+1)).foldl (fun s k => s + ((fact n) / ((fact k) * (fact (n-k)))) * ((B.drop k).headD 0)) 0)
+```
+
+### A BOUNDED WALK'S SILENCE IS NOT EVIDENCE ABOUT THE UNBOUNDED CLAIM, decided rather than asserted. Two searches of identical shape over identical bounds (p in 1..30, q in 1..24): the first finds no p, q with p^12 = 2*q^12, and the unbounded statement there is true — 2^(1/12) is irrational. The second finds no p, q with p^12 = 31^12 * q^12, and the unbounded statement there is FALSE: p = 31, q = 1 satisfies it, one step past the walk, and the third conjunct exhibits that witness. Same shape, same silence, opposite truth. This is the falsifying control for the scope caveat carried by tet_semitone_no_integer_lattice, which states in prose that a bounded search cannot establish irrationality; the caveat is now decided by the kernel instead of trusted. HONEST SCOPE: it shows that THIS form of bounded search cannot distinguish the two cases. It is not a general theory of what finite methods can decide.
+The ledger holds this as [bounded_silence_is_not_evidence](/theorem/bounded_silence_is_not_evidence) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 2 * q ^ 12))) ∧ ((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 31 ^ 12 * q ^ 12))) ∧ (31 ^ 12 = 31 ^ 12 * 1 ^ 12)
+```
+
+### Exactly 1 residue(s) of Z/2 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_2_number_1](/theorem/self_inverse_mod_2_number_1) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 2).filter (fun x => (x * x) % 2 == 1)).length = 1
+```
+
+### Exactly 2 residue(s) of Z/3 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_3_number_2](/theorem/self_inverse_mod_3_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 3).filter (fun x => (x * x) % 3 == 1)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/4 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_4_number_2](/theorem/self_inverse_mod_4_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 4).filter (fun x => (x * x) % 4 == 1)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/23 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_23_number_2](/theorem/self_inverse_mod_23_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 23).filter (fun x => (x * x) % 23 == 1)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/29 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_29_number_2](/theorem/self_inverse_mod_29_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 29).filter (fun x => (x * x) % 29 == 1)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/31 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_31_number_2](/theorem/self_inverse_mod_31_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 31).filter (fun x => (x * x) % 31 == 1)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/37 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_37_number_2](/theorem/self_inverse_mod_37_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 37).filter (fun x => (x * x) % 37 == 1)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/41 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_41_number_2](/theorem/self_inverse_mod_41_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 41).filter (fun x => (x * x) % 41 == 1)).length = 2
+```
+
+### Exactly 4 residue(s) of Z/42 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_42_number_4](/theorem/self_inverse_mod_42_number_4) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 42).filter (fun x => (x * x) % 42 == 1)).length = 4
+```
+
+### Exactly 2 residue(s) of Z/43 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_43_number_2](/theorem/self_inverse_mod_43_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 43).filter (fun x => (x * x) % 43 == 1)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/46 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_46_number_2](/theorem/self_inverse_mod_46_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 46).filter (fun x => (x * x) % 46 == 1)).length = 2
+```
+
+### Exactly 2 residue(s) of Z/47 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted. Fills a gap INSIDE the range the family already covers; beyond its maximum there is no gap, only territory nobody has reached.
+The ledger holds this as [self_inverse_mod_47_number_2](/theorem/self_inverse_mod_47_number_2) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 47).filter (fun x => (x * x) % 47 == 1)).length = 2
+```
+
+### WALKED: every pair (a,b) with 1 <= a <= 12 and 1 <= b <= 19 — 228 pairs — and no power of three equals a power of two at any of them; 0 clashes found. The second conjunct pins the comma itself, 3^12 - 2^19 = 7153, to the same walk. WHY IT MATTERS: the ledger already seals gcd(3,2) = 1 (closure_is_coprime) and already seals the comma as a measured integer (pythagorean_comma_is_the_drift), but nothing decided the link between them — that the spiral of fifths CANNOT close, at any exponent, because two coprime primes share no common power. The comma was therefore an observed instance where a decided law belongs. SCOPE NOT EXCEEDED: exactly the 12x19 rectangle is walked; this is not a proof for general a and b, and calling it one would be the overclaim the gate exists to drain.
+The ledger holds this as [no_power_of_three_is_a_power_of_two](/theorem/no_power_of_three_is_a_power_of_two) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 12).all (fun a => (List.range' 1 19).all (fun b => 3 ^ a != 2 ^ b))) ∧ (3 ^ 12 - 2 ^ 19 = 7153)
 ```
 
 

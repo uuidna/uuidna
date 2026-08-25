@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1093 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1100 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1093 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1100 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `6732a37b` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `ac280c29` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -1555,6 +1555,18 @@ THE PARADOX THE LAW EXISTS TO FORBID — a sealed theorem resting on a source th
 a MEASURED finding anchoring a theorem is OVERSEALED — a measurement gets a bracket or nothing
 AN UNLINKED FINDING IS SILENT, NOT CLEAN — the conflation this whole check exists to refuse
 the report states its own reach whenever anything IS linked
+```
+
+**resonance** — 7 utterances
+
+```text
+ONE FOR ALL — it serves subjects the module has no code for
+neighbours rank by HOW MANY axes are shared, not by any score
+LONELY AND ILLEGIBLE ARE DIFFERENT FINDINGS
+the census separates the two, never merging them into one count
+the residue axis never blinds — every addressed thing has a ℤ/9 digit
+the address axis finds only exact re-addressings — how a duplicate announces itself
+ALL FOR ONE — the same call over real theorems, still with no theorem-specific code
 ```
 
 **rosetta-legs** — 8 utterances

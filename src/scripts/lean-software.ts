@@ -89,6 +89,16 @@ for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before
 
 import { cubeFacts } from './lean-cube.js'
 
-emit({ file: 'Software.lean', skill: 'software', defs: NTH_DEF,
+// THE CENSUS OUTGREW THE DEFAULT RECURSION LIMIT, and only a forced re-prove could say so. cube_seals_at_
+// completeness_only folds a per-wing list whose LENGTH is the wing count, so it lengthens every time the ledger
+// gains a wing — and at the ledger's current size `decide` reaches Lean's default maxRecDepth and the wing fails
+// to elaborate. It had been passing for however long because the delta gate accepted Software.lean from the proof
+// cache on an address match; the failure appears only when UUIDNA_PROVE_ALL forces every spawn, which on this host
+// was unreachable until today. Wave.lean already carries the same option for the same reason (lean-wave.ts) — this
+// is that precedent applied, not a new licence: the limit is raised, nothing is skipped, and every case is still
+// walked by the kernel.
+const REC_LIMIT = 'set_option maxRecDepth 8192'
+
+emit({ file: 'Software.lean', skill: 'software', defs: [REC_LIMIT, '', NTH_DEF].join('\n'),
   header: 'THE SOFTWARE-VERIFIABLE ALGEBRA — the companion to the hardware layer, one level up: the algebraic correctness LAWS a program is verified AGAINST, each a decidable, axiom-free `by decide` particle.',
   facts: [...FACTS.map((f) => ({ ...f, name: f.why })), ...cubeFacts()] })
