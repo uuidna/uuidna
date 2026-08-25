@@ -1155,10 +1155,31 @@ export function dormantGaps(): Gap[] {
 // which read as a special case for one file when it is really a CATEGORY: a module at the scripts boundary that
 // declares only exports has no entry point, so "nothing ever runs it" is true of it by construction and says
 // nothing about decay. It lives here rather than in src/ for a reason the library layer enforces — these helpers
+// TOUCH THE HOST, and the scripts boundary is the only place that is admitted: the determinism scan allows a
+// wall-clock read here and nowhere else (api.ts, steady-state.ts), and the same boundary is what keeps a
+// filesystem read out of the edge bundle (wave-supply.ts, which counts what each finder holds by reading their
+// files). The reason was first written as "read the clock" when the category had one member and both members
+// happened to be timers; widened here rather than left to read as a rule the third member breaks.
 // The category is named once, with the members listed and the test for membership stated: no entry-point guard,
 // no top-level execution, exercised by its CALLERS and by its own suite rather than by being spawned.
-const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts'])
-  for (const f of readdirSync(dir).filter((x) => x.endsWith('.ts') && !PURE_HELPERS.has(x))) {
+const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts', 'wave-supply.ts'])
+  // THE SUBJECT IS THE COMMIT, NOT THE DIRECTORY (2026-08-25). This read `readdirSync(dir)`, so the law judged
+  // every .ts LYING in src/scripts — including another session's untracked, half-written script. On a shared
+  // checkout that is a whole-tree law evaluated against a working tree while the thing being published is a
+  // COMMIT, and the consequence is not academic: an in-flight audit-exemptions.ts held every session's push,
+  // and the same shape had already jammed precede (dirty lean files), the scripts law (an unwired npm entry) and
+  // deadkey (a comment quoting purged keys) in one evening. Four episodes, one mistaken subject.
+  //
+  // A script that is not in the commit is not shipping, so it cannot be dormant IN THE PUBLISHED TREE — and it
+  // is judged the moment it is committed, which is the moment the question becomes real. This narrows the
+  // SUBJECT and not the law: every tracked script is still held to exactly the same standard.
+  //
+  // trackedFiles() already existed in this file for precisely this purpose and this scan was not asking it. Same
+  // cure as spin --seal, which sealed whatever lay in lean/ until it was taught to ask git the same question.
+  const trackedScripts = new Set(trackedFiles()
+    .filter((p) => p.startsWith('src/scripts/') && p.endsWith('.ts'))
+    .map((p) => p.slice('src/scripts/'.length)))
+  for (const f of readdirSync(dir).filter((x) => x.endsWith('.ts') && !PURE_HELPERS.has(x) && trackedScripts.has(x))) {
     // DISCOVERED, not named: lean-all.ts readdirs every lean-*.ts, so a wing runs on every build with no mention
     if (/^lean-/.test(f)) continue
     const base = f.replace(/\.ts$/, '')
