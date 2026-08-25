@@ -7,9 +7,9 @@
   "cpu": "AMD Ryzen 7 9800X3D 8-Core Processor",
   "platform": "win32",
   "arch": "x64",
-  "shell": "C:\\Program Files\\Git\\bin\\bash.exe",
-  "address": "313c0580-c236-8068-a476-4032a3378c6a",
-  "receipt": "5d2c39c1-ea79-88a0-92e4-b8eaa6f9ef4b",
+  "shell": "C:\\Program Files\\Git\\usr\\bin\\sh.exe",
+  "address": "592e200e-be4f-883c-9f4c-cb9ccf8094e0",
+  "receipt": "7d899a54-765a-80fe-9136-65c6ef532604",
   "kind": "classical host executing the sealed quantum algebra in exact integers",
   "hexbitBits": 4,
   "handleHexbits": 8,
@@ -55,11 +55,11 @@
    "hexbit_slit_visibility",
    "store_fold_order_invariant"
   ],
-  "deviceAddress": "f2beb41e-c575-8442-bd6e-b104d04f144a",
+  "deviceAddress": "605b9428-9d9a-86e8-91f6-f183e2788f26",
   "honest": "A CLASSICAL HOST, described. There are no qubits in this machine and nothing here is in superposition. The device this driver resolves is the silicon that EXECUTES the sealed quantum algebra in exact Gaussian integers — no floating point at any step — so that the results can be compared to what a Lean kernel decided. No physics quantum advantage is claimed or implied; the sealed bound is theorem n_qubit_dimension, which counts the exponential classical cost of the simulation and is explicitly not a speedup."
  },
  "report": {
-  "host": "313c0580-c236-8068-a476-4032a3378c6a",
+  "host": "592e200e-be4f-883c-9f4c-cb9ccf8094e0",
   "rows": [
    {
     "level": "hexbit tile",
@@ -180,7 +180,7 @@
   "levelsDeclared": 4,
   "complete": true,
   "unsealable": [],
-  "receipt": "b3634fd3-c5bd-86cb-8bdc-cb9abe7a25e0",
+  "receipt": "255389bd-6ff6-847b-acb1-06d01340210b",
   "honest": "uuidna is CLASSICAL. No physics quantum advantage, no speedup over any quantum algorithm, and no complexity separation is claimed anywhere in this report — the sealed bound is theorem n_qubit_dimension, which counts the classical cost of simulating n qubits and is explicitly NOT a speedup. What is measured here is architectural, and its three axes are named on every row: REACH (declared by construction), COST (the steady-state floor on this host, at this level, over a stated op count) and FIDELITY (an upper bound from an executed count, never a proof of zero error). Every figure carries the class it was determined by. Rerun the generator on your own host and get your own numbers — that is the whole point of measuring per level."
  },
  "proof": {
@@ -525,7 +525,7 @@
   "refused": [],
   "verdict": "EXACT",
   "bound": "better than one disagreement per 12099 executions on this host — a bound from the count, not a proof of zero",
-  "receipt": "46dd21b4-7a3f-8f24-96e3-b6a802260583",
+  "receipt": "5b3ab814-4ac8-879a-9803-e5edd5c4be9f",
   "honest": "WHAT THIS PROVES: the gate algebra that quantum hardware implements physically was executed on THIS host in exact Gaussian integers, and every result agreed with what a Lean kernel decided by exhaustive case analysis. WHAT IT DOES NOT PROVE: that this machine is quantum, that anything here is in superposition, or that any speedup exists — it is a classical simulation and its cost is exponential in the qubit count (theorem n_qubit_dimension). Zero disagreements over N executions is an upper bound of better than one in N, never a proof of zero. The comparison worth drawing is with the ~10^-3 physical two-qubit gate error class the platforms publish: the same algebra, executed exactly here and approximately there."
  },
  "dispatch": {
@@ -631,6 +631,6 @@
   "clear": true,
   "receipt": "18f7d03a-0d03-8c5c-9ea8-d0f9776727a2"
  },
- "receipt": "b3634fd3-c5bd-86cb-8bdc-cb9abe7a25e0",
- "address": "cd771777-962b-8568-ae6a-0e6de5191d9e"
+ "receipt": "255389bd-6ff6-847b-acb1-06d01340210b",
+ "address": "c519befd-41ba-87d1-b373-db32be7948ee"
 }

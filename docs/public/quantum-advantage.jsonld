@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:95526030-8f18-8663-ba78-ebb33a5aa8bf",
+  "@id": "urn:uuid:eb8c0ddf-60b3-8620-ad57-b629c21175e0",
   "@type": "Dataset",
   "name": "uuidna quantum advantage report — measured per level",
   "description": "The architectural advantage measured at every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). uuidna is classical and claims no physics quantum advantage — the sealed bound is theorem n_qubit_dimension.",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "b3634fd3-c5bd-86cb-8bdc-cb9abe7a25e0",
+  "identifier": "255389bd-6ff6-847b-acb1-06d01340210b",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {

@@ -20,7 +20,7 @@ determined by:
   bound of better than one in N. It is **never** a proof of zero, and the bound is what the table prints.
 
 **Host:** AMD Ryzen 7 9800X3D 8-Core Processor · win32/x64 · 16 logical · 31 GiB ·
-folded to `313c0580-c236-8068-a476-4032a3378c6a` (handle `313c0580`), so "measured on this host" is something the
+folded to `592e200e-be4f-883c-9f4c-cb9ccf8094e0` (handle `592e200e`), so "measured on this host" is something the
 next reader recomputes rather than something this report asserts.
 
 | level | reach | reach class | op cost (measured) | ops/s | estimates | decisions | disagreements | bound | baseline would predict |
@@ -97,7 +97,7 @@ each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witne
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
 *exist* cannot see. Dispatch receipt: `18f7d03a-0d03-8c5c-9ea8-d0f9776727a2`.
 
-Report receipt: `b3634fd3-c5bd-86cb-8bdc-cb9abe7a25e0` · measured-when as its own handle: `b3634fd3`.
+Report receipt: `255389bd-6ff6-847b-acb1-06d01340210b` · measured-when as its own handle: `255389bd`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->
