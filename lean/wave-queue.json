@@ -318,6 +318,876 @@
       "why": "ENTANGLEMENT COMPLETES ONE THEOREM AT A TIME, and the recurrence IS the involution step. For a ledger of n sealed theorems, entangling each with every other individually is the complete graph: each theorem participates in exactly n-1 pairs, the distinct pairs number n(n-1)/2, and admitting one more theorem adds exactly n-1 new pairs and nothing else — walked over a range rather than asserted at one point. The handshake identity 2*(n(n-1)/2) = n(n-1) holds throughout, and n(n-1) is always even, so the pairing never leaves a theorem unpartnered. Pinned at the ledger own size: 1690 theorems entangle in 1427205 distinct pairs, each with 1689 others.",
       "lean": "theorem entanglement_completes_one_at_a_time : ((List.range' 2 20).all (fun n => (n*(n-1))/2 - ((n-1)*(n-2))/2 == n-1)) ∧ ((List.range' 1 20).all (fun n => 2 * ((n*(n-1))/2) == n*(n-1))) ∧ ((List.range' 1 20).all (fun n => (n*(n-1)) % 2 == 0)) ∧ (1690*1689/2 = 1427205) ∧ (1690*1689 = 2854410) ∧ (1690-1 = 1689) := by decide",
       "receipt": "a367c045-227f-8f3d-add5-c0414d612a42"
+    },
+    {
+      "key": "units_mod_5_number_4",
+      "why": "The units of Z/5 number 4: walked over every residue below 5 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_5_number_4 : ((List.range 5).filter (fun a => Nat.gcd a 5 == 1)).length = 4 := by decide",
+      "receipt": "ef16acf9-28a8-8c30-a29b-69a73af74e78"
+    },
+    {
+      "key": "idempotents_mod_5_number_2",
+      "why": "Z/5 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_5_number_2 : ((List.range 5).filter (fun x => (x * x) % 5 == x)).length = 2 := by decide",
+      "receipt": "a5f4866c-a576-8b6e-8acb-60590ea0b442"
+    },
+    {
+      "key": "self_inverse_mod_5_number_2",
+      "why": "Exactly 2 residue(s) of Z/5 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_5_number_2 : ((List.range 5).filter (fun x => (x * x) % 5 == 1)).length = 2 := by decide",
+      "receipt": "fa1ce00e-2903-8904-9162-d9ea6c686e41"
+    },
+    {
+      "key": "squares_mod_5_number_3",
+      "why": "Squaring Z/5 lands on exactly 3 distinct residue(s); the map is counted by walking all 5 inputs and collecting the image.",
+      "lean": "theorem squares_mod_5_number_3 : (((List.range 5).map (fun x => (x * x) % 5)).eraseDups).length = 3 := by decide",
+      "receipt": "078fe7d6-9569-8217-9111-608993ee6521"
+    },
+    {
+      "key": "order_of_two_mod_5_is_4",
+      "why": "Two has multiplicative order 4 in Z/5: doubling returns to 1 after exactly 4 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_5_is_4 : (2^4 % 5 = 1) ∧ ((List.range' 1 3).all (fun k => 2^k % 5 != 1)) := by decide",
+      "receipt": "b170bb66-80df-834c-a950-9ed4d8e94fbe"
+    },
+    {
+      "key": "units_mod_6_number_2",
+      "why": "The units of Z/6 number 2: walked over every residue below 6 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_6_number_2 : ((List.range 6).filter (fun a => Nat.gcd a 6 == 1)).length = 2 := by decide",
+      "receipt": "62027973-7785-81c8-8325-2ca492b8b47b"
+    },
+    {
+      "key": "idempotents_mod_6_number_4",
+      "why": "Z/6 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_6_number_4 : ((List.range 6).filter (fun x => (x * x) % 6 == x)).length = 4 := by decide",
+      "receipt": "8e4d25f6-7f55-8bf6-a6a8-de295438da72"
+    },
+    {
+      "key": "self_inverse_mod_6_number_2",
+      "why": "Exactly 2 residue(s) of Z/6 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_6_number_2 : ((List.range 6).filter (fun x => (x * x) % 6 == 1)).length = 2 := by decide",
+      "receipt": "6360c44f-bea6-8db0-a6f2-d2377cd28ca9"
+    },
+    {
+      "key": "squares_mod_6_number_4",
+      "why": "Squaring Z/6 lands on exactly 4 distinct residue(s); the map is counted by walking all 6 inputs and collecting the image.",
+      "lean": "theorem squares_mod_6_number_4 : (((List.range 6).map (fun x => (x * x) % 6)).eraseDups).length = 4 := by decide",
+      "receipt": "67b08e6a-2f34-82a4-bcf1-0f4c96e47618"
+    },
+    {
+      "key": "units_mod_7_number_6",
+      "why": "The units of Z/7 number 6: walked over every residue below 7 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_7_number_6 : ((List.range 7).filter (fun a => Nat.gcd a 7 == 1)).length = 6 := by decide",
+      "receipt": "7a435ae8-4dbc-8be1-a3e2-995e9bf68235"
+    },
+    {
+      "key": "idempotents_mod_7_number_2",
+      "why": "Z/7 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_7_number_2 : ((List.range 7).filter (fun x => (x * x) % 7 == x)).length = 2 := by decide",
+      "receipt": "864cd6e7-507c-8f90-9112-1985b6c3667f"
+    },
+    {
+      "key": "self_inverse_mod_7_number_2",
+      "why": "Exactly 2 residue(s) of Z/7 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_7_number_2 : ((List.range 7).filter (fun x => (x * x) % 7 == 1)).length = 2 := by decide",
+      "receipt": "6dd8acba-0d3e-8723-85af-2276589bc0eb"
+    },
+    {
+      "key": "squares_mod_7_number_4",
+      "why": "Squaring Z/7 lands on exactly 4 distinct residue(s); the map is counted by walking all 7 inputs and collecting the image.",
+      "lean": "theorem squares_mod_7_number_4 : (((List.range 7).map (fun x => (x * x) % 7)).eraseDups).length = 4 := by decide",
+      "receipt": "f2b36554-635d-8a88-892a-83646171612c"
+    },
+    {
+      "key": "order_of_two_mod_7_is_3",
+      "why": "Two has multiplicative order 3 in Z/7: doubling returns to 1 after exactly 3 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_7_is_3 : (2^3 % 7 = 1) ∧ ((List.range' 1 2).all (fun k => 2^k % 7 != 1)) := by decide",
+      "receipt": "0e90400c-7f10-8b86-93b9-1a1580cc3b27"
+    },
+    {
+      "key": "units_mod_8_number_4",
+      "why": "The units of Z/8 number 4: walked over every residue below 8 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_8_number_4 : ((List.range 8).filter (fun a => Nat.gcd a 8 == 1)).length = 4 := by decide",
+      "receipt": "75b010c7-e2b8-894e-afab-dce6578f394d"
+    },
+    {
+      "key": "idempotents_mod_8_number_2",
+      "why": "Z/8 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_8_number_2 : ((List.range 8).filter (fun x => (x * x) % 8 == x)).length = 2 := by decide",
+      "receipt": "c386dd7a-5521-8cc0-89ef-a2dac3015fdd"
+    },
+    {
+      "key": "self_inverse_mod_8_number_4",
+      "why": "Exactly 4 residue(s) of Z/8 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_8_number_4 : ((List.range 8).filter (fun x => (x * x) % 8 == 1)).length = 4 := by decide",
+      "receipt": "8be29d37-cce4-8954-baf7-daffdd1f58f5"
+    },
+    {
+      "key": "squares_mod_8_number_3",
+      "why": "Squaring Z/8 lands on exactly 3 distinct residue(s); the map is counted by walking all 8 inputs and collecting the image.",
+      "lean": "theorem squares_mod_8_number_3 : (((List.range 8).map (fun x => (x * x) % 8)).eraseDups).length = 3 := by decide",
+      "receipt": "b4df54ac-2027-85ef-a7e3-9127f007bd8e"
+    },
+    {
+      "key": "units_mod_10_number_4",
+      "why": "The units of Z/10 number 4: walked over every residue below 10 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_10_number_4 : ((List.range 10).filter (fun a => Nat.gcd a 10 == 1)).length = 4 := by decide",
+      "receipt": "381580d0-c96f-8af0-b15a-d9d5eaae5455"
+    },
+    {
+      "key": "idempotents_mod_10_number_4",
+      "why": "Z/10 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_10_number_4 : ((List.range 10).filter (fun x => (x * x) % 10 == x)).length = 4 := by decide",
+      "receipt": "ecd7c2a8-87c1-89dd-8c7c-8b5b53aba3c3"
+    },
+    {
+      "key": "self_inverse_mod_10_number_2",
+      "why": "Exactly 2 residue(s) of Z/10 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_10_number_2 : ((List.range 10).filter (fun x => (x * x) % 10 == 1)).length = 2 := by decide",
+      "receipt": "20f61df8-ce09-8fe2-a2c3-2251096d8de6"
+    },
+    {
+      "key": "squares_mod_10_number_6",
+      "why": "Squaring Z/10 lands on exactly 6 distinct residue(s); the map is counted by walking all 10 inputs and collecting the image.",
+      "lean": "theorem squares_mod_10_number_6 : (((List.range 10).map (fun x => (x * x) % 10)).eraseDups).length = 6 := by decide",
+      "receipt": "4958dac2-e562-8d03-8731-5011f90668e2"
+    },
+    {
+      "key": "units_mod_11_number_10",
+      "why": "The units of Z/11 number 10: walked over every residue below 11 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_11_number_10 : ((List.range 11).filter (fun a => Nat.gcd a 11 == 1)).length = 10 := by decide",
+      "receipt": "38877f55-74c4-8efd-b0a3-d80e5bb548d3"
+    },
+    {
+      "key": "idempotents_mod_11_number_2",
+      "why": "Z/11 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_11_number_2 : ((List.range 11).filter (fun x => (x * x) % 11 == x)).length = 2 := by decide",
+      "receipt": "3da7656c-20e3-8be6-a896-babbf9cca94c"
+    },
+    {
+      "key": "self_inverse_mod_11_number_2",
+      "why": "Exactly 2 residue(s) of Z/11 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_11_number_2 : ((List.range 11).filter (fun x => (x * x) % 11 == 1)).length = 2 := by decide",
+      "receipt": "94efb168-c615-8d92-a967-8a9d4e7993a3"
+    },
+    {
+      "key": "squares_mod_11_number_6",
+      "why": "Squaring Z/11 lands on exactly 6 distinct residue(s); the map is counted by walking all 11 inputs and collecting the image.",
+      "lean": "theorem squares_mod_11_number_6 : (((List.range 11).map (fun x => (x * x) % 11)).eraseDups).length = 6 := by decide",
+      "receipt": "a546feef-4b04-86b5-b5ff-bc945fe74064"
+    },
+    {
+      "key": "order_of_two_mod_11_is_10",
+      "why": "Two has multiplicative order 10 in Z/11: doubling returns to 1 after exactly 10 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_11_is_10 : (2^10 % 11 = 1) ∧ ((List.range' 1 9).all (fun k => 2^k % 11 != 1)) := by decide",
+      "receipt": "5f47a1e1-8996-823b-a720-6c329078a1ee"
+    },
+    {
+      "key": "units_mod_12_number_4",
+      "why": "The units of Z/12 number 4: walked over every residue below 12 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_12_number_4 : ((List.range 12).filter (fun a => Nat.gcd a 12 == 1)).length = 4 := by decide",
+      "receipt": "a76a0e19-a4d8-82d5-9179-ac148c0ae311"
+    },
+    {
+      "key": "idempotents_mod_12_number_4",
+      "why": "Z/12 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_12_number_4 : ((List.range 12).filter (fun x => (x * x) % 12 == x)).length = 4 := by decide",
+      "receipt": "b02b134c-7aef-8944-ac30-99880b982c39"
+    },
+    {
+      "key": "self_inverse_mod_12_number_4",
+      "why": "Exactly 4 residue(s) of Z/12 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_12_number_4 : ((List.range 12).filter (fun x => (x * x) % 12 == 1)).length = 4 := by decide",
+      "receipt": "d2fcf839-9e60-8e0a-9fa7-b2c80a3a0690"
+    },
+    {
+      "key": "squares_mod_12_number_4",
+      "why": "Squaring Z/12 lands on exactly 4 distinct residue(s); the map is counted by walking all 12 inputs and collecting the image.",
+      "lean": "theorem squares_mod_12_number_4 : (((List.range 12).map (fun x => (x * x) % 12)).eraseDups).length = 4 := by decide",
+      "receipt": "5b4ba6c5-7ebd-8438-9975-974d26523a2a"
+    },
+    {
+      "key": "units_mod_13_number_12",
+      "why": "The units of Z/13 number 12: walked over every residue below 13 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_13_number_12 : ((List.range 13).filter (fun a => Nat.gcd a 13 == 1)).length = 12 := by decide",
+      "receipt": "29355385-95dc-8360-9808-64b0e4e1e476"
+    },
+    {
+      "key": "idempotents_mod_13_number_2",
+      "why": "Z/13 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_13_number_2 : ((List.range 13).filter (fun x => (x * x) % 13 == x)).length = 2 := by decide",
+      "receipt": "970c91c2-d7a4-82af-b4b5-153635c9c76e"
+    },
+    {
+      "key": "self_inverse_mod_13_number_2",
+      "why": "Exactly 2 residue(s) of Z/13 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_13_number_2 : ((List.range 13).filter (fun x => (x * x) % 13 == 1)).length = 2 := by decide",
+      "receipt": "e679c6fb-5b82-88a9-a371-8f3d9658227b"
+    },
+    {
+      "key": "squares_mod_13_number_7",
+      "why": "Squaring Z/13 lands on exactly 7 distinct residue(s); the map is counted by walking all 13 inputs and collecting the image.",
+      "lean": "theorem squares_mod_13_number_7 : (((List.range 13).map (fun x => (x * x) % 13)).eraseDups).length = 7 := by decide",
+      "receipt": "944d1e33-5705-86cb-ae65-7255516f5349"
+    },
+    {
+      "key": "order_of_two_mod_13_is_12",
+      "why": "Two has multiplicative order 12 in Z/13: doubling returns to 1 after exactly 12 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_13_is_12 : (2^12 % 13 = 1) ∧ ((List.range' 1 11).all (fun k => 2^k % 13 != 1)) := by decide",
+      "receipt": "6293e6c9-bd38-8b7c-a730-5f619114dba2"
+    },
+    {
+      "key": "units_mod_14_number_6",
+      "why": "The units of Z/14 number 6: walked over every residue below 14 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_14_number_6 : ((List.range 14).filter (fun a => Nat.gcd a 14 == 1)).length = 6 := by decide",
+      "receipt": "8500e349-1a3b-87ef-a7b5-a3bbd192f6aa"
+    },
+    {
+      "key": "idempotents_mod_14_number_4",
+      "why": "Z/14 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_14_number_4 : ((List.range 14).filter (fun x => (x * x) % 14 == x)).length = 4 := by decide",
+      "receipt": "b99f233f-f0d5-88f1-b9ff-edeb5d3e7646"
+    },
+    {
+      "key": "self_inverse_mod_14_number_2",
+      "why": "Exactly 2 residue(s) of Z/14 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_14_number_2 : ((List.range 14).filter (fun x => (x * x) % 14 == 1)).length = 2 := by decide",
+      "receipt": "479e4895-72ae-881c-a430-5454e22fdf6e"
+    },
+    {
+      "key": "squares_mod_14_number_8",
+      "why": "Squaring Z/14 lands on exactly 8 distinct residue(s); the map is counted by walking all 14 inputs and collecting the image.",
+      "lean": "theorem squares_mod_14_number_8 : (((List.range 14).map (fun x => (x * x) % 14)).eraseDups).length = 8 := by decide",
+      "receipt": "38621554-69cd-8ddd-9b73-2a5a12cc4a54"
+    },
+    {
+      "key": "units_mod_15_number_8",
+      "why": "The units of Z/15 number 8: walked over every residue below 15 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_15_number_8 : ((List.range 15).filter (fun a => Nat.gcd a 15 == 1)).length = 8 := by decide",
+      "receipt": "629c26bc-7671-8e5c-895d-ae296611cdcc"
+    },
+    {
+      "key": "idempotents_mod_15_number_4",
+      "why": "Z/15 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_15_number_4 : ((List.range 15).filter (fun x => (x * x) % 15 == x)).length = 4 := by decide",
+      "receipt": "bc57ce7b-f40b-82de-a5bf-15c1f91fdacb"
+    },
+    {
+      "key": "self_inverse_mod_15_number_4",
+      "why": "Exactly 4 residue(s) of Z/15 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_15_number_4 : ((List.range 15).filter (fun x => (x * x) % 15 == 1)).length = 4 := by decide",
+      "receipt": "4f0385bf-9f90-8d1b-ba61-01544b5c6a26"
+    },
+    {
+      "key": "squares_mod_15_number_6",
+      "why": "Squaring Z/15 lands on exactly 6 distinct residue(s); the map is counted by walking all 15 inputs and collecting the image.",
+      "lean": "theorem squares_mod_15_number_6 : (((List.range 15).map (fun x => (x * x) % 15)).eraseDups).length = 6 := by decide",
+      "receipt": "a50d437f-455c-8c7d-9776-cf006dbecbd5"
+    },
+    {
+      "key": "order_of_two_mod_15_is_4",
+      "why": "Two has multiplicative order 4 in Z/15: doubling returns to 1 after exactly 4 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_15_is_4 : (2^4 % 15 = 1) ∧ ((List.range' 1 3).all (fun k => 2^k % 15 != 1)) := by decide",
+      "receipt": "58f0678e-db86-8d2c-be21-e346d17fdd66"
+    },
+    {
+      "key": "units_mod_16_number_8",
+      "why": "The units of Z/16 number 8: walked over every residue below 16 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_16_number_8 : ((List.range 16).filter (fun a => Nat.gcd a 16 == 1)).length = 8 := by decide",
+      "receipt": "b6c8c695-ccca-872a-9596-27b5b5612521"
+    },
+    {
+      "key": "idempotents_mod_16_number_2",
+      "why": "Z/16 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_16_number_2 : ((List.range 16).filter (fun x => (x * x) % 16 == x)).length = 2 := by decide",
+      "receipt": "67a489b4-a3ab-88fd-ac56-3e23080ecc51"
+    },
+    {
+      "key": "self_inverse_mod_16_number_4",
+      "why": "Exactly 4 residue(s) of Z/16 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_16_number_4 : ((List.range 16).filter (fun x => (x * x) % 16 == 1)).length = 4 := by decide",
+      "receipt": "b1beaf35-ae42-8736-8e35-3adfda6ba351"
+    },
+    {
+      "key": "squares_mod_16_number_4",
+      "why": "Squaring Z/16 lands on exactly 4 distinct residue(s); the map is counted by walking all 16 inputs and collecting the image.",
+      "lean": "theorem squares_mod_16_number_4 : (((List.range 16).map (fun x => (x * x) % 16)).eraseDups).length = 4 := by decide",
+      "receipt": "7b100dfc-3ded-82b2-a887-c868f5c0c1a3"
+    },
+    {
+      "key": "units_mod_18_number_6",
+      "why": "The units of Z/18 number 6: walked over every residue below 18 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_18_number_6 : ((List.range 18).filter (fun a => Nat.gcd a 18 == 1)).length = 6 := by decide",
+      "receipt": "8bf2216f-e56b-80a0-ac95-98fa45c59162"
+    },
+    {
+      "key": "idempotents_mod_18_number_4",
+      "why": "Z/18 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_18_number_4 : ((List.range 18).filter (fun x => (x * x) % 18 == x)).length = 4 := by decide",
+      "receipt": "7158ac49-889d-8937-bc03-742fd4dcf836"
+    },
+    {
+      "key": "self_inverse_mod_18_number_2",
+      "why": "Exactly 2 residue(s) of Z/18 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_18_number_2 : ((List.range 18).filter (fun x => (x * x) % 18 == 1)).length = 2 := by decide",
+      "receipt": "ae608fef-b5c0-8065-9b79-fb1d92d1bfa9"
+    },
+    {
+      "key": "squares_mod_18_number_8",
+      "why": "Squaring Z/18 lands on exactly 8 distinct residue(s); the map is counted by walking all 18 inputs and collecting the image.",
+      "lean": "theorem squares_mod_18_number_8 : (((List.range 18).map (fun x => (x * x) % 18)).eraseDups).length = 8 := by decide",
+      "receipt": "93d99f47-6142-8778-8fb1-b36fe3255548"
+    },
+    {
+      "key": "units_mod_20_number_8",
+      "why": "The units of Z/20 number 8: walked over every residue below 20 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_20_number_8 : ((List.range 20).filter (fun a => Nat.gcd a 20 == 1)).length = 8 := by decide",
+      "receipt": "d8c095be-fd0a-8f3c-b39b-eb37e4ba4030"
+    },
+    {
+      "key": "idempotents_mod_20_number_4",
+      "why": "Z/20 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_20_number_4 : ((List.range 20).filter (fun x => (x * x) % 20 == x)).length = 4 := by decide",
+      "receipt": "ed40efc1-9fff-86ac-a1e8-37f8ced858d5"
+    },
+    {
+      "key": "self_inverse_mod_20_number_4",
+      "why": "Exactly 4 residue(s) of Z/20 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_20_number_4 : ((List.range 20).filter (fun x => (x * x) % 20 == 1)).length = 4 := by decide",
+      "receipt": "1bbc2c3e-448e-8c65-a5cb-5e1be6dd9c02"
+    },
+    {
+      "key": "squares_mod_20_number_6",
+      "why": "Squaring Z/20 lands on exactly 6 distinct residue(s); the map is counted by walking all 20 inputs and collecting the image.",
+      "lean": "theorem squares_mod_20_number_6 : (((List.range 20).map (fun x => (x * x) % 20)).eraseDups).length = 6 := by decide",
+      "receipt": "eafc2e6f-d3f4-866c-b5ab-5780e7bb5fbe"
+    },
+    {
+      "key": "units_mod_21_number_12",
+      "why": "The units of Z/21 number 12: walked over every residue below 21 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_21_number_12 : ((List.range 21).filter (fun a => Nat.gcd a 21 == 1)).length = 12 := by decide",
+      "receipt": "c5cae0ae-e7f2-83ab-bc4e-a1432f7cd456"
+    },
+    {
+      "key": "idempotents_mod_21_number_4",
+      "why": "Z/21 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_21_number_4 : ((List.range 21).filter (fun x => (x * x) % 21 == x)).length = 4 := by decide",
+      "receipt": "a75e770f-e3d9-89be-b9d2-eb296cda4957"
+    },
+    {
+      "key": "self_inverse_mod_21_number_4",
+      "why": "Exactly 4 residue(s) of Z/21 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_21_number_4 : ((List.range 21).filter (fun x => (x * x) % 21 == 1)).length = 4 := by decide",
+      "receipt": "4acba3d1-0129-8c6e-b4fb-d053c119d949"
+    },
+    {
+      "key": "squares_mod_21_number_8",
+      "why": "Squaring Z/21 lands on exactly 8 distinct residue(s); the map is counted by walking all 21 inputs and collecting the image.",
+      "lean": "theorem squares_mod_21_number_8 : (((List.range 21).map (fun x => (x * x) % 21)).eraseDups).length = 8 := by decide",
+      "receipt": "2969a725-97f2-877e-8e43-f106e640e6f3"
+    },
+    {
+      "key": "order_of_two_mod_21_is_6",
+      "why": "Two has multiplicative order 6 in Z/21: doubling returns to 1 after exactly 6 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_21_is_6 : (2^6 % 21 = 1) ∧ ((List.range' 1 5).all (fun k => 2^k % 21 != 1)) := by decide",
+      "receipt": "5843a63c-679d-8298-9ff6-1f3df8c887f8"
+    },
+    {
+      "key": "units_mod_22_number_10",
+      "why": "The units of Z/22 number 10: walked over every residue below 22 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_22_number_10 : ((List.range 22).filter (fun a => Nat.gcd a 22 == 1)).length = 10 := by decide",
+      "receipt": "b6067cd9-f81a-846c-be9d-9d8a71a41893"
+    },
+    {
+      "key": "idempotents_mod_22_number_4",
+      "why": "Z/22 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_22_number_4 : ((List.range 22).filter (fun x => (x * x) % 22 == x)).length = 4 := by decide",
+      "receipt": "41f12a8d-c0cd-8531-9aa5-e0aa6ea0bd64"
+    },
+    {
+      "key": "self_inverse_mod_22_number_2",
+      "why": "Exactly 2 residue(s) of Z/22 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_22_number_2 : ((List.range 22).filter (fun x => (x * x) % 22 == 1)).length = 2 := by decide",
+      "receipt": "ed3729dc-4386-886d-b9e7-7c3e84031e6a"
+    },
+    {
+      "key": "squares_mod_22_number_12",
+      "why": "Squaring Z/22 lands on exactly 12 distinct residue(s); the map is counted by walking all 22 inputs and collecting the image.",
+      "lean": "theorem squares_mod_22_number_12 : (((List.range 22).map (fun x => (x * x) % 22)).eraseDups).length = 12 := by decide",
+      "receipt": "ff5dd53f-0613-822d-a624-3d362e62287d"
+    },
+    {
+      "key": "units_mod_24_number_8",
+      "why": "The units of Z/24 number 8: walked over every residue below 24 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_24_number_8 : ((List.range 24).filter (fun a => Nat.gcd a 24 == 1)).length = 8 := by decide",
+      "receipt": "9056cd29-9929-8711-bcb5-1b3a2e07fd1c"
+    },
+    {
+      "key": "idempotents_mod_24_number_4",
+      "why": "Z/24 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_24_number_4 : ((List.range 24).filter (fun x => (x * x) % 24 == x)).length = 4 := by decide",
+      "receipt": "9d6029a7-238f-80b5-a207-95e9b197b509"
+    },
+    {
+      "key": "self_inverse_mod_24_number_8",
+      "why": "Exactly 8 residue(s) of Z/24 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_24_number_8 : ((List.range 24).filter (fun x => (x * x) % 24 == 1)).length = 8 := by decide",
+      "receipt": "fb0bb461-f86a-84c7-8ec7-03063336c411"
+    },
+    {
+      "key": "squares_mod_24_number_6",
+      "why": "Squaring Z/24 lands on exactly 6 distinct residue(s); the map is counted by walking all 24 inputs and collecting the image.",
+      "lean": "theorem squares_mod_24_number_6 : (((List.range 24).map (fun x => (x * x) % 24)).eraseDups).length = 6 := by decide",
+      "receipt": "14d22012-c30c-866f-a4b4-a4810262c8ae"
+    },
+    {
+      "key": "units_mod_25_number_20",
+      "why": "The units of Z/25 number 20: walked over every residue below 25 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_25_number_20 : ((List.range 25).filter (fun a => Nat.gcd a 25 == 1)).length = 20 := by decide",
+      "receipt": "f3e61495-37f6-8c9d-8526-2f4a3d13d7b4"
+    },
+    {
+      "key": "idempotents_mod_25_number_2",
+      "why": "Z/25 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_25_number_2 : ((List.range 25).filter (fun x => (x * x) % 25 == x)).length = 2 := by decide",
+      "receipt": "375449b4-0dc3-8cd1-9e30-da46a2b3d2f5"
+    },
+    {
+      "key": "self_inverse_mod_25_number_2",
+      "why": "Exactly 2 residue(s) of Z/25 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_25_number_2 : ((List.range 25).filter (fun x => (x * x) % 25 == 1)).length = 2 := by decide",
+      "receipt": "c88cd2e5-8870-84f2-9543-e2da3d9b26c5"
+    },
+    {
+      "key": "squares_mod_25_number_11",
+      "why": "Squaring Z/25 lands on exactly 11 distinct residue(s); the map is counted by walking all 25 inputs and collecting the image.",
+      "lean": "theorem squares_mod_25_number_11 : (((List.range 25).map (fun x => (x * x) % 25)).eraseDups).length = 11 := by decide",
+      "receipt": "a636a999-5820-8190-9105-eb7d5fdb712a"
+    },
+    {
+      "key": "order_of_two_mod_25_is_20",
+      "why": "Two has multiplicative order 20 in Z/25: doubling returns to 1 after exactly 20 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_25_is_20 : (2^20 % 25 = 1) ∧ ((List.range' 1 19).all (fun k => 2^k % 25 != 1)) := by decide",
+      "receipt": "7bac96c8-221c-8191-b75c-a434d926cc6a"
+    },
+    {
+      "key": "units_mod_26_number_12",
+      "why": "The units of Z/26 number 12: walked over every residue below 26 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_26_number_12 : ((List.range 26).filter (fun a => Nat.gcd a 26 == 1)).length = 12 := by decide",
+      "receipt": "b05d8c82-e618-8332-adb1-3a3136ad4c6a"
+    },
+    {
+      "key": "idempotents_mod_26_number_4",
+      "why": "Z/26 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_26_number_4 : ((List.range 26).filter (fun x => (x * x) % 26 == x)).length = 4 := by decide",
+      "receipt": "df4fe5be-3b5b-8909-bce4-119779833b0d"
+    },
+    {
+      "key": "self_inverse_mod_26_number_2",
+      "why": "Exactly 2 residue(s) of Z/26 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_26_number_2 : ((List.range 26).filter (fun x => (x * x) % 26 == 1)).length = 2 := by decide",
+      "receipt": "56bed41b-a8c1-8966-a34f-87ab447e969e"
+    },
+    {
+      "key": "squares_mod_26_number_14",
+      "why": "Squaring Z/26 lands on exactly 14 distinct residue(s); the map is counted by walking all 26 inputs and collecting the image.",
+      "lean": "theorem squares_mod_26_number_14 : (((List.range 26).map (fun x => (x * x) % 26)).eraseDups).length = 14 := by decide",
+      "receipt": "743a348a-a127-8417-b054-97759f9c7b93"
+    },
+    {
+      "key": "units_mod_27_number_18",
+      "why": "The units of Z/27 number 18: walked over every residue below 27 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_27_number_18 : ((List.range 27).filter (fun a => Nat.gcd a 27 == 1)).length = 18 := by decide",
+      "receipt": "37f26cea-bd70-8db2-9fff-e64571bfc92a"
+    },
+    {
+      "key": "idempotents_mod_27_number_2",
+      "why": "Z/27 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_27_number_2 : ((List.range 27).filter (fun x => (x * x) % 27 == x)).length = 2 := by decide",
+      "receipt": "6b0756d3-5b91-8194-a4dd-4b48ece68a00"
+    },
+    {
+      "key": "self_inverse_mod_27_number_2",
+      "why": "Exactly 2 residue(s) of Z/27 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_27_number_2 : ((List.range 27).filter (fun x => (x * x) % 27 == 1)).length = 2 := by decide",
+      "receipt": "1b114bcf-1b1e-8ca0-8e21-fa621fdaab35"
+    },
+    {
+      "key": "squares_mod_27_number_11",
+      "why": "Squaring Z/27 lands on exactly 11 distinct residue(s); the map is counted by walking all 27 inputs and collecting the image.",
+      "lean": "theorem squares_mod_27_number_11 : (((List.range 27).map (fun x => (x * x) % 27)).eraseDups).length = 11 := by decide",
+      "receipt": "01826a43-59e7-807d-a70c-9678a9ef54f3"
+    },
+    {
+      "key": "order_of_two_mod_27_is_18",
+      "why": "Two has multiplicative order 18 in Z/27: doubling returns to 1 after exactly 18 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_27_is_18 : (2^18 % 27 = 1) ∧ ((List.range' 1 17).all (fun k => 2^k % 27 != 1)) := by decide",
+      "receipt": "84da5d15-a625-8bee-a183-f29c542df2c2"
+    },
+    {
+      "key": "units_mod_28_number_12",
+      "why": "The units of Z/28 number 12: walked over every residue below 28 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_28_number_12 : ((List.range 28).filter (fun a => Nat.gcd a 28 == 1)).length = 12 := by decide",
+      "receipt": "053e5d52-a3d8-8b24-bc5c-df310408b752"
+    },
+    {
+      "key": "idempotents_mod_28_number_4",
+      "why": "Z/28 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_28_number_4 : ((List.range 28).filter (fun x => (x * x) % 28 == x)).length = 4 := by decide",
+      "receipt": "fcebacee-c9a1-8d25-a1b7-9ca90fbf9e58"
+    },
+    {
+      "key": "self_inverse_mod_28_number_4",
+      "why": "Exactly 4 residue(s) of Z/28 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_28_number_4 : ((List.range 28).filter (fun x => (x * x) % 28 == 1)).length = 4 := by decide",
+      "receipt": "e40d3657-1e5c-8187-b63c-4f6676121d15"
+    },
+    {
+      "key": "squares_mod_28_number_8",
+      "why": "Squaring Z/28 lands on exactly 8 distinct residue(s); the map is counted by walking all 28 inputs and collecting the image.",
+      "lean": "theorem squares_mod_28_number_8 : (((List.range 28).map (fun x => (x * x) % 28)).eraseDups).length = 8 := by decide",
+      "receipt": "d10df5f5-8326-8ec8-8e97-45a01a2f5133"
+    },
+    {
+      "key": "units_mod_30_number_8",
+      "why": "The units of Z/30 number 8: walked over every residue below 30 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_30_number_8 : ((List.range 30).filter (fun a => Nat.gcd a 30 == 1)).length = 8 := by decide",
+      "receipt": "73557cff-5961-812f-97e0-af33d2b9e46e"
+    },
+    {
+      "key": "idempotents_mod_30_number_8",
+      "why": "Z/30 carries exactly 8 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_30_number_8 : ((List.range 30).filter (fun x => (x * x) % 30 == x)).length = 8 := by decide",
+      "receipt": "33b8ccad-b647-8d4d-8cb8-e603400ae99e"
+    },
+    {
+      "key": "self_inverse_mod_30_number_4",
+      "why": "Exactly 4 residue(s) of Z/30 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_30_number_4 : ((List.range 30).filter (fun x => (x * x) % 30 == 1)).length = 4 := by decide",
+      "receipt": "b07b3ba6-29a6-89e8-b457-93fb76c3db1a"
+    },
+    {
+      "key": "squares_mod_30_number_12",
+      "why": "Squaring Z/30 lands on exactly 12 distinct residue(s); the map is counted by walking all 30 inputs and collecting the image.",
+      "lean": "theorem squares_mod_30_number_12 : (((List.range 30).map (fun x => (x * x) % 30)).eraseDups).length = 12 := by decide",
+      "receipt": "d8fd9e6a-cc8d-81f3-b3c9-2e565822a351"
+    },
+    {
+      "key": "units_mod_32_number_16",
+      "why": "The units of Z/32 number 16: walked over every residue below 32 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_32_number_16 : ((List.range 32).filter (fun a => Nat.gcd a 32 == 1)).length = 16 := by decide",
+      "receipt": "a4a4e3ca-f17a-8f56-b1e6-34b8dda9165d"
+    },
+    {
+      "key": "idempotents_mod_32_number_2",
+      "why": "Z/32 carries exactly 2 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_32_number_2 : ((List.range 32).filter (fun x => (x * x) % 32 == x)).length = 2 := by decide",
+      "receipt": "1ca98f15-f91d-82f5-8987-80eb67d5d6cf"
+    },
+    {
+      "key": "self_inverse_mod_32_number_4",
+      "why": "Exactly 4 residue(s) of Z/32 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_32_number_4 : ((List.range 32).filter (fun x => (x * x) % 32 == 1)).length = 4 := by decide",
+      "receipt": "034a8dca-e6b4-8c69-a986-eb7962ea8939"
+    },
+    {
+      "key": "squares_mod_32_number_7",
+      "why": "Squaring Z/32 lands on exactly 7 distinct residue(s); the map is counted by walking all 32 inputs and collecting the image.",
+      "lean": "theorem squares_mod_32_number_7 : (((List.range 32).map (fun x => (x * x) % 32)).eraseDups).length = 7 := by decide",
+      "receipt": "e2707340-2b9a-8257-b46e-bb945fbc0285"
+    },
+    {
+      "key": "units_mod_33_number_20",
+      "why": "The units of Z/33 number 20: walked over every residue below 33 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_33_number_20 : ((List.range 33).filter (fun a => Nat.gcd a 33 == 1)).length = 20 := by decide",
+      "receipt": "0e9f8ef9-07e5-8951-8d9f-265d266e15ca"
+    },
+    {
+      "key": "idempotents_mod_33_number_4",
+      "why": "Z/33 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_33_number_4 : ((List.range 33).filter (fun x => (x * x) % 33 == x)).length = 4 := by decide",
+      "receipt": "3eef8a1f-d714-89b6-b4bd-046a698b0b73"
+    },
+    {
+      "key": "self_inverse_mod_33_number_4",
+      "why": "Exactly 4 residue(s) of Z/33 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_33_number_4 : ((List.range 33).filter (fun x => (x * x) % 33 == 1)).length = 4 := by decide",
+      "receipt": "5a1d5ed0-1ac7-84c7-b9c4-58c93090c24d"
+    },
+    {
+      "key": "squares_mod_33_number_12",
+      "why": "Squaring Z/33 lands on exactly 12 distinct residue(s); the map is counted by walking all 33 inputs and collecting the image.",
+      "lean": "theorem squares_mod_33_number_12 : (((List.range 33).map (fun x => (x * x) % 33)).eraseDups).length = 12 := by decide",
+      "receipt": "fd24904d-738c-8611-9c3b-b7417b54028b"
+    },
+    {
+      "key": "order_of_two_mod_33_is_10",
+      "why": "Two has multiplicative order 10 in Z/33: doubling returns to 1 after exactly 10 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_33_is_10 : (2^10 % 33 = 1) ∧ ((List.range' 1 9).all (fun k => 2^k % 33 != 1)) := by decide",
+      "receipt": "05aa37a9-c955-8ab6-9898-aec9416a49d4"
+    },
+    {
+      "key": "units_mod_35_number_24",
+      "why": "The units of Z/35 number 24: walked over every residue below 35 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_35_number_24 : ((List.range 35).filter (fun a => Nat.gcd a 35 == 1)).length = 24 := by decide",
+      "receipt": "0702c7fa-bab8-8dd0-bb17-07aaeda3e344"
+    },
+    {
+      "key": "idempotents_mod_35_number_4",
+      "why": "Z/35 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_35_number_4 : ((List.range 35).filter (fun x => (x * x) % 35 == x)).length = 4 := by decide",
+      "receipt": "7e2ea2db-2e7e-8eb3-9e1f-b65b863d950f"
+    },
+    {
+      "key": "self_inverse_mod_35_number_4",
+      "why": "Exactly 4 residue(s) of Z/35 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_35_number_4 : ((List.range 35).filter (fun x => (x * x) % 35 == 1)).length = 4 := by decide",
+      "receipt": "e7fcb2f7-88f6-8ad4-b51d-e3b9291502f5"
+    },
+    {
+      "key": "squares_mod_35_number_12",
+      "why": "Squaring Z/35 lands on exactly 12 distinct residue(s); the map is counted by walking all 35 inputs and collecting the image.",
+      "lean": "theorem squares_mod_35_number_12 : (((List.range 35).map (fun x => (x * x) % 35)).eraseDups).length = 12 := by decide",
+      "receipt": "312b7fbc-6503-8b16-bc77-dad8098b520b"
+    },
+    {
+      "key": "order_of_two_mod_35_is_12",
+      "why": "Two has multiplicative order 12 in Z/35: doubling returns to 1 after exactly 12 steps and not before, checked at every intermediate step.",
+      "lean": "theorem order_of_two_mod_35_is_12 : (2^12 % 35 = 1) ∧ ((List.range' 1 11).all (fun k => 2^k % 35 != 1)) := by decide",
+      "receipt": "2460c2eb-6ceb-87e7-ac35-c141e7398a47"
+    },
+    {
+      "key": "units_mod_36_number_12",
+      "why": "The units of Z/36 number 12: walked over every residue below 36 and kept those coprime to it, so the count is Euler phi computed rather than quoted.",
+      "lean": "theorem units_mod_36_number_12 : ((List.range 36).filter (fun a => Nat.gcd a 36 == 1)).length = 12 := by decide",
+      "receipt": "9ae0bfe1-af10-8327-a588-4cc1a21cde4d"
+    },
+    {
+      "key": "idempotents_mod_36_number_4",
+      "why": "Z/36 carries exactly 4 idempotent(s) — residues with x*x = x — found by walking every residue, not by factoring.",
+      "lean": "theorem idempotents_mod_36_number_4 : ((List.range 36).filter (fun x => (x * x) % 36 == x)).length = 4 := by decide",
+      "receipt": "cbe7b6cc-fa80-87ca-aed1-ac7c62cd0da2"
+    },
+    {
+      "key": "self_inverse_mod_36_number_4",
+      "why": "Exactly 4 residue(s) of Z/36 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit group, counted.",
+      "lean": "theorem self_inverse_mod_36_number_4 : ((List.range 36).filter (fun x => (x * x) % 36 == 1)).length = 4 := by decide",
+      "receipt": "c3eba782-c8f4-8e44-ad0b-b58a11f5f6a0"
+    },
+    {
+      "key": "squares_mod_36_number_8",
+      "why": "Squaring Z/36 lands on exactly 8 distinct residue(s); the map is counted by walking all 36 inputs and collecting the image.",
+      "lean": "theorem squares_mod_36_number_8 : (((List.range 36).map (fun x => (x * x) % 36)).eraseDups).length = 8 := by decide",
+      "receipt": "02c79239-188d-8e9b-a157-f56f64d6ccaf"
+    },
+    {
+      "key": "z9_has_exactly_three_ideals",
+      "why": "Enumerates subsets of Z/9 as 8-bit masks over {1..8} with 0 forced into every candidate — so it walks all 256 subsets that contain 0 — and keeps exactly those closed under addition mod 9 and absorbing multiplication by every one of the nine ring elements. Exactly three masks survive: 0 = {0}, 36 = {0,3,6}, 255 = all of Z/9. This is an enumeration over subsets, not over generators, so it does not presuppose that every ideal is principal; the three it finds happen to form a chain. Honest gap: the walk covers only subsets containing 0. That every nonempty additively-closed subset of a finite abelian group contains 0 is true but is reasoning outside the decide, not checked by it. Distinct from the sealed idempotents_zero_one and nilpotent_iff_triple, which are element-level facts and say nothing about the ideal lattice.",
+      "lean": "theorem z9_has_exactly_three_ideals : ((List.range 256).filter (fun m => ((List.range 9).all (fun a => (List.range 9).all (fun b => (!(((a == 0) || ((m / 2^(a-1)) % 2 == 1)) && ((b == 0) || ((m / 2^(b-1)) % 2 == 1)))) || (((a+b) % 9 == 0) || ((m / 2^(((a+b) % 9) - 1)) % 2 == 1))))) && ((List.range 9).all (fun a => (List.range 9).all (fun r => (!((a == 0) || ((m / 2^(a-1)) % 2 == 1))) || (((r*a) % 9 == 0) || ((m / 2^(((r*a) % 9) - 1)) % 2 == 1))))))) = [0, 36, 255] := by decide",
+      "receipt": "0b94a3b1-c374-87cb-85de-9171d4f5dc37"
+    },
+    {
+      "key": "z9_digit_sum_folds_to_the_residue_in_three",
+      "why": "Walks every n from 1 to 999 (in five chunks, purely to stay under the default maxRecDepth) and actually performs the decimal digit sum three times: s = hundreds+tens+units, t = digit sum of s, u = digit sum of t. It checks u equals the closed form (n-1)%9+1 and that u = 9 exactly on the multiples of 9. The second conjunct then exhibits, by an existential walk over 1..200, an n whose SECOND iterate is still two digits (n = 199 has digit sum 19, whose digit sum is 10) — so two passes genuinely do not suffice over this range and the third is not decoration. The third conjunct checks casting out nines is multiplicative on the 30x30 product table: the digital root of a*b equals the digital root of the product of the digital roots. Scope is exactly what was walked: n < 1000 and products of factors up to 30; nothing is claimed beyond. The sealed theorem digital_root states the closed form r = if n%9==0 then 9 else n%9 and that r is congruent to n; it never computes a digit sum, so the digit-sum machinery here is what is new.",
+      "lean": "theorem z9_digit_sum_folds_to_the_residue_in_three : ([(1, 200), (201, 200), (401, 200), (601, 200), (801, 199)].all (fun p => (List.range' p.1 p.2).all (fun n => let s := n / 100 + (n / 10) % 10 + n % 10; let t := s / 10 + s % 10; let u := t / 10 + t % 10; (u == (n - 1) % 9 + 1) && ((u == 9) == (n % 9 == 0))))) ∧ ((List.range' 1 200).any (fun n => let s := n / 100 + (n / 10) % 10 + n % 10; s / 10 + s % 10 > 9)) ∧ ((List.range' 1 30).all (fun a => (List.range' 1 30).all (fun b => ((a * b - 1) % 9 + 1) == ((((a - 1) % 9 + 1) * ((b - 1) % 9 + 1) - 1) % 9 + 1)))) := by decide",
+      "receipt": "99c033bf-c7fa-8586-b4ab-c2519deb90ea"
+    },
+    {
+      "key": "z7_quadratic_residues_euler",
+      "why": "Walks the six units of ℤ/7 and shows three things at once. First, the units that are squares mod 7 are exactly [1,2,4] — computed by asking, for each a in 1..6, whether some x in 1..6 has x·x ≡ a. Second, Euler's criterion holds on this ring: for every unit a, the Boolean 'a^3 ≡ 1 (mod 7)' agrees exactly with the Boolean 'a is a square mod 7'. Third, a^3 mod 7 only ever lands on 1 or 6 for a unit, so the cube map sorts the six units into the two Legendre values. This is a finite check over 6 units (with an inner 6-element search for the square test), not a general proof of Euler's criterion — it establishes the criterion for the modulus 7 only. Rosette.lean already holds the mod-7 power table and the a^6 ≡ 1 Fermat walk, but no statement about which residues are squares.",
+      "lean": "theorem z7_quadratic_residues_euler : ((List.range' 1 6).filter (fun a => (List.range' 1 6).any (fun x => (x * x) % 7 == a))) = [1, 2, 4] ∧ ((List.range' 1 6).all (fun a => ((a ^ 3) % 7 == 1) == ((List.range' 1 6).any (fun x => (x * x) % 7 == a)))) ∧ ((List.range' 1 6).all (fun a => ((a ^ 3) % 7 == 1) || ((a ^ 3) % 7 == 6))) := by decide",
+      "receipt": "4a14abac-2d2c-8434-929a-6c7927ee86fe"
+    },
+    {
+      "key": "z7_primitive_roots_are_three_and_five",
+      "why": "Defines each unit's multiplicative order inline as the number of distinct values in [g^1..g^6] mod 7, then walks all six units. It establishes that the units whose orbit covers all six values — the primitive roots mod 7 — are exactly [3,5], that the full order table across g = 1..6 is [1,3,6,3,6,2], and that every one of those orders divides 6. The ledger already holds z7primitive_root_3 (the single orbit of 3) and rosette_orbit; neither says that 5 is also a primitive root, that 3 and 5 are the ONLY ones, nor gives the order of any other unit. This is a finite walk over 6 generators × 6 exponents; it is an instance at modulus 7, not the general count φ(p−1) of primitive roots nor a general Lagrange theorem.",
+      "lean": "theorem z7_primitive_roots_are_three_and_five : ((List.range' 1 6).filter (fun g => ((List.range' 1 6).map (fun k => (g ^ k) % 7)).eraseDups.length == 6)) = [3, 5] ∧ ((List.range' 1 6).map (fun g => ((List.range' 1 6).map (fun k => (g ^ k) % 7)).eraseDups.length)) = [1, 3, 6, 3, 6, 2] ∧ ((List.range' 1 6).all (fun g => 6 % ((List.range' 1 6).map (fun k => (g ^ k) % 7)).eraseDups.length == 0)) := by decide",
+      "receipt": "bc277114-899b-8ca8-93ef-de9c4081d5b2"
+    },
+    {
+      "key": "z7_inverse_table_and_wilson",
+      "why": "For each unit a in 1..6 it collects the full list of b in 1..6 with a·b ≡ 1 (mod 7). Every one of those lists is a singleton, and together they are [[1],[4],[5],[2],[3],[6]] — so the walk shows both that each unit is invertible and that its inverse is unique, and it names the inverse. It then singles out the self-inverse units as exactly [1,6], and computes 6! = 1·2·3·4·5·6 ≡ 6 (mod 7), which is Wilson's congruence (p−1)! ≡ −1 at p = 7 — the two self-inverse units being why the other four cancel in pairs. Rosette.lean holds the whole mod-7 multiplication table but never extracts an inverse, never asserts uniqueness of the inverse, and has no factorial. The uniqueness is checked by enumeration over 6×6 pairs at this modulus, not proved for general primes.",
+      "lean": "theorem z7_inverse_table_and_wilson : ((List.range' 1 6).map (fun a => (List.range' 1 6).filter (fun b => (a * b) % 7 == 1))) = [[1], [4], [5], [2], [3], [6]] ∧ ((List.range' 1 6).filter (fun a => (a * a) % 7 == 1)) = [1, 6] ∧ (1 * 2 * 3 * 4 * 5 * 6) % 7 = 6 := by decide",
+      "receipt": "e2c3dfd9-574d-817c-9ddb-a52fff9cec33"
+    },
+    {
+      "key": "crt21_idempotents_invert_the_pairing",
+      "why": "Walks both directions of the CRT correspondence for 21 = 3·7 and, unlike an injectivity count, exhibits the INVERSE explicitly. Forward: for all 21 residues x < 21, (7·(x%3) + 15·(x%7)) % 21 = x, so the pair (x mod 3, x mod 7) reconstructs x by a fixed linear formula. Backward: for all 21 pairs (a<3, b<7), the reconstructed value has residues exactly a and b, so the map is onto the full 3×7 grid. The remaining conjuncts name why 7 and 15 are the right coefficients: each is idempotent mod 21 (49%21=7, 225%21=15), they annihilate each other (7·15 % 21 = 0), and they sum to the unit (22 % 21 = 1) — the orthogonal idempotent decomposition the bijection is made of. Two arithmetic conjuncts (gcd 3 7 = 1, 3·7 = 21) anchor the CRT precondition; the gcd fact alone is already sealed as trinity_rosette_coprime, and is included here only as the hypothesis this theorem consumes, not as the content.",
+      "lean": "theorem crt21_idempotents_invert_the_pairing : ((List.range 21).all (fun x => (7 * (x % 3) + 15 * (x % 7)) % 21 == x)) ∧ ((List.range 3).all (fun a => (List.range 7).all (fun b => (((7 * a + 15 * b) % 21) % 3 == a) && (((7 * a + 15 * b) % 21) % 7 == b)))) ∧ ((7 * 7) % 21 = 7) ∧ ((15 * 15) % 21 = 15) ∧ ((7 * 15) % 21 = 0) ∧ ((7 + 15) % 21 = 1) ∧ (Nat.gcd 3 7 = 1) ∧ (3 * 7 = 21) := by decide",
+      "receipt": "18a2caec-72f5-8e78-863b-6d9607afb220"
+    },
+    {
+      "key": "crt21_units_have_exponent_six",
+      "why": "Establishes that the unit group of Z/21 is NOT cyclic, by walking all 21 residues. There are exactly 12 units (φ(21) = 12, matching 2·6 from the factors), yet every one of them satisfies a^6 ≡ 1 mod 21 — so the exponent of the group is at most 6, strictly below its order 12, and no single element can generate it. The exponent is exactly 6, witnessed by 5: 5^6 ≡ 1 while 5^2 ≢ 1 and 5^3 ≢ 1. The contrast conjuncts count 6 units in Z/9 and 6 in Z/7, both of which ARE cyclic of that order, so the failure is specific to the 3·7 fusion: lcm(φ(3), φ(7)) = lcm(2,6) = 6 ≠ 12 = 2·6. This is a claim about exponent versus order for these specific moduli, checked by exhaustion, not a general theorem about non-cyclic unit groups.",
+      "lean": "theorem crt21_units_have_exponent_six : (((List.range 21).filter (fun a => Nat.gcd a 21 == 1)).length = 12) ∧ ((List.range 21).all (fun a => (Nat.gcd a 21 != 1) || (a ^ 6 % 21 == 1))) ∧ ((5 ^ 6) % 21 = 1) ∧ ((5 ^ 2) % 21 ≠ 1) ∧ ((5 ^ 3) % 21 ≠ 1) ∧ (6 < 12) ∧ (((List.range 9).filter (fun a => Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => Nat.gcd a 7 == 1)).length = 6) ∧ (Nat.lcm 2 6 = 6) ∧ (2 * 6 = 12) := by decide",
+      "receipt": "e5f20439-49d9-88c2-a5fe-bf00e92aeb1f"
+    },
+    {
+      "key": "crt21_doubling_orbits_partition",
+      "why": "Computes the full orbit structure of the doubling map x ↦ 2x on Z/21 by walking all 21 residues. Since 2^6 ≡ 1 mod 21, each orbit is {2^k·x : k < 6}; taking each orbit's least element as its representative, the distinct representatives are exactly [0, 1, 3, 5, 7, 9] — six orbits — and their sizes are exactly [1, 6, 3, 6, 2, 3], which sum to 21, so the orbits do partition the ring with nothing lost or doubled. The sizes are the CRT structure read back: 6 = lcm(2,3) where 2 has order 2 mod 3 and order 3 mod 7, and the shorter orbits (3 and 2) are the residues that collapse into one factor — multiples of 3 turning only at the mod-7 rate, multiples of 7 only at the mod-3 rate. The last four conjuncts state those three orders and the lcm directly. The orbit sizes and representatives are the concrete lists this walk returned, not a general formula.",
+      "lean": "theorem crt21_doubling_orbits_partition : ((((List.range 21).map (fun x => ((List.range 6).map (fun k => (2 ^ k * x) % 21)).foldl min 20)).eraseDups) = [0, 1, 3, 5, 7, 9]) ∧ (((((List.range 21).map (fun x => ((List.range 6).map (fun k => (2 ^ k * x) % 21)).foldl min 20)).eraseDups).map (fun r => ((List.range 6).map (fun k => (2 ^ k * r) % 21)).eraseDups.length)) = [1, 6, 3, 6, 2, 3]) ∧ (1 + 6 + 3 + 6 + 2 + 3 = 21) ∧ ((2 ^ 6) % 21 = 1) ∧ ((2 ^ 2) % 3 = 1) ∧ ((2 ^ 3) % 7 = 1) ∧ (Nat.lcm 2 3 = 6) := by decide",
+      "receipt": "cd9c8504-a725-8a4b-8876-3bc9a2195506"
+    },
+    {
+      "key": "monotone_two_bit_gates_are_threshold",
+      "why": "Walks all 16 two-input boolean functions in the same nibble/truth-table encoding lean/Boolean.lean already uses (mask m, value at (a,b) is bit 2a+b). Clause one filters by monotonicity — checking every one of the 16 (a,b)<=(c,d) input pairs per mask — and the survivors are exactly the six masks [0,8,10,12,14,15], i.e. constant-0, AND, the second projection, the first projection, OR, constant-1. Clause two searches, for every one of the 16 masks, weights w,v in 0..2 and a cut t in 0..5 and finds that a nonnegative-weight threshold representation exists for exactly the monotone masks and for no other mask. So at two inputs 'monotone' and 'linear-threshold' pick out the same six functions, and that agreement is decided by walking the search space, not assumed. It says nothing about more than two inputs, where the two classes come apart.",
+      "lean": "theorem monotone_two_bit_gates_are_threshold : ((List.range 16).filter (fun m => ((List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (List.range 2).all (fun d => !(decide (a <= c) && decide (b <= d)) || decide ((m / 2 ^ (2*a+b)) % 2 <= (m / 2 ^ (2*c+d)) % 2)))))))) = [0,8,10,12,14,15] ∧ ((List.range 16).all (fun m => ((List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (List.range 2).all (fun d => !(decide (a <= c) && decide (b <= d)) || decide ((m / 2 ^ (2*a+b)) % 2 <= (m / 2 ^ (2*c+d)) % 2)))))) == ((List.range 3).any (fun w => (List.range 3).any (fun v => (List.range 6).any (fun t => (List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*a+b)) % 2) == (if t <= w*a + v*b then 1 else 0))))))))) := by decide",
+      "receipt": "4820703d-90da-864c-b41a-593ab322713b"
+    },
+    {
+      "key": "self_dual_two_bit_gates_ignore_an_input",
+      "why": "Self-duality is f(1-a,1-b) = 1-f(a,b). Filtering the 16 two-input masks by that condition leaves exactly four: [3,5,10,12] — the two projections and their two negations. The second clause then checks each of those four and finds that each is constant in one of its two arguments, so no two-input function that actually uses both inputs is self-dual. The third and fourth clauses walk the 8 three-bit inputs and show majority-of-three IS self-dual and is not equal to any of the three projections, so the property is not empty of genuine functions one bit up. This is a count and a walk over 2- and 3-bit tables only; nothing is claimed for wider inputs.",
+      "lean": "theorem self_dual_two_bit_gates_ignore_an_input : ((List.range 16).filter (fun m => ((List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*(1-a)+(1-b))) % 2) == 1 - ((m / 2 ^ (2*a+b)) % 2)))))) = [3,5,10,12] ∧ ([3,5,10,12].all (fun m => ((List.range 2).all (fun a => ((m / 2 ^ (2*a)) % 2) == ((m / 2 ^ (2*a+1)) % 2))) || ((List.range 2).all (fun b => ((m / 2 ^ b) % 2) == ((m / 2 ^ (2+b)) % 2))))) ∧ ((List.range 8).all (fun n => (if 2 <= (1-n%2) + (1-(n/2)%2) + (1-(n/4)%2) then 1 else 0) == 1 - (if 2 <= n%2 + (n/2)%2 + (n/4)%2 then 1 else 0))) ∧ ((List.range 3).all (fun i => (List.range 8).any (fun n => (if 2 <= n%2 + (n/2)%2 + (n/4)%2 then 1 else 0) != (n / 2^i) % 2))) := by decide",
+      "receipt": "66c675fc-9af7-8cf8-9e66-63a49ccb2596"
+    },
+    {
+      "key": "post_classes_leave_only_nor_and_nand",
+      "why": "Filters the 16 two-input masks by failing all five of Post's closed classes at once — not 0-preserving (f(0,0)=1), not 1-preserving (f(1,1)=0), not monotone, not self-dual, and not affine (no c + wa + zb mod 2 fits the table for any of the 8 coefficient triples). Exactly two masks survive and the filter returns [1,7], which in this file's encoding are NOR's table 1000 and NAND's table 1110. The remaining clauses walk both inputs and rebuild NOT, OR and AND from NOR alone, so the NOR half of the pair is exhibited generating a basis rather than only surviving a filter. Honest limit: the step from 'lies outside all five Post classes' to 'is functionally complete on its own' is Post's theorem, which is cited here and NOT decided by this line. What the kernel checked is the membership count and the NOR reconstruction.",
+      "lean": "theorem post_classes_leave_only_nor_and_nand : ((List.range 16).filter (fun m => (m % 2 == 1) && ((m / 8) % 2 == 0) && !((List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (List.range 2).all (fun d => !(decide (a <= c) && decide (b <= d)) || decide ((m / 2 ^ (2*a+b)) % 2 <= (m / 2 ^ (2*c+d)) % 2)))))) && !((List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*(1-a)+(1-b))) % 2) == 1 - ((m / 2 ^ (2*a+b)) % 2)))) && !((List.range 2).any (fun k => (List.range 2).any (fun w => (List.range 2).any (fun z => (List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*a+b)) % 2) == (k + w*a + z*b) % 2)))))))) = [1,7] ∧ ((List.range 2).all (fun a => (1-a)*(1-a) == 1-a)) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => 1 - (1-a)*(1-b) == a + b - a*b))) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => (1-(1-a))*(1-(1-b)) == a*b))) := by decide",
+      "receipt": "da98a11a-b50a-825d-8db0-c3aa8e71ef3b"
+    },
+    {
+      "key": "byte_weight_splits_across_its_two_tiles",
+      "why": "Walks all 256 bytes as hi*16+lo over hi,lo < 16 and establishes four things about weight (popcount inlined as a bit-by-bit fold, no helper def). First, the packing is exact: (hi*16+lo)/16 = hi and (hi*16+lo)%16 = lo, so the 16x16 walk really is the 256-byte space. Second, weight is additive across the two hexbit tiles: pop8(byte) = pop4(hi) + pop4(lo) at every byte, and is never above 8. Third, the same additivity holds mod 2, so the byte's parity bit is the XOR of the two tiles' parity bits. Fourth, the weight census of the byte is the row [1,8,28,56,70,56,28,8,1] for weights 0..8, and that row sums to 256. The ledger already seals that a byte is two hexbits by arithmetic (byte_holds_two_hexbits, 2*4=8, 16^2=256); this seals that the CONTENT measure splits the same way the width does, and counts the fibres. It does not claim anything about hashes, addresses, or randomness — it is a census of an 8-bit word by its own bit count.",
+      "lean": "theorem byte_weight_splits_across_its_two_tiles : ((List.range 16).all (fun hi => (List.range 16).all (fun lo => (((hi * 16 + lo) / 16 == hi) && ((hi * 16 + lo) % 16 == lo)) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 == (List.range 4).foldl (fun s i => s + hi / 2^i % 2) 0 + (List.range 4).foldl (fun s i => s + lo / 2^i % 2) 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 <= 8)))) ∧ ((List.range 16).all (fun hi => (List.range 16).all (fun lo => (List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == ((List.range 4).foldl (fun s i => s + hi / 2^i % 2) 0 % 2 + (List.range 4).foldl (fun s i => s + lo / 2^i % 2) 0 % 2) % 2))) ∧ ((List.range 9).map (fun k => ((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 == k)).length)).foldl (· + ·) 0) = [1,8,28,56,70,56,28,8,1]) ∧ ([1,8,28,56,70,56,28,8,1].foldl (· + ·) 0 = 256) := by decide",
+      "receipt": "41322ad1-6937-8339-9981-d31bd0a837b0"
+    },
+    {
+      "key": "parity_bit_rejects_half_the_byte_tamper_set",
+      "why": "Measures exactly how far one parity bit gets against the byte tamper set the ledger already counts (tamper_set_counts_eight_thousand seals 32*255 = 8160 single-byte alterations; this looks inside one of those 255-element fibres). Two separate walks. (1) Over all 256 bytes and all 8 bit positions, flipping that bit — computed arithmetically, +2^i if the bit is clear and -2^i if it is set — always lands on a different value still below 256, and always flips the byte's weight parity. So a parity bit rejects EVERY single-bit tamper, all 8 of them at every byte, 2048 cases walked. (2) A census of the 255 non-zero alteration patterns by weight parity: exactly 128 have odd weight and exactly 127 have even weight, and 128 + 127 = 255. Since parity changes precisely on odd-weight differences, that is the reach of the check: 128 of the 255 rejected, 127 not. HONEST SCOPE: part (2) is a count of difference patterns by weight parity, and the step from 'odd-weight difference' to 'parity bit rejects' is proved here only for the single-bit case in part (1) — the general equivalence at full byte width is not walked (65536 pairs exceeds the kernel heartbeat limit); it is walked at tile width in tile_tamper_distance_census_is_binomial. No claim is made about adversaries, only about how many of the 255 patterns are odd.",
+      "lean": "theorem parity_bit_rejects_half_the_byte_tamper_set : ((List.range 16).all (fun hi => (List.range 16).all (fun lo => (List.range 8).all (fun i => ((List.range 8).foldl (fun s j => s + (if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) / 2^j % 2) 0 % 2 != (List.range 8).foldl (fun s j => s + (hi * 16 + lo) / 2^j % 2) 0 % 2) && ((if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) != hi * 16 + lo) && ((if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) < 256))))) ∧ (((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (hi * 16 + lo != 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == 1))).length)).foldl (· + ·) 0 = 128) ∧ (((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (hi * 16 + lo != 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == 0))).length)).foldl (· + ·) 0 = 127) ∧ (128 + 127 = 255) ∧ (128 < 255) := by decide",
+      "receipt": "f001af14-a1d2-82db-8345-00e670966c39"
+    },
+    {
+      "key": "tile_tamper_distance_census_is_binomial",
+      "why": "A complete census of the hexbit tile under tamper distance. Distance is inlined as the count of differing bit positions over the four bits, with no helper def. All 256 ordered pairs (a,b) with a,b < 16 are walked and sorted by distance: the fibres are [16,64,96,64,16] for distances 0,1,2,3,4, and they sum to 256, so nothing is missed and nothing is double-counted — the distribution is 16 times the binomial row of 4. The same walk seals two properties on every pair: distance never exceeds 4 (a tile cannot be altered in more than its own four bits), and the parity of the distance equals the parity of the sum of the two tiles' weights — so at tile width the parity bit rejects an alteration exactly when the alteration touches an odd number of bits, an equivalence walked over the whole pair space rather than sampled. Finally the complement 15 - a sits at the maximum distance 4 from a at every one of the sixteen tiles. The ledger already seals that this distance is symmetric and zero only on equals (distance_is_symmetric) and that XOR preserves it (xor_preserves_distance); the census by fibre size and the parity equivalence are not there. Claims nothing beyond the 4-bit tile.",
+      "lean": "theorem tile_tamper_distance_census_is_binomial : ((List.range 5).map (fun k => ((List.range 16).map (fun a => ((List.range 16).filter (fun b => (List.range 4).foldl (fun s i => s + (a / 2^i + b / 2^i) % 2) 0 == k)).length)).foldl (· + ·) 0) = [16,64,96,64,16]) ∧ ([16,64,96,64,16].foldl (· + ·) 0 = 256) ∧ ((List.range 16).all (fun a => (List.range 16).all (fun b => ((List.range 4).foldl (fun s i => s + (a / 2^i + b / 2^i) % 2) 0 <= 4) && ((List.range 4).foldl (fun s i => s + (a / 2^i + b / 2^i) % 2) 0 % 2 == ((List.range 4).foldl (fun s i => s + a / 2^i % 2) 0 + (List.range 4).foldl (fun s i => s + b / 2^i % 2) 0) % 2)))) ∧ ((List.range 16).all (fun a => (List.range 4).foldl (fun s i => s + (a / 2^i + (15 - a) / 2^i) % 2) 0 == 4)) := by decide",
+      "receipt": "14455130-2b32-8b77-862a-cb284b6a33b6"
+    },
+    {
+      "key": "hamming_triangle_inequality",
+      "why": "Walks all 4096 ordered triples over the 4-bit cube and decides d(a,c) <= d(a,b) + d(b,c), where d is the popcount of the XOR, inlined. Isometry.lean's distance_is_symmetric seals symmetry and d(a,b)=0 iff a=b under a docstring that calls the distance a metric; the triangle inequality — the third metric axiom, and the only one that does any work — is not sealed anywhere in the ledger. The line also carries one tight witness (d 0 15 = d 0 5 + d 5 15, i.e. 4 = 2+2) and one slack witness (0 < 8), so the bound is shown to be attained without being an equality in general. Scope: 4-bit words only; nothing here extends the claim to wider words.",
+      "lean": "theorem hamming_triangle_inequality : (fun (d : Nat → Nat → Nat) => ((List.range 16).all (fun a => (List.range 16).all (fun b => (List.range 16).all (fun c => decide (d a c ≤ d a b + d b c))))) ∧ (d 0 15 = d 0 5 + d 5 15) ∧ (d 0 0 < d 0 15 + d 15 0)) (fun a b => (if a % 2 == b % 2 then 0 else 1) + (if a / 2 % 2 == b / 2 % 2 then 0 else 1) + (if a / 4 % 2 == b / 4 % 2 then 0 else 1) + (if a / 8 % 2 == b / 8 % 2 then 0 else 1)) := by decide",
+      "receipt": "dadbdf67-65c8-82c4-8803-e6b275b841c0"
+    },
+    {
+      "key": "hamming_differences_are_the_code",
+      "why": "Over the same sixteen packed Hamming(7,4) codewords Hamming.lean already lists: all 256 pairwise XORs land back inside the list (closure — the code is linear), every one of the sixteen codewords is realised as some pairwise XOR (so the difference set is exactly the code, not merely contained in it), and every pairwise distance falls in {0,3,4,7}. Neither Hamming.lean nor Codes.lean seals closure under XOR. This is the structural reason the 120-pair minimum-distance walk and the 15-word weight enumerator agree: the distance spectrum IS the weight spectrum, because differences of codewords are codewords. It does not re-derive minimum distance 3 (words_stand_three_apart already holds that) and says nothing about any code other than this one table.",
+      "lean": "theorem hamming_differences_are_the_code : (fun (W : List Nat) (x : Nat → Nat → Nat) (w : Nat → Nat) => (W.all (fun a => W.all (fun b => W.contains (x a b)))) ∧ (W.all (fun t => W.any (fun a => W.any (fun b => x a b == t)))) ∧ (W.all (fun a => W.all (fun b => [0,3,4,7].contains (w (x a b))))) ∧ (W.length = 16)) [0,75,42,97,25,82,51,120,7,76,45,102,30,85,52,127] (fun a b => (if a % 2 == b % 2 then 0 else 1) + 2 * (if a / 2 % 2 == b / 2 % 2 then 0 else 1) + 4 * (if a / 4 % 2 == b / 4 % 2 then 0 else 1) + 8 * (if a / 8 % 2 == b / 8 % 2 then 0 else 1) + 16 * (if a / 16 % 2 == b / 16 % 2 then 0 else 1) + 32 * (if a / 32 % 2 == b / 32 % 2 then 0 else 1) + 64 * (if a / 64 % 2 == b / 64 % 2 then 0 else 1)) (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 + n / 16 % 2 + n / 32 % 2 + n / 64 % 2) := by decide",
+      "receipt": "c834c1f7-3c34-845a-910c-fd25db64c950"
+    },
+    {
+      "key": "xor_translation_is_sharply_transitive",
+      "why": "Over the 4-bit cube: each of the sixteen translations x ↦ x XOR k has an image of sixteen distinct values, so every translation is a bijection; for every one of the 256 ordered pairs (a,b) exactly one key k out of sixteen satisfies a XOR k = b, walked as a filter length; and that key is a XOR b, since applying the translation by (a XOR b) to a returns b. The ledger seals that a translation preserves distance (xor_preserves_distance) and that it is self-inverse (otp_self_inverse), but not that the sixteen translations act simply transitively — exactly as many translations as points, and exactly one carrying any given point to any other. That count is what makes the pad a key space with no collisions and no gaps. Scope: 4-bit words only.",
+      "lean": "theorem xor_translation_is_sharply_transitive : (fun (x : Nat → Nat → Nat) => ((List.range 16).all (fun k => ((List.range 16).map (fun a => x a k)).eraseDups.length == 16)) ∧ ((List.range 16).all (fun a => (List.range 16).all (fun b => ((List.range 16).filter (fun k => x a k == b)).length == 1))) ∧ ((List.range 16).all (fun a => (List.range 16).all (fun b => x a (x a b) == b)))) (fun a b => (if a % 2 == b % 2 then 0 else 1) + 2 * (if a / 2 % 2 == b / 2 % 2 then 0 else 1) + 4 * (if a / 4 % 2 == b / 4 % 2 then 0 else 1) + 8 * (if a / 8 % 2 == b / 8 % 2 then 0 else 1)) := by decide",
+      "receipt": "55b2c271-d8c0-8565-9882-93dd491e2ef4"
+    },
+    {
+      "key": "nim_bouton_three_heap_closure",
+      "why": "Walks all 512 three-heap Nim positions with every heap below 8 and checks BOTH halves of Bouton's theorem at each one: when the nim-sum is zero, every legal move (lowering exactly one heap to any strictly smaller size) leaves a nonzero nim-sum; when the nim-sum is nonzero, at least one such move reaches nim-sum zero. Because a move only lowers a heap, the walk is closed under the move relation inside that box, so it pins the P-positions of normal-play three-heap Nim on heaps 0..7 exactly. The ledger already holds equal-heaps-cancel, commutativity, associativity, the two-heap law grundy_sum_is_xor, and a SINGLE witness of a winning move (nim_winning_move_exists, the position 1,2,4); this is the move relation itself walked in both directions, not a witness. XOR is inlined as bitwise parity — bit i of the fold is the parity of the three i-th bits — so no def and no Nat.xor is needed; the formula was cross-checked against a^b^c over all 8^3 triples with zero mismatches. It says nothing about heaps of 8 or more.",
+      "lean": "theorem nim_bouton_three_heap_closure : ((fun X : Nat → Nat → Nat → Nat => (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (!(X a b c == 0) || (((List.range a).all (fun a' => X a' b c != 0)) && ((List.range b).all (fun b' => X a b' c != 0)) && ((List.range c).all (fun c' => X a b c' != 0)))) && ((X a b c == 0) || (((List.range a).any (fun a' => X a' b c == 0)) || ((List.range b).any (fun b' => X a b' c == 0)) || ((List.range c).any (fun c' => X a b c' == 0)))))))) (fun a b c => (a + b + c) % 2 + 2 * ((a / 2 + b / 2 + c / 2) % 2) + 4 * ((a / 4 + b / 4 + c / 4) % 2))) = true := by decide",
+      "receipt": "43530cda-832e-8ac5-912e-8e89d0791454"
+    },
+    {
+      "key": "nim_misere_bouton_closure",
+      "why": "Walks all 125 three-heap positions with every heap below 5 and checks that the MISÈRE outcome formula — the mover wins exactly when (some heap is at least 2 and the nim-sum is nonzero) or (every heap is at most 1 and the nim-sum is zero) — is closed under the misère move relation: the empty position 0,0,0 is a WIN for the mover (the opponent took the last stone and lost), and at every non-empty position the formula calls it a loss exactly when every legal move hands the opponent a win. That closure plus the terminal case determines the outcome by induction on stones, so on heaps 0..4 the formula IS the misère outcome function. The ledger holds only nim_misere_differs, a single position (1,1,1) noting normal and misère disagree; this is the general rule and the reason for the disagreement — the two rules differ precisely on the all-heaps-at-most-1 branch. Checked at heaps below 5 only; substituting the normal-play predicate for the misère one makes the same walk evaluate false, so the check is not vacuous.",
+      "lean": "theorem nim_misere_bouton_closure : ((fun X : Nat → Nat → Nat → Nat => (fun W : Nat → Nat → Nat → Bool => (W 0 0 0) && ((List.range 5).all (fun a => (List.range 5).all (fun b => (List.range 5).all (fun c => (a + b + c == 0) || ((!(W a b c)) == (((List.range a).all (fun a' => W a' b c)) && ((List.range b).all (fun b' => W a b' c)) && ((List.range c).all (fun c' => W a b c'))))))))) (fun a b c => ((decide (2 ≤ a) || decide (2 ≤ b) || decide (2 ≤ c)) && (X a b c != 0)) || ((!(decide (2 ≤ a) || decide (2 ≤ b) || decide (2 ≤ c))) && (X a b c == 0)))) (fun a b c => (a + b + c) % 2 + 2 * ((a / 2 + b / 2 + c / 2) % 2) + 4 * ((a / 4 + b / 4 + c / 4) % 2))) = true := by decide",
+      "receipt": "74970bda-5f23-8b2f-9df4-14303ffd0c35"
+    },
+    {
+      "key": "subtraction_game_123_grundy_is_mod4",
+      "why": "Walks n = 0..39 of the subtraction game with move set {1,2,3} (take one, two or three from a single heap) and checks the mex condition at every n: the candidate Grundy value n mod 4 is attained by NO option n-k (k in 1..3, k at most n), and every value strictly below n mod 4 IS attained by some option. That is exactly 'n mod 4 = mex of the option values', so by induction over the walked range the Grundy function of this game is n mod 4 for n below 40, and the P-positions (Grundy 0) are the multiples of 4. This is a mex computation, which the ledger has none of — its nim wing holds only the XOR fold and its Cayley table, no game whose Grundy value differs from the heap size. Verified for n below 40 only, not for all n; replacing 4 by 5 makes the same walk evaluate false.",
+      "lean": "theorem subtraction_game_123_grundy_is_mod4 : ((List.range 40).all (fun n => ([1, 2, 3].all (fun k => !(decide (k ≤ n)) || ((n - k) % 4 != n % 4))) && ((List.range (n % 4)).all (fun v => [1, 2, 3].any (fun k => decide (k ≤ n) && ((n - k) % 4 == v)))))) = true := by decide",
+      "receipt": "1d21b177-a577-8522-8f25-510f34249330"
+    },
+    {
+      "key": "agl9_pair_action_is_sharp_on_unit_differences",
+      "why": "Walks all 81 ordered pairs (x,y) in Z/9 x Z/9 and counts, for each, how many of the 54 affine maps send 0 to x and 1 to y. The count is exactly 1 when (y-x) mod 9 is a unit and exactly 0 otherwise; 54 of the 81 pairs are of the first kind and 18 of the remaining ones have x != y. So the group acts freely on the 54 unit-difference pairs (one map per pair, which also re-derives the order 54 as a count of pairs rather than as 6*9), while 18 ordered pairs of distinct points are reachable by no map at all. The last conjunct separately walks all 81 pairs and finds a map carrying x to y for every one, so the action on the 9 points is transitive. Transitive but not 2-transitive: the 18 misses are exactly the pairs whose difference is 3 or 6, the non-unit nonzero residues that exist because 9 is not prime. The sealed Affine.lean records order, closure, identity, inverses and non-commutativity, but nothing about the action on points or pairs.",
+      "lean": "theorem agl9_pair_action_is_sharp_on_unit_differences : (((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9))).length = 54) ∧ ((List.range 9).all (fun x => (List.range 9).all (fun y => ((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9) && e % 9 == x && (e / 9 + e % 9) % 9 == y)).length == (if [1,2,4,5,7,8].contains ((y + 9 - x) % 9) then 1 else 0)))) ∧ (((List.range 9).map (fun x => ((List.range 9).filter (fun y => [1,2,4,5,7,8].contains ((y + 9 - x) % 9))).length)).foldl (fun s n => s + n) 0 = 54) ∧ (((List.range 9).map (fun x => ((List.range 9).filter (fun y => x != y && !([1,2,4,5,7,8].contains ((y + 9 - x) % 9)))).length)).foldl (fun s n => s + n) 0 = 18) ∧ ((List.range 9).all (fun x => (List.range 9).all (fun y => (List.range 81).any (fun e => [1,2,4,5,7,8].contains (e / 9) && (e / 9 * x + e % 9) % 9 == y)))) := by decide",
+      "receipt": "7215bc66-f0c0-85ee-8f16-f112fb657c72"
+    },
+    {
+      "key": "agl9_fixed_point_census_gives_a_single_orbit",
+      "why": "For each of the 54 affine maps, counts the x in Z/9 with (a*x+b) mod 9 = x. The 54 counts sum to 54, and the census of the counts is: 20 maps fix nothing, 27 fix exactly one point, 6 fix exactly three, and 1 (the identity) fixes all nine — those four classes total 54, so no other fixed-point count occurs. The sum being 54 = 54 * 1 is Burnside's count with orbit number 1, i.e. the arithmetic side of the action on the 9 points having a single orbit. What is decided here is the arithmetic identity and the census; reading it as 'one orbit' is Burnside's lemma applied to those numbers, not something the walk itself proves. Nothing in the ledger records fixed-point counts for these maps.",
+      "lean": "theorem agl9_fixed_point_census_gives_a_single_orbit : (((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9))).length = 54) ∧ ((((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9))).map (fun e => ((List.range 9).filter (fun x => (e / 9 * x + e % 9) % 9 == x)).length)).foldl (fun s n => s + n) 0 = 54) ∧ ([0,1,3,9].map (fun c => ((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9) && ((List.range 9).filter (fun x => (e / 9 * x + e % 9) % 9 == x)).length == c)).length) = [20,27,6,1]) ∧ (20 + 27 + 6 + 1 = 54) ∧ (0 * 20 + 1 * 27 + 3 * 6 + 9 * 1 = 54 * 1) := by decide",
+      "receipt": "fe06d599-baf8-84f2-bad7-e667ca1adb17"
+    },
+    {
+      "key": "agl9_exponent_is_eighteen_with_no_element_of_that_order",
+      "why": "Computes, for each of the 54 maps, its actual order — the least k in 1..18 whose k-fold self-composition is the identity x ↦ 1*x+0 — by iterating the composition rule inside the statement, and pins the resulting 54-entry list exactly. Every order divides 18 (and divides 54, the Lagrange check done concretely rather than cited), and for each proper divisor d of 18 some element's order fails to divide d, so 18 is the exponent and not merely an upper bound. The census of orders is 1 element of order 1, 9 of order 2, 8 of order 3, 18 of order 6, 18 of order 9, and zero of order 18, 27 or 54 — summing to 54. So this group of order 54 has exponent 18 while containing no element of order 18, and no element of order 54, hence is not cyclic. The ledger holds the orders of the six unit multipliers in Z/9 (Discover.lean) but no orders for the affine maps themselves.",
+      "lean": "theorem agl9_exponent_is_eighteen_with_no_element_of_that_order : ((((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9))).map (fun e => ((List.range' 1 18).filter (fun k => (List.range k).foldl (fun acc _ => ((e / 9 * (acc / 9)) % 9) * 9 + ((e / 9 * (acc % 9) + e % 9) % 9)) 9 == 9)).headD 0)) = [1,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,2,2,2,2,2,2,2,2,2]) ∧ ([1,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,2,2,2,2,2,2,2,2,2].all (fun o => 18 % o == 0 && 54 % o == 0)) ∧ ([1,2,3,6,9].all (fun d => [1,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,2,2,2,2,2,2,2,2,2].any (fun o => d % o != 0))) ∧ ([1,2,3,6,9,18,27,54].map (fun d => ([1,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,6,6,6,6,6,6,6,6,6,3,9,9,3,9,9,3,9,9,2,2,2,2,2,2,2,2,2].filter (fun o => o == d)).length) = [1,9,8,18,18,0,0,0]) ∧ (1 + 9 + 8 + 18 + 18 = 54) := by decide",
+      "receipt": "e55ac07c-bf0c-88ba-9900-f4522b2c3886"
+    },
+    {
+      "key": "involution_counts_obey_their_recurrence",
+      "why": "Encodes every function f on n points as a base-n digit code c < n^n (f x = c / n^x % n) and counts, by exhaustive walk, the codes with f(f x) = x for all x. The walk returns 1, 2, 4, 10, 26 for n = 1..5, and the same statement checks the three recurrence steps 4 = 2 + 2*1, 10 = 4 + 3*2, 26 = 10 + 4*4. What is new here is the chain and the recurrence: the ledger already holds the n=4 count 10 alone (Wave.lean, involution_walks_home_in_two), and this restates that one value as one link of five. The n=5 walk is chunked as 25 blocks of 125 because a flat List.range 3125 exceeds Lean's default maxRecDepth. This is a check that the counted values satisfy the recurrence at these five points; it is not a proof of the recurrence for general n.",
+      "lean": "theorem involution_counts_obey_their_recurrence : ((List.range 1).filter (fun c => (List.range 1).all (fun x => c / 1 ^ (c / 1 ^ x % 1) % 1 == x))).length = 1 ∧ ((List.range 4).filter (fun c => (List.range 2).all (fun x => c / 2 ^ (c / 2 ^ x % 2) % 2 == x))).length = 2 ∧ ((List.range 27).filter (fun c => (List.range 3).all (fun x => c / 3 ^ (c / 3 ^ x % 3) % 3 == x))).length = 4 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x))).length = 10 ∧ ((List.range 25).map (fun a => ((List.range 125).filter (fun b => (List.range 5).all (fun x => (a * 125 + b) / 5 ^ ((a * 125 + b) / 5 ^ x % 5) % 5 == x))).length)).sum = 26 ∧ 4 = 2 + 2 * 1 ∧ 10 = 4 + 3 * 2 ∧ 26 = 10 + 4 * 4 := by decide",
+      "receipt": "fb5808dd-e6c9-8d57-947f-572304435bda"
+    },
+    {
+      "key": "s4_fixed_point_and_cycle_census",
+      "why": "Walks all 256 base-4 digit codes on 4 points, keeps the 24 that are surjective (hence the permutations of 4), and sorts them twice. By fixed-point count k = 0..4 the census is [9, 8, 6, 0, 1] — the 9 is the derangement count on 4 points, and no permutation of 4 fixes exactly 3. By cycle count k = 0..4 the census is [0, 6, 11, 6, 1], counting cycles as the number of points that are the least element of their own orbit (checked by a 4-step fold, which suffices since no orbit on 4 points is longer than 4). The statement also checks that both censuses total 24, that the fixed points across all 24 permutations total 0*9+1*8+2*6+3*0+4*1 = 24, and that the cycles total 0*0+1*6+2*11+3*6+4*1 = 50. Nothing here is proved for general n; it is the n=4 row walked exhaustively.",
+      "lean": "theorem s4_fixed_point_and_cycle_census : ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)))).length = 24 ∧ ((List.range 5).map (fun k => ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).filter (fun x => c / 4 ^ x % 4 == x)).length == k)).length)) = [9, 8, 6, 0, 1] ∧ ((List.range 5).map (fun k => ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).filter (fun x => ((List.range 4).foldl (fun (p : Nat × Bool) _ => (c / 4 ^ p.1 % 4, p.2 && decide (x ≤ p.1))) (x, true)).2)).length == k)).length)) = [0, 6, 11, 6, 1] ∧ 0 * 9 + 1 * 8 + 2 * 6 + 3 * 0 + 4 * 1 = 24 ∧ 0 * 0 + 1 * 6 + 2 * 11 + 3 * 6 + 4 * 1 = 50 ∧ 9 + 8 + 6 + 0 + 1 = 24 ∧ 0 + 6 + 11 + 6 + 1 = 24 := by decide",
+      "receipt": "392f65d6-31cb-88fd-b67e-b2f8a703a4ca"
+    },
+    {
+      "key": "s4_parity_splits_evenly_its_involutions_do_not",
+      "why": "Computes each permutation's inversion count inline (pairs i < j with f j < f i) and splits the 24 permutations of 4 points by its parity: 12 even, 12 odd. Restricting the same walk to the self-inverse codes (f(f x) = x for all x) gives 4 even and 6 odd — so the even/odd balance that holds across the whole group fails on its involutions, and 4 + 6 = 10 recovers the known involution count. The statement also walks all 256 codes and finds none that is self-inverse without being surjective, i.e. on this 4-point space f∘f = id already forces f to be a permutation. All of this is the n=4 case walked exhaustively; no general-n claim is made, and parity is measured by inversion count, not by an independently defined sign homomorphism.",
+      "lean": "theorem s4_parity_splits_evenly_its_involutions_do_not : ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 0)).length = 12 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 1)).length = 12 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 0)).length = 4 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 1)).length = 6 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x) && !((List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y))))).length = 0 ∧ 12 + 12 = 24 ∧ 4 + 6 = 10 ∧ 4 ≠ 6 := by decide",
+      "receipt": "cf920895-e260-832b-a78f-44b5914e28c4"
+    },
+    {
+      "key": "grid_rectangle_euler_is_one",
+      "why": "Walks every rectangular grid complex from 1x1 to 8x8 (64 shapes) and checks the Euler characteristic twice over. Clause 1 is chi = 1 for the filled rectangle, stated Nat-safely as V + F = E + 1 with V = (m+1)(n+1), E = m(n+1) + n(m+1), F = mn. Clause 2 is chi = 0 for its boundary, stated as boundary-V = boundary-E where each side is written as the total minus the interior count, so the equality is real arithmetic and not a tautology. Clause 3 pins the 3x3 witness at V=16, E=24, F=9. What this shows is that the disk and the circle are told apart by the same count on the same family of shapes, over the whole walked range. The ledger's existing Euler theorems are the five Platonic solids at chi = 2, the 4-simplex boundary at chi = 0, and the genus formula; none of them is the m-by-n grid rectangle. It does NOT prove chi = 1 for all m,n — only for the 64 walked.",
+      "lean": "theorem grid_rectangle_euler_is_one : ((List.range' 1 8).all (fun m => (List.range' 1 8).all (fun n => ((m+1)*(n+1) + m*n == m*(n+1) + n*(m+1) + 1)))) ∧ ((List.range' 1 8).all (fun m => (List.range' 1 8).all (fun n => ((m+1)*(n+1) - (m-1)*(n-1) == (m*(n+1) + n*(m+1)) - (m*(n-1) + n*(m-1)))))) ∧ ((3+1)*(3+1) = 16) ∧ (3*(3+1) + 3*(3+1) = 24) ∧ (16 + 9 = 24 + 1) := by decide",
+      "receipt": "17781b23-07cf-8a32-ad23-b8dc1cabd306"
+    },
+    {
+      "key": "monotone_paths_are_pascal_entries",
+      "why": "Counts monotone lattice paths by an actual dynamic program and compares the answer to Pascal's triangle built by an actual recurrence — neither side is a literal. The path count is the row-transfer 'next row = inclusive prefix sums of the previous row' (List.scanl, tail), started from a row of ones, iterated m times; the binomial is the triangle rebuilt by zipWith (0::r) (r++[0]) from [1], iterated m+n times. Clause 1 checks the two agree at all 49 cells with m,n in 0..6. Clause 2 checks the table is symmetric under transposing the grid. Clause 3 pins the main diagonal at [1,2,6,20,70]. The ledger holds Pascal only as literal row sums (row 7 to 128, row 10 to 1024 and its halves); it does not construct the triangle or count paths. This establishes agreement on the walked 7x7 window, not the identity for all m,n.",
+      "lean": "theorem monotone_paths_are_pascal_entries : ((List.range 7).all (fun m => (List.range 7).all (fun n => ((((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0 == (((List.range (m+n)).foldl (fun r _ => List.zipWith (fun a b => a + b) (0 :: r) (r ++ [0])) [1]).drop m).headD 0)))) ∧ ((List.range 7).all (fun m => (List.range 7).all (fun n => ((((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0 == (((List.range n).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (m+1) 1)).drop m).headD 0)))) ∧ ((List.range 5).map (fun d => (((List.range d).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (d+1) 1)).drop d).headD 0) = [1,2,6,20,70]) := by decide",
+      "receipt": "a6df49cd-5405-89ef-b7da-35bd7314e774"
+    },
+    {
+      "key": "path_column_differences_close",
+      "why": "Applies the forward-difference operator to the monotone-path counts and shows the differencing closes back onto the grid itself. For each m in 0..5 it takes the column of path counts to (m,n) for n in 0..10, computed by the same prefix-sum transfer, and differences it: clause 1 says m differences flatten the column to all ones, clause 2 says one more difference flattens it to all zeros, so the column behaves as a degree-m sequence annihilated at step m+1. Clause 3 says a single difference of column m is exactly column m-1 with its head dropped — the grid table is its own discrete antiderivative along that axis. All three sides are computed, none is a literal. Nat subtraction never truncates here because every intermediate difference of these columns is non-negative. The ledger's nearest holding, differences_flatten_the_square, is the second difference of n squared, a single 1-D case; this walks the whole binomial family for m up to 5 and columns of length 11, and nothing more.",
+      "lean": "theorem path_column_differences_close : ((List.range 6).all (fun m => ((List.range m).foldl (fun l _ => List.zipWith (fun a b => b - a) l l.tail) ((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0))) == List.replicate (11 - m) 1)) ∧ ((List.range 6).all (fun m => ((List.range (m+1)).foldl (fun l _ => List.zipWith (fun a b => b - a) l l.tail) ((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0))) == List.replicate (10 - m) 0)) ∧ ((List.range' 1 5).all (fun m => (List.zipWith (fun a b => b - a) ((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0)) (((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0)).tail)) == ((List.range 11).map (fun n => (((List.range (m-1)).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0)).tail)) := by decide",
+      "receipt": "f9822d63-3516-8b6b-a799-c400e35da5cf"
+    },
+    {
+      "key": "stride_cycle_is_modulus_over_gcd",
+      "why": "Walks every modulus n from 1 to 24 and every stride s from 0 to n-1, and checks two things about the additive orbit {k·s mod n : k < n}: the number of distinct positions it reaches is exactly n / gcd(s, n), and that count equals n exactly when gcd(s, n) = 1. The ledger already holds single instances of the second half (stride 2 on ℤ/5 in pentagram_step_coprime_five, stride 3 on ℤ/7 in codon_frame_rotates_rosette, stride 7 on ℤ/12 in fifth_cycles_all_twelve) but nothing that walks the general law, and lean/Crt.lean's axes_stride_coprime says in its own docstring that it deliberately does not seal it. This walks it over 300 (n, s) pairs. It establishes the equivalence on that finite window only — it is an exhaustive check up to 24, not an induction over all n.",
+      "lean": "theorem stride_cycle_is_modulus_over_gcd : (List.range' 1 24).all (fun n => (List.range n).all (fun s => (((List.range n).map (fun k => (k * s) % n)).eraseDups.length == n / Nat.gcd s n) && ((((List.range n).map (fun k => (k * s) % n)).eraseDups.length == n) == (Nat.gcd s n == 1)))) := by decide",
+      "receipt": "41117034-3a28-87a4-ab28-e6b2ff72d97a"
+    },
+    {
+      "key": "stride_first_return_is_the_cycle_length",
+      "why": "The companion least-period statement, which counting distinct positions does not give. For every modulus n from 1 to 24 and every stride s from 1 to n, the SMALLEST positive k with k·s ≡ 0 (mod n) — taken as the head of the filtered candidate list, so it is a minimum and not merely some witness — is exactly n / gcd(s, n), and that k does in fact return the walk to zero. So the clock's first homecoming is located, not just its orbit size. Same honest limit: exhaustive over n ≤ 24, no induction.",
+      "lean": "theorem stride_first_return_is_the_cycle_length : (List.range' 1 24).all (fun n => (List.range' 1 n).all (fun s => (((List.range' 1 n).filter (fun k => (k * s) % n == 0)).head? == some (n / Nat.gcd s n)) && (((n / Nat.gcd s n) * s) % n == 0))) := by decide",
+      "receipt": "6d659d22-51e4-88b6-8f86-b8ee1d54310e"
+    },
+    {
+      "key": "two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime",
+      "why": "Two clocks read together. For every pair of moduli a, b from 1 to 9, the joint state k ↦ (k mod a, k mod b) takes exactly (a·b)/gcd(a,b) distinct values — the lcm, not the product — and reaches all a·b pairs exactly when gcd(a,b) = 1; and the first k > 0 at which both hands are back at zero is that same lcm. This states the condition the ledger's CRT page assumes (crt_pairs_are_a_bijection exhibits the 7·9 = 63 bijection; rosette_and_vortex_are_coprime records gcd(9,6) = 3) and supplies the other side of it: what the joint clock actually does when the moduli are NOT coprime — it loses a·b − lcm(a,b) states. Walked over 100 modulus pairs including 7 with 9 and 6 with 9. Exhaustive on that window only.",
+      "lean": "theorem two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime : (List.range' 1 10).all (fun a => (List.range' 1 10).all (fun b => (((List.range (a*b)).map (fun k => (k % a) * 16 + (k % b))).eraseDups.length == (a * b) / Nat.gcd a b) && ((((List.range (a*b)).map (fun k => (k % a) * 16 + (k % b))).eraseDups.length == a * b) == (Nat.gcd a b == 1)) && (((List.range' 1 (a*b)).filter (fun k => (k % a == 0) && (k % b == 0))).head? == some ((a * b) / Nat.gcd a b)))) := by decide",
+      "receipt": "cb7ed1d8-da91-8c7b-816d-c1195310bbeb"
+    },
+    {
+      "key": "merkle_depth_iff_leaf_bound",
+      "why": "Walks every leaf count n from 1 to 64 against every depth k from 0 to 7 and shows the fold depth is pinned exactly to the leaf count: reducing the level width k times by the odd-carrying halve w -> (w+1)/2 arrives at width 1 if and only if n <= 2^k. So the least k that reaches a root is ceil(log2 n), and no leaf count reaches a root earlier than its bound allows. The second conjunct pins one concrete slice of that: of the 64 leaf counts walked, exactly 8 fold to a root within 3 levels. Scope: a finite walk over n <= 64 and k <= 7, not an induction, and it is about level widths only -- it says nothing about hash contents.",
+      "lean": "theorem merkle_depth_iff_leaf_bound : ((List.range' 1 64).all (fun n => (List.range 8).all (fun k => (((List.range k).foldl (fun w _ => (w + 1) / 2) n) == 1) == decide (n ≤ 2 ^ k)))) ∧ (((List.range' 1 64).filter (fun n => ((List.range 3).foldl (fun w _ => (w + 1) / 2) n) == 1)).length = 8) := by decide",
+      "receipt": "9fab061c-d4d7-80f6-9900-5e15d1b1ed2b"
+    },
+    {
+      "key": "merkle_shape_moves_root_iff_nonassociative",
+      "why": "Shows that the bracketing of a 4-leaf fold is load-bearing exactly when the pairwise merge is non-associative. With the non-associative merge f x y = 2x + y, the balanced Merkle root f(f(a,b),f(c,d)) equals the left-linear chain f(f(f(a,b),c),d) if and only if a = 0 and b = 0 -- checked across all 1296 tuples with a,b,c,d < 6, and note c and d drop out of the condition entirely, so only the leftmost pair decides it. The second conjunct runs the same two shapes with associative +, where they agree on every tuple. Honest scope: this is one non-associative representative and one associative representative on a bounded grid, an instance of the associativity principle rather than a general proof of it. It does establish that a Merkle scheme must fix its tree shape unless its merge is associative.",
+      "lean": "theorem merkle_shape_moves_root_iff_nonassociative : ((List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun d => ((2 * (2 * a + b) + (2 * c + d)) == (2 * (2 * (2 * a + b) + c) + d)) == (a == 0 && b == 0)))))) ∧ ((List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun d => ((a + b) + (c + d)) == (((a + b) + c) + d)))))) := by decide",
+      "receipt": "e19facac-7891-8835-a4f3-84c5d3ff7780"
+    },
+    {
+      "key": "merkle_odd_level_padding_costs_above_leaf_count",
+      "why": "Counts what odd levels cost. For every leaf count n from 1 to 32 the fold is run level by level, carrying the running number of pairwise merges, each level producing (w+1)/2 parents -- the odd-width carry that duplicate-last padding performs. The total merge count is always at least n-1, the internal-node count of a strict binary tree over n leaves, and it hits that floor exactly when n is a power of two (checked against membership in {2^0 .. 2^5}). Every other leaf count pays strictly more merges than an ideal strict binary tree would. Scope: a finite walk over n <= 32 with a fixed 8-level budget that idles once width 1 is reached; it counts merge operations only and makes no claim about the security of the padding.",
+      "lean": "theorem merkle_odd_level_padding_costs_above_leaf_count : (List.range' 1 32).all (fun n => let m := ((List.range 8).foldl (fun (s : Nat × Nat) _ => if s.1 == 1 then s else ((s.1 + 1) / 2, s.2 + (s.1 + 1) / 2)) (n, 0)).2; decide (n - 1 ≤ m) && ((m == n - 1) == ((List.range 6).any (fun k => n == 2 ^ k)))) := by decide",
+      "receipt": "d0f2d4ea-51f2-8836-b7d1-0edf88fa00d8"
     }
   ],
   "refused": [
