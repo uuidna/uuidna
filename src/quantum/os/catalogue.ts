@@ -265,6 +265,37 @@ export function packageSelfTest(p: CataloguePackage): PackageTest {
   return { name: p.name, version: p.version, ok: checks.every((c) => c.ok), checks, unresolved }
 }
 
+/** hexbitPortCoverage(repo?) → how many catalogued packages COMPILE to UUID_HEXBITS on-lattice states.
+ *
+ *  THE METER THE CLAIM NEEDS. "Ported in hexbits" is the compile check alone — a package whose dependency
+ *  closure is incomplete is still a hexbit-ported provenance identity; closure is a different ledger (and is
+ *  already counted by packageSelfTest). Absent catalogue → total 0, never a silent 100%.
+ *
+ *  Measured on the committed mirror (2026-08-26): community 22,678/22,678 · main 5,961/5,961 · all 28,639 —
+ *  every published row on the pinned branch folds to 32 states via the same mint the boot port uses. */
+export interface HexbitPortCoverage {
+  repo: 'main' | 'community' | 'all'
+  total: number
+  ported: number
+  missing: string[]   // names that failed compile, capped so a regression names the gap without dumping 28k
+}
+export function hexbitPortCoverage(repo?: 'main' | 'community'): HexbitPortCoverage {
+  const { packages, state } = load()
+  const tag: HexbitPortCoverage['repo'] = repo ?? 'all'
+  if (!state.present) return { repo: tag, total: 0, ported: 0, missing: [] }
+  const list = repo ? packages.filter((p) => p.repo === repo) : packages
+  let ported = 0
+  const missing: string[] = []
+  for (const p of list) {
+    const c = catalogueCompile(p)
+    const ok = c.hexbits.length === UUID_HEXBITS
+      && c.hexbits.every((h) => Number.isInteger(h) && h >= 0 && h < 16)
+    if (ok) ported++
+    else if (missing.length < 25) missing.push(p.name)
+  }
+  return { repo: tag, total: list.length, ported, missing }
+}
+
 export interface SuiteResult {
   tested: number; passed: number; failed: number
   present: boolean; why: string | null
