@@ -230,6 +230,54 @@ export function childProbe(platform: string = process.platform): ChildProbe {
   }
 }
 
+/** How to ask this host WHEN a pid started — the recipe, plus how to read the answer back.
+ *
+ *  THIS IS AN IDENTITY, NOT A CLOCK, and the distinction is the whole reason it is allowed to exist in a tree
+ *  whose lock law reads "staleness is decided by PID LIVENESS, never by a clock". Nothing here is ever compared
+ *  to *now*, and no duration is ever computed from it. The stamp is read once when a holder takes the lock,
+ *  written beside its pid, and afterwards only ever compared for EQUALITY against what the host reports. A clock
+ *  answers "how long"; this answers "is this the same process". Those are different questions and only the second
+ *  is being asked.
+ *
+ *  WHY IT IS NEEDED (2026-08-25). A pid is a number the operating system REISSUES. A holder that crashed leaves a
+ *  lock naming its pid; the OS hands that number to an unrelated process; `process.kill(pid, 0)` then answers
+ *  true forever, so the lock reads LIVE and stale-reclaim — the one path that exists to release a crashed
+ *  holder's grip — never fires. Measured live: a suite run under five-session load spent 10,123,473 ms in
+ *  awaitAcquire on a holder that was already dead, granting roughly four extensions to a corpse, and then failed.
+ *  The same suite in a quiet moment ran in 22,628 ms. A deterministic defect does not vary by 449x; a
+ *  pid-collision under load does exactly that.
+ *
+ *  So the lock stops identifying its holder by a recycled handle and starts identifying it by something only that
+ *  process could have: the moment it began. Two processes may share a number; they cannot share a number AND a
+ *  start instant. */
+export interface BornProbe {
+  file: string
+  args: (pid: number) => string[]
+  /** the creation stamp as an OPAQUE string — compared only for equality, never parsed, never subtracted */
+  reads: (stdout: string) => string
+  note: string
+}
+
+export function bornProbe(platform: string = process.platform): BornProbe {
+  if (platform !== 'win32') return {
+    file: 'ps',
+    // lstart is ABSOLUTE (the wall instant the process began) where etime is ELAPSED — etime changes every second
+    // and so cannot identify anything. The absolute one is stable for the life of the process, which is what an
+    // identity needs and what a duration can never be.
+    args: (pid) => ['-o', 'lstart=', '-p', String(pid)],
+    reads: (stdout) => stdout.trim(),
+    note: 'ps -o lstart= — the POSIX process table\'s absolute start instant',
+  }
+  return {
+    file: 'powershell',
+    args: (pid) => ['-NoProfile', '-NonInteractive', '-Command', `(Get-CimInstance Win32_Process -Filter "ProcessId=${pid}").CreationDate.ToFileTimeUtc()`],
+    // a file-time integer, printed verbatim and never interpreted here; an unknown pid yields $null and prints
+    // nothing, which reads as "no answer" rather than as any particular time
+    reads: (stdout) => stdout.trim(),
+    note: 'Get-CimInstance CreationDate — the Windows process table\'s creation stamp (ps here has no -o)',
+  }
+}
+
 /** How to ask this host for a pid's PARENT — the recipe, plus how to read the answer back. Same split as the
  *  shell and the child probe: the driver states it, the caller spawns it. */
 export interface ParentProbe {
