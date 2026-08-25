@@ -25,3 +25,32 @@ test('stderr is captured alongside stdout — a runner classifies what a step sa
   assert.equal(r.ok, true)
   assert.match(r.out, /to-err/, 'the named transient classes live in stderr as often as in stdout')
 })
+
+// ── whyFailed — the same file's OTHER two-state instrument, now able to say which of three things happened.
+//
+// shellRun/shellOut both threw `failed (exit ${r.status})` on `r.status !== 0`, and null satisfies that test. So a
+// command the host never launched raised a sentence naming an exit code that does not exist — pointing the reader
+// at a command that was never wrong, while the actual fault (no such binary, a refused spawn, a signal) went
+// unnamed. Control flow is unchanged and should be: a step that could not run has not passed. The EVIDENCE changes.
+test('whyFailed tells a NONZERO EXIT from a command that never ran, and names the reason', async () => {
+  const { whyFailed } = await import('../scripts/api.js')
+  assert.equal(whyFailed({ status: 1 }), 'failed (exit 1)', 'a real exit code is reported as one')
+  assert.equal(whyFailed({ status: 127 }), 'failed (exit 127)')
+
+  // THE MUTATION THIS CATCHES: revert to `failed (exit ${r.status})` and this line reads "exit null" — the string
+  // the old throwers produced, and the reason this test exists.
+  const never = whyFailed({ status: null, error: new Error('spawn nosuchshell ENOENT') })
+  assert.match(never, /could not be RUN/, 'a spawn that never started must not be reported as an exit')
+  assert.match(never, /ENOENT/, 'and it must carry the host\'s own reason, which is the only clue there is')
+  assert.doesNotMatch(never, /exit/, 'nothing exited, so nothing may say it did')
+
+  // killed before it could report: no error object, no status — the case with the least evidence, so it must not
+  // invent any. It says what it knows (a signal) and admits the rest.
+  const killed = whyFailed({ status: null, signal: 'SIGKILL' })
+  assert.match(killed, /could not be RUN/)
+  assert.match(killed, /SIGKILL/)
+  assert.match(whyFailed({ status: null }), /unknown signal/, 'with no signal named either, it says so rather than guessing')
+
+  // and success is not this function's business — it is only ever asked why something did NOT succeed
+  assert.equal(whyFailed({ status: 0 }), 'failed (exit 0)', 'called on a success it says so plainly; the callers guard that')
+})

@@ -131,6 +131,23 @@ export const relRoot = (abs: string): string => pathm().relative(ROOT, abs).repl
 /** join repo-relative segments in the canonical spelling — the same law for a path BUILT rather than derived */
 export const relJoin = (...parts: string[]): string => parts.join('/').replace(/\\/g, '/')
 
+/** Why a spawn did not succeed, in the words the case deserves — and the DISTINCTION `status !== 0` erases.
+ *
+ *  `spawnSync` sets `status` to null when the command never STARTED: the binary did not resolve, the host refused
+ *  the spawn, a signal killed it before it ran. Both throwers below tested `r.status !== 0`, which is true of null,
+ *  so a shell that could not be launched raised `failed (exit null)` — a sentence naming an exit code that does not
+ *  exist, for a program that never produced one, and the reader then hunts a command that was never wrong.
+ *
+ *  The same two-state instrument answering a three-state question as the arc receipt (all-run.ts, phaseLeaf) and as
+ *  green.ts's Verdict, which names the third state `unmeasured`. Here it cannot change control flow — both callers
+ *  throw either way, and that is right: a step that could not run has not passed. What it changes is the EVIDENCE
+ *  the throw carries, which is the whole of what a caller has to work from.
+ */
+export const whyFailed = (r: { status: number | null; error?: Error; signal?: NodeJS.Signals | null }): string =>
+  r.error ? `could not be RUN (${r.error.message})`
+    : r.status === null ? `could not be RUN (killed by ${r.signal ?? 'an unknown signal'} before it reported)`
+      : `failed (exit ${r.status})`
+
 /** shellRun(cmd) → run a command through the host's own shell, streaming to this process's stdio; THROWS on a
  *  non-zero exit, exactly as execSync did, so a caller's error handling is unchanged.
  *
@@ -141,14 +158,14 @@ export const relJoin = (...parts: string[]): string => parts.join('/').replace(/
 export const shellRun = (cmd: string, cwd: string = ROOT): void => {
   const sh = shellOrExit('run')
   const r = cpm().spawnSync(sh.file, sh.argv(cmd), { cwd, env: sh.env(process.env), stdio: 'inherit' })
-  if (r.status !== 0) throw new Error(`shellRun failed (exit ${r.status}): ${cmd}`)
+  if (r.status !== 0) throw new Error(`shellRun ${whyFailed(r)}: ${cmd}`)
 }
 
 /** shellOut(cmd) → the command's stdout, through the same host shell. Throws on a non-zero exit. */
 export const shellOut = (cmd: string, cwd: string = ROOT): string => {
   const sh = shellOrExit('run')
   const r = cpm().spawnSync(sh.file, sh.argv(cmd), { cwd, env: sh.env(process.env), encoding: 'utf8' })
-  if (r.status !== 0) throw new Error(`shellOut failed (exit ${r.status}): ${cmd}\n${r.stderr ?? ''}`)
+  if (r.status !== 0) throw new Error(`shellOut ${whyFailed(r)}: ${cmd}\n${r.stderr ?? ''}`)
   return (r.stdout ?? '').trim()
 }
 

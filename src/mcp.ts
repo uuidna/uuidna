@@ -916,14 +916,28 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: { a: { type: 'string' }, b: { type: 'string' } }, required: ['a', 'b'] },
     run: (x) => comparePublications(String(x.a), String(x.b)) },
   { name: 'uuidna_wave',
-    description: 'THE GRADUATION WALK as one call — runs the release wave (build → dry → legal → prose → fold → guard → next → mint) via one-receipt, the same walk the school teaches and the one receipt seals. LOCAL ONLY (spawns npm in the repo tree — orchestration, not pure compute; absent from the hosted Workers subset by construction). Green ends with the statement minted as a signed uuidna.com deposit — the diploma; red returns the first failing step with its exact GAP+FIX prompt. HONEST: the wave verifies and mints, it never judges the worth of the theorem — the credit law and the court do. Returns {passed, step, tail}. Boundary declared — theorem drift_is_named_or_caught.',
+    description: 'THE GRADUATION WALK as one call — runs the release wave (build → dry → legal → prose → fold → guard → next → mint) via one-receipt, the same walk the school teaches and the one receipt seals. LOCAL ONLY (spawns npm in the repo tree — orchestration, not pure compute; absent from the hosted Workers subset by construction). Green ends with the statement minted as a signed uuidna.com deposit — the diploma; red returns the first failing step with its exact GAP+FIX prompt. HONEST: the wave verifies and mints, it never judges the worth of the theorem — the credit law and the court do. Returns {ran,passed,step,tail}; ran:false = could not START here, a fact about the host, not the ledger. Boundary declared — theorem drift_is_named_or_caught.',
+    detail: 'WHY `ran` IS A FIELD AND NOT AN INFERENCE. This tool spawns the walk, and `spawnSync` reports status null when the command never STARTED — node unresolvable, the spawn refused by the host, a signal before the first step. The result read `passed: r.status === 0`, which maps that null to false, so a walk that never began was served as {passed:false, step:"closed"}: the exact shape of a walk that ran to the end and was REFUSED. A caller decides by this — reads the tail, fixes the named step — and would have been aiming at a walk that never happened, on evidence that was never gathered. The distinction costs one boolean and it is not cosmetic: passed:false is a claim about the LEDGER, and this host could only ever have made a claim about ITSELF. Same defect as the arc receipt folding an unattempted phase (scripts/all-run.ts, phaseLeaf), as scripts/api.ts\'s shell throwers reporting "exit null", and as the `unmeasured` verdict green.ts already carries — a two-state instrument put to a three-state question. Served surfaces are where it costs the most, because the reader is not in the room.',
     inputSchema: { type: 'object', properties: { statement: { type: 'string', description: 'the deposit statement — must cite a sealed theorem ("proven by theorem <key>")' } }, required: ['statement'] },
     run: async (x) => {
       const { spawnSync } = await import('node:child_process')   // lazy: this tool is stdio-only by construction
       const r = spawnSync('node', ['dist/scripts/one-receipt.js', 'wave', String(x.statement)], { cwd: LIB_ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
       const out = `${r.stdout || ''}${r.stderr || ''}`
       const failed = out.match(/the walk stopped at "([a-z]+)"/)
-      return { passed: r.status === 0, step: failed ? failed[1] : 'closed', tail: out.split('\n').slice(-25).join('\n') } },
+      // THREE STATES, because this is a SERVED verdict and a caller decides by it. `status` is null when the walk
+      // never started — node unresolvable, the spawn refused, a signal — and `r.status === 0` mapped that null to
+      // false, so the tool answered {passed:false, step:'closed'}: a walk that ran to the end and was refused. It
+      // was reporting a fact about the LEDGER when it had only a fact about this host, and the caller's next move
+      // (read the tail, fix the step) is aimed at a walk that never happened. `ran` separates the two.
+      const ran = !r.error && r.status !== null
+      return {
+        ran,
+        passed: ran && r.status === 0,
+        step: !ran ? 'unmeasured' : failed ? failed[1] : 'closed',
+        tail: ran ? out.split('\n').slice(-25).join('\n')
+          : `the wave could not be RUN here: ${r.error?.message ?? `killed by ${r.signal ?? 'an unknown signal'}`}\n`
+            + 'this says nothing about the ledger — nothing was walked. Run `npm run build` and retry.',
+      } },
   },
   { name: 'uuidna_trial',
     description: 'Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
