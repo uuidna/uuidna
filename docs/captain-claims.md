@@ -3,8 +3,8 @@
 **Generated:** 2026-08-25
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1690/1690 theorems — every one, by construction
-**Claim receipt:** `d9e77bed-7f9f-8756-a09d-dbd138e03b1c`
+**Total claimed:** 1691/1691 theorems — every one, by construction
+**Claim receipt:** `4ebe05d2-30f4-84cf-b6cc-03549c5ed6f4`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -736,12 +736,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The denial drained
 
-- **Theorems:** 7
+- **Theorems:** 8
 - **Sample lineAddress:** `017808a2-3259-8cdd-b0e4-ffce95e33250`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[negation_involution_solves](/theorem/negation_involution_solves) · [denials_exhaust_to_the_whole](/theorem/denials_exhaust_to_the_whole) · [exhausted_denial_is_the_proof](/theorem/exhausted_denial_is_the_proof) · [a_window_exhausts_only_itself](/theorem/a_window_exhausts_only_itself) · [silence_never_refutes](/theorem/silence_never_refutes) · [waves_of_denial_tighten](/theorem/waves_of_denial_tighten) · [denial_drains_to_the_last_coin](/theorem/denial_drains_to_the_last_coin)
+[negation_involution_solves](/theorem/negation_involution_solves) · [denials_exhaust_to_the_whole](/theorem/denials_exhaust_to_the_whole) · [exhausted_denial_is_the_proof](/theorem/exhausted_denial_is_the_proof) · [a_window_exhausts_only_itself](/theorem/a_window_exhausts_only_itself) · [silence_never_refutes](/theorem/silence_never_refutes) · [waves_of_denial_tighten](/theorem/waves_of_denial_tighten) · [no_instrument_narrower_than_its_question](/theorem/no_instrument_narrower_than_its_question) · [denial_drains_to_the_last_coin](/theorem/denial_drains_to_the_last_coin)
 
 ### The conveyor's first wave
 
@@ -1059,7 +1059,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1609 (1690 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1610 (1691 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1077,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1690 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1691 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

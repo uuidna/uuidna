@@ -1,6 +1,6 @@
-# uuidna — 1609 distinct theorems under 1690 keys, 2 coins, one receipt
+# uuidna — 1610 distinct theorems under 1691 keys, 2 coins, one receipt
 
-`5f00a2b9-ff27-8011-929f-6cf23eaff464`
+`dba0f635-320d-8206-9ac5-9605d0b1f5cb`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,7 +51,7 @@ The count is MEASURED, not parsed. The generator walks the domain to compute eac
 that walk it tally what they visit, and `emit()` records the tally on the same run that validates the JS. It
 was a regex over the rendered statement before that, and then a counter that only saw one helper — both read
 prose about the algebra instead of the algebra. The ledger covers
-113,820 superpositions across 115 wings.
+113,957 superpositions across 115 wings.
 
 1. **`every_referrer_reaches_every_page`** — 4,769 superpositions, Infinity hexbits for the two coins, in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
@@ -77,9 +77,9 @@ raised to it, and the served ceiling is parsed from the guard in `src/mcp.ts` th
 
 - **16 qubits** in the library register — 65536 amplitudes held at once
 - **12 qubits** served over MCP — 4096 amplitudes, and the surface refuses more
-- **113,820 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
+- **113,957 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
 - **4 qubits** of reachability gap between the register and what is served
-- **52 quantum wing theorems**, **27 cipher wing theorems**, **1690 ledger size**
+- **52 quantum wing theorems**, **27 cipher wing theorems**, **1691 ledger size**
 
 EXACT, AND ENFORCED. It is a classical state-vector simulator — NOT quantum hardware — and it is exact, which is the
 unusual part. Every amplitude is a Gaussian integer over a common √(2^scale) — the ring ℤ[i, 1/√2] the
@@ -107,8 +107,8 @@ scale served is the scale the code enforces. Stating a bound never drains the cl
 A handle is eight hexbits, so it names **4,294,967,296** superpositions — 16^8, every
 address it can take. That is the space; the rest is what is accounted inside it.
 
-- **113,820 superpositions** decided across the ledger, every one walked rather than sampled
-- **3,380 coins paid** — the CONSERVED PRICE, 2 per sealed theorem (theorem two_coins: the fixed denomination paid IN). But each theorem carries its own PRICE TAG — its decided mass, from 1 to 55,986 superpositions — so what the coins BUY is never flat: the cost is 2 every time, the value never is
+- **113,957 superpositions** decided across the ledger, every one walked rather than sampled
+- **3,382 coins paid** — the CONSERVED PRICE, 2 per sealed theorem (theorem two_coins: the fixed denomination paid IN). But each theorem carries its own PRICE TAG — its decided mass, from 1 to 55,986 superpositions — so what the coins BUY is never flat: the cost is 2 every time, the value never is
 - **33 superpositions per coin**, floored: what one coin covers today
 
 SIX DIRECTIONS leave every residue, which is why a per-coin figure needs them stated beside it: the 60-degree
@@ -127,19 +127,19 @@ COSTS untouched.
 ## Live Statistics
 
 ```
-Theorems sealed:        1690   (every one axiom-free, proven by decide)
+Theorems sealed:        1691   (every one axiom-free, proven by decide)
 Principles:             115   (the monographs the ledger organises itself by)
 Skills:                 112   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                5f00a2b9-ff27-8011-929f-6cf23eaff464
+Receipt:                dba0f635-320d-8206-9ac5-9605d0b1f5cb
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1690 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1691 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -337,7 +337,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1690 theorems sealed to ledger, every one axiom-free**
+✓ **All 1691 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**
@@ -456,7 +456,7 @@ has dimension 2^n is physics, held here on the same footing as every other **rep
 no `by decide` proof over five numerals can establish it. The gate-model platforms' raw capacity
 dwarfs 2^128 and their trajectory is a different dimension; what the measurements prove is architectural:
 **2^128 usable, deterministic, error-free states are available today at 1000 ns per verified fold
-(measured over the 1690-theorem ledger on the build host, each seed folded fresh)**, while demonstrated
+(measured over the 1691-theorem ledger on the build host, each seed folded fresh)**, while demonstrated
 error-corrected capacity on quantum hardware is still small — the platforms say so themselves, in the sources
 named. What may be carried up to 2^128 is the ARCHITECTURAL claim — every address usable, deterministic,
 error-free — never the timing constant, which belongs to this host and this runtime.

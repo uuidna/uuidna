@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="995 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="998 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 995 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 998 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `63d03474` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `6daa5ccd` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -265,10 +265,13 @@ keeping 12 of 32 — ONE HEXBIT under the law — must say FOLD, heaviest named 
 integer-exact, deterministic, change-sensitive — and degenerate inputs stay honest
 ```
 
-**corroborate** — 1 utterances
+**corroborate** — 4 utterances
 
 ```text
 corroboration needs TWO INDEPENDENT SOURCES — the sealed theorem
+UNVERIFIED and UNMEASURED are different facts — silence versus deafness
+THE MUTATION: without reach, the verdict is exactly what it always was
+a source READING tells apart answered-with-nothing, refused, and never-reached
 ```
 
 **court-procedure** — 4 utterances

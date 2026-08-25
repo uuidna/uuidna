@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:02700510-264c-8296-b5c1-41d0d74c9f1b",
+  "@id": "urn:uuid:093adbf2-2fb2-86ad-a9e1-7edb6bc6556c",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -38490,6 +38490,34 @@
         "abstract": "((List.range 6).all (fun r => 2^6 / 2^r == 2^(6 - r))) ∧ (2^6 / 2^6 = 1)",
         "identifier": "710ebc73-49a2-8072-9500-05272111a15a",
         "url": "https://uuidna.com/theorem/waves_of_denial_tighten",
+        "keywords": "negation, The denial drained",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Negation.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:adf11666-5319-8235-b320-c355760f6983",
+        "@type": "ScholarlyArticle",
+        "headline": "AN INSTRUMENT WHOSE RANGE IS NARROWER THAN ITS QUESTION CANNOT BE SOUND — the denial law turned on the measuring apparatus itself. Enumerate EVERY two-valued instrument over a three-answer question: all 2³ = 8 of them, and each one collapses some distinct pair of answers to one value. Not most, not typically — all eight, exhaustively, which is what makes it a denial rather than an observation. The second half is the CONTROL that keeps the first from being a slur on instruments in general: among the 3³ = 27 three-valued instruments over the same question, at least one separates all three, so the failure is the NARROWNESS and never the measuring. What this decides is that a two-state answer to a three-state question is unsound BY CONSTRUCTION, before any implementation is inspected — the collapse is a property of the shape, so no care in the code can remove it and no green run can be evidence against it. The consequence for a reader is the useful half: when a healthy case and a broken case return the same value, the instrument has already been refuted, and the run that reports success is reporting the collapse.",
+        "abstract": "((List.range 8).all (fun f => (List.range 3).any (fun i => (List.range 3).any (fun j => i < j && (f / 2^i % 2 == f / 2^j % 2))))) ∧ ((List.range 27).any (fun g => (List.range 3).all (fun i => (List.range 3).all (fun j => i == j || !(g / 3^i % 3 == g / 3^j % 3)))))",
+        "identifier": "6859ef06-3c95-8858-bd28-c5ff99aa35f2",
+        "url": "https://uuidna.com/theorem/no_instrument_narrower_than_its_question",
         "keywords": "negation, The denial drained",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Negation.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

@@ -2,8 +2,8 @@
   "generated": "2026-08-25",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1690,
-  "total_theorems": 1690,
+  "total_claimed": 1691,
+  "total_theorems": 1691,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -8256,6 +8256,12 @@
       "principle": "The denial drained"
     },
     {
+      "key": "no_instrument_narrower_than_its_question",
+      "lineAddress": "adf11666-5319-8235-b320-c355760f6983",
+      "address": "6859ef06-3c95-8858-bd28-c5ff99aa35f2",
+      "principle": "The denial drained"
+    },
+    {
       "key": "denial_drains_to_the_last_coin",
       "lineAddress": "cb934635-54d3-86be-b3ce-8c1ac4844aff",
       "address": "31224c9d-6734-8242-bf8b-a42695f78cdd",
@@ -10146,7 +10152,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "d9e77bed-7f9f-8756-a09d-dbd138e03b1c",
+  "claim_receipt": "4ebe05d2-30f4-84cf-b6cc-03549c5ed6f4",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
