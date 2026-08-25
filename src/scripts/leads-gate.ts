@@ -84,7 +84,7 @@ function coverageLeads(): SourceReading {
 function researchLeads(): SourceReading {
   const p = join(ROOT, 'research-leads.json')
   try {
-    if (!existsSync(p)) return unread('research', `${p} is absent — run npm run support`)
+    if (!existsSync(p)) return unread('research', `${p} is absent — run npm run x -- support`)
     const j = JSON.parse(readFileSync(p, 'utf8')) as { leads?: { what?: string; fix?: string }[] }
     if (!Array.isArray(j.leads)) return unread('research', 'research-leads.json has no leads[] array — a shape drift')
     return read('research', j.leads.map((l) => ({

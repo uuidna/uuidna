@@ -91,7 +91,7 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven \`by decide\` in the ledger.
 :::
 
-*Computed by \`npm run search:trial\` (the online wave); edited by the same desk as every page (\`npm run editorial\`).*
+*Computed by \`npm run x -- quantum-search-trial\` (the online wave); edited by the same desk as every page (\`npm run editorial\`).*
 `
   writeFileSync(join(OUT, slugOf(wing) + '.md'), md)
   published++

@@ -18,7 +18,7 @@
 //   walks   star_walk · rosette_receipts · rosette_audit   (5/2 · 7/3 · 9/2 recomputed, the rays, the coins)
 import { createHash } from 'node:crypto'
 import { messagingSeal } from '../quantum/message/index.js'
-import { execSync } from 'node:child_process'
+import { execSync , spawnSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -26,7 +26,8 @@ import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUui
 import { MCP_CATALOG, callTool } from '../mcp.js'
 import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
-import { ROOT, rd, cleanGitEnv, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
+import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
+import { shellOrExit } from '../os/host/index.js'
 
 // ONE READ PER FILE, SHARED. `binary` scans bytes and `hexbit` scans text over the SAME tracked source, and each was
 // re-reading every file from disk — the cache-immutable-reads law applied to the read itself. The buffer is the one
@@ -190,7 +191,7 @@ export function wave(statement: string): void {
     // ENROLL — the newcomer's intake, so the walk never stops to ask for a clerk: the axiom witness covers every
     // current theorem, and the heartbeats measure ONLY the missing addresses (the incremental default — seconds
     // per newcomer, free when no one enrolls). No theorem enrolls unmeasured.
-    enroll: 'npm run axioms && npm run heartbeats',
+    enroll: 'npm run axioms && npm run x -- lean-heartbeats',
     dry: `node ${JSON.stringify(self)} dry`, legal: `node ${JSON.stringify(self)} legal`,
     prose: `node ${JSON.stringify(self)} prose`, fold: `node ${JSON.stringify(self)} fold`,
     guard: 'npm run guard', next: 'npm run next', mint: `node ${JSON.stringify(self)} mint ${JSON.stringify(statement)}`,
@@ -495,11 +496,11 @@ export function linesGaps(): Gap[] {
     const known = declared[g.statement]
     if (!known) gaps.push({
       what: `NEW cross-wing reuse: "${g.statement}" is sealed by ${g.keys.join(', ')} across ${files.join(' + ')}, and lean/statement-index.json does not declare it`,
-      fix: 'if the re-seal is deliberate (a standalone wing may not import another, so a shared fact is re-proven on purpose), run `npm run gen:lines` to declare it; if it is an accident, withdraw the later key. The index may only shrink — a new entry is a decision',
+      fix: 'if the re-seal is deliberate (a standalone wing may not import another, so a shared fact is re-proven on purpose), run `npm run x -- gen-lines` to declare it; if it is an accident, withdraw the later key. The index may only shrink — a new entry is a decision',
     })
     else if (known.length !== g.keys.length || !g.keys.every((k) => known.includes(k))) gaps.push({
       what: `reuse of "${g.statement}" changed: declared ${known.join(', ')} but the ledger now seals it as ${g.keys.join(', ')}`,
-      fix: 'run `npm run gen:lines` after confirming the change is intended — a reuse set that drifts silently is the duplication growing under a declaration that no longer describes it',
+      fix: 'run `npm run x -- gen-lines` after confirming the change is intended — a reuse set that drifts silently is the duplication growing under a declaration that no longer describes it',
     })
   }
   return gaps
@@ -612,7 +613,7 @@ export function absenceGaps(): Gap[] {
 // checks the invariant that makes "two envelopes" honest rather than "two sources of truth": every theorem's
 // address must AGREE across both files, and every block address must be DISTINCT — the exact class that once
 // collapsed 235 theorems onto one wing address, now guarded on both shapes at once.
-// SKIPS (returns clean— these are optional exports (`npm run payload:sync`),
+// SKIPS (returns clean— these are optional exports (`npm run x -- payload-sync`),
 // not part of every reconcile, so guard does not force-generate them; when they exist, they must agree.
 export function blocksGaps(): Gap[] {
   const gaps: Gap[] = []
@@ -634,7 +635,7 @@ export function blocksGaps(): Gap[] {
   for (const b of blocks) {
     const richAddr = richBySlug.get(b.slug)
     if (richAddr && richAddr !== b.uuidnaAddress)
-      gaps.push({ what: `"${b.slug}" has address ${richAddr} in payload-sync.json but ${b.uuidnaAddress} in payload-sync-blocks.json — the two envelopes disagree about one theorem's identity`, fix: 'both emitters must call documentAddress on the SAME lexical root for a given theorem; regenerate both with `npm run payload:sync` after checking toPayloadDocs and toPayloadBlocksDoc compute identically' })
+      gaps.push({ what: `"${b.slug}" has address ${richAddr} in payload-sync.json but ${b.uuidnaAddress} in payload-sync-blocks.json — the two envelopes disagree about one theorem's identity`, fix: 'both emitters must call documentAddress on the SAME lexical root for a given theorem; regenerate both with `npm run x -- payload-sync` after checking toPayloadDocs and toPayloadBlocksDoc compute identically' })
   }
   return gaps
 }
@@ -844,7 +845,7 @@ export function drainGaps(): Gap[] {
   for (const p of DRAIN_PATHS) {
     const line = p.endsWith('/') || !p.includes('.') ? p + '/**' : p
     if (!attrs.includes(`${line} merge=derived`))
-      gaps.push({ what: `${p} is a drain path but .gitattributes does not mark it unmergeable`, fix: 'run `npm run gen:gitattributes` — .gitattributes is generated from DRAIN_PATHS; a derived file has no merge, only a recomputation' })
+      gaps.push({ what: `${p} is a drain path but .gitattributes does not mark it unmergeable`, fix: 'run `npm run x -- gen-gitattributes` — .gitattributes is generated from DRAIN_PATHS; a derived file has no merge, only a recomputation' })
   }
   return gaps
 }
@@ -1454,9 +1455,20 @@ export function seal(): void {
     // THE GATE-WAIT, folded — the piece every hand-written watcher kept re-implementing: never interleave
     // writers on the shared tree (the mixed-dist hazard). Wait for any running reconcile before touching it.
     for (let w = 0; w < 90; w++) {
-      const gates = execSync('ps aux | grep "[r]econcile.js" | wc -l', { cwd: ROOT }).toString().trim()
-      if (gates === '0') break
-      execSync('sleep 10', { cwd: ROOT })
+      // THE SAME POSIX ASSUMPTION 07bc4b2f CALLED THE LAST ONE, at its fourth site (2026-08-25). ps, grep and wc
+      // are nothing at all to cmd.exe, the shell execSync reaches on Windows, so this probe THREW rather than
+      // answering and took seal() down with it. shellOrExit NAMES the host~s shell instead of inheriting whatever
+      // execSync defaults to. AND THE ANSWER IS THREE-VALUED: a probe that could not RUN is not a quiet tree, and
+      // this loop is the one thing keeping seal() from interleaving writers on a tree that is mid-gate.
+      const sh = shellOrExit('seal')
+      const r = spawnSync(sh.file, sh.argv('ps aux | grep "[r]econcile.js" | wc -l'), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
+      if (r.error || r.status !== 0) {
+        console.error('x seal — the gate-wait probe could not RUN, so a busy tree is indistinguishable from a')
+        console.error('  quiet one. Refusing rather than draining a tree another writer may hold: ' + (r.error?.message ?? `exit ${r.status}`))
+        process.exit(1)
+      }
+      if (r.stdout.trim() === '0') break
+      pauseSeconds(10)
     }
     const dirty = execSync('git status --porcelain', { cwd: ROOT }).toString().trim()
     let ahead = '0'
@@ -1975,10 +1987,29 @@ export function orphanGaps(): Gap[] {
  *  computed from `captain_theorem` (32 · 4 = 128, 128 / 2 = 64), and this refuses a second: any
  *  module outside it that divides by 16, floors by 4, or writes the uuid's 32 as a literal beside a hexbit word
  *  is re-deriving what it should import. */
+/*  THE PATHSPEC WAS QUOTED AND THIS FINDER SCANNED NOTHING FOR ITS ENTIRE LIFE (2026-08-25). The call read
+ *  execSync("git ls-files 'src/'"). On Windows execSync spawns cmd.exe, which does NOT strip single quotes, so git
+ *  received the literal pathspec 'src/' — quotes included — matched no path, and exited ZERO. Measured on this
+ *  host: as shipped, 0 files reached the loop; with the quotes removed, 647.
+ *
+ *  IT FAILED BY SUCCEEDING, which is why the `catch` below never helped and nobody ever noticed. An exception
+ *  would have been reported. Instead git said "no error, no files", the loop ran zero times, and unitGaps returned
+ *  the empty array that means "no module re-derives the hexbit unit". A tree with 647 violating files and a
+ *  perfectly clean tree returned the same value — and the green was read as evidence that the unit has one
+ *  definition, when it was only evidence that cmd.exe does not strip quotes.
+ *
+ *  The correct form was already in this file, forty lines up: trackedFiles() calls execSync('git ls-files',
+ *  { cwd: ROOT }) with no quoting. Two other sites carried the same defect and are fixed in the same change —
+ *  the width finder below, and gen-terminology.ts, which builds a public glossary from a module list that was
+ *  likewise always empty.
+ *
+ *  WHAT IT COST: nothing yet. With the pathspec repaired the finder scans all 647 and still reports zero, so no
+ *  module is in fact re-deriving the unit. That is luck rather than enforcement — the law held because people kept
+ *  it, not because anything checked. Fixing the scan is what makes the next violation catchable. */
 export function unitGaps(): Gap[] {
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = execSync("git ls-files 'src/'", { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  try { files = execSync('git ls-files src/', { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
   for (const f of files) {
     if (f.startsWith('src/hexbit/') || f.includes('/tests/')) continue
     let src = ''
@@ -2376,7 +2407,7 @@ export function markupGaps(): Gap[] {
   const CARRY = ['div', 'article', 'section', 'span', 'small', 'p', 'a', 'ul', 'li', 'table', 'tr', 'td', 'h1', 'h2', 'h3']
   const gaps: Gap[] = []
   let files: string[] = []
-  try { files = execSync("git ls-files 'src/'", { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
+  try { files = execSync('git ls-files src/', { encoding: 'utf8' }).trim().split('\n').filter((f) => f.endsWith('.ts')) } catch { return gaps }
   for (const f of files) {
     if (f.includes('/tests/')) continue
     let src = ''

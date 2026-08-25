@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 418,
+ "count": 417,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -464,8 +464,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000000798",
-   "completionPrice": "0.0000001596"
+   "promptPrice": "0.000000077",
+   "completionPrice": "0.000000154"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -741,13 +741,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000001"
   },
   {
-   "id": "google/gemma-3n-e4b-it",
-   "name": "Google: Gemma 3n 4B",
-   "contextTokens": 32768,
-   "promptPrice": "0.00000006",
-   "completionPrice": "0.00000012"
-  },
-  {
    "id": "google/gemma-4-26b-a4b-it",
    "name": "Google: Gemma 4 26B A4B ",
    "contextTokens": 262144,
@@ -918,7 +911,7 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "meta-llama/llama-guard-4-12b",
    "name": "Meta: Llama Guard 4 12B",
-   "contextTokens": 1048576,
+   "contextTokens": 163840,
    "promptPrice": "0.00000018",
    "completionPrice": "0.00000018"
   },
@@ -2887,7 +2880,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
    "promptPrice": "0.000000035",
-   "completionPrice": "0.0000001"
+   "completionPrice": "0.00000028"
   },
   {
    "id": "~google/gemini-flash-latest",
@@ -2907,8 +2900,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000026",
-   "completionPrice": "0.000013"
+   "promptPrice": "0.00000255",
+   "completionPrice": "0.00001275"
   },
   {
    "id": "~openai/gpt-latest",

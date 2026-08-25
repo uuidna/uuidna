@@ -54,6 +54,27 @@ const perCube = files.map((f) => {
 // ceiling, so the healthy case and the broken case returned the same value and the signal that says "restate this
 // claim" was gone. It is replaced by involution_replaces_the_raised_ceiling, which states the trade in the kernel.
 //
+// IT CANNOT CONVERGE FROM A STATE WHERE SELF CARRIES THE RAISE, and that is a real trap rather than a theoretical
+// one — uuidna-b9 hit it and got out by hand (2026-08-25). The census reads the wings ON DISK, and it is emitted
+// INTO Software.lean. So if Software.lean's own stale raise is the line being counted, the js gate fails, emit
+// refuses to write the wing, and the raise it is failing on is therefore never removed. The fixed point is
+// unreachable from that state: the check is correct, the file stays wrong, and running it again changes nothing.
+// Wave has the same shape one step milder, because Software generates before Wave alphabetically, so the first
+// pass still reads Wave's stale line.
+//
+// THE WAY OUT IS TWO PASSES, and it is worth saying plainly because a reader who deletes lean/*.lean and
+// regenerates will NEVER see this, while a reader who edits a single raise hits it immediately. Regenerate the
+// offending wing standalone, or delete the dead line by hand, and the full chain then goes green in one pass. The
+// deeper cure is to scan what the wings WILL BE rather than what they are — the same distinction spin.ts already
+// makes when it seals the COMMIT rather than the directory — and it is named here rather than taken, because a
+// census that predicts its own output is a larger change than the law it is enforcing.
+//
+// WHY IT IS NOT A REASON TO WEAKEN THE GATE: this is the check working. b9's wing carried maxRecDepth 8192, added
+// on the explicit precedent that Wave.lean already had one, and this js gate failed against it the moment it was
+// generated. A second wing doing a thing is not a licence for it; it is a second instance. The gate refusing to
+// write a wing whose census it cannot honestly state is the behaviour worth keeping, even when the state it
+// refuses from is one only two passes can leave.
+//
 // SCANNED RAW, NOT PARSED. leanDecls reads declarations; a set_option is not one, so this reads the bytes. The
 // pattern is deliberately wider than the one line that was removed — ANY maxRecDepth raise in ANY wing counts,
 // because the defect is buying depth, not the particular number bought.

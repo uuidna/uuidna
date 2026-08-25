@@ -150,7 +150,7 @@ page regrows without it.
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **Cepeda et al. 2006 reports NO Cohen d for spacing (recorded value: 47.3% vs 36.7% correct (10.6 percentage points))**
   <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`xor_checksum_catches_flip`](/theorem/xor_checksum_catches_flip) · [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`boards_are_diamond_self_inverses`](/theorem/boards_are_diamond_self_inverses) </small>
+  <br><small>involutions around: [`xor_checksum_catches_flip`](/theorem/xor_checksum_catches_flip) · [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`abo_klein_four`](/theorem/abo_klein_four) </small>
   <br><small>sealed neighbors: [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality) · [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`s4_fixed_point_and_cycle_census`](/theorem/s4_fixed_point_and_cycle_census) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 

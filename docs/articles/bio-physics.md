@@ -11,28 +11,28 @@ description: "Computed from lean/BioPhysics.lean — 17 sealed theorems, every c
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FBioPhysics.lean)** — nothing to install. The editor fetches `lean/BioPhysics.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
-### the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative, each self-inverse (order ≤ 2)
+### the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative, each self-inverse (order ≤ 2) — witness: Yamamoto et al., Nature 345:229-233 (1990), DOI 10.1038/345229a0
 The ledger holds this as [abo_klein_four](/theorem/abo_klein_four) — proven `by decide`, sorry-free:
 
 ```lean
 (List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == lxor b a)) && (lxor a a == 0))
 ```
 
-### with the Rh ± bit the blood system is (ℤ/2)³ — exactly 2³ = 8 blood types (A±,B±,AB±,O±)
+### with the Rh ± bit the blood system is (ℤ/2)³ — exactly 2³ = 8 blood types (A±,B±,AB±,O±) — witness: Landsteiner and Wiener, Exp. Biol. Med. 43:223 (1940), DOI 10.3181/00379727-43-11151
 The ledger holds this as [blood_types_eight](/theorem/blood_types_eight) — proven `by decide`, sorry-free:
 
 ```lean
 (2:Nat)^3 = 8
 ```
 
-### DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs
+### DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs with itself, 2 complementary pairs — witness: Watson and Crick, Nature 171:737-738 (1953), DOI 10.1038/171737a0
 The ledger holds this as [dna_base_pairing_involution](/theorem/dna_base_pairing_involution) — proven `by decide`, sorry-free:
 
 ```lean
 (List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b))
 ```
 
-### a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons
+### a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons — witness: Nirenberg and Matthaei, PNAS 47:1588-1602 (1961), DOI 10.1073/pnas.47.10.1588
 The ledger holds this as [codons_sixty_four](/theorem/codons_sixty_four) — proven `by decide`, sorry-free:
 
 ```lean

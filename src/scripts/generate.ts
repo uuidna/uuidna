@@ -61,6 +61,13 @@ const GENERATORS: Gen[] = [
   { file: 'gen-store.js', args: [], note: 'the storefront — apps, games, books unified at /store, derived from each shelf' },
   { file: 'gen-os.js', args: [], note: 'the default install — every path\'s exact meaning from the committed Alpine mirror; every claim an Installs.lean seal' },
   { file: 'gen-models.js', args: [], note: 'the model comparison over all public live data — every figure\'s honesty class visible; every sealed claim an Models.lean cite' },
+  // BEFORE rosetta, and the order is load-bearing: rosetta grants the falsifier leg by finding a theorem's literal
+  // key in a test file, so the generated test has to exist before the census counts it. Landed unwired an hour
+  // after it was written, which is the orphan class derived-attribute.test.ts exists to catch and could not see —
+  // its target is a variable, so the ratchet's literal-only probe looked straight past it — exactly as it looked
+  // past gen-captain-claims-complete, whose output went on asserting that no theorem escapes the audit while the
+  // ledger outgrew the key count it was counting.
+  { file: 'gen-falsifiers.js', args: [], note: 'the falsifier leg for every sealed statement a second implementation can decide — refuses on any FALSE' },
   { file: 'rosetta.js', args: [], note: 'the five-leg census — rewrites src/rosetta-mirror.ts, the surface the hosted edge answers from' },
 ]
 

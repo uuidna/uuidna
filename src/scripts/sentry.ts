@@ -10,7 +10,7 @@
 // Exit codes, named: 0 delivered-or-nothing-to-deliver · 1 push gate refused (charges printed) ·
 // 2 diverged (human eyes) · 3 polls exhausted while red (charges printed each round).
 import { execSync } from 'node:child_process'
-import { ROOT } from './api.js'
+import { pauseSeconds, ROOT } from './api.js'
 
 const sh = (cmd: string): string => { try { return execSync(cmd, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }) } catch (e) { const err = e as { stdout?: string; stderr?: string }; return String(err.stdout ?? '') + String(err.stderr ?? '') } }
 const ok = (cmd: string): boolean => { try { execSync(cmd, { cwd: ROOT, stdio: 'pipe' }); return true } catch { return false } }
@@ -35,7 +35,7 @@ for (let i = 1; i <= POLLS; i++) {
       catch { console.log('[sentry] the push gate refused — its verdict is printed above, nothing hidden'); process.exit(1) }
     }
   }
-  execSync('sleep 180')
+  pauseSeconds(180)
 }
 console.log(`[sentry] ${POLLS} polls spent while undelivered — the last charges are printed above`)
 process.exit(3)

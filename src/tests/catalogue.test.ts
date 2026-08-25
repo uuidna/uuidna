@@ -13,7 +13,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { uuidnaExec } from '../quantum/os/exec.js'
-import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, primeCatalogue, primeCatalogueFrom, cataloguePrimed } from '../quantum/os/catalogue.js'
+import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed } from '../quantum/os/catalogue.js'
 import { ROOT } from '../scripts/api.js'
 
 test('the catalogue carries ALL of Alpine, not the boot closure', () => {
@@ -193,4 +193,45 @@ test('primeCatalogueFrom reports an unreachable catalogue as ABSENT, never as an
   assert.equal(st.count, 0)
   assert.match(st.why!, /failed|HTTP/, 'it names what went wrong, so a host fault is not read as a fact about Alpine')
   primeCatalogue(readFileSync(join(ROOT, CATALOGUE_FILE), 'utf8'))
+})
+
+// ── THE CHUNKED WALK IS THE SAME WALK. uuidnaOS runs this suite in a browser once per page load, where what costs
+// the visitor is not the total but the longest UNINTERRUPTED block: past roughly 50 ms the page stops answering
+// input. Measured on this tree, cold and in a fresh process, because a once-per-load operation has no warm pass
+// to average into — the visitor's only call IS the cold one:
+//
+//   synchronous   total ~91 ms, longest block ~92 ms   (one span: the whole thing)
+//   chunked       total ~117 ms, longest block ~37 ms  (parse alone, the walk divided beneath it)
+//
+// The total goes UP. That is the trade and it is the right one on a main thread: nothing is faster, but the page
+// keeps answering. What made it work was separating the two costs rather than dividing the loop — parsing 7 MB of
+// TSV is 35 ms and indivisible, the walk is 56 ms and divides freely, and chunking only the walk left them fused
+// in one 53 ms span that still blocked. The first attempt is recorded because the measurement is what corrected it.
+//
+// WHAT THIS TEST HOLDS is not the timing — a number pinned in a test is wrong on the next host, and this tree
+// refuses those. It holds that the two functions ANSWER THE SAME, so the fast-path cannot quietly drift from the
+// one the ledger trusts, and that the chunked walk keeps the denominator discipline: a partial count reported as
+// a whole one would be exactly the absence-as-a-clean-result the rest of this file exists to refuse.
+test('the chunked walk returns EXACTLY the synchronous walk — a scheduling change, never a scope change', async () => {
+  const sync = testAllPackages()
+  const chunked = await testAllPackagesChunked()
+  assert.equal(chunked.tested, sync.tested, 'the denominator is the whole catalogue on both paths')
+  assert.equal(chunked.passed, sync.passed)
+  assert.equal(chunked.failed, sync.failed)
+  assert.equal(chunked.present, sync.present)
+  assert.deepEqual(chunked.byCheck, sync.byCheck, 'the same checks fail for the same reasons')
+  assert.deepEqual(chunked.failures.map((x) => x.name).sort(), sync.failures.map((x) => x.name).sort())
+})
+
+test('the chunk size changes the SCHEDULE and nothing else', async () => {
+  // the control that would catch a chunked walk reporting only the chunks it finished: vary the boundary and the
+  // answer must not move. A loop that dropped its remainder would answer differently at a size that does not
+  // divide the catalogue evenly, and 28,639 is not divisible by any of these.
+  const base = await testAllPackagesChunked(1500)
+  for (const size of [97, 999, 20000]) {
+    const r = await testAllPackagesChunked(size)
+    assert.equal(r.tested, base.tested, `chunk ${size}: every package is still counted`)
+    assert.equal(r.passed, base.passed, `chunk ${size}: the verdict does not depend on where the yields fall`)
+    assert.equal(r.failed, base.failed)
+  }
 })

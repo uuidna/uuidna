@@ -80,7 +80,29 @@ test('the genuinely derived layer KEEPS the driver — this is a correction, not
 // So the general claim is abandoned rather than faked. What IS decidable: a gen-* script whose write target is a
 // literal path, which the chain never invokes. That catches a real class — a generator nobody runs produces a
 // file that rots while `git status` shows it clean — and it says plainly which cases it cannot see.
-test('a generator that writes a literal path is INVOKED by the chain, or it is rot waiting to happen', () => {
+//
+// ── ATTEMPT 4's BLIND SPOT COST SOMETHING REAL, so it is closed rather than left declared. 2026-08-25: peer
+// session uuidna-90 found docs/captain-claims-complete.json asserting, under the captain's name, "All 1222
+// distinct theorems under 1307 keys are accounted for. No theorem escapes the audit" — while the ledger had long
+// since outgrown that number by hundreds of keys, every one of which escaped the audit that claimed none did.
+// (Those two figures are the ROTTED FILE'S OWN, quoted as the record they are; the live count is deliberately not
+// written here, and the guard that would have caught it if I had is the one two paragraphs up.) The generator for
+// it exists and is simply never invoked, which is EXACTLY the class
+// this test was built to catch, and it went unseen for the one reason written down above: `writeFileSync(
+// ledgerPath, …)` is a variable. The comment named the gap honestly and the gap still shipped a false signed
+// claim, which is the lesson — a declared boundary is not a closed one, it is an undefended one you have
+// promised not to be surprised by.
+//
+// So the probe now reads `writeFileSync(` REGARDLESS OF TARGET SHAPE. The question was never "does it write a
+// literal path", it was "does it write" — matching the target shape was an instrument narrower than its own
+// question, and it collapsed "writes nothing" together with "writes somewhere I can't parse". That widening is
+// the whole change; nothing else about the rule moves.
+//
+// The list grew from two to five, and every added name is a generator that genuinely writes and is genuinely
+// never run — not a loosened threshold. A sixth, gen-falsifiers, was caught by this widening within an hour of
+// being committed by the same session that widened it, and is absent below because it was wired into
+// generate.ts's manifest instead of being added to this list. That is the intended way off it.
+test('a generator that writes ANY path is INVOKED by the chain, or it is rot waiting to happen', () => {
   const rec = readFileSync(join(ROOT, 'src', 'scripts', 'reconcile.ts'), 'utf8')
   const derive = rec.slice(0, rec.indexOf('// THE SPLIT.'))
   const gen = readFileSync(join(ROOT, 'src', 'scripts', 'generate.ts'), 'utf8')
@@ -93,11 +115,56 @@ test('a generator that writes a literal path is INVOKED by the chain, or it is r
     const name = f.replace(/\.ts$/, '')
     if (invoked.has(name)) continue
     const src = readFileSync(join(ROOT, 'src', 'scripts', f), 'utf8')
-    // only a LITERAL target counts — a variable is invisible here, and the comment above says so
-    if (/writeFileSync\(\s*join\(ROOT,/.test(src)) orphans.push(name)
+    // ANY write target, literal or variable. Matching the shape of the target answered a narrower question than
+    // the one being asked, and the difference was a file rotting under a signed claim for a week.
+    if (/writeFileSync\(/.test(src)) orphans.push(name)
   }
-  assert.deepEqual(orphans.sort(), ['gen-alpine-apps', 'gen-quantum-advantage'],
+  assert.deepEqual(orphans.sort(),
+    ['gen-alpine-apps', 'gen-alpine-catalogue', 'gen-captain-claims-complete', 'gen-changelog-section', 'gen-quantum-advantage'],
     'a gen-* that writes a file and is never run leaves that file to rot while git reports it clean. Wire it into '
-    + 'generate.ts\'s manifest, or stop it writing. The two named here are KNOWN and unwired — this assertion is a '
-    + 'ratchet: it fails when the list grows, and it fails when one is fixed without updating it.')
+    + 'generate.ts\'s manifest, or stop it writing. The five named here are KNOWN and unwired — this assertion is a '
+    + 'ratchet: it fails when the list grows, and it fails when one is fixed without updating it. gen-captain-claims-'
+    + 'complete is the one with a demonstrated cost: its output claimed "no theorem escapes the audit" over a key '
+    + 'count the ledger had long since outgrown, and the sibling gen-captain-claims IS in the manifest, so the fix '
+    + 'is one line there rather than anything here.')
+
+  // ── THE FLOOR, which catches what the probe above still cannot see.
+  //
+  // Widening the target shape closed the gap that cost a signed claim, but it did not make the probe general: it
+  // reads `writeFileSync(`, so a generator writing through appendFileSync, fs.promises.writeFile, or any helper
+  // is STILL invisible, and an invisible generator that quietly stops being invoked is exactly the silence this
+  // whole test exists to break. Four attempts at the general property already failed (recorded above), a fifth
+  // widened it, and a sixth would be the same argument again.
+  //
+  // So the other direction is guarded instead, by the one structural rule that survived tonight's audit of the
+  // finders: peer session uuidna-90 probed 31 of them and found lanesGaps ALONE had no constructible silent
+  // denial, because it pairs its existence check with a MONOTONE FLOOR that may only rise. A count that can only
+  // grow makes the invisible direction visible without needing to parse anything — unwire a generator by ANY
+  // mechanism, however it writes, and this fails even though the probe above never sees it. It is deliberately
+  // not a count of orphans (that is the list's job) but of WIRED ones, because the failure mode being guarded is
+  // silent LOSS, and a floor only detects what it counts.
+  //
+  // HONEST SCOPE, because a guard that overstates its reach is the thing this file is about: as of the day it was
+  // added, EVERY wired generator uses writeFileSync, so the probe above already sees all of them and this floor
+  // catches nothing the list would miss today. Its value is entirely prospective — the first generator written
+  // against appendFileSync or fs.promises.writeFile is the case it exists for, and that generator has not been
+  // written yet. It was checked for non-vacuity rather than assumed: raising the floor by one turns it red.
+  const chainScripts = new Set<string>()
+  for (const m of (gen + derive + (pkg.scripts.lean ?? '')).matchAll(/([a-z0-9-]+)\.js/g)) chainScripts.add(m[1]!)
+  const wired = readdirSync(join(ROOT, 'src', 'scripts'))
+    .filter((n) => /^gen-.*\.ts$/.test(n))
+    .map((n) => n.replace(/\.ts$/, ''))
+    .filter((n) => chainScripts.has(n))
+  assert.ok(wired.length >= WIRED_FLOOR,
+    `${wired.length} gen-* scripts are wired into the chain, below the published floor of ${WIRED_FLOOR}. A `
+    + 'generator that stops being invoked leaves its output to rot while git reports it clean, and this floor '
+    + 'catches that however the generator writes — including the mechanisms the probe above cannot parse. If a '
+    + 'generator was deliberately retired, RAISE nothing: delete it, or move it to the orphan list with the others '
+    + 'and lower this deliberately, in a commit that says why.')
 })
+
+/** The number of gen-* scripts wired into the generation chain — a floor that may only RISE. Not derived at test
+ *  time on purpose: a bound recomputed from the thing it bounds cannot fail, which is the defect that makes a
+ *  self-measuring check decorative. Raise it when a generator is wired in; lowering it is a deliberate act that
+ *  belongs in a commit message, never a quiet edit to make a red test green. */
+const WIRED_FLOOR = 33

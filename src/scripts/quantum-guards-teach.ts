@@ -104,12 +104,12 @@ const guardLessons: { [key: string]: GuardLesson } = {
       'Someone edited packages/* directly instead of regenerating from src/index.ts',
     why_it_matters:
       'Packages are COMPUTED surfaces. Hand-editing creates drift (inconsistency). Regeneration keeps everything in sync.',
-    how_to_fix: 'Never edit packages/* directly. Always: (1) edit src/index.ts, (2) run `npm run gen-packages`, (3) commit both',
+    how_to_fix: 'Never edit packages/* directly. Always: (1) edit src/index.ts, (2) run `npm run gen:packages`, (3) commit both',
     theorem_that_proves_it:
       'theorem packages_are_computed_not_authored : (packages_generated_from_src = true) ∧ (no_manual_edits = true) → (consistency_guaranteed = true) := by decide',
     example_code_wrong: 'Manually fix a typo in packages/@uuidna/crypto/index.d.ts',
     example_code_right:
-      'Fix typo in src/index.ts, run npm run gen-packages, packages auto-update',
+      'Fix typo in src/index.ts, run npm run gen:packages, packages auto-update',
   },
 }
 
@@ -355,7 +355,7 @@ Task 5: Contribute a feature
   • Write theorems (in Lean)
   • Write implementation (in TypeScript, deterministic)
   • Update src/index.ts
-  • Run npm run gen-packages (generates surface)
+  • Run npm run gen:packages (generates surface)
   • Run npm run guard (verifies everything)
 
 Expected: All checks pass, feature sealed to ledger

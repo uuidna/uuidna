@@ -10,17 +10,20 @@ def lxorAux : Nat → Nat → Nat → Nat
 def lxor (a b : Nat) : Nat := lxorAux 8 a b
 
 /-- the ABO blood groups {O,A,B,AB} form a Klein four-group: 2 antigen bits under XOR — closed, commutative,
-    each self-inverse (order ≤ 2) -/
+    each self-inverse (order ≤ 2) — witness: Yamamoto et al., Nature 345:229-233 (1990), DOI 10.1038/345229a0 -/
 theorem abo_klein_four : (List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == lxor b a)) && (lxor a a == 0)) := by decide
 
-/-- with the Rh ± bit the blood system is (ℤ/2)³ — exactly 2³ = 8 blood types (A±,B±,AB±,O±) -/
+/-- with the Rh ± bit the blood system is (ℤ/2)³ — exactly 2³ = 8 blood types (A±,B±,AB±,O±) — witness:
+    Landsteiner and Wiener, Exp. Biol. Med. 43:223 (1940), DOI 10.3181/00379727-43-11151 -/
 theorem blood_types_eight : (2:Nat)^3 = 8 := by decide
 
 /-- DNA base-pairing is a fixed-point-free involution on 4 bases (A↔T, G↔C ≡ b↦b⊕1): self-inverse, no base pairs
-    with itself, 2 complementary pairs -/
+    with itself, 2 complementary pairs — witness: Watson and Crick, Nature 171:737-738 (1953), DOI
+    10.1038/171737a0 -/
 theorem dna_base_pairing_involution : (List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b)) := by decide
 
-/-- a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons -/
+/-- a codon is 3 bases over a 4-letter alphabet — exactly 4³ = 64 codons — witness: Nirenberg and Matthaei, PNAS
+    47:1588-1602 (1961), DOI 10.1073/pnas.47.10.1588 -/
 theorem codons_sixty_four : (4:Nat)^3 = 64 := by decide
 
 /-- the d/9 sound ladder on the 432 Hz anchor: f_d = 48·d, with the anchor exact at f_9 = 432 -/

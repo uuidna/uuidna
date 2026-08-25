@@ -4,7 +4,7 @@
 // a run of commits. Each test carries the mutation that breaks it (the falsifiability law in scripts/api.ts).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { filterMeasurements, facets, violations, decadeOf, type Measurement } from '../measurement.js'
+import { filterMeasurements, facets, violations, violationReport, decadeOf, type Measurement } from '../measurement.js'
 
 const M: Measurement[] = [
   { subject: 'handle', metric: 'fold cost', value: 330, unit: 'ns', technique: 'measured', sealing: 'decade', over: 4096, source: 'quantum/advantage' },
@@ -79,4 +79,29 @@ test('decadeOf is integer arithmetic — the determinism scan admits no host Mat
   // the two figures whose decade boundary cost this tree a run of commits: 10662 and 48 are decades apart,
   // which is why one pass of a cold generator could straddle it
   assert.notEqual(decadeOf(10662), decadeOf(48))
+})
+
+// ── THE COLLAPSE I BUILT tensionReport TO REFUSE, AND THEN REPRODUCED HERE (2026-08-25). violations([]) and
+// violations([all lawful]) both return [], so the healthy case and the unasked case are one value. A peer named
+// the shape — an instrument narrower than its own question, reporting the collapse as a pass — and it caught this
+// file within minutes. Knowing the shape is not the same as checking for it.
+test('an empty result over an empty input reports itself UNCHECKED, never clean', () => {
+  const r = violationReport([])
+  assert.deepEqual(r.violations, [])
+  assert.equal(r.checkable, false)
+  assert.equal(r.checked, 0)
+  assert.match(r.honest, /NOT CHECKABLE/)
+  assert.match(r.honest, /never a clean bill of health/)
+})
+
+test('a checked-and-clean list is DIFFERENT from an unchecked one, which is the whole point', () => {
+  const clean = violationReport(M)
+  assert.deepEqual(clean.violations, [], 'the fixture is lawful')
+  assert.equal(clean.checkable, true, 'and it was actually checked — the distinction the bare array cannot carry')
+  assert.match(clean.honest, /checked 5 measurement\(s\); 0 breach\(es\)/)
+  // CONTROL — a real breach must still be counted and named, or the report is only reassuring
+  const bad = violationReport([{ subject: 'ledger', metric: 'fold cost', value: 330, unit: 'ns', technique: 'measured', sealing: 'exact', source: 'x' }])
+  assert.equal(bad.violations.length, 1)
+  assert.equal(bad.checkable, true)
+  assert.match(bad.honest, /1 breach\(es\)/)
 })

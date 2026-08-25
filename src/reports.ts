@@ -71,7 +71,7 @@ function accounting(): ReportSection {
  *  against the ledger instead. */
 function coverage(): ReportSection {
   const h = readJson<{ measured: number; total: number }>('lean/heartbeats.json')
-  if (!h) return section('Heartbeat coverage', 'lean/heartbeats.json', false, { note: 'not probed — run npm run heartbeats' })
+  if (!h) return section('Heartbeat coverage', 'lean/heartbeats.json', false, { note: 'not probed — run `npm run x -- lean-heartbeats`' })
   const keys = theorems().length
   return section('Heartbeat coverage', 'lean/heartbeats.json', true, {
     // FUSED IN HEXBITS, because the raw total is not stable and a seal cannot hold a moving number. The gate
@@ -89,7 +89,7 @@ function coverage(): ReportSection {
 /** the citation audit — what the prose claims against what the ledger seals. */
 function citations(): ReportSection {
   const c = readJson<{ publications: number; sealedTheorems: number; fabricated: string[]; uncited: string[]; receipt: string }>('audit-citations.json')
-  if (!c) return section('Citation audit', 'audit-citations.json', false, { note: 'not run — npm run audit:citations' })
+  if (!c) return section('Citation audit', 'audit-citations.json', false, { note: 'not run — npm run x -- audit-citations' })
   return section('Citation audit', 'audit-citations.json', true, {
     publications: c.publications, sealedTheorems: c.sealedTheorems,
     fabricated: c.fabricated.length, uncited: c.uncited.length, receipt: c.receipt,

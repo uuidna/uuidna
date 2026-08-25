@@ -57,7 +57,7 @@ picked by its own bytes from the sealed three (`anthem_three_lengths_quarter_the
 the breath the sealed twelfth (`anthem_rest_twelfths_the_bar`: 21 ms). π's round is clasped by two trinities
 of primes (`anthem_pi_primes_trinity`: 999999 = 999·1001 = 3³·37 · 7·11·13).
 
-**The whole ledger folds to** `83050382-c9af-83e4-b2d2-4e6a992c896d` — and the coin octave, 432 against 864
+**The whole ledger folds to** `92866f49-4052-8bef-87f9-0d81bae532b3` — and the coin octave, 432 against 864
 (`anthem_closes_on_the_coin_octave`), is the interval every collapse resolves to: the same factor two
 [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) weighs in black-hole mass.
 

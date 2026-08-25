@@ -123,7 +123,7 @@ if (failed.length) {
 // would ship a fingerprint of a tree that had already moved. reconcile writes it as its last act before staging.
 console.log(`\n✓ green — every arm passes${full ? ' (kernel included)' : ' (kernel deferred; run with --full before a release)'}.`)
 if (!push) {
-  console.log('  READY. Nothing pushed: pass --push to reconcile and publish, or run `npm run green:push`.')
+  console.log('  READY. Nothing pushed: pass --push to reconcile and publish, or run `npm run x -- green --push`.')
   process.exit(0)
 }
 console.log('  pushing via reconcile — it regenerates the derived layer, aborts on a ledger that does not reconcile, and signs the commit')

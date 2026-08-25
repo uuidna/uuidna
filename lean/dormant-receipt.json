@@ -1,6 +1,6 @@
 {
   "why": "Per-script folds of the BUILT bytes, from the last sweep in which each exited 0, plus the manifest fold. A script whose fold is unchanged cannot have changed behaviour, so only the MOVED ones are re-exercised — the cost of a change is the cost of the change, not the cost of the roster. The manifest is global: it declares what each script may write, so when it moves everything is re-exercised. Delete this file to force a full sweep.",
-  "fold": "98fb8fc1-9bbd-8faa-a14b-fd40181e23fe",
+  "fold": "d0a86bd8-ac7a-800b-ac1b-4013b81ae2f8",
   "manifest": "d473d916-44f7-8281-b121-25136e0a69fe",
   "count": 32,
   "scripts": {
@@ -13,7 +13,7 @@
     "captain-claim-algebra.ts": "9d41978e-1018-86d8-9770-34269ca01782",
     "captain-discovers-novelty.ts": "cf826f57-d9d4-8edc-8efa-828b2d928682",
     "cloudflare-analytics.ts": "7a7c2a4e-230c-8336-9008-ab927de18ecd",
-    "crypto-measure.ts": "bd6c8f20-917c-8267-9a88-2d3dafb724d1",
+    "crypto-measure.ts": "564b9d4e-0e62-868d-b08e-56dc20b4dddc",
     "entanglement-games.ts": "a27cf3f2-33d0-841b-b6f3-a33d6375b0b8",
     "gcp-analytics.ts": "6e54f4b2-10ab-80fd-bd40-eced12f3c2d6",
     "gen-captain-claims-complete.ts": "d0a96c95-be19-813d-8c18-08400aeed7a3",
@@ -27,7 +27,7 @@
     "quantum-dimension-scan.ts": "8bb7aca3-9545-88f4-8ca2-1533a2009bad",
     "quantum-external-fusion.ts": "3cb47436-27fd-84a9-805d-f773be17302e",
     "quantum-games-from-leads.ts": "7a8f5e9c-7791-8cdc-a16a-65bcc4a1b20e",
-    "quantum-guards-teach.ts": "ae99b7f1-c778-83da-9351-972a9ffb0cd5",
+    "quantum-guards-teach.ts": "af6c5f48-d485-81d3-bea8-584eff66722a",
     "quantum-launch.ts": "986d65b4-a49b-8e6c-a43d-9aeeed0c3ec7",
     "quantum-messaging-demo.ts": "b9589b79-b00a-8a65-9b3b-261a117f7294",
     "quantum-messaging-hybrid.ts": "d1d9878d-5408-8aaf-b5cb-c627805a9d7d",
@@ -37,7 +37,7 @@
     "refactor.ts": "680092dc-62bb-80fc-a767-d3f12e6d1b0a",
     "reserve.ts": "2042a417-3e6c-85a3-a5a5-7b40a58ddef4",
     "scout.ts": "6de8b08e-c46a-8321-9bb8-7cbfd8c29838",
-    "machine.ts": "6222cad6-4b85-82ae-b761-0d72f91011c3",
+    "machine.ts": "4e749914-efae-8354-afab-430fb967768f",
     "audit-video.ts": "16b6095c-9309-8c45-b340-216efe4643c4"
   }
 }
