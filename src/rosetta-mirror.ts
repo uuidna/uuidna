@@ -1701,7 +1701,7 @@ ns_spike 18
 ym_quantum 18
 hodge_bound 18
 light_faster_than_uuidna 18
-division_by_zero 18
+division_by_zero 26
 div_by_zero_is_the_reflection 18
 involute_centre 18
 billing_arith 18
@@ -1792,6 +1792,8 @@ saturation_deco_dominates 18
 the_second_voice_is_the_variant 18
 monero_cpu_breakeven_is_thirteen_kilohash 18
 handles_balance_the_load_for_free 18
+arity_admits_exactly_one_dependent_trinity 18
+entanglement_completes_one_at_a_time 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

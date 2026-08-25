@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:7a95ec2a-4620-80c6-903c-3f82fafa8589",
+  "@id": "urn:uuid:5ea40fbb-137c-874d-a0e2-1ba73d7aa769",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -40086,6 +40086,62 @@
         "abstract": "(16 ^ 8 = 4294967296) ∧ ((List.range 9).all (fun k => 4294967296 % (2 ^ k) == 0)) ∧ (4294967296 / 2 = 2147483648) ∧ (4294967296 / 16 = 268435456) ∧ (4294967296 / 256 = 16777216)",
         "identifier": "452d0f29-ee30-898d-85c3-0be6f6d37b1e",
         "url": "https://uuidna.com/theorem/handles_balance_the_load_for_free",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:f5657b46-edb8-8deb-8014-95430a98f0b7",
+        "@type": "ScholarlyArticle",
+        "headline": "THE ARITY TEST ADMITS EXACTLY ONE DEPENDENT TRINITY. rosetta-legs decides canLocateFault by legs.length >= 3, a pure count that never asks WHICH legs — while the same module states that symbol and proof are written by one hand and share that hand errors, and the census calls address a content fold that is not evidence about the world. Walked over all 2^5 = 32 leg subsets: 16 pass the arity test, 24 carry an independent leg (witness or falsifier), 15 pass both, and EXACTLY ONE passes arity while carrying no independent leg — mask 19, symbol+proof+address. That single subset is the one 998 of 1690 sealed theorems hold, so the gap the lattice admits is precisely the gap the ledger occupies.",
+        "abstract": "(((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))))).length = 16) ∧ (((List.range 32).filter (fun m => (((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))).length = 24) ∧ (((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))) && (((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))).length = 15) ∧ (((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))) && !(((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))).length = 1) ∧ (((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))) && !(((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))) = [19])",
+        "identifier": "a0c93c75-0bbb-816a-a265-aadf82a32399",
+        "url": "https://uuidna.com/theorem/arity_admits_exactly_one_dependent_trinity",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        }
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:a367c045-227f-8f3d-add5-c0414d612a42",
+        "@type": "ScholarlyArticle",
+        "headline": "ENTANGLEMENT COMPLETES ONE THEOREM AT A TIME, and the recurrence IS the involution step. For a ledger of n sealed theorems, entangling each with every other individually is the complete graph: each theorem participates in exactly n-1 pairs, the distinct pairs number n(n-1)/2, and admitting one more theorem adds exactly n-1 new pairs and nothing else — walked over a range rather than asserted at one point. The handshake identity 2*(n(n-1)/2) = n(n-1) holds throughout, and n(n-1) is always even, so the pairing never leaves a theorem unpartnered. Pinned at the ledger own size: 1690 theorems entangle in 1427205 distinct pairs, each with 1689 others.",
+        "abstract": "((List.range' 2 20).all (fun n => (n*(n-1))/2 - ((n-1)*(n-2))/2 == n-1)) ∧ ((List.range' 1 20).all (fun n => 2 * ((n*(n-1))/2) == n*(n-1))) ∧ ((List.range' 1 20).all (fun n => (n*(n-1)) % 2 == 0)) ∧ (1690*1689/2 = 1427205) ∧ (1690*1689 = 2854410) ∧ (1690-1 = 1689)",
+        "identifier": "c0971ee2-4dfd-8a16-8fdb-92b147553c33",
+        "url": "https://uuidna.com/theorem/entanglement_completes_one_at_a_time",
         "keywords": "wave, The conveyor's first wave",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",

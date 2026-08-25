@@ -1,6 +1,6 @@
-# uuidna — 1610 distinct theorems under 1691 keys, 2 coins, one receipt
+# uuidna — 1612 distinct theorems under 1693 keys, 2 coins, one receipt
 
-`5e63af25-a6b3-86de-9d93-1aac1a6dba4b`
+`0bb35af8-b10e-8cd0-b47d-88088d71062a`
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
@@ -51,7 +51,7 @@ The count is MEASURED, not parsed. The generator walks the domain to compute eac
 that walk it tally what they visit, and `emit()` records the tally on the same run that validates the JS. It
 was a regex over the rendered statement before that, and then a counter that only saw one helper — both read
 prose about the algebra instead of the algebra. The ledger covers
-113,959 superpositions across 115 wings.
+113,961 superpositions across 115 wings.
 
 1. **`every_referrer_reaches_every_page`** — 4,769 superpositions, Infinity hexbits for the two coins, in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
@@ -77,9 +77,9 @@ raised to it, and the served ceiling is parsed from the guard in `src/mcp.ts` th
 
 - **16 qubits** in the library register — 65536 amplitudes held at once
 - **12 qubits** served over MCP — 4096 amplitudes, and the surface refuses more
-- **113,959 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
+- **113,961 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
 - **4 qubits** of reachability gap between the register and what is served
-- **52 quantum wing theorems**, **27 cipher wing theorems**, **1691 ledger size**
+- **52 quantum wing theorems**, **27 cipher wing theorems**, **1693 ledger size**
 
 EXACT, AND ENFORCED. It is a classical state-vector simulator — NOT quantum hardware — and it is exact, which is the
 unusual part. Every amplitude is a Gaussian integer over a common √(2^scale) — the ring ℤ[i, 1/√2] the
@@ -107,8 +107,8 @@ scale served is the scale the code enforces. Stating a bound never drains the cl
 A handle is eight hexbits, so it names **4,294,967,296** superpositions — 16^8, every
 address it can take. That is the space; the rest is what is accounted inside it.
 
-- **113,959 superpositions** decided across the ledger, every one walked rather than sampled
-- **3,382 coins paid** — the CONSERVED PRICE, 2 per sealed theorem (theorem two_coins: the fixed denomination paid IN). But each theorem carries its own PRICE TAG — its decided mass, from 1 to 55,986 superpositions — so what the coins BUY is never flat: the cost is 2 every time, the value never is
+- **113,961 superpositions** decided across the ledger, every one walked rather than sampled
+- **3,386 coins paid** — the CONSERVED PRICE, 2 per sealed theorem (theorem two_coins: the fixed denomination paid IN). But each theorem carries its own PRICE TAG — its decided mass, from 1 to 55,986 superpositions — so what the coins BUY is never flat: the cost is 2 every time, the value never is
 - **33 superpositions per coin**, floored: what one coin covers today
 
 SIX DIRECTIONS leave every residue, which is why a per-coin figure needs them stated beside it: the 60-degree
@@ -127,19 +127,19 @@ COSTS untouched.
 ## Live Statistics
 
 ```
-Theorems sealed:        1691   (every one axiom-free, proven by decide)
+Theorems sealed:        1693   (every one axiom-free, proven by decide)
 Principles:             115   (the monographs the ledger organises itself by)
 Skills:                 112   (the capabilities they teach)
 Research sources:       5   (wired and queried in parallel; corroboration, never approval)
 Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                5e63af25-a6b3-86de-9d93-1aac1a6dba4b
+Receipt:                0bb35af8-b10e-8cd0-b47d-88088d71062a
 The rest is measured or it is not stated. Recompute: npm run lean
 ```
 
 ### The captain's coins
 
 The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1691 seals × 2 coins;
+**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 1693 seals × 2 coins;
 the denomination is 2 and there is no other.
 
 ---
@@ -337,7 +337,7 @@ All systems are:
 
 ## Production Status
 
-✓ **All 1691 theorems sealed to ledger, every one axiom-free**
+✓ **All 1693 theorems sealed to ledger, every one axiom-free**
 ✓ **Guard verified (no traitors caught)**
 ✓ **5 research sources wired — corroboration, never approval**
 ✓ **Education system live**

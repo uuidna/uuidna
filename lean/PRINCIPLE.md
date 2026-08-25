@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1691 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1693 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -248,7 +248,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 81. **The denial drained** — `lean/Negation.lean` · **8** theorems
    solutions from negation involutions to denial exhaustion, in one wave (the captain's directive, 2026-08-23) — denial is the fixed-point-free involution on the bit (apply twice and return; a solution IS the denial's failure), De Morgan at exhaustion scale (no case denies ⟺ every case affirms, all eight masks), a live exhaustion counted to zero (the slit ring's sixteen denials all fail — a by-decide proof IS a drained denial space), the waves tighten by halves (2⁶/2^r, six waves to the singleton), and the drain runs to the last coin (64 − 63 = 1 with 63 = 7·9 the fused ring — the claim and its receipt the two coins that remain). BOUNDARIES SEALED BESIDE: a window exhausts only itself (the Mertens lesson — exhaustion is a proof exactly as wide as its space), and silence never refutes (of four citation states one verifies, three stay OPEN — no refuted-by-absence exists). HONEST SCOPE: the arithmetic of FINITE denial spaces; an infinite denial space stays honestly open, and the trial can settle exactly what can exhaust
 
-82. **The conveyor's first wave** — `lean/Wave.lean` · **55** theorems
+82. **The conveyor's first wave** — `lean/Wave.lean` · **57** theorems
    the conveyor's first wave over the sealable backlog (queue lead 118 started, 2026-08-23) — the algorithm run end to end: lift what carries a decidable statement, refuse what needs judgment. LIFTED: the headroom seals (lead 74 — the 8000 amplitude strictly inside the 2¹⁵ wall, the mix budget landing EXACTLY on the ceiling: 7000 plus the last eighth = 8000); the tuning schism's decidable slices (lead 73 — A432 ≡ 0 on the vortex axis while the public A440 ≡ 8 off it, and the 252 ms beat reading 119 BPM by the floor); the time dimension's arithmetic (lead 70 — note values the doubling ladder [1,2,4,8], meters small counts under the bar, the Morris figure's eight bars halved with the file's reversal self-inverse); Nicomachus at the window (lead 19 — the first cubes summing to the squares of triangles, 10 spelled as 1+2+3+4); and the Lights-Out floor (lead 20 — the flip a mod-2 involution, seven flips odd). REFUSED, named for the model: tet_semitone_no_integer_lattice (irrationality, not a by-decide) and pluck_preserves_bound (its bounded form owed by the lead first). HONEST SCOPE: integer tables sealed; amplitudes, tunings and dance figures are the leads' and the literature's measurements, cited in prose
 
 83. **The known universe, handled** — `lean/Universe.lean` · **7** theorems
