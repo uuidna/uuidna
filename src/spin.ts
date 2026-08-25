@@ -64,16 +64,32 @@ export function sealSpin(files: Record<string, string>): SpinManifest {
 
 export interface SpinDrift { path: string; sealed: string; spun: string }
 
-/** Verify O(1): re-spin each file and compare its coin to the sealed manifest. Returns the drift — the files whose
- *  coin MOVED (non-quantum) and the files the manifest expected but that are absent. Empty drift ⇒ the layer is a
- *  fixed point of its last seal. This does NOT touch the ledger; it is the fast self-consistency door. */
+/** Verify O(1): re-spin each file and compare its coin to the sealed manifest. Empty drift ⇒ the layer is a fixed
+ *  point of its last seal. This does NOT touch the ledger; it is the fast self-consistency door.
+ *
+ *  THREE WAYS THE LAYER CAN DIFFER, AND IT USED TO NAME ONLY TWO. This walked the MANIFEST's paths, so it saw a
+ *  coin that MOVED and a file that went ABSENT — but a file the manifest never covered was invisible to it, while
+ *  still changing the receipt, because sealSpin folds whatever the derived set now contains. The result was a
+ *  verifier that could FAIL WHILE REPORTING NOTHING: on 2026-08-25 four newly-landed files put it at
+ *  "NON-QUANTUM DRIFT: 0 derived file(s) moved", which reads as "nothing is wrong and I am refusing anyway" and
+ *  leaves the operator with no path to name and no idea what to fix.
+ *
+ *  A drift report that cannot name its own finding is the same defect as an arm that cannot say why it failed:
+ *  the verdict is real and the evidence is withheld. UNSEALED paths are now reported alongside moved and absent
+ *  ones, so every way the set can differ from its seal arrives with the path that differs. */
 export function verifySpin(manifest: SpinManifest, files: Record<string, string>): { ok: boolean; drift: SpinDrift[]; receipt: string; sealedReceipt: string } {
   const drift: SpinDrift[] = []
+  const current = sealSpin(files)
   for (const p of Object.keys(manifest.coins)) {
     const spun = p in files ? spin(files[p]).coin : '(absent)'
     if (spun !== manifest.coins[p]) drift.push({ path: p, sealed: manifest.coins[p], spun })
   }
-  const receipt = sealSpin(files).receipt
+  // the third way: sealed by nobody. A file the derived set now carries that the manifest never covered — it
+  // moves the receipt without moving any coin, which is exactly the case that used to report an empty drift.
+  for (const p of Object.keys(current.coins)) {
+    if (!(p in manifest.coins)) drift.push({ path: p, sealed: '(unsealed)', spun: current.coins[p]! })
+  }
+  const receipt = current.receipt
   // AN EMPTY MANIFEST REFUSES. It sealed nothing, so it agreed with every file set alive or dead — verifySpin
   // returned ok:true against ANY input, which is a verifier that verifies nothing and passes. Same class as the
   // dna-recompute check that accepted a forged theorem: a control it could never fail.

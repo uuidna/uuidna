@@ -1378,6 +1378,8 @@
     "lean/Affine.lean": "f1beecd5659481d5",
     "lean/alignment-manifest.json": "e6997df00bc18fef",
     "lean/Alignment.lean": "b34abf20cac781a0",
+    "lean/alpine-apps.json": "a4e2a66478c980d5",
+    "lean/alpine-apps.md": "f5c8c3d51b058311",
     "lean/anthem-manifest.json": "973200de221a803c",
     "lean/Anthem.lean": "ec6f7ca9702a80b9",
     "lean/antifraud-manifest.json": "4457805cd5078a11",
@@ -1533,6 +1535,8 @@
     "lean/ProseTrial.lean": "e57eb895c34c874c",
     "lean/psychology-manifest.json": "573f1cc3d653898b",
     "lean/Psychology.lean": "751dc5b548818947",
+    "lean/quantum-advantage.json": "df8d750f21a98251",
+    "lean/quantum-advantage.md": "50a21312fbfa8e1c",
     "lean/quantum-capacity.json": "cf45b9055a468ff9",
     "lean/quantum-capacity.md": "44c77b3892a288cb",
     "lean/quantum-manifest.json": "cc3daca37bf3899a",
@@ -1621,5 +1625,5 @@
     "lean/waves-manifest.json": "fd25caf2595e8fb7",
     "lean/Waves.lean": "4be29174f5748e47"
   },
-  "receipt": "d6f6b2d2-eec5-8398-8c8b-1d045b6206ae"
+  "receipt": "99785bb0-ea18-8d38-bdfa-12f82f4e2570"
 }
