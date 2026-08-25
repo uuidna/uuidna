@@ -13,8 +13,9 @@
 // question). Usage:
 //   node dist/scripts/develop.js          → heal the tree until the gate is clean, then stop (default; nothing pushed)
 //   node dist/scripts/develop.js --seal   → then hand to `one-receipt seal`, and ASSERT the result is actually synced
-import { teeStep, ROOT, h16 } from './api.js'
-import { execSync } from 'node:child_process'
+import { teeStep, ROOT, h16, pauseSeconds } from './api.js'
+import { shellOrExit } from '../os/host/index.js'
+import { execSync, spawnSync } from 'node:child_process'
 
 /** An objection this pass can cure: its signature in the gate's own output, and the deterministic command that fixes it. */
 type Cure = { name: string; when: RegExp; cmd: string; because: string }
@@ -125,12 +126,34 @@ const treeState = (): string => {
 }
 /** Wait for another gate to finish before touching the shared tree — the mixed-dist hazard, which the seal already
  *  guards against and this pass did not. Bounded: 30 probes × 10s. */
+/** THE PROBE HAS THREE ANSWERS (2026-08-25). This shelled `ps aux | grep | wc -l` and `sleep 10` through
+ *  execSync, whose shell on Windows is cmd.exe, where none of ps, grep, wc or sleep exists — so the wait THREW
+ *  on its first probe instead of waiting. It survives on a developer host only because Git for Windows puts
+ *  those four on PATH; from a plain Windows PATH both calls fail outright. Measured both ways.
+ *
+ *  That is commit 07bc4b2f again, whose message called the same defect in one-writer.ts THE LAST POSIX
+ *  ASSUMPTION. It was not. The cure is the landed one: wait through the host's own shell (pauseSeconds), and
+ *  name the instrument in the driver rather than trusting execSync's default.
+ *
+ *  AND THE ANSWER IS NO LONGER TWO-VALUED, which is the defect underneath the portability one. `busy === '0'`
+ *  read a THROWN probe and a genuinely quiet tree as different only by luck: any non-zero string kept waiting,
+ *  and a probe that could not run at all had no answer of its own. This function guards the mixed-dist hazard —
+ *  editing a tree while another gate is mid-run — so 'I could not tell' must never be spent as 'quiet'. It
+ *  refuses instead, and says which instrument failed. Bounded: 30 probes x 10s. */
 const waitForQuiet = (): void => {
+  const sh = shellOrExit('develop')
   for (let i = 0; i < 30; i++) {
-    const busy = execSync('ps aux | grep -E "[r]econcile\\.js|[l]ean-all\\.js" | wc -l', { cwd: ROOT, encoding: 'utf8' }).trim()
+    const r = spawnSync(sh.file, sh.argv('ps aux | grep -E "[r]econcile\\.js|[l]ean-all\\.js" | wc -l'), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
+    if (r.error || r.status !== 0) {
+      console.error('x develop — the quiescence probe could not RUN, so this pass cannot tell a quiet tree from a')
+      console.error('  busy one. Refusing rather than editing a tree another gate may be mid-run on.')
+      console.error('  ' + (r.error?.message ?? `exit ${r.status}`))
+      process.exit(1)
+    }
+    const busy = r.stdout.trim()
     if (busy === '0') return
     if (i === 0) console.log('· develop — another gate is running on this tree; waiting for quiescence (never edit mid-gate)')
-    execSync('sleep 10', { cwd: ROOT })
+    pauseSeconds(10)
   }
 }
 
