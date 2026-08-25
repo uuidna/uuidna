@@ -9,5 +9,6 @@ handles.js
 .wrangler/
 *.mcpb
 .uuidna-writer.lock
+.uuidna-sessions/
 generator-metrics.json
 docs/public/alpine-catalogue.tsv
