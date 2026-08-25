@@ -5,12 +5,16 @@
 // or changing a map changes the wing without a line being edited.
 //
 // WHAT IS COMPUTED RATHER THAN WRITTEN. The orbit of every seed, the distinct orbits the ring admits, each one's
-// order, which seeds are fixed, and which orbits cover the whole domain — all measured by walking. The theorem KEY
-// is derived from the orbit itself (its members joined), and the SENTENCE is composed from the same measurements,
+// order, which seeds are fixed, and which orbits cover the whole domain — all obtained by walking. The theorem KEY
+// is derived from the orbit itself (its members joined), and the SENTENCE is composed from that same walk,
 // never selected from a table of phrases. A phrase table is the defect this project keeps finding: nine hand-typed
 // sentences lost a word in a refactor and no check noticed, because a word in a table has no witness.
 //
-// integrity — the record recomputes for anyone. This decides the measured shape of the walk over ten digits. That the walk
+// AND NOTHING HERE IS A READING OF THE WORLD, which is why this wing names no authority and should not: the domain
+// is the ten decimal digits, the maps are dz and doubling mod 9, and a walk over a finite ring is arithmetic that
+// answers to the kernel alone. Walking is how the facts are OBTAINED, not evidence gathered from anywhere outside.
+//
+// integrity — the record recomputes for anyone. This decides the shape the walk actually takes over ten digits. That the walk
 // models anything is not claimed, and a residue is not a fact about whatever folded to it.
 import { emit } from './lean-gen.js'
 
@@ -34,9 +38,9 @@ const closed = (o: number[]) => o.every((d) => o.includes(dz(d)))
 const FACTS = [
   ...DISTINCT.map((o) => ({
     key: 'orbit_' + o.join('_') + '_closes',
-    // the sentence is composed from what was measured
+    // the sentence is composed from what the walk returned
     why: `The walk from any seed reaching ${o[0]} settles on ${o.length} of the ten digits (${o.join(', ')})`
-      + `${o.length === 10 ? ', which is every one' : ''}, and that set is closed under the reflection — every member's mirror is already a member, so reflecting the finished orbit adds nothing. Measured by walking.`,
+      + `${o.length === 10 ? ', which is every one' : ''}, and that set is closed under the reflection — every member's mirror is already a member, so reflecting the finished orbit adds nothing. Obtained by walking the ring, not asserted.`,
     js: () => closed(o) && o.length >= 1,
     lean: `theorem orbit_${o.join('_')}_closes : ${L(o)}.all (fun d => ${L(o)}.contains (if d = 0 then 0 else 10 - d)) := by decide`,
   })),
@@ -49,7 +53,7 @@ const FACTS = [
     js: () => ORBITS.every((o) => o.length > 0),
     lean: `theorem every_seed_lands_somewhere : ${LL(ORBITS)}.all (fun o => o.length > 0) ∧ (${LL(ORBITS)}.length = 10) := by decide` },
   { key: 'covering_seeds_are_named',
-    why: `Exactly ${D.filter((d) => orbitOf(d).length === 10).length} of the ten seeds reach every digit (${D.filter((d) => orbitOf(d).length === 10).join(', ')}), and the other ${10 - D.filter((d) => orbitOf(d).length === 10).length} do not — both halves measured, so the count states which seeds cover and not merely how many.`,
+    why: `Exactly ${D.filter((d) => orbitOf(d).length === 10).length} of the ten seeds reach every digit (${D.filter((d) => orbitOf(d).length === 10).join(', ')}), and the other ${10 - D.filter((d) => orbitOf(d).length === 10).length} do not — both halves walked, so the count states which seeds cover and not merely how many.`,
     js: () => { const cov: number = D.filter((d) => orbitOf(d).length === 10).length, ten: number = 10; return cov !== ten && cov > 0 },
     lean: `theorem covering_seeds_are_named : (${L(D.filter((d) => orbitOf(d).length === 10))}.length = ${D.filter((d) => orbitOf(d).length === 10).length}) ∧ (${L(D.filter((d) => orbitOf(d).length !== 10))}.length = ${10 - D.filter((d) => orbitOf(d).length === 10).length}) ∧ (${D.filter((d) => orbitOf(d).length === 10).length} + ${10 - D.filter((d) => orbitOf(d).length === 10).length} = 10) := by decide` },
 ]

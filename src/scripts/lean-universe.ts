@@ -9,6 +9,25 @@
 // literature's measurement, cited in prose; totality is an EPOCH — the moon recedes and the fit is rented,
 // not owned — and NO law demands the coincidence: as necessity it stays honestly unverified while its
 // arithmetic seals. COMPUTE → GENERATE → VERIFY.
+//
+// SOURCES — THE AUTHORITY FOR THE MEASURED FIGURES, NAMED (2026-08-25). This wing said its numbers were "the
+// literature's measurement, cited in prose" and then cited no literature — naming no agency and no standard. The
+// tree's own sourcesGaps law has been reporting exactly that, and it is right to — an input the kernel does not
+// vouch for must at least name who does, or the arithmetic around it borrows an authority nobody granted.
+//
+//   the astronomical unit   IAU 2012 Resolution B2 defines it EXACTLY as 149,597,870,700 m. The figure used
+//                           below is 149,600,000 km — the defined value ROUNDED to four significant figures,
+//                           and the rounding is stated here rather than smoothed, the same discipline the
+//                           Kelvin floor already keeps when it truncates 273.15 to 273 and says so.
+//   solar and lunar sizes   IAU 2015 Resolution B3 nominal conversion constants. 1,392,000 km for the solar
+//                           diameter and 3,474 km for the lunar are the conventional rounded values.
+//   the lunar distance      384,400 km is the conventional mean distance, from lunar laser ranging.
+//
+// WHAT THIS CITATION DOES AND DOES NOT BUY. It names who measured, so a reader can check the input against its
+// source. It does NOT make the input proven: eclipse_four_hundred still seals only 400 · 3474 = 1,389,600, and
+// the kernel confirms the MULTIPLICATION and never the measurement. A consistent pair of wrong figures would
+// decide exactly as true — which is why the authority has to be named rather than the arithmetic trusted to
+// carry it.
 import { emit } from './lean-gen.js'
 import { HANDLE_BITS, HANDLE_SPAN, UUID_BITS } from '../hexbit/index.js'   // THE unit — imported, never re-derived
 

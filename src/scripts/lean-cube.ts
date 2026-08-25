@@ -27,7 +27,7 @@
 // emit checks every one first and exits non-zero if any is false. The one that can genuinely fail is the distinct-
 // key census — a wing carrying the same theorem key twice parses N declarations and stages fewer than N members,
 // the two lists stop agreeing elementwise, and the build stops instead of sealing the smaller number.
-import { readFileSync, readdirSync } from 'node:fs'
+import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, leanDecls } from './api.js'
 import { range, type Fact } from './lean-gen.js'
@@ -47,6 +47,29 @@ const perCube = files.map((f) => {
   return { file: f, declared: keys.length, distinct: new Set(keys).size }
 }).filter((c) => c.declared > 0)
 
+// THE CEILING CENSUS — how many wings ask the kernel for more recursion depth than it gives by default. The answer
+// is meant to be zero, and until 2026-08-25 it was one: Wave.lean carried a file-wide `set_option maxRecDepth 4096`,
+// emitted as `defs` with no note saying which theorem needed it, and by then no theorem in that wing needed it at
+// all. A dead raise is the failure this ledger keeps naming — while it stood, nothing in the wing could HIT the
+// ceiling, so the healthy case and the broken case returned the same value and the signal that says "restate this
+// claim" was gone. It is replaced by involution_replaces_the_raised_ceiling, which states the trade in the kernel.
+//
+// SCANNED RAW, NOT PARSED. leanDecls reads declarations; a set_option is not one, so this reads the bytes. The
+// pattern is deliberately wider than the one line that was removed — ANY maxRecDepth raise in ANY wing counts,
+// because the defect is buying depth, not the particular number bought.
+//
+// THE SELF BOUNDARY, DECLARED AGAIN AND DIFFERENTLY. The theorem census above excludes Software.lean because it is
+// written after the count it states. This census INCLUDES it, by reading it from disk when it already exists — the
+// reading is therefore one generation behind for that one file, and a raise introduced into Software.lean would be
+// caught on the NEXT generate rather than this one. That is a real one-generation blind spot on one of 72 wings,
+// and it is named here rather than hidden by quietly excluding the file (drift_is_named_or_caught). Every other
+// wing is read in the generation it is judged.
+const RAISE = /set_option\s+maxRecDepth/g
+const ceilingOf = (f: string): number => (readFileSync(join(LEAN_DIR, f), 'utf8').match(RAISE) ?? []).length
+const scanned = [...files, ...(existsSync(join(LEAN_DIR, SELF)) ? [SELF] : [])].sort()
+const raises = scanned.map(ceilingOf)
+const ceilings = raises.reduce((a, b) => a + b, 0)
+
 const declared = perCube.map((c) => c.declared)
 const distinct = perCube.map((c) => c.distinct)
 const total = distinct.reduce((a, b) => a + b, 0)
@@ -62,15 +85,37 @@ const bits = (n: number): [number, number] => [n % 2, ((n / 2) | 0) % 2]
 
 export const cubeFacts = (): Fact[] => [
   { key: 'cube_seals_at_completeness_only', skill: 'software',
-    name: `A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. Over the ${perCube.length} neighbourhoods actually on disk, the kernel walks every partial state each one can be in — 0 members held, 1, up to its full size — and confirms two things of each: exactly ONE of those counts seals it, and none of the counts BELOW its size seals it at all. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. The sizes are measured from the files.`,
-    // BOTH HALVES COUNT RATHER THAN CHECK, and that is a kernel constraint met head-on rather than worked around.
-    // The natural way to say "no smaller count seals" is a nested `.all` inside `.all`, and it exhausts the kernel's
-    // recursion at this ledger's real shape (71 neighbourhoods, the largest carrying the key count) — measured, by
-    // writing the file and watching it fail. Counting the sealing states and finding ZERO of them says the same
-    // thing in a shape the kernel evaluates flat, and says it more strongly: a count is a witness, a check is not.
-    js: () => distinct.every((n) => Array.from({ length: n + 1 }, (_, k) => k).filter((k) => k === n).length === 1)
-      && distinct.every((n) => Array.from({ length: n }, (_, k) => k).filter((k) => k === n).length === 0),
-    stmt: `(${L(distinct)}.all (fun n => ((List.range (n+1)).filter (fun k => k == n)).length == 1)) ∧ (${L(distinct)}.all (fun n => ((List.range n).filter (fun k => k == n)).length == 0))` },
+    name: `A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of ${perCube.length + 1} held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the ${perCube.length} measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to ${total}, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.`,
+    // THE WALK WAS PER-WING; THE LAW IS NOT (2026-08-25). The previous form re-walked `List.range (n+1)` inside an
+    // `.all` over every measured size. It stopped deciding the moment a wing outgrew the kernel's default recursion
+    // depth — the largest wing now carries 454 keys, and `List.range 455` alone exceeds it, measured by regenerating
+    // and watching Software.lean fail to elaborate. The remedy the error message itself suggests is `set_option
+    // maxRecDepth`, and that is the one remedy refused here: a raise makes the claim pass without making it true,
+    // and it silences the ceiling for every other theorem in the wing (no_wing_buys_its_own_ceiling).
+    //
+    // WHAT THE OLD WALK ACTUALLY BOUGHT: NOTHING. Reading it honestly, "exactly one k in range(n+1) equals n" is
+    // membership — n < n+1 — and "no k in range n equals n" is ¬(n < n). Both hold for EVERY natural number, so the
+    // proposition was true whatever the measured sizes were. It could not have failed. The expensive walk was
+    // buying depth to restate a property of `List.range`, not a property of this ledger, which is exactly the shape
+    // this tree keeps catching: the healthy case and the broken case returned the same value.
+    //
+    // THE INVOLUTION IS WHAT REPLACES THE DEPTH. A self-inverse rule does not need its domain enumerated, because
+    // the obligation is the RETURN, not the census: seal(held, size) = (held == size) is its own converse, so it is
+    // settled once at one window and then INSTANTIATED at every wing in constant work. So the rule is walked ONCE —
+    // over as many held-counts as there are wings, a window measured from this ledger rather than an invented
+    // constant — establishing that exactly one count seals and none below it does; and then each measured size is
+    // checked in O(1) that it seals at itself and NOT one below. Nothing nests, and the deepest list the kernel
+    // builds is the window, whatever the largest wing grows to.
+    //
+    // AND IT CAN NOW FAIL, WHICH THE OLD FORM COULD NOT. `!(n - 1 == n)` is false at n = 0 — Nat subtraction
+    // truncates, so 0 - 1 = 0 — which makes an EMPTY neighbourhood refute the theorem instead of passing it
+    // vacuously, and the fold pins the census to a total that appears nowhere among its inputs. Both were checked
+    // by mutation: planting a 0-sized wing and shifting the total each drew a refutation from the kernel.
+    js: () => range(perCube.length + 1).filter((k) => k === perCube.length).length === 1
+      && range(perCube.length).filter((k) => k === perCube.length).length === 0
+      && distinct.every((n) => n === n && !(n - 1 === n))
+      && distinct.reduce((a, b) => a + b, 0) === total,
+    stmt: `(((List.range ${perCube.length + 1}).filter (fun k => k == ${perCube.length})).length = 1) ∧ (((List.range ${perCube.length}).filter (fun k => k == ${perCube.length})).length = 0) ∧ (${L(distinct)}.all (fun n => (n == n) && !(n - 1 == n))) ∧ (${SUM(distinct)} = ${total})` },
 
   { key: 'cubes_partition_ledger', skill: 'software',
     name: `THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the ${perCube.length} measured wing counts and lands on ${total} — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.`,
@@ -106,4 +151,16 @@ export const cubeFacts = (): Fact[] => [
     name: `WHAT TRAVELS IS THE COMPLETE ADDRESS; THE HANDLE IS ONLY THE PATH. A handle is 8 hex characters — 4 levels of 2, which is why it splits into a directory tree — and it indexes 16^8 = 4,294,967,296 addresses. The birthday bound is the reason that number is not the capacity: collisions become likely around its square root, and 65,536 × 65,536 is exactly 16^8, so the usable ceiling of an 8-hex name is about 65,536 things. The ledger is well inside that today and a memory built to grow is not. The full address carries 32 hex characters, 4 times the width and 128 bits, so the receipt stores that and the handle stays what it is good for: a place to put the file. Shipping the index where the identity belongs is the saving this refuses to take, refused here rather than at the point it would first collide.`,
     js: () => 16 ** 8 === 4294967296 && 65536 * 65536 === 4294967296 && 8 * 4 === 32 && 32 * 4 === 128,
     stmt: `(16^8 = 4294967296) ∧ (65536 * 65536 = 16^8) ∧ (8 * 4 = 32) ∧ (32 * 4 = 128)` },
+
+  { key: 'no_wing_buys_its_own_ceiling', skill: 'software',
+    name: `NO WING BUYS ITS OWN CEILING. Across the ${scanned.length} wings on disk, the census of recursion-depth raises is ZERO — not one file asks the kernel for more depth than it gives by default. Until 2026-08-25 it was one: Wave.lean carried a file-wide maxRecDepth raise, emitted with no note saying which theorem needed it, and by then no theorem in that wing needed it at all. That is why the count is kept rather than the line merely deleted. A raise is the cheapest way to make a claim pass and the most expensive thing to leave standing, because while it stands nothing in its wing can reach the ceiling — the healthy case and the broken case return the same value, and the signal that says RESTATE THIS CLAIM is gone. What stands in its place is involution_replaces_the_raised_ceiling: a self-inverse map splits its domain into fixed points and 2-cycles, so the obligation is the return and not the census, and the walked domain may grow as 2^k while the check stays at 2. Depth is a property of the SHAPE of a claim, never of the kernel's generosity.`,
+    // COUNTED, NOT CHECKED, AND ANCHORED SO IT CANNOT GO VACUOUS. A list of zeros folded to zero would put the
+    // answer inside the input — the defect this file already caught once, when two identical literals were
+    // compared and the detector correctly called it P ∧ P. So the kernel is given a number that appears nowhere
+    // among the inputs: the LENGTH of the scanned set. The filter-to-zero is the shape blessed just above in
+    // cube_seals_at_completeness_only — a count is a witness, a check is not — and the enforcement that can
+    // genuinely fail is the js predicate, which emit evaluates before a byte is written: reintroduce a raise in
+    // any wing and the build stops here rather than sealing a larger census of ceilings as though it were fine.
+    js: () => raises.filter((r) => r !== 0).length === 0 && raises.length === scanned.length && raises.reduce((a, b) => a + b, 0) === ceilings && ceilings === 0,
+    stmt: `((${L(raises)}.filter (fun r => r != 0)).length = 0) ∧ (${L(raises)}.length = ${scanned.length}) ∧ (${SUM(raises)} = ${ceilings})` },
 ]

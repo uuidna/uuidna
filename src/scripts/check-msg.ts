@@ -74,7 +74,15 @@ const sealAndExit = (): never => {
     process.exit(0)
   }
   writeFileSync(path, body + '\n\nTrial-Receipt: ' + sig.fold + '\n')
-  console.log(`✓ check-msg — sealed: Trial-Receipt ${sig.fold}, backed by ${sig.cited.join(', ')} (recompute: strip the trailer, signCommit the rest)`)
+  // "backed by" is the word signCommit itself refuses to leave unqualified — its `honest` field says the sealing
+  // means the message NAMES a sealed proof, "NOT that the claim is true. It signs the citation, not the world." That
+  // sentence existed and was correct, and was dropped at the print, which is how a qualifier stops travelling with
+  // the figure it qualifies. Same shape as the leak reveal() carries `backing` to close (gate.ts, 2026-08-25): the
+  // check establishes that the citation is SEALED and never that the citation SUPPORTS the message, and a line
+  // reading "backed by X" invites exactly the reading the check did not earn.
+  console.log(`✓ check-msg — sealed: Trial-Receipt ${sig.fold}, CITING (sealed, not vouched-for): ${sig.cited.join(', ')}`)
+  console.log(`    signs the citation, not the world — sealed means the ledger holds these proofs, never that they support the message`)
+  console.log(`    recompute: strip the trailer, signCommit the rest`)
   process.exit(0)
 }
 

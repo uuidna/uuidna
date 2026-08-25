@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE SUBGROUP LATTICE OF (Z/9)* — the four subgroups exhibited.
-// PURE ARITHMETIC: every value is a residue or a count; nothing is measured from the world.
+// PURE ARITHMETIC: every value is a residue mod nine or a count of subsets, and no value here is a reading taken
+// from the world — no distance, no mass, no frequency, no duration — so this wing names no standard and no agency,
+// because it owes none. Group theory answers to the kernel alone.
 //
 // WHY. Discover.lean seals Lagrange's theorem and the per-element orders, and Affine.lean seals the six units as
 // the multipliers of AGL(1,Z/9). Neither exhibits a SUBGROUP. The lattice is a complete finite object — search all

@@ -1,13 +1,19 @@
 #!/usr/bin/env node
 // Automate the Lean layer for AGL(1,ℤ/9), ENUMERATED — the group OneLeap.lean names and never lists. PURE
-// ARITHMETIC: every value is a residue or a count; nothing is measured from the world.
+// ARITHMETIC: every value is a residue or a count, so nothing here is read off an instrument or taken from the
+// world, and the wing owes no authority but the kernel — a citation would add nothing `by decide` does not already
+// settle over all 2916 products.
 //
 // WHY. OneLeap.lean carries ONE theorem and its own header names "the AGL(1,ℤ/9) group of order 54". The order is
 // stated; the group is not. An affine map is x ↦ ax + b with a a UNIT of ℤ/9 — six units by six choices of a, nine
 // offsets — so the fifty-four elements are a complete finite object, and closure, identity and inversion are
-// decidable over all 54 × 54 = 2916 products. Measured across the ledger: five wings that ENUMERATE carry 589
-// theorems while 79 that STATE carry 848 at a median of eight. This is the enumerating shape applied to the
-// smallest wing in the ledger.
+// decidable over all 54 × 54 = 2916 products. There is a second shape in the ledger — a handful of wings that
+// ENUMERATE a finite object against the many that STATE facts about one — and the enumerating wings carry more
+// theorems each. That contrast is a census of THIS REPOSITORY'S OWN BYTES rather than a finding about the world,
+// so nobody stands behind it except the tree it is counted from, and there is nothing to cite. The counts
+// themselves are deliberately NOT written here: a ledger count in prose is correct on the day it is typed and
+// wrong on the next landing, and no generator keeps a comment current. Ask theoremCountByFile() for the live
+// numbers instead. This is the enumerating shape applied to the smallest wing in the ledger.
 //
 // THE ENCODING is one Nat per element, e = a·9 + b, so the multiplier is e / 9 and the offset e % 9 — no pairs, no
 // structures, nothing the kernel must unfold. Composition is (f ∘ g)(x) = a_f(a_g·x + b_g) + b_f.

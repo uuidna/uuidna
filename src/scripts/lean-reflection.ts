@@ -1,7 +1,9 @@
 #!/usr/bin/env node
-// Automate the Lean layer for THE REFLECTION'S REACH — what an involution alone can and cannot separate, measured
+// Automate the Lean layer for THE REFLECTION'S REACH — what an involution alone can and cannot separate, COMPARED
 // against the walk that adds an irreversible step. PURE ARITHMETIC: every number is a digit of the ring or a count
-// of classes; nothing is measured from the world and no ledger count appears, so nothing here drifts.
+// of classes, no value here is a reading taken from the world, and no ledger count appears, so nothing here drifts.
+// A wing holding no distance, no mass, no frequency and no duration names no standard and no agency, because it
+// owes none — an involution on ten points answers to the kernel alone.
 //
 // WHY. Clay.lean reflects the seven problems through dz(x) = 10 − x and says plainly that it "reflects all seven and
 // solves none" — a bijection relabels and propagates no proof. This wing DECIDES that limitation instead of stating
@@ -10,7 +12,7 @@
 // them — the seventh is in the covering half of the ring, sealed in Seats.lean as digits_split_five_five.
 //
 // SIX IS FORCED. An involution on ten points with two fixed points has 2 + (10 − 2)/2 = 6 classes by
-// arithmetic. That the sequence's own orbit count is also six is a SEPARATE measurement landing on the same
+// arithmetic. That the sequence's own orbit count is also six is a SEPARATE enumeration landing on the same
 // integer; this wing seals why the reflection's six is unavoidable and claims no correspondence between them.
 //
 // A CORRECTION SEALED HERE: I said in conversation that the seven residues occupy four of the six classes. They
@@ -45,7 +47,7 @@ const FACTS = [
     lean: `theorem classes_cap_at_two : ((List.range 10).map dzMin).eraseDups.all (fun c => ((List.range 10).filter (fun d => dzMin d == c)).length ≤ 2) := by decide` },
 
   { key: 'six_is_forced_arithmetic',
-    why: 'SIX IS FORCED. SCOPE: the sequence walk also yields six orbits, and that is a SEPARATE measurement landing on the same integer. No correspondence between the two sixes is claimed or sealed.',
+    why: 'SIX IS FORCED. SCOPE: the sequence walk also yields six orbits, and that is a SEPARATE enumeration landing on the same integer. No correspondence between the two sixes is claimed or sealed.',
     js: () => FIXED.length === 2 && 2 + (10 - 2) / 2 === 6,
     lean: 'theorem six_is_forced_arithmetic : (((List.range 10).filter (fun d => dz d == d)).length = 2) ∧ (2 + (10 - 2) / 2 = 6) := by decide' },
 
@@ -68,5 +70,5 @@ const FACTS = [
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Reflection.lean', skill: 'reflection', defs: DEFS,
-  header: "THE REFLECTION'S REACH — what an involution alone can and cannot separate. Clay.lean reflects seven problems through dz(x) = 10 − x and states in prose that it reflects all seven and solves none; this wing DECIDES that limitation. The reflection splits the ten digits into six classes of AT MOST TWO — reversibility erases nothing and so derives nothing — and six is FORCED by arithmetic, since dz fixes exactly two digits and pairs the other eight: 2 + (10 − 2)/2 = 6. The seven residues reach five of those classes. The limitation stated exactly: dzMin 7 = dzMin 3, so the reflection cannot tell the seventh residue from the third. Yet the seventh lies in the covering half of the ring ({2,6,7,8,9}, sealed as digits_split_five_five), where the walk that adds the IRREVERSIBLE doubling reaches every digit — what the full walk distinguishes, the involution confuses. PURE ARITHMETIC, no ledger count, nothing measured from the world. integrity. The sequence walk also yields six orbits; that is a separate measurement landing on the same integer, and no correspondence between the two sixes is claimed. Nothing here decides any Clay problem, and a residue is not a fact about the thing seated at it.",
+  header: "THE REFLECTION'S REACH — what an involution alone can and cannot separate. Clay.lean reflects seven problems through dz(x) = 10 − x and states in prose that it reflects all seven and solves none; this wing DECIDES that limitation. The reflection splits the ten digits into six classes of AT MOST TWO — reversibility erases nothing and so derives nothing — and six is FORCED by arithmetic, since dz fixes exactly two digits and pairs the other eight: 2 + (10 − 2)/2 = 6. The seven residues reach five of those classes. The limitation stated exactly: dzMin 7 = dzMin 3, so the reflection cannot tell the seventh residue from the third. Yet the seventh lies in the covering half of the ring ({2,6,7,8,9}, sealed as digits_split_five_five), where the walk that adds the IRREVERSIBLE doubling reaches every digit — what the full walk distinguishes, the involution confuses. PURE ARITHMETIC, no ledger count, no value here read from the world — no distance, no mass, no frequency, no duration — so the wing names no standard and no agency, because it owes none. integrity. The sequence walk also yields six orbits; that is a separate enumeration landing on the same integer, and no correspondence between the two sixes is claimed. Nothing here decides any Clay problem, and a residue is not a fact about the thing seated at it.",
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

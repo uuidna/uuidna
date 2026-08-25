@@ -70,7 +70,13 @@ try {
   const ax = JSON.parse(readFileSync(join(ROOT, 'lean', 'axioms.json'), 'utf8')) as { audited: number; axiomFree: number; offenders?: Record<string, string[]> }
   const N = theorems().length
   const offenders = Object.keys(ax.offenders ?? {})
-  if (ax.audited < N) { failed = true; console.error(`✗ guard — AXIOM WITNESS STALE: ${ax.audited}/${N} theorems audited (a new theorem lacks a kernel-only witness) — run \`npm run axioms\``) }
+  // THE COMPARISON IS `!==`, NOT `<`, AND THE ASYMMETRY WAS A HOLE (2026-08-25). `<` catches a ledger that GREW —
+  // a new theorem with no witness — and says nothing about one that SHRANK. If theorems are removed, audited > N
+  // and the condition never fires, so the witness passes while certifying theorems that are no longer in the
+  // ledger: a count vouching for text nobody can now recompute. Both directions are the same defect, which is
+  // that the witness and the ledger describe different sets, so both are refused and the message names which way
+  // it went rather than assuming growth.
+  if (ax.audited !== N) { failed = true; console.error(`✗ guard — AXIOM WITNESS DOES NOT COVER THE LEDGER: ${ax.audited} audited against ${N} theorems (${ax.audited < N ? 'a new theorem lacks a kernel-only witness' : 'the witness vouches for theorems the ledger no longer holds'}) — run \`npm run axioms\``) }
   else if (ax.axiomFree < ax.audited || offenders.length) { failed = true; console.error(`✗ guard — NON-KERNEL theorem: ${ax.axiomFree}/${ax.audited} axiom-free${offenders.length ? '; offenders: ' + offenders.join(', ') : ''} — the ledger borrows an axiom`) }
   else console.log(`✓ guard — axiom witness: ${ax.axiomFree}/${ax.audited} theorems kernel-only (no propext, no Classical.choice), covering all ${N}`)
 } catch { failed = true; console.error('✗ guard — no lean/axioms.json witness — run `npm run axioms` (the ledger has no kernel-only proof witness)') }

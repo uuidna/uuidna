@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE CONTRIBUTION — what the address becomes once the coins are paid. PURE ARITHMETIC:
-// every value is a bit count, a coin count or a direction count; nothing is measured from the world.
+// every value is a bit count, a coin count or a direction count — counts of things this project DEFINES, never
+// readings taken off the world, so no authority is owed here and none is named. 128 − 2 = 126 answers to the kernel
+// alone; what a citation could never supply is the reason the commission is two, which the ledger derives.
 //
 // THE LAW IS CONTRIBUTE FIRST, THEN TAKE. The address is 2^7 = 128 bits. The commission is TWO, already sealed as
 // 110 - 108 = 2 and as the negative Euler characteristic of the double torus (genus 2, chi = -2). Paying it leaves

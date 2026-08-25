@@ -151,3 +151,92 @@ test('a witness deciding a theorem OUTSIDE the wing is disclosed, not silently c
   assert.equal(p.coverage.witnessed + p.coverage.beyondWing.length, WITNESSES.length,
     'every witness decides exactly one sealed theorem, inside the wing or outside it')
 })
+
+// ── THE THEOREMS THIS BATTERY FALSIFIES, NAMED SO THE LEG CENSUS CAN SEE THEM ────────────────────────────────
+// rosetta grants the FALSIFIER leg when "a test names it, which is where a mutation that must fail would live".
+// The falsification already existed — `proveHardwareQuantum` runs every witness and the suite asserts zero
+// disagreements, so a theorem whose proposition stopped reproducing on this silicon turns this file red. But the
+// census greps TEST FILES for the literal key, and the battery lives in src/drivers, so 43 of the 48 theorems it
+// decides read as owing a falsifier they in fact have.
+//
+// Naming them here is NOT grep-appeasement, and the distinction matters because I refused exactly that move
+// earlier tonight (satisfying the dormancy law with a comment). There the property was absent and the mention
+// would have manufactured it; here the property holds and the mention only makes it visible — to the census and
+// to a human reader, who currently cannot tell from `assert.deepEqual(bad, [])` which theorems are covered.
+//
+// AND THE LIST CANNOT SILENTLY LAG, which is the objection to every hand-typed list in this repository: the test
+// below asserts it equals the battery's own keys exactly, so adding a witness without naming it here fails, and
+// naming one here that the battery does not decide fails too.
+//
+// WHAT THESE ARE NOT: witnesses. rosetta reserves that leg for "something outside this repository that a stranger
+// could consult — a published standard, a named author, a measured artefact", and states plainly that "the
+// project's own prose is not a witness to itself". This battery is the tree confirming itself on its own silicon,
+// which is a falsifier and never an external anchor. The `Witness` type in drivers/quantum uses the word in the
+// looser sense and the two meanings sit in one repository; this note is where they are told apart.
+const FALSIFIED: readonly string[] = [
+  'superposition_h0',
+  'bell_born_weights',
+  'bell_normalized',
+  'bell_perfect_correlation',
+  'bell_no_signaling',
+  'ghz3_two_outcomes',
+  'cnot_truth_table',
+  'cnot_involution',
+  'toffoli_truth_table',
+  'toffoli_involution',
+  'swap_truth_table',
+  'swap_involution',
+  'pauli_x_involution',
+  'z_involution',
+  'cz_involution',
+  'h_involution_on_zero',
+  's_squared_is_z',
+  's_dagger_inverse',
+  's_fourth_is_identity',
+  'hadamard_conjugates_x_to_z',
+  'pauli_x_z_anticommute',
+  'bell_stabilized_by_xx',
+  'bell_zz_even_parity',
+  'ghz_stabilized_by_xxx',
+  'bell_basis_orthogonal',
+  'superdense_two_bits',
+  'entanglement_determinant',
+  'dj_balanced_cancels',
+  'dj_constant_reinforces',
+  'n_qubit_dimension',
+  'tensor_dimension_multiplies',
+  'no_cloning_dimension',
+  'clifford_group_order_24',
+  'pauli_group_order_16',
+  'message_qubit_cap_states',
+  'hexbit_slit_visibility',
+  'ghz3_normalized',
+  'w_state_three_outcomes',
+  'w_state_normalized',
+  'real_pauli_group_order_8',
+  'teleportation_four_corrections',
+  'phase_gate_order_ladder',
+  'hexbit_slit_cross_is_overlap',
+  'sixteen_connectives',
+  'types_count_as_arithmetic',
+  'closure_is_coprime',
+  'four_messages_two_bits',
+  'store_fold_order_invariant',
+]
+
+test('THE FALSIFIED SET IS NAMED, AND CANNOT DRIFT FROM THE BATTERY IT DESCRIBES', () => {
+  assert.deepEqual([...FALSIFIED].sort(), [...WITNESSES.map((w) => w.theorem)].sort(),
+    'the named list and the battery must agree exactly — a hand-typed list that can lag is the defect, not the fix')
+  for (const key of FALSIFIED) assert.ok(theoremByKey().has(key), `${key} is named as falsified but is not sealed`)
+})
+
+test('every named theorem is decided on this host, so naming it here is backed by a run', () => {
+  const p = proveHardwareQuantum(1)
+  const decided = new Map(p.results.map((r) => [r.theorem, r]))
+  for (const key of FALSIFIED) {
+    const r = decided.get(key)
+    assert.ok(r, `${key} is named but the battery did not run it`)
+    assert.equal(r.disagreements, 0, `${key}: this silicon disagreed with the sealed value`)
+    assert.ok(r.executed > 0, `${key}: named with zero executions is a claim with no run behind it`)
+  }
+})

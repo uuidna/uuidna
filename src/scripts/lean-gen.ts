@@ -65,8 +65,8 @@ export const m9 = (n: number): number => ((n % 9) + 9) % 9
 // proves the JS side. Nothing is parsed.
 //
 // THE TALLY MUST NOT CARE HOW A WING WALKS. Counting only `range` calls was a second parser in disguise: it saw
-// the wings that use the shared helper and reported every other wing as deciding one case. Measured, that read
-// as "97% of enumerating theorems have a JS mirror that walks nothing" — and it was false. `seal_ten` walks
+// the wings that use the shared helper and reported every other wing as deciding one case. Run over the whole
+// ledger, that read as "97% of enumerating theorems have a JS mirror that walks nothing" — and it was false. `seal_ten` walks
 // `[0..9].every(...)` and `s.map(dz)` with array literals, which the helper-counter cannot see. So the count is
 // taken at the ITERATION itself: for the length of one fact's check, the array methods a walk is made of tally
 // what they visit. Any helper, any literal, any shape — if it iterates, it counts.
@@ -181,7 +181,7 @@ export function docComment(prose: string, width = 108): string {
 
 // One helper, no repetition: JS-check every fact, write lean/<File>.lean + its manifest, verify sorry-free.
 export function emit({ file, header, facts, defs = '', skill }: EmitArgs): number {
-  // one pass: each fact's JS is run ONCE, its verdict checked and its walk measured on the same execution, so
+  // one pass: each fact's JS is run ONCE, its verdict checked and its walk tallied on the same execution, so
   // the recorded mass belongs to the computation that was actually validated.
   const cases = new Map<string, number>()
   const fail: Fact[] = []
@@ -236,8 +236,14 @@ export interface PendingProof { file: string; path: string; address: string; the
 // ── THE KERNEL SPAWNS BELONG TO THE MACHINE, NOT TO THE WING ────────────────────────────────────────────────
 //
 // Each generator used to prove its own wing inline: write the file, block on `lean`, cache, return. Correct, and
-// strictly sequential — ~90 wings, one kernel process at a time, measured by the gate's own census at 114,402 ms
-// on a 16-core machine, which is 97% of the concurrent phase's floor while fifteen cores did nothing. The gate had
+// strictly sequential — ~90 wings, one kernel process at a time, timed by the gate's own census at 114,402 ms
+// on a 16-core machine, which is 97% of the concurrent phase's floor while fifteen cores did nothing. THAT NUMBER
+// IS A READING OF AN INSTRUMENT AND CARRIES ITS INSTRUMENT'S NAME: it is what the kernel spawns cost under
+// leanprover/lean4 v4.33.0 driven from Node.js v24 on one 16-core host, and the authority for it is nothing more
+// than that toolchain on that machine. A different toolchain version, a different host, or a different core count
+// will move it, so it is quoted as an observation and never as a constant. What does NOT move with the version is
+// the shape the observation exposed — one queue of ninety against fifteen idle lanes — and the change below is
+// justified by the shape, not by the milliseconds. The gate had
 // been fanning its checks out across the machine for some time; the single step inside those checks that dominates
 // every run was still a queue of one.
 //

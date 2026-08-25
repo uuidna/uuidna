@@ -114,6 +114,36 @@ async function main() {
   const wingBytes = files.map((f) => readFileSync(join(ROOT, 'lean', f), 'utf8')).join('')
   const ledgerSrc = existsSync(LEDGER_SRC) ? readFileSync(LEDGER_SRC, 'utf8') : ''
   const askedKey = handleOf(toUuid(wingBytes + ledgerSrc))
+
+  // THE WITNESS REFUSES A DENOMINATOR IT CANNOT VERIFY (2026-08-25). Every number this audit reports is counted
+  // against `T.length`, and T comes from `theorems()` — the COMPILED ledger in dist/. The ledger it is auditing is
+  // src/theorems/generated.ts, which a generator rewrites. Between that rewrite and the next `npm run build` the
+  // two disagree, and this audit will confidently report on a ledger that no longer exists.
+  //
+  // That is not hypothetical. lean-all was importing this file as a generator (it matched the `lean-*.js`
+  // discovery pattern), so the audit ran BEFORE the ledger was regenerated: one run printed "theorems audited :
+  // 1699/1699" and "every theorem depends on NO axioms" four lines after the same run wrote "2101 Lean theorems".
+  // 402 theorems were never asked about and the receipt was written with the stale total. That ROUTE is closed —
+  // lean-all now skips this file — but closing a route is not the same as fixing the harm: the audit can still be
+  // run by hand, from a script, or from the next mechanism nobody has written yet, and it would be just as wrong.
+  //
+  // So the check moves to where the harm is. Both ledgers are already in hand a line above — `ledgerSrc` was read
+  // to fold into askedKey but never counted. Counting it costs one regex and makes the audit structurally
+  // incapable of certifying a ledger it never saw, whatever the caller did. `^  { key:` is the structural anchor
+  // the tree already relies on for this file, chosen over a looser `key:` because prose inside a `name` can say
+  // "key:" and a line-anchored form cannot be faked by a mention (scanner_cannot_tell_use_from_mention).
+  //
+  // IT REFUSES RATHER THAN REPAIRING. Re-reading the source ledger here would let the audit paper over a stale
+  // dist and leave every OTHER reader of `theorems()` — the guard, the gate, the account — still holding the old
+  // number. A stop names the real fault once; a silent repair hides it from everyone downstream.
+  const srcCount = (ledgerSrc.match(/^ {2}\{ key:/gm) ?? []).length
+  if (ledgerSrc && srcCount !== T.length) {
+    console.error(`✗ axiom audit — REFUSED: the compiled ledger holds ${T.length} theorems, the source ledger holds ${srcCount}.`)
+    console.error(`  dist/ is stale, so every count this audit could print would be taken against the wrong ledger — including a green one.`)
+    console.error(`  Run \`npm run build\` first, or \`npm run axioms\`, which builds and then audits the ledger that now exists.`)
+    process.exit(1)
+  }
+
   const cachePath = join(ROOT, 'lean', 'axioms.json')
   if (!check && !process.env.UUIDNA_PROVE_ALL && existsSync(cachePath)) {
     try {

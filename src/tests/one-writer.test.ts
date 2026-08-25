@@ -84,12 +84,20 @@ test('the ppid walk is paid for ONCE — a refusal loop must not spawn a process
   // the lock was right to admit, which is the test being wrong about the world rather than the code being wrong.
   const stranger = Number(inShell('sleep 30 >/dev/null 2>&1 & cat /proc/$!/winpid 2>/dev/null || echo $!').trim())
   writeFileSync(path, JSON.stringify({ pid: stranger, purpose: 'a live stranger' }))
+  // THE COLD WALK IS PAID OUTSIDE THE TIMER, and that is the claim rather than a concession to it. The property
+  // under test is that the walk is paid ONCE, so what has to be cheap is every call AFTER the first — timing the
+  // cold spawn alongside them measures the price of the first walk, which nobody disputes. It also made this test
+  // flake: run under the full suite's parallel load the single uncached walk can cost seconds, and averaged over
+  // 40 calls it alone crossed the bound while the cache was working perfectly. Passing in isolation and failing
+  // beside its neighbours is the instrument moving, not the lock.
+  assert.equal(acquire('reconcile', process.pid, path).ok, false)   // the one walk, untimed
   const t0 = process.hrtime.bigint()
   for (let i = 0; i < 40; i++) assert.equal(acquire('reconcile', process.pid, path).ok, false)
   const perCallMs = Number((process.hrtime.bigint() - t0) / 1000000n) / 40
-  // A CEILING, NOT A BENCHMARK. The walk is cached after the first call, so 40 refusals should cost about one
-  // walk. The bound is loose enough that a slow, loaded host passes and tight enough that a spawn-per-hop-per-
-  // call cannot: uncached, each refusal is several hundred ms of process start-up on this platform.
+  // A CEILING, NOT A BENCHMARK — and excluding the cold walk makes it STRICTER, not looser: these 40 calls must
+  // now all hit the cache, where before one uncached spawn had 2000 ms of the budget to hide in. The regression
+  // this catches is a spawn per hop per call, which would put several hundred ms of process start-up into every
+  // one of the 40; the bound stays loose enough that a slow, loaded host passes.
   assert.ok(perCallMs < 50, `a repeated refusal must reuse the walk, not redo it: ${perCallMs} ms per acquire`)
   try { process.kill(stranger) } catch { /* already gone */ }
 })

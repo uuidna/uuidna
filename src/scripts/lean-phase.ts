@@ -1,9 +1,11 @@
 #!/usr/bin/env node
 // Automate the Lean layer for PHASE — why the alternating walk does not close, and which of its two maps is
-// responsible. PURE ARITHMETIC: every value is a digit of the ring or a count; nothing is measured from the world.
+// responsible. PURE ARITHMETIC: every value is a digit of the ring or a count. No value here is read off an
+// instrument or taken from the world, so nothing below owes an authority — a ten-digit ring is finite and the
+// kernel exhausts it, which is the whole of the warrant these lines have or need.
 //
 // WHY. The runner reports period 0 for every seed but zero, and I recorded that as a defect without running it.
-// Measured, it is a correct report: the walk alternates dz with doubling, so a PERIOD requires returning to the seed
+// Walked out by hand, it is a correct report: the walk alternates dz with doubling, so a PERIOD requires returning to the seed
 // IN PHASE — after a completed dz-then-doubling pair. Seed 2 does return to itself, at an even index, which is out
 // of phase; seeds 1 and 3 do not return at all within the cap. Only seed 0 closes, at two steps, because BOTH maps
 // fix it. This wing decides the cause instead of leaving it in a comment.

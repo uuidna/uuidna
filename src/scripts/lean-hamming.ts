@@ -1,8 +1,14 @@
 #!/usr/bin/env node
 // Automate the Lean layer for HAMMING(7,4), ENUMERATED — the whole table. PURE
-// ARITHMETIC: every value is a bit, a position or a count; nothing is measured from the world.
+// ARITHMETIC: every value is a bit, a position or a count. Nothing here is read off an instrument or taken from
+// the world, so no quantity below owes an authority — the kernel settles every line by exhausting a finite table.
+// WHAT IS NOT OURS IS THE CONSTRUCTION, and it should be named rather than absorbed: the (7,4) code, its three
+// parity positions and the syndrome that reads back as the error position are Hamming's (Hamming, 1950) — "Error
+// Detecting and Error Correcting Codes", Bell System Technical Journal 29, 147–160. That attribution says who
+// invented the code and nothing more; it does not certify one integer below, because every one of them is
+// recomputed here from the encoder and then decided.
 //
-// WHY ENUMERATE. Measured across the ledger: the few wings that ENUMERATE a table carry as many theorems as the
+// WHY ENUMERATE. Counted across the ledger: the few wings that ENUMERATE a table carry as many theorems as the
 // scores that STATE facts one at a time, whose median is single digits — read the live figures from
 // theoremCountByFile(), never from a number copied into a comment. Codes.lean is one of the small stating wings
 // and Hamming(7,4) is a complete finite object sitting under it — sixteen codewords, one hundred and twenty pairs,

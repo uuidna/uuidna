@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 // Automate the Lean layer for REFERRER — the referrer song (queue lead 77), TWO SESSIONS' HALVES FUSED IN ONE
 // WING (2026-08-22: both built lead 77 in the shared tree; neither half is deleted — the fusion is the wing).
-// The handle picks the door into the round, the pager's step sounds an interval whose consonance is MEASURED not
-// felt, and the closed page-cycle keeps prev/next total. One half seals: six doors by value mod 6, the consonance
+// The handle picks the door into the round, the pager's step sounds an interval whose consonance is COMPUTED not
+// felt, and the closed page-cycle keeps prev/next total. NOTHING HERE IS A READING OF THE WORLD: the consonance
+// number is a DEFINITION applied to integers (a reduced ratio's term sum), not a quantity anyone went out and
+// observed, and the 432 the lattice is built on is this ledger's own chosen base — it cancels out of every ratio
+// below (tuning_cancels_from_every_interval proves exactly that), so no acoustic fact and no tuning standard is
+// asserted, and the wing names no agency because it owes none. One half seals: six doors by value mod 6, the consonance
 // ladder as reduced-ratio term sums ordered by sweetness (Euler's gradus made bare), the lower lattice's octave
 // completeness, the wrap law. The other half seals: the door map's fibers on the sixteen tiles, rotation AS
 // multiplication ((142857·10^r) mod 999999 lands on the verses), the multiplier order as the powers of the
@@ -25,7 +29,7 @@ const FACTS = [
     lean: 'theorem referrer_six_doors : 0 % 6 = 0 ∧ 4294967295 % 6 = 3 ∧ (6:Nat) ≠ 0 := by decide' },
 
   { key: 'referrer_consonance_ladder',
-    why: 'CONSONANCE IS MEASURED, NOT FELT. An interval between lattice tones (h₁+1)·432 and (h₂+1)·432 reduces to the ratio of its multipliers, and its consonance measure is the reduced ratio\'s term sum — Euler\'s gradus made bare: unison 1:1 sums 2, octave 1:2 sums 3, fifth 2:3 sums 5, fourth 3:4 sums 7, and the ladder orders itself 2 < 3 < 5 < 7 — the sweetest steps are the smallest sums, decidably, before any ear is consulted.',
+    why: 'CONSONANCE IS COMPUTED, NOT FELT — and computed, not observed either: the number below is a definition evaluated on integers, never a reading taken from an instrument or an ear. An interval between lattice tones (h₁+1)·432 and (h₂+1)·432 reduces to the ratio of its multipliers, and its consonance measure is the reduced ratio\'s term sum — Euler\'s gradus made bare: unison 1:1 sums 2, octave 1:2 sums 3, fifth 2:3 sums 5, fourth 3:4 sums 7, and the ladder orders itself 2 < 3 < 5 < 7 — the sweetest steps are the smallest sums, decidably, before any ear is consulted.',
     js: () => cons(1, 1) === 2 && cons(2, 4) === 3 && cons(2, 3) === 5 && cons(3, 4) === 7 && 2 < 3 && 3 < 5 && 5 < 7,
     lean: 'theorem referrer_consonance_ladder : 1 + 1 = 2 ∧ 1 + 2 = 3 ∧ 2 + 3 = 5 ∧ 3 + 4 = 7 ∧ 2 < 3 ∧ 3 < 5 ∧ 5 < 7 := by decide' },
 
@@ -71,7 +75,7 @@ const FACTS = [
     lean: "theorem tuning_cancels_from_every_interval : (List.range' 1 15).all (fun a => (List.range' 1 15).all (fun b => Nat.gcd (432*a) (432*b) == 432 * Nat.gcd a b)) := by decide" },
 
   { key: 'orbit_steps_name_their_intervals',
-    why: 'THE DOUBLING ORBIT’S STEPS, MEASURED BY THE SAME RULE: 1→2, 2→4 and 4→8 each reduce to the pure octave (gcd = the smaller, ratio exactly 2), then 8→7 and 7→5 are already-reduced coprime tensions — 8:7 and 7:5 — before the round closes home. The melody the vortex sings is three clean octaves rising, two irreducible steps of tension, and return: the analysis is arithmetic, the drama is free.',
+    why: 'THE DOUBLING ORBIT’S STEPS, REDUCED BY THE SAME RULE: 1→2, 2→4 and 4→8 each reduce to the pure octave (gcd = the smaller, ratio exactly 2), then 8→7 and 7→5 are already-reduced coprime tensions — 8:7 and 7:5 — before the round closes home. The melody the vortex sings is three clean octaves rising, two irreducible steps of tension, and return: the analysis is arithmetic, the drama is free.',
     js: () => gcd(1, 2) === 1 && gcd(2, 4) === 2 && 2 * 2 === 4 && gcd(4, 8) === 4 && 4 * 2 === 8 && gcd(8, 7) === 1 && gcd(7, 5) === 1,
     lean: 'theorem orbit_steps_name_their_intervals : (Nat.gcd 1 2 = 1) ∧ (Nat.gcd 2 4 = 2) ∧ (2 * 2 = 4) ∧ (Nat.gcd 4 8 = 4) ∧ (4 * 2 = 8) ∧ (Nat.gcd 8 7 = 1) ∧ (Nat.gcd 7 5 = 1) := by decide' },
 
@@ -92,5 +96,5 @@ const FACTS = [
 ]
 
 emit({ file: 'Referrer.lean', skill: 'referrer',
-  header: 'REFERRER — the referrer song\'s sealed arithmetic: six doors into the round, consonance as a measured ladder, the lower lattice\'s octave completeness, and the wrap that makes the page-cycle total.',
+  header: 'REFERRER — the referrer song\'s sealed arithmetic: six doors into the round, consonance as a COMPUTED ladder (a definition on integers, not a reading of the world; the tuning cancels), the lower lattice\'s octave completeness, and the wrap that makes the page-cycle total.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

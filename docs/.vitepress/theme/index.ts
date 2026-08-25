@@ -17,6 +17,7 @@ import LinkAuditor from './LinkAuditor.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import HeroAnimation from './HeroAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
+import SponsorCard from './SponsorCard.vue'
 import HomeGraph from './HomeGraph.vue'
 import Reflect from './Reflect.vue'
 import BookReflect from './BookReflect.vue'
@@ -62,6 +63,13 @@ export default {
       // so in substance every path serves. The logic is the pure app quantum/apps/url-audit; this is a shell.
       'not-found': () => h(UrlAudit),
       'nav-bar-content-after': () => h(ReferrerNav),
+      // SponsorCard rides aside-ads-before — the exact place VitePress reserves for themeConfig.carbonAds, which is
+      // left unset on purpose. The carbonAds example ships placeholder ids, so enabling it as documented requests a
+      // serve id that does not exist and renders an empty box that reads as configured; and with real credentials it
+      // is still a third-party script choosing what a reader sees on an authority no reader can recompute, which is
+      // not a thing this site can host and keep its argument. The slot serves SITE.sponsor instead: one link, no
+      // script, no fetch, nothing observed about the reader.
+      'aside-ads-before': () => h(SponsorCard),
       // ReadAloud rides doc-before — right before the page's own content, so a reader tabbing in from the skip
       // link meets it immediately. Purely user-initiated (see the component's own header comment for why: an
       // auto-advancing or auto-reading page is a WCAG anti-pattern, not an accessibility win).

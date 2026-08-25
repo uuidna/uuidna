@@ -1,7 +1,9 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE PROSE TRIAL — the derivation law decided by the kernel instead of by a string
 // comparison in TypeScript. PURE ARITHMETIC, no empirical quantity: every number below is a digit of the ring or a
-// length, and nothing is measured from the world.
+// list length, and no value here is a reading taken from the world — there is no distance, no mass, no frequency and
+// no interval of time anywhere in this wing, so it names no standard and no agency, because it owes none. Arithmetic
+// answers to the kernel alone.
 //
 // WHY THIS WING EXISTS. The law is "prose not derived from the Lean algebra is treason", and the first two checks I
 // wrote to enforce it both decided in TypeScript. One compared numerals and acquitted the empty string; the second
@@ -14,8 +16,9 @@
 // the claim "a forged order is refused" is discharged where it is made.
 import { emit } from './lean-gen.js'
 
-// The six orbits the ledger walks — measured by running every key through src/sequence-run.ts, and already sealed
-// as a literal in theorem orbits_closed_involution. Listed here in descending population.
+// The six orbits the ledger walks — ENUMERATED, not observed: every key was run through src/sequence-run.ts and the
+// distinct orbits collected, which is a census of this repository's own arithmetic that anyone gets back by running
+// the same walk. Already sealed as a literal in theorem orbits_closed_involution. Listed in descending population.
 const ORBITS: number[][] = [
   [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
   [0, 1, 3, 4, 5, 6, 7, 9],
@@ -44,7 +47,7 @@ const FACTS = [
     lean: `theorem order_measures_orbit : orbits.map (fun o => o.length) = ${L(ORDERS)} := by decide` },
 
   { key: 'forged_order_refused',
-    why: 'A FORGED ORDER IS REFUSED, and the refusal is on this line. Move one order by one and the derived list no longer equals it — so a period a person chose can never pass as a period the walk measured.',
+    why: 'A FORGED ORDER IS REFUSED, and the refusal is on this line. Move one order by one and the derived list no longer equals it — so a period a person chose can never pass as a period the walk actually reaches.',
     js: () => JSON.stringify(ORDERS) !== JSON.stringify(FORGED),
     lean: `theorem forged_order_refused : (orbits.map (fun o => o.length) = ${L(ORDERS)}) ∧ (orbits.map (fun o => o.length) ≠ ${L(FORGED)}) := by decide` },
 

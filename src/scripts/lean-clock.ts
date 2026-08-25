@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE CLOCK WITHOUT A NOW — the step algebra src/quantum/clock computes, decided.
-// PURE ARITHMETIC: every value is a step, a residue or a count; nothing is measured from the world, and that is
-// the whole subject of the wing.
+// PURE ARITHMETIC: every value is a step, a residue or a count. NOTHING HERE IS READ OFF AN INSTRUMENT — no
+// oscillator, no wall clock, no duration in any unit — and that refusal is not a gap in the wing, it IS the wing's
+// whole subject. There is accordingly no authority to name: a clock that never reads cannot owe a reading's source.
 //
 // WHY THERE IS NO `now`. Reading an oscillator is the largest source of non-determinism there is — the same
 // computation would answer differently on two machines, and every receipt in this system rests on the opposite

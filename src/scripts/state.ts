@@ -42,7 +42,12 @@ const dirtyFinders = finders.filter(([, n]) => n > 0)
 // THE NEXT COMMAND — the one thing to run, decided by the same order the gate applies, so nobody has to guess
 const next =
   dirtyFinders.length ? `npm run guard   # ${dirtyFinders.map(([n, c]) => `${n}:${c}`).join(' ')} — each finding carries its exact fix`
-  : ax.audited < t.length ? 'node dist/scripts/lean-axioms.js   # the axiom witness is stale'
+  // `!==` rather than `<`: a ledger that SHRANK leaves audited > length, and a witness vouching for theorems the
+  // ledger no longer holds is exactly as stale as one missing a new theorem. And the command named is `npm run
+  // axioms`, which BUILDS first — the bare `node dist/scripts/lean-axioms.js` audits whatever dist happens to
+  // hold, which is the stale-denominator trap; it now refuses rather than answering, so naming it here would be
+  // handing the operator a command that stops.
+  : ax.audited !== t.length ? 'npm run axioms   # the axiom witness does not cover the ledger'
   : dirty.length ? 'npm run reconcile   # the tree is dirty; the drain regenerates and stages what it owns'
   : behind > 0 && ahead > 0 ? 'git pull --no-rebase   # diverged; the derived layer merges by recomputation (merge=derived)'
   : behind > 0 ? 'git pull --rebase'
@@ -57,7 +62,7 @@ const broken = [
   ed.drained > 0 ? `editorial: ${ed.drained} drained` : '',
   pub.licenseLawHolds ? '' : 'publication: license law broken',
   pub.conforms ? '' : 'publication: conformance broken',
-  ax.audited < t.length ? `axiom witness stale: ${ax.audited}/${t.length}` : '',
+  ax.audited !== t.length ? `axiom witness does not cover the ledger: ${ax.audited}/${t.length}` : '',
   Object.keys(ax.offenders ?? {}).length ? 'ledger borrows an axiom' : '',
   ...dirtyFinders.map(([n, c]) => `${n}: ${c} finding(s)`),
 ].filter(Boolean)

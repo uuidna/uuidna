@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // Automate the Lean layer for THE SIXTEEN BINARY BOOLEAN FUNCTIONS — enumerated, with the standard names. PURE
-// ARITHMETIC: every value is a bit or a count; nothing is measured from the world.
+// ARITHMETIC: every value is a bit or a count. The sixteen functions are the complete truth-table enumeration over
+// two inputs, so nothing here is read off an instrument or taken from the world and no authority is owed — 2^(2·2)
+// = 16 answers to the kernel alone, and a citation beside it would be decoration.
 //
 // WHY. Three wings asked for this object and none holds it. Hardware.lean claims NAND functional completeness while
 // reconstructing three of sixteen gates. Command.lean proves an acceptance rule equals AND without eliminating the
