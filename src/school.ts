@@ -28,7 +28,7 @@
 // import rides every bundle that reaches this module, and the edge worker has no filesystem.
 const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
 import { theorems } from './theorems/index.js'
-import { toUuid } from './address.js'
+import { toUuid, merge } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 
 /** One lesson in a course: the theorem, and what it cost the kernel to decide. `steps` is 0 when unmeasured. */
@@ -41,19 +41,94 @@ export interface Course {
   band: string      // that decade written as the span of costs it covers
   rank: number      // 1-based place in the derived reading order — rank 1 is where a reader starts
   roll: Lesson[]    // the course's own lessons, cheapest first
+  measure: 'kernel' | 'structural'  // WHICH basis graded it — a structural level is not a kernel level of the
+                    // same number, so the basis rides on the course rather than being inferred from the figure
 }
 export interface Level { level: number; band: string; courses: number; lessons: number; opens: string }
 export interface Section { id: string; title: string; body: string[]; computed: boolean }
-export interface School { sections: Section[]; courses: Course[]; levels: Level[]; receipt: string }
+export interface School {
+  sections: Section[]; courses: Course[]; levels: Level[]; receipt: string
+  /** WHICH MEASURE THE LADDER RESTS ON, and — when it is not the kernel's — why not. A school graded
+   *  structurally and one graded by the kernel are different claims, and this is where they are told apart. */
+  basis: { measure: Basis['measure']; reason?: string }
+  /** THE DENOMINATOR. `graded` courses carry a level, `of` is how many exist. A curriculum resting on 115
+   *  measurements and one resting on none rendered identically before this field: both were simply a list of
+   *  courses. A reading that does not report how much it read cannot be audited. */
+  covered: { graded: number; of: number }
+}
 
 /** THE COST OF A LESSON, MEASURED — lean/heartbeats.json holds the kernel decide-steps for every theorem, keyed by
  *  its content-address and produced by re-running the proof under a rising cap until it verifies. It is the one
  *  difficulty measure in this repository that is not an opinion: it is what the kernel actually spent. */
 const decideSteps = (): Record<string, number> => {
+  const k = kernelCosts()
+  return k.ok ? k.costs : {}
+}
+
+/** THE KERNEL READ, WITH ITS FAILURE NAMED. This was `catch { return {} }`, and an empty map is not a neutral
+ *  answer here: every course then grades level 0, which `bandOf` renders as "unmeasured". A tree whose proofs
+ *  were never measured and a runtime that could not OPEN heartbeats.json produced byte-identical schools —
+ *  115 courses, 115 unmeasured, same keys, same order. That is a reader wearing the face of an unmeasured ledger.
+ *
+ *  It is not hypothetical: this module's own `fsm()` exists because THE EDGE WORKER HAS NO FILESYSTEM, so on the
+ *  published site the catch fires every time and the school reports every course unmeasured while reporting no
+ *  failure at all. The surrounding code is scrupulous about exactly this distinction — levelOf returns 0 rather
+ *  than 1, unmeasuredLast records that "an absent measure is not a low one" — and the boundary that FEEDS it
+ *  swallowed its own. Absent is now a third answer with a reason, never a zero. */
+export type KernelCosts = { ok: true; costs: Record<string, number> } | { ok: false; reason: string }
+export function kernelCosts(): KernelCosts {
+  let raw: string
   try {
-    const hb = JSON.parse(fsm().readFileSync(new URL('../lean/heartbeats.json', import.meta.url), 'utf8')) as { costs?: Record<string, number> }
-    return hb.costs ?? {}
-  } catch { return {} }
+    raw = fsm().readFileSync(new URL('../lean/heartbeats.json', import.meta.url), 'utf8') as unknown as string
+  } catch {
+    return { ok: false, reason: 'lean/heartbeats.json could not be read in this runtime — an edge worker has no filesystem, so the kernel measure is unavailable here rather than absent from the ledger' }
+  }
+  try {
+    const hb = JSON.parse(raw) as { costs?: Record<string, number> }
+    if (!hb.costs) return { ok: false, reason: 'lean/heartbeats.json parsed but carries no `costs` map — the file exists and the measure does not' }
+    return { ok: true, costs: hb.costs }
+  } catch {
+    return { ok: false, reason: 'lean/heartbeats.json is present but not valid JSON — the measure cannot be trusted, and a partial read is worse than none' }
+  }
+}
+
+/** THE ALTERNATIVE TO LEAN — a difficulty measure that needs no kernel, no toolchain and no filesystem.
+ *
+ *  The kernel measure is the honest one and stays first: decide-steps are what Lean ACTUALLY SPENT, and nothing
+ *  computed from the statement can replace that. But it is a SINGLE SOURCE, and tonight proved what a single
+ *  source costs — the gate reported the lean arm VOID for hours on a host that had the toolchain installed the
+ *  whole time, and VOID reads as "not a failure", so nobody looked. A school whose entire ladder rests on one
+ *  file is a school with no levels on any host that cannot read that file, which today includes the site it
+ *  publishes to.
+ *
+ *  So there is a second basis, computed from the sealed records themselves: `cases` — the size of the finite
+ *  structure a theorem decides over — is carried by 1658 of the 1690 theorems, and the conjunct count is a
+ *  property of the statement text. Both travel wherever `theorems()` travels, which is everywhere, including
+ *  the worker. Cost is cases × conjuncts, integers throughout, no division and no Math.*.
+ *
+ *  IT IS A DIFFERENT QUANTITY AND IS NEVER PRESENTED AS THE SAME ONE. A structural level 10 is not a kernel
+ *  level 10; the two measure different things and their decades do not correspond. That is why the basis is
+ *  named on every course rather than inferred from the number — stability and validity are orthogonal, and a
+ *  measure that is perfectly reproducible can still be evidence for a different claim than the one you meant. */
+export function structuralSteps(): Record<string, number> {
+  const out: Record<string, number> = {}
+  for (const t of theorems()) {
+    const cases = typeof t.cases === 'number' && t.cases > 0 ? t.cases : 1
+    let conjuncts = 1
+    for (const ch of t.statement) if (ch === '∧') conjuncts++
+    out[t.address] = cases * conjuncts
+  }
+  return out
+}
+
+/** Which measure this school is standing on, and why. Kernel first; the alternative only when the kernel measure
+ *  cannot be read, and never silently — `reason` carries the kernel's own refusal so a reader can tell a school
+ *  graded structurally from one graded by the kernel, at a glance and in the data. */
+export interface Basis { measure: 'kernel' | 'structural'; costs: Record<string, number>; reason?: string }
+export function costBasis(): Basis {
+  const k = kernelCosts()
+  if (k.ok) return { measure: 'kernel', costs: k.costs }
+  return { measure: 'structural', costs: structuralSteps(), reason: k.reason }
 }
 
 /** THE LEVEL OF A COST — the decade it falls in: 1, 10, 100, 1000 … An unmeasured or nonsensical cost has NO level
@@ -90,7 +165,11 @@ const unmeasuredLast = (level: number): number => level === 0 ? 1 : 0
  *  branch no test can reach is a check that cannot fail. Two real mutations (grading an unmeasured course as
  *  level 1, and sorting an absent measure to the FRONT of the reading order) survived the whole suite until this
  *  parameter existed; both are caught now. */
-export function courses(cost: Record<string, number> = decideSteps()): Course[] {
+export function courses(cost?: Record<string, number>, measure: Basis['measure'] = 'kernel'): Course[] {
+  // no map injected → resolve the basis, which falls to the structural measure only when the kernel one refuses
+  const resolved: Basis = cost ? { measure, costs: cost } : costBasis()
+  const basisMeasure = resolved.measure
+  cost = resolved.costs
   const T = theorems()
   const byWing = new Map<string, typeof T>()
   for (const t of T) byWing.set(t.file, [...(byWing.get(t.file) ?? []), t])
@@ -108,11 +187,257 @@ export function courses(cost: Record<string, number> = decideSteps()): Course[] 
       lessons: ts.length,
       skills: [...new Set(ts.map((t) => t.skill).filter((s): s is string => !!s))].sort(),
       steps, entry: measured.length ? measured[0] : 0, level, band: bandOf(level), rank: 0, roll,
+      measure: basisMeasure,
     }
   })
   graded.sort((a, b) => unmeasuredLast(a.level) - unmeasuredLast(b.level)
     || a.level - b.level || a.steps - b.steps || a.entry - b.entry || (a.code < b.code ? -1 : 1))
   return graded.map((c, i) => ({ ...c, rank: i + 1 }))
+}
+
+// ── the quantum theorems: valid in every dimension ─────────────────────────────────────────────────────────
+//
+// A THEOREM CAN BE TRUE AND STILL NOT BE VALID IN ALL DIMENSIONS. `(1 * 7) % 9 = 7` holds in every language,
+// every runtime, every year, and on any host that ever runs it: nothing about the tree it lives in can move it.
+// A prose census — the per-wing doc-comment counts folded to a ℤ/9 digit — is also true, and is true of THIS
+// repository at THIS moment —
+// add a wing and it is false, and the ledger has to reseal it. Both pass `decide`; only the first is a fact
+// about arithmetic rather than a census of the tree taking a photograph of itself.
+//
+// That distinction is what the run of mutually-undoing Reconcile commits was made of. The nine statements that
+// drifted when a 1690th theorem landed — prose_coverage_total, cubes_partition_ledger, reach_all_decide and
+// six siblings — are exactly the contingent class, and they moved for the honest reason that the thing they
+// count had changed. A curriculum built from them teaches a reader the size of a directory.
+//
+// THE TEST IS A PROXY AND IS NAMED AS ONE. `dimensionInvariant` asks whether the statement carries any language
+// content once Lean's own vocabulary is set aside — no locale literal, no word, no corpus. A statement made of
+// numbers and operators cannot be about the tree, so it is invariant; that direction is sound. The converse is
+// not: a statement mentioning `List` might still be perfectly invariant, so the residue is "not established
+// invariant by this test", never "contingent". An instrument that reported the second would be claiming a
+// verdict it never reached — which is the whole discipline this file has been acquiring all night.
+const LEAN_VOCAB = /List|Nat|Bool|Int|foldl|foldr|filter|all|any|map|range|length|fun|let|if|then|else|true|false|decide|Prop|Type|sorry|by|rfl|And|Or|Not/g
+
+export function dimensionInvariant(statement: string): boolean {
+  const bare = statement.replace(LEAN_VOCAB, '')
+  return !/[\p{L}]/u.test(bare)
+}
+
+/** The ledger split by dimension-validity, with BOTH sides counted — a filter that reported only what it kept
+ *  would be a reading with no denominator. */
+export function quantumSplit(): { invariant: string[]; unestablished: string[] } {
+  const invariant: string[] = [], unestablished: string[] = []
+  for (const t of theorems()) (dimensionInvariant(t.statement) ? invariant : unestablished).push(t.key)
+  return { invariant, unestablished }
+}
+
+/** quantumCourses() → the school taught ONLY from theorems valid in every dimension. Wings keep their identity
+ *  and lose their contingent lessons; a wing left with no invariant lesson is DROPPED rather than shown empty,
+ *  and the count of dropped wings rides in the census so the loss is visible rather than silent. */
+export function quantumCourses(cost?: Record<string, number>): { courses: Course[]; droppedWings: number; keptLessons: number; ofLessons: number } {
+  const keep = new Set(quantumSplit().invariant)
+  const all = courses(cost)
+  const out: Course[] = []
+  let keptLessons = 0, ofLessons = 0
+  for (const c of all) {
+    ofLessons += c.roll.length
+    const roll = c.roll.filter((l) => keep.has(l.key))
+    if (!roll.length) continue
+    keptLessons += roll.length
+    const measured = roll.map((l) => l.steps).filter((n) => n > 0).sort((a, b) => a - b)
+    const steps = lowerMedian(measured)
+    const level = levelOf(steps)
+    out.push({ ...c, lessons: roll.length, roll, steps, entry: measured.length ? measured[0]! : 0, level, band: bandOf(level) })
+  }
+  out.sort((a, b) => unmeasuredLast(a.level) - unmeasuredLast(b.level) || a.level - b.level || (a.code < b.code ? -1 : 1))
+  return { courses: out.map((c, i) => ({ ...c, rank: i + 1 })), droppedWings: all.length - out.length, keptLessons, ofLessons }
+}
+
+// ── recursive paths ────────────────────────────────────────────────────────────────────────────────────────
+//
+// MINIMUM PAGES, MAXIMUM CROSSLINKS. A school of 115 courses and 1690 lessons has two obvious renderings and
+// both are wrong. One page per course is 115 pages that each say a little and link to nothing, and a reader who
+// wants the shape has to hold it in their head. One flat page is what exists today: everything present, nothing
+// addressable, so a course cannot be linked to, cited, or arrived at — and a thing with no address cannot be
+// crosslinked at all. The count of pages and the density of links are not in tension; a low page count is what
+// MAKES dense linking possible, because every target is one document away and every anchor resolves locally.
+//
+// SO THE STRUCTURE IS RECURSIVE AND THE TYPOGRAPHY CARRIES IT. One node type, four depths — school, level,
+// course, lesson — each rendered at a heading depth equal to its depth in the tree, each carrying an anchor
+// derived from its own address rather than from its title. Typography is not decoration here: the heading level
+// IS the recursion depth, so the page's shape and the data's shape are the same object, and a reader scanning
+// headings is reading the tree.
+//
+// EVERY NODE CARRIES ITS OWN CROSSLINKS, and they are derived, never authored: a lesson links to the theorem it
+// is, a course links to its wing and to the courses that share a skill with it, a level links to the courses at
+// that level. Nothing is a promise about the project — a link exists because two nodes share something the
+// ledger already records, and it disappears when they stop sharing it.
+
+export interface Path {
+  id: string           // anchor, derived from the node's own address — stable across retitling
+  title: string
+  kind: 'school' | 'level' | 'course' | 'lesson'
+  depth: number        // 0..3 — and the heading depth it renders at, which is the same number
+  links: string[]      // crosslinks OUT of this node, as anchors or /theorem/<key> routes
+  children: Path[]
+}
+
+/** paths(cost?) → the whole school as one recursive tree. The only structure-producing function here: levels,
+ *  courses and lessons are the SAME node type at different depths, which is what lets one renderer walk it and
+ *  one reader learn one shape. */
+export function paths(cost?: Record<string, number>): Path {
+  const cs = courses(cost)
+  // a skill index, so a course can link to the courses it shares a skill with — derived, not curated
+  const bySkill = new Map<string, string[]>()
+  for (const c of cs) for (const s of c.skills) bySkill.set(s, [...(bySkill.get(s) ?? []), c.code])
+
+  const levelsPresent = [...new Set(cs.map((c) => c.level))].sort((a, b) => unmeasuredLast(a) - unmeasuredLast(b) || a - b)
+  const levelNodes: Path[] = levelsPresent.map((lv) => {
+    const at = cs.filter((c) => c.level === lv)
+    return {
+      id: 'level-' + lv, title: `Level ${lv} — ${bandOf(lv)}`, kind: 'level' as const, depth: 1,
+      links: at.map((c) => '#' + c.code.toLowerCase()),
+      children: at.map((c) => ({
+        id: c.code.toLowerCase(), title: `${c.code} · ${c.title}`, kind: 'course' as const, depth: 2,
+        links: [
+          ...c.skills.map((s) => '#skill-' + s),
+          // sibling courses sharing a skill, each named once, never itself
+          ...[...new Set(c.skills.flatMap((s) => bySkill.get(s) ?? []))].filter((x) => x !== c.code).map((x) => '#' + x.toLowerCase()),
+        ],
+        children: c.roll.map((l) => ({
+          id: 'lesson-' + l.key, title: l.name, kind: 'lesson' as const, depth: 3,
+          links: ['/theorem/' + l.key],
+          children: [],
+        })),
+      })),
+    }
+  })
+  return {
+    id: 'school', title: 'School', kind: 'school', depth: 0,
+    links: levelNodes.map((n) => '#' + n.id),
+    children: levelNodes,
+  }
+}
+
+/** Walk the tree and count it — a renderer that cannot say how much it rendered is the reader-without-a-
+ *  denominator again, one level up. */
+export function pathCensus(root: Path): { nodes: number; links: number; byKind: Record<string, number> } {
+  let nodes = 0, links = 0
+  const byKind: Record<string, number> = {}
+  const walk = (p: Path): void => {
+    nodes++; links += p.links.length; byKind[p.kind] = (byKind[p.kind] ?? 0) + 1
+    for (const c of p.children) walk(c)
+  }
+  walk(root)
+  return { nodes, links, byKind }
+}
+
+/** renderPath(node) → markdown whose HEADING DEPTH IS THE NODE DEPTH. One function, called on itself, so the
+ *  page is generated by the same recursion the data has — there is no separate layout to drift from the tree. */
+export function renderPath(p: Path, maxDepth = 2): string[] {
+  const out: string[] = []
+  const hashes = '#'.repeat(p.depth + 1)
+  out.push(`${hashes} ${p.title} {#${p.id}}`)
+  if (p.links.length) out.push(p.links.map((l) => `[${l.replace(/^#|^\/theorem\//, '')}](${l})`).join(' · '))
+  if (p.depth < maxDepth) for (const c of p.children) out.push(...renderPath(c, maxDepth))
+  else if (p.children.length) out.push(`_${p.children.length} below this node, addressable at its own anchors._`)
+  return out
+}
+
+// ── each course leads to new courses, without end ──────────────────────────────────────────────────────────
+//
+// THE CATALOGUE IS FINITE AND THE SCHOOL IS NOT. The wing count — courses().length, read from the ledger and
+// never restated here — is what the catalogue holds, and a curriculum that
+// stopped there would be a reading list: finish the last course and the school has nothing further to say. But
+// a course here is not a page, it is an ADDRESS — and this repository's own arithmetic closes addresses under
+// folding, `merge(a, b) = toUuid(a:b)`, into a space of 2^128. So two courses compose into a third that is a
+// real course and not a placeholder: its lessons are the union of both rolls, its cost is measured from those
+// same lessons, and its address is the fold of the two it came from. Composition is closed, so the set of
+// courses reachable from any starting course is UNBOUNDED, and every one of them is derived, addressable and
+// recomputable by anyone holding the same ledger.
+//
+// THIS IS GENERATION, NOT INVENTION, and the distinction is the whole honesty of it. A composed course asserts
+// nothing that its parents did not already prove — it teaches their lessons together, and the only new fact is
+// that they CAN be taken together, which the shared skill is the evidence for. Nothing is sealed by composing,
+// no theorem is created, and `composed: true` rides on every one so a reader can never mistake a generated path
+// for a sealed wing. The infinity is in the ROUTES through the ledger, never in claims about the world.
+//
+// IT TERMINATES ONLY WHEN THE READER STOPS ASKING. Every function below takes a budget, because an unbounded
+// structure with no budget is a hang, and a hang is what an instrument that cannot say "I am still going" looks
+// like from outside. The budget is the caller's, and it is always reported back.
+
+export interface Composed extends Course { composed: true; parents: [string, string] }
+
+/** composeCourse(a, b) → the course you take when you take both. Lessons are the union by key, cost is the
+ *  lower median of the measured union — recomputed, never averaged from the parents' summaries, because an
+ *  average of two medians is a number no kernel ever spent. */
+export function composeCourse(a: Course, b: Course): Composed {
+  const roll: Lesson[] = [...new Map([...a.roll, ...b.roll].map((l) => [l.key, l])).values()]
+    .sort((x, y) => x.steps - y.steps || (x.key < y.key ? -1 : 1))
+  const measured = roll.map((l) => l.steps).filter((n) => n > 0).sort((x, y) => x - y)
+  const steps = lowerMedian(measured)
+  const level = levelOf(steps)
+  const address = merge(toUuid(a.wing), toUuid(b.wing))
+  return {
+    code: 'UU-' + address.replace(/-/g, '').slice(0, 4).toUpperCase(),
+    title: `${a.title} with ${b.title}`,
+    wing: `${a.wing}+${b.wing}`,
+    lessons: roll.length,
+    skills: [...new Set([...a.skills, ...b.skills])].sort(),
+    steps, entry: measured.length ? measured[0]! : 0, level, band: bandOf(level), rank: 0, roll,
+    measure: a.measure,
+    composed: true, parents: [a.code, b.code],
+  }
+}
+
+/** nextFrom(code, budget) → the courses this one LEADS TO: catalogue courses composed with it, by rank.
+ *
+ *
+ *  A SHARED SKILL WAS THE FIRST EDGE RULE HERE AND IT WAS MY INVENTION, NOT THE LEDGER'S. Every one of the 115
+ *  wings carries exactly one skill and no two wings share it, so the skill graph has no edges whatever and this
+ *  function returned nothing from every starting point — a curation criterion imposed on data that does not
+ *  carry it, which is the same manual intrusion the theorem-name audit just measured. Composition needs no
+ *  licence: any two courses can be studied together, that is what taking two courses IS, and the ledger already
+ *  says so by holding both. The order is by rank, so the walk is deterministic and the same reader gets the
+ *  same route twice. */
+export function nextFrom(code: string, budget = 8, cs: Course[] = courses()): Composed[] {
+  const here = cs.find((c) => c.code === code)
+  if (!here) return []
+  const out: Composed[] = []
+  for (const other of cs) {
+    if (out.length >= budget) break
+    if (other.code === here.code) continue
+    out.push(composeCourse(here, other))
+  }
+  return out
+}
+
+/** expand(code, depth, breadth) → walk the unbounded structure to a stated budget, returning every DISTINCT
+ *  course address reached. The return carries `frontier`: how many nodes were reachable and not visited, so a
+ *  truncated walk can never be mistaken for an exhausted one. That is the denominator rule applied to an
+ *  infinite object — the only honest way to report a walk that could always have gone further. */
+export function expand(code: string, depth = 2, breadth = 4): { visited: string[]; frontier: number; depth: number; breadth: number } {
+  const cs = courses()
+  const seen = new Set<string>([code])
+  let layer: Course[] = cs.filter((c) => c.code === code)
+  let frontier = 0
+  for (let d = 0; d < depth; d++) {
+    const next: Course[] = []
+    for (const c of layer) {
+      // the walker must be able to FIND the node it is standing on: a composed course is not in the catalogue,
+      // so the lookup list has to carry the current layer too. Without this the second layer looked up codes
+      // that existed nowhere, returned nothing, and the unbounded structure reported itself exhausted at depth 1
+      // — an instrument answering "there is no more" when it meant "I could not find where I was".
+      const kids = nextFrom(c.code, breadth, [...cs, ...layer])
+      for (const k of kids) {
+        if (seen.has(k.code)) { continue }
+        if (d === depth - 1) { frontier++; seen.add(k.code); continue }
+        seen.add(k.code); next.push(k)
+      }
+    }
+    layer = next
+    if (!layer.length) break
+  }
+  return { visited: [...seen], frontier, depth, breadth }
 }
 
 /** The levels PRESENT in the ledger — never a fixed ladder of four names. A level exists here because some course
@@ -245,5 +570,11 @@ export function school(): School {
     ] },
   ]
 
-  return { sections, courses: cs, levels: ls, receipt: merkleGravity(sections.map((s) => toUuid(s.id + '|' + s.body.join('\n')))) }
+  const b = costBasis()
+  return {
+    sections, courses: cs, levels: ls,
+    basis: b.reason ? { measure: b.measure, reason: b.reason } : { measure: b.measure },
+    covered: { graded: cs.filter((c) => c.level > 0).length, of: cs.length },
+    receipt: merkleGravity(sections.map((s) => toUuid(s.id + '|' + s.body.join('\n')))),
+  }
 }
