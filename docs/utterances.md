@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1032 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1093 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1032 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1093 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `b9b9df85` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `6732a37b` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -183,7 +183,7 @@ the librarian ranks by counted weight, deterministically, ties by title
 the quote-trial: an on-topic sealed citation verifies, a bare beauty stays open, and the quote leaves addressed
 ```
 
-**books** — 8 utterances
+**books** — 12 utterances
 
 ```text
 provenance fingerprint: the address is the exact-copy proof, recomputable
@@ -194,6 +194,10 @@ the honesty gate runs and ordinary prose passes (binary 1)
 empty text is handled (zero words, still a valid fingerprint)
 translation audit binds source→translation with a directional provenance receipt
 a revised translation re-addresses — the change is visible in the pair
+stripGutenberg removes the header and the licence footer, and reports what it removed
+A TEXT WITH NO MARKERS IS RETURNED WHOLE — an unlocatable wrapper is not an absent one
+a HALF-matched wrapper cuts nothing — losing the opening of a book is worse than carrying a licence
+the strip is PURE and idempotent — stripping twice is stripping once
 ```
 
 **boot-sandbox** — 3 utterances
@@ -242,7 +246,7 @@ a stop is FILED, not swallowed — the finding survives on disk with its gap and
 the gap line is the objection itself, bounded — never the whole log dumped at a reader
 ```
 
-**coin-ledger** — 5 utterances
+**coin-ledger** — 9 utterances
 
 ```text
 a payment row derives everything and mints nothing — same inputs, same row
@@ -250,6 +254,10 @@ the census folds order-invariantly and accounts per agent
 crew leans in all dimensions at once — and a forged payment row fails to recompute
 licences invalidate when related handles change — the binding is to the handle
 enrollment is UNVERIFIED, never rejected — the honest note names what to bring
+a SILENT census is marked silent — an empty register never renders as an account
+a census WITH rows is an account, and says so
+THE STATES ARE EXHAUSTIVE AND DISJOINT — every census is exactly one of them
+the surface travels on the row, so an edge payment is not filed as a stdio one
 ```
 
 **collection** — 7 utterances
@@ -541,6 +549,20 @@ a fabricated citation yields no exhibit and is named missing
 the same statement + ledger reproduces the same evidence receipt
 ```
 
+**exemptions** — 9 utterances
+
+```text
+the scanner\
+A REPORT THAT DID NOT PARSE REFUSES — it never falls back to "no exemptions"
+A PARTIAL LIST REFUSES — the header\
+windows separators are normalised, so one module is not two entries
+THE RATCHET BITES — a module newly claiming the exemption FAILS
+a surrendered exemption passes and asks to reseal — the hatch may only close
+NO BASELINE IS NOT A PASS
+the share is exact integer per-mille — no float intrinsic anywhere
+THE LIVE SCANNER — the audit reads real figures from the real instrument
+```
+
 **exercise-dormant** — 6 utterances
 
 ```text
@@ -601,6 +623,20 @@ an advisory finder must state WHY it does not block — "not blocking" is a deci
 the on-demand exemptions each carry their reason
 ```
 
+**firewall** — 9 utterances
+
+```text
+THE INVERSION — the gate admits silence, the firewall does not
+a sealed citation is admitted, and carries the address it resolved to
+A DEAD CITATION IS REFUSED — the case that reads exactly like a live one
+one live key does not carry one dead one — a claim is not three-quarters admitted
+THE ADVERSARIAL SET THE FOUR FRAMES ADMITTED — every one refused here
+citations are read from the same three surfaces the deadkey finder reads
+screen reports its denominator AND the ledger it screened against
+THE BOUNDARY, asserted so it is a decision and not an omission: it cannot refuse the IRRELEVANT
+THE PAYLOAD-FREE PATH — a message is an address, resolved in memory, nothing parsed
+```
+
 **forensics** — 7 utterances
 
 ```text
@@ -659,6 +695,18 @@ every literal path a gate script names resolves — a drifted reference makes a 
 the finder bites — the historical offenders are exactly what the rule flags
 the drain stages EXPLICIT paths — no unattended commit may sweep a sibling session\
 the built-site audit DISCOVERS its pages — no gate hardcodes a page of the generated site
+```
+
+**gravity** — 7 utterances
+
+```text
+NO INFINITY ANYWHERE IN THE LEDGER — every gravity is a finite state
+EVERY GRAVITY IS AN EXACT INTEGER — no repeating decimal can reach a sealed file
+the unbound case follows the SEALED LAW, not JavaScript — 32/0 = 0 by theorem division_by_zero
+a BOUND theorem gets the uuid\
+0 MEANS UNBOUND AND NOTHING ELSE — checked against this ledger\
+THE ORDERING IS UNTOUCHED — byGravity sorts on the dependency count, not on this value
+THE CHECK BITES — the old behaviour would fail every assertion above
 ```
 
 **grid** — 10 utterances
@@ -756,6 +804,16 @@ the two layers of one identity share it exactly
 off-lattice refuses loudly, as the player does
 ```
 
+**hexbit-coverage** — 5 utterances
+
+```text
+EVERY JUDGED CALL DELIVERS 32 HEXBIT STATES — 100% of answers, counted over the whole catalogue
+the states are a real compile — 32 of them, each a hexbit, never a placeholder
+ONE UNIT, BOTH DOORS — a tool served by both surfaces answers identically and both carry the states
+THE CHECK BITES — a response without the states is caught, so 100% is a finding and not a shape
+an ERROR carries no states, and that is the honest line rather than a gap
+```
+
 **hexbit-player** — 3 utterances
 
 ```text
@@ -818,6 +876,20 @@ THE CONTROL — no meaning is claimed for a root until same-sized piles are show
 digitalRootOf lands in 1..9 and moves with the address
 ```
 
+**knowledge** — 9 utterances
+
+```text
+a book fact the ledger seals is VERIFIED, and carries the lines that crossed
+a book fact the kernel decides FALSE is REFUTED — with a witness
+ABSENCE STAYS OPEN — 'novel' is a discovery claim from a negative search
+THE DENOMINATOR IS THE TEXT’S OFFER, not the caller’s cap
+provenance is carried, never assumed — bytes cannot testify to their own source
+THE COMPUTATIONAL MERGE CAN COME OUT FALSE — most instantiations do not hold
+HOLDING IS NOT DISCOVERY — the chance bar rides beside the count
+THE LIMIT OF THE MERGE: it moves with a MEASURE, and is blind to edits that preserve all six
+measureText counts the text itself, and every count is falsifiable
+```
+
 **lanes** — 6 utterances
 
 ```text
@@ -827,6 +899,22 @@ poolByHandle returns results in the ORIGINAL order, whatever lane ran them
 the GPU lane carries the MEASUREMENT that decided it, not an opinion about chips
 the trinity seats exactly one empty chair, and it claims nothing
 the handle units are hexbit\
+```
+
+**law-register** — 11 utterances
+
+```text
+A PARSER THAT READ NOTHING REFUSES — absence is never reported as "no enforcement"
+a MISSING source refuses too — unreadable and empty must not render alike
+the parse is anchored on the DEFINING construct, so a mention cannot inflate the surface
+lint rules are de-duplicated and read from their keys, not from prose
+the scan\
+REGISTRATION IS WORD-BOUNDED — a law\
+the audit counts what is enforced against what is registered, and names the difference
+THE RATCHET BITES — a newly enforced arm with no law FAILS
+a gap that SHRANK passes and asks to be resealed — the ratchet only ever tightens
+NO BASELINE IS NOT A PASS — an unsealed gap refuses rather than reporting clean
+THE LIVE TREE — the enforcement surface is real, and far larger than the register
 ```
 
 **laws** — 1 utterances
@@ -1292,7 +1380,7 @@ the run receipt is deterministic and moves with the claims
 "verified" is stated as backing, never as endorsement
 ```
 
-**quantum-driver** — 11 utterances
+**quantum-driver** — 14 utterances
 
 ```text
 every witness in the battery cites a theorem that IS sealed in the ledger
@@ -1306,6 +1394,9 @@ the device never claims to be quantum — the honest scope is IN the record, not
 EVERY LEVEL PROBE MEASURES ITS OWN LEVEL — a pass does many units, and only that level\
 every level probe agrees with the sealed values it checks
 the ledger probe re-addresses theorems from the SAME preimage the ledger sealed them with
+THE BATTERY REPORTS ITS DENOMINATOR — coverage of the wing, not a bare witness count
+THE UNWITNESSED ARE NAMED, so a growing gap is visible rather than merely absent
+a witness deciding a theorem OUTSIDE the wing is disclosed, not silently counted as wing coverage
 ```
 
 **quantum-message-encoding** — 5 utterances

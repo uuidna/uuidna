@@ -9,9 +9,9 @@
     "support-audit.json": "03a720eb3927879b",
     "research-leads.json": "065eded5c6208e0b",
     ".zenodo.json": "72e21262b3558944",
-    "reports.json": "1ad1dad1163b8f10",
+    "reports.json": "4502031425a08e68",
     "lean/statement-index.json": "e547a3c7755887a7",
-    "README.md": "63ea5526e67283b9",
+    "README.md": "f00db069917880d8",
     "llm.txt": "055a3d5f0b948197",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -1620,10 +1620,10 @@
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd",
     "lean/Vortex.lean": "6fce38f41da68756",
     "lean/wave-manifest.json": "fe74fb18cc6684b4",
-    "lean/wave-queue.json": "417bb016013d8f37",
+    "lean/wave-queue.json": "c820fde1265e81e4",
     "lean/Wave.lean": "7ff3b191aad88953",
     "lean/waves-manifest.json": "fd25caf2595e8fb7",
     "lean/Waves.lean": "4be29174f5748e47"
   },
-  "receipt": "04f59c92-24d8-8944-bd21-a3f4b4b3251b"
+  "receipt": "4906eb88-916f-8261-aa4a-d4ce5c207b0c"
 }

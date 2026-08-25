@@ -53,19 +53,19 @@ was a regex over the rendered statement before that, and then a counter that onl
 prose about the algebra instead of the algebra. The ledger covers
 116,603 superpositions across 115 wings.
 
-1. **`every_referrer_reaches_every_page`** — 4,769 superpositions, Infinity hexbits for the two coins, in [Referrer.lean](lean/Referrer.lean)
+1. **`every_referrer_reaches_every_page`** — 4,769 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
-2. **`cube_seals_at_completeness_only`** — 3,704 superpositions, Infinity hexbits for the two coins, in [Software.lean](lean/Software.lean)
+2. **`cube_seals_at_completeness_only`** — 3,704 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Software.lean](lean/Software.lean)
    A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT.
-3. **`a_spec_compiles_to_hexbits`** — 1,657 superpositions, Infinity hexbits for the two coins, in [Installs.lean](lean/Installs.lean)
+3. **`a_spec_compiles_to_hexbits`** — 1,657 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Installs.lean](lean/Installs.lean)
    EVERY SPEC COMPILES FROM SOURCE IN HEXBIT: the published tuple folds to a 128-bit address, and 128 bits are exactly 32 hexbit states of 16 = 2⁴ — the site's native lattice, playable by the standard hexbit app.
-4. **`lanes_balance_within_one`** — 924 superpositions, Infinity hexbits for the two coins, in [Hardware.lean](lean/Hardware.lean)
+4. **`lanes_balance_within_one`** — 924 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Hardware.lean](lean/Hardware.lean)
    THE SHARD IS BALANCED TO WITHIN ONE ITEM, with no coordination and no measurement of load: 64 items over 14 lanes give every lane either 4 or 5, never fewer and never more.
-5. **`lanes_partition_the_work`** — 910 superpositions, Infinity hexbits for the two coins, in [Hardware.lean](lean/Hardware.lean)
+5. **`lanes_partition_the_work`** — 910 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Hardware.lean](lean/Hardware.lean)
    THE LANES PARTITION THE WORK EXACTLY: summing what each of 14 lanes receives from 64 items returns 64 — nothing is lost between lanes and nothing is counted twice.
-6. **`lanes_even_on_complete_system`** — 798 superpositions, Infinity hexbits for the two coins, in [Hardware.lean](lean/Hardware.lean)
+6. **`lanes_even_on_complete_system`** — 798 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Hardware.lean](lean/Hardware.lean)
    ON A COMPLETE RESIDUE SYSTEM THE SHARD IS EXACTLY EVEN: 56 items over 14 lanes give every lane precisely 4, because 56 is a multiple of 14.
-7. **`order_is_total_and_strict`** — 588 superpositions, Infinity hexbits for the two coins, in [Clock.lean](lean/Clock.lean)
+7. **`order_is_total_and_strict`** — 588 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Clock.lean](lean/Clock.lean)
    BEFORE AND AFTER ARE DECIDABLE FOR EVERY PAIR: of any two positions, exactly one of earlier, later or same holds — never two of them, and never none.
 
 ---
@@ -73,7 +73,10 @@ prose about the algebra instead of the algebra. The ledger covers
 ## Quantum capacity — every figure measured
 
 Nothing on this page is typed. The register width is read from `MAX_MESSAGE_QUBITS`, the amplitude count is 2
-raised to it, and the served ceiling is parsed from the guard in `src/mcp.ts` that enforces it.
+raised to it, and the served ceiling is IMPORTED from `MAX_SERVED_QUBITS` — the same constant the guard in
+`src/mcp.ts` enforces, so this figure and that refusal cannot disagree. It was scraped out of that file's
+source text with a regex until 2026-08-25, which also made the bound unnameable: naming it would have broken
+the match and printed zero.
 
 - **16 qubits** in the library register — 65536 amplitudes held at once
 - **12 qubits** served over MCP — 4096 amplitudes, and the surface refuses more
