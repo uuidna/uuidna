@@ -20,6 +20,17 @@ export interface Decision {
   verdict: 'VERIFIED' | 'VERIFIED_BY_DECIDE' | 'REFUTED' | 'UNVERIFIED' | 'DRAINED'
   value: string | null
   cites: string[]
+  /** THE CITED THEOREMS' OWN LEAN LINES, so a caller RECHECKS instead of trusting.
+   *
+   *  A verdict plus a key asks the reader to believe two things they cannot see: that the key names a real sealed
+   *  theorem, and that the theorem says what the verdict implies. Both are exactly the gap this tree has been
+   *  paying for all along — the citation gate once stamped a claim VERIFIED against a theorem whose own last
+   *  clause denied it, and every automated check available agreed, because a citation that RESOLVES is
+   *  indistinguishable from a citation that SUPPORTS. Handing back the Lean line closes the half of that gap that
+   *  can be closed mechanically: the reader sees the statement the kernel actually decided and can compare it to
+   *  the claim themselves. It does not make the citation relevant — nothing automatic can — but it stops the
+   *  caller having to take the key on faith. */
+  lean: string[]
   receipt: string
   honest: string
 }
@@ -114,11 +125,35 @@ class Parser {
   private asB(v: Val): boolean { if (v.b === undefined) throw new Error('expected a proposition'); return v.b }
 }
 
+/** key → the theorem's own Lean line, built once. A miss yields nothing rather than a placeholder: a cite whose
+ *  key is not in the ledger must NOT come back carrying a line, because an empty string beside a real key reads
+ *  as "this theorem has no statement" when the truth is "this key names no theorem". Silence is the honest
+ *  answer, and the count tells the caller: fewer lines than cites means a cite did not resolve. */
+let _leanIndex: Map<string, string> | null = null
+const leanLines = (cites: readonly string[]): string[] => {
+  if (!_leanIndex) {
+    _leanIndex = new Map()
+    for (const t of theorems()) if (typeof t.lean === 'string' && t.lean) _leanIndex.set(t.key, t.lean)
+  }
+  const out: string[] = []
+  for (const k of cites) { const l = _leanIndex.get(k); if (l !== undefined) out.push(l) }
+  return out
+}
+
 /** THE QUANTUM CALCULATOR — any input, one lean-green shape out */
 export function decide(input: string): Decision {
   const raw = String(input).slice(0, MAX_INPUT)
   const norm = normalize(raw)
-  const seal = (d: Omit<Decision, 'receipt'>): Decision => ({ ...d, receipt: toUuid('decide:' + norm + ':' + d.verdict + ':' + (d.value ?? '')) })
+  // ONE PLACE, EVERY VERDICT. seal() wraps all three routes, so attaching the cited lines here closes the whole
+  // surface in one edit rather than three that can drift apart — and any route added later inherits it by
+  // construction instead of by remembering. The receipt is deliberately NOT folded over the lean lines: it seals
+  // the DECISION (input, verdict, value), and a receipt that moved when a theorem's prose was reworded would
+  // report drift where none happened.
+  const seal = (d: Omit<Decision, 'receipt' | 'lean'>): Decision => ({
+    ...d,
+    lean: leanLines(d.cites),
+    receipt: toUuid('decide:' + norm + ':' + d.verdict + ':' + (d.value ?? '')),
+  })
 
   // (1) the sealed index — the kernel already decided this exact statement
   const hit = sealedIndex().get(norm)

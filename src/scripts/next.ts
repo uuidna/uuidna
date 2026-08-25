@@ -13,6 +13,7 @@ import { lonelyGaps } from './one-receipt.js'
 import { ROOT } from './api.js'
 import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, type PageNode } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
+import { decide } from '../decide.js'
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 
@@ -238,7 +239,17 @@ try {
   if (lonely > 0) leverage.push({ act: 'npm run build && node dist/scripts/connect-lonely.js', closes: `${lonely} theorem(s) connecting to no neighbour — the dry run reports, --write applies` })
 } catch { /* the survey is on-demand; its absence is not a failure */ }
 leverage.push({ act: 'deploy so the edge matches origin', closes: 'every MCP finding at once — the hosted surface is tested against what it serves, not what the tree holds' })
-leverage.push({ act: 'return t.lean from every deciding MCP tool', closes: 'the whole surface in one pattern — the ledger already carries the line; a caller that receives it rechecks instead of trusting' })
+// MEASURED, NOT TYPED. This entry used to be pushed unconditionally, three lines under a comment promising the
+// list is "computed here rather than written down, because a typed list rots the moment the tree moves" — so it
+// printed identically whether the work was outstanding or finished, and no act could ever discharge it. Advice
+// that survives its own completion is decoration: a reader who does the work and sees the same line next run
+// learns to skip the section, which costs the entries that ARE measured. The probe is the surface's own answer:
+// decide() cites theorem keys, and the gap is open exactly when it hands back keys with no lines behind them.
+try {
+  const probe = decide('2+2=4')
+  if (probe.cites.length > 0 && probe.lean.length === 0)
+    leverage.push({ act: 'return t.lean from every deciding MCP tool', closes: `the whole surface in one pattern — decide() cites ${probe.cites.length} theorem(s) and returns no Lean line, so a caller must TRUST the key instead of rechecking the statement behind it` })
+} catch { /* the probe is a convenience; its failure is not a gap in the tree */ }
 
 console.log('\n  WHERE THE LEVERAGE IS — one act, many gaps (fix rules before instances):')
 for (const [i, l] of leverage.entries()) console.log(`    ${i + 1}. ${l.act}\n       closes: ${l.closes}`)
