@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="927 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="929 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 927 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 929 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `114a7775` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `6af88ea7` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -1084,13 +1084,15 @@ the meter closes at the trinity and reopens on failure
 the walker derives a real road: prerequisites exist, come first, and the walk is deterministic
 ```
 
-**precede** — 4 utterances
+**precede** — 6 utterances
 
 ```text
 a dirty tree with NOTHING staged is not an inversion — the finder stays silent
 derived STAGED while its Lean source is not is caught, and the gap names both sides
 staging the source alongside its derived output clears the gap — the finder can be satisfied
 a staged SOURCE with no derived file staged is not an inversion — the order it forbids has a direction
+cleanGitEnv removes every variable that can outrank -C, and touches nothing else
+THE CONTROL: with a hook\
 ```
 
 **predict** — 3 utterances

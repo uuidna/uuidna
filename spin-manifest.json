@@ -4,12 +4,12 @@
     "lean/PRINCIPLE.md": "c1a98197c61a84c6",
     "CHANGELOG.md": "cfd204f38800829c",
     "lean/axioms.json": "b617a7304eba822b",
-    "docs/mcp.md": "c3c118c357db8a60",
+    "docs/mcp.md": "80bc4eef5c3f82ff",
     "audit-citations.json": "77de6beff49988e1",
-    "support-audit.json": "4533a15524848e12",
-    "research-leads.json": "97fe5ed47f7185d1",
+    "support-audit.json": "3af8ad50c3978b40",
+    "research-leads.json": "c237ba0777ef893b",
     ".zenodo.json": "d3444d1efc5f8eff",
-    "reports.json": "5612bdbc085b8294",
+    "reports.json": "265ead49021382e2",
     "lean/statement-index.json": "9eda564b365d83bf",
     "README.md": "ca2ef4175d958763",
     "llm.txt": "08f42d9e4d508308",
@@ -1489,7 +1489,7 @@
     "lean/MartialArts.lean": "ae8020684cfe87b4",
     "lean/matching-manifest.json": "2b8b1987e23e8043",
     "lean/Matching.lean": "7d4e59c75e1c81cd",
-    "lean/mcp-context-budget.json": "c0f804044420814d",
+    "lean/mcp-context-budget.json": "1eec417305f78970",
     "lean/mcp-surface-divergence.json": "1052a22014db8971",
     "lean/messaging-witness.json": "9a87df7f92cf8169",
     "lean/models-manifest.json": "99715a688f0f819b",
@@ -1625,5 +1625,5 @@
     "lean/waves-manifest.json": "fd25caf2595e8fb7",
     "lean/Waves.lean": "4be29174f5748e47"
   },
-  "receipt": "1ba412e1-58c2-8b2b-bfce-f9b62d2807c4"
+  "receipt": "1b5ca78a-f281-8806-90d3-a740f2590de7"
 }
