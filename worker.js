@@ -126,10 +126,15 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url)
     const host = url.hostname.toLowerCase()
-    const licensed = FIRST_PARTY.test(host) || LICENSED.has(host)
+    // THE LICENCE IS ASKED ONCE. Every route below used to restate `licensed &&`, seven times, and the last one
+    // carried the redirect — so the invariant was asserted at each door and enforced at the end, which is two
+    // places to keep in step and one of them easy to forget when a route is added. Asked here and answered here:
+    // an unlicensed host never reaches a route at all, and no route below has to remember why it is allowed to run.
+    if (!(FIRST_PARTY.test(host) || LICENSED.has(host)))
+      return Response.redirect('https://uuidna.com/license', 302) // unlicensed → the terms it is missing
 
-    // Trial CRUD — first-party/licensed hosts only (an unlicensed host is redirected below, API included).
-    if (licensed && (url.pathname === '/trials' || url.pathname.startsWith('/trials/'))) {
+    // Trial CRUD.
+    if (url.pathname === '/trials' || url.pathname.startsWith('/trials/')) {
       const res = await handleTrials(request, url, env)
       if (res) return res
     }
@@ -137,7 +142,7 @@ export default {
     // THE LIVE ANALYTICS DASHBOARD at /analytics — real-time metrics from Cloudflare and cloud provider APIs.
     // First-party and licensed hosts only. Fetches live data from Cloudflare Analytics Engine, AWS CloudWatch,
     // GCP Cloud Monitoring, Azure Monitor. Shows grouped metrics and dynamic comparison dashboard.
-    if (licensed && url.pathname === '/analytics') {
+    if (url.pathname === '/analytics') {
       return await handleAnalytics(request, env)
     }
 
@@ -147,7 +152,29 @@ export default {
     // GET /mcp content-negotiates: a BROWSER (Accept: text/html) gets the human catalog page (docs/mcp.md — every
     // MCP presentable as a page); a CLIENT gets the JSON discovery document. Connect to https://uuidna.com/mcp
     // (Streamable HTTP). One path, two honest readings — the page for people, the protocol for machines.
-    if (licensed && url.pathname === '/mcp') {
+    // ONE DISCOVERY DOCUMENT, TWO DOORS. The endpoint has always answered a client's GET /mcp with this object, and
+    // that is a well-built pasteable mount — but it fires only when the pasted link ALREADY contains /mcp. A harness
+    // handed uuidna.com, or any of the two thousand published pages, had nothing to follow: /.well-known/mcp.json
+    // returned 404 and no response anywhere advertised the endpoint. So the document is declared ONCE here and
+    // served from both paths; two copies of it would be the `dry` law's own counterexample, and they would drift.
+    const discovery = () => ({
+      server: 'uuidna', transport: 'streamable-http (JSON-RPC 2.0)', protocolVersion: MCP_HTTP_PROTOCOL,
+      endpoint: `${url.origin}/mcp`, tools: mcpHttpToolNames(),
+      note: 'POST a JSON-RPC message here (initialize · tools/list · tools/call · ping). Read-only, stateless, the Workers-safe subset of the full `npx @uuidna/uuidna` stdio catalog. Integrity, not truth.',
+    })
+
+    // THE WELL-KNOWN DOOR — so pasting the BARE HOST mounts the wire. A client that probes well-known paths finds
+    // the same object it would have found at /mcp, and never has to be told the path by a human first.
+    if (url.pathname === '/.well-known/mcp.json') {
+      return new Response(JSON.stringify(discovery()), { status: 200, headers: {
+        'content-type': 'application/json; charset=utf-8',
+        'access-control-allow-origin': '*',
+        // and the endpoint names itself in a header too, so a client that reads headers and not bodies still finds it
+        link: `<${url.origin}/mcp>; rel="mcp"`,
+      } })
+    }
+
+    if (url.pathname === '/mcp') {
       // CORS, on THIS route only: the wire is READ-ONLY and every call passes the sealed gate, so a browser
       // anywhere is a first-class client — the site's own terminal (quantum/apps/terminal) computes on this
       // wire from wherever it is previewed, and a web MCP client connects without a proxy. The open origin
@@ -158,8 +185,7 @@ export default {
       if (request.method === 'OPTIONS') return new Response(null, { status: 204, headers: cors })
       if (request.method === 'GET') {
         if ((request.headers.get('accept') || '').includes('text/html')) return env.ASSETS.fetch(request)
-        return mjson({ server: 'uuidna', transport: 'streamable-http (JSON-RPC 2.0)', protocolVersion: MCP_HTTP_PROTOCOL, endpoint: `${url.origin}/mcp`, tools: mcpHttpToolNames(),
-          note: 'POST a JSON-RPC message here (initialize · tools/list · tools/call · ping). Read-only, stateless, the Workers-safe subset of the full `npx @uuidna/uuidna` stdio catalog. Integrity, not truth.' })
+        return mjson(discovery())
       }
       if (request.method !== 'POST')
         return mjson({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'POST a JSON-RPC message to /mcp (or GET for discovery)' } }, 405)
@@ -175,25 +201,31 @@ export default {
 
     // THE CONTENT-ADDRESS DOOR — /<handle> (first 8 hex of a proof's address) resolves to its theorem on the spot,
     // computed here, no static page. 301 (permanent) so the handle is a stable citation; unknown handle falls through.
-    if (licensed) {
-      const m = HANDLE.exec(url.pathname)
-      if (m) { const key = HANDLES[m[1]]; if (key) return Response.redirect(`${url.origin}/theorem/${key}`, 301) }
-    }
+    const m = HANDLE.exec(url.pathname)
+    if (m) { const key = HANDLES[m[1]]; if (key) return Response.redirect(`${url.origin}/theorem/${key}`, 301) }
 
     // THE CONVERSATION FOLD — /h1/h2/h3/h4 returns the FIFTH handle: the four handles fold order-sensitively (the
     // directed thread) WITH the Referer, so each referrer gets a distinct fifth — a chat-room/conversation key,
     // O(1) to recompute (best speed) and un-correlatable across referrers (privacy by design). Completes CRUD secure
     // quantum messaging: the fifth handle is the door, storage rides /trials (sealed onion) and the send/receive stream.
-    if (licensed) {
-      const p = PENTA.exec(url.pathname)
-      if (p) {
-        const room = conversationFold([p[1], p[2], p[3], p[4]], request.headers.get('referer') || '')
-        return json({ handles: room.handles, referer: room.referer, fifth: room.fifth, address: room.address,
-          note: 'the fifth handle folds the four (each part of the next — authenticity) rotated by the Referer — each referrer a distinct room, O(1) to recompute (speed) and un-correlatable (privacy by design)' })
-      }
+    const p = PENTA.exec(url.pathname)
+    if (p) {
+      const room = conversationFold([p[1], p[2], p[3], p[4]], request.headers.get('referer') || '')
+      return json({ handles: room.handles, referer: room.referer, fifth: room.fifth, address: room.address,
+        note: 'the fifth handle folds the four (each part of the next — authenticity) rotated by the Referer — each referrer a distinct room, O(1) to recompute (speed) and un-correlatable (privacy by design)' })
     }
 
-    if (licensed) return env.ASSETS.fetch(request) // serve the static site
-    return Response.redirect('https://uuidna.com/license', 302) // unlicensed → the terms it is missing
+    // EVERY PAGE IS A MOUNT POINT. The static site is two thousand published pages, and until now not one of them
+    // said where the wire is — so "paste any uuidna.com link" worked for exactly one link. The asset response is
+    // returned with a Link header naming the endpoint, which is the standard way a resource points at a related
+    // one, costs a single header, and changes no body and no status. Paste a theorem page, a monograph, the home
+    // page: a client that reads headers now finds the same endpoint /.well-known/mcp.json serves.
+    //
+    // The response is REBUILT rather than mutated because an ASSETS response's headers are immutable — assigning
+    // to them throws at the edge, which is the kind of failure that only shows up in production.
+    const asset = await env.ASSETS.fetch(request)
+    const out = new Response(asset.body, asset)
+    out.headers.set('link', `<${url.origin}/mcp>; rel="mcp"`)
+    return out
   },
 }
