@@ -26,7 +26,7 @@ import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUui
 import { MCP_CATALOG, callTool } from '../mcp.js'
 import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
-import { ROOT, rd, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
+import { ROOT, rd, cleanGitEnv, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
 
 // ONE READ PER FILE, SHARED. `binary` scans bytes and `hexbit` scans text over the SAME tracked source, and each was
 // re-reading every file from disk — the cache-immutable-reads law applied to the read itself. The buffer is the one
@@ -859,8 +859,12 @@ export function drainGaps(): Gap[] {
 // LOCAL act — which is precisely where the drain stages, and where no other gate was looking. ──
 export function precedeGaps(cwd: string = ROOT): Gap[] {
   const gaps: Gap[] = []
+  // cwd is the ONLY thing that may decide which repository this reads, and without the scrub it is not: git takes
+  // the repository from GIT_DIR when the environment carries one, and every hook it runs carries one. This finder
+  // runs inside the pre-push gate, so the `cwd` parameter — which exists precisely so a fixture can point it
+  // somewhere else — was silently overridden exactly when it mattered. See cleanGitEnv for what that cost.
   const git = (cmd: string): string[] => {
-    try { return execSync(cmd, { cwd, encoding: 'utf8' }).split('\n').filter(Boolean) } catch { return [] }
+    try { return execSync(cmd, { cwd, env: cleanGitEnv(), encoding: 'utf8' }).split('\n').filter(Boolean) } catch { return [] }
   }
   const staged = git('git diff --cached --name-only')
   if (!staged.length) return gaps                        // nothing armed — nothing can invert

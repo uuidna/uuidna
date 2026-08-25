@@ -131,6 +131,31 @@ export const relRoot = (abs: string): string => pathm().relative(ROOT, abs).repl
 /** join repo-relative segments in the canonical spelling — the same law for a path BUILT rather than derived */
 export const relJoin = (...parts: string[]): string => parts.join('/').replace(/\\/g, '/')
 
+
+/** The environment git is allowed to see — every repository-redirecting GIT_* variable REMOVED.
+ *
+ *  ALL OF THESE OUTRANK `-C` AND `cwd`, and git exports the first two into EVERY HOOK IT RUNS. So any code that
+ *  says "look at this directory" while running under a gate is not looking at that directory unless it says so
+ *  here: `git -C <fixture> init` under an inherited GIT_DIR re-initialises the repository the VARIABLE names, and
+ *  on 2026-08-25 that wrote core.bare = true into the shared config and stopped every session on this machine
+ *  with "fatal: this operation must be run in a work tree".
+ *
+ *  The damage was invisible in the usual way: `rev-parse --show-toplevel` still answers with the cwd, because git
+ *  infers the WORK TREE from the directory while taking the REPOSITORY from the environment. Safe case and
+ *  redirected case return the same string, so the isolation check written to prevent exactly this could not fail.
+ *  Ask `--absolute-git-dir` instead — which .git will be WRITTEN — and the two cases separate.
+ *
+ *  Scrubbing leaves the DIRECTORY as the only thing that can answer "which repository", which is what every
+ *  caller passing a cwd already believed it meant. */
+const GIT_REDIRECTING = ['GIT_DIR', 'GIT_WORK_TREE', 'GIT_INDEX_FILE', 'GIT_COMMON_DIR', 'GIT_OBJECT_DIRECTORY',
+  'GIT_ALTERNATE_OBJECT_DIRECTORIES', 'GIT_CEILING_DIRECTORIES', 'GIT_NAMESPACE', 'GIT_PREFIX'] as const
+
+export const cleanGitEnv = (base: NodeJS.ProcessEnv = process.env): NodeJS.ProcessEnv => {
+  const env = { ...base }
+  for (const k of GIT_REDIRECTING) delete env[k]
+  return env
+}
+
 /** Why a spawn did not succeed, in the words the case deserves — and the DISTINCTION `status !== 0` erases.
  *
  *  `spawnSync` sets `status` to null when the command never STARTED: the binary did not resolve, the host refused
