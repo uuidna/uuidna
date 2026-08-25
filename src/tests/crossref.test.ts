@@ -5,7 +5,7 @@
 // to pass is a test that fails on a train.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { doisIn, crossrefUrl, parseCrossref, verifyCitations } from '../crossref.js'
+import { doisIn, crossrefUrl, crossrefSearchUrl, parseCrossref, verifyCitations, searchSources } from '../crossref.js'
 
 // the real envelope shape, reduced — taken from the record api.crossref.org actually returned for this DOI
 const WATSON_CRICK = {
@@ -93,4 +93,51 @@ test('the honest note refuses the stronger reading a resolved DOI invites', asyn
   // clause denies it. No metadata service closes that gap and this one says so rather than implying otherwise.
   assert.match(r.honest, /does not read the paper/)
   assert.match(r.honest, /cannot tell whether the cited work supports the/)
+})
+
+// ── THE SEARCH HALF, AND THE LINE IT MUST NOT CROSS. Crossref indexes on the order of a hundred million works and
+// a bibliographic query reaches the real primary source — asking it for Landauer's principle returns Landauer's
+// own papers. That scale is exactly why attaching results automatically would be a catastrophe rather than a
+// feature: the witness leg is granted by a keyword roster, so a script taking the top hit for each unwitnessed
+// theorem scores all 2090 by tomorrow, and the ledger's scarcest measurement then measures nothing.
+const LANDAUER = {
+  message: {
+    items: [
+      { DOI: '10.1103/physrevlett.53.1205', title: ['Dissipation in Computation'], 'container-title': ['Physical Review Letters'],
+        author: [{ given: 'Rolf', family: 'Landauer' }], 'published-print': { 'date-parts': [[1984]] }, volume: '53', page: '1205' },
+      { DOI: '10.1038/340681b0', title: ['Dissipation in computation'], 'container-title': ['Nature'],
+        author: [{ given: 'Rolf', family: 'Landauer' }], 'published-print': { 'date-parts': [[1989]] }, volume: '340', page: '681' },
+    ],
+  },
+}
+
+test('the search URL asks for a subject and only the fields a candidate is judged on', () => {
+  const u = crossrefSearchUrl('Landauer principle', 3)
+  assert.match(u, /query\.bibliographic=Landauer%20principle/)
+  assert.match(u, /rows=3/)
+  assert.match(u, /select=DOI%2Ctitle/)
+  assert.ok(!u.includes('mailto'), 'no address unless a caller gives one')
+})
+
+test('a subject returns real candidates, parsed into the same Citation shape', async () => {
+  const r = await searchSources('Landauer principle', async () => LANDAUER)
+  assert.equal(r.candidates.length, 2)
+  assert.equal(r.candidates[0]!.citation.doi, '10.1103/physrevlett.53.1205')
+  assert.deepEqual(r.candidates[0]!.citation.authors, ['Rolf Landauer'])
+  assert.equal(r.candidates[1]!.citation.year, 1989)
+})
+
+test('EVERY RESULT IS MARKED UNJUDGED, and the type will not let it be otherwise', async () => {
+  const r = await searchSources('anything at all', async () => LANDAUER)
+  assert.ok(r.candidates.every((c) => c.judged === false), 'a search result has been read by nobody')
+  // the honest note must refuse the reading that turns a search into an authority
+  assert.match(r.honest, /CANDIDATES, NOT WITNESSES/)
+  assert.match(r.honest, /neither has this function/)
+  assert.match(r.honest, /vacuity trap/)
+})
+
+test('a dead search is empty candidates, never an invented one', async () => {
+  const r = await searchSources('subject with no matches', async () => null)
+  assert.deepEqual(r.candidates, [])
+  assert.match(r.honest, /CANDIDATES, NOT WITNESSES/)
 })

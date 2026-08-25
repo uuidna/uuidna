@@ -94,6 +94,56 @@ export interface CitationReport {
   honest: string
 }
 
+/** The search endpoint for a subject, asking only for the fields a candidate is judged on. Crossref indexes on
+ *  the order of a hundred million works, so a bibliographic query over a theorem's subject reaches real primary
+ *  sources — a query for Landauer's principle returns Landauer's own 1984 and 1989 papers. */
+export const crossrefSearchUrl = (subject: string, rows = 5, mailto?: string): string =>
+  'https://api.crossref.org/works?query.bibliographic=' + encodeURIComponent(subject) +
+  '&rows=' + String(rows) +
+  '&select=' + encodeURIComponent('DOI,title,container-title,issued,author') +
+  (mailto ? '&mailto=' + encodeURIComponent(mailto) : '')
+
+/** A source Crossref OFFERS for a subject. It is a candidate and the type says so: nothing here has been read,
+ *  and nothing here has been judged to support anything. */
+export interface CandidateSource { citation: Citation; judged: false }
+
+/** searchSources(subject, get) → what Crossref offers for a subject, as CANDIDATES.
+ *
+ *  WHY THIS RETURNS CANDIDATES AND NEVER ATTACHES ONE. The witness leg is granted by a keyword roster, so a script
+ *  that took the first hit for every unwitnessed theorem would score all 2090 of them by tomorrow — and the leg
+ *  would then measure nothing at all. rosetta.ts calls that the vacuity trap and names the cost: destroy the only
+ *  measurement that located today's errors. Scarcity is not this leg's weakness, it is what it MEASURES.
+ *
+ *  And the deeper reason is one this tree has already paid for. Citation-existence cannot tell a source that
+ *  SUPPORTS a claim from one that DENIES it — the gate stamped "uuidna achieves quantum advantage" VERIFIED
+ *  against a theorem whose own last clause says it is not a speedup. Crossref has exactly that gap: it reports
+ *  what a publisher deposited, never whether the work bears on the claim citing it. Automating the attachment
+ *  would reproduce that defect once per theorem instead of once.
+ *
+ *  So this finds; a person reads and decides. That division is the whole design. */
+export async function searchSources(
+  subject: string,
+  get: (url: string) => Promise<unknown | null>,
+  rows = 5,
+  mailto?: string,
+): Promise<{ subject: string; candidates: CandidateSource[]; honest: string }> {
+  let body: unknown | null = null
+  try { body = await get(crossrefSearchUrl(subject, rows, mailto)) } catch { body = null }
+  const items = (body as { message?: { items?: unknown[] } })?.message?.items ?? []
+  const candidates = items
+    .map((it) => parseCrossref({ message: it as Record<string, unknown> }))
+    .filter((c): c is Citation => c !== null)
+    .map((citation) => ({ citation, judged: false as const }))
+  return {
+    subject, candidates,
+    honest:
+      'CANDIDATES, NOT WITNESSES. Crossref reports what publishers deposited about works matching a subject; it ' +
+      'has not read them and neither has this function. A candidate becomes a witness when a person retrieves the ' +
+      'source and judges that it bears on the claim — attaching one automatically would score the ledger\'s ' +
+      'scarcest leg without anyone reading anything, which is the vacuity trap rosetta.ts names.',
+  }
+}
+
 /** verifyCitations(text, get) → every DOI in the text, resolved against Crossref.
  *
  *  `get` is injected so this is testable offline and so no network call rides the library's import graph. It is
