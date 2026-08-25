@@ -35,3 +35,25 @@ theorem months_sum_common_365 : [31,28,31,30,31,30,31,31,30,31,30,31].foldl (· 
 /-- A leap year gives February its 29th and the twelve months sum to 366: [31,29,31,30,31,30,31,31,30,31,30,31]
     folds to 366 — exactly one more day than the common year. -/
 theorem months_sum_leap_366 : [31,29,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 366 := by decide
+
+/-- Of the twelve months exactly ONE is a whole number of weeks: a common February, 28 = 4·7. Thirty leaves two
+    over and thirty-one leaves three, so every other month starts on a different weekday than it ended — which
+    is why only February can repeat its shape. COUNTED, not asserted: the first draft of this fact claimed that
+    NO month was a whole number of weeks, and the count refused it immediately. The exception IS the content. -/
+theorem february_is_the_only_month_of_whole_weeks : ([31,28,31,30,31,30,31,31,30,31,30,31].filter (fun m => m % 7 == 0)).length = 1 ∧ 28 % 7 = 0 ∧ 30 % 7 = 2 ∧ 31 % 7 = 3 := by decide
+
+/-- THE CONTROL FOR THE GREGORIAN CLOSURE. The Julian rule leaps every fourth year with no century exception, so
+    its calendar closes at TWENTY-EIGHT years — 10227 days, a whole number of weeks — while four Julian years
+    alone do not (1461 % 7 = 5). Sealed beside gregorian_cycle_400_years because a closure means nothing without
+    a span that fails to close: the difference between 28 and 400 is exactly what the century rule costs, and
+    without this contrast the 400 reads as arithmetic rather than as a consequence of the reform. -/
+theorem julian_cycle_closes_at_twenty_eight : 28 * 365 + 7 = 10227 ∧ 10227 % 7 = 0 ∧ 4 * 365 + 1 = 1461 ∧ 1461 % 7 = 5 := by decide
+
+/-- The 400-year cycle stated as the number it is: 146097 = 20871 × 7, so the calendar returns after twenty
+    thousand eight hundred and seventy-one weeks exactly. AND THE HONEST SCOPE, because the factorisation
+    invites more than it earns: 146097 = 63 · 2319 with 63 = 7·9, the fused ring — but only the SEVEN is a fact
+    about calendars, earned by the 97-leap-day rule and able to come out otherwise. The nine is ordinary
+    arithmetic and NOT a second witness: 146097 = 7 · 20871 and 20871 is itself divisible by nine, so that half
+    follows by multiplication. A fact and its consequence, sealed together and labelled, rather than counted
+    twice. -/
+theorem the_gregorian_cycle_counted_in_weeks : 146097 = 20871 * 7 ∧ 146097 = 63 * 2319 ∧ 63 = 7 * 9 ∧ 20871 % 9 = 0 := by decide

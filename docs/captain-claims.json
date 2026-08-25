@@ -2,8 +2,8 @@
   "generated": "2026-08-25",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 1696,
-  "total_theorems": 1696,
+  "total_claimed": 1699,
+  "total_theorems": 1699,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3781,8 +3781,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "39f8fc61-4a3d-8c42-b178-6a3aec1caacb",
-      "address": "cb73160b-a7d6-884a-871f-482fbdc754fc",
+      "lineAddress": "3646dcbc-4ac4-8545-bcd2-bbe38a70af34",
+      "address": "b4d198c0-60ea-8a1a-88c6-4777630b9164",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4453,14 +4453,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "00ccb689-f546-827b-b412-671cabb39507",
-      "address": "46660b01-3eb6-8cc8-ad31-f4ab4e278103",
+      "lineAddress": "88ee3343-3a44-8cc7-861e-6c722c97aa63",
+      "address": "75f49823-882a-8d99-b388-c08b9c30bc51",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "cab3249e-af82-81ef-b86c-891c45deea21",
-      "address": "b4235fb5-ea58-80c8-9463-6daa647582a2",
+      "lineAddress": "a97479ba-cc92-82e3-9511-cb7326f0c2da",
+      "address": "2849c261-e63c-8e19-855e-a1e3a9ccafe4",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -6711,6 +6711,24 @@
       "key": "months_sum_leap_366",
       "lineAddress": "a7448f93-32bf-88d4-bb3c-d2e8c86982ab",
       "address": "e2f6d7e3-e05e-8e6b-9e91-9c7dbbe89c36",
+      "principle": "The calendar"
+    },
+    {
+      "key": "february_is_the_only_month_of_whole_weeks",
+      "lineAddress": "73c9f888-93c3-8523-8d44-68030a97a8a6",
+      "address": "8d98ddfb-abd3-8057-9936-1f1f3339e23d",
+      "principle": "The calendar"
+    },
+    {
+      "key": "julian_cycle_closes_at_twenty_eight",
+      "lineAddress": "8e81d4e2-f26e-8a86-9c9e-29c743e785a7",
+      "address": "1c6ab62f-ee68-83ff-b9cb-6ba5ef8aa9ac",
+      "principle": "The calendar"
+    },
+    {
+      "key": "the_gregorian_cycle_counted_in_weeks",
+      "lineAddress": "be1db8eb-00a9-81f7-8f06-496341ca1fd1",
+      "address": "7ba309ef-b865-8b92-8151-1b4ada42d750",
       "principle": "The calendar"
     },
     {
@@ -10182,7 +10200,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "2249e400-e080-85d1-b1af-9571a30a3680",
+  "claim_receipt": "af4ae9cb-7b8b-8a8c-acbd-a6ed050be59d",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
