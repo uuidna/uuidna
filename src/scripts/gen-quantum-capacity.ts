@@ -40,6 +40,18 @@ interface Row {
   opTimeNs: number | null
   opClass: 'reported' | 'measured'
   source: string
+  /** THE DATE A HUMAN LAST CHECKED THIS FIGURE AGAINST THE SOURCE NAMED BESIDE IT — not the publication's year,
+   *  which is already in `source` and answers a different question. Absent on every row today, deliberately:
+   *  nobody knows when these were last verified, and inventing a date would manufacture exactly the provenance
+   *  this field exists to demand. The absence is COUNTED and published instead of being left invisible.
+   *
+   *  Why it matters here more than elsewhere: this report's formal axiom base is EMPTY — 1690 of 1690 theorems
+   *  are kernel-only, gated, receipted. Its EMPIRICAL base is 29 reported figures across ten institutions, and
+   *  nothing checks, dates or expires any of them. The tree is maximally rigorous where rigour is cheap and
+   *  maximally trusting where it is expensive, and the report's whole thesis — the usable-capacity gap — lives
+   *  entirely in the column it cannot vouch for. A figure from 2023 that has since been superseded reads exactly
+   *  like a current one, because nothing carries the date that would let a reader tell. */
+  asOf?: string
 }
 
 /** The REPORTED rows — each figure is the platform's own published number, source named. */
@@ -262,11 +274,21 @@ Report receipt: \`${receipt}\` · measured-when as its own handle: \`${handleOf(
 // through the one vetted vocabulary every other JSON-LD surface here passes. Two columns carry the report's
 // actual content and each becomes its own classed figure: the usable capacity (where the gap lives) and the op
 // time. Physical counts ride as the reported dimension they are.
+// THE VERIFICATION DATE RIDES IN THE CITATION, NOT IN A NEW SCHEMA.ORG TERM, and the reason is the vetting gate
+// this generator already runs. schema.org has no core per-figure observation date: `observationDate` exists but is
+// PENDING rather than core and is scoped to `Observation`, not `PropertyValue`. Stretching a pending term onto a
+// type it does not belong to would produce markup that passes a URL check and means nothing to a consumer — which
+// is precisely the "plausible-looking markup" microdata.ts refuses. So the fact goes where provenance prose
+// already lives, and the vocabulary stays honest.
+const dated = (r: Row): string => r.asOf
+  ? `${r.source} — figure last checked against this source ${r.asOf}`
+  : `${r.source} — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source`
+
 const figures: Figure[] = rows.flatMap((r) => {
   const who = `${r.org} ${r.model} (${r.year})`
   const out: Figure[] = []
   if (r.physical !== null) out.push({ name: `${who} — physical qubits`, value: r.physical, unitText: 'qubits',
-    measurementTechnique: 'reported', citation: r.source })
+    measurementTechnique: 'reported', citation: dated(r) })
   // The usable column is REPORTED for every platform — their own demonstrated figure — but uuidna's row is a
   // DECLARATION: 2^128 usable addresses follows from how addresses are built, and no one published it about us.
   // The distinction is drawn from the row's identity, not from matching its name, so a renamed org cannot
@@ -275,11 +297,28 @@ const figures: Figure[] = rows.flatMap((r) => {
   out.push({ name: `${who} — usable capacity`, value: r.usable ?? 'none demonstrated',
     unitText: r.usable === null ? undefined : 'qubits',
     measurementTechnique: r === UUIDNA ? 'declared' : 'reported',
-    citation: `${r.usableMetric} — ${r.source}` })
+    citation: `${r.usableMetric} — ${dated(r)}` })
+  // uuidna's own op time is MEASURED on this host and so needs no verification date — it was taken this build.
+  // Every other row's is reported, and takes the same dating as the rest of its figures. Wiring only two of the
+  // three columns left nine reported figures silently undated while the count said twenty, which is the sort of
+  // partial instrumentation that reads as a clean bill.
   if (r.opTimeNs !== null) out.push({ name: `${who} — operation time`, value: r.opTimeNs, unitText: 'ns',
-    measurementTechnique: r.opClass, citation: r.source })
+    measurementTechnique: r.opClass, citation: r.opClass === 'measured' ? r.source : dated(r) })
   return out
 })
+
+// ── THE EMPIRICAL AXIOM BASE, COUNTED. The formal one is ∅ and receipted; this one is every figure taken on
+// someone else's word, and until now nothing said how many there were. Counting them is not a fix — it is the
+// precondition for one, and it is the same move as printing the Alpine port's denominator: a quantity nobody
+// computes is how "28630 packages" came to sound like all of Alpine, and how a 2023 device figure comes to read
+// as current. NOT A GATE: refusing to build over an undated figure would fail every build today for a defect
+// that needs a human with the sources, and a gate nobody can satisfy gets bypassed rather than fixed.
+// Counted from the FIGURES rather than from the rows: a row-level count said "10 undated" while nine reported
+// figures were silently carrying an undated source, because only two of three columns had been wired. Count the
+// things you are actually publishing, not the things you think produce them.
+const reportedFigures = figures.filter((f) => f.measurementTechnique === 'reported')
+const undated = reportedFigures.filter((f) => f.citation.includes('NOT VERIFIED SINCE PUBLICATION')).length
+console.log(`  world axioms — ${reportedFigures.length} reported figures across ${rows.length - 1} platforms; ${undated} of ${reportedFigures.length} carry no verification date`)
 
 const dataset = reportDataset({
   slug: 'quantum-capacity',

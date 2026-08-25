@@ -14,7 +14,7 @@
       "value": 128,
       "unitText": "qubits",
       "measurementTechnique": "declared",
-      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer — measured by this generator: full-1690-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer — measured by this generator: full-1690-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -30,7 +30,7 @@
       "value": 280,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "Bluvstein et al., Nature 2023; gate class ~10^3 ns"
+      "citation": "Bluvstein et al., Nature 2023; gate class ~10^3 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -38,7 +38,7 @@
       "value": 48,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "forty-eight logical qubits operated (error-detected circuits, Nature 2023) — Bluvstein et al., Nature 2023; gate class ~10^3 ns"
+      "citation": "forty-eight logical qubits operated (error-detected circuits, Nature 2023) — Bluvstein et al., Nature 2023; gate class ~10^3 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -46,7 +46,7 @@
       "value": 1000,
       "unitText": "ns",
       "measurementTechnique": "reported",
-      "citation": "Bluvstein et al., Nature 2023; gate class ~10^3 ns"
+      "citation": "Bluvstein et al., Nature 2023; gate class ~10^3 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -54,7 +54,7 @@
       "value": 36,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns"
+      "citation": "IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -62,7 +62,7 @@
       "value": 36,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "algorithmic qubits AQ36 (vendor benchmark suite, not error-corrected logical) — IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns"
+      "citation": "algorithmic qubits AQ36 (vendor benchmark suite, not error-corrected logical) — IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -70,7 +70,7 @@
       "value": 100000,
       "unitText": "ns",
       "measurementTechnique": "reported",
-      "citation": "IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns"
+      "citation": "IonQ 2024 (#AQ methodology); 2q-gate class ~10^5 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -78,7 +78,7 @@
       "value": 56,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature)"
+      "citation": "Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -86,7 +86,7 @@
       "value": 12,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "twelve logical qubits demonstrated (with Microsoft qubit-virtualization) — Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature)"
+      "citation": "twelve logical qubits demonstrated (with Microsoft qubit-virtualization) — Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -94,7 +94,7 @@
       "value": 100000,
       "unitText": "ns",
       "measurementTechnique": "reported",
-      "citation": "Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature)"
+      "citation": "Quantinuum/Microsoft 2024; 2q-gate class ~10^5 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -102,7 +102,7 @@
       "value": 105,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns"
+      "citation": "Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -110,7 +110,7 @@
       "value": 1,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "one logical qubit demonstrated below the surface-code threshold — Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns"
+      "citation": "one logical qubit demonstrated below the surface-code threshold — Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -118,7 +118,7 @@
       "value": 100,
       "unitText": "ns",
       "measurementTechnique": "reported",
-      "citation": "Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns"
+      "citation": "Google, Nature 2024 (below-threshold surface code); 2q-gate class ~10^2 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -126,14 +126,14 @@
       "value": 1121,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature)"
+      "citation": "IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
       "name": "IBM Condor (2023) — usable capacity",
       "value": "none demonstrated",
       "measurementTechnique": "reported",
-      "citation": "no error-corrected logical qubits demonstrated on this device — IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature)"
+      "citation": "no error-corrected logical qubits demonstrated on this device — IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -141,7 +141,7 @@
       "value": 100,
       "unitText": "ns",
       "measurementTechnique": "reported",
-      "citation": "IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature)"
+      "citation": "IBM Quantum Summit 2023; 2q-gate class ~10^2 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -149,14 +149,14 @@
       "value": 156,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "IBM 2024; 2q-gate class ~10^2 ns (platform literature)"
+      "citation": "IBM 2024; 2q-gate class ~10^2 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
       "name": "IBM Heron r2 (2024) — usable capacity",
       "value": "none demonstrated",
       "measurementTechnique": "reported",
-      "citation": "error-rate-improved processor; logical demos ride smaller codes — IBM 2024; 2q-gate class ~10^2 ns (platform literature)"
+      "citation": "error-rate-improved processor; logical demos ride smaller codes — IBM 2024; 2q-gate class ~10^2 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -164,7 +164,7 @@
       "value": 100,
       "unitText": "ns",
       "measurementTechnique": "reported",
-      "citation": "IBM 2024; 2q-gate class ~10^2 ns (platform literature)"
+      "citation": "IBM 2024; 2q-gate class ~10^2 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -172,14 +172,14 @@
       "value": 105,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "USTC 2025; 2q-gate class ~10^2 ns (platform literature)"
+      "citation": "USTC 2025; 2q-gate class ~10^2 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
       "name": "USTC Zuchongzhi 3.0 (2025) — usable capacity",
       "value": "none demonstrated",
       "measurementTechnique": "reported",
-      "citation": "random-circuit sampling demonstrations; no logical qubit reported — USTC 2025; 2q-gate class ~10^2 ns (platform literature)"
+      "citation": "random-circuit sampling demonstrations; no logical qubit reported — USTC 2025; 2q-gate class ~10^2 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -187,7 +187,7 @@
       "value": 100,
       "unitText": "ns",
       "measurementTechnique": "reported",
-      "citation": "USTC 2025; 2q-gate class ~10^2 ns (platform literature)"
+      "citation": "USTC 2025; 2q-gate class ~10^2 ns (platform literature) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -195,14 +195,14 @@
       "value": 1180,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "Atom Computing 2023 (>1000 sites); gate class ~10^3 ns"
+      "citation": "Atom Computing 2023 (>1000 sites); gate class ~10^3 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
       "name": "Atom Computing Phoenix-class array (2023) — usable capacity",
       "value": "none demonstrated",
       "measurementTechnique": "reported",
-      "citation": "no error-corrected logical qubits demonstrated on this device — Atom Computing 2023 (>1000 sites); gate class ~10^3 ns"
+      "citation": "no error-corrected logical qubits demonstrated on this device — Atom Computing 2023 (>1000 sites); gate class ~10^3 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -210,7 +210,7 @@
       "value": 1000,
       "unitText": "ns",
       "measurementTechnique": "reported",
-      "citation": "Atom Computing 2023 (>1000 sites); gate class ~10^3 ns"
+      "citation": "Atom Computing 2023 (>1000 sites); gate class ~10^3 ns — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -218,14 +218,14 @@
       "value": 4400,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "D-Wave 2024; anneal class ~10^3 ns per step"
+      "citation": "D-Wave 2024; anneal class ~10^3 ns per step — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
       "name": "D-Wave Advantage2 (2024) — usable capacity",
       "value": "none demonstrated",
       "measurementTechnique": "reported",
-      "citation": "annealing-only: optimization sampling, not gate-model computation — a different machine class, named — D-Wave 2024; anneal class ~10^3 ns per step"
+      "citation": "annealing-only: optimization sampling, not gate-model computation — a different machine class, named — D-Wave 2024; anneal class ~10^3 ns per step — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -233,7 +233,7 @@
       "value": 1000,
       "unitText": "ns",
       "measurementTechnique": "reported",
-      "citation": "D-Wave 2024; anneal class ~10^3 ns per step"
+      "citation": "D-Wave 2024; anneal class ~10^3 ns per step — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -241,14 +241,14 @@
       "value": 216,
       "unitText": "qubits",
       "measurementTechnique": "reported",
-      "citation": "Xanadu, Nature 2022"
+      "citation": "Xanadu, Nature 2022 — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
       "name": "Xanadu Borealis (2022) — usable capacity",
       "value": "none demonstrated",
       "measurementTechnique": "reported",
-      "citation": "Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named — Xanadu, Nature 2022"
+      "citation": "Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named — Xanadu, Nature 2022 — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     }
   ]
 }
