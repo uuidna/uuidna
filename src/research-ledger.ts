@@ -157,6 +157,17 @@ export const census = (fs: readonly Finding[]): Record<Status, number> => {
 // src/tests/research-ledger.test.ts, which fails naming the exact finding that diverged. The same discipline the
 // hosted server version already runs under: a stated constant is fine, an unchecked one is how a surface drifts.
 export const FINDINGS: readonly Finding[] = [
+  // THE FIRST FINDING TO NAME THE THEOREM IT ANCHORS. The anchoring law had predicates and a census and no
+  // subject — `anchors(f)` asked whether a finding MAY anchor and nothing recorded whether one DID — so
+  // tensionReport answered NOT CHECKABLE over all twenty-eight. This is its first subject, and it is deliberately
+  // the theorem the tree is most often misread about: n_qubit_dimension counts the classical cost of SIMULATING
+  // n qubits and is explicitly not a speedup, which is precisely what the primary source says too. A witness that
+  // confirms the BOUNDARY of a claim is worth more than one that confirms its headline.
+  { claim: 'An N-qubit register\'s state is a 2^N-dimensional complex vector, and full-state classical simulation costs scale exponentially in N',
+    value: '2^N', units: 'complex amplitudes',
+    source: 'Xu, Benjamin, Sun, Yuan & Zhang, "A Herculean task: Classical simulation of quantum computers", arXiv:2302.08880',
+    status: 'read', kind: 'convention', theorem: 'n_qubit_dimension',
+    note: 'Primary source retrieved and quoted: "In the state-vector formalism, the state of an N-qubit quantum register is represented by a 2^N-dimensional vector of complex values", and "the time and memory cost of a full-state SIMULATION scale exponentially with the number of qubits". Exact by the formalism\'s own definition, so it brackets as an equality. It witnesses the theorem AND its honest scope: the exponent is simulation cost, never a speedup uuidna performs.' },
   { claim: 'Betz limit — maximum fraction of wind kinetic energy any open-flow turbine can capture', value: '16/27', units: 'ratio',
     source: 'Betz, Zeitschrift fur das gesamte Turbinenwesen 26 (1920) 307-309; English translation Wind Engineering 37 (2013) 441-446',
     status: 'read', kind: 'convention', note: 'Joukowsky co-priority, same year, independent. Exact rational: brackets natively.' },
