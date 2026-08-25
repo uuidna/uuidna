@@ -13,7 +13,7 @@ description: The suite's every sentence — a language model whose hallucination
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
 > uuidna's own row: 1054 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `9fd21da7` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `6b0db77e` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -446,7 +446,7 @@ the LIVE tree cites no dead key — tests included, which is new
 ```text
 the hand-maintained records do NOT auto-resolve — a conflict in them is a question, not a coin flip
 the genuinely derived layer KEEPS the driver — this is a correction, not a retreat
-every path still claiming DERIVED is written by something in the tree
+a generator that writes a literal path is INVOKED by the chain, or it is rot waiting to happen
 ```
 
 **detail-audit** — 13 utterances

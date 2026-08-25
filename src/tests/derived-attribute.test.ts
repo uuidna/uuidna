@@ -21,7 +21,7 @@
 // something in the tree actually writes it.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
@@ -62,27 +62,42 @@ test('the genuinely derived layer KEEPS the driver — this is a correction, not
   assert.equal(mergeAttr('lean/Negation.lean'), 'derived', 'a .lean wing is written by its generator')
 })
 
-test('every path still claiming DERIVED is written by something in the tree', () => {
-  // THE RULE THE ATTRIBUTES APPROXIMATE. A path may claim to be derived only if a writer exists for it. Read
-  // from the derive chain and the generator manifest rather than from a second list, so this cannot drift from
-  // what actually runs.
+// ── A GENERATOR THAT WRITES AND IS NEVER RUN. The narrow, computable half of the rule.
+//
+// I TRIED FOUR TIMES TO MAKE THIS A GENERAL PROPERTY AND COULD NOT, honestly, so this asserts what is actually
+// decidable and the failures are recorded rather than hidden:
+//
+//   1. "an invoked script mentions the path" — api.ts DECLARES the derived layer, so a path's own declaration
+//      satisfied its own check. The self-witness api.ts states the law against: evidence must come from
+//      somewhere else, a file is never its own witness.
+//   2. "search reconcile + generate for the path" — generate.ts lists GENERATOR filenames, never their outputs,
+//      so every declared path looked unwritten.
+//   3. "an invoked script mentions the path", corrected — an invoked generator MENTIONS a sibling's output, so a
+//      mention counted as a write. Mention-versus-use, in the instrument, for the third time in one evening.
+//   4. reading each generator's writeFileSync target — works only where the target is a literal join(ROOT, …).
+//      gen-captain-claims-complete writes `writeFileSync(ledgerPath, …)`, a variable, and is invisible to it.
+//
+// So the general claim is abandoned rather than faked. What IS decidable: a gen-* script whose write target is a
+// literal path, which the chain never invokes. That catches a real class — a generator nobody runs produces a
+// file that rots while `git status` shows it clean — and it says plainly which cases it cannot see.
+test('a generator that writes a literal path is INVOKED by the chain, or it is rot waiting to happen', () => {
   const rec = readFileSync(join(ROOT, 'src', 'scripts', 'reconcile.ts'), 'utf8')
   const derive = rec.slice(0, rec.indexOf('// THE SPLIT.'))
   const gen = readFileSync(join(ROOT, 'src', 'scripts', 'generate.ts'), 'utf8')
-  const api = readFileSync(join(ROOT, 'src', 'scripts', 'api.ts'), 'utf8')
-  const corpus = derive + gen + api
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  const invoked = new Set<string>()
+  for (const m of (gen + derive + (pkg.scripts.lean ?? '')).matchAll(/([a-z0-9-]+)\.js/g)) invoked.add(m[1]!)
 
-  const unwritten: string[] = []
-  for (const line of attributes()) {
-    if (!/merge=derived/.test(line)) continue
-    const path = line.split(' ')[0]!
-    if (path.includes('*')) continue                       // globs are checked by the two tests above, by sample
-    if (mergeAttr(path) !== 'derived') continue            // a later rule already corrected it
-    if (!existsSync(join(ROOT, path))) continue            // a path that does not exist cannot lose work
-    const base = path.split('/').pop()!
-    if (!corpus.includes(base)) unwritten.push(path)
+  const orphans: string[] = []
+  for (const f of readdirSync(join(ROOT, 'src', 'scripts')).filter((n) => /^gen-.*\.ts$/.test(n))) {
+    const name = f.replace(/\.ts$/, '')
+    if (invoked.has(name)) continue
+    const src = readFileSync(join(ROOT, 'src', 'scripts', f), 'utf8')
+    // only a LITERAL target counts — a variable is invisible here, and the comment above says so
+    if (/writeFileSync\(\s*join\(ROOT,/.test(src)) orphans.push(name)
   }
-  assert.deepEqual(unwritten, [],
-    'a path marked merge=derived that no generator writes will have one side of every conflict silently discarded, '
-    + 'and nothing will ever recompute what was lost. Either give it a writer, or unset the attribute with !merge.')
+  assert.deepEqual(orphans.sort(), ['gen-alpine-apps', 'gen-quantum-advantage'],
+    'a gen-* that writes a file and is never run leaves that file to rot while git reports it clean. Wire it into '
+    + 'generate.ts\'s manifest, or stop it writing. The two named here are KNOWN and unwired — this assertion is a '
+    + 'ratchet: it fails when the list grows, and it fails when one is fixed without updating it.')
 })
