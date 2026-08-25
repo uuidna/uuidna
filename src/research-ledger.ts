@@ -36,6 +36,20 @@ export interface Finding {
   status: Status
   kind: Kind
   note?: string
+  /** THE THEOREM THIS FINDING ACTUALLY ANCHORS, by key — the relation the anchoring law governs and which was
+   *  recorded nowhere until now.
+   *
+   *  `anchors(f)` answers "may this anchor a theorem?" and the report counts how many findings pass. Nothing
+   *  answered "does any sealed theorem rest on one that does NOT?", because no finding pointed at a theorem and
+   *  no theorem pointed back. The law had predicates, a census and no subject, so it could be neither violated
+   *  nor satisfied — a control that cannot fire. (The `anchorsTheorem: boolean` field in the report is part of
+   *  why this went unseen: it reads as a relation and is a predicate. It keeps its name here because the served
+   *  API folds to a handle and renaming a field silently moves that address; the confusion is documented instead.)
+   *
+   *  OPTIONAL BY DESIGN. Requiring it would mean relabelling twenty-eight findings at once, and whoever knows
+   *  which finding a wing rests on is the author of that wing, not this module. Left absent, a finding is exactly
+   *  as checkable as it was before; filled in, `tensions()` can finally ask the question the law was written for. */
+  theorem?: string
 }
 
 /** Only a READ primary source anchors a theorem. Everything else is provisional, and saying so is the point. */
@@ -43,6 +57,56 @@ export const anchors = (f: Finding): boolean => f.status === 'read'
 
 /** A measured quantity may not be sealed as an equality — it gets a bracket or it gets nothing. */
 export const sealableAsEquality = (f: Finding): boolean => f.kind === 'convention' && f.status === 'read'
+
+/** A TENSION is a claim the tree's own rules forbid, found in what is already sealed rather than proposed as new
+ *  work. Three kinds, and each is decidable from the ledger alone — no lexicon, no judgement, no opinion:
+ *
+ *   · FABRICATED   — a finding names a theorem that is not sealed. The citation verifies nothing.
+ *   · UNANCHORED   — a finding anchors a SEALED theorem while `anchors(f)` is false. This is the paradox the
+ *                    anchoring law exists to forbid and could not previously detect: a proof standing on evidence
+ *                    the tree itself says may not hold it.
+ *   · OVERSEALED   — a MEASURED finding anchors a theorem while claiming equality's privileges. A measurement
+ *                    gets an integer bracket or it gets nothing.
+ *
+ *  UNLINKED FINDINGS ARE NOT A TENSION and are deliberately not reported as one. A finding with no `theorem` is
+ *  silent, not wrong, and counting silence as a violation is how an audit learns to cry wolf. What the count of
+ *  them IS good for is stating this check's own reach — see `tensionReport`. */
+export interface Tension { finding: string; theorem: string; kind: 'fabricated' | 'unanchored' | 'oversealed'; why: string }
+
+export function tensions(findings: readonly Finding[], sealedKeys: ReadonlySet<string>): Tension[] {
+  const out: Tension[] = []
+  for (const f of findings) {
+    if (!f.theorem) continue
+    if (!sealedKeys.has(f.theorem)) {
+      out.push({ finding: f.claim, theorem: f.theorem, kind: 'fabricated',
+        why: `names theorem ${f.theorem}, which is not sealed in the ledger — a citation to a proof that does not exist verifies nothing` })
+      continue
+    }
+    if (!anchors(f))
+      out.push({ finding: f.claim, theorem: f.theorem, kind: 'unanchored',
+        why: `status is ${f.status}, and only a read primary source may anchor a theorem — ${f.theorem} rests on evidence this tree's own rule forbids` })
+    else if (f.kind === 'measured')
+      out.push({ finding: f.claim, theorem: f.theorem, kind: 'oversealed',
+        why: `a measured quantity anchors ${f.theorem}; a measurement seals as an integer BRACKET or as nothing, never as an equality` })
+  }
+  return out
+}
+
+/** The check's own reach, stated with its verdict — because "no tensions" over an unlinked corpus means only that
+ *  nothing could be checked, and a report that does not say so is the empty-equals-healthy conflation again. */
+export function tensionReport(findings: readonly Finding[], sealedKeys: ReadonlySet<string>): {
+  tensions: Tension[]; linked: number; unlinked: number; checkable: boolean; honest: string
+} {
+  const linked = findings.filter((f) => f.theorem).length
+  const found = tensions(findings, sealedKeys)
+  return {
+    tensions: found, linked, unlinked: findings.length - linked, checkable: linked > 0,
+    honest: linked === 0
+      ? 'NOT CHECKABLE: no finding names the theorem it anchors, so the anchoring law has no subject here and an ' +
+        'empty result is the absence of a question, never a clean bill of health.'
+      : `checked ${linked} of ${findings.length} findings; the remaining ${findings.length - linked} name no theorem and are silent rather than clean.`,
+  }
+}
 
 /** the address of a finding, so a stranger recomputes the same identity from the same four fields */
 export const findingAddress = (f: Finding): string => toUuid(`${f.claim}|${f.value}|${f.units}|${f.source}`)
