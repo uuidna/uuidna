@@ -223,7 +223,12 @@ export default {
     //
     // The response is REBUILT rather than mutated because an ASSETS response's headers are immutable — assigning
     // to them throws at the edge, which is the kind of failure that only shows up in production.
-    const asset = await env.ASSETS.fetch(request)
+    //
+    // /favicon.ico — browsers probe it by default (~47/day on uuidna.com). The brand mark is /icon.svg; rewrite
+    // the bare probe so Cloudflare does not serve a 404 HTML page as an "icon".
+    const assetUrl = url.pathname === '/favicon.ico' ? new URL('/icon.svg', url) : url
+    const assetReq = assetUrl === url ? request : new Request(assetUrl, request)
+    const asset = await env.ASSETS.fetch(assetReq)
     const out = new Response(asset.body, asset)
     out.headers.set('link', `<${url.origin}/mcp>; rel="mcp"`)
     return out

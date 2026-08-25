@@ -23,6 +23,9 @@ export default defineConfig({
     ['meta', { property: 'og:title', content: SITE.name }],
     ['meta', { property: 'og:description', content: SITE.tagline }],
     ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    // browsers still probe /favicon.ico by default; declare the served SVG so the 47/day bare-probe 404s stop
+    // once clients honour the link, and the worker rewrites /favicon.ico → /icon.svg for the rest
+    ['link', { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' }],
   ],
 
   themeConfig: {

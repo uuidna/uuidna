@@ -7,14 +7,20 @@
 // /seeds/<uuid>/page.json — the seed folder stays the ONE source (DRY); the build serves it, nothing duplicates it.
 // It ALSO serves the repo-root llm.txt (the canonical agent entry point src/index.ts cites) at /llm.txt AND at
 // /llms.txt (the emerging llms-txt standard path) — same DRY rule: the root file is the one source, the build serves it.
+// It ALSO serves the Alpine catalogue (mirror/alpine-catalogue.tsv) at /alpine-catalogue.tsv — the committed census
+// uuidnaOS primes in the browser. docs/public/alpine-catalogue.tsv is a BUILD ARTIFACT (gitignored); VitePress will
+// only copy it when a prior local `gen-alpine-catalogue` left it there, so a clean Cloudflare Workers Build would
+// ship a 404 for the catalogue and report Alpine as ABSENT. Copy from the committed mirror after the VitePress
+// build so production cannot disagree with the repo.
 // Idempotent; runs in docs:build (and thus in the Cloudflare deploy build). Integrity— it serves the
 // source, it proves nothing new.
-import { readdirSync, mkdirSync, copyFileSync, existsSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { readdirSync, mkdirSync, copyFileSync, existsSync, readFileSync, statSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from './api.js'
+import { CATALOGUE_FILE } from '../quantum/os/catalogue.js'
 
 const LEAN = join(ROOT, 'lean')
-const SEEDS = join(ROOT, 'src', 'lean')
+const SEEDS = join(ROOT, 'src', 'seeds')
 // the VitePress outDir — the DEFAULT (<srcDir>/.vitepress/dist); keep in lock-step with `vitepress build docs`
 const SITE = join(ROOT, 'docs', '.vitepress', 'dist')
 
@@ -54,12 +60,21 @@ if (!existsSync(LLM)) {
 copyFileSync(LLM, join(SITE, 'llm.txt'))
 copyFileSync(LLM, join(SITE, 'llms.txt'))
 
+// THE ALPINE CATALOGUE — committed in mirror/, served at /alpine-catalogue.tsv. Without this copy a clean
+// Workers Build has no docs/public/alpine-catalogue.tsv (gitignored), VitePress cannot passthrough it, and
+// uuidnaOS in the browser reports the census ABSENT while the repo holds 28,639 packages. Fail loud if the
+// mirror is missing — same law as llm.txt: the pointer must never ship dead.
+const CATALOGUE = join(ROOT, CATALOGUE_FILE)
+if (!existsSync(CATALOGUE)) {
+  console.error(`✗ copy-lean-to-site — ${CATALOGUE_FILE} missing: the browser OS primes from /alpine-catalogue.tsv; restore it with \`node dist/scripts/gen-alpine-catalogue.js\` (the build refuses to ship the dead pointer)`)
+  process.exit(1)
+}
+copyFileSync(CATALOGUE, join(SITE, 'alpine-catalogue.tsv'))
+
 // THE SECOND FORENSIC — the VitePress dead-link check is architecturally blind to non-page assets (it validates
 // page routes only), so /lean/* and /seeds/* are allowlisted there and verified HERE instead: scan every built
 // HTML page for /lean and /seeds references and FAIL the build if any referenced file was not served. Together
 // the two checks leave zero blind spots — no link ships unverified.
-import { readFileSync, statSync } from 'node:fs'
-import { HERE, ROOT } from './api.js'
 const htmlFiles: string[] = []
 const walk = (dir: string) => {
   for (const e of readdirSync(dir)) {
@@ -83,4 +98,4 @@ if (missing.size) {
   process.exit(1)
 }
 
-console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)
+console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, ${CATALOGUE_FILE} at /alpine-catalogue.tsv, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)

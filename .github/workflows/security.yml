@@ -38,7 +38,7 @@ jobs:
       # The action wrapper now demands a paid org license; the gitleaks BINARY stays free — invoke it directly.
       - name: gitleaks (direct binary — no license wall)
         run: |
-          docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:latest detect --source=/repo --no-banner --redact --exit-code 1 -v --report-path /repo/gitleaks-report.json
+          docker run --rm -v "$PWD:/repo" ghcr.io/gitleaks/gitleaks:latest detect --source=/repo --config=/repo/.gitleaks.toml --no-banner --redact --exit-code 1 -v --report-path /repo/gitleaks-report.json
       - name: findings report (always — the tuning loop reads exact files and rules, never guesses)
         if: always()
         uses: actions/upload-artifact@v7
