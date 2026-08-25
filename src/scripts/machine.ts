@@ -18,7 +18,18 @@ const centi = (x: number): number => (x * 100) - ((x * 100) % 1)   // ×100, flo
 const mb = (b: number): number => (b - (b % 1048576)) / 1048576
 
 // the heavy writers: any process over ~half a core, named — ps at the boundary, the response is data
+// AND THE WRITERS PROBE IS CHECKED THE SAME WAY (2026-08-25) — this file already states the law thirty lines
+// below and did not apply it here. `ps -Ao pcpu=,comm= -r` is POSIX ps; the ps in Git for Windows answers
+// `unknown option -- A` and THROWS, the catch swallowed it, and `writers` stayed empty. So this report said NO
+// HEAVY WRITERS on every Windows host, always — the absence and the all-clear returning the same value, which
+// is the exact shape the loadavg paragraph below refuses. one-writer.ts:76 recorded this for `-o` and the
+// lesson never reached here.
+//
+// It matters more than a missing line, because the load verdict already voids on this host and the closing
+// advice REDIRECTS the reader to the writers list as the instrument to read instead. Both were void and only
+// one said so.
 const writers: MachineWriter[] = []
+let writersMeasured = true
 try {
   for (const line of execSync('ps -Ao pcpu=,comm= -r', { encoding: 'utf8' }).split('\n').slice(0, 12)) {
     const m = /^\s*(\d+[.,]?\d*)\s+(.+)$/.exec(line)
@@ -26,7 +37,7 @@ try {
     const cc = centi(Number(m[1]!.replace(',', '.')))
     if (cc >= 50) writers.push({ name: m[2]!.split('/').pop()!.slice(0, 40), centiCpu: cc })
   }
-} catch { /* a bare report still balances — the writers list is best-effort */ }
+} catch { writersMeasured = false }   // NOT best-effort: an unmeasured list is not an empty one, and says so below
 
 const b = balanceMachine({
   cores: cpus().length,
@@ -42,11 +53,16 @@ const b = balanceMachine({
 // still stands; only the CPU verdict is withheld, and it is withheld OUT LOUD.
 const measured = loadMeasurable()
 console.log(`machine — ${b.cores} cores · load ${measured ? b.loadPermille + '‰' : 'NOT MEASURABLE on this host'} · mem free ${b.memFreePermille}‰ · floor ${b.safeFloorPermille}‰`)
+if (!writersMeasured) console.log('  writers NOT MEASURABLE on this host — the per-process probe could not run, so this is an')
+if (!writersMeasured) console.log('  absence of a reading and NOT a quiet machine. Do not read the empty list as an all-clear.')
 for (const w of b.writers.slice(0, 6)) console.log(`  ${String(w.sharePermille).padStart(4)}‰  ${w.name}`)
 if (measured) console.log((b.balanced ? '✓ ' : '· ') + b.verdict)
 else {
   console.log(`· CPU verdict WITHHELD — this host publishes no load average, so the reading would be a permanent zero and the spare-floor test could never say no. Memory: ${b.memBalanced ? 'balanced' : 'under the floor'} (${b.memFreePermille}‰ free against a ${b.safeFloorPermille}‰ floor).`)
-  console.log('  to judge CPU here, read a per-process share instead (the writers above) — an absent instrument voids, it does not verdict.')
+  console.log(writersMeasured
+    ? '  to judge CPU here, read a per-process share instead (the writers above) — an absent instrument voids, it does not verdict.'
+    : '  and the per-process probe is void here TOO, so this host currently has NO CPU instrument at all — that is the')
+  if (!writersMeasured) console.log('  finding, and it is worth more than either reading would have been.')
 }
 console.log(`  receipt ${b.receipt}`)
 // a resource reading is a DIAGNOSTIC, never a build failure: FOLD means "pause a writer before a heavy run",

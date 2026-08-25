@@ -18,7 +18,7 @@
 //   walks   star_walk · rosette_receipts · rosette_audit   (5/2 · 7/3 · 9/2 recomputed, the rays, the coins)
 import { createHash } from 'node:crypto'
 import { messagingSeal } from '../quantum/message/index.js'
-import { execSync } from 'node:child_process'
+import { execSync , spawnSync } from 'node:child_process'
 import { readFileSync, readdirSync, writeFileSync, existsSync } from 'node:fs'
 import { join, dirname, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -26,7 +26,8 @@ import { theorems, PRINCIPLES, runTrial, theoremCountByFile, publications, toUui
 import { MCP_CATALOG, callTool } from '../mcp.js'
 import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
-import { ROOT, rd, cleanGitEnv, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
+import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
+import { shellOrExit } from '../os/host/index.js'
 
 // ONE READ PER FILE, SHARED. `binary` scans bytes and `hexbit` scans text over the SAME tracked source, and each was
 // re-reading every file from disk — the cache-immutable-reads law applied to the read itself. The buffer is the one
@@ -1454,9 +1455,20 @@ export function seal(): void {
     // THE GATE-WAIT, folded — the piece every hand-written watcher kept re-implementing: never interleave
     // writers on the shared tree (the mixed-dist hazard). Wait for any running reconcile before touching it.
     for (let w = 0; w < 90; w++) {
-      const gates = execSync('ps aux | grep "[r]econcile.js" | wc -l', { cwd: ROOT }).toString().trim()
-      if (gates === '0') break
-      execSync('sleep 10', { cwd: ROOT })
+      // THE SAME POSIX ASSUMPTION 07bc4b2f CALLED THE LAST ONE, at its fourth site (2026-08-25). ps, grep and wc
+      // are nothing at all to cmd.exe, the shell execSync reaches on Windows, so this probe THREW rather than
+      // answering and took seal() down with it. shellOrExit NAMES the host~s shell instead of inheriting whatever
+      // execSync defaults to. AND THE ANSWER IS THREE-VALUED: a probe that could not RUN is not a quiet tree, and
+      // this loop is the one thing keeping seal() from interleaving writers on a tree that is mid-gate.
+      const sh = shellOrExit('seal')
+      const r = spawnSync(sh.file, sh.argv('ps aux | grep "[r]econcile.js" | wc -l'), { cwd: ROOT, encoding: 'utf8', env: sh.env(process.env) })
+      if (r.error || r.status !== 0) {
+        console.error('x seal — the gate-wait probe could not RUN, so a busy tree is indistinguishable from a')
+        console.error('  quiet one. Refusing rather than draining a tree another writer may hold: ' + (r.error?.message ?? `exit ${r.status}`))
+        process.exit(1)
+      }
+      if (r.stdout.trim() === '0') break
+      pauseSeconds(10)
     }
     const dirty = execSync('git status --porcelain', { cwd: ROOT }).toString().trim()
     let ahead = '0'
