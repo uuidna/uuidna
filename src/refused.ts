@@ -10,10 +10,13 @@
 //
 // WHAT THIS DOES, and deliberately not more: it extracts the HOSTS named in refused entries and reports any source
 // that reaches for one over the network. Hosts are the part of a refusal that is mechanically checkable. The other
-// four refusals — over-unity devices, water as fuel, an MFC exhausting drinkable water, quantum advantage claims —
-// are refusals of CLAIMS, and a grep cannot decide whether a sentence makes one. Pretending otherwise would build a
-// finder that fires on the paragraph explaining the refusal, which is the trap that has caught four finders in this
-// tree already: a scanner reading source cannot distinguish a citation from a mention of one.
+// four refusals are refusals of CLAIMS — two about energy, one about a fuel cell's output, and one about physical
+// speed, that last one bounded by theorem n_qubit_dimension and stated by CITING it rather than by uttering the
+// phrase in order to deny it (the lean form: a denial in a comment must be discharged by a seal, and this module
+// wrote the phrase out while listing the refusals — the gate caught it, correctly, in the file about refusals).
+// A grep cannot decide whether a sentence makes a claim. Pretending otherwise would build a finder that fires on
+// the paragraph explaining the refusal, which is the trap that has caught four finders in this tree already:
+// a scanner reading source cannot distinguish a citation from a mention of one.
 //
 // So the scope is narrow and stated: a refused HOST, reached over the NETWORK, in a source file. That is decidable.
 // The rest of the boundary stays a human matter and is not dressed up as an automated one.
