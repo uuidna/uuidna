@@ -506,3 +506,7 @@ export { DATAPATH, UNITS, spec as hardwareSpec, type Unit } from './hardware/ind
 // module exists to refuse.
 export { filterMeasurements, facets, violations, decadeOf, type Measurement, type MeasurementFilter, type Technique, type Sealing, type Unit as MeasurementUnit } from './measurement.js'
 export { fromLanes, fromBaseline, fromLevel, allMeasurements } from './measurement-sources.js'
+// WHAT A TOOL CAN BE TOLD, computed from its own schema — the question an outside caller has and the served
+// surface could not answer. Kept out of mcp.ts deliberately: the catalogue can import this when its own edits
+// settle, and a client can already filter 204 tools down to the ones that can hear it.
+export { scopeOf, scopeCensus, toolsInScope, type ToolScope, type ScopeCensus } from './tool-scope.js'
