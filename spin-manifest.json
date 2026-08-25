@@ -5,7 +5,7 @@
     "CHANGELOG.md": "5fd7267d496d8a83",
     "lean/axioms.json": "61bc1d947e858258",
     "docs/mcp.md": "80bc4eef5c3f82ff",
-    "audit-citations.json": "b452d405ff1182fe",
+    "audit-citations.json": "ac7e8321139486d1",
     "support-audit.json": "03a720eb3927879b",
     "research-leads.json": "065eded5c6208e0b",
     ".zenodo.json": "a1d78f67644f80b8",
@@ -1625,5 +1625,5 @@
     "lean/waves-manifest.json": "fd25caf2595e8fb7",
     "lean/Waves.lean": "4be29174f5748e47"
   },
-  "receipt": "cbd9afbd-b4ec-84b5-8912-84878500f202"
+  "receipt": "366c82dc-333f-8779-ada9-f4c77719d425"
 }

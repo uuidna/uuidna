@@ -66,6 +66,25 @@ const GENERATOR_PATTERNS: readonly RegExp[] = [
   // so it is worth saying plainly that this pattern is a patch on a classifier that reads names, and the durable
   // fix is for a runner to DECLARE what it writes rather than be recognised by how it is spelled.
   /\bprove-all\.js/,
+  // AND THREE MORE THE NAME HID, found by asking the opposite question (2026-08-25). Rather than wait for a fifth
+  // costume, every step the plan called a CHECK was read for a filesystem write. Three of them write:
+  //   audit-citations.js → audit-citations.json      support.js → support-audit.json, research-leads.json
+  //   rosetta.js         → src/rosetta-mirror.ts
+  // All three had been running in the concurrent wave beside spin and `git diff --exit-code`, which read exactly
+  // those files — a tree-wide cause of drift appearing in trees where nothing had changed. None is named gen-*,
+  // and that is the whole reason they were invisible.
+  //
+  // The test beside this now asserts the PROPERTY rather than the list: no step classified as a check may contain
+  // a filesystem write. That is the rule this list should eventually be derived from, and until then it is what
+  // catches the next one without anybody noticing a symptom first.
+  /\baudit-citations\.js/,
+  /\bsupport\.js/,
+  /\brosetta\.js/,
+  // ONE INVOCATION, NOT THE WHOLE SCRIPT. one-receipt.js is run FIVE times in the chain and only `messaging`
+  // writes (lean/messaging-witness.json); dormant, skills, micro and binary report and write nothing. Ordering
+  // the script would drag four read-only steps out of the concurrent wave for nothing, so the pattern names the
+  // invocation. Tightening a gate should not cost the fan-out that makes it bearable.
+  /\bone-receipt\.js\s+messaging\b/,
   // THE MANIFEST RUNNER IS A GENERATOR, AND THE NAME ALMOST HID IT. generate.js runs the sixteen gen-* emitters
   // and writes the derived layer; every one of its children matches the pattern above and it does not, for want of
   // a hyphen. Classified as a CHECK it went into the fan-out — writing the derived layer beside thirteen other
