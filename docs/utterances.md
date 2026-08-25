@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1301 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1309 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1301 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1309 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `e954e98b` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `341f88ca` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -734,6 +734,15 @@ dropframe_is_one_thousandth — the hour drops exactly a thousandth of its frame
 angle_of_the_cut — six 30° moves reach the 180° axis; six moves of any other minimum must not
 ```
 
+**falsifiers-kdf-memo** — 4 utterances
+
+```text
+A MEMO KEYED ON A NON-CRYPTOGRAPHIC HASH HANDS BACK THE WRONG KEY — the collision is found, not assumed
+THE INVOLUTION, WHICH IS THE HALF A WRONG-KEY TEST CANNOT SEE: the memo must return the RIGHT key too
+THE REMAINING DIRECTIONS — a memo key is a claim about EVERY component, not just the passphrase
+and the real thing does not confuse them — two passphrases, two ciphertexts, no crossover
+```
+
 **falsifiers-nim** — 13 utterances
 
 ```text
@@ -750,6 +759,15 @@ nim_four_powers — the distinct powers 1,2,4,8 fold to 15 because no bits colli
 nim_misere_differs — an ODD count of one-stone heaps folds to 1; make the count even and the sealed value fails
 nim_max_is_a_diamond_nilpotent — 15 lands on residue 6 mod 9 and 6 squares to 0; no other nonzero residue but 3 does
 the 81 nimsum_a_b entries — each sealed value is refolded twice, and each sealed value with one bit flipped must fail
+```
+
+**falsifiers-quantum-margin** — 4 utterances
+
+```text
+a uuid in this tree carries 122 bits, not 128 — the six stamped bits are measured, not assumed
+THE SEALED GROVER LAW, APPLIED TO THAT WIDTH — 122 halves to 61, which is not a post-quantum margin
+quantumAddress is the full digest and is deliberately NOT a uuid
+the rights contract PROVES with the digest and only NAMES with the id
 ```
 
 **falsifiers-rosette** — 8 utterances

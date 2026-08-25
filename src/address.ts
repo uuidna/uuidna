@@ -116,6 +116,32 @@ export function cryptoAddress(seed: string): string {
   return formatUuid([...sha256(enc.encode('uuidna:' + seed))])
 }
 
+/** quantumAddress — the FULL 256-bit SHA-256 digest, and deliberately NOT a uuid, because a uuid cannot hold it.
+ *
+ *  THE CEILING IS THE CONTAINER, NOT THE MINT. cryptoAddress is SHA-256 and is the right hash; then formatUuid
+ *  keeps sixteen bytes of the thirty-two and stamps six of those bits as constants — four for the version nibble,
+ *  two for the RFC variant. Measured over 20,000 addresses: the version nibble is always 8 and the variant nibble
+ *  is always one of 8,9,a,b. So a uuidna address carries 128 - 6 = 122 BITS OF ENTROPY, whichever mint made it.
+ *
+ *  APPLY THIS LEDGER'S OWN SEALED LAW TO THAT NUMBER. grover_halves_the_search_exponent states the demarcated
+ *  speedup: unstructured search over 2^20 takes 2^20 classical checks and ~2^10 quantum ones — the exponent
+ *  halves and never vanishes. Halve 122 and a preimage on ANY uuid in this tree costs 2^61 quantum work, while a
+ *  collision already costs 2^61 classically by the birthday bound. Sixty-one bits is not a post-quantum margin.
+ *  The theorem was sealed here and never turned on the tree's own address width; doing so is what this function
+ *  is for. Nothing about the theorem changes — it is applied, not amended.
+ *
+ *  So a surface that must survive a quantum adversary cannot use a uuid at all, and no choice of hash rescues it:
+ *  truncating SHA-256 to 122 usable bits throws away the margin before the mint is even asked. This returns all
+ *  256 bits as hex — 2^128 quantum preimage after halving, which IS a post-quantum margin — and it is not a uuid
+ *  precisely so that it cannot be silently substituted into a field expecting one.
+ *
+ *  WHERE IT IS AND IS NOT NEEDED. spin's drift detection and every routing address face no adversary and are
+ *  correct as they are; a 122-bit content-address is an excellent name. Contract ids, rights imprints and bill
+ *  receipts are the surfaces where an adversary is the threat model, and they are the reason this door exists. */
+export function quantumAddress(seed: string): string {
+  return [...sha256(enc.encode('uuidna:' + seed))].map(hexByte).join('')
+}
+
 /** Strict, canonical mint: coerce to string, normalize (NFC), trim — so the SAME logical value always
  *  mints the SAME address. Closes minting flaws (toUuid(3) vs toUuid('3'), stray whitespace, unicode form). */
 export function strictUuidna(value: unknown): string {

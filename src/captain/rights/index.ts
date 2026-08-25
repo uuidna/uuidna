@@ -12,7 +12,7 @@
 // a human court's.
 import { legalFacts } from '../../legal.js'
 import { creditsSummary } from '../credits/index.js'
-import { toUuid, merkleFold } from '../../address.js'
+import { toUuid, merkleFold, quantumAddress } from '../../address.js'
 import { imprintTextChain, readImprintTextChain } from '../../imprint.js'
 import type { HeadTuple } from '../../seo.js'
 
@@ -106,7 +106,16 @@ export interface RightsContract {
   licensor: string           // the captain / rights holder
   licensee: string           // the party the draft is addressed to
   terms: string              // the full drafted contract text — what the id content-addresses
-  contractId: string         // toUuid(terms) — the contract's content-address and subdomain id
+  contractId: string         // toUuid(terms) — the ROUTING id and subdomain. A name, never the proof.
+  /** quantumAddress(terms) — the full 256-bit SHA-256 digest, and the ONLY thing clause 4's integrity claim rests on.
+   *
+   *  The id above is a 122-bit FNV fold (a uuid keeps 128 bits and the RFC stamps six of them constant). Measured
+   *  2026-08-26: a chosen 32-bit word of that mint is forgeable in 2^16 work — milliseconds — because every step
+   *  of it is invertible. A legal instrument that says "any alteration moves the id" must not rest on a mint whose
+   *  own docstring calls it non-cryptographic, so the id stays for ROUTING, where it is excellent and where the
+   *  subdomain scheme needs a uuid, and the PROOF moves here. Under this ledger's own sealed
+   *  grover_halves_the_search_exponent, 256 bits leaves a 2^128 quantum margin where 122 bits leaves 2^61. */
+  digest: string
   domain: string             // [contractId].uuidna.org — the contract-keyed deployment domain
   imprint: string            // the captain-rights imprint the contract carries
   receipt: string
@@ -134,13 +143,14 @@ export function draftContract(licensee = 'the recipient'): RightsContract {
     '',
     '3. REPRESENTATION RESERVED. ' + r.representation.statement,
     '',
-    '4. INTEGRITY. These terms are content-addressed: their id is the fold of this exact text. Any alteration moves the id, so a holder PROVES they hold the unaltered terms by re-addressing them. Integrity— the address proves the terms are unaltered; it does not adjudicate them.',
+    '4. INTEGRITY. These terms are content-addressed twice, and the two addresses do different jobs. The DIGEST is the full 256-bit SHA-256 of this exact text, and it is what a holder checks: any alteration moves it, so re-computing the digest PROVES the terms are unaltered. The contract id is a 128-bit uuid used to NAME and route this contract (its subdomain); it is a fast non-cryptographic fold and is not offered as tamper-evidence. Verify against the digest. Integrity, not adjudication — an address proves the text is unaltered, it does not settle what the text means.',
     '',
     '5. NO WARRANTY; NOT LEGAL ADVICE. The Work is provided "as is". This DRAFT is a recomputable fact base. It binds no one until reviewed by qualified counsel and signed by the parties. A content-address cannot settle a legal question; a human court enforces the law.',
   ].join('\n')
   const contractId = toUuid(terms)
+  const digest = quantumAddress(terms)          // the proof; contractId is only the name
   return {
-    title, licensor: r.holder, licensee, terms, contractId,
+    title, licensor: r.holder, licensee, terms, contractId, digest,
     domain: `${contractId}.uuidna.org`, imprint: r.imprint,
     receipt: merkleFold([toUuid('contract:' + contractId), r.imprint, r.receipt]),
     honest:
