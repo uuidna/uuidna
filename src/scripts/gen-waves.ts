@@ -15,14 +15,25 @@ interface Q { pending: Candidate[]; accepted: (Candidate & { receipt: string })[
 const q = JSON.parse(readFileSync(join(ROOT, 'lean', 'wave-queue.json'), 'utf8')) as Q
 const byKey = theoremByKey()
 
+// A KEY THE LEDGER DOES NOT SEAL IS NAMED IN WORDS, NEVER BACKTICKED — the rule the refused rows below already
+// keep, applied to the two row kinds that were not keeping it. An accepted candidate whose proof has not lifted
+// yet, and a pending one awaiting the kernel, are both UNSEALED, and both were rendered `key` in backticks: a
+// citation a reader cannot tell from a live one, which is exactly what the deadkey finder refuses.
+//
+// It went unnoticed because it only fires when the ledger MOVES UNDER THE QUEUE. The queue names candidates by
+// key; when a key is purged upstream the queue still holds it, so a regeneration emits a backticked citation to
+// something that no longer exists — and the file that emits it is derived, so the charge lands on whoever
+// regenerates next rather than on whoever purged. Two keys did exactly that today.
+const unsealed = (key: string): string => `**${key.replace(/_/g, ' ')}** (not sealed)`
+
 const acceptedRows = q.accepted.map((c) => {
   const t = byKey.get(c.key)
-  const seal = t ? `[\`${t.address.slice(0, 8)}\`](/theorem/${c.key})` : 'lifting on the next lean run'
-  return `| [\`${c.key}\`](/theorem/${c.key}) | ${seal} | \`${c.receipt.slice(0, 8)}\` |`
+  if (!t) return `| ${unsealed(c.key)} | lifting on the next lean run | \`${c.receipt.slice(0, 8)}\` |`
+  return `| [\`${c.key}\`](/theorem/${c.key}) | [\`${t.address.slice(0, 8)}\`](/theorem/${c.key}) | \`${c.receipt.slice(0, 8)}\` |`
 }).join('\n')
 
 const pendingRows = q.pending.length
-  ? q.pending.map((c) => `| \`${c.key}\` | awaiting the kernel |`).join('\n')
+  ? q.pending.map((c) => `| ${byKey.has(c.key) ? `[\`${c.key}\`](/theorem/${c.key})` : unsealed(c.key)} | awaiting the kernel |`).join('\n')
   : '| — the queue is drained — | |'
 
 // refused keys render WITHOUT backticks on purpose: a refusal is not sealed, and the deadkey finder rightly

@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1004 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1032 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1004 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1032 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `9b27358d` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `b9b9df85` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -97,6 +97,19 @@ the bytes are a lossless standard WAV — the web and the movie decode the exact
 FULL ANALOG — compress then uncompress is the identity, sample for sample, even on the deep mix
 the codec SHRINKS the stems — a single lattice voice collapses to its slopes; the mix honestly does not
 CONTROL — bad depth and bad bars are refused by name; the app never guesses
+```
+
+**apa** — 8 utterances
+
+```text
+a name stored surname-first is INITIALISED, not reordered
+a GROUP author is left whole — an organisation has no initials
+the author list joins by APA\
+an unknown date renders (n.d.) — APA\
+the work renders as APA software — version and [Computer software] both present
+a theorem cites with its CONTENT-ADDRESS where a page number would stand
+the in-text form names the surname, and a specific proof by its key
+the reference list leads with the work, sorts by key, and dedupes
 ```
 
 **api-handles** — 5 utterances
@@ -237,6 +250,18 @@ the census folds order-invariantly and accounts per agent
 crew leans in all dimensions at once — and a forged payment row fails to recompute
 licences invalidate when related handles change — the binding is to the handle
 enrollment is UNVERIFIED, never rejected — the honest note names what to bring
+```
+
+**collection** — 7 utterances
+
+```text
+a conforming corpus passes, and the verdict names its denominator
+A MISSING REQUIRED FIELD IS A NAMED GAP, not a page without a description
+present-and-empty is a different claim from absent, and only one is a gap for an optional field
+oneOf names the whole allowed set in the charge, so nobody has to go looking
+REFERENCE IS deadkey ARRIVING AT CONTENT — a citation that does not resolve fails
+THE DENOMINATOR — a validator that ran over nothing must not look like a clean corpus
+AN OPTIONAL RULE NO ENTRY EXERCISES IS REPORTED — a check that never fired is not evidence
 ```
 
 **constant-gaps** — 3 utterances
@@ -421,6 +446,19 @@ the powers-of-ten grammar: equations and orders decide, magnitudes only speak
 cross-detail composition reaches the film\
 ambiguous operands are refused, not guessed
 an explicit delimiter is the split law for unpunctuated text
+```
+
+**dirty-paths** — 8 utterances
+
+```text
+a path CLEAN when the session opened is mine to commit
+a path ALREADY DIRTY when the session opened is FOREIGN — a peer is mid-edit in it
+UNKNOWN is its own answer and is NEVER read as clean — the trap this module exists to avoid
+coverage compares on / boundaries, so a root never claims its lookalike by prefix
+judge BLOCKS foreign and unknown, passes mine, and names what is blocking
+the override NAMES ITS PATH — one statement per file actually thought about
+an all-mine commit is never obstructed — the finder must not cost anything when nothing is wrong
+the charge sheet gives each answer its OWN cure — they want different acts
 ```
 
 **discover** — 4 utterances
@@ -1708,6 +1746,16 @@ reflects, reveal, holofractal, security_audit, cloudflare_audit — the reflecti
 ```text
 the under-tested set is DECLARED and does not grow — new tools earn a test or a deliberate baseline entry
 the census is honest — directly-exercised and aggregate-only partition the tools exactly
+```
+
+**tool-scope** — 5 utterances
+
+```text
+the three tools that motivated this module classify as they actually behave
+parameter COUNT is not reach — the conflation the existing rating cannot see
+a name in BOTH vocabularies resolves to the ledger reading
+the census over the REAL served catalogue, and it must not be all one thing
+the filter returns a usable subset and preserves catalogue order
 ```
 
 **trading-shelf** — 5 utterances
