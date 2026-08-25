@@ -23,7 +23,9 @@
 //     proof here is `by decide` over finite literals: the ledger carries the sums, the sources carry the world.
 import { writeFileSync, readFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { ROOT } from './api.js'
+import { ROOT, laneCensus } from './api.js'
+import { capacity } from '../os/host/index.js'
+import { balancerFigures } from '../hardware/lanes/report.js'
 import { steadyStateNs, AGREEMENT_ESTIMATES } from './steady-state.js'
 import { decadesAgree, marginOf, spreadHundredths, renderHundredths } from '../quantum/advantage/index.js'
 import { toUuid } from '../address.js'
@@ -320,12 +322,25 @@ const reportedFigures = figures.filter((f) => f.measurementTechnique === 'report
 const undated = reportedFigures.filter((f) => f.citation.includes('NOT VERIFIED SINCE PUBLICATION')).length
 console.log(`  world axioms — ${reportedFigures.length} reported figures across ${rows.length - 1} platforms; ${undated} of ${reportedFigures.length} carry no verification date`)
 
+// ── THE BALANCER, MEASURED ON THIS RUN. laneCensus has always described itself as "what a report needs to show
+// that the balance was real and not assumed", and until now no report showed it. The census is taken over the
+// ledger's own addresses at THIS host's width, so the figures are about the machine that built the report rather
+// than about a machine someone hopes for. They ride in the served .jsonld only: lane count and processor width
+// differ per host, and lean/*.json is spin-sealed and gate-diffed, so a host figure there would drift the derived
+// layer on every machine that built it — the same defect this report already suffered once with a timing.
+const width = capacity()
+const balancer = balancerFigures(laneCensus(theorems().map((t) => t.address), width.lanes), width)
+const spread = balancer.find((f) => f.name.endsWith('lane spread'))!
+console.log(`  balancer — ${width.lanes} lanes of ${width.logical} logical (${width.reserved} reserved), lane spread ${spread.value}% across ${theorems().length} addresses, 0 inter-lane messages`)
+
 const dataset = reportDataset({
   slug: 'quantum-capacity',
   name: 'uuidna quantum capacity report',
   description: 'Total and usable quantum capacity per known model type, every figure carrying the technique it was determined by and the source that named it. Architectural comparison bounded by theorem n_qubit_dimension; uuidna is classical by declaration and claims no physics quantum advantage.',
   receipt,
-  figures,
+  // the platform figures FIRST, then the balancer that produced this run — one dataset, because the machine the
+  // report was built on is part of the report's provenance and not a separate document
+  figures: [...figures, ...balancer],
 })
 
 // the vocabulary gate runs HERE, at generation, not in a test that might not be run: an unvetted term stops the

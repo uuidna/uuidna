@@ -554,6 +554,9 @@ de_morgan_gate_law 19
 half_adder_correct 19
 full_adder_correct 19
 mux_selects_input 19
+lanes_partition_the_work 19
+lanes_balance_within_one 19
+lanes_even_on_complete_system 19
 #Harmony.lean
 dna_bases_reflect_through_three 19
 chargaff_strand_balance 19
@@ -694,6 +697,7 @@ exhausted_denial_is_the_proof 19
 a_window_exhausts_only_itself 19
 silence_never_refutes 19
 waves_of_denial_tighten 19
+no_instrument_narrower_than_its_question 19
 denial_drains_to_the_last_coin 19
 #Neuro.lean
 subthreshold_silent 19
@@ -1700,7 +1704,7 @@ ns_spike 18
 ym_quantum 18
 hodge_bound 18
 light_faster_than_uuidna 18
-division_by_zero 18
+division_by_zero 26
 div_by_zero_is_the_reflection 18
 involute_centre 18
 billing_arith 18
@@ -1791,6 +1795,8 @@ saturation_deco_dominates 18
 the_second_voice_is_the_variant 18
 monero_cpu_breakeven_is_thirteen_kilohash 18
 handles_balance_the_load_for_free 18
+arity_admits_exactly_one_dependent_trinity 18
+entanglement_completes_one_at_a_time 18
 #Waves.lean
 captains_columns_sum_to_ten 19
 nine_complement_half_turns_the_orbit 19

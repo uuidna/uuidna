@@ -52,7 +52,17 @@ check(ADDRESS_BITS === 128 && referenceBitsSaved(1024, 64) === 0 && referenceBit
 // decide-step cost coverage — VERIFY ALL, and the cracks seal: the heartbeat address set must EQUAL the ledger's,
 // exactly. Every theorem measured (no missing), and NO entry left for a theorem no longer in the ledger (no stale —
 // a renamed/changed theorem moved its address, so its old cost is drift). A hard failure now, not a soft snapshot:
-// the whole is verified together, so a manual patch cannot leave a crack. Recompute with `npm run heartbeats --all`.
+// the whole is verified together, so a manual patch cannot leave a crack.
+//
+// THE FIX IT NAMED WAS THE EXPENSIVE DOOR, AND IT DID NOT EXIST (2026-08-25). It said `npm run heartbeats --all`:
+// there is no `heartbeats` script in package.json, so the advice failed with "Missing script" before it could be
+// slow. And --all is RECOMPUTE-FROM-SCRATCH — every theorem re-probed, measured at 1747 seconds on this host —
+// where --sync is keyed by content-address: it PRUNES entries whose address has left the ledger and measures only
+// what is missing. One theorem arriving cost 1 stale pruned, 1 measured, 1690 already current, in seconds.
+//
+// Both doors reach the same fixed point, so naming the costly one inverted the ledger's own law. This check IS
+// the O(1) verify that verify_beats_recompute_by_magnitudes exists for, and it was sending its reader to redo
+// the O(N) — while naming a command that would have failed first.
 try {
   const hb = JSON.parse(readFileSync(join(ROOT, 'lean', 'heartbeats.json'), 'utf8')).costs || {}
   const ledger = new Set(T.map((t) => t.address))
@@ -60,9 +70,9 @@ try {
   const stale = Object.keys(hb).filter((a) => !ledger.has(a))
   check(missing.length === 0 && stale.length === 0,
     `decide-step cost: heartbeats cover the ledger EXACTLY — ${Object.keys(hb).length} entries = ${T.length} theorems, 0 missing, 0 stale` +
-    (missing.length ? ` (MISSING ${missing.length}: ${missing.slice(0, 3).map((t) => t.key).join(', ')} — run npm run heartbeats --all)` : '') +
-    (stale.length ? ` (STALE ${stale.length}: entries for theorems no longer in the ledger — run npm run heartbeats --all)` : ''))
-} catch { check(false, 'decide-step cost: heartbeats.json is present and parses (run npm run heartbeats --all)') }
+    (missing.length ? ` (MISSING ${missing.length}: ${missing.slice(0, 3).map((t) => t.key).join(', ')} — run: npm run x -- lean-heartbeats --sync   (incremental — --all recomputes every theorem))` : '') +
+    (stale.length ? ` (STALE ${stale.length}: entries for theorems no longer in the ledger — run: npm run x -- lean-heartbeats --sync   (incremental — --all recomputes every theorem))` : ''))
+} catch { check(false, 'decide-step cost: heartbeats.json is present and parses (run: npm run x -- lean-heartbeats --sync   (incremental — --all recomputes every theorem))') }
 
 console.log(failed ? '\n✗ accounting does NOT reconcile' : '\n✓ all is accounted — the ledger reconciles')
 process.exit(failed ? 1 : 0)

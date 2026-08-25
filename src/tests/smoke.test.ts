@@ -347,7 +347,8 @@ test('conformance — the commit DNA gate: coins conserved, every theorem addres
 test('exploit fold — computes from the ledger (no table), verifies BOTH problem and solution, honest boundary', () => {
   const a = exploitFold()
   assert.ok(a.foldedCount >= 8, 'folds the known exploit classes')
-  // four, not five: `oos_nondecidable_correctness` stated `0 = 0` and was purged with the rest of the
+  // four, not five: the out-of-scope nondecidable-correctness key (named in words, never backticked — a purged
+  // key quoted as a citation is the deadkey finder's whole subject) stated a bare identity and was purged with the rest of the
   // literal-only theorems. The four that remain name real boundaries — a compromised host, a deceived human, a
   // physical side-channel, FNV used as a secret — and each is a class uuidna declines rather than a placeholder.
   assert.ok(a.outOfScopeCount >= 4, 'holds out-of-scope classes')

@@ -25,7 +25,7 @@ edge, one command, every receipt named.
 
 ## Accepted — the cargo, each with its seal
 
-51 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+53 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -82,6 +82,8 @@ theorem page and recompute either.
 | [`the_second_voice_is_the_variant`](/theorem/the_second_voice_is_the_variant) | [`3c681d47`](/theorem/the_second_voice_is_the_variant) | `f893a48e` |
 | [`monero_cpu_breakeven_is_thirteen_kilohash`](/theorem/monero_cpu_breakeven_is_thirteen_kilohash) | [`af249195`](/theorem/monero_cpu_breakeven_is_thirteen_kilohash) | `3ed30241` |
 | [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) | [`452d0f29`](/theorem/handles_balance_the_load_for_free) | `2c26e590` |
+| [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) | [`a0c93c75`](/theorem/arity_admits_exactly_one_dependent_trinity) | `f5657b46` |
+| [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) | [`c0971ee2`](/theorem/entanglement_completes_one_at_a_time) | `a367c045` |
 
 ## Refused — the law school's enrollment roster
 

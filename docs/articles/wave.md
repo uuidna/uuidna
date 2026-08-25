@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 55 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 57 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 54 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 56 siblings below.
 
-**55 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 29 of its 55 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
+**57 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 31 of its 57 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [pilgrims_walk_must_cycle](/theorem/pilgrims_walk_must_cycle). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 55 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 57 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -394,6 +394,20 @@ The ledger holds this as [handles_balance_the_load_for_free](/theorem/handles_ba
 
 ```lean
 (16 ^ 8 = 4294967296) ∧ ((List.range 9).all (fun k => 4294967296 % (2 ^ k) == 0)) ∧ (4294967296 / 2 = 2147483648) ∧ (4294967296 / 16 = 268435456) ∧ (4294967296 / 256 = 16777216)
+```
+
+### THE ARITY TEST ADMITS EXACTLY ONE DEPENDENT TRINITY. rosetta-legs decides canLocateFault by legs.length >= 3, a pure count that never asks WHICH legs — while the same module states that symbol and proof are written by one hand and share that hand errors, and the census calls address a content fold that is not evidence about the world. Walked over all 2^5 = 32 leg subsets: 16 pass the arity test, 24 carry an independent leg (witness or falsifier), 15 pass both, and EXACTLY ONE passes arity while carrying no independent leg — mask 19, symbol+proof+address. That single subset is the one 998 of 1690 sealed theorems hold, so the gap the lattice admits is precisely the gap the ledger occupies.
+The ledger holds this as [arity_admits_exactly_one_dependent_trinity](/theorem/arity_admits_exactly_one_dependent_trinity) — proven `by decide`, sorry-free:
+
+```lean
+(((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))))).length = 16) ∧ (((List.range 32).filter (fun m => (((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))).length = 24) ∧ (((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))) && (((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))).length = 15) ∧ (((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))) && !(((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))).length = 1) ∧ (((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))) && !(((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))) = [19])
+```
+
+### ENTANGLEMENT COMPLETES ONE THEOREM AT A TIME, and the recurrence IS the involution step. For a ledger of n sealed theorems, entangling each with every other individually is the complete graph: each theorem participates in exactly n-1 pairs, the distinct pairs number n(n-1)/2, and admitting one more theorem adds exactly n-1 new pairs and nothing else — walked over a range rather than asserted at one point. The handshake identity 2*(n(n-1)/2) = n(n-1) holds throughout, and n(n-1) is always even, so the pairing never leaves a theorem unpartnered. Pinned at the ledger own size: 1690 theorems entangle in 1427205 distinct pairs, each with 1689 others.
+The ledger holds this as [entanglement_completes_one_at_a_time](/theorem/entanglement_completes_one_at_a_time) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 2 20).all (fun n => (n*(n-1))/2 - ((n-1)*(n-2))/2 == n-1)) ∧ ((List.range' 1 20).all (fun n => 2 * ((n*(n-1))/2) == n*(n-1))) ∧ ((List.range' 1 20).all (fun n => (n*(n-1)) % 2 == 0)) ∧ (1690*1689/2 = 1427205) ∧ (1690*1689 = 2854410) ∧ (1690-1 = 1689)
 ```
 
 

@@ -3,6 +3,16 @@
   "recorded": "2026-08-20",
   "findings": [
     {
+      "claim": "An N-qubit register's state is a 2^N-dimensional complex vector, and full-state classical simulation costs scale exponentially in N",
+      "value": "2^N",
+      "units": "complex amplitudes",
+      "source": "Xu, Benjamin, Sun, Yuan & Zhang, \"A Herculean task: Classical simulation of quantum computers\", arXiv:2302.08880",
+      "status": "read",
+      "kind": "convention",
+      "theorem": "n_qubit_dimension",
+      "note": "Primary source retrieved and quoted: \"In the state-vector formalism, the state of an N-qubit quantum register is represented by a 2^N-dimensional vector of complex values\", and \"the time and memory cost of a full-state SIMULATION scale exponentially with the number of qubits\". Exact by the formalism's own definition, so it brackets as an equality. It witnesses the theorem AND its honest scope: the exponent is simulation cost, never a speedup uuidna performs."
+    },
+    {
       "claim": "Betz limit — maximum fraction of wind kinetic energy any open-flow turbine can capture",
       "value": "16/27",
       "units": "ratio",

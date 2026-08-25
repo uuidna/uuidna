@@ -36,6 +36,18 @@ jobs:
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: "the full gate — kernel re-proof, audit chain, the 1024-subset dimensional census"
         run: UUIDNA_PROVE_ALL=1 npm run audit
+      # NO RELEASE OVER AN OPEN LEAD (the captain's order, 2026-08-25: "next release only possible if all leads
+      # verified. lead is anything not verified"). The audit above decides what a COMMIT must satisfy; this asks
+      # the question only a release has to answer — is anything still unverified? A lead is settled by evidence
+      # (a `by decide` seal, a measurement in killed_by, a boundary in refused[]) and never by deletion, so this
+      # cannot be cleared by tidying. It runs AFTER the audit because it reads the derived layer the audit
+      # regenerates, and it BLOCKS: exit 1 fails the job and no tag ships.
+      #
+      # A source it cannot READ blocks too, and that is deliberate: an unread source and a clean source both
+      # return no leads, so a gate that folded them together would ship on a census nobody took (theorem
+      # no_instrument_narrower_than_its_question).
+      - name: "no release over an open lead — the lead census must be clean AND complete"
+        run: node dist/scripts/leads-gate.js
 
   # THE DELIVERY — guarded on the secrets the captain holds; absent, the gap is REPORTED, never hidden.
   deploy:

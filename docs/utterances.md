@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="941 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1032 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 941 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1032 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `35ef4c30` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `b9b9df85` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -97,6 +97,19 @@ the bytes are a lossless standard WAV — the web and the movie decode the exact
 FULL ANALOG — compress then uncompress is the identity, sample for sample, even on the deep mix
 the codec SHRINKS the stems — a single lattice voice collapses to its slopes; the mix honestly does not
 CONTROL — bad depth and bad bars are refused by name; the app never guesses
+```
+
+**apa** — 8 utterances
+
+```text
+a name stored surname-first is INITIALISED, not reordered
+a GROUP author is left whole — an organisation has no initials
+the author list joins by APA\
+an unknown date renders (n.d.) — APA\
+the work renders as APA software — version and [Computer software] both present
+a theorem cites with its CONTENT-ADDRESS where a page number would stand
+the in-text form names the surname, and a specific proof by its key
+the reference list leads with the work, sorts by key, and dedupes
 ```
 
 **api-handles** — 5 utterances
@@ -239,6 +252,18 @@ licences invalidate when related handles change — the binding is to the handle
 enrollment is UNVERIFIED, never rejected — the honest note names what to bring
 ```
 
+**collection** — 7 utterances
+
+```text
+a conforming corpus passes, and the verdict names its denominator
+A MISSING REQUIRED FIELD IS A NAMED GAP, not a page without a description
+present-and-empty is a different claim from absent, and only one is a gap for an optional field
+oneOf names the whole allowed set in the charge, so nobody has to go looking
+REFERENCE IS deadkey ARRIVING AT CONTENT — a citation that does not resolve fails
+THE DENOMINATOR — a validator that ran over nothing must not look like a clean corpus
+AN OPTIONAL RULE NO ENTRY EXERCISES IS REPORTED — a check that never fired is not evidence
+```
+
 **constant-gaps** — 3 utterances
 
 ```text
@@ -265,10 +290,13 @@ keeping 12 of 32 — ONE HEXBIT under the law — must say FOLD, heaviest named 
 integer-exact, deterministic, change-sensitive — and degenerate inputs stay honest
 ```
 
-**corroborate** — 1 utterances
+**corroborate** — 4 utterances
 
 ```text
 corroboration needs TWO INDEPENDENT SOURCES — the sealed theorem
+UNVERIFIED and UNMEASURED are different facts — silence versus deafness
+THE MUTATION: without reach, the verdict is exactly what it always was
+a source READING tells apart answered-with-nothing, refused, and never-reached
 ```
 
 **court-procedure** — 4 utterances
@@ -393,6 +421,15 @@ trial returns one answer — VERIFIED or UNVERIFIED, all else void
 an unknown route 404s
 ```
 
+**deadkey** — 4 utterances
+
+```text
+THE CONTROL — the finder can say NO, which it has never been asked to prove
+ONE underscore is key-shaped — the 6.4% the old rule could not see
+a sealed key, an MCP tool name and a declared non-citation are all EXEMPT, and for different reasons
+the LIVE tree cites no dead key — tests included, which is new
+```
+
 **detail-audit** — 13 utterances
 
 ```text
@@ -409,6 +446,19 @@ the powers-of-ten grammar: equations and orders decide, magnitudes only speak
 cross-detail composition reaches the film\
 ambiguous operands are refused, not guessed
 an explicit delimiter is the split law for unpunctuated text
+```
+
+**dirty-paths** — 8 utterances
+
+```text
+a path CLEAN when the session opened is mine to commit
+a path ALREADY DIRTY when the session opened is FOREIGN — a peer is mid-edit in it
+UNKNOWN is its own answer and is NEVER read as clean — the trap this module exists to avoid
+coverage compares on / boundaries, so a root never claims its lookalike by prefix
+judge BLOCKS foreign and unknown, passes mine, and names what is blocking
+the override NAMES ITS PATH — one statement per file actually thought about
+an all-mine commit is never obstructed — the finder must not cost anything when nothing is wrong
+the charge sheet gives each answer its OWN cure — they want different acts
 ```
 
 **discover** — 4 utterances
@@ -752,6 +802,22 @@ the OS is bootable quantum — the boot image is the compiled specs in boot orde
 the receipt is stable, recomputable, and CHANGE-SENSITIVE — the instrument can fail
 ```
 
+**involution** — 11 utterances
+
+```text
+every named map is genuinely self-inverse on every digit
+divZero fixes 0 and 5 — and the fixed point is what inverting zero creates
+RULE 1 — THE MODULUS IS NOT AN ELEMENT (regression: this once reported 102 survivors)
+a multi-digit numeral is not reflected digit by digit
+holds() has THREE answers — a statement it cannot reach is not a statement that failed
+fixed is reported apart from survives — a map gets no credit for what it does not move
+THE LAW DISCRIMINATES — and what the fixed point buys is FIXED POINTS, not survivors
+RULE 2 — a broken theorem does NOT pair with its image (regression: 0 of 637, not all of them)
+the collided root is order-invariant — a pile has an identity no member carries
+THE CONTROL — no meaning is claimed for a root until same-sized piles are shown to differ
+digitalRootOf lands in 1..9 and moves with the address
+```
+
 **lanes** — 6 utterances
 
 ```text
@@ -776,6 +842,17 @@ a defining constant is told apart from a narrative measurement
 both phrasings of a definition are caught, before and after the number
 a bare number is NOT a defining constant — the words carry the claim
 every lead carries the sentence that produced it — a number with no provenance is not a lead
+```
+
+**leads** — 6 utterances
+
+```text
+a clean census PERMITS — the half a red tree never shows you
+ONE held lead REFUSES the release, however many are settled
+a source that could not be READ blocks — an unread source is not a clean one
+the receipt binds each source VERDICT, not just its name
+the render names every lead\
+the LIVE sources all answer — every declared source is readable on this tree
 ```
 
 **llm-txt** — 7 utterances
@@ -894,6 +971,19 @@ wing-parity holds in BOTH directions
 no handle fails to recover itself from its path
 ```
 
+**measurement** — 8 utterances
+
+```text
+a reader can ask for only what was actually MEASURED — the filter every honest surface needs
+axes compose, and an omitted axis filters nothing
+minOver demands the denominator a bound was taken over
+a filter is a VIEW and never reorders — a reordering view invents a ranking nobody expressed
+facets are built from the DATA, so a new unit can never go missing from a control
+THE EXPENSIVE LAW — a measured time sealed exact is NAMED, and the healthy tree is silent
+a measured figure with no denominator is a claim wearing an observation’s clothes
+decadeOf is integer arithmetic — the determinism scan admits no host Math call anywhere
+```
+
 **messaging-handle** — 5 utterances
 
 ```text
@@ -957,12 +1047,14 @@ a holder with a live child reads WORKING, and the same holder reads not-working 
 a pid that cannot have children answers no rather than throwing
 ```
 
-**one-writer** — 11 utterances
+**one-writer** — 13 utterances
 
 ```text
 one writer wins; a STRANGER is refused with the holder NAMED (a descendant passes — that is reentrancy)
 reentrancy is the WALK, not just the holder: a descendant a REAL HOP away passes
 the ppid walk is paid for ONCE — a refusal loop must not spawn a process table per poll
+a RECYCLED pid does not inherit the lock — the holder is identified, not merely counted
+a lock with NO birth stamp is honoured on liveness alone — an older build is not evidence of a corpse
 a dead holder is stale by pid-liveness — reclaimed on the next acquire, no clock consulted
 only the holder releases; releasing a live stranger\
 a corrupt lock file never wedges the tree
@@ -1284,6 +1376,22 @@ snapshot NAMES an unknown key rather than folding it — drift refused
 the reactor recycles — an unverified claim returns with its develop plan
 ```
 
+**reading** — 11 utterances
+
+```text
+every aspect answers, and no aspect is silently dropped
+the reading reports its own coverage as integers, never a division
+AN ASPECT THAT COULD NOT LOOK SAYS SO — refusal is never a zero
+PROVENANCE REFUSES TO GUESS — bytes cannot testify to their own source
+PROSODY SEPARATES VERSE FROM PROSE — the aspect a bag of words cannot reach
+SCRIPT counts by Unicode block, so it is right about languages it has never heard of
+MORPHOLOGY sees hapax legomena, which a distinct-count hides
+STRUCTURE sees the tree a bag of words cannot — headings decided by shape, not a word list
+DIALOGUE counts speech by its own marks, and reports an unbalanced edition rather than repairing it
+EVERY ASPECT CARRIES ITS OWN DENOMINATOR — a reader that read a fraction cannot look like one that read all
+the reading is bound to the exact bytes — change one word and the address moves
+```
+
 **readme-coverage** — 3 utterances
 
 ```text
@@ -1348,6 +1456,16 @@ the report makes plain which findings may anchor a theorem and which may not
 the tool dispatches through the served surface and is listed in the catalogue
 ```
 
+**research-tension** — 5 utterances
+
+```text
+a finding citing a theorem that is not sealed is FABRICATED — a citation to nothing verifies nothing
+THE PARADOX THE LAW EXISTS TO FORBID — a sealed theorem resting on a source that may not anchor
+a MEASURED finding anchoring a theorem is OVERSEALED — a measurement gets a bracket or nothing
+AN UNLINKED FINDING IS SILENT, NOT CLEAN — the conflation this whole check exists to refuse
+the report states its own reach whenever anything IS linked
+```
+
 **rosetta-legs** — 8 utterances
 
 ```text
@@ -1383,6 +1501,20 @@ the heartbeat separates answering, empty, REFUSED and thrown — and never raise
 the heartbeat receipt moves when a source goes dark, and is stable when nothing changes
 an HTML body is recognised as a web page, not as data
 the heartbeat treats a DECLINED source as dark, never as an empty world
+```
+
+**school-paths** — 9 utterances
+
+```text
+the tree is recursive: one node type, four depths, depth == heading depth
+every course is ADDRESSABLE — a thing with no anchor cannot be crosslinked
+crosslinks are DERIVED — a link exists because two nodes share a skill, never because it was authored
+the census counts what was rendered — a renderer that cannot say how much it rendered is not audited
+MINIMUM PAGES: depth-bounded rendering keeps one page while every node keeps its address
+THE ALTERNATIVE TO LEAN: the school still grades when the kernel measure cannot be read
+THE KERNEL READ NAMES ITS OWN FAILURE — absent is a third answer, never a zero
+the school reports its own denominator and which measure it stands on
+an unmeasured level is still not a low one
 ```
 
 **school-tools** — 4 utterances
@@ -1616,6 +1748,16 @@ the under-tested set is DECLARED and does not grow — new tools earn a test or 
 the census is honest — directly-exercised and aggregate-only partition the tools exactly
 ```
 
+**tool-scope** — 5 utterances
+
+```text
+the three tools that motivated this module classify as they actually behave
+parameter COUNT is not reach — the conflation the existing rating cannot see
+a name in BOTH vocabularies resolves to the ledger reading
+the census over the REAL served catalogue, and it must not be all one thing
+the filter returns a usable subset and preserves catalogue order
+```
+
 **trading-shelf** — 5 utterances
 
 ```text
@@ -1721,6 +1863,15 @@ what carries no id is returned as given — never an invented id
 ```text
 every refusal class refuses, and the lawful candidate passes — the door can fail
 a deposit lands only the lawful, returns refusals with reasons, and never writes a refusal
+```
+
+**wave-supply** — 4 utterances
+
+```text
+DRY and SUPPLIED are different verdicts, and the wording never lets them read alike
+a DRY verdict NAMES every empty finder, so the stop is attributable to one of them
+exhausted means EVERY source and the conveyor, never just the conveyor
+the live census reads the real tree and states what it cannot see
 ```
 
 **waves** — 3 utterances
