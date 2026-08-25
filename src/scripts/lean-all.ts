@@ -33,7 +33,25 @@ const LEAN = join(ROOT, 'lean')
 // 1) every generator — dist/scripts/lean-*.js — imported into THIS process (top-level executes on import).
 // A failing generator prints its own cause (emit names the file and the Lean diagnostic) and exits; the
 // try/catch only adds the step name for anything that throws without exiting.
-const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js', 'lean-one.js']) // heartbeats is an on-demand cost probe; lean-one is the single-domain dispatcher
+// THE AXIOM WITNESS IS NOT A GENERATOR, AND RUNNING IT HERE MADE IT CERTIFY A LEDGER IT NEVER SAW (2026-08-25).
+// lean-axioms.js matches `lean-*.js` and was not skipped, so the audit was imported in step 1 — BEFORE step 3
+// regenerates src/theorems/generated.ts. It reads `theorems()`, which resolves to the COMPILED ledger from the
+// previous build, so on any run that adds theorems it audits the previous generation and says so in the present
+// tense. Caught in the act: one run printed "theorems audited : 1699/1699" and a confident "every theorem depends
+// on NO axioms", then printed "2101 Lean theorems" for the ledger it had just written. 402 theorems were never
+// asked about, and lean/axioms.json was written with the stale total as though it were the whole ledger.
+//
+// The green is what makes it dangerous. An audit that cannot see a theorem returns exactly what an audit that
+// cleared it returns — audited == axiomFree either way — so the healthy case and the broken case print the same
+// line. Nothing here was wrong about the 1699 it did see; the defect is that the 402 it did not see were counted
+// as covered by the sentence "the whole ledger".
+//
+// Nothing is lost by skipping it: `npm run axioms` is `npm run build && node dist/scripts/lean-axioms.js`, which
+// rebuilds first and therefore audits the ledger that now exists, and the gate runs exactly that as its own step.
+// This removes a WRONG run, not a run. And this is the second time the pattern list has misfiled a non-generator
+// — prove-all.js was the first — which is the standing argument that a name-shaped rule is the wrong mechanism
+// for deciding what a file DOES; it is left named here rather than rewritten under a bug fix.
+const SKIP = new Set(['lean-gen.js', 'lean-ledger.js', 'lean-all.js', 'lean-heartbeats.js', 'lean-one.js', 'lean-axioms.js']) // heartbeats is an on-demand cost probe; lean-one is the single-domain dispatcher; lean-axioms is the AUDIT and must run after the rebuild
 const generators = readdirSync(SCRIPTS).filter((f) => /^lean-.*\.js$/.test(f) && !SKIP.has(f)).sort()
 
 // NO SECOND GATE. A run-cache sat here: it hashed each generator's source with the ledger and skipped the run
