@@ -41,9 +41,14 @@ export interface CommitWithVoting {
 }
 
 const THEOREMS = theorems()
+// THE ONE COST THIS MODULE ACTUALLY CHARGES. It also carried `captainCommission: 2 // captain earns 2 per 110
+// (hardcoded for now: simplify)` — a field NOTHING ever read, a rate ("2 per 110") stated nowhere else in the
+// tree, and a "for now" that outlived whatever now it referred to. Dead config is worse than no config: it reads
+// as a policy the system implements, and anyone changing the number would have seen nothing happen. Removed
+// rather than wired, because there is no commission to pay — if one is ever owed, it gets a derivation and a
+// test, not a constant with an apology attached.
 const COIN_COST = {
   reconcile: 2,             // the two coins cost per reconcile
-  captainCommission: 2,     // captain earns 2 per 110 (hardcoded for now: simplify)
 }
 
 /** agentContribute(workAddress, theoremCited) → register an agent's contribution with coins paid.
@@ -52,7 +57,10 @@ export function agentContribute(workAddress: string, theoremCited: string): Agen
   const t = THEOREMS.find(x => x.key === theoremCited)
   if (!t) throw new Error(`theorem ${theoremCited} not found`)
 
-  // Coins are encoded in the theorem key (e.g., "captain_theorem" encodes 2 coins)
+  // A FLAT TWO COINS, and the comment here used to say otherwise: "Coins are encoded in the theorem key (e.g.,
+  // `captain_theorem` encodes 2 coins)". No key is parsed and no encoding exists — the line below has always
+  // charged the same constant whatever theorem is cited. A comment describing behaviour the code does not have
+  // is a false claim in the place a reader trusts most, so it says what the code does.
   const coinsSpent = COIN_COST.reconcile
 
   const receipt = merkleGravity([workAddress, t.address, toUuid('coins:' + coinsSpent)])

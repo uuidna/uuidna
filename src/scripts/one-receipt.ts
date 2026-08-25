@@ -1365,7 +1365,7 @@ export function microGaps(): { gaps: Gap[]; pages: number; claims: number } {
   const gaps: Gap[] = []
   const dist = join(ROOT, 'docs/.vitepress/dist')
   if (!existsSync(dist)) return { gaps: [{ what: 'no built site to audit', fix: 'run `npm run docs:build` first' }], pages: 0, claims: 0 }
-  const keys = new Set((theorems() as any[]).map((t) => t.key))
+  const keys = new Set(theorems().map((t) => t.key))
   const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
   let pages = 0, claims = 0
   const walk = (d: string) => {
@@ -1561,8 +1561,8 @@ function trinities() {
   TM('audit rays', _t)
   return {
     sealed: {
-      theorems: h16((theorems() as any[]).map((t) => `${t.key}|${t.address}|${t.principle}`).sort().join('\n')),
-      principles: h16((PRINCIPLES as any[]).map((p) => `${p[1]}|${p[2]}`).sort().join('\n')),
+      theorems: h16(theorems().map((t) => `${t.key}|${t.address}|${t.principle}`).sort().join('\n')),
+      principles: h16(PRINCIPLES.map((p) => `${p[1]}|${p[2]}`).sort().join('\n')),
       // SEAL THE INPUT, NOT ITS PURE FUNCTION. This leaf composed all 90 wings — publications() — purely to
       // fingerprint them, at 103ms of a gate held to one second. composePublication() is deterministic in (the
       // PRINCIPLE entry, that file's theorem set), which monographByFile already carries, so this digest moves
@@ -1580,7 +1580,11 @@ function trinities() {
       TM('served/packages', _s); _s = process.hrtime.bigint()
       const exports_ = h16(rd('src/index.ts').split('\n').filter((l) => l.startsWith('export')).sort().join('\n'))
       TM('served/exports', _s); _s = process.hrtime.bigint()
-      const mcp = h16((MCP_CATALOG as any[]).map((t) => `${t.key}|${createHash('sha256').update(String(t.description || '')).digest('hex').slice(0, 12)}`).sort().join('\n'))
+      // `t.key` — WHICH MCP_CATALOG HAS NEVER HAD (2026-08-25). The entries carry `name`; an `as any[]` made the
+      // access legal, so every one of the served tools folded as the literal `undefined|<description-hash>` and
+      // the seal bound only the DESCRIPTIONS. A tool could be RENAMED — the identity a caller dispatches on —
+      // and this seal would not move. Found by deleting the cast: the compiler had the answer all along.
+      const mcp = h16(MCP_CATALOG.map((t) => `${t.name}|${createHash('sha256').update(String(t.description || '')).digest('hex').slice(0, 12)}`).sort().join('\n'))
       TM('served/mcp', _s)
       return { packages, exports: exports_, mcp }
     })(),
@@ -1653,7 +1657,7 @@ export function fold() {
   FM('report', _m); _m = process.hrtime.bigint()
   const sessDeposits = depositRecord().receipts
   const sessTip = sessDeposits.reduce((p, r) => h16(`${p}|${r.id}`), 'genesis')
-  const session = h16(`deposits:${sessDeposits.length}|tip:${sessTip}|theorems:${(theorems() as any[]).length}`)
+  const session = h16(`deposits:${sessDeposits.length}|tip:${sessTip}|theorems:${theorems().length}`)
   const alphabet = h16(alpha.map((e) => e.rgb).join(''))
   // AN AURA IS ONLY AN AURA IF DERIVED FROM THE ALGEBRA. This leaf was briefly changed to fold the addresses
   // directly — the seal-the-input law, correctly reasoned and wrongly applied: the aura IS a pure function of the
@@ -1661,7 +1665,7 @@ export function fold() {
   // movie. That is the defect the hexbit finder blocks by name (a value called a hexbit must be computed by the
   // unit), and the saving was 5ms. The film is the state read from the glow — ray from ℤ/7, wave from the ℤ/9
   // vortex orbit, hue by the A432 step — so the frames are derived, and the name is true again.
-  const movie = h16((theorems() as any[]).map((t) => t.address).sort().map((ad) => (quantumAura(ad) as { rgb: string }).rgb).join(''))
+  const movie = h16(theorems().map((t) => t.address).sort().map((ad) => (quantumAura(ad) as { rgb: string }).rgb).join(''))
   FM('session+alphabet+movie', _m); _m = process.hrtime.bigint()
   const school = rd('docs/school.md')
   const lessons = h16([...school.matchAll(/^## .+$|\]\(\/(?:theorem|publications)\/[a-z0-9_-]+\)/gm)].map((m) => m[0]).join('\n'))

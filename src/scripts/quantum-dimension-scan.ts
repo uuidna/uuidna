@@ -19,8 +19,8 @@ interface DimensionGap {
 
 function scanTheoremPrincipleDimension(): DimensionGap[] {
   const gaps: DimensionGap[] = []
-  const allTheorems = theorems() as any[]
-  const principleNames = new Set((PRINCIPLES as any[]).map((p) => p[1]))
+  const allTheorems = theorems()
+  const principleNames = new Set(PRINCIPLES.map((p) => p[1]))
   const principleTheorems = new Map<string, any[]>()
 
   // Build principle → theorems map

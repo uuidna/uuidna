@@ -18,10 +18,20 @@ export interface PredictedGap {
   autoFillAction?: { file: string; content: string }
 }
 
+/** the sealed axiom witness, or null when it could not be read — null is UNMEASURED and never "clean". */
+export function readAxiomWitness(): { audited: number; axiomFree: number; offenders: string[] } | null {
+  try {
+    const raw = JSON.parse(fsm().readFileSync(pathm().join(ROOT, 'lean', 'axioms.json'), 'utf8')) as
+      { audited?: number; axiomFree?: number; offenders?: Record<string, unknown> }
+    if (typeof raw.audited !== 'number') return null          // a shape drift is not an empty offender list
+    return { audited: raw.audited, axiomFree: raw.axiomFree ?? 0, offenders: Object.keys(raw.offenders ?? {}) }
+  } catch { return null }
+}
+
 function predictTheoremGaps(): PredictedGap[] {
   const gaps: PredictedGap[] = []
-  const allTheorems = theorems() as any[]
-  const principleNames = new Set((PRINCIPLES as any[]).map((p) => p[1]))
+  const allTheorems = theorems()
+  const principleNames = new Set(PRINCIPLES.map((p) => p[1]))
 
   // Pattern 1: Theorems without principles
   const orphans = allTheorems.filter((t) => !principleNames.has(t.principle))
@@ -38,18 +48,36 @@ function predictTheoremGaps(): PredictedGap[] {
     })
   }
 
-  // Pattern 2: Theorems with axioms (should be 0)
-  const withAxioms = allTheorems.filter((t) => t.axioms && t.axioms.length > 0)
-  if (withAxioms.length > 0) {
+  // Pattern 2: theorems that lean on an AXIOM (must be 0 — the ledger's whole claim is axiom-freedom)
+  //
+  // THIS CHECK COULD NEVER FIRE, AND AN `as any[]` IS WHY (2026-08-25). It read `t.axioms` off the theorem
+  // records, which have no such field — the cast made the property access legal, so `withAxioms` was ALWAYS
+  // empty and the finder reported "no axiom leaks" on every run without ever being able to find one. A vacuous
+  // audit, the exact disease scripts/api.ts names: if no input makes the check say no, it measures the shape of
+  // its own implementation and will report success forever, including on the day the thing it guards breaks.
+  // The type error was there the whole time; the cast was holding the door shut.
+  //
+  // The witness is where it always was — lean/axioms.json, written by scripts/lean-axioms, whose `offenders`
+  // map IS the answer. Reading the real source is also what makes the check falsifiable: put a key in that map
+  // and this fires.
+  const witness = readAxiomWitness()
+  if (!witness) {
+    // AND NOT-READ IS NOT ZERO. The whole reason this check was worthless was that an absence read as a pass;
+    // replacing it with a different silent pass would repeat the defect with better types.
+    gaps.push({
+      pattern: 'axiom-witness-unread',
+      likelihood: 'high',
+      location: 'lean/axioms.json',
+      prediction: 'the axiom witness could not be read, so axiom-freedom is UNMEASURED here — not confirmed. '
+        + 'Run `node dist/scripts/lean-axioms.js` to produce it.',
+    })
+  } else if (witness.offenders.length > 0) {
     gaps.push({
       pattern: 'axiom-leak',
       likelihood: 'high',
-      location: 'src/theorems/generated.ts',
-      prediction: `${withAxioms.length} theorems use axioms. Pattern: next proof likely to reuse same axioms. Preemptively convert to decide-only.`,
-      autoFillAction: {
-        file: 'lean/axioms.json',
-        content: `{"offenders": ${JSON.stringify(withAxioms.map((t) => t.key))}}`,
-      },
+      location: 'lean/axioms.json',
+      prediction: `${witness.offenders.length} of ${witness.audited} theorems depend on an axiom (${witness.offenders.slice(0, 5).join(', ')}). `
+        + 'The ledger claims axiom-freedom; convert each to a `by decide` proof or withdraw the claim.',
     })
   }
 
