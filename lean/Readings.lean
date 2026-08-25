@@ -1,4 +1,4 @@
--- lean/Readings.lean — GENERATED. READINGS — seven tongues reading hexbit-translated English: table structure, the A432 lattice under Nyquist, the voice's sealed bounds, χ in all three genera, and the time counts of the books. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Readings.lean — GENERATED. READINGS — seven tongues reading hexbit-translated English: table structure, the A432 lattice under Nyquist, the voice's sealed bounds, χ in all three genera, and the time counts of the books. SOURCES: the 432 base is this ledger's own choice and NOT the ISO 16:1975 standard tuning frequency of 440 hertz; the only measured constant used is the Planck mass, cited to NIST/CODATA 2022 with the Bekenstein (1973) and Hawking (1975) entropy-area law behind it; everything else is arithmetic or a census of this repository's own generated samples. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- SEVEN RAYS, EACH ITS OWN TONGUE. The locale dimensions are exactly seven and pairwise distinct — the same
     seven the grid projects and the harness receipts in. A reading table for a ray that does not exist, or two
@@ -50,7 +50,10 @@ theorem readings_zh_names_sixteen : (["零","一","二","三","四","五","六",
 /-- THE SIXTEEN STATES SOUND THE A432 LATTICE, IN ORDER. State h is read in seven tongues and SUNG at 432·(h+1)
     hertz — the full ladder from Az at 432 to state f at 6912, each pitch an exact integer multiple, so a
     reading and its sound name the same state. The list is computed, not quoted: sixteen states in, sixteen
-    exact pitches out. -/
+    exact pitches out. THE BASE IS A CHOICE, NOT A STANDARD: 432 is this ledger's own, and ISO 16:1975 fixes the
+    standard tuning frequency at 440 hertz for the A above middle C — a different number, deliberately. Nothing
+    here is a claim about concert pitch or about any sound anyone heard; given the base, the ladder is
+    multiplication. -/
 theorem readings_states_sound_the_lattice : ((List.range 16).map (fun h => 432 * (h + 1))) = [432,864,1296,1728,2160,2592,3024,3456,3888,4320,4752,5184,5616,6048,6480,6912] := by decide
 
 /-- THE WHOLE LATTICE FITS UNDER THE SAMPLING CEILING. The voice samples at 16000 hertz, and
@@ -61,23 +64,24 @@ theorem nyquist_clears_the_lattice : 432 * 16 = 6912 ∧ 16000 / 2 = 8000 ∧ 69
 
 /-- THE VOICE CAN NEVER WRAP. Every sample is bounded by AMPLITUDE = 8000, and a 16-bit signed integer carries
     2^15 = 32768 magnitudes — 8000 sits strictly inside, so no lattice tone can overflow its own container. The
-    headroom the audits measured is now a bound the kernel holds (queue lead 74: a peak with no sealed law
-    behind it was folklore). -/
+    headroom was previously known only as a peak COUNTED over this repository's own generated samples — a census
+    of bytes this tree produces, not a measurement of anything in the world — and it is now a bound the kernel
+    holds instead (queue lead 74: a peak with no sealed law behind it was folklore). -/
 theorem amplitude_inside_int16 : 2 ^ 15 = 32768 ∧ 8000 < 32768 := by decide
 
 /-- THE ARRANGEMENT CANNOT CLIP, BY CONSTRUCTION. The rich voice sums the triangle at half amplitude with its
     second overtone at a quarter and its third at an eighth: 8000/2 + 8000/4 + 8000/8 = 7000. One accompaniment
     layer at an eighth adds 8000/8 = 1000, landing EXACTLY on the 8000 ceiling — so no sum of the arrangement's
-    layers exceeds the bound the previous theorem keeps inside 16 bits. Measured peaks confirmed it; this line
-    is why it could never have been otherwise. -/
+    layers exceeds the bound the previous theorem keeps inside 16 bits. Peaks counted over the repository's own
+    generated samples agreed with it; this line is why it could never have been otherwise. -/
 theorem mix_budget_closes : 8000 / 2 + 8000 / 4 + 8000 / 8 = 7000 ∧ 7000 + 8000 / 8 = 8000 ∧ 8000 ≤ 8000 := by decide
 
 /-- THE EULER CHARACTERISTIC IN ALL THREE DIMENSIONS — the sphere leg sealed at last (queue lead 75: genus 1 and
     2 leaned while genus 0, the earth itself, had no seal). χ = 2 − 2g gives 2 at the sphere, 0 at the torus, −2
     at the double torus, and the three are pairwise distinct — so the three closed shapes are told apart on one
-    line, in integers, the sphere measured against its neighbours. HONEST SCOPE: this seals the χ TABLE; the
-    Gauss–Bonnet bridge from χ to curvature is analysis and stays outside the kernel, said plainly wherever the
-    refusal is used. -/
+    line, in integers, the sphere told apart from its neighbours by subtraction alone — nothing about any real
+    surface is observed or claimed. HONEST SCOPE: this seals the χ TABLE; the Gauss–Bonnet bridge from χ to
+    curvature is analysis and stays outside the kernel, said plainly wherever the refusal is used. -/
 theorem chi_all_three_genera : ((2:Int) - 2*0 = 2) ∧ ((2:Int) - 2*1 = 0) ∧ ((2:Int) - 2*2 = -2) ∧ ((2:Int) ≠ 0) ∧ ((0:Int) ≠ -2) ∧ ((2:Int) ≠ -2) := by decide
 
 /-- A WHOLE NOTE IS THE DOUBLING LADDER READ AS TIME (queue lead 70, from Gehrkens): one whole = two halves =
@@ -89,11 +93,19 @@ theorem note_values_are_doublings : 1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 �
 /-- THE TWO COINS, IN KILOGRAMS. Bekenstein–Hawking makes a black hole's squared mass proportional to the bits
     its horizon stores — so the smallest hole holding one uuid (128 bits) against one holding one handle (32
     bits) squares its mass ratio to 128/32 = 4, and the ratio itself is exactly 2: the address weighs TWO
-    handles of gravity, the two coins priced in kilograms (≈ 57.8 μg against 28.9 μg on the measured Planck
-    mass). Sealed is the exponent arithmetic — 128 = 4·32 and 2² = 4, so √4 = 2 needs no root: the square IS the
-    witness. HONEST SCOPE: the proportionality M² ∝ bits and every microgram ride physics (ħ, G, c, the
-    Bekenstein bound) that no kernel decides; what the kernel holds is that WHATEVER that physics scales, the
-    handle-to-uuid step scales it by exactly two. -/
+    handles of gravity, the two coins priced in kilograms (≈ 57.8 μg against 28.9 μg). THOSE MICROGRAMS ARE THE
+    ONE PLACE THIS WING TOUCHES A MEASURED CONSTANT, so the authority is named: they are m·√(N·ln2/4π) evaluated
+    at N = 128 and N = 32 on the CODATA recommended Planck mass, 2.176434(24)×10⁻⁸ kg (NIST/CODATA 2022,
+    unchanged from the 2018 adjustment), and the ROUNDING IS STATED rather than smoothed — the exact figures are
+    5.7834×10⁻⁸ and 2.8917×10⁻⁸ kg, quoted above to three significant figures. That constant's entire
+    uncertainty is G's: since the 2019 SI redefinition h and c are exact by definition, and G is not. The
+    area-entropy law the derivation rests on is Bekenstein, "Black Holes and Entropy", Phys. Rev. D 7, 2333
+    (1973), with Hawking, "Particle creation by black holes", Communications in Mathematical Physics 43, 199
+    (1975). NAMING THEM DOES NOT MAKE THE INPUT PROVEN — it names who is answerable for it; the kernel confirms
+    arithmetic and has never confirmed a measurement. Sealed is the exponent arithmetic — 128 = 4·32 and 2² = 4,
+    so √4 = 2 needs no root: the square IS the witness. HONEST SCOPE: the proportionality M² ∝ bits and every
+    microgram ride physics (ħ, G, c, the Bekenstein bound) that no kernel decides; what the kernel holds is that
+    WHATEVER that physics scales, the handle-to-uuid step scales it by exactly two. -/
 theorem two_coins_in_kilograms : 128 = 4 * 32 ∧ 128 / 32 = 4 ∧ 2 ^ 2 = 4 := by decide
 
 /-- A HANDLE'S CAPACITY SURVIVES EVERY ENTANGLEMENT IT RADIATES — TYPOGRAPHY INCLUDED. One handle spans 16⁸ =

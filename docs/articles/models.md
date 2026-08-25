@@ -25,7 +25,7 @@ The ledger holds this as [context_windows_are_transient_hexbits](/theorem/contex
 (((modelContextRows.map (fun r => r.length)).sum) = 418) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)
 ```
 
-### MESSAGING, MEASURED AT THE WIRE: a uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 418 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).
+### MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, "Universally Unique IDentifiers (UUIDs)", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 418 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).
 The ledger holds this as [speaking_an_address_costs_the_text](/theorem/speaking_an_address_costs_the_text) — proven `by decide`, sorry-free:
 
 ```lean

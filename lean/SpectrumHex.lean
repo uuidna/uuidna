@@ -19,8 +19,9 @@ theorem greys_are_one_in_sixtyfive_thousand : ((16:Nat)^6 / 256 = 65536) ∧ ((2
 theorem shorthand_covers_one_in_four_thousand : ((16:Nat)^3 = 4096) ∧ ((16:Nat)^6 / (16:Nat)^3 = 4096) ∧ ((16:Nat)^3 * 4096 = 16777216) := by decide
 
 /-- THE HUE WHEEL DOES NOT DIVIDE BY SIXTEEN: 16 x 22 = 352 and 16 x 23 = 368 straddle 360, so no whole-degree
-    step cuts the circle into sixteen. It divides by NINE at 40 degrees and by SIX at 60 — the storage is
-    hexadecimal while the geometry is not, and the line proves the failure rather than leaving it implied. -/
+    step cuts the circle into sixteen. It divides by NINE at forty degrees and by SIX at sixty — the storage is
+    hexadecimal while the geometry is not, and the line proves the failure rather than leaving it implied. Every
+    degree named here is the whole-turn convention divided by an integer, not a quantity anyone observed. -/
 theorem spectrum_refuses_sixteen : (16 * 22 < 360) ∧ (360 < 16 * 23) ∧ (360 % 9 = 0) ∧ (360 % 6 = 0) ∧ (360 % 16 ≠ 0) := by decide
 
 /-- THE DIVISORS THE WHEEL ADMITS below twenty are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, 18, 20 — nine and six

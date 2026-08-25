@@ -89,16 +89,22 @@ for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before
 
 import { cubeFacts } from './lean-cube.js'
 
-// THE CENSUS OUTGREW THE DEFAULT RECURSION LIMIT, and only a forced re-prove could say so. cube_seals_at_
-// completeness_only folds a per-wing list whose LENGTH is the wing count, so it lengthens every time the ledger
-// gains a wing — and at the ledger's current size `decide` reaches Lean's default maxRecDepth and the wing fails
-// to elaborate. It had been passing for however long because the delta gate accepted Software.lean from the proof
-// cache on an address match; the failure appears only when UUIDNA_PROVE_ALL forces every spawn, which on this host
-// was unreachable until today. Wave.lean already carries the same option for the same reason (lean-wave.ts) — this
-// is that precedent applied, not a new licence: the limit is raised, nothing is skipped, and every case is still
-// walked by the kernel.
-const REC_LIMIT = 'set_option maxRecDepth 8192'
+// THE CENSUS OUTGREW THE DEFAULT RECURSION LIMIT, AND THE RAISE THAT ANSWERED IT IS GONE (2026-08-25).
+// cube_seals_at_completeness_only re-walked `List.range (n+1)` per wing, so it stopped deciding the moment a wing
+// outgrew the kernel's default depth — the largest wing carries 454 keys. This file answered with a file-wide
+// `set_option maxRecDepth 8192`, on the precedent that Wave.lean already carried one. Both are now removed, and the
+// precedent was the weakest part of that argument: a second wing doing it is not a licence, it is a second instance.
+//
+// THE RAISE WAS THE CHEAP REMEDY AND IT BOUGHT NOTHING. What lean-cube.ts establishes is that the expensive walk was
+// a TAUTOLOGY — "exactly one k in range(n+1) equals n" is membership, n < n+1, true whatever this ledger measures —
+// so the depth was being spent to restate a property of `List.range` rather than a property of these wings. The
+// claim could not have failed. A raise makes a claim pass without making it true, and while it stands nothing in
+// its wing can reach the ceiling, so the healthy case and the broken case return the same value and the signal that
+// says RESTATE THIS is gone. The restatement decides flat at any wing size and CAN fail: an empty neighbourhood
+// refutes it rather than passing vacuously. Depth is a property of the SHAPE of a claim, not of the kernel's
+// generosity — sealed as no_wing_buys_its_own_ceiling, whose census of raises across every wing on disk is ZERO,
+// a number THIS FILE would have falsified had the option above survived the merge that brought the census in.
 
-emit({ file: 'Software.lean', skill: 'software', defs: [REC_LIMIT, '', NTH_DEF].join('\n'),
+emit({ file: 'Software.lean', skill: 'software', defs: NTH_DEF,
   header: 'THE SOFTWARE-VERIFIABLE ALGEBRA — the companion to the hardware layer, one level up: the algebraic correctness LAWS a program is verified AGAINST, each a decidable, axiom-free `by decide` particle.',
   facts: [...FACTS.map((f) => ({ ...f, name: f.why })), ...cubeFacts()] })

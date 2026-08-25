@@ -1,4 +1,4 @@
--- lean/Referrer.lean — GENERATED. REFERRER — the referrer song's sealed arithmetic: six doors into the round, consonance as a measured ladder, the lower lattice's octave completeness, and the wrap that makes the page-cycle total. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Referrer.lean — GENERATED. REFERRER — the referrer song's sealed arithmetic: six doors into the round, consonance as a COMPUTED ladder (a definition on integers, not a reading of the world; the tuning cancels), the lower lattice's octave completeness, and the wrap that makes the page-cycle total. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- SIX DOORS INTO THE ROUND. The round 142857 has exactly six rotations (song_six_verses_one_melody seals them
     one by one), so a visitor's handle picks its door by value mod 6 — and the pick is total at the edges the
@@ -6,10 +6,12 @@
     never divides to nothing (6 ≠ 0). Every visitor gets a door; no referrer is turned away. -/
 theorem referrer_six_doors : 0 % 6 = 0 ∧ 4294967295 % 6 = 3 ∧ (6:Nat) ≠ 0 := by decide
 
-/-- CONSONANCE IS MEASURED, NOT FELT. An interval between lattice tones (h₁+1)·432 and (h₂+1)·432 reduces to the
-    ratio of its multipliers, and its consonance measure is the reduced ratio's term sum — Euler's gradus made
-    bare: unison 1:1 sums 2, octave 1:2 sums 3, fifth 2:3 sums 5, fourth 3:4 sums 7, and the ladder orders
-    itself 2 < 3 < 5 < 7 — the sweetest steps are the smallest sums, decidably, before any ear is consulted. -/
+/-- CONSONANCE IS COMPUTED, NOT FELT — and computed, not observed either: the number below is a definition
+    evaluated on integers, never a reading taken from an instrument or an ear. An interval between lattice tones
+    (h₁+1)·432 and (h₂+1)·432 reduces to the ratio of its multipliers, and its consonance measure is the reduced
+    ratio's term sum — Euler's gradus made bare: unison 1:1 sums 2, octave 1:2 sums 3, fifth 2:3 sums 5, fourth
+    3:4 sums 7, and the ladder orders itself 2 < 3 < 5 < 7 — the sweetest steps are the smallest sums,
+    decidably, before any ear is consulted. -/
 theorem referrer_consonance_ladder : 1 + 1 = 2 ∧ 1 + 2 = 3 ∧ 2 + 3 = 5 ∧ 3 + 4 = 7 ∧ 2 < 3 ∧ 3 < 5 ∧ 5 < 7 := by decide
 
 /-- THE LOWER HALF ALWAYS HAS ITS OCTAVE. For every tile h in the bottom half of the lattice (h ≤ 7), the octave
@@ -64,10 +66,10 @@ theorem prev_undoes_next : ([7,16] : List Nat).all (fun n => (List.range n).all 
     has already cancelled. -/
 theorem tuning_cancels_from_every_interval : (List.range' 1 15).all (fun a => (List.range' 1 15).all (fun b => Nat.gcd (432*a) (432*b) == 432 * Nat.gcd a b)) := by decide
 
-/-- THE DOUBLING ORBIT’S STEPS, MEASURED BY THE SAME RULE: 1→2, 2→4 and 4→8 each reduce to the pure octave (gcd
-    = the smaller, ratio exactly 2), then 8→7 and 7→5 are already-reduced coprime tensions — 8:7 and 7:5 —
-    before the round closes home. The melody the vortex sings is three clean octaves rising, two irreducible
-    steps of tension, and return: the analysis is arithmetic, the drama is free. -/
+/-- THE DOUBLING ORBIT’S STEPS, REDUCED BY THE SAME RULE: 1→2, 2→4 and 4→8 each reduce to the pure octave (gcd =
+    the smaller, ratio exactly 2), then 8→7 and 7→5 are already-reduced coprime tensions — 8:7 and 7:5 — before
+    the round closes home. The melody the vortex sings is three clean octaves rising, two irreducible steps of
+    tension, and return: the analysis is arithmetic, the drama is free. -/
 theorem orbit_steps_name_their_intervals : (Nat.gcd 1 2 = 1) ∧ (Nat.gcd 2 4 = 2) ∧ (2 * 2 = 4) ∧ (Nat.gcd 4 8 = 4) ∧ (4 * 2 = 8) ∧ (Nat.gcd 8 7 = 1) ∧ (Nat.gcd 7 5 = 1) := by decide
 
 /-- NEIGHBOURS ON THE LATTICE BEAT AT EXACTLY THE TUNING. Two close tones beat at their difference, and any two

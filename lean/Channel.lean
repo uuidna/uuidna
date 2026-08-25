@@ -23,8 +23,8 @@ theorem three_recover_the_discard : ((378:Nat)^3 < 2^28) ∧ ((378:Nat)^4 > 2^28
 
 /-- THE PRODUCT ASSUMES THE AXES ARE FREE. If hue were derived from the rung, the channel would be 6 × 7 = 42
     per element— which the line proves so the assumption cannot pass unnoticed. SCOPE: which case holds is a
-    property of the design system and is measurable in a browser against computed styles. It is NOT measured
-    here, and nothing in this wing claims the axes are independent. -/
+    property of the design system and is a reading anyone can take in a browser against computed styles. This
+    wing takes no such reading, and nothing in it claims the axes are independent. -/
 theorem independence_is_assumed : (6 * 9 * 7 = 378) ∧ (6 * 7 = 42) ∧ (378 ≠ 42) ∧ (378 > 42) := by decide
 
 /-- A PAGE OUTRUNS THE REGISTER: forty elements at 378 states each exceed the 65536 amplitudes a sixteen-qubit

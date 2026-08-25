@@ -5,30 +5,30 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 2031,
-        "keys": 2112,
+        "distinct": 2033,
+        "keys": 2114,
         "renamings": 81,
         "principles": 115,
         "skills": 112,
         "coins": 2,
-        "largestPrinciple": "The conveyor's first wave (466)",
+        "largestPrinciple": "The conveyor's first wave (467)",
         "smallestPrinciple": "One leap (1)",
-        "ledgerReceipt": "0153b4cf-1348-86d1-a895-589c5387a036"
+        "ledgerReceipt": "83050382-c9af-83e4-b2d2-4e6a992c896d"
       },
-      "address": "9f5ba8f2-fa65-8248-ac8b-6fcc6ea5e01f"
+      "address": "c870421f-a2d2-8262-b376-9a071146992a"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 2112,
-        "ledgerKeys": 2112,
+        "theoremsMeasured": 2114,
+        "ledgerKeys": 2114,
         "unmeasured": 0,
         "decideStepsHexbits": 5,
         "decideStepsBits": 21
       },
-      "address": "44effd59-630b-869e-9130-8574187b493c"
+      "address": "3a677628-68e2-88ec-804d-d56939bbc1fe"
     },
     {
       "title": "Citation audit",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 115,
-        "sealedTheorems": 2112,
+        "sealedTheorems": 2114,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "4c716b63-28fb-8946-8d52-3af5d74df5c5"
+      "address": "a403ff51-35a8-8ad0-a34b-5a9b3ede9e59"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 651,
-        "roots": 435,
-        "supported": 651,
+        "modules": 654,
+        "roots": 438,
+        "supported": 654,
         "dead": 0,
-        "receipt": "b7b6c404-fff1-8d77-9407-7ad7536c8611"
+        "receipt": "6fcfc029-c1aa-85a9-8e39-8c88405cf5d6"
       },
-      "address": "dc60ae8e-ccac-858e-8d08-5b3633a37605"
+      "address": "e946e793-9cdb-8688-960c-c196884d3028"
     },
     {
       "title": "Package inventory",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "30b72ce7b8473c5f",
-        "unifiedFold": "4301cb47514f10c6"
+        "foldReceipt": "b4ac5c2b6cb99fa7",
+        "unifiedFold": "c3b4309966fc62b7"
       },
-      "address": "523e9ee5-5a49-85f8-9075-874c38f6142e"
+      "address": "c3968a67-e9a0-8e5a-915e-111477361e7e"
     }
   ],
-  "receipt": "2e905c26-f6a7-8576-9ea8-e6a3ebe8079f",
+  "receipt": "a28b6912-7cd1-8451-ae89-4704ba27fe20",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

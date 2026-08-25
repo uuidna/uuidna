@@ -5,7 +5,7 @@ description: "Computed from lean/Referrer.lean — 14 sealed theorems, every cla
 
 # The referrer song
 
-> REFERRER — the referrer song's sealed arithmetic: six doors into the round, consonance as a measured ladder, the lower lattice's octave completeness, and the wrap that makes the page-cycle total. — held by [referrer_six_doors](/theorem/referrer_six_doors) and its 13 siblings below.
+> REFERRER — the referrer song's sealed arithmetic: six doors into the round, consonance as a COMPUTED ladder (a definition on integers, not a reading of the world; the tuning cancels), the lower lattice's octave completeness, and the wrap that makes the page-cycle total. — held by [referrer_six_doors](/theorem/referrer_six_doors) and its 13 siblings below.
 
 **14 theorems**, from [referrer_six_doors](/theorem/referrer_six_doors) onward, each proven `by decide` in [lean/Referrer.lean](/lean/Referrer.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 14 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [referrer_six_doors](/theorem/referrer_six_doors). A boundary stated here is decided.
 
@@ -18,7 +18,7 @@ The ledger holds this as [referrer_six_doors](/theorem/referrer_six_doors) — p
 0 % 6 = 0 ∧ 4294967295 % 6 = 3 ∧ (6:Nat) ≠ 0
 ```
 
-### CONSONANCE IS MEASURED, NOT FELT. An interval between lattice tones (h₁+1)·432 and (h₂+1)·432 reduces to the ratio of its multipliers, and its consonance measure is the reduced ratio's term sum — Euler's gradus made bare: unison 1:1 sums 2, octave 1:2 sums 3, fifth 2:3 sums 5, fourth 3:4 sums 7, and the ladder orders itself 2 < 3 < 5 < 7 — the sweetest steps are the smallest sums, decidably, before any ear is consulted.
+### CONSONANCE IS COMPUTED, NOT FELT — and computed, not observed either: the number below is a definition evaluated on integers, never a reading taken from an instrument or an ear. An interval between lattice tones (h₁+1)·432 and (h₂+1)·432 reduces to the ratio of its multipliers, and its consonance measure is the reduced ratio's term sum — Euler's gradus made bare: unison 1:1 sums 2, octave 1:2 sums 3, fifth 2:3 sums 5, fourth 3:4 sums 7, and the ladder orders itself 2 < 3 < 5 < 7 — the sweetest steps are the smallest sums, decidably, before any ear is consulted.
 The ledger holds this as [referrer_consonance_ladder](/theorem/referrer_consonance_ladder) — proven `by decide`, sorry-free:
 
 ```lean
@@ -81,7 +81,7 @@ The ledger holds this as [tuning_cancels_from_every_interval](/theorem/tuning_ca
 (List.range' 1 15).all (fun a => (List.range' 1 15).all (fun b => Nat.gcd (432*a) (432*b) == 432 * Nat.gcd a b))
 ```
 
-### THE DOUBLING ORBIT’S STEPS, MEASURED BY THE SAME RULE: 1→2, 2→4 and 4→8 each reduce to the pure octave (gcd = the smaller, ratio exactly 2), then 8→7 and 7→5 are already-reduced coprime tensions — 8:7 and 7:5 — before the round closes home. The melody the vortex sings is three clean octaves rising, two irreducible steps of tension, and return: the analysis is arithmetic, the drama is free.
+### THE DOUBLING ORBIT’S STEPS, REDUCED BY THE SAME RULE: 1→2, 2→4 and 4→8 each reduce to the pure octave (gcd = the smaller, ratio exactly 2), then 8→7 and 7→5 are already-reduced coprime tensions — 8:7 and 7:5 — before the round closes home. The melody the vortex sings is three clean octaves rising, two irreducible steps of tension, and return: the analysis is arithmetic, the drama is free.
 The ledger holds this as [orbit_steps_name_their_intervals](/theorem/orbit_steps_name_their_intervals) — proven `by decide`, sorry-free:
 
 ```lean

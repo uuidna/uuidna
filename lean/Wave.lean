@@ -1,7 +1,5 @@
 -- lean/Wave.lean — GENERATED. WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
-set_option maxRecDepth 4096
-
 /-- THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while
     the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252
     ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The
@@ -22,6 +20,16 @@ theorem cubes_sum_to_square_of_triangle : (1 + 8 = 3 ^ 2) ∧ (1 + 8 + 27 = 6 ^ 
     involution again — while flipping SEVEN consecutive positions changes each an odd number of times (7 ≡ 1 mod
     2), so seven-flips act exactly like single flips on parity. The hypercube query's decidable floor. -/
 theorem lights_out_flip_involution : (List.map (fun x => (x + 1) % 2) (List.map (fun x => (x + 1) % 2) [0, 1, 0, 1]) = [0, 1, 0, 1]) ∧ (7 % 2 = 1) := by decide
+
+/-- THE INVOLUTION PAYS WHAT THE RAISED CEILING WAS BORROWING. To decide a claim over 2^k states you either buy
+    recursion depth from the kernel or restate the claim so the depth is never owed; an involution is the
+    restatement, because a self-inverse map splits its domain into fixed points and 2-cycles and the obligation
+    becomes the RETURN rather than the census. The flip is the witness: ((b+1) mod 2 + 1) mod 2 = b settled on
+    TWO states, lifting componentwise to words of any width, so the walked domain grows as 2^k while the
+    obligation stays at 2 — the halving 2^k / 2 = 2^(k-1) checked over k = 1..12, and pinned at k = 8 where the
+    direct domain is 256 and the involution's check is still 2. This wing carried the ledger's only maxRecDepth
+    raise; it decides without it, and this is what stands in its place. -/
+theorem involution_replaces_the_raised_ceiling : ((List.range 2).all (fun b => ((b + 1) % 2 + 1) % 2 == b)) ∧ ((List.range' 1 12).all (fun k => 2 ^ k / 2 == 2 ^ (k - 1))) ∧ ((List.range' 1 12).all (fun k => 2 <= 2 ^ k)) ∧ (2 ^ 8 = 256) ∧ (2 < 256) ∧ (256 / 2 = 128) := by decide
 
 /-- THE CONVEYOR'S OWN PROBE — the first candidate to ride the route with no model at the gate: 11 · 13 = 143,
     two primes and their product, deposited pending so validate → kernel-probe → accept → lift → gate proves

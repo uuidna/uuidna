@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1122 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1133 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1122 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1133 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `01839ed6` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `eaf061bb` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -625,6 +625,14 @@ three_no_inverse — 3 is the digit ℤ/9 will not invert
 doubling_circuit — six doublings close the ring of units
 ```
 
+**falsifiers.generated** — 3 utterances
+
+```text
+every sealed statement here re-decides TRUE under an independent evaluator
+every statement named here is the one the ledger currently seals — no stale copies
+THE CHECK BITES — a mutated statement is refused
+```
+
 **feed** — 4 utterances
 
 ```text
@@ -708,6 +716,15 @@ an ENVIRONMENT PREFIX is not part of the command — the third costume of one mi
 the RELEASE PROVER is a generator, and its rename is the fourth costume of one mistake
 every step that writes the tracked tree is classified as a GENERATOR, not a check
 THE .json TRAP — a pattern must not match a FILENAME in another command\
+```
+
+**gate-backing** — 4 utterances
+
+```text
+THE DEMONSTRATION — the overclaim still VERIFIES, and now carries the sentence that refutes it
+THE SCOPE IS NOT TRUNCATED — the denial is the LAST clause, so head-clipping drops exactly what matters
+every sealed citation reaches the verdict with its text — none arrive as bare tokens
+THE CHECK BITES — an unbacked claim gets no backing, and a fabricated one is still drained
 ```
 
 **gate-paths** — 4 utterances
@@ -882,7 +899,7 @@ the OS is bootable quantum — the boot image is the compiled specs in boot orde
 the receipt is stable, recomputable, and CHANGE-SENSITIVE — the instrument can fail
 ```
 
-**involution** — 11 utterances
+**involution** — 13 utterances
 
 ```text
 every named map is genuinely self-inverse on every digit
@@ -896,6 +913,8 @@ RULE 2 — a broken theorem does NOT pair with its image (regression: 0 of 637, 
 the collided root is order-invariant — a pile has an identity no member carries
 THE CONTROL — no meaning is claimed for a root until same-sized piles are shown to differ
 digitalRootOf lands in 1..9 and moves with the address
+A TYPE ASCRIPTION IS NOT ARITHMETIC — stripped before the grammar is consulted
+THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreached, never true
 ```
 
 **knowledge** — 9 utterances
@@ -1402,7 +1421,7 @@ the run receipt is deterministic and moves with the claims
 "verified" is stated as backing, never as endorsement
 ```
 
-**quantum-driver** — 14 utterances
+**quantum-driver** — 16 utterances
 
 ```text
 every witness in the battery cites a theorem that IS sealed in the ledger
@@ -1419,6 +1438,8 @@ the ledger probe re-addresses theorems from the SAME preimage the ledger sealed 
 THE BATTERY REPORTS ITS DENOMINATOR — coverage of the wing, not a bare witness count
 THE UNWITNESSED ARE NAMED, so a growing gap is visible rather than merely absent
 a witness deciding a theorem OUTSIDE the wing is disclosed, not silently counted as wing coverage
+THE FALSIFIED SET IS NAMED, AND CANNOT DRIFT FROM THE BATTERY IT DESCRIBES
+every named theorem is decided on this host, so naming it here is backed by a run
 ```
 
 **quantum-message-encoding** — 5 utterances
