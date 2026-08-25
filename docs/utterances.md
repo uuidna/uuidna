@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1122 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1134 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1122 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1134 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `01839ed6` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `3a04b26f` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -97,6 +97,14 @@ the bytes are a lossless standard WAV — the web and the movie decode the exact
 FULL ANALOG — compress then uncompress is the identity, sample for sample, even on the deep mix
 the codec SHRINKS the stems — a single lattice voice collapses to its slopes; the mix honestly does not
 CONTROL — bad depth and bad bars are refused by name; the app never guesses
+```
+
+**antikythera-falsifiers** — 3 utterances
+
+```text
+metonic_spiral_five_turns — the factorisation is load-bearing, not decorative
+callippic_corrects_by_four — four is the claim, and only four satisfies both halves
+saros_counts_on_a_prime — the primality is the claim, and a near miss must fail it
 ```
 
 **apa** — 8 utterances
@@ -882,7 +890,7 @@ the OS is bootable quantum — the boot image is the compiled specs in boot orde
 the receipt is stable, recomputable, and CHANGE-SENSITIVE — the instrument can fail
 ```
 
-**involution** — 11 utterances
+**involution** — 13 utterances
 
 ```text
 every named map is genuinely self-inverse on every digit
@@ -896,6 +904,8 @@ RULE 2 — a broken theorem does NOT pair with its image (regression: 0 of 637, 
 the collided root is order-invariant — a pile has an identity no member carries
 THE CONTROL — no meaning is claimed for a root until same-sized piles are shown to differ
 digitalRootOf lands in 1..9 and moves with the address
+A TYPE ASCRIPTION IS NOT ARITHMETIC — stripped before the grammar is consulted
+THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreached, never true
 ```
 
 **knowledge** — 9 utterances
@@ -1561,6 +1571,18 @@ all six doors are reachable — no verse nobody hears
 consonance is the sealed ladder — unison 2, octave 3, fifth 5, in that order, as numbers
 the cycle is total both ways and the last page wraps home
 the greeting is bytes that recompute — same referrer same song, different doors different songs
+```
+
+**refused** — 7 utterances
+
+```text
+THE REFUSALS ARE READ FROM THE LEDGER, not copied into the finder
+UNREAD IS NOT EMPTY — the two must never collapse into one value
+IT FIRES on a source that reaches a refused host over the network
+AND IT DOES NOT FIRE on prose that merely names the host — use versus mention
+AND A LINK IS NOT AN INGESTION — the distinction the refusal itself draws
+the finder does not flag the files that DEFINE the boundary
+THE LIVE TREE OBEYS THE BOUNDARY — and this is the assertion that can fail on a real change
 ```
 
 **research-ledger** — 9 utterances
