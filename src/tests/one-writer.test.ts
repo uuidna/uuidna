@@ -94,6 +94,41 @@ test('the ppid walk is paid for ONCE — a refusal loop must not spawn a process
   try { process.kill(stranger) } catch { /* already gone */ }
 })
 
+test('a RECYCLED pid does not inherit the lock — the holder is identified, not merely counted', () => {
+  // THE 2.82-HOUR FAILURE THIS EXISTS FOR. A pid is a number the OS reissues. When a holder crashed and its
+  // number was handed to an unrelated process, kill(pid, 0) answered true forever, the lock read LIVE, and
+  // stale-reclaim never fired — so awaitAcquire waited on a corpse. Measured under five-session load: 10,123,473
+  // ms inside the wait, roughly four extensions granted to a dead holder, then failure; the same suite in a quiet
+  // moment ran in 22,628 ms. A deterministic defect does not vary by 449x; a pid collision under load does.
+  //
+  // The impersonation is staged rather than waited for, because waiting for a real collision is waiting for load.
+  // OUR OWN pid is unquestionably alive, so writing a lock that claims our number with somebody else's birth
+  // instant is exactly the state a recycled pid produces: the number answers, the process is not the one recorded.
+  const path = lockAt('g.lock')
+  writeFileSync(path, JSON.stringify({ pid: process.pid, purpose: 'a holder that died and whose number was reissued', born: 'not-when-this-process-began' }))
+  assert.equal(currentWriter(path), null,
+    'a live number wearing the wrong birth instant is NOT the holder — this is the whole fix')
+  assert.deepEqual(acquire('audit', process.pid, path), { ok: true },
+    'and the tree is reclaimed, rather than held forever by a process that no longer exists')
+
+  // THE CONTROL, so this cannot pass by simply calling every holder stale: the same pid with the RIGHT stamp is
+  // still the holder, and a stranger is still refused. acquire has just written the true stamp for us.
+  const real = currentWriter(path)
+  assert.equal(real?.pid, process.pid, 'a genuine holder survives the identity check')
+  assert.ok(real?.born, 'and the lock now CARRIES the stamp — an unstamped lock proves nothing')
+  assert.equal(acquire('reconcile', 1, path).ok, false, 'a stranger is still refused')
+})
+
+test('a lock with NO birth stamp is honoured on liveness alone — an older build is not evidence of a corpse', () => {
+  // Refusing an unstamped lock would reclaim the tree from a holder that is genuinely working, merely because it
+  // was started by a build that predates the stamp. The unstamped case must degrade to the PREVIOUS behaviour
+  // exactly, and no further — so this pins the compatibility rather than leaving it to be discovered.
+  const path = lockAt('h.lock')
+  writeFileSync(path, JSON.stringify({ pid: process.pid, purpose: 'a holder from an older build' }))
+  assert.equal(currentWriter(path)?.pid, process.pid, 'no stamp, live pid — still the holder')
+  assert.equal(acquire('audit', 1, path).ok, false, 'and it still refuses a stranger')
+})
+
 test('a dead holder is stale by pid-liveness — reclaimed on the next acquire, no clock consulted', () => {
   const path = lockAt('b.lock')
   writeFileSync(path, JSON.stringify({ pid: deadPid(), purpose: 'audit (crashed)' }))
