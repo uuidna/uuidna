@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="918 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="927 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 918 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 927 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `7f720663` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `114a7775` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -45,13 +45,26 @@ shelves list identically for any two agents holding the same facts
 THE HONEST LIMIT — exact identity is not semantic identity, and this store does not pretend it is
 ```
 
-**all-run** — 4 utterances
+**all-run** — 5 utterances
 
 ```text
 the arc states its order in source, deposit before take
 package.json carries no hand-typed chain for the arc — the manifest is the one declaration
 the arc receipt is order-invariant across observers but moves with the verdicts
 the arc is inert when IMPORTED — a module that ships when named is not a module
+a phase that NEVER RAN folds elsewhere than one that ran and failed
+```
+
+**alpine-coverage** — 7 utterances
+
+```text
+A BROKEN READER IS NOT AN EMPTY REPOSITORY — the distinction the [] return could not make
+UNREAD IS NOT A PASS AND NOT A FAILURE — it is the absence of evidence, and it is required
+breadth prints the denominator the catalogue report never did
+PROBING WITHOUT READING IS THE REAL STATE, and it must not report as full coverage
+AN UNDECODABLE INDEX STILL COUNTS AS PUBLISHED — our defect must not flatter our coverage
+the receipt recomputes and moves only when the coverage does
+the threshold sits far from both things it separates
 ```
 
 **alpine** — 2 utterances
@@ -1542,12 +1555,13 @@ A MEMOISED SWEEP IS CAUGHT — the estimator must not be allowed to converge on 
 the floor is never above the mean — the estimator picks the host, not the mood
 ```
 
-**stream-step** — 3 utterances
+**stream-step** — 4 utterances
 
 ```text
 a passing step captures its output and reports ok
 a FAILING step reports ok:false — the exit code survives, which a pipe would have eaten
 stderr is captured alongside stdout — a runner classifies what a step said, wherever it said it
+whyFailed tells a NONZERO EXIT from a command that never ran, and names the reason
 ```
 
 **terminal** — 7 utterances

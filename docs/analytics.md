@@ -1,7 +1,7 @@
 
 # uuidna â€” Advantage Metrics
 
-**Generated:** 2026-08-24
+**Generated:** 2026-08-25
 **Data source:** Live ledger (1690 sealed theorems)
 
 ---
@@ -15,7 +15,7 @@
 | **Axiom-free** | 1690/1690 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 115 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 112 | Capability axes across the ledger |
-| **Proof cost** | 704460 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Proof cost** | 704364 decide-steps | MEASURED per theorem in lean/heartbeats.json |
 | **Verification work** | 1690 addresses | one recomputed per theorem |
 | **Steps per address** | 416 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
@@ -57,7 +57,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself â
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 704460 kernel decide-steps, measured
+- First push (prove): 704364 kernel decide-steps, measured
 - Every later push (verify): 1690 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
