@@ -5,14 +5,16 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { execSync } from 'node:child_process'
-import { mkdirSync, writeFileSync, rmSync, existsSync, realpathSync } from 'node:fs'
+import { mkdirSync, mkdtempSync, writeFileSync, rmSync, existsSync, realpathSync } from 'node:fs'
 import { join, sep } from 'node:path'
 import { tmpdir } from 'node:os'
 import { precedeGaps } from '../scripts/one-receipt.js'
 // cleanGitEnv is imported, never redefined: it is the scripts singularity's, and precedeGaps uses the same one
 import { cleanGitEnv } from '../scripts/api.js'
 
-/** a throwaway repo carrying one Lean wing and the one file derived from it — fixed path, no clock, no randomness
+/** a throwaway repo carrying one Lean wing and the one file derived from it — no clock, and a UNIQUE path
+ *  (mkdtempSync) rather than a fixed one: the directory name is the only thing here that varies, and it varies
+ *  so that two sessions' suites cannot collide on it. Nothing the tests ASSERT depends on it.
  *
  *  THE FIXTURE MUST PROVE ITS OWN ISOLATION BEFORE IT WRITES ANYTHING (2026-08-25). This helper ran `git init`,
  *  `git config user.*` and `git add -A` with `cwd: dir` and `stdio: 'ignore'`, trusting that the directory it
@@ -54,8 +56,15 @@ import { cleanGitEnv } from '../scripts/api.js'
  *  A fixture that cannot confirm its sandbox must REFUSE, not proceed against whatever directory it happens to be
  *  standing in. The refusal is loud and names the repository it actually found. */
 function scratch(): string {
-  const dir = realpathSync(tmpdir()) + '/uuidna-precede-fixture'
-  rmSync(dir, { recursive: true, force: true })
+  // A UNIQUE DIRECTORY, because a FIXED one is not concurrency-safe and this repository is worked by several
+  // sessions at once. The path was `tmpdir() + '/uuidna-precede-fixture'` — the same string in every process —
+  // so two suites running together raced it: one holds a handle under it while the other's rmSync tries to
+  // delete it, and the loser gets `EPERM ... syscall: 'rm'`. The failure reads as a defect in whatever change
+  // is being pushed, because it surfaces inside pre-push; it is neither, and it blocked two pushes here.
+  // Every other fixture in this suite already uses mkdtempSync (circle-, lawreg-, one-writer); this was the
+  // lone fixed path. Same family as the docs build sharing one .temp per docs root: a scratch resource that is
+  // correct for one writer and wrong for two.
+  const dir = mkdtempSync(join(realpathSync(tmpdir()), 'uuidna-precede-'))
   mkdirSync(join(dir, 'lean'), { recursive: true })
   mkdirSync(join(dir, 'src', 'theorems'), { recursive: true })
   if (!existsSync(dir)) throw new Error(`precede fixture: ${dir} was not created — refusing to run git anywhere`)
@@ -150,12 +159,12 @@ test('THE CONTROL: with a hook\'s GIT_DIR inherited, an unscrubbed git IGNORES -
   // hook's GIT_DIR points at. The dangerous act — running `init` while GIT_DIR names someone else's repo — is the
   // outage itself and is never performed here; it does not need to be, because the redirection is already visible
   // in what git ANSWERS, and that is the whole finding.
-  const base = realpathSync(tmpdir())
-  const A = join(base, 'uuidna-precede-control-a')
-  const B = join(base, 'uuidna-precede-control-b')
+  // unique per run, for the same reason as `scratch` above — two of these ran concurrently under one name
+  const base = mkdtempSync(join(realpathSync(tmpdir()), 'uuidna-precede-control-'))
+  const A = join(base, 'a')
+  const B = join(base, 'b')
   const clean = cleanGitEnv()
   for (const d of [A, B]) {
-    rmSync(d, { recursive: true, force: true })
     mkdirSync(d, { recursive: true })
     execSync(`git -C ${JSON.stringify(d)} init -q`, { env: clean, encoding: 'utf8' })
   }
