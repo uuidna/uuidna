@@ -50,7 +50,19 @@ export const INVOLUTIONS: readonly Involution[] = [
 
 /** Lean statements this instrument can decide by evaluation: numerals and arithmetic only. Everything else —
  *  foldl, List, any bound variable — is NOT reached, and is reported as unreached rather than as failing. */
-export const evaluable = (statement: string): boolean => /^[\s0-9()+*%^=∧<>≤≥-]+$/.test(statement)
+/** A TYPE ASCRIPTION IS NOT ARITHMETIC. Lean writes `((2:Nat)^2 < 2^3)` where the `: Nat` tells the elaborator
+ *  which numeral type to use and tells a decision procedure nothing at all. The first grammar refused every such
+ *  statement, so 95 sealed propositions were UNREACHED for a reason that was purely syntactic — and unreached is
+ *  a state a caller must count and report, so refusing them was costing real coverage rather than protecting it.
+ *
+ *  Stripped BEFORE `evaluable` is consulted, so the gate and the parser see the same string. What is deliberately
+ *  NOT relaxed is the refusal: `holds()` still returns null on any trailing input, so a form this reader only
+ *  half-understands comes back UNREACHED and never true. A widened grammar that started reporting `true` for what
+ *  it could not fully parse would be worse than the narrow one — it would turn a countable absence into a
+ *  published claim, which is the exact defect this file was written to refuse. */
+const ASCRIPTION = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
+export const stripAscriptions = (s: string): string => s.replace(ASCRIPTION, '$1')
+export const evaluable = (statement: string): boolean => /^[\s0-9()+*%^=∧<>≤≥-]+$/.test(stripAscriptions(statement))
 
 // A REAL EVALUATOR, NOT `eval`. The first version handed the statement to the runtime after a few substitutions,
 // and the harmonic scan refused it by name — correctly, and for a better reason than style: `eval` makes the
@@ -124,11 +136,12 @@ function conjunction(c: Cursor): boolean {
 /** holds(statement) → true, false, or null when it could not be decided here. Three states, never two. */
 export function holds(statement: string): boolean | null {
   if (!evaluable(statement)) return null
+  const src = stripAscriptions(statement)
   try {
-    const c: Cursor = { s: statement, i: 0 }
+    const c: Cursor = { s: src, i: 0 }
     const v = conjunction(c)
     ws(c)
-    return c.i === statement.length ? v : null   // trailing input means this reader did not understand it all
+    return c.i === src.length ? v : null   // trailing input means this reader did not understand it all
   } catch { return null }
 }
 
