@@ -29,6 +29,7 @@ export type ToolScope =
   | 'generic'   // accepts the caller's own subject matter — works on anything
   | 'self'      // accepts only identifiers naming something inside uuidna's ledger
   | 'fixed'     // takes no parameters: one answer, about uuidna, always
+  | 'unclassified' // carries a parameter NEITHER list names — unmeasured, and never quietly read as 'self'
 
 /** Parameter names that carry the CALLER'S OWN content. Matched on the parameter NAME because that is the part
  *  of the contract a client sees; a description is prose and drifts, a name is the key you must actually pass. */
@@ -43,14 +44,43 @@ const LEDGER_IDENTIFIER = /^(key|slug|route|address|theorem|publication|domain|h
  *  A name matching BOTH lists resolves to the ledger reading. `key` is the clearest case: `uuidna_seo` takes a
  *  theorem key, and treating that as caller-supplied content would classify the whole self-describing half of
  *  the catalogue as generic — which is precisely the error this module exists to correct. */
+/** Parameter names on NEITHER list. The scope question cannot be decided over these, and naming them is the
+ *  remedy: add the name to whichever list it belongs to, or rename the parameter. */
+export const unrecognisedParams = (schema?: { properties?: Record<string, unknown> }): string[] =>
+  Object.keys(schema?.properties ?? {}).filter((p) => !CALLER_SUPPLIED.test(p) && !LEDGER_IDENTIFIER.test(p))
+
 export function scopeOf(schema?: { properties?: Record<string, unknown> }): ToolScope {
   const params = Object.keys(schema?.properties ?? {})
   if (params.length === 0) return 'fixed'
+  // THE UNMEASURED CASE IS ITS OWN ANSWER (2026-08-25). This read `takesCaller ? generic : self`, so a parameter
+  // matching NEITHER list fell through to 'self' — the STRONGER claim, that the tool can only be pointed at
+  // uuidna's own ledger. Measured over the live catalogue: 204 tools, 46 fixed, 43 whose every parameter one of
+  // the lists actually names, and 115 carrying at least one name neither list has heard of. Those 115 were
+  // reported as ledger-only by a rule that never looked at them, and the error ran in the ADMITTING direction —
+  // a caller filtering for 'self' received tools that take the caller's own material.
+  //
+  // The seam is visible in the vocabulary: the lists pluralise `value` and `item` and stop there, so `claims`,
+  // `keys`, `messages`, `passphrases` and `uuids` are all unheard-of while their singulars are listed. A tool
+  // taking `passphrases` was filed as talking only about this ledger.
+  //
+  // This is the header's own law turned on the module: it says the scope is COMPUTED, NEVER AUTHORED, "so it
+  // cannot drift the way a hand-kept list of 204 labels would" — and then decides by two hand-kept lists of 38
+  // and 18 names. The drift moved from the labels into the vocabulary. Widening the lists would only move it
+  // again, because the set of parameter names an author may choose is open and a roster of it never closes; what
+  // is fixed here is that an unrecognised name STOPS returning an answer it did not earn.
+  if (unrecognisedParams(schema).length > 0) return 'unclassified'
   const takesCaller = params.some((p) => CALLER_SUPPLIED.test(p) && !LEDGER_IDENTIFIER.test(p))
   return takesCaller ? 'generic' : 'self'
 }
 
-export interface ScopeCensus { total: number; generic: number; self: number; fixed: number; honest: string }
+export interface ScopeCensus {
+  total: number; generic: number; self: number; fixed: number
+  /** tools carrying a parameter neither list names — counted, never folded into the other three */
+  unclassified: number
+  /** every unrecognised parameter name in the catalogue, so the gap is ACTIONABLE and not merely counted */
+  unrecognised: string[]
+  honest: string
+}
 
 /** The split, over any catalogue — so a client can show a caller how much of a surface can hear them before
  *  they spend a call finding out. */
@@ -58,10 +88,17 @@ export function scopeCensus(tools: readonly { inputSchema?: { properties?: Recor
   const at = (s: ToolScope): number => tools.filter((t) => scopeOf(t.inputSchema) === s).length
   return {
     total: tools.length, generic: at('generic'), self: at('self'), fixed: at('fixed'),
+    unclassified: at('unclassified'),
+    unrecognised: [...new Set(tools.flatMap((t) => unrecognisedParams(t.inputSchema)))].sort(),
     honest:
       'Scope reports what a tool can be TOLD, computed from its own inputSchema — never what it is good at, and ' +
       'never a quality judgement. A caller studying uuidna wants the self-scoped tools and should ask for those ' +
-      'by name; a caller working on their own material wants the generic ones and could not previously find them.',
+      'by name; a caller working on their own material wants the generic ones and could not previously find them. ' +
+      'UNCLASSIFIED IS NOT A FOURTH KIND OF TOOL, it is the absence of a reading: the tool carries a parameter ' +
+      'name neither list holds, so nothing here has measured it and it is reported as unmeasured rather than ' +
+      'assumed. Every name in `unrecognised` is the whole remedy — list it or rename it, and the tool leaves ' +
+      'this bucket. Counting them apart is the point: a scope census that silently absorbed them read 97 ' +
+      'ledger-only tools where the lists could actually vouch for 43.',
   }
 }
 

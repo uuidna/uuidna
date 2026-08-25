@@ -37,11 +37,38 @@ test('a name in BOTH vocabularies resolves to the ledger reading', () => {
 test('the census over the REAL served catalogue, and it must not be all one thing', () => {
   const c = scopeCensus(MCP_CATALOG)
   assert.equal(c.total, MCP_CATALOG.length)
-  assert.equal(c.generic + c.self + c.fixed, c.total, 'every tool lands in exactly one scope')
+  assert.equal(c.generic + c.self + c.fixed + c.unclassified, c.total, 'every tool lands in exactly one scope')
+  // AND THE FOURTH BUCKET IS NOT EMPTY, which is the whole correction: this line read
+  // generic + self + fixed === total while scopeOf resolved an unrecognised parameter name to 'self', so the
+  // partition held only by absorbing every unmeasured tool into the stronger claim. The sum is honest once the
+  // unmeasured have somewhere of their own to land.
+  assert.ok(c.unclassified > 0,
+    'the live catalogue carries parameter names neither list holds; a zero here means they were absorbed again')
+  assert.ok(c.unrecognised.length > 0, 'and the census must NAME them — a count alone is not actionable')
   // the finding that motivated the module: a real minority can hear the caller, and a real majority cannot
   assert.ok(c.generic > 0 && c.self > 0 && c.fixed > 0, 'all three scopes are populated on the live surface')
   assert.ok(c.self + c.fixed > c.generic, 'most of this surface describes uuidna — the fact a caller needs up front')
   assert.match(c.honest, /never what it is good at/, 'the census must refuse to be read as a quality judgement')
+})
+
+test('an unheard-of parameter is UNMEASURED, never quietly promoted to self', () => {
+  // THE CONTROL FOR THE WHOLE MODULE. scopeOf decides by two hand-kept rosters — 38 caller-content names and 18
+  // ledger identifiers — and the set of names an author may choose for a parameter is open. A roster over an open
+  // category always has an outside, so what matters is what happens out there. It used to be: fall through to
+  // 'self', the STRONGER claim, that the tool can only be pointed at uuidna's own ledger.
+  assert.equal(scopeOf(schema('wavelengthNm')), 'unclassified', 'a name on neither roster is not evidence of anything')
+  // the two readings the rosters CAN make still work, unchanged
+  assert.equal(scopeOf(schema('theorem')), 'self')
+  assert.equal(scopeOf(schema('draft')), 'generic')
+  // and one unknown name withdraws the reading even beside a name the roster knows
+  assert.equal(scopeOf(schema('theorem', 'wavelengthNm')), 'unclassified',
+    'a recognised sibling does not vouch for an unrecognised parameter')
+
+  // THE SEAM, PINNED. The rosters pluralise value and item and stop there, so these five singulars are listed
+  // while their plurals are not — and every plural below is a real parameter on the live surface. passphrases is
+  // the one that shows the cost: a tool taking the caller's secrets was filed as talking only about this ledger.
+  for (const p of ['claims', 'keys', 'messages', 'passphrases', 'uuids'])
+    assert.equal(scopeOf(schema(p)), 'unclassified', p + ' is unheard-of while its singular is listed — it may not read as self')
 })
 
 test('the filter returns a usable subset and preserves catalogue order', () => {
