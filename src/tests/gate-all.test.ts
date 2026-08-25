@@ -5,6 +5,10 @@
 // two injected thin wrappers, heartbeats again, spin drift, derived diff — every one of which was already true on
 // the first pass. Independence is also the licence to run them CONCURRENTLY: the first version of this script
 // collected all the verdicts but still walked them linearly, which is why it was slow.
+import { readFileSync, existsSync } from 'node:fs'
+import { execFileSync } from 'node:child_process'
+import { join } from 'node:path'
+import { ROOT } from '../boundary.js'
 import { INSTRUMENTS } from '../scripts/gate-all.js'
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
@@ -171,4 +175,65 @@ test('an ENVIRONMENT PREFIX is not part of the command — the third costume of 
   // the direction that would cost a false verdict: stripping must never demote a genuine check into the wave
   assert.equal(kindOf('CI=1 npm run lint', scripts), 'check', 'eslint still renders a verdict and writes nothing')
   assert.equal(kindOf('FOO=bar git diff --exit-code -- lean/'), 'serial-check', 'and a tree-reader stays alone')
+})
+
+test('the RELEASE PROVER is a generator, and its rename is the fourth costume of one mistake', () => {
+  // MEASURED 2026-08-25, and self-inflicted. The audit's link 2 was `UUIDNA_PROVE_ALL=1 npm run lean`, matched as
+  // a generator once the env prefix is stripped. Replacing it with the runner that makes the release gate work on
+  // a cmd.exe host changed its NAME and nothing else — and the classifier reads names, so the tree's heaviest
+  // writer was reclassified read-only and fanned out beside spin and `git diff --exit-code`, which read what it
+  // writes. It announced itself as drift in a tree where nothing had changed but who was writing during the read.
+  assert.equal(kindOf('node dist/scripts/prove-all.js'), 'generator',
+    'the runner that re-proves the whole ledger must never share the wave with a step that reads it')
+  // its predecessor stays classified, so the rule that caught the env prefix is not quietly dropped
+  assert.equal(kindOf('UUIDNA_PROVE_ALL=1 npm run lean'), 'generator')
+  // and the pattern must be NARROW — a step that merely mentions proving is not a writer
+  assert.equal(kindOf('node dist/scripts/proof-check.js'), 'check', 'the match is the runner, not the word')
+})
+
+// ── THE WRITERS THAT WERE CLASSIFIED AS CHECKS (2026-08-25). GENERATOR_PATTERNS has now been taught five surface
+// forms — a missing hyphen, a manifest indirection, an env prefix, a rename, and these. Each was added after a
+// symptom, and the symptom is always the same: a step that WRITES running in the concurrent wave beside spin and
+// `git diff --exit-code`, which read exactly what it wrote. Drift in a tree where nothing had changed.
+//
+// I TRIED TO REPLACE THIS LIST WITH A PROPERTY AND COULD NOT, honestly. Reading each check's source for a write
+// cannot correlate the WRITE with its TARGET, so a script that reads tracked files and writes untracked ones
+// trips it (one-writer, axiom-hunt), and it cannot see per-invocation behaviour at all — one-receipt writes only
+// under `messaging`, spin only under `--seal`. Every attempt turned into a longer exemption list, which is the
+// exact failure mode of the pattern list it was meant to replace. So this pins what was MEASURED rather than
+// claiming a class-catcher I do not have, and the durable fix stays named and unbuilt: a runner should DECLARE
+// what it writes, and the classifier should read the declaration instead of the name.
+test('every step that writes the tracked tree is classified as a GENERATOR, not a check', () => {
+  // each verified by reading its source for the file it writes
+  assert.equal(kindOf('node dist/scripts/prove-all.js'), 'generator', 'rewrites the whole ledger')
+  assert.equal(kindOf('node dist/scripts/audit-citations.js'), 'generator', 'writes audit-citations.json')
+  assert.equal(kindOf('node dist/scripts/support.js --check'), 'generator', 'writes support-audit.json and research-leads.json')
+  assert.equal(kindOf('node dist/scripts/rosetta.js'), 'generator', 'writes src/rosetta-mirror.ts')
+  assert.equal(kindOf('node dist/scripts/one-receipt.js messaging'), 'generator', 'writes lean/messaging-witness.json')
+
+  // AND THE NARROWNESS, which is what keeps the fan-out worth having: one-receipt is run five times and only
+  // `messaging` writes, so the other four must stay concurrent. Ordering a whole script for one of its verbs
+  // would buy safety with the speedup the gate depends on.
+  for (const verb of ['dormant', 'skills', 'micro'])
+    assert.equal(kindOf(`node dist/scripts/one-receipt.js ${verb}`), 'check',
+      `one-receipt ${verb} reports and writes nothing — it belongs in the wave`)
+
+  // the predecessor rule still holds, so the env-prefix cure is not quietly dropped
+  assert.equal(kindOf('UUIDNA_PROVE_ALL=1 npm run lean'), 'generator')
+  // and a step that merely mentions proving is not a writer
+  assert.equal(kindOf('node dist/scripts/proof-check.js'), 'check')
+})
+
+test('THE .json TRAP — a pattern must not match a FILENAME in another command\'s arguments', () => {
+  // SHIPPED AND CAUGHT WITHIN THE MINUTE (2026-08-25). `.js` is a PREFIX of `.json`, so an unanchored
+  // /\baudit-citations\.js/ matched the string "audit-citations.json" sitting in the argument list of
+  // `git diff --exit-code -- …`. That reclassified the step that READS the tree as a GENERATOR, and the gate
+  // refused with "GENERATOR FAILED: git diff" — correctly, and about my own pattern rather than about the tree.
+  const diff = 'git diff --exit-code -- lean/ audit-citations.json support-audit.json research-leads.json'
+  assert.equal(kindOf(diff), 'serial-check',
+    'the tree-reader is a serial check; a generator pattern matching one of its ARGUMENTS inverts the whole plan')
+  // and each anchored pattern still matches the thing it is for
+  assert.equal(kindOf('node dist/scripts/audit-citations.js'), 'generator')
+  assert.equal(kindOf('node dist/scripts/support.js --check'), 'generator')
+  assert.equal(kindOf('node dist/scripts/rosetta.js'), 'generator')
 })

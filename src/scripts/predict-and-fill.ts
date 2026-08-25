@@ -8,7 +8,7 @@ const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinM
 const pathm = (): typeof import('node:path') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:path') as typeof import('node:path') // lazy: this chunk uploads to the edge, which has no path
 const urlm = (): typeof import('node:url') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:url') as typeof import('node:url') // lazy: this chunk uploads to the edge, which has no url
 import { theorems, PRINCIPLES } from '../index.js'
-import { HERE, ROOT, invokesFile } from './api.js'
+import { HERE, ROOT, invokesFile, rd } from './api.js'
 
 export interface PredictedGap {
   pattern: string
@@ -85,7 +85,34 @@ function predictTheoremGaps(): PredictedGap[] {
   // DERIVED, NOT REMEMBERED. This was `66`, hardcoded from the PRINCIPLES array at the time it was written, and the
   // test is `<` — so once the ledger passed 66 the branch became unreachable and the drift detector failed OPEN.
   // A count copied into code is the very drift this check exists to catch; it now reads the live figure.
+  //
+  // AND IT WAS STILL DEAD AFTER THAT FIX, for a second reason the first one hid. It compared
+  // `new Set(PRINCIPLES.map(p => p[1])).size` — distinct TITLES — against `PRINCIPLES.length` — ENTRIES. Both
+  // sides came off the SAME array, so the comparison could only ever detect a duplicate title; it could never
+  // detect the drift it names. Measured 2026-08-25: 115 entries, 115 distinct titles, `titles < entries` false
+  // and false by construction. A check whose two sides derive from ONE source measures its own derivation and
+  // reports success forever — the same vacuity the axiom check above was cured of, arriving by a different road.
+  //
+  // THE SECOND SOURCE IS THE DOCUMENT. lean/PRINCIPLE.md is written by scripts/lean-ledger from the parsed
+  // wings; PRINCIPLES is the array the code organises by. Those are genuinely two things, so comparing them can
+  // fail: regenerate one without the other and this fires. The entries are counted by a STRUCTURAL ANCHOR —
+  // a line beginning with a number, a dot and the bold marker — because a bare title match would read the
+  // document's own prose about principles as principles, which is how three other finders in this tree have
+  // been fooled this week.
   const expectedPrinciples = PRINCIPLES.length
+  const documented = (rd('lean/PRINCIPLE.md').match(/^[0-9]+\. \*\*/gm) ?? []).length
+  if (documented !== expectedPrinciples) {
+    gaps.push({
+      pattern: 'principle-drift',
+      likelihood: 'high',
+      location: 'lean/PRINCIPLE.md',
+      prediction: `lean/PRINCIPLE.md documents ${documented} principles; the ledger organises by ${expectedPrinciples}. One was regenerated without the other.`,
+      autoFillAction: {
+        file: 'lean/PRINCIPLE.md',
+        content: 'run: node dist/scripts/lean-ledger.js — the document is derived, so re-deriving it is the fix',
+      },
+    })
+  }
   const actualPrinciples = principleNames.size
   if (actualPrinciples < expectedPrinciples) {
     gaps.push({

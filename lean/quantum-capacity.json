@@ -10,7 +10,7 @@
    "usableMetric": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer",
    "opTimeNs": 1000,
    "opClass": "measured",
-   "source": "measured by this generator: full-2105-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+   "source": "measured by this generator: full-2112-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
   },
   {
    "model": "logical-48 array",
@@ -136,7 +136,7 @@
  "receipt": "6a71ca14-93f1-842b-8d2e-6520f41156bb",
  "measured": {
   "nsDecade": 3,
-  "ledger": 2105
+  "ledger": 2112
  },
  "honest": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer"
 }

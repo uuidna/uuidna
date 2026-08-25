@@ -149,6 +149,12 @@ century_leap_rule 19
 doomsday_even_months 19
 months_sum_common_365 19
 months_sum_leap_366 19
+february_is_the_only_month_of_whole_weeks 19
+julian_cycle_closes_at_twenty_eight 19
+the_gregorian_cycle_counted_in_weeks 19
+the_reform_is_exactly_three_days_in_four_hundred 19
+the_record_has_holes_the_rule_does_not 19
+a_gapless_index_admits_nothing_between 19
 #Channel.lean
 channel_multiplies_three 19
 element_costs_nine 19
@@ -1692,6 +1698,7 @@ tides_two_bulges 19
 market_tides_and_the_strategy_bar 19
 #UuidMix.lean
 uuid_mix_census_is_quantum 19
+the_mix_space_is_its_own_mirror 19
 #Uuidna.lean
 units_z9 18
 vortex_orbit 26

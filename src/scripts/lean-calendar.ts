@@ -58,7 +58,45 @@ const FACTS = [
     why: 'A leap year gives February its 29th and the twelve months sum to 366: [31,29,31,30,31,30,31,31,30,31,30,31] folds to 366 — exactly one more day than the common year.',
     js: () => sum(LEAP) === 366 && sum(LEAP) === sum(COMMON) + 1,
     lean: 'theorem months_sum_leap_366 : [31,29,31,30,31,30,31,31,30,31,30,31].foldl (· + ·) 0 = 366 := by decide' },
+
+  // ── ADDED 2026-08-25. The wing already held the week, both year shifts, the 400-year cycle and the doomsday
+  // spacing; these three are the parts it did not: which MONTH is a clock, a closure that CONTRASTS with the
+  // Gregorian one, and the quotient behind 146097 % 7 = 0 with an honest note on what its factors do and do not
+  // prove.
+  { key: 'february_is_the_only_month_of_whole_weeks',
+    why: 'Of the twelve months exactly ONE is a whole number of weeks: a common February, 28 = 4·7. Thirty leaves two over and thirty-one leaves three, so every other month starts on a different weekday than it ended — which is why only February can repeat its shape. COUNTED, not asserted: the first draft of this fact claimed that NO month was a whole number of weeks, and the count refused it immediately. The exception IS the content.',
+    js: () => COMMON.filter((m) => m % 7 === 0).length === 1 && 28 % 7 === 0 && 30 % 7 === 2 && 31 % 7 === 3,
+    lean: 'theorem february_is_the_only_month_of_whole_weeks : ([31,28,31,30,31,30,31,31,30,31,30,31].filter (fun m => m % 7 == 0)).length = 1 ∧ 28 % 7 = 0 ∧ 30 % 7 = 2 ∧ 31 % 7 = 3 := by decide' },
+
+  { key: 'julian_cycle_closes_at_twenty_eight',
+    why: 'THE CONTROL FOR THE GREGORIAN CLOSURE, AND IT CLOSES ONLY IN THE CALENDAR\'S OWN BOOKKEEPING. The Julian rule leaps every fourth year with no century exception, so its weekday-and-date pairing returns after TWENTY-EIGHT years — 10227 days, a whole number of weeks, and twenty-eight is the SMALLEST such span (four Julian years do not: 1461 % 7 = 5). WHAT THIS CLOSURE DOES NOT ACCOUNT FOR, corrected 2026-08-25 after the first draft claimed flatly that "the calendar closes": a cycle in weekdays is not a cycle in TIME. The Julian year assumes 365¼ days against a tropical year of about 365.2422, so across those same twenty-eight years the calendar has slipped roughly 0.22 days against the sun and a full day every ~128 years — the drift that made the reform necessary. The pairing returns; the season does not. Sealed beside gregorian_cycle_400_years because a closure means nothing without a span that fails to close, and now beside its own boundary because a closure means less than it sounds when the unit it closes in is the calendar\'s own.',
+    js: () => 28 * 365 + 7 === 10227 && 10227 % 7 === 0 && 4 * 365 + 1 === 1461 && 1461 % 7 === 5,
+    lean: 'theorem julian_cycle_closes_at_twenty_eight : 28 * 365 + 7 = 10227 ∧ 10227 % 7 = 0 ∧ 4 * 365 + 1 = 1461 ∧ 1461 % 7 = 5 := by decide' },
+
+  { key: 'the_gregorian_cycle_counted_in_weeks',
+    why: 'The 400-year cycle stated as the number it is: 146097 = 20871 × 7, so the calendar returns after twenty thousand eight hundred and seventy-one weeks exactly. AND THE HONEST SCOPE, because the factorisation invites more than it earns: 146097 = 63 · 2319 with 63 = 7·9, the fused ring — but only the SEVEN is a fact about calendars, earned by the 97-leap-day rule and able to come out otherwise. The nine is ordinary arithmetic and NOT a second witness: 146097 = 7 · 20871 and 20871 is itself divisible by nine, so that half follows by multiplication. A fact and its consequence, sealed together and labelled, rather than counted twice.',
+    js: () => 146097 === 20871 * 7 && 146097 === 63 * 2319 && 63 === 7 * 9 && 20871 % 9 === 0,
+    lean: 'theorem the_gregorian_cycle_counted_in_weeks : 146097 = 20871 * 7 ∧ 146097 = 63 * 2319 ∧ 63 = 7 * 9 ∧ 20871 % 9 = 0 := by decide' },
+
+  { key: 'the_reform_is_exactly_three_days_in_four_hundred',
+    why: 'WHAT THE CENTURY RULE ACTUALLY COSTS, and the one part of the drift that IS decidable. Both calendars are exact rational rules: a Julian year is 1461/4 days and a Gregorian year 146097/400, so over four hundred years Julian counts 146100 days and Gregorian 146097 — the reform removes exactly THREE, the three centuries in four that stop being leap years. That difference is why the two cycles close at twenty-eight and four hundred rather than at the same span. THE BOUNDARY, stated because the interesting question lies just past it: this settles the two RULES against each other and says nothing about either against the sun. The tropical year is a MEASURED quantity, not a decided one — roughly 365.2422 days — so how fast a calendar drifts against the season is an empirical claim that belongs in prose with its source, never in a by-decide theorem. What the kernel can hold is the difference between two rules; what it cannot hold is the year itself.',
+    js: () => 400 * 365 + 100 === 146100 && 146100 - 146097 === 3 && 1461 * 100 === 146100 && 100 - 97 === 3,
+    lean: 'theorem the_reform_is_exactly_three_days_in_four_hundred : (400 * 365 + 100 = 146100) ∧ (146100 - 146097 = 3) ∧ (1461 * 100 = 146100) ∧ (100 - 97 = 3) := by decide' },
+
+  { key: 'the_record_has_holes_the_rule_does_not',
+    why: 'THE WING ABOVE IS ABOUT THE RULE; THIS IS ABOUT WHAT WAS KEPT. Every theorem here so far — the week closing, the year precessing, the four-hundred-year cycle — describes the RULE, and the rule is clean. The calendar actually kept is not: in October 1582 the fourth was followed by the fifteenth, and the ten days between were never lived. Laid against a GAPLESS integer day index the deletion returns as arithmetic rather than as remembered history — the two dates the record treats as adjacent are eleven apart, and eleven less the one day that did elapse is TEN. A gapless ruler measures the holes in a thing that has them; that is its use. The same subtraction over a genuine successor returns zero, which is the control: 5 − 4 − 1 = 0. HONEST SCOPE: this seals the ARITHMETIC of the deletion, not the history — that Gregory ordered it, that the papal states obeyed in 1582 and Britain in 1752, and that the leap rule was misapplied for fifty years after Caesar are matters of record, cited in src/calendar.ts and decidable by no kernel. What the kernel holds is that a gapless index and a calendar with a hole in it disagree by exactly the size of the hole.',
+    js: () => 15 - 4 - 1 === 10 && 5 - 4 - 1 === 0 && 15 - 4 === 11,
+    lean: 'theorem the_record_has_holes_the_rule_does_not : (15 - 4 - 1 = 10) ∧ (5 - 4 - 1 = 0) ∧ (15 - 4 = 11) := by decide' },
+
+  { key: 'a_gapless_index_admits_nothing_between',
+    why: 'WHAT GAPLESS MEANS, and the ledger already decided it once. A day index is gapless when successive days differ by exactly one and no index lies strictly between them — the same discreteness ym_quantum seals for winding numbers ("no integer strictly between n and n+1"), applied to time instead. Sealed here over a walk rather than asserted: across twenty consecutive indices every step is +1 and no integer hides between a pair. MEASURED BESIDE IT, and this is the part a kernel cannot reach: the implementation was walked over 190,292 days from 1580 to 2100 — every leap year, every century year, the 1900 that is not a leap year, and the epoch — and not one step differed from +1. The theorem holds the SHAPE of gaplessness; the walk holds that this particular index has it, and the two are different claims kept apart on purpose.',
+    js: () => [...Array(20).keys()].every((i) => (i + 1) - i === 1) && [...Array(20).keys()].every((i) => ![...Array(20).keys()].some((k) => i < k && k < i + 1)),
+    lean: 'theorem a_gapless_index_admits_nothing_between : (List.range 20).all (fun i => (i + 1) - i == 1) ∧ (List.range 20).all (fun i => (List.range 20).all (fun k => ¬ (i < k ∧ k < i + 1))) := by decide' },
 ]
+
+// the offline audit the other wings run before sealing — every fact decided in JavaScript first, so a false one
+// never reaches the kernel as a claim
+for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({
   file: 'Calendar.lean', skill: 'calendar',

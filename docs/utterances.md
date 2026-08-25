@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1100 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1119 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1100 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1119 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `ac280c29` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `b6cb2a94` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -206,6 +206,17 @@ the strip is PURE and idempotent — stripping twice is stripping once
 uuidnaOS boots as the sandbox — verified loading, floor first, receipt-closed
 uuidnaOS and every related app are STRICT HEX — all states on the lattice, all compiles exactly 32
 a drifted world REFUSES to boot, fault named — the control that proves the floor can fail
+```
+
+**calendar** — 6 utterances
+
+```text
+THE WALK — every step is +1 across five centuries, or it is not a gapless index
+the century rule is IN the index, not beside it
+THE HOLE OF 1582, returned as arithmetic
+the year the civil era omits costs the index nothing
+the epoch is a choice and the consecutiveness is not
+it reads no clock — the same date returns the same index forever
 ```
 
 **captain-coins** — 7 utterances
@@ -669,7 +680,7 @@ mobility counts name their seals at the corners of the map
 the engine is deterministic and prefers the mate it can see
 ```
 
-**gate-all** — 14 utterances
+**gate-all** — 17 utterances
 
 ```text
 the plan is READ from the chain, so it cannot drift from what audit runs
@@ -686,6 +697,9 @@ pool honours its limit and preserves result order
 every instrument names the arms it voids, and the invisible one is covered
 labels stay short enough to read as a table
 an ENVIRONMENT PREFIX is not part of the command — the third costume of one mistake
+the RELEASE PROVER is a generator, and its rename is the fourth costume of one mistake
+every step that writes the tracked tree is classified as a GENERATOR, not a check
+THE .json TRAP — a pattern must not match a FILENAME in another command\
 ```
 
 **gate-paths** — 4 utterances
@@ -1513,6 +1527,14 @@ bounded — a cyclic rule set settles at the round cap
 every sealed theorem recomputes its content-address — generated from the ledger, red only if an intruder tampers
 ```
 
+**reconcile-covers** — 3 utterances
+
+```text
+every GENERATOR the audit runs is also in reconcile\
+the derive half publishes NOTHING — the property that makes it safe on a shared tree
+the failure messages name the SAFE door, not only the publishing one
+```
+
 **redos-bounds** — 4 utterances
 
 ```text
@@ -1931,6 +1953,18 @@ the 13 sealed Typesetting details exist in the ledger
 SEALED frameworks ring their gateway theorem (resonance)
 GAP frameworks are a GENUINE absence — no sealed theorem carries their native unit
 DEMARCATED irrationals are marked
+```
+
+**upgrade-wave** — 7 utterances
+
+```text
+the lanes PARTITION the work — every theorem in exactly one, none lost, none twice
+the assignment is DETERMINISTIC — two callers get the same lane without speaking
+the shard is BALANCED over the live ledger — measured, not hoped
+re-laning moves the work but never loses it — the shard is a view, not a state
+the census counts LEGS as well as theorems — they are different amounts of work
+the wave OWES only authored legs — it never claims a leg the ledger mints
+it hands out WORK, not answers — nothing here is a witness or a falsifier
 ```
 
 **url-audit** — 5 utterances

@@ -3,8 +3,8 @@
 **Generated:** 2026-08-25
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2105/2105 theorems — every one, by construction
-**Claim receipt:** `037b2cf2-423a-8bad-905d-2c49feeaf18c`
+**Total claimed:** 2112/2112 theorems — every one, by construction
+**Claim receipt:** `1a4ad8ba-e585-8703-88c5-499b56114343`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -457,12 +457,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The calendar
 
-- **Theorems:** 9
+- **Theorems:** 15
 - **Sample lineAddress:** `decc7999-1a76-8924-b421-65d267280902`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[week_is_z7](/theorem/week_is_z7) · [common_year_shifts_one](/theorem/common_year_shifts_one) · [leap_year_shifts_two](/theorem/leap_year_shifts_two) · [leap_years_per_400](/theorem/leap_years_per_400) · [gregorian_cycle_400_years](/theorem/gregorian_cycle_400_years) · [century_leap_rule](/theorem/century_leap_rule) · [doomsday_even_months](/theorem/doomsday_even_months) · [months_sum_common_365](/theorem/months_sum_common_365) · [months_sum_leap_366](/theorem/months_sum_leap_366)
+[week_is_z7](/theorem/week_is_z7) · [common_year_shifts_one](/theorem/common_year_shifts_one) · [leap_year_shifts_two](/theorem/leap_year_shifts_two) · [leap_years_per_400](/theorem/leap_years_per_400) · [gregorian_cycle_400_years](/theorem/gregorian_cycle_400_years) · [century_leap_rule](/theorem/century_leap_rule) · [doomsday_even_months](/theorem/doomsday_even_months) · [months_sum_common_365](/theorem/months_sum_common_365) · [months_sum_leap_366](/theorem/months_sum_leap_366) · [february_is_the_only_month_of_whole_weeks](/theorem/february_is_the_only_month_of_whole_weeks) · [julian_cycle_closes_at_twenty_eight](/theorem/julian_cycle_closes_at_twenty_eight) · [the_gregorian_cycle_counted_in_weeks](/theorem/the_gregorian_cycle_counted_in_weeks) · [the_reform_is_exactly_three_days_in_four_hundred](/theorem/the_reform_is_exactly_three_days_in_four_hundred) · [the_record_has_holes_the_rule_does_not](/theorem/the_record_has_holes_the_rule_does_not) · [a_gapless_index_admits_nothing_between](/theorem/a_gapless_index_admits_nothing_between)
 
 ### The measures of type
 
@@ -637,12 +637,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The uuid mix space
 
-- **Theorems:** 1
+- **Theorems:** 2
 - **Sample lineAddress:** `163fbc40-578e-8de3-af4e-0c5945e8168b`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[uuid_mix_census_is_quantum](/theorem/uuid_mix_census_is_quantum)
+[uuid_mix_census_is_quantum](/theorem/uuid_mix_census_is_quantum) · [the_mix_space_is_its_own_mirror](/theorem/the_mix_space_is_its_own_mirror)
 
 ### The song from the ledger
 
@@ -1059,7 +1059,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2024 (2105 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 2031 (2112 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1077,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2105 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2112 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

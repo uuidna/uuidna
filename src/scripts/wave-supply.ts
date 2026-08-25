@@ -23,6 +23,8 @@ import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { mirrorRows } from '../rosetta-legs.js'
+import { theorems, theoremNeighbours } from '../theorems/index.js'
+import { gridGaps, pairsGaps } from '../grid.js'
 
 /** How many INDEPENDENT legs the sealed corpus is still owed — a witness or a falsifier absent from a theorem
  *  that is already proved. Counted per missing leg rather than per theorem, because each leg is its own piece of
@@ -67,6 +69,15 @@ const countIn = (rel: string, key: string): number => {
   } catch { return 0 }
 }
 
+/** the coordinates the ledger exposes about itself — the SAME three walks uuidna_expose serves, so the census and
+ *  the served surface cannot report different numbers. Lonely principles first, then the two grid finders. */
+const exposedCount = (): number => {
+  try {
+    const lonely = theorems().filter((t) => theoremNeighbours(t.key).neighbours.length === 0).length
+    return lonely + gridGaps().length + pairsGaps().length
+  } catch { return 0 }
+}
+
 /** waveSupply() → what every finder currently holds, and whether the conveyor is empty or its suppliers are. */
 export function waveSupply(): Supply {
   const sources: SupplySource[] = [
@@ -84,6 +95,19 @@ export function waveSupply(): Supply {
     // result DRY reproduced, inside the supply census, the collapse of "nothing to report" into "nothing wrong".
     { name: 'unanchored-legs', count: missingLegs(), where: 'src/rosetta-legs.ts (mirrorRows)',
       reach: 'witnesses and falsifiers absent from theorems ALREADY SEALED — anchoring work, not new claims' },
+    // THE SECOND BLINDNESS, FOUND THE SAME WAY AS THE FIRST (2026-08-25). This census counted gaps,
+    // research-leads and unanchored legs — and not the RESEARCH RECORD, which is where a lead actually lands when
+    // somebody notices something and cannot settle it. lean/leads.json held thirteen open leads while the census
+    // could not see one of them, and each carries what it OWES, which is the most specific statement of demand
+    // this tree produces. The comment above says the first version "reproduced, inside the supply census, the
+    // collapse of nothing-to-report into nothing-wrong". It did it twice.
+    { name: 'held-leads', count: countIn(join('lean', 'leads.json'), 'held'), where: 'lean/leads.json (held)',
+      reach: 'noticed and unsettled, each carrying the evidence it OWES — a proof, a measurement, or a boundary' },
+    // and the coordinates the ledger exposes about ITSELF: a principle with one theorem and no neighbour, a
+    // broken grid seat. Counted through the same walk uuidna_expose serves, so the census and the served surface
+    // cannot disagree about what is exposed.
+    { name: 'exposed-coordinates', count: exposedCount(), where: 'grid.ts + theoremNeighbours',
+      reach: 'lonely principles and broken seats — WHERE unsealed structure shows, never a theorem' },
   ]
   const pending = countIn(join('lean', 'wave-queue.json'), 'pending')
   const available = sources.reduce((n, s) => n + s.count, 0)
