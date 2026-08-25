@@ -6,10 +6,10 @@
     "lean/axioms.json": "b99e5eb75af78aeb",
     "docs/mcp.md": "d622cc95021e8ed4",
     "audit-citations.json": "94a846c05ebb8eb1",
-    "support-audit.json": "ef7950abeba48f72",
-    "research-leads.json": "55faee9525fe8f7e",
+    "support-audit.json": "11a3cea691fc8e1b",
+    "research-leads.json": "cc2101d671508a12",
     ".zenodo.json": "26f27cfa27d1870e",
-    "reports.json": "2498c6d644678cc2",
+    "reports.json": "cc6c93a6ccfc83b3",
     "lean/statement-index.json": "9259a492b14a804a",
     "README.md": "77dabff62da684e8",
     "llm.txt": "34de1d8191bc849d",
@@ -1442,7 +1442,7 @@
     "lean/Diving.lean": "1ee5c0b9ddfa8056",
     "lean/doctrine-manifest.json": "f09bac7f05c68f4e",
     "lean/Doctrine.lean": "3c85ffc2982f8823",
-    "lean/dormant-receipt.json": "c335cff03e2581bd",
+    "lean/dormant-receipt.json": "ef317365d7118e80",
     "lean/dormant-scripts.json": "d473d91644f78281",
     "lean/doubletorus-manifest.json": "5718f6c5aef782ed",
     "lean/DoubleTorus.lean": "cb900f9aa0ab8208",
@@ -1626,5 +1626,5 @@
     "lean/waves-manifest.json": "18c307a128278bb8",
     "lean/Waves.lean": "6538607632588659"
   },
-  "receipt": "9303f369-2245-8dd9-9a28-ee13e28aeee5"
+  "receipt": "d00ddf44-0e9c-89be-9ad6-6c2fbea3aede"
 }

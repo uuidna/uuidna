@@ -25,7 +25,7 @@
  * Wall-clock (performance.now) is used only to MEASURE; the harmonic-scan exempts timing in
  * scripts/ for exactly this reason. Nothing here settles a theorem — it settles a stopwatch.
  *
- * Run: npm run crypto:measure
+ * Run: npm run x -- crypto-measure
  */
 
 import { sha256, pbkdf2Sha256, chacha20, aeadEncrypt, aeadDecrypt, theorems } from '../index.js'

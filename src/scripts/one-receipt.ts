@@ -191,7 +191,7 @@ export function wave(statement: string): void {
     // ENROLL — the newcomer's intake, so the walk never stops to ask for a clerk: the axiom witness covers every
     // current theorem, and the heartbeats measure ONLY the missing addresses (the incremental default — seconds
     // per newcomer, free when no one enrolls). No theorem enrolls unmeasured.
-    enroll: 'npm run axioms && npm run heartbeats',
+    enroll: 'npm run axioms && npm run x -- lean-heartbeats',
     dry: `node ${JSON.stringify(self)} dry`, legal: `node ${JSON.stringify(self)} legal`,
     prose: `node ${JSON.stringify(self)} prose`, fold: `node ${JSON.stringify(self)} fold`,
     guard: 'npm run guard', next: 'npm run next', mint: `node ${JSON.stringify(self)} mint ${JSON.stringify(statement)}`,
@@ -496,11 +496,11 @@ export function linesGaps(): Gap[] {
     const known = declared[g.statement]
     if (!known) gaps.push({
       what: `NEW cross-wing reuse: "${g.statement}" is sealed by ${g.keys.join(', ')} across ${files.join(' + ')}, and lean/statement-index.json does not declare it`,
-      fix: 'if the re-seal is deliberate (a standalone wing may not import another, so a shared fact is re-proven on purpose), run `npm run gen:lines` to declare it; if it is an accident, withdraw the later key. The index may only shrink — a new entry is a decision',
+      fix: 'if the re-seal is deliberate (a standalone wing may not import another, so a shared fact is re-proven on purpose), run `npm run x -- gen-lines` to declare it; if it is an accident, withdraw the later key. The index may only shrink — a new entry is a decision',
     })
     else if (known.length !== g.keys.length || !g.keys.every((k) => known.includes(k))) gaps.push({
       what: `reuse of "${g.statement}" changed: declared ${known.join(', ')} but the ledger now seals it as ${g.keys.join(', ')}`,
-      fix: 'run `npm run gen:lines` after confirming the change is intended — a reuse set that drifts silently is the duplication growing under a declaration that no longer describes it',
+      fix: 'run `npm run x -- gen-lines` after confirming the change is intended — a reuse set that drifts silently is the duplication growing under a declaration that no longer describes it',
     })
   }
   return gaps
@@ -613,7 +613,7 @@ export function absenceGaps(): Gap[] {
 // checks the invariant that makes "two envelopes" honest rather than "two sources of truth": every theorem's
 // address must AGREE across both files, and every block address must be DISTINCT — the exact class that once
 // collapsed 235 theorems onto one wing address, now guarded on both shapes at once.
-// SKIPS (returns clean— these are optional exports (`npm run payload:sync`),
+// SKIPS (returns clean— these are optional exports (`npm run x -- payload-sync`),
 // not part of every reconcile, so guard does not force-generate them; when they exist, they must agree.
 export function blocksGaps(): Gap[] {
   const gaps: Gap[] = []
@@ -635,7 +635,7 @@ export function blocksGaps(): Gap[] {
   for (const b of blocks) {
     const richAddr = richBySlug.get(b.slug)
     if (richAddr && richAddr !== b.uuidnaAddress)
-      gaps.push({ what: `"${b.slug}" has address ${richAddr} in payload-sync.json but ${b.uuidnaAddress} in payload-sync-blocks.json — the two envelopes disagree about one theorem's identity`, fix: 'both emitters must call documentAddress on the SAME lexical root for a given theorem; regenerate both with `npm run payload:sync` after checking toPayloadDocs and toPayloadBlocksDoc compute identically' })
+      gaps.push({ what: `"${b.slug}" has address ${richAddr} in payload-sync.json but ${b.uuidnaAddress} in payload-sync-blocks.json — the two envelopes disagree about one theorem's identity`, fix: 'both emitters must call documentAddress on the SAME lexical root for a given theorem; regenerate both with `npm run x -- payload-sync` after checking toPayloadDocs and toPayloadBlocksDoc compute identically' })
   }
   return gaps
 }
@@ -845,7 +845,7 @@ export function drainGaps(): Gap[] {
   for (const p of DRAIN_PATHS) {
     const line = p.endsWith('/') || !p.includes('.') ? p + '/**' : p
     if (!attrs.includes(`${line} merge=derived`))
-      gaps.push({ what: `${p} is a drain path but .gitattributes does not mark it unmergeable`, fix: 'run `npm run gen:gitattributes` — .gitattributes is generated from DRAIN_PATHS; a derived file has no merge, only a recomputation' })
+      gaps.push({ what: `${p} is a drain path but .gitattributes does not mark it unmergeable`, fix: 'run `npm run x -- gen-gitattributes` — .gitattributes is generated from DRAIN_PATHS; a derived file has no merge, only a recomputation' })
   }
   return gaps
 }

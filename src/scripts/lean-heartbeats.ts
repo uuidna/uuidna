@@ -6,9 +6,9 @@
 // decide ranges over), which text-size cannot: a 64-case decide costs far more than a one-line arithmetic fact.
 //
 // Requires the `lean` toolchain and one Lean run per probe. Usage:
-//   npm run heartbeats            → a small sample
-//   npm run heartbeats key ...    → named theorems
-//   npm run heartbeats --all      → FOLD the whole ledger (expensive: ~15 probes × every theorem, run in parallel)
+//   npm run x -- lean-heartbeats            → a small sample
+//   npm run x -- lean-heartbeats key ...    → named theorems
+//   npm run x -- lean-heartbeats --all      → FOLD the whole ledger (expensive: ~15 probes × every theorem, run in parallel)
 // Integrity — the record recomputes for anyone.
 import { execFile } from 'node:child_process'
 import { writeFileSync, readFileSync } from 'node:fs'

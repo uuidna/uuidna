@@ -17,7 +17,7 @@ const domains = (): string[] =>
 
 const arg = process.argv[2]
 if (!arg) {
-  console.error('lean:one — usage: npm run lean:one -- <domain>\navailable: ' + domains().join(', '))
+  console.error('lean:one — usage: npm run x -- lean-one <domain>\navailable: ' + domains().join(', '))
   process.exit(1)
 }
 const file = `lean-${arg.toLowerCase()}.js`
