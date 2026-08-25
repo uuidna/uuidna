@@ -264,7 +264,16 @@ if (isMain) {
     if (!sid) {
       console.error('✗ one-writer open — no UUIDNA_SESSION, so this session cannot name itself and a manifest')
       console.error('  written now could not be found again. Refusing rather than writing one nobody can read.')
-      console.error('  FIX export UUIDNA_SESSION=<a name stable for this session>, then open again.')
+      // The placeholder names the session plainly instead of opening with the two characters that begin an anchor
+      // tag: the markup guard reads those as an element and demands a closing tag a shell usage placeholder will
+      // never have. Use versus mention, in a string that is prose to a human and markup to a scanner.
+      //
+      // THIS NOTE IS DELIBERATELY WRITTEN WITHOUT THE OFFENDING SPELLINGS, and the first draft was not. It
+      // explained the class by quoting the host's maximum intrinsic by name — and the determinism scan, which
+      // bans that token in prose as firmly as in code, refused the commit. A comment about a finder tripping the
+      // finder it was explaining, which is the same trap gate-all.ts records falling into and climbing out of the
+      // same way. The rule the tree already states: if a token is banned, it is banned in prose too.
+      console.error('  FIX export UUIDNA_SESSION=<session-name>, then open again.')
       process.exit(1)
     }
     const m = openSession(sid)

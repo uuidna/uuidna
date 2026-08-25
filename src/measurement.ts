@@ -113,6 +113,34 @@ export function violations(list: readonly Measurement[]): { measurement: Measure
   return out
 }
 
+/** violationReport(list) → the breaches AND the reach that found them, because an empty `violations` array says
+ *  two different things and this one says which.
+ *
+ *  FOUND BY APPLYING A PEER'S SHAPE TO MY OWN CODE, minutes after they named it. `violations([])` and
+ *  `violations([everything lawful])` both return `[]` — the healthy case and the unasked case are one value. That
+ *  is the defect this session has now found in a lock that certified exclusivity it never held, a census that
+ *  called an empty queue health, a leg predicate that counted instead of discriminating, an audit that checked one
+ *  comment delimiter of two, and a citation gate that stamped a claim and its negation alike. I wrote
+ *  `tensionReport` two hours ago FOR this exact collapse and then reproduced it here, which is the honest measure
+ *  of how easy the mistake is: knowing the shape is not the same as checking for it. */
+export function violationReport(list: readonly Measurement[]): {
+  violations: { measurement: Measurement; law: string }[]
+  checked: number
+  checkable: boolean
+  honest: string
+} {
+  const found = violations(list)
+  return {
+    violations: found,
+    checked: list.length,
+    checkable: list.length > 0,
+    honest: list.length === 0
+      ? 'NOT CHECKABLE: no measurement was supplied, so no law could be broken here. An empty result over an empty ' +
+        'input is the absence of a question, never a clean bill of health.'
+      : `checked ${list.length} measurement(s); ${found.length} breach(es) named.`,
+  }
+}
+
 /** The decade of a positive value — the only form a measured time may be sealed in. Integer arithmetic only:
  *  the determinism scan admits no host Math call anywhere in this tree, no exemption for a helper. */
 export function decadeOf(value: number): number {
