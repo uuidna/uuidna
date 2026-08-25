@@ -3,8 +3,8 @@
 **Generated:** 2026-08-25
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 1693/1693 theorems — every one, by construction
-**Claim receipt:** `2ecc5fb6-3f91-854e-90c3-3f9a0fa615fa`
+**Total claimed:** 1696/1696 theorems — every one, by construction
+**Claim receipt:** `2249e400-e080-85d1-b1af-9571a30a3680`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -169,12 +169,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The hardware-verifiable binary algebra
 
-- **Theorems:** 14
+- **Theorems:** 17
 - **Sample lineAddress:** `fc5dbdd8-0ba0-86ec-b11e-54bb52d6d850`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[not_gate_truth_table](/theorem/not_gate_truth_table) · [and_gate_truth_table](/theorem/and_gate_truth_table) · [or_gate_truth_table](/theorem/or_gate_truth_table) · [xor_gate_truth_table](/theorem/xor_gate_truth_table) · [xor_is_addition_mod_two](/theorem/xor_is_addition_mod_two) · [gate_output_is_one_bit](/theorem/gate_output_is_one_bit) · [nand_reconstructs_not](/theorem/nand_reconstructs_not) · [nand_reconstructs_and](/theorem/nand_reconstructs_and) · [nand_reconstructs_or](/theorem/nand_reconstructs_or) · [nand_functionally_complete](/theorem/nand_functionally_complete) · [de_morgan_gate_law](/theorem/de_morgan_gate_law) · [half_adder_correct](/theorem/half_adder_correct) · [full_adder_correct](/theorem/full_adder_correct) · [mux_selects_input](/theorem/mux_selects_input)
+[not_gate_truth_table](/theorem/not_gate_truth_table) · [and_gate_truth_table](/theorem/and_gate_truth_table) · [or_gate_truth_table](/theorem/or_gate_truth_table) · [xor_gate_truth_table](/theorem/xor_gate_truth_table) · [xor_is_addition_mod_two](/theorem/xor_is_addition_mod_two) · [gate_output_is_one_bit](/theorem/gate_output_is_one_bit) · [nand_reconstructs_not](/theorem/nand_reconstructs_not) · [nand_reconstructs_and](/theorem/nand_reconstructs_and) · [nand_reconstructs_or](/theorem/nand_reconstructs_or) · [nand_functionally_complete](/theorem/nand_functionally_complete) · [de_morgan_gate_law](/theorem/de_morgan_gate_law) · [half_adder_correct](/theorem/half_adder_correct) · [full_adder_correct](/theorem/full_adder_correct) · [mux_selects_input](/theorem/mux_selects_input) · [lanes_partition_the_work](/theorem/lanes_partition_the_work) · [lanes_balance_within_one](/theorem/lanes_balance_within_one) · [lanes_even_on_complete_system](/theorem/lanes_even_on_complete_system)
 
 ### The software-verifiable algebra
 
@@ -1059,7 +1059,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 1612 (1693 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 1615 (1696 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1077,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 1693 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 1696 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

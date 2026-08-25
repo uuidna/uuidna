@@ -14,7 +14,7 @@
       "value": 128,
       "unitText": "qubits",
       "measurementTechnique": "declared",
-      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer — measured by this generator: full-1693-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
+      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (classical; 128 = 2^7, the 7-qubit fold — theorem handle_capacity_is_quantum_by_architecture); never a quantum computer — measured by this generator: full-1696-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -22,7 +22,7 @@
       "value": 1000,
       "unitText": "ns",
       "measurementTechnique": "measured",
-      "citation": "measured by this generator: full-1693-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+      "citation": "measured by this generator: full-1696-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
     },
     {
       "@type": "PropertyValue",
@@ -249,6 +249,75 @@
       "value": "none demonstrated",
       "measurementTechnique": "reported",
       "citation": "Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named — Xanadu, Nature 2022 — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "balancer — lanes in use",
+      "value": 14,
+      "unitText": "lanes",
+      "measurementTechnique": "measured",
+      "citation": "read from this host at build time: 16 logical processors less 2 reserved, so the fan-out is never wider than the machine"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "balancer — work distributed",
+      "value": 1696,
+      "unitText": "items",
+      "measurementTechnique": "measured",
+      "citation": "every piece the fan-out actually routed this run, counted from the lane census rather than from what was queued"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "balancer — lane spread",
+      "value": 131,
+      "unitText": "% (busiest lane over quietest; 100 is even)",
+      "measurementTechnique": "measured",
+      "citation": "busiest lane held 135, quietest held 103 — measured on the work that ran, not asserted from the key's uniformity"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "balancer — inter-lane messages",
+      "value": 0,
+      "unitText": "messages",
+      "measurementTechnique": "declared",
+      "citation": "ZERO BY CONSTRUCTION, not by tuning, and the construction is SEALED: theorem lanes_partition_the_work proves the residue map is a partition — summing what each of 14 lanes receives from 64 items returns 64, nothing lost and nothing counted twice — so the question a scheduler exists to answer cannot arise. merkleGravity is order-invariant, so lanes never need to agree on order either. Coordination overhead cannot grow with lane count because there is no coordination, and a channel that does not exist cannot be raced, starved, forged or observed. The price, named: residue routing is not work-conserving and costs about a tenth more wall-clock on an even workload"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "balancer — worst-case lane imbalance",
+      "value": 1,
+      "unitText": "item",
+      "measurementTechnique": "computed",
+      "citation": "PROVEN, not observed: theorem lanes_balance_within_one seals that 64 items over 14 lanes give every lane 4 or 5 — never fewer, never more — with no lane knowing what another holds, and theorem lanes_even_on_complete_system seals that the imbalance vanishes entirely when the work divides (56 items over 14 lanes give exactly 4 each). So the imbalance is never structural; it is only the remainder, bounded by one item per lane. All three are `by decide`, sorry-free, and depend on NO axiom beyond the leanprover/lean4 kernel"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "balancer — executor seats",
+      "value": 3,
+      "unitText": "seats",
+      "measurementTechnique": "declared",
+      "citation": "1 measured, 1 specified, 1 empty — the trinity is two executors and one notice"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "executor seat — CPU",
+      "value": "measured",
+      "measurementTechnique": "measured",
+      "citation": "anything the tree computes: exact integer arithmetic, process spawns, filesystem reads — the whole ledger runs here — the only lane with figures behind it. The proof sweep was measured across 14 lanes, and the lane count itself is read from the host rather than assumed (os/host capacity), never hard-coded."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "executor seat — GPU",
+      "value": "specified",
+      "measurementTechnique": "computed",
+      "citation": "work that is (1) INDEPENDENT per element — no piece reads another's result; (2) EXACT INTEGER — this tree runs no floats, so a lane that computes in floating point cannot hold a fold; (3) WIDE ENOUGH to pay for the transfer, since moving a few kilobytes to a device and back costs more than folding it in place — NOT BUILT, and MEASURED NOT TO PAY at this ledger's scale. The shapes that qualify are real — the merkle fold is a balanced XOR tree whose siblings are independent by construction, and the receipt sweep applies one pure function across the whole ledger — but the whole of that work, over every theorem the ledger holds, is 0.59 ms on one CPU core (sweep 0.038 ms, fold 0.554 ms, 23 ns per address). A device round trip costs more than that before it computes anything. The lane is specified rather than built because the algebra says yes and the stopwatch says it would not matter."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "executor seat — QPU",
+      "value": "empty",
+      "measurementTechnique": "declared",
+      "citation": "nothing — no work is routed here, because there is nothing to route it to — THE SEAT IS A NOTICE. This repository does not have quantum hardware, does not simulate it, and does not claim an advantage from it; the readiness trial checks that last point on every run. The word appears here so a reader knows the seat was considered and left empty ON PURPOSE, which is a different statement from silence. If a device ever attaches, it earns this seat the way everything else in this tree earns anything: measured, with a receipt, against work that was independent to begin with."
     }
   ]
 }

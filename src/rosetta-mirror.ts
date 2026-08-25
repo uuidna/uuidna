@@ -554,6 +554,9 @@ de_morgan_gate_law 19
 half_adder_correct 19
 full_adder_correct 19
 mux_selects_input 19
+lanes_partition_the_work 19
+lanes_balance_within_one 19
+lanes_even_on_complete_system 19
 #Harmony.lean
 dna_bases_reflect_through_three 19
 chargaff_strand_balance 19

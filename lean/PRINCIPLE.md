@@ -2,7 +2,7 @@
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1693 theorems** in
+Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **1696 theorems** in
 derivation order. A theorem computes in Lean, or it is not a theorem.
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
@@ -56,7 +56,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 17. **The two coins & the 64** — `lean/Coins.lean` · **25** theorems
    the honest billing/measure algebra — the two coins are the conserved fair-exchange invariant (110−108 = 2 = −χ of the double torus, genus 2), 64 = 2⁶ is the bit measure, contribute 2 to save up to 64 (leverage 32), n qubits give 2ⁿ direct outcomes reaching 64 at n=6, and the measured saving never goes negative — a measured unit of work saved, not a price and not a claim of speed
 
-18. **The hardware-verifiable binary algebra** — `lean/Hardware.lean` · **14** theorems
+18. **The hardware-verifiable binary algebra** — `lean/Hardware.lean` · **17** theorems
    the low-level combinational-logic identities every digital circuit is built from, each a decidable axiom-free `by decide` particle: the four gate truth tables as bit arithmetic (NOT a = 1−a, AND = a·b, OR = a+b−a·b, XOR = the axiom-free lxor), XOR = ℤ/2 parity, Boolean closure on the bit, NAND functional completeness (NAND rebuilds NOT/AND/OR — why chips are one repeated gate), De Morgan, the half- and full-adder (sum + 2·carry = the input sum), and the 2:1 multiplexer. All match the live published digital-logic spec. HONEST SCOPE: integrity, not truth — uuidna SEALS the spec a netlist is verified AGAINST; it does not fabricate a device, synthesise a netlist, or develop silicon. A sealed spec, not a chip
 
 19. **The software-verifiable algebra** — `lean/Software.lean` · **15** theorems
