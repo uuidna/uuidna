@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="941 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="978 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 941 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 978 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `35ef4c30` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `d1fc050e` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -393,6 +393,15 @@ trial returns one answer — VERIFIED or UNVERIFIED, all else void
 an unknown route 404s
 ```
 
+**deadkey** — 4 utterances
+
+```text
+THE CONTROL — the finder can say NO, which it has never been asked to prove
+ONE underscore is key-shaped — the 6.4% the old rule could not see
+a sealed key, an MCP tool name and a declared non-citation are all EXEMPT, and for different reasons
+the LIVE tree cites no dead key — tests included, which is new
+```
+
 **detail-audit** — 13 utterances
 
 ```text
@@ -752,6 +761,22 @@ the OS is bootable quantum — the boot image is the compiled specs in boot orde
 the receipt is stable, recomputable, and CHANGE-SENSITIVE — the instrument can fail
 ```
 
+**involution** — 11 utterances
+
+```text
+every named map is genuinely self-inverse on every digit
+divZero fixes 0 and 5 — and the fixed point is what inverting zero creates
+RULE 1 — THE MODULUS IS NOT AN ELEMENT (regression: this once reported 102 survivors)
+a multi-digit numeral is not reflected digit by digit
+holds() has THREE answers — a statement it cannot reach is not a statement that failed
+fixed is reported apart from survives — a map gets no credit for what it does not move
+THE LAW DISCRIMINATES — and what the fixed point buys is FIXED POINTS, not survivors
+RULE 2 — a broken theorem does NOT pair with its image (regression: 0 of 637, not all of them)
+the collided root is order-invariant — a pile has an identity no member carries
+THE CONTROL — no meaning is claimed for a root until same-sized piles are shown to differ
+digitalRootOf lands in 1..9 and moves with the address
+```
+
 **lanes** — 6 utterances
 
 ```text
@@ -957,12 +982,14 @@ a holder with a live child reads WORKING, and the same holder reads not-working 
 a pid that cannot have children answers no rather than throwing
 ```
 
-**one-writer** — 11 utterances
+**one-writer** — 13 utterances
 
 ```text
 one writer wins; a STRANGER is refused with the holder NAMED (a descendant passes — that is reentrancy)
 reentrancy is the WALK, not just the holder: a descendant a REAL HOP away passes
 the ppid walk is paid for ONCE — a refusal loop must not spawn a process table per poll
+a RECYCLED pid does not inherit the lock — the holder is identified, not merely counted
+a lock with NO birth stamp is honoured on liveness alone — an older build is not evidence of a corpse
 a dead holder is stale by pid-liveness — reclaimed on the next acquire, no clock consulted
 only the holder releases; releasing a live stranger\
 a corrupt lock file never wedges the tree
@@ -1284,6 +1311,22 @@ snapshot NAMES an unknown key rather than folding it — drift refused
 the reactor recycles — an unverified claim returns with its develop plan
 ```
 
+**reading** — 11 utterances
+
+```text
+every aspect answers, and no aspect is silently dropped
+the reading reports its own coverage as integers, never a division
+AN ASPECT THAT COULD NOT LOOK SAYS SO — refusal is never a zero
+PROVENANCE REFUSES TO GUESS — bytes cannot testify to their own source
+PROSODY SEPARATES VERSE FROM PROSE — the aspect a bag of words cannot reach
+SCRIPT counts by Unicode block, so it is right about languages it has never heard of
+MORPHOLOGY sees hapax legomena, which a distinct-count hides
+STRUCTURE sees the tree a bag of words cannot — headings decided by shape, not a word list
+DIALOGUE counts speech by its own marks, and reports an unbalanced edition rather than repairing it
+EVERY ASPECT CARRIES ITS OWN DENOMINATOR — a reader that read a fraction cannot look like one that read all
+the reading is bound to the exact bytes — change one word and the address moves
+```
+
 **readme-coverage** — 3 utterances
 
 ```text
@@ -1383,6 +1426,20 @@ the heartbeat separates answering, empty, REFUSED and thrown — and never raise
 the heartbeat receipt moves when a source goes dark, and is stable when nothing changes
 an HTML body is recognised as a web page, not as data
 the heartbeat treats a DECLINED source as dark, never as an empty world
+```
+
+**school-paths** — 9 utterances
+
+```text
+the tree is recursive: one node type, four depths, depth == heading depth
+every course is ADDRESSABLE — a thing with no anchor cannot be crosslinked
+crosslinks are DERIVED — a link exists because two nodes share a skill, never because it was authored
+the census counts what was rendered — a renderer that cannot say how much it rendered is not audited
+MINIMUM PAGES: depth-bounded rendering keeps one page while every node keeps its address
+THE ALTERNATIVE TO LEAN: the school still grades when the kernel measure cannot be read
+THE KERNEL READ NAMES ITS OWN FAILURE — absent is a third answer, never a zero
+the school reports its own denominator and which measure it stands on
+an unmeasured level is still not a low one
 ```
 
 **school-tools** — 4 utterances
