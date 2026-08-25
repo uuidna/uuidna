@@ -113,16 +113,29 @@ function predictTheoremGaps(): PredictedGap[] {
       },
     })
   }
-  const actualPrinciples = principleNames.size
-  if (actualPrinciples < expectedPrinciples) {
+  // TWO DEFINITIONS, RECONCILED — the half of the lead the document check above did not pay. This branch compares
+  // distinct TITLES against ENTRIES, and it kept the message of the count check it was cloned from: "Missing
+  // principles … auto-generate placeholders". That message is a wrong diagnosis of a real condition. Titles and
+  // entries are different quantities, so the comparison cannot detect a principle missing from the document — the
+  // check above does that, against a genuinely separate source. What `titles < entries` detects is that TWO
+  // ENTRIES SHARE A TITLE, which is its own defect and worth catching: the ledger organises by principle, and two
+  // principles answering to one name make every count that groups by title silently short.
+  //
+  // So it now says what it measures. A check that fires correctly and explains itself wrongly sends the reader to
+  // repair the wrong thing, which is the more expensive half of a bad finder — the fix it printed would have had
+  // someone generating placeholder principles for a duplicate name.
+  const distinctTitles = principleNames.size
+  if (distinctTitles < expectedPrinciples) {
+    const seen = new Set<string>()
+    const duplicated = [...new Set(PRINCIPLES.map((p) => p[1]).filter((t) => seen.size === seen.add(t).size))]
     gaps.push({
-      pattern: 'principle-drift',
-      likelihood: 'medium',
-      location: 'lean/PRINCIPLE.md',
-      prediction: `Principles count: ${actualPrinciples}/${expectedPrinciples}. Missing ${expectedPrinciples - actualPrinciples}. New theorems will trigger imbalance.`,
+      pattern: 'principle-title-collision',
+      likelihood: 'high',
+      location: 'src/scripts/lean-ledger.ts',
+      prediction: `${expectedPrinciples} principles carry only ${distinctTitles} distinct titles — ${duplicated.length} name(s) used twice: ${duplicated.slice(0, 5).join(', ')}. Every count that groups by title is short by ${expectedPrinciples - distinctTitles}.`,
       autoFillAction: {
-        file: 'lean/PRINCIPLE.md',
-        content: `# Missing principles: ${expectedPrinciples - actualPrinciples}. Auto-generate placeholders and assign theorems.`,
+        file: 'src/scripts/lean-ledger.ts',
+        content: `rename the duplicate principle title(s) so each entry is uniquely addressable: ${duplicated.slice(0, 5).join(', ')}`,
       },
     })
   }
