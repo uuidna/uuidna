@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "8eb2a9cf21a3716e",
-        "unifiedFold": "5b1d9499c1f8ef33"
+        "foldReceipt": "47ee267b2e1f3e55",
+        "unifiedFold": "b0b88ec158c82511"
       },
-      "address": "17ca0c5f-7b06-8158-9329-ae32f75dfdc0"
+      "address": "b218d354-07d9-80c7-a815-cb6f6d911527"
     }
   ],
-  "receipt": "d2c16d55-3ad6-82c9-85af-a7f43094c85a",
+  "receipt": "d4062989-49d5-8e8e-86e7-076a912888c3",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }
