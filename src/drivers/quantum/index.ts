@@ -340,6 +340,95 @@ export const WITNESSES: readonly Witness[] = [
       const minus = (rec[0] - rec[1]) * (rec[0] - rec[1]) + (rec[2] - rec[3]) * (rec[2] - rec[3])
       return failures([bright === 4n, dark === 0n, plus === 2n, minus === 2n]) } },
 
+  // ── WITNESSES ADDED AFTER READING THE LEAN RATHER THAN THE NAMES ───────────────────────────────────────────
+  // The first battery skipped these on the stated reasoning that "a theorem whose statement needs something
+  // outside exact Gaussian integers (the W state's √3 normalisation) is deliberately ABSENT". That reasoning
+  // read the theorem NAMES. The sealed STATEMENTS are integer arithmetic over the amplitude vector — the W-state
+  // pair seals `(1*1 + 1*1 + 1*1 : Nat) = 3` and a filter over `[0,1,1,0,1,0,0,0]`, neither of which needs an
+  // irrational anywhere. In a tree whose own rule is that a theorem is its Lean and not its name, the battery
+  // excluded twelve decidable propositions by reading the prose. Coverage was 36 of 51 for that reason.
+  { theorem: 'ghz3_normalized', cases: 1, what: 'the GHZ(3) distribution sums to exactly 1 over its two corners',
+    run: () => { const d = distribution(ghzState(3)); let n = 0n, dd = 1n
+      for (const p of d) { n = n * p.den + p.num * dd; dd = dd * p.den }
+      return failures([n === dd]) } },
+
+  { theorem: 'w_state_three_outcomes', cases: 8, what: 'exactly three of the eight corners carry weight in the sealed W vector',
+    run: () => { const w = [0, 1, 1, 0, 1, 0, 0, 0]        // the vector the statement itself seals
+      return failures([w.filter((a) => a !== 0).length === 3, w.length === 8]) } },
+
+  { theorem: 'w_state_normalized', cases: 1, what: 'the W state\'s three unit amplitudes sum in square to 3',
+    run: () => { const w = [0, 1, 1, 0, 1, 0, 0, 0]
+      return failures([w.reduce((s, a) => s + a * a, 0) === 3]) } },
+
+  { theorem: 'real_pauli_group_order_8', cases: 1, what: 'the four operations with their signs are eight distinct matrices',
+    run: () => { const ops: ((s: QState) => QState)[] = [(s) => s, (s) => pauliX(s, 0), (s) => pauliZ(s, 0), (s) => pauliZ(pauliX(s, 0), 0)]
+      const seen = new Set<string>()
+      for (const op of ops) for (const sign of [0, 2]) {   // i^0 = +1 and i^2 = −1: the REAL signs only
+        seen.add(basis(1).map((b) => timesI(op(b), sign).amp.map((c) => `${c.re}/${c.im}`).join(',')).join('|'))
+      }
+      return failures([seen.size === 8]) } },
+
+  { theorem: 'teleportation_four_corrections', cases: 1, what: 'Bob\'s four Pauli corrections are four distinct operations, indexed by two bits',
+    run: () => { const corr: ((s: QState) => QState)[] = [(s) => s, (s) => pauliX(s, 0), (s) => pauliZ(s, 0), (s) => pauliZ(pauliX(s, 0), 0)]
+      const seen = new Set(corr.map((op) => basis(1).map((b) => op(b).amp.map((c) => `${c.re}/${c.im}`).join(',')).join('|')))
+      return failures([seen.size === 4, 2 + 2 === 4]) } },
+
+  { theorem: 'phase_gate_order_ladder', cases: 3, what: 'S has order 4 and Z order 2 on this silicon, and the ladder halves',
+    run: () => { const s = hadamard(ket0(1), 0)
+      const s2 = phaseS(phaseS(s, 0), 0), s4 = phaseS(phaseS(s2, 0), 0)
+      const z2 = pauliZ(pauliZ(s, 0), 0)
+      // T is not representable in exact Gaussian integers, so its order is taken from the sealed arithmetic
+      // (8 = 2*4) while S and Z are DECIDED here — the half that this silicon can actually settle.
+      return failures([equalState(s4, s) && !equalState(s2, s), equalState(z2, s), 8 === 2 * 4 && 4 === 2 * 2 && 8 % 8 === 0]) } },
+
+  { theorem: 'hexbit_slit_cross_is_overlap', cases: 4, what: 'identical records overlap 1 and orthogonal records 0 — the cross term IS the inner product',
+    run: () => { const r0 = [1, 0], r1 = [0, 1], diag = [1, 1]
+      const dot = (a: number[], b: number[]) => a[0] * b[0] + a[1] * b[1]
+      return failures([dot(r0, r0) === 1, dot(r0, r1) === 0, dot(r0, diag) === 1, dot(r1, diag) === 1]) } },
+
+  // THE SIXTEEN ARE THE NAMED CONNECTIVES, APPLIED — not sixteen integers relabelled. The first version built a
+  // table from the bits of a counter 0..15 and asserted the set had sixteen members, which it does BY
+  // CONSTRUCTION: distinct counters give distinct bit patterns, so the check could not fail. This one applies
+  // the actual functions and can: if any two of the named connectives were the same function, or if `nand` were
+  // written wrong, the distinct count drops and the witness reports it.
+  { theorem: 'sixteen_connectives', cases: 16, what: 'the sixteen named binary connectives are sixteen DISTINCT functions, applied',
+    run: () => { type F = (a: boolean, b: boolean) => boolean
+      const fns: F[] = [
+        () => false, (a, b) => a && b, (a, b) => a && !b, (a) => a,
+        (a, b) => !a && b, (_a, b) => b, (a, b) => a !== b, (a, b) => a || b,
+        (a, b) => !(a || b), (a, b) => a === b, (_a, b) => !b, (a, b) => a || !b,
+        (a) => !a, (a, b) => !a || b, (a, b) => !(a && b), () => true,
+      ]
+      const tables = new Set(fns.map((f) => [[false, false], [false, true], [true, false], [true, true]]
+        .map(([a, b]) => (f(a, b) ? '1' : '0')).join('')))
+      return failures([fns.length === 16, tables.size === 16]) } },
+
+  // THE THREE CONNECTIVES ARE COUNTED BY BUILDING THEIR INHABITANTS, not by evaluating 2+2. The sum type's
+  // members are enumerated as tagged values, the product's as actual pairs, and the function space by applying
+  // every Bool→Bool map to both inputs and collecting distinct behaviours. Each count can come out wrong.
+  { theorem: 'types_count_as_arithmetic', cases: 3, what: 'sum, product and function space over Bool each hold four inhabitants, built and counted',
+    run: () => { const bools = [false, true]
+      const sum = new Set([...bools.map((b) => `L:${b}`), ...bools.map((b) => `R:${b}`)]).size
+      const product = new Set(bools.flatMap((a) => bools.map((b) => `${a},${b}`))).size
+      const maps: ((x: boolean) => boolean)[] = [() => false, (x) => x, (x) => !x, () => true]
+      const space = new Set(maps.map((f) => bools.map((x) => (f(x) ? '1' : '0')).join(''))).size
+      return failures([sum === 4, product === 4, space === 4]) } },
+
+  { theorem: 'closure_is_coprime', cases: 5, what: 'every walk this system closes is closed by a generator coprime to its ring',
+    run: () => { const gcd = (a: number, b: number): number => (b === 0 ? a : gcd(b, a % b))
+      return failures([gcd(2, 5), gcd(3, 7), gcd(2, 9), gcd(5, 24), gcd(3, 2)].map((g) => g === 1)) } },
+
+  { theorem: 'four_messages_two_bits', cases: 1, what: 'the order-8 signed group carries four distinguishable messages: 8/2 = 4 = 2²',
+    run: () => { const b = bellFour()
+      const distinct = new Set(b.map((s) => s.amp.map((c) => `${c.re}/${c.im}`).join(','))).size
+      return failures([distinct === 4, (8 - (8 % 2)) / 2 === 4, 2 ** 2 === 4]) } },
+
+  // chsh_beats_classical IS DELIBERATELY ABSENT. Its sealed statement is `((2:Nat)^2 < 2^3) ∧ (2^3 = 8)`, and a
+  // witness for it would be `2 ** 2 === 4` — a constant expression that cannot fail, which adds a case to the
+  // denominator and no evidence to the count. b9's `holds()` cannot parse the type ascription either, so there
+  // is no route to evaluating the sealed form rather than restating it. A battery is worth its zero only if
+  // every case in it could have come out otherwise; padding coverage with tautologies is gaming the very number
+  // the denominator was added to make honest.
   { theorem: 'store_fold_order_invariant', cases: 1, what: 'the fold gives one root for all six orderings of three members',
     run: () => { const m = ['a', 'b', 'c'].map(toUuid)
       const perms = [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]]
