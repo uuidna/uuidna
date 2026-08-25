@@ -13,7 +13,29 @@
 # tree it finds. Skips gracefully if dist is not built. Bypassable with --no-verify (owned, not hidden).
 [ -f dist/scripts/gate-receipt.js ] || exit 0
 node dist/scripts/gate-receipt.js >/dev/null 2>&1 || exit 0
-git add gate-receipt.json 2>/dev/null
+# STAGED ONLY WHEN IT CAN HONESTLY CERTIFY THE COMMIT (2026-08-25). The paragraph above says the receipt "must
+# fingerprint the tree being committed", and gate-receipt.js fingerprints the WORKING TREE instead. On a checkout
+# several sessions share, those are not the same tree: the receipt absorbed other sessions' uncommitted edits and
+# was then staged into a commit that publishes none of them, so it certified a state no commit could reproduce.
+#
+# That is exactly what guard's `precede` exists to catch — derived output staged while the sources it is computed
+# from are dirty and unstaged — and this line was MANUFACTURING the violation. The hook armed the index, guard
+# condemned it, and the offered fix (stage the source in the same commit) meant sweeping the other sessions' work
+# in. Every session was blocked at the commit door by the hook that runs for all of them, and the way out looked
+# like --no-verify, which is how an owned bypass turns into a habit.
+#
+# So the staging is now CONDITIONAL, on precede's own condition, and the hook stops creating what guard forbids.
+# A dirty lean source means no truthful receipt is available for this commit, and the honest response is to mint
+# none: deploy.yml already falls back to the full checks whenever the receipt does not cover the tree it finds, so
+# an ABSENT receipt costs a fast path, while a false one certifies a tree that never existed. The file is still
+# regenerated above, so the working copy stays current for anyone reading it; only the STAGING is withheld.
+DIRTY_LEAN=$(git diff --name-only | grep -E '^(lean/[^/]+\.lean|src/scripts/lean-.+\.ts)$')
+if [ -z "$DIRTY_LEAN" ]; then
+  git add gate-receipt.json 2>/dev/null
+else
+  # never silently: a receipt withheld is a named drift, and the committer is told which sources withheld it
+  echo "pre-commit: gate-receipt.json NOT staged — $(printf '%s\n' "$DIRTY_LEAN" | wc -l | tr -d ' ') lean source(s) are dirty and unstaged, so no receipt can honestly certify this commit. The commit proceeds; the deploy recomputes instead of verifying."
+fi
 
 # LAW ENFORCEMENT AT THE COMMIT DOOR (queue lead 112, ordered as "tighten the gates" and again as "law
 # enforcement"): a commit may not land on a red guard. The evidence that a hand cannot hold this line: three
