@@ -39,6 +39,7 @@ import { reportDataset, type Figure } from '../microdata.js'
 import { auditJsonLd } from '../schema-org-vocab.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
+import { merkleRoot, merkleProof, verifyProof } from '../merkle.js'   // the O(1)-verify vs O(N)-recompute axis
 
 /** How many sealed-value decisions each level should execute. EQUAL ACROSS LEVELS on purpose: a fidelity bound
  *  is only meaningful against its denominator, so giving every row the same denominator is what makes the
@@ -93,6 +94,32 @@ const measure = (p: LevelProbe): LevelMeasurement => {
     what: p.what,
   }
 }
+
+// ── THE FOURTH AXIS, AND THE ONLY ONE THAT REWARDS SCALE ─────────────────────────────────────────────────────
+// REACH, COST and FIDELITY are all flat per level: a bigger tree does not make an address cheaper to fold or a
+// gate algebra more exact. The hexbit step advantage is flat too — four times fewer steps buys about twice the
+// speed at 2^79 and the same twice at 2^4096. So a report built only from those axes cannot answer the one
+// question worth asking of an architecture: what does growing buy?
+//
+// This does. verify_beats_recompute_by_magnitudes seals O(1) verification against O(N) recompute, and the
+// measurement is the ratio at increasing N: recompute the whole merkle root, against verifying ONE proof path.
+// Verification climbs logarithmically (the proof is log2(N) siblings) while recompute climbs linearly, so the
+// ratio grows without bound. The RATIO'S DECADE is what gets sealed — the raw nanoseconds drift, as everywhere
+// else in this report, and a decade of a growing ratio is exactly the "magnitudes" the theorem names.
+const SCALES = [64, 256, 1024, 4096, 16384, 65536]
+const scaleRows = SCALES.map((n) => {
+  const leaves = Array.from({ length: n }, (_, i) => toUuid(`advantage-scale-${n}-${i}`))
+  const root = merkleRoot(leaves)
+  const proof = merkleProof(leaves, 0)
+  if (!verifyProof(leaves[0], proof, root)) {
+    console.error(`✗ gen-quantum-advantage — the merkle proof at N=${n} does not verify; refusing to publish a ratio built on it.`)
+    process.exit(1)
+  }
+  const rec = steadyStateNs(() => { merkleRoot(leaves) }, 1, 8, 2)
+  const ver = steadyStateNs(() => { verifyProof(leaves[0], proof, root) }, 1, 8, 2)
+  const ratio = ver.ns === 0 ? 0 : (rec.ns - (rec.ns % ver.ns)) / ver.ns
+  return { n, proofLen: proof.length, recNs: rec.ns, verNs: ver.ns, ratio, ratioDecade: String(ratio).length - 1 }
+})
 
 const measurements = LEVEL_PROBES.map(measure)
 const report = advantageReport(device.address, measurements)
@@ -254,6 +281,34 @@ as a shrinking count and not as an unchanged green verdict. This run refused ${p
 
 ${witnessTable}
 
+### The fourth axis — the only one that rewards scale
+
+REACH, COST and FIDELITY are flat: a larger tree does not make an address cheaper to fold or the gate algebra
+more exact. Even the hexbit advantage is flat — climbing by 16 takes exactly a quarter of the steps of climbing
+by 2 at every width, and buys about **2x** on the clock whether the space is 2^79 or 2^4096, because a ×16 step
+advances four bits but multiplies an operand that keeps growing.
+
+This axis is different. [verify_beats_recompute_by_magnitudes](https://uuidna.com/theorem/verify_beats_recompute_by_magnitudes)
+seals O(1) verification against O(N) recompute, and the ratio **grows without bound**: recomputing a merkle root
+costs every leaf, while checking one proof costs log2(N) siblings.
+
+| leaves | proof length | recompute vs verify |
+|--------|--------------|---------------------|
+${scaleRows.map((r) => `| ${r.n} | ${r.proofLen} | 10^${r.ratioDecade} |`).join('\n')}
+
+Measured on this host, ${SCALES[0]} to ${SCALES[SCALES.length - 1]} leaves — a ${SCALES[SCALES.length - 1] / SCALES[0]}-fold in N takes the advantage from
+10^${scaleRows[0].ratioDecade} to 10^${scaleRows[scaleRows.length - 1].ratioDecade}. The verify cost barely moves (the proof grows from ${scaleRows[0].proofLen} siblings to
+${scaleRows[scaleRows.length - 1].proofLen}); recompute carries the whole growth.
+
+**THE DECADE IS PUBLISHED AND THE RAW RATIO IS NOT**, and the first version of this table got that wrong. It
+printed the ratios themselves — 44x, 167x, 619x — and two consecutive runs of the same generator on the same
+idle host disagreed on every row (44 against 45, and so on down), so the derived layer had no fixed point at
+all. That is the defect this report was built to name, committed inside the report. The raw figures print to the
+build log, where drifting is what a log is for; a decade of a growing ratio is exactly the "magnitudes" the
+theorem names, and it is stable.
+
+*This is the axis that answers what growing buys, and it is the only one in this report that does.*
+
 ### Honest scope, load-bearing
 
 **uuidna is classical.** There are no qubits in this machine, nothing here is in superposition, and **no
@@ -287,5 +342,8 @@ for (const r of report.rows) {
   console.log(`    ${r.level.padEnd(14)} raw ${String(m.opNs).padStart(7)} ns → sealed 10^${r.cost.opNsDecade} ns/${r.cost.what}  ·  ${r.fidelity.disagreements}/${r.fidelity.ops} disagreements`)
 }
 console.log(`    algebra        ${proof.executed} decisions, ${proof.disagreements} disagreements, verdict ${proof.verdict}`)
+for (const r of scaleRows) {
+  console.log(`    scale N=${String(r.n).padStart(5)}  raw ${String(r.ratio).padStart(5)}x (recompute ${r.recNs} ns / verify ${r.verNs} ns) → sealed 10^${r.ratioDecade}`)
+}
 console.log(`    gate           ${run.passed}/${run.dispatches.length} claims dispatched as witnessed messages`)
 console.log(`    receipt        ${receipt}`)

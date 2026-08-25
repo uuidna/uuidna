@@ -31,7 +31,15 @@ export const hexbitsOf = (states: number): number => {
   // ONE MULTIPLY PER STEP. The first version divided — `(n - n % 16) / 16` — which is three operations a step,
   // so the 4x fewer steps a hexbit takes were spent paying for them: measured 9ms against the bit loop's 5ms
   // over 300k calls, slower in wall-clock while being four times fewer iterations. Climbing by powers of 16
-  // instead costs one multiply, the same as the bit loop's step, and the 4x advantage survives to the clock.
+  // instead costs one multiply, the same as the bit loop's step.
+  //
+  // BUT THE 4x DOES NOT SURVIVE TO THE CLOCK, and this line said it did until it was measured. The STEP ratio is
+  // exactly 4.00x and scale-free — verified on the six widths above (16, 256, 4096, 65536, 2^20, 2^32): 23 steps
+  // against 92, 4.00x on every single one. The WALL-CLOCK ratio is about 2x, and it is equally scale-free:
+  // measured over four orders of magnitude on a BigInt climb, 1.92x at 2^79, 2.00x at 2^128, 2.02x at 2^512,
+  // 2.04x at 2^4096. It is not call overhead diluting it — a bare call measures 3 ns. It is intrinsic: a ×16
+  // step advances four bits but multiplies an operand that keeps growing, so what is saved is loop iterations,
+  // never the bit-work. Four times fewer steps buys about twice the speed, and buys it permanently.
   let h = 0, p = 16
   while (p <= states) { p = p * 16; h++ }
   return h

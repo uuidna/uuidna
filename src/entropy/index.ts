@@ -58,8 +58,23 @@ export const passphraseEntropy = (passphrase: string, alphabet: number): Entropy
   let cases = 1n
   const base = BigInt(alphabet)
   for (let i = 0; i < passphrase.length; i++) cases = cases * base
-  let bits = 0, m = 1n
-  while (m < cases) { m = m * 2n; bits++ }
+  // COARSE IN HEXBITS, THEN REFINED IN BITS — the same answer in about a quarter of the steps.
+  //
+  // This doubled all the way up: `while (m < cases) { m = m * 2n; bits++ }`, one BigInt multiply per BIT. A
+  // 12-character passphrase over 95 printable characters is 95^12 ≈ 2^79, so that is 79 multiplies to learn a
+  // number the ledger's own unit reaches in 19. The hexbit is 16 states and the bit is 2, so climbing by 16
+  // takes exactly a quarter of the steps of climbing by 2 — verified on this host over the six widths the
+  // hardware note names (16, 256, 4096, 65536, 2^20, 2^32): 23 steps against 92, 4.00x on every one of them.
+  //
+  // The catch, and the reason the loop is not simply replaced: hexbits FLOOR. `hexbitsOf` gives the largest h
+  // with 16^h ≤ cases, and bits derived from it would be a multiple of four — not the exact width this function
+  // returns and reports. So the climb is coarse to the last whole hexbit and then refines by doubling INSIDE
+  // it, which is at most three further steps because 16^(h+1) = 2^(4h+4). Exact same `bits` for every input,
+  // and a test walks the two implementations against each other to prove it rather than asserting it.
+  let p = 1n, h = 0
+  while (p * 16n <= cases) { p = p * 16n; h++ }   // the largest whole hexbit that still fits
+  let bits = h * 4, m = p                          // 16^h = 2^(4h) — the floor, in bits
+  while (m < cases) { m = m * 2n; bits++ }         // at most three doublings remain inside the last hexbit
   const hexbits = bitsToHexbits(bits)
   return { cases: Number(cases), bits, hexbits, spare: spareOf(hexbits) }
 }
