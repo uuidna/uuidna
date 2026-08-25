@@ -253,10 +253,10 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — lanes in use",
-      "value": 14,
+      "value": 8,
       "unitText": "lanes",
       "measurementTechnique": "measured",
-      "citation": "read from this host at build time: 16 logical processors less 2 reserved, so the fan-out is never wider than the machine"
+      "citation": "read from this host at build time: 10 logical processors less 2 reserved, so the fan-out is never wider than the machine"
     },
     {
       "@type": "PropertyValue",
@@ -269,10 +269,10 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — lane spread",
-      "value": 131,
+      "value": 122,
       "unitText": "% (busiest lane over quietest; 100 is even)",
       "measurementTechnique": "measured",
-      "citation": "busiest lane held 168, quietest held 128 — measured on the work that ran, not asserted from the key's uniformity"
+      "citation": "busiest lane held 292, quietest held 239 — measured on the work that ran, not asserted from the key's uniformity"
     },
     {
       "@type": "PropertyValue",

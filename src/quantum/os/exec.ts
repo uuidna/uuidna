@@ -10,7 +10,7 @@
 // So `uuidna_ls /terminal` does NOT invoke busybox; it computes what the ported /terminal directory contains
 // from the sealed spec. The tool's LOGIC is uuidna's; the tool's IDENTITY is the busybox package (coreutils/
 // ls lives in busybox on Alpine). Integrity and computation, never execution.
-import { catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends } from './catalogue.js'
+import { catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile } from './catalogue.js'
 import { toUuid } from '../../address.js'
 import { bootOS, compileToHexbits, type InstallSpec } from './index.js'
 
@@ -200,17 +200,19 @@ export function uuidnaExec(line: string): ExecResult {
         if (s) {
           emit([`${s.name}-${s.version} description:`, `  ${s.meaning}`, `${s.name}-${s.version} webpage:`, `  ${s.route}`,
             `${s.name}-${s.version} depends on:`, ...(s.deps.length ? s.deps.map((d) => '  ' + d) : ['  (none)'])],
-            { name: s.name, version: s.version, route: s.route, meaning: s.meaning, checksum: s.checksum, deps: s.deps, address: s.address, state: 'INSTALLED' })
+            { name: s.name, version: s.version, route: s.route, meaning: s.meaning, checksum: s.checksum, deps: s.deps, address: s.address, hexbits: s.hexbits, state: 'INSTALLED' })
           break
         }
-        // NOT IN THE BOOT CLOSURE IS NOT NOT-IN-ALPINE. The catalogue answers for every published package.
+        // NOT IN THE BOOT CLOSURE IS NOT NOT-IN-ALPINE. The catalogue answers for every published package —
+        // and the answer COMPILES: same mint as the boot port, so AVAILABLE is the same kind of object.
         const c = cataloguePackage(name)
         if (c) {
+          const compiled = catalogueCompile(c)
           emit([`${c.name}-${c.version} description:`, `  ${c.desc}`, `${c.name}-${c.version} repository:`, `  ${c.repo}`,
             `${c.name}-${c.version} checksum:`, `  ${c.checksum}`,
             `${c.name}-${c.version} depends on:`, ...(c.deps.length ? c.deps.map((d) => '  ' + d) : ['  (none)']),
             `(AVAILABLE — published by Alpine, not in the boot closure; nothing is installed either way)`],
-            { name: c.name, version: c.version, repo: c.repo, meaning: c.desc, checksum: c.checksum, deps: c.deps, state: 'AVAILABLE' })
+            { name: c.name, version: c.version, repo: c.repo, meaning: c.desc, checksum: c.checksum, deps: c.deps, address: compiled.address, hexbits: compiled.hexbits, id: compiled.id, state: 'AVAILABLE' })
           break
         }
         err(apkMiss('info', name))
@@ -224,6 +226,7 @@ export function uuidnaExec(line: string): ExecResult {
         const available = cat.hits.filter((c) => !inBoot.has(c.name))
         const st = catalogueState()
         if (!installed.length && !available.length) { err(apkMiss('search', name)); break }
+        const availableCompiled = available.map((c) => ({ c, ...catalogueCompile(c) }))
         emit([
           ...installed.map((s) => `${s.name}-${s.version}  [installed]  ${s.meaning}`),
           ...available.map((c) => `${c.name}-${c.version}  [${c.repo}]  ${c.desc}`),
@@ -234,12 +237,14 @@ export function uuidnaExec(line: string): ExecResult {
           // `hits` is KEPT and is every match, installed and available together. Growing a served shape is
           // additive or it is a break: a caller reading `hits` predates the catalogue and must not lose its key
           // because the answer got better. installed/available are the new, finer cut alongside it.
+          // address + hexbits ride every hit: AVAILABLE used to answer without a compile while the self-test
+          // claimed 32 states — the same gap the slow push made visible once the catalogue shipped.
           hits: [
-            ...installed.map((s) => ({ name: s.name, route: s.route, state: 'INSTALLED' as const })),
-            ...available.map((c) => ({ name: c.name, version: c.version, repo: c.repo, state: 'AVAILABLE' as const })),
+            ...installed.map((s) => ({ name: s.name, route: s.route, state: 'INSTALLED' as const, address: s.address, hexbits: s.hexbits })),
+            ...availableCompiled.map(({ c, address, hexbits }) => ({ name: c.name, version: c.version, repo: c.repo, state: 'AVAILABLE' as const, address, hexbits })),
           ],
-          installed: installed.map((s) => ({ name: s.name, route: s.route })),
-          available: available.map((c) => ({ name: c.name, version: c.version, repo: c.repo })),
+          installed: installed.map((s) => ({ name: s.name, route: s.route, address: s.address, hexbits: s.hexbits })),
+          available: availableCompiled.map(({ c, address, hexbits }) => ({ name: c.name, version: c.version, repo: c.repo, address, hexbits })),
           total: installed.length + cat.total, shown: installed.length + available.length, catalogue: st,
         })
       } else if (verb === 'depends') {                               // forward deps — what this package pulls in

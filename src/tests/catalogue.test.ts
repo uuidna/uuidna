@@ -46,12 +46,21 @@ test('INSTALLED, AVAILABLE and ABSENT are three DIFFERENT answers', () => {
   assert.equal(inst.ok, true)
   assert.equal((inst.data as { state: string }).state, 'INSTALLED')
   assert.ok(inst.output.some((l) => l.includes('webpage')), 'an installed package keeps its uuidnaOS route')
+  const instHex = (inst.data as { hexbits?: number[] }).hexbits
+  assert.ok(Array.isArray(instHex) && instHex.length === 32, 'INSTALLED carries its 32 hexbit compile')
+  assert.ok(typeof (inst.data as { address?: string }).address === 'string', 'INSTALLED carries its address')
 
   // (2) published by Alpine but not booted — available, and SAID to be available rather than silently listed
   const avail = uuidnaExec('apk info nodejs')
   assert.equal(avail.ok, true)
   assert.equal((avail.data as { state: string }).state, 'AVAILABLE')
   assert.ok(avail.output.some((l) => l.includes('AVAILABLE')), 'the distinction is stated to the reader, not only in data')
+  // THE GAP THE CATALOGUE SHIP MADE VISIBLE: AVAILABLE answered without address/hexbits while the self-test
+  // claimed "32 hexbit states". Same mint as the boot port — AVAILABLE is the same kind of object.
+  const availData = avail.data as { address?: string; hexbits?: number[] }
+  assert.ok(typeof availData.address === 'string' && availData.address.includes('-'), 'AVAILABLE compiles to an address')
+  assert.ok(Array.isArray(availData.hexbits) && availData.hexbits.length === 32, 'AVAILABLE carries its 32 hexbit compile')
+  assert.ok(availData.hexbits!.every((h) => Number.isInteger(h) && h >= 0 && h < 16), 'every state is a hexbit')
 
   // (3) not published at all — a refusal that names its DENOMINATOR, so the claim is checkable
   const gone = uuidnaExec('apk info zzz-no-such-package-anywhere')
@@ -135,6 +144,10 @@ test('a package\'s self-test CAN FAIL — all four checks, driven by hand', () =
   // so each check is broken deliberately. Without this the whole audit could be `ok: true` and look identical.
   const good = cataloguePackage('musl')!
   assert.equal(packageSelfTest(good).ok, true, 'a real package passes')
+  const compile = packageSelfTest(good).checks.find((c) => c.check === 'compile')!
+  assert.equal(compile.ok, true)
+  assert.match(compile.detail, /hexbit states/, 'compile names the unit')
+  assert.match(compile.detail, /[0-9a-f-]{36}/, 'and carries the address it compiled from — never a bare claim')
 
   const badName = packageSelfTest({ ...good, name: 'not a valid name!' })
   assert.equal(badName.ok, false)

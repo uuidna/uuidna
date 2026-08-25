@@ -18,6 +18,15 @@
 //
 // Data, never execution: a row names upstream's bytes (its published checksum) and upstream's words (its
 // published description). Nothing is installed, linked, unpacked or run — theorem the_os_is_bootable_quantum.
+//
+// COMPILE IS REAL, NOT A LABEL. The self-test's fourth check used to return `ok: true` with the words
+// "32 hexbit states" and never call the unit — so AVAILABLE packages answered from the catalogue without an
+// address or hexbits while claiming the same compile the boot closure actually performs. The mint is the same
+// `uuidnaPackage` the install port uses; the states are `compileToHexbits` from src/hexbit. If it is named a
+// hexbit, the unit computed it.
+import { uuidnaPackage } from '../../os/packages/index.js'
+import { compileToHexbits, UUID_HEXBITS } from '../../hexbit/index.js'
+import { INSTALLS_MIRROR } from './mirror.js'
 
 /** where the committed catalogue lives, repo-relative — one declaration, read by the generator and the reader */
 export const CATALOGUE_FILE = 'mirror/alpine-catalogue.tsv'
@@ -223,10 +232,24 @@ const checksumOk = (c: string): boolean => {
   try { return atob(b64).length === 20 } catch { return false }
 }
 
+/** catalogueCompile(pkg) → the same mint+compile the boot port uses: published tuple → 128-bit address →
+ *  UUID_HEXBITS states on the lattice. Arch and branch are the pinned mirror's; repo is the package's own
+ *  (main | community), so a community package does not pretend to live in main. */
+export function catalogueCompile(p: CataloguePackage): { id: string; address: string; hexbits: number[] } {
+  const minted = uuidnaPackage({
+    name: p.name, version: p.version, checksum: p.checksum, repo: p.repo,
+    arch: INSTALLS_MIRROR.arch, branch: INSTALLS_MIRROR.branch,
+  })
+  return { id: minted.id, address: minted.address, hexbits: compileToHexbits(minted.address) }
+}
+
 /** packageSelfTest(pkg) → the package's own verdict on its own record. Pure, total, and able to fail. */
 export function packageSelfTest(p: CataloguePackage): PackageTest {
   const u = universe()
   const unresolved = p.deps.filter((d) => !d.startsWith('!') && !u.has(bareDep(d)))
+  const compiled = catalogueCompile(p)
+  const compileOk = compiled.hexbits.length === UUID_HEXBITS
+    && compiled.hexbits.every((h) => Number.isInteger(h) && h >= 0 && h < 16)
   const checks: PackageCheck[] = [
     { check: 'identity', ok: /^[A-Za-z0-9._+-]+$/.test(p.name) && /^\d/.test(p.version),
       detail: `${p.name}-${p.version}` },
@@ -234,7 +257,10 @@ export function packageSelfTest(p: CataloguePackage): PackageTest {
       detail: p.checksum ? `${p.checksum.slice(0, 12)}… decodes to 20 bytes` : '(no published checksum)' },
     { check: 'closure', ok: unresolved.length === 0,
       detail: unresolved.length ? `${unresolved.length} of ${p.deps.length} deps resolve to nothing: ${unresolved.slice(0, 3).join(' ')}` : `${p.deps.length} deps all resolve` },
-    { check: 'compile', ok: true, detail: '32 hexbit states (128 bits)' },
+    { check: 'compile', ok: compileOk,
+      detail: compileOk
+        ? `${UUID_HEXBITS} hexbit states (128 bits) · ${compiled.address}`
+        : `compile produced ${compiled.hexbits.length} states, not ${UUID_HEXBITS}` },
   ]
   return { name: p.name, version: p.version, ok: checks.every((c) => c.ok), checks, unresolved }
 }
