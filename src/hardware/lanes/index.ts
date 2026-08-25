@@ -76,6 +76,26 @@ export const LANES: readonly Lane[] = [
  *  The evenness is a property of the key, so it is stated as one and CHECKED (see laneCensus in scripts/api and
  *  the tests): a claim that the shard key balances is exactly the kind that reads true and is never verified.
  *
+ *  AND IT IS NOW PROVEN RATHER THAN MERELY TESTED (2026-08-25, a peer's work on this file's claims). The three
+ *  sentences above were prose, and prose is not signed true here — so they were put to the kernel, and the ledger
+ *  seals them:
+ *    lanes_partition_the_work       summing what each of 14 lanes receives from 64 items returns 64 — the residue
+ *                                   map is a PARTITION, which is precisely why no coordination is needed: the
+ *                                   question a scheduler exists to answer cannot arise.
+ *    lanes_balance_within_one       those 64 give every lane 4 or 5, never fewer and never more, with no lane
+ *                                   knowing what any other holds.
+ *    lanes_even_on_complete_system  56 over 14 is exactly 4 each — the imbalance is never structural, only the
+ *                                   remainder.
+ *  A test shows a property held on the cases it ran; a decided theorem shows it holds on every case in the domain.
+ *  This comment used to point at the weaker of the two witnesses because it was the only one that existed.
+ *
+ *  AND WHY IT WENT UNPROVEN FOR SO LONG, which is the transferable part rather than the fix. The three sentences
+ *  above are a DEFENCE OF THE DESIGN — the argument for why a residue map needs no scheduler — and a defence of a
+ *  design is the most dangerous prose in this tree, because it reads true and nothing is watching it. laneCensus
+ *  tested the census, never the partition. The gap was never that the claim was wrong; it holds. The gap is that
+ *  NOTHING COULD HAVE TOLD US IF IT HAD NOT. (The observation, and this phrasing of it, are uuidna-cb's, who put
+ *  the three sentences to the kernel rather than reading past them.)
+ *
  *  AND THE HANDLE IS HEXBIT'S, NOT THIS FILE'S. These two were computed here — `(UUID_HEXBITS / 4) * HEXBIT_BITS`
  *  and `2 ** HANDLE_BITS` — which made a second public HANDLE_SPAN (src/index re-exports hexbit's, src/hardware
  *  re-exported this one) reaching the same 4,294,967,296 by a different route. `universe_of_handles` seals that
