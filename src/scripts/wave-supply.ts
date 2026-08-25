@@ -22,6 +22,17 @@
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
+import { mirrorRows } from '../rosetta-legs.js'
+
+/** How many INDEPENDENT legs the sealed corpus is still owed — a witness or a falsifier absent from a theorem
+ *  that is already proved. Counted per missing leg rather than per theorem, because each leg is its own piece of
+ *  work and each pays its own two coins. A mirror that cannot be read counts as nothing owed, never as nothing
+ *  owing: the census reports supply, and an unreadable source supplies nothing it can name. */
+const missingLegs = (): number => {
+  try {
+    return mirrorRows().reduce((n, r) => n + r.missing.filter((l) => l === 'witness' || l === 'falsifier').length, 0)
+  } catch { return 0 }
+}
 
 /** One finder's current holding, and where a reader can go to check it. */
 export interface SupplySource {
@@ -63,6 +74,16 @@ export function waveSupply(): Supply {
       reach: 'coverage holes the gap predictor can name from the tree it scans' },
     { name: 'research-leads', count: countIn('research-leads.json', 'leads'), where: 'research-leads.json',
       reach: 'findings the desk filed for a proof it could not yet anchor' },
+    // THE SOURCE THIS CENSUS WAS BLIND TO, AND THE BLINDNESS WAS THE EXACT DEFECT IT WAS WRITTEN TO EXPOSE.
+    // The first version counted gaps and research-leads, found both empty, and reported DRY — "no finder
+    // currently holds a question". That was false while 1681 sealed theorems were missing a WITNESS and 1611 a
+    // FALSIFIER. Anchoring work is not new-theorem work, which is why it was easy to miss: nothing here proposes
+    // a claim, it supplies the independent legs an existing claim already lacks. But the rosetta theorem prices
+    // exactly this — a theorem stands on five legs and each present leg pays the two coins — so a missing leg is
+    // not an absence of work, it is unrealised work with a stated price. Counting only proposers and calling the
+    // result DRY reproduced, inside the supply census, the collapse of "nothing to report" into "nothing wrong".
+    { name: 'unanchored-legs', count: missingLegs(), where: 'src/rosetta-legs.ts (mirrorRows)',
+      reach: 'witnesses and falsifiers absent from theorems ALREADY SEALED — anchoring work, not new claims' },
   ]
   const pending = countIn(join('lean', 'wave-queue.json'), 'pending')
   const available = sources.reduce((n, s) => n + s.count, 0)
