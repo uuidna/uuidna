@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The ring ℤ/9 (234)",
         "smallestPrinciple": "One leap (1)",
-        "ledgerReceipt": "4e7cfc8a-5c84-8d4f-a37a-f5774c3f1584"
+        "ledgerReceipt": "a525e431-9840-8458-bbb3-d852692f187b"
       },
-      "address": "b1f13b67-9b17-8dc7-85a7-90c3a336cd5f"
+      "address": "cb34e954-875c-8d90-af41-2336b472a763"
     },
     {
       "title": "Heartbeat coverage",
@@ -76,6 +76,6 @@
       "address": "cc38b245-11a5-81e4-b85d-2b9ede067bdf"
     }
   ],
-  "receipt": "1f634276-204b-85ac-8627-cabbf439feda",
+  "receipt": "2972a712-f35e-88ec-9dd5-55b1d84a428a",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

@@ -561,9 +561,9 @@ community	austral	0.2.0-r1	Q1j2xKjtX2x+AyFffuzm0dnft/sgw=	Systems language with 
 community	austral-doc	0.2.0-r1	Q1niNHGqejEzuzhZK12iKT9uPDowI=	Systems language with linear types and capability-based security (documentation)		
 community	austral-emacs	0.2.0-r1	Q1ohlcn68z5kxH9g8wL8DHNWWsIIM=	Emacs mode for austral		
 community	austral-vim	0.2.0-r1	Q1j5Yk5roWHOkl6tma+IYZZwRry5o=	Vim filetype and syntax for austral		
-community	ausweisapp	2.5.1-r1	Q192dewr7LsCTFgD8N4JkAWU5mK+g=	Official authentication app for German ID card and residence permit	acsccid ccid pcsc-cyberjack pcsc-lite so:libQt6Core.so.6 so:libQt6Gui.so.6 so:libQt6Network.so.6 so:libQt6Qml.so.6 so:libQt6Quick.so.6 so:libQt6QuickControls2.so.6 so:libQt6StateMachine.so.6 so:libQt6Svg.so.6 so:libQt6WebSockets.so.6 so:libQt6Widgets.so.6 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libllhttp.so.9.4 so:libpcsclite.so.1 so:libstdc++.so.6 so:libudev.so.1	ausweisapp2 cmd:AusweisApp=2.5.1-r1
-community	ausweisapp-doc	2.5.1-r1	Q1e1NZ01E+WNvx1S377k5mEcojSmg=	Official authentication app for German ID card and residence permit (documentation)		
-community	ausweisapp-nftrules	2.5.1-r1	Q1nf0npmaX/0T2R+AGbAWux1t4P98=	Official authentication app for German ID card and residence permit (nftables ruleset)		
+community	ausweisapp	2.5.5-r0	Q1qM3WfJfg1iQZVUotIOs3c9OTtbY=	Official authentication app for German ID card and residence permit	acsccid ccid pcsc-cyberjack pcsc-lite so:libQt6Core.so.6 so:libQt6Gui.so.6 so:libQt6Network.so.6 so:libQt6Qml.so.6 so:libQt6Quick.so.6 so:libQt6QuickControls2.so.6 so:libQt6StateMachine.so.6 so:libQt6Svg.so.6 so:libQt6WebSockets.so.6 so:libQt6Widgets.so.6 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libllhttp.so.9.4 so:libpcsclite.so.1 so:libstdc++.so.6 so:libudev.so.1	ausweisapp2 cmd:AusweisApp=2.5.5-r0
+community	ausweisapp-doc	2.5.5-r0	Q11+6v+IdAQCAnDMhU1sJjM35qLzQ=	Official authentication app for German ID card and residence permit (documentation)		
+community	ausweisapp-nftrules	2.5.5-r0	Q1GO4kBh6/zT2CZ86hShoPgpA/SwI=	Official authentication app for German ID card and residence permit (nftables ruleset)		
 community	autobrr	1.80.0-r0	Q1zdFkhcEkTSt5rP1H/HLrJBmu46w=	The modern download automation tool for torrents	/bin/sh so:libc.musl-x86_64.so.1	cmd:autobrr=1.80.0-r0 cmd:autobrrctl=1.80.0-r0
 community	autobrr-doc	1.80.0-r0	Q1H1O7PLsuZT/ZFdyW3j9D0FMt5Co=	The modern download automation tool for torrents (documentation)		
 community	autobrr-openrc	1.80.0-r0	Q1gFd6hy2quHaZQPHoT4eTTp15lCI=	The modern download automation tool for torrents (OpenRC init scripts)		
@@ -22584,9 +22584,9 @@ community	zfs-auto-snapshot	1.2.4-r2	Q1VX5W3yUZSD6ximv8kjYoFocTut8=	ZFS Automati
 community	zfs-auto-snapshot-doc	1.2.4-r2	Q1CB7sleufVDy8AdlNWxcVr4KNMHk=	ZFS Automatic Snapshot Service for Linux (documentation)		
 community	zfs-prune-snapshots	1.5.0-r0	Q10lmIp59eup+wjpYU7Volh3S3fwA=	Remove snapshots from one or more zpools that match given criteria	bash zfs	cmd:zfs-prune-snapshots=1.5.0-r0
 community	zfs-prune-snapshots-doc	1.5.0-r0	Q1uTwVTVXDw0q8KWQYGLG4I7F68Bc=	Remove snapshots from one or more zpools that match given criteria (documentation)		
-community	zfs-src	2.4.3-r0	Q1g5cCTXyWzC9CR5ZOdy+Yu3VHwgU=	ZFS for Linux (sources, AKMS)	akms	
-community	zfs-stable	7.1.5-r0	Q1WFG5TAY92Ue47rNSRaB5nXwMdMk=	ZFS Linux kernel modules	linux-stable=7.1.5-r0	
-community	zfs-stable-dev	7.1.5-r0	Q15YfHRuT+JbMSV1Le51Od2OtWYeE=	ZFS Linux kernel modules (development files)	glib-dev e2fsprogs-dev util-linux-dev libtirpc-dev linux-stable-dev=7.1.5-r0	
+community	zfs-src	2.4.4-r0	Q1aF+t5IFoGuO8K5JuijLIsPfjyTM=	ZFS for Linux (sources, AKMS)	akms	
+community	zfs-stable	7.1.5-r1	Q177nltOdmme+snjnIDfph2e+HgRU=	ZFS Linux kernel modules	linux-stable=7.1.5-r0	
+community	zfs-stable-dev	7.1.5-r1	Q1peC5DOSoiA3ww++SVoQkimlOSj0=	ZFS Linux kernel modules (development files)	glib-dev e2fsprogs-dev util-linux-dev libtirpc-dev linux-stable-dev=7.1.5-r0	
 community	zig	0.16.0-r1	Q1Ta3YourdvoMWj4BhVf4jJ2pLNsw=	General-purpose programming language designed for robustness, optimality, and maintainability	/bin/sh so:libLLVM.so.21.1 so:libc.musl-x86_64.so.1 so:libclang-cpp.so.21.1 so:liblldCOFF.so.21.1 so:liblldELF.so.21.1 so:liblldWasm.so.21.1 so:libstdc++.so.6	zig-dev=0.16.0-r1 cmd:zig=0.16.0-r1
 community	zig-doc	0.16.0-r1	Q1sTj+7dJdYT0XlTvsZ4MtuSvwA1I=	General-purpose programming language designed for robustness, optimality, and maintainability (documentation)		
 community	zigbee2mqtt	2.11.0-r0	Q17V+iU03ue3v7fFQaBMtQQThRW3A=	Zigbee to MQTT bridge	nodejs /bin/sh so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:zigbee2mqtt=2.11.0-r0
@@ -24704,10 +24704,10 @@ main	libjpeg-turbo-dev	3.1.3-r0	Q1vwUodyI399iMdKHxdWQlB6QM8G4=	Accelerated basel
 main	libjpeg-turbo-doc	3.1.3-r0	Q1rPPu6SyCfNBerVUD7apJhnhlsio=	Accelerated baseline JPEG compression and decompression library (documentation)		
 main	libjpeg-turbo-static	3.1.3-r0	Q15n+zsqWYdXncMa2OSUQAE14hdHE=	Accelerated baseline JPEG compression and decompression library (static library)	libjpeg-turbo-dev	
 main	libjpeg-turbo-utils	3.1.3-r0	Q1cqhvB4gxUr8s5AtKg60io5QXo2U=	Utilities for manipulating JPEG images	so:libc.musl-x86_64.so.1 so:libjpeg.so.8 so:libturbojpeg.so.0	cmd:cjpeg=3.1.3-r0 cmd:djpeg=3.1.3-r0 cmd:jpegtran=3.1.3-r0 cmd:rdjpgcom=3.1.3-r0 cmd:tjbench=3.1.3-r0 cmd:wrjpgcom=3.1.3-r0
-main	libkcapi	1.5.0-r1	Q18LdtvJGrAuCPEDgsR+T42Dj2atw=	Linux Kernel Crypto API User Space Interface Library	so:libc.musl-x86_64.so.1	so:libkcapi.so.1=1.5.0
-main	libkcapi-dev	1.5.0-r1	Q1Cy0quLExQ9TTtgXdVxH3ljSL4g4=	Linux Kernel Crypto API User Space Interface Library (development files)	libkcapi=1.5.0-r1 pkgconfig	pc:libkcapi=1.5.0
-main	libkcapi-doc	1.5.0-r1	Q1W8ClufuRHsaOXU73e1ulJBmlbWg=	Linux Kernel Crypto API User Space Interface Library (documentation)		
-main	libkcapi-tools	1.5.0-r1	Q1Z6YYxi2Yw5CDS35R5POBLfsjL7s=	Linux Kernel Crypto API User Space Interface Library (commandline utilities)	so:libc.musl-x86_64.so.1 so:libkcapi.so.1	cmd:kcapi-convenience=1.5.0-r1 cmd:kcapi-dgst=1.5.0-r1 cmd:kcapi-enc-test-large=1.5.0-r1 cmd:kcapi-enc=1.5.0-r1 cmd:kcapi-hasher=1.5.0-r1 cmd:kcapi-rng=1.5.0-r1 cmd:kcapi-speed=1.5.0-r1 cmd:kcapi=1.5.0-r1
+main	libkcapi	1.5.1-r0	Q1ykb9b424XpGHo9tIvRU+27+vxCI=	Linux Kernel Crypto API User Space Interface Library	so:libc.musl-x86_64.so.1	so:libkcapi.so.1=1.5.1
+main	libkcapi-dev	1.5.1-r0	Q1M1LupSI3Vu2RgCf8jFhlF/RrMY0=	Linux Kernel Crypto API User Space Interface Library (development files)	libkcapi=1.5.1-r0 pkgconfig	pc:libkcapi=1.5.1
+main	libkcapi-doc	1.5.1-r0	Q1PIp01BtmxVtodQov69E3bJrdMAg=	Linux Kernel Crypto API User Space Interface Library (documentation)		
+main	libkcapi-tools	1.5.1-r0	Q177hwOb2Oqa3rYKOX1ETCHs2aH34=	Linux Kernel Crypto API User Space Interface Library (commandline utilities)	so:libc.musl-x86_64.so.1 so:libkcapi.so.1	cmd:kcapi-convenience=1.5.1-r0 cmd:kcapi-dgst=1.5.1-r0 cmd:kcapi-enc-test-large=1.5.1-r0 cmd:kcapi-enc=1.5.1-r0 cmd:kcapi-hasher=1.5.1-r0 cmd:kcapi-rng=1.5.1-r0 cmd:kcapi-speed=1.5.1-r0 cmd:kcapi=1.5.1-r0
 main	libks	2.0.11-r0	Q1fqpbGdDpsFcwoCuX7l83WaPZS1U=	Foundational support for signalwire C products	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3 so:libuuid.so.1	so:libks2.so.2=2
 main	libks-dev	2.0.11-r0	Q11FRp9sBgBSZzgDOo6RBaLo+43jE=	Foundational support for signalwire C products (development files)	libks=2.0.11-r0 pkgconfig	pc:libks2=2.0.11
 main	libks-doc	2.0.11-r0	Q1Y0Y4VIsZnj2yH3tXZtQZUwdwaIY=	Foundational support for signalwire C products (documentation)		
@@ -27517,8 +27517,8 @@ main	py3-pytest-xdist	3.8.0-r1	Q1V4/TFxqHyerI7aig3YI/LAOsAHc=	pytest xdist plugi
 main	py3-pytest-xdist-pyc	3.8.0-r1	Q1TQDX6YCYuvol5aWhW2/hlSkXtGs=	Precompiled Python bytecode for py3-pytest-xdist	python3~3.14	
 main	py3-python-discovery	1.2.2-r0	Q1o24G7/zL+GujTlsZzjPz5PZ9H/c=	Python interpreter discovery	py3-filelock py3-platformdirs python3~3.14	py3.14:python_discovery=1.2.2-r0
 main	py3-python-discovery-pyc	1.2.2-r0	Q1A8eIxWH7JXntoiFa+d4ViGxmk5A=	Precompiled Python bytecode for py3-python-discovery	python3~3.14	
-main	py3-pyzfs	2.4.3-r0	Q1PZhshXlbG4USEuJaY4ojWHEXXsM=	Advanced filesystem and volume manager (Python lib to interact with ZFS)	python3 zfs python3~3.14	py3.14:libzfs_core=2.4.3-r0
-main	py3-pyzfs-pyc	2.4.3-r0	Q16kuz6J2N39KqMRiQtWkVQVTJysc=	Precompiled Python bytecode for py3-pyzfs	python3~3.14	
+main	py3-pyzfs	2.4.4-r0	Q1Lt3KEhCW2k/i/u61p+4v74WJYuE=	Advanced filesystem and volume manager (Python lib to interact with ZFS)	python3 zfs python3~3.14	py3.14:libzfs_core=2.4.4-r0
+main	py3-pyzfs-pyc	2.4.4-r0	Q1wS4DoqBkEitpu108DAJWO9Hl8/4=	Precompiled Python bytecode for py3-pyzfs	python3~3.14	
 main	py3-requests	2.33.1-r0	Q1FJCGdHC88fL8/yuMBrPAFIJNuNQ=	HTTP request library for Python3	py3-certifi py3-charset-normalizer py3-idna py3-urllib3 python3 python3~3.14	py-requests=2.33.1-r0 py3.14:requests=2.33.1-r0
 main	py3-requests-pyc	2.33.1-r0	Q1m1rGEoeW5lfagM2d+fEuajzSLis=	Precompiled Python bytecode for py3-requests	python3~3.14	
 main	py3-roman-numerals	4.1.0-r0	Q1wU3R34Ha+O09ZjaeJUrTps162gA=	Integer to Roman numerals converter	python3~3.14	py3.14:roman_numerals=4.1.0-r0
@@ -28602,20 +28602,20 @@ main	yx-doc	1.0.2-r0	Q1bPKMoOD736J/7WQoVJGtKwx51kY=	A small shell tool that allo
 main	zd1211-firmware	1.5-r2	Q1xJoQc7BkJEJmxj07EyRMFqzidqs=	Firmware for ZyDAS ZD1211 USB-WLAN devices supported by the zd1211rw driver		
 main	zeromq	4.3.5-r2	Q1+AbXuBJAPy4qfj8KyGsMaPF9Zh0=	The ZeroMQ messaging library and tools	so:libc.musl-x86_64.so.1 so:libzmq.so.5	cmd:inproc_lat=4.3.5-r2 cmd:inproc_thr=4.3.5-r2 cmd:local_lat=4.3.5-r2 cmd:local_thr=4.3.5-r2 cmd:proxy_thr=4.3.5-r2 cmd:remote_lat=4.3.5-r2 cmd:remote_thr=4.3.5-r2
 main	zeromq-dev	4.3.5-r2	Q17xNWYByv+D7Bk8WsjIcUmOaIMBU=	The ZeroMQ messaging library and tools (development files)	libzmq=4.3.5-r2 pc:libsodium pkgconfig	pc:libzmq=4.3.5
-main	zfs	2.4.3-r0	Q165vnHp54VnafCKauw1ZXWE70+h8=	Advanced filesystem and volume manager	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libintl.so.8 so:libnvpair.so.3 so:libuuid.so.1 so:libuutil.so.3 so:libzfs.so.7 so:libzfs_core.so.3 so:libzpool.so.7	spl=2.4.3-r0 cmd:fsck.zfs=2.4.3-r0 cmd:mount.zfs=2.4.3-r0 cmd:raidz_test=2.4.3-r0 cmd:zdb=2.4.3-r0 cmd:zed=2.4.3-r0 cmd:zfs=2.4.3-r0 cmd:zfs_ids_to_path=2.4.3-r0 cmd:zgenhostid=2.4.3-r0 cmd:zhack=2.4.3-r0 cmd:zinject=2.4.3-r0 cmd:zpool=2.4.3-r0 cmd:zstream=2.4.3-r0 cmd:zstreamdump=2.4.3-r0 cmd:ztest=2.4.3-r0 cmd:zvol_wait=2.4.3-r0
-main	zfs-bash-completion	2.4.3-r0	Q13fduQcBWyqh5zBKz1cSMG/aqIzE=	Bash completions for zfs		
-main	zfs-dev	2.4.3-r0	Q1mELjYCw6uChCHlFVCAmm7lab2iA=	Advanced filesystem and volume manager (development files)	attr-dev e2fsprogs-dev glib-dev libtirpc-dev openssl-dev>3 zfs-libs=2.4.3-r0 pc:blkid pc:libcrypto pc:libtirpc pc:uuid pc:zlib pkgconfig	pc:libzfs=2.4.3 pc:libzfs_core=2.4.3 pc:libzfsbootenv=2.4.3
-main	zfs-doc	2.4.3-r0	Q15ZCMrfdQ6p1VVIUTRKUgcxNgQp4=	Advanced filesystem and volume manager (documentation)		
-main	zfs-dracut	2.4.3-r0	Q1+8QL3sUVMdQKU7TFx/C8Vtb5+9g=	Advanced filesystem and volume manager (dracut)		
-main	zfs-libs	2.4.3-r0	Q1XW7dbLNWrKEgzxeJZdiG2Vbbi98=	Advanced filesystem and volume manager (libraries)	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libintl.so.8 so:libtirpc.so.3 so:libuuid.so.1 so:libz.so.1	so:libnvpair.so.3=3.1.0 so:libuutil.so.3=3.0.0 so:libzfs.so.7=7.0.0 so:libzfs_core.so.3=3.0.0 so:libzfsbootenv.so.1=1.0.0 so:libzpool.so.7=7.0.0
-main	zfs-lts	6.18.44-r0	Q1CCxtR1Ju4GRb1R+sngkimbk5hGU=	ZFS Linux kernel modules	linux-lts=6.18.44-r0	spl-vanilla=6.18.44-r0
-main	zfs-lts-dev	6.18.44-r0	Q1mCLT72vpr+QvDC+HjX2nN8VNhhE=	ZFS Linux kernel modules (development files)	glib-dev e2fsprogs-dev util-linux-dev libtirpc-dev linux-lts-dev=6.18.44-r0	
-main	zfs-openrc	2.4.3-r0	Q1bc2UWNPDp/JkbE9VBRj1vBQYmzY=	Advanced filesystem and volume manager (OpenRC init scripts)		
-main	zfs-scripts	2.4.3-r0	Q1A2gNXxaPM+SHqGierHBKPREMxyg=	Advanced filesystem and volume manager (scripts)	so:libc.musl-x86_64.so.1 so:libintl.so.8 so:libnvpair.so.3 so:libz.so.1 so:libzfs.so.7 so:libzfs_core.so.3 so:libzpool.so.7	
-main	zfs-systemd	2.4.3-r0	Q1GzF2suDkT5ozuYsCkuV7PAUZZck=	Advanced filesystem and volume manager (systemd files)	so:libc.musl-x86_64.so.1 so:libzfs.so.7	
-main	zfs-udev	2.4.3-r0	Q1ywmErpg4RNxwIpcfCXw0y4SF7fg=	Advanced filesystem and volume manager (udev rules)	so:libc.musl-x86_64.so.1	
-main	zfs-utils-py	2.4.3-r0	Q1Gf+4lvDp2Txs4Hd0d5hbN78OmRc=	Advanced filesystem and volume manager (python utils)	python3	cmd:dbufstat=2.4.3-r0 cmd:zarcstat=2.4.3-r0 cmd:zarcsummary=2.4.3-r0 cmd:zilstat=2.4.3-r0
-main	zfs-virt	6.18.44-r0	Q1l4nbBTmH7fj7v8BZL1DGftAw2nU=	ZFS Linux kernel modules for virt	linux-virt=6.18.44-r0	
+main	zfs	2.4.4-r0	Q1eS/Vq8kwSo5UoLGdd69e9Jswiww=	Advanced filesystem and volume manager	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libintl.so.8 so:libnvpair.so.3 so:libuuid.so.1 so:libuutil.so.3 so:libzfs.so.7 so:libzfs_core.so.3 so:libzpool.so.7	spl=2.4.4-r0 cmd:fsck.zfs=2.4.4-r0 cmd:mount.zfs=2.4.4-r0 cmd:raidz_test=2.4.4-r0 cmd:zdb=2.4.4-r0 cmd:zed=2.4.4-r0 cmd:zfs=2.4.4-r0 cmd:zfs_ids_to_path=2.4.4-r0 cmd:zgenhostid=2.4.4-r0 cmd:zhack=2.4.4-r0 cmd:zinject=2.4.4-r0 cmd:zpool=2.4.4-r0 cmd:zstream=2.4.4-r0 cmd:zstreamdump=2.4.4-r0 cmd:ztest=2.4.4-r0 cmd:zvol_wait=2.4.4-r0
+main	zfs-bash-completion	2.4.4-r0	Q1RgEMoRU9KBjXs2bFvmntn9QxFJw=	Bash completions for zfs		
+main	zfs-dev	2.4.4-r0	Q1tnNXkIMgQZ6W8wNP7wFRD8URlJ4=	Advanced filesystem and volume manager (development files)	attr-dev e2fsprogs-dev glib-dev libtirpc-dev openssl-dev>3 zfs-libs=2.4.4-r0 pc:blkid pc:libcrypto pc:libtirpc pc:uuid pc:zlib pkgconfig	pc:libzfs=2.4.4 pc:libzfs_core=2.4.4 pc:libzfsbootenv=2.4.4
+main	zfs-doc	2.4.4-r0	Q1YynoGfdnTG+FNZoSNV53iVapnqY=	Advanced filesystem and volume manager (documentation)		
+main	zfs-dracut	2.4.4-r0	Q1xlrCionqDITXjoYtgOubJLpfeA0=	Advanced filesystem and volume manager (dracut)		
+main	zfs-libs	2.4.4-r0	Q1+tU/egmHaq1QbNR2f78Gvpn3q7o=	Advanced filesystem and volume manager (libraries)	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libintl.so.8 so:libtirpc.so.3 so:libuuid.so.1 so:libz.so.1	so:libnvpair.so.3=3.1.0 so:libuutil.so.3=3.0.0 so:libzfs.so.7=7.0.0 so:libzfs_core.so.3=3.0.0 so:libzfsbootenv.so.1=1.0.0 so:libzpool.so.7=7.0.0
+main	zfs-lts	6.18.44-r1	Q1FeWd9GtFyCvBKZck6m0K2ujG4m0=	ZFS Linux kernel modules	linux-lts=6.18.44-r0	spl-vanilla=6.18.44-r1
+main	zfs-lts-dev	6.18.44-r1	Q1flDAKivQxxTAlOctPWMMltokdPM=	ZFS Linux kernel modules (development files)	glib-dev e2fsprogs-dev util-linux-dev libtirpc-dev linux-lts-dev=6.18.44-r0	
+main	zfs-openrc	2.4.4-r0	Q10u0F4OIc8yk10BEevkUsJ7M1wyI=	Advanced filesystem and volume manager (OpenRC init scripts)		
+main	zfs-scripts	2.4.4-r0	Q1hCHayMX+ArFL8/qLQNDFxf+eOfA=	Advanced filesystem and volume manager (scripts)	so:libc.musl-x86_64.so.1 so:libintl.so.8 so:libnvpair.so.3 so:libz.so.1 so:libzfs.so.7 so:libzfs_core.so.3 so:libzpool.so.7	
+main	zfs-systemd	2.4.4-r0	Q1FzEjQL0+OZMKpi4MxWeK61GFh7k=	Advanced filesystem and volume manager (systemd files)	so:libc.musl-x86_64.so.1 so:libzfs.so.7	
+main	zfs-udev	2.4.4-r0	Q1ScDRry1tZLU/i0koXhyxyuIhxLY=	Advanced filesystem and volume manager (udev rules)	so:libc.musl-x86_64.so.1	
+main	zfs-utils-py	2.4.4-r0	Q1HEyO84z7UPfjDJCbvzvK57clp5Y=	Advanced filesystem and volume manager (python utils)	python3	cmd:dbufstat=2.4.4-r0 cmd:zarcstat=2.4.4-r0 cmd:zarcsummary=2.4.4-r0 cmd:zilstat=2.4.4-r0
+main	zfs-virt	6.18.44-r1	Q1J/OMnVzmavSOVw1vnyNVhRgPwjs=	ZFS Linux kernel modules for virt	linux-virt=6.18.44-r0	
 main	zfs-zsh-completion	5.9-r7	Q1hHFw32NNLwJAs1MRO70jKQvAFeM=	Zsh completions for zfs		
 main	zip	3.0-r13	Q1dYTmV6FSmWxNzERfh0HxuRQN9YM=	Creates PKZIP-compatible .zip files	unzip so:libc.musl-x86_64.so.1	cmd:zip=3.0-r13 cmd:zipcloak=3.0-r13 cmd:zipnote=3.0-r13 cmd:zipsplit=3.0-r13
 main	zip-doc	3.0-r13	Q1MHQq0pwfwGHxfWIlyXcyfu6LFEU=	Creates PKZIP-compatible .zip files (documentation)		
