@@ -227,3 +227,16 @@ test('POP IS THE LEDGER 8-BIT POPCOUNT — sealed Hamming weight stayed unreache
   assert.equal(holds('(List.range 4).all (fun x => pop x < 3)'), null)
   assert.equal(evaluable('(List.range 4).all (fun x => pop x < 3)'), false)
 })
+
+test('PROD .1/.2 IS LEAN PAIR PROJECTION — sealed duals stayed unreached for comma and dot', () => {
+  // cube/dodeca/tetra duals — right-associated (a,b,c) ≡ (a,(b,c)); .1 / .2 peel. No List/fun.
+  assert.equal(evaluable('(8,12,6).1 = 8'), true)
+  assert.equal(holds('(8,12,6).1 = 8'), true)
+  assert.equal(holds('(8,12,6).2.1 = 12'), true)
+  assert.equal(holds('(8,12,6).2.2 = 6'), true)
+  assert.equal(holds('((8,12,6).1 = (6,12,8).2.2) ∧ ((8,12,6).2.2 = (6,12,8).1) ∧ ((8,12,6).2.1 = (6,12,8).2.1)'), true)
+  assert.equal(holds('(4,6,4).1 = (4,6,4).2.2'), true)
+  assert.equal(holds('(8,12,6).1 = 7'), false)
+  // List forms still refuse — widening Prod must not start claiming what it cannot parse
+  assert.equal(holds('[(8,12,6)].length = 1'), null)
+})

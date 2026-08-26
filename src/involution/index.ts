@@ -70,14 +70,13 @@ export const stripAscriptions = (s: string): string =>
   s.replace(ASCRIPTION_NUMERAL, '$1').replace(ASCRIPTION_TYPE, '')
 /** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`),
  *  `≠` as Lean inequality, ASCII `<=` / `>=` beside Unicode `≤` / `≥`, `¬` as propositional negation,
- *  `lxor` as the ledger's axiom-free 8-bit XOR (Lean `lxorAux 8`), `Nat.gcd` as Lean's Euclidean gcd, and
- *  `pop` as the ledger's axiom-free 8-bit popcount (Lean `popAux 8`). List / fun / bound names stay unreached;
- *  `/`, `≠`, ASCII non-strict inequalities, `¬`, `lxor`, `Nat.gcd`, `pop`, and compound `: Nat` / `: Int`
- *  ascriptions were pure-syntax gaps that left sealed propositions unreached for a token alone. Named operators
- *  are stripped before the character gate so letters never open the door to `List` / `fun` — only the admitted
- *  names pass. */
+ *  `lxor` / `Nat.gcd` / `pop` as named ledger operators, and Lean Prod pairs `(a,b)` / `(a,b,c)` with
+ *  right-associated nesting and `.1` / `.2` projections. List / fun / bound names stay unreached; those tokens
+ *  and compound `: Nat` / `: Int` ascriptions were pure-syntax gaps that left sealed propositions unreached for
+ *  a token alone. Named operators are stripped before the character gate so letters never open the door to
+ *  `List` / `fun` — only the admitted names pass. */
 export const evaluable = (statement: string): boolean =>
-  /^[\s0-9()+*%/^=∧<>≤≥≠¬-]+$/.test(
+  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.-]+$/.test(
     stripAscriptions(statement)
       .replace(/\bNat\.gcd\b/g, '')
       .replace(/\blxor\b/g, '')
@@ -89,11 +88,13 @@ export const evaluable = (statement: string): boolean =>
 // meaning of a ledger statement depend on the host's parser rather than on anything this repository decides, so
 // two runtimes could disagree about what a theorem says and nothing here would notice. It is also an execution
 // surface pointed at generated content. The grammar is tiny — numerals, + - * % / ^, the comparisons (incl. ≠,
-// ≤ ≥, and ASCII <= >=), ∧, ¬, `lxor`, `Nat.gcd`, and `pop` — so a recursive descent over it is short, total, and
-// gives the same answer on every host by construction.
+// ≤ ≥, and ASCII <= >=), ∧, ¬, `lxor`, `Nat.gcd`, `pop`, and Prod `.1`/`.2` — so a recursive descent over it is
+// short, total, and gives the same answer on every host by construction.
 //
-// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · Nat.gcd / lxor / pop · parentheses.
+// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · Nat.gcd / lxor / pop · Prod proj · parentheses.
 type Cursor = { s: string; i: number }
+/** Lean Prod is right-associated: `(a,b,c)` means `(a, (b, c))`. Projections `.1` / `.2` peel one layer. */
+type Val = number | [Val, Val]
 
 const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c.i++ }
 const eat = (c: Cursor, tok: string): boolean => { ws(c); if (c.s.startsWith(tok, c.i)) { c.i += tok.length; return true } return false }
@@ -126,9 +127,42 @@ const natGcd = (a: number, b: number): number => {
   return x
 }
 
+/** Peel `.1` / `.2` until a numeral remains — cube_octahedron_dual et al. */
+const project = (c: Cursor, v: Val): number => {
+  for (;;) {
+    ws(c)
+    if (eat(c, '.1')) {
+      if (!Array.isArray(v)) throw new Error('proj on numeral')
+      v = v[0]
+    } else if (eat(c, '.2')) {
+      if (!Array.isArray(v)) throw new Error('proj on numeral')
+      v = v[1]
+    } else break
+  }
+  if (typeof v !== 'number') throw new Error('unprojected pair')
+  return v
+}
+
 const atom = (c: Cursor): number => {
   ws(c)
-  if (eat(c, '(')) { const v = sum(c); if (!eat(c, ')')) throw new Error('unclosed'); return v }
+  if (eat(c, '(')) {
+    const a = sum(c)
+    ws(c)
+    if (eat(c, ',')) {
+      // Prod pair / right-associated triple: (a,b) or (a,b,c) ≡ (a,(b,c))
+      const b = sum(c)
+      ws(c)
+      if (eat(c, ',')) {
+        const d = sum(c)
+        if (!eat(c, ')')) throw new Error('unclosed')
+        return project(c, [a, [b, d]])
+      }
+      if (!eat(c, ')')) throw new Error('unclosed')
+      return project(c, [a, b])
+    }
+    if (!eat(c, ')')) throw new Error('unclosed')
+    return project(c, a)
+  }
   if (eat(c, '-')) return -atom(c)
   // `Nat.gcd a b` — Lean function application (closure_is_coprime, rosette_and_vortex_are_coprime, …)
   if (eat(c, 'Nat.gcd')) return natGcd(atom(c), atom(c))
