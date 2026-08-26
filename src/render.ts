@@ -46,9 +46,13 @@ export function renderTheorem(t: TheoremView, opts: RenderOpts = {}): string {
   const full = escapeHtml(t.name)
   const url = proofUrl(t, base)
   // SEO PACKAGING LAW — card-as-link carries complete OG microdata (same package as a page frontmatter head).
-  const pkg = t.key
-    ? packageSeoLink({ key: t.key })
-    : packageSeoLink({ route: url, title: t.name.split('—')[0].trim() || t.name, description: t.name })
+  // Unknown keys (demo/smoke fixtures) fall back to route packaging — never throw on a presentational render.
+  let pkg
+  try {
+    pkg = t.key ? packageSeoLink({ key: t.key }) : packageSeoLink({ route: url, title: t.name.split('—')[0].trim() || t.name, description: t.name })
+  } catch {
+    pkg = packageSeoLink({ route: url, title: t.name.split('—')[0].trim() || t.name, description: t.name })
+  }
   const heading = t.key
     ? `<a itemprop="url" href="${escapeHtml(url)}" style="color:inherit;text-decoration:none">${title}</a>`
     : title
