@@ -52,7 +52,7 @@ export const SIDEBAR_CATEGORIES: readonly [string, string[]][] = [
   ['The ledger', ['/theorems', '/topics', '/grid', '/trials', '/quantum', '/quantum-cryptography', '/rosetta', '/rosetta-glagolitic', '/search', '/publications', '/news', '/articles', '/games', '/song', '/anthem', '/referrer-song', '/symphony']],
   ['Fuse it in', ['/school', '/store', '/tools', '/terminal', '/mcp', '/chat', '/books', '/guides', '/chess', '/quantum-messaging', '/dimensions']],
   ['The captain', ['/captain', '/doctrine', '/succession', '/captain-claims']],
-  ['Verify it yourself', ['/tests', '/analytics', '/deploy', '/os', '/models', '/changelog', '/prose-evidence', '/by-proof']],
+  ['Verify it yourself', ['/tests', '/analytics', '/deploy', '/os', '/models', '/unlocks', '/changelog', '/prose-evidence', '/by-proof']],
   ['The terms', ['/license', '/privacy', '/justice']],
 ]
 
@@ -68,6 +68,7 @@ const LABELS: Readonly<Record<string, string>> = {
   '/captain': "The captain's coins", '/doctrine': 'The doctrine', '/succession': 'Succession',
   '/captain-claims': 'Captain claims', '/tests': 'The tests', '/analytics': 'Analytics', '/deploy': 'Deploy',
   '/os': 'The OS (default install)', '/models': 'Models (the token vs the unit)',
+  '/unlocks': 'Unlocks (each theorem unlocks)',
   '/changelog': 'Changelog', '/prose-evidence': 'Prose evidence', '/by-proof': 'By proof (second axis)', '/license': 'License', '/privacy': 'Privacy',
   '/justice': 'Justice',
 }

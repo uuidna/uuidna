@@ -26,6 +26,7 @@ import {
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll } from './index.js'
+import { unlockBoard } from './unlocks.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
 import { handleOf } from './handle.js'   // THE one derivation of a handle from an address
 import { compileToHexbits } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
@@ -194,6 +195,10 @@ const TOOLS: Tool[] = [
     description: 'The RECOMPUTABLE cost of the ledger — computed from lean/*.lean itself, NOT self-reported like uuidna_tokens. The PRODUCE cost is the formal-corpus size (Σ bytes of every `theorem … := by decide`); the VERIFY cost is O(1) per theorem (recompute its content-address). Anyone recomputes the SAME numbers from the same source, so nothing is on trust — it folds to a receipt you recheck. This is efficiency PROVEN (routed to the ledger), where uuidna_tokens is efficiency MEASURED (a self-report). Returns {count, formalBytes, bytesPerTheorem, verifyOps, largest, smallest, receipt}.',
     inputSchema: { type: 'object', properties: {} },
     run: () => recomputableCost() },
+  { name: 'uuidna_unlocks',
+    description: 'Unlock board from theorems(): each sealed by-decide key unlocks its statement. Returns {keys,distinct,skills,files,bySkill,illustrations,receipt,honest}. Illustrations are presence checks, not a closed set. Unsealed ≠ locked.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => unlockBoard() },
   { name: 'uuidna_security_audit',
     description: 'The RECOMPUTABLE security posture computed from what the package SHIPS (package.json + the sealed ledger + the honesty gate), folded to an order-invariant receipt anyone rechecks — NOT a scanner and NOT a pentest. It verifies the supply-chain surface (zero runtime dependencies, dev-deps bounded to a known set), the defence-in-depth theorems sealed (layers add bits, a key bit doubles the space, the birthday bound halves the exponent, verify is cheaper than forge, no maximum only bounds), collision resistance by pigeonhole (seats_pigeonhole), that the honesty gate BITES a fabricated theorem citation, and that the KERNEL-ONLY WITNESS ships (lean/axioms.json beside dist covers the live ledger — the no-borrowed-axiom claim recomputes offline). HONEST SCOPE: the repo-tree scans (no committed secret across tracked files, the KAT suite present) and the CI gates run in the source tree, NOT here — this is the posture provable from the package itself. Returns {checks, passed, failed, receipt}. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: {} },

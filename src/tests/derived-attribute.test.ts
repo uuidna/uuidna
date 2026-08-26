@@ -168,4 +168,4 @@ test('a generator that writes ANY path is INVOKED by the chain, or it is rot wai
  *  time on purpose: a bound recomputed from the thing it bounds cannot fail, which is the defect that makes a
  *  self-measuring check decorative. Raise it when a generator is wired in; lowering it is a deliberate act that
  *  belongs in a commit message, never a quiet edit to make a red test green. */
-const WIRED_FLOOR = 33
+const WIRED_FLOOR = 34
