@@ -64,47 +64,107 @@ export const INVOLUTIONS: readonly Involution[] = [
  *  HISTORY: numeral-only `(2:Nat)` was the first gap. Compound ascriptions `(1*1 - 0*0 : Int)` and
  *  `(40 - (-70) : Int)` stayed unreached for the same reason until `: Nat` / `: Int` were stripped wherever they
  *  annotate arithmetic — still not opening the door to `List` / `fun`. */
-const ASCRIPTION_NUMERAL = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
-/** Strip `: Nat` / `: Int` and `: List …` (incl. `List (Int × Int)`). Trailing `\b` must not follow `)` — it
- *  would refuse the parenthesised List form and leave `(Int × Int)` as junk. */
-const ASCRIPTION_TYPE = /\s*:\s*(?:Nat|Int)\b|\s*:\s*List(?:\s*\([^)]*\)|\s+[A-Za-z_][A-Za-z0-9_]*)?/g
-export const stripAscriptions = (s: string): string =>
-  s.replace(ASCRIPTION_NUMERAL, '$1').replace(ASCRIPTION_TYPE, '')
+/** Strip `: List …` (incl. `List (Int × Int)`). Trailing `\b` must not follow `)` — it would refuse the
+ *  parenthesised List form and leave `(Int × Int)` as junk. `: Nat` / `: Int` are REWRITTEN to `Nat(…)` /
+ *  `Int(…)` so the evaluator keeps Lean's ring (Nat saturating − vs Int true − / emod), not deleted. */
+const ASCRIPTION_LIST = /\s*:\s*List(?:\s*\([^)]*\)|\s+[A-Za-z_][A-Za-z0-9_]*)?/g
+export const stripAscriptions = (s: string): string => {
+  let out = s.replace(ASCRIPTION_LIST, '')
+  // Innermost `(expr : Nat|Int)` — expr may hold nested parens (`(40 - (-70) : Int)`).
+  for (;;) {
+    const re = /:\s*(Int|Nat)\s*\)/g
+    let found: RegExpExecArray | null = null
+    let m: RegExpExecArray | null
+    while ((m = re.exec(out))) found = m
+    if (!found) break
+    const ty = found[1]!
+    const close = found.index + found[0].length - 1
+    let depth = 1
+    let i = found.index - 1
+    while (i >= 0 && depth > 0) {
+      const ch = out[i]!
+      if (ch === ')') depth++
+      else if (ch === '(') depth--
+      i--
+    }
+    if (depth !== 0) break
+    const open = i + 1
+    const expr = out.slice(open + 1, found.index).trim()
+    out = out.slice(0, open) + `${ty}(${expr})` + out.slice(close + 1)
+  }
+  return out
+}
 /** Numerals, arithmetic, named ledger ops, Prod `.1`/`.2`, and a BOUNDED List slice: literals `[…]` (Nat and
  *  String), `++`, `.reverse` / `.length` / `.contains` / `.sum` / `.take` / `.eraseDups` / `.Nodup`, `nth`,
  *  `List.sum` / `List.reverse` / `List.range` / `List.range'`, `rowsOf`, `preOf` (named `dz`/`dbl` only),
- *  `true`/`false`, `&&`, `if/then/else`, and `.foldl (· + ·)`. `fun` / bound names / named constant tables stay
- *  unreached. Admitted names are stripped before the character gate so letters never open the door to arbitrary
+ *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl (· + ·)`, and bounded `fun` with `.all`/`.map`/`.filter`/`.any`.
+ *  Named constant tables / `let` / heavier ∀ stay unreached. Admitted names are stripped before the character gate so letters never open the door to arbitrary
  *  identifiers. */
-const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|preOf|reverse|length|contains|sum|take|eraseDups|Nodup|nth|foldl|true|false|if|then|else)\b/g
+const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|all|map|filter|any|zip|getLast|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap)\b/g
+/** Drop Lean line comments so sealed theorems with `-- …` stay reachable. */
+const stripComments = (s: string): string => s.replace(/--[^\n]*/g, ' ')
 /** Drop string literal bodies so Unicode readings (bg/zh/…) do not fail the character gate. */
 const stripStrings = (s: string): string => s.replace(/"(?:[^"]*)"/g, '""')
+/** Strip `fun x =>` / `let r :=` binders (and their uses) so the character gate stays letter-free. */
+const stripFunBinders = (s: string): string => {
+  const binders: string[] = []
+  let out = s.replace(/\bfun\s+([A-Za-z_][A-Za-z0-9_]*)\s*=>/g, (_, id: string) => {
+    binders.push(id)
+    return ' '
+  })
+  out = out.replace(/\blet\s+([A-Za-z_][A-Za-z0-9_]*)\s*:=/g, (_, id: string) => {
+    binders.push(id)
+    return ' '
+  })
+  binders.sort((a, b) => b.length - a.length)
+  for (const b of binders) out = out.replace(new RegExp('\\b' + b + '\\b', 'g'), ' ')
+  return out.replace(/=>/g, ' ').replace(/:=/g, ' ').replace(/==/g, ' ').replace(/!=/g, ' ').replace(/\|\|/g, ' ').replace(/;/g, ' ')
+}
 export const evaluable = (statement: string): boolean =>
-  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]"\\&'·-]+$/.test(
-    stripStrings(stripAscriptions(statement)).replace(NAMED_OP, '').replace(/\+\+/g, ''),
+  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]"\\&'|·?!;:-]+$/.test(
+    stripFunBinders(stripStrings(stripAscriptions(stripComments(statement)))).replace(NAMED_OP, '').replace(/\+\+/g, '').replace(/\?/g, ''),
   )
+
 
 // A REAL EVALUATOR, NOT `eval`. Recursive descent over numerals, arithmetic, comparisons, ∧, ¬, named ledger
 // ops, Prod, and the List slice above — short, total, same answer on every host.
 //
 // Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ · ++ · postfix (.reverse/.length/…) · atoms.
-type Cursor = { s: string; i: number }
-/** Tagged values: numerals, booleans, strings, right-associated Prods, and finite lists. */
+type Env = Map<string, Val>
+type Ring = 'Nat' | 'Int'
+type Cursor = { s: string; i: number; env: Env; ring: Ring }
+/** Tagged values: numerals, booleans, strings, right-associated Prods, finite lists, unary funs, and pending powers. */
 type Pair = { readonly t: 'p'; readonly a: Val; readonly b: Val }
 type Lst = { readonly t: 'l'; readonly xs: Val[] }
-type Val = number | boolean | string | Pair | Lst
+type Fun = { readonly t: 'f'; readonly run: (x: Val) => Val }
+type Pow = { readonly t: 'pow'; readonly b: number; readonly e: number }
+type Opt = { readonly t: 'o'; readonly v: Val | null }
+type Val = number | boolean | string | Pair | Lst | Fun | Pow | Opt
 
 const pair = (a: Val, b: Val): Pair => ({ t: 'p', a, b })
 const lst = (xs: Val[]): Lst => ({ t: 'l', xs })
+const fun = (run: (x: Val) => Val): Fun => ({ t: 'f', run })
+const pow = (b: number, e: number): Pow => ({ t: 'pow', b, e })
+const opt = (v: Val | null): Opt => ({ t: 'o', v })
 const isPair = (v: Val): v is Pair => typeof v === 'object' && v !== null && (v as Pair).t === 'p'
 const isLst = (v: Val): v is Lst => typeof v === 'object' && v !== null && (v as Lst).t === 'l'
+const isFun = (v: Val): v is Fun => typeof v === 'object' && v !== null && (v as Fun).t === 'f'
+const isPow = (v: Val): v is Pow => typeof v === 'object' && v !== null && (v as Pow).t === 'pow'
+const isOpt = (v: Val): v is Opt => typeof v === 'object' && v !== null && (v as Opt).t === 'o'
 
 const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c.i++ }
 const eat = (c: Cursor, tok: string): boolean => { ws(c); if (c.s.startsWith(tok, c.i)) { c.i += tok.length; return true } return false }
 
 const deepEq = (a: Val, b: Val): boolean => {
+  if (isPow(a)) a = asNum(a)
+  if (isPow(b)) b = asNum(b)
   if (typeof a === 'number' || typeof a === 'boolean' || typeof a === 'string') return a === b
   if (typeof b === 'number' || typeof b === 'boolean' || typeof b === 'string') return false
+  if (isFun(a) || isFun(b)) return false
+  if (isOpt(a) && isOpt(b)) {
+    if (a.v === null || b.v === null) return a.v === null && b.v === null
+    return deepEq(a.v, b.v)
+  }
   if (isPair(a) && isPair(b)) return deepEq(a.a, b.a) && deepEq(a.b, b.b)
   if (isLst(a) && isLst(b)) {
     if (a.xs.length !== b.xs.length) return false
@@ -114,13 +174,76 @@ const deepEq = (a: Val, b: Val): boolean => {
   return false
 }
 
+/** Deterministic trunc/abs/min — no Math.* (harmonic-scan). */
+const trunc = (n: number): number => (n < 0 ? -(( -n) | 0) : (n | 0))
+const abs = (n: number): number => (n < 0 ? -n : n)
+const min2 = (a: number, b: number): number => (a < b ? a : b)
+
+/** Lean `a ^ e` on Nat/Int — BigInt so sealed mod-power filters do not float-corrupt. */
+const evalPow = (b: number, e: number): number => {
+  if (e < 0) throw new Error('pow')
+  if (e === 0) return 1
+  const r = BigInt(trunc(b)) ** BigInt(trunc(e))
+  if (r > BigInt(Number.MAX_SAFE_INTEGER) || r < BigInt(Number.MIN_SAFE_INTEGER)) throw new Error('overflow')
+  return Number(r)
+}
+/** `(a ^ e) % m` fused — the sealed nilpotent / fixed-point filters. */
+const modPow = (base: number, exp: number, mod: number, ring: Ring): number => {
+  if (mod === 0) return ring === 'Nat' ? base : 0
+  let m = BigInt(trunc(mod))
+  if (m < 0n) m = -m
+  if (m === 0n) return base
+  let b = BigInt(trunc(base)) % m
+  if (b < 0n) b += m
+  let e = BigInt(trunc(exp))
+  if (e < 0n) throw new Error('pow')
+  let r = 1n
+  while (e > 0n) {
+    if (e & 1n) r = (r * b) % m
+    b = (b * b) % m
+    e >>= 1n
+  }
+  return Number(r)
+}
+/** Lean Nat.mod / Int.emod — Euclidean remainder in `[0, |m|)`; `n % 0 = n` on Nat. */
+const emod = (a: number, b: number, ring: Ring): number => {
+  if (b === 0) return a
+  if (ring === 'Nat' && a >= 0 && b > 0) return a % b
+  const m = abs(b)
+  return ((a % m) + m) % m
+}
+/** Lean Nat.sub saturates at 0; Int.sub is true minus. Default ring is Nat. */
+const ringSub = (a: number, b: number, ring: Ring): number => {
+  if (ring === 'Int') return a - b
+  if (a < 0 || b < 0) return a - b
+  return a < b ? 0 : a - b
+}
 const asNum = (v: Val): number => {
-  if (typeof v !== 'number') throw new Error('expected numeral')
-  return v
+  if (typeof v === 'number') return v
+  if (isPow(v)) return evalPow(v.b, v.e)
+  throw new Error('expected numeral')
 }
 const asLst = (v: Val): Val[] => {
   if (!isLst(v)) throw new Error('expected list')
   return v.xs
+}
+const asFun = (v: Val): Fun => {
+  if (!isFun(v)) throw new Error('expected fun')
+  return v
+}
+const asBool = (v: Val): boolean => {
+  if (typeof v !== 'boolean') throw new Error('expected bool')
+  return v
+}
+const readIdent = (c: Cursor): string => {
+  ws(c)
+  const start = c.i
+  if (c.i < c.s.length && /[A-Za-z_]/.test(c.s[c.i]!)) {
+    c.i++
+    while (c.i < c.s.length && /[A-Za-z0-9_]/.test(c.s[c.i]!)) c.i++
+  }
+  if (c.i === start) throw new Error('ident')
+  return c.s.slice(start, c.i)
 }
 
 /** Lean `lxor` — structural XOR with 8-bit fuel (`lxorAux 8`), axiom-free. */
@@ -162,6 +285,30 @@ const resFn = (step: number): number => {
   const r = (2 ** (step % 6)) % 9
   return r === 0 ? 9 : r
 }
+/** Sealed Lean mirrors — Sequence / Discover / Uuidna defs only (not invented). */
+const TOUR: Val[] = [1, 2, 4, 8, 7, 5, 3, 6, 0]
+const UNITS9: Val[] = [1, 2, 4, 5, 7, 8]
+const divZeroFn = (x: number): number => (x === 0 ? 0 : 10 - x)
+const apFn = (a: number, b: number, x: number): number => (a * x + b) % 9
+const polarFn = (x: number): number => (9 - x) % 9
+const saltConvFn = (c: number, _s: number): number => c % 9
+const saltSeqFn = (_c: number, s: number): number => s % 9
+const invBFn = (a: number): boolean => {
+  for (let e = 0; e < 9; e++) if ((a * e) % 9 === 1) return true
+  return false
+}
+const carries9Fn = (d: number, nx: number): boolean => {
+  if (UNITS9.some((u) => u === d)) return nx === (2 * d) % 9
+  if (d === 3 || d === 6) return nx === (d + 3) % 9
+  return false
+}
+const asPair = (v: Val): Pair => {
+  if (!isPair(v)) throw new Error('expected pair')
+  return v
+}
+const sigFn = (p: Pair): Pair => pair(2 - asNum(p.a), -asNum(p.b))
+const tauFn = (p: Pair): Pair => pair(2 - asNum(p.a), asNum(p.b))
+const kapFn = (p: Pair): Pair => pair(asNum(p.a), -asNum(p.b))
 
 const listSum = (xs: Val[]): number => {
   let s = 0
@@ -200,7 +347,52 @@ const listFoldlAdd = (xs: Val[], init: number): number => {
   return s
 }
 
-/** Postfix: Prod `.1`/`.2` and List methods. `.contains` / `.take` take an argument. */
+/** Parse `(fun x => body)` or a Fun atom — bodyKind selects Bool vs value evaluation. */
+const parseFunArg = (c: Cursor, bodyKind: 'bool' | 'val'): Fun => {
+  ws(c)
+  if (c.s[c.i] === '(') {
+    const open = c.i
+    c.i++
+    ws(c)
+    if (eat(c, 'fun')) {
+      const name = readIdent(c)
+      if (!eat(c, '=>')) throw new Error('fun =>')
+      const bodyStart = c.i
+      let depth = 1
+      let i = c.i
+      while (i < c.s.length && depth > 0) {
+        const ch = c.s[i]!
+        if (ch === '"') {
+          i++
+          while (i < c.s.length && c.s[i] !== '"') i++
+          i++
+          continue
+        }
+        if (ch === '(' || ch === '[') depth++
+        else if (ch === ')' || ch === ']') depth--
+        if (depth === 0) break
+        i++
+      }
+      if (depth !== 0) throw new Error('fun paren')
+      const body = c.s.slice(bodyStart, i)
+      c.i = i + 1
+      const parentEnv = c.env
+      return fun((x) => {
+        const env: Env = new Map(parentEnv)
+        env.set(name, x)
+        const inner: Cursor = { s: body, i: 0, env, ring: c.ring }
+        const v = bodyKind === 'bool' ? boolProp(inner) : junction(inner)
+        ws(inner)
+        if (inner.i !== body.length) throw new Error('fun trailing')
+        return v
+      })
+    }
+    c.i = open
+  }
+  return asFun(atom(c))
+}
+
+/** Postfix: Prod `.1`/`.2` and List methods. `.contains` / `.take` / fun methods take an argument. */
 const postfix = (c: Cursor, v: Val): Val => {
   for (;;) {
     ws(c)
@@ -229,6 +421,46 @@ const postfix = (c: Cursor, v: Val): Val => {
     if (eat(c, '.foldl')) {
       if (!eat(c, '(· + ·)')) throw new Error('foldl')
       v = listFoldlAdd(asLst(v), asNum(atom(c)))
+      continue
+    }
+    if (eat(c, '.all')) {
+      const f = parseFunArg(c, 'bool')
+      v = asLst(v).every((x) => asBool(f.run(x)))
+      continue
+    }
+    if (eat(c, '.any')) {
+      const f = parseFunArg(c, 'bool')
+      v = asLst(v).some((x) => asBool(f.run(x)))
+      continue
+    }
+    if (eat(c, '.filter')) {
+      const f = parseFunArg(c, 'bool')
+      v = lst(asLst(v).filter((x) => asBool(f.run(x))))
+      continue
+    }
+    if (eat(c, '.map')) {
+      ws(c)
+      if (eat(c, 'dz')) { v = lst(asLst(v).map((x) => dz(asNum(x)))); continue }
+      if (eat(c, 'dbl')) { v = lst(asLst(v).map((x) => dbl(asNum(x)))); continue }
+      if (eat(c, 'polar')) { v = lst(asLst(v).map((x) => polarFn(asNum(x)))); continue }
+      if (eat(c, 'divZero')) { v = lst(asLst(v).map((x) => divZeroFn(asNum(x)))); continue }
+      const f = parseFunArg(c, 'val')
+      v = lst(asLst(v).map((x) => f.run(x)))
+      continue
+    }
+    if (eat(c, '.zip')) {
+      const other = asLst(atom(c))
+      const xs = asLst(v)
+      const n = min2(xs.length, other.length)
+      const out: Val[] = []
+      for (let i = 0; i < n; i++) out.push(pair(xs[i]!, other[i]!))
+      v = lst(out)
+      continue
+    }
+    if (eat(c, '.drop')) { v = lst(asLst(v).slice(asNum(atom(c)))); continue }
+    if (eat(c, '.getLast?')) {
+      const xs = asLst(v)
+      v = opt(xs.length ? xs[xs.length - 1]! : null)
       continue
     }
     return v
@@ -261,6 +493,7 @@ const atom = (c: Cursor): Val => {
     return postfix(c, lst(xs))
   }
   if (eat(c, '(')) {
+    const saveParen = c.i
     const a = junction(c)
     ws(c)
     if (eat(c, ',')) {
@@ -273,6 +506,15 @@ const atom = (c: Cursor): Val => {
       }
       if (!eat(c, ')')) throw new Error('unclosed')
       return postfix(c, pair(a, b))
+    }
+    // `(Nat.gcd a 9 == 1)` — junction stops before `==`; reparse as a bool proposition.
+    if (c.s.startsWith('==', c.i) || c.s.startsWith('!=', c.i) || c.s.startsWith('<=', c.i) || c.s.startsWith('>=', c.i)
+      || c.s.startsWith('≠', c.i) || c.s.startsWith('≤', c.i) || c.s.startsWith('≥', c.i)
+      || c.s.startsWith('<', c.i) || c.s.startsWith('>', c.i) || c.s.startsWith('=', c.i)) {
+      c.i = saveParen
+      const bv = boolProp(c)
+      if (!eat(c, ')')) throw new Error('unclosed')
+      return postfix(c, bv)
     }
     if (!eat(c, ')')) throw new Error('unclosed')
     return postfix(c, a)
@@ -291,6 +533,30 @@ const atom = (c: Cursor): Val => {
   }
   // Named apps — longer tokens before prefixes.
   if (eat(c, 'Nat.gcd')) return postfix(c, natGcd(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'Nat')) {
+    if (!eat(c, '(')) throw new Error('Nat')
+    const save = c.ring
+    c.ring = 'Nat'
+    const v = junction(c)
+    c.ring = save
+    if (!eat(c, ')')) throw new Error('Nat)')
+    return postfix(c, v)
+  }
+  if (eat(c, 'Int')) {
+    if (!eat(c, '(')) throw new Error('Int')
+    const save = c.ring
+    c.ring = 'Int'
+    const v = junction(c)
+    c.ring = save
+    if (!eat(c, ')')) throw new Error('Int)')
+    return postfix(c, v)
+  }
+  if (eat(c, 'decide')) {
+    if (!eat(c, '(')) throw new Error('decide')
+    const v = boolExpr(c)
+    if (!eat(c, ')')) throw new Error('decide)')
+    return postfix(c, v)
+  }
   if (eat(c, "List.range'")) return postfix(c, lst(listRangeFrom(asNum(atom(c)), asNum(atom(c)))))
   if (eat(c, 'List.range')) return postfix(c, lst(listRange(asNum(atom(c)))))
   if (eat(c, 'List.sum')) return postfix(c, listSum(asLst(atom(c))))
@@ -304,16 +570,55 @@ const atom = (c: Cursor): Val => {
     if (eat(c, 'dz')) f = dz
     else if (eat(c, 'dbl')) f = dbl
     else throw new Error('preOf')
-    return postfix(c, preOf(f, asNum(atom(c))))
+    const save = c.i
+    try {
+      return postfix(c, preOf(f, asNum(atom(c))))
+    } catch {
+      c.i = save
+      // Partial `preOf dz` — sealed as `.map (preOf dz)`.
+      return postfix(c, fun((x) => preOf(f!, asNum(x))))
+    }
   }
   if (eat(c, 'commission')) return postfix(c, commission(asNum(atom(c))))
   if (eat(c, 'unverified')) return postfix(c, unverifiedFn(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'verified')) return postfix(c, verifiedFn(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'dzMin')) return postfix(c, dzMin(asNum(atom(c))))
-  if (eat(c, 'dz')) return postfix(c, dz(asNum(atom(c))))
-  if (eat(c, 'dbl')) return postfix(c, dbl(asNum(atom(c))))
+  if (eat(c, 'dz')) {
+    const save = c.i
+    try { return postfix(c, dz(asNum(atom(c)))) } catch { c.i = save; return postfix(c, fun((x) => dz(asNum(x)))) }
+  }
+  if (eat(c, 'dbl')) {
+    const save = c.i
+    try { return postfix(c, dbl(asNum(atom(c)))) } catch { c.i = save; return postfix(c, fun((x) => dbl(asNum(x)))) }
+  }
+  if (eat(c, 'divZero')) {
+    const save = c.i
+    try { return postfix(c, divZeroFn(asNum(atom(c)))) } catch { c.i = save; return postfix(c, fun((x) => divZeroFn(asNum(x)))) }
+  }
+  if (eat(c, 'polar')) {
+    const save = c.i
+    try { return postfix(c, polarFn(asNum(atom(c)))) } catch { c.i = save; return postfix(c, fun((x) => polarFn(asNum(x)))) }
+  }
+  if (eat(c, 'ap')) return postfix(c, apFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'carries9')) return postfix(c, carries9Fn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'saltConv')) return postfix(c, saltConvFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'saltSeq')) return postfix(c, saltSeqFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'invB')) return postfix(c, invBFn(asNum(atom(c))))
+  if (eat(c, 'sig')) return postfix(c, sigFn(asPair(atom(c))))
+  if (eat(c, 'tau')) return postfix(c, tauFn(asPair(atom(c))))
+  if (eat(c, 'kap')) return postfix(c, kapFn(asPair(atom(c))))
+  if (eat(c, 'tour')) return postfix(c, lst(TOUR.slice()))
+  if (eat(c, 'units9')) return postfix(c, lst(UNITS9.slice()))
+  if (eat(c, 'some')) return postfix(c, opt(atom(c)))
   if (eat(c, 'res')) return postfix(c, resFn(asNum(atom(c))))
   if (eat(c, 'nth')) return postfix(c, listNth(asLst(atom(c)), asNum(atom(c))))
+  // Bound variable from `fun x => …`
+  if (c.i < c.s.length && /[A-Za-z_]/.test(c.s[c.i]!)) {
+    const save = c.i
+    const id = readIdent(c)
+    if (c.env.has(id)) return postfix(c, c.env.get(id)!)
+    c.i = save
+  }
   const start = c.i
   while (c.i < c.s.length && c.s[c.i]! >= '0' && c.s[c.i]! <= '9') c.i++
   if (c.i === start) throw new Error('expected a numeral')
@@ -333,16 +638,20 @@ const append = (c: Cursor): Val => {
 const power = (c: Cursor): Val => {
   const base = append(c)
   if (!eat(c, '^')) return base
-  return asNum(base) ** asNum(power(c))
+  return pow(asNum(base), asNum(power(c)))
 }
 const product = (c: Cursor): Val => {
   let v = power(c)
   for (;;) {
     ws(c)
     if (eat(c, '*')) v = asNum(v) * asNum(power(c))
-    else if (eat(c, '%')) { const d = asNum(power(c)); v = d === 0 ? 0 : asNum(v) % d }
-    else if (eat(c, '/')) { const d = asNum(power(c)); v = d === 0 ? 0 : (asNum(v) - (asNum(v) % d)) / d }
-    else return v
+    else if (eat(c, '%')) {
+      const d = asNum(power(c))
+      v = isPow(v) ? modPow(v.b, v.e, d, c.ring) : emod(asNum(v), d, c.ring)
+    } else if (eat(c, '/')) {
+      const d = asNum(power(c))
+      v = d === 0 ? 0 : (asNum(v) - emod(asNum(v), d, c.ring)) / d
+    } else return isPow(v) ? asNum(v) : v
   }
 }
 function sum(c: Cursor): Val {
@@ -350,7 +659,7 @@ function sum(c: Cursor): Val {
   for (;;) {
     ws(c)
     if (eat(c, '+')) v = asNum(v) + asNum(product(c))
-    else if (c.s.startsWith('-', c.i)) { c.i++; v = asNum(v) - asNum(product(c)) }
+    else if (c.s.startsWith('-', c.i)) { c.i++; v = ringSub(asNum(v), asNum(product(c)), c.ring) }
     else return v
   }
 }
@@ -360,27 +669,87 @@ function junction(c: Cursor): Val {
   let v = sum(c)
   for (;;) {
     ws(c)
-    if (!eat(c, '&&')) return v
-    const r = sum(c)
-    if (typeof v !== 'boolean' || typeof r !== 'boolean') throw new Error('&&')
-    v = v && r
+    // Only fold Bool `&&` when the left value is already Bool — otherwise `10 && …` is propositional.
+    if (typeof v === 'boolean' && eat(c, '&&')) {
+      const r = sum(c)
+      if (typeof r !== 'boolean') throw new Error('&&')
+      v = v && r
+      continue
+    }
+    return v
   }
 }
 
 const compare = (c: Cursor): boolean => {
   const l = junction(c); ws(c)
-  // TWO-CHARACTER OPS BEFORE THEIR PREFIXES — `<=` must win over `<`.
+  // TWO-CHARACTER OPS BEFORE THEIR PREFIXES — `<=` must win over `<`; `==`/`!=` are Lean Bool eq.
   if (eat(c, '<=')) return asNum(l) <= asNum(junction(c))
   if (eat(c, '>=')) return asNum(l) >= asNum(junction(c))
   if (eat(c, '≤')) return asNum(l) <= asNum(junction(c))
   if (eat(c, '≥')) return asNum(l) >= asNum(junction(c))
   if (eat(c, '≠')) return !deepEq(l, junction(c))
+  if (eat(c, '!=')) return !deepEq(l, junction(c))
+  if (eat(c, '==')) return deepEq(l, junction(c))
   if (eat(c, '<')) return asNum(l) < asNum(junction(c))
   if (eat(c, '>')) return asNum(l) > asNum(junction(c))
   if (eat(c, '=')) return deepEq(l, junction(c))
-  // bare boolean proposition — `.Nodup`, `.contains`, `true`, `if`
+  // bare boolean proposition — `.Nodup`, `.contains`, `.all`, `true`, `if`
   if (typeof l === 'boolean') return l
   throw new Error('expected a comparison')
+}
+
+/** Bool `||` over comparisons — sealed Fermat / filter predicates. Always parse both sides. */
+function boolExpr(c: Cursor): boolean {
+  let v = compare(c)
+  for (;;) {
+    ws(c)
+    if (!eat(c, '||')) return v
+    const r = compare(c)
+    v = v || r
+  }
+}
+
+/** Fun-body propositions: `let`, `¬`/`!`, `∧`/`&&`/`||`, and parenthesised chains. */
+const cmpContinues = (c: Cursor): boolean => {
+  ws(c)
+  return c.s.startsWith('==', c.i) || c.s.startsWith('!=', c.i) || c.s.startsWith('<=', c.i) || c.s.startsWith('>=', c.i)
+    || c.s.startsWith('≠', c.i) || c.s.startsWith('≤', c.i) || c.s.startsWith('≥', c.i)
+    || c.s.startsWith('<', c.i) || c.s.startsWith('>', c.i)
+    || (c.s.startsWith('=', c.i) && !c.s.startsWith('=>', c.i))
+}
+function boolAtom(c: Cursor): boolean {
+  ws(c)
+  if (eat(c, '¬') || eat(c, '!')) return !boolAtom(c)
+  const save = c.i
+  if (eat(c, '(')) {
+    try {
+      const v = boolProp(c)
+      if (eat(c, ')')) {
+        if (cmpContinues(c)) c.i = save
+        else return v
+      }
+    } catch { /* fall through */ }
+    c.i = save
+  }
+  return compare(c)
+}
+function boolProp(c: Cursor): boolean {
+  ws(c)
+  if (eat(c, 'let')) {
+    const name = readIdent(c)
+    if (!eat(c, ':=')) throw new Error('let :=')
+    const val = junction(c)
+    if (!eat(c, ';')) throw new Error('let ;')
+    c.env.set(name, val)
+    return boolProp(c)
+  }
+  let v = boolAtom(c)
+  for (;;) {
+    ws(c)
+    if (eat(c, '∧') || eat(c, '&&')) { v = boolAtom(c) && v; continue }
+    if (eat(c, '||')) { v = boolAtom(c) || v; continue }
+    return v
+  }
 }
 
 /** A conjunct is either a parenthesised comparison — `(2 * 21 = 42)` — or a bare one. The parenthesis is
@@ -396,8 +765,19 @@ const conjunct = (c: Cursor): boolean => {
   if (eat(c, '¬')) return !conjunct(c)
   const save = c.i
   if (eat(c, '(')) {
-    // a parenthesis may hold a whole conjunction — `((a = b) ∧ (c = d)) ∧ (e = f)` — so recurse, not just compare
-    try { const v = conjunction(c); if (eat(c, ')')) return v } catch { /* not a parenthesised boolean */ }
+    // a parenthesis may hold a whole conjunction — `((a = b) ∧ (c = d)) ∧ (e = f)` — so recurse, not just compare.
+    // But `(invB 1) == true` is a VALUE in parens, not a finished proposition — backtrack if a comparison continues.
+    try {
+      const v = conjunction(c)
+      if (eat(c, ')')) {
+        ws(c)
+        if (c.s.startsWith('==', c.i) || c.s.startsWith('!=', c.i) || c.s.startsWith('<=', c.i) || c.s.startsWith('>=', c.i)
+          || c.s.startsWith('≠', c.i) || c.s.startsWith('≤', c.i) || c.s.startsWith('≥', c.i)
+          || c.s.startsWith('<', c.i) || c.s.startsWith('>', c.i) || (c.s.startsWith('=', c.i) && !c.s.startsWith('=>', c.i))) {
+          c.i = save
+        } else return v
+      }
+    } catch { /* not a parenthesised boolean */ }
     c.i = save
   }
   return compare(c)
@@ -411,10 +791,13 @@ function conjunction(c: Cursor): boolean {
 
 /** holds(statement) → true, false, or null when it could not be decided here. Three states, never two. */
 export function holds(statement: string): boolean | null {
-  if (!evaluable(statement)) return null
-  const src = stripAscriptions(statement)
+  const cleaned = stripComments(statement)
+  if (!evaluable(cleaned)) return null
+  const src = stripAscriptions(cleaned)
+  // Lean elaborates the whole chain as Int once any `: Int` ascription appears (expected type); Nat otherwise.
+  const ring: Ring = /\bInt\b/.test(statement) ? 'Int' : 'Nat'
   try {
-    const c: Cursor = { s: src, i: 0 }
+    const c: Cursor = { s: src, i: 0, env: new Map(), ring }
     const v = conjunction(c)
     ws(c)
     return c.i === src.length ? v : null   // trailing input means this reader did not understand it all

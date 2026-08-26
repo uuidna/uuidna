@@ -49,8 +49,8 @@ test('a multi-digit numeral is not reflected digit by digit', () => {
 test('holds() has THREE answers — a statement it cannot reach is not a statement that failed', () => {
   assert.equal(holds('(1 + 1) % 9 = 2'), true)
   assert.equal(holds('(1 + 1) % 9 = 3'), false)
-  assert.equal(holds('(List.range 7).all (fun d => d = d)'), null)
-  assert.equal(evaluable('(List.range 7).all (fun d => d = d)'), false)
+  assert.equal(holds('(List.range 7).all (fun d => d = d)'), true)
+  assert.equal(evaluable('(List.range 7).all (fun d => d = d)'), true)
 })
 
 test('fixed is reported apart from survives — a map gets no credit for what it does not move', () => {
@@ -101,8 +101,8 @@ test('digitalRootOf lands in 1..9 and moves with the address', () => {
 })
 
 test('A TYPE ASCRIPTION IS NOT ARITHMETIC — stripped before the grammar is consulted', () => {
-  assert.equal(stripAscriptions('((2:Nat)^2 < 2^3)'), '(2^2 < 2^3)')
-  assert.equal(stripAscriptions('(-3 : Int) + 1'), '-3 + 1')
+  assert.equal(stripAscriptions('((2:Nat)^2 < 2^3)'), '(Nat(2)^2 < 2^3)')
+  assert.equal(stripAscriptions('(-3 : Int) + 1'), 'Int(-3) + 1')
   assert.equal(stripAscriptions('no ascription here'), 'no ascription here')
   assert.equal(evaluable('((2:Nat)^2 < 2^3) ∧ (2^3 = 8)'), true, 'reachable now, and it was only ever syntax')
   assert.equal(holds('((2:Nat)^2 < 2^3) ∧ (2^3 = 8)'), true)
@@ -110,18 +110,18 @@ test('A TYPE ASCRIPTION IS NOT ARITHMETIC — stripped before the grammar is con
 
 test('COMPOUND ASCRIPTIONS ARE STILL NOT ARITHMETIC — (expr : Nat|Int) stayed unreached for a token', () => {
   // bell_normalized, kirchhoff_voltage, action_potential_swing — arithmetic annotated with : Nat / : Int.
-  assert.equal(stripAscriptions('(1*1 - 0*0 : Int)'), '(1*1 - 0*0)')
-  assert.equal(stripAscriptions('(40 - (-70) : Int)'), '(40 - (-70))')
+  assert.equal(stripAscriptions('(1*1 - 0*0 : Int)'), 'Int(1*1 - 0*0)')
+  assert.equal(stripAscriptions('(40 - (-70) : Int)'), 'Int(40 - (-70))')
   assert.equal(evaluable('(12 - 4 - 8 : Int) = 0'), true)
   assert.equal(holds('(12 - 4 - 8 : Int) = 0'), true)
   assert.equal(holds('((1*1 + 0*0 + 0*0 + 1*1 : Nat) = 2) ∧ ((2:Nat) = 2^1)'), true)
   assert.equal(holds('((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40)'), true)
   assert.equal(holds('(3*3 - 5*5 : Int) < 0'), true)
   assert.equal(holds('(3*3 - 5*5 : Int) > 0'), false)
-  // List ascriptions with the List slice are reachable; fun still refuses
+  // List ascriptions and fun are reachable
   assert.equal(holds('([1,0,0,1] : List Nat).length = 4'), true)
   assert.equal(holds('(List.range 4).length = 4'), true)
-  assert.equal(holds('(List.range 4).all (fun x => x < 4)'), null)
+  assert.equal(holds('(List.range 4).all (fun x => x < 4)'), true)
 })
 
 test('THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreached, never true', () => {
@@ -143,7 +143,7 @@ test('DIVISION IS LEAN NAT FLOOR — / was a pure-syntax gap that left sealed eq
   assert.equal(holds('1000 / 0 = 0'), true, '÷0 = 0, same abstract zero as %')
   assert.equal(holds('256 / 2 = 128'), true)
   // List forms still refuse — widening / must not start claiming what it cannot parse
-  assert.equal(holds('(List.range 7).map (fun x => x) / 1 = 7'), null)
+  assert.equal(holds('(List.range 7).map (fun x => x) / 1 = 7'), null)  // map yields a list, not a numeral
 })
 
 test('INEQUALITY IS LEAN ≠ — another pure-syntax gap that left sealed inequalities unreached', () => {
@@ -154,7 +154,7 @@ test('INEQUALITY IS LEAN ≠ — another pure-syntax gap that left sealed inequa
   assert.equal(holds('9 ≠ 11'), true)
   assert.equal(holds('(2:Nat) ≠ 0'), true)
   // List forms still refuse — widening ≠ must not start claiming what it cannot parse
-  assert.equal(holds('(List.range 7).filter (fun x => true) ≠ []'), null)
+  assert.equal(holds('(List.range 7).filter (fun x => true) ≠ []'), true)
 })
 
 test('NON-STRICT INEQUALITY IS ASCII <= AND >= — sealed windows stayed unreached for two characters', () => {
@@ -168,7 +168,7 @@ test('NON-STRICT INEQUALITY IS ASCII <= AND >= — sealed windows stayed unreach
   assert.equal(holds('(16 ≤ 21) ∧ (21 ≤ 160)'), true, 'Unicode ≤ still holds')
   assert.equal(holds('(11 ≥ 9)'), true, 'Unicode ≥ still holds')
   // List forms still refuse — widening <= / >= must not start claiming what it cannot parse
-  assert.equal(holds('(List.range 8).all (fun n => n <= 8)'), null)
+  assert.equal(holds('(List.range 8).all (fun n => n <= 8)'), true)
 })
 
 test('NEGATION IS LEAN ¬ — sealed denials stayed unreached for one character', () => {
@@ -182,7 +182,7 @@ test('NEGATION IS LEAN ¬ — sealed denials stayed unreached for one character'
   assert.equal(holds('(19 + 30 + 31 + 31 + 29 + 31 + 30 + 1 = 202) ∧ (1888 % 4 = 0) ∧ (¬ (1888 % 100 = 0))'), true)
   assert.equal(holds('(360 / 2 = 180) ∧ (360 / 3 = 120) ∧ (360 % 360 = 0) ∧ (¬ (180 % 360 = 0)) ∧ (¬ (120 % 360 = 0))'), true)
   // List forms still refuse — widening ¬ must not start claiming what it cannot parse
-  assert.equal(holds('¬((List.range 10).all (fun n => n < 10))'), null)
+  assert.equal(holds('¬((List.range 10).all (fun n => n < 10))'), false)
 })
 
 test('LXOR IS THE LEDGER 8-BIT XOR — sealed nim-sums stayed unreached for four letters', () => {
@@ -196,8 +196,8 @@ test('LXOR IS THE LEDGER 8-BIT XOR — sealed nim-sums stayed unreached for four
   assert.equal(holds('lxor 1 2 = 4'), false)
   assert.equal(holds('(lxor (lxor 1 2) 4 = 7) ∧ (lxor 7 4 = 3)'), true)
   // List/fun forms still refuse — widening lxor must not start claiming what it cannot parse
-  assert.equal(holds('(List.range 8).all (fun n => lxor n n == 0)'), null)
-  assert.equal(evaluable('(List.range 8).all (fun n => lxor n n == 0)'), false)
+  assert.equal(holds('(List.range 8).all (fun n => lxor n n == 0)'), true)
+  assert.equal(evaluable('(List.range 8).all (fun n => lxor n n == 0)'), true)
 })
 
 test('NAT.GCD IS LEAN EUCLIDEAN GCD — sealed coprimality stayed unreached for a named operator', () => {
@@ -210,8 +210,8 @@ test('NAT.GCD IS LEAN EUCLIDEAN GCD — sealed coprimality stayed unreached for 
   assert.equal(holds('Nat.gcd 9 6 = 1'), false)
   assert.equal(holds('(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)'), true)
   // List/fun forms still refuse — widening Nat.gcd must not start claiming what it cannot parse
-  assert.equal(holds('(List.range 9).all (fun a => Nat.gcd a 9 == 1)'), null)
-  assert.equal(evaluable('(List.range 9).filter (fun a => Nat.gcd a 9 == 1)'), false)
+  assert.equal(holds('(List.range 9).all (fun a => Nat.gcd a 9 == 1)'), false)  // 0,3,6,9 share factors with 9
+  assert.equal(evaluable('(List.range 9).filter (fun a => Nat.gcd a 9 == 1)'), true)
 })
 
 test('POP IS THE LEDGER 8-BIT POPCOUNT — sealed Hamming weight stayed unreached for three letters', () => {
@@ -224,8 +224,8 @@ test('POP IS THE LEDGER 8-BIT POPCOUNT — sealed Hamming weight stayed unreache
   assert.equal(holds('pop 63 = 5'), false)
   assert.equal(holds('((4:Nat)^3 = 64) ∧ ((2:Nat)^6 = 64) ∧ (3 * 2 = 6) ∧ (pop 63 = 6)'), true)
   // List/fun forms still refuse — widening pop must not start claiming what it cannot parse
-  assert.equal(holds('(List.range 4).all (fun x => pop x < 3)'), null)
-  assert.equal(evaluable('(List.range 4).all (fun x => pop x < 3)'), false)
+  assert.equal(holds('(List.range 4).all (fun x => pop x < 3)'), true)
+  assert.equal(evaluable('(List.range 4).all (fun x => pop x < 3)'), true)
 })
 
 test('PROD .1/.2 IS LEAN PAIR PROJECTION — sealed duals stayed unreached for comma and dot', () => {
@@ -239,7 +239,7 @@ test('PROD .1/.2 IS LEAN PAIR PROJECTION — sealed duals stayed unreached for c
   assert.equal(holds('(8,12,6).1 = 7'), false)
   // List-of-Prod is the List slice; fun/range still refuse
   assert.equal(holds('[(8,12,6)].length = 1'), true)
-  assert.equal(holds('(List.range 1).map (fun x => x) = [0]'), null)
+  assert.equal(holds('(List.range 1).map (fun x => x) = [0]'), true)
 })
 
 test('NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreached for letters alone', () => {
@@ -295,8 +295,17 @@ test('LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, 
     ),
     true,
   )
-  // fun / named tables still refuse
-  assert.equal(holds('(List.range 4).all (fun x => x < 4)'), null)
-  assert.equal(holds('[1, 2].map (fun x => x + 1) = [2, 3]'), null)
-  assert.equal(evaluable('(List.range 4).all (fun x => x < 4)'), false)
+  // fun slice now decides; named tables beyond sealed mirrors still refuse
+  assert.equal(holds('(List.range 4).all (fun x => x < 4)'), true)
+  assert.equal(holds('[1, 2].map (fun x => x + 1) = [2, 3]'), true)
+  assert.equal(evaluable('(List.range 4).all (fun x => x < 4)'), true)
 })
+
+test('FUN + SEALED NAMED MIRRORS — all/map/filter/any, zip, let, Sequence/Discover/Uuidna defs', () => {
+  assert.equal(holds('(List.range 9).all (fun a => (invB a) == (Nat.gcd a 9 == 1))'), true)
+  assert.equal(holds('((tour.zip (tour.drop 1 ++ tour.take 1)).filter (fun p => ! carries9 p.1 p.2)).length = 2'), true)
+  assert.equal(holds('([0,1,2,4,8,7,5,3,6,9].map dz) = [0,9,8,6,2,3,5,7,4,1]'), true)
+  assert.equal(holds('sig (sig (3,7)) = (3,7) ∧ tau (kap (3,7)) = sig (3,7)'), true)
+  assert.equal(holds("432 % 9 = 0 ∧ (List.range' 1 60).all (fun n => let r := if n % 9 == 0 then 9 else n % 9; (r % 9 == n % 9) && (1 ≤ r) && (r ≤ 9))"), true)
+})
+
