@@ -43,6 +43,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-seo-freeze.js', args: [], note: 'FINAL SEO URL freeze — route↔hexbit map (lean/seo-url-map.json); permanence via hexbit doors' },
   { file: 'gen-expose.js', args: [], note: 'the discovery board — the live coordinates where clusters expose unsealed structure, one uuidna_expose call rendered' },
   { file: 'gen-waves.js', args: [], note: 'the conveyor board — pending, accepted with seals, and the law school roster, from the queue\'s own record' },
+  { file: 'gen-unlocks.js', args: [], note: 'the unlock board — every sealed by-decide theorem unlocks its statement; census from theorems()' },
   { file: 'gen-readme.js', args: [], note: 'the published capacity, every figure derived' },
   { file: 'gen-llm.js', args: [], note: 'llm.txt' },
   { file: 'gen-leads.js', args: [], note: 'leads.md' },

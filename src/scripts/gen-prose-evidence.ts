@@ -78,6 +78,11 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
     prose: 'VitePress is the monitor',
     backing: T.filter(t => t.key === 'handle_capacity_is_quantum_by_architecture')
   },
+  {
+    claim: 'each theorem unlocks what it seals',
+    prose: 'the ledger is the unlock board',
+    backing: T.filter(t => t.key === 'two_coins' || t.key === 'captain_computes_only_with_two_coins')
+  },
 ]
 
 // Add addresses to each evidence entry

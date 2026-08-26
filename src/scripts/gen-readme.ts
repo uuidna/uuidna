@@ -17,6 +17,7 @@ import { CANONICAL_LICENSE_SPDX, CANONICAL_LICENSE_URL } from '../publication-me
 import {
   CLAY_INVOLUTION_DOI, CLAY_INVOLUTION_DOI_URL, CLAY_INVOLUTION_RECORD_URL,
 } from '../clay-involution.js'
+import { unlockReadmeBlock } from '../unlocks.js'
 
 interface AlpineMonitor {
   all?: { total: number; ported: number }
@@ -149,26 +150,7 @@ Permanent citation: \`https://uuidna.com/<handle>\` (8 hex; worker \`HANDLES\` 3
 Captain coins: \`https://revolut.me/ceccec?note=<referrer>\` (\`encodeURIComponent\` of the page handle door).
 **One license** for every publication and Zenodo deposit: **${license}**.
 
-**Each theorem unlocks.** Every sealed \`by decide\` key unlocks exactly what it states — the ledger is the unlock board
-(${census.distinct.toLocaleString('en-US')} distinct theorems / ${T.length.toLocaleString('en-US')} keys). No curated
-exception list; refusing a sealed key is refusing the captain. Illustrations (not a closed set): coins fuse 64→128
-([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins));
-χ=2 unlocks one twelve
-([euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two),
-[ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices));
-calendar 144
-([metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation),
-[fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll));
-Shor posture — no asymmetric target
-([grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound),
-[sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address));
-architectural QA
-([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture),
-[usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty));
-gate coins
-([captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins)).
-A claim with no theorem is not “still locked” — it is simply unsealed (e.g. 12×12 as messaging load;
-period-finding speedup beyond what \`n_qubit_dimension\` / Grover seals already unlock).
+${unlockReadmeBlock()}
 
 ---
 
