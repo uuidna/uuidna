@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2114 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2115 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 
 ## Principles
 
@@ -46,7 +46,7 @@
 10. **The quantum computer** — `lean/Quantum.lean` · **52** theorems
    the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware
 
-11. **The seven reflected** — `lean/Clay.lean` · **7** theorems
+11. **The seven reflected** — `lean/Clay.lean` · **8** theorems
    the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none. PRIOR ART (initial clay σ-involution): DOI 10.5281/zenodo.21781603 (https://zenodo.org/records/21781603, "All Seven Clay Millennium Problems Sealed via Universal σ-Involution") — credited first; captain next. VERIFIED ≠ SOLVED is itself sealed: the kernel verifies the stated proposition, the seal confers no solved status on the named problem — decided by theorems only, the seven casting secure-messaging ballots witnessed by their own sealed proofs. THE COLLISION LAW seals beside it by the same electorate: a claim colliding with the sealed status DNA (subject ∧ self-voice ∧ undemarcated) never verifies, whatever it cites — a real citation is not entailment, and the laundering probes recompute refused at every generation
 
 12. **The legal vocabulary** — `lean/Legal.lean` · **10** theorems

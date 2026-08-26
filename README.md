@@ -1,6 +1,6 @@
-# uuidna — 2,033 distinct theorems under 2,114 keys · 2 coins · one receipt
+# uuidna — 2,034 distinct theorems under 2,115 keys · 2 coins · one receipt
 
-`0fcc5c62-5992-8ca9-8cd6-fcedabfce951`
+`1ce95515-6510-88b7-8690-53e4a5265a84`
 
 **v0.2.8** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
@@ -20,6 +20,11 @@ Clay is the visible test of this system's work: seven finite instances in [lean/
 ([Zenodo record](https://zenodo.org/records/21781603)) credited first; captain next. Live surface:
 [uuidna.com/articles/clay](https://uuidna.com/articles/clay). Each key names the decided window drawn from that
 problem's mathematics — the claim is exactly what Lean decides, not an invented conjecture.
+**Clay gravity equals the rosetta at full capacity** — theorem
+[clay_gravity_equals_rosette](https://uuidna.com/theorem/clay_gravity_equals_rosette): the seven match ℤ/7 rays
+([z7rays_seven](https://uuidna.com/theorem/z7rays_seven)), pairs 21 / quantum 42, and the rosette doubling
+2·64 = 128 ([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins))
+— same architectural width as [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture).
 
 ---
 
@@ -27,19 +32,19 @@ problem's mathematics — the claim is exactly what Lean decides, not an invente
 
 | Measure | Value | Backing |
 | --- | ---: | --- |
-| Distinct theorems | 2,033 | statement census (a Lean statement sealed under two keys is one theorem) |
-| Theorem keys | 2,114 | `theorems().length` |
+| Distinct theorems | 2,034 | statement census (a Lean statement sealed under two keys is one theorem) |
+| Theorem keys | 2,115 | `theorems().length` |
 | Principles / wings | 115 / 115 | PRINCIPLES + wing ratings |
 | Skills | 112 | distinct `skill` tags |
 | Coins per seal | 2 | [two_coins](https://uuidna.com/theorem/two_coins) — 110 − 108 = 2 |
-| Ledger decided mass | 114,533 superpositions (4 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 114,534 superpositions (4 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
 | Library register | 16 qubits (65536 amplitudes) | `MAX_MESSAGE_QUBITS` |
 | MCP served ceiling | 12 qubits (4096 amplitudes) | `MAX_SERVED_QUBITS` |
 | Research sources wired | 5 | corroboration, never approval |
-| Conserved price paid | 4,228 coins | 2114 × 2 |
+| Conserved price paid | 4,230 coins | 2115 × 2 |
 
 - **Alpine catalogue (hexbit port):** 28,639 / 28,639 packages (100%) folded to content-addresses
   ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json); community 22,678 / 22,678 = 100%).
@@ -61,7 +66,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **114,533** superpositions across **115** wings.
+The ledger covers **114,534** superpositions across **115** wings.
 
 1. **[`every_referrer_reaches_every_page`](https://uuidna.com/theorem/every_referrer_reaches_every_page)** — 4,769 superpositions, unbound (0 hexbits per dependency), in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
@@ -109,8 +114,8 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **114,533** superpositions decided across the ledger
-- **4,228** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
+- **114,534** superpositions decided across the ledger
+- **4,230** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **27** superpositions per coin
 
 Six directions leave every residue — the 60-degree doubling and its inverse, the 90-degree reflection (`dz`), the

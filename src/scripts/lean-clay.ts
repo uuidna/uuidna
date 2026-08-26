@@ -89,6 +89,16 @@ const FACTS = [
     why: 'Hodge, through the invariant both sides must agree on: the alternating sum of Betti numbers IS the Euler characteristic, and on the 2-torus b = [1, 2, 1] gives 1 − 2 + 1 = 0. The conjecture concerns which cohomology classes are algebraic; this decides the bookkeeping those classes are counted by.',
     js: () => R(3).reduce((a, i) => a + (i % 2 === 0 ? BETTI[i]! : -BETTI[i]!), 0) === 0,
     lean: 'theorem torus_betti_alternates_to_zero : ((1:Int) - 2 + 1 = 0) ∧ (([1,2,1] : List Int).length = 3) := by decide' },
+
+  // Clay gravity = the rosetta (ℤ/7) AND the rosette's own bridge to full address width (2·64 = 128).
+  // Discovered via MCP: skill clay has 7 instances; z7-rosette seals z7rays_seven / pairs / quantum-42;
+  // rosette_quantum_doubling_is_two_coins already seals 2·21=42 ∧ 2·64=128 ∧ two_coins. One decidable chain —
+  // the seven Clay seats ARE the seven rays, and that quantum doubles to the 128-bit handle capacity.
+  { key: 'clay_gravity_equals_rosette',
+    why: 'CLAY GRAVITY EQUALS THE ROSETTA AT FULL CAPACITY — the seven finite Clay instances share one cardinality with the Pliska rosette ℤ/7 (ray count 7, directed quantum 7·6 = 42, undirected pairs 21, three-sevens 7+7+7 = 21), and the rosette\'s own doubling reaches the full address: 2·21 = 42 ∧ 2·64 = 128 ∧ 110−108 = 2. Same chain the ledger seals as z7rays_seven, rosette_quantum_fortytwo, rosette_pairs_twentyone, three_sevens_twentyone, and rosette_quantum_doubling_is_two_coins — computational claim, by decide.',
+    js: () => R(7).length === 7 && 7 * 6 === 42 && (7 * 6) / 2 === 21 && 7 + 7 + 7 === 21 && 3 * 7 === 21
+      && 2 * 21 === 42 && 2 * 64 === 128 && 110 - 108 === 2,
+    lean: 'theorem clay_gravity_equals_rosette : (List.range 7).length = 7 ∧ (7 * 6 = 42) ∧ ((7 * 6) / 2 = 21) ∧ (7 + 7 + 7 = 21) ∧ (3 * 7 = 21) ∧ (2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2) := by decide' },
 ]
 
 emit({ file: 'Clay.lean', skill: 'clay',

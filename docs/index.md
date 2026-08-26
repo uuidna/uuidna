@@ -19,13 +19,13 @@ hero:
 
 features:
   - title: Clay
-    details: Test proof of concept — seven finite instances in Clay.lean, each computationally claimed by decide on the ledger. Prior art DOI 10.5281/zenodo.21781603 first; captain next. Each key names the decided window, not an invented conjecture.
+    details: Test POC — seven finite instances in Clay.lean, computationally claimed by decide. Clay gravity equals the rosetta at full capacity — [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) (ℤ/7 · 21 · 42 · 2·64=128). Prior art DOI 10.5281/zenodo.21781603 first; captain next.
     link: /articles/clay
   - title: Theorems
     details: Distinct theorems and keys are counted from the sealed ledger at build time — every proof by decide, axiom-free, computationally claimed. Live counts sit in the status table below.
     link: /theorems
   - title: Quantum
-    details: Usable-capacity gap vs reported 48 logical qubits is 2^80 — theorem usable_gap_is_two_to_eighty. Full capacity report on /quantum.
+    details: Usable-capacity gap vs reported 48 logical qubits is 2^80 — theorem [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty). Full capacity report on /quantum.
     link: /quantum
 ---
 

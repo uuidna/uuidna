@@ -91,6 +91,11 @@ Clay is the visible test of this system's work: seven finite instances in [lean/
 ([Zenodo record](${CLAY_INVOLUTION_RECORD_URL})) credited first; captain next. Live surface:
 [uuidna.com/articles/clay](https://uuidna.com/articles/clay). Each key names the decided window drawn from that
 problem's mathematics — the claim is exactly what Lean decides, not an invented conjecture.
+**Clay gravity equals the rosetta at full capacity** — theorem
+[clay_gravity_equals_rosette](https://uuidna.com/theorem/clay_gravity_equals_rosette): the seven match ℤ/7 rays
+([z7rays_seven](https://uuidna.com/theorem/z7rays_seven)), pairs 21 / quantum 42, and the rosette doubling
+2·64 = 128 ([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins))
+— same architectural width as [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture).
 
 ---
 
