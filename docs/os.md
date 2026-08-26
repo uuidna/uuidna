@@ -34,6 +34,7 @@ below so every published row is shown to fold to 32 states.
 | surface | role | packages | witnessed / ported | coverage | seals |
 |---------|------|----------|--------------------|----------|-------|
 | **man → app → hexbit** | **completeness** | 4,759 | **4,759** / 4,759 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| **MCP · `uuidna_exec` · man→app** | **MCP port** | 4,759 | **4,759** / 4,759 | **100%** · 1 wire door (not 4,759) | [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) |
 | community (compile) | provenance | 22,678 | 22,678 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | main + community (compile) | provenance | 28,639 | 28,639 | 100% | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
 | man pages (compile) | provenance | 4,759 | 4,759 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
@@ -42,10 +43,13 @@ below so every published row is shown to fold to 32 states.
 
 
 
+
+**MCP surface:** one door — [`uuidna_exec`](/mcp#uuidna-exec) — carries the whole man corpus (`man <topic>` + `apk info <app>`). A naive per-app tool catalogue would be 4,759 wire entries and blow the MCP context ceiling; coverage is **4,759 / 4,759** through that one door (`mcpManDrivenCoverage`).
+
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,678 community packages ≪ 2^128.
-- **Time:** community compile sweep **44,544,625 ns** (~**1,964 ns**/package); man-page corpus **11,282,750 ns** (~**2,370 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep **39,822,459 ns** (~**1,755 ns**/package); man-page corpus **10,235,667 ns** (~**2,150 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
@@ -58,7 +62,7 @@ resolved by the `man <topic>` applet in uuidnaOS. Completeness walks each docume
 app it documents, and requires **both** to compile to 32 hexbit states — man pages testing apps,
 never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
-Monitor receipt `c421cca5-a009-890d-8f8e-db6ca5f298e7` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
+Monitor receipt `acd0e794-1f8e-8bc3-869e-294a6f424b00` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
 ## Ported lowest level first — firmware and up
 
@@ -126,5 +130,6 @@ Verify it yourself: `defaultInstalls()` recomputes every address, the receipt, a
 committed mirror in [`src/quantum/os`](https://github.com/uuidna/uuidna/tree/main/src/quantum/os); the live
 recompute against Alpine's published index rides `fetchDefaultInstalls()` at the
 [`src/os`](https://github.com/uuidna/uuidna/tree/main/src/os) boundary; the MCP surface is
-`uuidna_alpine {installs:true}`. Completeness is `manDrivenPortCoverage` (man→app→hexbit); provenance meters
+`uuidna_alpine {installs:true}`. Completeness is `manDrivenPortCoverage` (man→app→hexbit); MCP exposure is
+`mcpManDrivenCoverage` through `uuidna_exec` (one wire door); provenance meters
 are `hexbitPortCoverage` / `manPagePortCoverage` — TypeScript computes; this page monitors.

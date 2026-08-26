@@ -65,9 +65,11 @@ test('apk — the package manager\'s READ surface: list, info, deps, search', ()
 test('man — man→app→hexbit is the Alpine app path', () => {
   const r = uuidnaExec('man busybox')
   assert.ok(r.ok)
-  const d = r.data as { kind?: string; hexbits?: number[] }
+  const d = r.data as { kind?: string; hexbits?: number[]; app?: string; witnessOk?: boolean }
   assert.equal(d.kind, 'man')
   assert.equal(d.hexbits?.length, 32)
+  assert.equal(d.app, 'busybox')
+  assert.equal(d.witnessOk, true)
 })
 
 test('the SERVED tool uuidna_exec dispatches — Alpine apps at the wire; uuidna_ls is gone', () => {

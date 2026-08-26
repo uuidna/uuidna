@@ -16,6 +16,36 @@
   },
   "pct": 100
  },
+ "mcp": {
+  "definition": "mcp·uuidna_exec·man→app→hexbit",
+  "tool": "uuidna_exec",
+  "wireDoors": 1,
+  "naiveWireIfPerApp": 4759,
+  "total": 4759,
+  "witnessed": 4759,
+  "exposed": 4759,
+  "missing": [],
+  "gaps": [],
+  "byVia": {
+   "corpus": 2,
+   "origin": 4746,
+   "gtk-doc": 5,
+   "libs": 0,
+   "dev": 1,
+   "provides": 3,
+   "self": 2
+  },
+  "pct": 100,
+  "receipt": "b95d4be5-cd88-83bb-ab31-28096ad7bce5",
+  "before": {
+   "exposed": "sample-only",
+   "wireDoorsIfNaive": 4759
+  },
+  "after": {
+   "exposed": 4759,
+   "wireDoors": 1
+  }
+ },
  "community": {
   "repo": "community",
   "total": 22678,
@@ -49,15 +79,15 @@
   }
  },
  "time": {
-  "communityCompileNs": 44544625,
-  "communityNsPer": 1964,
-  "manCompileNs": 11282750,
-  "manNsPer": 2370
+  "communityCompileNs": 39822459,
+  "communityNsPer": 1755,
+  "manCompileNs": 10235667,
+  "manNsPer": 2150
  },
  "scale": {
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "c421cca5-a009-890d-8f8e-db6ca5f298e7",
- "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
+ "receipt": "acd0e794-1f8e-8bc3-869e-294a6f424b00",
+ "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
 }

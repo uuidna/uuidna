@@ -1,7 +1,10 @@
 // quantum/os/exec — Alpine apps via apk + man→hexbit, plus install-port `ls`.
 // Toy busybox (cat/which/stat/pwd/echo/du) FOLDED: Alpine packages ARE the apps (man→app→hexbit).
 // `uuidnaLs` is internal for `ls`; MCP tool uuidna_ls removed — use uuidna_exec.
-import { catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile, resolveManPage, isManPagePackage } from './catalogue.js'
+import {
+  catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile,
+  resolveManPage, isManPagePackage, manAppWitness,
+} from './catalogue.js'
 import { toUuid } from '../../address.js'
 import { bootOS, compileToHexbits, type InstallSpec } from './index.js'
 
@@ -226,12 +229,17 @@ export function uuidnaExec(line: string): ExecResult {
         break
       }
       const compiled = catalogueCompile(doc)
+      // man→app→hexbit rides the same door: man pages test the app; both fold to 32 hexbit states.
+      const witness = manAppWitness(doc)
       emit([
         `${doc.name}-${doc.version}  [${doc.repo}]`,
         `  ${doc.desc}`,
         `  address:  ${compiled.address}`,
         `  hexbits:  ${compiled.hexbits.length} states`,
         `  checksum: ${doc.checksum}`,
+        witness.ok
+          ? `  app:      ${witness.app} (${witness.via}) · man→app→hexbit`
+          : `  app:      (orphan documentation — ${witness.detail})`,
         isManPagePackage({ name: topic })
           ? `(documentation package — ported as provenance identity; manpage bytes are not held)`
           : `(documentation for ${topic} — Alpine package ${doc.name}; manpage bytes are not held)`,
@@ -239,6 +247,8 @@ export function uuidnaExec(line: string): ExecResult {
         topic, name: doc.name, version: doc.version, repo: doc.repo, meaning: doc.desc, checksum: doc.checksum,
         address: compiled.address, hexbits: compiled.hexbits, id: compiled.id, kind: 'man',
         state: 'AVAILABLE' as const,
+        app: witness.app, via: witness.via, manHexbits: witness.manHexbits, appHexbits: witness.appHexbits,
+        witnessOk: witness.ok, witness: witness.detail,
       })
       break
     }

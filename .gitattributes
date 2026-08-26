@@ -69,6 +69,7 @@ docs/utterances.md merge=derived
 docs/os.md merge=derived
 lean/alpine-hexbit-monitor.json merge=derived
 docs/public/alpine-hexbit-monitor.jsonld merge=derived
+lean/mcp-alpine-man.json merge=derived
 lean/browser-apps-usable.json merge=derived
 docs/store.md merge=derived
 docs/models.md merge=derived

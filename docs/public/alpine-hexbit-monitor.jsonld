@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:106e8f14-4df6-80f3-bf9c-701fad9c8741",
+  "@id": "urn:uuid:10a2fe36-f11c-87c1-8d64-e834f15b3cbd",
   "@type": "Dataset",
   "name": "uuidna Alpine hexbit quantum monitor",
   "description": "TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress monitors that witness plus provenance compile coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).",
   "url": "https://uuidna.com/alpine-hexbit-monitor.jsonld",
-  "identifier": "c421cca5-a009-890d-8f8e-db6ca5f298e7",
+  "identifier": "acd0e794-1f8e-8bc3-869e-294a6f424b00",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -23,6 +23,22 @@
       "unitText": "%",
       "measurementTechnique": "computed",
       "citation": "witnessed/total documentation packages · gate alpine-hexbit-port.test.ts · orphans named, never padded to 100%"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MCP Alpine man exposure — uuidna_exec",
+      "value": 4759,
+      "unitText": "apps",
+      "measurementTechnique": "computed",
+      "citation": "mcpManDrivenCoverage() — man + apk through one MCP door; naive per-app tools refused (wire ceiling)"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "MCP Alpine man exposure — coverage",
+      "value": 100,
+      "unitText": "%",
+      "measurementTechnique": "computed",
+      "citation": "exposed/total through uuidna_exec · gate mcp-alpine-man.test.ts · wireDoors=1"
     },
     {
       "@type": "PropertyValue",
@@ -59,7 +75,7 @@
     {
       "@type": "PropertyValue",
       "name": "community compile — ns per package",
-      "value": 1964,
+      "value": 1755,
       "unitText": "ns",
       "measurementTechnique": "measured",
       "citation": "TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable"

@@ -15,6 +15,7 @@ import {
   hexbitPortCoverage, manPagePortCoverage, manPagePackages, manDrivenPortCoverage,
   catalogueCompile, catalogue,
 } from '../quantum/os/catalogue.js'
+import { mcpManDrivenCoverage } from '../quantum/os/mcp-man.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
 import { toUuid } from '../address.js'
 import { reportDataset, type Figure } from '../microdata.js'
@@ -26,6 +27,7 @@ const th = (k: string): string => `[\`${k}\`](/theorem/${k})`
 
 // COMPLETENESS — man pages testing the apps → hexbits. Package-count compile meters below are provenance.
 const completeness = manDrivenPortCoverage()
+const mcpMan = mcpManDrivenCoverage()
 const community = hexbitPortCoverage('community')
 const all = hexbitPortCoverage()
 const manAll = manPagePortCoverage()
@@ -51,9 +53,11 @@ const completenessPct = pct(completeness.witnessed, completeness.total)
 
 const monitorReceipt = toUuid(
   `alpine-hexbit-monitor|man→app→hexbit|${completeness.witnessed}/${completeness.total}|`
+  + `mcp·${mcpMan.tool}|${mcpMan.exposed}/${mcpMan.total}|wireDoors:${mcpMan.wireDoors}|`
   + `${community.ported}/${community.total}|${all.ported}/${all.total}|`
   + `${manAll.ported}/${manAll.total}|${UUID_BITS}`,
 )
+const mcpPct = pct(mcpMan.exposed, mcpMan.total)
 
 const rows = port.specs.map((s, i) =>
   `| ${i + 1} | \`${s.route}\` | \`${s.id}\` | ${s.version} | ${s.meaning} | \`${s.address}\` |`
@@ -95,6 +99,7 @@ below so every published row is shown to fold to ${UUID_HEXBITS} states.
 | surface | role | packages | witnessed / ported | coverage | seals |
 |---------|------|----------|--------------------|----------|-------|
 | **man → app → hexbit** | **completeness** | ${completeness.total.toLocaleString('en-US')} | **${completeness.witnessed.toLocaleString('en-US')}** / ${completeness.total.toLocaleString('en-US')} | **${completenessPct}%** | ${th('a_spec_compiles_to_hexbits')} |
+| **MCP · \`${mcpMan.tool}\` · man→app** | **MCP port** | ${mcpMan.total.toLocaleString('en-US')} | **${mcpMan.exposed.toLocaleString('en-US')}** / ${mcpMan.total.toLocaleString('en-US')} | **${mcpPct}%** · ${mcpMan.wireDoors} wire door (not ${mcpMan.naiveWireIfPerApp.toLocaleString('en-US')}) | ${th('the_os_is_bootable_quantum')} |
 | community (compile) | provenance | ${community.total.toLocaleString('en-US')} | ${community.ported.toLocaleString('en-US')} | ${pct(community.ported, community.total)}% | ${th('a_spec_compiles_to_hexbits')} |
 | main + community (compile) | provenance | ${all.total.toLocaleString('en-US')} | ${all.ported.toLocaleString('en-US')} | ${pct(all.ported, all.total)}% | ${th('hexbit_is_four_qubits')} |
 | man pages (compile) | provenance | ${manAll.total.toLocaleString('en-US')} | ${manAll.ported.toLocaleString('en-US')} | ${pct(manAll.ported, manAll.total)}% | ${th('a_spec_compiles_to_hexbits')} |
@@ -104,6 +109,11 @@ below so every published row is shown to fold to ${UUID_HEXBITS} states.
 ${completeness.witnessed < completeness.total
   ? `**Honest gaps** (${completeness.total - completeness.witnessed} orphan documentation rows — Alpine published \`-doc\` with no catalogued app): \`${completeness.missing.join('\`, \`')}\`.\n`
   : ''}
+${mcpMan.exposed < mcpMan.total
+  ? `**MCP exposure gaps** (${mcpMan.total - mcpMan.exposed}): \`${mcpMan.missing.join('\`, \`')}\`.\n`
+  : ''}
+
+**MCP surface:** one door — [\`uuidna_exec\`](/mcp#uuidna-exec) — carries the whole man corpus (\`man <topic>\` + \`apk info <app>\`). A naive per-app tool catalogue would be ${mcpMan.naiveWireIfPerApp.toLocaleString('en-US')} wire entries and blow the MCP context ceiling; coverage is **${mcpMan.exposed.toLocaleString('en-US')} / ${mcpMan.total.toLocaleString('en-US')}** through that one door (\`mcpManDrivenCoverage\`).
 
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
@@ -165,7 +175,8 @@ Verify it yourself: \`defaultInstalls()\` recomputes every address, the receipt,
 committed mirror in [\`src/quantum/os\`](https://github.com/uuidna/uuidna/tree/main/src/quantum/os); the live
 recompute against Alpine's published index rides \`fetchDefaultInstalls()\` at the
 [\`src/os\`](https://github.com/uuidna/uuidna/tree/main/src/os) boundary; the MCP surface is
-\`uuidna_alpine {installs:true}\`. Completeness is \`manDrivenPortCoverage\` (man→app→hexbit); provenance meters
+\`uuidna_alpine {installs:true}\`. Completeness is \`manDrivenPortCoverage\` (man→app→hexbit); MCP exposure is
+\`mcpManDrivenCoverage\` through \`uuidna_exec\` (one wire door); provenance meters
 are \`hexbitPortCoverage\` / \`manPagePortCoverage\` — TypeScript computes; this page monitors.
 `
 
@@ -177,6 +188,10 @@ const figures: Figure[] = [
     citation: 'manDrivenPortCoverage() — man pages testing apps, both folded to UUID_HEXBITS · theorem a_spec_compiles_to_hexbits' },
   { name: 'Alpine port completeness — man→app→hexbit coverage', value: Number(completenessPct), unitText: '%', measurementTechnique: 'computed',
     citation: 'witnessed/total documentation packages · gate alpine-hexbit-port.test.ts · orphans named, never padded to 100%' },
+  { name: 'MCP Alpine man exposure — uuidna_exec', value: mcpMan.exposed, unitText: 'apps', measurementTechnique: 'computed',
+    citation: 'mcpManDrivenCoverage() — man + apk through one MCP door; naive per-app tools refused (wire ceiling)' },
+  { name: 'MCP Alpine man exposure — coverage', value: Number(mcpPct), unitText: '%', measurementTechnique: 'computed',
+    citation: 'exposed/total through uuidna_exec · gate mcp-alpine-man.test.ts · wireDoors=1' },
   { name: 'Alpine community hexbit port — packages', value: community.total, unitText: 'packages', measurementTechnique: 'measured',
     citation: 'committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) provenance meter' },
   { name: 'Alpine community hexbit port — ported', value: community.ported, unitText: 'packages', measurementTechnique: 'computed',
@@ -215,12 +230,36 @@ writeFileSync(join(ROOT, 'lean', 'alpine-hexbit-monitor.json'), JSON.stringify({
     byVia: completeness.byVia,
     pct: Number(completenessPct),
   },
+  mcp: {
+    definition: mcpMan.definition,
+    tool: mcpMan.tool,
+    wireDoors: mcpMan.wireDoors,
+    naiveWireIfPerApp: mcpMan.naiveWireIfPerApp,
+    total: mcpMan.total,
+    witnessed: mcpMan.witnessed,
+    exposed: mcpMan.exposed,
+    missing: mcpMan.missing,
+    gaps: mcpMan.gaps,
+    byVia: mcpMan.byVia,
+    pct: Number(mcpPct),
+    receipt: mcpMan.receipt,
+    before: { exposed: 'sample-only', wireDoorsIfNaive: mcpMan.naiveWireIfPerApp },
+    after: { exposed: mcpMan.exposed, wireDoors: mcpMan.wireDoors },
+  },
   community, all, man: { all: manAll, community: manCommunity, main: manMain },
   time: { communityCompileNs, communityNsPer, manCompileNs, manNsPer },
   scale: { usableAddressesPow2: UUID_BITS, seals: 'handle_capacity_is_quantum_by_architecture' },
   receipt: monitorReceipt,
-  honest: 'TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim.',
+  honest: 'TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim.',
 }, null, 1) + '\n')
 
-console.log(`✓ docs/os.md — default install ${port.count} paths + quantum monitor (completeness man→app→hexbit ${completeness.witnessed}/${completeness.total} = ${completenessPct}%, provenance community ${community.ported}/${community.total}, man ${manAll.ported}/${manAll.total})`)
+writeFileSync(join(ROOT, 'lean', 'mcp-alpine-man.json'), JSON.stringify({
+  ...mcpMan,
+  pct: Number(mcpPct),
+  before: { exposed: 'sample-only', wireDoorsIfNaive: mcpMan.naiveWireIfPerApp },
+  after: { exposed: mcpMan.exposed, wireDoors: mcpMan.wireDoors, catalogManDriven: `${completeness.witnessed}/${completeness.total}` },
+}, null, 1) + '\n')
+
+console.log(`✓ docs/os.md — default install ${port.count} paths + quantum monitor (completeness man→app→hexbit ${completeness.witnessed}/${completeness.total} = ${completenessPct}%, MCP ${mcpMan.exposed}/${mcpMan.total} via ${mcpMan.tool}, provenance community ${community.ported}/${community.total}, man ${manAll.ported}/${manAll.total})`)
 console.log(`  → docs/public/alpine-hexbit-monitor.jsonld · lean/alpine-hexbit-monitor.json · receipt ${monitorReceipt}`)
+console.log(`  → lean/mcp-alpine-man.json · ${mcpMan.exposed}/${mcpMan.total} · receipt ${mcpMan.receipt}`)
