@@ -27,7 +27,7 @@ const cneg = (a: Cx): Cx => ({ re: -a.re, im: -a.im })
 const cabs2 = (a: Cx): bigint => a.re * a.re + a.im * a.im // |a|² — an ordinary integer
 
 /** A real-and-imaginary state vector, carried EXACTLY: amplitude_i = amp[i] / √(2^scale); probability_i = |amp[i]|² / 2^scale. */
-import { qubitsToHexbits } from '../hexbit/index.js'
+import { qubitsToHexbits, computeMassGap, type MassGap } from '../hexbit/index.js'
 
 export interface QState { amp: Cx[]; scale: number; qubits: number }
 
@@ -150,6 +150,14 @@ export function isInvolution(g: (s: QState) => QState, s: QState): boolean {
 // ── canonical circuits ────────────────────────────────────────────────────────────────────────────────────────
 /** The 2-qubit Bell state (|00⟩ + |11⟩)/√2 — H(q0) then CNOT(q0 → q1). The canonical entangled pair. */
 export function bellState(): QState { return cnot(hadamard(ket0(2), 0), 0, 1) }
+/** Born-rule integer weights |amp|² of the Bell state — read off bellState(), never a hand table. */
+export function bellBornWeights(): number[] {
+  return bellState().amp.map((a) => Number(a.re * a.re + a.im * a.im))
+}
+/** Mass gap on the Bell Born field: computeMassGap(bellBornWeights()) — Δ from the live simulator. */
+export function massGapOnBellBornField(): MassGap {
+  return computeMassGap(bellBornWeights())
+}
 /** The n-qubit GHZ state (|0…0⟩ + |1…1⟩)/√2 — H(q0) then a CNOT fan-out. Maximal multipartite entanglement. */
 export function ghzState(n: number): QState {
   let s = hadamard(ket0(n), 0)

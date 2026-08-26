@@ -10,6 +10,8 @@ import {
   MAX_DEPTH, MAX_STRING, MAX_ARRAY, MAX_KEYS,
 } from '../index.js'
 import { MAX_MESSAGE_QUBITS } from '../quantum/message/index.js'
+import { hexbitRingMassGap } from '../hexbit/index.js'
+import { massGapOnBellBornField } from '../quantum/index.js'
 import { MAX_SERVED_QUBITS } from '../mcp.js'
 import { REPORTED_BASELINE } from '../quantum/advantage/index.js'
 import { writeFileSync } from 'node:fs'
@@ -22,7 +24,7 @@ const CANDIDATES: Candidate[] = [
   // comparisons, so the kernel confirmed the numerals and never the KDF. The live bound itself is still enforced,
   // by the ITER/MAX_ITER check in one-receipt.ts, which reads src/crypt.ts rather than a name.
   // THE SERVED CEILING — added 2026-08-25, and it is EXPECTED TO REPORT EXPOSED. The library cap
-  // (message_qubit_cap_states) is sealed; this one is tighter, governs every hosted caller, and no theorem
+  // (message_cap_is_four_hexbits on Hexbit.lean — court voice) is sealed; this one is tighter, governs every hosted caller, and no theorem
   // states it. It could not be hunted at all until it was named: it lived as the literal 12 inside two guards
   // and gen-readme scraped it out of this repository's source text with a regex, so naming it would have broken
   // the parser. An axiom that was never named cannot be exposed — which is the quietest way for one to survive
@@ -41,7 +43,11 @@ const CANDIDATES: Candidate[] = [
   { key: 'aead_nonce_and_salt_bits', assumes: 'the nonce is NONCE_BYTES=12 B = 96 bits (RFC 8439), the salt SALT_BYTES=16 B = 128 bits, nonce strictly inside the address width', where: 'src/crypt.ts', live: () => NONCE_BYTES === 12 && SALT_BYTES === 16 && NONCE_BYTES * 8 === 96 && SALT_BYTES * 8 === 128 && NONCE_BYTES * 8 < ADDRESS_BITS },
   { key: 'onion_layers_power_of_two', assumes: 'MAX_LAYERS = 16 = 2^4, at most the 128 address bits', where: 'src/stream.ts', live: () => MAX_LAYERS === 16 && 16 === 2 ** 4 && MAX_LAYERS <= ADDRESS_BITS },
   { key: 'imprint_capacity_within_address', assumes: 'CAPACITY = 115 < 128 — the imprint fits strictly inside its address, 13 bits of seam', where: 'src/imprint.ts', live: () => CAPACITY === 115 && CAPACITY < ADDRESS_BITS },
-  { key: 'message_qubit_cap_states', assumes: 'MAX_MESSAGE_QUBITS = 16 spans 2^16 = 65536 states — the tractable ceiling', where: 'src/quantum/message/index.ts', live: () => MAX_MESSAGE_QUBITS === 16 && 2 ** MAX_MESSAGE_QUBITS === 65536 },
+  { key: 'message_cap_is_four_hexbits', assumes: 'MESSAGE_CAP_QUBITS = 16 spans MESSAGE_CAP_STATES = 65536 — four hexbits of Hilbert index (court on Hexbit.lean)', where: 'src/hexbit/index.ts', live: () => MAX_MESSAGE_QUBITS === 16 && 2 ** MAX_MESSAGE_QUBITS === 65536 },
+  { key: 'hexbit_ring_mass_gap', assumes: 'hexbitRingMassGap() computes Δ > 0 on the HEXBIT_STATES ring (court on Hexbit.lean)', where: 'src/hexbit/index.ts',
+    live: () => { const g = hexbitRingMassGap(); return g.holds && g.delta > 0 && g.states > 0 } },
+  { key: 'born_field_mass_gap_on_bell', assumes: 'massGapOnBellBornField() = computeMassGap(bellBornWeights()) holds (court on Hexbit.lean)', where: 'src/quantum/index.ts',
+    live: () => massGapOnBellBornField().holds },
   { key: 'aura_step_divides_circle', assumes: 'A432_STEP = 40 and 9 · 40 = 360 — the nine residues tile the wheel with no remainder', where: 'src/aura.ts', live: () => A432_STEP === 40 && 9 * A432_STEP === 360 },
   { key: 'sanitize_depth_bounded', assumes: 'MAX_DEPTH = 32 = 2^5 — the finite wall the resource-DoS audit stands on', where: 'src/sanitize.ts', live: () => MAX_DEPTH === 32 && 32 === 2 ** 5 },
   { key: 'sanitize_max_depth_is_two_pow_five', assumes: 'MAX_DEPTH = 32 = 2^5 (the Sanitize.lean restatement of sanitize_depth_bounded)', where: 'src/sanitize.ts', live: () => MAX_DEPTH === 32 && 32 === 2 ** 5 },

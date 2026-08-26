@@ -17,6 +17,8 @@
 
 /** 4 bits, 16 states — the qubit-tile the ledger computes in. */
 export const HEXBIT_BITS = 4
+/** One hexbit's state alphabet (0..15). Doubling climb from HEXBIT_BITS — never a stranded literal. */
+export const HEXBIT_STATES: number = (() => { let s = 1; for (let i = 0; i < HEXBIT_BITS; i++) s = s * 2; return s })()
 
 /** 32 hexbits = 128 bits = one uuid, entire (`key_floor_is_one_uuid`: 32 * 4 = 128). */
 export const UUID_HEXBITS = 32
@@ -25,6 +27,66 @@ export const UUID_BITS = UUID_HEXBITS * HEXBIT_BITS
 /** the captain commission — two, and 128 / 2 = 64, the leverage the same theorem seals. */
 export const COINS = 2
 export const LEVERAGE = UUID_BITS / COINS
+
+/** Message-encoder Hilbert index width in HEXBITS: four tiles → 16 qubits → 16^4 amplitudes. */
+export const MESSAGE_CAP_HEXBITS = 4
+/** Qubit count at the message cap — MESSAGE_CAP_HEXBITS × HEXBIT_BITS. */
+export const MESSAGE_CAP_QUBITS = MESSAGE_CAP_HEXBITS * HEXBIT_BITS
+/** Amplitude count — HEXBIT_STATES ** MESSAGE_CAP_HEXBITS (= 2^MESSAGE_CAP_QUBITS). */
+export const MESSAGE_CAP_STATES = HEXBIT_STATES ** MESSAGE_CAP_HEXBITS
+
+/**
+ * THE MASS GAP — a computed quantity of a discrete spectrum / Born field, never a pasted literal.
+ *
+ * Δ = least strictly-positive value present in the field (vacuum = 0). The gap holds when Δ > 0, vacuum and
+ * excitation both occur, and nothing sits in (0, Δ). uuidna's QFT spectrum in the unit the machine writes —
+ * not the Clay Millennium Yang–Mills prize. Court seals the hexbit ring + Bell Born field on Hexbit.lean.
+ */
+export interface MassGap {
+  delta: number
+  field: readonly number[]
+  vacuum: boolean
+  excitation: boolean
+  holds: boolean
+}
+export type HexbitMassGap = MassGap & { states: number }
+
+/** Derive Δ (and vacuum/excitation) from a discrete field — spectrum levels or Born weights. */
+export const computeMassGap = (field: readonly number[]): MassGap => {
+  let delta = 0
+  let vacuum = false
+  let excitation = false
+  for (const a of field) {
+    if (a === 0) vacuum = true
+    else if (a > 0) {
+      excitation = true
+      if (delta === 0 || a < delta) delta = a
+    }
+  }
+  let holds = delta > 0 && vacuum && excitation
+  if (holds) for (const a of field) {
+    if (!(a === 0 || delta <= a)) { holds = false; break }
+  }
+  return { delta, field, vacuum, excitation, holds }
+}
+
+/** The hexbit ring spectrum 0 .. HEXBIT_STATES−1 — Δ computed by walking, successive spacing checked. */
+export const hexbitRingMassGap = (): HexbitMassGap => {
+  const states = HEXBIT_STATES
+  const field: number[] = []
+  for (let n = 0; n < states; n++) field.push(n)
+  const gap = computeMassGap(field)
+  let holds = gap.holds
+  for (let e = 1; e <= states; e++) if (!(gap.delta <= e)) holds = false
+  for (let n = 0; n < states - 1; n++) if ((n + 1) - n !== gap.delta) holds = false
+  return { ...gap, states, holds }
+}
+
+/** Alias: the unit's mass gap is the hexbit-ring computation. */
+export const massGap = hexbitRingMassGap
+
+/** Mass gap on Born weights — Δ computed from the field, never a default literal. */
+export const bornFieldMassGap = (weights: readonly number[]): MassGap => computeMassGap(weights)
 
 /** how many hexbits a space of `states` fills: the largest h with 16^h ≤ states. By division, never a log. */
 export const hexbitsOf = (states: number): number => {

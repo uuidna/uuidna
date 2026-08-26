@@ -226,9 +226,9 @@ theorem store_fold_change_moves_receipt :
   (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 =>
     ([a,b,c].foldl lxor 0 == [a2,b,c].foldl lxor 0) == (a == a2))))) := by decide
 
-/-- The tractability cap the quantum message ASSUMES, sealed (axiom-hunt): 16 qubits span 2^16 = 65536 states —
-    the encoder’s honest ceiling. Exponential and BOUNDED: the cap is what keeps the classical simulation
-    classical, no quantum advantage claimed at any size. -/
+/-- CONSUMER MIRROR of hexbit MESSAGE_CAP_*: 2^16 = 65536. Court and gates cite message_cap_is_four_hexbits
+    (Hexbit.lean) — this Quantum line only restates the amplitude count the encoder reads; it is not a second
+    mass-gap or cap court. No qft_mass_gap twin here. -/
 theorem message_qubit_cap_states : 2^16 = 65536 := by decide
 
 /-- The message receipt folds every leaf through merkleFold, which SORTS before it merges — the honest reason

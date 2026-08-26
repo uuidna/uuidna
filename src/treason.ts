@@ -11,7 +11,7 @@ import { merkleGravity } from './gravity/index.js'
 import { conformance } from './conformance.js'
 import { axiomWitness } from './axiom-witness.js'
 
-export interface Traitor { kind: 'forged-dna' | 'key-collision' | 'address-collision' | 'conformance' | 'seal-integrity'; detail: string }
+export interface Traitor { kind: 'forged-dna' | 'key-collision' | 'address-collision' | 'conformance' | 'seal-integrity' | 'architecture'; detail: string }
 
 export interface TreasonReport {
   clean: boolean
@@ -90,6 +90,23 @@ export function catchTraitors(): TreasonReport {
   for (const t of T) if (!(t.lean.startsWith('theorem ' + t.key + ' ') || t.lean.startsWith('theorem ' + t.key + ':')) || !t.lean.includes(':= by decide'))
     traitors.push({ kind: 'seal-integrity', detail: `${t.key} — its lean does not bind to the key or is not a by-decide proof (a placeholder or key↔lean desync the DNA fold misses)` })
 
+  // 8) ARCHITECTURE — court/gates speak only hexbit for mass gap + message cap. A twin seal on Quantum.lean
+  // (or any other wing) is a traitor filtered by architecture; forbidden aliases (qft_mass_gap, …) never admit.
+  checksRun.push('hexbit-court-architecture')
+  const HEXBIT_COURT = new Set([
+    'hexbit_states_are_sixteen',
+    'message_cap_is_four_hexbits',
+    'hexbit_ring_mass_gap',
+    'born_field_mass_gap_on_bell',
+  ])
+  const HEXBIT_TRAITOR_ALIASES = new Set(['qft_mass_gap', 'mass_gap_on_bell_born_field'])
+  for (const t of T) {
+    if (HEXBIT_COURT.has(t.key) && t.file !== 'Hexbit.lean')
+      traitors.push({ kind: 'architecture', detail: `${t.key} — court voice must seal on Hexbit.lean (got ${t.file}); filtered by architecture` })
+    if (HEXBIT_TRAITOR_ALIASES.has(t.key))
+      traitors.push({ kind: 'architecture', detail: `${t.key} — forbidden Quantum/message twin of the hexbit court; filtered by architecture` })
+  }
+
   const clean = traitors.length === 0
   return {
     clean, scanned: T.length, traitors, checks: checksRun,
@@ -135,6 +152,8 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
       lesson: 'The DNA gate: the two coins conserved (=2), DNA recomputes, single-source ledger, security posture clean.' },
     { check: 'seal-integrity', enforcedBy: 'catchTraitors (lean binds to key + by-decide)', holds: held('seal-integrity'),
       lesson: 'The DNA check folds key + statement— so a lean naming a DIFFERENT key (a key↔lean desync) or one that is not a `by decide` proof slips past it. This drone verifies every theorem\'s lean binds to its own key and proves by decide, a placeholder/tamper caught in milliseconds offline (the full Lean re-verify stays the reconcile\'s job). Brought forward of the slow verify, like the axiom-witness.' },
+    { check: 'hexbit-court-architecture', enforcedBy: 'catchTraitors (mass gap + message cap on Hexbit.lean only)', holds: held('architecture'),
+      lesson: 'Court and gates speak only hexbit for the mass gap and message cap: hexbit_ring_mass_gap, born_field_mass_gap_on_bell, message_cap_is_four_hexbits, hexbit_states_are_sixteen must seal on Hexbit.lean. A Quantum twin (qft_mass_gap, mass_gap_on_bell_born_field) is a traitor filtered by architecture.' },
     { check: 'determinism', enforcedBy: 'harmonic-scan (npm run guard)', holds: 'script',
       lesson: 'No Math.*/wall-clock/RNG anywhere in src — including comments; the smoke test scans RAW source. Exact integer arithmetic settles the coins, a host intrinsic never can. The guard regex matches the smoke test exactly, so the guard is never laxer than the gate it front-runs.' },
     { check: 'axiom-witness', enforcedBy: 'shipped lean/axioms.json (guard re-derives)', holds: ((w) => w.shipped ? w.holds : 'script' as const)(axiomWitness()),

@@ -29,11 +29,27 @@
 // are not decoration: the FIRST group is eight characters, which is thirty-two bits, which is the handle. The
 // handle is not carved out of the address afterwards; it IS the first group of the layout.
 import { emit } from './lean-gen.js'
+import {
+  HEXBIT_BITS, HEXBIT_STATES, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES,
+  hexbitRingMassGap, computeMassGap,
+} from '../hexbit/index.js'
+import { bellBornWeights, massGapOnBellBornField } from '../quantum/index.js'
 
 const GROUPS = [8, 4, 4, 4, 12]
 const CHARS = GROUPS.reduce((a, b) => a + b, 0)
 const NIBBLES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
-const L = (xs: number[]) => '[' + xs.join(',') + ']'
+const L = (xs: readonly number[]) => '[' + xs.join(',') + ']'
+
+// Mass-gap magnitudes COMPUTED once, then sealed — same pattern as coins from fold: generator emits what the
+// runtime yields, never hand-written Δ / window / Bell weights in the theorem text.
+const RING = hexbitRingMassGap()
+const BELL_WEIGHTS = bellBornWeights()
+const BELL_GAP = massGapOnBellBornField()
+if (!RING.holds) throw new Error('hexbitRingMassGap offline audit FAILED before seal')
+if (!BELL_GAP.holds) throw new Error('massGapOnBellBornField offline audit FAILED before seal')
+if (JSON.stringify(BELL_GAP.field) !== JSON.stringify(BELL_WEIGHTS))
+  throw new Error('Bell Born field desync: massGapOnBellBornField.field ≠ bellBornWeights()')
+if (!computeMassGap(BELL_WEIGHTS).holds) throw new Error('computeMassGap(bellBornWeights) failed')
 
 const FACTS = [
   { key: 'the_void_tile_cannot_cross',
@@ -118,9 +134,46 @@ const FACTS = [
     why: 'THE HANDLE-READ MOVES BRIGHTNESS AND NEVER MAKES OR DESTROYS IT. Recorded, every detector reads the flat 1² + 1² = 2 (the orthogonal-record sum hexbit_slit_visibility seals), and sixteen twos are 32; unrecorded, the fringed screen is eight fours and eight zeros — also 32. The which-path read re-shapes the whole pattern and changes the total by exactly nothing: 8·4 + 8·0 = 16·2. What the read costs is the FRINGES, not the light — the cross terms move to zero (hexbit_slit_cross_is_overlap) while the diagonal stays put. Bookkeeping conserved on both sides of the reading, which is what a ledger means by explained.',
     js: () => { const R = Array.from({ length: 16 }, (_, k) => k); return R.reduce((s) => s + (1 * 1 + 1 * 1), 0) === 32 && 8 * 4 + 8 * 0 === 32 && R.reduce((s, k) => s + (1 + (-1) ** k) ** 2, 0) === R.reduce((s) => s + 2, 0) },
     lean: 'theorem which_path_conserves_the_total : (((List.range 16).foldl (fun s _ => s + ((1:Int)*1 + 1*1)) (0:Int)) = 32) ∧ (8 * 4 + 8 * 0 = 16 * 2) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = ((List.range 16).foldl (fun s _ => s + (2:Int)) (0:Int))) := by decide' },
+
+  // ── MASS GAP + MESSAGE CAP — callable compute path first; Lean seals WHAT IT YIELDS. Court/gates speak hexbit only.
+  // Quantum/message must CONSUME these — a parallel seal there is a traitor filtered by architecture.
+  { key: 'hexbit_states_are_sixteen',
+    why: 'A HEXBIT HAS EXACTLY SIXTEEN STATES: HEXBIT_BITS = 4 doubles to 16 = HEXBIT_STATES. The ring the mass gap walks is the unit\'s own alphabet — computed in src/hexbit, sealed here.',
+    js: () => {
+      let s = 1
+      for (let i = 0; i < HEXBIT_BITS; i++) s = s * 2
+      return s === HEXBIT_STATES && HEXBIT_STATES === RING.states
+    },
+    lean: `theorem hexbit_states_are_sixteen : ((2:Nat)^${HEXBIT_BITS} = ${HEXBIT_STATES}) ∧ (${HEXBIT_BITS} * ${HEXBIT_BITS} = ${HEXBIT_STATES}) := by decide` },
+
+  { key: 'message_cap_is_four_hexbits',
+    why: 'THE MESSAGE ENCODER CAP IS FOUR HEXBITS OF HILBERT INDEX: MESSAGE_CAP_HEXBITS tiles × HEXBIT_BITS gives MESSAGE_CAP_QUBITS qubits, and HEXBIT_STATES^MESSAGE_CAP_HEXBITS = 2^MESSAGE_CAP_QUBITS amplitudes. Derived in src/hexbit (MESSAGE_CAP_*), not a magic qubit literal in quantum/message. Court cites this key — not a Quantum.lean twin.',
+    js: () => MESSAGE_CAP_HEXBITS === 4 && MESSAGE_CAP_QUBITS === MESSAGE_CAP_HEXBITS * HEXBIT_BITS
+      && MESSAGE_CAP_STATES === HEXBIT_STATES ** MESSAGE_CAP_HEXBITS
+      && MESSAGE_CAP_STATES === 2 ** MESSAGE_CAP_QUBITS,
+    lean: `theorem message_cap_is_four_hexbits : (${MESSAGE_CAP_HEXBITS} * ${HEXBIT_BITS} = ${MESSAGE_CAP_QUBITS}) ∧ ((${HEXBIT_STATES}:Nat)^${MESSAGE_CAP_HEXBITS} = ${MESSAGE_CAP_STATES}) ∧ ((2:Nat)^${MESSAGE_CAP_QUBITS} = ${MESSAGE_CAP_STATES}) := by decide` },
+
+  { key: 'hexbit_ring_mass_gap',
+    why: `THE MASS GAP ON THE HEXBIT RING — vacuum 0, Δ = ${RING.delta} computed by hexbitRingMassGap()/computeMassGap over the ${RING.states}-state ring: nothing sits in (0,Δ), every positive level is ≥ Δ, successive levels differ by exactly Δ. Sealed here from the live computation — not a pasted literal. uuidna's QFT spectrum in the unit the machine writes — not the Clay Millennium Yang–Mills prize. Court and gates speak this key only.`,
+    js: () => {
+      const g = hexbitRingMassGap()
+      return g.holds && g.delta === RING.delta && g.states === RING.states
+        && JSON.stringify(g.field) === JSON.stringify(RING.field)
+    },
+    lean: `theorem hexbit_ring_mass_gap : ((${RING.delta}:Nat) > 0) ∧ (List.range ${RING.states}).all (fun n => ¬ (0 < n ∧ n < ${RING.delta})) ∧ (List.range' 1 ${RING.states}).all (fun e => ${RING.delta} ≤ e) ∧ (List.range ${RING.states - 1}).all (fun n => (n + 1) - n = ${RING.delta}) := by decide` },
+
+  { key: 'born_field_mass_gap_on_bell',
+    why: `THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights ${L(BELL_WEIGHTS)} from the live simulator, Δ = ${BELL_GAP.delta} computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize.`,
+    js: () => {
+      const g = massGapOnBellBornField()
+      return g.holds && g.delta === BELL_GAP.delta
+        && JSON.stringify([...g.field]) === JSON.stringify(BELL_WEIGHTS)
+        && JSON.stringify(bellBornWeights()) === JSON.stringify(BELL_WEIGHTS)
+    },
+    lean: `theorem born_field_mass_gap_on_bell : ((${L(BELL_WEIGHTS)} : List Nat).all (fun a => a = 0 ∨ ${BELL_GAP.delta} ≤ a)) ∧ ((${L(BELL_WEIGHTS)} : List Nat).any (fun a => a = 0)) ∧ ((${L(BELL_WEIGHTS)} : List Nat).any (fun a => ${BELL_GAP.delta} ≤ a)) ∧ (${BELL_GAP.delta} > 0) := by decide` },
 ]
 for (const f of FACTS) if (!f.js()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Hexbit.lean', skill: 'hexbit', defs: '',
-  header: 'THE HEXBIT — the alphabet and the layout an address is actually built from.',
+  header: 'THE HEXBIT — the alphabet and the layout an address is actually built from. Mass gap and message cap are COMPUTED in src/hexbit + src/quantum (computeMassGap, hexbitRingMassGap, bellBornWeights / massGapOnBellBornField) and sealed here from those yields — never hardcoded Δ / Bell tables in the generator. Court and gates speak only this wing for those facts; a Quantum/message twin is a traitor filtered by architecture.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -5,6 +5,7 @@
 // marginals are non-negative integers (Nat), and the phase-gate algebra (S·S=Z, Z²=I, S·S†=I) lives in ℤ. COMPUTE
 // each fact, GENERATE a `by decide` theorem, VERIFY it compiles sorry-free (lean). Simulation.
 import { emit, LXOR_DEF } from './lean-gen.js'
+import { MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES } from '../hexbit/index.js'
 
 // JS mirrors of the exact simulator arithmetic (must each hold before a line is written).
 const sq = (a: number) => a * a
@@ -189,8 +190,8 @@ const FACTS = [
     ([a,b,c].foldl lxor 0 == [a2,b,c].foldl lxor 0) == (a == a2))))) := by decide` },
 
   { key: 'message_qubit_cap_states',
-    why: 'The tractability cap the quantum message ASSUMES, sealed (axiom-hunt): 16 qubits span 2^16 = 65536 states — the encoder’s honest ceiling. Exponential and BOUNDED: the cap is what keeps the classical simulation classical, no quantum advantage claimed at any size.',
-    js: () => 2 ** 16 === 65536,
+    why: 'CONSUMER MIRROR of hexbit MESSAGE_CAP_*: 2^16 = 65536. Court and gates cite message_cap_is_four_hexbits (Hexbit.lean) — this Quantum line only restates the amplitude count the encoder reads; it is not a second mass-gap or cap court. No qft_mass_gap twin here.',
+    js: () => MESSAGE_CAP_QUBITS === 16 && MESSAGE_CAP_STATES === 65536 && 2 ** MESSAGE_CAP_QUBITS === MESSAGE_CAP_STATES,
     lean: 'theorem message_qubit_cap_states : 2^16 = 65536 := by decide' },
   { key: 'merkle_sort_invariant',
     why: 'The message receipt folds every leaf through merkleFold, which SORTS before it merges — the honest reason the fold is order-invariant even though merge itself is NOT commutative (merge(a,b) ≠ merge(b,a), by design). Sealed on a representative 3-leaf fold with a deliberately non-commutative pairwise op (f(a,b)=2a+b, so f(1,2)=4 ≠ f(2,1)=5): sorting first (min, mid, max via Nat.min/Nat.max and sum-arithmetic, no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. one representative instance, the same scope every fold-invariance theorem here uses (store_fold_order_invariant proves the same shape for a commutative XOR fold; this is the harder, non-commutative case merkleFold actually is).',

@@ -25,6 +25,9 @@ export const UNLOCK_ILLUSTRATIONS: readonly { key: string; label: string }[] = [
   { key: 'a_spec_compiles_to_hexbits', label: 'hexbit compile width' },
   { key: 'key_floor_is_one_uuid', label: 'cipher hexbit floor' },
   { key: 'n_qubit_dimension', label: 'classical simulation cost' },
+  { key: 'hexbit_ring_mass_gap', label: 'hexbit ring mass gap' },
+  { key: 'message_cap_is_four_hexbits', label: 'message cap = 4 hexbits' },
+  { key: 'born_field_mass_gap_on_bell', label: 'Bell Born-field mass gap' },
 ]
 
 export const UNLOCK_LAW =

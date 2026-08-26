@@ -22,7 +22,7 @@
 import { theorems, toUuid } from '../../index.js'
 import { quantumAura, type Aura } from '../../aura.js'
 import { ket0, hadamard, pauliX, pauliZ, label, fraction, distribution, marginal, type QState } from '../index.js'
-import { qubitsToHexbits } from '../../hexbit/index.js'
+import { qubitsToHexbits, MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES } from '../../hexbit/index.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { imprintTextChain, readImprintTextChain } from '../../imprint.js'
 import { encrypt, decrypt, verifyEnvelope, type Sealed } from '../../crypt.js'
@@ -51,11 +51,10 @@ export interface QuantumState {
 
 const THEOREMS = theorems()
 
-// Sealed by theorem message_qubit_cap_states (lean/Quantum.lean): 2^16 = 65536 — the encoder's honest ceiling.
-// Exponential state growth (2^n) is what keeps the classical simulation classical; kept as a named export (not
-// an inline literal) so src/tests/quantum-message.test.ts can assert this constant and the theorem's statement
-// never drift apart — a changed cap without a re-sealed theorem fails the audit gate instead of passing silently.
-export const MAX_MESSAGE_QUBITS = 16
+// Cap IS hexbit MESSAGE_CAP_* (court seals message_cap_is_four_hexbits in Hexbit.lean). Message consumes;
+// it does not own a parallel mass-gap or cap seal — traitors filtered by architecture.
+export const MAX_MESSAGE_QUBITS = MESSAGE_CAP_QUBITS
+export const MAX_MESSAGE_STATES = MESSAGE_CAP_STATES
 
 /** encodeMessage(plaintext, theoremKey) → a quantum message that fuses the plaintext with a sealed theorem proof.
  *  The message encodes the theorem's "truth" in quantum superposition (Hadamard + controlled-X per theorem bit).
