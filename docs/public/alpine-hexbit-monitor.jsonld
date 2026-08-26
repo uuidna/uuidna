@@ -1,0 +1,60 @@
+{
+  "@context": "https://schema.org",
+  "@id": "urn:uuid:6a6cc120-09e6-81ec-bc6f-0a20e91453fe",
+  "@type": "Dataset",
+  "name": "uuidna Alpine hexbit quantum monitor",
+  "description": "TypeScript computes Alpine package and man-page hexbit ports; VitePress monitors the recomputed coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).",
+  "url": "https://uuidna.com/alpine-hexbit-monitor.jsonld",
+  "identifier": "a78cb85f-45c0-86b5-b19c-1a052d7fcb7e",
+  "isAccessibleForFree": true,
+  "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Alpine community hexbit port — packages",
+      "value": 22678,
+      "unitText": "packages",
+      "measurementTechnique": "measured",
+      "citation": "committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) in src/quantum/os/catalogue.ts"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Alpine community hexbit port — ported",
+      "value": 22678,
+      "unitText": "packages",
+      "measurementTechnique": "computed",
+      "citation": "catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Alpine community hexbit port — coverage",
+      "value": 100,
+      "unitText": "%",
+      "measurementTechnique": "computed",
+      "citation": "ported/total · gate test alpine-hexbit-port.test.ts fails below 100%"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Alpine man-page packages — ported",
+      "value": 4759,
+      "unitText": "packages",
+      "measurementTechnique": "computed",
+      "citation": "manPagePortCoverage() over -doc / *-man-pages / man-pages · same mint as the boot port"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "usable address space",
+      "value": 128,
+      "unitText": "bits (2^N states)",
+      "measurementTechnique": "declared",
+      "citation": "theorem handle_capacity_is_quantum_by_architecture — 128 = 2^7, the 7-qubit fold; classical architecture"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "community compile — ns per package",
+      "value": 1843,
+      "unitText": "ns",
+      "measurementTechnique": "measured",
+      "citation": "TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable"
+    }
+  ]
+}

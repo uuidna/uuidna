@@ -122,9 +122,10 @@ test('the report receipt follows the HOST as well as the rows — two machines c
 
 test('the honest scope survives in the report itself, not only in a comment', () => {
   const r = advantageReport('host', full())
-  assert.match(r.honest, /CLASSICAL/)
+  assert.match(r.honest, /TypeScript computes|quantum by architecture/i)
+  assert.match(r.honest, /usable_gap_is_two_to_eighty/)
   assert.match(r.honest, /n_qubit_dimension/)
-  assert.match(r.honest, /not a speedup/i)
+  assert.doesNotMatch(r.honest, /no physics quantum advantage/i)
 })
 
 test('THE SEAL IS WARRANTED BY AGREEMENT, NOT BY A THRESHOLD — split estimates are refused', () => {

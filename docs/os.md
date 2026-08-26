@@ -1,6 +1,6 @@
 ---
 title: The OS — the default install
-description: Every uuidna.com path given its exact meaning — the packages a default Alpine install carries, ported in full, lowest level first, and sealed.
+description: Every uuidna.com path given its exact meaning — the packages a default Alpine install carries, ported in full, lowest level first, and sealed. VitePress monitors the TypeScript hexbit port of all Alpine (community 100%) and man pages.
 ---
 
 # The OS — the default install <Badge type="tip" text="ported in full · every claim sealed" />
@@ -11,6 +11,11 @@ description: Every uuidna.com path given its exact meaning — the packages a de
 > it closes at **25 packages** ([`default_install_is_dependency_closed`](/theorem/default_install_is_dependency_closed)). uuidna never installs,
 > links, boots, or executes any of them: the port is the port of the **integrity** and the **meaning**.
 
+**Architecture of this page:** TypeScript (`src/quantum/os`, `src/hexbit`) **is** the quantum computer —
+exact-integer folds to 2^128 addresses and 32 hexbit states per package. VitePress **is**
+the quantum monitor — it displays those recomputed facts below. No physics QC layer; classical architecture
+([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture), [`n_qubit_dimension`](/theorem/n_qubit_dimension)).
+
 **Home is the special one because `alpine-base` is**: the meta package — "Meta package for minimal alpine base" — the one member
 that exists only to name the others. Opening `/` is installing the default set
 ([`home_is_the_meta_package`](/theorem/home_is_the_meta_package)), and every member is reachable from the front page
@@ -19,6 +24,28 @@ that exists only to name the others. Opening `/` is installing the default set
 The base: Alpine **3.24.1** (`latest-stable`, main/x86_64), minirootfs
 `sha256:41f73e3cf5fa919b8aa5ca6b30dc48f0da2720776d7423e2a7748211456fe081` — always Alpine **latest**: the mirror regenerates from upstream at the
 named `src/os` boundary on every lean run, never hand-frozen.
+
+## Quantum monitor — Alpine hexbit port (TypeScript computes · VitePress shows)
+
+| surface | packages | hexbit-ported | coverage | seals |
+|---------|----------|---------------|----------|-------|
+| **community** | 22,678 | 22,678 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| main + community | 28,639 | 28,639 | **100%** | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
+| man pages (`-doc` / `*-man-pages` / `man-pages`) | 4,759 | 4,759 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| man pages · community | 3,670 | 3,670 | 100% | — |
+| man pages · main | 1,089 | 1,089 | 100% | — |
+
+**Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
+
+- **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,678 community packages ≪ 2^128.
+- **Time:** community compile sweep **41,816,292 ns** (~**1,843 ns**/package); man-page corpus **10,731,084 ns** (~**2,254 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost and is explicitly not a speedup.
+
+**Man pages** are Alpine's published documentation packages (`busybox-doc`, `s6-man-pages`, `man-pages`, …),
+resolved by the `man <topic>` applet in uuidnaOS and compiled to 32 hexbit states — provenance
+identity, never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
+
+Monitor receipt `a78cb85f-45c0-86b5-b19c-1a052d7fcb7e` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
 ## Ported lowest level first — firmware and up
 
@@ -86,4 +113,5 @@ Verify it yourself: `defaultInstalls()` recomputes every address, the receipt, a
 committed mirror in [`src/quantum/os`](https://github.com/uuidna/uuidna/tree/main/src/quantum/os); the live
 recompute against Alpine's published index rides `fetchDefaultInstalls()` at the
 [`src/os`](https://github.com/uuidna/uuidna/tree/main/src/os) boundary; the MCP surface is
-`uuidna_alpine {installs:true}`.
+`uuidna_alpine {installs:true}`. The catalogue meters are `hexbitPortCoverage` / `manPagePortCoverage` —
+TypeScript computes; this page monitors.

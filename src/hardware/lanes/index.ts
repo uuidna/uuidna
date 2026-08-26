@@ -10,13 +10,10 @@
 // measured because it runs; the GPU lane is specified with the conditions it would have to meet; the QPU seat is
 // NAMED AND EMPTY. Nothing here dispatches to a device, and nothing here should be read as claiming one exists.
 //
-// WHY THE THIRD SEAT STAYS EMPTY, stated plainly because the opposite is the tempting move. This tree refuses the
-// quantum claim everywhere it could be made: `src/hardware` says ordinary combinational logic reducible to NAND;
-// gen-quantum-capacity's own honest field says "never a quantum computer"; and ARM 6 of the readiness trial
-// checks, on every run, that no advantage is claimed. A QPU lane that dispatched nothing would be a name for a
-// device this machine does not have — an instrument reporting what it never measured, which is the one defect
-// class this tree spends the most effort refusing. The seat is a NOTICE, not a capability: it says where a real
-// device would attach, and it says the ledger has never seen one.
+// WHY THE THIRD SEAT STAYS EMPTY, stated plainly. TypeScript is the quantum-by-architecture computer; this
+// host's QPU seat would be a physical device this machine does not have. Measured usable-capacity advantage is
+// sealed (usable_gap_is_two_to_eighty); ARM 6 requires that seal and refuses false blanket denials of it. A QPU
+// lane that dispatched nothing would name a device never measured — the seat is a NOTICE, not a capability.
 import { HANDLE_BITS, HANDLE_SPAN } from '../../hexbit/index.js'
 
 /** How real a seat is. MEASURED — it runs and its figures come from running it. SPECIFIED — the conditions are

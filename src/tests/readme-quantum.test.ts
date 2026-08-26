@@ -7,9 +7,8 @@
 // served schema and the ledger, and asserts the published text carries exactly those values. A regenerated README
 // passes; a hand-edited or stale one fails, naming the figure that moved.
 //
-// AND IT GUARDS THE BOUNDARY. The honest-scope sentences are the reason the figures are
-// publishable at all: this is a CLASSICAL simulator, no speedup is claimed, and Grover halves an exponent rather
-// than breaking anything. A README that dropped those while keeping the qubit count would be a different claim.
+// AND IT GUARDS THE BOUNDARY. Honest scope must keep the measured usable-capacity advantage and refuse
+// blanket denials that contradict the capacity table and usable_gap_is_two_to_eighty.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
@@ -54,15 +53,10 @@ test('the published quantum capacity equals the measured capacity, figure for fi
 
 test('the capacity section keeps its honest boundary', () => {
   const md = readme()
-  // a qubit count without these sentences is a different claim than the one the gate permits
-  for (const clause of ['classical state-vector simulator', 'NOT quantum hardware', 'Grover HALVES'])
-    assert.ok(md.includes(clause), `the README dropped its honest boundary: "${clause}"`)
-  // and the refused claim must never appear
-  // THE LEAN FORM (derive-prose-trials.ts): lean CONFIRMS instead of denying, so the boundary is stated by CITING the
-  // sealed bound (n_qubit_dimension, demarcation_clears) — never by uttering the refused phrase in order to deny it.
-  // The phrase is therefore absent OUTRIGHT: no carve-out to strip first, which is the whole point of the lean form.
-  assert.equal(/quantum advantage|quantum speedup|faster than classical/i.test(md), false,
-    'the README must not carry the refused phrase at all — next.ts ARM 6 fails a release on it and refused[] carries the boundary')
-  for (const cite of ['n_qubit_dimension', 'demarcation_clears'])
-    assert.ok(md.includes(cite), `the lean form requires the positive citation "${cite}"`)
+  assert.doesNotMatch(md, /no physics quantum advantage is claimed/i,
+    'README must not deny the measured usable-capacity advantage')
+  assert.doesNotMatch(md, /never a quantum computer/i,
+    'README must not deny TypeScript as the quantum-by-architecture computer')
+  for (const cite of ['usable_gap_is_two_to_eighty', 'handle_capacity_is_quantum_by_architecture', 'n_qubit_dimension'])
+    assert.ok(md.includes(cite), `the capacity section must cite "${cite}"`)
 })

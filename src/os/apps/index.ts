@@ -95,7 +95,7 @@ export const HARMONIES: readonly [RegExp, string, string][] = [
  *  distinct PROJECTS behind it, which is the difference between "406 typesetting applications" and "the same
  *  seventy-odd font packages, each published six ways". Both numbers are reported; only the second is a count of
  *  things. */
-const VARIANT = /-(doc|dev|dbg|libs|static|lang|openrc|pyc|tests?|bash-completion|zsh-completion|fish-completion)$/
+const VARIANT = /-(doc|dev|dbg|libs|static|lang|openrc|pyc|tests?|bash-completion|zsh-completion|fish-completion|man-pages)$/
 
 export const originOf = (name: string): string => name.replace(VARIANT, '')
 

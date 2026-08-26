@@ -1,18 +1,15 @@
-// alpine hexbit port — 100% of the committed catalogue compiles to 32 hexbit states, with architectural
-// scale/time advantage named against the sealed theorems (never physics QC).
+// alpine hexbit port — TypeScript is the quantum computer; VitePress is the quantum monitor.
 //
-// THE CLAIM THIS FILE HOLDS. Shipping mirror/alpine-catalogue.tsv made every published Alpine package
-// queryable; the gap that remained was whether AVAILABLE packages actually COMPILED (32 states / 128-bit
-// address) the way the boot closure already did. hexbitPortCoverage is the one meter; this test fails the
-// gate if community (or whole-Alpine) hexbit port drops below 100%.
-//
-// ADVANTAGE IS ARCHITECTURAL. Scale: each package address lives in 2^128 usable states (theorem
-// handle_capacity_is_quantum_by_architecture — 128 = 2^7, the 7-qubit fold). Time: compiling N packages is
-// O(N) exact-integer folds measured here; classical enumeration of 2^128 states is not a runnable baseline.
-// uuidna is classical — theorem n_qubit_dimension counts simulation cost and is explicitly not a speedup.
+// 100% of the committed catalogue (community + main) compiles to 32 hexbit states; man-page packages
+// (-doc / *-man-pages / man-pages) are first-class on the same mint; architectural scale/time advantage
+// cites sealed theorems (never physics QC). hexbitPortCoverage / manPagePortCoverage are the meters —
+// these tests fail the gate if coverage drops below 100%.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { catalogue, catalogueCompile, hexbitPortCoverage } from '../quantum/os/catalogue.js'
+import {
+  catalogue, catalogueCompile, hexbitPortCoverage, manPagePortCoverage,
+} from '../quantum/os/catalogue.js'
+import { uuidnaExec } from '../quantum/os/exec.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
 import { theoremByKey } from '../theorems/index.js'
 import { LEVELS } from '../quantum/advantage/index.js'
@@ -33,9 +30,31 @@ test('100% of whole Alpine (main + community) is ported in hexbits', () => {
     `Alpine hexbit port ${cov.ported}/${cov.total} — missing: ${cov.missing.join(', ') || '(none named)'}`)
 })
 
+test('100% of Alpine man-page packages are ported in hexbits', () => {
+  const man = manPagePortCoverage()
+  assert.ok(man.total > 4000, `Alpine publishes thousands of -doc / man-pages packages; got ${man.total}`)
+  assert.equal(man.ported, man.total,
+    `man-page hexbit port ${man.ported}/${man.total} — missing: ${man.missing.join(', ') || '(none named)'}`)
+})
+
+test('man applet resolves documentation packages with 32 hexbits', () => {
+  const r = uuidnaExec('man busybox')
+  assert.equal(r.ok, true)
+  assert.equal(r.applet, 'man')
+  const d = r.data as { name: string; hexbits: number[]; address: string; kind: string }
+  assert.equal(d.name, 'busybox-doc')
+  assert.equal(d.kind, 'man')
+  assert.equal(d.hexbits.length, UUID_HEXBITS)
+  assert.ok(typeof d.address === 'string' && d.address.includes('-'))
+  const direct = uuidnaExec('man man-pages')
+  assert.equal(direct.ok, true)
+  assert.equal((direct.data as { name: string }).name, 'man-pages')
+  const gone = uuidnaExec('man zzz-no-such-topic-anywhere')
+  assert.equal(gone.ok, false)
+  assert.match(gone.output[0]!, /no documentation package/)
+})
+
 test('THE CHECK BITES — a package that does not compile is counted as missing, so 100% is a finding', () => {
-  // drive the meter with an empty catalogue world? we cannot unload the singleton cleanly, so the bite is on
-  // catalogueCompile's shape contract: 32 states, each a hexbit — the same predicates coverage uses.
   const node = catalogue().find((p) => p.name === 'nodejs' && p.repo === 'main')
   assert.ok(node, 'nodejs is the probe package')
   const c = catalogueCompile(node)
@@ -46,12 +65,10 @@ test('THE CHECK BITES — a package that does not compile is counted as missing,
 
 test('community hexbit port has architectural quantum advantage in SCALE and TIME', () => {
   const byKey = theoremByKey()
-  const scale = byKey.get('handle_capacity_is_quantum_by_architecture')
-  const compile = byKey.get('a_spec_compiles_to_hexbits')
-  const dim = byKey.get('n_qubit_dimension')
-  assert.ok(scale, 'scale advantage cites a sealed theorem')
-  assert.ok(compile, 'compile width cites a sealed theorem')
-  assert.ok(dim, 'honesty bound cites n_qubit_dimension — classical cost, not a speedup')
+  assert.ok(byKey.get('handle_capacity_is_quantum_by_architecture'), 'scale cites sealed theorem')
+  assert.ok(byKey.get('a_spec_compiles_to_hexbits'), 'compile width cites sealed theorem')
+  assert.ok(byKey.get('n_qubit_dimension'), 'simulation-cost bound (n=1..5); not a Shor claim')
+  assert.ok(byKey.get('usable_gap_is_two_to_eighty'), 'measured usable-capacity advantage sealed')
 
   const uuidLevel = LEVELS.find((l) => l.name === 'uuid')
   assert.ok(uuidLevel)
@@ -63,15 +80,12 @@ test('community hexbit port has architectural quantum advantage in SCALE and TIM
   const cov = hexbitPortCoverage('community')
   assert.equal(cov.ported, community.length)
 
-  // TIME — measured compile of the whole community slice. Classical enumeration of 2^128 is not runnable;
-  // the advantage is that O(N) folds finish and the exponential baseline does not.
   const t0 = process.hrtime.bigint()
   for (const p of community) catalogueCompile(p)
   const compileNs = Number(process.hrtime.bigint() - t0)
   const nsPer = (compileNs - (compileNs % community.length)) / community.length
   assert.ok(compileNs > 0, 'the compile sweep must take measurable time')
   assert.ok(nsPer < 1_000_000, `per-package compile must stay under 1 ms; measured ${nsPer} ns`)
-  // scale: N packages << 2^128 address space (declared by the sealed fold)
   assert.ok(community.length < 2 ** 20, 'community fits in a million; the address space is 2^128')
   assert.equal(UUID_BITS, uuidLevel.pow2)
 })

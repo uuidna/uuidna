@@ -296,6 +296,54 @@ export function hexbitPortCoverage(repo?: 'main' | 'community'): HexbitPortCover
   return { repo: tag, total: list.length, ported, missing }
 }
 
+/** Alpine publishes documentation as SEPARATE packages — almost always `<name>-doc`, sometimes
+ *  `<name>-man-pages`, plus the system corpora `man-pages` / `man-pages-posix`. That is the man-page port:
+ *  the published documentation packages, compiled to hexbits like every other catalogue row. The manpage
+ *  BYTES are never held here (theorem the_os_is_bootable_quantum); what is ported is the provenance identity. */
+export const isManPagePackage = (p: CataloguePackage | { name: string; desc?: string }): boolean => {
+  const n = p.name
+  if (n === 'man-pages' || n === 'man-pages-posix') return true
+  if (n.endsWith('-doc') || n.endsWith('-man-pages')) return true
+  return false
+}
+
+/** manPagePackages(repo?) → every documentation package Alpine publishes on the pinned catalogue. */
+export function manPagePackages(repo?: 'main' | 'community'): CataloguePackage[] {
+  const { packages, state } = load()
+  if (!state.present) return []
+  const list = repo ? packages.filter((p) => p.repo === repo) : packages
+  return list.filter(isManPagePackage)
+}
+
+/** resolveManPage(name) → the documentation package for a tool or for a doc package itself.
+ *  Order: exact match if already a man package → `<name>-doc` → `<name>-man-pages` → null.
+ *  Returns null when Alpine publishes no documentation package for that name — a fact about upstream,
+ *  never about a failed read. */
+export function resolveManPage(name: string): CataloguePackage | null {
+  const q = String(name ?? '').trim()
+  if (!q) return null
+  const hit = cataloguePackage(q)
+  if (hit && isManPagePackage(hit)) return hit
+  return cataloguePackage(q + '-doc') ?? cataloguePackage(q + '-man-pages')
+}
+
+/** manPagePortCoverage(repo?) → hexbit-port meter over documentation packages alone.
+ *  Same predicates as hexbitPortCoverage; a separate denominator so a regression in the man surface is named. */
+export function manPagePortCoverage(repo?: 'main' | 'community'): HexbitPortCoverage {
+  const list = manPagePackages(repo)
+  const tag: HexbitPortCoverage['repo'] = repo ?? 'all'
+  let ported = 0
+  const missing: string[] = []
+  for (const p of list) {
+    const c = catalogueCompile(p)
+    const ok = c.hexbits.length === UUID_HEXBITS
+      && c.hexbits.every((h) => Number.isInteger(h) && h >= 0 && h < 16)
+    if (ok) ported++
+    else if (missing.length < 25) missing.push(p.name)
+  }
+  return { repo: tag, total: list.length, ported, missing }
+}
+
 export interface SuiteResult {
   tested: number; passed: number; failed: number
   present: boolean; why: string | null

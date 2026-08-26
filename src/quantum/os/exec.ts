@@ -10,7 +10,7 @@
 // So `uuidna_ls /terminal` does NOT invoke busybox; it computes what the ported /terminal directory contains
 // from the sealed spec. The tool's LOGIC is uuidna's; the tool's IDENTITY is the busybox package (coreutils/
 // ls lives in busybox on Alpine). Integrity and computation, never execution.
-import { catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile } from './catalogue.js'
+import { catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile, resolveManPage, isManPagePackage } from './catalogue.js'
 import { toUuid } from '../../address.js'
 import { bootOS, compileToHexbits, type InstallSpec } from './index.js'
 
@@ -83,7 +83,7 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'apk', 'help'] as const
+export const APPLETS = ['ls', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'apk', 'man', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
 
 /** the apk sub-verbs uuidna ports — the package manager's READ surface only: list the inventory, show a package
@@ -269,9 +269,43 @@ export function uuidnaExec(line: string): ExecResult {
       } else err(`apk: ${verb || '(missing)'}: not a ported verb — READ only: ${APK_VERBS.join(' ')} (a provenance OS installs nothing)`)
       break
     }
+    case 'man': {                                                    // documentation packages — Alpine's -doc / *-man-pages, hexbit-compiled
+      // Alpine publishes man pages as SEPARATE packages (`busybox-doc`, `s6-man-pages`, `man-pages`), not as
+      // files inside the runtime package. Porting man pages here means resolving that documentation package and
+      // compiling it to 32 hexbit states — the same mint as apk info. The manpage BYTES are never fetched or
+      // held (the_os_is_bootable_quantum): provenance identity of the published documentation, never its body.
+      const topic = args[0] ?? ''
+      if (!topic) { err('man: a topic is required, e.g. `man busybox` or `man man-pages`'); break }
+      const doc = resolveManPage(topic)
+      if (!doc) {
+        const st = catalogueState()
+        if (!st.present)
+          err(`man: ${topic}: UNKNOWN HERE — the catalogue is absent (${st.why}). A fact about this host, not about Alpine.`)
+        else
+          err(`man: ${topic}: no documentation package published — searched ${st.count} packages for ${topic}-doc / ${topic}-man-pages`)
+        break
+      }
+      const compiled = catalogueCompile(doc)
+      emit([
+        `${doc.name}-${doc.version}  [${doc.repo}]`,
+        `  ${doc.desc}`,
+        `  address:  ${compiled.address}`,
+        `  hexbits:  ${compiled.hexbits.length} states`,
+        `  checksum: ${doc.checksum}`,
+        isManPagePackage({ name: topic })
+          ? `(documentation package — ported as provenance identity; manpage bytes are not held)`
+          : `(documentation for ${topic} — Alpine package ${doc.name}; manpage bytes are not held)`,
+      ], {
+        topic, name: doc.name, version: doc.version, repo: doc.repo, meaning: doc.desc, checksum: doc.checksum,
+        address: compiled.address, hexbits: compiled.hexbits, id: compiled.id, kind: 'man',
+        state: 'AVAILABLE' as const,
+      })
+      break
+    }
     case 'help': emit(['applets: ' + APPLETS.join(' '),
       'ls <path> · cat <route> · which <name|route> · stat <path> · du <path> · pwd · echo <text>',
       'apk list · apk info <name> · apk search <term> · apk depends <name> · apk rdepends <name>  (read-only — installs nothing)',
+      'man <topic>  — resolve Alpine\'s documentation package (-doc / *-man-pages) and compile it to 32 hexbits',
       'du reports the HEXBIT FOOTPRINT (32 states = 128 bits per package); the whole OS is one boot image',
       'the whole toolbox is uuidna\'s own logic over the virtual OS — no binary is ever run'],
       { applets: APPLETS, apk: APK_VERBS }); break

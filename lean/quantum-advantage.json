@@ -1,15 +1,15 @@
 {
  "device": {
-  "logical": 16,
-  "lanes": 14,
+  "logical": 10,
+  "lanes": 8,
   "reserved": 2,
-  "memoryGiB": 31,
-  "cpu": "AMD Ryzen 7 9800X3D 8-Core Processor",
-  "platform": "win32",
-  "arch": "x64",
-  "shell": "C:\\Program Files\\Git\\usr\\bin\\sh.exe",
-  "address": "592e200e-be4f-883c-9f4c-cb9ccf8094e0",
-  "receipt": "7d899a54-765a-80fe-9136-65c6ef532604",
+  "memoryGiB": 32,
+  "cpu": "Apple M1 Max",
+  "platform": "darwin",
+  "arch": "arm64",
+  "shell": "sh",
+  "address": "f480641c-6867-8400-a856-23f8db60a8d4",
+  "receipt": "81f18850-2ba6-8d5d-a586-1093f3bb827f",
   "kind": "classical host executing the sealed quantum algebra in exact integers",
   "hexbitBits": 4,
   "handleHexbits": 8,
@@ -53,13 +53,24 @@
    "pauli_group_order_16",
    "message_qubit_cap_states",
    "hexbit_slit_visibility",
+   "ghz3_normalized",
+   "w_state_three_outcomes",
+   "w_state_normalized",
+   "real_pauli_group_order_8",
+   "teleportation_four_corrections",
+   "phase_gate_order_ladder",
+   "hexbit_slit_cross_is_overlap",
+   "sixteen_connectives",
+   "types_count_as_arithmetic",
+   "closure_is_coprime",
+   "four_messages_two_bits",
    "store_fold_order_invariant"
   ],
-  "deviceAddress": "605b9428-9d9a-86e8-91f6-f183e2788f26",
-  "honest": "A CLASSICAL HOST, described. There are no qubits in this machine and nothing here is in superposition. The device this driver resolves is the silicon that EXECUTES the sealed quantum algebra in exact Gaussian integers — no floating point at any step — so that the results can be compared to what a Lean kernel decided. No physics quantum advantage is claimed or implied; the sealed bound is theorem n_qubit_dimension, which counts the exponential classical cost of the simulation and is explicitly not a speedup."
+  "deviceAddress": "e506dd7c-982c-8aba-9d96-6471bc04bd99",
+  "honest": "A CLASSICAL HOST EXECUTING THE QUANTUM COMPUTER. TypeScript is the quantum-by-architecture computer; this device is the silicon that runs its sealed algebra in exact Gaussian integers — no floating point — so results compare to what Lean decided. Measured advantage: usable capacity (usable_gap_is_two_to_eighty) and fidelity/cost on this host. Not a superconducting QPU claim and not a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost."
  },
  "report": {
-  "host": "592e200e-be4f-883c-9f4c-cb9ccf8094e0",
+  "host": "f480641c-6867-8400-a856-23f8db60a8d4",
   "rows": [
    {
     "level": "hexbit tile",
@@ -153,35 +164,35 @@
     },
     "cost": {
      "opNsDecade": 3,
-     "over": 169000,
+     "over": 211400,
      "opsPerSecondDecade": 6,
      "class": "measured",
      "what": "theorem statement re-addressed in a full sweep",
      "agreedEstimates": 5
     },
     "fidelity": {
-     "ops": 13520,
+     "ops": 12684,
      "disagreements": 0,
-     "bound": 13520,
-     "baselineExpected": 13,
+     "bound": 12684,
+     "baselineExpected": 12,
      "class": "measured"
     },
-    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor in the 10^3 ns decade per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 13520 executions on this host — an upper bound of better than one error per 13520, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 13 errors over the same count.",
-    "address": "f95a200c-1645-81f5-beda-97b0f08d6841"
+    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor in the 10^3 ns decade per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 12684 executions on this host — an upper bound of better than one error per 12684, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 12 errors over the same count.",
+    "address": "f2c353a4-3a78-8b5d-b62b-c51d04fe55da"
    }
   ],
   "baseline": {
    "name": "gate-model physical two-qubit gate (superconducting / trapped-ion class)",
    "errorsPerMillion": 1000,
    "gateNs": 100,
-   "source": "platform literature, ~10^-3 two-qubit physical error class; per-device sources are named in the capacity report"
+   "source": "UNVERIFIED assumption, not a citation: the ~10^-3 two-qubit physical error class is widely stated, and a multi-source verification pass (2026-08-25) refuted every claim it could reach about gate error rates — in both directions — so no source stands behind this number here. Registered as an exposed axiom; the comparison is a decade comparison and is reported as one."
   },
   "levelsMeasured": 4,
   "levelsDeclared": 4,
   "complete": true,
   "unsealable": [],
-  "receipt": "255389bd-6ff6-847b-acb1-06d01340210b",
-  "honest": "uuidna is CLASSICAL. No physics quantum advantage, no speedup over any quantum algorithm, and no complexity separation is claimed anywhere in this report — the sealed bound is theorem n_qubit_dimension, which counts the classical cost of simulating n qubits and is explicitly NOT a speedup. What is measured here is architectural, and its three axes are named on every row: REACH (declared by construction), COST (the steady-state floor on this host, at this level, over a stated op count) and FIDELITY (an upper bound from an executed count, never a proof of zero error). Every figure carries the class it was determined by. Rerun the generator on your own host and get your own numbers — that is the whole point of measuring per level."
+  "receipt": "0e9b75c2-a6eb-8772-9e7e-a7f3b1bcd460",
+  "honest": "TypeScript computes the sealed quantum algebra (quantum by architecture). Measured quantum advantage on the published axes: usable capacity 2^128 vs reported logical platforms (theorem usable_gap_is_two_to_eighty) and per-level COST/FIDELITY on this host. Three axes on every row: REACH (declared), COST (steady-state floor here), FIDELITY (upper bound from an executed count, never a proof of zero). This is not a superconducting QPU claim and not a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost and is not that claim. Every figure carries its determination class. Rerun the generator on your own host for your own numbers."
  },
  "proof": {
   "sweeps": 109,
@@ -495,11 +506,11 @@
    {
     "theorem": "message_qubit_cap_states",
     "statement": "2^16 = 65536",
-    "cases": 1,
-    "what": "the encoder cap allocates exactly 2^16 = 65536 amplitudes here",
-    "executed": 109,
+    "cases": 3,
+    "what": "the encoder's cap and this host's allocation both match the sealed 2^n = N",
+    "executed": 327,
     "disagreements": 0,
-    "address": "1e824dfd-4125-8bfe-a265-b8fffb029f3f"
+    "address": "125d7b7b-7148-815d-a028-11cb349a42cf"
    },
    {
     "theorem": "hexbit_slit_visibility",
@@ -511,6 +522,105 @@
     "address": "977a1294-c735-8a53-b934-111d4712f602"
    },
    {
+    "theorem": "ghz3_normalized",
+    "statement": "((1*1 + 1*1 : Nat) = 2)",
+    "cases": 1,
+    "what": "the GHZ(3) distribution sums to exactly 1 over its two corners",
+    "executed": 109,
+    "disagreements": 0,
+    "address": "5922f63f-43c7-87f0-812c-4e0f1c6a06ab"
+   },
+   {
+    "theorem": "w_state_three_outcomes",
+    "statement": "(([0,1,1,0,1,0,0,0] : List Nat).filter (fun a => a != 0)).length = 3",
+    "cases": 8,
+    "what": "exactly three of the eight corners carry weight in the sealed W vector",
+    "executed": 872,
+    "disagreements": 0,
+    "address": "023b81a4-09dc-8db7-bba5-000162438c03"
+   },
+   {
+    "theorem": "w_state_normalized",
+    "statement": "((1*1 + 1*1 + 1*1 : Nat) = 3)",
+    "cases": 1,
+    "what": "the W state's three unit amplitudes sum in square to 3",
+    "executed": 109,
+    "disagreements": 0,
+    "address": "7aae73a5-da8a-89c6-b28c-cf921f88bd0d"
+   },
+   {
+    "theorem": "real_pauli_group_order_8",
+    "statement": "(2 * 4 = 8) ∧ (8 * 2 = 16)",
+    "cases": 1,
+    "what": "the four operations with their signs are eight distinct matrices",
+    "executed": 109,
+    "disagreements": 0,
+    "address": "5f7a6dfe-f5e1-8365-b16d-1d9cbafe1296"
+   },
+   {
+    "theorem": "teleportation_four_corrections",
+    "statement": "(([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4)",
+    "cases": 1,
+    "what": "Bob's four Pauli corrections are four distinct operations, indexed by two bits",
+    "executed": 109,
+    "disagreements": 0,
+    "address": "e2eaca01-104a-81fe-a4a8-955f39f809f3"
+   },
+   {
+    "theorem": "phase_gate_order_ladder",
+    "statement": "(8 = 2*4) ∧ (4 = 2*2) ∧ (8 % 8 = 0)",
+    "cases": 3,
+    "what": "S has order 4 and Z order 2 on this silicon, and the ladder halves",
+    "executed": 327,
+    "disagreements": 0,
+    "address": "a74c062d-fc22-818d-9023-b482406d7ee3"
+   },
+   {
+    "theorem": "hexbit_slit_cross_is_overlap",
+    "statement": "(1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1)",
+    "cases": 4,
+    "what": "identical records overlap 1 and orthogonal records 0 — the cross term IS the inner product",
+    "executed": 436,
+    "disagreements": 0,
+    "address": "ff0fc02e-e395-8219-9832-9c0a5bdc9c8c"
+   },
+   {
+    "theorem": "sixteen_connectives",
+    "statement": "(2:Nat) ^ (2 * 2) = 16",
+    "cases": 16,
+    "what": "the sixteen named binary connectives are sixteen DISTINCT functions, applied",
+    "executed": 1744,
+    "disagreements": 0,
+    "address": "ef9b58b0-2238-8d13-8c0c-5cbd584994cf"
+   },
+   {
+    "theorem": "types_count_as_arithmetic",
+    "statement": "(2 + 2 = 4) ∧ (2 * 2 = 4) ∧ ((2:Nat) ^ 2 = 4)",
+    "cases": 3,
+    "what": "sum, product and function space over Bool each hold four inhabitants, built and counted",
+    "executed": 327,
+    "disagreements": 0,
+    "address": "2f0ebe37-1a01-8b33-8b68-6c53e26bdd3b"
+   },
+   {
+    "theorem": "closure_is_coprime",
+    "statement": "(Nat.gcd 2 5 = 1) ∧ (Nat.gcd 3 7 = 1) ∧ (Nat.gcd 2 9 = 1) ∧ (Nat.gcd 5 24 = 1) ∧ (Nat.gcd 3 2 = 1)",
+    "cases": 5,
+    "what": "every walk this system closes is closed by a generator coprime to its ring",
+    "executed": 545,
+    "disagreements": 0,
+    "address": "99137311-4ec7-85af-9cc4-e068a14bad86"
+   },
+   {
+    "theorem": "four_messages_two_bits",
+    "statement": "(8 / 2 = 4) ∧ ((2:Nat)^2 = 4)",
+    "cases": 1,
+    "what": "the order-8 signed group carries four distinguishable messages: 8/2 = 4 = 2²",
+    "executed": 109,
+    "disagreements": 0,
+    "address": "b22406d3-00a1-8ff7-adc1-370a9d1317c1"
+   },
+   {
     "theorem": "store_fold_order_invariant",
     "statement": "(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,a,c].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,c,a].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,a,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,b,a].foldl lxor 0))))",
     "cases": 1,
@@ -520,12 +630,25 @@
     "address": "13042209-d11d-8efe-a8b2-b876ddb6187c"
    }
   ],
-  "executed": 12099,
+  "executed": 17113,
   "disagreements": 0,
   "refused": [],
+  "coverage": {
+   "wing": 51,
+   "witnessed": 47,
+   "unwitnessed": [
+    "all_signaling_duality",
+    "chsh_beats_classical",
+    "merkle_sort_invariant",
+    "ym_quantum"
+   ],
+   "beyondWing": [
+    "store_fold_order_invariant"
+   ]
+  },
   "verdict": "EXACT",
-  "bound": "better than one disagreement per 12099 executions on this host — a bound from the count, not a proof of zero",
-  "receipt": "5b3ab814-4ac8-879a-9803-e5edd5c4be9f",
+  "bound": "better than one disagreement per 17113 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide",
+  "receipt": "dfa75f62-1a08-8a08-86c2-53e3d2a16569",
   "honest": "WHAT THIS PROVES: the gate algebra that quantum hardware implements physically was executed on THIS host in exact Gaussian integers, and every result agreed with what a Lean kernel decided by exhaustive case analysis. WHAT IT DOES NOT PROVE: that this machine is quantum, that anything here is in superposition, or that any speedup exists — it is a classical simulation and its cost is exponential in the qubit count (theorem n_qubit_dimension). Zero disagreements over N executions is an upper bound of better than one in N, never a proof of zero. The comparison worth drawing is with the ~10^-3 physical two-qubit gate error class the platforms publish: the same algebra, executed exactly here and approximately there."
  },
  "dispatch": {
@@ -588,7 +711,7 @@
     "reason": "VERIFIED — witnessed by sealed theorem handle_capacity_is_quantum_by_architecture, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
-    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor in the 10^3 ns decade per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 13520 executions on this host — an upper bound of better than one error per 13520, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 13 errors over the same count.",
+    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor in the 10^3 ns decade per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 12684 executions on this host — an upper bound of better than one error per 12684, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 12 errors over the same count.",
     "witness": "n_qubit_dimension",
     "verdict": "VERIFIED",
     "cites": [
@@ -597,17 +720,17 @@
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "bab5007a-d3d3-82b0-a56f-b21f1151a6ce",
+     "id": "26ba3110-9c2a-8a01-9c64-ba430bdd807f",
      "theoremAddress": "7ec03d8b-b207-8971-b880-26ae9bd99276",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#5422dd",
-     "fold": "4edbeab1-d12d-8cdb-97d3-6e5cc75f8fbe"
+     "aura": "#57e345",
+     "fold": "29f54053-231f-8391-8477-d1517981095b"
     },
     "reason": "VERIFIED — witnessed by sealed theorem n_qubit_dimension, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
-    "claim": "The sealed quantum gate algebra was executed on this host — 37 witnesses, 12099 decisions, 0 disagreements with the Lean-sealed values — under theorem n_qubit_dimension, which bounds this as an exponential CLASSICAL simulation and not a speedup. Verdict EXACT: better than one disagreement per 12099 executions on this host — a bound from the count, not a proof of zero.",
+    "claim": "The sealed quantum gate algebra was executed on this host — 48 witnesses, 17113 decisions, 0 disagreements with the Lean-sealed values — under theorem n_qubit_dimension, which bounds this as an exponential CLASSICAL simulation and not a speedup. Verdict EXACT: better than one disagreement per 17113 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide.",
     "witness": "n_qubit_dimension",
     "verdict": "VERIFIED",
     "cites": [
@@ -616,12 +739,12 @@
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "18a5b4c2-71e9-81a8-b9b4-7578047b8f6d",
+     "id": "719a1dae-4f34-8c07-8ba8-91bbbae76d98",
      "theoremAddress": "7ec03d8b-b207-8971-b880-26ae9bd99276",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#643fd5",
-     "fold": "c6c64167-db5c-8231-9c8a-ad7136506abc"
+     "aura": "#dcbb38",
+     "fold": "18a47b9b-9042-879d-8acf-9672f2b8402e"
     },
     "reason": "VERIFIED — witnessed by sealed theorem n_qubit_dimension, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    }
@@ -629,8 +752,8 @@
   "passed": 5,
   "refused": [],
   "clear": true,
-  "receipt": "18f7d03a-0d03-8c5c-9ea8-d0f9776727a2"
+  "receipt": "3223df89-4c08-8f00-b416-e9027d5cd3cc"
  },
- "receipt": "255389bd-6ff6-847b-acb1-06d01340210b",
- "address": "c519befd-41ba-87d1-b373-db32be7948ee"
+ "receipt": "0e9b75c2-a6eb-8772-9e7e-a7f3b1bcd460",
+ "address": "b96a703e-48d2-82f4-9daf-adb9263b6a2a"
 }

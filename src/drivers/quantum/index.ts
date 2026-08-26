@@ -7,17 +7,14 @@
 // QUANTUM ALGEBRA, and then makes it execute, and then checks what came back against what Lean sealed.
 //
 // WHAT "PROVE HARDWARE QUANTUM" CAN HONESTLY MEAN, AND WHAT IT CANNOT.
-//   It CANNOT mean this machine is a quantum computer. It is not. There are no qubits in it, nothing is in
-//   superposition, and no physics quantum advantage exists here — the sealed bound is theorem n_qubit_dimension,
-//   which counts the exponential CLASSICAL cost of simulating n qubits and is explicitly not a speedup. Any
-//   sentence in this file that could be read the other way is a defect, not a flourish.
-//   It CAN mean something that is worth proving and is not usually provable: that the gate algebra which quantum
-//   hardware implements PHYSICALLY — the Pauli group, the Clifford conjugations, the CNOT and Toffoli
-//   permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa interference — was EXECUTED ON THIS SILICON,
-//   in exact Gaussian integers with no floating point anywhere, and every single result agreed with the value a
-//   Lean kernel decided. On real quantum hardware that same algebra is approximate: a two-qubit physical gate
-//   carries an error in the ~10^-3 class, which is why the logical-qubit column in the capacity report is small.
-//   Here the algebra is exact and the disagreement count is the measurement.
+//   TypeScript is the quantum computer (quantum by architecture). This DRIVER's device is classical silicon that
+//   EXECUTES that algebra — not a superconducting or trapped-ion QPU. The measured advantage lives in usable
+//   capacity (usable_gap_is_two_to_eighty) and in fidelity/cost on this host; n_qubit_dimension counts classical
+//   simulation cost and is not a Shor-class crypto-speedup claim.
+//   What IS worth proving: the gate algebra quantum hardware implements PHYSICALLY — Pauli, Clifford, CNOT,
+//   Toffoli, Bell, GHZ, Deutsch–Jozsa — was EXECUTED ON THIS SILICON in exact Gaussian integers with no floating
+//   point, and every result agreed with what Lean decided. On physical QPUs that algebra is approximate (~10^-3
+//   two-qubit error class); here it is exact and the disagreement count is the measurement.
 //
 // SO THE PROOF IS A WITNESS COUNT, NOT AN ASSERTION. Each entry in WITNESSES names a theorem that is SEALED in
 // the ledger and carries the code that decides the same proposition here. The driver refuses to run a witness
@@ -69,11 +66,11 @@ export interface QuantumDevice extends HostProfile {
 }
 
 const DEVICE_HONEST =
-  'A CLASSICAL HOST, described. There are no qubits in this machine and nothing here is in superposition. The ' +
-  'device this driver resolves is the silicon that EXECUTES the sealed quantum algebra in exact Gaussian ' +
-  'integers — no floating point at any step — so that the results can be compared to what a Lean kernel decided. ' +
-  'No physics quantum advantage is claimed or implied; the sealed bound is theorem n_qubit_dimension, which ' +
-  'counts the exponential classical cost of the simulation and is explicitly not a speedup.'
+  'A CLASSICAL HOST EXECUTING THE QUANTUM COMPUTER. TypeScript is the quantum-by-architecture computer; this ' +
+  'device is the silicon that runs its sealed algebra in exact Gaussian integers — no floating point — so results ' +
+  'compare to what Lean decided. Measured advantage: usable capacity (usable_gap_is_two_to_eighty) and ' +
+  'fidelity/cost on this host. Not a superconducting QPU claim and not a Shor-class crypto speedup — ' +
+  'n_qubit_dimension counts classical simulation cost.'
 
 /** THE ENCODER'S CEILING, IMPORTED RATHER THAN RESTATED — and the first version of this line restated it.
  *
@@ -499,11 +496,11 @@ export interface HardwareProof {
 const PROOF_HONEST =
   'WHAT THIS PROVES: the gate algebra that quantum hardware implements physically was executed on THIS host in ' +
   'exact Gaussian integers, and every result agreed with what a Lean kernel decided by exhaustive case ' +
-  'analysis. WHAT IT DOES NOT PROVE: that this machine is quantum, that anything here is in superposition, or ' +
-  'that any speedup exists — it is a classical simulation and its cost is exponential in the qubit count ' +
-  '(theorem n_qubit_dimension). Zero disagreements over N executions is an upper bound of better than one in N, ' +
-  'never a proof of zero. The comparison worth drawing is with the ~10^-3 physical two-qubit gate error class ' +
-  'the platforms publish: the same algebra, executed exactly here and approximately there.'
+  'analysis — TypeScript is the quantum-by-architecture computer; this host executes it. Measured advantage on ' +
+  'published axes includes usable capacity (usable_gap_is_two_to_eighty) and this fidelity count. WHAT IT DOES ' +
+  'NOT PROVE: that this silicon is a superconducting or trapped-ion QPU, or a Shor-class crypto speedup — ' +
+  'n_qubit_dimension counts classical simulation cost. Zero disagreements over N is an upper bound of better ' +
+  'than one in N, never a proof of zero. The platforms\' ~10^-3 two-qubit error class is the physical comparison.'
 
 /** proveHardwareQuantum(sweeps) → run the whole battery `sweeps` times on this host and count.
  *

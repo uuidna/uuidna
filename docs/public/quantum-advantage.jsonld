@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:eb8c0ddf-60b3-8620-ad57-b629c21175e0",
+  "@id": "urn:uuid:337aca01-c22b-8b22-9e8f-fe5774164aa7",
   "@type": "Dataset",
   "name": "uuidna quantum advantage report — measured per level",
   "description": "The architectural advantage measured at every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). uuidna is classical and claims no physics quantum advantage — the sealed bound is theorem n_qubit_dimension.",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "255389bd-6ff6-847b-acb1-06d01340210b",
+  "identifier": "0e9b75c2-a6eb-8772-9e7e-a7f3b1bcd460",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -21,7 +21,7 @@
       "value": "10^1",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 6553600 hexbit tile compiled from an address on AMD Ryzen 7 9800X3D 8-Core Processor (win32/x64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 6553600 hexbit tile compiled from an address on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -29,7 +29,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "12000 decisions executed on AMD Ryzen 7 9800X3D 8-Core Processor; a bound of better than one in 12000, never a proof of zero"
+      "citation": "12000 decisions executed on Apple M1 Max; a bound of better than one in 12000, never a proof of zero"
     },
     {
       "@type": "PropertyValue",
@@ -44,7 +44,7 @@
       "value": "10^2",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 204800 handle read to its value and residue on AMD Ryzen 7 9800X3D 8-Core Processor (win32/x64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 204800 handle read to its value and residue on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -52,7 +52,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "12000 decisions executed on AMD Ryzen 7 9800X3D 8-Core Processor; a bound of better than one in 12000, never a proof of zero"
+      "citation": "12000 decisions executed on Apple M1 Max; a bound of better than one in 12000, never a proof of zero"
     },
     {
       "@type": "PropertyValue",
@@ -67,7 +67,7 @@
       "value": "10^3",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 204800 address folded from a distinct seed on AMD Ryzen 7 9800X3D 8-Core Processor (win32/x64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 204800 address folded from a distinct seed on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -75,7 +75,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "12000 decisions executed on AMD Ryzen 7 9800X3D 8-Core Processor; a bound of better than one in 12000, never a proof of zero"
+      "citation": "12000 decisions executed on Apple M1 Max; a bound of better than one in 12000, never a proof of zero"
     },
     {
       "@type": "PropertyValue",
@@ -90,7 +90,7 @@
       "value": "10^3",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 169000 theorem statement re-addressed in a full sweep on AMD Ryzen 7 9800X3D 8-Core Processor (win32/x64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 211400 theorem statement re-addressed in a full sweep on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -98,15 +98,15 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "13520 decisions executed on AMD Ryzen 7 9800X3D 8-Core Processor; a bound of better than one in 13520, never a proof of zero"
+      "citation": "12684 decisions executed on Apple M1 Max; a bound of better than one in 12684, never a proof of zero"
     },
     {
       "@type": "PropertyValue",
       "name": "sealed quantum algebra — decisions executed on this host",
-      "value": 12099,
+      "value": 17113,
       "unitText": "decisions",
       "measurementTechnique": "measured",
-      "citation": "37 witnesses over 109 sweeps on AMD Ryzen 7 9800X3D 8-Core Processor; each decides a proposition sealed in the Lean ledger"
+      "citation": "48 witnesses over 109 sweeps on Apple M1 Max; each decides a proposition sealed in the Lean ledger"
     },
     {
       "@type": "PropertyValue",
@@ -114,15 +114,15 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "better than one disagreement per 12099 executions on this host — a bound from the count, not a proof of zero"
+      "citation": "better than one disagreement per 17113 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide"
     },
     {
       "@type": "PropertyValue",
-      "name": "reported physical two-qubit gate error class",
+      "name": "two-qubit gate error class used as the comparison baseline",
       "value": 1000,
       "unitText": "errors per million operations",
-      "measurementTechnique": "reported",
-      "citation": "platform literature, ~10^-3 two-qubit physical error class; per-device sources are named in the capacity report"
+      "measurementTechnique": "assumed",
+      "citation": "UNVERIFIED assumption, not a citation: the ~10^-3 two-qubit physical error class is widely stated, and a multi-source verification pass (2026-08-25) refuted every claim it could reach about gate error rates — in both directions — so no source stands behind this number here. Registered as an exposed axiom; the comparison is a decade comparison and is reported as one."
     }
   ]
 }

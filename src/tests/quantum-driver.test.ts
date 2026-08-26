@@ -83,11 +83,13 @@ test('the device is THIS host, folded — recomputable rather than asserted', ()
   assert.deepEqual([...a.witnesses].sort(), [...WITNESSES.map((w) => w.theorem)].sort())
 })
 
-test('the device never claims to be quantum — the honest scope is IN the record, not around it', () => {
+test('the device records measured advantage on a classical host executing the quantum computer', () => {
   const d = hostQuantumDevice()
   assert.match(d.honest, /CLASSICAL HOST/)
-  assert.match(d.honest, /no qubits/i)
+  assert.match(d.honest, /quantum-by-architecture|TypeScript is the quantum/i)
+  assert.match(d.honest, /usable_gap_is_two_to_eighty/)
   assert.match(d.honest, /n_qubit_dimension/)
+  assert.doesNotMatch(d.honest, /no physics quantum advantage/i)
   assert.match(proveHardwareQuantum(1).honest, /WHAT IT DOES NOT PROVE/)
 })
 

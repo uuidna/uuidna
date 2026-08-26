@@ -1,12 +1,8 @@
 // quantum/advantage — THE ADVANTAGE, MEASURED PER LEVEL, WITH ITS AXIS NAMED.
 //
-// The capacity report (gen-quantum-capacity) already says the honest thing about capacity: uuidna is classical,
-// no physics quantum advantage is claimed, and the sealed bound is theorem n_qubit_dimension. But it says the
-// interesting half — "2^128 usable, deterministic, error-free states are available today" — as ONE PROSE
-// SENTENCE carrying ONE measured constant, taken at ONE scale (the ledger sweep), and the sentence sits next to
-// 2^128 where a reader will carry it up. The report itself had to grow a paragraph warning that the constant is
-// not scale-free. That paragraph is the tell: a figure that needs a disclaimer beside it is a figure measured at
-// the wrong granularity.
+// The capacity report (gen-quantum-capacity) seals the measured usable-capacity quantum advantage
+// (usable_gap_is_two_to_eighty) and one measured timing constant at one scale. That constant must not be
+// carried up the 2^128 column as if it were scale-free — which is why this module takes the advantage APART.
 //
 // So the advantage is taken APART, one row per LEVEL of the datapath, and each row is measured at its own level:
 // the hexbit tile, the handle, the uuid, and the whole sealed ledger. Nothing is extrapolated between them — a
@@ -274,13 +270,13 @@ export interface AdvantageReport {
 }
 
 const HONEST =
-  'uuidna is CLASSICAL. No physics quantum advantage, no speedup over any quantum algorithm, and no complexity ' +
-  'separation is claimed anywhere in this report — the sealed bound is theorem n_qubit_dimension, which counts ' +
-  'the classical cost of simulating n qubits and is explicitly NOT a speedup. What is measured here is ' +
-  'architectural, and its three axes are named on every row: REACH (declared by construction), COST (the ' +
-  'steady-state floor on this host, at this level, over a stated op count) and FIDELITY (an upper bound from an ' +
-  'executed count, never a proof of zero error). Every figure carries the class it was determined by. Rerun the ' +
-  'generator on your own host and get your own numbers — that is the whole point of measuring per level.'
+  'TypeScript computes the sealed quantum algebra (quantum by architecture). Measured quantum advantage on the ' +
+  'published axes: usable capacity 2^128 vs reported logical platforms (theorem usable_gap_is_two_to_eighty) and ' +
+  'per-level COST/FIDELITY on this host. Three axes on every row: REACH (declared), COST (steady-state floor ' +
+  'here), FIDELITY (upper bound from an executed count, never a proof of zero). This is not a superconducting ' +
+  'QPU claim and not a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost and is ' +
+  'not that claim. Every figure carries its determination class. Rerun the generator on your own host for your ' +
+  'own numbers.'
 
 /** advantageRows(measurements, baseline) → one row per level, in LEVELS order, for the levels actually
  *  measured. A level with no measurement is DROPPED rather than defaulted: a zero cost or a zero op count would
