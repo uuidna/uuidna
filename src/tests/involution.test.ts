@@ -131,3 +131,14 @@ test('DIVISION IS LEAN NAT FLOOR — / was a pure-syntax gap that left sealed eq
   // List forms still refuse — widening / must not start claiming what it cannot parse
   assert.equal(holds('(List.range 7).length / 1 = 7'), null)
 })
+
+test('INEQUALITY IS LEAN ≠ — another pure-syntax gap that left sealed inequalities unreached', () => {
+  // roman_reads_subtractively seals 9 ≠ 11; without ≠ the whole conjunction stayed unreached for a character.
+  assert.equal(evaluable('10 - 1 = 9 ∧ 1 + 10 = 11 ∧ 9 ≠ 11'), true)
+  assert.equal(holds('10 - 1 = 9 ∧ 1 + 10 = 11 ∧ 9 ≠ 11'), true)
+  assert.equal(holds('9 ≠ 9'), false)
+  assert.equal(holds('9 ≠ 11'), true)
+  assert.equal(holds('(2:Nat) ≠ 0'), true)
+  // List forms still refuse — widening ≠ must not start claiming what it cannot parse
+  assert.equal(holds('(List.range 7).length ≠ 0'), null)
+})
