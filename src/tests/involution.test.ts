@@ -156,3 +156,17 @@ test('NON-STRICT INEQUALITY IS ASCII <= AND >= — sealed windows stayed unreach
   // List forms still refuse — widening <= / >= must not start claiming what it cannot parse
   assert.equal(holds('(List.range 8).all (fun n => n <= 8)'), null)
 })
+
+test('NEGATION IS LEAN ¬ — sealed denials stayed unreached for one character', () => {
+  // kink_needs_q_above_one, mombh_press_confirmed_is_refuted, tesla_leap_spring_to_grant, and
+  // alternation_needs_a_second_phase seal ¬(…) forms; without ¬ the whole conjunction stayed unreached.
+  assert.equal(evaluable('(1 < 2) ∧ ¬(1 < 1)'), true)
+  assert.equal(holds('(1 < 2) ∧ ¬(1 < 1)'), true)
+  assert.equal(holds('¬(1 < 1)'), true)
+  assert.equal(holds('¬(1 < 2)'), false)
+  assert.equal(holds('(¬ (18 >= 100))'), true)
+  assert.equal(holds('(19 + 30 + 31 + 31 + 29 + 31 + 30 + 1 = 202) ∧ (1888 % 4 = 0) ∧ (¬ (1888 % 100 = 0))'), true)
+  assert.equal(holds('(360 / 2 = 180) ∧ (360 / 3 = 120) ∧ (360 % 360 = 0) ∧ (¬ (180 % 360 = 0)) ∧ (¬ (120 % 360 = 0))'), true)
+  // List forms still refuse — widening ¬ must not start claiming what it cannot parse
+  assert.equal(holds('¬((List.range 10).all (fun n => n < 10))'), null)
+})
