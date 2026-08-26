@@ -100,7 +100,7 @@ export const stripAscriptions = (s: string): string => {
  *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl (· + ·)`, and bounded `fun` with `.all`/`.map`/`.filter`/`.any`.
  *  Named constant tables / `let` / heavier ∀ stay unreached. Admitted names are stripped before the character gate so letters never open the door to arbitrary
  *  identifiers. */
-const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|all|map|filter|any|zip|getLast|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap)\b/g
+const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable. */
 const stripComments = (s: string): string => s.replace(/--[^\n]*/g, ' ')
 /** Drop string literal bodies so Unicode readings (bg/zh/…) do not fail the character gate. */
@@ -116,12 +116,16 @@ const stripFunBinders = (s: string): string => {
     binders.push(id)
     return ' '
   })
+  out = out.replace(/∀\s+([A-Za-z_][A-Za-z0-9_]*)/g, (_, id: string) => {
+    binders.push(id)
+    return ' '
+  })
   binders.sort((a, b) => b.length - a.length)
   for (const b of binders) out = out.replace(new RegExp('\\b' + b + '\\b', 'g'), ' ')
   return out.replace(/=>/g, ' ').replace(/:=/g, ' ').replace(/==/g, ' ').replace(/!=/g, ' ').replace(/\|\|/g, ' ').replace(/;/g, ' ')
 }
 export const evaluable = (statement: string): boolean =>
-  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]"\\&'|·?!;:-]+$/.test(
+  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]"\\&'|·?!;:→∈-]+$/.test(
     stripFunBinders(stripStrings(stripAscriptions(stripComments(statement)))).replace(NAMED_OP, '').replace(/\+\+/g, '').replace(/\?/g, ''),
   )
 
@@ -132,14 +136,14 @@ export const evaluable = (statement: string): boolean =>
 // Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ · ++ · postfix (.reverse/.length/…) · atoms.
 type Env = Map<string, Val>
 type Ring = 'Nat' | 'Int'
-type Cursor = { s: string; i: number; env: Env; ring: Ring }
+type Cursor = { s: string; i: number; env: Env; ring: Ring; expectBool?: boolean }
 /** Tagged values: numerals, booleans, strings, right-associated Prods, finite lists, unary funs, and pending powers. */
 type Pair = { readonly t: 'p'; readonly a: Val; readonly b: Val }
 type Lst = { readonly t: 'l'; readonly xs: Val[] }
 type Fun = { readonly t: 'f'; readonly run: (x: Val) => Val }
 type Pow = { readonly t: 'pow'; readonly b: number; readonly e: number }
 type Opt = { readonly t: 'o'; readonly v: Val | null }
-type Val = number | boolean | string | Pair | Lst | Fun | Pow | Opt
+type Val = number | bigint | boolean | string | Pair | Lst | Fun | Pow | Opt
 
 const pair = (a: Val, b: Val): Pair => ({ t: 'p', a, b })
 const lst = (xs: Val[]): Lst => ({ t: 'l', xs })
@@ -156,8 +160,13 @@ const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c
 const eat = (c: Cursor, tok: string): boolean => { ws(c); if (c.s.startsWith(tok, c.i)) { c.i += tok.length; return true } return false }
 
 const deepEq = (a: Val, b: Val): boolean => {
-  if (isPow(a)) a = asNum(a)
-  if (isPow(b)) b = asNum(b)
+  if (isPow(a)) a = forceScalar(a)
+  if (isPow(b)) b = forceScalar(b)
+  if (typeof a === 'bigint' || typeof b === 'bigint') {
+    const aa = typeof a === 'bigint' ? a : typeof a === 'number' ? BigInt(a) : null
+    const bb = typeof b === 'bigint' ? b : typeof b === 'number' ? BigInt(b) : null
+    return aa !== null && bb !== null && aa === bb
+  }
   if (typeof a === 'number' || typeof a === 'boolean' || typeof a === 'string') return a === b
   if (typeof b === 'number' || typeof b === 'boolean' || typeof b === 'string') return false
   if (isFun(a) || isFun(b)) return false
@@ -175,17 +184,23 @@ const deepEq = (a: Val, b: Val): boolean => {
 }
 
 /** Deterministic trunc/abs/min — no Math.* (harmonic-scan). */
-const trunc = (n: number): number => (n < 0 ? -(( -n) | 0) : (n | 0))
+/** Toward-zero trunc without Math.* and without `| 0` (which is Int32 and zeros 2^32). */
+const trunc = (n: number): number => {
+  if (n !== n || n === Infinity || n === -Infinity) throw new Error('trunc')
+  const sign = n < 0 ? -1 : 1
+  const [w] = (sign < 0 ? -n : n).toString().split('.')
+  return sign * Number(w || '0')
+}
 const abs = (n: number): number => (n < 0 ? -n : n)
 const min2 = (a: number, b: number): number => (a < b ? a : b)
 
 /** Lean `a ^ e` on Nat/Int — BigInt so sealed mod-power filters do not float-corrupt. */
-const evalPow = (b: number, e: number): number => {
+const evalPow = (b: number, e: number): number | bigint => {
   if (e < 0) throw new Error('pow')
   if (e === 0) return 1
   const r = BigInt(trunc(b)) ** BigInt(trunc(e))
-  if (r > BigInt(Number.MAX_SAFE_INTEGER) || r < BigInt(Number.MIN_SAFE_INTEGER)) throw new Error('overflow')
-  return Number(r)
+  if (r <= BigInt(Number.MAX_SAFE_INTEGER) && r >= BigInt(Number.MIN_SAFE_INTEGER)) return Number(r)
+  return r
 }
 /** `(a ^ e) % m` fused — the sealed nilpotent / fixed-point filters. */
 const modPow = (base: number, exp: number, mod: number, ring: Ring): number => {
@@ -218,10 +233,15 @@ const ringSub = (a: number, b: number, ring: Ring): number => {
   if (a < 0 || b < 0) return a - b
   return a < b ? 0 : a - b
 }
-const asNum = (v: Val): number => {
-  if (typeof v === 'number') return v
+const forceScalar = (v: Val): number | bigint => {
+  if (typeof v === 'number' || typeof v === 'bigint') return v
   if (isPow(v)) return evalPow(v.b, v.e)
   throw new Error('expected numeral')
+}
+const asNum = (v: Val): number => {
+  const x = forceScalar(v)
+  if (typeof x === 'bigint') throw new Error('overflow')
+  return x
 }
 const asLst = (v: Val): Val[] => {
   if (!isLst(v)) throw new Error('expected list')
@@ -309,6 +329,21 @@ const asPair = (v: Val): Pair => {
 const sigFn = (p: Pair): Pair => pair(2 - asNum(p.a), -asNum(p.b))
 const tauFn = (p: Pair): Pair => pair(2 - asNum(p.a), asNum(p.b))
 const kapFn = (p: Pair): Pair => pair(asNum(p.a), -asNum(p.b))
+const CAPS: Val[] = [2, 4, 2, 6, 2, 4, 8, 4, 6, 2, 10, 8, 6, 4, 2, 12, 10, 8, 6, 4, 2, 14]
+const AGL: Val[] = [9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80]
+const WORDS: Val[] = [0,75,42,97,25,82,51,120,7,76,45,102,30,85,52,127]
+const avFn = (e: number): number => (e - (e % 9)) / 9
+const bvFn = (e: number): number => e % 9
+const compFn = (f: number, g: number): number => ((avFn(f) * avFn(g)) % 9) * 9 + ((avFn(f) * bvFn(g) + bvFn(f)) % 9)
+const fibCycleFn = (m: number, f: Val[], len: number): boolean => {
+  if (f.length !== len) return false
+  if (f.length < 2 || asNum(f[0]!) !== 0 || asNum(f[1]!) !== 1) return false
+  const ext = f.concat(f.slice(0, 2))
+  for (let i = 0; i + 2 < ext.length; i++) {
+    if ((asNum(ext[i]!) + asNum(ext[i + 1]!)) % m !== asNum(ext[i + 2]!)) return false
+  }
+  return true
+}
 
 const listSum = (xs: Val[]): number => {
   let s = 0
@@ -433,6 +468,12 @@ const postfix = (c: Cursor, v: Val): Val => {
       v = asLst(v).some((x) => asBool(f.run(x)))
       continue
     }
+    if (eat(c, '.find?')) {
+      const f = parseFunArg(c, 'bool')
+      const hit = asLst(v).find((x) => asBool(f.run(x)))
+      v = opt(hit === undefined ? null : hit)
+      continue
+    }
     if (eat(c, '.filter')) {
       const f = parseFunArg(c, 'bool')
       v = lst(asLst(v).filter((x) => asBool(f.run(x))))
@@ -523,11 +564,16 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'true')) return postfix(c, true)
   if (eat(c, 'false')) return postfix(c, false)
   if (eat(c, 'if')) {
-    const cond = compare(c)
+    const cond = boolProp(c)
     if (!eat(c, 'then')) throw new Error('if then')
+    if (c.expectBool) {
+      const t = boolProp(c)
+      if (!eat(c, 'else')) throw new Error('if else')
+      const e = boolProp(c)
+      return postfix(c, cond ? t : e)
+    }
     const t = junction(c)
     if (!eat(c, 'else')) throw new Error('if else')
-    // Always parse both arms — JS `?:` must not skip the else expression.
     const e = junction(c)
     return postfix(c, cond ? t : e)
   }
@@ -563,6 +609,7 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'List.reverse')) return postfix(c, lst(listReverse(asLst(atom(c)))))
   if (eat(c, 'lxor')) return postfix(c, lxor(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'pop')) return postfix(c, pop(asNum(atom(c))))
+  if (eat(c, 'wt')) return postfix(c, pop(asNum(atom(c))))
   if (eat(c, 'rowsOf')) return postfix(c, lst(rowsOf(asNum(atom(c)))))
   if (eat(c, 'preOf')) {
     ws(c)
@@ -608,6 +655,13 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'tau')) return postfix(c, tauFn(asPair(atom(c))))
   if (eat(c, 'kap')) return postfix(c, kapFn(asPair(atom(c))))
   if (eat(c, 'tour')) return postfix(c, lst(TOUR.slice()))
+  if (eat(c, 'caps')) return postfix(c, lst(CAPS.slice()))
+  if (eat(c, 'agl')) return postfix(c, lst(AGL.slice()))
+  if (eat(c, 'words')) return postfix(c, lst(WORDS.slice()))
+  if (eat(c, 'av')) return postfix(c, avFn(asNum(atom(c))))
+  if (eat(c, 'bv')) return postfix(c, bvFn(asNum(atom(c))))
+  if (eat(c, 'comp')) return postfix(c, compFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'fibCycle')) return postfix(c, fibCycleFn(asNum(atom(c)), asLst(atom(c)), asNum(atom(c))))
   if (eat(c, 'units9')) return postfix(c, lst(UNITS9.slice()))
   if (eat(c, 'some')) return postfix(c, opt(atom(c)))
   if (eat(c, 'res')) return postfix(c, resFn(asNum(atom(c))))
@@ -638,7 +692,13 @@ const append = (c: Cursor): Val => {
 const power = (c: Cursor): Val => {
   const base = append(c)
   if (!eat(c, '^')) return base
-  return pow(asNum(base), asNum(power(c)))
+  const exp = asNum(power(c))
+  const b = forceScalar(base)
+  if (typeof b === 'bigint') {
+    const r = b ** BigInt(trunc(exp))
+    return (r <= BigInt(Number.MAX_SAFE_INTEGER) && r >= BigInt(Number.MIN_SAFE_INTEGER)) ? Number(r) : r
+  }
+  return pow(b, exp)
 }
 const product = (c: Cursor): Val => {
   let v = power(c)
@@ -651,7 +711,7 @@ const product = (c: Cursor): Val => {
     } else if (eat(c, '/')) {
       const d = asNum(power(c))
       v = d === 0 ? 0 : (asNum(v) - emod(asNum(v), d, c.ring)) / d
-    } else return isPow(v) ? asNum(v) : v
+    } else return isPow(v) ? forceScalar(v) : v
   }
 }
 function sum(c: Cursor): Val {
@@ -666,6 +726,15 @@ function sum(c: Cursor): Val {
 
 /** `&&` is Lean Bool and — sealed publish_gate_is_conjunction. */
 function junction(c: Cursor): Val {
+  ws(c)
+  if (eat(c, 'let')) {
+    const name = readIdent(c)
+    if (!eat(c, ':=')) throw new Error('let :=')
+    const val = junction(c)
+    if (!eat(c, ';')) throw new Error('let ;')
+    c.env.set(name, val)
+    return junction(c)
+  }
   let v = sum(c)
   for (;;) {
     ws(c)
@@ -734,21 +803,27 @@ function boolAtom(c: Cursor): boolean {
   return compare(c)
 }
 function boolProp(c: Cursor): boolean {
-  ws(c)
-  if (eat(c, 'let')) {
-    const name = readIdent(c)
-    if (!eat(c, ':=')) throw new Error('let :=')
-    const val = junction(c)
-    if (!eat(c, ';')) throw new Error('let ;')
-    c.env.set(name, val)
-    return boolProp(c)
-  }
-  let v = boolAtom(c)
-  for (;;) {
+  const prev = c.expectBool
+  c.expectBool = true
+  try {
     ws(c)
-    if (eat(c, '∧') || eat(c, '&&')) { v = boolAtom(c) && v; continue }
-    if (eat(c, '||')) { v = boolAtom(c) || v; continue }
-    return v
+    if (eat(c, 'let')) {
+      const name = readIdent(c)
+      if (!eat(c, ':=')) throw new Error('let :=')
+      const val = junction(c)
+      if (!eat(c, ';')) throw new Error('let ;')
+      c.env.set(name, val)
+      return boolProp(c)
+    }
+    let v = boolAtom(c)
+    for (;;) {
+      ws(c)
+      if (eat(c, '∧') || eat(c, '&&')) { v = boolAtom(c) && v; continue }
+      if (eat(c, '||')) { v = boolAtom(c) || v; continue }
+      return v
+    }
+  } finally {
+    c.expectBool = prev
   }
 }
 
@@ -763,6 +838,37 @@ function boolProp(c: Cursor): boolean {
 const conjunct = (c: Cursor): boolean => {
   ws(c)
   if (eat(c, '¬')) return !conjunct(c)
+  if (eat(c, '∀')) {
+    const name = readIdent(c)
+    ws(c)
+    if (eat(c, ':')) { readIdent(c); ws(c) }
+    if (!eat(c, ',')) throw new Error('∀ ,')
+    ws(c)
+    if (c.s.startsWith(name, c.i)) c.i += name.length
+    ws(c)
+    if (!eat(c, '∈')) throw new Error('∀ ∈')
+    const xs = asLst(atom(c))
+    if (!eat(c, '→')) throw new Error('∀ →')
+    const bodyStart = c.i
+    // Parse body once to find its end, then evaluate per element from a saved slice.
+    {
+      const env: Env = new Map(c.env)
+      env.set(name, xs[0] ?? 0)
+      const probe: Cursor = { s: c.s, i: bodyStart, env, ring: c.ring }
+      boolProp(probe)
+      const body = c.s.slice(bodyStart, probe.i)
+      c.i = probe.i
+      return xs.every((x) => {
+        const env2: Env = new Map(c.env)
+        env2.set(name, x)
+        const inner: Cursor = { s: body, i: 0, env: env2, ring: c.ring }
+        const v = boolProp(inner)
+        ws(inner)
+        if (inner.i !== body.length) throw new Error('∀ trailing')
+        return v
+      })
+    }
+  }
   const save = c.i
   if (eat(c, '(')) {
     // a parenthesis may hold a whole conjunction — `((a = b) ∧ (c = d)) ∧ (e = f)` — so recurse, not just compare.

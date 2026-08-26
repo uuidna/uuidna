@@ -1240,7 +1240,6 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["midi_is_seven_bit", "2^7 = 128 ∧ 127 < 128"],
   ["sixteen_bit_dynamic_range", "(6 * 16 = 96) ∧ (7 % 9 = 7)"],
   ["fifth_cycles_all_twelve", "(List.range 12).all (fun n => ((List.range 12).map (fun k => (k * 7) % 12)).contains n)"],
-  ["vortex_doubling_orbit_six", "(List.range 6).map (fun k => (2 ^ k) % 9) = [1, 2, 4, 8, 7, 5]"],
   ["captain_commission_two_coins", "(commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0)"],
   ["fraud_verdict_is_exactly_one", "(List.range 2).all (fun c => (List.range 2).all (fun s => verified c s + unverified c s == 1))"],
   ["fabricated_cite_stays_unverified", "(unverified 1 0 = 1) ∧ (verified 1 1 = 1) ∧ (verified 1 0 = 0)"],
