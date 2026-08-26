@@ -15,10 +15,10 @@
 // It ALSO serves lean/unlocks.json at /lean/unlocks.json — the unlock board census linked from /unlocks.
 // Idempotent; runs in docs:build (and thus in the Cloudflare deploy build). Integrity— it serves the
 // source, it proves nothing new.
-import { readdirSync, mkdirSync, copyFileSync, existsSync, readFileSync, statSync } from 'node:fs'
+import { readdirSync, mkdirSync, copyFileSync, existsSync, readFileSync, writeFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { CATALOGUE_FILE } from '../quantum/os/catalogue.js'
+import { CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, parseCatalogue, mergeCataloguePackages, catalogueTsvBody } from '../quantum/os/catalogue.js'
 
 const LEAN = join(ROOT, 'lean')
 const SEEDS = join(ROOT, 'src', 'seeds')
@@ -84,7 +84,12 @@ if (!existsSync(CATALOGUE)) {
   console.error(`✗ copy-lean-to-site — ${CATALOGUE_FILE} missing: the browser OS primes from /alpine-catalogue.tsv; restore it with \`node dist/scripts/gen-alpine-catalogue.js\` (the build refuses to ship the dead pointer)`)
   process.exit(1)
 }
-copyFileSync(CATALOGUE, join(SITE, 'alpine-catalogue.tsv'))
+const baseText = readFileSync(CATALOGUE, 'utf8')
+const overlayPath = join(ROOT, CATALOGUE_OVERLAY_FILE)
+const overlay = existsSync(overlayPath) ? parseCatalogue(readFileSync(overlayPath, 'utf8')) : []
+const merged = overlay.length ? mergeCataloguePackages(parseCatalogue(baseText), overlay) : parseCatalogue(baseText)
+const catHeader = baseText.split('\n').filter((l) => l.charCodeAt(0) === 35).join('\n') + '\n'
+writeFileSync(join(SITE, 'alpine-catalogue.tsv'), catHeader + catalogueTsvBody(merged) + '\n')
 
 // THE SECOND FORENSIC — the VitePress dead-link check is architecturally blind to non-page assets (it validates
 // page routes only), so /lean/* and /seeds/* are allowlisted there and verified HERE instead: scan every built

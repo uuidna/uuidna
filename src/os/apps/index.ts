@@ -87,6 +87,8 @@ export const HARMONIES: readonly [RegExp, string, string][] = [
     'a tidal tool — the sealed twelfths and semidiurnal arithmetic decides its predictions'],
   [/\b(quantum|qiskit|qubit|qasm)\b/i, 'quantum',
     'a quantum toolkit — the sealed gate algebra is exactly what it manipulates'],
+  [/\b(coding agent|oh-my-pi|omp\.sh|agentic harness|pi-coding-agent)\b/i, 'software',
+    'a coding-agent harness — the sealed software/manifest facts bound what it can claim to compute'],
 ]
 
 /** Alpine splits one project into many published packages — `-doc`, `-dev`, `-dbg`, `-libs`, `-static`, `-lang`,

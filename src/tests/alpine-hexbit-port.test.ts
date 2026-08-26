@@ -172,3 +172,20 @@ test('community hexbit port has architectural quantum advantage in SCALE and TIM
   assert.ok(community.length < 2 ** 20, 'community fits in a million; the address space is 2^128')
   assert.equal(UUID_BITS, uuidLevel.pow2)
 })
+
+test('oh-my-pi (omp) is ported as Alpine overlay — man→app→hexbit + cmd:omp', () => {
+  const app = cataloguePackage('oh-my-pi')
+  const doc = cataloguePackage('oh-my-pi-doc')
+  assert.ok(app, 'oh-my-pi must be in merged catalogue (overlay)')
+  assert.ok(doc, 'oh-my-pi-doc must be in merged catalogue')
+  assert.ok(app!.provides.some((p) => p.startsWith('cmd:omp=')))
+  const w = manAppWitness(doc!)
+  assert.equal(w.ok, true, w.detail)
+  assert.equal(w.app, 'oh-my-pi')
+  assert.equal(w.via, 'origin')
+  const run = uuidnaExec('man oh-my-pi')
+  assert.equal(run.ok, true, run.output.join('\n'))
+  const d = run.data as { witnessOk?: boolean; app?: string } | null
+  assert.equal(d?.witnessOk, true)
+  assert.equal(d?.app, 'oh-my-pi')
+})

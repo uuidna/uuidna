@@ -50,7 +50,7 @@ export const BROWSER_SURFACES: readonly BrowserSurface[] = [
 /** Man topics exercised through uuidnaExec — the browser terminal's same applet path, without 4.7k sessions.
  *  Topics must resolve to published *-doc / *-man-pages rows (musl has none upstream). */
 export const MAN_BROWSER_SAMPLES: readonly string[] = [
-  'busybox', 'openssl', 'man-pages', 'apk-tools', 'zlib', 'ca-certificates',
+  'busybox', 'openssl', 'man-pages', 'apk-tools', 'zlib', 'ca-certificates', 'oh-my-pi',
 ]
 
 export interface MountCheck {

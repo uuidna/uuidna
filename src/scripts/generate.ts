@@ -64,6 +64,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-referrer-song.js', args: [], note: 'the referrer song — the doors, the measured walk census, and the site cycle sounded; every claim a Referrer.lean seal' },
   { file: 'gen-store.js', args: [], note: 'the storefront — apps, games, books unified at /store, derived from each shelf' },
   { file: 'gen-os.js', args: [], note: 'the default install — every path\'s exact meaning from the committed Alpine mirror; every claim an Installs.lean seal' },
+  { file: 'gen-alpine-overlay.js', args: [], note: 'npm/curl apps ported as Alpine overlay rows (omp/oh-my-pi); merged into catalogue at read time' },
   { file: 'browser-apps-usable.js', args: [], note: 'browser usability seal — store mounts + man→app→hexbit + terminal man samples; orphans named, never padded' },
   { file: 'gen-models.js', args: [], note: 'the model comparison over all public live data — every figure\'s honesty class visible; every sealed claim an Models.lean cite' },
   // BEFORE rosetta, and the order is load-bearing: rosetta grants the falsifier leg by finding a theorem's literal

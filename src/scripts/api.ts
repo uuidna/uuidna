@@ -459,6 +459,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'lean/mcp-alpine-man.json',
   // browser usability seal — store mounts + man→app→hexbit + terminal samples (not 28k sessions)
   'lean/browser-apps-usable.json',
+  // npm/curl apps ported as Alpine overlay (omp/oh-my-pi) — merged at catalogue read time
+  'mirror/alpine-overlay.tsv',
   'docs/store.md',
   // the model comparison page — rewritten by gen-models from the committed feed mirror every reconcile
   'docs/models.md',
@@ -525,6 +527,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-symphony': ['docs/symphony.md'],
   'gen-utterances': ['docs/utterances.md'],
   'gen-os': ['docs/os.md', 'lean/alpine-hexbit-monitor.json', 'docs/public/alpine-hexbit-monitor.jsonld', 'lean/mcp-alpine-man.json'],
+  'gen-alpine-overlay': ['mirror/alpine-overlay.tsv', 'docs/public/alpine-catalogue.tsv'],
   'browser-apps-usable': ['lean/browser-apps-usable.json'],
   // the model comparison over all public live data — derived from the committed feed mirror by gen-models
   'gen-models': ['docs/models.md'],

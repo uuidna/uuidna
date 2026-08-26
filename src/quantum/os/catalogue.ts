@@ -30,6 +30,19 @@ import { INSTALLS_MIRROR } from './mirror.js'
 
 /** where the committed catalogue lives, repo-relative — one declaration, read by the generator and the reader */
 export const CATALOGUE_FILE = 'mirror/alpine-catalogue.tsv'
+/** npm/curl-ported apps outside APKINDEX — merged at read time; NOT Alpine distro (repo = overlay). */
+export const CATALOGUE_OVERLAY_FILE = 'mirror/alpine-overlay.tsv'
+/** Repo tag for overlay rows — distinct from Alpine main/community. */
+export const OVERLAY_REPO = 'overlay' as const
+export const ALPINE_DISTRO_REPOS = ['main', 'community'] as const
+
+export function isAlpineDistroPackage(p: CataloguePackage): boolean {
+  return p.repo === 'main' || p.repo === 'community'
+}
+
+export function isOverlayPackage(p: CataloguePackage): boolean {
+  return p.repo === OVERLAY_REPO
+}
 /** the TSV columns, in order — the generator writes these and the parser reads them by position */
 export const CATALOGUE_COLUMNS = ['repo', 'name', 'version', 'checksum', 'desc', 'deps', 'provides'] as const
 
@@ -130,6 +143,32 @@ export const parseCatalogue = (text: string): CataloguePackage[] => {
   return out
 }
 
+const sortCatalogue = (packages: CataloguePackage[]): CataloguePackage[] =>
+  [...packages].sort((a, b) => (a.repo === b.repo ? (a.name < b.name ? -1 : a.name > b.name ? 1 : 0) : a.repo < b.repo ? -1 : 1))
+
+/** merge overlay rows into the APKINDEX census — overlay wins on name collision. */
+export function mergeCataloguePackages(base: CataloguePackage[], overlay: CataloguePackage[]): CataloguePackage[] {
+  const byName = new Map<string, CataloguePackage>()
+  for (const p of base) byName.set(p.name, p)
+  for (const p of overlay) byName.set(p.name, p)
+  return sortCatalogue([...byName.values()])
+}
+
+/** serialize package rows for TSV (no header). */
+export function catalogueTsvBody(packages: CataloguePackage[]): string {
+  return packages.map((p) =>
+    [p.repo, p.name, p.version, p.checksum, p.desc, p.deps.join(' '), p.provides.join(' ')].join('\t')).join('\n')
+}
+
+function readOverlayPackages(fs: typeof import('node:fs')): CataloguePackage[] {
+  try {
+    const url = new URL('../../../' + CATALOGUE_OVERLAY_FILE, import.meta.url)
+    return parseCatalogue(fs.readFileSync(url, 'utf8'))
+  } catch {
+    return []
+  }
+}
+
 /** Load once, cache forever. The catalogue is a committed constant: it cannot change under a running process. */
 function load(): { packages: CataloguePackage[]; state: CatalogueState } {
   if (LOADED && STATE) return { packages: LOADED, state: STATE }
@@ -145,7 +184,9 @@ function load(): { packages: CataloguePackage[]; state: CatalogueState } {
     // resolved from this module rather than from cwd: a script run from anywhere must find the same file
     const url = new URL('../../../' + CATALOGUE_FILE, import.meta.url)
     const text = fs.readFileSync(url, 'utf8')
-    LOADED = parseCatalogue(text)
+    const base = parseCatalogue(text)
+    const overlay = readOverlayPackages(fs)
+    LOADED = overlay.length ? mergeCataloguePackages(base, overlay) : base
     STATE = { present: LOADED.length > 0, count: LOADED.length, why: LOADED.length ? null : 'the catalogue file parsed to zero packages' }
   } catch (e) {
     LOADED = []
@@ -274,16 +315,20 @@ export function packageSelfTest(p: CataloguePackage): PackageTest {
  *  Measured on the committed mirror (2026-08-26): community 22,678/22,678 · main 5,961/5,961 · all 28,639 —
  *  every published row on the pinned branch folds to 32 states via the same mint the boot port uses. */
 export interface HexbitPortCoverage {
-  repo: 'main' | 'community' | 'all'
+  repo: 'main' | 'community' | 'all' | typeof OVERLAY_REPO
   total: number
   ported: number
   missing: string[]   // names that failed compile, capped so a regression names the gap without dumping 28k
 }
-export function hexbitPortCoverage(repo?: 'main' | 'community'): HexbitPortCoverage {
+export function hexbitPortCoverage(repo?: 'main' | 'community' | typeof OVERLAY_REPO | 'all'): HexbitPortCoverage {
   const { packages, state } = load()
-  const tag: HexbitPortCoverage['repo'] = repo ?? 'all'
+  const tag: HexbitPortCoverage['repo'] = repo === OVERLAY_REPO ? OVERLAY_REPO : (repo ?? 'all')
   if (!state.present) return { repo: tag, total: 0, ported: 0, missing: [] }
-  const list = repo ? packages.filter((p) => p.repo === repo) : packages
+  const list = repo === OVERLAY_REPO
+    ? packages.filter(isOverlayPackage)
+    : repo === 'main' || repo === 'community'
+      ? packages.filter((p) => p.repo === repo)
+      : packages.filter(isAlpineDistroPackage)
   let ported = 0
   const missing: string[] = []
   for (const p of list) {
@@ -307,12 +352,15 @@ export const isManPagePackage = (p: CataloguePackage | { name: string; desc?: st
   return false
 }
 
-/** manPagePackages(repo?) → every documentation package Alpine publishes on the pinned catalogue. */
-export function manPagePackages(repo?: 'main' | 'community'): CataloguePackage[] {
+/** manPagePackages(repo?) → documentation packages. Default = Alpine distro only (main+community);
+ *  pass OVERLAY_REPO for npm/curl overlay ports — excluded from man→app completeness. */
+export function manPagePackages(repo?: 'main' | 'community' | typeof OVERLAY_REPO): CataloguePackage[] {
   const { packages, state } = load()
   if (!state.present) return []
-  const list = repo ? packages.filter((p) => p.repo === repo) : packages
-  return list.filter(isManPagePackage)
+  let list = packages.filter(isManPagePackage)
+  if (repo) list = list.filter((p) => p.repo === repo)
+  else list = list.filter(isAlpineDistroPackage)
+  return list
 }
 
 /** resolveManPage(name) → the documentation package for a tool or for a doc package itself.
@@ -470,6 +518,28 @@ export interface ManDrivenPortCoverage {
 }
 export function manDrivenPortCoverage(repo?: 'main' | 'community'): ManDrivenPortCoverage {
   const list = manPagePackages(repo)
+  const byVia: Record<ManAppVia, number> = {
+    corpus: 0, origin: 0, 'gtk-doc': 0, libs: 0, dev: 0, provides: 0, self: 0,
+  }
+  let witnessed = 0
+  const missing: string[] = []
+  const gaps: { man: string; why: string }[] = []
+  for (const man of list) {
+    const w = manAppWitness(man)
+    if (w.ok) {
+      witnessed++
+      if (w.via) byVia[w.via]++
+    } else {
+      if (missing.length < 25) missing.push(man.name)
+      if (gaps.length < 25) gaps.push({ man: man.name, why: w.detail })
+    }
+  }
+  return { definition: 'man→app→hexbit', total: list.length, witnessed, missing, gaps, byVia }
+}
+
+/** overlayManDrivenPortCoverage — npm/curl ports in overlay repo; NOT Alpine distro completeness. */
+export function overlayManDrivenPortCoverage(): ManDrivenPortCoverage {
+  const list = manPagePackages(OVERLAY_REPO)
   const byVia: Record<ManAppVia, number> = {
     corpus: 0, origin: 0, 'gtk-doc': 0, libs: 0, dev: 0, provides: 0, self: 0,
   }
