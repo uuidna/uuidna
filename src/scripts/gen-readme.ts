@@ -22,6 +22,7 @@ import { unlockReadmeBlock } from '../unlocks.js'
 interface AlpineMonitor {
   all?: { total: number; ported: number }
   community?: { total: number; ported: number }
+  completeness?: { total: number; witnessed: number; pct?: number; definition?: string; missing?: string[] }
 }
 
 function alpineLine(): string {
@@ -38,12 +39,22 @@ function alpineLine(): string {
   const cPct = community.total === 0 ? 0 : ((community.ported * 100) - ((community.ported * 100) % community.total)) / community.total
   const man = j.man?.all
   const manLine = man
-    ? ` man pages ${man.ported.toLocaleString('en-US')} / ${man.total.toLocaleString('en-US')};`
+    ? ` man compile ${man.ported.toLocaleString('en-US')} / ${man.total.toLocaleString('en-US')};`
+    : ''
+  const driven = j.completeness
+  const drivenPct = driven
+    ? (driven.pct ?? (driven.total === 0 ? 0 : ((driven.witnessed * 100) - ((driven.witnessed * 100) % driven.total)) / driven.total))
+    : null
+  const completenessLine = driven && drivenPct !== null
+    ? ` man→app→hexbit ${driven.witnessed.toLocaleString('en-US')} / ${driven.total.toLocaleString('en-US')} (${drivenPct}%)`
+      + (driven.missing?.length ? `; orphans \`${driven.missing.join('`, `')}\`` : '')
+      + ';'
     : ''
   const receipt = j.receipt ? ` monitor receipt \`${j.receipt}\`;` : ''
   return [
-    `- **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** ${all.ported.toLocaleString('en-US')} / ${all.total.toLocaleString('en-US')} packages (${allPct}%)`,
-    `  folded to content-addresses ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);`,
+    `- **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits${completenessLine}`,
+    `  provenance compile ${all.ported.toLocaleString('en-US')} / ${all.total.toLocaleString('en-US')} packages (${allPct}%)`,
+    `  ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);`,
     `  community ${community.ported.toLocaleString('en-US')} / ${community.total.toLocaleString('en-US')} = ${cPct}%;${manLine}${receipt}`,
     `  VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice`,
     `  ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).`,
