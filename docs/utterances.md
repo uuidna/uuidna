@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1407 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1414 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1407 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1414 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `d7d57f9a` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `f9abc66c` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -1176,7 +1176,7 @@ the OS is bootable quantum — the boot image is the compiled specs in boot orde
 the receipt is stable, recomputable, and CHANGE-SENSITIVE — the instrument can fail
 ```
 
-**involution** — 24 utterances
+**involution** — 27 utterances
 
 ```text
 every named map is genuinely self-inverse on every digit
@@ -1203,6 +1203,9 @@ POP IS THE LEDGER 8-BIT POPCOUNT — sealed Hamming weight stayed unreached for 
 PROD .1/.2 IS LEAN PAIR PROJECTION — sealed duals stayed unreached for comma and dot
 NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreached for letters alone
 LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, Nodup, nth, ++, range, rowsOf, strings, if, &&
+FUN + SEALED NAMED MIRRORS — all/map/filter/any, zip, let, Sequence/Discover/Uuidna defs
+NAMED TABLES + ∀ + LARGE POW — sealed caps/agl/words/fibCycle/comp and finite ∀
+TAIL + ZIPWITH + BIGINT + DECIDE∧ + IF-IN-EQ — sealed neuro/knight/billing stayed unreached for syntax
 ```
 
 **knowledge** — 9 utterances
@@ -1300,6 +1303,15 @@ the backtest is receipted: same handle + same registration = same receipt, and i
 the rise-then-fall series produces the one round trip the shape implies
 degenerate registrations are refused, not guessed
 the stooq parser floors to integer cents and bounds the window
+```
+
+**mcp-alpine-man** — 4 utterances
+
+```text
+MCP ports Alpine apps through ONE door — not one tool per man package
+man pages test apps through MCP uuidna_exec — full corpus N/M
+callTool uuidna_exec man carries man→app→hexbit witness
+dotnet-doc through MCP resolves via provides (cmd:dotnet)
 ```
 
 **mcp-coverage** — 1 utterances

@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "fa4ec7ec-a",
+  "generated": "ad8f822b-4",
   "entries": [
     {
       "route": "/",
@@ -2635,9 +2635,9 @@
       "kind": "publication",
       "identity": "infinity",
       "canonical": "https://uuidna.com/publications/infinity",
-      "address": "d80dd050-4b8b-8e76-9f63-b0445d27c45e",
-      "handle": "d80dd050",
-      "hexbitDoor": "https://uuidna.com/d80dd050"
+      "address": "bb873592-e104-8472-830a-1b90caf35930",
+      "handle": "bb873592",
+      "hexbitDoor": "https://uuidna.com/bb873592"
     },
     {
       "route": "/publications/installs",
@@ -2770,9 +2770,9 @@
       "kind": "publication",
       "identity": "one-leap",
       "canonical": "https://uuidna.com/publications/one-leap",
-      "address": "392d8a8f-a378-876c-80e0-c143a39d5635",
-      "handle": "392d8a8f",
-      "hexbitDoor": "https://uuidna.com/392d8a8f"
+      "address": "0d51fa48-d03d-8005-8fa6-c4db51214ee7",
+      "handle": "0d51fa48",
+      "hexbitDoor": "https://uuidna.com/0d51fa48"
     },
     {
       "route": "/publications/optics",
@@ -3031,9 +3031,9 @@
       "kind": "publication",
       "identity": "software",
       "canonical": "https://uuidna.com/publications/software",
-      "address": "91d597c7-38b8-8f16-9746-e4f95c60316b",
-      "handle": "91d597c7",
-      "hexbitDoor": "https://uuidna.com/91d597c7"
+      "address": "1a93edff-330c-8ee4-863c-1a6aff7faccd",
+      "handle": "1a93edff",
+      "hexbitDoor": "https://uuidna.com/1a93edff"
     },
     {
       "route": "/publications/solids",
@@ -5380,9 +5380,9 @@
       "kind": "theorem",
       "identity": "cube_seals_at_completeness_only",
       "canonical": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
-      "address": "d1bdc301-0a3f-8b89-a5b7-618832752c09",
-      "handle": "d1bdc301",
-      "hexbitDoor": "https://uuidna.com/d1bdc301"
+      "address": "5c39b165-652b-88f0-8128-561f97516524",
+      "handle": "5c39b165",
+      "hexbitDoor": "https://uuidna.com/5c39b165"
     },
     {
       "route": "/theorem/cubes_mod_10_number_10",
@@ -5722,9 +5722,9 @@
       "kind": "theorem",
       "identity": "cubes_partition_ledger",
       "canonical": "https://uuidna.com/theorem/cubes_partition_ledger",
-      "address": "c4642834-8e51-8433-9b1e-c75b434f3290",
-      "handle": "c4642834",
-      "hexbitDoor": "https://uuidna.com/c4642834"
+      "address": "d1887727-28c9-8c46-821d-44b202828748",
+      "handle": "d1887727",
+      "hexbitDoor": "https://uuidna.com/d1887727"
     },
     {
       "route": "/theorem/cubes_sum_to_square_of_triangle",
@@ -14200,9 +14200,9 @@
       "kind": "theorem",
       "identity": "reach_all_decide",
       "canonical": "https://uuidna.com/theorem/reach_all_decide",
-      "address": "607e58f3-7e7c-8266-8c0b-91e06a631efb",
-      "handle": "607e58f3",
-      "hexbitDoor": "https://uuidna.com/607e58f3"
+      "address": "ebc51bca-675b-8b2a-bd90-01105b1038c9",
+      "handle": "ebc51bca",
+      "hexbitDoor": "https://uuidna.com/ebc51bca"
     },
     {
       "route": "/theorem/reach_quantifiers_bounded",
@@ -18606,6 +18606,15 @@
       "hexbitDoor": "https://uuidna.com/3b42d911"
     },
     {
+      "route": "/theorem/vortex_dz_involution_at_ten",
+      "kind": "theorem",
+      "identity": "vortex_dz_involution_at_ten",
+      "canonical": "https://uuidna.com/theorem/vortex_dz_involution_at_ten",
+      "address": "83d087d2-e186-83cf-afb9-af1d5c9f4c5d",
+      "handle": "83d087d2",
+      "hexbitDoor": "https://uuidna.com/83d087d2"
+    },
+    {
       "route": "/theorem/vortex_is_the_units",
       "kind": "theorem",
       "identity": "vortex_is_the_units",
@@ -22530,6 +22539,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "fa4ec7ec-ac78-8cd9-a00c-73fb58fd4edc",
+  "receipt": "ad8f822b-4b4f-80d7-a6a9-2d6dc532f8da",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

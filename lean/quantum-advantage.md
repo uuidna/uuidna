@@ -27,7 +27,7 @@ next reader recomputes rather than something this report asserts.
 | hexbit tile | 2^4 | declared | 10^1 ns per hexbit tile compiled from an address | 10^8 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | handle | 2^32 | declared | 10^2 ns per handle read to its value and residue | 10^7 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | uuid | 2^128 | declared | 10^3 ns per address folded from a distinct seed | 10^6 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
-| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 12714 | 0 | better than 1 in 12714 | 12 errors |
+| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 12720 | 0 | better than 1 in 12720 | 12 errors |
 
 ### The sealed quantum algebra, executed on this silicon
 
@@ -150,9 +150,9 @@ silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto spe
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `192b78b2-ff80-861f-9cf4-b9ef056b1e1d`.
+*exist* cannot see. Dispatch receipt: `0a8a5d8f-9eeb-8b09-8fe9-dab91b7772b2`.
 
-Report receipt: `ab58e5d1-49d5-870d-a120-62fde56ea87b` · measured-when as its own handle: `ab58e5d1`.
+Report receipt: `ac8d3ea9-379e-8b4a-b8fb-53777dfc7206` · measured-when as its own handle: `ac8d3ea9`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->

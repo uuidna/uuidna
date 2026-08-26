@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:ecc5aa3c-90eb-83b5-8d44-ea64b2333ca6",
+  "@id": "urn:uuid:a7098f51-2cf3-8753-a121-ef56bed31941",
   "@type": "Dataset",
   "name": "uuidna quantum advantage report — measured per level",
   "description": "The architectural advantage measured at every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). Measured usable-capacity quantum advantage is theorem usable_gap_is_two_to_eighty (2^80 vs reported logical platforms). TypeScript computes; VitePress monitors. n_qubit_dimension counts classical simulation cost and is not a Shor-class crypto speedup claim.",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "ab58e5d1-49d5-870d-a120-62fde56ea87b",
+  "identifier": "ac8d3ea9-379e-8b4a-b8fb-53777dfc7206",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -90,7 +90,7 @@
       "value": "10^3",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 211900 theorem statement re-addressed in a full sweep on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 212000 theorem statement re-addressed in a full sweep on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -98,7 +98,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "12714 decisions executed on Apple M1 Max; a bound of better than one in 12714, never a proof of zero"
+      "citation": "12720 decisions executed on Apple M1 Max; a bound of better than one in 12720, never a proof of zero"
     },
     {
       "@type": "PropertyValue",

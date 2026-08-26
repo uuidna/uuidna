@@ -2,8 +2,8 @@
   "generated": "2026-08-26",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2119,
-  "total_theorems": 2119,
+  "total_claimed": 2120,
+  "total_theorems": 2120,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3787,8 +3787,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "9efffb09-3dd1-871e-b794-260e6bdd6885",
-      "address": "607e58f3-7e7c-8266-8c0b-91e06a631efb",
+      "lineAddress": "245d82d5-6af3-80c3-82d1-0cc64eb3e995",
+      "address": "ebc51bca-675b-8b2a-bd90-01105b1038c9",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4459,14 +4459,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "af1ec44b-7cbc-8e9d-af06-da7592bd61d8",
-      "address": "d1bdc301-0a3f-8b89-a5b7-618832752c09",
+      "lineAddress": "b18ef7be-0e68-83ee-8dff-7d0b843a2302",
+      "address": "5c39b165-652b-88f0-8128-561f97516524",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "8a49b43b-e7fa-8b3a-9c32-049e65f2d72a",
-      "address": "c4642834-8e51-8433-9b1e-c75b434f3290",
+      "lineAddress": "8abc0972-0bdb-8115-a693-8795ebd44e08",
+      "address": "d1887727-28c9-8c46-821d-44b202828748",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -7780,6 +7780,12 @@
       "lineAddress": "693f28fe-49c9-8258-a55e-de37eccab3d7",
       "address": "0fab2c4e-7177-84fb-83c9-0ed3379c4975",
       "principle": "The mix"
+    },
+    {
+      "key": "vortex_dz_involution_at_ten",
+      "lineAddress": "d570918e-a5a7-8197-bc7f-218d4d761cb4",
+      "address": "83d087d2-e186-83cf-afb9-af1d5c9f4c5d",
+      "principle": "One leap"
     },
     {
       "key": "vortex_one_leap",
@@ -12720,7 +12726,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "610a68fb-12ac-8741-8bd6-eb66e366120f",
+  "claim_receipt": "160a096d-2886-8f9f-ae97-f7347430bdd1",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

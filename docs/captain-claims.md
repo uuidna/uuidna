@@ -3,8 +3,8 @@
 **Generated:** 2026-08-26
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2119/2119 theorems — every one, by construction
-**Claim receipt:** `610a68fb-12ac-8741-8bd6-eb66e366120f`
+**Total claimed:** 2120/2120 theorems — every one, by construction
+**Claim receipt:** `160a096d-2886-8f9f-ae97-f7347430bdd1`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -619,12 +619,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### One leap
 
-- **Theorems:** 1
-- **Sample lineAddress:** `31d6563a-a0e0-8b60-82d9-bef984eaaf27`
+- **Theorems:** 2
+- **Sample lineAddress:** `d570918e-a5a7-8197-bc7f-218d4d761cb4`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[vortex_one_leap](/theorem/vortex_one_leap)
+[vortex_dz_involution_at_ten](/theorem/vortex_dz_involution_at_ten) · [vortex_one_leap](/theorem/vortex_one_leap)
 
 ### Anti-fraud detection
 
@@ -1059,7 +1059,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2038 (2119 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 2039 (2120 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1077,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2119 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2120 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
