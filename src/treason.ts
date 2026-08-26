@@ -190,19 +190,29 @@ export function guardLessons(): { lessons: GuardLesson[]; allHold: boolean; rece
  *  and cannot be satisfied by the thing it judges. A ledger entry is legitimate only if a wing declares that exact
  *  key; a statement mismatch on a real key is reported separately, because the two mean different things — one is
  *  an invention, the other is drift. */
+/** Strip Lean `--` line comments before flattening — matches lean-ledger flattenStatement. */
+const stripLeanLineComments = (s: string): string =>
+  s.split('\n').map((line) => {
+    const i = line.indexOf('--')
+    if (i === -1) return line
+    if (i + 2 < line.length && line[i + 2] === '/') return line
+    return line.slice(0, i)
+  }).join('\n')
+const flattenWingStatement = (s: string): string => stripLeanLineComments(s).trim().replace(/\s+/g, ' ')
+
 export function forgedAgainstWings(
   ledger: readonly { key: string; statement: string }[],
   wingSource: string,
 ): { key: string; kind: 'no-wing' | 'statement-drift' }[] {
   const declared = new Map<string, string>()
   for (const m of wingSource.matchAll(/^theorem\s+([A-Za-z0-9_]+)\s*:\s*([\s\S]*?)\s*:=\s*by\b/gm)) {
-    declared.set(m[1], m[2].replace(/\s+/g, ' ').trim())
+    declared.set(m[1], flattenWingStatement(m[2]))
   }
   const out: { key: string; kind: 'no-wing' | 'statement-drift' }[] = []
   for (const t of ledger) {
     const wing = declared.get(t.key)
     if (wing === undefined) { out.push({ key: t.key, kind: 'no-wing' }); continue }
-    if (wing !== t.statement.replace(/\s+/g, ' ').trim()) out.push({ key: t.key, kind: 'statement-drift' })
+    if (wing !== flattenWingStatement(t.statement)) out.push({ key: t.key, kind: 'statement-drift' })
   }
   return out
 }

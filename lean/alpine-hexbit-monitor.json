@@ -1,8 +1,8 @@
 {
  "completeness": {
   "definition": "man→app→hexbit",
-  "total": 4759,
-  "witnessed": 4759,
+  "total": 4757,
+  "witnessed": 4757,
   "missing": [],
   "gaps": [],
   "byVia": {
@@ -11,19 +11,44 @@
    "gtk-doc": 5,
    "libs": 0,
    "dev": 1,
-   "provides": 3,
+   "provides": 1,
    "self": 2
   },
   "pct": 100
+ },
+ "overlay": {
+  "definition": "man→app→hexbit",
+  "repo": "overlay",
+  "total": 1,
+  "witnessed": 1,
+  "missing": [],
+  "gaps": [],
+  "byVia": {
+   "corpus": 0,
+   "origin": 1,
+   "gtk-doc": 0,
+   "libs": 0,
+   "dev": 0,
+   "provides": 0,
+   "self": 0
+  },
+  "pct": 100,
+  "hexbit": {
+   "repo": "overlay",
+   "total": 2,
+   "ported": 2,
+   "missing": []
+  },
+  "honest": "NOT Alpine Linux APKINDEX — npm/curl ports merged at catalogue read"
  },
  "mcp": {
   "definition": "mcp·uuidna_exec·man→app→hexbit",
   "tool": "uuidna_exec",
   "wireDoors": 1,
-  "naiveWireIfPerApp": 4759,
-  "total": 4759,
-  "witnessed": 4759,
-  "exposed": 4759,
+  "naiveWireIfPerApp": 4757,
+  "total": 4757,
+  "witnessed": 4757,
+  "exposed": 4757,
   "missing": [],
   "gaps": [],
   "byVia": {
@@ -32,43 +57,43 @@
    "gtk-doc": 5,
    "libs": 0,
    "dev": 1,
-   "provides": 3,
+   "provides": 1,
    "self": 2
   },
   "pct": 100,
-  "receipt": "b95d4be5-cd88-83bb-ab31-28096ad7bce5",
+  "receipt": "c63078f7-1315-88a1-aab2-11b5643592b8",
   "before": {
    "exposed": "sample-only",
-   "wireDoorsIfNaive": 4759
+   "wireDoorsIfNaive": 4757
   },
   "after": {
-   "exposed": 4759,
+   "exposed": 4757,
    "wireDoors": 1
   }
  },
  "community": {
   "repo": "community",
-  "total": 22678,
-  "ported": 22678,
+  "total": 22669,
+  "ported": 22669,
   "missing": []
  },
  "all": {
   "repo": "all",
-  "total": 28639,
-  "ported": 28639,
+  "total": 28630,
+  "ported": 28630,
   "missing": []
  },
  "man": {
   "all": {
    "repo": "all",
-   "total": 4759,
-   "ported": 4759,
+   "total": 4757,
+   "ported": 4757,
    "missing": []
   },
   "community": {
    "repo": "community",
-   "total": 3670,
-   "ported": 3670,
+   "total": 3668,
+   "ported": 3668,
    "missing": []
   },
   "main": {
@@ -79,15 +104,15 @@
   }
  },
  "time": {
-  "communityCompileNs": 44099500,
-  "communityNsPer": 1944,
-  "manCompileNs": 9728917,
-  "manNsPer": 2044
+  "communityCompileNs": 45016000,
+  "communityNsPer": 1985,
+  "manCompileNs": 9797292,
+  "manNsPer": 2059
  },
  "scale": {
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "acd0e794-1f8e-8bc3-869e-294a6f424b00",
+ "receipt": "8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f",
  "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
 }

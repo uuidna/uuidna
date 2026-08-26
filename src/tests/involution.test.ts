@@ -339,3 +339,9 @@ test('TAIL + ZIPWITH + BIGINT + DECIDE∧ + IF-IN-EQ — sealed neuro/knight/bil
   // flag / accept honesty-gate cluster
   assert.equal(holds('(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) && (n/4%2 == 0) then 1 else 0))'), true)
 })
+
+test('FUN APPLY — higher-order sealed Wave/Hamming/Nim stayed unreached without juxtaposition', () => {
+  assert.equal(holds('(fun a => a + 1) 2 = 3'), true)
+  assert.equal(holds('(fun a b => a + b) 1 2 = 3'), true)
+  assert.equal(holds('(fun (d : Nat → Nat → Nat) => (d 0 0 = 0)) (fun a b => 0)'), true)
+})

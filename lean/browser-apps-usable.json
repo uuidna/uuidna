@@ -2,8 +2,8 @@
   "definition": "store+os+man→app→browser",
   "manDriven": {
     "definition": "man→app→hexbit",
-    "total": 4759,
-    "witnessed": 4759,
+    "total": 4757,
+    "witnessed": 4757,
     "missing": [],
     "gaps": [],
     "byVia": {
@@ -12,7 +12,7 @@
       "gtk-doc": 5,
       "libs": 0,
       "dev": 1,
-      "provides": 3,
+      "provides": 1,
       "self": 2
     }
   },
@@ -203,6 +203,11 @@
       "topic": "ca-certificates",
       "ok": true,
       "detail": "man ca-certificates → 32 hexbits"
+    },
+    {
+      "topic": "oh-my-pi",
+      "ok": true,
+      "detail": "man oh-my-pi → 32 hexbits"
     }
   ],
   "installRoutes": [
@@ -361,13 +366,13 @@
     "surfaces": 11,
     "mountsOk": 11,
     "computeOk": 13,
-    "manSamplesOk": 6,
+    "manSamplesOk": 7,
     "installOk": 25,
-    "manWitnessed": 4759,
-    "manTotal": 4759
+    "manWitnessed": 4757,
+    "manTotal": 4757
   },
   "gaps": [],
   "ok": true,
   "honest": "Honest scope: store interactive mounts + uuidnaOS terminal man samples + default-install routes + manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.",
-  "receipt": "629ca0a0-47ad-8691-96c3-f1818a982ced"
+  "receipt": "f322cf7b-13aa-824c-87e7-abdd1ec04813"
 }

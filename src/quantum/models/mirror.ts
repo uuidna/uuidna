@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 417,
+ "count": 416,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -464,8 +464,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000008106",
-   "completionPrice": "0.00000016212"
+   "promptPrice": "0.00000007952",
+   "completionPrice": "0.00000015904"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -1199,8 +1199,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k2.5",
    "name": "MoonshotAI: Kimi K2.5",
    "contextTokens": 262144,
-   "promptPrice": "0.0000006",
-   "completionPrice": "0.000003"
+   "promptPrice": "0.00000045",
+   "completionPrice": "0.00000225"
   },
   {
    "id": "moonshotai/kimi-k2.6",
@@ -2396,8 +2396,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.6-27b",
    "name": "Qwen: Qwen3.6 27B",
    "contextTokens": 262144,
-   "promptPrice": "0.0000006",
-   "completionPrice": "0.0000036"
+   "promptPrice": "0.00000032",
+   "completionPrice": "0.0000032"
   },
   {
    "id": "qwen/qwen3.6-35b-a3b",
@@ -2533,13 +2533,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000075"
   },
   {
-   "id": "stealth/ox-alpha",
-   "name": "Ox Alpha",
-   "contextTokens": 1048576,
-   "promptPrice": "0",
-   "completionPrice": "0"
-  },
-  {
    "id": "stepfun/step-3.5-flash",
    "name": "StepFun: Step 3.5 Flash",
    "contextTokens": 262144,
@@ -2585,8 +2578,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.000000132",
-   "completionPrice": "0.000000528"
+   "promptPrice": "0.0000000825",
+   "completionPrice": "0.00000033"
   },
   {
    "id": "tencent/hy3-preview",
@@ -2820,13 +2813,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000374"
   },
   {
-   "id": "z-ai/glm-5.2:batch",
-   "name": "Z.ai: GLM 5.2 (batch)",
-   "contextTokens": 1048575,
-   "promptPrice": "0.0000014",
-   "completionPrice": "0.0000044"
-  },
-  {
    "id": "z-ai/glm-5.2:free",
    "name": "Z.ai: GLM 5.2 (free)",
    "contextTokens": 256000,
@@ -2839,6 +2825,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1048576,
    "promptPrice": "0.0000014",
    "completionPrice": "0.0000044"
+  },
+  {
+   "id": "z-ai/glm-5.3-flash",
+   "name": "Z.ai: GLM 5.3 Flash",
+   "contextTokens": 1310720,
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.00000025"
   },
   {
    "id": "z-ai/glm-5v-turbo",

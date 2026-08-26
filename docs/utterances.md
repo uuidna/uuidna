@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1414 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1416 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1414 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1416 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `f9abc66c` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `cea00453` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -67,7 +67,7 @@ the receipt recomputes and moves only when the coverage does
 the threshold sits far from both things it separates
 ```
 
-**alpine-hexbit-port** — 11 utterances
+**alpine-hexbit-port** — 12 utterances
 
 ```text
 PORT COMPLETENESS is man→app→hexbit — man pages testing the apps
@@ -81,6 +81,7 @@ PROVENANCE — 100% of Alpine man-page packages compile to hexbits
 man applet resolves documentation packages with 32 hexbits
 THE CHECK BITES — a package that does not compile is counted as missing, so 100% is a finding
 community hexbit port has architectural quantum advantage in SCALE and TIME
+oh-my-pi (omp) is overlay — NOT Alpine distro; separate from APKINDEX completeness
 ```
 
 **alpine** — 2 utterances
@@ -1176,7 +1177,7 @@ the OS is bootable quantum — the boot image is the compiled specs in boot orde
 the receipt is stable, recomputable, and CHANGE-SENSITIVE — the instrument can fail
 ```
 
-**involution** — 27 utterances
+**involution** — 28 utterances
 
 ```text
 every named map is genuinely self-inverse on every digit
@@ -1206,6 +1207,7 @@ LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, Nodup,
 FUN + SEALED NAMED MIRRORS — all/map/filter/any, zip, let, Sequence/Discover/Uuidna defs
 NAMED TABLES + ∀ + LARGE POW — sealed caps/agl/words/fibCycle/comp and finite ∀
 TAIL + ZIPWITH + BIGINT + DECIDE∧ + IF-IN-EQ — sealed neuro/knight/billing stayed unreached for syntax
+FUN APPLY — higher-order sealed Wave/Hamming/Nim stayed unreached without juxtaposition
 ```
 
 **knowledge** — 9 utterances

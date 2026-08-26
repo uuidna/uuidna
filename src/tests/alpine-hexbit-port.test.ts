@@ -8,7 +8,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   catalogue, catalogueCompile, cataloguePackage, hexbitPortCoverage, manPagePortCoverage,
-  manDrivenPortCoverage, manAppWitness, resolveManApp, manAppOriginCandidates,
+  manPagePackages, manDrivenPortCoverage, manAppWitness, resolveManApp, manAppOriginCandidates,
 } from '../quantum/os/catalogue.js'
 import { uuidnaExec } from '../quantum/os/exec.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
@@ -173,12 +173,16 @@ test('community hexbit port has architectural quantum advantage in SCALE and TIM
   assert.equal(UUID_BITS, uuidLevel.pow2)
 })
 
-test('oh-my-pi (omp) is ported as Alpine overlay — man→app→hexbit + cmd:omp', () => {
+test('oh-my-pi (omp) is overlay — NOT Alpine distro; separate from APKINDEX completeness', () => {
   const app = cataloguePackage('oh-my-pi')
   const doc = cataloguePackage('oh-my-pi-doc')
   assert.ok(app, 'oh-my-pi must be in merged catalogue (overlay)')
   assert.ok(doc, 'oh-my-pi-doc must be in merged catalogue')
+  assert.equal(app!.repo, 'overlay', 'oh-my-pi is NOT an Alpine apk package')
+  assert.equal(doc!.repo, 'overlay')
   assert.ok(app!.provides.some((p) => p.startsWith('cmd:omp=')))
+  assert.equal(manPagePackages().some((p) => p.name === 'oh-my-pi-doc'), false,
+    'overlay docs must not enter Alpine man→app completeness denominator')
   const w = manAppWitness(doc!)
   assert.equal(w.ok, true, w.detail)
   assert.equal(w.app, 'oh-my-pi')

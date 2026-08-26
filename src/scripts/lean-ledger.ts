@@ -149,9 +149,19 @@ for (const f of readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')))
 // whole: `tactic` read "decide /-- 1·2 ≡ 2 (mod 9) -/" instead of "decide". Ninety-two percent of the ledger,
 // and it survived because almost nothing reads `tactic` — until the reconstructed Lean line, and every
 // lineAddress folded from it, was being computed over the pollution.
+/** Strip Lean `--` line comments BEFORE flattening whitespace — a comment on its own line must not become
+ *  mid-statement `--` after `\s+` collapse (which breaks the falsifier's comment reader on vortex_one_leap). */
+const stripLeanLineComments = (s: string): string =>
+  s.split('\n').map((line) => {
+    const i = line.indexOf('--')
+    if (i === -1) return line
+    if (i + 2 < line.length && line[i + 2] === '/') return line // `/--` doc comment — leave for the stop regex
+    return line.slice(0, i)
+  }).join('\n')
+const flattenStatement = (s: string): string => stripLeanLineComments(s).trim().replace(/\s+/g, ' ')
 const parseLean = (file: string): Omit<LeanTheorem, 'file' | 'principle'>[] => [...readFileSync(join(LEAN_DIR, file), 'utf8')
   .matchAll(/theorem\s+(\w+)\s*:([\s\S]*?):=\s*by([\s\S]*?)(?=\n(?:\/--|--|theorem|def|namespace|end|$))/g)]
-  .map((m) => ({ key: m[1], statement: m[2].trim().replace(/\s+/g, ' '), tactic: m[3].trim().replace(/\s+/g, ' '), name: manifest[m[1]]?.name || m[2].trim().replace(/\s+/g, ' '), skill: manifest[m[1]]?.skill ?? inlineSkill[m[1]], cases: manifest[m[1]]?.cases }))
+  .map((m) => ({ key: m[1], statement: flattenStatement(m[2]), tactic: m[3].trim().replace(/\s+/g, ' '), name: manifest[m[1]]?.name || flattenStatement(m[2]), skill: manifest[m[1]]?.skill ?? inlineSkill[m[1]], cases: manifest[m[1]]?.cases }))
 
 const allFiles = existsSync(LEAN_DIR) ? readdirSync(LEAN_DIR).filter((f) => f.endsWith('.lean')).sort() : []
 const ordered = [...PRINCIPLE.map((p) => p[0]).filter((f) => allFiles.includes(f)), ...allFiles.filter((f) => !PRINCIPLE.some((p) => p[0] === f))]

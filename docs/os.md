@@ -28,28 +28,31 @@ named `src/os` boundary on every lean run, never hand-frozen.
 ## Quantum monitor — Alpine hexbit port (TypeScript computes · VitePress shows)
 
 **Port completeness** is **man pages testing the apps**, folded into hexbits
-(`manDrivenPortCoverage`) — not the package-count compile table alone. Provenance meters still recompute
-below so every published row is shown to fold to 32 states.
+(`manDrivenPortCoverage`) — **Alpine APKINDEX only** (main + community). npm/curl overlay ports
+(`repo=overlay`, e.g. oh-my-pi/omp) are a **separate witness** (`overlayManDrivenPortCoverage`) — NOT Alpine
+distro membership. Provenance meters still recompute below so every published row is shown to fold to 32 states.
 
 | surface | role | packages | witnessed / ported | coverage | seals |
 |---------|------|----------|--------------------|----------|-------|
-| **man → app → hexbit** | **completeness** | 4,759 | **4,759** / 4,759 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
-| **MCP · `uuidna_exec` · man→app** | **MCP port** | 4,759 | **4,759** / 4,759 | **100%** · 1 wire door (not 4,759) | [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) |
-| community (compile) | provenance | 22,678 | 22,678 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
-| main + community (compile) | provenance | 28,639 | 28,639 | 100% | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
-| man pages (compile) | provenance | 4,759 | 4,759 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
-| man pages · community | provenance | 3,670 | 3,670 | 100% | — |
+| **man → app → hexbit** | **completeness** | 4,757 | **4,757** / 4,757 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| **MCP · `uuidna_exec` · man→app** | **MCP port** | 4,757 | **4,757** / 4,757 | **100%** · 1 wire door (not 4,757) | [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) |
+| community (compile) | provenance | 22,669 | 22,669 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| main + community (compile) | provenance | 28,630 | 28,630 | 100% | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
+| man pages (compile) | provenance | 4,757 | 4,757 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| man pages · community | provenance | 3,668 | 3,668 | 100% | — |
 | man pages · main | provenance | 1,089 | 1,089 | 100% | — |
+| **overlay · man→app→hexbit** | **npm/curl (NOT apk)** | 1 | **1** / 1 | **100%** | separate from APKINDEX |
+| overlay (compile) | provenance | 2 | 2 | 100% | repo=overlay |
 
 
 
 
-**MCP surface:** one door — [`uuidna_exec`](/mcp#uuidna-exec) — carries the whole man corpus (`man <topic>` + `apk info <app>`). A naive per-app tool catalogue would be 4,759 wire entries and blow the MCP context ceiling; coverage is **4,759 / 4,759** through that one door (`mcpManDrivenCoverage`).
+**MCP surface:** one door — [`uuidna_exec`](/mcp#uuidna-exec) — carries the whole man corpus (`man <topic>` + `apk info <app>`). A naive per-app tool catalogue would be 4,757 wire entries and blow the MCP context ceiling; coverage is **4,757 / 4,757** through that one door (`mcpManDrivenCoverage`).
 
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
-- **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,678 community packages ≪ 2^128.
-- **Time:** community compile sweep **44,099,500 ns** (~**1,944 ns**/package); man-page corpus **9,728,917 ns** (~**2,044 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,669 community packages ≪ 2^128.
+- **Time:** community compile sweep **45,016,000 ns** (~**1,985 ns**/package); man-page corpus **9,797,292 ns** (~**2,059 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
@@ -62,7 +65,7 @@ resolved by the `man <topic>` applet in uuidnaOS. Completeness walks each docume
 app it documents, and requires **both** to compile to 32 hexbit states — man pages testing apps,
 never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
-Monitor receipt `acd0e794-1f8e-8bc3-869e-294a6f424b00` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
+Monitor receipt `8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
 ## Ported lowest level first — firmware and up
 

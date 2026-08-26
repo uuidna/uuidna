@@ -112,14 +112,22 @@ export const stripAscriptions = (s: string): string => {
  *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
 const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|nthR|nthS|foldl|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable.
- *  Mid-statement commentary stops at `∧`/`∨`/newline — not at `(`, which left letters in the gate. */
+ *  Mid-statement commentary stops at `∧`/`∨`/newline — or at `(` when a proposition follows (`List`, `Nat`, …). */
 const stripComments = (s: string): string => {
+  const PROP_AFTER_PAREN = /^(List|Nat|Int|fun|let|true|false)\b/
+  const LIST_LIT = /^\[\s*\d/
   let out = ''
   let i = 0
   while (i < s.length) {
     if (s.startsWith('--', i)) {
       i += 2
-      while (i < s.length && s[i] !== '\n' && s[i] !== '∧' && s[i] !== '∨') i++
+      while (i < s.length) {
+        const ch = s[i]!
+        if (ch === '\n' || ch === '∧' || ch === '∨') break
+        if (ch === '(' && PROP_AFTER_PAREN.test(s.slice(i + 1).replace(/^\s+/, ''))) break
+        if (ch === '[' && LIST_LIT.test(s.slice(i).replace(/^\s+/, ''))) break
+        i++
+      }
       if (i < s.length && (s[i] === '∧' || s[i] === '∨')) out += ' '
       continue
     }
@@ -629,11 +637,10 @@ const postfix = (c: Cursor, v: Val): Val => {
     ws(c)
     if (isFun(v)) {
       const argSave = c.i
-      try {
-        const arg = atom(c)
-        v = asFun(v).run(arg)
-        continue
-      } catch { c.i = argSave }
+      let arg: Val
+      try { arg = atom(c) } catch { c.i = argSave; return v }
+      v = asFun(v).run(arg)
+      continue
     }
     if (eat(c, '.1') || eat(c, '.fst')) {
       if (!isPair(v)) throw new Error('proj')
@@ -852,7 +859,7 @@ const atom = (c: Cursor): Val => {
         if (depth > 0) c.i++
       }
       if (depth !== 0) throw new Error('fun paren')
-      const body = c.s.slice(bodyStart, c.i - 1)
+      const body = c.s.slice(bodyStart, c.i)
       c.i++
       return postfix(c, mkFun(names, body, c.env, c.ring, c.expectBool ? 'bool' : 'val'))
     }
@@ -1123,11 +1130,11 @@ const atom = (c: Cursor): Val => {
     const bodyStart = c.i
     const probeEnv: Env = new Map(c.env)
     for (const n of names) if (n !== '_') probeEnv.set(n, 0)
-    const probe: Cursor = { s: c.s, i: bodyStart, env: probeEnv, ring: c.ring }
+    const probe: Cursor = { s: c.s, i: bodyStart, env: probeEnv, ring: c.ring, expectBool: c.expectBool }
     junction(probe)
     const body = c.s.slice(bodyStart, probe.i)
     c.i = probe.i
-    return mkFun(names, body, c.env, c.ring, 'val')
+    return postfix(c, mkFun(names, body, c.env, c.ring, c.expectBool ? 'bool' : 'val'))
   }
   // Bound variable — apply curried funs by juxtaposition (`fold3 1 2 3`).
   if (c.i < c.s.length && /[A-Za-z_]/.test(c.s[c.i]!)) {
@@ -1375,6 +1382,12 @@ const conjunct = (c: Cursor): boolean => {
   }
   const save = c.i
   if (eat(c, '(')) {
+    ws(c)
+    // `(fun … => …) arg` — value-level apply, not a parenthesised proposition.
+    if (c.s.startsWith('fun', c.i)) {
+      c.i = save
+      return compare(c)
+    }
     // a parenthesis may hold a whole conjunction — `((a = b) ∧ (c = d)) ∧ (e = f)` — so recurse, not just compare.
     // But `(invB 1) == true` is a VALUE in parens, not a finished proposition — backtrack if a comparison continues.
     try {

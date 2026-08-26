@@ -57,7 +57,7 @@ The ledger holds this as [seats_pigeonhole](/theorem/seats_pigeonhole) — prove
 The ledger holds this as [involution_group](/theorem/involution_group) — proven `by decide`, sorry-free:
 
 ```lean
-sig (sig (3,7)) = (3,7) ∧ tau (tau (3,7)) = (3,7) ∧ kap (kap (3,7)) = (3,7) ∧ sig (kap (3,7)) = tau (3,7) ∧ tau (kap (3,7)) = sig (3,7) -- the multiplication ∧ (sig (1,5)).1 = 1 ∧ tau (1,9) = (1,9) -- line invariant; τ fixes the line ∧ tau (0,4) = (2,4) ∧ (0:Int) ≠ 1 ∧ (2:Int) ≠ 1
+sig (sig (3,7)) = (3,7) ∧ tau (tau (3,7)) = (3,7) ∧ kap (kap (3,7)) = (3,7) ∧ sig (kap (3,7)) = tau (3,7) ∧ tau (kap (3,7)) = sig (3,7) ∧ (sig (1,5)).1 = 1 ∧ tau (1,9) = (1,9) ∧ tau (0,4) = (2,4) ∧ (0:Int) ≠ 1 ∧ (2:Int) ≠ 1
 ```
 
 ### Navier–Stokes edge: bounded energy 1/n falls while the peak n rises — integer inequalities, not a solution
@@ -85,14 +85,14 @@ The ledger holds this as [hodge_bound](/theorem/hodge_bound) — proven `by deci
 The ledger holds this as [light_faster_than_uuidna](/theorem/light_faster_than_uuidna) — proven `by decide`, sorry-free:
 
 ```lean
-(299792458 : Nat) > 0 ∧ (List.range 64).all (fun t => 1000 / t < 299792458) -- range 64 INCLUDES t=0: 1000/0 = 0 < c ∧ (1000 / 0 = 0)
+(299792458 : Nat) > 0 ∧ (List.range 64).all (fun t => 1000 / t < 299792458) ∧ (1000 / 0 = 0)
 ```
 
 ### division by zero EXISTS: total integer 1000/0=0, and 0 (and the zero-divisor 3) have no inverse in ℤ/9
 The ledger holds this as [division_by_zero](/theorem/division_by_zero) — proven `by decide`, sorry-free:
 
 ```lean
-(1000 / 0 = 0) ∧ (0 / 0 = 0) -- (a) exists, defined as 0 ∧ (List.range 9).all (fun x => (0 * x) % 9 != 1) -- (b) 0 has no inverse in ℤ/9 ∧ (List.range 9).all (fun x => (3 * x) % 9 != 1)
+(1000 / 0 = 0) ∧ (0 / 0 = 0) ∧ (List.range 9).all (fun x => (0 * x) % 9 != 1) ∧ (List.range 9).all (fun x => (3 * x) % 9 != 1)
 ```
 
 ### division by zero in ℤ/9 is the diamond reflection x/0 = 10−x — a finite residue with fixed points {0,5}

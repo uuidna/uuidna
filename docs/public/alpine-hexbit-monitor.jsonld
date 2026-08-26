@@ -1,17 +1,17 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:10a2fe36-f11c-87c1-8d64-e834f15b3cbd",
+  "@id": "urn:uuid:a7733623-bd4b-8752-b60c-550ddb6579f3",
   "@type": "Dataset",
   "name": "uuidna Alpine hexbit quantum monitor",
   "description": "TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress monitors that witness plus provenance compile coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).",
   "url": "https://uuidna.com/alpine-hexbit-monitor.jsonld",
-  "identifier": "acd0e794-1f8e-8bc3-869e-294a6f424b00",
+  "identifier": "8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
       "@type": "PropertyValue",
       "name": "Alpine port completeness — man→app→hexbit witnessed",
-      "value": 4759,
+      "value": 4757,
       "unitText": "witnesses",
       "measurementTechnique": "computed",
       "citation": "manDrivenPortCoverage() — man pages testing apps, both folded to UUID_HEXBITS · theorem a_spec_compiles_to_hexbits"
@@ -26,8 +26,24 @@
     },
     {
       "@type": "PropertyValue",
+      "name": "Overlay port — man→app→hexbit witnessed (NOT apk)",
+      "value": 1,
+      "unitText": "witnesses",
+      "measurementTechnique": "computed",
+      "citation": "overlayManDrivenPortCoverage() — npm/curl ports repo=overlay; excluded from Alpine APKINDEX completeness"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Overlay port — man→app→hexbit coverage",
+      "value": 100,
+      "unitText": "%",
+      "measurementTechnique": "computed",
+      "citation": "overlayManDrivenPortCoverage() — oh-my-pi/omp etc.; NOT Alpine distro membership"
+    },
+    {
+      "@type": "PropertyValue",
       "name": "MCP Alpine man exposure — uuidna_exec",
-      "value": 4759,
+      "value": 4757,
       "unitText": "apps",
       "measurementTechnique": "computed",
       "citation": "mcpManDrivenCoverage() — man + apk through one MCP door; naive per-app tools refused (wire ceiling)"
@@ -43,7 +59,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine community hexbit port — packages",
-      "value": 22678,
+      "value": 22669,
       "unitText": "packages",
       "measurementTechnique": "measured",
       "citation": "committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) provenance meter"
@@ -51,7 +67,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine community hexbit port — ported",
-      "value": 22678,
+      "value": 22669,
       "unitText": "packages",
       "measurementTechnique": "computed",
       "citation": "catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits · provenance, not completeness"
@@ -59,7 +75,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine man-page packages — ported",
-      "value": 4759,
+      "value": 4757,
       "unitText": "packages",
       "measurementTechnique": "computed",
       "citation": "manPagePortCoverage() over -doc / *-man-pages / man-pages · provenance compile of the documentation corpus"
@@ -75,7 +91,7 @@
     {
       "@type": "PropertyValue",
       "name": "community compile — ns per package",
-      "value": 1944,
+      "value": 1985,
       "unitText": "ns",
       "measurementTechnique": "measured",
       "citation": "TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable"

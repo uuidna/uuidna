@@ -13,9 +13,9 @@
         "coins": 2,
         "largestPrinciple": "The conveyor's first wave (467)",
         "smallestPrinciple": "The uuid mix space (2)",
-        "ledgerReceipt": "f042ed32-cf54-8f27-96c9-93404accd9a1"
+        "ledgerReceipt": "e7318241-b124-8e7c-9973-73dafbf8da48"
       },
-      "address": "6616493a-80f4-829b-ade4-0b08f835fe1a"
+      "address": "1f91a814-a133-87da-af43-ad2f2ae08701"
     },
     {
       "title": "Heartbeat coverage",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "234bbd0166056d3a",
-        "unifiedFold": "b495e55eb2ee0b6c"
+        "foldReceipt": "81e3b03992f17e16",
+        "unifiedFold": "92f868eb1b9ab097"
       },
-      "address": "cf17966a-8ad9-8e4e-9469-b99fd41c98eb"
+      "address": "e1b060a9-30ec-84c9-bb21-244165927eff"
     }
   ],
-  "receipt": "7cdf5293-1c73-8562-9377-72c3c9415a24",
+  "receipt": "a575da4e-764d-8084-857a-3f9b2b499616",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

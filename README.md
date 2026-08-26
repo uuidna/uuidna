@@ -1,6 +1,6 @@
 # uuidna — 2,039 distinct theorems under 2,120 keys · 2 coins · one receipt
 
-`f042ed32-cf54-8f27-96c9-93404accd9a1`
+`e7318241-b124-8e7c-9973-73dafbf8da48`
 
 **v0.2.8** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
@@ -94,7 +94,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | Principles / wings | 115 / 115 | PRINCIPLES + wing ratings |
 | Skills | 112 | distinct `skill` tags |
 | Coins per seal | 2 | [two_coins](https://uuidna.com/theorem/two_coins) — 110 − 108 = 2 |
-| Ledger decided mass | 114,554 superpositions (4 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 114,551 superpositions (4 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -128,7 +128,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **114,554** superpositions across **115** wings.
+The ledger covers **114,551** superpositions across **115** wings.
 
 1. **[`every_referrer_reaches_every_page`](https://uuidna.com/theorem/every_referrer_reaches_every_page)** — 4,769 superpositions, unbound (0 hexbits per dependency), in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
@@ -176,7 +176,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **114,554** superpositions decided across the ledger
+- **114,551** superpositions decided across the ledger
 - **4,240** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **27** superpositions per coin
 

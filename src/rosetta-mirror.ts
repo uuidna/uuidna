@@ -616,18 +616,18 @@ reach_quantifiers_bounded 27
 reach_window_finite 27
 window_not_universal 27
 #Installs.lean
-default_install_is_dependency_closed 19
-every_install_and_its_path_named_once 19
-home_is_the_meta_package 19
-home_reaches_every_install 19
-the_port_rises_from_the_floor 19
-the_services_hold_each_other_up 19
+default_install_is_dependency_closed 27
+every_install_and_its_path_named_once 27
+home_is_the_meta_package 27
+home_reaches_every_install 27
+the_port_rises_from_the_floor 27
+the_services_hold_each_other_up 27
 the_terminal_is_the_toolbox 27
-the_foundation_depends_on_nothing 19
-every_path_carries_its_published_meaning 19
+the_foundation_depends_on_nothing 27
+every_path_carries_its_published_meaning 27
 a_spec_compiles_to_hexbits 27
-the_os_is_bootable_quantum 19
-the_install_set_names_the_bytes_it_rests_on 19
+the_os_is_bootable_quantum 27
+the_install_set_names_the_bytes_it_rests_on 27
 #Isometry.lean
 xor_preserves_distance 27
 reuse_leaks_by_isometry 27
@@ -666,7 +666,7 @@ perfect_matching_needs_even 27
 n_people_make_n_half_pairs 27
 proposals_bounded_by_n_squared 27
 pairing_is_fixedpoint_free_involution 27
-mutual_match_is_symmetric 19
+mutual_match_is_symmetric 27
 #MoMBHStar1.lean
 mombh_balmer_break_exceeds_stellar_ceiling 27
 mombh_variability_is_four_sigma 27
@@ -681,10 +681,10 @@ mombh_quantum_hbeta_hgamma_are_balmer_lines 27
 mombh_quantum_n2_population_needs_density 27
 #Models.lean
 a_token_approximates_eight_hexbits 27
-context_windows_are_transient_hexbits 19
-speaking_an_address_costs_the_text 19
+context_windows_are_transient_hexbits 27
+speaking_an_address_costs_the_text 27
 crypto_widths_are_fixed_not_sampled 27
-every_context_is_finite_against_the_lattice 19
+every_context_is_finite_against_the_lattice 27
 llm_folds_to_hexbit_pairs 27
 a_handle_is_eight_pairs_paid_it_is_sixteen 27
 #Molecular.lean
@@ -1929,7 +1929,7 @@ z7_primitive_roots_are_three_and_five 26
 z7_inverse_table_and_wilson 26
 crt21_idempotents_invert_the_pairing 26
 crt21_units_have_exponent_six 26
-crt21_doubling_orbits_partition 18
+crt21_doubling_orbits_partition 26
 monotone_two_bit_gates_are_threshold 26
 self_dual_two_bit_gates_ignore_an_input 26
 post_classes_leave_only_nor_and_nand 26

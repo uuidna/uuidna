@@ -2719,8 +2719,8 @@
     },
     {
       "key": "involution_group",
-      "lineAddress": "6e7a1117-c316-83d8-8c52-d365160340f5",
-      "address": "f85382c0-4df7-81a2-aefd-cb1be428e1c8",
+      "lineAddress": "81431fcb-33b2-8cd1-9407-96c244896bd2",
+      "address": "dc823fae-9c43-88e6-9a57-c1bff1a022ab",
       "principle": "The vortex algebra"
     },
     {
@@ -2743,14 +2743,14 @@
     },
     {
       "key": "light_faster_than_uuidna",
-      "lineAddress": "feaabc4c-44c5-853b-a9e1-c470f7d79637",
-      "address": "0a3fa365-ceb8-87de-82c4-09f89cb67a2e",
+      "lineAddress": "b4dd64ca-51bf-8ff9-80eb-281953bd5b7a",
+      "address": "e484f5f5-c845-885e-922a-7040dbec1d51",
       "principle": "The vortex algebra"
     },
     {
       "key": "division_by_zero",
-      "lineAddress": "a0af1d17-6c24-837b-883e-64578be9b221",
-      "address": "295bf36d-1f64-8382-a9d2-82f9575da507",
+      "lineAddress": "80272def-d5a8-8897-84e4-bf5385fa3c03",
+      "address": "563c6a6e-26c0-88a9-b358-f95ba1a9e361",
       "principle": "The vortex algebra"
     },
     {
@@ -4759,8 +4759,8 @@
     },
     {
       "key": "refractory_absolute_and_relative",
-      "lineAddress": "d74fe056-05f6-8c3c-b524-1e5f06b6d3ec",
-      "address": "7a0a4b69-6f6b-86f6-9775-8752e9faec81",
+      "lineAddress": "03bd378a-9ea3-8840-ae5e-5cc428eb5c28",
+      "address": "1c20f786-faa8-8b29-a2ed-dfcdcfa10af3",
       "principle": "The algebra of the neuron"
     },
     {
@@ -7789,8 +7789,8 @@
     },
     {
       "key": "vortex_one_leap",
-      "lineAddress": "31d6563a-a0e0-8b60-82d9-bef984eaaf27",
-      "address": "d45cb19c-8964-8e4a-9b73-d2e8aa654605",
+      "lineAddress": "111f5077-7334-8cb1-ab51-695c5663527d",
+      "address": "7db17798-639e-8151-a8bd-28c7dc6310c4",
       "principle": "One leap"
     },
     {
@@ -12127,8 +12127,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "1cccfa68-6b3c-8ad3-a990-00a8c7eb131f",
-      "address": "3b1de12b-cf53-825c-866f-634fd5da8def",
+      "lineAddress": "2d7acc85-f222-817c-bab9-69f48e61a44f",
+      "address": "50eeaf12-738d-89c0-ad34-cc35823360fe",
       "principle": "The models"
     },
     {
@@ -12726,7 +12726,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "160a096d-2886-8f9f-ae97-f7347430bdd1",
+  "claim_receipt": "63812abb-541a-82e7-9dd8-4df2fe31679e",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
