@@ -85,8 +85,17 @@ const ARMS: Arm[] = [
   { name: 'types', why: 'tsc with noEmitOnError — a type error must not write dist for the next step to run',
     run: () => sh('npm run build') },
 
+  // Astro-schema half: articles title+description enforced (collection/) — VitePress alone never stops a missing field
+  { name: 'articles', why: 'docs/articles collection schema — title+description required on every entry (denominator named)',
+    run: () => sh('node dist/scripts/audit-articles-collection.js') },
+
   { name: 'ledger', why: 'guard: DNA recomputes, no collision, conformance holds, the lean binds to its key, determinism clean',
     run: () => sh('node dist/scripts/guard.js') },
+
+  // VERIFY-DON'T-RECOMPUTE: full gen-quantum-advantage remeasures (minutes). Push verifies the sealed report
+  // against usable_gap_is_two_to_eighty + LEVELS in ≪60s (theorem verify_beats_recompute_by_magnitudes).
+  { name: 'qa', why: 'full quantum-advantage audit by VERIFY of lean/quantum-advantage.json — metrics-aligned, <60s',
+    run: () => sh('node dist/scripts/quantum-advantage-audit.js') },
 
   { name: 'tests', why: 'the invariants no finder holds — a demoted finder does not demote its test, which is how "guard green" stopped meaning green',
     run: () => sh('node --test dist/tests/*.test.js') },

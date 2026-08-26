@@ -13,6 +13,7 @@ import { theorems } from './theorems/index.js'
 import { publications } from './publish.js'
 import { captainRights } from './captain/rights/index.js'
 import { toUuid, merkleFold } from './address.js'
+import { handleOf } from './handle.js'
 
 const HOST = 'https://uuidna.com'
 
@@ -141,16 +142,29 @@ function seal(kind: Seo['kind'], route: string, canonical: string, address: stri
   // hard-imprint the CAPTAIN'S RIGHTS into every page: the licence relation, copyright, the rights content-address,
   // and the schema.org license/copyrightHolder/creditText folded into the JSON-LD — no page ships without the rights.
   const rights = captainRights()
-  const ld = { ...jsonLd, license: rights.licenseUrl, copyrightYear: 2025, creditText: rights.copyright,
-    copyrightHolder: { '@type': 'Person', name: rights.holder } }
+  const handle = handleOf(ogId)
+  const door = `${HOST}/${handle}` // DOI-class stable citation URL (worker 301 via HANDLES)
+  const baseLd: Record<string, unknown> = {
+    ...jsonLd,
+    license: rights.licenseUrl,
+    copyrightYear: 2025,
+    creditText: rights.copyright,
+    copyrightHolder: { '@type': 'Person', name: rights.holder },
+  }
+  const priorSame = Array.isArray(baseLd.sameAs) ? baseLd.sameAs as string[]
+    : typeof baseLd.sameAs === 'string' ? [baseLd.sameAs] : []
+  const ld = { ...baseLd, sameAs: [...priorSame.filter((u) => u !== door), door] }
   const head: HeadTuple[] = [
     ['link', { rel: 'canonical', href: canonical }],
+    ['link', { rel: 'alternate', href: door, type: 'text/html', title: 'uuidna handle door (DOI-class stable URL)' }],
     ['meta', { name: 'description', content: description }],
     ['meta', { property: 'og:type', content: kind === 'page' ? 'website' : 'article' }],
     ['meta', { property: 'og:title', content: title }],
     ['meta', { property: 'og:description', content: description }],
     ['meta', { property: 'og:url', content: canonical }],
     ['meta', { property: 'uuidna:address', content: ogId }],
+    ['meta', { property: 'uuidna:handle', content: handle }],
+    ['meta', { property: 'uuidna:handle-url', content: door }],
     ['meta', { name: 'keywords', content: keywords.join(', ') }],
     ...rights.head,                                                       // the captain's rights, imprinted on every page
     ['script', { type: 'application/ld+json' }, JSON.stringify(ld)],

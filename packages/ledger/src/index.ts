@@ -23,7 +23,7 @@ export { forensics, auditAgents, type Violation, type ForensicReport } from '@uu
 export { evidence, type Evidence, type ProofExhibit } from '@uuidna/uuidna'
 export { ledgerFingerprint, type LedgerFingerprint } from '@uuidna/uuidna'
 export { conformance, type ConformanceReport, type ConformanceCheck } from '@uuidna/uuidna'
-export { credits, creditsSummary, type Credits, type Credit } from '@uuidna/uuidna'
+export { credits, creditsSummary, CAPTAIN_CREDIT, type Credits, type Credit } from '@uuidna/uuidna'
 export { laws, type Law, type Laws } from '@uuidna/uuidna'
 export { catchTraitors, guardLessons, type TreasonReport, type Traitor, type GuardLesson } from '@uuidna/uuidna'
 export { axiomWitness, type AxiomWitnessReport } from '@uuidna/uuidna'

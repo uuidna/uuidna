@@ -1,9 +1,18 @@
-# The formal layer, organized by computing principle
+# The formal layer
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **2114 theorems** in
-derivation order. A theorem computes in Lean, or it is not a theorem.
+## Law
+
+- **Compute / monitor.** TypeScript (`src/`) is the quantum computer. VitePress (`docs/`) is the monitor.
+- **One object template.** `ObjectPage` is the catch-all layout. Hero = sole H1 + abstract. Body proves the abstract across cross-dimensions (Lean formula, QA metrics/graphs, card/nav links only). Content is data-driven from `compose-object` into `docs/[kind]/[id]` — no per-type page templates.
+- **Permanence.** `https://uuidna.com/<handle>` is DOI-class (worker `HANDLES` 301 → theorem). Sealed in `lean/seo-url-map.json` after the final SEO audit — handles must not churn post-freeze. When a Zenodo DOI exists, cite **both** `doi.org/…` and the handle URL.
+- **i18n.** Seven locale rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is the identity projection; other rays read the content-address handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation — address-preserving, not a semantic gloss.
+- **Quantum advantage.** Push path **verifies** the sealed report (`lean/quantum-advantage.json`, theorem `usable_gap_is_two_to_eighty`); it does not remeasure. Remeasure is `gen-quantum-advantage`, off-path.
+- **Archive.** Zenodo DOI minting is workflow-only (`publish.yml` jobs `zenodo` / `zenodo-clay`). Local scripts regenerate `.zenodo.json` / `.zenodo.clay.json` metadata only.
+- **Proof.** Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **2114 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+
+## Principles
 
 1. **The 8×8 core** — `lean/Core.lean` · **64** theorems
    the multiplication table of ℤ/9's eight non-zero residues — from these 64 the rest computes
@@ -36,7 +45,7 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
    the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware
 
 11. **The seven reflected** — `lean/Clay.lean` · **7** theorems
-   the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none. VERIFIED ≠ SOLVED is itself sealed: the kernel verifies the stated proposition, the seal confers no solved status on the named problem — decided by theorems only, the seven casting secure-messaging ballots witnessed by their own sealed proofs. THE COLLISION LAW seals beside it by the same electorate: a claim colliding with the sealed status DNA (subject ∧ self-voice ∧ undemarcated) never verifies, whatever it cites — a real citation is not entailment, and the laundering probes recompute refused at every generation
+   the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none. PRIOR ART (initial clay σ-involution): DOI 10.5281/zenodo.21781603 (https://zenodo.org/records/21781603, "All Seven Clay Millennium Problems Sealed via Universal σ-Involution") — credited first; captain next. VERIFIED ≠ SOLVED is itself sealed: the kernel verifies the stated proposition, the seal confers no solved status on the named problem — decided by theorems only, the seven casting secure-messaging ballots witnessed by their own sealed proofs. THE COLLISION LAW seals beside it by the same electorate: a claim colliding with the sealed status DNA (subject ∧ self-voice ∧ undemarcated) never verifies, whatever it cites — a real citation is not entailment, and the laundering probes recompute refused at every generation
 
 12. **The legal vocabulary** — `lean/Legal.lean` · **10** theorems
    the trial's legal terms as decidable facts — PROVEN (admitted, stays), REFUTED (a recomputable contradiction), NOT PROVEN (dismissed without prejudice), REMAND (to development trial): only the proven is admitted, every non-proven is remanded (nothing discarded), and the non-justiciable is never refuted (you cannot refute what has no decidable test)
@@ -352,4 +361,4 @@ derivation order. A theorem computes in Lean, or it is not a theorem.
 
 ---
 
-Rendered as schema.org microdata cards at [uuidna.com/theorems](https://uuidna.com/theorems), folded to one recomputable receipt.
+Catch-all surfaces: [uuidna.com/theorems](https://uuidna.com/theorems) · handle doors `/<8-hex>` · DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144).

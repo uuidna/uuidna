@@ -47,6 +47,7 @@ export const SCHEMA_ORG_PROPERTIES: Readonly<Record<string, string>> = {
   copyrightYear: 'https://schema.org/copyrightYear',
   creditText: 'https://schema.org/creditText',
   copyrightHolder: 'https://schema.org/copyrightHolder',
+  sameAs: 'https://schema.org/sameAs',
   dataFeedElement: 'https://schema.org/dataFeedElement',
   item: 'https://schema.org/item',
   dateCreated: 'https://schema.org/dateCreated',

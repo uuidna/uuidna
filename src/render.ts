@@ -10,6 +10,8 @@ import { DIMENSIONS } from './harness.js'
 import { sequenceVars, durationVars } from './css.js'
 // the ledger, for the address a hero carries — aliased because renderList already binds the name `theorems`
 import { theorems as ledger } from './theorems/index.js'
+import { quantumAdvantageCardHtml } from './quantum/advantage/card/html/index.js'
+import { packageSeoLink, seoMicrodataAttrs } from './seo-package.js'
 
 export interface TheoremView { name: string; address?: string; key?: string }
 export interface RenderOpts { base?: string } // site base for proof links; '' → served at root (/theorem/<key>)
@@ -43,14 +45,14 @@ export function renderTheorem(t: TheoremView, opts: RenderOpts = {}): string {
   const title = escapeHtml(t.name.split('—')[0].trim() || t.name)
   const full = escapeHtml(t.name)
   const url = proofUrl(t, base)
-  // the statement links to its proof: if a key is known the title is an anchor to /theorem/<key> (itemprop url)
+  // SEO PACKAGING LAW — card-as-link carries complete OG microdata (same package as a page frontmatter head).
+  const pkg = t.key
+    ? packageSeoLink({ key: t.key })
+    : packageSeoLink({ route: url, title: t.name.split('—')[0].trim() || t.name, description: t.name })
   const heading = t.key
     ? `<a itemprop="url" href="${escapeHtml(url)}" style="color:inherit;text-decoration:none">${title}</a>`
     : title
-  // STRICT shadcn anatomy via data-slot (card · card-header · card-title · card-description · card-content ·
-  // card-footer) so a shadcn host consumes and styles these cards — compatible API, no framework dependency.
-  // Inline CSS keeps them self-contained and CSP-safe when rendered standalone.
-  return `<article class="uuidna-card" data-slot="card" itemscope itemtype="https://schema.org/CreativeWork" data-proof="${escapeHtml(url)}" `
+  return `<article class="uuidna-card" data-slot="card" ${seoMicrodataAttrs(pkg.microdata)} data-proof="${escapeHtml(url)}" `
     + `style="border-left:4px solid hsl(${hue} 60% 50%);padding:.6rem .9rem;`
     + `margin:.5rem 0;border-radius:8px;background:hsl(${hue} 60% 50% / .06);font:14px/1.5 system-ui,sans-serif">`
     + `<div data-slot="card-header">`
@@ -58,13 +60,11 @@ export function renderTheorem(t: TheoremView, opts: RenderOpts = {}): string {
     + `<p data-slot="card-description" itemprop="description" style="margin:0;color:#6a6a6a;font-size:.82rem">${full}</p>`
     + `</div>`
     + `<div data-slot="card-content">`
-    // The full content-address is the machine KEY— carried as microdata identifier (recomputable,
-    // crawlable) and as the uuidna:address meta. What the reader sees is the first-part HANDLE (first 8 hex, the
-    // door /<handle>); the rest of the uuid computes on the spot from the proof. Real uuids compute, they don't display.
-    + `<meta itemprop="identifier" content="${escapeHtml(address)}">`
+    + pkg.microdataHtml
     + `<code data-slot="handle" style="display:block;margin-top:.4rem;font-size:.78rem;color:hsl(${hue} 60% 40%)">${escapeHtml(handleOf(address))}</code>`
+    + quantumAdvantageCardHtml({ address, handle: handleOf(address), label: t.key ?? '' })
     + `</div>`
-    + `<div data-slot="card-footer"><small style="color:#9a9a9a">integrity \u2014 the record recomputes for anyone</small></div>`
+    + `<div data-slot="card-footer"><small style="color:#9a9a9a">integrity \u2014 the record recomputes for anyone · SEO package complete</small></div>`
     + `</article>`
 }
 
@@ -75,13 +75,18 @@ export function renderHero(t: TheoremView, opts: RenderOpts = {}): string {
   const base = opts.base ?? DEFAULT_BASE
   const address = t.address ?? toUuid(t.name)
   const url = proofUrl(t, base)
-  const og = [
-    ['og:type', 'article'],
-    ['og:title', t.name.split('—')[0].trim() || t.name],
-    ['og:description', t.name],
-    ['og:url', url],
-    ['uuidna:address', address],
-  ].map(([p, c]) => `<meta property="${escapeHtml(p)}" content="${escapeHtml(c)}">`).join('')
+  // Complete OG package from seo-package (property=, not name=) — even a solitary card/link ships packaged.
+  const pkg = t.key
+    ? packageSeoLink({ key: t.key })
+    : packageSeoLink({ route: url, title: t.name.split('—')[0].trim() || t.name, description: t.name })
+  const og = pkg.head
+    .filter((h) => h[0] === 'meta' && typeof (h[1] as { property?: string }).property === 'string'
+      && ['og:type', 'og:title', 'og:description', 'og:url', 'uuidna:address'].includes((h[1] as { property: string }).property))
+    .map((h) => {
+      const a = h[1] as { property: string; content: string }
+      return `<meta property="${escapeHtml(a.property)}" content="${escapeHtml(a.content)}">`
+    })
+    .join('')
   return og + renderTheorem({ ...t, address }, opts)
 }
 

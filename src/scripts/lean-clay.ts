@@ -10,6 +10,7 @@
 // counting, the bound, the window — and never the conjecture. uuidna solves none of the seven, and nothing here
 // claims otherwise, because nothing here is named as though it did.
 import { emit, range } from './lean-gen.js'
+import { CLAY_INVOLUTION_CITE, CLAY_INVOLUTION_DOI } from '../clay-involution.js'
 
 const R = range
 
@@ -91,5 +92,5 @@ const FACTS = [
 ]
 
 emit({ file: 'Clay.lean', skill: 'clay',
-  header: 'THE SEVEN MILLENNIUM PROBLEMS — one FINITE instance each, drawn from that problem’s own mathematics and decided here. A decided window is not the conjecture: each key names the instance, never the problem.',
+  header: 'THE SEVEN MILLENNIUM PROBLEMS — one FINITE instance each, drawn from that problem’s own mathematics and decided here. A decided window is not the conjecture: each key names the instance, never the problem. ' + CLAY_INVOLUTION_CITE + ` Cite DOI ${CLAY_INVOLUTION_DOI}; live surface https://uuidna.com/articles/clay.`,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

@@ -342,11 +342,11 @@ theorem handle_capacity_is_quantum_by_architecture : (16 ^ 8 = 2 ^ 32) ∧ (2 ^ 
 /-- THE ARCHITECTURAL QUANTUM ADVANTAGE, PROVEN IN THEOREMS (captain: 'quantum advantage — prove in theorems',
     the capacity report's decidable skeleton): against the LARGEST demonstrated logical-qubit figure on any
     quantum platform — 48 logical qubits, Harvard/QuEra, Nature 2023, a REPORTED input named as such — uuidna's
-    usable address space of 2^128 deterministic error-free states sits a factor of exactly 2^80 above it:
-    128 − 48 = 80 and 2^128 = 2^80 · 2^48. That IS the measured usable-column quantum advantage the capacity
-    report publishes (TypeScript computes; VitePress monitors). Raw Hilbert dimensions of large devices can
-    exceed 2^128 — the gap sealed here is in the USABLE column, the platforms' own published metric. The
-    reported 48 moves with the field; the arithmetic of the gap at that figure is sealed forever. -/
+    usable address space of 2^128 deterministic error-free states sits a factor of exactly 2^80 above it: 128 −
+    48 = 80 and 2^128 = 2^80 · 2^48. That IS the measured usable-column quantum advantage the capacity report
+    publishes (TypeScript computes; VitePress monitors). Raw Hilbert dimensions of large devices can exceed
+    2^128 — the gap sealed here is in the USABLE column, the platforms' own published metric. The reported 48
+    moves with the field; the arithmetic of the gap at that figure is sealed forever. -/
 theorem usable_gap_is_two_to_eighty : (48 < 128) ∧ (128 - 48 = 80) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48) := by decide
 
 /-- THE REPORT'S RANKING IS FORCED BY ARITHMETIC — PREFERENCE IS IMPOSSIBLE (captain: 'evident for every model

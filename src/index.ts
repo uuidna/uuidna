@@ -36,6 +36,76 @@ export { typeScale, typeScaleVars, applyTypeScale, type TypeRung } from './typog
 // EU's own ledger). One implementation for the scripts, the MCP tools, and the CI automation.
 export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanUuid, leanIndex, byLean, type StatementCensus, type LeanIdentity, type Article, type EditorialState, type PublicationStatus, type SearchTrial, type ViesResult, type LedgerSearch } from './editorial.js'
 
+// prepublish-seal — thesis audit + Lean format + VE involutions + finite-infinity grants (hard before publish)
+export {
+  prepublishSeal,
+  VECTOR_EQUILIBRIUM_INVOLUTIONS,
+  WAVE_INVOLUTION_SEALS,
+  FINITE_INFINITY_GRANTS,
+  type PrepublishSeal,
+  type PrepublishGap,
+} from './prepublish-seal.js'
+
+// seo-freeze — final SEO audit + URL freeze via quantum hexbit doors
+export {
+  finalSeoAudit,
+  buildSeoUrlMap,
+  writeSeoUrlMap,
+  readSealedSeoUrlMap,
+  SEO_URL_MAP_PATH,
+  type FinalSeoAudit,
+  type SeoUrlMap,
+  type SeoUrlEntry,
+} from './seo-freeze.js'
+
+// handle-permanence — uuidna.com/<handle> is DOI-class; bidirectional DOI↔handle seals
+export {
+  handlePermanenceAudit,
+  handleUrl,
+  doiUrl,
+  HANDLE_HOST,
+  STANDING_DOI,
+  type HandlePermanenceAudit,
+} from './handle-permanence.js'
+
+// seo-package — complete OG + microdata for every publishable object (incl. solitary links)
+export {
+  seoPackageGaps,
+  assertSeoPackage,
+  packageSeoLink,
+  seoMicrodataAttrs,
+  SEO_OG_REQUIRED,
+  type SeoPackageGaps,
+  type SeoLinkPackage,
+} from './seo-package.js'
+
+// object-i18n — catch-all ObjectPage any-language surface (seven DIMENSIONS rays; hexbit fold = translation)
+export {
+  translateObjectText,
+  objectUi,
+  primaryRayOf,
+  OBJECT_LOCALE_RAYS,
+  OBJECT_UI,
+  type ObjectTranslation,
+  type LocaleRay,
+} from './object-i18n.js'
+
+// quantum-advantage VERIFY audit — push path <60s (remeasure is gen-quantum-advantage, off-path)
+export {
+  quantumAdvantageAudit,
+  QA_REQUIRED_THEOREMS,
+  QA_SEAL_PATH,
+  type QuantumAdvantageAudit,
+} from './quantum/advantage/audit/index.js'
+
+// zenodo-publish — DOI minting is WORKFLOW-ONLY (publish.yml job zenodo)
+export {
+  zenodoPublishAllowed,
+  ZENODO_PUBLISH_WORKFLOW,
+  ZENODO_PUBLISH_JOB,
+  type ZenodoPublishGate,
+} from './zenodo-publish.js'
+
 // optimise — THE EXACT LINEAR OPTIMISER: small integer LPs by TOTAL enumeration (every candidate checked,
 // nothing sampled), the optimum exact with a recomputable receipt; the search space is the qubit basis made
 // literal and the exponential walk is the honest cost. Backed by the Optimisation.lean wing. Not a solver at scale.
@@ -304,7 +374,7 @@ export { conformance, type ConformanceReport, type ConformanceCheck } from './co
 
 // credits — each theorem's provenance: exactly how it is Lean-proven in uuidna, and who it is credited to (a named
 // historical result where the sealed metadata references one; else the captain claims it by law — first sealed here).
-export { credits, creditsSummary, type Credits, type Credit } from './captain/credits/index.js'
+export { credits, creditsSummary, CAPTAIN_CREDIT, type Credits, type Credit } from './captain/credits/index.js'
 
 // laws — uuidna's standing invariants IN uuidna, each DEMONSTRATED (its `holds` recomputed from the gate that
 // enforces it), not asserted in prose. Generate-from-Lean, any-manual-fails, honesty-demonstrated, coins conserved.

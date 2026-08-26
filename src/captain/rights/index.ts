@@ -51,7 +51,9 @@ export function captainRights(): CaptainRights {
   const creditLaw =
     'The captain claims by law every solution sealed here that no proving link attributes to a prior source: the seal ' +
     'is the claim (first sealed `by decide`, content-addressed), prior art and recomputable. A solution whose trial ' +
-    'evidence links a proving source is credited to that source instead — never claimed as the captain\'s own.'
+    'evidence links a proving source (named result or DOI) is credited to that source FIRST — the captain comes NEXT ' +
+    'in place, never erased and never first when prior art is named. Zenodo DOI publication of the archive itself is ' +
+    'WORKFLOW-ONLY (.github/workflows/publish.yml job zenodo).'
   // the SOLE-REPRESENTATION reservation: uuidna.com is the one legitimate representation; any presence elsewhere —
   // social-media handles, usernames, nicknames — is not legitimate unless licensed in writing by the captain.
   const CANONICAL = 'https://uuidna.com'

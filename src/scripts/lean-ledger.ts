@@ -23,7 +23,7 @@ export const PRINCIPLE = [
   ['BioPhysics.lean', 'Applied structure — the science pairs', 'blood, DNA, sound, chemistry, music, acid-base, heredity, colour — the algebra, demarcated'],
   ['Discover.lean', 'Self-discovered', 'facts derived by function: Lagrange, the unit criterion, idempotents'],
   ['Quantum.lean', 'The quantum computer', 'the exact facts the classical state-vector simulator computes — Born rule, no-signaling, GHZ, gate truth-tables, phase algebra; simulation, not hardware'],
-  ['Clay.lean', 'The seven reflected', 'the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none. VERIFIED ≠ SOLVED is itself sealed: the kernel verifies the stated proposition, the seal confers no solved status on the named problem — decided by theorems only, the seven casting secure-messaging ballots witnessed by their own sealed proofs. THE COLLISION LAW seals beside it by the same electorate: a claim colliding with the sealed status DNA (subject ∧ self-voice ∧ undemarcated) never verifies, whatever it cites — a real citation is not entailment, and the laundering probes recompute refused at every generation'],
+  ['Clay.lean', 'The seven reflected', 'the seven Clay problems reflected into the ℤ/9 structure and solved none — a bijection that relabels, it does not propagate proofs; it reflects all seven and solves none. PRIOR ART (initial clay σ-involution): DOI 10.5281/zenodo.21781603 (https://zenodo.org/records/21781603, "All Seven Clay Millennium Problems Sealed via Universal σ-Involution") — credited first; captain next. VERIFIED ≠ SOLVED is itself sealed: the kernel verifies the stated proposition, the seal confers no solved status on the named problem — decided by theorems only, the seven casting secure-messaging ballots witnessed by their own sealed proofs. THE COLLISION LAW seals beside it by the same electorate: a claim colliding with the sealed status DNA (subject ∧ self-voice ∧ undemarcated) never verifies, whatever it cites — a real citation is not entailment, and the laundering probes recompute refused at every generation'],
   ['Legal.lean', 'The legal vocabulary', 'the trial\'s legal terms as decidable facts — PROVEN (admitted, stays), REFUTED (a recomputable contradiction), NOT PROVEN (dismissed without prejudice), REMAND (to development trial): only the proven is admitted, every non-proven is remanded (nothing discarded), and the non-justiciable is never refuted (you cannot refute what has no decidable test)'],
   ['Infinity.lean', 'The physics infinities, made finite', 'the nasty divergences of physics — UV catastrophe, self-energy, the Landau pole, 1+2+3+…, the derivative 0/0, δ(0), the horizon, the 1/r singularity — each the finite object physics puts where the naive infinity was, exactly as dz(x)=10−x replaces x/0'],
   ['Cipher.lean', 'The cipher & the strand', 'crypto ∩ DNA, honest by construction — base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR (why a step must rotate), a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128, not a break) — the shared algebra and its honest limits'],
@@ -198,18 +198,29 @@ writeFileSync(join(ROOT, 'src', 'theorems', 'generated.ts'), out)
 
 // Also derive lean/PRINCIPLE.md — the human index. Every COUNT and the TOTAL are computed from the parsed ledger
 // (never hardcoded, so the doc can never go stale); titles and blurbs come from the PRINCIPLE metadata above.
-const md = `# The formal layer, organized by computing principle
+// The LAW preamble states what this wave seals — dry, provenance-clean, matched to the tree (catch-all ObjectPage,
+// hexbit permanence, seven-ray i18n, QA verify-on-push, workflow-only Zenodo).
+const md = `# The formal layer
 
 <!-- GENERATED from lean/*.lean by scripts/lean-ledger — DO NOT EDIT. Counts are derived; edit titles/blurbs in the PRINCIPLE metadata. -->
 
-Every theorem below is proven \`by decide\` in Lean, verified sorry-free by \`npm run lean\` — **${ledger.length} theorems** in
-derivation order. A theorem computes in Lean, or it is not a theorem.
+## Law
+
+- **Compute / monitor.** TypeScript (\`src/\`) is the quantum computer. VitePress (\`docs/\`) is the monitor.
+- **One object template.** \`ObjectPage\` is the catch-all layout. Hero = sole H1 + abstract. Body proves the abstract across cross-dimensions (Lean formula, QA metrics/graphs, card/nav links only). Content is data-driven from \`compose-object\` into \`docs/[kind]/[id]\` — no per-type page templates.
+- **Permanence.** \`https://uuidna.com/<handle>\` is DOI-class (worker \`HANDLES\` 301 → theorem). Sealed in \`lean/seo-url-map.json\` after the final SEO audit — handles must not churn post-freeze. When a Zenodo DOI exists, cite **both** \`doi.org/…\` and the handle URL.
+- **i18n.** Seven locale rays (\`en|bg|de|fr|es|ru|zh\` = \`DIMENSIONS\`). English is the identity projection; other rays read the content-address handle via \`HEXBIT_WORDS\` (Readings.lean). The fold is the translation — address-preserving, not a semantic gloss.
+- **Quantum advantage.** Push path **verifies** the sealed report (\`lean/quantum-advantage.json\`, theorem \`usable_gap_is_two_to_eighty\`); it does not remeasure. Remeasure is \`gen-quantum-advantage\`, off-path.
+- **Archive.** Zenodo DOI minting is workflow-only (\`publish.yml\` jobs \`zenodo\` / \`zenodo-clay\`). Local scripts regenerate \`.zenodo.json\` / \`.zenodo.clay.json\` metadata only.
+- **Proof.** Every theorem below is proven \`by decide\` in Lean, verified sorry-free by \`npm run lean\` — **${ledger.length} theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+
+## Principles
 
 ${keptPrinciples.map((p, i) => `${i + 1}. **${p[1]}** — \`lean/${p[0]}\` · **${countOf(p[0])}** theorems\n   ${p[2]}`).join('\n\n')}
 
 ---
 
-Rendered as schema.org microdata cards at [uuidna.com/theorems](https://uuidna.com/theorems), folded to one recomputable receipt.
+Catch-all surfaces: [uuidna.com/theorems](https://uuidna.com/theorems) · handle doors \`/<8-hex>\` · DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144).
 `
 writeFileSync(join(ROOT, 'lean', 'PRINCIPLE.md'), md)
 console.log('✓ src/theorems/generated.ts + lean/PRINCIPLE.md — ' + ledger.length + ' Lean theorems (single source), organised by ' + keptPrinciples.length + ' principles.')

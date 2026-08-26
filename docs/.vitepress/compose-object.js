@@ -1,25 +1,19 @@
-// Dynamic route: one show page per proven Lean theorem, generated at build time from the ledger — no 564 files on
-// disk. Each page carries the detailed proof, the formal statement (the formula), the content-address, its skill and
-// principle, and a cross-link COMPASS — prev/next along three axes (skill, principle, sequence) so every theorem is
-// woven to its neighbours in all directions. `params` also feeds per-page Open Graph + uuidna:address meta via
-// transformPageData in config.ts.
-import { theorems, PRINCIPLES, renderTheorem, merkleGravity, runTrial } from '../../dist/index.js'
+// compose-object — THE ONE CATCH-ALL CONTENT COMPOSER for every object type (captain, 2026-08-26).
+//
+// Theorems, publications, handle targets, and link-objects all feed THIS composer → ObjectPage (theme Layout).
+// No per-type page templates. Locale/i18n is data-driven on ObjectPage (seven DIMENSIONS rays + hexbit readings).
+// URLs stay frozen: /theorem/<key>, /publications/<slug>. Handle doors 301 via worker HANDLES.
+import { theorems, PRINCIPLES, merkleGravity, runTrial, publications } from '../../dist/index.js'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 
-// The decide-step heartbeat cost per theorem — a persisted, on-demand snapshot (npm run heartbeats --all), keyed by
-// CONTENT-ADDRESS so a changed theorem self-invalidates: its address moves, the lookup misses, the page says "not
-// yet measured" rather than showing a stale number. Absent file → every page just omits the measured cost.
 const HB = (() => {
   try { return JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../../lean/heartbeats.json'), 'utf8')).costs || {} } catch { return {} }
 })()
 
 const blurb = Object.fromEntries(PRINCIPLES.map((p) => [p[1], p[2]]))
 const GH = 'https://github.com/uuidna/uuidna/blob/main/lean/'
-
-// Keep only the <article> card from the renderer (drop the <meta> tags it prepends — those go through config head).
-const cardOf = (t) => renderTheorem({ name: t.name, key: t.key, address: t.address }, { base: '' }).replace(/^[\s\S]*?(?=<article)/, '')
 
 const ALL = theorems()
 // Position each theorem within an ordered axis (skill-filtered, principle-filtered, or the full sequence), so a page
@@ -89,6 +83,11 @@ const titleOf = (t) => {
   const short = head.length <= 80 ? head : (head.slice(0, 80).includes(' ') ? head.slice(0, 80).slice(0, head.slice(0, 80).lastIndexOf(' ')) : head.slice(0, 80)) + '…'
   return mdSafe(short)
 }
+/** Plain short title for ObjectPage hero / YAML frontmatter (no markdown escapes). */
+const heroTitleOf = (t) => {
+  const head = (t.name.split('—')[0]).trim() || t.key
+  return head.length <= 120 ? head : head.slice(0, 117) + '…'
+}
 const link = (t) => (t ? `[${titleOf(t)}](/theorem/${t.key})` : '—')
 const compass = (label, target, [prev, next]) =>
   `- **${label} · ${target}:** ${prev ? '← ' + link(prev) : '—'} · ${next ? link(next) + ' →' : '—'}`
@@ -142,23 +141,34 @@ A sealed theorem is settled. Where its forward link is **invisible** — a front
 To make the invisible next visible, add ${where}; then \`npm run lean\` seals it, folds it into the trial receipt, and the provenance gate lets any claim that links it pass. The promise is delivered in code, not coin.`
 }
 
-export default {
-  paths() {
-    return ALL.map((t) => ({
-      params: {
-        key: t.key,
-        name: t.name,
-        principle: t.principle,
-        skill: t.skill,
-        statement: t.statement,
-        tactic: t.tactic,
-        address: t.address,
-      },
-      content: `# ${titleOf(t)}
+/** composeTheorem(t) → one catch-all ObjectPage payload (params + body). Hero H1+abstract via frontmatter. */
+export function composeTheorem(t) {
+  const handle = t.address.replace(/-/g, '').slice(0, 8)
+  return {
+    params: {
+      kind: 'theorem',
+      id: t.key,
+      key: t.key,
+      name: t.name,
+      principle: t.principle,
+      skill: t.skill,
+      statement: t.statement,
+      tactic: t.tactic,
+      address: t.address,
+      objectKind: 'theorem',
+    },
+    content: `---
+title: ${JSON.stringify(heroTitleOf(t))}
+heroTitle: ${JSON.stringify(heroTitleOf(t))}
+abstract: ${JSON.stringify(t.statement)}
+handleUrl: ${JSON.stringify('https://uuidna.com/' + handle)}
+objectKind: theorem
+locales: [en, bg, de, fr, es, ru, zh]
+---
 
 > ${mdSafe(t.name)}
 
-**VERIFIED** — proven in Lean (\`by ${t.tactic}\`, sorry-free) · skill **[${t.skill}](/topics#skill-${t.skill})** · principle **${t.principle}**
+**VERIFIED** — proven in Lean (\`by ${t.tactic}\`, sorry-free) · skill **${t.skill}** · principle **${t.principle}**
 
 ## Statement (formula)
 
@@ -174,20 +184,18 @@ ${t.lean}
 
 | field | value |
 | --- | --- |
-| content-address | \`${t.address.slice(0, 8)}\` — the **handle** (the door \`/${t.address.slice(0, 8)}\`); the full uuid is the machine key, in this page's meta and recomputable from the proof, never shown (it computes on the spot) |
-| skill | [${t.skill}](/topics#skill-${t.skill}) — the capability hub (every theorem sharing it) |
+| content-address | \`${handle}\` — DOI-class door \`https://uuidna.com/${handle}\` |
+| skill | ${t.skill} |
 | principle | ${mdSafe(t.principle)} — ${mdSafe(blurb[t.principle] || '')} |
-| verdict | **VERIFIED** — its \`by ${t.tactic}\` proof compiles sorry-free (Lean 4.33.0, no Mathlib) |
-| decide-step cost | ${HB[t.address] !== undefined ? `**${HB[t.address]} heartbeats** — the deterministic, machine-independent work \`by ${t.tactic}\` does to verify it (recompute: \`npm run heartbeats ${t.key}\`)` : `not yet measured — run \`npm run heartbeats ${t.key}\``} |
-| real energy cost | machine-independent, so the heartbeat is **not** the energy cost. The physical cost is thermodynamic and device-dependent, bounded below by Landauer — erasing one bit costs at least *kT·ln2* (≈ 2.87×10⁻²¹ J at 300 K), paid as heat by the device. No computation is free; the heartbeat is the abstract work, the device pays the joules. |
+| verdict | **VERIFIED** — \`by ${t.tactic}\` sorry-free |
+| decide-step cost | ${HB[t.address] !== undefined ? `**${HB[t.address]} heartbeats**` : `not yet measured`} |
+| real energy cost | Landauer floor *kT·ln2* — heartbeat ≠ joules |
 
 ## Cross-links
 
 <RefererCompass />
 
-Woven to its neighbours in every direction — each axis, backward and forward:
-
-${compass('Skill', `[${t.skill}](/topics#skill-${t.skill})`, bySkill[t.skill](t))}
+${compass('Skill', t.skill, bySkill[t.skill](t))}
 ${compass('Principle', t.principle, byPrin[t.principle](t))}
 ${compass('Sequence', 'ledger order', bySeq(t))}
 
@@ -197,10 +205,52 @@ ${neighbourFold(t)}
 
 ${developNext(t)}
 
-[All theorems](/theorems) · [Source · lean/${t.file}](${GH}${t.file}) · [npm](https://www.npmjs.com/package/@uuidna/uuidna)
-
-Re-verify every proof with \`npm run lean\` (regenerates \`lean/*.lean\` and this ledger, sorry-free). A theorem computes in Lean, or it is not a theorem.
+Re-verify with \`npm run lean\`. Cite DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144) and handle \`https://uuidna.com/${handle}\`.
 `,
-    }))
-  },
+  }
+}
+
+/** composePublication(p) → same catch-all ObjectPage shape. */
+export function composePublication(p) {
+  const handle = (p.address || p.receipt).replace(/-/g, '').slice(0, 8)
+  const body = p.markdown.replace(/^#\s+[^\n]+\n+/, '')
+  return {
+    params: {
+      kind: 'publications',
+      id: p.slug,
+      slug: p.slug,
+      address: p.address,
+      receipt: p.receipt,
+      abstract: p.abstract,
+      name: p.title,
+      objectKind: 'publication',
+    },
+    content: `---
+title: ${JSON.stringify(p.title)}
+heroTitle: ${JSON.stringify(p.title)}
+abstract: ${JSON.stringify(p.abstract)}
+handleUrl: ${JSON.stringify('https://uuidna.com/' + handle)}
+objectKind: publication
+locales: [en, bg, de, fr, es, ru, zh]
+---
+
+${body}
+
+**Audited before published** · handle \`https://uuidna.com/${handle}\` · DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144) · receipt \`${p.receipt.slice(0, 8)}\` · ${p.count} seals.
+`,
+  }
+}
+
+/** allObjectPaths() → every object for the catch-all [kind]/[id] route. */
+export function allObjectPaths() {
+  const pubs = publications()
+  const refused = pubs.filter((p) => !p.publishable)
+  if (refused.length) {
+    const why = refused.map((p) => `  • ${p.slug}: ${p.findings.map((f) => `[${f.token}] "${f.unit}"`).join('; ')}`).join('\n')
+    throw new Error(`publications: ${refused.length} note(s) REFUSED —\n${why}`)
+  }
+  return [
+    ...ALL.map(composeTheorem),
+    ...pubs.map(composePublication),
+  ]
 }

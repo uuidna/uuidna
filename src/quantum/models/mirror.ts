@@ -464,8 +464,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000077",
-   "completionPrice": "0.000000154"
+   "promptPrice": "0.000000088606",
+   "completionPrice": "0.000000177212"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000055593",
-   "completionPrice": "0.00000111186"
+   "promptPrice": "0.000000790308",
+   "completionPrice": "0.000001580616"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -891,8 +891,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-3.3-70b-instruct",
    "name": "Meta: Llama 3.3 70B Instruct",
    "contextTokens": 131072,
-   "promptPrice": "0.0000001",
-   "completionPrice": "0.00000032"
+   "promptPrice": "0.00000071",
+   "completionPrice": "0.00000071"
   },
   {
    "id": "meta-llama/llama-4-maverick",
@@ -905,8 +905,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-4-scout",
    "name": "Meta: Llama 4 Scout",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000001",
-   "completionPrice": "0.0000003"
+   "promptPrice": "0.00000011",
+   "completionPrice": "0.00000034"
   },
   {
    "id": "meta-llama/llama-guard-4-12b",
@@ -2158,8 +2158,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen2.5-vl-72b-instruct",
    "name": "Qwen: Qwen2.5 VL 72B Instruct",
    "contextTokens": 128000,
-   "promptPrice": "0.0000008",
-   "completionPrice": "0.000001"
+   "promptPrice": "0.00000025",
+   "completionPrice": "0.00000075"
   },
   {
    "id": "qwen/qwen3-14b",
@@ -2879,8 +2879,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-v4-flash-latest",
    "name": "DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.000000035",
-   "completionPrice": "0.0000005"
+   "promptPrice": "0.00000004",
+   "completionPrice": "0.00000008"
   },
   {
    "id": "~google/gemini-flash-latest",

@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 // src/scripts/gen-zenodo.ts — GENERATE .zenodo.json, the archive's deposited metadata.
+// DOES NOT PUBLISH. Zenodo DOI minting is WORKFLOW-ONLY (`.github/workflows/publish.yml` job `zenodo`);
+// this script only regenerates the metadata the workflow deposits. Local deposit attempts: `npm run zenodo-deposit`.
 //
 // THIS FILE EXISTS BECAUSE THE ARCHIVE WAS THE LAST HAND-WRITTEN SURFACE. README is generated, CHANGELOG is
 // generated, the site is generated — .zenodo.json was typed, and it is the ONE surface deposited into a permanent
@@ -73,6 +75,8 @@ const zenodo = {
     { identifier: repoUrl, relation: 'isSupplementTo', resource_type: 'software' },
     { identifier: npmUrl, relation: 'isIdenticalTo', resource_type: 'software' },
     { identifier: 'https://uuidna.com', relation: 'isDocumentedBy', resource_type: 'publication-softwaredocumentation' },
+    { identifier: 'https://uuidna.com/articles/clay', relation: 'isDocumentedBy', resource_type: 'publication-article' },
+    { identifier: '10.5281/zenodo.21781603', relation: 'references', resource_type: 'publication' }, // initial clay σ-involution
     { identifier: '10.5281/zenodo.21787144', relation: 'references', resource_type: 'publication' },
     { identifier: '10.1038/s41586-026-10846-4', relation: 'references', resource_type: 'publication-article' },
     // THE TWO-CHAIN LAW — every release mints twice, and the chains declare each other so citations fold

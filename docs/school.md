@@ -829,6 +829,10 @@ axiom-free. Every lesson below is the theorem's own text, quoted from the ledger
 names what it decides and what it leaves untouched. Nothing here decides a Millennium Problem, and no theorem in
 this ledger claims to — what is sealed is the arithmetic each problem is counted by.
 
+**Prior art (initial clay σ-involution):** [DOI 10.5281/zenodo.21781603](https://doi.org/10.5281/zenodo.21781603)
+([Zenodo record](https://zenodo.org/records/21781603) — *All Seven Clay Millennium Problems Sealed via Universal σ-Involution*).
+Credit law: that DOI is first; the captain comes next. Live clay surface: [uuidna.com/articles/clay](https://uuidna.com/articles/clay).
+
 ### P vs NP
 
 P vs NP, the counting argument at two bits: there are 16 boolean functions on two inputs, and exactly 4 are a single conjunction of literals — the ones whose truth table has exactly one satisfying row. A class of size 4 cannot cover 16, so expressive power is COUNTED here rather than asserted. This decides the instance, never the conjecture.

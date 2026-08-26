@@ -15,7 +15,8 @@
      Lives in the nav-bar-content-after slot — genuinely part of the nav, not a page-bottom note. -->
 <script setup>
 import { ref, onMounted, watch } from 'vue'
-import { useData, useRoute, withBase } from 'vitepress'
+import { useData, useRoute } from 'vitepress'
+import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
 import { data } from '../ledger.data'
 
 const { params } = useData()
@@ -63,10 +64,16 @@ watch(() => route.path, compute)
 </script>
 
 <template>
-  <a v-if="suggestion" class="referrer-nav-link" :href="withBase(suggestion.link)"
-     :aria-label="(suggestion.context ? `Continue in ${suggestion.context}: ` : 'Next: ') + suggestion.name">
+  <!-- LINK LAW: nav slot · VitePress VPLink (normalizeLink), not a hand-rolled <a> -->
+  <VPLink
+    v-if="suggestion"
+    class="referrer-nav-link"
+    :href="suggestion.link"
+    no-icon
+    :aria-label="(suggestion.context ? `Continue in ${suggestion.context}: ` : 'Next: ') + suggestion.name"
+  >
     <span aria-hidden="true">↳</span> {{ suggestion.name }}
-  </a>
+  </VPLink>
 </template>
 
 <style scoped>

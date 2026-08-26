@@ -10,6 +10,11 @@ them, 128 = 2·64, one per coin, one per strand
 Every number on this page is computed at generation from the ledger and the wired code. Recompute them all:
 `npm run lean`.
 
+**Permanent citation URLs (DOI-class).** After the SEO freeze, cite theorems by handle door
+`https://uuidna.com/<handle>` (8 hex; worker `HANDLES` 301 → `/theorem/<key>`). Same permanence expectations as a DOI.
+Archive DOI: [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144). Completeness cites **both** the DOI
+(when present) and the uuidna.com handle URL.
+
 - ✓ Value is measured in theorems (all decidable, all sealed)
 - ✓ Transactions are proven, not trusted
 - ✓ Both parties verify independently — the proof, not each other

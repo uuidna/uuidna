@@ -24581,7 +24581,7 @@ main	libconfig++	1.8.2-r0	Q1OBtelTrWvjOYQJ20NmkHDHU95js=	C++ bindings for libcon
 main	libconfig-dev	1.8.2-r0	Q1AeEbUYGKM1R9b7jAYBkjq/8Vj70=	A simple library for manipulating structured configuration files (development files)	libconfig++=1.8.2-r0 libconfig=1.8.2-r0 pkgconfig	pc:libconfig++=1.8.2 pc:libconfig=1.8.2
 main	libconfig-doc	1.8.2-r0	Q1WTpBqW0fuJAtYhUTUt7QXxydwZE=	A simple library for manipulating structured configuration files (documentation)		
 main	libconfig-static	1.8.2-r0	Q1YUFQyXYXgAX0Q3EeejIZ5UtRwHw=	A simple library for manipulating structured configuration files (static libraries)		
-main	libcrypto3	3.5.7-r0	Q1SBr7xSvPBvIxbJOgqBzo9yvtUD4=	Crypto library from openssl	so:libc.musl-x86_64.so.1	so:libcrypto.so.3=3
+main	libcrypto3	3.5.8-r0	Q1GzufwME29JNpMryy7CFJnwrl39M=	Crypto library from openssl	so:libc.musl-x86_64.so.1	so:libcrypto.so.3=3
 main	libcurl	8.21.0-r0	Q1xZEzZzvboPzJLIl9neaCwjAbXX8=	The multiprotocol file transfer library	ca-certificates-bundle so:libbrotlidec.so.1 so:libc.musl-x86_64.so.1 so:libcares.so.2 so:libcrypto.so.3 so:libidn2.so.0 so:libnghttp2.so.14 so:libpsl.so.5 so:libssl.so.3 so:libz.so.1 so:libzstd.so.1	so:libcurl.so.4=4.8.0
 main	libdaemon	0.14-r6	Q1BQosWcQLLRHpocy4hHAbOgrTFrM=	A lightweight C library which eases the writing of UNIX daemons	so:libc.musl-x86_64.so.1	so:libdaemon.so.0=0.5.0
 main	libdaemon-dev	0.14-r6	Q1a/JdnjuNkPT3n6sYaQCXUXqEx+g=	A lightweight C library which eases the writing of UNIX daemons (development files)	libdaemon=0.14-r6 pkgconfig	pc:libdaemon=0.14
@@ -24885,7 +24885,7 @@ main	libssh2-dbg	1.11.1-r3	Q1Gs9R6ZLnTlTUJ/tIUgRGKOIlY5o=	library for accessing 
 main	libssh2-dev	1.11.1-r3	Q1jX3oqQ6T4e+tsaGf3c/Ud97tRH4=	library for accessing ssh1/ssh2 protocol servers (development files)	libssh2=1.11.1-r3 pc:libcrypto pc:zlib pkgconfig	pc:libssh2=1.11.1
 main	libssh2-doc	1.11.1-r3	Q15YBJHmCl/9A4UC91xDKvfHuiYpw=	library for accessing ssh1/ssh2 protocol servers (documentation)		
 main	libssh2-static	1.11.1-r3	Q1rP9/4n5Q8GTnNw+DsG9lku6w8Qg=	library for accessing ssh1/ssh2 protocol servers (static library)	libssh2-dev	
-main	libssl3	3.5.7-r0	Q1JAyCUtHKFFhzwDyZeWZpjrUJ90U=	SSL shared libraries	libcrypto3=3.5.7-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3	so:libssl.so.3=3
+main	libssl3	3.5.8-r0	Q1X5seVdghlT0uKx2zItrXCjtQQeo=	SSL shared libraries	libcrypto3=3.5.8-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3	so:libssl.so.3=3
 main	libstdc++	15.2.0-r5	Q1X3oq12RhKLoCzA1vuUZytoRWSNU=	GNU C++ standard runtime library	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1	so:libstdc++.so.6=6.0.34
 main	libstdc++-dev	15.2.0-r5	Q16OyN4lX+7wXQ0QH7GOJr46LbZ7U=	GNU C++ standard runtime library (development files)	libstdc++=15.2.0-r5	
 main	libstemmer	2.2.0-r0	Q1+NPvd/FCyNmlD1AzewK39dy+Qvo=	Snowball rule-based stemming algorithms	so:libc.musl-x86_64.so.1	so:libstemmer.so.2=2
@@ -26344,13 +26344,13 @@ main	openssh-server-krb5	10.3_p1-r0	Q1uH2QM/WcKemeOEfFB9F6Nly+c0Q=	OpenSSH serve
 main	openssh-server-pam	10.3_p1-r0	Q1U4y0J1goYfjggFCej8nK4s9BecY=	OpenSSH server with pam support	openssh-keygen=10.3_p1-r0 openssh-server-common=10.3_p1-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libpam.so.0 so:libz.so.1	cmd:sshd.pam=10.3_p1-r0
 main	openssh-sftp-server	10.3_p1-r0	Q1POwiqNd1ohkaxiYaRCyyiTJ5QVw=	ssh sftp server module	so:libc.musl-x86_64.so.1	
 main	openssh-sk-helper	10.3_p1-r0	Q1UPLfB/6/F9wL9VIfsiviAJrX9bg=	OpenSSH libfido2 security key helper	openssh-keygen=10.3_p1-r0 openssh-server-common=10.3_p1-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libfido2.so.1	
-main	openssl	3.5.7-r0	Q1t65sIl2GjRKAnrbQScZ0UJz9JHM=	Toolkit for Transport Layer Security (TLS)	libssl3=3.5.7-r0 libcrypto3=3.5.7-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3	openssl3=3.5.7-r0 cmd:openssl=3.5.7-r0
-main	openssl-dbg	3.5.7-r0	Q150Mi4v1KJVyMW9OSAaktiF2E3P8=	Toolkit for Transport Layer Security (TLS) (debug symbols)	!libcrypto3<3.5.7-r0 !libcrypto3>3.5.7-r0 !libssl3<3.5.7-r0 !libssl3>3.5.7-r0 !openssl-fips<3.5.7-r0 !openssl-fips>3.5.7-r0 !openssl<3.5.7-r0 !openssl>3.5.7-r0	
-main	openssl-dev	3.5.7-r0	Q1zNM0++9g5ienGcqYXzBgb82UpmA=	Toolkit for Transport Layer Security (TLS) (development files)	libcrypto3=3.5.7-r0 libssl3=3.5.7-r0 pkgconfig	openssl3-dev=3.5.7-r0 pc:libcrypto=3.5.7 pc:libssl=3.5.7 pc:openssl=3.5.7
-main	openssl-doc	3.5.7-r0	Q1v5dmqnhDDqPVi42xLRpwy/vGS1M=	Toolkit for Transport Layer Security (TLS) (documentation)		
-main	openssl-fips	3.5.7-r0	Q1t3gx9g1qU4w8qxFbLsqZJ7lCwq8=	FIPS module from openssl	libssl3=3.5.7-r0 libcrypto3=3.5.7-r0 /bin/sh so:libc.musl-x86_64.so.1	
-main	openssl-libs-static	3.5.7-r0	Q1sHDZv/Z1VtmSTNFbxB4aEyxEPCU=	Toolkit for Transport Layer Security (TLS) (static library)	openssl-dev	
-main	openssl-misc	3.5.7-r0	Q111WHbQFWhMhnY9daTIt8lim4q9k=	Various perl scripts from openssl	openssl=3.5.7-r0 perl	
+main	openssl	3.5.8-r0	Q1zDDR3QcjwGvbMoZwjc75onppebg=	Toolkit for Transport Layer Security (TLS)	libssl3=3.5.8-r0 libcrypto3=3.5.8-r0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3	openssl3=3.5.8-r0 cmd:openssl=3.5.8-r0
+main	openssl-dbg	3.5.8-r0	Q17CHS4e157NXP2hNLDHGLksKUqWQ=	Toolkit for Transport Layer Security (TLS) (debug symbols)	!libcrypto3<3.5.8-r0 !libcrypto3>3.5.8-r0 !libssl3<3.5.8-r0 !libssl3>3.5.8-r0 !openssl-fips<3.5.8-r0 !openssl-fips>3.5.8-r0 !openssl<3.5.8-r0 !openssl>3.5.8-r0	
+main	openssl-dev	3.5.8-r0	Q1VgpnefUlHIp9HnjNNEIQuZRoEMY=	Toolkit for Transport Layer Security (TLS) (development files)	libcrypto3=3.5.8-r0 libssl3=3.5.8-r0 pkgconfig	openssl3-dev=3.5.8-r0 pc:libcrypto=3.5.8 pc:libssl=3.5.8 pc:openssl=3.5.8
+main	openssl-doc	3.5.8-r0	Q17utwtLJVOItR3zumuKtZXZ8k8mo=	Toolkit for Transport Layer Security (TLS) (documentation)		
+main	openssl-fips	3.5.8-r0	Q1pf7C9t7ftb61eYX7zjI8iu6Pm9w=	FIPS module from openssl	libssl3=3.5.8-r0 libcrypto3=3.5.8-r0 /bin/sh so:libc.musl-x86_64.so.1	
+main	openssl-libs-static	3.5.8-r0	Q1Hwx6Tbz2ESv3ZIVDpjFTlLCmo5M=	Toolkit for Transport Layer Security (TLS) (static library)	openssl-dev	
+main	openssl-misc	3.5.8-r0	Q1+i1W1tJ4RjrOnCqixH+4vFBHKYM=	Various perl scripts from openssl	openssl=3.5.8-r0 perl	
 main	openvpn	2.7.5-r0	Q1gvBWJg8Vc94CvQdLWhpSfa4LYQg=	Robust, and highly configurable VPN (Virtual Private Network)	iproute2-minimal /bin/sh so:libc.musl-x86_64.so.1 so:libcap-ng.so.0 so:libcrypto.so.3 so:liblz4.so.1 so:liblzo2.so.2 so:libnl-3.so.200 so:libnl-genl-3.so.200 so:libpkcs11-helper.so.1 so:libssl.so.3	cmd:openvpn=2.7.5-r0
 main	openvpn-ad-check	1.1-r4	Q1pvdR8+iFcYktM/264orK23VT5IY=	Authenticate OpenVPN users against AD server and verify if they are member of a specific group.	openvpn lua-ldap	
 main	openvpn-auth-ldap	2.0.4-r8	Q1V5/YHpkl3+JQslqkEU1621TfYng=	LDAP authentication and authorization plugin for OpenVPN 2.x	openvpn /bin/sh so:libc.musl-x86_64.so.1 so:liblber.so.2 so:libldap.so.2 so:libobjc.so.4	
