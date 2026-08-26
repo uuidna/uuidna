@@ -7,10 +7,14 @@ import { ROOT } from '../boundary.js'
 import { bootUuidnaOSInBrowser } from '../quantum/os/browser-boot.js'
 
 test('bootUuidnaOSInBrowser loads committed catalogue in Node', async () => {
-  const r = await bootUuidnaOSInBrowser()
+  const r = await bootUuidnaOSInBrowser(undefined, { selfTest: true })
   assert.ok(r.bootReceipt.includes('-'), 'boot receipt must be a uuid')
   assert.equal(r.catalogue.present, true, r.catalogue.why ?? 'catalogue absent')
   assert.ok(r.catalogue.count > 28_000, `expected full Alpine census; got ${r.catalogue.count}`)
+  assert.ok(r.selfTest, 'self-test must run when catalogue is present')
+  assert.equal(r.selfTest!.tested, r.catalogue.count)
+  assert.equal(r.selfTest!.passed + r.selfTest!.failed, r.selfTest!.tested)
+  assert.equal(r.selfTest!.failed, r.selfTest!.upstreamGaps)
 })
 
 test('uuidnaOS browser boot wired on terminal and os surfaces', () => {

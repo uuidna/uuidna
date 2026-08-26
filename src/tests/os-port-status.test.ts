@@ -13,6 +13,8 @@ import { callTool } from '../mcp.js'
 test('portStatus reports the pinned port — the committed mirror made observable', () => {
   const s = portStatus()
   assert.equal(s.release.version, INSTALLS_MIRROR.release.version, 'the pinned release')
+  assert.equal(s.driver.sha256, INSTALLS_MIRROR.driver.sha256, 'the pinned netboot/modloop bundle')
+  assert.ok(s.driver.address.includes('-'), 'driver bundle address')
   assert.equal(s.count, INSTALLS_MIRROR.count, 'the pinned package count')
   assert.equal(s.branch, INSTALLS_MIRROR.branch)
   assert.equal(s.bootStates, 32 * (s.count + 1), 'the boot image is 32·(count+1) states')
@@ -24,6 +26,18 @@ test('CONTROL — the port compared to ITSELF is CURRENT: no move, no update due
   assert.equal(d.current, true, 'identical upstream ⇒ current')
   assert.equal(d.releaseChanged, false)
   assert.deepEqual([d.changed.length, d.added.length, d.removed.length], [0, 0, 0], 'nothing moved')
+})
+
+test('a moved DRIVER sha flips it STALE and is named', () => {
+  const up = {
+    ...INSTALLS_MIRROR,
+    driver: { ...INSTALLS_MIRROR.driver, sha256: '0'.repeat(64) },
+  }
+  const d = portDelta(up)
+  assert.equal(d.current, false)
+  assert.equal(d.driverChanged, true)
+  assert.equal(d.driverFrom, INSTALLS_MIRROR.driver.sha256)
+  assert.equal(d.driverTo, '0'.repeat(64))
 })
 
 test('a moved RELEASE flips it STALE and is named', () => {

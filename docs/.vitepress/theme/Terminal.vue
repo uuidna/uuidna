@@ -41,6 +41,10 @@ onMounted(async () => {
     const boot = await bootUuidnaOSInBrowser()
     const c = boot.catalogue
     await print(`\nuuidnaOS boot \`${boot.bootReceipt}\` · catalogue ${c.present ? `${c.count.toLocaleString('en-US')} packages` : `ABSENT — ${c.why}`}`)
+    if (boot.selfTest?.present) {
+      const st = boot.selfTest
+      await print(`self-test ${st.passed.toLocaleString('en-US')}/${st.tested.toLocaleString('en-US')} · ${st.upstreamGaps} upstream gap${st.upstreamGaps === 1 ? '' : 's'}`)
+    }
   } catch (e) {
     await print(`\n✗ uuidnaOS refused to boot — ${e instanceof Error ? e.message : String(e)}`)
   }

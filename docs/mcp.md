@@ -1111,7 +1111,7 @@ ALPINE APPS IN THE VIRTUAL uuidnaOS — one door after toy busybox was folded. P
 
 ### `uuidna_port`
 
-THE PINNED ALPINE PORT, MADE OBSERVABLE — automate port updates. Reports the port the virtual uuidnaOS is the world of: the Alpine branch/repo/arch and RELEASE it is pinned to, the default-install package count, the number of uuidna.com routes, the floor package, and the boot image shape (32·(count+1) states), folded to the port receipt + boot receipt. Deterministic and offline — the port is of the INTEGRITY and MEANING of the packages, nothing installed, linked, or run (theorem the_os_is_bootable_quantum). Freshness vs upstream is a host-side check (the mirror refreshes at the os/ boundary only under UUIDNA_TRACK_LATEST, so a live read never runs inside a served, recomputable call). Returns {branch,repo,arch,release,count,routes,floor,receipt,bootReceipt,bootStates,honest}.
+THE PINNED ALPINE PORT, MADE OBSERVABLE — automate port updates. Reports the port the virtual uuidnaOS is the world of: the Alpine branch/repo/arch and RELEASE it is pinned to, the netboot/modloop driver bundle (sha256 + content-address), the default-install package count, the number of uuidna.com routes, the floor package, and the boot image shape (32·(count+1) states), folded to the port receipt + boot receipt. Deterministic and offline — the port is of the INTEGRITY and MEANING of the packages, nothing installed, linked, or run (theorem the_os_is_bootable_quantum). Freshness vs upstream is a host-side check (the mirror refreshes at the os/ boundary only under UUIDNA_TRACK_LATEST, so a live read never runs inside a served, recomputable call). Returns {branch,repo,arch,release,driver,count,routes,floor,receipt,bootReceipt,bootStates,honest}.
 
 _No parameters._
 

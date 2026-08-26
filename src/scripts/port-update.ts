@@ -22,6 +22,7 @@ async function main(): Promise<number> {
   const s = portStatus()
   console.log(`port — Alpine ${s.branch}/${s.repo}/${s.arch} @ ${s.release.version}: ${s.count} packages, ` +
     `${s.routes} routes, floor ${s.floor}, boot ${s.bootStates} states`)
+  console.log(`  driver ${s.driver.file} · sha256 ${s.driver.sha256.slice(0, 16)}… · address ${s.driver.address}`)
   console.log(`  receipt ${s.receipt}  ·  boot ${s.bootReceipt}`)
 
   // OFFLINE coherence — the committed mirror must reproduce its own boot image, or the pin is incoherent.
@@ -56,7 +57,9 @@ async function main(): Promise<number> {
     return 0
   }
   console.log(`⟳ port-update — STALE: Alpine moved ${d.releaseFrom} → ${d.releaseTo}` +
-    (d.releaseChanged ? ' (release changed)' : '') + `. delta ${d.receipt}`)
+    (d.releaseChanged ? ' (release changed)' : '') +
+    (d.rootfsChanged ? ' (rootfs sha changed)' : '') +
+    (d.driverChanged ? ' (driver/modloop sha changed)' : '') + `. delta ${d.receipt}`)
   if (d.changed.length) console.log(`  changed (${d.changed.length}): ` + d.changed.map((c) => c.name).join(', '))
   if (d.added.length) console.log(`  added   (${d.added.length}): ` + d.added.join(', '))
   if (d.removed.length) console.log(`  removed (${d.removed.length}): ` + d.removed.join(', '))

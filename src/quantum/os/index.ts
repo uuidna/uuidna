@@ -18,6 +18,7 @@ import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { uuidnaPackage } from '../../os/packages/index.js'
 import { INSTALLS_MIRROR, type InstallsMirror, type MirrorPackage } from './mirror.js'
+import { driverBundle } from '../../drivers/driver/index.js'
 
 /** The path each default install specifies on uuidna.com — the authored translation of each package's ROLE
  *  into a route (declared editorial, like sidebar group names: "the toolbox of common UNIX utilities" IS the
@@ -180,19 +181,21 @@ export function installFor(route: string): InstallSpec | null {
 export interface PortStatus {
   branch: string; repo: string; arch: string
   release: { version: string; rootfsSha256: string }
+  driver: { flavor: string; file: string; sha256: string; address: string; receipt: string }
   count: number; routes: number; floor: string
   receipt: string; bootReceipt: string; bootStates: number
   honest: string
 }
 export function portStatus(): PortStatus {
   const p = defaultInstalls()
+  const drv = INSTALLS_MIRROR.driver
+  const bundle = driverBundle(p.release.version, p.arch, drv.sha256, drv.flavor)
   return {
     branch: p.branch, repo: p.repo, arch: p.arch, release: p.release,
+    driver: { flavor: drv.flavor, file: drv.file, sha256: drv.sha256, address: bundle.address, receipt: bundle.receipt },
     count: p.count, routes: p.specs.length, floor: p.specs[0]!.id,
     receipt: p.receipt, bootReceipt: p.boot.address, bootStates: p.boot.count,
-    honest: 'The pinned Alpine port made observable: the release the committed mirror is the world of, its package ' +
-      'count and boot shape, folded to one receipt. Integrity and provenance, never execution — the port is of the ' +
-      'INTEGRITY and MEANING of the packages, nothing installed, linked, or run (theorem the_os_is_bootable_quantum).',
+    honest: 'The pinned Alpine port made observable: the release the committed mirror is the world of, its netboot/modloop driver bundle, package count and boot shape, folded to one receipt. Integrity and provenance, never execution — the port is of the INTEGRITY and MEANING of the packages, nothing installed, linked, or run (theorem the_os_is_bootable_quantum).',
   }
 }
 
@@ -203,6 +206,8 @@ export interface PortChange { name: string; from: string; to: string }
 export interface PortDelta {
   current: boolean
   releaseFrom: string; releaseTo: string; releaseChanged: boolean
+  rootfsFrom: string; rootfsTo: string; rootfsChanged: boolean
+  driverFrom: string; driverTo: string; driverChanged: boolean
   countFrom: number; countTo: number
   changed: PortChange[]; added: string[]; removed: string[]
   receipt: string
@@ -220,13 +225,19 @@ export function portDelta(upstream: InstallsMirror): PortDelta {
   const added = [...upMap.keys()].filter((n) => !pinnedMap.has(n)).sort()
   const removed = [...pinnedMap.keys()].filter((n) => !upMap.has(n)).sort()
   const releaseChanged = pinned.release.version !== upstream.release.version
+  const rootfsChanged = pinned.release.rootfsSha256 !== upstream.release.rootfsSha256
+  const driverChanged = pinned.driver.sha256 !== upstream.driver.sha256
   changed.sort((a, b) => (a.name < b.name ? -1 : 1))
-  const current = !releaseChanged && changed.length === 0 && added.length === 0 && removed.length === 0
+  const current = !releaseChanged && !rootfsChanged && !driverChanged
+    && changed.length === 0 && added.length === 0 && removed.length === 0
   return {
     current, releaseFrom: pinned.release.version, releaseTo: upstream.release.version, releaseChanged,
+    rootfsFrom: pinned.release.rootfsSha256, rootfsTo: upstream.release.rootfsSha256, rootfsChanged,
+    driverFrom: pinned.driver.sha256, driverTo: upstream.driver.sha256, driverChanged,
     countFrom: pinned.count, countTo: upstream.packages.length, changed, added, removed,
-    receipt: toUuid('port-delta|' + pinned.release.version + '>' + upstream.release.version + '|' +
-      changed.map((c) => c.name + ':' + c.to).join(',') + '|+' + added.join(',') + '|-' + removed.join(',')),
+    receipt: toUuid('port-delta|' + pinned.release.version + '>' + upstream.release.version + '|'
+      + pinned.driver.sha256.slice(0, 12) + '>' + upstream.driver.sha256.slice(0, 12) + '|'
+      + changed.map((c) => c.name + ':' + c.to).join(',') + '|+' + added.join(',') + '|-' + removed.join(',')),
   }
 }
 

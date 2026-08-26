@@ -19,7 +19,7 @@ const addr = ref('')
 const samples = ref(0)
 
 onMounted(async () => {
-  try { await bootUuidnaOSInBrowser() } catch { /* boot image drift — player still renders states; monitor names the fault */ }
+  try { await bootUuidnaOSInBrowser(undefined, { selfTest: false }) } catch { /* boot image drift — player still renders states; monitor names the fault */ }
   const r = renderStates(props.states, props.ms)
   samples.value = r.samples
   addr.value = r.address
