@@ -190,6 +190,11 @@
       "detail": "man man-pages → 32 hexbits"
     },
     {
+      "topic": "man-pages-posix",
+      "ok": true,
+      "detail": "man man-pages-posix → 32 hexbits"
+    },
+    {
       "topic": "apk-tools",
       "ok": true,
       "detail": "man apk-tools → 32 hexbits"
@@ -203,6 +208,26 @@
       "topic": "ca-certificates",
       "ok": true,
       "detail": "man ca-certificates → 32 hexbits"
+    },
+    {
+      "topic": "dotnet",
+      "ok": true,
+      "detail": "man dotnet → 32 hexbits"
+    },
+    {
+      "topic": "gtk",
+      "ok": true,
+      "detail": "man gtk → 32 hexbits"
+    },
+    {
+      "topic": "unifont",
+      "ok": true,
+      "detail": "man unifont → 32 hexbits"
+    },
+    {
+      "topic": "clutter-gtk",
+      "ok": true,
+      "detail": "man clutter-gtk → 32 hexbits"
     },
     {
       "topic": "oh-my-pi",
@@ -366,7 +391,7 @@
     "surfaces": 11,
     "mountsOk": 11,
     "computeOk": 13,
-    "manSamplesOk": 7,
+    "manSamplesOk": 12,
     "installOk": 25,
     "manWitnessed": 4757,
     "manTotal": 4757
@@ -374,5 +399,5 @@
   "gaps": [],
   "ok": true,
   "honest": "Honest scope: store interactive mounts + uuidnaOS terminal man samples + default-install routes + manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.",
-  "receipt": "f322cf7b-13aa-824c-87e7-abdd1ec04813"
+  "receipt": "38f141db-f2b8-8a1d-8506-6c494f76d6c5"
 }

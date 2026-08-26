@@ -47,10 +47,10 @@ export const BROWSER_SURFACES: readonly BrowserSurface[] = [
   { id: 'os-boot', shelf: 'os', route: '/os', mount: 'HexbitPlayer', doc: 'os' },
 ]
 
-/** Man topics exercised through uuidnaExec — the browser terminal's same applet path, without 4.7k sessions.
- *  Topics must resolve to published *-doc / *-man-pages rows (musl has none upstream). */
+/** Man topics exercised through uuidnaExec — one sample per witness path (byVia), plus boot staples. */
 export const MAN_BROWSER_SAMPLES: readonly string[] = [
-  'busybox', 'openssl', 'man-pages', 'apk-tools', 'zlib', 'ca-certificates', 'oh-my-pi',
+  'busybox', 'openssl', 'man-pages', 'man-pages-posix', 'apk-tools', 'zlib', 'ca-certificates',
+  'dotnet', 'gtk', 'unifont', 'clutter-gtk', 'oh-my-pi',
 ]
 
 export interface MountCheck {

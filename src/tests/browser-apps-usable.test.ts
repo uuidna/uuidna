@@ -8,6 +8,7 @@ import { ROOT } from '../boundary.js'
 import {
   BROWSER_SURFACES, MAN_BROWSER_SAMPLES, browserAppsUsable, docHasMount,
 } from '../quantum/apps/browser-usable.js'
+import { resolveManPage, manAppWitness } from '../quantum/os/catalogue.js'
 
 const loadDocs = (): Map<string, string> => {
   const m = new Map<string, string>()
@@ -36,6 +37,19 @@ test('BROWSER USABILITY — store mounts + compute + man samples + man→app→h
   const browserGaps = r.gaps.filter((g) => !g.startsWith('man→app orphans'))
   assert.deepEqual(browserGaps, [], `browser gaps:\n${browserGaps.join('\n')}`)
   assert.equal(r.ok, true)
+})
+
+test('MAN_BROWSER_SAMPLES cover every byVia witness path', () => {
+  const need = ['corpus', 'origin', 'gtk-doc', 'dev', 'provides', 'self'] as const
+  const seen = new Set<string>()
+  for (const topic of MAN_BROWSER_SAMPLES) {
+    const doc = resolveManPage(topic)
+    assert.ok(doc, `${topic} must resolve a documentation package`)
+    const w = manAppWitness(doc)
+    assert.equal(w.ok, true, `${topic}: ${w.detail}`)
+    if (w.via) seen.add(w.via)
+  }
+  for (const v of need) assert.ok(seen.has(v), `missing ${v} witness; got ${[...seen].join(', ')}`)
 })
 
 test('docHasMount sees ClientOnly wrappers', () => {
