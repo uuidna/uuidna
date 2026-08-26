@@ -17,7 +17,7 @@ export const SITE = {
   description:
     'Lean 4 theorem ledger — content-addressed identity, honest by construction. Two coins conserved; cite by DOI-class handle.',
   origin: 'https://uuidna.com',
-  mark: '🪙',                                   // the coin, worn by the site title and the footer
+  mark: '',                                    // no emoji chrome in nav/sidebar; coin lives in /captain prose
   tagline: 'Content-addressed identity, honest by construction',
   repo: 'https://github.com/uuidna/uuidna',
   // THE SPONSORSHIP, in the one place the site's identity lives — the rule this file's own header states, applied to

@@ -5,7 +5,7 @@
 
 ## two coins on the homepage account
 
-**Prose:** "Two, conserved, explained only by theorems"
+**Prose:** "110 − 108 = −χ of the double torus"
 
 **Address:** `d9239271-b1cb-8ce2-b44f-72809c68069b`
 
@@ -18,7 +18,7 @@
 
 ## coins equal minus chi of the double torus
 
-**Prose:** "110 − 108 = −χ of the double torus"
+**Prose:** "Coins conserved"
 
 **Address:** `55b48740-d44b-81a5-8282-72a3f515f35e`
 

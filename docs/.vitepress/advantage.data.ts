@@ -175,7 +175,7 @@ export default {
       gapFactor: '2^80',
       theorem: 'usable_gap_is_two_to_eighty',
       theoremHref: '/theorem/usable_gap_is_two_to_eighty',
-      capacityHref: '/#quantum-capacity',
+      capacityHref: '/quantum#quantum-capacity',
       advantageHref: '/quantum-advantage.jsonld',
       receipt,
       capacityReceipt,

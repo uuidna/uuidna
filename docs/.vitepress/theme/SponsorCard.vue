@@ -41,7 +41,7 @@ const depositHref = computed(() => {
 
 <template>
   <aside class="sponsor-card">
-    <p class="sc-lede"><span class="sc-mark" aria-hidden="true">{{ SITE.mark }}</span> Sponsor the ledger</p>
+    <p class="sc-lede">Sponsor the ledger</p>
     <p class="sc-msg">{{ sponsor.message }}</p>
     <!-- rel: noopener for window.opener; noreferrer because doctrine withholds HTTP Referer — note= carries identity -->
     <a class="sc-link" :href="depositHref" target="_blank" rel="noopener noreferrer external">
@@ -65,7 +65,6 @@ const depositHref = computed(() => {
   font-weight: 600;
   color: var(--vp-c-text-1);
 }
-.sc-mark { margin-right: 0.3rem; }
 .sc-msg {
   margin: 0 0 0.6rem;
   color: var(--vp-c-text-2);

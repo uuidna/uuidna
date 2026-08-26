@@ -25,12 +25,12 @@ interface EvidenceEntry {
 const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
   {
     claim: 'two coins on the homepage account',
-    prose: 'Two, conserved, explained only by theorems',
+    prose: '110 − 108 = −χ of the double torus',
     backing: T.filter(t => t.key === 'two_coins')
   },
   {
     claim: 'coins equal minus chi of the double torus',
-    prose: '110 − 108 = −χ of the double torus',
+    prose: 'Coins conserved',
     backing: T.filter(t => t.key === 'two_coins')
   },
   {

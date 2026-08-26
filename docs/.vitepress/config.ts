@@ -16,6 +16,7 @@ export default defineConfig({
   // (it runs after the copy, so it sees the truth). Exempt ONLY that class; every other dead link still fails.
   ignoreDeadLinks: [/^\/lean\//],
   title: SITE.name,
+  titleTemplate: ':title · uuidna',
   description: SITE.description,
 
   head: [
@@ -32,7 +33,7 @@ export default defineConfig({
   ],
 
   themeConfig: {
-    siteTitle: SITE.mark + ' ' + SITE.name,
+    siteTitle: SITE.name,
 
     nav: [
       { text: 'Home', link: '/' },
@@ -108,8 +109,12 @@ export default defineConfig({
     } | undefined
     if (p) {
       const fm = pageData.frontmatter as Record<string, unknown>
-      if (p.title != null) fm.title ??= p.title
-      if (p.heroTitle != null) fm.heroTitle ??= p.heroTitle
+      // Dynamic object pages: force document <title> from compose-object params (do not leave bare site name).
+      if (p.title != null) {
+        pageData.title = p.title
+        fm.title = p.title
+      }
+      if (p.heroTitle != null) fm.heroTitle = p.heroTitle
       if (p.abstract != null) fm.abstract ??= p.abstract
       if (p.handle != null) fm.handle ??= p.handle
       if (p.handleUrl != null) fm.handleUrl ??= p.handleUrl

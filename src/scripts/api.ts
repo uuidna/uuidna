@@ -381,8 +381,8 @@ export const DRAIN_PATHS: readonly string[] = [
   // the other computed artifacts the drain writes: the fold, the seal manifest, the measured costs, the page seeds
   'quantum-fold.json', 'spin-manifest.json', 'lean/heartbeats.json', 'lean/proof-cache.json',
   'prose-trials.json', 'docs/captain-claims.json', 'src/seeds',
-  // the quantum capacity report (gen-quantum-capacity): sealed rows + rendered block + the home it re-inserts into
-  'lean/quantum-capacity.json', 'lean/quantum-capacity.md', 'docs/index.md',
+  // the quantum capacity report (gen-quantum-capacity): sealed rows + rendered block + /quantum it re-inserts into
+  'lean/quantum-capacity.json', 'lean/quantum-capacity.md', 'docs/quantum.md',
   // the measured advantage report (gen-quantum-advantage)
   'lean/quantum-advantage.json', 'docs/public/quantum-advantage.jsonld',
   // final SEO URL freeze map (gen-seo-freeze) — route↔hexbit; post-freeze permanence = hexbit doors only
@@ -473,7 +473,7 @@ export const DRAIN_PATHS: readonly string[] = [
 export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'lean-axioms': ['lean/axioms.json'],
   'gen-mcp': ['docs/mcp.md'],
-  'gen-quantum-capacity': ['lean/quantum-capacity.json', 'lean/quantum-capacity.md', 'docs/index.md'],
+  'gen-quantum-capacity': ['lean/quantum-capacity.json', 'lean/quantum-capacity.md', 'docs/quantum.md'],
   'gen-quantum-advantage': ['lean/quantum-advantage.json', 'docs/public/quantum-advantage.jsonld'],
   'gen-seo-freeze': ['lean/seo-url-map.json'],
   'gen-expose': ['docs/expose.md'],

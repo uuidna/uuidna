@@ -29,11 +29,17 @@ test('ObjectPage does not mount QuantumAdvantage or QaCardInjector', () => {
 test('home mounts QuantumAdvantage in markdown; advantage.data watches sealed outputs', () => {
   const home = readFileSync(join(ROOT, 'docs/index.md'), 'utf8')
   assert.match(home, /<QuantumAdvantage\s*\/>/)
+  assert.doesNotMatch(home, /<CostMeter\s*\/>/)
+  assert.doesNotMatch(home, /quantum-capacity:begin/)
+  assert.equal((home.match(/^\s+- title:/gm) || []).length, 3, 'home features slimmed to 3')
   const loader = readFileSync(join(ROOT, 'docs/.vitepress/advantage.data.ts'), 'utf8')
   assert.match(loader, /quantum-advantage\.json/)
   assert.match(loader, /usable_gap_is_two_to_eighty/)
+  assert.match(loader, /\/quantum#quantum-capacity/)
   assert.ok(existsSync(join(ROOT, 'lean/quantum-advantage.json')))
   assert.ok(existsSync(join(THEME, 'QuantumAdvantage.vue')))
+  const quantum = readFileSync(join(ROOT, 'docs/quantum.md'), 'utf8')
+  assert.match(quantum, /quantum-capacity:begin/)
 })
 
 test('home QuantumAdvantage is site-level usable-capacity, not page-local cards', () => {

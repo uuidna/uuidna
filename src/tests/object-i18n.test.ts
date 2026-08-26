@@ -71,7 +71,11 @@ test('compose-object: hero fields in params, never YAML-in-content (no bag leak)
   assert.match(composeSrc, /depositReferrer/)
   assert.match(
     readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8'),
-    /fm\.heroTitle\s*\?\?=/,
+    /pageData\.title\s*=\s*p\.title/,
+  )
+  assert.match(
+    readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8'),
+    /titleTemplate:\s*':title · uuidna'/,
   )
 
   const { theorems } = await import('../index.js')
@@ -95,6 +99,25 @@ test('compose-object: hero fields in params, never YAML-in-content (no bag leak)
   assert.doesNotMatch(page.content, /^title:\s/m)
   assert.doesNotMatch(page.content, /^heroTitle:\s/m)
   assert.doesNotMatch(page.content, /^objectKind:\s/m)
+  assert.doesNotMatch(page.content, /## Cross-links/)
+  assert.doesNotMatch(page.content, /## The rotation/)
+  assert.doesNotMatch(page.content, /## The neighbour fold/)
+  assert.doesNotMatch(page.content, /object-deposit-btn/)
+  assert.doesNotMatch(page.content, /RefererCompass/)
+})
+
+test('ObjectPage has no hero deposit CTA; donate is SponsorCard + SiteFooter only', () => {
+  const vue = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectPage.vue'), 'utf8')
+  assert.doesNotMatch(vue, /object-deposit/)
+  assert.doesNotMatch(vue, /depositHref/)
+})
+
+test('ObjectCrosslinks is a compact proves row without capacity/OS cards', () => {
+  const vue = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectCrosslinks.vue'), 'utf8')
+  assert.doesNotMatch(vue, /usable_gap_is_two_to_eighty/)
+  assert.doesNotMatch(vue, /href="\/os"/)
+  assert.doesNotMatch(vue, /ox-grid|ox-card/)
+  assert.match(vue, /ox-row/)
 })
 
 test('ObjectPage wires i18n translateObjectText + locale rays', () => {

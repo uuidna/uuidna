@@ -333,10 +333,13 @@ writeFileSync(join(ROOT, 'docs', 'public', 'quantum-capacity.jsonld'), JSON.stri
 writeFileSync(join(ROOT, 'lean', 'quantum-capacity.json'), JSON.stringify({ rows, receipt, measured: { nsDecade: m.nsDecade, ledger: m.ledger }, honest: UUIDNA.usableMetric }, null, 1) + '\n')
 writeFileSync(join(ROOT, 'lean', 'quantum-capacity.md'), block + '\n')
 
-// HOME carries the same sealed block between markers — replaced in place, appended before nothing else on first run.
-const homePath = join(ROOT, 'docs', 'index.md')
-const home = readFileSync(homePath, 'utf8')
+// /quantum carries the same sealed block between markers — replaced in place (home no longer hosts the full table).
+const quantumPath = join(ROOT, 'docs', 'quantum.md')
+const quantumPage = readFileSync(quantumPath, 'utf8')
 const marked = /<!-- quantum-capacity:begin[\s\S]*?quantum-capacity:end -->/
-const nextHome = marked.test(home) ? home.replace(marked, block) : home.trimEnd() + '\n\n' + block + '\n'
-writeFileSync(homePath, nextHome)
-console.log(`✓ gen-quantum-capacity — ${rows.length} models, receipt ${receipt}, uuidna measured decade 10^${m.nsDecade} ns/verify (raw ${m.rawNs} ns this run, ${m.ledger} theorems swept); README block at lean/quantum-capacity.md, home block inserted`)
+if (!marked.test(quantumPage)) {
+  console.error('✗ gen-quantum-capacity — docs/quantum.md is missing the quantum-capacity markers; refuse to invent a second home for the table.')
+  process.exit(1)
+}
+writeFileSync(quantumPath, quantumPage.replace(marked, block))
+console.log(`✓ gen-quantum-capacity — ${rows.length} models, receipt ${receipt}, uuidna measured decade 10^${m.nsDecade} ns/verify (raw ${m.rawNs} ns this run, ${m.ledger} theorems swept); README block at lean/quantum-capacity.md, /quantum block updated`)

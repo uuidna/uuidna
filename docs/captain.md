@@ -43,6 +43,8 @@ the deposit arithmetic is arithmetic. A vanished citation would break the verdic
 
 <CaptainCoins />
 
+<CostMeter />
+
 ## The sealed algebra
 
 The two coins are not a price — they are topology: **110 − 108 = 2 = −χ of the double torus** (genus 2, χ = 2 − 2·2).
