@@ -27,10 +27,10 @@ ten_costs_more_than_fifteen 27
 powers_of_two_are_the_substance 27
 handle_discards_before_walking 19
 #Anthem.lean
-anthem_chord_halves_the_bar 19
-anthem_three_lengths_quarter_the_bar 19
-anthem_rest_twelfths_the_bar 19
-anthem_four_movements 19
+anthem_chord_halves_the_bar 27
+anthem_three_lengths_quarter_the_bar 27
+anthem_rest_twelfths_the_bar 27
+anthem_four_movements 27
 anthem_closes_on_the_coin_octave 27
 anthem_superposition_mix_closes 27
 anthem_recursion_never_starves 19
@@ -103,7 +103,7 @@ no_audit_catches_all 27
 audit_space_meets_chess_at_eight 27
 #Billing.lean
 coins_are_the_common_factor 19
-the_rate_is_triangle_over_group 19
+the_rate_is_triangle_over_group 27
 difference_mints_ratio_bills 27
 the_pair_is_coins_times_rate 27
 advantage_first_doubles_at_seal_38 27
@@ -135,7 +135,7 @@ xor_differs_from_or 19
 implication_is_a_gate 19
 #Byte.lean
 byte_holds_two_hexbits 19
-address_is_sixteen_bytes 19
+address_is_sixteen_bytes 27
 digest_doubles_the_address 27
 every_alternative_differs 19
 tamper_set_counts_eight_thousand 19
@@ -176,7 +176,7 @@ annihilation_conserves_everything 19
 torus_chessboard_chi_zero 27
 double_torus_boards_are_the_address 27
 four_times_sixtyfour_is_the_byte 27
-ten_square_ten_free 19
+ten_square_ten_free 27
 ten_square_computes_ten_dimensions 27
 chessboard_sixty_four 27
 chessboard_two_colours 19
@@ -212,14 +212,14 @@ king_corner_three 26
 material_sum_twentyone 27
 central_four_squares 27
 #Cipher.lean
-key_floor_is_one_uuid 19
+key_floor_is_one_uuid 27
 dna_complement_involution 19
 dna_complement_fixed_point_free 19
 complement_is_xor_key3 19
 otp_self_inverse 19
 otp_key_reuse_leaks_xor 19
 xor_fold_is_malleable 19
-transport_leaks_length 19
+transport_leaks_length 27
 codons_four_cubed 27
 uuidna_is_dna_times_the_two_coins 27
 octave_codon_address 27
@@ -230,11 +230,11 @@ aead_nonce_and_salt_bits 27
 onion_layers_power_of_two 27
 sha256_is_four_sixtyfours 27
 sha256_rounds_are_the_board 27
-sha256_grover_margin_is_the_address 19
+sha256_grover_margin_is_the_address 27
 adversarial_privacy_is_unanimous 19
-secure_channel_by_default 19
+secure_channel_by_default 27
 verify_beats_recompute_by_magnitudes 27
-faster_and_more_secure 19
+faster_and_more_secure 27
 imprint_capacity_chain 27
 imprint_header_minimal 27
 imprint_capacity_entangles 27
@@ -259,7 +259,7 @@ no_reading_enters_here 19
 hamming_seven_four 27
 hamming_perfect_code 27
 singleton_bound 27
-distance_three_corrects_one 19
+distance_three_corrects_one 27
 distance_three_detects_two 27
 repetition_three_majority 19
 xor_checksum_catches_flip 19
@@ -291,7 +291,7 @@ wallet_counts_worlds 27
 coins_unique_operation_agreement 27
 coin_and_heart_generate_the_scales 27
 #Colour.lean
-fourth_ray_is_green_band 19
+fourth_ray_is_green_band 27
 alphabet_digital_root_is_nine 27
 nine_step_walk_closes_the_ring 27
 hue_mirror_meeting 27
@@ -306,7 +306,7 @@ true_colour_is_24_bit 27
 tint_and_shade_complement 27
 warm_cool_split_six_six 27
 aura_step_divides_circle 27
-polarity_angles_are_the_system_counts 19
+polarity_angles_are_the_system_counts 27
 no_digit_is_an_exact_complement 27
 #Command.lean
 accept_truth_table 19
@@ -444,10 +444,10 @@ ascent_needs_a_stop 19
 #Doctrine.lean
 team_pairs_triples_cover 19
 solo_is_the_excluded_team 27
-pressure_ladder 19
+pressure_ladder 27
 jump_records_ascend 27
 saturation_deco_accounts 27
-nbl_trains_by_the_floor 19
+nbl_trains_by_the_floor 27
 the_middle_is_not_a_pole 19
 identification_collapses_the_middle 19
 compass_three_decide_the_fourth 27
@@ -581,9 +581,9 @@ layout_groups_thirtytwo 19
 characters_span_the_address 27
 handle_is_the_first_group 19
 groups_are_four_apart 19
-build_counts_in_hexbits 19
-payload_carries_the_strand 19
-payload_aligns_where_the_name_does_not 19
+build_counts_in_hexbits 27
+payload_carries_the_strand 27
+payload_aligns_where_the_name_does_not 27
 the_handle_molecule_is_the_mix_census 27
 four_vectors_reach_the_uuid 19
 slit_on_the_hexbit_ring 19
@@ -653,11 +653,11 @@ the_road_computes_in_one_arithmetic 27
 complement_fixes_the_half 27
 supplement_completes_the_straight 27
 chain_joints_are_links_minus_one 27
-lever_ratio_is_exact_division 19
+lever_ratio_is_exact_division 27
 #Matching.lean
 handshake_degree_sum_even 19
 edges_are_half_the_degree_sum 27
-introductions_among_five 19
+introductions_among_five 27
 perfect_matching_needs_even 27
 n_people_make_n_half_pairs 27
 proposals_bounded_by_n_squared 27
@@ -671,8 +671,8 @@ mombh_fiducial_gas_dense_and_compton_thick 19
 mombh_press_confirmed_is_refuted 19
 mombh_black_hole_mass_spans_over_two_dex 27
 mombh_verified_ne_solved 19
-mombh_quantum_balmer_edge_is_rydberg_quarter 19
-mombh_quantum_edge_redshifts_into_filter_gap 19
+mombh_quantum_balmer_edge_is_rydberg_quarter 27
+mombh_quantum_edge_redshifts_into_filter_gap 27
 mombh_quantum_hbeta_hgamma_are_balmer_lines 27
 mombh_quantum_n2_population_needs_density 19
 #Models.lean
@@ -681,12 +681,12 @@ context_windows_are_transient_hexbits 19
 speaking_an_address_costs_the_text 19
 crypto_widths_are_fixed_not_sampled 27
 every_context_is_finite_against_the_lattice 19
-llm_folds_to_hexbit_pairs 19
-a_handle_is_eight_pairs_paid_it_is_sixteen 19
+llm_folds_to_hexbit_pairs 27
+a_handle_is_eight_pairs_paid_it_is_sixteen 27
 #Molecular.lean
 octet_rule 27
 bond_shares_electron_pairs 19
-bond_order_n2_o2 19
+bond_order_n2_o2 27
 valence_from_group 27
 water_lewis_electrons 27
 ionic_threshold 27
@@ -834,7 +834,7 @@ refractive_index_ge_one 19
 light_slower_in_medium 19
 snell_law 27
 thin_lens_equation 27
-magnification 19
+magnification 27
 #Optimisation.lean
 lp_optimum_is_eleven 19
 lp_optimum_at_a_vertex 27
@@ -897,8 +897,8 @@ stops_fold_mod_nine 19
 pravets_built_in_a_prime_year 19
 the_rom_frees_twentysix_for_the_tongue 27
 the_screen_carries_the_rings 27
-a_glyph_costs_one_coin_measure 19
-the_boot_pays_the_captains_fee 19
+a_glyph_costs_one_coin_measure 27
+the_boot_pays_the_captains_fee 27
 from_eight_bits_to_the_dos_ceiling 27
 #Production.lean
 reverse_involutive 19
@@ -906,8 +906,8 @@ phase_inversion_involutive 19
 reverse_inverse_fused_involutive 19
 chromatic_is_z12 19
 octave_doubles_frequency 27
-tempo_ms_per_beat 19
-nyquist_half_samplerate 19
+tempo_ms_per_beat 27
+nyquist_half_samplerate 27
 midi_is_seven_bit 27
 sixteen_bit_dynamic_range 27
 fifth_cycles_all_twelve 19
@@ -996,12 +996,12 @@ readings_es_names_sixteen 18
 readings_ru_names_sixteen 18
 readings_zh_names_sixteen 18
 readings_states_sound_the_lattice 19
-nyquist_clears_the_lattice 19
+nyquist_clears_the_lattice 27
 amplitude_inside_int16 27
-mix_budget_closes 19
+mix_budget_closes 27
 chi_all_three_genera 19
 note_values_are_doublings 27
-two_coins_in_kilograms 23
+two_coins_in_kilograms 31
 handle_capacity_invariant_under_entanglement 27
 time_counts_of_the_books 19
 #Reasoning.lean
@@ -1479,14 +1479,14 @@ excess_forces_sharing 19
 fit_shares_nothing 19
 powers_are_not_the_bound 19
 digits_split_five_five 19
-ten_seats_bound_any_ring 19
+ten_seats_bound_any_ring 27
 #Security.lean
 scout_drones_spin 19
 defence_layers_add_bits 27
 two_layers_multiply_space 27
 each_key_bit_doubles 27
 birthday_halves_the_exponent 27
-collisions_under_one 19
+collisions_under_one 27
 verify_cheaper_than_forge 27
 wait_covers_margin 27
 no_maximum_only_bounds 27
@@ -1520,11 +1520,11 @@ tour_contra_involutes 27
 tour_contra_rungs_sum_ten 27
 sequence_and_coins_are_one 27
 #Singularity.lean
-one_source_is_exactly_one 19
-surfaces_cost_one_fold 19
+one_source_is_exactly_one 27
+surfaces_cost_one_fold 27
 agreement_is_decided_by_address 19
-drift_needs_two_to_hide_in 19
-the_singularity_is_the_dry_law_at_scale 19
+drift_needs_two_to_hide_in 27
+the_singularity_is_the_dry_law_at_scale 27
 #Software.lean
 codec_split_recompose_lossless 19
 map_preserves_length 19
@@ -1555,7 +1555,7 @@ regular_polytopes_by_dimension 19
 three_regular_polytopes_from_five_up 19
 seventh_dimension_three_regular_polytopes 19
 #Song.lean
-song_pi_roof_opens 19
+song_pi_roof_opens 27
 song_round_turns_on_seven 27
 song_six_verses_one_melody 27
 song_verses_base_pair 27
@@ -1578,8 +1578,8 @@ visible_seven_colours 19
 #SpectrumHex.lean
 colour_is_six_hexbits 27
 channel_is_two_hexbits 27
-greys_are_one_in_sixtyfive_thousand 19
-shorthand_covers_one_in_four_thousand 19
+greys_are_one_in_sixtyfive_thousand 27
+shorthand_covers_one_in_four_thousand 27
 spectrum_refuses_sixteen 19
 wheel_divides_by_nine_and_six 19
 #Statics.lean
@@ -1589,7 +1589,7 @@ mechanical_advantage 27
 center_of_mass 27
 beam_reactions 27
 truss_maxwell_rule 27
-stress_is_force_over_area 19
+stress_is_force_over_area 27
 hookes_law 19
 #Strings.lean
 every_string_has_thirty_two_modes 19
@@ -1632,7 +1632,7 @@ charles_law 27
 no_perpetual_motion 19
 specific_heat_linear 19
 caesium_light_step 27
-landauer_bound_derived 23
+landauer_bound_derived 31
 reversible_erases_nothing 31
 hardware_above_landauer 31
 #Tides.lean
@@ -1645,18 +1645,18 @@ flood_and_ebb 27
 #Topography.lean
 contour_index_every_fifth 19
 elevation_counts_intervals 27
-gradient_rise_over_run 19
+gradient_rise_over_run 27
 contour_spacing_inverse_gradient 27
 hillside_three_four_five 27
-map_scale_one_to_25000 19
-six_figure_grid_tenths 19
+map_scale_one_to_25000 27
+six_figure_grid_tenths 27
 back_bearing_mod_360 27
 relief_is_max_minus_min 27
 triangulation_angles_sum 27
 gunters_chain_measures 27
-vertical_exaggeration 19
-naismith_rule_estimate 19
-wgs84_polar_shorter 23
+vertical_exaggeration 27
+naismith_rule_estimate 27
+wgs84_polar_shorter 31
 eratosthenes_fiftieth_circle 31
 horizon_distance_finite 19
 bulge_exceeds_relief 31
@@ -1694,10 +1694,10 @@ recto_odd_verso_even 27
 eclipse_four_hundred 19
 saros_metonic_bridge 19
 flat_drift_is_quadratic 19
-poles_on_the_axis_at_the_quadrature 19
+poles_on_the_axis_at_the_quadrature 27
 universe_of_handles 27
-tides_two_bulges 19
-market_tides_and_the_strategy_bar 19
+tides_two_bulges 27
+market_tides_and_the_strategy_bar 27
 #UuidMix.lean
 uuid_mix_census_is_quantum 27
 the_mix_space_is_its_own_mirror 19
@@ -1723,10 +1723,10 @@ radial_squared_two 19
 ve_four_neighbours 19
 radial_equals_edge 19
 ve_handshake_crosses 19
-ve_twentyfour_edges 19
+ve_twentyfour_edges 27
 ve_fourteen_faces 27
 euler_characteristic_two 27
-metatron_seventyeight_lines 19
+metatron_seventyeight_lines 27
 dz_two_fixedpoints 19
 dz_involution_digits 19
 orbits_closed_involution 19
@@ -1749,7 +1749,7 @@ magic_numbers 18
 proton_fit 26
 self_seal 26
 #Wave.lean
-a440_not_on_the_vortex 19
+a440_not_on_the_vortex 27
 morris_eight_bars_halved 19
 cubes_sum_to_square_of_triangle 27
 lights_out_flip_involution 19
@@ -1758,7 +1758,7 @@ wave_probe_eleven_thirteens 26
 pilgrims_walk_must_cycle 26
 scrubber_margin_holds 26
 chubb_stood_thirty_three_years 26
-freedive_records_ascend 18
+freedive_records_ascend 26
 fock_window_exceeds_a_monthly_toll 26
 checklist_trial_two_dives_each 26
 three_cell_vote_majority 26
@@ -1772,7 +1772,7 @@ tet_semitone_no_rational_at_the_window 18
 pluck_preserves_bound_at_the_window 18
 grammar_vowels_and_consonants 26
 literature_sonnet_measure 26
-geography_degree_and_dozen 18
+geography_degree_and_dozen 26
 biology_pairs_and_codons 26
 chemistry_water_and_the_table 26
 sport_marathon_and_the_teams 26
@@ -1785,12 +1785,12 @@ egyptian_five_harmonise_the_circle 26
 gregorian_cycle_closes_on_the_week 26
 epact_eleven_harmonised_by_meton 26
 binary_kilo_drift_compounds 26
-a440_drift_is_heard 18
-the_comma_hides_below_hearing 18
-seasons_return_in_eighteen_years 18
+a440_drift_is_heard 26
+the_comma_hides_below_hearing 26
+seasons_return_in_eighteen_years 26
 gregory_deleted_ten_days 26
-ramadan_walks_the_year_in_a_life 18
-the_buyer_sees_thirty_five_missing 18
+ramadan_walks_the_year_in_a_life 26
+the_buyer_sees_thirty_five_missing 26
 teleportation_costs_the_two_coins 26
 handle_capacity_is_quantum_by_architecture 26
 usable_gap_is_two_to_eighty 26
@@ -2222,11 +2222,11 @@ nine_complement_half_turns_the_orbit 19
 five_is_the_developing_center 19
 the_hex_center_is_empty 19
 gas_volume_walks_the_harmonic_series 19
-pressure_doubles_down_the_octave 19
+pressure_doubles_down_the_octave 27
 haldane_bound_is_two_to_one 19
 buddy_pair_squares_the_failure 19
-thirds_rule_sums_whole 19
-divers_and_astronauts_share_the_ladder 19
+thirds_rule_sums_whole 27
+divers_and_astronauts_share_the_ladder 27
 one_image_every_architecture 19
 states_are_the_swap_fixed_bytes 19
 the_page_admits_sixteen 19

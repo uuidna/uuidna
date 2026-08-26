@@ -62,16 +62,18 @@ export const INVOLUTIONS: readonly Involution[] = [
  *  published claim, which is the exact defect this file was written to refuse. */
 const ASCRIPTION = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
 export const stripAscriptions = (s: string): string => s.replace(ASCRIPTION, '$1')
-export const evaluable = (statement: string): boolean => /^[\s0-9()+*%^=∧<>≤≥-]+$/.test(stripAscriptions(statement))
+/** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`).
+ *  List / fun / bound names stay unreached; `/` was a pure-syntax gap that left ~80 sealed equalities unreached. */
+export const evaluable = (statement: string): boolean => /^[\s0-9()+*%/^=∧<>≤≥-]+$/.test(stripAscriptions(statement))
 
 // A REAL EVALUATOR, NOT `eval`. The first version handed the statement to the runtime after a few substitutions,
 // and the harmonic scan refused it by name — correctly, and for a better reason than style: `eval` makes the
 // meaning of a ledger statement depend on the host's parser rather than on anything this repository decides, so
 // two runtimes could disagree about what a theorem says and nothing here would notice. It is also an execution
-// surface pointed at generated content. The grammar is tiny — numerals, + - * % ^, the comparisons, and ∧ — so
+// surface pointed at generated content. The grammar is tiny — numerals, + - * % / ^, the comparisons, and ∧ — so
 // a recursive descent over it is short, total, and gives the same answer on every host by construction.
 //
-// Precedence, lowest first: ∧ · comparison · + − · * % · ^ (right-associative) · unary − · parentheses.
+// Precedence, lowest first: ∧ · comparison · + − · * % / · ^ (right-associative) · unary − · parentheses.
 type Cursor = { s: string; i: number }
 
 const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c.i++ }
@@ -92,6 +94,7 @@ const product = (c: Cursor): number => {
   for (;;) { ws(c)
     if (eat(c, '*')) v = v * power(c)
     else if (eat(c, '%')) { const d = power(c); v = d === 0 ? 0 : v % d }   // ÷0 = 0, the tree's own abstract zero
+    else if (eat(c, '/')) { const d = power(c); v = d === 0 ? 0 : (v - (v % d)) / d }  // Lean Nat floor / · ÷0 = 0 · no Math.*
     else return v }
 }
 function sum(c: Cursor): number {

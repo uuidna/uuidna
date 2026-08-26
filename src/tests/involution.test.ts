@@ -120,3 +120,14 @@ test('THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreache
   // and it still decides falsity rather than refusing it — an instrument that cannot say false says nothing
   assert.equal(holds('((2:Nat)^2 = 5)'), false)
 })
+
+test('DIVISION IS LEAN NAT FLOOR — / was a pure-syntax gap that left sealed equalities unreached', () => {
+  // (7*6)/2 = 21 and 1000/0 = 0 are sealed; without `/` in the grammar they stayed unreached for syntax alone.
+  assert.equal(evaluable('(7 * 6) / 2 = 21'), true)
+  assert.equal(holds('(7 * 6) / 2 = 21'), true)
+  assert.equal(holds('(7 * 6) / 2 = 22'), false)
+  assert.equal(holds('1000 / 0 = 0'), true, '÷0 = 0, same abstract zero as %')
+  assert.equal(holds('256 / 2 = 128'), true)
+  // List forms still refuse — widening / must not start claiming what it cannot parse
+  assert.equal(holds('(List.range 7).length / 1 = 7'), null)
+})
