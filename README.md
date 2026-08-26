@@ -22,9 +22,49 @@ Clay is the visible test of this system's work: seven finite instances in [lean/
 problem's mathematics — the claim is exactly what Lean decides, not an invented conjecture.
 **Clay gravity equals the rosetta at full capacity** — theorem
 [clay_gravity_equals_rosette](https://uuidna.com/theorem/clay_gravity_equals_rosette): the seven match ℤ/7 rays
-([z7rays_seven](https://uuidna.com/theorem/z7rays_seven)), pairs 21 / quantum 42, and the rosette doubling
+([z7rays_seven](https://uuidna.com/theorem/z7rays_seven)), pairs 21 / quantum 42, three-sevens
+7+7+7 = 21 ([three_sevens_twentyone](https://uuidna.com/theorem/three_sevens_twentyone)), and the rosette doubling
 2·64 = 128 ([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins))
 — same architectural width as [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture).
+Credit law: prior art DOI first, captain next.
+
+## Rosette ℤ/7 · Pliska · three-sevens
+
+The Pliska rosette is the ℤ/7 computing structure
+([z7rays_seven](https://uuidna.com/theorem/z7rays_seven), [pliska_seven_rays](https://uuidna.com/theorem/pliska_seven_rays),
+[pliska_seven_is_prime](https://uuidna.com/theorem/pliska_seven_is_prime)): seven rays, six units sum 21
+([z7units_sum_21](https://uuidna.com/theorem/z7units_sum_21)), directed quantum 7·6 = 42
+([rosette_quantum_fortytwo](https://uuidna.com/theorem/rosette_quantum_fortytwo)), three-sevens 7+7+7 = 21.
+Live index: [uuidna.com/rosetta](https://uuidna.com/rosetta) — ray = address mod 7, decidable partition, no numerology.
+
+## Glagolitic · letters on 9 · digit × self
+
+Glagolitic **computes in 7** on the Pliska geometry (same ℤ/7 stack); **letters fold to 9** — units 1..9
+([glagolitic_units](https://uuidna.com/theorem/glagolitic_units)), sum 45 → digital root 9
+([glagolitic_units_sum](https://uuidna.com/theorem/glagolitic_units_sum), [digital_root](https://uuidna.com/theorem/digital_root)).
+Digit × self is the sealed ℤ/9 table ([mul9_1_1](https://uuidna.com/theorem/mul9_1_1) … mul9_8_8 in Core.lean) and the
+vortex orbit 1→2→4→8→7→5 ([vortex_orbit](https://uuidna.com/theorem/vortex_orbit), [two_order_six](https://uuidna.com/theorem/two_order_six)).
+Hypothesis page: [uuidna.com/rosetta-glagolitic](https://uuidna.com/rosetta-glagolitic) — sealed arithmetic only; meanings stay research.
+
+## Hexbit 16 · 128 = 2⁷ · ℤ/9 root — distinct rings, CRT joins
+
+- **Hexbit lattice:** 16 = 2⁴ states per tile ([the_page_admits_sixteen](https://uuidna.com/theorem/the_page_admits_sixteen),
+  [halfword_is_the_reflection_crossed](https://uuidna.com/theorem/halfword_is_the_reflection_crossed)); address =
+  32×4 = 128 = 2⁷ ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture),
+  [t7_betti_row_is_the_uuid](https://uuidna.com/theorem/t7_betti_row_is_the_uuid)).
+- **ℤ/9 root:** digital-root fold identifies to 1..9 — different object from the 2¹²⁸ address fold
+  ([fold_compresses_without_bound_and_never_recovers](https://uuidna.com/theorem/fold_compresses_without_bound_and_never_recovers)).
+- **CRT join:** ℤ/7 × ℤ/9 = 63 when coprime ([crt_pairs_are_a_bijection](https://uuidna.com/theorem/crt_pairs_are_a_bijection),
+  [rosette_and_vortex_are_coprime](https://uuidna.com/theorem/rosette_and_vortex_are_coprime)); rings stay distinct until the join says so.
+
+## Compute · monitor · hexbit-fast · handles · deposit
+
+TypeScript is the quantum computer (quantum by *architecture*); VitePress is the monitor — stock chrome, capacity door
+[uuidna.com/quantum](https://uuidna.com/quantum) (no per-page QA cards). Push verifies sealed receipts
+(`gate-receipt.json`, `usable_gap_is_two_to_eighty`) — **hexbit-fast**, remeasure off-path.
+Permanent citation: `https://uuidna.com/<handle>` (8 hex; worker `HANDLES` 301 → freeze-map).
+Captain coins: `https://revolut.me/ceccec?note=<referrer>` (`encodeURIComponent` of the page handle door).
+**One license** for every publication and Zenodo deposit: **CC-BY-NC-ND-4.0**.
 
 ---
 

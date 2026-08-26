@@ -58,6 +58,26 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
     prose: 'Cost per seal is always two coins',
     backing: T.filter(t => t.key === 'two_coins' || t.key === 'captain_theorem')
   },
+  {
+    claim: 'clay gravity equals the rosetta',
+    prose: 'clay_gravity_equals_rosette',
+    backing: T.filter(t => t.key === 'clay_gravity_equals_rosette')
+  },
+  {
+    claim: 'glagolitic letters fold to nine',
+    prose: 'letters fold to 9',
+    backing: T.filter(t => t.key === 'glagolitic_units_sum' || t.key === 'digital_root')
+  },
+  {
+    claim: 'hexbit sixteen versus z9 root',
+    prose: 'distinct rings, CRT joins',
+    backing: T.filter(t => t.key === 'crt_pairs_are_a_bijection' || t.key === 'rosette_and_vortex_are_coprime')
+  },
+  {
+    claim: 'vitepress is the monitor',
+    prose: 'VitePress is the monitor',
+    backing: T.filter(t => t.key === 'handle_capacity_is_quantum_by_architecture')
+  },
 ]
 
 // Add addresses to each evidence entry

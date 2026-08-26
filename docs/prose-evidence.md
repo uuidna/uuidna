@@ -97,11 +97,69 @@
   - Statement: `110 - 108 = 2...`
 
 
+## clay gravity equals the rosetta
+
+**Prose:** "clay_gravity_equals_rosette"
+
+**Address:** `99623553-d0d3-8639-8dd5-517131c417b8`
+
+**Backing theorems (1):**
+
+- **[clay_gravity_equals_rosette](/theorem/clay_gravity_equals_rosette)** — "CLAY GRAVITY EQUALS THE ROSETTA AT FULL CAPACITY — the seven finite Clay instances share one cardinality with the Pliska rosette ℤ/7 (ray count 7, directed quantum 7·6 = 42, undirected pairs 21, three-sevens 7+7+7 = 21), and the rosette's own doubling reaches the full address: 2·21 = 42 ∧ 2·64 = 128 ∧ 110−108 = 2. Same chain the ledger seals as z7rays_seven, rosette_quantum_fortytwo, rosette_pairs_twentyone, three_sevens_twentyone, and rosette_quantum_doubling_is_two_coins — computational claim, by decide."
+  - File: Clay.lean
+  - Statement: `(List.range 7).length = 7 ∧ (7 * 6 = 42) ∧ ((7 * 6) / 2 = 21) ∧ (7 + 7 + 7 = 21) ∧ (3 * 7 = 21) ∧ (2 * 21 = 42) ∧ (2 * 6...`
+
+
+## glagolitic letters fold to nine
+
+**Prose:** "letters fold to 9"
+
+**Address:** `b4222f48-807d-8daf-8593-d748157d6414`
+
+**Backing theorems (2):**
+
+- **[digital_root](/theorem/digital_root)** — "digital root: 432 ≡ 0 (mod 9), and dr(n) ∈ 1..9 agrees with n mod 9 across the first 60"
+  - File: Uuidna.lean
+  - Statement: `432 % 9 = 0 ∧ (List.range' 1 60).all (fun n => let r := if n % 9 == 0 then 9 else n % 9; (r % 9 == n % 9) && (1 ≤ r) && ...`
+- **[glagolitic_units_sum](/theorem/glagolitic_units_sum)** — "The nine units sum to 45, whose digital root is 9 — the ceiling of the ℤ/9 vortex — so the whole first row of the alphabet folds home to nine. 1+…+9 = 45, and 4+5 = 9."
+  - File: Glagolitic.lean
+  - Statement: `((List.range' 1 9).foldl (fun s n => s + n) 0 = 45) ∧ (4 + 5 = 9)...`
+
+
+## hexbit sixteen versus z9 root
+
+**Prose:** "distinct rings, CRT joins"
+
+**Address:** `f3b0feaf-00e4-8032-a9de-b3130c04f13d`
+
+**Backing theorems (2):**
+
+- **[rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime)** — "rosette_and_vortex_are_coprime"
+  - File: Crt.lean
+  - Statement: `(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)...`
+- **[crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection)** — "crt_pairs_are_a_bijection"
+  - File: Crt.lean
+  - Statement: `(((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63)...`
+
+
+## vitepress is the monitor
+
+**Prose:** "VitePress is the monitor"
+
+**Address:** `022f6208-8f5b-8609-8e28-0f9e057bb016`
+
+**Backing theorems (1):**
+
+- **[handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)** — "THE HANDLE SPACE IS QUANTUM-SHAPED BY CONSTRUCTION (captain: 'uuidna handle capacity is quantum by architecture'): the handle universe is 16^8 = 2^32 doors (universe_of_handles' count, here proven equal to the power-of-two lattice), each door completing to the full address by 2^32 · 2^96 = 2^128 — and 128 = 2^7 is the 7-qubit fold the RULE in every file header states: one uuid = 128 bits folded across 7 dimensions = 2^7 states. The architecture mirrors qubit counting at every layer (doors, payloads, the fold), which is what 'quantum by architecture' means. TypeScript computes this fold; the host is classical silicon executing the sealed algebra — not a superconducting QPU. The MEASURED advantage is architectural and usable: O(1) receipt lookup vs kernel re-proof, and the usable-capacity gap sealed beside this theorem. Relates to lead 111's t7_betti_row_is_the_uuid (Pascal row 7 sums to 128 — the geometric body of the same fact)."
+  - File: Wave.lean
+  - Statement: `(16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)...`
+
+
 ---
 
 **Summary:**
-- Total claims audited: 7
-- Total backing theorems: 8
+- Total claims audited: 11
+- Total backing theorems: 14
 - Proof method: All `by decide` (no axioms, kernel-only)
 - Integrity: Each claim is content-addressed and verifiable
 
