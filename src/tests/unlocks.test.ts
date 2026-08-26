@@ -60,4 +60,8 @@ test('/unlocks page + SEO freeze map — CF deploy refuses a new route without r
   const home = readFileSync(join(ROOT, 'docs/index.md'), 'utf8')
   assert.match(home, /unlocks:begin/)
   assert.match(home, /\[\/unlocks\]\(\/unlocks\)/)
+  // copy-lean-to-site must serve /lean/unlocks.json (docs:build forensic fails otherwise)
+  const copy = readFileSync(join(ROOT, 'src/scripts/copy-lean-to-site.ts'), 'utf8')
+  assert.match(copy, /unlocks\.json/)
+  assert.match(readFileSync(join(ROOT, 'docs/unlocks.md'), 'utf8'), /\/lean\/unlocks\.json/)
 })

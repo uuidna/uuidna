@@ -12,6 +12,7 @@
 // only copy it when a prior local `gen-alpine-catalogue` left it there, so a clean Cloudflare Workers Build would
 // ship a 404 for the catalogue and report Alpine as ABSENT. Copy from the committed mirror after the VitePress
 // build so production cannot disagree with the repo.
+// It ALSO serves lean/unlocks.json at /lean/unlocks.json — the unlock board census linked from /unlocks.
 // Idempotent; runs in docs:build (and thus in the Cloudflare deploy build). Integrity— it serves the
 // source, it proves nothing new.
 import { readdirSync, mkdirSync, copyFileSync, existsSync, readFileSync, statSync } from 'node:fs'
@@ -33,6 +34,20 @@ const OUT = join(SITE, 'lean')
 mkdirSync(OUT, { recursive: true })
 let n = 0
 for (const f of readdirSync(LEAN)) if (f.endsWith('.lean')) { copyFileSync(join(LEAN, f), join(OUT, f)); n++ }
+
+// Derived lean JSON the site cites as /lean/<name>.json (e.g. unlocks board). Proofs are .lean; these are
+// structured receipts linked from markdown. Missing source FAILS — same dead-pointer law as llm.txt.
+const LEAN_JSON_SERVE = ['unlocks.json'] as const
+let j = 0
+for (const f of LEAN_JSON_SERVE) {
+  const src = join(LEAN, f)
+  if (!existsSync(src)) {
+    console.error(`✗ copy-lean-to-site — lean/${f} missing: pages link /lean/${f}; regenerate (gen-unlocks) before docs:build`)
+    process.exit(1)
+  }
+  copyFileSync(src, join(OUT, f))
+  j++
+}
 
 const SEEDS_OUT = join(SITE, 'seeds')
 let s = 0
@@ -98,4 +113,4 @@ if (missing.size) {
   process.exit(1)
 }
 
-console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, ${CATALOGUE_FILE} at /alpine-catalogue.tsv, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)
+console.log(`✓ copy-lean-to-site — ${n} Lean proof files at /lean/*.lean, ${j} lean JSON at /lean/*.json, ${s} Payload page seeds at /seeds/<uuid>/page.json, llm.txt at /llm.txt + /llms.txt, ${CATALOGUE_FILE} at /alpine-catalogue.tsv, every /lean and /seeds reference in ${htmlFiles.length} built pages verified served (the theorem, its proof, and its seed — one click apart, no click dead)`)
