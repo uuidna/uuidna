@@ -37,6 +37,11 @@
 // piles drawn at random are shown to do something else.
 import { theorems } from '../theorems/index.js'
 import { merkleGravity } from '../gravity/index.js'
+import {
+  BFS_ORDER, BOOT_PAGE_COUNT, INSTALL_EDGE_PAIRS, INSTALL_MEANINGS, INSTALL_NAMES, INSTALL_ROUTES,
+  INV_ORDER, MODEL_CONTEXT_ROWS, MODEL_TRANSIENT_ROWS, MODEL_UUID_COUNT_ROWS,
+  RELEASE_ADDRESS_COUNT, ROOTFS_NIBBLE_COUNT,
+} from './tables/index.js'
 
 /** A named self-inverse map on the digits of a statement. `of` must satisfy of(of(d)) === d. */
 export interface Involution { name: string; why: string; of: (digit: string) => string }
@@ -105,11 +110,23 @@ export const stripAscriptions = (s: string): string => {
  *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
  *  and bounded `fun` (multi-binder) with `.all`/`.map`/`.filter`/`.any`. Sealed Legal/Audit/Command/Editor mirrors
  *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
-const NAMED_OP = /\b(?:Nat\.gcd|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|∀)\b/g
+const NAMED_OP = /\b(?:Nat\.gcd|Nat\.lcm|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List\.replicate|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|nthR|nthS|foldl|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|installEdges|installNames|installRoutes|installMeanings|bfsOrder|invOrder|bootPages|rootfsNibbles|releaseAddress|modelContextRows|modelTransientRows|modelUuidCountRows|replicate|lcm|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable.
- *  Statements are often flattened to one line; stop before `(` / `[` so mid-proof
- *  commentary does not erase the rest of the proposition (vortex_one_leap). */
-const stripComments = (s: string): string => s.replace(/--[^\n(\[∧∨]*/g, ' ')
+ *  Mid-statement commentary stops at `∧`/`∨`/newline — not at `(`, which left letters in the gate. */
+const stripComments = (s: string): string => {
+  let out = ''
+  let i = 0
+  while (i < s.length) {
+    if (s.startsWith('--', i)) {
+      i += 2
+      while (i < s.length && s[i] !== '\n' && s[i] !== '∧' && s[i] !== '∨') i++
+      if (i < s.length && (s[i] === '∧' || s[i] === '∨')) out += ' '
+      continue
+    }
+    out += s[i++]
+  }
+  return out
+}
 /** Drop string literal bodies so Unicode readings (bg/zh/…) do not fail the character gate. */
 const stripStrings = (s: string): string => s.replace(/"(?:[^"]*)"/g, '""')
 /** Strip `fun … =>` / `let r :=` binders (and their uses) so the character gate stays letter-free. */
@@ -376,6 +393,15 @@ const WORDS: Val[] = [0,75,42,97,25,82,51,120,7,76,45,102,30,85,52,127]
 const avFn = (e: number): number => (e - (e % 9)) / 9
 const bvFn = (e: number): number => e % 9
 const compFn = (f: number, g: number): number => ((avFn(f) * avFn(g)) % 9) * 9 + ((avFn(f) * bvFn(g) + bvFn(f)) % 9)
+const toNatLst = (xs: readonly number[]): Lst => lst(xs.map((n) => n))
+const toStrLst = (xs: readonly string[]): Lst => lst(xs.slice())
+const INSTALL_EDGES: Val[] = INSTALL_EDGE_PAIRS.map(([a, b]) => pair(a, b))
+const BOOT_PAGES: Val[] = Array.from({ length: BOOT_PAGE_COUNT }, () => lst(Array(32).fill(0)))
+const ROOTFS_NIBBLES: Val[] = Array(ROOTFS_NIBBLE_COUNT).fill(0)
+const RELEASE_ADDRESS: Val[] = Array(RELEASE_ADDRESS_COUNT).fill(0)
+const MODEL_CTX_ROWS: Val[] = MODEL_CONTEXT_ROWS.map((r) => toNatLst(r))
+const MODEL_TRAN_ROWS: Val[] = MODEL_TRANSIENT_ROWS.map((r) => toNatLst(r))
+const MODEL_UUID_ROWS: Val[] = MODEL_UUID_COUNT_ROWS.map((r) => toNatLst(r))
 const fibCycleFn = (m: number, f: Val[], len: number): boolean => {
   if (f.length !== len) return false
   if (f.length < 2 || asNum(f[0]!) !== 0 || asNum(f[1]!) !== 1) return false
@@ -454,6 +480,21 @@ const listNth = (xs: Val[], i: number): number => {
   if (i < 0 || i >= xs.length) return 0
   return asNum(xs[i]!)
 }
+const listNthR = (m: Val[], i: number): Val[] => {
+  if (i < 0 || i >= m.length) return []
+  const row = m[i]!
+  return isLst(row) ? row.xs : []
+}
+const listNthS = (xs: Val[], i: number): string => {
+  if (i < 0 || i >= xs.length) return ''
+  const v = xs[i]!
+  return typeof v === 'string' ? v : ''
+}
+const natLcm = (a: number, b: number): number => {
+  const g = natGcd(a, b)
+  return g === 0 ? 0 : (a / g) * b
+}
+const listReplicate = (n: number, x: Val): Val[] => Array(n).fill(x) as Val[]
 const bitOf = (m: number, i: number): number => (m >> i) & 1
 const rowsOf = (m: number): Val[] => [0, 1, 2, 3].map((i) => bitOf(m, i))
 const listRange = (n: number): Val[] => {
@@ -586,6 +627,14 @@ const parseFunArg = (c: Cursor, bodyKind: 'bool' | 'val'): Fun => {
 const postfix = (c: Cursor, v: Val): Val => {
   for (;;) {
     ws(c)
+    if (isFun(v)) {
+      const argSave = c.i
+      try {
+        const arg = atom(c)
+        v = asFun(v).run(arg)
+        continue
+      } catch { c.i = argSave }
+    }
     if (eat(c, '.1') || eat(c, '.fst')) {
       if (!isPair(v)) throw new Error('proj')
       v = v.a
@@ -784,6 +833,29 @@ const atom = (c: Cursor): Val => {
     return postfix(c, lst(xs))
   }
   if (eat(c, '(')) {
+    ws(c)
+    if (eat(c, 'fun')) {
+      const names = parseFunBinders(c)
+      if (!eat(c, '=>')) throw new Error('fun =>')
+      const bodyStart = c.i
+      let depth = 1
+      while (c.i < c.s.length && depth > 0) {
+        const ch = c.s[c.i]!
+        if (ch === '"') {
+          c.i++
+          while (c.i < c.s.length && c.s[c.i] !== '"') c.i++
+          if (c.i < c.s.length) c.i++
+          continue
+        }
+        if (ch === '(' || ch === '[') depth++
+        else if (ch === ')' || ch === ']') depth--
+        if (depth > 0) c.i++
+      }
+      if (depth !== 0) throw new Error('fun paren')
+      const body = c.s.slice(bodyStart, c.i - 1)
+      c.i++
+      return postfix(c, mkFun(names, body, c.env, c.ring, c.expectBool ? 'bool' : 'val'))
+    }
     const saveParen = c.i
     const a = junction(c)
     ws(c)
@@ -842,6 +914,7 @@ const atom = (c: Cursor): Val => {
   }
   // Named apps — longer tokens before prefixes.
   if (eat(c, 'Nat.gcd')) return postfix(c, natGcd(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'Nat.lcm')) return postfix(c, natLcm(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'Nat.min') || eat(c, 'min')) {
     let v: Val = fun((a) => fun((b) => natMin(asNum(a), asNum(b))))
     while (isFun(v)) {
@@ -906,6 +979,10 @@ const atom = (c: Cursor): Val => {
   }
   if (eat(c, "List.range'")) return postfix(c, lst(listRangeFrom(asNum(atom(c)), asNum(atom(c)))))
   if (eat(c, 'List.range')) return postfix(c, lst(listRange(asNum(atom(c)))))
+  if (eat(c, 'List.replicate') || eat(c, 'replicate')) {
+    const n = asNum(atom(c))
+    return postfix(c, lst(listReplicate(n, atom(c))))
+  }
   if (eat(c, 'List.foldl')) {
     const f = parseFunArg(c, 'val')
     let acc: Val = atom(c)
@@ -1024,7 +1101,21 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'dd')) return postfix(c, ddFn(asPair(atom(c)), asPair(atom(c))))
   if (eat(c, 'some')) return postfix(c, opt(atom(c)))
   if (eat(c, 'res')) return postfix(c, resFn(asNum(atom(c))))
+  if (eat(c, 'nthR')) return postfix(c, lst(listNthR(asLst(atom(c)), asNum(atom(c)))))
+  if (eat(c, 'nthS')) return postfix(c, listNthS(asLst(atom(c)), asNum(atom(c))))
   if (eat(c, 'nth')) return postfix(c, listNth(asLst(atom(c)), asNum(atom(c))))
+  if (eat(c, 'installEdges')) return postfix(c, lst(INSTALL_EDGES))
+  if (eat(c, 'installNames')) return postfix(c, toStrLst(INSTALL_NAMES))
+  if (eat(c, 'installRoutes')) return postfix(c, toStrLst(INSTALL_ROUTES))
+  if (eat(c, 'installMeanings')) return postfix(c, toStrLst(INSTALL_MEANINGS))
+  if (eat(c, 'bfsOrder')) return postfix(c, toNatLst(BFS_ORDER))
+  if (eat(c, 'invOrder')) return postfix(c, toNatLst(INV_ORDER))
+  if (eat(c, 'bootPages')) return postfix(c, lst(BOOT_PAGES))
+  if (eat(c, 'rootfsNibbles')) return postfix(c, lst(ROOTFS_NIBBLES))
+  if (eat(c, 'releaseAddress')) return postfix(c, lst(RELEASE_ADDRESS))
+  if (eat(c, 'modelContextRows')) return postfix(c, lst(MODEL_CTX_ROWS))
+  if (eat(c, 'modelTransientRows')) return postfix(c, lst(MODEL_TRAN_ROWS))
+  if (eat(c, 'modelUuidCountRows')) return postfix(c, lst(MODEL_UUID_ROWS))
   // Bare `fun binders => body` — sealed `let fold3 := fun (a b c : Nat) => …`.
   if (eat(c, 'fun')) {
     const names = parseFunBinders(c)
@@ -1323,7 +1414,14 @@ export function holds(statement: string): boolean | null {
     const c: Cursor = { s: src, i: 0, env: new Map(), ring }
     const v = conjunction(c)
     ws(c)
-    return c.i === src.length ? v : null   // trailing input means this reader did not understand it all
+    if (c.i === src.length) return v
+    // Bare `(fun … => …) arg` or `let …; …` with no top-level ∧ — still a decidable Bool.
+    c.i = 0
+    c.env = new Map()
+    const j = junction(c)
+    ws(c)
+    if (c.i === src.length && typeof j === 'boolean') return j
+    return null
   } catch { return null }
 }
 
