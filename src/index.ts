@@ -617,4 +617,6 @@ export { fromLanes, fromBaseline, fromLevel, allMeasurements } from './measureme
 // surface could not answer. Kept out of mcp.ts deliberately: the catalogue can import this when its own edits
 // settle, and a client can already filter 204 tools down to the ones that can hear it.
 export { scopeOf, scopeCensus, toolsInScope, type ToolScope, type ScopeCensus } from './tool-scope.js'
+// unlocks — EACH THEOREM UNLOCKS what it seals `by decide`. The ledger IS the unlock board; illustrations are presence checks, not a closed set.
+export { unlockBoard, unlockReadmeBlock, unlockHomeFragment, UNLOCK_ILLUSTRATIONS, UNLOCK_LAW, type UnlockBoard, type UnlockCount, type UnlockIllustration } from './unlocks.js'
 // crossref — a DOI RESOLVED rather than trusted. The witness leg is granted by a keyword roster over text, so a// string containing "DOI" earns the scarcest leg in the ledger without a source behind it. This resolves it.export { doisIn, crossrefUrl, crossrefSearchUrl, parseCrossref, verifyCitations, searchSources, type Citation, type CitationCheck, type CitationReport, type CandidateSource } from './crossref.js'
