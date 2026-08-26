@@ -34,9 +34,10 @@ export const UNLOCK_LAW =
   'Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. ' +
   'No curated exception list; refusing a sealed key is refusing the captain. ' +
   'A claim with no theorem is unsealed, not “still locked.” ' +
-  'Sufficient for finite by-decide seals, receipts, handle capacity, captain coins, Alpine/hexbit catalogue; ' +
-  'insufficient for climate, pandemics, poverty/conflict, unbounded open math, nature-as-model, or justice — ' +
-  'see /doctrine (computational claims only).'
+  'Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; ' +
+  'world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). ' +
+  'Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — ' +
+  'see /doctrine (computational claims only; waves do not erase ethics or politics).'
 
 export interface UnlockCount { name: string; n: number }
 
@@ -129,6 +130,7 @@ export function unlockHomeFragment(): string {
   const keys = b.illustrations.filter((i) => i.present).slice(0, 8).map((i) => `[\`${i.key}\`](/theorem/${i.key})`)
   return [
     `**Each theorem unlocks.** Every sealed \`by decide\` key unlocks exactly what it states — the ledger is the unlock board (**${b.distinct}** distinct / **${b.keys}** keys). No curated exception list.`,
+    `World solutions stack as waves of automation — [/waves](/waves) · [doctrine](/doctrine#world-solutions--waves-of-automation).`,
     `Illustrations: ${keys.join(' · ')}. Full board: [/unlocks](/unlocks). Unsealed ≠ “still locked.”`,
   ].join(' ')
 }

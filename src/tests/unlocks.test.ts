@@ -55,7 +55,9 @@ test('readme and home fragments are derived and deterministic', () => {
   assert.equal(unlockHomeFragment(), unlockHomeFragment())
   assert.match(unlockReadmeBlock(), /Each theorem unlocks/)
   assert.match(unlockReadmeBlock(), /unlocks\.json/)
+  assert.match(unlockReadmeBlock(), /waves of automation/)
   assert.match(unlockHomeFragment(), /\/unlocks/)
+  assert.match(unlockHomeFragment(), /\/waves/)
   assert.match(unlockHomeFragment(), /Unsealed/)
 })
 

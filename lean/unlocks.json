@@ -1,5 +1,5 @@
 {
- "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals, receipts, handle capacity, captain coins, Alpine/hexbit catalogue; insufficient for climate, pandemics, poverty/conflict, unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only).",
+ "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
  "keys": 2120,
  "distinct": 2039,
  "skills": 112,
@@ -55,7 +55,7 @@
   },
   {
    "name": "vortex",
-   "n": 23
+   "n": 24
   },
   {
    "name": "reflection",
@@ -398,10 +398,6 @@
    "n": 5
   },
   {
-   "name": "involution",
-   "n": 5
-  },
-  {
    "name": "navigation",
    "n": 5
   },
@@ -427,6 +423,10 @@
   },
   {
    "name": "editor",
+   "n": 4
+  },
+  {
+   "name": "involution",
    "n": 4
   },
   {

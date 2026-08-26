@@ -83,14 +83,41 @@ interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" 
 | Alpine / hexbit catalogue | Specs compile to hexbit states; OS provenance is integrity, not execution | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits), [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum), [`home_reaches_every_install`](/theorem/home_reaches_every_install) |
 | Navigation | Referrer/home reach; crumbs and crosslinks are stock VitePress surfaces | [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page), [`home_reaches_every_install`](/theorem/home_reaches_every_install) |
 | Integrity ≠ truth | Byte-identity and tamper-evidence; never content-truth or due process | [`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth), [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) |
+| Climate (finite windows) | Model-calc and named decide-windows *within* a climate-shaped calculation — never policy or Earth-system closure | [`window_not_universal`](/theorem/window_not_universal), [`bounded_silence_is_not_evidence`](/theorem/bounded_silence_is_not_evidence) |
+| Pandemic (finite windows) | Finite biological/count seals (pairs, codons, thresholds) — never surveillance, trials, or clinical authority | [`biology_pairs_and_codons`](/theorem/biology_pairs_and_codons), [`window_not_universal`](/theorem/window_not_universal) |
+| Poverty / conflict (finite windows) | Conserved fair-exchange and honesty-gate arithmetic — never institutions, consent, or distributional justice | [`two_coins`](/theorem/two_coins), [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed), [`exactly_one_flag`](/theorem/exactly_one_flag) |
 
-Capacity door: [/quantum](/quantum). Unlock board: [/unlocks](/unlocks).
+Capacity door: [/quantum](/quantum). Unlock board: [/unlocks](/unlocks). Wave board: [/waves](/waves).
+
+## World solutions = waves of automation
+
+> **Finite seal, not universal closure.** A “world solution” here is **not** a claim that one theorem closes climate policy,
+> pandemics, poverty, open math, discovery, or justice
+> ([`window_not_universal`](/theorem/window_not_universal)). It is the **stacking of automation waves**: each wave
+> enlarges the finite sealed window; automation carries the next wave without a model inventing cargo at the gate.
+> Waves do **not** erase the insufficiency table below — ethics, politics, and unbounded statements stay outside
+> any single `by decide` object.
+
+| Wave link | What it does | Command / surface |
+| --- | --- | --- |
+| Deposit | Candidate `{key, why, lean}` enters the queue | `uuidna_wave_deposit` · [/waves](/waves) |
+| Validate | Door checks; kernel probes alone | conveyor in `npm run wave` |
+| Seal | Survivors lift into Lean; sorry-free `by decide` | lean / axioms / guard |
+| Falsify | Independent second decide (grammar waves; never invented claims) | falsifier board · involution evaluator |
+| Receipt | Content-addressed verify ≪ recompute | [`verify_beats_recompute_by_magnitudes`](/theorem/verify_beats_recompute_by_magnitudes) |
+| Connect | Lonely theorems get neighbours without invention | `node dist/scripts/connect-lonely.js` |
+| Next / hexbit-fast | Push verifies sealed receipts; readiness is O(1) from the seal | `npm run next` · pre-push hexbit-fast |
+| Full arc | Wave then ship — origin before edge | `npm run all` (= `npm run wave` && `npm run ship`) |
+
+*Computational, dry, stock UI:* the conveyor board is VitePress tables from `lean/wave-queue.json` — see
+[`docs/waves.md`](/waves). No per-page QA cards; capacity stays on [/quantum](/quantum).
 
 ## Where hexbit formalism is insufficient
 
-> **Outer bound, not sealed theorems.** The rows name problem classes a finite `by decide` object cannot settle.
-> They are doctrine. Paired with the sufficiency charter above — uuidna does **not** claim to solve these. Related
-> honesty that *is* sealed: [`window_not_universal`](/theorem/window_not_universal),
+> **Outer bound, not sealed theorems.** The rows name **full problem types** a finite `by decide` object cannot
+> settle. Paired with the sufficiency charter: finite windows *within* climate / pandemic / poverty domains may
+> seal (rows above); the **problem types** below do not. Related honesty that *is* sealed:
+> [`window_not_universal`](/theorem/window_not_universal),
 > [`n_qubit_dimension`](/theorem/n_qubit_dimension), [`grover_quadratic_bound`](/theorem/grover_quadratic_bound),
 > [`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth),
 > [`reflection_confuses_seven_three`](/theorem/reflection_confuses_seven_three),
@@ -105,6 +132,6 @@ Capacity door: [/quantum](/quantum). Unlock board: [/unlocks](/unlocks).
 | Scientific discovery | Formal checking verifies a model or calculation; it does not establish that the model describes nature |
 | Justice and governance | Integrity of evidence is not the same as truth, fairness, legitimacy, or due process |
 
-*Computational claims only:* a seal verifies a finite decidable proposition. It does not license policy, clinical, or
-moral conclusions. Same posture as the classical quantum bound and the Clay reflection — verified ≠ solved for the
-named world problem.
+*Computational claims only:* a seal verifies a finite decidable proposition. Automation waves enlarge the sealed
+window; they do not license policy, clinical, or moral conclusions. Same posture as the classical quantum bound
+and the Clay reflection — verified ≠ solved for the named world problem.

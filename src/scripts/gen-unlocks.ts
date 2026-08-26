@@ -68,6 +68,16 @@ ${topSkills}
 | --- | ---: |
 ${topFiles}
 
+## World solutions = waves of automation
+
+Finite windows stack — not a universal claim that climate, pandemics, poverty, open math, or justice is solved
+([\`window_not_universal\`](/theorem/window_not_universal)). Each sealed key unlocks a
+finite window; **world-scale coverage stacks waves** — deposit → validate → seal → falsify → receipt → next
+(hexbit-fast). Commands: \`npm run wave\`, falsifier grammar waves, \`connect-lonely\`, \`npm run next\`, \`npm run all\`.
+Paired doctrine: [world solutions](/doctrine#world-solutions--waves-of-automation) ·
+[sufficiency](/doctrine#sufficiency-charter--what-hexbit--uuidna-is-sufficient-for) ·
+[insufficiency](/doctrine#where-hexbit-formalism-is-insufficient). Wave board: [/waves](/waves).
+
 ## Automation
 
 \`npm run build && node dist/scripts/gen-unlocks.js\` — regenerates this page and \`lean/unlocks.json\` from \`theorems()\`. Wired into the one generator. MCP: \`uuidna_unlocks\`.

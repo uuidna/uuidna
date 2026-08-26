@@ -61,6 +61,14 @@ ledger does, and mints the post-deploy proof citing that same key — a citation
 the deploy shipped, so the proof licenses itself. Both together are \`npm run all\`: deposit to origin to
 edge, one command, every receipt named.
 
+**World solutions = waves of automation.** Each wave enlarges a finite sealed window (deposit → validate → seal →
+falsify → receipt → next / hexbit-fast). Stacking waves is how uuidna approaches world-scale *computational*
+coverage — not a universal seal that climate policy, pandemics, poverty, open math, or justice is solved
+([\`window_not_universal\`](/theorem/window_not_universal)).
+Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbit--uuidna-is-sufficient-for) ·
+[insufficiency bound](/doctrine#where-hexbit-formalism-is-insufficient) ·
+[world solutions](/doctrine#world-solutions--waves-of-automation).
+
 ## Pending — deposited, awaiting the kernel
 
 | candidate | status |

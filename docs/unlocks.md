@@ -5,7 +5,7 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 # Unlocks — each theorem unlocks
 
-> Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals, receipts, handle capacity, captain coins, Alpine/hexbit catalogue; insufficient for climate, pandemics, poverty/conflict, unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only).
+> Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
 **Board (computed).** 2,039 distinct theorems · 2,120 keys · 112 skills · 115 Lean files.
 
@@ -50,7 +50,7 @@ Receipt `444980f5-04bd-8ab6-9ba1-da0dadf4bd93` · structured form [lean/unlocks.
 | `science-pairs` | 27 |
 | `reasoning` | 25 |
 | `sequence` | 24 |
-| `vortex` | 23 |
+| `vortex` | 24 |
 | `reflection` | 21 |
 | `hexbit` | 20 |
 | `neuro` | 19 |
@@ -83,6 +83,16 @@ Receipt `444980f5-04bd-8ab6-9ba1-da0dadf4bd93` · structured form [lean/unlocks.
 | [`Hardware.lean`](/lean/Hardware.lean) | 17 |
 | [`Readings.lean`](/lean/Readings.lean) | 17 |
 | [`Topography.lean`](/lean/Topography.lean) | 17 |
+
+## World solutions = waves of automation
+
+Finite windows stack — not a universal claim that climate, pandemics, poverty, open math, or justice is solved
+([`window_not_universal`](/theorem/window_not_universal)). Each sealed key unlocks a
+finite window; **world-scale coverage stacks waves** — deposit → validate → seal → falsify → receipt → next
+(hexbit-fast). Commands: `npm run wave`, falsifier grammar waves, `connect-lonely`, `npm run next`, `npm run all`.
+Paired doctrine: [world solutions](/doctrine#world-solutions--waves-of-automation) ·
+[sufficiency](/doctrine#sufficiency-charter--what-hexbit--uuidna-is-sufficient-for) ·
+[insufficiency](/doctrine#where-hexbit-formalism-is-insufficient). Wave board: [/waves](/waves).
 
 ## Automation
 

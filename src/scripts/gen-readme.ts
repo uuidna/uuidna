@@ -165,8 +165,12 @@ Captain coins: \`https://revolut.me/ceccec?note=<referrer>\` (\`encodeURICompone
 (verify ≪ recompute — [verify_beats_recompute_by_magnitudes](https://uuidna.com/theorem/verify_beats_recompute_by_magnitudes)),
 handle capacity ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)),
 captain-coin fair-exchange ([two_coins](https://uuidna.com/theorem/two_coins)), Alpine/hexbit catalogue
-([a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits)). Insufficient for climate,
-pandemics, poverty/conflict, unbounded open math, nature-as-model, or justice — [doctrine](https://uuidna.com/doctrine)
+([a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits)), and finite formal windows
+*within* climate / pandemic / poverty model-calcs — never those domains as solved worlds.
+**World solutions = waves of automation** (deposit → validate → seal → falsify → receipt → next): \`npm run wave\`,
+falsifier grammar waves, \`connect-lonely\`, hexbit-fast push, \`npm run all\` — each wave enlarges a finite window;
+waves do not erase ethics, politics, or unbounded math. Insufficient for climate/pandemic/poverty/conflict *as problem
+types*, unbounded open math, nature-as-model, or justice — [doctrine](https://uuidna.com/doctrine)
 (computational claims only; no Shor/world-problem seal).
 
 ${unlockReadmeBlock()}
