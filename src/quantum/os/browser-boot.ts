@@ -4,7 +4,7 @@
 // (primeCatalogueFrom). Node self-loads mirror/ on first catalogueState().
 import { bootOS } from './index.js'
 import {
-  primeCatalogueFrom, catalogueState, testAllPackagesChunked, isUpstreamClosureGap,
+  primeCatalogueFrom, catalogueState, testAllPackagesChunked, isUpstreamClosureGap, primeCatalogue,
   type CatalogueState,
 } from './catalogue.js'
 
@@ -55,13 +55,19 @@ export async function bootUuidnaOSInBrowser(
 
 let edgeCataloguePrimed: Promise<CatalogueState> | null = null
 
-/** ensureEdgeCatalogue(origin) — prime the committed census at the Workers edge (once per isolate). */
-export function ensureEdgeCatalogue(origin: string): Promise<CatalogueState> {
+/** ensureEdgeCatalogue(origin[, loadCatalogue]) — prime the census at the Workers edge (once per isolate).
+ *  Prefer loadCatalogue (env.ASSETS.fetch) — a worker fetching its own origin often 522s. */
+export function ensureEdgeCatalogue(origin: string, loadCatalogue?: () => Promise<string>): Promise<CatalogueState> {
   const st = catalogueState()
   if (st.present) return Promise.resolve(st)
   if (!edgeCataloguePrimed) {
-    const url = origin.replace(/\/$/, '') + DEFAULT_CATALOGUE_URL
-    edgeCataloguePrimed = primeCatalogueFrom(url)
+    edgeCataloguePrimed = (loadCatalogue
+      ? loadCatalogue()
+      : fetch(origin.replace(/\/$/, '') + DEFAULT_CATALOGUE_URL).then((r) => {
+        if (!r.ok) throw new Error(`catalogue fetch answered HTTP ${r.status}`)
+        return r.text()
+      })
+    ).then((text) => primeCatalogue(text))
   }
   return edgeCataloguePrimed
 }

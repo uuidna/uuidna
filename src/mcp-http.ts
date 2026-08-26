@@ -210,7 +210,7 @@ const rpcErr = (id: unknown, code: number, message: string) => ({ jsonrpc: '2.0'
  *  Pure and stateless: every request is independent, so no session is kept (the edge is stateless by design).
  *  A SYNC tool answers synchronously, exactly as before; a tool whose run returns a thenable answers with a
  *  PROMISE of the same response shape — one dispatch, both tempers, the worker awaits either. */
-export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }, ctx?: { origin?: string }): object | null | Promise<object | null> {
+export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }, ctx?: { origin?: string; loadCatalogue?: () => Promise<string> }): object | null | Promise<object | null> {
   const id = msg?.id ?? null
   const method = msg?.method
   const params = msg?.params ?? {}
@@ -271,7 +271,7 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
     }
     }
     if (ctx?.origin && CATALOGUE_TOOLS.has(name)) {
-      return ensureEdgeCatalogue(ctx.origin).then(() => dispatch(), (e) =>
+      return ensureEdgeCatalogue(ctx.origin, ctx.loadCatalogue).then(() => dispatch(), (e) =>
         rpcErr(id, -32000, String((e as Error).message)))
     }
     return dispatch()

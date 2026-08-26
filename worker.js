@@ -201,11 +201,15 @@ export default {
         return mjson({ jsonrpc: '2.0', id: null, error: { code: -32600, message: 'POST a JSON-RPC message to /mcp (or GET for discovery)' } }, 405)
       let msg
       try { msg = await request.json() } catch { return mjson({ jsonrpc: '2.0', id: null, error: { code: -32700, message: 'parse error — expected a JSON-RPC message' } }, 400) }
+      const mcpCtx = {
+        origin: url.origin,
+        loadCatalogue: async () => (await env.ASSETS.fetch(new Request(new URL('/alpine-catalogue.tsv', url.origin)))).text(),
+      }
       if (Array.isArray(msg)) {                                   // a JSON-RPC batch
-        const out = (await Promise.all(msg.map((m) => handleMcpRpc(m, { origin: url.origin })))).filter(Boolean)   // a thenable dispatch settles here
+        const out = (await Promise.all(msg.map((m) => handleMcpRpc(m, mcpCtx)))).filter(Boolean)   // a thenable dispatch settles here
         return out.length ? mjson(out) : new Response(null, { status: 202, headers: cors })
       }
-      const res = await handleMcpRpc(msg, { origin: url.origin })                                        // sync answers pass through await unchanged
+      const res = await handleMcpRpc(msg, mcpCtx)                                        // sync answers pass through await unchanged
       return res ? mjson(res) : new Response(null, { status: 202, headers: cors })  // a notification → 202, no body
     }
 
