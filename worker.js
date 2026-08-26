@@ -126,6 +126,16 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url)
     const host = url.hostname.toLowerCase()
+    // CANONICAL EDGE — HTTPS + apex. Zone "Always Use HTTPS" and dashboard Redirect Rules need Zone Settings
+    // Write (wrangler OAuth is zone:read only). The worker enforces the same law for every host that reaches it:
+    // http → https and www → apex as one 301. `npm run cf:zone` attaches www Workers Domains (workers:write) and
+    // flips Always Use HTTPS when CLOUDFLARE_API_TOKEN has Zone Settings:Edit — defense in depth, not a second law.
+    if (url.protocol === 'http:' || host.startsWith('www.')) {
+      const dest = new URL(url)
+      dest.protocol = 'https:'
+      dest.hostname = host.startsWith('www.') ? host.slice(4) : host
+      return Response.redirect(dest.toString(), 301)
+    }
     // THE LICENCE IS ASKED ONCE. Every route below used to restate `licensed &&`, seven times, and the last one
     // carried the redirect — so the invariant was asserted at each door and enforced at the end, which is two
     // places to keep in step and one of them easy to forget when a route is added. Asked here and answered here:

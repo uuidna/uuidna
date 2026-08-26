@@ -67,5 +67,9 @@ jobs:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
-          if [ "$HAS_CF" = "true" ]; then npx wrangler deploy
+          if [ "$HAS_CF" = "true" ]; then
+            npx wrangler deploy
+            # Agnostic zone harden for every apex this worker owns. Soft on missing Zone Settings:Edit (script
+            # prints the exact scopes); worker already 301s http→https and www→apex. docs/deploy.md · npm run cf:zone
+            npm run build && node dist/scripts/cloudflare-zone.js
           else echo "::notice::release gate PASSED but the site was not deployed — CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are not set (queue 0b: the captain's paste closes this gap forever)"; fi

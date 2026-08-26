@@ -41,12 +41,19 @@ The npm package ships only behind the [seven-dimension audit](/tests): `npm run 
 sorry-free · provenance · tests · determinism) — and, in CI, the version guards and npm's signed provenance
 attestation. A failing audit fails the publish, never production.
 
-## Cloudflare DNS / TLS (dashboard)
+## Cloudflare DNS / TLS (automated)
 
-Wrangler cannot flip these zone toggles — set them in the Cloudflare dashboard for `uuidna.com`:
+Do **not** click these in the dashboard as the primary path — `npm run cf:zone` hardens every zone/worker this
+repo owns (uuidna.com / .net / .org / perma.family and any other apex bound to the `uuidna` worker):
 
-1. **SSL/TLS → Overview → Always Use HTTPS** — on (HTTP → HTTPS). As of 2026-08-26, bare `http://uuidna.com/` still answers 200 without an HTTPS redirect — turn Always Use HTTPS on.
-2. **www → apex** — `www.uuidna.com` currently 522s (DNS/proxy fails before the worker). Add a **Redirect Rule** (or Page Rule) `www.uuidna.com/*` → `https://uuidna.com/$1` (301), and ensure www is proxied to the same Workers route as the apex. The worker only sees Host after DNS resolves.
+1. Attach `www.<apex>` as a Workers custom domain (kills 522 when DNS is proxied but nothing is bound).
+2. PATCH zone setting **Always Use HTTPS** on (needs Zone Settings:Edit on the API token).
+3. Upsert a Dynamic Redirect Rule `www → https://apex` (needs Dynamic Redirect:Edit; optional — the worker also 301s).
+
+The edge worker itself 301s `http → https` and `www → apex` for every host that reaches it, so the live surface
+is correct even when wrangler OAuth is only `zone:read`. Paste a token with the scopes `cf:zone` prints when a
+write is refused (`CLOUDFLARE_API_TOKEN` + `CLOUDFLARE_ACCOUNT_ID`), then re-run. `npm run ship` calls `cf:zone`
+after the worker ships.
 
 ## Verify, don't trust
 

@@ -40,7 +40,7 @@ import { data } from './.vitepress/ledger.data'
 | **Theorems sealed** | {{ data.total }} — every one `by decide`, recomputed each build from the ledger |
 | **Clusters** | {{ data.groups.length }} — each with its audited monograph (`/publications`) |
 | **Skills** | {{ data.skillGroups.length }} — the topics axis (`/topics`), mined from the keys |
-| **Coins conserved** | 2 — `two_coins` (110 − 108 = −χ of the double torus) |
+| **Coins conserved** | 2 — [`two_coins`](/theorem/two_coins) (110 − 108 = −χ of the double torus) |
 
 These numbers are read from the sealed ledger at build time — the page cannot say more than the ledger proves.
 
