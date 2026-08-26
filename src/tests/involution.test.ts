@@ -170,3 +170,18 @@ test('NEGATION IS LEAN ¬ — sealed denials stayed unreached for one character'
   // List forms still refuse — widening ¬ must not start claiming what it cannot parse
   assert.equal(holds('¬((List.range 10).all (fun n => n < 10))'), null)
 })
+
+test('LXOR IS THE LEDGER 8-BIT XOR — sealed nim-sums stayed unreached for four letters', () => {
+  // nim_sum_is_xor, nim_pposition_is_zero, the nimsum_i_j table — all `lxor a b` with no List/fun.
+  // Without `lxor` they stayed unreached for a named operator alone; the recursion matches Lean lxorAux 8.
+  assert.equal(evaluable('lxor (lxor 3 5) 7 = 1'), true)
+  assert.equal(holds('lxor (lxor 3 5) 7 = 1'), true)
+  assert.equal(holds('lxor (lxor 1 2) 3 = 0'), true)
+  assert.equal(holds('lxor 1 1 = 0'), true)
+  assert.equal(holds('lxor 1 2 = 3'), true)
+  assert.equal(holds('lxor 1 2 = 4'), false)
+  assert.equal(holds('(lxor (lxor 1 2) 4 = 7) ∧ (lxor 7 4 = 3)'), true)
+  // List/fun forms still refuse — widening lxor must not start claiming what it cannot parse
+  assert.equal(holds('(List.range 8).all (fun n => lxor n n == 0)'), null)
+  assert.equal(evaluable('(List.range 8).all (fun n => lxor n n == 0)'), false)
+})

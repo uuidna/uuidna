@@ -63,29 +63,43 @@ export const INVOLUTIONS: readonly Involution[] = [
 const ASCRIPTION = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
 export const stripAscriptions = (s: string): string => s.replace(ASCRIPTION, '$1')
 /** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`),
- *  `≠` as Lean inequality, ASCII `<=` / `>=` beside Unicode `≤` / `≥`, and `¬` as propositional negation.
- *  List / fun / bound names stay unreached; `/`, `≠`, ASCII non-strict inequalities, and `¬` were pure-syntax
- *  gaps that left sealed propositions unreached for characters alone. */
-export const evaluable = (statement: string): boolean => /^[\s0-9()+*%/^=∧<>≤≥≠¬-]+$/.test(stripAscriptions(statement))
+ *  `≠` as Lean inequality, ASCII `<=` / `>=` beside Unicode `≤` / `≥`, `¬` as propositional negation, and
+ *  `lxor` as the ledger's axiom-free 8-bit XOR (Lean `lxorAux 8`). List / fun / bound names stay unreached;
+ *  `/`, `≠`, ASCII non-strict inequalities, `¬`, and `lxor` were pure-syntax gaps that left sealed propositions
+ *  unreached for characters alone. `lxor` is stripped before the character gate so letters never open the door
+ *  to `List` / `fun` — only the named operator is admitted. */
+export const evaluable = (statement: string): boolean =>
+  /^[\s0-9()+*%/^=∧<>≤≥≠¬-]+$/.test(stripAscriptions(statement).replace(/\blxor\b/g, ''))
 
 // A REAL EVALUATOR, NOT `eval`. The first version handed the statement to the runtime after a few substitutions,
 // and the harmonic scan refused it by name — correctly, and for a better reason than style: `eval` makes the
 // meaning of a ledger statement depend on the host's parser rather than on anything this repository decides, so
 // two runtimes could disagree about what a theorem says and nothing here would notice. It is also an execution
 // surface pointed at generated content. The grammar is tiny — numerals, + - * % / ^, the comparisons (incl. ≠,
-// ≤ ≥, and ASCII <= >=), ∧, and ¬ — so a recursive descent over it is short, total, and gives the same answer on
-// every host by construction.
+// ≤ ≥, and ASCII <= >=), ∧, ¬, and `lxor` — so a recursive descent over it is short, total, and gives the same
+// answer on every host by construction.
 //
-// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · parentheses.
+// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · lxor · parentheses.
 type Cursor = { s: string; i: number }
 
 const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c.i++ }
 const eat = (c: Cursor, tok: string): boolean => { ws(c); if (c.s.startsWith(tok, c.i)) { c.i += tok.length; return true } return false }
 
+/** Lean `lxor` — structural XOR with 8-bit fuel (`lxorAux 8`), axiom-free. Same abstract recursion as every
+ *  wing that defines it; ÷2 is Nat floor via `(n - n%2)/2`, no Math.*, no host bitwise. */
+const lxorAux = (w: number, a: number, b: number): number => {
+  if (w === 0) return 0
+  const bit = a % 2 === b % 2 ? 0 : 1
+  return bit + 2 * lxorAux(w - 1, (a - a % 2) / 2, (b - b % 2) / 2)
+}
+const lxor = (a: number, b: number): number => lxorAux(8, a, b)
+
 const atom = (c: Cursor): number => {
   ws(c)
   if (eat(c, '(')) { const v = sum(c); if (!eat(c, ')')) throw new Error('unclosed'); return v }
   if (eat(c, '-')) return -atom(c)
+  // `lxor a b` — Lean function application, two atoms, tighter than infix (nim_sum_is_xor et al.)
+  if (eat(c, 'lxor')) return lxor(atom(c), atom(c))
   const start = c.i
   while (c.i < c.s.length && c.s[c.i]! >= '0' && c.s[c.i]! <= '9') c.i++
   if (c.i === start) throw new Error('expected a numeral')
