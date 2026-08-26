@@ -65,28 +65,33 @@ export const INVOLUTIONS: readonly Involution[] = [
  *  `(40 - (-70) : Int)` stayed unreached for the same reason until `: Nat` / `: Int` were stripped wherever they
  *  annotate arithmetic — still not opening the door to `List` / `fun`. */
 const ASCRIPTION_NUMERAL = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
-/** Strip `: Nat` / `: Int` and `: List …` ascriptions (incl. `List (Int × Int)`). Not `: String` alone. */
-const ASCRIPTION_TYPE = /\s*:\s*(?:Nat|Int|List(?:\s*\([^)]*\)|\s+[A-Za-z_][A-Za-z0-9_]*)?)\b/g
+/** Strip `: Nat` / `: Int` and `: List …` (incl. `List (Int × Int)`). Trailing `\b` must not follow `)` — it
+ *  would refuse the parenthesised List form and leave `(Int × Int)` as junk. */
+const ASCRIPTION_TYPE = /\s*:\s*(?:Nat|Int)\b|\s*:\s*List(?:\s*\([^)]*\)|\s+[A-Za-z_][A-Za-z0-9_]*)?/g
 export const stripAscriptions = (s: string): string =>
   s.replace(ASCRIPTION_NUMERAL, '$1').replace(ASCRIPTION_TYPE, '')
-/** Numerals, arithmetic, named ledger ops, Prod `.1`/`.2`, and a BOUNDED List slice: literals `[…]`,
- *  `++`, `.reverse` / `.length` / `.contains` / `.sum` / `.take` / `.eraseDups` / `.Nodup`, `nth`,
- *  `List.sum` / `List.reverse`, and `true`/`false`. `fun` / `List.range` / bound names / named constant
- *  tables stay unreached — those are a different class. Admitted names are stripped before the character
+/** Numerals, arithmetic, named ledger ops, Prod `.1`/`.2`, and a BOUNDED List slice: literals `[…]` (Nat and
+ *  String), `++`, `.reverse` / `.length` / `.contains` / `.sum` / `.take` / `.eraseDups` / `.Nodup`, `nth`,
+ *  `List.sum` / `List.reverse` / `List.range` / `List.range'`, `rowsOf`, `true`/`false`, `&&`, and `if/then/else`.
+ *  `fun` / bound names / named constant tables stay unreached. Admitted names are stripped before the character
  *  gate so letters never open the door to arbitrary identifiers. */
-const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List|reverse|length|contains|sum|take|eraseDups|Nodup|nth|true|false)\b/g
+const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|reverse|length|contains|sum|take|eraseDups|Nodup|nth|true|false|if|then|else)\b/g
+/** Drop string literal bodies so Unicode readings (bg/zh/…) do not fail the character gate. */
+const stripStrings = (s: string): string => s.replace(/"(?:[^"]*)"/g, '""')
 export const evaluable = (statement: string): boolean =>
-  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]-]+$/.test(stripAscriptions(statement).replace(NAMED_OP, '').replace(/\+\+/g, ''))
+  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]"\\&'-]+$/.test(
+    stripStrings(stripAscriptions(statement)).replace(NAMED_OP, '').replace(/\+\+/g, ''),
+  )
 
 // A REAL EVALUATOR, NOT `eval`. Recursive descent over numerals, arithmetic, comparisons, ∧, ¬, named ledger
 // ops, Prod, and the List slice above — short, total, same answer on every host.
 //
 // Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ · ++ · postfix (.reverse/.length/…) · atoms.
 type Cursor = { s: string; i: number }
-/** Tagged values: numerals, booleans, right-associated Prods, and finite lists. */
+/** Tagged values: numerals, booleans, strings, right-associated Prods, and finite lists. */
 type Pair = { readonly t: 'p'; readonly a: Val; readonly b: Val }
 type Lst = { readonly t: 'l'; readonly xs: Val[] }
-type Val = number | boolean | Pair | Lst
+type Val = number | boolean | string | Pair | Lst
 
 const pair = (a: Val, b: Val): Pair => ({ t: 'p', a, b })
 const lst = (xs: Val[]): Lst => ({ t: 'l', xs })
@@ -97,8 +102,8 @@ const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c
 const eat = (c: Cursor, tok: string): boolean => { ws(c); if (c.s.startsWith(tok, c.i)) { c.i += tok.length; return true } return false }
 
 const deepEq = (a: Val, b: Val): boolean => {
-  if (typeof a === 'number' || typeof a === 'boolean') return a === b
-  if (typeof b === 'number' || typeof b === 'boolean') return false
+  if (typeof a === 'number' || typeof a === 'boolean' || typeof a === 'string') return a === b
+  if (typeof b === 'number' || typeof b === 'boolean' || typeof b === 'string') return false
   if (isPair(a) && isPair(b)) return deepEq(a.a, b.a) && deepEq(a.b, b.b)
   if (isLst(a) && isLst(b)) {
     if (a.xs.length !== b.xs.length) return false
@@ -173,6 +178,18 @@ const listNth = (xs: Val[], i: number): number => {
   if (i < 0 || i >= xs.length) return 0
   return asNum(xs[i]!)
 }
+const bitOf = (m: number, i: number): number => (m >> i) & 1
+const rowsOf = (m: number): Val[] => [0, 1, 2, 3].map((i) => bitOf(m, i))
+const listRange = (n: number): Val[] => {
+  const xs: Val[] = []
+  for (let i = 0; i < n; i++) xs.push(i)
+  return xs
+}
+const listRangeFrom = (start: number, count: number): Val[] => {
+  const xs: Val[] = []
+  for (let i = 0; i < count; i++) xs.push(start + i)
+  return xs
+}
 
 /** Postfix: Prod `.1`/`.2` and List methods. `.contains` / `.take` take an argument. */
 const postfix = (c: Cursor, v: Val): Val => {
@@ -205,13 +222,22 @@ const postfix = (c: Cursor, v: Val): Val => {
 
 const atom = (c: Cursor): Val => {
   ws(c)
+  // string literal
+  if (c.s[c.i] === '"') {
+    c.i++
+    let out = ''
+    while (c.i < c.s.length && c.s[c.i] !== '"') out += c.s[c.i++]
+    if (c.s[c.i] !== '"') throw new Error('unclosed string')
+    c.i++
+    return postfix(c, out)
+  }
   // list literal
   if (eat(c, '[')) {
     const xs: Val[] = []
     ws(c)
     if (!eat(c, ']')) {
       for (;;) {
-        xs.push(sum(c))
+        xs.push(junction(c))
         ws(c)
         if (eat(c, ']')) break
         if (!eat(c, ',')) throw new Error('list comma')
@@ -220,13 +246,13 @@ const atom = (c: Cursor): Val => {
     return postfix(c, lst(xs))
   }
   if (eat(c, '(')) {
-    const a = sum(c)
+    const a = junction(c)
     ws(c)
     if (eat(c, ',')) {
-      const b = sum(c)
+      const b = junction(c)
       ws(c)
       if (eat(c, ',')) {
-        const d = sum(c)
+        const d = junction(c)
         if (!eat(c, ')')) throw new Error('unclosed')
         return postfix(c, pair(a, pair(b, d)))
       }
@@ -239,12 +265,24 @@ const atom = (c: Cursor): Val => {
   if (eat(c, '-')) return postfix(c, -asNum(atom(c)))
   if (eat(c, 'true')) return postfix(c, true)
   if (eat(c, 'false')) return postfix(c, false)
+  if (eat(c, 'if')) {
+    const cond = compare(c)
+    if (!eat(c, 'then')) throw new Error('if then')
+    const t = junction(c)
+    if (!eat(c, 'else')) throw new Error('if else')
+    // Always parse both arms — JS `?:` must not skip the else expression.
+    const e = junction(c)
+    return postfix(c, cond ? t : e)
+  }
   // Named apps — longer tokens before prefixes.
   if (eat(c, 'Nat.gcd')) return postfix(c, natGcd(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, "List.range'")) return postfix(c, lst(listRangeFrom(asNum(atom(c)), asNum(atom(c)))))
+  if (eat(c, 'List.range')) return postfix(c, lst(listRange(asNum(atom(c)))))
   if (eat(c, 'List.sum')) return postfix(c, listSum(asLst(atom(c))))
   if (eat(c, 'List.reverse')) return postfix(c, lst(listReverse(asLst(atom(c)))))
   if (eat(c, 'lxor')) return postfix(c, lxor(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'pop')) return postfix(c, pop(asNum(atom(c))))
+  if (eat(c, 'rowsOf')) return postfix(c, lst(rowsOf(asNum(atom(c)))))
   if (eat(c, 'commission')) return postfix(c, commission(asNum(atom(c))))
   if (eat(c, 'unverified')) return postfix(c, unverifiedFn(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'verified')) return postfix(c, verifiedFn(asNum(atom(c)), asNum(atom(c))))
@@ -294,18 +332,30 @@ function sum(c: Cursor): Val {
   }
 }
 
+/** `&&` is Lean Bool and — sealed publish_gate_is_conjunction. */
+function junction(c: Cursor): Val {
+  let v = sum(c)
+  for (;;) {
+    ws(c)
+    if (!eat(c, '&&')) return v
+    const r = sum(c)
+    if (typeof v !== 'boolean' || typeof r !== 'boolean') throw new Error('&&')
+    v = v && r
+  }
+}
+
 const compare = (c: Cursor): boolean => {
-  const l = sum(c); ws(c)
+  const l = junction(c); ws(c)
   // TWO-CHARACTER OPS BEFORE THEIR PREFIXES — `<=` must win over `<`.
-  if (eat(c, '<=')) return asNum(l) <= asNum(sum(c))
-  if (eat(c, '>=')) return asNum(l) >= asNum(sum(c))
-  if (eat(c, '≤')) return asNum(l) <= asNum(sum(c))
-  if (eat(c, '≥')) return asNum(l) >= asNum(sum(c))
-  if (eat(c, '≠')) return !deepEq(l, sum(c))
-  if (eat(c, '<')) return asNum(l) < asNum(sum(c))
-  if (eat(c, '>')) return asNum(l) > asNum(sum(c))
-  if (eat(c, '=')) return deepEq(l, sum(c))
-  // bare boolean proposition — `.Nodup`, `.contains`, `true`
+  if (eat(c, '<=')) return asNum(l) <= asNum(junction(c))
+  if (eat(c, '>=')) return asNum(l) >= asNum(junction(c))
+  if (eat(c, '≤')) return asNum(l) <= asNum(junction(c))
+  if (eat(c, '≥')) return asNum(l) >= asNum(junction(c))
+  if (eat(c, '≠')) return !deepEq(l, junction(c))
+  if (eat(c, '<')) return asNum(l) < asNum(junction(c))
+  if (eat(c, '>')) return asNum(l) > asNum(junction(c))
+  if (eat(c, '=')) return deepEq(l, junction(c))
+  // bare boolean proposition — `.Nodup`, `.contains`, `true`, `if`
   if (typeof l === 'boolean') return l
   throw new Error('expected a comparison')
 }

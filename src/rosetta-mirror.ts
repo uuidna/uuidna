@@ -128,11 +128,11 @@ primary_secondary_split 19
 reflection_is_total_by_the_key 19
 #Boolean.lean
 sixteen_binary_functions 19
-gates_name_their_tables 19
+gates_name_their_tables 27
 nand_rebuilds_the_others 19
 two_functions_ignore_input 19
-xor_differs_from_or 19
-implication_is_a_gate 19
+xor_differs_from_or 27
+implication_is_a_gate 27
 #Byte.lean
 byte_holds_two_hexbits 27
 address_is_sixteen_bytes 27
@@ -181,7 +181,7 @@ ten_square_computes_ten_dimensions 27
 chessboard_sixty_four 27
 chessboard_two_colours 19
 knight_leap_is_odd 27
-knight_has_eight_moves 19
+knight_has_eight_moves 27
 closed_knight_tour_even 19
 rook_open_board_fourteen 27
 bishop_stays_on_colour 27
@@ -515,7 +515,7 @@ oos_social_engineering 27
 oos_physical_sidechannel 27
 oos_fnv_misuse 27
 #Glagolitic.lean
-glagolitic_units 19
+glagolitic_units 27
 glagolitic_units_sum 19
 glagolitic_additive 27
 glagolitic_teens_reversed 27
@@ -713,14 +713,14 @@ denial_drains_to_the_last_coin 27
 #Neuro.lean
 subthreshold_silent 19
 suprathreshold_fires 19
-spatial_summation 19
+spatial_summation 27
 action_potential_swing 27
 all_or_none_amplitude 19
 firing_rate_saturates 19
 hebbian_coincidence_table 19
 hebbian_ltd_is_signed 19
 refractory_absolute_and_relative 19
-inhibition_vetoes_spike 19
+inhibition_vetoes_spike 27
 temporal_summation_decays 19
 rate_codes_intensity 19
 refractory_bounds_rate 19
@@ -866,7 +866,7 @@ truncation_is_detected 27
 byte_order_is_significant 27
 sha256_digest_is_256_bits 27
 provenance_address_is_128_bits 27
-boundary_is_exactly_two_named_modules 19
+boundary_is_exactly_two_named_modules 27
 #Pentagram.lean
 pentagram_single_stroke 27
 pentagon_single_stroke 19
@@ -908,7 +908,7 @@ from_eight_bits_to_the_dos_ceiling 27
 reverse_involutive 27
 phase_inversion_involutive 19
 reverse_inverse_fused_involutive 19
-chromatic_is_z12 19
+chromatic_is_z12 27
 octave_doubles_frequency 27
 tempo_ms_per_beat 27
 nyquist_half_samplerate 27
@@ -930,7 +930,7 @@ orbits_are_distinct 19
 every_orbit_holds_zero 19
 #Psychology.lean
 likert_midpoint_is_fixed_point 19
-big_five_factors_pentad 19
+big_five_factors_pentad 27
 working_memory_span_seven 27
 hicks_law_three_bits 27
 signal_detection_two_by_two 27
@@ -991,14 +991,14 @@ all_signaling_duality 27
 hexbit_slit_visibility 27
 hexbit_slit_cross_is_overlap 27
 #Readings.lean
-readings_seven_rays 19
-readings_en_names_sixteen 18
-readings_bg_names_sixteen 18
-readings_de_names_sixteen 18
-readings_fr_names_sixteen 18
-readings_es_names_sixteen 18
-readings_ru_names_sixteen 18
-readings_zh_names_sixteen 18
+readings_seven_rays 27
+readings_en_names_sixteen 26
+readings_bg_names_sixteen 26
+readings_de_names_sixteen 26
+readings_fr_names_sixteen 26
+readings_es_names_sixteen 26
+readings_ru_names_sixteen 26
+readings_zh_names_sixteen 26
 readings_states_sound_the_lattice 19
 nyquist_clears_the_lattice 27
 amplitude_inside_int16 27
@@ -1064,7 +1064,7 @@ rest_energy_mc2 19
 causality_forbids_ftl 27
 #Report.lean
 five_ws_and_one_h 27
-timeline_is_chronological 19
+timeline_is_chronological 27
 trinity_edit_is_three 27
 full_quorum_of_three 27
 publish_gate_is_conjunction 19
@@ -1557,7 +1557,7 @@ tetrahedron_self_dual 27
 three_pentagons_close_a_vertex 27
 regular_polytopes_by_dimension 19
 three_regular_polytopes_from_five_up 19
-seventh_dimension_three_regular_polytopes 19
+seventh_dimension_three_regular_polytopes 27
 #Song.lean
 song_pi_roof_opens 27
 song_round_turns_on_seven 27
@@ -1578,7 +1578,7 @@ photon_energy_rises_with_band 19
 visible_under_one_octave 27
 octave_of_light_doubles 27
 inverse_at_fixed_c 27
-visible_seven_colours 19
+visible_seven_colours 27
 #SpectrumHex.lean
 colour_is_six_hexbits 27
 channel_is_two_hexbits 27

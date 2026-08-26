@@ -118,9 +118,10 @@ test('COMPOUND ASCRIPTIONS ARE STILL NOT ARITHMETIC — (expr : Nat|Int) stayed 
   assert.equal(holds('((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40)'), true)
   assert.equal(holds('(3*3 - 5*5 : Int) < 0'), true)
   assert.equal(holds('(3*3 - 5*5 : Int) > 0'), false)
-  // List ascriptions with the List slice are reachable; fun/range still refuse
+  // List ascriptions with the List slice are reachable; fun still refuses
   assert.equal(holds('([1,0,0,1] : List Nat).length = 4'), true)
-  assert.equal(holds('(List.range 4).length = 4'), null)
+  assert.equal(holds('(List.range 4).length = 4'), true)
+  assert.equal(holds('(List.range 4).all (fun x => x < 4)'), null)
 })
 
 test('THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreached, never true', () => {
@@ -142,7 +143,7 @@ test('DIVISION IS LEAN NAT FLOOR — / was a pure-syntax gap that left sealed eq
   assert.equal(holds('1000 / 0 = 0'), true, '÷0 = 0, same abstract zero as %')
   assert.equal(holds('256 / 2 = 128'), true)
   // List forms still refuse — widening / must not start claiming what it cannot parse
-  assert.equal(holds('(List.range 7).length / 1 = 7'), null)
+  assert.equal(holds('(List.range 7).map (fun x => x) / 1 = 7'), null)
 })
 
 test('INEQUALITY IS LEAN ≠ — another pure-syntax gap that left sealed inequalities unreached', () => {
@@ -153,7 +154,7 @@ test('INEQUALITY IS LEAN ≠ — another pure-syntax gap that left sealed inequa
   assert.equal(holds('9 ≠ 11'), true)
   assert.equal(holds('(2:Nat) ≠ 0'), true)
   // List forms still refuse — widening ≠ must not start claiming what it cannot parse
-  assert.equal(holds('(List.range 7).length ≠ 0'), null)
+  assert.equal(holds('(List.range 7).filter (fun x => true) ≠ []'), null)
 })
 
 test('NON-STRICT INEQUALITY IS ASCII <= AND >= — sealed windows stayed unreached for two characters', () => {
@@ -238,7 +239,7 @@ test('PROD .1/.2 IS LEAN PAIR PROJECTION — sealed duals stayed unreached for c
   assert.equal(holds('(8,12,6).1 = 7'), false)
   // List-of-Prod is the List slice; fun/range still refuse
   assert.equal(holds('[(8,12,6)].length = 1'), true)
-  assert.equal(holds('(List.range 1).length = 1'), null)
+  assert.equal(holds('(List.range 1).map (fun x => x) = [0]'), null)
 })
 
 test('NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreached for letters alone', () => {
@@ -258,7 +259,7 @@ test('NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreac
   assert.equal(holds('([2,6,7,8,9].contains 7) ∧ (dzMin 7 = dzMin 3)'), true)
 })
 
-test('LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, Nodup, nth, ++', () => {
+test('LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, Nodup, nth, ++, range, rowsOf, strings, if, &&', () => {
   assert.equal(evaluable('[1,2,3] = [1,2,3]'), true)
   assert.equal(holds('[1,2,3] = [1,2,3]'), true)
   assert.equal(holds('[1,2,3] ≠ [3,2,1]'), true)
@@ -278,8 +279,21 @@ test('LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, 
   assert.equal(holds('[true, false].length = 2'), true)
   assert.equal(holds('[(4,6,4),(8,12,6)].length = 2'), true)
   assert.equal(holds('[1, (1*2)%9, (2*2)%9] = [1,2,4]'), true)
-  // fun / range / named tables still refuse
-  assert.equal(holds('(List.range 7).length = 7'), null)
+  assert.equal(holds('(List.range 7).length = 7'), true)
+  assert.equal(holds("List.range' 5 3 = [5, 6, 7]"), true)
+  assert.equal(holds('rowsOf 5 = [1, 0, 1, 0]'), true)
+  assert.equal(holds('["a", "b"].length = 2'), true)
+  assert.equal(holds('["а", "б"].contains "а" = true'), true)
+  assert.equal(holds('if true then 1 else 0 = 1'), true)
+  assert.equal(holds('true && false = false'), true)
+  assert.equal(
+    holds(
+      '[(1, 2), (1, -2), (-1, 2), (-1, -2), (2, 1), (2, -1), (-2, 1), (-2, -1)] : List (Int × Int) ≠ []',
+    ),
+    true,
+  )
+  // fun / named tables still refuse
   assert.equal(holds('(List.range 4).all (fun x => x < 4)'), null)
-  assert.equal(evaluable('(List.range 7).length = 7'), false)
+  assert.equal(holds('[1, 2].map (fun x => x + 1) = [2, 3]'), null)
+  assert.equal(evaluable('(List.range 4).all (fun x => x < 4)'), false)
 })
