@@ -7,6 +7,8 @@ import { toUuid } from '../../../dist/index.js'
 // the sponsorship URL used to be typed here as a literal AND again in the aside's card; SITE.sponsor is the one
 // place it lives now, so the two surfaces cannot disagree the way two copies of a literal always eventually do
 import { SITE, sponsorDepositUrl } from '../../../dist/site/index.js'
+import { STANDING_DOI, doiUrl } from '../../../dist/handle-permanence.js'
+const archiveDoiHref = doiUrl(STANDING_DOI)
 // Internal links go through VitePress's withBase so the site base (and any locale prefix) is applied — no
 // hand-built absolute paths that break under a base or a locale. External links (http…) pass through unchanged.
 const href = (h) => (h.startsWith('/') ? withBase(h) : h)
@@ -72,7 +74,7 @@ const cols = computed(() => [
       </section>
     </div>
     <div class="sf-base">
-      <span><a :href="href('/license')">License <strong>CC BY-NC-ND 4.0</strong></a> · <a :href="href('/privacy')">Privacy</a> · <a :href="href('/justice')">Justice</a> · <code class="sf-uuid">{{ licenseUuid }}</code> — Tsvetan Rouschev.</span>
+      <span><a :href="href('/license')">License <strong>CC BY-NC-ND 4.0</strong></a> · <a :href="archiveDoiHref">Archive DOI <code>{{ STANDING_DOI }}</code></a> · <a :href="href('/privacy')">Privacy</a> · <a :href="href('/justice')">Justice</a> · <code class="sf-uuid">{{ licenseUuid }}</code> — Tsvetan Rouschev.</span>
       <span>A theorem computes in Lean, or it is not a theorem. <em>Integrity, not truth.</em></span>
     </div>
   </footer>

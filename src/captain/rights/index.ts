@@ -69,13 +69,15 @@ export function captainRights(): CaptainRights {
 
   // the head to infuse EVERYWHERE — the license relation, the copyright, the rights content-address, and the fields a
   // consumer folds into a page's schema.org JSON-LD (license / copyrightHolder / copyrightYear / creditText).
+  // rel=canonical is the PAGE's job (quantumSeo / transformPageData). Stamping the site origin here
+  // as a second link[rel=canonical] collides with every page URL (home shows both uuidna.com/ and uuidna.com).
+  // uuidna:canonical meta carries the sole-representation host without fighting the page canonical.
   const head: HeadTuple[] = [
     ['link', { rel: 'license', href: licenseUrl }],
     ['meta', { name: 'license', content: lf.license.spdx }],
     ['meta', { name: 'copyright', content: `© ${YEAR} ${holder}` }],
     ['meta', { property: 'uuidna:rights', content: imprint }],
     ['meta', { property: 'uuidna:canonical', content: CANONICAL }],
-    ['link', { rel: 'canonical', href: CANONICAL }],
   ]
 
   _cache = {

@@ -7,9 +7,9 @@ the generator on the build host — rerun `npm run x -- gen-quantum-capacity` an
 the table shows is the report: raw state space is astronomical everywhere, and the usable column is where the
 platforms differ today. The ranking is arithmetic, not editorial — but WHAT THE SEALS COVER IS THE ARITHMETIC AND
 NOT THE DATA, and saying so is the difference between a citation and a borrowed authority.
-[capacity_order_is_forced](https://uuidna.com/theorem/capacity_order_is_forced) proves that 128 > 48 > 36 > 12 > 1
+`capacity_order_is_forced` proves that 128 > 48 > 36 > 12 > 1
 is sorted; it does not prove those are the right figures.
-[usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) proves 128 − 48 = 80 and
+`usable_gap_is_two_to_eighty` proves 128 − 48 = 80 and
 2^128 = 2^80 · 2^48; it does NOT prove that 48 is the largest demonstrated logical figure. That is a **reported**
 number (Bluvstein et al., Nature 2023), and if it is superseded the arithmetic stays true while the gap changes.
 Every seal in this ledger is proved `by decide`, which settles finite checks and cannot quantify over what has
