@@ -44,7 +44,12 @@ test('the census over the REAL served catalogue, and it must not be all one thin
   // unmeasured have somewhere of their own to land.
   assert.ok(c.unclassified > 0,
     'the live catalogue carries parameter names neither list holds; a zero here means they were absorbed again')
+  assert.ok(c.unclassified <= 8,
+    `stem involution should have closed the catalogue majority; unclassified stayed ${c.unclassified}`)
   assert.ok(c.unrecognised.length > 0, 'and the census must NAME them — a count alone is not actionable')
+  // energy unit-bearing names are the remaining unmeasured set — never quietly absorbed as ledger-only
+  assert.ok(c.unrecognised.some((n) => /Nanometres|Millivolts|Milliwatts|Kelvin|Litres/.test(n)),
+    'unit-bearing energy params remain named in unrecognised')
   // All three measured scopes populate; unclassified stays for open-category / unit-suffixed names (energy, …).
   assert.ok(c.generic > 0 && c.self > 0 && c.fixed > 0, 'all three scopes are populated on the live surface')
   assert.ok(c.generic > 50, 'once stems are named, the reachable product is a real surface — not a handful')
@@ -77,6 +82,10 @@ test('an unheard-of parameter is UNMEASURED, never quietly promoted to self', ()
   assert.equal(scopeOf(schema('keys')), 'self', 'keys ↔ key — theorem-key arrays stay ledger-scoped')
   assert.equal(scopeOf(schema('addresses')), 'self', 'addresses ↔ address — ledger address arrays stay self-scoped')
   assert.equal(scopeOf(schema('theoremKey')), 'self', 'camelCase ledger keys are listed verbatim')
+  assert.equal(scopeOf(schema('bookIds')), 'generic', 'camelCase plurals involute to roster stems')
+  assert.equal(scopeOf(schema('recomputeOps', 'commercial')), 'generic')
+  // Energy unit-bearing names stay unmeasured — the live control that keeps unclassified honest and non-empty.
+  assert.equal(scopeOf(schema('wavelengthNanometres')), 'unclassified')
 })
 
 test('numberInvolute is self-inverse on the catalogue stems', async () => {
@@ -84,6 +93,8 @@ test('numberInvolute is self-inverse on the catalogue stems', async () => {
   for (const [a, b] of [
     ['message', 'messages'], ['key', 'keys'], ['passphrase', 'passphrases'], ['claim', 'claims'],
     ['leaf', 'leaves'], ['address', 'addresses'], ['deposit', 'deposits'], ['proof', 'proofs'], ['root', 'roots'],
+    ['bookId', 'bookIds'], ['recomputeOp', 'recomputeOps'], ['seenAddress', 'seenAddresses'],
+    ['citedTheorem', 'citedTheorems'],
   ] as const) {
     assert.ok(numberInvolute(a).includes(b), a + ' → ' + b)
     assert.ok(numberInvolute(b).includes(a), b + ' → ' + a)
