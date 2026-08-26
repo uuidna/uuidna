@@ -8,6 +8,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
 import { renderStates } from '../../../src/quantum/apps/hexbit-player.js'
+import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
 
 const props = defineProps({
   states: { type: Array, required: true },   // hexbit states 0..15, in playing order
@@ -17,7 +18,8 @@ const src = ref('')
 const addr = ref('')
 const samples = ref(0)
 
-onMounted(() => {
+onMounted(async () => {
+  try { await bootUuidnaOSInBrowser() } catch { /* boot image drift — player still renders states; monitor names the fault */ }
   const r = renderStates(props.states, props.ms)
   samples.value = r.samples
   addr.value = r.address

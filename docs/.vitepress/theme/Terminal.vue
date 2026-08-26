@@ -6,6 +6,7 @@
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
 import { parseLine, rpcCall, rpcList, helpText, meaningOf, resultText, transcriptReceipt, routeUtterance, type WireTool } from '../../../src/quantum/apps/terminal.js'
+import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
 
 const lines = ref<string[]>([])
 const input = ref('')
@@ -36,6 +37,13 @@ const rpc = async (message: object): Promise<unknown> => {
 
 onMounted(async () => {
   await print(meaningOf())
+  try {
+    const boot = await bootUuidnaOSInBrowser()
+    const c = boot.catalogue
+    await print(`\nuuidnaOS boot \`${boot.bootReceipt}\` · catalogue ${c.present ? `${c.count.toLocaleString('en-US')} packages` : `ABSENT — ${c.why}`}`)
+  } catch (e) {
+    await print(`\n✗ uuidnaOS refused to boot — ${e instanceof Error ? e.message : String(e)}`)
+  }
   try {
     const listed = await rpc(rpcList(++id)) as { result?: { tools?: WireTool[] } }
     toolbox.value = listed.result?.tools ?? []
