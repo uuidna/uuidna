@@ -240,3 +240,20 @@ test('PROD .1/.2 IS LEAN PAIR PROJECTION — sealed duals stayed unreached for c
   // List forms still refuse — widening Prod must not start claiming what it cannot parse
   assert.equal(holds('[(8,12,6)].length = 1'), null)
 })
+
+test('NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreached for letters alone', () => {
+  // Pure formulas from Reflection/Phase/Clock/AntiFraud — no List, no tables, no invented witnesses.
+  assert.equal(holds('dz 0 = 0'), true)
+  assert.equal(holds('dz 5 = 5'), true)
+  assert.equal(holds('dbl 5 = 1'), true)
+  assert.equal(holds('(dz 0 = 0) ∧ (dbl 0 = 0)'), true)
+  assert.equal(holds('(dz 5 = 5) ∧ (dbl 5 = 1) ∧ (dbl 5 ≠ 5)'), true)
+  assert.equal(holds('(dzMin 7 = dzMin 3) ∧ (dzMin 6 = dzMin 4)'), true)
+  assert.equal(holds('(res 0 = res 6) ∧ ((0:Nat) ≠ 6)'), true)
+  assert.equal(holds('(commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0)'), true)
+  assert.equal(holds('(unverified 1 0 = 1) ∧ (verified 1 1 = 1) ∧ (verified 1 0 = 0)'), true)
+  assert.equal(holds('commission 110 = 3'), false)
+  // List/fun / preOf still refuse
+  assert.equal(holds('(preOf dbl 0 = 2) ∧ (dbl 0 = 0)'), null)
+  assert.equal(holds('([2,6,7,8,9].contains 7) ∧ (dzMin 7 = dzMin 3)'), null)
+})

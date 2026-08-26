@@ -70,28 +70,24 @@ export const stripAscriptions = (s: string): string =>
   s.replace(ASCRIPTION_NUMERAL, '$1').replace(ASCRIPTION_TYPE, '')
 /** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`),
  *  `≠` as Lean inequality, ASCII `<=` / `>=` beside Unicode `≤` / `≥`, `¬` as propositional negation,
- *  `lxor` / `Nat.gcd` / `pop` as named ledger operators, and Lean Prod pairs `(a,b)` / `(a,b,c)` with
- *  right-associated nesting and `.1` / `.2` projections. List / fun / bound names stay unreached; those tokens
- *  and compound `: Nat` / `: Int` ascriptions were pure-syntax gaps that left sealed propositions unreached for
- *  a token alone. Named operators are stripped before the character gate so letters never open the door to
- *  `List` / `fun` — only the admitted names pass. */
+ *  named ledger operators (`lxor`, `Nat.gcd`, `pop`, `dz`, `dbl`, `dzMin`, `res`, `commission`, `verified`,
+ *  `unverified`), and Lean Prod pairs with `.1` / `.2` projections. List / fun / bound names stay unreached;
+ *  those tokens and compound `: Nat` / `: Int` ascriptions were pure-syntax gaps that left sealed propositions
+ *  unreached for a token alone. Named operators are stripped before the character gate so letters never open
+ *  the door to `List` / `fun` — only the admitted names pass. */
+const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res)\b/g
 export const evaluable = (statement: string): boolean =>
-  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.-]+$/.test(
-    stripAscriptions(statement)
-      .replace(/\bNat\.gcd\b/g, '')
-      .replace(/\blxor\b/g, '')
-      .replace(/\bpop\b/g, ''),
-  )
+  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.-]+$/.test(stripAscriptions(statement).replace(NAMED_OP, ''))
 
 // A REAL EVALUATOR, NOT `eval`. The first version handed the statement to the runtime after a few substitutions,
 // and the harmonic scan refused it by name — correctly, and for a better reason than style: `eval` makes the
 // meaning of a ledger statement depend on the host's parser rather than on anything this repository decides, so
 // two runtimes could disagree about what a theorem says and nothing here would notice. It is also an execution
-// surface pointed at generated content. The grammar is tiny — numerals, + - * % / ^, the comparisons (incl. ≠,
-// ≤ ≥, and ASCII <= >=), ∧, ¬, `lxor`, `Nat.gcd`, `pop`, and Prod `.1`/`.2` — so a recursive descent over it is
-// short, total, and gives the same answer on every host by construction.
+// surface pointed at generated content. The grammar is tiny — numerals, arithmetic, comparisons, ∧, ¬, named
+// ledger ops, and Prod `.1`/`.2` — so a recursive descent over it is short, total, and gives the same answer on
+// every host by construction.
 //
-// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · Nat.gcd / lxor / pop · Prod proj · parentheses.
+// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · named apps · Prod proj · parentheses.
 type Cursor = { s: string; i: number }
 /** Lean Prod is right-associated: `(a,b,c)` means `(a, (b, c))`. Projections `.1` / `.2` peel one layer. */
 type Val = number | [Val, Val]
@@ -125,6 +121,25 @@ const natGcd = (a: number, b: number): number => {
     y = r
   }
   return x
+}
+
+/** Lean Nat floor division used by named defs — ÷0 = 0. */
+const natDiv = (a: number, b: number): number => (b === 0 ? 0 : (a - (a % b)) / b)
+
+/** Wing defs as sealed arithmetic — Reflection/Phase/Clock/AntiFraud; no List, no tables. */
+const dz = (x: number): number => (x === 0 ? 0 : 10 - x)
+const dbl = (d: number): number => {
+  const m = 9
+  const p = 2 * d
+  return m === 0 ? 0 : p % m
+}
+const dzMin = (d: number): number => { const z = dz(d); return z < d ? z : d }
+const commission = (bits: number): number => 2 * natDiv(bits, 110)
+const verified = (c: number, s: number): number => c * s
+const unverified = (c: number, s: number): number => 1 - verified(c, s)
+const res = (step: number): number => {
+  const r = (2 ** (step % 6)) % 9
+  return r === 0 ? 9 : r
 }
 
 /** Peel `.1` / `.2` until a numeral remains — cube_octahedron_dual et al. */
@@ -164,12 +179,17 @@ const atom = (c: Cursor): number => {
     return project(c, a)
   }
   if (eat(c, '-')) return -atom(c)
-  // `Nat.gcd a b` — Lean function application (closure_is_coprime, rosette_and_vortex_are_coprime, …)
+  // Named apps — longer tokens before prefixes (dzMin before dz, unverified before verified).
   if (eat(c, 'Nat.gcd')) return natGcd(atom(c), atom(c))
-  // `lxor a b` — Lean function application, two atoms, tighter than infix (nim_sum_is_xor et al.)
   if (eat(c, 'lxor')) return lxor(atom(c), atom(c))
-  // `pop n` — Lean unary popcount (codon_flips_six; Hamming weight of an 8-bit Nat)
   if (eat(c, 'pop')) return pop(atom(c))
+  if (eat(c, 'commission')) return commission(atom(c))
+  if (eat(c, 'unverified')) return unverified(atom(c), atom(c))
+  if (eat(c, 'verified')) return verified(atom(c), atom(c))
+  if (eat(c, 'dzMin')) return dzMin(atom(c))
+  if (eat(c, 'dz')) return dz(atom(c))
+  if (eat(c, 'dbl')) return dbl(atom(c))
+  if (eat(c, 'res')) return res(atom(c))
   const start = c.i
   while (c.i < c.s.length && c.s[c.i]! >= '0' && c.s[c.i]! <= '9') c.i++
   if (c.i === start) throw new Error('expected a numeral')
