@@ -1,20 +1,36 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:e920faa4-0ee0-8c24-813e-103ee4e50cdc",
+  "@id": "urn:uuid:944ae6ed-628c-8920-ad47-9b9356edb551",
   "@type": "Dataset",
   "name": "uuidna Alpine hexbit quantum monitor",
-  "description": "TypeScript computes Alpine package and man-page hexbit ports; VitePress monitors the recomputed coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).",
+  "description": "TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress monitors that witness plus provenance compile coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).",
   "url": "https://uuidna.com/alpine-hexbit-monitor.jsonld",
-  "identifier": "902eb573-324f-893d-9812-b7b9ab7d06b7",
+  "identifier": "ca61ba21-aa89-82c9-871b-1d177c3b7563",
   "isAccessibleForFree": true,
   "variableMeasured": [
+    {
+      "@type": "PropertyValue",
+      "name": "Alpine port completeness — man→app→hexbit witnessed",
+      "value": 4756,
+      "unitText": "witnesses",
+      "measurementTechnique": "computed",
+      "citation": "manDrivenPortCoverage() — man pages testing apps, both folded to UUID_HEXBITS · theorem a_spec_compiles_to_hexbits"
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "Alpine port completeness — man→app→hexbit coverage",
+      "value": 99,
+      "unitText": "%",
+      "measurementTechnique": "computed",
+      "citation": "witnessed/total documentation packages · gate alpine-hexbit-port.test.ts · orphans named, never padded to 100%"
+    },
     {
       "@type": "PropertyValue",
       "name": "Alpine community hexbit port — packages",
       "value": 22678,
       "unitText": "packages",
       "measurementTechnique": "measured",
-      "citation": "committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) in src/quantum/os/catalogue.ts"
+      "citation": "committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) provenance meter"
     },
     {
       "@type": "PropertyValue",
@@ -22,15 +38,7 @@
       "value": 22678,
       "unitText": "packages",
       "measurementTechnique": "computed",
-      "citation": "catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits"
-    },
-    {
-      "@type": "PropertyValue",
-      "name": "Alpine community hexbit port — coverage",
-      "value": 100,
-      "unitText": "%",
-      "measurementTechnique": "computed",
-      "citation": "ported/total · gate test alpine-hexbit-port.test.ts fails below 100%"
+      "citation": "catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits · provenance, not completeness"
     },
     {
       "@type": "PropertyValue",
@@ -38,7 +46,7 @@
       "value": 4759,
       "unitText": "packages",
       "measurementTechnique": "computed",
-      "citation": "manPagePortCoverage() over -doc / *-man-pages / man-pages · same mint as the boot port"
+      "citation": "manPagePortCoverage() over -doc / *-man-pages / man-pages · provenance compile of the documentation corpus"
     },
     {
       "@type": "PropertyValue",
@@ -51,7 +59,7 @@
     {
       "@type": "PropertyValue",
       "name": "community compile — ns per package",
-      "value": 1996,
+      "value": 1803,
       "unitText": "ns",
       "measurementTechnique": "measured",
       "citation": "TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable"

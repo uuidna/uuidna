@@ -1,6 +1,6 @@
 ---
 title: The OS — the default install
-description: Every uuidna.com path given its exact meaning — the packages a default Alpine install carries, ported in full, lowest level first, and sealed. VitePress monitors the TypeScript hexbit port of all Alpine (community 100%) and man pages.
+description: Every uuidna.com path given its exact meaning — the packages a default Alpine install carries, ported in full, lowest level first, and sealed. VitePress monitors the TypeScript hexbit port; completeness is man pages testing apps folded into hexbits.
 ---
 
 # The OS — the default install <Badge type="tip" text="ported in full · every claim sealed" />
@@ -27,18 +27,26 @@ named `src/os` boundary on every lean run, never hand-frozen.
 
 ## Quantum monitor — Alpine hexbit port (TypeScript computes · VitePress shows)
 
-| surface | packages | hexbit-ported | coverage | seals |
-|---------|----------|---------------|----------|-------|
-| **community** | 22,678 | 22,678 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
-| main + community | 28,639 | 28,639 | **100%** | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
-| man pages (`-doc` / `*-man-pages` / `man-pages`) | 4,759 | 4,759 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
-| man pages · community | 3,670 | 3,670 | 100% | — |
-| man pages · main | 1,089 | 1,089 | 100% | — |
+**Port completeness** is **man pages testing the apps**, folded into hexbits
+(`manDrivenPortCoverage`) — not the package-count compile table alone. Provenance meters still recompute
+below so every published row is shown to fold to 32 states.
+
+| surface | role | packages | witnessed / ported | coverage | seals |
+|---------|------|----------|--------------------|----------|-------|
+| **man → app → hexbit** | **completeness** | 4,759 | **4,756** / 4,759 | **99%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| community (compile) | provenance | 22,678 | 22,678 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| main + community (compile) | provenance | 28,639 | 28,639 | 100% | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
+| man pages (compile) | provenance | 4,759 | 4,759 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| man pages · community | provenance | 3,670 | 3,670 | 100% | — |
+| man pages · main | provenance | 1,089 | 1,089 | 100% | — |
+
+**Honest gaps** (3 orphan documentation rows — Alpine published `-doc` with no catalogued app): `dotnet-doc`, `dotnet-doc`, `dotnet-doc`.
+
 
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,678 community packages ≪ 2^128.
-- **Time:** community compile sweep **45,280,125 ns** (~**1,996 ns**/package); man-page corpus **11,569,125 ns** (~**2,430 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep **40,888,958 ns** (~**1,803 ns**/package); man-page corpus **9,370,959 ns** (~**1,969 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
@@ -47,10 +55,11 @@ named `src/os` boundary on every lean run, never hand-frozen.
   A claim with no theorem is unsealed, not a captain key held back.
 
 **Man pages** are Alpine's published documentation packages (`busybox-doc`, `s6-man-pages`, `man-pages`, …),
-resolved by the `man <topic>` applet in uuidnaOS and compiled to 32 hexbit states — provenance
-identity, never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
+resolved by the `man <topic>` applet in uuidnaOS. Completeness walks each documentation package, resolves the
+app it documents, and requires **both** to compile to 32 hexbit states — man pages testing apps,
+never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
-Monitor receipt `902eb573-324f-893d-9812-b7b9ab7d06b7` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
+Monitor receipt `ca61ba21-aa89-82c9-871b-1d177c3b7563` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
 ## Ported lowest level first — firmware and up
 
@@ -118,5 +127,5 @@ Verify it yourself: `defaultInstalls()` recomputes every address, the receipt, a
 committed mirror in [`src/quantum/os`](https://github.com/uuidna/uuidna/tree/main/src/quantum/os); the live
 recompute against Alpine's published index rides `fetchDefaultInstalls()` at the
 [`src/os`](https://github.com/uuidna/uuidna/tree/main/src/os) boundary; the MCP surface is
-`uuidna_alpine {installs:true}`. The catalogue meters are `hexbitPortCoverage` / `manPagePortCoverage` —
-TypeScript computes; this page monitors.
+`uuidna_alpine {installs:true}`. Completeness is `manDrivenPortCoverage` (man→app→hexbit); provenance meters
+are `hexbitPortCoverage` / `manPagePortCoverage` — TypeScript computes; this page monitors.

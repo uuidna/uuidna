@@ -12,7 +12,8 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { defaultInstalls } from '../quantum/os/index.js'
 import {
-  hexbitPortCoverage, manPagePortCoverage, manPagePackages, catalogueCompile, catalogue,
+  hexbitPortCoverage, manPagePortCoverage, manPagePackages, manDrivenPortCoverage,
+  catalogueCompile, catalogue,
 } from '../quantum/os/catalogue.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
 import { toUuid } from '../address.js'
@@ -23,6 +24,8 @@ const port = defaultInstalls()
 const home = port.specs[port.specs.length - 1]!
 const th = (k: string): string => `[\`${k}\`](/theorem/${k})`
 
+// COMPLETENESS — man pages testing the apps → hexbits. Package-count compile meters below are provenance.
+const completeness = manDrivenPortCoverage()
 const community = hexbitPortCoverage('community')
 const all = hexbitPortCoverage()
 const manAll = manPagePortCoverage()
@@ -44,9 +47,11 @@ const communityNsPer = community.total === 0 ? 0
   : (communityCompileNs - (communityCompileNs % community.total)) / community.total
 
 const pct = (n: number, of: number): string => of === 0 ? '0' : String(((n * 100) - ((n * 100) % of)) / of)
+const completenessPct = pct(completeness.witnessed, completeness.total)
 
 const monitorReceipt = toUuid(
-  `alpine-hexbit-monitor|${community.ported}/${community.total}|${all.ported}/${all.total}|`
+  `alpine-hexbit-monitor|man→app→hexbit|${completeness.witnessed}/${completeness.total}|`
+  + `${community.ported}/${community.total}|${all.ported}/${all.total}|`
   + `${manAll.ported}/${manAll.total}|${UUID_BITS}|${communityNsPer}|${manNsPer}`,
 )
 
@@ -56,7 +61,7 @@ const rows = port.specs.map((s, i) =>
 
 const page = `---
 title: The OS — the default install
-description: Every uuidna.com path given its exact meaning — the packages a default Alpine install carries, ported in full, lowest level first, and sealed. VitePress monitors the TypeScript hexbit port of all Alpine (community 100%) and man pages.
+description: Every uuidna.com path given its exact meaning — the packages a default Alpine install carries, ported in full, lowest level first, and sealed. VitePress monitors the TypeScript hexbit port; completeness is man pages testing apps folded into hexbits.
 ---
 
 # The OS — the default install <Badge type="tip" text="ported in full · every claim sealed" />
@@ -83,13 +88,22 @@ named \`src/os\` boundary on every lean run, never hand-frozen.
 
 ## Quantum monitor — Alpine hexbit port (TypeScript computes · VitePress shows)
 
-| surface | packages | hexbit-ported | coverage | seals |
-|---------|----------|---------------|----------|-------|
-| **community** | ${community.total.toLocaleString('en-US')} | ${community.ported.toLocaleString('en-US')} | **${pct(community.ported, community.total)}%** | ${th('a_spec_compiles_to_hexbits')} |
-| main + community | ${all.total.toLocaleString('en-US')} | ${all.ported.toLocaleString('en-US')} | **${pct(all.ported, all.total)}%** | ${th('hexbit_is_four_qubits')} |
-| man pages (\`-doc\` / \`*-man-pages\` / \`man-pages\`) | ${manAll.total.toLocaleString('en-US')} | ${manAll.ported.toLocaleString('en-US')} | **${pct(manAll.ported, manAll.total)}%** | ${th('a_spec_compiles_to_hexbits')} |
-| man pages · community | ${manCommunity.total.toLocaleString('en-US')} | ${manCommunity.ported.toLocaleString('en-US')} | ${pct(manCommunity.ported, manCommunity.total)}% | — |
-| man pages · main | ${manMain.total.toLocaleString('en-US')} | ${manMain.ported.toLocaleString('en-US')} | ${pct(manMain.ported, manMain.total)}% | — |
+**Port completeness** is **man pages testing the apps**, folded into hexbits
+(\`manDrivenPortCoverage\`) — not the package-count compile table alone. Provenance meters still recompute
+below so every published row is shown to fold to ${UUID_HEXBITS} states.
+
+| surface | role | packages | witnessed / ported | coverage | seals |
+|---------|------|----------|--------------------|----------|-------|
+| **man → app → hexbit** | **completeness** | ${completeness.total.toLocaleString('en-US')} | **${completeness.witnessed.toLocaleString('en-US')}** / ${completeness.total.toLocaleString('en-US')} | **${completenessPct}%** | ${th('a_spec_compiles_to_hexbits')} |
+| community (compile) | provenance | ${community.total.toLocaleString('en-US')} | ${community.ported.toLocaleString('en-US')} | ${pct(community.ported, community.total)}% | ${th('a_spec_compiles_to_hexbits')} |
+| main + community (compile) | provenance | ${all.total.toLocaleString('en-US')} | ${all.ported.toLocaleString('en-US')} | ${pct(all.ported, all.total)}% | ${th('hexbit_is_four_qubits')} |
+| man pages (compile) | provenance | ${manAll.total.toLocaleString('en-US')} | ${manAll.ported.toLocaleString('en-US')} | ${pct(manAll.ported, manAll.total)}% | ${th('a_spec_compiles_to_hexbits')} |
+| man pages · community | provenance | ${manCommunity.total.toLocaleString('en-US')} | ${manCommunity.ported.toLocaleString('en-US')} | ${pct(manCommunity.ported, manCommunity.total)}% | — |
+| man pages · main | provenance | ${manMain.total.toLocaleString('en-US')} | ${manMain.ported.toLocaleString('en-US')} | ${pct(manMain.ported, manMain.total)}% | — |
+
+${completeness.witnessed < completeness.total
+  ? `**Honest gaps** (${completeness.total - completeness.witnessed} orphan documentation rows — Alpine published \`-doc\` with no catalogued app): \`${completeness.missing.join('\`, \`')}\`.\n`
+  : ''}
 
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
@@ -103,8 +117,9 @@ named \`src/os\` boundary on every lean run, never hand-frozen.
   A claim with no theorem is unsealed, not a captain key held back.
 
 **Man pages** are Alpine's published documentation packages (\`busybox-doc\`, \`s6-man-pages\`, \`man-pages\`, …),
-resolved by the \`man <topic>\` applet in uuidnaOS and compiled to ${UUID_HEXBITS} hexbit states — provenance
-identity, never the manpage bytes (${th('the_os_is_bootable_quantum')}).
+resolved by the \`man <topic>\` applet in uuidnaOS. Completeness walks each documentation package, resolves the
+app it documents, and requires **both** to compile to ${UUID_HEXBITS} hexbit states — man pages testing apps,
+never the manpage bytes (${th('the_os_is_bootable_quantum')}).
 
 Monitor receipt \`${monitorReceipt}\` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
@@ -150,22 +165,24 @@ Verify it yourself: \`defaultInstalls()\` recomputes every address, the receipt,
 committed mirror in [\`src/quantum/os\`](https://github.com/uuidna/uuidna/tree/main/src/quantum/os); the live
 recompute against Alpine's published index rides \`fetchDefaultInstalls()\` at the
 [\`src/os\`](https://github.com/uuidna/uuidna/tree/main/src/os) boundary; the MCP surface is
-\`uuidna_alpine {installs:true}\`. The catalogue meters are \`hexbitPortCoverage\` / \`manPagePortCoverage\` —
-TypeScript computes; this page monitors.
+\`uuidna_alpine {installs:true}\`. Completeness is \`manDrivenPortCoverage\` (man→app→hexbit); provenance meters
+are \`hexbitPortCoverage\` / \`manPagePortCoverage\` — TypeScript computes; this page monitors.
 `
 
 writeFileSync(join(ROOT, 'docs', 'os.md'), page)
 
 mkdirSync(join(ROOT, 'docs', 'public'), { recursive: true })
 const figures: Figure[] = [
+  { name: 'Alpine port completeness — man→app→hexbit witnessed', value: completeness.witnessed, unitText: 'witnesses', measurementTechnique: 'computed',
+    citation: 'manDrivenPortCoverage() — man pages testing apps, both folded to UUID_HEXBITS · theorem a_spec_compiles_to_hexbits' },
+  { name: 'Alpine port completeness — man→app→hexbit coverage', value: Number(completenessPct), unitText: '%', measurementTechnique: 'computed',
+    citation: 'witnessed/total documentation packages · gate alpine-hexbit-port.test.ts · orphans named, never padded to 100%' },
   { name: 'Alpine community hexbit port — packages', value: community.total, unitText: 'packages', measurementTechnique: 'measured',
-    citation: 'committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) in src/quantum/os/catalogue.ts' },
+    citation: 'committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) provenance meter' },
   { name: 'Alpine community hexbit port — ported', value: community.ported, unitText: 'packages', measurementTechnique: 'computed',
-    citation: 'catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits' },
-  { name: 'Alpine community hexbit port — coverage', value: Number(pct(community.ported, community.total)), unitText: '%', measurementTechnique: 'computed',
-    citation: 'ported/total · gate test alpine-hexbit-port.test.ts fails below 100%' },
+    citation: 'catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits · provenance, not completeness' },
   { name: 'Alpine man-page packages — ported', value: manAll.ported, unitText: 'packages', measurementTechnique: 'computed',
-    citation: 'manPagePortCoverage() over -doc / *-man-pages / man-pages · same mint as the boot port' },
+    citation: 'manPagePortCoverage() over -doc / *-man-pages / man-pages · provenance compile of the documentation corpus' },
   { name: 'usable address space', value: UUID_BITS, unitText: 'bits (2^N states)', measurementTechnique: 'declared',
     citation: 'theorem handle_capacity_is_quantum_by_architecture — 128 = 2^7, the 7-qubit fold; classical architecture' },
   { name: 'community compile — ns per package', value: communityNsPer, unitText: 'ns', measurementTechnique: 'measured',
@@ -175,7 +192,7 @@ const figures: Figure[] = [
 const dataset = reportDataset({
   slug: 'alpine-hexbit-monitor',
   name: 'uuidna Alpine hexbit quantum monitor',
-  description: 'TypeScript computes Alpine package and man-page hexbit ports; VitePress monitors the recomputed coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).',
+  description: 'TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress monitors that witness plus provenance compile coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).',
   figures,
   receipt: monitorReceipt,
 })
@@ -189,12 +206,21 @@ if (jsonLdFailures.length) {
 
 writeFileSync(join(ROOT, 'docs', 'public', 'alpine-hexbit-monitor.jsonld'), JSON.stringify(dataset, null, 2) + '\n')
 writeFileSync(join(ROOT, 'lean', 'alpine-hexbit-monitor.json'), JSON.stringify({
+  completeness: {
+    definition: completeness.definition,
+    total: completeness.total,
+    witnessed: completeness.witnessed,
+    missing: completeness.missing,
+    gaps: completeness.gaps,
+    byVia: completeness.byVia,
+    pct: Number(completenessPct),
+  },
   community, all, man: { all: manAll, community: manCommunity, main: manMain },
   time: { communityCompileNs, communityNsPer, manCompileNs, manNsPer },
   scale: { usableAddressesPow2: UUID_BITS, seals: 'handle_capacity_is_quantum_by_architecture' },
   receipt: monitorReceipt,
-  honest: 'TypeScript is the quantum computer; VitePress is the quantum monitor. Each theorem unlocks what it seals by decide — the ledger is the unlock board. Alpine hexbit port is one surface among all. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim.',
+  honest: 'TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim.',
 }, null, 1) + '\n')
 
-console.log(`✓ docs/os.md — default install ${port.count} paths + quantum monitor (community ${community.ported}/${community.total}, man ${manAll.ported}/${manAll.total})`)
+console.log(`✓ docs/os.md — default install ${port.count} paths + quantum monitor (completeness man→app→hexbit ${completeness.witnessed}/${completeness.total} = ${completenessPct}%, provenance community ${community.ported}/${community.total}, man ${manAll.ported}/${manAll.total})`)
 console.log(`  → docs/public/alpine-hexbit-monitor.jsonld · lean/alpine-hexbit-monitor.json · receipt ${monitorReceipt}`)

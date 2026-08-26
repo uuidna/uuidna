@@ -1,4 +1,38 @@
 {
+ "completeness": {
+  "definition": "man→app→hexbit",
+  "total": 4759,
+  "witnessed": 4756,
+  "missing": [
+   "dotnet-doc",
+   "dotnet-doc",
+   "dotnet-doc"
+  ],
+  "gaps": [
+   {
+    "man": "dotnet-doc",
+    "why": "dotnet-doc compiles but documents no catalogued app — an orphan documentation package"
+   },
+   {
+    "man": "dotnet-doc",
+    "why": "dotnet-doc compiles but documents no catalogued app — an orphan documentation package"
+   },
+   {
+    "man": "dotnet-doc",
+    "why": "dotnet-doc compiles but documents no catalogued app — an orphan documentation package"
+   }
+  ],
+  "byVia": {
+   "corpus": 2,
+   "origin": 4746,
+   "gtk-doc": 5,
+   "libs": 0,
+   "dev": 1,
+   "provides": 0,
+   "self": 2
+  },
+  "pct": 99
+ },
  "community": {
   "repo": "community",
   "total": 22678,
@@ -32,15 +66,15 @@
   }
  },
  "time": {
-  "communityCompileNs": 45280125,
-  "communityNsPer": 1996,
-  "manCompileNs": 11569125,
-  "manNsPer": 2430
+  "communityCompileNs": 40888958,
+  "communityNsPer": 1803,
+  "manCompileNs": 9370959,
+  "manNsPer": 1969
  },
  "scale": {
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "902eb573-324f-893d-9812-b7b9ab7d06b7",
- "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Each theorem unlocks what it seals by decide — the ledger is the unlock board. Alpine hexbit port is one surface among all. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
+ "receipt": "ca61ba21-aa89-82c9-871b-1d177c3b7563",
+ "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
 }

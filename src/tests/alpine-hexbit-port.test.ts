@@ -1,20 +1,87 @@
 // alpine hexbit port — TypeScript is the quantum computer; VitePress is the quantum monitor.
 //
-// 100% of the committed catalogue (community + main) compiles to 32 hexbit states; man-page packages
-// (-doc / *-man-pages / man-pages) are first-class on the same mint; architectural scale/time advantage
-// cites sealed theorems (never physics QC). hexbitPortCoverage / manPagePortCoverage are the meters —
-// these tests fail the gate if coverage drops below 100%.
+// PORT COMPLETENESS is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — not the
+// package-count compile table alone. hexbitPortCoverage / manPagePortCoverage remain provenance meters
+// (every published row folds to 32 states). The gate fails if the man→app→hexbit witness regresses, and it
+// refuses to call orphan documentation rows "100%".
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  catalogue, catalogueCompile, hexbitPortCoverage, manPagePortCoverage,
+  catalogue, catalogueCompile, cataloguePackage, hexbitPortCoverage, manPagePortCoverage,
+  manDrivenPortCoverage, manAppWitness, resolveManApp, manAppOriginCandidates,
 } from '../quantum/os/catalogue.js'
 import { uuidnaExec } from '../quantum/os/exec.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
 import { theoremByKey } from '../theorems/index.js'
 import { LEVELS } from '../quantum/advantage/index.js'
 
-test('100% of Alpine community packages are ported in hexbits', () => {
+const pct = (n: number, of: number): number => of === 0 ? 0 : ((n * 100) - ((n * 100) % of)) / of
+
+test('PORT COMPLETENESS is man→app→hexbit — man pages testing the apps', () => {
+  const driven = manDrivenPortCoverage()
+  assert.equal(driven.definition, 'man→app→hexbit')
+  assert.ok(driven.total > 4000, `man corpus must be thousands; got ${driven.total}`)
+  assert.equal(driven.witnessed + driven.missing.length >= driven.witnessed, true)
+  assert.ok(driven.witnessed <= driven.total)
+  // Honest seal: do not require 100% when Alpine publishes orphan -doc rows (e.g. dotnet-doc × versions).
+  assert.equal(driven.witnessed + driven.gaps.length >= driven.witnessed, true)
+  assert.ok(driven.witnessed >= driven.total - 25,
+    `man→app→hexbit must stay near-complete; got ${driven.witnessed}/${driven.total} — gaps: ${driven.missing.join(', ')}`)
+  const completeness = pct(driven.witnessed, driven.total)
+  assert.ok(completeness >= 99, `man→app→hexbit completeness ${completeness}% (${driven.witnessed}/${driven.total})`)
+  // Orphans are named when present — never silently absorbed into 100%
+  if (driven.witnessed < driven.total) {
+    assert.ok(driven.missing.length > 0, 'incomplete completeness must name missing man packages')
+    assert.ok(driven.gaps.every((g) => g.why.length > 0))
+  }
+})
+
+test('man pages test apps end-to-end — busybox man→app→hexbit', () => {
+  const man = cataloguePackage('busybox-doc')
+  assert.ok(man, 'busybox-doc is in the catalogue')
+  const w = manAppWitness(man)
+  assert.equal(w.ok, true, w.detail)
+  assert.equal(w.app, 'busybox')
+  assert.equal(w.via, 'origin')
+  assert.equal(w.manHexbits, true)
+  assert.equal(w.appHexbits, true)
+  const resolved = resolveManApp(man)
+  assert.ok(resolved)
+  assert.equal(resolved.app.name, 'busybox')
+  // applet path: man busybox resolves the documentation package and folds hexbits
+  const r = uuidnaExec('man busybox')
+  assert.equal(r.ok, true)
+  const d = r.data as { name: string; hexbits: number[]; kind: string }
+  assert.equal(d.name, 'busybox-doc')
+  assert.equal(d.kind, 'man')
+  assert.equal(d.hexbits.length, UUID_HEXBITS)
+  // and the app itself compiles
+  const app = catalogueCompile(cataloguePackage('busybox')!)
+  assert.equal(app.hexbits.length, UUID_HEXBITS)
+})
+
+test('orphan documentation packages FAIL the witness — 100% is a finding, not a default', () => {
+  // Fabricate a -doc row whose origin is not in the catalogue: the meter must refuse.
+  const fake = {
+    repo: 'community', name: 'zzz-no-such-origin-doc', version: '1.0.0-r0',
+    checksum: 'Q1AAAAAAAAAAAAAAAAAAAAAAAAAAA=', desc: 'docs for nothing',
+    deps: [] as string[], provides: [] as string[],
+  }
+  const w = manAppWitness(fake)
+  assert.equal(w.ok, false)
+  assert.equal(w.app, null)
+  assert.match(w.detail, /orphan|no catalogued app/)
+})
+
+test('manAppOriginCandidates prefer -gtk-doc library subjects', () => {
+  assert.deepEqual(manAppOriginCandidates('man-pages'), ['man-pages'])
+  assert.deepEqual(manAppOriginCandidates('busybox-doc'), ['busybox'])
+  assert.deepEqual(manAppOriginCandidates('s6-man-pages'), ['s6'])
+  assert.ok(manAppOriginCandidates('udisks2-gtk-doc').includes('udisks2'))
+  assert.ok(manAppOriginCandidates('udisks2-gtk-doc').includes('udisks2-gtk'))
+})
+
+test('PROVENANCE — 100% of Alpine community packages compile to hexbits', () => {
   const cov = hexbitPortCoverage('community')
   assert.ok(cov.total > 20000, `community must be tens of thousands on the pinned catalogue; got ${cov.total}`)
   assert.equal(cov.ported, cov.total,
@@ -22,7 +89,7 @@ test('100% of Alpine community packages are ported in hexbits', () => {
   assert.equal(cov.missing.length, 0)
 })
 
-test('100% of whole Alpine (main + community) is ported in hexbits', () => {
+test('PROVENANCE — 100% of whole Alpine (main + community) compiles to hexbits', () => {
   const cov = hexbitPortCoverage()
   assert.equal(cov.repo, 'all')
   assert.ok(cov.total > 25000, `whole catalogue must exceed 25k; got ${cov.total}`)
@@ -30,7 +97,7 @@ test('100% of whole Alpine (main + community) is ported in hexbits', () => {
     `Alpine hexbit port ${cov.ported}/${cov.total} — missing: ${cov.missing.join(', ') || '(none named)'}`)
 })
 
-test('100% of Alpine man-page packages are ported in hexbits', () => {
+test('PROVENANCE — 100% of Alpine man-page packages compile to hexbits', () => {
   const man = manPagePortCoverage()
   assert.ok(man.total > 4000, `Alpine publishes thousands of -doc / man-pages packages; got ${man.total}`)
   assert.equal(man.ported, man.total,

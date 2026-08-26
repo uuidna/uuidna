@@ -344,6 +344,146 @@ export function manPagePortCoverage(repo?: 'main' | 'community'): HexbitPortCove
   return { repo: tag, total: list.length, ported, missing }
 }
 
+// ── MAN PAGES TESTING THE APPS → HEXBITS (the captain's order: this IS 100% port completeness) ───────────────
+//
+// Package-count compile coverage (hexbitPortCoverage / manPagePortCoverage) is PROVENANCE — every published row
+// folds to 32 states. It is NOT the completeness witness. Completeness is: for each documentation package,
+// resolve the APP it documents, prove BOTH compile to on-lattice hexbits, and fold the triad. Man pages test
+// apps; hexbits seal the proof. TypeScript computes; VitePress monitors.
+//
+// Gaps are NAMED, never padded. A -doc row whose documented origin Alpine never published as a package fails
+// the witness — that is a fact about the catalogue, not a licence to claim 100%.
+
+/** How the documented app was resolved from a man-page package. */
+export type ManAppVia = 'corpus' | 'origin' | 'gtk-doc' | 'libs' | 'dev' | 'provides' | 'self'
+
+export interface ManAppResolution {
+  man: CataloguePackage
+  app: CataloguePackage
+  via: ManAppVia
+}
+
+/** Candidate origins a documentation package may document, most-specific first.
+ *  `-gtk-doc` is Alpine's gtk-doc API-docs split (documents the library, not a fictional `*-gtk` package). */
+export function manAppOriginCandidates(manName: string): string[] {
+  const n = String(manName ?? '').trim()
+  if (!n) return []
+  if (n === 'man-pages' || n === 'man-pages-posix') return [n]
+  const out: string[] = []
+  const add = (o: string): void => { if (o && o !== n && !out.includes(o)) out.push(o) }
+  if (n.endsWith('-man-pages')) add(n.slice(0, -'-man-pages'.length))
+  if (n.endsWith('-gtk-doc')) add(n.slice(0, -'-gtk-doc'.length))
+  if (n.endsWith('-doc')) add(n.slice(0, -'-doc'.length))
+  return out
+}
+
+const hexbitsOk = (p: CataloguePackage): boolean => {
+  const c = catalogueCompile(p)
+  return c.hexbits.length === UUID_HEXBITS
+    && c.hexbits.every((h) => Number.isInteger(h) && h >= 0 && h < 16)
+}
+
+/** resolveManApp(man) → the catalogued app that man pages test, or null when Alpine published docs for nothing
+ *  in this catalogue. Corpora and provide-bearing `*-doc` tools (e.g. gtk-doc) resolve to themselves. */
+export function resolveManApp(man: CataloguePackage | string): ManAppResolution | null {
+  const pkg = typeof man === 'string' ? cataloguePackage(man) : man
+  if (!pkg || !isManPagePackage(pkg)) return null
+  if (pkg.name === 'man-pages' || pkg.name === 'man-pages-posix')
+    return { man: pkg, app: pkg, via: 'corpus' }
+
+  for (const origin of manAppOriginCandidates(pkg.name)) {
+    const hit = cataloguePackage(origin)
+    if (hit) {
+      const via: ManAppVia = pkg.name.endsWith('-gtk-doc') && origin === pkg.name.slice(0, -'-gtk-doc'.length)
+        ? 'gtk-doc' : 'origin'
+      return { man: pkg, app: hit, via }
+    }
+    const libs = cataloguePackage(origin + '-libs')
+    if (libs) return { man: pkg, app: libs, via: 'libs' }
+    const dev = cataloguePackage(origin + '-dev')
+    if (dev) return { man: pkg, app: dev, via: 'dev' }
+    // PROVIDES — so:/cmd:/pc: or bare tokens some package publishes under this origin name
+    const providers = load().packages
+      .filter((p) => p.provides.some((pv) => pv.split('=')[0] === origin))
+      .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+    if (providers[0]) return { man: pkg, app: providers[0], via: 'provides' }
+  }
+
+  // SELF — a published package that ends in -doc but IS the app (gtk-doc the tool; annotated-doc the library).
+  // Only when it PROVIDES something: empty provides means docs-only with no subject in this catalogue.
+  if (pkg.provides.length > 0) return { man: pkg, app: pkg, via: 'self' }
+  return null
+}
+
+/** One man→app→hexbit witness. `ok` means man pages tested an app and both fold to UUID_HEXBITS states. */
+export interface ManAppWitness {
+  man: string
+  app: string | null
+  via: ManAppVia | null
+  manHexbits: boolean
+  appHexbits: boolean
+  ok: boolean
+  detail: string
+}
+
+export function manAppWitness(man: CataloguePackage): ManAppWitness {
+  const manOk = hexbitsOk(man)
+  const resolved = resolveManApp(man)
+  if (!resolved) {
+    return {
+      man: man.name, app: null, via: null, manHexbits: manOk, appHexbits: false, ok: false,
+      detail: manOk
+        ? `${man.name} compiles but documents no catalogued app — an orphan documentation package`
+        : `${man.name} fails hexbit compile and documents no catalogued app`,
+    }
+  }
+  const appOk = hexbitsOk(resolved.app)
+  const ok = manOk && appOk
+  return {
+    man: man.name,
+    app: resolved.app.name,
+    via: resolved.via,
+    manHexbits: manOk,
+    appHexbits: appOk,
+    ok,
+    detail: ok
+      ? `man ${man.name} → app ${resolved.app.name} (${resolved.via}) · both ${UUID_HEXBITS} hexbits`
+      : `man ${man.name} → app ${resolved.app.name} (${resolved.via}) · manHexbits=${manOk} appHexbits=${appOk}`,
+  }
+}
+
+/** manDrivenPortCoverage — THE port-completeness meter: man pages testing apps, folded into hexbits.
+ *  Denominator = documentation packages. Numerator = witnesses that pass. Package-count compile % is a different
+ *  ledger (provenance); do not read that as this. Absent catalogue → total 0. */
+export interface ManDrivenPortCoverage {
+  definition: 'man→app→hexbit'
+  total: number
+  witnessed: number
+  missing: string[]
+  gaps: { man: string; why: string }[]
+  byVia: Record<ManAppVia, number>
+}
+export function manDrivenPortCoverage(repo?: 'main' | 'community'): ManDrivenPortCoverage {
+  const list = manPagePackages(repo)
+  const byVia: Record<ManAppVia, number> = {
+    corpus: 0, origin: 0, 'gtk-doc': 0, libs: 0, dev: 0, provides: 0, self: 0,
+  }
+  let witnessed = 0
+  const missing: string[] = []
+  const gaps: { man: string; why: string }[] = []
+  for (const man of list) {
+    const w = manAppWitness(man)
+    if (w.ok) {
+      witnessed++
+      if (w.via) byVia[w.via]++
+    } else {
+      if (missing.length < 25) missing.push(man.name)
+      if (gaps.length < 25) gaps.push({ man: man.name, why: w.detail })
+    }
+  }
+  return { definition: 'man→app→hexbit', total: list.length, witnessed, missing, gaps, byVia }
+}
+
 export interface SuiteResult {
   tested: number; passed: number; failed: number
   present: boolean; why: string | null
