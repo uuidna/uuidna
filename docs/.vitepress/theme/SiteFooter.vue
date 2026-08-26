@@ -1,20 +1,35 @@
 <!-- Global site footer — categorised useful links on every page (the default-theme footer only shows a flat message
      on no-sidebar pages). Mounted via the layout-bottom slot. Self-contained, responsive, themed with VitePress vars. -->
 <script setup>
-import { withBase } from 'vitepress'
+import { computed } from 'vue'
+import { withBase, useData } from 'vitepress'
 import { toUuid } from '../../../dist/index.js'
 // the sponsorship URL used to be typed here as a literal AND again in the aside's card; SITE.sponsor is the one
 // place it lives now, so the two surfaces cannot disagree the way two copies of a literal always eventually do
-import { SITE } from '../../../dist/site/index.js'
+import { SITE, sponsorDepositUrl } from '../../../dist/site/index.js'
 // Internal links go through VitePress's withBase so the site base (and any locale prefix) is applied — no
 // hand-built absolute paths that break under a base or a locale. External links (http…) pass through unchanged.
 const href = (h) => (h.startsWith('/') ? withBase(h) : h)
 const GH = 'https://github.com/uuidna/uuidna'
+const { frontmatter } = useData()
+// Donate note = this page's handle door (page that referred the donor into Revolut).
+const donateHref = computed(() => {
+  const fm = frontmatter.value || {}
+  const door = (fm.handleUrl || fm.seoHandleUrl || '').toString().trim()
+  if (door) {
+    try { return sponsorDepositUrl(door) } catch { /* fall through */ }
+  }
+  const handle = (fm.handle || '').toString().trim()
+  if (/^[0-9a-f]{8}$/i.test(handle)) {
+    try { return sponsorDepositUrl(handle) } catch { /* fall through */ }
+  }
+  return SITE.sponsor.url
+})
 // The licence, shown as its content-address on every page — COMPUTED, not hardcoded: toUuid of the canonical licence
 // line, so a licence change re-mints the receipt automatically (no pasted literal to go stale). See /license.
 const LICENSE_LINE = 'CC BY-NC-ND 4.0 — free to read and redistribute with attribution, non-commercially, and without modification. Canonical at uuidna.com/license.'
 const licenseUuid = toUuid(LICENSE_LINE)
-const cols = [
+const cols = computed(() => [
   { title: 'The ledger', links: [
     { text: 'All theorems', href: '/theorems' },
     { text: 'Topics (by skill)', href: '/topics' },
@@ -34,7 +49,7 @@ const cols = [
   { title: 'The captain', links: [
     { text: "The captain's coins", href: '/captain' },
     { text: 'The doctrine', href: '/doctrine' },
-    { text: 'Donate · ' + SITE.sponsor.handle, href: SITE.sponsor.url },
+    { text: 'Donate · ' + SITE.sponsor.handle, href: donateHref.value },
   ] },
   { title: 'Verify it yourself', links: [
     { text: 'The tests', href: '/tests' },
@@ -43,7 +58,7 @@ const cols = [
     { text: 'PRINCIPLE.md', href: GH + '/blob/main/lean/PRINCIPLE.md' },
     { text: 'npm run lean (recompute)', href: GH + '#verify' },
   ] },
-]
+])
 </script>
 
 <template>

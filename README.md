@@ -38,8 +38,12 @@ them, 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theore
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
 
 **Permanent citation (DOI-class).** Cite by handle door `https://uuidna.com/<handle>` (8 hex; worker `HANDLES`
-301 → `/theorem/<key>`). Completeness cites **both** the archive DOI (when present) and the handle URL.
-Example sealed handle from the capacity report: [https://uuidna.com/6a71ca14](https://uuidna.com/6a71ca14).
+301 → freeze-map route: theorem | publication | page). Completeness cites **both** the archive DOI (when present)
+and the handle URL. Example sealed handle from the capacity report:
+[https://uuidna.com/6a71ca14](https://uuidna.com/6a71ca14).
+
+**Captain coins.** Human deposit: `https://revolut.me/ceccec?note=<referrer>` where referrer is the page's handle
+door URL (`encodeURIComponent`). Agents deposit the two coins on every gated call.
 
 **Clay prior art.** Initial clay σ-involution DOI [10.5281/zenodo.21781603](https://doi.org/10.5281/zenodo.21781603) —
 credited first on Clay.lean theorems; captain next. Live surface: [uuidna.com/articles/clay](https://uuidna.com/articles/clay).

@@ -8,6 +8,9 @@
 // sealed, never a ranking trick; recomputable by anyone. "Only Lean is verbose; all else is the address that delivers."
 import { quantumSeo, type HeadTuple } from '../../dist/index.js'
 import { assertSeoPackage, seoPackageGaps } from '../../dist/seo-package.js'
+import { ZENODO_SEALS } from '../../dist/zenodo-seals.js'
+import { richPublicationMetadata } from '../../dist/publication-metadata.js'
+import { sponsorDepositUrl } from '../../dist/site/index.js'
 
 // VitePress pageData is loosely typed at this boundary; we touch only description / frontmatter.head / frontmatter.tags.
 interface PageDataLike {
@@ -48,6 +51,33 @@ export function infuseQuantumPayload(pageData: PageDataLike, routeOf: (rel: stri
   // mark the page as a packaged SEO object (theme / auditors can read this)
   pageData.frontmatter.seoPackage = 'complete'
   pageData.frontmatter.seoAddress = seo.address
+  // handle door + deposit referrer — SponsorCard / ObjectPage / SiteFooter build revolut ?note= from these
+  const handleMeta = seo.head.find((h) => h[0] === 'meta' && (h[1] as { property?: string }).property === 'uuidna:handle-url')
+  const handleDoor = handleMeta ? (handleMeta[1] as { content?: string }).content : undefined
+  if (handleDoor) {
+    pageData.frontmatter.handleUrl ??= handleDoor
+    pageData.frontmatter.seoHandleUrl = handleDoor
+    pageData.frontmatter.depositReferrer = handleDoor
+  }
+  const handleOnly = seo.head.find((h) => h[0] === 'meta' && (h[1] as { property?: string }).property === 'uuidna:handle')
+  if (handleOnly) pageData.frontmatter.handle ??= (handleOnly[1] as { content?: string }).content
+  // Rich Zenodo publication metadata → VitePress head when this page is a sealed publication surface
+  const pageUrl = seo.canonical.replace(/\/$/, '') || seo.canonical
+  for (const seal of ZENODO_SEALS) {
+    const sealPage = seal.pageUrl.replace(/\/$/, '')
+    if (sealPage !== pageUrl && seal.pageUrl !== seo.canonical) continue
+    const rich = richPublicationMetadata(seal)
+    pageData.frontmatter.head.push(['meta', { name: 'citation_doi', content: rich.doi }])
+    pageData.frontmatter.head.push(['meta', { name: 'citation_title', content: rich.title }])
+    pageData.frontmatter.head.push(['link', { rel: 'alternate', type: 'application/json+ld', href: rich.doiUrl, title: 'DOI' }])
+    pageData.frontmatter.doi = rich.doi
+    pageData.frontmatter.doiUrl = rich.doiUrl
+    pageData.frontmatter.depositUrl = sponsorDepositUrl(rich.handleUrl)
+    break
+  }
+  if (handleDoor && !pageData.frontmatter.depositUrl) {
+    try { pageData.frontmatter.depositUrl = sponsorDepositUrl(handleDoor) } catch { /* ignore */ }
+  }
   const check = seoPackageGaps(seo)
   if (!check.ok) throw new Error(`infuseQuantumPayload: ${pageData.relativePath} package gaps ${check.missing.join(',')}`)
   pageData.frontmatter.tags ??= seo.keywords

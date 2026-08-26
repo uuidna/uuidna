@@ -25,8 +25,8 @@ import { hmacSha256 } from './dist/sha256.js'
 import { handleMcpRpc, mcpHttpToolNames, MCP_HTTP_PROTOCOL } from './dist/mcp-http.js'
 // The LIVE ANALYTICS dashboard at /analytics — real metrics from Cloudflare, AWS, GCP, Azure APIs
 import { handleAnalytics } from './dist/analytics-handler.js'
-// The handle map — the first 8 hex of every content-address → its theorem key, generated at build (gen-handles).
-// Pages and proofs are one uuid: /<handle> resolves to /theorem/<key> ON THE SPOT, no static pages, ~30 KB in memory.
+// The handle map — first 8 hex of every freeze-map content-address → editorial route (theorem | publication | page),
+// generated at build (gen-handles). /<handle> 301s to that route ON THE SPOT — homepage/pub handles included.
 import HANDLES from './handles.js'
 
 // A bare first-part handle: exactly 8 lowercase hex at the root (/808f7b27). The full uuid is never a URL — only its
@@ -199,10 +199,13 @@ export default {
       return res ? mjson(res) : new Response(null, { status: 202, headers: cors })  // a notification → 202, no body
     }
 
-    // THE CONTENT-ADDRESS DOOR — /<handle> (first 8 hex of a proof's address) resolves to its theorem on the spot,
-    // computed here, no static page. 301 (permanent) so the handle is a stable citation; unknown handle falls through.
+    // THE CONTENT-ADDRESS DOOR — /<handle> (first 8 hex) resolves to its freeze-map route on the spot
+    // (/theorem/<key>, /publications/<slug>, or a static page incl. /). 301 so the handle is a stable citation.
     const m = HANDLE.exec(url.pathname)
-    if (m) { const key = HANDLES[m[1]]; if (key) return Response.redirect(`${url.origin}/theorem/${key}`, 301) }
+    if (m) {
+      const route = HANDLES[m[1]]
+      if (route) return Response.redirect(`${url.origin}${route === '/' ? '/' : route}`, 301)
+    }
 
     // THE CONVERSATION FOLD — /h1/h2/h3/h4 returns the FIFTH handle: the four handles fold order-sensitively (the
     // directed thread) WITH the Referer, so each referrer gets a distinct fifth — a chat-room/conversation key,

@@ -13,10 +13,12 @@
 /** The site's identity — the one place its name, voice and origin are written. */
 export const SITE = {
   name: 'uuidna',
-  description: 'Mathematics replaces money. Proof replaces authority. Theorems replace corruption.',
+  // Aligned with docs/index.md hero description — one voice for VitePress config + homepage.
+  description:
+    'Lean 4 theorem ledger — content-addressed identity, honest by construction. Two coins conserved; cite by DOI-class handle.',
   origin: 'https://uuidna.com',
   mark: '🪙',                                   // the coin, worn by the site title and the footer
-  tagline: 'A mathematically-proven economic system',
+  tagline: 'Content-addressed identity, honest by construction',
   repo: 'https://github.com/uuidna/uuidna',
   // THE SPONSORSHIP, in the one place the site's identity lives — the rule this file's own header states, applied to
   // a link that was already breaking it: SiteFooter.vue hard-typed this same URL under "The captain", and a literal
@@ -30,6 +32,10 @@ export const SITE = {
   // script that fetches at read time and decides what a reader sees on an authority no reader can audit. A site whose
   // entire argument is that every figure recomputes from a sealed ledger cannot rent its aside to a network nobody
   // can recompute. Served from here instead — one link, no script, no fetch, no third party.
+  //
+  // HANDLE AS NOTE: every captain-coins deposit carries ?note=<referrer> where referrer is the page that sent the
+  // donor into Revolut — the page's DOI-class handle door URL (noreferrer strips HTTP Referer; note substitutes).
+  // Use sponsorDepositUrl(referrer); never the bare url alone on object surfaces.
   sponsor: {
     url: 'https://revolut.me/ceccec',
     handle: 'revolut.me/ceccec',
@@ -38,6 +44,24 @@ export const SITE = {
     message: 'Free to read, free to recompute, and proven either way. If it was worth something to you, send a coin.',
   },
 } as const
+
+/**
+ * Captain-coins deposit URL: https://revolut.me/ceccec?note=${encodeURIComponent(realReferrer)}
+ *
+ * `realReferrer` = the page that referred the donor into Revolut — preferably the page's stable handle door
+ * (`https://uuidna.com/<8-hex>`), or any absolute page URL / canonical. An 8-hex handle alone is expanded to its door.
+ * Example: sponsorDepositUrl('https://uuidna.com/808f7b27')
+ *   → https://revolut.me/ceccec?note=https%3A%2F%2Fuuidna.com%2F808f7b27
+ */
+export function sponsorDepositUrl(referrer: string): string {
+  const raw = referrer.trim()
+  if (!raw) throw new Error('sponsorDepositUrl: referrer is empty')
+  let note = raw
+  if (/^[0-9a-f]{8}$/i.test(raw)) note = `${SITE.origin}/${raw.toLowerCase()}`
+  else if (/^https:\/\/uuidna\.com\/[0-9a-f]{8}$/i.test(raw)) note = raw.toLowerCase()
+  else if (raw.startsWith('/')) note = SITE.origin + (raw === '/' ? '/' : raw)
+  return `${SITE.sponsor.url}?note=${encodeURIComponent(note)}`
+}
 
 /** The Payload shape uuidna emits into — standard collection names only, so a vanilla instance recognises it
  *  without configuration: a `pages` collection, nested-docs parent relations, and the drafts `_status` field. */
@@ -48,3 +72,6 @@ export const PAYLOAD = {
 
 /** The canonical URL of a site path — one join, so no consumer invents its own. */
 export const urlOf = (path: string): string => SITE.origin + (path.startsWith('/') ? path : '/' + path)
+
+/** Absolute OG/social image — docs/public/og.png (1200×630). */
+export const OG_IMAGE = `${SITE.origin}/og.png` as const

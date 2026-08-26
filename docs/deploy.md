@@ -41,6 +41,13 @@ The npm package ships only behind the [seven-dimension audit](/tests): `npm run 
 sorry-free · provenance · tests · determinism) — and, in CI, the version guards and npm's signed provenance
 attestation. A failing audit fails the publish, never production.
 
+## Cloudflare DNS / TLS (dashboard)
+
+Wrangler cannot flip these zone toggles — set them in the Cloudflare dashboard for `uuidna.com`:
+
+1. **SSL/TLS → Overview → Always Use HTTPS** — on (HTTP → HTTPS).
+2. **www → apex** — `www.uuidna.com` currently 522s (DNS/proxy fails before the worker). Add a **Redirect Rule** (or Page Rule) `www.uuidna.com/*` → `https://uuidna.com/$1` (301), and ensure www is proxied to the same Workers route as the apex. The worker only sees Host after DNS resolves.
+
 ## Verify, don't trust
 
 Whatever is deployed, you can recompute it:

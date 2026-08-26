@@ -2,7 +2,7 @@
 // Beautiful documentation site built from markdown
 
 import { defineConfig } from 'vitepress'
-import { SITE, urlOf } from '../../src/site/index.js'
+import { SITE, urlOf, OG_IMAGE } from '../../src/site/index.js'
 import { computeSidebar } from '../../src/site.js'
 import { infuseQuantumPayload } from './uuidna-quantum.js'
 
@@ -22,8 +22,10 @@ export default defineConfig({
     // schema.org/OG strict: Open Graph tags carry `property`, not `name` (RDFa); twitter:card correctly uses `name`.
     ['meta', { property: 'og:title', content: SITE.name }],
     ['meta', { property: 'og:description', content: SITE.description }],
-    // summary until a real og:image PNG ships — summary_large_image without og:image is a broken social preview.
-    ['meta', { name: 'twitter:card', content: 'summary' }],
+    ['meta', { property: 'og:image', content: OG_IMAGE }],
+    // summary_large_image restored — docs/public/og.png (1200×630) ships with the site.
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: OG_IMAGE }],
     // browsers still probe /favicon.ico by default; declare the served SVG so the 47/day bare-probe 404s stop
     // once clients honour the link, and the worker rewrites /favicon.ico → /icon.svg for the rest
     ['link', { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' }],

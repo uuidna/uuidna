@@ -154,6 +154,7 @@ function seal(kind: Seo['kind'], route: string, canonical: string, address: stri
   const priorSame = Array.isArray(baseLd.sameAs) ? baseLd.sameAs as string[]
     : typeof baseLd.sameAs === 'string' ? [baseLd.sameAs] : []
   const ld = { ...baseLd, sameAs: [...priorSame.filter((u) => u !== door), door] }
+  const ogImage = `${HOST}/og.png` // docs/public/og.png — 1200×630; summary_large_image only when this ships
   const head: HeadTuple[] = [
     ['link', { rel: 'canonical', href: canonical }],
     ['link', { rel: 'alternate', href: door, type: 'text/html', title: 'uuidna handle door (DOI-class stable URL)' }],
@@ -162,6 +163,9 @@ function seal(kind: Seo['kind'], route: string, canonical: string, address: stri
     ['meta', { property: 'og:title', content: title }],
     ['meta', { property: 'og:description', content: description }],
     ['meta', { property: 'og:url', content: canonical }],
+    ['meta', { property: 'og:image', content: ogImage }],
+    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { name: 'twitter:image', content: ogImage }],
     ['meta', { property: 'uuidna:address', content: ogId }],
     ['meta', { property: 'uuidna:handle', content: handle }],
     ['meta', { property: 'uuidna:handle-url', content: door }],

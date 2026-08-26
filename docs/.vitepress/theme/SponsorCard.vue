@@ -11,20 +11,40 @@
      NO CLAIM IS MADE HERE, which is why this carries no theorem citation and needs none. The card states that the work
      is free to read and recompute — true whether or not anyone pays — and offers a link. It reports no figure, so it
      has no honesty class to carry; inventing a proof-stamp for a donation button would be the overclaim this tree
-     spends its gates catching, one surface further out. -->
-<script setup>
-import { SITE } from '../../../dist/site/index.js'
+     spends its gates catching, one surface further out.
 
+     HANDLE AS NOTE: href = revolut.me/ceccec?note=<page handle door> — the page that referred the donor into Revolut
+     (substitutes for HTTP Referer, which noreferrer withholds). -->
+<script setup>
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+import { SITE, sponsorDepositUrl } from '../../../dist/site/index.js'
+
+const { frontmatter } = useData()
 const sponsor = SITE.sponsor
+
+/** Real referrer for the deposit note = this page's stable handle door (or canonical). */
+const depositHref = computed(() => {
+  const fm = frontmatter.value || {}
+  const door = (fm.handleUrl || fm.seoHandleUrl || '').toString().trim()
+  if (door) {
+    try { return sponsorDepositUrl(door) } catch { /* fall through */ }
+  }
+  const handle = (fm.handle || '').toString().trim()
+  if (/^[0-9a-f]{8}$/i.test(handle)) {
+    try { return sponsorDepositUrl(handle) } catch { /* fall through */ }
+  }
+  // last resort: bare sponsor URL (no note) — better than a broken href
+  return sponsor.url
+})
 </script>
 
 <template>
   <aside class="sponsor-card">
     <p class="sc-lede"><span class="sc-mark" aria-hidden="true">{{ SITE.mark }}</span> Sponsor the ledger</p>
     <p class="sc-msg">{{ sponsor.message }}</p>
-    <!-- rel: an outbound payment link gets noopener for the usual window.opener reason, and the referrer is withheld
-         because this site's own doctrine is that a referrer is the visitor's to give, not the page's to spend -->
-    <a class="sc-link" :href="sponsor.url" target="_blank" rel="noopener noreferrer external">
+    <!-- rel: noopener for window.opener; noreferrer because doctrine withholds HTTP Referer — note= carries identity -->
+    <a class="sc-link" :href="depositHref" target="_blank" rel="noopener noreferrer external">
       {{ sponsor.handle }}
     </a>
   </aside>

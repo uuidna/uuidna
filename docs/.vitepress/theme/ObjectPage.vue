@@ -24,6 +24,7 @@ import {
   objectUi,
   primaryRayOf,
 } from '../../../dist/object-i18n.js'
+import { SITE, sponsorDepositUrl } from '../../../dist/site/index.js'
 import { encodeLocale, decodeLocale } from './readAloudLogic.ts'
 
 const { Layout } = DefaultTheme
@@ -51,6 +52,20 @@ const sourceAbstract = computed(() => {
 const ui = computed(() => objectUi(localeTag.value))
 const h1Tr = computed(() => translateObjectText(sourceH1.value, localeTag.value))
 const absTr = computed(() => translateObjectText(sourceAbstract.value, localeTag.value))
+
+/** Captain-coins deposit: note = this page's handle door (the page that referred the donor into Revolut). */
+const depositHref = computed(() => {
+  const fm = frontmatter.value || {}
+  const door = (fm.handleUrl || fm.seoHandleUrl || fm.depositReferrer || '').toString().trim()
+  if (door) {
+    try { return sponsorDepositUrl(door) } catch { /* fall through */ }
+  }
+  const handle = (fm.handle || '').toString().trim()
+  if (/^[0-9a-f]{8}$/i.test(handle)) {
+    try { return sponsorDepositUrl(handle) } catch { /* fall through */ }
+  }
+  return SITE.sponsor.url
+})
 
 function persistLocale(tag) {
   localeTag.value = tag
@@ -99,6 +114,11 @@ watch(localeTag, (t) => {
           <p v-if="absTr.text" class="object-abstract">{{ absTr.text }}</p>
           <p v-if="h1Tr.kind === 'hexbit-reading' || absTr.kind === 'hexbit-reading'" class="object-reading-note">
             {{ ui.readingNote }} · <code>{{ absTr.handle || h1Tr.handle }}</code>
+          </p>
+          <p class="object-deposit">
+            <a class="object-deposit-btn" :href="depositHref" target="_blank" rel="noopener noreferrer external">
+              {{ SITE.mark }} Captain coins · {{ SITE.sponsor.handle }}
+            </a>
           </p>
         </header>
         <ReadAloud />
@@ -172,6 +192,18 @@ watch(localeTag, (t) => {
   color: var(--vp-c-text-3);
   max-width: 38rem;
 }
+.object-deposit { margin: 1rem 0 0; }
+.object-deposit-btn {
+  display: inline-block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--vp-c-brand-1);
+  text-decoration: none;
+  border: 1px solid var(--vp-c-brand-1);
+  border-radius: 6px;
+  padding: 0.4rem 0.75rem;
+}
+.object-deposit-btn:hover { text-decoration: underline; }
 .object-proof {
   margin-top: 2.25rem;
   padding-top: 0.25rem;

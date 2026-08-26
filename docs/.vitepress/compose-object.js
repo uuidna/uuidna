@@ -162,6 +162,8 @@ title: ${JSON.stringify(heroTitleOf(t))}
 heroTitle: ${JSON.stringify(heroTitleOf(t))}
 abstract: ${JSON.stringify(t.statement)}
 handleUrl: ${JSON.stringify('https://uuidna.com/' + handle)}
+handle: ${JSON.stringify(handle)}
+depositReferrer: ${JSON.stringify('https://uuidna.com/' + handle)}
 objectKind: theorem
 locales: [en, bg, de, fr, es, ru, zh]
 ---
@@ -206,6 +208,8 @@ ${neighbourFold(t)}
 ${developNext(t)}
 
 Re-verify with \`npm run lean\`. Cite DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144) and handle \`https://uuidna.com/${handle}\`.
+
+<a class="object-deposit-btn" href="https://revolut.me/ceccec?note=${encodeURIComponent('https://uuidna.com/' + handle)}" target="_blank" rel="noopener noreferrer external">🪙 Captain coins · revolut.me/ceccec</a>
 `,
   }
 }
@@ -230,6 +234,8 @@ title: ${JSON.stringify(p.title)}
 heroTitle: ${JSON.stringify(p.title)}
 abstract: ${JSON.stringify(p.abstract)}
 handleUrl: ${JSON.stringify('https://uuidna.com/' + handle)}
+handle: ${JSON.stringify(handle)}
+depositReferrer: ${JSON.stringify('https://uuidna.com/' + handle)}
 objectKind: publication
 locales: [en, bg, de, fr, es, ru, zh]
 ---
@@ -237,6 +243,8 @@ locales: [en, bg, de, fr, es, ru, zh]
 ${body}
 
 **Audited before published** · handle \`https://uuidna.com/${handle}\` · DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144) · receipt \`${p.receipt.slice(0, 8)}\` · ${p.count} seals.
+
+<a class="object-deposit-btn" href="https://revolut.me/ceccec?note=${encodeURIComponent('https://uuidna.com/' + handle)}" target="_blank" rel="noopener noreferrer external">🪙 Captain coins · revolut.me/ceccec</a>
 `,
   }
 }

@@ -25,7 +25,7 @@ features:
   - title: 2^128 usable capacity
     details: Architectural usable-capacity advantage vs reported 48 logical qubits is 2^80 — theorem usable_gap_is_two_to_eighty. Not a physics QPU claim.
   - title: Handle-stable URLs
-    details: Cite https://uuidna.com/<handle> (8 hex). Worker HANDLES 301 to /theorem/<key>. Same permanence expectations as a DOI; archive DOI on the capacity report.
+    details: Cite https://uuidna.com/<handle> (8 hex). Worker HANDLES 301 to the freeze-map route (theorem, publication, or page). Same permanence expectations as a DOI; archive DOI on the capacity report.
   - title: Alpine hexbit port
     details: Published Alpine packages folded to content-addresses on the hexbit lattice — provenance identities, not installed binaries (theorem the_os_is_bootable_quantum).
   - title: One license
