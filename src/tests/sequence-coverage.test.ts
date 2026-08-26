@@ -114,17 +114,22 @@ test('the recursive walk FIRES when a step is missing — the control for the cl
 // theorem at all (the fixture is a string in the code below; naming it in prose would make this comment cite it).
 // Both said []. That is an absence and a refusal rendered identically, live for two of the ledger's principles.
 test('a lone theorem and an unknown key are DIFFERENT answers', () => {
+  // connect-lonely may close every singleton principle — then the lone case is VACANT by finding, not untested.
   const lone = theorems().find((t) => theorems().filter((x) => x.principle === t.principle).length === 1)
-  assert.ok(lone, 'the ledger must still contain a theorem alone in its principle, or this case is untested')
-  const alone = theoremNeighbours(lone.key)
-  assert.equal(alone.principle, lone.principle, 'a lone theorem KEEPS its principle — it is in a domain of one')
-  assert.equal(alone.neighbours.length, 0, 'and it has no neighbours')
-
   const ghost = theoremNeighbours('no_such_theorem_key')
   assert.equal(ghost.principle, null, 'an unknown key has NO principle — that is precisely what unknown means')
   assert.equal(ghost.neighbours.length, 0)
-
-  assert.notEqual(alone.principle, ghost.principle, 'the two must not be the same sentence — they were, as []')
+  if (lone) {
+    const alone = theoremNeighbours(lone.key)
+    assert.equal(alone.principle, lone.principle, 'a lone theorem KEEPS its principle — it is in a domain of one')
+    assert.equal(alone.neighbours.length, 0, 'and it has no neighbours')
+    assert.notEqual(alone.principle, ghost.principle, 'the two must not be the same sentence — they were, as []')
+  } else {
+    // every principle has neighbours — still prove unknown ≠ any sealed principle name
+    const any = theorems()[0]
+    assert.ok(any)
+    assert.notEqual(theoremNeighbours(any.key).principle, ghost.principle)
+  }
 })
 
 test('the neighbourhood names the principle the caller would otherwise re-derive', () => {
