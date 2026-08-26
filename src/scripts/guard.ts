@@ -15,7 +15,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, expectedGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -191,6 +191,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // BOTH LEDGER SIZES, LIVE: keys and distinct propositions, on every surface that states either. Caught a stale
   // 1274 in .zenodo.json — a count published into the archive on every release.
   { name: 'counts', run: () => countsGaps() },
+  // A HARDCODED EXPECTED-COUNT IN THE GUARD CHAIN FAILS OPEN. predict-and-fill froze expectedPrinciples = 66 with a
+  // `<` test; audit-mcp-native froze T.length === 1195. Both went mute the day the ledger passed them. The live
+  // figure is PRINCIPLES.length / theorems().length — computed, never remembered (mass-gap doctrine).
+  { name: 'expected', run: () => expectedGaps() },
   // BLOCKING from birth, by the captain's law "all not lean green fails": a boundary stated bare drops the lead —
   // the reader is told what the work is not and never handed the sealed thing that fixes the bound. It was written
   // advisory with 56 open findings; all 56 were paid in the same landing (the recurring "integrity"

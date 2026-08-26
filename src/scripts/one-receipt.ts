@@ -463,6 +463,48 @@ export function countsGaps(): Gap[] {
   return gaps
 }
 
+/** expectedGaps() — A HARDCODED EXPECTED-COUNT IN THE GUARD CHAIN IS A TRIPWIRE AIMED AT ITS OWN FOOT.
+ *
+ *  Lead 92f12838 / predict-and-fill: `const expectedPrinciples = 66` with a `<` test — the moment the ledger passed
+ *  66 the branch went unreachable and the drift detector failed OPEN. The sibling costume was
+ *  `T.length === 1195` in audit-mcp-native: once the ledger grew, the check reported "✗ Ledger Clean" while
+ *  describing a clean larger ledger. Both froze a size into code that exists to catch size drift.
+ *
+ *  countsGaps holds prose surfaces to the live census; commentsGaps holds source comments. Neither reads CODE
+ *  assignments. This one does: every gate script is scanned (comments stripped — history that names the old
+ *  literals must not convict itself) for (a) `expected* = N` with N a 2–5 digit literal and (b) `.length === NNN`
+ *  with N a ledger-scale 3–5 digit literal. The live figure is PRINCIPLES.length / theorems().length /
+ *  statementCensus() — computed, never remembered (same doctrine as mass gap: derive Δ from the field). */
+export function expectedGaps(): Gap[] {
+  const gaps: Gap[] = []
+  // SAME GATE SET as gate-paths.test.ts — the scripts that decide whether a reconcile may run.
+  const GATE = /^(audit|guard|next|conformance|security-audit|spin|provenance|predict-and-fill|support|one-receipt|seal-claims-audit|account|harmonic-scan|axiom-hunt|audit-.*)\.ts$/
+  const strip = (s: string): string => s.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/(^|\s)\/\/[^\n]*/g, ' ')
+  const gateFiles = [
+    ...readdirSync(join(ROOT, 'src', 'scripts')).filter((f) => GATE.test(f)).map((f) => join('src', 'scripts', f)),
+    join('src', 'spin.ts'), join('src', 'security-audit.ts'),
+  ].filter((f) => existsSync(join(ROOT, f)))
+  // expectedPrinciples = 66 — the predict-and-fill class
+  const EXPECTED_LIT = /\b(expected\w*)\s*=\s*(\d{2,5})\b/gi
+  // .length === 1195 — the audit-mcp-native class (3+ digits = ledger-scale; length === 0|1|2 stay free)
+  const LENGTH_LIT = /\.length\s*===\s*(\d{3,5})\b/g
+  for (const f of gateFiles) {
+    let src = ''
+    try { src = strip(fileText(join(ROOT, f))) } catch { continue }
+    for (const m of src.matchAll(EXPECTED_LIT))
+      gaps.push({
+        what: `${f}: hardcodes ${m[1]} = ${m[2]} — an expected count frozen into the guard chain`,
+        fix: 'read the live figure (PRINCIPLES.length, theorems().length, statementCensus()) — a count copied into code is the drift the check exists to catch',
+      })
+    for (const m of src.matchAll(LENGTH_LIT))
+      gaps.push({
+        what: `${f}: compares .length === ${m[1]} — a ledger-scale size frozen into the guard chain`,
+        fix: 'assert a property that holds at any size (non-empty, unique addresses, coins conserved), or compare against the live census',
+      })
+  }
+  return gaps
+}
+
 /** ── THE LEAN LINE INDEX — each Lean line indexed, and every reuse of it declared.
  *
  *  Lean is the source of all of this. Every surface, every report, every article derives from it, so duplication in
@@ -1824,11 +1866,12 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
   else if (cmd === 'stage') { const r = stageDerived(ROOT); console.log('✓ one-receipt stage — ' + r.staged + ' derived path(s) staged' + (r.leftForHumans.length ? '; left for a human (not staged' + r.leftForHumans.join(', ') : '; nothing else pending')) }
   else if (cmd === 'counts') report('one-receipt counts', countsGaps(), 'every surface states both ledger sizes, and both are live')
+  else if (cmd === 'expected') report('one-receipt expected', expectedGaps(), 'no gate hardcodes an expected ledger count — the size is read, never remembered')
   else if (cmd === 'lines') report('one-receipt lines', linesGaps(), 'every Lean line is indexed — no wing seals a statement twice, and every cross-wing reuse is declared')
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
   else if (cmd === 'skills') report('one-receipt skills', skillsGaps(), 'every skill the sealed ledger carries is openable through the live API on BOTH surfaces, and enumerable with its theorem count — no capability is proven and unreachable')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | precede | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | counts | lines | skills | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | precede | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | counts | expected | lines | skills | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }
 
 /** RENAMING A THEOREM IS RENAMING A PUBLISHED CONTRACT. A regeneration of AntiFraud renamed two keys —
