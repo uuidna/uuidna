@@ -109,7 +109,7 @@ period-finding speedup beyond what `n_qubit_dimension` / Grover seals already un
 
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** 28,639 / 28,639 packages (100%)
   folded to content-addresses ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);
-  community 22,678 / 22,678 = 100%; man pages 4,759 / 4,759; monitor receipt `59bc2fdc-b14b-8a32-ad6f-34781d4769c7`;
+  community 22,678 / 22,678 = 100%; man pages 4,759 / 4,759; monitor receipt `faaf302f-9997-84d3-b63b-360c2b029fef`;
   VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
   Captain unlocks ride every sealed key — each theorem unlocks what it states

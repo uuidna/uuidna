@@ -9,9 +9,9 @@
     "support-audit.json": "b135b3f507868ff3",
     "research-leads.json": "efa90b32ba6783dc",
     ".zenodo.json": "3d5955b5c5718c83",
-    "reports.json": "e96c87f0d59e894f",
+    "reports.json": "02b210ab0bb78cbe",
     "lean/statement-index.json": "e67f43e9af5086b5",
-    "README.md": "713234222d648f13",
+    "README.md": "f9fc6e05bde9830e",
     "llm.txt": "c554017933c78f73",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -1492,7 +1492,7 @@
     "lean/alignment-manifest.json": "e6997df00bc18fef",
     "lean/alpine-apps.json": "51c035a095c98374",
     "lean/alpine-apps.md": "5f6b01b4156c8f9c",
-    "lean/alpine-hexbit-monitor.json": "89943682a7fe8fda",
+    "lean/alpine-hexbit-monitor.json": "6764566870448551",
     "lean/anthem-manifest.json": "5918343cf4e985a1",
     "lean/antifraud-manifest.json": "4457805cd5078a11",
     "lean/antikythera-manifest.json": "be97e2330c018bcb",
@@ -1628,5 +1628,5 @@
     "lean/wave-queue.json": "1932106785988aa7",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "370d0913-33f4-8c1f-9503-b635b89748d5"
+  "receipt": "26fbd086-3d72-86ad-a502-2610f7d47db6"
 }
