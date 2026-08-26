@@ -317,3 +317,25 @@ test('NAMED TABLES + ∀ + LARGE POW — sealed caps/agl/words/fibCycle/comp and
   assert.equal(holds('(∀ c : Int, c ∈ [(-3:Int),-2,-1,0,1,2,3] → ¬ (c*1 = 0 ∧ c*0 = 1 ∧ c*1 = 1))'), true)
   assert.equal(holds("((List.range' 1 8).find? (fun k => (1^k) % 9 == 1)) = some 1"), true)
 })
+
+test('TAIL + ZIPWITH + BIGINT + DECIDE∧ + IF-IN-EQ — sealed neuro/knight/billing stayed unreached for syntax', () => {
+  // firing_rate_saturates / spike_amplitude_attenuates — `.tail`, `List.zipWith`, `decide (a ≤ b ∧ …)`.
+  assert.equal(holds('[0,100,200].tail = [100,200]'), true)
+  assert.equal(holds('List.zipWith (fun a b => decide (a <= b)) [0,1,2] [0,1,3] = [true, true, true]'), true)
+  assert.equal(
+    holds('((List.range 8).map (fun i => min (100 * i) 450) = [0,100,200,300,400,450,450,450]) ∧ ((List.range 8).map (fun i => min (100 * i) 450) ≠ (List.range 8).map (fun i => 100 * i))'),
+    true,
+  )
+  // bill_never_negative / subthreshold — numeric if inside == under .all
+  assert.equal(holds('(List.range 5).all (fun x => (if x >= 5 then 1 else 0) == 0)'), true)
+  assert.equal(holds('(List.range 8).all (fun r => (List.range 8).all (fun v => (if r < v then 0 else r - v) == r - v))'), true)
+  // minting / game_tree / positions — BigInt powers without Math.*
+  assert.equal(holds('(2:Nat)^128 < 10^44'), true)
+  assert.equal(holds('(10:Nat)^80 < 10^120'), true)
+  assert.equal(holds('(128 < 2^128) ∧ ((2^128) / 128 = 2^121)'), true)
+  // modus_ponens — Bool ! that must not steal !=
+  assert.equal(holds('([true, false].all (fun p => [true, false].all (fun q => !(p && (!p || q)) || q))) = true'), true)
+  assert.equal(holds('1 != 2'), true)
+  // flag / accept honesty-gate cluster
+  assert.equal(holds('(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) == (if (n%2 == 1) && (n/2%2 == 0) && (n/4%2 == 0) then 1 else 0))'), true)
+})

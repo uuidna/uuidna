@@ -9,7 +9,7 @@
     "support-audit.json": "125de24296ba84f7",
     "research-leads.json": "d4f13605868c8eeb",
     ".zenodo.json": "1266f2f0beb38b12",
-    "reports.json": "5617814b464b88ed",
+    "reports.json": "c33556a8090b8c21",
     "lean/statement-index.json": "a992a00fe4ac8150",
     "README.md": "60f7c4eb47358234",
     "llm.txt": "52070bb6c745813c",
@@ -1492,7 +1492,7 @@
     "lean/alignment-manifest.json": "e6997df00bc18fef",
     "lean/alpine-apps.json": "51c035a095c98374",
     "lean/alpine-apps.md": "5f6b01b4156c8f9c",
-    "lean/alpine-hexbit-monitor.json": "3cfbd7dca31e826b",
+    "lean/alpine-hexbit-monitor.json": "088a787c59408a6a",
     "lean/anthem-manifest.json": "5918343cf4e985a1",
     "lean/antifraud-manifest.json": "4457805cd5078a11",
     "lean/antikythera-manifest.json": "be97e2330c018bcb",
@@ -1631,5 +1631,5 @@
     "lean/wave-queue.json": "1932106785988aa7",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "4c154b89-95ba-8974-a287-185faa439416"
+  "receipt": "be0d9ed6-7ecc-86f4-89b0-5fc41afee52a"
 }

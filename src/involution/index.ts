@@ -105,9 +105,11 @@ export const stripAscriptions = (s: string): string => {
  *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
  *  and bounded `fun` (multi-binder) with `.all`/`.map`/`.filter`/`.any`. Sealed Legal/Audit/Command/Editor mirrors
  *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
-const NAMED_OP = /\b(?:Nat\.gcd|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|∀)\b/g
-/** Drop Lean line comments so sealed theorems with `-- …` stay reachable. */
-const stripComments = (s: string): string => s.replace(/--[^\n]*/g, ' ')
+const NAMED_OP = /\b(?:Nat\.gcd|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.zipWith|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|∀)\b/g
+/** Drop Lean line comments so sealed theorems with `-- …` stay reachable.
+ *  Statements are often flattened to one line; stop before `(` / `[` so mid-proof
+ *  commentary does not erase the rest of the proposition (vortex_one_leap). */
+const stripComments = (s: string): string => s.replace(/--[^\n(\[∧∨]*/g, ' ')
 /** Drop string literal bodies so Unicode readings (bg/zh/…) do not fail the character gate. */
 const stripStrings = (s: string): string => s.replace(/"(?:[^"]*)"/g, '""')
 /** Strip `fun … =>` / `let r :=` binders (and their uses) so the character gate stays letter-free. */
@@ -119,7 +121,7 @@ const stripFunBinders = (s: string): string => {
     for (const id of ids) if (!TYPEISH.has(id)) binders.push(id)
     return ' '
   })
-  out = out.replace(/\blet\s+([A-Za-z_][A-Za-z0-9_]*)\s*:=/g, (_, id: string) => {
+  out = out.replace(/\blet\s+([A-Za-z_][A-Za-z0-9_]*)\s*(?::[^:=]+)?\s*:=/g, (_, id: string) => {
     binders.push(id)
     return ' '
   })
@@ -261,6 +263,14 @@ const mulScalar = (a: number | bigint, b: number | bigint): number | bigint => {
   if (Number.isSafeInteger(r)) return r
   return BigInt(a) * BigInt(b)
 }
+/** Lean Nat division — BigInt powers; `n / 0 = 0` on Nat. */
+const divScalar = (a: number | bigint, b: number | bigint, ring: Ring): number | bigint => {
+  const bb = typeof b === 'bigint' ? b : BigInt(trunc(b as number))
+  if (bb === 0n) return 0
+  const aa = typeof a === 'bigint' ? a : BigInt(trunc(a as number))
+  const q = aa / bb
+  return (q <= BigInt(Number.MAX_SAFE_INTEGER) && q >= BigInt(Number.MIN_SAFE_INTEGER)) ? Number(q) : q
+}
 const asLst = (v: Val): Val[] => {
   if (!isLst(v)) throw new Error('expected list')
   return v.xs
@@ -282,6 +292,19 @@ const readIdent = (c: Cursor): string => {
   }
   if (c.i === start) throw new Error('ident')
   return c.s.slice(start, c.i)
+}
+/** Skip `let x : Type :=` type ascriptions — `List (Nat × Nat)`, `Nat → Nat`, etc. */
+const skipType = (c: Cursor): void => {
+  ws(c)
+  let depth = 0
+  while (c.i < c.s.length) {
+    const ch = c.s[c.i]!
+    if (ch === '(' || ch === '[') depth++
+    else if (ch === ')' || ch === ']') { if (depth === 0) return; depth-- }
+    else if (depth === 0 && ch === ':=') return
+    else if (depth === 0 && ch === ';') return
+    c.i++
+  }
 }
 
 /** Lean `lxor` — structural XOR with 8-bit fuel (`lxorAux 8`), axiom-free. */
@@ -509,7 +532,13 @@ const mkFun = (names: string[], body: string, parentEnv: Env, ring: Ring, bodyKi
     if (names[idx] !== '_') e.set(names[idx]!, x)
     if (idx + 1 < names.length) return build(idx + 1, e)
     const inner: Cursor = { s: body, i: 0, env: e, ring }
-    const v = bodyKind === 'bool' ? boolProp(inner) : junction(inner)
+    let v: Val
+    if (bodyKind === 'bool') v = boolProp(inner)
+    else {
+      v = junction(inner)
+      ws(inner)
+      if (inner.i !== body.length) { inner.i = 0; v = boolProp(inner) }
+    }
     ws(inner)
     if (inner.i !== body.length) throw new Error('fun trailing')
     return v
@@ -653,6 +682,11 @@ const postfix = (c: Cursor, v: Val): Val => {
       v = xs.length ? xs[0]! : d
       continue
     }
+    if (eat(c, '.head?')) {
+      const xs = asLst(v)
+      v = opt(xs.length ? xs[0]! : null)
+      continue
+    }
     if (eat(c, '.head!') || eat(c, '.head')) {
       const xs = asLst(v)
       if (!xs.length) throw new Error('head')
@@ -764,10 +798,12 @@ const atom = (c: Cursor): Val => {
       if (!eat(c, ')')) throw new Error('unclosed')
       return postfix(c, pair(a, b))
     }
-    // `(Nat.gcd a 9 == 1)` — junction stops before `==`; reparse as a bool proposition.
+    // `(Nat.gcd a 9 == 1)` / `((c == 1) || (t == 1))` — junction stops before `==`/`||`/`∧`; reparse as bool.
     if (c.s.startsWith('==', c.i) || c.s.startsWith('!=', c.i) || c.s.startsWith('<=', c.i) || c.s.startsWith('>=', c.i)
       || c.s.startsWith('≠', c.i) || c.s.startsWith('≤', c.i) || c.s.startsWith('≥', c.i)
-      || c.s.startsWith('<', c.i) || c.s.startsWith('>', c.i) || c.s.startsWith('=', c.i)) {
+      || c.s.startsWith('<', c.i) || c.s.startsWith('>', c.i) || c.s.startsWith('=', c.i)
+      || c.s.startsWith('||', c.i) || c.s.startsWith('∨', c.i) || c.s.startsWith('∧', c.i)
+      || (typeof a === 'boolean' && c.s.startsWith('&&', c.i))) {
       c.i = saveParen
       const bv = boolProp(c)
       if (!eat(c, ')')) throw new Error('unclosed')
@@ -777,6 +813,9 @@ const atom = (c: Cursor): Val => {
     return postfix(c, a)
   }
   if (eat(c, '-')) return postfix(c, -asNum(atom(c)))
+  if (eat(c, '¬') || (c.s.startsWith('!', c.i) && !c.s.startsWith('!=', c.i) && (c.i++, true))) {
+    return postfix(c, !asBool(atom(c)))
+  }
   if (eat(c, 'true')) return postfix(c, true)
   if (eat(c, 'false')) return postfix(c, false)
   if (eat(c, 'if')) {
@@ -822,6 +861,7 @@ const atom = (c: Cursor): Val => {
     return postfix(c, v)
   }
   if (eat(c, 'Nat.ble')) return postfix(c, asNum(atom(c)) <= asNum(atom(c)))
+  if (eat(c, 'Nat.blt') || eat(c, 'blt')) return postfix(c, asNum(atom(c)) < asNum(atom(c)))
   if (eat(c, 'Int.ofNat')) return postfix(c, asNum(atom(c)))
   if (eat(c, 'Nat')) {
     if (!eat(c, '(')) throw new Error('Nat')
@@ -843,9 +883,26 @@ const atom = (c: Cursor): Val => {
   }
   if (eat(c, 'decide')) {
     if (!eat(c, '(')) throw new Error('decide')
-    const v = boolExpr(c)
+    const v = boolProp(c)
     if (!eat(c, ')')) throw new Error('decide)')
     return postfix(c, v)
+  }
+  if (eat(c, 'List.zipWith')) {
+    const f = parseFunArg(c, 'val')
+    const xs = asLst(atom(c))
+    const ys = asLst(atom(c))
+    const n = min2(xs.length, ys.length)
+    const out: Val[] = []
+    for (let i = 0; i < n; i++) out.push(applyFold(f, xs[i]!, ys[i]!))
+    return postfix(c, lst(out))
+  }
+  if (eat(c, 'List.zip')) {
+    const xs = asLst(atom(c))
+    const ys = asLst(atom(c))
+    const n = min2(xs.length, ys.length)
+    const out: Val[] = []
+    for (let i = 0; i < n; i++) out.push(pair(xs[i]!, ys[i]!))
+    return postfix(c, lst(out))
   }
   if (eat(c, "List.range'")) return postfix(c, lst(listRangeFrom(asNum(atom(c)), asNum(atom(c)))))
   if (eat(c, 'List.range')) return postfix(c, lst(listRange(asNum(atom(c)))))
@@ -878,7 +935,6 @@ const atom = (c: Cursor): Val => {
     }
     return postfix(c, v)
   }
-  if (eat(c, 'Nat.blt') || eat(c, 'blt')) return postfix(c, asNum(atom(c)) < asNum(atom(c)))
   if (eat(c, 'pop')) return postfix(c, pop(asNum(atom(c))))
   if (eat(c, 'wt')) return postfix(c, pop(asNum(atom(c))))
   if (eat(c, 'rowsOf')) return postfix(c, lst(rowsOf(asNum(atom(c)))))
@@ -1040,8 +1096,7 @@ const product = (c: Cursor): Val => {
       const d = asNum(power(c))
       v = isPow(v) ? modPow(v.b, v.e, d, c.ring) : emod(asNum(v), d, c.ring)
     } else if (eat(c, '/')) {
-      const d = asNum(power(c))
-      v = d === 0 ? 0 : (asNum(v) - emod(asNum(v), d, c.ring)) / d
+      v = divScalar(forceScalar(isPow(v) ? forceScalar(v) : v), forceScalar(power(c)), c.ring)
     } else return isPow(v) ? forceScalar(v) : v
   }
 }
@@ -1143,7 +1198,7 @@ const cmpContinues = (c: Cursor): boolean => {
 }
 function boolAtom(c: Cursor): boolean {
   ws(c)
-  if (eat(c, '¬') || eat(c, '!')) return !boolAtom(c)
+  if (eat(c, '¬') || (c.s.startsWith('!', c.i) && !c.s.startsWith('!=', c.i) && (c.i++, true))) return !boolAtom(c)
   const save = c.i
   if (eat(c, '(')) {
     try {
@@ -1165,7 +1220,6 @@ function boolProp(c: Cursor): boolean {
     if (eat(c, 'let')) {
       const name = readIdent(c)
       if (!eat(c, ':=')) throw new Error('let :=')
-      // Value binding — clear expectBool so `let r := if … then 9 else …` stays Nat.
       const saveBool = c.expectBool
       c.expectBool = false
       let val: Val
@@ -1178,7 +1232,7 @@ function boolProp(c: Cursor): boolean {
     for (;;) {
       ws(c)
       if (eat(c, '∧') || eat(c, '&&')) { v = boolAtom(c) && v; continue }
-      if (eat(c, '||')) { v = boolAtom(c) || v; continue }
+      if (eat(c, '∨') || eat(c, '||')) { v = boolAtom(c) || v; continue }
       return v
     }
   } finally {
@@ -1196,7 +1250,7 @@ function boolProp(c: Cursor): boolean {
  *  that stayed unreached for one character until this reader ate them. */
 const conjunct = (c: Cursor): boolean => {
   ws(c)
-  if (eat(c, '¬') || eat(c, '!')) return !conjunct(c)
+  if (eat(c, '¬') || (c.s.startsWith('!', c.i) && !c.s.startsWith('!=', c.i) && (c.i++, true))) return !conjunct(c)
   if (eat(c, '∀')) {
     const name = readIdent(c)
     ws(c)
@@ -1252,8 +1306,8 @@ function conjunction(c: Cursor): boolean {
   let v = conjunct(c)
   for (;;) {
     ws(c)
-    if (eat(c, '∧')) { v = conjunct(c) && v; continue }
-    if (eat(c, '∨')) { v = conjunct(c) || v; continue }
+    if (eat(c, '∧') || eat(c, '&&')) { v = conjunct(c) && v; continue }
+    if (eat(c, '∨') || eat(c, '||')) { v = conjunct(c) || v; continue }
     return v
   }
 }
