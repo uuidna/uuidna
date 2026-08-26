@@ -45,6 +45,19 @@ test('home doors to /quantum; capacity table on /quantum and README only', () =>
   assert.match(readme, /quantum-capacity:begin/)
 })
 
+test('Clay is the visible test POC on home and README — computationally claimed', () => {
+  const home = readFileSync(join(ROOT, 'docs/index.md'), 'utf8')
+  assert.match(home, /^\s+- title:\s*Clay\s*$/m)
+  assert.match(home, /link:\s*\/articles\/clay/)
+  assert.match(home, /computationally claimed/)
+  assert.doesNotMatch(home, /seal\s*≠\s*solution|not a solution claim/i)
+  const readme = readFileSync(join(ROOT, 'README.md'), 'utf8')
+  assert.match(readme, /## Test proof of concept — Clay/)
+  assert.match(readme, /computational claim/)
+  assert.match(readme, /zenodo\.org\/records\/21781603|10\.5281\/zenodo\.21781603/)
+  assert.doesNotMatch(readme, /solves none of the seven|seal\s*≠\s*solution/i)
+})
+
 test('compose-object emits stock markdown H1 + lead under it', async () => {
   const { composeTheorem, composePublication } = await import(join(ROOT, 'docs/.vitepress/compose-object.js'))
   const { theorems, publications } = await import(join(ROOT, 'dist/index.js'))

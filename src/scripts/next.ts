@@ -149,7 +149,8 @@ const legalClaimsAudited = readmeGate.cited.length + homepageGate.cited.length
 const legalBackingTheorems = new Set([...readmeGate.real, ...homepageGate.real]).size
 const legalFabricated = [...readmeGate.fabricated.map((k) => `README.md:${k}`), ...homepageGate.fabricated.map((k) => `docs/index.md:${k}`)]
 const licenseInReadme = readmeText.includes('CC BY-NC-ND 4.0')
-const licenseLinkedFromHomepage = /\]\(\/license\)/.test(homepageText)
+// Stock VitePress home: License is a hero/feature door (`link: /license`); markdown `](/license)` is optional.
+const licenseLinkedFromHomepage = /\]\(\/license\)/.test(homepageText) || /^\s+link:\s*\/license\s*$/m.test(homepageText)
 const legalCompliant = legalFabricated.length === 0 && licenseInReadme && licenseLinkedFromHomepage
 trials += legalClaimsAudited + 2 // +2 for the two license checks
 for (const f of legalFabricated) fails.push(`legal: ${f} cites a theorem not sealed in the ledger`)
@@ -247,7 +248,7 @@ try {
   const lonely = lonelyGaps().length
   if (lonely > 0) leverage.push({ act: 'npm run build && node dist/scripts/connect-lonely.js', closes: `${lonely} theorem(s) connecting to no neighbour — the dry run reports, --write applies` })
 } catch { /* the survey is on-demand; its absence is not a failure */ }
-leverage.push({ act: 'deploy so the edge matches origin', closes: 'every MCP finding at once — the hosted surface is tested against what it serves, not what the tree holds' })
+leverage.push({ act: 'npm run ship   # build, wrangler deploy, cf:zone, live proof', closes: 'every MCP finding at once — the hosted surface is tested against what it serves, not what the tree holds; cf:zone attaches www + Always Use HTTPS when the token can write' })
 // MEASURED, NOT TYPED. This entry used to be pushed unconditionally, three lines under a comment promising the
 // list is "computed here rather than written down, because a typed list rots the moment the tree moves" — so it
 // printed identically whether the work was outstanding or finished, and no act could ever discharge it. Advice

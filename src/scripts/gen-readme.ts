@@ -14,7 +14,9 @@ import {
 } from '../index.js'
 import { legalFacts } from '../legal.js'
 import { CANONICAL_LICENSE_SPDX, CANONICAL_LICENSE_URL } from '../publication-metadata.js'
-import { CLAY_INVOLUTION_DOI, CLAY_INVOLUTION_DOI_URL } from '../clay-involution.js'
+import {
+  CLAY_INVOLUTION_DOI, CLAY_INVOLUTION_DOI_URL, CLAY_INVOLUTION_RECORD_URL,
+} from '../clay-involution.js'
 
 interface AlpineMonitor {
   all?: { total: number; ported: number }
@@ -81,6 +83,15 @@ sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel. Typ
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
 them, 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).
 
+## Test proof of concept — Clay
+
+Clay is the visible test of this system's work: seven finite instances in [lean/Clay.lean](lean/Clay.lean), each a
+**computational claim** — proven \`by decide\`, content-addressed on the ledger. Prior art (initial clay
+σ-involution): DOI [${CLAY_INVOLUTION_DOI}](${CLAY_INVOLUTION_DOI_URL})
+([Zenodo record](${CLAY_INVOLUTION_RECORD_URL})) credited first; captain next. Live surface:
+[uuidna.com/articles/clay](https://uuidna.com/articles/clay). Each key names the decided window drawn from that
+problem's mathematics — the claim is exactly what Lean decides, not an invented conjecture.
+
 ---
 
 ## Magnitudes (computed at generation)
@@ -110,10 +121,6 @@ and the handle URL. Example sealed handle from the capacity report:
 
 **Captain coins.** Human deposit: \`https://revolut.me/ceccec?note=<referrer>\` where referrer is the page's handle
 door URL (\`encodeURIComponent\`). Agents deposit the two coins on every gated call.
-
-**Clay prior art.** Initial clay σ-involution DOI [${CLAY_INVOLUTION_DOI}](${CLAY_INVOLUTION_DOI_URL}) —
-credited first on Clay.lean theorems; captain next. Live surface: [uuidna.com/articles/clay](https://uuidna.com/articles/clay).
-uuidna seals finite instances and solves none of the seven Millennium Problems.
 
 ---
 
