@@ -58,7 +58,7 @@ saros_counts_on_a_prime 27
 saros_spiral_leaves_three 27
 exeligmos_closes_the_day 19
 pin_and_slot_equal_teeth 27
-hunting_teeth_wear_even 19
+hunting_teeth_wear_even 27
 #Astronomy.lean
 sky_turns_15_per_hour 27
 zodiac_ecliptic_360 27
@@ -70,7 +70,7 @@ longitude_four_minutes_per_degree 27
 keplers_harmonic_law 19
 metonic_cycle 27
 great_year_precession 27
-declination_spans_180 19
+declination_spans_180 27
 #Audit.lean
 wall_steady_state 27
 flag_truth_table 27
@@ -102,7 +102,7 @@ audit_is_a_finite_game 19
 no_audit_catches_all 27
 audit_space_meets_chess_at_eight 27
 #Billing.lean
-coins_are_the_common_factor 19
+coins_are_the_common_factor 27
 the_rate_is_triangle_over_group 27
 difference_mints_ratio_bills 27
 the_pair_is_coins_times_rate 27
@@ -165,13 +165,13 @@ page_outgrows_register 27
 #Chemistry.lean
 haber_balances 27
 combustion_methane_balances 27
-charge_balance_neutral 19
-oxidation_states_sum 19
-ph_plus_poh_14 19
+charge_balance_neutral 27
+oxidation_states_sum 27
+ph_plus_poh_14 27
 boyles_law 27
-neutralization 19
+neutralization 27
 stoichiometry_scales 19
-annihilation_conserves_everything 19
+annihilation_conserves_everything 27
 #Chess.lean
 torus_chessboard_chi_zero 27
 double_torus_boards_are_the_address 27
@@ -394,8 +394,8 @@ mul9_8_7 26
 mul9_8_8 26
 #Crt.lean
 captain_theorem_the_coins_buy_the_ring_and_one 27
-rosette_and_vortex_are_coprime 19
-axes_stride_coprime 19
+rosette_and_vortex_are_coprime 27
+axes_stride_coprime 27
 residues_identify_digit 27
 crt_pairs_are_a_bijection 19
 fused_units_are_the_orbit_squared 19
@@ -440,7 +440,7 @@ air_ppO2_in_window_at_surface 27
 air_oxygen_toxic_deep 27
 gas_blend_by_partial_pressure 27
 helium_reduces_narcosis 27
-ascent_needs_a_stop 19
+ascent_needs_a_stop 27
 #Doctrine.lean
 team_pairs_triples_cover 19
 solo_is_the_excluded_team 27
@@ -483,16 +483,16 @@ editor_fold_injective_bounded 19
 plasma_fourth_state 27
 torus_closes_the_pipe 27
 containment_is_genus_one 27
-safety_factor_winding_closes 19
+safety_factor_winding_closes 27
 kink_needs_q_above_one 27
-coulomb_sign 19
+coulomb_sign 27
 ohms_law 27
 electric_power 27
 series_resistance_adds 27
 parallel_resistance 27
 kirchhoff_current 27
-kirchhoff_voltage 19
-faraday_needs_changing_flux 19
+kirchhoff_voltage 27
+faraday_needs_changing_flux 27
 #Ephemeris.lean
 seconds_per_day 27
 sidereal_gains_one_turn 27
@@ -632,7 +632,7 @@ the_install_set_names_the_bytes_it_rests_on 19
 xor_preserves_distance 19
 reuse_leaks_by_isometry 19
 complement_flips_two 19
-codon_flips_six 19
+codon_flips_six 27
 distance_is_symmetric 19
 isometry_bounds_correction 27
 #Legal.lean
@@ -714,7 +714,7 @@ denial_drains_to_the_last_coin 27
 subthreshold_silent 19
 suprathreshold_fires 19
 spatial_summation 19
-action_potential_swing 19
+action_potential_swing 27
 all_or_none_amplitude 19
 firing_rate_saturates 19
 hebbian_coincidence_table 19
@@ -871,7 +871,7 @@ boundary_is_exactly_two_named_modules 19
 pentagram_single_stroke 27
 pentagon_single_stroke 19
 pentagram_closes_after_five 27
-pentagram_step_coprime_five 19
+pentagram_step_coprime_five 27
 pentagram_point_angles_half_turn 27
 fib_single_digit_cycle_24 27
 fib_pentagram_cycle_20 19
@@ -916,7 +916,7 @@ midi_is_seven_bit 27
 sixteen_bit_dynamic_range 27
 fifth_cycles_all_twelve 19
 #Propulsion.lean
-momentum_conserved 19
+momentum_conserved 27
 no_reactionless_thrust 19
 thrust_is_mdot_times_ve 27
 delta_v_stages_add 19
@@ -1045,7 +1045,7 @@ the_shift_is_the_trinity 19
 every_referrer_reaches_every_page 19
 prev_undoes_next 19
 tuning_cancels_from_every_interval 19
-orbit_steps_name_their_intervals 19
+orbit_steps_name_their_intervals 27
 adjacent_steps_beat_at_the_tuning 19
 development_is_the_complement 19
 the_movie_and_the_song_are_one 27
@@ -1057,11 +1057,11 @@ seven_reach_five_classes 19
 reflection_confuses_seven_three 19
 seventh_covers_reflection_cannot 19
 #Relativity.lean
-light_on_null_cone 19
-interval_timelike_causal 19
+light_on_null_cone 27
+interval_timelike_causal 27
 lorentz_gamma_triangle 27
 rest_energy_mc2 19
-causality_forbids_ftl 19
+causality_forbids_ftl 27
 #Report.lean
 five_ws_and_one_h 27
 timeline_is_chronological 19
@@ -1466,7 +1466,7 @@ no_go_zone 27
 points_of_sail 19
 beating_sailing_triangle 27
 balanced_helm_holds_course 27
-tacking_cancels_leeway 19
+tacking_cancels_leeway 27
 precise_tacks_compound 19
 four_points_is_45 27
 #Sanitize.lean
@@ -1551,9 +1551,9 @@ exactly_five_platonic_solids 19
 platonic_euler_characteristic_is_two 19
 dodecahedron_twelve_pentagons 27
 icosahedron_twenty_triangles 27
-cube_octahedron_dual 19
-dodecahedron_icosahedron_dual 19
-tetrahedron_self_dual 19
+cube_octahedron_dual 27
+dodecahedron_icosahedron_dual 27
+tetrahedron_self_dual 27
 three_pentagons_close_a_vertex 27
 regular_polytopes_by_dimension 19
 three_regular_polytopes_from_five_up 19
@@ -1569,7 +1569,7 @@ song_melody_rides_the_orbit 19
 song_scale_is_glagolitic 19
 song_az_is_the_tuning 27
 song_primes_keep_time 19
-song_four_tongues_fuse 19
+song_four_tongues_fuse 27
 #Spectrum.lean
 wave_product_is_constant 27
 light_speed_rounds_to_300000 31
@@ -1587,7 +1587,7 @@ shorthand_covers_one_in_four_thousand 27
 spectrum_refuses_sixteen 27
 wheel_divides_by_nine_and_six 19
 #Statics.lean
-force_equilibrium 19
+force_equilibrium 27
 moment_balance 27
 mechanical_advantage 27
 center_of_mass 27
@@ -1617,7 +1617,7 @@ trivial_and_whole_are_subgroups 19
 four_movements_are_the_tongues 27
 sonata_form_is_a_palindrome 19
 recapitulation_is_the_involution 19
-the_keys_walk_home 19
+the_keys_walk_home 27
 a_symphony_is_a_sequence_not_a_set 19
 the_tempi_tile_the_film 27
 #Tesla.lean
