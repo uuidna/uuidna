@@ -2,7 +2,7 @@
 ## The Alpine catalogue, ported — and how much of it the ledger can speak for
 
 Alpine publishes **28630 packages** in `main` + `community` for `x86_64` on
-`latest-stable` — **16087 distinct projects** once the `-doc`/`-dev`/`-dbg`/`-libs`/`-static`
+`latest-stable` — **16080 distinct projects** once the `-doc`/`-dev`/`-dbg`/`-libs`/`-static`
 variants of the same project are folded together. Every one of them now has a uuidna identity: `uuidna/<name>`,
 a 128-bit content-address over the exact published tuple (name, version, arch, repo, branch, Alpine's own
 checksum), recomputable by anyone holding the same index.
@@ -24,8 +24,8 @@ bound to the heaviest sealed theorem of its skill as a witness.
 | skill | projects | packages | witness (sealed theorem) | fold of their addresses |
 |-------|----------|----------|--------------------------|-------------------------|
 | typesetting | 333 | 406 | [recto_odd_verso_even](https://uuidna.com/theorem/recto_odd_verso_even) | `b2ed3aad` |
-| calendar | 207 | 342 | [months_sum_leap_366](https://uuidna.com/theorem/months_sum_leap_366) | `97f58924` |
-| security | 207 | 358 | [birthday_halves_the_exponent](https://uuidna.com/theorem/birthday_halves_the_exponent) | `8e90a885` |
+| calendar | 207 | 342 | [a_gapless_index_admits_nothing_between](https://uuidna.com/theorem/a_gapless_index_admits_nothing_between) | `97f58924` |
+| security | 207 | 358 | [birthday_halves_the_exponent](https://uuidna.com/theorem/birthday_halves_the_exponent) | `5bbb75bd` |
 | music-production | 203 | 379 | [fifth_cycles_all_twelve](https://uuidna.com/theorem/fifth_cycles_all_twelve) | `1eec9099` |
 | editing | 176 | 320 | [frame_ring_undo_involutive](https://uuidna.com/theorem/frame_ring_undo_involutive) | `f0706aa7` |
 | colour | 67 | 92 | [complementary_hues_oppose](https://uuidna.com/theorem/complementary_hues_oppose) | `31bdab51` |
@@ -45,11 +45,11 @@ verified. Nothing here reads a line of any app's code.
 packages and holds none of their bytes. What is ported is the published metadata, folded to an address —
 which is what makes a deployment able to *prove* which exact upstream releases it rests on.
 
-Catalogue root (every ported address, order-invariant): `64181824-61db-8a2e-9437-48dbd6cb95d1`
-Catalogue address: `d07b5e92-7d80-80f0-844b-c1c9dc44ec18` · handle `d07b5e92`
+Catalogue root (every ported address, order-invariant): `898f8b3a-40a2-8db6-b3fd-43d771ac0d9c`
+Catalogue address: `88a4c6a3-2a0b-89c3-a9ec-4472bb85c774` · handle `88a4c6a3`
 
 Every line above left through the gate as a witnessed quantum message: 13 claims, each bound to a
-sealed theorem the claim itself cites, 0 refused. Dispatch receipt: `ae572682-3680-8af7-bdfa-3d43d853a9df`.
+sealed theorem the claim itself cites, 0 refused. Dispatch receipt: `ef99b59e-05f8-8fab-a636-2e1915775a75`.
 
 *This report moves when upstream moves — it is a LIVE read of what Alpine calls latest-stable right now, which
 is honest at the `src/os` boundary and nowhere else in this tree.*

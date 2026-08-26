@@ -64,11 +64,21 @@ test('an unheard-of parameter is UNMEASURED, never quietly promoted to self', ()
   assert.equal(scopeOf(schema('theorem', 'wavelengthNm')), 'unclassified',
     'a recognised sibling does not vouch for an unrecognised parameter')
 
-  // THE SEAM, PINNED. The rosters pluralise value and item and stop there, so these five singulars are listed
-  // while their plurals are not — and every plural below is a real parameter on the live surface. passphrases is
-  // the one that shows the cost: a tool taking the caller's secrets was filed as talking only about this ledger.
-  for (const p of ['claims', 'keys', 'messages', 'passphrases', 'uuids'])
-    assert.equal(scopeOf(schema(p)), 'unclassified', p + ' is unheard-of while its singular is listed — it may not read as self')
+  // THE SEAM, INVOLUTED. Singular↔plural on the roster stems: caller content plurals read generic;
+  // `keys` involutes to ledger `key` (theorem keys). `uuids` is caller transport and does not fold to ledger `uuid`.
+  assert.equal(scopeOf(schema('claims')), 'generic')
+  assert.equal(scopeOf(schema('messages')), 'generic')
+  assert.equal(scopeOf(schema('passphrases')), 'generic')
+  assert.equal(scopeOf(schema('uuids')), 'generic')
+  assert.equal(scopeOf(schema('keys')), 'self', 'keys ↔ key — theorem-key arrays stay ledger-scoped')
+})
+
+test('numberInvolute is self-inverse on the catalogue stems', async () => {
+  const { numberInvolute } = await import('../tool-scope.js')
+  for (const [a, b] of [['message', 'messages'], ['key', 'keys'], ['passphrase', 'passphrases'], ['claim', 'claims']] as const) {
+    assert.ok(numberInvolute(a).includes(b), a + ' → ' + b)
+    assert.ok(numberInvolute(b).includes(a), b + ' → ' + a)
+  }
 })
 
 test('the filter returns a usable subset and preserves catalogue order', () => {

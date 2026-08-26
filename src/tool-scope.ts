@@ -32,12 +32,41 @@ export type ToolScope =
   | 'unclassified' // carries a parameter NEITHER list names — unmeasured, and never quietly read as 'self'
 
 /** Parameter names that carry the CALLER'S OWN content. Matched on the parameter NAME because that is the part
- *  of the contract a client sees; a description is prose and drifts, a name is the key you must actually pass. */
-const CALLER_SUPPLIED = /^(draft|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|n|x|y|left|right)$/i
+ *  of the contract a client sees; a description is prose and drifts, a name is the key you must actually pass.
+ *  Plurals of these stems are admitted by `numberInvolute` — not by widening the open set of author names. */
+const CALLER_SUPPLIED = /^(draft|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|n|x|y|left|right|uuids|links)$/i
 
 /** Parameter names that identify something INSIDE uuidna. A tool taking only these can answer about the ledger
- *  and nothing else, however many parameters it has. */
+ *  and nothing else, however many parameters it has. `keys` involutes to `key`; bare `uuid` stays an id,
+ *  while transport chains use `uuids` on the caller roster (not folded into ledger via the involution). */
 const LEDGER_IDENTIFIER = /^(key|slug|route|address|theorem|publication|domain|handle|skill|principle|wing|resource|course|track|lane|seat|id|uuid|q)$/i
+
+/**
+ * Singular ↔ plural involution on a parameter token — self-inverse on the pairs the catalogue uses
+ * (`message`↔`messages`, `key`↔`keys`, `passphrase`↔`passphrases`, …). CamelCase and unit suffixes are
+ * left alone: involuting `appliedMillivolts` would invent a false stem.
+ */
+export function numberInvolute(name: string): readonly string[] {
+  if (/[A-Z]/.test(name) || /[0-9]/.test(name)) return [name]
+  const forms = new Set<string>([name])
+  if (/ies$/i.test(name) && name.length > 3) forms.add(name.replace(/ies$/i, 'y'))
+  else if (/s$/i.test(name) && !/ss$/i.test(name) && name.length > 1) forms.add(name.slice(0, -1))
+  else {
+    forms.add(name + 's')
+    if (/[^aeiou]y$/i.test(name)) forms.add(name.slice(0, -1) + 'ies')
+  }
+  return [...forms]
+}
+
+/** Caller-content hit: exact roster, or number-involution of a roster stem. */
+export const isCallerParam = (p: string): boolean =>
+  CALLER_SUPPLIED.test(p) || numberInvolute(p).some((f) => f !== p && CALLER_SUPPLIED.test(f))
+
+/** Ledger-id hit. `uuids` is transport (caller) — do not fold it to ledger `uuid`. */
+export const isLedgerParam = (p: string): boolean => {
+  if (/^uuids$/i.test(p)) return false
+  return LEDGER_IDENTIFIER.test(p) || numberInvolute(p).some((f) => f !== p && LEDGER_IDENTIFIER.test(f))
+}
 
 /** scopeOf(schema) → what this tool can be pointed at, computed from its own parameters.
  *
@@ -47,7 +76,7 @@ const LEDGER_IDENTIFIER = /^(key|slug|route|address|theorem|publication|domain|h
 /** Parameter names on NEITHER list. The scope question cannot be decided over these, and naming them is the
  *  remedy: add the name to whichever list it belongs to, or rename the parameter. */
 export const unrecognisedParams = (schema?: { properties?: Record<string, unknown> }): string[] =>
-  Object.keys(schema?.properties ?? {}).filter((p) => !CALLER_SUPPLIED.test(p) && !LEDGER_IDENTIFIER.test(p))
+  Object.keys(schema?.properties ?? {}).filter((p) => !isCallerParam(p) && !isLedgerParam(p))
 
 export function scopeOf(schema?: { properties?: Record<string, unknown> }): ToolScope {
   const params = Object.keys(schema?.properties ?? {})
@@ -59,17 +88,12 @@ export function scopeOf(schema?: { properties?: Record<string, unknown> }): Tool
   // reported as ledger-only by a rule that never looked at them, and the error ran in the ADMITTING direction —
   // a caller filtering for 'self' received tools that take the caller's own material.
   //
-  // The seam is visible in the vocabulary: the lists pluralise `value` and `item` and stop there, so `claims`,
-  // `keys`, `messages`, `passphrases` and `uuids` are all unheard-of while their singulars are listed. A tool
-  // taking `passphrases` was filed as talking only about this ledger.
-  //
-  // This is the header's own law turned on the module: it says the scope is COMPUTED, NEVER AUTHORED, "so it
-  // cannot drift the way a hand-kept list of 204 labels would" — and then decides by two hand-kept lists of 38
-  // and 18 names. The drift moved from the labels into the vocabulary. Widening the lists would only move it
-  // again, because the set of parameter names an author may choose is open and a roster of it never closes; what
-  // is fixed here is that an unrecognised name STOPS returning an answer it did not earn.
+  // THE SEAM, NOW INVOLUTED: singular stems were listed while live plurals (`claims`, `keys`, `messages`,
+  // `passphrases`, `uuids`) were not — a tool taking `passphrases` read as ledger-only. `numberInvolute`
+  // closes singular↔plural on the existing stems (self-inverse); `uuids` stays caller transport and does not
+  // fold into ledger `uuid`. The open set of author names is still open — unrecognised names still stop.
   if (unrecognisedParams(schema).length > 0) return 'unclassified'
-  const takesCaller = params.some((p) => CALLER_SUPPLIED.test(p) && !LEDGER_IDENTIFIER.test(p))
+  const takesCaller = params.some((p) => isCallerParam(p) && !isLedgerParam(p))
   return takesCaller ? 'generic' : 'self'
 }
 

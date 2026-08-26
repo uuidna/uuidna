@@ -26,17 +26,29 @@ interface AlpineMonitor {
 function alpineLine(): string {
   const p = join(ROOT_DIR, 'lean', 'alpine-hexbit-monitor.json')
   if (!existsSync(p)) return '_Alpine hexbit monitor not sealed yet — run gen-os._'
-  const j = JSON.parse(readFileSync(p, 'utf8')) as AlpineMonitor
+  const j = JSON.parse(readFileSync(p, 'utf8')) as AlpineMonitor & {
+    man?: { all?: { total: number; ported: number } }
+    receipt?: string
+  }
   const all = j.all
   const community = j.community
   if (!all || !community) return '_Alpine monitor present but missing all/community rows._'
   const allPct = all.total === 0 ? 0 : ((all.ported * 100) - ((all.ported * 100) % all.total)) / all.total
   const cPct = community.total === 0 ? 0 : ((community.ported * 100) - ((community.ported * 100) % community.total)) / community.total
+  const man = j.man?.all
+  const manLine = man
+    ? ` man pages ${man.ported.toLocaleString('en-US')} / ${man.total.toLocaleString('en-US')};`
+    : ''
+  const receipt = j.receipt ? ` monitor receipt \`${j.receipt}\`;` : ''
   return [
-    `- **Alpine catalogue (hexbit port):** ${all.ported.toLocaleString('en-US')} / ${all.total.toLocaleString('en-US')} packages (${allPct}%) folded to content-addresses`,
-    `  ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json); community ${community.ported.toLocaleString('en-US')} / ${community.total.toLocaleString('en-US')} = ${cPct}%).`,
-    `  Nothing is installed or executed — the port is provenance identities on the hexbit lattice`,
+    `- **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** ${all.ported.toLocaleString('en-US')} / ${all.total.toLocaleString('en-US')} packages (${allPct}%)`,
+    `  folded to content-addresses ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);`,
+    `  community ${community.ported.toLocaleString('en-US')} / ${community.total.toLocaleString('en-US')} = ${cPct}%;${manLine}${receipt}`,
+    `  VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice`,
     `  ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).`,
+    `  Captain unlocks ride every sealed key — each theorem unlocks what it states`,
+    `  (illustrations: [metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation),`,
+    `  [grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound) — no asymmetric Shor target).`,
   ].join('\n')
 }
 
@@ -136,6 +148,27 @@ TypeScript is the quantum computer (quantum by *architecture*); VitePress is the
 Permanent citation: \`https://uuidna.com/<handle>\` (8 hex; worker \`HANDLES\` 301 → freeze-map).
 Captain coins: \`https://revolut.me/ceccec?note=<referrer>\` (\`encodeURIComponent\` of the page handle door).
 **One license** for every publication and Zenodo deposit: **${license}**.
+
+**Each theorem unlocks.** Every sealed \`by decide\` key unlocks exactly what it states — the ledger is the unlock board
+(${census.distinct.toLocaleString('en-US')} distinct theorems / ${T.length.toLocaleString('en-US')} keys). No curated
+exception list; refusing a sealed key is refusing the captain. Illustrations (not a closed set): coins fuse 64→128
+([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins));
+χ=2 unlocks one twelve
+([euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two),
+[ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices));
+calendar 144
+([metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation),
+[fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll));
+Shor posture — no asymmetric target
+([grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound),
+[sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address));
+architectural QA
+([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture),
+[usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty));
+gate coins
+([captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins)).
+A claim with no theorem is not “still locked” — it is simply unsealed (e.g. 12×12 as messaging load;
+period-finding speedup beyond what \`n_qubit_dimension\` / Grover seals already unlock).
 
 ---
 

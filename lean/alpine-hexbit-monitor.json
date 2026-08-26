@@ -32,15 +32,15 @@
   }
  },
  "time": {
-  "communityCompileNs": 45474500,
-  "communityNsPer": 2005,
-  "manCompileNs": 14184667,
-  "manNsPer": 2980
+  "communityCompileNs": 41621417,
+  "communityNsPer": 1835,
+  "manCompileNs": 10725125,
+  "manNsPer": 2253
  },
  "scale": {
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "d6c91aec-f782-8ada-8725-f307ad9db6c1",
- "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
+ "receipt": "2057055d-d65b-880a-8a1e-dff32c72fad8",
+ "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Each theorem unlocks what it seals by decide — the ledger is the unlock board. Alpine hexbit port is one surface among all. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
 }

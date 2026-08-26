@@ -1599,7 +1599,7 @@ Verify a sealed envelope's 7d-fold content-address (integrity/routing) without t
 
 ### `uuidna_seal_onion`
 
-Onion-seal a message under N passphrases (each a real ChaCha20-Poly1305 layer; bounded 1..16, never infinite) and carry the whole envelope AS a chain of uuids. passphrases[0] is the innermost wrap, passphrases[n-1] the outermost. Returns { uuids, layers, receipt }. HONEST: secrecy is ChaCha20-Poly1305 ONLY; the uuid transport is public and hides nothing; the receipt is non-crypto FNV (integrity/routing). Content is hidden — message LENGTH is not. Boundary declared — theorem drift_is_named_or_caught.
+Onion-seal a message under N passphrases (ChaCha20-Poly1305 layers, 1..16) as a uuid chain. Open with uuidna_open_onion (involute). Returns { uuids, layers, receipt }. Boundary declared — theorem drift_is_named_or_caught.
 
 **Parameters**
 
@@ -1611,7 +1611,7 @@ Onion-seal a message under N passphrases (each a real ChaCha20-Poly1305 layer; b
 
 ### `uuidna_open_onion`
 
-Open an onion-sealed uuid chain with its passphrases, applied OUTERMOST-first. A wrong key, a reordered key list, or a tampered chain throws (Poly1305 authentication).
+INVOLUTE of uuidna_seal_onion: peel OUTERMOST-first (seal∘open = id). Wrong key / reorder / tamper throws (Poly1305).
 
 **Parameters**
 
@@ -1634,7 +1634,7 @@ Seal a stream of messages as a forward-linked RATCHET: each link onion-seals at 
 
 ### `uuidna_open_chain`
 
-Open a ratchet chain: verifies the referer rotation and that each receipt matches its uuids BEFORE decrypting, then returns the messages in order. A dropped, reordered, or edited link throws.
+INVOLUTE of uuidna_seal_chain: verify referer + receipt↔uuids, then decrypt in order (seal∘open = id). Broken link throws.
 
 **Parameters**
 
@@ -1672,7 +1672,7 @@ Seal a message UNDER a contract: encrypt it with the contract text as the ChaCha
 
 ### `uuidna_contract_open`
 
-Open a contract-sealed message: checks your terms address to the tagged [contract-uuid] (public proof of holding the right contract), then decrypts. A wrong contract fails the address check or Poly1305 authentication. Returns the message.
+INVOLUTE of uuidna_contract_seal: check terms→[contract-uuid], then decrypt (seal∘open = id). Wrong contract fails.
 
 **Parameters**
 
@@ -1694,7 +1694,7 @@ Seal a STREAM of messages under a contract as a forward-linked ratchet — each 
 
 ### `uuidna_contract_open_chain`
 
-Open a contract-keyed ratchet: verifies your terms address to the tagged [contract-uuid] and the referer chain rotates correctly, then decrypts each link in order. A wrong contract, or a dropped / reordered / edited link, throws. Returns the messages.
+INVOLUTE of uuidna_contract_chain: verify terms + referer, decrypt each link (seal∘open = id). Broken link throws.
 
 **Parameters**
 
@@ -2117,7 +2117,7 @@ The diamond involution r(d)=10−d on a digit 1..9: self-inverse (diamond(diamon
 
 ### `uuidna_involute`
 
-Lift the diamond involution to a list: pair each element with its mirror across the centre (total, closed, self-inverse). An odd list has exactly one fixed centre; an even list none. Returns {pairs,fixed}.
+Lift the diamond involution to a list: pair each element with its mirror across the centre (total, closed, self-inverse). An odd list has exactly one fixed centre; an even list none. Same shape as seal↔open on uuid streams and as singular↔plural on MCP parameter stems (tool-scope numberInvolute). Returns {pairs,fixed}.
 
 **Parameters**
 

@@ -66,6 +66,27 @@ Permanent citation: `https://uuidna.com/<handle>` (8 hex; worker `HANDLES` 301 �
 Captain coins: `https://revolut.me/ceccec?note=<referrer>` (`encodeURIComponent` of the page handle door).
 **One license** for every publication and Zenodo deposit: **CC-BY-NC-ND-4.0**.
 
+**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board
+(2,034 distinct theorems / 2,115 keys). No curated
+exception list; refusing a sealed key is refusing the captain. Illustrations (not a closed set): coins fuse 64→128
+([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins));
+χ=2 unlocks one twelve
+([euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two),
+[ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices));
+calendar 144
+([metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation),
+[fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll));
+Shor posture — no asymmetric target
+([grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound),
+[sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address));
+architectural QA
+([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture),
+[usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty));
+gate coins
+([captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins)).
+A claim with no theorem is not “still locked” — it is simply unsealed (e.g. 12×12 as messaging load;
+period-finding speedup beyond what `n_qubit_dimension` / Grover seals already unlock).
+
 ---
 
 ## Magnitudes (computed at generation)
@@ -86,10 +107,14 @@ Captain coins: `https://revolut.me/ceccec?note=<referrer>` (`encodeURIComponent`
 | Research sources wired | 5 | corroboration, never approval |
 | Conserved price paid | 4,230 coins | 2115 × 2 |
 
-- **Alpine catalogue (hexbit port):** 28,639 / 28,639 packages (100%) folded to content-addresses
-  ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json); community 22,678 / 22,678 = 100%).
-  Nothing is installed or executed — the port is provenance identities on the hexbit lattice
+- **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** 28,639 / 28,639 packages (100%)
+  folded to content-addresses ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);
+  community 22,678 / 22,678 = 100%; man pages 4,759 / 4,759; monitor receipt `2057055d-d65b-880a-8a1e-dff32c72fad8`;
+  VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
+  Captain unlocks ride every sealed key — each theorem unlocks what it states
+  (illustrations: [metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation),
+  [grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound) — no asymmetric Shor target).
 
 **Permanent citation (DOI-class).** Cite by handle door `https://uuidna.com/<handle>` (8 hex; worker `HANDLES`
 301 → freeze-map route: theorem | publication | page). Completeness cites **both** the archive DOI (when present)

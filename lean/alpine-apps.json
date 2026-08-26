@@ -6,7 +6,7 @@
  ],
  "arch": "x86_64",
  "count": 28630,
- "origins": 16087,
+ "origins": 16080,
  "harmonised": 2032,
  "harmonisedOrigins": 1276,
  "unharmonised": 26598,
@@ -20,7 +20,7 @@
   },
   {
    "skill": "calendar",
-   "theorem": "months_sum_leap_366",
+   "theorem": "a_gapless_index_admits_nothing_between",
    "apps": 342,
    "origins": 207,
    "fold": "97f58924-a4d0-8876-b2e8-81addac90cf7"
@@ -30,7 +30,7 @@
    "theorem": "birthday_halves_the_exponent",
    "apps": 358,
    "origins": 207,
-   "fold": "8e90a885-6150-8b69-ba86-619496a3e1a3"
+   "fold": "5bbb75bd-fa75-8a78-a8b8-be981b6c1bac"
   },
   {
    "skill": "music-production",
@@ -96,7 +96,7 @@
    "fold": "c097d538-3a87-87e7-a118-6883f5e9e64b"
   }
  ],
- "root": "64181824-61db-8a2e-9437-48dbd6cb95d1",
+ "root": "898f8b3a-40a2-8db6-b3fd-43d771ac0d9c",
  "sample": [
   {
    "id": "uuidna/perl-list-utilsby-doc",
@@ -1277,7 +1277,7 @@
  ],
  "hexbitsPerApp": 32,
  "honest": "PROVENANCE, NEVER EXECUTION. Every entry is Alpine's own published metadata — name, version, arch, repo, branch, and Alpine's own checksum — folded to a content-address anyone with the same index recomputes. uuidna does not install, link, unpack, boot or run any of these packages, and holds none of their bytes. HARMONISED means the ledger has sealed arithmetic for what the app declares it does, and the heaviest theorem of that skill is bound to it as a witness; it does NOT mean the app was verified, tested, or proven correct — nothing here inspects an app's code. UNHARMONISED is the honest majority and is counted, not hidden: a scheme that found a theorem for everything would have said nothing.",
- "address": "d07b5e92-7d80-80f0-844b-c1c9dc44ec18",
+ "address": "88a4c6a3-2a0b-89c3-a9ec-4472bb85c774",
  "dispatch": {
   "dispatches": [
    {
@@ -1300,23 +1300,23 @@
     "reason": "VERIFIED — witnessed by sealed theorem recto_odd_verso_even, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
-    "claim": "207 Alpine projects (342 published packages) declare work the ledger has sealed arithmetic for as calendar, and each is bound to theorem months_sum_leap_366 as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
-    "witness": "months_sum_leap_366",
+    "claim": "207 Alpine projects (342 published packages) declare work the ledger has sealed arithmetic for as calendar, and each is bound to theorem a_gapless_index_admits_nothing_between as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
+    "witness": "a_gapless_index_admits_nothing_between",
     "verdict": "VERIFIED",
     "cites": [
-     "months_sum_leap_366"
+     "a_gapless_index_admits_nothing_between"
     ],
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "7fc57748-43b2-8901-bd59-92352a81895a",
-     "theoremAddress": "e2f6d7e3-e05e-8e6b-9e91-9c7dbbe89c36",
+     "id": "d49aba76-3e82-8f8a-9f21-1916cd5e556a",
+     "theoremAddress": "238dc342-f12c-8148-9de6-c9013d6ae8bc",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#de3570",
-     "fold": "3dade021-84be-84fb-b8ba-de07aa463796"
+     "aura": "#4bacdd",
+     "fold": "b8389ae2-8c28-8f40-a231-d820fed2f646"
     },
-    "reason": "VERIFIED — witnessed by sealed theorem months_sum_leap_366, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
+    "reason": "VERIFIED — witnessed by sealed theorem a_gapless_index_admits_nothing_between, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
     "claim": "207 Alpine projects (358 published packages) declare work the ledger has sealed arithmetic for as security, and each is bound to theorem birthday_halves_the_exponent as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
@@ -1509,7 +1509,7 @@
     "reason": "VERIFIED — witnessed by sealed theorem flood_and_ebb, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
-    "claim": "28630 published packages (16087 distinct projects) were ported as content-addressed provenance identities, folded to one root; 26598 of them harmonise with no sealed theorem at all and are counted rather than hidden. Nothing was installed, linked or executed — the OS port is bootable only in the sense theorem the_os_is_bootable_quantum states.",
+    "claim": "28630 published packages (16080 distinct projects) were ported as content-addressed provenance identities, folded to one root; 26598 of them harmonise with no sealed theorem at all and are counted rather than hidden. Nothing was installed, linked or executed — the OS port is bootable only in the sense theorem the_os_is_bootable_quantum states.",
     "witness": "the_os_is_bootable_quantum",
     "verdict": "VERIFIED",
     "cites": [
@@ -1518,12 +1518,12 @@
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "9358247e-c77a-8480-bdf7-0100173ab236",
+     "id": "5f0816f3-4f97-8ca6-aa05-ff8957b2e343",
      "theoremAddress": "8b5f439d-0e9f-82ab-ac73-3fd15eef7e49",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#47dce1",
-     "fold": "76a897aa-a4e9-8fc1-9893-278034237b3e"
+     "aura": "#7b58da",
+     "fold": "7c24fa7c-2e07-8c7d-905f-641859a64373"
     },
     "reason": "VERIFIED — witnessed by sealed theorem the_os_is_bootable_quantum, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    }
@@ -1531,7 +1531,7 @@
   "passed": 13,
   "refused": [],
   "clear": true,
-  "receipt": "ae572682-3680-8af7-bdfa-3d43d853a9df"
+  "receipt": "ef99b59e-05f8-8fab-a636-2e1915775a75"
  },
  "coverage": {
   "published": 16,
