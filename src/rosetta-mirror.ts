@@ -114,7 +114,7 @@ blood_types_eight 31
 dna_base_pairing_involution 31
 codons_sixty_four 31
 sound_ladder_432 19
-octave_doubling 19
+octave_doubling 27
 electron_shells_2n2 19
 subshell_capacities_4l2 19
 circle_of_fifths 19
@@ -243,10 +243,10 @@ imprint_capacity_within_address 27
 two_bit_conjunctions_are_four_of_sixteen 27
 mertens_squared_under_n_on_the_first_twenty 19
 hasse_bound_holds_at_four_primes 19
-four_simplex_boundary_euler_is_zero 19
+four_simplex_boundary_euler_is_zero 27
 levi_civita_nonzero_on_six_of_twentyseven 19
 closed_grid_differences_sum_to_zero 19
-torus_betti_alternates_to_zero 19
+torus_betti_alternates_to_zero 27
 clay_gravity_equals_rosette 27
 #Clock.lean
 residue_walks_the_orbit 19
@@ -448,7 +448,7 @@ pressure_ladder 27
 jump_records_ascend 27
 saturation_deco_accounts 27
 nbl_trains_by_the_floor 27
-the_middle_is_not_a_pole 19
+the_middle_is_not_a_pole 27
 identification_collapses_the_middle 19
 compass_three_decide_the_fourth 27
 compass_opposites_involute 19
@@ -538,7 +538,7 @@ words_are_distinct 19
 words_stand_three_apart 19
 weights_enumerate 19
 codewords_syndrome_zero 19
-syndrome_names_the_position 19
+syndrome_names_the_position 27
 #HandleSpan.lean
 handles_times_qubits 27
 exponents_add 27
@@ -597,7 +597,7 @@ born_field_mass_gap_on_bell 27
 #Identifiers.lean
 isbn10_valid_check 19
 isbn13_valid_check 19
-isbn10_check_alphabet_eleven 19
+isbn10_check_alphabet_eleven 27
 isbn10_catches_single_error 19
 isbn10_catches_transposition 19
 isbn13_bookland_prefix 27
@@ -659,7 +659,7 @@ supplement_completes_the_straight 27
 chain_joints_are_links_minus_one 27
 lever_ratio_is_exact_division 27
 #Matching.lean
-handshake_degree_sum_even 19
+handshake_degree_sum_even 27
 edges_are_half_the_degree_sum 27
 introductions_among_five 27
 perfect_matching_needs_even 27
@@ -700,7 +700,7 @@ pythagorean_3_4_5 27
 compass_rose_eight 27
 reverse_bearing_involution 19
 quarter_turn_order_four 19
-dead_reckoning_adds 19
+dead_reckoning_adds 27
 #Negation.lean
 negation_involution_solves 19
 denials_exhaust_to_the_whole 19
@@ -858,12 +858,12 @@ orbit_0_1_9_closes 18
 orbit_0_closes 18
 orbits_number_and_orders 19
 every_seed_lands_somewhere 19
-covering_seeds_are_named 19
+covering_seeds_are_named 27
 #Os.lean
-exact_copy_is_byte_equality 19
-single_byte_tamper_is_detected 19
-truncation_is_detected 19
-byte_order_is_significant 19
+exact_copy_is_byte_equality 27
+single_byte_tamper_is_detected 27
+truncation_is_detected 27
+byte_order_is_significant 27
 sha256_digest_is_256_bits 27
 provenance_address_is_128_bits 27
 boundary_is_exactly_two_named_modules 19
@@ -905,7 +905,7 @@ a_glyph_costs_one_coin_measure 27
 the_boot_pays_the_captains_fee 27
 from_eight_bits_to_the_dos_ceiling 27
 #Production.lean
-reverse_involutive 19
+reverse_involutive 27
 phase_inversion_involutive 19
 reverse_inverse_fused_involutive 19
 chromatic_is_z12 19
@@ -919,7 +919,7 @@ fifth_cycles_all_twelve 19
 momentum_conserved 27
 no_reactionless_thrust 19
 thrust_is_mdot_times_ve 27
-delta_v_stages_add 19
+delta_v_stages_add 27
 acceleration_finite 19
 #ProseTrial.lean
 orbits_number_six 19
@@ -1055,7 +1055,7 @@ classes_cap_at_two 19
 six_is_forced_arithmetic 19
 seven_reach_five_classes 19
 reflection_confuses_seven_three 27
-seventh_covers_reflection_cannot 19
+seventh_covers_reflection_cannot 27
 #Relativity.lean
 light_on_null_cone 27
 interval_timelike_causal 27
@@ -1068,8 +1068,8 @@ timeline_is_chronological 19
 trinity_edit_is_three 27
 full_quorum_of_three 27
 publish_gate_is_conjunction 19
-inverted_pyramid_descends 19
-a_claim_is_verified_or_unverified 19
+inverted_pyramid_descends 27
+a_claim_is_verified_or_unverified 27
 #Reversal.lean
 reflection_reverses_uniquely 19
 doubling_reverses_ambiguously 19
@@ -1485,7 +1485,7 @@ powers_are_not_the_bound 27
 digits_split_five_five 19
 ten_seats_bound_any_ring 27
 #Security.lean
-scout_drones_spin 19
+scout_drones_spin 27
 defence_layers_add_bits 27
 two_layers_multiply_space 27
 each_key_bit_doubles 27
@@ -1533,21 +1533,21 @@ the_singularity_is_the_dry_law_at_scale 27
 codec_split_recompose_lossless 19
 map_preserves_length 19
 filter_never_grows 19
-append_length_adds 19
+append_length_adds 27
 clamp_is_idempotent 19
 safe_div_is_total 19
 reduce_is_order_invariant 27
 shift_loop_terminates 19
 compare_swap_orders 19
-safe_index_is_total 19
-reverse_is_involutive 19
+safe_index_is_total 27
+reverse_is_involutive 27
 cube_seals_at_completeness_only 19
 cubes_partition_ledger 19
 receipt_costs_nothing 19
 message_carries_address 27
 no_wing_buys_its_own_ceiling 19
 #Solids.lean
-exactly_five_platonic_solids 19
+exactly_five_platonic_solids 27
 platonic_euler_characteristic_is_two 19
 dodecahedron_twelve_pentagons 27
 icosahedron_twenty_triangles 27
@@ -1615,10 +1615,10 @@ most_subsets_are_not_subgroups 27
 trivial_and_whole_are_subgroups 19
 #Symphony.lean
 four_movements_are_the_tongues 27
-sonata_form_is_a_palindrome 19
-recapitulation_is_the_involution 19
+sonata_form_is_a_palindrome 27
+recapitulation_is_the_involution 27
 the_keys_walk_home 27
-a_symphony_is_a_sequence_not_a_set 19
+a_symphony_is_a_sequence_not_a_set 27
 the_tempi_tile_the_film 27
 #Tesla.lean
 tesla_trio_files_adjacent 27
@@ -1641,7 +1641,7 @@ reversible_erases_nothing 31
 hardware_above_landauer 31
 #Tides.lean
 rule_of_twelfths 27
-twelfths_symmetric 19
+twelfths_symmetric 27
 half_tide_at_hour_three 27
 semidiurnal_period 27
 spring_exceeds_neap 27
@@ -1754,7 +1754,7 @@ proton_fit 26
 self_seal 26
 #Wave.lean
 a440_not_on_the_vortex 27
-morris_eight_bars_halved 19
+morris_eight_bars_halved 27
 cubes_sum_to_square_of_triangle 27
 lights_out_flip_involution 19
 involution_replaces_the_raised_ceiling 27

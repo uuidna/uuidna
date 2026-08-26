@@ -65,38 +65,59 @@ export const INVOLUTIONS: readonly Involution[] = [
  *  `(40 - (-70) : Int)` stayed unreached for the same reason until `: Nat` / `: Int` were stripped wherever they
  *  annotate arithmetic — still not opening the door to `List` / `fun`. */
 const ASCRIPTION_NUMERAL = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
-const ASCRIPTION_TYPE = /\s*:\s*(?:Nat|Int)\b/g
+/** Strip `: Nat` / `: Int` and `: List …` ascriptions (incl. `List (Int × Int)`). Not `: String` alone. */
+const ASCRIPTION_TYPE = /\s*:\s*(?:Nat|Int|List(?:\s*\([^)]*\)|\s+[A-Za-z_][A-Za-z0-9_]*)?)\b/g
 export const stripAscriptions = (s: string): string =>
   s.replace(ASCRIPTION_NUMERAL, '$1').replace(ASCRIPTION_TYPE, '')
-/** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`),
- *  `≠` as Lean inequality, ASCII `<=` / `>=` beside Unicode `≤` / `≥`, `¬` as propositional negation,
- *  named ledger operators (`lxor`, `Nat.gcd`, `pop`, `dz`, `dbl`, `dzMin`, `res`, `commission`, `verified`,
- *  `unverified`), and Lean Prod pairs with `.1` / `.2` projections. List / fun / bound names stay unreached;
- *  those tokens and compound `: Nat` / `: Int` ascriptions were pure-syntax gaps that left sealed propositions
- *  unreached for a token alone. Named operators are stripped before the character gate so letters never open
- *  the door to `List` / `fun` — only the admitted names pass. */
-const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res)\b/g
+/** Numerals, arithmetic, named ledger ops, Prod `.1`/`.2`, and a BOUNDED List slice: literals `[…]`,
+ *  `++`, `.reverse` / `.length` / `.contains` / `.sum` / `.take` / `.eraseDups` / `.Nodup`, `nth`,
+ *  `List.sum` / `List.reverse`, and `true`/`false`. `fun` / `List.range` / bound names / named constant
+ *  tables stay unreached — those are a different class. Admitted names are stripped before the character
+ *  gate so letters never open the door to arbitrary identifiers. */
+const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List|reverse|length|contains|sum|take|eraseDups|Nodup|nth|true|false)\b/g
 export const evaluable = (statement: string): boolean =>
-  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.-]+$/.test(stripAscriptions(statement).replace(NAMED_OP, ''))
+  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]-]+$/.test(stripAscriptions(statement).replace(NAMED_OP, '').replace(/\+\+/g, ''))
 
-// A REAL EVALUATOR, NOT `eval`. The first version handed the statement to the runtime after a few substitutions,
-// and the harmonic scan refused it by name — correctly, and for a better reason than style: `eval` makes the
-// meaning of a ledger statement depend on the host's parser rather than on anything this repository decides, so
-// two runtimes could disagree about what a theorem says and nothing here would notice. It is also an execution
-// surface pointed at generated content. The grammar is tiny — numerals, arithmetic, comparisons, ∧, ¬, named
-// ledger ops, and Prod `.1`/`.2` — so a recursive descent over it is short, total, and gives the same answer on
-// every host by construction.
+// A REAL EVALUATOR, NOT `eval`. Recursive descent over numerals, arithmetic, comparisons, ∧, ¬, named ledger
+// ops, Prod, and the List slice above — short, total, same answer on every host.
 //
-// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · named apps · Prod proj · parentheses.
+// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ · ++ · postfix (.reverse/.length/…) · atoms.
 type Cursor = { s: string; i: number }
-/** Lean Prod is right-associated: `(a,b,c)` means `(a, (b, c))`. Projections `.1` / `.2` peel one layer. */
-type Val = number | [Val, Val]
+/** Tagged values: numerals, booleans, right-associated Prods, and finite lists. */
+type Pair = { readonly t: 'p'; readonly a: Val; readonly b: Val }
+type Lst = { readonly t: 'l'; readonly xs: Val[] }
+type Val = number | boolean | Pair | Lst
+
+const pair = (a: Val, b: Val): Pair => ({ t: 'p', a, b })
+const lst = (xs: Val[]): Lst => ({ t: 'l', xs })
+const isPair = (v: Val): v is Pair => typeof v === 'object' && v !== null && (v as Pair).t === 'p'
+const isLst = (v: Val): v is Lst => typeof v === 'object' && v !== null && (v as Lst).t === 'l'
 
 const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c.i++ }
 const eat = (c: Cursor, tok: string): boolean => { ws(c); if (c.s.startsWith(tok, c.i)) { c.i += tok.length; return true } return false }
 
-/** Lean `lxor` — structural XOR with 8-bit fuel (`lxorAux 8`), axiom-free. Same abstract recursion as every
- *  wing that defines it; ÷2 is Nat floor via `(n - n%2)/2`, no Math.*, no host bitwise. */
+const deepEq = (a: Val, b: Val): boolean => {
+  if (typeof a === 'number' || typeof a === 'boolean') return a === b
+  if (typeof b === 'number' || typeof b === 'boolean') return false
+  if (isPair(a) && isPair(b)) return deepEq(a.a, b.a) && deepEq(a.b, b.b)
+  if (isLst(a) && isLst(b)) {
+    if (a.xs.length !== b.xs.length) return false
+    for (let i = 0; i < a.xs.length; i++) if (!deepEq(a.xs[i]!, b.xs[i]!)) return false
+    return true
+  }
+  return false
+}
+
+const asNum = (v: Val): number => {
+  if (typeof v !== 'number') throw new Error('expected numeral')
+  return v
+}
+const asLst = (v: Val): Val[] => {
+  if (!isLst(v)) throw new Error('expected list')
+  return v.xs
+}
+
+/** Lean `lxor` — structural XOR with 8-bit fuel (`lxorAux 8`), axiom-free. */
 const lxorAux = (w: number, a: number, b: number): number => {
   if (w === 0) return 0
   const bit = a % 2 === b % 2 ? 0 : 1
@@ -104,14 +125,14 @@ const lxorAux = (w: number, a: number, b: number): number => {
 }
 const lxor = (a: number, b: number): number => lxorAux(8, a, b)
 
-/** Lean `pop` — structural popcount with 8-bit fuel (`popAux 8`), same shape as lxor; no Math.*, no host bitwise. */
+/** Lean `pop` — structural popcount with 8-bit fuel (`popAux 8`). */
 const popAux = (w: number, n: number): number => {
   if (w === 0) return 0
   return (n % 2) + popAux(w - 1, (n - n % 2) / 2)
 }
 const pop = (n: number): number => popAux(8, n)
 
-/** Lean `Nat.gcd` — Euclidean algorithm on Nat, matching the kernel (`gcd a 0 = a`). */
+/** Lean `Nat.gcd` — Euclidean algorithm on Nat (`gcd a 0 = a`). */
 const natGcd = (a: number, b: number): number => {
   let x = a < 0 ? -a : a
   let y = b < 0 ? -b : b
@@ -123,102 +144,169 @@ const natGcd = (a: number, b: number): number => {
   return x
 }
 
-/** Lean Nat floor division used by named defs — ÷0 = 0. */
 const natDiv = (a: number, b: number): number => (b === 0 ? 0 : (a - (a % b)) / b)
 
-/** Wing defs as sealed arithmetic — Reflection/Phase/Clock/AntiFraud; no List, no tables. */
 const dz = (x: number): number => (x === 0 ? 0 : 10 - x)
 const dbl = (d: number): number => (2 * d) % 9
 const dzMin = (d: number): number => { const z = dz(d); return z < d ? z : d }
 const commission = (bits: number): number => 2 * natDiv(bits, 110)
-const verified = (c: number, s: number): number => c * s
-const unverified = (c: number, s: number): number => 1 - verified(c, s)
-const res = (step: number): number => {
+const verifiedFn = (c: number, s: number): number => c * s
+const unverifiedFn = (c: number, s: number): number => 1 - verifiedFn(c, s)
+const resFn = (step: number): number => {
   const r = (2 ** (step % 6)) % 9
   return r === 0 ? 9 : r
 }
 
-/** Peel `.1` / `.2` until a numeral remains — cube_octahedron_dual et al. */
-const project = (c: Cursor, v: Val): number => {
+const listSum = (xs: Val[]): number => {
+  let s = 0
+  for (const x of xs) s += asNum(x)
+  return s
+}
+const listReverse = (xs: Val[]): Val[] => xs.slice().reverse()
+const listEraseDups = (xs: Val[]): Val[] => {
+  const out: Val[] = []
+  for (const x of xs) if (!out.some((y) => deepEq(y, x))) out.push(x)
+  return out
+}
+const listNodup = (xs: Val[]): boolean => listEraseDups(xs).length === xs.length
+const listNth = (xs: Val[], i: number): number => {
+  if (i < 0 || i >= xs.length) return 0
+  return asNum(xs[i]!)
+}
+
+/** Postfix: Prod `.1`/`.2` and List methods. `.contains` / `.take` take an argument. */
+const postfix = (c: Cursor, v: Val): Val => {
   for (;;) {
     ws(c)
     if (eat(c, '.1')) {
-      if (!Array.isArray(v)) throw new Error('proj on numeral')
-      v = v[0]
-    } else if (eat(c, '.2')) {
-      if (!Array.isArray(v)) throw new Error('proj on numeral')
-      v = v[1]
-    } else break
+      if (!isPair(v)) throw new Error('proj')
+      v = v.a
+      continue
+    }
+    if (eat(c, '.2')) {
+      if (!isPair(v)) throw new Error('proj')
+      v = v.b
+      continue
+    }
+    if (eat(c, '.reverse')) { v = lst(listReverse(asLst(v))); continue }
+    if (eat(c, '.eraseDups')) { v = lst(listEraseDups(asLst(v))); continue }
+    if (eat(c, '.length')) { v = asLst(v).length; continue }
+    if (eat(c, '.sum')) { v = listSum(asLst(v)); continue }
+    if (eat(c, '.Nodup')) { v = listNodup(asLst(v)); continue }
+    if (eat(c, '.take')) { v = lst(asLst(v).slice(0, asNum(atom(c)))); continue }
+    if (eat(c, '.contains')) {
+      const needle = atom(c)
+      v = asLst(v).some((x) => deepEq(x, needle))
+      continue
+    }
+    return v
   }
-  if (typeof v !== 'number') throw new Error('unprojected pair')
-  return v
 }
 
-const atom = (c: Cursor): number => {
+const atom = (c: Cursor): Val => {
   ws(c)
+  // list literal
+  if (eat(c, '[')) {
+    const xs: Val[] = []
+    ws(c)
+    if (!eat(c, ']')) {
+      for (;;) {
+        xs.push(sum(c))
+        ws(c)
+        if (eat(c, ']')) break
+        if (!eat(c, ',')) throw new Error('list comma')
+      }
+    }
+    return postfix(c, lst(xs))
+  }
   if (eat(c, '(')) {
     const a = sum(c)
     ws(c)
     if (eat(c, ',')) {
-      // Prod pair / right-associated triple: (a,b) or (a,b,c) ≡ (a,(b,c))
       const b = sum(c)
       ws(c)
       if (eat(c, ',')) {
         const d = sum(c)
         if (!eat(c, ')')) throw new Error('unclosed')
-        return project(c, [a, [b, d]])
+        return postfix(c, pair(a, pair(b, d)))
       }
       if (!eat(c, ')')) throw new Error('unclosed')
-      return project(c, [a, b])
+      return postfix(c, pair(a, b))
     }
     if (!eat(c, ')')) throw new Error('unclosed')
-    return project(c, a)
+    return postfix(c, a)
   }
-  if (eat(c, '-')) return -atom(c)
-  // Named apps — longer tokens before prefixes (dzMin before dz, unverified before verified).
-  if (eat(c, 'Nat.gcd')) return natGcd(atom(c), atom(c))
-  if (eat(c, 'lxor')) return lxor(atom(c), atom(c))
-  if (eat(c, 'pop')) return pop(atom(c))
-  if (eat(c, 'commission')) return commission(atom(c))
-  if (eat(c, 'unverified')) return unverified(atom(c), atom(c))
-  if (eat(c, 'verified')) return verified(atom(c), atom(c))
-  if (eat(c, 'dzMin')) return dzMin(atom(c))
-  if (eat(c, 'dz')) return dz(atom(c))
-  if (eat(c, 'dbl')) return dbl(atom(c))
-  if (eat(c, 'res')) return res(atom(c))
+  if (eat(c, '-')) return postfix(c, -asNum(atom(c)))
+  if (eat(c, 'true')) return postfix(c, true)
+  if (eat(c, 'false')) return postfix(c, false)
+  // Named apps — longer tokens before prefixes.
+  if (eat(c, 'Nat.gcd')) return postfix(c, natGcd(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'List.sum')) return postfix(c, listSum(asLst(atom(c))))
+  if (eat(c, 'List.reverse')) return postfix(c, lst(listReverse(asLst(atom(c)))))
+  if (eat(c, 'lxor')) return postfix(c, lxor(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'pop')) return postfix(c, pop(asNum(atom(c))))
+  if (eat(c, 'commission')) return postfix(c, commission(asNum(atom(c))))
+  if (eat(c, 'unverified')) return postfix(c, unverifiedFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'verified')) return postfix(c, verifiedFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'dzMin')) return postfix(c, dzMin(asNum(atom(c))))
+  if (eat(c, 'dz')) return postfix(c, dz(asNum(atom(c))))
+  if (eat(c, 'dbl')) return postfix(c, dbl(asNum(atom(c))))
+  if (eat(c, 'res')) return postfix(c, resFn(asNum(atom(c))))
+  if (eat(c, 'nth')) return postfix(c, listNth(asLst(atom(c)), asNum(atom(c))))
   const start = c.i
   while (c.i < c.s.length && c.s[c.i]! >= '0' && c.s[c.i]! <= '9') c.i++
   if (c.i === start) throw new Error('expected a numeral')
-  return Number(c.s.slice(start, c.i))
+  return postfix(c, Number(c.s.slice(start, c.i)))
 }
-const power = (c: Cursor): number => { const base = atom(c); return eat(c, '^') ? base ** power(c) : base }
-const product = (c: Cursor): number => {
+
+/** `++` appends lists; otherwise a single postfix atom. */
+const append = (c: Cursor): Val => {
+  let v = atom(c)
+  for (;;) {
+    ws(c)
+    if (!eat(c, '++')) return v
+    v = lst(asLst(v).concat(asLst(atom(c))))
+  }
+}
+
+const power = (c: Cursor): Val => {
+  const base = append(c)
+  if (!eat(c, '^')) return base
+  return asNum(base) ** asNum(power(c))
+}
+const product = (c: Cursor): Val => {
   let v = power(c)
-  for (;;) { ws(c)
-    if (eat(c, '*')) v = v * power(c)
-    else if (eat(c, '%')) { const d = power(c); v = d === 0 ? 0 : v % d }   // ÷0 = 0, the tree's own abstract zero
-    else if (eat(c, '/')) { const d = power(c); v = d === 0 ? 0 : (v - (v % d)) / d }  // Lean Nat floor / · ÷0 = 0 · no Math.*
-    else return v }
+  for (;;) {
+    ws(c)
+    if (eat(c, '*')) v = asNum(v) * asNum(power(c))
+    else if (eat(c, '%')) { const d = asNum(power(c)); v = d === 0 ? 0 : asNum(v) % d }
+    else if (eat(c, '/')) { const d = asNum(power(c)); v = d === 0 ? 0 : (asNum(v) - (asNum(v) % d)) / d }
+    else return v
+  }
 }
-function sum(c: Cursor): number {
+function sum(c: Cursor): Val {
   let v = product(c)
-  for (;;) { ws(c)
-    if (eat(c, '+')) v = v + product(c)
-    else if (c.s.startsWith('-', c.i)) { c.i++; v = v - product(c) }
-    else return v }
+  for (;;) {
+    ws(c)
+    if (eat(c, '+')) v = asNum(v) + asNum(product(c))
+    else if (c.s.startsWith('-', c.i)) { c.i++; v = asNum(v) - asNum(product(c)) }
+    else return v
+  }
 }
+
 const compare = (c: Cursor): boolean => {
   const l = sum(c); ws(c)
-  // TWO-CHARACTER OPS BEFORE THEIR PREFIXES — `<=` must win over `<`, else `(16 <= 21)` parses as
-  // `16 <` and leaves `= 21` as trailing junk (holds → null). Same for `>=` vs `>`. Unicode ≤ ≥ stay too.
-  if (eat(c, '<=')) return l <= sum(c)
-  if (eat(c, '>=')) return l >= sum(c)
-  if (eat(c, '≤')) return l <= sum(c)
-  if (eat(c, '≥')) return l >= sum(c)
-  if (eat(c, '≠')) return l !== sum(c)
-  if (eat(c, '<')) return l < sum(c)
-  if (eat(c, '>')) return l > sum(c)
-  if (eat(c, '=')) return l === sum(c)
+  // TWO-CHARACTER OPS BEFORE THEIR PREFIXES — `<=` must win over `<`.
+  if (eat(c, '<=')) return asNum(l) <= asNum(sum(c))
+  if (eat(c, '>=')) return asNum(l) >= asNum(sum(c))
+  if (eat(c, '≤')) return asNum(l) <= asNum(sum(c))
+  if (eat(c, '≥')) return asNum(l) >= asNum(sum(c))
+  if (eat(c, '≠')) return !deepEq(l, sum(c))
+  if (eat(c, '<')) return asNum(l) < asNum(sum(c))
+  if (eat(c, '>')) return asNum(l) > asNum(sum(c))
+  if (eat(c, '=')) return deepEq(l, sum(c))
+  // bare boolean proposition — `.Nodup`, `.contains`, `true`
+  if (typeof l === 'boolean') return l
   throw new Error('expected a comparison')
 }
 

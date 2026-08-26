@@ -62,14 +62,12 @@ test('fixed is reported apart from survives — a map gets no credit for what it
 
 test('THE LAW DISCRIMINATES — and what the fixed point buys is FIXED POINTS, not survivors', () => {
   const dz = census(divZero), vx = census(vortex)
-  // CORRECTED. I claimed divZero admits ~5x more survivors than the vortex negation. That was an artifact of
-  // the same modulus bug rule 1 records: the earlier vortex run reflected the 9 in `% 9` to 0, wrecking those
-  // statements and suppressing its count to 17. With the modulus preserved the vortex admits MORE survivors
-  // than divZero, not fewer. What inverting 0 actually buys is fixed points — 78 against 46 — because 0 and 5
-  // are held still, and a survivor and a fixed point are different things: one was tested and passed, the
-  // other was never moved.
-  assert.ok(vx.survives.length > dz.survives.length, 'measured: the vortex admits more survivors')
-  assert.ok(dz.fixed.length > vx.fixed.length, 'and divZero holds more still — that is what the fixed point buys')
+  // CORRECTED once for the modulus bug (vortex survivors were suppressed by reflecting `% 9`).
+  // RE-MEASURED after the List slice: survivors are nearly tied once list literals enter the pool
+  // (divZero can edge ahead). What inverting 0 still buys — and this is the load-bearing claim —
+  // is FIXED POINTS: 0 and 5 stay still under divZero and do not under the vortex.
+  assert.ok(dz.fixed.length > vx.fixed.length, 'divZero holds more still — that is what the fixed point buys')
+  assert.ok(dz.survives.length > 0 && vx.survives.length > 0, 'both maps still test a non-empty survivor class')
   // both judge the same ledger, and both report what they could not reach
   assert.equal(dz.ofLedger, vx.ofLedger)
   assert.ok(dz.unreached > 0, 'the unreached are counted, never dropped')
@@ -120,8 +118,9 @@ test('COMPOUND ASCRIPTIONS ARE STILL NOT ARITHMETIC — (expr : Nat|Int) stayed 
   assert.equal(holds('((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40)'), true)
   assert.equal(holds('(3*3 - 5*5 : Int) < 0'), true)
   assert.equal(holds('(3*3 - 5*5 : Int) > 0'), false)
-  // List forms still refuse — widening ascriptions must not start claiming what it cannot parse
-  assert.equal(holds('([1,0,0,1] : List Nat).length = 4'), null)
+  // List ascriptions with the List slice are reachable; fun/range still refuse
+  assert.equal(holds('([1,0,0,1] : List Nat).length = 4'), true)
+  assert.equal(holds('(List.range 4).length = 4'), null)
 })
 
 test('THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreached, never true', () => {
@@ -237,8 +236,9 @@ test('PROD .1/.2 IS LEAN PAIR PROJECTION — sealed duals stayed unreached for c
   assert.equal(holds('((8,12,6).1 = (6,12,8).2.2) ∧ ((8,12,6).2.2 = (6,12,8).1) ∧ ((8,12,6).2.1 = (6,12,8).2.1)'), true)
   assert.equal(holds('(4,6,4).1 = (4,6,4).2.2'), true)
   assert.equal(holds('(8,12,6).1 = 7'), false)
-  // List forms still refuse — widening Prod must not start claiming what it cannot parse
-  assert.equal(holds('[(8,12,6)].length = 1'), null)
+  // List-of-Prod is the List slice; fun/range still refuse
+  assert.equal(holds('[(8,12,6)].length = 1'), true)
+  assert.equal(holds('(List.range 1).length = 1'), null)
 })
 
 test('NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreached for letters alone', () => {
@@ -255,5 +255,31 @@ test('NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreac
   assert.equal(holds('commission 110 = 3'), false)
   // List/fun / preOf still refuse
   assert.equal(holds('(preOf dbl 0 = 2) ∧ (dbl 0 = 0)'), null)
-  assert.equal(holds('([2,6,7,8,9].contains 7) ∧ (dzMin 7 = dzMin 3)'), null)
+  assert.equal(holds('([2,6,7,8,9].contains 7) ∧ (dzMin 7 = dzMin 3)'), true)
+})
+
+test('LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, Nodup, nth, ++', () => {
+  assert.equal(evaluable('[1,2,3] = [1,2,3]'), true)
+  assert.equal(holds('[1,2,3] = [1,2,3]'), true)
+  assert.equal(holds('[1,2,3] ≠ [3,2,1]'), true)
+  assert.equal(holds('[1,2,3,4].reverse = [4,3,2,1]'), true)
+  assert.equal(holds('[1,2,3,4].reverse.reverse = [1,2,3,4]'), true)
+  assert.equal(holds('[1,2,3].length = 3'), true)
+  assert.equal(holds('([1,2,3] ++ [4,5]).length = 3 + 2'), true)
+  assert.equal(holds('(nth [10,20,30] 5 = 0) ∧ (nth [10,20,30] 1 = 20)'), true)
+  assert.equal(holds('[2,6,7,8,9].contains 7'), true)
+  assert.equal(holds('[2,6,7,8,9].contains 0'), false)
+  assert.equal(holds('([1,2,3] : List Nat).sum = 6'), true)
+  assert.equal(holds('List.sum [1,3,2,2,1,1] = 10'), true)
+  assert.equal(holds('List.reverse (List.reverse [1, 2, 3, 4]) = [1, 2, 3, 4]'), true)
+  assert.equal(holds('[1,2,2,3].eraseDups.length = 3'), true)
+  assert.equal(holds('([0, 1, 2] : List Nat).Nodup'), true)
+  assert.equal(holds('([0, 1, 1] : List Nat).Nodup'), false)
+  assert.equal(holds('[true, false].length = 2'), true)
+  assert.equal(holds('[(4,6,4),(8,12,6)].length = 2'), true)
+  assert.equal(holds('[1, (1*2)%9, (2*2)%9] = [1,2,4]'), true)
+  // fun / range / named tables still refuse
+  assert.equal(holds('(List.range 7).length = 7'), null)
+  assert.equal(holds('(List.range 4).all (fun x => x < 4)'), null)
+  assert.equal(evaluable('(List.range 7).length = 7'), false)
 })
