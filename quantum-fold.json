@@ -2,7 +2,7 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "413ed27c0dad3685",
+      "theorems": "4c0e156ab3a818fd",
       "principles": "0d018f3e12086d8c",
       "monographs": "82dba7f17a23cb97"
     },
@@ -28,31 +28,31 @@
     }
   },
   "trinity_folds": {
-    "sealed": "248fd7bfbc8c9c4232e9a1d5c027b2bf",
+    "sealed": "92ad78d4dd327b2b67b2ba1c03ad5933",
     "served": "c8d9f392098c887ca8de2d13ba69677d",
     "proven": "65b94142221a0948f87ca3002d3d9f06",
     "record": "8ed4fc5dcb0ea9b03dca78fefee464a6",
     "walks": "6a319f15860aa3599ef80cd11b939103"
   },
-  "unified_fold": "915f1f152d706c6c",
-  "receipt": "6d88daeab25bd8ca",
+  "unified_fold": "02ea63f4b996ca4f",
+  "receipt": "330e159db3e9daa7",
   "rosette_receipt": {
     "rays": [
       "8519b413e4b9f5a1",
       "5ad598c2325f5962",
-      "b6052b2184c35f3f",
+      "0da7a9ad5a10c9b8",
       "a20454282e566346",
       "fee30585a0fc4b10",
       "a761502744407dcd",
       "fdb72840cfed5e61"
     ],
-    "concurrence": "431a0e764ffb80cce5199e57c0acfaca"
+    "concurrence": "6e691027d883ad2b8f9629853618277c"
   },
   "aura": {
-    "rgb": "#2a5ad5",
-    "hsl": "hsl(223, 67%, 50%)",
+    "rgb": "#322fd0",
+    "hsl": "hsl(241, 63%, 50%)",
     "alphabet": "b6819334641853db",
-    "movie": "ecaac8f66da392f0",
+    "movie": "b55b523337f83215",
     "lessons": "64a8e29b7db33ac7",
     "report": "940001b6ff9bd2fc",
     "session": "0e3e4dcf4a457b42",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 3,
-      "ray": 2,
+      "residue": 6,
+      "ray": 0,
       "wave": 1,
-      "hue": 223,
-      "sat": 67,
+      "hue": 241,
+      "sat": 63,
       "light": 50,
-      "period": 16,
+      "period": 12,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

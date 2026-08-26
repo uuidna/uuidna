@@ -590,6 +590,10 @@ slit_on_the_hexbit_ring 19
 dark_fringe_is_the_half_turn 19
 fringe_pattern_reflects_dz 19
 which_path_conserves_the_total 19
+hexbit_states_are_sixteen 27
+message_cap_is_four_hexbits 27
+hexbit_ring_mass_gap 27
+born_field_mass_gap_on_bell 27
 #Identifiers.lean
 isbn10_valid_check 19
 isbn13_valid_check 19
