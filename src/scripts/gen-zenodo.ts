@@ -67,10 +67,20 @@ const zenodo = {
   creators: [{ name: creator }],
   keywords: ['content-address', 'uuid', 'merkle-proof', 'integrity', 'Lean 4', 'formal verification', 'by decide',
     'axiom-free', 'decidable arithmetic', 'model-context-protocol', 'honest by construction', 'paper on trial',
-    'verification infrastructure'],
+    'verification infrastructure',
+    // related-publication tags — every sibling seal id (adoption / discoverability)
+    ...softwareArchiveRelatedIdentifiers()
+      .map((r) => (r.identifier.match(/articles\/([a-z0-9-]+)/) || [])[1])
+      .filter(Boolean)
+      .map((id) => `related:${id}`),
+    'related:clay-involution', 'related:nature-mom-bh', 'prior-art-credited'],
   communities: [{ identifier: 'uuidna' }],
   // Agnostic: every seal in zenodo-seals (pages + DOIs) — clay, Nature cite, twin chain, etc.
   related_identifiers: softwareArchiveRelatedIdentifiers(),
+  notes:
+    'Prior-art research is mandatory for every uuidna seal: found DOI/proving links are credited first; ' +
+    'the captain comes next. Missing prior art → explicit captain claim. Related publications are crosslinked ' +
+    'in related_identifiers and related:* keywords. License CC BY-NC-ND 4.0 — https://uuidna.com/license',
 }
 
 const out = JSON.stringify(zenodo, null, 2) + '\n'

@@ -15,7 +15,13 @@ import {
   depositableSeals,
   sealRelatedIdentifiers,
   type ZenodoSeal,
+  type ZenodoRelated,
 } from './zenodo-seals.js'
+import {
+  researchPublicationPriorArt,
+  publicationPriorArtAudit,
+  type PublicationPriorArt,
+} from './publication-prior-art.js'
 
 /** Zenodo / package.json form of the SPDX id (lowercase). */
 export function zenodoLicenseId(spdx: string = legalFacts().license.spdx): string {
@@ -44,6 +50,8 @@ export const PUBLICATION_METADATA_REQUIRED = [
   'handleUrl',
   'address',
   'relatedIdentifiers',
+  'relatedPublications',
+  'priorArt',
   'og',
   'jsonLd',
 ] as const
@@ -75,6 +83,12 @@ export interface PublicationMetadata {
   handleUrl: string
   address: string
   relatedIdentifiers: readonly { identifier: string; relation: string; resource_type: string; scheme?: string }[]
+  /** Sibling seals — complete crosslink set (id/title/doi/pageUrl). */
+  relatedPublications: readonly { id: string; title: string; doi: string; pageUrl: string }[]
+  /** Completed prior-art research: credit (priors first, captain next) or claim (captain alone). */
+  priorArt: PublicationPriorArt
+  /** Captain-coins deposit with note=handle door. */
+  depositUrl: string
   og: PublicationOg
   jsonLd: Record<string, unknown>
   complete: true
@@ -119,7 +133,7 @@ function articlePathFromPageUrl(pageUrl: string): string | undefined {
 
 /**
  * richPublicationMetadata(seal) → complete package. License is ALWAYS the canonical uuidna license —
- * seal.license is ignored if present (drift refused at audit).
+ * seal.license is ignored if present (drift refused at audit). Prior-art research is mandatory.
  */
 export function richPublicationMetadata(seal: ZenodoSeal): PublicationMetadata {
   const lf = legalFacts()
@@ -131,15 +145,40 @@ export function richPublicationMetadata(seal: ZenodoSeal): PublicationMetadata {
   const doiUrl = `https://doi.org/${seal.standingDoi}`
   const abstract = seal.description.trim()
   const authors = [DEFAULT_AUTHOR]
-  const keywords = seal.keywords.length ? seal.keywords : ['uuidna']
   const publicationDate = SEAL_DATES[seal.id] ?? '2026-08-26'
-  const related = sealRelatedIdentifiers(seal)
+  const priorArt = researchPublicationPriorArt(seal)
+  // Keywords = seal keywords ∪ related-pub tags ∪ prior-art outcome tags (no gaps when relations exist)
+  const kw = new Set<string>([...seal.keywords, ...priorArt.keywords])
+  if (kw.size < 3) kw.add('uuidna')
+  const keywords = [...kw]
+  const related: ZenodoRelated[] = []
+  const pushRel = (r: ZenodoRelated) => {
+    if (related.some((x) => x.identifier === r.identifier)) return
+    related.push(r)
+  }
+  for (const r of sealRelatedIdentifiers(seal)) pushRel(r)
+  for (const r of priorArt.relatedIdentifiers) pushRel(r)
+  // Handle URL as alternate identifier (DOI-class permanence)
+  pushRel({
+    identifier: hUrl,
+    relation: 'isAlternateIdentifier',
+    resource_type: seal.uploadType === 'software' ? 'software' : 'publication-article',
+    scheme: 'url',
+  })
+  const depositUrl = `https://revolut.me/ceccec?note=${encodeURIComponent(hUrl)}`
   const og: PublicationOg = {
     title: seal.title,
     description: abstract.slice(0, 300),
     url: seal.pageUrl,
     type: seal.role === 'software-archive' ? 'website' : 'article',
   }
+  const sameAs = [
+    doiUrl,
+    hUrl,
+    seal.pageUrl,
+    ...priorArt.relatedPublications.map((p) => p.pageUrl),
+    ...priorArt.priors.map((p) => p.link),
+  ]
   const jsonLd: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': seal.role === 'software-archive' ? 'SoftwareSourceCode' : 'ScholarlyArticle',
@@ -154,8 +193,12 @@ export function richPublicationMetadata(seal: ZenodoSeal): PublicationMetadata {
       { '@type': 'PropertyValue', propertyID: 'DOI', value: seal.standingDoi },
       { '@type': 'PropertyValue', propertyID: 'uuidna-handle', value: handle },
       { '@type': 'PropertyValue', propertyID: 'uuidna-address', value: address },
+      { '@type': 'PropertyValue', propertyID: 'prior-art-outcome', value: priorArt.outcome },
     ],
-    sameAs: [doiUrl, hUrl, seal.pageUrl],
+    sameAs: [...new Set(sameAs)],
+    isPartOf: { '@type': 'CreativeWorkSeries', name: 'uuidna publications', url: HANDLE_HOST },
+    citation: priorArt.priors.map((p) => ({ '@type': 'CreativeWork', name: p.who, url: p.link })),
+    creditText: priorArt.claim,
     inLanguage: 'en',
   }
   return {
@@ -175,15 +218,29 @@ export function richPublicationMetadata(seal: ZenodoSeal): PublicationMetadata {
     handleUrl: hUrl,
     address,
     relatedIdentifiers: related,
+    relatedPublications: priorArt.relatedPublications,
+    priorArt,
+    depositUrl,
     og,
     jsonLd,
     complete: true,
   }
 }
 
-/** Zenodo deposit metadata — rich set + license identity (always canonical). */
+/** Zenodo deposit metadata — all honest discoverability fields + prior-art research + related pubs. */
 export function richZenodoDepositMetadata(seal: ZenodoSeal): Record<string, unknown> {
   const rich = richPublicationMetadata(seal)
+  const notes = [
+    rich.priorArt.claim,
+    `Handle door (alternate id): ${rich.handleUrl}`,
+    `Captain coins: ${rich.depositUrl}`,
+    `Related publications: ${rich.relatedPublications.map((p) => p.id).join(', ') || 'none'}`,
+    'License: CC BY-NC-ND 4.0 — https://uuidna.com/license',
+  ].join('\n\n')
+  const references = [
+    ...rich.priorArt.priors.map((p) => `${p.who} — ${p.link}`),
+    ...rich.relatedPublications.map((p) => `${p.title} — https://doi.org/${p.doi} — ${p.pageUrl}`),
+  ]
   const meta: Record<string, unknown> = {
     title: rich.title,
     description: rich.abstract,
@@ -191,12 +248,23 @@ export function richZenodoDepositMetadata(seal: ZenodoSeal): Record<string, unkn
     access_right: 'open',
     license: zenodoLicenseId(rich.license),
     creators: [...rich.authors],
+    contributors: [
+      { name: 'Rouschev, Tsvetan', type: 'ContactPerson' },
+      { name: 'uuidna captain', type: 'Supervisor' },
+    ],
     keywords: [...rich.keywords],
     language: rich.language,
     publication_date: rich.publicationDate,
     related_identifiers: rich.relatedIdentifiers,
+    communities: [{ identifier: 'uuidna' }],
+    notes,
+    references,
   }
   if (seal.publicationType) meta.publication_type = seal.publicationType
+  if (seal.conceptDoi) {
+    // versioning chain — standing record is a version of the concept
+    meta.version = seal.standingDoi.split('.').pop() ?? '1'
+  }
   return meta
 }
 
@@ -213,6 +281,17 @@ function missingFields(m: PublicationMetadata): string[] {
   if (m.abstract.length < 80) miss.push('abstract too thin (<80 chars)')
   if (m.keywords.length < 3) miss.push('keywords too thin (<3)')
   if (m.authors.length < 1) miss.push('authors empty')
+  if (!m.priorArt?.researched) miss.push('priorArt.researched')
+  if (m.priorArt && m.priorArt.outcome !== 'credit' && m.priorArt.outcome !== 'claim') miss.push('priorArt.outcome')
+  if (ZENODO_SEALS.length > 1 && m.relatedPublications.length === 0) miss.push('relatedPublications empty while siblings exist')
+  if (m.relatedPublications.length > 0) {
+    for (const p of m.relatedPublications) {
+      if (!m.keywords.some((k) => k === `related:${p.id}`)) miss.push(`keyword related:${p.id}`)
+      if (!m.relatedIdentifiers.some((r) => r.identifier === p.doi || r.identifier === p.pageUrl)) {
+        miss.push(`relatedIdentifiers for ${p.id}`)
+      }
+    }
+  }
   return miss
 }
 
@@ -282,6 +361,17 @@ export function publicationMetadataAudit(): PublicationMetadataAudit {
     }
   }
 
+  // Prior-art research law — every seal researched; credit or claim; related pubs crosslinked
+  const priorAudit = publicationPriorArtAudit()
+  for (const g of priorAudit.gaps) {
+    gaps.push({
+      id: g.id,
+      field: 'priorArt',
+      what: g.what,
+      fix: g.fix,
+    })
+  }
+
   // Generated zenodo seal files must also carry the canonical license
   for (const seal of depositableSeals()) {
     const p = join(ROOT, 'zenodo', 'seals', `${seal.id}.json`)
@@ -317,8 +407,9 @@ export function publicationMetadataAudit(): PublicationMetadataAudit {
     license: canon,
     receipt: toUuid(`pub-meta-audit|${canon}|${gaps.length}|${ZENODO_SEALS.length}`),
     honest:
-      'One rich schema for all publications: title, abstract, authors, keywords, license (= canonical CC-BY-NC-ND-4.0), ' +
-      'language, dates, DOI, related identifiers, pageUrl, handle, OG, JSON-LD. Bidirectional page↔DOI. Thin or ' +
-      'one-way seals fail. No per-publication license drift.',
+      'One rich schema for all publications: title, abstract, authors, keywords (incl. related:* tags), ' +
+      'license (= canonical CC-BY-NC-ND-4.0), language, dates, DOI, related identifiers (sibling pubs + priors + ' +
+      'handle alternate id), priorArt research (credit|claim), pageUrl, handle, depositUrl, OG, JSON-LD. ' +
+      'Bidirectional page↔DOI. Thin, one-way, or unresearched seals fail. No per-publication license drift.',
   }
 }

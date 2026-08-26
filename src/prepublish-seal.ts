@@ -22,6 +22,7 @@ import { finalSeoAudit } from './seo-freeze.js'
 import { quantumAdvantageAudit } from './quantum/advantage/audit/index.js'
 import { handlePermanenceAudit } from './handle-permanence.js'
 import { publicationMetadataAudit } from './publication-metadata.js'
+import { publicationPriorArtAudit } from './publication-prior-art.js'
 
 /** Vector equilibrium + involution seals that must ALL be present — a missing key is a gap. */
 export const VECTOR_EQUILIBRIUM_INVOLUTIONS: readonly string[] = [
@@ -192,6 +193,12 @@ export function prepublishSeal(): PrepublishSeal {
     gaps.push({ what: `publication-metadata [${g.id}]: ${g.what}`, fix: g.fix })
   }
 
+  // ── 5d · PRIOR-ART RESEARCH (credit first or captain claim — never unresearched) ──
+  const priorArt = publicationPriorArtAudit()
+  for (const g of priorArt.gaps) {
+    gaps.push({ what: `prior-art [${g.id}]: ${g.what}`, fix: g.fix })
+  }
+
   // ── 6 · QUANTUM ADVANTAGE VERIFY (push-path twin; no remeasure) ──
   const qa = quantumAdvantageAudit()
   for (const g of qa.gaps) gaps.push({ what: `quantum-advantage: ${g.what}`, fix: g.fix })
@@ -206,6 +213,7 @@ export function prepublishSeal(): PrepublishSeal {
     `seo:${seo.receipt}`,
     `permanence:${permanence.receipt}`,
     `pubmeta:${pubMeta.receipt}`,
+    `priorart:${priorArt.receipt}`,
     `qa:${qa.receipt}`,
   ].join('|'))
 
@@ -234,7 +242,8 @@ export function prepublishSeal(): PrepublishSeal {
       'grants (involution_replaces_the_raised_ceiling, n_qubit_dimension, …) — never an infinite proof claim. ' +
       'SEO freeze = lean/seo-url-map.json route↔hexbit doors. Handle permanence = uuidna.com/<handle> is ' +
       'DOI-class (bidirectional DOI↔handle seals; no churn after freeze). Publication metadata = one rich schema ' +
-      'for all seals + license identity (CC-BY-NC-ND-4.0 only). Quantum advantage = VERIFY sealed report ' +
+      'for all seals + license identity (CC-BY-NC-ND-4.0 only). Prior-art research = every seal credits found ' +
+      'DOI/proving links first (captain next) or explicitly claims when missing. Quantum advantage = VERIFY sealed report ' +
       '(usable_gap_is_two_to_eighty) without remeasure. Zenodo DOI remains workflow-only.',
   }
 }

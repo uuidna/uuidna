@@ -163,7 +163,8 @@ export function doiPriorArtForLeanFile(file: string): { doi: string; link: strin
   return out
 }
 
-/** related_identifiers for a seal metadata PUT — page URL first (bidirectional), then declared related. */
+/** related_identifiers for a seal metadata PUT — page URL first (bidirectional), then declared related.
+ *  Related-publication crosslinks + researched priors are merged in richPublicationMetadata (no circular import). */
 export function sealRelatedIdentifiers(seal: ZenodoSeal): ZenodoRelated[] {
   const ids: ZenodoRelated[] = [
     { identifier: HANDLE_HOST, relation: 'isSupplementedBy', resource_type: 'software', scheme: 'url' },

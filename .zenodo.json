@@ -22,7 +22,12 @@
     "model-context-protocol",
     "honest by construction",
     "paper on trial",
-    "verification infrastructure"
+    "verification infrastructure",
+    "related:clay",
+    "related:mo-mbhstar1",
+    "related:clay-involution",
+    "related:nature-mom-bh",
+    "prior-art-credited"
   ],
   "communities": [
     {
@@ -70,5 +75,6 @@
       "relation": "references",
       "resource_type": "publication"
     }
-  ]
+  ],
+  "notes": "Prior-art research is mandatory for every uuidna seal: found DOI/proving links are credited first; the captain comes next. Missing prior art → explicit captain claim. Related publications are crosslinked in related_identifiers and related:* keywords. License CC BY-NC-ND 4.0 — https://uuidna.com/license"
 }

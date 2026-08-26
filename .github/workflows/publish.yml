@@ -403,7 +403,16 @@ jobs:
             jq -e '.license == "cc-by-nc-nd-4.0"' "$META" > /dev/null || { echo "::error::$META license drift"; exit 1; }
             jq -e '.language | type == "string"' "$META" > /dev/null
             jq -e '.publication_date | type == "string"' "$META" > /dev/null
-            jq -e '(.related_identifiers // []) | length >= 1' "$META" > /dev/null
+            jq -e '(.related_identifiers // []) | length >= 2' "$META" > /dev/null
+            jq -e '(.keywords // []) | map(select(startswith("related:"))) | length >= 1' "$META" > /dev/null \
+              || { echo "::error::$ID missing related:* keywords"; exit 1; }
+            jq -e '.notes | type == "string" and length > 20' "$META" > /dev/null \
+              || { echo "::error::$ID missing notes (prior-art claim/credit)"; exit 1; }
+            jq -e '(.communities // []) | length >= 1' "$META" > /dev/null
+            jq -e '(.references // []) | type == "array"' "$META" > /dev/null
+            jq -e '(.contributors // []) | length >= 1' "$META" > /dev/null
+            jq -e '(.related_identifiers // []) | any(.relation == "isAlternateIdentifier")' "$META" > /dev/null \
+              || { echo "::error::$ID missing handle alternate identifier"; exit 1; }
             BUNDLE="seal-$ID-$GITHUB_REF_NAME.tar.gz"
             mapfile -t PATHS < <(echo "$SEAL" | jq -r '.bundlePaths[]')
             tar -czf "$BUNDLE" "$META" "${PATHS[@]}"

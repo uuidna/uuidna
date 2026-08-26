@@ -69,10 +69,14 @@ export function infuseQuantumPayload(pageData: PageDataLike, routeOf: (rel: stri
     const rich = richPublicationMetadata(seal)
     pageData.frontmatter.head.push(['meta', { name: 'citation_doi', content: rich.doi }])
     pageData.frontmatter.head.push(['meta', { name: 'citation_title', content: rich.title }])
+    pageData.frontmatter.head.push(['meta', { name: 'citation_prior_art', content: rich.priorArt.outcome }])
     pageData.frontmatter.head.push(['link', { rel: 'alternate', type: 'application/json+ld', href: rich.doiUrl, title: 'DOI' }])
     pageData.frontmatter.doi = rich.doi
     pageData.frontmatter.doiUrl = rich.doiUrl
     pageData.frontmatter.depositUrl = sponsorDepositUrl(rich.handleUrl)
+    pageData.frontmatter.relatedPublications = rich.relatedPublications
+    pageData.frontmatter.priorArtOutcome = rich.priorArt.outcome
+    pageData.frontmatter.priorArtClaim = rich.priorArt.claim
     break
   }
   if (handleDoor && !pageData.frontmatter.depositUrl) {

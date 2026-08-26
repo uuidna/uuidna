@@ -20,6 +20,14 @@ const bySlug = new Map(pubs.cards.map((p) => [p.slug, p]))
 
 const ui = computed(() => objectUi(props.localeTag))
 
+const relatedPubs = computed(() => {
+  const fm = frontmatter.value || {}
+  const list = fm.relatedPublications
+  return Array.isArray(list) ? list : []
+})
+const priorArtOutcome = computed(() => String((frontmatter.value || {}).priorArtOutcome || ''))
+const priorArtClaim = computed(() => String((frontmatter.value || {}).priorArtClaim || ''))
+
 const ctx = computed(() => {
   const p = params.value || {}
   const fm = frontmatter.value || {}
@@ -109,6 +117,23 @@ const ctx = computed(() => {
         <VPButton theme="alt" size="medium" href="/publications" text="All publications" />
       </article>
 
+      <article v-if="relatedPubs.length" class="ox-card">
+        <h3>Related publications</h3>
+        <p>Crosslinked seals — metadata + keywords.</p>
+        <VPLink
+          v-for="rp in relatedPubs"
+          :key="rp.id"
+          class="ox-link"
+          :href="rp.pageUrl.replace('https://uuidna.com', '') || '/'"
+          no-icon
+        >{{ rp.id }}</VPLink>
+      </article>
+
+      <article v-if="priorArtClaim" class="ox-card">
+        <h3>Prior art · {{ priorArtOutcome }}</h3>
+        <p class="ox-prior">{{ priorArtClaim }}</p>
+      </article>
+
       <article class="ox-card">
         <h3>OS hexbit monitor</h3>
         <p>TypeScript computes · VitePress monitors Alpine ports.</p>
@@ -146,5 +171,6 @@ const ctx = computed(() => {
   border-radius: 6px;
 }
 .ox-link:hover { border-color: var(--vp-c-brand-1); }
+.ox-prior { font-size: 0.72rem !important; line-height: 1.4; }
 .ox-card :deep(.VPButton) { display: inline-flex; padding: 0 12px; line-height: 30px; font-size: 12px; }
 </style>
