@@ -461,6 +461,18 @@ export const WITNESSES: readonly Witness[] = [
       const roots = new Set(perms.map((p) => merkleGravity(p.map((i) => m[i]))))
       return failures([roots.size === 1]) } },
 
+  // BEYOND THE QUANTUM WING — memory skill. Companion to store_fold_order_invariant: the XOR fold moves
+  // when a member changes. Enumerated on the sealed 8³×8 window — can fail if fold or equality is wrong.
+  { theorem: 'store_fold_change_moves_receipt', cases: 4096, what: 'XOR fold of [a,b,c] equals fold of [a2,b,c] exactly when a = a2, over range 8',
+    run: () => {
+      const checks: boolean[] = []
+      for (let a = 0; a < 8; a++) for (let b = 0; b < 8; b++) for (let c = 0; c < 8; c++) for (let a2 = 0; a2 < 8; a2++) {
+        const left = ((0 ^ a) ^ b) ^ c, right = ((0 ^ a2) ^ b) ^ c
+        checks.push((left === right) === (a === a2))
+      }
+      return failures(checks)
+    } },
+
   // BEYOND THE QUANTUM WING — hexbit court seals. Magnitudes are READ FROM THE STATEMENT (same discipline as
   // message_qubit_cap_states), then this host re-runs hexbitRingMassGap / computeMassGap and must agree.
   { theorem: 'hexbit_ring_mass_gap', cases: 4, what: 'live hexbitRingMassGap/computeMassGap matches the sealed ring Δ and window',
@@ -538,8 +550,9 @@ export interface WingCoverage {
   witnessed: number
   /** the quantum-wing theorems no witness decides — named, never merely counted */
   unwitnessed: string[]
-  /** witnesses that decide a theorem OUTSIDE the quantum wing (store_fold_order_invariant, hexbit_ring_mass_gap,
-   *  born_field_mass_gap_on_bell — fold/memory and hexbit court seals, deliberately not quantum-wing twins) */
+  /** witnesses that decide a theorem OUTSIDE the quantum wing (store_fold_order_invariant,
+   *  store_fold_change_moves_receipt, hexbit_ring_mass_gap, born_field_mass_gap_on_bell — fold/memory and
+   *  hexbit court seals, deliberately not quantum-wing twins) */
   beyondWing: string[]
 }
 

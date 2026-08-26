@@ -34,8 +34,8 @@ next reader recomputes rather than something this report asserts.
 The gate algebra that quantum hardware implements *physically* — the Pauli group, the Clifford count, the CNOT
 and Toffoli permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa interference — was executed here in
 exact Gaussian integers, with no floating point at any step, and every result compared to what a Lean kernel
-decided by exhaustive case analysis. **52 witnesses · 109 sweeps ·
-27468 decisions · 0 disagreements · verdict EXACT.**
+decided by exhaustive case analysis. **53 witnesses · 109 sweeps ·
+473932 decisions · 0 disagreements · verdict EXACT.**
 
 **Coverage: 49 of the quantum wing's 51 theorems**, and the 2 this battery
 does not decide are named rather than counted: `chsh_beats_classical`, `ym_quantum`. The battery is a
@@ -44,7 +44,7 @@ another session on the night this was written, and nothing noticed until the den
 the rest state things this simulator cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
-Better than one disagreement per 27468 executions on this host, across 49 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 2 this battery does not decide.
+Better than one disagreement per 473932 executions on this host, across 49 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 2 this battery does not decide.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up
 as a shrinking count and not as an unchanged green verdict. This run refused 0.
@@ -101,6 +101,7 @@ as a shrinking count and not as an unchanged green verdict. This run refused 0.
 | [all_signaling_duality](https://uuidna.com/theorem/all_signaling_duality) | 82 | 8938 | 0 | marginal sum is blind (1+0=0+1) and place-value 10·a+b is injective on the digit model |
 | [merkle_sort_invariant](https://uuidna.com/theorem/merkle_sort_invariant) | 5 | 545 | 0 | sorted non-commutative fold3(a,b)=2a+b agrees on all six orderings of {1,2,3} |
 | [store_fold_order_invariant](https://uuidna.com/theorem/store_fold_order_invariant) | 1 | 109 | 0 | the fold gives one root for all six orderings of three members |
+| [store_fold_change_moves_receipt](https://uuidna.com/theorem/store_fold_change_moves_receipt) | 4096 | 446464 | 0 | XOR fold of [a,b,c] equals fold of [a2,b,c] exactly when a = a2, over range 8 |
 | [hexbit_ring_mass_gap](https://uuidna.com/theorem/hexbit_ring_mass_gap) | 4 | 436 | 0 | live hexbitRingMassGap/computeMassGap matches the sealed ring Δ and window |
 | [born_field_mass_gap_on_bell](https://uuidna.com/theorem/born_field_mass_gap_on_bell) | 4 | 436 | 0 | live massGapOnBellBornField/bellBornWeights match the sealed Born Δ and weights |
 
@@ -149,7 +150,7 @@ silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto spe
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `edfe626b-0081-8932-ada7-3f16b9e27f68`.
+*exist* cannot see. Dispatch receipt: `192b78b2-ff80-861f-9cf4-b9ef056b1e1d`.
 
 Report receipt: `ab58e5d1-49d5-870d-a120-62fde56ea87b` · measured-when as its own handle: `ab58e5d1`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point

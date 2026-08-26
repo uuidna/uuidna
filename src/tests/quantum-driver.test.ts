@@ -226,6 +226,7 @@ const FALSIFIED: readonly string[] = [
   'all_signaling_duality',
   'merkle_sort_invariant',
   'store_fold_order_invariant',
+  'store_fold_change_moves_receipt',
   'hexbit_ring_mass_gap',
   'born_field_mass_gap_on_bell',
 ]
