@@ -351,4 +351,11 @@ test('TYPED LOCAL LET + LIST.SCANL — graph-on-five / fibonacci / Pascal matrix
   assert.equal(holds('(let f : Nat → Nat := fun i => i; f 2 == 2) = true'), true)
   assert.equal(holds('(List.scanl (fun a b => a + b) 0 [1,2,3]) = [0,1,3,6]'), true)
   assert.equal(holds('(List.range 2).all (fun lo => let m := lo; m < 4)'), true)
+  assert.equal(holds('(List.range 2).all (fun hi => let bit : Nat → Nat := fun i => hi; bit 0 = hi)'), true)
+})
+
+test('HO FUN ARG + PRIMED BINDER — Hamming/Nim closures stayed unreached for syntax', () => {
+  assert.equal(holds('(fun f g => true) (fun x => 0) 1'), true)
+  assert.equal(holds('(fun X : Nat → Nat → Nat → Nat => X 0 0 0 = 0) (fun a b c => 0)'), true)
+  assert.equal(holds('(List.range 2).all (fun a => (List.range a).all (fun a\' => a\' < a))'), true)
 })

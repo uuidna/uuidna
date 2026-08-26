@@ -314,6 +314,7 @@ const readIdent = (c: Cursor): string => {
   if (c.i < c.s.length && /[A-Za-z_]/.test(c.s[c.i]!)) {
     c.i++
     while (c.i < c.s.length && /[A-Za-z0-9_]/.test(c.s[c.i]!)) c.i++
+    while (c.i < c.s.length && c.s[c.i] === "'") c.i++
   }
   if (c.i === start) throw new Error('ident')
   return c.s.slice(start, c.i)
@@ -324,6 +325,7 @@ const skipType = (c: Cursor): void => {
   let depth = 0
   while (c.i < c.s.length) {
     if (depth === 0 && c.s.startsWith(':=', c.i)) return
+    if (depth === 0 && c.s.startsWith('=>', c.i)) return
     if (depth === 0 && c.s[c.i] === ';') return
     const ch = c.s[c.i]!
     if (ch === '(' || ch === '[') depth++
@@ -577,6 +579,8 @@ const parseFunBinders = (c: Cursor): string[] => {
     }
     if (c.i < c.s.length && (/[A-Za-z_]/.test(c.s[c.i]!) || c.s[c.i] === '_')) {
       names.push(readBinderName(c))
+      ws(c)
+      if (eat(c, ':')) skipType(c)
       continue
     }
     break
@@ -647,7 +651,11 @@ const postfix = (c: Cursor, v: Val): Val => {
     if (isFun(v)) {
       const argSave = c.i
       let arg: Val
-      try { arg = atom(c) } catch { c.i = argSave; return v }
+      try {
+        // `(fun … => …)` as a curried arg — atom's paren/junction backtrack can refuse
+        // when the receiver is already a partial application (multi-binder `fun f g =>`).
+        arg = (ws(c), c.s.startsWith('(fun', c.i)) ? parseFunArg(c, c.expectBool ? 'bool' : 'val') : atom(c)
+      } catch { c.i = argSave; return v }
       v = asFun(v).run(arg)
       continue
     }
@@ -1132,13 +1140,27 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'modelUuidCountRows')) return postfix(c, lst(MODEL_UUID_ROWS))
   // Bare `fun binders => body` — sealed `let fold3 := fun (a b c : Nat) => …`.
   if (eat(c, 'fun')) {
+    const bindersStart = c.i
     const names = parseFunBinders(c)
     if (!eat(c, '=>')) throw new Error('fun =>')
+    const binderSlice = c.s.slice(bindersStart, c.i - 2)
     const bodyStart = c.i
     const probeEnv: Env = new Map(c.env)
-    for (const n of names) if (n !== '_') probeEnv.set(n, 0)
+    for (const n of names) {
+      if (n === '_') continue
+      if (new RegExp('\\b' + n + '\\s*:\\s*List\\b').test(binderSlice)) probeEnv.set(n, lst([]))
+      else if (new RegExp('\\b' + n + '\\s*:\\s*Nat × Nat\\b').test(binderSlice)) probeEnv.set(n, pair(0, 0))
+      else if (new RegExp('\\b' + n + '\\s*:\\s*Nat →').test(binderSlice)) probeEnv.set(n, fun(() => 0))
+      else probeEnv.set(n, 0)
+    }
     const probe: Cursor = { s: c.s, i: bodyStart, env: probeEnv, ring: c.ring, expectBool: c.expectBool }
     junction(probe)
+    ws(probe)
+    if (cmpContinues(probe)) {
+      compare(probe)
+      ws(probe)
+      if (probe.i < c.s.length && probe.s[probe.i] === ';') { probe.i++; junction(probe) }
+    }
     const body = c.s.slice(bodyStart, probe.i)
     c.i = probe.i
     return postfix(c, mkFun(names, body, c.env, c.ring, c.expectBool ? 'bool' : 'val'))
@@ -1232,7 +1254,21 @@ function junction(c: Cursor): Val {
     try { val = junction(c) } finally { c.expectBool = saveBool }
     if (!eat(c, ';')) throw new Error('let ;')
     c.env.set(name, val)
-    return junction(c)
+    ws(c)
+    const tailSave = c.i
+    const prevBool = c.expectBool
+    c.expectBool = true
+    try {
+      const v = boolProp(c)
+      ws(c)
+      if (eat(c, ';')) { c.expectBool = prevBool; return junction(c) }
+      c.expectBool = prevBool
+      return v
+    } catch {
+      c.i = tailSave
+      c.expectBool = prevBool
+      return junction(c)
+    }
   }
   let v = sum(c)
   for (;;) {
