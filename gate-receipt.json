@@ -1,7 +1,7 @@
 {
   "covers": {
     "src": "bb6f1bb7757a4cdbb18b0267e850a27f",
-    "lean": "1cc37b6be5e5f779889fe58c31d0f7d0"
+    "lean": "cc39da9e40df07247646c8a89e52bdfb"
   },
   "verified": [
     "types (tsc noEmitOnError)",
