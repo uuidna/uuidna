@@ -105,7 +105,7 @@ export const stripAscriptions = (s: string): string => {
  *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
  *  and bounded `fun` (multi-binder) with `.all`/`.map`/`.filter`/`.any`. Sealed Legal/Audit/Command/Editor mirrors
  *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
-const NAMED_OP = /\b(?:Nat\.gcd|Nat\.min|Nat\.max|Nat\.ble|Int\.ofNat|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|flatMap|zipWith|flatten|scanl|headD|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|ofNat|∀)\b/g
+const NAMED_OP = /\b(?:Nat\.gcd|Nat\.min|Nat\.max|Nat\.ble|Nat\.blt|Int\.ofNat|List\.foldl|List\.Pairwise|List\.map|List\.sum|List\.reverse|List\.range'|List\.range|List|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|flatMap|zipWith|flatten|scanl|headD|head|tail|countP|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|blt|ofNat|forged|cleanAudit|claimsOf|doubleSpent|voteOk|lists|andB|orB|notB|nandB|mul9|isSub|gap|dist|fullest|orbits|seatCases|VE|n2|dd|fst|snd|Pairwise|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable. */
 const stripComments = (s: string): string => s.replace(/--[^\n]*/g, ' ')
 /** Drop string literal bodies so Unicode readings (bg/zh/…) do not fail the character gate. */
@@ -366,6 +366,44 @@ const dfoldFn = (xs: Val[]): number => {
 const UNITS: Val[] = [1, 2, 4, 5, 7, 8]
 const natMin = (a: number, b: number): number => (a < b ? a : b)
 const natMax = (a: number, b: number): number => (a > b ? a : b)
+const forgedFn = (cited: number, sealed: number): number => (cited === sealed ? 0 : 1)
+const claimsOfFn = (t: number, cs: Val[]): number => cs.filter((c) => asNum(c) === t).length
+const doubleSpentFn = (t: number, cs: Val[]): boolean => claimsOfFn(t, cs) >= 2
+const voteOkFn = (weight: number, coins: number): number => (weight === coins ? 1 : 0)
+const cleanAuditFn = (f: number, d: number, v: number): number => (1 - f) * (1 - d) * (1 - v)
+const andBFn = (a: number, b: number): number => a * b
+const orBFn = (a: number, b: number): number => a + b - a * b
+const notBFn = (a: number): number => 1 - a
+const nandBFn = (a: number, b: number): number => 1 - a * b
+const mul9Fn = (a: number, b: number): number => (a * b) % 9
+const isSubFn = (s: Val[]): boolean =>
+  s.some((x) => asNum(x) === 1)
+  && s.every((a) => s.every((b) => s.some((c) => asNum(c) === mul9Fn(asNum(a), asNum(b)))))
+  && s.every((a) => s.some((b) => mul9Fn(asNum(a), asNum(b)) === 1))
+const gapFn = (a: number, b: number): number => (a > b ? a - b : b - a)
+const distFn = (a: number, b: number): number => pop(lxor(a, b))
+const fullestFn = (n: number, seat: number): number => trunc((n + seat - 1) / seat)
+const LISTS: Val[] = [
+  [1,1,1],[1,1,2],[1,1,3],[1,2,1],[1,2,2],[1,2,3],[1,3,1],[1,3,2],[1,3,3],
+  [2,1,1],[2,1,2],[2,1,3],[2,2,1],[2,2,2],[2,2,3],[2,3,1],[2,3,2],[2,3,3],
+  [3,1,1],[3,1,2],[3,1,3],[3,2,1],[3,2,2],[3,2,3],[3,3,1],[3,3,2],[3,3,3],
+].map((xs) => lst(xs))
+const ORBITS: Val[] = [
+  [0,1,2,3,4,5,6,7,8,9],[0,1,3,4,5,6,7,9],[0,1,9],[0],[0,1,3,5,7,9],[0,1,5,9],
+].map((xs) => lst(xs))
+const SEAT_CASES: Val[] = [[11,10],[21,10],[100,9],[10,10],[9,10]].map(([a, b]) => pair(a!, b!))
+const VE_LIST: Val[] = [
+  [1,1,0],[1,-1,0],[-1,1,0],[-1,-1,0],[0,1,1],[0,1,-1],[0,-1,1],[0,-1,-1],[1,0,1],[1,0,-1],[-1,0,1],[-1,0,-1],
+].map(([a, b, c]) => pair(a!, pair(b!, c!)))
+const n2Fn = (v: Pair): number => {
+  const yz = asPair(v.b)
+  return asNum(v.a) * asNum(v.a) + asNum(yz.a) * asNum(yz.a) + asNum(yz.b) * asNum(yz.b)
+}
+const ddFn = (v: Pair, w: Pair): number => {
+  const vy = asPair(v.b); const wy = asPair(w.b)
+  const dx = asNum(v.a) - asNum(w.a); const dy = asNum(vy.a) - asNum(wy.a); const dzz = asNum(vy.b) - asNum(wy.b)
+  return dx * dx + dy * dy + dzz * dzz
+}
 
 const listSum = (xs: Val[]): number => {
   let s = 0
@@ -509,12 +547,12 @@ const parseFunArg = (c: Cursor, bodyKind: 'bool' | 'val'): Fun => {
 const postfix = (c: Cursor, v: Val): Val => {
   for (;;) {
     ws(c)
-    if (eat(c, '.1')) {
+    if (eat(c, '.1') || eat(c, '.fst')) {
       if (!isPair(v)) throw new Error('proj')
       v = v.a
       continue
     }
-    if (eat(c, '.2')) {
+    if (eat(c, '.2') || eat(c, '.snd')) {
       if (!isPair(v)) throw new Error('proj')
       v = v.b
       continue
@@ -550,6 +588,12 @@ const postfix = (c: Cursor, v: Val): Val => {
       if (eat(c, 'Nat.min') || eat(c, 'min')) {
         let acc = asNum(atom(c))
         for (const x of asLst(v)) acc = natMin(acc, asNum(x))
+        v = acc
+        continue
+      }
+      if (eat(c, 'lxor')) {
+        let acc = asNum(atom(c))
+        for (const x of asLst(v)) acc = lxor(acc, asNum(x))
         v = acc
         continue
       }
@@ -597,6 +641,24 @@ const postfix = (c: Cursor, v: Val): Val => {
       const d = atom(c)
       const xs = asLst(v)
       v = xs.length ? xs[0]! : d
+      continue
+    }
+    if (eat(c, '.head!') || eat(c, '.head')) {
+      const xs = asLst(v)
+      if (!xs.length) throw new Error('head')
+      v = xs[0]!
+      continue
+    }
+    if (eat(c, '.tail')) { v = lst(asLst(v).slice(1)); continue }
+    if (eat(c, '.countP')) {
+      const f = parseFunArg(c, 'bool')
+      v = asLst(v).filter((x) => asBool(f.run(x))).length
+      continue
+    }
+    if (eat(c, '.getLast!')) {
+      const xs = asLst(v)
+      if (!xs.length) throw new Error('getLast!')
+      v = xs[xs.length - 1]!
       continue
     }
     if (eat(c, '.all')) {
@@ -702,22 +764,20 @@ const atom = (c: Cursor): Val => {
     return postfix(c, a)
   }
   if (eat(c, '-')) return postfix(c, -asNum(atom(c)))
-  // Bool negation as a value — sealed `!(p && q)` inside fun bodies / junctions.
-  if (eat(c, '¬') || eat(c, '!')) return postfix(c, !asBool(atom(c)))
   if (eat(c, 'true')) return postfix(c, true)
   if (eat(c, 'false')) return postfix(c, false)
   if (eat(c, 'if')) {
     const cond = boolProp(c)
     if (!eat(c, 'then')) throw new Error('if then')
-    if (c.expectBool) {
-      const t = boolProp(c)
+    // Value arms always — Bool props use junction on true/false; numeric `if` inside `==` stays Nat.
+    const saveBool = c.expectBool
+    c.expectBool = false
+    let t: Val; let e: Val
+    try {
+      t = junction(c)
       if (!eat(c, 'else')) throw new Error('if else')
-      const e = boolProp(c)
-      return postfix(c, cond ? t : e)
-    }
-    const t = junction(c)
-    if (!eat(c, 'else')) throw new Error('if else')
-    const e = junction(c)
+      e = junction(c)
+    } finally { c.expectBool = saveBool }
     return postfix(c, cond ? t : e)
   }
   // Named apps — longer tokens before prefixes.
@@ -768,9 +828,36 @@ const atom = (c: Cursor): Val => {
   }
   if (eat(c, "List.range'")) return postfix(c, lst(listRangeFrom(asNum(atom(c)), asNum(atom(c)))))
   if (eat(c, 'List.range')) return postfix(c, lst(listRange(asNum(atom(c)))))
+  if (eat(c, 'List.foldl')) {
+    const f = parseFunArg(c, 'val')
+    let acc: Val = atom(c)
+    for (const x of asLst(atom(c))) acc = applyFold(f, acc, x)
+    return postfix(c, acc)
+  }
+  if (eat(c, 'List.Pairwise') || eat(c, 'Pairwise')) {
+    ws(c)
+    if (!eat(c, '(· < ·)')) throw new Error('Pairwise')
+    const xs = asLst(atom(c))
+    let ok = true
+    for (let i = 0; i + 1 < xs.length; i++) if (!(asNum(xs[i]!) < asNum(xs[i + 1]!))) ok = false
+    return postfix(c, ok)
+  }
+  if (eat(c, 'List.map')) {
+    const f = parseFunArg(c, 'val')
+    return postfix(c, lst(asLst(atom(c)).map((x) => f.run(x))))
+  }
   if (eat(c, 'List.sum')) return postfix(c, listSum(asLst(atom(c))))
   if (eat(c, 'List.reverse')) return postfix(c, lst(listReverse(asLst(atom(c)))))
-  if (eat(c, 'lxor')) return postfix(c, lxor(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'lxor')) {
+    let v: Val = fun((a) => fun((b) => lxor(asNum(a), asNum(b))))
+    while (isFun(v)) {
+      ws(c)
+      const argSave = c.i
+      try { v = asFun(v).run(atom(c)) } catch { c.i = argSave; break }
+    }
+    return postfix(c, v)
+  }
+  if (eat(c, 'Nat.blt') || eat(c, 'blt')) return postfix(c, asNum(atom(c)) < asNum(atom(c)))
   if (eat(c, 'pop')) return postfix(c, pop(asNum(atom(c))))
   if (eat(c, 'wt')) return postfix(c, pop(asNum(atom(c))))
   if (eat(c, 'rowsOf')) return postfix(c, lst(rowsOf(asNum(atom(c)))))
@@ -828,12 +915,36 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'units9')) return postfix(c, lst(UNITS9.slice()))
   if (eat(c, 'units')) return postfix(c, lst(UNITS.slice()))
   if (eat(c, 'lp')) return postfix(c, lpFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
-  if (eat(c, 'lr')) return postfix(c, lrFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
-  if (eat(c, 'lnp')) return postfix(c, lnpFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'lrem')) return postfix(c, lremFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'lnp')) return postfix(c, lnpFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'lr')) return postfix(c, lrFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'flag')) return postfix(c, flagFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'accept')) return postfix(c, acceptFn(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'dfold')) return postfix(c, dfoldFn(asLst(atom(c))))
+  if (eat(c, 'forged')) return postfix(c, forgedFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'claimsOf')) return postfix(c, claimsOfFn(asNum(atom(c)), asLst(atom(c))))
+  if (eat(c, 'doubleSpent')) return postfix(c, doubleSpentFn(asNum(atom(c)), asLst(atom(c))))
+  if (eat(c, 'voteOk')) return postfix(c, voteOkFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'cleanAudit')) return postfix(c, cleanAuditFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'lists')) return postfix(c, lst(LISTS.slice()))
+  if (eat(c, 'andB')) return postfix(c, andBFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'orB')) return postfix(c, orBFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'notB')) return postfix(c, notBFn(asNum(atom(c))))
+  if (eat(c, 'nandB')) return postfix(c, nandBFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'mul9')) return postfix(c, mul9Fn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'isSub')) {
+    const save = c.i
+    try { return postfix(c, isSubFn(asLst(atom(c)))) }
+    catch { c.i = save; return postfix(c, fun((x) => isSubFn(asLst(x)))) }
+  }
+  if (eat(c, 'gap')) return postfix(c, gapFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'dist')) return postfix(c, distFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'fullest')) return postfix(c, fullestFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'orbits')) return postfix(c, lst(ORBITS.slice()))
+  if (eat(c, 'seatCases')) return postfix(c, lst(SEAT_CASES.slice()))
+  if (eat(c, 'VE')) return postfix(c, lst(VE_LIST.slice()))
+  if (eat(c, 'n2')) return postfix(c, n2Fn(asPair(atom(c))))
+  if (eat(c, 'dd')) return postfix(c, ddFn(asPair(atom(c)), asPair(atom(c))))
   if (eat(c, 'some')) return postfix(c, opt(atom(c)))
   if (eat(c, 'res')) return postfix(c, resFn(asNum(atom(c))))
   if (eat(c, 'nth')) return postfix(c, listNth(asLst(atom(c)), asNum(atom(c))))
@@ -940,11 +1051,17 @@ function junction(c: Cursor): Val {
   let v = sum(c)
   for (;;) {
     ws(c)
-    // Only fold Bool `&&` when the left value is already Bool — otherwise `10 && …` is propositional.
+    // Only fold Bool `&&`/`||` when the left value is already Bool — otherwise `10 && …` is propositional.
     if (typeof v === 'boolean' && eat(c, '&&')) {
       const r = sum(c)
       if (typeof r !== 'boolean') throw new Error('&&')
       v = v && r
+      continue
+    }
+    if (typeof v === 'boolean' && eat(c, '||')) {
+      const r = sum(c)
+      if (typeof r !== 'boolean') throw new Error('||')
+      v = v || r
       continue
     }
     return v
@@ -960,7 +1077,10 @@ const compare = (c: Cursor): boolean => {
   if (eat(c, '≥')) return asNum(l) >= asNum(junction(c))
   if (eat(c, '≠')) return !deepEq(l, junction(c))
   if (eat(c, '!=')) return !deepEq(l, junction(c))
-  if (eat(c, '==')) return deepEq(l, junction(c))
+  if (eat(c, '==')) {
+    if (typeof l === 'boolean') return l === boolExpr(c)
+    return deepEq(l, junction(c))
+  }
   if (eat(c, '<')) return asNum(l) < asNum(junction(c))
   if (eat(c, '>')) return asNum(l) > asNum(junction(c))
   if (eat(c, '=')) return deepEq(l, junction(c))
