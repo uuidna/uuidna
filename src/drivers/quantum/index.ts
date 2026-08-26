@@ -35,9 +35,12 @@
 import {
   ket0, hadamard, pauliX, pauliZ, phaseS, phaseSdg, cnot, cz, swap, toffoli,
   distribution, marginal, amplitude, equalState, isInvolution, bellState, ghzState,
-  classicalMap, fraction, type QState, type Prob,
+  classicalMap, fraction, bellBornWeights, massGapOnBellBornField, type QState, type Prob,
 } from '../../quantum/index.js'
-import { compileToHexbits, valueOf, HEXBIT_BITS, UUID_HEXBITS, HANDLE_HEXBITS } from '../../hexbit/index.js'
+import {
+  compileToHexbits, valueOf, HEXBIT_BITS, HEXBIT_STATES, UUID_HEXBITS, HANDLE_HEXBITS,
+  computeMassGap, hexbitRingMassGap,
+} from '../../hexbit/index.js'
 import { toUuid } from '../../address.js'
 import { handleOf } from '../../handle.js'
 import { merkleGravity } from '../../gravity/index.js'
@@ -431,6 +434,46 @@ export const WITNESSES: readonly Witness[] = [
       const perms = [[0, 1, 2], [0, 2, 1], [1, 0, 2], [1, 2, 0], [2, 0, 1], [2, 1, 0]]
       const roots = new Set(perms.map((p) => merkleGravity(p.map((i) => m[i]))))
       return failures([roots.size === 1]) } },
+
+  // BEYOND THE QUANTUM WING — hexbit court seals. Magnitudes are READ FROM THE STATEMENT (same discipline as
+  // message_qubit_cap_states), then this host re-runs hexbitRingMassGap / computeMassGap and must agree.
+  { theorem: 'hexbit_ring_mass_gap', cases: 4, what: 'live hexbitRingMassGap/computeMassGap matches the sealed ring Δ and window',
+    run: () => {
+      const sealed = theoremByKey().get('hexbit_ring_mass_gap')?.statement ?? ''
+      const deltaM = /\(\((\d+):Nat\)\s*>\s*0\)/.exec(sealed)
+      const statesM = /List\.range\s+(\d+)/.exec(sealed)
+      if (!deltaM || !statesM) return 4
+      const sealedDelta = Number(deltaM[1]), sealedStates = Number(statesM[1])
+      const g = hexbitRingMassGap()
+      const via = computeMassGap(g.field)
+      return failures([
+        g.holds && via.holds,
+        g.delta === sealedDelta && via.delta === sealedDelta,
+        g.states === sealedStates && g.field.length === sealedStates,
+        g.states === HEXBIT_STATES,
+      ])
+    } },
+
+  // BEYOND THE QUANTUM WING — Bell Born field on Hexbit.lean. Weights and Δ from the seal; live
+  // bellBornWeights / massGapOnBellBornField / computeMassGap must reproduce them on this silicon.
+  { theorem: 'born_field_mass_gap_on_bell', cases: 4, what: 'live massGapOnBellBornField/bellBornWeights match the sealed Born Δ and weights',
+    run: () => {
+      const sealed = theoremByKey().get('born_field_mass_gap_on_bell')?.statement ?? ''
+      const listM = /\[(\d+(?:,\d+)*)\]\s*:\s*List Nat/.exec(sealed)
+      const deltaM = /\((\d+)\s*>\s*0\)\s*$/.exec(sealed) ?? /(\d+)\s*≤\s*a/.exec(sealed)
+      if (!listM || !deltaM) return 4
+      const sealedWeights = listM[1].split(',').map(Number)
+      const sealedDelta = Number(deltaM[1])
+      const w = bellBornWeights()
+      const g = massGapOnBellBornField()
+      const via = computeMassGap(w)
+      return failures([
+        g.holds && via.holds,
+        g.delta === sealedDelta && via.delta === sealedDelta,
+        w.length === sealedWeights.length && w.every((a, i) => a === sealedWeights[i]),
+        g.field.length === w.length && g.field.every((a, i) => a === w[i]),
+      ])
+    } },
 ]
 
 // ── THE PROOF ────────────────────────────────────────────────────────────────────────────────────────────────
@@ -469,8 +512,8 @@ export interface WingCoverage {
   witnessed: number
   /** the quantum-wing theorems no witness decides — named, never merely counted */
   unwitnessed: string[]
-  /** witnesses that decide a theorem OUTSIDE the quantum wing (store_fold_order_invariant is one, deliberately:
-   *  the fold the gate permutations use is the same operation, sealed under the memory skill) */
+  /** witnesses that decide a theorem OUTSIDE the quantum wing (store_fold_order_invariant, hexbit_ring_mass_gap,
+   *  born_field_mass_gap_on_bell — fold/memory and hexbit court seals, deliberately not quantum-wing twins) */
   beyondWing: string[]
 }
 

@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:c254a40e-f3be-8b55-9df6-3d0273d2d1c5",
+  "@id": "urn:uuid:ecc5aa3c-90eb-83b5-8d44-ea64b2333ca6",
   "@type": "Dataset",
   "name": "uuidna quantum advantage report — measured per level",
   "description": "The architectural advantage measured at every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). Measured usable-capacity quantum advantage is theorem usable_gap_is_two_to_eighty (2^80 vs reported logical platforms). TypeScript computes; VitePress monitors. n_qubit_dimension counts classical simulation cost and is not a Shor-class crypto speedup claim.",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "b4670fba-832e-8a55-889a-82192709cdf4",
+  "identifier": "ab58e5d1-49d5-870d-a120-62fde56ea87b",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -90,7 +90,7 @@
       "value": "10^3",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 211500 theorem statement re-addressed in a full sweep on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 211900 theorem statement re-addressed in a full sweep on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -98,15 +98,15 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "12690 decisions executed on Apple M1 Max; a bound of better than one in 12690, never a proof of zero"
+      "citation": "12714 decisions executed on Apple M1 Max; a bound of better than one in 12714, never a proof of zero"
     },
     {
       "@type": "PropertyValue",
       "name": "sealed quantum algebra — decisions executed on this host",
-      "value": 17113,
+      "value": 17985,
       "unitText": "decisions",
       "measurementTechnique": "measured",
-      "citation": "48 witnesses over 109 sweeps on Apple M1 Max; each decides a proposition sealed in the Lean ledger"
+      "citation": "50 witnesses over 109 sweeps on Apple M1 Max; each decides a proposition sealed in the Lean ledger"
     },
     {
       "@type": "PropertyValue",
@@ -114,7 +114,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "better than one disagreement per 17113 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide"
+      "citation": "better than one disagreement per 17985 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide"
     },
     {
       "@type": "PropertyValue",

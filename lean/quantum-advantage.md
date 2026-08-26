@@ -27,15 +27,15 @@ next reader recomputes rather than something this report asserts.
 | hexbit tile | 2^4 | declared | 10^1 ns per hexbit tile compiled from an address | 10^8 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | handle | 2^32 | declared | 10^2 ns per handle read to its value and residue | 10^7 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | uuid | 2^128 | declared | 10^3 ns per address folded from a distinct seed | 10^6 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
-| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 12690 | 0 | better than 1 in 12690 | 12 errors |
+| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 12714 | 0 | better than 1 in 12714 | 12 errors |
 
 ### The sealed quantum algebra, executed on this silicon
 
 The gate algebra that quantum hardware implements *physically* — the Pauli group, the Clifford count, the CNOT
 and Toffoli permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa interference — was executed here in
 exact Gaussian integers, with no floating point at any step, and every result compared to what a Lean kernel
-decided by exhaustive case analysis. **48 witnesses · 109 sweeps ·
-17113 decisions · 0 disagreements · verdict EXACT.**
+decided by exhaustive case analysis. **50 witnesses · 109 sweeps ·
+17985 decisions · 0 disagreements · verdict EXACT.**
 
 **Coverage: 47 of the quantum wing's 51 theorems**, and the 4 this battery
 does not decide are named rather than counted: `all_signaling_duality`, `chsh_beats_classical`, `merkle_sort_invariant`, `ym_quantum`. The battery is a
@@ -44,7 +44,7 @@ another session on the night this was written, and nothing noticed until the den
 the rest state things this simulator cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
-Better than one disagreement per 17113 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide.
+Better than one disagreement per 17985 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up
 as a shrinking count and not as an unchanged green verdict. This run refused 0.
@@ -99,6 +99,8 @@ as a shrinking count and not as an unchanged green verdict. This run refused 0.
 | [closure_is_coprime](https://uuidna.com/theorem/closure_is_coprime) | 5 | 545 | 0 | every walk this system closes is closed by a generator coprime to its ring |
 | [four_messages_two_bits](https://uuidna.com/theorem/four_messages_two_bits) | 1 | 109 | 0 | the order-8 signed group carries four distinguishable messages: 8/2 = 4 = 2² |
 | [store_fold_order_invariant](https://uuidna.com/theorem/store_fold_order_invariant) | 1 | 109 | 0 | the fold gives one root for all six orderings of three members |
+| [hexbit_ring_mass_gap](https://uuidna.com/theorem/hexbit_ring_mass_gap) | 4 | 436 | 0 | live hexbitRingMassGap/computeMassGap matches the sealed ring Δ and window |
+| [born_field_mass_gap_on_bell](https://uuidna.com/theorem/born_field_mass_gap_on_bell) | 4 | 436 | 0 | live massGapOnBellBornField/bellBornWeights match the sealed Born Δ and weights |
 
 ### The fourth axis — the only one that rewards scale
 
@@ -145,9 +147,9 @@ silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto spe
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `25c6bb39-2de9-8f67-a81a-99140bdb6ed7`.
+*exist* cannot see. Dispatch receipt: `f5461871-c767-8b19-a841-b1aeac8e7f9d`.
 
-Report receipt: `b4670fba-832e-8a55-889a-82192709cdf4` · measured-when as its own handle: `b4670fba`.
+Report receipt: `ab58e5d1-49d5-870d-a120-62fde56ea87b` · measured-when as its own handle: `ab58e5d1`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->
