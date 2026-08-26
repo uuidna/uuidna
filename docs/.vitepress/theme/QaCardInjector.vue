@@ -10,6 +10,7 @@ import { useRoute } from 'vitepress'
 import QaMetrics from './QaMetrics.vue'
 import { data as ledger } from '../ledger.data'
 import { data as pubs } from '../publications.data'
+import { data as advantage } from '../advantage.data'
 
 const SELECTORS = [
   '.VPFeature',
@@ -37,10 +38,16 @@ function ctxFromEl(el) {
   const th = href.match(/\/theorem\/([^/#?]+)/)
   if (th) {
     const t = byKey.get(th[1])
+    const address = t?.address ?? ''
     return {
-      address: t?.address ?? '',
-      handle: t?.address ? t.address.replace(/-/g, '').slice(0, 8) : '',
+      address,
+      handle: address ? address.replace(/-/g, '').slice(0, 8) : '',
       label: th[1],
+      keyName: th[1],
+      slug: '',
+      objectKind: 'theorem',
+      heartbeats: address && advantage.heartbeats[address] ? advantage.heartbeats[address] : null,
+      sealCount: null,
     }
   }
   const pub = href.match(/\/publications\/([^/#?]+)/)
@@ -50,16 +57,33 @@ function ctxFromEl(el) {
       address: p?.address ?? '',
       handle: p?.receipt ? p.receipt.replace(/-/g, '').slice(0, 8) : '',
       label: pub[1],
+      keyName: '',
+      slug: pub[1],
+      objectKind: 'publication',
+      heartbeats: null,
+      sealCount: p?.count ?? null,
     }
   }
   // uuidna-card carries data-proof and meta identifier
   const meta = el.querySelector('meta[itemprop="identifier"]')
   const addr = meta?.getAttribute('content') || ''
   if (addr) {
-    return { address: addr, handle: addr.replace(/-/g, '').slice(0, 8), label: '' }
+    return {
+      address: addr,
+      handle: addr.replace(/-/g, '').slice(0, 8),
+      label: '',
+      keyName: '',
+      slug: '',
+      objectKind: 'card',
+      heartbeats: advantage.heartbeats[addr] || null,
+      sealCount: null,
+    }
   }
   const title = el.querySelector('h2, h3, .title, .name')?.textContent?.trim() || ''
-  return { address: '', handle: '', label: title.slice(0, 48) }
+  return {
+    address: '', handle: '', label: title.slice(0, 48),
+    keyName: '', slug: '', objectKind: 'card', heartbeats: null, sealCount: null,
+  }
 }
 
 function teardown() {
@@ -93,6 +117,11 @@ function inject() {
         address: ctx.address,
         handle: ctx.handle,
         label: ctx.label,
+        keyName: ctx.keyName,
+        slug: ctx.slug,
+        objectKind: ctx.objectKind,
+        heartbeats: ctx.heartbeats,
+        sealCount: ctx.sealCount,
       }),
     })
     app.mount(host)

@@ -34,5 +34,15 @@ test('QaMetrics cites measured usable-capacity gap, not blanket denial', () => {
   const vue = readFileSync(join(THEME, 'QaMetrics.vue'), 'utf8')
   assert.match(vue, /gapFactor/)
   assert.doesNotMatch(vue, /no physics quantum advantage is claimed/i)
-  assert.match(vue, /advantage\.data|usable_gap/)
+  assert.match(vue, /advantage\.data|usable_gap|pageAdvantageMetrics/)
+})
+
+test('QaMetrics wires page-local metrics from pageAdvantageMetrics', () => {
+  const vue = readFileSync(join(THEME, 'QaMetrics.vue'), 'utf8')
+  assert.match(vue, /pageAdvantageMetrics/)
+  assert.match(vue, /data-metrics="page"/)
+  assert.match(vue, /heartbeat/)
+  const qa = readFileSync(join(THEME, 'QuantumAdvantage.vue'), 'utf8')
+  assert.match(qa, /heartbeats/)
+  assert.match(qa, /objectKind|object-kind/)
 })

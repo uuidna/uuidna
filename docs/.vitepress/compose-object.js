@@ -149,6 +149,7 @@ export function composeTheorem(t) {
   const handle = t.address.replace(/-/g, '').slice(0, 8)
   const heroTitle = heroTitleOf(t)
   const handleDoor = 'https://uuidna.com/' + handle
+  const heartbeats = HB[t.address]
   return {
     params: {
       kind: 'theorem',
@@ -167,6 +168,7 @@ export function composeTheorem(t) {
       handle,
       handleUrl: handleDoor,
       depositReferrer: handleDoor,
+      heartbeats: heartbeats !== undefined ? heartbeats : null,
       locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
     },
     content: `> ${mdSafe(t.name)}
@@ -235,6 +237,7 @@ export function composePublication(p) {
       handle,
       handleUrl: handleDoor,
       depositReferrer: handleDoor,
+      sealCount: p.count,
       locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
     },
     content: `${body}

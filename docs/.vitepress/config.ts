@@ -104,6 +104,7 @@ export default defineConfig({
       address?: string; key?: string; slug?: string; statement?: string; tactic?: string; principle?: string
       title?: string; heroTitle?: string; abstract?: string; handle?: string; handleUrl?: string
       depositReferrer?: string; objectKind?: string; locales?: string[]
+      heartbeats?: number | null; sealCount?: number | null
     } | undefined
     if (p) {
       const fm = pageData.frontmatter as Record<string, unknown>
@@ -115,6 +116,8 @@ export default defineConfig({
       if (p.depositReferrer != null) fm.depositReferrer ??= p.depositReferrer
       if (p.objectKind != null) fm.objectKind ??= p.objectKind
       if (p.locales != null) fm.locales ??= p.locales
+      if (p.heartbeats != null) fm.heartbeats ??= p.heartbeats
+      if (p.sealCount != null) fm.sealCount ??= p.sealCount
     }
     const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')

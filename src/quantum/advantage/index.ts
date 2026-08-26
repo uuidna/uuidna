@@ -42,6 +42,13 @@ import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
 import type { HonestyClass } from '../../microdata.js'
 
+export {
+  pageAdvantageMetrics,
+  costBarOf,
+  type PageMetricsInput,
+  type PageAdvantageMetrics,
+} from './page/metrics/index.js'
+
 /** Integer floor division. The folds here are exact arithmetic and the float-rounding intrinsics are hard-
  *  rejected by the laws gate (eslint-rules/no-float-math, and smoke.test.js scans the source for the name
  *  itself); for non-negative operands this IS the floor, written the way the rule asks. */

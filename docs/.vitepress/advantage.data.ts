@@ -54,6 +54,10 @@ export type AdvantageMonitor = {
   ledgerCount: number
   honest: string
   host: string
+  /** per-theorem decide-step costs keyed by content-address (lean/heartbeats.json) */
+  heartbeats: Record<string, number>
+  maxHeartbeats: number
+  medianHeartbeats: number
 }
 
 declare const data: AdvantageMonitor
@@ -79,15 +83,23 @@ export default {
   watch: [
     '../../lean/quantum-advantage.json',
     '../../lean/quantum-capacity.json',
+    '../../lean/heartbeats.json',
     '../../docs/public/quantum-advantage.jsonld',
     '../../docs/public/quantum-capacity.jsonld',
   ],
   load(): AdvantageMonitor {
     const qaPath = join(ROOT, 'lean/quantum-advantage.json')
     const capPath = join(ROOT, 'lean/quantum-capacity.json')
+    const hbPath = join(ROOT, 'lean/heartbeats.json')
     if (!existsSync(qaPath)) {
       throw new Error('lean/quantum-advantage.json missing — run gen-quantum-advantage off the push path first')
     }
+    const heartbeats: Record<string, number> = existsSync(hbPath)
+      ? ((JSON.parse(readFileSync(hbPath, 'utf8')) as { costs?: Record<string, number> }).costs ?? {})
+      : {}
+    const hbValues = Object.values(heartbeats).filter((n) => n > 0).sort((a, b) => a - b)
+    const maxHeartbeats = hbValues.length ? hbValues[hbValues.length - 1] : 0
+    const medianHeartbeats = hbValues.length ? hbValues[(hbValues.length - (hbValues.length % 2)) / 2] : 0
     const qa = JSON.parse(readFileSync(qaPath, 'utf8')) as {
       receipt?: string
       report?: {
@@ -178,6 +190,9 @@ export default {
         qa.report?.honest ??
         'TypeScript computes; VitePress monitors. Measured usable-capacity quantum advantage: theorem usable_gap_is_two_to_eighty.',
       host,
+      heartbeats,
+      maxHeartbeats,
+      medianHeartbeats,
     }
   },
 }

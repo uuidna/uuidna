@@ -98,6 +98,14 @@ export {
   type QuantumAdvantageAudit,
 } from './quantum/advantage/audit/index.js'
 
+// per-page QA metrics — TypeScript computes; VitePress monitors (not the global capacity bag alone)
+export {
+  pageAdvantageMetrics,
+  costBarOf,
+  type PageMetricsInput,
+  type PageAdvantageMetrics,
+} from './quantum/advantage/page/metrics/index.js'
+
 // zenodo-publish — DOI minting is WORKFLOW-ONLY (publish.yml job zenodo)
 export {
   zenodoPublishAllowed,
