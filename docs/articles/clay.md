@@ -1,15 +1,15 @@
 ---
 title: "The seven reflected"
-description: "Computed from lean/Clay.lean — 7 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Clay.lean — 8 sealed theorems, every claim citing its proof."
 ---
 
 # The seven reflected
 
-> THE SEVEN MILLENNIUM PROBLEMS — one FINITE instance each, drawn from that problem’s own mathematics and decided here. A decided window is not the conjecture: each key names the instance, never the problem. Prior art (initial clay σ-involution): DOI 10.5281/zenodo.21781603 (https://zenodo.org/records/21781603). uuidna Clay.lean seals finite instances of that reflection — solves none. Cite DOI 10.5281/zenodo.21781603; live surface https://uuidna.com/articles/clay. — held by [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) and its 6 siblings below.
+> THE SEVEN MILLENNIUM PROBLEMS — one FINITE instance each, drawn from that problem’s own mathematics and decided here. A decided window is not the conjecture: each key names the instance, never the problem. Prior art (initial clay σ-involution): DOI 10.5281/zenodo.21781603 (https://zenodo.org/records/21781603). uuidna Clay.lean seals finite instances of that reflection — solves none. Cite DOI 10.5281/zenodo.21781603; live surface https://uuidna.com/articles/clay. — held by [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) and its 7 siblings below.
 
-**7 theorems**, from [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) onward, each proven `by decide` in [lean/Clay.lean](/lean/Clay.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen). A boundary stated here is decided.
+**8 theorems**, from [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) onward, each proven `by decide` in [lean/Clay.lean](/lean/Clay.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FClay.lean)** — nothing to install. The editor fetches `lean/Clay.lean` from the repository and re-decides all 7 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FClay.lean)** — nothing to install. The editor fetches `lean/Clay.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### P vs NP, the counting argument at two bits: there are 16 boolean functions on two inputs, and exactly 4 are a single conjunction of literals — the ones whose truth table has exactly one satisfying row. A class of size 4 cannot cover 16, so expressive power is COUNTED here rather than asserted. This decides the instance, never the conjecture.
 The ledger holds this as [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) — proven `by decide`, sorry-free:
@@ -58,6 +58,13 @@ The ledger holds this as [torus_betti_alternates_to_zero](/theorem/torus_betti_a
 
 ```lean
 ((1:Int) - 2 + 1 = 0) ∧ (([1,2,1] : List Int).length = 3)
+```
+
+### CLAY GRAVITY EQUALS THE ROSETTA AT FULL CAPACITY — the seven finite Clay instances share one cardinality with the Pliska rosette ℤ/7 (ray count 7, directed quantum 7·6 = 42, undirected pairs 21, three-sevens 7+7+7 = 21), and the rosette's own doubling reaches the full address: 2·21 = 42 ∧ 2·64 = 128 ∧ 110−108 = 2. Same chain the ledger seals as z7rays_seven, rosette_quantum_fortytwo, rosette_pairs_twentyone, three_sevens_twentyone, and rosette_quantum_doubling_is_two_coins — computational claim, by decide.
+The ledger holds this as [clay_gravity_equals_rosette](/theorem/clay_gravity_equals_rosette) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 7).length = 7 ∧ (7 * 6 = 42) ∧ ((7 * 6) / 2 = 21) ∧ (7 + 7 + 7 = 21) ∧ (3 * 7 = 21) ∧ (2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2)
 ```
 
 

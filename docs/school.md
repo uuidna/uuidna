@@ -57,7 +57,7 @@ When practice stalls on a theorem, the gap is almost never the theorem itself �
 skipped. The fix is never to invent a bridging theorem (a restatement is not a unity,
 [`unity_census_is_plural_and_needs_two`](/theorem/unity_census_is_plural_and_needs_two)); it is to **reorder the walk** so the sealed prerequisite comes
 first. And the prerequisite relation is not curated: it is scanned from the ledger itself — every sealed name
-that cites another sealed key IS a citation edge, 116 prerequisites over 137 edges at this
+that cites another sealed key IS a citation edge, 120 prerequisites over 142 edges at this
 generation, ranked by how many theorems rest on each. Walk the most-cited first; each row lists up to its first
 three citers alphabetically, and the count carries the rest.
 
@@ -65,6 +65,7 @@ three citers alphabetically, and the count carries the rest.
 | --- | ---: | --- |
 | [`window_not_universal`](/theorem/window_not_universal) | 4 | [`cubes_sum_to_square_of_triangle`](/theorem/cubes_sum_to_square_of_triangle), [`pluck_preserves_bound_at_the_window`](/theorem/pluck_preserves_bound_at_the_window), [`tet_semitone_no_rational_at_the_window`](/theorem/tet_semitone_no_rational_at_the_window) |
 | [`codons_sixty_four`](/theorem/codons_sixty_four) | 3 | [`octave_codon_address`](/theorem/octave_codon_address), [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not), [`payload_carries_the_strand`](/theorem/payload_carries_the_strand) |
+| [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) | 3 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen), [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette), [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
 | [`seats_pigeonhole`](/theorem/seats_pigeonhole) | 3 | [`collisions_are_forced_by_the_ceiling`](/theorem/collisions_are_forced_by_the_ceiling), [`fold_weak_hash`](/theorem/fold_weak_hash), [`gematria_forces_collisions`](/theorem/gematria_forces_collisions) |
 | [`verify_cheaper_than_forge`](/theorem/verify_cheaper_than_forge) | 3 | [`bramah_stood_sixty_seven_years`](/theorem/bramah_stood_sixty_seven_years), [`manipulation_never_faster`](/theorem/manipulation_never_faster), [`minting_is_free_and_forging_is_not`](/theorem/minting_is_free_and_forging_is_not) |
 | [`a440_drifts_eight_from_the_lattice`](/theorem/a440_drifts_eight_from_the_lattice) | 2 | [`a440_drift_is_heard`](/theorem/a440_drift_is_heard), [`a440_drift_walked_in_history`](/theorem/a440_drift_walked_in_history) |
@@ -75,7 +76,6 @@ three citers alphabetically, and the count carries the rest.
 | [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) | 2 | [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence), [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) |
 | [`moduli_waste_states`](/theorem/moduli_waste_states) | 2 | [`door_of_the_referrer`](/theorem/door_of_the_referrer), [`handles_balance_the_load_for_free`](/theorem/handles_balance_the_load_for_free) |
 | [`pythagorean_comma_is_the_drift`](/theorem/pythagorean_comma_is_the_drift) | 2 | [`no_power_of_three_is_a_power_of_two`](/theorem/no_power_of_three_is_a_power_of_two), [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) |
-| [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) | 2 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen), [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) |
 | [`tet_semitone_no_integer_lattice`](/theorem/tet_semitone_no_integer_lattice) | 2 | [`bounded_silence_is_not_evidence`](/theorem/bounded_silence_is_not_evidence), [`tet_semitone_no_rational_at_the_window`](/theorem/tet_semitone_no_rational_at_the_window) |
 | [`uuid_mix_census_is_quantum`](/theorem/uuid_mix_census_is_quantum) | 2 | [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census), [`uuid_mix_census_halves`](/theorem/uuid_mix_census_halves) |
 | [`xor_preserves_distance`](/theorem/xor_preserves_distance) | 2 | [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial), [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) |
@@ -149,6 +149,8 @@ three citers alphabetically, and the count carries the rest.
 | [`queen_corner_twentyone`](/theorem/queen_corner_twentyone) | 1 | [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) |
 | [`rosette_and_vortex_are_coprime`](/theorem/rosette_and_vortex_are_coprime) | 1 | [`two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime`](/theorem/two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime) |
 | [`rosette_orbit`](/theorem/rosette_orbit) | 1 | [`z7_primitive_roots_are_three_and_five`](/theorem/z7_primitive_roots_are_three_and_five) |
+| [`rosette_pairs_twentyone`](/theorem/rosette_pairs_twentyone) | 1 | [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
+| [`rosette_quantum_fortytwo`](/theorem/rosette_quantum_fortytwo) | 1 | [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
 | [`sanitize_bidi_points_are_nine`](/theorem/sanitize_bidi_points_are_nine) | 1 | [`fold_trojan_source_bidi`](/theorem/fold_trojan_source_bidi) |
 | [`sanitize_max_depth_is_two_pow_five`](/theorem/sanitize_max_depth_is_two_pow_five) | 1 | [`fold_resource_dos`](/theorem/fold_resource_dos) |
 | [`sanitize_poison_keys_are_three`](/theorem/sanitize_poison_keys_are_three) | 1 | [`fold_prototype_pollution`](/theorem/fold_prototype_pollution) |
@@ -162,6 +164,7 @@ three citers alphabetically, and the count carries the rest.
 | [`tamper_set_counts_eight_thousand`](/theorem/tamper_set_counts_eight_thousand) | 1 | [`parity_bit_rejects_half_the_byte_tamper_set`](/theorem/parity_bit_rejects_half_the_byte_tamper_set) |
 | [`tens_complement_involutive`](/theorem/tens_complement_involutive) | 1 | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) |
 | [`the_page_admits_sixteen`](/theorem/the_page_admits_sixteen) | 1 | [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) |
+| [`three_sevens_twentyone`](/theorem/three_sevens_twentyone) | 1 | [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
 | [`tile_tamper_distance_census_is_binomial`](/theorem/tile_tamper_distance_census_is_binomial) | 1 | [`parity_bit_rejects_half_the_byte_tamper_set`](/theorem/parity_bit_rejects_half_the_byte_tamper_set) |
 | [`torus_betti_alternates_to_zero`](/theorem/torus_betti_alternates_to_zero) | 1 | [`t7_even_odd_boards_equal`](/theorem/t7_even_odd_boards_equal) |
 | [`traitor_damage_sealed_by_same_billing`](/theorem/traitor_damage_sealed_by_same_billing) | 1 | [`manipulation_never_faster`](/theorem/manipulation_never_faster) |
@@ -179,6 +182,7 @@ three citers alphabetically, and the count carries the rest.
 | [`words_stand_three_apart`](/theorem/words_stand_three_apart) | 1 | [`hamming_differences_are_the_code`](/theorem/hamming_differences_are_the_code) |
 | [`ym_quantum`](/theorem/ym_quantum) | 1 | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) |
 | [`z7primitive_root_3`](/theorem/z7primitive_root_3) | 1 | [`z7_primitive_roots_are_three_and_five`](/theorem/z7_primitive_roots_are_three_and_five) |
+| [`z7rays_seven`](/theorem/z7rays_seven) | 1 | [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
 <!-- /prereqs -->
 
 ## The session lessons — a real semester's transcript
@@ -207,7 +211,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    fingerprint what their (principle, theorem set) already fixed — **1 hexbit** of pure restatement
    ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)), priced in the unit and not in milliseconds, because a wall-clock figure moves
    with the host and a practice carrying a number that moves goes stale.
-   **The boundary:** the same reasoning was turned on the 2114-frame aura film and it was wrong. The aura IS
+   **The boundary:** the same reasoning was turned on the 2115-frame aura film and it was wrong. The aura IS
    a pure function of the address, so the digests do move together — but folding addresses computes no aura, and the
    leaf keeps the name. An aura is only an aura if it is DERIVED from the algebra: ray from ℤ/7, wave from the ℤ/9
    vortex orbit, hue by the A432 step ([`z7rays_seven`](/theorem/z7rays_seven)). A value named for a computation must be computed by
@@ -697,7 +701,7 @@ or judgment — those stay with the student; the court decides meaning. Integrit
 <!-- wings: GENERATED by scripts/gen-school — every sealed wing, so none is invisible -->
 ## The wings — all 115, computed from the ledger
 
-Every wing the ledger seals, largest first: 2114 theorems across 115 wings and 107 skills.
+Every wing the ledger seals, largest first: 2115 theorems across 115 wings and 107 skills.
 This table is derived at generation — a wing sealed today appears here today, and one that is renamed cannot linger.
 Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 
@@ -756,6 +760,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The orbits | `Orbits.lean` | orbits | 9 | [`covering_seeds_are_named`](/theorem/covering_seeds_are_named) |
 | The layered defence | `Security.lean` | security | 9 | [`birthday_halves_the_exponent`](/theorem/birthday_halves_the_exponent) |
 | The geared computer of Rhodes | `Antikythera.lean` | antikythera | 8 | [`callippic_corrects_by_four`](/theorem/callippic_corrects_by_four) |
+| The seven reflected | `Clay.lean` | clay | 8 | [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |
 | The error-correcting codes | `Codes.lean` | codes | 8 | [`codewords_sparse`](/theorem/codewords_sparse) |
 | The fused ring | `Crt.lean` | crt | 8 | [`axes_stride_coprime`](/theorem/axes_stride_coprime) |
 | Diving — trimix gas laws | `Diving.lean` | diving | 8 | [`absolute_pressure_at_depth`](/theorem/absolute_pressure_at_depth) |
@@ -767,7 +772,6 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The spectrum | `Spectrum.lean` | spectrum | 8 | [`inverse_at_fixed_c`](/theorem/inverse_at_fixed_c) |
 | The structures domain | `Statics.lean` | statics | 8 | [`beam_reactions`](/theorem/beam_reactions) |
 | The torus dimensions | `Torus.lean` | torus | 8 | [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) |
-| The seven reflected | `Clay.lean` | clay | 7 | [`closed_grid_differences_sum_to_zero`](/theorem/closed_grid_differences_sum_to_zero) |
 | Command authentication | `Command.lean` | command | 7 | [`accept_matches_spec`](/theorem/accept_matches_spec) |
 | The time coordinate | `Ephemeris.lean` | ephemeris | 7 | [`gregorian_leap_rule`](/theorem/gregorian_leap_rule) |
 | The models | `Models.lean` | models | 7 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) |

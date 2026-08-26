@@ -164,21 +164,21 @@
     },
     "cost": {
      "opNsDecade": 3,
-     "over": 211400,
+     "over": 211500,
      "opsPerSecondDecade": 6,
      "class": "measured",
      "what": "theorem statement re-addressed in a full sweep",
      "agreedEstimates": 5
     },
     "fidelity": {
-     "ops": 12684,
+     "ops": 12690,
      "disagreements": 0,
-     "bound": 12684,
+     "bound": 12690,
      "baselineExpected": 12,
      "class": "measured"
     },
-    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor in the 10^3 ns decade per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 12684 executions on this host — an upper bound of better than one error per 12684, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 12 errors over the same count.",
-    "address": "f2c353a4-3a78-8b5d-b62b-c51d04fe55da"
+    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor in the 10^3 ns decade per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 12690 executions on this host — an upper bound of better than one error per 12690, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 12 errors over the same count.",
+    "address": "0fdfd456-70c3-88e3-8db2-121f8ee9b31e"
    }
   ],
   "baseline": {
@@ -191,7 +191,7 @@
   "levelsDeclared": 4,
   "complete": true,
   "unsealable": [],
-  "receipt": "0e9b75c2-a6eb-8772-9e7e-a7f3b1bcd460",
+  "receipt": "b4670fba-832e-8a55-889a-82192709cdf4",
   "honest": "TypeScript computes the sealed quantum algebra (quantum by architecture). Measured quantum advantage on the published axes: usable capacity 2^128 vs reported logical platforms (theorem usable_gap_is_two_to_eighty) and per-level COST/FIDELITY on this host. Three axes on every row: REACH (declared), COST (steady-state floor here), FIDELITY (upper bound from an executed count, never a proof of zero). This is not a superconducting QPU claim and not a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost and is not that claim. Every figure carries its determination class. Rerun the generator on your own host for your own numbers."
  },
  "proof": {
@@ -711,7 +711,7 @@
     "reason": "VERIFIED — witnessed by sealed theorem handle_capacity_is_quantum_by_architecture, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
-    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor in the 10^3 ns decade per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 12684 executions on this host — an upper bound of better than one error per 12684, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 12 errors over the same count.",
+    "claim": "At the sealed ledger level uuidna sweeps the whole sealed ledger (bounded by theorem n_qubit_dimension), at a measured steady-state floor in the 10^3 ns decade per theorem statement re-addressed in a full sweep; no disagreement with the Lean-sealed value was observed across 12690 executions on this host — an upper bound of better than one error per 12690, never a proof of zero, where the reported gate-model physical two-qubit gate (superconducting / trapped-ion class) class predicts 12 errors over the same count.",
     "witness": "n_qubit_dimension",
     "verdict": "VERIFIED",
     "cites": [
@@ -720,12 +720,12 @@
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "26ba3110-9c2a-8a01-9c64-ba430bdd807f",
+     "id": "3189fe91-5b38-81bb-a6e2-680a339f56dd",
      "theoremAddress": "7ec03d8b-b207-8971-b880-26ae9bd99276",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#57e345",
-     "fold": "29f54053-231f-8391-8477-d1517981095b"
+     "aura": "#d5485b",
+     "fold": "2e3ed359-b5eb-87a8-b7b7-ace83035c118"
     },
     "reason": "VERIFIED — witnessed by sealed theorem n_qubit_dimension, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
@@ -752,8 +752,8 @@
   "passed": 5,
   "refused": [],
   "clear": true,
-  "receipt": "3223df89-4c08-8f00-b416-e9027d5cd3cc"
+  "receipt": "25c6bb39-2de9-8f67-a81a-99140bdb6ed7"
  },
- "receipt": "0e9b75c2-a6eb-8772-9e7e-a7f3b1bcd460",
- "address": "b96a703e-48d2-82f4-9daf-adb9263b6a2a"
+ "receipt": "b4670fba-832e-8a55-889a-82192709cdf4",
+ "address": "25be7806-0138-8bb9-8f39-78b95541a702"
 }

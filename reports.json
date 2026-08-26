@@ -5,17 +5,17 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 2033,
-        "keys": 2114,
+        "distinct": 2034,
+        "keys": 2115,
         "renamings": 81,
         "principles": 115,
         "skills": 112,
         "coins": 2,
         "largestPrinciple": "The conveyor's first wave (467)",
         "smallestPrinciple": "One leap (1)",
-        "ledgerReceipt": "0fcc5c62-5992-8ca9-8cd6-fcedabfce951"
+        "ledgerReceipt": "cd41e429-f84e-87f5-9c00-27fca33714f4"
       },
-      "address": "e7d3357c-3f2f-8233-bab7-d705878e6c66"
+      "address": "03290c3f-b9a2-8f61-ab51-aed57a776729"
     },
     {
       "title": "Heartbeat coverage",
@@ -23,12 +23,12 @@
       "present": true,
       "facts": {
         "theoremsMeasured": 2114,
-        "ledgerKeys": 2114,
-        "unmeasured": 0,
+        "ledgerKeys": 2115,
+        "unmeasured": 1,
         "decideStepsHexbits": 5,
         "decideStepsBits": 21
       },
-      "address": "3a677628-68e2-88ec-804d-d56939bbc1fe"
+      "address": "f378a8c1-37ff-8af5-a561-3faa2deabb29"
     },
     {
       "title": "Citation audit",
@@ -70,12 +70,12 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "3aea74ad3743bf92",
-        "unifiedFold": "dc7d71e74c8b9583"
+        "foldReceipt": "a3458d1f6558f081",
+        "unifiedFold": "8b6613ebfcdbe41f"
       },
-      "address": "97dc34f7-39b6-80d7-a326-6ebdd9610179"
+      "address": "ab8763e8-936d-8f70-9abe-947a1f055a1e"
     }
   ],
-  "receipt": "e8eb8347-e60d-834b-b47b-63d3e17d59e0",
+  "receipt": "433b0af8-24bd-8e2e-8caf-86c2c248aff7",
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess."
 }

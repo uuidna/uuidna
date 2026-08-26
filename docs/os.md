@@ -38,7 +38,7 @@ named `src/os` boundary on every lean run, never hand-frozen.
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,678 community packages ≪ 2^128.
-- **Time:** community compile sweep **41,621,417 ns** (~**1,835 ns**/package); man-page corpus **10,725,125 ns** (~**2,253 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep **44,604,667 ns** (~**1,966 ns**/package); man-page corpus **12,407,375 ns** (~**2,607 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
@@ -50,7 +50,7 @@ named `src/os` boundary on every lean run, never hand-frozen.
 resolved by the `man <topic>` applet in uuidnaOS and compiled to 32 hexbit states — provenance
 identity, never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
-Monitor receipt `2057055d-d65b-880a-8a1e-dff32c72fad8` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
+Monitor receipt `faaf302f-9997-84d3-b63b-360c2b029fef` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
 ## Ported lowest level first — firmware and up
 

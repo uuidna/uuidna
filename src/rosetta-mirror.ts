@@ -247,6 +247,7 @@ four_simplex_boundary_euler_is_zero 19
 levi_civita_nonzero_on_six_of_twentyseven 19
 closed_grid_differences_sum_to_zero 19
 torus_betti_alternates_to_zero 19
+clay_gravity_equals_rosette 27
 #Clock.lean
 residue_walks_the_orbit 19
 residue_returns_step_does_not 19

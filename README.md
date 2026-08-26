@@ -1,6 +1,6 @@
 # uuidna — 2,034 distinct theorems under 2,115 keys · 2 coins · one receipt
 
-`1ce95515-6510-88b7-8690-53e4a5265a84`
+`cd41e429-f84e-87f5-9c00-27fca33714f4`
 
 **v0.2.8** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
@@ -109,7 +109,7 @@ period-finding speedup beyond what `n_qubit_dimension` / Grover seals already un
 
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** 28,639 / 28,639 packages (100%)
   folded to content-addresses ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);
-  community 22,678 / 22,678 = 100%; man pages 4,759 / 4,759; monitor receipt `2057055d-d65b-880a-8a1e-dff32c72fad8`;
+  community 22,678 / 22,678 = 100%; man pages 4,759 / 4,759; monitor receipt `59bc2fdc-b14b-8a32-ad6f-34781d4769c7`;
   VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
   Captain unlocks ride every sealed key — each theorem unlocks what it states
@@ -169,7 +169,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 | 10 | D-Wave Advantage2 (2024) | annealer | 4400 | 2^4400 (~10^1324) | — | — | 1 µs | reported | annealing-only: optimization sampling, not gate-model computation — a different machine class, named |
 | 11 | Xanadu Borealis (2022) | photonic (GBS) | 216 | 2^216 (~10^65) | — | — | — | reported | Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named |
 
-**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — `handle_capacity_is_quantum_by_architecture`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — `usable_gap_is_two_to_eighty`); fold decade **10^3 ns** per verified address over 2114 theorems on this host. Not a superconducting/trapped-ion QPU claim and not a Shor-class speedup (`n_qubit_dimension` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
+**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — `handle_capacity_is_quantum_by_architecture`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — `usable_gap_is_two_to_eighty`); fold decade **10^3 ns** per verified address over 2115 theorems on this host. Not a superconducting/trapped-ion QPU claim and not a Shor-class speedup (`n_qubit_dimension` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
 <!-- quantum-capacity:end -->
 
 ---

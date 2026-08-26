@@ -3,8 +3,8 @@
 **Generated:** 2026-08-26
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2114/2114 theorems — every one, by construction
-**Claim receipt:** `e675e06c-1f47-8f64-bf45-77d80c3442a9`
+**Total claimed:** 2115/2115 theorems — every one, by construction
+**Claim receipt:** `026090c3-7b27-8817-8c74-aeebb9b0a49c`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -106,12 +106,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The seven reflected
 
-- **Theorems:** 7
+- **Theorems:** 8
 - **Sample lineAddress:** `c5f5ee90-beed-843f-a076-da8ab7d9aed6`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) · [mertens_squared_under_n_on_the_first_twenty](/theorem/mertens_squared_under_n_on_the_first_twenty) · [hasse_bound_holds_at_four_primes](/theorem/hasse_bound_holds_at_four_primes) · [four_simplex_boundary_euler_is_zero](/theorem/four_simplex_boundary_euler_is_zero) · [levi_civita_nonzero_on_six_of_twentyseven](/theorem/levi_civita_nonzero_on_six_of_twentyseven) · [closed_grid_differences_sum_to_zero](/theorem/closed_grid_differences_sum_to_zero) · [torus_betti_alternates_to_zero](/theorem/torus_betti_alternates_to_zero)
+[two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) · [mertens_squared_under_n_on_the_first_twenty](/theorem/mertens_squared_under_n_on_the_first_twenty) · [hasse_bound_holds_at_four_primes](/theorem/hasse_bound_holds_at_four_primes) · [four_simplex_boundary_euler_is_zero](/theorem/four_simplex_boundary_euler_is_zero) · [levi_civita_nonzero_on_six_of_twentyseven](/theorem/levi_civita_nonzero_on_six_of_twentyseven) · [closed_grid_differences_sum_to_zero](/theorem/closed_grid_differences_sum_to_zero) · [torus_betti_alternates_to_zero](/theorem/torus_betti_alternates_to_zero) · [clay_gravity_equals_rosette](/theorem/clay_gravity_equals_rosette)
 
 ### The legal vocabulary
 
@@ -1059,7 +1059,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2033 (2114 entries, 81 re-namings — a theorem is its Lean |
+| sealed propositions | 2034 (2115 entries, 81 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1077,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2114 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2115 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

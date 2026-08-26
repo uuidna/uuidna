@@ -2117,7 +2117,7 @@ The diamond involution r(d)=10−d on a digit 1..9: self-inverse (diamond(diamon
 
 ### `uuidna_involute`
 
-Lift the diamond involution to a list: pair each element with its mirror across the centre (total, closed, self-inverse). An odd list has exactly one fixed centre; an even list none. Same shape as seal↔open on uuid streams and as singular↔plural on MCP parameter stems (tool-scope numberInvolute). Returns {pairs,fixed}.
+Lift the diamond involution to a list: pair each element with its mirror across the centre (total, closed, self-inverse). An odd list has exactly one fixed centre; an even list none. Returns {pairs,fixed}.
 
 **Parameters**
 

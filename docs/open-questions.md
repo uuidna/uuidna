@@ -195,7 +195,7 @@ page regrows without it.
 - **Fujishima-Honda experimental details: 500 W xenon lamp, few-mA currents, quantum efficiency ~0.1, bias required (recorded value: as stated)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`compass_opposites_involute`](/theorem/compass_opposites_involute) · [`complement_fixes_the_half`](/theorem/complement_fixes_the_half) </small>
-  <br><small>sealed neighbors: [`three_cell_vote_majority`](/theorem/three_cell_vote_majority) · [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) </small>
+  <br><small>sealed neighbors: [`three_cell_vote_majority`](/theorem/three_cell_vote_majority) · [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) · [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **The 85% rule does NOT apply to curriculum design (recorded value: optimum is 85% under Gaussian noise, 82% Laplacian, 75% Cauchy)**
   <br><small>door: the research ledger</small>
