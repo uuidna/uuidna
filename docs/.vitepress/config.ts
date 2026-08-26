@@ -106,10 +106,11 @@ export default defineConfig({
       title?: string; heroTitle?: string; abstract?: string; handle?: string; handleUrl?: string
       depositReferrer?: string; objectKind?: string; locales?: string[]
       heartbeats?: number | null; sealCount?: number | null
-      // Stock VitePress docFooter + ObjectCrosslinks graph (from compose-object / object-graph).
+      // Stock VitePress docFooter + ObjectCrosslinks graph + breadcrumbs (compose-object / object-graph).
       prev?: false | { text?: string; link?: string }
       next?: false | { text?: string; link?: string }
       crosslinks?: Record<string, unknown>
+      breadcrumbs?: { text: string; link?: string; handle?: string }[]
     } | undefined
     if (p) {
       const fm = pageData.frontmatter as Record<string, unknown>
@@ -131,6 +132,8 @@ export default defineConfig({
       if (p.prev !== undefined) fm.prev = p.prev
       if (p.next !== undefined) fm.next = p.next
       if (p.crosslinks != null) fm.crosslinks = p.crosslinks
+      // Stock Layout #doc-before breadcrumbs (Home → kind → id/handle).
+      if (p.breadcrumbs != null) fm.breadcrumbs = p.breadcrumbs
     }
     const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')

@@ -26,6 +26,7 @@ test('ObjectPage does not mount QuantumAdvantage, Dimensions FAB, or QaCardInjec
   assert.doesNotMatch(vue, /object-h1|object-hero/)
   assert.doesNotMatch(vue, /display:\s*none\s*!important/)
   assert.match(vue, /ObjectCrosslinks/)
+  assert.match(vue, /ObjectBreadcrumbs/)
   assert.ok(!existsSync(join(THEME, 'QaCardInjector.vue')))
   assert.ok(!existsSync(join(THEME, 'QaMetrics.vue')))
   assert.ok(!existsSync(join(THEME, 'QuantumAdvantage.vue')))

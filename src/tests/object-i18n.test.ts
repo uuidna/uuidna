@@ -128,6 +128,76 @@ test('ObjectCrosslinks wires full related-object graph via VPLink/VPButton (no c
   assert.match(vue, /relatedPubs|relatedPublications/)
 })
 
+test('ObjectBreadcrumbs: Layout doc-before + VPLink; Home → kind → id/handle (not the related graph)', async () => {
+  const page = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectPage.vue'), 'utf8')
+  assert.match(page, /ObjectBreadcrumbs/)
+  assert.match(page, /#doc-before/)
+  assert.match(page, /ObjectCrosslinks/, 'crosslinks must remain wired')
+  const crumbsVue = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectBreadcrumbs.vue'), 'utf8')
+  assert.match(crumbsVue, /VPLink/)
+  assert.match(crumbsVue, /objectBreadcrumbs|docsBreadcrumbs/)
+  assert.match(crumbsVue, /aria-label="Breadcrumb"/)
+  // Crumbs must not import related-graph chrome (that stays on ObjectCrosslinks).
+  assert.match(crumbsVue, /from ['"]\.\.\/object-graph\.js['"]/)
+  assert.doesNotMatch(crumbsVue, /import\s+.*ObjectCrosslinks/)
+  assert.doesNotMatch(crumbsVue, /graph\.rotation|skill\.prev|hasLeg\(/)
+
+  const { pathToFileURL } = await import('node:url')
+  const { objectBreadcrumbs, docsBreadcrumbs } = await import(
+    pathToFileURL(join(ROOT, 'docs/.vitepress/object-graph.js')).href
+  ) as {
+    objectBreadcrumbs: (o: { objectKind?: string; id?: string; handle?: string }) => { text: string; link?: string; handle?: string }[]
+    docsBreadcrumbs: (rel: string, title?: string) => { text: string; link?: string }[]
+  }
+  const th = objectBreadcrumbs({ objectKind: 'theorem', id: 'usable_gap_is_two_to_eighty', handle: 'abcd1234' })
+  assert.deepEqual(th.map((c) => c.text), ['Home', 'Theorems', 'usable_gap_is_two_to_eighty'])
+  assert.equal(th[0]!.link, '/')
+  assert.equal(th[1]!.link, '/theorems')
+  assert.equal(th[2]!.handle, 'abcd1234')
+  const ax = objectBreadcrumbs({ objectKind: 'axiom', id: 'kernel', handle: 'deadbeef' })
+  assert.deepEqual(ax.map((c) => c.text), ['Home', 'Axioms', 'kernel'])
+  assert.equal(ax[1]!.link, '/tests')
+  const pub = objectBreadcrumbs({ objectKind: 'publication', id: 'some-note', handle: 'cafef00d' })
+  assert.deepEqual(pub.map((c) => c.text), ['Home', 'Publications', 'some-note'])
+  assert.equal(pub[1]!.link, '/publications')
+
+  const nested = docsBreadcrumbs('articles/search-hexbit.md', 'Search hexbit')
+  assert.deepEqual(nested.map((c) => c.text), ['Home', 'Articles', 'Search hexbit'])
+  assert.equal(nested[1]!.link, '/articles')
+  const top = docsBreadcrumbs('doctrine.md', 'The doctrine')
+  assert.deepEqual(top.map((c) => c.text), ['Home', 'The doctrine'])
+  assert.deepEqual(docsBreadcrumbs('index.md'), [])
+})
+
+test('compose-object stamps breadcrumbs with prev/next + crosslinks (no essay bag)', async () => {
+  const { pathToFileURL } = await import('node:url')
+  const { theorems } = await import('../index.js')
+  const { composeTheorem } = await import(
+    pathToFileURL(join(ROOT, 'docs/.vitepress/compose-object.js')).href
+  ) as {
+    composeTheorem: (t: { address: string; key: string; name: string; principle: string; skill: string; statement: string; tactic: string; lean: string; file: string }) => {
+      params: {
+        breadcrumbs: { text: string; link?: string; handle?: string }[]
+        prev: false | { text: string; link: string }
+        next: false | { text: string; link: string }
+        crosslinks: { rotation: { discovery: { key: string } } }
+      }
+      content: string
+    }
+  }
+  const t = theorems().find((x) => x.key === 'usable_gap_is_two_to_eighty') || theorems()[1]
+  const page = composeTheorem(t)
+  assert.ok(page.params.breadcrumbs?.length >= 3)
+  assert.equal(page.params.breadcrumbs[0]!.link, '/')
+  assert.equal(page.params.breadcrumbs[1]!.link, '/theorems')
+  assert.equal(page.params.breadcrumbs[2]!.text, t.key)
+  assert.ok(page.params.crosslinks?.rotation?.discovery?.key)
+  assert.match(
+    readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8'),
+    /fm\.breadcrumbs\s*=\s*p\.breadcrumbs/,
+  )
+})
+
 test('compose-object stamps stock VPDocFooter prev/next + crosslinks graph (no essay bag)', async () => {
   const { pathToFileURL } = await import('node:url')
   const { theorems } = await import('../index.js')

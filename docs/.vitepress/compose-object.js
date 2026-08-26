@@ -5,14 +5,14 @@
 // URLs stay frozen: /theorem/<key>, /publications/<slug>. Handle doors 301 via worker HANDLES.
 //
 // Body law (dry-clean): statement · proof · field table · cite line.
-// Navigation chrome = stock VPDocFooter (prev/next from params) + ObjectCrosslinks (VPLink/VPButton axes).
+// Navigation chrome = stock VPDocFooter (prev/next) + ObjectBreadcrumbs (doc-before) + ObjectCrosslinks.
 // Do NOT regenerate cross-link essays or capacity/OS QA cards in content — no hero YAML bag leak.
 import { theorems, PRINCIPLES, publications, axiomWitness } from '../../dist/index.js'
 import { mirrorRows, legsFor } from '../../dist/rosetta-legs.js'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { theoremGraph, publicationGraph, shortTitle } from './object-graph.js'
+import { theoremGraph, publicationGraph, objectBreadcrumbs, shortTitle } from './object-graph.js'
 
 const HB = (() => {
   try { return JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../../lean/heartbeats.json'), 'utf8')).costs || {} } catch { return {} }
@@ -54,6 +54,7 @@ function legsRowOf(key) {
  * Stock VitePress H1 from markdown (`# title`); abstract/tagline is the lead under it.
  * Title/abstract also live in params (merged into frontmatter by transformPageData).
  * Crosslinks live in params (prev/next for stock VPDocFooter; graph for ObjectCrosslinks).
+ * Breadcrumbs: Home → Theorems → key (handle as leaf annotation) — not the related graph.
  * Do NOT emit YAML frontmatter in content — VitePress injects @content after the
  * route template preamble, so gray-matter never sees it and the bag leaks into the body. */
 export function composeTheorem(t) {
@@ -86,6 +87,7 @@ export function composeTheorem(t) {
       prev: graph.prev,
       next: graph.next,
       crosslinks: graph,
+      breadcrumbs: objectBreadcrumbs({ objectKind: 'theorem', id: t.key, handle }),
     },
     // Stock H1 = hero; full prose name is the tagline/lead under it (Lean statement stays in the formula block).
     content: `# ${mdSafe(heroTitle)}
@@ -148,6 +150,7 @@ export function composePublication(p) {
       prev: graph.prev,
       next: graph.next,
       crosslinks: graph,
+      breadcrumbs: objectBreadcrumbs({ objectKind: 'publication', id: p.slug, handle }),
     },
     content: `# ${mdSafe(p.title)}
 
@@ -172,4 +175,4 @@ export function allObjectPaths() {
   ]
 }
 
-export { shortTitle, theoremGraph, publicationGraph }
+export { shortTitle, theoremGraph, publicationGraph, objectBreadcrumbs }

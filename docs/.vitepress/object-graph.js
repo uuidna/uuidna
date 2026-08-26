@@ -101,3 +101,63 @@ export function publicationGraph(p, pubs) {
     next: next ? { text: next.title, link: next.link } : false,
   }
 }
+
+/** Section root for an object kind — Home → kind → id/handle (not the full related graph). */
+export const OBJECT_KIND_ROOT = Object.freeze({
+  theorem: { text: 'Theorems', link: '/theorems' },
+  publication: { text: 'Publications', link: '/publications' },
+  axiom: { text: 'Axioms', link: '/tests' },
+})
+
+/** Nested static-doc section roots (path segment → crumb). */
+export const DOC_SECTION_ROOT = Object.freeze({
+  articles: { text: 'Articles', link: '/articles' },
+  publications: { text: 'Publications', link: '/publications' },
+  theorem: { text: 'Theorems', link: '/theorems' },
+})
+
+/**
+ * objectBreadcrumbs({ objectKind, id, handle }) → [{ text, link? }, …]
+ * Trail: Home → kind section → id (or handle when id absent). Does NOT embed skill/principle/rotation.
+ */
+export function objectBreadcrumbs({ objectKind, id, handle } = {}) {
+  const home = { text: 'Home', link: '/' }
+  const kind = String(objectKind || '')
+  const section = OBJECT_KIND_ROOT[kind]
+  const leafText = String(id || handle || '').trim()
+  if (!leafText) return section ? [home, { ...section }] : []
+  const leaf = handle && id && handle !== id
+    ? { text: leafText, handle: String(handle) }
+    : { text: leafText }
+  if (!section) return [home, leaf]
+  return [home, { ...section }, leaf]
+}
+
+/**
+ * docsBreadcrumbs(relativePath, title?) → path crumbs for nested docs (and Home → page for top-level).
+ * Skips home (index) and dynamic [kind]/[id] templates (those use objectBreadcrumbs).
+ */
+export function docsBreadcrumbs(relativePath, title) {
+  const rel = String(relativePath || '').replace(/\\/g, '/')
+  if (!rel || rel.includes('[')) return []
+  let route = rel.replace(/\.md$/, '').replace(/\/index$/, '').replace(/^index$/, '')
+  if (!route) return []
+  const home = { text: 'Home', link: '/' }
+  const parts = route.split('/').filter(Boolean)
+  if (parts.length === 1) {
+    const text = (title && String(title).trim()) || parts[0]
+    return [home, { text }]
+  }
+  const section = DOC_SECTION_ROOT[parts[0]]
+  const leaf = (title && String(title).trim()) || parts[parts.length - 1]
+  if (section) return [home, { ...section }, { text: leaf }]
+  // Unknown nesting: Home → each segment (last current).
+  const crumbs = [home]
+  let acc = ''
+  for (let i = 0; i < parts.length; i++) {
+    acc += '/' + parts[i]
+    if (i < parts.length - 1) crumbs.push({ text: parts[i], link: acc })
+    else crumbs.push({ text: leaf })
+  }
+  return crumbs
+}

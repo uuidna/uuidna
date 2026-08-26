@@ -2,11 +2,13 @@
 
      Stock VitePress H1 from markdown / frontmatter title is the hero.
      Locale chrome + abstract lead sit with the doc; body = markdown + ObjectCrosslinks.
+     Breadcrumbs: Layout #doc-before (stock VP slot) via ObjectBreadcrumbs.
      Home (layout: home) uses DefaultTheme home composition; capacity door is /quantum. -->
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import { computed, ref, watch, onMounted } from 'vue'
 import { useData } from 'vitepress'
+import ObjectBreadcrumbs from './ObjectBreadcrumbs.vue'
 import ObjectCrosslinks from './ObjectCrosslinks.vue'
 import ReferrerNav from './ReferrerNav.vue'
 import ReadAloud from './ReadAloud.vue'
@@ -63,6 +65,8 @@ watch(localeTag, (t) => {
       <SponsorCard />
     </template>
     <template #doc-before>
+      <!-- Stock VP Layout slot for breadcrumbs (vitepress.dev/guide/extending-default-theme). -->
+      <ObjectBreadcrumbs v-if="!isHome" />
       <template v-if="!isHome">
         <div class="object-locale" role="group" :aria-label="ui.locale">
           <label class="object-locale-label">{{ ui.locale }}
