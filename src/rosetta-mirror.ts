@@ -49,7 +49,7 @@ conformance_failure_detects_intrusion 27
 honesty_gate_is_theorem_not_oracle 27
 overclaim_with_fake_cite_fails 27
 fraud_verdict_is_exactly_one 19
-fabricated_cite_stays_unverified 19
+fabricated_cite_stays_unverified 27
 #Antikythera.lean
 metonic_is_the_intercalation 27
 metonic_spiral_five_turns 27
@@ -250,7 +250,7 @@ torus_betti_alternates_to_zero 19
 clay_gravity_equals_rosette 27
 #Clock.lean
 residue_walks_the_orbit 19
-residue_returns_step_does_not 19
+residue_returns_step_does_not 27
 gap_is_a_count 19
 advance_only_moves_forward 19
 order_is_total_and_strict 19
@@ -885,8 +885,8 @@ pi_bracketed_by_finite_rationals 27
 dz_loses_nothing 19
 doubling_collapses_nine 19
 maps_differ_in_reach 19
-zero_closes_in_phase 19
-five_returns_out_of_phase 19
+zero_closes_in_phase 27
+five_returns_out_of_phase 27
 reach_shrinks_each_pass 19
 #Photography.lean
 full_stop_is_exact_doubling 27
@@ -1054,7 +1054,7 @@ reflection_splits_six 19
 classes_cap_at_two 19
 six_is_forced_arithmetic 19
 seven_reach_five_classes 19
-reflection_confuses_seven_three 19
+reflection_confuses_seven_three 27
 seventh_covers_reflection_cannot 19
 #Relativity.lean
 light_on_null_cone 27

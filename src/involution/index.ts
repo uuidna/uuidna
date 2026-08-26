@@ -128,11 +128,7 @@ const natDiv = (a: number, b: number): number => (b === 0 ? 0 : (a - (a % b)) / 
 
 /** Wing defs as sealed arithmetic — Reflection/Phase/Clock/AntiFraud; no List, no tables. */
 const dz = (x: number): number => (x === 0 ? 0 : 10 - x)
-const dbl = (d: number): number => {
-  const m = 9
-  const p = 2 * d
-  return m === 0 ? 0 : p % m
-}
+const dbl = (d: number): number => (2 * d) % 9
 const dzMin = (d: number): number => { const z = dz(d); return z < d ? z : d }
 const commission = (bits: number): number => 2 * natDiv(bits, 110)
 const verified = (c: number, s: number): number => c * s
