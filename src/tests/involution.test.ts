@@ -110,6 +110,20 @@ test('A TYPE ASCRIPTION IS NOT ARITHMETIC — stripped before the grammar is con
   assert.equal(holds('((2:Nat)^2 < 2^3) ∧ (2^3 = 8)'), true)
 })
 
+test('COMPOUND ASCRIPTIONS ARE STILL NOT ARITHMETIC — (expr : Nat|Int) stayed unreached for a token', () => {
+  // bell_normalized, kirchhoff_voltage, action_potential_swing — arithmetic annotated with : Nat / : Int.
+  assert.equal(stripAscriptions('(1*1 - 0*0 : Int)'), '(1*1 - 0*0)')
+  assert.equal(stripAscriptions('(40 - (-70) : Int)'), '(40 - (-70))')
+  assert.equal(evaluable('(12 - 4 - 8 : Int) = 0'), true)
+  assert.equal(holds('(12 - 4 - 8 : Int) = 0'), true)
+  assert.equal(holds('((1*1 + 0*0 + 0*0 + 1*1 : Nat) = 2) ∧ ((2:Nat) = 2^1)'), true)
+  assert.equal(holds('((40 - (-70) : Int) = 110) ∧ ((-70 : Int) < -55) ∧ ((-55 : Int) < 40)'), true)
+  assert.equal(holds('(3*3 - 5*5 : Int) < 0'), true)
+  assert.equal(holds('(3*3 - 5*5 : Int) > 0'), false)
+  // List forms still refuse — widening ascriptions must not start claiming what it cannot parse
+  assert.equal(holds('([1,0,0,1] : List Nat).length = 4'), null)
+})
+
 test('THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreached, never true', () => {
   // the condition this widening was accepted under: a form it cannot FULLY parse must be null, because an
   // `unreached` is a state a caller counts and a `true` is one they publish. A wider grammar that started

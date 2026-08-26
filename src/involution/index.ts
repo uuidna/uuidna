@@ -59,15 +59,22 @@ export const INVOLUTIONS: readonly Involution[] = [
  *  NOT relaxed is the refusal: `holds()` still returns null on any trailing input, so a form this reader only
  *  half-understands comes back UNREACHED and never true. A widened grammar that started reporting `true` for what
  *  it could not fully parse would be worse than the narrow one — it would turn a countable absence into a
- *  published claim, which is the exact defect this file was written to refuse. */
-const ASCRIPTION = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
-export const stripAscriptions = (s: string): string => s.replace(ASCRIPTION, '$1')
+ *  published claim, which is the exact defect this file was written to refuse.
+ *
+ *  HISTORY: numeral-only `(2:Nat)` was the first gap. Compound ascriptions `(1*1 - 0*0 : Int)` and
+ *  `(40 - (-70) : Int)` stayed unreached for the same reason until `: Nat` / `: Int` were stripped wherever they
+ *  annotate arithmetic — still not opening the door to `List` / `fun`. */
+const ASCRIPTION_NUMERAL = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
+const ASCRIPTION_TYPE = /\s*:\s*(?:Nat|Int)\b/g
+export const stripAscriptions = (s: string): string =>
+  s.replace(ASCRIPTION_NUMERAL, '$1').replace(ASCRIPTION_TYPE, '')
 /** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`),
  *  `≠` as Lean inequality, ASCII `<=` / `>=` beside Unicode `≤` / `≥`, `¬` as propositional negation,
  *  `lxor` as the ledger's axiom-free 8-bit XOR (Lean `lxorAux 8`), and `Nat.gcd` as Lean's Euclidean gcd.
- *  List / fun / bound names stay unreached; `/`, `≠`, ASCII non-strict inequalities, `¬`, `lxor`, and `Nat.gcd`
- *  were pure-syntax gaps that left sealed propositions unreached for a token alone. Named operators are stripped
- *  before the character gate so letters never open the door to `List` / `fun` — only the admitted names pass. */
+ *  List / fun / bound names stay unreached; `/`, `≠`, ASCII non-strict inequalities, `¬`, `lxor`, `Nat.gcd`, and
+ *  compound `: Nat` / `: Int` ascriptions were pure-syntax gaps that left sealed propositions unreached for a
+ *  token alone. Named operators are stripped before the character gate so letters never open the door to
+ *  `List` / `fun` — only the admitted names pass. */
 export const evaluable = (statement: string): boolean =>
   /^[\s0-9()+*%/^=∧<>≤≥≠¬-]+$/.test(
     stripAscriptions(statement).replace(/\bNat\.gcd\b/g, '').replace(/\blxor\b/g, ''),
