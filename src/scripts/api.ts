@@ -461,6 +461,7 @@ export const DRAIN_PATHS: readonly string[] = [
   'lean/browser-apps-usable.json',
   // npm/curl apps ported as Alpine overlay (omp/oh-my-pi) — merged at catalogue read time
   'mirror/alpine-overlay.tsv',
+  'docs/public/alpine-catalogue.tsv',
   'docs/store.md',
   // the model comparison page — rewritten by gen-models from the committed feed mirror every reconcile
   'docs/models.md',
