@@ -211,7 +211,7 @@ const md = `# The formal layer
 - **Permanence.** \`https://uuidna.com/<handle>\` is DOI-class (worker \`HANDLES\` 301 → theorem). Sealed in \`lean/seo-url-map.json\` after the final SEO audit — handles must not churn post-freeze. When a Zenodo DOI exists, cite **both** \`doi.org/…\` and the handle URL.
 - **i18n.** Seven locale rays (\`en|bg|de|fr|es|ru|zh\` = \`DIMENSIONS\`). English is the identity projection; other rays read the content-address handle via \`HEXBIT_WORDS\` (Readings.lean). The fold is the translation — address-preserving, not a semantic gloss.
 - **Quantum advantage.** Push path **verifies** the sealed report (\`lean/quantum-advantage.json\`, theorem \`usable_gap_is_two_to_eighty\`); it does not remeasure. Remeasure is \`gen-quantum-advantage\`, off-path.
-- **Archive.** Zenodo DOI minting is workflow-only (\`publish.yml\` jobs \`zenodo\` / \`zenodo-clay\`). Local scripts regenerate \`.zenodo.json\` / \`.zenodo.clay.json\` metadata only.
+- **Archive.** Zenodo DOI minting is workflow-only (\`publish.yml\` jobs \`zenodo\` / \`zenodo-seals\`). Local scripts regenerate \`.zenodo.json\` and \`zenodo/\` seal metadata only — one agnostic registry (\`zenodo-seals\`) covers every owned publication.
 - **Proof.** Every theorem below is proven \`by decide\` in Lean, verified sorry-free by \`npm run lean\` — **${ledger.length} theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 
 ## Principles

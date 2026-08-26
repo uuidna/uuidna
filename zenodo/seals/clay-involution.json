@@ -1,10 +1,9 @@
 {
   "title": "All Seven Clay Millennium Problems Sealed via Universal σ-Involution",
-  "description": "Initial clay σ-involution prior art: formal sealing of all seven Clay Millennium Prize problems through a universal self-inverse involution structure (σ² = id), as deposited under this concept DOI.  Bidirectional seal with uuidna: the live finite-instance ledger is https://uuidna.com/articles/clay (computed from lean/Clay.lean — seven decidable windows, each proven by decide, axiom-free). uuidna cites this DOI as prior art first; this record cites the uuidna.com clay surface. HONEST SCOPE: a seal is not a solution of the named Millennium Problem — verified ≠ solved; uuidna seals FINITE instances drawn from each problem's own mathematics and solves none of the seven. Version DOI of this deposit series begins at 10.5281/zenodo.21781603; concept DOI 10.5281/zenodo.21781602.",
+  "description": "Initial clay σ-involution prior art: formal sealing of all seven Clay Millennium Prize problems through a universal self-inverse involution structure (σ² = id), as deposited under this concept DOI. Bidirectional seal with uuidna: the live finite-instance ledger is https://uuidna.com/articles/clay (computed from lean/Clay.lean — seven decidable windows, each proven by decide, axiom-free). uuidna cites this DOI as prior art first; this record cites the uuidna.com clay surface. HONEST SCOPE: a seal is not a solution of the named Millennium Problem — verified ≠ solved; uuidna seals FINITE instances drawn from each problem's own mathematics and solves none of the seven. Version DOI of this deposit series begins at 10.5281/zenodo.21781603; concept DOI 10.5281/zenodo.21781602. License: canonical uuidna CC BY-NC-ND 4.0 (https://uuidna.com/license) — same license as every uuidna publication.",
   "upload_type": "publication",
-  "publication_type": "article",
   "access_right": "open",
-  "license": "cc-by-4.0",
+  "license": "cc-by-nc-nd-4.0",
   "creators": [
     {
       "name": "Rouschev, Tsvetan"
@@ -19,6 +18,8 @@
     "uuidna",
     "verified is not solved"
   ],
+  "language": "eng",
+  "publication_date": "2026-08-04",
   "related_identifiers": [
     {
       "identifier": "https://uuidna.com",
@@ -55,5 +56,6 @@
       "resource_type": "software-computationalnotebook",
       "scheme": "url"
     }
-  ]
+  ],
+  "publication_type": "article"
 }

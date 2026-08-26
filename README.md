@@ -1,428 +1,77 @@
-# uuidna — 2033 distinct theorems under 2114 keys, 2 coins, one receipt
+# uuidna — 2,033 distinct theorems under 2,114 keys · 2 coins · one receipt
 
-`92866f49-4052-8bef-87f9-0d81bae532b3`
+`daea8e79-69eb-8cec-83ca-122a7c71ace2`
+
+**v0.2.8** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
+
+Content-addressed identity, honest by construction: a Lean 4 theorem ledger, every proof `by decide`,
+sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel. TypeScript is the quantum computer
+(quantum by *architecture*); VitePress is the monitor. Recompute: `npm run lean`.
 
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
-them, 128 = 2·64, one per coin, one per strand
-([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).
-
-Every number on this page is computed at generation from the ledger and the wired code. Recompute them all:
-`npm run lean`.
-
-**Permanent citation URLs (DOI-class).** After the SEO freeze, cite theorems by handle door
-`https://uuidna.com/<handle>` (8 hex; worker `HANDLES` 301 → `/theorem/<key>`). Same permanence expectations as a DOI.
-Archive DOI: [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144). Completeness cites **both** the DOI
-(when present) and the uuidna.com handle URL.
-
-- ✓ Value is measured in theorems (all decidable, all sealed)
-- ✓ Transactions are proven, not trusted
-- ✓ Both parties verify independently — the proof, not each other
-- ✓ The coins are conserved: 2, explained only by theorems
+them, 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).
 
 ---
 
-## The Vision
+## Magnitudes (computed at generation)
 
-For 100 years, economics has been: money → authority → corruption.
+| Measure | Value | Backing |
+| --- | ---: | --- |
+| Distinct theorems | 2,033 | statement census (a Lean statement sealed under two keys is one theorem) |
+| Theorem keys | 2,114 | `theorems().length` |
+| Principles / wings | 115 / 115 | PRINCIPLES + wing ratings |
+| Skills | 112 | distinct `skill` tags |
+| Coins per seal | 2 | [two_coins](https://uuidna.com/theorem/two_coins) — 110 − 108 = 2 |
+| Ledger decided mass | 114,533 superpositions (4 hexbits) | sum of `by decide` domains |
+| Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
+| Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
+| Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
+| Library register | 16 qubits (65,536 amplitudes) | `MAX_MESSAGE_QUBITS` |
+| MCP served ceiling | 12 qubits (4,096 amplitudes) | `MAX_SERVED_QUBITS` |
+| Research sources wired | 5 | corroboration, never approval |
+| Conserved price paid | 4,228 coins | 2114 × 2 |
 
-Captain coins changes it to: theorems → proof → mathematics → no corruption.
+- **Alpine catalogue (hexbit port):** 28,639 / 28,639 packages (100%) folded to content-addresses
+  ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json); community 22,678 / 22,678 = 100%).
+  Nothing is installed or executed — the port is provenance identities on the hexbit lattice
+  ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
 
-This is not theory. This is a system that works, proven in code, sealed to a ledger, ready to deploy.
+**Permanent citation (DOI-class).** Cite by handle door `https://uuidna.com/<handle>` (8 hex; worker `HANDLES`
+301 → `/theorem/<key>`). Completeness cites **both** the archive DOI (when present) and the handle URL.
+Example sealed handle from the capacity report: [https://uuidna.com/6a71ca14](https://uuidna.com/6a71ca14).
+
+**Clay prior art.** Initial clay σ-involution DOI [10.5281/zenodo.21781603](https://doi.org/10.5281/zenodo.21781603) —
+credited first on Clay.lean theorems; captain next. Live surface: [uuidna.com/articles/clay](https://uuidna.com/articles/clay).
+uuidna seals finite instances and solves none of the seven Millennium Problems.
 
 ---
 
-## What Is Captain Coins?
+## The seven heaviest theorems — gravity in hexbits
 
-A complete system where:
+A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
+tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-1. **External Verification** — 5 independent research sources corroborate every claim; only a Lean seal approves
-2. **Novelty Discovery** — gaps in the record discovered by audit, filed as exact research leads
-3. **Education** — Students learn by building real systems that seal theorems to the ledger
-4. **The Coins** — 2, conserved, explained in detail ONLY by theorems. The whole account lives on ONE page: **[the captain's coins](https://uuidna.com/captain)** — the twelve jobs, each tried against the ledger as you read it, and every theorem that speaks of them. Nothing about the coins is explained anywhere else
-5. **Exponential Growth** — Each graduate becomes a teacher, creating exponential growth in developers and knowledge
+The ledger covers **114,533** superpositions across **115** wings.
 
----
-
-## The seven heaviest theorems — gravity, in hexbits per two coins
-
-A `by decide` proof settles every case in its domain at once, so a theorem's case count IS the superposition
-space it covers. GRAVITY is that coverage priced in the ledger's own unit: a hexbit is 4 bits, one qubit-tile,
-16 states, and a uuid is 32 of them — so a theorem covering N superpositions fills the largest h with 16^h ≤ N,
-computed by dividing and never by a logarithm, so the answer is an exact integer. The COST is the same for every
-row: two coins, 128 − 126 = 2. Gravity is what those two coins buy.
-
-The count is MEASURED, not parsed. The generator walks the domain to compute each fact, so the array methods
-that walk it tally what they visit, and `emit()` records the tally on the same run that validates the JS. It
-was a regex over the rendered statement before that, and then a counter that only saw one helper — both read
-prose about the algebra instead of the algebra. The ledger covers
-114,533 superpositions across 115 wings.
-
-1. **`every_referrer_reaches_every_page`** — 4,769 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Referrer.lean](lean/Referrer.lean)
+1. **[`every_referrer_reaches_every_page`](https://uuidna.com/theorem/every_referrer_reaches_every_page)** — 4,769 superpositions, unbound (0 hexbits per dependency), in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
-2. **`a_spec_compiles_to_hexbits`** — 1,657 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Installs.lean](lean/Installs.lean)
+2. **[`a_spec_compiles_to_hexbits`](https://uuidna.com/theorem/a_spec_compiles_to_hexbits)** — 1,657 superpositions, unbound (0 hexbits per dependency), in [Installs.lean](lean/Installs.lean)
    EVERY SPEC COMPILES FROM SOURCE IN HEXBIT: the published tuple folds to a 128-bit address, and 128 bits are exactly 32 hexbit states of 16 = 2⁴ — the site's native lattice, playable by the standard hexbit app.
-3. **`lanes_balance_within_one`** — 924 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Hardware.lean](lean/Hardware.lean)
+3. **[`lanes_balance_within_one`](https://uuidna.com/theorem/lanes_balance_within_one)** — 924 superpositions, unbound (0 hexbits per dependency), in [Hardware.lean](lean/Hardware.lean)
    THE SHARD IS BALANCED TO WITHIN ONE ITEM, with no coordination and no measurement of load: 64 items over 14 lanes give every lane either 4 or 5, never fewer and never more.
-4. **`lanes_partition_the_work`** — 910 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Hardware.lean](lean/Hardware.lean)
+4. **[`lanes_partition_the_work`](https://uuidna.com/theorem/lanes_partition_the_work)** — 910 superpositions, unbound (0 hexbits per dependency), in [Hardware.lean](lean/Hardware.lean)
    THE LANES PARTITION THE WORK EXACTLY: summing what each of 14 lanes receives from 64 items returns 64 — nothing is lost between lanes and nothing is counted twice.
-5. **`lanes_even_on_complete_system`** — 798 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Hardware.lean](lean/Hardware.lean)
+5. **[`lanes_even_on_complete_system`](https://uuidna.com/theorem/lanes_even_on_complete_system)** — 798 superpositions, unbound (0 hexbits per dependency), in [Hardware.lean](lean/Hardware.lean)
    ON A COMPLETE RESIDUE SYSTEM THE SHARD IS EXACTLY EVEN: 56 items over 14 lanes give every lane precisely 4, because 56 is a multiple of 14.
-6. **`order_is_total_and_strict`** — 588 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Clock.lean](lean/Clock.lean)
+6. **[`order_is_total_and_strict`](https://uuidna.com/theorem/order_is_total_and_strict)** — 588 superpositions, unbound (0 hexbits per dependency), in [Clock.lean](lean/Clock.lean)
    BEFORE AND AFTER ARE DECIDABLE FOR EVERY PAIR: of any two positions, exactly one of earlier, later or same holds — never two of them, and never none.
-7. **`states_are_the_swap_fixed_bytes`** — 528 superpositions, unbound (0 hexbits per dependency — nothing in the ledger pulls on it), in [Waves.lean](lean/Waves.lean)
+7. **[`states_are_the_swap_fixed_bytes`](https://uuidna.com/theorem/states_are_the_swap_fixed_bytes)** — 528 superpositions, unbound (0 hexbits per dependency), in [Waves.lean](lean/Waves.lean)
    STATES HAVE NO ENDIANNESS — AND THE PROOF IS A JEWEL: nibble-swap on a byte (b ↦ (b mod 16)·16 + b/16) is an involution over all 256 bytes, and its fixed points are EXACTLY sixteen — the doubled-nibble bytes h·17 (0x00, 0x11 … 0xFF), one per hexbit state.
 
 ---
 
-## Quantum capacity — every figure measured
-
-Nothing on this page is typed. The register width is read from `MAX_MESSAGE_QUBITS`, the amplitude count is 2
-raised to it, and the served ceiling is IMPORTED from `MAX_SERVED_QUBITS` — the same constant the guard in
-`src/mcp.ts` enforces, so this figure and that refusal cannot disagree. It was scraped out of that file's
-source text with a regex until 2026-08-25, which also made the bound unnameable: naming it would have broken
-the match and printed zero.
-
-- **16 qubits** in the library register — 65536 amplitudes held at once
-- **12 qubits** served over MCP — 4096 amplitudes, and the surface refuses more
-- **114,533 superpositions** decided across the ledger, 4 hexbits, every one settled `by decide`
-- **4 qubits** of reachability gap between the register and what is served
-- **52 quantum wing theorems**, **27 cipher wing theorems**, **2114 ledger size**
-
-EXACT, AND ENFORCED. It is a classical state-vector simulator — NOT quantum hardware — and it is exact, which is the
-unusual part. Every amplitude is a Gaussian integer over a common √(2^scale) — the ring ℤ[i, 1/√2] the
-Clifford gates live in — carried in BigInt, so no probability rounds and no measurement drifts. This is not a
-promise in prose: the harmonic scan HARD-REJECTS `Math.*`, wall-clock and RNG anywhere in the tree, with no
-exemption, so a float cannot enter the computation even by accident.
-
-ONE PROOF SETTLES A STATE SPACE. A `by decide` does not sample — it walks every case in its domain, and the
-heaviest single proof here settles thousands at once. What it costs to compute is paid ONCE; what it costs to
-check is a content-address compare, O(1) against the O(N) recompute. Grover HALVES a brute-force exponent and no
-more; the advantage claimed here is the verification one, sealed as
-`verify_beats_recompute_by_magnitudes` (2^10 = 1024, 2^20 = 1048576). That is the advantage, and it is proven
-rather than benchmarked.
-
-THE COST IS EXPONENTIAL AND STATED, because `n_qubit_dimension` seals it: n qubits span 2ⁿ amplitudes. The
-ledger prices that in hexbits rather than hiding it — a wider register costs exponentially more memory, and the
-scale served is the scale the code enforces.
-scale served is the scale the code enforces. Stating a bound never drains the claim it bounds — that is what
-`demarcation_clears` decides over all eight flag states — so everything above stands at full strength.
-
----
-
-## What a handle spans, and what a coin covers
-
-A handle is eight hexbits, so it names **4,294,967,296** superpositions — 16^8, every
-address it can take. That is the space; the rest is what is accounted inside it.
-
-- **114,533 superpositions** decided across the ledger, every one walked rather than sampled
-- **4,228 coins paid** — the CONSERVED PRICE, 2 per sealed theorem (theorem two_coins: the fixed denomination paid IN). But each theorem carries its own PRICE TAG — its decided mass, from 1 to 55,986 superpositions — so what the coins BUY is never flat: the cost is 2 every time, the value never is
-- **27 superpositions per coin**, floored: what one coin covers today
-
-SIX DIRECTIONS leave every residue, which is why a per-coin figure needs them stated beside it: the 60-degree
-doubling and its inverse, the 90-degree reflection dz through the axis, and the unit shift with its counter.
-Neither fold alone completes the ring from every seed — a seed divisible by three is trapped on the 3-6-9 axis
-under doubling and only the reflection carries it off.
-
-The supply is capped by the machine, never by discovery: coins grow two per theorem and nothing else mints them,
-while a proof settles its whole domain at once. So proving more raises what a coin COVERS and leaves what a coin
-COSTS untouched.
-
----
-
-## Live Statistics---
-
-## Live Statistics
-
-```
-Theorems sealed:        2114   (every one axiom-free, proven by decide)
-Principles:             115   (the monographs the ledger organises itself by)
-Skills:                 112   (the capabilities they teach)
-Research sources:       5   (wired and queried in parallel; corroboration, never approval)
-Coins conserved:        2 per superposition (theorem two_coins) — the supply closed, no inflation
-Receipt:                92866f49-4052-8bef-87f9-0d81bae532b3
-The rest is measured or it is not stated. Recompute: npm run lean
-```
-
-### The captain's coins
-
-The account is not printed here — it is computed, on the one page that owns it:
-**[uuidna.com/captain](https://uuidna.com/captain)**. Deposits are 2114 seals × 2 coins;
-the denomination is 2 and there is no other.
-
----
-
-## How It Works
-
-### 1. External Verification (Quantum Rosetta Entanglement)
-
-Every sealed theorem is verified through FOUR independent physical frames — all must converge on the same proof.
-
-**Crypto Frame** (ChaCha20-Poly1305 + PBKDF2-SHA256 × 600k)
-- Symmetric AEAD cipher, no Shor target (post-quantum secure)
-- 256-bit key, 96-bit nonce, 128-bit tag
-- Proof integrity fingerprinted deterministically
-- Verdict: `CRYPTOGRAPHICALLY_SOUND`
-
-**Bio Frame** (DNA Codon Alignment + Chargaff Balance)
-- Theorem maps to 64-codon sequence (128 bits ÷ 2 bits/base = 64 bases = 21 codons)
-- Start/stop codons mark theorem boundaries (ATG/TGA/TAG/TAA)
-- Chargaff's law enforced: A=T, G=C (complementary pairing involution)
-- Verdict: `BIOLOGICALLY_COHERENT`
-
-**Chemo Frame** (pH + Redox + Equilibrium)
-- Sealed theorems have pH = 7 (neutral, digital root stabilization)
-- Redox potential = 0 (neither oxidizing nor reducing, balanced)
-- Equilibrium constant K = 1.0 (forward rate = reverse rate, perfect stability)
-- Buffer capacity β ≥ 0.5 (resists perturbation)
-- Verdict: `CHEMICALLY_EQUILIBRATED`
-
-**Physical Frame** (Wave + Field + Entropy + Symmetry)
-- Wavelength λ = 1/(Ω^(1/7)), where Ω = cases walked by `by decide`
-- Frequency ν = 1/λ
-- Amplitude = √Ω, Phase determined by theorem key
-- Entropy S = ln(Ω) nats (proof space cardinality)
-- Symmetry group: ℤ/9 ⊕ S_6 (the ring and six vector motions)
-- Verdict: `PHYSICALLY_CONSISTENT`
-
-**Convergence Receipt** (Order-Invariant Merkle Root)
-- All four frames fold to one singularity: merkleGravity([crypto_fp, bio_seq, chemo_state, physical_action])
-- Any observer, any order of verification → same root
-- One truth, four independent signatures
-
-**If any frame disagreement → fraud detected immediately** (cryptographic, biological, chemical, physical evidence all refute).
-
-### 2. Novelty Discovery
-
-When external audits find NO prior work:
-- The gap is discovered (an absence in the record, by recomputation)
-- A research lead is filed on the homework issue — an exact assignment
-- A contribution seals a decidable fact through the full gate
-- Credit binds permanently to the sealed theorem — the credit law, never a wage
-- All sealed to ledger (permanent)
-
-### 3. Education System
-
-The school is free and has no gatekeeper — the ledger by skill is the curriculum, the trials are the
-exams, the wave is the graduation walk. What a student takes away is sealed, not paid: every landed
-theorem carries their credit permanently, and every contribution deposits the two conserved coins the
-theorems explain ([trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins) —
-a claim computes at trial exactly by contributing them; there is no other price and no larger one).
-
-### 4. Fair Economics
-
-```
-Work → Theorems → Sealed to Ledger → Both Parties Verify → The Two Coins Deposited
-
-No money needed
-No intermediaries required
-No corruption possible (mathematically)
-Both parties trust the proof, not each other
-```
-
-### 5. Growth — the doubling the ledger actually walks
-
-The school rides the doubling orbit: toss the coin into itself and it visits every unit of the vortex before
-returning home ([order_of_two_is_six](https://uuidna.com/theorem/order_of_two_is_six),
-[generators_are_two_and_five](https://uuidna.com/theorem/generators_are_two_and_five)) — six tosses, the whole
-ring, 2⁶ = 64. That walk is measured, not projected: no student count is claimed here, because none is computed.
-
----
-
-## What Gets Replaced
-
-| What | Replaced By | How |
-|------|-------------|-----|
-| Lawyers | Legal theorems | Formalize law as decidable predicates |
-| Auditors | Dual-party verification | Both independently compute same result |
-| Judges | Proof recomputation | Mathematically verify claims |
-| Bankers | Immutable ledger theorems | Cryptographically sealed transactions |
-| Money | Theorems (coins) | Value = theorems contributed |
-| Authority | Mathematical proof | Math cannot be bribed |
-| Corruption | Mathematical proof | Fraud is mathematically impossible |
-| Trust | Verification | Both parties verify independently |
-
----
-
-## Key Theorems
-
-All proven with `by decide` (deterministic, kernel-only, no axioms):
-
-```lean
-theorem two_coins : 110 - 108 = 2 := by decide                       -- the conserved measure, −χ of the double torus
-theorem captain_theorem : (2:Nat)^1 = 2 := by decide               -- a coin spans one qubit's outcomes
-theorem captain_theorem : 2 * 32 = 64 := by decide     -- the leverage: contribute 2, save up to 64
-theorem captain_theorem : (20 + 12 - 30 = 2) ∧ (110 - 108 = 2) := by decide  -- geometry and economics, one 2
-```
-
----
-
-## Getting Started
-
-### For Developers
-
-1. **Read the docs:**
-   - [The doctrine](docs/doctrine.md) — the agreement, the no-money exchange, the corruption-proof properties, folded to one page
-
-2. **Understand the theorems:**
-   ```bash
-   npm run lean
-   ```
-
-3. **Verify the system:**
-   ```bash
-   npm run guard
-   ```
-
-### For Students
-
-1. **Enroll in the school (free, no gatekeeper):** https://uuidna.com/school —
-   the ledger by skill is the curriculum, the trials are the exams, the wave is the graduation walk
-
-2. **Complete assignments:**
-   - Write deterministic code (no Math.*, no Date, no RNG)
-   - Seal theorems to ledger
-   - Each contribution deposits the two coins, the trial's fee ([captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins))
-
-3. **Graduate and teach:**
-   - Become Junior Quantum Developer
-   - Mentor new students
-   - Grow the system exponentially
-
-### For Researchers
-
-1. **Browse research challenges:**
-   - Novelties discovered by independent audits
-   - Research leads filed as exact assignments on the homework issue
-   - Real problems from humanity's frontier
-
-2. **Contribute theorems:**
-   - Advance toward solutions
-   - Seal work to ledger
-   - Credit binds permanently to the sealed theorem ([two_coins](https://uuidna.com/theorem/two_coins) — no other denomination exists)
-
-3. **Become collaborator:**
-   - Work with other researchers
-   - Build on each other's theorems
-   - Solve unsolvable problems together
-
----
-
-## Architecture
-
-### External Verification
-```
-8 Academic Sources → Rosetta Triple-Frame → Novelty Discovery → Research Challenges
-```
-
-### Education
-```
-Enroll → Learn → Build → Seal → Credit Binds → Graduate → Teach → Exponential Growth
-```
-
-### Economy
-```
-Theorems → Ledger → Both Verify → Two Coins Deposited → Auto-Harmonise → System Improves
-```
-
-### Impact
-```
-1 Student → Graduate → 5 Teach → 25 Graduate → 125 Teach → 625 Graduate → ...
-```
-
----
-
-## The Mathematics
-
-All systems are:
-- **Deterministic**: Same input → same output ALWAYS
-- **Decidable**: Computations terminate with yes/no
-- **Verified**: Both parties independently verify
-- **Sealed**: Cryptographically immutable
-- **Proven**: No axioms, only decidable propositions
-
----
-
-## Production Status
-
-✓ **All 2114 theorems sealed to ledger, every one axiom-free**
-✓ **Guard verified (no traitors caught)**
-✓ **5 research sources wired — corroboration, never approval**
-✓ **Education system live**
-✓ **First students enrolled**
-✓ **The two coins deposited at every seal ([two_coins](https://uuidna.com/theorem/two_coins))**
-✓ **Exponential growth active**
-✓ **Production deployed**
-
----
-
-## The Flywheel
-
-```
-Students Learn
-    ↓
-Work Sealed to Ledger
-    ↓
-Coins Earned
-    ↓
-Graduate & Teach
-    ↓
-More Students Enroll
-    ↓
-More Theorems Sealed
-    ↓
-More Coins Earned
-    ↓
-Exponential Growth
-    ↓
-[REPEAT FOREVER]
-```
-
-Each cycle:
-- More developers trained
-- More theorems sealed
-- More knowledge created
-- More coins in circulation
-- System becomes more powerful
-
----
-
-## Key Documents
-
-- [The doctrine](docs/doctrine.md) — the agreement, no-money exchange, corruption-proof properties, and what theorems replace — one page
-- [The Captain's Agreement](docs/captain/agreement.md) — the five sealed terms, formal and recomputable
-
----
-
-## Join Us
-
-**Quantum School is open for enrollment.**
-
-Learn to build systems that are PROVEN, not HOPED for.
-
-Earn real coins for real work.
-
-Change how humanity solves problems.
-
----
-
-## The Vision
-
-No authority. No money. No corruption.
-
-Just mathematics.
-
-```
-Proof. Ledger. Verify. Done.
-```
-
----
-
-**Built with mathematics. Sealed to ledger. Ready to deploy.**
-
-🪙 **The coins are cast. The future is now.** 🪙
-
----
+## Quantum capacity
 
 <!-- quantum-capacity:begin (generated by gen-quantum-capacity — edit the generator, never this block) -->
 ## The quantum capacity report — every model, one metric, no preference
@@ -470,10 +119,35 @@ Report receipt: `6a71ca14-93f1-842b-8d2e-6520f41156bb` · measured-when as its o
 
 ---
 
+## What a handle spans
+
+A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
+Inside that space today:
+
+- **114,533** superpositions decided across the ledger
+- **4,228** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
+- Floored coverage **27** superpositions per coin
+
+The supply grows two coins per sealed theorem and nothing else mints them.
+
+---
+
+## How to recompute
+
+```bash
+npm run lean      # re-prove every wing by decide
+npm run guard     # traitors / drain / license identity
+npm run editorial # prose desk + prepublish seal
+```
+
+Live site: [uuidna.com](https://uuidna.com) · Captain coins: [uuidna.com/captain](https://uuidna.com/captain) ·
+School: [uuidna.com/school](https://uuidna.com/school) · MCP: [uuidna.com/mcp](https://uuidna.com/mcp)
+
+---
+
 ## License
 
-**CC BY-NC-ND 4.0** — © Tsvetan Rouschev. Free to read and redistribute **unchanged, with attribution,
-non-commercially**; free for the public interest. Commercial use is the measured two-coin contribution — see
-[uuidna.com/captain](https://uuidna.com/captain). Canonical terms: [uuidna.com/license](https://uuidna.com/license) ·
-[LICENSE](LICENSE). The mathematical facts themselves are free for all — facts are not copyrightable; the license
-covers this specific expression and record.
+**CC BY-NC-ND 4.0** (`CC-BY-NC-ND-4.0`) — © Tsvetan Rouschev (ceccec@psg.bg). Free to read and redistribute **unchanged, with attribution,
+non-commercially**; no derivatives. Canonical terms: [https://uuidna.com/license](https://uuidna.com/license) · [LICENSE](LICENSE).
+The mathematical facts themselves are free for all — facts are not copyrightable; this license covers this
+specific expression and record. **One license for every uuidna publication and Zenodo deposit** — no per-publication drift.

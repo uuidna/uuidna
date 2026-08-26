@@ -32,7 +32,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-mcp.js', args: [], note: 'the served catalog — every later surface reads it' },
   { file: 'gen-packages.js', args: [], note: 'the six workspace surfaces, computed from src/index.ts (guard step 3 rejects drift)' },
   { file: 'gen-zenodo.js', args: [], note: 'the archival record' },
-  { file: 'gen-zenodo-clay.js', args: [], note: 'the initial clay σ-involution publication metadata (concept 21781602)' },
+  { file: 'gen-zenodo-seals.js', args: [], note: 'agnostic Zenodo publication seals (manifest + per-id metadata)' },
   { file: 'gen-lines.js', args: [], note: 'the line census' },
   { file: 'gen-handles.js', args: [], note: 'the handles the chunks are cut from' },
   { file: 'gen-handle-chunks.js', args: [], note: 'the chunked handle payloads' },

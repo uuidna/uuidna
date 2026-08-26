@@ -18,15 +18,13 @@ import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { theorems, statementCensus, runTrial, PRINCIPLES } from '../index.js'
+import { softwareArchiveRelatedIdentifiers } from '../zenodo-seals.js'
 
 const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as {
   name: string; license: string; author: string; homepage: string
 }
 
 // IDENTITY — read, never retyped. A renamed package renames its own archive links.
-const npmUrl = `https://www.npmjs.com/package/${pkg.name}`
-const repoUrl = pkg.homepage
-// "Tsvetan Rouschev <ceccec@psg.bg>" → "Rouschev, Tsvetan" — Zenodo's family-name-first convention
 const author = pkg.author.replace(/\s*<.*$/, '').trim().split(/\s+/)
 const creator = `${author[author.length - 1]}, ${author.slice(0, -1).join(' ')}`
 
@@ -71,17 +69,8 @@ const zenodo = {
     'axiom-free', 'decidable arithmetic', 'model-context-protocol', 'honest by construction', 'paper on trial',
     'verification infrastructure'],
   communities: [{ identifier: 'uuidna' }],
-  related_identifiers: [
-    { identifier: repoUrl, relation: 'isSupplementTo', resource_type: 'software' },
-    { identifier: npmUrl, relation: 'isIdenticalTo', resource_type: 'software' },
-    { identifier: 'https://uuidna.com', relation: 'isDocumentedBy', resource_type: 'publication-softwaredocumentation' },
-    { identifier: 'https://uuidna.com/articles/clay', relation: 'isDocumentedBy', resource_type: 'publication-article' },
-    { identifier: '10.5281/zenodo.21781603', relation: 'references', resource_type: 'publication' }, // initial clay σ-involution
-    { identifier: '10.5281/zenodo.21787144', relation: 'references', resource_type: 'publication' },
-    { identifier: '10.1038/s41586-026-10846-4', relation: 'references', resource_type: 'publication-article' },
-    // THE TWO-CHAIN LAW — every release mints twice, and the chains declare each other so citations fold
-    { identifier: '10.5281/zenodo.21970356', relation: 'isIdenticalTo', resource_type: 'software' },
-  ],
+  // Agnostic: every seal in zenodo-seals (pages + DOIs) — clay, Nature cite, twin chain, etc.
+  related_identifiers: softwareArchiveRelatedIdentifiers(),
 }
 
 const out = JSON.stringify(zenodo, null, 2) + '\n'

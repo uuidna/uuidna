@@ -1,0 +1,24 @@
+{
+  "seals": [
+    {
+      "id": "clay-involution",
+      "standingRecordId": "21781603",
+      "conceptId": "21781602",
+      "standingDoi": "10.5281/zenodo.21781603",
+      "conceptDoi": "10.5281/zenodo.21781602",
+      "pageUrl": "https://uuidna.com/articles/clay",
+      "license": "cc-by-nc-nd-4.0",
+      "metaFile": "zenodo/seals/clay-involution.json",
+      "bundlePaths": [
+        "lean/Clay.lean",
+        "docs/articles/clay.md",
+        "src/clay-involution.ts"
+      ],
+      "leanFiles": [
+        "Clay.lean"
+      ]
+    }
+  ],
+  "count": 1,
+  "license": "cc-by-nc-nd-4.0"
+}

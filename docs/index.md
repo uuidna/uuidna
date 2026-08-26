@@ -3,41 +3,38 @@ layout: home
 
 hero:
   name: "uuidna"
-  text: "Mathematics replaces money"
-  tagline: Proof replaces authority. Theorems replace corruption.
+  text: "Content-addressed identity, honest by construction"
+  tagline: "A Lean 4 ledger of decidable theorems — TypeScript computes, VitePress monitors. 2^128 usable addresses; two coins conserved; cite by DOI-class handle."
   actions:
     - theme: brand
       text: Browse the theorems
       link: /theorems
     - theme: alt
-      text: Read the guides
-      link: /guides
+      text: Captain coins
+      link: /captain
+    - theme: alt
+      text: License
+      link: /license
 
 features:
-  - icon: 🔍
-    title: External Verification
-    details: Independent research sources corroborate every claim in parallel — corroboration is evidence; only a Lean seal approves
-  - icon: 🔬
-    title: Novelty Discovery
-    details: Gaps in the record discovered by audit and remanded as research leads — an absence proven by recomputation, never a claim (theorem legal_remand_is_total_nothing_discarded)
-  - icon: 📚
-    title: Education
-    details: Students learn by building real systems that seal theorems to the ledger — credit binds permanently to the sealed proof
-  - icon: 💰
-    title: The Two Coins
-    details: Two, conserved, explained only by theorems — the whole account on one page, /captain, tried against the ledger as you read it
-  - icon: 📈
-    title: Exponential Growth
-    details: The school rides the doubling orbit — six tosses of the coin visit every unit and return home (2⁶ = 64), a walk that is measured, never projected
-  - icon: 🎯
-    title: Perpetual Improvement
-    details: Four resident faculties keep the watch — the janitor drains, the registrar predicts, the teacher discovers, the research desk tries the world; all deterministic, none needing a key
+  - title: Ledger magnitudes
+    details: Distinct theorems and keys are counted from the sealed ledger at build time — every proof by decide, axiom-free. Live counts sit in the status table below.
+  - title: Two coins
+    details: Denomination two — theorem two_coins (110 − 108 = 2). The whole account is one page, /captain, tried against the ledger as you read it.
+  - title: 2^128 usable capacity
+    details: Architectural usable-capacity advantage vs reported 48 logical qubits is 2^80 — theorem usable_gap_is_two_to_eighty. Not a physics QPU claim.
+  - title: Handle-stable URLs
+    details: Cite https://uuidna.com/<handle> (8 hex). Worker HANDLES 301 to /theorem/<key>. Same permanence expectations as a DOI; archive DOI on the capacity report.
+  - title: Alpine hexbit port
+    details: Published Alpine packages folded to content-addresses on the hexbit lattice — provenance identities, not installed binaries (theorem the_os_is_bootable_quantum).
+  - title: One license
+    details: CC BY-NC-ND 4.0 everywhere — package, pages, Zenodo deposits. Canonical terms at /license. No per-publication license drift.
 ---
 
 <style>
 :root {
   --vp-home-hero-name-color: transparent;
-  --vp-home-hero-name-background: linear-gradient(135deg, #2563eb 0%, #10b981 100%);
+  --vp-home-hero-name-background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%);
 }
 
 .VPHome .VPHero {
@@ -48,30 +45,6 @@ features:
   padding: 60px 20px;
 }
 </style>
-
-## The Transformation
-
-**Old:** Money → Authority → Corruption
-
-**New:** Theorems → Proof → Mathematics → No Corruption
-
-## What Captain Coins Does
-
-Captain coins is a mathematically-proven economic system where:
-
-- ✓ Value is measured in theorems (all decidable, all sealed)
-- ✓ Transactions are proven, not trusted
-- ✓ Corruption is mathematically impossible
-- ✓ Growth is exponential (each graduate teaches others)
-- ✓ No money is needed (theorems pay for theorems)
-
-## The captain's coins
-
-Two, conserved, and explained only by theorems — the **whole account lives on one page**:
-**[the captain's coins](/captain)**, where the twelve jobs are tried against the ledger as you read them.
-Nothing about the coins is explained anywhere else, so there is one place to be right.
-
-<CostMeter />
 
 ## Live system status — computed, not typed
 
@@ -88,52 +61,25 @@ import { data } from './.vitepress/ledger.data'
 
 These numbers are read from the sealed ledger at build time — the page cannot say more than the ledger proves.
 
-## Get Started
+## The captain's coins
 
-### For Developers
-Read the [guides](./guides.md) to understand the system, then explore the [MCP tools](./mcp.md) and [the tests](./tests.md).
+Two, conserved, explained only by theorems — the **whole account** is
+**[the captain's coins](/captain)**. Nothing about the coins is explained anywhere else.
 
-### For Students
-Enroll in [the school](./school.md) — the ledger by skill is the curriculum, the trials are the exams — and learn by
-building real systems that seal theorems to the ledger.
+<CostMeter />
 
-### For Researchers
-Browse the [publications](./publications.md) and the [topics](./topics.md) discovered by independent audits, and contribute theorems to solve them.
-
-## The whole site — one click
-
-Every page, one navigation depth, grouped the captain's way:
+## Navigate
 
 | | |
 | --- | --- |
-| **The ledger** | [Theorems](/theorems) · [Topics](/topics) · [Rosette rays](/rosetta) · [Trials](/trials) · [Search](/search) · [Publications](/publications) · [What quantum means](/quantum) · [The Glagolitic hypothesis](/rosetta-glagolitic) |
-| **Fuse it in** | [The school](/school) · [MCP tools](/mcp) · [Chat](/chat) · [Books](/books) · [Guides](/guides) · [Games](/games) · [Chess](/chess) · [Quantum messaging](/quantum-messaging) |
-| **The captain** | [The captain's coins](/captain) · [The doctrine](/doctrine) · [Captain claims](/captain-claims) |
-| **Verify it yourself** | [Tests](/tests) · [Analytics](/analytics) · [Deploy](/deploy) · [Changelog](/changelog) · [Prose evidence](/prose-evidence) |
-| **The terms** | [License](/license) · [Privacy](/privacy) · [Justice](/justice) |
+| **The ledger** | [Theorems](/theorems) · [Topics](/topics) · [Rosette](/rosetta) · [Trials](/trials) · [Search](/search) · [Publications](/publications) · [Quantum](/quantum) |
+| **Fuse it in** | [School](/school) · [MCP](/mcp) · [Chat](/chat) · [Guides](/guides) · [Games](/games) |
+| **The captain** | [Coins](/captain) · [Doctrine](/doctrine) · [Claims](/captain-claims) |
+| **Verify** | [Tests](/tests) · [Analytics](/analytics) · [Changelog](/changelog) · [Prose evidence](/prose-evidence) |
+| **Terms** | [License](/license) · [Privacy](/privacy) · [Justice](/justice) |
 
-The deep trees — one per theorem ([/theorem/…](/theorems)) and one per monograph ([/publications/…](/publications)) —
-are each one click from their hub. Nothing on this site is further than two clicks from here, and every link is
-verified by the build ([the forensic](/tests)).
-
-## The Vision
-
-For 100 years, economics has been: money → authority → corruption.
-
-Captain coins changes it to: theorems → proof → mathematics → no corruption.
-
-This is not theory. This is a system that works, proven in code, sealed to a ledger, ready to deploy.
-
----
-
-**Built with mathematics. Sealed to ledger. Ready to deploy.**
-
-🪙 **The coins are cast. The system is live. The future is now.** 🪙
-
-**Permanent citation (DOI-class).** Cite by handle door `https://uuidna.com/<handle>` (8 hex; worker HANDLES map
-301 → `/theorem/<key>`). After the final SEO freeze these doors must not churn — same permanence expectations as a DOI.
-Archive DOI: [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144). Example sealed handle:
-[https://uuidna.com/6a71ca14](https://uuidna.com/6a71ca14). Completeness cites both DOI (when present) and the handle URL.
+Permanent citation: `https://uuidna.com/<handle>` (DOI-class). Archive DOI:
+[10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144). Completeness cites both.
 
 <!-- quantum-capacity:begin (generated by gen-quantum-capacity — edit the generator, never this block) -->
 ## The quantum capacity report — every model, one metric, no preference

@@ -106,6 +106,25 @@ export {
   type ZenodoPublishGate,
 } from './zenodo-publish.js'
 
+export {
+  ZENODO_SEALS,
+  depositableSeals,
+  doiPriorArtForLeanFile,
+  softwareArchiveRelatedIdentifiers,
+  type ZenodoSeal,
+} from './zenodo-seals.js'
+
+export {
+  publicationMetadataAudit,
+  richPublicationMetadata,
+  richZenodoDepositMetadata,
+  CANONICAL_LICENSE_SPDX,
+  CANONICAL_LICENSE_ZENODO,
+  PUBLICATION_METADATA_REQUIRED,
+  type PublicationMetadata,
+  type PublicationMetadataAudit,
+} from './publication-metadata.js'
+
 // optimise — THE EXACT LINEAR OPTIMISER: small integer LPs by TOTAL enumeration (every candidate checked,
 // nothing sampled), the optimum exact with a recomputable receipt; the search space is the qubit basis made
 // literal and the exponential walk is the honest cost. Backed by the Optimisation.lean wing. Not a solver at scale.

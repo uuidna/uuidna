@@ -7,10 +7,7 @@
 import { THEOREMS, theoremByKey, theoremNeighbours, PRINCIPLES } from '../../theorems/index.js'
 import { toUuid } from '../../address.js'
 import { doisIn } from '../../crossref.js'
-import {
-  CLAY_INVOLUTION_DOI,
-  CLAY_INVOLUTION_DOI_URL,
-} from '../../clay-involution.js'
+import { doiPriorArtForLeanFile } from '../../zenodo-seals.js'
 
 // historical results EXPLICITLY named in the sealed theorem metadata → {who, a documentation link}. Only names that
 // actually occur are listed; a name here credits ONLY the theorems whose own sealed name references it.
@@ -83,11 +80,10 @@ export function credits(key: string): Credits {
   const hay = t.name + ' ' + t.principle + ' ' + prinBlurb
   const seen = new Set<string>()
   const historical: Credit[] = []
-  // Clay.lean → initial clay σ-involution DOI is always first prior art (Zenodo 21781603)
-  if (t.file === 'Clay.lean') {
-    const who = `DOI ${CLAY_INVOLUTION_DOI}`
-    seen.add(who)
-    historical.push({ who, link: CLAY_INVOLUTION_DOI_URL })
+  // Agnostic DOI prior art from zenodo-seals registry (leanFiles → standingDoi first; clay is one instance)
+  for (const prior of doiPriorArtForLeanFile(t.file)) {
+    const who = `DOI ${prior.doi}`
+    if (!seen.has(who)) { seen.add(who); historical.push({ who, link: prior.link }) }
   }
   for (const r of REGISTRY) if (hay.includes(r.pat) && !seen.has(r.who)) { seen.add(r.who); historical.push({ who: r.who, link: r.wiki }) }
   // DOI proving links in the sealed name/principle — prior art that must not be erased by a captain-alone claim

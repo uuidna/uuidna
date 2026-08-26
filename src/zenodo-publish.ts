@@ -19,11 +19,11 @@ export interface ZenodoPublishGate {
 export const ZENODO_PUBLISH_WORKFLOW = '.github/workflows/publish.yml'
 /** Software archive chain (uuidna releases) — concept 21787143. */
 export const ZENODO_PUBLISH_JOB = 'zenodo'
-/** Initial clay σ-involution publication — concept 21781602 / standing 21781603. */
-export const ZENODO_CLAY_PUBLISH_JOB = 'zenodo-clay'
-export const ZENODO_PUBLISH_JOBS = [ZENODO_PUBLISH_JOB, ZENODO_CLAY_PUBLISH_JOB] as const
+/** Agnostic loop over zenodo/manifest.json — every owned publication seal (clay is one instance). */
+export const ZENODO_SEALS_PUBLISH_JOB = 'zenodo-seals'
+export const ZENODO_PUBLISH_JOBS = [ZENODO_PUBLISH_JOB, ZENODO_SEALS_PUBLISH_JOB] as const
 
-/** True only when this process is publish.yml `zenodo` or `zenodo-clay` on a release tag. Everything else is a hard no. */
+/** True only when this process is publish.yml `zenodo` or `zenodo-seals` on a release tag. Everything else is a hard no. */
 export function zenodoPublishAllowed(env: NodeJS.ProcessEnv): ZenodoPublishGate {
   const workflowPath = ZENODO_PUBLISH_WORKFLOW
   const workflowJob = ZENODO_PUBLISH_JOB
@@ -32,18 +32,17 @@ export function zenodoPublishAllowed(env: NodeJS.ProcessEnv): ZenodoPublishGate 
       ok: false,
       reason:
         'Zenodo DOI publish is WORKFLOW-ONLY — refused outside GitHub Actions. ' +
-        `FIX: push a release tag and let ${workflowPath} jobs \`${ZENODO_PUBLISH_JOB}\` / \`${ZENODO_CLAY_PUBLISH_JOB}\` deposit; never curl the deposit API locally.`,
+        `FIX: push a release tag and let ${workflowPath} jobs \`${ZENODO_PUBLISH_JOB}\` / \`${ZENODO_SEALS_PUBLISH_JOB}\` deposit; never curl the deposit API locally.`,
       workflowPath,
       workflowJob,
     }
   }
-  // GitHub sets GITHUB_WORKFLOW to the workflow `name:` field ("publish"), not the file stem.
   if (env.GITHUB_WORKFLOW !== 'publish') {
     return {
       ok: false,
       reason:
         `Zenodo DOI publish refused — this Actions run is workflow "${env.GITHUB_WORKFLOW ?? ''}", not "publish". ` +
-        `FIX: only ${workflowPath} jobs \`${ZENODO_PUBLISH_JOB}\` / \`${ZENODO_CLAY_PUBLISH_JOB}\` may deposit.`,
+        `FIX: only ${workflowPath} jobs \`${ZENODO_PUBLISH_JOB}\` / \`${ZENODO_SEALS_PUBLISH_JOB}\` may deposit.`,
       workflowPath,
       workflowJob,
     }
@@ -54,7 +53,7 @@ export function zenodoPublishAllowed(env: NodeJS.ProcessEnv): ZenodoPublishGate 
       ok: false,
       reason:
         `Zenodo DOI publish refused — job "${job}" is not a Zenodo deposit job. ` +
-        `FIX: only ${workflowPath} jobs \`${ZENODO_PUBLISH_JOB}\` / \`${ZENODO_CLAY_PUBLISH_JOB}\` may deposit.`,
+        `FIX: only ${workflowPath} jobs \`${ZENODO_PUBLISH_JOB}\` / \`${ZENODO_SEALS_PUBLISH_JOB}\` may deposit.`,
       workflowPath,
       workflowJob,
     }
