@@ -8,6 +8,7 @@ export interface MirrorPackage { name: string; version: string; checksum: string
 export interface InstallsMirror {
   branch: string; repo: string; arch: string
   release: { version: string; rootfsSha256: string }
+  driver: { flavor: string; file: string; sha256: string }
   count: number
   packages: MirrorPackage[]
 }
@@ -19,6 +20,11 @@ export const INSTALLS_MIRROR: InstallsMirror = {
  "release": {
   "version": "3.24.1",
   "rootfsSha256": "41f73e3cf5fa919b8aa5ca6b30dc48f0da2720776d7423e2a7748211456fe081"
+ },
+ "driver": {
+  "flavor": "alpine-netboot",
+  "file": "alpine-netboot-3.24.1-x86_64.tar.gz",
+  "sha256": "9a7769ea8fa1737b1b49d82f1bdd53d0a17338d6d3b7cfc6f2c3ec5158596d8b"
  },
  "count": 25,
  "packages": [

@@ -595,8 +595,12 @@ const mkFun = (names: string[], body: string, parentEnv: Env, ring: Ring, bodyKi
     if (idx + 1 < names.length) return build(idx + 1, e)
     const inner: Cursor = { s: body, i: 0, env: e, ring }
     let v: Val
-    if (bodyKind === 'bool') v = boolProp(inner)
-    else {
+    if (bodyKind === 'bool') {
+      v = boolProp(inner)
+      ws(inner)
+      // `let s := …; (List.range n).all …; bool == bool` — boolProp stops at the first `;`-chain stmt.
+      if (inner.i !== body.length) { inner.i = 0; v = junction(inner) }
+    } else {
       v = junction(inner)
       ws(inner)
       if (inner.i !== body.length) { inner.i = 0; v = boolProp(inner) }
@@ -606,6 +610,64 @@ const mkFun = (names: string[], body: string, parentEnv: Env, ring: Ring, bodyKi
     return v
   })
   return build(0, parentEnv)
+}
+
+const letSemiOptional = (c: Cursor): boolean => {
+  ws(c)
+  return c.i >= c.s.length || c.s[c.i] === ')' || c.s[c.i] === '∧' || c.s[c.i] === '∨'
+    || c.s.startsWith('((List.range', c.i)
+}
+/** Scan bare `fun … => body` until top-level `;` or `)`. */
+const scanFunBody = (s: string, bodyStart: number): number => {
+  let depth = 0
+  let i = bodyStart
+  while (i < s.length) {
+    const ch = s[i]!
+    if (ch === '"') {
+      i++
+      while (i < s.length && s[i] !== '"') i++
+      i++
+      continue
+    }
+    if (ch === '(' || ch === '[') depth++
+    else if (ch === ')' || ch === ']') {
+      if (depth === 0 && ch === ')') break
+      depth = depth > 0 ? depth - 1 : 0
+    } else if (ch === ';' && depth === 0) break
+    i++
+  }
+  return i
+}
+/** Probe where a bare `fun … => body` ends — shared by atom and parseFunArg (.all must force bool). */
+const finishBareFun = (c: Cursor, names: string[], binderSlice: string, bodyStart: number, bodyKind: 'bool' | 'val'): string => {
+  ws(c)
+  if (c.s.slice(bodyStart).trimStart().startsWith('let')) {
+    const codeEq = c.s.slice(bodyStart).match(/;\s*\(\(List\.range \d+\)\.all/)
+    let end: number
+    if (codeEq) {
+      end = bodyStart + codeEq.index! + 1
+    } else {
+      const probeEnv: Env = new Map(c.env)
+      for (const n of names) {
+        if (n === '_') continue
+        if (new RegExp('\\b' + n + '\\s*:\\s*List\\b').test(binderSlice)) probeEnv.set(n, lst([]))
+        else if (new RegExp('\\b' + n + '\\s*:\\s*Nat × Nat\\b').test(binderSlice)) probeEnv.set(n, pair(0, 0))
+        else if (new RegExp('\\b' + n + '\\s*:\\s*Nat →').test(binderSlice)) probeEnv.set(n, fun(() => 0))
+        else probeEnv.set(n, 0)
+      }
+      const probe: Cursor = { s: c.s, i: bodyStart, env: probeEnv, ring: c.ring, expectBool: bodyKind === 'bool' }
+      try {
+        if (bodyKind === 'bool') boolProp(probe)
+        else junction(probe)
+      } catch { /* probe.i still marks progress */ }
+      end = probe.i
+    }
+    c.i = end
+    return c.s.slice(bodyStart, end)
+  }
+  const end = scanFunBody(c.s, bodyStart)
+  c.i = end
+  return c.s.slice(bodyStart, end)
 }
 
 /** Parse `(fun x => body)` / multi-binder / a Fun atom — bodyKind selects Bool vs value evaluation. */
@@ -640,6 +702,15 @@ const parseFunArg = (c: Cursor, bodyKind: 'bool' | 'val'): Fun => {
       return mkFun(names, body, c.env, c.ring, bodyKind)
     }
     c.i = open
+  }
+  ws(c)
+  if (eat(c, 'fun')) {
+    const bindersStart = c.i
+    const names = parseFunBinders(c)
+    if (!eat(c, '=>')) throw new Error('fun =>')
+    const binderSlice = c.s.slice(bindersStart, c.i - 2)
+    const body = finishBareFun(c, names, binderSlice, c.i, bodyKind)
+    return mkFun(names, body, c.env, c.ring, bodyKind)
   }
   return asFun(atom(c))
 }
@@ -1145,24 +1216,7 @@ const atom = (c: Cursor): Val => {
     if (!eat(c, '=>')) throw new Error('fun =>')
     const binderSlice = c.s.slice(bindersStart, c.i - 2)
     const bodyStart = c.i
-    const probeEnv: Env = new Map(c.env)
-    for (const n of names) {
-      if (n === '_') continue
-      if (new RegExp('\\b' + n + '\\s*:\\s*List\\b').test(binderSlice)) probeEnv.set(n, lst([]))
-      else if (new RegExp('\\b' + n + '\\s*:\\s*Nat × Nat\\b').test(binderSlice)) probeEnv.set(n, pair(0, 0))
-      else if (new RegExp('\\b' + n + '\\s*:\\s*Nat →').test(binderSlice)) probeEnv.set(n, fun(() => 0))
-      else probeEnv.set(n, 0)
-    }
-    const probe: Cursor = { s: c.s, i: bodyStart, env: probeEnv, ring: c.ring, expectBool: c.expectBool }
-    junction(probe)
-    ws(probe)
-    if (cmpContinues(probe)) {
-      compare(probe)
-      ws(probe)
-      if (probe.i < c.s.length && probe.s[probe.i] === ';') { probe.i++; junction(probe) }
-    }
-    const body = c.s.slice(bodyStart, probe.i)
-    c.i = probe.i
+    const body = finishBareFun(c, names, binderSlice, bodyStart, c.expectBool ? 'bool' : 'val')
     return postfix(c, mkFun(names, body, c.env, c.ring, c.expectBool ? 'bool' : 'val'))
   }
   // Bound variable — apply curried funs by juxtaposition (`fold3 1 2 3`).
@@ -1252,7 +1306,7 @@ function junction(c: Cursor): Val {
     c.expectBool = false
     let val: Val
     try { val = junction(c) } finally { c.expectBool = saveBool }
-    if (!eat(c, ';')) throw new Error('let ;')
+    if (!eat(c, ';') && !letSemiOptional(c)) throw new Error('let ;')
     c.env.set(name, val)
     ws(c)
     const tailSave = c.i
@@ -1261,7 +1315,16 @@ function junction(c: Cursor): Val {
     try {
       const v = boolProp(c)
       ws(c)
-      if (eat(c, ';')) { c.expectBool = prevBool; return junction(c) }
+      if (eat(c, ';')) {
+        ws(c)
+        if (c.i >= c.s.length || c.s.startsWith('((List.range', c.i)) {
+          if (c.i < c.s.length) c.i--
+          c.expectBool = prevBool
+          return v
+        }
+        c.expectBool = prevBool
+        return junction(c)
+      }
       c.expectBool = prevBool
       return v
     } catch {
@@ -1375,7 +1438,7 @@ function boolProp(c: Cursor): boolean {
       c.expectBool = false
       let val: Val
       try { val = junction(c) } finally { c.expectBool = saveBool }
-      if (!eat(c, ';')) throw new Error('let ;')
+      if (!eat(c, ';') && !letSemiOptional(c)) throw new Error('let ;')
       c.env.set(name, val)
       return boolProp(c)
     }

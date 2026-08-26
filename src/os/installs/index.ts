@@ -8,6 +8,7 @@
 // content-addressed — never installed, linked, booted, or executed. Integrity, not execution.
 import { untarGzipMember } from '../packages/index.js'
 import { fetchAlpineLatest } from '../alpine/index.js'
+import { fetchDriverLatest } from '../../drivers/driver/index.js'
 import { type InstallsMirror } from '../../quantum/os/mirror.js'
 
 const CDN = 'https://dl-cdn.alpinelinux.org/alpine'
@@ -51,10 +52,13 @@ export async function fetchDefaultInstalls(branch = 'latest-stable', repo = 'mai
     }
     const release = await fetchAlpineLatest(arch, branch)
     if (!release) return null                                     // the set without its release pin is half a port
+    const driverPin = await fetchDriverLatest(arch, branch)
+    if (!driverPin) return null                                   // drivers/modloop pin moves with the release or nothing
     const names = [...inSet].sort()
     return {
       branch, repo, arch,
       release: { version: release.version, rootfsSha256: release.rootfsSha256 },
+      driver: { flavor: driverPin.flavor, file: driverPin.file, sha256: driverPin.sha256 },
       count: names.length,
       packages: names.map((n) => {
         const r = byName.get(n)!
@@ -79,6 +83,7 @@ export interface MirrorPackage { name: string; version: string; checksum: string
 export interface InstallsMirror {
   branch: string; repo: string; arch: string
   release: { version: string; rootfsSha256: string }
+  driver: { flavor: string; file: string; sha256: string }
   count: number
   packages: MirrorPackage[]
 }

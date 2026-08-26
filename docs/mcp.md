@@ -1101,13 +1101,13 @@ _No parameters._
 
 ### `uuidna_exec`
 
-ALPINE APPS IN THE VIRTUAL uuidnaOS — one door after toy busybox was folded. Pass {line}: "ls /terminal" (install-port VFS), "apk list|info|search|depends|rdepends …", "man busybox" (man→app→hexbit), "help". apk is READ-only; man compiles Alpine's *-doc / *-man-pages package to 32 hexbits. Folded toys (cat/which/stat/pwd/echo/du) refuse with a pointer to apk/man. Nothing executes (theorem the_os_is_bootable_quantum). Returns {line,applet,args,ok,output,data,receipt,hexbits,sealed,honest}.
+ALPINE APPS IN THE VIRTUAL uuidnaOS — one door after toy busybox was folded. Pass {line}: "ls /terminal" or "ls /catalogue" (install-port VFS or full census), "apk list" or "apk list --all" (boot closure or whole catalogue), "apk info|search|depends|rdepends …", "man busybox" (man→app→hexbit), "driver" (pinned netboot/modloop provenance), "device" (host quantum executor), "help". apk is READ-only; man compiles Alpine's *-doc / *-man-pages package to 32 hexbits. Folded toys (cat/which/stat/pwd/echo/du) refuse with a pointer to apk/man. Nothing executes (theorem the_os_is_bootable_quantum). Returns {line,applet,args,ok,output,data,receipt,hexbits,sealed,honest}.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `line` | string | **yes** | e.g. "ls /terminal", "apk info busybox", "man openssl", "help" |
+| `line` | string | **yes** | e.g. "ls /catalogue", "apk list --all", "apk info busybox", "man openssl", "driver", "device", "help" |
 
 ### `uuidna_port`
 

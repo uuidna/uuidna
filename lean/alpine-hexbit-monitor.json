@@ -41,6 +41,20 @@
   },
   "honest": "NOT Alpine Linux APKINDEX — npm/curl ports merged at catalogue read"
  },
+ "mcpOverlay": {
+  "definition": "mcp·uuidna_exec·man→app→hexbit",
+  "repo": "overlay",
+  "tool": "uuidna_exec",
+  "wireDoors": 1,
+  "total": 1,
+  "witnessed": 1,
+  "exposed": 1,
+  "missing": [],
+  "gaps": [],
+  "pct": 100,
+  "receipt": "4c169473-c80a-8efe-8540-6ffda368a2ae",
+  "honest": "npm/curl overlay ports (repo=overlay) through the same uuidna_exec door — NOT Alpine APKINDEX completeness. man + apk info must reach oh-my-pi and peers; orphans named, never padded."
+ },
  "mcp": {
   "definition": "mcp·uuidna_exec·man→app→hexbit",
   "tool": "uuidna_exec",
@@ -103,11 +117,43 @@
    "missing": []
   }
  },
+ "selfTest": {
+  "definition": "package-self-test",
+  "total": 28632,
+  "passed": 28630,
+  "failed": 2,
+  "upstreamGaps": 2,
+  "missing": [
+   "pcsc-tools-gscriptor",
+   "sxmo-utils-river"
+  ],
+  "gaps": [
+   {
+    "name": "pcsc-tools-gscriptor",
+    "unresolved": [
+     "perl-libintl-perl"
+    ]
+   },
+   {
+    "name": "sxmo-utils-river",
+    "unresolved": [
+     "river-bedload"
+    ]
+   }
+  ],
+  "byCheck": {
+   "identity": 0,
+   "provenance": 0,
+   "closure": 2,
+   "compile": 0
+  },
+  "pct": 99
+ },
  "time": {
-  "communityCompileNs": 42450083,
-  "communityNsPer": 1872,
-  "manCompileNs": 9673708,
-  "manNsPer": 2033
+  "communityCompileNs": 41378666,
+  "communityNsPer": 1825,
+  "manCompileNs": 9306416,
+  "manNsPer": 1956
  },
  "scale": {
   "usableAddressesPow2": 128,

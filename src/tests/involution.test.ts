@@ -359,3 +359,7 @@ test('HO FUN ARG + PRIMED BINDER — Hamming/Nim closures stayed unreached for s
   assert.equal(holds('(fun X : Nat → Nat → Nat → Nat => X 0 0 0 = 0) (fun a b c => 0)'), true)
   assert.equal(holds('(List.range 2).all (fun a => (List.range a).all (fun a\' => a\' < a))'), true)
 })
+
+test('LOCAL LET FUN + CODE-LEVEL == — zero-one sorting walk', () => {
+  assert.equal(holds('let f := fun (v : List Nat) => v.length; f [1,2,3] = 3'), true)
+})

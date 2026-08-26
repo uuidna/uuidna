@@ -3,10 +3,13 @@
 // `uuidnaLs` is internal for `ls`; MCP tool uuidna_ls removed — use uuidna_exec.
 import {
   catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile,
-  resolveManPage, isManPagePackage, manAppWitness,
+  resolveManPage, isManPagePackage, manAppWitness, catalogue,
 } from './catalogue.js'
+import { INSTALLS_MIRROR } from './mirror.js'
 import { toUuid } from '../../address.js'
 import { bootOS, compileToHexbits, type InstallSpec } from './index.js'
+import { hostQuantumDevice } from '../../drivers/quantum/index.js'
+import { driverBundle } from '../../drivers/driver/index.js'
 
 /** The virtual filesystem is the install port's routes: each route a path, each package the file at it, and a
  *  route that is a prefix of others is a directory. Deterministic, from the committed mirror. */
@@ -44,12 +47,61 @@ function childrenOf(dir: string, specs: readonly InstallSpec[]): VfsEntry[] {
   return [...seen.values()].sort((a, b) => (a.name < b.name ? -1 : 1))
 }
 
+const CATALOGUE_LS_LIMIT = 500
+
+/** ls /catalogue — the whole published census by repo (main · community · overlay). */
+function catalogueLs(path: string): LsResult {
+  const os = bootOS()
+  const st = catalogueState()
+  const p = norm(path)
+  if (!st.present) {
+    const receipt = toUuid('ls|' + p + '|absent')
+    return {
+      path: p, entries: [], count: 0,
+      receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt,
+      honest: HONEST + ' Catalogue absent: ' + (st.why ?? ''),
+    }
+  }
+  const all = catalogue()
+  if (p === '/catalogue') {
+    const entries: VfsEntry[] = ['main', 'community', 'overlay'].map((repo) => {
+      const count = all.filter((x) => x.repo === repo).length
+      const childPath = norm('/catalogue/' + repo)
+      const addr = toUuid('vfs-dir|' + childPath + '|' + count)
+      return { name: repo, path: childPath, kind: 'dir' as const, meaning: `${count} packages`, address: addr, hexbits: compileToHexbits(addr) }
+    }).filter((e) => e.meaning !== '0 packages')
+    const receipt = toUuid('ls|' + p + '|' + entries.map((e) => e.name).join(','))
+    return { path: p, entries, count: entries.length, receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt, honest: HONEST }
+  }
+  const repo = p.replace(/^\/catalogue\/?/, '')
+  if (repo !== 'main' && repo !== 'community' && repo !== 'overlay') {
+    const receipt = toUuid('ls|' + p + '|bad-repo')
+    return { path: p, entries: [], count: 0, receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt, honest: HONEST }
+  }
+  const rows = all.filter((x) => x.repo === repo).sort((a, b) => (a.name < b.name ? -1 : 1))
+  const slice = rows.slice(0, CATALOGUE_LS_LIMIT)
+  const entries: VfsEntry[] = slice.map((pkg) => {
+    const compiled = catalogueCompile(pkg)
+    return {
+      name: pkg.name, path: norm('/catalogue/' + repo + '/' + pkg.name), kind: 'pkg' as const,
+      id: compiled.id, meaning: pkg.desc, address: compiled.address, hexbits: compiled.hexbits,
+    }
+  })
+  const receipt = toUuid('ls|' + p + '|' + entries.length + '/' + rows.length)
+  return {
+    path: p, entries, count: entries.length,
+    receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt,
+    honest: HONEST + (rows.length > CATALOGUE_LS_LIMIT ? ` (first ${CATALOGUE_LS_LIMIT} of ${rows.length} — apk info <name> for any row)` : ''),
+  }
+}
+
 /** uuidna_ls(path) → list a directory of the virtual uuidnaOS. Boots the sandbox first (a drifted world lists
  *  nothing), computes the entries from the sealed install port, and folds them to one receipt. The first
  *  Alpine-package tool: busybox's `ls`, reimplemented in uuidna, run in the box, never as a binary. */
 export function uuidnaLs(path = '/'): LsResult {
-  const os = bootOS()                                                // verified loading, or nothing runs
   const p = norm(path)
+  if (p === '/catalogue' || p.startsWith('/catalogue/')) return catalogueLs(p)
+  const os = bootOS()                                                // verified loading, or nothing runs
   const entries = childrenOf(p, os.port.specs)
   const receipt = toUuid('ls|' + p + '|' + entries.map((e) => e.name + ':' + e.kind).join(','))
   return {
@@ -77,7 +129,7 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'apk', 'man', 'help'] as const
+export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
 
 /** Retired toy applets — refused with a fold pointer, never silently reimplemented. */
@@ -127,17 +179,41 @@ export function uuidnaExec(line: string): ExecResult {
   const err = (msg: string): void => { ok = false; output = [msg]; data = { error: msg } }
 
   switch (applet) {
-    case 'ls': {                                                     // list a directory of the virtual OS
+    case 'ls': {
       const r = uuidnaLs(args[0] ?? '/')
       emit(r.entries.map((e) => (e.kind === 'dir' ? e.name + '/' : e.name)), r)
       break
     }
-    case 'apk': {                                                    // the package manager — READ surface only, over the sealed mirror
+    case 'apk': {
       const verb = args[0] ?? ''
       const name = args[1] ?? ''
-      if (verb === 'list') {                                         // the whole ported inventory, one line each
+      if (verb === 'list') {
+        const st = catalogueState()
+        if (name === '--all' || name === '-a' || name === 'all') {
+          if (!st.present) { err(`apk list: catalogue absent (${st.why})`); break }
+          const rows = [...catalogue()].sort((a, b) => (a.name < b.name ? -1 : 1))
+          const limit = CATALOGUE_LS_LIMIT
+          emit([
+            ...rows.slice(0, limit).map((p) => `${p.name}-${p.version}  [${p.repo}]`),
+            ...(rows.length > limit ? [`… ${rows.length - limit} more of ${rows.length} (apk info <name> for any row)`] : []),
+          ], {
+            scope: 'all', total: rows.length, shown: limit < rows.length ? limit : rows.length,
+            packages: rows.slice(0, limit).map((p) => ({ name: p.name, version: p.version, repo: p.repo })),
+          })
+          break
+        }
+        if (name === 'main' || name === 'community' || name === 'overlay') {
+          if (!st.present) { err(`apk list: catalogue absent (${st.why})`); break }
+          const rows = catalogue().filter((p) => p.repo === name).sort((a, b) => (a.name < b.name ? -1 : 1))
+          const limit = CATALOGUE_LS_LIMIT
+          emit([
+            ...rows.slice(0, limit).map((p) => `${p.name}-${p.version}  [${p.repo}]`),
+            ...(rows.length > limit ? [`… ${rows.length - limit} more of ${rows.length}`] : []),
+          ], { scope: name, total: rows.length, shown: limit < rows.length ? limit : rows.length })
+          break
+        }
         const rows = [...specs].sort((a, b) => (a.name < b.name ? -1 : 1))
-        emit(rows.map((s) => `${s.name}-${s.version}  ${s.route}`), { installed: rows.length, packages: rows.map((s) => ({ name: s.name, version: s.version, route: s.route })) })
+        emit(rows.map((s) => `${s.name}-${s.version}  ${s.route}`), { scope: 'installed', installed: rows.length, packages: rows.map((s) => ({ name: s.name, version: s.version, route: s.route })) })
       } else if (verb === 'info') {                                  // a package BY NAME (cat is by route) — its provenance record
         const s = specByName(name, specs)
         if (s) {
@@ -252,10 +328,35 @@ export function uuidnaExec(line: string): ExecResult {
       })
       break
     }
+    case 'driver': {
+      const rel = INSTALLS_MIRROR.release
+      const drv = INSTALLS_MIRROR.driver
+      const bundle = driverBundle(rel.version, INSTALLS_MIRROR.arch, drv.sha256, drv.flavor)
+      emit([
+        `${drv.file}  [${drv.flavor}]`,
+        `Alpine ${rel.version} · ${INSTALLS_MIRROR.arch} · modloop = kernel modules (the drivers)`,
+        `sha256: ${drv.sha256}`,
+        `address: ${bundle.address} · receipt ${bundle.receipt}`,
+        `(uuidna fingerprints and verifies — never loads modules; theorem the_os_is_bootable_quantum)`,
+      ], { version: rel.version, arch: INSTALLS_MIRROR.arch, rootfsSha256: rel.rootfsSha256, bundle, kind: 'driver-provenance' })
+      break
+    }
+    case 'device': {
+      const d = hostQuantumDevice()
+      emit([
+        `device: ${d.platform}/${d.arch} · ${d.logical} logical cores`,
+        `kind: ${d.kind}`,
+        `simulable: ${d.simulableQubits} qubits (${d.simulableStates} states) · uuid hexbits: ${d.uuidHexbits}`,
+        `witnesses: ${d.witnesses.length} sealed theorems · address ${d.deviceAddress}`,
+      ], { device: d })
+      break
+    }
     case 'help': emit(['applets: ' + APPLETS.join(' '),
-      'ls <path>  — install-port virtual filesystem (not busybox)',
-      'apk list · apk info <name> · apk search <term> · apk depends <name> · apk rdepends <name>  (read-only)',
+      'ls <path>  — install-port routes (/…) or full census (/catalogue, /catalogue/main|community|overlay)',
+      'apk list · apk list --all · apk list main|community|overlay · apk info <name> · apk search · apk depends · apk rdepends',
       'man <topic>  — Alpine documentation package → 32 hexbits (man→app→hexbit)',
+      'driver  — netboot/modloop driver bundle provenance (pinned release)',
+      'device  — this host executing the sealed quantum algebra (drivers/quantum)',
       'folded toys (use apk/man instead): ' + FOLDED_APPLETS.join(' '),
       'Alpine apps are the apps — uuidna does not reimplement busybox'],
       { applets: APPLETS, apk: APK_VERBS, folded: FOLDED_APPLETS }); break

@@ -92,6 +92,7 @@ export function primeCatalogue(text: string): CatalogueState {
   const packages = parseCatalogue(text)
   LOADED = packages
   UNIVERSE = null                                        // the dependency universe is derived — it must re-derive
+  SO_STEMS = null
   STATE = packages.length
     ? { present: true, count: packages.length, why: null }
     : { present: false, count: 0, why: 'primed with text that parsed to zero packages — a shape drift, not an empty Alpine' }
@@ -118,11 +119,15 @@ export async function primeCatalogueFrom(url: string): Promise<CatalogueState> {
     if (!res.ok) {
       STATE = { present: false, count: 0, why: `catalogue fetch ${url} answered HTTP ${res.status}` }
       LOADED = []
+      UNIVERSE = null
+      SO_STEMS = null
       return STATE
     }
     return primeCatalogue(await res.text())
   } catch (e) {
     LOADED = []
+    UNIVERSE = null
+    SO_STEMS = null
     STATE = { present: false, count: 0, why: `catalogue fetch ${url} failed (${e instanceof Error ? e.message : String(e)}) — offline and not cached` }
     return STATE
   }
@@ -265,6 +270,32 @@ const universe = (): Set<string> => {
 /** the bare token of a dependency: `so:libc.so.6=1.0` → `so:libc.so.6`, `busybox>1.36` → `busybox` */
 const bareDep = (d: string): string => d.split('=')[0]!.split(/[<>~]/)[0]!
 
+/** apk-style soname stem: `so:libfossil.so.0.6.0` → `libfossil`, `so:libfossil.so` → `libfossil` */
+const soStem = (token: string): string | null => {
+  if (!token.startsWith('so:')) return null
+  const base = token.slice(3).split('.so')[0]
+  return base || null
+}
+
+let SO_STEMS: Set<string> | null = null
+const soStems = (): Set<string> => {
+  if (SO_STEMS) return SO_STEMS
+  const s = new Set<string>()
+  for (const key of universe()) {
+    const stem = soStem(key)
+    if (stem) s.add(stem)
+  }
+  return (SO_STEMS = s)
+}
+
+/** depResolves(d) — a dependency resolves when the universe names it exactly, or when an apk `so:` stem matches. */
+export const depResolves = (d: string): boolean => {
+  const bare = bareDep(d)
+  if (universe().has(bare)) return true
+  const stem = soStem(bare)
+  return stem !== null && soStems().has(stem)
+}
+
 /** Q1<base64 sha1> — apk's published digest form. It must DECODE, and to exactly 20 bytes. */
 const checksumOk = (c: string): boolean => {
   if (!c.startsWith('Q1')) return false
@@ -286,8 +317,7 @@ export function catalogueCompile(p: CataloguePackage): { id: string; address: st
 
 /** packageSelfTest(pkg) → the package's own verdict on its own record. Pure, total, and able to fail. */
 export function packageSelfTest(p: CataloguePackage): PackageTest {
-  const u = universe()
-  const unresolved = p.deps.filter((d) => !d.startsWith('!') && !u.has(bareDep(d)))
+  const unresolved = p.deps.filter((d) => !d.startsWith('!') && !depResolves(d))
   const compiled = catalogueCompile(p)
   const compileOk = compiled.hexbits.length === UUID_HEXBITS
     && compiled.hexbits.every((h) => Number.isInteger(h) && h >= 0 && h < 16)
@@ -580,6 +610,45 @@ export function testAllPackages(limitFailures = 25): SuiteResult {
     if (failures.length < limitFailures) failures.push(t)
   }
   return { tested: packages.length, passed, failed: packages.length - passed, present: state.present, why: state.why, failures, byCheck }
+}
+
+/** A closure failure is upstream when every unresolved dep names a package Alpine's index omits — not a uuidna bug. */
+export const isUpstreamClosureGap = (unresolved: readonly string[]): boolean =>
+  unresolved.length > 0 && unresolved.every((d) => {
+    const b = bareDep(d)
+    return !b.startsWith('so:') && !b.startsWith('cmd:') && !b.startsWith('pc:') && !b.startsWith('py')
+      && cataloguePackage(b) === null
+  })
+
+export interface PackageSelfTestCoverage {
+  definition: 'package-self-test'
+  total: number
+  passed: number
+  failed: number
+  upstreamGaps: number
+  missing: string[]
+  gaps: { name: string; unresolved: string[] }[]
+  byCheck: Record<CheckName, number>
+  pct: number
+}
+
+/** packageSelfTestCoverage — every catalogue row tests itself; upstream APKINDEX gaps are named, never padded. */
+export function packageSelfTestCoverage(limitFailures = 25): PackageSelfTestCoverage {
+  const r = testAllPackages(limitFailures)
+  const gaps = r.failures.map((f) => ({ name: f.name, unresolved: f.unresolved }))
+  const upstreamGaps = gaps.filter((g) => isUpstreamClosureGap(g.unresolved)).length
+  const pct = r.tested === 0 ? 0 : ((r.passed * 100) - ((r.passed * 100) % r.tested)) / r.tested
+  return {
+    definition: 'package-self-test',
+    total: r.tested,
+    passed: r.passed,
+    failed: r.failed,
+    upstreamGaps,
+    missing: gaps.map((g) => g.name),
+    gaps,
+    byCheck: r.byCheck,
+    pct,
+  }
 }
 
 // ── THE SAME SUITE, WITHOUT HOLDING THE FRAME. uuidnaOS runs this in a browser, where the cost is not the total

@@ -13,7 +13,7 @@ import { ROOT } from './api.js'
 import { defaultInstalls } from '../quantum/os/index.js'
 import {
   hexbitPortCoverage, manPagePortCoverage, manPagePackages, manDrivenPortCoverage,
-  overlayManDrivenPortCoverage, catalogueCompile, catalogue,
+  overlayManDrivenPortCoverage, catalogueCompile, catalogue, packageSelfTestCoverage,
 } from '../quantum/os/catalogue.js'
 import { mcpManDrivenCoverage, overlayMcpManDrivenCoverage } from '../quantum/os/mcp-man.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
@@ -36,6 +36,7 @@ const all = hexbitPortCoverage()
 const manAll = manPagePortCoverage()
 const manCommunity = manPagePortCoverage('community')
 const manMain = manPagePortCoverage('main')
+const selfTest = packageSelfTestCoverage()
 
 // TIME — TypeScript computes the compile sweep; the monitor only prints the measured decade.
 const manList = manPagePackages()
@@ -111,10 +112,14 @@ distro membership. Provenance meters still recompute below so every published ro
 | man pages (compile) | provenance | ${manAll.total.toLocaleString('en-US')} | ${manAll.ported.toLocaleString('en-US')} | ${pct(manAll.ported, manAll.total)}% | ${th('a_spec_compiles_to_hexbits')} |
 | man pages · community | provenance | ${manCommunity.total.toLocaleString('en-US')} | ${manCommunity.ported.toLocaleString('en-US')} | ${pct(manCommunity.ported, manCommunity.total)}% | — |
 | man pages · main | provenance | ${manMain.total.toLocaleString('en-US')} | ${manMain.ported.toLocaleString('en-US')} | ${pct(manMain.ported, manMain.total)}% | — |
+| **package self-test** | **catalogue closure** | ${selfTest.total.toLocaleString('en-US')} | **${selfTest.passed.toLocaleString('en-US')}** / ${selfTest.total.toLocaleString('en-US')} | **${pct(selfTest.passed, selfTest.total)}%** | ${th('a_spec_compiles_to_hexbits')} |
 | **overlay · man→app→hexbit** | **npm/curl (NOT apk)** | ${overlayCompleteness.total.toLocaleString('en-US')} | **${overlayCompleteness.witnessed.toLocaleString('en-US')}** / ${overlayCompleteness.total.toLocaleString('en-US')} | **${overlayPct}%** | separate from APKINDEX |
 | overlay (compile) | provenance | ${overlayHex.total.toLocaleString('en-US')} | ${overlayHex.ported.toLocaleString('en-US')} | ${pct(overlayHex.ported, overlayHex.total)}% | repo=overlay |
 | **overlay · MCP · \`${mcpMan.tool}\`** | **npm/curl MCP** | ${mcpOverlay.total.toLocaleString('en-US')} | **${mcpOverlay.exposed.toLocaleString('en-US')}** / ${mcpOverlay.total.toLocaleString('en-US')} | **${mcpOverlayPct}%** | same door, NOT apk |
 
+${selfTest.failed > 0
+  ? `**Package self-test gaps** (${selfTest.failed} — ${selfTest.upstreamGaps} upstream APKINDEX omissions, not uuidna): \`${selfTest.missing.join('\`, \`')}\`.\n`
+  : ''}
 ${completeness.witnessed < completeness.total
   ? `**Honest gaps** (${completeness.total - completeness.witnessed} orphan documentation rows — Alpine published \`-doc\` with no catalogued app): \`${completeness.missing.join('\`, \`')}\`.\n`
   : ''}
@@ -215,6 +220,10 @@ const figures: Figure[] = [
     citation: 'catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits · provenance, not completeness' },
   { name: 'Alpine man-page packages — ported', value: manAll.ported, unitText: 'packages', measurementTechnique: 'computed',
     citation: 'manPagePortCoverage() over -doc / *-man-pages / man-pages · provenance compile of the documentation corpus' },
+  { name: 'package self-test — passed', value: selfTest.passed, unitText: 'packages', measurementTechnique: 'computed',
+    citation: 'packageSelfTestCoverage() — every catalogue row tests itself; upstream APKINDEX gaps named' },
+  { name: 'package self-test — coverage', value: Number(pct(selfTest.passed, selfTest.total)), unitText: '%', measurementTechnique: 'computed',
+    citation: 'closure + compile + provenance per package · gate alpine-hexbit-port.test.ts' },
   { name: 'usable address space', value: UUID_BITS, unitText: 'bits (2^N states)', measurementTechnique: 'declared',
     citation: 'theorem handle_capacity_is_quantum_by_architecture — 128 = 2^7, the 7-qubit fold; classical architecture' },
   { name: 'community compile — ns per package', value: communityNsPer, unitText: 'ns', measurementTechnique: 'measured',
@@ -290,6 +299,7 @@ writeFileSync(join(ROOT, 'lean', 'alpine-hexbit-monitor.json'), JSON.stringify({
     after: { exposed: mcpMan.exposed, wireDoors: mcpMan.wireDoors },
   },
   community, all, man: { all: manAll, community: manCommunity, main: manMain },
+  selfTest,
   time: { communityCompileNs, communityNsPer, manCompileNs, manNsPer },
   scale: { usableAddressesPow2: UUID_BITS, seals: 'handle_capacity_is_quantum_by_architecture' },
   receipt: monitorReceipt,
@@ -303,6 +313,6 @@ writeFileSync(join(ROOT, 'lean', 'mcp-alpine-man.json'), JSON.stringify({
   after: { exposed: mcpMan.exposed, wireDoors: mcpMan.wireDoors, catalogManDriven: `${completeness.witnessed}/${completeness.total}` },
 }, null, 1) + '\n')
 
-console.log(`✓ docs/os.md — default install ${port.count} paths + quantum monitor (completeness man→app→hexbit ${completeness.witnessed}/${completeness.total} = ${completenessPct}%, MCP ${mcpMan.exposed}/${mcpMan.total} via ${mcpMan.tool}, provenance community ${community.ported}/${community.total}, man ${manAll.ported}/${manAll.total})`)
+console.log(`✓ docs/os.md — default install ${port.count} paths + quantum monitor (completeness man→app→hexbit ${completeness.witnessed}/${completeness.total} = ${completenessPct}%, self-test ${selfTest.passed}/${selfTest.total}, MCP ${mcpMan.exposed}/${mcpMan.total} via ${mcpMan.tool}, provenance community ${community.ported}/${community.total}, man ${manAll.ported}/${manAll.total})`)
 console.log(`  → docs/public/alpine-hexbit-monitor.jsonld · lean/alpine-hexbit-monitor.json · receipt ${monitorReceipt}`)
 console.log(`  → lean/mcp-alpine-man.json · ${mcpMan.exposed}/${mcpMan.total} · receipt ${mcpMan.receipt}`)

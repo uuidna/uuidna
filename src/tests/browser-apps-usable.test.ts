@@ -29,6 +29,8 @@ test('BROWSER USABILITY — store mounts + compute + man samples + man→app→h
     `compute failures:\n${r.compute.filter((c) => !c.ok).map((c) => `${c.id}: ${c.detail}`).join('\n')}`)
   assert.equal(r.totals.manSamplesOk, MAN_BROWSER_SAMPLES.length,
     `man sample failures:\n${r.manSamples.filter((m) => !m.ok).map((m) => `${m.topic}: ${m.detail}`).join('\n')}`)
+  assert.equal(r.totals.catalogueExecOk, r.catalogueExec.length,
+    `catalogue exec failures:\n${r.catalogueExec.filter((c) => !c.ok).map((c) => `${c.topic}: ${c.detail}`).join('\n')}`)
   assert.equal(r.totals.installOk, r.installRoutes.length)
   assert.ok(r.manDriven.total > 4000)
   assert.ok(r.manDriven.witnessed >= r.manDriven.total - 25,

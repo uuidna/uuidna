@@ -80,13 +80,15 @@ export interface BrowserAppsUsable {
   mounts: MountCheck[]
   compute: ComputeCheck[]
   manSamples: ManSampleCheck[]
+  catalogueExec: ManSampleCheck[]
   installRoutes: { route: string; package: string; hexbits: number; ok: boolean }[]
   totals: {
     surfaces: number
     mountsOk: number
     computeOk: number
-    manSamplesOk: number
-    installOk: number
+      manSamplesOk: number
+      catalogueExecOk: number
+      installOk: number
     manWitnessed: number
     manTotal: number
   }
@@ -146,6 +148,26 @@ const runManSamples = (): ManSampleCheck[] => MAN_BROWSER_SAMPLES.map((topic) =>
   return { topic, ok, detail: ok ? `man ${topic} → ${UUID_HEXBITS} hexbits` : 'bad man payload' }
 })
 
+/** uuidnaOS terminal doors beyond man samples — full catalogue census + driver/device provenance. */
+const CATALOGUE_EXEC_LINES = ['apk list --all', 'ls /catalogue', 'driver', 'device'] as const
+
+const runCatalogueExec = (): ManSampleCheck[] => CATALOGUE_EXEC_LINES.map((line) => {
+  const r = uuidnaExec(line)
+  if (!r.ok) return { topic: line, ok: false, detail: r.output[0] ?? 'exec failed' }
+  if (line === 'apk list --all') {
+    const total = (r.data as { total?: number }).total ?? 0
+    return { topic: line, ok: total > 25000, detail: `catalogue ${total} packages` }
+  }
+  if (line === 'ls /catalogue') {
+    return { topic: line, ok: r.output.some((l) => l.endsWith('/')), detail: 'repo dirs listed' }
+  }
+  if (line === 'device') {
+    const addr = (r.data as { device?: { deviceAddress?: string } }).device?.deviceAddress ?? ''
+    return { topic: line, ok: addr.includes('-'), detail: `device ${addr}` }
+  }
+  return { topic: line, ok: r.output.some((l) => l.includes('alpine-netboot')), detail: 'driver provenance' }
+})
+
 /** docHasMount(src, mount) → whether markdown embeds the Vue tag (ClientOnly wrappers allowed). */
 export const docHasMount = (src: string, mount: string): boolean =>
   new RegExp(`<${mount}\\b`).test(src)
@@ -163,6 +185,7 @@ export function browserAppsUsable(docSources: ReadonlyMap<string, string>): Brow
   })
   const compute = runCompute()
   const manSamples = runManSamples()
+  const catalogueExec = runCatalogueExec()
   const port = defaultInstalls()
   const installRoutes = port.specs.map((s) => ({
     route: s.route,
@@ -175,6 +198,7 @@ export function browserAppsUsable(docSources: ReadonlyMap<string, string>): Brow
   for (const m of mounts) if (!m.ok) gaps.push(m.detail)
   for (const c of compute) if (!c.ok) gaps.push(`compute ${c.id}: ${c.detail}`)
   for (const m of manSamples) if (!m.ok) gaps.push(`man sample ${m.topic}: ${m.detail}`)
+  for (const c of catalogueExec) if (!c.ok) gaps.push(`catalogue exec ${c.topic}: ${c.detail}`)
   for (const i of installRoutes) if (!i.ok) gaps.push(`install ${i.route} (${i.package}) tiles=${i.hexbits}/${UUID_HEXBITS}`)
   const manOk = manDriven.total > 4000
     && manDriven.witnessed >= manDriven.total - 25
@@ -188,6 +212,7 @@ export function browserAppsUsable(docSources: ReadonlyMap<string, string>): Brow
   const mountsOk = mounts.filter((m) => m.ok).length
   const computeOk = compute.filter((c) => c.ok).length
   const manSamplesOk = manSamples.filter((m) => m.ok).length
+  const catalogueExecOk = catalogueExec.filter((c) => c.ok).length
   const installOk = installRoutes.filter((i) => i.ok).length
   const browserGaps = gaps.filter((g) => !g.startsWith('man→app orphans'))
   const ok = browserGaps.length === 0 && manOk
@@ -198,19 +223,21 @@ export function browserAppsUsable(docSources: ReadonlyMap<string, string>): Brow
     mounts,
     compute,
     manSamples,
+    catalogueExec,
     installRoutes,
     totals: {
       surfaces: BROWSER_SURFACES.length,
       mountsOk,
       computeOk,
       manSamplesOk,
+      catalogueExecOk,
       installOk,
       manWitnessed: manDriven.witnessed,
       manTotal: manDriven.total,
     },
     gaps,
     ok,
-    honest: 'Honest scope: store interactive mounts + uuidnaOS terminal man samples + default-install routes + '
+    honest: 'Honest scope: store interactive mounts + uuidnaOS terminal (man samples + catalogue census via apk/ls + driver/device) + default-install routes + '
       + 'manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.',
   }
 }

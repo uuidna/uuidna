@@ -9,9 +9,10 @@ import assert from 'node:assert/strict'
 import {
   catalogue, catalogueCompile, cataloguePackage, hexbitPortCoverage, manPagePortCoverage,
   manPagePackages, manDrivenPortCoverage, overlayManDrivenPortCoverage,
-  manAppWitness, resolveManApp, manAppOriginCandidates,
+  manAppWitness, resolveManApp, manAppOriginCandidates, packageSelfTestCoverage, isUpstreamClosureGap,
+  resolveManPage,
 } from '../quantum/os/catalogue.js'
-import { uuidnaExec } from '../quantum/os/exec.js'
+import { uuidnaExec, APPLETS } from '../quantum/os/exec.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
 import { theoremByKey } from '../theorems/index.js'
 import { LEVELS } from '../quantum/advantage/index.js'
@@ -119,6 +120,78 @@ test('PROVENANCE — 100% of Alpine man-page packages compile to hexbits', () =>
   assert.ok(man.total > 4000, `Alpine publishes thousands of -doc / man-pages packages; got ${man.total}`)
   assert.equal(man.ported, man.total,
     `man-page hexbit port ${man.ported}/${man.total} — missing: ${man.missing.join(', ') || '(none named)'}`)
+})
+
+test('PACKAGE SELF-TEST — every catalogue row tests itself; upstream APKINDEX gaps are named', () => {
+  const st = packageSelfTestCoverage()
+  assert.equal(st.definition, 'package-self-test')
+  assert.ok(st.total > 25000, `whole catalogue must exceed 25k; got ${st.total}`)
+  assert.equal(st.passed + st.failed, st.total)
+  assert.equal(st.failed, st.upstreamGaps,
+    `non-upstream failures must be zero; got ${st.failed - st.upstreamGaps}: ${st.missing.join(', ')}`)
+  assert.ok(st.gaps.every((g) => isUpstreamClosureGap(g.unresolved)),
+    `every gap must be upstream: ${st.gaps.map((g) => g.name).join(', ')}`)
+  assert.ok(st.passed >= st.total - 5,
+    `self-test ${st.passed}/${st.total} — gaps: ${st.missing.join(', ')}`)
+})
+
+test('FULL MAN CORPUS — uuidna_exec man resolves every witnessed documentation package', () => {
+  const topicForDoc = (p: { name: string }): string => {
+    if (resolveManPage(p.name)?.name === p.name) return p.name
+    const tries = [
+      p.name.endsWith('-doc') ? p.name.slice(0, -4) : null,
+      p.name.endsWith('-man-pages') ? p.name.slice(0, -10) : null,
+      ...manAppOriginCandidates(p.name),
+    ].filter(Boolean) as string[]
+    for (const t of tries) {
+      if (resolveManPage(t)?.name === p.name) return t
+    }
+    return p.name
+  }
+  const failures: string[] = []
+  for (const p of manPagePackages()) {
+    const topic = topicForDoc(p)
+    const r = uuidnaExec(`man ${topic}`)
+    if (!r.ok) failures.push(`${p.name} (${topic}): ${r.output[0]}`)
+    else {
+      const d = r.data as { name: string; hexbits?: number[]; witnessOk?: boolean }
+      if (d.name !== p.name) failures.push(`${p.name}: resolved ${d.name}`)
+      if (d.hexbits?.length !== UUID_HEXBITS) failures.push(`${p.name}: bad hexbits`)
+      if (d.witnessOk === false) failures.push(`${p.name}: orphan witness`)
+    }
+  }
+  assert.equal(failures.length, 0,
+    `man corpus exec failures (${failures.length}/${manPagePackages().length}):\n${failures.slice(0, 15).join('\n')}`)
+})
+
+test('FULL CATALOGUE — apk list --all and ls /catalogue expose the census', () => {
+  const all = uuidnaExec('apk list --all')
+  assert.ok(all.ok)
+  const d = all.data as { total: number; scope: string }
+  assert.equal(d.scope, 'all')
+  assert.ok(d.total > 25000)
+  assert.ok(all.output.some((l) => l.includes('[community]')))
+
+  const ls = uuidnaExec('ls /catalogue')
+  assert.ok(ls.ok)
+  assert.ok(ls.output.some((l) => l.endsWith('/')))
+
+  const main = uuidnaExec('apk list main')
+  assert.ok(main.ok)
+  assert.ok((main.data as { total: number }).total > 5000)
+})
+
+test('driver and device applets — provenance and host quantum executor', () => {
+  assert.ok(APPLETS.includes('driver'))
+  assert.ok(APPLETS.includes('device'))
+  const drv = uuidnaExec('driver')
+  assert.ok(drv.ok)
+  assert.match(drv.output[0]!, /alpine-netboot/)
+  assert.match(drv.output.join('\n'), /9a7769ea8fa1737b1b49d82f1bdd53d0a17338d6d3b7cfc6f2c3ec5158596d8b/)
+  const dev = uuidnaExec('device')
+  assert.ok(dev.ok)
+  assert.match(dev.output[0]!, /logical cores/)
+  assert.ok((dev.data as { device: { deviceAddress: string } }).device.deviceAddress.includes('-'))
 })
 
 test('man applet resolves documentation packages with 32 hexbits', () => {

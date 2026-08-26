@@ -1,4 +1,4 @@
-// quantum/os/exec — uuidnaExec after Alpine apps folded toy busybox. Remaining: ls · apk · man · help.
+// quantum/os/exec — uuidnaExec after Alpine apps folded toy busybox. Remaining: ls · apk · man · driver · device · help.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { uuidnaExec, APPLETS, FOLDED_APPLETS } from '../quantum/os/exec.js'
@@ -19,7 +19,7 @@ test('toy busybox applets are FOLDED — refuse with a pointer to apk/man, never
     assert.match(r.output[0]!, /apk info|man /, `${toy}: points at Alpine path`)
   }
   assert.ok(!APPLETS.includes('cat' as never), 'cat is not in the remaining applet set')
-  assert.deepEqual([...APPLETS].sort(), ['apk', 'help', 'ls', 'man'])
+  assert.deepEqual([...APPLETS].sort(), ['apk', 'device', 'driver', 'help', 'ls', 'man'])
 })
 
 test('deterministic AND change-sensitive AND honest on the unknown', () => {
@@ -36,6 +36,11 @@ test('apk — the package manager\'s READ surface: list, info, deps, search', ()
   assert.ok(list.ok)
   assert.ok((list.data as { installed: number }).installed >= 25)
   assert.ok(list.output.some((l) => l.startsWith('musl-')))
+
+  const all = uuidnaExec('apk list --all')
+  assert.ok(all.ok)
+  assert.ok((all.data as { total: number }).total > 25000)
+  assert.ok(all.output.some((l) => l.includes('[main]')))
 
   const info = uuidnaExec('apk info busybox')
   assert.ok(info.ok)
@@ -60,6 +65,20 @@ test('apk — the package manager\'s READ surface: list, info, deps, search', ()
   const add = uuidnaExec('apk add nginx')
   assert.equal(add.ok, false)
   assert.match(add.output[0]!, /not a ported verb|READ only/)
+})
+
+test('ls /catalogue — full census by repo', () => {
+  const root = uuidnaExec('ls /catalogue')
+  assert.ok(root.ok)
+  assert.ok(root.output.some((l) => l === 'main/' || l === 'community/'))
+  const main = uuidnaExec('ls /catalogue/main')
+  assert.ok(main.ok)
+  assert.ok((main.data as { count: number }).count >= 500)
+})
+
+test('driver and device applets', () => {
+  assert.ok(uuidnaExec('driver').ok)
+  assert.ok(uuidnaExec('device').ok)
 })
 
 test('man — man→app→hexbit is the Alpine app path', () => {
