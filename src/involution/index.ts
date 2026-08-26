@@ -133,7 +133,7 @@ const stripFunBinders = (s: string): string => {
     .replace(/;/g, ' ').replace(/×/g, ' ').replace(/\b_\b/g, ' ')
 }
 export const evaluable = (statement: string): boolean =>
-  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]"\\&'|·?!;:→∈-]+$/.test(
+  /^[\s0-9()+*%/^=∧∨<>≤≥≠¬,.\[\]"\\&'|·?!;:→∈-]+$/.test(
     stripFunBinders(stripStrings(stripAscriptions(stripComments(statement)))).replace(NAMED_OP, '').replace(/\+\+/g, '').replace(/\?/g, ''),
   )
 
@@ -769,15 +769,23 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'if')) {
     const cond = boolProp(c)
     if (!eat(c, 'then')) throw new Error('if then')
-    // Value arms always — Bool props use junction on true/false; numeric `if` inside `==` stays Nat.
-    const saveBool = c.expectBool
+    // Value arms (`then 1 else 0`) vs Bool arms (`then a == b else c == d`).
+    const save = c.i
+    const prev = c.expectBool
     c.expectBool = false
-    let t: Val; let e: Val
     try {
-      t = junction(c)
-      if (!eat(c, 'else')) throw new Error('if else')
-      e = junction(c)
-    } finally { c.expectBool = saveBool }
+      const t = junction(c)
+      if (eat(c, 'else')) {
+        const e = junction(c)
+        c.expectBool = prev
+        return postfix(c, cond ? t : e)
+      }
+    } catch { /* fall through to Bool arms */ }
+    c.i = save
+    c.expectBool = prev
+    const t = boolProp(c)
+    if (!eat(c, 'else')) throw new Error('if else')
+    const e = boolProp(c)
     return postfix(c, cond ? t : e)
   }
   // Named apps — longer tokens before prefixes.
@@ -1070,19 +1078,30 @@ function junction(c: Cursor): Val {
 
 const compare = (c: Cursor): boolean => {
   const l = junction(c); ws(c)
+  const cmpNum = (op: (a: number | bigint, b: number | bigint) => boolean): boolean => {
+    const r = junction(c)
+    const a = forceScalar(l)
+    const b = forceScalar(r)
+    if (typeof a === 'bigint' || typeof b === 'bigint') {
+      const aa = typeof a === 'bigint' ? a : BigInt(a)
+      const bb = typeof b === 'bigint' ? b : BigInt(b)
+      return op(aa, bb)
+    }
+    return op(a, b)
+  }
   // TWO-CHARACTER OPS BEFORE THEIR PREFIXES — `<=` must win over `<`; `==`/`!=` are Lean Bool eq.
-  if (eat(c, '<=')) return asNum(l) <= asNum(junction(c))
-  if (eat(c, '>=')) return asNum(l) >= asNum(junction(c))
-  if (eat(c, '≤')) return asNum(l) <= asNum(junction(c))
-  if (eat(c, '≥')) return asNum(l) >= asNum(junction(c))
+  if (eat(c, '<=')) return cmpNum((a, b) => a <= b)
+  if (eat(c, '>=')) return cmpNum((a, b) => a >= b)
+  if (eat(c, '≤')) return cmpNum((a, b) => a <= b)
+  if (eat(c, '≥')) return cmpNum((a, b) => a >= b)
   if (eat(c, '≠')) return !deepEq(l, junction(c))
   if (eat(c, '!=')) return !deepEq(l, junction(c))
   if (eat(c, '==')) {
     if (typeof l === 'boolean') return l === boolExpr(c)
     return deepEq(l, junction(c))
   }
-  if (eat(c, '<')) return asNum(l) < asNum(junction(c))
-  if (eat(c, '>')) return asNum(l) > asNum(junction(c))
+  if (eat(c, '<')) return cmpNum((a, b) => a < b)
+  if (eat(c, '>')) return cmpNum((a, b) => a > b)
   if (eat(c, '=')) return deepEq(l, junction(c))
   // bare boolean proposition — `.Nodup`, `.contains`, `.all`, `true`, `if`
   if (typeof l === 'boolean') return l
@@ -1217,8 +1236,12 @@ const conjunct = (c: Cursor): boolean => {
 
 function conjunction(c: Cursor): boolean {
   let v = conjunct(c)
-  while (eat(c, '∧')) v = conjunct(c) && v
-  return v
+  for (;;) {
+    ws(c)
+    if (eat(c, '∧')) { v = conjunct(c) && v; continue }
+    if (eat(c, '∨')) { v = conjunct(c) || v; continue }
+    return v
+  }
 }
 
 /** holds(statement) → true, false, or null when it could not be decided here. Three states, never two. */
