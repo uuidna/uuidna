@@ -5,7 +5,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { MCP_CATALOG, callTool } from '../mcp.js'
-import { mcpManDrivenCoverage, MCP_ALPINE_DOOR } from '../quantum/os/mcp-man.js'
+import { mcpManDrivenCoverage, overlayMcpManDrivenCoverage, MCP_ALPINE_DOOR } from '../quantum/os/mcp-man.js'
 import { manDrivenPortCoverage } from '../quantum/os/catalogue.js'
 import { UUID_HEXBITS } from '../hexbit/index.js'
 import { wireBytes } from '../scripts/context-budget.js'
@@ -85,4 +85,16 @@ test('dotnet-doc through MCP resolves via provides (cmd:dotnet)', () => {
   }
   assert.equal(apk.ok, true)
   assert.equal(apk.data.name, 'dotnet-host')
+})
+
+test('oh-my-pi overlay reachable via uuidna_exec — separate overlay MCP meter', () => {
+  const cov = overlayMcpManDrivenCoverage()
+  assert.equal(cov.total, 1)
+  assert.equal(cov.exposed, 1, `gaps: ${cov.missing.join(', ')}`)
+  const r = callTool('uuidna_exec', { line: 'man oh-my-pi' }) as {
+    ok: boolean; data: { witnessOk?: boolean; app?: string }
+  }
+  assert.equal(r.ok, true)
+  assert.equal(r.data.witnessOk, true)
+  assert.equal(r.data.app, 'oh-my-pi')
 })

@@ -7,7 +7,8 @@
 import { UUID_HEXBITS } from '../../hexbit/index.js'
 import { toUuid } from '../../address.js'
 import {
-  manPagePackages, manAppWitness, manDrivenPortCoverage, type ManDrivenPortCoverage,
+  manPagePackages, manAppWitness, manDrivenPortCoverage, overlayManDrivenPortCoverage,
+  OVERLAY_REPO, type ManDrivenPortCoverage,
 } from './catalogue.js'
 import { uuidnaExec } from './exec.js'
 
@@ -95,5 +96,64 @@ export function mcpManDrivenCoverage(): McpManDrivenCoverage {
     byVia: driven.byVia,
     receipt,
     honest: HONEST,
+  }
+}
+
+const OVERLAY_HONEST =
+  'npm/curl overlay ports (repo=overlay) through the same uuidna_exec door — NOT Alpine APKINDEX completeness. ' +
+  'man + apk info must reach oh-my-pi and peers; orphans named, never padded.'
+
+/** overlayMcpManDrivenCoverage() → overlay man corpus through uuidna_exec; separate from Alpine MCP meter. */
+export function overlayMcpManDrivenCoverage(): McpManDrivenCoverage {
+  const driven = overlayManDrivenPortCoverage()
+  const list = manPagePackages(OVERLAY_REPO)
+  let exposed = 0
+  const missing: string[] = []
+  const gaps: { man: string; why: string }[] = []
+
+  for (const man of list) {
+    const w = manAppWitness(man)
+    if (!w.ok || !w.app) {
+      if (missing.length < 25) missing.push(man.name)
+      if (gaps.length < 25) gaps.push({ man: man.name, why: w.detail })
+      continue
+    }
+    const topic = man.name.endsWith('-doc') ? man.name.slice(0, -4)
+      : man.name.endsWith('-man-pages') ? man.name.slice(0, -'-man-pages'.length) : man.name
+    const manRun = uuidnaExec(`man ${topic}`)
+    const d = manRun.data as {
+      name?: string; app?: string | null; witnessOk?: boolean; hexbits?: number[]
+    } | null
+    const apkRun = uuidnaExec(`apk info ${w.app}`)
+    const apkName = (apkRun.data as { name?: string } | null)?.name
+    const ok = manRun.ok
+      && d?.witnessOk === true
+      && d.app === w.app
+      && Array.isArray(d.hexbits) && d.hexbits.length === UUID_HEXBITS
+      && apkRun.ok
+      && apkName === w.app
+    if (ok) exposed++
+    else {
+      if (missing.length < 25) missing.push(man.name)
+      if (gaps.length < 25) {
+        gaps.push({ man: man.name, why: !manRun.ok ? `mcp man failed: ${manRun.output[0] ?? 'unknown'}` : `mcp overlay path incomplete for ${man.name} → ${w.app}` })
+      }
+    }
+  }
+
+  const receipt = toUuid(`mcp-overlay-man|${MCP_ALPINE_DOOR}|${exposed}/${list.length}|${driven.witnessed}|wireDoors:1`)
+  return {
+    definition: 'mcp·uuidna_exec·man→app→hexbit',
+    tool: MCP_ALPINE_DOOR,
+    wireDoors: 1,
+    naiveWireIfPerApp: list.length,
+    total: list.length,
+    witnessed: driven.witnessed,
+    exposed,
+    missing,
+    gaps,
+    byVia: driven.byVia,
+    receipt,
+    honest: OVERLAY_HONEST,
   }
 }

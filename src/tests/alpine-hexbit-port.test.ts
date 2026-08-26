@@ -8,7 +8,8 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   catalogue, catalogueCompile, cataloguePackage, hexbitPortCoverage, manPagePortCoverage,
-  manPagePackages, manDrivenPortCoverage, manAppWitness, resolveManApp, manAppOriginCandidates,
+  manPagePackages, manDrivenPortCoverage, overlayManDrivenPortCoverage,
+  manAppWitness, resolveManApp, manAppOriginCandidates,
 } from '../quantum/os/catalogue.js'
 import { uuidnaExec } from '../quantum/os/exec.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
@@ -192,4 +193,14 @@ test('oh-my-pi (omp) is overlay — NOT Alpine distro; separate from APKINDEX co
   const d = run.data as { witnessOk?: boolean; app?: string } | null
   assert.equal(d?.witnessOk, true)
   assert.equal(d?.app, 'oh-my-pi')
+})
+
+test('overlayManDrivenPortCoverage — npm/curl ports separate from APKINDEX', () => {
+  const o = overlayManDrivenPortCoverage()
+  assert.equal(o.total, 1)
+  assert.equal(o.witnessed, 1)
+  assert.equal(o.missing.length, 0)
+  const h = hexbitPortCoverage('overlay')
+  assert.equal(h.ported, h.total)
+  assert.ok(h.total >= 2)
 })
