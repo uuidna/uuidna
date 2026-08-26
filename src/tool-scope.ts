@@ -33,8 +33,15 @@ export type ToolScope =
 
 /** Parameter names that carry the CALLER'S OWN content. Matched on the parameter NAME because that is the part
  *  of the contract a client sees; a description is prose and drifts, a name is the key you must actually pass.
- *  Plurals of these stems are admitted by `numberInvolute` — not by widening the open set of author names. */
-const CALLER_SUPPLIED = /^(draft|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|c|d|m|n|x|y|left|right|uuids|links|leaf|proof|root|deposit|material|candidate|fact|vote|query|title|name|word|hex|path|file|index|arg|term|sealed|bit|party|op|step|stride|length|iteration|limit|mod|branch|kind|status|state|type|filter|match|line|from|to|action|agent|session|counter|tag|ct|aad|base64|sha256|response|proposal|circuit|chain|contract|dimension|delimiter|contains|likelihood|commercial|licensee|license|output|cached|reasoning|label|author|caption|contribution|source|sourceLang|targetLang|translation|book|bookId|bookIds|scale|tempo|rung|base|bound|gate|install|repo|arch|writer|core|qubit|genesis|start|oneTimeKey|capacity|category|country|countryCode|cpv|dataset|geo|time|vacancy|perSkill|escoTitle|escoTitles|rule|formulaReceipt|formulaReceipts|recomputeOp|recomputeOps|verifyOp|verifyOps|claimedCoin|claimedCoins|expectedReceiptAll|vatNumber|seenAddress|seenAddresses|centiLoad1|memTotalMb|memFreeMb)$/i
+ *  Plurals of these stems are admitted by `numberInvolute` — not by widening the open set of author names.
+ *  Energy magnitudes use ENERGY_UNIT_STEM (suffix), not this open roster. */
+const CALLER_SUPPLIED = /^(draft|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|c|d|m|n|x|y|left|right|uuids|links|leaf|proof|root|deposit|material|candidate|fact|vote|query|title|name|word|hex|path|file|index|arg|term|sealed|bit|party|op|step|stride|length|iteration|limit|mod|branch|kind|status|state|type|filter|match|line|from|to|action|agent|session|counter|tag|ct|aad|base64|sha256|response|proposal|circuit|chain|contract|dimension|delimiter|contains|likelihood|commercial|licensee|license|output|cached|reasoning|label|author|caption|contribution|source|sourceLang|targetLang|translation|book|bookId|bookIds|scale|tempo|rung|base|bound|gate|install|repo|arch|writer|core|qubit|genesis|start|oneTimeKey|capacity|category|country|countryCode|cpv|dataset|geo|time|vacancy|perSkill|escoTitle|escoTitles|rule|formulaReceipt|formulaReceipts|recomputeOp|recomputeOps|verifyOp|verifyOps|claimedCoin|claimedCoins|expectedReceiptAll|vatNumber|seenAddress|seenAddresses|centiLoad1|memTotalMb|memFreeMb|cylinders)$/i
+
+/** Energy / SI-magnitude unit stems — the four uuidna_energy_* tools name caller inputs with a quantity + unit
+ *  suffix (wavelengthNanometres, appliedMillivolts, …). Matched as a SUFFIX so a new magnitude on the same
+ *  unit closes without widening the open author-name set; abbreviations (`wavelengthNm`) stay unmeasured. */
+const ENERGY_UNIT_STEM =
+  /(?:Millimetres|MillimetresPerSecond|Millivolts|Milliwatts|MilliwattsPerCubicMetre|Nanometres|Kelvin|Litres|GramsPerCubicMetre|Percent|RevolutionsPerMinute|Hours|SquareMillimetres)$/i
 
 /** Parameter names that identify something INSIDE uuidna. A tool taking only these can answer about the ledger
  *  and nothing else, however many parameters it has. `keys` involutes to `key`; bare `uuid` stays an id,
@@ -45,8 +52,8 @@ const LEDGER_IDENTIFIER = /^(key|slug|route|address|theorem|publication|domain|h
 /**
  * Singular ↔ plural involution on a parameter token — self-inverse on the pairs the catalogue uses
  * (`message`↔`messages`, `key`↔`keys`, `passphrase`↔`passphrases`, `leaf`↔`leaves`, `address`↔`addresses`,
- * `bookId`↔`bookIds`, `seenAddress`↔`seenAddresses`, …). Unit-bearing names keep only a trailing-s fold so
- * `appliedMillivolts` does not invent a roster stem.
+ * `bookId`↔`bookIds`, `seenAddress`↔`seenAddresses`, …). Unit-bearing CamelCase keeps only a trailing-s fold
+ * so numberInvolute never invents a roster stem from `appliedMillivolts`; ENERGY_UNIT_STEM reads the suffix.
  */
 export function numberInvolute(name: string): readonly string[] {
   const forms = new Set<string>([name])
@@ -76,9 +83,10 @@ export function numberInvolute(name: string): readonly string[] {
   return [...forms]
 }
 
-/** Caller-content hit: exact roster, or number-involution of a roster stem. */
+/** Caller-content hit: exact roster, energy unit suffix, or number-involution of a roster stem. */
 export const isCallerParam = (p: string): boolean =>
-  CALLER_SUPPLIED.test(p) || numberInvolute(p).some((f) => f !== p && CALLER_SUPPLIED.test(f))
+  CALLER_SUPPLIED.test(p) || ENERGY_UNIT_STEM.test(p)
+  || numberInvolute(p).some((f) => f !== p && (CALLER_SUPPLIED.test(f) || ENERGY_UNIT_STEM.test(f)))
 
 /** Ledger-id hit. `uuids` is transport (caller) — do not fold it to ledger `uuid`. */
 export const isLedgerParam = (p: string): boolean => {

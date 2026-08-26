@@ -38,19 +38,11 @@ test('the census over the REAL served catalogue, and it must not be all one thin
   const c = scopeCensus(MCP_CATALOG)
   assert.equal(c.total, MCP_CATALOG.length)
   assert.equal(c.generic + c.self + c.fixed + c.unclassified, c.total, 'every tool lands in exactly one scope')
-  // AND THE FOURTH BUCKET IS NOT EMPTY, which is the whole correction: this line read
-  // generic + self + fixed === total while scopeOf resolved an unrecognised parameter name to 'self', so the
-  // partition held only by absorbing every unmeasured tool into the stronger claim. The sum is honest once the
-  // unmeasured have somewhere of their own to land.
-  assert.ok(c.unclassified > 0,
-    'the live catalogue carries parameter names neither list holds; a zero here means they were absorbed again')
-  assert.ok(c.unclassified <= 8,
-    `stem involution should have closed the catalogue majority; unclassified stayed ${c.unclassified}`)
-  assert.ok(c.unrecognised.length > 0, 'and the census must NAME them — a count alone is not actionable')
-  // energy unit-bearing names are the remaining unmeasured set — never quietly absorbed as ledger-only
-  assert.ok(c.unrecognised.some((n) => /Nanometres|Millivolts|Milliwatts|Kelvin|Litres/.test(n)),
-    'unit-bearing energy params remain named in unrecognised')
-  // All three measured scopes populate; unclassified stays for open-category / unit-suffixed names (energy, …).
+  // Energy unit stems closed the last live gap: the four uuidna_energy_* tools read as generic, so the
+  // catalogue's unrecognised set is empty. The bucket itself stays honest — an unknown name still lands
+  // unclassified (see wavelengthNm below); zero here means every live name is measured, not absorbed.
+  assert.equal(c.unclassified, 0, `energy unit stems should close the catalogue; unclassified stayed ${c.unclassified}`)
+  assert.deepEqual(c.unrecognised, [], 'every live parameter name is on a roster or an energy unit stem')
   assert.ok(c.generic > 0 && c.self > 0 && c.fixed > 0, 'all three scopes are populated on the live surface')
   assert.ok(c.generic > 50, 'once stems are named, the reachable product is a real surface — not a handful')
   assert.match(c.honest, /never what it is good at/, 'the census must refuse to be read as a quality judgement')
@@ -84,8 +76,11 @@ test('an unheard-of parameter is UNMEASURED, never quietly promoted to self', ()
   assert.equal(scopeOf(schema('theoremKey')), 'self', 'camelCase ledger keys are listed verbatim')
   assert.equal(scopeOf(schema('bookIds')), 'generic', 'camelCase plurals involute to roster stems')
   assert.equal(scopeOf(schema('recomputeOps', 'commercial')), 'generic')
-  // Energy unit-bearing names stay unmeasured — the live control that keeps unclassified honest and non-empty.
-  assert.equal(scopeOf(schema('wavelengthNanometres')), 'unclassified')
+  // Energy unit stems: SI-magnitude suffixes are caller content; bare abbreviations stay unmeasured.
+  assert.equal(scopeOf(schema('wavelengthNanometres')), 'generic')
+  assert.equal(scopeOf(schema('appliedMillivolts', 'claimedOutputMilliwatts')), 'generic')
+  assert.equal(scopeOf(schema('hotKelvin', 'biogasLitres', 'cylinders')), 'generic')
+  assert.equal(scopeOf(schema('wavelengthNm')), 'unclassified', 'abbreviation is not a unit stem')
 })
 
 test('numberInvolute is self-inverse on the catalogue stems', async () => {
