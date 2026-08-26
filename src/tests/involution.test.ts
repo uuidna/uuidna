@@ -309,3 +309,11 @@ test('FUN + SEALED NAMED MIRRORS — all/map/filter/any, zip, let, Sequence/Disc
   assert.equal(holds("432 % 9 = 0 ∧ (List.range' 1 60).all (fun n => let r := if n % 9 == 0 then 9 else n % 9; (r % 9 == n % 9) && (1 ≤ r) && (r ≤ 9))"), true)
 })
 
+test('NAMED TABLES + ∀ + LARGE POW — sealed caps/agl/words/fibCycle/comp and finite ∀', () => {
+  assert.equal(holds('(caps.take 1).sum = 2 ∧ (caps.take 3).sum = 8'), true)
+  assert.equal(holds('(agl.length = 54) ∧ (comp 9 10 = 10)'), true)
+  assert.equal(holds('fibCycle 9 [0,1,1,2,3,5,8,4,3,7,1,8,0,8,8,7,6,4,1,5,6,2,8,1] 24 = true'), true)
+  assert.equal(holds('(2^32)^4 = 2^128'), true)
+  assert.equal(holds('(∀ c : Int, c ∈ [(-3:Int),-2,-1,0,1,2,3] → ¬ (c*1 = 0 ∧ c*0 = 1 ∧ c*1 = 1))'), true)
+  assert.equal(holds("((List.range' 1 8).find? (fun k => (1^k) % 9 == 1)) = some 1"), true)
+})
