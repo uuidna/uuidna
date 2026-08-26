@@ -70,14 +70,18 @@ export const stripAscriptions = (s: string): string =>
   s.replace(ASCRIPTION_NUMERAL, '$1').replace(ASCRIPTION_TYPE, '')
 /** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`),
  *  `≠` as Lean inequality, ASCII `<=` / `>=` beside Unicode `≤` / `≥`, `¬` as propositional negation,
- *  `lxor` as the ledger's axiom-free 8-bit XOR (Lean `lxorAux 8`), and `Nat.gcd` as Lean's Euclidean gcd.
- *  List / fun / bound names stay unreached; `/`, `≠`, ASCII non-strict inequalities, `¬`, `lxor`, `Nat.gcd`, and
- *  compound `: Nat` / `: Int` ascriptions were pure-syntax gaps that left sealed propositions unreached for a
- *  token alone. Named operators are stripped before the character gate so letters never open the door to
- *  `List` / `fun` — only the admitted names pass. */
+ *  `lxor` as the ledger's axiom-free 8-bit XOR (Lean `lxorAux 8`), `Nat.gcd` as Lean's Euclidean gcd, and
+ *  `pop` as the ledger's axiom-free 8-bit popcount (Lean `popAux 8`). List / fun / bound names stay unreached;
+ *  `/`, `≠`, ASCII non-strict inequalities, `¬`, `lxor`, `Nat.gcd`, `pop`, and compound `: Nat` / `: Int`
+ *  ascriptions were pure-syntax gaps that left sealed propositions unreached for a token alone. Named operators
+ *  are stripped before the character gate so letters never open the door to `List` / `fun` — only the admitted
+ *  names pass. */
 export const evaluable = (statement: string): boolean =>
   /^[\s0-9()+*%/^=∧<>≤≥≠¬-]+$/.test(
-    stripAscriptions(statement).replace(/\bNat\.gcd\b/g, '').replace(/\blxor\b/g, ''),
+    stripAscriptions(statement)
+      .replace(/\bNat\.gcd\b/g, '')
+      .replace(/\blxor\b/g, '')
+      .replace(/\bpop\b/g, ''),
   )
 
 // A REAL EVALUATOR, NOT `eval`. The first version handed the statement to the runtime after a few substitutions,
@@ -85,10 +89,10 @@ export const evaluable = (statement: string): boolean =>
 // meaning of a ledger statement depend on the host's parser rather than on anything this repository decides, so
 // two runtimes could disagree about what a theorem says and nothing here would notice. It is also an execution
 // surface pointed at generated content. The grammar is tiny — numerals, + - * % / ^, the comparisons (incl. ≠,
-// ≤ ≥, and ASCII <= >=), ∧, ¬, `lxor`, and `Nat.gcd` — so a recursive descent over it is short, total, and gives
-// the same answer on every host by construction.
+// ≤ ≥, and ASCII <= >=), ∧, ¬, `lxor`, `Nat.gcd`, and `pop` — so a recursive descent over it is short, total, and
+// gives the same answer on every host by construction.
 //
-// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · Nat.gcd / lxor · parentheses.
+// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · Nat.gcd / lxor / pop · parentheses.
 type Cursor = { s: string; i: number }
 
 const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c.i++ }
@@ -102,6 +106,13 @@ const lxorAux = (w: number, a: number, b: number): number => {
   return bit + 2 * lxorAux(w - 1, (a - a % 2) / 2, (b - b % 2) / 2)
 }
 const lxor = (a: number, b: number): number => lxorAux(8, a, b)
+
+/** Lean `pop` — structural popcount with 8-bit fuel (`popAux 8`), same shape as lxor; no Math.*, no host bitwise. */
+const popAux = (w: number, n: number): number => {
+  if (w === 0) return 0
+  return (n % 2) + popAux(w - 1, (n - n % 2) / 2)
+}
+const pop = (n: number): number => popAux(8, n)
 
 /** Lean `Nat.gcd` — Euclidean algorithm on Nat, matching the kernel (`gcd a 0 = a`). */
 const natGcd = (a: number, b: number): number => {
@@ -123,6 +134,8 @@ const atom = (c: Cursor): number => {
   if (eat(c, 'Nat.gcd')) return natGcd(atom(c), atom(c))
   // `lxor a b` — Lean function application, two atoms, tighter than infix (nim_sum_is_xor et al.)
   if (eat(c, 'lxor')) return lxor(atom(c), atom(c))
+  // `pop n` — Lean unary popcount (codon_flips_six; Hamming weight of an 8-bit Nat)
+  if (eat(c, 'pop')) return pop(atom(c))
   const start = c.i
   while (c.i < c.s.length && c.s[c.i]! >= '0' && c.s[c.i]! <= '9') c.i++
   if (c.i === start) throw new Error('expected a numeral')

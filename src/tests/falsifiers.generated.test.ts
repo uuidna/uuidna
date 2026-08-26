@@ -1080,6 +1080,7 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["hexbit_states_are_sixteen", "((2:Nat)^4 = 16) ∧ (4 * 4 = 16)"],
   ["message_cap_is_four_hexbits", "(4 * 4 = 16) ∧ ((16:Nat)^4 = 65536) ∧ ((2:Nat)^16 = 65536)"],
   ["a_spec_compiles_to_hexbits", "(32 * 4 = 128) ∧ (16 = 2 ^ 4) ∧ ((128 : Nat) / 4 = 32)"],
+  ["codon_flips_six", "((4:Nat)^3 = 64) ∧ ((2:Nat)^6 = 64) ∧ (3 * 2 = 6) ∧ (pop 63 = 6)"],
   ["isometry_bounds_correction", "((3 - 1) / 2 = 1) ∧ (3 - 1 = 2) ∧ ((3 - 1) / 2 ≠ 2)"],
   ["a_token_approximates_eight_hexbits", "(4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32)"],
   ["crypto_widths_are_fixed_not_sampled", "(32 * 8 = 256) ∧ (16 * 8 = 128) ∧ (600000 = 6 * 100000)"],

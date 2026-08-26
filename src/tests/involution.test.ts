@@ -213,3 +213,17 @@ test('NAT.GCD IS LEAN EUCLIDEAN GCD — sealed coprimality stayed unreached for 
   assert.equal(holds('(List.range 9).all (fun a => Nat.gcd a 9 == 1)'), null)
   assert.equal(evaluable('(List.range 9).filter (fun a => Nat.gcd a 9 == 1)'), false)
 })
+
+test('POP IS THE LEDGER 8-BIT POPCOUNT — sealed Hamming weight stayed unreached for three letters', () => {
+  // codon_flips_six seals pop 63 = 6; without pop the whole conjunction stayed unreached for a named operator.
+  assert.equal(evaluable('pop 63 = 6'), true)
+  assert.equal(holds('pop 63 = 6'), true)
+  assert.equal(holds('pop 3 = 2'), true)
+  assert.equal(holds('pop 0 = 0'), true)
+  assert.equal(holds('pop 255 = 8'), true)
+  assert.equal(holds('pop 63 = 5'), false)
+  assert.equal(holds('((4:Nat)^3 = 64) ∧ ((2:Nat)^6 = 64) ∧ (3 * 2 = 6) ∧ (pop 63 = 6)'), true)
+  // List/fun forms still refuse — widening pop must not start claiming what it cannot parse
+  assert.equal(holds('(List.range 4).all (fun x => pop x < 3)'), null)
+  assert.equal(evaluable('(List.range 4).all (fun x => pop x < 3)'), false)
+})
