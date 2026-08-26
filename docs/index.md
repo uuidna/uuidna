@@ -50,6 +50,9 @@ These numbers are read from the sealed ledger at build time — the page cannot 
 
 **Captain coins.** Deposit `https://revolut.me/ceccec?note=<referrer>` — referrer = this page's handle door (`encodeURIComponent`). Same license everywhere: [CC BY-NC-ND 4.0](/license).
 
-**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board. No curated exception list. Illustrations: coins 64→128 ([`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins)); χ=2 → 1×12 ([`euler_characteristic_two`](/theorem/euler_characteristic_two)); calendar 144 ([`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll)); Shor posture ([`grover_quadratic_bound`](/theorem/grover_quadratic_bound) — no asymmetric target); Alpine hexbit 100% on [/os](/os) ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)); QA door above. Unsealed ≠ “still locked”: a claim without a theorem is simply not sealed.
+<!-- unlocks:begin -->
+**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board (**2034** distinct / **2115** keys). No curated exception list. Illustrations: [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) · [`euler_characteristic_two`](/theorem/euler_characteristic_two) · [`ve_twelve_vertices`](/theorem/ve_twelve_vertices) · [`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll) · [`grover_quadratic_bound`](/theorem/grover_quadratic_bound) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture). Full board: [/unlocks](/unlocks). Unsealed ≠ “still locked.”
+<!-- unlocks:end -->
+
 
 **Hexbit-fast.** Push verifies sealed receipts (no full QA remeasure on the critical path). Stock VitePress chrome — links in cards, buttons, nav, sidebar only.

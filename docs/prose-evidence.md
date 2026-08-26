@@ -155,11 +155,27 @@
   - Statement: `(16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)...`
 
 
+## each theorem unlocks what it seals
+
+**Prose:** "the ledger is the unlock board"
+
+**Address:** `83184401-ce92-8b8a-abfa-64dfa128e77f`
+
+**Backing theorems (2):**
+
+- **[two_coins](/theorem/two_coins)** — "The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate."
+  - File: Coins.lean
+  - Statement: `110 - 108 = 2...`
+- **[captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins)** — "uuidna computes ONLY IF the captain coins are considered: the conserved save of 64 is reached IFF exactly two coins are put in — 32·c = 64 ⟺ c = 2, for every c. The two coins are necessary, not decorative; with any other count the fold does not conserve its advantage (recompute − verify), so the computation is not admitted."
+  - File: Coins.lean
+  - Statement: `(List.range 8).all (fun c => (32 * c == 64) == (c == 2))...`
+
+
 ---
 
 **Summary:**
-- Total claims audited: 11
-- Total backing theorems: 14
+- Total claims audited: 12
+- Total backing theorems: 16
 - Proof method: All `by decide` (no axioms, kernel-only)
 - Integrity: Each claim is content-addressed and verifiable
 

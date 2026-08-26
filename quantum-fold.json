@@ -8,8 +8,8 @@
     },
     "served": {
       "packages": "5aacd0af35a35c23",
-      "exports": "e8787abec9b0a060",
-      "mcp": "96682556ad3fd560"
+      "exports": "085dc719a22e6b88",
+      "mcp": "ee3b647e939993c3"
     },
     "proven": {
       "tests": "c9527d4896a07019",
@@ -18,39 +18,39 @@
     },
     "record": {
       "legal": "e934fa226bd178c4",
-      "prose": "4227e519a7a66513",
+      "prose": "e323f5c5e3d6ea6e",
       "deposits": "22d0031523359f9f"
     },
     "walks": {
       "star_walk": "00dcb9ca1eb1d2be",
       "rosette_receipts": "4d988bc7c4e58bc0740e49ccc3cf30f4",
-      "rosette_audit": "f4f154da84eab04b"
+      "rosette_audit": "b921958dbc75cd38"
     }
   },
   "trinity_folds": {
     "sealed": "f1631909cb89a015127c8ffbc1262d14",
-    "served": "1d8f3b86b88ece875988f2ae3ba87866",
+    "served": "8e3e283ea8b65167ed72540c5412c845",
     "proven": "65b94142221a0948f87ca3002d3d9f06",
-    "record": "0fb02be3befd6886bccc89f5032fba6d",
-    "walks": "64618ce25978f14bc4c2a58a175a22b3"
+    "record": "8ed4fc5dcb0ea9b03dca78fefee464a6",
+    "walks": "6a319f15860aa3599ef80cd11b939103"
   },
-  "unified_fold": "8b6613ebfcdbe41f",
-  "receipt": "16f1218d98f1c91c",
+  "unified_fold": "ec688596d7f66882",
+  "receipt": "46740c70d051defd",
   "rosette_receipt": {
     "rays": [
       "48ebd364ede8912a",
       "5ad598c2325f5962",
-      "0ebf33955027e7f6",
+      "d4f51ee1b768f030",
       "a20454282e566346",
-      "66e7e053ba74aef2",
+      "592cf6d3e5b2162e",
       "a761502744407dcd",
-      "cd69cb6065f38ed9"
+      "fdb72840cfed5e61"
     ],
-    "concurrence": "bb2c4f9d45d4714f5e03f54ada180fe9"
+    "concurrence": "f266f0f39ce087faa3ed52a14c6d653a"
   },
   "aura": {
-    "rgb": "#e0c652",
-    "hsl": "hsl(49, 70%, 60%)",
+    "rgb": "#ddd42c",
+    "hsl": "hsl(57, 72%, 52%)",
     "alphabet": "b6819334641853db",
     "movie": "2acf6c052b3fb8b5",
     "lessons": "64a8e29b7db33ac7",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 5,
-      "ray": 4,
-      "wave": 5,
-      "hue": 49,
-      "sat": 70,
-      "light": 60,
-      "period": 20,
+      "residue": 4,
+      "ray": 5,
+      "wave": 2,
+      "hue": 57,
+      "sat": 72,
+      "light": 52,
+      "period": 22,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

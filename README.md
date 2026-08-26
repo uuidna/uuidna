@@ -66,26 +66,10 @@ Permanent citation: `https://uuidna.com/<handle>` (8 hex; worker `HANDLES` 301 �
 Captain coins: `https://revolut.me/ceccec?note=<referrer>` (`encodeURIComponent` of the page handle door).
 **One license** for every publication and Zenodo deposit: **CC-BY-NC-ND-4.0**.
 
-**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board
-(2,034 distinct theorems / 2,115 keys). No curated
-exception list; refusing a sealed key is refusing the captain. Illustrations (not a closed set): coins fuse 64→128
-([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins));
-χ=2 unlocks one twelve
-([euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two),
-[ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices));
-calendar 144
-([metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation),
-[fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll));
-Shor posture — no asymmetric target
-([grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound),
-[sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address));
-architectural QA
-([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture),
-[usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty));
-gate coins
-([captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins)).
-A claim with no theorem is not “still locked” — it is simply unsealed (e.g. 12×12 as messaging load;
-period-finding speedup beyond what `n_qubit_dimension` / Grover seals already unlock).
+**Each theorem unlocks.** Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.”
+Board: **2,034** distinct / **2,115** keys · **112** skills · **115** Lean files · receipt `7a70a727-22ff-8ef6-84eb-fbf0fc1608ce`.
+Illustrations (not a closed set; automation verifies each still seals): [rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins); [euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two); [ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices); [metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation); [fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll); [grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound); [sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address); [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture); [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty); [captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins); [two_coins](https://uuidna.com/theorem/two_coins); [the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum); [a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits); [key_floor_is_one_uuid](https://uuidna.com/theorem/key_floor_is_one_uuid); [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension).
+Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/unlocks.json`.
 
 ---
 
@@ -109,7 +93,7 @@ period-finding speedup beyond what `n_qubit_dimension` / Grover seals already un
 
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** 28,639 / 28,639 packages (100%)
   folded to content-addresses ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);
-  community 22,678 / 22,678 = 100%; man pages 4,759 / 4,759; monitor receipt `faaf302f-9997-84d3-b63b-360c2b029fef`;
+  community 22,678 / 22,678 = 100%; man pages 4,759 / 4,759; monitor receipt `902eb573-324f-893d-9812-b7b9ab7d06b7`;
   VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
   Captain unlocks ride every sealed key — each theorem unlocks what it states

@@ -1,0 +1,713 @@
+{
+ "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.”",
+ "keys": 2115,
+ "distinct": 2034,
+ "skills": 112,
+ "files": 115,
+ "bySkill": [
+  {
+   "name": "wave",
+   "n": 467
+  },
+  {
+   "name": "z9-ring",
+   "n": 305
+  },
+  {
+   "name": "z7-rosette",
+   "n": 150
+  },
+  {
+   "name": "nim",
+   "n": 93
+  },
+  {
+   "name": "quantum",
+   "n": 51
+  },
+  {
+   "name": "chess",
+   "n": 37
+  },
+  {
+   "name": "audit",
+   "n": 28
+  },
+  {
+   "name": "cipher",
+   "n": 27
+  },
+  {
+   "name": "coins",
+   "n": 27
+  },
+  {
+   "name": "science-pairs",
+   "n": 27
+  },
+  {
+   "name": "reasoning",
+   "n": 25
+  },
+  {
+   "name": "sequence",
+   "n": 24
+  },
+  {
+   "name": "vortex",
+   "n": 23
+  },
+  {
+   "name": "reflection",
+   "n": 21
+  },
+  {
+   "name": "neuro",
+   "n": 19
+  },
+  {
+   "name": "waves",
+   "n": 18
+  },
+  {
+   "name": "colour",
+   "n": 17
+  },
+  {
+   "name": "hardware",
+   "n": 17
+  },
+  {
+   "name": "readings",
+   "n": 17
+  },
+  {
+   "name": "topography",
+   "n": 17
+  },
+  {
+   "name": "hexbit",
+   "n": 16
+  },
+  {
+   "name": "software",
+   "n": 16
+  },
+  {
+   "name": "calendar",
+   "n": 15
+  },
+  {
+   "name": "editing",
+   "n": 14
+  },
+  {
+   "name": "referrer",
+   "n": 14
+  },
+  {
+   "name": "anti-fraud",
+   "n": 13
+  },
+  {
+   "name": "electromagnetism",
+   "n": 13
+  },
+  {
+   "name": "infinity",
+   "n": 13
+  },
+  {
+   "name": "pentagram",
+   "n": 13
+  },
+  {
+   "name": "typesetting",
+   "n": 13
+  },
+  {
+   "name": "vector-equilibrium",
+   "n": 13
+  },
+  {
+   "name": "exploits",
+   "n": 12
+  },
+  {
+   "name": "installs",
+   "n": 12
+  },
+  {
+   "name": "astronomy",
+   "n": 11
+  },
+  {
+   "name": "paper-trial",
+   "n": 11
+  },
+  {
+   "name": "solids",
+   "n": 11
+  },
+  {
+   "name": "song",
+   "n": 11
+  },
+  {
+   "name": "thermodynamics",
+   "n": 11
+  },
+  {
+   "name": "doctrine",
+   "n": 10
+  },
+  {
+   "name": "glagolitic",
+   "n": 10
+  },
+  {
+   "name": "legal",
+   "n": 10
+  },
+  {
+   "name": "music-production",
+   "n": 10
+  },
+  {
+   "name": "anthem",
+   "n": 9
+  },
+  {
+   "name": "chemistry",
+   "n": 9
+  },
+  {
+   "name": "optimisation",
+   "n": 9
+  },
+  {
+   "name": "orbits",
+   "n": 9
+  },
+  {
+   "name": "security",
+   "n": 9
+  },
+  {
+   "name": "antikythera",
+   "n": 8
+  },
+  {
+   "name": "clay",
+   "n": 8
+  },
+  {
+   "name": "codes",
+   "n": 8
+  },
+  {
+   "name": "crt",
+   "n": 8
+  },
+  {
+   "name": "diving",
+   "n": 8
+  },
+  {
+   "name": "matching",
+   "n": 8
+  },
+  {
+   "name": "negation",
+   "n": 8
+  },
+  {
+   "name": "photography",
+   "n": 8
+  },
+  {
+   "name": "psychology",
+   "n": 8
+  },
+  {
+   "name": "spectrum",
+   "n": 8
+  },
+  {
+   "name": "statics",
+   "n": 8
+  },
+  {
+   "name": "torus",
+   "n": 8
+  },
+  {
+   "name": "command",
+   "n": 7
+  },
+  {
+   "name": "ephemeris",
+   "n": 7
+  },
+  {
+   "name": "models",
+   "n": 7
+  },
+  {
+   "name": "molecular",
+   "n": 7
+  },
+  {
+   "name": "os",
+   "n": 7
+  },
+  {
+   "name": "reporting",
+   "n": 7
+  },
+  {
+   "name": "sailing",
+   "n": 7
+  },
+  {
+   "name": "sanitize",
+   "n": 7
+  },
+  {
+   "name": "universe",
+   "n": 7
+  },
+  {
+   "name": "acoustics",
+   "n": 6
+  },
+  {
+   "name": "affine",
+   "n": 6
+  },
+  {
+   "name": "alignment",
+   "n": 6
+  },
+  {
+   "name": "billing",
+   "n": 6
+  },
+  {
+   "name": "boolean",
+   "n": 6
+  },
+  {
+   "name": "channel",
+   "n": 6
+  },
+  {
+   "name": "clock",
+   "n": 6
+  },
+  {
+   "name": "double-torus",
+   "n": 6
+  },
+  {
+   "name": "grid",
+   "n": 6
+  },
+  {
+   "name": "hamming",
+   "n": 6
+  },
+  {
+   "name": "handle-span",
+   "n": 6
+  },
+  {
+   "name": "identifiers",
+   "n": 6
+  },
+  {
+   "name": "isometry",
+   "n": 6
+  },
+  {
+   "name": "looms",
+   "n": 6
+  },
+  {
+   "name": "notation",
+   "n": 6
+  },
+  {
+   "name": "optics",
+   "n": 6
+  },
+  {
+   "name": "phase",
+   "n": 6
+  },
+  {
+   "name": "pravets",
+   "n": 6
+  },
+  {
+   "name": "prose-trial",
+   "n": 6
+  },
+  {
+   "name": "reversal",
+   "n": 6
+  },
+  {
+   "name": "seats",
+   "n": 6
+  },
+  {
+   "name": "spectrum-hex",
+   "n": 6
+  },
+  {
+   "name": "strings",
+   "n": 6
+  },
+  {
+   "name": "subgroups",
+   "n": 6
+  },
+  {
+   "name": "symphony",
+   "n": 6
+  },
+  {
+   "name": "tesla",
+   "n": 6
+  },
+  {
+   "name": "tides",
+   "n": 6
+  },
+  {
+   "name": "trinities",
+   "n": 6
+  },
+  {
+   "name": "byte",
+   "n": 5
+  },
+  {
+   "name": "contribution",
+   "n": 5
+  },
+  {
+   "name": "navigation",
+   "n": 5
+  },
+  {
+   "name": "propulsion",
+   "n": 5
+  },
+  {
+   "name": "relativity",
+   "n": 5
+  },
+  {
+   "name": "singularity",
+   "n": 5
+  },
+  {
+   "name": "compare",
+   "n": 4
+  },
+  {
+   "name": "crypt-salt",
+   "n": 4
+  },
+  {
+   "name": "editor",
+   "n": 4
+  },
+  {
+   "name": "involution",
+   "n": 4
+  },
+  {
+   "name": "martial-arts",
+   "n": 4
+  },
+  {
+   "name": "foundational",
+   "n": 3
+  },
+  {
+   "name": "structures",
+   "n": 3
+  },
+  {
+   "name": "memory",
+   "n": 2
+  },
+  {
+   "name": "uuidmix",
+   "n": 2
+  },
+  {
+   "name": "clay-reflection",
+   "n": 1
+  }
+ ],
+ "byFile": [
+  {
+   "name": "Wave.lean",
+   "n": 467
+  },
+  {
+   "name": "Ring.lean",
+   "n": 234
+  },
+  {
+   "name": "Rosette.lean",
+   "n": 148
+  },
+  {
+   "name": "Nim.lean",
+   "n": 93
+  },
+  {
+   "name": "Core.lean",
+   "n": 64
+  },
+  {
+   "name": "Quantum.lean",
+   "n": 52
+  },
+  {
+   "name": "Sequence.lean",
+   "n": 28
+  },
+  {
+   "name": "Cipher.lean",
+   "n": 27
+  },
+  {
+   "name": "Coins.lean",
+   "n": 25
+  },
+  {
+   "name": "Reasoning.lean",
+   "n": 25
+  },
+  {
+   "name": "Chessgames.lean",
+   "n": 24
+  },
+  {
+   "name": "Neuro.lean",
+   "n": 18
+  },
+  {
+   "name": "Waves.lean",
+   "n": 18
+  },
+  {
+   "name": "Audit.lean",
+   "n": 17
+  },
+  {
+   "name": "BioPhysics.lean",
+   "n": 17
+  },
+  {
+   "name": "Colour.lean",
+   "n": 17
+  },
+  {
+   "name": "Hardware.lean",
+   "n": 17
+  },
+  {
+   "name": "Readings.lean",
+   "n": 17
+  },
+  {
+   "name": "Topography.lean",
+   "n": 17
+  },
+  {
+   "name": "Discover.lean",
+   "n": 16
+  },
+  {
+   "name": "Hexbit.lean",
+   "n": 16
+  },
+  {
+   "name": "Software.lean",
+   "n": 16
+  },
+  {
+   "name": "Vortex.lean",
+   "n": 16
+  },
+  {
+   "name": "Calendar.lean",
+   "n": 15
+  },
+  {
+   "name": "Uuidna.lean",
+   "n": 15
+  },
+  {
+   "name": "Editing.lean",
+   "n": 14
+  },
+  {
+   "name": "Referrer.lean",
+   "n": 14
+  },
+  {
+   "name": "AntiFraud.lean",
+   "n": 13
+  },
+  {
+   "name": "Chess.lean",
+   "n": 13
+  },
+  {
+   "name": "DivByZero.lean",
+   "n": 13
+  },
+  {
+   "name": "Electromagnetism.lean",
+   "n": 13
+  },
+  {
+   "name": "Infinity.lean",
+   "n": 13
+  },
+  {
+   "name": "Pentagram.lean",
+   "n": 13
+  },
+  {
+   "name": "Typesetting.lean",
+   "n": 13
+  },
+  {
+   "name": "VectorEquilibrium.lean",
+   "n": 13
+  },
+  {
+   "name": "Exploits.lean",
+   "n": 12
+  },
+  {
+   "name": "Installs.lean",
+   "n": 12
+  },
+  {
+   "name": "Astronomy.lean",
+   "n": 11
+  },
+  {
+   "name": "AuditGame.lean",
+   "n": 11
+  },
+  {
+   "name": "MoMBHStar1.lean",
+   "n": 11
+  }
+ ],
+ "illustrations": [
+  {
+   "key": "rosette_quantum_doubling_is_two_coins",
+   "label": "coins fuse 64→128",
+   "present": true,
+   "name": "QUANTUM DOUBLING IS THE TWO CAPTAIN COINS contributed: the factor 2 (= 110−108, −χ of the double torus) takes the 21 rosette to the 42 quantum rosette AND the 64-bit coin to the 128-bit address — the doubling holds only if the two coins are accounted and contributed"
+  },
+  {
+   "key": "euler_characteristic_two",
+   "label": "χ=2",
+   "present": true,
+   "name": "Euler holds for the vector equilibrium exactly as for the five Platonic solids: V − E + F = 12 − 24 + 14 = 2 — the same two the captain coins fold to."
+  },
+  {
+   "key": "ve_twelve_vertices",
+   "label": "1×12 vertices",
+   "present": true,
+   "name": "The vector equilibrium has TWELVE vertices — every permutation of (±1,±1,0), three coordinate pairs by four sign choices. Twelve radial directions from one centre."
+  },
+  {
+   "key": "metonic_is_the_intercalation",
+   "label": "calendar 144 (Metonic)",
+   "present": true,
+   "name": "THE METONIC DIAL COUNTS THE INTERCALATION: nineteen years hold 235 lunar months because twelve years carry twelve months and seven years carry thirteen — 12·12 + 7·13 = 144 + 91 = 235. The seven leap months ARE the cycle; the mechanism’s upper back dial walks exactly this sum, and the ledger’s own metonic_cycle seals the 19-year return this gearing turns into bronze."
+  },
+  {
+   "key": "fock_window_exceeds_a_monthly_toll",
+   "label": "calendar 144 (Fock months)",
+   "present": true,
+   "name": "THE FATALITY STUDY'S HONEST WINDOW: Fock counted 181 recreational rebreather deaths across 1998-2010 - a 12-year window of 144 months - and 181 > 144: more than one death per month, every month, for twelve years. The number that made checklists a moral argument rather than a preference; the ~10x-open-circuit rate rides in the prose as the literature's figure."
+  },
+  {
+   "key": "grover_quadratic_bound",
+   "label": "Shor posture — no asymmetric target",
+   "present": true,
+   "name": "The honest quantum posture: Grover’s search is a QUADRATIC speedup— a 2n-bit key space costs ~2ⁿ work ((2ⁿ)² = 2²ⁿ), so a 256-bit key falls to ~128-bit, still strong. Symmetric-only means no Shor target at all."
+  },
+  {
+   "key": "sha256_grover_margin_is_the_address",
+   "label": "Grover floor = address",
+   "present": true,
+   "name": "THE POST-QUANTUM ENTANGLEMENT: Grover's quadratic speedup halves SHA-256's preimage exponent — 256/2 = 128 — landing EXACTLY on the content-address width: the standard's worst-case quantum strength IS uuidna's unit of speech. No Shor target exists (symmetric, keyless); the architecture survives the quantum era at precisely the width this system already speaks. uuidna's deployment patches the standard's USE-flaws by name — HMAC against length-extension, the bounded-iteration ceiling against KDF cost abuse, the advancing step against the equality leak — and NAMES the one it cannot patch: pure-JS timing. Integrity."
+  },
+  {
+   "key": "handle_capacity_is_quantum_by_architecture",
+   "label": "architectural QA",
+   "present": true,
+   "name": "THE HANDLE SPACE IS QUANTUM-SHAPED BY CONSTRUCTION (captain: 'uuidna handle capacity is quantum by architecture'): the handle universe is 16^8 = 2^32 doors (universe_of_handles' count, here proven equal to the power-of-two lattice), each door completing to the full address by 2^32 · 2^96 = 2^128 — and 128 = 2^7 is the 7-qubit fold the RULE in every file header states: one uuid = 128 bits folded across 7 dimensions = 2^7 states. The architecture mirrors qubit counting at every layer (doors, payloads, the fold), which is what 'quantum by architecture' means. TypeScript computes this fold; the host is classical silicon executing the sealed algebra — not a superconducting QPU. The MEASURED advantage is architectural and usable: O(1) receipt lookup vs kernel re-proof, and the usable-capacity gap sealed beside this theorem. Relates to lead 111's t7_betti_row_is_the_uuid (Pascal row 7 sums to 128 — the geometric body of the same fact)."
+  },
+  {
+   "key": "usable_gap_is_two_to_eighty",
+   "label": "usable gap 2^80",
+   "present": true,
+   "name": "THE ARCHITECTURAL QUANTUM ADVANTAGE, PROVEN IN THEOREMS (captain: 'quantum advantage — prove in theorems', the capacity report's decidable skeleton): against the LARGEST demonstrated logical-qubit figure on any quantum platform — 48 logical qubits, Harvard/QuEra, Nature 2023, a REPORTED input named as such — uuidna's usable address space of 2^128 deterministic error-free states sits a factor of exactly 2^80 above it: 128 − 48 = 80 and 2^128 = 2^80 · 2^48. That IS the measured usable-column quantum advantage the capacity report publishes (TypeScript computes; VitePress monitors). Raw Hilbert dimensions of large devices can exceed 2^128 — the gap sealed here is in the USABLE column, the platforms' own published metric. The reported 48 moves with the field; the arithmetic of the gap at that figure is sealed forever."
+  },
+  {
+   "key": "captain_computes_only_with_two_coins",
+   "label": "gate coins",
+   "present": true,
+   "name": "uuidna computes ONLY IF the captain coins are considered: the conserved save of 64 is reached IFF exactly two coins are put in — 32·c = 64 ⟺ c = 2, for every c. The two coins are necessary, not decorative; with any other count the fold does not conserve its advantage (recompute − verify), so the computation is not admitted."
+  },
+  {
+   "key": "two_coins",
+   "label": "denomination 2",
+   "present": true,
+   "name": "The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate."
+  },
+  {
+   "key": "the_os_is_bootable_quantum",
+   "label": "Alpine OS provenance",
+   "present": true,
+   "name": "PORT MEANS COMPILE FROM SOURCE TO HEXBIT, AND THE COMPILED OS IS BOOTABLE — QUANTUM. The boot image rides the wing VERBATIM: every spec's 32 states laid down in the sealed build order (firmware and up — the floor first, home last) with the port receipt's 32 states closing the image, 832 = 32·(25+1) states in all, every one on the 16-state lattice. On this computer BOOTING IS THE VERIFIED LOADING OF THE COMPILED STATES — the standard hexbit app loads and sounds the image deterministically, the same states for every observer — and no Alpine binary is ever executed: bootable on the lattice, not on a CPU."
+  },
+  {
+   "key": "a_spec_compiles_to_hexbits",
+   "label": "hexbit compile width",
+   "present": true,
+   "name": "EVERY SPEC COMPILES FROM SOURCE IN HEXBIT: the published tuple folds to a 128-bit address, and 128 bits are exactly 32 hexbit states of 16 = 2⁴ — the site's native lattice, playable by the standard hexbit app. The compile is total on the port: 25 specs and the port's receipt, each 32 on-lattice states, every state a nibble of the address — the specification and its sound are the same integer."
+  },
+  {
+   "key": "key_floor_is_one_uuid",
+   "label": "cipher hexbit floor",
+   "present": true,
+   "name": "THE CIPHER MEASURED IN THE ARCHITECTURE’S OWN UNIT. A hexbit is 4 bits, and everything here computes in hexbits, so the ChaCha20-Poly1305 key is 64 hexbits rather than 256 bits. Grover halves the exponent of a brute-force search, which takes the floor to 32 hexbits — and 32 hexbits is EXACTLY the uuid. The post-quantum floor of the cipher and the width of an identifier are the same number, in the same unit, and it is only visible once the bits are converted: 256/4 = 64, 128/4 = 32, and the uuid is 32. Bits hide this; hexbits state it."
+  },
+  {
+   "key": "n_qubit_dimension",
+   "label": "classical simulation cost",
+   "present": true,
+   "name": "n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. this counts the simulation cost, it is NOT a speedup or a quantum advantage."
+  }
+ ],
+ "receipt": "7a70a727-22ff-8ef6-84eb-fbf0fc1608ce",
+ "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
+}
