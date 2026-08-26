@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2115 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2119 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 
 ## Principles
 
@@ -313,7 +313,7 @@
 99. **The handle span** — `lean/HandleSpan.lean` · **6** theorems
    THE HANDLE SPAN — what 65536 handles of 32 qubits each come to, and what that total is NOT. THE PRODUCT: 65536 handles at 32 qubits each is 2097152 qubits — stated both as the plain multiplication and
 
-100. **The hexbit** — `lean/Hexbit.lean` · **16** theorems
+100. **The hexbit** — `lean/Hexbit.lean` · **20** theorems
    THE HEXBIT — the alphabet and the layout an address is actually built from. A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two
 
 101. **The installs** — `lean/Installs.lean` · **12** theorems
