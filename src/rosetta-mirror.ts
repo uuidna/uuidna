@@ -147,8 +147,8 @@ leap_years_per_400 27
 gregorian_cycle_400_years 27
 century_leap_rule 27
 doomsday_even_months 19
-months_sum_common_365 19
-months_sum_leap_366 19
+months_sum_common_365 27
+months_sum_leap_366 27
 february_is_the_only_month_of_whole_weeks 19
 julian_cycle_closes_at_twenty_eight 27
 the_gregorian_cycle_counted_in_weeks 27
@@ -577,7 +577,7 @@ pairs_share_one_centre 19
 the_void_tile_cannot_cross 19
 the_uuid_is_two_boards 27
 alphabet_names_each_nibble 19
-layout_groups_thirtytwo 19
+layout_groups_thirtytwo 27
 characters_span_the_address 27
 handle_is_the_first_group 19
 groups_are_four_apart 19
@@ -611,8 +611,8 @@ derivative_finite_rate 19
 dirac_unit_mass 19
 horizon_curvature_finite 19
 newton_singularity_finite 19
-reach_all_decide 19
-reach_quantifiers_bounded 19
+reach_all_decide 27
+reach_quantifiers_bounded 27
 reach_window_finite 19
 window_not_universal 19
 #Installs.lean
@@ -1072,7 +1072,7 @@ inverted_pyramid_descends 27
 a_claim_is_verified_or_unverified 27
 #Reversal.lean
 reflection_reverses_uniquely 19
-doubling_reverses_ambiguously 19
+doubling_reverses_ambiguously 27
 nine_is_never_reached 19
 censuses_differ 19
 path_reverse_needs_both 19
@@ -1542,7 +1542,7 @@ compare_swap_orders 19
 safe_index_is_total 27
 reverse_is_involutive 27
 cube_seals_at_completeness_only 19
-cubes_partition_ledger 19
+cubes_partition_ledger 27
 receipt_costs_nothing 19
 message_carries_address 27
 no_wing_buys_its_own_ceiling 19

@@ -254,8 +254,8 @@ test('NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreac
   assert.equal(holds('(commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0)'), true)
   assert.equal(holds('(unverified 1 0 = 1) ∧ (verified 1 1 = 1) ∧ (verified 1 0 = 0)'), true)
   assert.equal(holds('commission 110 = 3'), false)
-  // List/fun / preOf still refuse
-  assert.equal(holds('(preOf dbl 0 = 2) ∧ (dbl 0 = 0)'), null)
+  // fun / map / filter still refuse; preOf on named dz/dbl is List-slice
+  assert.equal(holds('(preOf dbl 0 = 2) ∧ (dbl 0 = 0) ∧ (dbl 9 = 0) ∧ (preOf dbl 0 ≠ 1)'), true)
   assert.equal(holds('([2,6,7,8,9].contains 7) ∧ (dzMin 7 = dzMin 3)'), true)
 })
 
@@ -286,6 +286,9 @@ test('LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, 
   assert.equal(holds('["а", "б"].contains "а" = true'), true)
   assert.equal(holds('if true then 1 else 0 = 1'), true)
   assert.equal(holds('true && false = false'), true)
+  assert.equal(holds('[1,1,1,1,1,1,1,1,1,1].foldl (· + ·) 0 = 10'), true)
+  assert.equal(holds('[2,1,1,1,1,1,1,1,1,0].foldl (· + ·) 0 = 10'), true)
+  assert.equal(holds('(preOf dbl 0 = 2) ∧ (preOf dbl 9 = 0) ∧ (preOf dz 5 = 1)'), true)
   assert.equal(
     holds(
       '[(1, 2), (1, -2), (-1, 2), (-1, -2), (2, 1), (2, -1), (-2, 1), (-2, -1)] : List (Int × Int) ≠ []',

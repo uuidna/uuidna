@@ -72,14 +72,15 @@ export const stripAscriptions = (s: string): string =>
   s.replace(ASCRIPTION_NUMERAL, '$1').replace(ASCRIPTION_TYPE, '')
 /** Numerals, arithmetic, named ledger ops, Prod `.1`/`.2`, and a BOUNDED List slice: literals `[…]` (Nat and
  *  String), `++`, `.reverse` / `.length` / `.contains` / `.sum` / `.take` / `.eraseDups` / `.Nodup`, `nth`,
- *  `List.sum` / `List.reverse` / `List.range` / `List.range'`, `rowsOf`, `true`/`false`, `&&`, and `if/then/else`.
- *  `fun` / bound names / named constant tables stay unreached. Admitted names are stripped before the character
- *  gate so letters never open the door to arbitrary identifiers. */
-const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|reverse|length|contains|sum|take|eraseDups|Nodup|nth|true|false|if|then|else)\b/g
+ *  `List.sum` / `List.reverse` / `List.range` / `List.range'`, `rowsOf`, `preOf` (named `dz`/`dbl` only),
+ *  `true`/`false`, `&&`, `if/then/else`, and `.foldl (· + ·)`. `fun` / bound names / named constant tables stay
+ *  unreached. Admitted names are stripped before the character gate so letters never open the door to arbitrary
+ *  identifiers. */
+const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|preOf|reverse|length|contains|sum|take|eraseDups|Nodup|nth|foldl|true|false|if|then|else)\b/g
 /** Drop string literal bodies so Unicode readings (bg/zh/…) do not fail the character gate. */
 const stripStrings = (s: string): string => s.replace(/"(?:[^"]*)"/g, '""')
 export const evaluable = (statement: string): boolean =>
-  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]"\\&'-]+$/.test(
+  /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]"\\&'·-]+$/.test(
     stripStrings(stripAscriptions(statement)).replace(NAMED_OP, '').replace(/\+\+/g, ''),
   )
 
@@ -190,6 +191,14 @@ const listRangeFrom = (start: number, count: number): Val[] => {
   for (let i = 0; i < count; i++) xs.push(start + i)
   return xs
 }
+/** Lean `preOf f t` — count of digits in `List.range 10` that `f` sends to `t`. Only named sealed unaries. */
+const preOf = (f: (n: number) => number, t: number): number =>
+  listRange(10).filter((d) => f(asNum(d)) === t).length
+const listFoldlAdd = (xs: Val[], init: number): number => {
+  let s = init
+  for (const x of xs) s += asNum(x)
+  return s
+}
 
 /** Postfix: Prod `.1`/`.2` and List methods. `.contains` / `.take` take an argument. */
 const postfix = (c: Cursor, v: Val): Val => {
@@ -214,6 +223,12 @@ const postfix = (c: Cursor, v: Val): Val => {
     if (eat(c, '.contains')) {
       const needle = atom(c)
       v = asLst(v).some((x) => deepEq(x, needle))
+      continue
+    }
+    // Lean `(xs).foldl (· + ·) init` — sealed census sums; not a general fold.
+    if (eat(c, '.foldl')) {
+      if (!eat(c, '(· + ·)')) throw new Error('foldl')
+      v = listFoldlAdd(asLst(v), asNum(atom(c)))
       continue
     }
     return v
@@ -283,6 +298,14 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'lxor')) return postfix(c, lxor(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'pop')) return postfix(c, pop(asNum(atom(c))))
   if (eat(c, 'rowsOf')) return postfix(c, lst(rowsOf(asNum(atom(c)))))
+  if (eat(c, 'preOf')) {
+    ws(c)
+    let f: ((n: number) => number) | null = null
+    if (eat(c, 'dz')) f = dz
+    else if (eat(c, 'dbl')) f = dbl
+    else throw new Error('preOf')
+    return postfix(c, preOf(f, asNum(atom(c))))
+  }
   if (eat(c, 'commission')) return postfix(c, commission(asNum(atom(c))))
   if (eat(c, 'unverified')) return postfix(c, unverifiedFn(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'verified')) return postfix(c, verifiedFn(asNum(atom(c)), asNum(atom(c))))
