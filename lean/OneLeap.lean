@@ -6,10 +6,10 @@
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the vortex = the reflection
 def ap (a b x : Nat) : Nat := (a * x + b) % 9            -- an affine map on ℤ/9
 
--- @skill: vortex
 /-- THE REFLECTION STANDS BESIDE THE LEAP: dz is an involution on 0..9 with fixed points {0,5} and every
     residue finite — the second conjunct of vortex_one_leap, sealed alone so the one-leap principle has a
     neighbour (lonely = 0) without re-naming the doubling circuit. -/
+-- @skill: vortex
 theorem vortex_dz_involution_at_ten :
   (List.range 10).all (fun x => dz (dz x) == x)
   ∧ ((List.range 10).filter (fun x => dz x == x)) = [0, 5]
