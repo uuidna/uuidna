@@ -52,7 +52,7 @@ distro membership. Provenance meters still recompute below so every published ro
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,669 community packages ≪ 2^128.
-- **Time:** community compile sweep **45,016,000 ns** (~**1,985 ns**/package); man-page corpus **9,797,292 ns** (~**2,059 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep **42,450,083 ns** (~**1,872 ns**/package); man-page corpus **9,673,708 ns** (~**2,033 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144

@@ -104,10 +104,10 @@
   }
  },
  "time": {
-  "communityCompileNs": 45016000,
-  "communityNsPer": 1985,
-  "manCompileNs": 9797292,
-  "manNsPer": 2059
+  "communityCompileNs": 42450083,
+  "communityNsPer": 1872,
+  "manCompileNs": 9673708,
+  "manNsPer": 2033
  },
  "scale": {
   "usableAddressesPow2": 128,

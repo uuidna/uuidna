@@ -15,7 +15,7 @@ import {
   hexbitPortCoverage, manPagePortCoverage, manPagePackages, manDrivenPortCoverage,
   overlayManDrivenPortCoverage, catalogueCompile, catalogue,
 } from '../quantum/os/catalogue.js'
-import { mcpManDrivenCoverage } from '../quantum/os/mcp-man.js'
+import { mcpManDrivenCoverage, overlayMcpManDrivenCoverage } from '../quantum/os/mcp-man.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
 import { toUuid } from '../address.js'
 import { reportDataset, type Figure } from '../microdata.js'
@@ -30,6 +30,7 @@ const completeness = manDrivenPortCoverage()
 const overlayCompleteness = overlayManDrivenPortCoverage()
 const overlayHex = hexbitPortCoverage('overlay')
 const mcpMan = mcpManDrivenCoverage()
+const mcpOverlay = overlayMcpManDrivenCoverage()
 const community = hexbitPortCoverage('community')
 const all = hexbitPortCoverage()
 const manAll = manPagePortCoverage()
@@ -53,6 +54,7 @@ const communityNsPer = community.total === 0 ? 0
 const pct = (n: number, of: number): string => of === 0 ? '0' : String(((n * 100) - ((n * 100) % of)) / of)
 const completenessPct = pct(completeness.witnessed, completeness.total)
 const overlayPct = pct(overlayCompleteness.witnessed, overlayCompleteness.total)
+const mcpOverlayPct = pct(mcpOverlay.exposed, mcpOverlay.total)
 
 const monitorReceipt = toUuid(
   `alpine-hexbit-monitor|man→app→hexbit|${completeness.witnessed}/${completeness.total}|`
@@ -111,6 +113,7 @@ distro membership. Provenance meters still recompute below so every published ro
 | man pages · main | provenance | ${manMain.total.toLocaleString('en-US')} | ${manMain.ported.toLocaleString('en-US')} | ${pct(manMain.ported, manMain.total)}% | — |
 | **overlay · man→app→hexbit** | **npm/curl (NOT apk)** | ${overlayCompleteness.total.toLocaleString('en-US')} | **${overlayCompleteness.witnessed.toLocaleString('en-US')}** / ${overlayCompleteness.total.toLocaleString('en-US')} | **${overlayPct}%** | separate from APKINDEX |
 | overlay (compile) | provenance | ${overlayHex.total.toLocaleString('en-US')} | ${overlayHex.ported.toLocaleString('en-US')} | ${pct(overlayHex.ported, overlayHex.total)}% | repo=overlay |
+| **overlay · MCP · \`${mcpMan.tool}\`** | **npm/curl MCP** | ${mcpOverlay.total.toLocaleString('en-US')} | **${mcpOverlay.exposed.toLocaleString('en-US')}** / ${mcpOverlay.total.toLocaleString('en-US')} | **${mcpOverlayPct}%** | same door, NOT apk |
 
 ${completeness.witnessed < completeness.total
   ? `**Honest gaps** (${completeness.total - completeness.witnessed} orphan documentation rows — Alpine published \`-doc\` with no catalogued app): \`${completeness.missing.join('\`, \`')}\`.\n`
@@ -198,6 +201,10 @@ const figures: Figure[] = [
     citation: 'overlayManDrivenPortCoverage() — npm/curl ports repo=overlay; excluded from Alpine APKINDEX completeness' },
   { name: 'Overlay port — man→app→hexbit coverage', value: Number(overlayPct), unitText: '%', measurementTechnique: 'computed',
     citation: 'overlayManDrivenPortCoverage() — oh-my-pi/omp etc.; NOT Alpine distro membership' },
+  { name: 'Overlay MCP — uuidna_exec exposure', value: mcpOverlay.exposed, unitText: 'apps', measurementTechnique: 'computed',
+    citation: 'overlayMcpManDrivenCoverage() — npm/curl ports through one MCP door' },
+  { name: 'Overlay MCP — coverage', value: Number(mcpOverlayPct), unitText: '%', measurementTechnique: 'computed',
+    citation: 'overlayMcpManDrivenCoverage() · gate mcp-alpine-man.test.ts' },
   { name: 'MCP Alpine man exposure — uuidna_exec', value: mcpMan.exposed, unitText: 'apps', measurementTechnique: 'computed',
     citation: 'mcpManDrivenCoverage() — man + apk through one MCP door; naive per-app tools refused (wire ceiling)' },
   { name: 'MCP Alpine man exposure — coverage', value: Number(mcpPct), unitText: '%', measurementTechnique: 'computed',
@@ -251,6 +258,20 @@ writeFileSync(join(ROOT, 'lean', 'alpine-hexbit-monitor.json'), JSON.stringify({
     pct: Number(overlayPct),
     hexbit: overlayHex,
     honest: 'NOT Alpine Linux APKINDEX — npm/curl ports merged at catalogue read',
+  },
+  mcpOverlay: {
+    definition: mcpOverlay.definition,
+    repo: 'overlay',
+    tool: mcpOverlay.tool,
+    wireDoors: mcpOverlay.wireDoors,
+    total: mcpOverlay.total,
+    witnessed: mcpOverlay.witnessed,
+    exposed: mcpOverlay.exposed,
+    missing: mcpOverlay.missing,
+    gaps: mcpOverlay.gaps,
+    pct: Number(mcpOverlayPct),
+    receipt: mcpOverlay.receipt,
+    honest: mcpOverlay.honest,
   },
   mcp: {
     definition: mcpMan.definition,
