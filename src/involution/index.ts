@@ -90,6 +90,11 @@ export const stripAscriptions = (s: string): string => {
     if (depth !== 0) break
     const open = i + 1
     const expr = out.slice(open + 1, found.index).trim()
+    // Fun binders `(a b c : Nat)` / `(x : Nat)` — drop the type only; do not wrap as `Nat(a b c)`.
+    if (/^[A-Za-z_][A-Za-z0-9_]*(?:\s+[A-Za-z_][A-Za-z0-9_]*)*$/.test(expr)) {
+      out = out.slice(0, found.index).replace(/\s*$/, '') + out.slice(close)
+      continue
+    }
     out = out.slice(0, open) + `${ty}(${expr})` + out.slice(close + 1)
   }
   return out
@@ -97,19 +102,21 @@ export const stripAscriptions = (s: string): string => {
 /** Numerals, arithmetic, named ledger ops, Prod `.1`/`.2`, and a BOUNDED List slice: literals `[…]` (Nat and
  *  String), `++`, `.reverse` / `.length` / `.contains` / `.sum` / `.take` / `.eraseDups` / `.Nodup`, `nth`,
  *  `List.sum` / `List.reverse` / `List.range` / `List.range'`, `rowsOf`, `preOf` (named `dz`/`dbl` only),
- *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl (· + ·)`, and bounded `fun` with `.all`/`.map`/`.filter`/`.any`.
- *  Named constant tables / `let` / heavier ∀ stay unreached. Admitted names are stripped before the character gate so letters never open the door to arbitrary
- *  identifiers. */
-const NAMED_OP = /\b(?:Nat\.gcd|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|∀)\b/g
+ *  `true`/`false`, `&&`/`||`, `if/then/else`, `.foldl` (dot / fun / Nat.min·max), `.flatMap`/`.zipWith`/`.flatten`,
+ *  and bounded `fun` (multi-binder) with `.all`/`.map`/`.filter`/`.any`. Sealed Legal/Audit/Command/Editor mirrors
+ *  (`lp`/`flag`/`accept`/`dfold`/…) stay name-gated. Admitted names are stripped before the character gate. */
+const NAMED_OP = /\b(?:Nat\.gcd|Nat\.min|Nat\.max|Nat\.ble|Int\.ofNat|lxor|pop|wt|commission|unverified|verified|dzMin|dz|dbl|res|List\.sum|List\.reverse|List\.range'|List\.range|List|rowsOf|preOf|reverse|length|contains|sum|take|drop|eraseDups|Nodup|nth|foldl|flatMap|zipWith|flatten|scanl|headD|all|map|filter|any|zip|getLast|find|fun|true|false|if|then|else|decide|Int|Nat|let|some|divZero|ap|tour|units9|units|carries9|polar|saltConv|saltSeq|invB|sig|tau|kap|caps|agl|words|av|bv|comp|fibCycle|lp|lr|lnp|lrem|flag|accept|dfold|max|min|ble|ofNat|∀)\b/g
 /** Drop Lean line comments so sealed theorems with `-- …` stay reachable. */
 const stripComments = (s: string): string => s.replace(/--[^\n]*/g, ' ')
 /** Drop string literal bodies so Unicode readings (bg/zh/…) do not fail the character gate. */
 const stripStrings = (s: string): string => s.replace(/"(?:[^"]*)"/g, '""')
-/** Strip `fun x =>` / `let r :=` binders (and their uses) so the character gate stays letter-free. */
+/** Strip `fun … =>` / `let r :=` binders (and their uses) so the character gate stays letter-free. */
 const stripFunBinders = (s: string): string => {
   const binders: string[] = []
-  let out = s.replace(/\bfun\s+([A-Za-z_][A-Za-z0-9_]*)\s*=>/g, (_, id: string) => {
-    binders.push(id)
+  const TYPEISH = new Set(['Nat', 'Int', 'List', 'Bool', 'Prod', 'Option', 'String', 'Unit'])
+  let out = s.replace(/\bfun\b([\s\S]*?)=>/g, (_full, mid: string) => {
+    const ids = mid.match(/\b[A-Za-z_][A-Za-z0-9_]*\b/g) || []
+    for (const id of ids) if (!TYPEISH.has(id)) binders.push(id)
     return ' '
   })
   out = out.replace(/\blet\s+([A-Za-z_][A-Za-z0-9_]*)\s*:=/g, (_, id: string) => {
@@ -122,7 +129,8 @@ const stripFunBinders = (s: string): string => {
   })
   binders.sort((a, b) => b.length - a.length)
   for (const b of binders) out = out.replace(new RegExp('\\b' + b + '\\b', 'g'), ' ')
-  return out.replace(/=>/g, ' ').replace(/:=/g, ' ').replace(/==/g, ' ').replace(/!=/g, ' ').replace(/\|\|/g, ' ').replace(/;/g, ' ')
+  return out.replace(/=>/g, ' ').replace(/:=/g, ' ').replace(/==/g, ' ').replace(/!=/g, ' ').replace(/\|\|/g, ' ')
+    .replace(/;/g, ' ').replace(/×/g, ' ').replace(/\b_\b/g, ' ')
 }
 export const evaluable = (statement: string): boolean =>
   /^[\s0-9()+*%/^=∧<>≤≥≠¬,.\[\]"\\&'|·?!;:→∈-]+$/.test(
@@ -344,6 +352,20 @@ const fibCycleFn = (m: number, f: Val[], len: number): boolean => {
   }
   return true
 }
+/** Sealed Legal / Audit / Command / Editor / Subgroups mirrors — Lean defs only. */
+const lpFn = (t: number, h: number, c: number): number => t * h + c - t * h * c
+const lrFn = (t: number, h: number, c: number): number => t * (1 - h) * (1 - c)
+const lremFn = (t: number, h: number, c: number): number => 1 - lpFn(t, h, c)
+const lnpFn = (t: number, h: number, c: number): number => (1 - lpFn(t, h, c)) * (1 - lrFn(t, h, c))
+const flagFn = (h: number, d: number, b: number): number => h * (1 - d) * (1 - b)
+const acceptFn = (signed: number, verifies: number): number => signed * verifies
+const dfoldFn = (xs: Val[]): number => {
+  if (!xs.length) return 0
+  return asNum(xs[0]!) + 8 * dfoldFn(xs.slice(1))
+}
+const UNITS: Val[] = [1, 2, 4, 5, 7, 8]
+const natMin = (a: number, b: number): number => (a < b ? a : b)
+const natMax = (a: number, b: number): number => (a > b ? a : b)
 
 const listSum = (xs: Val[]): number => {
   let s = 0
@@ -381,8 +403,73 @@ const listFoldlAdd = (xs: Val[], init: number): number => {
   for (const x of xs) s += asNum(x)
   return s
 }
+const listFoldlMul = (xs: Val[], init: number): number => {
+  let s = init
+  for (const x of xs) s *= asNum(x)
+  return s
+}
+const applyFold = (f: Fun, acc: Val, x: Val): Val => {
+  const r = f.run(acc)
+  return isFun(r) ? asFun(r).run(x) : r
+}
 
-/** Parse `(fun x => body)` or a Fun atom — bodyKind selects Bool vs value evaluation. */
+const readBinderName = (c: Cursor): string => {
+  ws(c)
+  if (eat(c, '_')) return '_'
+  return readIdent(c)
+}
+/** Lean `fun a b =>` / `fun (a b c : Nat) =>` / `fun (t : List Nat) (c : Nat × Nat) =>`. */
+const parseFunBinders = (c: Cursor): string[] => {
+  const names: string[] = []
+  for (;;) {
+    ws(c)
+    if (c.s.startsWith('=>', c.i)) break
+    if (eat(c, '(')) {
+      for (;;) {
+        ws(c)
+        if (eat(c, ')')) break
+        if (eat(c, ':')) {
+          let d = 1
+          while (c.i < c.s.length && d > 0) {
+            const ch = c.s[c.i]!
+            if (ch === '(' || ch === '[') d++
+            else if (ch === ')') {
+              d--
+              if (d === 0) break
+            } else if (ch === ']') d--
+            c.i++
+          }
+          if (!eat(c, ')')) throw new Error('binder)')
+          break
+        }
+        names.push(readBinderName(c))
+      }
+      continue
+    }
+    if (c.i < c.s.length && (/[A-Za-z_]/.test(c.s[c.i]!) || c.s[c.i] === '_')) {
+      names.push(readBinderName(c))
+      continue
+    }
+    break
+  }
+  if (!names.length) throw new Error('fun binders')
+  return names
+}
+const mkFun = (names: string[], body: string, parentEnv: Env, ring: Ring, bodyKind: 'bool' | 'val'): Fun => {
+  const build = (idx: number, env: Env): Fun => fun((x) => {
+    const e: Env = new Map(env)
+    if (names[idx] !== '_') e.set(names[idx]!, x)
+    if (idx + 1 < names.length) return build(idx + 1, e)
+    const inner: Cursor = { s: body, i: 0, env: e, ring }
+    const v = bodyKind === 'bool' ? boolProp(inner) : junction(inner)
+    ws(inner)
+    if (inner.i !== body.length) throw new Error('fun trailing')
+    return v
+  })
+  return build(0, parentEnv)
+}
+
+/** Parse `(fun x => body)` / multi-binder / a Fun atom — bodyKind selects Bool vs value evaluation. */
 const parseFunArg = (c: Cursor, bodyKind: 'bool' | 'val'): Fun => {
   ws(c)
   if (c.s[c.i] === '(') {
@@ -390,7 +477,7 @@ const parseFunArg = (c: Cursor, bodyKind: 'bool' | 'val'): Fun => {
     c.i++
     ws(c)
     if (eat(c, 'fun')) {
-      const name = readIdent(c)
+      const names = parseFunBinders(c)
       if (!eat(c, '=>')) throw new Error('fun =>')
       const bodyStart = c.i
       let depth = 1
@@ -411,16 +498,7 @@ const parseFunArg = (c: Cursor, bodyKind: 'bool' | 'val'): Fun => {
       if (depth !== 0) throw new Error('fun paren')
       const body = c.s.slice(bodyStart, i)
       c.i = i + 1
-      const parentEnv = c.env
-      return fun((x) => {
-        const env: Env = new Map(parentEnv)
-        env.set(name, x)
-        const inner: Cursor = { s: body, i: 0, env, ring: c.ring }
-        const v = bodyKind === 'bool' ? boolProp(inner) : junction(inner)
-        ws(inner)
-        if (inner.i !== body.length) throw new Error('fun trailing')
-        return v
-      })
+      return mkFun(names, body, c.env, c.ring, bodyKind)
     }
     c.i = open
   }
@@ -452,10 +530,73 @@ const postfix = (c: Cursor, v: Val): Val => {
       v = asLst(v).some((x) => deepEq(x, needle))
       continue
     }
-    // Lean `(xs).foldl (· + ·) init` — sealed census sums; not a general fold.
+    // Lean `(xs).foldl (· + ·) init` / `(· * ·)` / `Nat.max` / `(fun s n => …)`.
     if (eat(c, '.foldl')) {
-      if (!eat(c, '(· + ·)')) throw new Error('foldl')
-      v = listFoldlAdd(asLst(v), asNum(atom(c)))
+      ws(c)
+      if (eat(c, '(· + ·)')) {
+        v = listFoldlAdd(asLst(v), asNum(atom(c)))
+        continue
+      }
+      if (eat(c, '(· * ·)')) {
+        v = listFoldlMul(asLst(v), asNum(atom(c)))
+        continue
+      }
+      if (eat(c, 'Nat.max') || eat(c, 'max')) {
+        let acc = asNum(atom(c))
+        for (const x of asLst(v)) acc = natMax(acc, asNum(x))
+        v = acc
+        continue
+      }
+      if (eat(c, 'Nat.min') || eat(c, 'min')) {
+        let acc = asNum(atom(c))
+        for (const x of asLst(v)) acc = natMin(acc, asNum(x))
+        v = acc
+        continue
+      }
+      const f = parseFunArg(c, 'val')
+      let acc: Val = atom(c)
+      for (const x of asLst(v)) acc = applyFold(f, acc, x)
+      v = acc
+      continue
+    }
+    if (eat(c, '.flatMap')) {
+      const f = parseFunArg(c, 'val')
+      const out: Val[] = []
+      for (const x of asLst(v)) out.push(...asLst(f.run(x)))
+      v = lst(out)
+      continue
+    }
+    if (eat(c, '.zipWith')) {
+      const f = parseFunArg(c, 'val')
+      const other = asLst(atom(c))
+      const xs = asLst(v)
+      const n = min2(xs.length, other.length)
+      const out: Val[] = []
+      for (let i = 0; i < n; i++) out.push(applyFold(f, xs[i]!, other[i]!))
+      v = lst(out)
+      continue
+    }
+    if (eat(c, '.flatten')) {
+      const out: Val[] = []
+      for (const x of asLst(v)) out.push(...asLst(x))
+      v = lst(out)
+      continue
+    }
+    if (eat(c, '.scanl')) {
+      const f = parseFunArg(c, 'val')
+      let acc: Val = atom(c)
+      const out: Val[] = [acc]
+      for (const x of asLst(v)) {
+        acc = applyFold(f, acc, x)
+        out.push(acc)
+      }
+      v = lst(out)
+      continue
+    }
+    if (eat(c, '.headD')) {
+      const d = atom(c)
+      const xs = asLst(v)
+      v = xs.length ? xs[0]! : d
       continue
     }
     if (eat(c, '.all')) {
@@ -579,6 +720,26 @@ const atom = (c: Cursor): Val => {
   }
   // Named apps — longer tokens before prefixes.
   if (eat(c, 'Nat.gcd')) return postfix(c, natGcd(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'Nat.min') || eat(c, 'min')) {
+    let v: Val = fun((a) => fun((b) => natMin(asNum(a), asNum(b))))
+    while (isFun(v)) {
+      ws(c)
+      const argSave = c.i
+      try { v = asFun(v).run(atom(c)) } catch { c.i = argSave; break }
+    }
+    return postfix(c, v)
+  }
+  if (eat(c, 'Nat.max') || eat(c, 'max')) {
+    let v: Val = fun((a) => fun((b) => natMax(asNum(a), asNum(b))))
+    while (isFun(v)) {
+      ws(c)
+      const argSave = c.i
+      try { v = asFun(v).run(atom(c)) } catch { c.i = argSave; break }
+    }
+    return postfix(c, v)
+  }
+  if (eat(c, 'Nat.ble')) return postfix(c, asNum(atom(c)) <= asNum(atom(c)))
+  if (eat(c, 'Int.ofNat')) return postfix(c, asNum(atom(c)))
   if (eat(c, 'Nat')) {
     if (!eat(c, '(')) throw new Error('Nat')
     const save = c.ring
@@ -663,14 +824,49 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'comp')) return postfix(c, compFn(asNum(atom(c)), asNum(atom(c))))
   if (eat(c, 'fibCycle')) return postfix(c, fibCycleFn(asNum(atom(c)), asLst(atom(c)), asNum(atom(c))))
   if (eat(c, 'units9')) return postfix(c, lst(UNITS9.slice()))
+  if (eat(c, 'units')) return postfix(c, lst(UNITS.slice()))
+  if (eat(c, 'lp')) return postfix(c, lpFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'lr')) return postfix(c, lrFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'lnp')) return postfix(c, lnpFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'lrem')) return postfix(c, lremFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'flag')) return postfix(c, flagFn(asNum(atom(c)), asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'accept')) return postfix(c, acceptFn(asNum(atom(c)), asNum(atom(c))))
+  if (eat(c, 'dfold')) return postfix(c, dfoldFn(asLst(atom(c))))
   if (eat(c, 'some')) return postfix(c, opt(atom(c)))
   if (eat(c, 'res')) return postfix(c, resFn(asNum(atom(c))))
   if (eat(c, 'nth')) return postfix(c, listNth(asLst(atom(c)), asNum(atom(c))))
-  // Bound variable from `fun x => …`
+  // Bare `fun binders => body` — sealed `let fold3 := fun (a b c : Nat) => …`.
+  if (eat(c, 'fun')) {
+    const names = parseFunBinders(c)
+    if (!eat(c, '=>')) throw new Error('fun =>')
+    const bodyStart = c.i
+    const probeEnv: Env = new Map(c.env)
+    for (const n of names) if (n !== '_') probeEnv.set(n, 0)
+    const probe: Cursor = { s: c.s, i: bodyStart, env: probeEnv, ring: c.ring }
+    junction(probe)
+    const body = c.s.slice(bodyStart, probe.i)
+    c.i = probe.i
+    return mkFun(names, body, c.env, c.ring, 'val')
+  }
+  // Bound variable — apply curried funs by juxtaposition (`fold3 1 2 3`).
   if (c.i < c.s.length && /[A-Za-z_]/.test(c.s[c.i]!)) {
     const save = c.i
     const id = readIdent(c)
-    if (c.env.has(id)) return postfix(c, c.env.get(id)!)
+    if (c.env.has(id)) {
+      let v: Val = c.env.get(id)!
+      while (isFun(v)) {
+        ws(c)
+        const argSave = c.i
+        try {
+          const arg = atom(c)
+          v = asFun(v).run(arg)
+        } catch {
+          c.i = argSave
+          break
+        }
+      }
+      return postfix(c, v)
+    }
     c.i = save
   }
   const start = c.i
@@ -679,13 +875,14 @@ const atom = (c: Cursor): Val => {
   return postfix(c, Number(c.s.slice(start, c.i)))
 }
 
-/** `++` appends lists; otherwise a single postfix atom. */
+/** `++` appends lists; `::` cons — sealed Wave census / Editor forms. */
 const append = (c: Cursor): Val => {
   let v = atom(c)
   for (;;) {
     ws(c)
-    if (!eat(c, '++')) return v
-    v = lst(asLst(v).concat(asLst(atom(c))))
+    if (eat(c, '++')) { v = lst(asLst(v).concat(asLst(atom(c)))); continue }
+    if (eat(c, '::')) { v = lst([v, ...asLst(atom(c))]); continue }
+    return v
   }
 }
 
@@ -730,7 +927,10 @@ function junction(c: Cursor): Val {
   if (eat(c, 'let')) {
     const name = readIdent(c)
     if (!eat(c, ':=')) throw new Error('let :=')
-    const val = junction(c)
+    const saveBool = c.expectBool
+    c.expectBool = false
+    let val: Val
+    try { val = junction(c) } finally { c.expectBool = saveBool }
     if (!eat(c, ';')) throw new Error('let ;')
     c.env.set(name, val)
     return junction(c)
@@ -810,7 +1010,11 @@ function boolProp(c: Cursor): boolean {
     if (eat(c, 'let')) {
       const name = readIdent(c)
       if (!eat(c, ':=')) throw new Error('let :=')
-      const val = junction(c)
+      // Value binding — clear expectBool so `let r := if … then 9 else …` stays Nat.
+      const saveBool = c.expectBool
+      c.expectBool = false
+      let val: Val
+      try { val = junction(c) } finally { c.expectBool = saveBool }
       if (!eat(c, ';')) throw new Error('let ;')
       c.env.set(name, val)
       return boolProp(c)
