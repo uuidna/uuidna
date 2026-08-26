@@ -345,3 +345,10 @@ test('FUN APPLY — higher-order sealed Wave/Hamming/Nim stayed unreached withou
   assert.equal(holds('(fun a b => a + b) 1 2 = 3'), true)
   assert.equal(holds('(fun (d : Nat → Nat → Nat) => (d 0 0 = 0)) (fun a b => 0)'), true)
 })
+
+test('TYPED LOCAL LET + LIST.SCANL — graph-on-five / fibonacci / Pascal matrix walks', () => {
+  assert.equal(holds('let bit : Nat → Nat := fun i => 1; bit 0 = 1'), true)
+  assert.equal(holds('(let f : Nat → Nat := fun i => i; f 2 == 2) = true'), true)
+  assert.equal(holds('(List.scanl (fun a b => a + b) 0 [1,2,3]) = [0,1,3,6]'), true)
+  assert.equal(holds('(List.range 2).all (fun lo => let m := lo; m < 4)'), true)
+})

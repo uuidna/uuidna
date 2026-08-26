@@ -323,11 +323,11 @@ const skipType = (c: Cursor): void => {
   ws(c)
   let depth = 0
   while (c.i < c.s.length) {
+    if (depth === 0 && c.s.startsWith(':=', c.i)) return
+    if (depth === 0 && c.s[c.i] === ';') return
     const ch = c.s[c.i]!
     if (ch === '(' || ch === '[') depth++
     else if (ch === ')' || ch === ']') { if (depth === 0) return; depth-- }
-    else if (depth === 0 && ch === ':=') return
-    else if (depth === 0 && ch === ';') return
     c.i++
   }
 }
@@ -532,6 +532,15 @@ const applyFold = (f: Fun, acc: Val, x: Val): Val => {
   const r = f.run(acc)
   return isFun(r) ? asFun(r).run(x) : r
 }
+const listScanl = (f: Fun, init: Val, xs: Val[]): Lst => {
+  let acc: Val = init
+  const out: Val[] = [acc]
+  for (const x of xs) {
+    acc = applyFold(f, acc, x)
+    out.push(acc)
+  }
+  return lst(out)
+}
 
 const readBinderName = (c: Cursor): string => {
   ws(c)
@@ -723,13 +732,7 @@ const postfix = (c: Cursor, v: Val): Val => {
     }
     if (eat(c, '.scanl')) {
       const f = parseFunArg(c, 'val')
-      let acc: Val = atom(c)
-      const out: Val[] = [acc]
-      for (const x of asLst(v)) {
-        acc = applyFold(f, acc, x)
-        out.push(acc)
-      }
-      v = lst(out)
+      v = listScanl(f, atom(c), asLst(v))
       continue
     }
     if (eat(c, '.headD')) {
@@ -996,6 +999,10 @@ const atom = (c: Cursor): Val => {
     for (const x of asLst(atom(c))) acc = applyFold(f, acc, x)
     return postfix(c, acc)
   }
+  if (eat(c, 'List.scanl')) {
+    const f = parseFunArg(c, 'val')
+    return postfix(c, listScanl(f, atom(c), asLst(atom(c))))
+  }
   if (eat(c, 'List.Pairwise') || eat(c, 'Pairwise')) {
     ws(c)
     if (!eat(c, '(· < ·)')) throw new Error('Pairwise')
@@ -1213,7 +1220,12 @@ function junction(c: Cursor): Val {
   ws(c)
   if (eat(c, 'let')) {
     const name = readIdent(c)
-    if (!eat(c, ':=')) throw new Error('let :=')
+    ws(c)
+    if (!eat(c, ':=')) {
+      if (!eat(c, ':')) throw new Error('let :=')
+      skipType(c)
+      if (!eat(c, ':=')) throw new Error('let :=')
+    }
     const saveBool = c.expectBool
     c.expectBool = false
     let val: Val
@@ -1317,7 +1329,12 @@ function boolProp(c: Cursor): boolean {
     ws(c)
     if (eat(c, 'let')) {
       const name = readIdent(c)
-      if (!eat(c, ':=')) throw new Error('let :=')
+      ws(c)
+      if (!eat(c, ':=')) {
+        if (!eat(c, ':')) throw new Error('let :=')
+        skipType(c)
+        if (!eat(c, ':=')) throw new Error('let :=')
+      }
       const saveBool = c.expectBool
       c.expectBool = false
       let val: Val
