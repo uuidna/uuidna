@@ -91,10 +91,10 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | Research sources wired | 5 | corroboration, never approval |
 | Conserved price paid | 4,238 coins | 2119 × 2 |
 
-- **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,756 / 4,759 (99%); orphans `dotnet-doc`, `dotnet-doc`, `dotnet-doc`;
+- **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,759 / 4,759 (100%);
   provenance compile 28,639 / 28,639 packages (100%)
   ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);
-  community 22,678 / 22,678 = 100%; man compile 4,759 / 4,759; monitor receipt `08aeeb92-613e-8734-8916-c4afcf222dd6`;
+  community 22,678 / 22,678 = 100%; man compile 4,759 / 4,759; monitor receipt `c421cca5-a009-890d-8f8e-db6ca5f298e7`;
   VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
   Captain unlocks ride every sealed key — each theorem unlocks what it states

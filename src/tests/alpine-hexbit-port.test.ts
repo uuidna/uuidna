@@ -23,16 +23,19 @@ test('PORT COMPLETENESS is man→app→hexbit — man pages testing the apps', (
   assert.ok(driven.total > 4000, `man corpus must be thousands; got ${driven.total}`)
   assert.equal(driven.witnessed + driven.missing.length >= driven.witnessed, true)
   assert.ok(driven.witnessed <= driven.total)
-  // Honest seal: do not require 100% when Alpine publishes orphan -doc rows (e.g. dotnet-doc × versions).
+  // Honest seal: 100% is a finding when every -doc row resolves an app; orphans (if any) must be named.
   assert.equal(driven.witnessed + driven.gaps.length >= driven.witnessed, true)
   assert.ok(driven.witnessed >= driven.total - 25,
     `man→app→hexbit must stay near-complete; got ${driven.witnessed}/${driven.total} — gaps: ${driven.missing.join(', ')}`)
   const completeness = pct(driven.witnessed, driven.total)
   assert.ok(completeness >= 99, `man→app→hexbit completeness ${completeness}% (${driven.witnessed}/${driven.total})`)
-  // Orphans are named when present — never silently absorbed into 100%
+  // Orphans are named when present — never silently absorbed into a padded 100%
   if (driven.witnessed < driven.total) {
     assert.ok(driven.missing.length > 0, 'incomplete completeness must name missing man packages')
     assert.ok(driven.gaps.every((g) => g.why.length > 0))
+  } else {
+    assert.equal(driven.missing.length, 0)
+    assert.equal(driven.gaps.length, 0)
   }
 })
 
@@ -71,6 +74,19 @@ test('orphan documentation packages FAIL the witness — 100% is a finding, not 
   assert.equal(w.ok, false)
   assert.equal(w.app, null)
   assert.match(w.detail, /orphan|no catalogued app/)
+})
+
+test('dotnet-doc resolves via cmd:dotnet provide — apps exist, not sealed orphans', () => {
+  // Alpine publishes no package named `dotnet`; the CLI is `dotnet-host` providing cmd:dotnet.
+  const man = cataloguePackage('dotnet-doc')
+  assert.ok(man, 'dotnet-doc is in the catalogue')
+  const resolved = resolveManApp(man)
+  assert.ok(resolved, 'dotnet-doc must resolve an app')
+  assert.equal(resolved.app.name, 'dotnet-host')
+  assert.equal(resolved.via, 'provides')
+  const w = manAppWitness(man)
+  assert.equal(w.ok, true, w.detail)
+  assert.equal(w.app, 'dotnet-host')
 })
 
 test('manAppOriginCandidates prefer -gtk-doc library subjects', () => {

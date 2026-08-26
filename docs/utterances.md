@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1406 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1407 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1406 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1407 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `a8056fb3` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `d7d57f9a` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -67,12 +67,13 @@ the receipt recomputes and moves only when the coverage does
 the threshold sits far from both things it separates
 ```
 
-**alpine-hexbit-port** — 10 utterances
+**alpine-hexbit-port** — 11 utterances
 
 ```text
 PORT COMPLETENESS is man→app→hexbit — man pages testing the apps
 man pages test apps end-to-end — busybox man→app→hexbit
 orphan documentation packages FAIL the witness — 100% is a finding, not a default
+dotnet-doc resolves via cmd:dotnet provide — apps exist, not sealed orphans
 manAppOriginCandidates prefer -gtk-doc library subjects
 PROVENANCE — 100% of Alpine community packages compile to hexbits
 PROVENANCE — 100% of whole Alpine (main + community) compiles to hexbits
@@ -1201,7 +1202,7 @@ NAT.GCD IS LEAN EUCLIDEAN GCD — sealed coprimality stayed unreached for a name
 POP IS THE LEDGER 8-BIT POPCOUNT — sealed Hamming weight stayed unreached for three letters
 PROD .1/.2 IS LEAN PAIR PROJECTION — sealed duals stayed unreached for comma and dot
 NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreached for letters alone
-LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, Nodup, nth, ++
+LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, Nodup, nth, ++, range, rowsOf, strings, if, &&
 ```
 
 **knowledge** — 9 utterances

@@ -33,20 +33,19 @@ below so every published row is shown to fold to 32 states.
 
 | surface | role | packages | witnessed / ported | coverage | seals |
 |---------|------|----------|--------------------|----------|-------|
-| **man → app → hexbit** | **completeness** | 4,759 | **4,756** / 4,759 | **99%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| **man → app → hexbit** | **completeness** | 4,759 | **4,759** / 4,759 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | community (compile) | provenance | 22,678 | 22,678 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | main + community (compile) | provenance | 28,639 | 28,639 | 100% | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
 | man pages (compile) | provenance | 4,759 | 4,759 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | man pages · community | provenance | 3,670 | 3,670 | 100% | — |
 | man pages · main | provenance | 1,089 | 1,089 | 100% | — |
 
-**Honest gaps** (3 orphan documentation rows — Alpine published `-doc` with no catalogued app): `dotnet-doc`, `dotnet-doc`, `dotnet-doc`.
 
 
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,678 community packages ≪ 2^128.
-- **Time:** community compile sweep **51,528,709 ns** (~**2,272 ns**/package); man-page corpus **15,850,208 ns** (~**3,330 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep **44,544,625 ns** (~**1,964 ns**/package); man-page corpus **11,282,750 ns** (~**2,370 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
@@ -59,7 +58,7 @@ resolved by the `man <topic>` applet in uuidnaOS. Completeness walks each docume
 app it documents, and requires **both** to compile to 32 hexbit states — man pages testing apps,
 never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
-Monitor receipt `08aeeb92-613e-8734-8916-c4afcf222dd6` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
+Monitor receipt `c421cca5-a009-890d-8f8e-db6ca5f298e7` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
 ## Ported lowest level first — firmware and up
 

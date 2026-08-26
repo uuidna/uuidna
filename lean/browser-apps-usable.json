@@ -3,33 +3,16 @@
   "manDriven": {
     "definition": "man→app→hexbit",
     "total": 4759,
-    "witnessed": 4756,
-    "missing": [
-      "dotnet-doc",
-      "dotnet-doc",
-      "dotnet-doc"
-    ],
-    "gaps": [
-      {
-        "man": "dotnet-doc",
-        "why": "dotnet-doc compiles but documents no catalogued app — an orphan documentation package"
-      },
-      {
-        "man": "dotnet-doc",
-        "why": "dotnet-doc compiles but documents no catalogued app — an orphan documentation package"
-      },
-      {
-        "man": "dotnet-doc",
-        "why": "dotnet-doc compiles but documents no catalogued app — an orphan documentation package"
-      }
-    ],
+    "witnessed": 4759,
+    "missing": [],
+    "gaps": [],
     "byVia": {
       "corpus": 2,
       "origin": 4746,
       "gtk-doc": 5,
       "libs": 0,
       "dev": 1,
-      "provides": 0,
+      "provides": 3,
       "self": 2
     }
   },
@@ -380,13 +363,11 @@
     "computeOk": 13,
     "manSamplesOk": 6,
     "installOk": 25,
-    "manWitnessed": 4756,
+    "manWitnessed": 4759,
     "manTotal": 4759
   },
-  "gaps": [
-    "man→app orphans (named, not padded): dotnet-doc, dotnet-doc, dotnet-doc"
-  ],
+  "gaps": [],
   "ok": true,
   "honest": "Honest scope: store interactive mounts + uuidnaOS terminal man samples + default-install routes + manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.",
-  "receipt": "3a71a2e8-ffd5-8426-8c49-944e216e01c4"
+  "receipt": "629ca0a0-47ad-8691-96c3-f1818a982ced"
 }

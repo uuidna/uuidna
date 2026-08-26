@@ -402,9 +402,14 @@ export function resolveManApp(man: CataloguePackage | string): ManAppResolution 
     if (libs) return { man: pkg, app: libs, via: 'libs' }
     const dev = cataloguePackage(origin + '-dev')
     if (dev) return { man: pkg, app: dev, via: 'dev' }
-    // PROVIDES — so:/cmd:/pc: or bare tokens some package publishes under this origin name
+    // PROVIDES — bare tokens OR Alpine's cmd:/pc: forms under this origin name.
+    // `dotnet-doc` documents `cmd:dotnet` published by `dotnet-host` (no package named `dotnet`).
+    // Matching only the bare token left byVia.provides at 0 and orphaned three real apps.
     const providers = load().packages
-      .filter((p) => p.provides.some((pv) => pv.split('=')[0] === origin))
+      .filter((p) => p.provides.some((pv) => {
+        const token = pv.split('=')[0]!
+        return token === origin || token === `cmd:${origin}` || token === `pc:${origin}`
+      }))
       .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
     if (providers[0]) return { man: pkg, app: providers[0], via: 'provides' }
   }
