@@ -484,7 +484,7 @@ plasma_fourth_state 27
 torus_closes_the_pipe 27
 containment_is_genus_one 27
 safety_factor_winding_closes 19
-kink_needs_q_above_one 19
+kink_needs_q_above_one 27
 coulomb_sign 19
 ohms_law 27
 electric_power 27
@@ -672,7 +672,7 @@ mombh_balmer_break_exceeds_stellar_ceiling 27
 mombh_variability_is_four_sigma 27
 mombh_hbeta_oiii_ratio_central_over_ten_lower_under 27
 mombh_fiducial_gas_dense_and_compton_thick 27
-mombh_press_confirmed_is_refuted 19
+mombh_press_confirmed_is_refuted 27
 mombh_black_hole_mass_spans_over_two_dex 27
 mombh_verified_ne_solved 27
 mombh_quantum_balmer_edge_is_rydberg_quarter 27
@@ -984,7 +984,7 @@ ghz_stabilized_by_xxx 27
 superdense_two_bits 27
 teleportation_four_corrections 27
 store_fold_order_invariant 27
-store_fold_change_moves_receipt 19
+store_fold_change_moves_receipt 27
 message_qubit_cap_states 27
 merkle_sort_invariant 27
 all_signaling_duality 27
@@ -1622,9 +1622,9 @@ a_symphony_is_a_sequence_not_a_set 19
 the_tempi_tile_the_film 27
 #Tesla.lean
 tesla_trio_files_adjacent 27
-tesla_leap_spring_to_grant 19
+tesla_leap_spring_to_grant 27
 three_tilings_of_the_circle 27
-alternation_needs_a_second_phase 19
+alternation_needs_a_second_phase 27
 the_grids_minute 27
 teleautomaton_precedes_transmission 27
 #Thermodynamics.lean
