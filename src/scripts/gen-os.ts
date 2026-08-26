@@ -13,7 +13,7 @@ import { ROOT } from './api.js'
 import { defaultInstalls } from '../quantum/os/index.js'
 import {
   hexbitPortCoverage, manPagePortCoverage, manPagePackages, manDrivenPortCoverage,
-  catalogueCompile, catalogue,
+  overlayManDrivenPortCoverage, catalogueCompile, catalogue,
 } from '../quantum/os/catalogue.js'
 import { mcpManDrivenCoverage } from '../quantum/os/mcp-man.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
@@ -27,6 +27,8 @@ const th = (k: string): string => `[\`${k}\`](/theorem/${k})`
 
 // COMPLETENESS — man pages testing the apps → hexbits. Package-count compile meters below are provenance.
 const completeness = manDrivenPortCoverage()
+const overlayCompleteness = overlayManDrivenPortCoverage()
+const overlayHex = hexbitPortCoverage('overlay')
 const mcpMan = mcpManDrivenCoverage()
 const community = hexbitPortCoverage('community')
 const all = hexbitPortCoverage()
@@ -50,6 +52,7 @@ const communityNsPer = community.total === 0 ? 0
 
 const pct = (n: number, of: number): string => of === 0 ? '0' : String(((n * 100) - ((n * 100) % of)) / of)
 const completenessPct = pct(completeness.witnessed, completeness.total)
+const overlayPct = pct(overlayCompleteness.witnessed, overlayCompleteness.total)
 
 const monitorReceipt = toUuid(
   `alpine-hexbit-monitor|man→app→hexbit|${completeness.witnessed}/${completeness.total}|`
@@ -93,8 +96,9 @@ named \`src/os\` boundary on every lean run, never hand-frozen.
 ## Quantum monitor — Alpine hexbit port (TypeScript computes · VitePress shows)
 
 **Port completeness** is **man pages testing the apps**, folded into hexbits
-(\`manDrivenPortCoverage\`) — not the package-count compile table alone. Provenance meters still recompute
-below so every published row is shown to fold to ${UUID_HEXBITS} states.
+(\`manDrivenPortCoverage\`) — **Alpine APKINDEX only** (main + community). npm/curl overlay ports
+(\`repo=overlay\`, e.g. oh-my-pi/omp) are a **separate witness** (\`overlayManDrivenPortCoverage\`) — NOT Alpine
+distro membership. Provenance meters still recompute below so every published row is shown to fold to ${UUID_HEXBITS} states.
 
 | surface | role | packages | witnessed / ported | coverage | seals |
 |---------|------|----------|--------------------|----------|-------|
@@ -105,6 +109,8 @@ below so every published row is shown to fold to ${UUID_HEXBITS} states.
 | man pages (compile) | provenance | ${manAll.total.toLocaleString('en-US')} | ${manAll.ported.toLocaleString('en-US')} | ${pct(manAll.ported, manAll.total)}% | ${th('a_spec_compiles_to_hexbits')} |
 | man pages · community | provenance | ${manCommunity.total.toLocaleString('en-US')} | ${manCommunity.ported.toLocaleString('en-US')} | ${pct(manCommunity.ported, manCommunity.total)}% | — |
 | man pages · main | provenance | ${manMain.total.toLocaleString('en-US')} | ${manMain.ported.toLocaleString('en-US')} | ${pct(manMain.ported, manMain.total)}% | — |
+| **overlay · man→app→hexbit** | **npm/curl (NOT apk)** | ${overlayCompleteness.total.toLocaleString('en-US')} | **${overlayCompleteness.witnessed.toLocaleString('en-US')}** / ${overlayCompleteness.total.toLocaleString('en-US')} | **${overlayPct}%** | separate from APKINDEX |
+| overlay (compile) | provenance | ${overlayHex.total.toLocaleString('en-US')} | ${overlayHex.ported.toLocaleString('en-US')} | ${pct(overlayHex.ported, overlayHex.total)}% | repo=overlay |
 
 ${completeness.witnessed < completeness.total
   ? `**Honest gaps** (${completeness.total - completeness.witnessed} orphan documentation rows — Alpine published \`-doc\` with no catalogued app): \`${completeness.missing.join('\`, \`')}\`.\n`
@@ -188,6 +194,10 @@ const figures: Figure[] = [
     citation: 'manDrivenPortCoverage() — man pages testing apps, both folded to UUID_HEXBITS · theorem a_spec_compiles_to_hexbits' },
   { name: 'Alpine port completeness — man→app→hexbit coverage', value: Number(completenessPct), unitText: '%', measurementTechnique: 'computed',
     citation: 'witnessed/total documentation packages · gate alpine-hexbit-port.test.ts · orphans named, never padded to 100%' },
+  { name: 'Overlay port — man→app→hexbit witnessed (NOT apk)', value: overlayCompleteness.witnessed, unitText: 'witnesses', measurementTechnique: 'computed',
+    citation: 'overlayManDrivenPortCoverage() — npm/curl ports repo=overlay; excluded from Alpine APKINDEX completeness' },
+  { name: 'Overlay port — man→app→hexbit coverage', value: Number(overlayPct), unitText: '%', measurementTechnique: 'computed',
+    citation: 'overlayManDrivenPortCoverage() — oh-my-pi/omp etc.; NOT Alpine distro membership' },
   { name: 'MCP Alpine man exposure — uuidna_exec', value: mcpMan.exposed, unitText: 'apps', measurementTechnique: 'computed',
     citation: 'mcpManDrivenCoverage() — man + apk through one MCP door; naive per-app tools refused (wire ceiling)' },
   { name: 'MCP Alpine man exposure — coverage', value: Number(mcpPct), unitText: '%', measurementTechnique: 'computed',
@@ -229,6 +239,18 @@ writeFileSync(join(ROOT, 'lean', 'alpine-hexbit-monitor.json'), JSON.stringify({
     gaps: completeness.gaps,
     byVia: completeness.byVia,
     pct: Number(completenessPct),
+  },
+  overlay: {
+    definition: overlayCompleteness.definition,
+    repo: 'overlay',
+    total: overlayCompleteness.total,
+    witnessed: overlayCompleteness.witnessed,
+    missing: overlayCompleteness.missing,
+    gaps: overlayCompleteness.gaps,
+    byVia: overlayCompleteness.byVia,
+    pct: Number(overlayPct),
+    hexbit: overlayHex,
+    honest: 'NOT Alpine Linux APKINDEX — npm/curl ports merged at catalogue read',
   },
   mcp: {
     definition: mcpMan.definition,
