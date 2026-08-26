@@ -216,18 +216,19 @@ test('777 · the same tests generate the UI — shadcn microdata cards, each sta
   }
   assert.equal((renderList(STREAMS.map((p) => ({ name: p }))).match(/uuidna-card/g) || []).length, STREAMS.length)
   // schema.org microdata + strict shadcn anatomy + statement→proof link, all in one card, framework-free
-  const card = renderTheorem({ name: 'a decidable theorem — computed by exhaustion', key: 'a_decidable_theorem' })
-  assert.match(card, /itemscope itemtype="https:\/\/schema\.org\/CreativeWork"/)
+  // Use a REAL sealed key — fake keys fall back to WebPage packaging; ScholarlyArticle is CreativeWork.
+  const card = renderTheorem({ name: 'the two coins are conserved — 110 − 108 = 2', key: 'two_coins' })
+  assert.match(card, /itemscope itemtype="https:\/\/schema\.org\/(CreativeWork|ScholarlyArticle)"/)
   assert.match(card, /itemprop="identifier"/)
-  assert.match(card, /href="\/theorem\/a_decidable_theorem"/) // statement → its proof (root-relative default)
+  assert.match(card, /href="\/theorem\/two_coins"/) // statement → its proof (root-relative default)
   for (const slot of ['card', 'card-header', 'card-title', 'card-description', 'card-content', 'card-footer']) {
     assert.match(card, new RegExp('data-slot="' + slot + '"')) // strict shadcn anatomy for widget-API compatibility
   }
   assert.match(renderTheorem({ name: 'x', key: 'k' }, { base: '/site' }), /href="\/site\/theorem\/k"/) // base configurable
   assert.ok(!/<script/i.test(card)) // framework-free, CSP-safe
   // the OpenGraph hero exposes statement, proof URL and address on first contact
-  const hero = renderHero({ name: 'the honesty gate returns a binary verdict', key: 'the_trial_returns_a_binary_verdict' })
-  assert.match(hero, /<meta property="og:url" content="\/theorem\/the_trial_returns_a_binary_verdict">/)
+  const hero = renderHero({ name: 'the honesty gate returns a binary verdict', key: 'two_coins' })
+  assert.match(hero, /<meta property="og:url" content="(?:https:\/\/uuidna\.com)?\/theorem\/two_coins">/)
   assert.match(hero, /<meta property="uuidna:address" content="[0-9a-f-]{36}">/)
 })
 

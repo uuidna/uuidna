@@ -111,7 +111,7 @@ compound_steps_in_exact_integers 27
 #BioPhysics.lean
 abo_klein_four 23
 blood_types_eight 31
-dna_base_pairing_involution 23
+dna_base_pairing_involution 31
 codons_sixty_four 31
 sound_ladder_432 19
 octave_doubling 19
@@ -240,7 +240,7 @@ imprint_header_minimal 27
 imprint_capacity_entangles 27
 imprint_capacity_within_address 27
 #Clay.lean
-two_bit_conjunctions_are_four_of_sixteen 19
+two_bit_conjunctions_are_four_of_sixteen 27
 mertens_squared_under_n_on_the_first_twenty 19
 hasse_bound_holds_at_four_primes 19
 four_simplex_boundary_euler_is_zero 19
@@ -620,7 +620,7 @@ the_services_hold_each_other_up 19
 the_terminal_is_the_toolbox 27
 the_foundation_depends_on_nothing 19
 every_path_carries_its_published_meaning 19
-a_spec_compiles_to_hexbits 19
+a_spec_compiles_to_hexbits 27
 the_os_is_bootable_quantum 19
 the_install_set_names_the_bytes_it_rests_on 19
 #Isometry.lean
@@ -1752,7 +1752,7 @@ a440_not_on_the_vortex 19
 morris_eight_bars_halved 19
 cubes_sum_to_square_of_triangle 27
 lights_out_flip_involution 19
-involution_replaces_the_raised_ceiling 19
+involution_replaces_the_raised_ceiling 27
 wave_probe_eleven_thirteens 26
 pilgrims_walk_must_cycle 26
 scrubber_margin_holds 26

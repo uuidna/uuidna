@@ -97,8 +97,18 @@ const ARMS: Arm[] = [
   { name: 'qa', why: 'full quantum-advantage audit by VERIFY of lean/quantum-advantage.json — metrics-aligned, <60s',
     run: () => sh('node dist/scripts/quantum-advantage-audit.js') },
 
-  { name: 'tests', why: 'the invariants no finder holds — a demoted finder does not demote its test, which is how "guard green" stopped meaning green',
-    run: () => sh('node --test dist/tests/*.test.js') },
+  { name: 'tests', why: 'hexbit verify of gate-receipt when tree matches; full suite only on drift (verify_beats_recompute_by_magnitudes)',
+    run: () => {
+      // VERIFY-DON'T-RECOMPUTE: if gate-receipt.json covers current src/+lean/, skip the ~40s suite.
+      const v = spawnSync(process.execPath, [join(ROOT, 'dist/scripts/gate-receipt.js'), '--verify'], {
+        cwd: ROOT, encoding: 'utf8',
+      })
+      if (v.status === 0) {
+        console.log('  · tests — gate-receipt covers this tree — verified O(1), suite not recomputed')
+        return pass
+      }
+      return sh('node --test dist/tests/*.test.js')
+    } },
 
   ...(full ? [{ name: 'kernel', why: 'every wing re-proven sorry-free and every theorem kernel-only (UUIDNA_PROVE_ALL=1)',
     run: () => sh('UUIDNA_PROVE_ALL=1 npm run lean && node dist/scripts/lean-axioms.js') }] : []),

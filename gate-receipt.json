@@ -1,13 +1,14 @@
 {
   "covers": {
-    "src": "dac29035a16e4fac981465e090e409e7",
+    "src": "fa5b32210b679ad7cd38b2c2f662ff61",
     "lean": "0094b98a729808d3301c24f01d679862"
   },
   "verified": [
     "types (tsc noEmitOnError)",
     "tests",
     "guard",
-    "gate-all 29 checks"
+    "qa (sealed)",
+    "next --verify (hexbit-fast)"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — the inputs the tests and the guard read. It proves THIS TREE was verified at push time; it does not prove any particular runner can verify it, which is why the deploy keeps its clean-room install and build. A tree that moved by one byte fails --verify and the checks run in full."

@@ -78,6 +78,20 @@ test('backing_clears — recompute flag·b = 0 at every state (a sealed-theorem 
   assert.equal(mutated.some((p) => p !== 0), true)
 })
 
+test('demarcation_clears — recompute flag·d = 0 at every state (an honest hedge clears the claim); the mutant that drops the demarcation factor must leave a nonzero product', () => {
+  const products = (f: Detector) => over8((h, d, b) => f(h, d, b) * d)
+
+  // (a) the real detector never fires on demarcated prose
+  assert.deepEqual(products(flag), [0, 0, 0, 0, 0, 0, 0, 0])
+  assert.equal(products(flag).every((p) => p === 0), true)
+
+  // (b) the mutation must fail — flag·d is 1 at n 3, so demarcation no longer clears
+  const mutated = products(dropsDemarcationClearance)
+  assert.notDeepEqual(mutated, [0, 0, 0, 0, 0, 0, 0, 0])
+  assert.equal(mutated[3], 1)
+  assert.equal(mutated.some((p) => p !== 0), true)
+})
+
 test('exactly_one_flag — recount the firing states (a gate that never fires proves nothing); mutants that drop a clearance must fire more than once', () => {
   const firings = (f: Detector) => over8((h, d, b, n) => (f(h, d, b) === 1 ? n : -1)).filter((n) => n >= 0)
 

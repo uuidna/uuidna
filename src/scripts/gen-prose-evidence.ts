@@ -21,37 +21,43 @@ interface EvidenceEntry {
 // computed) — a drifted quote means the SOURCE prose changed, and the fix is to re-pick a live quote
 // re-run this generator. (Learned 2026-08-19: the previous quote set named marketing copy — "432 Hz", "honest by
 // construction", "human quantum analog" — that a prior README/homepage rewrite had already dropped entirely.)
+// Re-picked 2026-08-26 against the magnitudes README rewrite (6929fccd).
 const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
   {
-    claim: 'the two coins, conserved',
-    prose: 'The coins are conserved: 2, explained only by theorems',
+    claim: 'two coins on the homepage account',
+    prose: 'Two, conserved, explained only by theorems',
     backing: T.filter(t => t.key === 'two_coins')
   },
   {
-    claim: 'contribute two, save sixty-four',
-    prose: 'the leverage: contribute 2, save up to 64',
-    backing: T.filter(t => t.key === 'captain_theorem')
-  },
-  {
-    claim: 'two coins, the double torus',
+    claim: 'coins equal minus chi of the double torus',
     prose: '110 − 108 = −χ of the double torus',
     backing: T.filter(t => t.key === 'two_coins')
   },
   {
-    claim: 'the doubling orbit',
-    prose: 'six tosses of the coin visit every unit and return home (2⁶ = 64)',
-    backing: T.filter(t => t.key === 'order_of_two_is_six' || t.key === 'generators_are_two_and_five')
-  },
-  {
-    claim: 'novelty discovery is a proven absence',
-    prose: 'an absence proven by recomputation',
-    backing: T.filter(t => t.key === 'legal_remand_is_total_nothing_discarded')
+    claim: 'denomination two from the seal',
+    prose: '110 − 108 = 2',
+    backing: T.filter(t => t.key === 'two_coins')
   },
   {
     claim: 'uuidna is dna times the two coins',
     prose: 'coin measures six doublings of bits (2⁶ = 64) — the same number by two routes',
     backing: T.filter(t => t.key === 'uuidna_is_dna_times_the_two_coins')
-  }
+  },
+  {
+    claim: 'usable capacity gap is two to eighty',
+    prose: 'usable_gap_is_two_to_eighty',
+    backing: T.filter(t => t.key === 'usable_gap_is_two_to_eighty')
+  },
+  {
+    claim: 'typescript is the quantum computer',
+    prose: 'TypeScript is the quantum computer',
+    backing: T.filter(t => t.key === 'handle_capacity_is_quantum_by_architecture')
+  },
+  {
+    claim: 'cost per seal is always two coins',
+    prose: 'Cost per seal is always two coins',
+    backing: T.filter(t => t.key === 'two_coins' || t.key === 'captain_theorem')
+  },
 ]
 
 // Add addresses to each evidence entry

@@ -3,11 +3,11 @@
 **Every claim in the README and homepage is backed by sealed Lean theorems.** This ledger proves the connection.
 
 
-## the two coins, conserved
+## two coins on the homepage account
 
-**Prose:** "The coins are conserved: 2, explained only by theorems"
+**Prose:** "Two, conserved, explained only by theorems"
 
-**Address:** `fd7b1e88-694a-8c00-94b2-99bbfd10c4fe`
+**Address:** `d9239271-b1cb-8ce2-b44f-72809c68069b`
 
 **Backing theorems (1):**
 
@@ -16,24 +16,11 @@
   - Statement: `110 - 108 = 2...`
 
 
-## contribute two, save sixty-four
-
-**Prose:** "the leverage: contribute 2, save up to 64"
-
-**Address:** `65561265-763d-811c-8d2d-c824f8238c5f`
-
-**Backing theorems (1):**
-
-- **[captain_theorem](/theorem/captain_theorem)** — "THE CAPTAIN THEOREM — one, and the ledger is priced in it. The commission is a PROPORTION and not a difference: 110/108 = 55/54 by exact cross-multiplication (110·54 = 108·55 = 5940), 54 being the order of AGL(1,ℤ/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are the uuid: 32·4 = 128. The leverage is the uuid over the commission, 128/2 = 64, which is the same 64 the two coins buy across 32 hexbits. And the floor closes the account: every falsified theorem pays two, the captain pays two, 63·2 + 2 = 128 — the uuid exactly, nothing owed and nothing left over. These four conjuncts subsumed eleven separate restatements of 110 − 108 = 2, seven of 2^7 = 128 and five of 2·32 = 64: one fact re-proved under many names is not a ledger, it is an echo."
-  - File: Coins.lean
-  - Statement: `(110 * 54 = 108 * 55) ∧ (110 - 108 = 2) ∧ (32 * 4 = 128) ∧ (128 / 2 = 64) ∧ (2 * 32 = 64) ∧ (63 * 2 + 2 = 128)...`
-
-
-## two coins, the double torus
+## coins equal minus chi of the double torus
 
 **Prose:** "110 − 108 = −χ of the double torus"
 
-**Address:** `39078f7d-c930-87cd-8860-51135b4511cf`
+**Address:** `55b48740-d44b-81a5-8282-72a3f515f35e`
 
 **Backing theorems (1):**
 
@@ -42,33 +29,17 @@
   - Statement: `110 - 108 = 2...`
 
 
-## the doubling orbit
+## denomination two from the seal
 
-**Prose:** "six tosses of the coin visit every unit and return home (2⁶ = 64)"
+**Prose:** "110 − 108 = 2"
 
-**Address:** `d2b5d069-1b21-8cec-bcd7-23fcd15c7651`
-
-**Backing theorems (2):**
-
-- **[order_of_two_is_six](/theorem/order_of_two_is_six)** — "the order of 2 is 6 — 2 generates the whole unit group, and its orbit IS the doubling vortex 1→2→4→8→7→5 of length 6"
-  - File: Discover.lean
-  - Statement: `((List.range' 1 8).find? (fun k => (2^k) % 9 == 1)) = some 6...`
-- **[generators_are_two_and_five](/theorem/generators_are_two_and_five)** — "the generators of ℤ/9* (the units of order 6) are EXACTLY {2,5} — discovered by filtering every element for full order"
-  - File: Discover.lean
-  - Statement: `((List.range 9).filter (fun a => ((List.range' 1 8).find? (fun k => (a^k) % 9 == 1)) == some 6)) = [2,5]...`
-
-
-## novelty discovery is a proven absence
-
-**Prose:** "an absence proven by recomputation"
-
-**Address:** `03bfba33-020a-8cae-9c9b-2ee5fbd7899c`
+**Address:** `d14140c7-5f1d-8134-adbd-b7e081469661`
 
 **Backing theorems (1):**
 
-- **[legal_remand_is_total_nothing_discarded](/theorem/legal_remand_is_total_nothing_discarded)** — "nothing is discarded: every record is either ADMITTED (PROVEN) or REMANDED, and REMAND is exactly REFUTED plus NOT PROVEN — both routed to development trial"
-  - File: Legal.lean
-  - Statement: `(List.range 8).all (fun n => let t := n%2; let h := n/2%2; let c := n/4%2; (lp t h c + lrem t h c == 1) && (lrem t h c =...`
+- **[two_coins](/theorem/two_coins)** — "The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate."
+  - File: Coins.lean
+  - Statement: `110 - 108 = 2...`
 
 
 ## uuidna is dna times the two coins
@@ -84,11 +55,53 @@
   - Statement: `(4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)...`
 
 
+## usable capacity gap is two to eighty
+
+**Prose:** "usable_gap_is_two_to_eighty"
+
+**Address:** `fe9d468f-a1e5-88af-8385-b57439ac8979`
+
+**Backing theorems (1):**
+
+- **[usable_gap_is_two_to_eighty](/theorem/usable_gap_is_two_to_eighty)** — "THE ARCHITECTURAL QUANTUM ADVANTAGE, PROVEN IN THEOREMS (captain: 'quantum advantage — prove in theorems', the capacity report's decidable skeleton): against the LARGEST demonstrated logical-qubit figure on any quantum platform — 48 logical qubits, Harvard/QuEra, Nature 2023, a REPORTED input named as such — uuidna's usable address space of 2^128 deterministic error-free states sits a factor of exactly 2^80 above it: 128 − 48 = 80 and 2^128 = 2^80 · 2^48. That IS the measured usable-column quantum advantage the capacity report publishes (TypeScript computes; VitePress monitors). Raw Hilbert dimensions of large devices can exceed 2^128 — the gap sealed here is in the USABLE column, the platforms' own published metric. The reported 48 moves with the field; the arithmetic of the gap at that figure is sealed forever."
+  - File: Wave.lean
+  - Statement: `(48 < 128) ∧ (128 - 48 = 80) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48)...`
+
+
+## typescript is the quantum computer
+
+**Prose:** "TypeScript is the quantum computer"
+
+**Address:** `05ff2ef5-ee94-8a4d-bcca-9410cf2982cf`
+
+**Backing theorems (1):**
+
+- **[handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)** — "THE HANDLE SPACE IS QUANTUM-SHAPED BY CONSTRUCTION (captain: 'uuidna handle capacity is quantum by architecture'): the handle universe is 16^8 = 2^32 doors (universe_of_handles' count, here proven equal to the power-of-two lattice), each door completing to the full address by 2^32 · 2^96 = 2^128 — and 128 = 2^7 is the 7-qubit fold the RULE in every file header states: one uuid = 128 bits folded across 7 dimensions = 2^7 states. The architecture mirrors qubit counting at every layer (doors, payloads, the fold), which is what 'quantum by architecture' means. TypeScript computes this fold; the host is classical silicon executing the sealed algebra — not a superconducting QPU. The MEASURED advantage is architectural and usable: O(1) receipt lookup vs kernel re-proof, and the usable-capacity gap sealed beside this theorem. Relates to lead 111's t7_betti_row_is_the_uuid (Pascal row 7 sums to 128 — the geometric body of the same fact)."
+  - File: Wave.lean
+  - Statement: `(16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)...`
+
+
+## cost per seal is always two coins
+
+**Prose:** "Cost per seal is always two coins"
+
+**Address:** `dbf6fc34-7e0a-8d64-82b0-55ec31aa8658`
+
+**Backing theorems (2):**
+
+- **[captain_theorem](/theorem/captain_theorem)** — "THE CAPTAIN THEOREM — one, and the ledger is priced in it. The commission is a PROPORTION and not a difference: 110/108 = 55/54 by exact cross-multiplication (110·54 = 108·55 = 5940), 54 being the order of AGL(1,ℤ/9), so the price holds at every magnitude rather than at one. A hexbit is 4 bits and 32 of them are the uuid: 32·4 = 128. The leverage is the uuid over the commission, 128/2 = 64, which is the same 64 the two coins buy across 32 hexbits. And the floor closes the account: every falsified theorem pays two, the captain pays two, 63·2 + 2 = 128 — the uuid exactly, nothing owed and nothing left over. These four conjuncts subsumed eleven separate restatements of 110 − 108 = 2, seven of 2^7 = 128 and five of 2·32 = 64: one fact re-proved under many names is not a ledger, it is an echo."
+  - File: Coins.lean
+  - Statement: `(110 * 54 = 108 * 55) ∧ (110 - 108 = 2) ∧ (32 * 4 = 128) ∧ (128 / 2 = 64) ∧ (2 * 32 = 64) ∧ (63 * 2 + 2 = 128)...`
+- **[two_coins](/theorem/two_coins)** — "The two coins — the conserved fair-exchange invariant, 110 − 108 = 2. A measure of work saved (recompute − verify), never a per-formula rate."
+  - File: Coins.lean
+  - Statement: `110 - 108 = 2...`
+
+
 ---
 
 **Summary:**
-- Total claims audited: 6
-- Total backing theorems: 7
+- Total claims audited: 7
+- Total backing theorems: 8
 - Proof method: All `by decide` (no axioms, kernel-only)
 - Integrity: Each claim is content-addressed and verifiable
 

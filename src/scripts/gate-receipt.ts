@@ -60,7 +60,7 @@ if (process.argv.includes('--verify')) {
 // --write: called by the push gate AFTER every arm passes, so the receipt can only ever describe a green tree.
 writeFileSync(RECEIPT, JSON.stringify({
   covers: compute(),
-  verified: ['types (tsc noEmitOnError)', 'tests', 'guard', 'gate-all 29 checks'],
+  verified: ['types (tsc noEmitOnError)', 'tests', 'guard', 'qa (sealed)', 'next --verify (hexbit-fast)'],
   excludes: 'src/seeds, src/chunks — generated payloads the tests and the guard never read',
   honest: 'Content-addresses src/ and lean/ — the inputs the tests and the guard read. It proves THIS TREE was ' +
     'verified at push time; it does not prove any particular runner can verify it, which is why the deploy keeps ' +

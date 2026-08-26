@@ -96,8 +96,8 @@ them, 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theore
 | Handle span | ${HANDLE_SPAN.toLocaleString('en-US')} | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
-| Library register | ${reg} qubits (${(2 ** reg).toLocaleString('en-US')} amplitudes) | \`MAX_MESSAGE_QUBITS\` |
-| MCP served ceiling | ${served} qubits (${(2 ** served).toLocaleString('en-US')} amplitudes) | \`MAX_SERVED_QUBITS\` |
+| Library register | ${reg} qubits (${2 ** reg} amplitudes) | \`MAX_MESSAGE_QUBITS\` |
+| MCP served ceiling | ${served} qubits (${2 ** served} amplitudes) | \`MAX_SERVED_QUBITS\` |
 | Research sources wired | ${RESEARCH_SOURCE_NAMES.length} | corroboration, never approval |
 | Conserved price paid | ${(T.length * COINS).toLocaleString('en-US')} coins | ${T.length} × ${COINS} |
 
@@ -142,6 +142,9 @@ Inside that space today:
 - **${mass.toLocaleString('en-US')}** superpositions decided across the ledger
 - **${(T.length * COINS).toLocaleString('en-US')}** coins paid (conserved denomination ${COINS} — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **${((mass - (mass % (T.length * COINS))) / (T.length * COINS)).toLocaleString('en-US')}** superpositions per coin
+
+Six directions leave every residue — the 60-degree doubling and its inverse, the 90-degree reflection (\`dz\`), the
+shift and its counter — so a figure quoted per coin is a rate along that walk, not a free-floating density.
 
 The supply grows two coins per sealed theorem and nothing else mints them.
 

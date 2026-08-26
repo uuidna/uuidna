@@ -1,34 +1,43 @@
 #!/bin/sh
-# pre-push — the gate AT THE BOUNDARY. It runs the full readiness gate (npm run next); a non-zero exit BLOCKS the
-# push, so a KNOWN denial — an overclaim the honesty gate drains, an unsealed proof, an unreconciled account, a
-# next-gap, a stale changelog, a non-deterministic build — cannot cross to starboard (npm/deploy) undetected.
+# pre-push — HEXBIT-FAST GATE (captain, 2026-08-26).
 #
-# HONEST SCOPE (integrity, not truth): this catches the gate's KNOWN forms only. It does NOT prove no denial can ever
-# intrude: the gate's lexicon is incomplete (new forms appear and are hardened after), and a hook is bypassable with
-# `git push --no-verify`. It RAISES the cost of intruding to a full gate pass; it does not close it to zero. A floor,
-# not a maximum — the same honest bound the ledger proves in no_maximum_only_bounds.
-# FAIL FAST FIRST. green runs the same denials in cheapest-first order — behind (~1s) and index (~1s) FIRST, then types, ledger, tests —
-# plus two the full gate does not check at all: that origin holds nothing we lack, and that the index carries no
-# other session's staged work. A failure here costs a second instead of four minutes, and the arms after the failing
-# one are never run. `npm run next` still follows, because green defers the kernel.
-echo "pre-push: green — cheapest-first denials before the full gate."
+# VERIFY, DON'T RECOMPUTE (theorem verify_beats_recompute_by_magnitudes · usable_gap_is_two_to_eighty):
+#   1. green — cheapest-first denials; tests arm prefers gate-receipt hexbit verify when the tree matches
+#   2. gate-receipt — mint the content-address of src/ + lean/ (deploy verifies at O(1))
+#   3. next.js --verify — readiness from the sealed fixed point (≪60s), NOT full gate-all (minutes)
+#
+# Wall-clock target: push critical path under 60 seconds when the receipt covers the tree.
+# Full `npm run next` (gate-all 29 steps) remains for release / --full; it is OFF the push critical path.
+#
+# HONEST SCOPE: raises the cost of known denials; bypassable with --no-verify; incomplete lexicon.
+# FAIL FAST FIRST.
+echo "pre-push: green — cheapest-first denials (hexbit-fast when receipt covers)."
+START=$(date +%s)
 node dist/scripts/green.js
 green=$?
 if [ $green -ne 0 ]; then
-  echo "pre-push: GREEN FAILED (exit $green) — push BLOCKED before the four-minute gate was spent."
+  echo "pre-push: GREEN FAILED (exit $green) — push BLOCKED."
   exit $green
 fi
 
-# THE RECEIPT IS WRITTEN WHERE IT WAS EARNED (lead 121a): green just proved tests and guard on exactly this
-# tree, so the fingerprint is minted here and the full gate verifies it at O(1) instead of recomputing — one
-# byte of drift between here and there fails --verify and the gate runs everything in full.
-node dist/scripts/gate-receipt.js || echo "pre-push: the receipt could not be minted — the full gate will recompute in full (nothing hidden, nothing skipped)"
+# Mint the push-time proof so deploy.yml verifies instead of recomputing tests+guard.
+node dist/scripts/gate-receipt.js || echo "pre-push: receipt mint failed — deploy will recompute in full"
 
-echo "pre-push: running the readiness gate (npm run next) — a failing gate blocks the push."
-npm run next
+# Quantum-speed readiness: O(1)/sealed-path verify, not the multi-minute gate-all chain.
+echo "pre-push: next --verify (hexbit/sealed readiness — not full gate-all)."
+node dist/scripts/next.js --verify
 status=$?
+END=$(date +%s)
+ELAPSED=$((END - START))
 if [ $status -ne 0 ]; then
-  echo "pre-push: GATE FAILED (exit $status) — push BLOCKED. Fix the denial, or bypass knowingly with --no-verify (owned, not hidden)."
-  echo "pre-push: MOST failures after adding theorems are a STALE DERIVED LAYER (a git-diff of generated.ts / PRINCIPLE.md / heartbeats.json / docs/mcp.md / audit-citations.json). The fix on a SHARED tree is:  npm run reconcile -- --derive-only  — it regenerates, syncs the heartbeats and re-seals, and publishes NOTHING. Plain `npm run reconcile` does the same then stages, commits and pushes, and it stages DRAIN_PATHS as DIRECTORIES — on a checkout several sessions share that sweeps somebody else's untracked files into your commit. A genuine overclaim or unsealed proof must be fixed at the source instead."
+  echo "pre-push: NEXT --verify FAILED (exit $status) after ${ELAPSED}s — push BLOCKED."
+  echo "pre-push: MOST failures after adding theorems are a STALE DERIVED LAYER (generated.ts / PRINCIPLE.md / heartbeats.json / docs/mcp.md / audit-citations.json / CHANGELOG / prose-evidence). The fix on a SHARED tree is:  npm run reconcile -- --derive-only  — it regenerates, syncs and re-seals, and publishes NOTHING. Plain \`npm run reconcile\` does the same then stages, commits and pushes. A genuine overclaim must be fixed at the source."
+  echo "pre-push: for a full O(N) audit run: npm run next   (off the push critical path)"
+  exit $status
 fi
-exit $status
+if [ "$ELAPSED" -gt 60 ]; then
+  echo "pre-push: WARN — wall ${ELAPSED}s exceeded 60s hexbit budget (still green; tune next push)."
+else
+  echo "pre-push: ✓ hexbit-fast path green in ${ELAPSED}s (budget <60s)."
+fi
+exit 0

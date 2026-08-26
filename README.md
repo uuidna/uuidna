@@ -27,8 +27,8 @@ them, 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theore
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
-| Library register | 16 qubits (65,536 amplitudes) | `MAX_MESSAGE_QUBITS` |
-| MCP served ceiling | 12 qubits (4,096 amplitudes) | `MAX_SERVED_QUBITS` |
+| Library register | 16 qubits (65536 amplitudes) | `MAX_MESSAGE_QUBITS` |
+| MCP served ceiling | 12 qubits (4096 amplitudes) | `MAX_SERVED_QUBITS` |
 | Research sources wired | 5 | corroboration, never approval |
 | Conserved price paid | 4,228 coins | 2114 × 2 |
 
@@ -131,6 +131,9 @@ Inside that space today:
 - **114,533** superpositions decided across the ledger
 - **4,228** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **27** superpositions per coin
+
+Six directions leave every residue — the 60-degree doubling and its inverse, the 90-degree reflection (`dz`), the
+shift and its counter — so a figure quoted per coin is a rate along that walk, not a free-floating density.
 
 The supply grows two coins per sealed theorem and nothing else mints them.
 
