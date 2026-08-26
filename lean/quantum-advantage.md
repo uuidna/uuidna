@@ -116,7 +116,7 @@ costs every leaf, while checking one proof costs log2(N) siblings.
 | 64 | 6 | 10^1 |
 | 256 | 8 | 10^1 |
 | 1024 | 10 | 10^2 |
-| 4096 | 12 | 10^3 |
+| 4096 | 12 | 10^2 |
 | 16384 | 14 | 10^3 |
 | 65536 | 16 | 10^4 |
 

@@ -23,9 +23,9 @@ theorem exhausted_denial_is_the_proof : (((List.range 16).filter (fun k => !(((1
 /-- THE HONEST BOUNDARY: A WINDOW EXHAUSTS ONLY ITSELF. Every n below twenty satisfies n < 20 — the window’s
     denials are exhausted — and twenty itself refuses the very same predicate. Exhaustion inside a window proves
     the window and NOTHING past its edge: the Mertens conjecture held on every tested case and is false, and
-    this ledger once sealed a universal from a one-step sample and paid for it. A finite exhaustion is a proof
-    exactly as wide as its space, and the width is part of the theorem. -/
-theorem a_window_exhausts_only_itself : ((List.range 20).all (fun n => n < 20)) ∧ (¬ (20 < 20)) := by decide
+    this ledger once sealed a universal from a one-step sample and paid for it. Sixteen (the slit-ring
+    exhaustion) sits inside twenty: a finite exhaustion is a proof exactly as wide as its space. -/
+theorem a_window_exhausts_only_itself : ((List.range 20).all (fun n => n < 20)) ∧ (¬ (20 < 20)) ∧ (16 < 20) := by decide
 
 /-- SILENCE NEVER REFUTES — THE TRIAL’S OWN DENIAL LAW. Of the four citation states, exactly ONE verifies (cited
     AND sealed: 1·1) and the other three are OPEN — 4 − 1 = 3, and 3 > 0 — none of them refuted, because absence

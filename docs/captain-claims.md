@@ -4,7 +4,7 @@
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Total claimed:** 2114/2114 theorems — every one, by construction
-**Claim receipt:** `ba76b9af-5020-88f3-a004-60f9f976a0f8`
+**Claim receipt:** `e675e06c-1f47-8f64-bf45-77d80c3442a9`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -287,7 +287,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 ### The light domain
 
 - **Theorems:** 6
-- **Sample lineAddress:** `a3ba7c42-a042-82a0-bcae-215fcd3ea3e8`
+- **Sample lineAddress:** `2dd495f9-d6e5-808a-9a93-67b3aaa4edc2`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 

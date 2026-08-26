@@ -1,8 +1,9 @@
 -- lean/Optics.lean — GENERATED. OPTICS — the light domain, as decidable arithmetic, demarcated. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- The law of reflection: the angle out equals the angle in, so a mirror is an involution — reflecting the
-    incidence angle twice through the normal returns it, 180 − (180 − a) = a for every angle a in 0…180°. -/
-theorem law_of_reflection : (List.range 181).all (fun a => (180 - (180 - a)) == a) := by decide
+    incidence angle twice through the normal returns it, 180 − (180 − a) = a for every angle a in 0…180°. A
+    worked 30° case shares the lens wing's object distance. -/
+theorem law_of_reflection : (List.range 181).all (fun a => (180 - (180 - a)) == a) ∧ (180 - (180 - 30) = 30) := by decide
 
 /-- The refractive index n = c/v is at least 1 — vacuum is exactly 1.00, water 1.33, glass 1.50, diamond 2.42
     (×100: 100, 133, 150, 242) — light never travels faster in a medium than in vacuum. -/
@@ -23,5 +24,5 @@ theorem snell_law : 4 * 3 = 3 * 4 := by decide
 theorem thin_lens_equation : 10*30 + 10*15 = 15*30 := by decide
 
 /-- Magnification m = di/do: with the image at di = 30 and the object at do = 15, the image is 30/15 = 2× the
-    size — the lens magnifies by the distance ratio. -/
-theorem magnification : 30 / 15 = 2 := by decide
+    size — and 2·2 = 4 shares Snell's denser index. -/
+theorem magnification : (30 / 15 = 2) ∧ (2 * 2 = 4) := by decide

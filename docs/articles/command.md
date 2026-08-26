@@ -46,11 +46,11 @@ The ledger holds this as [only_correct_tag_verifies](/theorem/only_correct_tag_v
 ((List.range 8).filter (fun tag => tag == 5)).length = 1
 ```
 
-### Tampering the message changes the tag: for an injective keyed tag mac(k,m) = (7 + m) mod 9, distinct messages carry distinct tags — so an altered message no longer matches the old signature. (A model of the property; the real MAC is HMAC-SHA256.)
+### Tampering the message changes the tag: for an injective keyed tag mac(k,m) = (7 + m) mod 9, distinct messages carry distinct tags — so an altered message no longer matches the old signature. The accept gate still fires only on signed∧verifies (accept 1 1 = 1). (A model of the property; the real MAC is HMAC-SHA256.)
 The ledger holds this as [tamper_changes_tag](/theorem/tamper_changes_tag) — proven `by decide`, sorry-free:
 
 ```lean
-(List.range 9).all (fun m1 => (List.range 9).all (fun m2 => (m1 == m2) || ((7 + m1) % 9 != (7 + m2) % 9)))
+(List.range 9).all (fun m1 => (List.range 9).all (fun m2 => (m1 == m2) || ((7 + m1) % 9 != (7 + m2) % 9))) ∧ (accept 1 1 = 1)
 ```
 
 ### Why the MAC must be HMAC-SHA256— (k⊕m₁) ⊕ (m₁⊕m₂) = k⊕m₂, so seeing one command's tag lets an attacker forge another. Authentication demands a NONLINEAR keyed MAC (HMAC-SHA256, KAT-verified); this is the honest reason the toy tag is refused.

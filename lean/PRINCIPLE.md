@@ -4,15 +4,15 @@
 
 ## Law
 
-- **Compute / monitor.** TypeScript (`src/`) is the quantum computer. VitePress (`docs/`) is the monitor.
-- **One object template.** `ObjectPage` is the catch-all layout. Hero = stock markdown H1 + abstract/tagline lead under it. Body proves the abstract across cross-dimensions (Lean formula, card/nav links only — capacity lives on `/quantum`). Content is data-driven from `compose-object` into `docs/[kind]/[id]` — no per-type page templates.
-- **Permanence.** `https://uuidna.com/<handle>` is DOI-class (worker `HANDLES` 301 → freeze-map route: theorem | publication | page). Sealed in `lean/seo-url-map.json` after the final SEO audit — handles must not churn post-freeze. When a Zenodo DOI exists, cite **both** `doi.org/…` and the handle URL.
-- **Captain coins deposit.** Every object deposit link is `https://revolut.me/ceccec?note=<referrer>` where referrer is the page's handle door URL (`encodeURIComponent`); `noreferrer` withholds HTTP Referer, so the note carries the identity.
-- **Prior art.** Every publication researches prior art offline (DOIs, proving links, cite-only siblings, lean-file binds). Found → credit first, captain next. Missing → explicit captain claim. Related publications are always crosslinked in `related_identifiers` and `related:*` keywords.
-- **i18n.** Seven locale rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is the identity projection; other rays read the content-address handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation — address-preserving, not a semantic gloss.
-- **Quantum advantage.** Push path **verifies** the sealed report (`lean/quantum-advantage.json`, theorem `usable_gap_is_two_to_eighty`); it does not remeasure. Remeasure is `gen-quantum-advantage`, off-path.
-- **Archive.** Zenodo DOI minting is workflow-only (`publish.yml` jobs `zenodo` / `zenodo-seals`). Local scripts regenerate `.zenodo.json` and `zenodo/` seal metadata only — one agnostic registry (`zenodo-seals`) covers every owned publication.
-- **Proof.** Every theorem below is proven `by decide` in Lean, verified sorry-free by `npm run lean` — **2114 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Compute / monitor.** TypeScript (`src/`) computes. VitePress (`docs/`) monitors — stock chrome: one brand, one donate door, no Dimensions FAB.
+- **One object template.** `ObjectPage` is the catch-all. Hero = stock markdown H1 + abstract/tagline lead. Body proves the abstract (Lean formula; card/nav links only). Capacity lives on `/quantum` — home links there; no per-page QA card. Content from `compose-object` → `docs/[kind]/[id]`.
+- **Permanence.** `https://uuidna.com/<handle>` is DOI-class (worker `HANDLES` 301 → freeze-map: theorem | publication | page). Sealed in `lean/seo-url-map.json` — handles do not churn post-freeze. Cite both `doi.org/…` and the handle when a Zenodo DOI exists.
+- **Deposit.** Object donate links are `https://revolut.me/ceccec?note=<referrer>` with referrer = the page handle door (`encodeURIComponent`); `noreferrer` withholds HTTP Referer.
+- **Credit.** Prior art (DOI / proving link) first, captain next. No prior art → captain claims. Related publications crosslink in `related_identifiers` and `related:*` keywords.
+- **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
+- **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
+- **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2114 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 
 ## Principles
 

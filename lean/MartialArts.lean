@@ -10,9 +10,9 @@ theorem complement_fixes_the_half : (90 - 45 = 45) ∧ (100 - 50 = 50) ∧ (10 -
 
 /-- An angle and its supplement complete the straight angle: 30 + 150 = 180, and the pair is ordered (30 < 150)
     — so naming one names the other. The arts speak of an opening and the angle you leave; as arithmetic that is
-    complementation on 180, the same reflection the colour wheel runs on ℤ/12 and the diamond runs on 10.
-    Geometry of the pair. -/
-theorem supplement_completes_the_straight : (30 + 150 = 180) ∧ (30 < 150) := by decide
+    complementation on 180, the same reflection the colour wheel runs on ℤ/12 and the diamond runs on 10. The
+    complement wing's fixed half (5) sits below the acute member. -/
+theorem supplement_completes_the_straight : (30 + 150 = 180) ∧ (30 < 150) ∧ (5 < 30) := by decide
 
 /-- A chain of n links has n − 1 joints: the five named segments of a kinetic chain (ground, hips, shoulders,
     arm, hand) meet at four joints, 5 − 1 = 4. It is the same off-by-one that governs every path: n stations, n

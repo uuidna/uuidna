@@ -12,9 +12,9 @@ const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + 
 
 const FACTS = [
   { key: 'law_of_reflection',
-    why: 'The law of reflection: the angle out equals the angle in, so a mirror is an involution — reflecting the incidence angle twice through the normal returns it, 180 − (180 − a) = a for every angle a in 0…180°.',
-    js: () => R(0, 181).every((a) => 180 - (180 - a) === a),
-    lean: 'theorem law_of_reflection : (List.range 181).all (fun a => (180 - (180 - a)) == a) := by decide' },
+    why: 'The law of reflection: the angle out equals the angle in, so a mirror is an involution — reflecting the incidence angle twice through the normal returns it, 180 − (180 − a) = a for every angle a in 0…180°. A worked 30° case shares the lens wing\'s object distance.',
+    js: () => R(0, 181).every((a) => 180 - (180 - a) === a) && (180 - (180 - 30) === 30),
+    lean: 'theorem law_of_reflection : (List.range 181).all (fun a => (180 - (180 - a)) == a) ∧ (180 - (180 - 30) = 30) := by decide' },
 
   { key: 'refractive_index_ge_one',
     why: 'The refractive index n = c/v is at least 1 — vacuum is exactly 1.00, water 1.33, glass 1.50, diamond 2.42 (×100: 100, 133, 150, 242) — light never travels faster in a medium than in vacuum.',
@@ -37,9 +37,9 @@ const FACTS = [
     lean: 'theorem thin_lens_equation : 10*30 + 10*15 = 15*30 := by decide' },
 
   { key: 'magnification',
-    why: 'Magnification m = di/do: with the image at di = 30 and the object at do = 15, the image is 30/15 = 2× the size — the lens magnifies by the distance ratio.',
-    js: () => 30 / 15 === 2,
-    lean: 'theorem magnification : 30 / 15 = 2 := by decide' },
+    why: 'Magnification m = di/do: with the image at di = 30 and the object at do = 15, the image is 30/15 = 2× the size — and 2·2 = 4 shares Snell\'s denser index.',
+    js: () => 30 / 15 === 2 && 2 * 2 === 4,
+    lean: 'theorem magnification : (30 / 15 = 2) ∧ (2 * 2 = 4) := by decide' },
 
 
 ]

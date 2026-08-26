@@ -1,6 +1,6 @@
 # uuidna — 2,033 distinct theorems under 2,114 keys · 2 coins · one receipt
 
-`daea8e79-69eb-8cec-83ca-122a7c71ace2`
+`0fcc5c62-5992-8ca9-8cd6-fcedabfce951`
 
 **v0.2.8** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 

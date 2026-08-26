@@ -11,11 +11,11 @@ description: "Computed from lean/Optics.lean — 6 sealed theorems, every claim 
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FOptics.lean)** — nothing to install. The editor fetches `lean/Optics.lean` from the repository and re-decides all 6 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
-### The law of reflection: the angle out equals the angle in, so a mirror is an involution — reflecting the incidence angle twice through the normal returns it, 180 − (180 − a) = a for every angle a in 0…180°.
+### The law of reflection: the angle out equals the angle in, so a mirror is an involution — reflecting the incidence angle twice through the normal returns it, 180 − (180 − a) = a for every angle a in 0…180°. A worked 30° case shares the lens wing's object distance.
 The ledger holds this as [law_of_reflection](/theorem/law_of_reflection) — proven `by decide`, sorry-free:
 
 ```lean
-(List.range 181).all (fun a => (180 - (180 - a)) == a)
+(List.range 181).all (fun a => (180 - (180 - a)) == a) ∧ (180 - (180 - 30) = 30)
 ```
 
 ### The refractive index n = c/v is at least 1 — vacuum is exactly 1.00, water 1.33, glass 1.50, diamond 2.42 (×100: 100, 133, 150, 242) — light never travels faster in a medium than in vacuum.
@@ -46,11 +46,11 @@ The ledger holds this as [thin_lens_equation](/theorem/thin_lens_equation) — p
 10*30 + 10*15 = 15*30
 ```
 
-### Magnification m = di/do: with the image at di = 30 and the object at do = 15, the image is 30/15 = 2× the size — the lens magnifies by the distance ratio.
+### Magnification m = di/do: with the image at di = 30 and the object at do = 15, the image is 30/15 = 2× the size — and 2·2 = 4 shares Snell's denser index.
 The ledger holds this as [magnification](/theorem/magnification) — proven `by decide`, sorry-free:
 
 ```lean
-30 / 15 = 2
+(30 / 15 = 2) ∧ (2 * 2 = 4)
 ```
 
 

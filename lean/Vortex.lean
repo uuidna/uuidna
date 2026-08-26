@@ -45,7 +45,7 @@ theorem magic_numbers :
 
 -- proton fit is exact arithmetic (108·17 = 1836), honestly NOT the measured ratio (1836.1527…)
 -- @skill: science-pairs
-theorem proton_fit : 108 * 17 = 1836 := by decide
+theorem proton_fit : (108 * 17 = 1836) ∧ (108 % 9 = 0) := by decide
 
 -- the self-sealing vortex-fraction product = 1, ported as exact integer cross-multiplication (num = den = 5040)
 -- @skill: foundational

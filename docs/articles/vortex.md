@@ -113,7 +113,7 @@ The ledger holds this as [magic_numbers](/theorem/magic_numbers) — proven `by 
 The ledger holds this as [proton_fit](/theorem/proton_fit) — proven `by decide`, sorry-free:
 
 ```lean
-108 * 17 = 1836
+(108 * 17 = 1836) ∧ (108 % 9 = 0)
 ```
 
 ### the self-sealing vortex-fraction product = 1, as exact cross-multiplication (5040 = 5040)

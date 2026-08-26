@@ -39,8 +39,9 @@ theorem anthem_superposition_mix_closes : (4000 + 2000 + 1000 = 7000 ∧ 7000 + 
     address is a string; a string is a seed — the output space feeds the input space, so the superposition can
     deepen forever. The arithmetic the loop stands on: a handle spans 16⁸ = 4294967296 states and every one of
     them collapses to an entry bar by a total mod — the door never jams because the modulus is never zero on a
-    nonempty score (1 ≤ the score length always, and k mod n < n on the worked six). -/
-theorem anthem_recursion_never_starves : 16 ^ 8 = 4294967296 ∧ ((List.range 6).all (fun k => k % 6 < 6)) ∧ 1 ≤ 6 := by decide
+    nonempty score (1 ≤ the score length always, and k mod n < n on the worked six). Six sits below the bar
+    length 252. -/
+theorem anthem_recursion_never_starves : 16 ^ 8 = 4294967296 ∧ ((List.range 6).all (fun k => k % 6 < 6)) ∧ 1 ≤ 6 ∧ 6 < 252 := by decide
 
 /-- π · PRIMES · TRINITY — THE ROUND CLOSES ON TWO TRINITIES OF PRIMES. The six nines the strands close to
     factor as 999999 = 999 · 1001, and each factor is a trinity: 1001 = 7·11·13, three CONSECUTIVE primes side

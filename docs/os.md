@@ -38,14 +38,14 @@ named `src/os` boundary on every lean run, never hand-frozen.
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,678 community packages ≪ 2^128.
-- **Time:** community compile sweep **44,946,167 ns** (~**1,981 ns**/package); man-page corpus **11,834,708 ns** (~**2,486 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep **45,474,500 ns** (~**2,005 ns**/package); man-page corpus **14,184,667 ns** (~**2,980 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost and is explicitly not a speedup.
 
 **Man pages** are Alpine's published documentation packages (`busybox-doc`, `s6-man-pages`, `man-pages`, …),
 resolved by the `man <topic>` applet in uuidnaOS and compiled to 32 hexbit states — provenance
 identity, never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
-Monitor receipt `535f9bb0-ea53-8788-a538-eb363b7ba50a` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
+Monitor receipt `d6c91aec-f782-8ada-8725-f307ad9db6c1` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
 ## Ported lowest level first — firmware and up
 

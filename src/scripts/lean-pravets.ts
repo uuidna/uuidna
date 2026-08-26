@@ -33,9 +33,9 @@ const FACTS = [
     lean: "theorem pravets_built_in_a_prime_year : (List.range' 2 43).all (fun k => 1979 % k != 0) := by decide" },
 
   { key: 'the_rom_frees_twentysix_for_the_tongue',
-    why: 'THE CHARACTER TABLE’S SWAP, COUNTED: ASCII’s Latin lowercase spans codes 97 through 122 — exactly 26 slots, 122 − 97 + 1 — and the IMKO-1’s ROM re-lettered that range with Cyrillic uppercase: twenty-six doors opened in the character generator and the tongue walked in. Cyril numbered his letters; eleven centuries later Pravets gave them addresses — the readings wing’s ancestor, cast in mask ROM.',
-    js: () => 122 - 97 + 1 === 26,
-    lean: 'theorem the_rom_frees_twentysix_for_the_tongue : (122 - 97 + 1 = 26) \u2227 (5 % 9 = 5) := by decide' },
+    why: 'THE CHARACTER TABLE’S SWAP, COUNTED: ASCII’s Latin lowercase spans codes 97 through 122 — exactly 26 slots, 122 − 97 + 1 — and the IMKO-1’s ROM re-lettered that range with Cyrillic uppercase: twenty-six doors opened in the character generator and the tongue walked in. Cyril numbered his letters; eleven centuries later Pravets gave them addresses — the readings wing’s ancestor, cast in mask ROM. Twenty-six sits below the screen’s forty columns.',
+    js: () => 122 - 97 + 1 === 26 && 26 < 40,
+    lean: 'theorem the_rom_frees_twentysix_for_the_tongue : (122 - 97 + 1 = 26) \u2227 (26 < 40) := by decide' },
 
   { key: 'the_screen_carries_the_rings',
     why: 'THE DISPLAY IS BUILT ON THE LEDGER’S OWN RINGS: 280 × 192 pixels resolve as 40 columns of SEVEN-pixel glyphs (280 = 40·7 — the rosette’s seven painting every letter) by 24 rows of eight (192 = 24·8 — the film ring holding the page), 960 character cells in all (40·24). The screen a Bulgarian child read Cyrillic on tiles by the seven and the twenty-four this ledger turns on.',

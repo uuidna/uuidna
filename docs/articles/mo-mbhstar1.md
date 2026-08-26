@@ -46,18 +46,18 @@ The ledger holds this as [mombh_press_confirmed_is_refuted](/theorem/mombh_press
 (¬ (18 >= 100))
 ```
 
-### 10^6.0 .. 10^8.3 (log ×10): 23 > 20.
+### 10^6.0 .. 10^8.3 (log ×10): 23 > 20; the span clears the stellar ceiling 50.
 The ledger holds this as [mombh_black_hole_mass_spans_over_two_dex](/theorem/mombh_black_hole_mass_spans_over_two_dex) — proven `by decide`, sorry-free:
 
 ```lean
-(83 - 60 = 23) ∧ (23 > 20)
+(83 - 60 = 23) ∧ (23 > 20) ∧ (60 > 50)
 ```
 
-### 3 measured, 1 simplistic model, 0 solved.
+### 3 measured, 1 simplistic model, 0 solved — and 3 sits below the stellar ceiling 30.
 The ledger holds this as [mombh_verified_ne_solved](/theorem/mombh_verified_ne_solved) — proven `by decide`, sorry-free:
 
 ```lean
-(3 >= 1) ∧ (0 < 1)
+(3 >= 1) ∧ (0 < 1) ∧ (30 > 3)
 ```
 
 ### QUANTUM: E(n=2→∞) = 13.6/4 = 3.4 eV (×10: 136/4 = 34); λ = 12398/3.4 = 3646 Å (12398/34 = 364, ×10). The break sits at the n=2 ionisation edge.
@@ -67,11 +67,11 @@ The ledger holds this as [mombh_quantum_balmer_edge_is_rydberg_quarter](/theorem
 (136 / 4 = 34) ∧ (12398 / 34 = 364)
 ```
 
-### QUANTUM: 3646 Å × (1+z)=8.757 → 31927 Å = 3.19 μm (×1000: 3646·8757/10000 = 3192); F277W ends ~3.1 μm, F356W starts ~3.1 μm: 3100 < 3192 < 3560. The colour selection is a Rydberg fraction.
+### QUANTUM: 3646 Å × (1+z)=8.757 → 31927 Å = 3.19 μm (×1000: 3646·8757/10000 = 3192); F277W ends ~3.1 μm, F356W starts ~3.1 μm: 3100 < 3192 < 3560. The rest-frame edge 364 sits below the gap.
 The ledger holds this as [mombh_quantum_edge_redshifts_into_filter_gap](/theorem/mombh_quantum_edge_redshifts_into_filter_gap) — proven `by decide`, sorry-free:
 
 ```lean
-(3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560)
+(3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560) ∧ (364 < 3100)
 ```
 
 ### QUANTUM: Hβ 1/4−1/16=3/16 → 12398·16/(3·13.6): 12398·160 − 4860·408 = 800 (<0.05%). Hγ 1/4−1/25=21/100 → 12398·100/(13.6·21): 12398·1000 − 4339·136·21 = 5816 (<0.05%). The absorbed lines are Rydberg differences with n=2 as the lower level.

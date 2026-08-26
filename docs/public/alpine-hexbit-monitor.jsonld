@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:e7289238-f513-899c-a694-e91105323912",
+  "@id": "urn:uuid:1d0e3279-5c53-8273-b264-3f57ec2b3558",
   "@type": "Dataset",
   "name": "uuidna Alpine hexbit quantum monitor",
   "description": "TypeScript computes Alpine package and man-page hexbit ports; VitePress monitors the recomputed coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).",
   "url": "https://uuidna.com/alpine-hexbit-monitor.jsonld",
-  "identifier": "535f9bb0-ea53-8788-a538-eb363b7ba50a",
+  "identifier": "d6c91aec-f782-8ada-8725-f307ad9db6c1",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -51,7 +51,7 @@
     {
       "@type": "PropertyValue",
       "name": "community compile — ns per package",
-      "value": 1981,
+      "value": 2005,
       "unitText": "ns",
       "measurementTechnique": "measured",
       "citation": "TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable"

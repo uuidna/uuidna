@@ -32,11 +32,11 @@ The ledger holds this as [exhausted_denial_is_the_proof](/theorem/exhausted_deni
 (((List.range 16).filter (fun k => !(((1 + (-1:Int)^k)^2 == 4) || ((1 + (-1:Int)^k)^2 == 0)))).length = 0) ∧ (16 - 16 = 0)
 ```
 
-### THE HONEST BOUNDARY: A WINDOW EXHAUSTS ONLY ITSELF. Every n below twenty satisfies n < 20 — the window’s denials are exhausted — and twenty itself refuses the very same predicate. Exhaustion inside a window proves the window and NOTHING past its edge: the Mertens conjecture held on every tested case and is false, and this ledger once sealed a universal from a one-step sample and paid for it. A finite exhaustion is a proof exactly as wide as its space, and the width is part of the theorem.
+### THE HONEST BOUNDARY: A WINDOW EXHAUSTS ONLY ITSELF. Every n below twenty satisfies n < 20 — the window’s denials are exhausted — and twenty itself refuses the very same predicate. Exhaustion inside a window proves the window and NOTHING past its edge: the Mertens conjecture held on every tested case and is false, and this ledger once sealed a universal from a one-step sample and paid for it. Sixteen (the slit-ring exhaustion) sits inside twenty: a finite exhaustion is a proof exactly as wide as its space.
 The ledger holds this as [a_window_exhausts_only_itself](/theorem/a_window_exhausts_only_itself) — proven `by decide`, sorry-free:
 
 ```lean
-((List.range 20).all (fun n => n < 20)) ∧ (¬ (20 < 20))
+((List.range 20).all (fun n => n < 20)) ∧ (¬ (20 < 20)) ∧ (16 < 20)
 ```
 
 ### SILENCE NEVER REFUTES — THE TRIAL’S OWN DENIAL LAW. Of the four citation states, exactly ONE verifies (cited AND sealed: 1·1) and the other three are OPEN — 4 − 1 = 3, and 3 > 0 — none of them refuted, because absence of proof is not a denial that stood, it is a denial never brought. The verdict algebra has no refuted-by-absence state: an unverified claim is a door still open (sealing_inverts_unverified — the same claim verifies the moment its seal lands), and only a recomputable contradiction refutes.

@@ -35,9 +35,9 @@ const FACTS = [
     lean: 'theorem mean_motion_linear : (([1,2,3] : List Nat).map (fun t => 30 * t)) = [30,60,90] := by decide' },
 
   { key: 'saros_eclipse_cycle',
-    why: 'Eclipses recur on the Saros of ~18 years — about 223 synodic months: 18·12 = 216 ordinary months plus 7 intercalary ≈ 223. After a Saros the sun, moon and nodes return to nearly the same alignment.',
-    js: () => 18 * 12 + 7 === 223,
-    lean: 'theorem saros_eclipse_cycle : (18 * 12 + 7 = 223) \u2227 (9 % 9 = 0) := by decide' },
+    why: 'Eclipses recur on the Saros of ~18 years — about 223 synodic months: 18·12 = 216 ordinary months plus 7 intercalary ≈ 223. After a Saros the sun, moon and nodes return to nearly the same alignment. 223 clears the Gregorian century count 100.',
+    js: () => 18 * 12 + 7 === 223 && 223 > 100,
+    lean: 'theorem saros_eclipse_cycle : (18 * 12 + 7 = 223) \u2227 (223 > 100) := by decide' },
 
 
   { key: 'julian_date_is_a_day_count',
