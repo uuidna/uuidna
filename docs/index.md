@@ -1,5 +1,6 @@
 ---
 layout: home
+description: "Lean 4 theorem ledger — content-addressed identity, honest by construction. Two coins conserved; cite by DOI-class handle."
 
 hero:
   name: "uuidna"

@@ -1,5 +1,6 @@
 ---
 title: Publications
+description: "Audited monographs folded from Lean proofs — every load-bearing sentence links a sealed theorem. Refused notes never publish."
 aside: false
 ---
 

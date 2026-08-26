@@ -1,5 +1,6 @@
 ---
 title: Topics
+description: "Discussion topics mined from theorem skills — each topic gathers sealed proofs and folds to a receipt. Public by construction."
 aside: false
 ---
 

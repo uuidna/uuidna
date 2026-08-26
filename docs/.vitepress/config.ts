@@ -21,8 +21,9 @@ export default defineConfig({
   head: [
     // schema.org/OG strict: Open Graph tags carry `property`, not `name` (RDFa); twitter:card correctly uses `name`.
     ['meta', { property: 'og:title', content: SITE.name }],
-    ['meta', { property: 'og:description', content: SITE.tagline }],
-    ['meta', { name: 'twitter:card', content: 'summary_large_image' }],
+    ['meta', { property: 'og:description', content: SITE.description }],
+    // summary until a real og:image PNG ships — summary_large_image without og:image is a broken social preview.
+    ['meta', { name: 'twitter:card', content: 'summary' }],
     // browsers still probe /favicon.ico by default; declare the served SVG so the 47/day bare-probe 404s stop
     // once clients honour the link, and the worker rewrites /favicon.ico → /icon.svg for the rest
     ['link', { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' }],

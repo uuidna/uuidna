@@ -1,6 +1,6 @@
 ---
 title: License
-description: The canonical uuidna license — CC BY-NC-ND 4.0, free to read and redistribute with attribution, non-commercially, and without modification. Any deployment off uuidna.com is governed by these terms; content-addressed, so a change is a new signature.
+description: "CC BY-NC-ND 4.0 — free to read and redistribute unchanged with attribution, non-commercially. Canonical terms for every uuidna surface."
 ---
 
 # License <Badge type="tip" text="CC BY-NC-ND 4.0" />

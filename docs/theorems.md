@@ -1,5 +1,6 @@
 ---
 title: Theorems
+description: "The sealed Lean 4 theorem ledger — every proof by decide, axiom-free. Browse by principle or skill; each claim cites its proof."
 aside: false
 ---
 
