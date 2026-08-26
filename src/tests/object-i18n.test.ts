@@ -119,6 +119,8 @@ test('ObjectCrosslinks wires full related-object graph via VPLink/VPButton (no c
   assert.doesNotMatch(vue, /href="\/os"/)
   assert.doesNotMatch(vue, /ox-grid|ox-card/)
   assert.match(vue, /ox-row/)
+  assert.match(vue, /ox-group/)
+  assert.match(vue, /groupAxes|groupRelated/)
   assert.match(vue, /VPButton/)
   assert.match(vue, /VPLink/)
   assert.match(vue, /rotation/)
@@ -126,6 +128,8 @@ test('ObjectCrosslinks wires full related-object graph via VPLink/VPButton (no c
   assert.match(vue, /axiom-free|axiomHolds/)
   assert.match(vue, /RefererCompass/)
   assert.match(vue, /relatedPubs|relatedPublications/)
+  assert.match(vue, /keywords|priorArt/)
+  assert.match(vue, /unlocks/)
 })
 
 test('ObjectBreadcrumbs: Layout doc-before + VPLink; Home → kind → id/handle (not the related graph)', async () => {
@@ -212,6 +216,8 @@ test('compose-object stamps stock VPDocFooter prev/next + crosslinks graph (no e
           rotation: { discovery: { key: string }; reflect: { key: string } }
           legs: string[]
           sequence: { prev: { key: string } | null; next: { key: string } | null }
+          keywords: string[]
+          unlocks: { link: string; text: string }
         }
       }
       content: string
@@ -222,6 +228,8 @@ test('compose-object stamps stock VPDocFooter prev/next + crosslinks graph (no e
   assert.ok(page.params.crosslinks?.rotation?.discovery?.key)
   assert.ok(page.params.crosslinks?.rotation?.reflect?.key)
   assert.ok(Array.isArray(page.params.crosslinks?.legs))
+  assert.ok(Array.isArray(page.params.crosslinks?.keywords))
+  assert.ok(page.params.crosslinks?.unlocks?.link === '/unlocks')
   assert.ok(page.params.prev === false || (page.params.prev && page.params.prev.link.startsWith('/theorem/')))
   assert.ok(page.params.next === false || (page.params.next && page.params.next.link.startsWith('/theorem/')))
   assert.doesNotMatch(page.content, /## Cross-links|## The rotation|## The neighbour fold/)

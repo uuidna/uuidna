@@ -23,14 +23,38 @@ export const OBJECT_UI: Readonly<Record<LocaleRay, {
   readingNote: string
   locale: string
   sourceEn: string
+  groupAxes: string
+  groupProof: string
+  groupRelated: string
+  keywords: string
+  monograph: string
+  relatedPubs: string
+  relatedTheorems: string
+  priorArt: string
+  unlocks: string
+  waves: string
+  seals: string
+  moreTheorems: string
 }>> = {
   en: {
     proves: 'Proves the abstract across dimensions',
-    provesLede: 'Related objects across dimensions — hexbit door, skill · principle · sequence · rotation, axiom · witness · falsifier legs.',
+    provesLede: 'Related objects across dimensions — hexbit door, skill · principle · sequence · rotation, axiom · witness · falsifier legs, publications, prior art.',
     hexbitDoor: 'Hexbit door',
     readingNote: 'Hexbit reading — address-preserving translation across the seven locale rays (not a semantic gloss).',
     locale: 'Language',
     sourceEn: 'Source (en)',
+    groupAxes: 'Ledger axes',
+    groupProof: 'Proof & legs',
+    groupRelated: 'Related',
+    keywords: 'Keywords',
+    monograph: 'Monograph',
+    relatedPubs: 'Publications',
+    relatedTheorems: 'Theorems',
+    priorArt: 'Prior art',
+    unlocks: 'Unlocks',
+    waves: 'Waves',
+    seals: 'Sealed surfaces',
+    moreTheorems: 'more in body',
   },
   bg: {
     proves: 'Доказва абстракта през измерения',
@@ -39,6 +63,18 @@ export const OBJECT_UI: Readonly<Record<LocaleRay, {
     readingNote: 'Hexbit четене — превод, запазващ адреса по седемте лъча (не семантичен глос).',
     locale: 'Език',
     sourceEn: 'Източник (en)',
+    groupAxes: 'Оси на регистъра',
+    groupProof: 'Доказателство и крака',
+    groupRelated: 'Свързани',
+    keywords: 'Ключови думи',
+    monograph: 'Монография',
+    relatedPubs: 'Публикации',
+    relatedTheorems: 'Теореми',
+    priorArt: 'Предшественици',
+    unlocks: 'Отключвания',
+    waves: 'Вълни',
+    seals: 'Запечатани повърхности',
+    moreTheorems: 'още в текста',
   },
   de: {
     proves: 'Beweist den Abstract über Dimensionen',
@@ -47,6 +83,18 @@ export const OBJECT_UI: Readonly<Record<LocaleRay, {
     readingNote: 'Hexbit-Lesung — adresswahrende Übersetzung über die sieben Strahlen (kein semantischer Gloss).',
     locale: 'Sprache',
     sourceEn: 'Quelle (en)',
+    groupAxes: 'Ledger-Achsen',
+    groupProof: 'Beweis & Beine',
+    groupRelated: 'Verwandt',
+    keywords: 'Schlüsselwörter',
+    monograph: 'Monographie',
+    relatedPubs: 'Publikationen',
+    relatedTheorems: 'Theoreme',
+    priorArt: 'Prior art',
+    unlocks: 'Freischaltungen',
+    waves: 'Wellen',
+    seals: 'Versiegelte Oberflächen',
+    moreTheorems: 'mehr im Text',
   },
   fr: {
     proves: 'Prouve l’abstract à travers les dimensions',
@@ -55,6 +103,18 @@ export const OBJECT_UI: Readonly<Record<LocaleRay, {
     readingNote: 'Lecture hexbit — traduction qui préserve l’adresse sur les sept rayons (pas une glose sémantique).',
     locale: 'Langue',
     sourceEn: 'Source (en)',
+    groupAxes: 'Axes du registre',
+    groupProof: 'Preuve & jambes',
+    groupRelated: 'Lié',
+    keywords: 'Mots-clés',
+    monograph: 'Monographie',
+    relatedPubs: 'Publications',
+    relatedTheorems: 'Théorèmes',
+    priorArt: 'Antériorité',
+    unlocks: 'Déverrouillages',
+    waves: 'Vagues',
+    seals: 'Surfaces scellées',
+    moreTheorems: 'plus dans le corps',
   },
   es: {
     proves: 'Prueba el abstracto a través de dimensiones',
@@ -63,6 +123,18 @@ export const OBJECT_UI: Readonly<Record<LocaleRay, {
     readingNote: 'Lectura hexbit — traducción que preserva la dirección en los siete rayos (no glosa semántica).',
     locale: 'Idioma',
     sourceEn: 'Fuente (en)',
+    groupAxes: 'Ejes del registro',
+    groupProof: 'Prueba y patas',
+    groupRelated: 'Relacionado',
+    keywords: 'Palabras clave',
+    monograph: 'Monografía',
+    relatedPubs: 'Publicaciones',
+    relatedTheorems: 'Teoremas',
+    priorArt: 'Arte previo',
+    unlocks: 'Desbloqueos',
+    waves: 'Olas',
+    seals: 'Superficies selladas',
+    moreTheorems: 'más en el cuerpo',
   },
   ru: {
     proves: 'Доказывает абстракт по измерениям',
@@ -71,6 +143,18 @@ export const OBJECT_UI: Readonly<Record<LocaleRay, {
     readingNote: 'Hexbit-чтение — перевод, сохраняющий адрес по семи лучам (не семантический глянец).',
     locale: 'Язык',
     sourceEn: 'Источник (en)',
+    groupAxes: 'Оси реестра',
+    groupProof: 'Доказательство и ноги',
+    groupRelated: 'Связанное',
+    keywords: 'Ключевые слова',
+    monograph: 'Монография',
+    relatedPubs: 'Публикации',
+    relatedTheorems: 'Теоремы',
+    priorArt: 'Предшествующее',
+    unlocks: 'Разблокировки',
+    waves: 'Волны',
+    seals: 'Запечатанные поверхности',
+    moreTheorems: 'ещё в тексте',
   },
   zh: {
     proves: '跨维度证明摘要',
@@ -79,6 +163,18 @@ export const OBJECT_UI: Readonly<Record<LocaleRay, {
     readingNote: 'Hexbit 读法——七束射线保址翻译（非语义意译）。',
     locale: '语言',
     sourceEn: '原文 (en)',
+    groupAxes: '账本轴',
+    groupProof: '证明与腿',
+    groupRelated: '相关',
+    keywords: '关键词',
+    monograph: '专著',
+    relatedPubs: '出版物',
+    relatedTheorems: '定理',
+    priorArt: '先前艺术',
+    unlocks: '解锁',
+    waves: '波',
+    seals: '密封面',
+    moreTheorems: '正文中更多',
   },
 }
 

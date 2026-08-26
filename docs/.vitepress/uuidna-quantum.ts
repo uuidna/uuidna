@@ -77,6 +77,8 @@ export function infuseQuantumPayload(pageData: PageDataLike, routeOf: (rel: stri
     pageData.frontmatter.relatedPublications = rich.relatedPublications
     pageData.frontmatter.priorArtOutcome = rich.priorArt.outcome
     pageData.frontmatter.priorArtClaim = rich.priorArt.claim
+    pageData.frontmatter.priorArtPriors = rich.priorArt.priors.map((p) => ({ who: p.who, link: p.link }))
+    pageData.frontmatter.tags = [...new Set([...(pageData.frontmatter.tags || []), ...rich.keywords])]
     break
   }
   if (handleDoor && !pageData.frontmatter.depositUrl) {

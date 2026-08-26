@@ -12,7 +12,11 @@ import { mirrorRows, legsFor } from '../../dist/rosetta-legs.js'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
-import { theoremGraph, publicationGraph, objectBreadcrumbs, shortTitle } from './object-graph.js'
+import { richPublicationMetadata } from '../../dist/publication-metadata.js'
+import { ZENODO_SEALS } from '../../dist/zenodo-seals.js'
+import {
+  theoremGraph, publicationGraph, objectBreadcrumbs, shortTitle, buildRelatedMaps,
+} from './object-graph.js'
 
 const HB = (() => {
   try { return JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../../lean/heartbeats.json'), 'utf8')).costs || {} } catch { return {} }
@@ -25,11 +29,23 @@ const AXIOM_HOLDS = (() => { try { return !!axiomWitness().holds } catch { retur
 
 const bySkill = new Map()
 const byPrin = new Map()
+const byKey = new Map()
 for (const t of ALL) {
+  byKey.set(t.key, t)
   if (!bySkill.has(t.skill)) bySkill.set(t.skill, [])
   bySkill.get(t.skill).push(t)
   if (!byPrin.has(t.principle)) byPrin.set(t.principle, [])
   byPrin.get(t.principle).push(t)
+}
+
+const ALL_PUBS = publications().filter((p) => p.publishable)
+const RELATED_MAPS = buildRelatedMaps(ALL_PUBS)
+
+/** Zenodo rich metadata + seal surfaces bound to a domain note's Lean file. */
+function zenodoBundleForFile(file) {
+  const seals = ZENODO_SEALS.filter((s) => s.leanFiles?.includes(file))
+  const rich = seals.length ? richPublicationMetadata(seals[0]) : null
+  return { rich, seals }
 }
 
 // PROSE → MARKDOWN-SAFE inline text. Theorem names are full prose sentences computed from Lean — they carry
@@ -62,7 +78,7 @@ export function composeTheorem(t) {
   const heroTitle = heroTitleOf(t)
   const handleDoor = 'https://uuidna.com/' + handle
   const heartbeats = HB[t.address]
-  const graph = theoremGraph(t, ALL, bySkill, byPrin, legsRowOf(t.key), AXIOM_HOLDS)
+  const graph = theoremGraph(t, ALL, bySkill, byPrin, legsRowOf(t.key), AXIOM_HOLDS, RELATED_MAPS)
   return {
     params: {
       kind: 'theorem',
@@ -129,7 +145,8 @@ export function composePublication(p) {
   const handleDoor = 'https://uuidna.com/' + handle
   const body = p.markdown.replace(/^#\s+[^\n]+\n+/, '')
   const lead = p.abstract ? `> ${mdSafe(p.abstract)}\n\n` : ''
-  const graph = publicationGraph(p, pubs)
+  const { rich, seals } = zenodoBundleForFile(p.file)
+  const graph = publicationGraph(p, pubs, byKey, rich, seals)
   return {
     params: {
       kind: 'publications',
