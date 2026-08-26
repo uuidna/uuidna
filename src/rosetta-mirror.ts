@@ -25,7 +25,7 @@ moduli_waste_states 19
 sixteen_alone_tiles 19
 ten_costs_more_than_fifteen 27
 powers_of_two_are_the_substance 27
-handle_discards_before_walking 19
+handle_discards_before_walking 27
 #Anthem.lean
 anthem_chord_halves_the_bar 27
 anthem_three_lengths_quarter_the_bar 27
@@ -134,18 +134,18 @@ two_functions_ignore_input 19
 xor_differs_from_or 19
 implication_is_a_gate 19
 #Byte.lean
-byte_holds_two_hexbits 19
+byte_holds_two_hexbits 27
 address_is_sixteen_bytes 27
 digest_doubles_the_address 27
 every_alternative_differs 19
-tamper_set_counts_eight_thousand 19
+tamper_set_counts_eight_thousand 27
 #Calendar.lean
 week_is_z7 27
 common_year_shifts_one 27
 leap_year_shifts_two 27
 leap_years_per_400 27
 gregorian_cycle_400_years 27
-century_leap_rule 19
+century_leap_rule 27
 doomsday_even_months 19
 months_sum_common_365 19
 months_sum_leap_366 19
@@ -160,7 +160,7 @@ channel_multiplies_three 27
 element_costs_nine 27
 four_carry_handle 27
 three_recover_the_discard 27
-independence_is_assumed 19
+independence_is_assumed 27
 page_outgrows_register 27
 #Chemistry.lean
 haber_balances 27
@@ -326,7 +326,7 @@ contribution_leaves_one_twentysix 27
 directions_number_fortytwo 27
 residue_holds_three_grids 27
 six_factorisations_compete 19
-taking_before_paying_differs 19
+taking_before_paying_differs 27
 #Core.lean
 mul9_1_1 26
 mul9_1_2 26
@@ -436,7 +436,7 @@ two_plus_two_is_five_only_mod_one 19
 trimix_fractions_sum_100 27
 absolute_pressure_at_depth 19
 partial_pressures_sum_to_absolute 27
-air_ppO2_in_window_at_surface 19
+air_ppO2_in_window_at_surface 27
 air_oxygen_toxic_deep 27
 gas_blend_by_partial_pressure 27
 helium_reduces_narcosis 27
@@ -454,8 +454,8 @@ compass_three_decide_the_fourth 27
 compass_opposites_involute 19
 #DoubleTorus.lean
 chi_measures_genus 27
-handles_give_generators 19
-presentation_counts_five 19
+handles_give_generators 27
+presentation_counts_five 27
 step_costs_three 27
 words_outgrow_presentation 19
 growth_is_not_bounded_here 19
@@ -522,14 +522,14 @@ glagolitic_teens_reversed 27
 pliska_seven_rays 27
 pliska_seven_is_prime 19
 alphabetic_three_ranks 27
-roman_reads_subtractively 19
+roman_reads_subtractively 27
 gematria_ignores_order 27
 gematria_forces_collisions 27
 #Grid.lean
 decimal_asks_three 19
 hexadecimal_asks_five 19
-seventytwo_is_decimal_only 19
-reversal_fails_in_hexadecimal 19
+seventytwo_is_decimal_only 27
+reversal_fails_in_hexadecimal 27
 fifteen_satisfies_both 19
 six_rays_stay_derived 27
 #Hamming.lean
@@ -541,11 +541,11 @@ codewords_syndrome_zero 19
 syndrome_names_the_position 19
 #HandleSpan.lean
 handles_times_qubits 27
-exponents_add 19
+exponents_add 27
 handle_spans_thirtytwo 27
 register_holds_amplitudes 19
-total_exceeds_register 19
-total_is_not_amplitudes 19
+total_exceeds_register 27
+total_is_not_amplitudes 27
 #Hardware.lean
 not_gate_truth_table 19
 and_gate_truth_table 19
@@ -634,7 +634,7 @@ reuse_leaks_by_isometry 19
 complement_flips_two 19
 codon_flips_six 19
 distance_is_symmetric 19
-isometry_bounds_correction 19
+isometry_bounds_correction 27
 #Legal.lean
 solutions_not_skipped 19
 legal_verdict_is_exactly_one 27
@@ -669,16 +669,16 @@ pairing_is_fixedpoint_free_involution 19
 mutual_match_is_symmetric 19
 #MoMBHStar1.lean
 mombh_balmer_break_exceeds_stellar_ceiling 27
-mombh_variability_is_four_sigma 19
+mombh_variability_is_four_sigma 27
 mombh_hbeta_oiii_ratio_central_over_ten_lower_under 27
-mombh_fiducial_gas_dense_and_compton_thick 19
+mombh_fiducial_gas_dense_and_compton_thick 27
 mombh_press_confirmed_is_refuted 19
 mombh_black_hole_mass_spans_over_two_dex 27
-mombh_verified_ne_solved 19
+mombh_verified_ne_solved 27
 mombh_quantum_balmer_edge_is_rydberg_quarter 27
 mombh_quantum_edge_redshifts_into_filter_gap 27
 mombh_quantum_hbeta_hgamma_are_balmer_lines 27
-mombh_quantum_n2_population_needs_density 19
+mombh_quantum_n2_population_needs_density 27
 #Models.lean
 a_token_approximates_eight_hexbits 27
 context_windows_are_transient_hexbits 19
@@ -826,8 +826,8 @@ nimsum_8_8 26
 #Notation.lean
 ten_reduces_to_one 19
 base_fixes_modulus 19
-bases_disagree_on_root 19
-reversal_escapes_arithmetic 19
+bases_disagree_on_root 27
+reversal_escapes_arithmetic 27
 root_survives_the_reading 27
 nine_divides_by_construction 19
 #OneLeap.lean
@@ -986,8 +986,8 @@ teleportation_four_corrections 27
 store_fold_order_invariant 27
 store_fold_change_moves_receipt 19
 message_qubit_cap_states 27
-merkle_sort_invariant 19
-all_signaling_duality 19
+merkle_sort_invariant 27
+all_signaling_duality 27
 hexbit_slit_visibility 27
 hexbit_slit_cross_is_overlap 27
 #Readings.lean
@@ -1003,11 +1003,11 @@ readings_states_sound_the_lattice 19
 nyquist_clears_the_lattice 27
 amplitude_inside_int16 27
 mix_budget_closes 27
-chi_all_three_genera 19
+chi_all_three_genera 27
 note_values_are_doublings 27
 two_coins_in_kilograms 31
 handle_capacity_invariant_under_entanglement 27
-time_counts_of_the_books 19
+time_counts_of_the_books 27
 #Reasoning.lean
 modus_ponens 27
 modus_tollens 19
@@ -1035,7 +1035,7 @@ unproven_not_refuted 19
 absorbed_evidence_idles 19
 unfalsifiable_excludes_nothing 19
 #Referrer.lean
-referrer_six_doors 19
+referrer_six_doors 27
 referrer_consonance_ladder 27
 referrer_lower_octaves_on_lattice 19
 referrer_cycle_is_total 19
@@ -1481,7 +1481,7 @@ sanitize_bidi_points_are_nine 27
 fullest_seat_ceiling 19
 excess_forces_sharing 19
 fit_shares_nothing 19
-powers_are_not_the_bound 19
+powers_are_not_the_bound 27
 digits_split_five_five 19
 ten_seats_bound_any_ring 27
 #Security.lean
@@ -1584,7 +1584,7 @@ colour_is_six_hexbits 27
 channel_is_two_hexbits 27
 greys_are_one_in_sixtyfive_thousand 27
 shorthand_covers_one_in_four_thousand 27
-spectrum_refuses_sixteen 19
+spectrum_refuses_sixteen 27
 wheel_divides_by_nine_and_six 19
 #Statics.lean
 force_equilibrium 19
@@ -1611,7 +1611,7 @@ units_form_six 19
 four_subgroups_exhibited 19
 lagrange_divides_every_order 19
 two_generates_the_whole 19
-most_subsets_are_not_subgroups 19
+most_subsets_are_not_subgroups 27
 trivial_and_whole_are_subgroups 19
 #Symphony.lean
 four_movements_are_the_tongues 27
@@ -1633,7 +1633,7 @@ entropy_never_decreases 19
 carnot_efficiency_below_one 27
 absolute_zero_and_kelvin 27
 charles_law 27
-no_perpetual_motion 19
+no_perpetual_motion 27
 specific_heat_linear 19
 caesium_light_step 27
 landauer_bound_derived 31
@@ -1662,7 +1662,7 @@ vertical_exaggeration 27
 naismith_rule_estimate 27
 wgs84_polar_shorter 31
 eratosthenes_fiftieth_circle 31
-horizon_distance_finite 19
+horizon_distance_finite 27
 bulge_exceeds_relief 31
 #Torus.lean
 hextorus_is_coins_times_trinity 27
@@ -1695,7 +1695,7 @@ a_series_halving 27
 ream_is_five_hundred 27
 recto_odd_verso_even 27
 #Universe.lean
-eclipse_four_hundred 19
+eclipse_four_hundred 27
 saros_metonic_bridge 19
 flat_drift_is_quadratic 19
 poles_on_the_axis_at_the_quadrature 27
@@ -2235,7 +2235,7 @@ one_image_every_architecture 19
 states_are_the_swap_fixed_bytes 19
 the_page_admits_sixteen 19
 the_coin_compass_closes 19
-chi_crystallises_three_genera 19
+chi_crystallises_three_genera 27
 imaginings_meet_at_sixtyfour 27
 rounding_fee_closes_the_cube 27
 the_promotion_chain_doubles_home 27`

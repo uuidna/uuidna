@@ -62,17 +62,19 @@ export const INVOLUTIONS: readonly Involution[] = [
  *  published claim, which is the exact defect this file was written to refuse. */
 const ASCRIPTION = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
 export const stripAscriptions = (s: string): string => s.replace(ASCRIPTION, '$1')
-/** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`)
- *  and `≠` as Lean inequality. List / fun / bound names stay unreached; `/` and `≠` were pure-syntax gaps that
- *  left sealed equalities unreached for characters alone. */
+/** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`),
+ *  `≠` as Lean inequality, and ASCII `<=` / `>=` beside Unicode `≤` / `≥`. List / fun / bound names stay
+ *  unreached; `/`, `≠`, and ASCII non-strict inequalities were pure-syntax gaps that left sealed propositions
+ *  unreached for characters alone. */
 export const evaluable = (statement: string): boolean => /^[\s0-9()+*%/^=∧<>≤≥≠-]+$/.test(stripAscriptions(statement))
 
 // A REAL EVALUATOR, NOT `eval`. The first version handed the statement to the runtime after a few substitutions,
 // and the harmonic scan refused it by name — correctly, and for a better reason than style: `eval` makes the
 // meaning of a ledger statement depend on the host's parser rather than on anything this repository decides, so
 // two runtimes could disagree about what a theorem says and nothing here would notice. It is also an execution
-// surface pointed at generated content. The grammar is tiny — numerals, + - * % / ^, the comparisons (incl. ≠),
-// and ∧ — so a recursive descent over it is short, total, and gives the same answer on every host by construction.
+// surface pointed at generated content. The grammar is tiny — numerals, + - * % / ^, the comparisons (incl. ≠,
+// ≤ ≥, and ASCII <= >=), and ∧ — so a recursive descent over it is short, total, and gives the same answer on
+// every host by construction.
 //
 // Precedence, lowest first: ∧ · comparison · + − · * % / · ^ (right-associative) · unary − · parentheses.
 type Cursor = { s: string; i: number }
@@ -107,6 +109,10 @@ function sum(c: Cursor): number {
 }
 const compare = (c: Cursor): boolean => {
   const l = sum(c); ws(c)
+  // TWO-CHARACTER OPS BEFORE THEIR PREFIXES — `<=` must win over `<`, else `(16 <= 21)` parses as
+  // `16 <` and leaves `= 21` as trailing junk (holds → null). Same for `>=` vs `>`. Unicode ≤ ≥ stay too.
+  if (eat(c, '<=')) return l <= sum(c)
+  if (eat(c, '>=')) return l >= sum(c)
   if (eat(c, '≤')) return l <= sum(c)
   if (eat(c, '≥')) return l >= sum(c)
   if (eat(c, '≠')) return l !== sum(c)

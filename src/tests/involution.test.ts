@@ -142,3 +142,17 @@ test('INEQUALITY IS LEAN ≠ — another pure-syntax gap that left sealed inequa
   // List forms still refuse — widening ≠ must not start claiming what it cannot parse
   assert.equal(holds('(List.range 7).length ≠ 0'), null)
 })
+
+test('NON-STRICT INEQUALITY IS ASCII <= AND >= — sealed windows stayed unreached for two characters', () => {
+  // Lean writes `<=` / `>=`; the grammar already had Unicode ≤ ≥. Eating `<` before `<=` left `= 21` trailing,
+  // so air_ppO2_in_window_at_surface and the MoMBH bounds came back null for syntax alone.
+  assert.equal(evaluable('(16 <= 21) ∧ (21 <= 160)'), true)
+  assert.equal(holds('(16 <= 21) ∧ (21 <= 160)'), true)
+  assert.equal(holds('(16 <= 15)'), false)
+  assert.equal(holds('(11 >= 9) ∧ (258 > 241)'), true)
+  assert.equal(holds('(11 >= 12)'), false)
+  assert.equal(holds('(16 ≤ 21) ∧ (21 ≤ 160)'), true, 'Unicode ≤ still holds')
+  assert.equal(holds('(11 ≥ 9)'), true, 'Unicode ≥ still holds')
+  // List forms still refuse — widening <= / >= must not start claiming what it cannot parse
+  assert.equal(holds('(List.range 8).all (fun n => n <= 8)'), null)
+})
