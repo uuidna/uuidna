@@ -1,4 +1,4 @@
-// QuantumAdvantage theme — ObjectPage (catch-all Layout) mounts QA after hero; cards via QaCardInjector.
+// QuantumAdvantage theme — home-only QA monitor; ObjectPage has no per-page QA chrome.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, existsSync } from 'node:fs'
@@ -7,21 +7,28 @@ import { ROOT } from '../boundary.js'
 
 const THEME = join(ROOT, 'docs/.vitepress/theme')
 
-test('theme Layout is ObjectPage catch-all; QuantumAdvantage registered', () => {
+test('theme Layout is ObjectPage; QuantumAdvantage registered for home markdown', () => {
   const idx = readFileSync(join(THEME, 'index.ts'), 'utf8')
   assert.match(idx, /Layout:\s*ObjectPage/)
   assert.match(idx, /app\.component\('QuantumAdvantage'/)
-  assert.match(idx, /QaMetrics/)
+  assert.doesNotMatch(idx, /QaMetrics/)
+  assert.doesNotMatch(idx, /QaCardInjector/)
 })
 
-test('ObjectPage mounts QuantumAdvantage in proof body (not over hero)', () => {
+test('ObjectPage does not mount QuantumAdvantage or QaCardInjector', () => {
   const vue = readFileSync(join(THEME, 'ObjectPage.vue'), 'utf8')
-  assert.match(vue, /QuantumAdvantage/)
-  assert.match(vue, /object-proof/)
+  assert.doesNotMatch(vue, /QuantumAdvantage/)
+  assert.doesNotMatch(vue, /QaCardInjector/)
+  assert.doesNotMatch(vue, /QaMetrics/)
   assert.match(vue, /object-hero/)
+  assert.match(vue, /ObjectCrosslinks/)
+  assert.ok(!existsSync(join(THEME, 'QaCardInjector.vue')))
+  assert.ok(!existsSync(join(THEME, 'QaMetrics.vue')))
 })
 
-test('advantage.data loader watches sealed TS quantum-computer outputs', () => {
+test('home mounts QuantumAdvantage in markdown; advantage.data watches sealed outputs', () => {
+  const home = readFileSync(join(ROOT, 'docs/index.md'), 'utf8')
+  assert.match(home, /<QuantumAdvantage\s*\/>/)
   const loader = readFileSync(join(ROOT, 'docs/.vitepress/advantage.data.ts'), 'utf8')
   assert.match(loader, /quantum-advantage\.json/)
   assert.match(loader, /usable_gap_is_two_to_eighty/)
@@ -29,20 +36,11 @@ test('advantage.data loader watches sealed TS quantum-computer outputs', () => {
   assert.ok(existsSync(join(THEME, 'QuantumAdvantage.vue')))
 })
 
-// QaMetrics cites usable_gap_is_two_to_eighty (measured gap); n_qubit_dimension names the classical bound
-test('QaMetrics cites measured usable-capacity gap, not blanket denial', () => {
-  const vue = readFileSync(join(THEME, 'QaMetrics.vue'), 'utf8')
-  assert.match(vue, /gapFactor/)
+test('home QuantumAdvantage is site-level usable-capacity, not page-local cards', () => {
+  const vue = readFileSync(join(THEME, 'QuantumAdvantage.vue'), 'utf8')
+  assert.match(vue, /usable_gap|gapFactor|usableBits/)
+  assert.match(vue, /advantage\.data/)
+  assert.doesNotMatch(vue, /pageAdvantageMetrics/)
   assert.doesNotMatch(vue, /no physics quantum advantage is claimed/i)
-  assert.match(vue, /advantage\.data|usable_gap|pageAdvantageMetrics/)
-})
-
-test('QaMetrics wires page-local metrics from pageAdvantageMetrics', () => {
-  const vue = readFileSync(join(THEME, 'QaMetrics.vue'), 'utf8')
-  assert.match(vue, /pageAdvantageMetrics/)
-  assert.match(vue, /data-metrics="page"/)
-  assert.match(vue, /heartbeat/)
-  const qa = readFileSync(join(THEME, 'QuantumAdvantage.vue'), 'utf8')
-  assert.match(qa, /heartbeats/)
-  assert.match(qa, /objectKind|object-kind/)
+  assert.doesNotMatch(vue, /variant.*card|qa-compact/)
 })

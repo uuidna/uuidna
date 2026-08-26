@@ -1,4 +1,4 @@
-// page-metrics — two theorem pages MUST show different primary metrics (not the global capacity bag alone).
+// page-metrics — pure compute for page-local advantage figures (no UI card embeds).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, existsSync } from 'node:fs'
@@ -10,7 +10,6 @@ import {
 } from '../quantum/advantage/page/metrics/index.js'
 import { decadeOf } from '../measurement.js'
 import { theorems } from '../theorems/index.js'
-import { quantumAdvantageCardHtml } from '../quantum/advantage/card/html/index.js'
 
 const hbPath = join(ROOT, 'lean/heartbeats.json')
 const costs: Record<string, number> = existsSync(hbPath)
@@ -65,36 +64,15 @@ test('two different theorems produce different page metrics', () => {
   assert.notEqual(ma.pageReceipt, mb.pageReceipt, 'page receipts differ')
   assert.notEqual(ma.pageHandle, mb.pageHandle, 'page receipt handles differ')
   assert.notEqual(ma.depositReferrer, mb.depositReferrer, 'deposit referrers differ')
-  // decades may coincide for close costs; extremes should usually differ
   assert.ok(
     ma.heartbeatDecade !== mb.heartbeatDecade || ma.costBar !== mb.costBar,
     'cost decade or relative bar must differ at extremes',
   )
 })
 
-test('card HTML embeds page-local heartbeats when supplied', () => {
-  const t = theorems().find((x) => costs[x.address] > 0)
-  assert.ok(t)
-  const hb = costs[t!.address]
-  const html = quantumAdvantageCardHtml({
-    address: t!.address,
-    label: t!.key,
-    heartbeats: hb,
-    objectKind: 'theorem',
-  })
-  assert.match(html, new RegExp(`data-heartbeats="${hb}"`))
-  assert.match(html, /data-page-handle=/)
-  assert.match(html, /Page metrics/)
-  assert.doesNotMatch(html, /no physics quantum advantage is claimed/i)
-})
-
-test('QaMetrics template prefers page metrics over global-only stats', () => {
-  const vue = readFileSync(join(ROOT, 'docs/.vitepress/theme/QaMetrics.vue'), 'utf8')
-  assert.match(vue, /pageAdvantageMetrics/)
-  assert.match(vue, /data-metrics="page"/)
-  assert.match(vue, /global-context/)
-  assert.match(vue, /decide-step heartbeats/)
-  const loader = readFileSync(join(ROOT, 'docs/.vitepress/advantage.data.ts'), 'utf8')
-  assert.match(loader, /heartbeats\.json/)
-  assert.match(loader, /maxHeartbeats/)
+test('static QA card HTML and QaMetrics Vue are gone from the theme/render path', () => {
+  assert.ok(!existsSync(join(ROOT, 'src/quantum/advantage/card/html/index.ts')))
+  assert.ok(!existsSync(join(ROOT, 'docs/.vitepress/theme/QaMetrics.vue')))
+  const render = readFileSync(join(ROOT, 'src/render.ts'), 'utf8')
+  assert.doesNotMatch(render, /quantumAdvantageCardHtml/)
 })

@@ -1,4 +1,4 @@
-// advantage.data — VitePress DATA LOADER for the quantum-advantage MONITOR (pages + cards).
+// advantage.data — VitePress DATA LOADER for the home quantum-advantage monitor.
 // TypeScript computes; VitePress monitors lean/quantum-advantage.json + lean/quantum-capacity.json.
 import { readFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'

@@ -128,8 +128,6 @@ ${heaviest}
 
 ---
 
-## Quantum capacity
-
 ${capacityMd}
 
 ---

@@ -1,21 +1,16 @@
-<!-- ObjectPage — THE ONE CATCH-ALL TEMPLATE (captain).
+<!-- ObjectPage — catch-all Layout for object pages (theorem · publication · handle · guide).
 
-     Every object (theorem · publication · handle target · guide/doc · link-object surface) uses THIS layout.
-     Hero = H1 + abstract. Body proves across cross-dimensions (Content + QA + ObjectCrosslinks).
-     i18n: seven DIMENSIONS rays (en|bg|de|fr|es|ru|zh); fold IS the translation (hexbit readings).
-     Home (layout: home) skips the object hero and uses DefaultTheme home composition. -->
+     Hero = H1 + abstract + locale (object pages only). Body = markdown + ObjectCrosslinks.
+     Home (layout: home) uses DefaultTheme home composition; QA lives in markdown on home/README only. -->
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import { computed, ref, watch, onMounted } from 'vue'
 import { useData } from 'vitepress'
-import QuantumAdvantage from './QuantumAdvantage.vue'
 import ObjectCrosslinks from './ObjectCrosslinks.vue'
 import ReferrerNav from './ReferrerNav.vue'
 import ReadAloud from './ReadAloud.vue'
-import LinkAuditor from './LinkAuditor.vue'
 import SiteFooter from './SiteFooter.vue'
 import SponsorCard from './SponsorCard.vue'
-import QaCardInjector from './QaCardInjector.vue'
 import Dimensions from './Dimensions.vue'
 import UrlAudit from './UrlAudit.vue'
 import {
@@ -124,20 +119,16 @@ watch(localeTag, (t) => {
         <ReadAloud />
       </template>
       <template v-else>
-        <QuantumAdvantage />
         <ReadAloud />
       </template>
     </template>
     <template #doc-after>
       <div v-if="!isHome" class="object-proof">
-        <QuantumAdvantage />
         <ObjectCrosslinks :locale-tag="localeTag" />
       </div>
     </template>
     <template #layout-bottom>
-      <QaCardInjector />
       <SiteFooter />
-      <LinkAuditor />
       <Dimensions />
     </template>
   </Layout>

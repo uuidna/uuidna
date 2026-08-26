@@ -1,5 +1,5 @@
 // https://vitepress.dev/guide/custom-theme
-// Layout = ObjectPage — THE ONE CATCH-ALL template for every non-home page (and home via isHome branch).
+// Layout = ObjectPage (object hero + crosslinks). Home uses stock VPHome; QA only via <QuantumAdvantage /> in index.md.
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
@@ -13,7 +13,6 @@ import HexbitAnimator from './HexbitAnimator.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import HeroAnimation from './HeroAnimation.vue'
 import QuantumAdvantage from './QuantumAdvantage.vue'
-import QaMetrics from './QaMetrics.vue'
 import ObjectPage from './ObjectPage.vue'
 import HomeGraph from './HomeGraph.vue'
 import Reflect from './Reflect.vue'
@@ -38,14 +37,12 @@ import './style.css'
 
 export default {
   extends: DefaultTheme,
-  // Sole catch-all layout — ObjectPage embodies H1+abstract hero, QA, crosslinks, i18n rays.
   Layout: ObjectPage,
   enhanceApp({ app }) {
     applySequence()
     loadDimensions()
+    // Home-only QA monitor (mounted explicitly in docs/index.md — not layout chrome).
     app.component('QuantumAdvantage', QuantumAdvantage)
-    app.component('QaMetrics', QaMetrics)
-    app.component('ObjectPage', ObjectPage)
     app.component('RefererCompass', RefererCompass)
     app.component('HexbitPlayer', HexbitPlayer)
     app.component('AnthemSuperposition', AnthemSuperposition)

@@ -1,6 +1,6 @@
 <!-- ObjectCrosslinks — proves the hero abstract across cross dimensions (cards/buttons/nav only — link law).
 
-     Dimensions: hexbit address · skill · principle · QA usable-gap · Lean source · neighbour fold handles.
+     Dimensions: hexbit address · skill · principle · usable-gap theorem · Lean source · neighbour fold handles.
      Uses VitePress VPLink / VPButton; never raw inline prose anchors. -->
 <script setup>
 import { computed } from 'vue'
