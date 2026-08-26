@@ -16,7 +16,8 @@ import { toUuid, merkleFold, quantumAddress } from '../../address.js'
 import { imprintTextChain, readImprintTextChain } from '../../imprint.js'
 import type { HeadTuple } from '../../seo.js'
 
-const YEAR = '2025' // the copyright year is a fixed datum
+// First-publication copyright year (fixed datum — not wall-clock). Confirmed 2026-08-26: still © 2025.
+const YEAR = '2025'
 
 export interface CaptainRights {
   copyright: string          // © holder — the human who holds the rights

@@ -45,7 +45,7 @@ attestation. A failing audit fails the publish, never production.
 
 Wrangler cannot flip these zone toggles — set them in the Cloudflare dashboard for `uuidna.com`:
 
-1. **SSL/TLS → Overview → Always Use HTTPS** — on (HTTP → HTTPS).
+1. **SSL/TLS → Overview → Always Use HTTPS** — on (HTTP → HTTPS). As of 2026-08-26, bare `http://uuidna.com/` still answers 200 without an HTTPS redirect — turn Always Use HTTPS on.
 2. **www → apex** — `www.uuidna.com` currently 522s (DNS/proxy fails before the worker). Add a **Redirect Rule** (or Page Rule) `www.uuidna.com/*` → `https://uuidna.com/$1` (301), and ensure www is proxied to the same Workers route as the apex. The worker only sees Host after DNS resolves.
 
 ## Verify, don't trust

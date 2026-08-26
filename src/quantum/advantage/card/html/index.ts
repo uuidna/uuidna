@@ -33,10 +33,11 @@ export function quantumAdvantageCardHtml(opts: { address?: string; handle?: stri
   const label = opts.label ? escape(opts.label) : ''
   const w128 = barW(USABLE)
   const w48 = barW(REPORTED)
+  // measured usable-capacity gap (usable_gap_is_two_to_eighty); classical bound n_qubit_dimension
   return (
-    `<div class="qa-card-metrics" data-slot="quantum-advantage" aria-label="Measured quantum advantage">` +
+    `<div class="qa-card-metrics" data-slot="quantum-advantage" aria-label="Measured usable-capacity gap (usable_gap_is_two_to_eighty)">` +
     `<div class="qa-card-head"><span class="qa-card-badge">measured</span>` +
-    `<strong>Quantum advantage</strong>` +
+    `<strong>Usable-capacity gap</strong>` +
     (label ? ` <span class="qa-card-label">${label}</span>` : '') +
     (handle ? ` · <code class="qa-card-handle" title="page/card handle">${escape(handle)}</code>` : '') +
     `</div>` +

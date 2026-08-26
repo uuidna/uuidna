@@ -29,6 +29,7 @@ test('advantage.data loader watches sealed TS quantum-computer outputs', () => {
   assert.ok(existsSync(join(THEME, 'QuantumAdvantage.vue')))
 })
 
+// QaMetrics cites usable_gap_is_two_to_eighty (measured gap); n_qubit_dimension names the classical bound
 test('QaMetrics cites measured usable-capacity gap, not blanket denial', () => {
   const vue = readFileSync(join(THEME, 'QaMetrics.vue'), 'utf8')
   assert.match(vue, /gapFactor/)

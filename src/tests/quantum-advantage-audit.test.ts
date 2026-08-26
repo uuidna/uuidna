@@ -11,7 +11,8 @@ import {
 } from '../quantum/advantage/audit/index.js'
 import { theoremByKey } from '../theorems/index.js'
 
-test('quantum advantage audit VERIFY path holds under 60s', () => {
+// VERIFY of lean/quantum-advantage.json — sealed usable_gap_is_two_to_eighty · n_qubit_dimension
+test('usable-capacity advantage audit VERIFY path holds under 60s', () => {
   const a = quantumAdvantageAudit()
   assert.equal(a.ok, true, a.gaps.map((g) => g.what).join('\n') || 'audit red')
   assert.equal(a.mode, 'verify')

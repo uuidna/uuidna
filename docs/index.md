@@ -28,8 +28,8 @@ features:
     details: Usable-capacity gap vs reported 48 logical qubits is 2^80 — theorem usable_gap_is_two_to_eighty. Ranked in the usable column of the capacity report below.
     link: /quantum
   - title: Handle-stable URLs
-    details: Cite https://uuidna.com/<handle> (8 hex). Worker HANDLES 301 to the freeze-map route (theorem, publication, or page). Same permanence expectations as a DOI; archive DOI 10.5281/zenodo.21787144 sits in the site footer.
-    link: /publications
+    details: Cite https://uuidna.com/<handle> (8 hex). Worker HANDLES 301 to the freeze-map route (theorem, publication, or page). Same permanence expectations as a DOI — what one handle spans is sealed (universe_of_handles).
+    link: /articles/handle-span
   - title: Alpine hexbit port
     details: Published Alpine packages folded to content-addresses on the hexbit lattice — provenance identities, not installed binaries (theorem the_os_is_bootable_quantum).
     link: /quantum

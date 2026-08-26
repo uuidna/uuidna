@@ -199,7 +199,8 @@ export function prepublishSeal(): PrepublishSeal {
     gaps.push({ what: `prior-art [${g.id}]: ${g.what}`, fix: g.fix })
   }
 
-  // ── 6 · QUANTUM ADVANTAGE VERIFY (push-path twin; no remeasure) ──
+  // ── 6 · measured usable-capacity VERIFY (push-path twin; no remeasure) ──
+  // sealed: usable_gap_is_two_to_eighty · n_qubit_dimension (classical bound named, not denied)
   const qa = quantumAdvantageAudit()
   for (const g of qa.gaps) gaps.push({ what: `quantum-advantage: ${g.what}`, fix: g.fix })
 

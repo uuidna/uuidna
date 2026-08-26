@@ -15,9 +15,8 @@ const c = recomputableCost()
     </div>
     <p class="cm-range">costliest to state: <code>{{ c.largest.key }}</code> ({{ c.largest.bytes }}B) · cheapest: <code>{{ c.smallest.key }}</code> ({{ c.smallest.bytes }}B)</p>
     <p class="cm-receipt">cost receipt (fold, recompute it): <code>{{ c.receipt }}</code></p>
-    <p class="cm-note">No self-report and no inputs — every number is computed from <code>lean/*.lean</code> itself and
-    folds to that receipt, so anyone recomputes the same cost. This is efficiency <strong>proven</strong> (routed to
-    the ledger); the meter above is efficiency <strong>measured</strong> (a self-report the page cannot check).</p>
+    <p class="cm-note">No inputs and no self-report — every number is computed from <code>lean/*.lean</code> and
+    folds to that receipt, so anyone recomputes the same measured cost from the corpus.</p>
     <p class="cm-thermo">⚡ <strong>The thermodynamic honesty:</strong> {{ c.thermodynamics.note }}</p>
   </div>
 </template>

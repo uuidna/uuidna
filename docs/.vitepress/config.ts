@@ -52,10 +52,8 @@ export default defineConfig({
       { icon: 'github', link: SITE.repo },
     ],
 
-    footer: {
-      message: SITE.mark + ' ' + SITE.description,
-      copyright: 'uuidna — All theorems sealed to ledger',
-    },
+    // No themeConfig.footer — SiteFooter.vue (layout-bottom) is the one footer chrome.
+    // A second VPFooter on home duplicated the message/copyright strip.
 
     search: {
       provider: 'local',
