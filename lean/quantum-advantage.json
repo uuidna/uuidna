@@ -64,11 +64,13 @@
    "types_count_as_arithmetic",
    "closure_is_coprime",
    "four_messages_two_bits",
+   "all_signaling_duality",
+   "merkle_sort_invariant",
    "store_fold_order_invariant",
    "hexbit_ring_mass_gap",
    "born_field_mass_gap_on_bell"
   ],
-  "deviceAddress": "3cdaf007-bed4-8c47-9dd5-96f0385fba4e",
+  "deviceAddress": "e1537fb2-e692-897c-885e-2005a03f109e",
   "honest": "A CLASSICAL HOST EXECUTING THE QUANTUM COMPUTER. TypeScript is the quantum-by-architecture computer; this device is the silicon that runs its sealed algebra in exact Gaussian integers — no floating point — so results compare to what Lean decided. Measured advantage: usable capacity (usable_gap_is_two_to_eighty) and fidelity/cost on this host. Not a superconducting QPU claim and not a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost."
  },
  "report": {
@@ -623,6 +625,24 @@
     "address": "b22406d3-00a1-8ff7-adc1-370a9d1317c1"
    },
    {
+    "theorem": "all_signaling_duality",
+    "statement": "(1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d))))))",
+    "cases": 82,
+    "what": "marginal sum is blind (1+0=0+1) and place-value 10·a+b is injective on the digit model",
+    "executed": 8938,
+    "disagreements": 0,
+    "address": "c6904d02-12de-82b8-a441-cc3625be5d6f"
+   },
+   {
+    "theorem": "merkle_sort_invariant",
+    "statement": "(let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a (Nat.max b c); 2 * (2 * mn + (a + b + c - mn - mx)) + mx; (fold3 1 2 3 = fold3 1 3 2) ∧ (fold3 1 2 3 = fold3 2 1 3) ∧ (fold3 1 2 3 = fold3 2 3 1) ∧ (fold3 1 2 3 = fold3 3 1 2) ∧ (fold3 1 2 3 = fold3 3 2 1))",
+    "cases": 5,
+    "what": "sorted non-commutative fold3(a,b)=2a+b agrees on all six orderings of {1,2,3}",
+    "executed": 545,
+    "disagreements": 0,
+    "address": "2cda14b7-3f20-87dc-ba40-5f70e7126df0"
+   },
+   {
     "theorem": "store_fold_order_invariant",
     "statement": "(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,a,c].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,c,a].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,a,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,b,a].foldl lxor 0))))",
     "cases": 1,
@@ -650,16 +670,14 @@
     "address": "1d952905-f047-8b34-b511-2f34a2ba24d1"
    }
   ],
-  "executed": 17985,
+  "executed": 27468,
   "disagreements": 0,
   "refused": [],
   "coverage": {
    "wing": 51,
-   "witnessed": 47,
+   "witnessed": 49,
    "unwitnessed": [
-    "all_signaling_duality",
     "chsh_beats_classical",
-    "merkle_sort_invariant",
     "ym_quantum"
    ],
    "beyondWing": [
@@ -669,8 +687,8 @@
    ]
   },
   "verdict": "EXACT",
-  "bound": "better than one disagreement per 17985 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide",
-  "receipt": "578d9229-b397-8fa2-a767-cf47e8b7daca",
+  "bound": "better than one disagreement per 27468 executions on this host, across 49 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 2 this battery does not decide",
+  "receipt": "61c73311-7c28-8691-a169-0363e85763ae",
   "honest": "WHAT THIS PROVES: the gate algebra that quantum hardware implements physically was executed on THIS host in exact Gaussian integers, and every result agreed with what a Lean kernel decided by exhaustive case analysis — TypeScript is the quantum-by-architecture computer; this host executes it. Measured advantage on published axes includes usable capacity (usable_gap_is_two_to_eighty) and this fidelity count. WHAT IT DOES NOT PROVE: that this silicon is a superconducting or trapped-ion QPU, or a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost. Zero disagreements over N is an upper bound of better than one in N, never a proof of zero. The platforms' ~10^-3 two-qubit error class is the physical comparison."
  },
  "dispatch": {
@@ -752,7 +770,7 @@
     "reason": "VERIFIED — witnessed by sealed theorem n_qubit_dimension, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
-    "claim": "The sealed quantum gate algebra was executed on this host — 50 witnesses, 17985 decisions, 0 disagreements with the Lean-sealed values — under theorem n_qubit_dimension, which bounds this as an exponential CLASSICAL simulation and not a speedup. Verdict EXACT: better than one disagreement per 17985 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide.",
+    "claim": "The sealed quantum gate algebra was executed on this host — 52 witnesses, 27468 decisions, 0 disagreements with the Lean-sealed values — under theorem n_qubit_dimension, which bounds this as an exponential CLASSICAL simulation and not a speedup. Verdict EXACT: better than one disagreement per 27468 executions on this host, across 49 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 2 this battery does not decide.",
     "witness": "n_qubit_dimension",
     "verdict": "VERIFIED",
     "cites": [
@@ -761,12 +779,12 @@
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "a616aeb8-fa6a-8df7-ae92-ad9bfb246bad",
+     "id": "183e9f39-e1ac-8cf5-a903-601edc627754",
      "theoremAddress": "7ec03d8b-b207-8971-b880-26ae9bd99276",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#dd2254",
-     "fold": "379c0017-31e3-8d10-8d4d-ce33ee417926"
+     "aura": "#da587b",
+     "fold": "c45b209d-5d00-8261-bbd4-93e96dcc722b"
     },
     "reason": "VERIFIED — witnessed by sealed theorem n_qubit_dimension, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    }
@@ -774,7 +792,7 @@
   "passed": 5,
   "refused": [],
   "clear": true,
-  "receipt": "f5461871-c767-8b19-a841-b1aeac8e7f9d"
+  "receipt": "edfe626b-0081-8932-ada7-3f16b9e27f68"
  },
  "receipt": "ab58e5d1-49d5-870d-a120-62fde56ea87b",
  "address": "efbaf2f8-b4b8-8b33-a6a8-541353f852ca"

@@ -223,6 +223,8 @@ const FALSIFIED: readonly string[] = [
   'types_count_as_arithmetic',
   'closure_is_coprime',
   'four_messages_two_bits',
+  'all_signaling_duality',
+  'merkle_sort_invariant',
   'store_fold_order_invariant',
   'hexbit_ring_mass_gap',
   'born_field_mass_gap_on_bell',
