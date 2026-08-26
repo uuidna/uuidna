@@ -63,23 +63,25 @@ export const INVOLUTIONS: readonly Involution[] = [
 const ASCRIPTION = /\(\s*(-?\d+)\s*:\s*[A-Za-z_][A-Za-z0-9_]*\s*\)/g
 export const stripAscriptions = (s: string): string => s.replace(ASCRIPTION, '$1')
 /** Numerals and arithmetic only — including `/` as Lean Nat floor division (÷0 = 0, same abstract zero as `%`),
- *  `≠` as Lean inequality, ASCII `<=` / `>=` beside Unicode `≤` / `≥`, `¬` as propositional negation, and
- *  `lxor` as the ledger's axiom-free 8-bit XOR (Lean `lxorAux 8`). List / fun / bound names stay unreached;
- *  `/`, `≠`, ASCII non-strict inequalities, `¬`, and `lxor` were pure-syntax gaps that left sealed propositions
- *  unreached for characters alone. `lxor` is stripped before the character gate so letters never open the door
- *  to `List` / `fun` — only the named operator is admitted. */
+ *  `≠` as Lean inequality, ASCII `<=` / `>=` beside Unicode `≤` / `≥`, `¬` as propositional negation,
+ *  `lxor` as the ledger's axiom-free 8-bit XOR (Lean `lxorAux 8`), and `Nat.gcd` as Lean's Euclidean gcd.
+ *  List / fun / bound names stay unreached; `/`, `≠`, ASCII non-strict inequalities, `¬`, `lxor`, and `Nat.gcd`
+ *  were pure-syntax gaps that left sealed propositions unreached for a token alone. Named operators are stripped
+ *  before the character gate so letters never open the door to `List` / `fun` — only the admitted names pass. */
 export const evaluable = (statement: string): boolean =>
-  /^[\s0-9()+*%/^=∧<>≤≥≠¬-]+$/.test(stripAscriptions(statement).replace(/\blxor\b/g, ''))
+  /^[\s0-9()+*%/^=∧<>≤≥≠¬-]+$/.test(
+    stripAscriptions(statement).replace(/\bNat\.gcd\b/g, '').replace(/\blxor\b/g, ''),
+  )
 
 // A REAL EVALUATOR, NOT `eval`. The first version handed the statement to the runtime after a few substitutions,
 // and the harmonic scan refused it by name — correctly, and for a better reason than style: `eval` makes the
 // meaning of a ledger statement depend on the host's parser rather than on anything this repository decides, so
 // two runtimes could disagree about what a theorem says and nothing here would notice. It is also an execution
 // surface pointed at generated content. The grammar is tiny — numerals, + - * % / ^, the comparisons (incl. ≠,
-// ≤ ≥, and ASCII <= >=), ∧, ¬, and `lxor` — so a recursive descent over it is short, total, and gives the same
-// answer on every host by construction.
+// ≤ ≥, and ASCII <= >=), ∧, ¬, `lxor`, and `Nat.gcd` — so a recursive descent over it is short, total, and gives
+// the same answer on every host by construction.
 //
-// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · lxor · parentheses.
+// Precedence, lowest first: ∧ · ¬ · comparison · + − · * % / · ^ (right-associative) · unary − · Nat.gcd / lxor · parentheses.
 type Cursor = { s: string; i: number }
 
 const ws = (c: Cursor): void => { while (c.i < c.s.length && c.s[c.i] === ' ') c.i++ }
@@ -94,10 +96,24 @@ const lxorAux = (w: number, a: number, b: number): number => {
 }
 const lxor = (a: number, b: number): number => lxorAux(8, a, b)
 
+/** Lean `Nat.gcd` — Euclidean algorithm on Nat, matching the kernel (`gcd a 0 = a`). */
+const natGcd = (a: number, b: number): number => {
+  let x = a < 0 ? -a : a
+  let y = b < 0 ? -b : b
+  while (y !== 0) {
+    const r = x % y
+    x = y
+    y = r
+  }
+  return x
+}
+
 const atom = (c: Cursor): number => {
   ws(c)
   if (eat(c, '(')) { const v = sum(c); if (!eat(c, ')')) throw new Error('unclosed'); return v }
   if (eat(c, '-')) return -atom(c)
+  // `Nat.gcd a b` — Lean function application (closure_is_coprime, rosette_and_vortex_are_coprime, …)
+  if (eat(c, 'Nat.gcd')) return natGcd(atom(c), atom(c))
   // `lxor a b` — Lean function application, two atoms, tighter than infix (nim_sum_is_xor et al.)
   if (eat(c, 'lxor')) return lxor(atom(c), atom(c))
   const start = c.i

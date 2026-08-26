@@ -185,3 +185,17 @@ test('LXOR IS THE LEDGER 8-BIT XOR — sealed nim-sums stayed unreached for four
   assert.equal(holds('(List.range 8).all (fun n => lxor n n == 0)'), null)
   assert.equal(evaluable('(List.range 8).all (fun n => lxor n n == 0)'), false)
 })
+
+test('NAT.GCD IS LEAN EUCLIDEAN GCD — sealed coprimality stayed unreached for a named operator', () => {
+  // closure_is_coprime, rosette_and_vortex_are_coprime, coins_are_the_common_factor — all Nat.gcd with no List/fun.
+  assert.equal(evaluable('Nat.gcd 9 6 = 3'), true)
+  assert.equal(holds('Nat.gcd 9 6 = 3'), true)
+  assert.equal(holds('Nat.gcd 2 5 = 1'), true)
+  assert.equal(holds('Nat.gcd 7 14 = 7'), true)
+  assert.equal(holds('Nat.gcd 110 108 = 2'), true)
+  assert.equal(holds('Nat.gcd 9 6 = 1'), false)
+  assert.equal(holds('(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)'), true)
+  // List/fun forms still refuse — widening Nat.gcd must not start claiming what it cannot parse
+  assert.equal(holds('(List.range 9).all (fun a => Nat.gcd a 9 == 1)'), null)
+  assert.equal(evaluable('(List.range 9).filter (fun a => Nat.gcd a 9 == 1)'), false)
+})
