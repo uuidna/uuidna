@@ -61,7 +61,7 @@ async function main(): Promise<number> {
   if (d.added.length) console.log(`  added   (${d.added.length}): ` + d.added.join(', '))
   if (d.removed.length) console.log(`  removed (${d.removed.length}): ` + d.removed.join(', '))
   console.log('  OPEN THE UPDATE: UUIDNA_TRACK_LATEST=1 npm run reconcile — lean-installs rewrites the mirror from the SAME upstream read,')
-  console.log('  the derived layer regenerates, uuidna_ls/exec/registry/port all update, and the gate re-verifies before it lands.')
+  console.log('  the derived layer regenerates, uuidna_exec/registry/port all update, and the gate re-verifies before it lands.')
   return 1
 }
 

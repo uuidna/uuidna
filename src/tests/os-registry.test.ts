@@ -11,7 +11,7 @@ import { callTool } from '../mcp.js'
 
 const SAMPLE = [
   { name: 'uuidna_digital_root', description: 'The digital root of a number. Reduce n mod 9 to one digit.' },
-  { name: 'uuidna_ls', description: 'List a directory of the virtual uuidnaOS.' },
+  { name: 'uuidna_exec', description: 'Alpine apps via apk and man in the virtual uuidnaOS.' },
 ]
 
 test('every port — tool or install — wears the one shape: uuidna/<name>, 128-bit address, 32 hexbit states', () => {

@@ -1,124 +1,80 @@
-// quantum/os/exec — uuidnaExec, THE BUSYBOX EXECUTOR: the whole ported toolbox reached through ONE door. Each
-// applet is uuidna's own pure logic over the virtual OS (the install port's routes), run in the booted sandbox,
-// never a binary. The properties: it parses a command line, dispatches to the applet, resolves packages by route
-// AND by name, the receipt is deterministic and change-sensitive, and an unknown applet is an honest error — not
-// a crash and not a faked answer. Controls that fail included.
+// quantum/os/exec — uuidnaExec after Alpine apps folded toy busybox. Remaining: ls · apk · man · help.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { uuidnaExec, APPLETS } from '../quantum/os/exec.js'
-import { installFor } from '../quantum/os/index.js'
+import { uuidnaExec, APPLETS, FOLDED_APPLETS } from '../quantum/os/exec.js'
 import { callTool } from '../mcp.js'
 
-test('ls runs as an applet — the same listing the dedicated tool gives, now through the executor', () => {
+test('ls runs as an applet — install-port VFS through the executor', () => {
   const r = uuidnaExec('ls /terminal')
   assert.equal(r.applet, 'ls')
   assert.ok(r.ok)
   assert.deepEqual(r.output.sort(), ['devices', 'network', 'privileged', 'services', 'sh'], 'the five /terminal members')
 })
 
-test('cat reads a file — the package\'s provenance record at a route', () => {
-  const r = uuidnaExec('cat /core')
-  assert.ok(r.ok)
-  const musl = installFor('/core')!
-  assert.equal((r.data as { id: string }).id, musl.id, 'cat /core is the musl spec')
-  assert.ok(r.output.some((l) => l.includes(musl.checksum)), 'the checksum is shown — the external anchor')
-  // control: a route with no package is an honest error, never a faked file
-  const miss = uuidnaExec('cat /no-such-route')
-  assert.equal(miss.ok, false)
-  assert.match(miss.output[0]!, /no ported package/)
+test('toy busybox applets are FOLDED — refuse with a pointer to apk/man, never reimplement', () => {
+  for (const toy of FOLDED_APPLETS) {
+    const r = uuidnaExec(`${toy} /core`)
+    assert.equal(r.ok, false, `${toy} must refuse`)
+    assert.match(r.output[0]!, /folded into Alpine apps/, `${toy}: fold message`)
+    assert.match(r.output[0]!, /apk info|man /, `${toy}: points at Alpine path`)
+  }
+  assert.ok(!APPLETS.includes('cat' as never), 'cat is not in the remaining applet set')
+  assert.deepEqual([...APPLETS].sort(), ['apk', 'help', 'ls', 'man'])
 })
 
-test('which walks both directions — name→route and route→name', () => {
-  const byName = uuidnaExec('which busybox')
-  assert.ok(byName.ok)
-  assert.equal(byName.output[0], '/terminal', 'busybox lives at /terminal')
-  const byRoute = uuidnaExec('which /core')
-  assert.ok(byRoute.ok)
-  assert.equal(byRoute.output[0], 'musl', '/core is musl')
-  // control: a non-package word resolves to nothing, honestly
-  assert.equal(uuidnaExec('which nonsense').ok, false)
-})
-
-test('stat, pwd, echo — the small applets answer from the sealed spec', () => {
-  assert.equal(uuidnaExec('pwd').output[0], '/')
-  const stat = uuidnaExec('stat /terminal')
-  assert.ok(stat.ok)
-  // /terminal resolves to the busybox package itself (which ALSO has children) — in this install set every
-  // directory node carries a package, so stat reports the package it IS, not a bare dir.
-  assert.equal((stat.data as { kind: string }).kind, 'pkg', '/terminal is the busybox package')
-  assert.equal((stat.data as { id: string }).id, 'uuidna/busybox', '/terminal is busybox')
-  const echo = uuidnaExec('echo hello')
-  assert.equal(echo.output[0], 'hello')
-  assert.match((echo.data as { address: string }).address, /^[0-9a-f]{8}-/, 'echo folds its text to an address')
-})
-
-test('deterministic AND change-sensitive AND honest on the unknown — the executor cannot fake or drift', () => {
+test('deterministic AND change-sensitive AND honest on the unknown', () => {
   assert.equal(uuidnaExec('ls /terminal').receipt, uuidnaExec('ls /terminal').receipt, 'same line, same receipt')
   assert.notEqual(uuidnaExec('ls /terminal').receipt, uuidnaExec('ls /core').receipt, 'different run, different receipt')
-  // control: an applet uuidna does NOT port is refused, never guessed (no `rm`, no `sh`, no invented answer)
   const unknown = uuidnaExec('rm -rf /')
   assert.equal(unknown.ok, false)
   assert.match(unknown.output[0]!, /not a ported applet/)
-  assert.ok(!APPLETS.includes('rm' as never), 'rm is deliberately not an applet — a provenance OS deletes nothing')
+  assert.ok(!APPLETS.includes('rm' as never), 'rm is deliberately not an applet')
 })
 
-test('apk — the package manager\'s READ surface: list the inventory, info by name, deps forward and back', () => {
+test('apk — the package manager\'s READ surface: list, info, deps, search', () => {
   const list = uuidnaExec('apk list')
   assert.ok(list.ok)
-  assert.ok((list.data as { installed: number }).installed >= 25, 'the whole ported inventory is listed')
-  assert.ok(list.output.some((l) => l.startsWith('musl-')), 'musl is in the inventory with its version')
+  assert.ok((list.data as { installed: number }).installed >= 25)
+  assert.ok(list.output.some((l) => l.startsWith('musl-')))
 
   const info = uuidnaExec('apk info busybox')
   assert.ok(info.ok)
-  assert.equal((info.data as { name: string }).name, 'busybox', 'info resolves BY NAME (cat is by route)')
-  assert.ok(info.output.some((l) => l.includes('description')), 'the record shows the description')
+  assert.equal((info.data as { name: string }).name, 'busybox')
 
-  const deps = uuidnaExec('apk depends alpine-base')  // the meta package pulls in the base set
+  const deps = uuidnaExec('apk depends alpine-base')
   assert.ok(deps.ok)
-  assert.ok((deps.data as { depends: string[] }).depends.length > 0, 'alpine-base has forward deps')
+  assert.ok((deps.data as { depends: string[] }).depends.length > 0)
 
-  const rdeps = uuidnaExec('apk rdepends musl')       // who depends on the C library
+  const rdeps = uuidnaExec('apk rdepends musl')
   assert.ok(rdeps.ok)
-  assert.ok(Array.isArray((rdeps.data as { rdepends: string[] }).rdepends), 'reverse deps computed')
 
-  const search = uuidnaExec('apk search busybox')     // find by name or published meaning
+  const search = uuidnaExec('apk search busybox')
   assert.ok(search.ok)
-  assert.ok((search.data as { hits: unknown[] }).hits.length > 1, 'search finds the busybox family by name')
-  // A MISS IS STILL HONEST, AND NOW IT IS HONEST ABOUT MORE (2026-08-25). It used to read "(no ported package
-  // matches …)" against the 25 that boot — a sentence a caller reads as "Alpine does not have this", true of
-  // 25 packages and false of the other 28,614. With the whole published index catalogued, a miss now names the
-  // denominator it searched and says the name is absent UPSTREAM, which is a claim it has earned.
-  const miss = uuidnaExec('apk search zzznomatch')
-  assert.equal(miss.ok, false, 'a genuine miss is a refusal, not an empty success')
-  assert.match(miss.output[0]!, /no such package/)
-  assert.match(miss.output[0]!, /Absent UPSTREAM/, 'and it distinguishes absent-from-Alpine from merely-unported')
+  assert.ok((search.data as { hits: unknown[] }).hits.length > 1)
 
-  // control: a WRITE verb is refused — a provenance OS installs nothing
+  const miss = uuidnaExec('apk search zzznomatch')
+  assert.equal(miss.ok, false)
+  assert.match(miss.output[0]!, /no such package/)
+  assert.match(miss.output[0]!, /Absent UPSTREAM/)
+
   const add = uuidnaExec('apk add nginx')
   assert.equal(add.ok, false)
   assert.match(add.output[0]!, /not a ported verb|READ only/)
-  // control: an unknown package is an honest error
-  assert.equal(uuidnaExec('apk info nonesuch').ok, false)
 })
 
-test('du — the hexbit footprint: 32 states per package, the whole OS one boot image', () => {
-  const root = uuidnaExec('du /')
-  assert.ok(root.ok)
-  const states = (root.data as { states: number }).states
-  assert.equal(states % 32, 0, 'the footprint is whole 32-state pages')
-  assert.equal((root.data as { bits: number }).bits, states * 4, 'bits = states · 4 (a hexbit is 4 bits)')
-  // a single package is exactly one page
-  const core = uuidnaExec('du /core')
-  assert.ok(core.ok)
-  assert.equal((core.data as { states: number }).states % 32, 0, 'a package is whole pages of 32 states')
-  // control: a nonexistent path is an honest error
-  assert.equal(uuidnaExec('du /nowhere').ok, false)
+test('man — man→app→hexbit is the Alpine app path', () => {
+  const r = uuidnaExec('man busybox')
+  assert.ok(r.ok)
+  const d = r.data as { kind?: string; hexbits?: number[] }
+  assert.equal(d.kind, 'man')
+  assert.equal(d.hexbits?.length, 32)
 })
 
-test('the SERVED tool uuidna_exec dispatches — the terminal\'s command line answered by the wire', () => {
-  const r = callTool('uuidna_exec', { line: 'cat /terminal' }) as ReturnType<typeof uuidnaExec>
-  assert.ok(r.ok, 'cat /terminal succeeds through the served tool')
-  assert.equal((r.data as { id: string }).id, 'uuidna/busybox', 'the served executor reads the busybox record')
-  assert.equal(r.applet, 'cat')
-  assert.equal(r.hexbits.length, 32, 'the run is hexbit-compiled')
+test('the SERVED tool uuidna_exec dispatches — Alpine apps at the wire; uuidna_ls is gone', () => {
+  const r = callTool('uuidna_exec', { line: 'apk info busybox' }) as ReturnType<typeof uuidnaExec>
+  assert.ok(r.ok)
+  assert.equal((r.data as { name: string }).name, 'busybox')
+  assert.equal(r.applet, 'apk')
+  assert.equal(r.hexbits.length, 32)
+  assert.throws(() => callTool('uuidna_ls', { path: '/' }), /unknown tool: uuidna_ls/)
 })

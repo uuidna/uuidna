@@ -1,15 +1,6 @@
-// quantum/os/exec — VIRTUAL EXECUTION IN uuidnaOS: the first Alpine-package tool, uuidna_ls, and the model
-// that makes packages "executable" WITHOUT ever running a binary (the captain's order, 2026-08-23:
-// "prototype uuidna_ls as the first alpine package tool and make all executable in the virtual uuidnaOS").
-//
-// THE LOAD-BEARING HONESTY (the_os_is_bootable_quantum, lead 129): uuidnaOS NEVER executes Alpine's binaries.
-// "Executable in the virtual uuidnaOS" therefore means: uuidna's OWN pure-TS reimplementation of a utility's
-// LOGIC, computed deterministically INSIDE the booted sandbox (bootOS verifies the world first, or nothing
-// runs), over a VIRTUAL FILESYSTEM that is the install port's own routes and packages. The output is
-// content-addressed and hexbit-compiled like every surface — a run leaves a receipt, recomputable by anyone.
-// So `uuidna_ls /terminal` does NOT invoke busybox; it computes what the ported /terminal directory contains
-// from the sealed spec. The tool's LOGIC is uuidna's; the tool's IDENTITY is the busybox package (coreutils/
-// ls lives in busybox on Alpine). Integrity and computation, never execution.
+// quantum/os/exec — Alpine apps via apk + man→hexbit, plus install-port `ls`.
+// Toy busybox (cat/which/stat/pwd/echo/du) FOLDED: Alpine packages ARE the apps (man→app→hexbit).
+// `uuidnaLs` is internal for `ls`; MCP tool uuidna_ls removed — use uuidna_exec.
 import { catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile, resolveManPage, isManPagePackage } from './catalogue.js'
 import { toUuid } from '../../address.js'
 import { bootOS, compileToHexbits, type InstallSpec } from './index.js'
@@ -83,8 +74,11 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'apk', 'man', 'help'] as const
+export const APPLETS = ['ls', 'apk', 'man', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
+
+/** Retired toy applets — refused with a fold pointer, never silently reimplemented. */
+export const FOLDED_APPLETS = ['cat', 'which', 'stat', 'pwd', 'echo', 'du'] as const
 
 /** the apk sub-verbs uuidna ports — the package manager's READ surface only: list the inventory, show a package
  *  by NAME, search it, query its dependencies forward and back. NEVER add/del/update — a provenance OS installs
@@ -112,7 +106,6 @@ const apkMiss = (verb: string, name: string): string => {
 
 /** resolve a package by name (busybox) or by route (/terminal); the two directions `which` walks. */
 const specByName = (name: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => s.name === name)
-const specByRoute = (route: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => norm(s.route) === norm(route))
 
 /** uuidnaExec(line) → run one busybox command line in the virtual uuidnaOS. Boots first (a drifted world runs
  *  nothing), splits `applet args...`, dispatches to the ported applet, and folds the whole run to one receipt.
@@ -134,59 +127,6 @@ export function uuidnaExec(line: string): ExecResult {
     case 'ls': {                                                     // list a directory of the virtual OS
       const r = uuidnaLs(args[0] ?? '/')
       emit(r.entries.map((e) => (e.kind === 'dir' ? e.name + '/' : e.name)), r)
-      break
-    }
-    case 'cat': {                                                    // read a file: the package's provenance record
-      const s = specByRoute(args[0] ?? '', specs)
-      if (!s) { err(`cat: ${args[0] ?? ''}: no ported package at that route`); break }
-      emit(
-        [`${s.id}  ${s.version}`, `route:    ${s.route}`, `meaning:  ${s.meaning}`,
-         `checksum: ${s.checksum}`, `deps:     ${s.deps.join(' ') || '(none)'}`, `address:  ${s.address}`],
-        s,
-      )
-      break
-    }
-    case 'which': {                                                  // resolve a name → route, or a route → name
-      const a = args[0] ?? ''
-      const byName = specByName(a, specs)
-      const byRoute = specByRoute(a, specs)
-      if (byName) emit([byName.route], { name: a, route: byName.route, id: byName.id })
-      else if (byRoute) emit([byRoute.name], { route: norm(a), name: byRoute.name, id: byRoute.id })
-      else err(`which: ${a}: not a ported package name or route`)
-      break
-    }
-    case 'stat': {                                                   // file metadata from the sealed spec
-      const p = norm(args[0] ?? '/')
-      const s = specByRoute(p, specs)
-      if (s) emit([`${s.id}  pkg  ${s.deps.length} deps  addr ${s.address}`],
-        { path: p, kind: 'pkg', id: s.id, version: s.version, deps: s.deps.length, address: s.address, hexbits: s.hexbits.length })
-      else {
-        const entries = childrenOf(p, specs)
-        if (entries.length) emit([`${p}  dir  ${entries.length} entries`], { path: p, kind: 'dir', entries: entries.length })
-        else err(`stat: ${p}: no such path in the virtual OS`)
-      }
-      break
-    }
-    case 'pwd': emit(['/'], { path: '/' }); break                    // the virtual OS has one root
-    case 'echo': {                                                   // echo in the quantum OS folds its argument to an address
-      const text = args.join(' ')
-      const addr = toUuid('echo|' + text)
-      emit([text], { text, address: addr, hexbits: compileToHexbits(addr) })
-      break
-    }
-    case 'du': {                                                     // disk usage, the quantum way: the hexbit footprint (compiled states)
-      const p = norm(args[0] ?? '/')
-      if (p === '/') {                                               // the whole OS: the boot image = every package's page + the receipt page
-        const b = os.port.boot
-        emit([`${b.count}\tstates  (${b.count / 32} pages · ${b.count * 4} bits)  /`],
-          { path: '/', states: b.count, pages: b.count / 32, bits: b.count * 4, address: b.address })
-      } else {
-        const under = specs.filter((s) => { const r = norm(s.route); return r === p || r.startsWith(p + '/') })
-        if (!under.length) { err(`du: ${p}: no such path in the virtual OS`); break }
-        const states = under.length * 32                             // each package compiles to exactly 32 states (128 bits)
-        emit([`${states}\tstates  (${under.length} package${under.length > 1 ? 's' : ''} · ${states * 4} bits)  ${p}`],
-          { path: p, packages: under.length, states, bits: states * 4 })
-      }
       break
     }
     case 'apk': {                                                    // the package manager — READ surface only, over the sealed mirror
@@ -303,14 +243,20 @@ export function uuidnaExec(line: string): ExecResult {
       break
     }
     case 'help': emit(['applets: ' + APPLETS.join(' '),
-      'ls <path> · cat <route> · which <name|route> · stat <path> · du <path> · pwd · echo <text>',
-      'apk list · apk info <name> · apk search <term> · apk depends <name> · apk rdepends <name>  (read-only — installs nothing)',
-      'man <topic>  — resolve Alpine\'s documentation package (-doc / *-man-pages) and compile it to 32 hexbits',
-      'du reports the HEXBIT FOOTPRINT (32 states = 128 bits per package); the whole OS is one boot image',
-      'the whole toolbox is uuidna\'s own logic over the virtual OS — no binary is ever run'],
-      { applets: APPLETS, apk: APK_VERBS }); break
+      'ls <path>  — install-port virtual filesystem (not busybox)',
+      'apk list · apk info <name> · apk search <term> · apk depends <name> · apk rdepends <name>  (read-only)',
+      'man <topic>  — Alpine documentation package → 32 hexbits (man→app→hexbit)',
+      'folded toys (use apk/man instead): ' + FOLDED_APPLETS.join(' '),
+      'Alpine apps are the apps — uuidna does not reimplement busybox'],
+      { applets: APPLETS, apk: APK_VERBS, folded: FOLDED_APPLETS }); break
     case '': err('exec: empty command — try `help`'); break
-    default: err(`exec: ${applet}: not a ported applet (try \`help\`); uuidna ports the busybox filesystem family, faking none`)
+    default: {
+      if ((FOLDED_APPLETS as readonly string[]).includes(applet)) {
+        err(`exec: ${applet}: folded into Alpine apps — try \`apk info <name>\` or \`man <topic>\` (toy busybox retired; man→app→hexbit is the port)`)
+        break
+      }
+      err(`exec: ${applet}: not a ported applet (try \`help\`); remaining surface is ls · apk · man`)
+    }
   }
 
   const receipt = toUuid('exec|' + applet + '|' + args.join(' ') + '|' + (ok ? '0' : '1') + '|' + output.join('\n'))
