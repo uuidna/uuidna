@@ -8,6 +8,7 @@
 // Regenerated on every build (wrangler's [build] step), so it never drifts.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { spawnSync } from 'node:child_process'
 import { buildSeoUrlMap } from '../seo-freeze.js'
 import { ROOT } from './api.js'
 
@@ -41,3 +42,6 @@ console.log(
   `wrote handles.js — ${n} handle→route entries ` +
     `(theorem ${byKind.theorem}, publication ${byKind.publication}, page ${byKind.page}; first-8 unique)`,
 )
+// sibling runner — seo-freeze-audit must be exercised (use-versus-mention); handles and freeze are one door
+const audit = spawnSync(process.execPath, [join(ROOT, 'dist/scripts/seo-freeze-audit.js')], { stdio: 'inherit' })
+if (audit.status !== 0) process.exit(audit.status ?? 1)
