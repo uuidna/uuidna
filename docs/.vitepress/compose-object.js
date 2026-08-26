@@ -141,9 +141,14 @@ A sealed theorem is settled. Where its forward link is **invisible** — a front
 To make the invisible next visible, add ${where}; then \`npm run lean\` seals it, folds it into the trial receipt, and the provenance gate lets any claim that links it pass. The promise is delivered in code, not coin.`
 }
 
-/** composeTheorem(t) → one catch-all ObjectPage payload (params + body). Hero H1+abstract via frontmatter. */
+/** composeTheorem(t) → one catch-all ObjectPage payload (params + body).
+ * Hero H1+abstract live in params (merged into frontmatter by transformPageData).
+ * Do NOT emit YAML frontmatter in content — VitePress injects @content after the
+ * route template preamble, so gray-matter never sees it and the bag leaks into the body. */
 export function composeTheorem(t) {
   const handle = t.address.replace(/-/g, '').slice(0, 8)
+  const heroTitle = heroTitleOf(t)
+  const handleDoor = 'https://uuidna.com/' + handle
   return {
     params: {
       kind: 'theorem',
@@ -156,19 +161,15 @@ export function composeTheorem(t) {
       tactic: t.tactic,
       address: t.address,
       objectKind: 'theorem',
+      title: heroTitle,
+      heroTitle,
+      abstract: t.statement,
+      handle,
+      handleUrl: handleDoor,
+      depositReferrer: handleDoor,
+      locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
     },
-    content: `---
-title: ${JSON.stringify(heroTitleOf(t))}
-heroTitle: ${JSON.stringify(heroTitleOf(t))}
-abstract: ${JSON.stringify(t.statement)}
-handleUrl: ${JSON.stringify('https://uuidna.com/' + handle)}
-handle: ${JSON.stringify(handle)}
-depositReferrer: ${JSON.stringify('https://uuidna.com/' + handle)}
-objectKind: theorem
-locales: [en, bg, de, fr, es, ru, zh]
----
-
-> ${mdSafe(t.name)}
+    content: `> ${mdSafe(t.name)}
 
 **VERIFIED** — proven in Lean (\`by ${t.tactic}\`, sorry-free) · skill **${t.skill}** · principle **${t.principle}**
 
@@ -214,9 +215,10 @@ Re-verify with \`npm run lean\`. Cite DOI [10.5281/zenodo.21787144](https://doi.
   }
 }
 
-/** composePublication(p) → same catch-all ObjectPage shape. */
+/** composePublication(p) → same catch-all ObjectPage shape (hero via params, not YAML-in-content). */
 export function composePublication(p) {
   const handle = (p.address || p.receipt).replace(/-/g, '').slice(0, 8)
+  const handleDoor = 'https://uuidna.com/' + handle
   const body = p.markdown.replace(/^#\s+[^\n]+\n+/, '')
   return {
     params: {
@@ -228,19 +230,14 @@ export function composePublication(p) {
       abstract: p.abstract,
       name: p.title,
       objectKind: 'publication',
+      title: p.title,
+      heroTitle: p.title,
+      handle,
+      handleUrl: handleDoor,
+      depositReferrer: handleDoor,
+      locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
     },
-    content: `---
-title: ${JSON.stringify(p.title)}
-heroTitle: ${JSON.stringify(p.title)}
-abstract: ${JSON.stringify(p.abstract)}
-handleUrl: ${JSON.stringify('https://uuidna.com/' + handle)}
-handle: ${JSON.stringify(handle)}
-depositReferrer: ${JSON.stringify('https://uuidna.com/' + handle)}
-objectKind: publication
-locales: [en, bg, de, fr, es, ru, zh]
----
-
-${body}
+    content: `${body}
 
 **Audited before published** · handle \`https://uuidna.com/${handle}\` · DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144) · receipt \`${p.receipt.slice(0, 8)}\` · ${p.count} seals.
 

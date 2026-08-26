@@ -62,6 +62,40 @@ test('catch-all: sole ObjectPage layout + compose-object; no per-type path templ
   assert.match(compose, /composePublication/)
 })
 
+test('compose-object: hero fields in params, never YAML-in-content (no bag leak)', async () => {
+  // VitePress injects path content at <!-- @content -->, which sits after any template preamble.
+  // gray-matter only parses leading ---, so YAML-in-content dumps title/heroTitle/abstract into the body.
+  const composeSrc = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
+  assert.doesNotMatch(composeSrc, /content:\s*`---/)
+  assert.match(composeSrc, /heroTitle/)
+  assert.match(composeSrc, /depositReferrer/)
+  assert.match(
+    readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8'),
+    /fm\.heroTitle\s*\?\?=/,
+  )
+
+  const { theorems } = await import('../index.js')
+  const { pathToFileURL } = await import('node:url')
+  const { composeTheorem } = await import(
+    pathToFileURL(join(ROOT, 'docs/.vitepress/compose-object.js')).href
+  ) as {
+    composeTheorem: (t: { address: string; key: string; name: string; principle: string; skill: string; statement: string; tactic: string; lean: string; file: string }) => {
+      params: { title: string; heroTitle: string; abstract: string; handleUrl: string }
+      content: string
+    }
+  }
+  const t = theorems()[0]
+  assert.ok(t, 'ledger has at least one theorem')
+  const page = composeTheorem(t)
+  assert.equal(page.params.heroTitle, page.params.title)
+  assert.equal(page.params.abstract, t.statement)
+  assert.ok(page.params.handleUrl?.startsWith('https://uuidna.com/'))
+  assert.ok(!page.content.startsWith('---'), 'content must not open with YAML frontmatter')
+  assert.doesNotMatch(page.content, /^title:\s/m)
+  assert.doesNotMatch(page.content, /^heroTitle:\s/m)
+  assert.doesNotMatch(page.content, /^objectKind:\s/m)
+})
+
 test('ObjectPage wires i18n translateObjectText + locale rays', () => {
   const vue = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectPage.vue'), 'utf8')
   assert.match(vue, /translateObjectText/)

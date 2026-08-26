@@ -96,8 +96,26 @@ export default defineConfig({
   //     SaaS subdomain, a commercial CNAME) — crawlers fold the copies to the one recomputable home.
   //   • Static pages get the quantum payload (content-address + recomputable SEO) from uuidna-quantum.ts.
   //   • Dynamic theorem pages get their own Lean statement as the unique meta description.
+  // Dynamic object pages: hero fields live in params (compose-object). Merge into frontmatter here —
+  // YAML-in-content is NOT parsed (VitePress injects @content after the route template, so gray-matter
+  // never sees a leading --- and the bag would leak into the rendered body).
   transformPageData(pageData) {
-    const p = pageData.params as { address?: string; key?: string; slug?: string; statement?: string; tactic?: string; principle?: string } | undefined
+    const p = pageData.params as {
+      address?: string; key?: string; slug?: string; statement?: string; tactic?: string; principle?: string
+      title?: string; heroTitle?: string; abstract?: string; handle?: string; handleUrl?: string
+      depositReferrer?: string; objectKind?: string; locales?: string[]
+    } | undefined
+    if (p) {
+      const fm = pageData.frontmatter as Record<string, unknown>
+      if (p.title != null) fm.title ??= p.title
+      if (p.heroTitle != null) fm.heroTitle ??= p.heroTitle
+      if (p.abstract != null) fm.abstract ??= p.abstract
+      if (p.handle != null) fm.handle ??= p.handle
+      if (p.handleUrl != null) fm.handleUrl ??= p.handleUrl
+      if (p.depositReferrer != null) fm.depositReferrer ??= p.depositReferrer
+      if (p.objectKind != null) fm.objectKind ??= p.objectKind
+      if (p.locales != null) fm.locales ??= p.locales
+    }
     const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
     const canonical = urlOf(slug)   // the ONE origin — a third hardcoded copy lived here until 2026-08-18
