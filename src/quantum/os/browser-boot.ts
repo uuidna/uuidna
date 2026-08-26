@@ -52,3 +52,16 @@ export async function bootUuidnaOSInBrowser(
     : undefined
   return { bootReceipt: booted.receipt, catalogue, selfTest }
 }
+
+let edgeCataloguePrimed: Promise<CatalogueState> | null = null
+
+/** ensureEdgeCatalogue(origin) — prime the committed census at the Workers edge (once per isolate). */
+export function ensureEdgeCatalogue(origin: string): Promise<CatalogueState> {
+  const st = catalogueState()
+  if (st.present) return Promise.resolve(st)
+  if (!edgeCataloguePrimed) {
+    const url = origin.replace(/\/$/, '') + DEFAULT_CATALOGUE_URL
+    edgeCataloguePrimed = primeCatalogueFrom(url)
+  }
+  return edgeCataloguePrimed
+}

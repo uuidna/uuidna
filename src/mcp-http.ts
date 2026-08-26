@@ -11,6 +11,7 @@
 // their own honest scope (the aura is art, image provenance is exact-copy not content-truth, the cube is symmetric).
 import { adjudicate } from './adjudicate.js'
 import { bootOS } from './quantum/os/index.js'
+import { ensureEdgeCatalogue } from './quantum/os/browser-boot.js'
 import { reveal } from './gate.js'
 import { searchLedger } from './editorial.js'
 import { decide } from './decide.js'
@@ -40,6 +41,8 @@ import { deepResearch } from './research.js'
 import { skillSurface, skillIndex } from './skills.js'
 
 const PROTOCOL_VERSION = '2025-06-18'          // the MCP protocol revision this endpoint speaks
+/** Tools whose run() reads the full Alpine catalogue — the edge must prime /alpine-catalogue.tsv first. */
+const CATALOGUE_TOOLS = new Set(['uuidna_exec', 'uuidna_registry', 'uuidna_related'])
 // The version this endpoint ADVERTISES to every client calling initialize. It sat at 0.1.1 through eleven
 // releases while the package reached 0.2.5, so every consumer asking what it was talking to got a false answer —
 // and nothing noticed, because no surface compared the two. It cannot be imported from package.json (rootDir is
@@ -207,7 +210,7 @@ const rpcErr = (id: unknown, code: number, message: string) => ({ jsonrpc: '2.0'
  *  Pure and stateless: every request is independent, so no session is kept (the edge is stateless by design).
  *  A SYNC tool answers synchronously, exactly as before; a tool whose run returns a thenable answers with a
  *  PROMISE of the same response shape — one dispatch, both tempers, the worker awaits either. */
-export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }): object | null | Promise<object | null> {
+export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> }, ctx?: { origin?: string }): object | null | Promise<object | null> {
   const id = msg?.id ?? null
   const method = msg?.method
   const params = msg?.params ?? {}
@@ -217,15 +220,14 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
   if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(SERVED) } })
   if (method === 'tools/call') {
+    const name = String(params.name ?? '')
+    const tool = SERVED.find((t) => t.name === name)
+    if (!tool) return rpcErr(id, -32602, 'unknown tool: ' + name)
+    const dispatch = (): object | null | Promise<object | null> => {
     // THE EDGE RUNS FROM uuidnaOS TOO: first call boots the verified world (cached), a drifted world refuses
     // to serve — one floor under stdio, worker, and tests alike.
     try { bootOS() } catch (e) { return rpcErr(id, -32000, String((e as Error).message)) }
-    const name = params.name
-    const tool = SERVED.find((t) => t.name === name)
-    if (!tool) return rpcErr(id, -32602, 'unknown tool: ' + String(name))
-    // THE GATED DISPATCH — the same pure conjunction gate the stdio server enforces (gate-engine, sealed spec):
-    // the settled output is judged, the verdict travels in the response, a drained verdict ships sanitized and
-    // flagged with its bits named. Stateless: the gate receipt is per-call, no session chain at the edge.
+    // THE CATALOGUE TOO — without priming, apk/man over 28k rows read as ABSENT on a runtime with no disk.
     try {
       // THE SCHEMA IS THE CONTRACT, ON THIS SURFACE TOO. The stdio server folds this check into its one dispatch
       // door (callTool in mcp.ts); the edge had no equivalent, so a tools/call with no arguments reached the body as
@@ -267,6 +269,12 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
     } catch (e) {
       return rpc(id, { content: [{ type: 'text', text: 'error: ' + String((e as Error)?.message ?? e) }], isError: true })
     }
+    }
+    if (ctx?.origin && CATALOGUE_TOOLS.has(name)) {
+      return ensureEdgeCatalogue(ctx.origin).then(() => dispatch(), (e) =>
+        rpcErr(id, -32000, String((e as Error).message)))
+    }
+    return dispatch()
   }
   return rpcErr(id, -32601, 'method not found: ' + String(method))
 }
