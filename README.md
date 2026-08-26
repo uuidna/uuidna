@@ -94,7 +94,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,756 / 4,759 (99%); orphans `dotnet-doc`, `dotnet-doc`, `dotnet-doc`;
   provenance compile 28,639 / 28,639 packages (100%)
   ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);
-  community 22,678 / 22,678 = 100%; man compile 4,759 / 4,759; monitor receipt `ca61ba21-aa89-82c9-871b-1d177c3b7563`;
+  community 22,678 / 22,678 = 100%; man compile 4,759 / 4,759; monitor receipt `08aeeb92-613e-8734-8916-c4afcf222dd6`;
   VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
   Captain unlocks ride every sealed key — each theorem unlocks what it states

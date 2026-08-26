@@ -52,7 +52,7 @@ const completenessPct = pct(completeness.witnessed, completeness.total)
 const monitorReceipt = toUuid(
   `alpine-hexbit-monitor|man→app→hexbit|${completeness.witnessed}/${completeness.total}|`
   + `${community.ported}/${community.total}|${all.ported}/${all.total}|`
-  + `${manAll.ported}/${manAll.total}|${UUID_BITS}|${communityNsPer}|${manNsPer}`,
+  + `${manAll.ported}/${manAll.total}|${UUID_BITS}`,
 )
 
 const rows = port.specs.map((s, i) =>

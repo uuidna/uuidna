@@ -66,15 +66,15 @@
   }
  },
  "time": {
-  "communityCompileNs": 40888958,
-  "communityNsPer": 1803,
-  "manCompileNs": 9370959,
-  "manNsPer": 1969
+  "communityCompileNs": 41592833,
+  "communityNsPer": 1834,
+  "manCompileNs": 9159250,
+  "manNsPer": 1924
  },
  "scale": {
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "ca61ba21-aa89-82c9-871b-1d177c3b7563",
+ "receipt": "08aeeb92-613e-8734-8916-c4afcf222dd6",
  "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
 }
