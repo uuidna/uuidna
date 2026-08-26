@@ -18,8 +18,8 @@ between them. Three axes, and every figure carries the class it was determined b
 * **FIDELITY** — decisions executed here that disagreed with the value Lean sealed. Zero over N is an upper
   bound of better than one in N. It is **never** a proof of zero, and the bound is what the table prints.
 
-**Host:** Apple M1 Max · darwin/arm64 · 10 logical · 32 GiB ·
-folded to `f480641c-6867-8400-a856-23f8db60a8d4` (handle `f480641c`), so "measured on this host" is something the
+**Host:** AMD EPYC 7763 64-Core Processor · linux/x64 · 4 logical · 15 GiB ·
+folded to `30e5b9af-826a-8f0f-8f75-408b9ca48669` (handle `30e5b9af`), so "measured on this host" is something the
 next reader recomputes rather than something this report asserts.
 
 | level | reach | reach class | op cost (measured) | ops/s | estimates | decisions | disagreements | bound | baseline would predict |
@@ -118,10 +118,10 @@ costs every leaf, while checking one proof costs log2(N) siblings.
 | 1024 | 10 | 10^2 |
 | 4096 | 12 | 10^2 |
 | 16384 | 14 | 10^3 |
-| 65536 | 16 | 10^4 |
+| 65536 | 16 | 10^3 |
 
 Measured on this host, 64 to 65536 leaves — a 1024-fold in N takes the advantage from
-10^1 to 10^4. The verify cost barely moves (the proof grows from 6 siblings to
+10^1 to 10^3. The verify cost barely moves (the proof grows from 6 siblings to
 16); recompute carries the whole growth.
 
 **THE DECADE IS PUBLISHED AND THE RAW RATIO IS NOT**, and the first version of this table got that wrong. It
@@ -147,7 +147,7 @@ each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witne
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
 *exist* cannot see. Dispatch receipt: `3223df89-4c08-8f00-b416-e9027d5cd3cc`.
 
-Report receipt: `0e9b75c2-a6eb-8772-9e7e-a7f3b1bcd460` · measured-when as its own handle: `0e9b75c2`.
+Report receipt: `c5d1c32a-6c04-8ee4-89a9-fd6eba062eab` · measured-when as its own handle: `c5d1c32a`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->

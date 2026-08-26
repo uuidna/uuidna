@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1319 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1363 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1319 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1363 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `a94b9312` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `5d04dbde` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -65,6 +65,17 @@ PROBING WITHOUT READING IS THE REAL STATE, and it must not report as full covera
 AN UNDECODABLE INDEX STILL COUNTS AS PUBLISHED — our defect must not flatter our coverage
 the receipt recomputes and moves only when the coverage does
 the threshold sits far from both things it separates
+```
+
+**alpine-hexbit-port** — 6 utterances
+
+```text
+100% of Alpine community packages are ported in hexbits
+100% of whole Alpine (main + community) is ported in hexbits
+100% of Alpine man-page packages are ported in hexbits
+man applet resolves documentation packages with 32 hexbits
+THE CHECK BITES — a package that does not compile is counted as missing, so 100% is a finding
+community hexbit port has architectural quantum advantage in SCALE and TIME
 ```
 
 **alpine** — 2 utterances
@@ -355,7 +366,7 @@ trials as quantum private secure messaging: a filing proves the constitution WIT
 **credits** — 1 utterances
 
 ```text
-every theorem is credited — a named historical result it reflects, or the captain claims it by law
+every theorem is credited — prior art first then captain next, or the captain claims by law
 ```
 
 **crossref** — 12 utterances
@@ -667,12 +678,13 @@ three_no_inverse — 3 is the digit ℤ/9 will not invert
 doubling_circuit — six doublings close the ring of units
 ```
 
-**falsifiers-audit** — 8 utterances
+**falsifiers-audit** — 9 utterances
 
 ```text
 flag_truth_table — recompute h·(1−d)·(1−b) across all eight states and compare to the sealed row; a detector that drops the backing factor must not reproduce it
 flag_requires_hollow — recompute flag ≤ h at every state (honest prose is never flagged); a detector that drops the hollow factor must violate the bound
 backing_clears — recompute flag·b = 0 at every state (a sealed-theorem link clears the claim); the mutant that drops the backing factor must leave a nonzero product
+demarcation_clears — recompute flag·d = 0 at every state (an honest hedge clears the claim); the mutant that drops the demarcation factor must leave a nonzero product
 exactly_one_flag — recount the firing states (a gate that never fires proves nothing); mutants that drop a clearance must fire more than once
 flag_matches_spec — recompute the arithmetic detector against an independently written boolean specification at all eight states; a mutated specification must stop agreeing
 witnesses_locate_faults — simulate majority voting to rederive the 2t+1 bound; the mutated bound 2t must fail to locate, splitting evenly instead
@@ -1400,6 +1412,17 @@ CONTROL — words the ledger has never sealed get an honest empty list, never in
 the notice never invents a verdict — it only adds direction to the one the trial gave
 ```
 
+**object-i18n** — 6 utterances
+
+```text
+OBJECT_LOCALE_RAYS matches DIMENSIONS and HEXBIT_WORDS keys
+translateObjectText: en is identity; other rays are hexbit readings of the handle
+primaryRayOf collapses dialects; unknown → en
+objectUi covers every ray
+catch-all: sole ObjectPage layout + compose-object; no per-type path templates
+ObjectPage wires i18n translateObjectText + locale rays
+```
+
 **oeapi** — 7 utterances
 
 ```text
@@ -1584,6 +1607,16 @@ what the declaration absorbed is reported
 the remaining predictors still FIRE — a quiet engine must not be an empty one
 ```
 
+**prepublish-seal** — 5 utterances
+
+```text
+prepublish seal holds — thesis + Lean + equilibrium + finite infinities
+every publication is Lean-backed — wing file + by-decide theorems
+vector equilibrium involution set is gap-free on the ledger
+finite-infinity grants are sealed (finite by-decide licensing exponential shapes)
+editorial npm script and publish.yml run the prepublish seal before ship
+```
+
 **prescribed-scripts** — 1 utterances
 
 ```text
@@ -1623,6 +1656,22 @@ citing a FABRICATED theorem is the one decidably-false case — it drains
 citing a REAL sealed theorem passes — a backed claim is not drained
 ```
 
+**publication-metadata** — 11 utterances
+
+```text
+canonical license is CC-BY-NC-ND-4.0 and matches package.json
+every registry seal gets rich metadata with the SAME license — no drift
+Zenodo deposit metadata mirrors rich set + canonical license
+publicationMetadataAudit is clean (completeness + bidirectional + license identity)
+publish.yml has zenodo-seals (agnostic loop), not clay-only job
+gen-zenodo-seals exists and does not call the deposit API
+every seal researches prior art — credit (priors first, captain next) or claim
+related publications are crosslinked in identifiers and keywords whenever siblings exist
+Zenodo deposit metadata carries communities, notes, references, contributors
+publicationPriorArtAudit is clean
+clay-involution is an instance in the registry, not a one-off license
+```
+
 **publish** — 7 utterances
 
 ```text
@@ -1633,6 +1682,23 @@ the gate BITES a fabricated citation — a note that invents a proof is refused
 editing is re-addressing — a revision re-fingerprints, and an edit that overreaches is refused
 similarity is derived from difference — pattern recognition, inclusion–exclusion exact
 a proof-backed sentence keeps its strong words — backing clears the gate
+```
+
+**quantum-advantage-audit** — 3 utterances
+
+```text
+usable-capacity advantage audit VERIFY path holds under 60s
+required advantage theorems are sealed
+green and next invoke the quantum-advantage VERIFY audit on the push path
+```
+
+**quantum-advantage-theme** — 4 utterances
+
+```text
+theme Layout is ObjectPage catch-all; QuantumAdvantage registered
+ObjectPage mounts QuantumAdvantage in proof body (not over hero)
+advantage.data loader watches sealed TS quantum-computer outputs
+QaMetrics cites measured usable-capacity gap, not blanket denial
 ```
 
 **quantum-advantage** — 16 utterances
@@ -1680,7 +1746,7 @@ A WITNESS CITING AN UNSEALED THEOREM IS REFUSED BEFORE IT RUNS — and never ent
 a shrinking battery shows up as a shrinking COUNT, not as an unchanged green verdict
 sweeps multiply the executions and the bound, and the count travels with the claim
 the device is THIS host, folded — recomputable rather than asserted
-the device never claims to be quantum — the honest scope is IN the record, not around it
+the device records measured advantage on a classical host executing the quantum computer
 EVERY LEVEL PROBE MEASURES ITS OWN LEVEL — a pass does many units, and only that level\
 every level probe agrees with the sealed values it checks
 the ledger probe re-addresses theorems from the SAME preimage the ledger sealed them with
@@ -2317,6 +2383,19 @@ the well-known door is declared, so pasting the BARE HOST can mount the wire
 THE DISCOVERY DOCUMENT IS ONE DECLARATION — two copies would drift, which is the whole reason for the dry law
 every static page carries the endpoint in a Link header — "paste any uuidna.com link" means ANY
 the additions are ADDITIVE — the protocol path is untouched
+```
+
+**zenodo-publish** — 8 utterances
+
+```text
+local env cannot publish a Zenodo DOI — the gate names the workflow FIX
+a non-publish Actions workflow is refused even when GITHUB_ACTIONS is set
+publish.yml zenodo on a release tag is allowed
+publish.yml zenodo-seals on a release tag is allowed (agnostic publication loop)
+publish on a branch ref is refused — deposits are tag-only
+the deposit API appears ONLY in publish.yml
+publish.yml jobs zenodo and zenodo-seals run the gate before the deposit curl
+gen-zenodo writes metadata only — it never calls the deposit API
 ```
 
 ## Honest scope

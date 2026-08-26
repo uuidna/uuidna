@@ -32,15 +32,15 @@
   }
  },
  "time": {
-  "communityCompileNs": 41816292,
-  "communityNsPer": 1843,
-  "manCompileNs": 10731084,
-  "manNsPer": 2254
+  "communityCompileNs": 56071364,
+  "communityNsPer": 2472,
+  "manCompileNs": 11823987,
+  "manNsPer": 2484
  },
  "scale": {
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "a78cb85f-45c0-86b5-b19c-1a052d7fcb7e",
+ "receipt": "b0639e95-3512-8166-b219-b49b5c4c7b92",
  "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
 }

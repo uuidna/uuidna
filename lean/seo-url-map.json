@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "2026-08-26",
+  "generated": "7f81c2c0-d",
   "entries": [
     {
       "route": "/",
@@ -2275,9 +2275,9 @@
       "kind": "publication",
       "identity": "audit",
       "canonical": "https://uuidna.com/publications/audit",
-      "address": "896e5c51-9709-834d-8471-acddbaaaf6f8",
-      "handle": "896e5c51",
-      "hexbitDoor": "https://uuidna.com/896e5c51"
+      "address": "077dce45-661a-81b8-b5c4-27e1a445ad40",
+      "handle": "077dce45",
+      "hexbitDoor": "https://uuidna.com/077dce45"
     },
     {
       "route": "/publications/audit-game",
@@ -2383,9 +2383,9 @@
       "kind": "publication",
       "identity": "clay",
       "canonical": "https://uuidna.com/publications/clay",
-      "address": "3a790805-2787-8554-a15d-301f89d1565e",
-      "handle": "3a790805",
-      "hexbitDoor": "https://uuidna.com/3a790805"
+      "address": "00351def-e0e7-85fa-be6c-a70065dfdf06",
+      "handle": "00351def",
+      "hexbitDoor": "https://uuidna.com/00351def"
     },
     {
       "route": "/publications/clock",
@@ -14002,9 +14002,9 @@
       "kind": "theorem",
       "identity": "prose_folds_receipt",
       "canonical": "https://uuidna.com/theorem/prose_folds_receipt",
-      "address": "19ca2df9-ac08-8df1-9554-efc2da000a62",
-      "handle": "19ca2df9",
-      "hexbitDoor": "https://uuidna.com/19ca2df9"
+      "address": "e85b254b-82f8-891c-b044-a1dbc669121f",
+      "handle": "e85b254b",
+      "hexbitDoor": "https://uuidna.com/e85b254b"
     },
     {
       "route": "/theorem/prose_round_trips",
@@ -22476,6 +22476,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "cea98fab-abea-8481-b22f-69ed70ae9425",
+  "receipt": "7f81c2c0-d7d5-848d-b206-9364c00db15c",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

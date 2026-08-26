@@ -6,7 +6,7 @@
  "AntiFraud.lean": "cba1f55d-12f2-8ec2-bbdb-1ae3e5fb9eeb",
  "Antikythera.lean": "78109ad6-b941-896c-b19f-c5fba4377673",
  "Astronomy.lean": "1e7937ce-aad0-873f-95ab-25b7577244fb",
- "Audit.lean": "2c9f3b30-d4f3-8fa1-9782-fa5b53e4abe9",
+ "Audit.lean": "446be8fa-efa5-8877-aa03-7f7cd31b44ac",
  "AuditGame.lean": "f5dff92e-a8f7-8a61-8f21-bb4e9821054c",
  "Billing.lean": "26ed559d-8875-839f-a606-2b45d2817145",
  "BioPhysics.lean": "f189442a-0858-8dc3-96ef-320a7f5f315c",
@@ -48,7 +48,7 @@
  "Hexbit.lean": "752e3e4a-738a-8640-a24a-b413bc2a048d",
  "Identifiers.lean": "9801efdc-cd3d-8e4c-a642-d3397e34308f",
  "Infinity.lean": "eba4c1ac-d2e3-846c-ab18-79da0c1083ac",
- "Installs.lean": "d1662298-f8c5-8737-b0e5-d1acb4abdc0b",
+ "Installs.lean": "e9c9e595-dbc5-8ca9-8956-efeec5457101",
  "Isometry.lean": "70b41265-966e-88ca-8149-9351b29c48f9",
  "Legal.lean": "690e47de-8b5f-85f8-977c-ee9d9ada98ae",
  "Looms.lean": "7ed3822a-fb55-8cf4-ba42-81cc72c2c108",
@@ -116,6 +116,6 @@
  "Uuidna.lean": "4646c90d-b9bd-84c3-b5f5-be053d786830",
  "VectorEquilibrium.lean": "e6c1d58e-237e-8e8a-973d-1d7190b5a782",
  "Vortex.lean": "6fce38f4-1da6-8756-9517-f586322b0c0b",
- "Wave.lean": "b17303c7-39be-8ab0-abc0-f1243d12f337",
+ "Wave.lean": "42c5d253-189d-8a8d-8011-d5f1194eea49",
  "Waves.lean": "65386076-3258-8659-b6ff-05ad612a699e"
 }

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-25",
+  "generated": "2026-08-26",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 2114,
@@ -4057,8 +4057,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "012a293a-fb13-8a38-a05a-cfbcc40e791e",
-      "address": "19ca2df9-ac08-8df1-9554-efc2da000a62",
+      "lineAddress": "fe6b2229-be06-828b-b2a4-1eb24014a956",
+      "address": "e85b254b-82f8-891c-b044-a1dbc669121f",
       "principle": "The detectors, proven"
     },
     {
@@ -12690,7 +12690,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "a164ef96-786c-8e54-9ad6-21bf7efb1070",
+  "claim_receipt": "ba76b9af-5020-88f3-a004-60f9f976a0f8",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
