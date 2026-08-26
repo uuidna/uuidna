@@ -702,6 +702,8 @@ const atom = (c: Cursor): Val => {
     return postfix(c, a)
   }
   if (eat(c, '-')) return postfix(c, -asNum(atom(c)))
+  // Bool negation as a value — sealed `!(p && q)` inside fun bodies / junctions.
+  if (eat(c, '¬') || eat(c, '!')) return postfix(c, !asBool(atom(c)))
   if (eat(c, 'true')) return postfix(c, true)
   if (eat(c, 'false')) return postfix(c, false)
   if (eat(c, 'if')) {
