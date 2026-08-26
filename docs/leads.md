@@ -26,9 +26,6 @@ the question already stated; nothing is sent until the reader clicks.
 - **`99582e47`** The grid breaks at 73 wings: 6 × 73 = 438, digital root 6, and the sealed width is 432. VectorEquilibrium.lean landed alone.
   <br><small>owes: a decision, not a fix: two more wings so they enter three at a time, or a deliberate re-seal of the 432 width, or the wing comes back out. The finder already states all three; none is mine to choose.</small>
   <br><small><a href="https://stackoverflow.com/ai-assist?q=The%20grid%20breaks%20at%2073%20wings%3A%206%20%C3%97%2073%20%3D%20438%2C%20digital%20root%206%2C%20and%20the%20sealed%20width%20is%20432.%20VectorEquilibrium.lean%20landed%20alone." target="_blank" rel="noopener">take this one further →</a></small>
-- **`92f12838`** predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.
-  <br><small>owes: derive the count instead of remembering it, reconcile the two definitions, and fold the general finder: a hardcoded expected-count anywhere in the guard chain is a tripwire aimed at its own foot. The drift detector drifted, in the one direction that mutes it.</small>
-  <br><small><a href="https://stackoverflow.com/ai-assist?q=predict-and-fill.ts%3A57%20hardcodes%20an%20expected%20principle%20count%20that%20the%20ledger%20has%20long%20since%20passed%2C%20and%20the%20test%20is%20%60%3C%60%20%E2%80%94%20so%20the%20branch%20is%20unreachable%20and%20the%20check%20fails%20OPEN.%20Worse%2C%20it%20counts%20%60new%20Set(PRINCIPLES.map(p%20%3D%3E%20p%5B1%5D)).size%60%20(TITLES)%20while%20the%20other%20four%20sites%20count%20PRINCIPLES.length%20(ENT" target="_blank" rel="noopener">take this one further →</a></small>
 - **`7cc6cbb6`** Measurement has no single source: 28 independent recomputations of a theorem count across src/, and 5 of the principle count. one-receipt.ts:394 already states the law — 'the number is read, never chosen' — and nothing enforces it.
   <br><small>owes: one Lean-derived census() every surface reads, plus a finder that fails when a count is computed anywhere else.</small>
   <br><small><a href="https://stackoverflow.com/ai-assist?q=Measurement%20has%20no%20single%20source%3A%2028%20independent%20recomputations%20of%20a%20theorem%20count%20across%20src%2F%2C%20and%205%20of%20the%20principle%20count.%20one-receipt.ts%3A394%20already%20states%20the%20law%20%E2%80%94%20'the%20number%20is%20read%2C%20never%20chosen'%20%E2%80%94%20and%20nothing%20enforces%20it." target="_blank" rel="noopener">take this one further →</a></small>
@@ -60,6 +57,8 @@ a site that declines machines — stackoverflow.com answers 418 to a client, and
 
 ## Refuted — closed by a measurement
 
+- **`92f12838`** predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.
+  <br><small><a href="https://stackoverflow.com/ai-assist?q=predict-and-fill.ts%3A57%20hardcodes%20an%20expected%20principle%20count%20that%20the%20ledger%20has%20long%20since%20passed%2C%20and%20the%20test%20is%20%60%3C%60%20%E2%80%94%20so%20the%20branch%20is%20unreachable%20and%20the%20check%20fails%20OPEN.%20Worse%2C%20it%20counts%20%60new%20Set(PRINCIPLES.map(p%20%3D%3E%20p%5B1%5D)).size%60%20(TITLES)%20while%20the%20other%20four%20sites%20count%20PRINCIPLES.length%20(ENT" target="_blank" rel="noopener">take this one further →</a></small>
 - **`2d552f1f`** Reflection conserves the stroke budget (four falling, five rising)
   <br><small><a href="https://stackoverflow.com/ai-assist?q=Reflection%20conserves%20the%20stroke%20budget%20(four%20falling%2C%20five%20rising)" target="_blank" rel="noopener">take this one further →</a></small>
 - **`c0727ef6`** The seams reflect (row1's seams map onto row2's under the mirror)
@@ -104,4 +103,4 @@ a site that declines machines — stackoverflow.com answers 418 to a client, and
 
 ---
 
-<small>13 held · 13 refuted · 6 refused · generated from the ledger's leads record</small>
+<small>12 held · 14 refuted · 6 refused · generated from the ledger's leads record</small>

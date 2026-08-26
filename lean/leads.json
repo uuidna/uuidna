@@ -23,11 +23,6 @@
    "owes": "a decision, not a fix: two more wings so they enter three at a time, or a deliberate re-seal of the 432 width, or the wing comes back out. The finder already states all three; none is mine to choose."
   },
   {
-   "lead": "predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.",
-   "status": "MEASURED, unfixed — a dead check inside guard step 5",
-   "owes": "derive the count instead of remembering it, reconcile the two definitions, and fold the general finder: a hardcoded expected-count anywhere in the guard chain is a tripwire aimed at its own foot. The drift detector drifted, in the one direction that mutes it."
-  },
-  {
    "lead": "Measurement has no single source: 28 independent recomputations of a theorem count across src/, and 5 of the principle count. one-receipt.ts:394 already states the law — 'the number is read, never chosen' — and nothing enforces it.",
    "status": "MEASURED, unfixed",
    "owes": "one Lean-derived census() every surface reads, plus a finder that fails when a count is computed anywhere else."
@@ -69,6 +64,10 @@
   }
  ],
  "refuted": [
+  {
+   "lead": "predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.",
+   "killed_by": "THREE halves paid. (1) expectedPrinciples = 66 → PRINCIPLES.length — the live figure, so the branch cannot go mute when the ledger grows (was 66, now 115). (2) The self-comparison of titles vs entries off the SAME array was replaced by a real second source: lean/PRINCIPLE.md's structural entries, plus a title-collision arm that says what it measures. (3) expectedGaps() now scans every gate script for expected* = N and .length === NNN — the general finder the lead owed; countsGaps holds prose, commentsGaps holds comments, this one holds CODE. Mass-gap doctrine: derive, never remember."
+  },
   {
    "lead": "Reflection conserves the stroke budget (four falling, five rising)",
    "killed_by": "measured across all 54 affine rows: budgets are 4,5 in 18 rows, 5,4 in 30, 6,3 in 6. The mirror keeps it on 30 of 54 and breaks it on 24; the IDENTITY is the only map conserving it everywhere.",
