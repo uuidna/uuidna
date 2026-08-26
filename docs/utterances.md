@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1363 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1370 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1363 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1370 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `5d04dbde` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `b13379fc` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -1412,7 +1412,7 @@ CONTROL — words the ledger has never sealed get an honest empty list, never in
 the notice never invents a verdict — it only adds direction to the one the trial gave
 ```
 
-**object-i18n** — 6 utterances
+**object-i18n** — 9 utterances
 
 ```text
 OBJECT_LOCALE_RAYS matches DIMENSIONS and HEXBIT_WORDS keys
@@ -1420,7 +1420,10 @@ translateObjectText: en is identity; other rays are hexbit readings of the handl
 primaryRayOf collapses dialects; unknown → en
 objectUi covers every ray
 catch-all: sole ObjectPage layout + compose-object; no per-type path templates
-ObjectPage wires i18n translateObjectText + locale rays
+compose-object: hero fields in params, never YAML-in-content (no bag leak)
+ObjectPage has no hero deposit CTA; donate is SponsorCard + SiteFooter only
+ObjectCrosslinks is a compact proves row without capacity/OS cards
+ObjectPage wires locale rays for crosslinks; stock markdown H1 is the hero
 ```
 
 **oeapi** — 7 utterances
@@ -1542,6 +1545,15 @@ the SERVED tool adjudicates against the SHIPPED ledger — a narrower haystack t
 
 ```text
 each Alpine package becomes uuidna/<name> — a deterministic, injective provenance identity
+```
+
+**page-metrics** — 4 utterances
+
+```text
+decadeOf is exact integer order-of-magnitude
+costBarOf scales against max without float log
+two different theorems produce different page metrics
+static QA card HTML and QaMetrics Vue are gone from the theme/render path
 ```
 
 **pair-grid** — 10 utterances
@@ -1695,10 +1707,10 @@ green and next invoke the quantum-advantage VERIFY audit on the push path
 **quantum-advantage-theme** — 4 utterances
 
 ```text
-theme Layout is ObjectPage catch-all; QuantumAdvantage registered
-ObjectPage mounts QuantumAdvantage in proof body (not over hero)
-advantage.data loader watches sealed TS quantum-computer outputs
-QaMetrics cites measured usable-capacity gap, not blanket denial
+theme Layout is ObjectPage; no QuantumAdvantage registration
+ObjectPage does not mount QuantumAdvantage, Dimensions FAB, or QaCardInjector
+home doors to /quantum; capacity table on /quantum and README only
+compose-object emits stock markdown H1 + lead under it
 ```
 
 **quantum-advantage** — 16 utterances

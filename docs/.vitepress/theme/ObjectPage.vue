@@ -1,7 +1,8 @@
 <!-- ObjectPage — catch-all Layout for object pages (theorem · publication · handle · guide).
 
-     Hero = H1 + abstract + locale (object pages only). Body = markdown + ObjectCrosslinks.
-     Home (layout: home) uses DefaultTheme home composition; QA lives in markdown on home/README only. -->
+     Stock VitePress H1 from markdown / frontmatter title is the hero.
+     Locale chrome + abstract lead sit with the doc; body = markdown + ObjectCrosslinks.
+     Home (layout: home) uses DefaultTheme home composition; capacity door is /quantum. -->
 <script setup>
 import DefaultTheme from 'vitepress/theme'
 import { computed, ref, watch, onMounted } from 'vue'
@@ -11,41 +12,22 @@ import ReferrerNav from './ReferrerNav.vue'
 import ReadAloud from './ReadAloud.vue'
 import SiteFooter from './SiteFooter.vue'
 import SponsorCard from './SponsorCard.vue'
-import Dimensions from './Dimensions.vue'
 import UrlAudit from './UrlAudit.vue'
 import {
   OBJECT_LOCALE_RAYS,
-  translateObjectText,
   objectUi,
   primaryRayOf,
 } from '../../../dist/object-i18n.js'
 import { encodeLocale, decodeLocale } from './readAloudLogic.ts'
 
 const { Layout } = DefaultTheme
-const { frontmatter, params, title } = useData()
+const { frontmatter } = useData()
 
 const LOCALE_KEY = 'uuidna-read-aloud-locale'
 const localeTag = ref('en')
 
 const isHome = computed(() => frontmatter.value?.layout === 'home')
-
-const sourceH1 = computed(() => {
-  const fm = frontmatter.value || {}
-  const p = params.value || {}
-  const raw = (fm.heroTitle || fm.title || p.name || title.value || '').toString()
-  const head = raw.split('—')[0].trim() || raw
-  return head.length <= 120 ? head : head.slice(0, 117) + '…'
-})
-
-const sourceAbstract = computed(() => {
-  const fm = frontmatter.value || {}
-  const p = params.value || {}
-  return (fm.abstract || p.statement || p.abstract || fm.description || '').toString()
-})
-
 const ui = computed(() => objectUi(localeTag.value))
-const h1Tr = computed(() => translateObjectText(sourceH1.value, localeTag.value))
-const absTr = computed(() => translateObjectText(sourceAbstract.value, localeTag.value))
 
 function persistLocale(tag) {
   localeTag.value = tag
@@ -82,20 +64,13 @@ watch(localeTag, (t) => {
     </template>
     <template #doc-before>
       <template v-if="!isHome">
-        <header class="object-hero" aria-labelledby="object-h1">
-          <div class="object-locale" role="group" :aria-label="ui.locale">
-            <label class="object-locale-label">{{ ui.locale }}
-              <select class="object-locale-select" :value="localeTag" @change="persistLocale(($event.target).value)">
-                <option v-for="ray in OBJECT_LOCALE_RAYS" :key="ray" :value="ray">{{ ray }}</option>
-              </select>
-            </label>
-          </div>
-          <h1 id="object-h1" class="object-h1">{{ h1Tr.text }}</h1>
-          <p v-if="absTr.text" class="object-abstract">{{ absTr.text }}</p>
-          <p v-if="h1Tr.kind === 'hexbit-reading' || absTr.kind === 'hexbit-reading'" class="object-reading-note">
-            {{ ui.readingNote }} · <code>{{ absTr.handle || h1Tr.handle }}</code>
-          </p>
-        </header>
+        <div class="object-locale" role="group" :aria-label="ui.locale">
+          <label class="object-locale-label">{{ ui.locale }}
+            <select class="object-locale-select" :value="localeTag" @change="persistLocale(($event.target).value)">
+              <option v-for="ray in OBJECT_LOCALE_RAYS" :key="ray" :value="ray">{{ ray }}</option>
+            </select>
+          </label>
+        </div>
         <ReadAloud />
       </template>
       <template v-else>
@@ -109,19 +84,12 @@ watch(localeTag, (t) => {
     </template>
     <template #layout-bottom>
       <SiteFooter />
-      <Dimensions />
     </template>
   </Layout>
 </template>
 
 <style scoped>
-.object-hero {
-  margin: 0 0 1.5rem;
-  padding: clamp(1.5rem, 4vw, 2.75rem) 0 1.75rem;
-  border-bottom: 1px solid var(--vp-c-divider);
-  max-width: 52rem;
-}
-.object-locale { margin: 0 0 0.85rem; }
+.object-locale { margin: 0 0 0.85rem; max-width: 52rem; }
 .object-locale-label {
   font-size: 0.75rem;
   color: var(--vp-c-text-2);
@@ -138,37 +106,8 @@ watch(localeTag, (t) => {
   background: var(--vp-c-bg);
   color: var(--vp-c-text-1);
 }
-.object-h1 {
-  margin: 0 0 0.9rem;
-  font-size: clamp(2rem, 5vw, 3rem);
-  line-height: 1.12;
-  letter-spacing: -0.025em;
-  font-weight: 700;
-  color: var(--vp-c-text-1);
-  border: none;
-  padding: 0;
-  background: none;
-}
-.object-abstract {
-  margin: 0;
-  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
-  line-height: 1.45;
-  color: var(--vp-c-text-2);
-  max-width: 38rem;
-  font-weight: 400;
-}
-.object-reading-note {
-  margin: 0.65rem 0 0;
-  font-size: 0.72rem;
-  color: var(--vp-c-text-3);
-  max-width: 38rem;
-}
 .object-proof {
   margin-top: 2.25rem;
   padding-top: 0.25rem;
 }
-</style>
-
-<style>
-.VPDoc:has(.object-hero) .vp-doc > h1:first-of-type { display: none !important; }
 </style>

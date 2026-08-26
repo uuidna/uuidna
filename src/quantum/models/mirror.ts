@@ -464,15 +464,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000088606",
-   "completionPrice": "0.000000177212"
+   "promptPrice": "0.0000000826",
+   "completionPrice": "0.0000001652"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
    "name": "DeepSeek: DeepSeek V4 Flash 0731",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000004",
-   "completionPrice": "0.00000008"
+   "promptPrice": "0.00000006",
+   "completionPrice": "0.00000012"
   },
   {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000790308",
-   "completionPrice": "0.000001580616"
+   "promptPrice": "0.00000087",
+   "completionPrice": "0.00000174"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -758,7 +758,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "google/gemma-4-31b-it",
    "name": "Google: Gemma 4 31B",
    "contextTokens": 262144,
-   "promptPrice": "0.0000001",
+   "promptPrice": "0.00000009",
    "completionPrice": "0.00000034"
   },
   {
@@ -2361,8 +2361,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-397b-a17b",
    "name": "Qwen: Qwen3.5 397B A17B",
    "contextTokens": 262144,
-   "promptPrice": "0.0000005",
-   "completionPrice": "0.0000036"
+   "promptPrice": "0.00000039",
+   "completionPrice": "0.00000234"
   },
   {
    "id": "qwen/qwen3.5-9b",
@@ -2396,8 +2396,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.6-27b",
    "name": "Qwen: Qwen3.6 27B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000032",
-   "completionPrice": "0.0000032"
+   "promptPrice": "0.0000006",
+   "completionPrice": "0.0000036"
   },
   {
    "id": "qwen/qwen3.6-35b-a3b",
@@ -2879,8 +2879,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-v4-flash-latest",
    "name": "DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000004",
-   "completionPrice": "0.00000008"
+   "promptPrice": "0.00000003",
+   "completionPrice": "0.000000075"
   },
   {
    "id": "~google/gemini-flash-latest",

@@ -1,5 +1,5 @@
 // https://vitepress.dev/guide/custom-theme
-// Layout = ObjectPage (object hero + crosslinks). Home uses stock VPHome; QA only via <QuantumAdvantage /> in index.md.
+// Layout = ObjectPage (stock H1 + crosslinks). Home uses stock VPHome; capacity door is /quantum (README keeps the table).
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
@@ -12,7 +12,6 @@ import BookRoom from './BookRoom.vue'
 import HexbitAnimator from './HexbitAnimator.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import HeroAnimation from './HeroAnimation.vue'
-import QuantumAdvantage from './QuantumAdvantage.vue'
 import ObjectPage from './ObjectPage.vue'
 import HomeGraph from './HomeGraph.vue'
 import Reflect from './Reflect.vue'
@@ -31,7 +30,6 @@ import AuditPanel from './AuditPanel.vue'
 import CaptainCoins from './CaptainCoins.vue'
 import GridLattice from './GridLattice.vue'
 import PairGrid from './PairGrid.vue'
-import { loadDimensions } from './dimensions'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -40,9 +38,6 @@ export default {
   Layout: ObjectPage,
   enhanceApp({ app }) {
     applySequence()
-    loadDimensions()
-    // Home-only QA monitor (mounted explicitly in docs/index.md — not layout chrome).
-    app.component('QuantumAdvantage', QuantumAdvantage)
     app.component('RefererCompass', RefererCompass)
     app.component('HexbitPlayer', HexbitPlayer)
     app.component('AnthemSuperposition', AnthemSuperposition)

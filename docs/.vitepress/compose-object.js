@@ -23,14 +23,15 @@ const ALL = theorems()
 // at the COMPOSITION seam only: params/frontmatter keep the raw values (transformPageData escapes its own meta).
 const mdSafe = (v) => String(v).replace(/[\\`*_[\]|]/g, (c) => '\\' + c).replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/{/g, '&#123;').replace(/}/g, '&#125;')
 
-/** Plain short title for ObjectPage hero / document <title> (no markdown escapes). */
+/** Plain short title for stock markdown H1 / document <title> (no markdown escapes). */
 const heroTitleOf = (t) => {
   const head = (t.name.split('—')[0]).trim() || t.key
   return head.length <= 120 ? head : head.slice(0, 117) + '…'
 }
 
 /** composeTheorem(t) → one catch-all ObjectPage payload (params + body).
- * Hero H1+abstract live in params (merged into frontmatter by transformPageData).
+ * Stock VitePress H1 from markdown (`# title`); abstract/tagline is the lead under it.
+ * Title/abstract also live in params (merged into frontmatter by transformPageData).
  * Do NOT emit YAML frontmatter in content — VitePress injects @content after the
  * route template preamble, so gray-matter never sees it and the bag leaks into the body. */
 export function composeTheorem(t) {
@@ -59,7 +60,10 @@ export function composeTheorem(t) {
       heartbeats: heartbeats !== undefined ? heartbeats : null,
       locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
     },
-    content: `> ${mdSafe(t.name)}
+    // Stock H1 = hero; full prose name is the tagline/lead under it (Lean statement stays in the formula block).
+    content: `# ${mdSafe(heroTitle)}
+
+> ${mdSafe(t.name)}
 
 **VERIFIED** — proven in Lean (\`by ${t.tactic}\`, sorry-free) · skill **${t.skill}** · principle **${t.principle}**
 
@@ -89,11 +93,12 @@ Re-verify with \`npm run lean\`. Cite DOI [10.5281/zenodo.21787144](https://doi.
   }
 }
 
-/** composePublication(p) → same catch-all ObjectPage shape (hero via params, not YAML-in-content). */
+/** composePublication(p) → same catch-all ObjectPage shape (stock H1 + abstract lead in content). */
 export function composePublication(p) {
   const handle = (p.address || p.receipt).replace(/-/g, '').slice(0, 8)
   const handleDoor = 'https://uuidna.com/' + handle
   const body = p.markdown.replace(/^#\s+[^\n]+\n+/, '')
+  const lead = p.abstract ? `> ${mdSafe(p.abstract)}\n\n` : ''
   return {
     params: {
       kind: 'publications',
@@ -112,7 +117,9 @@ export function composePublication(p) {
       sealCount: p.count,
       locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
     },
-    content: `${body}
+    content: `# ${mdSafe(p.title)}
+
+${lead}${body}
 
 **Audited before published** · handle \`https://uuidna.com/${handle}\` · DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144) · receipt \`${p.receipt.slice(0, 8)}\` · ${p.count} seals.
 `,

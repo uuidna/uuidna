@@ -207,7 +207,7 @@ const md = `# The formal layer
 ## Law
 
 - **Compute / monitor.** TypeScript (\`src/\`) is the quantum computer. VitePress (\`docs/\`) is the monitor.
-- **One object template.** \`ObjectPage\` is the catch-all layout. Hero = sole H1 + abstract. Body proves the abstract across cross-dimensions (Lean formula, QA metrics/graphs, card/nav links only). Content is data-driven from \`compose-object\` into \`docs/[kind]/[id]\` — no per-type page templates.
+- **One object template.** \`ObjectPage\` is the catch-all layout. Hero = stock markdown H1 + abstract/tagline lead under it. Body proves the abstract across cross-dimensions (Lean formula, card/nav links only — capacity lives on \`/quantum\`). Content is data-driven from \`compose-object\` into \`docs/[kind]/[id]\` — no per-type page templates.
 - **Permanence.** \`https://uuidna.com/<handle>\` is DOI-class (worker \`HANDLES\` 301 → freeze-map route: theorem | publication | page). Sealed in \`lean/seo-url-map.json\` after the final SEO audit — handles must not churn post-freeze. When a Zenodo DOI exists, cite **both** \`doi.org/…\` and the handle URL.
 - **Captain coins deposit.** Every object deposit link is \`https://revolut.me/ceccec?note=<referrer>\` where referrer is the page's handle door URL (\`encodeURIComponent\`); \`noreferrer\` withholds HTTP Referer, so the note carries the identity.
 - **Prior art.** Every publication researches prior art offline (DOIs, proving links, cite-only siblings, lean-file binds). Found → credit first, captain next. Missing → explicit captain claim. Related publications are always crosslinked in \`related_identifiers\` and \`related:*\` keywords.

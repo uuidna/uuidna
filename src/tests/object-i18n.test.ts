@@ -96,6 +96,7 @@ test('compose-object: hero fields in params, never YAML-in-content (no bag leak)
   assert.ok(page.params.handleUrl?.startsWith('https://uuidna.com/'))
   assert.ok('heartbeats' in page.params, 'theorem params carry measured heartbeats for page metrics')
   assert.ok(!page.content.startsWith('---'), 'content must not open with YAML frontmatter')
+  assert.match(page.content, /^# /m, 'stock markdown H1 is the hero')
   assert.doesNotMatch(page.content, /^title:\s/m)
   assert.doesNotMatch(page.content, /^heroTitle:\s/m)
   assert.doesNotMatch(page.content, /^objectKind:\s/m)
@@ -120,9 +121,12 @@ test('ObjectCrosslinks is a compact proves row without capacity/OS cards', () =>
   assert.match(vue, /ox-row/)
 })
 
-test('ObjectPage wires i18n translateObjectText + locale rays', () => {
+test('ObjectPage wires locale rays for crosslinks; stock markdown H1 is the hero', () => {
   const vue = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectPage.vue'), 'utf8')
-  assert.match(vue, /translateObjectText/)
+  assert.doesNotMatch(vue, /translateObjectText/)
+  assert.doesNotMatch(vue, /object-hero|object-h1/)
   assert.match(vue, /OBJECT_LOCALE_RAYS/)
-  assert.match(vue, /object-hero/)
+  assert.match(vue, /object-locale/)
+  const compose = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
+  assert.match(compose, /Stock VitePress H1|# \$\{mdSafe\(heroTitle\)\}/)
 })

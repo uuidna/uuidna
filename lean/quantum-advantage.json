@@ -1,15 +1,15 @@
 {
  "device": {
-  "logical": 4,
-  "lanes": 2,
+  "logical": 10,
+  "lanes": 8,
   "reserved": 2,
-  "memoryGiB": 15,
-  "cpu": "AMD EPYC 7763 64-Core Processor",
-  "platform": "linux",
-  "arch": "x64",
+  "memoryGiB": 32,
+  "cpu": "Apple M1 Max",
+  "platform": "darwin",
+  "arch": "arm64",
   "shell": "sh",
-  "address": "30e5b9af-826a-8f0f-8f75-408b9ca48669",
-  "receipt": "c5b541c4-4b49-81a1-b034-a85d6e07ec56",
+  "address": "f480641c-6867-8400-a856-23f8db60a8d4",
+  "receipt": "81f18850-2ba6-8d5d-a586-1093f3bb827f",
   "kind": "classical host executing the sealed quantum algebra in exact integers",
   "hexbitBits": 4,
   "handleHexbits": 8,
@@ -66,11 +66,11 @@
    "four_messages_two_bits",
    "store_fold_order_invariant"
   ],
-  "deviceAddress": "d4d9c93c-fdaa-819b-8865-96fb726f6fe3",
+  "deviceAddress": "e506dd7c-982c-8aba-9d96-6471bc04bd99",
   "honest": "A CLASSICAL HOST EXECUTING THE QUANTUM COMPUTER. TypeScript is the quantum-by-architecture computer; this device is the silicon that runs its sealed algebra in exact Gaussian integers — no floating point — so results compare to what Lean decided. Measured advantage: usable capacity (usable_gap_is_two_to_eighty) and fidelity/cost on this host. Not a superconducting QPU claim and not a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost."
  },
  "report": {
-  "host": "30e5b9af-826a-8f0f-8f75-408b9ca48669",
+  "host": "f480641c-6867-8400-a856-23f8db60a8d4",
   "rows": [
    {
     "level": "hexbit tile",
@@ -191,7 +191,7 @@
   "levelsDeclared": 4,
   "complete": true,
   "unsealable": [],
-  "receipt": "c5d1c32a-6c04-8ee4-89a9-fd6eba062eab",
+  "receipt": "0e9b75c2-a6eb-8772-9e7e-a7f3b1bcd460",
   "honest": "TypeScript computes the sealed quantum algebra (quantum by architecture). Measured quantum advantage on the published axes: usable capacity 2^128 vs reported logical platforms (theorem usable_gap_is_two_to_eighty) and per-level COST/FIDELITY on this host. Three axes on every row: REACH (declared), COST (steady-state floor here), FIDELITY (upper bound from an executed count, never a proof of zero). This is not a superconducting QPU claim and not a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost and is not that claim. Every figure carries its determination class. Rerun the generator on your own host for your own numbers."
  },
  "proof": {
@@ -648,7 +648,7 @@
   },
   "verdict": "EXACT",
   "bound": "better than one disagreement per 17113 executions on this host, across 47 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide",
-  "receipt": "74d41157-14b8-8777-b975-6d2a901c6f0d",
+  "receipt": "dfa75f62-1a08-8a08-86c2-53e3d2a16569",
   "honest": "WHAT THIS PROVES: the gate algebra that quantum hardware implements physically was executed on THIS host in exact Gaussian integers, and every result agreed with what a Lean kernel decided by exhaustive case analysis — TypeScript is the quantum-by-architecture computer; this host executes it. Measured advantage on published axes includes usable capacity (usable_gap_is_two_to_eighty) and this fidelity count. WHAT IT DOES NOT PROVE: that this silicon is a superconducting or trapped-ion QPU, or a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost. Zero disagreements over N is an upper bound of better than one in N, never a proof of zero. The platforms' ~10^-3 two-qubit error class is the physical comparison."
  },
  "dispatch": {
@@ -754,6 +754,6 @@
   "clear": true,
   "receipt": "3223df89-4c08-8f00-b416-e9027d5cd3cc"
  },
- "receipt": "c5d1c32a-6c04-8ee4-89a9-fd6eba062eab",
- "address": "a795ebd0-ddfa-8b72-8225-18f8cd497cbd"
+ "receipt": "0e9b75c2-a6eb-8772-9e7e-a7f3b1bcd460",
+ "address": "b96a703e-48d2-82f4-9daf-adb9263b6a2a"
 }

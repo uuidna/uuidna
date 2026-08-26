@@ -41,6 +41,6 @@ import { data } from './.vitepress/ledger.data'
 
 These numbers are read from the sealed ledger at build time — the page cannot say more than the ledger proves.
 
-<QuantumAdvantage />
+**[Capacity report →](/quantum)** — usable-capacity gap `2^80` vs reported 48 logical qubits (theorem `usable_gap_is_two_to_eighty`). Full table and measured fold decade live on [/quantum](/quantum); cost meter on [/captain](/captain).
 
-Permanent citation: `https://uuidna.com/<handle>` (DOI-class). Archive DOI `10.5281/zenodo.21787144` — both in the site footer; terms at [License](/license). Completeness cites handle and DOI. Capacity table and cost meter live on [/quantum](/quantum) and [/captain](/captain).
+Permanent citation: `https://uuidna.com/<handle>` (DOI-class). Archive DOI `10.5281/zenodo.21787144` — both in the site footer; terms at [License](/license). Completeness cites handle and DOI.

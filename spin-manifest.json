@@ -1,17 +1,17 @@
 {
   "coins": {
     "src/theorems/generated.ts": "e8db4c90470b8d78",
-    "lean/PRINCIPLE.md": "71aea64a61c18745",
+    "lean/PRINCIPLE.md": "c267a18d3da98d55",
     "CHANGELOG.md": "bce2ce1a05a88247",
     "lean/axioms.json": "775f8b45dfbc893d",
     "docs/mcp.md": "31dff34ac41d83d2",
     "audit-citations.json": "9e4d900038b18f8b",
-    "support-audit.json": "abd3ad27794c878b",
-    "research-leads.json": "37091c5c5dfa8286",
+    "support-audit.json": "945e8a0bbfa68738",
+    "research-leads.json": "ce59e151a1fe8fa0",
     ".zenodo.json": "34b9772013dc86e7",
-    "reports.json": "0442369a23cb8311",
+    "reports.json": "b779c15697dc8ad9",
     "lean/statement-index.json": "9259a492b14a804a",
-    "README.md": "ba6da8f92d9888c6",
+    "README.md": "e1b43e6e45558fbc",
     "llm.txt": "34de1d8191bc849d",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -1492,7 +1492,7 @@
     "lean/alignment-manifest.json": "e6997df00bc18fef",
     "lean/alpine-apps.json": "a4e2a66478c980d5",
     "lean/alpine-apps.md": "f5c8c3d51b058311",
-    "lean/alpine-hexbit-monitor.json": "3d2dc4fd56ef8fd8",
+    "lean/alpine-hexbit-monitor.json": "4df1254e2fe98748",
     "lean/anthem-manifest.json": "973200de221a803c",
     "lean/antifraud-manifest.json": "4457805cd5078a11",
     "lean/antikythera-manifest.json": "be97e2330c018bcb",
@@ -1577,10 +1577,10 @@
     "lean/propulsion-manifest.json": "dd4ce996a8f18260",
     "lean/prosetrial-manifest.json": "23892b099ad18e7b",
     "lean/psychology-manifest.json": "573f1cc3d653898b",
-    "lean/quantum-advantage.json": "b2e3949cb6b780a4",
-    "lean/quantum-advantage.md": "375a315ef5fa8f3f",
+    "lean/quantum-advantage.json": "1ce40a64c66386ba",
+    "lean/quantum-advantage.md": "42a10a07180088dd",
     "lean/quantum-capacity.json": "aabf7b59427c8c83",
-    "lean/quantum-capacity.md": "8bb838f9b0688a63",
+    "lean/quantum-capacity.md": "b12e688a1c738a74",
     "lean/quantum-manifest.json": "cc3daca37bf3899a",
     "lean/readings-manifest.json": "a4cdea911f5a8e68",
     "lean/reasoning-manifest.json": "deb3b05237f48b3a",
@@ -1628,5 +1628,5 @@
     "lean/wave-queue.json": "1932106785988aa7",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "1c5a658d-0bd4-8d18-88fc-7ce153b07fff"
+  "receipt": "7b227be1-ec7d-8023-bb8f-eaab3cdc5ffc"
 }
