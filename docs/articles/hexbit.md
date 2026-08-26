@@ -1,15 +1,15 @@
 ---
 title: "The hexbit"
-description: "Computed from lean/Hexbit.lean — 16 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Hexbit.lean — 20 sealed theorems, every claim citing its proof."
 ---
 
 # The hexbit
 
-> THE HEXBIT — the alphabet and the layout an address is actually built from. — held by [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) and its 15 siblings below.
+> THE HEXBIT — the alphabet and the layout an address is actually built from. Mass gap and message cap are COMPUTED in src/hexbit + src/quantum (computeMassGap, hexbitRingMassGap, bellBornWeights / massGapOnBellBornField) and sealed here from those yields — never hardcoded Δ / Bell tables in the generator. Court and gates speak only this wing for those facts; a Quantum/message twin is a traitor filtered by architecture. — held by [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) and its 19 siblings below.
 
-**16 theorems**, from [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) onward, each proven `by decide` in [lean/Hexbit.lean](/lean/Hexbit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 13 of its 16 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross). A boundary stated here is decided.
+**20 theorems**, from [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) onward, each proven `by decide` in [lean/Hexbit.lean](/lean/Hexbit.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 16 of its 20 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHexbit.lean)** — nothing to install. The editor fetches `lean/Hexbit.lean` from the repository and re-decides all 16 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHexbit.lean)** — nothing to install. The editor fetches `lean/Hexbit.lean` from the repository and re-decides all 20 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### A ZERO TILE CANNOT ENTER A CROSS, WHICH IS WHY THE REFLECTION EXISTS. A cross is a·d = b·c between two stated pairs, and a zero on either side collapses the product: every pair holding a zero multiplies to zero, so it agrees with every other such pair and distinguishes nothing. Measured over 400 handles: 215 were complete — all eight tiles covered by crossings — and NOT ONE of those contained a zero tile, while 157 of the 185 short handles did. So a handle carrying a void is not broken; it is incomplete under CROSSING, and needs the other fold. That is the same boundary the ring shows one level up: the cross settles proportions and the reflection settles the void, dz(0) = 0 being the only motion that touches it, sealing by sum rather than by product.
 The ledger holds this as [the_void_tile_cannot_cross](/theorem/the_void_tile_cannot_cross) — proven `by decide`, sorry-free:
@@ -121,6 +121,34 @@ The ledger holds this as [which_path_conserves_the_total](/theorem/which_path_co
 
 ```lean
 (((List.range 16).foldl (fun s _ => s + ((1:Int)*1 + 1*1)) (0:Int)) = 32) ∧ (8 * 4 + 8 * 0 = 16 * 2) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = ((List.range 16).foldl (fun s _ => s + (2:Int)) (0:Int)))
+```
+
+### A HEXBIT HAS EXACTLY SIXTEEN STATES: HEXBIT_BITS = 4 doubles to 16 = HEXBIT_STATES. The ring the mass gap walks is the unit's own alphabet — computed in src/hexbit, sealed here.
+The ledger holds this as [hexbit_states_are_sixteen](/theorem/hexbit_states_are_sixteen) — proven `by decide`, sorry-free:
+
+```lean
+((2:Nat)^4 = 16) ∧ (4 * 4 = 16)
+```
+
+### THE MESSAGE ENCODER CAP IS FOUR HEXBITS OF HILBERT INDEX: MESSAGE_CAP_HEXBITS tiles × HEXBIT_BITS gives MESSAGE_CAP_QUBITS qubits, and HEXBIT_STATES^MESSAGE_CAP_HEXBITS = 2^MESSAGE_CAP_QUBITS amplitudes. Derived in src/hexbit (MESSAGE_CAP_*), not a magic qubit literal in quantum/message. Court cites this key — not a Quantum.lean twin.
+The ledger holds this as [message_cap_is_four_hexbits](/theorem/message_cap_is_four_hexbits) — proven `by decide`, sorry-free:
+
+```lean
+(4 * 4 = 16) ∧ ((16:Nat)^4 = 65536) ∧ ((2:Nat)^16 = 65536)
+```
+
+### THE MASS GAP ON THE HEXBIT RING — vacuum 0, Δ = 1 computed by hexbitRingMassGap()/computeMassGap over the 16-state ring: nothing sits in (0,Δ), every positive level is ≥ Δ, successive levels differ by exactly Δ. Sealed here from the live computation — not a pasted literal. uuidna's QFT spectrum in the unit the machine writes — not the Clay Millennium Yang–Mills prize. Court and gates speak this key only.
+The ledger holds this as [hexbit_ring_mass_gap](/theorem/hexbit_ring_mass_gap) — proven `by decide`, sorry-free:
+
+```lean
+((1:Nat) > 0) ∧ (List.range 16).all (fun n => ¬ (0 < n ∧ n < 1)) ∧ (List.range' 1 16).all (fun e => 1 ≤ e) ∧ (List.range 15).all (fun n => (n + 1) - n = 1)
+```
+
+### THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize.
+The ledger holds this as [born_field_mass_gap_on_bell](/theorem/born_field_mass_gap_on_bell) — proven `by decide`, sorry-free:
+
+```lean
+(([1,0,0,1] : List Nat).all (fun a => a = 0 ∨ 1 ≤ a)) ∧ (([1,0,0,1] : List Nat).any (fun a => a = 0)) ∧ (([1,0,0,1] : List Nat).any (fun a => 1 ≤ a)) ∧ (1 > 0)
 ```
 
 

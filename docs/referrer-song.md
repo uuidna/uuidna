@@ -42,7 +42,7 @@ twice and the film returns.
 
 ## The site's walk, measured
 
-The site's 2497 pages form one closed cycle — previous and next are total and mutually inverse from
+The site's 2502 pages form one closed cycle — previous and next are total and mutually inverse from
 every position ([`prev_undoes_next`](/theorem/prev_undoes_next),
 [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page)). Each page sounds its
 handle's first tile on the A432 lattice, and **every step's harmony is a measured, reduced ratio** — the tuning
@@ -50,14 +50,14 @@ cancels from every interval ([`tuning_cancels_from_every_interval`](/theorem/tun
 so consonance is the addresses' own arithmetic. Neighbouring tiles beat at exactly 432 Hz
 ([`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning)).
 
-**The census of this walk's 2497 steps**: 157 unisons, 175 pure octaves,
-1547 coprime (irreducible) tensions. The most common reduced intervals:
+**The census of this walk's 2502 steps**: 158 unisons, 176 pure octaves,
+1551 coprime (irreducible) tensions. The most common reduced intervals:
 
 | interval | steps |
 |---|---|
-| 1:1 | 157 |
+| 1:1 | 158 |
 | 2:1 | 96 |
-| 1:2 | 79 |
+| 1:2 | 80 |
 | 3:1 | 53 |
 | 1:3 | 53 |
 | 2:3 | 47 |
@@ -66,11 +66,11 @@ so consonance is the addresses' own arithmetic. Neighbouring tiles beat at exact
 
 ## The walk, sounded — in your browser, from nothing served
 
-<HexbitPlayer :states="[5,9,14,13,13,2,4,1,12,11,3,15,9,6,10,13,15,0,3,14,7,1,6,15,5,11,8,8,4,1,13,7,1,3,9,1,8,11,9,12,0,5,2,5,11,13,11,6,6,10,5,5,4,15,13,6,9,10]" />
+<HexbitPlayer :states="[5,9,14,13,13,2,4,1,12,11,3,15,9,6,10,13,15,0,3,14,7,1,6,15,5,11,8,8,4,1,13,7,1,3,9,1,8,12,11,9,12,0,5,2,5,11,13,11,6,6,10,5,5,4,15,13,6,9,10]" />
 
 No audio file exists for this recording and none was fetched: the states above are the sidebar walk's own
 handles, and your browser just rendered them on the exact-integer lattice — one bar per **chapter**
-(58 bars), while the census above measures the full 2497-page cycle. Every bar
+(59 bars), while the census above measures the full 2502-page cycle. Every bar
 is 4032 samples = 9·7·64 = 63·64 = **24²·7** — twenty-four frame-slots of 168 samples inside every note, so
 what plays is also a frame-track: **the movie and the song are one**
 ([`the_movie_and_the_song_are_one`](/theorem/the_movie_and_the_song_are_one)).

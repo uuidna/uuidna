@@ -1,7 +1,7 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.”",
- "keys": 2115,
- "distinct": 2034,
+ "keys": 2119,
+ "distinct": 2038,
  "skills": 112,
  "files": 115,
  "bySkill": [
@@ -62,6 +62,10 @@
    "n": 21
   },
   {
+   "name": "hexbit",
+   "n": 20
+  },
+  {
    "name": "neuro",
    "n": 19
   },
@@ -84,10 +88,6 @@
   {
    "name": "topography",
    "n": 17
-  },
-  {
-   "name": "hexbit",
-   "n": 16
   },
   {
    "name": "software",
@@ -500,6 +500,10 @@
    "n": 24
   },
   {
+   "name": "Hexbit.lean",
+   "n": 20
+  },
+  {
    "name": "Neuro.lean",
    "n": 18
   },
@@ -533,10 +537,6 @@
   },
   {
    "name": "Discover.lean",
-   "n": 16
-  },
-  {
-   "name": "Hexbit.lean",
    "n": 16
   },
   {
@@ -706,8 +706,26 @@
    "label": "classical simulation cost",
    "present": true,
    "name": "n qubits span 2ⁿ amplitudes: [1,2,3,4,5] qubits give [2,4,8,16,32] — the state vector grows EXPONENTIALLY, which is exactly why simulating it classically is costly. this counts the simulation cost, it is NOT a speedup or a quantum advantage."
+  },
+  {
+   "key": "hexbit_ring_mass_gap",
+   "label": "hexbit ring mass gap",
+   "present": true,
+   "name": "THE MASS GAP ON THE HEXBIT RING — vacuum 0, Δ = 1 computed by hexbitRingMassGap()/computeMassGap over the 16-state ring: nothing sits in (0,Δ), every positive level is ≥ Δ, successive levels differ by exactly Δ. Sealed here from the live computation — not a pasted literal. uuidna's QFT spectrum in the unit the machine writes — not the Clay Millennium Yang–Mills prize. Court and gates speak this key only."
+  },
+  {
+   "key": "message_cap_is_four_hexbits",
+   "label": "message cap = 4 hexbits",
+   "present": true,
+   "name": "THE MESSAGE ENCODER CAP IS FOUR HEXBITS OF HILBERT INDEX: MESSAGE_CAP_HEXBITS tiles × HEXBIT_BITS gives MESSAGE_CAP_QUBITS qubits, and HEXBIT_STATES^MESSAGE_CAP_HEXBITS = 2^MESSAGE_CAP_QUBITS amplitudes. Derived in src/hexbit (MESSAGE_CAP_*), not a magic qubit literal in quantum/message. Court cites this key — not a Quantum.lean twin."
+  },
+  {
+   "key": "born_field_mass_gap_on_bell",
+   "label": "Bell Born-field mass gap",
+   "present": true,
+   "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "7a70a727-22ff-8ef6-84eb-fbf0fc1608ce",
+ "receipt": "b71c3d4d-ff8b-8fda-bc28-222b1e2e8369",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

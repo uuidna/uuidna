@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.”
 
-**Board (computed).** 2,034 distinct theorems · 2,115 keys · 112 skills · 115 Lean files.
+**Board (computed).** 2,038 distinct theorems · 2,119 keys · 112 skills · 115 Lean files.
 
-Receipt `7a70a727-22ff-8ef6-84eb-fbf0fc1608ce` · structured form [lean/unlocks.json](/lean/unlocks.json)
+Receipt `b71c3d4d-ff8b-8fda-bc28-222b1e2e8369` · structured form [lean/unlocks.json](/lean/unlocks.json)
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -30,6 +30,9 @@ Receipt `7a70a727-22ff-8ef6-84eb-fbf0fc1608ce` · structured form [lean/unlocks.
 | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) | hexbit compile width | UNLOCKED |
 | [`key_floor_is_one_uuid`](/theorem/key_floor_is_one_uuid) | cipher hexbit floor | UNLOCKED |
 | [`n_qubit_dimension`](/theorem/n_qubit_dimension) | classical simulation cost | UNLOCKED |
+| [`hexbit_ring_mass_gap`](/theorem/hexbit_ring_mass_gap) | hexbit ring mass gap | UNLOCKED |
+| [`message_cap_is_four_hexbits`](/theorem/message_cap_is_four_hexbits) | message cap = 4 hexbits | UNLOCKED |
+| [`born_field_mass_gap_on_bell`](/theorem/born_field_mass_gap_on_bell) | Bell Born-field mass gap | UNLOCKED |
 
 ## Skills (top 20)
 
@@ -49,12 +52,12 @@ Receipt `7a70a727-22ff-8ef6-84eb-fbf0fc1608ce` · structured form [lean/unlocks.
 | `sequence` | 24 |
 | `vortex` | 23 |
 | `reflection` | 21 |
+| `hexbit` | 20 |
 | `neuro` | 19 |
 | `waves` | 18 |
 | `colour` | 17 |
 | `hardware` | 17 |
 | `readings` | 17 |
-| `topography` | 17 |
 
 ## Lean files (top 20)
 
@@ -71,6 +74,7 @@ Receipt `7a70a727-22ff-8ef6-84eb-fbf0fc1608ce` · structured form [lean/unlocks.
 | [`Coins.lean`](/lean/Coins.lean) | 25 |
 | [`Reasoning.lean`](/lean/Reasoning.lean) | 25 |
 | [`Chessgames.lean`](/lean/Chessgames.lean) | 24 |
+| [`Hexbit.lean`](/lean/Hexbit.lean) | 20 |
 | [`Neuro.lean`](/lean/Neuro.lean) | 18 |
 | [`Waves.lean`](/lean/Waves.lean) | 18 |
 | [`Audit.lean`](/lean/Audit.lean) | 17 |
@@ -79,7 +83,6 @@ Receipt `7a70a727-22ff-8ef6-84eb-fbf0fc1608ce` · structured form [lean/unlocks.
 | [`Hardware.lean`](/lean/Hardware.lean) | 17 |
 | [`Readings.lean`](/lean/Readings.lean) | 17 |
 | [`Topography.lean`](/lean/Topography.lean) | 17 |
-| [`Discover.lean`](/lean/Discover.lean) | 16 |
 
 ## Automation
 

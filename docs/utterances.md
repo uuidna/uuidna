@@ -3,7 +3,7 @@ title: The utterances
 description: The suite's every sentence — a language model whose hallucination is impossible by construction.
 ---
 
-# The utterances <Badge type="tip" text="1373 sentences, all true or nothing ships" />
+# The utterances <Badge type="tip" text="1406 sentences, all true or nothing ships" />
 
 > **Verbose tests as LLM.** Every sentence on this page is the title of a test that must PASS for this tree to
 > land: a sentence that stops being true stops being printed — it fails the build instead. That is a language
@@ -11,9 +11,9 @@ description: The suite's every sentence — a language model whose hallucination
 > one test run, its every utterance carrying the two coins ([`silence_never_refutes`](/theorem/silence_never_refutes) guards
 > what a title may not claim, and [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself)
 > prices exactly how much a passing test proves). In the [model comparison](/models) this corpus is
-> uuidna's own row: 1373 sentences, truth rate enforced at 100% by the gate that let you read them.
+> uuidna's own row: 1406 sentences, truth rate enforced at 100% by the gate that let you read them.
 
-Corpus fold: `845fc102` — the sentences below, one address; a changed sentence moves it.
+Corpus fold: `a8056fb3` — the sentences below, one address; a changed sentence moves it.
 
 **address** — 6 utterances
 
@@ -67,12 +67,16 @@ the receipt recomputes and moves only when the coverage does
 the threshold sits far from both things it separates
 ```
 
-**alpine-hexbit-port** — 6 utterances
+**alpine-hexbit-port** — 10 utterances
 
 ```text
-100% of Alpine community packages are ported in hexbits
-100% of whole Alpine (main + community) is ported in hexbits
-100% of Alpine man-page packages are ported in hexbits
+PORT COMPLETENESS is man→app→hexbit — man pages testing the apps
+man pages test apps end-to-end — busybox man→app→hexbit
+orphan documentation packages FAIL the witness — 100% is a finding, not a default
+manAppOriginCandidates prefer -gtk-doc library subjects
+PROVENANCE — 100% of Alpine community packages compile to hexbits
+PROVENANCE — 100% of whole Alpine (main + community) compiles to hexbits
+PROVENANCE — 100% of Alpine man-page packages compile to hexbits
 man applet resolves documentation packages with 32 hexbits
 THE CHECK BITES — a package that does not compile is counted as missing, so 100% is a finding
 community hexbit port has architectural quantum advantage in SCALE and TIME
@@ -240,6 +244,13 @@ the strip is PURE and idempotent — stripping twice is stripping once
 uuidnaOS boots as the sandbox — verified loading, floor first, receipt-closed
 uuidnaOS and every related app are STRICT HEX — all states on the lattice, all compiles exactly 32
 a drifted world REFUSES to boot, fault named — the control that proves the floor can fail
+```
+
+**browser-apps-usable** — 2 utterances
+
+```text
+BROWSER USABILITY — store mounts + compute + man samples + man→app→hexbit
+docHasMount sees ClientOnly wrappers
 ```
 
 **calendar** — 6 utterances
@@ -1106,6 +1117,18 @@ THE CHECK BITES — a response without the states is caught, so 100% is a findin
 an ERROR carries no states, and that is the honest line rather than a gap
 ```
 
+**hexbit-mass-gap** — 7 utterances
+
+```text
+HEXBIT_STATES is the doubling of HEXBIT_BITS — the ring the mass gap walks
+message cap is four hexbits of Hilbert index — derived, not a magic 16
+computeMassGap derives Δ from the field — no hardcoded delta argument
+hexbitRingMassGap / massGap walk the ring and compute Δ
+bellBornWeights come from bellState() — massGapOnBellBornField seals that yield
+court seals mass gap and message cap on Hexbit.lean only — no Quantum twin
+sealed statements match the live computation (recompute equality)
+```
+
 **hexbit-player** — 3 utterances
 
 ```text
@@ -1152,7 +1175,7 @@ the OS is bootable quantum — the boot image is the compiled specs in boot orde
 the receipt is stable, recomputable, and CHANGE-SENSITIVE — the instrument can fail
 ```
 
-**involution** — 13 utterances
+**involution** — 24 utterances
 
 ```text
 every named map is genuinely self-inverse on every digit
@@ -1167,7 +1190,18 @@ the collided root is order-invariant — a pile has an identity no member carrie
 THE CONTROL — no meaning is claimed for a root until same-sized piles are shown to differ
 digitalRootOf lands in 1..9 and moves with the address
 A TYPE ASCRIPTION IS NOT ARITHMETIC — stripped before the grammar is consulted
+COMPOUND ASCRIPTIONS ARE STILL NOT ARITHMETIC — (expr : Nat|Int) stayed unreached for a token
 THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreached, never true
+DIVISION IS LEAN NAT FLOOR — / was a pure-syntax gap that left sealed equalities unreached
+INEQUALITY IS LEAN ≠ — another pure-syntax gap that left sealed inequalities unreached
+NON-STRICT INEQUALITY IS ASCII <= AND >= — sealed windows stayed unreached for two characters
+NEGATION IS LEAN ¬ — sealed denials stayed unreached for one character
+LXOR IS THE LEDGER 8-BIT XOR — sealed nim-sums stayed unreached for four letters
+NAT.GCD IS LEAN EUCLIDEAN GCD — sealed coprimality stayed unreached for a named operator
+POP IS THE LEDGER 8-BIT POPCOUNT — sealed Hamming weight stayed unreached for three letters
+PROD .1/.2 IS LEAN PAIR PROJECTION — sealed duals stayed unreached for comma and dot
+NAMED WING ARITHMETIC — dz/dbl/dzMin/res/commission/verified stay unreached for letters alone
+LIST SLICE — literals, reverse, length, contains, sum, take, eraseDups, Nodup, nth, ++
 ```
 
 **knowledge** — 9 utterances
@@ -1412,7 +1446,7 @@ CONTROL — words the ledger has never sealed get an honest empty list, never in
 the notice never invents a verdict — it only adds direction to the one the trial gave
 ```
 
-**object-i18n** — 10 utterances
+**object-i18n** — 12 utterances
 
 ```text
 OBJECT_LOCALE_RAYS matches DIMENSIONS and HEXBIT_WORDS keys
@@ -1423,6 +1457,8 @@ catch-all: sole ObjectPage layout + compose-object; no per-type path templates
 compose-object: hero fields in params, never YAML-in-content (no bag leak)
 ObjectPage has no hero deposit CTA; donate is SponsorCard + SiteFooter only
 ObjectCrosslinks wires full related-object graph via VPLink/VPButton (no capacity/OS QA cards)
+ObjectBreadcrumbs: Layout doc-before + VPLink; Home → kind → id/handle (not the related graph)
+compose-object stamps breadcrumbs with prev/next + crosslinks (no essay bag)
 compose-object stamps stock VPDocFooter prev/next + crosslinks graph (no essay bag)
 ObjectPage wires locale rays for crosslinks; stock markdown H1 is the hero
 ```
@@ -1489,24 +1525,22 @@ A TWO-MEMBER GZIP IS READ TO THE END — the shape APKINDEX.tar.gz actually has
 the decoder returns EMPTY rather than a wrong answer when the member is not there
 ```
 
-**os-exec-run** — 8 utterances
+**os-exec-run** — 6 utterances
 
 ```text
-ls runs as an applet — the same listing the dedicated tool gives, now through the executor
-cat reads a file — the package\
-which walks both directions — name→route and route→name
-stat, pwd, echo — the small applets answer from the sealed spec
-deterministic AND change-sensitive AND honest on the unknown — the executor cannot fake or drift
+ls runs as an applet — install-port VFS through the executor
+toy busybox applets are FOLDED — refuse with a pointer to apk/man, never reimplement
+deterministic AND change-sensitive AND honest on the unknown
 apk — the package manager\
-du — the hexbit footprint: 32 states per package, the whole OS one boot image
-the SERVED tool uuidna_exec dispatches — the terminal\
+man — man→app→hexbit is the Alpine app path
+the SERVED tool uuidna_exec dispatches — Alpine apps at the wire; uuidna_ls is gone
 ```
 
 **os-exec** — 3 utterances
 
 ```text
-uuidna_ls / lists the virtual OS root — packages and dirs, each with its identity, from the sandbox
-uuidna_ls /terminal lists the busybox family — the toolbox\
+ls / lists the virtual OS root — packages and dirs, each with its identity, from the sandbox
+ls /terminal lists the busybox family — the toolbox\
 deterministic AND change-sensitive — the receipt is the run\
 ```
 
@@ -1612,12 +1646,14 @@ cleanGitEnv removes every variable that can outrank -C, and touches nothing else
 THE CONTROL: with a hook\
 ```
 
-**predict** — 3 utterances
+**predict** — 5 utterances
 
 ```text
 the engine never predicts what the repository has already declared
 what the declaration absorbed is reported
 the remaining predictors still FIRE — a quiet engine must not be an empty one
+predict-and-fill derives the principle count — no hardcoded expected size
+expectedGaps is clean on the live gate chain, and bites the historical offenders
 ```
 
 **prepublish-seal** — 5 utterances
@@ -1781,10 +1817,12 @@ measurement is deterministic — the same message measures the same
 the quantum receipt folds the theorem, and the message fold carries the content
 ```
 
-**quantum-message** — 1 utterances
+**quantum-message** — 3 utterances
 
 ```text
-MAX_MESSAGE_QUBITS matches the sealed theorem message_qubit_cap_states
+MAX_MESSAGE_* is hexbit MESSAGE_CAP_* — message consumes, does not own the court seal
+message_cap_is_four_hexbits is the court seal on Hexbit.lean
+message_qubit_cap_states remains a Quantum consumer mirror of the same ceiling
 ```
 
 **quantum-news-portal** — 5 utterances
@@ -2325,6 +2363,16 @@ the 13 sealed Typesetting details exist in the ledger
 SEALED frameworks ring their gateway theorem (resonance)
 GAP frameworks are a GENUINE absence — no sealed theorem carries their native unit
 DEMARCATED irrationals are marked
+```
+
+**unlocks** — 5 utterances
+
+```text
+uuidna_unlocks MCP returns the same unlock board theorems() seals
+unlockBoard recomputes from theorems() — every sealed key is an unlock
+UNLOCK_ILLUSTRATIONS are presence-checked examples, not a closed unlock set
+readme and home fragments are derived and deterministic
+/unlocks page + SEO freeze map — CF deploy refuses a new route without reseal
 ```
 
 **upgrade-wave** — 7 utterances

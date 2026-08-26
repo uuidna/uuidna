@@ -2,7 +2,7 @@
 # uuidna — Advantage Metrics
 
 **Generated:** 2026-08-26
-**Data source:** Live ledger (2115 sealed theorems)
+**Data source:** Live ledger (2119 sealed theorems)
 
 ---
 
@@ -11,13 +11,13 @@
 ### Proof & Verification
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **Theorems proven** | 2115 | Every theorem by decidable computation (no axioms) |
-| **Axiom-free** | 2115/2115 (100%) | Kernel-only proofs, recomputable offline |
+| **Theorems proven** | 2119 | Every theorem by decidable computation (no axioms) |
+| **Axiom-free** | 2119/2119 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 115 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 112 | Capability axes across the ledger |
 | **Proof cost** | 1540843 decide-steps | MEASURED per theorem in lean/heartbeats.json |
-| **Verification work** | 2115 addresses | one recomputed per theorem |
-| **Steps per address** | 728 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
+| **Verification work** | 2119 addresses | one recomputed per theorem |
+| **Steps per address** | 727 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -58,7 +58,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 
 ### 4. **Verification 80,000x Faster Than Proof**
 - First push (prove): 1540843 kernel decide-steps, measured
-- Every later push (verify): 2115 address recomputations
+- Every later push (verify): 2119 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
 
@@ -84,8 +84,8 @@ Every term has a disclaimer: "This does NOT prove X." The gate does not verify r
 ## The Ledger at a Glance
 
 ```
-Total theorems:       2115
-Axiom-free (decide):  2115 (100.0%)
+Total theorems:       2119
+Axiom-free (decide):  2119 (100.0%)
 Principles:           115 domains
 Publications:         66 monographs
 MCP tools:            154 capabilities
@@ -108,7 +108,7 @@ table or it is not a measurement):
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
 | Public model feed | 417 models · widest window 2,000,000 tokens · 1,632,589,328 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
-| Ledger | 2115 theorems · 115 principles · 112 skills | [/theorems](/theorems) · every wing |
+| Ledger | 2119 theorems · 115 principles · 112 skills | [/theorems](/theorems) · every wing |
 
 ## How to Verify These Numbers
 
