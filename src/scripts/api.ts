@@ -455,6 +455,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/os.md',
   // Alpine hexbit quantum monitor (TypeScript computes · VitePress shows) — gen-os
   'lean/alpine-hexbit-monitor.json', 'docs/public/alpine-hexbit-monitor.jsonld',
+  // browser usability seal — store mounts + man→app→hexbit + terminal samples (not 28k sessions)
+  'lean/browser-apps-usable.json',
   'docs/store.md',
   // the model comparison page — rewritten by gen-models from the committed feed mirror every reconcile
   'docs/models.md',
@@ -521,6 +523,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-symphony': ['docs/symphony.md'],
   'gen-utterances': ['docs/utterances.md'],
   'gen-os': ['docs/os.md', 'lean/alpine-hexbit-monitor.json', 'docs/public/alpine-hexbit-monitor.jsonld'],
+  'browser-apps-usable': ['lean/browser-apps-usable.json'],
   // the model comparison over all public live data — derived from the committed feed mirror by gen-models
   'gen-models': ['docs/models.md'],
   'lean-heartbeats': ['lean/heartbeats.json'],

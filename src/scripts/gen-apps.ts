@@ -9,7 +9,7 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 
 const CAT = join(ROOT, 'src', 'quantum', 'apps', 'categories')
-const SURFACE: Record<string, string> = { coding: '/tools', books: '/reading-room', practice: '/school', gaming: '/games' }
+const SURFACE: Record<string, string> = { coding: '/tools', books: '/reading-room', practice: '/school', gaming: '/games', trading: '/trading' }
 
 const shelves = readdirSync(CAT, { withFileTypes: true }).filter((d) => d.isDirectory()).map((d) => d.name).sort()
 const sections = shelves.map((name) => {

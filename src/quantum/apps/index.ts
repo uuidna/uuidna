@@ -19,3 +19,5 @@ export { drillOf, attemptDrill, foldFeedback, meterLoop, CLOSES_AT, prerequisite
 export { startState, legalFrom, allLegal, applyMove, statusOf, bestMove, nimSum, nimVerdict, mobilityOf, type ChessState, type NimVerdict, type Mobility } from './categories/gaming/index.js'
 // the trading floor — the desk, the census, the leverage and the compound over the sealed billing (lead 89)
 export { costOf, walletCensus, chargeFor, leverageOf, compoundAt, type WorkloadCost, type WalletCensus, type Leverage, type Compound } from './categories/trading/index.js'
+// NOTE: browser-usable.ts is the Node seal (man→app + mounts). Import it from scripts/tests only — do NOT
+// re-export here, or the VitePress browser bundle pulls the Alpine catalogue executor into every page.

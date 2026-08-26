@@ -37,6 +37,10 @@ the whole of the billing law ([`difference_mints_ratio_bills`](/theorem/differen
 55/54 — unit-free, and therefore the same rate in any currency, which is precisely why it is not a currency.
 Subtraction is the coin falling into the purse; the ratio is the purse growing.
 
+## The floor — computed in your browser
+
+<ClientOnly><TradingFloor /></ClientOnly>
+
 ## Honest scope
 
 Work-units and ratios over verified exchanges. **No money, no market, no advice, no forecast, no claim about

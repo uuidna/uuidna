@@ -16,6 +16,12 @@
 
 <ClientOnly><StarPlay /></ClientOnly>
 
+- **Nim** — set the heaps; the nim-sum (XOR) decides the position by Bouton's theorem. Zero is a P-position
+  (the player to move loses with perfect play); nonzero has an exact move to zero. The sealed side:
+  [the nim cluster](/publications/nim).
+
+<ClientOnly><NimPlay /></ClientOnly>
+
 ## The clusters — proofs behind the play
 
 Every game domain is a sealed cluster; read its audited monograph:

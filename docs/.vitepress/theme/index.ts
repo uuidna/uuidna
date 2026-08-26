@@ -30,6 +30,8 @@ import AuditPanel from './AuditPanel.vue'
 import CaptainCoins from './CaptainCoins.vue'
 import GridLattice from './GridLattice.vue'
 import PairGrid from './PairGrid.vue'
+import PracticeLoop from './PracticeLoop.vue'
+import TradingFloor from './TradingFloor.vue'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -63,6 +65,8 @@ export default {
     app.component('Handle', Handle)
     app.component('NimPlay', NimPlay)
     app.component('ChessMobility', ChessMobility)
+    app.component('PracticeLoop', PracticeLoop)
+    app.component('TradingFloor', TradingFloor)
     app.component('AuditPanel', AuditPanel)
     app.component('CaptainCoins', CaptainCoins)
   }
