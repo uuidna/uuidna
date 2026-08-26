@@ -106,6 +106,10 @@ export default defineConfig({
       title?: string; heroTitle?: string; abstract?: string; handle?: string; handleUrl?: string
       depositReferrer?: string; objectKind?: string; locales?: string[]
       heartbeats?: number | null; sealCount?: number | null
+      // Stock VitePress docFooter + ObjectCrosslinks graph (from compose-object / object-graph).
+      prev?: false | { text?: string; link?: string }
+      next?: false | { text?: string; link?: string }
+      crosslinks?: Record<string, unknown>
     } | undefined
     if (p) {
       const fm = pageData.frontmatter as Record<string, unknown>
@@ -123,6 +127,10 @@ export default defineConfig({
       if (p.locales != null) fm.locales ??= p.locales
       if (p.heartbeats != null) fm.heartbeats ??= p.heartbeats
       if (p.sealCount != null) fm.sealCount ??= p.sealCount
+      // Stock VPDocFooter prev/next — sequence neighbours (sidebar cannot list every theorem).
+      if (p.prev !== undefined) fm.prev = p.prev
+      if (p.next !== undefined) fm.next = p.next
+      if (p.crosslinks != null) fm.crosslinks = p.crosslinks
     }
     const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')

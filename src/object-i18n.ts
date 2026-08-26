@@ -26,7 +26,7 @@ export const OBJECT_UI: Readonly<Record<LocaleRay, {
 }>> = {
   en: {
     proves: 'Proves the abstract across dimensions',
-    provesLede: 'Each card is a dimension of the claim above — hexbit address, ledger axes, measured advantage.',
+    provesLede: 'Related objects across dimensions — hexbit door, skill · principle · sequence · rotation, axiom · witness · falsifier legs.',
     hexbitDoor: 'Hexbit door',
     readingNote: 'Hexbit reading — address-preserving translation across the seven locale rays (not a semantic gloss).',
     locale: 'Language',

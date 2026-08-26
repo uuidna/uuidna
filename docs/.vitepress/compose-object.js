@@ -5,11 +5,14 @@
 // URLs stay frozen: /theorem/<key>, /publications/<slug>. Handle doors 301 via worker HANDLES.
 //
 // Body law (dry-clean): statement · proof · field table · cite line.
-// Navigation chrome lives in VPDocFooter pager + ObjectCrosslinks — do not regenerate cross-link essays here.
-import { theorems, PRINCIPLES, publications } from '../../dist/index.js'
+// Navigation chrome = stock VPDocFooter (prev/next from params) + ObjectCrosslinks (VPLink/VPButton axes).
+// Do NOT regenerate cross-link essays or capacity/OS QA cards in content — no hero YAML bag leak.
+import { theorems, PRINCIPLES, publications, axiomWitness } from '../../dist/index.js'
+import { mirrorRows, legsFor } from '../../dist/rosetta-legs.js'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
+import { theoremGraph, publicationGraph, shortTitle } from './object-graph.js'
 
 const HB = (() => {
   try { return JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../../lean/heartbeats.json'), 'utf8')).costs || {} } catch { return {} }
@@ -17,6 +20,17 @@ const HB = (() => {
 
 const blurb = Object.fromEntries(PRINCIPLES.map((p) => [p[1], p[2]]))
 const ALL = theorems()
+const LEGS_ROWS = mirrorRows()
+const AXIOM_HOLDS = (() => { try { return !!axiomWitness().holds } catch { return false } })()
+
+const bySkill = new Map()
+const byPrin = new Map()
+for (const t of ALL) {
+  if (!bySkill.has(t.skill)) bySkill.set(t.skill, [])
+  bySkill.get(t.skill).push(t)
+  if (!byPrin.has(t.principle)) byPrin.set(t.principle, [])
+  byPrin.get(t.principle).push(t)
+}
 
 // PROSE → MARKDOWN-SAFE inline text. Theorem names are full prose sentences computed from Lean — they carry
 // markdown specials (| * _ [ ] < > `) that break links and tables, and braces Vue would try to interpolate. Escape
@@ -29,9 +43,17 @@ const heroTitleOf = (t) => {
   return head.length <= 120 ? head : head.slice(0, 117) + '…'
 }
 
+/** Legs row for a theorem key (rosetta census) — empty legs if unknown. */
+function legsRowOf(key) {
+  try { return legsFor(LEGS_ROWS, key) } catch {
+    return { key, legs: [], missing: ['symbol', 'proof', 'witness', 'falsifier', 'address'], claimedBy: 'captain' }
+  }
+}
+
 /** composeTheorem(t) → one catch-all ObjectPage payload (params + body).
  * Stock VitePress H1 from markdown (`# title`); abstract/tagline is the lead under it.
  * Title/abstract also live in params (merged into frontmatter by transformPageData).
+ * Crosslinks live in params (prev/next for stock VPDocFooter; graph for ObjectCrosslinks).
  * Do NOT emit YAML frontmatter in content — VitePress injects @content after the
  * route template preamble, so gray-matter never sees it and the bag leaks into the body. */
 export function composeTheorem(t) {
@@ -39,6 +61,7 @@ export function composeTheorem(t) {
   const heroTitle = heroTitleOf(t)
   const handleDoor = 'https://uuidna.com/' + handle
   const heartbeats = HB[t.address]
+  const graph = theoremGraph(t, ALL, bySkill, byPrin, legsRowOf(t.key), AXIOM_HOLDS)
   return {
     params: {
       kind: 'theorem',
@@ -59,6 +82,10 @@ export function composeTheorem(t) {
       depositReferrer: handleDoor,
       heartbeats: heartbeats !== undefined ? heartbeats : null,
       locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
+      // Stock VitePress docFooter surfaces (themeConfig.prev/next via transformPageData).
+      prev: graph.prev,
+      next: graph.next,
+      crosslinks: graph,
     },
     // Stock H1 = hero; full prose name is the tagline/lead under it (Lean statement stays in the formula block).
     content: `# ${mdSafe(heroTitle)}
@@ -95,10 +122,12 @@ Re-verify with \`npm run lean\`. Cite DOI [10.5281/zenodo.21787144](https://doi.
 
 /** composePublication(p) → same catch-all ObjectPage shape (stock H1 + abstract lead in content). */
 export function composePublication(p) {
+  const pubs = publications()
   const handle = (p.address || p.receipt).replace(/-/g, '').slice(0, 8)
   const handleDoor = 'https://uuidna.com/' + handle
   const body = p.markdown.replace(/^#\s+[^\n]+\n+/, '')
   const lead = p.abstract ? `> ${mdSafe(p.abstract)}\n\n` : ''
+  const graph = publicationGraph(p, pubs)
   return {
     params: {
       kind: 'publications',
@@ -116,6 +145,9 @@ export function composePublication(p) {
       depositReferrer: handleDoor,
       sealCount: p.count,
       locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
+      prev: graph.prev,
+      next: graph.next,
+      crosslinks: graph,
     },
     content: `# ${mdSafe(p.title)}
 
@@ -139,3 +171,5 @@ export function allObjectPaths() {
     ...pubs.map(composePublication),
   ]
 }
+
+export { shortTitle, theoremGraph, publicationGraph }

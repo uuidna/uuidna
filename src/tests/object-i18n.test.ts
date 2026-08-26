@@ -113,12 +113,48 @@ test('ObjectPage has no hero deposit CTA; donate is SponsorCard + SiteFooter onl
   assert.doesNotMatch(vue, /depositHref/)
 })
 
-test('ObjectCrosslinks is a compact proves row without capacity/OS cards', () => {
+test('ObjectCrosslinks wires full related-object graph via VPLink/VPButton (no capacity/OS QA cards)', () => {
   const vue = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectCrosslinks.vue'), 'utf8')
   assert.doesNotMatch(vue, /usable_gap_is_two_to_eighty/)
   assert.doesNotMatch(vue, /href="\/os"/)
   assert.doesNotMatch(vue, /ox-grid|ox-card/)
   assert.match(vue, /ox-row/)
+  assert.match(vue, /VPButton/)
+  assert.match(vue, /VPLink/)
+  assert.match(vue, /rotation/)
+  assert.match(vue, /falsifier/)
+  assert.match(vue, /axiom-free|axiomHolds/)
+  assert.match(vue, /RefererCompass/)
+  assert.match(vue, /relatedPubs|relatedPublications/)
+})
+
+test('compose-object stamps stock VPDocFooter prev/next + crosslinks graph (no essay bag)', async () => {
+  const { pathToFileURL } = await import('node:url')
+  const { theorems } = await import('../index.js')
+  const { composeTheorem } = await import(
+    pathToFileURL(join(ROOT, 'docs/.vitepress/compose-object.js')).href
+  ) as {
+    composeTheorem: (t: { address: string; key: string; name: string; principle: string; skill: string; statement: string; tactic: string; lean: string; file: string }) => {
+      params: {
+        prev: false | { text: string; link: string }
+        next: false | { text: string; link: string }
+        crosslinks: {
+          rotation: { discovery: { key: string }; reflect: { key: string } }
+          legs: string[]
+          sequence: { prev: { key: string } | null; next: { key: string } | null }
+        }
+      }
+      content: string
+    }
+  }
+  const t = theorems().find((x) => x.key === 'usable_gap_is_two_to_eighty') || theorems()[1]
+  const page = composeTheorem(t)
+  assert.ok(page.params.crosslinks?.rotation?.discovery?.key)
+  assert.ok(page.params.crosslinks?.rotation?.reflect?.key)
+  assert.ok(Array.isArray(page.params.crosslinks?.legs))
+  assert.ok(page.params.prev === false || (page.params.prev && page.params.prev.link.startsWith('/theorem/')))
+  assert.ok(page.params.next === false || (page.params.next && page.params.next.link.startsWith('/theorem/')))
+  assert.doesNotMatch(page.content, /## Cross-links|## The rotation|## The neighbour fold/)
 })
 
 test('ObjectPage wires locale rays for crosslinks; stock markdown H1 is the hero', () => {
