@@ -34,25 +34,43 @@ export type ToolScope =
 /** Parameter names that carry the CALLER'S OWN content. Matched on the parameter NAME because that is the part
  *  of the contract a client sees; a description is prose and drifts, a name is the key you must actually pass.
  *  Plurals of these stems are admitted by `numberInvolute` — not by widening the open set of author names. */
-const CALLER_SUPPLIED = /^(draft|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|n|x|y|left|right|uuids|links)$/i
+const CALLER_SUPPLIED = /^(draft|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|c|d|m|n|x|y|left|right|uuids|links|leaf|proof|root|deposit|material|candidate|fact|vote|query|title|name|word|hex|path|file|index|arg|term|sealed|bit|party|op|step|stride|length|iteration|limit|mod|branch|kind|status|state|type|filter|match|line|from|to|action|agent|session|counter|tag|ct|aad|base64|sha256|response|proposal|circuit|chain|contract|dimension|delimiter|contains|likelihood|commercial|licensee|license|output|cached|reasoning|label|author|caption|contribution|source|sourceLang|targetLang|translation|book|bookId|bookIds|scale|tempo|rung|base|bound|gate|install|repo|arch|writer|core|qubit|genesis|start|oneTimeKey|capacity|category|country|countryCode|cpv|dataset|geo|time|vacancy|perSkill|escoTitle|escoTitles|rule|formulaReceipt|formulaReceipts|recomputeOp|recomputeOps|verifyOp|verifyOps|claimedCoin|claimedCoins|expectedReceiptAll|vatNumber|seenAddress|seenAddresses|centiLoad1|memTotalMb|memFreeMb)$/i
 
 /** Parameter names that identify something INSIDE uuidna. A tool taking only these can answer about the ledger
  *  and nothing else, however many parameters it has. `keys` involutes to `key`; bare `uuid` stays an id,
- *  while transport chains use `uuids` on the caller roster (not folded into ledger via the involution). */
-const LEDGER_IDENTIFIER = /^(key|slug|route|address|theorem|publication|domain|handle|skill|principle|wing|resource|course|track|lane|seat|id|uuid|q)$/i
+ *  while transport chains use `uuids` on the caller roster (not folded into ledger via the involution).
+ *  CamelCase ledger keys (`theoremKey`, …) are listed verbatim — involution leaves them alone. */
+const LEDGER_IDENTIFIER = /^(key|slug|route|address|theorem|publication|domain|handle|skill|principle|wing|resource|course|track|lane|seat|id|uuid|q|theoremKey|theoremCited|theoremProof|citedTheorem|citedTheorems|recordId|gutenbergId|cveId|workAddress|citedAddress|expectedFingerprint|education|licenseBinding|reeducation|infuse)$/i
 
 /**
  * Singular ↔ plural involution on a parameter token — self-inverse on the pairs the catalogue uses
- * (`message`↔`messages`, `key`↔`keys`, `passphrase`↔`passphrases`, …). CamelCase and unit suffixes are
- * left alone: involuting `appliedMillivolts` would invent a false stem.
+ * (`message`↔`messages`, `key`↔`keys`, `passphrase`↔`passphrases`, `leaf`↔`leaves`, `address`↔`addresses`,
+ * `bookId`↔`bookIds`, `seenAddress`↔`seenAddresses`, …). Unit-bearing names keep only a trailing-s fold so
+ * `appliedMillivolts` does not invent a roster stem.
  */
 export function numberInvolute(name: string): readonly string[] {
-  if (/[A-Z]/.test(name) || /[0-9]/.test(name)) return [name]
   const forms = new Set<string>([name])
+  // CamelCase / digit-bearing tokens: trailing-s involution only (bookIds↔bookId; Addresses↔Address via -es).
+  if (/[A-Z]/.test(name) || /[0-9]/.test(name)) {
+    if (/(?:sses|zzes|xes|ches|shes)$/.test(name) && name.length > 4) forms.add(name.replace(/es$/, ''))
+    else if (/[a-z]s$/.test(name) && !/ss$/.test(name) && name.length > 2) forms.add(name.slice(0, -1))
+    else if (/[a-z]$/.test(name) && /[A-Z]/.test(name)) {
+      if (/(?:s|x|z|ch|sh)$/.test(name)) forms.add(name + 'es')
+      else forms.add(name + 's')
+    }
+    return [...forms]
+  }
+  // Catalogue irregular: leaf ↔ leaves (regular -s would invent leave / leafs and miss the live stem).
+  if (/^leaf$/i.test(name)) { forms.add('leaves'); return [...forms] }
+  if (/^leaves$/i.test(name)) { forms.add('leaf'); return [...forms] }
   if (/ies$/i.test(name) && name.length > 3) forms.add(name.replace(/ies$/i, 'y'))
+  // -es plurals of stems ending in s/x/z/ch/sh (address↔addresses). Narrower than /[sx]es$/ so
+  // passphrases still strips to passphrase, not passphras.
+  else if (/(?:sses|zzes|xes|ches|shes)$/i.test(name) && name.length > 4) forms.add(name.replace(/es$/i, ''))
   else if (/s$/i.test(name) && !/ss$/i.test(name) && name.length > 1) forms.add(name.slice(0, -1))
   else {
-    forms.add(name + 's')
+    if (/(?:s|x|z|ch|sh)$/i.test(name)) forms.add(name + 'es')
+    else forms.add(name + 's')
     if (/[^aeiou]y$/i.test(name)) forms.add(name.slice(0, -1) + 'ies')
   }
   return [...forms]
@@ -89,9 +107,10 @@ export function scopeOf(schema?: { properties?: Record<string, unknown> }): Tool
   // a caller filtering for 'self' received tools that take the caller's own material.
   //
   // THE SEAM, NOW INVOLUTED: singular stems were listed while live plurals (`claims`, `keys`, `messages`,
-  // `passphrases`, `uuids`) were not — a tool taking `passphrases` read as ledger-only. `numberInvolute`
-  // closes singular↔plural on the existing stems (self-inverse); `uuids` stays caller transport and does not
-  // fold into ledger `uuid`. The open set of author names is still open — unrecognised names still stop.
+  // `passphrases`, `uuids`, `leaves`, `deposits`, `addresses`) were not — a tool taking `passphrases` read as
+  // ledger-only. `numberInvolute` closes singular↔plural on the existing stems (self-inverse), including the
+  // catalogue irregulars leaf↔leaves and address↔addresses; `uuids` stays caller transport and does not fold
+  // into ledger `uuid`. The open set of author names is still open — unrecognised names still stop.
   if (unrecognisedParams(schema).length > 0) return 'unclassified'
   const takesCaller = params.some((p) => isCallerParam(p) && !isLedgerParam(p))
   return takesCaller ? 'generic' : 'self'

@@ -45,9 +45,9 @@ test('the census over the REAL served catalogue, and it must not be all one thin
   assert.ok(c.unclassified > 0,
     'the live catalogue carries parameter names neither list holds; a zero here means they were absorbed again')
   assert.ok(c.unrecognised.length > 0, 'and the census must NAME them — a count alone is not actionable')
-  // the finding that motivated the module: a real minority can hear the caller, and a real majority cannot
+  // All three measured scopes populate; unclassified stays for open-category / unit-suffixed names (energy, …).
   assert.ok(c.generic > 0 && c.self > 0 && c.fixed > 0, 'all three scopes are populated on the live surface')
-  assert.ok(c.self + c.fixed > c.generic, 'most of this surface describes uuidna — the fact a caller needs up front')
+  assert.ok(c.generic > 50, 'once stems are named, the reachable product is a real surface — not a handful')
   assert.match(c.honest, /never what it is good at/, 'the census must refuse to be read as a quality judgement')
 })
 
@@ -66,16 +66,25 @@ test('an unheard-of parameter is UNMEASURED, never quietly promoted to self', ()
 
   // THE SEAM, INVOLUTED. Singular↔plural on the roster stems: caller content plurals read generic;
   // `keys` involutes to ledger `key` (theorem keys). `uuids` is caller transport and does not fold to ledger `uuid`.
+  // Irregular catalogue pairs: leaf↔leaves, address↔addresses (not leave/addresse).
   assert.equal(scopeOf(schema('claims')), 'generic')
   assert.equal(scopeOf(schema('messages')), 'generic')
   assert.equal(scopeOf(schema('passphrases')), 'generic')
   assert.equal(scopeOf(schema('uuids')), 'generic')
+  assert.equal(scopeOf(schema('leaves')), 'generic', 'merkle leaves are the caller\'s own material')
+  assert.equal(scopeOf(schema('proof', 'root', 'leaf')), 'generic', 'merkle verify is caller-held proof material')
+  assert.equal(scopeOf(schema('deposits', 'claim')), 'generic', 'trial deposits are caller-supplied')
   assert.equal(scopeOf(schema('keys')), 'self', 'keys ↔ key — theorem-key arrays stay ledger-scoped')
+  assert.equal(scopeOf(schema('addresses')), 'self', 'addresses ↔ address — ledger address arrays stay self-scoped')
+  assert.equal(scopeOf(schema('theoremKey')), 'self', 'camelCase ledger keys are listed verbatim')
 })
 
 test('numberInvolute is self-inverse on the catalogue stems', async () => {
   const { numberInvolute } = await import('../tool-scope.js')
-  for (const [a, b] of [['message', 'messages'], ['key', 'keys'], ['passphrase', 'passphrases'], ['claim', 'claims']] as const) {
+  for (const [a, b] of [
+    ['message', 'messages'], ['key', 'keys'], ['passphrase', 'passphrases'], ['claim', 'claims'],
+    ['leaf', 'leaves'], ['address', 'addresses'], ['deposit', 'deposits'], ['proof', 'proofs'], ['root', 'roots'],
+  ] as const) {
     assert.ok(numberInvolute(a).includes(b), a + ' → ' + b)
     assert.ok(numberInvolute(b).includes(a), b + ' → ' + a)
   }
