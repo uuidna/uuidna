@@ -11,6 +11,17 @@ import {
 import { theorems, statementCensus } from '../index.js'
 import { ROOT } from '../boundary.js'
 import { readSealedSeoUrlMap, SEO_URL_MAP_PATH } from '../seo-freeze.js'
+import { callTool } from '../mcp.js'
+
+test('uuidna_unlocks MCP returns the same unlock board theorems() seals', () => {
+  const viaTool = callTool('uuidna_unlocks', {}) as ReturnType<typeof unlockBoard>
+  const direct = unlockBoard()
+  assert.equal(viaTool.keys, direct.keys)
+  assert.equal(viaTool.distinct, direct.distinct)
+  assert.equal(viaTool.receipt, direct.receipt)
+  assert.equal(viaTool.law, UNLOCK_LAW)
+  assert.equal(viaTool.illustrationsAllPresent, true)
+})
 
 test('unlockBoard recomputes from theorems() — every sealed key is an unlock', () => {
   const b = unlockBoard()
