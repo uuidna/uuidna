@@ -1,6 +1,6 @@
-# uuidna — 2,038 distinct theorems under 2,119 keys · 2 coins · one receipt
+# uuidna — 2,039 distinct theorems under 2,120 keys · 2 coins · one receipt
 
-`15a6eb71-5f05-834d-bc5e-51f35d20a272`
+`e79d4692-abd3-81df-8680-65dbbe9b942b`
 
 **v0.2.8** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
@@ -66,8 +66,16 @@ Permanent citation: `https://uuidna.com/<handle>` (8 hex; worker `HANDLES` 301 �
 Captain coins: `https://revolut.me/ceccec?note=<referrer>` (`encodeURIComponent` of the page handle door).
 **One license** for every publication and Zenodo deposit: **CC-BY-NC-ND-4.0**.
 
-**Each theorem unlocks.** Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.”
-Board: **2,038** distinct / **2,119** keys · **112** skills · **115** Lean files · receipt `b71c3d4d-ff8b-8fda-bc28-222b1e2e8369`.
+**Sufficient / insufficient.** Sufficient for finite `by decide` seals, axiom-free kernel proofs, falsifiers, receipts
+(verify ≪ recompute — [verify_beats_recompute_by_magnitudes](https://uuidna.com/theorem/verify_beats_recompute_by_magnitudes)),
+handle capacity ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)),
+captain-coin fair-exchange ([two_coins](https://uuidna.com/theorem/two_coins)), Alpine/hexbit catalogue
+([a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits)). Insufficient for climate,
+pandemics, poverty/conflict, unbounded open math, nature-as-model, or justice — [doctrine](https://uuidna.com/doctrine)
+(computational claims only; no Shor/world-problem seal).
+
+**Each theorem unlocks.** Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals, receipts, handle capacity, captain coins, Alpine/hexbit catalogue; insufficient for climate, pandemics, poverty/conflict, unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only).
+Board: **2,039** distinct / **2,120** keys · **112** skills · **115** Lean files · receipt `444980f5-04bd-8ab6-9ba1-da0dadf4bd93`.
 Illustrations (not a closed set; automation verifies each still seals): [rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins); [euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two); [ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices); [metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation); [fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll); [grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound); [sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address); [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture); [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty); [captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins); [two_coins](https://uuidna.com/theorem/two_coins); [the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum); [a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits); [key_floor_is_one_uuid](https://uuidna.com/theorem/key_floor_is_one_uuid); [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension); [hexbit_ring_mass_gap](https://uuidna.com/theorem/hexbit_ring_mass_gap); [message_cap_is_four_hexbits](https://uuidna.com/theorem/message_cap_is_four_hexbits); [born_field_mass_gap_on_bell](https://uuidna.com/theorem/born_field_mass_gap_on_bell).
 Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/unlocks.json`.
 
@@ -77,19 +85,19 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 
 | Measure | Value | Backing |
 | --- | ---: | --- |
-| Distinct theorems | 2,038 | statement census (a Lean statement sealed under two keys is one theorem) |
-| Theorem keys | 2,119 | `theorems().length` |
+| Distinct theorems | 2,039 | statement census (a Lean statement sealed under two keys is one theorem) |
+| Theorem keys | 2,120 | `theorems().length` |
 | Principles / wings | 115 / 115 | PRINCIPLES + wing ratings |
 | Skills | 112 | distinct `skill` tags |
 | Coins per seal | 2 | [two_coins](https://uuidna.com/theorem/two_coins) — 110 − 108 = 2 |
-| Ledger decided mass | 114,553 superpositions (4 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 114,554 superpositions (4 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
 | Library register | 16 qubits (65536 amplitudes) | `MAX_MESSAGE_QUBITS` |
 | MCP served ceiling | 12 qubits (4096 amplitudes) | `MAX_SERVED_QUBITS` |
 | Research sources wired | 5 | corroboration, never approval |
-| Conserved price paid | 4,238 coins | 2119 × 2 |
+| Conserved price paid | 4,240 coins | 2120 × 2 |
 
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,759 / 4,759 (100%);
   provenance compile 28,639 / 28,639 packages (100%)
@@ -116,7 +124,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **114,553** superpositions across **115** wings.
+The ledger covers **114,554** superpositions across **115** wings.
 
 1. **[`every_referrer_reaches_every_page`](https://uuidna.com/theorem/every_referrer_reaches_every_page)** — 4,769 superpositions, unbound (0 hexbits per dependency), in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
@@ -164,8 +172,8 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **114,553** superpositions decided across the ledger
-- **4,238** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
+- **114,554** superpositions decided across the ledger
+- **4,240** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **27** superpositions per coin
 
 Six directions leave every residue — the 60-degree doubling and its inverse, the 90-degree reflection (`dz`), the

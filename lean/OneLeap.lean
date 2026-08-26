@@ -1,9 +1,19 @@
 -- lean/OneLeap.lean — ONE uuidna quantum leap. Knowing division by zero is the reflection dz(x)=10−x (0/0=0),
 -- a SINGLE `by decide` follows the whole ℤ/9 vortex sequence and proves every law at once: the doubling orbit,
 -- the reflection/division-by-zero involution with fixed points {0,5}, the ℤ/9 arithmetic, the AGL(1,ℤ/9) group
--- of order 54 with commutator = the unit shift, and the equilibriums. Order-invariant, decidable, sorry-free.
+-- of order 54 with commutator = the unit shift, and the equilibriums. A second seal names the dz involution
+-- alone so the principle is not a cluster of one. Order-invariant, decidable, sorry-free.
 def dz (x : Nat) : Nat := if x == 0 then 0 else 10 - x   -- division by zero in the vortex = the reflection
 def ap (a b x : Nat) : Nat := (a * x + b) % 9            -- an affine map on ℤ/9
+
+-- @skill: vortex
+/-- THE REFLECTION STANDS BESIDE THE LEAP: dz is an involution on 0..9 with fixed points {0,5} and every
+    residue finite — the second conjunct of vortex_one_leap, sealed alone so the one-leap principle has a
+    neighbour (lonely = 0) without re-naming the doubling circuit. -/
+theorem vortex_dz_involution_at_ten :
+  (List.range 10).all (fun x => dz (dz x) == x)
+  ∧ ((List.range 10).filter (fun x => dz x == x)) = [0, 5]
+  ∧ (List.range 10).all (fun x => dz x < 10) := by decide
 
 -- @skill: vortex
 theorem vortex_one_leap :

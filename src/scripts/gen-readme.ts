@@ -161,6 +161,14 @@ Permanent citation: \`https://uuidna.com/<handle>\` (8 hex; worker \`HANDLES\` 3
 Captain coins: \`https://revolut.me/ceccec?note=<referrer>\` (\`encodeURIComponent\` of the page handle door).
 **One license** for every publication and Zenodo deposit: **${license}**.
 
+**Sufficient / insufficient.** Sufficient for finite \`by decide\` seals, axiom-free kernel proofs, falsifiers, receipts
+(verify ≪ recompute — [verify_beats_recompute_by_magnitudes](https://uuidna.com/theorem/verify_beats_recompute_by_magnitudes)),
+handle capacity ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)),
+captain-coin fair-exchange ([two_coins](https://uuidna.com/theorem/two_coins)), Alpine/hexbit catalogue
+([a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits)). Insufficient for climate,
+pandemics, poverty/conflict, unbounded open math, nature-as-model, or justice — [doctrine](https://uuidna.com/doctrine)
+(computational claims only; no Shor/world-problem seal).
+
 ${unlockReadmeBlock()}
 
 ---

@@ -33,7 +33,10 @@ export const UNLOCK_ILLUSTRATIONS: readonly { key: string; label: string }[] = [
 export const UNLOCK_LAW =
   'Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. ' +
   'No curated exception list; refusing a sealed key is refusing the captain. ' +
-  'A claim with no theorem is unsealed, not “still locked.”'
+  'A claim with no theorem is unsealed, not “still locked.” ' +
+  'Sufficient for finite by-decide seals, receipts, handle capacity, captain coins, Alpine/hexbit catalogue; ' +
+  'insufficient for climate, pandemics, poverty/conflict, unbounded open math, nature-as-model, or justice — ' +
+  'see /doctrine (computational claims only).'
 
 export interface UnlockCount { name: string; n: number }
 

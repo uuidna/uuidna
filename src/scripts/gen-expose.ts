@@ -22,7 +22,7 @@ const e = (await callTool('uuidna_expose', {})) as Exposed
 
 const lonelyRows = e.lonely.length
   ? e.lonely.map((l) => `| [\`${l.key}\`](/theorem/${l.key}) | ${l.file} | ${l.principle} |`).join('\n')
-  : '| — every principle has a neighbour today — | | |'
+  : '| — every principle has a neighbour today — sealed: [`vortex_one_leap`](/theorem/vortex_one_leap) · [`vortex_dz_involution_at_ten`](/theorem/vortex_dz_involution_at_ten) | OneLeap.lean | One leap |'
 const gapRows = (gaps: { what: string; fix: string }[]): string => gaps.length
   ? gaps.map((g) => `- **${g.what}**\n  — fix: ${g.fix}`).join('\n')
   : '- none open today'
@@ -34,10 +34,11 @@ description: The live coordinates where clusters of theorems expose unsealed str
 
 # The discovery board — where the ledger exposes itself
 
-This page is one \`uuidna_expose\` call, rendered. It computes the coordinates where the sealed ledger's own
-structure points at missing seals, and it regenerates on every reconcile — a board of TODAY's digs, not a
-history of yesterday's. The loop it opens is two calls: \`uuidna_expose\` finds the coordinates, and
-\`uuidna_wave_deposit\` saves candidates into [the conveyor](/waves), where the kernel judges each alone.
+This page is one \`uuidna_expose\` call, rendered — coordinates rooted in the sealed neighbour relation
+([\`vortex_one_leap\`](/theorem/vortex_one_leap)). It computes where the ledger's own structure points at missing
+seals, and regenerates on every reconcile — a board of TODAY's digs, not a history of yesterday's. The loop it
+opens is two calls: \`uuidna_expose\` finds the coordinates, and \`uuidna_wave_deposit\` saves candidates into
+[the conveyor](/waves), where the kernel judges each alone.
 
 **Counts:** ${e.counts.lonely} lonely · ${e.counts.gridGaps} grid gap(s) · ${e.counts.pairsGaps} pair gap(s) ·
 fold receipt \`${e.receipt}\`

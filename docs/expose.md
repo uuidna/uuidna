@@ -5,13 +5,14 @@ description: The live coordinates where clusters of theorems expose unsealed str
 
 # The discovery board — where the ledger exposes itself
 
-This page is one `uuidna_expose` call, rendered. It computes the coordinates where the sealed ledger's own
-structure points at missing seals, and it regenerates on every reconcile — a board of TODAY's digs, not a
-history of yesterday's. The loop it opens is two calls: `uuidna_expose` finds the coordinates, and
-`uuidna_wave_deposit` saves candidates into [the conveyor](/waves), where the kernel judges each alone.
+This page is one `uuidna_expose` call, rendered — coordinates rooted in the sealed neighbour relation
+([`vortex_one_leap`](/theorem/vortex_one_leap)). It computes where the ledger's own structure points at missing
+seals, and regenerates on every reconcile — a board of TODAY's digs, not a history of yesterday's. The loop it
+opens is two calls: `uuidna_expose` finds the coordinates, and `uuidna_wave_deposit` saves candidates into
+[the conveyor](/waves), where the kernel judges each alone.
 
-**Counts:** 1 lonely · 2 grid gap(s) · 0 pair gap(s) ·
-fold receipt `f2ad774a-6b7e-8c4b-b82b-461b3d0b4eaa`
+**Counts:** 0 lonely · 2 grid gap(s) · 0 pair gap(s) ·
+fold receipt `2f49bf29-1ad2-8955-ad04-ffbcb60caa05`
 
 ## Lonely principles — clusters of one, asking for their second
 
@@ -20,7 +21,7 @@ belongs beside it (same principle, same wing — the reader's craft, not a scrip
 
 | theorem | wing | principle |
 |---------|------|-----------|
-| [`vortex_one_leap`](/theorem/vortex_one_leap) | OneLeap.lean | One leap |
+| — every principle has a neighbour today — sealed: [`vortex_one_leap`](/theorem/vortex_one_leap) · [`vortex_dz_involution_at_ten`](/theorem/vortex_dz_involution_at_ten) | OneLeap.lean | One leap |
 
 ## Grid gaps — the 432 grid's own report
 

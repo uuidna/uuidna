@@ -1,6 +1,6 @@
 ---
 title: The doctrine
-description: "What uuidna claims, folded to one page: the agreement, the no-money exchange, the corruption-proof properties, and what theorems replace. Honest scope: the vision is design intent; only the cited sealed theorems are proven."
+description: "What uuidna claims, folded to one page: the agreement, sufficiency charter, insufficiency bound, and what theorems replace. Honest scope: the vision is design intent; only the cited sealed theorems are proven."
 ---
 
 # The doctrine <Badge type="tip" text="folded from four pages" />
@@ -8,7 +8,8 @@ description: "What uuidna claims, folded to one page: the agreement, the no-mone
 > **Honest scope.** This page folds the project's doctrine to its essentials. The *formal, recomputable* terms live in
 > [The Captain's Agreement](/captain#the-five-terms) and [The Contract](/captain) — every clause there is backed by a
 > sealed theorem. Here, only linked `/theorem/<key>` citations are proven; everything else is design intent, stated
-> plainly so the gate has nothing to drain.
+> plainly so the gate has nothing to drain. **Sufficient for X / insufficient for Y** — the two sections below; neither
+> pretends the other is sealed as a world claim.
 
 ## The agreement
 
@@ -62,3 +63,48 @@ zero marginal cost. The detailed 11-domain walkthrough is retired to git history
 live and linked: [the trials](/trials) (adjudication), [the tests](/tests) (audit), [MCP tools](/mcp) (the working
 interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" data-receipt="15a6eb71-5f05-834d-bc5e-51f35d20a272">2038</span><!--/L--> distinct theorems under <!--L:keys--><span class="ledger" data-slot="keys" data-receipt="15a6eb71-5f05-834d-bc5e-51f35d20a272">2119</span><!--/L--> keys](/theorems) (the record itself). *Honest scope:* uuidna replaces the
 **verification** these professions perform, not the judgment, advocacy, or human accountability they also carry.
+
+## Sufficiency charter — what hexbit / uuidna *is* sufficient for
+
+> **In-domain.** uuidna is sufficient for finite computational claims: axiom-free `by decide` seals against the bare
+> Lean kernel, independent falsifiers, content-addressed receipts, and fair-exchange bookkeeping. The rows cite
+> sealed keys; the charter as a whole is prose doctrine naming the domain, not a theorem that “uuidna is enough.”
+
+| Domain | Sufficient for | Sealed keys |
+| --- | --- | --- |
+| Finite windows | Exhaustive checks on a named bound — not induction over ℕ | [`window_not_universal`](/theorem/window_not_universal), [`bounded_silence_is_not_evidence`](/theorem/bounded_silence_is_not_evidence) |
+| Kernel seals | Sorry-free, Mathlib-free, axiom-free `by decide` objects | every `/theorem/<key>`; census on [/unlocks](/unlocks) |
+| Falsifiers | Independent second decide over sealed statements the evaluator reaches | generated falsifier board; grammar waves land tokens, never invent claims |
+| Receipts | Prove once, verify along a log-depth path (verify ≪ recompute) | [`verify_beats_recompute_by_magnitudes`](/theorem/verify_beats_recompute_by_magnitudes), [`store_fold_order_invariant`](/theorem/store_fold_order_invariant) |
+| Handle capacity | 2¹²⁸ content-address architecture; usable gap vs reported logical | [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture), [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) |
+| Captain coins | Conserved fair-exchange denomination; gate requires the two coins | [`two_coins`](/theorem/two_coins), [`captain_computes_only_with_two_coins`](/theorem/captain_computes_only_with_two_coins) |
+| Honesty gate | Hollow unbacked prose drains; clean iff detectors clear | [`exactly_one_flag`](/theorem/exactly_one_flag), [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) |
+| Classical / anti-Shor | Simulation cost 2ⁿ; Grover halves, no asymmetric Shor target | [`n_qubit_dimension`](/theorem/n_qubit_dimension), [`grover_quadratic_bound`](/theorem/grover_quadratic_bound), [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) |
+| Alpine / hexbit catalogue | Specs compile to hexbit states; OS provenance is integrity, not execution | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits), [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum), [`home_reaches_every_install`](/theorem/home_reaches_every_install) |
+| Navigation | Referrer/home reach; crumbs and crosslinks are stock VitePress surfaces | [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page), [`home_reaches_every_install`](/theorem/home_reaches_every_install) |
+| Integrity ≠ truth | Byte-identity and tamper-evidence; never content-truth or due process | [`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth), [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) |
+
+Capacity door: [/quantum](/quantum). Unlock board: [/unlocks](/unlocks).
+
+## Where hexbit formalism is insufficient
+
+> **Outer bound, not sealed theorems.** The rows name problem classes a finite `by decide` object cannot settle.
+> They are doctrine. Paired with the sufficiency charter above — uuidna does **not** claim to solve these. Related
+> honesty that *is* sealed: [`window_not_universal`](/theorem/window_not_universal),
+> [`n_qubit_dimension`](/theorem/n_qubit_dimension), [`grover_quadratic_bound`](/theorem/grover_quadratic_bound),
+> [`provenance_integrity_not_content_truth`](/theorem/provenance_integrity_not_content_truth),
+> [`reflection_confuses_seven_three`](/theorem/reflection_confuses_seven_three),
+> [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught).
+
+| Problem type | Why hexbit formalism is insufficient |
+| --- | --- |
+| Climate policy | Requires physical models, uncertain measurements, political choices, and distributional trade-offs |
+| Pandemics | Requires biology, field surveillance, clinical trials, logistics, ethics, and adaptive decisions |
+| Poverty or conflict | Involves institutions, power, history, values, trust, incentives, and human consent |
+| Open mathematical problems | A finite computation can validate a finite window, not prove an unbounded statement |
+| Scientific discovery | Formal checking verifies a model or calculation; it does not establish that the model describes nature |
+| Justice and governance | Integrity of evidence is not the same as truth, fairness, legitimacy, or due process |
+
+*Computational claims only:* a seal verifies a finite decidable proposition. It does not license policy, clinical, or
+moral conclusions. Same posture as the classical quantum bound and the Clay reflection — verified ≠ solved for the
+named world problem.
