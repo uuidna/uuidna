@@ -2,11 +2,15 @@
 // Automation refuses a hollow illustration list; illustrations are presence checks, not a closed set.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { existsSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import {
   unlockBoard, unlockReadmeBlock, unlockHomeFragment,
   UNLOCK_ILLUSTRATIONS, UNLOCK_LAW,
 } from '../unlocks.js'
 import { theorems, statementCensus } from '../index.js'
+import { ROOT } from '../boundary.js'
+import { readSealedSeoUrlMap, SEO_URL_MAP_PATH } from '../seo-freeze.js'
 
 test('unlockBoard recomputes from theorems() — every sealed key is an unlock', () => {
   const b = unlockBoard()
@@ -42,4 +46,18 @@ test('readme and home fragments are derived and deterministic', () => {
   assert.match(unlockReadmeBlock(), /unlocks\.json/)
   assert.match(unlockHomeFragment(), /\/unlocks/)
   assert.match(unlockHomeFragment(), /Unsealed/)
+})
+
+test('/unlocks page + SEO freeze map — CF deploy refuses a new route without reseal', () => {
+  assert.ok(existsSync(join(ROOT, 'docs/unlocks.md')), 'docs/unlocks.md must ship')
+  assert.ok(existsSync(join(ROOT, 'lean/unlocks.json')), 'lean/unlocks.json must ship')
+  const map = readSealedSeoUrlMap()
+  assert.ok(map, `${SEO_URL_MAP_PATH} missing — run gen-seo-freeze`)
+  const entry = map!.entries.find((e) => e.route === '/unlocks')
+  assert.ok(entry, '/unlocks must be in the sealed URL freeze map (Workers Builds runs seo-freeze-audit)')
+  assert.equal(entry!.kind, 'page')
+  assert.match(entry!.hexbitDoor, /^https:\/\/uuidna\.com\/[0-9a-f]{8}$/)
+  const home = readFileSync(join(ROOT, 'docs/index.md'), 'utf8')
+  assert.match(home, /unlocks:begin/)
+  assert.match(home, /\[\/unlocks\]\(\/unlocks\)/)
 })
