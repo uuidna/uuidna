@@ -251,6 +251,16 @@ const asNum = (v: Val): number => {
   if (typeof x === 'bigint') throw new Error('overflow')
   return x
 }
+/** Nat/Int multiply that keeps sealed large powers (`2^80 * 2^48`) as BigInt instead of overflowing Number. */
+const mulScalar = (a: number | bigint, b: number | bigint): number | bigint => {
+  if (typeof a === 'bigint' || typeof b === 'bigint') {
+    const r = (typeof a === 'bigint' ? a : BigInt(a)) * (typeof b === 'bigint' ? b : BigInt(b))
+    return (r <= BigInt(Number.MAX_SAFE_INTEGER) && r >= BigInt(Number.MIN_SAFE_INTEGER)) ? Number(r) : r
+  }
+  const r = a * b
+  if (Number.isSafeInteger(r)) return r
+  return BigInt(a) * BigInt(b)
+}
 const asLst = (v: Val): Val[] => {
   if (!isLst(v)) throw new Error('expected list')
   return v.xs
@@ -684,10 +694,13 @@ const postfix = (c: Cursor, v: Val): Val => {
     }
     if (eat(c, '.map')) {
       ws(c)
+      if (eat(c, 'dzMin')) { v = lst(asLst(v).map((x) => dzMin(asNum(x)))); continue }
       if (eat(c, 'dz')) { v = lst(asLst(v).map((x) => dz(asNum(x)))); continue }
       if (eat(c, 'dbl')) { v = lst(asLst(v).map((x) => dbl(asNum(x)))); continue }
       if (eat(c, 'polar')) { v = lst(asLst(v).map((x) => polarFn(asNum(x)))); continue }
       if (eat(c, 'divZero')) { v = lst(asLst(v).map((x) => divZeroFn(asNum(x)))); continue }
+      if (eat(c, 'rowsOf')) { v = lst(asLst(v).map((x) => lst(rowsOf(asNum(x))))); continue }
+      if (eat(c, 'res')) { v = lst(asLst(v).map((x) => resFn(asNum(x)))); continue }
       const f = parseFunArg(c, 'val')
       v = lst(asLst(v).map((x) => f.run(x)))
       continue
@@ -1022,7 +1035,7 @@ const product = (c: Cursor): Val => {
   let v = power(c)
   for (;;) {
     ws(c)
-    if (eat(c, '*')) v = asNum(v) * asNum(power(c))
+    if (eat(c, '*')) v = mulScalar(forceScalar(v), forceScalar(power(c)))
     else if (eat(c, '%')) {
       const d = asNum(power(c))
       v = isPow(v) ? modPow(v.b, v.e, d, c.ring) : emod(asNum(v), d, c.ring)
@@ -1059,14 +1072,15 @@ function junction(c: Cursor): Val {
   let v = sum(c)
   for (;;) {
     ws(c)
-    // Only fold Bool `&&`/`||` when the left value is already Bool — otherwise `10 && …` is propositional.
-    if (typeof v === 'boolean' && eat(c, '&&')) {
+    // Value-level Bool `&&`/`||` (sealed conjunction gates). Inside `expectBool` fun/prop bodies,
+    // `||`/`&&` belong to boolProp — otherwise `p || !p` is eaten here and `!` never parses.
+    if (!c.expectBool && typeof v === 'boolean' && eat(c, '&&')) {
       const r = sum(c)
       if (typeof r !== 'boolean') throw new Error('&&')
       v = v && r
       continue
     }
-    if (typeof v === 'boolean' && eat(c, '||')) {
+    if (!c.expectBool && typeof v === 'boolean' && eat(c, '||')) {
       const r = sum(c)
       if (typeof r !== 'boolean') throw new Error('||')
       v = v || r
@@ -1182,7 +1196,7 @@ function boolProp(c: Cursor): boolean {
  *  that stayed unreached for one character until this reader ate them. */
 const conjunct = (c: Cursor): boolean => {
   ws(c)
-  if (eat(c, '¬')) return !conjunct(c)
+  if (eat(c, '¬') || eat(c, '!')) return !conjunct(c)
   if (eat(c, '∀')) {
     const name = readIdent(c)
     ws(c)
