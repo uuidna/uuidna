@@ -420,10 +420,51 @@ export function auditTranslation(
 /** The public source a book was pulled from: the id, its metadata, and the exact text URL (all recomputable). */
 export interface FetchedBook { id: number; title: string; authors: string[]; text: string; source: string }
 
+/** Disk cache for Gutenberg fetches — SPEED without inventing meaning. A second read of the same id is a
+ *  content-addressed file hit (`.uuidna-books/<id>.json`), so mine / iq / books-run / MCP re-reads do not pay
+ *  the network twice. Host-side only (lazy node:fs); Workers have no disk and never reach this path. Cache is
+ *  gitignored; anyone can delete it and the next fetch repopulates. Integrity: the cached bytes ARE the edition
+ *  that was fetched — auditText of a cache hit still fingerprints those exact bytes. */
+const bookCachePath = (id: number): string | null => {
+  try {
+    const fs = (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
+    const path = (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:path') as typeof import('node:path')
+    const dir = path.join(process.cwd(), '.uuidna-books')
+    if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true })
+    return path.join(dir, `${id}.json`)
+  } catch { return null }
+}
+
+const readBookCache = (id: number): FetchedBook | null => {
+  const p = bookCachePath(id)
+  if (!p) return null
+  try {
+    const fs = (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
+    if (!fs.existsSync(p)) return null
+    const j = JSON.parse(fs.readFileSync(p, 'utf8')) as FetchedBook
+    if (typeof j?.text !== 'string' || Number(j.id) !== id) return null
+    return j
+  } catch { return null }
+}
+
+const writeBookCache = (book: FetchedBook): void => {
+  const p = bookCachePath(book.id)
+  if (!p) return
+  try {
+    const fs = (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
+    fs.writeFileSync(p, JSON.stringify(book) + '\n')
+  } catch { /* cache miss is not a fetch failure */ }
+}
+
 /** fetchGutenberg(id) → a public-domain book from Project Gutenberg via the public Gutendex API (no key). Node's
- *  built-in fetch — the ONE network call in the package. The returned text is DATA to be audited, never executed. */
+ *  built-in fetch — the ONE network call in the package. The returned text is DATA to be audited, never executed.
+ *  Host-side: hits `.uuidna-books/<id>.json` when present (speed); network only on cold miss. */
 export async function fetchGutenberg(id: number | string): Promise<FetchedBook> {
-  const metaRes = await fetch(`https://gutendex.com/books/${encodeURIComponent(String(id))}`, { signal: AbortSignal.timeout(15000) })
+  const n = Number(id)
+  const hit = readBookCache(n)
+  if (hit) return hit
+  // 45s — KJV-class texts time out at 15s on cold Gutendex; cache makes the second read free.
+  const metaRes = await fetch(`https://gutendex.com/books/${encodeURIComponent(String(id))}`, { signal: AbortSignal.timeout(45000) })
   if (!metaRes.ok) throw new Error(`books: Gutendex responded ${metaRes.status} for id ${id}`)
   const meta = (await metaRes.json()) as { title?: string; authors?: { name: string }[]; formats?: Record<string, string> }
   const formats = meta.formats || {}
@@ -442,7 +483,7 @@ export async function fetchGutenberg(id: number | string): Promise<FetchedBook> 
   const refused: string[] = []
   for (const candidate of [...new Set(candidates)]) {
     try {
-      const attempt = await fetch(candidate, { signal: AbortSignal.timeout(15000) })
+      const attempt = await fetch(candidate, { signal: AbortSignal.timeout(45000) })
       if (attempt.ok) { textRes = attempt; break }
       refused.push(`${attempt.status} ${candidate}`)
     } catch (e) { refused.push(`${String((e as Error).message).slice(0, 200)} ${candidate}`) }
@@ -450,7 +491,9 @@ export async function fetchGutenberg(id: number | string): Promise<FetchedBook> 
   // NAMED, NEVER SILENT: a book that no mirror served says which ones refused and how, so the next reader knows
   // whether the catalogue is wrong or the network is.
   if (!textRes) throw new Error(`books: no mirror served id ${id} — ${refused.join('; ')}`)
-  return { id: Number(id), title: meta.title || '', authors: (meta.authors || []).map((a) => a.name), text: await textRes.text(), source: textRes.url }
+  const book: FetchedBook = { id: n, title: meta.title || '', authors: (meta.authors || []).map((a) => a.name), text: await textRes.text(), source: textRes.url }
+  writeBookCache(book)
+  return book
 }
 
 /** auditBook(id) → fetch a public-domain Gutenberg book, then audit it. The network step is fetchGutenberg; the

@@ -10,5 +10,6 @@ handles.js
 *.mcpb
 .uuidna-writer.lock
 .uuidna-sessions/
+.uuidna-books/
 generator-metrics.json
 docs/public/alpine-catalogue.tsv

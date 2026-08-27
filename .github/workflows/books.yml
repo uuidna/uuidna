@@ -1,0 +1,58 @@
+# AUTOMATE BOOKS — READ FOR SPEED AND QUALITY (the captain's order: "improve speed and quality by reading books").
+# fetchGutenberg caches under .uuidna-books/ (warm re-reads skip the network). books-run links each CORPUS
+# edition to the sealed ledger and deposits VERIFIED novel Nat facts into lean/wave-queue.json pending —
+# the desk proposes; wave.yml / the kernel disposes. Never auto-seals. Never deploys.
+name: books
+on:
+  schedule:
+    # once a day, offset from wave (:41) and next (:11)
+    - cron: '27 9 * * *'
+  workflow_dispatch:
+    inputs:
+      dry:
+        description: 'Report novel candidates without depositing to the wave queue'
+        type: boolean
+        default: false
+
+concurrency:
+  group: books
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  books:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v7
+        with: { node-version: 22, cache: npm }
+      - name: install exact (lockfile law)
+        run: npm ci
+      - name: identify the runner
+        run: |
+          git config user.name  'uuidna books'
+          git config user.email 'books@uuidna.com'
+      - name: "books-run — cache fetches, link ledger, deposit novel decides"
+        env:
+          DRY: ${{ inputs.dry }}
+        run: |
+          npm run build
+          if [ "$DRY" = "true" ]; then node dist/scripts/books-run.js --dry; else node dist/scripts/books-run.js; fi
+      - name: land derived book quality + pending wave (explicit paths only)
+        if: ${{ inputs.dry != true }}
+        run: |
+          git add books-quality.json lean/wave-queue.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "::notice::books — nothing new to land (quiet is health)"
+            exit 0
+          fi
+          git commit -m "Books pass: cache-warmed reads and novel Nat facts queued for the wave.
+
+Backed by theorem silence_never_refutes and theorem provenance_integrity_not_content_truth"
+          git push origin HEAD || echo "::warning::push refused — another writer holds main; queue is local until next tick"
+      - name: name the outcome
+        if: always()
+        run: npm run state || echo "::warning::state unreadable"

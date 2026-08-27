@@ -103,7 +103,8 @@
     "ship": "npm run build && node dist/scripts/deploy-run.js",
     "cf:zone": "npm run build && node dist/scripts/cloudflare-zone.js",
     "all": "npm run build && node dist/scripts/all-run.js",
-    "corpus": "npm run build && node dist/scripts/discover-books.js --write && node dist/scripts/mine-wikisource.js bg --search Ботев --limit 8 && node dist/scripts/decode-book.js 84 && node dist/scripts/iq-books.js --n 4"
+    "books": "npm run build && node dist/scripts/books-run.js",
+    "corpus": "npm run build && node dist/scripts/discover-books.js --write && node dist/scripts/mine-wikisource.js bg --search Ботев --limit 8 && node dist/scripts/decode-book.js 84 && node dist/scripts/iq-books.js --n 4 && npm run books"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
