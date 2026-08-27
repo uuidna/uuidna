@@ -42,16 +42,19 @@ jobs:
           npm run build
           if [ "$DRY" = "true" ]; then node dist/scripts/books-run.js --dry; else node dist/scripts/books-run.js; fi
       - name: land derived book quality + pending wave (explicit paths only)
-        if: ${{ inputs.dry != true }}
+        if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry != true }}
         run: |
           git add books-quality.json lean/wave-queue.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "::notice::books — nothing new to land (quiet is health)"
             exit 0
           fi
-          git commit -m "Books pass: cache-warmed reads and novel Nat facts queued for the wave.
+          git commit -m "$(cat <<'EOF'
+          Books pass: cache-warmed reads and novel Nat facts queued for the wave.
 
-Backed by theorem silence_never_refutes and theorem provenance_integrity_not_content_truth"
+          Backed by theorem silence_never_refutes and theorem provenance_integrity_not_content_truth
+          EOF
+          )"
           git push origin HEAD || echo "::warning::push refused — another writer holds main; queue is local until next tick"
       - name: name the outcome
         if: always()
