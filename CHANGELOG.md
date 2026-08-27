@@ -27,6 +27,42 @@ still be refactored, reversed, or **folded all the way back to the genesis `0.0.
 development itself. Publishing is the involution's fixed point: after it, a version cannot be un-said. So uuidna keeps
 the chance to reverse-develop itself *now*, while the ledger is still free.
 
+## [0.2.9] — falsifier ceiling closed; measurement single-sourced
+
+_Statistics from the calendar; meaning completed for release prep (tag not cut — see blockers below)._
+
+- theorems: **2120** · axiom-free 2120/2120 · sorry 0 · offenders 0
+- principles: 115 · MCP tools: 204
+- odometer: 0.2.8 → **0.2.9** (single-digit, monotone)
+- commits since v0.2.8: 563
+- fold receipt: `21e892d61dedff4c`
+- ledger receipt: `e7318241-b124-8e7c-9973-73dafbf8da48`
+- surfaces: npm · GitHub Release · Zenodo standing chain · Zenodo twin chain (workflow-only deposits)
+
+### What this development cut carries
+
+- **Falsifier ceiling CLOSED** — 2120 TRUE / 0 unreached; every sealed theorem carries a decidable denial.
+- **Doctrine** — sufficiency charter + world solutions as stacked automation waves (`docs/doctrine.md`, `docs/waves.md`); computational honesty only — no fabricated 144/Shor/world-solves claims.
+- **Measurement single-source** — `statementCensus()` is the Lean-derived census; guard `census` / `censusGaps` refuses frozen `total_theorems: N` in drain writers (beside `counts` + `expected`).
+- **Separation doctrine sealed** — Phase.lean `dz_loses_nothing` / `doubling_collapses_nine` + `reversible_erases_nothing`; `src/separation.ts` holds the structure as checks.
+- **Refused hosts** — `refused[]` finder + `refused-robots.ts` robots.txt recompute (418 stays unread≠empty).
+- **Related-object graph** upgraded on every ObjectPage; Alpine man→app→hexbit monitor + catalogue browser on `/os`.
+- **Unlocks / breadcrumbs / captain-complete** refreshed to the live 2120 census.
+
+### Release blockers (do not silent-fix)
+
+`leads-gate` refuses a release tag while any lead is held. Open at prepare time:
+
+1. **Grid / wings (EXPLICIT CHOICE)** — live **115 wings → 690 seats**; sealed width still **432**. Choose: grow to a multiple of 15 (105 or 120), deliberately re-seal `GRID_SEATS` / k432, or remove alone-landed wings. Finder already names the options.
+2. 42-state paired walk — owes falsifier + independent witness.
+3. Girdler sulfide — owes primary source (never verified from recall).
+4. Negation-above-Lean scanner — owes enforceable SCOPE split (lexical wall).
+5. Glagolitic VE rename — owes rename decision (moves addresses).
+6. ObjectPage kinds — sequence / chunk / VE handles not yet emitted.
+7. VE directions independence — owes independence proof before ×12 multiplies anything.
+
+**Proposed tag:** `v0.2.9` — cut only after held leads are settled (or refused at a named boundary) and the captain confirms. Zenodo deposits ride `publish.yml` on the tag (workflow-only; no laptop mint).
+
 ## [0.2.8] — computed by the calendar
 
 _Statistics only. This section is emitted by the release job from the sealed ledger; it states what moved, never

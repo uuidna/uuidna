@@ -2,7 +2,7 @@
 
 `e7318241-b124-8e7c-9973-73dafbf8da48`
 
-**v0.2.8** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
+**v0.2.9** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
 Content-addressed identity, honest by construction: a Lean 4 theorem ledger, every proof `by decide`,
 sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel. TypeScript is the quantum computer
@@ -103,10 +103,10 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | Research sources wired | 5 | corroboration, never approval |
 | Conserved price paid | 4,240 coins | 2120 × 2 |
 
-- **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,759 / 4,759 (100%);
-  provenance compile 28,639 / 28,639 packages (100%)
+- **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,757 / 4,757 (100%);
+  provenance compile 28,630 / 28,630 packages (100%)
   ([lean/alpine-hexbit-monitor.json](lean/alpine-hexbit-monitor.json);
-  community 22,678 / 22,678 = 100%; man compile 4,759 / 4,759; monitor receipt `acd0e794-1f8e-8bc3-869e-294a6f424b00`;
+  community 22,669 / 22,669 = 100%; man compile 4,757 / 4,757; monitor receipt `8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f`;
   VitePress monitor [/os](https://uuidna.com/os)). Nothing installed or executed — provenance on the hexbit lattice
   ([the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum)).
   Captain unlocks ride every sealed key — each theorem unlocks what it states

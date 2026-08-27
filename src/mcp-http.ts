@@ -49,7 +49,7 @@ const CATALOGUE_TOOLS = new Set(['uuidna_exec', 'uuidna_registry', 'uuidna_relat
 // src, and this runs at the Workers edge with no filesystem), so it is stated here and HELD to package.json by
 // src/tests/mcp-version.test.ts, which fails with the exact line to change. A stated constant is fine; an
 // unchecked one is how this drifted.
-const SERVER = { name: 'uuidna', version: '0.2.8' }
+const SERVER = { name: 'uuidna', version: '0.2.9' }
 
 interface HttpTool { name: string; description: string; inputSchema: Record<string, unknown>; run: (a: Record<string, unknown>) => unknown }
 
