@@ -1,63 +1,56 @@
 #!/usr/bin/env node
 // @non-harmonic: fetches public-domain books over the network (via books.ts cache) — NAMED boundary.
 //
-// books-run — IMPROVE SPEED AND QUALITY BY READING BOOKS (the captain's order).
+// books-run — IMPROVE SPEED AND QUALITY BY READING BOOKS.
 //
-// SPEED: fetchGutenberg hits `.uuidna-books/<id>.json` on warm runs — mine / link / MCP re-reads do not
-// re-pay the network. QUALITY: each corpus book is linked to the sealed ledger; VERIFIED facts not yet
-// sealed become wave-queue CANDIDATES (desk proposes, wave/kernel disposes — never auto-admitted).
+// SPEED: fetchGutenberg hits `.uuidna-books/<id>.json` on warm runs.
+// QUALITY: unit-equivalence claims become HEXBIT theorems (compass rose width = UUID_HEXBITS = 32),
+// not hashed book_<handle> stubs. extractDecidable alone is the wrong door — books write
+// "45 degrees, or four points", and that is what four_points_is_45 already sealed.
 //
-//   npm run books              → read CORPUS, link, deposit novel decides, write books-quality.json
-//   npm run books -- --dry     → report only, do not deposit
-//
-// HONEST SCOPE: decidable Nat arithmetic only (a sliver of each book). Novel ≠ discovery of prior art
-// everywhere — one ledger searched is OPEN absence (silence_never_refutes); here we only queue what
-// `by decide` already verifies locally. Integrity, not truth.
+//   npm run books              → read CORPUS, mint hexbit candidates, deposit, write books-quality.json
+//   npm run books -- --dry     → report only
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { fetchGutenberg, linkBookFacts, stripGutenberg, auditText, extractClaims, extractDecidable } from '../books.js'
-import { toUuid, merkleGravity } from '../index.js'
-import { handleOf } from '../handle.js'
+import { fetchGutenberg, stripGutenberg, auditText, extractClaims } from '../books.js'
+import { toUuid, merkleGravity, theorems } from '../index.js'
+import { UUID_HEXBITS, HEXBIT_BITS, HEXBIT_STATES } from '../hexbit/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
 import { CORPUS } from './mine-books.js'
 import { ROOT } from './api.js'
 import { probeOf, judge, sample } from './iq-books.js'
+import { hexbitCandidatesFromClaims, parsePointsDegrees, pointsDegreesKey } from './hexbit-from-books.js'
+import { theoremByKey } from '../theorems/index.js'
 
 const DRY = process.argv.includes('--dry')
 const QUEUE = join(ROOT, 'lean', 'wave-queue.json')
 const OUT = join(ROOT, 'books-quality.json')
 
-/** Unique lawful key from the arithmetic statement — extractDecidable emits one shared placeholder key for every
- *  fact, which cannot deposit. The handle of the statement is eight hex; prefix `book_` keeps KEY law. */
-export function novelToCandidate(lean: string, claim: string, bookId: number, title: string): WaveCandidate | null {
-  const placeholder = 'book' + '_' + 'fact'
-  const m = new RegExp(`^theorem ${placeholder}\\s*:\\s*(.+?)\\s*:=\\s*by\\s*decide\\s*$`).exec(lean.trim())
-  if (!m) return null
-  const stmt = m[1]!.trim()
-  const key = `book_${handleOf(toUuid(stmt))}`
-  if (!/^[a-z][a-z0-9_]{3,60}$/.test(key)) return null
-  return {
-    key,
-    lean: `theorem ${key} : ${stmt} := by decide`,
-    why: `Public-domain Gutenberg ${bookId} (${title.slice(0, 40)}) states "${claim.slice(0, 72)}"; Nat arithmetic VERIFIED by decide and absent from the sealed ledger — books-run queues it; the kernel seals or refuses.`,
-  }
+/** Sealed keys whose statements are the hexbit unit (32·4=128, 16 states, captain floor). */
+function hexbitSealedKeys(): string[] {
+  return theorems()
+    .filter((t) =>
+      t.file === 'Hexbit.lean' ||
+      /hexbit|key_floor_is_one_uuid|handle_string_spans|hexbit_bit_hook|handle_carries_hexbits|captain_theorem|the_page_admits_sixteen|message_cap_is_four_hexbits|four_points_is_45/i.test(t.key))
+    .map((t) => t.key)
 }
 
 if (process.argv[1] && /books-run\.(js|ts)$/.test(process.argv[1])) {
-  console.log(`\nbooks-run — read for speed (cache) and quality (novel→wave)${DRY ? '  [dry]' : ''}\n`)
+  console.log(`\nbooks-run — hexbit theorems from books (UUID_HEXBITS=${UUID_HEXBITS}, states=${HEXBIT_STATES})${DRY ? '  [dry]' : ''}\n`)
+  const hexKeys = hexbitSealedKeys()
   const books: {
     id: number; title: string; address: string; cached: boolean
-    sealed: number; novel: number; refuted: number; words: number
-    claims: number; decidable: number
+    claims: number; unitEq: number; hexbitCandidates: number
+    hexbitAlreadySealed: string[]; words: number
   }[] = []
   const candidates: WaveCandidate[] = []
   const seen = new Set<string>()
   const probes: ReturnType<typeof probeOf>[] = []
+  const sealed = theoremByKey()
 
-  for (const { id, note } of CORPUS) {
+  for (const { id } of CORPUS) {
     const t0 = Date.now()
     try {
-      // Probe cache: a second books-run should report warm hits for speed.
       const cachePath = join(ROOT, '.uuidna-books', `${id}.json`)
       const { existsSync } = await import('node:fs')
       const wasCached = existsSync(cachePath)
@@ -65,75 +58,69 @@ if (process.argv[1] && /books-run\.(js|ts)$/.test(process.argv[1])) {
       const audit = auditText(b.text, { title: b.title, authors: b.authors, source: b.source })
       const { work } = stripGutenberg(b.text)
       const body = work || b.text
-      const link = linkBookFacts(body, 200)
       const claims = extractClaims(body, 200)
-      const decidable = extractDecidable(body, 200)
-      for (const f of link.facts) {
-        if (f.status !== 'novel' || f.verdict !== 'VERIFIED') continue
-        const c = novelToCandidate(f.lean, f.claim, id, b.title)
-        if (!c || seen.has(c.key)) continue
+      const unitEq = claims.filter((c) => c.kind === 'unit-equivalence')
+      const hexCands = hexbitCandidatesFromClaims(claims, id, b.title)
+      for (const c of hexCands) {
+        if (seen.has(c.key)) continue
         seen.add(c.key)
         candidates.push(c)
       }
-      // Also queue VERIFIED decidables the linker missed (same novel door, unique keys).
-      for (const f of decidable) {
-        if (f.verdict !== 'VERIFIED') continue
-        const c = novelToCandidate(f.lean, f.claim, id, b.title)
-        if (!c || seen.has(c.key)) continue
-        // Skip if already sealed under another key (linker would have marked sealed-match).
-        if (link.facts.some((x) => x.lean === f.lean && x.status === 'sealed-match')) continue
-        seen.add(c.key)
-        candidates.push(c)
+      const already: string[] = []
+      for (const c of unitEq) {
+        const pd = parsePointsDegrees(c.claim)
+        if (!pd) continue
+        const key = pointsDegreesKey(pd.points, pd.degrees)
+        if (sealed.has(key)) already.push(key)
       }
       const p = probeOf(id, body)
       if (p) probes.push(p)
       books.push({
         id, title: b.title, address: audit.address, cached: wasCached,
-        sealed: link.sealed, novel: link.novel, refuted: link.refuted, words: audit.words,
-        claims: claims.length, decidable: decidable.length,
+        claims: claims.length, unitEq: unitEq.length, hexbitCandidates: hexCands.length,
+        hexbitAlreadySealed: [...new Set(already)], words: audit.words,
       })
       const ms = Date.now() - t0
       console.log(`  ${wasCached ? '⚡' : '↓'} ${String(id).padStart(6)}  ${String(ms).padStart(5)}ms  ` +
-        `seal ${link.sealed} novel ${link.novel} claims ${claims.length} dec ${decidable.length}  ` +
-        `${b.title.slice(0, 36)}  (${note.slice(0, 24)})`)
+        `claims ${claims.length} unitEq ${unitEq.length} hex+${hexCands.length} sealed [${already.join(',') || '—'}]  ` +
+        `${b.title.slice(0, 32)}`)
     } catch (e) {
       console.error(`  ✗ ${String(id).padStart(6)}  ${(e as Error).message.slice(0, 80)}`)
     }
   }
 
-  // QUALITY: decoder facts must discriminate across the corpus (iq-books vacuity law) — report, never seal vacuous ones.
   const iq = probes.length >= 3 ? judge(probes as NonNullable<ReturnType<typeof probeOf>>[]) : []
   const vacuous = iq.filter((v) => !v.discriminates && v.held === probes.length)
   if (vacuous.length) {
-    console.log(`\n  iq — ${vacuous.length} vacuous fact(s) hold on every decoded book (not sealable as identity):`)
-    for (const v of vacuous) console.log(`    · ${v.fact} (${v.held}/${probes.length})`)
-  } else if (iq.length) {
-    console.log(`\n  iq — ${iq.length} decoder fact(s) discriminate across ${probes.length} books`)
+    console.log(`\n  iq — ${vacuous.length} vacuous decoder fact(s) (not hexbit seals):`)
+    for (const v of vacuous) console.log(`    · ${v.fact}`)
   }
-  // Seeded sample ids (recomputable) — kept in the report so a quiet corpus still documents what would be drawn next.
-  const nextSample = sample('uuidna:books-run', 8)
 
+  const alreadyAll = [...new Set(books.flatMap((b) => b.hexbitAlreadySealed))]
   const deposit = DRY
-    ? { deposited: [] as string[], refused: [] as { key: string; reason: string }[], pending: 0, receipt: toUuid('dry'), honest: 'dry — nothing queued' }
+    ? { deposited: [] as string[], refused: [] as { key: string; reason: string }[], pending: 0, receipt: toUuid('dry'), honest: 'dry' }
     : depositCandidates(candidates, QUEUE)
 
   const receipt = merkleGravity([
     ...books.map((b) => b.address),
     ...deposit.deposited.map((k) => toUuid(k)),
+    ...alreadyAll.map((k) => toUuid(k)),
+    toUuid(`uuid-hexbits:${UUID_HEXBITS}`),
   ])
   const report = {
-    why: 'Speed: Gutenberg editions cache under .uuidna-books/. Quality: VERIFIED novel Nat facts from the declared corpus are deposited to lean/wave-queue.json pending — desk proposes, wave/kernel disposes. Never auto-sealed. Claims/decidable counts and iq discrimination are reported so vacuous decoder facts cannot pretend to identify a book.',
+    why: 'Speed: .uuidna-books/ cache. Quality: unit-equivalence → hexbit theorems (rose width = UUID_HEXBITS), never book_<hash> novels. extractDecidable a+b=c is the wrong door for treatises; four_points_is_45 is the pattern. Desk proposes; wave/kernel disposes.',
+    hexbit: { UUID_HEXBITS, HEXBIT_BITS, HEXBIT_STATES, sealedKeys: hexKeys.length },
     books,
-    candidates: candidates.length,
+    hexbitAlreadySealed: alreadyAll,
+    candidates: candidates.map((c) => c.key),
     deposited: deposit.deposited,
-    depositRefused: deposit.refused.length,
+    depositRefused: deposit.refused,
     pending: deposit.pending,
-    iq: { probes: probes.length, verdicts: iq, vacuous: vacuous.map((v) => v.fact), nextSample },
+    iq: { probes: probes.length, vacuous: vacuous.map((v) => v.fact), nextSample: sample('uuidna:books-run', 8) },
     receipt,
     dry: DRY,
   }
   writeFileSync(OUT, JSON.stringify(report, null, 2) + '\n')
-  console.log(`\n  books ${books.length} · novel candidates ${candidates.length} · deposited ${deposit.deposited.length} · pending ${deposit.pending}`)
-  console.log(`  warm hits ${books.filter((b) => b.cached).length}/${books.length} · receipt ${receipt.slice(0, 8)}`)
-  console.log(`  written ${OUT}${DRY ? ' (dry)' : ''}\n`)
+  console.log(`\n  books ${books.length} · hexbit already sealed [${alreadyAll.join(', ') || '—'}] · new candidates ${candidates.length} · deposited ${deposit.deposited.length}`)
+  console.log(`  warm ${books.filter((b) => b.cached).length}/${books.length} · receipt ${receipt.slice(0, 8)}\n`)
 }

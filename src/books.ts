@@ -269,6 +269,18 @@ export function extractClaims(text: string, limit = 200): TextClaim[] {
   // "45 degrees, or four points" — two namings of one quantity, the shape that made four_points_is_45 findable
   for (const m of flat.matchAll(new RegExp('\\b(\\d{1,4})\\s+(' + UNIT + ')\\b[^.]{0,40}?\\bor\\b[^.]{0,30}?\\b([a-z]+|\\d{1,4})\\s+(' + UNIT + ')\\b', 'gi')))
     push('unit-equivalence', m[0], m.index ?? 0, [Number(m[1])], [m[2], m[4]])
+  // "four points, or forty-five degrees" — SPELLED both sides (Day's other order); same shape, wordsToNumber.
+  for (const m of flat.matchAll(new RegExp('\\b(' + NUM_PHRASE + ')\\s+(' + UNIT + ')\\b[^.]{0,40}?\\bor\\b[^.]{0,40}?\\b(' + NUM_PHRASE + '|\\d{1,4})\\s+(' + UNIT + ')\\b', 'gi'))) {
+    const n = wordsToNumber(m[1])
+    const m2 = /^\d+$/.test(m[3]) ? Number(m[3]) : wordsToNumber(m[3])
+    if (n === null || n === 0) continue
+    push('unit-equivalence', m[0], m.index ?? 0, m2 !== null ? [n, m2] : [n], [m[2], m[4]])
+  }
+  // "45 degrees, or four points" with spelled second operand already covered; digit-first + spelled second:
+  for (const m of flat.matchAll(new RegExp('\\b(\\d{1,4})\\s+(' + UNIT + ')\\b[^.]{0,40}?\\bor\\b[^.]{0,40}?\\b(' + NUM_PHRASE + ')\\s+(' + UNIT + ')\\b', 'gi'))) {
+    const m2 = wordsToNumber(m[3])
+    push('unit-equivalence', m[0], m.index ?? 0, m2 !== null ? [Number(m[1]), m2] : [Number(m[1])], [m[2], m[4]])
+  }
   // "exactly 6 378 137 metres" — a DEFINING constant, the shape that actually seals. Measured 2026-08-19 across
   // this corpus: 379 leads produced ONE sealable item, while standards produced seven theorems the same day —
   // WGS 84's semi-major axis and inverse flattening, and the SI Boltzmann constant, are exact BY DEFINITION, so

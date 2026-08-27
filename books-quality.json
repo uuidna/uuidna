@@ -1,14 +1,94 @@
 {
-  "why": "Speed: Gutenberg editions cache under .uuidna-books/. Quality: VERIFIED novel Nat facts from the declared corpus are deposited to lean/wave-queue.json pending — desk proposes, wave/kernel disposes. Never auto-sealed. Claims/decidable counts and iq discrimination are reported so vacuous decoder facts cannot pretend to identify a book.",
-  "books": [],
-  "candidates": 0,
+  "why": "Speed: .uuidna-books/ cache. Quality: unit-equivalence → hexbit theorems (rose width = UUID_HEXBITS), never book_<hash> novels. extractDecidable a+b=c is the wrong door for treatises; four_points_is_45 is the pattern. Desk proposes; wave/kernel disposes.",
+  "hexbit": {
+    "UUID_HEXBITS": 32,
+    "HEXBIT_BITS": 4,
+    "HEXBIT_STATES": 16,
+    "sealedKeys": 41
+  },
+  "books": [
+    {
+      "id": 10,
+      "title": "The King James Version of the Bible",
+      "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+      "cached": true,
+      "claims": 200,
+      "unitEq": 3,
+      "hexbitCandidates": 0,
+      "hexbitAlreadySealed": [],
+      "words": 824543
+    },
+    {
+      "id": 2800,
+      "title": "The Koran (Al-Qur'an)",
+      "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+      "cached": true,
+      "claims": 45,
+      "unitEq": 0,
+      "hexbitCandidates": 0,
+      "hexbitAlreadySealed": [],
+      "words": 206246
+    },
+    {
+      "id": 216,
+      "title": "The Tao Teh King, or the Tao and its Characteristics",
+      "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
+      "cached": true,
+      "claims": 1,
+      "unitEq": 0,
+      "hexbitCandidates": 0,
+      "hexbitAlreadySealed": [],
+      "words": 13733
+    },
+    {
+      "id": 2388,
+      "title": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
+      "address": "dd8e92be-df49-823f-b232-57d824d45e19",
+      "cached": true,
+      "claims": 1,
+      "unitEq": 0,
+      "hexbitCandidates": 0,
+      "hexbitAlreadySealed": [],
+      "words": 23215
+    },
+    {
+      "id": 2017,
+      "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+      "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+      "cached": true,
+      "claims": 4,
+      "unitEq": 0,
+      "hexbitCandidates": 0,
+      "hexbitAlreadySealed": [],
+      "words": 15247
+    },
+    {
+      "id": 45493,
+      "title": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+      "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+      "cached": true,
+      "claims": 25,
+      "unitEq": 2,
+      "hexbitCandidates": 0,
+      "hexbitAlreadySealed": [
+        "four_points_is_45"
+      ],
+      "words": 18257
+    }
+  ],
+  "hexbitAlreadySealed": [
+    "four_points_is_45"
+  ],
+  "candidates": [],
   "deposited": [],
-  "depositRefused": 0,
+  "depositRefused": [],
   "pending": 0,
   "iq": {
-    "probes": 0,
-    "verdicts": [],
-    "vacuous": [],
+    "probes": 6,
+    "vacuous": [
+      "rank1 exceeds rank2",
+      "commonest word is 'the'"
+    ],
     "nextSample": [
       11381,
       41478,
@@ -20,6 +100,6 @@
       32246
     ]
   },
-  "receipt": "93929a2d-4810-8ac6-9f32-4ed07d9e016c",
+  "receipt": "fa8ebac4-2d70-86fa-8616-64bdd40ab606",
   "dry": false
 }
