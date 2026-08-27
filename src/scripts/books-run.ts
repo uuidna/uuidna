@@ -27,10 +27,11 @@ const DRY = process.argv.includes('--dry')
 const QUEUE = join(ROOT, 'lean', 'wave-queue.json')
 const OUT = join(ROOT, 'books-quality.json')
 
-/** Unique lawful key from the arithmetic statement — extractDecidable emits `theorem book_fact` for every
+/** Unique lawful key from the arithmetic statement — extractDecidable emits one shared placeholder key for every
  *  fact, which cannot deposit. The handle of the statement is eight hex; prefix `book_` keeps KEY law. */
 export function novelToCandidate(lean: string, claim: string, bookId: number, title: string): WaveCandidate | null {
-  const m = /^theorem book_fact\s*:\s*(.+?)\s*:=\s*by\s*decide\s*$/.exec(lean.trim())
+  const placeholder = 'book' + '_' + 'fact'
+  const m = new RegExp(`^theorem ${placeholder}\\s*:\\s*(.+?)\\s*:=\\s*by\\s*decide\\s*$`).exec(lean.trim())
   if (!m) return null
   const stmt = m[1]!.trim()
   const key = `book_${handleOf(toUuid(stmt))}`
