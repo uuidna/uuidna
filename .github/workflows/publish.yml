@@ -15,7 +15,8 @@ name: publish
 #   5. determinism      — regenerating the ledger from the proofs leaves the tree clean (git diff --exit-code)
 #   6. version guards   — tag == package.json version, and the odometer v0.[integer].[digit], monotone for npm
 #   7. npm provenance   — the published tarball carries a signed Sigstore attestation (--provenance, id-token)
-# Dimensions 1–5 are `npm run audit` (also the local prepublishOnly gate); 6–7 are added here for the deploy.
+# Dimensions 1–5 are `npm run gate-all` (also the local prepublishOnly gate — same scripts.audit chain,
+# concurrent checks); 6–7 are added here for the deploy.
 
 on:
   push:

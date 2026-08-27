@@ -45,8 +45,10 @@ test('the release gate re-proves from the KERNEL — it never accepts the receip
   // and the manifest must not regress to a form only one shell can read
   assert.doesNotMatch(audit, /[A-Z_]+=\S+\s+npm run/,
     'no link may carry a POSIX env prefix — npm gives the string to whatever shell it picked, and cmd.exe cannot read one')
-  // prepublishOnly IS the publish gate, so the forcing must be on the chain that actually runs before publishing
-  assert.match(pkg.scripts.prepublishOnly ?? '', /audit/, 'the audit must be what prepublish runs')
+  // prepublishOnly IS the publish gate — gate-all runs the SAME scripts.audit chain at hexbit speed
+  assert.match(pkg.scripts.prepublishOnly ?? '', /gate-all/, 'prepublish runs gate-all (full audit, concurrent)')
+  assert.match(pkg.scripts['gate-all'] ?? '', /gate-all\.js/, 'gate-all is the concurrent runner over scripts.audit')
+  assert.match(pkg.scripts.audit ?? '', /prove-all/, 'scripts.audit remains the chain gate-all plans')
 })
 
 test('the cache is a map a human can commit — which is exactly why the release cannot lean on it', () => {

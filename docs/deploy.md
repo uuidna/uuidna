@@ -37,15 +37,16 @@ domain to a `[contract-uuid].uuidna.org` subdomain. The domain *is* the contract
 
 ## The gate before the publish
 
-The npm package ships only behind the [seven-dimension audit](/tests): `npm run audit` (build · Lean re-verified
-across every wing · the ten-dimension fusion census · MCP contract · provenance · citations · sorry-free ·
-tests · determinism) — and, in CI, the version guards and npm's signed provenance attestation. A failing audit
-fails the publish, never production. A fresh checkout has no `dist/`; **audit compiles first**, so a tag gate
-cannot fail `MODULE_NOT_FOUND` on `one-writer`. Cut a version with `npm run release-cut` (dry) or
-`npm run release-cut -- --push` (annotated tag → `release.yml`). Live edge delivery is `npm run ship`.
+The npm package ships only behind the [seven-dimension audit](/tests): `npm run gate-all` (same chain as
+`scripts.audit`, concurrent checks · Lean re-verified across every wing · the ten-dimension fusion census · MCP
+contract · provenance · citations · sorry-free · tests · determinism) — and, in CI, the version guards and npm's
+signed provenance attestation. A failing gate fails the publish, never production. A fresh checkout has no `dist/`;
+**gate-all compiles first**, so a tag gate cannot fail `MODULE_NOT_FOUND` on `one-writer`. Cut a version with
+`npm run release-cut` (dry) or `npm run release-cut -- --push` (annotated tag → `release.yml`). Live edge delivery
+is `npm run ship`.
 
 ```bash
-npm run audit       # the whole release gate
+npm run gate-all    # the whole release gate (hexbit speed — full coverage)
 npm run release-cut -- --push   # spin/account/next verify + annotated tag (derive via reconcile)
 npm run ship        # contribute-first · wrangler · live proof
 ```
@@ -70,7 +71,7 @@ Whatever is deployed, you can recompute it:
 
 ```bash
 npm run lean        # re-verify every theorem `by decide`, sorry-free
-npm run audit       # the whole release gate
+npm run gate-all    # the whole release gate (hexbit speed — full coverage)
 ```
 
 Same source in, same receipts out — what a deployment serves is [the uuidna cluster](/publications/uuidna) and the

@@ -136,8 +136,8 @@ jobs:
       # spent a version on a tag whose audit then failed; the calendar tags AFTER the complete audit passes,
       # so every tick it mints is already certified (publish.yml re-runs the same audit as prepublishOnly —
       # the gate is cheap to run twice and a burned slot is forever).
-      - name: CERTIFY before the tick — the complete audit, or no tag
-        run: npm run audit
+      - name: CERTIFY before the tick — the complete audit at hexbit speed, or no tag
+        run: npm run gate-all
       # THE SILENCE LAW (the captain's, 2026-08-17): no release until ALL is lean green — nothing of uuidna's
       # own ships unproven. Lean green silences all: a theorem that computes needs no defense, and what is not
       # yet proven does not enter the release's voice at all. CERTIFY above already re-proved every theorem

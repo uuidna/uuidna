@@ -8,8 +8,10 @@
 # true through DELIVERY); until then the job reports the gap honestly and the tag still proves the tree. The
 # two-chain Zenodo minting (publish.yml) is untouched — this workflow adds the site's own delivery, nothing else.
 #
-# BUILD-FIRST (2026-08-27): `npm run audit` compiles dist before one-writer. A fresh checkout has no dist/;
+# BUILD-FIRST (2026-08-27): gate-all builds dist before the chain. A fresh checkout has no dist/;
 # the first v0.2.9 tag failed MODULE_NOT_FOUND for exactly that reason. Cut tags with `npm run release-cut -- --push`.
+# FULL AUDIT AT HEXBIT SPEED (2026-08-27): gate-all runs the scripts.audit chain with concurrent checks +
+# receipt O(1) where sealed (verify_beats_recompute_by_magnitudes) — never the serial && form.
 name: release
 on:
   push:
@@ -38,7 +40,9 @@ jobs:
           curl -sSf https://raw.githubusercontent.com/leanprover/elan/master/elan-init.sh | sh -s -- -y --default-toolchain none
           echo "$HOME/.elan/bin" >> "$GITHUB_PATH"
       - name: "the full gate — kernel re-proof, audit chain, the 1024-subset dimensional census"
-        run: UUIDNA_PROVE_ALL=1 npm run audit
+        # gate-all: SAME chain as scripts.audit, concurrent checks + receipt O(1) where sealed
+        # (verify_beats_recompute_by_magnitudes). prove-all inside the chain forces UUIDNA_PROVE_ALL=1.
+        run: npm run gate-all
       # NO RELEASE OVER AN OPEN LEAD (the captain's order, 2026-08-25: "next release only possible if all leads
       # verified. lead is anything not verified"). The audit above decides what a COMMIT must satisfy; this asks
       # the question only a release has to answer — is anything still unverified? A lead is settled by evidence
