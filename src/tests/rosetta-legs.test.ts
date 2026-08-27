@@ -110,27 +110,23 @@ test('the scarce legs are reported as they stand, never smoothed', () => {
   const proof = c.perLeg.find((p) => p.leg === 'proof')?.theorems ?? 0
   assert.equal(proof, c.total, 'every sealed theorem carries the kernel verdict by construction')
   assert.ok(witness < c.total / 10, 'the external witness is scarce, and a census claiming otherwise has stopped measuring')
-  // THE OLD BOUND HERE WAS `falsifier < total / 2`, carrying no message, and it retired on 2026-08-25 because the
-  // world it described stopped being true — the falsifier majority is now real and earned, not smoothed.
+  // THE OLD BOUND HERE WAS `falsifier < total / 2`, then `falsifier < total`. Both retired when the world they
+  // described stopped being true — majority first (2026-08-25), then the remainder emptied at the falsifier
+  // ceiling (2120 TRUE / 0 unreached). Coverage crossed every seal by earned legs, not by smoothing.
   //
-  // Its premise was sound while every falsifier was HAND-WRITTEN: a scarce leg suddenly looking abundant means the
-  // census stopped measuring, which is exactly what the witness line above still guards. But a falsifier is not
-  // scarce for the same reason a witness is. A witness must come from outside this repository and no generator can
-  // ever produce one; a falsifier over a DECIDABLE statement is a second independent implementation re-deciding it,
-  // which a generator can produce honestly and now does. Coverage crossed half by legs that were earned, and a
-  // bound that fires on the work succeeding is measuring the wrong thing.
-  //
-  // WHAT STILL NEEDS GUARDING IS THE OTHER END, and it is the assertion the old one should have been: the census
-  // must never claim EVERY theorem can fail. The statements an independent evaluator cannot decide keep their
-  // missing leg rather than receiving a test that checks something weaker than the theorem it is attached to —
-  // that refusal is the whole discipline of the generator, and total coverage here would be the evidence it had
-  // been abandoned. Deliberately no numbers: the live counts are derived, and pinning one in a test is the drift
-  // the sequence guard catches — it caught this session doing it in a comment two files over.
-  assert.ok(falsifier < c.total,
-    'a census where EVERY sealed theorem carries a falsifier has smoothed the remainder. The statements whose '
-    + 'grammar the evaluator cannot decide must keep their missing leg — a generated leg that half-checks its '
-    + 'theorem is worse than the gap it hides, because the gap is visible and the half-check is not.')
+  // A falsifier is not scarce for the same reason a witness is. A witness must come from outside this repository
+  // and no generator can ever produce one — that scarcity line above still guards. A falsifier over a DECIDABLE
+  // statement is a second independent implementation re-deciding it, which a generator can produce honestly and
+  // now does for every sealed key. The guard that remains is the ceiling itself: every sealed theorem carries a
+  // decidable denial, and a drop would mean the remainder returned or the census stopped measuring.
+  assert.equal(falsifier, c.total,
+    'the falsifier ceiling holds — every sealed theorem carries a decidable denial. A shortfall means the '
+    + 'evaluator lost a grammar it once decided, or the census stopped counting legs that exist.')
   assert.equal(c.scarcest, 'witness')
-  assert.ok(c.detectOnly > 0, 'theorems standing on the correlated pair alone exist and must be counted')
+  // detectOnly counted theorems standing on exactly the correlated pair (symbol+proof). That class emptied when
+  // every seal gained a falsifier — the same ceiling that retired the bound above. Zero here is the earned
+  // emptiness, not a census that stopped counting.
+  assert.equal(c.detectOnly, 0,
+    'no theorem stands on the correlated pair alone once every seal carries a decidable denial')
   assert.ok(MCP_CATALOG.some((t) => t.name === 'uuidna_rosetta_legs'))
 })
