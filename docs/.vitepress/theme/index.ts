@@ -4,6 +4,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
 import Terminal from './Terminal.vue'
+import CatalogueBrowser from './CatalogueBrowser.vue'
 import HexbitPlayer from './HexbitPlayer.vue'
 import AnthemSuperposition from './AnthemSuperposition.vue'
 import AnthemLive from './AnthemLive.vue'
@@ -48,6 +49,7 @@ export default {
     app.component('BookRoom', BookRoom)
     app.component('HexbitAnimator', HexbitAnimator)
     app.component('UuidnaTerminal', Terminal)
+    app.component('CatalogueBrowser', CatalogueBrowser)
     app.component('FoldAnimation', FoldAnimation)
     app.component('HeroAnimation', HeroAnimation)
     app.component('GridLattice', GridLattice)

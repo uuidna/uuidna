@@ -56,7 +56,7 @@ distro membership. Provenance meters still recompute below so every published ro
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,669 community packages ≪ 2^128.
-- **Time:** community compile sweep **41,378,666 ns** (~**1,825 ns**/package); man-page corpus **9,306,416 ns** (~**1,956 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep **40,337,709 ns** (~**1,779 ns**/package); man-page corpus **8,834,333 ns** (~**1,857 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
@@ -70,6 +70,14 @@ app it documents, and requires **both** to compile to 32 hexbit states — man p
 never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
 Monitor receipt `8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
+
+## Catalogue — every published package, searchable
+
+The default install is **25 paths**; Alpine publishes **28,630** packages on the pinned branch. Browse the full census here (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
+
+<ClientOnly>
+  <CatalogueBrowser />
+</ClientOnly>
 
 ## Ported lowest level first — firmware and up
 

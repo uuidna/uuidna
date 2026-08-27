@@ -461,7 +461,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'lean/browser-apps-usable.json',
   // npm/curl apps ported as Alpine overlay (omp/oh-my-pi) — merged at catalogue read time
   'mirror/alpine-overlay.tsv',
-  'docs/public/alpine-catalogue.tsv',
+  // docs/public/alpine-catalogue.tsv is a BUILD ARTIFACT (gitignored) — served from dist via copy-lean-to-site;
+  // never a drain path (stageDerived would fail on git add -- of an ignored file).
   'docs/store.md',
   // the model comparison page — rewritten by gen-models from the committed feed mirror every reconcile
   'docs/models.md',
@@ -542,7 +543,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-symphony': ['docs/symphony.md'],
   'gen-utterances': ['docs/utterances.md'],
   'gen-os': ['docs/os.md', 'lean/alpine-hexbit-monitor.json', 'docs/public/alpine-hexbit-monitor.jsonld', 'lean/mcp-alpine-man.json'],
-  'gen-alpine-overlay': ['mirror/alpine-overlay.tsv', 'docs/public/alpine-catalogue.tsv'],
+  'gen-alpine-overlay': ['mirror/alpine-overlay.tsv'],   // docs/public/alpine-catalogue.tsv is gitignored build artifact
   'browser-apps-usable': ['lean/browser-apps-usable.json'],
   // the model comparison over all public live data — derived from the committed feed mirror by gen-models
   'gen-models': ['docs/models.md'],
@@ -575,7 +576,15 @@ export const DOCS_BUILD_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
 export function stageDerived(cwd: string = ROOT): { staged: number; leftForHumans: string[] } {
   // a pathspec with a glob is handed to git as-is — existsSync cannot answer for a pattern, and the set it
   // matches (one manifest per wing) grows with the ledger, so listing them by name would rot on the next wing.
-  const existing = DRAIN_PATHS.filter((p) => p.includes('*') || fsm().existsSync(pathm().join(cwd, p)))
+  // Skip gitignored paths: a build artifact on DRAIN_PATHS would make `git add` exit 1 and abort reconcile.
+  const existing = DRAIN_PATHS.filter((p) => {
+    if (p.includes('*')) return true
+    if (!fsm().existsSync(pathm().join(cwd, p))) return false
+    try {
+      cpm().execSync(`git check-ignore -q -- ${JSON.stringify(p)}`, { cwd, stdio: 'ignore' })
+      return false
+    } catch { return true }
+  })
   if (existing.length) cpm().execSync(`git add -- ${existing.map((p) => JSON.stringify(p)).join(' ')}`, { cwd })
   const staged = cpm().execSync('git diff --cached --name-only', { cwd, encoding: 'utf8' }).trim().split('\n').filter(Boolean).length
   const leftForHumans = cpm().execSync('git status --porcelain', { cwd, encoding: 'utf8' })

@@ -147,6 +147,14 @@ never the manpage bytes (${th('the_os_is_bootable_quantum')}).
 
 Monitor receipt \`${monitorReceipt}\` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
+## Catalogue — every published package, searchable
+
+The default install is **${port.count} paths**; Alpine publishes **${all.total.toLocaleString('en-US')}** packages on the pinned branch. Browse the full census here (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes (${th('the_os_is_bootable_quantum')}).
+
+<ClientOnly>
+  <CatalogueBrowser />
+</ClientOnly>
+
 ## Ported lowest level first — firmware and up
 
 The table is the **build order** (${th('the_port_rises_from_the_floor')}): every dependency is ported no later

@@ -17,6 +17,7 @@ import { startState, allLegal, nimSum, nimVerdict, mobilityOf } from './categori
 import { costOf, walletCensus, leverageOf, compoundAt } from './categories/trading/index.js'
 import { renderStates } from './hexbit-player.js'
 import { animateStates } from './hexbit-animator.js'
+import { browseCatalogue, inspectCataloguePackage } from './catalogue-browser.js'
 import { LEAN_LEDGER } from '../../theorems/generated.js'
 import { theorems } from '../../theorems/index.js'
 
@@ -45,6 +46,7 @@ export const BROWSER_SURFACES: readonly BrowserSurface[] = [
   { id: 'trading-floor', shelf: 'trading', route: '/trading', mount: 'TradingFloor', doc: 'trading' },
   { id: 'terminal', shelf: 'terminal', route: '/terminal', mount: 'UuidnaTerminal', doc: 'terminal' },
   { id: 'os-boot', shelf: 'os', route: '/os', mount: 'HexbitPlayer', doc: 'os' },
+  { id: 'catalogue-browser', shelf: 'os', route: '/os', mount: 'CatalogueBrowser', doc: 'os' },
 ]
 
 /** Man topics exercised through uuidnaExec — one sample per witness path (byVia), plus boot staples. */
@@ -137,6 +139,12 @@ const runCompute = (): ComputeCheck[] => {
   })
   push('kernel/player', () => { renderStates([1, 2, 4, 8, 7, 5]) })
   push('kernel/animator', () => { animateStates([1, 2, 4, 8, 7, 5]) })
+  push('os/catalogue-browser', () => {
+    const r = browseCatalogue('musl')
+    if (!r.present || r.hits.length === 0) throw new Error(r.why ?? 'no musl hits')
+    const i = inspectCataloguePackage('musl')
+    if (!i.ok) throw new Error(i.detail)
+  })
   return out
 }
 

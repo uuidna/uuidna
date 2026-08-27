@@ -150,10 +150,10 @@
   "pct": 99
  },
  "time": {
-  "communityCompileNs": 41378666,
-  "communityNsPer": 1825,
-  "manCompileNs": 9306416,
-  "manNsPer": 1956
+  "communityCompileNs": 40337709,
+  "communityNsPer": 1779,
+  "manCompileNs": 8834333,
+  "manNsPer": 1857
  },
  "scale": {
   "usableAddressesPow2": 128,
