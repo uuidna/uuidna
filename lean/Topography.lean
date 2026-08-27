@@ -78,8 +78,8 @@ theorem wgs84_polar_shorter : 6378137 * (298257223563 - 1000000000) / 2982572235
 /-- THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria
     when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 ×
     72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and
-    decidable; the resulting circumference is NOT sealed here, because it depends on the length of his stadion,
-    which is genuinely uncertain — the honest half is the fifty. -/
+    decidable. SCOPE: the resulting circumference is NOT sealed here, because it depends on the length of his
+    stadion, which is genuinely uncertain — the honest half is the fifty. -/
 theorem eratosthenes_fiftieth_circle : 3600 = 50 * 72 := by decide
 
 /-- THE HORIZON IS BOUNDED, AND THAT IS THE WHOLE POINT. On a sphere of radius R the distance to the horizon

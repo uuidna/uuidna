@@ -875,6 +875,53 @@ export function negationGaps(): Gap[] {
   return gaps
 }
 
+// ── lean-negation: A NEGATION IN THE COMMENT ABOVE A LEAN LINE MUST BE DISCHARGED BY THE LINE BELOW IT.
+// Object-level negations ("adds no digit", "is NOT among") owe a ≠ / ¬ / != in the statement; meta-level
+// boundary statements must be PREFIXED `SCOPE:` and are exempted, because no Lean line can prove that nothing
+// further is claimed (the split VectorEquilibrium.lean's emitter already documents).
+//
+// HONEST WALL (same as treason.ts against fabricated-citation prose): lexical matching cannot tell a CLAIM from a
+// NAME ('non-covering' is a name; 'rather than' is contrast). Measured on first run: hundreds of false positives
+// across the ledger. This finder ships as CLI / state report (`one-receipt lean-negation`) so the law is
+// enforceable by hand and the SCOPE: exempt path exists — it is NOT a blocking gate, because gating on a
+// claim-vs-name heuristic would refuse proofs the kernel already sealed. Run it; do not promote it without a
+// witness that separates claims from names.
+export function leanNegationGaps(): Gap[] {
+  const gaps: Gap[] = []
+  // narrow markers — deliberate; slogan/name phrases (solves none as Clay slogan) stay out
+  const OBJECT_NEG = /\b(?:adds?\s+no\s+\w+|is\s+NOT\s+among\b|are\s+NOT\s+among\b|NOT\s+sealed\s+here\b|nothing\s+further\s+is\s+(?:asserted|claimed)\b)/i
+  // discharge: explicit inequality, OR a universal closure walk (adds-no discharged by .all/.contains)
+  const DISCHARGE = /≠|¬|!=|\.all\s*\(|\.contains\b/
+  const leanDir = join(ROOT, 'lean')
+  if (!existsSync(leanDir)) return gaps
+  for (const f of readdirSync(leanDir).filter((n) => n.endsWith('.lean'))) {
+    const src = fileText(join(leanDir, f))
+    for (const m of src.matchAll(/\/--([\s\S]*?)-\/\s*\ntheorem\s+([A-Za-z0-9_]+)\s*:\s*([\s\S]*?)\s*:=\s*by\b/g)) {
+      const comment = m[1] ?? ''
+      const key = m[2] ?? ''
+      const stmt = m[3] ?? ''
+      const clauses = comment
+        .replace(/\s+/g, ' ')
+        .split(/(?<=[.!?])\s+|(?=\b(?:HONEST\s+)?SCOPE:)/)
+        .map((c) => c.trim())
+        .filter(Boolean)
+      // SCOPE: marks the rest of the doc-comment as boundary — a meta clause cannot be discharged mid-comment
+      let scoped = false
+      for (const clause of clauses) {
+        if (/^(?:HONEST\s+)?SCOPE:/i.test(clause)) { scoped = true; continue }
+        if (scoped) continue
+        if (!OBJECT_NEG.test(clause)) continue
+        if (DISCHARGE.test(stmt)) continue
+        gaps.push({
+          what: `lean/${f}: theorem ${key} — object-level negation in the comment above is not discharged by ≠/¬/!= in the line ("${clause.slice(0, 80)}${clause.length > 80 ? '…' : ''}")`,
+          fix: `either strengthen the statement so it carries the negation (roman_reads_subtractively's 9 ≠ 11 is the model), or reclassify the sentence as a boundary with the prefix SCOPE: — a disclaimer may not masquerade as a proof`,
+        })
+      }
+    }
+  }
+  return gaps
+}
+
 // ── drain-coverage: THE DRAIN STAGES WHAT RECONCILE REGENERATES. The drain stages DRAIN_PATHS and nothing else —
 // the right law, since sweeping `git add -A` on a shared tree steals a sibling's edit into a signed commit. But the
 // two lists then have to AGREE: a generator in the reconcile chain whose output is not a drain path is rewritten on
@@ -1914,6 +1961,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'state') report('one-receipt state', stateGaps(), 'the folded question has one copy — no workflow re-implements what npm run state already answers.')
   else if (cmd === 'folders') report('one-receipt folders', foldersGaps(), 'every module folder is one word holding index faces only — one concept, one name.')
   else if (cmd === 'negation') report('one-receipt negation', negationGaps(), 'no lean lead is lost in prose — every stated boundary names the proof that fixes it, even when negating.')
+  else if (cmd === 'lean-negation') report('one-receipt lean-negation', leanNegationGaps(), 'every object-level negation above a Lean line is discharged beneath, or declared SCOPE:')
   else if (cmd === 'precede') report('one-receipt precede', precedeGaps(), 'no derived file is staged ahead of the source it derives from — every commit can be recomputed from what it publishes.')
   else if (cmd === 'drain') report('one-receipt drain', drainGaps(), 'the drain stages everything reconcile regenerates — every generator declares its output, and every output is a drain path.')
   else if (cmd === 're') reGaps().then((g) => report('one-receipt re', g, 'the two-layer posture holds: the transport reverses by design (a bijection — the uuid IS the message, bits placed and picked back, no search), the sealed layer only by paying the bounded KDF per guess with Grover halving the exponent at most. Decidable posture green; timings stay at the measurement boundary.'))

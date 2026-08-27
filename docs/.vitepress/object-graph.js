@@ -199,6 +199,9 @@ export const OBJECT_KIND_ROOT = Object.freeze({
   theorem: { text: 'Theorems', link: '/theorems' },
   publication: { text: 'Publications', link: '/publications' },
   axiom: { text: 'Axioms', link: '/tests' },
+  chunk: { text: 'Chunks', link: '/theorems' },
+  sequence: { text: 'Sequence', link: '/articles/sequence' },
+  ve: { text: 'Vector equilibrium', link: '/articles/vector-equilibrium' },
 })
 
 /** Nested static-doc section roots (path segment → crumb). */

@@ -15,7 +15,7 @@ theorem ve_twelve_vertices : VE.length = 12 := by decide
 
 /-- Every radial vector from the centre to a vertex has squared length exactly 2 — an integer. All twelve radii
     are equal, and the equality is between the SQUARES, which is what makes it decidable. -/
-theorem radial_squared_two : VE.all (fun v => n2 v == 2) := by decide
+theorem radial_squares_to_two : VE.all (fun v => n2 v == 2) := by decide
 
 /-- Each vertex has exactly FOUR neighbours at squared distance 2 — the circumferential edges. Twelve vertices
     with four each, counted twice, is 24 edges. -/

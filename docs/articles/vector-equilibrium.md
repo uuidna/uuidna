@@ -19,7 +19,7 @@ VE.length = 12
 ```
 
 ### Every radial vector from the centre to a vertex has squared length exactly 2 — an integer. All twelve radii are equal, and the equality is between the SQUARES, which is what makes it decidable.
-The ledger holds this as [radial_squared_two](/theorem/radial_squared_two) — proven `by decide`, sorry-free:
+The ledger holds this as [radial_squares_to_two](/theorem/radial_squares_to_two) — proven `by decide`, sorry-free:
 
 ```lean
 VE.all (fun v => n2 v == 2)

@@ -8,6 +8,8 @@
 // Navigation chrome = stock VPDocFooter (prev/next) + ObjectBreadcrumbs (doc-before) + ObjectCrosslinks.
 // Do NOT regenerate cross-link essays or capacity/OS QA cards in content — no hero YAML bag leak.
 import { theorems, PRINCIPLES, publications, axiomWitness } from '../../dist/index.js'
+import { handleOf } from '../../dist/handle.js'
+import { buildChunks } from '../../dist/scripts/gen-handle-chunks.js'
 import { mirrorRows, legsFor } from '../../dist/rosetta-legs.js'
 import { readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
@@ -178,7 +180,113 @@ ${lead}${body}
   }
 }
 
-/** allObjectPaths() → every object for the catch-all [kind]/[id] route. */
+/** composeChunk(c) → ObjectPage for one statement chunk (algebra handle, not a theorem key). */
+export function composeChunk(c) {
+  const handle = c.handle
+  const handleDoor = 'https://uuidna.com/' + handle
+  const title = `chunk ${handle}`
+  const abstract = c.statement
+  return {
+    params: {
+      kind: 'chunk',
+      id: handle,
+      handle,
+      address: c.address,
+      statement: c.statement,
+      tactic: c.tactic,
+      keys: c.keys,
+      files: c.files,
+      objectKind: 'chunk',
+      title,
+      heroTitle: title,
+      abstract,
+      handleUrl: handleDoor,
+      depositReferrer: handleDoor,
+      locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
+      breadcrumbs: objectBreadcrumbs({ objectKind: 'chunk', id: handle, handle }),
+    },
+    content: `# ${mdSafe(title)}
+
+> Distinct proven fact — content-addressed; ${c.keys.length} key(s) cite it.
+
+## Statement
+
+\`\`\`lean
+${c.statement}
+\`\`\`
+
+| field | value |
+| --- | --- |
+| content-address | \`${handle}\` — DOI-class door \`https://uuidna.com/${handle}\` |
+| keys | ${c.keys.map((k) => `\`${k}\``).join(', ')} |
+| files | ${c.files.map((f) => `\`${f}\``).join(', ')} |
+| tactic | \`by ${c.tactic}\` |
+
+Cite handle \`https://uuidna.com/${handle}\`.
+`,
+  }
+}
+
+/** composeSequence(t) / composeVe(t) → ObjectPage keyed by theorem handle for Sequence / VE wings. */
+function composeWingHandle(t, kind, kindLabel) {
+  const handle = handleOf(t.address)
+  const handleDoor = 'https://uuidna.com/' + handle
+  const heroTitle = heroTitleOf(t)
+  return {
+    params: {
+      kind,
+      id: handle,
+      key: t.key,
+      name: t.name,
+      principle: t.principle,
+      skill: t.skill,
+      statement: t.statement,
+      tactic: t.tactic,
+      address: t.address,
+      objectKind: kind,
+      title: heroTitle,
+      heroTitle,
+      abstract: t.statement,
+      handle,
+      handleUrl: handleDoor,
+      depositReferrer: handleDoor,
+      locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
+      breadcrumbs: objectBreadcrumbs({ objectKind: kind, id: handle, handle }),
+    },
+    content: `# ${mdSafe(heroTitle)}
+
+> ${mdSafe(t.name)}
+
+**${kindLabel}** — proven in Lean (\`by ${t.tactic}\`, sorry-free) · theorem key \`${t.key}\` · skill **${t.skill}**
+
+## Statement
+
+\`\`\`lean
+${t.statement}
+\`\`\`
+
+| field | value |
+| --- | --- |
+| content-address | \`${handle}\` — DOI-class door \`https://uuidna.com/${handle}\` |
+| theorem | [\`${t.key}\`](/theorem/${t.key}) |
+| principle | ${mdSafe(t.principle)} |
+| verdict | **VERIFIED** — \`by ${t.tactic}\` sorry-free |
+
+Cite handle \`https://uuidna.com/${handle}\`.
+`,
+  }
+}
+
+export function composeSequence(t) {
+  return composeWingHandle(t, 'sequence', 'SEQUENCE')
+}
+
+export function composeVe(t) {
+  return composeWingHandle(t, 've', 'VECTOR EQUILIBRIUM')
+}
+
+/** allObjectPaths() → every object for the catch-all [kind]/[id] route.
+ *  Theorems + publications + sequence / chunk / VE handles — one ObjectPage, new kinds. */
 export function allObjectPaths() {
   const pubs = publications()
   const refused = pubs.filter((p) => !p.publishable)
@@ -186,9 +294,15 @@ export function allObjectPaths() {
     const why = refused.map((p) => `  • ${p.slug}: ${p.findings.map((f) => `[${f.token}] "${f.unit}"`).join('; ')}`).join('\n')
     throw new Error(`publications: ${refused.length} note(s) REFUSED —\n${why}`)
   }
+  const chunks = buildChunks()
+  const sequence = ALL.filter((t) => t.file === 'Sequence.lean')
+  const ve = ALL.filter((t) => t.file === 'VectorEquilibrium.lean')
   return [
     ...ALL.map(composeTheorem),
     ...pubs.map(composePublication),
+    ...chunks.map(composeChunk),
+    ...sequence.map(composeSequence),
+    ...ve.map(composeVe),
   ]
 }
 

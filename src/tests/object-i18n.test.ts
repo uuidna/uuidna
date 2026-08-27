@@ -60,6 +60,28 @@ test('catch-all: sole ObjectPage layout + compose-object; no per-type path templ
   assert.match(compose, /allObjectPaths/)
   assert.match(compose, /composeTheorem/)
   assert.match(compose, /composePublication/)
+  assert.match(compose, /composeChunk/)
+  assert.match(compose, /composeSequence/)
+  assert.match(compose, /composeVe/)
+})
+
+test('allObjectPaths emits theorem, publication, chunk, sequence, and ve kinds', async () => {
+  const { pathToFileURL } = await import('node:url')
+  const { allObjectPaths } = await import(
+    pathToFileURL(join(ROOT, 'docs/.vitepress/compose-object.js')).href
+  ) as {
+    allObjectPaths: () => { params: { kind: string; id: string; objectKind?: string } }[]
+  }
+  const paths = allObjectPaths()
+  const kinds = new Set(paths.map((p) => p.params.kind))
+  for (const k of ['theorem', 'publications', 'chunk', 'sequence', 've'])
+    assert.ok(kinds.has(k), `allObjectPaths must emit kind ${k}`)
+  const chunk = paths.find((p) => p.params.kind === 'chunk')
+  assert.ok(chunk && /^[0-9a-f]{8}$/.test(chunk.params.id), 'chunk id is an 8-hex handle')
+  const seq = paths.find((p) => p.params.kind === 'sequence')
+  assert.ok(seq && seq.params.objectKind === 'sequence')
+  const ve = paths.find((p) => p.params.kind === 've')
+  assert.ok(ve && ve.params.objectKind === 've')
 })
 
 test('compose-object: hero fields in params, never YAML-in-content (no bag leak)', async () => {

@@ -17,7 +17,7 @@ import { ROOT } from './api.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
 
-interface Lead { lead: string; status?: string; owes?: string; boundary?: string; measurement?: string }
+interface Lead { lead: string; status?: string; owes?: string; boundary?: string; measurement?: string; killed_by?: string }
 const leads = JSON.parse(readFileSync(join(ROOT, 'lean', 'leads.json'), 'utf8')) as {
   why?: string; held?: Lead[]; refuted?: Lead[]; refused?: Lead[]
 }
@@ -26,7 +26,9 @@ const ASSIST = 'https://stackoverflow.com/ai-assist'
 const held = leads.held ?? [], refuted = leads.refuted ?? [], refused = leads.refused ?? []
 const ask = (text: string): string => `${ASSIST}?q=${encodeURIComponent(text.slice(0, 300))}`
 const line = (l: Lead): string =>
-  `- **\`${handleOf(toUuid(l.lead))}\`** ${l.lead}${l.owes ? `\n  <br><small>owes: ${l.owes}</small>` : ''}` +
+  `- **\`${handleOf(toUuid(l.lead))}\`** ${l.lead}` +
+  (l.owes ? `\n  <br><small>owes: ${l.owes}</small>` : '') +
+  (l.killed_by ? `\n  <br><small>killed_by: ${l.killed_by}</small>` : '') +
   `\n  <br><small><a href="${ask(l.lead)}" target="_blank" rel="noopener">take this one further \u2192</a></small>`
 
 const page = `---

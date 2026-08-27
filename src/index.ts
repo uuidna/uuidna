@@ -309,7 +309,7 @@ export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, aud
 // video — a hand-driven session folded into the surface: oEmbed metadata fingerprint + caption detail audit
 export { auditVideo, videoIdOf, type VideoAudit } from './video.js'
 // the 432 grid — every projected ray × every ledger wing, named, addressed, folded to one root
-export { PROJECTED, GRID_SEATS, wings, wingSlug, wingRoot, seatName, grid, gridSeat, gridRoot, gridGaps, gridReport, PAIR_SEATS, pairName, pairs, pairSeat, transpose, pairsRoot, pairsGaps, pairsReport, type Seat, type GridGap, type Pair } from './grid.js'
+export { PROJECTED, gridSeats, gridSeats as GRID_SEATS, wings, wingSlug, wingRoot, seatName, grid, gridSeat, gridRoot, gridGaps, gridReport, PAIR_SEATS, pairName, pairs, pairSeat, transpose, pairsRoot, pairsGaps, pairsReport, type Seat, type GridGap, type Pair } from './grid.js'
 export { gcdInt, coprime, starPolygon, fibonacciCycle, rotate, crt } from './cycles.js'
 export { recomputableCost, THERMODYNAMICS, type CostReport } from './cost.js'
 export { securityAudit, KNOWN_DEV_DEPS, DEFENCE_THEOREMS, type SecurityCheck, type SecurityAuditReport } from './security-audit.js'

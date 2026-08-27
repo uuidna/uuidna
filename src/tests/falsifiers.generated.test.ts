@@ -2113,7 +2113,7 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["trinities_cover_address", "((3:Nat)^81 ≥ 2^128) ∧ ((3:Nat)^80 < 2^128)"],
   ["eightyone_squares_nine", "(81 = 9^2) ∧ (81 = 3^4) ∧ (9 = 3^2)"],
   ["ve_twelve_vertices", "VE.length = 12"],
-  ["radial_squared_two", "VE.all (fun v => n2 v == 2)"],
+  ["radial_squares_to_two", "VE.all (fun v => n2 v == 2)"],
   ["ve_four_neighbours", "VE.all (fun v => (VE.filter (fun w => dd v w == 2)).length == 4)"],
   ["radial_equals_edge", "VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4)"],
   ["ve_handshake_crosses", "(12 * 4 = 24 * 2) ∧ (12 + 14 = 24 + 2) ∧ (VE.length * 4 = 24 * 2)"],

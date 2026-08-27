@@ -57,10 +57,10 @@ const FACTS = [
     js: () => VE.length === 12,
     lean: 'theorem ve_twelve_vertices : VE.length = 12 := by decide' },
 
-  { key: 'radial_squared_two',
+  { key: 'radial_squares_to_two',
     why: 'Every radial vector from the centre to a vertex has squared length exactly 2 — an integer. All twelve radii are equal, and the equality is between the SQUARES, which is what makes it decidable.',
     js: () => VE.every((v) => norm2(v) === 2),
-    lean: 'theorem radial_squared_two : VE.all (fun v => n2 v == 2) := by decide' },
+    lean: 'theorem radial_squares_to_two : VE.all (fun v => n2 v == 2) := by decide' },
 
   { key: 've_four_neighbours',
     why: 'Each vertex has exactly FOUR neighbours at squared distance 2 — the circumferential edges. Twelve vertices with four each, counted twice, is 24 edges.',

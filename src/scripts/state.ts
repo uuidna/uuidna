@@ -15,7 +15,7 @@ import { theorems, statementCensus, editorialState, publicationStatus, pairsGaps
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, foldOf } from './api.js'
 import { contextGaps } from './context-budget.js'   // the per-request toll of being connected — reported here, blocked in the guard
-import { legalGaps, lonelyGaps, incompleteGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, drainGaps, precedeGaps, frozenGaps, foldersGaps, blocksGaps, countsGaps, expectedGaps, censusGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, pagesGaps, commentsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, nameGaps, deadkeyGaps, staleGaps, constantGaps} from './one-receipt.js'
+import { legalGaps, lonelyGaps, incompleteGaps, proseGaps, dryGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, vacuousGaps, negationGaps, leanNegationGaps, drainGaps, precedeGaps, frozenGaps, foldersGaps, blocksGaps, countsGaps, expectedGaps, censusGaps, linesGaps, scriptsGaps, mirrorGaps, lanesGaps, pagesGaps, commentsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, nameGaps, deadkeyGaps, staleGaps, constantGaps} from './one-receipt.js'
 
 const git = (cmd: string): string => { try { return execSync(`git ${cmd}`, { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim() } catch { return '' } }
 
@@ -31,7 +31,7 @@ const finders: [string, number][] = [
   ['legal', legalGaps().gaps.length], ['prose', proseGaps().gaps.length],
   ['dry', dryGaps().gaps.length], ['coherent', (await coherentGaps()).length], ['absence', absenceGaps().length],
   ['pipes', pipeGaps().length], ['actions', actionsGaps().length], ['vacuous', vacuousGaps().length], ['citations', citationsGaps().length], ['literal', literalGaps().length], ['binary', binaryGaps().length], ['orphan', orphanGaps().length], ['unit', unitGaps().length], ['hexbit', hexbitGaps().length], ['incomplete', incompleteGaps().length], ['markup', markupGaps().length], ['name', nameGaps().length], ['deadkey', deadkeyGaps().length], ['constant', constantGaps().length],
-  ['negation', negationGaps().length], ['drain', drainGaps().length], ['precede', precedeGaps().length], ['frozen', frozenGaps().length], ['stale', staleGaps().length],
+  ['negation', negationGaps().length], ['lean-negation', leanNegationGaps().length], ['drain', drainGaps().length], ['precede', precedeGaps().length], ['frozen', frozenGaps().length], ['stale', staleGaps().length],
   ['folders', foldersGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['mirror', mirrorGaps().length], ['lanes', lanesGaps().length], ['pages', pagesGaps().length], ['comments', commentsGaps().length],
   ['counts', countsGaps().length], ['expected', expectedGaps().length], ['census', censusGaps().length], ['lines', linesGaps().length],
   ['pairs', pairsGaps().length],

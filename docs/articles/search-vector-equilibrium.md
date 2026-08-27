@@ -36,7 +36,7 @@ the hard gate of the corroboration law.
 The sealed backing this trial held the findings beside:
 
 - [ve_twelve_vertices](/theorem/ve_twelve_vertices) — `VE.length = 12`
-- [radial_squared_two](/theorem/radial_squared_two) — `VE.all (fun v => n2 v == 2)`
+- [radial_squares_to_two](/theorem/radial_squares_to_two) — `VE.all (fun v => n2 v == 2)`
 - [ve_four_neighbours](/theorem/ve_four_neighbours) — `VE.all (fun v => (VE.filter (fun w => dd v w == 2)).length == 4)`
 - [radial_equals_edge](/theorem/radial_equals_edge) — `VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4)`
 - [ve_twentyfour_edges](/theorem/ve_twentyfour_edges) — `12 * 4 / 2 = 24`

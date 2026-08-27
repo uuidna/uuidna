@@ -1724,7 +1724,7 @@ involute_centre 26
 billing_arith 26
 #VectorEquilibrium.lean
 ve_twelve_vertices 27
-radial_squared_two 27
+radial_squares_to_two 27
 ve_four_neighbours 27
 radial_equals_edge 27
 ve_handshake_crosses 27

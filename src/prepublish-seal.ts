@@ -32,7 +32,7 @@ export const VECTOR_EQUILIBRIUM_INVOLUTIONS: readonly string[] = [
   'missing_pair_involution',      // the gap itself has the involution's shape
   'dz_two_fixedpoints',
   've_twelve_vertices',
-  'radial_squared_two',
+  'radial_squares_to_two',
   've_four_neighbours',
   've_handshake_crosses',
   've_twentyfour_edges',

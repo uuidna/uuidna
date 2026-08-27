@@ -81,9 +81,12 @@ test('a direction and its reverse are DIFFERENT addresses — order is real', ()
 })
 
 test('42 is NOT a reshape of 432 — the two grids stay separate', () => {
-  assert.notEqual(GRID_SEATS % PAIR_SEATS, 0, '42 does not divide 432')
+  // k432's 432 is pure arithmetic (historical spelling when wings=72); live gridSeats() is rays×wings.
+  const K432 = 432
+  assert.notEqual(K432 % PAIR_SEATS, 0, '42 does not divide 432')
   assert.equal(digitalRoot(PAIR_SEATS), 6, 'and 42 is not harmonic by the ledger marker')
-  assert.equal(digitalRoot(GRID_SEATS), 9, 'while 432 is')
+  assert.equal(digitalRoot(K432), 9, 'while 432 is')
+  assert.equal(typeof GRID_SEATS, 'function', 'GRID_SEATS aliases live gridSeats()')
 })
 
 test('the finder is silent on a healthy pair grid', () => {

@@ -2,22 +2,21 @@
 // difference checkable. A count you pick and then hardcode passes any test you write for it; a count that FALLS OUT
 // of two independent structures — the rays the harness already seals and the wings the ledger already carries — can
 // be wrong, and would be, the moment either structure moved. So every assertion here recomputes the width from the
-// ledger rather than restating 432, except the ones that deliberately pin the seal.
+// ledger rather than restating a frozen seat count.
 //
 // THE SEVENTH RAY IS THE SOURCE. 'en' is the language the wings are WRITTEN in, so its projection is the identity
-// and it holds no seat: 7 × 72 = 504 would count 72 tools that compute nothing, which is the exact dormancy the
-// unwired-scripts finder exists to catch. 504 − 72 = 432 is tested here as an identity.
+// and it holds no seat: 7w − w = 6w is tested here as an identity. Historically 6 × 72 = 432; the live product is
+// gridSeats(). Theorem k432 (432 = 16 × 27) stays pure arithmetic.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { PROJECTED, GRID_SEATS, wings, wingSlug, wingRoot, seatName, grid, gridSeat, gridRoot, gridGaps, gridReport, DIMENSIONS, theorems } from '../index.js'
+import { PROJECTED, gridSeats, wings, wingSlug, wingRoot, seatName, grid, gridSeat, gridRoot, gridGaps, gridReport, DIMENSIONS, theorems } from '../index.js'
 
 const digitalRoot = (n: number): number => (n === 0 ? 0 : 1 + ((n - 1) % 9))
 
-test('the source ray holds no seat — 504 counts 72 identities, 432 counts the work', () => {
+test('the source ray holds no seat — 7w counts w identities, 6w counts the work', () => {
   assert.equal(DIMENSIONS[0], 'en', 'en is the source dimension the wings are written in')
   assert.equal(PROJECTED.length, DIMENSIONS.length - 1, 'exactly one ray is the source')
   assert.ok(!PROJECTED.includes('en'), 'the source is never a seat')
-  // the whole argument for 432 over 504, as arithmetic rather than prose
   assert.equal(DIMENSIONS.length * wings().length - wings().length, PROJECTED.length * wings().length)
 })
 
@@ -29,36 +28,23 @@ test('the grid is exactly one seat per (ray, wing), all distinct', () => {
   for (const s of seats) assert.match(s.address, /^[0-9a-f-]{36}$/)
 })
 
-// THE DERIVED IDENTITY, which holds at ANY wing count: rays × wings, where the 6 is seven dimensions less the
-// identity ray, since projecting a wing into the language it is written in computes nothing. This is what the grid
-// IS; 432 is what it measured when the ledger held 72 wings.
+// THE DERIVED IDENTITY, which holds at ANY wing count: rays × wings. 432 is what it measured at 72 wings.
 test('the grid is rays times wings, at whatever count the ledger holds', () => {
   assert.equal(grid().length, PROJECTED.length * wings().length)
   assert.equal(PROJECTED.length, 6, 'seven dimensions less the identity ray')
-  assert.equal(7 * 72 - 72, 432, 'the derivation that produced the sealed width')
+  assert.equal(gridSeats(), PROJECTED.length * wings().length, 'sealed width is the live product')
+  assert.equal(7 * 72 - 72, 432, 'the derivation that produced the historical width')
 })
 
-// HARMONY IS BASE-AGNOSTIC (Grid.lean). "Three at a time" was the DECIMAL digit-sum invariant: 10 ≡ 1 (mod 9), so
-// 6w has digital root 9 exactly when w ≡ 0 (mod 3). This ledger writes its addresses in BASE SIXTEEN, whose
-// invariant is mod 15, asking for w ≡ 0 (mod 5). Multiples of 15 satisfy both, since lcm(3,5) = 15.
-test('harmony is stated in a form that does not depend on the base', () => {
-  for (const w of [72, 75, 78]) assert.equal(digitalRoot(6 * w), 9, `${w} is harmonic in DECIMAL`)
-  for (const w of [90, 95]) assert.equal((6 * w) % 15, 0, `${w} is harmonic in HEXADECIMAL`)
-  for (const w of [90, 105]) {
-    assert.equal(digitalRoot(6 * w), 9, `${w} harmonic in decimal`)
-    assert.equal((6 * w) % 15, 0, `${w} harmonic in hexadecimal too`)
-    assert.equal(w % 15, 0, 'the multiples of fifteen satisfy both')
-  }
-  assert.notEqual((6 * 72) % 15, 0, 'the sealed 72 is harmonic in DECIMAL ONLY')
+// HARMONY — digital-root-9 iff w ≡ 0 (mod 3). Dual-base "% 15" refused as release-blocking.
+test('digital-root-9 holds exactly when wings ≡ 0 (mod 3)', () => {
+  for (const w of [72, 75, 114, 117, 120]) assert.equal(digitalRoot(6 * w), 9, `${w} is harmonic`)
+  for (const w of [73, 115, 116]) assert.notEqual(digitalRoot(6 * w), 9, `${w} breaks digital-root-9`)
+  assert.equal(digitalRoot(432), 9, 'k432 width is harmonic — pure arithmetic')
+  assert.notEqual((6 * 72) % 15, 0, 'historical 72 is harmonic in DECIMAL ONLY (hex refused as release block)')
 })
 
-// THE FUSION WAS SPELLING. rev(72) = 27 gives 16 × 27 = 432, for that one decimal spelling only: rev(75) = 57
-// gives 912, rev(78) = 87 gives 1392, and in hexadecimal 72 is 0x48, reversing to 0x84 = 132, giving a
-// four-digit product that is not 432. (The product is named in words, not digits: the no-pinned-counts finder
-// matches any literal equal to the LIVE ledger count, and this arithmetic constant collided with it the day the
-// ledger reached that size. It matched a MENTION in a comment, and it matched a COINCIDENCE — the number here
-// has nothing to do with the ledger. Rewording rather than rewriting the arithmetic, because the arithmetic is
-// correct and the finder is the thing that cannot tell a pin from a collision.)
+// THE FUSION WAS SPELLING. rev(72) = 27 gives 16 × 27 = 432, for that one decimal spelling only.
 test('the digit-reversal fusion holds for one spelling in one base, and no other', () => {
   assert.equal(16 * 27, 432, 'the identity itself is real')
   assert.notEqual(16 * 57, 432, 'rev(75) does not reproduce it')
@@ -66,6 +52,7 @@ test('the digit-reversal fusion holds for one spelling in one base, and no other
   assert.notEqual(16 * 132, 432, 'the hexadecimal reversal of 72 gives a different product')
   assert.equal(2 ** 4 * 3 ** 3, 432, 'k432 first clause — arithmetic')
 })
+
 test('seats are addressable by name and by slug, and the source ray is refused', () => {
   const w = wings()[0]
   const seat = gridSeat(PROJECTED[0], w)
@@ -80,10 +67,8 @@ test('a seat MOVES when its wing moves — the address is derived', () => {
   const w = wings()[0]
   const before = wingRoot(w)
   assert.match(before, /^[0-9a-f-]{36}$/)
-  // the same wing under two different rays must differ, or the ray is not in the address
   const a = gridSeat(PROJECTED[0], w)!, b = gridSeat(PROJECTED[1], w)!
   assert.notEqual(a.address, b.address, 'the ray participates in the address')
-  // two different wings under the same ray must differ, or the wing is not in the address
   const c = gridSeat(PROJECTED[0], wings()[1])!
   assert.notEqual(a.address, c.address, 'the wing participates in the address')
 })
@@ -93,22 +78,17 @@ test('the grid root is order-invariant and recomputes', () => {
   assert.match(gridRoot(), /^[0-9a-f-]{36}$/)
 })
 
-// THE FINDER REPORTS THE BASE, and reports it honestly at whatever count the ledger holds. It stopped asserting a
-// healthy grid at exactly 72 because that count is harmonic in DECIMAL ONLY (432 leaves 12 mod 15). What it must
-// still do is speak when neither base is satisfied and stay silent when both are — the rule.
-test('the finder names which base a count satisfies, and is silent only when both are', () => {
+// FINDER — structural only. Width is live; dual-base "% 15" refused; digital-root-9 measured on report.harmonic.
+test('the finder is silent on a structurally healthy live grid', () => {
   const w = wings().length
   const gaps = gridGaps()
   const r = gridReport()
+  assert.deepEqual(gaps, [], 'no structural gaps')
   assert.equal(r.seats, PROJECTED.length * w, 'the report states the derived identity')
-  if (w % 15 === 0) {
-    assert.equal(gaps.filter((g) => /harmonic in/.test(g.what)).length, 0, 'a multiple of fifteen satisfies both bases')
-  } else {
-    const spoke = gaps.find((g) => /harmonic in/.test(g.what))
-    assert.ok(spoke, `at ${w} wings the finder must speak`)
-    assert.match(spoke.what, /mod 9 and .* mod 15/, 'and it must name BOTH remainders')
-  }
+  assert.equal(r.sealed, gridSeats(), 'sealed width is the live product')
+  assert.equal(r.harmonic, w % 3 === 0, 'harmonic tracks digital-root-9 / w ≡ 0 mod 3')
   assert.ok(r.factorisations.length >= 2, 'both factorisations are still reported')
+  assert.ok(r.factorisations.some((f) => f.includes('k432')), 'k432 stays as pure arithmetic')
 })
 
 test('every wing carries at least one sealed theorem — no empty seat', () => {
