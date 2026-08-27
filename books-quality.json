@@ -1,121 +1,14 @@
 {
   "why": "Speed: Gutenberg editions cache under .uuidna-books/. Quality: VERIFIED novel Nat facts from the declared corpus are deposited to lean/wave-queue.json pending — desk proposes, wave/kernel disposes. Never auto-sealed. Claims/decidable counts and iq discrimination are reported so vacuous decoder facts cannot pretend to identify a book.",
-  "books": [
-    {
-      "id": 10,
-      "title": "The King James Version of the Bible",
-      "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-      "cached": true,
-      "sealed": 0,
-      "novel": 0,
-      "refuted": 0,
-      "words": 824543,
-      "claims": 200,
-      "decidable": 0
-    },
-    {
-      "id": 2800,
-      "title": "The Koran (Al-Qur'an)",
-      "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-      "cached": true,
-      "sealed": 0,
-      "novel": 0,
-      "refuted": 0,
-      "words": 206246,
-      "claims": 45,
-      "decidable": 0
-    },
-    {
-      "id": 216,
-      "title": "The Tao Teh King, or the Tao and its Characteristics",
-      "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
-      "cached": true,
-      "sealed": 0,
-      "novel": 0,
-      "refuted": 0,
-      "words": 13733,
-      "claims": 1,
-      "decidable": 0
-    },
-    {
-      "id": 2388,
-      "title": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
-      "address": "dd8e92be-df49-823f-b232-57d824d45e19",
-      "cached": true,
-      "sealed": 0,
-      "novel": 0,
-      "refuted": 0,
-      "words": 23215,
-      "claims": 1,
-      "decidable": 0
-    },
-    {
-      "id": 2017,
-      "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
-      "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
-      "cached": true,
-      "sealed": 0,
-      "novel": 0,
-      "refuted": 0,
-      "words": 15247,
-      "claims": 4,
-      "decidable": 0
-    },
-    {
-      "id": 45493,
-      "title": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-      "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-      "cached": true,
-      "sealed": 0,
-      "novel": 0,
-      "refuted": 0,
-      "words": 18257,
-      "claims": 24,
-      "decidable": 0
-    }
-  ],
+  "books": [],
   "candidates": 0,
   "deposited": [],
   "depositRefused": 0,
   "pending": 0,
   "iq": {
-    "probes": 6,
-    "verdicts": [
-      {
-        "fact": "vocabulary richness is exactly 10x distinct",
-        "held": 0,
-        "failed": 6,
-        "discriminates": false
-      },
-      {
-        "fact": "rank1 exceeds rank2",
-        "held": 6,
-        "failed": 0,
-        "discriminates": false
-      },
-      {
-        "fact": "rank1 is under twice rank2",
-        "held": 5,
-        "failed": 1,
-        "discriminates": true
-      },
-      {
-        "fact": "commonest word is 'the'",
-        "held": 6,
-        "failed": 0,
-        "discriminates": false
-      },
-      {
-        "fact": "letter order begins 'eta'",
-        "held": 3,
-        "failed": 3,
-        "discriminates": true
-      }
-    ],
-    "vacuous": [
-      "rank1 exceeds rank2",
-      "commonest word is 'the'"
-    ],
+    "probes": 0,
+    "verdicts": [],
+    "vacuous": [],
     "nextSample": [
       11381,
       41478,
@@ -127,6 +20,6 @@
       32246
     ]
   },
-  "receipt": "180f47cb-f71d-8fdc-8f20-078cc1f6d918",
+  "receipt": "93929a2d-4810-8ac6-9f32-4ed07d9e016c",
   "dry": false
 }
