@@ -42,13 +42,18 @@ if (dirty) {
 // ── 2 · NO RELEASE OVER AN OPEN LEAD ──────────────────────────────────────────────────────────────────────────
 await step('leads-gate', 'node dist/scripts/leads-gate.js')
 
-// ── 3 · DERIVED LAYER CURRENT (rename / grow must not leave heartbeats or SEO freeze stale) ───────────────────
+// ── 3 · DERIVED LAYER CURRENT (lean-all can move prose_folds_receipt; heartbeats must follow) ─────────────────
+// release.yml runs prove-all → lean-all before account. Syncing heartbeats alone against a STALE Audit.lean
+// would green-light a tip that CI then rewrites (MISSING prose_folds_receipt). Re-run the lean fixed point first.
+await step('lean-all', 'node dist/scripts/lean-all.js')
+await step('rebuild after lean', 'npm run build')
 await step('lean-heartbeats --sync', 'node dist/scripts/lean-heartbeats.js --sync')
+await step('gen-falsifiers', 'node dist/scripts/gen-falsifiers.js')
 await step('gen-seo-freeze', 'node dist/scripts/gen-seo-freeze.js')
 await step('account', 'node dist/scripts/account.js')
 const afterDerive = (await step('tree after derive', 'git status --porcelain')).trim()
 if (afterDerive) {
-  console.error('✗ release-cut — heartbeats/SEO freeze moved the tree; commit the derived layer, then re-run')
+  console.error('✗ release-cut — lean/heartbeats/SEO freeze moved the tree; commit the derived layer, then re-run')
   console.error(afterDerive)
   process.exit(1)
 }
