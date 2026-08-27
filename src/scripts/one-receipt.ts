@@ -505,6 +505,52 @@ export function expectedGaps(): Gap[] {
   return gaps
 }
 
+/** censusGaps() — MEASUREMENT HAS ONE LEAN-DERIVED SOURCE (lead 7cc6cbb6).
+ *
+ *  statementCensus() is the census: entries / distinct / renamings, folded from the compiled ledger. theorems().length
+ *  and PRINCIPLES.length are the same source's axes (keys and principle rows). countsGaps holds prose surfaces to
+ *  those live figures; expectedGaps refuses frozen expected* = N in the gate chain.
+ *
+ *  This finder refuses a THIRD walk used as THE published size: a generator that emits total_theorems (or a sibling
+ *  ledger-size field) as a numeric literal, or that assigns the ledger size from a digit literal. A verification
+ *  that COMPARES an independent walk to theorems().length (lean-prose, lean-axioms) is the witness pattern and is
+ *  allowed — both arms appear together. The number is read, never chosen. */
+export function censusGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const census = statementCensus()
+  const keys = theorems().length
+  if (census.entries !== keys) {
+    gaps.push({
+      what: `statementCensus().entries (${census.entries}) ≠ theorems().length (${keys}) — the single source disagreed with itself`,
+      fix: 'rebuild the ledger (npm run lean) — statementCensus folds the same compiled theorems() every surface reads',
+    })
+  }
+  const strip = (s: string): string => s.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/(^|\s)\/\/[^\n]*/g, ' ')
+  // Generators that WRITE a ledger-size field into a drain artifact — a literal here freezes the census into the archive.
+  const WRITERS = [
+    ...readdirSync(join(ROOT, 'src', 'scripts')).filter((f) => /^gen-|^seal-|^sync-|^stamp\.ts$/.test(f)).map((f) => join('src', 'scripts', f)),
+  ].filter((f) => existsSync(join(ROOT, f)))
+  // total_theorems: 1307 — the captain-complete freeze class (paid once at 1307 while the ledger held 2120)
+  const TOTAL_LIT = /\b(total_theorems|theorem_count|ledger_size|sealed_theorems)\s*:\s*(\d{3,5})\b/g
+  // const n = 2120 used as the ledger size (not a local loop bound — 3+ digits)
+  const ASSIGN_LIT = /\b(?:const|let|var)\s+(?:totalTheorems|theoremCount|ledgerSize|sealedCount|N_THEOREMS)\s*=\s*(\d{3,5})\b/g
+  for (const f of WRITERS) {
+    let src = ''
+    try { src = strip(fileText(join(ROOT, f))) } catch { continue }
+    for (const m of src.matchAll(TOTAL_LIT))
+      gaps.push({
+        what: `${f}: emits ${m[1]}: ${m[2]} as a literal — a second census frozen into a drain artifact`,
+        fix: 'read theorems().length or statementCensus().entries at generation — the number is derived, never remembered',
+      })
+    for (const m of src.matchAll(ASSIGN_LIT))
+      gaps.push({
+        what: `${f}: assigns a ledger-size name = ${m[1]} — a count chosen in code rather than read from the census`,
+        fix: 'assign from theorems().length / statementCensus() / PRINCIPLES.length',
+      })
+  }
+  return gaps
+}
+
 /** ── THE LEAN LINE INDEX — each Lean line indexed, and every reuse of it declared.
  *
  *  Lean is the source of all of this. Every surface, every report, every article derives from it, so duplication in
@@ -1896,6 +1942,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'stage') { const r = stageDerived(ROOT); console.log('✓ one-receipt stage — ' + r.staged + ' derived path(s) staged' + (r.leftForHumans.length ? '; left for a human (not staged' + r.leftForHumans.join(', ') : '; nothing else pending')) }
   else if (cmd === 'counts') report('one-receipt counts', countsGaps(), 'every surface states both ledger sizes, and both are live')
   else if (cmd === 'expected') report('one-receipt expected', expectedGaps(), 'no gate hardcodes an expected ledger count — the size is read, never remembered')
+  else if (cmd === 'census') report('one-receipt census', censusGaps(), 'statementCensus() is the one Lean-derived census — no generator freezes a second size into a drain artifact')
   else if (cmd === 'lines') report('one-receipt lines', linesGaps(), 'every Lean line is indexed — no wing seals a statement twice, and every cross-wing reuse is declared')
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')

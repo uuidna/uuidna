@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**44 open doors** across 11 topics, derived from the tree's own records — the held leads,
+**42 open doors** across 11 topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
@@ -21,27 +21,17 @@ express the claim as an exact predicate over it, run the [tester](/tools) with i
 drains, seal it ([the wave](/theorem/denial_drains_to_the_last_coin)). The door then closes as a count, and this
 page regrows without it.
 
-## wave — 25 open
+## wave — 23 open
 
 - **The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…**
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) </small>
   <br><small>sealed neighbors: [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) · [`four_wire_sorting_needs_five_comparators`](/theorem/four_wire_sorting_needs_five_comparators) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **An involution alone is barren: dz reaches exactly two states from any seed, alternating with doubling reaches all ten. The productive partner is the IRREVERSIBLE one — dz is reversible and free, doubling collapses.**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) · [`the_passage_costs_a_coin_at_each_end`](/theorem/the_passage_costs_a_coin_at_each_end) · [`no_digit_is_an_exact_complement`](/theorem/no_digit_is_an_exact_complement) </small>
-  <br><small>sealed neighbors: [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`weight_reads_distance_only_for_linear_codes`](/theorem/weight_reads_distance_only_for_linear_codes) · [`three_wire_sorting_needs_three_comparators`](/theorem/three_wire_sorting_needs_three_comparators) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **The grid breaks at 73 wings: 6 × 73 = 438, digital root 6, and the sealed width is 432. VectorEquilibrium.lean landed alone.**
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) </small>
   <br><small>sealed neighbors: [`z9_digit_sum_folds_to_the_residue_in_three`](/theorem/z9_digit_sum_folds_to_the_residue_in_three) · [`merkle_depth_iff_leaf_bound`](/theorem/merkle_depth_iff_leaf_bound) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **Measurement has no single source: 28 independent recomputations of a theorem count across src/, and 5 of the principle count. one-receipt.ts:394 already states the law — 'the number is read, never chosen' — and nothing e…**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) </small>
-  <br><small>sealed neighbors: [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`handle_capacity_invariant_under_entanglement`](/theorem/handle_capacity_invariant_under_entanglement) · [`parity_code_detects_one_but_ties_four_ways`](/theorem/parity_code_detects_one_but_ties_four_ways) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **A negation in the comment above a Lean line must be discharged by the line below it. Run by hand over the newest wing it convicted 6 of 12; the surviving 4 are SCOPE-declared, proven, or scanner artefacts ('non-covering'…**
   <br><small>door: the held leads</small>
