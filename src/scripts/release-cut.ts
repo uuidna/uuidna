@@ -3,10 +3,10 @@
 //
 // release-cut — AUTOMATE THE VERSION TAG (captain 2026-08-27: "address release errors and automate").
 //
-// The first v0.2.9 tag failed because `npm run audit` reached `dist/` before any compile on a fresh CI
-// checkout. That class is fixed at the source (audit builds first). This runner is the OTHER half: the
-// human-shaped cut (leads-gate → changelog receipt → annotated tag → push) was hand-typed every release
-// and drifted. One command; honest failure; no retries around the outward push.
+// VERIFY, DO NOT RE-DERIVE. Slow time stacked lean-all + heartbeats --sync here so a dirty tip could grease
+// through; that is a raised ceiling. The involution is seal-once / verify-forever
+// (verify_beats_recompute_by_magnitudes, involution_replaces_the_raised_ceiling): reconcile seals the
+// derived layer; this cut only checks the seal. Drift fails closed — commit the fixed point, re-run.
 //
 //   npm run release-cut           → verify ready; print the tag that would be cut (no push)
 //   npm run release-cut -- --push → verify, annotated tag v$version, push tag (triggers release.yml)
@@ -42,21 +42,10 @@ if (dirty) {
 // ── 2 · NO RELEASE OVER AN OPEN LEAD ──────────────────────────────────────────────────────────────────────────
 await step('leads-gate', 'node dist/scripts/leads-gate.js')
 
-// ── 3 · DERIVED LAYER CURRENT (lean-all can move prose_folds_receipt; heartbeats must follow) ─────────────────
-// release.yml runs prove-all → lean-all before account. Syncing heartbeats alone against a STALE Audit.lean
-// would green-light a tip that CI then rewrites (MISSING prose_folds_receipt). Re-run the lean fixed point first.
-await step('lean-all', 'node dist/scripts/lean-all.js')
-await step('rebuild after lean', 'npm run build')
-await step('lean-heartbeats --sync', 'node dist/scripts/lean-heartbeats.js --sync')
-await step('gen-falsifiers', 'node dist/scripts/gen-falsifiers.js')
-await step('gen-seo-freeze', 'node dist/scripts/gen-seo-freeze.js')
+// ── 3 · SEALED FIXED POINT (hexbit verify — never lean-all / heartbeats --sync on the cut path) ───────────────
+await step('spin --verify', 'node dist/scripts/spin.js --verify')
 await step('account', 'node dist/scripts/account.js')
-const afterDerive = (await step('tree after derive', 'git status --porcelain')).trim()
-if (afterDerive) {
-  console.error('✗ release-cut — lean/heartbeats/SEO freeze moved the tree; commit the derived layer, then re-run')
-  console.error(afterDerive)
-  process.exit(1)
-}
+await step('next --verify', 'node dist/scripts/next.js --verify')
 
 // ── 4 · CHANGELOG CARRIES THIS VERSION + THIS LEDGER RECEIPT ──────────────────────────────────────────────────
 await step('sync changelog ledger line', 'node dist/scripts/sync-changelog.js')
@@ -66,7 +55,6 @@ if (afterSync) {
   console.error(afterSync)
   process.exit(1)
 }
-await step('next --verify', 'node dist/scripts/next.js --verify')
 
 // ── 5 · TAG ───────────────────────────────────────────────────────────────────────────────────────────────────
 const existing = (await step('local tag?', `git tag -l ${TAG}`)).trim()

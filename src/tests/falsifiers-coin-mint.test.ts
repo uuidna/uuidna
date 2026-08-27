@@ -35,6 +35,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { coin64, toUuid, cryptoAddress } from '../address.js'
+import { handleOf } from '../handle.js'
 
 // 32-bit arithmetic through BigInt: the determinism law bans the Math namespace, and an explicit mask is clearer
 const M = 0xffffffffn
@@ -106,12 +107,12 @@ test('A CHOSEN 32-BIT WORD OF THE MINT IS FORGEABLE IN 2^16 — measured by prod
   assert.ok(forged, 'a four-byte preimage must exist: thirty-two bits of freedom against thirty-two of constraint')
   const s = String.fromCharCode(...(forged as number[]))
   assert.equal(hash32(s, 0), TARGET, 'the forged input must actually hash to the chosen word')
-  assert.equal(coin64(s).slice(0, 8), 'deadbeef', 'and the chosen word is what the mint then hands out')
+  assert.equal(handleOf(coin64(s)), 'deadbeef', 'and the chosen word is what the mint then hands out')
 
   // THE CONTROL that keeps the claim honest and bounded: this attack fixes ONE word and says nothing about the
   // next. If it controlled both, the 64-bit coin would fall in 2^16 too — it does not, which is exactly why the
   // 2.2-hour figure for the full coin is quoted as a birthday search and never as this attack extended.
-  assert.notEqual(coin64(s).slice(8, 16), coin64(s).slice(0, 8))
+  assert.notEqual(coin64(s).slice(8, 16), handleOf(coin64(s)))
 })
 
 test('a uuid carries NO evidence of its own mint — the format cannot say captain, or FNV, or SHA-256', () => {

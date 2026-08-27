@@ -8,6 +8,7 @@ import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { theoremByKey } from '../theorems/index.js'
+import { handleOf } from '../handle.js'
 
 interface Candidate { key: string; why: string; lean: string }
 interface Q { pending: Candidate[]; accepted: (Candidate & { receipt: string })[]; refused: (Candidate & { reason: string })[] }
@@ -28,8 +29,8 @@ const unsealed = (key: string): string => `**${key.replace(/_/g, ' ')}** (not se
 
 const acceptedRows = q.accepted.map((c) => {
   const t = byKey.get(c.key)
-  if (!t) return `| ${unsealed(c.key)} | lifting on the next lean run | \`${c.receipt.slice(0, 8)}\` |`
-  return `| [\`${c.key}\`](/theorem/${c.key}) | [\`${t.address.slice(0, 8)}\`](/theorem/${c.key}) | \`${c.receipt.slice(0, 8)}\` |`
+  if (!t) return `| ${unsealed(c.key)} | lifting on the next lean run | \`${handleOf(c.receipt)}\` |`
+  return `| [\`${c.key}\`](/theorem/${c.key}) | [\`${handleOf(t.address)}\`](/theorem/${c.key}) | \`${handleOf(c.receipt)}\` |`
 }).join('\n')
 
 const pendingRows = q.pending.length

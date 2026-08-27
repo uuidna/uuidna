@@ -10,6 +10,7 @@ import {
 } from '../quantum/advantage/page/metrics/index.js'
 import { decadeOf } from '../measurement.js'
 import { theorems } from '../theorems/index.js'
+import { handleOf } from '../handle.js'
 
 const hbPath = join(ROOT, 'lean/heartbeats.json')
 const costs: Record<string, number> = existsSync(hbPath)
@@ -48,7 +49,7 @@ test('two different theorems produce different page metrics', () => {
     objectKind: 'theorem',
     heartbeats: a.hb,
     maxHeartbeats: maxHb,
-    depositReferrer: `https://uuidna.com/${a.t.address.replace(/-/g, '').slice(0, 8)}`,
+    depositReferrer: `https://uuidna.com/${handleOf(a.t.address)}`,
   })
   const mb = pageAdvantageMetrics({
     address: b.t.address,
@@ -56,7 +57,7 @@ test('two different theorems produce different page metrics', () => {
     objectKind: 'theorem',
     heartbeats: b.hb,
     maxHeartbeats: maxHb,
-    depositReferrer: `https://uuidna.com/${b.t.address.replace(/-/g, '').slice(0, 8)}`,
+    depositReferrer: `https://uuidna.com/${handleOf(b.t.address)}`,
   })
 
   assert.notEqual(ma.handle, mb.handle, 'handles differ')

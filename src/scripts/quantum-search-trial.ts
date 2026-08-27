@@ -12,6 +12,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { theorems, searchTrialFor } from '../index.js'
+import { handleOf } from '../handle.js'
 import { ROOT } from './api.js'
 
 interface Entry { key: string; name: string; statement: string; file: string; principle: string; skill: string }
@@ -52,7 +53,7 @@ for (const wing of wings) {
   // CodeQL flagged only the note, but the two strings arrive by the same road.
   const cell = (s: string): string => String(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
   const rows = findings.map((f) =>
-    `| \`${f.address.slice(0, 8)}\` | ${cell(f.source)} | ${cell(f.note)} | ${f.alone} | ${f.withBacking} |`)
+    `| \`${handleOf(f.address)}\` | ${cell(f.source)} | ${cell(f.note)} | ${f.alone} | ${f.withBacking} |`)
 
   const md = `---
 title: "The search on trial: ${principle.replace(/"/g, "'")}"
@@ -72,7 +73,7 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 ${rows.length ? rows.join('\n') : '| — | — | the sources returned no records for this query | — | — |'}
 
-**${findings.length} findings · ${leads} usable search-trial combinations · receipt \`${receipt.slice(0, 8)}\`** (fold of every finding's address — recompute by re-running the search).
+**${findings.length} findings · ${leads} usable search-trial combinations · receipt \`${handleOf(receipt)}\`** (fold of every finding's address — recompute by re-running the search).
 
 ${s.novel.length ? `## The novelty harvest
 
@@ -80,7 +81,7 @@ ${s.novel.length ? `## The novelty harvest
 division by zero is the reflection, never a crash), and the sealed ledger does not yet hold. Each is REMANDED for
 admission — the paying handle decides what becomes a wing; the cron never seals judgment.
 
-${s.novel.map((n) => `- \`${n.fragment}\` — from finding \`${n.from.slice(0, 8)}\`, decision receipt \`${n.receipt.slice(0, 8)}\``).join('\n')}
+${s.novel.map((n) => `- \`${n.fragment}\` — from finding \`${n.from.slice(0, 8)}\`, decision receipt \`${handleOf(n.receipt)}\``).join('\n')}
 ` : ''}The sealed backing this trial held the findings beside:
 
 ${entries.map((e) => `- [${e.key}](/theorem/${e.key}) — \`${e.statement.slice(0, 90)}\``).join('\n')}
@@ -95,7 +96,7 @@ never a claim. Approval has exactly one door: a theorem proven \`by decide\` in 
 `
   writeFileSync(join(OUT, slugOf(wing) + '.md'), md)
   published++
-  console.log(`✓ trial returned a publication — docs/articles/${slugOf(wing)}.md (${findings.length} findings, ${leads} usable combinations, receipt ${receipt.slice(0, 8)})`)
+  console.log(`✓ trial returned a publication — docs/articles/${slugOf(wing)}.md (${findings.length} findings, ${leads} usable combinations, receipt ${handleOf(receipt)})`)
 }
 
 console.log(`✓ quantum-search-trial — ${published}/${wings.length} wings published (${failed} skipped by unreachable sources)`)

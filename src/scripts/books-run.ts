@@ -14,6 +14,7 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fetchGutenberg, stripGutenberg, auditText, extractClaims } from '../books.js'
 import { toUuid, merkleGravity, theorems } from '../index.js'
+import { handleOf } from '../handle.js'
 import { UUID_HEXBITS, HEXBIT_BITS, HEXBIT_STATES } from '../hexbit/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
 import { CORPUS } from './mine-books.js'
@@ -122,5 +123,5 @@ if (process.argv[1] && /books-run\.(js|ts)$/.test(process.argv[1])) {
   }
   writeFileSync(OUT, JSON.stringify(report, null, 2) + '\n')
   console.log(`\n  books ${books.length} · hexbit already sealed [${alreadyAll.join(', ') || '—'}] · new candidates ${candidates.length} · deposited ${deposit.deposited.length}`)
-  console.log(`  warm ${books.filter((b) => b.cached).length}/${books.length} · receipt ${receipt.slice(0, 8)}\n`)
+  console.log(`  warm ${books.filter((b) => b.cached).length}/${books.length} · receipt ${handleOf(receipt)}\n`)
 }

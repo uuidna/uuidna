@@ -46,7 +46,7 @@ cannot fail `MODULE_NOT_FOUND` on `one-writer`. Cut a version with `npm run rele
 
 ```bash
 npm run audit       # the whole release gate
-npm run release-cut -- --push   # lean fixed point + leads-gate + annotated tag
+npm run release-cut -- --push   # spin/account/next verify + annotated tag (derive via reconcile)
 npm run ship        # contribute-first · wrangler · live proof
 ```
 

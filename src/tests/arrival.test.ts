@@ -8,6 +8,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { coinOfReferer, meetAt } from '../conversation.js'
 import { coin64, license, verifyLicense } from '../index.js'
+import { handleOf } from '../handle.js'
 import { grantAt, verifyGrant } from '../license.js'
 
 const A = 'https://a.example', B = 'https://b.example', C = 'https://c.example'
@@ -49,7 +50,7 @@ test('per DESTINATION — the same crowd at another place is another meeting', (
 
 test('the handle is the superposition read through the one derivation, and an empty meeting still answers', () => {
   const m = meetAt('/checkout', [A])
-  assert.equal(m.handle, m.superposition.replace(/-/g, '').slice(0, 8), 'the handle is the first eight hex')
+  assert.equal(m.handle, handleOf(m.superposition), 'the handle is the first eight hex')
   const empty = meetAt('/checkout', [])
   assert.equal(empty.referrers, 0, 'a destination nobody reached is a real answer')
   assert.match(empty.superposition, UUID, 'and it still folds to an address')

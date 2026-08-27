@@ -4,7 +4,7 @@
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Total claimed:** 2120/2120 theorems — every one, by construction
-**Claim receipt:** `2f9fac6f-c557-8684-a075-0663f9bd7659`
+**Claim receipt:** `89620754-4329-8587-a9f0-9fb9e7882795`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -1060,7 +1060,7 @@ computed, never typed:
 | in trial | count |
 |---|---|
 | sealed propositions | 2039 (2120 entries, 81 re-namings — a theorem is its Lean |
-| prose paragraphs tried | 4606 — 2126 usable, 2480 held open, 0 drained |
+| prose paragraphs tried | 6489 — 3043 usable, 3446 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
 docket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's

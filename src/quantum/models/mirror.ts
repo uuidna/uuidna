@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000044",
-   "completionPrice": "0.00000132"
+   "promptPrice": "0.00000022",
+   "completionPrice": "0.00000066"
   },
   {
    "id": "deepseek/deepseek-v4-pro",
@@ -2396,8 +2396,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.6-27b",
    "name": "Qwen: Qwen3.6 27B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000032",
-   "completionPrice": "0.0000032"
+   "promptPrice": "0.0000006",
+   "completionPrice": "0.0000036"
   },
   {
    "id": "qwen/qwen3.6-35b-a3b",

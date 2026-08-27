@@ -28,8 +28,12 @@ import { encrypt, decrypt } from '../crypt.js'
 const enc = new TextEncoder()
 const hex = (b: Uint8Array): string => [...b].map((x) => x.toString(16).padStart(2, '0')).join('')
 
-/** the mistake: a memo key that is a TRUNCATED, non-cryptographic fold of the derivation string */
-const weakMemoKey = (derivation: string): string => toUuid(derivation).replace(/-/g, '').slice(0, 8)
+/** the mistake: a memo key that is a TRUNCATED, non-cryptographic fold of the derivation string.
+ *  The intermediate is deliberately NOT address-shaped — this IS the anti-involution under trial. */
+const weakMemoKey = (derivation: string): string => {
+  const mistake = toUuid(derivation)
+  return mistake.replace(/-/g, '').slice(0, 8)
+}
 /** what crypt.ts actually does: the full SHA-256 digest of the derivation string */
 const strongMemoKey = (derivation: string): string => hex(sha256(enc.encode('uuidna-kdf-v1|' + derivation)))
 
