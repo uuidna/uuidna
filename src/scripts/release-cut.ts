@@ -42,7 +42,18 @@ if (dirty) {
 // ── 2 · NO RELEASE OVER AN OPEN LEAD ──────────────────────────────────────────────────────────────────────────
 await step('leads-gate', 'node dist/scripts/leads-gate.js')
 
-// ── 3 · CHANGELOG CARRIES THIS VERSION + THIS LEDGER RECEIPT ──────────────────────────────────────────────────
+// ── 3 · DERIVED LAYER CURRENT (rename / grow must not leave heartbeats or SEO freeze stale) ───────────────────
+await step('lean-heartbeats --sync', 'node dist/scripts/lean-heartbeats.js --sync')
+await step('gen-seo-freeze', 'node dist/scripts/gen-seo-freeze.js')
+await step('account', 'node dist/scripts/account.js')
+const afterDerive = (await step('tree after derive', 'git status --porcelain')).trim()
+if (afterDerive) {
+  console.error('✗ release-cut — heartbeats/SEO freeze moved the tree; commit the derived layer, then re-run')
+  console.error(afterDerive)
+  process.exit(1)
+}
+
+// ── 4 · CHANGELOG CARRIES THIS VERSION + THIS LEDGER RECEIPT ──────────────────────────────────────────────────
 await step('sync changelog ledger line', 'node dist/scripts/sync-changelog.js')
 const afterSync = (await step('tree after sync', 'git status --porcelain')).trim()
 if (afterSync) {
@@ -52,7 +63,7 @@ if (afterSync) {
 }
 await step('next --verify', 'node dist/scripts/next.js --verify')
 
-// ── 4 · TAG ───────────────────────────────────────────────────────────────────────────────────────────────────
+// ── 5 · TAG ───────────────────────────────────────────────────────────────────────────────────────────────────
 const existing = (await step('local tag?', `git tag -l ${TAG}`)).trim()
 if (existing) {
   const at = (await step('tag commit', `git rev-parse ${TAG}^{commit}`)).trim()
