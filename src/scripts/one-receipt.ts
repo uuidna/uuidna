@@ -1280,7 +1280,7 @@ export function dormantGaps(): Gap[] {
 // happened to be timers; widened here rather than left to read as a rule the third member breaks.
 // The category is named once, with the members listed and the test for membership stated: no entry-point guard,
 // no top-level execution, exercised by its CALLERS and by its own suite rather than by being spawned.
-const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts', 'wave-supply.ts'])
+const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts', 'wave-supply.ts', 'hexbit-from-books.ts'])
   // THE SUBJECT IS THE COMMIT, NOT THE DIRECTORY (2026-08-25). This read `readdirSync(dir)`, so the law judged
   // every .ts LYING in src/scripts — including another session's untracked, half-written script. On a shared
   // checkout that is a whole-tree law evaluated against a working tree while the thing being published is a
