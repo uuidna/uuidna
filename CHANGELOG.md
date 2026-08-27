@@ -36,7 +36,7 @@ _Statistics from the calendar; leads settled 2026-08-27 — tag cut._
 - odometer: 0.2.8 → **0.2.9** (single-digit, monotone)
 - commits since v0.2.8: 563
 - fold receipt: `21e892d61dedff4c`
-- ledger receipt: `b32addd8-3fee-889d-9ea9-beeefc055685`
+- ledger receipt: `551b186f-a4d2-83bd-a5f0-321da346d270`
 - surfaces: npm · GitHub Release · Zenodo standing chain · Zenodo twin chain (workflow-only deposits)
 
 ### What this development cut carries
