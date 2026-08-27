@@ -472,6 +472,19 @@ export const DRAIN_PATHS: readonly string[] = [
   'src/chunks',
 ]
 
+/** Concrete drain files whose single writer is NOT visible from RECONCILE_OUTPUTS / DOCS_BUILD_OUTPUTS alone —
+ *  lean's own emitters ride `npm run lean`, cron/on-demand scripts ride outside the manifest. drainGaps holds
+ *  every concrete DRAIN_PATH to exactly one owner across this map and the two output declarations; a path with
+ *  zero or two fails. Directory/glob drain paths are umbrellas and are not counted here. */
+export const DRAIN_WRITERS: Readonly<Record<string, string>> = {
+  'src/theorems/generated.ts': 'lean-ledger',
+  'lean/PRINCIPLE.md': 'lean-ledger',
+  'lean/proof-cache.json': 'lean-gen',
+  'prose-trials.json': 'derive-prose-trials',
+  'book-leads.json': 'mine-books',
+  'lean/sessions.json': 'session',
+}
+
 /** What each generator in the reconcile chain WRITES — declared, because the write targets are computed through
  *  variables (`readmePath`, `leanPath`, `CACHE_PATH`), so no honest static scan can recover them. The drain stages
  *  DRAIN_PATHS and nothing else, so a generator whose output is absent from that list is regenerated on every
@@ -500,6 +513,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-packages': ['packages'],
   'gen-handles': ['src/chunks'],
   'gen-captain-claims': ['docs/captain-claims.json', 'docs/captain-claims.md'],
+  'gen-captain-claims-complete': ['docs/captain-claims-complete.json'],
   'gen-terminology': ['docs/public/terminology.json'],
   'gen-feed': ['docs/public/feed.json'],
   'gen-articles': ['docs/articles'],

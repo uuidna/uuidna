@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**47 open doors** across 13 topics, derived from the tree's own records — the held leads,
+**46 open doors** across 12 topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
@@ -236,14 +236,6 @@ page regrows without it.
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`complement_fixes_the_half`](/theorem/complement_fixes_the_half) · [`dz_swaps_the_thirds_and_fixes_the_axis`](/theorem/dz_swaps_the_thirds_and_fixes_the_axis) </small>
   <br><small>sealed neighbors: [`saturation_deco_accounts`](/theorem/saturation_deco_accounts) · [`seasons_return_in_eighteen_years`](/theorem/seasons_return_in_eighteen_years) · [`egyptian_five_harmonise_the_circle`](/theorem/egyptian_five_harmonise_the_circle) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
-## negation — 1 open
-
-- **Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`s4_parity_splits_evenly_its_involutions_do_not`](/theorem/s4_parity_splits_evenly_its_involutions_do_not) · [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) </small>
-  <br><small>sealed neighbors: [`no_instrument_narrower_than_its_question`](/theorem/no_instrument_narrower_than_its_question) · [`hamming_differences_are_the_code`](/theorem/hamming_differences_are_the_code) · [`parity_code_detects_one_but_ties_four_ways`](/theorem/parity_code_detects_one_but_ties_four_ways) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## tesla — 1 open

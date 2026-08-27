@@ -37,6 +37,10 @@ const GENERATORS: Gen[] = [
   { file: 'gen-handles.js', args: [], note: 'the handles the chunks are cut from' },
   { file: 'gen-handle-chunks.js', args: [], note: 'the chunked handle payloads' },
   { file: 'gen-captain-claims.js', args: [], note: 'the captain claims' },
+  // WAS DORMANT while its drain path stayed staged: docs/captain-claims-complete.json sat in DRAIN_PATHS with
+  // total_theorems frozen at 1307 while the ledger moved past 2000. Wiring it here is the last of the three
+  // "owned by nothing" generators (gen-prose-evidence and gen-handles already ride this manifest).
+  { file: 'gen-captain-claims-complete.js', args: [], note: 'the captain claims every sealed key — census-read, never remembered' },
   { file: 'gen-reports.js', args: [], note: 'reports as accounting — computed from the ledger' },
   { file: 'gen-quantum-capacity.js', args: [], note: 'the quantum capacity report — every model one metric, uuidna measured live, sealed with receipt' },
   { file: 'gen-quantum-advantage.js', args: [], note: 'the measured advantage report — reach/cost/fidelity per datapath level on this host' },

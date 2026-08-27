@@ -28,11 +28,6 @@
    "owes": "one Lean-derived census() every surface reads, plus a finder that fails when a count is computed anywhere else."
   },
   {
-   "lead": "Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).",
-   "status": "MEASURED, and it has already cost — next.ts ARM 7 fails on docs/prose-evidence.md drift while printing 'regenerate docs/prose-evidence.md' as the fix. THE GATE NAMES A FIX NO CHAIN PERFORMS.",
-   "owes": "an ownership manifest naming every derived artifact and its single writer, with a finder that fails on zero owners or two. The order-merge of the 17 gen-* comes after that, and must model reconcile's mid-chain `npm run build` barriers as explicit nodes rather than hiding them."
-  },
-  {
    "lead": "A negation in the comment above a Lean line must be discharged by the line below it. Run by hand over the newest wing it convicted 6 of 12; the surviving 4 are SCOPE-declared, proven, or scanner artefacts ('non-covering' is a NAME, 'rather than' is contrast).",
    "status": "LAW STATED (captain, this session), finder UNBUILT",
    "owes": "the split that makes it enforceable — object-level negations must be proven beneath; meta-level boundary statements must be PREFIXED `SCOPE:` and exempted, because no Lean line can prove that nothing further is claimed. Then a second arm: does the line contain a `≠`/`¬` at all. Glagolitic already passes it — roman_reads_subtractively seals `9 ≠ 11` as its third conjunct, the model for all 73 wings. The hard half is the scanner, not the law: lexical matching cannot tell a claim from a name, which is the same wall treason.ts documents against itself."
@@ -64,6 +59,10 @@
   }
  ],
  "refuted": [
+  {
+   "lead": "Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).",
+   "killed_by": "THREE halves paid. (1) gen-prose-evidence and gen-handles already ride generate.ts's reconcile manifest. (2) gen-captain-claims-complete wired into the same manifest + RECONCILE_OUTPUTS and removed from dormant-scripts — its drain path had frozen total_theorems at 1307 while the ledger moved past 2000. (3) drainGaps now fails on every concrete DRAIN_PATH with zero or two declared writers (RECONCILE_OUTPUTS ∪ DOCS_BUILD_OUTPUTS ∪ DRAIN_WRITERS) — the ownership finder the lead owed. Directory/glob umbrellas stay umbrellas; the order-merge of mid-chain build barriers remains a residual, not this lead."
+  },
   {
    "lead": "predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.",
    "killed_by": "THREE halves paid. (1) expectedPrinciples = 66 → PRINCIPLES.length — the live figure, so the branch cannot go mute when the ledger grows (was 66, now 115). (2) The self-comparison of titles vs entries off the SAME array was replaced by a real second source: lean/PRINCIPLE.md's structural entries, plus a title-collision arm that says what it measures. (3) expectedGaps() now scans every gate script for expected* = N and .length === NNN — the general finder the lead owed; countsGaps holds prose, commentsGaps holds comments, this one holds CODE. Mass-gap doctrine: derive, never remember."

@@ -1,6 +1,6 @@
 {
  "why": "Scripts that are BUILT and REACHABLE but that no npm script, workflow, hook or sibling ever runs. support-audit cannot see this class: importing a module makes it \"supported\" while nothing exercises what it does — books.ts sat here for months at 302/302 supported. Declared 2026-08-19; this list MAY ONLY SHRINK. EXERCISING IS THE POINT, NOT EXCUSING — and as of 2026-08-20 the excusing is over: dist/scripts/exercise-dormant.js runs every name below on every gate pass and requires it to exit 0, so dormancy (being unwired) stays permitted while ROT does not. That step was added because the first full sweep of all 33 found FOUR broken behind the excuse: gen-site.ts shelled an 'npx ts-node' that is not a dependency to redo two steps the chain already does (retired); legal-quantum-accounting.ts used require() in an ES module and a hardcoded /Users/ path; quantum-external-fusion.ts used require() three times; and reserve.ts targeted a hardcoded 65536-byte package that had grown to 3,253,634, so it threw — but only after EMPTYING the shipped reserved.uuidna, whose header meanwhile asserted \"aligned to EXACTLY 64 KiB\" to every npm consumer, false by fifty times. All four are fixed or retired, and the roster below is now executed, not merely listed.",
- "count": 32,
+ "count": 31,
  "exercised_and_fixed": [
   "seal-claims-audit.ts (now WIRED into the audit chain — it caught a real gap, so it earns a permanent slot)",
   "quantum-dimension-scan.ts (fixed and proven green; stays on-demand, declared below)",
@@ -8,7 +8,8 @@
   "legal-quantum-accounting.ts (fixed 2026-08-20 — require() in ESM, and a hardcoded absolute path now derived from ROOT)",
   "quantum-external-fusion.ts (fixed 2026-08-20 — three require() calls in ESM, now one node:crypto import)",
   "reserve.ts (fixed 2026-08-20 — the 64 KiB total is now a 64 KiB ALIGNMENT UNIT computed from the measured base, and the shipped header states measured figures; it no longer clobbers reserved.uuidna before checking reachability)",
-  "quantum-school.ts (RETIRED 2026-08-20 — an authored curriculum: a hand-typed four-rung ladder of courses, week counts, assignments, coin payouts, career outcomes and DEGREES, none of it derived from the ledger and none of it awardable. Replaced by src/school.ts, whose courses ARE the proof wings and whose levels are the decade of each wing's measured kernel decide-step cost; rendered at docs/school.md via docs/.vitepress/school.data.ts)"
+  "quantum-school.ts (RETIRED 2026-08-20 — an authored curriculum: a hand-typed four-rung ladder of courses, week counts, assignments, coin payouts, career outcomes and DEGREES, none of it derived from the ledger and none of it awardable. Replaced by src/school.ts, whose courses ARE the proof wings and whose levels are the decade of each wing's measured kernel decide-step cost; rendered at docs/school.md via docs/.vitepress/school.data.ts)",
+  "gen-captain-claims-complete.ts (WIRED 2026-08-27 into generate.ts / reconcile — last of the three 'owned by nothing' generators; its drain path had frozen total_theorems at 1307)"
  ],
  "scripts": [
   "audit-mcp-native.ts",
@@ -24,7 +25,6 @@
   "crypto-measure.ts",
   "entanglement-games.ts",
   "gcp-analytics.ts",
-  "gen-captain-claims-complete.ts",
   "legal-quantum-accounting.ts",
   "live-cloud-metrics.ts",
   "machine.ts",
@@ -56,9 +56,6 @@
   "entanglement-games.ts": [
    "src/scripts/entanglement-games-spec.json",
    "src/scripts/entanglement-research.json"
-  ],
-  "gen-captain-claims-complete.ts": [
-   "docs/captain-claims-complete.json"
   ],
   "legal-quantum-accounting.ts": [
    "docs/legal-quantum-accounting-statement.md"
