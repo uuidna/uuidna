@@ -38,6 +38,10 @@ domain to a `[contract-uuid].uuidna.org` subdomain. The domain *is* the contract
 ## The gate before the publish
 
 The npm package ships only behind the [seven-dimension audit](/tests): `npm run audit` (build · Lean re-verified
+across every wing · the ten-dimension fusion census · MCP contract · provenance · citations). A fresh checkout
+has no `dist/`; **audit compiles first**, so a tag gate cannot fail `MODULE_NOT_FOUND` on `one-writer`. Cut a
+version with `npm run release-cut` (dry) or `npm run release-cut -- --push` (annotated tag → `release.yml`).
+Live edge delivery is `npm run ship`. Locally:
 sorry-free · provenance · tests · determinism) — and, in CI, the version guards and npm's signed provenance
 attestation. A failing audit fails the publish, never production.
 
