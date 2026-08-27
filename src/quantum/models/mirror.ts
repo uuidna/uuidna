@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 416,
+ "count": 417,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000022",
-   "completionPrice": "0.00000066"
+   "promptPrice": "0.00000044",
+   "completionPrice": "0.00000132"
   },
   {
    "id": "deepseek/deepseek-v4-pro",
@@ -1199,8 +1199,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k2.5",
    "name": "MoonshotAI: Kimi K2.5",
    "contextTokens": 262144,
-   "promptPrice": "0.00000045",
-   "completionPrice": "0.00000225"
+   "promptPrice": "0.0000006",
+   "completionPrice": "0.000003"
   },
   {
    "id": "moonshotai/kimi-k2.6",
@@ -1213,7 +1213,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k2.7-code",
    "name": "MoonshotAI: Kimi K2.7 Code",
    "contextTokens": 262144,
-   "promptPrice": "0.00000067",
+   "promptPrice": "0.00000066",
    "completionPrice": "0.0000034"
   },
   {
@@ -2179,8 +2179,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-235b-a22b-2507",
    "name": "Qwen: Qwen3 235B A22B Instruct 2507",
    "contextTokens": 262144,
-   "promptPrice": "0.00000009",
-   "completionPrice": "0.00000055"
+   "promptPrice": "0.0000000875",
+   "completionPrice": "0.00000035"
   },
   {
    "id": "qwen/qwen3-235b-a22b-thinking-2507",
@@ -2403,8 +2403,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.6-35b-a3b",
    "name": "Qwen: Qwen3.6 35B A3B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000014",
-   "completionPrice": "0.000001"
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000009"
   },
   {
    "id": "qwen/qwen3.6-flash",
@@ -2461,6 +2461,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1000000,
    "promptPrice": "0.000000425",
    "completionPrice": "0.00000255"
+  },
+  {
+   "id": "qwen/qwen3.8-flash",
+   "name": "Qwen: Qwen3.8 Flash",
+   "contextTokens": 1000000,
+   "promptPrice": "0.00000015",
+   "completionPrice": "0.00000047"
   },
   {
    "id": "qwen/qwen3.8-max",
@@ -2578,8 +2585,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000825",
-   "completionPrice": "0.00000033"
+   "promptPrice": "0.000000132",
+   "completionPrice": "0.000000528"
   },
   {
    "id": "tencent/hy3-preview",
@@ -2760,8 +2767,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-4.6",
    "name": "Z.ai: GLM 4.6",
    "contextTokens": 204800,
-   "promptPrice": "0.0000005",
-   "completionPrice": "0.000002"
+   "promptPrice": "0.00000043",
+   "completionPrice": "0.00000175"
   },
   {
    "id": "z-ai/glm-4.6v",
@@ -2873,7 +2880,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
    "promptPrice": "0.00000003",
-   "completionPrice": "0.000000075"
+   "completionPrice": "0.0000001"
   },
   {
    "id": "~google/gemini-flash-latest",

@@ -1,8 +1,8 @@
 {
   "why": "Per-script folds of the BUILT bytes, from the last sweep in which each exited 0, plus the manifest fold. A script whose fold is unchanged cannot have changed behaviour, so only the MOVED ones are re-exercised — the cost of a change is the cost of the change, not the cost of the roster. The manifest is global: it declares what each script may write, so when it moves everything is re-exercised. Delete this file to force a full sweep.",
-  "fold": "d0a86bd8-ac7a-800b-ac1b-4013b81ae2f8",
-  "manifest": "d473d916-44f7-8281-b121-25136e0a69fe",
-  "count": 32,
+  "fold": "37947066-ee6c-8d5c-b7c6-eeabe395c79d",
+  "manifest": "917fd2c5-7cef-862b-bb02-849745a91954",
+  "count": 31,
   "scripts": {
     "audit-mcp-native.ts": "14712a77-5643-8c60-bdac-b27680126464",
     "audit-prose-entropy.ts": "105929b4-9d28-8b2f-8cf8-9f15026930cb",
