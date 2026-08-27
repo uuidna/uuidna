@@ -3,7 +3,7 @@
     "src/theorems/generated.ts": "ed91c3e617aa8dc5",
     "lean/PRINCIPLE.md": "227c513f6a9e87f5",
     "CHANGELOG.md": "ca7d1fc398258eb1",
-    "lean/axioms.json": "087c097cb8e68233",
+    "lean/axioms.json": "e327fcfdc55f8d8c",
     "docs/mcp.md": "ac67abcad8de8122",
     "audit-citations.json": "a3bc8291ff148755",
     "support-audit.json": "d71bafc58c1181ad",
@@ -1427,7 +1427,7 @@
     "lean/MartialArts.lean": "2880f20e036b89aa",
     "lean/Matching.lean": "7d4e59c75e1c81cd",
     "lean/MoMBHStar1.lean": "9898848b92d98289",
-    "lean/Models.lean": "91573661854e8278",
+    "lean/Models.lean": "c1b07fdc2b7b81d8",
     "lean/Molecular.lean": "aea4ab8e62d18978",
     "lean/Navigation.lean": "6c4348c8db78823e",
     "lean/Negation.lean": "95fde9b0d2df8b77",
@@ -1575,7 +1575,7 @@
     "lean/photography-manifest.json": "0d368abd272485df",
     "lean/pravets-manifest.json": "e79756bea39e8a4a",
     "lean/production-manifest.json": "020b56a2d3db8735",
-    "lean/proof-cache.json": "aec36dc2425a8665",
+    "lean/proof-cache.json": "607f58342cbd8fcc",
     "lean/propulsion-manifest.json": "dd4ce996a8f18260",
     "lean/prosetrial-manifest.json": "23892b099ad18e7b",
     "lean/psychology-manifest.json": "573f1cc3d653898b",
@@ -1631,5 +1631,5 @@
     "lean/wave-queue.json": "1932106785988aa7",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "e07b49bf-d0db-8b53-8ed3-8c92c2ab0248"
+  "receipt": "d78294a4-7277-8b96-9a55-63ffc0ae90d9"
 }
