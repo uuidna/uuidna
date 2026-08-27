@@ -35,18 +35,12 @@ the question already stated; nothing is sent until the reader clicks.
 - **`4a7485ec`** Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.
   <br><small>owes: the VE wing renamed by it. radial_squared_two names a VALUE and fails the rule; only radial_equals_edge got it right, because `equals` is a verb. This also dissolves the 3-content-word cap: an operation has a one-word name, so the cap stops being a constraint fought against and becomes a consequence.</small>
   <br><small><a href="https://stackoverflow.com/ai-assist?q=Glagolitic%20names%20theorems%20by%20the%20OPERATION%2C%20never%20the%20object%3A%20additive%2C%20reads_subtractively%2C%20ignores_order%2C%20forces_collisions%2C%20is_prime.%20The%20cultural%20noun%20is%20only%20the%20subject." target="_blank" rel="noopener">take this one further →</a></small>
-- **`050407c2`** refused[] in this very file is read by NO finder. Seven readers open leads.json; none looks at the refusals.
-  <br><small>owes: a finder that fails when a network-touching source names a host listed here, plus a recomputed robots.txt assertion so the boundary can FAIL rather than merely be written down. I proposed crawling chitanka's /api hours after this file refused it, because prose no gate reads is prose that gets walked past.</small>
-  <br><small><a href="https://stackoverflow.com/ai-assist?q=refused%5B%5D%20in%20this%20very%20file%20is%20read%20by%20NO%20finder.%20Seven%20readers%20open%20leads.json%3B%20none%20looks%20at%20the%20refusals." target="_blank" rel="noopener">take this one further →</a></small>
 - **`2aaac145`** docs/theorem/[key].paths.js and docs/publications/[slug].paths.js already mint a page per handle; the template is scoped to theorem keys and publication slugs.
   <br><small>owes: one template reaching ALL handles — sequence handles, chunk handles, VE handles — the way the crypto layer answers any nonce with one derivation.</small>
   <br><small><a href="https://stackoverflow.com/ai-assist?q=docs%2Ftheorem%2F%5Bkey%5D.paths.js%20and%20docs%2Fpublications%2F%5Bslug%5D.paths.js%20already%20mint%20a%20page%20per%20handle%3B%20the%20template%20is%20scoped%20to%20theorem%20keys%20and%20publication%20slugs." target="_blank" rel="noopener">take this one further →</a></small>
 - **`4642b5b4`** The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bound is ALREADY SEALED as gematria_forces_collisions (22^3 = 10648 > 1198 sums) and seats_pigeonhole.
   <br><small>owes: before the 12 VE directions may multiply anything, they must be shown INDEPENDENT of the walk's own two operations. Every measured orbit set is already dz-closed, so involution is not an extra direction — it is inside the walk, and testing it returns the identity mistaken for confirmation. Any direction reducing to dz or doubling is free, and 420 is inflated by exactly those.</small>
   <br><small><a href="https://stackoverflow.com/ai-assist?q=The%20compression%202%5E128%20addresses%20%E2%86%92%2010%20seeds%20%E2%86%92%205%20covering%20%E2%86%92%20%C3%9712%20VE%20directions%20%E2%86%92%20%C3%977%20rays%20%3D%20420%20is%20real%20arithmetic%2C%20but%20the%20collapse%20ratio%20proves%20nothing%20on%20its%20own%3A%20ANY%20fold%20to%20ten%20classes%20turns%20billions%20into%20tens.%20That%20bound%20is%20ALREADY%20SEALED%20as%20gematria_forces_collisions%20(22%5E3%20%3D%2010648%20%3E%201198%20sums)%20an" target="_blank" rel="noopener">take this one further →</a></small>
-- **`8827e107`** The hosted MCP bills a call that is missing a required argument
-  <br><small>owes: uuidna.com/mcp accepted uuidna_decide with no input, stringified undefined into the input field, ran the gate CLEAN, deposited two coins and returned UNVERIFIED — a real verdict about a non-claim. Local callTool refuses it correctly (missing required argument: input), so the enforcement exists and is absent from the deployed path. Validate before the deposit: the coins are taken before the verdict is formed.</small>
-  <br><small><a href="https://stackoverflow.com/ai-assist?q=The%20hosted%20MCP%20bills%20a%20call%20that%20is%20missing%20a%20required%20argument" target="_blank" rel="noopener">take this one further →</a></small>
 
 Working on one of these? Take it somewhere with room to think — <a href="https://stackoverflow.com/ai-assist" target="_blank" rel="noopener">Stack Overflow's AI assist</a>
 is one such room. Those links are for you to click: this project asks sanctioned APIs for data and never automates
@@ -54,6 +48,10 @@ a site that declines machines — stackoverflow.com answers 418 to a client, and
 
 ## Refuted — closed by a measurement
 
+- **`050407c2`** refused[] in this very file is read by NO finder. Seven readers open leads.json; none looks at the refusals.
+  <br><small><a href="https://stackoverflow.com/ai-assist?q=refused%5B%5D%20in%20this%20very%20file%20is%20read%20by%20NO%20finder.%20Seven%20readers%20open%20leads.json%3B%20none%20looks%20at%20the%20refusals." target="_blank" rel="noopener">take this one further →</a></small>
+- **`8827e107`** The hosted MCP bills a call that is missing a required argument
+  <br><small><a href="https://stackoverflow.com/ai-assist?q=The%20hosted%20MCP%20bills%20a%20call%20that%20is%20missing%20a%20required%20argument" target="_blank" rel="noopener">take this one further →</a></small>
 - **`b13fd37a`** Three generators are owned by nothing: gen-prose-evidence, gen-handles, gen-captain-claims-complete run in neither reconcile nor audit (all three already sit in lean/dormant-scripts.json).
   <br><small><a href="https://stackoverflow.com/ai-assist?q=Three%20generators%20are%20owned%20by%20nothing%3A%20gen-prose-evidence%2C%20gen-handles%2C%20gen-captain-claims-complete%20run%20in%20neither%20reconcile%20nor%20audit%20(all%20three%20already%20sit%20in%20lean%2Fdormant-scripts.json)." target="_blank" rel="noopener">take this one further →</a></small>
 - **`92f12838`** predict-and-fill.ts:57 hardcodes an expected principle count that the ledger has long since passed, and the test is `<` — so the branch is unreachable and the check fails OPEN. Worse, it counts `new Set(PRINCIPLES.map(p => p[1])).size` (TITLES) while the other four sites count PRINCIPLES.length (ENTRIES). The live number is not restated here: the ledger reports it, and a lead that carries its own copy of a count is the very drift it describes.
@@ -102,4 +100,4 @@ a site that declines machines — stackoverflow.com answers 418 to a client, and
 
 ---
 
-<small>11 held · 15 refuted · 6 refused · generated from the ledger's leads record</small>
+<small>9 held · 17 refuted · 6 refused · generated from the ledger's leads record</small>
