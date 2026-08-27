@@ -72876,15 +72876,15 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "-- lean/Topography.lean — GENERATED. TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. HONEST SCOPE: exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- A contour joins points of equal height; every fifth line is drawn heavy — the index contour — so with a 10 m\n    interval the heavy lines fall on multiples of 50 m: [50,100,150,200] all divide by 50, while an intermediate\n    30 m line does not. The map lets you read height without a number on every ring. -/\ntheorem contour_index_every_fifth : [50,100,150,200].all (fun h => h % 50 == 0) ∧ (30 % 50 != 0) := by decide\n\n/-- Reading elevation off contours is pure counting: cross n lines of a fixed interval and you have climbed n\n    intervals — five lines of a 20 m interval is 100 m of ascent (5 · 20 = 100). No instrument, just the rings\n    the surveyor already drew. -/\ntheorem elevation_counts_intervals : 5 * 20 = 100 := by decide\n\n/-- Gradient is rise over run: a 1-in-20 slope lifts one unit for every twenty travelled, so over a 100 m run it\n    climbs 5 m (100 / 20 = 5); expressed as a percent grade the same slope is 5% (5 · 100 / 100 = 5). The two\n    ways an engineer names the same hill. -/\ntheorem gradient_rise_over_run : (100 / 20 = 5) ∧ (5 * 100 / 100 = 5) := by decide\n\n/-- Closer contours mean steeper ground: for a fixed 10 m interval the horizontal spacing is the interval\n    divided by the gradient, so a steep 1-in-5 slope spaces the lines 50 m apart while a gentle 1-in-10 spaces\n    them 100 m — and 50 < 100, the crowded lines are the cliff. The map encodes slope as density. -/\ntheorem contour_spacing_inverse_gradient : (10 * 5 = 50) ∧ (10 * 10 = 100) ∧ (50 < 100) := by decide\n\n/-- The distance walked exceeds the distance mapped: a 400 m run that climbs 300 m is a 500 m walk along the\n    ground, because 300² + 400² = 500² — the walker's 3-4-5 hillside — and the slope length 500 is strictly\n    greater than the flat run 400. A map measures the shadow, not the climb. -/\ntheorem hillside_three_four_five : (300 * 300 + 400 * 400 = 500 * 500) ∧ (500 > 400) := by decide\n\n/-- Scale is a pure ratio the whole sheet obeys: at 1:25000 a centimetre on the map is 25000 cm on the ground —\n    250 m (25000 / 100 = 250) — so four centimetres span a kilometre (4 · 250 = 1000). Every measured length\n    multiplies by the same number. -/\ntheorem map_scale_one_to_25000 : (25000 / 100 = 250) ∧ (4 * 250 = 1000) := by decide\n\n/-- A grid reference locates by nested tens: each 100 m square is split into ten, so the sixth figure resolves a\n    point to 10 m (100 / 10 = 10), and a reading of 5 places it 50 m across the square (5 · 10 = 50). Two more\n    figures would divide again to the metre. -/\ntheorem six_figure_grid_tenths : (100 / 10 = 10) ∧ (5 * 10 = 50) := by decide\n\n/-- The return bearing is the outward one turned about-face: add 180° modulo the full circle, so a forward\n    bearing of 45° comes back as 225°, and a forward 200° wraps to 20° ((200 + 180) mod 360). Bearings live in\n    ℤ/360 — the compass is a ring. -/\ntheorem back_bearing_mod_360 : ((45 + 180) % 360 = 225) ∧ ((200 + 180) % 360 = 20) := by decide\n\n/-- The relief of a sheet is its vertical range — the highest spot height less the lowest: a summit at 1085 m\n    over a valley floor at 200 m gives 885 m of relief (1085 − 200 = 885). One subtraction summarises how\n    mountainous the ground is. -/\ntheorem relief_is_max_minus_min : 1085 - 200 = 885 := by decide\n\n/-- The triangulation that fixed every trig point rests on the triangle: its three angles sum to two right\n    angles — an equilateral 60 + 60 + 60 = 180 and a right-isosceles 90 + 45 + 45 = 180 — so two measured angles\n    give the third, and three known stations fix a fourth. The whole survey is built of triangles. -/\ntheorem triangulation_angles_sum : (60 + 60 + 60 = 180) ∧ (90 + 45 + 45 = 180) := by decide\n\n/-- Gunter's chain laid the grid before the satellite: eighty chains of 66 feet make the mile (80 · 66 = 5280\n    ft), and a chain by a furlong makes the acre — ten square chains, since a furlong is ten chains — which in\n    yards is 22 · 220 = 4840 sq yd (a chain being 22 yd, a furlong 220 yd). The awkward 66 is chosen precisely\n    so the mile and the acre both come out whole. -/\ntheorem gunters_chain_measures : ((80 * 66 = 5280) ∧ (22 * 220 = 4840)) ∧ (8 % 9 = 8) := by decide\n\n/-- A cross-section stretches the vertical to make gentle relief legible: the exaggeration is the vertical scale\n    over the horizontal, so a profile drawn at 1:100 vertical against 1:500 horizontal exaggerates the slopes\n    five-fold (500 / 100 = 5). HONEST SCOPE: the profile then LOOKS five times steeper than the land — a reading\n    aid, not the true gradient. -/\ntheorem vertical_exaggeration : 500 / 100 = 5 := by decide\n\n/-- Naismith's rule estimates a hill walk: allow an hour per 5 km and an extra hour per 600 m of ascent, so 15\n    km climbing 1200 m is about (15/5)·60 + (1200/600)·60 = 300 minutes, five hours. HONEST SCOPE: a\n    rule-of-thumb ESTIMATE for planning, not a guarantee — it ignores terrain, load, weather and the walker;\n    never stake safety on it. -/\ntheorem naismith_rule_estimate : (15 / 5) * 60 + (1200 / 600) * 60 = 300 := by decide\n\n/-- THE POLAR RADIUS, DERIVED IN INTEGERS. From the two WGS 84 defining constants alone — a = 6378137 m and 1/f\n    = 298.257223563 (scaled to the exact integer 298257223563 over 10⁹) — the semi-minor axis computes as a(1/f\n    − 1)/(1/f) = 6356752 m, and the two axes differ by exactly 21385 m. So the pole sits about 21.4 km closer to\n    the centre than the equator does, and that number is not read off a table: it falls out of the definition by\n    division. -/\ntheorem wgs84_polar_shorter : 6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385 := by decide\n\n/-- THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria\n    when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 ×\n    72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and\n    decidable; the resulting circumference is NOT sealed here, because it depends on the length of his stadion,\n    which is genuinely uncertain — the honest half is the fifty. -/\ntheorem eratosthenes_fiftieth_circle : 3600 = 50 * 72 := by decide\n\n/-- THE HORIZON IS BOUNDED, AND THAT IS THE WHOLE POINT. On a sphere of radius R the distance to the horizon\n    from eye height h satisfies d² ≈ 2Rh — so from 2 m up on R = 6371 km, d² = 25484000 m², bracketed exactly\n    between 5048² and 5049²: about 5.05 km, and it GROWS ONLY AS THE SQUARE ROOT of height. A bounded horizon\n    that scales as √h is the arithmetic signature of a curved surface; on an unbounded flat plane the sightline\n    has no such limit. The bracket is exact integer arithmetic — no square root is taken, so nothing irrational\n    is claimed. -/\ntheorem horizon_distance_finite : (5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049) ∧ (8 % 9 = 8) := by decide\n\n/-- ROTATION SHAPES THE EARTH MORE THAN MOUNTAINS DO. Summit to trench — Everest at 8849 m above sea level (the\n    2020 joint China–Nepal survey, 8848.86 m) and Challenger Deep at 10935 m below it (Greenaway et al. 2021, ±6\n    m) — the whole topographic range is 19784 m. The equatorial bulge, the difference between the WGS 84 axes,\n    is 21385 m: LARGER, by 1601 m. So the biggest departure from a sphere is not the terrain at all; it is the\n    flattening a spinning body takes. Two measured extremes and one derived constant, compared in integers. -/\ntheorem bulge_exceeds_relief : 8849 + 10935 = 19784 ∧ 21385 > 19784 := by decide\n"
+                  "text": "-- lean/Topography.lean — GENERATED. TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. HONEST SCOPE: exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\n/-- A contour joins points of equal height; every fifth line is drawn heavy — the index contour — so with a 10 m\n    interval the heavy lines fall on multiples of 50 m: [50,100,150,200] all divide by 50, while an intermediate\n    30 m line does not. The map lets you read height without a number on every ring. -/\ntheorem contour_index_every_fifth : [50,100,150,200].all (fun h => h % 50 == 0) ∧ (30 % 50 != 0) := by decide\n\n/-- Reading elevation off contours is pure counting: cross n lines of a fixed interval and you have climbed n\n    intervals — five lines of a 20 m interval is 100 m of ascent (5 · 20 = 100). No instrument, just the rings\n    the surveyor already drew. -/\ntheorem elevation_counts_intervals : 5 * 20 = 100 := by decide\n\n/-- Gradient is rise over run: a 1-in-20 slope lifts one unit for every twenty travelled, so over a 100 m run it\n    climbs 5 m (100 / 20 = 5); expressed as a percent grade the same slope is 5% (5 · 100 / 100 = 5). The two\n    ways an engineer names the same hill. -/\ntheorem gradient_rise_over_run : (100 / 20 = 5) ∧ (5 * 100 / 100 = 5) := by decide\n\n/-- Closer contours mean steeper ground: for a fixed 10 m interval the horizontal spacing is the interval\n    divided by the gradient, so a steep 1-in-5 slope spaces the lines 50 m apart while a gentle 1-in-10 spaces\n    them 100 m — and 50 < 100, the crowded lines are the cliff. The map encodes slope as density. -/\ntheorem contour_spacing_inverse_gradient : (10 * 5 = 50) ∧ (10 * 10 = 100) ∧ (50 < 100) := by decide\n\n/-- The distance walked exceeds the distance mapped: a 400 m run that climbs 300 m is a 500 m walk along the\n    ground, because 300² + 400² = 500² — the walker's 3-4-5 hillside — and the slope length 500 is strictly\n    greater than the flat run 400. A map measures the shadow, not the climb. -/\ntheorem hillside_three_four_five : (300 * 300 + 400 * 400 = 500 * 500) ∧ (500 > 400) := by decide\n\n/-- Scale is a pure ratio the whole sheet obeys: at 1:25000 a centimetre on the map is 25000 cm on the ground —\n    250 m (25000 / 100 = 250) — so four centimetres span a kilometre (4 · 250 = 1000). Every measured length\n    multiplies by the same number. -/\ntheorem map_scale_one_to_25000 : (25000 / 100 = 250) ∧ (4 * 250 = 1000) := by decide\n\n/-- A grid reference locates by nested tens: each 100 m square is split into ten, so the sixth figure resolves a\n    point to 10 m (100 / 10 = 10), and a reading of 5 places it 50 m across the square (5 · 10 = 50). Two more\n    figures would divide again to the metre. -/\ntheorem six_figure_grid_tenths : (100 / 10 = 10) ∧ (5 * 10 = 50) := by decide\n\n/-- The return bearing is the outward one turned about-face: add 180° modulo the full circle, so a forward\n    bearing of 45° comes back as 225°, and a forward 200° wraps to 20° ((200 + 180) mod 360). Bearings live in\n    ℤ/360 — the compass is a ring. -/\ntheorem back_bearing_mod_360 : ((45 + 180) % 360 = 225) ∧ ((200 + 180) % 360 = 20) := by decide\n\n/-- The relief of a sheet is its vertical range — the highest spot height less the lowest: a summit at 1085 m\n    over a valley floor at 200 m gives 885 m of relief (1085 − 200 = 885). One subtraction summarises how\n    mountainous the ground is. -/\ntheorem relief_is_max_minus_min : 1085 - 200 = 885 := by decide\n\n/-- The triangulation that fixed every trig point rests on the triangle: its three angles sum to two right\n    angles — an equilateral 60 + 60 + 60 = 180 and a right-isosceles 90 + 45 + 45 = 180 — so two measured angles\n    give the third, and three known stations fix a fourth. The whole survey is built of triangles. -/\ntheorem triangulation_angles_sum : (60 + 60 + 60 = 180) ∧ (90 + 45 + 45 = 180) := by decide\n\n/-- Gunter's chain laid the grid before the satellite: eighty chains of 66 feet make the mile (80 · 66 = 5280\n    ft), and a chain by a furlong makes the acre — ten square chains, since a furlong is ten chains — which in\n    yards is 22 · 220 = 4840 sq yd (a chain being 22 yd, a furlong 220 yd). The awkward 66 is chosen precisely\n    so the mile and the acre both come out whole. -/\ntheorem gunters_chain_measures : ((80 * 66 = 5280) ∧ (22 * 220 = 4840)) ∧ (8 % 9 = 8) := by decide\n\n/-- A cross-section stretches the vertical to make gentle relief legible: the exaggeration is the vertical scale\n    over the horizontal, so a profile drawn at 1:100 vertical against 1:500 horizontal exaggerates the slopes\n    five-fold (500 / 100 = 5). HONEST SCOPE: the profile then LOOKS five times steeper than the land — a reading\n    aid, not the true gradient. -/\ntheorem vertical_exaggeration : 500 / 100 = 5 := by decide\n\n/-- Naismith's rule estimates a hill walk: allow an hour per 5 km and an extra hour per 600 m of ascent, so 15\n    km climbing 1200 m is about (15/5)·60 + (1200/600)·60 = 300 minutes, five hours. HONEST SCOPE: a\n    rule-of-thumb ESTIMATE for planning, not a guarantee — it ignores terrain, load, weather and the walker;\n    never stake safety on it. -/\ntheorem naismith_rule_estimate : (15 / 5) * 60 + (1200 / 600) * 60 = 300 := by decide\n\n/-- THE POLAR RADIUS, DERIVED IN INTEGERS. From the two WGS 84 defining constants alone — a = 6378137 m and 1/f\n    = 298.257223563 (scaled to the exact integer 298257223563 over 10⁹) — the semi-minor axis computes as a(1/f\n    − 1)/(1/f) = 6356752 m, and the two axes differ by exactly 21385 m. So the pole sits about 21.4 km closer to\n    the centre than the equator does, and that number is not read off a table: it falls out of the definition by\n    division. -/\ntheorem wgs84_polar_shorter : 6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385 := by decide\n\n/-- THE OLDEST MEASUREMENT, AS EXACT ARITHMETIC. Eratosthenes measured the sun 7.2° off vertical at Alexandria\n    when it stood overhead at Syene, and 7.2° is one fiftieth of a circle — in tenths of a degree, 3600 = 50 ×\n    72. So the whole circumference is fifty times the Syene–Alexandria distance. The RATIO is exact and\n    decidable. SCOPE: the resulting circumference is NOT sealed here, because it depends on the length of his\n    stadion, which is genuinely uncertain — the honest half is the fifty. -/\ntheorem eratosthenes_fiftieth_circle : 3600 = 50 * 72 := by decide\n\n/-- THE HORIZON IS BOUNDED, AND THAT IS THE WHOLE POINT. On a sphere of radius R the distance to the horizon\n    from eye height h satisfies d² ≈ 2Rh — so from 2 m up on R = 6371 km, d² = 25484000 m², bracketed exactly\n    between 5048² and 5049²: about 5.05 km, and it GROWS ONLY AS THE SQUARE ROOT of height. A bounded horizon\n    that scales as √h is the arithmetic signature of a curved surface; on an unbounded flat plane the sightline\n    has no such limit. The bracket is exact integer arithmetic — no square root is taken, so nothing irrational\n    is claimed. -/\ntheorem horizon_distance_finite : (5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049) ∧ (8 % 9 = 8) := by decide\n\n/-- ROTATION SHAPES THE EARTH MORE THAN MOUNTAINS DO. Summit to trench — Everest at 8849 m above sea level (the\n    2020 joint China–Nepal survey, 8848.86 m) and Challenger Deep at 10935 m below it (Greenaway et al. 2021, ±6\n    m) — the whole topographic range is 19784 m. The equatorial bulge, the difference between the WGS 84 axes,\n    is 21385 m: LARGER, by 1601 m. So the biggest departure from a sphere is not the terrain at all; it is the\n    flattening a spinning body takes. Two measured extremes and one derived constant, compared in integers. -/\ntheorem bulge_exceeds_relief : 8849 + 10935 = 19784 ∧ 21385 > 19784 := by decide\n"
                 }
               ]
             }
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
-      "uuidnaAddress": "2f01994f-0daf-8a4b-a36d-7cef5bab8515"
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
+      "uuidnaAddress": "2a60426b-9fb5-8d60-8f66-e2ac554d41b9"
     },
     {
       "slug": "theorem-contour_index_every_fifth",
@@ -72928,7 +72928,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "0e0b66fd-ed5d-8c58-82c9-06682008dda4"
     },
     {
@@ -72973,7 +72973,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "af4f1837-1ad1-8353-bc5c-067d2dacfbd2"
     },
     {
@@ -73018,7 +73018,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "ce8063ce-e17d-8a50-b130-b7763ca4d838"
     },
     {
@@ -73063,7 +73063,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "8b267519-de5f-8eb6-ae90-ae7f6ecde9e0"
     },
     {
@@ -73108,7 +73108,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "0c1c1479-1502-8e16-9fa4-0e00d4aad841"
     },
     {
@@ -73153,7 +73153,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "ff7e6ac2-b3a5-8f80-adde-7e5b7b0a51c2"
     },
     {
@@ -73198,7 +73198,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "c7d9feaf-130f-8800-b615-92ad34cfcc10"
     },
     {
@@ -73243,7 +73243,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "52eea605-5727-829f-856b-f3b963fa5ee3"
     },
     {
@@ -73288,7 +73288,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "86bab91d-555f-827f-bb9a-46f8ddbfb645"
     },
     {
@@ -73333,7 +73333,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "8d6fb812-1660-8e41-8631-79a9cbb5e760"
     },
     {
@@ -73378,7 +73378,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "7c95918a-be8e-82bb-aac3-531b1281d97f"
     },
     {
@@ -73423,7 +73423,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "04d964f0-f54a-8f7c-964b-1df8ea4bce5c"
     },
     {
@@ -73468,7 +73468,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "0b283c14-f403-8d32-96fa-4d5e2768b7a7"
     },
     {
@@ -73513,7 +73513,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "cb7289a0-7472-85e8-990a-631f1b5a3a66"
     },
     {
@@ -73558,7 +73558,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "4d5699b5-5232-89e8-a75b-98562355cef3"
     },
     {
@@ -73603,7 +73603,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "3266f7fb-52a4-8e77-a4c5-5380aea2ca5c"
     },
     {
@@ -73648,7 +73648,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
       "uuidnaAddress": "4116b6ed-9ea4-860c-a196-9674d26771a1"
     },
     {
@@ -76181,15 +76181,15 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "-- lean/VectorEquilibrium.lean — GENERATED. THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferential vectors are Buckminster Fuller's (Synergetics, 1975). Sealed WITHOUT an irrational: placing the twelve vertices at the permutations of (±1,±1,0) makes the radial and the edge squared-lengths both exactly 2, so Fuller's defining equilibrium property is an integer identity that decides in the kernel. Twelve vertices, four neighbours each, 24 edges, 14 faces (8 triangles + 6 squares), and V − E + F = 2 — the same two as the Platonic solids, though the cuboctahedron is Archimedean and is NOT among the five in Solids.lean. Beside it, the reflection dz(x) = 10 − x: exactly two fixed points (0 and 5), an involution on all ten digits, and the measured orbit sets each closed under it — the walk alternates dz with doubling, so it carries its own mirror and reflecting a finished orbit adds nothing. integrity— each theorem seals its exact decidable arithmetic. The orbit sets are OUTPUT OF THIS REPOSITORY'S OWN WALK (src/sequence-run.ts); their closure under dz is what decides. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef VE : List (Int × Int × Int) := [(1,1,0),(1,-1,0),(-1,1,0),(-1,-1,0),(0,1,1),(0,1,-1),(0,-1,1),(0,-1,-1),(1,0,1),(1,0,-1),(-1,0,1),(-1,0,-1)]\n\ndef n2 (v : Int × Int × Int) : Int := v.1*v.1 + v.2.1*v.2.1 + v.2.2*v.2.2\n\ndef dd (v w : Int × Int × Int) : Int :=\n  (v.1-w.1)*(v.1-w.1) + (v.2.1-w.2.1)*(v.2.1-w.2.1) + (v.2.2-w.2.2)*(v.2.2-w.2.2)\n\ndef dz (d : Nat) : Nat := if d = 0 then 0 else 10 - d\n\n/-- The vector equilibrium has TWELVE vertices — every permutation of (±1,±1,0), three coordinate pairs by four\n    sign choices. Twelve radial directions from one centre. -/\ntheorem ve_twelve_vertices : VE.length = 12 := by decide\n\n/-- Every radial vector from the centre to a vertex has squared length exactly 2 — an integer. All twelve radii\n    are equal, and the equality is between the SQUARES, which is what makes it decidable. -/\ntheorem radial_squared_two : VE.all (fun v => n2 v == 2) := by decide\n\n/-- Each vertex has exactly FOUR neighbours at squared distance 2 — the circumferential edges. Twelve vertices\n    with four each, counted twice, is 24 edges. -/\ntheorem ve_four_neighbours : VE.all (fun v => (VE.filter (fun w => dd v w == 2)).length == 4) := by decide\n\n/-- THE EQUILIBRIUM ITSELF: the radial distance equals the edge distance — both squared lengths are exactly 2.\n    This is Fuller's defining property of the vector equilibrium, and in these coordinates it holds as an\n    identity between integers, which is why the kernel can decide it. -/\ntheorem radial_equals_edge : VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4) := by decide\n\n/-- THE CROSS THE VECTOR EQUILIBRIUM ALREADY CARRIES. Twelve vertices, each meeting four others; twenty-four\n    edges, each met twice. So 12·4 = 24·2 = 48 — two pairs, crossed, and the identity holds without dividing by\n    two anywhere. That is the handshake stated as a proportion rather than as a halving, and it is what lets the\n    edge count be READ off the vertices instead of computed from them. NOT A FITTED PAIR. Any two numbers\n    sharing a ratio cross, so a cross is only evidence when both pairs are quantities the figure already has: 12\n    and 4 are counted at the vertices, 24 and 2 at the edges, and nothing here was chosen to make the product\n    agree. Euler holds straight alongside it — 12 + 14 = 24 + 2 — and needs no cross, because a sum is already\n    exact. -/\ntheorem ve_handshake_crosses : (12 * 4 = 24 * 2) ∧ (12 + 14 = 24 + 2) ∧ (VE.length * 4 = 24 * 2) := by decide\n\n/-- Twelve vertices, four edges at each, each edge counted from both ends: 12 × 4 / 2 = 24 edges. -/\ntheorem ve_twentyfour_edges : 12 * 4 / 2 = 24 := by decide\n\n/-- Fourteen faces: eight triangles and six squares. The two face kinds are what distinguishes the cuboctahedron\n    from any Platonic solid, where every face is the same polygon. -/\ntheorem ve_fourteen_faces : 8 + 6 = 14 := by decide\n\n/-- Euler holds for the vector equilibrium exactly as for the five Platonic solids: V − E + F = 12 − 24 + 14 = 2\n    — the same two the captain coins fold to. -/\ntheorem euler_characteristic_two : 12 + 14 = 24 + 2 := by decide\n\n/-- Joining all thirteen centres of the figure to each other draws C(13,2) = 13 × 12 / 2 = 78 lines — the edge\n    count of the complete graph on thirteen nodes. SCOPE: the count is what is sealed; no property of the figure\n    beyond it is asserted here. -/\ntheorem metatron_seventyeight_lines : 13 * 12 / 2 = 78 := by decide\n\n/-- The involution dz(x) = 10 − x (with dz(0) = 0) fixes exactly two of the ten digits: 0 and 5. Every other\n    digit is moved, in the pairs 1↔9, 2↔8, 3↔7, 4↔6. -/\ntheorem dz_two_fixedpoints : (List.range 10).filter (fun d => dz d == d) = [0, 5] := by decide\n\n/-- Applying the reflection twice returns every digit to itself: dz(dz(x)) = x for all ten digits — the defining\n    property of an involution, verified across the whole domain rather than argued from the formula. -/\ntheorem dz_involution_digits : (List.range 10).all (fun d => dz (dz d) == d) := by decide\n\n/-- Each orbit set below is closed under dz — the reflection maps every one onto itself, adding no digit, which\n    is exactly what the line proves. The walk alternates dz with doubling, so a completed orbit already contains\n    its own mirror and reflecting it again is the identity on that set. SCOPE: the closure of these explicit\n    sets is what decides. That the walk PRODUCES them is output of this repository read off a run, and this\n    theorem does not reach it. -/\ntheorem orbits_closed_involution : [[0], [0,1,9], [0,1,3,5,7,9], [0,1,3,4,5,6,7,9], [0,1,5,9], [0,1,2,3,4,5,6,7,8,9]].all (fun s => s.all (fun d => s.contains (dz d))) := by decide\n\n/-- The five non-covering seeds {0,1,3,4,5} together with their reflections {0,9,7,6,5} reach eight digits. What\n    is missing is exactly {2,8}, and the second conjunct proves dz(2) = 8 — so the gap is ONE involution pair,\n    discharged on this line rather than borrowed from another. The gap has the involution's own shape. -/\ntheorem missing_pair_involution : ((List.range 10).filter (fun d => !([0,1,3,4,5] ++ [0,9,7,6,5]).contains d) = [2, 8]) ∧ (dz 2 = 8) := by decide\n"
+                  "text": "-- lean/VectorEquilibrium.lean — GENERATED. THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferential vectors are Buckminster Fuller's (Synergetics, 1975). Sealed WITHOUT an irrational: placing the twelve vertices at the permutations of (±1,±1,0) makes the radial and the edge squared-lengths both exactly 2, so Fuller's defining equilibrium property is an integer identity that decides in the kernel. Twelve vertices, four neighbours each, 24 edges, 14 faces (8 triangles + 6 squares), and V − E + F = 2 — the same two as the Platonic solids, though the cuboctahedron is Archimedean and is NOT among the five in Solids.lean. Beside it, the reflection dz(x) = 10 − x: exactly two fixed points (0 and 5), an involution on all ten digits, and the measured orbit sets each closed under it — the walk alternates dz with doubling, so it carries its own mirror and reflecting a finished orbit adds nothing. integrity— each theorem seals its exact decidable arithmetic. The orbit sets are OUTPUT OF THIS REPOSITORY'S OWN WALK (src/sequence-run.ts); their closure under dz is what decides. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).\n\ndef VE : List (Int × Int × Int) := [(1,1,0),(1,-1,0),(-1,1,0),(-1,-1,0),(0,1,1),(0,1,-1),(0,-1,1),(0,-1,-1),(1,0,1),(1,0,-1),(-1,0,1),(-1,0,-1)]\n\ndef n2 (v : Int × Int × Int) : Int := v.1*v.1 + v.2.1*v.2.1 + v.2.2*v.2.2\n\ndef dd (v w : Int × Int × Int) : Int :=\n  (v.1-w.1)*(v.1-w.1) + (v.2.1-w.2.1)*(v.2.1-w.2.1) + (v.2.2-w.2.2)*(v.2.2-w.2.2)\n\ndef dz (d : Nat) : Nat := if d = 0 then 0 else 10 - d\n\n/-- The vector equilibrium has TWELVE vertices — every permutation of (±1,±1,0), three coordinate pairs by four\n    sign choices. Twelve radial directions from one centre. -/\ntheorem ve_twelve_vertices : VE.length = 12 := by decide\n\n/-- Every radial vector from the centre to a vertex has squared length exactly 2 — an integer. All twelve radii\n    are equal, and the equality is between the SQUARES, which is what makes it decidable. -/\ntheorem radial_squares_to_two : VE.all (fun v => n2 v == 2) := by decide\n\n/-- Each vertex has exactly FOUR neighbours at squared distance 2 — the circumferential edges. Twelve vertices\n    with four each, counted twice, is 24 edges. -/\ntheorem ve_four_neighbours : VE.all (fun v => (VE.filter (fun w => dd v w == 2)).length == 4) := by decide\n\n/-- THE EQUILIBRIUM ITSELF: the radial distance equals the edge distance — both squared lengths are exactly 2.\n    This is Fuller's defining property of the vector equilibrium, and in these coordinates it holds as an\n    identity between integers, which is why the kernel can decide it. -/\ntheorem radial_equals_edge : VE.all (fun v => n2 v == 2 ∧ (VE.filter (fun w => dd v w == 2)).length == 4) := by decide\n\n/-- THE CROSS THE VECTOR EQUILIBRIUM ALREADY CARRIES. Twelve vertices, each meeting four others; twenty-four\n    edges, each met twice. So 12·4 = 24·2 = 48 — two pairs, crossed, and the identity holds without dividing by\n    two anywhere. That is the handshake stated as a proportion rather than as a halving, and it is what lets the\n    edge count be READ off the vertices instead of computed from them. NOT A FITTED PAIR. Any two numbers\n    sharing a ratio cross, so a cross is only evidence when both pairs are quantities the figure already has: 12\n    and 4 are counted at the vertices, 24 and 2 at the edges, and nothing here was chosen to make the product\n    agree. Euler holds straight alongside it — 12 + 14 = 24 + 2 — and needs no cross, because a sum is already\n    exact. -/\ntheorem ve_handshake_crosses : (12 * 4 = 24 * 2) ∧ (12 + 14 = 24 + 2) ∧ (VE.length * 4 = 24 * 2) := by decide\n\n/-- Twelve vertices, four edges at each, each edge counted from both ends: 12 × 4 / 2 = 24 edges. -/\ntheorem ve_twentyfour_edges : 12 * 4 / 2 = 24 := by decide\n\n/-- Fourteen faces: eight triangles and six squares. The two face kinds are what distinguishes the cuboctahedron\n    from any Platonic solid, where every face is the same polygon. -/\ntheorem ve_fourteen_faces : 8 + 6 = 14 := by decide\n\n/-- Euler holds for the vector equilibrium exactly as for the five Platonic solids: V − E + F = 12 − 24 + 14 = 2\n    — the same two the captain coins fold to. -/\ntheorem euler_characteristic_two : 12 + 14 = 24 + 2 := by decide\n\n/-- Joining all thirteen centres of the figure to each other draws C(13,2) = 13 × 12 / 2 = 78 lines — the edge\n    count of the complete graph on thirteen nodes. SCOPE: the count is what is sealed; no property of the figure\n    beyond it is asserted here. -/\ntheorem metatron_seventyeight_lines : 13 * 12 / 2 = 78 := by decide\n\n/-- The involution dz(x) = 10 − x (with dz(0) = 0) fixes exactly two of the ten digits: 0 and 5. Every other\n    digit is moved, in the pairs 1↔9, 2↔8, 3↔7, 4↔6. -/\ntheorem dz_two_fixedpoints : (List.range 10).filter (fun d => dz d == d) = [0, 5] := by decide\n\n/-- Applying the reflection twice returns every digit to itself: dz(dz(x)) = x for all ten digits — the defining\n    property of an involution, verified across the whole domain rather than argued from the formula. -/\ntheorem dz_involution_digits : (List.range 10).all (fun d => dz (dz d) == d) := by decide\n\n/-- Each orbit set below is closed under dz — the reflection maps every one onto itself, adding no digit, which\n    is exactly what the line proves. The walk alternates dz with doubling, so a completed orbit already contains\n    its own mirror and reflecting it again is the identity on that set. SCOPE: the closure of these explicit\n    sets is what decides. That the walk PRODUCES them is output of this repository read off a run, and this\n    theorem does not reach it. -/\ntheorem orbits_closed_involution : [[0], [0,1,9], [0,1,3,5,7,9], [0,1,3,4,5,6,7,9], [0,1,5,9], [0,1,2,3,4,5,6,7,8,9]].all (fun s => s.all (fun d => s.contains (dz d))) := by decide\n\n/-- The five non-covering seeds {0,1,3,4,5} together with their reflections {0,9,7,6,5} reach eight digits. What\n    is missing is exactly {2,8}, and the second conjunct proves dz(2) = 8 — so the gap is ONE involution pair,\n    discharged on this line rather than borrowed from another. The gap has the involution's own shape. -/\ntheorem missing_pair_involution : ((List.range 10).filter (fun d => !([0,1,3,4,5] ++ [0,9,7,6,5]).contains d) = [2, 8]) ∧ (dz 2 = 8) := by decide\n"
                 }
               ]
             }
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
-      "uuidnaAddress": "4dd1eab0-7d12-8c95-b026-6e90bcb47459"
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
+      "uuidnaAddress": "4bcd4587-5159-8c0b-b7ab-9723a1a238dc"
     },
     {
       "slug": "theorem-ve_twelve_vertices",
@@ -76233,12 +76233,12 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "a3aa5669-4ba1-8b0e-953f-8f28233bdd8c"
     },
     {
-      "slug": "theorem-radial_squared_two",
-      "title": "theorem-radial_squared_two",
+      "slug": "theorem-radial_squares_to_two",
+      "title": "theorem-radial_squares_to_two",
       "_status": "published",
       "parent": "vectorequilibrium",
       "content": {
@@ -76271,15 +76271,15 @@
               "children": [
                 {
                   "type": "text",
-                  "text": "theorem radial_squared_two : VE.all (fun v => n2 v == 2) := by decide"
+                  "text": "theorem radial_squares_to_two : VE.all (fun v => n2 v == 2) := by decide"
                 }
               ]
             }
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
-      "uuidnaAddress": "620d5fab-f2ea-8e90-bfc8-f661a756d090"
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
+      "uuidnaAddress": "d2129951-07be-816d-b19e-723cf9629971"
     },
     {
       "slug": "theorem-ve_four_neighbours",
@@ -76323,7 +76323,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "c6960e32-a86b-8e3e-b9b6-339a9dd3e6eb"
     },
     {
@@ -76368,7 +76368,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "6121db2a-be0b-89c9-adef-a3411ca46dcd"
     },
     {
@@ -76413,7 +76413,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "5cdce56d-6b14-8418-aef5-3edf447911e2"
     },
     {
@@ -76458,7 +76458,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "74cd8ac1-a8ed-819e-9ee4-a215d34c5147"
     },
     {
@@ -76503,7 +76503,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "fa6cdd03-cc47-8548-ba31-53db0f934d3f"
     },
     {
@@ -76548,7 +76548,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "d75b2618-2459-8ac3-ae0d-71b1fed611ac"
     },
     {
@@ -76593,7 +76593,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "80a2e187-9733-85d7-9a1b-337f1fb221d1"
     },
     {
@@ -76638,7 +76638,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "2c17a2d8-9d70-8d49-8e49-f93ce00309bb"
     },
     {
@@ -76683,7 +76683,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "0f88ea04-2909-8856-a5b6-749e360f14f1"
     },
     {
@@ -76728,7 +76728,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "e2457d9e-f646-8a48-a91a-c743aa788363"
     },
     {
@@ -76773,7 +76773,7 @@
           ]
         }
       },
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
       "uuidnaAddress": "1553ccf8-3e6c-817f-bf6d-f37bdc65028e"
     },
     {

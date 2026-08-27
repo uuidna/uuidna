@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "1a685030-2",
+  "generated": "37d1669b-2",
   "entries": [
     {
       "route": "/",
@@ -2707,9 +2707,9 @@
       "kind": "publication",
       "identity": "models",
       "canonical": "https://uuidna.com/publications/models",
-      "address": "d0b1c42c-fb32-8b44-bff5-971774c8f1df",
-      "handle": "d0b1c42c",
-      "hexbitDoor": "https://uuidna.com/d0b1c42c"
+      "address": "64cb79a7-4da1-8313-adb0-4aa22cf66e1f",
+      "handle": "64cb79a7",
+      "hexbitDoor": "https://uuidna.com/64cb79a7"
     },
     {
       "route": "/publications/molecular",
@@ -3211,9 +3211,9 @@
       "kind": "publication",
       "identity": "vector-equilibrium",
       "canonical": "https://uuidna.com/publications/vector-equilibrium",
-      "address": "34c83cf5-2e99-82f3-968e-9cebffe97a1f",
-      "handle": "34c83cf5",
-      "hexbitDoor": "https://uuidna.com/34c83cf5"
+      "address": "de2344a5-d60b-8a4f-8ce2-f679d4ce14aa",
+      "handle": "de2344a5",
+      "hexbitDoor": "https://uuidna.com/de2344a5"
     },
     {
       "route": "/publications/vortex",
@@ -5200,9 +5200,9 @@
       "kind": "theorem",
       "identity": "context_windows_are_transient_hexbits",
       "canonical": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
-      "address": "50eeaf12-738d-89c0-ad34-cc35823360fe",
-      "handle": "50eeaf12",
-      "hexbitDoor": "https://uuidna.com/50eeaf12"
+      "address": "3b1de12b-cf53-825c-866f-634fd5da8def",
+      "handle": "3b1de12b",
+      "hexbitDoor": "https://uuidna.com/3b1de12b"
     },
     {
       "route": "/theorem/contour_index_every_fifth",
@@ -14169,13 +14169,13 @@
       "hexbitDoor": "https://uuidna.com/9c3f0493"
     },
     {
-      "route": "/theorem/radial_squared_two",
+      "route": "/theorem/radial_squares_to_two",
       "kind": "theorem",
-      "identity": "radial_squared_two",
-      "canonical": "https://uuidna.com/theorem/radial_squared_two",
-      "address": "528fae4c-4b3d-8350-b6c5-a04c7384f367",
-      "handle": "528fae4c",
-      "hexbitDoor": "https://uuidna.com/528fae4c"
+      "identity": "radial_squares_to_two",
+      "canonical": "https://uuidna.com/theorem/radial_squares_to_two",
+      "address": "383af25e-08ac-82eb-834c-6cf04ecc8e27",
+      "handle": "383af25e",
+      "hexbitDoor": "https://uuidna.com/383af25e"
     },
     {
       "route": "/theorem/ramadan_walks_the_year_in_a_life",
@@ -22539,6 +22539,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "1a685030-2755-810f-a174-44ba06e71dab",
+  "receipt": "37d1669b-25ae-8205-ac4f-6cfa51d2c055",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

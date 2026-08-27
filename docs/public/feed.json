@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:f379c232-dfff-868a-9e93-86999b6bba7b",
+  "@id": "urn:uuid:03ef2f9b-9aa5-89e5-af77-58550321e833",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -64802,12 +64802,12 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ea9551d4-5915-8dce-9b3e-0068a66dcee8",
+        "@id": "urn:uuid:aa3bf5f1-b181-8125-af11-2b115d832535",
         "@type": "ScholarlyArticle",
         "headline": "Every radial vector from the centre to a vertex has squared length exactly 2 — an integer. All twelve radii are equal, and the equality is between the SQUARES, which is what makes it decidable.",
         "abstract": "VE.all (fun v => n2 v == 2)",
-        "identifier": "528fae4c-4b3d-8350-b6c5-a04c7384f367",
-        "url": "https://uuidna.com/theorem/radial_squared_two",
+        "identifier": "383af25e-08ac-82eb-834c-6cf04ecc8e27",
+        "url": "https://uuidna.com/theorem/radial_squares_to_two",
         "keywords": "vector-equilibrium, The vector equilibrium",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/VectorEquilibrium.lean",
         "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
@@ -64824,7 +64824,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/528fae4c"
+          "https://uuidna.com/383af25e"
         ]
       }
     },

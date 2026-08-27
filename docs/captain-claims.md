@@ -4,7 +4,7 @@
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Total claimed:** 2120/2120 theorems — every one, by construction
-**Claim receipt:** `90753152-d6e4-8fe0-8d30-db217afe43ea`
+**Claim receipt:** `2f9fac6f-c557-8684-a075-0663f9bd7659`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -1038,7 +1038,7 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[ve_twelve_vertices](/theorem/ve_twelve_vertices) · [radial_squared_two](/theorem/radial_squared_two) · [ve_four_neighbours](/theorem/ve_four_neighbours) · [radial_equals_edge](/theorem/radial_equals_edge) · [ve_handshake_crosses](/theorem/ve_handshake_crosses) · [ve_twentyfour_edges](/theorem/ve_twentyfour_edges) · [ve_fourteen_faces](/theorem/ve_fourteen_faces) · [euler_characteristic_two](/theorem/euler_characteristic_two) · [metatron_seventyeight_lines](/theorem/metatron_seventyeight_lines) · [dz_two_fixedpoints](/theorem/dz_two_fixedpoints) · [dz_involution_digits](/theorem/dz_involution_digits) · [orbits_closed_involution](/theorem/orbits_closed_involution) · [missing_pair_involution](/theorem/missing_pair_involution)
+[ve_twelve_vertices](/theorem/ve_twelve_vertices) · [radial_squares_to_two](/theorem/radial_squares_to_two) · [ve_four_neighbours](/theorem/ve_four_neighbours) · [radial_equals_edge](/theorem/radial_equals_edge) · [ve_handshake_crosses](/theorem/ve_handshake_crosses) · [ve_twentyfour_edges](/theorem/ve_twentyfour_edges) · [ve_fourteen_faces](/theorem/ve_fourteen_faces) · [euler_characteristic_two](/theorem/euler_characteristic_two) · [metatron_seventyeight_lines](/theorem/metatron_seventyeight_lines) · [dz_two_fixedpoints](/theorem/dz_two_fixedpoints) · [dz_involution_digits](/theorem/dz_involution_digits) · [orbits_closed_involution](/theorem/orbits_closed_involution) · [missing_pair_involution](/theorem/missing_pair_involution)
 
 ### The waves
 

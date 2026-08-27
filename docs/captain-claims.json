@@ -12546,9 +12546,9 @@
       "principle": "The vector equilibrium"
     },
     {
-      "key": "radial_squared_two",
-      "lineAddress": "ea9551d4-5915-8dce-9b3e-0068a66dcee8",
-      "address": "528fae4c-4b3d-8350-b6c5-a04c7384f367",
+      "key": "radial_squares_to_two",
+      "lineAddress": "aa3bf5f1-b181-8125-af11-2b115d832535",
+      "address": "383af25e-08ac-82eb-834c-6cf04ecc8e27",
       "principle": "The vector equilibrium"
     },
     {
@@ -12726,7 +12726,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "90753152-d6e4-8fe0-8d30-db217afe43ea",
+  "claim_receipt": "2f9fac6f-c557-8684-a075-0663f9bd7659",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

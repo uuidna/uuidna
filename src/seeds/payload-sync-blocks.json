@@ -67808,8 +67808,8 @@
           "uuidnaAddress": "4116b6ed-9ea4-860c-a196-9674d26771a1"
         }
       ],
-      "uuidnaVersion": "c6550be3-8bff-8730-982a-c27b82c10000",
-      "uuidnaAddress": "2f01994f-0daf-8a4b-a36d-7cef5bab8515"
+      "uuidnaVersion": "c6550be3-8bf1-8f33-ba0d-83838c710000",
+      "uuidnaAddress": "2a60426b-9fb5-8d60-8f66-e2ac554d41b9"
     },
     {
       "slug": "torus",
@@ -70108,8 +70108,8 @@
         },
         {
           "blockType": "theorem",
-          "slug": "theorem-radial_squared_two",
-          "title": "theorem-radial_squared_two",
+          "slug": "theorem-radial_squares_to_two",
+          "title": "theorem-radial_squares_to_two",
           "content": {
             "root": {
               "type": "root",
@@ -70140,14 +70140,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem radial_squared_two : VE.all (fun v => n2 v == 2) := by decide"
+                      "text": "theorem radial_squares_to_two : VE.all (fun v => n2 v == 2) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "620d5fab-f2ea-8e90-bfc8-f661a756d090"
+          "uuidnaAddress": "d2129951-07be-816d-b19e-723cf9629971"
         },
         {
           "blockType": "theorem",
@@ -70623,8 +70623,8 @@
           "uuidnaAddress": "1553ccf8-3e6c-817f-bf6d-f37bdc65028e"
         }
       ],
-      "uuidnaVersion": "c65ba3a0-4339-8b07-958e-237e8e8a0000",
-      "uuidnaAddress": "4dd1eab0-7d12-8c95-b026-6e90bcb47459"
+      "uuidnaVersion": "c65ba3a0-430e-8d9f-92f6-05bf8ccd0000",
+      "uuidnaAddress": "4bcd4587-5159-8c0b-b7ab-9723a1a238dc"
     },
     {
       "slug": "vortex",
