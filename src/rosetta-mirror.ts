@@ -970,6 +970,8 @@ w_state_three_outcomes 27
 w_state_normalized 27
 bell_basis_orthogonal 27
 n_qubit_dimension 27
+served_qubit_ceiling 27
+gate_error_baseline_class 31
 tensor_dimension_multiplies 27
 pauli_group_order_16 27
 closure_is_coprime 27
@@ -2254,6 +2256,7 @@ bulge_exceeds_relief WGS 84
 codons_sixty_four DOI
 dna_base_pairing_involution DOI
 eratosthenes_fiftieth_circle Eratosthenes
+gate_error_baseline_class DOI
 hardware_above_landauer Landauer
 kelvin_floor_carries_the_hundred SI
 landauer_bound_derived SI
@@ -2264,4 +2267,4 @@ two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 15, falsifier: 63 }
+export const FLOOR = { witness: 16, falsifier: 63 }

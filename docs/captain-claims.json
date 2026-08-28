@@ -2,8 +2,8 @@
   "generated": "2026-08-28",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2127,
-  "total_theorems": 2127,
+  "total_claimed": 2129,
+  "total_theorems": 2129,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3480,6 +3480,18 @@
       "principle": "The quantum computer"
     },
     {
+      "key": "served_qubit_ceiling",
+      "lineAddress": "84a018f6-bdd7-86ff-b65a-92636341caba",
+      "address": "c18c0811-5c72-8b2d-864c-2765f5a10360",
+      "principle": "The quantum computer"
+    },
+    {
+      "key": "gate_error_baseline_class",
+      "lineAddress": "4393067b-edcc-8be9-8118-fa0647028e77",
+      "address": "cfe28f0e-8bcf-89b7-992c-4f8999a3a458",
+      "principle": "The quantum computer"
+    },
+    {
       "key": "tensor_dimension_multiplies",
       "lineAddress": "18082ed0-9c74-8f5d-ae76-425b87ea8032",
       "address": "a249e63a-f016-8a71-bbf1-a22e38f27c12",
@@ -3811,8 +3823,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "1e61df9b-8177-8da2-985d-e8e1048d9ab9",
-      "address": "14d5040c-aae8-8b83-8310-23e9e754ccf6",
+      "lineAddress": "5fb35677-6da1-8a67-b45d-73ad950aabcc",
+      "address": "8320d9a7-ea5b-8ead-96de-708f533d4e81",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4081,38 +4093,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "70d4e6da-ae67-8ded-a390-5f0fa3140bcf",
-      "address": "a94bfb66-48e7-86cd-b9c5-2ba938eddd08",
+      "lineAddress": "315dca62-a223-8952-8ee7-3bae9f5b10a2",
+      "address": "9bb41bae-4139-8a1d-b985-758d21097efa",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "15106f98-2f4d-8c2f-96f2-0fe83c7a2865",
-      "address": "8f34f9c1-b9e8-8c62-b12b-b08de1db2ed2",
+      "lineAddress": "3c2d48d6-82ed-83d9-8b08-87e05e855612",
+      "address": "2055290c-4910-8197-b3b8-773d55d97844",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "0af027dd-222b-8948-a20f-3d5a896c62ce",
-      "address": "127eea74-2ec9-818d-a827-c6cf520e82b9",
+      "lineAddress": "10a74f60-84e0-88df-929e-638973b8b936",
+      "address": "78d53e42-124a-81ba-bd71-cf0541d0c15f",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "093a06d8-140c-8c30-9e1f-1080e0fb23e7",
-      "address": "37fddb80-52bd-8086-a031-68378279f570",
+      "lineAddress": "f7e2cc09-4056-892d-a219-9f1f23a205f1",
+      "address": "9a944e4b-b1cc-851f-8e0a-ebfd86c9e908",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "f8992830-04d0-8b27-a93f-d26294457585",
-      "address": "e4be6309-a77e-8a29-8beb-c6eb9d7b2b83",
+      "lineAddress": "99e9dbc6-6e6c-8e9e-bf2e-5a36572c48ab",
+      "address": "7284f205-214d-888d-89f0-33906447985a",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "1a0bdfac-2c3a-8c1c-ab1d-4ad2ef342f85",
-      "address": "9053b2b0-e885-84fa-8450-d2472d54958c",
+      "lineAddress": "d5642acb-cdf4-8ac2-bf33-e1c1a8fa89ce",
+      "address": "bba42a9a-7d98-81ed-9a57-f6834af84adb",
       "principle": "The detectors, proven"
     },
     {
@@ -4501,14 +4513,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "6c95795d-0232-8ad2-b224-18c9d3bdb265",
-      "address": "78718726-4518-8ab7-aee9-8ac5cb469655",
+      "lineAddress": "7b0e5b5e-0c38-807c-a98f-cbfe172c25e5",
+      "address": "f1fd58d5-e403-82d3-98a2-33ed488cf868",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "d81f1e76-6544-81c6-97e1-c8eecc53ced4",
-      "address": "81206fb2-4089-88cc-8b11-70ccbc4b43f5",
+      "lineAddress": "fc1cca27-0997-87e7-a19f-7731bb1bd541",
+      "address": "26c727c3-2d63-8837-8c10-e97e4f1f386d",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -12169,8 +12181,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "2b372587-49bb-8eec-b9cf-aec87377b2c8",
-      "address": "bcdc0361-09be-8c3c-aa69-b1e0ee56eee0",
+      "lineAddress": "f553e430-f322-860c-9e80-678363b62007",
+      "address": "70422661-cd00-877e-9c3a-55d69781f00f",
       "principle": "The models"
     },
     {
@@ -12768,7 +12780,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "6132c0c0-aa91-8f99-8a2c-f5e137940103",
+  "claim_receipt": "b7c8facf-1ab5-801d-9245-f65e6f87bf3d",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",
