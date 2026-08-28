@@ -197,7 +197,7 @@ export function awaitAcquire(
   // THE CEILING ASKS THE PROCESS TABLE BEFORE IT ACCUSES (2026-08-24). working() existed and only shaped the
   // CLI's wording; the VERDICT was still `polls >= maxPolls`, so elapsed time alone convicted. It misfired live
   // that same day: a deposit here declared pid 83657 STUCK after 1000 polls while that land was running
-  // `npm run next` in its pre-push hook — busy the entire time, and the hook's own comment budgets four minutes
+  // `npm run next:full` on release — busy the entire time, and the hook's own comment budgets under 60s for push
   // a gate across up to four rounds. A count cannot tell busy from stuck; a live child can. So the count now
   // only opens the question, and a holder still working EXTENDS instead of being accused.
   let extensions = 0

@@ -25,7 +25,7 @@
 // `uuidnaPackage` the install port uses; the states are `compileToHexbits` from src/hexbit. If it is named a
 // hexbit, the unit computed it.
 import { uuidnaPackage } from '../../os/packages/index.js'
-import { compileToHexbits, UUID_HEXBITS } from '../../hexbit/index.js'
+import { compileToHexbits, hexbitDoorOf, UUID_HEXBITS, type HexbitDoor } from '../../hexbit/index.js'
 import { INSTALLS_MIRROR } from './mirror.js'
 
 /** where the committed catalogue lives, repo-relative — one declaration, read by the generator and the reader */
@@ -323,12 +323,12 @@ const checksumOk = (c: string): boolean => {
 /** catalogueCompile(pkg) → the same mint+compile the boot port uses: published tuple → 128-bit address →
  *  UUID_HEXBITS states on the lattice. Arch and branch are the pinned mirror's; repo is the package's own
  *  (main | community), so a community package does not pretend to live in main. */
-export function catalogueCompile(p: CataloguePackage): { id: string; address: string; hexbits: number[] } {
+export function catalogueCompile(p: CataloguePackage): { id: string; address: string } & HexbitDoor {
   const minted = uuidnaPackage({
     name: p.name, version: p.version, checksum: p.checksum, repo: p.repo,
     arch: INSTALLS_MIRROR.arch, branch: INSTALLS_MIRROR.branch,
   })
-  return { id: minted.id, address: minted.address, hexbits: compileToHexbits(minted.address) }
+  return { id: minted.id, address: minted.address, ...hexbitDoorOf(minted.address) }
 }
 
 /** packageSelfTest(pkg) → the package's own verdict on its own record. Pure, total, and able to fail. */

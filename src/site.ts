@@ -49,7 +49,7 @@ export function discoverStaticPages(): PageNode[] {
 //    SiteFooter.vue as it was before. Any real page NOT listed here still appears (in "More"), so a forgotten
 //    category assignment is a visible gap, never a silent drop the way an un-added sidebar entry used to be.
 export const SIDEBAR_CATEGORIES: readonly [string, string[]][] = [
-  ['The ledger', ['/theorems', '/topics', '/grid', '/trials', '/quantum', '/quantum-cryptography', '/rosetta', '/rosetta-glagolitic', '/search', '/publications', '/news', '/articles', '/games', '/song', '/anthem', '/referrer-song', '/symphony']],
+  ['The ledger', ['/theorems', '/topics', '/grid', '/trials', '/quantum', '/quantum-cryptography', '/rosetta', '/rosetta-glagolitic', '/search', '/search-feed', '/publications', '/news', '/articles', '/games', '/song', '/anthem', '/referrer-song', '/symphony']],
   ['Fuse it in', ['/school', '/store', '/tools', '/terminal', '/mcp', '/chat', '/books', '/guides', '/chess', '/quantum-messaging', '/dimensions']],
   ['The captain', ['/captain', '/doctrine', '/succession', '/captain-claims']],
   ['Verify it yourself', ['/tests', '/analytics', '/deploy', '/os', '/models', '/unlocks', '/changelog', '/prose-evidence', '/by-proof']],
@@ -62,6 +62,7 @@ const LABELS: Readonly<Record<string, string>> = {
   '/theorems': 'All theorems', '/topics': 'Topics (by skill)', '/grid': 'The 432 grid', '/trials': 'The trials',
   '/quantum': 'What quantum means', '/quantum-cryptography': 'Quantum Cryptography (course)',
   '/rosetta': 'Rosette rays', '/rosetta-glagolitic': 'The Glagolitic hypothesis', '/search': 'Search',
+  '/search-feed': 'Search feed (most-searched → doors)',
   '/publications': 'Publications', '/news': 'News (computed)', '/articles': 'Articles (computed)',
   '/games': 'Games', '/song': 'The song', '/anthem': 'The anthem', '/referrer-song': 'The referrer song', '/symphony': 'The ledger symphony', '/school': 'The school', '/store': 'The store', '/tools': 'School tools', '/reading-room': 'Reading room', '/apps': 'The app store', '/open-questions': 'Open questions', '/evasion': 'The evasion ticker', '/utterances': 'The utterances', '/patents': 'The patents faculty', '/trading': 'The trading floor', '/terminal': 'The terminal', '/mcp': 'MCP tools', '/chat': 'Chat', '/books': 'Books',
   '/guides': 'Guides', '/quantum-messaging': 'Quantum messaging', '/dimensions': 'Reading dimensions',

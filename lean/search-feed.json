@@ -1,0 +1,657 @@
+{
+  "queries": [
+    {
+      "id": "maps",
+      "query": "maps",
+      "source": "Similarweb global traffic-share leader, Aug 2026"
+    },
+    {
+      "id": "weather",
+      "query": "weather",
+      "source": "Similarweb global volume, Aug 2026"
+    },
+    {
+      "id": "world-cup",
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase"
+    },
+    {
+      "id": "gemini",
+      "query": "gemini",
+      "source": "Similarweb US #1 term Aug 2026; Google Year in Search 2025 global #1"
+    },
+    {
+      "id": "deepseek",
+      "query": "deepseek",
+      "source": "Google Year in Search 2025 global trending"
+    },
+    {
+      "id": "iphone",
+      "query": "iphone",
+      "source": "Google Year in Search 2025 global trending"
+    },
+    {
+      "id": "ufc",
+      "query": "ufc",
+      "source": "Similarweb global volume, Aug 2026"
+    },
+    {
+      "id": "f1",
+      "query": "f1",
+      "source": "Similarweb global volume, Aug 2026"
+    },
+    {
+      "id": "cricket",
+      "query": "cricket",
+      "source": "Similarweb ind vs eng / Year in Search 2025 cricket spike"
+    },
+    {
+      "id": "uuid",
+      "query": "uuid",
+      "source": "this ledger's own subject"
+    },
+    {
+      "id": "quantum-advantage",
+      "query": "quantum advantage",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941"
+    },
+    {
+      "id": "api-arxiv.org",
+      "query": "quantum",
+      "source": "arxiv.org"
+    },
+    {
+      "id": "api-mathoverflow.net",
+      "query": "prime",
+      "source": "mathoverflow.net"
+    },
+    {
+      "id": "api-en.wikipedia.org",
+      "query": "mathematics",
+      "source": "en.wikipedia.org"
+    },
+    {
+      "id": "api-gutendex.com",
+      "query": "Euclid",
+      "source": "gutendex.com"
+    },
+    {
+      "id": "api-open-meteo.com",
+      "query": "Sofia",
+      "source": "open-meteo.com"
+    },
+    {
+      "id": "api-en.wikinews.org",
+      "query": "science",
+      "source": "en.wikinews.org"
+    },
+    {
+      "id": "api-esco",
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations"
+    },
+    {
+      "id": "api-data-europa",
+      "query": "education",
+      "source": "data-europa — data.europa.eu — the EU open data catalogue"
+    }
+  ],
+  "online": false,
+  "meaning": null,
+  "results": [
+    {
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "arity_admits_exactly_one_dependent_trinity",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 4237,
+      "concepts": [
+        "cup",
+        "world"
+      ]
+    },
+    {
+      "query": "quantum advantage",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "key": "captain_coins_respected_at_scale",
+      "principle": "The two coins & the 64",
+      "skill": "coins",
+      "resonance": 4150,
+      "concepts": [
+        "advantage",
+        "quantum"
+      ]
+    },
+    {
+      "query": "quantum advantage",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "key": "clifford_group_order_24",
+      "principle": "The quantum computer",
+      "skill": "quantum",
+      "resonance": 4150,
+      "concepts": [
+        "advantage",
+        "quantum"
+      ]
+    },
+    {
+      "query": "quantum advantage",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "key": "dj_balanced_cancels",
+      "principle": "The quantum computer",
+      "skill": "quantum",
+      "resonance": 4150,
+      "concepts": [
+        "advantage",
+        "quantum"
+      ]
+    },
+    {
+      "query": "quantum advantage",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "key": "drift_is_named_or_caught",
+      "principle": "The detectors, proven",
+      "skill": "audit",
+      "resonance": 4150,
+      "concepts": [
+        "advantage",
+        "quantum"
+      ]
+    },
+    {
+      "query": "quantum advantage",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "key": "gate_error_baseline_class",
+      "principle": "The quantum computer",
+      "skill": "quantum",
+      "resonance": 4150,
+      "concepts": [
+        "advantage",
+        "quantum"
+      ]
+    },
+    {
+      "query": "mathematics",
+      "source": "en.wikipedia.org",
+      "key": "hasse_bound_holds_at_four_primes",
+      "principle": "The seven reflected",
+      "skill": "clay",
+      "resonance": 2128,
+      "concepts": [
+        "mathematics"
+      ]
+    },
+    {
+      "query": "weather",
+      "source": "Similarweb global volume, Aug 2026",
+      "key": "naismith_rule_estimate",
+      "principle": "The lay of the land",
+      "skill": "topography",
+      "resonance": 2128,
+      "concepts": [
+        "weather"
+      ]
+    },
+    {
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "code_holds_sixteen_words",
+      "principle": "The hamming",
+      "skill": "hamming",
+      "resonance": 2123,
+      "concepts": [
+        "cup"
+      ]
+    },
+    {
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "depolarisation_blocks_firing",
+      "principle": "The algebra of the neuron",
+      "skill": "neuro",
+      "resonance": 2123,
+      "concepts": [
+        "cup"
+      ]
+    },
+    {
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "quantum_polygraph",
+      "principle": "The rules of inference",
+      "skill": "reasoning",
+      "resonance": 2123,
+      "concepts": [
+        "cup"
+      ]
+    },
+    {
+      "query": "fifa world cup",
+      "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
+      "key": "seven_reach_five_classes",
+      "principle": "The reflection",
+      "skill": "reflection",
+      "resonance": 2123,
+      "concepts": [
+        "cup"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "annihilation_conserves_everything",
+      "principle": "The reactions domain",
+      "skill": "chemistry",
+      "resonance": 2116,
+      "concepts": [
+        "chemistry"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "boyles_law",
+      "principle": "The reactions domain",
+      "skill": "chemistry",
+      "resonance": 2116,
+      "concepts": [
+        "chemistry"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "charge_balance_neutral",
+      "principle": "The reactions domain",
+      "skill": "chemistry",
+      "resonance": 2116,
+      "concepts": [
+        "chemistry"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "chemistry_water_and_the_table",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 2116,
+      "concepts": [
+        "chemistry"
+      ]
+    },
+    {
+      "query": "chemistry",
+      "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations",
+      "key": "combustion_methane_balances",
+      "principle": "The reactions domain",
+      "skill": "chemistry",
+      "resonance": 2116,
+      "concepts": [
+        "chemistry"
+      ]
+    },
+    {
+      "query": "science",
+      "source": "en.wikinews.org",
+      "key": "abo_klein_four",
+      "principle": "Applied structure — the science pairs",
+      "skill": "science-pairs",
+      "resonance": 2100,
+      "concepts": [
+        "science"
+      ]
+    },
+    {
+      "query": "science",
+      "source": "en.wikinews.org",
+      "key": "action_reaction_and_charge_cancel",
+      "principle": "The harmony of pairs",
+      "skill": "science-pairs",
+      "resonance": 2100,
+      "concepts": [
+        "science"
+      ]
+    },
+    {
+      "query": "science",
+      "source": "en.wikinews.org",
+      "key": "agonist_antagonist_cancels",
+      "principle": "The harmony of pairs",
+      "skill": "science-pairs",
+      "resonance": 2100,
+      "concepts": [
+        "science"
+      ]
+    },
+    {
+      "query": "science",
+      "source": "en.wikinews.org",
+      "key": "blood_types_eight",
+      "principle": "Applied structure — the science pairs",
+      "skill": "science-pairs",
+      "resonance": 2100,
+      "concepts": [
+        "science"
+      ]
+    },
+    {
+      "query": "science",
+      "source": "en.wikinews.org",
+      "key": "chargaff_strand_balance",
+      "principle": "The harmony of pairs",
+      "skill": "science-pairs",
+      "resonance": 2100,
+      "concepts": [
+        "science"
+      ]
+    },
+    {
+      "query": "maps",
+      "source": "Similarweb global traffic-share leader, Aug 2026",
+      "key": "agl9_exponent_is_eighteen_with_no_element_of_that_order",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 2098,
+      "concepts": [
+        "maps"
+      ]
+    },
+    {
+      "query": "maps",
+      "source": "Similarweb global traffic-share leader, Aug 2026",
+      "key": "agl9_fixed_point_census_gives_a_single_orbit",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 2098,
+      "concepts": [
+        "maps"
+      ]
+    },
+    {
+      "query": "maps",
+      "source": "Similarweb global traffic-share leader, Aug 2026",
+      "key": "agl9_pair_action_is_sharp_on_unit_differences",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 2098,
+      "concepts": [
+        "maps"
+      ]
+    },
+    {
+      "query": "maps",
+      "source": "Similarweb global traffic-share leader, Aug 2026",
+      "key": "censuses_differ",
+      "principle": "The reversal",
+      "skill": "reversal",
+      "resonance": 2098,
+      "concepts": [
+        "maps"
+      ]
+    },
+    {
+      "query": "maps",
+      "source": "Similarweb global traffic-share leader, Aug 2026",
+      "key": "codons_four_cubed",
+      "principle": "The cipher & the strand",
+      "skill": "cipher",
+      "resonance": 2098,
+      "concepts": [
+        "maps"
+      ]
+    },
+    {
+      "query": "uuid",
+      "source": "this ledger's own subject",
+      "key": "a_claim_is_verified_or_unverified",
+      "principle": "The report",
+      "skill": "reporting",
+      "resonance": 2059,
+      "concepts": [
+        "uuid"
+      ]
+    },
+    {
+      "query": "uuid",
+      "source": "this ledger's own subject",
+      "key": "all_signaling_duality",
+      "principle": "The quantum computer",
+      "skill": "quantum",
+      "resonance": 2059,
+      "concepts": [
+        "uuid"
+      ]
+    },
+    {
+      "query": "uuid",
+      "source": "this ledger's own subject",
+      "key": "anthem_closes_on_the_coin_octave",
+      "principle": "The release anthem",
+      "skill": "anthem",
+      "resonance": 2059,
+      "concepts": [
+        "uuid"
+      ]
+    },
+    {
+      "query": "uuid",
+      "source": "this ledger's own subject",
+      "key": "anthem_finale_sings_one_uuid",
+      "principle": "The release anthem",
+      "skill": "anthem",
+      "resonance": 2059,
+      "concepts": [
+        "uuid"
+      ]
+    },
+    {
+      "query": "uuid",
+      "source": "this ledger's own subject",
+      "key": "boundary_is_exactly_two_named_modules",
+      "principle": "The OS-integrity algebra",
+      "skill": "os",
+      "resonance": 2059,
+      "concepts": [
+        "uuid"
+      ]
+    },
+    {
+      "query": "quantum",
+      "source": "arxiv.org",
+      "key": "a_gapless_index_admits_nothing_between",
+      "principle": "The calendar",
+      "skill": "calendar",
+      "resonance": 2036,
+      "concepts": [
+        "quantum"
+      ]
+    },
+    {
+      "query": "quantum",
+      "source": "arxiv.org",
+      "key": "a_handle_is_eight_pairs_paid_it_is_sixteen",
+      "principle": "The models",
+      "skill": "models",
+      "resonance": 2036,
+      "concepts": [
+        "quantum"
+      ]
+    },
+    {
+      "query": "quantum",
+      "source": "arxiv.org",
+      "key": "all_signaling_duality",
+      "principle": "The quantum computer",
+      "skill": "quantum",
+      "resonance": 2036,
+      "concepts": [
+        "quantum"
+      ]
+    },
+    {
+      "query": "quantum",
+      "source": "arxiv.org",
+      "key": "b2_is_trinity_rosette",
+      "principle": "The torus dimensions",
+      "skill": "torus",
+      "resonance": 2036,
+      "concepts": [
+        "quantum"
+      ]
+    },
+    {
+      "query": "quantum",
+      "source": "arxiv.org",
+      "key": "bell_basis_orthogonal",
+      "principle": "The quantum computer",
+      "skill": "quantum",
+      "resonance": 2036,
+      "concepts": [
+        "quantum"
+      ]
+    },
+    {
+      "query": "prime",
+      "source": "mathoverflow.net",
+      "key": "agl9_pair_action_is_sharp_on_unit_differences",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 1995,
+      "concepts": [
+        "prime"
+      ]
+    },
+    {
+      "query": "prime",
+      "source": "mathoverflow.net",
+      "key": "anthem_pi_primes_trinity",
+      "principle": "The release anthem",
+      "skill": "anthem",
+      "resonance": 1995,
+      "concepts": [
+        "prime"
+      ]
+    },
+    {
+      "query": "prime",
+      "source": "mathoverflow.net",
+      "key": "axes_stride_coprime",
+      "principle": "The fused ring",
+      "skill": "crt",
+      "resonance": 1995,
+      "concepts": [
+        "prime"
+      ]
+    },
+    {
+      "query": "prime",
+      "source": "mathoverflow.net",
+      "key": "circle_of_fifths",
+      "principle": "Applied structure — the science pairs",
+      "skill": "science-pairs",
+      "resonance": 1995,
+      "concepts": [
+        "prime"
+      ]
+    },
+    {
+      "query": "prime",
+      "source": "mathoverflow.net",
+      "key": "closure_is_coprime",
+      "principle": "The quantum computer",
+      "skill": "quantum",
+      "resonance": 1995,
+      "concepts": [
+        "prime"
+      ]
+    }
+  ],
+  "leads": [
+    {
+      "query": "gemini",
+      "source": "Similarweb US #1 term Aug 2026; Google Year in Search 2025 global #1",
+      "what": "most-searched query \"gemini\" rings no sealed theorem",
+      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
+    },
+    {
+      "query": "deepseek",
+      "source": "Google Year in Search 2025 global trending",
+      "what": "most-searched query \"deepseek\" rings no sealed theorem",
+      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
+    },
+    {
+      "query": "iphone",
+      "source": "Google Year in Search 2025 global trending",
+      "what": "most-searched query \"iphone\" rings no sealed theorem",
+      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
+    },
+    {
+      "query": "ufc",
+      "source": "Similarweb global volume, Aug 2026",
+      "what": "most-searched query \"ufc\" rings no sealed theorem",
+      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
+    },
+    {
+      "query": "f1",
+      "source": "Similarweb global volume, Aug 2026",
+      "what": "most-searched query \"f1\" rings no sealed theorem",
+      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
+    },
+    {
+      "query": "cricket",
+      "source": "Similarweb ind vs eng / Year in Search 2025 cricket spike",
+      "what": "most-searched query \"cricket\" rings no sealed theorem",
+      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
+    },
+    {
+      "query": "quantum advantage",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "what": "harvest 128 - 70 = 58 from \"quantum advantage\" decides TRUE and is unsealed",
+      "owes": "captain dispose: wave-deposit the mint candidate, or refuse it at a named boundary — never auto-seal",
+      "harvest": {
+        "key": "api_15c15f63",
+        "fragment": "128 - 70 = 58",
+        "lean": "theorem api_15c15f63 : (128 - 70 = 58) := by decide",
+        "why": "FREE MINT from quantum-advantage: the public API attested \"128 - 70 = 58\"; decide() confirmed it TRUE and the ledger does not yet seal it — minting costs nothing, only the kernel approves (theorem minting_is_free_and_forging_is_not). Provenance: ac133258-2a67-80c0-b22a-40c89accfb0a.",
+        "source": "quantum-advantage",
+        "from": "ac133258-2a67-80c0-b22a-40c89accfb0a",
+        "receipt": "e24d80a1-8d2f-8697-ae7d-ca8892a3df2c"
+      }
+    },
+    {
+      "query": "Euclid",
+      "source": "gutendex.com",
+      "what": "most-searched query \"Euclid\" rings no sealed theorem",
+      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
+    },
+    {
+      "query": "Sofia",
+      "source": "open-meteo.com",
+      "what": "most-searched query \"Sofia\" rings no sealed theorem",
+      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
+    },
+    {
+      "query": "education",
+      "source": "data-europa — data.europa.eu — the EU open data catalogue",
+      "what": "most-searched query \"education\" rings no sealed theorem",
+      "owes": "a `by decide` wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject"
+    }
+  ],
+  "silent": [
+    "gemini",
+    "deepseek",
+    "iphone",
+    "ufc",
+    "f1",
+    "cricket",
+    "api-gutendex.com",
+    "api-open-meteo.com",
+    "api-data-europa"
+  ],
+  "receipt": "f1908c2e-e926-82fd-9fb2-139f52f70433",
+  "handle": "f1908c2e",
+  "door": "https://uuidna.com/f1908c2e",
+  "honest": "Most-searched queries and the wired public APIs (research streams, EU education portals, unanswered math) ring the sealed ledger by resonance. Loud theorems are the ONLINE RESULTS — /theorem/<key> doors. Silent queries and decided-unsealed harvest are LEADS the desk proposes; only the kernel seals, only the captain holds or refuses. Meaning is null. This does not scrape Google. Recomputable. Integrity."
+}

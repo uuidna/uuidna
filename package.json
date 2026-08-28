@@ -1,6 +1,6 @@
 {
   "name": "@uuidna/uuidna",
-  "version": "0.2.9",
+  "version": "0.3.0",
   "publishConfig": {
     "access": "public"
   },
@@ -63,7 +63,7 @@
     "test:docs": "node --test docs/.vitepress/theme/*.test.ts",
     "site": "npm run docs:build",
     "docs:dev": "npm run build && vitepress dev docs",
-    "docs:build": "npm run build && node dist/scripts/gen-mcp.js && node dist/scripts/gen-captain-claims.js && node dist/scripts/lean-payload-seeds.js && node dist/scripts/payload-sync.js && vitepress build docs && node dist/scripts/copy-lean-to-site.js",
+    "docs:build": "npm run build && node dist/scripts/gen-mcp.js && node dist/scripts/gen-apis.js && node dist/scripts/gen-captain-claims.js && node dist/scripts/lean-payload-seeds.js && node dist/scripts/payload-sync.js && vitepress build docs && node dist/scripts/copy-lean-to-site.js",
     "gen:captain-claims": "npm run build && node dist/scripts/gen-captain-claims.js",
     "audit:legal": "npm run build && node dist/scripts/one-receipt.js legal",
     "audit:prose": "npm run build && node dist/scripts/one-receipt.js prose",
@@ -81,18 +81,19 @@
     "reconcile": "npm run build && node dist/scripts/reconcile.js",
     "land": "npm run build && node dist/scripts/land.js",
     "security": "npm run build && node dist/scripts/security-audit.js",
-    "next": "npm run build && node dist/scripts/gate-all.js && node dist/scripts/next.js",
-    "next:verify": "npm run build && node dist/scripts/spin.js --verify && npm run guard && node dist/scripts/next.js --verify",
+    "next": "npm run build && node dist/scripts/spin.js --verify && node dist/scripts/guard.js && node dist/scripts/next.js --verify",
+    "next:full": "npm run build && node dist/scripts/gate-all.js && node dist/scripts/next.js",
+    "next:verify": "npm run next",
     "hooks:install": "git config core.hooksPath hooks && echo \"git hooks installed (core.hooksPath=hooks): pre-push runs the readiness gate\"",
     "develop": "npm run build && node dist/scripts/develop.js",
     "lint": "eslint . --config eslint.laws.config.js",
     "lint:strict": "eslint .",
-    "probe:apis": "npm run build && node dist/scripts/probe-school-apis.js",
+    "probe:apis": "npm run build && node dist/scripts/probe-public-apis.js",
     "guard": "npm run build && node dist/scripts/guard.js",
     "gen:packages": "npm run build && node dist/scripts/gen-packages.js --write",
     "build:packages": "npm run build && npm run build --workspaces",
     "test:packages": "npm run build:packages && npm run test --workspaces",
-    "editorial": "npm run build && node dist/scripts/gen-articles.js && node dist/scripts/provenance.js && node dist/scripts/audit-citations.js && node dist/scripts/one-receipt.js prose && node dist/scripts/one-receipt.js legal && node dist/scripts/derive-prose-trials.js && node dist/scripts/prepublish-seal.js",
+    "editorial": "npm run build && node dist/scripts/gen-articles.js && node dist/scripts/gen-search-feed.js && node dist/scripts/gen-seo-freeze.js && node dist/scripts/provenance.js && node dist/scripts/audit-citations.js && node dist/scripts/one-receipt.js prose && node dist/scripts/one-receipt.js legal && node dist/scripts/derive-prose-trials.js && node dist/scripts/prepublish-seal.js",
     "search:trial:all": "npm run build && node dist/scripts/quantum-search-trial.js --all",
     "mcp:drive": "npm run build && node dist/scripts/mcp-drive.js",
     "setup:git": "git config core.hooksPath hooks && git config core.autocrlf input && git config merge.derived.driver \"true\" && git config merge.derived.name \"derived layer — keep one side; reconcile recomputes the truth\" && echo \"✓ git configured: hooks + LF line endings + the derived merge driver\"",
@@ -106,6 +107,7 @@
     "cf:zone": "npm run build && node dist/scripts/cloudflare-zone.js",
     "all": "npm run build && node dist/scripts/all-run.js",
     "books": "npm run build && node dist/scripts/books-run.js",
+    "leads:books": "npm run build && node dist/scripts/mine-books.js && node dist/scripts/books-run.js",
     "corpus": "npm run build && node dist/scripts/discover-books.js --write && node dist/scripts/mine-wikisource.js bg --search Ботев --limit 8 && node dist/scripts/decode-book.js 84 && node dist/scripts/iq-books.js --n 4 && npm run books"
   },
   "devDependencies": {

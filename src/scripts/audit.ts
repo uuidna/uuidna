@@ -78,8 +78,8 @@ for (const page of builtPages) {
     // left such a block unstripped, so its JavaScript source would have been counted as VISIBLE PROSE and audited
     // as if a human wrote it (js/bad-tag-filter). The audit reads generated pages, so this is a correctness bug in
     // what the audit measures rather than a way in for an attacker.
-    .replace(/<script[\s\S]*?<\/script\s*>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style\s*>/gi, ' ')
+    .replace(/<script\b[\s\S]*?<\/script[^>]*>/gi, ' ')
+    .replace(/<style\b[\s\S]*?<\/style[^>]*>/gi, ' ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/&[a-z#0-9]+;/gi, ' ')
     .replace(/\s+/g, ' ')

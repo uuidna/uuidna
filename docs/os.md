@@ -71,6 +71,14 @@ never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_boota
 
 Monitor receipt `8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
+## Port status — pinned release
+
+<ClientOnly>
+  <PortPanel />
+</ClientOnly>
+
+**Production shell:** run Layer 1 commands locally at [/terminal](/terminal) (`ls /terminal`, `apk info busybox`, `man openssl`).
+
 ## Catalogue — every published package, searchable
 
 The default install is **25 paths**; Alpine publishes **28,630** packages on the pinned branch. Browse the full census on the dedicated [**/catalogue**](/catalogue) page (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)). Each package also has an editorial path `/catalogue/<name>` — audited like the install routes.

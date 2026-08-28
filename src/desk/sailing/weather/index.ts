@@ -1,3 +1,5 @@
+// @non-harmonic: fetches Open-Meteo and NOAA over the network — decidable weather facts as EVIDENCE,
+// never auto-sealed. Correlation logic below is pure; only the fetchers reach the network.
 // quantum-sailing-weather — CORRELATE real-world data (weather, tides, ocean conditions) to quantum sailing theory.
 // Discovers public APIs that provide decidable facts (temperature, wind speed, wave height, pressure) and
 // LINKS them to theorems already sealed in the ledger. No keys, no auth — only free public data. The captain
@@ -125,4 +127,41 @@ export function serializeWeatherCorrelation(corr: QuantumSailingWeatherCorrelati
       matched: f.linkedTheorem || null,
     })),
   }
+}
+
+/** fetchOpenMeteoForecast(lat, lon) → live decidable weather facts from Open-Meteo (keyless). Network-bound. */
+export async function fetchOpenMeteoForecast(lat: number, lon: number): Promise<WeatherFact[]> {
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}`
+    + '&current=temperature_2m,wind_speed_10m,surface_pressure&timezone=auto'
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`open-meteo refused HTTP ${res.status}`)
+  const data = await res.json() as { current?: { temperature_2m?: number; wind_speed_10m?: number; surface_pressure?: number } }
+  const c = data.current ?? {}
+  const facts: WeatherFact[] = []
+  if (c.temperature_2m !== undefined) {
+    facts.push({ source: 'Open-Meteo', measurement: 'temperature_2m_c', value: c.temperature_2m, unit: '°C', address: toUuid(`live:temperature_2m:${c.temperature_2m}`) })
+  }
+  if (c.wind_speed_10m !== undefined) {
+    facts.push({ source: 'Open-Meteo', measurement: 'wind_speed_10m_kmh', value: c.wind_speed_10m, unit: 'km/h', address: toUuid(`live:wind:${c.wind_speed_10m}`) })
+  }
+  if (c.surface_pressure !== undefined) {
+    facts.push({ source: 'Open-Meteo', measurement: 'pressure_hpa', value: c.surface_pressure, unit: 'hPa', address: toUuid(`live:pressure:${c.surface_pressure}`) })
+  }
+  return facts
+}
+
+/** NOAA probe date — fixed for liveness checks (no wall-clock in source); callers pass a real date when needed. */
+export const NOAA_PROBE_DATE = '20260828'
+
+/** fetchNoaaTideHeight(station, beginDate?) → one tide height reading from NOAA (keyless, U.S. stations). Network-bound. */
+export async function fetchNoaaTideHeight(station: string, beginDate = NOAA_PROBE_DATE): Promise<WeatherFact[]> {
+  const begin = beginDate.replace(/-/g, '')
+  const url = `https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?product=predictions&application=uuidna`
+    + `&begin_date=${begin}&range=1&datum=MLLW&station=${encodeURIComponent(station)}&time_zone=gmt&units=metric&format=json`
+  const res = await fetch(url)
+  if (!res.ok) throw new Error(`noaa tides refused HTTP ${res.status}`)
+  const data = await res.json() as { predictions?: { v?: string }[] }
+  const v = parseFloat(data.predictions?.[0]?.v ?? 'NaN')
+  if (Number.isNaN(v)) return []
+  return [{ source: 'NOAA', measurement: 'tide_height_m', value: v, unit: 'm', address: toUuid(`live:tide:${station}:${v}`) }]
 }

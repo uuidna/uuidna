@@ -112,7 +112,7 @@ test('the scarce legs are reported as they stand, never smoothed', () => {
   assert.ok(witness < c.total / 10, 'the external witness is scarce, and a census claiming otherwise has stopped measuring')
   // THE OLD BOUND HERE WAS `falsifier < total / 2`, then `falsifier < total`. Both retired when the world they
   // described stopped being true — majority first (2026-08-25), then the remainder emptied at the falsifier
-  // ceiling (2120 TRUE / 0 unreached). Coverage crossed every seal by earned legs, not by smoothing.
+  // ceiling (every seal TRUE / zero unreached). Coverage crossed every seal by earned legs, not by smoothing.
   //
   // A falsifier is not scarce for the same reason a witness is. A witness must come from outside this repository
   // and no generator can ever produce one — that scarcity line above still guards. A falsifier over a DECIDABLE

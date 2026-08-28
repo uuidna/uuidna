@@ -18,8 +18,8 @@ test('bootUuidnaOSInBrowser loads committed catalogue in Node', async () => {
 })
 
 test('uuidnaOS browser boot wired on terminal and os surfaces', () => {
-  const terminal = readFileSync(join(ROOT, 'docs/.vitepress/theme/Terminal.vue'), 'utf8')
+  const shell = readFileSync(join(ROOT, 'docs/.vitepress/theme/ExecShell.vue'), 'utf8')
   const player = readFileSync(join(ROOT, 'docs/.vitepress/theme/HexbitPlayer.vue'), 'utf8')
-  assert.match(terminal, /bootUuidnaOSInBrowser/, '/terminal must boot uuidnaOS before MCP')
+  assert.match(shell, /bootUuidnaOSInBrowser/, '/terminal ExecShell must boot uuidnaOS before exec')
   assert.match(player, /bootUuidnaOSInBrowser/, '/os HexbitPlayer must boot uuidnaOS')
 })

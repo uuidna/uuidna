@@ -12,9 +12,12 @@
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { reveal } from './gate.js'
-import { researchEvidence } from './corroborate.js'
+import { researchEvidence, evidenceRow } from './corroborate.js'
+import { collectApiEvidence } from './api-mint.js'
+import { harvestFragments } from './harvest.js'
 import { rdRoot } from './boundary.js'
 import { decide } from './decide.js'
+import { hexbitDoorOf } from './hexbit/index.js'
 
 interface Entry { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string }
 
@@ -160,14 +163,20 @@ export function publicationStatus(): PublicationStatus {
  *  stdio MCP and the edge MCP: filter by text, fold the matched keys to ONE receipt. Two independent parties
  *  (your browser, the edge) running the same query MUST compute the same receipt — dual-party verification
  *  applied to search itself; a differing receipt exposes a diverged ledger instantly. */
-export interface LedgerSearch { q: string; count: number; total: number; receipt: string; matches: Array<{ key: string; name: string; principle: string; skill: string }> }
+export interface LedgerSearch {
+  q: string; count: number; total: number; receipt: string
+  handle: string; hexbits: number[]; door: string
+  matches: Array<{ key: string; name: string; principle: string; skill: string }>
+}
 export function searchLedger(q: string, limit = 60): LedgerSearch {
   const T = theorems() as Entry[]
   const s = q.trim().toLowerCase()
   const hit = s ? T.filter((t) => `${t.key} ${t.name} ${t.statement} ${t.principle} ${t.skill}`.toLowerCase().includes(s)) : []
+  const receipt = toUuid(hit.map((t) => t.key).join('\n'))
   return {
     q, count: hit.length, total: T.length,
-    receipt: toUuid(hit.map((t) => t.key).join('\n')),
+    receipt,
+    ...hexbitDoorOf(receipt),
     matches: hit.slice(0, limit).map((t) => ({ key: t.key, name: t.name, principle: t.principle, skill: t.skill })),
   }
 }
@@ -175,7 +184,7 @@ export function searchLedger(q: string, limit = 60): LedgerSearch {
 /** ONLINE — the search on trial for one wing: findings content-addressed, each verdict computed; evidence, never approval */
 export interface SearchTrial {
   file: string; principle: string; sealed: number
-  findings: Array<{ address: string; source: string; note: string; alone: string; withBacking: string }>
+  findings: Array<{ address: string; source: string; note: string; handle: string; door: string; alone: string; withBacking: string }>
   usable: number
   /** THE NOVELTY HARVEST — arithmetic fragments extracted from the findings (the AI summaries included), each
    *  judged by the quantum calculator: decided TRUE and absent from the sealed statement index = a candidate
@@ -183,29 +192,37 @@ export interface SearchTrial {
    *  born receipted — REMANDED for admission (the paying handle decides what becomes a wing), never auto-sealed. */
   novel: Array<{ from: string; fragment: string; receipt: string }>
   receipt: string
+  handle: string
+  hexbits: number[]
+  door: string
 }
-const ARITH_FRAG = /\d[\d,]*(?:\s*[+\-*/%^]\s*\d[\d,]*)+\s*(?:=|==|<=|>=|<|>)\s*\d[\d,]*|\d[\d,]*\s*(?:=|==|<=|>=|<|>)\s*\d[\d,]*(?:\s*[+\-*/%^]\s*\d[\d,]*)+/g
 export async function searchTrialFor(file: string): Promise<SearchTrial> {
   const a = articleFor(file)
-  const found = await researchEvidence(a.title)
+  const apiEvidence = await collectApiEvidence(a.title)
+  const found = apiEvidence.length
+    ? apiEvidence.map((e) => ({ source: e.source, address: e.address, note: e.text.slice(0, 800), handle: e.handle, door: e.door }))
+    : (await researchEvidence(a.title)).map((e) => evidenceRow(e.source, e.address, e.note))
   const cited = a.claims.map((c) => c.cite).join(' ')
   const novel: SearchTrial['novel'] = []
   const findings = found.map((f) => {
-    const alone = reveal(f.note).verdict
-    const withBacking = reveal(`${f.note} — held beside the sealed backing: ${cited}`).verdict
+    const row = evidenceRow(f.source, f.address, f.note)
+    const alone = reveal(row.note).verdict
+    const withBacking = reveal(`${row.note} — held beside the sealed backing: ${cited}`).verdict
     // the harvest: every arithmetic fragment in the finding judged totally; true-and-unsealed is novel
-    for (const m of f.note.replace(/,/g, '').matchAll(ARITH_FRAG)) {
-      const d = decide(m[0])
+    for (const fragment of harvestFragments(row.note)) {
+      const d = decide(fragment)
       if (d.verdict === 'VERIFIED_BY_DECIDE' && d.kind === 'decided-arithmetic')
-        novel.push({ from: f.address, fragment: m[0].trim(), receipt: d.receipt })
+        novel.push({ from: row.address, fragment, receipt: d.receipt })
     }
-    return { address: f.address, source: f.source, note: f.note, alone, withBacking }
+    return { address: row.address, source: row.source, note: row.note, handle: row.handle, door: row.door, alone, withBacking }
   })
+  const receipt = toUuid(findings.map((f) => f.address).join('\n'))
   return {
     file, principle: a.title, sealed: a.count, findings,
     usable: findings.filter((f) => f.alone === 'UNVERIFIED' && f.withBacking === 'VERIFIED').length,
     novel,
-    receipt: toUuid(findings.map((f) => f.address).join('\n')),
+    receipt,
+    ...hexbitDoorOf(receipt),
   }
 }
 

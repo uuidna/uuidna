@@ -7,7 +7,7 @@ import {
 } from './catalogue.js'
 import { INSTALLS_MIRROR } from './mirror.js'
 import { toUuid } from '../../address.js'
-import { bootOS, compileToHexbits, type InstallSpec } from './index.js'
+import { bootOS, hexbitDoorOf, type InstallSpec } from './index.js'
 import { hostQuantumDevice } from '../../drivers/quantum/index.js'
 import { driverBundle } from '../../drivers/driver/index.js'
 import {
@@ -47,7 +47,7 @@ function childrenOf(dir: string, specs: readonly InstallSpec[]): VfsEntry[] {
       seen.set(seg, { name: seg, path: childPath, kind: 'pkg', id: s.id, meaning: s.meaning, address: s.address, hexbits: s.hexbits })
     } else if (!seen.has(seg)) {
       const addr = toUuid('vfs-dir|' + childPath)
-      seen.set(seg, { name: seg, path: childPath, kind: 'dir', address: addr, hexbits: compileToHexbits(addr) })
+      seen.set(seg, { name: seg, path: childPath, kind: 'dir', address: addr, ...hexbitDoorOf(addr) })
     }
   }
   return [...seen.values()].sort((a, b) => (a.name < b.name ? -1 : 1))
@@ -64,7 +64,7 @@ function catalogueLs(path: string): LsResult {
     const receipt = toUuid('ls|' + p + '|absent')
     return {
       path: p, entries: [], count: 0,
-      receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt,
+      receipt, ...hexbitDoorOf(receipt), sealed: os.receipt,
       honest: HONEST + ' Catalogue absent: ' + (st.why ?? ''),
     }
   }
@@ -74,15 +74,15 @@ function catalogueLs(path: string): LsResult {
       const count = all.filter((x) => x.repo === repo).length
       const childPath = norm('/catalogue/' + repo)
       const addr = toUuid('vfs-dir|' + childPath + '|' + count)
-      return { name: repo, path: childPath, kind: 'dir' as const, meaning: `${count} packages`, address: addr, hexbits: compileToHexbits(addr) }
+      return { name: repo, path: childPath, kind: 'dir' as const, meaning: `${count} packages`, address: addr, ...hexbitDoorOf(addr) }
     }).filter((e) => e.meaning !== '0 packages')
     const receipt = toUuid('ls|' + p + '|' + entries.map((e) => e.name).join(','))
-    return { path: p, entries, count: entries.length, receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt, honest: HONEST }
+    return { path: p, entries, count: entries.length, receipt, ...hexbitDoorOf(receipt), sealed: os.receipt, honest: HONEST }
   }
   const repo = p.replace(/^\/catalogue\/?/, '')
   if (repo !== 'main' && repo !== 'community' && repo !== 'overlay') {
     const receipt = toUuid('ls|' + p + '|bad-repo')
-    return { path: p, entries: [], count: 0, receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt, honest: HONEST }
+    return { path: p, entries: [], count: 0, receipt, ...hexbitDoorOf(receipt), sealed: os.receipt, honest: HONEST }
   }
   const rows = all.filter((x) => x.repo === repo).sort((a, b) => (a.name < b.name ? -1 : 1))
   const slice = rows.slice(0, CATALOGUE_LS_LIMIT)
@@ -96,7 +96,7 @@ function catalogueLs(path: string): LsResult {
   const receipt = toUuid('ls|' + p + '|' + entries.length + '/' + rows.length)
   return {
     path: p, entries, count: entries.length,
-    receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt,
+    receipt, ...hexbitDoorOf(receipt), sealed: os.receipt,
     honest: HONEST + (rows.length > CATALOGUE_LS_LIMIT ? ` (first ${CATALOGUE_LS_LIMIT} of ${rows.length} — apk info <name> for any row)` : ''),
   }
 }
@@ -112,7 +112,7 @@ export function uuidnaLs(path = '/'): LsResult {
   const receipt = toUuid('ls|' + p + '|' + entries.map((e) => e.name + ':' + e.kind).join(','))
   return {
     path: p, entries, count: entries.length,
-    receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt, honest: HONEST,
+    receipt, ...hexbitDoorOf(receipt), sealed: os.receipt, honest: HONEST,
   }
 }
 
@@ -517,5 +517,5 @@ export function uuidnaExec(line: string): ExecResult {
   }
 
   const receipt = toUuid('exec|' + execSessionStamp() + '|' + applet + '|' + args.join(' ') + '|' + (ok ? '0' : '1') + '|' + output.join('\n'))
-  return { line: String(line).trim(), applet, args, ok, output, data, receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt, honest: HONEST }
+  return { line: String(line).trim(), applet, args, ok, output, data, receipt, ...hexbitDoorOf(receipt), sealed: os.receipt, honest: HONEST }
 }

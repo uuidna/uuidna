@@ -7,6 +7,7 @@ import { writeFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { MCP_CATALOG } from '../mcp.js'
+import { edgeAbsentWhy } from '../mcp-http.js'
 import { adjudicate, theorems, toUuid } from '../index.js'
 import { gateVerdict, gateSelfTest } from '../gate-engine.js'
 import { ROOT } from './api.js'
@@ -66,6 +67,7 @@ const GRID_LAYOUT = isqrt * isqrt === MCP_CATALOG.length ? `${isqrt}×${isqrt}` 
 const requiredOf = (t: (typeof MCP_CATALOG)[number]): number => (t.inputSchema?.required?.length ?? 0)
 const byUsability = [...MCP_CATALOG].sort((a, b) => requiredOf(a) - requiredOf(b) || a.name.localeCompare(b.name))
 const zeroArg = byUsability.filter((t) => requiredOf(t) === 0).length
+const ABSENT = edgeAbsentWhy()
 
 const md = `---
 title: MCP tools
@@ -155,6 +157,12 @@ open and hands back a **develop plan** (the next decidable step to move it). Two
 any value — \`uuidna_address { "seed": "hello" }\` → \`${toUuid('hello')}\` — or pull a whole domain —
 \`uuidna_theorems { "skill": "navigation" }\` → **${theorems({ skill: 'navigation' }).length}** sealed theorems.
 Every call is recomputable: same input, same receipt. That is the production contract.
+
+## Hosted absents <Badge type="warning" text="${ABSENT.length} named" />
+
+100% is a **finding**: a capability-absent tool is **named** on this page, not silently dropped so the hosted subset looks complete. \`uuidna_school_apis\` stays listed. The divergence list may only shrink.
+
+${ABSENT.map((a) => `- \`${a.name}\` — ${cell(a.why)}`).join('\n')}
 
 ${sections}
 `

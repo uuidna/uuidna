@@ -17,8 +17,7 @@
 // apiHandleOf merkle-folds for the served API seal (mcp.ts). So a tool's registry address already equals its
 // sealed contract handle's preimage: the registry does not invent an address, it reads the one the API sealed.
 import { toUuid, merkleFold } from '../../address.js'
-import { handleOf } from '../../handle.js'
-import { compileToHexbits, defaultInstalls, type InstallSpec } from './index.js'
+import { hexbitDoorOf, defaultInstalls, type InstallSpec } from './index.js'
 
 /** THE ONE SHAPE a tool and a ported package share: a uuidna/<name> identity, a 128-bit content-address, the 32
  *  hexbit states it compiles to, its published meaning, and the virtual-OS route it lives at. `kind` records
@@ -58,7 +57,7 @@ export function portTool(t: { name: string; description: string }): PackagePort 
   const address = toUuid('tool:' + t.name + ':' + t.description)
   return {
     kind: 'tool', id: 'uuidna/' + t.name, name: t.name, route: '/mcp/' + t.name,
-    meaning: oneLine(t.description), address, hexbits: compileToHexbits(address),
+    meaning: oneLine(t.description), address, ...hexbitDoorOf(address),
   }
 }
 
@@ -78,9 +77,10 @@ export function unifiedRegistry(tools: readonly { name: string; description: str
   const toolPorts = tools.map(portTool)
   const packages = [...installs, ...toolPorts].sort((a, b) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0))
   const root = merkleFold(packages.map((p) => p.address))
+  const receipt = toUuid('registry|' + packages.length + '|' + root)
   return {
     count: packages.length, tools: toolPorts.length, installs: installs.length,
-    packages, root, handle: handleOf(root),
-    receipt: toUuid('registry|' + packages.length + '|' + root), honest: HONEST,
+    packages, root,
+    receipt, ...hexbitDoorOf(receipt), honest: HONEST,
   }
 }

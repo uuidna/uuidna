@@ -10,7 +10,7 @@
 // case sealed the need: a walker judged "inactive" by eye was at full burn — this tool answers with permille
 // instead of impressions (lead 113: probe, never assume).
 import { toUuid } from '../../address.js'
-import { compileToHexbits, SAFE_HEXBITS, UUID_HEXBITS } from '../../hexbit/index.js'
+import { hexbitDoorOf, SAFE_HEXBITS, UUID_HEXBITS } from '../../hexbit/index.js'
 
 /** One running writer/process, as reported: name and centi-CPU (pcpu × 100, integer). */
 export interface MachineWriter { name: string; centiCpu: number }
@@ -66,7 +66,7 @@ export function balanceMachine(r: MachineReport): MachineBalance {
   const receipt = toUuid('machine-balance|' + r.cores + '|' + r.centiLoad1 + '|' + r.memTotalMb + '|' + r.memFreeMb + '|' + writers.map((w) => `${w.name}:${w.centiCpu}`).join(','))
   return {
     cores: r.cores, loadPermille, memFreePermille, safeFloorPermille, cpuBalanced, memBalanced, balanced,
-    writers, verdict, receipt, hexbits: compileToHexbits(receipt),
+    writers, verdict, receipt, ...hexbitDoorOf(receipt),
     honest: 'The figures are the caller\'s self-report — over MCP this tool cannot read a machine and never pretends to; locally the gatherer measures at the scripts boundary and feeds this same pure function. The arithmetic on the report is exact: integer permille, the sealed ' + SAFE_HEXBITS + '/' + UUID_HEXBITS + ' spare floor on both lanes, the pause order deterministic.',
   }
 }

@@ -24,6 +24,7 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { fetchGutenberg, extractClaims, extractDecidable, auditText, stripGutenberg } from '../books.js'
 import { merkleGravity } from '../index.js'
+import { hexbitDoorOf, type HexbitDoor } from '../hexbit/index.js'
 import { ROOT } from './api.js'
 
 /** the declared corpus — public-domain texts on Project Gutenberg, by id. Grows by declaration, never by guess. */
@@ -36,7 +37,7 @@ export const CORPUS: { id: number; note: string }[] = [
   { id: 45493, note: 'Day, On Yacht Sailing (1904) — the text that sealed four_points_is_45' },
 ]
 
-export interface BookLead {
+export interface BookLead extends HexbitDoor {
   claim: string
   kind: string
   numbers: number[]
@@ -72,7 +73,7 @@ if (process.argv[1] && process.argv[1].endsWith('mine-books.js')) {
       const arithmetic = extractDecidable(work, 100)
       const link = { id, title: b.title, authors: b.authors, source: b.source, address: audit.address }
       for (const c of claims)
-        leads.push({ claim: c.claim, kind: c.kind, numbers: c.numbers, units: c.units, sentence: c.sentence, address: c.address, book: link })
+        leads.push({ claim: c.claim, kind: c.kind, numbers: c.numbers, units: c.units, sentence: c.sentence, address: c.address, book: link, ...hexbitDoorOf(c.address) })
       books.push({ id, title: b.title, address: audit.address, claims: claims.length, arithmetic: arithmetic.length })
       console.log(`  ✓ ${String(id).padStart(6)}  ${b.title.slice(0, 44).padEnd(44)}  ${String(claims.length).padStart(4)} claims`)
     } catch (e) {
@@ -84,7 +85,7 @@ if (process.argv[1] && process.argv[1].endsWith('mine-books.js')) {
   const receipt = merkleGravity(leads.map((l) => l.address))
   const out = {
     why: 'Numeric claims that public-domain texts STATE, filed as CANDIDATE leads for a human to judge. Nothing here is sealed, decided or endorsed: a lead is a sentence, its numbers, and the links back to the book and byte-range that produced it. Mined deterministically (a number-word table and two regexes — no model, no judgement), so the cron reproduces it exactly. What a text says is a textual fact; whether it is TRUE of the world has no decidable test here and stays NOT PROVEN (untested_stays_unproven), and a number shared between texts is the expected case by pigeonhole (gematria_forces_collisions), never evidence of a connection.',
-    books, leads: leads.length, receipt, lead: leads,
+    books, leads: leads.length, receipt, ...hexbitDoorOf(receipt), lead: leads,
   }
   writeFileSync(join(ROOT, 'book-leads.json'), JSON.stringify(out, null, 2) + '\n')
   console.log(`\n  ${leads.length} candidate leads from ${books.length} text(s), folded to ${receipt}`)

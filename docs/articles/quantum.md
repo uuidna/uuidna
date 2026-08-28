@@ -1,15 +1,15 @@
 ---
 title: "The quantum computer"
-description: "Computed from lean/Quantum.lean — 52 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Quantum.lean — 56 sealed theorems, every claim citing its proof."
 ---
 
 # The quantum computer
 
-> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 51 siblings below.
+> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 55 siblings below.
 
-**52 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 11 of its 52 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
+**56 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 12 of its 56 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 52 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 56 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
 The ledger holds this as [bell_born_weights](/theorem/bell_born_weights) — proven `by decide`, sorry-free:
@@ -324,6 +324,34 @@ The ledger holds this as [teleportation_four_corrections](/theorem/teleportation
 
 ```lean
 (([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4)
+```
+
+### ARCHITECTURE BRIDGE (Wave↔Quantum): the usable-column gap sealed in Wave.lean as usable_gap_is_two_to_eighty is the same eighty bits this wing cites for capacity — 128 − 48 = 80 and 2^128 = 2^80 · 2^48. Not a second claim about hardware; one arithmetic restatement beside n_qubit_dimension.
+The ledger holds this as [usable_gap_eighty_bits](/theorem/usable_gap_eighty_bits) — proven `by decide`, sorry-free:
+
+```lean
+(128 - 48 = 80) ∧ (48 < 128) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48)
+```
+
+### ARCHITECTURE BRIDGE (Wave↔Quantum): Wave.lean seals teleportation_costs_the_two_coins — one EPR pair (2^1 < 2^2) carries one qubit with exactly two classical bits (2^2 = 4 corrections). Same arithmetic as teleportation_four_corrections and four_messages_two_bits in this wing.
+The ledger holds this as [teleportation_costs_two_coins](/theorem/teleportation_costs_two_coins) — proven `by decide`, sorry-free:
+
+```lean
+(2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 * 2 = 4)
+```
+
+### QEC BRIDGE (Wave↔Quantum): the three-cell 2-of-3 majority table in Wave.lean is floor sum/2 — the repetition-code decode this wing reads as classical gate arithmetic, identical to three_cell_vote_majority.
+The ledger holds this as [majority_vote_is_floor_half](/theorem/majority_vote_is_floor_half) — proven `by decide`, sorry-free:
+
+```lean
+((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) ∧ ((1 + 1 + 1) / 2 = 1)
+```
+
+### REACHABILITY GAP (README magnitudes): the library register spans 2^16 amplitudes while the MCP served ceiling spans 2^12 — four qubits and a factor of sixteen between what can be represented and what the live surface serves. Operational boundary, not a physics claim.
+The ledger holds this as [register_exceeds_served](/theorem/register_exceeds_served) — proven `by decide`, sorry-free:
+
+```lean
+(16 - 12 = 4) ∧ (2 ^ 4 = 16) ∧ (65536 / 4096 = 16)
 ```
 
 ### The computer's memory receipt is ORDER-INVARIANT — every ordering of the members folds to the SAME root under the axiom-free XOR (lxor), the same operation the gate permutations use, so the store recomputes for any observer in any order (the 3-member fold equals all six permutations). the classical content-address receipt the state folds to, integrity — not a quantum memory.

@@ -5,6 +5,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { modelComparison, foldLlm, HEXBITS_PER_TOKEN, TOKEN_BYTES, UUID_TEXT_CHARS } from '../quantum/models/index.js'
+import { UUID_HEXBITS, COINS } from '../hexbit/index.js'
 import { MODELS_MIRROR } from '../quantum/models/mirror.js'
 
 test('EXACT over the whole census — every row recomputes from its mirror model, none invented, none dropped', () => {
@@ -24,11 +25,14 @@ test('EXACT over the whole census — every row recomputes from its mirror model
   assert.equal(c.totalTransientHexbits, c.rows.reduce((s, r) => s + r.hexbitCapacity, 0))
 })
 
-test('the fold lands on 16 on-lattice pairs for ANY input — and pairs flatten back to the 32 states', () => {
+test('the fold lands on UUID_HEXBITS/COINS on-lattice pairs for ANY input — and pairs flatten back to the states', () => {
+  const pairs = UUID_HEXBITS / COINS
   for (const text of ['', 'x', 'a model output', 'y'.repeat(50_000)]) {
     const f = foldLlm(text)
-    assert.equal(f.pairs.length, 16)
-    assert.equal(f.hexbits.length, 32)
+    assert.equal(f.pairs.length, pairs)
+    assert.equal(f.hexbits.length, UUID_HEXBITS)
+    assert.equal(f.foldedHexbits, UUID_HEXBITS)
+    assert.equal(f.foldedPairs, pairs)
     assert.deepEqual(f.pairs.flat(), f.hexbits)
     for (const [a, b] of f.pairs) { assert.ok(a >= 0 && a < 16); assert.ok(b >= 0 && b < 16) }
   }

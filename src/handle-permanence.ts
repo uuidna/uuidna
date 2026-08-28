@@ -5,16 +5,37 @@
 //
 // Bidirectional seal: when a Zenodo DOI exists, completeness requires BOTH doi.org/<doi> AND uuidna.com/<handle>
 // cited in the archive metadata and on the site surface. The handle URL is ALWAYS required (DOI may be absent).
-import { existsSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './boundary.js'
+//
+// NO top-level node:fs: SiteFooter imports STANDING_DOI / doiUrl in the browser. The audit reads the disk lazily.
 import { handleOf, isHandle } from './handle.js'
-import { readSealedSeoUrlMap, SEO_URL_MAP_PATH } from './seo-freeze.js'
 import { toUuid } from './address.js'
+import { rdRoot, existsRoot } from './boundary.js'
 
 export const HANDLE_HOST = 'https://uuidna.com'
+export const UUIDNA_HOSTNAME = 'uuidna.com'
 /** Standing archive DOI for the ledger deposit (workflow-minted). */
 export const STANDING_DOI = '10.5281/zenodo.21787144'
+
+/** Hostname equality — `startsWith('https://uuidna.com')` accepts `https://uuidna.com.evil.com`. */
+export function isUuidnaUrl(s: string): boolean {
+  try {
+    const u = new URL(s)
+    return u.protocol === 'https:' && u.hostname === UUIDNA_HOSTNAME
+  } catch {
+    return false
+  }
+}
+
+/** Cite check over free text: parse extracted https URLs, never substring-match the origin. */
+export function textCitesUuidna(text: string): boolean {
+  const hits = text.match(/https:\/\/[^\s"'<>]+/g) ?? []
+  for (const raw of hits) {
+    let u = raw
+    while (u.length > 0 && '.,;:)]>'.includes(u[u.length - 1]!)) u = u.slice(0, -1)
+    if (isUuidnaUrl(u)) return true
+  }
+  return false
+}
 
 export const handleUrl = (handleOrAddress: string): string => {
   const h = isHandle(handleOrAddress) ? handleOrAddress : handleOf(handleOrAddress)
@@ -40,10 +61,12 @@ export interface HandlePermanenceAudit {
  */
 export function handlePermanenceAudit(): HandlePermanenceAudit {
   const gaps: HandlePermanenceGap[] = []
-  const sealed = readSealedSeoUrlMap()
+  const mapPath = 'lean/seo-url-map.json'
+  let sealed: { entries: { handle: string; route: string; hexbitDoor: string; kind: string }[] } | null = null
+  try { sealed = JSON.parse(rdRoot(mapPath)) as { entries: { handle: string; route: string; hexbitDoor: string; kind: string }[] } } catch { sealed = null }
   if (!sealed) {
     gaps.push({
-      what: `${SEO_URL_MAP_PATH} missing — handle permanence has no freeze seal`,
+      what: `${mapPath} missing — handle permanence has no freeze seal`,
       fix: 'run gen-seo-freeze and commit lean/seo-url-map.json; handles are DOI-class doors after freeze',
     })
   } else {
@@ -67,16 +90,15 @@ export function handlePermanenceAudit(): HandlePermanenceAudit {
   }
 
   // Bidirectional DOI ↔ handle/URL seal against .zenodo.json + site surfaces
-  const zenodoPath = join(ROOT, '.zenodo.json')
   let doiPresent = false
-  if (existsSync(zenodoPath)) {
-    const z = JSON.parse(readFileSync(zenodoPath, 'utf8')) as {
+  if (existsRoot('.zenodo.json')) {
+    const z = JSON.parse(rdRoot('.zenodo.json')) as {
       related_identifiers?: Array<{ identifier?: string; relation?: string }>
       description?: string
     }
     const ids = (z.related_identifiers ?? []).map((r) => r.identifier ?? '')
     doiPresent = ids.some((id) => id.includes(STANDING_DOI)) || /10\.5281\/zenodo\./.test(z.description ?? '')
-    const citesSite = ids.some((id) => id.startsWith(HANDLE_HOST)) || (z.description ?? '').includes(HANDLE_HOST)
+    const citesSite = ids.some((id) => isUuidnaUrl(id)) || textCitesUuidna(z.description ?? '')
     if (doiPresent && !citesSite) {
       gaps.push({
         what: 'DOI present in .zenodo.json but no uuidna.com URL / handle door cited (bidirectional seal broken)',
@@ -93,10 +115,9 @@ export function handlePermanenceAudit(): HandlePermanenceAudit {
 
   // Site must cite standing DOI when we claim archive completeness (README + home)
   for (const rel of ['README.md', 'docs/index.md']) {
-    const p = join(ROOT, rel)
-    if (!existsSync(p)) continue
-    const text = readFileSync(p, 'utf8')
-    if (doiPresent || existsSync(zenodoPath)) {
+    if (!existsRoot(rel)) continue
+    const text = rdRoot(rel)
+    if (doiPresent || existsRoot('.zenodo.json')) {
       if (!text.includes(STANDING_DOI) && !text.includes('doi.org/10.5281')) {
         gaps.push({
           what: `${rel} does not cite standing DOI ${STANDING_DOI}`,

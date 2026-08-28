@@ -1,0 +1,103 @@
+---
+title: "The search on trial: The looms and the engines"
+description: "The quantum search's findings for this wing, each held at trial — evidence corroborated, never approved; only a Lean seal approves."
+---
+
+# The search on trial: The looms and the engines
+
+**The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
+asked in parallel about *The looms and the engines* — the wing sealed in [lean/Looms.lean](/lean/Looms.lean) with **6 theorems**. Each
+finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
+no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
+combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
+the hard gate of the corroboration law.
+
+| finding | source | record | alone | with sealed backing |
+|---|---|---|---|---|
+| `a19011f6` | zenodo.org | zenodo record 7356457: UK Climate Change Programme - Consultation paper | UNVERIFIED | VERIFIED |
+| `6607ce3d` | zenodo.org | zenodo record 7354452: Climate Change and its Impacts: A Global Perspective | UNVERIFIED | VERIFIED |
+| `dfe660d9` | zenodo.org | zenodo record 8382018: AN EMPIRICAL STUDY OF WORK SATISFACTION AND WELFARE FACILITIES OF  POWER -LOOM L | UNVERIFIED | VERIFIED |
+| `9317160f` | zenodo.org | zenodo record 10996208: Μίμησις And Αποτροπή: Towards a Human Participation in Ritualizing the Divine | UNVERIFIED | VERIFIED |
+| `3ca20142` | zenodo.org | zenodo record 16446997: Abstract of the Results of the Hourly Meteorological Observations Taken at the S | UNVERIFIED | VERIFIED |
+| `49fe500f` | zenodo.org | zenodo record 2245257: A Violoncello Lesson: Casals's Obiter Dicta | UNVERIFIED | VERIFIED |
+| `5787b200` | zenodo.org | zenodo record 16005255: Meteorological Register Kept at Agra | UNVERIFIED | VERIFIED |
+| `7685324a` | zenodo.org | zenodo record 2007349: Ueber die elektrische Darstellung colloïdaler Lösungen | UNVERIFIED | VERIFIED |
+| `1b023958` | crossref.org | DOI 10.5406/illinois/9780252037924.003.0008: Prison Looms | UNVERIFIED | VERIFIED |
+| `f2154cba` | crossref.org | DOI 10.1093/oxfordjournals.afraf.a099772: Studies in Primitive Looms. Part II. African Looms | UNVERIFIED | VERIFIED |
+| `3310c2a1` | crossref.org | DOI 10.3403/00098920u: Specification for textile machinery and accessories: pickers for looms. | UNVERIFIED | VERIFIED |
+| `c014718c` | crossref.org | DOI 10.2307/j.ctv2n7j1fd.7: Pueblo and Navajo Looms | UNVERIFIED | VERIFIED |
+| `6e4a7e99` | crossref.org | DOI 10.2307/j.ctv2n7j1fd.8: The Backstrap and Other Primitive Looms | UNVERIFIED | VERIFIED |
+| `82775edd` | crossref.org | DOI 10.3403/00098920: Specification for textile machinery and accessories: pickers for looms. | UNVERIFIED | VERIFIED |
+| `4df2ceef` | crossref.org | DOI 10.1163/9789004124356_emdt_sim_000829: Looms | UNVERIFIED | VERIFIED |
+| `f90f0f9a` | crossref.org | DOI 10.1177/237455680311.n5: fed-leadership-transition-looms | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `155d0972` | arxiv.org | arXiv 2607.01835v1: Subsoil acidity causes long delays in inorganic carbon sequestration by Enhanced | UNVERIFIED | VERIFIED |
+| `d2bae7f5` | arxiv.org | arXiv 0509008v3: Precision Electroweak Measurements on the Z Resonance | UNVERIFIED | VERIFIED |
+| `9f85ecb3` | arxiv.org | arXiv 2309.03735v2: Looms | UNVERIFIED | VERIFIED |
+| `2389c0b4` | arxiv.org | arXiv 2108.00172v3: Fluctuations in heat engines | UNVERIFIED | VERIFIED |
+| `b403299c` | arxiv.org | arXiv 1511.05802v1: What Users See - Structures in Search Engine Results Pages | UNVERIFIED | VERIFIED |
+| `f4f195c2` | arxiv.org | arXiv 2406.18442v2: Correlation of the L-mode density limit with edge collisionality | UNVERIFIED | VERIFIED |
+| `ae0893ff` | arxiv.org | arXiv 1511.05798v1: Problems with the use of Web search engines to find results in foreign languages | UNVERIFIED | VERIFIED |
+| `37334be4` | en.wikipedia.org | Wikipedia: Jacquard machine | UNVERIFIED | VERIFIED |
+| `6e8370f5` | en.wikipedia.org | Wikipedia: Power loom | UNVERIFIED | VERIFIED |
+| `7416518b` | en.wikipedia.org | Wikipedia: Toyota Industries | UNVERIFIED | VERIFIED |
+| `6520f184` | en.wikipedia.org | Wikipedia: Textile manufacture during the British Industrial Revolution | UNVERIFIED | VERIFIED |
+| `83bf740e` | en.wikipedia.org | Wikipedia: Roberts loom | UNVERIFIED | VERIFIED |
+| `53704eaf` | en.wikipedia.org | Wikipedia: LOOM (ontology) | UNVERIFIED | VERIFIED |
+| `5ba64e81` | en.wikipedia.org | Wikipedia: Cotton mill | UNVERIFIED | VERIFIED |
+| `bd78723a` | en.wikipedia.org | Wikipedia: Loom (video game) | UNVERIFIED | VERIFIED |
+| `83ba0117` | gutendex.com | Gutenberg 33176: Tappet and Dobby Looms: Their Mechanism and Management — Roberts, Thomas | UNVERIFIED | VERIFIED |
+| `ca9a67a0` | en.wikinews.org | Wikinews: Three firefighters killed in blaze at Chinese plastics factory | UNVERIFIED | VERIFIED |
+| `67e40105` | en.wikinews.org | Wikinews: China sends its first aircraft carrier to sea | UNVERIFIED | VERIFIED |
+| `3025a655` | en.wikinews.org | Wikinews: On the campaign trail, February 2012 | UNVERIFIED | VERIFIED |
+| `1543da5d` | esco | {"source":"esco","address":"7060b063-e918-817c-9481-ce115a884372","uri":"http://data.europa.eu/esco/skill/7f49559a-6e0e-42de-aa00-590cb25758cd","title":"monitor crew members operating engines","conceptType":"Skill"}
+{"source":"esco","address":"e2b24c4b-faf8-82dc-892b-240a762640f8","uri":"http://data.europa.eu/esco/skill/0ae61df3-c50a-459d-a912-b5423bfb1a5a","title":"calibrate engines","conceptType":"Skill"}
+{"source":"esco","address":"4d17cfa2-c69a-87fa-896f-d76181953d0b","uri":"http://data.europa.eu/esco/skill/2f58fc20-4528-410b-877f-3dec775f1b4e","title":"lubricate engines","conceptType":"Skill"}
+{"source":"esco","address":"de310fb8-0f5a-8beb-a678-9c708cddd754","uri":"http://data.europa.eu/esco/skill/8a8151b0-8319-4948-9259-c6facf5c80d5","title":"tend compressor engine","conceptType":"Sk | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `ccc00aff` | data-europa | {"source":"data-europa","address":"2c95c615-3ee7-8620-b1e2-90f82ecf748c","id":"https-dane-gov-pl-pl-dataset-3089-dane-z-testow-dzwignicy","title":"Testy dźwignicy","country":"Poland","catalogue":"dane-gov-pl"}
+{"source":"data-europa","address":"95933fe4-5706-861b-8b7e-03543eeb606f","id":"doi-10-34934-dvn-mo4exz","title":"SUPER DADA for Dataverse 4+ [Version 2.0]","country":"Belgium","catalogue":"data-gov-be"}
+{"source":"data-europa","address":"d3346a35-c038-8554-8bd4-2d2c20da881b","id":"doi-10-34934-dvn-aoqrsj","title":"SUPER DADA for Dataverse 5+ [Version 2.0]","country":"Belgium","catalogue":"data-gov-be"}
+{"source":"data-europa","address":"27aafe78-53d9-8e87-9e5f-d7c6b62896a7","id":"doi-10-34934-dvn-psfvvf","title":"SUPER DADA for Dataverse 4+ [Version 3.0]","country":"Belgium","catalog | UNVERIFIED | VERIFIED |
+| `585eb4d3` | open-meteo-forecast | temperature_2m_c 22.4 °C
+wind_speed_10m_kmh 2.3 km/h
+pressure_hpa 957.2 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
+
+**49 findings · 49 usable search-trial combinations · receipt `a3c7417e`** (fold of every finding's address — recompute by re-running the search).
+
+The sealed backing this trial held the findings beside:
+
+- [the_suanpan_rod_is_the_hexbit_ceiling](/theorem/the_suanpan_rod_is_the_hexbit_ceiling) — `(2 * 5 + 5 * 1 = 15) ∧ (15 = 16 - 1)`
+- [the_punched_card_is_the_bit](/theorem/the_punched_card_is_the_bit) — `((2:Nat)^8 = 256) ∧ ((2:Nat)^1 = 2) ∧ ((List.range 4).all (fun n => (2:Nat)^(n+1) == 2 * 2`
+- [differences_flatten_the_square](/theorem/differences_flatten_the_square) — `(((List.range 5).map (fun i => (i+1)*(i+1) - i*i)) = [1,3,5,7,9]) ∧ ((List.range 4).all (f`
+- [the_degree_is_the_column_count](/theorem/the_degree_is_the_column_count) — `(((List.range 4).map (fun i => (i+1)*(i+1)*(i+1) - i*i*i)) = [1,7,19,37]) ∧ ((List.range 2`
+- [the_stepped_drum_carries_at_nine](/theorem/the_stepped_drum_carries_at_nine) — `((9 + 1) % 10 = 0) ∧ ((9 + 1) / 10 = 1) ∧ ((List.range 9).all (fun d => (d + 1) % 10 == d `
+- [the_road_computes_in_one_arithmetic](/theorem/the_road_computes_in_one_arithmetic) — `(15 = 16 - 1) ∧ ((2:Nat)^1 = 2) ∧ (2 * 1 = 2) ∧ (10 % 10 = 0)`
+
+::: warning HONEST SCOPE
+External findings are corroboration at the time of the search — the sources' own records, quoted by address, not
+endorsed and not re-verified here. A finding with no sealed counterpart is a novelty lead, remanded to development,
+never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
+:::
+
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

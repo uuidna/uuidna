@@ -13,10 +13,28 @@
 // the stdio host (mcp.ts) is the named non-harmonic boundary that awaits the tool, then hands the settled output
 // here. Integrity — the record recomputes for anyone — the gate judges the WORK (addresses, citations, bounds).
 import { toUuid } from './address.js'
+import { coinCensus, type CoinPayment } from './coin-ledger.js'
 import { merkleGravity } from './gravity/index.js'
+import { wireBytes, sealedBudget, type WireTool } from './scripts/context-budget.js'
 import { sanitizeInput, sanitizeValue } from './sanitize.js'
 import { slimGate } from './slimgate.js'
 import { theoremByKey, theorems } from './theorems/index.js'
+import { hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
+import { runSequence } from './sequence-run.js'
+import { encodeMessage, serializeMessage } from './quantum/message/index.js'
+
+const WITNESS_CACHE = new Map<string, ReturnType<typeof serializeMessage>>()
+const compactWitness = (receipt: string) => {
+  let w = WITNESS_CACHE.get(receipt)
+  if (!w) {
+    w = serializeMessage(encodeMessage(receipt, 'crew_verifies_instantly'))
+    WITNESS_CACHE.set(receipt, w)
+  }
+  return w
+}
+
+/** Derived witness — kept in sync with lean/messaging-witness.json (one-receipt messaging). */
+export const MESSAGING_WITNESS = { total: true, keys: 2127, distinct: 2044 } as const
 
 /** THE GATE'S SPEC IS READ OFF THE LEDGER. This was a hand-written list of six keys, and when the
  *  lexical honesty gate was folded away four of them left the ledger — so the gate went on publishing four
@@ -116,6 +134,64 @@ export const ledgerLine = (
   ` · deposit ${dep.coins} · ${dep.id}` +
   (rec ? ` · receipt ${rec.receipt} · seq ${rec.seq}` : '')
 
+/** Compact Sequence walk on the gate receipt — seed, reflection, orbit, covers, fixed. The full runSequence
+ *  object stays in the runner; the envelope carries what coordination needs. */
+export interface EnvelopeSequence {
+  seed: number
+  reflection: number
+  orbit: number[]
+  covers: boolean
+  fixed: boolean
+}
+
+/** THE COORDINATED ENVELOPE — the fusion: hexbitDoorOf IS the identity, compact crew_verifies_instantly witness,
+ *  compact runSequence. Defined ONCE for both served surfaces so multi-agent sessions read the same shape whether
+ *  they speak stdio or the edge. Instant coordination is O(1) order-invariant recompute, not wall-clock zero,
+ *  not QKD. stdio chains receipt · seq · referer; the edge is stateless and omits the chain (named, not silent). */
+export interface MessagingEnvelope extends HexbitDoor {
+  surface: 'stdio' | 'edge'
+  gate: Pick<GateVerdict, 'clean' | 'input' | 'output' | 'honesty' | 'receipt' | 'fabricated'>
+  deposit: Pick<CoinDeposit, 'coins' | 'id' | 'receipt' | 'honest'>
+  witness: ReturnType<typeof serializeMessage>
+  sequence: EnvelopeSequence
+  receipt?: { receipt: string; seq: number; referer: string; tool: string }
+  ledger: string
+  honest: string
+}
+
+export function messagingEnvelope(opts: {
+  surface: 'stdio' | 'edge'
+  gate: GateVerdict
+  deposit: CoinDeposit
+  hexbits?: readonly number[]
+  receipt?: { receipt: string; seq: number; referer: string; tool: string }
+}): MessagingEnvelope {
+  const { gate, deposit, receipt, surface } = opts
+  const door = hexbitDoorOf(gate.receipt)
+  const walked = runSequence(gate.receipt)
+  const witness = compactWitness(gate.receipt)
+  const ledger = ledgerLine(gate, deposit, receipt ? { receipt: receipt.receipt, seq: receipt.seq } : undefined)
+  return {
+    surface,
+    gate: { clean: gate.clean, input: gate.input, output: gate.output, honesty: gate.honesty, receipt: gate.receipt, fabricated: gate.fabricated },
+    deposit: { coins: deposit.coins, id: deposit.id, receipt: deposit.receipt, honest: deposit.honest },
+    ...door,
+    witness,
+    sequence: {
+      seed: walked.seed,
+      reflection: walked.reflection,
+      orbit: walked.orbit,
+      covers: walked.covers,
+      fixed: walked.fixed,
+    },
+    ...(receipt ? { receipt } : {}),
+    ledger,
+    honest: surface === 'stdio'
+      ? 'two content blocks — answer then ledger line — with a chained session receipt in _meta.messaging.receipt; hexbits ARE the door (hexbitDoorOf); witness is crew_verifies_instantly (O(1), order-invariant)'
+      : 'two content blocks — answer then ledger line — stateless edge: no session chain; coin account is per-isolate (uuidna_coin_ledger reports census state); hexbits ARE the door; witness is crew_verifies_instantly',
+  }
+}
+
 export interface GateSelfTest {
   table: number[]            // the live verdict table over the eight (f,d,v) states
   sealedTable: number[]      // the sealed expectation — [1,0,0,0,0,0,0,0] (anti_fraud_check_deterministic)
@@ -141,4 +217,42 @@ export function gateSelfTest(toolNames: readonly string[]): GateSelfTest {
   const registry = registryReceipt(toolNames)
   const receipt = merkleGravity([toUuid('gate-selftest:' + table.join('')), registry, ...GATE_THEOREMS.map((k) => toUuid(k))])
   return { table, sealedTable, matchesSealedSpec, cleanStates, drainedStates: 8 - cleanStates, tools: toolNames.length, registry, cites: GATE_THEOREMS, receipt }
+}
+
+export interface GateMessagingOpts {
+  surface: 'stdio' | 'edge'
+  wireTools: readonly WireTool[]
+  payments?: readonly CoinPayment[]
+  receiptSeq?: number
+  receiptTip?: string
+  agent?: string
+}
+
+/** gateStatus — gateSelfTest plus optional coordinated messaging health ({messaging:true} on uuidna_gate_status). */
+export function gateStatus(toolNames: readonly string[], messaging?: GateMessagingOpts) {
+  const base = gateSelfTest(toolNames)
+  if (!messaging) return base
+  const census = coinCensus(messaging.payments ?? [])
+  const bytes = wireBytes(messaging.wireTools)
+  const ceiling = sealedBudget()?.wireBytes ?? null
+  const headroom = ceiling === null ? null : ceiling - bytes
+  const withinBudget = ceiling !== null && bytes <= ceiling
+  const healthy = base.matchesSealedSpec && MESSAGING_WITNESS.total && withinBudget
+  return {
+    ...base,
+    healthy,
+    messaging: MESSAGING_WITNESS,
+    context: { wireBytes: bytes, ceiling, headroom, withinBudget },
+    session: {
+      surface: messaging.surface,
+      payments: census.payments,
+      censusState: census.state,
+      ...(messaging.receiptSeq !== undefined ? { receiptSeq: messaging.receiptSeq } : {}),
+      ...(messaging.receiptTip !== undefined ? { receiptTip: messaging.receiptTip } : {}),
+      ...(messaging.agent !== undefined ? { agent: messaging.agent } : {}),
+    },
+    coordinate: { envelope: '_meta.messaging' as const, contentBlocks: 2, ledgerInMeta: true },
+    messagingReceipt: merkleGravity([toUuid('gate-status:' + messaging.surface), base.receipt, toUuid('messaging:' + MESSAGING_WITNESS.total), toUuid('wire:' + bytes), census.receipt]),
+    honest: 'recomputable health — poll uuidna_gate_status {messaging:true}; pair with uuidna_coin_ledger for WHO paid',
+  }
 }

@@ -16,14 +16,42 @@ import { adjudicate } from '../adjudicate.js'
 
 const readJson = (p: string): unknown => (existsSync(join(ROOT, p)) ? JSON.parse(readFileSync(join(ROOT, p), 'utf8')) : null)
 
-// ── THE THREE SPRINGS OF THE OPEN — each record names its source so a reader can walk back to the door's origin.
+// ── THE FOUR SPRINGS OF THE OPEN — each record names its source so a reader can walk back to the door's origin.
 const items: OpenItem[] = []
-const leads = readJson('lean/leads.json') as { held?: { lead: string }[] } | null
-for (const h of leads?.held ?? []) items.push({ claim: h.lead, source: 'the held leads' })
+const leads = readJson('lean/leads.json') as {
+  held?: { lead: string }[]
+  refuted?: { lead: string }[]
+  refused?: { lead: string }[]
+} | null
+const settled = new Set([
+  ...(leads?.refuted ?? []).map((r) => r.lead),
+  ...(leads?.refused ?? []).map((r) => r.lead),
+])
+const closed = (claim: string): boolean => {
+  if (settled.has(claim)) return true
+  for (const s of settled) if (s && claim.includes(s.slice(0, 40))) return true
+  return false
+}
+for (const h of leads?.held ?? []) if (!closed(h.lead)) items.push({ claim: h.lead, source: 'the held leads' })
 const research = readJson('lean/research-ledger.json') as { findings?: { claim: string; status?: string; value?: string }[] } | null
-for (const f of research?.findings ?? []) if (!f.status || !/^(sealed|anchored|verified)/i.test(f.status)) items.push({ claim: f.claim + (f.value ? ` (recorded value: ${f.value})` : ''), source: 'the research ledger' })
+for (const f of research?.findings ?? []) {
+  if (f.status && /^(sealed|anchored|verified|refuted|refused)/i.test(f.status)) continue
+  const claim = f.claim + (f.value ? ` (recorded value: ${f.value})` : '')
+  if (closed(claim) || closed(f.claim)) continue
+  items.push({ claim, source: 'the research ledger' })
+}
 const prose = readJson('prose-trials.json') as { develop?: { surface: string; fragment: string; receipt: string }[] } | null
-for (const d of prose?.develop ?? []) items.push({ claim: d.fragment, source: `the prose trials · ${d.surface}`, receipt: d.receipt })
+for (const d of prose?.develop ?? []) {
+  if (closed(d.fragment)) continue
+  items.push({ claim: d.fragment, source: `the prose trials · ${d.surface}`, receipt: d.receipt })
+}
+const feed = readJson('lean/search-feed.json') as {
+  leads?: { what: string; query?: string }[]
+} | null
+for (const l of feed?.leads ?? []) {
+  if (closed(l.what)) continue
+  items.push({ claim: l.what, source: `the search feed · ${l.query ?? 'query'}` })
+}
 
 const topics = openQuestions(items, LEAN_LEDGER)
 const total = items.length
@@ -57,7 +85,7 @@ description: The unverified, organised in topics — every door with its involut
 > visibly next to what is not.
 
 **${total} open doors** across ${topics.length} topics, derived from the tree's own records — the held leads,
-the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
+the research findings, the prose develop fragments, the search-feed leads. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
 **How to answer one**: a student's answer is a **two-coin deposit**, never a comment — name the finite structure,
@@ -70,8 +98,8 @@ ${section}
 ## Honest scope
 
 Organisation, not adjudication: nothing on this page verdicts a claim, and topic placement is shared-words, not
-understanding. The records are the tree's own (leads held, findings unsealed, prose fragments owed); when a
-record closes, its door leaves this page by recomputation, never by edit.
+understanding. The records are the tree's own (leads held, findings unsealed, prose fragments owed, search-feed
+leads); when a record closes, its door leaves this page by recomputation, never by edit.
 `
 writeFileSync(join(ROOT, 'docs', 'open-questions.md'), page)
-console.log(`✓ gen-open-questions — docs/open-questions.md: ${total} doors in ${topics.length} topics, derived from three records against ${LEAN_LEDGER.length} seals`)
+console.log(`✓ gen-open-questions — docs/open-questions.md: ${total} doors in ${topics.length} topics, derived from four springs against ${LEAN_LEDGER.length} seals`)

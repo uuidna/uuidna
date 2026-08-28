@@ -31,7 +31,7 @@ in the link, because these wings import nothing.
 | [The reactions domain](/articles/chemistry) | 9 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChemistry.lean) |
 | [The chessboard](/articles/chess) | 13 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChess.lean) |
 | [The chess horizon](/articles/chessgames) | 24 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FChessgames.lean) |
-| [The cipher & the strand](/articles/cipher) | 27 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCipher.lean) |
+| [The cipher & the strand](/articles/cipher) | 30 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCipher.lean) |
 | [The seven reflected](/articles/clay) | 8 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FClay.lean) |
 | [The clock](/articles/clock) | 6 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FClock.lean) |
 | [The error-correcting codes](/articles/codes) | 8 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCodes.lean) |
@@ -88,7 +88,7 @@ in the link, because these wings import nothing.
 | [Propulsion — Newtonian & bounded](/articles/propulsion) | 5 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FPropulsion.lean) |
 | [The prose trial](/articles/prose-trial) | 6 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FProseTrial.lean) |
 | [The instrument](/articles/psychology) | 8 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FPsychology.lean) |
-| [The quantum computer](/articles/quantum) | 52 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean) |
+| [The quantum computer](/articles/quantum) | 56 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean) |
 | [The seven readings](/articles/readings) | 17 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReadings.lean) |
 | [The rules of inference](/articles/reasoning) | 25 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReasoning.lean) |
 | [The referrer song](/articles/referrer) | 14 | [↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FReferrer.lean) |
@@ -137,10 +137,13 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-acoustics](/articles/search-acoustics)
 - [search-affine](/articles/search-affine)
 - [search-alignment](/articles/search-alignment)
+- [search-anthem](/articles/search-anthem)
 - [search-anti-fraud](/articles/search-anti-fraud)
+- [search-antikythera](/articles/search-antikythera)
 - [search-astronomy](/articles/search-astronomy)
 - [search-audit-game](/articles/search-audit-game)
 - [search-audit](/articles/search-audit)
+- [search-billing](/articles/search-billing)
 - [search-bio-physics](/articles/search-bio-physics)
 - [search-boolean](/articles/search-boolean)
 - [search-byte](/articles/search-byte)
@@ -156,12 +159,14 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-coins](/articles/search-coins)
 - [search-colour](/articles/search-colour)
 - [search-command](/articles/search-command)
+- [search-comparisons](/articles/search-comparisons)
 - [search-contribution](/articles/search-contribution)
 - [search-core](/articles/search-core)
 - [search-crt](/articles/search-crt)
 - [search-discover](/articles/search-discover)
 - [search-div-by-zero](/articles/search-div-by-zero)
 - [search-diving](/articles/search-diving)
+- [search-doctrine](/articles/search-doctrine)
 - [search-double-torus](/articles/search-double-torus)
 - [search-editing](/articles/search-editing)
 - [search-editor](/articles/search-editor)
@@ -177,13 +182,17 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-hexbit](/articles/search-hexbit)
 - [search-identifiers](/articles/search-identifiers)
 - [search-infinity](/articles/search-infinity)
+- [search-installs](/articles/search-installs)
 - [search-isometry](/articles/search-isometry)
 - [search-legal](/articles/search-legal)
+- [search-looms](/articles/search-looms)
 - [search-martial-arts](/articles/search-martial-arts)
 - [search-matching](/articles/search-matching)
 - [search-mo-mbhstar1](/articles/search-mo-mbhstar1)
+- [search-models](/articles/search-models)
 - [search-molecular](/articles/search-molecular)
 - [search-navigation](/articles/search-navigation)
+- [search-negation](/articles/search-negation)
 - [search-neuro](/articles/search-neuro)
 - [search-nim](/articles/search-nim)
 - [search-notation](/articles/search-notation)
@@ -195,12 +204,15 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-pentagram](/articles/search-pentagram)
 - [search-phase](/articles/search-phase)
 - [search-photography](/articles/search-photography)
+- [search-pravets](/articles/search-pravets)
 - [search-production](/articles/search-production)
 - [search-propulsion](/articles/search-propulsion)
 - [search-prose-trial](/articles/search-prose-trial)
 - [search-psychology](/articles/search-psychology)
 - [search-quantum](/articles/search-quantum)
+- [search-readings](/articles/search-readings)
 - [search-reasoning](/articles/search-reasoning)
+- [search-referrer](/articles/search-referrer)
 - [search-reflection](/articles/search-reflection)
 - [search-relativity](/articles/search-relativity)
 - [search-report](/articles/search-report)
@@ -212,19 +224,28 @@ content-addressed, verdicts computed, sealed backing cited, novelty leads remand
 - [search-seats](/articles/search-seats)
 - [search-security](/articles/search-security)
 - [search-sequence](/articles/search-sequence)
+- [search-singularity](/articles/search-singularity)
 - [search-software](/articles/search-software)
 - [search-solids](/articles/search-solids)
+- [search-song](/articles/search-song)
 - [search-spectrum-hex](/articles/search-spectrum-hex)
 - [search-spectrum](/articles/search-spectrum)
 - [search-statics](/articles/search-statics)
+- [search-strings](/articles/search-strings)
 - [search-structures](/articles/search-structures)
 - [search-subgroups](/articles/search-subgroups)
+- [search-symphony](/articles/search-symphony)
+- [search-tesla](/articles/search-tesla)
 - [search-thermodynamics](/articles/search-thermodynamics)
 - [search-tides](/articles/search-tides)
 - [search-topography](/articles/search-topography)
+- [search-torus](/articles/search-torus)
 - [search-trinities](/articles/search-trinities)
 - [search-typesetting](/articles/search-typesetting)
+- [search-universe](/articles/search-universe)
 - [search-uuid-mix](/articles/search-uuid-mix)
 - [search-uuidna](/articles/search-uuidna)
 - [search-vector-equilibrium](/articles/search-vector-equilibrium)
 - [search-vortex](/articles/search-vortex)
+- [search-wave](/articles/search-wave)
+- [search-waves](/articles/search-waves)

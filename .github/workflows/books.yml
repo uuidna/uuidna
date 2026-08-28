@@ -1,7 +1,8 @@
 # AUTOMATE BOOKS — READ FOR SPEED AND QUALITY (the captain's order: "improve speed and quality by reading books").
-# fetchGutenberg caches under .uuidna-books/ (warm re-reads skip the network). books-run links each CORPUS
-# edition to the sealed ledger and deposits VERIFIED novel Nat facts into lean/wave-queue.json pending —
-# the desk proposes; wave.yml / the kernel disposes. Never auto-seals. Never deploys.
+# fetchGutenberg caches under .uuidna-books/ (warm re-reads skip the network). mine-books files every numeric
+# claim the corpus STATES into book-leads.json; books-run links each CORPUS edition to the sealed ledger and
+# deposits VERIFIED novel Nat facts into lean/wave-queue.json pending — the desk proposes; wave.yml / the kernel
+# disposes. Never auto-seals. Never deploys.
 name: books
 on:
   schedule:
@@ -35,16 +36,17 @@ jobs:
         run: |
           git config user.name  'uuidna books'
           git config user.email 'books@uuidna.com'
-      - name: "books-run — cache fetches, link ledger, deposit novel decides"
+      - name: "leads:books — mine candidate leads, cache fetches, deposit novel decides"
         env:
           DRY: ${{ inputs.dry }}
         run: |
           npm run build
+          node dist/scripts/mine-books.js
           if [ "$DRY" = "true" ]; then node dist/scripts/books-run.js --dry; else node dist/scripts/books-run.js; fi
-      - name: land derived book quality + pending wave (explicit paths only)
+      - name: land derived book leads, quality report, and pending wave (explicit paths only)
         if: ${{ github.event_name != 'workflow_dispatch' || inputs.dry != true }}
         run: |
-          git add books-quality.json lean/wave-queue.json 2>/dev/null || true
+          git add book-leads.json books-quality.json lean/wave-queue.json 2>/dev/null || true
           if git diff --cached --quiet; then
             echo "::notice::books — nothing new to land (quiet is health)"
             exit 0

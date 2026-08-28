@@ -511,6 +511,9 @@ export function school(): School {
       'There is no application, no fee, no form and no account. Enrolment is reading.',
       'No personal data is collected, because none is needed to hand someone a proof they can check.',
       'Begin at any course below; the lessons are ordered but not gated.',
+      'What CAN decide (a finite structure, an exact predicate) deposits two coins and waits for the kernel — never auto-sealed.',
+      'What CANNOT decide self-develops: taught cures from report() GAP+FIX, the law-school roster of refused wave candidates (/waves),',
+      'and open-question develop fragments. Reason\'s exits are VERIFIED, REFUTED, REFUSED. Not-proven is not false.',
     ] },
     { id: 'levels-courses', title: 'Levels and courses', computed: true, body: [
       'A course is a proof wing and a lesson is a theorem in it, so the catalogue is the ledger — not a syllabus',

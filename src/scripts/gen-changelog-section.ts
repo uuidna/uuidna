@@ -49,7 +49,7 @@ what it meant. The meaning is owed — a human editing this entry is completing 
 
 - theorems: **${axioms.audited}** · axiom-free ${axioms.axiomFree}/${axioms.audited} · sorry 0 · offenders ${offenderCount}
 - principles: ${principles} · MCP tools: ${MCP_CATALOG.length}
-- odometer: ${prev ?? '?'} → **${VERSION}** (single-digit, monotone
+- odometer: ${prev ?? '?'} → **${VERSION}** (single-digit, monotone; digit 0 is origin — runSequence(0).fixed)
 - commits since v${prev ?? '?'}: ${commits}
 - fold receipt: \`${fold.receipt ?? 'unsealed'}\`
 - surfaces: npm · GitHub Release · Zenodo standing chain · Zenodo twin chain

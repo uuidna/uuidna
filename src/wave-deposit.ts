@@ -14,9 +14,10 @@
 // says so. Integrity, not truth (theorem provenance_integrity_not_content_truth).
 import { theoremByKey } from './theorems/index.js'
 import { toUuid } from './address.js'
+import { hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
 
 export interface WaveCandidate { key: string; why: string; lean: string }
-export interface DepositResult {
+export interface DepositResult extends HexbitDoor {
   deposited: string[]
   refused: { key: string; reason: string }[]
   pending: number
@@ -50,7 +51,20 @@ const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinM
  *  the lawful ones in `pending`; refusals return WITH their reasons and are never written (the wire's refusals
  *  go back to the depositor — the queue file's refused[] is the KERNEL's roster, not the doorman's). */
 export function depositCandidates(candidates: WaveCandidate[], queuePath: string): DepositResult {
-  const fs = fsm()
+  const hostReceipt = toUuid('wave-deposit:no-fs')
+  const hostRefuse: DepositResult = {
+    deposited: [],
+    refused: candidates.map((raw) => ({ key: String(raw?.key ?? ''), reason: 'CAPABILITY: no filesystem — deposits are host-side' })),
+    pending: 0,
+    receipt: hostReceipt,
+    ...hexbitDoorOf(hostReceipt),
+    honest: 'a deposit buys VALIDATION and QUEUEING, never a seal — the kernel judges each candidate alone on the resident wave, host-side; a Worker has no disk, so this path refuses by name rather than throwing',
+  }
+  let fs: typeof import('node:fs')
+  try {
+    fs = fsm()
+    if (typeof fs?.readFileSync !== 'function') return hostRefuse
+  } catch { return hostRefuse }
   const q = JSON.parse(fs.readFileSync(queuePath, 'utf8')) as WaveQueueFile
   if (!Array.isArray(q.pending) || !Array.isArray(q.accepted) || !Array.isArray(q.refused)) throw new Error('wave-queue.json is malformed (pending/accepted/refused arrays required)')
   const sealed = theoremByKey()
@@ -66,9 +80,9 @@ export function depositCandidates(candidates: WaveCandidate[], queuePath: string
     deposited.push(c.key)
   }
   if (deposited.length) fs.writeFileSync(queuePath, JSON.stringify(q, null, 2) + '\n')
+  const receipt = toUuid(['wave-deposit', ...deposited, ...refused.map((r) => `${r.key}:${r.reason}`)].join('|'))
   return {
-    deposited, refused, pending: q.pending.length,
-    receipt: toUuid(['wave-deposit', ...deposited, ...refused.map((r) => `${r.key}:${r.reason}`)].join('|')),
+    deposited, refused, pending: q.pending.length, receipt, ...hexbitDoorOf(receipt),
     honest: 'a deposit buys VALIDATION and QUEUEING, never a seal — the kernel judges each candidate alone on the resident wave, host-side; a validated candidate is PENDING, its theorem exists only when the kernel says so',
   }
 }

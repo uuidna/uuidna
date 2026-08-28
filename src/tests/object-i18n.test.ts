@@ -12,6 +12,7 @@ import {
   DIMENSIONS,
   HEXBIT_WORDS,
   toUuid,
+  HANDLE_HEXBITS,
 } from '../index.js'
 import { handleOf } from '../handle.js'
 
@@ -32,7 +33,7 @@ test('translateObjectText: en is identity; other rays are hexbit readings of the
   assert.equal(bg.kind, 'hexbit-reading')
   assert.equal(bg.handle, en.handle)
   assert.notEqual(bg.text, src)
-  assert.equal(bg.text.split(' ').length, 8)
+  assert.equal(bg.text.split(' ').length, HANDLE_HEXBITS)
 })
 
 test('primaryRayOf collapses dialects; unknown → en', () => {
@@ -115,7 +116,8 @@ test('compose-object: hero fields in params, never YAML-in-content (no bag leak)
   const page = composeTheorem(t)
   assert.equal(page.params.heroTitle, page.params.title)
   assert.equal(page.params.abstract, t.statement)
-  assert.ok(page.params.handleUrl?.startsWith('https://uuidna.com/'))
+  assert.equal(page.params.handleUrl, (await import('../hexbit/index.js')).hexbitDoorOf(t.address).door)
+  assert.match(page.content, new RegExp(page.params.handleUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
   assert.ok('heartbeats' in page.params, 'theorem params carry measured heartbeats for page metrics')
   assert.ok(!page.content.startsWith('---'), 'content must not open with YAML frontmatter')
   assert.match(page.content, /^# /m, 'stock markdown H1 is the hero')
@@ -265,4 +267,17 @@ test('ObjectPage wires locale rays for crosslinks; stock markdown H1 is the hero
   assert.match(vue, /object-locale/)
   const compose = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
   assert.match(compose, /Stock VitePress H1|# \$\{mdSafe\(heroTitle\)\}/)
+})
+
+test('TheoremUse / ExecShell / PortPanel are composed in — one constructor, not a second template', () => {
+  const compose = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
+  assert.match(compose, /<ClientOnly><TheoremUse \/>/)
+  assert.match(compose, /hexbitDoorOf/)
+  const theme = readFileSync(join(ROOT, 'docs/.vitepress/theme/index.ts'), 'utf8')
+  assert.match(theme, /TheoremUse/)
+  assert.match(theme, /ExecShell/)
+  assert.match(theme, /PortPanel/)
+  assert.ok(existsSync(join(ROOT, 'docs/.vitepress/theme/TheoremUse.vue')))
+  assert.ok(existsSync(join(ROOT, 'docs/.vitepress/theme/ExecShell.vue')))
+  assert.ok(existsSync(join(ROOT, 'docs/.vitepress/theme/PortPanel.vue')))
 })

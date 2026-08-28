@@ -57,8 +57,8 @@ export const routeOf = (name: string): string => INSTALL_ROUTES[name] ?? '/' + n
 /** compileToHexbits — the unit's own address→states compiler (src/hexbit owns it; re-exported here because
  *  the port is where "compile from source in hexbit" is spoken). 32 states 0..15, one per nibble, directly
  *  playable by the standard hexbit app (quantum/apps/hexbit-player). */
-import { compileToHexbits } from '../../hexbit/index.js'
-export { compileToHexbits }
+import { compileToHexbits, hexbitDoorOf } from '../../hexbit/index.js'
+export { compileToHexbits, hexbitDoorOf }
 
 /** One default install, ported: the uuidna/<name> identity plus its path, its published meaning, its
  *  dependency names, and its hexbit compile. */
@@ -111,7 +111,7 @@ const HONEST =
 
 const specOf = (p: MirrorPackage, m: InstallsMirror): InstallSpec => {
   const minted = uuidnaPackage({ name: p.name, version: p.version, arch: m.arch, repo: m.repo, branch: m.branch, checksum: p.checksum })
-  return { route: routeOf(p.name), id: minted.id, name: p.name, version: p.version, checksum: p.checksum, meaning: p.desc, deps: p.deps, address: minted.address, hexbits: compileToHexbits(minted.address) }
+  return { route: routeOf(p.name), id: minted.id, name: p.name, version: p.version, checksum: p.checksum, meaning: p.desc, deps: p.deps, address: minted.address, ...hexbitDoorOf(minted.address) }
 }
 
 /** buildOrder(m) → the port order, LOWEST LEVEL FIRST: repeatedly take the alphabetically-first package whose
@@ -149,7 +149,7 @@ export function portFrom(m: InstallsMirror): InstallPort {
   const receipt = merkleGravity(specs.map((s) => s.address))
   const states = [...specs.flatMap((s) => s.hexbits), ...compileToHexbits(receipt)]
   const boot: BootImage = { states, count: states.length, address: toUuid('installs-boot|' + states.map((h) => h.toString(16)).join('')) }
-  return { branch: m.branch, repo: m.repo, arch: m.arch, release: m.release, count: specs.length, specs, receipt, hexbits: compileToHexbits(receipt), boot, honest: HONEST }
+  return { branch: m.branch, repo: m.repo, arch: m.arch, release: m.release, count: specs.length, specs, receipt, ...hexbitDoorOf(receipt), boot, honest: HONEST }
 }
 
 // the mirror is committed and immutable within a build — the port is cached for O(1) reads (lazy, no

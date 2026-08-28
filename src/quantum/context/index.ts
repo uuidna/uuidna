@@ -13,7 +13,7 @@
 // 32-state compile like every census on this site. HONEST SCOPE: the categories and token counts are the
 // CALLER's self-report (a page cannot read Claude's window); the arithmetic on them is exact.
 import { toUuid } from '../../address.js'
-import { compileToHexbits, SAFE_HEXBITS, UUID_HEXBITS } from '../../hexbit/index.js'
+import { hexbitDoorOf, SAFE_HEXBITS, UUID_HEXBITS } from '../../hexbit/index.js'
 
 /** One category of context spend, as the caller reports it (the window's own breakdown panel). */
 export interface ContextCategory { name: string; tokens: number }
@@ -69,7 +69,7 @@ export function balanceContext(categories: readonly ContextCategory[], capacity:
   const receipt = toUuid('context-balance|' + capacity + '|' + rows.map((r) => `${r.name}:${r.tokens}`).join(','))
   return {
     capacity, spent, free, freePermille, safeFloorPermille, balanced,
-    categories: rows, foldableTotal, verdict, receipt, hexbits: compileToHexbits(receipt),
+    categories: rows, foldableTotal, verdict, receipt, ...hexbitDoorOf(receipt),
     honest: 'The counts are the caller\'s self-report (nothing here can read a model\'s window); the arithmetic on them is exact — integer permille, the sealed 13/32 spare floor, the fold priced at ' + RECEIPT_TOKENS + ' receipt-tokens. Folded context is not lost: it is the 0.9999999 that stays computable by request.',
   }
 }

@@ -377,7 +377,7 @@ export function streamStep(label: string, cmd: string, cwd: string = ROOT): Prom
 export const DRAIN_PATHS: readonly string[] = [
   // the declared derived layer (mirrors src/spin.ts DERIVED_FILES — spin seals exactly these)
   'src/theorems/generated.ts', 'lean/PRINCIPLE.md', 'CHANGELOG.md', 'lean/axioms.json',
-  'docs/mcp.md', 'docs/leads.md', 'audit-citations.json', 'support-audit.json', 'research-leads.json',
+  'docs/mcp.md', 'docs/apis.md', 'docs/leads.md', 'audit-citations.json', 'support-audit.json', 'research-leads.json',
   // the other computed artifacts the drain writes: the fold, the seal manifest, the measured costs, the page seeds
   'quantum-fold.json', 'spin-manifest.json', 'lean/heartbeats.json', 'lean/proof-cache.json',
   'prose-trials.json', 'docs/captain-claims.json', 'src/seeds',
@@ -447,6 +447,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/referrer-song.md',
   // the school of open doors — the unverified in topics, derived by gen-open-questions
   'docs/open-questions.md',
+  // most-searched → Lean doors + desk leads (gen-search-feed); JSON rides the lean/ directory umbrella
+  'docs/search-feed.md',
   'docs/apps.md',
   'docs/evasion.md',
   'docs/symphony.md',
@@ -496,6 +498,7 @@ export const DRAIN_WRITERS: Readonly<Record<string, string>> = {
 export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'lean-axioms': ['lean/axioms.json'],
   'gen-mcp': ['docs/mcp.md'],
+  'gen-apis': ['docs/apis.md'],
   'gen-quantum-capacity': ['lean/quantum-capacity.json', 'lean/quantum-capacity.md', 'docs/quantum.md'],
   'gen-quantum-advantage': ['lean/quantum-advantage.json', 'docs/public/quantum-advantage.jsonld'],
   'gen-seo-freeze': ['lean/seo-url-map.json'],
@@ -538,6 +541,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-store': ['docs/store.md'],
   'gen-referrer-song': ['docs/referrer-song.md'],
   'gen-open-questions': ['docs/open-questions.md'],
+  'gen-search-feed': ['lean/search-feed.json', 'docs/search-feed.md'],
   'gen-apps': ['docs/apps.md'],
   'gen-evasion': ['docs/evasion.md'],
   'gen-symphony': ['docs/symphony.md'],
@@ -565,6 +569,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
  *  declared, or the file it writes is nobody's to stage. */
 export const DOCS_BUILD_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-mcp': ['docs/mcp.md'],
+  'gen-apis': ['docs/apis.md'],
   'gen-captain-claims': ['docs/captain-claims.json', 'docs/captain-claims.md'],
   'lean-payload-seeds': ['src/seeds'],   // the whole directory is one drain path — see stageDerived
   'payload-sync': ['src/seeds'],

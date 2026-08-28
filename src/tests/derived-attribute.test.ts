@@ -120,13 +120,11 @@ test('a generator that writes ANY path is INVOKED by the chain, or it is rot wai
     if (/writeFileSync\(/.test(src)) orphans.push(name)
   }
   assert.deepEqual(orphans.sort(),
-    ['gen-alpine-apps', 'gen-alpine-catalogue', 'gen-captain-claims-complete', 'gen-changelog-section'],
+    ['gen-alpine-apps', 'gen-alpine-catalogue', 'gen-changelog-section'],
     'a gen-* that writes a file and is never run leaves that file to rot while git reports it clean. Wire it into '
-    + 'generate.ts\'s manifest, or stop it writing. The four named here are KNOWN and unwired — this assertion is a '
+    + 'generate.ts\'s manifest, or stop it writing. The three named here are KNOWN and unwired — this assertion is a '
     + 'ratchet: it fails when the list grows, and it fails when one is fixed without updating it. gen-captain-claims-'
-    + 'complete is the one with a demonstrated cost: its output claimed "no theorem escapes the audit" over a key '
-    + 'count the ledger had long since outgrown, and the sibling gen-captain-claims IS in the manifest, so the fix '
-    + 'is one line there rather than anything here. gen-quantum-advantage left this list when it was wired into '
+    + 'complete was wired into generate.ts\'s manifest (2026-08-28). gen-quantum-advantage left this list when it was wired into '
     + 'generate.ts (verify-don\'t-remeasure on the push path; remasure stays the generator).')
 
   // ── THE FLOOR, which catches what the probe above still cannot see.

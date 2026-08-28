@@ -47,7 +47,7 @@ export interface RefusedReach {
  *
  *  So the anchor is the CALL, not the string. `fetch("https://…")` is decidable; intent is not. */
 const REACH = (host: string): RegExp =>
-  new RegExp(`fetch\\s*\\(\\s*[\`'"]https?://[^\\s'"\`]*${host.replace(/\./g, '\\.')}`, 'i')
+  new RegExp(`fetch\\s*\\(\\s*[\`'"]https?://[^\\s'"\`]*${host.replace(/[\\^$*+?.()|[\]{}]/g, '\\$&')}`, 'i')
 
 /** refusedReaches(files) → every place a source reaches a refused host. `files` is [path, contents] pairs, so the
  *  caller owns the walk and this stays pure and testable — no filesystem, no clock, no network. */

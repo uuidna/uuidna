@@ -189,10 +189,16 @@ export function hearChain(text: string): ExtractedFact[] {
  *  arithmetic), then, for prose, the word-arithmetic extractor (a sentence saying "two and two make five" is
  *  REFUTED, not shrugged at — the deafness the Black Whole audit witnessed, lead 76/71), then the citation
  *  trial with its relevance floor. */
+function stripTerminalPunct(s: string): string {
+  let i = s.length
+  while (i > 0 && (s[i - 1] === '.' || s[i - 1] === '!' || s[i - 1] === '?')) i--
+  return s.slice(0, i)
+}
+
 export function auditDetail(detail: string): DetailVerdict {
   // the calculator's grammar reads propositions, not sentences — "2 + 2 = 4." is arithmetic wearing a full stop,
   // so terminal punctuation is stripped for the decide route only; the detail keeps its exact text and address
-  const d = decide(detail.replace(/[.!?]+$/, '').trim())
+  const d = decide(stripTerminalPunct(detail).trim())
   const base = { detail, kind: d.kind, numerals: numeralsOf(detail), address: toUuid(detail) }
   if (d.kind !== 'prose') {
     const verdict = (d.verdict === 'UNVERIFIED' || d.verdict === 'DRAINED' ? 'UNVERIFIED' : d.verdict) as DetailVerdictKind

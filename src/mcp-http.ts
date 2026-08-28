@@ -19,7 +19,7 @@ import { matrixCss } from './css.js'
 import { toUuid } from './address.js'
 import { compileToHexbits } from './hexbit/index.js'   // one unit, both doors — the edge computes the same 32 states
 import { conformance } from './conformance.js'
-import { MCP_CATALOG, callTool, toolHandleOf, apiHandleOf, recordPayment } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
+import { MCP_CATALOG, callTool, toolHandleOf, apiHandleOf, recordPayment, messagingSession } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { coins, billUuidna } from './captain/billing/index.js'
 import { quantumAura } from './aura.js'
@@ -27,7 +27,7 @@ import { imageProvenance, verifyImageProvenance } from './provenance.js'
 import { quantumCubeChallenge, verifyQuantumCube } from './cube.js'
 // The gated dispatch core — pure and Workers-safe (address/gravity/sanitize/slimgate, no node built-ins): the SAME
 // conjunction gate the stdio server enforces, so the edge and the local surface serve ONE law (DRY, sealed spec).
-import { gateVerdict, gateSelfTest, depositCoins, ledgerLine, GATE_THEOREMS } from './gate-engine.js'
+import { gateVerdict, gateSelfTest, gateStatus, depositCoins, ledgerLine, messagingEnvelope, GATE_THEOREMS } from './gate-engine.js'
 // The research surface, edge-safe by construction: the ledger carries its findings in source and the leg census is
 // shipped as a mirror (src/rosetta-mirror.ts), because DECIDING a leg means reading the wings and the tests and this
 // runtime has no disk. Both call the SAME report functions the stdio server calls — one law, two surfaces.
@@ -49,7 +49,7 @@ const CATALOGUE_TOOLS = new Set(['uuidna_exec', 'uuidna_registry', 'uuidna_relat
 // src, and this runs at the Workers edge with no filesystem), so it is stated here and HELD to package.json by
 // src/tests/mcp-version.test.ts, which fails with the exact line to change. A stated constant is fine; an
 // unchecked one is how this drifted.
-const SERVER = { name: 'uuidna', version: '0.2.9' }
+const SERVER = { name: 'uuidna', version: '0.3.0' }
 
 interface HttpTool { name: string; description: string; inputSchema: Record<string, unknown>; run: (a: Record<string, unknown>) => unknown }
 
@@ -118,9 +118,13 @@ const TOOLS: HttpTool[] = [
                offenders: c.checks.filter((k) => !k.pass).map((k) => ({ check: k.id, detail: k.detail })),
                receipt: c.receipt }
     } },
-  { name: 'uuidna_gate_status', description: 'THE GATE PROVES ITSELF, live at the edge: every hosted tools/call passes the sealed conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — input sanitized, output sanitized, no fabricated theorem citation — and this tool recomputes the eight-state verdict table and REQUIRES it to equal the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle). The registry folds to its ORDER-INVARIANT identity receipt. The SAME gate the stdio server enforces — one law, both surfaces. Returns {table,sealedTable,matchesSealedSpec,cleanStates,drainedStates,tools,registry,cites,receipt}.',
-    inputSchema: { type: 'object', properties: {} },
-    run: () => gateSelfTest(TOOLS.map((t) => t.name)) },
+  { name: 'uuidna_gate_status', description: 'Gate self-test at the edge: verdict table vs sealed spec, registry receipt. Pass {messaging:true} for coordinated health (witness, wire budget, isolate census). Boundary declared — theorem drift_is_named_or_caught.',
+    inputSchema: { type: 'object', properties: { messaging: { type: 'boolean', description: 'include messaging witness, wire budget headroom, session coin census' } } },
+    run: (a) => {
+      if (!a.messaging) return gateSelfTest(SERVED.map((t) => t.name))
+      const s = messagingSession()
+      return gateStatus(SERVED.map((t) => t.name), { surface: 'edge', wireTools: SERVED, payments: s.payments, agent: s.agent })
+    } },
 ]
 /** THE DECLARED ABSENCES, and the reason each one cannot serve here. This list MAY ONLY SHRINK.
  *
@@ -162,27 +166,21 @@ const EDGE_ABSENT: Record<string, string> = {
   "uuidna_wave_deposit": 'CAPABILITY: writes lean/wave-queue.json and a Worker has no filesystem — deposits are host-side; the edge can expose coordinates (uuidna_expose serves there) but never hold the queue',
   "uuidna_aead_decrypt": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_snapshot": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_school_apis": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
+  "uuidna_school_apis": 'CAPABILITY: fetches EU education APIs; a Worker can fetch but this hosted subset stays named-absent (policy named as policy, not dropped so coverage looks complete)',
   "uuidna_education_jobs": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_resources": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_audit_cve": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_nist_constant": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_anchor": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_wave": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_by_lean": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_lean_index": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_statement_census": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_search": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_article": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_editorial": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_publication": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_search_trial": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_vies": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_mcp_benchmark": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_unify": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_scan_publications": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
+  "uuidna_editorial": 'CAPABILITY: editorialState reads prose-trials.json via the filesystem boundary — host-side',
+  "uuidna_publication": 'CAPABILITY: publicationStatus reads package.json and .zenodo.json — host-side',
+  "uuidna_search_trial": 'POLICY: network fan-out (research sweep + mint extras) — hosted surface stays read-only recomputable',
+  "uuidna_vies": 'POLICY: network lookup against the EU VIES register',
+  "uuidna_scan_publications": 'POLICY: network scan of free research streams',
   "uuidna_selftest": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_quantum": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
+  "uuidna_run": 'CAPABILITY: requires filesystem + spawn (docker/chroot) — stdio/host only by design; Layer 1 uuidna_exec serves the browser',
 }
 
 /** The catalogue tools this edge INHERITS — computed. */
@@ -215,7 +213,7 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
   const method = msg?.method
   const params = msg?.params ?? {}
   if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: SERVER,
-    instructions: 'uuidna hosted MCP — the Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED: each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) — input sanitized, output sanitized, no fabricated theorem citation — one violation drains, named. EVERY call DEPOSITS THE TWO COINS immediately (contribute first, then take — the id a deterministic content-address citing theorem captain_commission_two_coins and theorem two_coins): your first call has already contributed. Every result is TWO content blocks: the answer, then ONE ledger line carrying the gate receipt and the deposit id; full detail in _meta. Recompute the gate against its sealed spec: uuidna_gate_status (theorem anti_fraud_check_deterministic). Integrity.' })
+    instructions: 'uuidna hosted MCP — Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS. Every result is TWO content blocks with detail in _meta.messaging. Multi-agent: declare clientInfo.name at initialize, poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger (stateless per isolate). Integrity.' })
   if (method === 'ping') return rpc(id, {})
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
   if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(SERVED) } })
@@ -257,7 +255,12 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
           // unit computing them (hexbit/compileToHexbits), so the edge cannot deliver a different width or a
           // different fold than stdio. See the long note at the stdio envelope for why this rides here rather
           // than in every tool's description.
-          _meta: { gate: g.gate, deposit: dep, hexbits: compileToHexbits(g.gate.receipt) },
+          _meta: {
+            gate: g.gate,
+            deposit: dep,
+            hexbits: compileToHexbits(g.gate.receipt),
+            messaging: messagingEnvelope({ surface: 'edge', gate: g.gate, deposit: dep, hexbits: compileToHexbits(g.gate.receipt) }),
+          },
           ...(g.gate.clean ? {} : { isError: true }),
         })
       }
@@ -285,6 +288,10 @@ export const edgeAbsentNames = (): string[] =>
   // a name the edge SERVES with its own pure implementation is not an absence, whatever the stdio version reaches
   // for — this distinction was caught by the finder below on its first run, which is what a finder is for.
   Object.keys(EDGE_ABSENT).filter((n) => !TOOLS.some((t) => t.name === n))
+
+/** Named absents with reasons — gen-mcp lists these so 100% coverage names orphans instead of dropping them. */
+export const edgeAbsentWhy = (): { name: string; why: string }[] =>
+  edgeAbsentNames().map((name) => ({ name, why: EDGE_ABSENT[name]! }))
 
 /** The tool names the hosted endpoint serves — for a GET /mcp discovery page. */
 export const mcpHttpToolNames = (): string[] => SERVED.map((t) => t.name)

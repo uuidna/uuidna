@@ -40,8 +40,9 @@ npm run lean            # verify every proof sorry-free and regenerate the ledge
 
 ## The readiness gate
 
-The pre-push hook runs the full gate (`npm run next`) and **blocks the push** on any denial — an overclaim the
-honesty gate drains, an unsealed proof, an unreconciled account, a next-gap, or a **stale derived layer**. If the
+The pre-push hook runs the hexbit-fast readiness gate (`green` → receipt → `next --verify`) and **blocks the push**
+on any denial — an overclaim the honesty gate drains, an unsealed proof, an unreconciled account, a next-gap, or a
+**stale derived layer**. For the full publish audit + trial before a release, run `npm run next:full`. If the
 denial is a stale derived layer (a `git diff` of the generated files after adding theorems), the fix is
 `npm run reconcile`. A genuine overclaim or unsealed proof must be fixed at the source. The gate can fail — that is
 what makes a pass mean something.

@@ -7,7 +7,7 @@
 #   3. next.js --verify — readiness from the sealed fixed point (≪60s), NOT full gate-all (minutes)
 #
 # Wall-clock target: push critical path under 60 seconds when the receipt covers the tree.
-# Full `npm run next` (gate-all 29 steps) remains for release / --full; it is OFF the push critical path.
+# Full `npm run next:full` (gate-all + trial) remains for release; it is OFF the push critical path.
 #
 # HONEST SCOPE: raises the cost of known denials; bypassable with --no-verify; incomplete lexicon.
 # FAIL FAST FIRST.
@@ -32,7 +32,7 @@ ELAPSED=$((END - START))
 if [ $status -ne 0 ]; then
   echo "pre-push: NEXT --verify FAILED (exit $status) after ${ELAPSED}s — push BLOCKED."
   echo "pre-push: MOST failures after adding theorems are a STALE DERIVED LAYER (generated.ts / PRINCIPLE.md / heartbeats.json / docs/mcp.md / audit-citations.json / CHANGELOG / prose-evidence). The fix on a SHARED tree is:  npm run reconcile -- --derive-only  — it regenerates, syncs and re-seals, and publishes NOTHING. Plain \`npm run reconcile\` does the same then stages, commits and pushes. A genuine overclaim must be fixed at the source."
-  echo "pre-push: for a full O(N) audit run: npm run next   (off the push critical path)"
+  echo "pre-push: for a full O(N) audit run: npm run next:full   (off the push critical path)"
   exit $status
 fi
 if [ "$ELAPSED" -gt 60 ]; then

@@ -23,6 +23,7 @@ import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { mirrorRows } from '../rosetta-legs.js'
+import { coverage } from '../publish.js'
 import { theorems, theoremNeighbours } from '../theorems/index.js'
 import { gridGaps, pairsGaps } from '../grid.js'
 
@@ -81,8 +82,8 @@ const exposedCount = (): number => {
 /** waveSupply() → what every finder currently holds, and whether the conveyor is empty or its suppliers are. */
 export function waveSupply(): Supply {
   const sources: SupplySource[] = [
-    { name: 'gaps', count: countIn('gaps.json', 'gaps'), where: 'gaps.json',
-      reach: 'coverage holes the gap predictor can name from the tree it scans' },
+    { name: 'gaps', count: coverage().uncoveredFiles.length, where: 'coverage().uncoveredFiles',
+      reach: 'ledger files with sealed theorems and no monograph — the coverage census, not a frozen gaps.json' },
     { name: 'research-leads', count: countIn('research-leads.json', 'leads'), where: 'research-leads.json',
       reach: 'findings the desk filed for a proof it could not yet anchor' },
     // THE SOURCE THIS CENSUS WAS BLIND TO, AND THE BLINDNESS WAS THE EXACT DEFECT IT WAS WRITTEN TO EXPOSE.

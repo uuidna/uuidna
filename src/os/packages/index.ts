@@ -11,6 +11,7 @@
 // empty catalog, never a faked checksum.
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
+import { hexbitDoorOf } from '../../hexbit/index.js'
 
 const CDN = 'https://dl-cdn.alpinelinux.org/alpine'
 
@@ -131,9 +132,10 @@ const HONEST =
 export async function infuseAlpinePackages(arch = 'x86_64', repo = 'main', branch = 'latest-stable'): Promise<PackageCatalog> {
   const raw = await fetchAlpineIndex(arch, repo, branch)
   const minted = raw.map((p) => uuidnaPackage({ ...p, arch, repo, branch }))
+  const receipt = minted.length ? merkleGravity(minted.map((m) => m.address)) : toUuid(`alpine-pkgs-empty|${branch}|${repo}|${arch}`)
   return {
     arch, repo, branch, count: minted.length, sample: minted.slice(0, 8),
-    receipt: minted.length ? merkleGravity(minted.map((m) => m.address)) : toUuid(`alpine-pkgs-empty|${branch}|${repo}|${arch}`),
+    receipt, ...hexbitDoorOf(receipt),
     honest: HONEST,
   }
 }

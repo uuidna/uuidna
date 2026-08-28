@@ -22,6 +22,7 @@
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
+import { GUTENDEX_HEADERS } from '../books.js'
 
 /** What the ledger wants to reason about. Grouped, because a domain is a standing interest and not a single query.
  *  Adding a line here adds books; there are no ids to find by hand. */
@@ -57,7 +58,7 @@ export interface Found { id: number; title: string; author: string; domain: stri
 // differs. The library is recorded per finding, because WHERE a claim came from is half of what makes it checkable.
 export interface Library { name: string; search: (q: string, take: number) => Promise<Found[]> }
 
-const UA = { 'user-agent': 'uuidna-research/0.2.7 (https://uuidna.com)', accept: 'application/json' }
+const UA = GUTENDEX_HEADERS
 const get = async (url: string): Promise<unknown> => {
   const r = await fetch(url, { headers: UA })
   if (!r.ok) throw new Error(`${new URL(url).host} answered ${r.status}`)
@@ -126,7 +127,7 @@ export async function searchAll(query: string, take = 4, libs: readonly Library[
 /** one catalogue query, attributed to the subject that asked it. */
 export async function search(domain: string, query: string, take: number): Promise<Found[]> {
   const res = await fetch('https://gutendex.com/books?search=' + encodeURIComponent(query), {
-    headers: { accept: 'application/json' },
+    headers: GUTENDEX_HEADERS,
   })
   if (!res.ok) return []
   const body = (await res.json()) as { results?: { id: number; title: string; authors: { name: string }[]; download_count?: number }[] }

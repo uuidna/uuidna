@@ -30,11 +30,15 @@ const PARTITION: Record<string, string> = {
   './conformance.js': 'ledger', './treason.js': 'ledger', './axiom-witness.js': 'ledger', './anti-fraud.js': 'ledger',
   './forensics.js': 'ledger', './evidence.js': 'ledger', './captain/trial/deposit/index.js': 'ledger', './security-audit.js': 'ledger',
   './captain/billing/index.js': 'ledger', './theorems/index.js': 'ledger',
+  './hexbit/index.js': 'ledger',
   // research — recomputable research, corroboration, publications, external anchors
   './research.js': 'research', './corroborate.js': 'research', './books.js': 'research', './publish.js': 'research',
   './reporter.js': 'research', './priorart.js': 'research', './anchor.js': 'research', './constants.js': 'research',
   './cve.js': 'research', './vocab.js': 'research', './transform.js': 'research', './reason.js': 'research',
   './reflects.js': 'research',
+  './aspects.js': 'research',
+  './search-feed.js': 'research',
+  './search-feed-online.js': 'research',
   // quantum — the exact simulator, messages/voting, the sailing fleet, the folds, the provenance boundary
   './quantum/index.js': 'quantum', './gravity/index.js': 'quantum', './diamond.js': 'quantum', './holofractal.js': 'quantum',
   './pentagram-stream.js': 'quantum', './pentagram-monographs.js': 'quantum', './cycles.js': 'quantum',

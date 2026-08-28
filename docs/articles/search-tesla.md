@@ -1,0 +1,103 @@
+---
+title: "The search on trial: The register's alternation law"
+description: "The quantum search's findings for this wing, each held at trial — evidence corroborated, never approved; only a Lean seal approves."
+---
+
+# The search on trial: The register's alternation law
+
+**The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
+asked in parallel about *The register's alternation law* — the wing sealed in [lean/Tesla.lean](/lean/Tesla.lean) with **6 theorems**. Each
+finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
+no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
+combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
+the hard gate of the corroboration law.
+
+| finding | source | record | alone | with sealed backing |
+|---|---|---|---|---|
+| `a80ffb14` | zenodo.org | zenodo record 19630436: Pig population data complementing the annual report on the epidemiological analy | UNVERIFIED | VERIFIED |
+| `6b762e29` | zenodo.org | zenodo record 17684464: The Dominik Collapse–Divergence Law: A Universal Alternation Model of Optimizati | UNVERIFIED | VERIFIED |
+| `39a7b463` | zenodo.org | zenodo record 7920839: The Hortative Alternation | UNVERIFIED | VERIFIED |
+| `b6f2f285` | zenodo.org | zenodo record 4934085: Data from: Joint attention skills in wild Arabian babblers (Turdoides squamiceps | UNVERIFIED | VERIFIED |
+| `97997070` | zenodo.org | zenodo record 8284106: ohesion and Coherence in the Registers of Medicine, Religion and Law | UNVERIFIED | VERIFIED |
+| `21139766` | zenodo.org | zenodo record 14264530: Insertion or deletion? CVCV/CCV alternations in Kru languages | UNVERIFIED | VERIFIED |
+| `099fe78a` | zenodo.org | zenodo record 13301160: Nitrogen Metabolism Pathway in Dry Wet Alternating Constructed Wetlands | UNVERIFIED | VERIFIED |
+| `59badfa4` | zenodo.org | zenodo record 15069521: Lord Kinfauns — Title of Nobility (baronial rank Scotland) | UNVERIFIED | VERIFIED |
+| `e5e0d8a6` | crossref.org | DOI 10.4324/9780203789193-2: The Philosophical Tenets in Ideology: The Law of Wings and the Law of Alternatio | UNVERIFIED | VERIFIED |
+| `e8f3b723` | crossref.org | DOI 10.29086/2519-5476/2020/sp33a13: South Africa, International Law and  ‘Decolonisation’ | UNVERIFIED | VERIFIED |
+| `f71d42e9` | crossref.org | DOI 10.31274/cc-20240624-1413: The Des Moines Register's depiction of African Americans during the Hurricane Ka | UNVERIFIED | VERIFIED |
+| `3cd79d1c` | crossref.org | DOI 10.31274/rtd-180813-7476: Content analysis of the Des Moines Register's coverage of women in sport through | UNVERIFIED | VERIFIED |
+| `20c171af` | crossref.org | DOI 10.1136/bmj.3.5664.194: “Medical Register's” Face-lift | UNVERIFIED | VERIFIED |
+| `65c3e47f` | crossref.org | DOI 10.1177/201395251000100108: Cross-Border Services, Posting of Workers, and Jurisdictional Alternation | UNVERIFIED | VERIFIED |
+| `0b11fae5` | crossref.org | DOI 10.7557/12.2508: Set the controls for the heart of the alternation: Dahl’s Law in Kitharaka | UNVERIFIED | VERIFIED |
+| `55618a6b` | crossref.org | DOI 10.5860/choice.39-4962: PRARS: the Public Register's annual report service | UNVERIFIED | VERIFIED |
+| `e50f991f` | arxiv.org | arXiv 1705.05327v1: Plankton: the paradox and the power law | UNVERIFIED | VERIFIED |
+| `cdd20e9c` | arxiv.org | arXiv 1001.3826v3: A stability analysis of the power-law steady state of marine size spectra | UNVERIFIED | VERIFIED |
+| `2e188df5` | arxiv.org | arXiv 1604.02549v3: A finite alternation result for reversible boolean circuits | UNVERIFIED | VERIFIED |
+| `1e4cc63a` | arxiv.org | arXiv 2509.09508v2: Incorporating AI incident reporting into telecommunications law and policy: Insi | UNVERIFIED | VERIFIED |
+| `037c80e7` | arxiv.org | arXiv 2410.18688v6: Multiple Imputation Guided by Full Law and Target Law Identifiability under the  | UNVERIFIED | VERIFIED |
+| `57ea17d4` | arxiv.org | arXiv 2603.28669v1: Superintelligence and Law | UNVERIFIED | VERIFIED |
+| `cad1413c` | arxiv.org | arXiv 2601.06237v1: Data-Dependent Goal Modeling for ML-Enabled Law Enforcement Systems | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `dd2c4b22` | en.wikipedia.org | Wikipedia: Naming law in Sweden | UNVERIFIED | VERIFIED |
+| `a86e787f` | en.wikipedia.org | Wikipedia: Canadian trademark law | UNVERIFIED | VERIFIED |
+| `401e4f16` | en.wikipedia.org | Wikipedia: List of The Danny Thomas Show episodes | UNVERIFIED | VERIFIED |
+| `1dfb9064` | en.wikipedia.org | Wikipedia: National Register of Historic Places | UNVERIFIED | VERIFIED |
+| `db3872b7` | en.wikipedia.org | Wikipedia: The Odyssey (2026 film) | UNVERIFIED | VERIFIED |
+| `5cf336f5` | en.wikipedia.org | Wikipedia: One Big Beautiful Bill Act | UNVERIFIED | VERIFIED |
+| `66aadd5c` | en.wikipedia.org | Wikipedia: 1998 Israeli presidential election | UNVERIFIED | VERIFIED |
+| `9afaceab` | en.wikipedia.org | Wikipedia: List of The Try Guys episodes | UNVERIFIED | VERIFIED |
+| `4ce5f57b` | en.wikinews.org | Wikinews: Creator of website satirizing Glenn Beck on winning domain name case | UNVERIFIED | VERIFIED |
+| `1aaab914` | en.wikinews.org | Wikinews: Colleges offering admission to displaced New Orleans students/OH-WY | UNVERIFIED | VERIFIED |
+| `73ce65c3` | en.wikinews.org | Wikinews: Wikinews interviews John Wolfe, Democratic Party presidential challenger to Bara | UNVERIFIED | VERIFIED |
+| `e119baa3` | esco | {"source":"esco","address":"a865f93d-ee9f-8352-b74b-1fa3b26007d0","uri":"http://data.europa.eu/esco/skill/4d0842ad-08e4-409b-8426-47a1a5a24ce4","title":"handle registered mail","conceptType":"Skill"}
+{"source":"esco","address":"b41bd8cb-c233-8787-8955-3fd54b67b364","uri":"http://data.europa.eu/esco/skill/cccf3cf0-8971-4034-b2eb-35c819c3bdb2","title":"register visitors","conceptType":"Skill"}
+{"source":"esco","address":"df89e1e3-9ac9-8c65-9925-30206195342d","uri":"http://data.europa.eu/esco/skill/8530bc53-aa57-41dc-9034-f1a7fa5e3881","title":"register mail","conceptType":"Skill"}
+{"source":"esco","address":"1b5a0002-dabc-8b2d-a927-d4c642565490","uri":"http://data.europa.eu/esco/skill/0cb013af-6dd9-4fb2-b34e-63dda1a5cf82","title":"operate cash register","conceptType":"Skill"}
+{"source":"esco | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `c30f5e26` | data-europa | {"source":"data-europa","address":"184ba05a-805b-86e7-a6d1-8e6efe082e16","id":"vote-eg-waldgesetz-staatskanzlei-zug","title":"Partial revision of the Introductory Act to the Federal Act on Forests (EG Waldgesetz)","country":"Switzerland","catalogue":"opendata-swiss"}
+{"source":"data-europa","address":"93128aeb-97e5-8dbd-8d02-cb2bbe09dbdd","id":"vote-2026-03-08-e4-standeskanzlei-graubuenden","title":"Federal Act on Individual Taxation","country":"Switzerland","catalogue":"opendata-swiss"}
+{"source":"data-europa","address":"64a3698a-9699-8a54-87c6-765b1b01d0f8","id":"vote-2022-02-13-e3-standeskanzlei-graubuenden","title":"Amendment of the Federal Act on Stamp Duties","country":"Switzerland","catalogue":"opendata-swiss"}
+{"source":"data-europa","address":"67bc58d4-d7a9-8156-8ab2-a0498ed23d27" | UNVERIFIED | VERIFIED |
+| `d9fba2e0` | open-meteo-forecast | temperature_2m_c 23 °C
+wind_speed_10m_kmh 2.6 km/h
+pressure_hpa 957.3 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
+
+**48 findings · 48 usable search-trial combinations · receipt `054d64da`** (fold of every finding's address — recompute by re-running the search).
+
+The sealed backing this trial held the findings beside:
+
+- [tesla_trio_files_adjacent](/theorem/tesla_trio_files_adjacent) — `(381969 - 381968 = 1) ∧ (381970 - 381969 = 1) ∧ (381970 - 381968 = 2)`
+- [tesla_leap_spring_to_grant](/theorem/tesla_leap_spring_to_grant) — `(19 + 30 + 31 + 31 + 29 + 31 + 30 + 1 = 202) ∧ (1888 % 4 = 0) ∧ (¬ (1888 % 100 = 0))`
+- [three_tilings_of_the_circle](/theorem/three_tilings_of_the_circle) — `(4 * 90 = 360) ∧ (3 * 120 = 360) ∧ (2 * 180 = 360) ∧ (360 % 90 = 0) ∧ (360 % 120 = 0)`
+- [alternation_needs_a_second_phase](/theorem/alternation_needs_a_second_phase) — `(360 / 2 = 180) ∧ (360 / 3 = 120) ∧ (360 % 360 = 0) ∧ (¬ (180 % 360 = 0)) ∧ (¬ (120 % 360 `
+- [the_grids_minute](/theorem/the_grids_minute) — `(60 * 60 = 3600) ∧ (60 = 2 * 30)`
+- [teleautomaton_precedes_transmission](/theorem/teleautomaton_precedes_transmission) — `(645576 - 613809 = 31767) ∧ (1900 - 1898 = 2) ∧ (613809 < 645576)`
+
+::: warning HONEST SCOPE
+External findings are corroboration at the time of the search — the sources' own records, quoted by address, not
+endorsed and not re-verified here. A finding with no sealed counterpart is a novelty lead, remanded to development,
+never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
+:::
+
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

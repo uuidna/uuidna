@@ -239,6 +239,9 @@ imprint_capacity_chain 27
 imprint_header_minimal 27
 imprint_capacity_entangles 27
 imprint_capacity_within_address 27
+genetic_code_twenty_one_amino_acids 27
+sbox_z5_permutation_count 27
+byte_xor_hexbit_involution 27
 #Clay.lean
 two_bit_conjunctions_are_four_of_sixteen 27
 mertens_squared_under_n_on_the_first_twenty 27
@@ -984,6 +987,10 @@ bell_zz_even_parity 27
 ghz_stabilized_by_xxx 27
 superdense_two_bits 27
 teleportation_four_corrections 27
+usable_gap_eighty_bits 27
+teleportation_costs_two_coins 27
+majority_vote_is_floor_half 27
+register_exceeds_served 27
 store_fold_order_invariant 27
 store_fold_change_moves_receipt 27
 message_qubit_cap_states 27

@@ -12,7 +12,8 @@
 // THE OPERATIVE APPROXIMATION, declared once: 1 token ≈ 4 bytes = 8 hexbits; the ≈ stays prose, the = seals.
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
-import { compileToHexbits } from '../os/index.js'
+import { compileToHexbits, hexbitDoorOf } from '../os/index.js'
+import { UUID_HEXBITS, COINS } from '../../hexbit/index.js'
 import { MODELS_MIRROR, type MirrorModel, type ModelsMirror } from './mirror.js'
 
 // the declared approximation and the fixed widths the arithmetic runs on — sealed in Models.lean
@@ -56,11 +57,12 @@ export function foldLlm(text: string): { address: string; hexbits: number[]; pai
   const approxTokens = idiv(text.length + TOKEN_BYTES - 1, TOKEN_BYTES)   // ceiling by integers, no Math.*
   const address = toUuid('llm-fold|' + text)
   const hexbits = compileToHexbits(address)
-  const pairs = Array.from({ length: 16 }, (_, i) => [hexbits[2 * i]!, hexbits[2 * i + 1]!] as [number, number])
+  const foldedPairs = UUID_HEXBITS / COINS
+  const pairs = Array.from({ length: foldedPairs }, (_, i) => [hexbits[2 * i]!, hexbits[2 * i + 1]!] as [number, number])
   return {
-    address, hexbits, pairs,
-    approxTokens, transientHexbits: approxTokens * HEXBITS_PER_TOKEN, foldedHexbits: 32, foldedPairs: 16,
-    foldNote: 'every fold is 32 states = 16 pairs whatever the input length — the token stream was transient, the address is not',
+    address, ...hexbitDoorOf(address), pairs,
+    approxTokens, transientHexbits: approxTokens * HEXBITS_PER_TOKEN, foldedHexbits: UUID_HEXBITS, foldedPairs,
+    foldNote: 'every fold is UUID_HEXBITS states = UUID_HEXBITS/COINS pairs whatever the input length — the token stream was transient, the address is not',
   }
 }
 
@@ -94,7 +96,7 @@ export function modelComparison(m: ModelsMirror = MODELS_MIRROR): ModelCompariso
     receipt: merkleGravity([toUuid('models|' + m.source + '|' + m.count), ...rows.map((r) => toUuid(`model|${r.id}|${r.contextTokens}|${r.hexbitCapacity}|${r.uuidsPerContext}`))]),
     hexbits: [],
   }
-  out.hexbits = compileToHexbits(out.receipt)
+  Object.assign(out, hexbitDoorOf(out.receipt))
   if (m === MODELS_MIRROR) CACHE = out
   return out
 }

@@ -253,8 +253,9 @@ Before you push research to production, 7 automated arms verify:
 7. **Evidence** — receipts are recomputable
 
 ```bash
-npm run next  # Full 7-arm audit (≈80s)
-npm run next:verify  # Fast O(1) verification (≈4s)
+npm run next  # hexbit-fast 7-arm trial (≪60s from the seal)
+npm run next:full  # full audit + trial (release-grade, ~9 min)
+npm run next:verify  # alias for npm run next
 ```
 
 ### What Happens if a Check Fails?
@@ -345,7 +346,7 @@ git push origin main        # Pre-push gate auto-verifies
 1. **Code** → https://github.com/uuidna/uuidna (source)
 2. **Site** → https://uuidna.com (research landing page, captain claims)
 3. **Ledger** → `docs/captain-claims.json` (machine-readable claim ledger)
-4. **Verification** → `docs/analytics.md` (metrics: <!--L:distinct:raw-->2039<!--/L--> distinct theorems, 100% axiom-free, etc.)
+4. **Verification** → `docs/analytics.md` (metrics: <!--L:distinct:raw-->2044<!--/L--> distinct theorems, 100% axiom-free, etc.)
 
 ---
 
@@ -434,8 +435,9 @@ Honest scope:
 | `npm run lean` | Compile Lean, sync to TypeScript | 5-10s |
 | `npm run build` | TypeScript compilation | 1-2s |
 | `npm run audit` | Full 7-arm verification + tests | 80s |
-| `npm run next` | Pre-push gate (audit + reconcile) | 120s |
-| `npm run next:verify` | Fast O(1) verification | 4s |
+| `npm run next` | Pre-push / readiness (hexbit-fast verify + 7 arms) | ≪60s |
+| `npm run next:full` | Release-grade audit + trial | ~9 min |
+| `npm run next:verify` | Alias for `npm run next` | ≪60s |
 | `npm run gen:captain-claims` | Auto-discover & claim theorems | 2s |
 | `npm run seal:claims` | Verify claims completeness | 1s |
 

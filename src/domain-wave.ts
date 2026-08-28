@@ -9,6 +9,7 @@ import { theorems } from './theorems/index.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
 import { corroborateWithResearch, type Corroboration } from './corroborate.js'
+import { hexbitDoorOf } from './hexbit/index.js'
 
 export interface DomainWave {
   domain: string
@@ -17,7 +18,7 @@ export interface DomainWave {
   // is kept because it is the receipt property callers rely on, but it is STRUCTURAL—
   // merkleFold sorts its leaves, so it is true for every input (checked over 492 permutations: never false).
   // Reporting it as though it were an audit is the vacuous class: a check that cannot fail proves nothing.
-  local: { theorems: number; fold: string; orderInvariant: boolean; recomputes: boolean; forged: string[] }
+  local: { theorems: number; fold: string; orderInvariant: boolean; recomputes: boolean; forged: string[]; handle: string; hexbits: number[]; door: string }
   external: Corroboration // the external free-research wave — evidence
   honest: string
 }
@@ -39,5 +40,5 @@ export async function domainWave(domain: string): Promise<DomainWave> {
   // Any entry whose stored address does not fall out of its own content has been edited or forged.
   const forged = list.filter((t) => toUuid(t.key + ':' + t.statement) !== t.address).map((t) => t.key)
   const external = await corroborateWithResearch(domain)
-  return { domain, local: { theorems: list.length, fold, orderInvariant, recomputes: forged.length === 0, forged }, external, honest: HONEST }
+  return { domain, local: { theorems: list.length, fold, orderInvariant, recomputes: forged.length === 0, forged, ...hexbitDoorOf(fold) }, external, honest: HONEST }
 }

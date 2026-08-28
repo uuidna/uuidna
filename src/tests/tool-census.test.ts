@@ -56,6 +56,12 @@ test('conformance, axiom_witness, gate_status — the self-audits report clean a
   assert.equal(aw.holds, true)
   const g = call('uuidna_gate_status')
   assert.equal(g.matchesSealedSpec, true, 'the runtime gate matches its sealed spec')
+  const m = call('uuidna_gate_status', { messaging: true })
+  assert.equal(m.healthy, true)
+  assert.equal(m.messaging.total, true)
+  assert.equal(m.coordinate.envelope, '_meta.messaging')
+  assert.ok(m.context.withinBudget, `wire ${m.context.wireBytes} over ceiling ${m.context.ceiling}`)
+  assert.ok((m.context.headroom ?? 0) >= 0)
 })
 
 test('gravity, seats, alpine, coverage, cost — each returns its computed answer', () => {
@@ -79,4 +85,13 @@ test('reflects, reveal, holofractal, security_audit, cloudflare_audit — the re
   assert.ok(call('uuidna_holofractal', { input: 'x' }) !== undefined)
   assert.ok(call('uuidna_security_audit') !== undefined)
   assert.ok(call('uuidna_cloudflare_audit').clean !== undefined, 'the cloudflare posture audit reports clean-ness')
+})
+
+test('search_feed — most-searched queries ring Lean; meaning stays null; cricket is a lead not a door', () => {
+  const r = call('uuidna_search_feed')
+  assert.equal(r.meaning, null)
+  assert.match(r.receipt, /^[0-9a-f-]{36}$/)
+  assert.ok(Array.isArray(r.results) && Array.isArray(r.leads) && Array.isArray(r.silent))
+  assert.ok(r.silent.includes('cricket'))
+  assert.equal(call('uuidna_search_feed').receipt, r.receipt, 'same corpus, same receipt')
 })

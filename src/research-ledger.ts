@@ -24,6 +24,7 @@
 //             becomes an asserted constant.
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
+import { hexbitDoorOf } from './hexbit/index.js'
 
 export type Status = 'read' | 'secondary' | 'unread' | 'refuted'
 export type Kind = 'convention' | 'measured'
@@ -285,6 +286,21 @@ export interface JudgedFinding extends Finding {
 export const judge = (f: Finding): JudgedFinding =>
   ({ ...f, address: findingAddress(f), anchorsTheorem: anchors(f), sealableAs: sealableAs(f), why: sealReason(f) })
 
+/** proposeFinding — a mapper that NEVER writes the research ledger. Status defaults to unread so the proposal
+ *  cannot accidentally look like a primary-source read. A human records it; this function only shapes it. */
+export function proposeFinding(input: {
+  claim: string; value: string; units: string; source: string
+  status?: Status; kind?: Kind; note?: string; theorem?: string
+}): Finding {
+  return {
+    claim: input.claim, value: input.value, units: input.units, source: input.source,
+    status: input.status ?? 'unread',
+    kind: input.kind ?? 'measured',
+    note: input.note ?? 'PROPOSED — never auto-written; a human records it in the research ledger',
+    ...(input.theorem ? { theorem: input.theorem } : {}),
+  }
+}
+
 export interface LedgerReport {
   filter: { status: Status | null; kind: Kind | null }
   total: number                                  // findings in the whole ledger, before the filter
@@ -295,6 +311,9 @@ export interface LedgerReport {
   findings: JudgedFinding[]
   gaps: { what: string; fix: string }[]          // the ledger's objections to ITSELF, over the whole ledger
   receipt: string                                // order-invariant over every finding address — the ledger's identity
+  handle: string
+  hexbits: number[]
+  door: string
   honest: string
 }
 
@@ -320,6 +339,7 @@ export function ledgerReport(opts: { status?: unknown; kind?: unknown } = {}, fs
   const matched = judged.filter((f) => (status === null || f.status === status) && (kind === null || f.kind === kind))
   const kinds: Record<Kind, number> = { convention: 0, measured: 0 }
   for (const f of fs) kinds[f.kind]++
+  const receipt = merkleGravity(judged.map((f) => f.address))
   return {
     filter: { status, kind },
     total: fs.length,
@@ -334,7 +354,8 @@ export function ledgerReport(opts: { status?: unknown; kind?: unknown } = {}, fs
     },
     findings: matched,
     gaps: researchGaps(fs),
-    receipt: merkleGravity(judged.map((f) => f.address)),
+    receipt,
+    ...hexbitDoorOf(receipt),
     honest: HONEST_LEDGER,
   }
 }

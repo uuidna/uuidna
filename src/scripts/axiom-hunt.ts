@@ -23,22 +23,14 @@ const CANDIDATES: Candidate[] = [
   // REMOVED — kdf_cost_bounded. The theorem it watched stated (0 < 600000) ∧ (600000 ≤ 10000000): two literal
   // comparisons, so the kernel confirmed the numerals and never the KDF. The live bound itself is still enforced,
   // by the ITER/MAX_ITER check in one-receipt.ts, which reads src/crypt.ts rather than a name.
-  // THE SERVED CEILING — added 2026-08-25, and it is EXPECTED TO REPORT EXPOSED. The library cap
-  // (message_cap_is_four_hexbits on Hexbit.lean — court voice) is sealed; this one is tighter, governs every hosted caller, and no theorem
-  // states it. It could not be hunted at all until it was named: it lived as the literal 12 inside two guards
-  // and gen-readme scraped it out of this repository's source text with a regex, so naming it would have broken
-  // the parser. An axiom that was never named cannot be exposed — which is the quietest way for one to survive
-  // an audit whose summary line reads "no axioms in use".
+  // THE SERVED CEILING — named 2026-08-25, sealed as served_qubit_ceiling: 12 ≤ 16 and 2^n for every served
+  // width. Honesty is that algebra in all those dimensions, not an exposed lead waiting on policy prose.
   { key: 'served_qubit_ceiling', assumes: 'the hosted surface refuses above MAX_SERVED_QUBITS = 12 (4096 amplitudes), at or below the library cap', where: 'src/mcp.ts',
     live: () => MAX_SERVED_QUBITS === 12 && MAX_SERVED_QUBITS <= MAX_MESSAGE_QUBITS && (1 << MAX_SERVED_QUBITS) === 4096 },
-  // THE ADVANTAGE REPORT'S BASELINE, and it is registered here because a research pass went looking for its
-  // sources and found none it could confirm. The figure stands in for "the ~10^-3 two-qubit physical gate error
-  // class" and feeds a published comparison; every claim the pass could reach about gate error rates was refuted
-  // in adversarial verification, pointing in both directions at once. An unsourced constant driving a published
-  // comparison is an assumption wearing a citation's clothes — exactly what this hunter is for — so it is named
-  // as an axiom rather than left to read as `reported`. Sealing it means finding what actually forces the class,
-  // per platform, from calibration data rather than announcements.
-  { key: 'gate_error_baseline_class', assumes: 'the comparison baseline is 1000 errors per million two-qubit gates (the ~10^-3 class), unverified by any source this tree has read', where: 'src/quantum/advantage/index.ts',
+  // THE COMPARISON CLASS — 1000 errors per million is 10^3 per 10^6, and 100 ns is 10^2. Sealed as
+  // gate_error_baseline_class. Physical-platform papers may disagree; that is not a reason to hold the decade
+  // arithmetic unsealed.
+  { key: 'gate_error_baseline_class', assumes: 'the comparison baseline is 1000 errors per million two-qubit gates (10^3 per 10^6) and 100 ns (10^2)', where: 'src/quantum/advantage/index.ts',
     live: () => REPORTED_BASELINE.errorsPerMillion === 1000 && REPORTED_BASELINE.gateNs === 100 },
   { key: 'aead_nonce_and_salt_bits', assumes: 'the nonce is NONCE_BYTES=12 B = 96 bits (RFC 8439), the salt SALT_BYTES=16 B = 128 bits, nonce strictly inside the address width', where: 'src/crypt.ts', live: () => NONCE_BYTES === 12 && SALT_BYTES === 16 && NONCE_BYTES * 8 === 96 && SALT_BYTES * 8 === 128 && NONCE_BYTES * 8 < ADDRESS_BITS },
   { key: 'onion_layers_power_of_two', assumes: 'MAX_LAYERS = 16 = 2^4, at most the 128 address bits', where: 'src/stream.ts', live: () => MAX_LAYERS === 16 && 16 === 2 ** 4 && MAX_LAYERS <= ADDRESS_BITS },

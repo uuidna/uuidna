@@ -1,6 +1,6 @@
 # AUTOMATE NEXT — THE READINESS CLOCK (the captain's order: "push and automate next").
 # wave.yml conveys the queue; release.yml delivers on a tag; this clock runs the 777 self-trial
-# (`npm run next:verify` — hexbit-fast O(1) from the sealed fixed point) so readiness is watched
+# (`npm run next` — hexbit-fast O(1) from the sealed fixed point) so readiness is watched
 # without inventing theorems or cutting a release.
 #
 # WHAT IT DOES NOT DO, ON PURPOSE:
@@ -17,7 +17,7 @@ on:
   workflow_dispatch:
     inputs:
       full:
-        description: 'Run the full O(N) `npm run next` instead of hexbit-fast next:verify'
+        description: 'Run the full O(N) `npm run next:full` instead of hexbit-fast `npm run next`'
         type: boolean
         default: false
 
@@ -47,9 +47,9 @@ jobs:
           FULL: ${{ inputs.full }}
         run: |
           if [ "$FULL" = "true" ]; then
-            npm run next
+            npm run next:full
           else
-            npm run next:verify
+            npm run next
           fi
       - name: name the outcome (a silent runner is a runner nobody can audit)
         if: always()

@@ -11,7 +11,7 @@
 import { execSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { theorems, statementCensus, editorialState, publicationStatus, pairsGaps } from '../index.js'
+import { theorems, statementCensus, editorialState, publicationStatus, pairsGaps, odometerNext, runSequence } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { ROOT, foldOf } from './api.js'
 import { contextGaps } from './context-budget.js'   // the per-request toll of being connected — reported here, blocked in the guard
@@ -38,6 +38,15 @@ const finders: [string, number][] = [
   ['context', contextGaps(MCP_CATALOG).length],
 ]
 const dirtyFinders = finders.filter(([, n]) => n > 0)
+const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }
+const patch = Number(String(pkg.version).split('.')[2])
+const seq = runSequence(Number.isInteger(patch) ? patch : 0)
+const originNext =
+  seq.fixed
+    ? `in-tree origin ${pkg.version} — runSequence(${seq.seed}).fixed; odometerNext → ${odometerNext(pkg.version)} (no tag/npm/Zenodo)`
+    : seq.seed % 2 === 1
+      ? `npm run search:trial:all   # invert seat runSequence(${seq.seed}).reflection=${seq.reflection}`
+      : `npm run develop   # double seat runSequence(${seq.seed}).reflection=${seq.reflection}`
 
 // THE NEXT COMMAND — the one thing to run, decided by the same order the gate applies, so nobody has to guess
 const next =
@@ -52,7 +61,7 @@ const next =
   : behind > 0 && ahead > 0 ? 'git pull --no-rebase   # diverged; the derived layer merges by recomputation (merge=derived)'
   : behind > 0 ? 'git pull --rebase'
   : ahead > 0 ? 'git push origin main'
-  : 'nothing — synced, clean, and green'
+  : originNext
 
 // the LAWS the desk used to hand-query in a CI shell with `node -e` — folded here so the same answer serves the
 // operator asking "where am I" and the workflow asking "may this publish", instead of two hand-written copies.

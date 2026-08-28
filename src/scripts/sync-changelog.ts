@@ -6,26 +6,18 @@
 // impossible: change the ledger without re-syncing and the tree is dirty, the gate fails. Data is computed; only the
 // narrative around it stays prose (and that prose is gate-checked elsewhere). No unverified changeable data.
 import { readFileSync, writeFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
-import { dirname, join } from 'node:path'
-import { runTrial, THEOREMS, PRINCIPLES, statementCensus } from '../index.js'
+import { join } from 'node:path'
+import { runTrial, THEOREMS, statementCensus } from '../index.js'
 import { ROOT } from './api.js'
-
-const TARGET = 2 ** 10 // the v1.0.0 milestone — the one stated goal, computed from the power its comment claimed
 const count = THEOREMS.length
 const principles = new Set(THEOREMS.map((t) => t.principle)).size
 const receipt = runTrial().receipt
 
-// BOTH NUMBERS, ALWAYS — a theorem is its LEAN, not its name. The ledger holds more KEYS than distinct propositions
-// because some statements are deliberately sealed in two wings (the ℤ/9 table lives in Core and in Ring, 64 of the
-// overlap), and every surface that printed only the key count was quietly using the larger of two true numbers. The
-// milestone is measured on the DISTINCT count, because that is what a skeptic recomputing the ledger would find.
 const census = statementCensus()
 const distinct = census.distinct
 const renamings = census.renamings
-const remaining = TARGET - distinct
 
-const TODAY = `Today: **${distinct} distinct / ${TARGET} — ${remaining} to go** (${count} keys, ${renamings} deliberate re-namings), across ${principles} principles.`
+const TODAY = `Today: **${distinct} distinct** (${count} keys, ${renamings} deliberate re-namings), across ${principles} principles.`
 const CURRENT = `Ledger: **${distinct} distinct propositions** under **${count} keys** (${renamings} re-namings — a statement sealed in two wings is one theorem with two names) across **${principles} principles**, folded to receipt \`${receipt}\``
 
 const path = join(ROOT, 'CHANGELOG.md')

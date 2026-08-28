@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="204 keys" />
+# MCP tools <Badge type="tip" text="207 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 204 tools below are read from the server's own tool list and
+is **built from the keys**: the 207 tools below are read from the server's own tool list and
 organised into 38 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 7a4ab74a-003d-8226-8a1d-122849b9a556
+gate CLEAN f0 d0 v0 · fb92286d-6a1a-8e55-8306-e622ff7ff616
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 204-tool registry folds to its
-order-invariant identity `c3258825-d9e1-847a-982b-0b185b769b88` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 207-tool registry folds to its
+order-invariant identity `5bf695bc-b311-8c3f-ba95-ea2c957c9fc5` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,13 +48,14 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`204`" />
+## The grid <Badge type="tip" :text="`207`" />
 
-204 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 79 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+207 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 81 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
 <a href="#uuidna-analytics"><code>analytics</code></a>
+<a href="#uuidna-api-mint"><code>api_mint</code></a>
 <a href="#uuidna-audit-ledger-fingerprint"><code>audit_ledger_fingerprint</code></a>
 <a href="#uuidna-audit-ledger-intrusions"><code>audit_ledger_intrusions</code></a>
 <a href="#uuidna-axiom-witness"><code>axiom_witness</code></a>
@@ -114,6 +115,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-sanitize"><code>sanitize</code></a>
 <a href="#uuidna-scan-publications"><code>scan_publications</code></a>
 <a href="#uuidna-school-apis"><code>school_apis</code></a>
+<a href="#uuidna-search-feed"><code>search_feed</code></a>
 <a href="#uuidna-security-audit"><code>security_audit</code></a>
 <a href="#uuidna-selftest"><code>selftest</code></a>
 <a href="#uuidna-seo"><code>seo</code></a>
@@ -192,6 +194,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-report"><code>report</code></a>
 <a href="#uuidna-research"><code>research</code></a>
 <a href="#uuidna-reveal"><code>reveal</code></a>
+<a href="#uuidna-run"><code>run</code></a>
 <a href="#uuidna-search"><code>search</code></a>
 <a href="#uuidna-search-trial"><code>search_trial</code></a>
 <a href="#uuidna-seats"><code>seats</code></a>
@@ -297,6 +300,46 @@ open and hands back a **develop plan** (the next decidable step to move it). Two
 any value — `uuidna_address { "seed": "hello" }` → `5b344fcd-5b13-8a6f-a3f8-39582c45e246` — or pull a whole domain —
 `uuidna_theorems { "skill": "navigation" }` → **5** sealed theorems.
 Every call is recomputable: same input, same receipt. That is the production contract.
+
+## Hosted absents <Badge type="warning" text="35 named" />
+
+100% is a **finding**: a capability-absent tool is **named** on this page, not silently dropped so the hosted subset looks complete. `uuidna_school_apis` stays listed. The divergence list may only shrink.
+
+- `uuidna_engine` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_audit_text` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_audit_book` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_book_article` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_link_book` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_book_contents` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_read_text` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_read_book` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_quantum_sailing_library` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_quantum_sailing_complete` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_audit_standard` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_corroborate` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_domain_wave` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_entangle` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_audit_translation` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_audit_movie` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_audit_record` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_wave_deposit` — CAPABILITY: writes lean/wave-queue.json and a Worker has no filesystem — deposits are host-side; the edge can expose coordinates (uuidna_expose serves there) but never hold the queue
+- `uuidna_aead_decrypt` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_snapshot` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_school_apis` — CAPABILITY: fetches EU education APIs; a Worker can fetch but this hosted subset stays named-absent (policy named as policy, not dropped so coverage looks complete)
+- `uuidna_education_jobs` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_resources` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_audit_cve` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_nist_constant` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_anchor` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_wave` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_editorial` — CAPABILITY: editorialState reads prose-trials.json via the filesystem boundary — host-side
+- `uuidna_publication` — CAPABILITY: publicationStatus reads package.json and .zenodo.json — host-side
+- `uuidna_search_trial` — POLICY: network fan-out (research sweep + mint extras) — hosted surface stays read-only recomputable
+- `uuidna_vies` — POLICY: network lookup against the EU VIES register
+- `uuidna_scan_publications` — POLICY: network scan of free research streams
+- `uuidna_selftest` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_quantum` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
+- `uuidna_run` — CAPABILITY: requires filesystem + spawn (docker/chroot) — stdio/host only by design; Layer 1 uuidna_exec serves the browser
 
 ## Identity & addressing <Badge type="tip" :text="'5'" />
 
@@ -430,9 +473,13 @@ Audit an output across all seven dimensions at once — seven receipts folded to
 
 ### `uuidna_gate_status`
 
-THE GATE PROVES ITSELF, live against the sealed spec: every served tools/call passes the conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — f the input-sanitize bit, d the output-sanitize bit, v the honesty bit (a fabricated theorem citation, slimGate) — and this tool recomputes the eight-state verdict table and REQUIRES it to equal both the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle): clean at exactly the no-violation state (theorem honesty_gate_passes_iff_all_sealed), one flag drains all (theorem conformance_failure_detects_intrusion). The runtime gate cannot drift from the ledger without matchesSealedSpec turning false. Also folds the whole registry to its ORDER-INVARIANT identity receipt (the same for any tool ordering). Returns {table,sealedTable,matchesSealedSpec,cleanStates,drainedStates,tools,registry,cites,receipt}.
+Gate self-test: eight-state verdict table vs sealed spec, registry receipt. Pass {messaging:true} for coordinated health (witness, wire budget, session census). Boundary declared — theorem drift_is_named_or_caught.
 
-_No parameters._
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `messaging` | boolean | no | include messaging witness, wire budget headroom, session coin census |
 
 ## Merkle & gravity <Badge type="tip" :text="'4'" />
 
@@ -572,7 +619,7 @@ Honest device resource accounting — balance the thermodynamics by MEASURING wh
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'94'" />
+## Other <Badge type="tip" :text="'96'" />
 
 *skill: other*
 
@@ -788,7 +835,7 @@ The recomputable FLOOR of a standards / law audit: content-address the PUBLIC Wi
 
 ### `uuidna_corroborate`
 
-Corroborate a claim by AUGMENTING the local binary verdict (adjudicate: VERIFIED if a sealed by-decide theorem backs it, else UNVERIFIED — never "false") with EXTERNAL RESEARCH streamed from a free public API (NIST CODATA, no key). Returns {statement,local,evidence,verdict,receipt}: VERIFIED (a sealed proof), CORROBORATED (unverified locally but attested by a named free source), or UNVERIFIED. HONEST SCOPE: external evidence is a provenance fingerprint of what a public source SAYS — it CORROBORATES, it does NOT prove; only a by-decide theorem seals, and no stream can refute a claim. The evidence folds order-invariantly to the receipt; the responses are DATA, never executed. Boundary declared — theorem drift_is_named_or_caught.
+Corroborate a claim by AUGMENTING the local binary verdict (adjudicate: VERIFIED if a sealed by-decide theorem backs it, else UNVERIFIED — never "false") with EXTERNAL RESEARCH from 11 free public hosts. Returns {statement,local,evidence,verdict,receipt,handle,door}: VERIFIED (a sealed proof), CORROBORATED (unverified locally but attested by two independent sources), UNVERIFIED, or UNMEASURED. HONEST SCOPE: external evidence CORROBORATES, it does NOT prove; only a by-decide theorem seals. Boundary declared — theorem drift_is_named_or_caught.
 
 **Parameters**
 
@@ -854,6 +901,17 @@ SAVE THEOREM CANDIDATES IN ONE CALL (lead 131, the deposit half of the loop): pa
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `candidates` | array | **yes** | the candidates, each {key, why, lean} |
+
+### `uuidna_api_mint`
+
+FREE MINT from every wired public API: omit {query} for the catalog (pure, hexbit door); pass {query} to harvest decidable fragments; {deposit:true} queues pending (host-side). Evidence never auto-seals — only the kernel mints (theorem minting_is_free_and_forging_is_not). Returns catalog or {query,evidence,sources,mintable,candidates,receipt,door,deposit?,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `query` | string | no | topic to ask every API; omit for the catalog |
+| `deposit` | boolean | no | queue lawful candidates pending (host-side) |
 
 ### `uuidna_snapshot`
 
@@ -1101,13 +1159,25 @@ _No parameters._
 
 ### `uuidna_exec`
 
-ALPINE APPS IN THE VIRTUAL uuidnaOS — one door after toy busybox was folded. Pass {line}: "ls /terminal" or "ls /catalogue" (install-port VFS or full census), "apk list" or "apk list --all" (boot closure or whole catalogue), "apk info|search|depends|rdepends …", "man busybox" (man→app→hexbit), "driver" (pinned netboot/modloop provenance), "device" (host quantum executor), "help". apk is READ-only; man compiles Alpine's *-doc / *-man-pages package to 32 hexbits. Folded toys (cat/which/stat/pwd/echo/du) refuse with a pointer to apk/man. Nothing executes (theorem the_os_is_bootable_quantum). Returns {line,applet,args,ok,output,data,receipt,hexbits,sealed,honest}.
+ALPINE APPS IN THE VIRTUAL uuidnaOS (Layer 1 — simulated). Pass {line}: ls, apk (list/info/search/add/del/policy), man, busybox (cat/which/stat/pwd/echo/du), driver, device, help. apk add/del mutates SESSION state only — host rootfs unchanged. Full port on the lattice (theorem the_os_is_bootable_quantum); host binary execution is uuidna_run (Layer 2). Returns {line,applet,args,ok,output,data,receipt,hexbits,sealed,honest}.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `line` | string | **yes** | e.g. "ls /catalogue", "apk list --all", "apk info busybox", "man openssl", "driver", "device", "help" |
+| `line` | string | **yes** | e.g. "apk add nginx", "cat /core", "ls /catalogue", "man busybox", "apk policy" |
+
+### `uuidna_run`
+
+HOST BINARY EXECUTION (Layer 2) — verify-then-run the pinned Alpine minirootfs on this machine. Pass {command} (shell string) and optional {spawn:true} to execute (default: recipe only). Stdio MCP only — absent from the Workers edge. Rootfs tarball must match the pinned SHA-256 in mirror/ before any spawn. stdout/stderr are DATA (content-addressed), never folded into the boot hexbit image. Returns {ok,spawned,exitCode,stdout,stderr,stdoutSha256,stderrSha256,receipt,recipe,reason,remedy,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `command` | string | **yes** | command inside pinned rootfs, e.g. "/bin/busybox --help" |
+| `spawn` | boolean | no | if true, spawn via docker/chroot (default false — plan only) |
+| `fetch` | boolean | no | if true, download mirror tarball first when absent |
 
 ### `uuidna_port`
 
@@ -1368,7 +1438,7 @@ _No parameters._
 
 ### `uuidna_search_trial`
 
-ONLINE — THE SEARCH ON TRIAL for one wing: every research source (NIST, Zenodo, CrossRef) queried in parallel about the wing's principle; each finding content-addressed and tried — ALONE it stays UNVERIFIED (external evidence, never approval), held BESIDE the wing's sealed backing the combination VERIFIES. Only a Lean seal approves. Returns {file,principle,sealed,findings,usable,receipt}.
+ONLINE — THE SEARCH ON TRIAL for one wing: every wired public API (research sweep, arXiv, MathOverflow, Wikipedia, Gutendex, Open-Meteo, Wikinews, EU education, weather, news) queried about the wing's principle; each finding content-addressed and tried — ALONE it stays UNVERIFIED (external evidence, never approval), held BESIDE the wing's sealed backing the combination VERIFIES. Decidable fragments harvest FREE-MINT leads via decide(). Only a Lean seal approves. Returns {file,principle,sealed,findings,usable,novel,receipt}.
 
 **Parameters**
 
@@ -1783,7 +1853,7 @@ BOOK → SEALED-LEDGER LINKAGE — the captain's independent, closed-door proces
 | --- | --- | --- | --- |
 | `text` | string | **yes** | the text to mine and link (a passage, a chapter, a claim) |
 
-## Deep research & the evidence census (how well a claim is anchored) <Badge type="tip" :text="'3'" />
+## Deep research & the evidence census (how well a claim is anchored) <Badge type="tip" :text="'4'" />
 
 *skill: research*
 
@@ -1797,6 +1867,12 @@ Deep research with the REVERSIBLE imprint codec: PRESS external research (text o
 | --- | --- | --- | --- |
 | `text` | string | **yes** | the research text to press, entangle and check for novelty |
 | `seenAddresses` | array | no | known content-addresses; a new one is novel |
+
+### `uuidna_search_feed`
+
+MOST-SEARCHED QUERIES RING THE LEDGER. Zero-arg: loud theorems are `/theorem/&lt;key&gt;` doors; silence and unsealed harvest are leads. Meaning is null. Returns {meaning,results,leads,silent,receipt,handle,door,honest}. Boundary declared — theorem drift_is_named_or_caught.
+
+_No parameters._
 
 ### `uuidna_research_ledger`
 

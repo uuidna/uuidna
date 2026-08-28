@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// guard — CATCH TRAITORS FAST, before the slow gate. The full pre-push gate (`npm run next`) is thorough but ~4 minutes
+// guard — CATCH TRAITORS FAST, before the slow gate. The release path (`npm run next:full`) is thorough but ~9 minutes;
 // (crypto KATs + lean regen). This runs the FAST intrusion checks in seconds so a forgery is caught immediately, not
 // after a wasted reconcile: the ledger-level sweep catchTraitors() (DNA recompute, collisions, coverage, conformance —
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.

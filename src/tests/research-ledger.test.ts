@@ -12,7 +12,7 @@ import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import {
   FINDINGS, STATUSES, KINDS, anchors, sealableAsEquality, sealableAs, sealReason, findingAddress,
-  researchGaps, census, judge, ledgerReport, type Finding,
+  researchGaps, census, judge, ledgerReport, proposeFinding, type Finding,
 } from '../research-ledger.js'
 import { callTool, MCP_CATALOG } from '../mcp.js'
 
@@ -96,6 +96,9 @@ test('the census counts every status and cannot be flattered by a filter', () =>
   assert.ok(readOnly.findings.every((f) => f.status === 'read'))
   // and the receipt is the ledger's identity's — order-invariant over every finding
   assert.equal(readOnly.receipt, all.receipt)
+  assert.equal(all.handle.length, 8)
+  assert.equal(all.hexbits.length, 32)
+  assert.match(all.door, /^https:\/\/uuidna\.com\/[0-9a-f]{8}$/)
 })
 
 test('an unknown filter is REFUSED by name', () => {
@@ -127,4 +130,13 @@ test('the tool dispatches through the served surface and is listed in the catalo
   assert.ok(MCP_CATALOG.some((t) => t.name === 'uuidna_research_ledger'), 'the catalogue must list it, or docs/mcp.md cannot see it')
   // a bad argument through the SERVED door must refuse there too
   assert.throws(() => callTool('uuidna_research_ledger', { kind: 'measured-ish' }), /unknown kind/)
+})
+
+test('proposeFinding never writes the ledger and defaults to unread', () => {
+  const before = FINDINGS.length
+  const p = proposeFinding({ claim: 'a proposed figure', value: '1', units: 'count', source: 'a test' })
+  assert.equal(p.status, 'unread')
+  assert.equal(p.kind, 'measured')
+  assert.equal(FINDINGS.length, before, 'proposeFinding must not mutate FINDINGS')
+  assert.equal(anchors(p), false)
 })

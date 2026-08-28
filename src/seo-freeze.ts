@@ -14,6 +14,7 @@ import { theorems } from './theorems/index.js'
 import { publications } from './publish.js'
 import { quantumSeo } from './seo.js'
 import { handleOf } from './handle.js'
+import { isUuidnaUrl } from './handle-permanence.js'
 import { discoverStaticPages, canonicalOrder, gaps as siteGaps } from './site.js'
 import { toUuid, merkleFold } from './address.js'
 import { seoPackageGaps } from './seo-package.js'
@@ -58,34 +59,23 @@ export interface FinalSeoAudit {
 /** Build the live URL↔hexbit map from the ledger (theorems + publications + static docs pages). */
 export function buildSeoUrlMap(): SeoUrlMap {
   const entries: SeoUrlEntry[] = []
+  const doorOf = (address: string, route: string, kind: SeoUrlEntry['kind'], identity: string, canonical: string): SeoUrlEntry => {
+    const handle = handleOf(address)
+    return { route, kind, identity, canonical, address, handle, hexbitDoor: `${HOST}/${handle}` }
+  }
   for (const t of theorems()) {
     const seo = quantumSeo({ key: t.key })
-    const handle = handleOf(seo.address)
-    entries.push({
-      route: seo.route, kind: 'theorem', identity: t.key,
-      canonical: seo.canonical, address: seo.address, handle,
-      hexbitDoor: `${HOST}/${handle}`,
-    })
+    entries.push(doorOf(seo.address, seo.route, 'theorem', t.key, seo.canonical))
   }
   for (const p of publications()) {
     const seo = quantumSeo({ slug: p.slug })
-    const handle = handleOf(seo.address)
-    entries.push({
-      route: seo.route, kind: 'publication', identity: p.slug,
-      canonical: seo.canonical, address: seo.address, handle,
-      hexbitDoor: `${HOST}/${handle}`,
-    })
+    entries.push(doorOf(seo.address, seo.route, 'publication', p.slug, seo.canonical))
   }
   // homepage is excluded from discoverStaticPages (not a sidebar/pager entry) but is a public URL — freeze it too
   const pages: { route: string; text: string }[] = [{ route: '/', text: 'uuidna' }, ...discoverStaticPages()]
   for (const page of pages) {
     const seo = quantumSeo({ route: page.route, title: page.text })
-    const handle = handleOf(seo.address)
-    entries.push({
-      route: seo.route, kind: 'page', identity: page.route === '/' ? '/' : page.route,
-      canonical: seo.canonical, address: seo.address, handle,
-      hexbitDoor: `${HOST}/${handle}`,
-    })
+    entries.push(doorOf(seo.address, seo.route, 'page', page.route === '/' ? '/' : page.route, seo.canonical))
   }
   entries.sort((a, b) => a.route < b.route ? -1 : a.route > b.route ? 1 : 0)
   const receipt = merkleFold(entries.map((e) => toUuid(`${e.route}|${e.kind}|${e.identity}|${e.handle}`)))
@@ -130,7 +120,7 @@ export function finalSeoAudit(): FinalSeoAudit {
     const seo = e.kind === 'theorem' ? quantumSeo({ key: e.identity })
       : e.kind === 'publication' ? quantumSeo({ slug: e.identity })
         : quantumSeo({ route: e.route })
-    if (!seo.canonical.startsWith(HOST)) {
+    if (!isUuidnaUrl(seo.canonical)) {
       gaps.push({ what: `${e.route}: canonical not on uuidna.com`, fix: 'quantumSeo must fold every host to https://uuidna.com' })
     }
     if (!seo.title.trim()) {

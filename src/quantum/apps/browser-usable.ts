@@ -18,8 +18,11 @@ import { costOf, walletCensus, leverageOf, compoundAt } from './categories/tradi
 import { renderStates } from './hexbit-player.js'
 import { animateStates } from './hexbit-animator.js'
 import { browseCatalogue, inspectCataloguePackage } from './catalogue-browser.js'
+import { runExecLine } from './exec-shell.js'
+import { portPanelView } from './port-panel.js'
 import { LEAN_LEDGER } from '../../theorems/generated.js'
 import { theorems } from '../../theorems/index.js'
+import { theoremDemoCoverage } from './theorem-demos.js'
 
 /** One interactive browser surface the store / OS claims visitors can use. */
 export interface BrowserSurface {
@@ -44,8 +47,10 @@ export const BROWSER_SURFACES: readonly BrowserSurface[] = [
   { id: 'chess', shelf: 'gaming', route: '/chess', mount: 'Chess', doc: 'chess' },
   { id: 'practice-loop', shelf: 'practice', route: '/school', mount: 'PracticeLoop', doc: 'school' },
   { id: 'trading-floor', shelf: 'trading', route: '/trading', mount: 'TradingFloor', doc: 'trading' },
-  { id: 'terminal', shelf: 'terminal', route: '/terminal', mount: 'UuidnaTerminal', doc: 'terminal' },
+  { id: 'terminal', shelf: 'terminal', route: '/terminal', mount: 'ExecShell', doc: 'terminal' },
+  { id: 'chat-terminal', shelf: 'terminal', route: '/chat', mount: 'UuidnaTerminal', doc: 'chat' },
   { id: 'os-boot', shelf: 'os', route: '/os', mount: 'HexbitPlayer', doc: 'os' },
+  { id: 'os-port', shelf: 'os', route: '/os', mount: 'PortPanel', doc: 'os' },
   { id: 'catalogue-browser', shelf: 'os', route: '/catalogue', mount: 'CatalogueBrowser', doc: 'catalogue' },
 ]
 
@@ -144,6 +149,20 @@ const runCompute = (): ComputeCheck[] => {
     if (!r.present || r.hits.length === 0) throw new Error(r.why ?? 'no musl hits')
     const i = inspectCataloguePackage('musl')
     if (!i.ok) throw new Error(i.detail)
+  })
+  push('os/exec-shell', () => {
+    const r = runExecLine('ls /terminal')
+    if (!r.ok || r.output.length < 1) throw new Error('ls /terminal failed')
+    const h = runExecLine('help')
+    if (!h.ok) throw new Error('help failed')
+  })
+  push('os/port-panel', () => {
+    const v = portPanelView()
+    if (v.status.count < 20 || v.lines.length < 3) throw new Error('port panel incomplete')
+  })
+  push('theorem/drill-coverage', () => {
+    const c = theoremDemoCoverage(LEAN_LEDGER)
+    if (!c.ok) throw new Error(`${c.gaps.length} theorems without drill: ${c.gaps.slice(0, 3).join(', ')}`)
   })
   return out
 }

@@ -34,7 +34,9 @@ test('every registry seal gets rich metadata with the SAME license — no drift'
     }
     assert.ok(rich.abstract.length >= 80, `${seal.id} abstract thin`)
     assert.ok(rich.keywords.length >= 3, `${seal.id} keywords thin`)
-    assert.ok(rich.relatedIdentifiers.some((r) => r.identifier.includes('uuidna.com')), `${seal.id} one-way`)
+    assert.ok(rich.relatedIdentifiers.some((r) => {
+      try { return new URL(r.identifier).hostname === 'uuidna.com' } catch { return false }
+    }), `${seal.id} one-way`)
     assert.equal(Object.prototype.hasOwnProperty.call(seal, 'license'), false, `${seal.id} must not declare per-seal license`)
   }
 })

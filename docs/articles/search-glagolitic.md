@@ -14,16 +14,64 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `a9216a7d` | zenodo.org | zenodo record 10291649: Circle Churchu - | UNVERIFIED | VERIFIED |
+| `60242c5a` | zenodo.org | zenodo record 8301329: New animal remains from Pliska, the medieval capital (10 c. AD) of Bulgaria, (Sh | UNVERIFIED | VERIFIED |
+| `945be1e1` | zenodo.org | zenodo record 12807734: Avian remains from the Palace Center and the Citadel of the medieval capital Pli | UNVERIFIED | VERIFIED |
+| `a1f2dc99` | zenodo.org | zenodo record 2106487: The Early Numerals | UNVERIFIED | VERIFIED |
+| `b27c3faf` | zenodo.org | zenodo record 16236879: THE INDONESIAN NUMERALS | UNVERIFIED | VERIFIED |
+| `a980be72` | zenodo.org | zenodo record 7755504: HTR model for transcribing Glagolitic sources printed in the 16th century Tübing | UNVERIFIED | VERIFIED |
+| `0f33ae45` | zenodo.org | zenodo record 14846830: THE FRACTIONAL AND COLLECTIVE NUMERALS IN CUSTOMS BOOKS OF THE 17TH CENTURY | UNVERIFIED | VERIFIED |
+| `3abf1f7f` | zenodo.org | zenodo record 7213149: Greek numerals and word values: the Greek number of the beast | UNVERIFIED | VERIFIED |
 | `ed05d9ac` | crossref.org | DOI 10.1093/gmo/9781561592630.article.45440: Glagolitic Mass, Glagolitic chant | UNVERIFIED | VERIFIED |
 | `f8f46136` | crossref.org | DOI 10.59076/2603-2899.2025.4s.09: Numerals in Readings from the Pentateuch in Croatian-Glagolitic Breviaries and M | UNVERIFIED | VERIFIED |
 | `3fb1bc3a` | crossref.org | DOI 10.1093/gao/9781884446054.article.t068170: Pliska | UNVERIFIED | VERIFIED |
 | `25fc2091` | crossref.org | DOI 10.54664/ltzr2122: Deciphering the Script of the Pliska Rosette | UNVERIFIED | VERIFIED |
-| `c1777149` | crossref.org | DOI 10.1515/9783110218831.3.661: Catalogue of archaeological finds from Pliska | UNVERIFIED | VERIFIED |
-| `58e81b9c` | crossref.org | DOI 10.33675/978-3-8253-7878-3: Introduction to Glagolitic Palaeography | UNVERIFIED | VERIFIED |
-| `f3e51427` | crossref.org | DOI 10.1093/oed/7726798262: Glagolitic, adj. &amp; n. | UNVERIFIED | VERIFIED |
 | `6dad35bb` | crossref.org | DOI 10.1163/1574-9347_bnp_e928360: Pliska | UNVERIFIED | VERIFIED |
+| `8e28b313` | crossref.org | DOI 10.1163/2589-6229_eslo_com_032496: Glagolitic | UNVERIFIED | VERIFIED |
+| `c1777149` | crossref.org | DOI 10.1515/9783110218831.3.661: Catalogue of archaeological finds from Pliska | UNVERIFIED | VERIFIED |
+| `3348b937` | crossref.org | DOI 10.1515/9783110218831.2.425: Kabiyuk: another Pliska? | UNVERIFIED | VERIFIED |
+| `00e48f33` | arxiv.org | arXiv 1102.2263v1: Optimal Life Insurance Purchase, Consumption and Investment on a financial marke | UNVERIFIED | VERIFIED |
+| `5499997b` | arxiv.org | arXiv 2009.07176v1: Performance Estimation of a Real-Time Rosette Imager | UNVERIFIED | VERIFIED |
+| `bcacca4a` | arxiv.org | arXiv 0208433v1: Charged rosettes at high and low ionic strengths | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `3e9316f6` | arxiv.org | arXiv 2309.03577v2: Diffuse gamma-ray emission around the Rosette Nebula | UNVERIFIED | VERIFIED |
+| `c0a72825` | arxiv.org | arXiv 0602456v1: The dissolving Rosette HH2 jet bathed in harsh UV radiation of the Rosette Nebul | UNVERIFIED | VERIFIED |
+| `d08258a3` | arxiv.org | arXiv 0603119v2: Resolving the nature of the Rosette HH1 jet facing strong UV dissipation | UNVERIFIED | VERIFIED |
+| `3d22a0b7` | arxiv.org | arXiv 1206.5173v2: Probing the Rosette Nebula Stellar Bubble with Faraday Rotation | UNVERIFIED | VERIFIED |
+| `16f4cfef` | esco | {"source":"esco","address":"86938ce2-d024-879f-9a35-13216ed64511","uri":"http://data.europa.eu/esco/skill/34ed5ebe-92a0-46f0-910e-2d13e38995e5","title":"finish costumes","conceptType":"Skill"}
+{"source":"esco","address":"9c1eea6b-c56e-8ccc-82f3-3e698b0c8d28","uri":"http://data.europa.eu/esco/skill/fce09eac-0b2d-4a50-bdcd-9dff4edfd9d0","title":"numerical sequences","conceptType":"Skill"}
+{"source":"esco","address":"2f0557fe-3757-8da4-884a-b45a8149bed1","uri":"http://data.europa.eu/esco/skill/c4949dcf-bbcc-40f2-8584-6c6299beb7fb","title":"tend computer numerical control lathe machine","conceptType":"Skill"}
+{"source":"esco","address":"8b82ebdd-c4c0-8a7f-9c64-d7dc50a8d3d7","uri":"http://data.europa.eu/esco/skill/f0f93b8b-0ee4-4452-945e-4a2272c0d8dd","title":"make numerical calculations","conc | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `ef13a234` | data-europa | {"source":"data-europa","address":"f6257259-7089-8802-961a-a989d2cc3567","id":"https-data-gov-lt-datasets-2769-","title":"Register for checking hot water meters","country":"Lithuania","catalogue":"data-gov-lt"}
+{"source":"data-europa","address":"f3c4da8c-1919-8139-8b17-608d7a18ac88","id":"https-data-gov-lt-datasets-2873-","title":"Readings of water consumption meters","country":"Lithuania","catalogue":"data-gov-lt"}
+{"source":"data-europa","address":"168c0776-5b34-8ba0-ba75-e517f4ea49cc","id":"05a5fa2f-2ee1-45bd-a31f-f01148e62749","title":"Residential environments South Holland according to Rosetta 2020","country":"Netherlands","catalogue":"ngr-nl"}
+{"source":"data-europa","address":"27aafe78-53d9-8e87-9e5f-d7c6b62896a7","id":"doi-10-34934-dvn-psfvvf","title":"SUPER DADA for Dataverse 4+ [ | UNVERIFIED | VERIFIED |
+| `585eb4d3` | open-meteo-forecast | temperature_2m_c 22.4 °C
+wind_speed_10m_kmh 2.3 km/h
+pressure_hpa 957.2 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**8 findings · 8 usable search-trial combinations · receipt `06dc691a`** (fold of every finding's address — recompute by re-running the search).
+**37 findings · 37 usable search-trial combinations · receipt `0c9d4c00`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -44,4 +92,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

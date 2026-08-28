@@ -4,7 +4,7 @@
 // publication scans, book/movie/record/standard audits, gated publications, the reporter’s method, prior art,
 // the NIST beacon anchor, CODATA constants, CVE fingerprints, the vocabulary, transform-until-verified, the
 // reasoner, and reflections. Provenance and structure. Integrity.
-export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from '@uuidna/uuidna'
+export { RESEARCH_SOURCE_NAMES, corroborate, evidenceRow, approve, firewall, entangle, researchEvidence, researchSweep, reachOf, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type SourceReading, type Reach, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from '@uuidna/uuidna'
 export { deepResearch, type DeepResearch } from '@uuidna/uuidna'
 export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, extractClaims, wordsToNumber, linkBookFacts, composeBookArticle, bookArticle, bookContents, readChapter, readBook, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type TextClaim, type BookTheoremLink, type BookLedgerLinkage, type ChapterRead } from '@uuidna/uuidna'
 export { transformUntilVerified, transformOne, type TransformCell, type TransformRun } from '@uuidna/uuidna'
@@ -12,6 +12,9 @@ export { composePublication, publications, coverage, auditPublication, revisePub
 export { fileReport, type FiledReport } from '@uuidna/uuidna'
 export { reason, type Rule, type Derivation, type Reasoning } from '@uuidna/uuidna'
 export { reflects, type Reflection, type Reflected } from '@uuidna/uuidna'
+export { aspectCensus, loudOf, type Aspect, type AspectCensus, type AspectRow } from '@uuidna/uuidna'
+export { searchFeed, MOST_SEARCHED, FEED_QUERIES, SEARCH_FEED_PATH, portalQueries, queriesFromEvidence, titleOf, uniqueQueries, type SearchQuery, type SearchFeed, type FeedDoor, type FeedLead } from '@uuidna/uuidna'
+export { searchFeedOnline } from '@uuidna/uuidna'
 export { priorArt, type PriorArt, type PriorArtExhibit } from '@uuidna/uuidna'
 export { beaconAnchor, type Anchor } from '@uuidna/uuidna'
 export { nistConstant, type NistConstant } from '@uuidna/uuidna'

@@ -14,24 +14,82 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `061533a7` | crossref.org | DOI 10.1007/978-3-319-63621-4_9: Generalised Heaps as Affine Structures | UNVERIFIED | VERIFIED |
+| `b2ed5afb` | zenodo.org | zenodo record 2432221: LXXXVI. The effect of magnetic fields on resistance .—II | UNVERIFIED | VERIFIED |
+| `1fd62786` | zenodo.org | zenodo record 15353840: HOLLOW VICTORY HEAPS | UNVERIFIED | VERIFIED |
+| `8dd89f83` | zenodo.org | zenodo record 16032247: Insect Colonization Of Drilled Tree Holes | UNVERIFIED | VERIFIED |
+| `aaa4ad3c` | zenodo.org | zenodo record 1272735: One micron laser technology advancements at GSFC. | UNVERIFIED | VERIFIED |
+| `0834ccbc` | zenodo.org | zenodo record 1510444: The Magnetostriction and Resistance of Iron and Nickel | UNVERIFIED | VERIFIED |
+| `24db7f1d` | zenodo.org | zenodo record 8337235: On the Periodicity of Genus Sequences of Quaternary Games | UNVERIFIED | VERIFIED |
+| `0ba61af7` | zenodo.org | zenodo record 7759164: Dijkstra's Algorithm using a Fibonacci Heap, Binary Heap and Self-balancing Bina | UNVERIFIED | VERIFIED |
+| `5785aff5` | zenodo.org | zenodo record 8337228: n the Periodicity of Genus Sequences of Quaternary Games | UNVERIFIED | VERIFIED |
 | `45c5e3d9` | crossref.org | DOI 10.1093/mind/106.424.641: From heaps and gaps to heaps of gluts | UNVERIFIED | VERIFIED |
-| `45c8deb5` | crossref.org | DOI 10.2307/25142732: The Rebel in the House: The Life and Times of A.A. Heaps, MP | UNVERIFIED | VERIFIED |
 | `5fdccce5` | crossref.org | DOI 10.1007/bfb0023822: Parallel complexity of heaps and min-max heaps | UNVERIFIED | VERIFIED |
-| `315ef499` | crossref.org | DOI 10.1007/springerreference_168164: Coal, Coal Mines and Spoil Heaps | UNVERIFIED | VERIFIED |
-| `17456e64` | crossref.org | DOI 10.31951/2658-3518-2022-a-1-1209: Diatoms: life in glass houses | UNVERIFIED | VERIFIED |
+| `061533a7` | crossref.org | DOI 10.1007/978-3-319-63621-4_9: Generalised Heaps as Affine Structures | UNVERIFIED | VERIFIED |
+| `45c8deb5` | crossref.org | DOI 10.2307/25142732: The Rebel in the House: The Life and Times of A.A. Heaps, MP | UNVERIFIED | VERIFIED |
 | `3ac55a97` | crossref.org | DOI 10.1007/978-3-319-63621-4_8: Theory of Generalised Heaps and Generalised Groups | UNVERIFIED | VERIFIED |
+| `315ef499` | crossref.org | DOI 10.1007/springerreference_168164: Coal, Coal Mines and Spoil Heaps | UNVERIFIED | VERIFIED |
+| `6ad2af9b` | crossref.org | DOI 10.5194/egusphere-2025-1379-ac2: AC reply on RC2 | UNVERIFIED | VERIFIED |
 | `1f82e08a` | crossref.org | DOI 10.1017/cbo9780511800191.006: Heaps | UNVERIFIED | VERIFIED |
-| `0e271734` | openalex.org | OpenAlex Fibonacci heaps and their uses in improved network optimization algori [Advanced Graph Theory Research] | UNVERIFIED | VERIFIED |
-| `977360ec` | openalex.org | OpenAlex NV-Heaps [Vascular Malformations Diagnos] | UNVERIFIED | VERIFIED |
-| `d15e8855` | openalex.org | OpenAlex From heaps and gaps to heaps of gluts [Advanced Algebra and Logic] | UNVERIFIED | VERIFIED |
-| `88d4059a` | openalex.org | OpenAlex Heap bioleaching of chalcopyrite: A review [Metal Extraction and Bioleachi] | UNVERIFIED | VERIFIED |
-| `fa312710` | openalex.org | OpenAlex Instability in a Sand Heap [Pickering emulsions and partic] | UNVERIFIED | VERIFIED |
-| `6fefd973` | openalex.org | OpenAlex The pairing heap: A new form of self-adjusting heap [Algorithms and Data Compressio] | UNVERIFIED | VERIFIED |
-| `994905d0` | openalex.org | OpenAlex Relaxed heaps: an alternative to Fibonacci heaps with applications to  [Complexity and Algorithms in G] | UNVERIFIED | VERIFIED |
-| `d3df8856` | openalex.org | OpenAlex An Unconnected Heap of Duties? [Political Philosophy and Ethic] | UNVERIFIED | VERIFIED |
+| `402d855f` | arxiv.org | arXiv 2107.04919v1: Analysis of Smooth Heaps and Slim Heaps | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `f5913e74` | arxiv.org | arXiv 2108.04458v2: A Tight Analysis of Slim Heaps and Smooth Heaps | UNVERIFIED | VERIFIED |
+| `41e7b816` | arxiv.org | arXiv 1510.03367v1: Layered Heaps Beating Standard and Fibonacci Heaps in Practice | UNVERIFIED | VERIFIED |
+| `f388cb3c` | arxiv.org | arXiv 0903.0116v1: Heaps Simplified | UNVERIFIED | VERIFIED |
+| `266ce4ae` | arxiv.org | arXiv 1802.05662v1: List Heaps | UNVERIFIED | VERIFIED |
+| `00bb2625` | arxiv.org | arXiv 1902.10812v1: Padovan heaps | UNVERIFIED | VERIFIED |
+| `4241649b` | arxiv.org | arXiv 2411.11051v1: Amortized Analysis of Leftist Heaps | UNVERIFIED | VERIFIED |
+| `51986416` | en.wikipedia.org | Wikipedia: Lindsey Heaps | UNVERIFIED | VERIFIED |
+| `a7daba23` | en.wikipedia.org | Wikipedia: Heaps (surname) | UNVERIFIED | VERIFIED |
+| `a18f2cd3` | en.wikipedia.org | Wikipedia: Heap | UNVERIFIED | VERIFIED |
+| `097cefab` | en.wikipedia.org | Wikipedia: Imogen Heap | UNVERIFIED | VERIFIED |
+| `c0f0e00a` | en.wikipedia.org | Wikipedia: Heap (data structure) | UNVERIFIED | VERIFIED |
+| `4bbeb6e1` | en.wikipedia.org | Wikipedia: Rob Heaps | UNVERIFIED | VERIFIED |
+| `52a2aaa9` | en.wikipedia.org | Wikipedia: Alvin Heaps | UNVERIFIED | VERIFIED |
+| `948c9729` | en.wikipedia.org | Wikipedia: Heaps's law | UNVERIFIED | VERIFIED |
+| `713ce386` | gutendex.com | Gutenberg 47738: Captain Ravenshaw; Or, The Maid of Cheapside. A Romance of E — Stephens, Robert Neilson | UNVERIFIED | VERIFIED |
+| `ff96f87b` | gutendex.com | Gutenberg 61861: Old London Street Cries and the Cries of To-day: With Heaps  — Tuer, Andrew White | UNVERIFIED | VERIFIED |
+| `a0950211` | en.wikinews.org | Wikinews: Post match interview with Maroochydore Rugby Union Club's James Turvey on his 10 | UNVERIFIED | VERIFIED |
+| `ac86b84b` | en.wikinews.org | Wikinews: Fox TV executive takes reins at Paramount studios | UNVERIFIED | VERIFIED |
+| `eb56b56a` | en.wikinews.org | Wikinews: Wikinews interviews painter Pricasso on his art and freedom of expression | UNVERIFIED | VERIFIED |
+| `e5f5e8b8` | en.wikinews.org | Wikinews: Report urges Kenya to ban plastic bags | UNVERIFIED | VERIFIED |
+| `edf0648a` | en.wikinews.org | Wikinews: Good Omens to be made into BBC radio drama | UNVERIFIED | VERIFIED |
+| `9f84faf3` | en.wikinews.org | Wikinews: British TV presenter Rico Daniels tells Wikinews about being 'The Salvager' | UNVERIFIED | VERIFIED |
+| `81d276de` | en.wikinews.org | Wikinews: Aussies ignore flag ban at Big Day Out festival | UNVERIFIED | VERIFIED |
+| `926dd8cf` | en.wikinews.org | Wikinews: Flood deaths in Brazil rise to 84 | UNVERIFIED | VERIFIED |
+| `3f2a7c5e` | esco | {"source":"esco","address":"e896568c-f172-8cfe-9c27-9a8fc1e9d8f5","uri":"http://data.europa.eu/esco/skill/0d9570c4-76bd-41f5-a050-c692716b7e5a","title":"lift stacks of paper","conceptType":"Skill"}
+{"source":"esco","address":"ed990684-3ff7-8b29-b2e3-f5276a1ffa7c","uri":"http://data.europa.eu/esco/skill/7991b413-8e71-415d-bb6a-923ea154abc5","title":"stack empty pallets","conceptType":"Skill"}
+{"source":"esco","address":"cea9e69b-d120-8736-95d6-51ff788bc222","uri":"http://data.europa.eu/esco/skill/3b4cd1d5-7651-4fe7-a202-8ec672f1b4c7","title":"fermentation process of tobacco leaves","conceptType":"Skill"}
+{"source":"esco","address":"8ffe7b65-5a66-8959-9eab-2c030e75198c","uri":"http://data.europa.eu/esco/skill/3f8d4e8f-17cc-4447-9325-fcfe4306c238","title":"describe your artistic aspirations i | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `1e34e250` | data-europa | {"source":"data-europa","address":"cb473a8d-5c54-8331-b996-7816a4405b03","id":"https-datosabiertos-jcyl-es-web-jcyl-set-es-medio-ambiente-relacion-escombreras-restauradas-1285087117281","title":"Relación de escombreras restauradas","country":"Spain","catalogue":"datos-gob-es"}
+{"source":"data-europa","address":"9a862b51-1114-8f17-8b25-847370ded424","id":"536146fe-851f-4dfd-a2a4-3cf11749d1f0","title":"INSPIRE PLU New risers/hot heaps 1. Change","country":"Germany","catalogue":"gdi-de"}
+{"source":"data-europa","address":"609659d0-31ca-8261-b375-9b7e62f0d2b4","id":"a74df687-4159-4c0f-86f5-7e36273d0d04","title":"WFS INSPIRE PLU New rise/hot heap 1. Change","country":"Germany","catalogue":"gdi-de"}
+{"source":"data-europa","address":"f46b3559-959e-8fd7-bfc2-05e5e7dbedef","id":"c0cd64d6-4c9f-49e9 | UNVERIFIED | VERIFIED |
+| `d9fba2e0` | open-meteo-forecast | temperature_2m_c 23 °C
+wind_speed_10m_kmh 2.6 km/h
+pressure_hpa 957.3 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `f0c88994`** (fold of every finding's address — recompute by re-running the search).
+**55 findings · 55 usable search-trial combinations · receipt `de120a79`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -135,4 +193,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

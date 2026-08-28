@@ -2,8 +2,8 @@
   "generated": "2026-08-28",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2120,
-  "total_theorems": 2120,
+  "total_claimed": 2127,
+  "total_theorems": 2127,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3582,6 +3582,30 @@
       "principle": "The quantum computer"
     },
     {
+      "key": "usable_gap_eighty_bits",
+      "lineAddress": "d878c30c-a500-857a-8732-894f5ac5cb13",
+      "address": "50acbe64-acae-84a2-b968-bd7a1bbad79b",
+      "principle": "The quantum computer"
+    },
+    {
+      "key": "teleportation_costs_two_coins",
+      "lineAddress": "1c551db4-4b66-8484-8807-0b67d7712b9b",
+      "address": "da172ef0-1260-8387-925b-1abf52a31279",
+      "principle": "The quantum computer"
+    },
+    {
+      "key": "majority_vote_is_floor_half",
+      "lineAddress": "a56f21ed-f629-81d4-bacb-f5c1145244e6",
+      "address": "a9dd1801-0fe7-8e26-9d62-7016707f58e3",
+      "principle": "The quantum computer"
+    },
+    {
+      "key": "register_exceeds_served",
+      "lineAddress": "8a865ccd-54d5-82f7-8f4b-23478667fecc",
+      "address": "c2ded75b-c60f-8186-8368-04bdad7967ec",
+      "principle": "The quantum computer"
+    },
+    {
       "key": "store_fold_order_invariant",
       "lineAddress": "398b5a23-06e7-86c6-b883-ab245afe9496",
       "address": "53f27ea6-c84c-8b5f-8429-05830e9b7899",
@@ -3787,8 +3811,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "245d82d5-6af3-80c3-82d1-0cc64eb3e995",
-      "address": "ebc51bca-675b-8b2a-bd90-01105b1038c9",
+      "lineAddress": "1e61df9b-8177-8da2-985d-e8e1048d9ab9",
+      "address": "14d5040c-aae8-8b83-8310-23e9e754ccf6",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3972,6 +3996,24 @@
       "principle": "The cipher & the strand"
     },
     {
+      "key": "genetic_code_twenty_one_amino_acids",
+      "lineAddress": "762b3bc9-d667-8c32-a5c4-bf75c7b17380",
+      "address": "81a0eb3f-aac1-8646-a2f5-a5f0f2a413b5",
+      "principle": "The cipher & the strand"
+    },
+    {
+      "key": "sbox_z5_permutation_count",
+      "lineAddress": "4cf069be-1e7e-8558-bab5-0b45df4a97aa",
+      "address": "5be8ccbf-eb1b-8427-9e9c-3987b3a3a7a1",
+      "principle": "The cipher & the strand"
+    },
+    {
+      "key": "byte_xor_hexbit_involution",
+      "lineAddress": "f440018f-d5d6-8780-adf3-a0aaec28ea64",
+      "address": "91afbdc6-15fd-8831-a79c-a07ef82803d2",
+      "principle": "The cipher & the strand"
+    },
+    {
       "key": "wall_steady_state",
       "lineAddress": "dbb130ad-3a9a-83ab-8dd4-9de755d6f4ca",
       "address": "d91314c0-2b02-8b3a-a615-f5068c422180",
@@ -4039,38 +4081,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "9da3f760-3ff0-8030-b1a6-fce19a1b9d4e",
-      "address": "5704c5e7-09da-8fc1-b1c9-112f109ed26b",
+      "lineAddress": "70d4e6da-ae67-8ded-a390-5f0fa3140bcf",
+      "address": "a94bfb66-48e7-86cd-b9c5-2ba938eddd08",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "6f738b00-65e5-8545-bfd1-35724490e35f",
-      "address": "f5fc857d-a5d3-8be4-9a97-5cfc7e936302",
+      "lineAddress": "15106f98-2f4d-8c2f-96f2-0fe83c7a2865",
+      "address": "8f34f9c1-b9e8-8c62-b12b-b08de1db2ed2",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "6b41903f-ebfe-8f64-922f-2c3bae4fa185",
-      "address": "6886081d-573e-88ff-83d3-f610023627a5",
+      "lineAddress": "0af027dd-222b-8948-a20f-3d5a896c62ce",
+      "address": "127eea74-2ec9-818d-a827-c6cf520e82b9",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "3044b56f-fcde-8fcf-87d7-fc1a4d817180",
-      "address": "cfe25655-15ea-8c13-95cc-39bc2adc52a5",
+      "lineAddress": "093a06d8-140c-8c30-9e1f-1080e0fb23e7",
+      "address": "37fddb80-52bd-8086-a031-68378279f570",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "f01cc837-3796-85d2-8305-f637556de545",
-      "address": "0300b2a9-2f54-8f15-86ad-dce3c3dcfd5f",
+      "lineAddress": "f8992830-04d0-8b27-a93f-d26294457585",
+      "address": "e4be6309-a77e-8a29-8beb-c6eb9d7b2b83",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "79d25183-7631-899a-91f8-bb7ed3a82af4",
-      "address": "29c99949-5103-8b9b-aee2-ae0526914867",
+      "lineAddress": "1a0bdfac-2c3a-8c1c-ab1d-4ad2ef342f85",
+      "address": "9053b2b0-e885-84fa-8450-d2472d54958c",
       "principle": "The detectors, proven"
     },
     {
@@ -4459,14 +4501,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "b18ef7be-0e68-83ee-8dff-7d0b843a2302",
-      "address": "5c39b165-652b-88f0-8128-561f97516524",
+      "lineAddress": "6c95795d-0232-8ad2-b224-18c9d3bdb265",
+      "address": "78718726-4518-8ab7-aee9-8ac5cb469655",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "8abc0972-0bdb-8115-a693-8795ebd44e08",
-      "address": "d1887727-28c9-8c46-821d-44b202828748",
+      "lineAddress": "d81f1e76-6544-81c6-97e1-c8eecc53ced4",
+      "address": "81206fb2-4089-88cc-8b11-70ccbc4b43f5",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -12726,7 +12768,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "9501f1f6-6750-893f-a278-125bd6ce7352",
+  "claim_receipt": "6132c0c0-aa91-8f99-8a2c-f5e137940103",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

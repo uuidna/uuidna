@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**42 open doors** across 11 topics, derived from the tree's own records — the held leads,
+**41 open doors** across 9 topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
@@ -21,28 +21,8 @@ express the claim as an exact predicate over it, run the [tester](/tools) with i
 drains, seal it ([the wave](/theorem/denial_drains_to_the_last_coin)). The door then closes as a count, and this
 page regrows without it.
 
-## wave — 23 open
+## wave — 19 open
 
-- **The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) </small>
-  <br><small>sealed neighbors: [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) · [`four_wire_sorting_needs_five_comparators`](/theorem/four_wire_sorting_needs_five_comparators) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **The grid breaks at 73 wings: 6 × 73 = 438, digital root 6, and the sealed width is 432. VectorEquilibrium.lean landed alone.**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) </small>
-  <br><small>sealed neighbors: [`z9_digit_sum_folds_to_the_residue_in_three`](/theorem/z9_digit_sum_folds_to_the_residue_in_three) · [`merkle_depth_iff_leaf_bound`](/theorem/merkle_depth_iff_leaf_bound) · [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **A negation in the comment above a Lean line must be discharged by the line below it. Run by hand over the newest wing it convicted 6 of 12; the surviving 4 are SCOPE-declared, proven, or scanner artefacts ('non-covering'…**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`no_wing_buys_its_own_ceiling`](/theorem/no_wing_buys_its_own_ceiling) · [`missing_pair_involution`](/theorem/missing_pair_involution) </small>
-  <br><small>sealed neighbors: [`zeckendorf_non_adjacent_representation_is_unique`](/theorem/zeckendorf_non_adjacent_representation_is_unique) · [`grundy_sum_is_xor`](/theorem/grundy_sum_is_xor) · [`catalan_counts_the_dyck_words`](/theorem/catalan_counts_the_dyck_words) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **Glagolitic names theorems by the OPERATION, never the object: additive, reads_subtractively, ignores_order, forces_collisions, is_prime. The cultural noun is only the subject.**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`z7_inverse_table_and_wilson`](/theorem/z7_inverse_table_and_wilson) </small>
-  <br><small>sealed neighbors: [`agl9_exponent_is_eighteen_with_no_element_of_that_order`](/theorem/agl9_exponent_is_eighteen_with_no_element_of_that_order) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`debruijn_order_three_census_is_two_rotation_orbits`](/theorem/debruijn_order_three_census_is_two_rotation_orbits) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **An N-qubit register's state is a 2^N-dimensional complex vector, and full-state classical simulation costs scale exponentially in N (recorded value: 2^N)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) </small>
@@ -170,19 +150,6 @@ page regrows without it.
   <br><small>sealed neighbors: [`gray_step_flips_one_bit_and_the_cycle_closes`](/theorem/gray_step_flips_one_bit_and_the_cycle_closes) · [`gray_code_is_a_permutation_with_prefix_xor_inverse`](/theorem/gray_code_is_a_permutation_with_prefix_xor_inverse) · [`gray_code_reflects_across_the_top_bit`](/theorem/gray_code_reflects_across_the_top_bit) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## hexbit — 2 open
-
-- **Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`dark_fringe_is_the_half_turn`](/theorem/dark_fringe_is_the_half_turn) · [`involution_replaces_the_raised_ceiling`](/theorem/involution_replaces_the_raised_ceiling) · [`no_digit_is_an_exact_complement`](/theorem/no_digit_is_an_exact_complement) </small>
-  <br><small>sealed neighbors: [`lp_weak_duality_instance`](/theorem/lp_weak_duality_instance) · [`ph_plus_poh_14`](/theorem/ph_plus_poh_14) · [`two_plus_two_is_five_only_mod_one`](/theorem/two_plus_two_is_five_only_mod_one) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **Four-stroke cycle completes in two crankshaft revolutions (recorded value: 2)**
-  <br><small>door: the research ledger</small>
-  <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`compass_opposites_involute`](/theorem/compass_opposites_involute) </small>
-  <br><small>sealed neighbors: [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census) · [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`the_second_voice_is_the_variant`](/theorem/the_second_voice_is_the_variant) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
 ## antikythera — 1 open
 
 - **Savonius rotor peak coefficient of performance and its tip-speed ratio (recorded value: unknown)**
@@ -191,28 +158,20 @@ page regrows without it.
   <br><small>sealed neighbors: [`pin_and_slot_equal_teeth`](/theorem/pin_and_slot_equal_teeth) · [`ascent_needs_a_stop`](/theorem/ascent_needs_a_stop) · [`bell_census_is_its_own_binomial_transform`](/theorem/bell_census_is_its_own_binomial_transform) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## audit — 1 open
-
-- **docs/theorem/[key].paths.js and docs/publications/[slug].paths.js already mint a page per handle; the template is scoped to theorem keys and publication slugs.**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`reflection_is_total_by_the_key`](/theorem/reflection_is_total_by_the_key) · [`xor_translation_is_sharply_transitive`](/theorem/xor_translation_is_sharply_transitive) · [`otp_self_inverse`](/theorem/otp_self_inverse) </small>
-  <br><small>sealed neighbors: [`handle_splits_four`](/theorem/handle_splits_four) · [`the_comma_hides_below_hearing`](/theorem/the_comma_hides_below_hearing) · [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
-## coins — 1 open
-
-- **The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bou…**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`frame_ring_undo_involutive`](/theorem/frame_ring_undo_involutive) </small>
-  <br><small>sealed neighbors: [`fold_compresses_without_bound_and_never_recovers`](/theorem/fold_compresses_without_bound_and_never_recovers) · [`gematria_forces_collisions`](/theorem/gematria_forces_collisions) · [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
 ## doctrine — 1 open
 
 - **The optimal study gap is NOT a fixed percentage of the retention interval (recorded value: declines from ~43% at a 7-day delay to ~8% at 350 days)**
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`complement_fixes_the_half`](/theorem/complement_fixes_the_half) · [`dz_swaps_the_thirds_and_fixes_the_axis`](/theorem/dz_swaps_the_thirds_and_fixes_the_axis) </small>
   <br><small>sealed neighbors: [`saturation_deco_accounts`](/theorem/saturation_deco_accounts) · [`seasons_return_in_eighteen_years`](/theorem/seasons_return_in_eighteen_years) · [`egyptian_five_harmonise_the_circle`](/theorem/egyptian_five_harmonise_the_circle) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
+## hexbit — 1 open
+
+- **Four-stroke cycle completes in two crankshaft revolutions (recorded value: 2)**
+  <br><small>door: the research ledger</small>
+  <br><small>involutions around: [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) · [`four_times_sixtyfour_is_the_byte`](/theorem/four_times_sixtyfour_is_the_byte) · [`compass_opposites_involute`](/theorem/compass_opposites_involute) </small>
+  <br><small>sealed neighbors: [`the_handle_molecule_is_the_mix_census`](/theorem/the_handle_molecule_is_the_mix_census) · [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`the_second_voice_is_the_variant`](/theorem/the_second_voice_is_the_variant) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## tesla — 1 open
@@ -231,10 +190,10 @@ page regrows without it.
   <br><small>sealed neighbors: [`first_law_conservation`](/theorem/first_law_conservation) · [`photon_energy_rises_with_band`](/theorem/photon_energy_rises_with_band) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## open frontier — 6 open
+## open frontier — 12 open
 
-- **2^20 = 1048576**
-  <br><small>door: the prose trials · README.md · receipt `ccba533e-7781-863f-aea3-c27a24097a54`</small>
+- **252/2 = 126**
+  <br><small>door: the prose trials · docs/anthem.md · receipt `103dc2ef-eebe-8a86-91ee-ad1770b5e88b`</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
   <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
@@ -250,6 +209,36 @@ page regrows without it.
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **2+2=4**
   <br><small>door: the prose trials · docs/mcp.md · receipt `ee83867d-c729-87ef-a05c-7123754af42b`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **2^20 = 1048576**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `ccba533e-7781-863f-aea3-c27a24097a54`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **1/0 = 0**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `d001237d-f065-86d6-991f-fdbf620f7517`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **1/0 = 0**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `d001237d-f065-86d6-991f-fdbf620f7517`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **2+2=4**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `ee83867d-c729-87ef-a05c-7123754af42b`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **256 / 2 = 128**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `20e97c41-6286-8407-a9fc-01aefb66622c`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **7 + 0 = 7**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `a3a27017-2a35-85ee-886a-f45c157d0878`</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
   <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>

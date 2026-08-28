@@ -30,6 +30,7 @@ interface Gen { file: string; args: string[]; note: string }
 // point their inputs are ready. This list is the ONE place generation order is stated.
 const GENERATORS: Gen[] = [
   { file: 'gen-mcp.js', args: [], note: 'the served catalog — every later surface reads it' },
+  { file: 'gen-apis.js', args: [], note: 'the public API catalog — drained from publicApiRegistry(), no hand-typed /apis' },
   { file: 'gen-packages.js', args: [], note: 'the six workspace surfaces, computed from src/index.ts (guard step 3 rejects drift)' },
   { file: 'gen-zenodo.js', args: [], note: 'the archival record' },
   { file: 'gen-zenodo-seals.js', args: [], note: 'agnostic Zenodo publication seals (manifest + per-id metadata)' },
@@ -44,6 +45,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-reports.js', args: [], note: 'reports as accounting — computed from the ledger' },
   { file: 'gen-quantum-capacity.js', args: [], note: 'the quantum capacity report — every model one metric, uuidna measured live, sealed with receipt' },
   { file: 'gen-quantum-advantage.js', args: [], note: 'the measured advantage report — reach/cost/fidelity per datapath level on this host' },
+  { file: 'gen-search-feed.js', args: [], note: 'most-searched queries ring Lean — online doors and desk leads (before SEO freeze, a new /search-feed route)' },
   { file: 'gen-seo-freeze.js', args: [], note: 'FINAL SEO URL freeze — route↔hexbit map (lean/seo-url-map.json); permanence via hexbit doors' },
   { file: 'gen-expose.js', args: [], note: 'the discovery board — the live coordinates where clusters expose unsealed structure, one uuidna_expose call rendered' },
   { file: 'gen-waves.js', args: [], note: 'the conveyor board — pending, accepted with seals, and the law school roster, from the queue\'s own record' },
@@ -64,7 +66,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-symphony.js', args: [], note: 'the ledger symphony — four movements from four sealed sources, minted in the listener\'s browser, alive with every seal' },
   { file: 'gen-evasion.js', args: [], note: 'the evasion ticker — the tricks with their finders and convicting seals, the tape folded live, the board singing its address' },
   { file: 'gen-apps.js', args: [], note: 'the store — shelves derived from the category registry itself' },
-  { file: 'gen-open-questions.js', args: [], note: 'the school of open doors — the unverified in topics, involution magnets attached, derived from the three records' },
+  { file: 'gen-open-questions.js', args: [], note: 'the school of open doors — the unverified in topics, involution magnets attached, derived from the four springs (held, research, prose, search-feed)' },
   { file: 'gen-referrer-song.js', args: [], note: 'the referrer song — the doors, the measured walk census, and the site cycle sounded; every claim a Referrer.lean seal' },
   { file: 'gen-store.js', args: [], note: 'the storefront — apps, games, books unified at /store, derived from each shelf' },
   { file: 'gen-os.js', args: [], note: 'the default install — every path\'s exact meaning from the committed Alpine mirror; every claim an Installs.lean seal' },

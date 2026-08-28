@@ -25,10 +25,10 @@ test('the swept constants still hold their exact values — a sweep must not mov
 
 test('CONTROL — a derivation the code ALREADY computes must NOT be flagged', async () => {
   const { HANDLE_SPAN } = await import('../hexbit/index.js')
-  // hexbit/index.ts writes `16 ** HANDLE_HEXBITS  // 2^32`: the comment states arithmetic and the code computes
+  // hexbit/index.ts writes `HEXBIT_STATES ** HANDLE_HEXBITS`: the comment states arithmetic and the code computes
   // it. That is the CURED shape, and a finder that flagged it would be demanding the impossible of a correct
   // line. Its absence from the gap list is what makes the four real findings meaningful.
-  assert.equal(HANDLE_SPAN, 4294967296, '16 ** 8 = 2^32')
+  assert.equal(HANDLE_SPAN, 4294967296, 'HEXBIT_STATES ** HANDLE_HEXBITS')
   const flagged = constantGaps().some((g) => g.what.includes('hexbit/index.ts'))
   assert.equal(flagged, false, 'a line that already derives must never be reported')
 })

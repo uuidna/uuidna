@@ -23,6 +23,12 @@ import { computes } from './gate.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
 import { theorems } from './theorems/index.js'
 
+/** Gutendex and Gutenberg mirrors 403 a generic fetch UA (measured on GitHub Actions). Identify the client. */
+export const GUTENDEX_HEADERS: Readonly<Record<string, string>> = {
+  'User-Agent': 'uuidna (https://uuidna.com; research@uuidna.com)',
+  Accept: 'application/json',
+}
+
 /** The recomputable audit of a text: a provenance fingerprint, a structural decode, and an honesty-gate verdict. */
 export interface BookAudit {
   title?: string
@@ -476,7 +482,10 @@ export async function fetchGutenberg(id: number | string): Promise<FetchedBook> 
   const hit = readBookCache(n)
   if (hit) return hit
   // 45s — KJV-class texts time out at 15s on cold Gutendex; cache makes the second read free.
-  const metaRes = await fetch(`https://gutendex.com/books/${encodeURIComponent(String(id))}`, { signal: AbortSignal.timeout(45000) })
+  const metaRes = await fetch(`https://gutendex.com/books/${encodeURIComponent(String(id))}`, {
+    headers: GUTENDEX_HEADERS,
+    signal: AbortSignal.timeout(45000),
+  })
   if (!metaRes.ok) throw new Error(`books: Gutendex responded ${metaRes.status} for id ${id}`)
   const meta = (await metaRes.json()) as { title?: string; authors?: { name: string }[]; formats?: Record<string, string> }
   const formats = meta.formats || {}
@@ -495,7 +504,7 @@ export async function fetchGutenberg(id: number | string): Promise<FetchedBook> 
   const refused: string[] = []
   for (const candidate of [...new Set(candidates)]) {
     try {
-      const attempt = await fetch(candidate, { signal: AbortSignal.timeout(45000) })
+      const attempt = await fetch(candidate, { headers: GUTENDEX_HEADERS, signal: AbortSignal.timeout(45000) })
       if (attempt.ok) { textRes = attempt; break }
       refused.push(`${attempt.status} ${candidate}`)
     } catch (e) { refused.push(`${String((e as Error).message).slice(0, 200)} ${candidate}`) }

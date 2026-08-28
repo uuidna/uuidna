@@ -15,7 +15,7 @@ import { join } from 'node:path'
 import { fetchGutenberg, stripGutenberg, auditText, extractClaims } from '../books.js'
 import { toUuid, merkleGravity, theorems } from '../index.js'
 import { handleOf } from '../handle.js'
-import { UUID_HEXBITS, HEXBIT_BITS, HEXBIT_STATES } from '../hexbit/index.js'
+import { UUID_HEXBITS, HEXBIT_BITS, HEXBIT_STATES, hexbitDoorOf } from '../hexbit/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
 import { CORPUS } from './mine-books.js'
 import { ROOT } from './api.js'
@@ -98,8 +98,9 @@ if (process.argv[1] && /books-run\.(js|ts)$/.test(process.argv[1])) {
   }
 
   const alreadyAll = [...new Set(books.flatMap((b) => b.hexbitAlreadySealed))]
+  const dryReceipt = toUuid('dry')
   const deposit = DRY
-    ? { deposited: [] as string[], refused: [] as { key: string; reason: string }[], pending: 0, receipt: toUuid('dry'), honest: 'dry' }
+    ? { deposited: [] as string[], refused: [] as { key: string; reason: string }[], pending: 0, receipt: dryReceipt, ...hexbitDoorOf(dryReceipt), honest: 'dry' }
     : depositCandidates(candidates, QUEUE)
 
   const receipt = merkleGravity([
@@ -118,7 +119,7 @@ if (process.argv[1] && /books-run\.(js|ts)$/.test(process.argv[1])) {
     depositRefused: deposit.refused,
     pending: deposit.pending,
     iq: { probes: probes.length, vacuous: vacuous.map((v) => v.fact), nextSample: sample('uuidna:books-run', 8) },
-    receipt,
+    receipt, ...hexbitDoorOf(receipt),
     dry: DRY,
   }
   writeFileSync(OUT, JSON.stringify(report, null, 2) + '\n')

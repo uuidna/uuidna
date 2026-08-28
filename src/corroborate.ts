@@ -11,9 +11,13 @@ import { adjudicate } from './adjudicate.js'
 import { nistConstant } from './constants.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
+import { extendedResearchSources, EXTENDED_RESEARCH_SOURCE_NAMES } from './research-sources.js'
+import { hexbitDoorOf, evidenceRow, type HexbitDoor } from './hexbit/index.js'
 
 /** One piece of external research — a provenance-fingerprinted attestation from a free public API. NOT a proof. */
-export interface ResearchEvidence { source: string; address: string; note: string }
+export interface ResearchEvidence extends HexbitDoor { source: string; address: string; note: string }
+
+export { evidenceRow } from './hexbit/index.js'
 
 export interface Corroboration {
   statement: string
@@ -23,6 +27,9 @@ export interface Corroboration {
   verdict: 'VERIFIED' | 'CORROBORATED' | 'UNVERIFIED' | 'UNMEASURED'
   reach?: Reach                                         // the denominator the verdict was computed against
   receipt: string                                       // order-invariant fold of the evidence addresses
+  handle: string                                        // eight hexbits — permanent door into uuidna.com
+  hexbits: number[]                                     // 32 states compiled from the receipt
+  door: string                                          // https://uuidna.com/<handle>
   develop: string[]                                     // the REFLECTION — the recomputable path to seal it (never a dead end)
   honest: string
 }
@@ -51,8 +58,9 @@ const HONEST =
 export function corroborate(statement: string, evidence: ResearchEvidence[] = [], decidableTest?: () => boolean, reach?: Reach): Corroboration {
   const adj = adjudicate(statement, decidableTest)
   const local = adj.verdict
-  const receipt = merkleGravity(evidence.map((e) => e.address))
-  const independentSources = new Set(evidence.map((e) => e.source)).size
+  const rows = evidence.map((e) => evidenceRow(e.source, e.address, e.note))
+  const receipt = merkleGravity(rows.map((e) => e.address))
+  const independentSources = new Set(rows.map((e) => e.source)).size
   // A SILENCE ONLY MEANS SOMETHING IF THE THRESHOLD WAS REACHABLE. The bar is two INDEPENDENT sources, so to
   // conclude UNVERIFIED — "the world does not attest this" — at least two must have ANSWERED. With fewer,
   // CORROBORATED was unreachable no matter what the archives hold, and the silence measures the network rather
@@ -64,7 +72,8 @@ export function corroborate(statement: string, evidence: ResearchEvidence[] = []
       : independentSources >= 2 ? 'CORROBORATED'
         : reach && reach.answered < 2 ? 'UNMEASURED'
           : 'UNVERIFIED'
-  return { statement, local, evidence, verdict, receipt, develop: adj.develop, honest: HONEST, ...(reach ? { reach } : {}) }
+  const door = hexbitDoorOf(receipt)
+  return { statement, local, evidence: rows, verdict, receipt, ...door, develop: adj.develop, honest: HONEST, ...(reach ? { reach } : {}) }
 }
 
 // THE RESEARCH SOURCES — the ONE registry of reachable free API streams, each a best-effort fetch returning provenance-
@@ -90,6 +99,8 @@ export interface SourceReading {
   evidence: ResearchEvidence[]    // what it attested
 }
 
+export type ResearchSource = (query: string) => Promise<SourceReading>
+
 /** the denominator a verdict was computed against — asked, answered, and who was missing */
 export interface Reach { asked: number; answered: number; unreachable: string[] }
 
@@ -108,12 +119,10 @@ const refused = (source: string, status: number): SourceReading =>
 const unreached = (source: string, e: unknown): SourceReading =>
   ({ source, reached: false, why: e instanceof Error ? e.message : String(e), evidence: [] })
 
-type ResearchSource = (query: string) => Promise<SourceReading>
-
 const nistSource: ResearchSource = async (query) => {
   try {
     const nist = await nistConstant(query)
-    return answered('nist.gov', nist.matches.slice(0, 8).map((m) => ({ source: nist.source, address: toUuid(JSON.stringify(m)), note: JSON.stringify(m).replace(/[{}"]/g, '').slice(0, 100) })))
+    return answered('nist.gov', nist.matches.slice(0, 8).map((m) => evidenceRow(nist.source, toUuid(JSON.stringify(m)), JSON.stringify(m).replace(/[{}"]/g, '').slice(0, 100))))
   } catch (e) { return unreached('nist.gov', e) } // a free API may be unreachable — best-effort, and it SAYS SO
 }
 
@@ -122,7 +131,7 @@ const zenodoSource: ResearchSource = async (query) => {
     const res = await fetch('https://zenodo.org/api/records?size=8&q=' + encodeURIComponent(query))
     if (!res.ok) return refused('zenodo.org', res.status)
     const hits = ((await res.json()) as { hits?: { hits?: { id: number; metadata?: { title?: string } }[] } }).hits?.hits ?? []
-    return answered('zenodo.org', hits.map((h) => ({ source: 'zenodo.org', address: toUuid('zenodo:' + h.id), note: `zenodo record ${h.id}: ${(h.metadata?.title ?? '').slice(0, 80)}` })))
+    return answered('zenodo.org', hits.map((h) => evidenceRow('zenodo.org', toUuid('zenodo:' + h.id), `zenodo record ${h.id}: ${(h.metadata?.title ?? '').slice(0, 80)}`)))
   } catch (e) { return unreached('zenodo.org', e) }
 }
 
@@ -133,7 +142,7 @@ const crossrefSource: ResearchSource = async (query) => {
     const res = await fetch('https://api.crossref.org/works?rows=8&mailto=ceccec@psg.bg&query=' + encodeURIComponent(query))
     if (!res.ok) return refused('crossref.org', res.status)
     const items = ((await res.json()) as { message?: { items?: { DOI?: string; title?: string[] }[] } }).message?.items ?? []
-    return answered('crossref.org', items.map((it) => ({ source: 'crossref.org', address: toUuid('crossref:' + (it.DOI ?? '')), note: `DOI ${it.DOI ?? ''}: ${(it.title?.[0] ?? '').slice(0, 80)}` })))
+    return answered('crossref.org', items.map((it) => evidenceRow('crossref.org', toUuid('crossref:' + (it.DOI ?? '')), `DOI ${it.DOI ?? ''}: ${(it.title?.[0] ?? '').slice(0, 80)}`)))
   } catch (e) { return unreached('crossref.org', e) }
 }
 
@@ -147,10 +156,8 @@ const semanticScholarSource: ResearchSource = async (query) => {
     const res = await fetch('https://api.semanticscholar.org/graph/v1/paper/search?limit=8&fields=title,tldr,externalIds&query=' + encodeURIComponent(query))
     if (!res.ok) return refused('semanticscholar.org', res.status)
     const papers = ((await res.json()) as { data?: { paperId?: string; title?: string; tldr?: { text?: string } }[] }).data ?? []
-    return answered('semanticscholar.org', papers.map((p) => ({
-      source: 'semanticscholar.org', address: toUuid('s2:' + (p.paperId ?? '')),
-      note: `S2 ${(p.title ?? '').slice(0, 60)}${p.tldr?.text ? ' — AI tldr: ' + p.tldr.text.slice(0, 90) : ''}`,
-    })))
+    return answered('semanticscholar.org', papers.map((p) => evidenceRow('semanticscholar.org', toUuid('s2:' + (p.paperId ?? '')),
+      `S2 ${(p.title ?? '').slice(0, 60)}${p.tldr?.text ? ' — AI tldr: ' + p.tldr.text.slice(0, 90) : ''}`)))
   } catch (e) { return unreached('semanticscholar.org', e) }
 }
 
@@ -159,16 +166,21 @@ const openAlexSource: ResearchSource = async (query) => {
     const res = await fetch('https://api.openalex.org/works?per-page=8&mailto=ceccec@psg.bg&search=' + encodeURIComponent(query))
     if (!res.ok) return refused('openalex.org', res.status)
     const works = ((await res.json()) as { results?: { id?: string; display_name?: string; primary_topic?: { display_name?: string } }[] }).results ?? []
-    return answered('openalex.org', works.map((w) => ({
-      source: 'openalex.org', address: toUuid('openalex:' + (w.id ?? '')),
-      note: `OpenAlex ${(w.display_name ?? '').slice(0, 70)}${w.primary_topic?.display_name ? ' [' + w.primary_topic.display_name.slice(0, 30) + ']' : ''}`,
-    })))
+    return answered('openalex.org', works.map((w) => evidenceRow('openalex.org', toUuid('openalex:' + (w.id ?? '')),
+      `OpenAlex ${(w.display_name ?? '').slice(0, 70)}${w.primary_topic?.display_name ? ' [' + w.primary_topic.display_name.slice(0, 30) + ']' : ''}`)))
   } catch (e) { return unreached('openalex.org', e) }
 }
 
-const RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource, semanticScholarSource, openAlexSource]
+const CORE_RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource, semanticScholarSource, openAlexSource]
+const RESEARCH_SOURCES: ResearchSource[] = [
+  ...CORE_RESEARCH_SOURCES,
+  ...extendedResearchSources({ answered, refused, unreached }),
+]
 /** the sources BY NAME — so any surface states how many are actually wired. */
-export const RESEARCH_SOURCE_NAMES: readonly string[] = ['nist.gov', 'zenodo.org', 'crossref.org', 'semanticscholar.org', 'openalex.org']
+export const RESEARCH_SOURCE_NAMES: readonly string[] = [
+  'nist.gov', 'zenodo.org', 'crossref.org', 'semanticscholar.org', 'openalex.org',
+  ...EXTENDED_RESEARCH_SOURCE_NAMES,
+]
 
 /** researchEvidence(query) → external research from the free API STREAMS, FANNED OUT IN PARALLEL (Promise.all over
  *  RESEARCH_SOURCES): the wall-clock is the slowest source
@@ -246,6 +258,9 @@ export interface Entanglement {
   members: string[]     // the entangled claims, in the order given (the receipt does not depend on it)
   verified: number      // how many members are sealed by decide — only sealed members truly bind
   receipt: string       // the ENTANGLED receipt — the order-invariant fold of (statement | verdict) for every member
+  handle: string
+  hexbits: number[]
+  door: string
   entangled: boolean    // ≥2 members bound into one shared receipt
   honest: string
 }
@@ -264,7 +279,7 @@ export function entangle(corroborations: Corroboration[]): Entanglement {
   const members = corroborations.map((c) => c.statement)
   const receipt = merkleGravity(corroborations.map((c) => toUuid(c.statement + '|' + c.verdict)))
   const verified = corroborations.filter((c) => c.local === 'VERIFIED').length
-  return { members, verified, receipt, entangled: corroborations.length >= 2, honest: ENTANGLE_HONEST }
+  return { members, verified, receipt, ...hexbitDoorOf(receipt), entangled: corroborations.length >= 2, honest: ENTANGLE_HONEST }
 }
 
 // ── THE PUBLICATION SCANNER — scan online for uuidna-related mentions and INVESTIGATE each against the reservation ──
@@ -281,6 +296,9 @@ export interface PublicationScan {
   findings: PublicationFinding[]
   count: number
   receipt: string       // order-invariant fold of the finding addresses
+  handle: string
+  hexbits: number[]
+  door: string
   honest: string
 }
 
@@ -312,9 +330,10 @@ export async function scanPublications(query = 'uuidna'): Promise<PublicationSca
         : 'an external mention — legitimate ONLY if licensed by the captain; not endorsed and does not speak for the work unless licensed. Not proof of infringement; a human court decides.',
     }
   })
+  const receipt = merkleGravity([toUuid('scan:' + query + ':' + canonical), ...findings.map((f) => f.address)])
   return {
     query, canonical, findings, count: findings.length,
-    receipt: merkleGravity([toUuid('scan:' + query + ':' + canonical), ...findings.map((f) => f.address)]),
+    receipt, ...hexbitDoorOf(receipt),
     honest: SCAN_HONEST,
   }
 }

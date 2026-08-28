@@ -196,7 +196,11 @@ export { payment, coinCensus, whoPaid, enrollCrew, licenseBindingOf, type CoinPa
 // the network a single time), every backtest a pure replay from the handle — series addressed, strategy
 // pre-registered, result receipted. Reproducibility, never prophecy. Integrity, not alpha.
 export { sealSeries, parseStooqCsv, fetchDailyOnce, runBacktest, type Row as MarketRow, type SealedSeries, type Strategy, type Trade, type Backtest } from './market.js'
-export { RESEARCH_SOURCE_NAMES, corroborate, approve, firewall, entangle, researchEvidence, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from './corroborate.js'
+export { RESEARCH_SOURCE_NAMES, corroborate, evidenceRow, approve, firewall, entangle, researchEvidence, researchSweep, reachOf, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type SourceReading, type Reach, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from './corroborate.js'
+export { publicApiRegistry, type PublicApiEntry, type PublicApiKind } from './public-apis.js'
+export { apiMintHarvest, apiMintDeposit, collectApiEvidence, collectMintExtras, type ApiMintHarvest, type ApiEvidence } from './api-mint.js'
+export { proposeFinding, type Finding } from './research-ledger.js'
+export { harvestFragments, fragmentToLean, keyFromFragment, mintLeadsFromText, mintLeadsToCandidates, type MintLead } from './harvest.js'
 
 // QUANTUM ENTANGLEMENT — the four physical frames (crypto/bio/chemo/physical) verify every theorem
 export {
@@ -357,6 +361,11 @@ export { reason, type Rule, type Derivation, type Reasoning } from './reason.js'
 // reflects — reveal the sealed theorems a real-world system ALREADY reflects, matched from the ledger and folded to
 // a receipt. A resemblance the ledger carries, not an endorsement of the system.
 export { reflects, type Reflection, type Reflected } from './reflects.js'
+// aspects — structure across named aspects (resonance + harvest + operation-last naming). Meaning is always null.
+export { aspectCensus, loudOf, type Aspect, type AspectCensus, type AspectRow } from './aspects.js'
+// search-feed — most-searched queries ring Lean; loud theorems are online doors; silence and harvest are leads.
+export { searchFeed, MOST_SEARCHED, FEED_QUERIES, SEARCH_FEED_PATH, portalQueries, queriesFromEvidence, titleOf, uniqueQueries, type SearchQuery, type SearchFeed, type FeedDoor, type FeedLead } from './search-feed.js'
+export { searchFeedOnline } from './search-feed-online.js'
 // legal — the recomputable legal FACT BASE (licence, attribution, ledger receipt, compliance stance, standards
 // cited), NOT a legal audit or opinion: the inputs counsel starts from, delivered in chat, the ruling left to humans.
 export { legalFacts, type LegalFacts } from './legal.js'
@@ -497,6 +506,7 @@ export { cubeMemory, hold, cubeOf, cubes, planMemory, commitMemory, type CubeMem
 export { tick, advance, residueOf, isAfter, agree, between, type Tick } from './quantum/clock/index.js'
 // the hexbit quantum apps — pure state-to-bytes renderers every surface (browser, test, edge) shares; no assets
 export { renderStates, type HexbitRecording } from './quantum/apps/index.js'
+export { theoremDemoOf, theoremDemoCoverage, alpineWitnessByTheorem, type TheoremDemo, type TheoremDemoCoverage } from './quantum/apps/theorem-demos.js'
 
 // quantum-voting — CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins to the captain,
 // and earn voting rights proportional to coins paid. Votes are encoded in quantum superposition (deterministic,
@@ -516,6 +526,7 @@ export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumS
 // anti-fraud MCP (provable | open | overclaimed | narrative gap) → coin-backed reader judgment. Every
 // extraction and audit is recomputable; narrative gaps (true statement, false story) stay with the court.
 export { extractFactsFromArticle, auditFactAgainstLedger, buildNewsPortal, renderPortalSummary, tallyJudgmentVotes, shouldSealFact, type NewsArticle, type NewsExtractedFact, type FactJudgment, type NewsPortal, type JudgmentVote } from './desk/news/portal/index.js'
+export { fetchWikinewsFeatured, searchWikinews } from './desk/news/fetch.js'
 
 // domain-specific news portals: politics, medicine, climate, history, economics
 export { buildPoliticsPortal, extractPoliticsFacts, buildMedicinePortal, extractMedicineFacts, buildClimatePortal, extractClimateFacts, buildHistoryPortal, extractHistoryFacts, buildEconomicsPortal, extractEconomicsFacts, processMultiDomainJudgment, type PoliticsArticle, type MedicineArticle, type ClimateArticle, type HistoryArticle, type EconomicsArticle } from './desk/news/domains/index.js'
@@ -524,7 +535,7 @@ export { buildPoliticsPortal, extractPoliticsFacts, buildMedicinePortal, extract
 // (NOAA, Open-Meteo) that provide decidable facts (temperature, wind, pressure, waves, tides) and LINKS them to
 // theorems sealed in the ledger. Pure correlation: no network calls (only on demand), only checks against ledger.
 // Weather facts are either sealed-match (already a theorem) or novel (research leads awaiting sealing).
-export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, type WeatherFact, type QuantumSailingWeatherCorrelation } from './desk/sailing/weather/index.js'
+export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, fetchOpenMeteoForecast, fetchNoaaTideHeight, type WeatherFact, type QuantumSailingWeatherCorrelation } from './desk/sailing/weather/index.js'
 
 // quantum-sailing-cross-book — CROSS-BOOK CORRELATION: the captain reads across the library and finds theorems that
 // RESONATE only when two or more books are read together. Each book links decidable facts in isolation; read together,
@@ -591,6 +602,7 @@ export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle,
 export { speak, speechCensus, compose, tryProse, type Speech, type ProseTrial, type ProseVerdict } from './speech.js'
 // sequence-run — the walk itself, which had no public door until now (its own header said the primitives lacked one).
 export { runSequence, type SequenceRun } from './sequence-run.js'
+export { odometerNext } from './odometer.js'
 // singularity — every vector folded at once, through the involution, to one order-invariant core.
 export { singularity, type Singularity } from './separation.js'
 
@@ -605,9 +617,10 @@ export { school, courses, type School, type Course, type Section } from './schoo
 // reachable from nowhere until now — the support finder named them dead code, and it was right: a module the
 // root cannot reach is a module no consumer can call, however green its own tests are.
 export {
-  HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, COINS, LEVERAGE, HANDLE_SPAN, HANDLE_HEXBITS, valueOf, bitsOf, bitsToHexbits,
-  qubitsToHexbits, spareOf, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES,
-  computeMassGap, massGap, hexbitRingMassGap, bornFieldMassGap, type MassGap, type HexbitMassGap,
+  HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, COINS, LEVERAGE, HANDLE_SPAN, HANDLE_HEXBITS, COIN_HEXBITS, valueOf, bitsOf, bitsToHexbits,
+  qubitsToHexbits, spareOf, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES, hexbitDoorOf,
+  computeMassGap, massGap, hexbitRingMassGap, bornFieldMassGap,
+  type MassGap, type HexbitMassGap, type HexbitDoor, type HandleValue,
 } from './hexbit/index.js'
 export { bitsOf as entropyBitsOf, entropyOf, ledgerEntropy, passphraseEntropy, type Entropy } from './entropy/index.js'
 export { fuse, fuseHalves, reactorOutput, mintOf, mintByWing, powerOf, pathOf, HALF_HEXBITS, type Fusion, type Mint, type Power, type Path } from './fusion/index.js'

@@ -25,7 +25,7 @@ import {
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
-  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll } from './index.js'
+  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll, publicApiRegistry, searchFeed } from './index.js'
 import { unlockBoard } from './unlocks.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
 import { handleOf } from './handle.js'   // THE one derivation of a handle from an address
@@ -52,6 +52,7 @@ import { compileToHexbits } from './hexbit/index.js'   // THE unit computes hexb
  *  theorem waiting to be sealed; a limit without one is an axiom in use. */
 export const MAX_SERVED_QUBITS = 12
 import { depositCandidates, type WaveCandidate } from './wave-deposit.js'   // the wire's door into the conveyor (lead 131)
+import { apiMintHarvest, apiMintDeposit } from './api-mint.js'
 import { ROOT } from './scripts/api.js'  // repo root, edge-guarded (resolves '/' where no node registry exists)
 import { speak, speechCensus } from './speech.js' // what a handle SAYS, read off the sealed walk — no phrase table
 import { schoolApiRegistry, schoolApiFetch, pairEducationToJobs } from './school-apis.js' // the European education APIs behind one door — ESCO / Eurostat / GISCO fetched, OOAPI served
@@ -76,7 +77,7 @@ import { relatedToTheorems } from './quantum/os/related.js' // which packages th
 import { balanceContext } from './quantum/context/index.js' // PURE — the context-window balance by the unit's own spare law
 import { balanceMachine } from './quantum/machine/index.js' // PURE — the same spare law at the metal (self-report in, audit out)
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
-import { gateVerdict, gateSelfTest, registryReceipt, depositCoins, ledgerLine, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate and deposits the two coins
+import { gateVerdict, gateSelfTest, gateStatus, registryReceipt, depositCoins, ledgerLine, messagingEnvelope, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate and deposits the two coins
 import { payment, coinCensus, whoPaid, enrollCrew, type CoinPayment } from './coin-ledger.js' // the captain-coin account + crew enrollment (licences bound to handles)
 import { legalFacts } from './legal.js'
 import { license } from './license.js'
@@ -423,7 +424,7 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: { name: { type: 'string', description: 'a standard or law, e.g. "General Data Protection Regulation" or "ISO 27001"' } }, required: ['name'] },
     run: (a) => auditStandard(String(a.name)) },
   { name: 'uuidna_corroborate',
-    description: 'Corroborate a claim by AUGMENTING the local binary verdict (adjudicate: VERIFIED if a sealed by-decide theorem backs it, else UNVERIFIED — never "false") with EXTERNAL RESEARCH streamed from a free public API (NIST CODATA, no key). Returns {statement,local,evidence,verdict,receipt}: VERIFIED (a sealed proof), CORROBORATED (unverified locally but attested by a named free source), or UNVERIFIED. HONEST SCOPE: external evidence is a provenance fingerprint of what a public source SAYS — it CORROBORATES, it does NOT prove; only a by-decide theorem seals, and no stream can refute a claim. The evidence folds order-invariantly to the receipt; the responses are DATA, never executed. Boundary declared — theorem drift_is_named_or_caught.',
+    description: 'Corroborate a claim by AUGMENTING the local binary verdict (adjudicate: VERIFIED if a sealed by-decide theorem backs it, else UNVERIFIED — never "false") with EXTERNAL RESEARCH from 11 free public hosts. Returns {statement,local,evidence,verdict,receipt,handle,door}: VERIFIED (a sealed proof), CORROBORATED (unverified locally but attested by two independent sources), UNVERIFIED, or UNMEASURED. HONEST SCOPE: external evidence CORROBORATES, it does NOT prove; only a by-decide theorem seals. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: { statement: { type: 'string', description: 'the claim to corroborate, e.g. "the speed of light 299792458"' } }, required: ['statement'] },
     run: (a) => corroborateWithResearch(String(a.statement)) },
   { name: 'uuidna_domain_wave',
@@ -472,6 +473,17 @@ const TOOLS: Tool[] = [
     description: 'SAVE THEOREM CANDIDATES IN ONE CALL (lead 131, the deposit half of the loop): pass {candidates:[{key,why,lean}]} and each is validated at the conveyor\'s OWN door (the same laws queue-wave enforces: lawful key, real why, `by decide` only, no sorry/axiom, no dupes); the lawful land in lean/wave-queue.json pending, where the resident wave probes each alone, the KERNEL the judge. HONEST: the deposit buys VALIDATION and QUEUEING, never a seal (theorem provenance_integrity_not_content_truth) — refusals return with reasons named; a validated candidate is PENDING until the kernel speaks. Host-side only (no filesystem at the edge — capability, declared). Returns {deposited,refused,pending,receipt,honest}.',
     inputSchema: { type: 'object', properties: { candidates: { type: 'array', description: 'the candidates, each {key, why, lean}', items: { type: 'object', properties: { key: { type: 'string' }, why: { type: 'string' }, lean: { type: 'string' } }, required: ['key', 'why', 'lean'] } } }, required: ['candidates'] },
     run: (a) => depositCandidates(a.candidates as WaveCandidate[], ROOT + '/lean/wave-queue.json') },
+  { name: 'uuidna_api_mint',
+    description: 'FREE MINT from every wired public API: omit {query} for the catalog (pure, hexbit door); pass {query} to harvest decidable fragments; {deposit:true} queues pending (host-side). Evidence never auto-seals — only the kernel mints (theorem minting_is_free_and_forging_is_not). Returns catalog or {query,evidence,sources,mintable,candidates,receipt,door,deposit?,honest}.',
+    detail: 'No query → publicApiRegistry() (pure, edge-safe). With query, fans out to research (11 hosts), EU education (ESCO, Eurostat, data.europa, GISCO, CORDIS, TED), weather (Open-Meteo, NOAA tides), and news (Wikinews) via collectApiEvidence; mintLeadsFromText + decide() at zero cost; TRUE-and-unsealed fragments become wave candidates. Deposit writes lean/wave-queue.json or refuses by name when the runtime has no filesystem.',
+    inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'topic to ask every API; omit for the catalog' }, deposit: { type: 'boolean', description: 'queue lawful candidates pending (host-side)' } } },
+    run: async (a) => {
+      const q = a.query === undefined ? '' : String(a.query)
+      if (!q.trim()) return publicApiRegistry()
+      return a.deposit === true
+        ? apiMintDeposit(q, ROOT + '/lean/wave-queue.json')
+        : apiMintHarvest(q)
+    } },
   { name: 'uuidna_audit_record',
     description: 'Fetch an OPEN-ACCESS Zenodo research record by id (via the public Zenodo REST API, developers.zenodo.org, no key) and content-address its PUBLIC metadata — title, DOI, creators, date — to a recomputable provenance fingerprint + structure + honesty gate. HONEST AND BOUNDED: it fingerprints the public metadata only, NOT the deposited files or their content, which uuidna does not fetch or reproduce. A check digit and a uuid are the same idea at different scales. Returns the audit + the DOI. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: { recordId: { type: 'integer', description: 'a Zenodo record id, e.g. 1234567' } }, required: ['recordId'] },
@@ -1029,6 +1041,11 @@ const TOOLS: Tool[] = [
     description: 'THE FUSED SEARCH — the ONE search function every surface runs (this server, the edge /mcp, and the site\'s search page in your browser): filter the sealed ledger by text, fold the matched keys to ONE receipt. Two independent parties running the same query MUST return the same receipt — dual-party verification applied to search; a differing receipt exposes a diverged ledger. Returns {q,count,total,receipt,matches}.',
     inputSchema: { type: 'object', properties: { q: { type: 'string', description: 'the text to search — key, name, statement, principle, skill' } }, required: ['q'] },
     run: (a: Record<string, unknown>) => searchLedger(String(a.q)) },
+  { name: 'uuidna_search_feed',
+    description: 'MOST-SEARCHED QUERIES RING THE LEDGER. Zero-arg: loud theorems are `/theorem/<key>` doors; silence and unsealed harvest are leads. Meaning is null. Returns {meaning,results,leads,silent,receipt,handle,door,honest}. Boundary declared — theorem drift_is_named_or_caught.',
+    detail: 'MOST-SEARCHED ONLINE FEEDS LEAN LEADS, WHICH FEED ONLINE RESULTS. The declared corpus (Similarweb / Year in Search) PLUS the wired public-API probes (research streams, EU education portals — ESCO, data.europa, CORDIS — MathOverflow unanswered math arrives on the online mill) ring the sealed ledger by resonance. Loud theorems are the ONLINE DOORS (`/theorem/<key>`). Silent queries and harvest decide() confirms but the ledger does not seal are LEADS the desk proposes — never auto-held, never auto-sealed. Meaning is null. Live titles ride searchFeedOnline / gen-search-feed --online (stdio + research desk), not this edge-safe floor. Same corpus, same receipt.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => searchFeed() },
   { name: 'uuidna_article',
     description: 'THE DESK WRITES — the computed article for one wing of the ledger (writing is computing, never authoring): headline from the principle, one claim per theorem, every claim born citing its sealed /theorem page. Returns {file,slug,title,count,claims:[{key,name,statement,cite}]}. Recomputable from the same ledger.',
     inputSchema: { type: 'object', properties: { file: { type: 'string', description: 'the wing, e.g. "Legal.lean" or "MoMBHStar1.lean"' } }, required: ['file'] },
@@ -1042,7 +1059,7 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: {} },
     run: () => publicationStatus() },
   { name: 'uuidna_search_trial',
-    description: 'ONLINE — THE SEARCH ON TRIAL for one wing: every research source (NIST, Zenodo, CrossRef) queried in parallel about the wing\'s principle; each finding content-addressed and tried — ALONE it stays UNVERIFIED (external evidence, never approval), held BESIDE the wing\'s sealed backing the combination VERIFIES. Only a Lean seal approves. Returns {file,principle,sealed,findings,usable,receipt}.',
+    description: 'ONLINE — THE SEARCH ON TRIAL for one wing: every wired public API (research sweep, arXiv, MathOverflow, Wikipedia, Gutendex, Open-Meteo, Wikinews, EU education, weather, news) queried about the wing\'s principle; each finding content-addressed and tried — ALONE it stays UNVERIFIED (external evidence, never approval), held BESIDE the wing\'s sealed backing the combination VERIFIES. Decidable fragments harvest FREE-MINT leads via decide(). Only a Lean seal approves. Returns {file,principle,sealed,findings,usable,novel,receipt}.',
     inputSchema: { type: 'object', properties: { file: { type: 'string', description: 'the wing, e.g. "Quantum.lean"' } }, required: ['file'] },
     run: (a: Record<string, unknown>) => searchTrialFor(String(a.file)) },
   { name: 'uuidna_vies',
@@ -1094,9 +1111,14 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: {} },
     run: () => mcpSelfTest() },
   { name: 'uuidna_gate_status',
-    description: 'THE GATE PROVES ITSELF, live against the sealed spec: every served tools/call passes the conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — f the input-sanitize bit, d the output-sanitize bit, v the honesty bit (a fabricated theorem citation, slimGate) — and this tool recomputes the eight-state verdict table and REQUIRES it to equal both the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle): clean at exactly the no-violation state (theorem honesty_gate_passes_iff_all_sealed), one flag drains all (theorem conformance_failure_detects_intrusion). The runtime gate cannot drift from the ledger without matchesSealedSpec turning false. Also folds the whole registry to its ORDER-INVARIANT identity receipt (the same for any tool ordering). Returns {table,sealedTable,matchesSealedSpec,cleanStates,drainedStates,tools,registry,cites,receipt}.',
-    inputSchema: { type: 'object', properties: {} },
-    run: () => gateSelfTest(TOOLS.map((t) => t.name)) },
+    description: 'Gate self-test: eight-state verdict table vs sealed spec, registry receipt. Pass {messaging:true} for coordinated health (witness, wire budget, session census). Boundary declared — theorem drift_is_named_or_caught.',
+    detail: 'THE GATE PROVES ITSELF, live against the sealed spec: every served tools/call passes the conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — f the input-sanitize bit, d the output-sanitize bit, v the honesty bit (a fabricated theorem citation, slimGate) — and this tool recomputes the eight-state verdict table and REQUIRES it to equal both the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle). With {messaging:true}: ledger messaging totality witness, MCP wire within budget, this process\'s coin census and receipt-chain tip — poll to monitor; pair with uuidna_coin_ledger for WHO paid.',
+    inputSchema: { type: 'object', properties: { messaging: { type: 'boolean', description: 'include messaging witness, wire budget headroom, session coin census' } } },
+    run: (a) => {
+      if (!a.messaging) return gateSelfTest(TOOLS.map((t) => t.name))
+      const s = messagingSession()
+      return gateStatus(TOOLS.map((t) => t.name), { surface: 'stdio', wireTools: TOOLS, payments: s.payments, receiptSeq: s.receiptSeq, receiptTip: s.receiptTip, agent: s.agent })
+    } },
   // ── the bidirectional channel — the uuid stream IS the medium. SEND = encrypt (7d secrecy) then imprint the
   //    sealed envelope INTO a uuid chain; RECEIVE = read the uuid chain then decrypt. One side per direction; the
   //    seven dimension streams each carry both ways; the wrong key never opens it (the pattern the 777 tests seal). ──
@@ -1326,7 +1348,7 @@ const INSTRUCTIONS = [
   'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_trial (ONE answer: VERIFIED or UNVERIFIED, all else void), uuidna_run_ledger (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
   'Honest scope, always demarcated: receipts and content-addresses are NON-crypto FNV (integrity/routing, not secrecy, not a binding commitment); secrecy is ChaCha20-Poly1305 only; the quantum tools are EXACT classical simulation (no advantage), not hardware; nothing is infinite or unbreakable. A claim is either linked to a sealed theorem or refused. Integrity, not truth (theorem provenance_integrity_not_content_truth).',
   'EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS — contribute first, then take, enforced by the protocol. Each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) (input sanitized, output sanitized, no fabricated theorem citation; one violation drains the verdict, named) and mints its deterministic two-coin deposit, the id the content-address of its own deposit statement, always citing theorem captain_commission_two_coins and theorem two_coins. Your first call has already contributed.',
-  'Every result is TWO content blocks: the answer, then ONE ledger line — `gate CLEAN|DRAINED f d v · <gate receipt> · deposit 2 · <deposit id> · receipt <receipt> · seq <n>`. Those ids are the whole audit; the constants behind them (the two deposit theorems above) and the referer (the PRIOR receipt) are not re-sent per call, and full detail stays in _meta. Recompute the gate against its sealed spec any time: uuidna_gate_status (theorem anti_fraud_check_deterministic).',
+  'Every result is TWO content blocks: the answer, then ONE ledger line — `gate CLEAN|DRAINED f d v · <gate receipt> · deposit 2 · <deposit id> · receipt <receipt> · seq <n>`. Those ids are the whole audit; the constants behind them (the two deposit theorems above) and the referer (the PRIOR receipt) are not re-sent per call, and full detail stays in _meta.messaging (gate, deposit, hexbits, ledger, receipt chain). Multi-agent coordination: declare clientInfo.name at initialize, hold the receipt chain, poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. Recompute the gate: uuidna_gate_status (theorem anti_fraud_check_deterministic).',
 ].join(' ')
 
 interface RpcParams { protocolVersion?: string; name?: string; arguments?: Record<string, unknown>; [k: string]: unknown }
@@ -1376,6 +1398,11 @@ const PAYMENTS: CoinPayment[] = []
  *  rendered as a clean result is. */
 export function recordPayment(op: string, surface: string, depositId: string, agent: string = PAYING_AGENT): void {
   PAYMENTS.push(payment(agent, op, surface, depositId))
+}
+
+/** messagingSession — the stdio session's coordinated state (receipt chain + coin account). Edge isolates hold none. */
+export function messagingSession(): { agent: string; payments: readonly CoinPayment[]; receiptSeq: number; receiptTip: string } {
+  return { agent: PAYING_AGENT, payments: PAYMENTS, receiptSeq: rSeq, receiptTip: rTip }
 }
 // the dispatch chain — gated calls serialize on it (one writer, one chain; see the dispatch comment)
 let DISPATCH: Promise<void> = Promise.resolve()
@@ -1441,7 +1468,13 @@ function handle(msg: RpcMessage) {
           // both surfaces have it and it is the address of THIS judged call, so the states are of the answer
           // rather than of the tool. holofractal.ts holds the principle: a blanket "every I/O is …" adjudicates
           // UNVERIFIED, so the property is COMPUTED per response and a test walks the whole catalogue to show it.
-          _meta: { ...rec, gate: g.gate, deposit: dep, hexbits: compileToHexbits(g.gate.receipt) },
+          _meta: {
+            ...rec,
+            gate: g.gate,
+            deposit: dep,
+            hexbits: compileToHexbits(g.gate.receipt),
+            messaging: messagingEnvelope({ surface: 'stdio', gate: g.gate, deposit: dep, hexbits: compileToHexbits(g.gate.receipt), receipt: rec }),
+          },
           ...(g.gate.clean ? {} : { isError: true }),
         })
       })
@@ -1520,7 +1553,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^link_book$/, 'Book → sealed-ledger linkage', 'measure'],
   [/^selftest$/, 'MCP self-test (recomputable contract)', 'measure'],
   [/^energy_/, 'DIY energy yield (ceiling first, integer brackets, refuses over-unity)', 'energy'],
-  [/^(research|research_ledger|rosetta_legs)$/, 'Deep research & the evidence census (how well a claim is anchored)', 'research'],
+  [/^(research|research_ledger|rosetta_legs|search_feed)$/, 'Deep research & the evidence census (how well a claim is anchored)', 'research'],
 ]
 const categoryOf = (name: string): [string, string] => {
   const key = name.replace(/^uuidna_/, '')

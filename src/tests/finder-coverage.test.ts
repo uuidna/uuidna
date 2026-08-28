@@ -35,6 +35,7 @@ const ON_DEMAND: Record<string, string> = {
   skills: 'asks whether a sealed skill is reachable through a dispatch; the stdio/edge pair is held by skill-surface.test.ts — runs in npm run audit (one-receipt skills)',
   micro: 'reads the BUILT site\'s JSON-LD, which a pre-reconcile gate has no reason to require built — runs in npm run audit (one-receipt micro)',
   sources: 'demands a named authority for an empirically measured quantity — right for a wing that reads the world, and exactly wrong as a gate on a wing that reads only arithmetic',
+  leanNegation: 'flags object-level negation comments without discharge beneath the Lean line; NOT a blocking guard — first run flooded false positives (lexical claim-vs-name), runs on demand via one-receipt lean-negation and state finder',
 }
 
 test('every finder one-receipt exports is wired: blocking in the guard, advisory with a reason, or on-demand with why', () => {

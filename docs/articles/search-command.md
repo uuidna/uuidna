@@ -17,14 +17,14 @@ the hard gate of the corroboration law.
 | `f2fe0517` | zenodo.org | zenodo record 18348666: Before the Thruster Fires: Securing European Space Infrastructure at the Moment  | UNVERIFIED | VERIFIED |
 | `40e47741` | zenodo.org | zenodo record 13942717: njublockchain/web3research-etl: v0.0.1 | UNVERIFIED | VERIFIED |
 | `9e2f85ab` | zenodo.org | zenodo record 14599182: njublockchain/web3research-py: v0.0.9 | UNVERIFIED | VERIFIED |
-| `ec5f803a` | zenodo.org | zenodo record 3987013: Comparative Study on Outcomes of Medical Management versus Combined Surgical and | UNVERIFIED | VERIFIED |
 | `bb3f0afb` | zenodo.org | zenodo record 11078206: Security and Secrets Management: Integration of Security Tools like Vault and Se | UNVERIFIED | VERIFIED |
+| `ec5f803a` | zenodo.org | zenodo record 3987013: Comparative Study on Outcomes of Medical Management versus Combined Surgical and | UNVERIFIED | VERIFIED |
 | `0c8b9b68` | zenodo.org | zenodo record 18345701: Systems and Methods for Anti-Coercion Satellite Command Execution Using Authorit | UNVERIFIED | VERIFIED |
-| `51843850` | zenodo.org | zenodo record 18689472: Hardware-Rooted Space Security: Cryptographically Isolated Execution Authority E | UNVERIFIED | VERIFIED |
 | `57ea53f7` | zenodo.org | zenodo record 6363490: Magnetic susceptibility-weighted imaging mapped the migratory route of a paragon | UNVERIFIED | VERIFIED |
+| `51843850` | zenodo.org | zenodo record 18689472: Hardware-Rooted Space Security: Cryptographically Isolated Execution Authority E | UNVERIFIED | VERIFIED |
 | `5024c4a3` | crossref.org | DOI 10.17487/rfc1734: POP3 AUTHentication command | UNVERIFIED | VERIFIED |
-| `d7169450` | crossref.org | DOI 10.32920/ryerson.14656188: Continuous Authentication Based On Learning User Command Sequence | UNVERIFIED | VERIFIED |
 | `a079da7c` | crossref.org | DOI 10.32920/ryerson.14656188.v1: Continuous Authentication Based On Learning User Command Sequence | UNVERIFIED | VERIFIED |
+| `d7169450` | crossref.org | DOI 10.32920/ryerson.14656188: Continuous Authentication Based On Learning User Command Sequence | UNVERIFIED | VERIFIED |
 | `29909364` | crossref.org | DOI 10.1109/isgt-asia.2019.8881793: On Optimization of Command-Delaying for Advanced Command Authentication in Smart | UNVERIFIED | VERIFIED |
 | `c9cd5bb3` | crossref.org | DOI 10.1109/tencon.2002.1181235: A CCSDS command authentication scheme | UNVERIFIED | VERIFIED |
 | `03689641` | crossref.org | DOI 10.1109/ises67504.2025.00087: Secure Command Authentication for Drone Control Using ECDSA | UNVERIFIED | VERIFIED |
@@ -35,11 +35,60 @@ the hard gate of the corroboration law.
 | `5f9ceee0` | openalex.org | OpenAlex Command authentication via faster than real time simulation [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `660706cc` | openalex.org | OpenAlex Securing Substations through Command Authentication Using On-the-fly S [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `d63d7165` | openalex.org | OpenAlex Data Attack Detection and Command Authentication via Cyber-Physical Co [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
-| `0819455e` | openalex.org | OpenAlex On Optimization of Command-Delaying for Advanced Command Authenticatio [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `817b81b5` | openalex.org | OpenAlex Authentication in distributed systems [Security and Verification in C] | UNVERIFIED | VERIFIED |
+| `0819455e` | openalex.org | OpenAlex On Optimization of Command-Delaying for Advanced Command Authenticatio [Smart Grid Security and Resili] | UNVERIFIED | VERIFIED |
 | `54539ed2` | openalex.org | OpenAlex An Efficient Real-Time Broadcast Authentication Scheme for Command and [Security in Wireless Sensor Ne] | UNVERIFIED | VERIFIED |
+| `4d5e6555` | arxiv.org | arXiv 1002.1160v1: Towards Public Key Infrastructure less authentication in Session Initiation Prot | UNVERIFIED | VERIFIED |
+| `d9971724` | arxiv.org | arXiv 2508.19465v1: Addressing Weak Authentication like RFID, NFC in EVs and EVCs using AI-powered A | UNVERIFIED | VERIFIED |
+| `cb5030f4` | arxiv.org | arXiv 2008.07795v1: Evaluation of Risk-based Re-Authentication Methods | UNVERIFIED | VERIFIED |
+| `72599741` | arxiv.org | arXiv 2405.14987v2: Simultaneous quantum identity authentication scheme utilizing entanglement swapp | UNVERIFIED | VERIFIED |
+| `912a94d5` | arxiv.org | arXiv 1708.08189v1: An IoT Real-Time Biometric Authentication System Based on ECG Fiducial Extracted | UNVERIFIED | VERIFIED |
+| `dd26ee05` | arxiv.org | arXiv 1802.01719v1: Cross-Layer Authentication Protocol Design for Ultra-Dense 5G HetNets | UNVERIFIED | VERIFIED |
+| `51fdf865` | arxiv.org | arXiv 1904.08800v2: Privacy-Enhancing Context Authentication from Location-Sensitive Data | UNVERIFIED | VERIFIED |
+| `e8f867e1` | arxiv.org | arXiv 2112.04234v1: A short review on quantum identity authentication protocols: How would Bob know  | UNVERIFIED | VERIFIED |
+| `4e312be1` | en.wikipedia.org | Wikipedia: Basic access authentication | UNVERIFIED | VERIFIED |
+| `c36fefd3` | en.wikipedia.org | Wikipedia: SMTP Authentication | UNVERIFIED | VERIFIED |
+| `9b9c9bbb` | en.wikipedia.org | Wikipedia: Digest access authentication | UNVERIFIED | VERIFIED |
+| `c3fa55a9` | en.wikipedia.org | Wikipedia: DMARC | UNVERIFIED | VERIFIED |
+| `77ae79da` | en.wikipedia.org | Wikipedia: On-Demand Mail Relay | UNVERIFIED | VERIFIED |
+| `b20dca9c` | en.wikipedia.org | Wikipedia: Passwd | UNVERIFIED | VERIFIED |
+| `27ebd05f` | en.wikipedia.org | Wikipedia: Kerberos (protocol) | UNVERIFIED | VERIFIED |
+| `477d2935` | en.wikipedia.org | Wikipedia: Simple Authentication and Security Layer | UNVERIFIED | VERIFIED |
+| `fa952783` | en.wikinews.org | Wikinews: Standard Operating Procedure changes at Camp Delta, Guantanamo Bay | UNVERIFIED | VERIFIED |
+| `e1527f15` | esco | {"source":"esco","address":"cf6d241f-0736-87cc-b109-df6b3466368a","uri":"http://data.europa.eu/esco/skill/613a3233-31e5-4c9e-842f-92e2a6b5d7a1","title":"give battle commands","conceptType":"Skill"}
+{"source":"esco","address":"ae5b9453-0180-890c-ba71-1499d4a5d3cd","uri":"http://data.europa.eu/esco/skill/ab49f767-296b-47d5-af56-0b4a69515b03","title":"maintain ICT identity management","conceptType":"Skill"}
+{"source":"esco","address":"88b94e88-34c2-8b28-bf5b-74135c7e9680","uri":"http://data.europa.eu/esco/skill/2af29864-c941-40a5-ae7b-2b6c4b92c0d7","title":"speech recognition","conceptType":"Skill"}
+{"source":"esco","address":"4909b406-fe84-8ef5-b51b-99edcb512edd","uri":"http://data.europa.eu/esco/skill/5da73370-f6b9-417d-a94c-09bf01f84aa2","title":"use access control software","conceptType": | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `edc194c3` | data-europa | {"source":"data-europa","address":"52080ccf-724c-8c64-a430-537226b0072a","id":"https-data-issy-com-explore-dataset-data-commande-publique-ilm-","title":"Données essentielles de la commande publique - Marchés publics","country":"France","catalogue":"plateforme-ouverte-des-donnees-publiques-francaises"}
+{"source":"data-europa","address":"2e8ced64-eaa4-8d19-b4ee-6828b75de91b","id":"6756b5d8b860bca4a985e633","title":"Avatar: plate-forme publique des données de trafic des gestionnaires routiers","country":"France","catalogue":"plateforme-ouverte-des-donnees-publiques-francaises"}
+{"source":"data-europa","address":"56f1edb8-ce59-8185-ae3d-9aa1c8b810c5","id":"0bbf64ab-c992-4ec9-b27c-4d0b193c4854","title":"Authentication","country":"Latvia","catalogue":"data-gov-lv"}
+{"source":"data-europa","addre | UNVERIFIED | VERIFIED |
+| `b740df72` | open-meteo-forecast | temperature_2m_c 21.7 °C
+wind_speed_10m_kmh 2 km/h
+pressure_hpa 957.1 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `ed49c1c6`** (fold of every finding's address — recompute by re-running the search).
+**54 findings · 54 usable search-trial combinations · receipt `808ebe64`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -57,4 +106,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

@@ -12,7 +12,7 @@
 // report carries its own content-address so anyone can recompute it.
 import { toUuid } from '../../address.js'
 import { contentWords } from '../../adjudicate.js'
-import { defaultInstalls, installFor, compileToHexbits } from '../os/index.js'
+import { defaultInstalls, installFor, hexbitDoorOf } from '../os/index.js'
 import { catalogueFor, catalogueCompile } from '../os/catalogue.js'
 
 export interface UrlAuditMatch {
@@ -115,7 +115,7 @@ export function auditUrl(path: string, context?: { pages?: { route: string; text
   return {
     path: clean, tokens, matches: sorted,
     address: toUuid('url-audit|' + clean + '|' + sorted.map((m) => m.kind + ':' + m.link).join(',')),
-    hexbits: compileToHexbits(toUuid('url|' + clean)),
+    ...hexbitDoorOf(toUuid('url|' + clean)),
     honest: HONEST,
   }
 }

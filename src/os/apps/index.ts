@@ -30,7 +30,7 @@
 // fabricated checksum.
 import { uuidnaPackage, untarMember, untarGzipMember, type UuidnaPackage } from '../packages/index.js'
 import { theorems } from '../../theorems/index.js'
-import { compileToHexbits, UUID_HEXBITS } from '../../hexbit/index.js'
+import { hexbitDoorOf, UUID_HEXBITS } from '../../hexbit/index.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { toUuid } from '../../address.js'
 
@@ -147,7 +147,7 @@ export function portApp(p: IndexPackage, repo: string, branch: string, arch: str
     theorem: w ? w.key : null,
     theoremAddress: w ? w.address : null,
     why: w && h ? h.why : null,
-    hexbits: compileToHexbits(base.address),
+    ...hexbitDoorOf(base.address),
   }
 }
 

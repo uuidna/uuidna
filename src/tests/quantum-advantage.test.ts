@@ -9,6 +9,10 @@
 // fail — the last one fails the moment somebody writes `opNs` where `opNsDecade` belongs.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from '../boundary.js'
+import { theoremByKey } from '../index.js'
 import {
   advantageRows, advantageReport, LEVELS, REPORTED_BASELINE, ratioHundredths, renderHundredths,
   decadesAgree, spreadHundredths, marginOf,
@@ -102,6 +106,7 @@ test('the baseline is REPORTED and its expectation is COMPUTED from the same op 
   // 1000 errors per million over 12000 operations
   assert.equal(r.fidelity.baselineExpected, 12)
   assert.equal(REPORTED_BASELINE.errorsPerMillion, 1000)
+  assert.match(REPORTED_BASELINE.source, /gate_error_baseline_class/)
 })
 
 test('EVERY ROW CITES A SEALED THEOREM BY KEY, so the gate can read the claim it publishes', () => {
@@ -174,4 +179,13 @@ test('the integer ratio helpers hold no float', () => {
   assert.equal(renderHundredths(400), '4.00')
   assert.equal(renderHundredths(405), '4.05')
   assert.equal(ratioHundredths(1, 0), 0, 'a zero denominator answers 0 rather than throwing or returning Infinity')
+})
+
+test('honesty is sealed Lean algebra — nothing in the quantum advantage class stays held', () => {
+  const byKey = theoremByKey()
+  for (const k of ['served_qubit_ceiling', 'gate_error_baseline_class']) {
+    assert.ok(byKey.has(k), `${k} must be a sealed theorem — holding it as an exposed axiom is not honesty`)
+  }
+  const exposed = JSON.parse(readFileSync(join(ROOT, 'lean', 'exposed-axioms.json'), 'utf8')) as { held: unknown[] }
+  assert.equal(exposed.held.length, 0, 'decidable algebra is sealed, never parked in exposed-axioms held[]')
 })

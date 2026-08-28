@@ -1,12 +1,12 @@
 ---
-title: "The search on trial: lean/Reversal.lean"
+title: "The search on trial: The reversal"
 description: "The quantum search's findings for this wing, each held at trial — evidence corroborated, never approved; only a Lean seal approves."
 ---
 
-# The search on trial: lean/Reversal.lean
+# The search on trial: The reversal
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *lean/Reversal.lean* — the wing sealed in [lean/Reversal.lean](/lean/Reversal.lean) with **6 theorems**. Each
+asked in parallel about *The reversal* — the wing sealed in [lean/Reversal.lean](/lean/Reversal.lean) with **6 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -14,25 +14,80 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `ae48480b` | crossref.org | DOI 10.1016/s0123-5923(07)70026-8: MEDICIÓN EN LEAN MANUFACTURING: RELACIONES ENTRE ACTIVIDADES LEAN Y MÉTRICAS LEA | UNVERIFIED | VERIFIED |
-| `19a536ed` | crossref.org | DOI 10.1002/9781119271703.ch4: Lean Enterprise vs. Lean Manufacturing | UNVERIFIED | VERIFIED |
-| `c6cc659b` | crossref.org | DOI 10.56238/revgeov16n5-155: DO LEAN AO LEAN 4.0: UMA REVISÃO CRÍTICA DO LEAN THINKING NA GESTÃO EMPRESARIAL  | UNVERIFIED | VERIFIED |
-| `7e31cf18` | crossref.org | DOI 10.5040/9781350891289: Pitcher's Lean | UNVERIFIED | VERIFIED |
-| `00a4f0a7` | crossref.org | DOI 10.1201/b15730-6: The Economics of Lean | UNVERIFIED | VERIFIED |
-| `87674b6c` | crossref.org | DOI 10.4324/9781420080971-12: Leading a Lean Operation | UNVERIFIED | VERIFIED |
-| `8c228c78` | crossref.org | DOI 10.1002/9781119271703.ch8: The Lean Mindset | UNVERIFIED | VERIFIED |
-| `954af3ae` | crossref.org | DOI 10.5772/intechopen.97573: Introduction to Lean Waste and Lean Tools | UNVERIFIED | VERIFIED |
-| `54e823ad` | semanticscholar.org | S2 Achieving operational excellence in manufacturing supply cha | UNVERIFIED | VERIFIED |
-| `1dce47f6` | semanticscholar.org | S2 Continuous improvement through Lean Six Sigma: a systematic  | UNVERIFIED | VERIFIED |
-| `1590386b` | semanticscholar.org | S2 Linkages between lean six sigma, green manufacturing, circul | UNVERIFIED | VERIFIED |
-| `974b8329` | semanticscholar.org | S2 Selection of Industry 4.0 technologies for Lean Six Sigma in — AI tldr: The research reveals that key technologies such as modeling and simulation, artificial int | UNVERIFIED | VERIFIED |
-| `5e99dc2c` | semanticscholar.org | S2 Hybrid innovation models for productivity growth: the role o | UNVERIFIED | VERIFIED |
-| `9ce7d1db` | semanticscholar.org | S2 Unveiling the nexus of Industry 4.0 and Lean Six Sigma for s | UNVERIFIED | VERIFIED |
-| `c4f5ab79` | semanticscholar.org | S2 Enhancing chronic care pathways with Health Lean Management: — AI tldr: This paper enriches the theoretical knowledge about HLM, extending its typical field of ap | UNVERIFIED | VERIFIED |
-| `43a8bb79` | semanticscholar.org | S2 Lean implementation case study for manual order picking and  | UNVERIFIED | VERIFIED |
-| `ecf493fe` | openalex.org | OpenAlex Assessment of Charge Dilution Strategies to Reduce Fuel Consumption in [Advanced Combustion Engine Tec] | UNVERIFIED | VERIFIED |
+| `ba188e55` | zenodo.org | zenodo record 3893489: Russia: the Parameters of Development  (an Overview of the Panel Discussion "Rus | UNVERIFIED | VERIFIED |
+| `ed7d9ebf` | zenodo.org | zenodo record 5407282: Figure 30 in Early Palaeogene Louisinidae (Macroscelidea, Mammalia), their relat | UNVERIFIED | VERIFIED |
+| `922df819` | zenodo.org | zenodo record 5407280: Figure 29 in Early Palaeogene Louisinidae (Macroscelidea, Mammalia), their relat | UNVERIFIED | VERIFIED |
+| `9786b126` | zenodo.org | zenodo record 15825249: The Silent Reversal | UNVERIFIED | VERIFIED |
+| `e4f8310c` | zenodo.org | zenodo record 1274684: Dynamic Lane Reversal in Traffic Management | UNVERIFIED | VERIFIED |
+| `beadab89` | zenodo.org | zenodo record 14811124: Histopathological features of reversal reactions in Morbus Hansen | UNVERIFIED | VERIFIED |
+| `f305ce49` | zenodo.org | zenodo record 4407202: REVERSING TYPE 2 DIABETES (T2D): A NARRATIVE REVIEW OF THE EVIDENCE. | UNVERIFIED | VERIFIED |
+| `1818fa6b` | zenodo.org | zenodo record 15466809: FIG. 3. Strict consensus tree obtained from a in Taxonomy of the Genus Phymasper | UNVERIFIED | VERIFIED |
+| `f8d6c15d` | crossref.org | DOI 10.1007/springerreference_57903: Sorting Signed Permutations by Reversal (Reversal Sequence), 2004; Tannier, Sago | UNVERIFIED | VERIFIED |
+| `6b363bd2` | crossref.org | DOI 10.1007/springerreference_57902: Sorting Signed Permutations by Reversal (Reversal Distance), 2001; Bader, Moret, | UNVERIFIED | VERIFIED |
+| `7b980179` | crossref.org | DOI 10.58837/chula.the.2015.1938: Mutidrug resistance reversal (MDR Reversal) of rhinacanthin-c in mcf-7 cells | UNVERIFIED | VERIFIED |
+| `5e1d4cef` | crossref.org | DOI 10.4324/9780203479063-5: Getting started with reversal theory | UNVERIFIED | VERIFIED |
+| `1350ddfb` | crossref.org | DOI 10.1007/978-3-030-01210-6_9: Factorization of Wigner Time-Reversal Operator and Reduction of Time-Reversal Sy | UNVERIFIED | VERIFIED |
+| `8740b8b8` | crossref.org | DOI 10.7763/ijet.2011.v3.256: Reversal Mode of Thermally Assisted Magnetization Reversal on Perpendicularly Ma | UNVERIFIED | VERIFIED |
+| `b3f1da67` | crossref.org | DOI 10.4324/9780203479063-9: Counselling athletes with inappropriate reversal problems | UNVERIFIED | VERIFIED |
+| `b4c57096` | crossref.org | DOI 10.1007/978-981-16-3235-8_3: Linear Time-Reversal Acoustics | UNVERIFIED | VERIFIED |
+| `187a4049` | arxiv.org | arXiv 1401.3736v2: `Gauging' time reversal symmetry in tensor network states | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `955f2a61` | arxiv.org | arXiv 2605.01052v1: Entropic Reciprocity in Time-Reversed Young Interferometry | UNVERIFIED | VERIFIED |
+| `8db49af7` | arxiv.org | arXiv 2311.07468v3: An Analysis and Mitigation of the Reversal Curse | UNVERIFIED | VERIFIED |
+| `69944a11` | arxiv.org | arXiv 9505084v1: MAGNETISATION REVERSAL AND DOMAIN STRUCTURE IN THIN MAGNETIC FILMS: THEORY AND C | UNVERIFIED | VERIFIED |
+| `9d71d786` | arxiv.org | arXiv 1110.5504v3: Centrifugal force reversal from the perspective of rigidly rotating observer | UNVERIFIED | VERIFIED |
+| `17729098` | arxiv.org | arXiv 1005.0158v1: Elastic Time Reversal Mirror Experiment in a Mesoscopic Natural Medium at the Lo | UNVERIFIED | VERIFIED |
+| `11d54ee1` | arxiv.org | arXiv 1406.7182v2: Testing Time Reversal Symmetry in Artificial Atoms | UNVERIFIED | VERIFIED |
+| `6f9e6998` | en.wikipedia.org | Wikipedia: Reversal | UNVERIFIED | VERIFIED |
+| `2cc26cd3` | en.wikipedia.org | Wikipedia: The Reversal | UNVERIFIED | VERIFIED |
+| `7c01eb9a` | en.wikipedia.org | Wikipedia: Geomagnetic reversal | UNVERIFIED | VERIFIED |
+| `79e8eb91` | en.wikipedia.org | Wikipedia: Reversal of Fortune | UNVERIFIED | VERIFIED |
+| `20c085d4` | en.wikipedia.org | Wikipedia: Risk reversal | UNVERIFIED | VERIFIED |
+| `ee08d58d` | en.wikipedia.org | Wikipedia: Reversal film | UNVERIFIED | VERIFIED |
+| `4b08b627` | en.wikipedia.org | Wikipedia: Role reversal | UNVERIFIED | VERIFIED |
+| `a8cfab58` | en.wikipedia.org | Wikipedia: Reversal test | UNVERIFIED | VERIFIED |
+| `8d2d5a40` | en.wikinews.org | Wikinews: Court ruling upholds expulsion of New York Senator convicted of assault | UNVERIFIED | VERIFIED |
+| `7aa346bc` | en.wikinews.org | Wikinews: Crucifixes can be displayed in state schools, European court rules | UNVERIFIED | VERIFIED |
+| `3103037b` | en.wikinews.org | Wikinews: President of South Korea declares and lifts martial law | UNVERIFIED | VERIFIED |
+| `8f90b3da` | en.wikinews.org | Wikinews: Australian government commits more troops to Iraq | UNVERIFIED | VERIFIED |
+| `c8cc9aa3` | en.wikinews.org | Wikinews: Premature aging disease reversed in cells | UNVERIFIED | VERIFIED |
+| `12934732` | en.wikinews.org | Wikinews: U.S. warships temporarily denied entry to Hong Kong | UNVERIFIED | VERIFIED |
+| `9dfa61bb` | en.wikinews.org | Wikinews: US appeals court rejects bid from expelled New York Senator convicted of assault | UNVERIFIED | VERIFIED |
+| `008a3ff0` | en.wikinews.org | Wikinews: Microsoft announces new security software, new version of Internet Explorer | UNVERIFIED | VERIFIED |
+| `2dad6294` | esco | {"source":"esco","address":"d946ff7f-0947-8843-b9bd-805ba148984b","uri":"http://data.europa.eu/esco/skill/a7a14be2-78b5-4b4a-ba77-2658285e2756","title":"apply reverse engineering","conceptType":"Skill"}
+{"source":"esco","address":"3dd81116-7e99-8989-be56-38c57bcdcb65","uri":"http://data.europa.eu/esco/skill/2aa8d1eb-4c9f-4ba8-bb53-e35ed36fb14b","title":"exercise physiology","conceptType":"Skill"}
+{"source":"esco","address":"ec3b4d1d-4a75-86e4-8f9b-89a115a108e1","uri":"http://data.europa.eu/esco/skill/58783f72-5098-4807-b1d1-954ec2ae94c4","title":"Backbox (penetration testing tool)","conceptType":"Skill"}
+{"source":"esco","address":"cc828f6e-83fc-824c-8635-4b0621c6e021","uri":"http://data.europa.eu/esco/skill/58287dcf-66a1-4023-b35b-b859242162aa","title":"work in restoration team","conceptT | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `2e89d7c1` | data-europa | {"source":"data-europa","address":"6890e659-bb1a-822f-95be-c9d1bddffbe8","id":"wuedata-10-58160-9q99u58jb35kmck0","title":"Raw_Data_Publication_Jonas_Erhardt_2025","country":"Germany","catalogue":"govdata"}
+{"source":"data-europa","address":"08cdcc8d-bf47-86b9-a6e5-56d37568eb3e","id":"https-metadata-havochvatten-se-store-1-resource-530","title":"The inverted map","country":"Sweden","catalogue":"oppnadata"}
+{"source":"data-europa","address":"75ffac6d-ebd1-860a-be6a-0bfa2377159a","id":"https-www-geodata-se-resources-a0ef7681-2f1a-7fa5-73d2-3d3593a417cd","title":"Reverse the map","country":"Sweden","catalogue":"oppnadata"}
+{"source":"data-europa","address":"95933fe4-5706-861b-8b7e-03543eeb606f","id":"doi-10-34934-dvn-mo4exz","title":"SUPER DADA for Dataverse 4+ [Version 2.0]","country":"Belgi | UNVERIFIED | VERIFIED |
+| `d9fba2e0` | open-meteo-forecast | temperature_2m_c 23 °C
+wind_speed_10m_kmh 2.6 km/h
+pressure_hpa 957.3 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**17 findings · 17 usable search-trial combinations · receipt `2573f39b`** (fold of every finding's address — recompute by re-running the search).
+**53 findings · 53 usable search-trial combinations · receipt `2ee3c774`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -49,4 +104,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

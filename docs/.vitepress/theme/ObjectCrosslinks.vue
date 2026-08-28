@@ -17,6 +17,7 @@ import { objectUi } from '../../../dist/object-i18n.js'
 import {
   theoremGraph, publicationGraph, buildRelatedMaps,
 } from '../object-graph.js'
+import { theoremDemoOf } from '../../../dist/quantum/apps/theorem-demos.js'
 
 const { params, frontmatter } = useData()
 const props = defineProps({ localeTag: { type: String, default: 'en' } })
@@ -119,6 +120,24 @@ const hasRelated = computed(() => graph.value && (
   || seals.value.length || graph.value.objectKind === 'publication'
 ))
 
+const useDemo = computed(() => {
+  if (graph.value?.use) return graph.value.use
+  const p = params.value || {}
+  const key = p.key || (p.kind === 'theorem' ? p.id : undefined)
+  if (!key) return null
+  const t = byKey.get(key)
+  return t ? theoremDemoOf(t.key, t.skill, 0) : null
+})
+
+const hasUse = computed(() => !!useDemo.value && graph.value?.objectKind === 'theorem')
+
+const shelfHref = computed(() => {
+  const u = useDemo.value
+  const key = params.value?.key || params.value?.id
+  if (!u || !key) return '/school'
+  return `${u.shelf.route}?key=${encodeURIComponent(key)}`
+})
+
 const hasLeg = (name) => Array.isArray(graph.value?.legs) && graph.value.legs.includes(name)
 
 const topicHref = (kw) => {
@@ -195,6 +214,31 @@ const topicHref = (kw) => {
           <VPButton v-if="hasLeg('falsifier')" theme="alt" size="medium" href="/tests" text="falsifier" />
           <VPButton v-if="hasLeg('address')" theme="alt" size="medium" href="/trials" text="address fold" />
           <span v-if="graph.missing?.length" class="ox-muted">missing {{ graph.missing.join(' · ') }}</span>
+        </li>
+      </ul>
+    </section>
+
+    <section v-if="hasUse" class="ox-group">
+      <h3 class="ox-g">Use · proof of work</h3>
+      <ul class="ox-row">
+        <li class="ox-item">
+          <span class="ox-k">Drill</span>
+          <span class="ox-muted">Recompute above — attempts fold to a receipt</span>
+        </li>
+        <li class="ox-item">
+          <span class="ox-k">Shelf</span>
+          <VPButton theme="brand" size="medium" :href="shelfHref" :text="useDemo.shelf.label" />
+        </li>
+        <li v-if="useDemo.alpineApps" class="ox-item">
+          <span class="ox-k">Alpine</span>
+          <VPButton theme="alt" size="medium"
+            :href="`/catalogue?theorem=${encodeURIComponent(useDemo.key)}`"
+            :text="`${useDemo.alpineApps} apps harmonised`" />
+        </li>
+        <li class="ox-item">
+          <span class="ox-k">OS</span>
+          <VPButton theme="alt" size="medium" href="/terminal" text="uuidnaOS terminal" />
+          <VPButton theme="alt" size="medium" href="/catalogue" text="Alpine catalogue" />
         </li>
       </ul>
     </section>

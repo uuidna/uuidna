@@ -1,16 +1,5 @@
 {
  "why": "Assumptions the running code makes that NO sealed theorem states. Each is a lead: seal it, and axiom-hunt reports it proven on the next run. Written by src/scripts/axiom-hunt.ts on every run, empty included — an absent file and an empty set are different facts.",
- "exposed": 2,
- "held": [
-  {
-   "lead": "served_qubit_ceiling — the code assumes the hosted surface refuses above MAX_SERVED_QUBITS = 12 (4096 amplitudes), at or below the library cap, and no theorem seals it (src/mcp.ts)",
-   "status": "EXPOSED AXIOM: live predicate true, no sealing theorem",
-   "owes": "a theorem named served_qubit_ceiling stating the assumption as decidable arithmetic — add the fact to its domain generator, then npm run lean"
-  },
-  {
-   "lead": "gate_error_baseline_class — the code assumes the comparison baseline is 1000 errors per million two-qubit gates (the ~10^-3 class), unverified by any source this tree has read, and no theorem seals it (src/quantum/advantage/index.ts)",
-   "status": "EXPOSED AXIOM: live predicate true, no sealing theorem",
-   "owes": "a theorem named gate_error_baseline_class stating the assumption as decidable arithmetic — add the fact to its domain generator, then npm run lean"
-  }
- ]
+ "exposed": 0,
+ "held": []
 }

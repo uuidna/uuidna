@@ -4,6 +4,8 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import RefererCompass from './RefererCompass.vue'
 import Terminal from './Terminal.vue'
+import ExecShell from './ExecShell.vue'
+import PortPanel from './PortPanel.vue'
 import CatalogueBrowser from './CatalogueBrowser.vue'
 import HexbitPlayer from './HexbitPlayer.vue'
 import AnthemSuperposition from './AnthemSuperposition.vue'
@@ -32,6 +34,7 @@ import CaptainCoins from './CaptainCoins.vue'
 import GridLattice from './GridLattice.vue'
 import PairGrid from './PairGrid.vue'
 import PracticeLoop from './PracticeLoop.vue'
+import TheoremUse from './TheoremUse.vue'
 import TradingFloor from './TradingFloor.vue'
 import { applySequence } from './palette'
 import './style.css'
@@ -49,6 +52,8 @@ export default {
     app.component('BookRoom', BookRoom)
     app.component('HexbitAnimator', HexbitAnimator)
     app.component('UuidnaTerminal', Terminal)
+    app.component('ExecShell', ExecShell)
+    app.component('PortPanel', PortPanel)
     app.component('CatalogueBrowser', CatalogueBrowser)
     app.component('FoldAnimation', FoldAnimation)
     app.component('HeroAnimation', HeroAnimation)
@@ -68,6 +73,7 @@ export default {
     app.component('NimPlay', NimPlay)
     app.component('ChessMobility', ChessMobility)
     app.component('PracticeLoop', PracticeLoop)
+    app.component('TheoremUse', TheoremUse)
     app.component('TradingFloor', TradingFloor)
     app.component('AuditPanel', AuditPanel)
     app.component('CaptainCoins', CaptainCoins)

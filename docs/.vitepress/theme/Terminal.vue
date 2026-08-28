@@ -38,7 +38,7 @@ const rpc = async (message: object): Promise<unknown> => {
 onMounted(async () => {
   await print(meaningOf())
   try {
-    const boot = await bootUuidnaOSInBrowser()
+    const boot = await bootUuidnaOSInBrowser(undefined, { selfTest: false })
     const c = boot.catalogue
     await print(`\nuuidnaOS boot \`${boot.bootReceipt}\` · catalogue ${c.present ? `${c.count.toLocaleString('en-US')} packages` : `ABSENT — ${c.why}`}`)
     if (boot.selfTest?.present) {

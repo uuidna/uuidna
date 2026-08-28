@@ -14,29 +14,88 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `585d031c` | crossref.org | DOI 10.7717/peerj.21201/fig-3: Figure 3: Mean and standard deviation (shading) time series for control and rese | UNVERIFIED | VERIFIED |
+| `a19011f6` | zenodo.org | zenodo record 7356457: UK Climate Change Programme - Consultation paper | UNVERIFIED | VERIFIED |
+| `6607ce3d` | zenodo.org | zenodo record 7354452: Climate Change and its Impacts: A Global Perspective | UNVERIFIED | VERIFIED |
+| `3ca20142` | zenodo.org | zenodo record 16446997: Abstract of the Results of the Hourly Meteorological Observations Taken at the S | UNVERIFIED | VERIFIED |
+| `49fe500f` | zenodo.org | zenodo record 2245257: A Violoncello Lesson: Casals's Obiter Dicta | UNVERIFIED | VERIFIED |
+| `5787b200` | zenodo.org | zenodo record 16005255: Meteorological Register Kept at Agra | UNVERIFIED | VERIFIED |
+| `7685324a` | zenodo.org | zenodo record 2007349: Ueber die elektrische Darstellung colloïdaler Lösungen | UNVERIFIED | VERIFIED |
+| `b12d635e` | zenodo.org | zenodo record 16347833: XLVI.—Remarks on the correct Generic Name of the Linnets | UNVERIFIED | VERIFIED |
+| `1f546fe0` | zenodo.org | zenodo record 16007331: Meteorological Remarks and Tables Commencing 1st May, 1854, at the Residency, Lu | UNVERIFIED | VERIFIED |
 | `b1bb3ae0` | crossref.org | DOI 10.7717/peerj.21201/fig-1: Figure 1: Mean and standard deviation (shading) time series for control and rese | UNVERIFIED | VERIFIED |
 | `3641ac60` | crossref.org | DOI 10.1016/s0031-9406(05)66653-9: Measurement of Foot Progression Angle Through Stance | UNVERIFIED | VERIFIED |
+| `585d031c` | crossref.org | DOI 10.7717/peerj.21201/fig-3: Figure 3: Mean and standard deviation (shading) time series for control and rese | UNVERIFIED | VERIFIED |
 | `4af83d27` | crossref.org | DOI 10.5040/9781350890350: Stance and Grip Stance | UNVERIFIED | VERIFIED |
 | `0a00e32e` | crossref.org | DOI 10.5103/kjsb.2006.16.3.085: Analysis of Lower Limb Joint Angle and Rotation Angle of Tennis Forehand Stroke  | UNVERIFIED | VERIFIED |
-| `05429424` | crossref.org | DOI 10.1589/rika.26.269: The Various Patterns of Knee Angle in the Stance Phase | UNVERIFIED | VERIFIED |
 | `c5812153` | crossref.org | DOI 10.2139/ssrn.5011183: Effects of Knee Joint Flexion Angle on Lower Limb Muscle Force, Knee Joint Conta | UNVERIFIED | VERIFIED |
-| `7b864478` | crossref.org | DOI 10.1787/888933729705: Fiscal stance and fiscal stance: Brazil | UNVERIFIED | VERIFIED |
-| `ffacda05` | openalex.org | OpenAlex Lower limb alignment and foot angle are related to stance phase knee a [Total Knee Arthroplasty Outcom] | UNVERIFIED | VERIFIED |
-| `25ce0e46` | openalex.org | OpenAlex Unified theory regarding A/P and M/L balance in quiet stance [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
-| `5d2ec0b4` | openalex.org | OpenAlex Effect of frontal plane tibiofemoral angle on the stress and strain at [Lower Extremity Biomechanics a] | UNVERIFIED | VERIFIED |
-| `1a19ffcd` | openalex.org | OpenAlex Results of proximal tibial osteotomy. The effects of tibiofemoral angl [Total Knee Arthroplasty Outcom] | UNVERIFIED | VERIFIED |
-| `1e411f51` | openalex.org | OpenAlex Stance Width and Angle at Sea: Effects of Sea State and Body Orientati [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
-| `7058900d` | openalex.org | OpenAlex Preferred placement of the feet during quiet stance: development of a  [Balance, Gait, and Falls Preve] | UNVERIFIED | VERIFIED |
-| `5cbd7f0b` | openalex.org | OpenAlex The Simplest Walking Model: Stability, Complexity, and Scaling [Robotic Locomotion and Control] | UNVERIFIED | VERIFIED |
-| `270185bd` | openalex.org | OpenAlex How to squat? Effects of various stance widths, foot placement angles  [Lower Extremity Biomechanics a] | UNVERIFIED | VERIFIED |
+| `05429424` | crossref.org | DOI 10.1589/rika.26.269: The Various Patterns of Knee Angle in the Stance Phase | UNVERIFIED | VERIFIED |
+| `8d4ade23` | crossref.org | DOI 10.5040/9781350872097: Split -Stance Row | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `fe0b5d75` | arxiv.org | arXiv 1902.02401v1: Adversarial Domain Adaptation for Stance Detection | UNVERIFIED | VERIFIED |
+| `dcdbf393` | arxiv.org | arXiv 1804.08012v1: Integrating Stance Detection and Fact Checking in a Unified Corpus | UNVERIFIED | VERIFIED |
+| `238618a6` | arxiv.org | arXiv 2211.01874v2: Contextual information integration for stance detection via cross-attention | UNVERIFIED | VERIFIED |
+| `f31f2c5d` | arxiv.org | arXiv 2101.11978v1: Semi-automatic Generation of Multilingual Datasets for Stance Detection in Twitt | UNVERIFIED | VERIFIED |
+| `21db1f87` | arxiv.org | arXiv 2306.08999v1: Voting Booklet Bias: Stance Detection in Swiss Federal Communication | UNVERIFIED | VERIFIED |
+| `dcac5f24` | arxiv.org | arXiv 1709.01895v1: A Semi-Supervised Approach to Detecting Stance in Tweets | UNVERIFIED | VERIFIED |
+| `d2bae7f5` | arxiv.org | arXiv 0509008v3: Precision Electroweak Measurements on the Z Resonance | UNVERIFIED | VERIFIED |
+| `2927c163` | en.wikipedia.org | Wikipedia: Camber angle | UNVERIFIED | VERIFIED |
+| `adccbbd3` | en.wikipedia.org | Wikipedia: Footedness | UNVERIFIED | VERIFIED |
+| `d91b9d6f` | en.wikipedia.org | Wikipedia: Weaver stance | UNVERIFIED | VERIFIED |
+| `250f56e1` | en.wikipedia.org | Wikipedia: Wushu stances | UNVERIFIED | VERIFIED |
+| `e93d5b1b` | en.wikipedia.org | Wikipedia: Taekwondo stances | UNVERIFIED | VERIFIED |
+| `d7a75d63` | en.wikipedia.org | Wikipedia: Stance (vehicle) | UNVERIFIED | VERIFIED |
+| `4a3fc709` | en.wikipedia.org | Wikipedia: Karate stances | UNVERIFIED | VERIFIED |
+| `a5fbeff9` | en.wikipedia.org | Wikipedia: Horse stance | UNVERIFIED | VERIFIED |
+| `d596a473` | gutendex.com | Gutenberg 12238: Science in the Kitchen: A Scientific Treatise On Food Substa — Kellogg, E. E. (Ella Ervilla) | UNVERIFIED | VERIFIED |
+| `c18cdc02` | gutendex.com | Gutenberg 39170: Dorothy, and Other Italian Stories — Woolson, Constance Fenimore | UNVERIFIED | VERIFIED |
+| `cdb7612a` | gutendex.com | Gutenberg 15191: The Commercial Products of the Vegetable Kingdom: Considered — Simmonds, P. L. (Peter Lund) | UNVERIFIED | VERIFIED |
+| `761ea840` | gutendex.com | Gutenberg 50330: The Substance of Faith Allied with Science (6th Ed.): A Cate — Lodge, Oliver, Sir | UNVERIFIED | VERIFIED |
+| `fd0b2666` | gutendex.com | Gutenberg 65967: The History of Silk, Cotton, Linen, Wool, and Other Fibrous  — Gilroy, Clinton G. | UNVERIFIED | VERIFIED |
+| `2c08b99d` | gutendex.com | Gutenberg 50139: A practical treatise on the manufacture of perfumery : $b co — Deite, C. (Carl) | UNVERIFIED | VERIFIED |
+| `56383f6a` | gutendex.com | Gutenberg 5005: Journal of an Overland Expedition in Australia: From Moreton — Leichhardt, Ludwig | UNVERIFIED | VERIFIED |
+| `6e312929` | gutendex.com | Gutenberg 3073: Pioneers of the Old Southwest: a chronicle of the dark and b — Skinner, Constance Lindsay | UNVERIFIED | VERIFIED |
+| `840bbc8b` | en.wikinews.org | Wikinews: Nevada Republican opposes Angle for US Senate over 'extreme' anti-abortion posit | UNVERIFIED | VERIFIED |
+| `c3f4922b` | en.wikinews.org | Wikinews: U.K. National Portrait Gallery threatens U.S. citizen with legal action over Wik | UNVERIFIED | VERIFIED |
+| `140ff7a6` | esco | {"source":"esco","address":"47da304c-fe6a-876f-a584-d7784f771784","uri":"http://data.europa.eu/esco/skill/1cca610d-2afc-44a7-97fc-f2262fb5fc75","title":"surveying","conceptType":"Skill"}
+{"source":"esco","address":"683170c0-d59e-8631-8f65-3611c850dd59","uri":"http://data.europa.eu/esco/skill/8a16add0-6faa-4387-896c-ee641568d89f","title":"trigonometry","conceptType":"Skill"}
+{"source":"esco","address":"ff3bcebb-09d7-80e2-893e-2a6370876664","uri":"http://data.europa.eu/esco/skill/9227d524-d1fa-470b-975f-13a83bdd22d9","title":"operate theodolite","conceptType":"Skill"}
+{"source":"esco","address":"4295b08f-22a8-84b3-9f8a-139cab1fb7d8","uri":"http://data.europa.eu/esco/skill/7f2c62b0-928a-4da2-a578-674940a14063","title":"crane load charts","conceptType":"Skill"}
+{"source":"esco","address":"f915 | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `07653399` | data-europa | {"source":"data-europa","address":"27aafe78-53d9-8e87-9e5f-d7c6b62896a7","id":"doi-10-34934-dvn-psfvvf","title":"SUPER DADA for Dataverse 4+ [Version 3.0]","country":"Belgium","catalogue":"data-gov-be"}
+{"source":"data-europa","address":"d3346a35-c038-8554-8bd4-2d2c20da881b","id":"doi-10-34934-dvn-aoqrsj","title":"SUPER DADA for Dataverse 5+ [Version 2.0]","country":"Belgium","catalogue":"data-gov-be"}
+{"source":"data-europa","address":"95933fe4-5706-861b-8b7e-03543eeb606f","id":"doi-10-34934-dvn-mo4exz","title":"SUPER DADA for Dataverse 4+ [Version 2.0]","country":"Belgium","catalogue":"data-gov-be"}
+{"source":"data-europa","address":"fbd06fc5-e8df-8f20-8cb2-490667901312","id":"https-doi-org-10-5282-ubm-data-397","title":"Trajectory angles of muscles originating from and inserting to the  | UNVERIFIED | VERIFIED |
+| `585eb4d3` | open-meteo-forecast | temperature_2m_c 22.4 °C
+wind_speed_10m_kmh 2.3 km/h
+pressure_hpa 957.2 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `6efb28e7`** (fold of every finding's address — recompute by re-running the search).
+**55 findings · 55 usable search-trial combinations · receipt `3847d130`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
 - [complement_fixes_the_half](/theorem/complement_fixes_the_half) — `(90 - 45 = 45) ∧ (100 - 50 = 50) ∧ (10 - 5 = 5)`
-- [supplement_completes_the_straight](/theorem/supplement_completes_the_straight) — `(30 + 150 = 180) ∧ (30 < 150)`
+- [supplement_completes_the_straight](/theorem/supplement_completes_the_straight) — `(30 + 150 = 180) ∧ (30 < 150) ∧ (5 < 30)`
 - [chain_joints_are_links_minus_one](/theorem/chain_joints_are_links_minus_one) — `5 - 1 = 4`
 - [lever_ratio_is_exact_division](/theorem/lever_ratio_is_exact_division) — `(8 / 4 = 2) ∧ (2 * 4 = 8)`
 
@@ -46,4 +105,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

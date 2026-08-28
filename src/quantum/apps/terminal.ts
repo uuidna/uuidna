@@ -10,7 +10,7 @@
 // SAME uuidna surface. The serving rule it lives under: the 404 audit is the CATCH-ALL and every served page
 // has priority — /terminal gains its function by becoming a served page carrying this app.
 import { toUuid } from '../../address.js'
-import { installFor, compileToHexbits } from '../os/index.js'
+import { hexbitDoorOf, installFor } from '../os/index.js'
 
 /** One parsed command line. `call` is an MCP tool invocation; builtins are the few words the terminal itself
  *  answers (help, meaning, clear — never a tool: tools come from the wire). */
@@ -97,7 +97,7 @@ export function resultText(result: unknown): string {
  *  32 hexbit states — the terminal session is a first-class lattice object like any spec. */
 export function transcriptReceipt(lines: readonly string[]): { address: string; hexbits: number[] } {
   const address = toUuid('terminal-transcript|' + lines.join('\n'))
-  return { address, hexbits: compileToHexbits(address) }
+  return { address, ...hexbitDoorOf(address) }
 }
 
 // ── THE NATURAL-LANGUAGE ROUTER — chat commands route to the matching MCP tool, DETERMINISTICALLY ────────────

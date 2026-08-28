@@ -55,6 +55,8 @@ jobs:
         run: npm run probe:apis
       - name: EDIT — the full editorial desk over everything, including what the search just returned
         run: npm run editorial
+      - name: FEED — most-searched + wired APIs (unanswered math, EU education) ring Lean; open doors regrow
+        run: node dist/scripts/gen-search-feed.js --online && node dist/scripts/gen-open-questions.js
       - name: GUARD — the fold accepts, or nothing publishes
         run: npm run guard
       - name: DRIVE — the served MCP recomputes its receipts over its own wire (90 directed mixes, 3 folds, self conforms)
@@ -71,7 +73,7 @@ jobs:
           git config user.name "uuidna-research"
           git config user.email "research@uuidna.com"
           if [ -n "$(git status --porcelain)" ]; then
-            git add docs/articles prose-trials.json quantum-fold.json
+            git add docs/articles prose-trials.json quantum-fold.json lean/seo-url-map.json lean/search-feed.json docs/search-feed.md docs/open-questions.md
             git commit -m "Research desk: the quantum search swept every wing, each finding held at trial, and each trial returned its publication — findings content-addressed, verdicts computed, novelty leads remanded, sessionless. External evidence corroborates; only a Lean seal approves. Backed by theorem two_coins and theorem legal_only_the_proven_is_admitted"
             # UNCENSORED (lead 120a): a failed rebase must never be erased — pushing after a swallowed
             # rebase failure lands derived state on an unknown tree, and a rebase over the queue/derived
@@ -156,18 +158,17 @@ jobs:
         run: |
           set -euo pipefail
           V=$(node -p "require('./package.json').version")
-          IFS=. read -r MA MI PA <<< "$V"
           # THE ODOMETER IS v0.[integer].[digit], STEPPING LINEARLY — and the linearity is a HARD CONSTRAINT, not
           # a preference: npm orders by SEMVER, so a range like ^0.1.0 resolves to the highest version number ever
           # published, never to the most recently published one. A version that walked the ledger sequence
           # (0.1.5 → 0.1.3) would read to npm as a downgrade and would be invisible to every consumer on a range.
-          # The version string therefore counts; the SEQUENCE lives in the ledger, where walking it costs nothing.
+          # The version string therefore counts; Sequence is PRINTED beside it, never walked as the string.
           # MAJOR is LOCKED at 0: a major tick states that what the work PROMISES has changed — a claim about
           # maturity — and no automation makes that statement; the two-handle law reserves it for the human.
-          # MINOR is an unbounded INTEGER, so the calendar never fills. Ten patches roll one minor.
-          test "$MA" = "0" || { echo "::error::THE v0 LOCK — package.json is at $V, outside v0; the calendar mints only v0.[integer].[digit]"; exit 1; }
-          if [ "$PA" -lt 9 ]; then PA=$((PA+1)); else MI=$((MI+1)); PA=0; fi
-          NEXT="$MA.$MI.$PA"
+          # MINOR is an unbounded INTEGER, so the calendar never fills. Ten patches roll one minor. Digit 0 is origin.
+          NEXT=$(node -e "
+          import('./dist/odometer.js').then((m) => console.log(m.odometerNext(process.argv[1])))
+          " "$V")
           # MONOTONE OR NOTHING — asserted, never assumed: the tick must move the version UP in npm's own ordering.
           node -e "
           const [a, b] = process.argv.slice(1)
@@ -175,15 +176,13 @@ jobs:
             for (let i = 0; i < 3; i++) { if (p[i] !== q[i]) return p[i] - q[i] } return 0 }
           if (cmp(b, a) <= 0) { console.error('::error::the odometer must increase in semver order (npm resolves ranges by version, not by publish time): ' + a + ' -> ' + b); process.exit(1) }
           " "$V" "$NEXT"
-          # THE MAP — the version COUNTS (monotone, because npm resolves ranges by version number) and the count
-          # INDEXES the sequence 0,1,2,4,8,7,5,3,6,9. Nothing is lost either way: the two orders are the same ten
-          # digits, so the map is a permutation (theorem seal_ten) and a version is always readable in the walk.
-          SEQ_DIGIT=$(node -e "
-          import('./dist/index.js').then((u) => {
-            const SEQ = [0, ...u.vortexOrbit(), 3, 6, 9]
-            console.log(SEQ[Number(String(process.argv[1]).split('.')[2])])
+          # THE MAP — print runSequence(patch). Digit 0 is origin (runSequence(0).fixed). Not SEQ[patch].
+          WALK=$(node -e "
+          import('./dist/sequence-run.js').then((u) => {
+            const r = u.runSequence(Number(String(process.argv[1]).split('.')[2]))
+            console.log('seed=' + r.seed + ' reflection=' + r.reflection + ' fixed=' + r.fixed)
           })" "$NEXT")
-          echo "the odometer steps to $NEXT — step $(echo "$NEXT" | cut -d. -f3) of the sequence, which is digit $SEQ_DIGIT"
+          echo "the odometer steps to $NEXT — $WALK"
           npm version "$NEXT" --no-git-tag-version
           # THE CALENDAR WRITES FACTS, NEVER MEANING (the captain's decision, 2026-08-17). `npm run next` refuses a
           # version whose CHANGELOG entry is missing, so an autonomous tick froze the tree until a human wrote prose

@@ -1,15 +1,15 @@
 ---
 title: "The cipher & the strand"
-description: "Computed from lean/Cipher.lean — 27 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Cipher.lean — 30 sealed theorems, every claim citing its proof."
 ---
 
 # The cipher & the strand
 
-> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305. — held by [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) and its 26 siblings below.
+> CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. these are the DECIDABLE BOUNDS of the algebra — what it guarantees and what it cannot; secrecy itself is ChaCha20-Poly1305. — held by [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) and its 29 siblings below.
 
-**27 theorems**, from [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 27 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid). A boundary stated here is decided.
+**30 theorems**, from [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) onward, each proven `by decide` in [lean/Cipher.lean](/lean/Cipher.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 15 of its 30 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCipher.lean)** — nothing to install. The editor fetches `lean/Cipher.lean` from the repository and re-decides all 27 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCipher.lean)** — nothing to install. The editor fetches `lean/Cipher.lean` from the repository and re-decides all 30 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE CIPHER MEASURED IN THE ARCHITECTURE’S OWN UNIT. A hexbit is 4 bits, and everything here computes in hexbits, so the ChaCha20-Poly1305 key is 64 hexbits rather than 256 bits. Grover halves the exponent of a brute-force search, which takes the floor to 32 hexbits — and 32 hexbits is EXACTLY the uuid. The post-quantum floor of the cipher and the width of an identifier are the same number, in the same unit, and it is only visible once the bits are converted: 256/4 = 64, 128/4 = 32, and the uuid is 32. Bits hide this; hexbits state it.
 The ledger holds this as [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) — proven `by decide`, sorry-free:
@@ -198,6 +198,27 @@ The ledger holds this as [imprint_capacity_within_address](/theorem/imprint_capa
 
 ```lean
 (115 < 128) ∧ (128 - 115 = 13)
+```
+
+### THE STANDARD GENETIC CODE maps 4³ = 64 codons to 20 amino acids plus one stop (20 + 1 = 21) — strictly fewer outputs than inputs, so translation is many-to-one by construction.
+The ledger holds this as [genetic_code_twenty_one_amino_acids](/theorem/genetic_code_twenty_one_amino_acids) — proven `by decide`, sorry-free:
+
+```lean
+(4 ^ 3 = 64) ∧ (20 + 1 = 21) ∧ (64 > 21)
+```
+
+### Every bijection on five residues is one of 5! = 120 permutations — the size of the affine S-box search space on ℤ/5 before linearity is imposed.
+The ledger holds this as [sbox_z5_permutation_count](/theorem/sbox_z5_permutation_count) — proven `by decide`, sorry-free:
+
+```lean
+5 * 4 * 3 * 2 * 1 = 120
+```
+
+### The XOR table on hexbits is an involution on each nibble: m XOR m = 0 and m XOR 0 = m for m in 0..15 — the diagonal and zero column of the byte table, at the same 4-bit scale the OTP table enumerates.
+The ledger holds this as [byte_xor_hexbit_involution](/theorem/byte_xor_hexbit_involution) — proven `by decide`, sorry-free:
+
+```lean
+(List.range 16).all (fun m => (lxor m m == 0) && (lxor m 0 == m))
 ```
 
 

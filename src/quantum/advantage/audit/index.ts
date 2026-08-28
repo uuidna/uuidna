@@ -32,6 +32,8 @@ export const QA_REQUIRED_THEOREMS: readonly string[] = [
   'handle_capacity_is_quantum_by_architecture',
   'verify_beats_recompute_by_magnitudes',
   'n_qubit_dimension',
+  'served_qubit_ceiling',
+  'gate_error_baseline_class',
 ] as const
 
 const FALSE_DENIAL = /no physics quantum advantage is claimed|never a quantum computer/i

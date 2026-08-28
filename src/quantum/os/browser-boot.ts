@@ -39,7 +39,7 @@ export async function runBrowserSelfTestChunked(chunk = 1500): Promise<BrowserSe
 
 /** bootUuidnaOSInBrowser — verify-load the install port, then ensure the catalogue is present.
  *  Idempotent: safe to call on every /terminal and /os mount. Throws if the boot image drifted.
- *  With selfTest (default true when catalogue loads), runs the chunked package self-test once per boot. */
+ *  With selfTest (default false when catalogue loads), runs the chunked package self-test once per boot. */
 export async function bootUuidnaOSInBrowser(
   catalogueUrl = DEFAULT_CATALOGUE_URL,
   opts?: { selfTest?: boolean },
@@ -47,7 +47,7 @@ export async function bootUuidnaOSInBrowser(
   const booted = bootOS()
   let catalogue = catalogueState()
   if (!catalogue.present) catalogue = await primeCatalogueFrom(catalogueUrl)
-  const selfTest = opts?.selfTest !== false && catalogue.present
+  const selfTest = opts?.selfTest === true && catalogue.present
     ? await runBrowserSelfTestChunked()
     : undefined
   return { bootReceipt: booted.receipt, catalogue, selfTest }

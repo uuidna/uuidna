@@ -13,8 +13,11 @@
 // forbids — a two-valued instrument (ready / not ready) put to a three-valued question (clean / holding / unread).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
 import { leadCensus, renderCensus, read, unread, type Lead } from '../leads.js'
 import { gatherLeads } from '../scripts/leads-gate.js'
+import { ROOT } from '../boundary.js'
 
 const lead = (source: string, what: string): Lead => ({ source, what, owes: 'evidence' })
 
@@ -85,4 +88,15 @@ test('the LIVE sources all answer — every declared source is readable on this 
   const silent = readings.filter((r) => !r.reached)
   assert.deepEqual(silent.map((r) => `${r.source}: ${r.why}`), [],
     'a source that cannot be read makes the gate measure less than it claims — fix the reader, not the census')
+})
+
+test('open-questions does not re-list REFUTED or REFUSED leads as open doors', () => {
+  const page = readFileSync(join(ROOT, 'docs', 'open-questions.md'), 'utf8')
+  const leads = JSON.parse(readFileSync(join(ROOT, 'lean', 'leads.json'), 'utf8')) as {
+    refuted?: { lead: string }[]; refused?: { lead: string }[]
+  }
+  const settled = [...(leads.refuted ?? []), ...(leads.refused ?? [])]
+  const relisted = settled.filter((s) => s.lead && page.includes(s.lead.slice(0, 48)))
+  assert.deepEqual(relisted.map((s) => s.lead.slice(0, 60)), [],
+    'a settled lead on the open-questions page is undeveloped record, not a new mystery')
 })

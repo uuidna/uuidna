@@ -1,0 +1,85 @@
+---
+title: "The search on trial: The denial drained"
+description: "The quantum search's findings for this wing, each held at trial — evidence corroborated, never approved; only a Lean seal approves."
+---
+
+# The search on trial: The denial drained
+
+**The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
+asked in parallel about *The denial drained* — the wing sealed in [lean/Negation.lean](/lean/Negation.lean) with **8 theorems**. Each
+finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
+no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
+combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
+the hard gate of the corroboration law.
+
+| finding | source | record | alone | with sealed backing |
+|---|---|---|---|---|
+| `6323e613` | zenodo.org | zenodo record 7949734: IMPERMANENCE AND RECONCILIATION WITH PARENTS THROUGH THE  JOURNEY OF GUILT AND D | UNVERIFIED | VERIFIED |
+| `5e4402c5` | zenodo.org | zenodo record 917956: Figure 3 from: Araújo M, Rocha A, Miranda I, Barbosa R (2017) Hydro-edaphic cond | UNVERIFIED | VERIFIED |
+| `08c34ec3` | zenodo.org | zenodo record 917958: Figure 4 from: Araújo M, Rocha A, Miranda I, Barbosa R (2017) Hydro-edaphic cond | UNVERIFIED | VERIFIED |
+| `f5a34a92` | zenodo.org | zenodo record 10686089: Data from: The effect of drainage on the fine root biomass, production, and turn | UNVERIFIED | VERIFIED |
+| `c2f8b41c` | zenodo.org | zenodo record 10209650: Data from: The effect of drainage on the fine root biomass, production, and turn | UNVERIFIED | VERIFIED |
+| `f6634635` | zenodo.org | zenodo record 11394516: Active afforestation of drained peatlands is not a viable option under the EU Na | UNVERIFIED | VERIFIED |
+| `2287d861` | zenodo.org | zenodo record 15097464: Slopes with cemented berms - Numerical models in PLAXIS2D | UNVERIFIED | VERIFIED |
+| `5d08f09b` | zenodo.org | zenodo record 3942370: FAOSTAT GHG Emissions from Organic Soils | UNVERIFIED | VERIFIED |
+| `277f763c` | arxiv.org | arXiv 0309054v1: Active Internet Traffic Filtering: Real-time Response to Denial of Service Attac | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `b29fff68` | arxiv.org | arXiv 0912.1815v1: Detection of Denial of Service Attacks against Domain Name System Using Neural N | UNVERIFIED | VERIFIED |
+| `a512a931` | arxiv.org | arXiv 1203.0389v6: Denial Logic | UNVERIFIED | VERIFIED |
+| `b61c4f82` | arxiv.org | arXiv 1203.1777v1: AMC Model for Denial of Sleep Attack Detection | UNVERIFIED | VERIFIED |
+| `60cad682` | arxiv.org | arXiv 2604.21169v2: Position Paper: Denial-of-Service against Multi-Round Transaction Simulation | UNVERIFIED | VERIFIED |
+| `3c40fd76` | arxiv.org | arXiv 1508.05002v1: HoneyMesh: Preventing Distributed Denial of Service Attacks using Virtualized Ho | UNVERIFIED | VERIFIED |
+| `94d3e627` | arxiv.org | arXiv 2604.25922v1: Consciousness with the Serial Numbers Filed Off: Measuring Trained Denial in 115 | UNVERIFIED | VERIFIED |
+| `74289831` | esco | {"source":"esco","address":"caa82987-1c76-869f-ab37-da993ee69c0d","uri":"http://data.europa.eu/esco/skill/a9f69b22-2f4a-4355-9b64-0dbeccc66fc2","title":"perform curd processing of cheese","conceptType":"Skill"}
+{"source":"esco","address":"56fc7fbc-f676-83d2-ac26-a73fbd4fea5a","uri":"http://data.europa.eu/esco/skill/6937f761-607c-4f9f-ab56-549e875a5deb","title":"drain hazardous liquids","conceptType":"Skill"}
+{"source":"esco","address":"69d86ea8-ed64-8b4f-ac08-67480d7e2b14","uri":"http://data.europa.eu/esco/skill/17943c5f-6188-4042-8109-8390bf6a8102","title":"carry out cleaning of road drains","conceptType":"Skill"}
+{"source":"esco","address":"e169f917-102f-8c96-a237-bf62793ecc61","uri":"http://data.europa.eu/esco/skill/8e946faa-b350-4cbe-9eeb-6fee739e6d98","title":"clear out drains","conce | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `fce2c6b8` | data-europa | {"source":"data-europa","address":"b475157b-6369-8e7e-bce6-96178d805579","id":"p_bz-inspire-hy-physicalwaters-wetland~~1","title":"INSPIRE - Zone umide (Wetland)","country":"Italy","catalogue":"dati-gov-it"}
+{"source":"data-europa","address":"95933fe4-5706-861b-8b7e-03543eeb606f","id":"doi-10-34934-dvn-mo4exz","title":"SUPER DADA for Dataverse 4+ [Version 2.0]","country":"Belgium","catalogue":"data-gov-be"}
+{"source":"data-europa","address":"d3346a35-c038-8554-8bd4-2d2c20da881b","id":"doi-10-34934-dvn-aoqrsj","title":"SUPER DADA for Dataverse 5+ [Version 2.0]","country":"Belgium","catalogue":"data-gov-be"}
+{"source":"data-europa","address":"27aafe78-53d9-8e87-9e5f-d7c6b62896a7","id":"doi-10-34934-dvn-psfvvf","title":"SUPER DADA for Dataverse 4+ [Version 3.0]","country":"Belgium","catalogue | UNVERIFIED | VERIFIED |
+| `d9fba2e0` | open-meteo-forecast | temperature_2m_c 23 °C
+wind_speed_10m_kmh 2.6 km/h
+pressure_hpa 957.3 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
+
+**29 findings · 29 usable search-trial combinations · receipt `25c202b0`** (fold of every finding's address — recompute by re-running the search).
+
+The sealed backing this trial held the findings beside:
+
+- [negation_involution_solves](/theorem/negation_involution_solves) — `((List.range 2).all (fun b => (1 - (1 - b) == b) && (1 - b != b))) ∧ ((List.range 2).all (`
+- [denials_exhaust_to_the_whole](/theorem/denials_exhaust_to_the_whole) — `(List.range 8).all (fun m => ((List.range 3).any (fun i => (m / 2^i) % 2 == 0)) == !((List`
+- [exhausted_denial_is_the_proof](/theorem/exhausted_denial_is_the_proof) — `(((List.range 16).filter (fun k => !(((1 + (-1:Int)^k)^2 == 4) || ((1 + (-1:Int)^k)^2 == 0`
+- [a_window_exhausts_only_itself](/theorem/a_window_exhausts_only_itself) — `((List.range 20).all (fun n => n < 20)) ∧ (¬ (20 < 20)) ∧ (16 < 20)`
+- [silence_never_refutes](/theorem/silence_never_refutes) — `((([(0,0),(0,1),(1,0),(1,1)] : List (Nat × Nat)).filter (fun p => p.1 * p.2 == 1)).length `
+- [waves_of_denial_tighten](/theorem/waves_of_denial_tighten) — `((List.range 6).all (fun r => 2^6 / 2^r == 2^(6 - r))) ∧ (2^6 / 2^6 = 1)`
+- [no_instrument_narrower_than_its_question](/theorem/no_instrument_narrower_than_its_question) — `((List.range 8).all (fun f => (List.range 3).any (fun i => (List.range 3).any (fun j => i `
+- [denial_drains_to_the_last_coin](/theorem/denial_drains_to_the_last_coin) — `(64 - 63 = 1) ∧ (63 = 7 * 9) ∧ (1 + 1 = 2)`
+
+::: warning HONEST SCOPE
+External findings are corroboration at the time of the search — the sources' own records, quoted by address, not
+endorsed and not re-verified here. A finding with no sealed counterpart is a novelty lead, remanded to development,
+never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
+:::
+
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

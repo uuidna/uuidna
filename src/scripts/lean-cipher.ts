@@ -150,6 +150,21 @@ const FACTS = [
     why: 'The codec capacity the imprint ASSUMES, sealed (axiom-hunt): 115 payload units fit strictly INSIDE the 128-bit particle — the imprint never overflows its own address, and the 13-bit headroom is the seam the codec keeps.',
     js: () => 115 < 128 && 128 - 115 === 13,
     lean: 'theorem imprint_capacity_within_address : (115 < 128) ∧ (128 - 115 = 13) := by decide' },
+
+  { key: 'genetic_code_twenty_one_amino_acids',
+    why: 'THE STANDARD GENETIC CODE maps 4³ = 64 codons to 20 amino acids plus one stop (20 + 1 = 21) — strictly fewer outputs than inputs, so translation is many-to-one by construction.',
+    js: () => 4 ** 3 === 64 && 20 + 1 === 21 && 64 > 21,
+    lean: 'theorem genetic_code_twenty_one_amino_acids : (4 ^ 3 = 64) ∧ (20 + 1 = 21) ∧ (64 > 21) := by decide' },
+
+  { key: 'sbox_z5_permutation_count',
+    why: 'Every bijection on five residues is one of 5! = 120 permutations — the size of the affine S-box search space on ℤ/5 before linearity is imposed.',
+    js: () => 5 * 4 * 3 * 2 * 1 === 120,
+    lean: 'theorem sbox_z5_permutation_count : 5 * 4 * 3 * 2 * 1 = 120 := by decide' },
+
+  { key: 'byte_xor_hexbit_involution',
+    why: 'The XOR table on hexbits is an involution on each nibble: m XOR m = 0 and m XOR 0 = m for m in 0..15 — the diagonal and zero column of the byte table, at the same 4-bit scale the OTP table enumerates.',
+    js: () => R(0, 16).every((m) => (m ^ m) === 0 && (m ^ 0) === m),
+    lean: 'theorem byte_xor_hexbit_involution : (List.range 16).all (fun m => (lxor m m == 0) && (lxor m 0 == m)) := by decide' },
 ]
 
 // compute → generate → verify, via the shared pipeline (JS-checks every fact, writes the file + manifest, and

@@ -5,7 +5,7 @@
 // can fail: an address is toUuid(key + ':' + statement), so a forged or edited entry does not reproduce its own.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { theorems, toUuid, merkleGravity } from '../index.js'
+import { theorems, toUuid, merkleGravity, hexbitDoorOf } from '../index.js'
 
 test('every wing recomputes — no address is forged', () => {
   const T = theorems()
@@ -33,4 +33,15 @@ test('every wing is covered — the wave leaves no theorem unaudited', () => {
   const wings = [...new Set(T.map((t) => t.principle))]
   const covered = wings.reduce((n, d) => n + T.filter((t) => t.principle === d).length, 0)
   assert.equal(covered, T.length, 'a theorem in no wing would never be reached by the wave')
+})
+
+test('a wing fold has a hexbit door — the local seal is reachable', () => {
+  const T = theorems()
+  const d = T[0]!.principle
+  const addrs = T.filter((t) => t.principle === d).map((t) => t.address)
+  const fold = merkleGravity(addrs)
+  const door = hexbitDoorOf(fold)
+  assert.equal(door.handle.length, 8)
+  assert.equal(door.hexbits.length, 32)
+  assert.equal(door.door, `https://uuidna.com/${door.handle}`)
 })

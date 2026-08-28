@@ -7,8 +7,7 @@
 // Body law (dry-clean): statement · proof · field table · cite line.
 // Navigation chrome = stock VPDocFooter (prev/next) + ObjectBreadcrumbs (doc-before) + ObjectCrosslinks.
 // Do NOT regenerate cross-link essays or capacity/OS QA cards in content — no hero YAML bag leak.
-import { theorems, PRINCIPLES, publications, axiomWitness } from '../../dist/index.js'
-import { handleOf } from '../../dist/handle.js'
+import { theorems, PRINCIPLES, publications, axiomWitness, hexbitDoorOf } from '../../dist/index.js'
 import { buildChunks } from '../../dist/scripts/gen-handle-chunks.js'
 import { mirrorRows, legsFor } from '../../dist/rosetta-legs.js'
 import { readFileSync } from 'node:fs'
@@ -16,12 +15,20 @@ import { fileURLToPath } from 'node:url'
 import { dirname, join } from 'node:path'
 import { richPublicationMetadata } from '../../dist/publication-metadata.js'
 import { ZENODO_SEALS } from '../../dist/zenodo-seals.js'
+import { theoremDemoOf, alpineWitnessByTheorem } from '../../dist/quantum/apps/theorem-demos.js'
 import {
   theoremGraph, publicationGraph, objectBreadcrumbs, shortTitle, buildRelatedMaps,
 } from './object-graph.js'
 
 const HB = (() => {
   try { return JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../../lean/heartbeats.json'), 'utf8')).costs || {} } catch { return {} }
+})()
+
+const ALPINE_WITNESS = (() => {
+  try {
+    const raw = JSON.parse(readFileSync(join(dirname(fileURLToPath(import.meta.url)), '../../lean/alpine-apps.json'), 'utf8'))
+    return alpineWitnessByTheorem(raw.bySkill || [])
+  } catch { return new Map() }
 })()
 
 const blurb = Object.fromEntries(PRINCIPLES.map((p) => [p[1], p[2]]))
@@ -76,11 +83,13 @@ function legsRowOf(key) {
  * Do NOT emit YAML frontmatter in content — VitePress injects @content after the
  * route template preamble, so gray-matter never sees it and the bag leaks into the body. */
 export function composeTheorem(t) {
-  const handle = t.address.replace(/-/g, '').slice(0, 8)
+  const door = hexbitDoorOf(t.address)
+  const handle = door.handle
+  const handleDoor = door.door
   const heroTitle = heroTitleOf(t)
-  const handleDoor = 'https://uuidna.com/' + handle
   const heartbeats = HB[t.address]
-  const graph = theoremGraph(t, ALL, bySkill, byPrin, legsRowOf(t.key), AXIOM_HOLDS, RELATED_MAPS)
+  const use = theoremDemoOf(t.key, t.skill, ALPINE_WITNESS.get(t.key) ?? 0)
+  const graph = { ...theoremGraph(t, ALL, bySkill, byPrin, legsRowOf(t.key), AXIOM_HOLDS, RELATED_MAPS), use }
   return {
     params: {
       kind: 'theorem',
@@ -100,6 +109,7 @@ export function composeTheorem(t) {
       handleUrl: handleDoor,
       depositReferrer: handleDoor,
       heartbeats: heartbeats !== undefined ? heartbeats : null,
+      use,
       locales: ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'],
       // Stock VitePress docFooter surfaces (themeConfig.prev/next via transformPageData).
       prev: graph.prev,
@@ -134,6 +144,8 @@ ${t.lean}
 | verdict | **VERIFIED** — \`by ${t.tactic}\` sorry-free |
 | decide-step cost | ${HB[t.address] !== undefined ? `**${HB[t.address]} heartbeats**` : `not yet measured`} |
 | real energy cost | Landauer floor *kT·ln2* — heartbeat ≠ joules |
+
+<ClientOnly><TheoremUse /></ClientOnly>
 
 Re-verify with \`npm run lean\`. Cite DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144) and handle \`https://uuidna.com/${handle}\`.
 `,
@@ -229,8 +241,9 @@ Cite handle \`https://uuidna.com/${handle}\`.
 
 /** composeSequence(t) / composeVe(t) → ObjectPage keyed by theorem handle for Sequence / VE wings. */
 function composeWingHandle(t, kind, kindLabel) {
-  const handle = handleOf(t.address)
-  const handleDoor = 'https://uuidna.com/' + handle
+  const door = hexbitDoorOf(t.address)
+  const handle = door.handle
+  const handleDoor = door.door
   const heroTitle = heroTitleOf(t)
   return {
     params: {

@@ -23,7 +23,7 @@
 // A source may be unreachable — best-effort, and it NEVER fabricates a row. The parse, the decode and the addressing
 // are pure: the same bytes fold to the same receipt for anyone. Integrity, not truth.
 import { toUuid } from './address.js'
-import { handleOf } from './handle.js'   // THE one derivation of a handle from an address — see handle.ts
+import { hexbitDoorOf } from './hexbit/index.js'
 import { merkleGravity } from './gravity/index.js'
 import { skillGroups } from './theorems/index.js'
 
@@ -57,6 +57,9 @@ export interface SchoolApiAnswer {
   note?: string        // when declined, what it actually did — so a silence is never mistaken for an empty world
 
   receipt: string
+  handle: string
+  hexbits: number[]
+  door: string
   honest: string
 }
 
@@ -99,11 +102,12 @@ async function immutableText(url: string, kind: DataKind): Promise<Fetched<strin
 
 /** immutableReads() → what the vintage-carrying cache is holding: the URLs paid for once, for the heartbeat and for
  *  anyone auditing that a cached read is only ever a versioned one. */
-export function immutableReads(): { handle: string; url: string; bytes: number }[] {
-  // CITED by handle, KEYED by the full url. The handle is the repo's one identity shape (handle.ts), but eight hex
-  // is a 2^32 collision surface, and a cache that returns the wrong bytes on a collision is a correctness defect,
-  // not a naming one. So the map keeps the whole url and the report carries the handle anyone would quote.
-  return [..._immutable].map(([url, text]) => ({ handle: handleOf(toUuid(url)), url, bytes: text.length }))
+export function immutableReads(): { handle: string; url: string; bytes: number; door: string; hexbits: number[] }[] {
+  return [..._immutable].map(([url, text]) => {
+    const address = toUuid(url)
+    const door = hexbitDoorOf(address)
+    return { handle: door.handle, door: door.door, hexbits: door.hexbits, url, bytes: text.length }
+  })
 }
 
 
@@ -242,22 +246,28 @@ export interface SchoolApiRegistry {
   absent: { source: string; why: string; instead: string }[]
   giscoVintage: string
   receipt: string
+  handle: string
+  hexbits: number[]
+  door: string
   honest: string
 }
 
 /** schoolApiRegistry() → the wired sources, the named absences, and one order-invariant receipt. Pure: no network. */
 export function schoolApiRegistry(): SchoolApiRegistry {
+  const receipt = merkleGravity(SCHOOL_APIS.map((s) => toUuid('school-api:' + s.id + ':' + s.base)))
   return {
     count: SCHOOL_APIS.length, sources: SCHOOL_APIS, absent: ABSENT, giscoVintage: GISCO_VINTAGE,
-    receipt: merkleGravity(SCHOOL_APIS.map((s) => toUuid('school-api:' + s.id + ':' + s.base))),
+    receipt, ...hexbitDoorOf(receipt),
     honest: HONEST,
   }
 }
 
 const answer = (source: string, query: Record<string, string>, url: string, results: SchoolApiEvidence[],
-                truncated: boolean, declined = false, note = ''): SchoolApiAnswer =>
-  ({ source, query, url, count: results.length, results, truncated, declined,
-     ...(note ? { note } : {}), receipt: merkleGravity(results.map((r) => r.address)), honest: HONEST })
+                truncated: boolean, declined = false, note = ''): SchoolApiAnswer => {
+  const receipt = merkleGravity(results.map((r) => r.address))
+  return { source, query, url, count: results.length, results, truncated, declined,
+     ...(note ? { note } : {}), receipt, ...hexbitDoorOf(receipt), honest: HONEST }
+}
 
 const limitOf = (n?: number): number => (n === undefined || n <= 0 ? DEFAULT_LIMIT : n > 200 ? 200 : n)
 
@@ -542,6 +552,9 @@ export interface EducationJobsPairing {
   occupations: number
   vacancies: SchoolApiAnswer | null
   receipt: string
+  handle: string
+  hexbits: number[]
+  door: string
   honest: string
 }
 
@@ -586,11 +599,12 @@ export async function pairEducationToJobs(subject: string, opts: { geo?: string;
     : [{ skill: subject, escoSkill: null, occupations: [] }]
   const vacancies = opts.geo ? await eurostatVacancies(opts.geo, opts.limit) : null
   const occupations = pairs.reduce((n, p) => n + p.occupations.length, 0)
+  const receipt = merkleGravity(pairs.flatMap((p) => p.occupations.map((o) => o.address)))
   return {
     subject, homographs,
     cluster: group ? { skill: group.skill, theorems: group.count, fold: group.fold } : null,
     pairs, occupations, vacancies,
-    receipt: merkleGravity(pairs.flatMap((p) => p.occupations.map((o) => o.address))),
+    receipt, ...hexbitDoorOf(receipt),
     honest:
       'A MAP BETWEEN PUBLIC VOCABULARIES, hop by named hop: the subject is matched LEXICALLY to ESCO skills — and a ' +
       'match is walked only if it carries the subject\'s WHOLE name, because a search returns the query\'s letters and ' +
@@ -659,7 +673,7 @@ export async function schoolApiFetch(source: string, query: SchoolApiQuery = {})
 // WHETHER a source answered and with how many rows, never how fast — latency is measured outside, by hand.
 
 export interface SourceProbe { id: string; ok: boolean; rows: number; declined: boolean; note: string }
-export interface Heartbeat { probed: number; answering: number; dark: SourceProbe[]; probes: SourceProbe[]; receipt: string; honest: string }
+export interface Heartbeat { probed: number; answering: number; dark: SourceProbe[]; probes: SourceProbe[]; receipt: string; handle: string; hexbits: number[]; door: string; honest: string }
 
 /** probeSchoolApis(call?) → ask every FETCHED source its own declared known-good query and report which answered.
  *  `call` is injected so the whole thing is testable offline; it defaults to the real door. Never throws. */
@@ -677,9 +691,10 @@ export async function probeSchoolApis(
     } catch (e) { return { id: s.id, ok: false, rows: 0, declined: false, note: 'threw: ' + String((e as Error).message).slice(0, 120) } }
   }))
   const dark = probes.filter((p) => !p.ok)
+  const receipt = merkleGravity(probes.map((p) => toUuid(p.id + ':' + (p.ok ? 'answering' : 'dark'))))
   return {
     probed: probes.length, answering: probes.length - dark.length, dark, probes,
-    receipt: merkleGravity(probes.map((p) => toUuid(p.id + ':' + (p.ok ? 'answering' : 'dark')))),
+    receipt, ...hexbitDoorOf(receipt),
     honest:
       'A LIVENESS REPORT, not a verdict on anyone: it says which declared sources answered their own known-good ' +
       'query just now. A dark source is NOT a defect of this repository — a public API may be down, moved or ' +

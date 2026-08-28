@@ -13,7 +13,7 @@ import {
   resolveManPage,
 } from '../quantum/os/catalogue.js'
 import { uuidnaExec, APPLETS } from '../quantum/os/exec.js'
-import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
+import { UUID_HEXBITS, UUID_BITS, hexbitDoorOf } from '../hexbit/index.js'
 import { theoremByKey } from '../theorems/index.js'
 import { LEVELS } from '../quantum/advantage/index.js'
 
@@ -63,6 +63,10 @@ test('man pages test apps end-to-end — busybox man→app→hexbit', () => {
   // and the app itself compiles
   const app = catalogueCompile(cataloguePackage('busybox')!)
   assert.equal(app.hexbits.length, UUID_HEXBITS)
+  const door = hexbitDoorOf(app.address)
+  assert.equal(app.door, door.door)
+  assert.deepEqual(app.hexbits, door.hexbits)
+  assert.equal(app.coin.length, door.coin.length)
 })
 
 test('orphan documentation packages FAIL the witness — 100% is a finding, not a default', () => {

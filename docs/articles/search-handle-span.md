@@ -1,12 +1,12 @@
 ---
-title: "The search on trial: lean/HandleSpan.lean"
+title: "The search on trial: The handle span"
 description: "The quantum search's findings for this wing, each held at trial — evidence corroborated, never approved; only a Lean seal approves."
 ---
 
-# The search on trial: lean/HandleSpan.lean
+# The search on trial: The handle span
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *lean/HandleSpan.lean* — the wing sealed in [lean/HandleSpan.lean](/lean/HandleSpan.lean) with **6 theorems**. Each
+asked in parallel about *The handle span* — the wing sealed in [lean/HandleSpan.lean](/lean/HandleSpan.lean) with **6 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -14,16 +14,82 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `ae48480b` | crossref.org | DOI 10.1016/s0123-5923(07)70026-8: MEDICIÓN EN LEAN MANUFACTURING: RELACIONES ENTRE ACTIVIDADES LEAN Y MÉTRICAS LEA | UNVERIFIED | VERIFIED |
-| `19a536ed` | crossref.org | DOI 10.1002/9781119271703.ch4: Lean Enterprise vs. Lean Manufacturing | UNVERIFIED | VERIFIED |
-| `c6cc659b` | crossref.org | DOI 10.56238/revgeov16n5-155: DO LEAN AO LEAN 4.0: UMA REVISÃO CRÍTICA DO LEAN THINKING NA GESTÃO EMPRESARIAL  | UNVERIFIED | VERIFIED |
-| `7e31cf18` | crossref.org | DOI 10.5040/9781350891289: Pitcher's Lean | UNVERIFIED | VERIFIED |
-| `00a4f0a7` | crossref.org | DOI 10.1201/b15730-6: The Economics of Lean | UNVERIFIED | VERIFIED |
-| `87674b6c` | crossref.org | DOI 10.4324/9781420080971-12: Leading a Lean Operation | UNVERIFIED | VERIFIED |
-| `8c228c78` | crossref.org | DOI 10.1002/9781119271703.ch8: The Lean Mindset | UNVERIFIED | VERIFIED |
-| `954af3ae` | crossref.org | DOI 10.5772/intechopen.97573: Introduction to Lean Waste and Lean Tools | UNVERIFIED | VERIFIED |
+| `91e6c8cc` | zenodo.org | zenodo record 6464120: Synergistic Program Analyzer | UNVERIFIED | VERIFIED |
+| `296a36b4` | zenodo.org | zenodo record 18268812: On the durability of zirconia-reinforced lithium silicate and lithium disilicate | UNVERIFIED | VERIFIED |
+| `66b1c33d` | zenodo.org | zenodo record 1434844: The strategic moves of succeeding companies in Bulgaria midst the world financia | UNVERIFIED | VERIFIED |
+| `027b5fc0` | zenodo.org | zenodo record 15890973: A Contribution towards a List of the Marine Mollusca of Tenby and Neighbourhood | UNVERIFIED | VERIFIED |
+| `a2e4908a` | zenodo.org | zenodo record 1434850: Natural analogies among organizational culture models | UNVERIFIED | VERIFIED |
+| `90b702b8` | zenodo.org | zenodo record 16244166: Scalariform Natica catena | UNVERIFIED | VERIFIED |
+| `a0475941` | zenodo.org | zenodo record 10622782: Loot Boxes: juegos de azar encubiertos al alcance de menores | UNVERIFIED | VERIFIED |
+| `79726d16` | zenodo.org | zenodo record 18281193: PREreview of "<span class="word">Estimation <span class="word">of <span class="w | UNVERIFIED | VERIFIED |
+| `514bf9a7` | crossref.org | DOI 10.2139/ssrn.5416174: &lt;div&gt;
+ Why Kerala needs&amp;nbsp;&lt;span&gt;Anthrotherology to Handle&amp | UNVERIFIED | VERIFIED |
+| `682a8aa7` | crossref.org | DOI 10.2139/ssrn.4891360: &lt;p&gt;&lt;span&gt;Too Hot to Handle: Curbing Mobile Home Heat Deaths in a War | UNVERIFIED | VERIFIED |
+| `ecaad22b` | crossref.org | DOI 10.2139/ssrn.4622436: &lt;div&gt;
+ How to Handle a Platform Scandal: The Impact of&amp;nbsp;&lt;span&g | UNVERIFIED | VERIFIED |
+| `0a64649e` | crossref.org | DOI 10.4028/www.scientific.net/amm.55-57.1040: Aeroelasticity Simulation of the Large-Span Basket Handle Tied-Arch Bridge | UNVERIFIED | VERIFIED |
+| `8e18e735` | crossref.org | DOI 10.1109/icicta.2014.106: Parameter Optimization of Composite Basket Handle Tied Arch Bridge with Super Wi | UNVERIFIED | VERIFIED |
+| `2b54e656` | crossref.org | DOI 10.4028/www.scientific.net/amm.438-439.917: Study on Transverse Synchronization Control for Super-Breadth and Long-Span Bask | UNVERIFIED | VERIFIED |
+| `2d4c974c` | crossref.org | DOI 10.1109/mace.2011.5987437: Local analysis of the anchorage zone between the suspenders and the deck of larg | UNVERIFIED | VERIFIED |
+| `c92bad39` | crossref.org | DOI 10.4135/9781452219264.n3: How to Handle the Hard-to-Handle Parent: Strategies for Success | UNVERIFIED | VERIFIED |
+| `4d9109f5` | semanticscholar.org | S2 Optimal Handle Grip Span for Maximum Hand Grip Strength and  — AI tldr: There is an optimal grip span to which the dynamometer should be adjusted when measuring h | UNVERIFIED | VERIFIED |
+| `f9d157da` | semanticscholar.org | S2 X-Shot: A Unified System to Handle Frequent, Few-shot and Ze — AI tldr: This work introduces a novel classification challenge: X-shot, reflecting a real-world con | UNVERIFIED | VERIFIED |
+| `56ea7f8a` | semanticscholar.org | S2 How to handle glacier area change in geodetic mass balance | UNVERIFIED | VERIFIED |
+| `b8ad53c0` | semanticscholar.org | S2 SPAN: Strong Scattering Point Aware Network for Ship Detecti — AI tldr: A novel deep learning-based ship detection and classification network combined with scatte | UNVERIFIED | VERIFIED |
+| `9bfaf43f` | semanticscholar.org | S2 Long-Range Low-Power Multi-Hop Wireless Sensor Network for M — AI tldr: This work proposes a low-power multi-hop wireless sensor network suitable for monitoring l | UNVERIFIED | VERIFIED |
+| `4ab88640` | semanticscholar.org | S2 Extract-Select: A Span Selection Framework for Nested Named  — AI tldr: Extract-Select, a span selection framework for nested NER, is introduced in which nested e | UNVERIFIED | VERIFIED |
+| `045a64a9` | semanticscholar.org | S2 Multi-Span Long-Haul Fiber Transmission Model Based on Casca | UNVERIFIED | VERIFIED |
+| `8fb6345d` | semanticscholar.org | S2 Handle grip span for optimising finger-specific force capabi — AI tldr: The grip spans for two-handle hand tools may be designed according to the users' hand/fing | UNVERIFIED | VERIFIED |
+| `0a7f41f8` | arxiv.org | arXiv 1805.02714v4: Span Program for Non-binary Functions | UNVERIFIED | VERIFIED |
+| `0add496f` | arxiv.org | arXiv 1908.04232v2: Span Programs and Quantum Space Complexity | UNVERIFIED | VERIFIED |
+| `7e660bcb` | arxiv.org | arXiv 2311.09812v3: Large Language Models for Propaganda Span Annotation | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `9ccceb7d` | arxiv.org | arXiv 2203.05331v6: Algebraic cobordism via spans | UNVERIFIED | VERIFIED |
+| `02fe652c` | arxiv.org | arXiv 2606.11876v1: Seeing Below the Limit of Detection: A Censored-Poisson Bayesian Latent-Growth C | UNVERIFIED | VERIFIED |
+| `6bac3921` | arxiv.org | arXiv 2411.02223v1: Positive Experience Reflection for Agents in Interactive Text Environments | UNVERIFIED | VERIFIED |
+| `150cc899` | arxiv.org | arXiv 2009.00726v2: SPAN: Spatial Pyramid Attention Network forImage Manipulation Localization | UNVERIFIED | VERIFIED |
+| `af3d8236` | en.wikinews.org | Wikinews: Bikers begin descent on South Carolina resort for rallies | UNVERIFIED | VERIFIED |
+| `38c1b425` | en.wikinews.org | Wikinews: English Football: Roundup for Easter weekend | UNVERIFIED | VERIFIED |
+| `d620a7af` | en.wikinews.org | Wikinews: Brazzaville picks up the pieces after ammo depot explosion | UNVERIFIED | VERIFIED |
+| `3d2ae7b0` | en.wikinews.org | Wikinews: Interview with gay marriage movement founder Evan Wolfson | UNVERIFIED | VERIFIED |
+| `953e458f` | en.wikinews.org | Wikinews: On the campaign trail in the USA, September 2016 | UNVERIFIED | VERIFIED |
+| `a960c513` | en.wikinews.org | Wikinews: On the campaign trail, October 2012 | UNVERIFIED | VERIFIED |
+| `abfbb42a` | en.wikinews.org | Wikinews: Dr. Joseph Merlino on sexuality, insanity, Freud, fetishes and apathy | UNVERIFIED | VERIFIED |
+| `fd8e04ba` | en.wikinews.org | Wikinews: US Senate confirms Ketanji Brown Jackson for Supreme Court | UNVERIFIED | VERIFIED |
+| `00ac6e52` | esco | {"source":"esco","address":"6ee313f9-4b4e-8319-84ac-ab3530874cb5","uri":"http://data.europa.eu/esco/skill/60482359-eda3-410f-a2cf-05ff1bddef8e","title":"use wrenches","conceptType":"Skill"}
+{"source":"esco","address":"7e38afbb-db44-8a7e-b185-d6aa2e1d9c1f","uri":"http://data.europa.eu/esco/skill/45f3857b-072f-4c4d-821f-c577e7483b3d","title":"assess cleanliness of areas","conceptType":"Skill"}
+{"source":"esco","address":"96e4d174-f12e-8c7e-8471-3bad4cc28dc5","uri":"http://data.europa.eu/esco/skill/14ee9f76-3524-43d5-8a1a-5ba8283f8bd7","title":"Spanish","conceptType":"Skill"}
+{"source":"esco","address":"2a38d254-5fa7-8ed9-8345-76111aa4c009","uri":"http://data.europa.eu/esco/skill/0f58a178-1382-4df2-95e8-2b3f90e80e24","title":"interact verbally in Spanish","conceptType":"Skill"}
+{"source":"esc | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `aa9df400` | data-europa | {"source":"data-europa","address":"c1384cce-f8d9-8b2e-b2c8-fab7fc9c6e16","id":"https-www-igme-es-datosabiertos-catalogo-6137","title":"Geological Map of Spain. E.1:50.000 - Sheet 195 - HANDLE OF THE WALLS","country":"Spain","catalogue":"datos-gob-es"}
+{"source":"data-europa","address":"76d304a1-e663-8fcc-8395-e3d300f21b24","id":"https-dane-gov-pl-pl-dataset-11670-ceny-ofertowe-dewelopera-alcamo-sp-z-oo-w-2025-rok","title":"Offer prices of developer Alcamo Sp. z o.o. in 2025","country":"Poland","catalogue":"dane-gov-pl"}
+{"source":"data-europa","address":"802708e1-e0f1-82a4-8bfd-02f63b2f82c1","id":"https-dane-gov-pl-pl-dataset-1361-powierzchnia-nieruchomosci-rolnych-i-lesnych-objetych-zezwoleniami-wg-kraju-pochodzenia-wnioskodawcy","title":"Powierzchnia nieruchomości rolnych i leśnych objęt | UNVERIFIED | VERIFIED |
+| `585eb4d3` | open-meteo-forecast | temperature_2m_c 22.4 °C
+wind_speed_10m_kmh 2.3 km/h
+pressure_hpa 957.2 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**8 findings · 8 usable search-trial combinations · receipt `08304df6`** (fold of every finding's address — recompute by re-running the search).
+**53 findings · 53 usable search-trial combinations · receipt `6dba941c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -40,4 +106,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

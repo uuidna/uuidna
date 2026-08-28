@@ -1,12 +1,12 @@
 ---
-title: "The search on trial: lean/Affine.lean"
+title: "The search on trial: The affine"
 description: "The quantum search's findings for this wing, each held at trial — evidence corroborated, never approved; only a Lean seal approves."
 ---
 
-# The search on trial: lean/Affine.lean
+# The search on trial: The affine
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *lean/Affine.lean* — the wing sealed in [lean/Affine.lean](/lean/Affine.lean) with **6 theorems**. Each
+asked in parallel about *The affine* — the wing sealed in [lean/Affine.lean](/lean/Affine.lean) with **6 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -14,16 +14,88 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
-| `ae48480b` | crossref.org | DOI 10.1016/s0123-5923(07)70026-8: MEDICIÓN EN LEAN MANUFACTURING: RELACIONES ENTRE ACTIVIDADES LEAN Y MÉTRICAS LEA | UNVERIFIED | VERIFIED |
-| `19a536ed` | crossref.org | DOI 10.1002/9781119271703.ch4: Lean Enterprise vs. Lean Manufacturing | UNVERIFIED | VERIFIED |
-| `c6cc659b` | crossref.org | DOI 10.56238/revgeov16n5-155: DO LEAN AO LEAN 4.0: UMA REVISÃO CRÍTICA DO LEAN THINKING NA GESTÃO EMPRESARIAL  | UNVERIFIED | VERIFIED |
-| `7e31cf18` | crossref.org | DOI 10.5040/9781350891289: Pitcher's Lean | UNVERIFIED | VERIFIED |
-| `00a4f0a7` | crossref.org | DOI 10.1201/b15730-6: The Economics of Lean | UNVERIFIED | VERIFIED |
-| `87674b6c` | crossref.org | DOI 10.4324/9781420080971-12: Leading a Lean Operation | UNVERIFIED | VERIFIED |
-| `8c228c78` | crossref.org | DOI 10.1002/9781119271703.ch8: The Lean Mindset | UNVERIFIED | VERIFIED |
-| `954af3ae` | crossref.org | DOI 10.5772/intechopen.97573: Introduction to Lean Waste and Lean Tools | UNVERIFIED | VERIFIED |
+| `495c25a4` | zenodo.org | zenodo record 21927512: Rank-Two Cells in Very-Generic Character Varieties Are Torus-Affine | UNVERIFIED | VERIFIED |
+| `0f6fda0c` | zenodo.org | zenodo record 3586074: Affine Control Systems on Non Compact Lie Group | UNVERIFIED | VERIFIED |
+| `75a3c4d9` | zenodo.org | zenodo record 19683191: On the Failure of Multiplicative Mixing in Tao's Collatz Framework | UNVERIFIED | VERIFIED |
+| `5a3709ee` | zenodo.org | zenodo record 17922738: Linear Geometry: Vector Algebra in Affine spaces | UNVERIFIED | VERIFIED |
+| `2e2538c6` | zenodo.org | zenodo record 21869842: PAPER-FBT02A: The S-Gate as a Strict Affine Central Charge | UNVERIFIED | VERIFIED |
+| `ac2031dd` | zenodo.org | zenodo record 2640953: ConcatTransfo | UNVERIFIED | VERIFIED |
+| `1e136025` | zenodo.org | zenodo record 22091267: QSM-CI method: AFTER-QSM (v1) | UNVERIFIED | VERIFIED |
+| `45f90b9b` | zenodo.org | zenodo record 1471609: Fixed point-free isometric actions of topological groups on Banach spaces | UNVERIFIED | VERIFIED |
+| `1de72a4b` | crossref.org | DOI 10.1017/cbo9781107325456.003: Affine sets | UNVERIFIED | VERIFIED |
+| `66ea888a` | crossref.org | DOI 10.1017/cbo9781107325456.006: Affine groups | UNVERIFIED | VERIFIED |
+| `c4e1e97d` | crossref.org | DOI 10.1017/cbo9781107325456.004: Irreducible affine sets | UNVERIFIED | VERIFIED |
+| `cd47f290` | crossref.org | DOI 10.1017/cbo9780511526657.003: The affine camera and affine structure | UNVERIFIED | VERIFIED |
+| `d215d448` | crossref.org | DOI 10.1016/s1570-579x(03)80036-8: Affine, Quasi-Affine and Co-Affine Wavelets | UNVERIFIED | VERIFIED |
+| `1a4d184d` | crossref.org | DOI 10.1515/9783110870428.83: Chapter 2. Affine Hyperspheres | UNVERIFIED | VERIFIED |
+| `c440f99f` | crossref.org | DOI 10.1017/cbo9781107325456.001: Introduction | UNVERIFIED | VERIFIED |
+| `55fd83a2` | crossref.org | DOI 10.1007/978-3-0346-0288-4_1: Affine Springer Fibers and Affine Deligne-Lusztig Varieties | UNVERIFIED | VERIFIED |
+| `409c19bb` | openalex.org | OpenAlex A global optimisation method for robust affine registration of brain i [Medical Image Segmentation Tec] | UNVERIFIED | VERIFIED |
+| `24062f6f` | openalex.org | OpenAlex Ensemble samplers with affine invariance [Markov Chains and Monte Carlo ] | UNVERIFIED | VERIFIED |
+| `67ec9e22` | openalex.org | OpenAlex Scale & Affine Invariant Interest Point Detectors [Advanced Image and Video Retri] | UNVERIFIED | VERIFIED |
+| `502503fd` | openalex.org | OpenAlex A Comparison of Affine Region Detectors [Advanced Image and Video Retri] | UNVERIFIED | VERIFIED |
+| `bf7b28f9` | openalex.org | OpenAlex Affine Invariant Flows in the Beltrami Framework [Advanced Numerical Analysis Te] | UNVERIFIED | VERIFIED |
+| `9c000fa4` | openalex.org | OpenAlex Transform Analysis and Asset Pricing for Affine Jump-diffusions [Stochastic processes and finan] | UNVERIFIED | VERIFIED |
+| `631958d9` | openalex.org | OpenAlex Specification Analysis of Affine Term Structure Models [Stochastic processes and finan] | UNVERIFIED | VERIFIED |
+| `6353f15c` | openalex.org | OpenAlex Term Premia and Interest Rate Forecasts in Affine Models [Stochastic processes and finan] | UNVERIFIED | VERIFIED |
+| `31c11f40` | arxiv.org | arXiv 0802.4323v1: Non-singular affine surfaces with self-maps | UNVERIFIED | VERIFIED |
+| `d9a21e91` | arxiv.org | arXiv 1806.08513v2: Affine differential geometry and affine rotation surfaces: algebraic surfaces in | UNVERIFIED | VERIFIED |
+| `ac8724bc` | arxiv.org | arXiv 2106.15501v3: Ramblings on the freeness of affine hypersurfaces | UNVERIFIED | VERIFIED |
+| `09455fb3` | arxiv.org | arXiv 1104.0560v3: On restriction of roots on affine T-varieties | UNVERIFIED | VERIFIED |
+| `82c7e817` | arxiv.org | arXiv 1912.08047v1: The Benefits of Affine Quantization | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `fa702f09` | arxiv.org | arXiv 2001.09848v6: Reduced expression of minimal infinite reduced words of affine Weyl groups | UNVERIFIED | VERIFIED |
+| `f4f8d72a` | arxiv.org | arXiv 1801.00240v2: Uniform modular lattices and affine buildings | UNVERIFIED | VERIFIED |
+| `03b44c6f` | mathoverflow.net | MO answered: Etale covers of the affine line | UNVERIFIED | VERIFIED |
+| `39377d4c` | mathoverflow.net | MO answered: Reconciling the affine grassmannian and the based loop group | UNVERIFIED | VERIFIED |
+| `6af4e82d` | mathoverflow.net | MO answered: Questions about the &quot;universal elliptic curve&quot; over the affine $j$-lin | UNVERIFIED | VERIFIED |
+| `ffbc24c9` | mathoverflow.net | MO answered: can a common mortal understand why the affine line is not smooth in brave new al | UNVERIFIED | VERIFIED |
+| `dfb2e759` | mathoverflow.net | MO open: Homotopy type of the affine Grassmannian and of the Beilinson-Drinfeld Grassmann | UNVERIFIED | VERIFIED |
+| `eecbf37f` | mathoverflow.net | MO answered: Distance to an apartment of the affine building of GL(N) | UNVERIFIED | VERIFIED |
+| `beb8cf48` | mathoverflow.net | MO answered: The affine Grassmannian and the Bogomolny equations | UNVERIFIED | VERIFIED |
+| `f8c9701b` | mathoverflow.net | MO answered: Is the affine closure of the basic affine space of a reductive algebraic group C | UNVERIFIED | VERIFIED |
+| `0b97df79` | en.wikipedia.org | Wikipedia: Affine | UNVERIFIED | VERIFIED |
+| `57098c40` | en.wikipedia.org | Wikipedia: Affine space | UNVERIFIED | VERIFIED |
+| `100d45ea` | en.wikipedia.org | Wikipedia: Affine transformation | UNVERIFIED | VERIFIED |
+| `c27b82b9` | en.wikipedia.org | Wikipedia: Affine logic | UNVERIFIED | VERIFIED |
+| `2fe2d3b1` | en.wikipedia.org | Wikipedia: Affine sphere | UNVERIFIED | VERIFIED |
+| `b7755fa0` | en.wikipedia.org | Wikipedia: Affine combination | UNVERIFIED | VERIFIED |
+| `7694682e` | en.wikipedia.org | Wikipedia: Affine group | UNVERIFIED | VERIFIED |
+| `866888f0` | en.wikipedia.org | Wikipedia: Affine connection | UNVERIFIED | VERIFIED |
+| `949c1d4f` | esco | {"source":"esco","address":"ef8ac8ad-6d8d-8109-8ca2-333ed4729fe8","uri":"http://data.europa.eu/esco/skill/c10d5d87-36cf-42f5-8a12-e560fb5f4af8","title":"demonstrate intercultural competence","conceptType":"Skill"}
+{"source":"esco","address":"8ffe7b65-5a66-8959-9eab-2c030e75198c","uri":"http://data.europa.eu/esco/skill/3f8d4e8f-17cc-4447-9325-fcfe4306c238","title":"describe your artistic aspirations in relation to artistic trends","conceptType":"Skill"}
+{"source":"esco","address":"5745c63a-c9fb-8302-9475-7ab81f0124fd","uri":"http://data.europa.eu/esco/skill/e90c83be-ccb7-4752-af5e-7f58cd0ac399","title":"facilitate the healing process related to sexual assault","conceptType":"Skill"}
+{"source":"esco","address":"abb0113d-dd19-8fae-a81f-80620dbafbc1","uri":"http://data.europa.eu/esco/skill/3c8 | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `06589c2f` | data-europa | {"source":"data-europa","address":"39ce6206-e9d7-8b07-b881-af4038296196","id":"barbierieaffini","title":"Barbieri e affini","country":"Italy","catalogue":"dati-gov-it"}
+{"source":"data-europa","address":"95933fe4-5706-861b-8b7e-03543eeb606f","id":"doi-10-34934-dvn-mo4exz","title":"SUPER DADA for Dataverse 4+ [Version 2.0]","country":"Belgium","catalogue":"data-gov-be"}
+{"source":"data-europa","address":"d3346a35-c038-8554-8bd4-2d2c20da881b","id":"doi-10-34934-dvn-aoqrsj","title":"SUPER DADA for Dataverse 5+ [Version 2.0]","country":"Belgium","catalogue":"data-gov-be"}
+{"source":"data-europa","address":"74149d79-9ad8-80e8-9a15-474269371032","id":"https-data-caf-fr-explore-dataset-af_s_type_com_f-","title":"AF - Distribution of recipients by type of AF [Communal]","country":"France","catalog | UNVERIFIED | VERIFIED |
+| `b740df72` | open-meteo-forecast | temperature_2m_c 21.7 °C
+wind_speed_10m_kmh 2 km/h
+pressure_hpa 957.1 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**8 findings · 8 usable search-trial combinations · receipt `08304df6`** (fold of every finding's address — recompute by re-running the search).
+**61 findings · 61 usable search-trial combinations · receipt `975a2120`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -40,4 +112,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

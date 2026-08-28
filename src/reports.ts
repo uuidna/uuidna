@@ -18,7 +18,8 @@ import { rdRoot } from './boundary.js'
 import { statementCensus } from './editorial.js'
 import { coins } from './captain/billing/index.js'
 import { toUuid, merkleFold } from './address.js'
-import { hexbitsOf, bitsOf } from './hexbit/index.js'
+import { hexbitsOf, bitsOf, hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
+import { coverage as monographCoverage } from './publish.js'
 
 // the filesystem reach is the boundary's, not this module's — one layer owns it, everything else asks
 const readJson = <T>(rel: string): T | null => {
@@ -35,7 +36,7 @@ export interface ReportSection {
   address: string
 }
 
-export interface ConsolidatedReports {
+export interface ConsolidatedReports extends HexbitDoor {
   sections: ReportSection[]
   /** the order-invariant fold of every section address — the same receipt for every observer */
   receipt: string
@@ -127,12 +128,40 @@ function readiness(): ReportSection {
   })
 }
 
+function gateReceipt(): ReportSection {
+  const g = readJson<{ receipt?: string; healthy?: boolean }>('gate-receipt.json')
+  if (!g) return section('Gate receipt', 'gate-receipt.json', false, { note: 'not probed — a live gate writes this' })
+  return section('Gate receipt', 'gate-receipt.json', true, {
+    receipt: g.receipt ?? 'present', healthy: String(g.healthy ?? ''),
+  })
+}
+
+function jsonCensus(): ReportSection {
+  const analytics = readJson('analytics-report.json')
+  const gapsFile = readJson('gaps.json')
+  const claims = readJson<{ total_theorems?: number; total_claimed?: number }>('docs/captain-claims.json')
+  const complete = readJson<{ total_theorems?: number; claimed?: number }>('docs/captain-claims-complete.json')
+  const research = readJson<{ leads?: unknown[] }>('research-leads.json')
+  const cov = monographCoverage()
+  return section('JSON census (twins folded here)', null, true, {
+    analyticsReport: analytics ? 'present — fold; live surface is gen-analytics' : 'absent (folded)',
+    gapsJson: gapsFile ? 'present' : 'absent — count from coverage().uncoveredFiles',
+    uncoveredFiles: cov.uncoveredFiles.length,
+    captainClaimsTheorems: claims?.total_theorems ?? 0,
+    captainClaimsComplete: complete ? 'present (twin of captain-claims.json)' : 'absent',
+    researchLeads: Array.isArray(research?.leads) ? research.leads.length : 'absent',
+    handleRoot: 'src/handle declared empty — chunks/seeds stay this wave',
+  })
+}
+
 /** reportAll() — every report and audit in one structure, folded to one order-invariant receipt. */
 export function reportAll(): ConsolidatedReports {
-  const sections = [accounting(), coverage(), citations(), support(), packages(), readiness()]
+  const sections = [accounting(), coverage(), citations(), support(), packages(), readiness(), gateReceipt(), jsonCensus()]
+  const receipt = merkleFold(sections.map((s) => s.address))
   return {
     sections,
-    receipt: merkleFold(sections.map((s) => s.address)),
-    honest: 'Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess.',
+    receipt,
+    ...hexbitDoorOf(receipt),
+    honest: 'Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess. Frozen root JSON twins fold here rather than remaining unaddressed snapshots.',
   }
 }

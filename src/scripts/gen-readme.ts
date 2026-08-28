@@ -78,6 +78,8 @@ function generateReadme(): string {
   const hex = hexbitsOf(mass)
   const served = MAX_SERVED_QUBITS
   const reg = MAX_MESSAGE_QUBITS
+  const quantumWing = T.filter((t) => t.file === 'Quantum.lean').length
+  const cipherWing = T.filter((t) => t.file === 'Cipher.lean').length
   const lf = legalFacts()
   const license = CANONICAL_LICENSE_SPDX()
   const licenseUrl = CANONICAL_LICENSE_URL()
@@ -192,6 +194,8 @@ ${unlockReadmeBlock()}
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
 | Library register | ${reg} qubits (${2 ** reg} amplitudes) | \`MAX_MESSAGE_QUBITS\` |
 | MCP served ceiling | ${served} qubits (${2 ** served} amplitudes) | \`MAX_SERVED_QUBITS\` |
+| Quantum wing theorems | ${quantumWing} | Quantum.lean |
+| Cipher wing theorems | ${cipherWing} | Cipher.lean |
 | Research sources wired | ${RESEARCH_SOURCE_NAMES.length} | corroboration, never approval |
 | Conserved price paid | ${(T.length * COINS).toLocaleString('en-US')} coins | ${T.length} × ${COINS} |
 

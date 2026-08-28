@@ -34,9 +34,30 @@ export interface Citation {
 /** Every DOI in a piece of text. The syntax is the registry's own: `10.` then a registrant code, a slash, and a
  *  suffix. Trailing sentence punctuation is trimmed, because a DOI at the end of a prose clause collects the
  *  full stop and a resolver would then ask for a work that was never registered. */
+const DOI_STOP = new Set([' ', '\t', '\n', '\r', '"', "'", '<', '>', ',', ';', ')', ']'])
+
 export function doisIn(text: string): string[] {
-  const hits = String(text).match(/\b10\.\d{4,9}\/[^\s"'<>,;)\]]+/g) ?? []
-  return [...new Set(hits.map((d) => d.replace(/[.,;:]+$/, '')))]
+  const s = String(text)
+  const seen = new Set<string>()
+  const out: string[] = []
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] !== '1' || s[i + 1] !== '0' || s[i + 2] !== '.') continue
+    const prev = s[i - 1]
+    if (prev !== undefined && /[A-Za-z0-9_]/.test(prev)) continue
+    let j = i + 3
+    let digits = 0
+    while (j < s.length && s[j]! >= '0' && s[j]! <= '9') { digits++; j++ }
+    if (digits < 4 || digits > 9 || s[j] !== '/') continue
+    j++
+    const suffixStart = j
+    while (j < s.length && !DOI_STOP.has(s[j]!)) j++
+    if (j === suffixStart) continue
+    let doi = s.slice(i, j)
+    while (doi.endsWith('.') || doi.endsWith(',') || doi.endsWith(';') || doi.endsWith(':')) doi = doi.slice(0, -1)
+    if (!seen.has(doi)) { seen.add(doi); out.push(doi) }
+    i = j - 1
+  }
+  return out
 }
 
 /** The metadata endpoint for one DOI, built the way Crossref's own specification asks.

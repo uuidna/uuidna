@@ -5,48 +5,111 @@
       "id": 10,
       "title": "The King James Version of the Bible",
       "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-      "claims": 287,
+      "claims": 311,
       "arithmetic": 0
     },
     {
       "id": 2800,
       "title": "The Koran (Al-Qur'an)",
       "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-      "claims": 48,
+      "claims": 45,
       "arithmetic": 0
     },
     {
       "id": 216,
       "title": "The Tao Teh King, or the Tao and its Characteristics",
       "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
-      "claims": 4,
+      "claims": 1,
       "arithmetic": 0
     },
     {
       "id": 2388,
       "title": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
       "address": "dd8e92be-df49-823f-b232-57d824d45e19",
-      "claims": 5,
+      "claims": 1,
       "arithmetic": 0
     },
     {
       "id": 2017,
       "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
       "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
-      "claims": 7,
+      "claims": 4,
       "arithmetic": 0
     },
     {
       "id": 45493,
       "title": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
       "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
-      "claims": 28,
+      "claims": 25,
       "arithmetic": 0
     }
   ],
-  "leads": 379,
-  "receipt": "22cbc401-9b3f-893b-95f6-7a4cfca2084c",
+  "leads": 387,
+  "receipt": "2735a902-180f-8c1b-a0d2-695772331e87",
   "lead": [
+    {
+      "claim": "seven years of famine come unto thee in thy land? or wilt thou flee three months",
+      "kind": "unit-equivalence",
+      "numbers": [
+        7,
+        3
+      ],
+      "units": [
+        "years",
+        "months"
+      ],
+      "sentence": "choose thee one of them, that I may do it unto thee. 24:13 So Gad came to David, and told him, and said unto him, Shall seven years of famine come unto thee in thy land? or wilt thou flee three months before thine enemies, while they pursue thee? or that there be three days’ pest",
+      "address": "086694a3-042b-8e4f-80b2-28679e90131e",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "ten degrees, or go back ten degrees",
+      "kind": "unit-equivalence",
+      "numbers": [
+        10,
+        10
+      ],
+      "units": [
+        "degrees",
+        "degrees"
+      ],
+      "sentence": "This sign shalt thou have of the LORD, that the LORD will do the thing that he hath spoken: shall the shadow go forward ten degrees, or go back ten degrees? 20:10 And Hezekiah answered, It is a light thing for the shadow to go down ten degrees: nay, but let the shadow return back",
+      "address": "7120df2b-5413-8f61-9146-e1bdec614320",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "three years’ famine; or three months",
+      "kind": "unit-equivalence",
+      "numbers": [
+        3,
+        3
+      ],
+      "units": [
+        "years",
+        "months"
+      ],
+      "sentence": "hat I may do it unto thee. 21:11 So Gad came to David, and said unto him, Thus saith the LORD, Choose thee 21:12 Either three years’ famine; or three months to be destroyed before thy foes, while that the sword of thine enemies overtaketh thee; or else three days the sword of the",
+      "address": "fd1a24cc-2ce4-8861-b2c5-49c39faabcd5",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
     {
       "claim": "2 Day",
       "kind": "measurement",
@@ -62,7 +125,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -81,64 +144,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
     {
-      "claim": "60 days",
+      "claim": "10 Beat",
       "kind": "measurement",
       "numbers": [
-        60
+        10
       ],
       "units": [
-        "days"
+        "Beat"
       ],
-      "sentence": "yalties under this paragraph to the Project Gutenberg Literary Archive Foundation. Royalty payments must be paid within 60 days following each date on which you prepare (or are legally required to prepare) your periodic tax returns. Royalty payments should be clearly marked as su",
-      "address": "794ec24a-4acc-8519-b6db-8a4eb5e0512a",
+      "sentence": "ye this among the Gentiles; Prepare war, wake up the mighty men, let all the men of war draw near; let them come up: 3:10 Beat your plowshares into swords and your pruninghooks into spears: let the weak say, I am strong. 3:11 Assemble yourselves, and come, all ye heathen, and ga",
+      "address": "8eca7abd-fd97-83b6-8d83-8a882092cad6",
       "book": {
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
-        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
-      }
-    },
-    {
-      "claim": "30 days",
-      "kind": "measurement",
-      "numbers": [
-        30
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "Foundation.” • You provide a full refund of any money paid by a user who notifies you in writing (or by e-mail) within 30 days of receipt that s/he does not agree to the terms of the full Project Gutenberg™ License. You must require such a user to return or destroy all copies of",
-      "address": "20f2f09d-acff-8bf0-9168-6ddf80769eed",
-      "book": {
-        "id": 10,
-        "title": "The King James Version of the Bible",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
-        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
-      }
-    },
-    {
-      "claim": "90 days",
-      "kind": "measurement",
-      "numbers": [
-        90
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "oney paid for a work or a replacement copy, if a defect in the electronic work is discovered and reported to you within 90 days of receipt of the work. • You comply with all other terms of this agreement for free distribution of Project Gutenberg™ works. 1.E.9. If you wish to cha",
-      "address": "cc48f119-1791-840b-9546-877ceddc2eb2",
-      "book": {
-        "id": 10,
-        "title": "The King James Version of the Bible",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -157,7 +182,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -176,7 +201,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -195,7 +220,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -214,7 +239,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -233,7 +258,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -252,7 +277,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -271,7 +296,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -290,7 +315,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -309,7 +334,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -328,7 +353,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -347,7 +372,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -366,7 +391,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -385,7 +410,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -404,7 +429,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -423,7 +448,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -442,7 +467,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -461,7 +486,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -480,7 +505,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -499,7 +524,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -518,7 +543,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -537,7 +562,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -556,7 +581,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -575,7 +600,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -594,7 +619,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -613,7 +638,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -632,7 +657,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -651,7 +676,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -670,7 +695,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -689,7 +714,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -708,7 +733,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -727,7 +752,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -746,7 +771,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -765,7 +790,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -784,7 +809,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -803,7 +828,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -822,7 +847,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -841,7 +866,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -860,7 +885,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -879,7 +904,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -898,7 +923,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -917,7 +942,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -936,7 +961,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -955,7 +980,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -974,7 +999,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -993,7 +1018,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1012,7 +1037,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1031,7 +1056,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1050,7 +1075,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1069,7 +1094,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1088,7 +1113,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1107,7 +1132,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1126,7 +1151,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1145,7 +1170,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1164,7 +1189,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1183,7 +1208,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1202,7 +1227,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1221,7 +1246,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1240,7 +1265,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1259,7 +1284,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "three measures",
+      "kind": "measurement",
+      "numbers": [
+        3
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "d they said, So do, as thou hast said. 18:6 And Abraham hastened into the tent unto Sarah, and said, Make ready quickly three measures of fine meal, knead it, and make cakes upon the hearth. 18:7 And Abraham ran unto the herd, and fetcht a calf tender and good, and gave it unto a",
+      "address": "4f8d1e9d-e76a-8ea1-9b21-10d9bef14eb1",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1278,7 +1322,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1297,7 +1341,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1316,7 +1360,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1335,7 +1379,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1354,7 +1398,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1373,7 +1417,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1392,7 +1436,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1411,7 +1455,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1430,7 +1474,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1449,7 +1493,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1468,7 +1512,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1487,7 +1531,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1506,7 +1550,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1525,7 +1569,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1544,7 +1588,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1563,7 +1607,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1582,7 +1626,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1601,7 +1645,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1620,7 +1664,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1639,7 +1683,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1658,7 +1702,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1677,7 +1721,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1696,7 +1740,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1715,7 +1759,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1734,7 +1778,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1753,7 +1797,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1772,7 +1816,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1791,7 +1835,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1810,7 +1854,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1829,7 +1873,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1848,7 +1892,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1867,7 +1911,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "one voice",
+      "kind": "measurement",
+      "numbers": [
+        1
+      ],
+      "units": [
+        "voice"
+      ],
+      "sentence": "3 And Moses came and told the people all the words of the LORD, and all the judgments: and all the people answered with one voice, and said, All the words which the LORD hath said will we do. 24:4 And Moses wrote all the words of the LORD, and rose up early in the morning, and bu",
+      "address": "dfca15cd-8941-8cea-bfff-fac588190a75",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1886,7 +1949,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1905,7 +1968,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1924,7 +1987,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1943,7 +2006,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "one measure",
+      "kind": "measurement",
+      "numbers": [
+        1
+      ],
+      "units": [
+        "measure"
+      ],
+      "sentence": "shall be eight and twenty cubits, and the breadth of one curtain four cubits: and every one of the curtains shall have one measure. 26:3 The five curtains shall be coupled together one to another; and other five curtains shall be coupled one to another. 26:4 And thou shalt make",
+      "address": "6cb9dcef-497e-843d-b72a-da8e27c454dd",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1962,7 +2044,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "And five bars",
+      "kind": "measurement",
+      "numbers": [
+        5
+      ],
+      "units": [
+        "bars"
+      ],
+      "sentence": "her board. 26:26 And thou shalt make bars of shittim wood; five for the boards of the one side of the tabernacle, 26:27 And five bars for the boards of the other side of the tabernacle, and five bars for the boards of the side of the tabernacle, for the two sides westward. 26:28",
+      "address": "565a5ed4-7318-887d-b8b2-d7eb5c931415",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -1981,7 +2082,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2000,7 +2101,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2019,7 +2120,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2038,7 +2139,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2057,7 +2158,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2076,7 +2177,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2095,7 +2196,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2114,7 +2215,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2133,7 +2234,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2152,7 +2253,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2171,7 +2272,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2190,7 +2291,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2209,7 +2310,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2228,7 +2329,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2247,7 +2348,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2266,7 +2367,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2285,7 +2386,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2304,7 +2405,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2323,7 +2424,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2342,7 +2443,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2361,7 +2462,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2380,7 +2481,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2399,7 +2500,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2418,7 +2519,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2437,7 +2538,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2456,7 +2557,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2475,7 +2576,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2494,7 +2595,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2513,7 +2614,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2532,7 +2633,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2551,7 +2652,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2570,7 +2671,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2589,7 +2690,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2608,7 +2709,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2627,7 +2728,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2646,7 +2747,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2665,7 +2766,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2684,7 +2785,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2703,7 +2804,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2722,7 +2823,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2741,7 +2842,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2760,7 +2861,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2779,7 +2880,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2798,7 +2899,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2817,7 +2918,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2836,7 +2937,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2855,7 +2956,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2874,7 +2975,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2893,7 +2994,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2912,7 +3013,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2931,7 +3032,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2950,7 +3051,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2969,7 +3070,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -2988,7 +3089,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3007,7 +3108,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3026,7 +3127,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3045,7 +3146,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3064,7 +3165,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3083,7 +3184,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3102,7 +3203,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3121,7 +3222,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3140,7 +3241,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3159,7 +3260,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3178,7 +3279,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3197,7 +3298,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "six measures",
+      "kind": "measurement",
+      "numbers": [
+        6
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "o the floor. 3:15 Also he said, Bring the vail that thou hast upon thee, and hold it. And when she held it, he measured six measures of barley, and laid it on her: and she went into the city. 3:16 And when she came to her mother in law, she said, Who art thou, my daughter? And sh",
+      "address": "3befc8e1-02c7-8b74-a851-5efac4e3f215",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3216,7 +3336,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3235,7 +3355,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3254,7 +3374,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3273,7 +3393,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3292,7 +3412,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3311,7 +3431,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "and five measures",
+      "kind": "measurement",
+      "numbers": [
+        5
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "him. 25:18 Then Abigail made haste, and took two hundred loaves, and two bottles of wine, and five sheep ready dressed, and five measures of parched corn, and an hundred clusters of raisins, and two hundred cakes of figs, and laid them on asses. 25:19 And she said unto her servan",
+      "address": "0ce6a056-d249-82ff-989d-195818ac2ee3",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3330,7 +3469,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3349,7 +3488,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3368,7 +3507,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3387,7 +3526,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3406,7 +3545,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3425,7 +3564,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3444,7 +3583,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3463,7 +3602,83 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "thirty measures",
+      "kind": "measurement",
+      "numbers": [
+        30
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "Egypt: they brought presents, and served Solomon all the days of his life. 4:22 And Solomon’s provision for one day was thirty measures of fine flour, and threescore measures of meal, 4:23 Ten fat oxen, and twenty oxen out of the pastures, and an hundred sheep, beside harts, and",
+      "address": "65341245-52bb-8020-910b-2d8dc5407b63",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "and threescore measures",
+      "kind": "measurement",
+      "numbers": [
+        60
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "nd served Solomon all the days of his life. 4:22 And Solomon’s provision for one day was thirty measures of fine flour, and threescore measures of meal, 4:23 Ten fat oxen, and twenty oxen out of the pastures, and an hundred sheep, beside harts, and roebucks, and fallowdeer, and f",
+      "address": "1a9b2a80-d4c2-82f1-92a5-65ca38e955fc",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "twenty thousand measures",
+      "kind": "measurement",
+      "numbers": [
+        20000
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "ousehold. 5:10 So Hiram gave Solomon cedar trees and fir trees according to all his desire. 5:11 And Solomon gave Hiram twenty thousand measures of wheat for food to his household, and twenty measures of pure oil: thus gave Solomon to Hiram year by year. 5:12 And the LORD gave So",
+      "address": "01ba636b-750d-849e-9225-0ad44b158cea",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "and twenty measures",
+      "kind": "measurement",
+      "numbers": [
+        20
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "s according to all his desire. 5:11 And Solomon gave Hiram twenty thousand measures of wheat for food to his household, and twenty measures of pure oil: thus gave Solomon to Hiram year by year. 5:12 And the LORD gave Solomon wisdom, as he promised him: and there was peace between",
+      "address": "d7fff6b4-6ace-8998-b0be-6b23843bff59",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3482,7 +3697,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3501,7 +3716,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3520,7 +3735,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3539,7 +3754,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3558,7 +3773,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3577,7 +3792,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3596,7 +3811,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3615,7 +3830,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3634,7 +3849,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3653,7 +3868,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3672,7 +3887,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3691,7 +3906,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3710,7 +3925,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3729,7 +3944,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "six steps",
+      "kind": "measurement",
+      "numbers": [
+        6
+      ],
+      "units": [
+        "steps"
+      ],
+      "sentence": "Lebanon. 10:18 Moreover the king made a great throne of ivory, and overlaid it with the best gold. 10:19 The throne had six steps, and the top of the throne was round behind: and there were stays on either side on the place of the seat, and two lions stood beside the stays. 10:20",
+      "address": "72199423-38e0-8d3f-b7e1-29ee3fadbd9a",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3748,7 +3982,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3767,7 +4001,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3786,7 +4020,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3805,7 +4039,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3824,7 +4058,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3843,7 +4077,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "two measures",
+      "kind": "measurement",
+      "numbers": [
+        2
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "h the stones he built an altar in the name of the LORD: and he made a trench about the altar, as great as would contain two measures of seed. 18:33 And he put the wood in order, and cut the bullock in pieces, and laid him on the wood, and said, Fill four barrels with water, and p",
+      "address": "9222ca70-9153-8a96-8947-61de85e3cbf1",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3862,7 +4115,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3881,7 +4134,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "and two measures",
+      "kind": "measurement",
+      "numbers": [
+        2
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "he word of the LORD; Thus saith the LORD, To morrow about this time shall a measure of fine flour be sold for a shekel, and two measures of barley for a shekel, in the gate of Samaria. 7:2 Then a lord on whose hand the king leaned answered the man of God, and said, Behold, if the",
+      "address": "f98f0164-281a-8ec8-ac7e-7e825cad3253",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3900,7 +4172,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3919,7 +4191,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3938,7 +4210,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3957,7 +4229,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3976,7 +4248,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -3995,7 +4267,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4014,7 +4286,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4033,7 +4305,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4052,7 +4324,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4071,7 +4343,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4090,7 +4362,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4109,7 +4381,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4128,7 +4400,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4147,7 +4419,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4166,7 +4438,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4185,7 +4457,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4204,7 +4476,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4223,7 +4495,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4242,7 +4514,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4261,7 +4533,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4280,7 +4552,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4299,7 +4571,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4318,7 +4590,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4337,7 +4609,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4356,7 +4628,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4375,7 +4647,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "and twenty thousand measures",
+      "kind": "measurement",
+      "numbers": [
+        20000
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "t. 2:10 And, behold, I will give to thy servants, the hewers that cut timber, twenty thousand measures of beaten wheat, and twenty thousand measures of barley, and twenty thousand baths of wine, and twenty thousand baths of oil. 2:11 Then Huram the king of Tyre answered in writin",
+      "address": "621ddbc1-b2b1-877f-81f9-091c566c4eea",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4394,7 +4685,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4413,7 +4704,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4432,7 +4723,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4451,7 +4742,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4470,7 +4761,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4489,7 +4780,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4508,7 +4799,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4527,7 +4818,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4546,7 +4837,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "and ten thousand measures",
+      "kind": "measurement",
+      "numbers": [
+        10000
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "e Ammonites, and prevailed against them. And the children of Ammon gave him the same year an hundred talents of silver, and ten thousand measures of wheat, and ten thousand of barley. So much did the children of Ammon pay unto him, both the second year, and the third. 27:6 So Jot",
+      "address": "2ece8f01-24a6-8d8e-a415-a22be2d47312",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4565,7 +4875,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4584,7 +4894,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4603,7 +4913,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4622,7 +4932,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "hundred measures",
+      "kind": "measurement",
+      "numbers": [
+        100
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "law of the God of heaven, shall require of you, it be done speedily, 7:22 Unto an hundred talents of silver, and to an hundred measures of wheat, and to an hundred baths of wine, and to an hundred baths of oil, and salt without prescribing how much. 7:23 Whatsoever is commanded",
+      "address": "543c61be-31fb-8d09-b1c8-14aef3d44701",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4641,7 +4970,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4660,7 +4989,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4679,7 +5008,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4698,7 +5027,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4717,7 +5046,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4736,7 +5065,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4755,7 +5084,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4774,7 +5103,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "one breath",
+      "kind": "measurement",
+      "numbers": [
+        1
+      ],
+      "units": [
+        "breath"
+      ],
+      "sentence": "e sons of men befalleth beasts; even one thing befalleth them: as the one dieth, so dieth the other; yea, they have all one breath; so that a man hath no preeminence above a beast: for all is vanity. 3:20 All go unto one place; all are of the dust, and all turn to dust again. 3:2",
+      "address": "cf7ebe94-fcbd-85ac-962e-368ed0fe00c0",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4793,7 +5141,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4812,7 +5160,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4831,7 +5179,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4850,7 +5198,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4869,7 +5217,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4888,7 +5236,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4907,7 +5255,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4926,7 +5274,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "seven steps",
+      "kind": "measurement",
+      "numbers": [
+        7
+      ],
+      "units": [
+        "steps"
+      ],
+      "sentence": "hes, and their palm trees, were after the measure of the gate that looketh toward the east; and they went up unto it by seven steps; and the arches thereof were before them. 40:23 And the gate of the inner court was over against the gate toward the north, and toward the east; and",
+      "address": "b09bdc58-d132-8ad2-b78b-482ccc090f3a",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4945,7 +5312,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "eight steps",
+      "kind": "measurement",
+      "numbers": [
+        8
+      ],
+      "units": [
+        "steps"
+      ],
+      "sentence": "the arches thereof were toward the utter court; and palm trees were upon the posts thereof: and the going up to it had eight steps. 40:32 And he brought me into the inner court toward the east: and he measured the gate according to these measures. 40:33 And the little chambers t",
+      "address": "abfcb581-e459-817d-b1e8-a2f34743b93a",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4964,7 +5350,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -4983,7 +5369,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5002,7 +5388,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5021,7 +5407,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5040,7 +5426,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5059,7 +5445,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5078,7 +5464,45 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "four thousand and five hundred measures",
+      "kind": "measurement",
+      "numbers": [
+        4500
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "ce, and these are their portions, saith the Lord GOD. 48:30 And these are the goings out of the city on the north side, four thousand and five hundred measures. 48:31 And the gates of the city shall be after the names of the tribes of Israel: three gates northward; one gate of Re",
+      "address": "43da1588-9282-81e6-ae4b-eef41ae55b2d",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "eighteen thousand measures",
+      "kind": "measurement",
+      "numbers": [
+        18000
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "ive hundred, with their three gates; one gate of Gad, one gate of Asher, one gate of Naphtali. 48:35 It was round about eighteen thousand measures: and the name of the city from that day shall be, The LORD is there. The Book of Daniel 1:1 In the third year of the reign of Jehoiak",
+      "address": "517c4e07-c050-88db-83c8-e939de193f2b",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5097,7 +5521,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5116,7 +5540,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5135,7 +5559,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5154,7 +5578,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5173,7 +5597,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "twenty measures",
+      "kind": "measurement",
+      "numbers": [
+        20
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "before a stone was laid upon a stone in the temple of the LORD: 2:16 Since those days were, when one came to an heap of twenty measures, there were but ten: when one came to the pressfat for to draw out fifty vessels out of the press, there were but twenty. 2:17 I smote you with",
+      "address": "5269a362-4d0e-85e6-990a-bdd18f7d7dfb",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5192,7 +5635,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5211,7 +5654,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5230,7 +5673,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5249,7 +5692,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5268,7 +5711,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5287,7 +5730,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5306,7 +5749,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5325,7 +5768,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5344,7 +5787,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5363,7 +5806,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5382,7 +5825,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5401,7 +5844,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5420,7 +5863,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5439,7 +5882,26 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
+        "address": "b129a698-05a3-8354-a354-09ee65278b0b"
+      }
+    },
+    {
+      "claim": "and three measures",
+      "kind": "measurement",
+      "numbers": [
+        3
+      ],
+      "units": [
+        "measures"
+      ],
+      "sentence": "r of balances in his hand. 6:6 And I heard a voice in the midst of the four beasts say, A measure of wheat for a penny, and three measures of barley for a penny; and see thou hurt not the oil and the wine. 6:7 And when he had opened the fourth seal, I heard the voice of the fourt",
+      "address": "5e90560e-5981-8a7f-a30a-8fd5087f7e6e",
+      "book": {
+        "id": 10,
+        "title": "The King James Version of the Bible",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5458,7 +5920,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5477,7 +5939,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5496,7 +5958,7 @@
         "id": 10,
         "title": "The King James Version of the Bible",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/10.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/10/pg10.txt",
         "address": "b129a698-05a3-8354-a354-09ee65278b0b"
       }
     },
@@ -5515,7 +5977,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5534,7 +5996,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5553,7 +6015,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5572,7 +6034,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5591,7 +6053,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5610,64 +6072,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
-        "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
-      }
-    },
-    {
-      "claim": "60 days",
-      "kind": "measurement",
-      "numbers": [
-        60
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "yalties under this paragraph to the Project Gutenberg Literary Archive Foundation. Royalty payments must be paid within 60 days following each date on which you prepare (or are legally required to prepare) your periodic tax returns. Royalty payments should be clearly marked as su",
-      "address": "794ec24a-4acc-8519-b6db-8a4eb5e0512a",
-      "book": {
-        "id": 2800,
-        "title": "The Koran (Al-Qur'an)",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
-        "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
-      }
-    },
-    {
-      "claim": "30 days",
-      "kind": "measurement",
-      "numbers": [
-        30
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "Foundation.” • You provide a full refund of any money paid by a user who notifies you in writing (or by e-mail) within 30 days of receipt that s/he does not agree to the terms of the full Project Gutenberg™ License. You must require such a user to return or destroy all copies of",
-      "address": "20f2f09d-acff-8bf0-9168-6ddf80769eed",
-      "book": {
-        "id": 2800,
-        "title": "The Koran (Al-Qur'an)",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
-        "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
-      }
-    },
-    {
-      "claim": "90 days",
-      "kind": "measurement",
-      "numbers": [
-        90
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "oney paid for a work or a replacement copy, if a defect in the electronic work is discovered and reported to you within 90 days of receipt of the work. • You comply with all other terms of this agreement for free distribution of Project Gutenberg™ works. 1.E.9. If you wish to cha",
-      "address": "cc48f119-1791-840b-9546-877ceddc2eb2",
-      "book": {
-        "id": 2800,
-        "title": "The Koran (Al-Qur'an)",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5686,7 +6091,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5705,7 +6110,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5724,7 +6129,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5743,7 +6148,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5762,7 +6167,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5781,7 +6186,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5800,7 +6205,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5819,7 +6224,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5838,7 +6243,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5857,7 +6262,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5876,7 +6281,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5895,7 +6300,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5914,7 +6319,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5933,7 +6338,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5952,7 +6357,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5971,7 +6376,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -5990,7 +6395,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6009,7 +6414,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6028,7 +6433,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6047,7 +6452,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6066,7 +6471,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6085,7 +6490,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6104,7 +6509,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6123,7 +6528,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6142,7 +6547,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6161,7 +6566,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6180,7 +6585,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6199,7 +6604,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6218,7 +6623,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6237,7 +6642,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6256,7 +6661,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6275,7 +6680,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6294,7 +6699,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6313,7 +6718,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6332,7 +6737,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6351,7 +6756,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6370,7 +6775,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6389,7 +6794,7 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
@@ -6408,149 +6813,29 @@
         "id": 2800,
         "title": "The Koran (Al-Qur'an)",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2800.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2800/pg2800.txt",
         "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c"
       }
     },
     {
-      "claim": "60 days",
+      "claim": "five notes",
       "kind": "measurement",
       "numbers": [
-        60
+        5
       ],
       "units": [
-        "days"
+        "notes"
       ],
-      "sentence": "yalties under this paragraph to the Project Gutenberg Literary Archive Foundation. Royalty payments must be paid within 60 days following each date on which you prepare (or are legally required to prepare) your periodic tax returns. Royalty payments should be clearly marked as su",
-      "address": "794ec24a-4acc-8519-b6db-8a4eb5e0512a",
+      "sentence": ", and what has not that for (actual) usefulness. 12. 1. Colour's five hues from th' eyes their sight will take; Music's five notes the ears as deaf can make; The flavours five deprive the mouth of taste; The chariot course, and the wild hunting waste Make mad the mind; and object",
+      "address": "d36bee57-a4cc-85ee-9b14-5af50ed884e3",
       "book": {
         "id": 216,
         "title": "The Tao Teh King, or the Tao and its Characteristics",
         "authors": [
           "Laozi"
         ],
-        "source": "https://www.gutenberg.org/ebooks/216.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/216/pg216.txt",
         "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7"
-      }
-    },
-    {
-      "claim": "30 days",
-      "kind": "measurement",
-      "numbers": [
-        30
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "Foundation.” • You provide a full refund of any money paid by a user who notifies you in writing (or by e-mail) within 30 days of receipt that s/he does not agree to the terms of the full Project Gutenberg™ License. You must require such a user to return or destroy all copies of",
-      "address": "20f2f09d-acff-8bf0-9168-6ddf80769eed",
-      "book": {
-        "id": 216,
-        "title": "The Tao Teh King, or the Tao and its Characteristics",
-        "authors": [
-          "Laozi"
-        ],
-        "source": "https://www.gutenberg.org/ebooks/216.txt.utf-8",
-        "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7"
-      }
-    },
-    {
-      "claim": "90 days",
-      "kind": "measurement",
-      "numbers": [
-        90
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "oney paid for a work or a replacement copy, if a defect in the electronic work is discovered and reported to you within 90 days of receipt of the work. • You comply with all other terms of this agreement for free distribution of Project Gutenberg™ works. 1.E.9. If you wish to cha",
-      "address": "cc48f119-1791-840b-9546-877ceddc2eb2",
-      "book": {
-        "id": 216,
-        "title": "The Tao Teh King, or the Tao and its Characteristics",
-        "authors": [
-          "Laozi"
-        ],
-        "source": "https://www.gutenberg.org/ebooks/216.txt.utf-8",
-        "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7"
-      }
-    },
-    {
-      "claim": "forty years",
-      "kind": "measurement",
-      "numbers": [
-        40
-      ],
-      "units": [
-        "years"
-      ],
-      "sentence": "iginator of the Project Gutenberg concept of a library of electronic works that could be freely shared with anyone. For forty years, he produced and distributed Project Gutenberg eBooks with only a loose network of volunteer support. Project Gutenberg eBooks are often created fro",
-      "address": "1035b5ad-fadb-804e-805d-bb26616d58ea",
-      "book": {
-        "id": 216,
-        "title": "The Tao Teh King, or the Tao and its Characteristics",
-        "authors": [
-          "Laozi"
-        ],
-        "source": "https://www.gutenberg.org/ebooks/216.txt.utf-8",
-        "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7"
-      }
-    },
-    {
-      "claim": "60 days",
-      "kind": "measurement",
-      "numbers": [
-        60
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "yalties under this paragraph to the Project Gutenberg Literary Archive Foundation. Royalty payments must be paid within 60 days following each date on which you prepare (or are legally required to prepare) your periodic tax returns. Royalty payments should be clearly marked as su",
-      "address": "794ec24a-4acc-8519-b6db-8a4eb5e0512a",
-      "book": {
-        "id": 2388,
-        "title": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2388.txt.utf-8",
-        "address": "dd8e92be-df49-823f-b232-57d824d45e19"
-      }
-    },
-    {
-      "claim": "30 days",
-      "kind": "measurement",
-      "numbers": [
-        30
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "Foundation.” • You provide a full refund of any money paid by a user who notifies you in writing (or by e-mail) within 30 days of receipt that s/he does not agree to the terms of the full Project Gutenberg™ License. You must require such a user to return or destroy all copies of",
-      "address": "20f2f09d-acff-8bf0-9168-6ddf80769eed",
-      "book": {
-        "id": 2388,
-        "title": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2388.txt.utf-8",
-        "address": "dd8e92be-df49-823f-b232-57d824d45e19"
-      }
-    },
-    {
-      "claim": "90 days",
-      "kind": "measurement",
-      "numbers": [
-        90
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "oney paid for a work or a replacement copy, if a defect in the electronic work is discovered and reported to you within 90 days of receipt of the work. • You comply with all other terms of this agreement for free distribution of Project Gutenberg™ works. 1.E.9. If you wish to cha",
-      "address": "cc48f119-1791-840b-9546-877ceddc2eb2",
-      "book": {
-        "id": 2388,
-        "title": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2388.txt.utf-8",
-        "address": "dd8e92be-df49-823f-b232-57d824d45e19"
       }
     },
     {
@@ -6568,84 +6853,8 @@
         "id": 2388,
         "title": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2388.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2388/pg2388.txt",
         "address": "dd8e92be-df49-823f-b232-57d824d45e19"
-      }
-    },
-    {
-      "claim": "forty years",
-      "kind": "measurement",
-      "numbers": [
-        40
-      ],
-      "units": [
-        "years"
-      ],
-      "sentence": "iginator of the Project Gutenberg concept of a library of electronic works that could be freely shared with anyone. For forty years, he produced and distributed Project Gutenberg eBooks with only a loose network of volunteer support. Project Gutenberg eBooks are often created fro",
-      "address": "1035b5ad-fadb-804e-805d-bb26616d58ea",
-      "book": {
-        "id": 2388,
-        "title": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2388.txt.utf-8",
-        "address": "dd8e92be-df49-823f-b232-57d824d45e19"
-      }
-    },
-    {
-      "claim": "60 days",
-      "kind": "measurement",
-      "numbers": [
-        60
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "yalties under this paragraph to the Project Gutenberg Literary Archive Foundation. Royalty payments must be paid within 60 days following each date on which you prepare (or are legally required to prepare) your periodic tax returns. Royalty payments should be clearly marked as su",
-      "address": "794ec24a-4acc-8519-b6db-8a4eb5e0512a",
-      "book": {
-        "id": 2017,
-        "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2017.txt.utf-8",
-        "address": "f6848431-f32b-8183-9318-5a8abc7d492e"
-      }
-    },
-    {
-      "claim": "30 days",
-      "kind": "measurement",
-      "numbers": [
-        30
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "Foundation.” • You provide a full refund of any money paid by a user who notifies you in writing (or by e-mail) within 30 days of receipt that s/he does not agree to the terms of the full Project Gutenberg™ License. You must require such a user to return or destroy all copies of",
-      "address": "20f2f09d-acff-8bf0-9168-6ddf80769eed",
-      "book": {
-        "id": 2017,
-        "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2017.txt.utf-8",
-        "address": "f6848431-f32b-8183-9318-5a8abc7d492e"
-      }
-    },
-    {
-      "claim": "90 days",
-      "kind": "measurement",
-      "numbers": [
-        90
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "oney paid for a work or a replacement copy, if a defect in the electronic work is discovered and reported to you within 90 days of receipt of the work. • You comply with all other terms of this agreement for free distribution of Project Gutenberg™ works. 1.E.9. If you wish to cha",
-      "address": "cc48f119-1791-840b-9546-877ceddc2eb2",
-      "book": {
-        "id": 2017,
-        "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2017.txt.utf-8",
-        "address": "f6848431-f32b-8183-9318-5a8abc7d492e"
       }
     },
     {
@@ -6663,7 +6872,7 @@
         "id": 2017,
         "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2017.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2017/pg2017.txt",
         "address": "f6848431-f32b-8183-9318-5a8abc7d492e"
       }
     },
@@ -6682,7 +6891,26 @@
         "id": 2017,
         "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2017.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2017/pg2017.txt",
+        "address": "f6848431-f32b-8183-9318-5a8abc7d492e"
+      }
+    },
+    {
+      "claim": "three steps",
+      "kind": "measurement",
+      "numbers": [
+        3
+      ],
+      "units": [
+        "steps"
+      ],
+      "sentence": "iberality, the liar by truth! 224. Speak the truth, do not yield to anger; give, if thou art asked for little; by these three steps thou wilt go near the gods. 225. The sages who injure nobody, and who always control their body, they will go to the unchangeable place (Nirvana), w",
+      "address": "dbb421f3-973b-87f6-958a-a35dfee1f647",
+      "book": {
+        "id": 2017,
+        "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+        "authors": [],
+        "source": "https://www.gutenberg.org/cache/epub/2017/pg2017.txt",
         "address": "f6848431-f32b-8183-9318-5a8abc7d492e"
       }
     },
@@ -6701,26 +6929,7 @@
         "id": 2017,
         "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
         "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2017.txt.utf-8",
-        "address": "f6848431-f32b-8183-9318-5a8abc7d492e"
-      }
-    },
-    {
-      "claim": "forty years",
-      "kind": "measurement",
-      "numbers": [
-        40
-      ],
-      "units": [
-        "years"
-      ],
-      "sentence": "iginator of the Project Gutenberg concept of a library of electronic works that could be freely shared with anyone. For forty years, he produced and distributed Project Gutenberg eBooks with only a loose network of volunteer support. Project Gutenberg eBooks are often created fro",
-      "address": "1035b5ad-fadb-804e-805d-bb26616d58ea",
-      "book": {
-        "id": 2017,
-        "title": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
-        "authors": [],
-        "source": "https://www.gutenberg.org/ebooks/2017.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/2017/pg2017.txt",
         "address": "f6848431-f32b-8183-9318-5a8abc7d492e"
       }
     },
@@ -6742,7 +6951,30 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
+        "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
+      }
+    },
+    {
+      "claim": "Four points, or forty-five degrees",
+      "kind": "unit-equivalence",
+      "numbers": [
+        4,
+        45
+      ],
+      "units": [
+        "points",
+        "degrees"
+      ],
+      "sentence": "ailing on this Northwest tack we can never reach it. In order to do so we must have the boat move in another direction. Four points, or forty-five degrees, on the other side of North is the direction Northeast. If our boat will fill her sail with a North wind when pointed Northwe",
+      "address": "f947a11a-f87a-8131-a058-6c79a0c543cf",
+      "book": {
+        "id": 45493,
+        "title": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+        "authors": [
+          "Day, Thomas Fleming"
+        ],
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6763,7 +6995,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6784,7 +7016,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6805,7 +7037,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6826,7 +7058,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6847,7 +7079,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6868,7 +7100,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6889,7 +7121,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6910,7 +7142,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6931,7 +7163,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6952,7 +7184,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6973,7 +7205,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -6994,70 +7226,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
-        "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
-      }
-    },
-    {
-      "claim": "60 days",
-      "kind": "measurement",
-      "numbers": [
-        60
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "yalties under this paragraph to the Project Gutenberg Literary Archive Foundation. Royalty payments must be paid within 60 days following each date on which you prepare (or are legally required to prepare) your periodic tax returns. Royalty payments should be clearly marked as su",
-      "address": "794ec24a-4acc-8519-b6db-8a4eb5e0512a",
-      "book": {
-        "id": 45493,
-        "title": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-        "authors": [
-          "Day, Thomas Fleming"
-        ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
-        "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
-      }
-    },
-    {
-      "claim": "30 days",
-      "kind": "measurement",
-      "numbers": [
-        30
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "Foundation.” • You provide a full refund of any money paid by a user who notifies you in writing (or by e-mail) within 30 days of receipt that s/he does not agree to the terms of the full Project Gutenberg™ License. You must require such a user to return or destroy all copies of",
-      "address": "20f2f09d-acff-8bf0-9168-6ddf80769eed",
-      "book": {
-        "id": 45493,
-        "title": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-        "authors": [
-          "Day, Thomas Fleming"
-        ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
-        "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
-      }
-    },
-    {
-      "claim": "90 days",
-      "kind": "measurement",
-      "numbers": [
-        90
-      ],
-      "units": [
-        "days"
-      ],
-      "sentence": "oney paid for a work or a replacement copy, if a defect in the electronic work is discovered and reported to you within 90 days of receipt of the work. • You comply with all other terms of this agreement for free distribution of Project Gutenberg™ works. 1.E.9. If you wish to cha",
-      "address": "cc48f119-1791-840b-9546-877ceddc2eb2",
-      "book": {
-        "id": 45493,
-        "title": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-        "authors": [
-          "Day, Thomas Fleming"
-        ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7078,7 +7247,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7099,7 +7268,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7120,7 +7289,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7141,7 +7310,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7162,7 +7331,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7183,7 +7352,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7204,7 +7373,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7225,7 +7394,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7246,7 +7415,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7267,7 +7436,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     },
@@ -7288,28 +7457,7 @@
         "authors": [
           "Day, Thomas Fleming"
         ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
-        "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
-      }
-    },
-    {
-      "claim": "forty years",
-      "kind": "measurement",
-      "numbers": [
-        40
-      ],
-      "units": [
-        "years"
-      ],
-      "sentence": "iginator of the Project Gutenberg concept of a library of electronic works that could be freely shared with anyone. For forty years, he produced and distributed Project Gutenberg eBooks with only a loose network of volunteer support. Project Gutenberg eBooks are often created fro",
-      "address": "1035b5ad-fadb-804e-805d-bb26616d58ea",
-      "book": {
-        "id": 45493,
-        "title": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
-        "authors": [
-          "Day, Thomas Fleming"
-        ],
-        "source": "https://www.gutenberg.org/ebooks/45493.txt.utf-8",
+        "source": "https://www.gutenberg.org/cache/epub/45493/pg45493.txt",
         "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d"
       }
     }

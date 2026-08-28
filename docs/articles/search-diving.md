@@ -19,17 +19,17 @@ the hard gate of the corroboration law.
 | `a433a97a` | zenodo.org | zenodo record 1229940: Can Diving-induced Tissue Nitrogen Supersaturation Increase the Chance of Acoust | UNVERIFIED | VERIFIED |
 | `c6320b4c` | zenodo.org | zenodo record 14934421: Global Charging Oxygen Gas Systems Market 2025 To 2034 | UNVERIFIED | VERIFIED |
 | `b9541b28` | zenodo.org | zenodo record 13907402: Vascular dysfunction following breath-hold diving | UNVERIFIED | VERIFIED |
+| `59f3bc6e` | zenodo.org | zenodo record 6601687: Thorogobius macrolepis Benthic | UNVERIFIED | VERIFIED |
 | `914a314d` | zenodo.org | zenodo record 15068564: Dataset and Code for "Predicting Post-Dive Inert Gas Bubble Grades in Non-Decomp | UNVERIFIED | VERIFIED |
-| `75ede8fc` | zenodo.org | zenodo record 13161614: Asterocheres serratus Lee, 2024, n. sp. | UNVERIFIED | VERIFIED |
-| `18bf27bb` | zenodo.org | zenodo record 6607084: Photogrammetrie zur Erstellung detaillierter 3D-Modelle von Unterwasserobjekten | UNVERIFIED | VERIFIED |
+| `fa3fccf4` | zenodo.org | zenodo record 3253361: iHIVARNA phase IIa, a randomized, placebo-controlled, double-blinded trial to ev | UNVERIFIED | VERIFIED |
 | `4c3dd1ec` | crossref.org | DOI 10.3750/aip2016.46.1.06: A quantitative sampling method for assessment of deep cryptobenthic ichthyofauna | UNVERIFIED | VERIFIED |
-| `0d1ecbe5` | crossref.org | DOI 10.1007/978-3-642-41714-6_202803: Trimix gas mixture | UNVERIFIED | VERIFIED |
 | `bc8cf398` | crossref.org | DOI 10.2114/jpa.17.249: Experiment of Nitrox Saturation Diving with Trimix Excursion. | UNVERIFIED | VERIFIED |
-| `e082047f` | crossref.org | DOI 10.1152/japplphysiol.01369.2009: High incidence of venous and arterial gas emboli at rest after trimix diving wit | UNVERIFIED | VERIFIED |
+| `0d1ecbe5` | crossref.org | DOI 10.1007/978-3-642-41714-6_202803: Trimix gas mixture | UNVERIFIED | VERIFIED |
 | `d89b9966` | crossref.org | DOI 10.1016/s0162-0908(10)79736-1: Assessment of Extravascular Lung Water and Cardiac Function in Trimix SCUBA Divi | UNVERIFIED | VERIFIED |
+| `e082047f` | crossref.org | DOI 10.1152/japplphysiol.01369.2009: High incidence of venous and arterial gas emboli at rest after trimix diving wit | UNVERIFIED | VERIFIED |
 | `7c27db05` | crossref.org | DOI 10.1021/ed050p425.2: Scuba diving and the gas laws | UNVERIFIED | VERIFIED |
-| `f98edb68` | crossref.org | DOI 10.1152/japplphysiol.01365.2006: Heliox, nitrox, and trimix diving; hyperbaric oxygen treatment; and a flaw in He | UNVERIFIED | VERIFIED |
 | `8b91e106` | crossref.org | DOI 10.1096/fasebj.24.1_supplement.803.2: Consecutive trimix diving is associated with high incidence of gas bubbles arter | UNVERIFIED | VERIFIED |
+| `f98edb68` | crossref.org | DOI 10.1152/japplphysiol.01365.2006: Heliox, nitrox, and trimix diving; hyperbaric oxygen treatment; and a flaw in He | UNVERIFIED | VERIFIED |
 | `900cfe4e` | openalex.org | OpenAlex Environmental Physiology and Diving Medicine [Cardiovascular and Diving-Rela] | UNVERIFIED | VERIFIED |
 | `1a17e9c2` | openalex.org | OpenAlex The influence of scuba diving experience on divers’ perceptions, and i [Coral and Marine Ecosystems St] | UNVERIFIED | VERIFIED |
 | `59807fac` | openalex.org | OpenAlex Microparticle and interleukin-1β production with human simulated compr [Cardiovascular and Diving-Rela] | UNVERIFIED | VERIFIED |
@@ -38,8 +38,55 @@ the hard gate of the corroboration law.
 | `51a9cdc8` | openalex.org | OpenAlex Pulmonary barotrauma in SCUBA diving-related fatalities: a histologica [Cardiovascular and Diving-Rela] | UNVERIFIED | VERIFIED |
 | `c7b7270e` | openalex.org | OpenAlex The physics of human breathing: flow, timing, volume, and pressure par [Climate Change and Health Impa] | UNVERIFIED | VERIFIED |
 | `35d9b68a` | openalex.org | OpenAlex Scientific diving in Brazil: history, present and perspectives [Coral and Marine Ecosystems St] | UNVERIFIED | VERIFIED |
+| `501682c0` | arxiv.org | arXiv 2101.07194v1: Magnetic properties of wurtzite (Ga,Mn)As | UNVERIFIED | VERIFIED |
+| `badf77d6` | arxiv.org | arXiv 2101.09804v2: Improved-Sensitivity Integral SQUID Magnetometry of (Ga,Mn)N Thin Films in Proxi | UNVERIFIED | VERIFIED |
+| `6db7dff9` | arxiv.org | arXiv 1712.05713v1: Wurtzite (Ga,Mn)As nanowire shells with ferromagnetic properties | UNVERIFIED | VERIFIED |
+| `f3c08c5b` | arxiv.org | arXiv 1409.2805v1: All-wurtzite (In,Ga)As-(Ga,Mn)As core-shell nanowires grown by molecular beam ep | UNVERIFIED | VERIFIED |
+| `2bd198ef` | arxiv.org | arXiv 1707.09420v2: Fluid dynamics of diving wedges | UNVERIFIED | VERIFIED |
+| `eed3df20` | arxiv.org | arXiv 1712.06008v1: Fermi level and bands offsets determination in insulating (Ga,Mn)N/GaN structure | UNVERIFIED | VERIFIED |
+| `f7d81e4d` | arxiv.org | arXiv 2011.01699v1: Unravelling the Local Crystallographic Structure of Ferromagnetic Ga$_y$Fe$_{4-y | UNVERIFIED | VERIFIED |
+| `d91bf3e0` | arxiv.org | arXiv 1809.08894v1: Magnetotransport in phase-separated (Ga,Fe)N with $γ$'-Ga$_y$Fe$_{4-y}$N nanocry | UNVERIFIED | VERIFIED |
+| `87bcae3e` | en.wikipedia.org | Wikipedia: Trimix (breathing gas) | UNVERIFIED | VERIFIED |
+| `fadd4388` | en.wikipedia.org | Wikipedia: Gas blending for scuba diving | UNVERIFIED | VERIFIED |
+| `6c8807e3` | en.wikipedia.org | Wikipedia: Hydrox (breathing gas) | UNVERIFIED | VERIFIED |
+| `5d8d627a` | en.wikipedia.org | Wikipedia: Technical diving | UNVERIFIED | VERIFIED |
+| `c6a2e619` | en.wikipedia.org | Wikipedia: Scuba diving | UNVERIFIED | VERIFIED |
+| `a7e29abc` | en.wikipedia.org | Wikipedia: Diving chamber | UNVERIFIED | VERIFIED |
+| `ad07da2c` | en.wikipedia.org | Wikipedia: Modes of underwater diving | UNVERIFIED | VERIFIED |
+| `64d4e04f` | en.wikipedia.org | Wikipedia: Saturation diving | UNVERIFIED | VERIFIED |
+| `b8806a5b` | esco | {"source":"esco","address":"07b92c56-c0b3-8707-838d-6336889cb08c","uri":"http://data.europa.eu/esco/skill/ada3c91c-c957-4808-bf9d-b79e70eea17d","title":"maintain diving equipment","conceptType":"Skill"}
+{"source":"esco","address":"0a0ebaab-aae9-8982-a0b9-7eacf98e55a0","uri":"http://data.europa.eu/esco/skill/4422d55b-6b66-434b-a322-1e251c0183d1","title":"diving operation requirements","conceptType":"Skill"}
+{"source":"esco","address":"1c899f3e-4789-8b13-9ee4-a79ff6e31956","uri":"http://data.europa.eu/esco/skill/89a717d5-b30c-4b15-982b-415e54c54edd","title":"perform diving interventions","conceptType":"Skill"}
+{"source":"esco","address":"be471490-1c91-895e-b46b-05addf5beb6d","uri":"http://data.europa.eu/esco/skill/d09e253e-6984-46ab-badd-f96dc5a2eb52","title":"check diving equipment","concep | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `86d7ebaf` | data-europa | {"source":"data-europa","address":"a989a9a2-7483-89ee-b114-bcfc8cf8a071","id":"bio_atl_pnmpg_zone_presence_grebe_plongeon_pol_l93","title":"Areas of presence of grebes and dives in the Marine Natural Park \\"Gironde estuary - Sea of Pertuis\\" (OFB and associated experts, 2022) - Polygon","country":"France","catalogue":"plateforme-ouverte-des-donnees-publiques-francaises"}
+{"source":"data-europa","address":"b96a1bf8-372f-8548-a12f-b32e26a418ad","id":"d3fac38c-a0d8-4686-b820-ee64ea2815b9~~1","title":"CO2 emissions from installations in accordance with the German Greenhouse Gas Emissions Trading Act (TEHG)","country":"Germany","catalogue":"gdi-de"}
+{"source":"data-europa","address":"65183ca5-48f3-8816-85f3-8af06513161e","id":"https-www-odwb-be-explore-dataset-2025-gaz_fichier_exemple_courbe_de | UNVERIFIED | VERIFIED |
+| `585eb4d3` | open-meteo-forecast | temperature_2m_c 22.4 °C
+wind_speed_10m_kmh 2.3 km/h
+pressure_hpa 957.2 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `31d27c6f`** (fold of every finding's address — recompute by re-running the search).
+**53 findings · 53 usable search-trial combinations · receipt `6d6397bf`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -48,7 +95,7 @@ The sealed backing this trial held the findings beside:
 - [partial_pressures_sum_to_absolute](/theorem/partial_pressures_sum_to_absolute) — `18*4 + 45*4 + 37*4 = 100*4`
 - [air_ppO2_in_window_at_surface](/theorem/air_ppO2_in_window_at_surface) — `(16 <= 21) ∧ (21 <= 160)`
 - [air_oxygen_toxic_deep](/theorem/air_oxygen_toxic_deep) — `21 * 8 > 160`
-- [gas_blend_by_partial_pressure](/theorem/gas_blend_by_partial_pressure) — `36 + 90 + 74 = 200`
+- [gas_blend_by_partial_pressure](/theorem/gas_blend_by_partial_pressure) — `(36 + 90 + 74 = 200) ∧ (9 % 9 = 0)`
 - [helium_reduces_narcosis](/theorem/helium_reduces_narcosis) — `40 * 55 < 40 * 100`
 - [ascent_needs_a_stop](/theorem/ascent_needs_a_stop) — `((4 / 2 : Nat) = 2) ∧ ((4 / 1 : Nat) = 4) ∧ ((4 : Nat) > 2)`
 
@@ -58,4 +105,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

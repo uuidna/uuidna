@@ -15,6 +15,7 @@ import type { HeadTuple, Seo } from './seo.js'
 import { quantumSeo } from './seo.js'
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'
+import { isUuidnaUrl } from './handle-permanence.js'
 
 const HOST = 'https://uuidna.com'
 
@@ -81,7 +82,7 @@ export function seoPackageGaps(seo: Seo): SeoPackageGaps {
   if (!hasAddress(seo.head)) missing.push('meta[property=uuidna:address]')
   if (!hasHandleUrl(seo.head)) missing.push('meta[property=uuidna:handle-url] (DOI-class stable door)')
   if (!hasJsonLd(seo.head, seo.jsonLd)) missing.push('schema.org JSON-LD @type')
-  if (!seo.canonical.startsWith(HOST)) missing.push('canonical on uuidna.com')
+  if (!isUuidnaUrl(seo.canonical)) missing.push('canonical on uuidna.com')
   if (!seo.title.trim()) missing.push('title')
   if (!seo.description.trim()) missing.push('description')
   return {

@@ -11,7 +11,7 @@
 // weather. The live behaviour it was found by is recorded above.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { corroborate, toUuid, theorems, type ResearchEvidence } from '../index.js'
+import { corroborate, toUuid, theorems, evidenceRow, type ResearchEvidence } from '../index.js'
 
 // ── THE CONTROL THAT WAS MISSING. discover.ts states this law about itself — "a relation survives only if it holds
 // AND stops holding when an input moves" — and the corroboration path had no such control, so nothing could tell a
@@ -20,7 +20,7 @@ import { corroborate, toUuid, theorems, type ResearchEvidence } from '../index.j
 // reporter.ts had always required two INDEPENDENT SOURCES and this is the test that holds it.
 test('corroboration needs TWO INDEPENDENT SOURCES — the sealed theorem', () => {
   const ev = (source: string, n: number): ResearchEvidence[] =>
-    Array.from({ length: n }, (_, i) => ({ source, address: toUuid(`${source}:${i}`), note: '' }))
+    Array.from({ length: n }, (_, i) => evidenceRow(source, toUuid(`${source}:${i}`), ''))
 
   // one row from one stream is what promoted gibberish; eight rows from one stream is the same fact, louder
   assert.equal(corroborate('x', ev('crossref.org', 1)).verdict, 'UNVERIFIED', 'one source is not corroboration')
@@ -53,7 +53,7 @@ test('corroboration needs TWO INDEPENDENT SOURCES — the sealed theorem', () =>
 // caller does something different with it (retry) than with UNVERIFIED (think).
 test('UNVERIFIED and UNMEASURED are different facts — silence versus deafness', async () => {
   const { corroborate, reachOf } = await import('../corroborate.js')
-  const ev = (source: string): ResearchEvidence[] => [{ source, address: toUuid(source), note: '' }]
+  const ev = (source: string): ResearchEvidence[] => [evidenceRow(source, toUuid(source), '')]
 
   // all five answered, none attests: the world was ASKED and said nothing. That is a real, weak datum.
   const asked = reachOf([
@@ -105,7 +105,7 @@ test('THE MUTATION: without reach, the verdict is exactly what it always was', a
 test('a source READING tells apart answered-with-nothing, refused, and never-reached', async () => {
   const { reachOf } = await import('../corroborate.js')
   const r = reachOf([
-    { source: 'found', reached: true, why: null, evidence: [{ source: 'found', address: toUuid('x'), note: '' }] },
+    { source: 'found', reached: true, why: null, evidence: [evidenceRow('found', toUuid('x'), '')] },
     { source: 'empty', reached: true, why: null, evidence: [] },      // looked, had none — a datum about the world
     { source: 'refused', reached: false, why: 'answered HTTP 429', evidence: [] },
     { source: 'offline', reached: false, why: 'fetch failed', evidence: [] },
@@ -113,4 +113,13 @@ test('a source READING tells apart answered-with-nothing, refused, and never-rea
   assert.equal(r.asked, 4)
   assert.equal(r.answered, 2, 'an archive that LOOKED and found nothing still answered')
   assert.deepEqual(r.unreachable, ['refused', 'offline'], 'and the two that did not are named, with reasons kept')
+})
+
+test('corroboration receipt carries hexbit door', () => {
+  const r = corroborate('x', [evidenceRow('crossref.org', toUuid('a'), 'note')])
+  assert.equal(r.handle.length, 8)
+  assert.equal(r.hexbits.length, 32)
+  assert.match(r.door, /^https:\/\/uuidna\.com\/[0-9a-f]{8}$/)
+  assert.equal(r.evidence[0]!.handle!.length, 8)
+  assert.match(r.evidence[0]!.door!, /^https:\/\/uuidna\.com\//)
 })

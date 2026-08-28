@@ -15,13 +15,13 @@ the hard gate of the corroboration law.
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
 | `dc8e1155` | zenodo.org | zenodo record 14192577: APPLIED PHILOSOPHY: EPISTEMOLOGICAL STRUCTURE OF SCIENCE AND BLACK HOLES | UNVERIFIED | VERIFIED |
-| `bfc17907` | zenodo.org | zenodo record 10477159: Kendo Headgear Concussion Safety Evaluation | UNVERIFIED | VERIFIED |
 | `e0ffefa2` | zenodo.org | zenodo record 10553550: A Dual-Discriminator GAN for Sleep EEG Signal Synthesis | UNVERIFIED | VERIFIED |
+| `bfc17907` | zenodo.org | zenodo record 10477159: Kendo Headgear Concussion Safety Evaluation | UNVERIFIED | VERIFIED |
 | `2befc789` | zenodo.org | zenodo record 14727213: Host specificity of herbivorous insects promotes negative species–genetic divers | UNVERIFIED | VERIFIED |
-| `6386a221` | zenodo.org | zenodo record 6321977: Controlling the interfacial reactions and environment of rare-earth ions in thin | UNVERIFIED | VERIFIED |
 | `4660ad27` | zenodo.org | zenodo record 2659337: Interactive Design Exploration in Early Design Phase | UNVERIFIED | VERIFIED |
 | `dfce7e58` | zenodo.org | zenodo record 2211265: Applied Science in the Navy | UNVERIFIED | VERIFIED |
-| `ad855ca5` | zenodo.org | zenodo record 6498981: Data of paper Controlling the interfacial reactions and environment of rare-eart | UNVERIFIED | VERIFIED |
+| `185a5a93` | zenodo.org | zenodo record 10032046: ESTUDIO DE MATERIALES NANOPOROSOS COMO CONTENEDORES DE COMPUESTOS BIOACTIVOS PAR | UNVERIFIED | VERIFIED |
+| `54b91e98` | zenodo.org | zenodo record 7740560: Applied Geodata Science | UNVERIFIED | VERIFIED |
 | `73a577b4` | crossref.org | DOI 10.1016/s0169-4332(01)00021-6: The electronic structure and location of H pairs in bcc Fe edge dislocation | UNVERIFIED | VERIFIED |
 | `a2d08408` | crossref.org | DOI 10.1016/s0169-4332(01)00990-4: The electronic structure and bonding of H pairs at Σ=5 BCC Fe grain boundary | UNVERIFIED | VERIFIED |
 | `edb1f32d` | crossref.org | DOI 10.2210/pdb2o83/pdb: The Structure of Tandem GA RNA Pairs When Flanking Pairs are isoG-isoC Pairs | UNVERIFIED | VERIFIED |
@@ -34,12 +34,59 @@ the hard gate of the corroboration law.
 | `9f24db34` | openalex.org | OpenAlex Highly accurate protein structure prediction with AlphaFold [Protein Structure and Dynamics] | UNVERIFIED | VERIFIED |
 | `9ce59608` | openalex.org | OpenAlex G*Power 3: A flexible statistical power analysis program for the socia [Behavioral and Psychological S] | UNVERIFIED | VERIFIED |
 | `de86ac2b` | openalex.org | OpenAlex PHENIX : a comprehensive Python-based system for macromolecular struct [Enzyme Structure and Function] | UNVERIFIED | VERIFIED |
+| `d1ffbec1` | openalex.org | OpenAlex Accurate structure prediction of biomolecular interactions with AlphaF [Protein Structure and Dynamics] | UNVERIFIED | VERIFIED |
 | `210f36ef` | openalex.org | OpenAlex SWISS-MODEL: homology modelling of protein structures and complexes [Protein Structure and Dynamics] | UNVERIFIED | VERIFIED |
 | `a03a3d37` | openalex.org | OpenAlex Population Structure and Eigenanalysis [Genetic diversity and populati] | UNVERIFIED | VERIFIED |
 | `f22d8add` | openalex.org | OpenAlex REFMAC 5 for the refinement of macromolecular crystal structures [Enzyme Structure and Function] | UNVERIFIED | VERIFIED |
-| `d2b61f7e` | openalex.org | OpenAlex The neighbor-joining method: a new method for reconstructing phylogene [Genetic diversity and populati] | UNVERIFIED | VERIFIED |
+| `f4c5ddd1` | arxiv.org | arXiv 2512.16152v1: Pulsar Science with the SKA Observatory | UNVERIFIED | VERIFIED |
+| `10e235b2` | arxiv.org | arXiv 1211.0310v1: Large Synoptic Survey Telescope: Dark Energy Science Collaboration | UNVERIFIED | VERIFIED |
+| `30342107` | arxiv.org | arXiv 2304.08104v2: GREX-PLUS Science Book | UNVERIFIED | VERIFIED |
+| `6fb391b2` | arxiv.org | arXiv 2209.11605v1: The ESO Science Archive | UNVERIFIED | VERIFIED |
+| `a6aeedaf` | arxiv.org | arXiv 0809.3137v1: The Frontiers of Nuclear Science, A Long Range Plan | UNVERIFIED | VERIFIED |
+| `fc2d57d3` | arxiv.org | arXiv 2003.04962v1: Science with the X-ray Imaging and Spectroscopy Mission (XRISM) | UNVERIFIED | VERIFIED |
+| `a3b82f24` | arxiv.org | arXiv 2505.16286v2: Microwave Engineering of Tunable Spin Interactions with Superconducting Qubits | UNVERIFIED | VERIFIED |
+| `005cd513` | arxiv.org | arXiv 0904.3950v1: New Science on the Open Science Grid | UNVERIFIED | VERIFIED |
+| `5c848e2d` | en.wikipedia.org | Wikipedia: Chemistry | UNVERIFIED | VERIFIED |
+| `ad2e5a05` | en.wikipedia.org | Wikipedia: Nucleotide base | UNVERIFIED | VERIFIED |
+| `a0fd6d92` | en.wikipedia.org | Wikipedia: Statistics | UNVERIFIED | VERIFIED |
+| `275fe80d` | en.wikipedia.org | Wikipedia: Retrieval Data Structure | UNVERIFIED | VERIFIED |
+| `12443a75` | en.wikipedia.org | Wikipedia: Hoogsteen base pair | UNVERIFIED | VERIFIED |
+| `26af0f28` | en.wikipedia.org | Wikipedia: Nucleic acid double helix | UNVERIFIED | VERIFIED |
+| `d50506c4` | en.wikipedia.org | Wikipedia: Graph (abstract data type) | UNVERIFIED | VERIFIED |
+| `6bde8fd5` | en.wikipedia.org | Wikipedia: Applied behavior analysis | UNVERIFIED | VERIFIED |
+| `d1dc579c` | esco | {"source":"esco","address":"19eb31bd-ad94-8eea-ad77-ab651af335d3","uri":"http://data.europa.eu/esco/skill/85c13cba-d555-429f-88cf-589b409fe978","title":"physical science applied to paramedical practice","conceptType":"Skill"}
+{"source":"esco","address":"4901bc37-defd-8a8d-97a5-ecd54ebb6a8d","uri":"http://data.europa.eu/esco/skill/82068fe6-183e-4396-9996-27d0152d713a","title":"sociology applied to paramedical science","conceptType":"Skill"}
+{"source":"esco","address":"633ba828-40c5-8c95-b000-7ba657b500c4","uri":"http://data.europa.eu/esco/skill/01e66e1c-97d9-4829-bee1-f3ab649161e8","title":"biomedical science","conceptType":"Skill"}
+{"source":"esco","address":"703ad8da-ae4b-8033-96a5-78abcaebd0ba","uri":"http://data.europa.eu/esco/skill/a07a5d41-add0-4d0f-ad01-718d39554be8","title":"applied | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `1dab778c` | data-europa | {"source":"data-europa","address":"4a3db920-25ee-8be8-a556-5a5deb62305b","id":"studierende-und-studienanfangerinnen-nach-geschlecht-und-staatsangehorigkeit-an-der-fachhochschule-im-wintersemester-dortmund","title":"Studierende und Studienanfänger*innen nach Geschlecht und Staatsangehörigkeit an der Fachhochschule","country":"Germany","catalogue":"govdata"}
+{"source":"data-europa","address":"78f7d99d-c7e1-8f46-a12e-9ecdcc594f97","id":"https-komserv4gdi-service24-rlp-de-623bc672-921e-62e4-91b5-72a037b7b98b","title":"Polytechnic","country":"Germany","catalogue":"govdata"}
+{"source":"data-europa","address":"2ef6a514-0959-8886-830b-c816b6db9237","id":"groningen-musicscape-groningen-live-","title":"Musicscape Groningen – Live!","country":"Netherlands","catalogue":"dataportaal-van-de-nederlandse- | UNVERIFIED | VERIFIED |
+| `b740df72` | open-meteo-forecast | temperature_2m_c 21.7 °C
+wind_speed_10m_kmh 2 km/h
+pressure_hpa 957.1 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `3baca7db`** (fold of every finding's address — recompute by re-running the search).
+**53 findings · 53 usable search-trial combinations · receipt `289c185c`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -67,4 +114,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

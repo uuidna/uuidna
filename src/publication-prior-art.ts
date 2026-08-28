@@ -15,6 +15,7 @@
 // the publish gate refuses network nondeterminism and seals from the offline research receipt alone.
 import { toUuid } from './address.js'
 import { doisIn } from './crossref.js'
+import { isUuidnaUrl } from './handle-permanence.js'
 import { CAPTAIN_CREDIT, type Credit } from './captain/credits/index.js'
 import {
   ZENODO_SEALS,
@@ -64,6 +65,15 @@ export interface PublicationPriorArtAudit {
 
 const HANDLE_HOST = 'https://uuidna.com'
 
+function isDoiResolverUrl(id: string): boolean {
+  try {
+    const u = new URL(id)
+    return u.hostname === 'doi.org' || u.hostname === 'dx.doi.org'
+  } catch {
+    return false
+  }
+}
+
 function resourceTypeOf(seal: ZenodoSeal): string {
   return seal.uploadType === 'software' ? 'software' : 'publication'
 }
@@ -112,14 +122,14 @@ export function researchPublicationPriorArt(seal: ZenodoSeal): PublicationPriorA
   // 2 · Explicit seal.related entries that look like proving links / DOIs (exclude self)
   for (const r of seal.related) {
     const id = r.identifier
-    if (/^10\.\d+\//.test(id) || id.includes('doi.org/')) {
+    if (/^10\.\d+\//.test(id) || isDoiResolverUrl(id)) {
       const doi = id.replace(/^https?:\/\/(dx\.)?doi\.org\//, '')
       if (selfDois.has(doi)) continue
       pushPrior(
         { who: `DOI ${doi}`, link: `https://doi.org/${doi}`, kind: 'doi' },
         { ...r, identifier: doi.startsWith('10.') ? doi : id },
       )
-    } else if (/^https?:\/\//.test(id) && !id.startsWith(HANDLE_HOST)) {
+    } else if (/^https?:\/\//.test(id) && !isUuidnaUrl(id)) {
       pushPrior(
         { who: id.replace(/^https?:\/\//, '').slice(0, 80), link: id, kind: 'url' },
         { ...r },

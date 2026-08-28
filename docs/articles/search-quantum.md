@@ -6,32 +6,83 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The quantum computer
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The quantum computer* — the wing sealed in [lean/Quantum.lean](/lean/Quantum.lean) with **50 theorems**. Each
+asked in parallel about *The quantum computer* — the wing sealed in [lean/Quantum.lean](/lean/Quantum.lean) with **56 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
 the hard gate of the corroboration law.
 
-| finding | source | record | alone | with sealed backing |
+| finding | source | record — third-party titles are evidence only; sealed bound: [n_qubit_dimension](/theorem/n_qubit_dimension) | alone | with sealed backing |
 |---|---|---|---|---|
+| `2b539b1e` | zenodo.org | zenodo record 17636264: Multimodal Brain Imaging Fusion Using Machine Learning for Enhanced Diagnostic A | UNVERIFIED | VERIFIED |
+| `2e1d5253` | zenodo.org | zenodo record 4971743: QUANTUM COMPUTING | UNVERIFIED | VERIFIED |
+| `59d9ba34` | zenodo.org | zenodo record 15766134: PERSEPSI MAHASISWA TERHADAP PENGARUH FISIKA DALAM PERKEMBANGAN ILMU KOMPUTER | UNVERIFIED | VERIFIED |
+| `73c7af54` | zenodo.org | zenodo record 822078: The Existence of Quantum Computer | UNVERIFIED | VERIFIED |
+| `11971ca0` | zenodo.org | zenodo record 15150020: Recent Trends of Quantum Mechanics in Computing | UNVERIFIED | VERIFIED |
+| `c7d6dc8a` | zenodo.org | zenodo record 839139: THE POWER OF QUANTUM COMPUTER AND ITS LIMITATIONS | UNVERIFIED | VERIFIED |
+| `b66b2057` | zenodo.org | zenodo record 10051347: STATE OF THE ART OF QUANTUM COMPUTING: OVERVIEW | UNVERIFIED | VERIFIED |
+| `172b2639` | zenodo.org | zenodo record 19400449: An Extensible Quantum Network Simulator Built on ns-3: Q2NS Design and Evaluatio | UNVERIFIED | VERIFIED |
+| `8515c052` | crossref.org | DOI 10.1007/1-4020-7895-1_2: Quantum Computer Simulation | UNVERIFIED | VERIFIED |
+| `a5d2021d` | crossref.org | DOI 10.1007/978-0-387-36791-0_3: Quantum Computer Programming | UNVERIFIED | VERIFIED |
 | `fdd07f87` | crossref.org | DOI 10.1007/1-4020-7895-1_3: Quantum Computer Programming | UNVERIFIED | VERIFIED |
 | `03123e8b` | crossref.org | DOI 10.1007/978-0-387-36791-0_2: Quantum Computer Simulation | UNVERIFIED | VERIFIED |
-| `a5d2021d` | crossref.org | DOI 10.1007/978-0-387-36791-0_3: Quantum Computer Programming | UNVERIFIED | VERIFIED |
-| `8515c052` | crossref.org | DOI 10.1007/1-4020-7895-1_2: Quantum Computer Simulation | UNVERIFIED | VERIFIED |
 | `06a8d3a2` | crossref.org | DOI 10.1017/cbo9780511813870.006: Searching with a quantum computer | UNVERIFIED | VERIFIED |
 | `a02bf173` | crossref.org | DOI 10.3390/quantum6030032: The Planck Computer Is the Quantum Gravity Computer: We Live inside a Gigantic C | UNVERIFIED | VERIFIED |
 | `dc2b8185` | crossref.org | DOI 10.58837/chula.the.2019.156: Quantum comparator circuit on superconducting quantum computer | UNVERIFIED | VERIFIED |
 | `02dc51d5` | crossref.org | DOI 10.1007/springerreference_104340: Quantum Computer | UNVERIFIED | VERIFIED |
-| `dd54e638` | openalex.org | OpenAlex A One-Way Quantum Computer [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
-| `613a007e` | openalex.org | OpenAlex Quantum computers [Quantum Information and Crypto] | UNVERIFIED | VERIFIED |
-| `35f7e2a4` | openalex.org | OpenAlex Quantum theory, the Church–Turing principle and the universal quantum  [Quantum Mechanics and Applicat] | UNVERIFIED | VERIFIED |
-| `25a80ad0` | openalex.org | OpenAlex Polynomial-Time Algorithms for Prime Factorization and Discrete Logari [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
-| `86a8fa3e` | openalex.org | OpenAlex Scheme for reducing decoherence in quantum computer memory [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
-| `eec897c6` | openalex.org | OpenAlex A silicon-based nuclear spin quantum computer [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
-| `fc453492` | openalex.org | OpenAlex Polynomial-Time Algorithms for Prime Factorization and Discrete Logari [Quantum Computing Algorithms a] | UNVERIFIED | VERIFIED |
-| `41c9f893` | openalex.org | OpenAlex Architecture for a large-scale ion-trap quantum computer [Quantum Information and Crypto] | UNVERIFIED | VERIFIED |
+| `20bed33f` | arxiv.org | arXiv 2512.10504v2: Tianyan: Cloud services with quantum advantage | UNVERIFIED | VERIFIED |
+| `1421fbdf` | arxiv.org | arXiv 9505018v1: Universality in Quantum Computation | UNVERIFIED | VERIFIED |
+| `505a0333` | arxiv.org | arXiv 2105.04649v3: Symmetry Protected Quantum Computation | UNVERIFIED | VERIFIED |
+| `fe7d60a8` | arxiv.org | arXiv 2410.04274v3: Bosonic Quantum Computational Complexity | UNVERIFIED | VERIFIED |
+| `e85d1058` | arxiv.org | arXiv 9505016v1: A Universal Two--Bit Gate for Quantum Computation | UNVERIFIED | VERIFIED |
+| `588ecc49` | arxiv.org | arXiv 2608.23119v1: Quantum Reservoir Computing with Physics-Informed Correction for Reduced-Order P | UNVERIFIED | VERIFIED |
+| `12d155f3` | arxiv.org | arXiv 2011.03031v2: Quantum simulation and computing with Rydberg-interacting qubits | UNVERIFIED | VERIFIED |
+| `55e236f1` | arxiv.org | arXiv 1506.09091v3: Exploring the Quantum Speed Limit with Computer Games | UNVERIFIED | VERIFIED |
+| `6a63d4f9` | en.wikipedia.org | Wikipedia: Quantum computing | UNVERIFIED | VERIFIED |
+| `f090fa42` | en.wikipedia.org | Wikipedia: Topological quantum computer | UNVERIFIED | VERIFIED |
+| `9ee1859a` | en.wikipedia.org | Wikipedia: India's quantum computer | UNVERIFIED | VERIFIED |
+| `c1ddf95a` | en.wikipedia.org | Wikipedia: Post-quantum cryptography | UNVERIFIED | VERIFIED |
+| `57f9c329` | en.wikipedia.org | Wikipedia: Trapped-ion quantum computer | UNVERIFIED | VERIFIED |
+| `8d07b0b8` | en.wikipedia.org | Wikipedia: Quantum supremacy | UNVERIFIED | VERIFIED |
+| `2ddf70b4` | en.wikipedia.org | Wikipedia: IQM Quantum Computers | UNVERIFIED | VERIFIED |
+| `f2698d4c` | en.wikipedia.org | Wikipedia: Kane quantum computer | UNVERIFIED | VERIFIED |
+| `32570c6a` | en.wikinews.org | Wikinews: First quantum byte created | UNVERIFIED | VERIFIED |
+| `eb08c7f4` | en.wikinews.org | Wikinews: New company to research artificial brain | UNVERIFIED | VERIFIED |
+| `4ae55338` | en.wikinews.org | Wikinews: Light stopped for over a second | UNVERIFIED | VERIFIED |
+| `616cf53b` | en.wikinews.org | Wikinews: Stanford physicists print smallest-ever letters 'SU' at subatomic level of 1.5 n | UNVERIFIED | VERIFIED |
+| `015d69ac` | en.wikinews.org | Wikinews: "Hyperspace drive" paper gains interest, AIAA award | UNVERIFIED | VERIFIED |
+| `fcf9dfe9` | en.wikinews.org | Wikinews: British computer scientist's new "nullity" idea provokes reaction from mathemati | UNVERIFIED | VERIFIED |
+| `a39dcfaa` | esco | {"source":"esco","address":"dd57b775-61d4-8ec4-8bbb-707ce297b75c","uri":"http://data.europa.eu/esco/skill/6400e5a5-5534-4465-b456-3632af0c5cf1","title":"quantum optics","conceptType":"Skill"}
+{"source":"esco","address":"13e99f0c-f41d-8fdd-8ef6-f95b73727d1c","uri":"http://data.europa.eu/esco/skill/d460032f-f49e-4b70-90c2-ba563aee14be","title":"quantum mechanics","conceptType":"Skill"}
+{"source":"esco","address":"382460aa-47cf-8e28-802b-5138e28e5d69","uri":"http://data.europa.eu/esco/skill/badbd33c-3da8-43ae-a504-de388b988f4a","title":"nanomaterials","conceptType":"Skill"}
+{"source":"esco","address":"0d1cc24b-e5d4-88c0-a281-bb023104cfe5","uri":"http://data.europa.eu/esco/skill/bc1a03da-e78c-4956-9dc2-0da70711df80","title":"nanoelectronics","conceptType":"Skill"}
+{"source":"esco","address":"7 | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `7e9d4638` | data-europa | {"source":"data-europa","address":"11706ef0-29ff-8884-8ad3-c554b4434e33","id":"5b1bb49f-c4a1-49e3-8736-38f51aefed42","title":"RealTime Delphi on Quantum Computing - 2017","country":"Europe","catalogue":"jrc"}
+{"source":"data-europa","address":"c04b8a74-f26e-8923-9756-abd79ffd4a6b","id":"https-data-rennesmetropole-fr-explore-dataset-postes-informatiques-en-libre-service-pour-les-agents-de-la-ville-et-de-la-metro-","title":"Postes informatiques en libre-service pour les agents de la Ville et de la Métropole de Rennes","country":"France","catalogue":"plateforme-ouverte-des-donnees-publiques-francaises"}
+{"source":"data-europa","address":"33e11442-0eb4-8168-89c6-ade95b013047","id":"c_d612-d-5459","title":"Residenti per possesso di un personal computer nel Quartiere 3. Anni 2010-2014","country" | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**16 findings · 16 usable search-trial combinations · receipt `15bfd0b7`** (fold of every finding's address — recompute by re-running the search).
+**50 findings · 50 usable search-trial combinations · receipt `d58c8751`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -80,11 +131,17 @@ The sealed backing this trial held the findings beside:
 - [ghz_stabilized_by_xxx](/theorem/ghz_stabilized_by_xxx) — `([1,0,0,0,0,0,0,1] : List Int).reverse = [1,0,0,0,0,0,0,1]`
 - [superdense_two_bits](/theorem/superdense_two_bits) — `((2:Nat)^2 = 4) ∧ (2 > 1)`
 - [teleportation_four_corrections](/theorem/teleportation_four_corrections) — `(([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4)`
+- [usable_gap_eighty_bits](/theorem/usable_gap_eighty_bits) — `(128 - 48 = 80) ∧ (48 < 128) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48)`
+- [teleportation_costs_two_coins](/theorem/teleportation_costs_two_coins) — `(2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 * 2 = 4)`
+- [majority_vote_is_floor_half](/theorem/majority_vote_is_floor_half) — `((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) ∧ ((1 + 1 + 1) / 2 =`
+- [register_exceeds_served](/theorem/register_exceeds_served) — `(16 - 12 = 4) ∧ (2 ^ 4 = 16) ∧ (65536 / 4096 = 16)`
 - [store_fold_order_invariant](/theorem/store_fold_order_invariant) — `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a`
 - [store_fold_change_moves_receipt](/theorem/store_fold_change_moves_receipt) — `(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (Li`
 - [message_qubit_cap_states](/theorem/message_qubit_cap_states) — `2^16 = 65536`
 - [merkle_sort_invariant](/theorem/merkle_sort_invariant) — `(let fold3 := fun (a b c : Nat) => let mn := Nat.min a (Nat.min b c); let mx := Nat.max a `
 - [all_signaling_duality](/theorem/all_signaling_duality) — `(1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3`
+- [hexbit_slit_visibility](/theorem/hexbit_slit_visibility) — `((1 + 1)^2 = 4) ∧ ((1 - 1)^2 = 0) ∧ (((1 : Int) + 0)^2 + ((0 : Int) + 1)^2 = 2) ∧ (((1 : I`
+- [hexbit_slit_cross_is_overlap](/theorem/hexbit_slit_cross_is_overlap) — `(1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1)`
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not
@@ -92,4 +149,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

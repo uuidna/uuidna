@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The seven reflected
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The seven reflected* — the wing sealed in [lean/Clay.lean](/lean/Clay.lean) with **7 theorems**. Each
+asked in parallel about *The seven reflected* — the wing sealed in [lean/Clay.lean](/lean/Clay.lean) with **8 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —
@@ -16,9 +16,9 @@ the hard gate of the corroboration law.
 |---|---|---|---|---|
 | `03ddfc38` | zenodo.org | zenodo record 15002806: MACRAMÉ Deliverable Report D3.1: Information Hub, Data Exchange Format Specifica | UNVERIFIED | VERIFIED |
 | `9c8baab6` | zenodo.org | zenodo record 13890306: COMPASS Plan for the Exploitation and Dissemination of Results Including Communi | UNVERIFIED | VERIFIED |
-| `042212c3` | zenodo.org | zenodo record 15657384: Martian Incident and Reflected Ion Partial Moments | UNVERIFIED | VERIFIED |
 | `41ecf2e1` | zenodo.org | zenodo record 8298539: Replication Guidance | UNVERIFIED | VERIFIED |
 | `be4e5af1` | zenodo.org | zenodo record 21648709: A Practical CRA Documentation Guide | UNVERIFIED | VERIFIED |
+| `042212c3` | zenodo.org | zenodo record 15657384: Martian Incident and Reflected Ion Partial Moments | UNVERIFIED | VERIFIED |
 | `35505623` | zenodo.org | zenodo record 13841258: jiaojiaojhy/VAE-LSTM data: VAE-LSTM data | UNVERIFIED | VERIFIED |
 | `6b3292f2` | zenodo.org | zenodo record 3555646: A study of The RAJADHAMMASANGAHA and Democracy | UNVERIFIED | VERIFIED |
 | `511044f9` | zenodo.org | zenodo record 20428479: IEIE, Reflected, Reflected | UNVERIFIED | VERIFIED |
@@ -27,9 +27,9 @@ the hard gate of the corroboration law.
 | `7769aa87` | crossref.org | DOI 10.1515/jncds-2025-0101: Analysis of reflected field amplitudes in a seven-spaced waveguide structure | UNVERIFIED | VERIFIED |
 | `53f10ace` | crossref.org | DOI 10.5325/hungarianstud.48.1.0001: A History of Hungarian Studies as Reflected in Forty-Seven Years of Scholarship: | UNVERIFIED | VERIFIED |
 | `4971e374` | crossref.org | DOI 10.3389/fnana.2022.1070035: Cell numbers in the reflected blade of CA3 and their relation to other hippocamp | UNVERIFIED | VERIFIED |
+| `112379d7` | crossref.org | DOI 10.1007/springerreference_23235: reflected code | UNVERIFIED | VERIFIED |
 | `404acb99` | crossref.org | DOI 10.1007/springerreference_23236: reflected ray | UNVERIFIED | VERIFIED |
 | `5e75815c` | crossref.org | DOI 10.3998/mpub.12734862.cmp.73666810t: Photograph of a rainbow reflected in water | UNVERIFIED | VERIFIED |
-| `112379d7` | crossref.org | DOI 10.1007/springerreference_23235: reflected code | UNVERIFIED | VERIFIED |
 | `bfc3c67a` | openalex.org | OpenAlex Genome-wide association study of 14,000 cases of seven common diseases [Genetic Associations and Epide] | UNVERIFIED | VERIFIED |
 | `d1640996` | openalex.org | OpenAlex Toward the future of psychiatric diagnosis: the seven pillars of RDoC [Mental Health and Psychiatry] | UNVERIFIED | VERIFIED |
 | `267ae5fc` | openalex.org | OpenAlex miRDeep2 accurately identifies known and hundreds of novel microRNA ge [MicroRNA in disease regulation] | UNVERIFIED | VERIFIED |
@@ -37,9 +37,57 @@ the hard gate of the corroboration law.
 | `3a1d2048` | openalex.org | OpenAlex Effect of Screening and Adjuvant Therapy on Mortality from Breast Canc [Global Cancer Incidence and Sc] | UNVERIFIED | VERIFIED |
 | `613371e5` | openalex.org | OpenAlex The global CMT project 2004–2010: Centroid-moment tensors for 13,017 e [earthquake and tectonic studie] | UNVERIFIED | VERIFIED |
 | `2e16b855` | openalex.org | OpenAlex The dri thermal/optical reflectance carbon analysis system: descriptio [Atmospheric chemistry and aero] | UNVERIFIED | VERIFIED |
-| `746bea9c` | openalex.org | OpenAlex Thyroid Cancer after Exposure to External Radiation: A Pooled Analysis [Radiation Dose and Imaging] | UNVERIFIED | VERIFIED |
+| `4bcf41e4` | openalex.org | OpenAlex Seven strong claims about successful school leadership revisited [Teacher Education and Leadersh] | UNVERIFIED | VERIFIED |
+| `34c061a6` | arxiv.org | arXiv 9906054v1: TeV gamma-ray observations from nearby AGNs by Utah Seven Telescope Array | UNVERIFIED | VERIFIED |
+| `b88f92e1` | arxiv.org | arXiv 1509.01777v11: Penalty Method for Obliquely Reflected Diffusions | UNVERIFIED | VERIFIED |
+| `3bf0a5bb` | arxiv.org | arXiv 1509.01776v5: Penalty Method for Reflected Diffusions on the Half-Line | UNVERIFIED | VERIFIED |
+| `34da000d` | arxiv.org | arXiv 1710.05833v2: Multi-messenger Observations of a Binary Neutron Star Merger | UNVERIFIED | VERIFIED |
+| `f3dd5cb1` | arxiv.org | arXiv 0512137v2: Tame concealed algebras and cluster quivers of minimal infinite type | UNVERIFIED | VERIFIED |
+| `2b2702da` | arxiv.org | arXiv 9906087v1: Periodicity in the TeV gamma rays and X rays from Markarian 501 | UNVERIFIED | VERIFIED |
+| `539c7963` | arxiv.org | arXiv 2304.04740v3: Reflected Diffusion Models | UNVERIFIED | VERIFIED |
+| `3ffbe752` | arxiv.org | arXiv 1509.01778v6: Weak Convergence of Obliquely Reflected Diffusions | UNVERIFIED | VERIFIED |
+| `d345ca27` | en.wikipedia.org | Wikipedia: Wonders of the World | UNVERIFIED | VERIFIED |
+| `b8c9b75f` | en.wikipedia.org | Wikipedia: Seven Wonders of the Ancient World | UNVERIFIED | VERIFIED |
+| `6a6e83cf` | en.wikipedia.org | Wikipedia: The Magnificent Seven (2016 film) | UNVERIFIED | VERIFIED |
+| `403f9695` | en.wikipedia.org | Wikipedia: New 7 Wonders of the World | UNVERIFIED | VERIFIED |
+| `85f03b03` | en.wikipedia.org | Wikipedia: Seven Samurai | UNVERIFIED | VERIFIED |
+| `ff16171c` | en.wikipedia.org | Wikipedia: Seven (1995 film) | UNVERIFIED | VERIFIED |
+| `fcb9877f` | en.wikipedia.org | Wikipedia: List of The Seven Deadly Sins characters | UNVERIFIED | VERIFIED |
+| `b7541ffd` | en.wikipedia.org | Wikipedia: Rainbow | UNVERIFIED | VERIFIED |
+| `0351e8d5` | esco | {"source":"esco","address":"c04ad522-53bb-80f6-a363-ecc63993625e","uri":"http://data.europa.eu/esco/skill/c0733631-0c5e-4b5c-a291-aad52ca493ce","title":"adapt existing designs to changed circumstances","conceptType":"Skill"}
+{"source":"esco","address":"3b720c30-3001-831f-9664-58bfdc399cbd","uri":"http://data.europa.eu/esco/skill/852e680d-917a-4beb-97b8-fa51560ad247","title":"compare shipment contents with waybill","conceptType":"Skill"}
+{"source":"esco","address":"163fdf44-0917-8ab8-8bad-0fa4243357cc","uri":"http://data.europa.eu/esco/skill/58f3a15f-8ab9-4123-a3a0-5cca75358ae7","title":"reflexion","conceptType":"Skill"}
+{"source":"esco","address":"5a7d74f9-9ca0-8ea0-b4c9-6ec6b554e20a","uri":"http://data.europa.eu/esco/skill/87dacc38-195d-4502-80a5-5c032693a676","title":"contribute to the p | UNVERIFIED | VERIFIED |
+| `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}}
+{"source":"euro | UNVERIFIED | VERIFIED |
+| `6c550454` | data-europa | {"source":"data-europa","address":"1809c7b0-5e4a-8050-8555-1a43fc49ea54","id":"covid-19-positive-tests-in-the-previous-seven-days1","title":"Covid-19 - Positive tests in the previous seven days","country":"United Kingdom","catalogue":"data-gov-uk"}
+{"source":"data-europa","address":"4db6bac6-ba7f-8f80-8137-df6d77c73cc3","id":"f5af2782-fb3b-4cc4-a40a-a37fea28354d","title":"GUIT04 - Respondents physical activity in the last seven days","country":"Ireland","catalogue":"data-gov-ie"}
+{"source":"data-europa","address":"b0777f34-2b72-8c84-b0a1-1ceb2b382c23","id":"fcfeef38-9041-4c22-b7a1-f024e29568f7","title":"Closing of the regular application procedure for the seventh Rhineland-Palatinate State Garden Show in 2032","country":"Germany","catalogue":"govdata"}
+{"source":"data-europa","address":"80 | UNVERIFIED | VERIFIED |
+| `b740df72` | open-meteo-forecast | temperature_2m_c 21.7 °C
+wind_speed_10m_kmh 2 km/h
+pressure_hpa 957.1 hPa | UNVERIFIED | VERIFIED |
+| `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
+| `6eed4427` | en.wikinews.org | User talk:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User talk:Luigi Alberto075 (page does not exist)&quot;&gt;User talk:Luigi Alberto075&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&quot; title=&quot;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&quot;&gt;User talk:Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; without leaving a redirect Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wik | UNVERIFIED | VERIFIED |
+| `56d7ccba` | en.wikinews.org | User:Luigi Alberto075
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Luigi_Alberto075&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Luigi Alberto075 (page does not exist)&quot;&gt;Luigi Alberto075&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_f43e9c73d75aeba20fed5b17d584f44c&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user f43e9c73d75aeba20fed5b17d584f44c (page does not exist)&quot;&gt;Renamed user f43e9c73d75aeba20fed5b17d584f44c&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.o | UNVERIFIED | VERIFIED |
+| `33c41d2a` | en.wikinews.org | User:Bwus15sky
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Bwus15sky&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Bwus15sky (page does not exist)&quot;&gt;Bwus15sky&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Renamed_user_01622b18853772134b827de0e6facc6b&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Renamed user 01622b18853772134b827de0e6facc6b (page does not exist)&quot;&gt;Renamed user 01622b18853772134b827de0e6facc6b&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRename | UNVERIFIED | VERIFIED |
+| `bba039fe` | en.wikinews.org | User talk:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; moved page &lt;a href=&quot;/w/index.php?title=User_talk:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&quot; class=&quot;mw-redirect&quot; title=&quot;User talk:Роман Владимирович Л.&quot;&gt;User talk:Роман Владимирович Л.&lt;/a&gt; to &lt;a href=&quot;/wiki/User_talk:Wiki-Znachor&quot; title=&quot;User talk:Wiki-Znachor&quot;&gt;User talk:Wiki-Znachor&lt;/a&gt; Automatically moved page while renaming the user &amp;quot;&lt;a href=&quot;/wiki/Special:CentralAuth/%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0 | UNVERIFIED | VERIFIED |
+| `d627542f` | en.wikinews.org | User:Роман Владимирович Л.
+&lt;p&gt;&lt;a href=&quot;/wiki/User:S.Marchenko&quot; class=&quot;mw-userlink&quot; title=&quot;User:S.Marchenko&quot;&gt;&lt;bdi&gt;S.Marchenko&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:%D0%A0%D0%BE%D0%BC%D0%B0%D0%BD_%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B8%D1%87_%D0%9B.&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Роман Владимирович Л. (page does not exist)&quot;&gt;Роман Владимирович Л.&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Wiki-Znachor&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Wiki-Znachor (page does not exist)&quot;&gt;Wiki-Znachor&lt;/a&gt; per &lt;a href=&quot;https://meta. | UNVERIFIED | VERIFIED |
+| `82e9d1ea` | en.wikinews.org | User:Narcis90
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Cabayi&quot; class=&quot;mw-userlink&quot; title=&quot;User:Cabayi&quot;&gt;&lt;bdi&gt;Cabayi&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Narcis90&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Narcis90 (page does not exist)&quot;&gt;Narcis90&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Prometheu$&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Prometheu$ (page does not exist)&quot;&gt;Prometheu$&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182387&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182387&quot;&gt;request&l | UNVERIFIED | VERIFIED |
+| `7f547f21` | en.wikinews.org | User:Christopherdawes
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Christopherdawes&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Christopherdawes (page does not exist)&quot;&gt;Christopherdawes&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:ChristopherDawes&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:ChristopherDawes (page does not exist)&quot;&gt;ChristopherDawes&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182327&quot; class=&quot;extiw&quot; title=&quot;m:Special:G | UNVERIFIED | VERIFIED |
+| `5fd6a398` | en.wikinews.org | User:Sailshire
+&lt;p&gt;&lt;a href=&quot;/wiki/User:Mfield&quot; class=&quot;mw-userlink&quot; title=&quot;User:Mfield&quot;&gt;&lt;bdi&gt;Mfield&lt;/bdi&gt;&lt;/a&gt; renamed user &lt;a href=&quot;/w/index.php?title=User:Sailshire&amp;amp;redirect=no&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Sailshire (page does not exist)&quot;&gt;Sailshire&lt;/a&gt; (0 edits) to &lt;a href=&quot;/w/index.php?title=User:Khorshidkhanoum&amp;amp;action=edit&amp;amp;redlink=1&quot; class=&quot;new&quot; title=&quot;User:Khorshidkhanoum (page does not exist)&quot;&gt;Khorshidkhanoum&lt;/a&gt; per &lt;a href=&quot;https://meta.wikimedia.org/wiki/Special:GlobalRenameQueue/request/182311&quot; class=&quot;extiw&quot; title=&quot;m:Special:GlobalRenameQueue/request/182311 | UNVERIFIED | VERIFIED |
 
-**24 findings · 24 usable search-trial combinations · receipt `0436d9ca`** (fold of every finding's address — recompute by re-running the search).
+**53 findings · 53 usable search-trial combinations · receipt `7047a993`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
@@ -50,6 +98,7 @@ The sealed backing this trial held the findings beside:
 - [levi_civita_nonzero_on_six_of_twentyseven](/theorem/levi_civita_nonzero_on_six_of_twentyseven) — `(((List.range 3).flatMap (fun i => (List.range 3).flatMap (fun j => (List.range 3).map (fu`
 - [closed_grid_differences_sum_to_zero](/theorem/closed_grid_differences_sum_to_zero) — `((List.range 4).flatMap (fun i => (List.range 4).map (fun j => ((i*3 + ((j+1) % 4)*5) % 7)`
 - [torus_betti_alternates_to_zero](/theorem/torus_betti_alternates_to_zero) — `((1:Int) - 2 + 1 = 0) ∧ (([1,2,1] : List Int).length = 3)`
+- [clay_gravity_equals_rosette](/theorem/clay_gravity_equals_rosette) — `(List.range 7).length = 7 ∧ (7 * 6 = 42) ∧ ((7 * 6) / 2 = 21) ∧ (7 + 7 + 7 = 21) ∧ (3 * 7 `
 
 ::: warning HONEST SCOPE
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not
@@ -57,4 +106,4 @@ endorsed and not re-verified here. A finding with no sealed counterpart is a nov
 never a claim. Approval has exactly one door: a theorem proven `by decide` in the ledger.
 :::
 
-*Computed by `npm run search:trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*
+*Computed by `npm run x -- quantum-search-trial` (the online wave); edited by the same desk as every page (`npm run editorial`).*

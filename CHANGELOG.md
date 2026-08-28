@@ -7,25 +7,30 @@ single-digit odometer; no version is minted forward past an unpublished one.
 
 Format follows [Keep a Changelog](https://keepachangelog.com/). A content-address proves integrity, not truth.
 
-**Versioning rule:** a version ending in **`.0`** is a **stable** release; a non-zero patch is **development** toward the
-next `.0`. So `0.1.0` (published) is stable; `0.1.1` is development; `1.0.0` will be the next stable milestone (1024
-theorems). A `.0` bumps development onward.
+**Versioning rule:** the npm string is linear `0,1,2,3,4,5,6,7,8,9,0`. Digit **0 is origin** (`runSequence(0).fixed` /
+`zero_closes_in_phase`) — a `.0` patch is the origin of that minor, not a marketing "stable" flag. The string counts
+because npm resolves ranges by number; Sequence is printed beside the tick, never walked as the version.
 
-## Roadmap — toward [1.0.0]
+## Roadmap
 
-A plan, not a promise. **v1.0.0 aims at 1024 theorems** (2¹⁰ — a clean power-of-two milestone), **all `by decide`,
-sorry-free, 100% heartbeat-covered**, folded to one receipt. <!-- LEDGER:TODAY -->Today: **2039 distinct / 1024 — -1015 to go** (2120 keys, 81 deliberate re-namings), across 115 principles.<!-- /LEDGER:TODAY -->
-The versions in between are real, gated releases: each `0.1.x` grows the ledger and must pass `npm run next` (proofs +
-prose + accounts + graph + the changelog self-audit) before it ships. And the honest odometer holds — **1.0.0 comes
-only after the `0.1.x` line is actually published on npm** (today only `0.1.0` is), never by minting forward past an
-unpublished version. The count is the target; the publishes are the path. A milestone is reached by delivering
-theorems, not by moving the number.
+Each release is a gated wave: proofs + prose + the changelog self-audit. A milestone is reached by delivering
+theorems, not by moving a slogan. uuidnaOS is recomputable universality (`the_os_is_bootable_quantum`) — not a
+world-government OS claim.
+<!-- LEDGER:TODAY -->Today: **2046 distinct** (2129 keys, 83 deliberate re-namings), across 115 principles.<!-- /LEDGER:TODAY -->
 
 **Reversible until published.** npm-publish is the one *irreversible* gate — a published version is immutable forever.
-Everything before it is not: git is a DAG, not a line, so with only `0.1.0` on npm, the whole `0.1.1 → 1.0.0` arc can
-still be refactored, reversed, or **folded all the way back to the genesis `0.0.0`** — the reflection turned on
-development itself. Publishing is the involution's fixed point: after it, a version cannot be un-said. So uuidna keeps
-the chance to reverse-develop itself *now*, while the ledger is still free.
+Everything before it is not: git is a DAG, not a line. Publishing is the involution's fixed point: after it, a version
+cannot be un-said.
+
+## [0.3.0] — one compile into uuidnaOS; Sequence already walks it
+
+_Statistics from the calendar; identity DRY — tag not cut this wave._
+
+- odometer: 0.2.9 → **0.3.0** (digit 0 is origin)
+- hexbitDoorOf is the one door (handle + UUID_HEXBITS states + URL + coin slice + place); `messagingEnvelope` fuses it
+  with compact `crew_verifies_instantly` and compact `runSequence`
+- npm string linear; `odometerNext` is the tick; research calendar prints `runSequence(patch)`, not `SEQ[patch]`
+- surfaces: in-tree only this wave (no tag / npm / Zenodo)
 
 ## [0.2.9] — falsifier ceiling closed; all leads settled
 
@@ -356,7 +361,7 @@ pipeline's own gates version what they archive — the Zenodo deposit job names 
 ## [0.1.1] — unreleased
 
 **Pending first publish.** npm currently has only `0.1.0`; this is the next release, not yet pushed.
-<!-- LEDGER:CURRENT -->Ledger: **2039 distinct propositions** under **2120 keys** (81 re-namings — a statement sealed in two wings is one theorem with two names) across **115 principles**, folded to receipt `0b968c5d-57e4-8c6d-9efb-7881a33d0481`<!-- /LEDGER:CURRENT -->
+<!-- LEDGER:CURRENT -->Ledger: **2046 distinct propositions** under **2129 keys** (83 re-namings — a statement sealed in two wings is one theorem with two names) across **115 principles**, folded to receipt `6dcd05dd-3ff6-83b8-b005-fa7167752cdb`<!-- /LEDGER:CURRENT -->
 (recompute with `npm run lean`). Every proof `by decide`, sorry-free, no Mathlib; 100% decide-step heartbeat coverage.
 
 ### Added

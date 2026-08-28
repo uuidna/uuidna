@@ -52,6 +52,9 @@ for (const wing of wings) {
   // land in the next column (js/incomplete-sanitization). `source` was interpolated raw and is escaped here too;
   // CodeQL flagged only the note, but the two strings arrive by the same road.
   const cell = (s: string): string => String(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
+  const physicsBound = wing === 'Quantum.lean'
+    ? ' — third-party titles are evidence only; sealed bound: [n_qubit_dimension](/theorem/n_qubit_dimension)'
+    : ''
   const rows = findings.map((f) =>
     `| \`${handleOf(f.address)}\` | ${cell(f.source)} | ${cell(f.note)} | ${f.alone} | ${f.withBacking} |`)
 
@@ -69,7 +72,7 @@ no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held b
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local \`by decide\` seal approves —
 the hard gate of the corroboration law.
 
-| finding | source | record | alone | with sealed backing |
+| finding | source | record${physicsBound} | alone | with sealed backing |
 |---|---|---|---|---|
 ${rows.length ? rows.join('\n') : '| — | — | the sources returned no records for this query | — | — |'}
 

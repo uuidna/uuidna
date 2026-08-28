@@ -10,6 +10,10 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { schoolApiRegistry, schoolApiFetch, probeSchoolApis, splitCsvLine, pickLang, SCHOOL_APIS, GISCO_VINTAGE,
   type SchoolApiAnswer } from '../school-apis.js'
+import { hexbitDoorOf } from '../hexbit/index.js'
+import { toUuid } from '../address.js'
+
+const blankDoor = hexbitDoorOf(toUuid('blank'))
 
 test('every registered source declares what it serves and how it answered', () => {
   const r = schoolApiRegistry()
@@ -127,7 +131,7 @@ const fake = (by: Record<string, Partial<SchoolApiAnswer> | 'throw'>) =>
   async (source: string): Promise<SchoolApiAnswer> => {
     const r = by[source]
     if (r === 'throw') throw new Error('connect ECONNREFUSED')
-    return { source, query: {}, url: '', count: 0, results: [], truncated: false, receipt: '', honest: '', ...(r ?? {}) }
+    return { source, query: {}, url: '', count: 0, results: [], truncated: false, receipt: '', honest: '', ...blankDoor, ...(r ?? {}) }
   }
 
 test('every source declares the known-good query that proves it still answers', () => {
@@ -183,7 +187,7 @@ test('an HTML body is recognised as a web page, not as data', () => {
 test('the heartbeat treats a DECLINED source as dark, never as an empty world', async () => {
   const declining = async (source: string): Promise<SchoolApiAnswer> =>
     ({ source, query: {}, url: '', count: 0, results: [], truncated: false, declined: true,
-       note: 'served a WEB PAGE (text/html), not data', receipt: '', honest: '' })
+       note: 'served a WEB PAGE (text/html), not data', receipt: '', honest: '', ...blankDoor })
   const h = await probeSchoolApis(declining)
   assert.equal(h.answering, 0, 'a source serving web pages is answering nothing, whatever its status code said')
   assert.equal(h.dark.length, h.probed)
