@@ -3,7 +3,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { resetExecSession, execSessionStamp, sessionWrite } from '../quantum/os/session.js'
 import { uuidnaExec, resetExecSession as resetExec, APPLETS, APK_VERBS } from '../quantum/os/exec.js'
-import { planAlpineRun, pinnedAlpineRelease, verifyPinnedRootfs } from '../os/runtime/index.js'
+import { planAlpineRun, pinnedAlpineRelease, verifyPinnedRootfs, detectRunBackend } from '../os/runtime/index.js'
 
 test('session apk add — simulated install beyond boot closure', () => {
   resetExecSession()
@@ -48,12 +48,22 @@ test('uuidna_run plan — verify-then-run scaffold (recipe or honest refusal)', 
   const release = pinnedAlpineRelease()
   assert.equal(release.version, '3.24.1')
   const verify = verifyPinnedRootfs()
-  const plan = planAlpineRun('echo uuidna-run-plan')
+  const plan = planAlpineRun('/bin/busybox --help')
   if (verify.present && verify.ok) {
     assert.ok(plan.ok, plan.reason ?? 'plan should succeed when rootfs verifies')
-    assert.equal(plan.recipe?.command, 'echo uuidna-run-plan')
+    assert.equal(plan.recipe?.command, '/bin/busybox --help')
+    assert.ok(plan.recipe?.extractedRoot.includes('.rootfs'))
+    assert.ok(plan.backend === 'docker' || plan.backend === 'chroot')
   } else {
     assert.equal(plan.ok, false)
     assert.ok(plan.reason)
   }
+})
+
+test('uuidna_run live — busybox inside pinned rootfs', { timeout: 120_000 }, async () => {
+  if (process.env.UUIDNA_LIVE_ROOTFS !== '1') return
+  const { runAlpineCommand } = await import('../os/runtime/index.js')
+  const r = await runAlpineCommand('/bin/busybox --help', { fetch: true, spawn: true })
+  assert.ok(r.spawned, r.reason ?? r.stderr)
+  assert.match(r.stdout + r.stderr, /BusyBox/i)
 })

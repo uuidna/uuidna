@@ -350,7 +350,7 @@ export function uuidnaExec(line: string): ExecResult {
           `${INSTALLS_MIRROR.branch}/${INSTALLS_MIRROR.arch} · pinned ${INSTALLS_MIRROR.release.version}`,
           'repositories: main, community, overlay',
           'Layer 1 (uuidna_exec): simulated apk add/del — session state only',
-          'Layer 2 (uuidna_run): host verify-then-run when mirror/' + pinnedFileHint() + ' is present',
+          'Layer 2 (uuidna_run): host verify-then-run when mirror/' + pinnedFileHint() + ' is present (`npm run x -- fetch-pinned-rootfs`)',
         ], {
           branch: INSTALLS_MIRROR.branch, arch: INSTALLS_MIRROR.arch, version: INSTALLS_MIRROR.release.version,
           sessionStamp: execSessionStamp(),

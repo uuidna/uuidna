@@ -13,3 +13,5 @@ handles.js
 .uuidna-books/
 generator-metrics.json
 docs/public/alpine-catalogue.tsv
+mirror/alpine-minirootfs-*.tar.gz
+mirror/.rootfs/

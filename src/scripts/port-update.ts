@@ -14,9 +14,26 @@
 //
 // Nothing here installs, links, or runs a package (theorem the_os_is_bootable_quantum) — it is the port of the
 // INTEGRITY and MEANING, made to keep itself current, observably. COMPUTE → REPORT → SIGNAL.
+import { spawnSync } from 'node:child_process'
+import { join } from 'node:path'
 import { portStatus, portDelta, defaultInstalls } from '../quantum/os/index.js'
 import { fetchDefaultInstalls } from '../os/installs/index.js'
 import { INSTALLS_MIRROR } from '../quantum/os/mirror.js'
+import { verifyPinnedRootfs } from '../os/runtime/index.js'
+import { ROOT } from './api.js'
+
+/** maybeFetchRootfs() — Layer 2 prerequisite when UUIDNA_FETCH_ROOTFS=1 (invokes fetch-pinned-rootfs). */
+function maybeFetchRootfs(): void {
+  const v = verifyPinnedRootfs()
+  if (v.present) return
+  if (process.env.UUIDNA_FETCH_ROOTFS !== '1') {
+    console.log('  Layer 2: rootfs tarball absent — UUIDNA_FETCH_ROOTFS=1 npm run x -- port-update fetches it, or: npm run x -- fetch-pinned-rootfs')
+    return
+  }
+  console.log('  UUIDNA_FETCH_ROOTFS set — node dist/scripts/fetch-pinned-rootfs.js')
+  const r = spawnSync(process.execPath, [join(ROOT, 'dist', 'scripts', 'fetch-pinned-rootfs.js')], { cwd: ROOT, stdio: 'inherit' })
+  if (r.status !== 0) console.error('✗ port-update — fetch-pinned-rootfs failed')
+}
 
 async function main(): Promise<number> {
   const s = portStatus()
@@ -41,6 +58,7 @@ async function main(): Promise<number> {
   if (!process.env.UUIDNA_TRACK_LATEST) {
     console.log('✓ port-update — pinned port is COHERENT. Freshness vs upstream not checked (offline).')
     console.log('  To check upstream and open an update if Alpine moved: UUIDNA_TRACK_LATEST=1 npm run x -- port-update')
+    maybeFetchRootfs()
     return 0
   }
 
@@ -54,6 +72,7 @@ async function main(): Promise<number> {
   const d = portDelta(upstream)
   if (d.current) {
     console.log(`✓ port-update — CURRENT: the pinned port already IS Alpine ${d.releaseTo}. No update due. (delta ${d.receipt})`)
+    maybeFetchRootfs()
     return 0
   }
   console.log(`⟳ port-update — STALE: Alpine moved ${d.releaseFrom} → ${d.releaseTo}` +

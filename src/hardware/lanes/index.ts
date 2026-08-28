@@ -54,9 +54,9 @@ export const LANES: readonly Lane[] = [
   {
     name: 'VM',
     seat: 'specified',
-    admits: 'verify-then-run of the pinned Alpine minirootfs — chroot/qemu/shell backend after uuidna SHA-256 exact-copy check',
-    note: 'Layer 2 (uuidna_run). NOT on the Workers edge. Measured when mirror/ holds the pinned tarball and spawn succeeds; ' +
-      'otherwise plan-only or absent — never faked.',
+    admits: 'verify-then-run of the pinned Alpine minirootfs — docker chroot into extracted mirror/.rootfs/<sha256>/',
+    note: 'Layer 2 (uuidna_run). fetch-pinned-rootfs downloads + verifies + extracts; docker run chroot executes ' +
+      '/bin/busybox inside the pinned bytes. Stdio MCP only — absent from Workers. Measured when Docker daemon runs.',
   },
   {
     name: 'QPU',
