@@ -209,6 +209,22 @@ export const catalogue = (): readonly CataloguePackage[] => load().packages
 export const cataloguePackage = (name: string): CataloguePackage | null =>
   load().packages.find((p) => p.name === name) ?? null
 
+/** Editorial prefix for any published package — beyond the 25 default-install routes. */
+export const CATALOGUE_ROUTE_PREFIX = '/catalogue'
+
+/** catalogueRouteOf(name) → the uuidna.com path for any published package (/catalogue/<name>). */
+export const catalogueRouteOf = (name: string): string => CATALOGUE_ROUTE_PREFIX + '/' + name
+
+/** catalogueFor(route) → the published package when route is /catalogue/<name> (one segment), else null. */
+export const catalogueFor = (route: string): CataloguePackage | null => {
+  const clean = route.replace(/\/+$/, '') || '/'
+  if (!clean.startsWith(CATALOGUE_ROUTE_PREFIX + '/')) return null
+  const rest = clean.slice(CATALOGUE_ROUTE_PREFIX.length + 1)
+  const name = rest.split('/')[0]
+  if (!name || rest.includes('/')) return null
+  return cataloguePackage(name)
+}
+
 /** search name and published description, name matches first, then alphabetical — bounded, so a one-letter
  *  query cannot return 28,639 lines into a caller's context. `total` is the true count before the cap. */
 export const catalogueSearch = (query: string, limit = 40): { hits: CataloguePackage[]; total: number } => {

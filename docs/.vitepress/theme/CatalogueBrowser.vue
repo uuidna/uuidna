@@ -5,6 +5,7 @@
 import { ref, onMounted } from 'vue'
 import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
 import { browseCatalogue, inspectCataloguePackage, type CatalogueHit, type CatalogueInspectResult } from '../../../src/quantum/apps/catalogue-browser.js'
+import { catalogueRouteOf } from '../../../src/quantum/os/catalogue.js'
 
 const q = ref('')
 const ready = ref(false)
@@ -15,18 +16,10 @@ const receipt = ref('')
 const selected = ref<CatalogueInspectResult | null>(null)
 const err = ref('')
 
-onMounted(async () => {
-  try {
-    const boot = await bootUuidnaOSInBrowser(undefined, { selfTest: false })
-    const c = boot.catalogue
-    ready.value = c.present
-    bootLine.value = c.present
-      ? `uuidnaOS · ${c.count.toLocaleString('en-US')} packages · boot \`${boot.bootReceipt.slice(0, 8)}\``
-      : `catalogue ABSENT — ${c.why}`
-  } catch (e) {
-    bootLine.value = `boot refused — ${e instanceof Error ? e.message : String(e)}`
-  }
-})
+const deepPkg = (): string | null => {
+  if (typeof location === 'undefined') return null
+  return new URLSearchParams(location.search).get('pkg')
+}
 
 const search = () => {
   err.value = ''
@@ -42,6 +35,24 @@ const search = () => {
 const inspect = (name: string) => {
   selected.value = inspectCataloguePackage(name)
 }
+
+onMounted(async () => {
+  try {
+    const boot = await bootUuidnaOSInBrowser(undefined, { selfTest: false })
+    const c = boot.catalogue
+    ready.value = c.present
+    bootLine.value = c.present
+      ? `uuidnaOS · ${c.count.toLocaleString('en-US')} packages · boot \`${boot.bootReceipt.slice(0, 8)}\``
+      : `catalogue ABSENT — ${c.why}`
+    const pkg = deepPkg()
+    if (pkg && c.present) {
+      q.value = pkg
+      selected.value = inspectCataloguePackage(pkg)
+    }
+  } catch (e) {
+    bootLine.value = `boot refused — ${e instanceof Error ? e.message : String(e)}`
+  }
+})
 </script>
 
 <template>
@@ -67,7 +78,7 @@ const inspect = (name: string) => {
     <div v-if="selected?.ok && selected.package" class="cat-detail">
       <h3><code>{{ selected.package.name }}</code>-{{ selected.package.version }} <span class="cat-repo">[{{ selected.package.repo }}]</span></h3>
       <p>{{ selected.package.desc }}</p>
-      <p class="cat-meta">address <code>{{ selected.package.address }}</code> · {{ selected.package.hexbits.length }} hexbits · checksum <code>{{ selected.package.checksum.slice(0, 16) }}…</code></p>
+      <p class="cat-meta">route <code>{{ catalogueRouteOf(selected.package.name) }}</code> · address <code>{{ selected.package.address }}</code> · {{ selected.package.hexbits.length }} hexbits · checksum <code>{{ selected.package.checksum.slice(0, 16) }}…</code></p>
       <p v-if="selected.package.man" class="cat-meta">man {{ selected.package.man }}<template v-if="selected.package.app"> → app {{ selected.package.app }}</template></p>
       <p v-if="selected.package.deps.length" class="cat-deps">depends: {{ selected.package.deps.slice(0, 12).join(' ') }}<template v-if="selected.package.deps.length > 12"> …</template></p>
     </div>

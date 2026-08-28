@@ -13,9 +13,10 @@
 import { toUuid } from '../../address.js'
 import { contentWords } from '../../adjudicate.js'
 import { defaultInstalls, installFor, compileToHexbits } from '../os/index.js'
+import { catalogueFor, catalogueCompile } from '../os/catalogue.js'
 
 export interface UrlAuditMatch {
-  kind: 'spec' | 'family' | 'page' | 'theorem' | 'search' | 'home'
+  kind: 'spec' | 'family' | 'page' | 'theorem' | 'search' | 'home' | 'catalogue'
   link: string
   text: string
   why: string          // the audit's reason this content is relevant — stated, never implied
@@ -64,6 +65,19 @@ export function auditUrl(path: string, context?: { pages?: { route: string; text
   const spec = installFor(clean)
   if (spec) matches.push({ kind: 'spec', link: '/os', text: `${spec.id} ${spec.version}`, score: 100,
     why: `this path's exact meaning, sealed: "${spec.meaning}" (address ${spec.address})` })
+
+  // 1b) CATALOGUE — any published Alpine package at /catalogue/<name> (editorial routes beyond the 25 install paths)
+  if (clean === '/catalogue') {
+    matches.push({ kind: 'page', link: '/catalogue', text: 'Alpine catalogue', score: 95,
+      why: 'the full published census — every package searchable; integrity and meaning, never execution' })
+  }
+  const cat = catalogueFor(clean)
+  if (cat) {
+    const compiled = catalogueCompile(cat)
+    matches.push({ kind: 'catalogue', link: '/catalogue?pkg=' + encodeURIComponent(cat.name),
+      text: `${cat.name}-${cat.version} [${cat.repo}]`, score: 90,
+      why: `published Alpine package: "${cat.desc}" (address ${compiled.address})` })
+  }
 
   // 2) the FAMILY — the path sits under (or over) a sealed spec's route
   for (const s of defaultInstalls().specs) {

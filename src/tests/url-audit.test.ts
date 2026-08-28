@@ -45,6 +45,17 @@ test('the relevance floor holds — of/the never outrank a content word (a peer 
   assert.ok(auditUrl('/grid-432').tokens.includes('432'))
 })
 
+test('CATALOGUE — /catalogue/<name> audits to the published package', () => {
+  const r = auditUrl('/catalogue/openssl')
+  assert.equal(r.matches[0]!.kind, 'catalogue')
+  assert.match(r.matches[0]!.text, /openssl/)
+  assert.match(r.matches[0]!.link, /pkg=openssl/)
+  const root = auditUrl('/catalogue')
+  assert.ok(root.matches.some((m) => m.link === '/catalogue' && m.score >= 90))
+  const miss = auditUrl('/catalogue/zzz-no-such-package-ever')
+  assert.ok(!miss.matches.some((m) => m.kind === 'catalogue'))
+})
+
 test('deterministic AND change-sensitive — the instrument can fail', () => {
   const a1 = auditUrl('/some/path', { theoremKeys: ['two_coins'] })
   const a2 = auditUrl('/some/path', { theoremKeys: ['two_coins'] })

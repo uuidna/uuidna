@@ -13,7 +13,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { uuidnaExec } from '../quantum/os/exec.js'
-import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, isUpstreamClosureGap } from '../quantum/os/catalogue.js'
+import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, isUpstreamClosureGap, catalogueRouteOf, catalogueFor } from '../quantum/os/catalogue.js'
 import { ROOT } from '../scripts/api.js'
 
 test('the catalogue carries ALL of Alpine, not the boot closure', () => {
@@ -255,4 +255,14 @@ test('the chunk size changes the SCHEDULE and nothing else', async () => {
     assert.equal(r.passed, base.passed, `chunk ${size}: the verdict does not depend on where the yields fall`)
     assert.equal(r.failed, base.failed)
   }
+})
+
+test('editorial catalogue routes — /catalogue/<name> beyond the 25 install paths', () => {
+  assert.equal(catalogueRouteOf('openssl'), '/catalogue/openssl')
+  const pkg = catalogueFor('/catalogue/openssl')
+  assert.ok(pkg)
+  assert.equal(pkg!.name, 'openssl')
+  assert.equal(catalogueFor('/catalogue'), null)
+  assert.equal(catalogueFor('/catalogue/main/openssl'), null)
+  assert.equal(catalogueFor('/terminal'), null)
 })

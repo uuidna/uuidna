@@ -46,7 +46,7 @@ export const BROWSER_SURFACES: readonly BrowserSurface[] = [
   { id: 'trading-floor', shelf: 'trading', route: '/trading', mount: 'TradingFloor', doc: 'trading' },
   { id: 'terminal', shelf: 'terminal', route: '/terminal', mount: 'UuidnaTerminal', doc: 'terminal' },
   { id: 'os-boot', shelf: 'os', route: '/os', mount: 'HexbitPlayer', doc: 'os' },
-  { id: 'catalogue-browser', shelf: 'os', route: '/os', mount: 'CatalogueBrowser', doc: 'os' },
+  { id: 'catalogue-browser', shelf: 'os', route: '/catalogue', mount: 'CatalogueBrowser', doc: 'catalogue' },
 ]
 
 /** Man topics exercised through uuidnaExec — one sample per witness path (byVia), plus boot staples. */

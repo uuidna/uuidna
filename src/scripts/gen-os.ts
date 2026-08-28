@@ -149,11 +149,7 @@ Monitor receipt \`${monitorReceipt}\` · structured form [/alpine-hexbit-monitor
 
 ## Catalogue — every published package, searchable
 
-The default install is **${port.count} paths**; Alpine publishes **${all.total.toLocaleString('en-US')}** packages on the pinned branch. Browse the full census here (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes (${th('the_os_is_bootable_quantum')}).
-
-<ClientOnly>
-  <CatalogueBrowser />
-</ClientOnly>
+The default install is **${port.count} paths**; Alpine publishes **${all.total.toLocaleString('en-US')}** packages on the pinned branch. Browse the full census on the dedicated [**/catalogue**](/catalogue) page (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes (${th('the_os_is_bootable_quantum')}). Each package also has an editorial path \`/catalogue/<name>\` — audited like the install routes.
 
 ## Ported lowest level first — firmware and up
 
