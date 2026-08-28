@@ -18,6 +18,21 @@ test('every residue is reached, and the seed is always in the ring', () => {
   }
 })
 
+test('the ten-digit polarities are 1234 / 0·5 / 6789 — and 9 is plus, not a second void', () => {
+  const minus = DIGITS.filter((d) => runSequence(d).polarity === 'minus')
+  const neu = DIGITS.filter((d) => runSequence(d).polarity === 'neutral')
+  const plus = DIGITS.filter((d) => runSequence(d).polarity === 'plus')
+  assert.deepEqual(minus, [1, 2, 3, 4])
+  assert.deepEqual(neu, [0, 5])
+  assert.deepEqual(plus, [6, 7, 8, 9])
+  assert.equal(runSequence(9).polarity, 'plus', '9 moves under dz — it is not 0')
+  assert.equal(runSequence(9).reflection, 1)
+  assert.equal(runSequence(0).reflection, 0)
+  assert.notEqual(runSequence(9).fixed, true)
+  // the control: collapsing 9 onto 0 would make these two reports identical
+  assert.notEqual(runSequence(9).polarity, runSequence(0).polarity)
+})
+
 test('the fixed points are EXACTLY 0 and 5 — measured', () => {
   const fixed = DIGITS.filter((d) => runSequence(d).fixed)
   assert.deepEqual(fixed, [0, 5], 'dz fixes only the ends and the centre')

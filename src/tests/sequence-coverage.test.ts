@@ -10,7 +10,7 @@
 // the LINK — a theorem renamed, a wing emptied, a fact quietly dropped while the code that depends on it stays.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { theorems, axiomWitness, theoremNeighbours } from '../index.js'
+import { theorems, axiomWitness, theoremNeighbours, theoremForms, cliqueEdges, statementCensus } from '../index.js'
 
 const bySubstring = (needle: RegExp): { key: string; statement: string; file: string }[] =>
   theorems().filter((t) => needle.test(t.statement.replace(/\s+/g, '')))
@@ -30,9 +30,55 @@ test('the sequence closes — six steps, and the sixth returns to one', () => {
   assert.ok(closes.length > 0, 'that the walk RETURNS to 1 is the property everything cyclic here depends on')
 })
 
-test('the digit sum 27 is sealed', () => {
-  const sum = theorems().find((t) => t.statement.replace(/\s+/g, '') === '1+2+4+8+7+5=27')
-  assert.ok(sum, 'the trinity-of-nine reading rests on this sum; it must be a theorem')
+test('the ten-digit polarity partition is sealed — 1234 / 0·5 / 6789, and 9 is plus', () => {
+  const part = theorems().find((t) => t.key === 'digit_polarities_partition_ten')
+  assert.ok(part, 'the 4+2+4 partition must be a theorem — otherwise the executor\'s polarity is unsealed')
+  assert.match(part!.statement.replace(/\s+/g, ''), /\[1,2,3,4\]/)
+  assert.match(part!.statement.replace(/\s+/g, ''), /\[6,7,8,9\]/)
+  const nine = theorems().find((t) => t.key === 'nine_is_plus_not_neutral')
+  assert.ok(nine, 'dz 9 = 1 must be sealed so 9 cannot collapse onto 0')
+  assert.match(nine!.statement.replace(/\s+/g, ''), /dz9=1/)
+  const swap = theorems().find((t) => t.key === 'polarity_mirror_swaps_sides')
+  assert.ok(swap, 'the mirror must swap the two polarities in a decided statement')
+})
+
+test('polarity and angles merge in the VE — two 5s in 10, 90° fold, overlap 8', () => {
+  const ten = theorems().find((t) => t.key === 've_double_five_merges_in_ten')
+  assert.ok(ten, '5+5=10 written as 1·10+0 must be sealed in the equilibrium')
+  assert.match(ten!.statement.replace(/\s+/g, ''), /5\+5=10/)
+  const fold = theorems().find((t) => t.key === 'void_folds_at_quadrature')
+  assert.ok(fold, '0 folding 90° is 360/4 — quadrature of the void')
+  assert.match(fold!.statement.replace(/\s+/g, ''), /360\/4=90/)
+  const eight = theorems().find((t) => t.key === 've_pentads_overlap_to_eight')
+  assert.ok(eight, '5+5−2=8 is the overlap that forms the eight triangular faces')
+  assert.match(eight!.statement.replace(/\s+/g, ''), /5\+5-2=8/)
+})
+
+test('theorems interact as geometric forms — cliques, C(n,2) edges, overlay vertices', () => {
+  const faces = theorems().find((t) => t.key === 'theorems_interact_as_faces')
+  assert.ok(faces, 'incidence arithmetic of theorem-faces must be a sealed theorem')
+  assert.match(faces!.statement.replace(/\s+/g, ''), /3\*2\/2=3/)
+  assert.match(faces!.statement.replace(/\s+/g, ''), /5\*4\/2=10/)
+  assert.match(faces!.statement.replace(/\s+/g, ''), /5\+5-2=8/)
+  assert.equal(cliqueEdges(3), 3, 'a 3-clique is a triangle')
+  assert.equal(cliqueEdges(4), 6)
+  assert.equal(cliqueEdges(5), 10, 'a 5-clique has the rung of edges')
+  const geo = theoremForms()
+  const census = statementCensus()
+  assert.equal(geo.keys, theorems().length)
+  assert.equal(geo.distinct, census.distinct)
+  assert.equal(geo.renamings, census.renamings)
+  assert.equal(geo.keys, geo.distinct + geo.renamings, 'keys = vertices + extra labels')
+  const faceVertices = geo.faces.reduce((s, f) => s + f.vertices, 0)
+  assert.equal(faceVertices, geo.keys, 'faces partition the keys')
+  for (const f of geo.faces) assert.equal(f.edges, cliqueEdges(f.vertices), `${f.principle}: edges are C(n,2)`)
+  const any = theorems()[0]!
+  const n = theoremNeighbours(any.key)
+  const face = geo.faces.find((f) => f.principle === any.principle)
+  assert.ok(face)
+  assert.equal(n.neighbours.length, face!.vertices - 1, 'neighbours = clique minus self')
+  assert.ok(geo.overlayVertices > 0, 're-namings are extra labels on a vertex')
+  assert.match(geo.receipt, /^[0-9a-f-]{36}$/)
 })
 
 test('the wing exists, is non-trivial, and every one of its theorems is kernel-only', () => {

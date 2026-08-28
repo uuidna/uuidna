@@ -601,7 +601,8 @@ export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle,
 // the walk's own measurements, and the period of any motion is the orbit's order. No phrase table, no authored word.
 export { speak, speechCensus, compose, tryProse, type Speech, type ProseTrial, type ProseVerdict } from './speech.js'
 // sequence-run — the walk itself, which had no public door until now (its own header said the primitives lacked one).
-export { runSequence, type SequenceRun } from './sequence-run.js'
+export { runSequence, polarityOf, MINUS_DIGITS, NEUTRAL_DIGITS, PLUS_DIGITS, type SequenceRun, type DigitPolarity } from './sequence-run.js'
+export { theoremForms, cliqueEdges, type TheoremForms, type TheoremFace } from './theorem-forms.js'
 export { odometerNext } from './odometer.js'
 // singularity — every vector folded at once, through the involution, to one order-invariant core.
 export { singularity, type Singularity } from './separation.js'

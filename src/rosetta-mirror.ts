@@ -1533,6 +1533,10 @@ tour_contra_reflects_each_digit 27
 tour_contra_involutes 27
 tour_contra_rungs_sum_ten 27
 sequence_and_coins_are_one 27
+digit_polarities_partition_ten 27
+nine_is_plus_not_neutral 27
+polarity_mirror_swaps_sides 27
+polarity_plus_is_trinity_of_minus 27
 #Singularity.lean
 one_source_is_exactly_one 27
 surfaces_cost_one_fold 27
@@ -1745,6 +1749,10 @@ dz_two_fixedpoints 27
 dz_involution_digits 27
 orbits_closed_involution 27
 missing_pair_involution 27
+ve_double_five_merges_in_ten 27
+void_folds_at_quadrature 27
+ve_pentads_overlap_to_eight 27
+theorems_interact_as_faces 27
 #Vortex.lean
 three_sq_zero 26
 six_sq_zero 26

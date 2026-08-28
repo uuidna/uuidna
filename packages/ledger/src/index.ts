@@ -29,6 +29,7 @@ export { catchTraitors, guardLessons, type TreasonReport, type Traitor, type Gua
 export { axiomWitness, type AxiomWitnessReport } from '@uuidna/uuidna'
 export { detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit, type CoinAudit, type VoteFraud, type VoteAudit, type LedgerIntrusionReport, type ForgeryDetection, type DoubleSpendsAudit } from '@uuidna/uuidna'
 export { depositTrial, depositValid, type Deposit, type DepositDiamond, type DepositedTrial, type ToBuild } from '@uuidna/uuidna'
+export { theoremForms, cliqueEdges, type TheoremForms, type TheoremFace } from '@uuidna/uuidna'
 export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, UUID_HEXBITS, dependsOn, byGravity, type Rating } from '@uuidna/uuidna'
 export {
   HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, COINS, LEVERAGE, HANDLE_SPAN, HANDLE_HEXBITS, COIN_HEXBITS, valueOf, bitsOf, bitsToHexbits,

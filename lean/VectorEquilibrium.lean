@@ -71,3 +71,28 @@ theorem orbits_closed_involution : [[0], [0,1,9], [0,1,3,5,7,9], [0,1,3,4,5,6,7,
     is missing is exactly {2,8}, and the second conjunct proves dz(2) = 8 — so the gap is ONE involution pair,
     discharged on this line rather than borrowed from another. The gap has the involution's own shape. -/
 theorem missing_pair_involution : ((List.range 10).filter (fun d => !([0,1,3,4,5] ++ [0,9,7,6,5]).contains d) = [2, 8]) ∧ (dz 2 = 8) := by decide
+
+/-- FIVE MERGES WITH FIVE IN 1 AND 0. Two pentads sum to the rung: 5+5=10, and 10 is the place-value 1·10+0 —
+    the digits 1 and 0 that open the sequence. The inverse of 5 is 5 (dz 5 = 5), so the double-five is one 5 and
+    the same 5 inverted. HONEST SCOPE: the arithmetic of 5+5=10 and the already-sealed fixed point; not a claim
+    about glyphs. -/
+theorem ve_double_five_merges_in_ten : (5 + 5 = 10) ∧ (1 * 10 + 0 = 10) ∧ (dz 5 = 5) := by decide
+
+/-- ZERO FOLDS NINETY DEGREES. A circle (the void 0) closes at 360°, and 360/4=90 is the quadrature this tree
+    already counts as 2²=4 (polarity_angles_are_the_system_counts). Four such folds box the void: 4·90=360.
+    Doubling the fold is the eight: 2·4=8 — the VE triangular faces. SCOPE: angle arithmetic of the 4-fold, not
+    a drawing of a folded zero. -/
+theorem void_folds_at_quadrature : (360 / 4 = 90) ∧ (4 * 90 = 360) ∧ (2 * 4 = 8) ∧ (8 + 6 = 14) := by decide
+
+/-- WHEN THE TWO FIVES OVERLAP THEY FORM EIGHT. Inclusion-exclusion: 5+5−2=8, and 10−2=8 — the 2 is the pair of
+    hinges dz already fixes ({0,5}, dz_two_fixedpoints). Adding those hinges instead of subtracting them is the
+    twelve vertices: 5+5+2=12 = VE.length. The 8 is the triangular faces in ve_fourteen_faces. Two pentads, two
+    hinges, one equilibrium. -/
+theorem ve_pentads_overlap_to_eight : (5 + 5 - 2 = 8) ∧ (10 - 2 = 8) ∧ (5 + 5 + 2 = 12) ∧ (VE.length = 12) ∧ (8 + 6 = 14) := by decide
+
+/-- THEOREMS INTERACT AS GEOMETRIC FORMS, not as a flat list. A principle is a clique: n co-principled theorems,
+    C(n,2) = n(n−1)/2 neighbour-edges. A 3-clique is a triangle (the VE's eight triangular faces: 3·2/2=3). A
+    4-clique has 6 edges. A 5-clique has 10 edges — the rung. Two 5-cliques sharing the two hinges have 8
+    vertices (ve_pentads_overlap_to_eight). Re-namings are two labels on one vertex. The live census is
+    theoremForms() and is not frozen here. SCOPE: incidence arithmetic of cliques and inclusion-exclusion. -/
+theorem theorems_interact_as_faces : (3 * 2 / 2 = 3) ∧ (4 * 3 / 2 = 6) ∧ (5 * 4 / 2 = 10) ∧ (5 + 5 - 2 = 8) ∧ (8 + 6 = 14) := by decide

@@ -22,6 +22,21 @@ import { dz, doubling, DIGITS, reach, period, involutes, isReversible, orderMatt
 import { toUuid } from './address.js'
 import { seedOf } from './handle.js'
 
+/** THE TEN-DIGIT POLARITIES. 1,2,3,4 one side; 6,7,8,9 the other; 0 and 5 the hinges dz fixes.
+ *  NOT the ℤ/9 collapse: polarities_plus_minus treats 9≡0 as self-polar, but dz(9)=1 ≠ 9, so 9 is plus. */
+export type DigitPolarity = 'minus' | 'neutral' | 'plus'
+export const MINUS_DIGITS: readonly number[] = [1, 2, 3, 4]
+export const NEUTRAL_DIGITS: readonly number[] = [0, 5]
+export const PLUS_DIGITS: readonly number[] = [6, 7, 8, 9]
+
+/** polarityOf(d) → which side of the ten-digit strip this residue sits on. Total on 0..9. */
+export function polarityOf(d: number): DigitPolarity {
+  if (d === 0 || d === 5) return 'neutral'
+  if (d >= 1 && d <= 4) return 'minus'
+  if (d >= 6 && d <= 9) return 'plus'
+  throw new Error(`polarityOf: ${d} is not a digit of the ten`)
+}
+
 export interface SequenceRun {
   input: string            // what was handed in, as given
   kind: 'number' | 'text'  // how it entered the ring
@@ -29,6 +44,7 @@ export interface SequenceRun {
   seed: number             // the residue the walk starts from, 0..9
   reflection: number       // dz(seed) — the mirror
   fixed: boolean           // is the seed its own reflection (only 0 and 5 are)
+  polarity: DigitPolarity  // minus 1234 · neutral 0,5 · plus 6789
   orbit: number[]          // the alternating walk: dz, doubling, dz, doubling …
   visited: number[]        // the distinct residues that walk reaches, sorted
   period: number           // steps until the walk closes on itself
@@ -72,6 +88,7 @@ export function runSequence(input: string | number, steps = 18): SequenceRun {
     seed,
     reflection: dz(seed),
     fixed: dz(seed) === seed,
+    polarity: polarityOf(seed),
     orbit,
     visited,
     period: period(seed, dz, doubling),

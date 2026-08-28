@@ -2130,8 +2130,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.5-122b-a10b",
    "name": "Qwen: Qwen3.5-122B-A10B",
    "contextTokens": 262144,
-   "promptPrice": "0.00000026",
-   "completionPrice": "0.00000208"
+   "promptPrice": "0.00000029",
+   "completionPrice": "0.0000024"
   },
   {
    "id": "qwen/qwen3.5-27b",

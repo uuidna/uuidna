@@ -3,8 +3,8 @@
 **Generated:** 2026-08-28
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2129/2129 theorems — every one, by construction
-**Claim receipt:** `b7c8facf-1ab5-801d-9245-f65e6f87bf3d`
+**Total claimed:** 2137/2137 theorems — every one, by construction
+**Claim receipt:** `a13a5538-b669-8ae7-b6f0-f4b14a87a6c8`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -61,12 +61,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The sequence & reflection group
 
-- **Theorems:** 28
+- **Theorems:** 32
 - **Sample lineAddress:** `d851e03d-7d83-8bcf-afc3-844d44210f4c`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[seal_ten](/theorem/seal_ten) · [mirror_congruence](/theorem/mirror_congruence) · [mirror_fixed_five](/theorem/mirror_fixed_five) · [agl_order_54](/theorem/agl_order_54) · [commutator_is_shift](/theorem/commutator_is_shift) · [one_orbit](/theorem/one_orbit) · [ten_pairs](/theorem/ten_pairs) · [polar_nine_pairs](/theorem/polar_nine_pairs) · [partition_six_three](/theorem/partition_six_three) · [angles_close](/theorem/angles_close) · [seams_two](/theorem/seams_two) · [one_strip](/theorem/one_strip) · [double_strand](/theorem/double_strand) · [polarities_plus_minus](/theorem/polarities_plus_minus) · [forward_reflected_mirror](/theorem/forward_reflected_mirror) · [every_digit_has_neighbours](/theorem/every_digit_has_neighbours) · [salt_conv_leaks_equality](/theorem/salt_conv_leaks_equality) · [salt_conv_step_is_division_by_zero](/theorem/salt_conv_step_is_division_by_zero) · [salt_seq_injective](/theorem/salt_seq_injective) · [salt_seq_fibre_singleton](/theorem/salt_seq_fibre_singleton) · [five_is_the_halving](/theorem/five_is_the_halving) · [five_orbit_reverses_doubling](/theorem/five_orbit_reverses_doubling) · [reverse_walks_inverse](/theorem/reverse_walks_inverse) · [only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities) · [tour_contra_reflects_each_digit](/theorem/tour_contra_reflects_each_digit) · [tour_contra_involutes](/theorem/tour_contra_involutes) · [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_sum_ten) · [sequence_and_coins_are_one](/theorem/sequence_and_coins_are_one)
+[seal_ten](/theorem/seal_ten) · [mirror_congruence](/theorem/mirror_congruence) · [mirror_fixed_five](/theorem/mirror_fixed_five) · [agl_order_54](/theorem/agl_order_54) · [commutator_is_shift](/theorem/commutator_is_shift) · [one_orbit](/theorem/one_orbit) · [ten_pairs](/theorem/ten_pairs) · [polar_nine_pairs](/theorem/polar_nine_pairs) · [partition_six_three](/theorem/partition_six_three) · [angles_close](/theorem/angles_close) · [seams_two](/theorem/seams_two) · [one_strip](/theorem/one_strip) · [double_strand](/theorem/double_strand) · [polarities_plus_minus](/theorem/polarities_plus_minus) · [forward_reflected_mirror](/theorem/forward_reflected_mirror) · [every_digit_has_neighbours](/theorem/every_digit_has_neighbours) · [salt_conv_leaks_equality](/theorem/salt_conv_leaks_equality) · [salt_conv_step_is_division_by_zero](/theorem/salt_conv_step_is_division_by_zero) · [salt_seq_injective](/theorem/salt_seq_injective) · [salt_seq_fibre_singleton](/theorem/salt_seq_fibre_singleton) · [five_is_the_halving](/theorem/five_is_the_halving) · [five_orbit_reverses_doubling](/theorem/five_orbit_reverses_doubling) · [reverse_walks_inverse](/theorem/reverse_walks_inverse) · [only_five_carries_the_three_singularities](/theorem/only_five_carries_the_three_singularities) · [tour_contra_reflects_each_digit](/theorem/tour_contra_reflects_each_digit) · [tour_contra_involutes](/theorem/tour_contra_involutes) · [tour_contra_rungs_sum_ten](/theorem/tour_contra_rungs_sum_ten) · [sequence_and_coins_are_one](/theorem/sequence_and_coins_are_one) · [digit_polarities_partition_ten](/theorem/digit_polarities_partition_ten) · [nine_is_plus_not_neutral](/theorem/nine_is_plus_not_neutral) · [polarity_mirror_swaps_sides](/theorem/polarity_mirror_swaps_sides) · [polarity_plus_is_trinity_of_minus](/theorem/polarity_plus_is_trinity_of_minus)
 
 ### Division by zero
 
@@ -1033,12 +1033,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The vector equilibrium
 
-- **Theorems:** 13
+- **Theorems:** 17
 - **Sample lineAddress:** `9b93e314-2c96-8ea1-9a6b-05405bf979cf`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[ve_twelve_vertices](/theorem/ve_twelve_vertices) · [radial_squares_to_two](/theorem/radial_squares_to_two) · [ve_four_neighbours](/theorem/ve_four_neighbours) · [radial_equals_edge](/theorem/radial_equals_edge) · [ve_handshake_crosses](/theorem/ve_handshake_crosses) · [ve_twentyfour_edges](/theorem/ve_twentyfour_edges) · [ve_fourteen_faces](/theorem/ve_fourteen_faces) · [euler_characteristic_two](/theorem/euler_characteristic_two) · [metatron_seventyeight_lines](/theorem/metatron_seventyeight_lines) · [dz_two_fixedpoints](/theorem/dz_two_fixedpoints) · [dz_involution_digits](/theorem/dz_involution_digits) · [orbits_closed_involution](/theorem/orbits_closed_involution) · [missing_pair_involution](/theorem/missing_pair_involution)
+[ve_twelve_vertices](/theorem/ve_twelve_vertices) · [radial_squares_to_two](/theorem/radial_squares_to_two) · [ve_four_neighbours](/theorem/ve_four_neighbours) · [radial_equals_edge](/theorem/radial_equals_edge) · [ve_handshake_crosses](/theorem/ve_handshake_crosses) · [ve_twentyfour_edges](/theorem/ve_twentyfour_edges) · [ve_fourteen_faces](/theorem/ve_fourteen_faces) · [euler_characteristic_two](/theorem/euler_characteristic_two) · [metatron_seventyeight_lines](/theorem/metatron_seventyeight_lines) · [dz_two_fixedpoints](/theorem/dz_two_fixedpoints) · [dz_involution_digits](/theorem/dz_involution_digits) · [orbits_closed_involution](/theorem/orbits_closed_involution) · [missing_pair_involution](/theorem/missing_pair_involution) · [ve_double_five_merges_in_ten](/theorem/ve_double_five_merges_in_ten) · [void_folds_at_quadrature](/theorem/void_folds_at_quadrature) · [ve_pentads_overlap_to_eight](/theorem/ve_pentads_overlap_to_eight) · [theorems_interact_as_faces](/theorem/theorems_interact_as_faces)
 
 ### The waves
 
@@ -1059,7 +1059,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2046 (2129 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 2054 (2137 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 6704 — 3075 usable, 3629 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1077,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2129 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2137 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

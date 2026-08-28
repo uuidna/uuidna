@@ -29,7 +29,8 @@ const PARTITION: Record<string, string> = {
   './verify-statement.js': 'ledger', './fingerprint.js': 'ledger', './laws.js': 'ledger', './captain/credits/index.js': 'ledger',
   './conformance.js': 'ledger', './treason.js': 'ledger', './axiom-witness.js': 'ledger', './anti-fraud.js': 'ledger',
   './forensics.js': 'ledger', './evidence.js': 'ledger', './captain/trial/deposit/index.js': 'ledger', './security-audit.js': 'ledger',
-  './captain/billing/index.js': 'ledger', './theorems/index.js': 'ledger',
+  './captain/billing/index.js': 'ledger',   './theorems/index.js': 'ledger',
+  './theorem-forms.js': 'ledger',
   './hexbit/index.js': 'ledger',
   // research — recomputable research, corroboration, publications, external anchors
   './research.js': 'research', './corroborate.js': 'research', './books.js': 'research', './publish.js': 'research',

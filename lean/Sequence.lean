@@ -139,3 +139,27 @@ theorem tour_contra_rungs_sum_ten : ([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if 
     the coin's order is the sequence's size. Colour, type, motion and value all read from this one structure
     because there is only one structure. -/
 theorem sequence_and_coins_are_one : (((List.range' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3) := by decide
+
+/-- THE SEQUENCE IMAGINED ON TEN DIGITS, NOT NINE: 1,2,3,4 are one polarity, 6,7,8,9 the other, and 0 with 5 are
+    the neutrals. Four plus two plus four is the whole ring, the three sets are pairwise disjoint, and every
+    digit 0..9 sits in exactly one — a partition, decided. HONEST SCOPE: this is the TEN-DIGIT strip (dz on
+    0..9). polarities_plus_minus remains true as ℤ/9 arithmetic (9%9=0); it does not place 9 among the neutrals
+    of this partition. -/
+theorem digit_polarities_partition_ten : (([1,2,3,4] ++ [0,5] ++ [6,7,8,9]).length = 10) ∧ ((List.range 10).all (fun d => ([1,2,3,4] ++ [0,5] ++ [6,7,8,9]).contains d)) ∧ ([1,2,3,4].all (fun d => !(([0,5] ++ [6,7,8,9]).contains d))) ∧ ([6,7,8,9].all (fun d => !(([0,5] ++ [1,2,3,4]).contains d))) ∧ ([0,5].all (fun d => !(([1,2,3,4] ++ [6,7,8,9]).contains d))) := by decide
+
+/-- NINE IS PLUS, NOT A SECOND VOID. On the ten digits, dz 9 = 1 (it moves) and dz 0 = 0 (it stays); 9 > 5 so it
+    sits with 6,7,8. The ℤ/9 line 9%9=0 in polarities_plus_minus identifies two different maps. Sequence-run
+    caught this once already: folding mod 9 made digit 9 unreachable as a seed. Sealed here so the polarity
+    partition cannot re-collapse 9 onto 0. -/
+theorem nine_is_plus_not_neutral : (dz 9 = 1) ∧ (9 ≠ 0) ∧ (9 > 5) ∧ (dz 0 = 0) ∧ (dz 5 = 5) := by decide
+
+/-- THE MIRROR SWAPS THE TWO POLARITIES AND FIXES THE NEUTRALS. Walking 1,2,3,4 through dz yields 9,8,7,6 — the
+    plus side in reverse. Walking 6,7,8,9 yields 4,3,2,1 — the minus side in reverse. 0 and 5 stay. So the two
+    polarities are ONE strip read both ways, joined at the hinges, and 9 is the image of 1, never a hinge. -/
+theorem polarity_mirror_swaps_sides : ([1,2,3,4].map dz = [9,8,7,6]) ∧ ([6,7,8,9].map dz = [4,3,2,1]) ∧ (dz 0 = 0) ∧ (dz 5 = 5) := by decide
+
+/-- THE TWO POLARITIES SUM TO A TRINITY. 1+2+3+4 = 10 (the rung width every mirror pair already pays) and
+    6+7+8+9 = 30 = 3·10 — plus is the trinity of minus. The neutrals 0+5 = 5 are the heart. 10+30+5 = 45 =
+    1+…+9, the whole strip. Four, two, four digits; ten, thirty, five as sums — the same 4+2+4 partition read in
+    value. -/
+theorem polarity_plus_is_trinity_of_minus : (1+2+3+4 = 10) ∧ (6+7+8+9 = 30) ∧ (30 = 3 * 10) ∧ (0+5 = 5) ∧ (10+30+5 = 45) := by decide
