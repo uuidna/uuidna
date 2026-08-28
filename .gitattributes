@@ -76,6 +76,8 @@ lean/browser-apps-usable.json merge=derived
 mirror/alpine-overlay.tsv merge=derived
 docs/store.md merge=derived
 docs/models.md merge=derived
+src/quantum/models/mirror.ts merge=derived
+docs/doctrine.md merge=derived
 src/chunks/** merge=derived
 
 # ── THE RECORDS UNDER A DIRECTORY ENTRY THAT ARE NOT DERIVED (2026-08-25) ────────────────────────────────────

@@ -468,6 +468,10 @@ export const DRAIN_PATHS: readonly string[] = [
   'docs/store.md',
   // the model comparison page — rewritten by gen-models from the committed feed mirror every reconcile
   'docs/models.md',
+  // the public model feed mirror — lean-models re-pins it under UUIDNA_TRACK_LATEST (reconcile's lean step)
+  'src/quantum/models/mirror.ts',
+  // ledger slot stamps (<!--L:distinct--> / <!--L:keys-->) — stamp.js runs inside `npm run lean`
+  'docs/doctrine.md',
   // one chunk per DISTINCT proven fact — fewer than the key count, since a statement sealed in two wings is
   // one fact with two names. The two figures are deliberately not written here; statementCensus() reports them,
   // and a count in a comment is stale the next time a wing lands. Generated
@@ -486,6 +490,8 @@ export const DRAIN_WRITERS: Readonly<Record<string, string>> = {
   'prose-trials.json': 'derive-prose-trials',
   'book-leads.json': 'mine-books',
   'lean/sessions.json': 'session',
+  'src/quantum/models/mirror.ts': 'lean-models',
+  'docs/doctrine.md': 'stamp',
 }
 
 /** What each generator in the reconcile chain WRITES — declared, because the write targets are computed through
