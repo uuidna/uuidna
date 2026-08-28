@@ -4,20 +4,9 @@
     "UUID_HEXBITS": 32,
     "HEXBIT_BITS": 4,
     "HEXBIT_STATES": 16,
-    "sealedKeys": 41
+    "sealedKeys": 42
   },
   "books": [
-    {
-      "id": 10,
-      "title": "The King James Version of the Bible",
-      "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-      "cached": true,
-      "claims": 200,
-      "unitEq": 3,
-      "hexbitCandidates": 0,
-      "hexbitAlreadySealed": [],
-      "words": 824543
-    },
     {
       "id": 2800,
       "title": "The Koran (Al-Qur'an)",
@@ -33,7 +22,7 @@
       "id": 216,
       "title": "The Tao Teh King, or the Tao and its Characteristics",
       "address": "0a5428dd-5b85-8bbb-aed7-6df0f51051a7",
-      "cached": true,
+      "cached": false,
       "claims": 1,
       "unitEq": 0,
       "hexbitCandidates": 0,
@@ -84,7 +73,7 @@
   "depositRefused": [],
   "pending": 0,
   "iq": {
-    "probes": 6,
+    "probes": 5,
     "vacuous": [
       "rank1 exceeds rank2",
       "commonest word is 'the'"
@@ -100,6 +89,68 @@
       32246
     ]
   },
-  "receipt": "fa8ebac4-2d70-86fa-8616-64bdd40ab606",
+  "receipt": "ea330125-ecad-822e-95a7-ee787036cb5e",
+  "handle": "ea330125",
+  "hexbits": [
+    14,
+    10,
+    3,
+    3,
+    0,
+    1,
+    2,
+    5,
+    14,
+    12,
+    10,
+    13,
+    8,
+    2,
+    2,
+    14,
+    9,
+    5,
+    10,
+    7,
+    14,
+    14,
+    7,
+    8,
+    7,
+    0,
+    3,
+    6,
+    12,
+    11,
+    5,
+    14
+  ],
+  "door": "https://uuidna.com/ea330125",
+  "coin": [
+    14,
+    10,
+    3,
+    3,
+    0,
+    1,
+    2,
+    5,
+    14,
+    12,
+    10,
+    13,
+    8,
+    2,
+    2,
+    14
+  ],
+  "place": {
+    "handle": "ea330125",
+    "value": 3929211173,
+    "span": 4294967296,
+    "residue": 2,
+    "nilpotent": false,
+    "hexbits": 8
+  },
   "dry": false
 }
