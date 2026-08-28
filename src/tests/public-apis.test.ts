@@ -23,11 +23,10 @@ test('publicApiRegistry includes weather, news, and EU education', () => {
 })
 
 test('extended research sources are named in RESEARCH_SOURCE_NAMES', () => {
-  assert.ok(RESEARCH_SOURCE_NAMES.includes('arxiv.org'))
-  assert.ok(RESEARCH_SOURCE_NAMES.includes('mathoverflow.net'))
-  assert.ok(RESEARCH_SOURCE_NAMES.includes('open-meteo.com'))
-  assert.ok(RESEARCH_SOURCE_NAMES.includes('en.wikinews.org'))
-  assert.equal(RESEARCH_SOURCE_NAMES.length, 11)
+  const named = new Set(RESEARCH_SOURCE_NAMES)
+  for (const host of ['arxiv.org', 'mathoverflow.net', 'open-meteo.com', 'en.wikinews.org'] as const)
+    assert.ok(named.has(host), host)
+  assert.equal(named.size, 11)
 })
 
 test('publicApiRegistry receipt is a hexbit door', () => {
@@ -68,8 +67,9 @@ test('gen-apis drains publicApiRegistry — no hand-typed /apis page', () => {
 test('publicApiRegistry hosts cover RESEARCH_SOURCE_NAMES plus weather and news', () => {
   const reg = publicApiRegistry()
   const hosts = new Set([...reg.research, ...reg.euEducation, ...reg.weather, ...reg.news, ...reg.other].map((r) => r.host))
+  const sameHost = (a: string, b: string): boolean => a === b || a.endsWith('.' + b) || b.endsWith('.' + a)
   for (const name of RESEARCH_SOURCE_NAMES)
-    assert.ok(hosts.has(name) || [...hosts].some((h) => h.includes(name.split('.')[0]!)), `registry names ${name}`)
+    assert.ok([...hosts].some((h) => sameHost(h, name)), `registry names ${name}`)
 })
 
 test('every src fetch host is in publicApiRegistry or SCHOOL_APIS — undeclared is a gap', () => {

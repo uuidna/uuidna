@@ -9,6 +9,7 @@ test('harvestFragments finds arithmetic equalities', () => {
 
 test('fragmentToLean shapes propositions for the kernel', () => {
   assert.equal(fragmentToLean('11*13=143'), '(11 * 13 = 143)')
+  assert.equal(fragmentToLean('2**10=1024'), '(2 ^ 10 = 1024)')
 })
 
 test('keyFromFragment is lawful and deterministic', () => {

@@ -79,7 +79,8 @@ export function publicApiRegistry(): {
     return {
       id: host.replace(/\./g, '-'),
       host,
-      base: host === 'mathoverflow.net' || host.includes('stackexchange') ? 'https://api.stackexchange.com' : `https://${host}`,
+      base: host === 'mathoverflow.net' || host === 'api.stackexchange.com' || host.endsWith('.stackexchange.com')
+        ? 'https://api.stackexchange.com' : `https://${host}`,
       kind: 'research' as const,
       access: host === 'crossref.org' || host === 'openalex.org' ? 'mailto-polite' as const : 'keyless' as const,
       direction: 'fetched' as const,

@@ -7,7 +7,9 @@ import { toUuid } from './address.js'
 import { theoremByKey } from './theorems/index.js'
 import type { WaveCandidate } from './wave-deposit.js'
 
-export const ARITH_FRAG = /\d[\d,]*(?:\s*[+\-*/%^]\s*\d[\d,]*)+\s*(?:=|==|<=|>=|<|>)\s*\d[\d,]*|\d[\d,]*\s*(?:=|==|<=|>=|<|>)\s*\d[\d,]*(?:\s*[+\-*/%^]\s*\d[\d,]*)+/g
+// Bounded quantifiers: commas are stripped before matchAll, so the class is digits only; unbounded
+// `\s*` next to `%` in the operator class is the ReDoS shape CodeQL names (js/polynomial-redos).
+export const ARITH_FRAG = /\d{1,24}(?:[ \t]{0,4}[+\-*/%^][ \t]{0,4}\d{1,24})+[ \t]{0,4}(?:=|==|<=|>=|<|>)[ \t]{0,4}\d{1,24}|\d{1,24}[ \t]{0,4}(?:=|==|<=|>=|<|>)[ \t]{0,4}\d{1,24}(?:[ \t]{0,4}[+\-*/%^][ \t]{0,4}\d{1,24})*/g
 
 const normKey = (s: string): string => s.replace(/,/g, '').replace(/\s+/g, '')
 
@@ -25,7 +27,7 @@ export function harvestFragments(text: string): string[] {
 
 /** fragmentToLean(f) → a Lean proposition the kernel can decide. Pure. */
 export function fragmentToLean(fragment: string): string {
-  let s = fragment.replace(/,/g, '').replace(/==/g, '=').replace(/\^/g, '^')
+  let s = fragment.replace(/,/g, '').replace(/\*\*/g, '^').replace(/==/g, '=')
   s = s.replace(/<=/g, '≤').replace(/>=/g, '≥').replace(/!=/g, '≠')
   s = s.replace(/([0-9)])([+\-*/^%])/g, '$1 $2').replace(/([+\-*/^%=<>!])([0-9(])/g, '$1 $2')
   s = s.replace(/([^=!<>])=([^=])/g, '$1 = $2')

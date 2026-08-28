@@ -12,7 +12,8 @@ import { ROOT } from './api.js'
 const reg = publicApiRegistry()
 const door = hexbitDoorOf(reg.receipt)
 
-const cell = (s: string): string => s.replace(/[<>]/g, (c) => (c === '<' ? '&lt;' : '&gt;')).replace(/\|/g, '\\|')
+const cell = (s: string): string =>
+  s.replace(/\\/g, '\\\\').replace(/\|/g, '\\|').replace(/[<>]/g, (c) => (c === '<' ? '&lt;' : '&gt;'))
 
 const table = (rows: PublicApiEntry[]): string => {
   if (!rows.length) return '_none._'
