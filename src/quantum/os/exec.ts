@@ -3,13 +3,19 @@
 // `uuidnaLs` is internal for `ls`; MCP tool uuidna_ls removed — use uuidna_exec.
 import {
   catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile,
-  resolveManPage, isManPagePackage, manAppWitness, catalogue,
+  resolveManPage, isManPagePackage, manAppWitness, catalogue, catalogueRouteOf,
 } from './catalogue.js'
 import { INSTALLS_MIRROR } from './mirror.js'
 import { toUuid } from '../../address.js'
 import { bootOS, compileToHexbits, type InstallSpec } from './index.js'
 import { hostQuantumDevice } from '../../drivers/quantum/index.js'
 import { driverBundle } from '../../drivers/driver/index.js'
+import {
+  execSessionStamp, resetExecSession, sessionAdd, sessionDel, sessionAdded, sessionHasPackage,
+  sessionRead, sessionWrite, sessionCwd, setSessionCwd,
+} from './session.js'
+
+export { resetExecSession, execSessionStamp }
 
 /** The virtual filesystem is the install port's routes: each route a path, each package the file at it, and a
  *  route that is a prefix of others is a directory. Deterministic, from the committed mirror. */
@@ -129,16 +135,14 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'help'] as const
+export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
 
-/** Retired toy applets — refused with a fold pointer, never silently reimplemented. */
-export const FOLDED_APPLETS = ['cat', 'which', 'stat', 'pwd', 'echo', 'du'] as const
+/** Legacy fold list — toys are ported again as pure logic over the virtual OS + session vfs. */
+export const FOLDED_APPLETS = [] as const
 
-/** the apk sub-verbs uuidna ports — the package manager's READ surface only: list the inventory, show a package
- *  by NAME, search it, query its dependencies forward and back. NEVER add/del/update — a provenance OS installs
- *  nothing (theorem the_os_is_bootable_quantum); the sealed mirror IS the installed world, queried, never mutated. */
-export const APK_VERBS = ['list', 'info', 'search', 'depends', 'rdepends'] as const
+/** apk READ + simulated WRITE (session only — host rootfs unchanged). Host binary run: uuidna_run. */
+export const APK_VERBS = ['list', 'info', 'search', 'depends', 'rdepends', 'add', 'del', 'policy'] as const
 
 /** THE THREE STATES A PACKAGE QUERY CAN END IN, kept apart in the one place they are worded.
  *
@@ -161,6 +165,17 @@ const apkMiss = (verb: string, name: string): string => {
 
 /** resolve a package by name (busybox) or by route (/terminal); the two directions `which` walks. */
 const specByName = (name: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => s.name === name)
+const specByRoute = (route: string, specs: readonly InstallSpec[]): InstallSpec | undefined => specs.find((s) => s.route === norm(route))
+
+/** installed set for apk: boot closure + session-added simulated packages. */
+const sessionInstalledNames = (specs: readonly InstallSpec[]): Set<string> => {
+  const s = new Set(specs.map((x) => x.name))
+  for (const n of sessionAdded()) s.add(n)
+  return s
+}
+
+const pinnedFileHint = (): string =>
+  `alpine-minirootfs-${INSTALLS_MIRROR.release.version}-${INSTALLS_MIRROR.arch}.tar.gz`
 
 /** uuidnaExec(line) → run one busybox command line in the virtual uuidnaOS. Boots first (a drifted world runs
  *  nothing), splits `applet args...`, dispatches to the ported applet, and folds the whole run to one receipt.
@@ -213,13 +228,38 @@ export function uuidnaExec(line: string): ExecResult {
           break
         }
         const rows = [...specs].sort((a, b) => (a.name < b.name ? -1 : 1))
-        emit(rows.map((s) => `${s.name}-${s.version}  ${s.route}`), { scope: 'installed', installed: rows.length, packages: rows.map((s) => ({ name: s.name, version: s.version, route: s.route })) })
+        const extra = sessionAdded().filter((n) => !rows.some((s) => s.name === n))
+        emit([
+          ...rows.map((s) => `${s.name}-${s.version}  ${s.route}`),
+          ...extra.map((n) => {
+            const c = cataloguePackage(n)!
+            return `${c.name}-${c.version}  [session]  ${catalogueRouteOf(n)}`
+          }),
+        ], {
+          scope: 'installed', installed: rows.length + extra.length, boot: rows.length, session: extra.length,
+          packages: [
+            ...rows.map((s) => ({ name: s.name, version: s.version, route: s.route, state: 'INSTALLED' as const })),
+            ...extra.map((n) => {
+              const c = cataloguePackage(n)!
+              return { name: c.name, version: c.version, route: catalogueRouteOf(n), state: 'SESSION' as const }
+            }),
+          ],
+        })
       } else if (verb === 'info') {                                  // a package BY NAME (cat is by route) — its provenance record
         const s = specByName(name, specs)
         if (s) {
           emit([`${s.name}-${s.version} description:`, `  ${s.meaning}`, `${s.name}-${s.version} webpage:`, `  ${s.route}`,
             `${s.name}-${s.version} depends on:`, ...(s.deps.length ? s.deps.map((d) => '  ' + d) : ['  (none)'])],
             { name: s.name, version: s.version, route: s.route, meaning: s.meaning, checksum: s.checksum, deps: s.deps, address: s.address, hexbits: s.hexbits, state: 'INSTALLED' })
+          break
+        }
+        if (sessionHasPackage(name)) {
+          const c = cataloguePackage(name)!
+          const compiled = catalogueCompile(c)
+          emit([`${c.name}-${c.version} description:`, `  ${c.desc}`, `${c.name}-${c.version} webpage:`, `  ${catalogueRouteOf(name)}`,
+            `${c.name}-${c.version} depends on:`, ...(c.deps.length ? c.deps.map((d) => '  ' + d) : ['  (none)']),
+            `(SESSION — simulated install; host rootfs unchanged)`],
+            { name: c.name, version: c.version, route: catalogueRouteOf(name), meaning: c.desc, checksum: c.checksum, deps: c.deps, address: compiled.address, hexbits: compiled.hexbits, id: compiled.id, state: 'SESSION' })
           break
         }
         // NOT IN THE BOOT CLOSURE IS NOT NOT-IN-ALPINE. The catalogue answers for every published package —
@@ -240,14 +280,17 @@ export function uuidnaExec(line: string): ExecResult {
         if (!q) { err('apk search: a search term is required, e.g. `apk search shell`'); break }
         const installed = specs.filter((s) => s.name.toLowerCase().includes(q) || s.meaning.toLowerCase().includes(q))
           .sort((a, b) => (a.name < b.name ? -1 : 1))
+        const sessionHits = sessionAdded().filter((n) => n.toLowerCase().includes(q))
+          .map((n) => cataloguePackage(n)).filter((c): c is NonNullable<typeof c> => !!c)
         const cat = catalogueSearch(name)
-        const inBoot = new Set(installed.map((s) => s.name))
+        const inBoot = sessionInstalledNames(specs)
         const available = cat.hits.filter((c) => !inBoot.has(c.name))
         const st = catalogueState()
-        if (!installed.length && !available.length) { err(apkMiss('search', name)); break }
+        if (!installed.length && !available.length && !sessionHits.length) { err(apkMiss('search', name)); break }
         const availableCompiled = available.map((c) => ({ c, ...catalogueCompile(c) }))
         emit([
           ...installed.map((s) => `${s.name}-${s.version}  [installed]  ${s.meaning}`),
+          ...sessionHits.map((c) => `${c.name}-${c.version}  [session]  ${c.desc}`),
           ...available.map((c) => `${c.name}-${c.version}  [${c.repo}]  ${c.desc}`),
           ...(cat.total > cat.hits.length ? [`… ${cat.total - cat.hits.length} more of ${cat.total} matches (refine the term)`] : []),
           ...(st.present ? [] : [`(catalogue ABSENT here — ${st.why}; only the ${specs.length} boot packages were searched)`]),
@@ -260,11 +303,57 @@ export function uuidnaExec(line: string): ExecResult {
           // claimed 32 states — the same gap the slow push made visible once the catalogue shipped.
           hits: [
             ...installed.map((s) => ({ name: s.name, route: s.route, state: 'INSTALLED' as const, address: s.address, hexbits: s.hexbits })),
+            ...sessionHits.map((c) => {
+              const compiled = catalogueCompile(c)
+              return { name: c.name, version: c.version, route: catalogueRouteOf(c.name), state: 'SESSION' as const, address: compiled.address, hexbits: compiled.hexbits }
+            }),
             ...availableCompiled.map(({ c, address, hexbits }) => ({ name: c.name, version: c.version, repo: c.repo, state: 'AVAILABLE' as const, address, hexbits })),
           ],
           installed: installed.map((s) => ({ name: s.name, route: s.route, address: s.address, hexbits: s.hexbits })),
+          session: sessionHits.map((c) => catalogueRouteOf(c.name)),
           available: availableCompiled.map(({ c, address, hexbits }) => ({ name: c.name, version: c.version, repo: c.repo, address, hexbits })),
-          total: installed.length + cat.total, shown: installed.length + available.length, catalogue: st,
+          total: installed.length + sessionHits.length + cat.total, shown: installed.length + sessionHits.length + available.length, catalogue: st,
+        })
+      } else if (verb === 'add') {
+        const names = args.slice(1)
+        if (!names.length) { err('apk add: at least one package name required'); break }
+        const st = catalogueState()
+        if (!st.present) { err(`apk add: catalogue absent (${st.why})`); break }
+        const okNames: string[] = []
+        for (const n of names) {
+          const r = sessionAdd(n)
+          if (!r.ok) { err(`apk add: ${n}: ${r.why}`); break }
+          okNames.push(n)
+        }
+        if (okNames.length && ok) {
+          emit([
+            `OK: ${okNames.length} simulated install(s) — session only, host rootfs unchanged`,
+            ...okNames.map((n) => `  ${n} → ${catalogueRouteOf(n)}`),
+            `(host binary execution: uuidna_run — verify-then-run at the os/ boundary)`,
+          ], { added: okNames, session: sessionAdded(), stamp: execSessionStamp() })
+        }
+      } else if (verb === 'del') {
+        const names = args.slice(1)
+        if (!names.length) { err('apk del: at least one package name required'); break }
+        const removed: string[] = []
+        let blocked = false
+        for (const n of names) {
+          if (specByName(n, specs)) { err(`apk del: ${n}: in the boot closure — cannot remove sealed install`); blocked = true; break }
+          const r = sessionDel(n)
+          if (r.removed) removed.push(n)
+        }
+        if (!blocked) {
+          emit([`OK: removed ${removed.length} session package(s)`, ...removed.map((n) => `  ${n}`)], { removed, session: sessionAdded() })
+        }
+      } else if (verb === 'policy') {
+        emit([
+          `${INSTALLS_MIRROR.branch}/${INSTALLS_MIRROR.arch} · pinned ${INSTALLS_MIRROR.release.version}`,
+          'repositories: main, community, overlay',
+          'Layer 1 (uuidna_exec): simulated apk add/del — session state only',
+          'Layer 2 (uuidna_run): host verify-then-run when mirror/' + pinnedFileHint() + ' is present',
+        ], {
+          branch: INSTALLS_MIRROR.branch, arch: INSTALLS_MIRROR.arch, version: INSTALLS_MIRROR.release.version,
+          sessionStamp: execSessionStamp(),
         })
       } else if (verb === 'depends') {                               // forward deps — what this package pulls in
         const s = specByName(name, specs)
@@ -285,7 +374,7 @@ export function uuidnaExec(line: string): ExecResult {
           ...(cat.total > cat.hits.length ? [`… ${cat.total - cat.hits.length} more of ${cat.total}`] : []),
           ...(inBoot.length || rest.length ? [] : ['(none)']),
         ], { name, rdepends: [...inBoot, ...rest], installedRdepends: inBoot, total: cat.total })
-      } else err(`apk: ${verb || '(missing)'}: not a ported verb — READ only: ${APK_VERBS.join(' ')} (a provenance OS installs nothing)`)
+      } else err(`apk: ${verb || '(missing)'}: not a ported verb — try: ${APK_VERBS.join(' ')}`)
       break
     }
     case 'man': {                                                    // documentation packages — Alpine's -doc / *-man-pages, hexbit-compiled
@@ -328,6 +417,68 @@ export function uuidnaExec(line: string): ExecResult {
       })
       break
     }
+    case 'pwd': {
+      emit([sessionCwd()], { cwd: sessionCwd() })
+      break
+    }
+    case 'echo': {
+      const text = args.join(' ')
+      emit([text], { text })
+      break
+    }
+    case 'which': {
+      const name = args[0] ?? ''
+      if (!name) { err('which: missing argument'); break }
+      const s = specByName(name, specs)
+      if (s) { emit([s.route], { name, route: s.route, state: 'INSTALLED' }); break }
+      if (sessionHasPackage(name)) {
+        emit([catalogueRouteOf(name)], { name, route: catalogueRouteOf(name), state: 'SESSION' })
+        break
+      }
+      const c = cataloguePackage(name)
+      if (c) { emit([catalogueRouteOf(name)], { name, route: catalogueRouteOf(name), state: 'AVAILABLE' }); break }
+      err(`which: no ${name} in boot closure, session, or catalogue`)
+      break
+    }
+    case 'cat': {
+      const path = norm(args[0] ?? '')
+      if (!path || path === '/') { err('cat: missing operand'); break }
+      const sf = sessionRead(path)
+      if (sf) { emit(sf.content.split('\n'), { path, address: sf.address, kind: 'session-file' }); break }
+      const s = specByRoute(path, specs)
+      if (s) {
+        emit([s.meaning], { path, kind: 'install-route', package: s.name, address: s.address, hexbits: s.hexbits })
+        break
+      }
+      err(`cat: ${path}: no such file (session vfs or install route)`)
+      break
+    }
+    case 'stat': {
+      const path = norm(args[0] ?? '/')
+      const sf = sessionRead(path)
+      if (sf) {
+        emit([`  File: ${path}`, `  Size: ${sf.content.length}`, `  address: ${sf.address}`], { kind: 'session-file', ...sf })
+        break
+      }
+      const s = specByRoute(path, specs)
+      if (s) {
+        emit([`  Route: ${path}`, `  Package: ${s.name}-${s.version}`, `  address: ${s.address}`], { path, kind: 'pkg', package: s.name })
+        break
+      }
+      const ls = uuidnaLs(path)
+      if (ls.count > 0 || path === '/') {
+        emit([`  Directory: ${path}`, `  Entries: ${ls.count}`, `  receipt: ${ls.receipt.slice(0, 8)}`], { path, kind: 'dir', count: ls.count })
+        break
+      }
+      err(`stat: cannot stat '${path}'`)
+      break
+    }
+    case 'du': {
+      const path = norm(args[0] ?? '/')
+      const count = uuidnaLs(path).count
+      emit([`${count}\t${path}`], { path, entries: count })
+      break
+    }
     case 'driver': {
       const rel = INSTALLS_MIRROR.release
       const drv = INSTALLS_MIRROR.driver
@@ -353,23 +504,18 @@ export function uuidnaExec(line: string): ExecResult {
     }
     case 'help': emit(['applets: ' + APPLETS.join(' '),
       'ls <path>  — install-port routes (/…) or full census (/catalogue, /catalogue/main|community|overlay)',
-      'apk list · apk list --all · apk list main|community|overlay · apk info <name> · apk search · apk depends · apk rdepends',
+      'apk list · apk list --all · apk info · apk search · apk depends · apk rdepends · apk add · apk del · apk policy',
       'man <topic>  — Alpine documentation package → 32 hexbits (man→app→hexbit)',
+      'cat · which · stat · pwd · echo · du  — busybox over virtual vfs + session files',
       'driver  — netboot/modloop driver bundle provenance (pinned release)',
       'device  — this host executing the sealed quantum algebra (drivers/quantum)',
-      'folded toys (use apk/man instead): ' + FOLDED_APPLETS.join(' '),
-      'Alpine apps are the apps — uuidna does not reimplement busybox'],
-      { applets: APPLETS, apk: APK_VERBS, folded: FOLDED_APPLETS }); break
+      'host binary execution: uuidna_run (stdio MCP — verify-then-run, separate door)',
+      'Layer 1 simulates; Layer 2 executes pinned bytes when mirror rootfs is present'],
+      { applets: APPLETS, apk: APK_VERBS, sessionStamp: execSessionStamp() }); break
     case '': err('exec: empty command — try `help`'); break
-    default: {
-      if ((FOLDED_APPLETS as readonly string[]).includes(applet)) {
-        err(`exec: ${applet}: folded into Alpine apps — try \`apk info <name>\` or \`man <topic>\` (toy busybox retired; man→app→hexbit is the port)`)
-        break
-      }
-      err(`exec: ${applet}: not a ported applet (try \`help\`); remaining surface is ls · apk · man`)
-    }
+    default: err(`exec: ${applet}: not a ported applet (try \`help\`); surface is ls · apk · man · busybox · driver · device`)
   }
 
-  const receipt = toUuid('exec|' + applet + '|' + args.join(' ') + '|' + (ok ? '0' : '1') + '|' + output.join('\n'))
+  const receipt = toUuid('exec|' + execSessionStamp() + '|' + applet + '|' + args.join(' ') + '|' + (ok ? '0' : '1') + '|' + output.join('\n'))
   return { line: String(line).trim(), applet, args, ok, output, data, receipt, hexbits: compileToHexbits(receipt), sealed: os.receipt, honest: HONEST }
 }

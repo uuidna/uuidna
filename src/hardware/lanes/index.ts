@@ -52,6 +52,13 @@ export const LANES: readonly Lane[] = [
       'says yes and the stopwatch says it would not matter.',
   },
   {
+    name: 'VM',
+    seat: 'specified',
+    admits: 'verify-then-run of the pinned Alpine minirootfs — chroot/qemu/shell backend after uuidna SHA-256 exact-copy check',
+    note: 'Layer 2 (uuidna_run). NOT on the Workers edge. Measured when mirror/ holds the pinned tarball and spawn succeeds; ' +
+      'otherwise plan-only or absent — never faked.',
+  },
+  {
     name: 'QPU',
     seat: 'empty',
     admits: 'nothing — no work is routed here, because there is nothing to route it to',
