@@ -1,10 +1,10 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-08-27
+**Generated:** 2026-08-28
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Total claimed:** 2120/2120 theorems — every one, by construction
-**Claim receipt:** `89620754-4329-8587-a9f0-9fb9e7882795`
+**Claim receipt:** `9501f1f6-6750-893f-a278-125bd6ce7352`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
