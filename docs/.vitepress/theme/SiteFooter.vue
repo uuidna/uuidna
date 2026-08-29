@@ -58,7 +58,7 @@ const cols = computed(() => [
     { text: 'Deploy', href: '/deploy' },
     { text: 'Lean proofs · lean/', href: GH + '/tree/main/lean' },
     { text: 'PRINCIPLE.md', href: GH + '/blob/main/lean/PRINCIPLE.md' },
-    { text: 'npm run lean (recompute)', href: GH + '#verify' },
+    { text: 'npm run lean (recompute)', href: GH + '#use' },
   ] },
 ])
 </script>

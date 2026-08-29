@@ -2,6 +2,9 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { MOST_SEARCHED, FEED_QUERIES, feedPhysicsCite, portalQueries, queriesFromEvidence, searchFeed, titleOf } from '../search-feed.js'
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from '../scripts/api.js'
 
 test('meaning is always null — the mill fingerprints structure, never hidden sense', () => {
   const f = searchFeed()
@@ -83,6 +86,12 @@ test('queriesFromEvidence turns unanswered-math notes into mill queries — titl
 test('a quantum-advantage query cites the sealed classical bound', () => {
   assert.match(feedPhysicsCite('quantum advantage'), /n_qubit_dimension/)
   assert.equal(feedPhysicsCite('cricket'), '')
+})
+
+test('books-run deposits search-feed harvest onto the conveyor — queue, never seal', () => {
+  const src = readFileSync(join(ROOT, 'src/scripts/books-run.ts'), 'utf8')
+  assert.match(src, /searchFeed\(\)/)
+  assert.match(src, /mintLeadsToCandidates/)
 })
 
 test('searchFeedOnline is the online mill — network stays in unansweredMath / collectApiEvidence', async () => {

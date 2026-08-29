@@ -11,7 +11,9 @@
 // a gate rigged to pass would make "ready" mean nothing. Integrity. Legal soundness. Quantum honesty.
 import { lonelyGaps } from './one-receipt.js'
 import { ROOT } from './api.js'
-import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, type PageNode } from '../index.js'
+import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, theoremCountByFile, type PageNode } from '../index.js'
+import { searchFeed } from '../search-feed.js'
+import { tableLeadsFrom } from '../table-leads.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { decide } from '../decide.js'
 import { quantumAdvantageAudit } from '../quantum/advantage/audit/index.js'
@@ -247,6 +249,21 @@ try {
   const lonely = lonelyGaps().length
   if (lonely > 0) leverage.push({ act: 'npm run build && node dist/scripts/connect-lonely.js', closes: `${lonely} theorem(s) connecting to no neighbour — the dry run reports, --write applies` })
 } catch { /* the survey is on-demand; its absence is not a failure */ }
+try {
+  const harvest = searchFeed().leads.filter((l) => l.harvest)
+  if (harvest.length) leverage.push({
+    act: 'npm run books  # deposits search-feed harvest onto the conveyor (never seals)',
+    closes: `${harvest.length} TRUE-unsealed fragment(s) still waiting — desk proposes, kernel disposes; never rewrite usable_gap_is_two_to_eighty`,
+  })
+} catch { /* the feed is a convenience; its failure is not a gap in the tree */ }
+try {
+  const found = (JSON.parse(readFileSync(join(ROOT, 'lean', 'leads.json'), 'utf8')) as { tables?: { found?: { wing: string; object: string; size: string }[] } }).tables?.found ?? []
+  const short = tableLeadsFrom(found, theoremCountByFile())
+  if (short.length) leverage.push({
+    act: `enumerate ${short[0]!.file} (${short[0]!.object})`,
+    closes: `${short.length} stating wing(s) still short of their tables.found object — largest gap ${short[0]!.stated - short[0]!.sealed} on ${short[0]!.file}; desk proposes, kernel enumerates`,
+  })
+} catch { /* the tables record is authored; unread is not a next failure */ }
 leverage.push({ act: 'npm run ship   # build, wrangler deploy, cf:zone, live proof', closes: 'every MCP finding at once — the hosted surface is tested against what it serves, not what the tree holds; cf:zone attaches www + Always Use HTTPS when the token can write' })
 // MEASURED, NOT TYPED. This entry used to be pushed unconditionally, three lines under a comment promising the
 // list is "computed here rather than written down, because a typed list rots the moment the tree moves" — so it

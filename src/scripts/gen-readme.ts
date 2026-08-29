@@ -114,6 +114,43 @@ sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel. Typ
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
 them, 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).
 
+## Use
+
+Install the package, fuse the MCP, or call constructors. Worked paths: [guides](https://uuidna.com/guides) · [MCP](https://uuidna.com/mcp).
+
+\`\`\`bash
+npm install @uuidna/uuidna
+\`\`\`
+
+\`\`\`json
+{ "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
+\`\`\`
+
+\`\`\`ts
+import { handleOf, toUuid, encrypt, theoremByKey } from '@uuidna/uuidna'
+
+const address = toUuid('two_coins')
+handleOf(address)
+theoremByKey().get('two_coins')
+encrypt('text', 'passphrase')
+\`\`\`
+
+\`handleOf\` is the eight-hex door ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)). \`encrypt\` is ChaCha20-Poly1305 under PBKDF2 ([aead_nonce_and_salt_bits](https://uuidna.com/theorem/aead_nonce_and_salt_bits)). Hosted mill: [uuidna.com](https://uuidna.com).
+
+## Develop
+
+Lean is the single source of theorems ([legal_only_the_proven_is_admitted](https://uuidna.com/theorem/legal_only_the_proven_is_admitted)). A deposit queues a candidate; only the kernel seals ([minting_is_free_and_forging_is_not](https://uuidna.com/theorem/minting_is_free_and_forging_is_not)).
+
+\`\`\`bash
+git clone https://github.com/uuidna/uuidna && cd uuidna
+npm install
+npm run hooks:install
+npm run lean
+npm run reconcile
+\`\`\`
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for adding a wing, the pre-push gate, and inbound license terms. Readiness: \`npm run next\`. Outward deploy: \`npm run ship\`.
+
 ## Test proof of concept — Clay
 
 Clay is the visible test of this system's work: seven finite instances in [lean/Clay.lean](lean/Clay.lean), each a
@@ -314,13 +351,16 @@ MCP: [\`uuidna_crypto\`](https://uuidna.com/mcp) (one door for every Alpine app 
 
 ## How to recompute
 
+Use and develop sit at the top of this file. The mill:
+
 \`\`\`bash
 npm run lean      # re-prove every wing by decide
 npm run guard     # traitors / drain / license identity
 npm run editorial # prose desk + prepublish seal
+npm run next      # seven-arm self-trial (hexbit-fast)
 \`\`\`
 
-Live site: [uuidna.com](https://uuidna.com) · Captain coins: [uuidna.com/captain](https://uuidna.com/captain) ·
+[CONTRIBUTING.md](CONTRIBUTING.md) · Live site: [uuidna.com](https://uuidna.com) · Captain coins: [uuidna.com/captain](https://uuidna.com/captain) ·
 School: [uuidna.com/school](https://uuidna.com/school) · MCP: [uuidna.com/mcp](https://uuidna.com/mcp)
 
 ---

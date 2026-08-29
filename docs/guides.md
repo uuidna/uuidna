@@ -19,6 +19,24 @@ On connect the server sends an **instructions** summary, and every tool call ret
 seq · referer`) — a content-address of the command — so an agent always holds a tamper-evident record of what it ran.
 Browse the full surface on the [MCP tools](/mcp) page; new here, start at the [Contract](/captain).
 
+## Call constructors from TypeScript
+
+```bash
+npm install @uuidna/uuidna
+```
+
+```ts
+import { handleOf, toUuid, encrypt, theoremByKey } from '@uuidna/uuidna'
+
+const address = toUuid('two_coins')
+handleOf(address)
+theoremByKey().get('two_coins')
+encrypt('text', 'passphrase')
+```
+
+Package exports: `@uuidna/uuidna` (ledger + constructors), `@uuidna/uuidna/mcp` (stdio server), `@uuidna/uuidna/crypto`.
+The eight-hex door is [universe_of_handles](/theorem/universe_of_handles); the envelope is [aead_nonce_and_salt_bits](/theorem/aead_nonce_and_salt_bits).
+
 ## Audit a public-domain book
 
 Fetch and audit any Project Gutenberg book by id (the one tool that reaches the network, via the public Gutendex API):
@@ -55,3 +73,5 @@ git clone https://github.com/uuidna/uuidna && cd uuidna && npm install && npm ru
 `npm run lean` regenerates every `lean/*.lean` file from its generator and verifies each proof **`by decide`,
 sorry-free** — then folds the whole ledger to one recomputable receipt. Browse the sealed set on [Theorems](/theorems),
 or run the full release gate with `npm run audit` (build · lean · provenance · tests · determinism).
+
+Adding a wing, the pre-push gate, and inbound license terms: [CONTRIBUTING.md](https://github.com/uuidna/uuidna/blob/main/CONTRIBUTING.md). After Lean facts land, `npm run reconcile` rebuilds the derived layer. Readiness: `npm run next`. Outward deploy: `npm run ship`.

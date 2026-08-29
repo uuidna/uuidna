@@ -8,14 +8,14 @@ hero:
   tagline: "TypeScript computes (quantum by architecture); VitePress monitors. Clay POC · ℤ/7 rosette · Glagolitic on 7/9 · hexbit 16 → 2^128. Two coins conserved; cite by DOI-class handle."
   actions:
     - theme: brand
+      text: Use
+      link: /guides
+    - theme: alt
       text: Clay — test POC
       link: /articles/clay
     - theme: alt
-      text: Quantum capacity
-      link: /quantum
-    - theme: alt
-      text: License
-      link: /license
+      text: MCP
+      link: /mcp
 
 features:
   - title: Clay
@@ -28,6 +28,14 @@ features:
     details: "Hexbit 16-state tiles · 128=2^7 address ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture)) vs ℤ/9 root — distinct rings, CRT joins ([`crt_pairs_are_a_bijection`](/theorem/crt_pairs_are_a_bijection)). Usable gap 2^80 — [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty). Doors: [`uuidna_os`](/mcp) · [`uuidna_quantum`](/mcp)."
     link: /quantum
 ---
+
+## Use
+
+[Guides](/guides) — MCP fuse, TypeScript import, re-prove the ledger. [CONTRIBUTING.md](https://github.com/uuidna/uuidna/blob/main/CONTRIBUTING.md) — add a theorem, `npm run reconcile`, push. Hosted mill: [/mcp](/mcp).
+
+```json
+{ "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
+```
 
 ## Live system status — computed, not typed
 

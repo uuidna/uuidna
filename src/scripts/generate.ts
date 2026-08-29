@@ -59,7 +59,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-articles.js', args: [], note: 'the desk’s own writing' },
   { file: 'gen-prose-evidence.js', args: [], note: 'the prose evidence' },
   { file: 'gen-gitattributes.js', args: [], note: 'the generated-file marks' },
-  { file: 'gen-school.js', args: [], note: 'the school practices — every figure recomputed from the ledger, never authored' },
+  { file: 'gen-school.js', args: [], note: 'the school practices, wings, Clay lessons, and the full leads roster (held, refuted, refused) — every figure recomputed from the ledger, never authored' },
   { file: 'gen-analytics.js', args: [], note: 'the measured metrics' },
   { file: 'gen-song.js', args: [], note: 'the song from the ledger — every bar a Song.lean seal, the WAV exact-integer and content-addressed' },
   { file: 'gen-anthem.js', args: [], note: 'the release anthem — the whole ledger in place, theorem k at bar k, derived from Anthem.lean seals, regrown each release' },

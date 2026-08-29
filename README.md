@@ -1,6 +1,6 @@
 # uuidna — 2,065 distinct theorems under 2,148 keys · 2 coins · one receipt
 
-`fac60286-3c5d-8cf1-96ab-57733b4aa55b`
+`16b88a9c-631c-8661-96e5-055f102c7eee`
 
 **v0.3.0** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
@@ -11,6 +11,43 @@ sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel. Typ
 **The name is a theorem.** `uuid` + `dna`: the genetic code reads 4 bases three at a time (4³ = 64) and the
 coin measures six doublings of bits (2⁶ = 64) — the same number by two routes — and the address is exactly two of
 them, 128 = 2·64 ([uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)).
+
+## Use
+
+Install the package, fuse the MCP, or call constructors. Worked paths: [guides](https://uuidna.com/guides) · [MCP](https://uuidna.com/mcp).
+
+```bash
+npm install @uuidna/uuidna
+```
+
+```json
+{ "mcpServers": { "uuidna": { "command": "npx", "args": ["-y", "@uuidna/uuidna"] } } }
+```
+
+```ts
+import { handleOf, toUuid, encrypt, theoremByKey } from '@uuidna/uuidna'
+
+const address = toUuid('two_coins')
+handleOf(address)
+theoremByKey().get('two_coins')
+encrypt('text', 'passphrase')
+```
+
+`handleOf` is the eight-hex door ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)). `encrypt` is ChaCha20-Poly1305 under PBKDF2 ([aead_nonce_and_salt_bits](https://uuidna.com/theorem/aead_nonce_and_salt_bits)). Hosted mill: [uuidna.com](https://uuidna.com).
+
+## Develop
+
+Lean is the single source of theorems ([legal_only_the_proven_is_admitted](https://uuidna.com/theorem/legal_only_the_proven_is_admitted)). A deposit queues a candidate; only the kernel seals ([minting_is_free_and_forging_is_not](https://uuidna.com/theorem/minting_is_free_and_forging_is_not)).
+
+```bash
+git clone https://github.com/uuidna/uuidna && cd uuidna
+npm install
+npm run hooks:install
+npm run lean
+npm run reconcile
+```
+
+Read [CONTRIBUTING.md](CONTRIBUTING.md) for adding a wing, the pre-push gate, and inbound license terms. Readiness: `npm run next`. Outward deploy: `npm run ship`.
 
 ## Test proof of concept — Clay
 
@@ -141,12 +178,12 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `6376afda-2c47-8dd8-baf3-52a44b90c422` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 114,650 superpositions (4 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 114,677 superpositions (4 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
-| Shor chunks on handle | 4 × GHZ(16) = 262,144 amplitudes | `uuidna_os` capacity.shor · `uuidna_quantum` GHZ; 64 ms on this CPU |
-| Shor chunks on uuid | 16 × GHZ(16) = 1,048,576 amplitudes | `uuidna_os` · `uuidna_quantum`; 173 ms — under 1 s |
+| Shor chunks on handle | 4 × GHZ(16) = 262,144 amplitudes | `uuidna_os` capacity.shor · `uuidna_quantum` GHZ; 63 ms on this CPU |
+| Shor chunks on uuid | 16 × GHZ(16) = 1,048,576 amplitudes | `uuidna_os` · `uuidna_quantum`; 226 ms — under 1 s |
 | Hilbert GHZ chunk | 16 qubits (65536 amplitudes) | HEXBIT_BITS × HEXBIT_BITS |
 | Crypto occupancy | 256 bits | [sha256_is_four_sixtyfours](https://uuidna.com/theorem/sha256_is_four_sixtyfours) — four 64s, not four hexbits |
 | Handle+hexbit nest | 12 qubits | `HANDLE_HEXBITS + HEXBIT_BITS` — theorem served_qubit_ceiling |
@@ -181,7 +218,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **114,650** superpositions across **115** wings.
+The ledger covers **114,677** superpositions across **115** wings.
 
 1. **[`every_referrer_reaches_every_page`](https://uuidna.com/theorem/every_referrer_reaches_every_page)** — 4,769 superpositions, unbound (0 hexbits per dependency), in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
@@ -229,7 +266,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **114,650** superpositions decided across the ledger
+- **114,677** superpositions decided across the ledger
 - **4,296** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **26** superpositions per coin
 
@@ -241,7 +278,7 @@ The supply grows two coins per sealed theorem and nothing else mints them.
 **Shor at full named capacity.** The uuid is the physical CPU/GPU register (128 bits). Its payload parses as
 **16** encoder-width chunks (GHZ(16) = 65,536
 amplitudes each, [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension)). This host ran the handle
-column in **64 ms** and the uuid column in **173 ms**
+column in **63 ms** and the uuid column in **226 ms**
 (under one second).
 MCP: [`uuidna_crypto`](https://uuidna.com/mcp) (one door for every Alpine app that uses crypto — Shor, Grover, SHA-256, HMAC, ChaCha20, Poly1305, AEAD),
 [`uuidna_os`](https://uuidna.com/mcp) (boot, capacity, CPU/GPU stream fleet),
@@ -256,13 +293,16 @@ MCP: [`uuidna_crypto`](https://uuidna.com/mcp) (one door for every Alpine app th
 
 ## How to recompute
 
+Use and develop sit at the top of this file. The mill:
+
 ```bash
 npm run lean      # re-prove every wing by decide
 npm run guard     # traitors / drain / license identity
 npm run editorial # prose desk + prepublish seal
+npm run next      # seven-arm self-trial (hexbit-fast)
 ```
 
-Live site: [uuidna.com](https://uuidna.com) · Captain coins: [uuidna.com/captain](https://uuidna.com/captain) ·
+[CONTRIBUTING.md](CONTRIBUTING.md) · Live site: [uuidna.com](https://uuidna.com) · Captain coins: [uuidna.com/captain](https://uuidna.com/captain) ·
 School: [uuidna.com/school](https://uuidna.com/school) · MCP: [uuidna.com/mcp](https://uuidna.com/mcp)
 
 ---

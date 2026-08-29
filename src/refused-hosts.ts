@@ -14,8 +14,8 @@ const ROOT = (): string => pathm().join(pathm().dirname(urlm().fileURLToPath(imp
 
 /** A hostname as it appears inside a refusal's prose: a dotted name ending in a known public suffix. Deliberately
  *  conservative — a refusal that names no host contributes nothing, which is correct: those refusals are about
- *  CLAIMS and are not mechanically decidable. */
-const HOST = /\b([a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|org|net|info|io|dev|edu|gov))\b/gi
+ *  CLAIMS and are not mechanically decidable. `.bg` is in the list because refused[] names ceccec.psg.bg. */
+const HOST = /\b([a-z0-9-]+(?:\.[a-z0-9-]+)*\.(?:com|org|net|info|io|dev|edu|gov|bg))\b/gi
 
 export interface RefusedHosts {
   hosts: string[]
@@ -23,13 +23,16 @@ export interface RefusedHosts {
   read: boolean
 }
 
-/** refusedHostsFrom(json) → the hosts a refusals list names. Pure: the caller supplies the parsed ledger. */
+/** refusedHostsFrom(json) → the hosts a refusals list names. Pure: the caller supplies the parsed ledger.
+ *  Only the `lead` is scanned — `boundary`/`note` name sanctioned substitutes (api.stackexchange.com, Wikisource)
+ *  and must not be treated as refused ingestions. */
 export function refusedHostsFrom(ledger: unknown): string[] {
   const refused = (ledger as { refused?: unknown[] } | null)?.refused
   if (!Array.isArray(refused)) return []
   const found = new Set<string>()
   for (const entry of refused) {
-    for (const m of JSON.stringify(entry).matchAll(HOST)) found.add(m[1]!.toLowerCase())
+    const lead = typeof (entry as { lead?: unknown })?.lead === 'string' ? (entry as { lead: string }).lead : ''
+    for (const m of lead.matchAll(HOST)) found.add(m[1]!.toLowerCase())
   }
   return [...found].sort()
 }

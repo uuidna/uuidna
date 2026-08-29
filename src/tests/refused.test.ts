@@ -20,7 +20,8 @@ test('THE REFUSALS ARE READ FROM THE LEDGER, not copied into the finder', () => 
   assert.equal(read, true, 'lean/leads.json must be readable — an unread boundary is the defect this exists to fix')
   assert.ok(hosts.length > 0, 'the refusals name at least one host; if this ever becomes zero the finder covers nothing')
   // the two the ledger names today; asserted as a SUBSET so adding a refusal does not break the test
-  for (const h of ['chitanka.info', 'stackoverflow.com']) assert.ok(hosts.includes(h), `${h} is refused and must be covered`)
+  for (const h of ['chitanka.info', 'stackoverflow.com', 'ceccec.psg.bg']) assert.ok(hosts.includes(h), `${h} is refused and must be covered`)
+  assert.ok(!hosts.includes('api.stackexchange.com'), 'the sanctioned substitute in a boundary is not a refused host')
 })
 
 test('UNREAD IS NOT EMPTY — the two must never collapse into one value', () => {
@@ -38,6 +39,9 @@ test('IT FIRES on a source that reaches a refused host over the network', () => 
   assert.equal(hits.length, 1, 'a fetch to a refused host must be caught')
   assert.equal(hits[0]!.host, 'chitanka.info')
   assert.equal(hits[0]!.line, 1)
+  const origin = refusedReaches([['src/port.ts', 'await fetch("https://ceccec.psg.bg/theorems")']])
+  assert.equal(origin.length, 1, 'origin-site fetch is a refused ingestion')
+  assert.equal(origin[0]!.host, 'ceccec.psg.bg')
 })
 
 test('AND IT DOES NOT FIRE on prose that merely names the host — use versus mention', () => {

@@ -520,7 +520,8 @@ export function school(): School {
       'Begin at any course below; the lessons are ordered but not gated.',
       'What CAN decide (a finite structure, an exact predicate) deposits two coins and waits for the kernel — never auto-sealed.',
       'What CANNOT decide self-develops: taught cures from report() GAP+FIX, the law-school roster of refused wave candidates (/waves),',
-      'and open-question develop fragments. Reason\'s exits are VERIFIED, REFUTED, REFUSED. Not-proven is not false.',
+      'every lead from the record (held, refuted, refused) on this page\'s leads roster, and open-question develop fragments.',
+      'Reason\'s exits are VERIFIED, REFUTED, REFUSED. Not-proven is not false.',
     ] },
     { id: 'levels-courses', title: 'Levels and courses', computed: true, body: [
       'A course is a proof wing and a lesson is a theorem in it, so the catalogue is the ledger — not a syllabus',

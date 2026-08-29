@@ -8,7 +8,7 @@
 // not hashed book_<handle> stubs. extractDecidable alone is the wrong door — books write
 // "45 degrees, or four points", and that is what four_points_is_45 already sealed.
 //
-//   npm run books              → read CORPUS, mint hexbit candidates, deposit, write books-quality.json
+//   npm run books              → read CORPUS, mint hexbit candidates, deposit search-feed harvest, write books-quality.json
 //   npm run books -- --dry     → report only
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -17,6 +17,8 @@ import { toUuid, merkleGravity, theorems } from '../index.js'
 import { handleOf } from '../handle.js'
 import { UUID_HEXBITS, HEXBIT_BITS, HEXBIT_STATES, hexbitDoorOf } from '../hexbit/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
+import { searchFeed } from '../search-feed.js'
+import { mintLeadsToCandidates } from '../harvest.js'
 import { CORPUS } from './mine-books.js'
 import { ROOT } from './api.js'
 import { probeOf, judge, sample } from './iq-books.js'
@@ -98,6 +100,12 @@ if (process.argv[1] && /books-run\.(js|ts)$/.test(process.argv[1])) {
   }
 
   const alreadyAll = [...new Set(books.flatMap((b) => b.hexbitAlreadySealed))]
+  const harvest = mintLeadsToCandidates(searchFeed().leads.flatMap((l) => (l.harvest ? [l.harvest] : [])))
+  for (const c of harvest) {
+    if (seen.has(c.key)) continue
+    seen.add(c.key)
+    candidates.push(c)
+  }
   const dryReceipt = toUuid('dry')
   const deposit = DRY
     ? { deposited: [] as string[], refused: [] as { key: string; reason: string }[], pending: 0, receipt: dryReceipt, ...hexbitDoorOf(dryReceipt), honest: 'dry' }

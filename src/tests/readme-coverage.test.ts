@@ -44,3 +44,16 @@ test('the directions are named, so a per-coin figure means something', () => {
   assert.match(md, /six directions|6 directions/i, 'the direction count must be stated beside the rate')
   assert.match(md, /reflection|dz/, 'the 90-degree fold is one of them and must be named')
 })
+
+test('the README opens a use door and a develop door — not only the census', () => {
+  const md = readme()
+  assert.match(md, /^## Use$/m)
+  assert.match(md, /^## Develop$/m)
+  assert.match(md, /npm install @uuidna\/uuidna/)
+  assert.match(md, /npx/)
+  assert.match(md, /CONTRIBUTING\.md/)
+  assert.match(md, /npm run reconcile/)
+  assert.match(md, /handleOf/)
+  assert.match(md, /encrypt/)
+  assert.match(md, /uuidna\.com\/guides/)
+})

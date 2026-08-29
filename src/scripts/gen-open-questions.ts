@@ -101,7 +101,8 @@ description: The unverified, organised in topics — every door with its involut
 **${total} open doors** across ${topics.length} topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments, the search-feed leads, the support-wave research-leads,
 the axiom-hunt exposed set. After a wave of external research, local school development files every unverified
-here so the lab can discuss it. Placement is a word-overlap heuristic and says so: what the
+here so the lab can discuss it. The full leads record (held, refuted, refused) enrolls at
+[the school](/school#leads); this page is the open subset. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
 **How to answer one**: a student's answer is a **two-coin deposit**, never a comment — name the finite structure,
