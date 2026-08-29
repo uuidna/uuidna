@@ -608,32 +608,14 @@
     {
       "query": "quantum advantage",
       "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
-      "what": "harvest 128 - 70 = 58 from \"quantum advantage\" decides TRUE and is unsealed",
-      "owes": "captain dispose: wave-deposit the mint candidate, or refuse it at a named boundary — never auto-seal",
-      "harvest": {
-        "key": "api_15c15f63",
-        "fragment": "128 - 70 = 58",
-        "lean": "theorem api_15c15f63 : (128 - 70 = 58) := by decide",
-        "why": "FREE MINT from quantum-advantage: the public API attested \"128 - 70 = 58\"; decide() confirmed it TRUE and the ledger does not yet seal it — minting costs nothing, only the kernel approves (theorem minting_is_free_and_forging_is_not). Provenance: ac133258-2a67-80c0-b22a-40c89accfb0a.",
-        "source": "quantum-advantage",
-        "from": "ac133258-2a67-80c0-b22a-40c89accfb0a",
-        "receipt": "e24d80a1-8d2f-8697-ae7d-ca8892a3df2c"
-      }
+      "what": "harvest 128 - 70 = 58 from \"quantum advantage\" — refused at the wave conveyor (no ledger content)",
+      "owes": "a `by decide` wing that names a quantity from the paper, or a named boundary in lean/leads.json refused[] — bare subtraction mints do not seal"
     },
     {
       "query": "quantum advantage",
       "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
-      "what": "harvest 70 < 128 from \"quantum advantage\" decides TRUE and is unsealed",
-      "owes": "captain dispose: wave-deposit the mint candidate, or refuse it at a named boundary — never auto-seal",
-      "harvest": {
-        "key": "api_c9dabf27",
-        "fragment": "70 < 128",
-        "lean": "theorem api_c9dabf27 : (70 < 128) := by decide",
-        "why": "FREE MINT from quantum-advantage: the public API attested \"70 < 128\"; decide() confirmed it TRUE and the ledger does not yet seal it — minting costs nothing, only the kernel approves (theorem minting_is_free_and_forging_is_not). Provenance: ac133258-2a67-80c0-b22a-40c89accfb0a.",
-        "source": "quantum-advantage",
-        "from": "ac133258-2a67-80c0-b22a-40c89accfb0a",
-        "receipt": "0101fb6f-3bab-8700-af15-e76a780f71f2"
-      }
+      "what": "harvest 70 < 128 from \"quantum advantage\" — refused at the wave conveyor (literal gap law)",
+      "owes": "a `by decide` wing whose algebra carries the comparison, or a named boundary in lean/leads.json refused[] — bare literal comparisons do not seal"
     },
     {
       "query": "Euclid",

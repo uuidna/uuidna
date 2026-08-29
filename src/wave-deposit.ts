@@ -26,6 +26,17 @@ export interface DepositResult extends HexbitDoor {
 }
 
 const KEY = /^[a-z][a-z0-9_]{3,60}$/
+const LIT = String.raw`(?:\(\s*\d+\s*:\s*Nat\s*\)|\d+)`
+const BARE_LITERAL_CLAUSE = new RegExp('^\\s*\\(?\\s*' + LIT + '\\s*(?:≠|<|>|≤|≥|=)\\s*' + LIT + '\\s*\\)?\\s*$')
+
+function statementFromLean(lean: string): string | null {
+  const m = lean.match(/^theorem\s+\S+\s*:\s*(.+?)\s*:=\s*by\s+decide\s*$/)
+  return m?.[1]?.trim() ?? null
+}
+
+function isBareLiteralStatement(stmt: string): boolean {
+  return stmt.split('∧').every((c) => BARE_LITERAL_CLAUSE.test(c.trim()))
+}
 
 /** validateCandidate(c, sealed) → the reason this candidate cannot even reach the kernel, or null when it may.
  *  THE ONE DECLARATION of the conveyor's door laws — queue-wave.ts imports this, never re-states it. */
@@ -38,6 +49,8 @@ export function validateCandidate(c: WaveCandidate, sealed: ReadonlyMap<string, 
   if (/\bsorry\b|\baxiom\b/.test(c.lean)) return 'sorry/axiom are refused at the door'
   if ((c.lean.match(/\btheorem\b/g) ?? []).length !== 1) return 'one candidate, one theorem'
   if (sealed.has(c.key)) return 'key already sealed in the ledger'
+  const stmt = statementFromLean(c.lean)
+  if (stmt && isBareLiteralStatement(stmt)) return 'comparison of bare literals — the claim its key makes is nowhere in the algebra (literal gap law)'
   return null
 }
 
@@ -49,13 +62,30 @@ const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinM
 
 /** waveQueueInFlightKeys(queuePath) → keys already pending or accepted — harvest on the conveyor is not "waiting". */
 export function waveQueueInFlightKeys(queuePath: string): Set<string> {
+  return waveQueueKeySets(queuePath).inFlight
+}
+
+/** waveQueueRefusedKeys(queuePath) → keys the kernel refused — no longer harvest-waiting. */
+export function waveQueueRefusedKeys(queuePath: string): Set<string> {
+  return waveQueueKeySets(queuePath).refused
+}
+
+function waveQueueKeySets(queuePath: string): { inFlight: Set<string>; refused: Set<string> } {
   try {
     const fs = fsm()
-    if (typeof fs?.readFileSync !== 'function' || !fs.existsSync(queuePath)) return new Set()
+    if (typeof fs?.readFileSync !== 'function' || !fs.existsSync(queuePath)) {
+      return { inFlight: new Set(), refused: new Set() }
+    }
     const q = JSON.parse(fs.readFileSync(queuePath, 'utf8')) as WaveQueueFile
-    if (!Array.isArray(q.pending) || !Array.isArray(q.accepted)) return new Set()
-    return new Set([...q.pending.map((c) => c.key), ...q.accepted.map((c) => c.key)])
-  } catch { return new Set() }
+    if (!Array.isArray(q.pending) || !Array.isArray(q.accepted)) {
+      return { inFlight: new Set(), refused: new Set() }
+    }
+    const inFlight = new Set([...q.pending.map((c) => c.key), ...q.accepted.map((c) => c.key)])
+    const refused = new Set(Array.isArray(q.refused) ? q.refused.map((c) => c.key) : [])
+    return { inFlight, refused }
+  } catch {
+    return { inFlight: new Set(), refused: new Set() }
+  }
 }
 
 /** depositCandidates(candidates[, queuePath]) → validate every candidate at the conveyor's own door and land
@@ -79,15 +109,16 @@ export function depositCandidates(candidates: WaveCandidate[], queuePath: string
   const q = JSON.parse(fs.readFileSync(queuePath, 'utf8')) as WaveQueueFile
   if (!Array.isArray(q.pending) || !Array.isArray(q.accepted) || !Array.isArray(q.refused)) throw new Error('wave-queue.json is malformed (pending/accepted/refused arrays required)')
   const sealed = theoremByKey()
-  const inFlight = new Set([...q.pending.map((c) => c.key), ...q.accepted.map((c) => c.key)])
+  const { inFlight, refused: refusedKeys } = waveQueueKeySets(queuePath)
+  const blocked = new Set([...inFlight, ...refusedKeys])
   const deposited: string[] = []
   const refused: { key: string; reason: string }[] = []
   for (const raw of candidates) {
     const c: WaveCandidate = { key: String(raw?.key ?? ''), why: String(raw?.why ?? ''), lean: String(raw?.lean ?? '') }
-    const bad = validateCandidate(c, sealed) ?? (inFlight.has(c.key) ? 'key already pending or accepted in the queue' : null)
+    const bad = validateCandidate(c, sealed) ?? (blocked.has(c.key) ? 'key already pending, accepted, or refused in the queue' : null)
     if (bad) { refused.push({ key: c.key, reason: bad }); continue }
     q.pending.push(c)
-    inFlight.add(c.key)
+    blocked.add(c.key)
     deposited.push(c.key)
   }
   if (deposited.length) fs.writeFileSync(queuePath, JSON.stringify(q, null, 2) + '\n')

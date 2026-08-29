@@ -14,7 +14,7 @@ import { ROOT } from './api.js'
 import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, theoremCountByFile, type PageNode } from '../index.js'
 import { searchFeed } from '../search-feed.js'
 import { tableLeadsFrom } from '../table-leads.js'
-import { waveQueueInFlightKeys } from '../wave-deposit.js'
+import { waveQueueInFlightKeys, waveQueueRefusedKeys } from '../wave-deposit.js'
 import { gapSurvey } from '../gap-survey.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { decide } from '../decide.js'
@@ -253,7 +253,8 @@ try {
 } catch { /* the survey is on-demand; its absence is not a failure */ }
 try {
   const inFlight = waveQueueInFlightKeys(join(ROOT, 'lean', 'wave-queue.json'))
-  const harvest = searchFeed().leads.filter((l) => l.harvest && !inFlight.has(l.harvest.key))
+  const refused = waveQueueRefusedKeys(join(ROOT, 'lean', 'wave-queue.json'))
+  const harvest = searchFeed().leads.filter((l) => l.harvest && !inFlight.has(l.harvest.key) && !refused.has(l.harvest.key))
   if (harvest.length) leverage.push({
     act: 'npm run books  # deposits search-feed harvest onto the conveyor (never seals)',
     closes: `${harvest.length} TRUE-unsealed fragment(s) still waiting — desk proposes, kernel disposes; never rewrite usable_gap_is_two_to_eighty`,

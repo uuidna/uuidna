@@ -1,16 +1,5 @@
 {
-  "pending": [
-    {
-      "key": "api_15c15f63",
-      "why": "FREE MINT from quantum-advantage: the public API attested \"128 - 70 = 58\"; decide() confirmed it TRUE and the ledger does not yet seal it — minting costs nothing, only the kernel approves (theorem minting_is_free_and_forging_is_not). Provenance: ac133258-2a67-80c0-b22a-40c89accfb0a.",
-      "lean": "theorem api_15c15f63 : (128 - 70 = 58) := by decide"
-    },
-    {
-      "key": "api_c9dabf27",
-      "why": "FREE MINT from quantum-advantage: the public API attested \"70 < 128\"; decide() confirmed it TRUE and the ledger does not yet seal it — minting costs nothing, only the kernel approves (theorem minting_is_free_and_forging_is_not). Provenance: ac133258-2a67-80c0-b22a-40c89accfb0a.",
-      "lean": "theorem api_c9dabf27 : (70 < 128) := by decide"
-    }
-  ],
+  "pending": [],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
@@ -2827,6 +2816,18 @@
       "why": "a truncating scale k/r with k ≤ r never grows a sample (queue lead 74).",
       "lean": "",
       "reason": "the bounded ∀ form is owed by the lead before any runner may lift it — refused until the statement is specified"
+    },
+    {
+      "key": "api_15c15f63",
+      "why": "FREE MINT from quantum-advantage: the public API attested \"128 - 70 = 58\"; decide() confirmed it TRUE and the ledger does not yet seal it — minting costs nothing, only the kernel approves (theorem minting_is_free_and_forging_is_not). Provenance: ac133258-2a67-80c0-b22a-40c89accfb0a.",
+      "lean": "theorem api_15c15f63 : (128 - 70 = 58) := by decide",
+      "reason": "free-mint arithmetic with no ledger content — re-deposit only after the search-feed names a quantity the kernel checks, not a bare subtraction"
+    },
+    {
+      "key": "api_c9dabf27",
+      "why": "FREE MINT from quantum-advantage: the public API attested \"70 < 128\"; decide() confirmed it TRUE and the ledger does not yet seal it — minting costs nothing, only the kernel approves (theorem minting_is_free_and_forging_is_not). Provenance: ac133258-2a67-80c0-b22a-40c89accfb0a.",
+      "lean": "theorem api_c9dabf27 : (70 < 128) := by decide",
+      "reason": "comparison of bare literals — the claim its key makes is nowhere in the algebra (literal gap law)"
     }
   ]
 }

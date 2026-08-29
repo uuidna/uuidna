@@ -9,7 +9,7 @@ import assert from 'node:assert/strict'
 import { writeFileSync, readFileSync, mkdtempSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
-import { validateCandidate, depositCandidates, waveQueueInFlightKeys } from '../wave-deposit.js'
+import { validateCandidate, depositCandidates, waveQueueInFlightKeys, waveQueueRefusedKeys } from '../wave-deposit.js'
 import { theoremByKey } from '../theorems/index.js'
 
 const scratch = (): string => {
@@ -28,6 +28,7 @@ test('every refusal class refuses, and the lawful candidate passes — the door 
   assert.match(String(validateCandidate({ ...lawful, lean: `theorem ${lawful.key} : 1 = 1 := by simp` }, sealed)), /by decide/)
   assert.match(String(validateCandidate({ ...lawful, lean: `theorem ${lawful.key} : 1 = 1 := by decide -- axiom` }, sealed)), /sorry\/axiom|by decide/)
   assert.match(String(validateCandidate({ ...lawful, key: 'two_coins', lean: 'theorem two_coins : 110 - 108 = 2 := by decide' }, sealed)), /already sealed/)
+  assert.match(String(validateCandidate({ key: 'api_c9dabf27', why: 'FREE MINT from quantum-advantage: the public API attested "70 < 128"; decide() confirmed it TRUE.', lean: 'theorem api_c9dabf27 : (70 < 128) := by decide' }, sealed)), /bare literals/)
 })
 
 test('a deposit lands only the lawful, returns refusals with reasons, and never writes a refusal', () => {
@@ -43,6 +44,19 @@ test('a deposit lands only the lawful, returns refusals with reasons, and never 
   const again = depositCandidates([lawful], p)
   assert.equal(again.deposited.length, 0)
   assert.match(again.refused[0]!.reason, /already pending/)
+})
+
+test('waveQueueRefusedKeys — refused keys block re-deposit and harvest-waiting', () => {
+  const p = scratch()
+  writeFileSync(p, JSON.stringify({
+    pending: [],
+    accepted: [],
+    refused: [{ key: 'refused_key', why: 'y'.repeat(20), lean: 'theorem refused_key : 1 = 1 := by decide', reason: 'literal gap' }],
+  }, null, 2))
+  assert.ok(waveQueueRefusedKeys(p).has('refused_key'))
+  const r = depositCandidates([{ key: 'refused_key', why: 'x'.repeat(20), lean: 'theorem refused_key : 7 * 11 = 77 := by decide' }], p)
+  assert.equal(r.deposited.length, 0)
+  assert.match(r.refused[0]!.reason, /already pending, accepted, or refused/)
 })
 
 test('waveQueueInFlightKeys — pending and accepted keys, not refused', () => {

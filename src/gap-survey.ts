@@ -7,7 +7,7 @@ import { leadCensus, type SourceReading } from './leads.js'
 import { tableLeadsFrom } from './table-leads.js'
 import { theoremCountByFile } from './theorems/index.js'
 import { searchFeed } from './search-feed.js'
-import { waveQueueInFlightKeys } from './wave-deposit.js'
+import { waveQueueInFlightKeys, waveQueueRefusedKeys } from './wave-deposit.js'
 import { leadsTrialGaps, type LeadsRecord } from './school/leads/index.js'
 import { gatherOpenItems } from './school/open/questions/springs.js'
 import { lonelyGaps } from './scripts/one-receipt.js'
@@ -56,8 +56,10 @@ const waveCounts = (root: string): { pending: number; inFlight: number } => {
 
 const harvestWaiting = (root: string): number => {
   try {
-    const inFlight = waveQueueInFlightKeys(join(root, 'lean', 'wave-queue.json'))
-    return searchFeed().leads.filter((l) => l.harvest && !inFlight.has(l.harvest.key)).length
+    const queue = join(root, 'lean', 'wave-queue.json')
+    const inFlight = waveQueueInFlightKeys(queue)
+    const refused = waveQueueRefusedKeys(queue)
+    return searchFeed().leads.filter((l) => l.harvest && !inFlight.has(l.harvest.key) && !refused.has(l.harvest.key)).length
   } catch {
     return 0
   }
