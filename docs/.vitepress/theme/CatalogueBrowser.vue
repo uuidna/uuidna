@@ -1,21 +1,27 @@
-<!-- CatalogueBrowser — THE FULL ALPINE CENSUS IN THE BROWSER. Boots uuidnaOS, primes the catalogue, then
-     searches and inspects any published package locally. UI is shadcn anatomy (data-slot card/input/button/badge),
-     same slots as renderTheorem / renderAlpineApp — no Tailwind, no React. -->
+<!-- CatalogueBrowser — apk search / apk info through hosted uuidna_exec. -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
-import { browseCatalogue, inspectCataloguePackage, type CatalogueHit, type CatalogueInspectResult } from '../../../src/quantum/apps/catalogue-browser.js'
-import { catalogueNeedleOf } from '../../../src/quantum/apps/theorem-demos.js'
-import { catalogueRouteOf } from '../../../src/quantum/os/catalogue.js'
+import { advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
 import { handleOf } from '../../../src/handle.js'
+
+type Hit = {
+  name: string
+  version?: string
+  repo?: string
+  state?: string
+  address?: string
+  hexbits?: number[]
+  meaning?: string
+  desc?: string
+}
 
 const q = ref('')
 const ready = ref(false)
-const bootLine = ref('booting uuidnaOS…')
-const hits = ref<CatalogueHit[]>([])
+const bootLine = ref('asking uuidna_os…')
+const hits = ref<Hit[]>([])
 const total = ref(0)
 const receipt = ref('')
-const selected = ref<CatalogueInspectResult | null>(null)
+const selected = ref<Hit | null>(null)
 const err = ref('')
 
 const deepPkg = (): string | null => {
@@ -26,45 +32,68 @@ const deepPkg = (): string | null => {
 const deepNeedle = (): string => {
   if (typeof location === 'undefined') return ''
   const p = new URLSearchParams(location.search)
-  const skill = p.get('skill')
-  if (skill) return catalogueNeedleOf(skill)
-  return p.get('theorem') || ''
+  return p.get('skill') || p.get('theorem') || ''
 }
 
-const search = () => {
+const asHits = (payload: unknown): { hits: Hit[]; total: number; receipt: string } => {
+  const r = payload as { data?: { hits?: Hit[]; total?: number }; receipt?: string; output?: string[] }
+  const list = Array.isArray(r.data?.hits) ? r.data.hits : []
+  return { hits: list, total: Number(r.data?.total ?? list.length), receipt: String(r.receipt ?? '') }
+}
+
+const search = async () => {
   err.value = ''
   selected.value = null
-  if (!ready.value) { err.value = 'catalogue not primed'; return }
-  const r = browseCatalogue(q.value.trim())
-  hits.value = r.hits
-  total.value = r.total
-  receipt.value = r.receipt
-  if (!r.present) err.value = r.why ?? 'catalogue absent'
+  if (!ready.value) { err.value = 'mill not answering'; return }
+  const needle = q.value.trim()
+  if (!needle) { hits.value = []; total.value = 0; receipt.value = ''; return }
+  try {
+    const payload = await advantageCall('uuidna_exec', { line: `apk search ${needle}` })
+    const r = asHits(payload)
+    hits.value = r.hits
+    total.value = r.total
+    receipt.value = r.receipt
+    if (!r.hits.length) err.value = 'no packages matched'
+  } catch (e) {
+    err.value = e instanceof Error ? e.message : String(e)
+  }
 }
 
-const inspect = (name: string) => {
-  selected.value = inspectCataloguePackage(name)
+const inspect = async (name: string) => {
+  err.value = ''
+  try {
+    const payload = await advantageCall('uuidna_exec', { line: `apk info ${name}` }) as {
+      ok?: boolean; data?: Hit; output?: string[]; receipt?: string
+    }
+    if (payload.ok === false || !payload.data?.name) {
+      err.value = (payload.output ?? []).join('\n') || `apk info ${name} missed`
+      selected.value = null
+      return
+    }
+    selected.value = payload.data
+    if (payload.receipt) receipt.value = payload.receipt
+  } catch (e) {
+    err.value = e instanceof Error ? e.message : String(e)
+  }
 }
 
 onMounted(async () => {
   try {
-    const boot = await bootUuidnaOSInBrowser(undefined, { selfTest: false })
-    const c = boot.catalogue
-    ready.value = c.present
-    bootLine.value = c.present
-      ? `uuidnaOS · ${c.count.toLocaleString('en-US')} packages · boot \`${boot.bootReceipt.slice(0, 8)}\``
-      : `catalogue ABSENT — ${c.why}`
+    const os = await advantageCall('uuidna_os', {}) as { bootReceipt?: string; receipt?: string }
+    ready.value = true
+    const boot = os.bootReceipt ?? os.receipt ?? ''
+    bootLine.value = `uuidna_exec · mill \`${String(boot).slice(0, 8)}\``
     const pkg = deepPkg()
     const needle = deepNeedle()
-    if (pkg && c.present) {
+    if (pkg) {
       q.value = pkg
-      selected.value = inspectCataloguePackage(pkg)
-    } else if (needle && c.present) {
+      await inspect(pkg)
+    } else if (needle) {
       q.value = needle
-      search()
+      await search()
     }
   } catch (e) {
-    bootLine.value = `boot refused — ${e instanceof Error ? e.message : String(e)}`
+    bootLine.value = `uuidna_os refused — ${e instanceof Error ? e.message : String(e)}`
   }
 })
 </script>
@@ -81,7 +110,7 @@ onMounted(async () => {
           v-model="q"
           data-slot="input"
           type="search"
-          placeholder="search Alpine packages — name or published description"
+          placeholder="search Alpine packages — uuidna_exec apk search"
           aria-label="search Alpine catalogue"
           :disabled="!ready"
         />
@@ -96,13 +125,13 @@ onMounted(async () => {
           <article class="uuidna-card cat-hit-card" data-slot="card" :data-alpine="h.name">
             <div data-slot="card-header">
               <h3 data-slot="card-title">
-                <code>{{ h.name }}</code>-{{ h.version }}
-                <span data-slot="badge">{{ h.repo }}</span>
+                <code>{{ h.name }}</code><template v-if="h.version">-{{ h.version }}</template>
+                <span v-if="h.repo || h.state" data-slot="badge">{{ h.repo || h.state }}</span>
               </h3>
-              <p data-slot="card-description">{{ h.desc }}</p>
+              <p v-if="h.desc || h.meaning" data-slot="card-description">{{ h.desc || h.meaning }}</p>
             </div>
             <div data-slot="card-content">
-              <code data-slot="handle">{{ handleOf(h.address) }}</code>
+              <code v-if="h.address" data-slot="handle">{{ handleOf(h.address) }}</code>
             </div>
             <div data-slot="card-footer">
               <button data-slot="button" type="button" @click="inspect(h.name)">inspect</button>
@@ -110,24 +139,24 @@ onMounted(async () => {
           </article>
         </li>
       </ul>
-      <article v-if="selected?.ok && selected.package" class="uuidna-card" data-slot="card" data-alpine-inspect="1">
+      <article v-if="selected?.name" class="uuidna-card" data-slot="card" data-alpine-inspect="1">
         <div data-slot="card-header">
           <h3 data-slot="card-title">
-            <code>{{ selected.package.name }}</code>-{{ selected.package.version }}
-            <span data-slot="badge">{{ selected.package.repo }}</span>
+            <code>{{ selected.name }}</code><template v-if="selected.version">-{{ selected.version }}</template>
+            <span v-if="selected.repo || selected.state" data-slot="badge">{{ selected.repo || selected.state }}</span>
           </h3>
-          <p data-slot="card-description">{{ selected.package.desc }}</p>
+          <p v-if="selected.desc || selected.meaning" data-slot="card-description">{{ selected.desc || selected.meaning }}</p>
         </div>
         <div data-slot="card-content">
-          <p class="cat-meta">route <code>{{ catalogueRouteOf(selected.package.name) }}</code> · address <code>{{ selected.package.address }}</code> · {{ selected.package.hexbits.length }} hexbits · checksum <code>{{ selected.package.checksum.slice(0, 16) }}…</code></p>
-          <p v-if="selected.package.man" class="cat-meta">man {{ selected.package.man }}<template v-if="selected.package.app"> → app {{ selected.package.app }}</template></p>
-          <p v-if="selected.package.deps.length" class="cat-deps">depends: {{ selected.package.deps.slice(0, 12).join(' ') }}<template v-if="selected.package.deps.length > 12"> …</template></p>
+          <p class="cat-meta">
+            <template v-if="selected.address">address <code>{{ selected.address }}</code></template>
+            <template v-if="selected.hexbits"> · {{ selected.hexbits.length }} hexbits</template>
+          </p>
         </div>
         <div data-slot="card-footer">
-          <code data-slot="handle">{{ handleOf(selected.package.address) }}</code>
+          <code v-if="selected.address" data-slot="handle">{{ handleOf(selected.address) }}</code>
         </div>
       </article>
-      <p v-else-if="selected && !selected.ok" data-slot="alert" class="cat-err">{{ selected.detail }}</p>
     </div>
     <div data-slot="card-footer">
       <small>Integrity and meaning only — nothing installs or executes
@@ -155,7 +184,7 @@ onMounted(async () => {
 .cat [data-slot="card-header"],
 .cat [data-slot="card-content"],
 .cat [data-slot="card-footer"] { padding: .15rem 0; }
-.cat-meta, .cat-deps { font-size: .82rem; color: var(--vp-c-text-2); word-break: break-all; }
+.cat-meta { font-size: .82rem; color: var(--vp-c-text-2); word-break: break-all; }
 .cat [data-slot="handle"] { font-size: .78rem; color: var(--vp-c-text-3); }
 .cat > [data-slot="card-content"] { padding: .4rem 0; }
 .cat > [data-slot="card-footer"] { font-size: .8rem; color: var(--vp-c-text-3); }

@@ -1,8 +1,40 @@
-<!-- PortPanel — pinned Alpine port status on /os. shadcn card anatomy (data-slot), same as renderAlpineApp. -->
+<!-- PortPanel — pinned Alpine port via hosted uuidna_port. -->
 <script setup lang="ts">
-import { portPanelView } from '../../../src/quantum/apps/port-panel.js'
+import { ref, onMounted } from 'vue'
+import { advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
 
-const view = portPanelView()
+const lines = ref<string[]>([])
+const honest = ref('')
+const err = ref('')
+
+onMounted(async () => {
+  try {
+    const s = await advantageCall('uuidna_port', {}) as {
+      release?: { version?: string; rootfsSha256?: string }
+      branch?: string
+      arch?: string
+      count?: number
+      driver?: { flavor?: string; sha256?: string; receipt?: string }
+      bootStates?: number
+      receipt?: string
+      floor?: string
+      honest?: string
+    }
+    const ver = s.release?.version ?? ''
+    const sha = s.release?.rootfsSha256 ?? ''
+    const drv = s.driver ?? {}
+    lines.value = [
+      `Alpine ${ver} · ${s.branch}/${s.arch} · ${s.count} install paths`,
+      sha ? `rootfs sha256 ${sha.slice(0, 16)}…` : '',
+      `driver ${drv.flavor ?? ''} · ${String(drv.sha256 ?? '').slice(0, 16)}… · receipt ${String(drv.receipt ?? '').slice(0, 8)}…`,
+      `boot ${Number(s.bootStates ?? 0).toLocaleString('en-US')} states · port receipt ${String(s.receipt ?? '').slice(0, 8)}…`,
+      `floor ${s.floor ?? ''}`,
+    ].filter(Boolean)
+    honest.value = String(s.honest ?? '')
+  } catch (e) {
+    err.value = e instanceof Error ? e.message : String(e)
+  }
+})
 </script>
 
 <template>
@@ -12,12 +44,13 @@ const view = portPanelView()
       <p data-slot="card-description">pinned release · production observability</p>
     </div>
     <div data-slot="card-content">
-      <ul>
-        <li v-for="(line, i) in view.lines" :key="i">{{ line }}</li>
+      <p v-if="err">{{ err }}</p>
+      <ul v-else>
+        <li v-for="(line, i) in lines" :key="i">{{ line }}</li>
       </ul>
     </div>
     <div data-slot="card-footer">
-      <small>{{ view.status.honest }}</small>
+      <small>{{ honest }}</small>
       <p class="port-links">
         <a data-slot="button" href="/terminal">/terminal</a>
         <a data-slot="button" href="/catalogue">/catalogue</a>

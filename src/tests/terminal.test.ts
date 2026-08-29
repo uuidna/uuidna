@@ -7,7 +7,8 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { parseLine, rpcCall, rpcList, helpText, meaningOf, resultText, transcriptReceipt, routeUtterance, BUILTINS, type WireTool } from '../quantum/apps/terminal.js'
+import { parseLine, rpcCall, rpcList, helpText, resultText, transcriptReceipt, routeUtterance, BUILTINS, type WireTool } from '../quantum/apps/terminal.js'
+import { meaningOf } from '../quantum/apps/terminal-meaning.js'
 import { ROOT } from '../scripts/api.js'
 
 test('THE SINGULARITY — the module ships zero tool names; the toolbox comes only from the wire', () => {

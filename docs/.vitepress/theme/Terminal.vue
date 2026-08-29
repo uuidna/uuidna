@@ -1,27 +1,19 @@
-<!-- Terminal — THE TERMINAL ON THE MCP, the thin shell (the pure half is quantum/apps/terminal). One duty:
-     the fetch to the SAME uuidna wire (/mcp, JSON-RPC 2.0) — parsing, envelopes, meaning, and the transcript
-     fold all come from the app. The toolbox is LEARNED from tools/list at mount (the singularity: no local
-     list to drift); every command pays the same gate, deposit, and receipt as any MCP client. No assets, no
-     deps, computes where the visitor stands. -->
+<!-- Terminal — thin MCP shell. Parse/fold in quantum/apps/terminal; the mill is the hosted /mcp door. -->
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
-import { parseLine, rpcCall, rpcList, helpText, meaningOf, resultText, transcriptReceipt, routeUtterance, type WireTool } from '../../../src/quantum/apps/terminal.js'
-import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
+import { parseLine, rpcCall, rpcList, helpText, resultText, transcriptReceipt, routeUtterance, type WireTool } from '../../../src/quantum/apps/terminal.js'
+import { hostedMcpUrl, advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
 
 const lines = ref<string[]>([])
 const input = ref('')
 const busy = ref(false)
 const toolCount = ref<number | null>(null)
-const toolbox = ref<WireTool[]>([])   // learned live at mount — the router's ONLY source of tools
+const toolbox = ref<WireTool[]>([])
 const receipt = ref<{ address: string; hexbits: number[] } | null>(null)
 const scroller = ref<HTMLElement | null>(null)
 let id = 0
 
-// the SAME wire this site serves: same-origin /mcp on a licensed uuidna host; the canonical wire from anywhere else.
-// GUARDED FOR SSR: `location` is a browser global absent when VitePress renders the page on the server — reading it
-// at setup() crashed the static build (every page, ReferenceError). During SSR there is no host to be same-origin
-// with, so the canonical wire is exactly right; on the client, setup re-runs at hydration and picks the real origin.
-const endpoint = typeof location !== 'undefined' && /\.?uuidna\.(com|net|org)$/.test(location.hostname) ? `${location.origin}/mcp` : 'https://uuidna.com/mcp'
+const endpoint = hostedMcpUrl()
 
 const print = async (text: string) => {
   lines.value.push(...text.split('\n'))
@@ -36,17 +28,13 @@ const rpc = async (message: object): Promise<unknown> => {
 }
 
 onMounted(async () => {
-  await print(meaningOf())
+  await print(helpText())
   try {
-    const boot = await bootUuidnaOSInBrowser(undefined, { selfTest: false })
-    const c = boot.catalogue
-    await print(`\nuuidnaOS boot \`${boot.bootReceipt}\` · catalogue ${c.present ? `${c.count.toLocaleString('en-US')} packages` : `ABSENT — ${c.why}`}`)
-    if (boot.selfTest?.present) {
-      const st = boot.selfTest
-      await print(`self-test ${st.passed.toLocaleString('en-US')}/${st.tested.toLocaleString('en-US')} · ${st.upstreamGaps} upstream gap${st.upstreamGaps === 1 ? '' : 's'}`)
-    }
+    const os = await advantageCall('uuidna_os', {}) as { bootReceipt?: string; receipt?: string; capacity?: { encoder?: number } }
+    const boot = os.bootReceipt ?? os.receipt ?? ''
+    await print(`\nuuidna_os · boot \`${boot}\`${os.capacity?.encoder != null ? ` · encoder ${os.capacity.encoder}` : ''}`)
   } catch (e) {
-    await print(`\n✗ uuidnaOS refused to boot — ${e instanceof Error ? e.message : String(e)}`)
+    await print(`\n✗ uuidna_os did not answer — ${e instanceof Error ? e.message : String(e)}`)
   }
   try {
     const listed = await rpc(rpcList(++id)) as { result?: { tools?: WireTool[] } }
@@ -68,11 +56,15 @@ const run = async () => {
   if (cmd.kind === 'error') return print('✗ ' + cmd.text)
   if (cmd.kind === 'builtin') {
     if (cmd.name === 'clear') { lines.value = []; receipt.value = null; return }
-    return print(cmd.name === 'help' ? helpText() : meaningOf())
+    if (cmd.name === 'help') return print(helpText())
+    try {
+      const os = await advantageCall('uuidna_os', {})
+      return print(typeof os === 'object' ? JSON.stringify(os, null, 2) : String(os))
+    } catch (e) {
+      return print('✗ uuidna_os did not answer — ' + (e instanceof Error ? e.message : String(e)))
+    }
   }
   if (cmd.kind === 'chat') {
-    // natural language → the deterministic router over the LIVE-learned toolbox; the decision prints before
-    // the call, so the reader always sees exactly which tool their sentence became — no silent guessing
     const routed = routeUtterance(cmd.text!, toolbox.value)
     if (routed.kind === 'none') return print('✗ ' + routed.why)
     if (routed.kind === 'ambiguous')
@@ -108,8 +100,6 @@ const run = async () => {
 .uu-terminal .scroll { height: 340px; overflow-y: auto; padding: 12px 14px; white-space: pre-wrap; word-break: break-word; }
 .uu-terminal .line { line-height: 1.5; }
 .uu-terminal .prompt { display: flex; gap: 8px; border-top: 1px solid var(--vp-c-divider); padding: 8px 14px; }
-/* the input's own outline is suppressed ONLY because the prompt row replaces it: a visible focus ring on the
-   whole line (keyboard users must always see where they are — the Tier 1 law the theme tests hold) */
 .uu-terminal .prompt input { flex: 1; background: none; border: none; outline: none; color: var(--vp-c-text-1); font: inherit; }
 .uu-terminal .prompt:focus-within { outline: 2px solid var(--vp-c-brand-1); outline-offset: -2px; }
 .uu-terminal .prompt input:focus-visible { outline: none; }

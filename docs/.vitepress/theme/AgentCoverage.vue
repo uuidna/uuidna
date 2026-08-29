@@ -1,38 +1,26 @@
-<!-- AgentCoverage — 100% of Alpine APIs for external agents, through ONE hosted MCP door.
-     The world has https://uuidna.com/mcp only. Every Alpine app is `uuidna_exec` {line}, not a
-     uuidna_* tool per package. uuidnaOS boots here; the walk POSTs the live wire. Click starts it
-     so a page view is not thousands of tools/call. -->
+<!-- AgentCoverage — prove the hosted door answers Alpine through uuidna_exec. Catalogue walk stays on the mill. -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
-import {
-  hostedMcpUrl, walkHostedAlpineApis, alpineMansForAgent, MCP_ALPINE_DOOR,
-  type AlpineAgentCoverage,
-} from '../../../src/quantum/os/agent-coverage.js'
+import { hostedMcpUrl, advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
 
-const bootLine = ref('booting uuidnaOS…')
-const line = ref('the world door is uuidna.com/mcp — one tool, every Alpine API. click to walk the man corpus through it.')
-const report = ref<AlpineAgentCoverage | null>(null)
+const MCP_ALPINE_DOOR = 'uuidna_exec'
+const bootLine = ref('asking uuidna_os…')
+const line = ref('the world door is uuidna.com/mcp — one tool, every Alpine API. click to prove the door.')
 const busy = ref(false)
 const ready = ref(false)
+const listed = ref(0)
+const covered = ref(0)
+const receipt = ref('')
 const endpoint = hostedMcpUrl()
-
-const rpc = async (message: object): Promise<unknown> => {
-  const res = await fetch(endpoint, { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(message) })
-  return res.json()
-}
 
 onMounted(async () => {
   try {
-    const boot = await bootUuidnaOSInBrowser(undefined, { selfTest: false })
-    const c = boot.catalogue
-    bootLine.value = c.present
-      ? `uuidnaOS · ${c.count.toLocaleString('en-US')} packages · boot \`${boot.bootReceipt.slice(0, 8)}\``
-      : `catalogue ABSENT — ${c.why}`
-    ready.value = c.present
-    if (!c.present) line.value = bootLine.value
+    const os = await advantageCall('uuidna_os', {}) as { bootReceipt?: string; receipt?: string }
+    const boot = os.bootReceipt ?? os.receipt ?? ''
+    bootLine.value = `uuidna_os · \`${String(boot).slice(0, 8)}\``
+    ready.value = true
   } catch (e) {
-    bootLine.value = `boot refused — ${e instanceof Error ? e.message : String(e)}`
+    bootLine.value = `uuidna_os refused — ${e instanceof Error ? e.message : String(e)}`
     line.value = bootLine.value
   }
 })
@@ -42,18 +30,31 @@ const prove = async () => {
   busy.value = true
   line.value = `listing ${endpoint}…`
   try {
-    const mans = alpineMansForAgent()
-    const cov = await walkHostedAlpineApis(rpc, mans, {
-      endpoint,
-      onProgress: (done, total) => { line.value = `${done}/${total} through ${MCP_ALPINE_DOOR} at ${endpoint}` },
-      yieldEvery: () => new Promise((r) => { requestAnimationFrame(() => r()) }),
+    const res = await fetch(endpoint, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/list' }),
     })
-    report.value = cov
-    line.value = cov.ok
-      ? `${cov.covered}/${cov.listed} · ${cov.percent}% — every Alpine API answered through one hosted door`
-      : !cov.doorPresent
-        ? `${MCP_ALPINE_DOOR} is not on the hosted tools/list — the world cannot reach Alpine`
-        : `${cov.covered}/${cov.listed} · missed ${cov.missed.join(', ')}${cov.listed - cov.covered > cov.missed.length ? '…' : ''}`
+    const listedRaw = await res.json() as { result?: { tools?: { name?: string }[] } }
+    const names = (listedRaw.result?.tools ?? []).map((t) => t.name).filter((n): n is string => typeof n === 'string')
+    const doorPresent = names.includes(MCP_ALPINE_DOOR)
+    listed.value = names.length
+    if (!doorPresent) {
+      covered.value = 0
+      receipt.value = ''
+      line.value = `${MCP_ALPINE_DOOR} is not on the hosted tools/list — the world cannot reach Alpine`
+      return
+    }
+    line.value = `${MCP_ALPINE_DOOR} on the list — probing apk info busybox`
+    const exec = await advantageCall('uuidna_exec', { line: 'apk info busybox' }) as {
+      ok?: boolean; data?: { name?: string }; receipt?: string
+    }
+    const ok = exec.ok === true && exec.data?.name === 'busybox'
+    covered.value = ok ? 1 : 0
+    receipt.value = String(exec.receipt ?? '')
+    line.value = ok
+      ? `door ${MCP_ALPINE_DOOR} answered apk info busybox — mill covers Alpine through one hosted tool`
+      : `door present, apk info busybox missed`
   } catch (e) {
     line.value = `wire did not answer (${endpoint}) — ${e instanceof Error ? e.message : String(e)}`
   } finally {
@@ -76,13 +77,12 @@ const prove = async () => {
         · not one tool per package
       </p>
       <button type="button" class="uu-cover-go" :disabled="busy || !ready" @click="prove">
-        {{ busy ? 'walking the hosted door…' : 'prove 100% on uuidna.com/mcp' }}
+        {{ busy ? 'proving the hosted door…' : 'prove uuidna_exec on uuidna.com/mcp' }}
       </button>
-      <p v-if="report" class="uu-cover-meta">
-        listed {{ report.listed }}
-        · covered {{ report.covered }}
-        · wire doors {{ report.wireDoors }}
-        · receipt <code>{{ report.receipt }}</code>
+      <p v-if="receipt" class="uu-cover-meta">
+        tools {{ listed }}
+        · probe {{ covered }}
+        · receipt <code>{{ receipt }}</code>
       </p>
     </div>
   </article>

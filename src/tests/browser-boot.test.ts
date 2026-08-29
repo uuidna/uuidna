@@ -17,9 +17,10 @@ test('bootUuidnaOSInBrowser loads committed catalogue in Node', async () => {
   assert.equal(r.selfTest!.failed, r.selfTest!.upstreamGaps)
 })
 
-test('uuidnaOS browser boot wired on terminal and os surfaces', () => {
+test('the VitePress monitor verifies uuidna_os / uuidna_exec instead of booting the mill', () => {
   const shell = readFileSync(join(ROOT, 'docs/.vitepress/theme/ExecShell.vue'), 'utf8')
   const player = readFileSync(join(ROOT, 'docs/.vitepress/theme/HexbitPlayer.vue'), 'utf8')
-  assert.match(shell, /bootUuidnaOSInBrowser/, '/terminal ExecShell must boot uuidnaOS before exec')
-  assert.match(player, /bootUuidnaOSInBrowser/, '/os HexbitPlayer must boot uuidnaOS')
+  assert.doesNotMatch(shell, /bootUuidnaOSInBrowser/, '/terminal ExecShell must not bundle browser-boot')
+  assert.match(shell, /uuidna_exec/, '/terminal ExecShell verifies the hosted mill')
+  assert.doesNotMatch(player, /bootUuidnaOSInBrowser/, '/os HexbitPlayer must not bundle browser-boot')
 })

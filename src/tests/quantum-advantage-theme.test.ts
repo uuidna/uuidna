@@ -92,11 +92,19 @@ test('the monitor does not import the package barrel; VitePress reads constructo
     assert.doesNotMatch(src, /from ['"][^'"]*\/cost\.js['"]/, `${f} must not recompute cost`)
     assert.doesNotMatch(src, /from ['"][^'"]*\/grid\.js['"]/, `${f} must not recompute the wing grid`)
     assert.doesNotMatch(src, /school\/advantage/, `${f} must not load theoremByKey via school advantage`)
+    assert.doesNotMatch(src, /from ['"][^'"]*browser-boot/, `${f} must not boot uuidnaOS into the client bundle`)
+    assert.doesNotMatch(src, /from ['"][^'"]*os\/catalogue/, `${f} must not parse the Alpine census in the monitor`)
+    assert.doesNotMatch(src, /from ['"][^'"]*os\/exec/, `${f} must not run Layer 1 locally`)
+    assert.doesNotMatch(src, /from ['"][^'"]*os\/index/, `${f} must not load the install mill`)
+    assert.doesNotMatch(src, /from ['"][^'"]*agent-coverage/, `${f} must not load catalogue via agent-coverage`)
+    assert.doesNotMatch(src, /from ['"][^'"]*url-audit/, `${f} must not recompute 404 matches from the census`)
+    assert.doesNotMatch(src, /from ['"][^'"]*exec-shell/, `${f} must not import the local exec mill`)
+    assert.doesNotMatch(src, /from ['"][^'"]*port-panel/, `${f} must not import the local port mill`)
+    assert.doesNotMatch(src, /from ['"][^'"]*catalogue-browser/, `${f} must not import the local catalogue mill`)
+    assert.doesNotMatch(src, /from ['"][^'"]*terminal-meaning/, `${f} must not load the install port for /terminal`)
+    assert.doesNotMatch(src, /from ['"][^'"]*adjudicate/, `${f} must not pull the theorem ledger via adjudicate`)
     if (f !== 'Terminal.vue') {
-      assert.doesNotMatch(src, /apps\/terminal/, `${f} must not load OS via the terminal`)
-    }
-    if (f !== 'AgentCoverage.vue') {
-      assert.doesNotMatch(src, /agent-coverage/, `${f} must not load catalogue via agent-coverage`)
+      assert.doesNotMatch(src, /apps\/terminal/, `${f} must not load the terminal parser`)
     }
     assert.doesNotMatch(src, /from ['"][^'"]*\/harness\.js['"]/, `${f} must not load the gate via harness`)
   }

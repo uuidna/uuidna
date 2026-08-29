@@ -10,7 +10,7 @@
 // SAME uuidna surface. The serving rule it lives under: the 404 audit is the CATCH-ALL and every served page
 // has priority — /terminal gains its function by becoming a served page carrying this app.
 import { toUuid } from '../../address.js'
-import { hexbitDoorOf, installFor } from '../os/index.js'
+import { hexbitDoorOf } from '../../hexbit/index.js'
 
 /** One parsed command line. `call` is an MCP tool invocation; builtins are the few words the terminal itself
  *  answers (help, meaning, clear — never a tool: tools come from the wire). */
@@ -73,15 +73,6 @@ export const helpText = (): string => [
   'the tool list is learned LIVE from tools/list — this page carries no list of its own to drift.',
 ].join('\n')
 
-/** meaningOf() → the sealed meaning of the path this terminal serves — straight from the default-install
- *  port, never restated by hand. */
-export function meaningOf(): string {
-  const spec = installFor('/terminal')
-  return spec
-    ? `/terminal means ${spec.id} ${spec.version} — "${spec.meaning}" (address ${spec.address}, sealed: the_terminal_is_the_toolbox)`
-    : '/terminal — the sealed spec is not in this build (the mirror moved?); the audit page carries the answer'
-}
-
 /** resultText(rpcResult) → the text blocks of a tools/call result, in order — the answer, then the ledger
  *  line the gate appends. Anything unexpected renders as JSON, honestly, rather than being swallowed. */
 export function resultText(result: unknown): string {
@@ -110,8 +101,6 @@ export function transcriptReceipt(lines: readonly string[]): { address: string; 
 // leftover fills a single missing required string). Ambiguity is SHOWN, never guessed; no match says so and
 // points at help. The same sentence and the same toolbox always route the same way — a conversation that
 // recomputes.
-import { contentWords } from '../../adjudicate.js'
-
 // the router's noise list: articles/pronouns/imperative framing — NEVER domain words. A verb here ('find') is
 // deliberately noise: a tool named for it must be addressed by its other name parts or called by exact name.
 const ROUTER_NOISE = new Set(['the', 'a', 'an', 'of', 'to', 'in', 'on', 'at', 'for', 'with', 'is', 'are',
@@ -163,7 +152,7 @@ export function routeUtterance(utterance: string, tools: readonly WireTool[]): R
   const words = routerWords(text)
   const scored = tools.map((t) => {
     const nameParts = t.name.replace(/^uuidna_/, '').split('_').filter(Boolean)
-    const score = 3 * overlapCount(words, nameParts) + overlapCount(words, contentWords(t.description ?? ''))
+    const score = 3 * overlapCount(words, nameParts) + overlapCount(words, routerWords(t.description ?? ''))
     return { tool: t, nameHits: overlapCount(words, nameParts), score }
   }).filter((s) => s.score > 0).sort((a, b) => b.score - a.score || (a.tool.name < b.tool.name ? -1 : 1))
   const top = scored[0]
