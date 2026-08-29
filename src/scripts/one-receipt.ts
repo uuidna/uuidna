@@ -1357,11 +1357,13 @@ const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts', 'wave-supply.ts', 'he
     // USE VERSUS MENTION, both directions, from api.ts: selfExcluded keeps a file from being its own witness, and
     // invokesFile demands one line carry both the filename and a runner — see the law stated there in full.
     if (invokesFile(corpus + '\n' + selfExcluded(f, siblingSrc), base)) continue
-    // AN IN-PROCESS IMPORT IS AN INVOCATION. A script module does its work at top level, so `await import('./x.js')`
-    // runs it exactly as `node x.js` did — when the guard stopped spawning a second interpreter for harmonic-scan
-    // (a full boot and a second ledger load, the same waste already removed from predict-and-fill) the filename lost
-    // its runner token while losing none of its running. That is a change in HOW it runs, never in WHETHER.
-    if (new RegExp(`import\\(['"]\\./${base}\\.js['"]\\)`).test(selfExcluded(f, siblingSrc))) continue
+    // AN IN-PROCESS IMPORT IS AN INVOCATION — static or dynamic. A script module does its work at top level, so
+    // `await import('./x.js')` runs it exactly as `node x.js` did; a static `from './x.js'` is the same when a
+    // sibling imports the shared arc (fill-gaps-run.ts ← fill-gaps.ts, next.ts). When the guard stopped spawning
+    // a second interpreter for harmonic-scan the filename lost its runner token while losing none of its running.
+    // That is a change in HOW it runs, never in WHETHER.
+    const importPat = new RegExp(`(?:import\\(['"]\\./${base}\\.js['"]\\)|from ['"]\\./${base}\\.js['"])`)
+    if (importPat.test(selfExcluded(f, siblingSrc))) continue
     live.push(f)
     if (declared.includes(f)) continue
     gaps.push({

@@ -76,8 +76,8 @@ const PRACTICES: string[] = [
    (${cite('two_coins')}). A student's answer is a deposit, not a comment.`,
   `9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
    ${cite('usable_gap_is_two_to_eighty')} and ${cite('n_qubit_dimension')}, served as tools/call on
-   https://uuidna.com/mcp (not one tool per theorem; \`uuidna_quantum\` is named-absent on that wire).
-   *Practice:* run the examples on this page, or \`uuidna_decide { "input": "2^4=16" }\`.`,
+   https://uuidna.com/mcp — \`uuidna_decide\` for 2ⁿ, \`uuidna_quantum\` for the state vector (not one tool per theorem).
+   *Practice:* run the examples on this page, or \`uuidna_quantum { "circuit": "bell" }\`.`,
 ]
 
 // ── THE WINGS, COMPUTED ────────────────────────────────────────────────────────────────────────────────────────

@@ -1,6 +1,6 @@
 <!-- AdvantageMcp — quantum advantage as worked MCP calls on uuidna.com, run in the school.
-     Each row is one tools/call: constructor expect, sealed theorem. uuidna_quantum is named-absent
-     on the hosted wire; 2^n is uuidna_decide. Click one row — a page view is not a catalogue walk. -->
+     Each row is one tools/call: constructor expect, sealed theorem. 2^n is uuidna_decide;
+     state vectors are uuidna_quantum (bell/ghz). Click one row — a page view is not a catalogue walk. -->
 <script setup lang="ts">
 import { ref } from 'vue'
 import { hostedMcpUrl, advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'

@@ -4,13 +4,13 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="218 keys" />
+# MCP tools <Badge type="tip" text="223 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 218 tools below are read from the server's own tool list and
-organised into 39 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 223 tools below are read from the server's own tool list and
+organised into 40 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · ecc254ed-31aa-856d-bbf1-e2fc921364bb
+gate CLEAN f0 d0 v0 · 5320a235-4e9c-8247-9f56-ff0d6003ceda
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 218-tool registry folds to its
-order-invariant identity `e81993ba-f457-886f-b6c2-5b3070e0dfb4` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 223-tool registry folds to its
+order-invariant identity `d1cf07ea-19fa-8506-ab85-d38fdcfe4eed` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`218`" />
+## The grid <Badge type="tip" :text="`223`" />
 
-218 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 89 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+223 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 92 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -77,6 +77,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
 <a href="#uuidna-expose"><code>expose</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
+<a href="#uuidna-fill-gaps"><code>fill_gaps</code></a>
 <a href="#uuidna-fingerprint"><code>fingerprint</code></a>
 <a href="#uuidna-full-anti-fraud-audit"><code>full_anti_fraud_audit</code></a>
 <a href="#uuidna-gate-status"><code>gate_status</code></a>
@@ -92,6 +93,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-living-field"><code>living_field</code></a>
 <a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
 <a href="#uuidna-oeapi"><code>oeapi</code></a>
+<a href="#uuidna-open-leads"><code>open_leads</code></a>
 <a href="#uuidna-os"><code>os</code></a>
 <a href="#uuidna-package"><code>package</code></a>
 <a href="#uuidna-pairs"><code>pairs</code></a>
@@ -101,6 +103,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-publication"><code>publication</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
 <a href="#uuidna-quantum"><code>quantum</code></a>
+<a href="#uuidna-quantum-advantage"><code>quantum_advantage</code></a>
 <a href="#uuidna-quantum-message-demo"><code>quantum_message_demo</code></a>
 <a href="#uuidna-quantum-profile"><code>quantum_profile</code></a>
 <a href="#uuidna-quantum-sailing-complete"><code>quantum_sailing_complete</code></a>
@@ -183,11 +186,13 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-holofractal"><code>holofractal</code></a>
 <a href="#uuidna-imprint"><code>imprint</code></a>
 <a href="#uuidna-involute"><code>involute</code></a>
+<a href="#uuidna-leads-gate"><code>leads_gate</code></a>
 <a href="#uuidna-license"><code>license</code></a>
 <a href="#uuidna-link-book"><code>link_book</code></a>
 <a href="#uuidna-merkle-root"><code>merkle_root</code></a>
 <a href="#uuidna-neighbours"><code>neighbours</code></a>
 <a href="#uuidna-nist-constant"><code>nist_constant</code></a>
+<a href="#uuidna-open-questions"><code>open_questions</code></a>
 <a href="#uuidna-pentagram-stream"><code>pentagram_stream</code></a>
 <a href="#uuidna-predict"><code>predict</code></a>
 <a href="#uuidna-prior-art"><code>prior_art</code></a>
@@ -312,7 +317,7 @@ any value — `uuidna_address { "seed": "hello" }` → `5b344fcd-5b13-8a6f-a3f8-
 `uuidna_theorems { "skill": "navigation" }` → **5** sealed theorems.
 Every call is recomputable: same input, same receipt. That is the production contract.
 
-## Hosted absents <Badge type="warning" text="35 named" />
+## Hosted absents <Badge type="warning" text="34 named" />
 
 100% is a **finding**: a capability-absent tool is **named** on this page, not silently dropped so the hosted subset looks complete. `uuidna_school_apis` stays listed. The divergence list may only shrink.
 
@@ -349,7 +354,6 @@ Every call is recomputable: same input, same receipt. That is the production con
 - `uuidna_vies` — POLICY: network lookup against the EU VIES register
 - `uuidna_scan_publications` — POLICY: network scan of free research streams
 - `uuidna_selftest` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
-- `uuidna_quantum` — reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy
 - `uuidna_run` — CAPABILITY: requires filesystem + spawn (docker/chroot) — stdio/host only by design; Layer 1 uuidna_exec serves the browser
 
 ## Identity & addressing <Badge type="tip" :text="'5'" />
@@ -1953,7 +1957,7 @@ BOOK → SEALED-LEDGER LINKAGE — the captain's INDEPENDENT, CLOSED-DOOR legal 
 | --- | --- | --- | --- |
 | `text` | string | **yes** | the text to mine and link (a pas |
 
-## Deep research & the evidence census (how well a claim is anchored) <Badge type="tip" :text="'4'" />
+## Deep research & the evidence census (how well a claim is anchored) <Badge type="tip" :text="'7'" />
 
 *skill: research*
 
@@ -1967,6 +1971,38 @@ Deep research with the REVERSIBLE imprint codec: PRESS external research (text o
 | --- | --- | --- | --- |
 | `text` | string | **yes** | the research text to press, enta |
 | `seenAddresses` | array | no | known content-addresses; a new o |
+
+### `uuidna_open_leads`
+
+YOUR PROJECT BACKLOG — pass {items:[{claim,source?}]} and each claim is adjudicated against the public sealed ledger; UNVERIFIED items are open leads (not-yet sealed here, never "false"). Omit items on uuidna.com to see the ledger's own open leads as a worked example. Optional {limit}. Returns {total,open,verified,unverified,items,receipt,honest}. Pure, edge-safe, no repo access required when you supply items.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `items` | array | no | your backlog — each {claim, sour |
+| `limit` | integer | no | cap how many open items are retu |
+
+### `uuidna_leads_gate`
+
+YOUR RELEASE GATE — pass {sources:[{source,reached,why?,open:[{source,what,owes}],settled}]} for any project. Ready is true only when every source ANSWERED and none holds a lead; unmeasured sources block (three-state law — unread is not "clean"). Returns the lead census {ready,why,open,unmeasured,receipt,...}. Pure, edge-safe — your readings, your ship/no-ship decision.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `sources` | array | **yes** | lead-source readings you gathere |
+
+### `uuidna_open_questions`
+
+YOUR OPEN QUESTIONS BY TOPIC — pass {items:[{claim,source?}]}; UNVERIFIED claims are placed under topics derived from word overlap with the public sealed theorems (heuristic, not a verdict). Returns {topics,open,total,curriculum,receipt,honest}. Pure and edge-safe for any project backlog.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `items` | array | **yes** | your open claims |
+| `limit` | integer | no | cap items per topic |
 
 ### `uuidna_search_feed`
 
@@ -2669,7 +2705,7 @@ The MCP tests ITSELF — pure self-consistency, no external oracle: every catalo
 
 _No parameters._
 
-## Quantum simulation <Badge type="tip" :text="'1'" />
+## Quantum simulation <Badge type="tip" :text="'2'" />
 
 *skill: quantum*
 
@@ -2684,6 +2720,28 @@ Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over
 | `circuit` | string | no | bell (2 qubits) or ghz (n qubits |
 | `qubits` | number | no | qubit count (ghz default 3; requ |
 | `ops` | array | no | OpenQASM circuit: [{gate, qubits |
+
+### `uuidna_quantum_advantage`
+
+AFTER THE TWO COINS — the agent playbook to compute quantum and read magnitudes over classical re-run. Zero-arg: ordered tools/call steps (uuidna_os capacity → uuidna_decide 2^n → uuidna_quantum bell → uuidna_crypto widths → uuidna_theorem verify_beats_recompute_by_magnitudes → uuidna_exec Alpine apps), plus simulate/alpine hints and the school curriculum receipt. Magnitudes cite VERIFY vs RECOMPUTE (O(log N) vs O(N)), not hardware supremacy. Returns {prerequisite,magnitudes,steps,simulate,alpine,curriculum,receipt,honest}. Pure, edge-safe.
+
+_No parameters._
+
+## Desk readiness & open leads <Badge type="tip" :text="'1'" />
+
+*skill: research*
+
+### `uuidna_fill_gaps`
+
+FILL GAPS AT SCALE AT ONCE — the same quantum-advantage law applied to the whole gap census: one merkle fold over every gap bucket, open-leads sample, and playbook (verify_beats_recompute_by_magnitudes — verify the receipt, not re-survey each class). Default: snapshot + plan. {verify:true} runs the full advantage+gap MCP hook and returns scaleReceipt. {run:true} spawns the host desk arc (stdio only). Returns {survey,plan,openLeads,playbook,deskWork,receipt,honest,...}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `verify` | boolean | no | run the full advantage+gap MCP h |
+| `run` | boolean | no | spawn npm run x -- fill-gaps on |
+| `limit` | integer | no | open-leads sample cap (default 3 |
 
 ## DIY energy yield (ceiling first, integer brackets, refuses over-unity) <Badge type="tip" :text="'4'" />
 

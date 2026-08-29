@@ -1,4 +1,4 @@
-// school advantage MCP examples — quantum advantage as hosted tools/call, not uuidna_quantum (edge-absent).
+// school advantage MCP examples — quantum advantage as hosted tools/call (decide for 2^n, uuidna_quantum for state vectors).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { handleMcpRpc } from '../mcp-http.js'
@@ -24,13 +24,13 @@ const payloadOf = (raw: unknown): unknown => {
   return raw
 }
 
-test('school advantage examples target uuidna.com/mcp and never uuidna_quantum', () => {
+test('school advantage examples target uuidna.com/mcp with decide and uuidna_quantum fused', () => {
   const c = schoolAdvantageMcpExamples()
   assert.equal(c.endpoint, ADVANTAGE_MCP_ORIGIN)
   assert.equal(c.definition, 'school·mcp·uuidna.com/mcp·quantum-advantage')
   assert.ok(c.examples.length >= 8)
-  assert.equal(c.examples.filter((e) => e.tool === 'uuidna_quantum').length, 0,
-    'uuidna_quantum is named-absent on the hosted wire — 2^n is uuidna_decide')
+  assert.ok(c.examples.some((e) => e.tool === 'uuidna_quantum'), 'uuidna_quantum serves at the edge — state vectors, not named-absent')
+  assert.ok(c.examples.some((e) => e.tool === 'uuidna_decide'), '2^n cost stays uuidna_decide')
   for (const k of QA_REQUIRED_THEOREMS)
     assert.ok(c.examples.some((e) => e.theorem === k), `curriculum must include ${k}`)
 })
@@ -62,7 +62,7 @@ test('school advantage markdown cites the sealed classical bound on the same lin
 
 test('hosted handleMcpRpc answers the decide and os examples — same code uuidna.com serves', async () => {
   const c = schoolAdvantageMcpExamples()
-  const sample = c.examples.filter((e) => e.tool === 'uuidna_decide' || e.tool === 'uuidna_os' || e.tool === 'uuidna_gate' || e.id === 'read-cost')
+  const sample = c.examples.filter((e) => e.tool === 'uuidna_decide' || e.tool === 'uuidna_quantum' || e.tool === 'uuidna_os' || e.tool === 'uuidna_gate' || e.id === 'read-cost')
   assert.ok(sample.length >= 4)
   for (const ex of sample) {
     const raw = await rpc(rpcCall({ kind: 'call', name: ex.tool, args: ex.arguments }, 1))
