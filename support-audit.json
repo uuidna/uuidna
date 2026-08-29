@@ -1,11 +1,12 @@
 {
-  "modules": 814,
+  "modules": 824,
   "roots": 532,
-  "supported": 811,
+  "supported": 820,
   "dead": [
     "src/harmony.ts",
+    "src/quantum/advantage/mcp/index.ts",
     "src/quantum/os/npm.ts",
     "src/study.ts"
   ],
-  "receipt": "51d8fdab-196e-8625-8b27-d7a7779ec403"
+  "receipt": "7242e227-5c7b-80f7-933c-9c4983833651"
 }
