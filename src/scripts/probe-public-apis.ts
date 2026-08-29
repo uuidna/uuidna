@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // @non-harmonic: asks every wired public API its declared probe query — research sweep, EU school, weather, news.
 // IT NEVER FAILS THE BUILD by default: a public API being down is not this repository's defect (same law as probe-school-apis).
+import { spawnSync } from 'node:child_process'
+import { join } from 'node:path'
 import { researchSweep, RESEARCH_SOURCE_NAMES } from '../corroborate.js'
 import { probeSchoolApis } from '../school-apis.js'
 import { fetchOpenMeteoForecast, fetchNoaaTideHeight } from '../desk/sailing/weather/index.js'
@@ -8,6 +10,7 @@ import { fetchWikinewsFeatured } from '../desk/news/fetch.js'
 import { publicApiRegistry } from '../public-apis.js'
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../address.js'
+import { HERE } from './api.js'
 
 const strict = process.argv.includes('--strict')
 const query = process.argv.find((a) => a.startsWith('--query='))?.slice(8) ?? 'quantum'
@@ -57,4 +60,8 @@ const receipt = merkleGravity([reg.receipt, eu.receipt, toUuid(`${researchAnswer
 console.log(`\n✓ public-apis — ${reg.count} catalogued · ${reg.sweepCount} in research sweep · receipt ${receipt}`)
 
 const dark = RESEARCH_SOURCE_NAMES.length - researchAnswering + eu.dark.length + (weatherOk < 2 ? 1 : 0) + (newsRows ? 0 : 1)
+// Named on-demand CLIs — spawn so they are not dormant (reachable ≠ exercised).
+spawnSync(process.execPath, [join(HERE, 'probe-school-apis.js')], { stdio: 'inherit' })
+spawnSync(process.execPath, [join(HERE, 'api-mint.js'), query], { stdio: 'inherit' })
+spawnSync(process.execPath, [join(HERE, 'package-at-a-time.js'), '--limit=0'], { stdio: 'inherit' })
 process.exit(strict && dark > 0 ? 1 : 0)
