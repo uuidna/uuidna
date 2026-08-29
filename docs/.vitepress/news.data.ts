@@ -7,7 +7,7 @@ import { resolve } from 'node:path'
 export default {
   watch: ['../../CHANGELOG.md', '../../trials-receipts.json', '../../quantum-fold.json'],
   load() {
-    const root = resolve(__dirname, '../..')
+    const root = resolve(import.meta.dirname, '../..')
     const changelog = readFileSync(resolve(root, 'CHANGELOG.md'), 'utf8')
     const entries = [...changelog.matchAll(/^## \[([^\]]+)\][^\n]*\n([\s\S]*?)(?=\n## |$)/gm)]
       .slice(0, 5)

@@ -51,3 +51,28 @@ test('the additions are ADDITIVE — the protocol path is untouched', () => {
   assert.match(src, /access-control-allow-origin/)
   assert.match(src, /POST a JSON-RPC message to \/mcp \(or GET for discovery\)/)
 })
+
+test('the worker graph never static-imports Node builtins Cloudflare refuses (code 10021)', () => {
+  const files = [
+    'worker.js',
+    'src/mcp.ts',
+    'src/mcp-http.ts',
+    'src/mcp-wire.ts',
+    'src/gate-engine.ts',
+    'src/tts/index.ts',
+    'src/scripts/context-budget.ts',
+    'src/os/runtime/index.ts',
+    'src/os/runtime/rootfs.ts',
+    'src/os/runtime/sandbox.ts',
+    'src/os/runtime/host-node.ts',
+  ]
+  for (const rel of files) {
+    const src = readFileSync(join(ROOT, rel), 'utf8')
+    assert.doesNotMatch(src, /(?:^|\n)import [^;\n]* from ['"]node:(fs|path|os|child_process|util)['"]/, rel)
+    assert.doesNotMatch(src, /(?:await |void )import\(['"]node:(fs|path|os|child_process|util)['"]\)/, rel)
+  }
+  const wrangler = readFileSync(join(ROOT, 'wrangler.toml'), 'utf8')
+  assert.match(wrangler, /gen-handles\.js/)
+  assert.doesNotMatch(wrangler, /command = .*seo-freeze-audit/, 'gen-handles already runs the audit — listing it again on wrangler [build] double-pays')
+})
+

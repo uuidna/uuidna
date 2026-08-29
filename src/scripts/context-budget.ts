@@ -24,26 +24,14 @@
 //      word while the request stops paying for it.
 //
 // Deterministic: same catalogue → same verdict. No wall-clock, no RNG, no Math.*.
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT, report, type Gap } from './api.js'
-import { WIRE_CAP, LAW_PHRASE, sentences } from '../mcp-wire.js'
+import { report, type Gap } from './api.js'
+import { WIRE_CAP, LAW_PHRASE, sentences, wireBytes, sealedBudget, type WireTool } from '../mcp-wire.js'
 
 /** Repetition at or above this many descriptions is duplication, not emphasis. */
 const REPEATS = 3
 
-export interface WireTool { name: string; description: string; detail?: string; inputSchema?: unknown }
-
-/** The exact bytes an MCP client puts in the model's context for `tools/list` — name, description, schema; never detail. */
-export const wireBytes = (tools: readonly WireTool[]): number =>
-  JSON.stringify(tools.map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema }))).length
-
-export interface Budget { wireBytes: number; note: string }
-
-/** The sealed ceiling. Absent means unsealed — reported as a gap with the exact line to write, never passed silently. */
-export const sealedBudget = (): Budget | null => {
-  try { return JSON.parse(readFileSync(join(ROOT, 'lean', 'mcp-context-budget.json'), 'utf8')) as Budget } catch { return null }
-}
+export { wireBytes, sealedBudget, type WireTool }
+export type Budget = import('../mcp-wire.js').WireBudget
 
 /** contextGaps(tools) → every way the served surface is charging an agent more than it must. */
 export function contextGaps(tools: readonly WireTool[]): Gap[] {

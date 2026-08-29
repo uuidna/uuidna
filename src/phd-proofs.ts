@@ -13,9 +13,9 @@ import { coinSupply } from './coin-supply.js'
 import { occupancyTapeOf, ITER, NONCE_BYTES, SALT_BYTES, TAG_BYTES } from './crypt.js'
 import { HEXBIT_BITS, KEY_BITS, LEVERAGE, UUID_BITS, GROVER_FLOOR_BITS } from './hexbit/index.js'
 import {
-  prepublishSeal,
   VECTOR_EQUILIBRIUM_INVOLUTIONS, WAVE_INVOLUTION_SEALS, FINITE_INFINITY_GRANTS,
-} from './prepublish-seal.js'
+} from './involution-seals.js'
+import { prepublishSeal } from './prepublish-seal.js'
 import { drillOf } from './quantum/apps/categories/practice/drill.js'
 import { theoremDemoCoverage } from './quantum/apps/theorem-demos.js'
 import { minerFirmware } from './quantum/os/firmware.js'

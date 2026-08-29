@@ -15,7 +15,7 @@
 import { toUuid } from './address.js'
 import { coinCensus, type CoinPayment } from './coin-ledger.js'
 import { merkleGravity } from './gravity/index.js'
-import { wireBytes, sealedBudget, type WireTool } from './scripts/context-budget.js'
+import { wireBytes, sealedBudget, type WireTool } from './mcp-wire.js'
 import { sanitizeInput, sanitizeValue } from './sanitize.js'
 import { slimGate } from './slimgate.js'
 import { theoremByKey, theorems } from './theorems/index.js'

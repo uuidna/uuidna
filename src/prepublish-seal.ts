@@ -21,46 +21,16 @@ import { quantumAdvantageAudit } from './quantum/advantage/audit/index.js'
 import { handlePermanenceAudit } from './handle-permanence.js'
 import { publicationMetadataAudit } from './publication-metadata.js'
 import { publicationPriorArtAudit } from './publication-prior-art.js'
-
-/** Vector equilibrium + involution seals that must ALL be present — a missing key is a gap. */
-export const VECTOR_EQUILIBRIUM_INVOLUTIONS: readonly string[] = [
-  'radial_equals_edge',           // THE EQUILIBRIUM ITSELF
-  'dz_involution_digits',         // reflection involution over the digit domain
-  'orbits_closed_involution',     // orbits closed under dz
-  'missing_pair_involution',      // the gap itself has the involution's shape
-  'dz_two_fixedpoints',
-  've_twelve_vertices',
-  'radial_squares_to_two',
-  've_four_neighbours',
-  've_handshake_crosses',
-  've_twentyfour_edges',
-  've_fourteen_faces',
-  'euler_characteristic_two',
-  'metatron_seventyeight_lines',
-  've_double_five_merges_in_ten',
-  'void_folds_at_quadrature',
-  've_pentads_overlap_to_eight',
-  'theorems_interact_as_faces',
-  'imagine_all_as_clique_faces',
-] as const
-
-/** Wave / conveyor involution seals — the involution wave without gaps. */
-export const WAVE_INVOLUTION_SEALS: readonly string[] = [
-  'lights_out_flip_involution',
-  'involution_walks_home_in_two',
-  'involution_replaces_the_raised_ceiling',
-] as const
-
-/**
- * Theorems that GRANT FINITE INFINITIES — finite `by decide` walks that license exponential/general shapes
- * without claiming an infinite proof. Honest: each seals finite instances; the prose may speak the pattern.
- */
-export const FINITE_INFINITY_GRANTS: readonly string[] = [
-  'involution_replaces_the_raised_ceiling', // 2^k domain, obligation stays 2 — k = 1..12
-  'involution_counts_obey_their_recurrence', // involution counts for n = 1..5
-  'n_qubit_dimension',                      // 2^n for n = 1..5
-  'no_wing_buys_its_own_ceiling',           // census over all wings — no raised maxRecDepth
-] as const
+export {
+  VECTOR_EQUILIBRIUM_INVOLUTIONS,
+  WAVE_INVOLUTION_SEALS,
+  FINITE_INFINITY_GRANTS,
+} from './involution-seals.js'
+import {
+  VECTOR_EQUILIBRIUM_INVOLUTIONS,
+  WAVE_INVOLUTION_SEALS,
+  FINITE_INFINITY_GRANTS,
+} from './involution-seals.js'
 
 export interface PrepublishGap { what: string; fix: string }
 export interface PrepublishSeal {

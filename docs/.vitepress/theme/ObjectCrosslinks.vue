@@ -11,7 +11,7 @@ import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue'
 import Handle from './Handle.vue'
 import RefererCompass from './RefererCompass.vue'
-import { objectUi } from '../../../dist/object-i18n.js'
+import { objectUi } from '../../../src/object-i18n.js'
 
 const { params, frontmatter } = useData()
 const props = defineProps({ localeTag: { type: String, default: 'en' } })

@@ -8,7 +8,7 @@ export default {
   watch: ['../../quantum-fold.json'],
   load() {
     try {
-      return JSON.parse(readFileSync(join(__dirname, '../../quantum-fold.json'), 'utf8'))
+      return JSON.parse(readFileSync(join(import.meta.dirname, '../../quantum-fold.json'), 'utf8'))
     } catch {
       return null
     }

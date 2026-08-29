@@ -5,6 +5,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import { defineAsyncComponent } from 'vue'
 import ObjectPage from './ObjectPage.vue'
+import Handle from './Handle.vue'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -13,9 +14,8 @@ export default {
   Layout: ObjectPage,
   enhanceApp({ app }) {
     applySequence()
-    app.component('RefererCompass', defineAsyncComponent(() => import('./RefererCompass.vue')))
+    app.component('Handle', Handle)
     app.component('HexbitPlayer', defineAsyncComponent(() => import('./HexbitPlayer.vue')))
-    app.component('HexFace', defineAsyncComponent(() => import('./HexFace.vue')))
     app.component('AnthemSuperposition', defineAsyncComponent(() => import('./AnthemSuperposition.vue')))
     app.component('AnthemLive', defineAsyncComponent(() => import('./AnthemLive.vue')))
     app.component('SchoolTools', defineAsyncComponent(() => import('./SchoolTools.vue')))
@@ -41,7 +41,6 @@ export default {
     app.component('TokenMeter', defineAsyncComponent(() => import('./TokenMeter.vue')))
     app.component('CostMeter', defineAsyncComponent(() => import('./CostMeter.vue')))
     app.component('HomeGraph', defineAsyncComponent(() => import('./HomeGraph.vue')))
-    app.component('Handle', defineAsyncComponent(() => import('./Handle.vue')))
     app.component('NimPlay', defineAsyncComponent(() => import('./NimPlay.vue')))
     app.component('ChessMobility', defineAsyncComponent(() => import('./ChessMobility.vue')))
     app.component('PracticeLoop', defineAsyncComponent(() => import('./PracticeLoop.vue')))

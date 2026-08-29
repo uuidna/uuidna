@@ -42,10 +42,8 @@ export const emit = (u: Utterance, opts: { voice?: string; rate?: number; dryRun
   const args = [...(opts.voice ? ['-v', opts.voice] : []), ...(opts.rate ? ['-r', String(opts.rate)] : []), u.text]
   const command = `say ${args.slice(0, -1).join(' ')} <${u.words} words>`.trim()
   if (opts.dryRun) return { handle: u.handle, spoken: false, command }
-  // fire-and-forget was already the contract ("deliberately not awaited"), so the lazy import changes nothing a
-  // caller can observe — the device write happens when the module arrives, and no verdict ever came back anyway
-  void import('node:child_process').then(({ execFile }) =>
-    execFile('/usr/bin/say', args, () => { /* the device is the boundary: no verdict comes back from a speaker */ }))
+  const execFile = (process as unknown as { getBuiltinModule?: (n: string) => typeof import('node:child_process') }).getBuiltinModule?.('node:child_process')?.execFile
+  if (execFile) execFile('/usr/bin/say', args, () => { /* the device is the boundary: no verdict comes back from a speaker */ })
   return { handle: u.handle, spoken: true, command }
 }
 

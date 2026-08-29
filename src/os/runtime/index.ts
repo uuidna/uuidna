@@ -3,10 +3,9 @@
 // Layer 2 beside uuidna_exec (Layer 1). uuidna_exec simulates on the lattice; uuidna_run executes pinned
 // Alpine bytes on the host when a rootfs tarball is present and verified. Output is DATA (content-addressed),
 // never folded into the boot hexbit image (theorem the_os_is_bootable_quantum stays true for Layer 1).
-import { join } from 'node:path'
-import { existsSync, readFileSync, mkdtempSync, writeFileSync, rmSync } from 'node:fs'
-import { tmpdir } from 'node:os'
-import { spawnSync } from 'node:child_process'
+import { join } from './host-node.js'
+import { existsSync, readFileSync, mkdtempSync, writeFileSync, rmSync } from './host-node.js'
+import { tmpdir, spawnSync, execFileAsync } from './host-node.js'
 import { toUuid } from '../../address.js'
 import { sha256 } from '../../sha256.js'
 import { alpineRelease, verifyAlpineRootfs, type AlpineRelease, type RootfsCheck } from '../alpine/index.js'
@@ -262,11 +261,8 @@ export async function runAlpineCommand(command: string, opts: { spawn?: boolean;
       honest: HONEST,
     }
   }
-  const { execFile } = await import('node:child_process')
-  const { promisify } = await import('node:util')
-  const exec = promisify(execFile)
   try {
-    const { stdout, stderr } = await exec(plan.recipe.file, plan.recipe.argv, {
+    const { stdout, stderr } = await execFileAsync(plan.recipe.file, plan.recipe.argv, {
       env: { ...process.env, ...plan.recipe.env } as NodeJS.ProcessEnv,
       maxBuffer: 4 * 1024 * 1024,
     })

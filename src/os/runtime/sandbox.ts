@@ -5,7 +5,7 @@
 // filesystem is read-only. A catalogue `cmd:` that is not in the minirootfs is ABSENT — AVAILABLE, not INSTALLED —
 // named, not a missing port. Tools that would be unsafe as a host bulk-wave (pwntools, scanners) are safe here
 // because they cannot reach the host or the network.
-import { spawnSync } from 'node:child_process'
+import { spawnSync } from './host-node.js'
 import type { PosixShell } from '../host/index.js'
 import { reason, type Reasoning, type Rule } from '../../reason.js'
 

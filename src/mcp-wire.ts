@@ -3,7 +3,22 @@
 // tools/list sends name + description + inputSchema on EVERY request. Essays belong in `detail` (docs/mcp.md),
 // never on that payload. Caps are occupancy × fold, not a decimal guess: one 64-bit word is ADDRESS_BYTES / COINS
 // (the coin), the wire holds one address of those words, a schema blurb holds one digest.
+import { rdRoot } from './boundary.js'
 import { ADDRESS_BYTES, KEY_BYTES, COINS } from './hexbit/index.js'
+
+/** tools/list row — name + description + schema; never detail. */
+export interface WireTool { name: string; description: string; detail?: string; inputSchema?: unknown }
+
+/** The exact bytes an MCP client puts in the model's context for tools/list. */
+export const wireBytes = (tools: readonly WireTool[]): number =>
+  JSON.stringify(tools.map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema }))).length
+
+export interface WireBudget { wireBytes: number; note: string }
+
+/** The sealed tools/list ceiling. Absent / unreadable at the edge is null, never a throw. */
+export const sealedBudget = (): WireBudget | null => {
+  try { return JSON.parse(rdRoot('lean/mcp-context-budget.json')) as WireBudget } catch { return null }
+}
 
 /** One 64-bit machine word in bytes — half an address, the coin. */
 export const WORD_BYTES = ADDRESS_BYTES / COINS
