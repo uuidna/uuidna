@@ -1,5 +1,16 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "key": "api_15c15f63",
+      "why": "FREE MINT from quantum-advantage: the public API attested \"128 - 70 = 58\"; decide() confirmed it TRUE and the ledger does not yet seal it — minting costs nothing, only the kernel approves (theorem minting_is_free_and_forging_is_not). Provenance: ac133258-2a67-80c0-b22a-40c89accfb0a.",
+      "lean": "theorem api_15c15f63 : (128 - 70 = 58) := by decide"
+    },
+    {
+      "key": "api_c9dabf27",
+      "why": "FREE MINT from quantum-advantage: the public API attested \"70 < 128\"; decide() confirmed it TRUE and the ledger does not yet seal it — minting costs nothing, only the kernel approves (theorem minting_is_free_and_forging_is_not). Provenance: ac133258-2a67-80c0-b22a-40c89accfb0a.",
+      "lean": "theorem api_c9dabf27 : (70 < 128) := by decide"
+    }
+  ],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
