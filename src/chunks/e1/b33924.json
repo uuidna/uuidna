@@ -1,0 +1,12 @@
+{
+  "handle": "e1b33924",
+  "address": "e1b33924-b327-8c10-bd14-542deeea1324",
+  "statement": "([7,16] : List Nat).all (fun n => (List.range n).all (fun i => ((((i + 1) % n + (n - 1)) % n == i) && (((i + (n - 1)) % n + 1) % n == i))))",
+  "tactic": "decide",
+  "keys": [
+    "prev_undoes_next"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

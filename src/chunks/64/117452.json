@@ -1,0 +1,12 @@
+{
+  "handle": "64117452",
+  "address": "64117452-e0d7-8365-9513-749b6446b97a",
+  "statement": "(3 >= 1) ∧ (0 < 1) ∧ (30 > 3)",
+  "tactic": "decide",
+  "keys": [
+    "mombh_verified_ne_solved"
+  ],
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

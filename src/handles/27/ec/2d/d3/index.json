@@ -1,0 +1,12 @@
+{
+  "handle": "27ec2dd3",
+  "address": "27ec2dd3-036d-8a91-a57c-ec1df080b8da",
+  "kind": "chunk",
+  "keys": [
+    "literature_sonnet_volume"
+  ],
+  "statement": "10 ^ 14 = 100000000000000",
+  "files": [
+    "Wave.lean"
+  ]
+}

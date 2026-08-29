@@ -1,0 +1,12 @@
+{
+  "handle": "71ed9ef4",
+  "address": "71ed9ef4-7bf8-8a5f-b6c1-68f2b368eb05",
+  "statement": "([1,2,3,4].map dz = [9,8,7,6]) ∧ ([6,7,8,9].map dz = [4,3,2,1]) ∧ (dz 0 = 0) ∧ (dz 5 = 5)",
+  "tactic": "decide",
+  "keys": [
+    "polarity_mirror_swaps_sides"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

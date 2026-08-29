@@ -1,0 +1,12 @@
+{
+  "handle": "7e6803a1",
+  "address": "7e6803a1-9570-8038-966f-89938c44649c",
+  "statement": "((12:Nat) ≤ 16) ∧ ((2:Nat)^12 = 4096) ∧ (([1,2,3,4,5,6,7,8,9,10,11,12].map (fun n => (2:Nat)^n)) = [2,4,8,16,32,64,128,256,512,1024,2048,4096])",
+  "tactic": "decide",
+  "keys": [
+    "served_qubit_ceiling"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

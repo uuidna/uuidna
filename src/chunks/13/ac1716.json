@@ -1,0 +1,12 @@
+{
+  "handle": "13ac1716",
+  "address": "13ac1716-c03e-8127-a602-7698e31a0aeb",
+  "statement": "((List.range 35).all (fun a => (Nat.gcd a 35 != 1) || (a ^ 12 % 35 == 1))) ∧ ((List.range 35).any (fun a => (Nat.gcd a 35 == 1) && ((List.range' 1 11).all (fun k => a ^ k % 35 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_35_is_12"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2bb31f61",
+  "address": "2bb31f61-20f6-89a9-916c-c9f0ea60da2e",
+  "statement": "146097 = 20871 * 7 ∧ 146097 = 63 * 2319 ∧ 63 = 7 * 9 ∧ 20871 % 9 = 0",
+  "tactic": "decide",
+  "keys": [
+    "the_gregorian_cycle_counted_in_weeks"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

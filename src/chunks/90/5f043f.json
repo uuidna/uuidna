@@ -1,0 +1,12 @@
+{
+  "handle": "905f043f",
+  "address": "905f043f-bf2f-82fd-9613-851b245cd70b",
+  "statement": "(([1,0,0,1] : List Nat).all (fun a => a = 0 ∨ 1 ≤ a)) ∧ (([1,0,0,1] : List Nat).any (fun a => a = 0)) ∧ (([1,0,0,1] : List Nat).any (fun a => 1 ≤ a)) ∧ (1 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "born_field_mass_gap_on_bell"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

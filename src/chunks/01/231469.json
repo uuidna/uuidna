@@ -1,0 +1,12 @@
+{
+  "handle": "01231469",
+  "address": "01231469-a11d-8565-9b68-ecf12e685b43",
+  "statement": "9 * 7 * 4 = 252 ∧ 252 / 63 = 4",
+  "tactic": "decide",
+  "keys": [
+    "anthem_four_movements"
+  ],
+  "files": [
+    "Anthem.lean"
+  ]
+}

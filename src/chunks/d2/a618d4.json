@@ -1,0 +1,12 @@
+{
+  "handle": "d2a618d4",
+  "address": "d2a618d4-63f9-847e-a69a-01046bc9f91e",
+  "statement": "((List.range 50).all (fun a => (Nat.gcd a 50 != 1) || (a ^ 20 % 50 == 1))) ∧ ((List.range 50).any (fun a => (Nat.gcd a 50 == 1) && ((List.range' 1 19).all (fun k => a ^ k % 50 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_50_is_20"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

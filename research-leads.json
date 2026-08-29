@@ -1,4 +1,61 @@
 {
-  "leads": [],
-  "receipt": "046b2c7e-388f-8623-a27e-7430e62be1c2"
+  "leads": [
+    {
+      "module": "src/harmony.ts",
+      "capability": [
+        "HARMONIC_OPS",
+        "MATH_CALL",
+        "WALLCLOCK",
+        "stripCommentLines",
+        "looksLikeSource",
+        "SourceScan",
+        "scanSource"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "36c5e406-74d3-8b61-abb1-df7a288cbb0a"
+    },
+    {
+      "module": "src/quantum/os/npm.ts",
+      "capability": [],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "7ff60ab2-fcae-8e45-91c9-8683127522bd"
+    },
+    {
+      "module": "src/study.ts",
+      "capability": [
+        "SettledIdentity",
+        "OpenFragment",
+        "StudyError",
+        "Study",
+        "studyOf"
+      ],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "2670c3df-a6fc-8df4-9457-492b654fd222"
+    }
+  ],
+  "receipt": "51d8fdab-196e-8625-8b27-d7a7779ec403"
 }

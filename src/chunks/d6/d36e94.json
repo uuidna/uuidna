@@ -1,0 +1,12 @@
+{
+  "handle": "d6d36e94",
+  "address": "d6d36e94-6a2c-8aa2-9b77-e6f98235f7c2",
+  "statement": "([7002000, 7001009, 6018045, 6012104, 6006152, 6001183, 5015216, 5010265] : List Nat).all (fun e => (e / 1000000) * 1000000 + ((e / 1000) % 1000) * 1000 + (e % 1000) = e ∧ (e / 1000) % 1000 < 1000 ∧ e % 1000 < 1000)",
+  "tactic": "decide",
+  "keys": [
+    "version_encoding_is_lossless"
+  ],
+  "files": [
+    "Comparisons.lean"
+  ]
+}

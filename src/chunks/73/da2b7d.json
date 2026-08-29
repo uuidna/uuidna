@@ -1,0 +1,12 @@
+{
+  "handle": "73da2b7d",
+  "address": "73da2b7d-1eaf-898b-bd30-6ada646e7707",
+  "statement": "(bfsOrder.length = 25) ∧ bfsOrder.Nodup ∧ (nth bfsOrder 0 = 0) ∧ (bfsOrder.all (fun x => x < 25)) ∧ ((List.range 24).all (fun i => (List.range (i+1)).any (fun j => installEdges.contains (nth bfsOrder j, nth bfsOrder (i+1)))))",
+  "tactic": "decide",
+  "keys": [
+    "home_reaches_every_install"
+  ],
+  "files": [
+    "Installs.lean"
+  ]
+}

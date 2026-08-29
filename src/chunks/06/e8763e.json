@@ -1,0 +1,12 @@
+{
+  "handle": "06e8763e",
+  "address": "06e8763e-941b-8b57-9883-d9aadf990524",
+  "statement": "((List.range 16).filter (fun x => x ^ 16 % 16 == x)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_16_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

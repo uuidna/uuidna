@@ -1,0 +1,12 @@
+{
+  "handle": "c9979349",
+  "address": "c9979349-e2c6-85e4-82ae-65365f362d14",
+  "statement": "((List.range' 1 6).filter (fun k => 6 % k == 0)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_6_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

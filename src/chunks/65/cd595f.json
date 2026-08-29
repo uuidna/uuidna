@@ -1,0 +1,12 @@
+{
+  "handle": "65cd595f",
+  "address": "65cd595f-7dfd-8bf9-89b7-a0b69950687e",
+  "statement": "(List.range 13).all (fun n => (List.range 13).foldl (fun t1 a => t1 + (List.range 7).foldl (fun t2 b => t2 + (List.range 5).foldl (fun t3 c => t3 + (if a + 2 * b + 3 * c == n then 1 else 0)) 0) 0) 0 == ((n + 3) ^ 2 + 6) / 12)",
+  "tactic": "decide",
+  "keys": [
+    "partitions_into_parts_at_most_three_closed_form_to_twelve"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

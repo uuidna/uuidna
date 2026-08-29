@@ -1,0 +1,12 @@
+{
+  "handle": "0da54fd5",
+  "address": "0da54fd5-3541-88eb-9090-a2b72cbc3859",
+  "statement": "((List.range 19).all (fun a => (Nat.gcd a 19 != 1) || (a ^ 18 % 19 == 1))) ∧ ((List.range 19).any (fun a => (Nat.gcd a 19 == 1) && ((List.range' 1 17).all (fun k => a ^ k % 19 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_19_is_18"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

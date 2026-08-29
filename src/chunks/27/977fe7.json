@@ -1,0 +1,12 @@
+{
+  "handle": "27977fe7",
+  "address": "27977fe7-a459-800e-b382-91bfd8913429",
+  "statement": "(3 > 2) ∧ (2 > 1) ∧ (1 * 0 / 2 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_singularity_is_the_dry_law_at_scale"
+  ],
+  "files": [
+    "Singularity.lean"
+  ]
+}

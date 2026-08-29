@@ -1,0 +1,12 @@
+{
+  "handle": "70ac353a",
+  "address": "70ac353a-0f14-805a-ad07-2684d9101285",
+  "statement": "((List.range' 1 6).filter (fun a => (List.range' 1 6).any (fun x => (x * x) % 7 == a))) = [1, 2, 4] ∧ ((List.range' 1 6).all (fun a => ((a ^ 3) % 7 == 1) == ((List.range' 1 6).any (fun x => (x * x) % 7 == a)))) ∧ ((List.range' 1 6).all (fun a => ((a ^ 3) % 7 == 1) || ((a ^ 3) % 7 == 6)))",
+  "tactic": "decide",
+  "keys": [
+    "z7_quadratic_residues_euler"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

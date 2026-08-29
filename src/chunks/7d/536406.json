@@ -1,0 +1,12 @@
+{
+  "handle": "7d536406",
+  "address": "7d536406-cf61-85b4-8807-d18b9e1d8547",
+  "statement": "((List.range 7).filter (fun x => x ^ 7 % 7 == x)).length = 7",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_7_number_7"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

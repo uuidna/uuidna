@@ -1,0 +1,12 @@
+{
+  "handle": "2b3db050",
+  "address": "2b3db050-149e-8c94-9280-046cf50b270a",
+  "statement": "(299792458 : Nat) > 0 ∧ (List.range 64).all (fun t => 1000 / t < 299792458) ∧ (1000 / 0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "light_faster_than_uuidna"
+  ],
+  "files": [
+    "Uuidna.lean"
+  ]
+}

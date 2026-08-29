@@ -1,0 +1,12 @@
+{
+  "handle": "ba9d0c20",
+  "address": "ba9d0c20-53ae-8846-a364-17996c2809f4",
+  "statement": "((List.range 13).filter (fun x => x ^ 13 % 13 == x)).length = 13",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_13_number_13"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

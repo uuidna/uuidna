@@ -1,0 +1,12 @@
+{
+  "handle": "de48455f",
+  "address": "de48455f-daec-81ae-91b9-c558d94f6f24",
+  "statement": "((List.range 34).filter (fun x => x ^ 34 % 34 == 0)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_34_number_1"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

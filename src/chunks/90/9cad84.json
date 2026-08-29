@@ -1,0 +1,12 @@
+{
+  "handle": "909cad84",
+  "address": "909cad84-693d-880c-afa6-e1d81e0f1dc8",
+  "statement": "(((List.range 16).filter (fun d => 15 - d == d)) = []) ∧ (15 % 2 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "the_hex_center_is_empty"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

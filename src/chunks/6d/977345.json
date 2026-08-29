@@ -1,0 +1,12 @@
+{
+  "handle": "6d977345",
+  "address": "6d977345-7258-8687-a4e3-66719154b814",
+  "statement": "6 + 4 = 10",
+  "tactic": "decide",
+  "keys": [
+    "station_ten_is_hexagram_plus_hexbit"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

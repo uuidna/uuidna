@@ -1,0 +1,12 @@
+{
+  "handle": "94b702b2",
+  "address": "94b702b2-b121-8dbe-bca2-2736b2115b7e",
+  "statement": "(((List.range 9).filter (fun a => Nat.gcd a 9 == 1)).foldl (fun acc a => (acc + a) % 9) 0) = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_mod_9_is_0"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

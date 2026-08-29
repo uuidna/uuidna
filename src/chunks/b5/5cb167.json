@@ -1,0 +1,12 @@
+{
+  "handle": "b55cb167",
+  "address": "b55cb167-c181-8680-a5bd-fa66f5beac6a",
+  "statement": "((List.range 7).filter (fun a => Nat.gcd a 7 == 1)).length = 6",
+  "tactic": "decide",
+  "keys": [
+    "units_mod_7_number_6"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

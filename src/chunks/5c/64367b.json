@@ -1,0 +1,12 @@
+{
+  "handle": "5c64367b",
+  "address": "5c64367b-6cc3-843a-ba2c-3623e6371629",
+  "statement": "(((List.range 3).map (fun i => if i == 0 then 2 * 5 else if i == 1 then 2 + 5 else 2^5)) = [10, 7, 32]) ∧ (((List.range 3).map (fun i => if i == 0 then 2 * 5 else if i == 1 then 2 + 5 else 2^5)).eraseDups.length = 3)",
+  "tactic": "decide",
+  "keys": [
+    "coin_and_heart_generate_the_scales"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

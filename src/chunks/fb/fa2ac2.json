@@ -1,0 +1,12 @@
+{
+  "handle": "fbfa2ac2",
+  "address": "fbfa2ac2-ae18-80d4-a9ce-ffb14204536a",
+  "statement": "(5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 6371000 * 2 < 5049 * 5049) ∧ (8 % 9 = 8)",
+  "tactic": "decide",
+  "keys": [
+    "horizon_distance_finite"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

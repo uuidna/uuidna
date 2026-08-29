@@ -1,0 +1,12 @@
+{
+  "handle": "d1e8c0c6",
+  "address": "d1e8c0c6-e81d-8724-b1b4-bcaccaca61a0",
+  "statement": "((List.range 22).filter (fun x => x ^ 22 % 22 == x)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_22_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

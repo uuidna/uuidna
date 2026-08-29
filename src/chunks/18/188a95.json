@@ -1,0 +1,12 @@
+{
+  "handle": "18188a95",
+  "address": "18188a95-b5fb-8560-b0c7-63ca6816de95",
+  "statement": "(23 * 25 = 575) ∧ (96 * 3 = 288) ∧ (288 < 575)",
+  "tactic": "decide",
+  "keys": [
+    "scrubber_margin_holds"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c66c87e4",
+  "address": "c66c87e4-e141-85f1-8936-11375596ac93",
+  "statement": "(273 + 100 = 373) ∧ (373 - 273 = 100)",
+  "tactic": "decide",
+  "keys": [
+    "kelvin_floor_carries_the_hundred"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

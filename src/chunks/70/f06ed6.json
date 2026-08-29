@@ -1,0 +1,12 @@
+{
+  "handle": "70f06ed6",
+  "address": "70f06ed6-5ba4-8fcf-8059-424a31e2b40e",
+  "statement": "16 ^ 8 = 4294967296 ∧ ((List.range 6).all (fun k => k % 6 < 6)) ∧ 1 ≤ 6 ∧ 6 < 252",
+  "tactic": "decide",
+  "keys": [
+    "anthem_recursion_never_starves"
+  ],
+  "files": [
+    "Anthem.lean"
+  ]
+}

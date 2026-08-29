@@ -1,0 +1,12 @@
+{
+  "handle": "586125cc",
+  "address": "586125cc-da4e-88fc-9e60-af086e455d76",
+  "statement": "([(1, 200), (201, 200), (401, 200), (601, 200), (801, 199)].all (fun p => (List.range' p.1 p.2).all (fun n => let s := n / 100 + (n / 10) % 10 + n % 10; let t := s / 10 + s % 10; let u := t / 10 + t % 10; (u == (n - 1) % 9 + 1) && ((u == 9) == (n % 9 == 0))))) ∧ ((List.range' 1 200).any (fun n => let s := n / 100 + (n / 10) % 10 + n % 10; s / 10 + s % 10 > 9)) ∧ ((List.range' 1 30).all (fun a => (List.range' 1 30).all (fun b => ((a * b - 1) % 9 + 1) == ((((a - 1) % 9 + 1) * ((b - 1) % 9 + 1) - 1) % 9 + 1))))",
+  "tactic": "decide",
+  "keys": [
+    "z9_digit_sum_folds_to_the_residue_in_three"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

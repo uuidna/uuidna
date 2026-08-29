@@ -1,0 +1,12 @@
+{
+  "handle": "7f41f155",
+  "address": "7f41f155-f2fe-843c-a73f-3a598ea8f36e",
+  "statement": "((31333 < 38969) ∧ (38969 < 41419) ∧ (41419 - 38969 = 2450)) ∧ (4 % 9 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "jump_records_ascend"
+  ],
+  "files": [
+    "Doctrine.lean"
+  ]
+}

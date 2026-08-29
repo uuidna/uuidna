@@ -1,0 +1,12 @@
+{
+  "handle": "bff7ae6c",
+  "address": "bff7ae6c-666c-8920-a242-f3e15f48938b",
+  "statement": "(Nat.gcd 110 108 = 2) ∧ (110 / 2 = 55) ∧ (108 / 2 = 54)",
+  "tactic": "decide",
+  "keys": [
+    "coins_are_the_common_factor"
+  ],
+  "files": [
+    "Billing.lean"
+  ]
+}

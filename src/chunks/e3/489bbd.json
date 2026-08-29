@@ -1,0 +1,12 @@
+{
+  "handle": "e3489bbd",
+  "address": "e3489bbd-daaa-8cca-8d8b-2693a9a4fbb7",
+  "statement": "(365 / 11 = 33) ∧ (2 * 33 = 66) ∧ (66 < 120)",
+  "tactic": "decide",
+  "keys": [
+    "ramadan_walks_the_year_in_a_life"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

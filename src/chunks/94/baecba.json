@@ -1,0 +1,12 @@
+{
+  "handle": "94baecba",
+  "address": "94baecba-2f48-807b-bdb4-d674bcfd8b6e",
+  "statement": "(1+2+3+4 = 10) ∧ (6+7+8+9 = 30) ∧ (30 = 3 * 10) ∧ (0+5 = 5) ∧ (10+30+5 = 45)",
+  "tactic": "decide",
+  "keys": [
+    "polarity_plus_is_trinity_of_minus"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

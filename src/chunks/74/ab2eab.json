@@ -1,0 +1,12 @@
+{
+  "handle": "74ab2eab",
+  "address": "74ab2eab-5506-84a3-a51a-724e267dcb42",
+  "statement": "(223 + 12 = 235) ∧ ((List.range' 2 221).all (fun d => 223 % d != 0))",
+  "tactic": "decide",
+  "keys": [
+    "saros_metonic_bridge"
+  ],
+  "files": [
+    "Universe.lean"
+  ]
+}

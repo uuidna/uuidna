@@ -1,0 +1,12 @@
+{
+  "handle": "df617a57",
+  "address": "df617a57-68ff-821b-9ee3-a2958d44fc17",
+  "statement": "2 ≠ 3 ∧ 8 = 2 * 4 ∧ 6 = 2 * 3",
+  "tactic": "decide",
+  "keys": [
+    "time_counts_of_the_books"
+  ],
+  "files": [
+    "Readings.lean"
+  ]
+}

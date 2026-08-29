@@ -1,0 +1,12 @@
+{
+  "handle": "b94ffe39",
+  "address": "b94ffe39-f7c0-8061-91b9-c3b2436a7297",
+  "statement": "(400 * 365 + 100 = 146100) ∧ (146100 - 146097 = 3) ∧ (1461 * 100 = 146100) ∧ (100 - 97 = 3)",
+  "tactic": "decide",
+  "keys": [
+    "the_reform_is_exactly_three_days_in_four_hundred"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

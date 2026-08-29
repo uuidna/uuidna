@@ -1,0 +1,12 @@
+{
+  "handle": "8332a0bc",
+  "address": "8332a0bc-7ab4-89ed-a793-07588700f054",
+  "statement": "((List.range 32).filter (fun x => (x * x) % 32 == 1)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_32_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

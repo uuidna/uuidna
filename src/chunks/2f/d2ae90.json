@@ -1,0 +1,12 @@
+{
+  "handle": "2fd2ae90",
+  "address": "2fd2ae90-45d7-8bd2-b54e-aee162350072",
+  "statement": "((List.range' 1 19).filter (fun k => 19 % k == 0)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_19_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

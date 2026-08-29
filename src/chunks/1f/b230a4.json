@@ -1,0 +1,12 @@
+{
+  "handle": "1fb230a4",
+  "address": "1fb230a4-f8b7-8a95-96d7-2096ce8a127c",
+  "statement": "((List.range' 1 64).all (fun n => (List.range 8).all (fun k => (((List.range k).foldl (fun w _ => (w + 1) / 2) n) == 1) == decide (n ≤ 2 ^ k)))) ∧ (((List.range' 1 64).filter (fun n => ((List.range 3).foldl (fun w _ => (w + 1) / 2) n) == 1)).length = 8)",
+  "tactic": "decide",
+  "keys": [
+    "merkle_depth_iff_leaf_bound"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

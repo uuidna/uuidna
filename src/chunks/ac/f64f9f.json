@@ -1,0 +1,12 @@
+{
+  "handle": "acf64f9f",
+  "address": "acf64f9f-4c2b-8a28-8ba0-c7429f8fcaf3",
+  "statement": "((List.range 21).filter (fun x => (x * x) % 21 == 1)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_21_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

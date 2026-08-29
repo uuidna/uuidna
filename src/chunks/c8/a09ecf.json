@@ -1,0 +1,12 @@
+{
+  "handle": "c8a09ecf",
+  "address": "c8a09ecf-1701-8edf-9128-b9d607e27fb7",
+  "statement": "(20 + 20 + 20 = 60) ∧ ((60 : Nat) / 3 = 20)",
+  "tactic": "decide",
+  "keys": [
+    "thirds_rule_sums_whole"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

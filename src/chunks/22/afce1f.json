@@ -1,0 +1,12 @@
+{
+  "handle": "22afce1f",
+  "address": "22afce1f-fca3-8a8e-be00-f8c6a8d56ccd",
+  "statement": "142857 * 7 = 999999 ∧ 1000000 % 7 = 1",
+  "tactic": "decide",
+  "keys": [
+    "song_round_turns_on_seven"
+  ],
+  "files": [
+    "Song.lean"
+  ]
+}

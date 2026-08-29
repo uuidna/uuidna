@@ -1,0 +1,12 @@
+{
+  "handle": "5ec0323c",
+  "address": "5ec0323c-d6e1-8c70-97e0-9e50df14a638",
+  "statement": "((List.range 30).all (fun a => (Nat.gcd a 30 != 1) || (a ^ 4 % 30 == 1))) ∧ ((List.range 30).any (fun a => (Nat.gcd a 30 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 30 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_30_is_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

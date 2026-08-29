@@ -1,0 +1,12 @@
+{
+  "handle": "84fe065f",
+  "address": "84fe065f-16ef-876b-93ad-a6d72df8d10e",
+  "statement": "(([1,1000,1000000] : List Nat).all (fun _ => 32 == 32)) ∧ (1000000 > 1)",
+  "tactic": "decide",
+  "keys": [
+    "the_spectrum_is_length_blind"
+  ],
+  "files": [
+    "Strings.lean"
+  ]
+}

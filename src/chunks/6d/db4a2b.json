@@ -1,0 +1,12 @@
+{
+  "handle": "6ddb4a2b",
+  "address": "6ddb4a2b-5c3f-8612-909a-0fbd3b5a0598",
+  "statement": "(let F : List Nat := [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765]; let f : Nat → Nat := fun i => (F.drop i).headD 0; (F.length == 21) && (f 0 == 0) && (f 1 == 1) && ((List.range 19).all (fun n => f n + f (n+1) == f (n+2))) && ((List.range 16).all (fun m => (List.range 16).all (fun n => Nat.gcd (f m) (f n) == f (Nat.gcd m n)))) && ((List.range 13).all (fun j => (List.range 16).all (fun n => (f n % f (j+3) == 0) == (n % (j+3) == 0))))) = true",
+  "tactic": "decide",
+  "keys": [
+    "fibonacci_gcd_follows_the_index_gcd"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

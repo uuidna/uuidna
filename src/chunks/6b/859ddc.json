@@ -1,0 +1,12 @@
+{
+  "handle": "6b859ddc",
+  "address": "6b859ddc-fc42-8ce9-93fb-390076938f01",
+  "statement": "((List.range' 1 20).filter (fun k => 20 % k == 0)).length = 6",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_20_number_6"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

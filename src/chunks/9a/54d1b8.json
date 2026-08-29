@@ -1,0 +1,12 @@
+{
+  "handle": "9a54d1b8",
+  "address": "9a54d1b8-d91c-8a51-beba-a0a6c7e66fd9",
+  "statement": "((List.range 18).all (fun a => (Nat.gcd a 18 != 1) || (a ^ 6 % 18 == 1))) ∧ ((List.range 18).any (fun a => (Nat.gcd a 18 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 18 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_18_is_6"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3b55ca85",
+  "address": "3b55ca85-5b63-8e11-97d1-67e66ced5914",
+  "statement": "((List.range' 1 12).all (fun a => (List.range' 1 19).all (fun b => 3 ^ a != 2 ^ b))) ∧ (3 ^ 12 - 2 ^ 19 = 7153)",
+  "tactic": "decide",
+  "keys": [
+    "no_power_of_three_is_a_power_of_two"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8bc66393",
+  "address": "8bc66393-e026-897d-8801-8547fedab1c5",
+  "statement": "(List.range 8).all (fun m => ((List.range 3).any (fun i => (m / 2^i) % 2 == 0)) == !((List.range 3).all (fun i => (m / 2^i) % 2 == 1)))",
+  "tactic": "decide",
+  "keys": [
+    "denials_exhaust_to_the_whole"
+  ],
+  "files": [
+    "Negation.lean"
+  ]
+}

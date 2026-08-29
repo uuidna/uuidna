@@ -1,0 +1,12 @@
+{
+  "handle": "e58abbf5",
+  "address": "e58abbf5-e177-8c5e-9d4c-bef51bdbfde0",
+  "statement": "(5 + 5 = 10) ∧ (7 = 5 + 2) ∧ (10 + 1 = 11)",
+  "tactic": "decide",
+  "keys": [
+    "first_cron_wave_receipt"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b3e1ad89",
+  "address": "b3e1ad89-f7d8-890b-bfed-56480e900645",
+  "statement": "(360 / 4 = 90) ∧ (90 + 90 = 180) ∧ (90 % 9 = 0) ∧ (180 % 9 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "poles_on_the_axis_at_the_quadrature"
+  ],
+  "files": [
+    "Universe.lean"
+  ]
+}

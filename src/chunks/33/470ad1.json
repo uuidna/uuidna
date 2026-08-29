@@ -1,0 +1,12 @@
+{
+  "handle": "33470ad1",
+  "address": "33470ad1-9667-8e7e-91c1-b75dde566caf",
+  "statement": "(let F : List Nat := [0,1,1,2,3,5,8,13,21,34,55,89,144,233,377,610,987,1597,2584,4181,6765]; let f : Nat → Nat := fun i => (F.drop i).headD 0; (F.length == 21) && (f 0 == 0) && (f 1 == 1) && ((List.range 19).all (fun n => f n + f (n+1) == f (n+2))) && ((List.range 19).all (fun n => (((List.range (n+1)).foldl (fun s i => s + f i) 0) + 1 == f (n+2)) && (((List.range (n+1)).foldl (fun s i => s + f i * f i) 0) == f n * f (n+1)) && (f (n+1) * f (n+1) + n % 2 == f n * f (n+2) + (1 - n % 2)) && (Nat.gcd (f n) (f (n+1)) == 1))) && ((List.range 10).all (fun k => (((List.range (k+1)).foldl (fun s i => s + f (2*i+1)) 0) == f (2*k+2)) && (((List.range (k+1)).foldl (fun s i => s + f (2*i)) 0) + 1 == f (2*k+1))))) = true",
+  "tactic": "decide",
+  "keys": [
+    "fibonacci_identity_sums_close_and_neighbours_are_coprime"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7812a2ae",
+  "address": "7812a2ae-5e1a-88c0-a386-d7fee23c30dc",
+  "statement": "((9 + 1) % 10 = 0) ∧ ((9 + 1) / 10 = 1) ∧ ((List.range 9).all (fun d => (d + 1) % 10 == d + 1))",
+  "tactic": "decide",
+  "keys": [
+    "the_stepped_drum_carries_at_nine"
+  ],
+  "files": [
+    "Looms.lean"
+  ]
+}

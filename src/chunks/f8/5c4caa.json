@@ -1,0 +1,12 @@
+{
+  "handle": "f85c4caa",
+  "address": "f85c4caa-5768-8b85-962e-4aee613d439d",
+  "statement": "(130 < 214) ∧ (1 + 214 / 10 = 22)",
+  "tactic": "decide",
+  "keys": [
+    "freedive_records_ascend"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

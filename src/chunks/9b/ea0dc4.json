@@ -1,0 +1,12 @@
+{
+  "handle": "9bea0dc4",
+  "address": "9bea0dc4-4528-8e28-94ed-cbe9773fdf2c",
+  "statement": "(16 * 360 = 32 * 180) ∧ (16 * 360 = 5760)",
+  "tactic": "decide",
+  "keys": [
+    "sixteen_points_is_180"
+  ],
+  "files": [
+    "Sailing.lean"
+  ]
+}

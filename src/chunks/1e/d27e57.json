@@ -1,0 +1,12 @@
+{
+  "handle": "1ed27e57",
+  "address": "1ed27e57-6b03-8cd7-afa9-40180bd0e93c",
+  "statement": "(15 = 16 - 1) ∧ ((2:Nat)^1 = 2) ∧ (2 * 1 = 2) ∧ (10 % 10 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_road_computes_in_one_arithmetic"
+  ],
+  "files": [
+    "Looms.lean"
+  ]
+}

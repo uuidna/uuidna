@@ -1,0 +1,12 @@
+{
+  "handle": "b6ecfda0",
+  "address": "b6ecfda0-92ad-830d-9fbe-d657033723a1",
+  "statement": "(invOrder.length = 25) ∧ invOrder.Nodup ∧ (invOrder.all (fun x => x < 25)) ∧ (nth invOrder 0 = 24) ∧ ((installEdges.filter (fun e => nth invOrder e.1 ≤ nth invOrder e.2)) = [(21, 22)])",
+  "tactic": "decide",
+  "keys": [
+    "the_port_rises_from_the_floor"
+  ],
+  "files": [
+    "Installs.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9cb27457",
+  "address": "9cb27457-eaf3-8254-b36d-cdc723f90097",
+  "statement": "(30 / 15 = 2) ∧ (2 * 2 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "magnification"
+  ],
+  "files": [
+    "Optics.lean"
+  ]
+}

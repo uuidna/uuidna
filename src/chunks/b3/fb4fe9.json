@@ -1,0 +1,12 @@
+{
+  "handle": "b3fb4fe9",
+  "address": "b3fb4fe9-877d-8534-a8f8-1b3962ebf680",
+  "statement": "(List.range 16).all (fun m => (lxor m m == 0) && (lxor m 0 == m))",
+  "tactic": "decide",
+  "keys": [
+    "byte_xor_hexbit_involution"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e1251f13",
+  "address": "e1251f13-0c01-8da7-a87c-07733acbe758",
+  "statement": "(1 + 21 + 35 + 7 = 64) ∧ (7 + 35 + 21 + 1 = 64) ∧ (64 + 64 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "t7_even_odd_boards_equal"
+  ],
+  "files": [
+    "Torus.lean"
+  ]
+}

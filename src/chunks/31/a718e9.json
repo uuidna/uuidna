@@ -1,0 +1,12 @@
+{
+  "handle": "31a718e9",
+  "address": "31a718e9-e5a7-8bd2-bcd1-61964ce6f78c",
+  "statement": "(2 + 1 = 3) ∧ (92 + 26 = 118)",
+  "tactic": "decide",
+  "keys": [
+    "chemistry_water_and_the_table"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

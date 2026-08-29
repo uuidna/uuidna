@@ -1,0 +1,12 @@
+{
+  "handle": "5364001b",
+  "address": "5364001b-a8b5-8c6e-9cab-73081d5debae",
+  "statement": "(6 * 5 / 2 = 15) ∧ (4 * 3 / 2 = 6) ∧ (1 * 0 / 2 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "surfaces_cost_one_fold"
+  ],
+  "files": [
+    "Singularity.lean"
+  ]
+}

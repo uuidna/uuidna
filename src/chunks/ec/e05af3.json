@@ -1,0 +1,12 @@
+{
+  "handle": "ece05af3",
+  "address": "ece05af3-f4c9-8713-bdd4-87b2b12334d8",
+  "statement": "(List.range' 2 221).all (fun k => 223 % k != 0)",
+  "tactic": "decide",
+  "keys": [
+    "saros_counts_on_a_prime"
+  ],
+  "files": [
+    "Antikythera.lean"
+  ]
+}

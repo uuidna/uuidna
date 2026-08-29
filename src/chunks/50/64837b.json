@@ -1,0 +1,12 @@
+{
+  "handle": "5064837b",
+  "address": "5064837b-2e20-8f83-a81f-642ffe805f0f",
+  "statement": "((List.range 38).all (fun a => (Nat.gcd a 38 != 1) || (a ^ 18 % 38 == 1))) ∧ ((List.range 38).any (fun a => (Nat.gcd a 38 == 1) && ((List.range' 1 17).all (fun k => a ^ k % 38 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_38_is_18"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

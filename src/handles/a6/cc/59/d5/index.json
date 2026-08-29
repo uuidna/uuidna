@@ -1,0 +1,12 @@
+{
+  "handle": "a6cc59d5",
+  "address": "a6cc59d5-c76a-8202-a84c-ed60496899be",
+  "kind": "chunk",
+  "keys": [
+    "ve_faces_are_handle_hexbit_coins"
+  ],
+  "statement": "8 + 4 + 2 = 14",
+  "files": [
+    "Wave.lean"
+  ]
+}

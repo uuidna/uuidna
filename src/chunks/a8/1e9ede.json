@@ -1,0 +1,12 @@
+{
+  "handle": "a81e9ede",
+  "address": "a81e9ede-2aeb-8f02-9370-d7c037764753",
+  "statement": "((List.range' 1 12).filter (fun k => 12 % k == 0)).length = 6",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_12_number_6"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

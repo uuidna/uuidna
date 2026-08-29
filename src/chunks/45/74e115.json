@@ -1,0 +1,12 @@
+{
+  "handle": "4574e115",
+  "address": "4574e115-2870-80d3-8f7a-1842a12d5bed",
+  "statement": "(4 ^ 3 = 64) ∧ (20 + 1 = 21) ∧ (64 > 21)",
+  "tactic": "decide",
+  "keys": [
+    "genetic_code_twenty_one_amino_acids"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

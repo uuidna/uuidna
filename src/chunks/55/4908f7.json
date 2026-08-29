@@ -1,0 +1,12 @@
+{
+  "handle": "554908f7",
+  "address": "554908f7-6688-8810-bdf0-fab421734eb2",
+  "statement": "8000 / 2 + 8000 / 4 + 8000 / 8 = 7000 ∧ 7000 + 8000 / 8 = 8000 ∧ 8000 ≤ 8000",
+  "tactic": "decide",
+  "keys": [
+    "mix_budget_closes"
+  ],
+  "files": [
+    "Readings.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "beaeb670",
+  "address": "beaeb670-e6d1-8720-b996-c236002e0c9a",
+  "statement": "(1 + 10 / 10 = 2) ∧ (1 + 30 / 10 = 4) ∧ (4 = 2 ^ 2) ∧ (1 + 70 / 10 = 8) ∧ (8 = 2 ^ 3)",
+  "tactic": "decide",
+  "keys": [
+    "pressure_doubles_down_the_octave"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

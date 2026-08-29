@@ -1,0 +1,12 @@
+{
+  "handle": "38d7fa74",
+  "address": "38d7fa74-63a5-89b5-836b-f58de7157e88",
+  "statement": "(4 * 4 = 16) ∧ ((16:Nat)^4 = 65536) ∧ ((2:Nat)^16 = 65536)",
+  "tactic": "decide",
+  "keys": [
+    "message_cap_is_four_hexbits"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

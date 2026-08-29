@@ -1,0 +1,12 @@
+{
+  "handle": "1c33739b",
+  "address": "1c33739b-1cac-8dd3-9624-f8349a649049",
+  "statement": "((List.range 16).all (fun t => t % 6 < 6)) ∧ ((List.range 6).all (fun d => (List.range 16).any (fun t => t % 6 == d))) ∧ (((List.range 6).map (fun d => ((List.range 16).filter (fun t => t % 6 == d)).length)) = [3,3,3,3,2,2]) ∧ (16 % 6 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "door_of_the_referrer"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

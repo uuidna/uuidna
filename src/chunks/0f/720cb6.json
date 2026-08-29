@@ -1,0 +1,12 @@
+{
+  "handle": "0f720cb6",
+  "address": "0f720cb6-0bee-873e-9cad-3926bbf42d19",
+  "statement": "((List.range' 1 9).map (fun n => 432 * n)) = [432,864,1296,1728,2160,2592,3024,3456,3888]",
+  "tactic": "decide",
+  "keys": [
+    "song_scale_is_glagolitic"
+  ],
+  "files": [
+    "Song.lean"
+  ]
+}

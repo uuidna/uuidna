@@ -1,0 +1,12 @@
+{
+  "handle": "29cc5bc9",
+  "address": "29cc5bc9-e3ac-8e59-85d6-8a23e32ea98e",
+  "statement": "(nthS installNames 0 = \"alpine-base\") ∧ (nthS installRoutes 0 = \"/\") ∧ ((installEdges.filter (fun e => e.1 == 0)).length = 10)",
+  "tactic": "decide",
+  "keys": [
+    "home_is_the_meta_package"
+  ],
+  "files": [
+    "Installs.lean"
+  ]
+}

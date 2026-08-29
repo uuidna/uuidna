@@ -1,0 +1,12 @@
+{
+  "handle": "b207512a",
+  "address": "b207512a-e106-83aa-8dec-dcfa050fcffb",
+  "statement": "((List.range 2).all (fun b => (1 - (1 - b) == b) && (1 - b != b))) ∧ ((List.range 2).all (fun b => (b == 1) == (1 - b == 0)))",
+  "tactic": "decide",
+  "keys": [
+    "negation_involution_solves"
+  ],
+  "files": [
+    "Negation.lean"
+  ]
+}

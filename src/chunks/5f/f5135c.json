@@ -1,0 +1,12 @@
+{
+  "handle": "5ff5135c",
+  "address": "5ff5135c-3669-8295-8528-4117400f67c4",
+  "statement": "((List.range 14).all (fun a => (Nat.gcd a 14 != 1) || (a ^ 6 % 14 == 1))) ∧ ((List.range 14).any (fun a => (Nat.gcd a 14 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 14 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_14_is_6"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2289364a",
+  "address": "2289364a-b8bc-8108-ba2b-698bd0baab2d",
+  "statement": "(1 + 1 = 2) ∧ ((List.range' 1 12).all (fun n => 2 * n >= n + 1)) ∧ ((List.range' 1 12).all (fun n => ((2 * n) == (n + 1)) == (n == 1)))",
+  "tactic": "decide",
+  "keys": [
+    "two_coins_are_switch_and_track"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

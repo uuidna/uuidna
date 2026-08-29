@@ -1,0 +1,12 @@
+{
+  "handle": "3286c9d4",
+  "address": "3286c9d4-be7c-8fb3-9507-167db4c2de1e",
+  "statement": "(8 * 8 * 2 = 128) ∧ (8 * 8 = 64) ∧ (64 * 2 = 128) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32)",
+  "tactic": "decide",
+  "keys": [
+    "the_uuid_is_two_boards"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

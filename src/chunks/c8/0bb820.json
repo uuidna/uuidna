@@ -1,0 +1,12 @@
+{
+  "handle": "c80bb820",
+  "address": "c80bb820-4c01-8a75-b372-bbd3efbacdf0",
+  "statement": "((List.range 48).filter (fun x => x ^ 48 % 48 == x)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_48_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

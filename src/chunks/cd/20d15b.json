@@ -1,0 +1,12 @@
+{
+  "handle": "cd20d15b",
+  "address": "cd20d15b-ffd1-8abe-b63c-e6536ddeb8bf",
+  "statement": "((([(0,0),(0,1),(1,0),(1,1)] : List (Nat × Nat)).filter (fun p => p.1 * p.2 == 1)).length = 1) ∧ (4 - 1 = 3) ∧ (3 > 0)",
+  "tactic": "decide",
+  "keys": [
+    "silence_never_refutes"
+  ],
+  "files": [
+    "Negation.lean"
+  ]
+}

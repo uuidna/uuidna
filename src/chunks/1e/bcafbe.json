@@ -1,0 +1,12 @@
+{
+  "handle": "1ebcafbe",
+  "address": "1ebcafbe-f244-8e4d-a8c2-5aa9adacb1bd",
+  "statement": "(4 * 252 = 1008) ∧ (1008 = 16 * 63)",
+  "tactic": "decide",
+  "keys": [
+    "four_movements_are_the_tongues"
+  ],
+  "files": [
+    "Symphony.lean"
+  ]
+}

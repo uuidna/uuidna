@@ -1,0 +1,12 @@
+{
+  "handle": "6d61caeb",
+  "address": "6d61caeb-fa09-84ab-ba80-522022fe7c67",
+  "statement": "((List.range 28).filter (fun x => (x * x) % 28 == x)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "idempotents_mod_28_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "64469959",
+  "address": "64469959-0259-81d2-ae01-d096aa2d86c3",
+  "statement": "((List.range 8).filter (fun x => x ^ 8 % 8 == 0)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_8_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

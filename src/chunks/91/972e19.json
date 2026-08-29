@@ -1,0 +1,12 @@
+{
+  "handle": "91972e19",
+  "address": "91972e19-6c3f-84ca-bf25-20bfb621d69d",
+  "statement": "(1 + 40 / 10 = 5) ∧ (1 + 100 / 10 = 11) ∧ (1 + 700 / 10 = 71)",
+  "tactic": "decide",
+  "keys": [
+    "pressure_ladder"
+  ],
+  "files": [
+    "Doctrine.lean"
+  ]
+}

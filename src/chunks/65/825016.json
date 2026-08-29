@@ -1,0 +1,12 @@
+{
+  "handle": "65825016",
+  "address": "65825016-ee76-8937-be99-a99086ca70d1",
+  "statement": "((1 + 1)^2 = 4) ∧ ((1 - 1)^2 = 0) ∧ (((1 : Int) + 0)^2 + ((0 : Int) + 1)^2 = 2) ∧ (((1 : Int) - 0)^2 + ((0 : Int) - 1)^2 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "hexbit_slit_visibility"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

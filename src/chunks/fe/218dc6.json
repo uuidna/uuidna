@@ -1,0 +1,12 @@
+{
+  "handle": "fe218dc6",
+  "address": "fe218dc6-96d4-82d3-a299-313cfcd770c9",
+  "statement": "(((List.range 12).map (fun x => (x * x) % 12)).eraseDups).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "squares_mod_12_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

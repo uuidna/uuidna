@@ -1,0 +1,12 @@
+{
+  "handle": "1479da27",
+  "address": "1479da27-4816-87d3-8301-ef13ecab03ca",
+  "statement": "((List.range 81).all (fun v => (([v % 3, v / 3 % 3, v / 9 % 3, v / 27 % 3].eraseDups).length ≤ 3))) ∧ (16 ^ 8 = 4294967296)",
+  "tactic": "decide",
+  "keys": [
+    "pilgrims_walk_must_cycle"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

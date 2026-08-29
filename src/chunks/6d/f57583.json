@@ -1,0 +1,12 @@
+{
+  "handle": "6df57583",
+  "address": "6df57583-1375-85d8-8895-0b03676d7f99",
+  "statement": "17 * 19 = 323",
+  "tactic": "decide",
+  "keys": [
+    "cron_judges_by_itself"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

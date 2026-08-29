@@ -1,0 +1,12 @@
+{
+  "handle": "07d01838",
+  "address": "07d01838-a520-8dee-805e-69c6e2575230",
+  "statement": "((List.range 17).all (fun h => (4 * h <= 53) == (h <= 13))) ∧ (13 * 4 = 52) ∧ (14 * 4 = 56)",
+  "tactic": "decide",
+  "keys": [
+    "safe_width_is_thirteen_hexbits"
+  ],
+  "files": [
+    "Coins.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "91b30c35",
+  "address": "91b30c35-7e6d-8194-8a55-3585d5097314",
+  "statement": "(((List.range 34).map (fun x => (x * x * x) % 34)).eraseDups).length = 34",
+  "tactic": "decide",
+  "keys": [
+    "cubes_mod_34_number_34"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "40dd570b",
+  "address": "40dd570b-a762-87d7-9fab-bd4f167775db",
+  "statement": "(21 = 3 * 7) ∧ (21 * 2 = 42) ∧ (35 = 5 * 7)",
+  "tactic": "decide",
+  "keys": [
+    "b2_is_trinity_rosette"
+  ],
+  "files": [
+    "Torus.lean"
+  ]
+}

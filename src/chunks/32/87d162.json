@@ -1,0 +1,12 @@
+{
+  "handle": "3287d162",
+  "address": "3287d162-22fb-81ce-a83d-478511fbe51b",
+  "statement": "((List.range 16).all (fun x => 0 * x == 0)) ∧ ((List.range 16).all (fun b => (List.range 16).all (fun c => (0 * c == b * 0) == (b * 0 == 0)))) ∧ (0 * 15 = 0 * 1)",
+  "tactic": "decide",
+  "keys": [
+    "the_void_tile_cannot_cross"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

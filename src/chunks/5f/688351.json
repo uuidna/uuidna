@@ -1,0 +1,12 @@
+{
+  "handle": "5f688351",
+  "address": "5f688351-cb63-8ee4-a14a-bf6ea351978e",
+  "statement": "(((List.range 35).filter (fun a => Nat.gcd a 35 == 1)).foldl (fun acc a => (acc + a) % 35) 0) = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_mod_35_is_0"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

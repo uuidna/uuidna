@@ -1,0 +1,12 @@
+{
+  "handle": "4e7578ca",
+  "address": "4e7578ca-779f-841a-9540-a528967f9415",
+  "statement": "((List.range 39).filter (fun x => x ^ 39 % 39 == x)).length = 9",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_39_number_9"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

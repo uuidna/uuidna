@@ -1,0 +1,12 @@
+{
+  "handle": "7f25e15c",
+  "address": "7f25e15c-a110-8ffb-adf6-4f2bb2ea7f90",
+  "statement": "(2^6 % 21 = 1) ∧ ((List.range' 1 5).all (fun k => 2^k % 21 != 1))",
+  "tactic": "decide",
+  "keys": [
+    "order_of_two_mod_21_is_6"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

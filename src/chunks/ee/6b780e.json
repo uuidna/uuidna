@@ -1,0 +1,12 @@
+{
+  "handle": "ee6b780e",
+  "address": "ee6b780e-aed1-8b11-b423-0f21a9ce5eae",
+  "statement": "((List.range 10).filter (fun x => x ^ 10 % 10 == 0)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_10_number_1"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

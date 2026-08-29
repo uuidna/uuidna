@@ -1,0 +1,12 @@
+{
+  "handle": "3804063d",
+  "address": "3804063d-d027-88f4-a21f-04cae38641cf",
+  "statement": "(10 * 11 / 2 = 55) ∧ (2 * 3^3 = 54)",
+  "tactic": "decide",
+  "keys": [
+    "the_rate_is_triangle_over_group"
+  ],
+  "files": [
+    "Billing.lean"
+  ]
+}

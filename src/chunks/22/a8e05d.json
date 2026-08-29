@@ -1,0 +1,12 @@
+{
+  "handle": "22a8e05d",
+  "address": "22a8e05d-8475-8b97-a83f-2b7cdd7d793f",
+  "statement": "((List.range 50).filter (fun x => x ^ 50 % 50 == 0)).length = 5",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_50_number_5"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

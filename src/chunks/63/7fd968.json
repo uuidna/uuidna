@@ -1,0 +1,12 @@
+{
+  "handle": "637fd968",
+  "address": "637fd968-f047-856d-b763-87396af7e6ef",
+  "statement": "((List.range 8).all (fun r => (List.range 32).all (fun k => ((((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16) % 16) * 16 + (((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16) / 16 = r * 32 + k))) ∧ ((((List.range 8).map (fun r => ((List.range 32).filter (fun k => ((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16 == r * 32 + k)).length)).sum) = 16) ∧ ((List.range 16).all (fun h => (h * 17 % 16) * 16 + (h * 17) / 16 = h * 17))",
+  "tactic": "decide",
+  "keys": [
+    "states_are_the_swap_fixed_bytes"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

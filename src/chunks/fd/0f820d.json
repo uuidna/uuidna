@@ -1,0 +1,12 @@
+{
+  "handle": "fd0f820d",
+  "address": "fd0f820d-22c1-8129-8631-c90054e91c3a",
+  "statement": "((List.range 20).filter (fun x => (x * x) % 20 == 1)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_20_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

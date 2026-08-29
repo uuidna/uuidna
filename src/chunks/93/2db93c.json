@@ -1,0 +1,12 @@
+{
+  "handle": "932db93c",
+  "address": "932db93c-dea6-877f-8767-d331d40cd4c1",
+  "statement": "(((List.range 6).filter (fun a => Nat.gcd a 6 == 1)).foldl (fun acc a => (acc + a) % 6) 0) = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_mod_6_is_0"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

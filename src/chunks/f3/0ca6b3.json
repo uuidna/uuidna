@@ -1,0 +1,12 @@
+{
+  "handle": "f30ca6b3",
+  "address": "f30ca6b3-23d0-86d3-a92b-395f7f4ae8be",
+  "statement": "(16 * 252 = 24 * 168) ∧ (16 * 504 = 48 * 168) ∧ (16 * 126 = 12 * 168)",
+  "tactic": "decide",
+  "keys": [
+    "the_tempi_tile_the_film"
+  ],
+  "files": [
+    "Symphony.lean"
+  ]
+}

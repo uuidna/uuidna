@@ -1,0 +1,12 @@
+{
+  "handle": "df3fe600",
+  "address": "df3fe600-949d-80c5-8897-0e5f38c4972e",
+  "statement": "2 * 3 = 6",
+  "tactic": "decide",
+  "keys": [
+    "hextorus_is_coins_times_trinity"
+  ],
+  "files": [
+    "Torus.lean"
+  ]
+}

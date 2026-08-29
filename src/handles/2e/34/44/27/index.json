@@ -1,0 +1,12 @@
+{
+  "handle": "2e344427",
+  "address": "2e344427-13c3-8b90-b805-6017a1c634ba",
+  "kind": "chunk",
+  "keys": [
+    "twelve_points_is_135"
+  ],
+  "statement": "(12 * 360 = 32 * 135) ∧ (12 * 360 = 4320)",
+  "files": [
+    "Sailing.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "84522c5d",
+  "address": "84522c5d-523c-8ba5-b821-be8a7fe65b09",
+  "statement": "(dz 9 = 1) ∧ (9 ≠ 0) ∧ (9 > 5) ∧ (dz 0 = 0) ∧ (dz 5 = 5)",
+  "tactic": "decide",
+  "keys": [
+    "nine_is_plus_not_neutral"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

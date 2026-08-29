@@ -1,0 +1,12 @@
+{
+  "handle": "448a445a",
+  "address": "448a445a-1fc7-899b-8dfb-6ac319005b2c",
+  "statement": "((List.range 9).all (fun code => let net : List (Nat × Nat) := [(([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code % 3)).headD (0, 0), (([(0, 1), (0, 2), (1, 2)] : List (Nat × Nat)).drop (code / 3 % 3)).headD (0, 0)]; !((List.range 8).all (fun m => let s := net.foldl (fun (t : List Nat) (c : Nat × Nat) => let a := (t.drop c.1).headD 0; let b := (t.drop c.2).headD 0; (List.range 3).map (fun k => if k == c.1 then (if a ≤ b then a else b) else if k == c.2 then (if a ≤ b then b else a) else (t.drop k).headD 0)) [m % 2, m / 2 % 2, m / 4 % 2]; (List.range 2).all (fun k => decide ((s.drop k).headD 0 ≤ (s.drop (k + 1)).headD 0))))) = true) ∧ ((List.range 8).all (fun m => let s := ([(0, 1), (1, 2), (0, 1)] : List (Nat × Nat)).foldl (fun (t : List Nat) (c : Nat × Nat) => let a := (t.drop c.1).headD 0; let b := (t.drop c.2).headD 0; (List.range 3).map (fun k => if k == c.1 then (if a ≤ b then a else b) else if k == c.2 then (if a ≤ b then b else a) else (t.drop k).headD 0)) [m % 2, m / 2 % 2, m / 4 % 2]; (List.range 2).all (fun k => decide ((s.drop k).headD 0 ≤ (s.drop (k + 1)).headD 0))) = true) ∧ ((List.range 27).all (fun m => let s := ([(0, 1), (1, 2), (0, 1)] : List (Nat × Nat)).foldl (fun (t : List Nat) (c : Nat × Nat) => let a := (t.drop c.1).headD 0; let b := (t.drop c.2).headD 0; (List.range 3).map (fun k => if k == c.1 then (if a ≤ b then a else b) else if k == c.2 then (if a ≤ b then b else a) else (t.drop k).headD 0)) [m % 3, m / 3 % 3, m / 9 % 3]; (List.range 2).all (fun k => decide ((s.drop k).headD 0 ≤ (s.drop (k + 1)).headD 0))) = true)",
+  "tactic": "decide",
+  "keys": [
+    "three_wire_sorting_needs_three_comparators"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

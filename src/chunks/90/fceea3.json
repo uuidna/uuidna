@@ -1,0 +1,12 @@
+{
+  "handle": "90fceea3",
+  "address": "90fceea3-72ec-8332-9e62-313dd3b5262a",
+  "statement": "((List.range 12).filter (fun x => x ^ 12 % 12 == 0)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_12_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

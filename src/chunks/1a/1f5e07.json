@@ -1,0 +1,12 @@
+{
+  "handle": "1a1f5e07",
+  "address": "1a1f5e07-7fe2-82b7-981f-5ea2f9916667",
+  "statement": "((List.range 6).all (fun a => (Nat.gcd a 6 != 1) || (a ^ 2 % 6 == 1))) ∧ ((List.range 6).any (fun a => (Nat.gcd a 6 == 1) && ((List.range' 1 1).all (fun k => a ^ k % 6 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_6_is_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

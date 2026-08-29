@@ -1,0 +1,12 @@
+{
+  "handle": "f2a79167",
+  "address": "f2a79167-83ae-84ed-9bc9-cb6046aeebae",
+  "statement": "(List.Pairwise (· < ·) [1818, 1874, 1945]) ∧ (1874 - 1818 = 56)",
+  "tactic": "decide",
+  "keys": [
+    "time_lock_removes_the_hostage"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2bc2f4fa",
+  "address": "2bc2f4fa-fec9-836d-8754-eb68d48a9fbb",
+  "statement": "((List.range 8).all (fun f => (List.range 3).any (fun i => (List.range 3).any (fun j => i < j && (f / 2^i % 2 == f / 2^j % 2))))) ∧ ((List.range 27).any (fun g => (List.range 3).all (fun i => (List.range 3).all (fun j => i == j || !(g / 3^i % 3 == g / 3^j % 3)))))",
+  "tactic": "decide",
+  "keys": [
+    "no_instrument_narrower_than_its_question"
+  ],
+  "files": [
+    "Negation.lean"
+  ]
+}

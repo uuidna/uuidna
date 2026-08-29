@@ -1,0 +1,12 @@
+{
+  "handle": "3e47c422",
+  "address": "3e47c422-43f1-8004-bbbe-d6160c5045ab",
+  "statement": "(List.map (fun x => (x + 1) % 2) (List.map (fun x => (x + 1) % 2) [0, 1, 0, 1]) = [0, 1, 0, 1]) ∧ (7 % 2 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "lights_out_flip_involution"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

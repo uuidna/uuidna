@@ -1,0 +1,12 @@
+{
+  "handle": "e6d48747",
+  "address": "e6d48747-be3c-8d44-acf3-86f5bf018ba3",
+  "statement": "((List.range 21).filter (fun x => x ^ 21 % 21 == 0)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_21_number_1"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

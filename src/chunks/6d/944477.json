@@ -1,0 +1,12 @@
+{
+  "handle": "6d944477",
+  "address": "6d944477-e07f-8ad1-9ba1-3bc9932ac76e",
+  "statement": "5 * 4 * 3 * 2 * 1 = 120",
+  "tactic": "decide",
+  "keys": [
+    "sbox_z5_permutation_count"
+  ],
+  "files": [
+    "Cipher.lean"
+  ]
+}

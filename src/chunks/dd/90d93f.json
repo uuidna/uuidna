@@ -1,0 +1,12 @@
+{
+  "handle": "dd90d93f",
+  "address": "dd90d93f-53a6-890e-b36b-c24a9b26486f",
+  "statement": "((List.range' 1 9).all (fun d => 9 - (9 - d) == d)) ∧ (142857 + 857142 = 999999) ∧ ((3^3) % 7 = 6)",
+  "tactic": "decide",
+  "keys": [
+    "development_is_the_complement"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

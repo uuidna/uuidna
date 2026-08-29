@@ -1,0 +1,12 @@
+{
+  "handle": "fa0af192",
+  "address": "fa0af192-5f18-84e8-af6c-e94a2fb4f73f",
+  "statement": "(1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "hexbit_slit_cross_is_overlap"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

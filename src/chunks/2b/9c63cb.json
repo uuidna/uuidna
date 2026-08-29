@@ -1,0 +1,12 @@
+{
+  "handle": "2b9c63cb",
+  "address": "2b9c63cb-5795-8fd4-808d-630a9fe3c12b",
+  "statement": "(8 * 41 = 328) ∧ (4 % 9 = 4) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+  "tactic": "decide",
+  "keys": [
+    "fold_weak_hash"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

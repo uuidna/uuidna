@@ -1,0 +1,12 @@
+{
+  "handle": "df713ba2",
+  "address": "df713ba2-e182-8b7f-98e5-dc6a599edd14",
+  "kind": "chunk",
+  "keys": [
+    "prose_audit_total"
+  ],
+  "statement": "(0 < 111) ∧ (0 < 3) ∧ (2098 = 2098 + 0)",
+  "files": [
+    "Audit.lean"
+  ]
+}

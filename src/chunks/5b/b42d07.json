@@ -1,0 +1,12 @@
+{
+  "handle": "5bb42d07",
+  "address": "5bb42d07-8ffe-8f55-97f9-fcea11a19dd6",
+  "statement": "(12 * 20 = 240) ∧ (20 * 5 = 100)",
+  "tactic": "decide",
+  "keys": [
+    "decimal_day_recoined_the_pound"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f6048470",
+  "address": "f6048470-7507-8322-8763-2bc322e2d0d3",
+  "statement": "((List.range 16).filter (fun x => (x * x) % 16 == x)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "idempotents_mod_16_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

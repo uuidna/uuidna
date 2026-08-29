@@ -1,0 +1,12 @@
+{
+  "handle": "41bd9d4d",
+  "address": "41bd9d4d-8ba2-859e-8eb0-f40faddf4856",
+  "statement": "(8 * 4 = 32) ∧ (16 ^ 8 = 4294967296) ∧ (2 ^ 32 = 4294967296) ∧ (32 * 4 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "universe_of_handles"
+  ],
+  "files": [
+    "Universe.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "95880365",
+  "address": "95880365-0a00-8077-adb1-74e52fc0175e",
+  "statement": "((List.range 14).filter (fun x => x ^ 14 % 14 == 0)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_14_number_1"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

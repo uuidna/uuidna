@@ -1,0 +1,12 @@
+{
+  "handle": "c3771858",
+  "address": "c3771858-4a7e-8ca2-ba5f-eab19982760c",
+  "statement": "142857 * 7 = 999999 ∧ 999999 = 999 * 1001 ∧ 999 = 3 ^ 3 * 37 ∧ 1001 = 7 * 11 * 13",
+  "tactic": "decide",
+  "keys": [
+    "anthem_pi_primes_trinity"
+  ],
+  "files": [
+    "Anthem.lean"
+  ]
+}

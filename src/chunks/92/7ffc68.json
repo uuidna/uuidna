@@ -1,0 +1,12 @@
+{
+  "handle": "927ffc68",
+  "address": "927ffc68-4326-84b9-829a-6a4386f38c86",
+  "statement": "((64 : Nat) / 8 = 8) ∧ (8 * 8 = 64) ∧ (64 = 2 ^ 6) ∧ (2 * 64 = 128) ∧ (2 * 8 = 16) ∧ ((128 : Nat) / 8 = 16)",
+  "tactic": "decide",
+  "keys": [
+    "a_handle_is_eight_pairs_paid_it_is_sixteen"
+  ],
+  "files": [
+    "Models.lean"
+  ]
+}

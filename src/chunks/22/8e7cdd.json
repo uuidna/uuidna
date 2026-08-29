@@ -1,0 +1,12 @@
+{
+  "handle": "228e7cdd",
+  "address": "228e7cdd-b082-8de8-b033-3850c7803688",
+  "statement": "(((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 4))).length = 8) ∧ (((List.range 16).filter (fun k => ((1 + (-1:Int)^k)^2 == 0))).length = 8) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = 32) ∧ (2 * 16 = 32)",
+  "tactic": "decide",
+  "keys": [
+    "slit_on_the_hexbit_ring"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "8fc75b00",
+  "address": "8fc75b00-c629-8ae5-bf55-a7b78b134a53",
+  "statement": "((List.range 7).filter (fun x => (x * x) % 7 == 1)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_7_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "379f19fc",
+  "address": "379f19fc-6a7a-82c4-ae49-df93218c8ad9",
+  "statement": "((List.range 13).all (fun k => 30 * k < 390)) ∧ (30 * 13 = 390) ∧ (30 * 10 = 300)",
+  "tactic": "decide",
+  "keys": [
+    "monero_cpu_breakeven_is_thirteen_kilohash"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

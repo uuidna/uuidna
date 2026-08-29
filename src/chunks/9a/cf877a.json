@@ -1,0 +1,12 @@
+{
+  "handle": "9acf877a",
+  "address": "9acf877a-f073-84a7-9b7c-bb6f4b10df02",
+  "statement": "(32 * 4 = 128) ∧ (16 = 2 ^ 4) ∧ ((128 : Nat) / 4 = 32)",
+  "tactic": "decide",
+  "keys": [
+    "a_spec_compiles_to_hexbits"
+  ],
+  "files": [
+    "Installs.lean"
+  ]
+}

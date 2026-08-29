@@ -1,0 +1,12 @@
+{
+  "handle": "6a57431d",
+  "address": "6a57431d-8f9f-8c61-ba6d-7fc1ebb81130",
+  "statement": "(List.range' 1 24).all (fun n => (List.range' 1 n).all (fun s => (((List.range' 1 n).filter (fun k => (k * s) % n == 0)).head? == some (n / Nat.gcd s n)) && (((n / Nat.gcd s n) * s) % n == 0)))",
+  "tactic": "decide",
+  "keys": [
+    "stride_first_return_is_the_cycle_length"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

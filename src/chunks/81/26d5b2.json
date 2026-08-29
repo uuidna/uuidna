@@ -1,0 +1,12 @@
+{
+  "handle": "8126d5b2",
+  "address": "8126d5b2-00f8-8830-bb09-bfb7e3f99ee0",
+  "statement": "((List.range' 1 12).all (fun n => n + 1 <= 2 * n)) ∧ ((List.range' 1 12).all (fun n => ((n + 1) == 2 * n) == (n == 1))) ∧ (3 + 1 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "a_chain_shares_its_gateway_ends"
+  ],
+  "files": [
+    "DivByZero.lean"
+  ]
+}

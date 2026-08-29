@@ -1,0 +1,12 @@
+{
+  "handle": "a723b128",
+  "address": "a723b128-1481-81a0-bd46-c088aabd0a93",
+  "statement": "(((List.range 7).map (fun x => (x * x * x) % 7)).eraseDups).length = 3",
+  "tactic": "decide",
+  "keys": [
+    "cubes_mod_7_number_3"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

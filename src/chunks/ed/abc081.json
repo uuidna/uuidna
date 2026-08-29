@@ -1,0 +1,12 @@
+{
+  "handle": "edabc081",
+  "address": "edabc081-e4b2-838a-a9af-248ca935d603",
+  "statement": "252 / 2 = 126 ∧ 126 * 2 = 252",
+  "tactic": "decide",
+  "keys": [
+    "anthem_chord_halves_the_bar"
+  ],
+  "files": [
+    "Anthem.lean"
+  ]
+}

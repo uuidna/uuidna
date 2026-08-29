@@ -1,0 +1,12 @@
+{
+  "handle": "5d40fe7e",
+  "address": "5d40fe7e-a4df-884d-a844-511ecb7101e0",
+  "statement": "(1 + 45 + 210 + 210 + 45 + 1 = 512) ∧ (10 + 120 + 252 + 120 + 10 = 512) ∧ (512 + 512 = 1024)",
+  "tactic": "decide",
+  "keys": [
+    "uuid_mix_census_halves"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

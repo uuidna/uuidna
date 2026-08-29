@@ -1,0 +1,12 @@
+{
+  "handle": "11939d40",
+  "address": "11939d40-3bc1-8dbc-86ca-a667b946f88b",
+  "statement": "(((List.range 33).map (fun x => (x * x) % 33)).eraseDups).length = 12",
+  "tactic": "decide",
+  "keys": [
+    "squares_mod_33_number_12"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

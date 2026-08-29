@@ -1,0 +1,12 @@
+{
+  "handle": "1406e50b",
+  "address": "1406e50b-4295-8683-9229-470cb40b573f",
+  "statement": "(14 * 10 = 140) ∧ (154 = 11 * 14)",
+  "tactic": "decide",
+  "keys": [
+    "literature_sonnet_measure"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

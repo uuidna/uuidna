@@ -1,0 +1,12 @@
+{
+  "handle": "0a6ead47",
+  "address": "0a6ead47-cffe-8230-b278-b27160d4af1c",
+  "statement": "(2 * 3 + 1 = 7) ∧ (3 < 7)",
+  "tactic": "decide",
+  "keys": [
+    "art_spectrum_and_primaries"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

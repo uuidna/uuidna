@@ -1,0 +1,12 @@
+{
+  "handle": "6ce11318",
+  "address": "6ce11318-2351-86c4-870e-a152018d6ec7",
+  "statement": "(24 * 60 + 50 = 1490) ∧ (1490 / 2 = 745) ∧ (12 * 60 + 25 = 745)",
+  "tactic": "decide",
+  "keys": [
+    "tides_two_bulges"
+  ],
+  "files": [
+    "Universe.lean"
+  ]
+}

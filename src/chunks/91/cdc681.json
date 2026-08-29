@@ -1,0 +1,12 @@
+{
+  "handle": "91cdc681",
+  "address": "91cdc681-c626-81f6-9a4e-36287c92de4d",
+  "statement": "11 * 13 = 143",
+  "tactic": "decide",
+  "keys": [
+    "wave_probe_eleven_thirteens"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

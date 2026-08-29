@@ -1,0 +1,12 @@
+{
+  "handle": "13f9a351",
+  "address": "13f9a351-e62a-8418-a4dc-2f8209d61c6e",
+  "statement": "(55^38 > 2 * 54^38) ∧ (55^37 < 2 * 54^37)",
+  "tactic": "decide",
+  "keys": [
+    "advantage_first_doubles_at_seal_38"
+  ],
+  "files": [
+    "Billing.lean"
+  ]
+}

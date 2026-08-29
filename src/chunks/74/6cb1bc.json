@@ -1,0 +1,12 @@
+{
+  "handle": "746cb1bc",
+  "address": "746cb1bc-3d40-87dc-a0a4-e7ba472ed12b",
+  "statement": "(List.range 16).all (fun a => (List.range 16).all (fun b => (a == b) == (a - b == 0 && b - a == 0)))",
+  "tactic": "decide",
+  "keys": [
+    "unison_is_collision"
+  ],
+  "files": [
+    "Strings.lean"
+  ]
+}

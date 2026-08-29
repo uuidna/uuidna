@@ -1,0 +1,12 @@
+{
+  "handle": "f8d79001",
+  "address": "f8d79001-eed2-8abd-8a55-f6b84f043795",
+  "statement": "((List.range' 1 16).filter (fun k => 16 % k == 0)).length = 5",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_16_number_5"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

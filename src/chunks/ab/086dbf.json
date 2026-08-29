@@ -1,0 +1,12 @@
+{
+  "handle": "ab086dbf",
+  "address": "ab086dbf-0273-8570-bc2d-602f2e7610b5",
+  "statement": "10 ^ 14 < 2 ^ 128",
+  "tactic": "decide",
+  "keys": [
+    "combinatorial_book_fits_the_uuid"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

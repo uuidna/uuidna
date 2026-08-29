@@ -1,0 +1,12 @@
+{
+  "handle": "49dacf91",
+  "address": "49dacf91-c5c5-8b22-a9e4-7922d7853668",
+  "statement": "([\"zéro\",\"un\",\"deux\",\"trois\",\"quatre\",\"cinq\",\"six\",\"sept\",\"huit\",\"neuf\",\"dix\",\"onze\",\"douze\",\"treize\",\"quatorze\",\"quinze\"] : List String).length = 16 ∧ ([\"zéro\",\"un\",\"deux\",\"trois\",\"quatre\",\"cinq\",\"six\",\"sept\",\"huit\",\"neuf\",\"dix\",\"onze\",\"douze\",\"treize\",\"quatorze\",\"quinze\"] : List String).Nodup",
+  "tactic": "decide",
+  "keys": [
+    "readings_fr_names_sixteen"
+  ],
+  "files": [
+    "Readings.lean"
+  ]
+}

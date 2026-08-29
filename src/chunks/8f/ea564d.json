@@ -1,0 +1,12 @@
+{
+  "handle": "8fea564d",
+  "address": "8fea564d-13da-81ef-abcd-a0768f1f508e",
+  "statement": "((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)))).length = 24 ∧ ((List.range 5).map (fun k => ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).filter (fun x => c / 4 ^ x % 4 == x)).length == k)).length)) = [9, 8, 6, 0, 1] ∧ ((List.range 5).map (fun k => ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).filter (fun x => ((List.range 4).foldl (fun (p : Nat × Bool) _ => (c / 4 ^ p.1 % 4, p.2 && decide (x ≤ p.1))) (x, true)).2)).length == k)).length)) = [0, 6, 11, 6, 1] ∧ 0 * 9 + 1 * 8 + 2 * 6 + 3 * 0 + 4 * 1 = 24 ∧ 0 * 0 + 1 * 6 + 2 * 11 + 3 * 6 + 4 * 1 = 50 ∧ 9 + 8 + 6 + 0 + 1 = 24 ∧ 0 + 6 + 11 + 6 + 1 = 24",
+  "tactic": "decide",
+  "keys": [
+    "s4_fixed_point_and_cycle_census"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

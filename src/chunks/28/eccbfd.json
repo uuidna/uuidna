@@ -1,0 +1,12 @@
+{
+  "handle": "28eccbfd",
+  "address": "28eccbfd-6d23-8d77-88f6-51f47ee70ab3",
+  "statement": "28 * 365 + 7 = 10227 ∧ 10227 % 7 = 0 ∧ 4 * 365 + 1 = 1461 ∧ 1461 % 7 = 5",
+  "tactic": "decide",
+  "keys": [
+    "julian_cycle_closes_at_twenty_eight"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

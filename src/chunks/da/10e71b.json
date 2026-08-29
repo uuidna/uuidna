@@ -1,0 +1,12 @@
+{
+  "handle": "da10e71b",
+  "address": "da10e71b-7e65-8b97-aab6-03bbc8eca68d",
+  "statement": "(110 - 108 = 2) ∧ (55 - 54 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "difference_mints_ratio_bills"
+  ],
+  "files": [
+    "Billing.lean"
+  ]
+}

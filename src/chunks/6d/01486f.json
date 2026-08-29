@@ -1,0 +1,12 @@
+{
+  "handle": "6d01486f",
+  "address": "6d01486f-3158-845e-b976-b4b2722c9de6",
+  "statement": "((List.range 32).all (fun i => (i + 1) * 4 ≤ 128)) ∧ (128 / 4 = 32) ∧ (32 * 4 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "every_string_has_thirty_two_modes"
+  ],
+  "files": [
+    "Strings.lean"
+  ]
+}

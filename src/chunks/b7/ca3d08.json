@@ -1,0 +1,12 @@
+{
+  "handle": "b7ca3d08",
+  "address": "b7ca3d08-9222-8b1b-9085-24aba2e0c10a",
+  "statement": "((List.range 40).filter (fun x => x ^ 40 % 40 == 0)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_40_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a218a11a",
+  "address": "a218a11a-54ef-8a48-b9aa-2b0f92cda380",
+  "statement": "(16 - 8 = 8) ∧ (640 = 10 * 64)",
+  "tactic": "decide",
+  "keys": [
+    "from_eight_bits_to_the_dos_ceiling"
+  ],
+  "files": [
+    "Pravets.lean"
+  ]
+}

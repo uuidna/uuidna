@@ -1,0 +1,12 @@
+{
+  "handle": "e737b86f",
+  "address": "e737b86f-fb99-8376-ac21-f775fab20a4f",
+  "statement": "(((List.range 16).filter (fun k => !(((1 + (-1:Int)^k)^2 == 4) || ((1 + (-1:Int)^k)^2 == 0)))).length = 0) ∧ (16 - 16 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "exhausted_denial_is_the_proof"
+  ],
+  "files": [
+    "Negation.lean"
+  ]
+}

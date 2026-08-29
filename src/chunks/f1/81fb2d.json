@@ -1,0 +1,12 @@
+{
+  "handle": "f181fb2d",
+  "address": "f181fb2d-b24c-8c1a-b0f8-1525a8eaab5d",
+  "statement": "((List.range 20).all (fun a => (Nat.gcd a 20 != 1) || (a ^ 4 % 20 == 1))) ∧ ((List.range 20).any (fun a => (Nat.gcd a 20 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 20 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_20_is_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

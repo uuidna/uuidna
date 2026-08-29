@@ -1,0 +1,12 @@
+{
+  "handle": "34034677",
+  "address": "34034677-8fcb-85f3-8957-727a137ffc8f",
+  "statement": "(List.range 32).all (fun v => ((List.range 32).filter (fun n => (((List.range 5).map (fun j => ((n / 2 ^ j + n / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) == v)).length == 1) ∧ (List.range 32).all (fun n => (((List.range 5).map (fun i => (((((List.range 5).map (fun j => if i ≤ j then (((((List.range 5).map (fun t => ((n / 2 ^ t + n / 2 ^ (t + 1)) % 2) * 2 ^ t)).foldl (· + ·) 0) / 2 ^ j) % 2) else 0)).foldl (· + ·) 0) % 2) * 2 ^ i))).foldl (· + ·) 0) == n)",
+  "tactic": "decide",
+  "keys": [
+    "gray_code_is_a_permutation_with_prefix_xor_inverse"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

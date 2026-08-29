@@ -1,0 +1,12 @@
+{
+  "handle": "f3ccbc69",
+  "address": "f3ccbc69-a721-8d02-8811-7e06203ae1b0",
+  "statement": "((List.range' 1 10).filter (fun k => 10 % k == 0)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_10_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

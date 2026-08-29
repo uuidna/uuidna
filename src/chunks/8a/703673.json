@@ -1,0 +1,12 @@
+{
+  "handle": "8a703673",
+  "address": "8a703673-8be9-84f8-ac0c-e689313bfdf5",
+  "statement": "(2^3 % 7 = 1) ∧ ((List.range' 1 2).all (fun k => 2^k % 7 != 1))",
+  "tactic": "decide",
+  "keys": [
+    "order_of_two_mod_7_is_3"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

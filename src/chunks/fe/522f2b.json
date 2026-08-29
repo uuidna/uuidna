@@ -4,7 +4,7 @@
   "statement": "(isSub [1]) ∧ (isSub units) ∧ (([1]:List Nat).length ≠ units.length)",
   "tactic": "decide",
   "keys": [
-    "trivial_and_whole_always_hold"
+    "trivial_and_whole_are_subgroups"
   ],
   "files": [
     "Subgroups.lean"

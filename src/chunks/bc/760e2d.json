@@ -1,0 +1,12 @@
+{
+  "handle": "bc760e2d",
+  "address": "bc760e2d-6d4b-8eed-93ba-ec8bdfa8a612",
+  "statement": "((List.range' 1 12).all (fun b => (List.range 20).all (fun a => ((a / b) * b) == (a - a % b)))) ∧ (1000 ≠ 0 * 0) ∧ (0 = 0 * 0)",
+  "tactic": "decide",
+  "keys": [
+    "the_cross_tells_a_ratio_from_a_convention"
+  ],
+  "files": [
+    "DivByZero.lean"
+  ]
+}

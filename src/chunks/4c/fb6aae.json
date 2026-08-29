@@ -1,0 +1,12 @@
+{
+  "handle": "4cfb6aae",
+  "address": "4cfb6aae-155c-80d4-a890-a5ee8c8e0318",
+  "statement": "((List.range 16).filter (fun x => (x * x) % 16 == 1)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_16_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

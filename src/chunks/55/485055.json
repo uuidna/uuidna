@@ -1,0 +1,12 @@
+{
+  "handle": "55485055",
+  "address": "55485055-04b3-8bab-86e3-41315591061f",
+  "statement": "(((List.range 27).map (fun x => (x * x * x) % 27)).eraseDups).length = 7",
+  "tactic": "decide",
+  "keys": [
+    "cubes_mod_27_number_7"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "83a9fef2",
+  "address": "83a9fef2-5672-8ebe-afe6-02c0fd544d42",
+  "statement": "(((List.range 48).filter (fun a => Nat.gcd a 48 == 1)).foldl (fun acc a => (acc + a) % 48) 0) = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_mod_48_is_0"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

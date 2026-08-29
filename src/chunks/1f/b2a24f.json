@@ -1,0 +1,12 @@
+{
+  "handle": "1fb2a24f",
+  "address": "1fb2a24f-3d06-8949-90bd-78d9938139cb",
+  "statement": "22 * 1000000 / 7 = 3142857",
+  "tactic": "decide",
+  "keys": [
+    "song_pi_roof_opens"
+  ],
+  "files": [
+    "Song.lean"
+  ]
+}

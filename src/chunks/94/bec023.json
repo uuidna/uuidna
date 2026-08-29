@@ -1,0 +1,12 @@
+{
+  "handle": "94bec023",
+  "address": "94bec023-1b2f-8d97-9994-7bbacfc5931f",
+  "statement": "(((List.range 34).filter (fun a => Nat.gcd a 34 == 1)).foldl (fun acc a => (acc + a) % 34) 0) = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_mod_34_is_0"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

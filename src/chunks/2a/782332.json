@@ -1,0 +1,12 @@
+{
+  "handle": "2a782332",
+  "address": "2a782332-1032-843c-b235-68e384593843",
+  "statement": "((List.range' 1 5).filter (fun k => 5 % k == 0)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_5_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

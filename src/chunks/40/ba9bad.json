@@ -1,0 +1,12 @@
+{
+  "handle": "40ba9bad",
+  "address": "40ba9bad-ac18-846a-bd39-ff8cd38b353b",
+  "statement": "((List.range' 1 33).filter (fun k => 33 % k == 0)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_33_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

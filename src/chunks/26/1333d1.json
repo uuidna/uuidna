@@ -1,0 +1,12 @@
+{
+  "handle": "261333d1",
+  "address": "261333d1-cd76-83d4-977f-8df610364c00",
+  "statement": "(1851 - 1784 = 67) ∧ (100 * 100 * 100 = 1000000) ∧ (15 < 30)",
+  "tactic": "decide",
+  "keys": [
+    "bramah_stood_sixty_seven_years"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

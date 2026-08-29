@@ -1,0 +1,12 @@
+{
+  "handle": "14edbee0",
+  "address": "14edbee0-db81-8a5b-9e35-07fb795f14cb",
+  "statement": "((List.range 44).all (fun a => (Nat.gcd a 44 != 1) || (a ^ 10 % 44 == 1))) ∧ ((List.range 44).any (fun a => (Nat.gcd a 44 == 1) && ((List.range' 1 9).all (fun k => a ^ k % 44 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_44_is_10"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

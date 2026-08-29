@@ -1,0 +1,12 @@
+{
+  "handle": "1028ebcd",
+  "address": "1028ebcd-a535-8217-bb4a-df13c2554740",
+  "statement": "(List.range 16).all (fun k => ((1 + (-1:Int)^k)^2 == (1 + (-1:Int)^((16 - k) % 16))^2))",
+  "tactic": "decide",
+  "keys": [
+    "fringe_pattern_reflects_dz"
+  ],
+  "files": [
+    "Hexbit.lean"
+  ]
+}

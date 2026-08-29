@@ -1,0 +1,12 @@
+{
+  "handle": "8e297552",
+  "address": "8e297552-dc88-8408-8896-909bc80b53ff",
+  "statement": "([31,28,31,30,31,30,31,31,30,31,30,31].filter (fun m => m % 7 == 0)).length = 1 ∧ 28 % 7 = 0 ∧ 30 % 7 = 2 ∧ 31 % 7 = 3",
+  "tactic": "decide",
+  "keys": [
+    "february_is_the_only_month_of_whole_weeks"
+  ],
+  "files": [
+    "Calendar.lean"
+  ]
+}

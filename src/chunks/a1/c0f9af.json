@@ -1,0 +1,12 @@
+{
+  "handle": "a1c0f9af",
+  "address": "a1c0f9af-bfb1-86fc-8ea4-9c3a82242c10",
+  "statement": "((List.range 15).filter (fun x => (x * x) % 15 == 1)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_15_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

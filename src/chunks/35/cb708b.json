@@ -1,0 +1,12 @@
+{
+  "handle": "35cb708b",
+  "address": "35cb708b-ee51-8207-863a-ad54a8602f8a",
+  "statement": "(10 % 7 = 3) ∧ (((List.range 6).map (fun d => (3^d) % 7)) = [1,3,2,6,4,5])",
+  "tactic": "decide",
+  "keys": [
+    "the_shift_is_the_trinity"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

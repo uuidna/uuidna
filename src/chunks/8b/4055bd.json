@@ -1,0 +1,12 @@
+{
+  "handle": "8b4055bd",
+  "address": "8b4055bd-727b-8fa4-815d-40631bfbcbc4",
+  "statement": "(List.range' 2 63).all (fun n => n % 2 == 0 || (3 ≤ n && (n - 3) % 2 == 0))",
+  "tactic": "decide",
+  "keys": [
+    "team_pairs_triples_cover"
+  ],
+  "files": [
+    "Doctrine.lean"
+  ]
+}

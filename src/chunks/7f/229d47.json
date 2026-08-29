@@ -1,0 +1,12 @@
+{
+  "handle": "7f229d47",
+  "address": "7f229d47-c5c4-8289-9772-dfd60a2c789a",
+  "statement": "((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 2 * q ^ 12))) ∧ ((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 31 ^ 12 * q ^ 12))) ∧ (31 ^ 12 = 31 ^ 12 * 1 ^ 12)",
+  "tactic": "decide",
+  "keys": [
+    "bounded_silence_is_not_evidence"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

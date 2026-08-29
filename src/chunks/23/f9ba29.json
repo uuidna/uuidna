@@ -1,0 +1,12 @@
+{
+  "handle": "23f9ba29",
+  "address": "23f9ba29-f9f4-810f-9fcc-def37b64d5c5",
+  "statement": "(100 - 97 = 3) ∧ (400 * 365 + 97 = 146097) ∧ (146097 = 7 * 20871)",
+  "tactic": "decide",
+  "keys": [
+    "gregorian_cycle_closes_on_the_week"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

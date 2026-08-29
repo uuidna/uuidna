@@ -1,0 +1,12 @@
+{
+  "handle": "4d474d9f",
+  "address": "4d474d9f-75dc-8ae8-bf44-20a1ddb1bfef",
+  "statement": "((List.range 7).filter (fun x => x ^ 7 % 7 == 0)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_7_number_1"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

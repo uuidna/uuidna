@@ -1482,8 +1482,8 @@ tacking_cancels_leeway 27
 precise_tacks_compound 27
 four_points_is_45 27
 eight_points_is_90 27
-twelve_points_is_135 19
-sixteen_points_is_180 19
+twelve_points_is_135 27
+sixteen_points_is_180 27
 #Sanitize.lean
 sanitize_max_depth_is_two_pow_five 27
 sanitize_max_string_is_ten_pow_six 27

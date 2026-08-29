@@ -1,0 +1,12 @@
+{
+  "handle": "2b34e58d",
+  "address": "2b34e58d-22ee-82aa-bee0-2a7891088a3b",
+  "statement": "(Nat.gcd 6 7 = 1) ∧ (Nat.gcd 6 9 = 3) ∧ ((List.range 7).map (fun k => (k * 6) % 7)).eraseDups.length = 7 ∧ ((List.range 9).map (fun k => (k * 6) % 9)).eraseDups.length = 3",
+  "tactic": "decide",
+  "keys": [
+    "hexagram_stride_totals_the_rosetta"
+  ],
+  "files": [
+    "Crt.lean"
+  ]
+}

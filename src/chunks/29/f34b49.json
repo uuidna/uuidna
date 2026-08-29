@@ -1,0 +1,12 @@
+{
+  "handle": "29f34b49",
+  "address": "29f34b49-f97e-8485-8a7a-7380bdc9ac06",
+  "statement": "((List.range 8).all (fun r => (List.range 32).all (fun k => (((r * 32 + k) % 16) * 16 + (r * 32 + k) / 16 == r * 32 + k) == ((r * 32 + k) % 17 == 0)))) ∧ (255 / 17 + 1 = 16) ∧ (15 * 17 = 255) ∧ (17 % 16 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "the_page_admits_sixteen"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "16cb67eb",
+  "address": "16cb67eb-4df6-8476-99f3-b00ef93890bb",
+  "statement": "(42 * 1000 + 195 = 42195) ∧ (11 * 2 = 22)",
+  "tactic": "decide",
+  "keys": [
+    "sport_marathon_and_the_teams"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

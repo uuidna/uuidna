@@ -1,17 +1,17 @@
 {
-  "key": "6fac2c2d-024f-8465-939a-a4434bb2becd",
+  "key": "ffe9016e-0c7d-865e-a1d0-d1448d23e24d",
   "publications": 115,
-  "sealedTheorems": 2137,
+  "sealedTheorems": 2148,
   "fabricated": 0,
   "uncited": 1,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2137,
-    "theorems": 2137,
+    "claims": 2148,
+    "theorems": 2148,
     "bijection": true,
     "digitalRoots": {
-      "claims": 4,
-      "theorems": 4,
+      "claims": 6,
+      "theorems": 6,
       "publications": 7
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -280,8 +280,8 @@
     },
     {
       "slug": "sailing",
-      "claims": 7,
-      "cited": 7,
+      "claims": 10,
+      "cited": 10,
       "uncited": [],
       "fabricated": []
     },
@@ -399,8 +399,8 @@
     },
     {
       "slug": "crt",
-      "claims": 8,
-      "cited": 8,
+      "claims": 10,
+      "cited": 10,
       "uncited": [],
       "fabricated": []
     },
@@ -588,8 +588,8 @@
     },
     {
       "slug": "wave",
-      "claims": 467,
-      "cited": 467,
+      "claims": 472,
+      "cited": 472,
       "uncited": [],
       "fabricated": []
     },
@@ -812,8 +812,8 @@
     },
     {
       "slug": "vector-equilibrium",
-      "claims": 17,
-      "cited": 17,
+      "claims": 18,
+      "cited": 18,
       "uncited": [],
       "fabricated": []
     },

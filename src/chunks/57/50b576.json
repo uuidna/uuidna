@@ -1,0 +1,12 @@
+{
+  "handle": "5750b576",
+  "address": "5750b576-be39-8eb0-94c2-7ce2d67d6d5c",
+  "statement": "((List.range 8).filter (fun x => x ^ 8 % 8 == x)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_8_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

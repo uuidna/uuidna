@@ -4,11 +4,9 @@
   "statement": "7 + 7 = 14",
   "tactic": "decide",
   "keys": [
-    "ph_plus_poh_14",
     "rook_open_board_fourteen"
   ],
   "files": [
-    "Chemistry.lean",
     "Chess.lean"
   ]
 }

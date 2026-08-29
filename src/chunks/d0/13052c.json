@@ -1,0 +1,12 @@
+{
+  "handle": "d013052c",
+  "address": "d013052c-f665-88e3-a937-62691759a911",
+  "statement": "10 ^ 14 > 16 ^ 8",
+  "tactic": "decide",
+  "keys": [
+    "combinatorial_book_exceeds_handles"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

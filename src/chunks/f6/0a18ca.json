@@ -1,0 +1,12 @@
+{
+  "handle": "f60a18ca",
+  "address": "f60a18ca-b80a-8bcc-b5fd-cb599a7ed04d",
+  "statement": "(((List.range 32).map (fun x => (x * x) % 32)).eraseDups).length = 7",
+  "tactic": "decide",
+  "keys": [
+    "squares_mod_32_number_7"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

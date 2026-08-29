@@ -1,0 +1,12 @@
+{
+  "handle": "d11108ab",
+  "address": "d11108ab-d079-893d-a010-4b4251280256",
+  "statement": "(List.range 32).all (fun n => (((List.range 5).map (fun i => (((((List.range 5).map (fun j => ((n / 2 ^ j + n / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) / 2 ^ i) + ((((List.range 5).map (fun j => ((((n + 1) % 32) / 2 ^ j + ((n + 1) % 32) / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) / 2 ^ i)) % 2)).foldl (· + ·) 0) == 1) ∧ (((List.range 32).filter (fun n => (((List.range 5).map (fun i => (n / 2 ^ i + ((n + 1) % 32) / 2 ^ i) % 2)).foldl (· + ·) 0) == 1)).length == 16)",
+  "tactic": "decide",
+  "keys": [
+    "gray_step_flips_one_bit_and_the_cycle_closes"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

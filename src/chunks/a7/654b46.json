@@ -1,0 +1,12 @@
+{
+  "handle": "a7654b46",
+  "address": "a7654b46-c2ba-866b-972a-1e7c93f1aeeb",
+  "statement": "((List.range 21).filter (fun x => x ^ 21 % 21 == x)).length = 9",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_21_number_9"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

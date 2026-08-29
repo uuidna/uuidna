@@ -1,0 +1,12 @@
+{
+  "handle": "b6ff91f2",
+  "address": "b6ff91f2-6bda-8b7c-8517-6c0142745331",
+  "statement": "((List.range 20).filter (fun x => x ^ 20 % 20 == 0)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_20_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

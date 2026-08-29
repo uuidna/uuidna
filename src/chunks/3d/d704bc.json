@@ -1,0 +1,12 @@
+{
+  "handle": "3dd704bc",
+  "address": "3dd704bc-af3f-8193-9cbc-4663a2fae6b4",
+  "statement": "((List.range' 1 40).filter (fun k => 40 % k == 0)).length = 8",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_40_number_8"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

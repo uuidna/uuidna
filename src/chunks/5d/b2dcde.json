@@ -1,0 +1,12 @@
+{
+  "handle": "5db2dcde",
+  "address": "5db2dcde-a20d-867e-9d6f-1d0c51f74591",
+  "statement": "1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 ∧ 8 * 2 = 16 ∧ 16 * 1 = 16",
+  "tactic": "decide",
+  "keys": [
+    "note_values_are_doublings"
+  ],
+  "files": [
+    "Readings.lean"
+  ]
+}

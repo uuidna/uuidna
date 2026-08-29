@@ -1,0 +1,12 @@
+{
+  "handle": "22f88c4e",
+  "address": "22f88c4e-1649-8c73-8a68-d35447d277dd",
+  "statement": "((List.range 8).all (fun h => (h + 1) * 2 ≤ 16)) ∧ 8 * 2 = 16",
+  "tactic": "decide",
+  "keys": [
+    "referrer_lower_octaves_on_lattice"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

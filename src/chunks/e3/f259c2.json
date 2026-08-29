@@ -1,0 +1,12 @@
+{
+  "handle": "e3f259c2",
+  "address": "e3f259c2-0217-8781-b131-a3ca6d8d8dd2",
+  "statement": "(((List.range 22).filter (fun a => Nat.gcd a 22 == 1)).foldl (fun acc a => (acc + a) % 22) 0) = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_mod_22_is_0"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

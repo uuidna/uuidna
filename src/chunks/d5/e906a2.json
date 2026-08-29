@@ -1,0 +1,12 @@
+{
+  "handle": "d5e906a2",
+  "address": "d5e906a2-d7d5-8a17-8db2-5ae3e1cc4135",
+  "statement": "(([1,2,3,4] ++ [0,5] ++ [6,7,8,9]).length = 10) ∧ ((List.range 10).all (fun d => ([1,2,3,4] ++ [0,5] ++ [6,7,8,9]).contains d)) ∧ ([1,2,3,4].all (fun d => !(([0,5] ++ [6,7,8,9]).contains d))) ∧ ([6,7,8,9].all (fun d => !(([0,5] ++ [1,2,3,4]).contains d))) ∧ ([0,5].all (fun d => !(([1,2,3,4] ++ [6,7,8,9]).contains d)))",
+  "tactic": "decide",
+  "keys": [
+    "digit_polarities_partition_ten"
+  ],
+  "files": [
+    "Sequence.lean"
+  ]
+}

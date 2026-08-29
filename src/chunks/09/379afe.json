@@ -1,0 +1,12 @@
+{
+  "handle": "09379afe",
+  "address": "09379afe-c0bd-87ca-aa9c-4e93030e54cf",
+  "statement": "((List.range' 1 48).filter (fun k => 48 % k == 0)).length = 10",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_48_number_10"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

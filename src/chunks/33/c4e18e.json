@@ -1,0 +1,12 @@
+{
+  "handle": "33c4e18e",
+  "address": "33c4e18e-26e9-81cc-93a6-4c2c8abba31c",
+  "statement": "(List.range 14).all (fun l => ((List.range 56).filter (fun i => i % 14 == l)).length == 4)",
+  "tactic": "decide",
+  "keys": [
+    "lanes_even_on_complete_system"
+  ],
+  "files": [
+    "Hardware.lean"
+  ]
+}

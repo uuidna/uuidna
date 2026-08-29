@@ -541,7 +541,7 @@ The quantum receipt: the order-INVARIANT merkle gravity of a set of addresses �
 
 ### `uuidna_merkle_proof`
 
-Holographic merkle proof on both doors: {leaves, index} → root, O(log N) path, verified. Same contract on npx uuidna-mcp and https://uuidna.com/mcp.
+Holographic merkle proof: {leaves, index} → verified root, O(log N), both doors.
 
 **Parameters**
 
@@ -552,7 +552,7 @@ Holographic merkle proof on both doors: {leaves, index} → root, O(log N) path,
 
 ### `uuidna_coins`
 
-Captain-coin issuance: coins() per sealed theorem, capped at quantum capacity × directed referrer combinations. Returns the live mint, remaining, and the cipher widths those coins occupy (one uuid of floor, two uuids of key). Same tool on npx uuidna-mcp and https://uuidna.com/mcp.
+Captain-coin mint: coins() per theorem, cap = capacity × combinations. Returns mint, remaining, cipher widths.
 
 _No parameters._
 
@@ -1076,7 +1076,7 @@ WHAT IS ABOUT TO BREAK — the five predictive patterns read off the source tree
 
 ### `uuidna_school_apis`
 
-THE EUROPEAN EDUCATION APIS BEHIND ONE DOOR, each PROBED before wiring. Pass nothing for the registry: the wired sources, what each serves, and the NAMED ABSENCES with why and what stands in their place. Pass {source} to call one — esco {text,type?} skills/occupations; eurostat {dataset,geo,time} or {vacancies:true,geo}; gisco {country,match} school locations; data-europa {text} dataset search; cordis {text} funded projects and calls; ted {cpv} tenders. HONEST SCOPE: network results are EVIDENCE, never a seal, and are never fabricated — an unreachable source returns an absence, not a refutation. Aggregates and institutions only; no pupil data. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.
+EU education APIs in one door: omit args for the registry, {source} to call one. Integrity, not truth (theorem provenance_integrity_not_content_truth).
 
 THE EUROPEAN EDUCATION APIS BEHIND ONE DOOR — every source PROBED before it was wired, and recorded with what it ACTUALLY answered rather than what its documentation promises. Pass NOTHING for the registry: the wired sources (esco, eurostat, gisco, data-europa, cordis, ted, oeapi), what each serves, its format and access model, and — the point — the NAMED ABSENCES, the sources that could not be called, each with why and what stands in its place (the Funding & Tenders SEDIA search: it ANSWERS, and that is the trap — the generic path returns the portal's own support pages and the filtered path 500s, so it is recorded rather than wired, with cordis as what serves that need; EURES: its documented vacancy search answered 404 and the app path 403, so there is no open door to wire; the European School Education Platform publishes no general read API; there is no EU-wide national school register, so GISCO is the cross-country stand-in at the cost of per-country variation). Pass {source} to CALL one: {source:"esco",text} the EU skill/occupation taxonomy (also {type:"occupation"|"qualification"}), {source:"eurostat",dataset,geo,time} education statistics decoded from JSON-stat 2.0 flat indices to LABELLED observations (or {source:"eurostat",vacancies:true,geo} for the jobs side, jvs_q_nace2), {source:"gisco",country,match} the member states' own school locations with coordinates and levels, {source:"data-europa",text} WHICH European datasets exist for a phrase (the EU's catalogue of catalogues — the door the education sources were found through), {source:"cordis",text} what the EU has FUNDED and what it is CALLING FOR (project records and Horizon call topics in one index), {source:"ted",cpv} published EU tender notices under a CPV division (education = 80000000 by default). There is deliberately NO bulk ledger-to-ESCO mapping: it was built, measured over all 68 clusters, and REMOVED for producing confident wrong rows — it is in the named absences with the pairing walk (uuidna_education_jobs) as what stands in its place. HONEST SCOPE: what comes back over the network is EVIDENCE, never a seal — a provenance fingerprint of what a named public source said when asked, exactly as uuidna_corroborate treats its streams; only a `by decide` theorem SEALS. Rows are passed through unaltered and NEVER fabricated: an unreachable source returns nothing, which is an absence, not a refutation. Eurostat serves aggregates and GISCO serves institutions, so no pupil data passes here. The parse, the JSON-stat decode and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth (theorem provenance_integrity_not_content_truth). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.
 
@@ -1084,17 +1084,17 @@ THE EUROPEAN EDUCATION APIS BEHIND ONE DOOR — every source PROBED before it wa
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `source` | string | no | omit for the registry, or one of |
-| `cpv` | string | no | ted: a CPV division, default 800 |
-| `text` | string | no | esco: the phrase to look up |
-| `type` | string | no | esco: skill (default), occupatio |
-| `dataset` | string | no | eurostat: a dataset code, e. |
-| `vacancies` | boolean | no | eurostat: the jobs side (jvs_q_n |
-| `geo` | string | no | eurostat: a country code, e. |
-| `time` | string | no | eurostat: a year, e.g. "2022" |
-| `country` | string | no | gisco: a two-letter country code |
-| `match` | string | no | gisco: narrow to schools whose n |
-| `limit` | number | no | how many rows to return (default |
+| `source` | string | no | esco\|eurostat\|gisco\|data-europa\| |
+| `cpv` | string | no | TED CPV |
+| `text` | string | no | ESCO phrase |
+| `type` | string | no | skill\|occupation\|qualification |
+| `dataset` | string | no | Eurostat dataset code |
+| `vacancies` | boolean | no | Eurostat jobs table |
+| `geo` | string | no | ISO country |
+| `time` | string | no | year |
+| `country` | string | no | GISCO ISO country |
+| `match` | string | no | GISCO name/city filter |
+| `limit` | number | no | rows, max 200 |
 
 ### `uuidna_education_jobs`
 
@@ -1126,7 +1126,7 @@ _No parameters._
 
 ### `uuidna_os`
 
-uuidnaOS as one call: the OS-integrity layer (lean/Os.lean) plus the verified lattice boot, four-width capacity, and CPU/GPU stream fleet (GPU specified, on at postage). Layer 1 load, never Alpine ELF. Returns {layer,floor,receipt,boot,portCount,capacity}. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.
+uuidnaOS: verified lattice boot, four-width capacity, CPU/GPU fleet. Layer 1 load, never Alpine ELF. Integrity, not truth (theorem provenance_integrity_not_content_truth).
 
 THE OS-INTEGRITY ALGEBRA (lean/Os.lean) as one named spec — the third layer, completing hardware → software → os. The decidable facts a DEPLOYMENT is verified against: exact-copy is byte-equality, so a single-byte tamper, a truncation, or a REORDERING breaks the match (a provenance is a SEQUENCE, not a set); the SHA-256 digest is a fixed 256 bits, the content-address a fixed 128; and the non-determinism boundary is EXACTLY two named modules (src/os, src/drivers). Each a decidable, AXIOM-FREE `by decide` particle, folded to one order-invariant receipt. This is the SPEC; the runtime side (Alpine + driver provenance, uuidna_alpine to port the whole arch matrix) enforces it against real bytes with uuidna's own pure-TS SHA-256. Boot here is verified hexbit loading of the default-install image (theorem the_os_is_bootable_quantum), never execution of Alpine ELF. capacity.stream is the independent-message CPU fleet plus one specified GPU residue class at postage; onion wraps and sealChain stay serial. HONEST SCOPE: integrity, not truth — uuidna seals what an exact-copy verification decides; it does NOT port the runtime, link, or run an operating system. Relates to uuidna_exec (Layer 1 applets), uuidna_port, uuidna_run (Layer 2).
 
@@ -2249,7 +2249,7 @@ Verify + open a raw ChaCha20-Poly1305 seal (local theorem). key/nonce/ct/tag are
 
 ### `uuidna_crypto`
 
-Port every Alpine app that uses crypto through ONE door (not one tool per package): catalogue rows that link libssl/libcrypto, or whose published purpose is cryptographic, plus named widths (Shor chunks, Grover floor, SHA-256, HMAC, ChaCha20, Poly1305, AEAD). Optional {name} looks up one app. Primitives stay uuidna_sha256 · uuidna_hmac · uuidna_chacha20 · uuidna_encrypt; Layer 1 identity is uuidna_exec. Returns {doors,widths,total,origins,via,packages}. Integrity, not execution.
+Alpine crypto apps through one door: catalogue plus Shor/Grover/SHA-256/ChaCha widths. Optional {name}. Integrity, not execution.
 
 THE CAPTAIN ORDER to port Alpine apps that use crypto, without blowing the MCP wire ceiling. uuidna_exec already carries the whole man corpus through one door; this door is the crypto cut of that catalogue: a package is admitted when it IS a crypto library, its Alpine description matches the security harmony, it links so:libssl/libcrypto (nginx), or it depends on such a package by name (curl → libcurl). Each hit is a uuidna/&amp;lt;name&amp;gt; identity with 32 hexbit states — provenance, never Alpine ELF (theorem the_os_is_bootable_quantum). The uuidna-side port of those libraries is the existing primitive tools (SHA-256, HMAC, PBKDF2, ChaCha20, Poly1305, AEAD, envelope/onion/chain). widths is one crypto analysis: Shor 32-bit/128-bit modulus fit and encoder-width chunks, Grover floor = one uuid, digest/key = 256, nonce 96, salt/tag 128, birthday halves on the address and the digest. Sample of 24 by name; {name} for any row. Relates to uuidna_os, uuidna_exec, uuidna_related, uuidna_security_audit.
 

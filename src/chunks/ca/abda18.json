@@ -1,0 +1,12 @@
+{
+  "handle": "caabda18",
+  "address": "caabda18-de66-886d-8107-2e206d250baf",
+  "statement": "((List.range 6).filter (fun a => Nat.gcd a 6 == 1)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "units_mod_6_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

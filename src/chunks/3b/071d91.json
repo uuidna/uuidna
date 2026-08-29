@@ -1,0 +1,12 @@
+{
+  "handle": "3b071d91",
+  "address": "3b071d91-cc68-8d98-9676-fa3677a0a918",
+  "statement": "(((List.range 5).map (fun x => (x * x * x) % 5)).eraseDups).length = 5",
+  "tactic": "decide",
+  "keys": [
+    "cubes_mod_5_number_5"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "506e8513",
+  "address": "506e8513-512a-8fd8-92b1-2abeb7d879a8",
+  "statement": "(4000 + 2000 + 1000 = 7000 ∧ 7000 + 500 + 250 + 125 = 7875 ∧ 7875 < 8000) ∧ (4 % 9 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "anthem_superposition_mix_closes"
+  ],
+  "files": [
+    "Anthem.lean"
+  ]
+}

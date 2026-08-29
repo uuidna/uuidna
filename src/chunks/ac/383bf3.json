@@ -1,0 +1,12 @@
+{
+  "handle": "ac383bf3",
+  "address": "ac383bf3-de20-8f84-980f-3516345f9ccb",
+  "statement": "(((List.range 21).filter (fun a => Nat.gcd a 21 == 1)).length = 12) ∧ ((List.range 21).all (fun a => (Nat.gcd a 21 != 1) || (a ^ 6 % 21 == 1))) ∧ ((5 ^ 6) % 21 = 1) ∧ ((5 ^ 2) % 21 ≠ 1) ∧ ((5 ^ 3) % 21 ≠ 1) ∧ (6 < 12) ∧ (((List.range 9).filter (fun a => Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => Nat.gcd a 7 == 1)).length = 6) ∧ (Nat.lcm 2 6 = 6) ∧ (2 * 6 = 12)",
+  "tactic": "decide",
+  "keys": [
+    "crt21_units_have_exponent_six"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

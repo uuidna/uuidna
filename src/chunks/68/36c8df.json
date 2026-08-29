@@ -1,0 +1,12 @@
+{
+  "handle": "6836c8df",
+  "address": "6836c8df-519d-8093-bc62-6193a85955a7",
+  "statement": "sig (sig (3,7)) = (3,7) ∧ tau (tau (3,7)) = (3,7) ∧ kap (kap (3,7)) = (3,7) ∧ sig (kap (3,7)) = tau (3,7) ∧ tau (kap (3,7)) = sig (3,7) ∧ (sig (1,5)).1 = 1 ∧ tau (1,9) = (1,9) ∧ tau (0,4) = (2,4) ∧ (0:Int) ≠ 1 ∧ (2:Int) ≠ 1",
+  "tactic": "decide",
+  "keys": [
+    "involution_group"
+  ],
+  "files": [
+    "Uuidna.lean"
+  ]
+}

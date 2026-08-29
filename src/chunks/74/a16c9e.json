@@ -1,0 +1,12 @@
+{
+  "handle": "74a16c9e",
+  "address": "74a16c9e-0f1b-8579-80e8-8692c2e454cf",
+  "statement": "(14 - 5 + 1 = 10) ∧ (1582 - 325 = 1257)",
+  "tactic": "decide",
+  "keys": [
+    "gregory_deleted_ten_days"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b26815c3",
+  "address": "b26815c3-6d17-84bd-b0a0-cb54fcaccfcf",
+  "statement": "((List.range 25).filter (fun x => (x * x) % 25 == x)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "idempotents_mod_25_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

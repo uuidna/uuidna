@@ -1,0 +1,12 @@
+{
+  "handle": "2af1f120",
+  "address": "2af1f120-4f47-86ff-beac-d29ffff3fa5d",
+  "statement": "(((List.range 39).map (fun x => (x * x * x) % 39)).eraseDups).length = 15",
+  "tactic": "decide",
+  "keys": [
+    "cubes_mod_39_number_15"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

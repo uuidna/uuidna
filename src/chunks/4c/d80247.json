@@ -1,0 +1,12 @@
+{
+  "handle": "4cd80247",
+  "address": "4cd80247-2018-8a75-9012-9724d9fb3ae7",
+  "statement": "(((List.range 18).filter (fun a => Nat.gcd a 18 == 1)).foldl (fun acc a => (acc + a) % 18) 0) = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_mod_18_is_0"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

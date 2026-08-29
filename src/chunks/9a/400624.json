@@ -1,0 +1,12 @@
+{
+  "handle": "9a400624",
+  "address": "9a400624-fa0d-80e4-ae72-d46b01f1a1df",
+  "statement": "([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).length = 7 ∧ ([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).Nodup",
+  "tactic": "decide",
+  "keys": [
+    "readings_seven_rays"
+  ],
+  "files": [
+    "Readings.lean"
+  ]
+}

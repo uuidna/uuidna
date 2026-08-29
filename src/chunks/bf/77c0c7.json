@@ -1,0 +1,12 @@
+{
+  "handle": "bf77c0c7",
+  "address": "bf77c0c7-2b42-862b-8580-5ec7b18388f3",
+  "statement": "(3 * 5 * 23 = 345) ∧ (3 % 9 = 3) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+  "tactic": "decide",
+  "keys": [
+    "fold_integrity_tamper"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

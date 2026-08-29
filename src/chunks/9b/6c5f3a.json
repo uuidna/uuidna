@@ -1,0 +1,12 @@
+{
+  "handle": "9b6c5f3a",
+  "address": "9b6c5f3a-0096-8229-a77e-e6fb20f14c8d",
+  "statement": "((List.zip [1, 2, 4, 8, 7, 5, 3, 6, 9] [9, 8, 6, 2, 3, 5, 7, 4, 1]).all (fun p => p.1 + p.2 = 10)) ∧ (([1, 2, 4, 8, 7, 5, 3, 6, 9] : List Nat).length = 9)",
+  "tactic": "decide",
+  "keys": [
+    "captains_columns_sum_to_ten"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

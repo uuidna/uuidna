@@ -1,0 +1,12 @@
+{
+  "handle": "32bf80ed",
+  "address": "32bf80ed-c37c-87e7-a4fd-c52294712601",
+  "statement": "(¬ (([1,2,3,4] : List Nat) = [1,2,4,3])) ∧ (1 + 2 + 3 + 4 = 4 + 3 + 2 + 1) ∧ (1 + 2 + 3 + 4 = 10)",
+  "tactic": "decide",
+  "keys": [
+    "a_symphony_is_a_sequence_not_a_set"
+  ],
+  "files": [
+    "Symphony.lean"
+  ]
+}

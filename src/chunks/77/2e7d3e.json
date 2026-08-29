@@ -1,0 +1,12 @@
+{
+  "handle": "772e7d3e",
+  "address": "772e7d3e-bdfc-82bb-9d20-c80af9a1f0fe",
+  "statement": "((List.range 11).all (fun a => (Nat.gcd a 11 != 1) || (a ^ 10 % 11 == 1))) ∧ ((List.range 11).any (fun a => (Nat.gcd a 11 == 1) && ((List.range' 1 9).all (fun k => a ^ k % 11 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_11_is_10"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

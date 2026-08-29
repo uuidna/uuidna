@@ -1,0 +1,12 @@
+{
+  "handle": "1c8d88b0",
+  "address": "1c8d88b0-caf9-8e52-bc4e-d02f2c618184",
+  "statement": "0 % 6 = 0 ∧ 4294967295 % 6 = 3 ∧ (6:Nat) ≠ 0",
+  "tactic": "decide",
+  "keys": [
+    "referrer_six_doors"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

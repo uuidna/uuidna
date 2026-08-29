@@ -1,0 +1,12 @@
+{
+  "handle": "3606ae98",
+  "address": "3606ae98-8a1d-814c-bd0e-e0c758eefe2d",
+  "statement": "((List.range' 1 36).filter (fun k => 36 % k == 0)).length = 9",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_36_number_9"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

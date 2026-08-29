@@ -1,0 +1,12 @@
+{
+  "handle": "9a0de897",
+  "address": "9a0de897-09a0-8b6b-848e-a5cb17436648",
+  "statement": "(2 * 55 = 110) ∧ (2 * 54 = 108)",
+  "tactic": "decide",
+  "keys": [
+    "the_pair_is_coins_times_rate"
+  ],
+  "files": [
+    "Billing.lean"
+  ]
+}

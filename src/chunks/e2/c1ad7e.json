@@ -1,0 +1,12 @@
+{
+  "handle": "e2c1ad7e",
+  "address": "e2c1ad7e-370b-8dec-bcfc-a4113e3d237e",
+  "statement": "((List.range' 1 14).filter (fun k => 14 % k == 0)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_14_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

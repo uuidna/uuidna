@@ -1,0 +1,12 @@
+{
+  "handle": "7bcdd756",
+  "address": "7bcdd756-01ad-8dfe-bcd0-41f21c4f9529",
+  "statement": "((fun X : Nat → Nat → Nat → Nat => (List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (!(X a b c == 0) || (((List.range a).all (fun a' => X a' b c != 0)) && ((List.range b).all (fun b' => X a b' c != 0)) && ((List.range c).all (fun c' => X a b c' != 0)))) && ((X a b c == 0) || (((List.range a).any (fun a' => X a' b c == 0)) || ((List.range b).any (fun b' => X a b' c == 0)) || ((List.range c).any (fun c' => X a b c' == 0)))))))) (fun a b c => (a + b + c) % 2 + 2 * ((a / 2 + b / 2 + c / 2) % 2) + 4 * ((a / 4 + b / 4 + c / 4) % 2))) = true",
+  "tactic": "decide",
+  "keys": [
+    "nim_bouton_three_heap_closure"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

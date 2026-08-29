@@ -1,0 +1,12 @@
+{
+  "handle": "70bd2b5e",
+  "address": "70bd2b5e-b2a3-8d65-ae5f-9f45c39d8295",
+  "statement": "((List.range 1).filter (fun c => (List.range 1).all (fun x => c / 1 ^ (c / 1 ^ x % 1) % 1 == x))).length = 1 ∧ ((List.range 4).filter (fun c => (List.range 2).all (fun x => c / 2 ^ (c / 2 ^ x % 2) % 2 == x))).length = 2 ∧ ((List.range 27).filter (fun c => (List.range 3).all (fun x => c / 3 ^ (c / 3 ^ x % 3) % 3 == x))).length = 4 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x))).length = 10 ∧ ((List.range 25).map (fun a => ((List.range 125).filter (fun b => (List.range 5).all (fun x => (a * 125 + b) / 5 ^ ((a * 125 + b) / 5 ^ x % 5) % 5 == x))).length)).sum = 26 ∧ 4 = 2 + 2 * 1 ∧ 10 = 4 + 3 * 2 ∧ 26 = 10 + 4 * 4",
+  "tactic": "decide",
+  "keys": [
+    "involution_counts_obey_their_recurrence"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

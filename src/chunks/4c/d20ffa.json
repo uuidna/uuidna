@@ -1,0 +1,12 @@
+{
+  "handle": "4cd20ffa",
+  "address": "4cd20ffa-7a45-8c60-ac20-a4c2c2be3800",
+  "statement": "(23 * 2 = 46) ∧ (4 ^ 3 = 64)",
+  "tactic": "decide",
+  "keys": [
+    "biology_pairs_and_codons"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

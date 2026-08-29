@@ -1,0 +1,12 @@
+{
+  "handle": "27a4730b",
+  "address": "27a4730b-9b3c-8f35-be0b-ccd2d98c8283",
+  "statement": "((List.range' 1 8).filter (fun k => 8 % k == 0)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_8_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

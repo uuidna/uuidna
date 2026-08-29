@@ -1,0 +1,12 @@
+{
+  "handle": "5878cb2d",
+  "address": "5878cb2d-7c10-8d4e-a2ea-5cb9834b7e59",
+  "statement": "(1851 - 1818 = 33) ∧ (7 < 25)",
+  "tactic": "decide",
+  "keys": [
+    "chubb_stood_thirty_three_years"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

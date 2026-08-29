@@ -1,0 +1,12 @@
+{
+  "handle": "07cfe8ef",
+  "address": "07cfe8ef-7266-84d7-9aae-1f7251c4a342",
+  "statement": "(4 * 32 = 128) ∧ ((2:Nat)^7 = 128)",
+  "tactic": "decide",
+  "keys": [
+    "the_spectra_exhaust_the_address_space"
+  ],
+  "files": [
+    "Strings.lean"
+  ]
+}

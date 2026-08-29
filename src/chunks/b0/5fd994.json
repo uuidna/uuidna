@@ -1,0 +1,12 @@
+{
+  "handle": "b05fd994",
+  "address": "b05fd994-5a43-8193-a9ad-f7b459137a5a",
+  "statement": "((List.range 39).filter (fun x => x ^ 39 % 39 == 0)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_39_number_1"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

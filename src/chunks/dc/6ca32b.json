@@ -1,0 +1,12 @@
+{
+  "handle": "dc6ca32b",
+  "address": "dc6ca32b-3b84-80d8-aad8-d69da86227bb",
+  "statement": "(List.range 32).all (fun hi => (List.range 32).all (fun lo => let m := hi * 32 + lo; let deg : Nat → List Nat := fun x => ([[0,1,2,3],[0,4,5,6],[1,4,7,8],[2,5,7,9],[3,6,8,9]] : List (List Nat)).map (fun l => (l.map (fun i => x / 2 ^ i % 2)).sum); let e : Nat → Nat := fun x => ((List.range 10).map (fun i => x / 2 ^ i % 2)).sum; (e m + e (1023 - m) == 10) && (1023 - (1023 - m) == m) && (List.zipWith (fun a b => a + b) (deg m) (deg (1023 - m))).all (fun s => s == 4))) = true",
+  "tactic": "decide",
+  "keys": [
+    "complement_completes_every_graph_on_five"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

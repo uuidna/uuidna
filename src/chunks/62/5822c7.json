@@ -1,0 +1,12 @@
+{
+  "handle": "625822c7",
+  "address": "625822c7-65ec-89b7-b9dd-03c0f0233921",
+  "statement": "(((List.range 14).map (fun x => (x * x) % 14)).eraseDups).length = 8",
+  "tactic": "decide",
+  "keys": [
+    "squares_mod_14_number_8"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

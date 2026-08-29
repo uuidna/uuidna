@@ -1,0 +1,12 @@
+{
+  "handle": "12a85fe8",
+  "address": "12a85fe8-56de-84fb-a06c-47247c659019",
+  "statement": "((List.range 129).all (fun k => 8000 * k / 128 ≤ 8000)) ∧ (8000 * 0 / 128 = 0) ∧ (8000 * 128 / 128 = 8000)",
+  "tactic": "decide",
+  "keys": [
+    "pluck_preserves_bound"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

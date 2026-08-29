@@ -1,0 +1,12 @@
+{
+  "handle": "53773c90",
+  "address": "53773c90-450f-89c7-907b-b0ea5edfbd7f",
+  "statement": "(16 - 12 = 4) ∧ (2 ^ 4 = 16) ∧ (65536 / 4096 = 16)",
+  "tactic": "decide",
+  "keys": [
+    "register_exceeds_served"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}

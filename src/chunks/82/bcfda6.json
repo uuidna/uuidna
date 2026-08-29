@@ -1,0 +1,12 @@
+{
+  "handle": "82bcfda6",
+  "address": "82bcfda6-2a4b-81b3-a495-a8a79cb6cab8",
+  "statement": "(((-1) + 1 : Int) = 0) ∧ (511 + 511 = 1022) ∧ (1022 ≠ 0)",
+  "tactic": "decide",
+  "keys": [
+    "annihilation_conserves_everything"
+  ],
+  "files": [
+    "Chemistry.lean"
+  ]
+}

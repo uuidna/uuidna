@@ -1,0 +1,12 @@
+{
+  "handle": "4c842667",
+  "address": "4c842667-9c5e-8f6b-b230-ceab89cf4557",
+  "statement": "((List.range 4).foldl (fun p _ => let nxt := (p.2.map (fun r => (List.range (r.foldl Nat.max 0 + 2)).map (fun v => r ++ [v]))).flatten; (p.1 ++ [nxt.length], nxt)) ([1], [([0] : List Nat)])).1 = [1, 2, 5, 15, 52] ∧ ((List.range 4).foldl (fun L _ => (L.map (fun r => (List.range (r.foldl Nat.max 0 + 2)).map (fun v => r ++ [v]))).flatten) [([0] : List Nat)]).all (fun r => (r.length == 5) && (List.range 5).all (fun i => Nat.ble ((r.drop i).headD 0) ((r.take i).foldl Nat.max 0 + (if i == 0 then 0 else 1))))",
+  "tactic": "decide",
+  "keys": [
+    "bell_census_of_restricted_growth_strings"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

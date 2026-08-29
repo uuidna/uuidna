@@ -1,0 +1,12 @@
+{
+  "handle": "2c92599b",
+  "address": "2c92599b-9632-8c31-b7b0-e2c04e754c73",
+  "statement": "((List.range 22).all (fun a => (Nat.gcd a 22 != 1) || (a ^ 10 % 22 == 1))) ∧ ((List.range 22).any (fun a => (Nat.gcd a 22 == 1) && ((List.range' 1 9).all (fun k => a ^ k % 22 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_22_is_10"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

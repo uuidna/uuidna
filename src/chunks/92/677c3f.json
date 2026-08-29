@@ -1,0 +1,12 @@
+{
+  "handle": "92677c3f",
+  "address": "92677c3f-be49-8abb-b305-e6fb3499eb46",
+  "statement": "1 + 1 = 2 ∧ 1 + 2 = 3 ∧ 2 + 3 = 5 ∧ 3 + 4 = 7 ∧ 2 < 3 ∧ 3 < 5 ∧ 5 < 7",
+  "tactic": "decide",
+  "keys": [
+    "referrer_consonance_ladder"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

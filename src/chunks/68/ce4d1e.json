@@ -1,0 +1,12 @@
+{
+  "handle": "68ce4d1e",
+  "address": "68ce4d1e-4eb4-8dd9-abfb-f5ea20f65ea7",
+  "statement": "(List.range' 2 43).all (fun k => 1979 % k != 0)",
+  "tactic": "decide",
+  "keys": [
+    "pravets_built_in_a_prime_year"
+  ],
+  "files": [
+    "Pravets.lean"
+  ]
+}

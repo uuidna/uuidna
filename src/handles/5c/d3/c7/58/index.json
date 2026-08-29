@@ -1,0 +1,12 @@
+{
+  "handle": "5cd3c758",
+  "address": "5cd3c758-bda5-8a42-8dec-914b630775c4",
+  "kind": "chunk",
+  "keys": [
+    "hexagram_width_closes_rosetta_and_glagolitic"
+  ],
+  "statement": "(2^6 = 64) ∧ ((2^6) % 9 = 1) ∧ ((2^6) % 7 = 1) ∧ (Nat.gcd 7 9 = 1) ∧ (7 * 9 = 63) ∧ (63 = 2^6 - 1) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6)",
+  "files": [
+    "Crt.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "edb6e4c3",
+  "address": "edb6e4c3-aeea-8302-bb53-8c71b57c69bd",
+  "statement": "(40 / 6 = 6) ∧ (40 % 6 = 4) ∧ (1 + 12 / 10 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "nbl_trains_by_the_floor"
+  ],
+  "files": [
+    "Doctrine.lean"
+  ]
+}

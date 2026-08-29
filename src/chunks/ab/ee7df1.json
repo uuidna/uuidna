@@ -1,0 +1,12 @@
+{
+  "handle": "abee7df1",
+  "address": "abee7df1-5998-8954-a3b5-31fb93a5243a",
+  "statement": "(8 * 360 = 32 * 90) ∧ (8 * 360 = 2880)",
+  "tactic": "decide",
+  "keys": [
+    "eight_points_is_90"
+  ],
+  "files": [
+    "Sailing.lean"
+  ]
+}

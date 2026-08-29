@@ -1,0 +1,12 @@
+{
+  "handle": "1467b1ab",
+  "address": "1467b1ab-7a6b-81c0-8e78-07ebd602a46e",
+  "statement": "(List.range' 1 24).all (fun n => (List.range n).all (fun s => (((List.range n).map (fun k => (k * s) % n)).eraseDups.length == n / Nat.gcd s n) && ((((List.range n).map (fun k => (k * s) % n)).eraseDups.length == n) == (Nat.gcd s n == 1))))",
+  "tactic": "decide",
+  "keys": [
+    "stride_cycle_is_modulus_over_gcd"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

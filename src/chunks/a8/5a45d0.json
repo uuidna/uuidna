@@ -1,0 +1,12 @@
+{
+  "handle": "a85a45d0",
+  "address": "a85a45d0-8e1c-8ff4-ba92-373cfc974725",
+  "statement": "(235 = 5 * 47) ∧ ((List.range' 2 3).all (fun k => 5 % k != 0)) ∧ ((List.range' 2 45).all (fun k => 47 % k != 0))",
+  "tactic": "decide",
+  "keys": [
+    "metonic_spiral_five_turns"
+  ],
+  "files": [
+    "Antikythera.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "80a7f5a4",
+  "address": "80a7f5a4-14a1-81d5-b480-a1c2b163fd33",
+  "statement": "(1043 * 2 = 2086) ∧ (2041 < 2086)",
+  "tactic": "decide",
+  "keys": [
+    "checklist_trial_two_dives_each"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

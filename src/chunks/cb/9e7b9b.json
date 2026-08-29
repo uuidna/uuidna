@@ -1,0 +1,12 @@
+{
+  "handle": "cb9e7b9b",
+  "address": "cb9e7b9b-2c72-8477-8a57-0a5dd747faf1",
+  "statement": "((List.range 36).filter (fun x => (x * x) % 36 == 1)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_36_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

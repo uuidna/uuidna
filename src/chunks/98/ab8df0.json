@@ -1,0 +1,12 @@
+{
+  "handle": "98ab8df0",
+  "address": "98ab8df0-22b0-87f9-824b-82a1efab6423",
+  "statement": "(0 + 1 + 2 + 3 = 6) ∧ (6 - (0 + 1 + 2) = 3) ∧ (6 - (0 + 1 + 3) = 2) ∧ (6 - (0 + 2 + 3) = 1) ∧ (6 - (1 + 2 + 3) = 0)",
+  "tactic": "decide",
+  "keys": [
+    "compass_three_decide_the_fourth"
+  ],
+  "files": [
+    "Doctrine.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "519d4cb2",
+  "address": "519d4cb2-b894-817c-8345-4b55cd68e9cf",
+  "statement": "(280 = 40 * 7) ∧ (192 = 24 * 8) ∧ (40 * 24 = 960)",
+  "tactic": "decide",
+  "keys": [
+    "the_screen_carries_the_rings"
+  ],
+  "files": [
+    "Pravets.lean"
+  ]
+}

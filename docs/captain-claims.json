@@ -1,9 +1,9 @@
 {
-  "generated": "2026-08-28",
+  "generated": "2026-08-29",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2137,
-  "total_theorems": 2137,
+  "total_claimed": 2148,
+  "total_theorems": 2148,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3847,8 +3847,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "92942580-aae4-8383-b478-38d965abc0af",
-      "address": "dce5a17a-ae61-886c-b502-50d295e9f7ff",
+      "lineAddress": "cdabe1b8-738b-8e28-9fb0-8b29c0cf8b1b",
+      "address": "4cd45235-d9ca-8856-8fe3-76adb8f58068",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3859,8 +3859,8 @@
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "e062bfce-f5ae-85e9-bd8c-949981cff475",
-      "address": "4685a435-9a19-8b8f-8a4c-ccc5b118cec7",
+      "lineAddress": "10af307b-dde1-8960-a8a4-ce00c24a7bff",
+      "address": "dc784ac2-d99c-8554-8005-6d9fc1d2327a",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4117,38 +4117,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "2fae0c2b-3393-8578-a747-07578d4303ab",
-      "address": "cbffab3a-ea27-8a8c-998e-60bda8280f7b",
+      "lineAddress": "f49c3082-3177-8318-9468-d1522497bdd0",
+      "address": "517e7917-46bf-888b-8583-c24e569d8969",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "95dbce2f-67e6-870e-bc14-5036bf011bf2",
-      "address": "a6a3a19b-68fb-85a8-987c-a202bed86290",
+      "lineAddress": "10abbce0-4abb-814b-bb9f-ff818583cacc",
+      "address": "58fe1d66-6058-8edb-b9b8-3f0d5c5d4447",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "ce844735-47e7-8e59-9d33-de62220779f2",
-      "address": "7a9b1090-cec4-8549-b468-2daadc71b15e",
+      "lineAddress": "a0587055-b97e-81ce-b128-e6de19cb413a",
+      "address": "f9bfa511-1553-8ce3-b2ed-0e59fcf7e9cd",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "de3ddddf-b248-8c3b-880c-f2b0314ff37c",
-      "address": "3afa3821-1df1-8311-b1a6-7fb2f99ad679",
+      "lineAddress": "ddd8d652-5b64-8aba-aba2-6f575a810ee1",
+      "address": "d45975fb-e6a7-88d7-9e92-c8a8eff6473c",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "37f105a8-1239-8b14-8232-c5f790a02fe0",
-      "address": "dd381929-1d1c-8c12-9ce5-567233a62178",
+      "lineAddress": "45a5ac19-501e-80e1-813d-e08782a3588f",
+      "address": "1e9d6b18-3b83-81a3-84b9-d157c2b251ee",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "08a0d583-5cb2-839a-9763-e900ff86e0ba",
-      "address": "41a845f1-073d-855b-8d26-f6d79de6c479",
+      "lineAddress": "6c1515c2-ee69-8f9c-a865-65373843c2f4",
+      "address": "b613ae1b-a9fe-8f3f-8f57-23e9f1bc871c",
       "principle": "The detectors, proven"
     },
     {
@@ -4537,14 +4537,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "62db17b5-5ff1-8817-99ce-ab5e9316bb8a",
-      "address": "c189824d-dd04-8a8c-aa24-3504f3bfba10",
+      "lineAddress": "991ae944-d3cf-88b9-9847-7efb10bb29ce",
+      "address": "43da6113-bf80-8e59-a32b-1d72aff132fc",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "7fe7bad0-d4fc-8b68-b6ce-d7fb71a711bc",
-      "address": "74f8f43d-dd41-8351-84b4-09e759d11653",
+      "lineAddress": "007864db-ea6a-8da9-832c-6f3542e62cdb",
+      "address": "1b86bafb-1601-862a-8e7f-16062f1cf85b",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -5613,6 +5613,24 @@
       "key": "four_points_is_45",
       "lineAddress": "9b520d45-71e9-8c76-85a6-0413abfbc76d",
       "address": "e9183ccc-87ea-8c7a-8c27-199caeb1bc73",
+      "principle": "The points-of-sail domain"
+    },
+    {
+      "key": "eight_points_is_90",
+      "lineAddress": "e0e5f11b-605f-8054-afaa-46db3d9388da",
+      "address": "da595853-ac77-8f14-8703-b5dce7293670",
+      "principle": "The points-of-sail domain"
+    },
+    {
+      "key": "twelve_points_is_135",
+      "lineAddress": "f21103c0-0d78-810e-aa4b-c4e530715998",
+      "address": "e166afb8-7852-8b03-b5cb-ddd1f5125368",
+      "principle": "The points-of-sail domain"
+    },
+    {
+      "key": "sixteen_points_is_180",
+      "lineAddress": "4e85e474-a26f-8ac7-8a7c-9b4b0c07f4a0",
+      "address": "09b63974-6084-89af-9467-d638c3228094",
       "principle": "The points-of-sail domain"
     },
     {
@@ -7089,6 +7107,18 @@
       "key": "the_fused_ring_is_all_ones",
       "lineAddress": "70a2928c-20f4-831e-9119-6a109ab26368",
       "address": "a15ef61e-e5f7-8143-8c01-690eb315664b",
+      "principle": "The fused ring"
+    },
+    {
+      "key": "hexagram_width_closes_rosetta_and_glagolitic",
+      "lineAddress": "b1867e61-b208-8e67-bde9-eee6064eae54",
+      "address": "7acfa95a-601b-8696-83e9-123af3262e52",
+      "principle": "The fused ring"
+    },
+    {
+      "key": "hexagram_stride_totals_the_rosetta",
+      "lineAddress": "9faa6de6-5783-843d-836a-688017635bc6",
+      "address": "b8565213-d22e-8d5f-afc5-574762c1faaa",
       "principle": "The fused ring"
     },
     {
@@ -11226,6 +11256,36 @@
       "principle": "The conveyor's first wave"
     },
     {
+      "key": "literature_sonnet_volume",
+      "lineAddress": "8a26d144-1fce-8469-a280-7894480cde2a",
+      "address": "3ba7edd1-c822-8744-9354-8dd8a9b19635",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "combinatorial_book_exceeds_handles",
+      "lineAddress": "f9a9c16f-a1d7-83d6-96f9-cf15c9959115",
+      "address": "0f12a3dc-ab17-8e6e-b70b-ac0aa3701c40",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "combinatorial_book_fits_the_uuid",
+      "lineAddress": "8a4047d8-2fdc-89ca-8902-4d3b7a457860",
+      "address": "a647463c-4a9f-8c21-bbe5-0fc2ce4f13e1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "station_ten_is_hexagram_plus_hexbit",
+      "lineAddress": "d00be655-21c4-8de1-9769-c02e25609e38",
+      "address": "7c248201-6da1-8c61-852b-048d72cfffe5",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "ve_faces_are_handle_hexbit_coins",
+      "lineAddress": "63fd3f71-3ab8-8558-9728-1e0cbdf4abf7",
+      "address": "8fcdcee6-34d2-8a43-bee3-83c1583db0ce",
+      "principle": "The conveyor's first wave"
+    },
+    {
       "key": "eclipse_four_hundred",
       "lineAddress": "f1a040b8-8dd3-80f1-9165-ccf2b7a04bdf",
       "address": "ca628f34-1810-8b0a-ae92-7fa9a2b30ea9",
@@ -12205,8 +12265,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "2c9953cc-423b-8de4-bf80-427868adfeb9",
-      "address": "d6adba97-3f4f-8224-a7f8-5bd650a80459",
+      "lineAddress": "9b314d08-a61c-8852-b553-d7ee73216ffb",
+      "address": "c5d54108-42f0-845c-be0a-9d4ca905674e",
       "principle": "The models"
     },
     {
@@ -12720,6 +12780,12 @@
       "principle": "The vector equilibrium"
     },
     {
+      "key": "imagine_all_as_clique_faces",
+      "lineAddress": "5f85e1b7-c678-811b-8a35-f0d343c4c631",
+      "address": "8aad4f4d-a11c-86a7-b37a-b915005a3895",
+      "principle": "The vector equilibrium"
+    },
+    {
       "key": "captains_columns_sum_to_ten",
       "lineAddress": "9bd83494-39d0-86aa-a607-6e020ab2e5e0",
       "address": "26f5c88e-8d10-83b1-82a4-ac80e0d86d0b",
@@ -12828,7 +12894,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "bbdc55d7-db96-8593-8c20-42d03e6a4463",
+  "claim_receipt": "fdf3a337-65b9-804f-b725-1188173d3a6d",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

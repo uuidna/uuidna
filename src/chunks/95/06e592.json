@@ -1,0 +1,12 @@
+{
+  "handle": "9506e592",
+  "address": "9506e592-bd7d-8c4f-80e8-8830c8936929",
+  "statement": "((List.range' 1 22).filter (fun k => 22 % k == 0)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_22_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

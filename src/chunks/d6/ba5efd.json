@@ -1,0 +1,12 @@
+{
+  "handle": "d6ba5efd",
+  "address": "d6ba5efd-ca99-8c94-8865-a814bad97756",
+  "statement": "(installMeanings.length = 25) ∧ (installMeanings.all (fun m => m != \"\"))",
+  "tactic": "decide",
+  "keys": [
+    "every_path_carries_its_published_meaning"
+  ],
+  "files": [
+    "Installs.lean"
+  ]
+}

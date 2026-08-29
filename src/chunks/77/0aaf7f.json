@@ -1,0 +1,12 @@
+{
+  "handle": "770aaf7f",
+  "address": "770aaf7f-4fad-8180-8dab-47cf30001bba",
+  "statement": "(List.range 9).filter (fun d => [1,4,2,8,5,7].any (fun x => x == d)) = [1,2,4,5,7,8]",
+  "tactic": "decide",
+  "keys": [
+    "song_notes_are_units"
+  ],
+  "files": [
+    "Song.lean"
+  ]
+}

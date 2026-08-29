@@ -1,0 +1,12 @@
+{
+  "handle": "df52cbd2",
+  "address": "df52cbd2-f06e-87f5-827b-6d2dd843cafa",
+  "statement": "(((List.range 15).map (fun x => (x * x * x) % 15)).eraseDups).length = 15",
+  "tactic": "decide",
+  "keys": [
+    "cubes_mod_15_number_15"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

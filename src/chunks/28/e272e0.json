@@ -1,0 +1,12 @@
+{
+  "handle": "28e272e0",
+  "address": "28e272e0-0794-83b9-b619-7fc7eac67b55",
+  "statement": "(5 + 5 = 10) ∧ (1 * 10 + 0 = 10) ∧ (dz 5 = 5)",
+  "tactic": "decide",
+  "keys": [
+    "ve_double_five_merges_in_ten"
+  ],
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

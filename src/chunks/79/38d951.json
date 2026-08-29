@@ -1,0 +1,12 @@
+{
+  "handle": "7938d951",
+  "address": "7938d951-eee2-8b8f-a0f8-7b8278796fab",
+  "statement": "(2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))",
+  "tactic": "decide",
+  "keys": [
+    "every_context_is_finite_against_the_lattice"
+  ],
+  "files": [
+    "Models.lean"
+  ]
+}

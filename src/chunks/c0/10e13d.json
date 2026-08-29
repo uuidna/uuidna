@@ -1,0 +1,12 @@
+{
+  "handle": "c010e13d",
+  "address": "c010e13d-a781-8df9-9c2e-07cdb3ac67d5",
+  "statement": "(16 * 69 = 1104) ∧ (6 % 9 = 6) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+  "tactic": "decide",
+  "keys": [
+    "fold_supply_chain"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

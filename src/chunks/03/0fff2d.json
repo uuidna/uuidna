@@ -1,0 +1,12 @@
+{
+  "handle": "030fff2d",
+  "address": "030fff2d-20c0-81a6-ab2f-2195ec2e59dd",
+  "statement": "(223 = 4 * 55 + 3) ∧ (223 % 4 = 3)",
+  "tactic": "decide",
+  "keys": [
+    "saros_spiral_leaves_three"
+  ],
+  "files": [
+    "Antikythera.lean"
+  ]
+}

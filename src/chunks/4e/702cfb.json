@@ -1,0 +1,12 @@
+{
+  "handle": "4e702cfb",
+  "address": "4e702cfb-41ec-8bc4-aee1-a11d4c5628a3",
+  "statement": "((0 + 7 + 5) % 12 = 0) ∧ (Nat.gcd 7 12 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "the_keys_walk_home"
+  ],
+  "files": [
+    "Symphony.lean"
+  ]
+}

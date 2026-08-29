@@ -1,0 +1,12 @@
+{
+  "handle": "ab13c093",
+  "address": "ab13c093-c918-871d-b361-883445fefbfb",
+  "statement": "((List.range 32).filter (fun x => (x * x) % 32 == x)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "idempotents_mod_32_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

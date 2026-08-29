@@ -1,0 +1,12 @@
+{
+  "handle": "64fd2df6",
+  "address": "64fd2df6-9f14-8bbc-8b9b-aa61ea57df46",
+  "statement": "(10 - 7 = 3) ∧ (10 - 8 = 2) ∧ (10 - 9 = 1) ∧ (10 - 5 = 5) ∧ ((List.range 10).all (fun x => (if x == 0 then 0 else 10 - x) < 10)) ∧ (6 + 2 + 1 = 9)",
+  "tactic": "decide",
+  "keys": [
+    "the_six_motions_connect_the_whole_ring"
+  ],
+  "files": [
+    "DivByZero.lean"
+  ]
+}

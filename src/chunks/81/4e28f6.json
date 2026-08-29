@@ -1,0 +1,12 @@
+{
+  "handle": "814e28f6",
+  "address": "814e28f6-6c4b-81d7-8b8c-e72eadd89a2d",
+  "statement": "(List.range 7).length = 7 ∧ (7 * 6 = 42) ∧ ((7 * 6) / 2 = 21) ∧ (7 + 7 + 7 = 21) ∧ (3 * 7 = 21) ∧ (2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "clay_gravity_equals_rosette"
+  ],
+  "files": [
+    "Clay.lean"
+  ]
+}

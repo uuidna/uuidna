@@ -1,0 +1,12 @@
+{
+  "handle": "ff52d08e",
+  "address": "ff52d08e-712d-8df5-ac5b-93b588f7eec4",
+  "statement": "432 * 16 = 6912 ∧ 16000 / 2 = 8000 ∧ 6912 < 8000",
+  "tactic": "decide",
+  "keys": [
+    "nyquist_clears_the_lattice"
+  ],
+  "files": [
+    "Readings.lean"
+  ]
+}

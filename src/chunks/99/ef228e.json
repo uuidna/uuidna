@@ -1,0 +1,12 @@
+{
+  "handle": "99ef228e",
+  "address": "99ef228e-0682-81cc-ac81-10f18620cf34",
+  "statement": "((List.range 35).filter (fun x => (x * x) % 35 == 1)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_35_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

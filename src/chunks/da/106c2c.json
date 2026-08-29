@@ -1,0 +1,12 @@
+{
+  "handle": "da106c2c",
+  "address": "da106c2c-fa1e-8551-8a47-6f84861e17a7",
+  "statement": "((List.range 15).filter (fun x => (x * x) % 15 == x)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "idempotents_mod_15_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

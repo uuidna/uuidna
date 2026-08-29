@@ -1,0 +1,12 @@
+{
+  "handle": "6cbf1661",
+  "address": "6cbf1661-7a7e-8a5a-8b98-c037beb99289",
+  "statement": "((List.range 40).all (fun n => ([1, 2, 3].all (fun k => !(decide (k ≤ n)) || ((n - k) % 4 != n % 4))) && ((List.range (n % 4)).all (fun v => [1, 2, 3].any (fun k => decide (k ≤ n) && ((n - k) % 4 == v)))))) = true",
+  "tactic": "decide",
+  "keys": [
+    "subtraction_game_123_grundy_is_mod4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a6d41773",
+  "address": "a6d41773-476f-880f-9e6e-4216797d8654",
+  "statement": "(2 / 1 = 2) ∧ (2 = 2 ^ 1) ∧ ((List.range 3).all (fun i => nth [5, 10, 20, 40] (i + 1) = 2 * nth [5, 10, 20, 40] i))",
+  "tactic": "decide",
+  "keys": [
+    "haldane_bound_is_two_to_one"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

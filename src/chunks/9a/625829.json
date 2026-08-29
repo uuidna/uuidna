@@ -1,0 +1,12 @@
+{
+  "handle": "9a625829",
+  "address": "9a625829-dbb8-829e-b57a-ff3167ba8ee7",
+  "statement": "(365 - 360 = 5) ∧ (12 * 30 + 5 = 365)",
+  "tactic": "decide",
+  "keys": [
+    "egyptian_five_harmonise_the_circle"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

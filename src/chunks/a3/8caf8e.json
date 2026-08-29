@@ -1,0 +1,12 @@
+{
+  "handle": "a38caf8e",
+  "address": "a38caf8e-55e1-87fd-a0eb-4749ac23ee05",
+  "statement": "(2^12 % 13 = 1) ∧ ((List.range' 1 11).all (fun k => 2^k % 13 != 1))",
+  "tactic": "decide",
+  "keys": [
+    "order_of_two_mod_13_is_12"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

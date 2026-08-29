@@ -1,0 +1,12 @@
+{
+  "handle": "6717f99e",
+  "address": "6717f99e-f415-85a3-b1a8-8dc197ec6143",
+  "statement": "(((List.range 4).map (fun i => (i+1)*(i+1)*(i+1) - i*i*i)) = [1,7,19,37]) ∧ ((List.range 2).all (fun i => (((i+3)*(i+3)*(i+3) - (i+2)*(i+2)*(i+2)) - ((i+2)*(i+2)*(i+2) - (i+1)*(i+1)*(i+1))) - (((i+2)*(i+2)*(i+2) - (i+1)*(i+1)*(i+1)) - ((i+1)*(i+1)*(i+1) - i*i*i)) == 6))",
+  "tactic": "decide",
+  "keys": [
+    "the_degree_is_the_column_count"
+  ],
+  "files": [
+    "Looms.lean"
+  ]
+}

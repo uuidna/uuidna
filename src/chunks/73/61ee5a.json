@@ -1,0 +1,12 @@
+{
+  "handle": "7361ee5a",
+  "address": "7361ee5a-5d96-8300-b34f-d076dbbf1309",
+  "statement": "((List.range 5).all (fun a => (Nat.gcd a 5 != 1) || (a ^ 4 % 5 == 1))) ∧ ((List.range 5).any (fun a => (Nat.gcd a 5 == 1) && ((List.range' 1 3).all (fun k => a ^ k % 5 != 1))))",
+  "tactic": "decide",
+  "keys": [
+    "max_unit_order_mod_5_is_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

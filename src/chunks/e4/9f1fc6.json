@@ -1,0 +1,12 @@
+{
+  "handle": "e49f1fc6",
+  "address": "e49f1fc6-5ef4-8b28-9103-882ddd1e55b4",
+  "statement": "((List.range 6).filter (fun x => (x * x) % 6 == 1)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_6_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

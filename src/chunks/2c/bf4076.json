@@ -1,0 +1,12 @@
+{
+  "handle": "2cbf4076",
+  "address": "2cbf4076-be88-892c-8a6f-1c4e15353bfd",
+  "statement": "(Nat.gcd 1 2 = 1) ∧ (Nat.gcd 2 4 = 2) ∧ (2 * 2 = 4) ∧ (Nat.gcd 4 8 = 4) ∧ (4 * 2 = 8) ∧ (Nat.gcd 8 7 = 1) ∧ (Nat.gcd 7 5 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "orbit_steps_name_their_intervals"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

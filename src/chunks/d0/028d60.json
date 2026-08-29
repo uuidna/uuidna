@@ -1,0 +1,12 @@
+{
+  "handle": "d0028d60",
+  "address": "d0028d60-caaf-8889-9f11-186428d50cc2",
+  "statement": "(60000 / 120 = 500 ∧ 4 * 500 = 2000) ∧ (6 % 9 = 6)",
+  "tactic": "decide",
+  "keys": [
+    "tempo_ms_per_beat"
+  ],
+  "files": [
+    "Production.lean"
+  ]
+}

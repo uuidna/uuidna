@@ -1,0 +1,12 @@
+{
+  "handle": "bce9f682",
+  "address": "bce9f682-a504-803a-af97-fb0513ac3629",
+  "statement": "((List.range' 1 50).filter (fun k => 50 % k == 0)).length = 6",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_50_number_6"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

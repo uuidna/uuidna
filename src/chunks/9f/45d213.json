@@ -1,0 +1,12 @@
+{
+  "handle": "9f45d213",
+  "address": "9f45d213-22a2-8061-9e92-0b1bfccce2cc",
+  "statement": "(18 * 12 + 7 = 223) ∧ (223 > 100)",
+  "tactic": "decide",
+  "keys": [
+    "saros_eclipse_cycle"
+  ],
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

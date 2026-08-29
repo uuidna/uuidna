@@ -1,0 +1,12 @@
+{
+  "handle": "62c10f0b",
+  "address": "62c10f0b-55a0-826f-9cfe-f10ac99d1c4d",
+  "statement": "(2^4 % 15 = 1) ∧ ((List.range' 1 3).all (fun k => 2^k % 15 != 1))",
+  "tactic": "decide",
+  "keys": [
+    "order_of_two_mod_15_is_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

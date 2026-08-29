@@ -1,0 +1,12 @@
+{
+  "handle": "e02f3f45",
+  "address": "e02f3f45-4a29-8663-a2b4-41438ab4ab4a",
+  "statement": "((List.range 32).filter (fun x => x ^ 32 % 32 == x)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_32_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

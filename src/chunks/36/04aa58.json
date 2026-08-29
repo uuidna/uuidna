@@ -1,0 +1,12 @@
+{
+  "handle": "3604aa58",
+  "address": "3604aa58-5ac3-8400-8071-def3669d67e3",
+  "statement": "(500 * 10 ^ 9 / 2 ^ 30 = 465) ∧ (500 - 465 = 35)",
+  "tactic": "decide",
+  "keys": [
+    "the_buyer_sees_thirty_five_missing"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

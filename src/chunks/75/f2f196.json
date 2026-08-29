@@ -1,0 +1,12 @@
+{
+  "handle": "75f2f196",
+  "address": "75f2f196-6d10-84a5-8612-7e32efff308c",
+  "statement": "((List.range 28).filter (fun x => x ^ 28 % 28 == 0)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_28_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

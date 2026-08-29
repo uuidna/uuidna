@@ -1,0 +1,12 @@
+{
+  "handle": "e65093e3",
+  "address": "e65093e3-abf6-8b35-b0a3-598bf6571d7f",
+  "statement": "(List.range 10).all (fun x => dz (dz x) == x) ∧ ((List.range 10).filter (fun x => dz x == x)) = [0, 5] ∧ (List.range 10).all (fun x => dz x < 10)",
+  "tactic": "decide",
+  "keys": [
+    "vortex_dz_involution_at_ten"
+  ],
+  "files": [
+    "OneLeap.lean"
+  ]
+}

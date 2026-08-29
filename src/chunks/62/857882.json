@@ -1,0 +1,12 @@
+{
+  "handle": "62857882",
+  "address": "62857882-942f-83bd-8cef-314b7eee1620",
+  "statement": "(1300 + 21 = 1321) ∧ (7 % 9 = 7) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+  "tactic": "decide",
+  "keys": [
+    "fold_prototype_pollution"
+  ],
+  "files": [
+    "Exploits.lean"
+  ]
+}

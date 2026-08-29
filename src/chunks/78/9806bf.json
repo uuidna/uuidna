@@ -1,0 +1,12 @@
+{
+  "handle": "789806bf",
+  "address": "789806bf-e97a-8074-89bf-c9cfba25af2e",
+  "statement": "(List.range 9).all (fun m1 => (List.range 9).all (fun m2 => (m1 == m2) || ((7 + m1) % 9 != (7 + m2) % 9))) ∧ (accept 1 1 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "tamper_changes_tag"
+  ],
+  "files": [
+    "Command.lean"
+  ]
+}

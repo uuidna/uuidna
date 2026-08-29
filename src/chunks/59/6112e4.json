@@ -1,0 +1,12 @@
+{
+  "handle": "596112e4",
+  "address": "596112e4-4d0e-83f1-9ac7-b1ceeb669b5a",
+  "statement": "((60 : Nat) / 3 = 20) ∧ (20 * 3 = 60) ∧ (2 * 30 = 60) ∧ (20 < 60)",
+  "tactic": "decide",
+  "keys": [
+    "divers_and_astronauts_share_the_ladder"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

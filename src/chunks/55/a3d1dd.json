@@ -1,0 +1,12 @@
+{
+  "handle": "55a3d1dd",
+  "address": "55a3d1dd-9c6d-8bb8-ad33-689899d59d9a",
+  "statement": "(4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32)",
+  "tactic": "decide",
+  "keys": [
+    "a_token_approximates_eight_hexbits"
+  ],
+  "files": [
+    "Models.lean"
+  ]
+}

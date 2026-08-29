@@ -1,0 +1,12 @@
+{
+  "handle": "b52accf3",
+  "address": "b52accf3-1a09-8399-879c-4227591de660",
+  "statement": "(let B : List Nat := [1,2,3,5,8,13,21]; let bit : Nat → Nat → Nat := fun m i => m / 2^i % 2; let msum : Nat → Nat := fun m => (List.range 7).foldl (fun s i => s + bit m i * ((B.drop i).headD 0)) 0; let adj : Nat → Bool := fun m => (List.range 6).any (fun i => (bit m i == 1) && (bit m (i+1) == 1)); (B.length == 7) && ((B.drop 0).headD 0 == 1) && ((B.drop 1).headD 0 == 2) && ((List.range 5).all (fun i => (B.drop i).headD 0 + (B.drop (i+1)).headD 0 == (B.drop (i+2)).headD 0)) && ((List.range 34).all (fun n => ((List.range 128).filter (fun m => (!adj m) && (msum m == n))).length == 1)) && ((List.range 128).all (fun m => adj m || Nat.ble (msum m) 33)) && (((List.range 128).filter (fun m => !adj m)).length == 34)) = true",
+  "tactic": "decide",
+  "keys": [
+    "zeckendorf_non_adjacent_representation_is_unique"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

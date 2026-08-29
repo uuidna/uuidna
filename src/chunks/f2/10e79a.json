@@ -1,0 +1,12 @@
+{
+  "handle": "f210e79a",
+  "address": "f210e79a-cb5a-80af-b1cb-c0e8ec3b59e5",
+  "statement": "(2010 - 1998 = 12) ∧ (12 * 12 = 144) ∧ (181 > 144)",
+  "tactic": "decide",
+  "keys": [
+    "fock_window_exceeds_a_monthly_toll"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

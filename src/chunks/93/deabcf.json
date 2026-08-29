@@ -1,0 +1,12 @@
+{
+  "handle": "93deabcf",
+  "address": "93deabcf-26ae-8536-9b8e-6233044c4ab5",
+  "statement": "2 ^ 15 = 32768 ∧ 8000 < 32768",
+  "tactic": "decide",
+  "keys": [
+    "amplitude_inside_int16"
+  ],
+  "files": [
+    "Readings.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f418ba40",
+  "address": "f418ba40-99b0-8d2a-92bd-787d426469f0",
+  "statement": "(16 ^ 8 = 4294967296) ∧ ((List.range 9).all (fun k => 4294967296 % (2 ^ k) == 0)) ∧ (4294967296 / 2 = 2147483648) ∧ (4294967296 / 16 = 268435456) ∧ (4294967296 / 256 = 16777216)",
+  "tactic": "decide",
+  "keys": [
+    "handles_balance_the_load_for_free"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

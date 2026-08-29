@@ -1,0 +1,12 @@
+{
+  "handle": "c1dae07b",
+  "address": "c1dae07b-4b07-8ef4-b4aa-bfebd5f497fb",
+  "statement": "(4 * 90 = 360) ∧ (3 * 120 = 360) ∧ (2 * 180 = 360) ∧ (360 % 90 = 0) ∧ (360 % 120 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "three_tilings_of_the_circle"
+  ],
+  "files": [
+    "Tesla.lean"
+  ]
+}

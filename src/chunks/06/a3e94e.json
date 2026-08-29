@@ -1,0 +1,12 @@
+{
+  "handle": "06a3e94e",
+  "address": "06a3e94e-9c55-8a15-8d86-b05c689bf001",
+  "statement": "142 + 857 = 999 ∧ (([1,4,2].zip [8,5,7]).all (fun p => p.1 + p.2 == 9))",
+  "tactic": "decide",
+  "keys": [
+    "song_halves_are_strands"
+  ],
+  "files": [
+    "Song.lean"
+  ]
+}

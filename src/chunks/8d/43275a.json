@@ -1,0 +1,12 @@
+{
+  "handle": "8d43275a",
+  "address": "8d43275a-1444-8765-8703-f96456d95d13",
+  "statement": "(12 * 12 + 7 * 13 = 235) ∧ (144 + 91 = 235) ∧ (12 + 7 = 19)",
+  "tactic": "decide",
+  "keys": [
+    "metonic_is_the_intercalation"
+  ],
+  "files": [
+    "Antikythera.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "02344cb4",
+  "address": "02344cb4-7f03-85da-8e66-a75a86785143",
+  "statement": "(6 * 16 = 96) ∧ (7 % 9 = 7)",
+  "tactic": "decide",
+  "keys": [
+    "sixteen_bit_dynamic_range"
+  ],
+  "files": [
+    "Production.lean"
+  ]
+}

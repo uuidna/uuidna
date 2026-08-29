@@ -1,0 +1,12 @@
+{
+  "handle": "76a24d98",
+  "address": "76a24d98-b556-8680-9493-d548cf599b8f",
+  "statement": "(List.range' 1 7).all (fun n => ((List.range 128).filter (fun s => (List.range 7).foldl (fun a i => a + (if s / 2 ^ i % 2 == 1 then i + 1 else 0)) 0 == n)).length == (List.range 8).foldl (fun t1 a => t1 + (List.range 3).foldl (fun t3 b => t3 + (List.range 2).foldl (fun t5 c => t5 + (List.range 2).foldl (fun t7 d => t7 + (if a * 1 + b * 3 + c * 5 + d * 7 == n then 1 else 0)) 0) 0) 0) 0)",
+  "tactic": "decide",
+  "keys": [
+    "partitions_euler_distinct_eq_odd_to_seven"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

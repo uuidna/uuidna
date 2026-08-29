@@ -1,0 +1,12 @@
+{
+  "handle": "0a943860",
+  "address": "0a943860-abea-844f-b638-f8e5dad5a58b",
+  "statement": "(7 + 7 = 14) ∧ (((3 - 7) + (11 - 7) : Int) = 0) ∧ (14 - 7 = 7)",
+  "tactic": "decide",
+  "keys": [
+    "ph_plus_poh_14"
+  ],
+  "files": [
+    "Chemistry.lean"
+  ]
+}

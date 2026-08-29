@@ -1,0 +1,12 @@
+{
+  "handle": "1f803315",
+  "address": "1f803315-1c80-8a8d-bc39-d531a61b3f68",
+  "statement": "((List.range 38).filter (fun x => x ^ 38 % 38 == 0)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_38_number_1"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

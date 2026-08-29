@@ -1,0 +1,12 @@
+{
+  "handle": "94e4476a",
+  "address": "94e4476a-6a0e-83e1-9246-8f36b33788c7",
+  "statement": "([2,3,5,7] : List Nat).all (fun p => (List.range' 2 (p-2)).all (fun k => p % k != 0))",
+  "tactic": "decide",
+  "keys": [
+    "song_primes_keep_time"
+  ],
+  "files": [
+    "Song.lean"
+  ]
+}

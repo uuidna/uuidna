@@ -1,0 +1,12 @@
+{
+  "handle": "0ba2ff2f",
+  "address": "0ba2ff2f-bf97-8083-9f23-8ef12a46d1a8",
+  "statement": "((List.range 9).filter (fun x => x ^ 9 % 9 == 0)).length = 3",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_9_number_3"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

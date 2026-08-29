@@ -1,0 +1,12 @@
+{
+  "handle": "2b32e8d2",
+  "address": "2b32e8d2-5268-8155-b1df-43eb4ff79fdc",
+  "statement": "(83 - 60 = 23) ∧ (23 > 20) ∧ (60 > 50)",
+  "tactic": "decide",
+  "keys": [
+    "mombh_black_hole_mass_spans_over_two_dex"
+  ],
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bc3d5252",
+  "address": "bc3d5252-d010-86ca-a318-85ade506db14",
+  "statement": "(((List.range 44).filter (fun a => Nat.gcd a 44 == 1)).foldl (fun acc a => (acc + a) % 44) 0) = 0",
+  "tactic": "decide",
+  "keys": [
+    "unit_sum_mod_44_is_0"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

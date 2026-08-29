@@ -1,0 +1,12 @@
+{
+  "handle": "6a739512",
+  "address": "6a739512-0ac8-8823-a8b8-64732d6215c4",
+  "statement": "((400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389)) ∧ (4 % 9 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "eclipse_four_hundred"
+  ],
+  "files": [
+    "Universe.lean"
+  ]
+}

@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 397,
+ "count": 396,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -39,13 +39,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 32768,
    "promptPrice": "0.0000008",
    "completionPrice": "0.0000016"
-  },
-  {
-   "id": "allenai/olmo-3-32b-think",
-   "name": "AllenAI: Olmo 3 32B Think",
-   "contextTokens": 65536,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000005"
   },
   {
    "id": "amazon/nova-2-lite-v1",
@@ -293,13 +286,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000085"
   },
   {
-   "id": "arcee-ai/virtuoso-large",
-   "name": "Arcee AI: Virtuoso Large",
-   "contextTokens": 131072,
-   "promptPrice": "0.00000075",
-   "completionPrice": "0.0000012"
-  },
-  {
    "id": "baidu/ernie-4.5-vl-424b-a47b",
    "name": "Baidu: ERNIE 4.5 VL 424B A47B ",
    "contextTokens": 123000,
@@ -450,8 +436,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v3.2",
    "name": "DeepSeek: DeepSeek V3.2",
    "contextTokens": 163840,
-   "promptPrice": "0.000000269",
-   "completionPrice": "0.0000004"
+   "promptPrice": "0.00000026",
+   "completionPrice": "0.00000038"
   },
   {
    "id": "deepseek/deepseek-v3.2-exp",
@@ -464,15 +450,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000000868",
-   "completionPrice": "0.0000001736"
+   "promptPrice": "0.00000008596",
+   "completionPrice": "0.00000017192"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
    "name": "DeepSeek: DeepSeek V4 Flash 0731",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000005",
-   "completionPrice": "0.0000001"
+   "promptPrice": "0.000000045",
+   "completionPrice": "0.00000009"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731:batch",
@@ -492,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000741588",
-   "completionPrice": "0.000001483176"
+   "promptPrice": "0.000000711312",
+   "completionPrice": "0.000001422624"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -1290,8 +1276,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k3",
    "name": "MoonshotAI: Kimi K3",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000255",
-   "completionPrice": "0.00001275"
+   "promptPrice": "0.000003",
+   "completionPrice": "0.000015"
   },
   {
    "id": "moonshotai/kimi-k3:batch",
@@ -2305,8 +2291,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.8-2.4t-a95b:batch",
    "name": "Qwen: Qwen3.8 2.4T A95B (batch)",
    "contextTokens": 1010000,
-   "promptPrice": "0.000002",
-   "completionPrice": "0.000006"
+   "promptPrice": "0.0000025",
+   "completionPrice": "0.00000625"
   },
   {
    "id": "qwen/qwen3.8-27b",
@@ -2438,8 +2424,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000825",
-   "completionPrice": "0.00000033"
+   "promptPrice": "0.000000132",
+   "completionPrice": "0.000000528"
   },
   {
    "id": "tencent/hy3-preview",
@@ -2488,6 +2474,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "Thinking Machines: Inkling Small",
    "contextTokens": 1048576,
    "promptPrice": "0.00000045",
+   "completionPrice": "0.0000012"
+  },
+  {
+   "id": "thinkingmachines/inkling-small:batch",
+   "name": "Thinking Machines: Inkling Small (batch)",
+   "contextTokens": 524288,
+   "promptPrice": "0.0000005",
    "completionPrice": "0.0000012"
   },
   {

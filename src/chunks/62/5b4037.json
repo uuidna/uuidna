@@ -1,0 +1,12 @@
+{
+  "handle": "625b4037",
+  "address": "625b4037-cc83-8890-8ef3-bfa6be271456",
+  "statement": "((((List.range 21).map (fun x => ((List.range 6).map (fun k => (2 ^ k * x) % 21)).foldl min 20)).eraseDups) = [0, 1, 3, 5, 7, 9]) ∧ (((((List.range 21).map (fun x => ((List.range 6).map (fun k => (2 ^ k * x) % 21)).foldl min 20)).eraseDups).map (fun r => ((List.range 6).map (fun k => (2 ^ k * r) % 21)).eraseDups.length)) = [1, 6, 3, 6, 2, 3]) ∧ (1 + 6 + 3 + 6 + 2 + 3 = 21) ∧ ((2 ^ 6) % 21 = 1) ∧ ((2 ^ 2) % 3 = 1) ∧ ((2 ^ 3) % 7 = 1) ∧ (Nat.lcm 2 3 = 6)",
+  "tactic": "decide",
+  "keys": [
+    "crt21_doubling_orbits_partition"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "fdd50fa5",
+  "address": "fdd50fa5-6e71-8827-b751-4d07f36f4cff",
+  "statement": "(2 ^ 6 = 64) ∧ (4 ^ 3 = 64) ∧ (64 % 9 = 1) ∧ (((List.range 6).map (fun k => 2 ^ k % 9)) = [1, 2, 4, 8, 7, 5])",
+  "tactic": "decide",
+  "keys": [
+    "the_coin_compass_closes"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

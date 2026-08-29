@@ -1,0 +1,12 @@
+{
+  "handle": "f7f024aa",
+  "address": "f7f024aa-6dd4-880a-b758-9c5f893f5aca",
+  "statement": "(360 / 2 = 180) ∧ (360 / 3 = 120) ∧ (360 % 360 = 0) ∧ (¬ (180 % 360 = 0)) ∧ (¬ (120 % 360 = 0))",
+  "tactic": "decide",
+  "keys": [
+    "alternation_needs_a_second_phase"
+  ],
+  "files": [
+    "Tesla.lean"
+  ]
+}

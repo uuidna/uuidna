@@ -1,0 +1,12 @@
+{
+  "handle": "afd3ddb2",
+  "address": "afd3ddb2-d5e0-8afe-81ef-1702a92dd168",
+  "statement": "((List.range 4).all (fun i => (List.range 4).all (fun j => Nat.ble j i || nth [180, 120, 60, 20] i > nth [180, 120, 60, 20] j))) ∧ (180 * 20 = 3600) ∧ (60 * 60 = 3600) ∧ (120 * 30 = 3600)",
+  "tactic": "decide",
+  "keys": [
+    "the_surface_is_the_geometric_mean"
+  ],
+  "files": [
+    "Comparisons.lean"
+  ]
+}

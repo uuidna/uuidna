@@ -1,0 +1,12 @@
+{
+  "handle": "087fd11e",
+  "address": "087fd11e-02b0-8f33-8289-a7d78a2cfa80",
+  "statement": "((List.range 24).filter (fun x => x ^ 24 % 24 == 0)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_24_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cdd5a1cd",
+  "address": "cdd5a1cd-0614-8f2d-92b6-403513840673",
+  "statement": "((80 * 66 = 5280) ∧ (22 * 220 = 4840)) ∧ (8 % 9 = 8)",
+  "tactic": "decide",
+  "keys": [
+    "gunters_chain_measures"
+  ],
+  "files": [
+    "Topography.lean"
+  ]
+}

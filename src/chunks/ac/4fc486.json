@@ -1,0 +1,12 @@
+{
+  "handle": "ac4fc486",
+  "address": "ac4fc486-d8f6-8855-a4c1-d8b92aca4567",
+  "statement": "(8 = 2 * 4) ∧ (List.reverse (List.reverse [1, 2, 3, 4]) = [1, 2, 3, 4])",
+  "tactic": "decide",
+  "keys": [
+    "morris_eight_bars_halved"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

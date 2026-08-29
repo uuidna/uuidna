@@ -1,0 +1,12 @@
+{
+  "handle": "50b0ef00",
+  "address": "50b0ef00-7531-8f12-b577-17c66f98dfa1",
+  "statement": "(List.range' 1 15).all (fun a => (List.range' 1 15).all (fun b => Nat.gcd (432*a) (432*b) == 432 * Nat.gcd a b))",
+  "tactic": "decide",
+  "keys": [
+    "tuning_cancels_from_every_interval"
+  ],
+  "files": [
+    "Referrer.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "143e8220",
+  "address": "143e8220-3f9a-88dd-9287-c86865e00116",
+  "statement": "((List.range 25).filter (fun x => x ^ 25 % 25 == x)).length = 5",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_25_number_5"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

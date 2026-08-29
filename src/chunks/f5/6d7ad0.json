@@ -1,0 +1,12 @@
+{
+  "handle": "f56d7ad0",
+  "address": "f56d7ad0-b0cb-8600-997a-0cb0ad9fc02b",
+  "statement": "((List.range' 2 9).all (fun n => n * n > n)) ∧ (10 * 10 = 100)",
+  "tactic": "decide",
+  "keys": [
+    "buddy_pair_squares_the_failure"
+  ],
+  "files": [
+    "Waves.lean"
+  ]
+}

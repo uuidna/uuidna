@@ -1,0 +1,12 @@
+{
+  "handle": "ec014b8d",
+  "address": "ec014b8d-2ceb-8537-a489-63f65c87ca0e",
+  "statement": "((List.range 10).filter (fun x => x ^ 10 % 10 == x)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "power_fixed_mod_10_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

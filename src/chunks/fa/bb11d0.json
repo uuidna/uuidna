@@ -1,0 +1,12 @@
+{
+  "handle": "fabb11d0",
+  "address": "fabb11d0-b23f-86b3-977f-3ef45cbf160e",
+  "statement": "((List.range 21).filter (fun a => Nat.gcd a 21 == 1)).length = 12",
+  "tactic": "decide",
+  "keys": [
+    "units_mod_21_number_12"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

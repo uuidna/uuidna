@@ -1,0 +1,12 @@
+{
+  "handle": "fa8275c9",
+  "address": "fa8275c9-77e3-8601-b7a8-03c426f85441",
+  "statement": "((List.range' 1 17).filter (fun k => 17 % k == 0)).length = 2",
+  "tactic": "decide",
+  "keys": [
+    "divisors_of_17_number_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

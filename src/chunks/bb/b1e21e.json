@@ -1,0 +1,12 @@
+{
+  "handle": "bbb1e21e",
+  "address": "bbb1e21e-0508-8bfb-b0ce-e48be1cf8f4a",
+  "statement": "([1,2,4,8,7,5].map (fun n => 432 * n)) = [432,864,1728,3456,3024,2160]",
+  "tactic": "decide",
+  "keys": [
+    "song_melody_rides_the_orbit"
+  ],
+  "files": [
+    "Song.lean"
+  ]
+}

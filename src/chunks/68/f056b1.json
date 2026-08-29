@@ -1,0 +1,12 @@
+{
+  "handle": "68f056b1",
+  "address": "68f056b1-2511-8c6d-afb0-6293908eb1ae",
+  "statement": "(((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 0)).length = 32) ∧ (((List.range 64).filter (fun s => ((s / 8) + (s % 8)) % 2 == 1)).length = 32) ∧ (64 % 2 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "closed_knight_tour_even"
+  ],
+  "files": [
+    "Chess.lean"
+  ]
+}

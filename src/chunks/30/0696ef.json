@@ -1,0 +1,12 @@
+{
+  "handle": "300696ef",
+  "address": "300696ef-cf03-8041-9ff2-5d39bba58882",
+  "statement": "(8 * 8 = 64) ∧ (12 * 64 = 768) ∧ (12 * 1024 / 16 = 768)",
+  "tactic": "decide",
+  "keys": [
+    "a_glyph_costs_one_coin_measure"
+  ],
+  "files": [
+    "Pravets.lean"
+  ]
+}

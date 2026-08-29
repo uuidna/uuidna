@@ -1,0 +1,12 @@
+{
+  "handle": "93b268a7",
+  "address": "93b268a7-9d74-8299-acd4-fa2b8eba487d",
+  "statement": "((List.range 33).filter (fun x => (x * x) % 33 == x)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "idempotents_mod_33_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

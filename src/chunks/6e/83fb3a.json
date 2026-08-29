@@ -1,0 +1,12 @@
+{
+  "handle": "6e83fb3a",
+  "address": "6e83fb3a-7029-8012-a051-d441a22be3a9",
+  "statement": "((List.range 6).filter (fun x => x ^ 6 % 6 == 0)).length = 1",
+  "tactic": "decide",
+  "keys": [
+    "nilpotents_mod_6_number_1"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

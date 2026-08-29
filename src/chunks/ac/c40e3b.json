@@ -1,0 +1,12 @@
+{
+  "handle": "acc40e3b",
+  "address": "acc40e3b-932a-84cf-aa55-5d2664dfa204",
+  "statement": "((List.range 12).filter (fun x => (x * x) % 12 == 1)).length = 4",
+  "tactic": "decide",
+  "keys": [
+    "self_inverse_mod_12_number_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "089aa57a",
+  "address": "089aa57a-1353-8f2b-bd54-a77658a653ad",
+  "statement": "(List.map (fun x => (x + 2) % 4) [0, 1, 2, 3] = [2, 3, 0, 1]) ∧ (List.map (fun x => ((x + 2) % 4 + 2) % 4) [0, 1, 2, 3] = [0, 1, 2, 3]) ∧ (2 * 2 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "compass_opposites_involute"
+  ],
+  "files": [
+    "Doctrine.lean"
+  ]
+}

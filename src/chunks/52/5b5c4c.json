@@ -1,0 +1,12 @@
+{
+  "handle": "525b5c4c",
+  "address": "525b5c4c-eb0a-8b86-aac6-2397fb6064fb",
+  "statement": "(128 - 48 = 80) ∧ (48 < 128) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48)",
+  "tactic": "decide",
+  "keys": [
+    "usable_gap_eighty_bits"
+  ],
+  "files": [
+    "Quantum.lean"
+  ]
+}
