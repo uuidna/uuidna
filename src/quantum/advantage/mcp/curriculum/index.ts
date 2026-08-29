@@ -84,7 +84,10 @@ export function advantageCurriculum(): AdvantageMcpCurriculum {
   const examples: AdvantageMcpExample[] = [
     example('dim-4', 'n_qubit_dimension', 'uuidna_decide', { input: '2^' + ghz4 + '=' + pow2(ghz4) },
       [{ path: 'verdict', equals: 'VERIFIED_BY_DECIDE' }, { path: 'kind', equals: 'decided-arithmetic' }],
-      `${ghz4} qubits span ${pow2(ghz4)} amplitudes — uuidna_decide pays 2^n (theorem n_qubit_dimension); uuidna_quantum is named-absent on the hosted wire`),
+      `${ghz4} qubits span ${pow2(ghz4)} amplitudes — uuidna_decide for cost; uuidna_quantum {circuit:bell} for the state vector`),
+    example('sim-bell', 'n_qubit_dimension', 'uuidna_quantum', { circuit: 'bell' },
+      [{ path: 'circuit', equals: 'bell' }, { path: 'qubits', equals: 2 }],
+      'exact classical Bell state — read honest field; exponential simulation, not hardware'),
     example('dim-ceiling', 'served_qubit_ceiling', 'uuidna_decide', { input: `2^${nestQubits}=${pow2(nestQubits)}` },
       [{ path: 'verdict', equals: 'VERIFIED_BY_DECIDE' }, { path: 'kind', equals: 'decided-arithmetic' }],
       `handle+hexbit nest ${nestQubits} qubits = ${pow2(nestQubits)} amplitudes (theorem served_qubit_ceiling); MCP serves the encoder (${servedQubits})`),

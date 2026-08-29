@@ -13,11 +13,11 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { LEAN_LEDGER } from '../theorems/generated.js'
 import { openQuestions } from '../school/open/questions/index.js'
-import { gatherOpenItems } from '../school/open/questions/springs.js'
+import { gatherOpenLeads } from '../school/open/questions/springs.js'
 import { adjudicate } from '../adjudicate.js'
 import { pageSafe } from '../quantum/advantage/page/safe/index.js'
 
-const items = gatherOpenItems(ROOT)
+const items = gatherOpenLeads(ROOT)
 const topics = openQuestions(items, LEAN_LEDGER)
 const total = items.length
 
@@ -49,12 +49,13 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**${total} open doors** across ${topics.length} topics, derived from the tree's own records — the held leads,
-the research findings, the prose develop fragments, the search-feed leads, the support-wave research-leads,
-the axiom-hunt exposed set. After a wave of external research, local school development files every unverified
-here so the lab can discuss it. The full leads record (held, refuted, refused) enrolls at
-[the school](/school#leads); this page is the open subset. Placement is a word-overlap heuristic and says so: what the
-words cannot place waits in the **open frontier**, unforced.
+**${total} open leads** across ${topics.length} topics, derived from the tree's own records — held, refuted, and
+refused from lean/leads.json (each adjudicates UNVERIFIED until a seal verifies), plus research findings, prose
+develop fragments, search-feed leads, support-wave research-leads, and the axiom-hunt exposed set. After a wave
+of external research, local school development files every unverified here so the lab can discuss it. The full
+leads record enrolls at [the school](/school#leads); refuted and refused are results, not seals — they stay on
+this page until adjudicate returns VERIFIED. Placement is a word-overlap heuristic and says so: what the words
+cannot place waits in the **open frontier**, unforced.
 
 **How to answer one**: a student's answer is a **two-coin deposit**, never a comment — name the finite structure,
 express the claim as an exact predicate over it, run the [tester](/tools) with its controls, and if the denial
@@ -71,4 +72,4 @@ leads, support-wave research-leads, axiom-hunt exposed); when a record closes, i
 recomputation, never by edit.
 `
 writeFileSync(join(ROOT, 'docs', 'open-questions.md'), page)
-console.log(`✓ gen-open-questions — docs/open-questions.md: ${total} doors in ${topics.length} topics, derived from the springs against ${LEAN_LEDGER.length} seals`)
+console.log(`✓ gen-open-questions — docs/open-questions.md: ${total} open leads in ${topics.length} topics, derived from the springs against ${LEAN_LEDGER.length} seals`)

@@ -17,7 +17,9 @@ import { toUuid, merkleGravity, theorems } from '../index.js'
 import { handleOf } from '../handle.js'
 import { UUID_HEXBITS, HEXBIT_BITS, HEXBIT_STATES, hexbitDoorOf } from '../hexbit/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
-import { searchFeed } from '../search-feed.js'
+import { readRepoJson } from '../desk/index.js'
+import { waveQueueState } from '../wave-deposit.js'
+import { pendingHarvestLeads } from '../search-feed.js'
 import { mintLeadsToCandidates } from '../harvest.js'
 import { CORPUS } from './mine-books.js'
 import { ROOT } from './api.js'
@@ -100,7 +102,8 @@ if (process.argv[1] && /books-run\.(js|ts)$/.test(process.argv[1])) {
   }
 
   const alreadyAll = [...new Set(books.flatMap((b) => b.hexbitAlreadySealed))]
-  const harvest = mintLeadsToCandidates(searchFeed().leads.flatMap((l) => (l.harvest ? [l.harvest] : [])))
+  const wave = waveQueueState(readRepoJson('lean/wave-queue.json'))
+  const harvest = mintLeadsToCandidates(pendingHarvestLeads(wave.refused, wave.inFlight))
   for (const c of harvest) {
     if (seen.has(c.key)) continue
     seen.add(c.key)

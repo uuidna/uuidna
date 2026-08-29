@@ -181,7 +181,6 @@ const EDGE_ABSENT: Record<string, string> = {
   "uuidna_vies": 'POLICY: network lookup against the EU VIES register',
   "uuidna_scan_publications": 'POLICY: network scan of free research streams',
   "uuidna_selftest": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
-  "uuidna_quantum": 'reaches a non-harmonic module — see EDGE_ABSENT above on capability vs policy',
   "uuidna_run": 'CAPABILITY: requires filesystem + spawn (docker/chroot) — stdio/host only by design; Layer 1 uuidna_exec serves the browser',
 }
 
@@ -215,7 +214,7 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
   const method = msg?.method
   const params = msg?.params ?? {}
   if (method === 'initialize') return rpc(id, { protocolVersion: PROTOCOL_VERSION, capabilities: { tools: { listChanged: false } }, serverInfo: SERVER,
-    instructions: 'uuidna hosted MCP — Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS. Every result is TWO content blocks with detail in _meta.messaging. Multi-agent: declare clientInfo.name at initialize, poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger (stateless per isolate). Integrity.' })
+    instructions: 'uuidna hosted MCP — Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS. After your first deposit: uuidna_quantum_advantage (compute path + magnitudes over classical re-run — verify_beats_recompute_by_magnitudes, not hardware supremacy). Alpine apps: uuidna_exec. Multi-agent: declare clientInfo.name at initialize; poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. Integrity.' })
   if (method === 'ping') return rpc(id, {})
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
   if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(SERVED) } })

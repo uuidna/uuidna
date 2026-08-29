@@ -90,13 +90,17 @@ test('the LIVE sources all answer — every declared source is readable on this 
     'a source that cannot be read makes the gate measure less than it claims — fix the reader, not the census')
 })
 
-test('open-questions does not re-list REFUTED or REFUSED leads as open doors', () => {
+test('open-questions lists refuted and refused leads — they map to UNVERIFIED, not VERIFIED', () => {
   const page = readFileSync(join(ROOT, 'docs', 'open-questions.md'), 'utf8')
   const leads = JSON.parse(readFileSync(join(ROOT, 'lean', 'leads.json'), 'utf8')) as {
-    refuted?: { lead: string }[]; refused?: { lead: string }[]
+    refuted?: { lead: string; killed_by?: string }[]
+    refused?: { lead: string; boundary?: string }[]
   }
-  const settled = [...(leads.refuted ?? []), ...(leads.refused ?? [])]
-  const relisted = settled.filter((s) => s.lead && page.includes(s.lead.slice(0, 48)))
-  assert.deepEqual(relisted.map((s) => s.lead.slice(0, 60)), [],
-    'a settled lead on the open-questions page is undeveloped record, not a new mystery')
+  const settled = [
+    ...(leads.refuted ?? []).filter((r) => r.killed_by && r.lead),
+    ...(leads.refused ?? []).filter((r) => r.boundary && r.lead),
+  ]
+  const missing = settled.filter((s) => s.lead && !page.includes(s.lead.slice(0, 48)))
+  assert.deepEqual(missing.map((s) => s.lead.slice(0, 60)), [],
+    'refuted and refused are open leads — they adjudicate UNVERIFIED until a seal verifies')
 })

@@ -207,3 +207,14 @@ export function searchFeed(queries: readonly SearchQuery[] = FEED_QUERIES, refus
       'holds or refuses. Meaning is null. This does not scrape Google. Recomputable. Integrity.',
   }
 }
+
+/** pendingHarvestLeads(refusedKeys?, inFlight?, queries?) → search-feed harvest not yet on the conveyor. Pure. */
+export function pendingHarvestLeads(
+  refusedKeys: ReadonlySet<string> = new Set(),
+  inFlight: ReadonlySet<string> = new Set(),
+  queries: readonly SearchQuery[] = FEED_QUERIES,
+): MintLead[] {
+  return searchFeed(queries, refusedKeys).leads
+    .flatMap((l) => (l.harvest ? [l.harvest] : []))
+    .filter((h) => !inFlight.has(h.key))
+}

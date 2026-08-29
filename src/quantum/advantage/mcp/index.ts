@@ -8,3 +8,9 @@ export {
   type McpExpect, type AdvantageMcpExample, type AdvantageMcpCurriculum,
   type McpHookHop, type AdvantageMcpHook,
 } from './curriculum/index.js'
+export {
+  quantumAdvantagePlaybook,
+  playbookExamples,
+  type PlaybookStep,
+  type QuantumAdvantagePlaybook,
+} from './agent/playbook/index.js'

@@ -2261,7 +2261,7 @@
     "lean/martialarts-manifest.json": "d392cbcd865e81bd",
     "lean/matching-manifest.json": "2b8b1987e23e8043",
     "lean/mcp-alpine-man.json": "b6d13f55dbab8749",
-    "lean/mcp-context-budget.json": "89928da7e8dc8d9c",
+    "lean/mcp-context-budget.json": "2005eded376f8bce",
     "lean/mcp-surface-divergence.json": "bd1b3b799169889b",
     "lean/messaging-witness.json": "522fae9c9c4684a6",
     "lean/models-manifest.json": "c5bd75d0f0148ab5",
@@ -2303,7 +2303,7 @@
     "lean/rosette-manifest.json": "8f726ca066f08713",
     "lean/sailing-manifest.json": "19b588a8172983e8",
     "lean/sanitize-manifest.json": "8f3fbea63568819b",
-    "lean/search-feed.json": "4665796f7e2d8295",
+    "lean/search-feed.json": "5a23fcb19f108575",
     "lean/seats-manifest.json": "2c8a9c7a75fc815f",
     "lean/security-manifest.json": "959f67a719188dad",
     "lean/seo-url-map.json": "0fc30622ef768866",
@@ -2339,5 +2339,5 @@
     "lean/wave-queue.json": "aea574e2a5748ff0",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "eb29e258-7054-8f7d-b33b-e1493350884b"
+  "receipt": "3d91ab22-b4a8-863c-b141-ac5c514a702d"
 }

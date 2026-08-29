@@ -53,6 +53,9 @@ import { resources } from './resources.js' // Node-only (reads process/os) — i
 // none of them declared in lean/mcp-surface-divergence.json. Two imports, for one orchestration tool and one
 // bootstrap, were the reason the deployed UI served a tenth of the surface.
 import { ROOT as LIB_ROOT } from './boundary.js'
+import { openLeadsPublic, leadsGatePublic, openQuestionsPublic, fillGapsAdvantageSnapshot, hookFillGapsAtScale } from './desk/index.js'
+import { quantumAdvantagePlaybook } from './quantum/advantage/mcp/index.js'
+import type { SourceReading } from './leads.js'
 import { portAllAlpine } from './os/alpine/index.js' // os/ boundary — LIVE upstream read (named non-determinism), not via the deterministic index
 import { infuseAlpinePackages, alpinePackage } from './os/packages/index.js' // os/ boundary — each Alpine package → uuidna/<name>
 import { defaultInstalls, bootOS, servedOS } from './quantum/os/index.js' // PURE — the port + the boot every surface stands on (no fetch, edge-clean)
@@ -707,6 +710,48 @@ const TOOLS: Tool[] = ([
     description: 'The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate a list of claims and RECYCLE, never discard. Each claim gets ONE of two verdicts — VERIFIED (a decidable test holds or it cites a sealed Lean theorem) or UNVERIFIED (everything else, including a citation to a proof not in the ledger — which verifies nothing; never called false). VERIFIED cells are kept; UNVERIFIED cells are returned with the DEVELOP plan naming the next aspect that would verify them. The whole run folds to one superposition uuid (first segment the handle). Nothing is waste — refusal starts the next fusion. Returns {cells,verified,unverified,handle,superposition,receipt}.',
     inputSchema: { type: 'object', properties: { claims: { type: 'array', items: { type: 'string' }, description: 'claims or external theories to adjudicate and recycle' } }, required: ['claims'] },
     run: (a) => reactor(Array.isArray(a?.claims) ? a.claims.map(String) : []) },
+  { name: 'uuidna_open_leads',
+    description: 'YOUR PROJECT BACKLOG — pass {items:[{claim,source?}]} and each claim is adjudicated against the public sealed ledger; UNVERIFIED items are open leads (not-yet sealed here, never "false"). Omit items on uuidna.com to see the ledger\'s own open leads as a worked example. Optional {limit}. Returns {total,open,verified,unverified,items,receipt,honest}. Pure, edge-safe, no repo access required when you supply items.',
+    inputSchema: { type: 'object', properties: {
+      items: { type: 'array', description: 'your backlog — each {claim, source?}', items: { type: 'object', properties: { claim: { type: 'string' }, source: { type: 'string' }, receipt: { type: 'string' } }, required: ['claim'] } },
+      limit: { type: 'integer', description: 'cap how many open items are returned' },
+    } },
+    run: (a) => openLeadsPublic({
+      items: Array.isArray(a?.items)
+        ? (a.items as { claim: string; source?: string; receipt?: string }[]).map((i) => ({
+            claim: String(i.claim),
+            source: String(i.source ?? 'your backlog'),
+            ...(i.receipt ? { receipt: String(i.receipt) } : {}),
+          }))
+        : undefined,
+      limit: a?.limit != null ? Number(a.limit) : undefined,
+    }) },
+  { name: 'uuidna_leads_gate',
+    description: 'YOUR RELEASE GATE — pass {sources:[{source,reached,why?,open:[{source,what,owes}],settled}]} for any project. Ready is true only when every source ANSWERED and none holds a lead; unmeasured sources block (three-state law — unread is not "clean"). Returns the lead census {ready,why,open,unmeasured,receipt,...}. Pure, edge-safe — your readings, your ship/no-ship decision.',
+    inputSchema: { type: 'object', properties: {
+      sources: { type: 'array', description: 'lead-source readings you gathered', items: { type: 'object', properties: {
+        source: { type: 'string' }, reached: { type: 'boolean' }, why: { type: 'string' },
+        settled: { type: 'number' },
+        open: { type: 'array', items: { type: 'object', properties: { source: { type: 'string' }, what: { type: 'string' }, owes: { type: 'string' } }, required: ['source', 'what', 'owes'] } },
+      }, required: ['source', 'reached', 'open', 'settled'] } },
+    }, required: ['sources'] },
+    run: (a) => leadsGatePublic({ sources: (Array.isArray(a?.sources) ? a.sources : []) as SourceReading[] }) },
+  { name: 'uuidna_open_questions',
+    description: 'YOUR OPEN QUESTIONS BY TOPIC — pass {items:[{claim,source?}]}; UNVERIFIED claims are placed under topics derived from word overlap with the public sealed theorems (heuristic, not a verdict). Returns {topics,open,total,curriculum,receipt,honest}. Pure and edge-safe for any project backlog.',
+    inputSchema: { type: 'object', properties: {
+      items: { type: 'array', description: 'your open claims', items: { type: 'object', properties: { claim: { type: 'string' }, source: { type: 'string' } }, required: ['claim'] } },
+      limit: { type: 'integer', description: 'cap items per topic' },
+    }, required: ['items'] },
+    run: (a) => {
+      const items = (Array.isArray(a?.items) ? a.items : []).map((i: { claim: string; source?: string }) => ({
+        claim: String(i.claim),
+        source: String(i.source ?? 'your backlog'),
+      }))
+      return openQuestionsPublic({
+        items,
+        limit: a?.limit != null ? Number(a.limit) : undefined,
+      })
+    } },
   { name: 'uuidna_theorem',
     description: 'Read ONE theorem by key: its detailed `by decide` Lean proof, its formal statement, its principle, source file and content-address, and the verdict (SEALED — its Lean proof compiles sorry-free). Keys from uuidna_theorems.',
     detail: 'WHITE PAPER AND BLUEPRINTS AT ONCE, with its school lab: the sealed statement and Lean line are the paper; the handle, /theorem/<key> route, and 32 hexbit states are the drawing — same address (theorem a_spec_compiles_to_hexbits). The lab is computationally entangled to the theorem and related resources (cited sealed keys, PORTED benches this theorem names, the skill instrument). Verdict SEALED. Keys from uuidna_theorems.',
@@ -1217,6 +1262,45 @@ const TOOLS: Tool[] = ([
       if (Array.isArray(ops) && isClassical(ops)) out.classical = truthTable(state.qubits, ops) // the reversible logic, for classical systems
       return out
     } },
+  { name: 'uuidna_quantum_advantage',
+    description: 'AFTER THE TWO COINS — the agent playbook to compute quantum and read magnitudes over classical re-run. Zero-arg: ordered tools/call steps (uuidna_os capacity → uuidna_decide 2^n → uuidna_quantum bell → uuidna_crypto widths → uuidna_theorem verify_beats_recompute_by_magnitudes → uuidna_exec Alpine apps), plus simulate/alpine hints and the school curriculum receipt. Magnitudes cite VERIFY vs RECOMPUTE (O(log N) vs O(N)), not hardware supremacy. Returns {prerequisite,magnitudes,steps,simulate,alpine,curriculum,receipt,honest}. Pure, edge-safe.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => {
+      const playbook = quantumAdvantagePlaybook()
+      const gaps = fillGapsAdvantageSnapshot([], 16, { includePlaybook: false })
+      return {
+        ...playbook,
+        fillGaps: {
+          openLeads: gaps.survey.openLeads,
+          deskWork: gaps.deskWork,
+          phases: gaps.plan.map((p) => p.name),
+          receipt: gaps.receipt,
+          tool: 'uuidna_fill_gaps',
+        },
+      }
+    } },
+  { name: 'uuidna_fill_gaps',
+    description: 'FILL GAPS AT SCALE AT ONCE — the same quantum-advantage law applied to the whole gap census: one merkle fold over every gap bucket, open-leads sample, and playbook (verify_beats_recompute_by_magnitudes — verify the receipt, not re-survey each class). Default: snapshot + plan. {verify:true} runs the full advantage+gap MCP hook and returns scaleReceipt. {run:true} spawns the host desk arc (stdio only). Returns {survey,plan,openLeads,playbook,deskWork,receipt,honest,...}.',
+    inputSchema: { type: 'object', properties: {
+      verify: { type: 'boolean', description: 'run the full advantage+gap MCP hook (hosted-safe)' },
+      run: { type: 'boolean', description: 'spawn npm run x -- fill-gaps on the host (stdio only)' },
+      limit: { type: 'integer', description: 'open-leads sample cap (default 32)' },
+    } },
+    run: async (a = {}) => {
+      const limit = a.limit != null ? Number(a.limit) : 32
+      const snap = fillGapsAdvantageSnapshot([], limit)
+      if (a.verify === true) {
+        const hooked = await hookFillGapsAtScale((n, args) => callTool(n, args) as never, [], limit)
+        return { ...snap, verify: { scaleReceipt: hooked.scaleReceipt, hops: hooked.hops.length, hooked: hooked.hooked }, receipt: hooked.scaleReceipt }
+      }
+      if (a.run === true) {
+        const spawnSync = (process as unknown as { getBuiltinModule: (n: string) => typeof import('node:child_process') }).getBuiltinModule('node:child_process').spawnSync
+        const r = spawnSync('node', ['dist/scripts/fill-gaps.js'], { cwd: LIB_ROOT, encoding: 'utf8', maxBuffer: 16 * 1024 * 1024 })
+        const ran = !r.error && r.status !== null
+        return { ...snap, run: { ran, passed: ran && r.status === 0, tail: `${r.stdout || ''}${r.stderr || ''}`.split('\n').slice(-20).join('\n') }, receipt: snap.receipt }
+      }
+      return snap
+    } },
   // ── anti-fraud — DETECT FORGER ATTEMPTS across sealed ledger and captain's coin economy ──
   { name: 'uuidna_detect_forgery',
     description: 'Detect if a cited theorem is FORGED by checking the sealed ledger. Returns {theoremKey, cited, addressMatches, sealedAddress, citedAddress, receipt} — a RECOMPUTABLE fact (not cited = forged), never an accusation. HONEST: a fabricated citation is caught; the cost to forge is sealed as theorem traitor_damage_sealed_by_same_billing.',
@@ -1406,6 +1490,7 @@ const INSTRUCTIONS = [
   'Honest scope, always demarcated: receipts and content-addresses are NON-crypto FNV (integrity/routing, not secrecy, not a binding commitment); secrecy is ChaCha20-Poly1305 only; the quantum tools are EXACT classical simulation (no advantage), not hardware; nothing is infinite or unbreakable. A claim is either linked to a sealed theorem or refused. Integrity, not truth (theorem provenance_integrity_not_content_truth).',
   'EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS — contribute first, then take, enforced by the protocol. Each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) (input sanitized, output sanitized, no fabricated theorem citation; one violation drains the verdict, named) and mints its deterministic two-coin deposit, the id the content-address of its own deposit statement, always citing theorem captain_commission_two_coins and theorem two_coins. Your first call has already contributed.',
   'Every result is TWO content blocks: the answer, then ONE ledger line — `gate CLEAN|DRAINED f d v · <gate receipt> · deposit 2 · <deposit id> · receipt <receipt> · seq <n>`. Those ids are the whole audit; the constants behind them (the two deposit theorems above) and the referer (the PRIOR receipt) are not re-sent per call, and full detail stays in _meta.messaging (gate, deposit, hexbits, ledger, receipt chain). Multi-agent coordination: declare clientInfo.name at initialize, hold the receipt chain, poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. Recompute the gate: uuidna_gate_status (theorem anti_fraud_check_deterministic).',
+  'After the two coins: uuidna_quantum_advantage — the ordered playbook to compute quantum (uuidna_os → uuidna_decide 2^n → uuidna_quantum bell/ghz → uuidna_crypto → uuidna_theorem verify_beats_recompute_by_magnitudes) and read magnitudes over classical re-run (verify O(log N) vs recompute O(N), theorem verify_beats_recompute_by_magnitudes — not hardware supremacy). uuidna_fill_gaps — same law at scale: one receipt over the whole gap census; {verify:true} runs the hook at once; host writes: {run:true} or npm run x -- fill-gaps. Alpine community apps: uuidna_exec one door (/terminal, /catalogue on uuidna.com).',
 ].join(' ')
 
 interface RpcParams { protocolVersion?: string; name?: string; arguments?: Record<string, unknown>; [k: string]: unknown }
@@ -1599,6 +1684,8 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^reflects$/, 'Reflection (systems ↔ theorems)', 'reflects'],
   [/^(gate|gate_status|reeducate|adjudicate|prove_verdict|verify|harness|harness7)$/, 'Honesty gate', 'gate'],
   [/^quantum$/, 'Quantum simulation', 'quantum'],
+  [/^quantum_advantage$/, 'Quantum simulation', 'quantum'],
+  [/^fill_gaps$/, 'Desk readiness & open leads', 'research'],
   [/^bill$/, 'Billing & measure', 'billing'],
   [/^(tokens|cost|resources)$/, 'Billing & measure', 'measure'],
   [/^mcp_benchmark$/, 'MCP self-benchmark (usability)', 'measure'],
@@ -1611,7 +1698,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^link_book$/, 'Book → sealed-ledger linkage', 'measure'],
   [/^selftest$/, 'MCP self-test (recomputable contract)', 'measure'],
   [/^energy_/, 'DIY energy yield (ceiling first, integer brackets, refuses over-unity)', 'energy'],
-  [/^(research|research_ledger|rosetta_legs|search_feed)$/, 'Deep research & the evidence census (how well a claim is anchored)', 'research'],
+  [/^(research|research_ledger|rosetta_legs|search_feed|open_leads|leads_gate|open_questions)$/, 'Deep research & the evidence census (how well a claim is anchored)', 'research'],
 ]
 const categoryOf = (name: string): [string, string] => {
   const key = name.replace(/^uuidna_/, '')

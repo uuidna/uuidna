@@ -70,6 +70,27 @@ export function waveQueueRefusedKeys(queuePath: string): Set<string> {
   return waveQueueKeySets(queuePath).refused
 }
 
+/** waveQueueKeySetsFromData(q) → in-flight and refused keys from parsed queue JSON. Pure — edge bundle or host disk. */
+export function waveQueueKeySetsFromData(q: WaveQueueFile | null | undefined): { inFlight: Set<string>; refused: Set<string> } {
+  if (!q || !Array.isArray(q.pending) || !Array.isArray(q.accepted)) {
+    return { inFlight: new Set(), refused: new Set() }
+  }
+  const inFlight = new Set([...q.pending.map((c) => c.key), ...q.accepted.map((c) => c.key)])
+  const refused = new Set(Array.isArray(q.refused) ? q.refused.map((c) => c.key) : [])
+  return { inFlight, refused }
+}
+
+/** waveQueueState(q) → pending count plus in-flight and refused key sets from parsed queue JSON. Pure. */
+export function waveQueueState(q: unknown): {
+  pending: number
+  inFlight: Set<string>
+  refused: Set<string>
+} {
+  const { inFlight, refused } = waveQueueKeySetsFromData(q as WaveQueueFile | null | undefined)
+  const file = q as WaveQueueFile | null | undefined
+  return { pending: file?.pending?.length ?? 0, inFlight, refused }
+}
+
 function waveQueueKeySets(queuePath: string): { inFlight: Set<string>; refused: Set<string> } {
   try {
     const fs = fsm()
@@ -77,12 +98,7 @@ function waveQueueKeySets(queuePath: string): { inFlight: Set<string>; refused: 
       return { inFlight: new Set(), refused: new Set() }
     }
     const q = JSON.parse(fs.readFileSync(queuePath, 'utf8')) as WaveQueueFile
-    if (!Array.isArray(q.pending) || !Array.isArray(q.accepted)) {
-      return { inFlight: new Set(), refused: new Set() }
-    }
-    const inFlight = new Set([...q.pending.map((c) => c.key), ...q.accepted.map((c) => c.key)])
-    const refused = new Set(Array.isArray(q.refused) ? q.refused.map((c) => c.key) : [])
-    return { inFlight, refused }
+    return waveQueueKeySetsFromData(q)
   } catch {
     return { inFlight: new Set(), refused: new Set() }
   }

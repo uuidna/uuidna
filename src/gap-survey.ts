@@ -1,16 +1,17 @@
 // gap-survey — WHAT IS STILL OPEN, DERIVED FROM THE RECORDS. Counts never pinned; the survey recomputes.
 // Desk-automatable gaps carry an act; kernel-only gaps cite sealed theorems — no boundary prose (boundary-law.ts).
-import { readFileSync, existsSync } from 'node:fs'
 import { boundaryCitation, BOUNDARY_THEOREMS } from './boundary-law.js'
-import { join } from 'node:path'
+import { readRepoJson } from './desk/index.js'
 import { leadCensus, type SourceReading } from './leads.js'
 import { tableLeadsFrom } from './table-leads.js'
 import { theoremCountByFile } from './theorems/index.js'
-import { searchFeed } from './search-feed.js'
-import { waveQueueInFlightKeys, waveQueueRefusedKeys } from './wave-deposit.js'
+import { pendingHarvestLeads } from './search-feed.js'
+import { waveQueueState } from './wave-deposit.js'
 import { leadsTrialGaps, type LeadsRecord } from './school/leads/index.js'
-import { gatherOpenItems } from './school/open/questions/springs.js'
-import { lonelyGaps } from './scripts/one-receipt.js'
+import { gatherOpenLeads } from './school/open/questions/springs.js'
+import { lonelyGaps } from './lonely-gaps.js'
+import { ROOT } from './boundary.js'
+import { DERIVE_SURFACES_CMD } from './derive-surfaces.js'
 
 export interface GapBucket {
   kind: string
@@ -25,8 +26,9 @@ export interface GapSurvey {
   releaseReady: boolean
   releaseOpen: number
   trialGaps: number
-  openDoors: number
+  openLeads: number
   tableShort: number
+  tableLeadTop: { file: string; object: string; gap: number } | null
   lonely: number
   harvest: number
   wavePending: number
@@ -36,46 +38,20 @@ export interface GapSurvey {
   automatable: GapBucket[]
 }
 
-const readLeadsRecord = (root: string): LeadsRecord | null => {
-  const p = join(root, 'lean', 'leads.json')
-  if (!existsSync(p)) return null
-  return JSON.parse(readFileSync(p, 'utf8')) as LeadsRecord
-}
+const readLeadsRecord = (): LeadsRecord | null =>
+  readRepoJson('lean/leads.json') as LeadsRecord | null
 
-const waveCounts = (root: string): { pending: number; inFlight: number } => {
-  const p = join(root, 'lean', 'wave-queue.json')
-  if (!existsSync(p)) return { pending: 0, inFlight: 0 }
-  try {
-    const q = JSON.parse(readFileSync(p, 'utf8')) as { pending?: unknown[] }
-    const inFlight = waveQueueInFlightKeys(p)
-    return { pending: q.pending?.length ?? 0, inFlight: inFlight.size }
-  } catch {
-    return { pending: 0, inFlight: 0 }
-  }
-}
-
-const harvestWaiting = (root: string): number => {
-  try {
-    const queue = join(root, 'lean', 'wave-queue.json')
-    const inFlight = waveQueueInFlightKeys(queue)
-    const refused = waveQueueRefusedKeys(queue)
-    return searchFeed().leads.filter((l) => l.harvest && !inFlight.has(l.harvest.key) && !refused.has(l.harvest.key)).length
-  } catch {
-    return 0
-  }
-}
-
-/** gapSurvey(root, readings?) → every gap class the tree names, with desk vs kernel split. */
-export function gapSurvey(root: string, readings: readonly SourceReading[] = []): GapSurvey {
-  const record = readLeadsRecord(root)
+/** gapSurvey(root?, readings?) → every gap class the tree names, with desk vs kernel split. */
+export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading[] = []): GapSurvey {
+  const record = readLeadsRecord()
   const trialGaps = record ? leadsTrialGaps(record).length : 0
   const held = (record?.held ?? []).filter((r) => String(r.lead ?? '').trim()).length
-  const openDoors = gatherOpenItems(root).length
+  const openLeads = gatherOpenLeads().length
   const tables = record as { tables?: { found?: { wing: string; object: string; size: string }[] } } | null
   const short = tableLeadsFrom(tables?.tables?.found ?? [], theoremCountByFile())
   const lonely = lonelyGaps().length
-  const harvest = harvestWaiting(root)
-  const wave = waveCounts(root)
+  const wave = waveQueueState(readRepoJson('lean/wave-queue.json'))
+  const harvest = pendingHarvestLeads(wave.refused, wave.inFlight).length
   const release = readings.length ? leadCensus(readings) : { ready: true, open: [] as never[] }
 
   const buckets: GapBucket[] = []
@@ -117,10 +93,10 @@ export function gapSurvey(root: string, readings: readonly SourceReading[] = [])
       note: boundaryCitation(BOUNDARY_THEOREMS.window),
     })
   }
-  if (openDoors > 0) buckets.push({
-    kind: 'open-doors', count: openDoors, automatable: true,
-    act: 'node dist/scripts/derive-prose-trials.js && node dist/scripts/gen-search-feed.js && node dist/scripts/gen-open-questions.js && node dist/scripts/gen-school.js',
-    note: boundaryCitation(BOUNDARY_THEOREMS.silence),
+  if (openLeads > 0) buckets.push({
+    kind: 'open-leads', count: openLeads, automatable: true,
+    act: DERIVE_SURFACES_CMD,
+    note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — every desk gap is an open lead; held, refuted, and refused all adjudicate UNVERIFIED until a seal verifies`,
   })
 
   buckets.push({
@@ -136,12 +112,15 @@ export function gapSurvey(root: string, readings: readonly SourceReading[] = [])
     releaseReady: release.ready && trialGaps === 0 && held === 0,
     releaseOpen: release.open.length,
     trialGaps,
-    openDoors,
+    openLeads,
     tableShort: short.length,
+    tableLeadTop: short.length
+      ? { file: short[0]!.file, object: short[0]!.object, gap: short[0]!.stated - short[0]!.sealed }
+      : null,
     lonely,
     harvest,
     wavePending: wave.pending,
-    waveInFlight: wave.inFlight,
+    waveInFlight: wave.inFlight.size,
     buckets,
     kernelOnly,
     automatable,

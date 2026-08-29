@@ -14,7 +14,9 @@
 // EXACT INTEGERS, ALWAYS. Widths are counted by dividing and halving, never by a logarithm: no Math.*, no
 // rounding, no float can enter. The harmonic scan refuses those anywhere in this tree, and a unit that needed
 // one would be a unit this ledger could not seal.
-import { handleOf } from '../handle.js'
+import { handleOf, laneOf } from '../handle.js'
+import { merkleGravity } from '../gravity/index.js'
+import { toUuid } from '../address.js'
 
 const HEXBIT_DOOR_HOST = 'https://uuidna.com'
 
@@ -357,6 +359,24 @@ export function hexbitDoorOf(receipt: string): HexbitDoor {
     coin: hexbits.slice(0, COIN_HEXBITS),
     place: valueOf(handle),
   }
+}
+
+export type HexbitReceipt = HexbitDoor & { receipt: string }
+
+/** hexbitReceipt(leaves) → merkle fold + door — one constructor for every desk receipt. */
+export function hexbitReceipt(leaves: readonly string[]): HexbitReceipt {
+  const receipt = merkleGravity(leaves)
+  return { receipt, ...hexbitDoorOf(receipt) }
+}
+
+/** hexbitReceiptLanes(leaves, lanes?) → shard across VE_FACES lanes, fold each, fold lanes — no coordination. */
+export function hexbitReceiptLanes(leaves: readonly string[], lanes = VE_FACES): HexbitReceipt & { lanes: number } {
+  const buckets: string[][] = Array.from({ length: lanes }, () => [])
+  for (const leaf of leaves) {
+    buckets[laneOf(merkleGravity([leaf]), lanes)]!.push(leaf)
+  }
+  const laneRoots = buckets.map((b, i) => (b.length ? merkleGravity(b) : toUuid(`lane:${i}:empty`)))
+  return { ...hexbitReceipt(laneRoots), lanes }
 }
 
 /** evidenceRow — one research/API attestation with its hexbit door. Lives next to hexbitDoorOf so handle.ts

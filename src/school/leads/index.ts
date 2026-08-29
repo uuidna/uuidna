@@ -1,7 +1,8 @@
 // school/leads — EVERY LEAD ENROLLS AT SCHOOL.
 //
 // lean/leads.json carries three lists: held (open), refuted (closed by a measurement), refused (a boundary).
-// /leads already renders them. /open-questions takes only the unverified remainder. The school curriculum named
+// /leads already renders them. /open-questions takes every lead that adjudicates UNVERIFIED — held, refuted,
+// and refused alike. The school curriculum named
 // the held count in a practice and left the other two invisible — the same defect the wings table was written
 // to close: a record the school does not name is a record the school does not teach.
 //

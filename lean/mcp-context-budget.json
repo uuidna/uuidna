@@ -1,4 +1,4 @@
 {
-  "wireBytes": 69411,
-  "note": "Re-sealed 67428→69411 for sequence-field and os/run MCP doors (uuidna_run, uuidna_vortex_dash, uuidna_development_vortex, uuidna_gate_status). tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
+  "wireBytes": 71727,
+  "note": "Re-sealed 69411→71727 for fill-gaps-at-scale and open-leads MCP doors (uuidna_fill_gaps, uuidna_open_leads, uuidna_open_questions). tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
 }

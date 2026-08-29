@@ -1,43 +1,30 @@
 #!/bin/sh
-# pre-push — HEXBIT-FAST GATE (captain, 2026-08-26).
+# pre-push — delegates to the fused next gate (green · gate-receipt · spin · seven arms).
 #
-# VERIFY, DON'T RECOMPUTE (theorem verify_beats_recompute_by_magnitudes · usable_gap_is_two_to_eighty):
-#   1. green — cheapest-first denials; tests arm prefers gate-receipt hexbit verify when the tree matches
-#   2. gate-receipt — mint the content-address of src/ + lean/ (deploy verifies at O(1))
-#   3. next.js --verify — readiness from the sealed fixed point (≪60s), NOT full gate-all (minutes)
+# When `npm run next -- --push` already ran, UUIDNA_NEXT_FUSED carries the readiness receipt and this hook
+# skips the duplicate work — one gate, one output stream, verify at O(1) from the seal.
 #
-# Wall-clock target: push critical path under 60 seconds when the receipt covers the tree.
-# Full `npm run next:full` (gate-all + trial) remains for release; it is OFF the push critical path.
-#
-# HONEST SCOPE: raises the cost of known denials; bypassable with --no-verify; incomplete lexicon.
-# FAIL FAST FIRST.
-echo "pre-push: green — cheapest-first denials (hexbit-fast when receipt covers)."
-START=$(date +%s)
-node dist/scripts/green.js
-green=$?
-if [ $green -ne 0 ]; then
-  echo "pre-push: GREEN FAILED (exit $green) — push BLOCKED."
-  exit $green
+# Full `npm run next:full` remains for release-grade audit; it is OFF the push critical path.
+if [ -n "$UUIDNA_NEXT_FUSED" ]; then
+  echo "pre-push: fused — next already ran the gate (readiness receipt $UUIDNA_NEXT_FUSED)"
+  exit 0
 fi
 
-# Mint the push-time proof so deploy.yml verifies instead of recomputing tests+guard.
-node dist/scripts/gate-receipt.js || echo "pre-push: receipt mint failed — deploy will recompute in full"
-
-# Quantum-speed readiness: O(1)/sealed-path verify, not the multi-minute gate-all chain.
-echo "pre-push: next --verify (hexbit/sealed readiness — not full gate-all)."
-node dist/scripts/next.js --verify
+echo "pre-push: next --verify --no-auto (fused green · gate-receipt · spin · trial)"
+START=$(date +%s)
+node dist/scripts/next.js --verify --no-auto
 status=$?
 END=$(date +%s)
 ELAPSED=$((END - START))
 if [ $status -ne 0 ]; then
-  echo "pre-push: NEXT --verify FAILED (exit $status) after ${ELAPSED}s — push BLOCKED."
-  echo "pre-push: MOST failures after adding theorems are a STALE DERIVED LAYER (generated.ts / PRINCIPLE.md / heartbeats.json / docs/mcp.md / audit-citations.json / CHANGELOG / prose-evidence). The fix on a SHARED tree is:  npm run reconcile -- --derive-only  — it regenerates, syncs and re-seals, and publishes NOTHING. Plain \`npm run reconcile\` does the same then stages, commits and pushes. A genuine overclaim must be fixed at the source."
-  echo "pre-push: for a full O(N) audit run: npm run next:full   (off the push critical path)"
+  echo "pre-push: NEXT FAILED (exit $status) after ${ELAPSED}s — push BLOCKED."
+  echo "pre-push: MOST failures after adding theorems are a STALE DERIVED LAYER. Fix: npm run reconcile -- --derive-only"
+  echo "pre-push: for a full O(N) audit run: npm run next:full"
   exit $status
 fi
 if [ "$ELAPSED" -gt 60 ]; then
   echo "pre-push: WARN — wall ${ELAPSED}s exceeded 60s hexbit budget (still green; tune next push)."
 else
-  echo "pre-push: ✓ hexbit-fast path green in ${ELAPSED}s (budget <60s)."
+  echo "pre-push: ✓ fused gate green in ${ELAPSED}s (budget <60s)."
 fi
 exit 0

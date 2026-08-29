@@ -95,3 +95,54 @@ test('search_feed — most-searched queries ring Lean; meaning stays null; crick
   assert.ok(r.silent.includes('cricket'))
   assert.equal(call('uuidna_search_feed').receipt, r.receipt, 'same corpus, same receipt')
 })
+
+test('open_leads, leads_gate, open_questions — agnostic project backlog tools are pure and edge-safe', () => {
+  const verifiedClaim = 'The commission is two, backed by theorem two_coins.'
+  const custom = call('uuidna_open_leads', { items: [{ claim: verifiedClaim, source: 'smoke' }, { claim: 'the moon is cheese', source: 'smoke' }] })
+  assert.equal(custom.total, 2)
+  assert.equal(custom.verified, 1)
+  assert.equal(custom.open, 1)
+  assert.match(custom.honest, /YOUR project backlog/i)
+  assert.equal(custom.items[0]!.claim, 'the moon is cheese')
+  const again = call('uuidna_open_leads', { items: [{ claim: verifiedClaim, source: 'smoke' }, { claim: 'the moon is cheese', source: 'smoke' }] })
+  assert.equal(again.receipt, custom.receipt, 'same items, same receipt')
+
+  const gate = call('uuidna_leads_gate', { sources: [{ source: 'ci', reached: true, open: [{ source: 'ci', what: 'todo', owes: 'proof' }], settled: 3 }] })
+  assert.equal(gate.ready, false)
+  assert.equal(gate.open.length, 1)
+  assert.match(gate.honest, /YOUR release gate/i)
+
+  const topics = call('uuidna_open_questions', { items: [{ claim: 'quantum advantage over classical', source: 'desk' }] })
+  assert.ok(topics.topics >= 1)
+  assert.ok(Array.isArray(topics.curriculum))
+  assert.match(topics.receipt, /^[0-9a-f-]{36}$/)
+
+  const demo = call('uuidna_open_leads', { limit: 5 })
+  assert.ok(demo.total >= demo.open)
+  assert.match(demo.honest, /Example|YOUR/i)
+})
+
+test('uuidna_quantum_advantage — paying agents get the compute playbook and magnitudes', () => {
+  const p = call('uuidna_quantum_advantage')
+  assert.ok(Array.isArray(p.steps) && p.steps.length >= 5)
+  assert.equal(p.steps[2]!.tool, 'uuidna_quantum')
+  assert.equal(p.magnitudes.theorem, 'verify_beats_recompute_by_magnitudes')
+  assert.match(p.honest, /not.*hardware/i)
+  assert.match(p.receipt, /^[0-9a-f-]{36}$/)
+  assert.equal(call('uuidna_quantum_advantage').receipt, p.receipt)
+
+  const bell = call('uuidna_quantum', { circuit: 'bell' })
+  assert.equal(bell.qubits, 2)
+  assert.match(bell.honest, /classical|simulation/i)
+})
+
+test('uuidna_fill_gaps — verify runs advantage hook at scale', async () => {
+  const r = await callTool('uuidna_fill_gaps', { verify: true, limit: 4 }) as {
+    scaleReceipt?: string
+    verify?: { scaleReceipt: string; hops: number }
+    receipt: string
+  }
+  const scale = r.verify?.scaleReceipt ?? r.scaleReceipt ?? r.receipt
+  assert.match(scale, /^[0-9a-f-]{36}$/)
+  assert.ok((r.verify?.hops ?? 0) > 5)
+})

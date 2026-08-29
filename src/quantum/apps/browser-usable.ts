@@ -128,7 +128,7 @@ const runCompute = (): ComputeCheck[] => {
   push('practice/advantage-mcp', () => {
     const c = schoolAdvantageMcpExamples()
     if (c.examples.length < 8) throw new Error('too few MCP examples')
-    if (c.examples.some((e) => e.tool === 'uuidna_quantum')) throw new Error('uuidna_quantum is named-absent on the hosted wire')
+    if (!c.examples.some((e) => e.tool === 'uuidna_quantum')) throw new Error('uuidna_quantum must be in the hosted curriculum')
     if (!c.endpoint.endsWith('/mcp')) throw new Error('examples must target the hosted MCP')
   })
   push('practice/drill', () => {

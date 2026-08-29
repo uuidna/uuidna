@@ -9,9 +9,9 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import {
-  hexbitDoorOf, evidenceRow, compileToHexbits,
+  hexbitDoorOf, evidenceRow, compileToHexbits, hexbitReceipt, hexbitReceiptLanes,
   UUID_HEXBITS, HANDLE_HEXBITS, COIN_HEXBITS,
-  HEXBIT_BITS, HEXBIT_STATES, HANDLE_SPAN, COINS,
+  HEXBIT_BITS, HEXBIT_STATES, HANDLE_SPAN, COINS, VE_FACES,
 } from '../hexbit/index.js'
 import { doubling, dz } from '../separation.js'
 import { BASE, toUuid } from '../address.js'
@@ -70,6 +70,15 @@ test('evidenceRow spreads the door — no second constructor', () => {
   assert.deepEqual(row.hexbits, door.hexbits)
   assert.deepEqual(row.coin, door.coin)
   assert.equal(row.place.value, door.place.value)
+})
+
+test('hexbitReceipt and hexbitReceiptLanes — fold + door, lane shard is order-invariant', () => {
+  const a = hexbitReceipt([toUuid('a'), toUuid('b')])
+  assert.equal(a.receipt, hexbitReceipt([toUuid('a'), toUuid('b')]).receipt)
+  assert.equal(a.handle.length, HANDLE_HEXBITS)
+  const sharded = hexbitReceiptLanes([toUuid('x'), toUuid('y'), toUuid('z')])
+  assert.equal(sharded.lanes, VE_FACES)
+  assert.equal(sharded.receipt, hexbitReceiptLanes([toUuid('z'), toUuid('y'), toUuid('x')]).receipt)
 })
 
 test('handle.ts does not rebuild the door URL', () => {
