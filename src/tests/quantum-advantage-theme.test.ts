@@ -80,3 +80,12 @@ test('compose-object emits stock markdown H1 + lead under it', async () => {
   const pub = composePublication(pubs[0])
   assert.match(pub.content, /^# /m)
 })
+
+test('docs:build raises the VitePress heap and skips MiniSearch on dynamic object pages', () => {
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=8192/)
+  assert.match(readFileSync(join(ROOT, 'wrangler.toml'), 'utf8'), /NODE_OPTIONS=--max-old-space-size=8192/)
+  const cfg = readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8')
+  assert.match(cfg, /fm\.search = false/)
+  assert.match(cfg, /\[id\]/)
+})

@@ -74,6 +74,16 @@ export default defineConfig({
 
     search: {
       provider: 'local',
+      options: {
+        // Dynamic object pages (theorems + publications) would MiniSearch-serialize into the
+        // client bundle; Cloudflare's Node heap is 2 GiB and Rolldown OOMs on that string.
+        async _render(src: string, env: { relativePath?: string; frontmatter?: { search?: boolean } }, md: { render: (s: string, e: unknown) => string }) {
+          const rel = env.relativePath ?? ''
+          if (env.frontmatter?.search === false) return ''
+          if (rel.includes('[id]') || rel.includes('[key]')) return ''
+          return md.render(src, env)
+        },
+      },
     },
   },
 
@@ -176,6 +186,9 @@ export default defineConfig({
       // Stock Layout #doc-before breadcrumbs (Home → kind → id/handle).
       if (p.breadcrumbs != null) fm.breadcrumbs = p.breadcrumbs
       if (p.use != null) fm.use = p.use
+      // MiniSearch indexes every dynamic object into the client bundle; skip theorem keys so
+      // Cloudflare's 2 GiB Node heap can finish the Rolldown pass.
+      if (p.key) fm.search = false
     }
     const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
