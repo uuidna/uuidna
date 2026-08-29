@@ -41,12 +41,11 @@ distro membership. Provenance meters still recompute below so every published ro
 | man pages (compile) | provenance | 4,757 | 4,757 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | man pages · community | provenance | 3,668 | 3,668 | 100% | — |
 | man pages · main | provenance | 1,089 | 1,089 | 100% | — |
-| **package self-test** | **catalogue closure** | 28,632 | **28,630** / 28,632 | **99%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| **package self-test** | **catalogue closure** | 28,634 | **28,634** / 28,634 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | **overlay · man→app→hexbit** | **npm/curl (NOT apk)** | 1 | **1** / 1 | **100%** | separate from APKINDEX |
 | overlay (compile) | provenance | 2 | 2 | 100% | repo=overlay |
 | **overlay · MCP · `uuidna_exec`** | **npm/curl MCP** | 1 | **1** / 1 | **100%** | same door, NOT apk |
 
-**Package self-test gaps** (2 — 2 upstream APKINDEX omissions, not uuidna): `pcsc-tools-gscriptor`, `sxmo-utils-river`.
 
 
 
@@ -56,7 +55,7 @@ distro membership. Provenance meters still recompute below so every published ro
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,669 community packages ≪ 2^128.
-- **Time:** community compile sweep **40,337,709 ns** (~**1,779 ns**/package); man-page corpus **8,834,333 ns** (~**1,857 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep **49,042,625 ns** (~**2,163 ns**/package); man-page corpus **10,592,166 ns** (~**2,226 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144

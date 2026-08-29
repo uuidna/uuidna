@@ -12,61 +12,12 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { LEAN_LEDGER } from '../theorems/generated.js'
-import { openQuestions, type OpenItem } from '../school/open/questions/index.js'
+import { openQuestions } from '../school/open/questions/index.js'
+import { gatherOpenItems } from '../school/open/questions/springs.js'
 import { adjudicate } from '../adjudicate.js'
 import { pageSafe } from '../quantum/advantage/page/safe/index.js'
 
-const readJson = (p: string): unknown => (existsSync(join(ROOT, p)) ? JSON.parse(readFileSync(join(ROOT, p), 'utf8')) : null)
-
-// ── THE FOUR SPRINGS OF THE OPEN — each record names its source so a reader can walk back to the door's origin.
-const items: OpenItem[] = []
-const leads = readJson('lean/leads.json') as {
-  held?: { lead: string }[]
-  refuted?: { lead: string }[]
-  refused?: { lead: string }[]
-} | null
-const settled = new Set([
-  ...(leads?.refuted ?? []).map((r) => r.lead),
-  ...(leads?.refused ?? []).map((r) => r.lead),
-])
-const closed = (claim: string): boolean => {
-  if (settled.has(claim)) return true
-  for (const s of settled) if (s && claim.includes(s.slice(0, 40))) return true
-  return false
-}
-for (const h of leads?.held ?? []) if (!closed(h.lead)) items.push({ claim: h.lead, source: 'the held leads' })
-const research = readJson('lean/research-ledger.json') as { findings?: { claim: string; status?: string; value?: string }[] } | null
-for (const f of research?.findings ?? []) {
-  if (f.status && /^(sealed|anchored|verified|refuted|refused)/i.test(f.status)) continue
-  const claim = f.claim + (f.value ? ` (recorded value: ${f.value})` : '')
-  if (closed(claim) || closed(f.claim)) continue
-  items.push({ claim, source: 'the research ledger' })
-}
-const prose = readJson('prose-trials.json') as { develop?: { surface: string; fragment: string; receipt: string }[] } | null
-for (const d of prose?.develop ?? []) {
-  if (closed(d.fragment)) continue
-  items.push({ claim: d.fragment, source: `the prose trials · ${d.surface}`, receipt: d.receipt })
-}
-const feed = readJson('lean/search-feed.json') as {
-  leads?: { what: string; query?: string }[]
-} | null
-for (const l of feed?.leads ?? []) {
-  if (closed(l.what)) continue
-  items.push({ claim: l.what, source: `the search feed · ${l.query ?? 'query'}` })
-}
-const support = readJson('research-leads.json') as { leads?: { what?: string; fix?: string }[] } | null
-for (const l of support?.leads ?? []) {
-  const claim = String(l.what ?? '')
-  if (!claim || closed(claim)) continue
-  items.push({ claim, source: 'the support wave · research-leads' })
-}
-const exposed = readJson('lean/exposed-axioms.json') as { held?: { lead?: string }[] } | null
-for (const h of exposed?.held ?? []) {
-  const claim = String(h.lead ?? '')
-  if (!claim || closed(claim)) continue
-  items.push({ claim, source: 'the axiom hunt · exposed' })
-}
-
+const items = gatherOpenItems(ROOT)
 const topics = openQuestions(items, LEAN_LEDGER)
 const total = items.length
 

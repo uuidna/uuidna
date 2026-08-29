@@ -15,6 +15,7 @@ import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder
 import { searchFeed } from '../search-feed.js'
 import { tableLeadsFrom } from '../table-leads.js'
 import { waveQueueInFlightKeys } from '../wave-deposit.js'
+import { gapSurvey } from '../gap-survey.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { decide } from '../decide.js'
 import { quantumAdvantageAudit } from '../quantum/advantage/audit/index.js'
@@ -258,6 +259,13 @@ try {
     closes: `${harvest.length} TRUE-unsealed fragment(s) still waiting — desk proposes, kernel disposes; never rewrite usable_gap_is_two_to_eighty`,
   })
 } catch { /* the feed is a convenience; its failure is not a gap in the tree */ }
+try {
+  const desk = gapSurvey(ROOT).automatable.filter((b) => b.kind !== 'guard-heal')
+  if (desk.length) leverage.unshift({
+    act: 'npm run x -- fill-gaps  # automate every desk gap the tree can close without inventing a seal',
+    closes: `${desk.map((b) => `${b.kind} (${b.count})`).join(', ')} — kernel-only gaps stay named with theorem citations`,
+  })
+} catch { /* gap survey is optional */ }
 try {
   const found = (JSON.parse(readFileSync(join(ROOT, 'lean', 'leads.json'), 'utf8')) as { tables?: { found?: { wing: string; object: string; size: string }[] } }).tables?.found ?? []
   const short = tableLeadsFrom(found, theoremCountByFile())

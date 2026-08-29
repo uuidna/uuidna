@@ -6,7 +6,10 @@ export * from './practice/feedback/loop/index.js'
 // the open doors — the unverified organised in topics for the school (lead 88b)
 export { openQuestions, placeItem, isInvolutionShaped, type OpenItem, type OpenTopic, type PlacedItem } from './open/questions/index.js'
 // the leads roster — held, refuted, and refused, so none is invisible at school
-export { schoolLeads, leadsCensus, renderSchoolLeads, LEAD_KINDS, type SchoolLead, type LeadsRecord } from './leads/index.js'
+export {
+  schoolLeads, leadsCensus, leadsTrialCensus, leadsTrialGaps, leadTrialVerdict,
+  renderSchoolLeads, LEAD_KINDS, type SchoolLead, type LeadsRecord, type LeadTrialVerdict,
+} from './leads/index.js'
 // laboratory — labs entangled to theorems and related resources; sufficient for every admitted domain
 export {
   labOf, domainLab, schoolLabs, simulationKind, LAB_CITES,

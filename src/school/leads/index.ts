@@ -35,6 +35,46 @@ export interface SchoolLead {
   lead: string
   lesson: string
   handle: string
+  /** IN_TRIAL until measurement or boundary verifies it — held stays remanded; refuted/refused are results. */
+  verdict: LeadTrialVerdict
+}
+
+/** Every lead is IN_TRIAL until evidence settles it — the same vocabulary as src/leads.ts and lean/leads.json. */
+export type LeadTrialVerdict = 'IN_TRIAL' | 'REFUTED' | 'REFUSED'
+
+const rowText = (v: unknown): string => (typeof v === 'string' ? v.trim() : '')
+
+/** leadTrialVerdict(kind, row) → IN_TRIAL for held; REFUTED/REFUSED only when killed_by/boundary is present. */
+export function leadTrialVerdict(kind: LeadKind, row: LeadRow): LeadTrialVerdict {
+  if (kind === 'held') return 'IN_TRIAL'
+  if (kind === 'refuted') return rowText(row.killed_by) ? 'REFUTED' : 'IN_TRIAL'
+  return rowText(row.boundary) ? 'REFUSED' : 'IN_TRIAL'
+}
+
+export function leadsTrialCensus(roster: readonly SchoolLead[]): {
+  inTrial: number; refuted: number; refused: number; of: number
+} {
+  const inTrial = roster.filter((r) => r.verdict === 'IN_TRIAL').length
+  const refuted = roster.filter((r) => r.verdict === 'REFUTED').length
+  const refused = roster.filter((r) => r.verdict === 'REFUSED').length
+  return { inTrial, refuted, refused, of: roster.length }
+}
+
+/** Gaps where a refuted/refused row lacks its settlement field — still in trial, not verified. */
+export function leadsTrialGaps(record: LeadsRecord | null | undefined): string[] {
+  const gaps: string[] = []
+  if (!record || typeof record !== 'object') return gaps
+  for (const row of rowsOf(record.refuted)) {
+    const lead = rowText(row.lead)
+    if (!lead) continue
+    if (!rowText(row.killed_by)) gaps.push(`refuted without killed_by: ${lead.slice(0, 80)}`)
+  }
+  for (const row of rowsOf(record.refused)) {
+    const lead = rowText(row.lead)
+    if (!lead) continue
+    if (!rowText(row.boundary)) gaps.push(`refused without boundary: ${lead.slice(0, 80)}`)
+  }
+  return gaps
 }
 
 const rowsOf = (raw: unknown): LeadRow[] => (Array.isArray(raw) ? raw as LeadRow[] : [])
@@ -51,7 +91,10 @@ export function schoolLeads(record: LeadsRecord | null | undefined): SchoolLead[
     for (const row of rowsOf(record[kind])) {
       const lead = typeof row.lead === 'string' ? row.lead.trim() : ''
       if (!lead) continue
-      out.push({ kind, lead, lesson: lessonOf(row), handle: handleOf(toUuid(lead)) })
+      out.push({
+        kind, lead, lesson: lessonOf(row), handle: handleOf(toUuid(lead)),
+        verdict: leadTrialVerdict(kind, row),
+      })
     }
   }
   return out
@@ -79,15 +122,15 @@ export function renderSchoolLeads(roster: readonly SchoolLead[]): string {
     '## The leads {#leads}',
     '',
     'Every lead the record carries enrolls here — held, refuted, and refused — so a curriculum cannot name only',
-    'what someone remembered to write about. Held doors are still open ([open questions](/open-questions)); a',
-    'refutation is a measurement that closed one; a refusal is a boundary that was read and respected. Nothing',
-    'below is sealed: a lead is something noticed, and only a Lean proof settles anything',
-    '([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted)). Silence never refutes',
-    '([`silence_never_refutes`](/theorem/silence_never_refutes)). A student\'s answer is a **two-coin deposit**,',
-    'never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the same way, lives on',
-    '[the leads page](/leads).',
+    'what someone remembered to write about. **All in trial unless verified:** held doors are remanded',
+    '([open questions](/open-questions)); a refutation is a measurement that closed one; a refusal is a boundary',
+    'that was read and respected. Nothing below is sealed: a lead is something noticed, and only a Lean proof',
+    'settles anything ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted)).',
+    'Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)). A student\'s answer is a',
+    '**two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the',
+    'same way, lives on [the leads page](/leads).',
     '',
-    `**${c.of} leads** — ${c.held} held · ${c.refuted} refuted · ${c.refused} refused.`,
+    `**${c.of} leads** — ${c.held} held · ${c.refuted} refuted · ${c.refused} refused · ${leadsTrialCensus(roster).inTrial} in trial.`,
     '',
     ...(rows.length ? rows : ['- none — the record carries no lead today']),
     '<!-- /leads -->',

@@ -119,41 +119,25 @@
  },
  "selfTest": {
   "definition": "package-self-test",
-  "total": 28632,
-  "passed": 28630,
-  "failed": 2,
-  "upstreamGaps": 2,
-  "missing": [
-   "pcsc-tools-gscriptor",
-   "sxmo-utils-river"
-  ],
-  "gaps": [
-   {
-    "name": "pcsc-tools-gscriptor",
-    "unresolved": [
-     "perl-libintl-perl"
-    ]
-   },
-   {
-    "name": "sxmo-utils-river",
-    "unresolved": [
-     "river-bedload"
-    ]
-   }
-  ],
+  "total": 28634,
+  "passed": 28634,
+  "failed": 0,
+  "upstreamGaps": 0,
+  "missing": [],
+  "gaps": [],
   "byCheck": {
    "identity": 0,
    "provenance": 0,
-   "closure": 2,
+   "closure": 0,
    "compile": 0
   },
-  "pct": 99
+  "pct": 100
  },
  "time": {
-  "communityCompileNs": 40337709,
-  "communityNsPer": 1779,
-  "manCompileNs": 8834333,
-  "manNsPer": 1857
+  "communityCompileNs": 49042625,
+  "communityNsPer": 2163,
+  "manCompileNs": 10592166,
+  "manNsPer": 2226
  },
  "scale": {
   "usableAddressesPow2": 128,

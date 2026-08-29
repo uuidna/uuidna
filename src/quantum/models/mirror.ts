@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000589512",
-   "completionPrice": "0.000001179024"
+   "promptPrice": "0.00000057942",
+   "completionPrice": "0.00000115884"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -2424,8 +2424,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.000000132",
-   "completionPrice": "0.000000528"
+   "promptPrice": "0.0000000825",
+   "completionPrice": "0.00000033"
   },
   {
    "id": "tencent/hy3-preview",

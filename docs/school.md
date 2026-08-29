@@ -944,15 +944,15 @@ Sealed as [`torus_betti_alternates_to_zero`](/theorem/torus_betti_alternates_to_
 ## The leads {#leads}
 
 Every lead the record carries enrolls here — held, refuted, and refused — so a curriculum cannot name only
-what someone remembered to write about. Held doors are still open ([open questions](/open-questions)); a
-refutation is a measurement that closed one; a refusal is a boundary that was read and respected. Nothing
-below is sealed: a lead is something noticed, and only a Lean proof settles anything
-([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted)). Silence never refutes
-([`silence_never_refutes`](/theorem/silence_never_refutes)). A student's answer is a **two-coin deposit**,
-never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the same way, lives on
-[the leads page](/leads).
+what someone remembered to write about. **All in trial unless verified:** held doors are remanded
+([open questions](/open-questions)); a refutation is a measurement that closed one; a refusal is a boundary
+that was read and respected. Nothing below is sealed: a lead is something noticed, and only a Lean proof
+settles anything ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted)).
+Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)). A student's answer is a
+**two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the
+same way, lives on [the leads page](/leads).
 
-**62 leads** — 0 held · 42 refuted · 20 refused.
+**62 leads** — 0 held · 42 refuted · 20 refused · 0 in trial.
 
 - **refuted** · `8609c55d` — HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).
   <br><small>PAID. hexFaceOf stamps packedTriangles = KEY_BITS (UUID_BITS × COINS) and merkabasPacked = UUID_HEXBITS. HexFace still draws two projected polygons — 2D is art. The count sits on the face as constructors, not as 256 drawn triangles.</small>

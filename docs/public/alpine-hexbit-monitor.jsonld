@@ -99,15 +99,15 @@
     {
       "@type": "PropertyValue",
       "name": "package self-test — passed",
-      "value": 28630,
+      "value": 28634,
       "unitText": "packages",
       "measurementTechnique": "computed",
-      "citation": "packageSelfTestCoverage() — every catalogue row tests itself; upstream APKINDEX gaps named"
+      "citation": "packageSelfTestCoverage() — every catalogue row tests itself; named gaps closed from published testing"
     },
     {
       "@type": "PropertyValue",
       "name": "package self-test — coverage",
-      "value": 99,
+      "value": 100,
       "unitText": "%",
       "measurementTechnique": "computed",
       "citation": "closure + compile + provenance per package · gate alpine-hexbit-port.test.ts"
@@ -123,7 +123,7 @@
     {
       "@type": "PropertyValue",
       "name": "community compile — ns per package",
-      "value": 1779,
+      "value": 2163,
       "unitText": "ns",
       "measurementTechnique": "measured",
       "citation": "TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable"
