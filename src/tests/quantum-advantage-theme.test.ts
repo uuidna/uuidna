@@ -39,6 +39,13 @@ test('home doors to /quantum; capacity table on /quantum and README only', () =>
   assert.doesNotMatch(home, /quantum-capacity:begin/)
   assert.match(home, /\/quantum/)
   assert.equal((home.match(/^\s+- title:/gm) || []).length, 3, 'home features slimmed to 3')
+  const fmEnd = home.indexOf('\n---\n', 4)
+  assert.ok(fmEnd > 0, 'homepage opens with YAML frontmatter')
+  const details = home.slice(4, fmEnd).split('\n').filter((l) => /^\s+details:/.test(l))
+  assert.equal(details.length, 3)
+  for (const line of details) {
+    assert.match(line, /^\s+details:\s+".*"\s*$/, `quote feature details — unquoted Doors: splits VitePress YAML: ${line.slice(0, 96)}`)
+  }
   assert.ok(!existsSync(join(ROOT, 'docs/.vitepress/advantage.data.ts')))
   const quantum = readFileSync(join(ROOT, 'docs/quantum.md'), 'utf8')
   assert.match(quantum, /quantum-capacity:begin/)
