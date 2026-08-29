@@ -1,15 +1,15 @@
 ---
 title: "The points-of-sail domain"
-description: "Computed from lean/Sailing.lean — 7 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Sailing.lean — 10 sealed theorems, every claim citing its proof."
 ---
 
 # The points-of-sail domain
 
-> SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. — held by [no_go_zone](/theorem/no_go_zone) and its 6 siblings below.
+> SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. — held by [no_go_zone](/theorem/no_go_zone) and its 9 siblings below.
 
-**7 theorems**, from [no_go_zone](/theorem/no_go_zone) onward, each proven `by decide` in [lean/Sailing.lean](/lean/Sailing.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 7 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [no_go_zone](/theorem/no_go_zone). A boundary stated here is decided.
+**10 theorems**, from [no_go_zone](/theorem/no_go_zone) onward, each proven `by decide` in [lean/Sailing.lean](/lean/Sailing.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [no_go_zone](/theorem/no_go_zone). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FSailing.lean)** — nothing to install. The editor fetches `lean/Sailing.lean` from the repository and re-decides all 7 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FSailing.lean)** — nothing to install. The editor fetches `lean/Sailing.lean` from the repository and re-decides all 10 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### A boat cannot sail directly into the wind: the no-go zone is about 45° either side, a 90° cone (45 + 45 = 90) where the sails luff and make no power. To go upwind you must sail around it.
 The ledger holds this as [no_go_zone](/theorem/no_go_zone) — proven `by decide`, sorry-free:
@@ -58,6 +58,27 @@ The ledger holds this as [four_points_is_45](/theorem/four_points_is_45) — pro
 
 ```lean
 (4 * 360 = 32 * 45) ∧ (4 * 360 = 1440) ∧ (45 + 45 = 90)
+```
+
+### THE ROSE AT THE BEAM REACH. Day's four-points identity (four_points_is_45) is the close-hauled cut of a 32-point rose; eight points is a right angle on that same rose — 8 · 360 = 32 · 90 — the beam-reach heading points_of_sail already counts as 90°. The book stated four; the rose extends it without restating the four-point product.
+The ledger holds this as [eight_points_is_90](/theorem/eight_points_is_90) — proven `by decide`, sorry-free:
+
+```lean
+(8 * 360 = 32 * 90) ∧ (8 * 360 = 2880)
+```
+
+### THE ROSE AT THE BROAD REACH. Twelve points on the 32-point compass is 135° — 12 · 360 = 32 · 135 — the broad-reach heading in points_of_sail. Same rose, next multiple of four points after eight.
+The ledger holds this as [twelve_points_is_135](/theorem/twelve_points_is_135) — proven `by decide`, sorry-free:
+
+```lean
+(12 * 360 = 32 * 135) ∧ (12 * 360 = 4320)
+```
+
+### THE ROSE AT A RUN. Sixteen points is half the rose and dead downwind — 16 · 360 = 32 · 180 — the running heading in points_of_sail. Four, eight, twelve, sixteen: every quarter of the 32-point rose is an integer degree on 360°.
+The ledger holds this as [sixteen_points_is_180](/theorem/sixteen_points_is_180) — proven `by decide`, sorry-free:
+
+```lean
+(16 * 360 = 32 * 180) ∧ (16 * 360 = 5760)
 ```
 
 

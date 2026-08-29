@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**52 open doors** across 10 topics, derived from the tree's own records — the held leads,
+**58 open doors** across 10 topics, derived from the tree's own records — the held leads,
 the research findings, the prose develop fragments, the search-feed leads, the support-wave research-leads,
 the axiom-hunt exposed set. After a wave of external research, local school development files every unverified
 here so the lab can discuss it. Placement is a word-overlap heuristic and says so: what the
@@ -130,7 +130,7 @@ page regrows without it.
   <br><small>involutions around: [`involution_replaces_the_raised_ceiling`](/theorem/involution_replaces_the_raised_ceiling) · [`orbits_closed_involution`](/theorem/orbits_closed_involution) · [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) </small>
   <br><small>sealed neighbors: [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) · [`publish_gate_is_conjunction`](/theorem/publish_gate_is_conjunction) · [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-- **harvest 70 &lt; 128 from "quantum advantage" decides TRUE and is unsealed**
+- **harvest 70 &amp;lt; 128 from "quantum advantage" decides TRUE and is unsealed**
   <br><small>door: the search feed · quantum advantage</small>
   <br><small>involutions around: [`involution_replaces_the_raised_ceiling`](/theorem/involution_replaces_the_raised_ceiling) · [`orbits_closed_involution`](/theorem/orbits_closed_involution) · [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) </small>
   <br><small>sealed neighbors: [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) · [`publish_gate_is_conjunction`](/theorem/publish_gate_is_conjunction) · [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) </small>
@@ -250,7 +250,7 @@ page regrows without it.
   <br><small>sealed neighbors: [`first_law_conservation`](/theorem/first_law_conservation) · [`photon_energy_rises_with_band`](/theorem/photon_energy_rises_with_band) · [`gematria_ignores_order`](/theorem/gematria_ignores_order) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
-## open frontier — 12 open
+## open frontier — 18 open
 
 - **252/2 = 126**
   <br><small>door: the prose trials · docs/anthem.md · receipt `103dc2ef-eebe-8a86-91ee-ad1770b5e88b`</small>
@@ -272,6 +272,26 @@ page regrows without it.
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
   <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **252/2 = 126**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `103dc2ef-eebe-8a86-91ee-ad1770b5e88b`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **1/0 = 0**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `d001237d-f065-86d6-991f-fdbf620f7517`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **1/0 = 0**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `d001237d-f065-86d6-991f-fdbf620f7517`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **2+2=4**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `ee83867d-c729-87ef-a05c-7123754af42b`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **2^20 = 1048576**
   <br><small>door: the prose trials · docs/open-questions.md · receipt `ccba533e-7781-863f-aea3-c27a24097a54`</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
@@ -289,6 +309,16 @@ page regrows without it.
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 - **2+2=4**
   <br><small>door: the prose trials · docs/open-questions.md · receipt `ee83867d-c729-87ef-a05c-7123754af42b`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **256 / 2 = 128**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `20e97c41-6286-8407-a9fc-01aefb66622c`</small>
+  <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
+  <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **7 + 0 = 7**
+  <br><small>door: the prose trials · docs/open-questions.md · receipt `a3a27017-2a35-85ee-886a-f45c157d0878`</small>
   <br><small>involutions around: _none yet — the first magnet is yours to seal_ </small>
   <br><small>sealed neighbors: _no sealed neighbor shares these words_ </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>

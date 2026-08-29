@@ -1,15 +1,15 @@
 ---
 title: "The vector equilibrium"
-description: "Computed from lean/VectorEquilibrium.lean — 13 sealed theorems, every claim citing its proof."
+description: "Computed from lean/VectorEquilibrium.lean — 18 sealed theorems, every claim citing its proof."
 ---
 
 # The vector equilibrium
 
-> THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferential vectors are Buckminster Fuller's (Synergetics, 1975). Sealed WITHOUT an irrational: placing the twelve vertices at the permutations of (±1,±1,0) makes the radial and the edge squared-lengths both exactly 2, so Fuller's defining equilibrium property is an integer identity that decides in the kernel. Twelve vertices, four neighbours each, 24 edges, 14 faces (8 triangles + 6 squares), and V − E + F = 2 — the same two as the Platonic solids, though the cuboctahedron is Archimedean and is NOT among the five in Solids.lean. Beside it, the reflection dz(x) = 10 − x: exactly two fixed points (0 and 5), an involution on all ten digits, and the measured orbit sets each closed under it — the walk alternates dz with doubling, so it carries its own mirror and reflecting a finished orbit adds nothing. integrity— each theorem seals its exact decidable arithmetic. The orbit sets are OUTPUT OF THIS REPOSITORY'S OWN WALK (src/sequence-run.ts); their closure under dz is what decides. — held by [ve_twelve_vertices](/theorem/ve_twelve_vertices) and its 12 siblings below.
+> THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The solid is the cuboctahedron of classical geometry (Archimedean, 13 semiregular solids); the name 'vector equilibrium' and the reading of its equal radial/circumferential vectors are Buckminster Fuller's (Synergetics, 1975). Sealed WITHOUT an irrational: placing the twelve vertices at the permutations of (±1,±1,0) makes the radial and the edge squared-lengths both exactly 2, so Fuller's defining equilibrium property is an integer identity that decides in the kernel. Twelve vertices, four neighbours each, 24 edges, 14 faces (8 triangles + 6 squares), and V − E + F = 2 — the same two as the Platonic solids, though the cuboctahedron is Archimedean and is NOT among the five in Solids.lean. Beside it, the reflection dz(x) = 10 − x: exactly two fixed points (0 and 5), an involution on all ten digits, and the measured orbit sets each closed under it — the walk alternates dz with doubling, so it carries its own mirror and reflecting a finished orbit adds nothing. integrity— each theorem seals its exact decidable arithmetic. The orbit sets are OUTPUT OF THIS REPOSITORY'S OWN WALK (src/sequence-run.ts); their closure under dz is what decides. — held by [ve_twelve_vertices](/theorem/ve_twelve_vertices) and its 17 siblings below.
 
-**13 theorems**, from [ve_twelve_vertices](/theorem/ve_twelve_vertices) onward, each proven `by decide` in [lean/VectorEquilibrium.lean](/lean/VectorEquilibrium.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 13 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [ve_handshake_crosses](/theorem/ve_handshake_crosses). A boundary stated here is decided.
+**18 theorems**, from [ve_twelve_vertices](/theorem/ve_twelve_vertices) onward, each proven `by decide` in [lean/VectorEquilibrium.lean](/lean/VectorEquilibrium.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 18 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [ve_handshake_crosses](/theorem/ve_handshake_crosses). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FVectorEquilibrium.lean)** — nothing to install. The editor fetches `lean/VectorEquilibrium.lean` from the repository and re-decides all 13 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FVectorEquilibrium.lean)** — nothing to install. The editor fetches `lean/VectorEquilibrium.lean` from the repository and re-decides all 18 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### The vector equilibrium has TWELVE vertices — every permutation of (±1,±1,0), three coordinate pairs by four sign choices. Twelve radial directions from one centre.
 The ledger holds this as [ve_twelve_vertices](/theorem/ve_twelve_vertices) — proven `by decide`, sorry-free:
@@ -100,6 +100,41 @@ The ledger holds this as [missing_pair_involution](/theorem/missing_pair_involut
 
 ```lean
 ((List.range 10).filter (fun d => !([0,1,3,4,5] ++ [0,9,7,6,5]).contains d) = [2, 8]) ∧ (dz 2 = 8)
+```
+
+### FIVE MERGES WITH FIVE IN 1 AND 0. Two pentads sum to the rung: 5+5=10, and 10 is the place-value 1·10+0 — the digits 1 and 0 that open the sequence. The inverse of 5 is 5 (dz 5 = 5), so the double-five is one 5 and the same 5 inverted. HONEST SCOPE: the arithmetic of 5+5=10 and the already-sealed fixed point; not a claim about glyphs.
+The ledger holds this as [ve_double_five_merges_in_ten](/theorem/ve_double_five_merges_in_ten) — proven `by decide`, sorry-free:
+
+```lean
+(5 + 5 = 10) ∧ (1 * 10 + 0 = 10) ∧ (dz 5 = 5)
+```
+
+### ZERO FOLDS NINETY DEGREES. A circle (the void 0) closes at 360°, and 360/4=90 is the quadrature this tree already counts as 2²=4 (polarity_angles_are_the_system_counts). Four such folds box the void: 4·90=360. Doubling the fold is the eight: 2·4=8 — the VE triangular faces. SCOPE: angle arithmetic of the 4-fold, not a drawing of a folded zero.
+The ledger holds this as [void_folds_at_quadrature](/theorem/void_folds_at_quadrature) — proven `by decide`, sorry-free:
+
+```lean
+(360 / 4 = 90) ∧ (4 * 90 = 360) ∧ (2 * 4 = 8) ∧ (8 + 6 = 14)
+```
+
+### WHEN THE TWO FIVES OVERLAP THEY FORM EIGHT. Inclusion-exclusion: 5+5−2=8, and 10−2=8 — the 2 is the pair of hinges dz already fixes ({0,5}, dz_two_fixedpoints). Adding those hinges instead of subtracting them is the twelve vertices: 5+5+2=12 = VE.length. The 8 is the triangular faces in ve_fourteen_faces. Two pentads, two hinges, one equilibrium.
+The ledger holds this as [ve_pentads_overlap_to_eight](/theorem/ve_pentads_overlap_to_eight) — proven `by decide`, sorry-free:
+
+```lean
+(5 + 5 - 2 = 8) ∧ (10 - 2 = 8) ∧ (5 + 5 + 2 = 12) ∧ (VE.length = 12) ∧ (8 + 6 = 14)
+```
+
+### THEOREMS INTERACT AS GEOMETRIC FORMS, not as a flat list. A principle is a clique: n co-principled theorems, C(n,2) = n(n−1)/2 neighbour-edges. A 3-clique is a triangle (the VE's eight triangular faces: 3·2/2=3). A 4-clique has 6 edges. A 5-clique has 10 edges — the rung. Two 5-cliques sharing the two hinges have 8 vertices (ve_pentads_overlap_to_eight). Re-namings are two labels on one vertex. The live census is theoremForms() and is not frozen here. SCOPE: incidence arithmetic of cliques and inclusion-exclusion.
+The ledger holds this as [theorems_interact_as_faces](/theorem/theorems_interact_as_faces) — proven `by decide`, sorry-free:
+
+```lean
+(3 * 2 / 2 = 3) ∧ (4 * 3 / 2 = 6) ∧ (5 * 4 / 2 = 10) ∧ (5 + 5 - 2 = 8) ∧ (8 + 6 = 14)
+```
+
+### IMAGINE ALL: every theorem is a vertex of a geometric form. C(n,2) = n(n−1)/2 from the void (n=0) through the VE's twelve vertices — a lone theorem is a 1-clique (0 edges) and is still a form; a pair is an edge; a triple is a triangle; five is the rung; twelve is the complete figure on the VE itself (12·11/2=66). The 8 triangles and 6 squares remain fourteen. theoremForms() walks every sealed key onto exactly one principle-face; the live count is not frozen here. SCOPE: the clique table on 0..12 and 8+6=14; not a drawing of the ledger.
+The ledger holds this as [imagine_all_as_clique_faces](/theorem/imagine_all_as_clique_faces) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 13).map (fun n => n * (n - 1) / 2) = [0, 0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66]) ∧ (12 * 11 / 2 = 66) ∧ (8 + 6 = 14)
 ```
 
 

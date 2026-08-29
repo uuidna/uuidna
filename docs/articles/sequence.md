@@ -1,15 +1,15 @@
 ---
 title: "The sequence & reflection group"
-description: "Computed from lean/Sequence.lean — 28 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Sequence.lean — 32 sealed theorems, every claim citing its proof."
 ---
 
 # The sequence & reflection group
 
-> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 27 siblings below.
+> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 31 siblings below.
 
-**28 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in [lean/Sequence.lean](/lean/Sequence.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 10 of its 28 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [seal_ten](/theorem/seal_ten). A boundary stated here is decided.
+**32 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in [lean/Sequence.lean](/lean/Sequence.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 13 of its 32 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [seal_ten](/theorem/seal_ten). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FSequence.lean)** — nothing to install. The editor fetches `lean/Sequence.lean` from the repository and re-decides all 28 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FSequence.lean)** — nothing to install. The editor fetches `lean/Sequence.lean` from the repository and re-decides all 32 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling — each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check catches.)
 The ledger holds this as [seal_ten](/theorem/seal_ten) — proven `by decide`, sorry-free:
@@ -205,6 +205,34 @@ The ledger holds this as [sequence_and_coins_are_one](/theorem/sequence_and_coin
 
 ```lean
 (((List.range' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3)
+```
+
+### THE SEQUENCE IMAGINED ON TEN DIGITS, NOT NINE: 1,2,3,4 are one polarity, 6,7,8,9 the other, and 0 with 5 are the neutrals. Four plus two plus four is the whole ring, the three sets are pairwise disjoint, and every digit 0..9 sits in exactly one — a partition, decided. HONEST SCOPE: this is the TEN-DIGIT strip (dz on 0..9). polarities_plus_minus remains true as ℤ/9 arithmetic (9%9=0); it does not place 9 among the neutrals of this partition.
+The ledger holds this as [digit_polarities_partition_ten](/theorem/digit_polarities_partition_ten) — proven `by decide`, sorry-free:
+
+```lean
+(([1,2,3,4] ++ [0,5] ++ [6,7,8,9]).length = 10) ∧ ((List.range 10).all (fun d => ([1,2,3,4] ++ [0,5] ++ [6,7,8,9]).contains d)) ∧ ([1,2,3,4].all (fun d => !(([0,5] ++ [6,7,8,9]).contains d))) ∧ ([6,7,8,9].all (fun d => !(([0,5] ++ [1,2,3,4]).contains d))) ∧ ([0,5].all (fun d => !(([1,2,3,4] ++ [6,7,8,9]).contains d)))
+```
+
+### NINE IS PLUS, NOT A SECOND VOID. On the ten digits, dz 9 = 1 (it moves) and dz 0 = 0 (it stays); 9 > 5 so it sits with 6,7,8. The ℤ/9 line 9%9=0 in polarities_plus_minus identifies two different maps. Sequence-run caught this once already: folding mod 9 made digit 9 unreachable as a seed. Sealed here so the polarity partition cannot re-collapse 9 onto 0.
+The ledger holds this as [nine_is_plus_not_neutral](/theorem/nine_is_plus_not_neutral) — proven `by decide`, sorry-free:
+
+```lean
+(dz 9 = 1) ∧ (9 ≠ 0) ∧ (9 > 5) ∧ (dz 0 = 0) ∧ (dz 5 = 5)
+```
+
+### THE MIRROR SWAPS THE TWO POLARITIES AND FIXES THE NEUTRALS. Walking 1,2,3,4 through dz yields 9,8,7,6 — the plus side in reverse. Walking 6,7,8,9 yields 4,3,2,1 — the minus side in reverse. 0 and 5 stay. So the two polarities are ONE strip read both ways, joined at the hinges, and 9 is the image of 1, never a hinge.
+The ledger holds this as [polarity_mirror_swaps_sides](/theorem/polarity_mirror_swaps_sides) — proven `by decide`, sorry-free:
+
+```lean
+([1,2,3,4].map dz = [9,8,7,6]) ∧ ([6,7,8,9].map dz = [4,3,2,1]) ∧ (dz 0 = 0) ∧ (dz 5 = 5)
+```
+
+### THE TWO POLARITIES SUM TO A TRINITY. 1+2+3+4 = 10 (the rung width every mirror pair already pays) and 6+7+8+9 = 30 = 3·10 — plus is the trinity of minus. The neutrals 0+5 = 5 are the heart. 10+30+5 = 45 = 1+…+9, the whole strip. Four, two, four digits; ten, thirty, five as sums — the same 4+2+4 partition read in value.
+The ledger holds this as [polarity_plus_is_trinity_of_minus](/theorem/polarity_plus_is_trinity_of_minus) — proven `by decide`, sorry-free:
+
+```lean
+(1+2+3+4 = 10) ∧ (6+7+8+9 = 30) ∧ (30 = 3 * 10) ∧ (0+5 = 5) ∧ (10+30+5 = 45)
 ```
 
 

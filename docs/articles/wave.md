@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 467 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 472 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 466 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 471 siblings below.
 
-**467 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 291 of its 467 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
+**472 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in [lean/Wave.lean](/lean/Wave.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 293 of its 472 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 467 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 472 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -3278,6 +3278,41 @@ The ledger holds this as [no_power_of_three_is_a_power_of_two](/theorem/no_power
 
 ```lean
 ((List.range' 1 12).all (fun a => (List.range' 1 19).all (fun b => 3 ^ a != 2 ^ b))) ∧ (3 ^ 12 - 2 ^ 19 = 7153)
+```
+
+### LITERATURE CLASS: the combinatorial book is the power of the sonnet measure — ten choices on fourteen lines give 10^14 = 100000000000000 occupancy seats. The kernel seals the power; the ledger holds no verse.
+The ledger holds this as [literature_sonnet_volume](/theorem/literature_sonnet_volume) — proven `by decide`, sorry-free:
+
+```lean
+10 ^ 14 = 100000000000000
+```
+
+### LITERATURE CLASS: the combinatorial book outgrows the handle alphabet — 10^14 seats against 16^8 doors. Occupancy exceeds naming at eight hex; pigeonhole, not verse.
+The ledger holds this as [combinatorial_book_exceeds_handles](/theorem/combinatorial_book_exceeds_handles) — proven `by decide`, sorry-free:
+
+```lean
+10 ^ 14 > 16 ^ 8
+```
+
+### LITERATURE CLASS: the combinatorial book still fits the uuid — 10^14 seats sit strictly inside 2^128 addresses, so the full address can name what the handle cannot.
+The ledger holds this as [combinatorial_book_fits_the_uuid](/theorem/combinatorial_book_fits_the_uuid) — proven `by decide`, sorry-free:
+
+```lean
+10 ^ 14 < 2 ^ 128
+```
+
+### THE TEN STATIONS ARE THE HEXAGRAM PLUS THE HEXBIT — six lines of the hexagram plus four hexbit width equal ten, the choice-count every strip reads as STATION_TEN.
+The ledger holds this as [station_ten_is_hexagram_plus_hexbit](/theorem/station_ten_is_hexagram_plus_hexbit) — proven `by decide`, sorry-free:
+
+```lean
+6 + 4 = 10
+```
+
+### THE FOURTEEN VE FACES ARE HANDLE TILES PLUS HEXBIT WIDTH PLUS THE COINS — 8+4+2=14, the other partition of fourteen from eight triangles plus six squares. The constructor is the sum; the kernel seals the arithmetic.
+The ledger holds this as [ve_faces_are_handle_hexbit_coins](/theorem/ve_faces_are_handle_hexbit_coins) — proven `by decide`, sorry-free:
+
+```lean
+8 + 4 + 2 = 14
 ```
 
 

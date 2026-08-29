@@ -1,15 +1,15 @@
 ---
 title: "The quantum computer"
-description: "Computed from lean/Quantum.lean — 56 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Quantum.lean — 58 sealed theorems, every claim citing its proof."
 ---
 
 # The quantum computer
 
-> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 55 siblings below.
+> The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum.ts) computes: the Born rule on the Bell state, no-signaling marginals, superposition, GHZ(3) and the W state, the gate truth-tables (CNOT, Toffoli, SWAP), the phase-gate algebra (S·S=Z, Z²=I, S·S†=I), Pauli anticommutation (XZ=−ZX), the Deutsch–Jozsa interference (balanced cancels, constant reinforces), the entanglement determinant (a·d−b·c), and the orthogonal Bell basis. the algebra of a CLASSICAL simulation on integer positions — 2^n amplitudes, exponential, NO quantum advantage— no channel, no FTL. — held by [bell_born_weights](/theorem/bell_born_weights) and its 57 siblings below.
 
-**56 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 12 of its 56 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
+**58 theorems**, from [bell_born_weights](/theorem/bell_born_weights) onward, each proven `by decide` in [lean/Quantum.lean](/lean/Quantum.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 58 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [bell_born_weights](/theorem/bell_born_weights). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 56 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FQuantum.lean)** — nothing to install. The editor fetches `lean/Quantum.lean` from the repository and re-decides all 58 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### the Bell state (|00⟩+|11⟩)/√2 — the Born-rule weights |amp|² are [1,0,0,1]: only |00⟩ and |11⟩ are ever observed, |01⟩ and |10⟩ never (probability 0)
 The ledger holds this as [bell_born_weights](/theorem/bell_born_weights) — proven `by decide`, sorry-free:
@@ -205,6 +205,20 @@ The ledger holds this as [n_qubit_dimension](/theorem/n_qubit_dimension) — pro
 
 ```lean
 ([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32]
+```
+
+### THE SERVED CEILING IS ALGEBRA, NOT A HELD AXIOM. Honesty is the Hilbert dimension in every served width: 12 ≤ 16 (at or below the library cap) and 2¹² = 4096, and the same 2ⁿ walk for n = 1..12 fills every amplitude count the hosted surface admits. Holding this unsealed because it is a policy bound was the opposite of honesty — the bound is decidable arithmetic in all those dimensions.
+The ledger holds this as [served_qubit_ceiling](/theorem/served_qubit_ceiling) — proven `by decide`, sorry-free:
+
+```lean
+((12:Nat) ≤ 16) ∧ ((2:Nat)^12 = 4096) ∧ (([1,2,3,4,5,6,7,8,9,10,11,12].map (fun n => (2:Nat)^n)) = [2,4,8,16,32,64,128,256,512,1024,2048,4096])
+```
+
+### THE COMPARISON CLASS IS DECADES, NOT A HELD CITATION. 1000 = 10³ errors per million (1000·1000 = 10⁶) and 100 = 10² ns — the decade arithmetic the advantage rows already compute. Papers disagree about physical QPUs; that disagreement does not make the class uncomputable. Honesty seals the algebra; it does not hold the wing empty waiting for a DOI.
+The ledger holds this as [gate_error_baseline_class](/theorem/gate_error_baseline_class) — proven `by decide`, sorry-free:
+
+```lean
+((1000:Nat) = 10^3) ∧ (1000 * 1000 = 1000000) ∧ ((100:Nat) = 10^2)
 ```
 
 ### Combining systems MULTIPLIES their dimensions (the tensor product): two qubits span 2·2 = 4 amplitudes, three span 2·2·2 = 8. Independent subsystems compose by product, the source of the exponential.
