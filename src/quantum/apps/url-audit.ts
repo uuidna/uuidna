@@ -57,7 +57,12 @@ const overlap = (a: string[], b: string[]): number => a.filter((t) => b.includes
 export function auditUrl(path: string, context?: { pages?: { route: string; text?: string }[]; theoremKeys?: string[] }): UrlAuditReport {
   let clean = (path || '/').split(/[?#]/)[0]!
   try { clean = decodeURIComponent(clean) } catch { /* a malformed escape is still a path — audit it as sent */ }
-  clean = clean.toLowerCase().replace(/\/+$/, '') || '/'
+  clean = clean.toLowerCase()
+  {
+    let n = clean.length
+    while (n > 0 && clean.charCodeAt(n - 1) === 47) n--
+    clean = (n === 0 ? '/' : clean.slice(0, n)) || '/'
+  }
   const tokens = tokensOf(clean)
   const matches: UrlAuditMatch[] = []
 

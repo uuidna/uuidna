@@ -215,9 +215,15 @@ export const CATALOGUE_ROUTE_PREFIX = '/catalogue'
 /** catalogueRouteOf(name) → the uuidna.com path for any published package (/catalogue/<name>). */
 export const catalogueRouteOf = (name: string): string => CATALOGUE_ROUTE_PREFIX + '/' + name
 
+const dropTrailingSlashes = (s: string): string => {
+  let n = s.length
+  while (n > 0 && s.charCodeAt(n - 1) === 47) n--
+  return n === 0 ? '/' : s.slice(0, n)
+}
+
 /** catalogueFor(route) → the published package when route is /catalogue/<name> (one segment), else null. */
 export const catalogueFor = (route: string): CataloguePackage | null => {
-  const clean = route.replace(/\/+$/, '') || '/'
+  const clean = dropTrailingSlashes(route) || '/'
   if (!clean.startsWith(CATALOGUE_ROUTE_PREFIX + '/')) return null
   const rest = clean.slice(CATALOGUE_ROUTE_PREFIX.length + 1)
   const name = rest.split('/')[0]

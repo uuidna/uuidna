@@ -58,7 +58,7 @@ const CIPHER_KEYS = [
 ] as const
 
 test('axiom-hunt covers the coin copies, fuse ladder, metatron, and the harmonic-drift fork, each key sealed', () => {
-  const keys = new Set(CANDIDATES.map((c) => c.key))
+  const keys = new Set(CANDIDATES.map((c) => c.theorem))
   const byKey = theoremByKey()
   for (const k of [...COIN_KEYS, ...FUSE_KEYS, ...DRIFT_KEYS, ...TEN_KEYS, ...CIPHER_KEYS, ...BOOK_KEYS]) {
     assert.ok(keys.has(k), `${k} must sit in CANDIDATES — an unwatched copy is the drift`)
@@ -103,7 +103,7 @@ test('fuse ladder walks only when captain coins are contributed at each rung', (
 })
 
 test('CONTROL — dropping two_coins from the table would hide the unaccounted copy', () => {
-  const without = CANDIDATES.filter((c) => c.key !== 'two_coins')
+  const without = CANDIDATES.filter((c) => c.theorem !== 'two_coins')
   assert.ok(without.length === CANDIDATES.length - 1)
-  assert.equal(without.some((c) => c.key === 'two_coins'), false)
+  assert.equal(without.some((c) => c.theorem === 'two_coins'), false)
 })

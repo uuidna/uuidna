@@ -93,12 +93,14 @@ export function pseudo(board: string[][], r: number, c: number, castling: Castli
 
 export function applyMove(board: string[][], from: [number, number], to: [number, number], flag: string | null): string[][] {
   const nb = board.map((row) => row.slice())
-  const p = nb[from[0]]![from[1]]!, me = col(p)
-  nb[from[0]]![from[1]] = ''
-  if (flag === 'ep') nb[from[0]]![to[1]] = ''
-  nb[to[0]]![to[1]] = flag === 'promo' ? me + 'Q' : p
-  if (flag === 'castleK') { nb[to[0]]![5] = nb[to[0]]![7]!; nb[to[0]]![7] = '' }
-  if (flag === 'castleQ') { nb[to[0]]![3] = nb[to[0]]![0]!; nb[to[0]]![0] = '' }
+  const r0 = from[0] | 0, c0 = from[1] | 0, r1 = to[0] | 0, c1 = to[1] | 0
+  if (!inside(r0, c0) || !inside(r1, c1)) return nb
+  const p = nb[r0]![c0]!, me = col(p)
+  nb[r0]![c0] = ''
+  if (flag === 'ep' && inside(r0, c1)) nb[r0]![c1] = ''
+  nb[r1]![c1] = flag === 'promo' ? me + 'Q' : p
+  if (flag === 'castleK') { nb[r1]![5] = nb[r1]![7]!; nb[r1]![7] = '' }
+  if (flag === 'castleQ') { nb[r1]![3] = nb[r1]![0]!; nb[r1]![0] = '' }
   return nb
 }
 
