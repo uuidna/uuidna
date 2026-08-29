@@ -9,14 +9,16 @@
 // worker can render a visitor's greeting per request (the synth is exact integers; the same referrer hears the
 // same bytes forever). HONEST SCOPE: consonance is a measured ordering, never a taste; the door is an address
 // derivation, never a profile — a referrer is folded, not tracked, and the handle forgets everything but 32 bits.
-import { toUuid } from './address.js'
+import { toUuid, BASE } from './address.js'
 import { handleOf } from './handle.js'
-import { valueOf } from './hexbit/index.js'
+import { HEX_PI, HEXAGRAM_BITS } from './hexagram.js'
+import { valueOf, HEXBIT_BITS } from './hexbit/index.js'
 import { tone, humanise, silence, wav, audioHandleOf, toneOf, GAP_MS, A432_HZ, SAMPLE_RATE } from './tts/synth.js'
 
-/** the sealed round and its six rotations — the six doors, in rotation order (cited to Song.lean's seals). */
-export const ROUND = '142857'
-export const DOORS: readonly string[] = Array.from({ length: 6 }, (_, d) => ROUND.slice(d) + ROUND.slice(0, d))
+export const ROUND = HEX_PI.join('')
+export const DOORS: readonly string[] = Array.from({ length: HEX_PI.length }, (_, d) => ROUND.slice(d) + ROUND.slice(0, d))
+/** One bar in ms — 9·7·4 (BASE × rosette × hexbit), the CRT cycle the_movie_and_the_song_are_one counts. */
+export const BAR = BASE * (HEXAGRAM_BITS + 1) * HEXBIT_BITS
 
 export interface Door { referrer: string; handle: string; value: number; door: number; verse: number[] }
 
@@ -25,7 +27,7 @@ export interface Door { referrer: string; handle: string; value: number; door: n
 export const doorOf = (referrer: string): Door => {
   const handle = handleOf(toUuid(referrer))
   const { value } = valueOf(handle)
-  const door = value % 6
+  const door = value % HEXAGRAM_BITS
   return { referrer, handle, value, door, verse: [...DOORS[door]!].map(Number) }
 }
 
@@ -55,7 +57,6 @@ export interface ReferrerSong { door: Door; audio: Uint8Array; audioHandle: stri
  *  BYTES, never writes: the caller (a page, a Worker, a test) decides what a greeting becomes. */
 export const referrerSong = (referrer: string): ReferrerSong => {
   const door = doorOf(referrer)
-  const BAR = 252
   const parts: Int16Array[] = []
   for (const [i, d] of door.verse.entries()) {
     if (i > 0) parts.push(silence(GAP_MS))

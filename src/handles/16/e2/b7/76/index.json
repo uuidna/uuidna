@@ -1,0 +1,12 @@
+{
+  "handle": "16e2b776",
+  "address": "16e2b776-b21b-83e6-aeae-2fda3818cb66",
+  "kind": "chunk",
+  "keys": [
+    "fstop_squared_is_exact_power"
+  ],
+  "statement": "[1,2,4,8,16] = (List.range 5).map (fun n => 2^n)",
+  "files": [
+    "Photography.lean"
+  ]
+}

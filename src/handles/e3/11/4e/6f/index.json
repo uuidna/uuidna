@@ -1,0 +1,12 @@
+{
+  "handle": "e3114e6f",
+  "address": "e3114e6f-dc90-81da-b40e-153e5afd5dfc",
+  "kind": "chunk",
+  "keys": [
+    "happy_ending_verified_cases"
+  ],
+  "statement": "((List.range' 4 3).map (fun n => 2 ^ (n - 2) + 1)) = [5, 9, 17]",
+  "files": [
+    "Discover.lean"
+  ]
+}

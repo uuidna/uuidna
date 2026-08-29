@@ -1,0 +1,12 @@
+{
+  "handle": "306dc49f",
+  "address": "306dc49f-d4e1-895b-b29f-f1c28f021e16",
+  "kind": "chunk",
+  "keys": [
+    "isbn10_catches_single_error"
+  ],
+  "statement": "[10,9,8,7,6,5,4,3,2,1].all (fun w => w % 11 != 0)",
+  "files": [
+    "Identifiers.lean"
+  ]
+}

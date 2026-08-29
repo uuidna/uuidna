@@ -1,0 +1,12 @@
+{
+  "handle": "c125cca1",
+  "address": "c125cca1-3a78-8fb3-a6dd-7be5d22aab1c",
+  "kind": "chunk",
+  "keys": [
+    "order_of_two_mod_27_is_18"
+  ],
+  "statement": "(2^18 % 27 = 1) ∧ ((List.range' 1 17).all (fun k => 2^k % 27 != 1))",
+  "files": [
+    "Wave.lean"
+  ]
+}

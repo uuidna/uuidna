@@ -1,0 +1,12 @@
+{
+  "handle": "0a505abe",
+  "address": "0a505abe-a916-832e-bb65-b7f7425af588",
+  "kind": "chunk",
+  "keys": [
+    "delta_v_stages_add"
+  ],
+  "statement": "([3, 2, 1] : List Nat).sum = 6",
+  "files": [
+    "Propulsion.lean"
+  ]
+}

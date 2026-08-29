@@ -1,0 +1,12 @@
+{
+  "handle": "74432876",
+  "address": "74432876-62f5-8aa8-82d9-13a044530488",
+  "kind": "chunk",
+  "keys": [
+    "most_subsets_are_not_subgroups"
+  ],
+  "statement": "(64 - 4 = 60) ∧ (4 ≠ 64) ∧ ((2:Nat)^6 = 64)",
+  "files": [
+    "Subgroups.lean"
+  ]
+}

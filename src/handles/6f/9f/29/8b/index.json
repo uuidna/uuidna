@@ -1,0 +1,12 @@
+{
+  "handle": "6f9f298b",
+  "address": "6f9f298b-4234-83ad-884b-02bbf6dda059",
+  "kind": "chunk",
+  "keys": [
+    "path_reverse_needs_both"
+  ],
+  "statement": "(preOf dbl 0 ≠ 1) ∧ (preOf dbl 9 = 0) ∧ ((List.range 10).all (fun d => preOf dz d == 1))",
+  "files": [
+    "Reversal.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "faf87882",
+  "address": "faf87882-e6e8-8dff-bdc7-6d05af60bbe8",
+  "kind": "chunk",
+  "keys": [
+    "shutter_60_rounds_64"
+  ],
+  "statement": "2^6 = 64 ∧ 64 - 60 = 4",
+  "files": [
+    "Photography.lean"
+  ]
+}

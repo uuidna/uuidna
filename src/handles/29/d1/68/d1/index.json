@@ -1,0 +1,12 @@
+{
+  "handle": "29d168d1",
+  "address": "29d168d1-04ad-81a1-b464-1f4acf2b661f",
+  "kind": "chunk",
+  "keys": [
+    "nim_misere_differs"
+  ],
+  "statement": "lxor (lxor 1 1) 1 = 1",
+  "files": [
+    "Nim.lean"
+  ]
+}

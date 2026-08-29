@@ -13,8 +13,10 @@
 // anthem's own second voice turned out to be the RFC variant nibble, four values of sixteen) and if jobs cost
 // the same (a claim about the work). The balancer therefore ships with a CENSUS: measure your real traffic,
 // and believe the measurement over the arithmetic.
-import { valueOf, HANDLE_SPAN } from '../../hexbit/index.js'
-import { isHandle } from '../../handle.js'
+import { valueOf, HANDLE_SPAN, HANDLE_HEXBITS } from '../../hexbit/index.js'
+import { toUuid } from '../../address.js'
+import { handleOf, isHandle } from '../../handle.js'
+import { gpuCapacity } from '../../hardware/lanes/index.js'
 
 const idiv = (v: number, d: number): number => (v - (v % d)) / d
 // NOT re-derived as 16^8: the same number written in two files is two places to be wrong, and valueOf already
@@ -64,3 +66,59 @@ export function census(handles: readonly string[], workers: number): Census {
  *  and so the claim is somewhere a test can reach it. */
 export const routingCost = (): { lookups: number; roundTrips: number; sharedState: number; operations: string } =>
   ({ lookups: 0, roundTrips: 0, sharedState: 0, operations: 'one modulo over a value the job already carries' })
+
+/** CPU workers plus one specified GPU worker when the job count pays postage. Chain/onion layers stay serial. */
+export function streamFleet(jobs: number, cpuWorkers: number = HANDLE_HEXBITS): {
+  cpuWorkers: number
+  gpuWorkers: number
+  total: number
+} {
+  const cpu = fleet(cpuWorkers)
+  const gpuWorkers = jobs >= gpuCapacity().breakEvenAddresses ? 1 : 0
+  return { cpuWorkers: cpu, gpuWorkers, total: cpu + gpuWorkers }
+}
+
+export interface StreamBalance extends Census {
+  cpuWorkers: number
+  gpuWorkers: number
+  serial: number
+  parallelSteps: number
+  opened: number
+  slots: number
+  gpuLane: number
+}
+
+/** Independent stream jobs across the CPU/GPU residue map. `parallelSteps` is the busiest lane; `opened` is
+ *  serial minus that — the extra concurrent capacity the fleet opens versus a single worker. GPU lane is
+ *  specified: assignment is real, no device dispatch. */
+export function balanceStream(handles: readonly string[], cpuWorkers: number = HANDLE_HEXBITS): StreamBalance {
+  const f = streamFleet(handles.length, cpuWorkers)
+  const c = census(handles, f.total)
+  return {
+    ...c,
+    cpuWorkers: f.cpuWorkers,
+    gpuWorkers: f.gpuWorkers,
+    serial: handles.length,
+    parallelSteps: c.busiest,
+    opened: handles.length - c.busiest,
+    slots: f.total,
+    gpuLane: f.gpuWorkers === 1 ? f.total - 1 : -1,
+  }
+}
+
+/** Content-addressed handles for independent stream jobs — the residue key the fleet already carries. */
+export function jobHandles(kind: string, items: readonly string[], start = 0): string[] {
+  return items.map((item, i) => handleOf(toUuid(kind + '|' + (start + i) + '|' + item)))
+}
+
+/** Run independent jobs by residue bucket. Order of results matches the input; chain/onion layers must not use this. */
+export function mapAcross<T>(handles: readonly string[], workers: number, run: (i: number) => T): T[] {
+  const out: T[] = new Array(handles.length)
+  const buckets: number[][] = []
+  for (let w = 0; w < workers; w++) buckets.push([])
+  handles.forEach((h, i) => buckets[routeOf(h, workers)]!.push(i))
+  for (const bucket of buckets) {
+    for (const i of bucket) out[i] = run(i)
+  }
+  return out
+}

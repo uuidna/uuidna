@@ -1,0 +1,12 @@
+{
+  "handle": "cdb800e5",
+  "address": "cdb800e5-8c67-81bf-ba25-b911b89a8770",
+  "kind": "chunk",
+  "keys": [
+    "z7pow_3_7"
+  ],
+  "statement": "(3 ^ 7) % 7 = 3",
+  "files": [
+    "Rosette.lean"
+  ]
+}

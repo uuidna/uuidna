@@ -2,6 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { parsePointsDegrees, pointsDegreesKey, hexbitTheoremFromPointsDegrees, hexbitCandidatesFromClaims } from '../scripts/hexbit-from-books.js'
 import { UUID_HEXBITS } from '../hexbit/index.js'
+import { theoremByKey } from '../theorems/index.js'
 import type { TextClaim } from '../books.js'
 
 test('parsePointsDegrees: digit degrees-or-points', () => {
@@ -31,8 +32,8 @@ test('hexbit theorem uses UUID_HEXBITS as the rose width', () => {
   assert.equal(c, null)
 })
 
-test('hexbitCandidatesFromClaims: queues an unsealed rose identity (8 points = 90°)', () => {
-  const claims: TextClaim[] = [{
+test('hexbitCandidatesFromClaims: rose identity queues until sealed; a non-rose pair is refused', () => {
+  const eight: TextClaim[] = [{
     kind: 'unit-equivalence',
     claim: '90 degrees, or eight points',
     sentence: '…',
@@ -40,8 +41,21 @@ test('hexbitCandidatesFromClaims: queues an unsealed rose identity (8 points = 9
     units: ['degrees', 'points'],
     address: 'y',
   }]
-  const c = hexbitCandidatesFromClaims(claims, 1, 'Test')
-  assert.equal(c.length, 1)
-  assert.equal(c[0]!.key, 'eight_points_is_90')
-  assert.match(c[0]!.lean, new RegExp(`8 \\* 360 = ${UUID_HEXBITS} \\* 90`))
+  const queued = hexbitCandidatesFromClaims(eight, 1, 'Test')
+  if (theoremByKey().has('eight_points_is_90')) {
+    assert.equal(queued.length, 0, 'eight_points_is_90 is sealed — no duplicate deposit')
+  } else {
+    assert.equal(queued.length, 1)
+    assert.equal(queued[0]!.key, 'eight_points_is_90')
+    assert.match(queued[0]!.lean, new RegExp(`8 \\* 360 = ${UUID_HEXBITS} \\* 90`))
+  }
+  const miss: TextClaim[] = [{
+    kind: 'unit-equivalence',
+    claim: '50 degrees, or five points',
+    sentence: '…',
+    numbers: [50],
+    units: ['degrees', 'points'],
+    address: 'z',
+  }]
+  assert.equal(hexbitCandidatesFromClaims(miss, 1, 'Test').length, 0, '5·360 ≠ 32·50 — the rose refuses it')
 })

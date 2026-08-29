@@ -1,0 +1,12 @@
+{
+  "handle": "4392c7c1",
+  "address": "4392c7c1-bd9e-847b-ac8f-0c96502fe25b",
+  "kind": "chunk",
+  "keys": [
+    "fabricated_cite_stays_unverified"
+  ],
+  "statement": "(unverified 1 0 = 1) ∧ (verified 1 1 = 1) ∧ (verified 1 0 = 0)",
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

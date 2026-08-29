@@ -1,0 +1,12 @@
+{
+  "handle": "09713805",
+  "address": "09713805-b0a6-82e9-bf8c-783360c7a569",
+  "kind": "chunk",
+  "keys": [
+    "oos_social_engineering"
+  ],
+  "statement": "1 - 1 = 0",
+  "files": [
+    "Exploits.lean"
+  ]
+}

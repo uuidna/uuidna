@@ -1,0 +1,12 @@
+{
+  "handle": "fca71c7a",
+  "address": "fca71c7a-045c-8c9d-a020-feb50e1ce026",
+  "kind": "chunk",
+  "keys": [
+    "flat_drift_is_quadratic"
+  ],
+  "statement": "List.map (fun m => 8 * m * m) [1, 2, 3] = [8, 32, 72]",
+  "files": [
+    "Universe.lean"
+  ]
+}

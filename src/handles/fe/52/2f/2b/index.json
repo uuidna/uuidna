@@ -1,0 +1,12 @@
+{
+  "handle": "fe522f2b",
+  "address": "fe522f2b-549b-86ab-8c58-89d273b7fe49",
+  "kind": "chunk",
+  "keys": [
+    "trivial_and_whole_are_subgroups"
+  ],
+  "statement": "(isSub [1]) ∧ (isSub units) ∧ (([1]:List Nat).length ≠ units.length)",
+  "files": [
+    "Subgroups.lean"
+  ]
+}

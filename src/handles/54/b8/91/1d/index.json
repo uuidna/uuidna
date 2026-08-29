@@ -1,0 +1,12 @@
+{
+  "handle": "54b8911d",
+  "address": "54b8911d-dd07-8d5f-b448-e5ddc003c816",
+  "kind": "chunk",
+  "keys": [
+    "pythagorean_comma_is_the_drift"
+  ],
+  "statement": "(2 ^ 19 < 3 ^ 12) ∧ (3 ^ 12 - 2 ^ 19 = 7153)",
+  "files": [
+    "Wave.lean"
+  ]
+}

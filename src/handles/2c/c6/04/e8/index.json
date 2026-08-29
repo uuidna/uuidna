@@ -1,0 +1,14 @@
+{
+  "handle": "2cc604e8",
+  "address": "2cc604e8-5fd5-8570-be4f-70c7b1cf036c",
+  "kind": "chunk",
+  "keys": [
+    "beating_sailing_triangle",
+    "pythagorean_3_4_5"
+  ],
+  "statement": "3^2 + 4^2 = 5^2",
+  "files": [
+    "Navigation.lean",
+    "Sailing.lean"
+  ]
+}

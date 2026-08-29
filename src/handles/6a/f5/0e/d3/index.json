@@ -1,0 +1,12 @@
+{
+  "handle": "6af50ed3",
+  "address": "6af50ed3-d638-818b-9e08-cc009afaf9d0",
+  "kind": "chunk",
+  "keys": [
+    "gregorian_leap_rule"
+  ],
+  "statement": "(100 - 3 = 97) ∧ (400 * 365 + 97 = 146097)",
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

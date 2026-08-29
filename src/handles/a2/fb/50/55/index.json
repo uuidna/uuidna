@@ -1,0 +1,12 @@
+{
+  "handle": "a2fb5055",
+  "address": "a2fb5055-5c2e-8bbb-9602-d01c324f1e5d",
+  "kind": "chunk",
+  "keys": [
+    "dropframe_is_one_thousandth"
+  ],
+  "statement": "(108 * 1000 = 108000) ∧ (108000 - 108 = 107892) ∧ (30 * 60 * 60 = 108000)",
+  "files": [
+    "Editing.lean"
+  ]
+}

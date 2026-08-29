@@ -1,0 +1,12 @@
+{
+  "handle": "1c796820",
+  "address": "1c796820-e197-828d-a3cb-372635031623",
+  "kind": "chunk",
+  "keys": [
+    "two_functions_ignore_input"
+  ],
+  "statement": "(((List.range 16).filter (fun m => (rowsOf m).eraseDups.length == 1)).length = 2) ∧ (((List.range 16).filter (fun m => (rowsOf m).eraseDups.length > 1)).length = 14)",
+  "files": [
+    "Boolean.lean"
+  ]
+}

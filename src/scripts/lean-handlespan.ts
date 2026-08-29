@@ -10,7 +10,7 @@
 //
 // AND WHAT IT IS NOT — carried on the lines. Two million qubits of SPAN is not two million
 // amplitudes: a register of n qubits holds 2^n amplitudes, so 16 qubits is already 65536 complex numbers in memory
-// (the shipped MAX_MESSAGE_QUBITS), and 2^21 qubits would demand 2^2097152 of them. The theorems below seal that the
+// (HEXBIT_BITS × HEXBIT_BITS Hilbert qubits), and 2^21 qubits would demand 2^2097152 of them. The theorems below seal that the
 // total exceeds the register rather than fitting inside it, so the span can never be read as a capacity.
 import { emit } from './lean-gen.js'
 

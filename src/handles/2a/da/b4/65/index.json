@@ -1,0 +1,12 @@
+{
+  "handle": "2adab465",
+  "address": "2adab465-eef3-87c2-bf85-4f1eee60a756",
+  "kind": "chunk",
+  "keys": [
+    "harmonic_series"
+  ],
+  "statement": "((List.range' 1 6).map (fun n => n * 110)) = [110,220,330,440,550,660]",
+  "files": [
+    "Acoustics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "aa9a8c9d",
+  "address": "aa9a8c9d-b902-8e00-b2d5-89991c153acb",
+  "kind": "chunk",
+  "keys": [
+    "dropframe_per_hour"
+  ],
+  "statement": "2 * 54 = 108",
+  "files": [
+    "Editing.lean"
+  ]
+}

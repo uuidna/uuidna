@@ -1,0 +1,14 @@
+{
+  "handle": "2bcbb2d5",
+  "address": "2bcbb2d5-5a66-8661-a0d3-d46300515a74",
+  "kind": "chunk",
+  "keys": [
+    "codons_four_cubed",
+    "codons_sixty_four"
+  ],
+  "statement": "(4:Nat)^3 = 64",
+  "files": [
+    "BioPhysics.lean",
+    "Cipher.lean"
+  ]
+}

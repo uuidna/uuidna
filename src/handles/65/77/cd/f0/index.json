@@ -1,0 +1,12 @@
+{
+  "handle": "6577cdf0",
+  "address": "6577cdf0-3ee3-8e24-b901-df3c33e84df3",
+  "kind": "chunk",
+  "keys": [
+    "the_rom_frees_twentysix_for_the_tongue"
+  ],
+  "statement": "(122 - 97 + 1 = 26) ∧ (26 < 40)",
+  "files": [
+    "Pravets.lean"
+  ]
+}

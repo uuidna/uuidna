@@ -1,0 +1,12 @@
+{
+  "handle": "2835c0cc",
+  "address": "2835c0cc-0217-85be-b4eb-ff803626ab1f",
+  "kind": "chunk",
+  "keys": [
+    "a440_drifts_eight_from_the_lattice"
+  ],
+  "statement": "(440 - 432 = 8) ∧ (432 = 2 ^ 4 * 3 ^ 3) ∧ (440 = 2 ^ 3 * 5 * 11) ∧ (55 * 432 = 54 * 440)",
+  "files": [
+    "Wave.lean"
+  ]
+}

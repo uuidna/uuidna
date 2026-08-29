@@ -1,0 +1,12 @@
+{
+  "handle": "abcc0a2c",
+  "address": "abcc0a2c-dfaf-8461-9e6b-499e5c7d7bd6",
+  "kind": "chunk",
+  "keys": [
+    "llm_folds_to_hexbit_pairs"
+  ],
+  "statement": "((128 : Nat) / 4 = 32) ∧ ((32 : Nat) / 2 = 16) ∧ (16 * 2 = 32) ∧ (32 * 4 = 128) ∧ (16 = 2 ^ 4)",
+  "files": [
+    "Models.lean"
+  ]
+}

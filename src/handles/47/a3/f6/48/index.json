@@ -1,0 +1,12 @@
+{
+  "handle": "47a3f648",
+  "address": "47a3f648-f5b3-8d2b-a5be-f68f9ab6cb50",
+  "kind": "chunk",
+  "keys": [
+    "pilgrims_homecoming_arithmetic"
+  ],
+  "statement": "(2008 + 2436 = 4444) ∧ (4444 = 4 * 1111) ∧ (2008 % 9 = 1) ∧ (2436 % 9 = 6) ∧ (4444 % 9 = 7) ∧ (2436 = 1218 * 2)",
+  "files": [
+    "Wave.lean"
+  ]
+}

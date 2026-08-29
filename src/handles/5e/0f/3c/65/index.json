@@ -1,0 +1,12 @@
+{
+  "handle": "5e0f3c65",
+  "address": "5e0f3c65-89b4-8448-bf96-96639ed51db2",
+  "kind": "chunk",
+  "keys": [
+    "thirteen_states_per_square"
+  ],
+  "statement": "6 + 6 + 1 = 13",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

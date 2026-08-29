@@ -1,0 +1,12 @@
+{
+  "handle": "34e4d62a",
+  "address": "34e4d62a-8607-8a92-b0df-108b109ce265",
+  "kind": "chunk",
+  "keys": [
+    "seams_two"
+  ],
+  "statement": "((tour.zip (tour.drop 1 ++ tour.take 1)).filter (fun p => ! carries9 p.1 p.2)).length = 2",
+  "files": [
+    "Sequence.lean"
+  ]
+}

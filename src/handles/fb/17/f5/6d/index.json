@@ -1,0 +1,12 @@
+{
+  "handle": "fb17f56d",
+  "address": "fb17f56d-7aa4-8946-93c4-ec1e071aa06a",
+  "kind": "chunk",
+  "keys": [
+    "a440_drift_is_heard"
+  ],
+  "statement": "(1000 * 8 / 432 = 18) ∧ (3 * 6 = 18)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e03f7597",
+  "address": "e03f7597-5c44-8af0-ad81-5420fee402be",
+  "kind": "chunk",
+  "keys": [
+    "censuses_differ"
+  ],
+  "statement": "((List.range 10).map (preOf dz) ≠ (List.range 10).map (preOf dbl)) ∧ ([1,1,1,1,1,1,1,1,1,1].foldl (· + ·) 0 = 10) ∧ ([2,1,1,1,1,1,1,1,1,0].foldl (· + ·) 0 = 10)",
+  "files": [
+    "Reversal.lean"
+  ]
+}

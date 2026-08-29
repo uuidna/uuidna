@@ -120,7 +120,7 @@ test('compose-object: hero fields in params, never YAML-in-content (no bag leak)
   assert.match(page.content, new RegExp(page.params.handleUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')))
   assert.ok('heartbeats' in page.params, 'theorem params carry measured heartbeats for page metrics')
   assert.ok(!page.content.startsWith('---'), 'content must not open with YAML frontmatter')
-  assert.match(page.content, /^# /m, 'stock markdown H1 is the hero')
+  assert.match(page.content, /^# /m, 'stock markdown H1 is the handle')
   assert.doesNotMatch(page.content, /^title:\s/m)
   assert.doesNotMatch(page.content, /^heroTitle:\s/m)
   assert.doesNotMatch(page.content, /^objectKind:\s/m)
@@ -154,6 +154,9 @@ test('ObjectCrosslinks wires full related-object graph via VPLink/VPButton (no c
   assert.match(vue, /relatedPubs|relatedPublications/)
   assert.match(vue, /keywords|priorArt/)
   assert.match(vue, /unlocks/)
+  assert.doesNotMatch(vue, /ledger\.data/)
+  assert.doesNotMatch(vue, /publications\.data/)
+  assert.doesNotMatch(vue, /theoremGraph|theoremDemoOf/)
 })
 
 test('ObjectBreadcrumbs: Layout doc-before + VPLink; Home → kind → id/handle (not the related graph)', async () => {
@@ -194,6 +197,7 @@ test('ObjectBreadcrumbs: Layout doc-before + VPLink; Home → kind → id/handle
   assert.equal(nested[1]!.link, '/articles')
   const top = docsBreadcrumbs('doctrine.md', 'The doctrine')
   assert.deepEqual(top.map((c) => c.text), ['Home', 'The doctrine'])
+  assert.deepEqual(docsBreadcrumbs('theorems.md', 'Theorems'), [{ text: 'Home', link: '/' }, { text: 'Theorems' }])
   assert.deepEqual(docsBreadcrumbs('index.md'), [])
 })
 
@@ -256,23 +260,26 @@ test('compose-object stamps stock VPDocFooter prev/next + crosslinks graph (no e
   assert.ok(page.params.crosslinks?.unlocks?.link === '/unlocks')
   assert.ok(page.params.prev === false || (page.params.prev && page.params.prev.link.startsWith('/theorem/')))
   assert.ok(page.params.next === false || (page.params.next && page.params.next.link.startsWith('/theorem/')))
+  assert.equal((page.params as { principleSiblings?: string[] }).principleSiblings, undefined)
   assert.doesNotMatch(page.content, /## Cross-links|## The rotation|## The neighbour fold/)
 })
 
-test('ObjectPage wires locale rays for crosslinks; stock markdown H1 is the hero', () => {
+test('ObjectPage wires locale rays for crosslinks; stock markdown H1 is the handle', () => {
   const vue = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectPage.vue'), 'utf8')
   assert.doesNotMatch(vue, /translateObjectText/)
   assert.doesNotMatch(vue, /object-hero|object-h1/)
   assert.match(vue, /OBJECT_LOCALE_RAYS/)
   assert.match(vue, /object-locale/)
   const compose = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
-  assert.match(compose, /Stock VitePress H1|# \$\{mdSafe\(heroTitle\)\}/)
+  assert.match(compose, /# \$\{mdSafe\(handle\)\}/)
+  assert.match(compose, /Every URL is a monograph/)
+  assert.doesNotMatch(compose, /principleSiblings/)
 })
 
 test('TheoremUse / ExecShell / PortPanel are composed in — one constructor, not a second template', () => {
   const compose = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
   assert.match(compose, /<ClientOnly><TheoremUse \/>/)
-  assert.match(compose, /hexbitDoorOf/)
+  assert.match(compose, /hexFaceOf/)
   const theme = readFileSync(join(ROOT, 'docs/.vitepress/theme/index.ts'), 'utf8')
   assert.match(theme, /TheoremUse/)
   assert.match(theme, /ExecShell/)

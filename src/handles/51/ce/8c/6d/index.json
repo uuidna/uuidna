@@ -1,0 +1,12 @@
+{
+  "handle": "51ce8c6d",
+  "address": "51ce8c6d-325b-8e6c-9257-a191544bbe28",
+  "kind": "chunk",
+  "keys": [
+    "chessboard_two_colours"
+  ],
+  "statement": "((List.range 64).filter (fun i => (i / 8 + i % 8) % 2 = 0)).length = 32",
+  "files": [
+    "Chess.lean"
+  ]
+}

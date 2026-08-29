@@ -1,0 +1,12 @@
+{
+  "handle": "c37987e0",
+  "address": "c37987e0-2df0-835a-a886-c35258be0bd7",
+  "kind": "chunk",
+  "keys": [
+    "flag_truth_table"
+  ],
+  "statement": "((List.range 8).map (fun n => flag (n%2) (n/2%2) (n/4%2))) = [0,1,0,0,0,0,0,0]",
+  "files": [
+    "Audit.lean"
+  ]
+}

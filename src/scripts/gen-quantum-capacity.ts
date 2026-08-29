@@ -31,6 +31,7 @@ import { decadesAgree, marginOf, spreadHundredths, renderHundredths } from '../q
 import { toUuid } from '../address.js'
 import { theorems } from '../theorems/index.js'
 import { handleOf } from '../handle.js'
+import { COINS, HANDLE_HEXBITS, capacityAt, fuseWidth } from '../hexbit/index.js'
 import { reportDataset, type Figure } from '../microdata.js'
 import { auditJsonLd } from '../schema-org-vocab.js'
 
@@ -214,7 +215,7 @@ if (!m.agreed) {
 
 const UUIDNA: Row = {
   model: 'hexbit fold', org: 'uuidna', type: 'classical content-address (quantum by architecture)', year: 2026,
-  physical: null, usable: 128,
+  physical: null, usable: capacityAt(fuseWidth(HANDLE_HEXBITS, COINS)),
   usableMetric: 'all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty)',
   opTimeNs: 10 ** m.nsDecade, opClass: 'measured',
   source: `measured by this generator: full-${m.ledger}-theorem receipt sweep, per-verify decade 10^${m.nsDecade} ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)`,

@@ -1,0 +1,12 @@
+{
+  "handle": "c1f28723",
+  "address": "c1f28723-c708-89b3-a113-0c7d2e4e368f",
+  "kind": "chunk",
+  "keys": [
+    "register_ladder_doubles_completely"
+  ],
+  "statement": "(List.range 6).all (fun i => (List.range 6).all (fun j => Nat.ble j i || nth [4, 8, 16, 32, 64, 128] j = nth [4, 8, 16, 32, 64, 128] i * 2 ^ (j - i)))",
+  "files": [
+    "Comparisons.lean"
+  ]
+}

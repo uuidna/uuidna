@@ -1,0 +1,12 @@
+{
+  "handle": "4247d495",
+  "address": "4247d495-2978-8fe2-ab75-9d309f8def58",
+  "kind": "chunk",
+  "keys": [
+    "nimsum_6_6"
+  ],
+  "statement": "lxor 6 6 = 0",
+  "files": [
+    "Nim.lean"
+  ]
+}

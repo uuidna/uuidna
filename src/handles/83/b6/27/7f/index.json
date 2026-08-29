@@ -1,0 +1,12 @@
+{
+  "handle": "83b6277f",
+  "address": "83b6277f-39c5-8f9d-b880-dfefc9c0cf54",
+  "kind": "chunk",
+  "keys": [
+    "a_series_halving"
+  ],
+  "statement": "[1,2,4].map (fun n => n * 2) = [2,4,8]",
+  "files": [
+    "Typesetting.lean"
+  ]
+}

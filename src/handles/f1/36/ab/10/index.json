@@ -1,0 +1,12 @@
+{
+  "handle": "f136ab10",
+  "address": "f136ab10-076e-87bf-a225-ea2027657c07",
+  "kind": "chunk",
+  "keys": [
+    "idempotents_mod_30_number_8"
+  ],
+  "statement": "((List.range 30).filter (fun x => (x * x) % 30 == x)).length = 8",
+  "files": [
+    "Wave.lean"
+  ]
+}

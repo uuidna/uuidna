@@ -4,8 +4,8 @@
 // and the receipt is change-sensitive — a tampered mirror is CAUGHT. Nothing here benchmarks a vendor.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { modelComparison, foldLlm, HEXBITS_PER_TOKEN, TOKEN_BYTES, UUID_TEXT_CHARS } from '../quantum/models/index.js'
-import { UUID_HEXBITS, COINS } from '../hexbit/index.js'
+import { UUID_HEXBITS, COINS, HEXBIT_BITS, UUID_BITS } from '../hexbit/index.js'
+import { modelComparison, foldLlm, HEXBITS_PER_TOKEN, TOKEN_BYTES, UUID_TEXT_CHARS, UUID_PAYLOAD_BITS } from '../quantum/models/index.js'
 import { MODELS_MIRROR } from '../quantum/models/mirror.js'
 
 test('EXACT over the whole census — every row recomputes from its mirror model, none invented, none dropped', () => {
@@ -47,4 +47,11 @@ test('the receipt is change-sensitive — a tampered mirror is CAUGHT (the instr
   const bad = modelComparison(tampered)
   assert.notEqual(bad.receipt, c.receipt)
   assert.equal(modelComparison(structuredClone(MODELS_MIRROR)).receipt, c.receipt, 'an untampered copy folds identically')
+})
+
+test('model widths are hexbit constructors — not a second set of literals', () => {
+  assert.equal(TOKEN_BYTES, HEXBIT_BITS)
+  assert.equal(HEXBITS_PER_TOKEN, HEXBIT_BITS * COINS)
+  assert.equal(UUID_TEXT_CHARS, UUID_HEXBITS + HEXBIT_BITS)
+  assert.equal(UUID_PAYLOAD_BITS, UUID_BITS)
 })

@@ -7,9 +7,6 @@
 // receipt against the ledger count; re-deriving the receipt itself still needs the Lean toolchain (the guard, CI).
 // A tree without the receipt (not shipped.
 // Integrity — the record recomputes for anyone.
-import { readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
-import { dirname, join } from 'node:path'
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'

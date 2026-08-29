@@ -1,0 +1,12 @@
+{
+  "handle": "15eb1c43",
+  "address": "15eb1c43-f122-86df-8269-5ee3c29f083a",
+  "kind": "chunk",
+  "keys": [
+    "saturation_deco_accounts"
+  ],
+  "statement": "(13 + 24 = 37) ∧ (37 < 43) ∧ (43 - 37 = 6)",
+  "files": [
+    "Doctrine.lean"
+  ]
+}

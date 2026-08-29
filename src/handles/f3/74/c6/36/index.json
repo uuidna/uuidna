@@ -1,0 +1,12 @@
+{
+  "handle": "f374c636",
+  "address": "f374c636-d212-8e89-92f7-048357905fe9",
+  "kind": "chunk",
+  "keys": [
+    "mombh_hbeta_oiii_ratio_central_over_ten_lower_under"
+  ],
+  "statement": "(114 > 100) ∧ (114 - 25 = 89) ∧ (89 < 100)",
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6af87b66",
+  "address": "6af87b66-b22f-8a41-bed6-cd57ce87dea2",
+  "kind": "chunk",
+  "keys": [
+    "orbits_are_distinct"
+  ],
+  "statement": "(orbits.map (fun o => o.length)).eraseDups.length = 6",
+  "files": [
+    "ProseTrial.lean"
+  ]
+}

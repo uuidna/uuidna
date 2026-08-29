@@ -1,0 +1,12 @@
+{
+  "handle": "631edf23",
+  "address": "631edf23-a8d2-858b-b544-ab6aa5afb270",
+  "kind": "chunk",
+  "keys": [
+    "divisors_of_7_number_2"
+  ],
+  "statement": "((List.range' 1 7).filter (fun k => 7 % k == 0)).length = 2",
+  "files": [
+    "Wave.lean"
+  ]
+}

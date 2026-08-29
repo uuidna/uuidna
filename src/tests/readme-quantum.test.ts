@@ -3,8 +3,8 @@
 // catching: the README stood 46 theorems stale earlier in this session, and llm.txt stood at 1359 against a live
 // 1395. Both were generated files nobody re-ran.
 //
-// So this test does not check that the section EXISTS — it recomputes every figure from the shipped constant, the
-// served schema and the ledger, and asserts the published text carries exactly those values. A regenerated README
+// So this test does not check that the section EXISTS — it recomputes every figure from the shipped constructors,
+// the served schema and the ledger, and asserts the published text carries exactly those values. A regenerated README
 // passes; a hand-edited or stale one fails, naming the figure that moved.
 //
 // AND IT GUARDS THE BOUNDARY. Honest scope must keep the measured usable-capacity advantage and refuse
@@ -15,34 +15,22 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import { theorems } from '../index.js'
-import { MAX_MESSAGE_QUBITS } from '../quantum/message/index.js'
-import { MAX_SERVED_QUBITS } from '../mcp.js'   // the served ceiling, imported from the surface that enforces it
+import {
+  HEXBIT_STATES, HANDLE_HEXBITS, HEXBIT_BITS, sha256IsFourSixtyfours,
+} from '../hexbit/index.js'
 
 const readme = (): string => readFileSync(join(ROOT, 'README.md'), 'utf8')
 
 test('the published quantum capacity equals the measured capacity, figure for figure', () => {
   const md = readme()
   const T = theorems()
-  // THE SERVED CEILING IS IMPORTED FROM THE SURFACE THAT ENFORCES IT, not scraped out of its source text.
-  //
-  // This read src/mcp.ts as a string and matched `/n > (\d+)\) throw new Error\('qubits must be an integer…/`.
-  // gen-readme carried a character-identical regex, so the literal `12` was load-bearing for TWO independent
-  // scrapers — which is precisely why the bound could never be given a name: naming it broke both parsers at
-  // once, and it did, the moment it was named on 2026-08-25. A constant nothing may name is also a constant
-  // `axiom-hunt` cannot see, and it sat outside that table while the looser library cap sat inside it, proven.
-  //
-  // Importing it makes the assertion stronger, not weaker: the README is now checked against the very constant
-  // the guard refuses on, so the published figure and the enforced bound cannot drift apart. A regex over source
-  // could only ever confirm that the file still LOOKED a certain way.
-  const served = MAX_SERVED_QUBITS
-  assert.ok(served > 0, 'the MCP circuit ceiling must be a positive bound')
-
+  const hilbertQubits = HEXBIT_BITS * HEXBIT_BITS
+  const nest = HANDLE_HEXBITS + HEXBIT_BITS
   const expect: [string, string | number][] = [
-    ['library register qubits', MAX_MESSAGE_QUBITS],
-    ['amplitudes held at once', 2 ** MAX_MESSAGE_QUBITS],
-    ['served circuit qubits', served],
-    ['served amplitudes', 2 ** served],
-    ['reachability gap', MAX_MESSAGE_QUBITS - served],
+    ['Hilbert GHZ qubits', hilbertQubits],
+    ['Hilbert GHZ amplitudes', HEXBIT_STATES ** HEXBIT_BITS],
+    ['crypto occupancy bits', sha256IsFourSixtyfours().bits],
+    ['handle+hexbit nest', nest],
     ['quantum wing theorems', T.filter((t) => t.file === 'Quantum.lean').length],
     ['cipher wing theorems', T.filter((t) => t.file === 'Cipher.lean').length],
     ['ledger size', T.length],

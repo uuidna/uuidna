@@ -2,7 +2,7 @@
 // there from the ℤ/9 sequence, the vortex orbit and the A432 step, and served identically to the
 // MCP (uuidna_css), so the browser cannot render a different standard than a client fetching it.
 // Stock VitePress background only — matrixBackground (radial glow + q-drift) is not injected.
-import { sequenceVars, matrixVars, matrixEffects } from '../../../dist/index.js'
+import { sequenceVars, matrixVars, matrixEffects } from '../../../dist/css.js'
 
 export { sequenceVars }
 

@@ -1,0 +1,12 @@
+{
+  "handle": "f70c0274",
+  "address": "f70c0274-3aab-8af3-a6ae-32be406ee22e",
+  "kind": "chunk",
+  "keys": [
+    "a440_drift_walked_in_history"
+  ],
+  "statement": "(440 - 435 = 5) ∧ (435 - 432 = 3) ∧ (5 + 3 = 8)",
+  "files": [
+    "Wave.lean"
+  ]
+}

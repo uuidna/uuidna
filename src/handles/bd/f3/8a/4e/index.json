@@ -1,0 +1,12 @@
+{
+  "handle": "bdf38a4e",
+  "address": "bdf38a4e-0286-8029-83bc-265b29185975",
+  "kind": "chunk",
+  "keys": [
+    "boundary_is_exactly_two_named_modules"
+  ],
+  "statement": "([\"os\",\"drivers\"] : List String).length = 2",
+  "files": [
+    "Os.lean"
+  ]
+}

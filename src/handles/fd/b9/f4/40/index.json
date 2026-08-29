@@ -1,0 +1,12 @@
+{
+  "handle": "fdb9f440",
+  "address": "fdb9f440-cc6e-80b6-bdea-3555d451ca47",
+  "kind": "chunk",
+  "keys": [
+    "ghz3_two_outcomes"
+  ],
+  "statement": "(([1,0,0,0,0,0,0,1]:List Nat).filter (fun a => a != 0)).length = 2",
+  "files": [
+    "Quantum.lean"
+  ]
+}

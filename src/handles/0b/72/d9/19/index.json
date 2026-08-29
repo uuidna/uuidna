@@ -1,0 +1,12 @@
+{
+  "handle": "0b72d919",
+  "address": "0b72d919-b9c0-8deb-a18b-5124bcbdf147",
+  "kind": "chunk",
+  "keys": [
+    "or_gate_truth_table"
+  ],
+  "statement": "[(0,0),(0,1),(1,0),(1,1)].map (fun p => p.1 + p.2 - p.1 * p.2) = [0,1,1,1]",
+  "files": [
+    "Hardware.lean"
+  ]
+}

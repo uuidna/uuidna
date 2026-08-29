@@ -1,0 +1,12 @@
+{
+  "handle": "fc8ac908",
+  "address": "fc8ac908-9ab8-8f77-bf18-fd4f0a2ec5cc",
+  "kind": "chunk",
+  "keys": [
+    "geography_degree_and_dozen"
+  ],
+  "statement": "(40008 / 360 = 111) ∧ (7 + 5 = 12)",
+  "files": [
+    "Wave.lean"
+  ]
+}

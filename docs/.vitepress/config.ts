@@ -3,11 +3,27 @@
 
 import { defineConfig } from 'vitepress'
 import { SITE, urlOf, OG_IMAGE } from '../../src/site/index.js'
-import { computeSidebar } from '../../src/site.js'
+import { computeSidebar, discoverStaticPages, canonicalOrder, nextOf } from '../../src/site.js'
 import { infuseQuantumPayload } from './uuidna-quantum.js'
+import { axisForRelativePath } from '../../src/axis-monograph.js'
+import { handleOf } from '../../src/handle.js'
+import { hexFaceOf } from '../../src/hexagram.js'
 
 // relativePath → clean route (cleanUrls): 'guides.md' → '/guides', 'index.md' → '/'
 const routeOf = (rel: string): string => '/' + rel.replace(/\.md$/, '').replace(/\/index$/, '').replace(/^index$/, '')
+
+/** Wrapping walk next for THIS route — baked into page data so Layout never imports the census. */
+let WALK: Map<string, { text: string; link: string }> | null = null
+function walkNextOf(route: string): { text: string; link: string } | undefined {
+  if (!WALK) {
+    WALK = new Map()
+    for (const [from, to] of nextOf(canonicalOrder(discoverStaticPages()))) {
+      WALK.set(from, { text: to.text, link: to.route })
+    }
+  }
+  const key = route.replace(/\/$/, '') || '/'
+  return WALK.get(key) ?? WALK.get(route)
+}
 
 export default defineConfig({
   // /lean/*.lean files are copied INTO the built site AFTER `vitepress build` (copy-lean-to-site.js), so at
@@ -65,6 +81,12 @@ export default defineConfig({
     define: {
       __DEV__: 'true',
     },
+    // tsc rewrites dist/ as hundreds of files; each was a full VitePress restart and the heap never came back.
+    server: {
+      watch: {
+        ignored: ['**/dist/**'],
+      },
+    },
   },
 
   markdown: {
@@ -105,21 +127,29 @@ export default defineConfig({
       address?: string; key?: string; slug?: string; statement?: string; tactic?: string; principle?: string
       title?: string; heroTitle?: string; abstract?: string; handle?: string; handleUrl?: string
       depositReferrer?: string; objectKind?: string; locales?: string[]
+      name?: string
       heartbeats?: number | null; sealCount?: number | null
+      hexbits?: number[]; hexagrams?: number[]; occupancy?: number[]
+      occupancyCites?: { n: number; keys: string[] }[]; occupancyDoors?: string[]
+      aura?: { hsl: string; hue: number; ray: number; wave: number }
+      handleParts?: string[]
+      board?: number; gates?: number; hexagramBits?: number
       // Stock VitePress docFooter + ObjectCrosslinks graph + breadcrumbs (compose-object / object-graph).
       prev?: false | { text?: string; link?: string }
       next?: false | { text?: string; link?: string }
       crosslinks?: Record<string, unknown>
       breadcrumbs?: { text: string; link?: string; handle?: string }[]
+      use?: unknown
     } | undefined
     if (p) {
       const fm = pageData.frontmatter as Record<string, unknown>
-      // Dynamic object pages: force document <title> from compose-object params (do not leave bare site name).
+      // Dynamic object pages: visible <title> is the handle (compose-object). OG keeps the Lean name below.
       if (p.title != null) {
         pageData.title = p.title
         fm.title = p.title
       }
       if (p.heroTitle != null) fm.heroTitle = p.heroTitle
+      if (p.name != null) fm.name = p.name
       if (p.abstract != null) fm.abstract ??= p.abstract
       if (p.handle != null) fm.handle ??= p.handle
       if (p.handleUrl != null) fm.handleUrl ??= p.handleUrl
@@ -128,12 +158,24 @@ export default defineConfig({
       if (p.locales != null) fm.locales ??= p.locales
       if (p.heartbeats != null) fm.heartbeats ??= p.heartbeats
       if (p.sealCount != null) fm.sealCount ??= p.sealCount
+      if (p.hexbits != null) fm.hexbits = p.hexbits
+      if (p.hexagrams != null) fm.hexagrams = p.hexagrams
+      if (p.occupancy != null) fm.occupancy = p.occupancy
+      if (p.occupancyCites != null) fm.occupancyCites = p.occupancyCites
+      if (p.occupancyDoors != null) fm.occupancyDoors = p.occupancyDoors
+      if (p.aura != null) fm.aura = p.aura
+      if (p.handleParts != null) fm.handleParts = p.handleParts
+      if (p.address != null) fm.address ??= p.address
+      if (p.board != null) fm.board = p.board
+      if (p.gates != null) fm.gates = p.gates
+      if (p.hexagramBits != null) fm.hexagramBits = p.hexagramBits
       // Stock VPDocFooter prev/next — sequence neighbours (sidebar cannot list every theorem).
       if (p.prev !== undefined) fm.prev = p.prev
       if (p.next !== undefined) fm.next = p.next
       if (p.crosslinks != null) fm.crosslinks = p.crosslinks
       // Stock Layout #doc-before breadcrumbs (Home → kind → id/handle).
       if (p.breadcrumbs != null) fm.breadcrumbs = p.breadcrumbs
+      if (p.use != null) fm.use = p.use
     }
     const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
@@ -147,6 +189,70 @@ export default defineConfig({
     // EVERY page — static AND dynamic — gets the quantum payload + strict schema.org JSON-LD from the ONE source;
     // the theorem/publication pages' ScholarlyArticle was the last unaligned surface ("align all", 2026-08-16).
     infuseQuantumPayload(pageData as never, routeOf)
+
+    const fm = pageData.frontmatter as Record<string, unknown>
+    // Visible H1/title is the handle; og:title keeps the Lean / publication name so crawlers are not eight hex.
+    if (p?.name && Array.isArray(fm.head)) {
+      for (const tuple of fm.head as [string, Record<string, string>][]) {
+        if (tuple[0] === 'meta' && (tuple[1].property === 'og:title' || tuple[1].name === 'twitter:title')) {
+          tuple[1].content = p.name
+        }
+      }
+    }
+    // Hex face whenever a monograph has an address — theorems and every other object page, not home.
+    if (fm.layout !== 'home') {
+      const address = String(p?.address || fm.seoAddress || fm.address || '')
+      if (address) {
+        try {
+          const face = hexFaceOf(address)
+          fm.address ??= address
+          fm.handle ??= face.handle
+          fm.hexbits ??= face.hexbits
+          fm.hexagrams ??= face.hexagrams
+          fm.occupancy ??= face.occupancy
+          fm.occupancyCites ??= face.occupancyCites
+          fm.occupancyDoors ??= face.occupancyDoors
+          fm.aura ??= face.aura
+          fm.handleParts ??= face.handleParts
+          fm.handleUrl ??= face.door
+          fm.board ??= face.board
+          fm.gates ??= face.gates
+          fm.hexagramBits ??= face.hexagramBits
+          fm.packedTriangles ??= face.packedTriangles
+          fm.merkabasPacked ??= face.merkabasPacked
+          fm.veFaces ??= face.veFaces
+        } catch { /* non-uuid addresses are not a hex face */ }
+      }
+    }
+    const here = p?.key ? `/theorem/${p.key}` : p?.slug ? `/publications/${p.slug}`
+      : routeOf(pageData.relativePath)
+    const walkNext = walkNextOf(here)
+    if (walkNext) fm.walkNext = walkNext
+
+    // Axis listings are monographs of that fold — attach only this URL's slice (not the Layout census).
+    const axis = axisForRelativePath(pageData.relativePath)
+    if (axis.axis) fm.axis = axis.axis
+    if (axis.census) fm.census = axis.census
+    // Do not stamp objectKind onto listing markdown — ObjectBreadcrumbs would treat /theorems as an
+    // object leaf (Home → handle) instead of the docs trail (Home → Theorems).
+
+    // Static pages without compose-object still carry a monograph graph: this handle + wrapping next.
+    if (fm.crosslinks == null) {
+      const address = String(fm.seoAddress || '')
+      let handle = String(fm.handle || '')
+      if (!handle && address) {
+        try { handle = handleOf(address) } catch { handle = '' }
+      }
+      fm.crosslinks = {
+        objectKind: fm.objectKind || 'page',
+        handle,
+        address,
+        sequence: {
+          prev: null,
+          next: walkNext ? { key: walkNext.text, title: walkNext.text, link: walkNext.link } : null,
+        },
+      }
+    }
   },
 
   // ── buildEnd — THE ONE ARTIFACT THIS TREE NEVER SEALED WAS THE ONE THE WORLD RECEIVES.

@@ -1,0 +1,12 @@
+{
+  "handle": "2716dd1b",
+  "address": "2716dd1b-720e-860a-9448-63e5f3270c79",
+  "kind": "chunk",
+  "keys": [
+    "nim_sum_commutes"
+  ],
+  "statement": "(List.range 8).all (fun a => (List.range 8).all (fun b => lxor a b == lxor b a))",
+  "files": [
+    "Nim.lean"
+  ]
+}

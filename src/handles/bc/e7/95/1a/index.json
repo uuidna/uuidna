@@ -1,0 +1,12 @@
+{
+  "handle": "bce7951a",
+  "address": "bce7951a-8060-8555-9309-89a669bf6369",
+  "kind": "chunk",
+  "keys": [
+    "nimsum_5_7"
+  ],
+  "statement": "lxor 5 7 = 2",
+  "files": [
+    "Nim.lean"
+  ]
+}

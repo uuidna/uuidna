@@ -1,0 +1,12 @@
+{
+  "handle": "81ee0e17",
+  "address": "81ee0e17-bc04-8c48-9a54-519a1a129adb",
+  "kind": "chunk",
+  "keys": [
+    "mombh_fiducial_gas_dense_and_compton_thick"
+  ],
+  "statement": "(11 >= 9) ∧ (258 > 241)",
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

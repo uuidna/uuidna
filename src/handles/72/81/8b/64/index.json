@@ -1,0 +1,12 @@
+{
+  "handle": "72818b64",
+  "address": "72818b64-b732-8334-94a3-aa07a4144304",
+  "kind": "chunk",
+  "keys": [
+    "store_fold_change_moves_receipt"
+  ],
+  "statement": "(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => (List.range 8).all (fun a2 => ([a,b,c].foldl lxor 0 == [a2,b,c].foldl lxor 0) == (a == a2)))))",
+  "files": [
+    "Quantum.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7ed7a436",
+  "address": "7ed7a436-f72f-816d-b09d-ed56f47b473f",
+  "kind": "chunk",
+  "keys": [
+    "xor_fold_is_malleable"
+  ],
+  "statement": "(List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d))",
+  "files": [
+    "Cipher.lean"
+  ]
+}

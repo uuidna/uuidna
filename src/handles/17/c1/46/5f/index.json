@@ -1,0 +1,12 @@
+{
+  "handle": "17c1465f",
+  "address": "17c1465f-fb2d-89de-a8e9-f7d8123058e9",
+  "kind": "chunk",
+  "keys": [
+    "types_count_as_arithmetic"
+  ],
+  "statement": "(2 + 2 = 4) ∧ (2 * 2 = 4) ∧ ((2:Nat) ^ 2 = 4)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

@@ -14,10 +14,8 @@
 //   · content-address of the sealed JSON matches the receipt fold (tamper check)
 //
 // TypeScript computes; VitePress monitors (docs + public jsonld). Wall-clock target: ≪ 60s on the push path.
-import { existsSync, readFileSync } from 'node:fs'
-import { createHash } from 'node:crypto'
-import { join } from 'node:path'
-import { ROOT } from '../../../boundary.js'
+import { existsRoot, rdRoot } from '../../../boundary.js'
+import { sha256 } from '../../../sha256.js'
 import { theorems, theoremByKey } from '../../../theorems/index.js'
 import { LEVELS } from '../index.js'
 import { toUuid } from '../../../address.js'
@@ -80,10 +78,11 @@ interface SealedQa {
   device?: { honest?: string }
 }
 
+const hexOf = (b: Uint8Array): string => { let s = ''; for (const x of b) s += (x < 16 ? '0' : '') + x.toString(16); return s }
+
 function digestFile(rel: string): string {
-  const p = join(ROOT, rel)
-  if (!existsSync(p)) return ''
-  return createHash('sha256').update(readFileSync(p)).digest('hex').slice(0, 32)
+  if (!existsRoot(rel)) return ''
+  return hexOf(sha256(new TextEncoder().encode(rdRoot(rel)))).slice(0, 32)
 }
 
 /**
@@ -93,7 +92,6 @@ function digestFile(rel: string): string {
 export function quantumAdvantageAudit(): QuantumAdvantageAudit {
   const gaps: QaGap[] = []
   const byKey = theoremByKey()
-  const sealPath = join(ROOT, QA_SEAL_PATH)
 
   for (const k of QA_REQUIRED_THEOREMS) {
     if (!byKey.has(k)) {
@@ -104,7 +102,7 @@ export function quantumAdvantageAudit(): QuantumAdvantageAudit {
     }
   }
 
-  if (!existsSync(sealPath)) {
+  if (!existsRoot(QA_SEAL_PATH)) {
     gaps.push({
       what: `${QA_SEAL_PATH} missing — no sealed advantage report to verify`,
       fix: 'run `npm run x -- gen-quantum-advantage` OFF the push path (remeasure), then commit the seal',
@@ -118,7 +116,7 @@ export function quantumAdvantageAudit(): QuantumAdvantageAudit {
   }
 
   let sealed: SealedQa
-  try { sealed = JSON.parse(readFileSync(sealPath, 'utf8')) as SealedQa }
+  try { sealed = JSON.parse(rdRoot(QA_SEAL_PATH)) as SealedQa }
   catch (e) {
     gaps.push({ what: `${QA_SEAL_PATH} unreadable JSON`, fix: String((e as Error).message) })
     const ms = 0  // wall-clock lives in scripts/; core stays harmonic
@@ -224,12 +222,11 @@ export function quantumAdvantageAudit(): QuantumAdvantageAudit {
 
   // companion surfaces — VitePress monitor + jsonld must not carry false denials
   for (const rel of [QA_MD_PATH, QA_JSONLD_PATH]) {
-    const p = join(ROOT, rel)
-    if (!existsSync(p)) {
+    if (!existsRoot(rel)) {
       gaps.push({ what: `${rel} missing`, fix: 'regenerate gen-quantum-advantage' })
       continue
     }
-    const text = readFileSync(p, 'utf8')
+    const text = rdRoot(rel)
     if (FALSE_DENIAL.test(text)) {
       gaps.push({
         what: `${rel} contains false blanket advantage denial`,

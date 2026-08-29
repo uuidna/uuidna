@@ -1,0 +1,12 @@
+{
+  "handle": "eacd2a87",
+  "address": "eacd2a87-5f3f-8d89-8425-f8a98146ff7d",
+  "kind": "chunk",
+  "keys": [
+    "hamming_seven_four"
+  ],
+  "statement": "4 + 3 = 7 ∧ 2^4 = 16",
+  "files": [
+    "Codes.lean"
+  ]
+}

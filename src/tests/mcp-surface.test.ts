@@ -13,6 +13,7 @@ import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import { MCP_CATALOG, callTool } from '../mcp.js'
 import { handleMcpRpc, mcpHttpToolNames, edgeAbsentNames } from '../mcp-http.js'
+import { coinSupply } from '../coin-supply.js'
 
 interface Declared {
   argumentDivergence: { tool: string; stdio: string[]; edge: string[]; note: string }[]
@@ -83,7 +84,7 @@ test('the hosted edge REFUSES a missing required argument instead of computing o
   // NEGATIVE CONTROL: a tool with no required arguments must still RUN on an empty call
   const zero = call('uuidna_coins', {})
   assert.notEqual(zero.result.isError, true)
-  assert.deepEqual(JSON.parse(zero.result.content[0].text), { coins: 2 })
+  assert.deepEqual(JSON.parse(zero.result.content[0].text), coinSupply())
 })
 
 test('the same call to both surfaces returns the same research answer', () => {

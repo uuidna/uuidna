@@ -1,0 +1,12 @@
+{
+  "handle": "b9797fb5",
+  "address": "b9797fb5-99e3-8503-9274-94e0c7c47707",
+  "kind": "chunk",
+  "keys": [
+    "mux_selects_input"
+  ],
+  "statement": "(List.range 8).all (fun n => (1 - n%2) * (n/2%2) + (n%2) * (n/4%2) == (if n%2 == 0 then n/2%2 else n/4%2))",
+  "files": [
+    "Hardware.lean"
+  ]
+}

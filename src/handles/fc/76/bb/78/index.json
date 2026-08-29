@@ -1,0 +1,12 @@
+{
+  "handle": "fc76bb78",
+  "address": "fc76bb78-bf30-8371-b481-c8e52b2c895b",
+  "kind": "chunk",
+  "keys": [
+    "spectrum_refuses_sixteen"
+  ],
+  "statement": "(16 * 22 < 360) ∧ (360 < 16 * 23) ∧ (360 % 9 = 0) ∧ (360 % 6 = 0) ∧ (360 % 16 ≠ 0)",
+  "files": [
+    "SpectrumHex.lean"
+  ]
+}

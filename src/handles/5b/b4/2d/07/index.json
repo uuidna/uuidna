@@ -1,0 +1,12 @@
+{
+  "handle": "5bb42d07",
+  "address": "5bb42d07-8ffe-8f55-97f9-fcea11a19dd6",
+  "kind": "chunk",
+  "keys": [
+    "decimal_day_recoined_the_pound"
+  ],
+  "statement": "(12 * 20 = 240) ∧ (20 * 5 = 100)",
+  "files": [
+    "Wave.lean"
+  ]
+}

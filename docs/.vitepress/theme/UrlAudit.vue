@@ -1,21 +1,16 @@
 <!-- UrlAudit — the not-found slot IS an audit (the captain's rule: 404 is handled by the audit that parses the
      url finding relevant content to display). A thin shell over the pure hexbit app quantum/apps/url-audit:
-     the path is parsed where the visitor stands, the relevant sealed content computed in the browser (exact
-     path meaning from the default install, family, token matches over the ledger's own pages and theorems,
-     total fallback), and the report shown with its own recomputable address. No asset, no fetch, no guess. -->
+     the path is parsed where the visitor stands. Totality is default-install + fallback — the theorem census
+     is the /theorems monograph, not this slot. No asset, no fetch, no guess. -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { withBase } from 'vitepress'
 import { auditUrl, type UrlAuditReport } from '../../../src/quantum/apps/url-audit.js'
-import { data } from '../ledger.data'
 
 const report = ref<UrlAuditReport | null>(null)
 
 onMounted(() => {
-  // the pages the walk already knows (ledger.data.next's keys are the canonical closed cycle) + every theorem key
-  const pages = Object.keys(data.next ?? {}).map((route) => ({ route, text: route.replace(/^\//, '').replace(/[-/]/g, ' ') }))
-  const theoremKeys = (data.theorems ?? []).map((t: { key: string }) => t.key)
-  report.value = auditUrl(location.pathname, { pages, theoremKeys })
+  report.value = auditUrl(location.pathname)
 })
 </script>
 

@@ -1,0 +1,12 @@
+{
+  "handle": "c9b49414",
+  "address": "c9b49414-cdb2-89a9-b023-90599e572642",
+  "kind": "chunk",
+  "keys": [
+    "dz_swaps_the_thirds_and_fixes_the_axis"
+  ],
+  "statement": "((List.range' 1 9).filter (fun x => x % 3 == 1)).map dz = [9,6,3] ∧ ((List.range' 1 9).filter (fun x => x % 3 == 2)).map dz = [8,5,2] ∧ (List.range 6).map (fun k => (2^k) % 9) = [1,2,4,8,7,5] ∧ ((List.range 10).filter (fun x => dz x == x)) = [0,5]",
+  "files": [
+    "DivByZero.lean"
+  ]
+}

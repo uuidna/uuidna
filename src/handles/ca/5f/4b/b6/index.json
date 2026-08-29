@@ -1,0 +1,12 @@
+{
+  "handle": "ca5f4bb6",
+  "address": "ca5f4bb6-ec22-84fc-a671-9c46637d00f7",
+  "kind": "chunk",
+  "keys": [
+    "max_unit_order_mod_33_is_10"
+  ],
+  "statement": "((List.range 33).all (fun a => (Nat.gcd a 33 != 1) || (a ^ 10 % 33 == 1))) ∧ ((List.range 33).any (fun a => (Nat.gcd a 33 == 1) && ((List.range' 1 9).all (fun k => a ^ k % 33 != 1))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

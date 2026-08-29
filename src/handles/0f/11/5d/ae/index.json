@@ -1,0 +1,12 @@
+{
+  "handle": "0f115dae",
+  "address": "0f115dae-52b1-8ca2-b263-0822c96851f2",
+  "kind": "chunk",
+  "keys": [
+    "audit_space_meets_chess_at_eight"
+  ],
+  "statement": "((2^3) % 9 = 8) ∧ ((8 * 8) % 9 = 1) ∧ ((10 - 8) = 2)",
+  "files": [
+    "AuditGame.lean"
+  ]
+}

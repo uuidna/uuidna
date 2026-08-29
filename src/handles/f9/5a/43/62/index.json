@@ -1,0 +1,12 @@
+{
+  "handle": "f95a4362",
+  "address": "f95a4362-07d4-8a23-91e1-e5854dc40783",
+  "kind": "chunk",
+  "keys": [
+    "billing_closes_at_every_count"
+  ],
+  "statement": "(List.range' 1 8).all (fun n => ((2 * n) % n == 0) && ((2 * n) / n == 2))",
+  "files": [
+    "Coins.lean"
+  ]
+}

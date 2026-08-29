@@ -1,8 +1,8 @@
 // object-graph — related-object crosslinks for every sealed theorem / publication.
 //
-// Used by compose-object (stock VPDocFooter prev/next in params) and ObjectCrosslinks
-// (client recomputes the full graph from ledger.data + legs). One law: axes are DERIVED
-// from the ledger order, never authored. No capacity/OS QA cards; no YAML bag in content.
+// Used by compose-object at SSG (stock VPDocFooter prev/next + ObjectCrosslinks graph in params).
+// The client reads frontmatter.crosslinks — it does not recompute from the census. One law: axes
+// are DERIVED from the ledger order, never authored. No capacity/OS QA cards; no YAML bag in content.
 //
 // Axes:
 //   skill · principle · sequence (linear neighbours)
@@ -12,6 +12,9 @@
 //   keywords (skill/principle or publication metadata)
 //   monograph · sibling publications · theorem↔publication cross-kind
 //   prior art (publication seals) · unlock board · automation waves
+
+// Axes are DERIVED from the ledger order, never authored. Handle identity is handleOf — never an inline slice.
+import { handleOf } from '../../dist/handle.js'
 
 /** Short plain title for VPDocFooter / VPLink labels (no markdown). */
 export function shortTitle(t) {
@@ -131,7 +134,7 @@ export function theoremGraph(t, all, bySkill, byPrin, legsRow, axiomHolds, relat
     axiomHolds: !!axiomHolds,
     file: t.file,
     address: t.address,
-    handle: t.address.replace(/-/g, '').slice(0, 8),
+    handle: handleOf(t.address),
     keywords: theoremKeywords(t),
     monograph,
     relatedPublications,
@@ -157,7 +160,7 @@ export function publicationGraph(p, pubs, byKey, rich, seals) {
   const ref = (x) => (x ? { key: x.slug, title: x.title, link: `/publications/${x.slug}` } : null)
   const prev = i > 0 ? ref(list[i - 1]) : null
   const next = i >= 0 && i < list.length - 1 ? ref(list[i + 1]) : null
-  const handle = (p.address || p.receipt || '').replace(/-/g, '').slice(0, 8)
+  const handle = handleOf(p.address || p.receipt)
   const keys = p.theorems || []
   const relatedTheorems = dedupeRefs(
     keys.slice(0, THEOREM_SAMPLE).map((key) => {

@@ -1,0 +1,12 @@
+{
+  "handle": "7de6417c",
+  "address": "7de6417c-985c-820e-8648-1f9853a29423",
+  "kind": "chunk",
+  "keys": [
+    "agreement_is_decided_by_address"
+  ],
+  "statement": "(List.range 4).all (fun a => (List.range 4).all (fun b => (a == b) == (a - b == 0 && b - a == 0)))",
+  "files": [
+    "Singularity.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "225da9e5",
+  "address": "225da9e5-33a4-8120-a7a2-6c74680e5be2",
+  "kind": "chunk",
+  "keys": [
+    "shift_loop_terminates"
+  ],
+  "statement": "(List.range 16).all (fun n => n/2/2/2/2 == 0)",
+  "files": [
+    "Software.lean"
+  ]
+}

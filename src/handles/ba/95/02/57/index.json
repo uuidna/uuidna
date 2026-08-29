@@ -1,0 +1,12 @@
+{
+  "handle": "ba950257",
+  "address": "ba950257-1f40-83a9-a605-3d3fe67bf6fd",
+  "kind": "chunk",
+  "keys": [
+    "nyquist_half_samplerate"
+  ],
+  "statement": "44100 / 2 = 22050",
+  "files": [
+    "Production.lean"
+  ]
+}

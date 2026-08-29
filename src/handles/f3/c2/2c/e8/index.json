@@ -1,0 +1,12 @@
+{
+  "handle": "f3c22ce8",
+  "address": "f3c22ce8-2d70-8f03-987e-16cf82cb6285",
+  "kind": "chunk",
+  "keys": [
+    "channel_multiplies_three"
+  ],
+  "statement": "6 * 9 * 7 = 378",
+  "files": [
+    "Channel.lean"
+  ]
+}

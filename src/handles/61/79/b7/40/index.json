@@ -1,0 +1,12 @@
+{
+  "handle": "6179b740",
+  "address": "6179b740-5d54-87ea-a758-3bdd23b1b770",
+  "kind": "chunk",
+  "keys": [
+    "teleautomaton_precedes_transmission"
+  ],
+  "statement": "(645576 - 613809 = 31767) ∧ (1900 - 1898 = 2) ∧ (613809 < 645576)",
+  "files": [
+    "Tesla.lean"
+  ]
+}

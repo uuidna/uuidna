@@ -1,0 +1,12 @@
+{
+  "handle": "b17d0f78",
+  "address": "b17d0f78-e7fd-81fa-8c74-38225fc6e1bc",
+  "kind": "chunk",
+  "keys": [
+    "center_of_mass"
+  ],
+  "statement": "1*0 + 1*10 = 2 * 5",
+  "files": [
+    "Statics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "83e098df",
+  "address": "83e098df-baa6-869b-9a02-d871dde45182",
+  "kind": "chunk",
+  "keys": [
+    "idempotents_mod_8_number_2"
+  ],
+  "statement": "((List.range 8).filter (fun x => (x * x) % 8 == x)).length = 2",
+  "files": [
+    "Wave.lean"
+  ]
+}

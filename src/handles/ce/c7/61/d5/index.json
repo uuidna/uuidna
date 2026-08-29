@@ -1,0 +1,12 @@
+{
+  "handle": "cec761d5",
+  "address": "cec761d5-9727-8ac1-a141-04c47ed0f6e5",
+  "kind": "chunk",
+  "keys": [
+    "reverse_bearing_involution"
+  ],
+  "statement": "(List.range 8).all (fun d => (d + 4 + 4) % 8 == d)",
+  "files": [
+    "Navigation.lean"
+  ]
+}

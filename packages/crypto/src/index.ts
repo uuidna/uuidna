@@ -3,10 +3,10 @@
 // @uuidna/crypto — the CRYPTO SURFACE of uuidna: pure-TS SHA-256 / HMAC / PBKDF2, ChaCha20-Poly1305
 // (RFC 8439, KAT-verified), the 7d-fold envelope, onion-sealed uuid streams, contract seals, byte-level
 // provenance, the exploit fold, and the quantum-cube challenge. Integrity.
-export { encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, deriveKeyPure, kdfInstrument, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, type Sealed } from '@uuidna/uuidna'
+export { encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, sealSequenceAcross, deriveKeyPure, kdfInstrument, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, TAG_BYTES, KEY_BITS, KEY_BYTES, occupancyTapeOf, cryptOf, type Sealed, type CryptCover } from '@uuidna/uuidna'
 export { sha256, hmacSha256, pbkdf2Sha256 } from '@uuidna/uuidna'
-export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from '@uuidna/uuidna'
-export { sealStream, openStream, sealMessages, openMessages, sealChain, openChain, MAX_LAYERS, GENESIS, type Stream, type Link } from '@uuidna/uuidna'
+export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305, BLOCK_BYTES } from '@uuidna/uuidna'
+export { sealStream, openStream, sealMessages, openMessages, sealMessagesAcross, streamHandles, sealChain, openChain, MAX_LAYERS, GENESIS, type Stream, type Link } from '@uuidna/uuidna'
 export { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract, type ContractSealed, type ContractChain } from '@uuidna/uuidna'
 export { exploitFold, type ExploitAudit, type ExploitFold, type FoldVerdict } from '@uuidna/uuidna'
 export { quantumCubeChallenge, verifyQuantumCube, type QuantumCube } from '@uuidna/uuidna'

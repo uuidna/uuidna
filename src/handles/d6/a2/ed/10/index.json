@@ -1,0 +1,12 @@
+{
+  "handle": "d6a2ed10",
+  "address": "d6a2ed10-9d93-8d72-9394-969edeb59f56",
+  "kind": "chunk",
+  "keys": [
+    "dirac_unit_mass"
+  ],
+  "statement": "(List.range 101).foldl (fun s i => s + (if i == 50 then 1 else 0)) 0 = 1",
+  "files": [
+    "Infinity.lean"
+  ]
+}

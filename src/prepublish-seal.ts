@@ -11,9 +11,7 @@
 //
 // Zenodo DOI minting stays WORKFLOW-ONLY (zenodo-publish.ts). This seal is what publish.yml / editorial /
 // prepublishOnly must pass before any surface ships.
-import { existsSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './boundary.js'
+import { existsRoot } from './boundary.js'
 import { theorems, theoremByKey } from './theorems/index.js'
 import { publications } from './publish.js'
 import { editorialState, publicationStatus } from './editorial.js'
@@ -39,6 +37,11 @@ export const VECTOR_EQUILIBRIUM_INVOLUTIONS: readonly string[] = [
   've_fourteen_faces',
   'euler_characteristic_two',
   'metatron_seventyeight_lines',
+  've_double_five_merges_in_ten',
+  'void_folds_at_quadrature',
+  've_pentads_overlap_to_eight',
+  'theorems_interact_as_faces',
+  'imagine_all_as_clique_faces',
 ] as const
 
 /** Wave / conveyor involution seals — the involution wave without gaps. */
@@ -115,8 +118,7 @@ export function prepublishSeal(): PrepublishSeal {
   // ── 2 · PUBLICATION LEAN FORMAT ──
   let allDecide = true
   for (const p of P) {
-    const leanPath = join(ROOT, 'lean', p.file)
-    if (!existsSync(leanPath)) {
+    if (!existsRoot(`lean/${p.file}`)) {
       gaps.push({
         what: `publication ${p.slug} has no Lean wing at lean/${p.file}`,
         fix: 'every publication is composed from a sealed lean/*.lean file — restore or regenerate the wing',

@@ -1,0 +1,12 @@
+{
+  "handle": "efa704d8",
+  "address": "efa704d8-ced6-8e56-a296-152424405480",
+  "kind": "chunk",
+  "keys": [
+    "every_referrer_reaches_every_page"
+  ],
+  "statement": "([7,16] : List Nat).all (fun n => (List.range n).all (fun p => (List.range n).all (fun j => (List.range n).any (fun k => (p + k) % n == j))))",
+  "files": [
+    "Referrer.lean"
+  ]
+}

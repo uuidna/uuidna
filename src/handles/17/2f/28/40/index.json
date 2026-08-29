@@ -1,0 +1,12 @@
+{
+  "handle": "172f2840",
+  "address": "172f2840-46e8-81bd-ba8a-2fe3ed667bb9",
+  "kind": "chunk",
+  "keys": [
+    "k432"
+  ],
+  "statement": "(432 = 2^4 * 3^3) ∧ (432 = 16 * 27)",
+  "files": [
+    "Vortex.lean"
+  ]
+}

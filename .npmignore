@@ -3,3 +3,6 @@ test/
 tsconfig.json
 reserve.mjs
 *.tgz
+packages/*/node_modules
+mirror/alpine-minirootfs-*.tar.gz
+mirror/.rootfs/

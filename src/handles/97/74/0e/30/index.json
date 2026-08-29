@@ -1,0 +1,12 @@
+{
+  "handle": "97740e30",
+  "address": "97740e30-90f7-8cc3-8da8-b3a44ea25346",
+  "kind": "chunk",
+  "keys": [
+    "xor_is_addition_mod_two"
+  ],
+  "statement": "[(0,0),(0,1),(1,0),(1,1)].all (fun p => lxor p.1 p.2 == (p.1 + p.2) % 2)",
+  "files": [
+    "Hardware.lean"
+  ]
+}

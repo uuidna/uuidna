@@ -5,6 +5,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { handleMcpRpc, mcpHttpToolNames, MCP_HTTP_PROTOCOL } from '../mcp-http.js'
+import { coinSupply } from '../coin-supply.js'
 import { hexbitDoorOf, HANDLE_HEXBITS } from '../hexbit/index.js'
 import { messagingEnvelope, ledgerLine, depositCoins, gateVerdict } from '../gate-engine.js'
 
@@ -30,7 +31,7 @@ test('tools/list enumerates the Workers-safe subset (every tool named, described
 test('tools/call runs a tool and wraps the result as MCP text content', () => {
   const r = handleMcpRpc({ jsonrpc: '2.0', id: 3, method: 'tools/call', params: { name: 'uuidna_coins', arguments: {} } }) as { result: { content: { type: string; text: string }[] } }
   assert.equal(r.result.content[0].type, 'text')
-  assert.deepEqual(JSON.parse(r.result.content[0].text), { coins: 2 })
+  assert.deepEqual(JSON.parse(r.result.content[0].text), coinSupply())
 })
 
 test('tools/call is deterministic — the same call recomputes the same address', () => {

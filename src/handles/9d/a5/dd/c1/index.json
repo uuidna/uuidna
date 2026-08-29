@@ -1,0 +1,12 @@
+{
+  "handle": "9da5ddc1",
+  "address": "9da5ddc1-a11a-8958-9b76-168589ead6d0",
+  "kind": "chunk",
+  "keys": [
+    "max_unit_order_mod_27_is_18"
+  ],
+  "statement": "((List.range 27).all (fun a => (Nat.gcd a 27 != 1) || (a ^ 18 % 27 == 1))) ∧ ((List.range 27).any (fun a => (Nat.gcd a 27 == 1) && ((List.range' 1 17).all (fun k => a ^ k % 27 != 1))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "13c830c7",
+  "address": "13c830c7-e137-8aa8-aa7b-c15f04bdad15",
+  "kind": "chunk",
+  "keys": [
+    "generators_are_two_and_five"
+  ],
+  "statement": "((List.range 9).filter (fun a => ((List.range' 1 8).find? (fun k => (a^k) % 9 == 1)) == some 6)) = [2,5]",
+  "files": [
+    "Discover.lean"
+  ]
+}

@@ -1,0 +1,24 @@
+---
+description: Algebra, prove, and claim belong to the captain — desk only computes.
+alwaysApply: true
+---
+
+# Captain owns algebra, prove, and claim
+
+Two-handle law: **desk proposes, captain/kernel disposes.** The agent is desk. Lean `by decide` and the captain mint, name, and claim. The desk does not.
+
+## Desk (this agent)
+
+- Constructors, wiring, constructors replacing hardcoded numerals, UI that *reads* sealed values.
+- Propose a lead. Never auto-seal. Never mint a theorem key. Never write a statement, name, or `HONEST` claim into `src/`.
+
+## Captain
+
+- Algebra, proof, claim, scope, honesty.
+- Wave-deposit or refuse. Only the kernel seals.
+
+## Do not
+
+- Cite a theorem key as if the agent proved it, or add covering hunts / CONTROL tests that restate a claim.
+- Import origin-site (ceccec.psg.bg) papers as uuidna theorems, or write a verdict that they are proven / unproven / dishonest.
+- Put prove-or-claim prose in constructors, MCP descriptions, or trial strings.

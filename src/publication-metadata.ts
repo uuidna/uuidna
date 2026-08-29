@@ -3,9 +3,7 @@
 // Agnostic: clay, Nature cites, software archive pages — same required fields. Completeness fails on thin
 // records or one-way seals. LICENSE LAW: every publication carries the canonical uuidna license
 // (legalFacts().license.spdx / package.json) — no per-publication drift (cc-by-4.0 on clay is refused).
-import { existsSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './boundary.js'
+import { existsRoot, rdRoot } from './boundary.js'
 import { legalFacts } from './legal.js'
 import { handleOf } from './handle.js'
 import { toUuid } from './address.js'
@@ -119,8 +117,8 @@ const SEAL_DATES: Record<string, string> = {
 }
 
 function pageCitesDoi(pagePath: string | undefined, doi: string): boolean {
-  if (!pagePath || !existsSync(join(ROOT, pagePath))) return false
-  const text = readFileSync(join(ROOT, pagePath), 'utf8')
+  if (!pagePath || !existsRoot(pagePath)) return false
+  const text = rdRoot(pagePath)
   return text.includes(doi) || text.includes(`doi.org/${doi}`)
 }
 
@@ -303,7 +301,7 @@ export function publicationMetadataAudit(): PublicationMetadataAudit {
   const gaps: MetadataGap[] = []
   const canon = CANONICAL_LICENSE_SPDX()
   const canonZ = CANONICAL_LICENSE_ZENODO()
-  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { license?: string }
+  const pkg = JSON.parse(rdRoot('package.json')) as { license?: string }
   if (String(pkg.license).toUpperCase() !== canon.toUpperCase()) {
     gaps.push({
       id: 'package',
@@ -374,9 +372,9 @@ export function publicationMetadataAudit(): PublicationMetadataAudit {
 
   // Generated zenodo seal files must also carry the canonical license
   for (const seal of depositableSeals()) {
-    const p = join(ROOT, 'zenodo', 'seals', `${seal.id}.json`)
-    if (!existsSync(p)) continue
-    const meta = JSON.parse(readFileSync(p, 'utf8')) as { license?: string }
+    const p = `zenodo/seals/${seal.id}.json`
+    if (!existsRoot(p)) continue
+    const meta = JSON.parse(rdRoot(p)) as { license?: string }
     if (zenodoLicenseId(meta.license ?? '') !== canonZ) {
       gaps.push({
         id: seal.id,
@@ -387,9 +385,8 @@ export function publicationMetadataAudit(): PublicationMetadataAudit {
     }
   }
 
-  const zPath = join(ROOT, '.zenodo.json')
-  if (existsSync(zPath)) {
-    const z = JSON.parse(readFileSync(zPath, 'utf8')) as { license?: string }
+  if (existsRoot('.zenodo.json')) {
+    const z = JSON.parse(rdRoot('.zenodo.json')) as { license?: string }
     if (zenodoLicenseId(z.license ?? '') !== canonZ) {
       gaps.push({
         id: 'uuidna-software',

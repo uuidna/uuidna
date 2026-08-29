@@ -12,8 +12,10 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**41 open doors** across 9 topics, derived from the tree's own records — the held leads,
-the research findings, the prose develop fragments. Placement is a word-overlap heuristic and says so: what the
+**52 open doors** across 10 topics, derived from the tree's own records — the held leads,
+the research findings, the prose develop fragments, the search-feed leads, the support-wave research-leads,
+the axiom-hunt exposed set. After a wave of external research, local school development files every unverified
+here so the lab can discuss it. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
 **How to answer one**: a student's answer is a **two-coin deposit**, never a comment — name the finite structure,
@@ -21,7 +23,7 @@ express the claim as an exact predicate over it, run the [tester](/tools) with i
 drains, seal it ([the wave](/theorem/denial_drains_to_the_last_coin)). The door then closes as a count, and this
 page regrows without it.
 
-## wave — 19 open
+## wave — 22 open
 
 - **An N-qubit register's state is a 2^N-dimensional complex vector, and full-state classical simulation costs scale exponentially in N (recorded value: 2^N)**
   <br><small>door: the research ledger</small>
@@ -117,6 +119,64 @@ page regrows without it.
   <br><small>door: the research ledger</small>
   <br><small>involutions around: [`xor_checksum_catches_flip`](/theorem/xor_checksum_catches_flip) · [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`abo_klein_four`](/theorem/abo_klein_four) </small>
   <br><small>sealed neighbors: [`hamming_triangle_inequality`](/theorem/hamming_triangle_inequality) · [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`s4_fixed_point_and_cycle_census`](/theorem/s4_fixed_point_and_cycle_census) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **most-searched query "f1" rings no sealed theorem**
+  <br><small>door: the search feed · f1</small>
+  <br><small>involutions around: [`s4_parity_splits_evenly_its_involutions_do_not`](/theorem/s4_parity_splits_evenly_its_involutions_do_not) · [`involution_counts_obey_their_recurrence`](/theorem/involution_counts_obey_their_recurrence) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) </small>
+  <br><small>sealed neighbors: [`fibonacci_identity_sums_close_and_neighbours_are_coprime`](/theorem/fibonacci_identity_sums_close_and_neighbours_are_coprime) · [`fibonacci_gcd_follows_the_index_gcd`](/theorem/fibonacci_gcd_follows_the_index_gcd) · [`zeckendorf_non_adjacent_representation_is_unique`](/theorem/zeckendorf_non_adjacent_representation_is_unique) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **harvest 128 - 70 = 58 from "quantum advantage" decides TRUE and is unsealed**
+  <br><small>door: the search feed · quantum advantage</small>
+  <br><small>involutions around: [`involution_replaces_the_raised_ceiling`](/theorem/involution_replaces_the_raised_ceiling) · [`orbits_closed_involution`](/theorem/orbits_closed_involution) · [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) </small>
+  <br><small>sealed neighbors: [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) · [`publish_gate_is_conjunction`](/theorem/publish_gate_is_conjunction) · [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **harvest 70 &lt; 128 from "quantum advantage" decides TRUE and is unsealed**
+  <br><small>door: the search feed · quantum advantage</small>
+  <br><small>involutions around: [`involution_replaces_the_raised_ceiling`](/theorem/involution_replaces_the_raised_ceiling) · [`orbits_closed_involution`](/theorem/orbits_closed_involution) · [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) </small>
+  <br><small>sealed neighbors: [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) · [`publish_gate_is_conjunction`](/theorem/publish_gate_is_conjunction) · [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+
+## waves — 8 open
+
+- **most-searched query "gemini" rings no sealed theorem**
+  <br><small>door: the search feed · gemini</small>
+  <br><small>involutions around: [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **most-searched query "deepseek" rings no sealed theorem**
+  <br><small>door: the search feed · deepseek</small>
+  <br><small>involutions around: [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **most-searched query "iphone" rings no sealed theorem**
+  <br><small>door: the search feed · iphone</small>
+  <br><small>involutions around: [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **most-searched query "ufc" rings no sealed theorem**
+  <br><small>door: the search feed · ufc</small>
+  <br><small>involutions around: [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **most-searched query "cricket" rings no sealed theorem**
+  <br><small>door: the search feed · cricket</small>
+  <br><small>involutions around: [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **most-searched query "Euclid" rings no sealed theorem**
+  <br><small>door: the search feed · Euclid</small>
+  <br><small>involutions around: [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **most-searched query "Sofia" rings no sealed theorem**
+  <br><small>door: the search feed · Sofia</small>
+  <br><small>involutions around: [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
+- **most-searched query "education" rings no sealed theorem**
+  <br><small>door: the search feed · education</small>
+  <br><small>involutions around: [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`entanglement_completes_one_at_a_time`](/theorem/entanglement_completes_one_at_a_time) · [`halfword_is_the_reflection_crossed`](/theorem/halfword_is_the_reflection_crossed) </small>
+  <br><small>sealed neighbors: [`imaginings_meet_at_sixtyfour`](/theorem/imaginings_meet_at_sixtyfour) · [`captain_honest_not_flawless`](/theorem/captain_honest_not_flawless) · [`receipt_costs_nothing`](/theorem/receipt_costs_nothing) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## glagolitic — 3 open
@@ -256,5 +316,6 @@ page regrows without it.
 ## Honest scope
 
 Organisation, not adjudication: nothing on this page verdicts a claim, and topic placement is shared-words, not
-understanding. The records are the tree's own (leads held, findings unsealed, prose fragments owed); when a
-record closes, its door leaves this page by recomputation, never by edit.
+understanding. The records are the tree's own (leads held, findings unsealed, prose fragments owed, search-feed
+leads, support-wave research-leads, axiom-hunt exposed); when a record closes, its door leaves this page by
+recomputation, never by edit.

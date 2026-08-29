@@ -1,0 +1,12 @@
+{
+  "handle": "79e616e6",
+  "address": "79e616e6-ac31-8c13-98de-698f93d9904f",
+  "kind": "chunk",
+  "keys": [
+    "sealed_theorem_not_forged"
+  ],
+  "statement": "((List.range 9).map (fun c => forged c c)).all (fun x => x == 0)",
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

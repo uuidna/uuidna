@@ -1,0 +1,12 @@
+{
+  "handle": "d184314a",
+  "address": "d184314a-ec35-87a3-b2e8-28603ff437f3",
+  "kind": "chunk",
+  "keys": [
+    "queen_corner_twentyone"
+  ],
+  "statement": "7 + 7 + 7 = 21",
+  "files": [
+    "Chess.lean"
+  ]
+}

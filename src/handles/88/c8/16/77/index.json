@@ -1,0 +1,12 @@
+{
+  "handle": "88c81677",
+  "address": "88c81677-101c-86f5-b981-0a819afc6140",
+  "kind": "chunk",
+  "keys": [
+    "reflection_splits_six"
+  ],
+  "statement": "((List.range 10).map dzMin).eraseDups.length = 6",
+  "files": [
+    "Reflection.lean"
+  ]
+}

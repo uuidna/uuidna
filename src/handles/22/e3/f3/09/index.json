@@ -1,0 +1,12 @@
+{
+  "handle": "22e3f309",
+  "address": "22e3f309-1104-8ee0-a372-482e4104362f",
+  "kind": "chunk",
+  "keys": [
+    "hookes_law"
+  ],
+  "statement": "(([1,2,3] : List Nat).map (fun x => 5 * x)) = [5,10,15]",
+  "files": [
+    "Statics.lean"
+  ]
+}

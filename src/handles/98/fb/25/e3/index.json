@@ -1,0 +1,12 @@
+{
+  "handle": "98fb25e3",
+  "address": "98fb25e3-e585-82e5-8313-023710cfbfe8",
+  "kind": "chunk",
+  "keys": [
+    "characters_span_the_address"
+  ],
+  "statement": "(32 * 4 = 128) ∧ ((2:Nat)^7 = 128)",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

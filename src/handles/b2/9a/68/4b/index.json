@@ -1,0 +1,12 @@
+{
+  "handle": "b29a684b",
+  "address": "b29a684b-ae5e-8156-ab8e-56e2f6fb8c44",
+  "kind": "chunk",
+  "keys": [
+    "w_state_three_outcomes"
+  ],
+  "statement": "(([0,1,1,0,1,0,0,0] : List Nat).filter (fun a => a != 0)).length = 3",
+  "files": [
+    "Quantum.lean"
+  ]
+}

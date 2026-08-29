@@ -1,0 +1,12 @@
+{
+  "handle": "79db8cab",
+  "address": "79db8cab-008e-8c45-a19b-3fef2a3886d5",
+  "kind": "chunk",
+  "keys": [
+    "units_z9"
+  ],
+  "statement": "(List.range 9).filter (fun d => (List.range 9).any (fun e => (d * e) % 9 == 1)) = [1,2,4,5,7,8]",
+  "files": [
+    "Uuidna.lean"
+  ]
+}

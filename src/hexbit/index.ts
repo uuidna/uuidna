@@ -30,13 +30,24 @@ export const UUID_BITS = UUID_HEXBITS * HEXBIT_BITS
 /** the captain commission — two, and 128 / 2 = 64, the leverage the same theorem seals. */
 export const COINS = 2
 export const LEVERAGE = UUID_BITS / COINS
+/** One address in bytes — UUID_BITS / (HEXBIT_BITS × COINS). Salt and Poly1305 tag are this wide. */
+export const ADDRESS_BYTES = UUID_BITS / (HEXBIT_BITS * COINS)
+/** Occupancy × fold: UUID_BITS × COINS. ChaCha key width, SHA-256 digest, 256 triangles. */
+export const KEY_BITS = UUID_BITS * COINS
+/** Key bytes — one per uuid hexbit (digest_doubles_the_address: 32 = 2 × 16). */
+export const KEY_BYTES = UUID_HEXBITS
+/** Key measured in hexbits — UUID_HEXBITS × COINS (key_floor_is_one_uuid: 256/4 = 64). */
+export const KEY_HEXBITS = UUID_HEXBITS * COINS
+/** Grover floor — KEY_BITS / COINS = one uuid (sha256_grover_margin_is_the_address). */
+export const GROVER_FLOOR_BITS = UUID_BITS
 
-/** Message-encoder Hilbert index width in HEXBITS: four tiles → 16 qubits → 16^4 amplitudes. */
-export const MESSAGE_CAP_HEXBITS = 4
-/** Qubit count at the message cap — MESSAGE_CAP_HEXBITS × HEXBIT_BITS. */
-export const MESSAGE_CAP_QUBITS = MESSAGE_CAP_HEXBITS * HEXBIT_BITS
-/** Amplitude count — HEXBIT_STATES ** MESSAGE_CAP_HEXBITS (= 2^MESSAGE_CAP_QUBITS). */
-export const MESSAGE_CAP_STATES = HEXBIT_STATES ** MESSAGE_CAP_HEXBITS
+/** sha256_is_four_sixtyfours — four 64s: HEXBIT_BITS × LEVERAGE = KEY_BITS. Cross-crypto occupancy.
+ *  Hilbert 4×4 (message_cap_is_four_hexbits) is HEXBIT_BITS × HEXBIT_BITS qubits; that is not the fused message. */
+export function sha256IsFourSixtyfours(): { boards: number; sixtyfours: number; bits: number; hexbits: number } {
+  const boards = HEXBIT_BITS
+  const sixtyfours = LEVERAGE
+  return { boards, sixtyfours, bits: boards * sixtyfours, hexbits: KEY_HEXBITS }
+}
 
 /**
  * THE MASS GAP — a computed quantity of a discrete spectrum / Born field, never a pasted literal.
@@ -129,10 +140,14 @@ export const spareOf = (hexbits: number): number => UUID_HEXBITS - hexbits
 /** HALF THE UUID — the coin width: a content-address folded to its top half. UUID / commission, never a stranded / 2. */
 export const COIN_HEXBITS = UUID_HEXBITS / COINS
 
-/** THE SAFE-INTEGER WIDTH IN WHOLE HEXBITS — 13, because 13 x 4 = 52 bits and a double carries 53 exactly. Any
- *  rotation that must land in a Number, rather than a BigInt, reads exactly this many tiles: one more would be
- *  56 bits and would round silently, which is the failure a ledger cannot notice. */
-export const SAFE_HEXBITS = 13
+/** THE SAFE-INTEGER WIDTH IN WHOLE HEXBITS — largest h with HEXBIT_BITS·h sitting inside a double's 53-bit
+ *  mantissa (safe_width_is_thirteen_hexbits). Walked, never a stranded 13: one more tile is 56 bits and rounds. */
+const DOUBLE_MANTISSA = 53
+export const SAFE_HEXBITS: number = (() => {
+  let h = 0
+  while (HEXBIT_BITS * (h + 1) <= DOUBLE_MANTISSA) h++
+  return h
+})()
 
 /** EACH HANDLE HAS A VALUE, and it is not a metaphor: HANDLE_HEXBITS tiles read as one integer.
  *
@@ -162,10 +177,161 @@ export const HANDLE_SPAN = HEXBIT_STATES ** HANDLE_HEXBITS
  *  hardware/lanes needed a handle's WIDTH, hexbit exported only its SPAN, and so lanes computed the width itself
  *  and then the span from it. A unit with two definitions is not a standard. */
 export const HANDLE_BITS = HANDLE_HEXBITS * HEXBIT_BITS
+/** VE faces: triangular handle tiles plus square hexagram lines (ve_fourteen_faces). Never a freeze of 14. */
+export const VE_FACES = HANDLE_HEXBITS + HEXBIT_BITS + COINS
 
 /** the vortex ring the handle sits on — handle tiles plus origin (digit 0). Not imported from address.ts: that
  *  module already imports COIN_HEXBITS from here. */
-const RING = HANDLE_HEXBITS + 1
+export const RING = HANDLE_HEXBITS + 1
+
+/** coins × width mod the ring — 2·8 ≡ 7, 2·7 ≡ 5, 2·5 ≡ 1, … the vortex. Without the captain coins the width
+ *  does not fuse: the step is identity, not a walk. */
+export function fuseWidth(width: number, contributed: number): number {
+  if (contributed !== COINS) return width
+  return (COINS * width) % RING
+}
+
+/** Walk w ↦ (coins · w) mod ring, coins checked at EVERY rung. A contribution that is not the two coins
+ *  stops the walk — the hero will not fuse, the 7-ray will not open. Start HANDLE_HEXBITS → [8,7,5,1,2,4]. */
+export function fuseLadder(start: number = HANDLE_HEXBITS, contributed: number = COINS): readonly number[] {
+  const out: number[] = [start]
+  let w = start
+  for (;;) {
+    if (contributed !== COINS) break
+    const next = (COINS * w) % RING
+    if (next === 0 || next === start) break
+    out.push(next)
+    w = next
+    if (out.length > RING) break
+  }
+  return out
+}
+
+/** 2^rung by doubling, never a log — architectural capacity at that fuse residue. 2^7 = UUID_BITS. */
+export function capacityAt(rung: number): number {
+  let n = 1
+  for (let i = 0; i < rung; i++) n = n * 2
+  return n
+}
+
+/** nativeBitWidths(maxBits) → 1, 2, 4, … up to maxBits. uuidnaOS is native at every doubling from one bit to
+ *  the width the architecture allows (default: one uuid, UUID_BITS). Doubling, never a log. */
+export function nativeBitWidths(maxBits: number = UUID_BITS): readonly number[] {
+  if (!Number.isInteger(maxBits) || maxBits < 1) throw new Error(`hexbit: ${maxBits} bits is not an architecture`)
+  const out: number[] = []
+  let w = 1
+  for (;;) {
+    out.push(w)
+    if (w >= maxBits) return out
+    const next = w + w
+    if (next > maxBits) {
+      out.push(maxBits)
+      return out
+    }
+    w = next
+  }
+}
+
+/** HEXBIT_STATES^hexbits — unique prefixes (or suffixes) of that tile width. HANDLE_SPAN is spanAt(HANDLE_HEXBITS). */
+export function spanAt(hexbits: number): number {
+  let n = 1
+  for (let i = 0; i < hexbits; i++) n = n * HEXBIT_STATES
+  return n
+}
+
+/** Unique slots of width 1..upTo. Leaves = full-width span. Shorter prefixes still occupy the store. */
+export function prefixOccupancy(upTo: number = HANDLE_HEXBITS): {
+  byWidth: readonly number[]
+  shorter: number
+  leaves: number
+  stored: number
+} {
+  const byWidth: number[] = []
+  let stored = 0
+  for (let w = 1; w <= upTo; w++) {
+    const s = spanAt(w)
+    byWidth.push(s)
+    stored += s
+  }
+  const leaves = byWidth[upTo - 1] ?? 0
+  return { byWidth, shorter: stored - leaves, leaves, stored }
+}
+
+/** 2n by doubling — period-finding bit width for an n-bit modulus. */
+export function periodBits(modulusBits: number): number {
+  return modulusBits + modulusBits
+}
+
+/** Bits of N that fit when 2n qubits sit at or below the Hilbert 4×4 register. */
+export function shorChunkBits(): number {
+  const encoder = HEXBIT_BITS * HEXBIT_BITS
+  return (encoder - (encoder % 2)) / 2
+}
+
+/** 32-bit (handle) and 128-bit (uuid) moduli: 2n hits the next named width (leverage, key). Encoder width is
+ *  HEXBIT_BITS × HEXBIT_BITS — the Hilbert chunk whose 2n fills the register. Crypto occupancy is sha256IsFourSixtyfours. */
+export interface ShorCapacityFit {
+  handleModulusBits: number
+  uuidModulusBits: number
+  handlePeriodBits: number
+  uuidPeriodBits: number
+  encoderQubits: number
+  chunkBits: number
+  chunksOnHandle: number
+  chunksOnUuid: number
+  handleFits: boolean
+  uuidFits: boolean
+  encoderFitsChunk: boolean
+}
+
+export function shorCapacityFit(): ShorCapacityFit {
+  const encoderQubits = HEXBIT_BITS * HEXBIT_BITS
+  const chunkBits = shorChunkBits()
+  const handleModulusBits = HANDLE_BITS
+  const uuidModulusBits = UUID_BITS
+  const handlePeriodBits = periodBits(handleModulusBits)
+  const uuidPeriodBits = periodBits(uuidModulusBits)
+  return {
+    handleModulusBits,
+    uuidModulusBits,
+    handlePeriodBits,
+    uuidPeriodBits,
+    encoderQubits,
+    chunkBits,
+    chunksOnHandle: (handleModulusBits - (handleModulusBits % chunkBits)) / chunkBits,
+    chunksOnUuid: (uuidModulusBits - (uuidModulusBits % chunkBits)) / chunkBits,
+    handleFits: handlePeriodBits === LEVERAGE,
+    uuidFits: uuidPeriodBits === KEY_BITS,
+    encoderFitsChunk: periodBits(chunkBits) === encoderQubits,
+  }
+}
+
+/** Encoder-width GHZ once per named chunk: 4 on the handle, 16 on the uuid. Physical CPU/GPU executes 2^n
+ *  amplitudes per chunk; the uuid payload is that many independent chunks. */
+export interface ShorFullUse {
+  chunkBits: number
+  chunkQubits: number
+  chunkStates: number
+  handleChunks: number
+  uuidChunks: number
+  handleStates: number
+  uuidStates: number
+}
+
+export function shorFullUse(): ShorFullUse {
+  const fit = shorCapacityFit()
+  let chunkStates = 1
+  for (let i = 0; i < fit.encoderQubits; i++) chunkStates = chunkStates * 2
+  return {
+    chunkBits: fit.chunkBits,
+    chunkQubits: fit.encoderQubits,
+    chunkStates,
+    handleChunks: fit.chunksOnHandle,
+    uuidChunks: fit.chunksOnUuid,
+    handleStates: fit.chunksOnHandle * chunkStates,
+    uuidStates: fit.chunksOnUuid * chunkStates,
+  }
+}
 
 export const valueOf = (handle: string): HandleValue => {
   const value = parseInt(handle, 16)

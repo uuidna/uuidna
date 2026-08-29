@@ -1,0 +1,12 @@
+{
+  "handle": "5f07e59b",
+  "address": "5f07e59b-f08f-8921-a2f3-17b95d45fa2f",
+  "kind": "chunk",
+  "keys": [
+    "the_services_hold_each_other_up"
+  ],
+  "statement": "(installEdges.contains (21, 22)) ∧ (installEdges.contains (22, 21)) ∧ (nthS installNames 21 = \"openrc\") ∧ (nthS installNames 22 = \"openrc-user\")",
+  "files": [
+    "Installs.lean"
+  ]
+}

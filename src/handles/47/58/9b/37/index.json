@@ -1,0 +1,12 @@
+{
+  "handle": "47589b37",
+  "address": "47589b37-cd01-8ff6-8efe-894d102de77a",
+  "kind": "chunk",
+  "keys": [
+    "provenance_address_is_128_bits"
+  ],
+  "statement": "16 * 8 = 128",
+  "files": [
+    "Os.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2b78bd8b",
+  "address": "2b78bd8b-80e2-856f-8858-c8333bb5bce8",
+  "kind": "chunk",
+  "keys": [
+    "sha256_digest_is_256_bits"
+  ],
+  "statement": "(32 * 8 = 256) ∧ (64 = 32 * 2)",
+  "files": [
+    "Os.lean"
+  ]
+}

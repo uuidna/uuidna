@@ -1,0 +1,12 @@
+{
+  "handle": "f66c004a",
+  "address": "f66c004a-d3ea-84fc-bf14-6943780996ef",
+  "kind": "chunk",
+  "keys": [
+    "hebbian_ltd_is_signed"
+  ],
+  "statement": "([(1,0),(1,1),(1,2)].map (fun p => (p.1 : Int) * (p.2 - 1)) = [-1, 0, 1]) ∧ (([(1,0),(1,1),(1,2)].map (fun p => (p.1 : Int) * (p.2 - 1))).any (fun d => d < 0))",
+  "files": [
+    "Neuro.lean"
+  ]
+}

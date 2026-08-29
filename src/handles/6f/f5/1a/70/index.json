@@ -1,0 +1,12 @@
+{
+  "handle": "6ff51a70",
+  "address": "6ff51a70-c639-864c-b7e2-4dac0df34bd0",
+  "kind": "chunk",
+  "keys": [
+    "fold_code_injection"
+  ],
+  "statement": "2 * 47 = 94",
+  "files": [
+    "Exploits.lean"
+  ]
+}

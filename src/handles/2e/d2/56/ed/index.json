@@ -1,0 +1,12 @@
+{
+  "handle": "2ed256ed",
+  "address": "2ed256ed-e578-82bc-8158-d4b26188d9b5",
+  "kind": "chunk",
+  "keys": [
+    "forged_order_refused"
+  ],
+  "statement": "(orbits.map (fun o => o.length) = [10,8,3,1,6,4]) ∧ (orbits.map (fun o => o.length) ≠ [10,8,3,1,6,5])",
+  "files": [
+    "ProseTrial.lean"
+  ]
+}

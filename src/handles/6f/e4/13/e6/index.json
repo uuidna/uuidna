@@ -1,0 +1,12 @@
+{
+  "handle": "6fe413e6",
+  "address": "6fe413e6-599a-8f76-88e4-2e9067fb0a0f",
+  "kind": "chunk",
+  "keys": [
+    "nimsum_8_2"
+  ],
+  "statement": "lxor 8 2 = 10",
+  "files": [
+    "Nim.lean"
+  ]
+}

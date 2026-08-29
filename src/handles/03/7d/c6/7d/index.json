@@ -1,0 +1,12 @@
+{
+  "handle": "037dc67d",
+  "address": "037dc67d-6503-8b1d-9571-182f5fc68a0f",
+  "kind": "chunk",
+  "keys": [
+    "conformance_failure_detects_intrusion"
+  ],
+  "statement": "(List.range 2).all (fun f => (List.range 2).all (fun d => (List.range 2).all (fun v => (f + d + v == 0) || (cleanAudit f d v == 0))))",
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

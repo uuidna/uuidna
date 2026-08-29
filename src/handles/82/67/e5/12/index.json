@@ -1,0 +1,12 @@
+{
+  "handle": "8267e512",
+  "address": "8267e512-6b7f-829e-862a-3dcba0a18fc4",
+  "kind": "chunk",
+  "keys": [
+    "message_qubit_cap_states"
+  ],
+  "statement": "2^16 = 65536",
+  "files": [
+    "Quantum.lean"
+  ]
+}

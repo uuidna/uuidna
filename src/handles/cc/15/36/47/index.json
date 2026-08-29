@@ -1,0 +1,12 @@
+{
+  "handle": "cc153647",
+  "address": "cc153647-da9a-8f59-9d39-6baf99786b0f",
+  "kind": "chunk",
+  "keys": [
+    "handle_discards_before_walking"
+  ],
+  "statement": "(32 - 4 = 28) ∧ (32 ≠ 4) ∧ (4 * 8 = 32)",
+  "files": [
+    "Alignment.lean"
+  ]
+}

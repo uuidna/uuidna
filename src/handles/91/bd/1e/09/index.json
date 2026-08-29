@@ -1,0 +1,12 @@
+{
+  "handle": "91bd1e09",
+  "address": "91bd1e09-febc-8a5c-8907-4be44e4114ce",
+  "kind": "chunk",
+  "keys": [
+    "great_year_precession"
+  ],
+  "statement": "72 * 360 = 25920",
+  "files": [
+    "Astronomy.lean"
+  ]
+}

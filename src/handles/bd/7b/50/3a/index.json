@@ -1,0 +1,12 @@
+{
+  "handle": "bd7b503a",
+  "address": "bd7b503a-b53e-88ec-88a8-445f3115f24c",
+  "kind": "chunk",
+  "keys": [
+    "traitor_damage_sealed_by_same_billing"
+  ],
+  "statement": "(110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128)",
+  "files": [
+    "Coins.lean"
+  ]
+}

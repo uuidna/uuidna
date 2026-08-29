@@ -1,7 +1,7 @@
 // search-feed — most-searched queries ring Lean; loud keys are online doors; silence and harvest are leads.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { MOST_SEARCHED, FEED_QUERIES, portalQueries, queriesFromEvidence, searchFeed, titleOf } from '../search-feed.js'
+import { MOST_SEARCHED, FEED_QUERIES, feedPhysicsCite, portalQueries, queriesFromEvidence, searchFeed, titleOf } from '../search-feed.js'
 
 test('meaning is always null — the mill fingerprints structure, never hidden sense', () => {
   const f = searchFeed()
@@ -78,6 +78,11 @@ test('queriesFromEvidence turns unanswered-math notes into mill queries — titl
   const f = searchFeed(live)
   const frags = f.leads.filter((l) => l.harvest).map((l) => (l.harvest?.fragment ?? '').replace(/\s+/g, ''))
   assert.ok(frags.some((frag) => frag.includes('128-70=58')), 'the unanswered-math ore harvests')
+})
+
+test('a quantum-advantage query cites the sealed classical bound', () => {
+  assert.match(feedPhysicsCite('quantum advantage'), /n_qubit_dimension/)
+  assert.equal(feedPhysicsCite('cricket'), '')
 })
 
 test('searchFeedOnline is the online mill — network stays in unansweredMath / collectApiEvidence', async () => {

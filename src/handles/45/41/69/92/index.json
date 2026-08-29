@@ -1,0 +1,12 @@
+{
+  "handle": "45416992",
+  "address": "45416992-6890-864b-a64d-0e229d23679c",
+  "kind": "chunk",
+  "keys": [
+    "doubling_digit_sum"
+  ],
+  "statement": "1 + 2 + 4 + 8 + 7 + 5 = 27",
+  "files": [
+    "Vortex.lean"
+  ]
+}

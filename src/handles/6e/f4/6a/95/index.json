@@ -1,0 +1,12 @@
+{
+  "handle": "6ef46a95",
+  "address": "6ef46a95-8bd0-8312-839d-738164f0e7da",
+  "kind": "chunk",
+  "keys": [
+    "mombh_quantum_n2_population_needs_density"
+  ],
+  "statement": "(29 < 100) ∧ (9 <= 11)",
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

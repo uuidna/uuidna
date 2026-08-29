@@ -1,0 +1,12 @@
+{
+  "handle": "a294cdb2",
+  "address": "a294cdb2-dae4-8610-a5ef-35f444e5fc7a",
+  "kind": "chunk",
+  "keys": [
+    "s_squared_is_z"
+  ],
+  "statement": "([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let s1 := (-(p.2), p.1); let s2 := (-(s1.2), s1.1); (s2.1 == -(p.1)) && (s2.2 == -(p.2))))",
+  "files": [
+    "Quantum.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e6653626",
+  "address": "e6653626-2b9d-83fc-b7f9-5199c827665b",
+  "kind": "chunk",
+  "keys": [
+    "reverse_is_involutive"
+  ],
+  "statement": "[1,2,3,4].reverse.reverse = [1,2,3,4]",
+  "files": [
+    "Software.lean"
+  ]
+}

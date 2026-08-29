@@ -1,0 +1,12 @@
+{
+  "handle": "b490d0d0",
+  "address": "b490d0d0-a972-8856-8669-f30f3d70a942",
+  "kind": "chunk",
+  "keys": [
+    "tour_contra_rungs_sum_ten"
+  ],
+  "statement": "([0,1,2,4,8,7,5,3,6,9,0,1].all (fun d => if d == 0 then d + dz d == 0 else d + dz d == 10))",
+  "files": [
+    "Sequence.lean"
+  ]
+}

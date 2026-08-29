@@ -1,0 +1,12 @@
+{
+  "handle": "f13cc9c6",
+  "address": "f13cc9c6-3e82-826c-824c-0ed7ff5d4c8d",
+  "kind": "chunk",
+  "keys": [
+    "air_ppO2_in_window_at_surface"
+  ],
+  "statement": "(16 <= 21) ∧ (21 <= 160)",
+  "files": [
+    "Diving.lean"
+  ]
+}

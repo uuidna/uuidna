@@ -1,0 +1,12 @@
+{
+  "handle": "5dcd28bf",
+  "address": "5dcd28bf-cb94-8f08-9324-fb6431a8da49",
+  "kind": "chunk",
+  "keys": [
+    "six_rays_stay_derived"
+  ],
+  "statement": "(7 * 72 - 72 = 432) ∧ (6 * 72 = 432) ∧ (7 - 1 = 6)",
+  "files": [
+    "Grid.lean"
+  ]
+}

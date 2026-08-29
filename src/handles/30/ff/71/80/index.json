@@ -1,0 +1,12 @@
+{
+  "handle": "30ff7180",
+  "address": "30ff7180-26b9-889b-b5e6-e2bf1a5247ba",
+  "kind": "chunk",
+  "keys": [
+    "monotone_paths_are_pascal_entries"
+  ],
+  "statement": "((List.range 7).all (fun m => (List.range 7).all (fun n => ((((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0 == (((List.range (m+n)).foldl (fun r _ => List.zipWith (fun a b => a + b) (0 :: r) (r ++ [0])) [1]).drop m).headD 0)))) ∧ ((List.range 7).all (fun m => (List.range 7).all (fun n => ((((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0 == (((List.range n).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (m+1) 1)).drop m).headD 0)))) ∧ ((List.range 5).map (fun d => (((List.range d).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (d+1) 1)).drop d).headD 0) = [1,2,6,20,70])",
+  "files": [
+    "Wave.lean"
+  ]
+}

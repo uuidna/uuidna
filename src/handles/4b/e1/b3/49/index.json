@@ -1,0 +1,12 @@
+{
+  "handle": "4be1b349",
+  "address": "4be1b349-5859-80e4-8bb2-269a8a34494e",
+  "kind": "chunk",
+  "keys": [
+    "hamming_perfect_code"
+  ],
+  "statement": "16 * 8 = 128 ∧ 2^7 = 128",
+  "files": [
+    "Codes.lean"
+  ]
+}

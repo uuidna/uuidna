@@ -1,0 +1,12 @@
+{
+  "handle": "1477734a",
+  "address": "1477734a-20f9-8fee-aa59-217527124145",
+  "kind": "chunk",
+  "keys": [
+    "nim_equal_heaps_cancel"
+  ],
+  "statement": "(List.range 16).all (fun n => lxor n n == 0)",
+  "files": [
+    "Nim.lean"
+  ]
+}

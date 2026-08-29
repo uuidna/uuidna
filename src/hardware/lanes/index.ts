@@ -14,7 +14,7 @@
 // host's QPU seat would be a physical device this machine does not have. Measured usable-capacity advantage is
 // sealed (usable_gap_is_two_to_eighty); ARM 6 requires that seal and refuses false blanket denials of it. A QPU
 // lane that dispatched nothing would name a device never measured — the seat is a NOTICE, not a capability.
-import { HANDLE_BITS, HANDLE_SPAN } from '../../hexbit/index.js'
+import { HANDLE_BITS, HANDLE_SPAN, VE_FACES, shorCapacityFit } from '../../hexbit/index.js'
 
 /** How real a seat is. MEASURED — it runs and its figures come from running it. SPECIFIED — the conditions are
  *  stated and nothing is built. EMPTY — named so a reader knows where it would go, and claimed for nothing. */
@@ -35,7 +35,8 @@ export const LANES: readonly Lane[] = [
     name: 'CPU',
     seat: 'measured',
     admits: 'anything the tree computes: exact integer arithmetic, process spawns, filesystem reads — the whole ledger runs here',
-    note: 'the only lane with figures behind it. The proof sweep was measured across 14 lanes, and the ' +
+    note: 'the only lane with figures behind it. The proof sweep was measured across ' + VE_FACES +
+      ' lanes (VE_FACES = HANDLE_HEXBITS + HEXBIT_BITS + COINS), and the ' +
       'lane count itself is read from the host rather than assumed (os/host capacity), never hard-coded.',
   },
   {
@@ -150,6 +151,13 @@ const MEASURED_COMPUTE_MS_HUNDREDTHS = 59   // 0.59 ms, in hundredths — this t
  *  has actually taken (0.554 ms of fold over the whole ledger, divided by the addresses in it). */
 export const CPU_NS_PER_ADDRESS = 23
 
+/** Addresses the CPU finishes in one device-launch postage. Frozen with the GPU-seat record above: at
+ *  CPU_NS_PER_ADDRESS a transfer-begin equals this many folds. Not a live GPU reading. */
+export const GPU_POSTAGE_ADDRESSES = 2000
+
+/** CPU fold cost for a span of addresses — HANDLE_SPAN × 23 fits a safe integer; 2^128 does not and is not asked. */
+export const cpuFoldNs = (addresses: number): number => CPU_NS_PER_ADDRESS * addresses
+
 /** What a device would cost, as the two numbers that decide it. BOTH ARE INPUTS, AND NEITHER IS MEASURED HERE:
  *  this repository has no GPU reading and will not invent one, so the model takes a device's figures and says
  *  what corpus THAT device would need. Supplying numbers is the caller's act, and it is the caller's claim. */
@@ -183,17 +191,62 @@ export const gpuEligiblePpm = (): number => {
   return (n - (n % d)) / d
 }
 
+/** GPU lane against the two capacity rows that exist: independent Shor chunks (too small to pay postage) and
+ *  the full handle span (past the first break-even). Seat stays specified — nothing is dispatched. */
+export interface GpuCapacity {
+  seat: 'specified'
+  eligiblePpm: number
+  postageAddresses: number
+  breakEvenAddresses: number
+  chunkAddresses: number
+  chunkCpuNs: number
+  chunkPastBreakEven: boolean
+  handleSpan: number
+  handleCpuNs: number
+  handlePastBreakEven: boolean
+  uuidChunks: number
+  uuidChunkCpuNs: number
+}
+
+export function gpuCapacity(): GpuCapacity {
+  const shor = shorCapacityFit()
+  const infinitelyFast: DeviceCost = {
+    overheadNs: CPU_NS_PER_ADDRESS * GPU_POSTAGE_ADDRESSES,
+    perAddressNs: 0,
+  }
+  const breakEvenAddresses = gpuBreakEvenAddresses(infinitelyFast)
+  const chunkAddresses = shor.chunksOnHandle
+  const past = (n: number): boolean => breakEvenAddresses > 0 && n >= breakEvenAddresses
+  return {
+    seat: 'specified',
+    eligiblePpm: gpuEligiblePpm(),
+    postageAddresses: GPU_POSTAGE_ADDRESSES,
+    breakEvenAddresses,
+    chunkAddresses,
+    chunkCpuNs: cpuFoldNs(chunkAddresses),
+    chunkPastBreakEven: past(chunkAddresses),
+    handleSpan: HANDLE_SPAN,
+    handleCpuNs: cpuFoldNs(HANDLE_SPAN),
+    handlePastBreakEven: past(HANDLE_SPAN),
+    uuidChunks: shor.chunksOnUuid,
+    uuidChunkCpuNs: cpuFoldNs(shor.chunksOnUuid),
+  }
+}
+
 /** the share the Lean kernel holds, in percent — the thing a device lane cannot touch */
 export const kernelPercent = (): number => {
   const n = MEASURED_KERNEL_MS * 100
   return (n - (n % MEASURED_GATE_MS)) / MEASURED_GATE_MS
 }
 
+/** Layer 2 (docker chroot) rides the CPU lane — it is not a fourth executor. The trinity is CPU, GPU, QPU. */
+const EXECUTORS = LANES.filter((l) => l.seat === 'empty' || l.seat === 'measured' || (l.seat === 'specified' && l.name === 'GPU'))
+
 /** the trinity's own arithmetic, recomputed rather than asserted — a caller checks it instead of trusting it */
 export const trinity = (): { seats: number; measured: number; specified: number; empty: number; handleBits: number } => ({
-  seats: LANES.length,
-  measured: LANES.filter((l) => l.seat === 'measured').length,
-  specified: LANES.filter((l) => l.seat === 'specified').length,
-  empty: LANES.filter((l) => l.seat === 'empty').length,
+  seats: EXECUTORS.length,
+  measured: EXECUTORS.filter((l) => l.seat === 'measured').length,
+  specified: EXECUTORS.filter((l) => l.seat === 'specified').length,
+  empty: EXECUTORS.filter((l) => l.seat === 'empty').length,
   handleBits: HANDLE_BITS,
 })

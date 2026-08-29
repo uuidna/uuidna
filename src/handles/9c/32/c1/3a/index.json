@@ -1,0 +1,12 @@
+{
+  "handle": "9c32c13a",
+  "address": "9c32c13a-7a1c-8885-9329-ea0446346be4",
+  "kind": "chunk",
+  "keys": [
+    "rosette_orbit"
+  ],
+  "statement": "(List.range 6).map (fun k => (3^(k+1)) % 7) = [3, 2, 6, 4, 5, 1]",
+  "files": [
+    "Vortex.lean"
+  ]
+}

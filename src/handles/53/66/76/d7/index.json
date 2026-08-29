@@ -1,0 +1,12 @@
+{
+  "handle": "536676d7",
+  "address": "536676d7-94e7-8942-8ccc-7dfb728f462f",
+  "kind": "chunk",
+  "keys": [
+    "thrust_is_mdot_times_ve"
+  ],
+  "statement": "5 * 60 = 300",
+  "files": [
+    "Propulsion.lean"
+  ]
+}

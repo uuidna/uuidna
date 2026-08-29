@@ -1,0 +1,12 @@
+{
+  "handle": "8384b2b8",
+  "address": "8384b2b8-ecf7-8774-988e-52f5845cadde",
+  "kind": "chunk",
+  "keys": [
+    "reversal_escapes_arithmetic"
+  ],
+  "statement": "(16 * 27 = 432) ∧ (16 * 57 ≠ 432) ∧ (16 * 87 ≠ 432)",
+  "files": [
+    "Notation.lean"
+  ]
+}

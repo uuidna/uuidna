@@ -1,0 +1,12 @@
+{
+  "handle": "62ef91b8",
+  "address": "62ef91b8-c911-8ee8-b3f0-ccc0e282df14",
+  "kind": "chunk",
+  "keys": [
+    "interval_timelike_causal"
+  ],
+  "statement": "((5*5 - 4*4 : Int) = 9) ∧ ((9:Int) > 0)",
+  "files": [
+    "Relativity.lean"
+  ]
+}

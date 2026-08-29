@@ -1,0 +1,12 @@
+{
+  "handle": "612cbf0f",
+  "address": "612cbf0f-c65b-8928-b44f-1d81e80d2ec2",
+  "kind": "chunk",
+  "keys": [
+    "no_digit_is_an_exact_complement"
+  ],
+  "statement": "(180 % 40 = 20) ∧ (4 * 40 = 160) ∧ (160 < 180) ∧ (180 < 200) ∧ (5 * 40 = 200)",
+  "files": [
+    "Colour.lean"
+  ]
+}

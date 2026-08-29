@@ -1,0 +1,12 @@
+{
+  "handle": "94e02ce7",
+  "address": "94e02ce7-f980-8d8e-b3eb-0592662b2251",
+  "kind": "chunk",
+  "keys": [
+    "reflection_explores_all"
+  ],
+  "statement": "(((List.range 10).map dz).eraseDups.length = 10) ∧ (((List.range 10).map dbl).eraseDups.length = 9) ∧ (10 ≠ 9)",
+  "files": [
+    "Reversal.lean"
+  ]
+}

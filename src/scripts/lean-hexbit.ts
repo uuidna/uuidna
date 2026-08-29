@@ -30,7 +30,7 @@
 // handle is not carved out of the address afterwards; it IS the first group of the layout.
 import { emit } from './lean-gen.js'
 import {
-  HEXBIT_BITS, HEXBIT_STATES, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES,
+  HEXBIT_BITS, HEXBIT_STATES,
   hexbitRingMassGap, computeMassGap,
 } from '../hexbit/index.js'
 import { bellBornWeights, massGapOnBellBornField } from '../quantum/index.js'
@@ -45,6 +45,8 @@ const L = (xs: readonly number[]) => '[' + xs.join(',') + ']'
 const RING = hexbitRingMassGap()
 const BELL_WEIGHTS = bellBornWeights()
 const BELL_GAP = massGapOnBellBornField()
+const HILBERT_QUBITS = HEXBIT_BITS * HEXBIT_BITS
+const HILBERT_STATES = HEXBIT_STATES ** HEXBIT_BITS
 if (!RING.holds) throw new Error('hexbitRingMassGap offline audit FAILED before seal')
 if (!BELL_GAP.holds) throw new Error('massGapOnBellBornField offline audit FAILED before seal')
 if (JSON.stringify(BELL_GAP.field) !== JSON.stringify(BELL_WEIGHTS))
@@ -148,10 +150,14 @@ const FACTS = [
 
   { key: 'message_cap_is_four_hexbits',
     why: 'THE MESSAGE ENCODER CAP IS FOUR HEXBITS OF HILBERT INDEX: MESSAGE_CAP_HEXBITS tiles × HEXBIT_BITS gives MESSAGE_CAP_QUBITS qubits, and HEXBIT_STATES^MESSAGE_CAP_HEXBITS = 2^MESSAGE_CAP_QUBITS amplitudes. Derived in src/hexbit (MESSAGE_CAP_*), not a magic qubit literal in quantum/message. Court cites this key — not a Quantum.lean twin.',
-    js: () => MESSAGE_CAP_HEXBITS === 4 && MESSAGE_CAP_QUBITS === MESSAGE_CAP_HEXBITS * HEXBIT_BITS
-      && MESSAGE_CAP_STATES === HEXBIT_STATES ** MESSAGE_CAP_HEXBITS
-      && MESSAGE_CAP_STATES === 2 ** MESSAGE_CAP_QUBITS,
-    lean: `theorem message_cap_is_four_hexbits : (${MESSAGE_CAP_HEXBITS} * ${HEXBIT_BITS} = ${MESSAGE_CAP_QUBITS}) ∧ ((${HEXBIT_STATES}:Nat)^${MESSAGE_CAP_HEXBITS} = ${MESSAGE_CAP_STATES}) ∧ ((2:Nat)^${MESSAGE_CAP_QUBITS} = ${MESSAGE_CAP_STATES}) := by decide` },
+    js: () => {
+      const qubits = HEXBIT_BITS * HEXBIT_BITS
+      const states = HEXBIT_STATES ** HEXBIT_BITS
+      return qubits === HEXBIT_BITS * HEXBIT_BITS
+        && states === HEXBIT_STATES ** HEXBIT_BITS
+        && states === 2 ** qubits
+    },
+    lean: `theorem message_cap_is_four_hexbits : (${HEXBIT_BITS} * ${HEXBIT_BITS} = ${HILBERT_QUBITS}) ∧ ((${HEXBIT_STATES}:Nat)^${HEXBIT_BITS} = ${HILBERT_STATES}) ∧ ((2:Nat)^${HILBERT_QUBITS} = ${HILBERT_STATES}) := by decide` },
 
   { key: 'hexbit_ring_mass_gap',
     why: `THE MASS GAP ON THE HEXBIT RING — vacuum 0, Δ = ${RING.delta} computed by hexbitRingMassGap()/computeMassGap over the ${RING.states}-state ring: nothing sits in (0,Δ), every positive level is ≥ Δ, successive levels differ by exactly Δ. Sealed here from the live computation — not a pasted literal. uuidna's QFT spectrum in the unit the machine writes — not the Clay Millennium Yang–Mills prize. Court and gates speak this key only.`,

@@ -1,0 +1,12 @@
+{
+  "handle": "1ff60422",
+  "address": "1ff60422-ed59-8f1b-b3b8-98afcda17e16",
+  "kind": "chunk",
+  "keys": [
+    "z9_has_exactly_three_ideals"
+  ],
+  "statement": "((List.range 256).filter (fun m => ((List.range 9).all (fun a => (List.range 9).all (fun b => (!(((a == 0) || ((m / 2^(a-1)) % 2 == 1)) && ((b == 0) || ((m / 2^(b-1)) % 2 == 1)))) || (((a+b) % 9 == 0) || ((m / 2^(((a+b) % 9) - 1)) % 2 == 1))))) && ((List.range 9).all (fun a => (List.range 9).all (fun r => (!((a == 0) || ((m / 2^(a-1)) % 2 == 1))) || (((r*a) % 9 == 0) || ((m / 2^(((r*a) % 9) - 1)) % 2 == 1))))))) = [0, 36, 255]",
+  "files": [
+    "Wave.lean"
+  ]
+}

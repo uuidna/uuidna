@@ -26,6 +26,17 @@
 import { toUuid, merkleFold } from './address.js'
 import { pbkdf2Sha256, sha256 } from './sha256.js'
 import { aeadEncrypt, aeadDecrypt } from './chacha.js'
+import {
+  UUID_HEXBITS, COINS, HEXBIT_BITS, HEXBIT_STATES, HANDLE_HEXBITS,
+  ADDRESS_BYTES, KEY_BITS, KEY_BYTES, KEY_HEXBITS, GROVER_FLOOR_BITS,
+} from './hexbit/index.js'
+import { twoBoardsOf, flipCoin, nextCoinOf } from './hexagram.js'
+import { coins } from './captain/billing/index.js'
+import { RAYS } from './aura.js'
+import { CAPACITY } from './imprint.js'
+import { balanceStream, jobHandles, mapAcross, type StreamBalance } from './quantum/apps/balancer.js'
+
+export { KEY_BITS, KEY_BYTES, ADDRESS_BYTES, KEY_HEXBITS, GROVER_FLOOR_BITS }
 
 const enc = new TextEncoder(), dec = new TextDecoder()
 export const ITER = 600_000 // PBKDF2-SHA-256 iterations (OWASP 2023)
@@ -33,11 +44,10 @@ export const ITER = 600_000 // PBKDF2-SHA-256 iterations (OWASP 2023)
 // PBKDF2 has no upper bound, so a hostile `iter` (e.g. 1e12) would spin forever (CPU DoS). 10M is ~16× the default
 // and still finite — a legitimate envelope never exceeds it. Recompute-cost is bounded.
 export const MAX_ITER = 10_000_000
-// Sealed by theorem aead_nonce_and_salt_bits (lean/Cipher.lean): 12·8=96 bits (RFC 8439), 16·8=128 bits, 96<128.
-// Named (not the six inline 12s/16s this replaces) so axiom-hunt.ts can bind a LIVE constant instead of a
-// hardcoded tautology, and so the two can never independently drift.
-export const NONCE_BYTES = 12
-export const SALT_BYTES = 16
+export const NONCE_BYTES = ADDRESS_BYTES - HEXBIT_BITS
+export const SALT_BYTES = ADDRESS_BYTES
+/** Poly1305 tag — one address, the Grover floor (sha256_grover_margin_is_the_address). */
+export const TAG_BYTES = ADDRESS_BYTES
 
 // truncate toward zero with exact integer arithmetic — no Math.* host intrinsic (the two-coins guard). n - n%1.
 const intOf = (n: number): number => n - (n % 1)
@@ -87,7 +97,7 @@ const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array
   if (!key) {
     const host = hostPbkdf2()
     // new Uint8Array(...) normalises the host's Buffer to the exact type the rest of this module handles
-    key = host ? new Uint8Array(host(pass, salt, iter, 32, 'sha256')) : pbkdf2Sha256(pass, salt, iter, 32)
+    key = host ? new Uint8Array(host(pass, salt, iter, KEY_BYTES, 'sha256')) : pbkdf2Sha256(pass, salt, iter, KEY_BYTES)
     kdfCache.set(memoKey, key)
   }
   return key
@@ -95,7 +105,7 @@ const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array
 
 /** THE PURE DERIVATION, REACHABLE — so the parity test can compare the two paths, and so a caller that must have
  *  the dependency-free one can ask for it by name. Not used by encrypt/decrypt: they take the fast lawful path. */
-export const deriveKeyPure = (pass: Uint8Array, salt: Uint8Array, iter: number, dkLen = 32): Uint8Array =>
+export const deriveKeyPure = (pass: Uint8Array, salt: Uint8Array, iter: number, dkLen = KEY_BYTES): Uint8Array =>
   pbkdf2Sha256(pass, salt, iter, dkLen)
 
 /** which instrument this runtime derives on — 'host' (C, via node:crypto) or 'pure' (./sha256). Observable so a
@@ -137,26 +147,57 @@ export function encrypt(plaintext: string, passphrase: string, step?: number): S
   return fresh ? { v: 2, ...base, address, seq: intOf(step as number) } : { v: 1, ...base, address }
 }
 
+/** Same envelopes as a serial map, assigned across the CPU/GPU fleet. Independent messages only — onion wraps
+ *  and sealChain stay serial (each layer/referer depends on the prior). GPU lane is specified, not dispatched. */
+export function sealSequenceAcross(
+  messages: readonly string[],
+  passphrase: string,
+  cpuWorkers: number = HANDLE_HEXBITS,
+  start = 0,
+): { envelopes: Sealed[]; balance: StreamBalance } {
+  const handles = jobHandles('seq', messages, start)
+  const balance = balanceStream(handles, cpuWorkers)
+  const envelopes = mapAcross(handles, balance.workers, (i) => encrypt(messages[i]!, passphrase, start + i))
+  return { envelopes, balance }
+}
+
 /** Seal a sequence of messages under one passphrase, each ADVANCING the step (start, start+1, …) — the sequence
  *  is the stripe, one seal per step. Repeated messages never seal alike, so the equality leak stays closed across
  *  the whole stream. Decrypt each envelope with `decrypt` (the salt travels in the envelope; no step needed back). */
 export function sealSequence(messages: readonly string[], passphrase: string, start = 0): Sealed[] {
-  return messages.map((m, i) => encrypt(m, passphrase, start + i))
+  return sealSequenceAcross(messages, passphrase, HANDLE_HEXBITS, start).envelopes
 }
 
-/** Decrypt a sealed envelope. A wrong passphrase or tampered ciphertext throws (Poly1305 authentication). */
-// encryptSession — the captain theorem as encryption: CONTRIBUTE THE TWO COINS ONCE (one 600k KDF on a STABLE
-// session salt), then SEAL EVERY MESSAGE FREE (O(1) ChaCha20 under a per-step nonce). The salt is derived from the
-// session (a room address, a channel id)— so `deriveKey` is a cache hit from the 2nd message on
-// (~16 µs, not 1.75 s). SECURITY is preserved: the key is still PBKDF2-600k, and the NONCE freshens per `step`, so
-// identical plaintexts seal differently and the equality leak stays closed. The `step` MUST advance (never reuse it
-// under one session key) — the same nonce-uniqueness contract as v2. Opens with the ordinary `decrypt` (which reads
-// the salt from the envelope and hits the same cache). Recompute O(N) once, verify O(1) forever — coins() = 2.
-// the RATCHET: pay the two coins ONCE for the root key (PBKDF2 on the stable session salt), then ROTATE a fresh
-// message key each request — a cheap one-way hash of (root, step). The session lives in the root; it is never lost
-// until the passphrase (the root) is destroyed. Every request a different key AND a different nonce.
+/** Verify the envelope's 7d-fold content-address (integrity/routing) without the key — public, reproducible. */
+export function verifyEnvelope(sealed: Sealed): boolean {
+  return foldEnvelope(sealed.alg, sealed.salt, sealed.nonce, sealed.ct, sealed.tag) === sealed.address
+}
+
+const sameBytes = (a: Uint8Array, b: Uint8Array): boolean => {
+  if (a.length !== b.length) return false
+  let d = 0
+  for (let i = 0; i < a.length; i++) d |= a[i]! ^ b[i]!
+  return d === 0
+}
+
+const insistEnvelope = (sealed: Sealed): void => {
+  if (!verifyEnvelope(sealed)) throw new Error('crypt: envelope does not recompute')
+}
+
+const openAead = (sealed: Sealed, key: Uint8Array): string =>
+  dec.decode(aeadDecrypt(key, ub64(sealed.nonce), ub64(sealed.ct), ub64(sealed.tag)))
+
+const refuseIter = (iter: number): void => {
+  if (!Number.isInteger(iter) || iter < 1 || iter > MAX_ITER)
+    throw new Error(`crypt: refusing iter=${iter} — must be an integer in 1..${MAX_ITER} (DoS guard)`)
+}
+
+// encryptSession — contribute the two coins once (one 600k KDF on a STABLE session salt), then seal every message
+// free (O(1) ChaCha20 under a per-step nonce). The salt is derived from the session (room address / referrer door).
+// `deriveKey` is a cache hit from the 2nd message on. The NONCE freshens per `step`. The `step` MUST advance.
+// Opens only through decryptSession — decrypt refuses v:3 so the traveling salt is not a substitute for the referrer.
 const rotate = (root: Uint8Array, step: number): Uint8Array =>
-  sha256(cat(enc.encode('uuidna-session-rotate-v3|' + intOf(step) + '|'), root)).slice(0, 32)
+  sha256(cat(enc.encode('uuidna-session-rotate-v3|' + intOf(step) + '|'), root)).slice(0, KEY_BYTES)
 export function encryptSession(plaintext: string, passphrase: string, session: string, step: number): Sealed {
   const pt = enc.encode(plaintext), pass = enc.encode(passphrase)
   const salt = sha256(enc.encode('uuidna-session-salt-v3|' + session)).slice(0, SALT_BYTES) // STABLE per session → KDF once
@@ -168,29 +209,79 @@ export function encryptSession(plaintext: string, passphrase: string, session: s
   return { v: 3, ...base, address: foldEnvelope(base.alg, base.salt, base.nonce, base.ct, base.tag), seq: intOf(step) }
 }
 
-// decryptSession — open a v:3 session envelope, deriving the key from the RECEIVER's OWN session (its room address),
-// NOT from the salt the envelope carries. This makes the session/referer a real SECRECY boundary: a message sealed
-// for another session (a different referer → a different room address) derives a different root, so the rotated key
-// mismatches and Poly1305 rejects it — you cannot open a message that was not sealed for your exact session.
+// decryptSession — open a v:3 envelope from the RECEIVER's OWN session (referrer / room), not from the traveling salt.
+// The public salt is a commitment: it must equal sha256(session). Key material is derived from the referrer.
 export function decryptSession(sealed: Sealed, passphrase: string, session: string): string {
-  const iter = sealed.iter
-  if (!Number.isInteger(iter) || iter < 1 || iter > MAX_ITER) throw new Error(`crypt: refusing iter=${iter} — must be an integer in 1..${MAX_ITER} (DoS guard)`)
-  const salt = sha256(enc.encode('uuidna-session-salt-v3|' + session)).slice(0, SALT_BYTES) // the RECEIVER's session salt (cached)
-  const root = deriveKey(enc.encode(passphrase), salt, iter)
-  const key = rotate(root, sealed.seq ?? 0)
-  return dec.decode(aeadDecrypt(key, ub64(sealed.nonce), ub64(sealed.ct), ub64(sealed.tag)))
+  refuseIter(sealed.iter)
+  insistEnvelope(sealed)
+  const salt = sha256(enc.encode('uuidna-session-salt-v3|' + session)).slice(0, SALT_BYTES)
+  if (!sameBytes(salt, ub64(sealed.salt))) throw new Error('crypt: referrer does not match envelope')
+  const root = deriveKey(enc.encode(passphrase), salt, sealed.iter)
+  return openAead(sealed, rotate(root, sealed.seq ?? 0))
 }
 
+/** Decrypt a v:1 / v:2 envelope. v:3 opens only through decryptSession (the referrer). Tamper fails the fold first. */
 export function decrypt(sealed: Sealed, passphrase: string): string {
-  const iter = sealed.iter
-  if (!Number.isInteger(iter) || iter < 1 || iter > MAX_ITER) throw new Error(`crypt: refusing iter=${iter} — must be an integer in 1..${MAX_ITER} (DoS guard)`)
-  const root = deriveKey(enc.encode(passphrase), ub64(sealed.salt), iter)
-  // v:3 is the session ratchet — the message key is the root ROTATED by the step; v:1/v:2 use the derived key directly.
-  const key = sealed.v === 3 ? rotate(root, sealed.seq ?? 0) : root
-  return dec.decode(aeadDecrypt(key, ub64(sealed.nonce), ub64(sealed.ct), ub64(sealed.tag)))
+  if (sealed.v === 3) throw new Error('crypt: v3 opens through the referrer (decryptSession)')
+  refuseIter(sealed.iter)
+  insistEnvelope(sealed)
+  const root = deriveKey(enc.encode(passphrase), ub64(sealed.salt), sealed.iter)
+  return openAead(sealed, root)
 }
 
-/** Verify the envelope's 7d-fold content-address (integrity/routing) without the key — public, reproducible. */
-export function verifyEnvelope(sealed: Sealed): boolean {
-  return foldEnvelope(sealed.alg, sealed.salt, sealed.nonce, sealed.ct, sealed.tag) === sealed.address
+const bitsToBytes = (bits: readonly number[]): Uint8Array => {
+  const octet = HEXBIT_BITS * COINS
+  const out = new Uint8Array(bits.length / octet)
+  for (let i = 0; i < out.length; i++) {
+    let v = 0
+    for (let b = 0; b < octet; b++) v = (v << 1) | (bits[i * octet + b]! & 1)
+    out[i] = v
+  }
+  return out
+}
+
+/** Pack the two Fu Xi boards as yang‖yin — UUID_BITS occupancy doubled by the coin flip to KEY_BITS. Not entropy. */
+export function occupancyTapeOf(address: string): Uint8Array {
+  const faces = twoBoardsOf(address)
+  return bitsToBytes([...nextCoinOf(faces), ...nextCoinOf(flipCoin(faces))])
+}
+
+export interface CryptCover {
+  occupancy: { bits: number; hexbits: number; bytes: number; tape: Uint8Array }
+  entropy: { bits: number; hexbits: number; bytes: number }
+  floor: { bits: number; hexbits: number; bytes: number }
+  nonce: { bytes: number; bits: number }
+  salt: { bytes: number; bits: number }
+  tag: { bytes: number; bits: number }
+  digest: { bits: number; hexbits: number; boards: number; registers: number; blockBits: number }
+  aspects: number
+  directions: number
+  foldStates: number
+  coins: number
+  fused: boolean
+  capacity: number
+  onion: number
+}
+
+/** cryptOf(address) → every crypt width the sealed theorems compute, from this address's two boards. */
+export function cryptOf(address: string): CryptCover {
+  const tape = occupancyTapeOf(address)
+  let foldStates = 1
+  for (let i = 0; i < RAYS; i++) foldStates = foldStates * 2
+  return {
+    occupancy: { bits: KEY_BITS, hexbits: KEY_HEXBITS, bytes: KEY_BYTES, tape },
+    entropy: { bits: KEY_BITS, hexbits: KEY_HEXBITS, bytes: KEY_BYTES },
+    floor: { bits: GROVER_FLOOR_BITS, hexbits: UUID_HEXBITS, bytes: ADDRESS_BYTES },
+    nonce: { bytes: NONCE_BYTES, bits: NONCE_BYTES * 8 },
+    salt: { bytes: SALT_BYTES, bits: SALT_BYTES * 8 },
+    tag: { bytes: TAG_BYTES, bits: TAG_BYTES * 8 },
+    digest: { bits: KEY_BITS, hexbits: KEY_HEXBITS, boards: HEXBIT_BITS, registers: HANDLE_HEXBITS, blockBits: KEY_BITS * COINS },
+    aspects: RAYS,
+    directions: RAYS * (RAYS - 1),
+    foldStates,
+    coins: COINS,
+    fused: coins() === COINS,
+    capacity: CAPACITY,
+    onion: HEXBIT_STATES,
+  }
 }

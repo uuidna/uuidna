@@ -1,0 +1,12 @@
+{
+  "handle": "0fb6fbde",
+  "address": "0fb6fbde-6554-8e49-af0c-0490667fdb4b",
+  "kind": "chunk",
+  "keys": [
+    "elevation_counts_intervals"
+  ],
+  "statement": "5 * 20 = 100",
+  "files": [
+    "Topography.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "65603b15",
+  "address": "65603b15-05b6-8939-a4f8-dc45ffd3dd8a",
+  "kind": "chunk",
+  "keys": [
+    "parity_bit_rejects_half_the_byte_tamper_set"
+  ],
+  "statement": "((List.range 16).all (fun hi => (List.range 16).all (fun lo => (List.range 8).all (fun i => ((List.range 8).foldl (fun s j => s + (if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) / 2^j % 2) 0 % 2 != (List.range 8).foldl (fun s j => s + (hi * 16 + lo) / 2^j % 2) 0 % 2) && ((if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) != hi * 16 + lo) && ((if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) < 256))))) ∧ (((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (hi * 16 + lo != 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == 1))).length)).foldl (· + ·) 0 = 128) ∧ (((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (hi * 16 + lo != 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == 0))).length)).foldl (· + ·) 0 = 127) ∧ (128 + 127 = 255) ∧ (128 < 255)",
+  "files": [
+    "Wave.lean"
+  ]
+}

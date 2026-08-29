@@ -1,6 +1,6 @@
 ---
 title: Publications
-description: "Audited monographs folded from Lean proofs — every load-bearing sentence links a sealed theorem. Refused notes never publish."
+description: "Audited publications folded from Lean proofs — every load-bearing sentence links a sealed theorem. Refused notes never publish."
 aside: false
 ---
 
@@ -32,7 +32,7 @@ This is the automated stream — {{ data.publishable }} notes over {{ data.theor
 ## How a publication earns its claims
 
 A publication is not an opinion piece — it is a **fold of proofs into prose**. The rule is the same one that audits
-every word on this site: a claim earns its place by pointing at a sealed `/theorem/<key>`, or it is demarcated
+every word on this site: a claim earns its place by pointing at a sealed `/theorem/&lt;key&gt;`, or it is demarcated
 (*not · never · no · simulation · finite · bounded*), or it is flagged and refused until it is. That gate runs at
 build time; you are reading only what survived it.
 

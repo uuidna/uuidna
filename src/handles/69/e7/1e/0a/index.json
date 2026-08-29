@@ -1,0 +1,12 @@
+{
+  "handle": "69e71e0a",
+  "address": "69e71e0a-cc38-883b-8b33-6e07f09b618b",
+  "kind": "chunk",
+  "keys": [
+    "ten_reduces_to_one"
+  ],
+  "statement": "[10,100,1000,10000].all (fun p => p % 9 == 1)",
+  "files": [
+    "Notation.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3780d646",
+  "address": "3780d646-1f50-81d3-9980-5d430656b5de",
+  "kind": "chunk",
+  "keys": [
+    "cubes_sum_to_square_of_triangle"
+  ],
+  "statement": "(1 + 8 = 3 ^ 2) ∧ (1 + 8 + 27 = 6 ^ 2) ∧ (1 + 8 + 27 + 64 = 10 ^ 2) ∧ (1 + 2 + 3 + 4 = 10)",
+  "files": [
+    "Wave.lean"
+  ]
+}

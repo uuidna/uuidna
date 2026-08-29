@@ -16,12 +16,10 @@
 // citation identity (address = toUuid(key+':'+statement)), because a key names WHO cites the fact
 // itself. This is the has_and_belongs_to_many join the other side of: every chunk lists every key that cites it;
 // every key can be resolved to its one chunk via chunkHandleOf.
-import { writeFileSync, mkdirSync, readdirSync, rmSync, existsSync } from 'node:fs'
 import { handleOf } from '../handle.js'
-import { join } from 'node:path'
 import { allStatementChunks } from '../editorial.js'
 import { toUuid } from '../address.js'
-import { ROOT } from './api.js'
+import { has, wr, mkdirp, rmrf } from './api.js'
 
 export interface HandleChunk {
   handle: string
@@ -73,36 +71,31 @@ export function chunkHandleOf(key: string): string | undefined {
   return keyIndex().get(key)
 }
 
-const OUT = join(ROOT, 'src/chunks')
-
-if (process.argv[1] && process.argv[1].endsWith('gen-handle-chunks.js')) {
-  console.log('\n╔════════════════════════════════════════════════════════════╗')
-  console.log('║ GEN-HANDLE-CHUNKS — one file per distinct algebra, sharded  ║')
-  console.log('╚════════════════════════════════════════════════════════════╝\n')
-
+export function writeHandleChunks(): void {
   const chunks = buildChunks()
   const handles = chunks.map((c) => c.handle)
   if (new Set(handles).size !== handles.length) {
-    console.error(`✗ gen-handle-chunks — handle collision among ${handles.length} chunks — refusing to write a lossy index`)
-    process.exit(1)
+    throw new Error(`gen-handle-chunks — handle collision among ${handles.length} chunks — refusing to write a lossy index`)
   }
-
-  // clean slate: a shrunk ledger (a re-namings backlog may only shrink) must not leave an orphaned chunk file behind
-  if (existsSync(OUT)) rmSync(OUT, { recursive: true, force: true })
-  mkdirSync(OUT, { recursive: true })
-
+  if (has('src/chunks')) rmrf('src/chunks')
+  mkdirp('src/chunks')
   const index: Record<string, string> = {}
   for (const c of chunks) {
-    const shard = c.handle.slice(0, 2)
-    const leaf = c.handle.slice(2)
-    const dir = join(OUT, shard)
-    mkdirSync(dir, { recursive: true })
-    writeFileSync(join(dir, `${leaf}.json`), JSON.stringify(c, null, 2) + '\n')
-    index[c.handle] = `${shard}/${leaf}.json`
+    const parts = [c.handle.slice(0, 2), c.handle.slice(2)]
+    mkdirp(`src/chunks/${parts[0]!}`)
+    wr(`src/chunks/${parts[0]!}/${parts[1]}.json`, JSON.stringify(c, null, 2) + '\n')
+    index[c.handle] = `${parts[0]}/${parts[1]}.json`
   }
-  writeFileSync(join(OUT, 'index.json'), JSON.stringify({ chunks: chunks.length, shards: new Set(chunks.map((c) => c.handle.slice(0, 2))).size, index }, null, 2) + '\n')
+  wr('src/chunks/index.json', JSON.stringify({ chunks: chunks.length, shards: new Set(chunks.map((c) => c.handle.slice(0, 2))).size, index }, null, 2) + '\n')
+}
 
-  const shardDirs = readdirSync(OUT).filter((f) => f !== 'index.json')
-  console.log(`✓ gen-handle-chunks — ${chunks.length} distinct chunks across ${shardDirs.length} shard(s), 0 collisions`)
-  console.log(`  written to: src/chunks/<2-hex>/<6-hex>.json + src/chunks/index.json`)
+function shouldWrite(): boolean {
+  const argv = typeof process !== 'undefined' && Array.isArray(process.argv) ? process.argv : []
+  const a = argv[1] || ''
+  return a.endsWith('gen-handle-chunks.js') || a.endsWith('generate.js')
+}
+
+if (shouldWrite()) {
+  writeHandleChunks()
+  console.log(`✓ gen-handle-chunks — distinct chunks, collision-free, written to src/chunks`)
 }

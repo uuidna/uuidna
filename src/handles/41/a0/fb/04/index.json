@@ -1,0 +1,12 @@
+{
+  "handle": "41a0fb04",
+  "address": "41a0fb04-54cf-8a1f-aea1-338cc38d045f",
+  "kind": "chunk",
+  "keys": [
+    "regular_polytopes_by_dimension"
+  ],
+  "statement": "(List.range' 3 5).map (fun d => if d = 3 then 5 else if d = 4 then 6 else 3) = [5,6,3,3,3]",
+  "files": [
+    "Solids.lean"
+  ]
+}

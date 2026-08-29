@@ -1,0 +1,12 @@
+{
+  "handle": "f161207f",
+  "address": "f161207f-8d61-8b0a-929c-4ea6210b00e6",
+  "kind": "chunk",
+  "keys": [
+    "song_az_is_the_tuning"
+  ],
+  "statement": "432 * 1 = 432 ∧ 432 % 9 = 0 ∧ 4 + 3 + 2 = 9",
+  "files": [
+    "Song.lean"
+  ]
+}

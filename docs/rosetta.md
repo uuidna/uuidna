@@ -5,10 +5,14 @@ aside: false
 ---
 
 <script setup>
-import { data } from './.vitepress/ledger.data'
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+
+const { frontmatter } = useData()
+const axis = computed(() => frontmatter.value.axis || { total: 0, rays: [] })
 </script>
 
-# The rosette index <Badge type="tip" :text="`7 rays · ${data.total} theorems`" />
+# The rosette index <Badge type="tip" :text="`7 rays · ${axis.total} theorems`" />
 
 **The whole ledger, indexed onto seven rays.** Each theorem falls on one ray of the ℤ/7 rosette by a decidable
 function of its content-address (`ray = address mod 7`), and each ray folds — order-invariantly — to its own
@@ -19,7 +23,7 @@ folding and lookup over the flat ledger, recomputable by anyone.
 The arithmetic (the ℤ/7 partition, the per-ray fold) is decidable; any numerological reading of the ray is
 UNVERIFIED. The same discipline the rest of uuidna holds: the number is sealed, the meaning is not.
 
-<section v-for="r in data.rosetta" :key="r.ray" class="psec">
+<section v-for="r in axis.rays" :key="r.ray" class="psec">
   <h2 :id="'ray-' + r.ray">Ray {{ r.ray }} <Badge type="tip" :text="String(r.count)" /></h2>
   <p class="psec-fold">ray fold <Handle :uuid="r.fold" /></p>
   <ul class="tlist">
@@ -29,4 +33,4 @@ UNVERIFIED. The same discipline the rest of uuidna holds: the number is sealed, 
 
 The same theorems organised by computing principle are on [/theorems](/theorems), by skill on [/topics](/topics), and
 folded whole on [/trials](/trials). The ℤ/7 geometry itself is sealed in
-[the rosette cluster](/publications/rosette). A theorem computes in Lean, or it is not a theorem.
+[the rosette publication](/publications/rosette). A theorem computes in Lean, or it is not a theorem.

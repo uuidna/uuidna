@@ -16,7 +16,8 @@ import { toUuid, merkleFold, cryptoAddress } from '../address.js'
 import { handleOf } from '../handle.js'
 import { slimGate } from '../slimgate.js'
 import { LEAN_LEDGER } from '../theorems/generated.js'
-import { sealMessage, openMessage, MAX_MESSAGE_QUBITS } from '../quantum/message/index.js'
+import { sealMessage, openMessage } from '../quantum/message/index.js'
+import { HEXBIT_STATES } from '../hexbit/index.js'
 
 export interface Lead { handle: string; bucket: number; status: string; lead: string; owes: string; kind: string }
 
@@ -57,8 +58,8 @@ export function verifyReport(report: string): ScoutVerdict {
 // ── SCOUT MESSAGING: sixteen buckets, sixteen qubits, and a finding that cannot travel without its theorem ──
 // The channel is the repository's existing sealed quantum message, chosen rather than built for one reason:
 // encodeMessage's signature already DEMANDS a theorem key. A scout cannot post a finding it cannot cite, and
-// that is enforced by the type rather than by a rule someone has to remember. MAX_MESSAGE_QUBITS is sixteen
-// and the buckets are sixteen, so one bucket is one qubit of the register and the whole board is one word.
+// that is enforced by the type rather than by a rule someone has to remember. HEXBIT_STATES
+// is the alphabet, so one bucket is one residue and the whole board is one word.
 // Cheap means one call in each direction: postFinding seals, readAll opens every bucket at once, and no
 // broker sits between them — the bucket handle IS the passphrase, so sixteen scouts need no key exchange.
 
@@ -68,7 +69,7 @@ export interface Finding { bucket: number; handle: string; theorem: string; find
 export function postFinding(bucket: number, finding: string, theoremKey: string): { sealed: unknown; handle: string } {
   if (!LEAN_LEDGER.some((t) => t.key === theoremKey))
     throw new Error(`scout: ${theoremKey} is not in the ledger — a finding travels with its theorem or not at all`)
-  if (!Number.isInteger(bucket) || bucket < 0 || bucket >= MAX_MESSAGE_QUBITS)
+  if (!Number.isInteger(bucket) || bucket < 0 || bucket >= HEXBIT_STATES)
     throw new Error(`scout: bucket ${bucket} is outside the sixteen`)
   const handle = handleOf(toUuid('scout:bucket:' + bucket))
   return { sealed: sealMessage(finding, handle, theoremKey), handle }
@@ -133,7 +134,7 @@ const foldState = (prior: string, theoremKey: string, finding: string): string =
 
 /** a fresh neuron for a bucket — its genesis state, before it has learned anything */
 export function neuron(bucket: number): Neuron {
-  if (!Number.isInteger(bucket) || bucket < 0 || bucket >= MAX_MESSAGE_QUBITS)
+  if (!Number.isInteger(bucket) || bucket < 0 || bucket >= HEXBIT_STATES)
     throw new Error(`scout: bucket ${bucket} is outside the sixteen`)
   const state = genesisOf(bucket)
   return { bucket, state, handle: handleOf(state), fired: 0, memory: [] }

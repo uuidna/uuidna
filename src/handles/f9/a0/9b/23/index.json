@@ -1,0 +1,12 @@
+{
+  "handle": "f9a09b23",
+  "address": "f9a09b23-aa59-8462-892b-33b141f95ece",
+  "kind": "chunk",
+  "keys": [
+    "van_de_graaf_margins"
+  ],
+  "statement": "(4 = 2 * 2) ∧ (6 = 2 * 3)",
+  "files": [
+    "Typesetting.lean"
+  ]
+}

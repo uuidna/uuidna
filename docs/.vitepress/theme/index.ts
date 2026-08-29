@@ -7,14 +7,17 @@ import Terminal from './Terminal.vue'
 import ExecShell from './ExecShell.vue'
 import PortPanel from './PortPanel.vue'
 import CatalogueBrowser from './CatalogueBrowser.vue'
+import AgentCoverage from './AgentCoverage.vue'
 import HexbitPlayer from './HexbitPlayer.vue'
 import AnthemSuperposition from './AnthemSuperposition.vue'
 import AnthemLive from './AnthemLive.vue'
 import SchoolTools from './SchoolTools.vue'
 import BookRoom from './BookRoom.vue'
+import HandleStrips from './HandleStrips.vue'
 import HexbitAnimator from './HexbitAnimator.vue'
 import FoldAnimation from './FoldAnimation.vue'
 import HeroAnimation from './HeroAnimation.vue'
+import HexFace from './HexFace.vue'
 import ObjectPage from './ObjectPage.vue'
 import HomeGraph from './HomeGraph.vue'
 import Reflect from './Reflect.vue'
@@ -34,6 +37,7 @@ import CaptainCoins from './CaptainCoins.vue'
 import GridLattice from './GridLattice.vue'
 import PairGrid from './PairGrid.vue'
 import PracticeLoop from './PracticeLoop.vue'
+import AdvantageMcp from './AdvantageMcp.vue'
 import TheoremUse from './TheoremUse.vue'
 import TradingFloor from './TradingFloor.vue'
 import { applySequence } from './palette'
@@ -46,15 +50,18 @@ export default {
     applySequence()
     app.component('RefererCompass', RefererCompass)
     app.component('HexbitPlayer', HexbitPlayer)
+    app.component('HexFace', HexFace)
     app.component('AnthemSuperposition', AnthemSuperposition)
     app.component('AnthemLive', AnthemLive)
     app.component('SchoolTools', SchoolTools)
     app.component('BookRoom', BookRoom)
+    app.component('HandleStrips', HandleStrips)
     app.component('HexbitAnimator', HexbitAnimator)
     app.component('UuidnaTerminal', Terminal)
     app.component('ExecShell', ExecShell)
     app.component('PortPanel', PortPanel)
     app.component('CatalogueBrowser', CatalogueBrowser)
+    app.component('AgentCoverage', AgentCoverage)
     app.component('FoldAnimation', FoldAnimation)
     app.component('HeroAnimation', HeroAnimation)
     app.component('GridLattice', GridLattice)
@@ -73,6 +80,7 @@ export default {
     app.component('NimPlay', NimPlay)
     app.component('ChessMobility', ChessMobility)
     app.component('PracticeLoop', PracticeLoop)
+    app.component('AdvantageMcp', AdvantageMcp)
     app.component('TheoremUse', TheoremUse)
     app.component('TradingFloor', TradingFloor)
     app.component('AuditPanel', AuditPanel)

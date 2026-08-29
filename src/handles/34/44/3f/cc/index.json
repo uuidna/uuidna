@@ -1,0 +1,12 @@
+{
+  "handle": "34443fcc",
+  "address": "34443fcc-f17f-822d-baad-fec405107c34",
+  "kind": "chunk",
+  "keys": [
+    "platonic_euler_characteristic_is_two"
+  ],
+  "statement": "[(4,6,4),(8,12,6),(6,12,8),(20,30,12),(12,30,20)].all (fun s => s.1 + s.2.2 == s.2.1 + 2)",
+  "files": [
+    "Solids.lean"
+  ]
+}

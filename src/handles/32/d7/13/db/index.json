@@ -1,0 +1,12 @@
+{
+  "handle": "32d713db",
+  "address": "32d713db-cd49-8692-9c4a-309fad9a8aea",
+  "kind": "chunk",
+  "keys": [
+    "manipulation_never_faster"
+  ],
+  "statement": "((List.range' 1 16).all (fun n => n < 2^n)) ∧ (16 < 2^16) ∧ (110 - 110 = 0)",
+  "files": [
+    "Reasoning.lean"
+  ]
+}

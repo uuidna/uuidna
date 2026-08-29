@@ -1,0 +1,12 @@
+{
+  "handle": "0ad6baf8",
+  "address": "0ad6baf8-1413-83fb-bc42-cd1cd747df56",
+  "kind": "chunk",
+  "keys": [
+    "ionic_threshold"
+  ],
+  "statement": "(30 - 9 > 17) ∧ (3 % 9 = 3)",
+  "files": [
+    "Molecular.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e609be4b",
+  "address": "e609be4b-6ae7-804d-900a-43a76f188b66",
+  "kind": "chunk",
+  "keys": [
+    "mombh_quantum_balmer_edge_is_rydberg_quarter"
+  ],
+  "statement": "(136 / 4 = 34) ∧ (12398 / 34 = 364)",
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

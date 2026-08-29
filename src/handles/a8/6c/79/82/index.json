@@ -1,0 +1,12 @@
+{
+  "handle": "a86c7982",
+  "address": "a86c7982-4f88-85cc-b861-f977ae1bcdd2",
+  "kind": "chunk",
+  "keys": [
+    "square_harmony_is_fourths"
+  ],
+  "statement": "(List.range 4).map (fun k => (3 * k) % 12) = [0,3,6,9]",
+  "files": [
+    "Colour.lean"
+  ]
+}

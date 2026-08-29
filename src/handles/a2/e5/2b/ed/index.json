@@ -1,0 +1,12 @@
+{
+  "handle": "a2e52bed",
+  "address": "a2e52bed-ab03-87c4-9cb1-7bc5ee95bc35",
+  "kind": "chunk",
+  "keys": [
+    "codec_split_recompose_lossless"
+  ],
+  "statement": "(List.range 32).all (fun n => 2 * (n / 2) + n % 2 == n)",
+  "files": [
+    "Software.lean"
+  ]
+}

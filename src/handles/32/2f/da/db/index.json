@@ -1,0 +1,12 @@
+{
+  "handle": "322fdadb",
+  "address": "322fdadb-9088-8068-94b4-9f2a8aaed019",
+  "kind": "chunk",
+  "keys": [
+    "implication_is_a_gate"
+  ],
+  "statement": "(rowsOf 13 = [1,0,1,1]) ∧ (rowsOf 11 = [1,1,0,1]) ∧ (rowsOf 2 = [0,1,0,0])",
+  "files": [
+    "Boolean.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5fd4fb43",
+  "address": "5fd4fb43-97e0-88ff-a7d0-31e9ad55ef2d",
+  "kind": "chunk",
+  "keys": [
+    "dz_sum_ten"
+  ],
+  "statement": "(List.range' 1 9).all (fun x => x + dz x == 10)",
+  "files": [
+    "DivByZero.lean"
+  ]
+}

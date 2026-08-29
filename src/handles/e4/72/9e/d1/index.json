@@ -1,0 +1,12 @@
+{
+  "handle": "e4729ed1",
+  "address": "e4729ed1-f16d-8e6f-9b2d-43abe2c3fe22",
+  "kind": "chunk",
+  "keys": [
+    "genus_ladder_prices_in_coins"
+  ],
+  "statement": "List.map (fun g => 2 * g - 2) [1, 2, 3, 4, 5, 6] = [0, 2, 4, 6, 8, 10]",
+  "files": [
+    "Torus.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "602cd3ad",
+  "address": "602cd3ad-0d48-8b76-9e74-01c051a4871a",
+  "kind": "chunk",
+  "keys": [
+    "fold_trojan_source_bidi"
+  ],
+  "statement": "(2021 * 100000 + 42574 = 202142574) ∧ (9 % 9 = 0) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+  "files": [
+    "Exploits.lean"
+  ]
+}

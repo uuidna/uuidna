@@ -1,0 +1,12 @@
+{
+  "handle": "bd40e9dd",
+  "address": "bd40e9dd-d155-8a44-9b00-9d5e9fbe9af6",
+  "kind": "chunk",
+  "keys": [
+    "superdense_two_bits"
+  ],
+  "statement": "((2:Nat)^2 = 4) ∧ (2 > 1)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

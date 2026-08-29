@@ -1,0 +1,12 @@
+{
+  "handle": "3ee712f1",
+  "address": "3ee712f1-bf7e-800f-8ca8-7fa62f79af14",
+  "kind": "chunk",
+  "keys": [
+    "frame_ring_undo_involutive"
+  ],
+  "statement": "(5*5) % 24 = 1 ∧ (7*7) % 24 = 1 ∧ (11*11) % 24 = 1 ∧ (13*13) % 24 = 1 ∧ (17*17) % 24 = 1 ∧ (19*19) % 24 = 1 ∧ (23*23) % 24 = 1",
+  "files": [
+    "Editing.lean"
+  ]
+}

@@ -57,8 +57,17 @@ export const routeOf = (name: string): string => INSTALL_ROUTES[name] ?? '/' + n
 /** compileToHexbits — the unit's own address→states compiler (src/hexbit owns it; re-exported here because
  *  the port is where "compile from source in hexbit" is spoken). 32 states 0..15, one per nibble, directly
  *  playable by the standard hexbit app (quantum/apps/hexbit-player). */
-import { compileToHexbits, hexbitDoorOf } from '../../hexbit/index.js'
+import {
+  compileToHexbits, hexbitDoorOf,
+  HANDLE_HEXBITS, HANDLE_SPAN, HEXBIT_BITS, HEXBIT_STATES,
+  COIN_HEXBITS, UUID_HEXBITS, UUID_BITS, COINS,
+  fuseWidth, capacityAt, shorCapacityFit, type ShorCapacityFit,
+} from '../../hexbit/index.js'
 export { compileToHexbits, hexbitDoorOf }
+import { gpuCapacity, type GpuCapacity } from '../../hardware/lanes/index.js'
+import { streamFleet } from '../apps/balancer.js'
+import { osLayer, type NamedLayer } from '../../layers.js'
+import { upgradeFirmware, type FirmwareUpgrade } from './firmware.js'
 
 /** One default install, ported: the uuidna/<name> identity plus its path, its published meaning, its
  *  dependency names, and its hexbit compile. */
@@ -246,8 +255,100 @@ export function portDelta(upstream: InstallsMirror): PortDelta {
 // install — never execution. bootOS() verifies the whole image and returns the ground a surface stands on;
 // it THROWS on a drifted world, so the MCP refuses to serve, the tests refuse to run, and the fault arrives
 // named with the receipt. Verified once per process (~4 ms first boot), O(1) after — the floor costs nothing.
-export interface BootedOS { port: InstallPort; boot: BootImage; receipt: string; floor: string }
+/** Four hexbit widths plus nest and encoder a booted uuidnaOS stands on.
+ *  servedQubits is HEXBIT_BITS × HEXBIT_BITS (Hilbert 4×4). nestQubits is HANDLE_HEXBITS + HEXBIT_BITS.
+ *  Crypto occupancy is sha256IsFourSixtyfours — four 64s, not four hexbits. Numbers only. */
+export interface OsQuantumCapacity {
+  messageHexbits: number
+  handleHexbits: number
+  coinHexbits: number
+  uuidHexbits: number
+  nestQubits: number
+  servedQubits: number
+  registerQubits: number
+  uuidBits: number
+  fuseBits: number
+  handleSpan: number
+  registerStates: number
+  servedStates: number
+  shor: ShorCapacityFit
+  gpu: GpuCapacity
+  stream: {
+    cpuWorkers: number
+    postage: number
+    gpuSeat: 'specified'
+    idle: { cpuWorkers: number; gpuWorkers: number; total: number }
+    atPostage: { cpuWorkers: number; gpuWorkers: number; total: number }
+  }
+}
+
+function latticeCapacity(): OsQuantumCapacity {
+  const gpu = gpuCapacity()
+  const postage = gpu.breakEvenAddresses
+  const hilbertQubits = HEXBIT_BITS * HEXBIT_BITS
+  const hilbertStates = HEXBIT_STATES ** HEXBIT_BITS
+  return {
+    messageHexbits: HEXBIT_BITS,
+    handleHexbits: HANDLE_HEXBITS,
+    coinHexbits: COIN_HEXBITS,
+    uuidHexbits: UUID_HEXBITS,
+    nestQubits: HANDLE_HEXBITS + HEXBIT_BITS,
+    servedQubits: hilbertQubits,
+    registerQubits: hilbertQubits,
+    uuidBits: UUID_BITS,
+    fuseBits: capacityAt(fuseWidth(HANDLE_HEXBITS, COINS)),
+    handleSpan: HANDLE_SPAN,
+    registerStates: hilbertStates,
+    servedStates: hilbertStates,
+    shor: shorCapacityFit(),
+    gpu,
+    stream: {
+      cpuWorkers: HANDLE_HEXBITS,
+      postage,
+      gpuSeat: gpu.seat,
+      idle: streamFleet(0),
+      atPostage: streamFleet(postage),
+    },
+  }
+}
+
+export interface BootedOS {
+  port: InstallPort
+  boot: BootImage
+  receipt: string
+  floor: string
+  capacity: OsQuantumCapacity
+}
 let BOOTED: BootedOS | null = null
+
+/** After the image verifies, the four widths and the library register are the capacity this world stands on. */
+export function osQuantumCapacity(): OsQuantumCapacity {
+  return bootOS().capacity
+}
+
+/** The MCP uuidnaOS payload: integrity layer plus the verified lattice boot, capacity, and stream fleet. */
+export interface ServedOS {
+  layer: NamedLayer
+  floor: string
+  receipt: string
+  boot: BootImage
+  portCount: number
+  capacity: OsQuantumCapacity
+  firmware: FirmwareUpgrade
+}
+
+export function servedOS(): ServedOS {
+  const os = bootOS()
+  return {
+    layer: osLayer(),
+    floor: os.floor,
+    receipt: os.receipt,
+    capacity: os.capacity,
+    firmware: upgradeFirmware(),
+    boot: os.boot,
+    portCount: os.port.count,
+  }
+}
 
 export function bootOS(): BootedOS {
   if (BOOTED) return BOOTED
@@ -258,5 +359,7 @@ export function bootOS(): BootedOS {
   if (!boot.states.every((h) => Number.isInteger(h) && h >= 0 && h < 16)) faults.push('an off-lattice state cannot load')
   if (boot.states.slice(-32).join(',') !== compileToHexbits(port.receipt).join(',')) faults.push('the receipt page does not close the image')
   if (faults.length) throw new Error('uuidnaOS REFUSED TO BOOT — the world drifted:\n  ' + faults.join('\n  ') + `\n  port receipt: ${port.receipt}`)
-  return (BOOTED = { port, boot, receipt: port.receipt, floor: port.specs[0]!.id })
+  return (BOOTED = { port, boot, receipt: port.receipt, floor: port.specs[0]!.id, capacity: latticeCapacity() })
 }
+
+export { catalogue, catalogueState, cataloguePackage, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, type CataloguePackage, type CatalogueState } from './catalogue.js'

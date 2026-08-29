@@ -5,11 +5,16 @@ aside: false
 ---
 
 <script setup>
-import { data } from './.vitepress/ledger.data'
+import { computed } from 'vue'
+import { useData } from 'vitepress'
 import { data as fold } from './.vitepress/fold.data'
+
+const { frontmatter } = useData()
+const axis = computed(() => frontmatter.value.axis || { total: 0, trial: {} })
+const trial = computed(() => axis.value.trial || {})
 </script>
 
-# Trials <Badge type="tip" :text="`${data.total} theorems`" />
+# Trials <Badge type="tip" :text="`${axis.total} theorems`" />
 
 > A claim is not trusted, it is tried — and the verdict recomputes.
 
@@ -31,17 +36,17 @@ honest scope). Or fold the whole ledger through it — below.
 Every theorem's content-address, folded **order-invariant** to **one** recomputable receipt. Change one theorem — or
 one bit of one proof — and the receipt moves. Recompute it yourself from this same tree with `npm run lean`.
 
-<p class="rcpt-big"><Handle :uuid="data.trial.receipt" /></p>
+<p class="rcpt-big"><Handle :uuid="trial.receipt" /></p>
 
-<FoldAnimation :receipt="data.trial.receipt" />
+<FoldAnimation :receipt="trial.receipt" />
 
 | field | value |
 | --- | --- |
-| theorems folded | {{ data.trial.count }} |
-| verified (proven in Lean) | {{ data.trial.verified }} |
-| lean-backed | {{ data.trial.leanBacked }} |
-| order-invariant | {{ data.trial.orderInvariant ? 'yes — any pairing folds to the same root' : 'no' }} |
-| sequential chain tip | <code>{{ data.trial.chainTip }}</code> |
+| theorems folded | {{ trial.count }} |
+| verified (proven in Lean) | {{ trial.verified }} |
+| lean-backed | {{ trial.leanBacked }} |
+| order-invariant | {{ trial.orderInvariant ? 'yes — any pairing folds to the same root' : 'no' }} |
+| sequential chain tip | <code>{{ trial.chainTip }}</code> |
 
 The fold folds every direction at once — forward, reverse, any pairing — and lands on the same root: that is the
 order-invariance the animation shows. The **chain tip** is the other reading: the same addresses folded *sequentially*,

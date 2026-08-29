@@ -1,0 +1,12 @@
+{
+  "handle": "9de372a8",
+  "address": "9de372a8-0b39-863d-a350-cb047ead008d",
+  "kind": "chunk",
+  "keys": [
+    "the_install_set_names_the_bytes_it_rests_on"
+  ],
+  "statement": "(rootfsNibbles.length = 64) ∧ (64 * 4 = 256) ∧ (rootfsNibbles.all (fun h => h < 16)) ∧ (releaseAddress.length = 32) ∧ (releaseAddress.all (fun h => h < 16))",
+  "files": [
+    "Installs.lean"
+  ]
+}

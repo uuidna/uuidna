@@ -10,7 +10,11 @@
 // the LINK — a theorem renamed, a wing emptied, a fact quietly dropped while the code that depends on it stays.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { theorems, axiomWitness, theoremNeighbours, theoremForms, cliqueEdges, statementCensus } from '../index.js'
+import {
+  theorems, axiomWitness, theoremNeighbours, theoremForms, cliqueEdges, statementCensus,
+  leanUuid,   hexbitDoorOf, coprime, starPolygon, fuseHalves, reactorOutput, gcd,
+  HEXBIT_BITS, HANDLE_HEXBITS, COIN_HEXBITS, UUID_HEXBITS, HEXBIT_STATES, COINS,
+} from '../index.js'
 
 const bySubstring = (needle: RegExp): { key: string; statement: string; file: string }[] =>
   theorems().filter((t) => needle.test(t.statement.replace(/\s+/g, '')))
@@ -81,11 +85,134 @@ test('theorems interact as geometric forms — cliques, C(n,2) edges, overlay ve
   assert.match(geo.receipt, /^[0-9a-f-]{36}$/)
 })
 
+test('imagine ALL theorems as forms — C(n,2) from the void through twelve, every key on a face', () => {
+  const all = theorems().find((t) => t.key === 'imagine_all_as_clique_faces')
+  assert.ok(all, 'the clique table on 0..12 must be a sealed theorem — otherwise only a few sizes were imagined')
+  assert.match(all!.statement.replace(/\s+/g, ''), /\[0,0,1,3,6,10,15,21,28,36,45,55,66\]/)
+  assert.match(all!.statement.replace(/\s+/g, ''), /12\*11\/2=66/)
+  const table = [...Array(13)].map((_, n) => cliqueEdges(n))
+  assert.deepEqual(table, [0, 0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66])
+  const T = theorems()
+  const geo = theoremForms()
+  assert.equal(geo.faces.reduce((s, f) => s + f.vertices, 0), T.length, 'every key sits on exactly one face')
+  assert.equal(geo.totalEdges, geo.faces.reduce((s, f) => s + f.edges, 0))
+  const principles = new Set(T.map((t) => t.principle))
+  assert.equal(geo.faces.length, principles.size, 'every principle is a face — none left unimagined')
+  for (const t of T) {
+    const n = theoremNeighbours(t.key)
+    const face = geo.faces.find((f) => f.principle === t.principle)
+    assert.ok(face, `${t.key} must belong to a face`)
+    assert.equal(n.principle, t.principle)
+    assert.equal(n.neighbours.length, face!.vertices - 1, `${t.key}: neighbours are the rest of its clique`)
+  }
+})
+
+test('each sealed theorem is entangled in all directions as fused hexbits — gaps are uncomputed theorems', () => {
+  // Researched names, not invented: entanglement_completes_one_at_a_time, axes_stride_coprime,
+  // the_fused_ring_is_all_ones, four_vectors_reach_the_uuid, gap_is_a_count, trial_computes_only_with_two_coins.
+  const sealed = (key: string) => {
+    const t = theorems().find((x) => x.key === key)
+    assert.ok(t, `${key} already seals this — do not mint a second name`)
+    return t!
+  }
+  sealed('entanglement_completes_one_at_a_time')
+  sealed('axes_stride_coprime')
+  sealed('the_fused_ring_is_all_ones')
+  sealed('four_vectors_reach_the_uuid')
+  sealed('gap_is_a_count')
+  sealed('trial_computes_only_with_two_coins')
+  sealed('message_cap_is_four_hexbits')
+  sealed('build_counts_in_hexbits')
+  sealed('rounding_fee_closes_the_cube')
+  sealed('served_qubit_ceiling')
+  sealed('keplers_harmonic_law')
+  sealed('discovery_buys_coverage_never_supply')
+  sealed('missing_pair_involution')
+
+  const fused = sealed('the_fused_ring_is_all_ones')
+  assert.match(fused.statement.replace(/\s+/g, ''), /63=32\+16\+8\+4\+2\+1/)
+  assert.equal(32 + 16 + 8 + 4 + 2 + 1, 63)
+  assert.equal(HEXBIT_BITS, 4)
+  assert.equal(HANDLE_HEXBITS, 8)
+  assert.equal(COIN_HEXBITS, 16)
+  assert.equal(UUID_HEXBITS, 32)
+  assert.notEqual(HEXBIT_BITS, HANDLE_HEXBITS)
+  assert.notEqual(HANDLE_HEXBITS, COIN_HEXBITS)
+  assert.notEqual(COIN_HEXBITS, UUID_HEXBITS)
+  const halves = fuseHalves()
+  assert.equal(halves.closes, true)
+  assert.equal(halves.half, COIN_HEXBITS)
+  assert.equal(halves.whole, UUID_HEXBITS)
+  assert.equal(halves.coins, COINS)
+
+  const T = theorems()
+  const n = T.length
+  for (const stride of [1, 7, 9]) {
+    assert.equal(coprime(stride, n), true, `axes_stride_coprime: stride ${stride} must leave no orphan on the live ledger`)
+    const star = starPolygon(n, stride)
+    assert.equal(star.single, true)
+    assert.equal(star.loops, 1)
+    assert.equal(star.stroke.length, n)
+  }
+  assert.equal(gcd(2, 8), 2, 'axes_stride_coprime discriminates: gcd(2,8)=2, not a covering stride')
+
+  const geo = theoremForms()
+  const cube = sealed('rounding_fee_closes_the_cube')
+  assert.match(cube.statement.replace(/\s+/g, ''), /16\^3=4096/)
+  assert.match(cube.statement.replace(/\s+/g, ''), /4096=64\*64/)
+  assert.equal(64 * 64, geo.cube, 'keplers_harmonic_law at the cube: T²=a³ is 64²=16³')
+  assert.equal(16 * 16 * 16, geo.cube)
+  assert.ok(n > 256, 'past 16², so the next 16^k is the cube')
+  assert.ok(n < geo.cube, 'the cube is not yet full — the gap is uncomputed theorems')
+  assert.equal(geo.gap, geo.cube - n, 'gap_is_a_count: predicted harmonic number minus live keys')
+  assert.ok(geo.gap > 0)
+  assert.equal(Object.prototype.hasOwnProperty.call(geo, 'missingKeys'), false,
+    'missing theorems reveal during computation as a count, not a roster of unsealed names')
+  const uncomputed = geo.faces.filter((f) => f.vertices === 1)
+  assert.equal(cliqueEdges(n) - cliqueEdges(n - 1), n - 1, 'entanglement_completes_one_at_a_time on the live count')
+  assert.equal((n * (n - 1)) % 2, 0)
+
+  for (let i = 0; i < n; i++) {
+    const t = T[i]!
+    const door = hexbitDoorOf(leanUuid(t.statement))
+    assert.equal(door.hexbits.length, UUID_HEXBITS, `${t.key}: a sealed theorem compiles to a complete uuid`)
+    assert.ok(door.hexbits.every((h) => h >= 0 && h < HEXBIT_STATES), `${t.key}: every hexbit is a nibble`)
+    assert.equal(door.handle.length, HANDLE_HEXBITS)
+    assert.equal(door.coin.length, COIN_HEXBITS)
+    assert.deepEqual(door.hexbits.slice(0, HANDLE_HEXBITS), [...door.handle].map((c) => parseInt(c, 16)))
+    assert.deepEqual(door.coin, door.hexbits.slice(0, COIN_HEXBITS))
+    const face = geo.faces.find((f) => f.principle === t.principle)
+    assert.ok(face)
+    const nb = theoremNeighbours(t.key)
+    assert.equal(nb.neighbours.length, face!.vertices - 1)
+    for (const stride of [1, 7, 9]) assert.ok(T[(i + stride) % n], `${t.key}: stride ${stride} lands on a theorem`)
+  }
+
+  const all = reactorOutput()
+  assert.equal(all.keys.length, n, 'fuse every sealed theorem — reactorOutput already names that')
+  assert.equal(all.conserves, true)
+  assert.equal(all.coins, COINS)
+  for (const face of uncomputed) {
+    const lone = T.find((t) => t.principle === face.principle)
+    assert.ok(lone)
+    const door = hexbitDoorOf(leanUuid(lone.statement))
+    assert.equal(door.hexbits.length, UUID_HEXBITS, `${lone.key}: uncomputed neighbours, not an incomplete uuid`)
+  }
+})
+
 test('the wing exists, is non-trivial, and every one of its theorems is kernel-only', () => {
   const wing = theorems().filter((t) => t.file === 'Sequence.lean')
   assert.ok(wing.length >= 20, `the sequence wing carries the subject — saw ${wing.length} theorems`)
   const w = axiomWitness()
   assert.equal(w.holds, true, 'the ledger must be axiom-free for a sealed sequence fact to mean anything')
+})
+
+test('the CRT wing exists, is decide, and the shipped witness covers it', () => {
+  const wing = theorems().filter((t) => t.file === 'Crt.lean')
+  assert.ok(wing.length > 0, `the CRT generator emitted a wing — saw ${wing.length}`)
+  assert.ok(wing.every((t) => t.tactic.includes('decide')))
+  const w = axiomWitness()
+  assert.equal(w.holds, true, 'CRT axiom-free: the shipped receipt covers the live ledger')
 })
 
 // THE CONTROL. A coverage test that cannot fail is not evidence — this proves the predicate discriminates.

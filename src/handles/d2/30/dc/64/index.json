@@ -1,0 +1,12 @@
+{
+  "handle": "d230dc64",
+  "address": "d230dc64-cea4-803b-8227-160a4bb98c1a",
+  "kind": "chunk",
+  "keys": [
+    "tritone_involution"
+  ],
+  "statement": "(List.range 12).all (fun p => ((p + 6) % 12 + 6) % 12 == p && (p + 6) % 12 != p)",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

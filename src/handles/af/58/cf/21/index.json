@@ -1,0 +1,12 @@
+{
+  "handle": "af58cf21",
+  "address": "af58cf21-e0c2-8e90-a9db-89519304a243",
+  "kind": "chunk",
+  "keys": [
+    "absorbed_evidence_idles"
+  ],
+  "statement": "([true, false].all (fun e => [true, false].all (fun c => ((!e || c) && (e || c)) == c))) = true",
+  "files": [
+    "Reasoning.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "2a26ffc7",
+  "address": "2a26ffc7-c2fc-87b3-8cf3-cb0f87730c5a",
+  "kind": "chunk",
+  "keys": [
+    "dj_balanced_cancels"
+  ],
+  "statement": "([1, 1, -1, -1] : List Int).sum = 0",
+  "files": [
+    "Quantum.lean"
+  ]
+}

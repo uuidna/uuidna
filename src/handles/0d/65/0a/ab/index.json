@@ -1,0 +1,12 @@
+{
+  "handle": "0d650aab",
+  "address": "0d650aab-c013-81ee-bab4-ef3be0dbd135",
+  "kind": "chunk",
+  "keys": [
+    "nim_four_powers"
+  ],
+  "statement": "lxor (lxor (lxor 1 2) 4) 8 = 15",
+  "files": [
+    "Nim.lean"
+  ]
+}

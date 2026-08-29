@@ -96,3 +96,11 @@ theorem ve_pentads_overlap_to_eight : (5 + 5 - 2 = 8) ∧ (10 - 2 = 8) ∧ (5 + 
     vertices (ve_pentads_overlap_to_eight). Re-namings are two labels on one vertex. The live census is
     theoremForms() and is not frozen here. SCOPE: incidence arithmetic of cliques and inclusion-exclusion. -/
 theorem theorems_interact_as_faces : (3 * 2 / 2 = 3) ∧ (4 * 3 / 2 = 6) ∧ (5 * 4 / 2 = 10) ∧ (5 + 5 - 2 = 8) ∧ (8 + 6 = 14) := by decide
+
+/-- IMAGINE ALL: every theorem is a vertex of a geometric form. C(n,2) = n(n−1)/2 from the void (n=0) through
+    the VE's twelve vertices — a lone theorem is a 1-clique (0 edges) and is still a form; a pair is an edge; a
+    triple is a triangle; five is the rung; twelve is the complete figure on the VE itself (12·11/2=66). The 8
+    triangles and 6 squares remain fourteen. theoremForms() walks every sealed key onto exactly one
+    principle-face; the live count is not frozen here. SCOPE: the clique table on 0..12 and 8+6=14; not a
+    drawing of the ledger. -/
+theorem imagine_all_as_clique_faces : ((List.range 13).map (fun n => n * (n - 1) / 2) = [0, 0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66]) ∧ (12 * 11 / 2 = 66) ∧ (8 + 6 = 14) := by decide

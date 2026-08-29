@@ -1,0 +1,12 @@
+{
+  "handle": "bad18230",
+  "address": "bad18230-8290-8369-b198-8f5618cf0c4f",
+  "kind": "chunk",
+  "keys": [
+    "self_inverse_mod_2_number_1"
+  ],
+  "statement": "((List.range 2).filter (fun x => (x * x) % 2 == 1)).length = 1",
+  "files": [
+    "Wave.lean"
+  ]
+}

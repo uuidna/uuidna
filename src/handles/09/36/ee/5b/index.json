@@ -1,0 +1,12 @@
+{
+  "handle": "0936ee5b",
+  "address": "0936ee5b-3885-8fd4-b73b-2310a7d13473",
+  "kind": "chunk",
+  "keys": [
+    "dz_zero_only_zero"
+  ],
+  "statement": "dz 0 = 0 ∧ (List.range' 1 9).all (fun x => dz x != 0)",
+  "files": [
+    "DivByZero.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e52628b7",
+  "address": "e52628b7-be0e-86ee-8739-29acdef7b83b",
+  "kind": "chunk",
+  "keys": [
+    "half_adder_correct"
+  ],
+  "statement": "[(0,0),(0,1),(1,0),(1,1)].all (fun p => lxor p.1 p.2 + 2 * (p.1 * p.2) == p.1 + p.2)",
+  "files": [
+    "Hardware.lean"
+  ]
+}

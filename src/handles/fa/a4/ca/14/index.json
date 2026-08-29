@@ -1,0 +1,14 @@
+{
+  "handle": "faa4ca14",
+  "address": "faa4ca14-4535-8f6b-807d-4792f0e84546",
+  "kind": "chunk",
+  "keys": [
+    "two_order_six",
+    "z9pow_2_6"
+  ],
+  "statement": "(2 ^ 6) % 9 = 1",
+  "files": [
+    "Ring.lean",
+    "Vortex.lean"
+  ]
+}

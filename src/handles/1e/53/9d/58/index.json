@@ -1,0 +1,12 @@
+{
+  "handle": "1e539d58",
+  "address": "1e539d58-3127-8013-adcb-3f0105b1c718",
+  "kind": "chunk",
+  "keys": [
+    "fifteen_satisfies_both"
+  ],
+  "statement": "((List.range 40).all (fun w => (w % 15 == 0) == (((6 * w) % 9 == 0) && ((6 * w) % 15 == 0)))) ∧ (90 % 15 = 0) ∧ (91 % 15 ≠ 0)",
+  "files": [
+    "Grid.lean"
+  ]
+}

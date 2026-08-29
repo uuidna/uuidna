@@ -1,0 +1,12 @@
+{
+  "handle": "f0cf6671",
+  "address": "f0cf6671-7748-8af3-bb85-610721dc9b0b",
+  "kind": "chunk",
+  "keys": [
+    "all_or_none_amplitude"
+  ],
+  "statement": "((List.range 10).map (fun s => if s >= 5 then 110 else 0) = [0,0,0,0,0,110,110,110,110,110]) ∧ ((List.range 10).map (fun s => 22 * s) ≠ [0,0,0,0,0,110,110,110,110,110]) ∧ ((List.range 10).map (fun s => 22 * s)).any (fun a => a != 0 && a != 110)",
+  "files": [
+    "Neuro.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4c082d26",
+  "address": "4c082d26-c5bf-87c5-8214-7af932c67ae8",
+  "kind": "chunk",
+  "keys": [
+    "sanitize_depth_bounded"
+  ],
+  "statement": "(32 = 2^5) ∧ (0 < 32)",
+  "files": [
+    "Audit.lean"
+  ]
+}

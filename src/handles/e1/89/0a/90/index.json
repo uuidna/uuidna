@@ -1,0 +1,12 @@
+{
+  "handle": "e1890a90",
+  "address": "e1890a90-a7a0-85ba-b229-b6a806a05917",
+  "kind": "chunk",
+  "keys": [
+    "song_verses_base_pair"
+  ],
+  "statement": "142857 + 857142 = 999999 ∧ 285714 + 714285 = 999999 ∧ 428571 + 571428 = 999999",
+  "files": [
+    "Song.lean"
+  ]
+}

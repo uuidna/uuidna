@@ -1,0 +1,12 @@
+{
+  "handle": "91b45c07",
+  "address": "91b45c07-3274-8359-80bd-a81e256b594a",
+  "kind": "chunk",
+  "keys": [
+    "units_are_coprime_six"
+  ],
+  "statement": "((List.range 9).filter (fun a => (List.range 9).any (fun c => (a * c) % 9 == 1)) = [1,2,4,5,7,8]) ∧ (!([1,2,4,5,7,8].contains 3))",
+  "files": [
+    "Affine.lean"
+  ]
+}

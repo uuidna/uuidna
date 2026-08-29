@@ -1,0 +1,12 @@
+{
+  "handle": "7a97c585",
+  "address": "7a97c585-ca45-8739-9e8e-fe6e2da56d2e",
+  "kind": "chunk",
+  "keys": [
+    "four_points_is_45"
+  ],
+  "statement": "(4 * 360 = 32 * 45) ∧ (4 * 360 = 1440) ∧ (45 + 45 = 90)",
+  "files": [
+    "Sailing.lean"
+  ]
+}

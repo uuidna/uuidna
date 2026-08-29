@@ -1,0 +1,12 @@
+{
+  "handle": "e62cc684",
+  "address": "e62cc684-48ab-8b3c-80c9-82781ea90272",
+  "kind": "chunk",
+  "keys": [
+    "mombh_quantum_hbeta_hgamma_are_balmer_lines"
+  ],
+  "statement": "(12398 * 160 - 4860 * 408 = 800) ∧ (800 < 1000) ∧ (12398 * 1000 - 4339 * 136 * 21 = 5816) ∧ (5816 < 12398)",
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

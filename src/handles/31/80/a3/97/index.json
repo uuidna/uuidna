@@ -1,0 +1,12 @@
+{
+  "handle": "3180a397",
+  "address": "3180a397-c783-82b0-b0cf-9bc3a7bb2b51",
+  "kind": "chunk",
+  "keys": [
+    "positions_exceed_uuid_space"
+  ],
+  "statement": "(2:Nat)^128 < 10^44",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

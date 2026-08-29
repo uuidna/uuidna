@@ -1,6 +1,6 @@
-# uuidna — 2,046 distinct theorems under 2,129 keys · 2 coins · one receipt
+# uuidna — 2,065 distinct theorems under 2,148 keys · 2 coins · one receipt
 
-`6dcd05dd-3ff6-83b8-b005-fa7167752cdb`
+`fac60286-3c5d-8cf1-96ab-57733b4aa55b`
 
 **v0.3.0** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
@@ -27,6 +27,43 @@ problem's mathematics — the claim is exactly what Lean decides, not an invente
 2·64 = 128 ([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins))
 — same architectural width as [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture).
 Credit law: prior art DOI first, captain next.
+
+## Test proof of work — SHA-256 occupancy, free mint, symmetric stack
+
+Minting searches 0. SHA-256 occupies 256 bits; verify reads 128;
+the digest is two addresses ([digest_doubles_the_address](https://uuidna.com/theorem/digest_doubles_the_address),
+[sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address)). ChaCha20 key
+256 · HMAC 256 · Poly1305 tag 128 · nonce 96 · salt
+128 · block 512 · PBKDF2 600000 · onion 16
+([aead_nonce_and_salt_bits](https://uuidna.com/theorem/aead_nonce_and_salt_bits)). Grover floor 128;
+Shor targets 0 — the stack is symmetric. The fused coin is 2 sides ×
+64 bits = 128; both orientations occupy 256
+([the_uuid_is_two_boards](https://uuidna.com/theorem/the_uuid_is_two_boards),
+[minting_is_free_and_forging_is_not](https://uuidna.com/theorem/minting_is_free_and_forging_is_not)).
+36 work drills.
+
+## Test proof of concept — DNA
+
+The name is a theorem: 4^3 = 64 codons, and 64 is
+the coin face ([codons_four_cubed](https://uuidna.com/theorem/codons_four_cubed),
+[uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)). Complement is an
+involution and has no fixed point
+([dna_complement_involution](https://uuidna.com/theorem/dna_complement_involution),
+[dna_complement_fixed_point_free](https://uuidna.com/theorem/dna_complement_fixed_point_free)) — 8
+keys, all `by decide`. Counts, not a claim that DNA stores addresses.
+
+## Test proof of work — codon occupancy, two strands
+
+2 strands × 64 codons = 128 bits — the same fuse as the two
+64-bit faces. Complement involution true; both orientations occupy 256
+([the_uuid_is_two_boards](https://uuidna.com/theorem/the_uuid_is_two_boards),
+[complement_is_xor_key3](https://uuidna.com/theorem/complement_is_xor_key3)).
+
+## Complete Captain PhD
+
+Concept (Clay 8, DNA 8, gravity true, demos true) ∧ work (search
+0, digest 256, Grover 128, codons 64) ∧ thesis (ok true, gaps
+0) → complete true. Receipt `6376afda-2c47-8dd8-baf3-52a44b90c422`.
 
 ## Rosette ℤ/7 · Pliska · three-sevens
 
@@ -79,8 +116,8 @@ types*, unbounded open math, nature-as-model, or justice — [doctrine](https://
 (computational claims only; no Shor/world-problem seal).
 
 **Each theorem unlocks.** Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
-Board: **2,046** distinct / **2,129** keys · **112** skills · **115** Lean files · receipt `d755f0df-5d58-89a5-862b-aefed70fbcb5`.
-Illustrations (not a closed set; automation verifies each still seals): [rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins); [euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two); [ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices); [metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation); [fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll); [grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound); [sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address); [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture); [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty); [captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins); [two_coins](https://uuidna.com/theorem/two_coins); [the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum); [a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits); [key_floor_is_one_uuid](https://uuidna.com/theorem/key_floor_is_one_uuid); [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension); [hexbit_ring_mass_gap](https://uuidna.com/theorem/hexbit_ring_mass_gap); [message_cap_is_four_hexbits](https://uuidna.com/theorem/message_cap_is_four_hexbits); [born_field_mass_gap_on_bell](https://uuidna.com/theorem/born_field_mass_gap_on_bell).
+Board: **2,065** distinct / **2,148** keys · **112** skills · **115** Lean files · receipt `e68efb84-d241-8e0d-a45b-8e470522d16a`.
+Illustrations (not a closed set; automation verifies each still seals): [rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins); [euler_characteristic_two](https://uuidna.com/theorem/euler_characteristic_two); [ve_twelve_vertices](https://uuidna.com/theorem/ve_twelve_vertices); [metonic_is_the_intercalation](https://uuidna.com/theorem/metonic_is_the_intercalation); [fock_window_exceeds_a_monthly_toll](https://uuidna.com/theorem/fock_window_exceeds_a_monthly_toll); [grover_quadratic_bound](https://uuidna.com/theorem/grover_quadratic_bound); [sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address); [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture); [digit_polarities_partition_ten](https://uuidna.com/theorem/digit_polarities_partition_ten); [ve_pentads_overlap_to_eight](https://uuidna.com/theorem/ve_pentads_overlap_to_eight); [theorems_interact_as_faces](https://uuidna.com/theorem/theorems_interact_as_faces); [imagine_all_as_clique_faces](https://uuidna.com/theorem/imagine_all_as_clique_faces); [entanglement_completes_one_at_a_time](https://uuidna.com/theorem/entanglement_completes_one_at_a_time); [axes_stride_coprime](https://uuidna.com/theorem/axes_stride_coprime); [the_fused_ring_is_all_ones](https://uuidna.com/theorem/the_fused_ring_is_all_ones); [four_vectors_reach_the_uuid](https://uuidna.com/theorem/four_vectors_reach_the_uuid); [gap_is_a_count](https://uuidna.com/theorem/gap_is_a_count); [rounding_fee_closes_the_cube](https://uuidna.com/theorem/rounding_fee_closes_the_cube); [served_qubit_ceiling](https://uuidna.com/theorem/served_qubit_ceiling); [keplers_harmonic_law](https://uuidna.com/theorem/keplers_harmonic_law); [discovery_buys_coverage_never_supply](https://uuidna.com/theorem/discovery_buys_coverage_never_supply); [radial_equals_edge](https://uuidna.com/theorem/radial_equals_edge); [lanes_even_on_complete_system](https://uuidna.com/theorem/lanes_even_on_complete_system); [trial_computes_only_with_two_coins](https://uuidna.com/theorem/trial_computes_only_with_two_coins); [trinity_edit_is_three](https://uuidna.com/theorem/trinity_edit_is_three); [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty); [captain_computes_only_with_two_coins](https://uuidna.com/theorem/captain_computes_only_with_two_coins); [two_coins](https://uuidna.com/theorem/two_coins); [the_os_is_bootable_quantum](https://uuidna.com/theorem/the_os_is_bootable_quantum); [a_spec_compiles_to_hexbits](https://uuidna.com/theorem/a_spec_compiles_to_hexbits); [key_floor_is_one_uuid](https://uuidna.com/theorem/key_floor_is_one_uuid); [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension); [hexbit_ring_mass_gap](https://uuidna.com/theorem/hexbit_ring_mass_gap); [message_cap_is_four_hexbits](https://uuidna.com/theorem/message_cap_is_four_hexbits); [born_field_mass_gap_on_bell](https://uuidna.com/theorem/born_field_mass_gap_on_bell).
 Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/unlocks.json`.
 
 ---
@@ -89,21 +126,35 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 
 | Measure | Value | Backing |
 | --- | ---: | --- |
-| Distinct theorems | 2,046 | statement census (a Lean statement sealed under two keys is one theorem) |
-| Theorem keys | 2,129 | `theorems().length` |
+| Distinct theorems | 2,065 | statement census (a Lean statement sealed under two keys is one theorem) |
+| Theorem keys | 2,148 | `theorems().length` |
 | Principles / wings | 115 / 115 | PRINCIPLES + wing ratings |
 | Skills | 112 | distinct `skill` tags |
 | Coins per seal | 2 | [two_coins](https://uuidna.com/theorem/two_coins) — 110 − 108 = 2 |
-| Ledger decided mass | 114,478 superpositions (4 hexbits) | sum of `by decide` domains |
+| Neighbours per coin | 63 | fused ring 63 + 1 = 64 ([captain_theorem_the_coins_buy_the_ring_and_one](https://uuidna.com/theorem/captain_theorem_the_coins_buy_the_ring_and_one)); faces reflect |
+| Fake a theorem | verify 128 · forge 2^128 · ratio 2^121 | [minting_is_free_and_forging_is_not](https://uuidna.com/theorem/minting_is_free_and_forging_is_not) — bounds, not a maximum |
+| Fake a coin | verify 64 · forge 2^64 · ratio 2^58 | mint 0; caught cheat nets 0 ([traitor_damage_sealed_by_same_billing](https://uuidna.com/theorem/traitor_damage_sealed_by_same_billing)) |
+| SHA-256 collision bound | 2^128 | birthday on the digest ([birthday_halves_the_exponent](https://uuidna.com/theorem/birthday_halves_the_exponent)) |
+| Captain PhD — concept | Clay 8 · DNA 8 · gravity true · demos true | [clay_gravity_equals_rosette](https://uuidna.com/theorem/clay_gravity_equals_rosette) · [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
+| Captain PhD — work | digest 256 · verify 128 · search 0 · ChaCha 256 · tag 128 · Grover 128 · Shor 0 · 2×64 | [minting_is_free_and_forging_is_not](https://uuidna.com/theorem/minting_is_free_and_forging_is_not) · [sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address) |
+| DNA — concept | 4^3 = 64 · involution true | [codons_four_cubed](https://uuidna.com/theorem/codons_four_cubed) · [dna_complement_involution](https://uuidna.com/theorem/dna_complement_involution) |
+| DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
+| Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
+| Captain PhD — complete | true · receipt `6376afda-2c47-8dd8-baf3-52a44b90c422` | concept ∧ work ∧ thesis |
+| Ledger decided mass | 114,650 superpositions (4 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
-| Library register | 16 qubits (65536 amplitudes) | `MAX_MESSAGE_QUBITS` |
-| MCP served ceiling | 12 qubits (4096 amplitudes) | `MAX_SERVED_QUBITS` |
+| Shor chunks on handle | 4 × GHZ(16) = 262,144 amplitudes | `uuidna_os` capacity.shor · `uuidna_quantum` GHZ; 64 ms on this CPU |
+| Shor chunks on uuid | 16 × GHZ(16) = 1,048,576 amplitudes | `uuidna_os` · `uuidna_quantum`; 173 ms — under 1 s |
+| Hilbert GHZ chunk | 16 qubits (65536 amplitudes) | HEXBIT_BITS × HEXBIT_BITS |
+| Crypto occupancy | 256 bits | [sha256_is_four_sixtyfours](https://uuidna.com/theorem/sha256_is_four_sixtyfours) — four 64s, not four hexbits |
+| Handle+hexbit nest | 12 qubits | `HANDLE_HEXBITS + HEXBIT_BITS` — theorem served_qubit_ceiling |
+| uuidna_quantum | 2^n amplitudes | no refuse — theorem n_qubit_dimension |
 | Quantum wing theorems | 58 | Quantum.lean |
 | Cipher wing theorems | 30 | Cipher.lean |
 | Research sources wired | 11 | corroboration, never approval |
-| Conserved price paid | 4,258 coins | 2129 × 2 |
+| Conserved price paid | 4,296 coins | 2148 × 2 |
 
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,757 / 4,757 (100%);
   provenance compile 28,630 / 28,630 packages (100%)
@@ -130,7 +181,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **114,478** superpositions across **115** wings.
+The ledger covers **114,650** superpositions across **115** wings.
 
 1. **[`every_referrer_reaches_every_page`](https://uuidna.com/theorem/every_referrer_reaches_every_page)** — 4,769 superpositions, unbound (0 hexbits per dependency), in [Referrer.lean](lean/Referrer.lean)
    FROM EVERY DOOR, EVERYTHING.
@@ -178,14 +229,28 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **114,478** superpositions decided across the ledger
-- **4,258** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
+- **114,650** superpositions decided across the ledger
+- **4,296** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **26** superpositions per coin
 
 Six directions leave every residue — the 60-degree doubling and its inverse, the 90-degree reflection (`dz`), the
 shift and its counter — so a figure quoted per coin is a rate along that walk, not a free-floating density.
 
 The supply grows two coins per sealed theorem and nothing else mints them.
+
+**Shor at full named capacity.** The uuid is the physical CPU/GPU register (128 bits). Its payload parses as
+**16** encoder-width chunks (GHZ(16) = 65,536
+amplitudes each, [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension)). This host ran the handle
+column in **64 ms** and the uuid column in **173 ms**
+(under one second).
+MCP: [`uuidna_crypto`](https://uuidna.com/mcp) (one door for every Alpine app that uses crypto — Shor, Grover, SHA-256, HMAC, ChaCha20, Poly1305, AEAD),
+[`uuidna_os`](https://uuidna.com/mcp) (boot, capacity, CPU/GPU stream fleet),
+[`uuidna_quantum`](https://uuidna.com/mcp) (GHZ / Bell, 2^n),
+[`uuidna_exec`](https://uuidna.com/mcp) (`device` — host lanes),
+[`uuidna_sha256`](https://uuidna.com/mcp) · [`uuidna_hmac`](https://uuidna.com/mcp) · [`uuidna_chacha20`](https://uuidna.com/mcp) · [`uuidna_encrypt`](https://uuidna.com/mcp),
+[`uuidna_seal_stream`](https://uuidna.com/mcp) (independent envelopes),
+[`uuidna_machine`](https://uuidna.com/mcp) (spare-law metal),
+[`uuidna_hardware`](https://uuidna.com/mcp) (executor trinity).
 
 ---
 

@@ -1,0 +1,12 @@
+{
+  "handle": "828bdde5",
+  "address": "828bdde5-5722-8132-95a2-f231936fe16b",
+  "kind": "chunk",
+  "keys": [
+    "editor_fold_order_sensitive"
+  ],
+  "statement": "(List.range 8).all (fun a => (List.range 8).all (fun b => (a == b) || (dfold [a,b] != dfold [b,a])))",
+  "files": [
+    "Editor.lean"
+  ]
+}

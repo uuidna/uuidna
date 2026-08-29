@@ -1,0 +1,12 @@
+{
+  "handle": "ab3edff7",
+  "address": "ab3edff7-4af9-8f38-9b8e-baccc36ee670",
+  "kind": "chunk",
+  "keys": [
+    "reverse_involutive"
+  ],
+  "statement": "([3, -5, 8] : List Int).reverse.reverse = [3, -5, 8]",
+  "files": [
+    "Production.lean"
+  ]
+}

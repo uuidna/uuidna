@@ -1,0 +1,12 @@
+{
+  "handle": "44aa0180",
+  "address": "44aa0180-17bb-885d-9ed5-b0ed157d0dfa",
+  "kind": "chunk",
+  "keys": [
+    "ppo2_window_of_life"
+  ],
+  "statement": "(List.Pairwise (· < ·) [16, 140, 160, 200]) ∧ (([16, 140, 160, 200] : List Nat).length = 4)",
+  "files": [
+    "Wave.lean"
+  ]
+}

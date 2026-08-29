@@ -1,0 +1,12 @@
+{
+  "handle": "2d193d81",
+  "address": "2d193d81-3b1c-80b9-a37f-24ffbbfbb635",
+  "kind": "chunk",
+  "keys": [
+    "thin_lens_equation"
+  ],
+  "statement": "10*30 + 10*15 = 15*30",
+  "files": [
+    "Optics.lean"
+  ]
+}

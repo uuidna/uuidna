@@ -1,0 +1,12 @@
+{
+  "handle": "35404bb5",
+  "address": "35404bb5-f69e-8edc-ab36-77c8bf33a0ad",
+  "kind": "chunk",
+  "keys": [
+    "the_os_is_bootable_quantum"
+  ],
+  "statement": "(bootPages.length = 26) ∧ (26 * 32 = 832) ∧ (bootPages.all (fun p => p.length = 32)) ∧ (bootPages.all (fun p => p.all (fun h => h < 16)))",
+  "files": [
+    "Installs.lean"
+  ]
+}

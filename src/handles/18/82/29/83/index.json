@@ -1,0 +1,12 @@
+{
+  "handle": "18822983",
+  "address": "18822983-23ae-845d-a134-60c2d0a6b52d",
+  "kind": "chunk",
+  "keys": [
+    "nilpotents_mod_18_number_3"
+  ],
+  "statement": "((List.range 18).filter (fun x => x ^ 18 % 18 == 0)).length = 3",
+  "files": [
+    "Wave.lean"
+  ]
+}

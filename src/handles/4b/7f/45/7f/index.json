@@ -1,0 +1,12 @@
+{
+  "handle": "4b7f457f",
+  "address": "4b7f457f-286c-8fdc-b17b-df9ca83bfd0b",
+  "kind": "chunk",
+  "keys": [
+    "solutions_not_skipped"
+  ],
+  "statement": "(List.range 4).all (fun a => (List.range 4).all (fun u => (List.range 4).all (fun r => a + (u + r) == a + u + r)))",
+  "files": [
+    "Legal.lean"
+  ]
+}

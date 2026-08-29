@@ -1,0 +1,12 @@
+{
+  "handle": "26fdf13d",
+  "address": "26fdf13d-15df-8b36-84ed-309c1a86fdbd",
+  "kind": "chunk",
+  "keys": [
+    "superposition_outcomes_to_64"
+  ],
+  "statement": "((List.range 7).map (fun n => 2^n)) = [1,2,4,8,16,32,64]",
+  "files": [
+    "Coins.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f67d1bd8",
+  "address": "f67d1bd8-454a-8651-ae20-c0f3598db549",
+  "kind": "chunk",
+  "keys": [
+    "backing_clears"
+  ],
+  "statement": "(List.range 8).all (fun n => (flag (n%2) (n/2%2) (n/4%2)) * (n/4%2) == 0)",
+  "files": [
+    "Audit.lean"
+  ]
+}

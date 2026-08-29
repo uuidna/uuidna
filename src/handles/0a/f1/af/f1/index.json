@@ -1,0 +1,12 @@
+{
+  "handle": "0af1aff1",
+  "address": "0af1aff1-7803-8032-838d-d077f45a11da",
+  "kind": "chunk",
+  "keys": [
+    "z7mul_0_5"
+  ],
+  "statement": "(0 * 5) % 7 = 0",
+  "files": [
+    "Rosette.lean"
+  ]
+}

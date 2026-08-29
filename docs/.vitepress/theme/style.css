@@ -207,7 +207,7 @@ code.rcpt {
 @media (max-width: 860px) { .mcp-grid { grid-template-columns: repeat(4, 1fr); } }
 @media (max-width: 480px) { .mcp-grid { grid-template-columns: repeat(2, 1fr); } }
 
-/* Every theorem card — border hover only (no lift, no shadow). */
+/* Every theorem card — border hover only (no lift, no shadow). Alpine apps share the same shadcn data-slot anatomy. */
 .uuidna-card { position: relative; transition: border-color .15s ease; }
 .uuidna-card:hover { border-color: var(--vp-c-brand-1); }
 @media (prefers-reduced-motion: reduce) { .uuidna-card { transition: none; } }

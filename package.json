@@ -38,6 +38,50 @@
     "./mcp": {
       "types": "./dist/mcp.d.ts",
       "import": "./dist/mcp.js"
+    },
+    "./crypto": {
+      "types": "./packages/crypto/dist/index.d.ts",
+      "import": "./packages/crypto/dist/index.js"
+    },
+    "./ledger": {
+      "types": "./packages/ledger/dist/index.d.ts",
+      "import": "./packages/ledger/dist/index.js"
+    },
+    "./research": {
+      "types": "./packages/research/dist/index.d.ts",
+      "import": "./packages/research/dist/index.js"
+    },
+    "./quantum": {
+      "types": "./packages/quantum/dist/index.d.ts",
+      "import": "./packages/quantum/dist/index.js"
+    },
+    "./edge": {
+      "types": "./packages/edge/dist/index.d.ts",
+      "import": "./packages/edge/dist/index.js"
+    },
+    "./os": {
+      "types": "./dist/quantum/os/npm.d.ts",
+      "import": "./dist/quantum/os/npm.js"
+    },
+    "./os/catalogue": {
+      "types": "./dist/quantum/os/catalogue.d.ts",
+      "import": "./dist/quantum/os/catalogue.js"
+    },
+    "./apps": {
+      "types": "./dist/quantum/apps/index.d.ts",
+      "import": "./dist/quantum/apps/index.js"
+    },
+    "./os/apps": {
+      "types": "./dist/os/apps/index.d.ts",
+      "import": "./dist/os/apps/index.js"
+    },
+    "./drivers": {
+      "types": "./dist/drivers/driver/index.d.ts",
+      "import": "./dist/drivers/driver/index.js"
+    },
+    "./drivers/quantum": {
+      "types": "./dist/drivers/quantum/index.d.ts",
+      "import": "./dist/drivers/quantum/index.js"
     }
   },
   "workspaces": [
@@ -51,7 +95,10 @@
     "README.md",
     "LICENSE",
     "reserved.uuidna",
-    "lean/axioms.json"
+    "lean/axioms.json",
+    "packages",
+    "mirror/alpine-catalogue.tsv",
+    "mirror/alpine-overlay.tsv"
   ],
   "sideEffects": false,
   "engines": {
@@ -74,6 +121,7 @@
     "lean": "npm run build && node dist/scripts/lean-all.js && npm run build && node dist/scripts/lean-heartbeats.js --sync && node dist/scripts/rosetta.js && node dist/scripts/gen-falsifiers.js && npm run build && node dist/scripts/one-receipt.js messaging && node dist/scripts/cube-memory.js && node dist/scripts/sync-changelog.js && node dist/scripts/stamp.js && node dist/scripts/gen-feed.js",
     "mcp": "node dist/mcp.js",
     "daemon": "npm run build && node dist/daemon.js",
+    "prepack": "npm run build:packages",
     "prepublishOnly": "npm run gate-all",
     "dev": "npm run build && vitepress dev docs",
     "preview": "vitepress preview docs",

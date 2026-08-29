@@ -38,6 +38,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-search-feed.js', args: [], note: 'most-searched queries ring Lean — new /search-feed route, freeze before handles audit' },
   { file: 'gen-seo-freeze.js', args: [], note: 'FINAL SEO URL freeze — route↔hexbit map; must precede gen-handles (which audits the seal)' },
   { file: 'gen-handles.js', args: [], note: 'the handles the chunks are cut from' },
+  { file: 'gen-handle-store.js', args: [], note: 'four-level src/handles from chunks + publication|page' },
   { file: 'gen-handle-chunks.js', args: [], note: 'the chunked handle payloads' },
   { file: 'gen-captain-claims.js', args: [], note: 'the captain claims' },
   // WAS DORMANT while its drain path stayed staged: docs/captain-claims-complete.json sat in DRAIN_PATHS with
@@ -66,7 +67,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-symphony.js', args: [], note: 'the ledger symphony — four movements from four sealed sources, minted in the listener\'s browser, alive with every seal' },
   { file: 'gen-evasion.js', args: [], note: 'the evasion ticker — the tricks with their finders and convicting seals, the tape folded live, the board singing its address' },
   { file: 'gen-apps.js', args: [], note: 'the store — shelves derived from the category registry itself' },
-  { file: 'gen-open-questions.js', args: [], note: 'the school of open doors — the unverified in topics, involution magnets attached, derived from the four springs (held, research, prose, search-feed)' },
+  { file: 'gen-open-questions.js', args: [], note: 'the school of open doors — the unverified in topics, involution magnets attached, derived from the springs (held, research, prose, search-feed, support-wave, axiom-hunt)' },
   { file: 'gen-referrer-song.js', args: [], note: 'the referrer song — the doors, the measured walk census, and the site cycle sounded; every claim a Referrer.lean seal' },
   { file: 'gen-store.js', args: [], note: 'the storefront — apps, games, books unified at /store, derived from each shelf' },
   { file: 'gen-os.js', args: [], note: 'the default install — every path\'s exact meaning from the committed Alpine mirror; every claim an Installs.lean seal' },

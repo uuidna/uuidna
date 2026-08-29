@@ -1,0 +1,12 @@
+{
+  "handle": "72a4be5a",
+  "address": "72a4be5a-ba3f-8b97-805b-e3c114e16e05",
+  "kind": "chunk",
+  "keys": [
+    "self_inverse_mod_10_number_2"
+  ],
+  "statement": "((List.range 10).filter (fun x => (x * x) % 10 == 1)).length = 2",
+  "files": [
+    "Wave.lean"
+  ]
+}

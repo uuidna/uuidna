@@ -1,0 +1,12 @@
+{
+  "handle": "47147476",
+  "address": "47147476-9889-8c1c-82eb-9db9352313a1",
+  "kind": "chunk",
+  "keys": [
+    "eratosthenes_fiftieth_circle"
+  ],
+  "statement": "3600 = 50 * 72",
+  "files": [
+    "Topography.lean"
+  ]
+}

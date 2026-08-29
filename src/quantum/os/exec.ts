@@ -9,6 +9,8 @@ import { INSTALLS_MIRROR } from './mirror.js'
 import { toUuid } from '../../address.js'
 import { bootOS, hexbitDoorOf, type InstallSpec } from './index.js'
 import { hostQuantumDevice } from '../../drivers/quantum/index.js'
+import { hostStreamFleet } from '../../os/host/index.js'
+import { GPU_POSTAGE_ADDRESSES } from '../../hardware/lanes/index.js'
 import { driverBundle } from '../../drivers/driver/index.js'
 import {
   execSessionStamp, resetExecSession, sessionAdd, sessionDel, sessionAdded, sessionHasPackage,
@@ -494,12 +496,15 @@ export function uuidnaExec(line: string): ExecResult {
     }
     case 'device': {
       const d = hostQuantumDevice()
+      const idle = hostStreamFleet(1)
+      const atPostage = hostStreamFleet(GPU_POSTAGE_ADDRESSES)
       emit([
         `device: ${d.platform}/${d.arch} · ${d.logical} logical cores`,
         `kind: ${d.kind}`,
         `simulable: ${d.simulableQubits} qubits (${d.simulableStates} states) · uuid hexbits: ${d.uuidHexbits}`,
+        `stream: ${idle.cpuWorkers} CPU lanes; GPU specified, on at ${GPU_POSTAGE_ADDRESSES} jobs → ${atPostage.total} lanes`,
         `witnesses: ${d.witnesses.length} sealed theorems · address ${d.deviceAddress}`,
-      ], { device: d })
+      ], { device: d, stream: { postage: GPU_POSTAGE_ADDRESSES, idle, atPostage } })
       break
     }
     case 'help': emit(['applets: ' + APPLETS.join(' '),

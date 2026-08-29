@@ -1,0 +1,12 @@
+{
+  "handle": "9615a44c",
+  "address": "9615a44c-94bf-8447-b67e-56dc100ee08d",
+  "kind": "chunk",
+  "keys": [
+    "signature_multiple_of_four"
+  ],
+  "statement": "[4,8,16,32].all (fun p => p % 4 == 0)",
+  "files": [
+    "Typesetting.lean"
+  ]
+}

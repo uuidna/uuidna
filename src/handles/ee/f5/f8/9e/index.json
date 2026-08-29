@@ -1,0 +1,12 @@
+{
+  "handle": "eef5f89e",
+  "address": "eef5f89e-a859-80d9-8841-4530e1d19716",
+  "kind": "chunk",
+  "keys": [
+    "divisors_of_13_number_2"
+  ],
+  "statement": "((List.range' 1 13).filter (fun k => 13 % k == 0)).length = 2",
+  "files": [
+    "Wave.lean"
+  ]
+}

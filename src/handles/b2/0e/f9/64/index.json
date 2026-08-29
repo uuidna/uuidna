@@ -1,0 +1,12 @@
+{
+  "handle": "b20ef964",
+  "address": "b20ef964-a33f-8218-8a1e-4af37d4e42de",
+  "kind": "chunk",
+  "keys": [
+    "the_grids_minute"
+  ],
+  "statement": "(60 * 60 = 3600) ∧ (60 = 2 * 30)",
+  "files": [
+    "Tesla.lean"
+  ]
+}

@@ -6,6 +6,7 @@ import { hexbitsOf as hexbitUnit, UUID_HEXBITS as HEXBIT_UUID } from '../hexbit/
 import { WING_DEFS, LEAN_LEDGER, PRINCIPLES, type LeanTheorem } from './generated.js'
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../address.js'
+import { coins } from '../captain/billing/index.js'
 
 export { PRINCIPLES }
 export type { LeanTheorem }
@@ -58,7 +59,7 @@ export function skillOf(key: string): string {
  *  `theorem k : s := by t` text) — for a JSON-LD `@id` that identifies the exact SOURCE TEXT a claim is checked
  *  against, distinct from `address`'s identity of the PROPOSITION. Two different addresses answer two different
  *  questions ("is this the same proposition" vs "is this the same literal line"), not a duplicate of one. */
-export interface Theorem extends LeanTheorem { lean: string; address: string; lineAddress: string; skill: string }
+export interface Theorem extends LeanTheorem { lean: string; address: string; lineAddress: string; skill: string; coins: number }
 
 const withDerived = (t: LeanTheorem): Theorem => {
   const lean = `theorem ${t.key} : ${t.statement} := by ${t.tactic}`
@@ -70,6 +71,8 @@ const withDerived = (t: LeanTheorem): Theorem => {
     // INLINE first: the skill authored in Lean (carried through the manifest → ledger). skillOf(key) is only the
     // migration fallback for theorems not yet annotated; once every theorem carries an inline skill it is retired.
     skill: t.skill ?? skillOf(t.key),
+    // Exact seal price — minting_is_two_per_theorem. coins() is the captain constructor, never a typed 2.
+    coins: coins(),
   }
 }
 
@@ -138,11 +141,17 @@ export function runTrial(): TrialResult {
  *  address (the proposition's identity) and lineAddress (the exact reconstructed Lean line's identity — see
  *  Theorem's own doc comment for why these are two different addresses, not one duplicated). Pass `{ skill }`
  *  to filter to one skill (the capability axis). */
-export function theorems(opts: { skill?: string } = {}): { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string; lean: string; address: string; lineAddress: string; cases?: number }[] {
+export function theorems(opts: { skill?: string } = {}): { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string; lean: string; address: string; lineAddress: string; cases?: number; coins: number }[] {
   const ts = opts.skill ? THEOREMS.filter((t) => t.skill === opts.skill) : THEOREMS
   // spread rather than re-listing: a field added to the ledger reaches consumers without an edit here,
   // which is how the measured `cases` went missing between the ledger and the reactor.
   return ts.map((t) => ({ ...t }))
+}
+
+/** theoremPrice(key) → the exact seal price of one theorem. Unsealed keys mint nothing. */
+export function theoremPrice(key: string): { key: string; coins: number } {
+  const t = theoremByKey().get(key)
+  return { key, coins: t ? t.coins : 0 }
 }
 
 // CONSOLIDATED INDICES over the immutable ledger — built ONCE at the source and reused everywhere, so no module

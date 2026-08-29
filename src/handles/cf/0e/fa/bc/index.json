@@ -1,0 +1,12 @@
+{
+  "handle": "cf0efabc",
+  "address": "cf0efabc-92f4-808f-aef0-743a7f5915c0",
+  "kind": "chunk",
+  "keys": [
+    "publish_gate_is_conjunction"
+  ],
+  "statement": "((true && true && true) = true) ∧ ((true && true && false) = false)",
+  "files": [
+    "Report.lean"
+  ]
+}

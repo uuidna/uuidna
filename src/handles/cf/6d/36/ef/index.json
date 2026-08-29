@@ -1,0 +1,12 @@
+{
+  "handle": "cf6d36ef",
+  "address": "cf6d36ef-f1e5-82c4-96b6-05e82ef7891c",
+  "kind": "chunk",
+  "keys": [
+    "full_stop_is_exact_doubling"
+  ],
+  "statement": "2^7 = 128",
+  "files": [
+    "Photography.lean"
+  ]
+}

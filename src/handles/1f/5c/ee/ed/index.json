@@ -1,0 +1,12 @@
+{
+  "handle": "1f5ceeed",
+  "address": "1f5ceeed-2b51-8c12-b555-63b1e2d87593",
+  "kind": "chunk",
+  "keys": [
+    "address_is_sixteen_bytes"
+  ],
+  "statement": "(32 / 2 = 16) ∧ (16 * 8 = 128) ∧ (32 * 4 = 128)",
+  "files": [
+    "Byte.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "dad1c330",
+  "address": "dad1c330-864b-8434-9d32-a6ea859a103a",
+  "kind": "chunk",
+  "keys": [
+    "bishop_stays_on_colour"
+  ],
+  "statement": "(1 + 1) % 2 = 0",
+  "files": [
+    "Chess.lean"
+  ]
+}

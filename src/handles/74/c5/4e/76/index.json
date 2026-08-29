@@ -1,0 +1,12 @@
+{
+  "handle": "74c54e76",
+  "address": "74c54e76-a401-812e-a156-1470fcedde67",
+  "kind": "chunk",
+  "keys": [
+    "epact_eleven_harmonised_by_meton"
+  ],
+  "statement": "(6 * 29 + 6 * 30 = 354) ∧ (365 - 354 = 11) ∧ (19 * 11 = 209) ∧ (7 * 30 - 209 = 1)",
+  "files": [
+    "Wave.lean"
+  ]
+}

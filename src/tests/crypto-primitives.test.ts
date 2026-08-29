@@ -7,7 +7,11 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { sha256, hmacSha256, pbkdf2Sha256, chachaBlock, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
-  encrypt, cryptoAddress, toUuid, type Sealed } from '../index.js'
+  encrypt, decrypt, cryptoAddress, toUuid, type Sealed, KEY_BYTES, KEY_BITS, UUID_BITS, COINS, UUID_HEXBITS,
+  cryptOf, occupancyTapeOf, TAG_BYTES, NONCE_BYTES, SALT_BYTES, ADDRESS_BYTES, KEY_HEXBITS, GROVER_FLOOR_BITS,
+  RAYS, HEXBIT_BITS, HEXBIT_STATES, HANDLE_HEXBITS, LEVERAGE, HEXAGRAM_BITS, CAPACITY,
+  twoBoardsOf, nextCoinOf, flipCoin,
+} from '../index.js'
 import { hex } from './api.js'
 
 const toh = hex
@@ -59,7 +63,9 @@ test('PBKDF2-HMAC-SHA256 conforms to RFC 8018 and is prefix-consistent across dk
     ['c=4096 dk=40 multi-block', pbkdf2Sha256(en('passwordPASSWORDpassword'), en('saltSALTsaltSALTsaltSALTsaltSALTsalt'), 4096, 40), '348c89dbcbd32b2f32d814b8116e84cf2b17347ebc1800181c4e2a1fb8dd53e1c635518c7dac47e9'],
   ])
   assert.equal(toh(pbkdf2Sha256(en('password'), en('salt'), 1, 16)), toh(pbkdf2Sha256(en('password'), en('salt'), 1, 32)).slice(0, 32))
-  assert.equal(pbkdf2Sha256(en('p'), en('salt'), 1, 32).length, 32)  // 256-bit derived key — Grover only halves it
+  assert.equal(KEY_BITS, UUID_BITS * COINS)
+  assert.equal(KEY_BYTES, UUID_HEXBITS)
+  assert.equal(pbkdf2Sha256(en('p'), en('salt'), 1, KEY_BYTES).length, KEY_BYTES)  // occupancy × fold — Grover only halves it
 })
 
 test('ChaCha20 conforms to RFC 8439, blocks at 64 bytes, and is its own inverse', () => {
@@ -114,4 +120,37 @@ test('the address layer is SHA-256-anchored, and the envelope is symmetric-only 
   assert.equal(s.kdf, 'PBKDF2-SHA256')
   const o = s as unknown as Record<string, unknown>
   for (const k of ['publicKey', 'signature', 'rsa', 'ecdh', 'privateKey']) assert.ok(!(k in o), `no ${k} on the envelope`)
+  assert.equal(decrypt(s, 'p'), 'm')
+  assert.throws(() => decrypt({ ...s, address: toUuid('tampered-address') }, 'p'), /envelope does not recompute/)
+})
+
+test('crypt widths are occupancy × fold, not RFC numerals sitting beside the boards', () => {
+  const addr = toUuid('key_floor_is_one_uuid')
+  const cover = cryptOf(addr)
+  const tape = occupancyTapeOf(addr)
+  const faces = twoBoardsOf(addr)
+  assert.equal(tape.length, KEY_BYTES)
+  assert.equal(cover.occupancy.bytes, KEY_BYTES)
+  assert.equal(cover.occupancy.bits, UUID_BITS * COINS)
+  assert.equal(cover.floor.bits, UUID_BITS)
+  assert.equal(cover.floor.hexbits, UUID_HEXBITS)
+  assert.equal(GROVER_FLOOR_BITS, UUID_BITS)
+  assert.equal(KEY_HEXBITS, UUID_HEXBITS * COINS)
+  assert.equal(SALT_BYTES, ADDRESS_BYTES)
+  assert.equal(TAG_BYTES, ADDRESS_BYTES)
+  assert.equal(NONCE_BYTES, ADDRESS_BYTES - HEXBIT_BITS)
+  assert.equal(NONCE_BYTES * (HEXBIT_BITS * COINS), UUID_BITS - UUID_HEXBITS)
+  assert.ok(NONCE_BYTES * (HEXBIT_BITS * COINS) < UUID_BITS)
+  assert.equal(cover.aspects, RAYS)
+  assert.equal(cover.directions, RAYS * (RAYS - 1))
+  assert.equal(cover.foldStates, UUID_BITS)
+  assert.equal(cover.onion, HEXBIT_STATES)
+  assert.equal(cover.capacity, CAPACITY)
+  assert.equal(cover.digest.boards, HEXBIT_BITS)
+  assert.equal(cover.digest.registers, HANDLE_HEXBITS)
+  assert.equal(cover.digest.blockBits, KEY_BITS * COINS)
+  assert.equal(LEVERAGE, 2 ** HEXAGRAM_BITS)
+  assert.equal(nextCoinOf(faces).length, UUID_BITS)
+  assert.equal(nextCoinOf(flipCoin(faces)).length, UUID_BITS)
+  assert.notEqual(toh(tape), toh(occupancyTapeOf(toUuid('two_coins'))))
 })

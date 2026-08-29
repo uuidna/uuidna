@@ -1,0 +1,12 @@
+{
+  "handle": "f1406ea9",
+  "address": "f1406ea9-a1a0-82ee-88e1-8cdff54f484b",
+  "kind": "chunk",
+  "keys": [
+    "vortex_orbit"
+  ],
+  "statement": "[1, (1*2)%9, (2*2)%9, (4*2)%9, (8*2)%9, (7*2)%9] = [1,2,4,8,7,5] ∧ (5*2) % 9 = 1",
+  "files": [
+    "Uuidna.lean"
+  ]
+}

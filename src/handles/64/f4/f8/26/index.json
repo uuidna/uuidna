@@ -1,0 +1,12 @@
+{
+  "handle": "64f4f826",
+  "address": "64f4f826-db09-8196-9774-6ce88918b768",
+  "kind": "chunk",
+  "keys": [
+    "agonist_antagonist_cancels"
+  ],
+  "statement": "(4 : Int) + (-4) = 0",
+  "files": [
+    "Harmony.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "edfbb938",
+  "address": "edfbb938-4cb6-8515-aabc-92069bdba711",
+  "kind": "chunk",
+  "keys": [
+    "dead_reckoning_adds"
+  ],
+  "statement": "([4, 3, -2] : List Int).sum = 5",
+  "files": [
+    "Navigation.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3a8c6eed",
+  "address": "3a8c6eed-93ad-8455-8301-ccf35af4d5dd",
+  "kind": "chunk",
+  "keys": [
+    "adjacent_steps_beat_at_the_tuning"
+  ],
+  "statement": "(List.range' 1 14).all (fun a => 432*(a+1) - 432*a == 432)",
+  "files": [
+    "Referrer.lean"
+  ]
+}

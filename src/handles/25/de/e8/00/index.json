@@ -1,0 +1,12 @@
+{
+  "handle": "25dee800",
+  "address": "25dee800-e165-8d14-a25f-0f7136a97436",
+  "kind": "chunk",
+  "keys": [
+    "stirling_block_census_obeys_its_recurrence"
+  ],
+  "statement": "((List.range 4).foldl (fun p _ => let nxt := (p.2.map (fun r => (List.range (r.foldl Nat.max 0 + 2)).map (fun v => r ++ [v]))).flatten; (p.1 ++ [(List.range' 1 5).map (fun k => (nxt.filter (fun r => r.foldl Nat.max 0 + 1 == k)).length)], nxt)) ([[1,0,0,0,0]], [([0] : List Nat)])).1 = [[1,0,0,0,0],[1,1,0,0,0],[1,3,1,0,0],[1,7,6,1,0],[1,15,25,10,1]] ∧ (List.range' 1 4).all (fun i => (List.range 5).all (fun j => let T : List (List Nat) := [[1,0,0,0,0],[1,1,0,0,0],[1,3,1,0,0],[1,7,6,1,0],[1,15,25,10,1]]; let row := (T.drop i).headD []; let prev := (T.drop (i-1)).headD []; ((row.drop j).headD 0) == (j+1) * ((prev.drop j).headD 0) + (if j == 0 then 0 else (prev.drop (j-1)).headD 0)))",
+  "files": [
+    "Wave.lean"
+  ]
+}

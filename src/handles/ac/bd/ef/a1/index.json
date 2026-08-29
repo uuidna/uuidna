@@ -1,0 +1,12 @@
+{
+  "handle": "acbdefa1",
+  "address": "acbdefa1-cd32-847b-82c4-0bc59fec3a9c",
+  "kind": "chunk",
+  "keys": [
+    "cubes_mod_8_number_5"
+  ],
+  "statement": "(((List.range 8).map (fun x => (x * x * x) % 8)).eraseDups).length = 5",
+  "files": [
+    "Wave.lean"
+  ]
+}

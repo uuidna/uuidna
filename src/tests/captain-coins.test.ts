@@ -15,7 +15,7 @@ test('boundaries are top-level conjuncts — depth-aware, at least one', () => {
 test('the floor is the two coins: one boundary, two directions — the valuation and conservation laws agree', () => {
   const v = theoremCoins('two_coins', '2 = 2')
   assert.equal(v.boundaries, 1)
-  assert.equal(v.directions, 2, 'one coin for each direction — forward and contra')
+  assert.equal(v.directions, coins(), 'one coin for each direction — forward and contra')
   assert.equal(v.uses, 0)
   assert.equal(v.coinValue, coins(), 'the simplest unused theorem is worth exactly the two coins')
 })
@@ -30,10 +30,10 @@ test('the more used a theorem, the more valuable: each citation walks its bounda
   const userTwo = L.valued.find((v) => v.key === 'user_two')
   assert.ok(floorLaw && userTwo)
   assert.equal(floorLaw.uses, 2, 'cited by two other entries')
-  assert.equal(floorLaw.coinValue, 1 * 2 * 3, 'one boundary × two directions × (1 + 2 uses) = 6 coins')
+  assert.equal(floorLaw.coinValue, 1 * coins() * 3, 'one boundary × two directions × (1 + 2 uses) = 6 coins')
   assert.equal(userTwo.coinValue, 2, 'unused single boundary rests at the floor')
   assert.ok(floorLaw.coinValue > userTwo.coinValue, 'the more used, the more valuable')
-  assert.equal(L.totalCoins, L.superpositions * 2, 'the total stays superpositions × 2 — uses weight the superpositions')
+  assert.equal(L.totalCoins, L.superpositions * coins(), 'the total stays superpositions × coins() — uses weight the superpositions')
 })
 
 test('the more dimensions, the more coins: a theorem used across distinct domains multiplies its value', () => {
@@ -78,8 +78,8 @@ test('the ledger valued: total coins = superpositions × 2, recomputable and det
   const T = theorems()
   const L = ledgerCoins(T)
   assert.equal(L.theorems, T.length, 'every sealed theorem is valued')
-  assert.equal(L.totalCoins, L.superpositions * 2, 'the total coins are the superpositions times 2')
+  assert.equal(L.totalCoins, L.superpositions * coins(), 'the total coins are the superpositions times coins()')
   assert.ok(L.superpositions >= L.theorems, 'every theorem covers at least one boundary')
-  assert.equal(L.floor, 2)
+  assert.equal(L.floor, coins())
   assert.equal(ledgerCoins(T).receipt, L.receipt, 'the valuation recomputes to the same receipt for anyone')
 })

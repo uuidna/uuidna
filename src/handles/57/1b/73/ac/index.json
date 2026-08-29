@@ -1,0 +1,12 @@
+{
+  "handle": "571b73ac",
+  "address": "571b73ac-7020-8572-b6bc-057049f8e3ea",
+  "kind": "chunk",
+  "keys": [
+    "translation_is_lossy"
+  ],
+  "statement": "4^3 > 21",
+  "files": [
+    "Cipher.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "15e5de2e",
+  "address": "15e5de2e-2767-897c-b8dc-e6b13a2ea47b",
+  "kind": "chunk",
+  "keys": [
+    "pentagram_step_coprime_five"
+  ],
+  "statement": "Nat.gcd 2 5 = 1",
+  "files": [
+    "Pentagram.lean"
+  ]
+}

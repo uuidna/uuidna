@@ -1,0 +1,12 @@
+{
+  "handle": "e395b901",
+  "address": "e395b901-72e5-8da5-b833-d14b9c287d70",
+  "kind": "chunk",
+  "keys": [
+    "defence_layers_add_bits"
+  ],
+  "statement": "64 + 64 = 128",
+  "files": [
+    "Security.lean"
+  ]
+}

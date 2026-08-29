@@ -1,0 +1,12 @@
+{
+  "handle": "57220aee",
+  "address": "57220aee-dfa1-8e21-8c72-4b27211239f9",
+  "kind": "chunk",
+  "keys": [
+    "powers_of_two_are_the_substance"
+  ],
+  "statement": "((2:Nat)^4 = 16 ∧ (2:Nat)^5 = 32 ∧ (2:Nat)^7 = 128 ∧ (2:Nat)^16 = 65536) ∧ ((2:Nat)^3 < 9 ∧ 9 < 2^4) ∧ ((2:Nat)^3 < 10 ∧ 10 < 2^4)",
+  "files": [
+    "Alignment.lean"
+  ]
+}

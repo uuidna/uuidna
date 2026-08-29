@@ -1,0 +1,12 @@
+{
+  "handle": "7c3ed2ba",
+  "address": "7c3ed2ba-92d0-8ffb-8187-c6b5d0afa667",
+  "kind": "chunk",
+  "keys": [
+    "the_comma_hides_below_hearing"
+  ],
+  "statement": "(1000 * 7153 / 524288 = 13) ∧ (13 / 12 = 1) ∧ (1 < 6)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c88788ce",
+  "address": "c88788ce-6077-8f33-bf8e-0e37e44eae56",
+  "kind": "chunk",
+  "keys": [
+    "trust_by_recomputation"
+  ],
+  "statement": "(List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]) ∧ (List.foldl (fun a b => a + b) 0 [1,2,3,4] ≠ List.foldl (fun a b => a + b) 0 [1,2,3,5])",
+  "files": [
+    "Reasoning.lean"
+  ]
+}

@@ -25,22 +25,38 @@ features:
     details: Pliska ℤ/7 — [`z7rays_seven`](/theorem/z7rays_seven) · [`pliska_seven_rays`](/theorem/pliska_seven_rays) · [`three_sevens_twentyone`](/theorem/three_sevens_twentyone). Glagolitic computes in 7; letters fold to 9 ([`glagolitic_units_sum`](/theorem/glagolitic_units_sum)); digit×self = mul9 + [`vortex_orbit`](/theorem/vortex_orbit) + [`digital_root`](/theorem/digital_root).
     link: /rosetta
   - title: Quantum
-    details: Hexbit 16-state tiles · 128=2^7 address ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture)) vs ℤ/9 root — distinct rings, CRT joins ([`crt_pairs_are_a_bijection`](/theorem/crt_pairs_are_a_bijection)). Usable gap 2^80 — [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty). Capacity door only.
+    details: Hexbit 16-state tiles · 128=2^7 address ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture)) vs ℤ/9 root — distinct rings, CRT joins ([`crt_pairs_are_a_bijection`](/theorem/crt_pairs_are_a_bijection)). Usable gap 2^80 — [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty). Doors: [`uuidna_os`](/mcp) · [`uuidna_quantum`](/mcp).
     link: /quantum
 ---
 
 ## Live system status — computed, not typed
 
 <script setup>
-import { data } from './.vitepress/ledger.data'
+import { computed } from 'vue'
+import { useData } from 'vitepress'
+
+const { frontmatter } = useData()
+const census = computed(() => frontmatter.value.census || { theorems: 0, principles: 0, skills: 0, shor: null, tamper: null, phd: null })
 </script>
 
 | | |
 | --- | --- |
-| **Theorems sealed** | {{ data.total }} — every one `by decide`, recomputed each build from the ledger |
-| **Clusters** | {{ data.groups.length }} — each with its audited monograph (`/publications`) |
-| **Skills** | {{ data.skillGroups.length }} — the topics axis (`/topics`), mined from the keys |
+| **Theorems sealed** | {{ census.theorems }} — every one `by decide`, recomputed each build from the ledger |
+| **Principles** | {{ census.principles }} — each with its audited publication (`/publications`) |
+| **Skills** | {{ census.skills }} — the topics axis (`/topics`), mined from the keys |
 | **Coins conserved** | 2 — [`two_coins`](/theorem/two_coins) (110 − 108 = −χ of the double torus) |
+| **Each coin's neighbours** | {{ census.tamper && census.tamper.neighbours }} — fused ring ([`captain_theorem_the_coins_buy_the_ring_and_one`](/theorem/captain_theorem_the_coins_buy_the_ring_and_one)); the two 64-bit faces reflect |
+| **Fake a theorem** | verify {{ census.tamper && census.tamper.theoremVerify }} · forge 2^{{ census.tamper && census.tamper.theoremForgeExponent }} · ratio 2^{{ census.tamper && census.tamper.theoremRatioExponent }} — [`minting_is_free_and_forging_is_not`](/theorem/minting_is_free_and_forging_is_not) |
+| **Fake a coin** | verify {{ census.tamper && census.tamper.coinVerify }} · forge 2^{{ census.tamper && census.tamper.coinForgeExponent }} · ratio 2^{{ census.tamper && census.tamper.coinRatioExponent }} — mint {{ census.tamper && census.tamper.mint }}; caught cheat nets {{ census.tamper && census.tamper.traitorNet }} ([`traitor_damage_sealed_by_same_billing`](/theorem/traitor_damage_sealed_by_same_billing)) |
+| **SHA-256 collision bound** | 2^{{ census.tamper && census.tamper.sha256CollisionExponent }} — birthday on the digest, a ceiling not a maximum |
+| **Captain PhD — concept** | Clay {{ census.phd && census.phd.clay }} `by decide` · gravity {{ census.phd && census.phd.gravity }} · demos {{ census.phd && census.phd.demos }} · DNA {{ census.phd && census.phd.dna }} keys · name {{ census.phd && census.phd.dnaName }} — [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) · [`uuidna_is_dna_times_the_two_coins`](/theorem/uuidna_is_dna_times_the_two_coins) |
+| **Captain PhD — work** | SHA-256 {{ census.phd && census.phd.digestBits }} · verify {{ census.phd && census.phd.verifyBits }} · mint search {{ census.phd && census.phd.search }} · ChaCha {{ census.phd && census.phd.keyBits }} · Poly1305 {{ census.phd && census.phd.tagBits }} · Grover {{ census.phd && census.phd.groverFloor }} · Shor targets {{ census.phd && census.phd.shorTargets }} · {{ census.phd && census.phd.sides }} sides × {{ census.phd && census.phd.faceBits }} = {{ census.phd && census.phd.verifyBits }} · occupancy {{ census.phd && census.phd.occupancyBits }} — [`minting_is_free_and_forging_is_not`](/theorem/minting_is_free_and_forging_is_not) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) |
+| **DNA — concept** | {{ census.phd && census.phd.bases }}^{{ census.phd && census.phd.frame }} = {{ census.phd && census.phd.codons }} codons · complement involution {{ census.phd && census.phd.complementInvolution }} — [`codons_four_cubed`](/theorem/codons_four_cubed) · [`dna_complement_involution`](/theorem/dna_complement_involution) |
+| **DNA — work** | {{ census.phd && census.phd.strands }} strands × {{ census.phd && census.phd.codons }} = {{ census.phd && census.phd.verifyBits }} · same face as the coin ([`uuidna_is_dna_times_the_two_coins`](/theorem/uuidna_is_dna_times_the_two_coins)) |
+| **Thesis wave** | {{ census.phd && census.phd.thesisDrills }} / {{ census.phd && census.phd.thesisRequired }} VE · wave involution · finite-infinity seals drilled |
+| **Captain PhD — complete** | {{ census.phd && census.phd.complete }} · thesis {{ census.phd && census.phd.thesisOk }} · receipt `{{ census.phd && census.phd.receipt }}` |
+| **Shor full use** | {{ census.shor && census.shor.uuidChunks }} × GHZ({{ census.shor && census.shor.chunkQubits }}) = {{ census.shor && census.shor.uuidStates.toLocaleString('en-US') }} amplitudes · handle {{ census.shor && census.shor.handleMs }} ms · uuid {{ census.shor && census.shor.uuidMs }} ms ({{ census.shor && census.shor.underSecond ? 'under 1 s' : 'over 1 s' }}) — [`uuidna_os`](/mcp) · [`uuidna_quantum`](/mcp) |
+| **MCP doors** | [`uuidna_crypto`](/mcp) Alpine apps using crypto · [`uuidna_os`](/mcp) boot + capacity + stream fleet · [`uuidna_quantum`](/mcp) GHZ/Bell · [`uuidna_exec`](/mcp) `device` · [`uuidna_sha256`](/mcp) · [`uuidna_encrypt`](/mcp) · [`uuidna_seal_stream`](/mcp) · [`uuidna_machine`](/mcp) · [`uuidna_hardware`](/mcp) — catalog [/mcp](/mcp) |
 
 These numbers are read from the sealed ledger at build time — the page cannot say more than the ledger proves.
 

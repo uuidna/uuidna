@@ -1,0 +1,12 @@
+{
+  "handle": "47016742",
+  "address": "47016742-967c-89a0-95fe-2a45751f6626",
+  "kind": "chunk",
+  "keys": [
+    "market_tides_and_the_strategy_bar"
+  ],
+  "statement": "(6 * 60 + 30 = 390) ∧ (12 / 3 = 4) ∧ (390 / 2 = 195)",
+  "files": [
+    "Universe.lean"
+  ]
+}

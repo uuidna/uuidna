@@ -1,0 +1,12 @@
+{
+  "handle": "98a53377",
+  "address": "98a53377-509d-8a01-bb9c-43534016f8b3",
+  "kind": "chunk",
+  "keys": [
+    "squares_mod_6_number_4"
+  ],
+  "statement": "(((List.range 6).map (fun x => (x * x) % 6)).eraseDups).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

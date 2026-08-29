@@ -1,0 +1,16 @@
+{
+  "handle": "7123bed9",
+  "address": "7123bed9-53bc-83b0-8793-7903932e708e",
+  "kind": "chunk",
+  "keys": [
+    "mul9_6_6",
+    "six_sq_zero",
+    "z9mul_6_6"
+  ],
+  "statement": "(6 * 6) % 9 = 0",
+  "files": [
+    "Core.lean",
+    "Ring.lean",
+    "Vortex.lean"
+  ]
+}

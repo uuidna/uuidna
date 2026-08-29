@@ -1,0 +1,12 @@
+{
+  "handle": "0604e89a",
+  "address": "0604e89a-de54-820e-a4e4-5b7736675395",
+  "kind": "chunk",
+  "keys": [
+    "light_speed_rounds_to_300000"
+  ],
+  "statement": "(300000000 - 299792458 = 207542) ∧ (3 % 9 = 3)",
+  "files": [
+    "Spectrum.lean"
+  ]
+}

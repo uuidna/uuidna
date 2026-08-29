@@ -1,0 +1,12 @@
+{
+  "handle": "d95ae368",
+  "address": "d95ae368-b174-8adb-8ef7-6a434c8920c7",
+  "kind": "chunk",
+  "keys": [
+    "leap_year_shifts_two"
+  ],
+  "statement": "366 % 7 = 2",
+  "files": [
+    "Calendar.lean"
+  ]
+}

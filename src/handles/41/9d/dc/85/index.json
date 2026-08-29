@@ -1,0 +1,12 @@
+{
+  "handle": "419ddc85",
+  "address": "419ddc85-3326-86f7-848f-f91d34325b2c",
+  "kind": "chunk",
+  "keys": [
+    "words_stand_three_apart"
+  ],
+  "statement": "(words.all (fun a => words.all (fun b => (a == b) || (wt (lxor a b) ≥ 3)))) ∧ (3 ≠ 2)",
+  "files": [
+    "Hamming.lean"
+  ]
+}

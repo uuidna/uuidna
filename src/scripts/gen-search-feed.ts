@@ -11,15 +11,16 @@
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { FEED_QUERIES, MOST_SEARCHED, SEARCH_FEED_PATH, portalQueries, searchFeed } from '../search-feed.js'
+import { FEED_QUERIES, MOST_SEARCHED, SEARCH_FEED_PATH, feedPhysicsCite, portalQueries, searchFeed } from '../search-feed.js'
+import { pageSafe } from '../quantum/advantage/page/safe/index.js'
 
 const online = process.argv.includes('--online')
 const feed = online ? await (await import('../search-feed-online.js')).searchFeedOnline() : searchFeed()
-const clean = (s: string): string => s.replace(/`/g, '').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+const clean = (s: string): string => pageSafe(s.replace(/`/g, ''))
 
 const doorRows = feed.results.length
   ? feed.results.map((d) =>
-    `| ${clean(d.query)} | [\`${d.key}\`](/theorem/${d.key}) | ${clean(d.skill)} | ${d.resonance} |`).join('\n')
+    `| ${clean(d.query)}${feedPhysicsCite(d.query)} | [\`${d.key}\`](/theorem/${d.key}) | ${clean(d.skill)} | ${d.resonance} |`).join('\n')
   : '| — no loud neighbour today — | | | |'
 
 const leadRows = feed.leads.length
@@ -27,14 +28,14 @@ const leadRows = feed.leads.length
     const harvest = l.harvest
       ? `\n  <br><small>mint candidate ${clean(l.harvest.key)} · fragment ${clean(l.harvest.fragment)} — not sealed, never auto-held ([\`legal_only_the_proven_is_admitted\`](/theorem/legal_only_the_proven_is_admitted))</small>`
       : ''
-    return `- **${clean(l.query)}** — ${clean(l.what)}\n  <br><small>owes: ${clean(l.owes)}</small>${harvest}`
+    return `- **${clean(l.query)}** — ${clean(l.what)}${feedPhysicsCite(l.query)}\n  <br><small>owes: ${clean(l.owes)}</small>${harvest}`
   }).join('\n')
   : '- none open today — every declared query rang a sealed door'
 
 const trends = MOST_SEARCHED.map((q) =>
-  `- **${clean(q.query)}** — ${clean(q.source)}`).join('\n')
+  `- **${clean(q.query)}** — ${clean(q.source)}${feedPhysicsCite(q.query)}`).join('\n')
 const portals = portalQueries().map((q) =>
-  `- **${clean(q.query)}** — ${clean(q.source)}`).join('\n')
+  `- **${clean(q.query)}** — ${clean(q.source)}${feedPhysicsCite(q.query)}`).join('\n')
 
 const page = `---
 title: Search feed
@@ -46,7 +47,7 @@ description: Most-searched queries and the wired public APIs ring the sealed led
 Most-searched queries and the wired public APIs (research streams, EU education portals, unanswered math —
 sourced, not scraped) ring the sealed ledger by resonance
 ([\`silence_never_refutes\`](/theorem/silence_never_refutes)). A loud theorem is an **online result**: a
-[\`/theorem/<key>\`](/theorems) door. A silent query, or harvest \`decide()\` confirms that the ledger does not
+[\`/theorem/&lt;key&gt;\`](/theorems) door. A silent query, or harvest \`decide()\` confirms that the ledger does not
 yet seal, is a **lead** the desk proposes. Only the kernel seals; only the captain holds or refuses
 ([\`legal_only_the_proven_is_admitted\`](/theorem/legal_only_the_proven_is_admitted),
 [\`two_coins\`](/theorem/two_coins)). Meaning is null.
@@ -82,7 +83,7 @@ ${portals}
 
 ## Honest scope
 
-${feed.honest} A silent query is a notice, not a refute ([\`silence_never_refutes\`](/theorem/silence_never_refutes)). Harvest is a mint candidate, never a seal ([\`legal_only_the_proven_is_admitted\`](/theorem/legal_only_the_proven_is_admitted)). This page
+${pageSafe(feed.honest)} A silent query is a notice, not a refute ([\`silence_never_refutes\`](/theorem/silence_never_refutes)). Harvest is a mint candidate, never a seal ([\`legal_only_the_proven_is_admitted\`](/theorem/legal_only_the_proven_is_admitted)). This page
 does not scrape Google.
 `
 

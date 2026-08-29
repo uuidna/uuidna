@@ -1,0 +1,12 @@
+{
+  "handle": "639b37d1",
+  "address": "639b37d1-1891-80c8-a019-0873b9474061",
+  "kind": "chunk",
+  "keys": [
+    "four_vectors_reach_the_uuid"
+  ],
+  "statement": "(4 * 32 = 128) ∧ (7 * 32 = 224) ∧ (224 > 128) ∧ ((List.range' 1 7).all (fun v => (decide (v * 32 >= 128)) == (decide (v >= 4))))",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

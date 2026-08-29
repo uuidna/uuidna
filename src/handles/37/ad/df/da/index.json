@@ -1,0 +1,12 @@
+{
+  "handle": "37addfda",
+  "address": "37addfda-6f0d-80cd-bdef-8e5035580888",
+  "kind": "chunk",
+  "keys": [
+    "chi_all_three_genera"
+  ],
+  "statement": "((2:Int) - 2*0 = 2) ∧ ((2:Int) - 2*1 = 0) ∧ ((2:Int) - 2*2 = -2) ∧ ((2:Int) ≠ 0) ∧ ((0:Int) ≠ -2) ∧ ((2:Int) ≠ -2)",
+  "files": [
+    "Readings.lean"
+  ]
+}

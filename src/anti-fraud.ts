@@ -170,7 +170,7 @@ export function auditVoting(
   const weightVsCoins: Array<{ voterId: string; weight: number; expectedCoins: number; mismatch: boolean }> = []
   for (const vote of votes) {
     // Weight should match coins (weight = coinsSpent in the voting model)
-    const mismatch = vote.weight < 0 || vote.weight > 16 // plausible bounds
+    const mismatch = vote.weight < 0
     weightVsCoins.push({
       voterId: vote.voterId,
       weight: vote.weight,

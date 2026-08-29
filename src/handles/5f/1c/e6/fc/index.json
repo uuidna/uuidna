@@ -1,0 +1,12 @@
+{
+  "handle": "5f1ce6fc",
+  "address": "5f1ce6fc-4396-8505-8813-6c0a0e0f7250",
+  "kind": "chunk",
+  "keys": [
+    "divisors_of_26_number_4"
+  ],
+  "statement": "((List.range' 1 26).filter (fun k => 26 % k == 0)).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

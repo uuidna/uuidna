@@ -1,0 +1,12 @@
+{
+  "handle": "ad26069d",
+  "address": "ad26069d-e1f3-8b5d-9f9f-2807c7cb2105",
+  "kind": "chunk",
+  "keys": [
+    "light_slower_in_medium"
+  ],
+  "statement": "([133,150,242] : List Nat).all (fun n => 100 < n)",
+  "files": [
+    "Optics.lean"
+  ]
+}

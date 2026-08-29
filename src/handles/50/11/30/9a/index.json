@@ -1,0 +1,12 @@
+{
+  "handle": "5011309a",
+  "address": "5011309a-9b99-8ea1-8c03-92d2af9041a3",
+  "kind": "chunk",
+  "keys": [
+    "reflection_is_total_by_the_key"
+  ],
+  "statement": "(([1, 2, 4, 5, 7, 8].filter (fun u => (u * u) % 9 == 1)) = [1, 8]) ∧ (((List.range 101).filter (fun k => 100 - k == k)) = [50]) ∧ ((List.range 10).all (fun i => 100 - (10 + i) != 10 + i))",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

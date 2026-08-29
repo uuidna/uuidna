@@ -1,0 +1,12 @@
+{
+  "handle": "d4591f0e",
+  "address": "d4591f0e-fad3-81f6-910a-848a00841a40",
+  "kind": "chunk",
+  "keys": [
+    "root_survives_the_reading"
+  ],
+  "statement": "(432 % 9 = 0) ∧ (45 % 9 = 0) ∧ (4 + 5 = 9)",
+  "files": [
+    "Notation.lean"
+  ]
+}

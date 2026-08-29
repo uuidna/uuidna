@@ -1,0 +1,12 @@
+{
+  "handle": "d89b4ae0",
+  "address": "d89b4ae0-e741-80cd-9ddc-54fd7ac91b79",
+  "kind": "chunk",
+  "keys": [
+    "law_of_reflection"
+  ],
+  "statement": "(List.range 181).all (fun a => (180 - (180 - a)) == a) ∧ (180 - (180 - 30) = 30)",
+  "files": [
+    "Optics.lean"
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "handle": "2e939300",
+  "address": "2e939300-90c2-800e-bdfe-a2a679d2072b",
+  "kind": "chunk",
+  "keys": [
+    "mul9_6_8",
+    "z9mul_6_8"
+  ],
+  "statement": "(6 * 8) % 9 = 3",
+  "files": [
+    "Core.lean",
+    "Ring.lean"
+  ]
+}

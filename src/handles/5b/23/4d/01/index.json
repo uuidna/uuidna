@@ -1,0 +1,12 @@
+{
+  "handle": "5b234d01",
+  "address": "5b234d01-b089-86d8-87f7-db942f0600a8",
+  "kind": "chunk",
+  "keys": [
+    "specific_heat_linear"
+  ],
+  "statement": "(([1,2,3] : List Nat).map (fun dT => 10 * dT)) = [10,20,30]",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

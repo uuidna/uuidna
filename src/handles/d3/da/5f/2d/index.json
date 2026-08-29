@@ -1,0 +1,12 @@
+{
+  "handle": "d3da5f2d",
+  "address": "d3da5f2d-9d25-8031-8c10-356d253c7023",
+  "kind": "chunk",
+  "keys": [
+    "ve_handshake_crosses"
+  ],
+  "statement": "(12 * 4 = 24 * 2) ∧ (12 + 14 = 24 + 2) ∧ (VE.length * 4 = 24 * 2)",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

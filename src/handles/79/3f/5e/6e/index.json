@@ -1,0 +1,12 @@
+{
+  "handle": "793f5e6e",
+  "address": "793f5e6e-f836-871b-a896-e393502f7c4c",
+  "kind": "chunk",
+  "keys": [
+    "waves_of_denial_tighten"
+  ],
+  "statement": "((List.range 6).all (fun r => 2^6 / 2^r == 2^(6 - r))) ∧ (2^6 / 2^6 = 1)",
+  "files": [
+    "Negation.lean"
+  ]
+}

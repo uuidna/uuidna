@@ -1,0 +1,12 @@
+{
+  "handle": "1f1abd45",
+  "address": "1f1abd45-17d9-82e0-aac5-48afc789189b",
+  "kind": "chunk",
+  "keys": [
+    "knight_on_the_diamond"
+  ],
+  "statement": "((1 + 2) % 9 = 3) ∧ ((10 - 3) = 7)",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

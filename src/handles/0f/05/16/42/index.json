@@ -1,0 +1,12 @@
+{
+  "handle": "0f051642",
+  "address": "0f051642-a90e-8a56-8998-e7179c639438",
+  "kind": "chunk",
+  "keys": [
+    "chain_joints_are_links_minus_one"
+  ],
+  "statement": "5 - 1 = 4",
+  "files": [
+    "MartialArts.lean"
+  ]
+}

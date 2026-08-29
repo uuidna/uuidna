@@ -1,0 +1,12 @@
+{
+  "handle": "3dd8854c",
+  "address": "3dd8854c-67fb-86d7-b367-97716a33bf24",
+  "kind": "chunk",
+  "keys": [
+    "cubes_mod_32_number_19"
+  ],
+  "statement": "(((List.range 32).map (fun x => (x * x * x) % 32)).eraseDups).length = 19",
+  "files": [
+    "Wave.lean"
+  ]
+}

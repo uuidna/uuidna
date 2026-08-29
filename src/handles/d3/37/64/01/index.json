@@ -1,0 +1,12 @@
+{
+  "handle": "d3376401",
+  "address": "d3376401-7241-84dc-a898-51076d617045",
+  "kind": "chunk",
+  "keys": [
+    "causality_forbids_ftl"
+  ],
+  "statement": "(3*3 - 5*5 : Int) < 0",
+  "files": [
+    "Relativity.lean"
+  ]
+}

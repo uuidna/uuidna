@@ -1,0 +1,12 @@
+{
+  "handle": "16c62001",
+  "address": "16c62001-ce69-83ae-adf9-0b984e2c0206",
+  "kind": "chunk",
+  "keys": [
+    "anthem_finale_sings_one_uuid"
+  ],
+  "statement": "32 * 4 = 128",
+  "files": [
+    "Anthem.lean"
+  ]
+}

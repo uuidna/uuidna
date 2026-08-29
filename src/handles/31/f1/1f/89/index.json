@@ -1,0 +1,12 @@
+{
+  "handle": "31f11f89",
+  "address": "31f11f89-5e4a-8b35-af85-50b690143a58",
+  "kind": "chunk",
+  "keys": [
+    "reflection_reverses_uniquely"
+  ],
+  "statement": "((List.range 10).map (preOf dz) = [1,1,1,1,1,1,1,1,1,1]) ∧ ((List.range 10).all (fun d => dz (dz d) == d))",
+  "files": [
+    "Reversal.lean"
+  ]
+}

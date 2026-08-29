@@ -1,0 +1,12 @@
+{
+  "handle": "5ab3ef4f",
+  "address": "5ab3ef4f-c5e5-87d0-a851-958f03eb4917",
+  "kind": "chunk",
+  "keys": [
+    "merkle_odd_level_padding_costs_above_leaf_count"
+  ],
+  "statement": "(List.range' 1 32).all (fun n => let m := ((List.range 8).foldl (fun (s : Nat × Nat) _ => if s.1 == 1 then s else ((s.1 + 1) / 2, s.2 + (s.1 + 1) / 2)) (n, 0)).2; decide (n - 1 ≤ m) && ((m == n - 1) == ((List.range 6).any (fun k => n == 2 ^ k))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

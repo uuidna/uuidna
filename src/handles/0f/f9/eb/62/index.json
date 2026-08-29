@@ -1,0 +1,12 @@
+{
+  "handle": "0ff9eb62",
+  "address": "0ff9eb62-bb4d-8970-aa76-0095ca311d9e",
+  "kind": "chunk",
+  "keys": [
+    "order_of_two_mod_11_is_10"
+  ],
+  "statement": "(2^10 % 11 = 1) ∧ ((List.range' 1 9).all (fun k => 2^k % 11 != 1))",
+  "files": [
+    "Wave.lean"
+  ]
+}

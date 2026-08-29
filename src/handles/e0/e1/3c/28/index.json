@@ -1,0 +1,14 @@
+{
+  "handle": "e0e13c28",
+  "address": "e0e13c28-46d6-8286-a28a-00567e3e9b3f",
+  "kind": "chunk",
+  "keys": [
+    "central_four_squares",
+    "signal_detection_two_by_two"
+  ],
+  "statement": "2 * 2 = 4",
+  "files": [
+    "Chessgames.lean",
+    "Psychology.lean"
+  ]
+}

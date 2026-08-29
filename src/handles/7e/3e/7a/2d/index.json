@@ -1,0 +1,12 @@
+{
+  "handle": "7e3e7a2d",
+  "address": "7e3e7a2d-62c0-889a-8cba-399ca965c8de",
+  "kind": "chunk",
+  "keys": [
+    "crossfade_overlap"
+  ],
+  "statement": "(48 + 48 - 12 = 84) ∧ (3 % 9 = 3)",
+  "files": [
+    "Editing.lean"
+  ]
+}

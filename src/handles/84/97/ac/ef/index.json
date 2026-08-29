@@ -1,0 +1,12 @@
+{
+  "handle": "8497acef",
+  "address": "8497acef-f096-8803-a315-50cb978029f7",
+  "kind": "chunk",
+  "keys": [
+    "involute_centre"
+  ],
+  "statement": "(List.range 12).all (fun n => ((List.range n).filter (fun i => 2*i + 1 == n)).length = n % 2)",
+  "files": [
+    "Uuidna.lean"
+  ]
+}

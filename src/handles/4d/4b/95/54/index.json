@@ -1,0 +1,12 @@
+{
+  "handle": "4d4b9554",
+  "address": "4d4b9554-1c10-875a-84b1-80446243e384",
+  "kind": "chunk",
+  "keys": [
+    "editor_fold_injective_bounded"
+  ],
+  "statement": "(List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun a2 => (List.range 6).all (fun b2 => (List.range 6).all (fun c2 => (dfold [a,b,c] == dfold [a2,b2,c2]) == ((a == a2) && (b == b2) && (c == c2))))))) )",
+  "files": [
+    "Editor.lean"
+  ]
+}

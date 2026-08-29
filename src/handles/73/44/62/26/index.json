@@ -1,0 +1,12 @@
+{
+  "handle": "73446226",
+  "address": "73446226-a73e-8420-ae85-66d379c92858",
+  "kind": "chunk",
+  "keys": [
+    "max_unit_order_mod_12_is_2"
+  ],
+  "statement": "((List.range 12).all (fun a => (Nat.gcd a 12 != 1) || (a ^ 2 % 12 == 1))) ∧ ((List.range 12).any (fun a => (Nat.gcd a 12 == 1) && ((List.range' 1 1).all (fun k => a ^ k % 12 != 1))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "049a3541",
+  "address": "049a3541-1c35-8c2b-87c9-a2e0c0260ec5",
+  "kind": "chunk",
+  "keys": [
+    "advance_only_moves_forward"
+  ],
+  "statement": "(List.range 12).all (fun s => [1,2,3].all (fun n => s + n > s))",
+  "files": [
+    "Clock.lean"
+  ]
+}

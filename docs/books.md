@@ -54,8 +54,17 @@ A book you write is audited the same way: content-address each chapter, fold the
 revision re-addresses, so a change is never silent — authorship and integrity are recomputable, edit by edit. uuidna
 proves the text is exactly what it is; it does not judge whether the writing is good. Integrity, not truth (theorem provenance_integrity_not_content_truth).
 
+Handles write the combinatorial book: fourteen strips, ten choices per strip. The sonnet measure
+[`literature_sonnet_measure`](/theorem/literature_sonnet_measure) is 14 · 10 beats; the power
+[`literature_sonnet_volume`](/theorem/literature_sonnet_volume) is 10¹⁴ occupancy seats, which outgrows eight-hex
+naming ([`combinatorial_book_exceeds_handles`](/theorem/combinatorial_book_exceeds_handles)) and still fits the uuid
+([`combinatorial_book_fits_the_uuid`](/theorem/combinatorial_book_fits_the_uuid)). Selecting one variant per line
+folds to a handle ([`universe_of_handles`](/theorem/universe_of_handles)). Occupancy, not verse.
+
 Write below and the audit **reflects back live, in your browser** — the same offline `auditText` the MCP tool runs,
 recomputing on every keystroke. Nothing is sent, stored, or tracked:
+
+<HandleStrips />
 
 <BookReflect />
 

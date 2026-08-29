@@ -1,0 +1,12 @@
+{
+  "handle": "2d8dc4ee",
+  "address": "2d8dc4ee-b96d-8d74-8166-fc6e5ef2a13f",
+  "kind": "chunk",
+  "keys": [
+    "orbits_number_six"
+  ],
+  "statement": "orbits.length = 6",
+  "files": [
+    "ProseTrial.lean"
+  ]
+}

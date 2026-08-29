@@ -1,0 +1,12 @@
+{
+  "handle": "b6db9a30",
+  "address": "b6db9a30-4818-8599-82a7-c4ba047e9dde",
+  "kind": "chunk",
+  "keys": [
+    "distance_is_symmetric"
+  ],
+  "statement": "(List.range 16).all (fun a => (List.range 16).all (fun b => (dist a b == dist b a) && ((dist a b == 0) == (a == b))))",
+  "files": [
+    "Isometry.lean"
+  ]
+}

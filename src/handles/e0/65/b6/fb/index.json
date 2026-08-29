@@ -1,0 +1,12 @@
+{
+  "handle": "e065b6fb",
+  "address": "e065b6fb-9de4-8250-91b5-9f0f04564ef0",
+  "kind": "chunk",
+  "keys": [
+    "rosette_pairs_twentyone"
+  ],
+  "statement": "(7 * 6) / 2 = 21",
+  "files": [
+    "Rosette.lean"
+  ]
+}

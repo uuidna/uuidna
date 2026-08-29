@@ -1,0 +1,12 @@
+{
+  "handle": "d31fdc5d",
+  "address": "d31fdc5d-2cdd-8a40-914d-3430ded4f939",
+  "kind": "chunk",
+  "keys": [
+    "folio_quarto_octavo"
+  ],
+  "statement": "[2,4,8].map (fun n => n * 2) = [4,8,16]",
+  "files": [
+    "Typesetting.lean"
+  ]
+}

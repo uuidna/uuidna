@@ -26,6 +26,7 @@ import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { handleOf } from './handle.js'
 import { escoSearchUrl, escoWholeName, SCHOOL_APIS } from './school-apis.js'
+import { domainLab, type DomainLab } from './school/laboratory/index.js'
 
 const HONEST =
   'A skill groups sealed theorems by the CAPABILITY they demonstrate — an axis ORTHOGONAL to principle (which groups ' +
@@ -108,6 +109,8 @@ export interface SkillSurface {
   principles: readonly string[]
   theorems: readonly SkillTheorem[]
   esco: SkillEscoMapping
+  /** the school lab for this domain — simulation + emulator, entangled to the head theorem and related resources */
+  lab: DomainLab
   receipt: string
   honest: string
 }
@@ -136,6 +139,7 @@ export function skillSurface(skill: string, escoTitles: readonly string[] = []):
     principles: [...new Set(group.theorems.map((t) => t.principle))],
     theorems,
     esco,
+    lab: domainLab(group.skill),
     receipt: merkleGravity([group.fold, esco.address, toUuid('skill:' + group.skill)]),
     honest: HONEST,
   }

@@ -1,0 +1,12 @@
+{
+  "handle": "11e4e068",
+  "address": "11e4e068-395f-8e42-9c40-c0aa9e6d125f",
+  "kind": "chunk",
+  "keys": [
+    "tesla_trio_files_adjacent"
+  ],
+  "statement": "(381969 - 381968 = 1) ∧ (381970 - 381969 = 1) ∧ (381970 - 381968 = 2)",
+  "files": [
+    "Tesla.lean"
+  ]
+}

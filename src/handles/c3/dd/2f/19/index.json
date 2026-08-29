@@ -1,0 +1,12 @@
+{
+  "handle": "c3dd2f19",
+  "address": "c3dd2f19-888e-8934-b036-7137c3302c94",
+  "kind": "chunk",
+  "keys": [
+    "visible_under_one_octave"
+  ],
+  "statement": "700 < 2 * 400",
+  "files": [
+    "Spectrum.lean"
+  ]
+}

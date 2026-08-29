@@ -1,0 +1,12 @@
+{
+  "handle": "2e5a66ed",
+  "address": "2e5a66ed-9c0d-872f-b7bd-799e4fc6198a",
+  "kind": "chunk",
+  "keys": [
+    "seconds_per_day"
+  ],
+  "statement": "24 * 60 * 60 = 86400",
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

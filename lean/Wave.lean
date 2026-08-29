@@ -2800,3 +2800,23 @@ theorem self_inverse_mod_47_number_2 : ((List.range 47).filter (fun x => (x * x)
     the 12x19 rectangle is walked; this is not a proof for general a and b, and calling it one would be the
     overclaim the gate exists to drain. -/
 theorem no_power_of_three_is_a_power_of_two : ((List.range' 1 12).all (fun a => (List.range' 1 19).all (fun b => 3 ^ a != 2 ^ b))) ∧ (3 ^ 12 - 2 ^ 19 = 7153) := by decide
+
+/-- LITERATURE CLASS: the combinatorial book is the power of the sonnet measure — ten choices on fourteen lines
+    give 10^14 = 100000000000000 occupancy seats. The kernel seals the power; the ledger holds no verse. -/
+theorem literature_sonnet_volume : 10 ^ 14 = 100000000000000 := by decide
+
+/-- LITERATURE CLASS: the combinatorial book outgrows the handle alphabet — 10^14 seats against 16^8 doors.
+    Occupancy exceeds naming at eight hex; pigeonhole, not verse. -/
+theorem combinatorial_book_exceeds_handles : 10 ^ 14 > 16 ^ 8 := by decide
+
+/-- LITERATURE CLASS: the combinatorial book still fits the uuid — 10^14 seats sit strictly inside 2^128
+    addresses, so the full address can name what the handle cannot. -/
+theorem combinatorial_book_fits_the_uuid : 10 ^ 14 < 2 ^ 128 := by decide
+
+/-- THE TEN STATIONS ARE THE HEXAGRAM PLUS THE HEXBIT — six lines of the hexagram plus four hexbit width equal
+    ten, the choice-count every strip reads as STATION_TEN. -/
+theorem station_ten_is_hexagram_plus_hexbit : 6 + 4 = 10 := by decide
+
+/-- THE FOURTEEN VE FACES ARE HANDLE TILES PLUS HEXBIT WIDTH PLUS THE COINS — 8+4+2=14, the other partition of
+    fourteen from eight triangles plus six squares. The constructor is the sum; the kernel seals the arithmetic. -/
+theorem ve_faces_are_handle_hexbit_coins : 8 + 4 + 2 = 14 := by decide

@@ -1,0 +1,14 @@
+{
+  "handle": "30c9dc60",
+  "address": "30c9dc60-9317-874b-b925-776406bb1b5c",
+  "kind": "chunk",
+  "keys": [
+    "doubling_circuit",
+    "stops_fold_mod_nine"
+  ],
+  "statement": "(List.range 6).map (fun k => (2^k) % 9) = [1, 2, 4, 8, 7, 5]",
+  "files": [
+    "Photography.lean",
+    "Vortex.lean"
+  ]
+}

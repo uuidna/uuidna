@@ -1,0 +1,12 @@
+{
+  "handle": "fd513892",
+  "address": "fd513892-8e08-852f-ad69-9e9ee7c8a456",
+  "kind": "chunk",
+  "keys": [
+    "punnett_three_to_one"
+  ],
+  "statement": "(([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 1 || p.2 == 1)).length = 3) ∧ (([(0,0),(0,1),(1,0),(1,1)].filter (fun p => p.1 == 0 && p.2 == 0)).length = 1)",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

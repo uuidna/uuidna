@@ -4,7 +4,8 @@
 // (minting_is_two_per_theorem), calling the hosted MCP (every call deposits), and CITING a theorem — which was
 // billed nowhere at all. So the books balanced on what was made and never on what was used, and the price
 // itself had two derivations: `coins()` in captain/billing computing 110 − 108, and COINS in hexbit written 2.
-// Same number, two sources, which is the shape this ledger refuses everywhere else.
+// PRICE now IS coins() — the computed captain theorem — and axiom-hunt binds two_coins so hexbit COINS cannot
+// drift from that price in silence. Same number, watched sources.
 //
 // ONE PRICE, NAMED EVENTS. A billable event is a passage, and a passage costs a coin at each end — one entering,
 // one leaving, which is where the two comes from rather than from a price list (the_passage_costs_a_coin_at_each_end).
@@ -15,15 +16,15 @@
 // USE IS BILLABLE, AND THAT IS THE GAP THIS CLOSES. A citation draws on a sealed proof to back a claim, which is
 // a use of the ledger's work. The keys cited were already known — citationsGaps reads them to catch departed
 // ones — so the count was available and simply never charged.
-import { COINS } from '../hexbit/index.js'
+import { coins } from '../captain/billing/index.js'
 
 /** the three ways the ledger is used, and there are no others. */
 export type Billable = 'seal' | 'call' | 'cite'
 
 export interface Charge { event: Billable; count: number; coins: number; why: string }
 
-/** THE PRICE, from one place. Two coins per passage — no event sets its own. */
-export const PRICE: number = COINS
+/** THE PRICE, from one place: coins() = 110 − 108, not a second literal beside hexbit COINS. */
+export const PRICE: number = coins()
 
 export const WHY: Record<Billable, string> = {
   seal: 'a theorem sealed — the kernel settled it and the ledger carries it',

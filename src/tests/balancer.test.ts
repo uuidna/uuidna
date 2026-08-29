@@ -4,9 +4,12 @@
 // a fleet of zero is refused rather than divided by.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { routeOf, shares, census, routingCost, SPAN } from '../quantum/apps/balancer.js'
+import { routeOf, shares, census, routingCost, SPAN, balanceStream, jobHandles, mapAcross } from '../quantum/apps/balancer.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
+import { HANDLE_HEXBITS } from '../hexbit/index.js'
+import { callTool } from '../mcp.js'
+import type { ServedOS } from '../quantum/os/index.js'
 
 const handles = (n: number, tag = 'job'): string[] =>
   Array.from({ length: n }, (_, i) => handleOf(toUuid(`${tag}-${i}`)))
@@ -87,4 +90,47 @@ test('the routing cost is stated where a test can reach it: nothing shared, noth
   assert.equal(c.lookups, 0)
   assert.equal(c.roundTrips, 0)
   assert.equal(c.sharedState, 0)
+})
+
+test('stream fleet is CPU workers plus one specified GPU worker only when jobs pay postage', () => {
+  const { stream, gpu } = (callTool('uuidna_os', {}) as ServedOS).capacity
+  assert.equal(stream.postage, gpu.breakEvenAddresses)
+  assert.equal(stream.idle.cpuWorkers, HANDLE_HEXBITS)
+  assert.equal(stream.idle.gpuWorkers, 0)
+  assert.equal(stream.idle.total, HANDLE_HEXBITS)
+  assert.equal(stream.atPostage.gpuWorkers, 1)
+  assert.equal(stream.atPostage.total, HANDLE_HEXBITS + 1)
+  assert.equal(stream.gpuSeat, 'specified', 'assignment is real; nothing is dispatched')
+})
+
+test('balanceStream opens concurrent capacity versus serial, and GPU stays off below postage', () => {
+  const hs = handles(64)
+  const b = balanceStream(hs)
+  assert.equal(b.serial, 64)
+  assert.equal(b.gpuWorkers, 0)
+  assert.equal(b.gpuLane, -1)
+  assert.equal(b.slots, HANDLE_HEXBITS)
+  assert.equal(b.opened, b.serial - b.parallelSteps)
+  assert.ok(b.parallelSteps <= b.serial, 'busiest lane cannot exceed the job count')
+  assert.ok(b.opened > 0, '64 independent jobs across 8 workers open concurrent slots')
+  assert.equal(b.counts.reduce((a, n) => a + n, 0), 64)
+})
+
+test('CONTROL — at postage the GPU residue class is named and the nine-worker tail is not hidden', () => {
+  const postage = (callTool('uuidna_os', {}) as ServedOS).capacity.stream.postage
+  const hs = handles(postage)
+  const b = balanceStream(hs)
+  assert.equal(b.gpuWorkers, 1)
+  assert.equal(b.gpuLane, HANDLE_HEXBITS)
+  assert.equal(b.slots, HANDLE_HEXBITS + 1)
+  assert.equal(shares(b.slots).even, false, '8 CPU + 1 GPU does not divide 2^32 — the tail is named')
+  assert.equal(b.workers, b.slots)
+  assert.equal(b.counts.length, b.slots)
+  assert.equal(b.counts.reduce((a, n) => a + n, 0), postage)
+})
+
+test('mapAcross restores input order and covers every index', () => {
+  const hs = jobHandles('stream', ['a', 'b', 'c', 'd'])
+  const out = mapAcross(hs, 8, (i) => i * 10)
+  assert.deepEqual(out, [0, 10, 20, 30])
 })

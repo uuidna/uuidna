@@ -24,6 +24,9 @@
 // the remedy instead of substituting one that reports success for work it did not do.
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
+import { streamFleet } from '../../quantum/apps/balancer.js'
+import { ghzState } from '../../quantum/index.js'
+import { shorFullUse, type ShorFullUse } from '../../hexbit/index.js'
 
 // The builtins ride the runtime's own registry rather than a static `import`, the boundary.ts/api.ts idiom: this
 // module sits in the library graph, the edge worker and the VitePress dev server bundle that graph untreeshaken,
@@ -156,6 +159,43 @@ export function capacity(reserve = 2): Capacity {
     reserved: reserve,
     memoryGiB: (bytes - (bytes % GIB)) / GIB,
     cpu: os.cpus()[0]?.model.trim() ?? 'unknown',
+  }
+}
+
+/** CPU lanes this host will admit, plus one specified GPU worker when the job count pays postage. Independent
+ *  stream jobs only — onion layers and sealChain stay serial. */
+export function hostStreamFleet(jobs: number) {
+  return streamFleet(jobs, capacity().lanes)
+}
+
+const SECOND_NS = 1000000000
+
+export interface ShorFullUseTimed extends ShorFullUse {
+  chunkNs: number
+  handleNs: number
+  uuidNs: number
+  underSecond: boolean
+}
+
+/** Encoder-width GHZ on this CPU, once per named Shor chunk. The uuid is the physical register; the payload
+ *  is 16 independent chunks (4 on the handle). underSecond is the stopwatch against 10^9 ns. */
+export function timeShorFullUse(): ShorFullUseTimed {
+  const u = shorFullUse()
+  ghzState(u.chunkQubits)
+  const run = (n: number): number => {
+    const t0 = process.hrtime.bigint()
+    for (let i = 0; i < n; i++) ghzState(u.chunkQubits)
+    return Number(process.hrtime.bigint() - t0)
+  }
+  const handleNs = run(u.handleChunks)
+  const uuidNs = run(u.uuidChunks)
+  const chunkNs = (handleNs - (handleNs % u.handleChunks)) / u.handleChunks
+  return {
+    ...u,
+    chunkNs,
+    handleNs,
+    uuidNs,
+    underSecond: uuidNs < SECOND_NS && handleNs < SECOND_NS,
   }
 }
 

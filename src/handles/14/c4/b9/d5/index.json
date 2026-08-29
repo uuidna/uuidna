@@ -1,0 +1,12 @@
+{
+  "handle": "14c4b9d5",
+  "address": "14c4b9d5-9cc8-8fe8-9131-d6bd7c178640",
+  "kind": "chunk",
+  "keys": [
+    "maps_differ_in_reach"
+  ],
+  "statement": "(((List.range 10).map dz).eraseDups.length ≠ ((List.range 10).map dbl).eraseDups.length) ∧ (10 ≠ 9)",
+  "files": [
+    "Phase.lean"
+  ]
+}

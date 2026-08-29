@@ -1,0 +1,12 @@
+{
+  "handle": "43ce4267",
+  "address": "43ce4267-0ede-8757-aec3-e8b1404692f2",
+  "kind": "chunk",
+  "keys": [
+    "orbit_0_1_2_3_4_5_6_7_8_9_closes"
+  ],
+  "statement": "[0,1,2,3,4,5,6,7,8,9].all (fun d => [0,1,2,3,4,5,6,7,8,9].contains (if d = 0 then 0 else 10 - d))",
+  "files": [
+    "Orbits.lean"
+  ]
+}

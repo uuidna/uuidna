@@ -1,0 +1,12 @@
+{
+  "handle": "99225384",
+  "address": "99225384-8e6a-83c0-bdd8-dc58f5ef6e8b",
+  "kind": "chunk",
+  "keys": [
+    "toffoli_involution"
+  ],
+  "statement": "(List.range 8).all (fun i => (let j := lxor i (4 * ((i % 2) * (i / 2 % 2))); lxor j (4 * ((j % 2) * (j / 2 % 2)))) == i)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

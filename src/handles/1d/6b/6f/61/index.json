@@ -1,0 +1,12 @@
+{
+  "handle": "1d6b6f61",
+  "address": "1d6b6f61-ddeb-8307-98cb-6386a8c8eabc",
+  "kind": "chunk",
+  "keys": [
+    "otp_self_inverse"
+  ],
+  "statement": "(List.range 16).all (fun m => (List.range 16).all (fun k => lxor (lxor m k) k == m))",
+  "files": [
+    "Cipher.lean"
+  ]
+}

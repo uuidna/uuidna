@@ -1,0 +1,12 @@
+{
+  "handle": "0e2699b7",
+  "address": "0e2699b7-9626-8045-a141-b34c9e97266b",
+  "kind": "chunk",
+  "keys": [
+    "pairs_share_one_centre"
+  ],
+  "statement": "[0,3,14].all (fun n => (List.range (n+1)).all (fun x => n - (n - x) == x))",
+  "files": [
+    "Harmony.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9ce2e400",
+  "address": "9ce2e400-4d1f-8999-9d32-5a70a6b14614",
+  "kind": "chunk",
+  "keys": [
+    "handshake_degree_sum_even"
+  ],
+  "statement": "List.sum [1,3,2,2,1,1] = 10 ∧ 10 % 2 = 0",
+  "files": [
+    "Matching.lean"
+  ]
+}

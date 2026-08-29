@@ -1,0 +1,12 @@
+{
+  "handle": "b3cae4a3",
+  "address": "b3cae4a3-31c1-803c-a9d0-5d7304c270b0",
+  "kind": "chunk",
+  "keys": [
+    "landauer_bound_derived"
+  ],
+  "statement": "1380649 * 300 = 414194700 ∧ 414194700 * 693147 / 1000000 = 287097813",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

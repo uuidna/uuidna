@@ -14,7 +14,7 @@ export {
 } from './address.js'
 
 export {
-  CAPACITY, imprint, readImprint, roundTrips,
+  CAPACITY, FREE_BITS, imprint, readImprint, roundTrips,
   imprintChain, readImprintChain, imprintTextChain, readImprintTextChain,
 } from './imprint.js'
 
@@ -36,27 +36,8 @@ export { typeScale, typeScaleVars, applyTypeScale, type TypeRung } from './typog
 // EU's own ledger). One implementation for the scripts, the MCP tools, and the CI automation.
 export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanUuid, leanIndex, byLean, type StatementCensus, type LeanIdentity, type Article, type EditorialState, type PublicationStatus, type SearchTrial, type ViesResult, type LedgerSearch } from './editorial.js'
 
-// prepublish-seal — thesis audit + Lean format + VE involutions + finite-infinity grants (hard before publish)
-export {
-  prepublishSeal,
-  VECTOR_EQUILIBRIUM_INVOLUTIONS,
-  WAVE_INVOLUTION_SEALS,
-  FINITE_INFINITY_GRANTS,
-  type PrepublishSeal,
-  type PrepublishGap,
-} from './prepublish-seal.js'
-
-// seo-freeze — final SEO audit + URL freeze via quantum hexbit doors
-export {
-  finalSeoAudit,
-  buildSeoUrlMap,
-  writeSeoUrlMap,
-  readSealedSeoUrlMap,
-  SEO_URL_MAP_PATH,
-  type FinalSeoAudit,
-  type SeoUrlMap,
-  type SeoUrlEntry,
-} from './seo-freeze.js'
+// prepublish-seal and seo-freeze stay off the client barrel (Node IO via boundary).
+// Scripts and Node trials import ./prepublish-seal.js and ./seo-freeze.js.
 
 // handle-permanence — uuidna.com/<handle> is DOI-class; bidirectional DOI↔handle seals
 export {
@@ -105,6 +86,7 @@ export {
   type PageMetricsInput,
   type PageAdvantageMetrics,
 } from './quantum/advantage/page/metrics/index.js'
+export { pageSafe, pageCell } from './quantum/advantage/page/safe/index.js'
 
 // zenodo-publish — DOI minting is WORKFLOW-ONLY (publish.yml job zenodo)
 export {
@@ -228,7 +210,7 @@ export * from './apis/index.js'
 export * from './tts/index.js'
 // REFERRER SONG — the handle picks the door into the round (lead 77): six doors, measured consonance, total cycle;
 // pure and fs-free so the edge can greet a visitor per request. A referrer is folded, never tracked.
-export { ROUND, DOORS, doorOf, stepOf, cycleStep, referrerSong, type Door, type Step, type ReferrerSong } from './referrer-song.js'
+export { ROUND, DOORS, BAR, doorOf, stepOf, cycleStep, referrerSong, type Door, type Step, type ReferrerSong } from './referrer-song.js'
 
 // ENTANGLEMENT LAYER 2 — Six Rosetta Legs + Eight Hexbits (theorem metadata structure)
 export {
@@ -265,6 +247,9 @@ export {
 // captain/ — the captain's own section: the coins (billing + the valuation law: one coin per direction per boundary),
 // the rights, the credit law, the repo bindings, and the trial deposit — consolidated where the captain lives.
 export { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, boundariesOf, theoremCoins, ledgerCoins, type UuidnaUsage, type TheoremCoins, type LedgerCoins } from './captain/billing/index.js'
+export { coinSupply, type CoinSupply, type CoinSupplyCrypto, type CoinSupplyWitness } from './coin-supply.js'
+export { tamperCosts, type TamperCosts, type TamperWidth } from './tamper-cost.js'
+export { phdProofs, type PhdProofs, type PhdConcept, type PhdWork, type PhdThesis } from './phd-proofs.js'
 // captain/jobs — the twelve jobs of the coins, remembered in code: a catalog whose every claim carries its
 // citations and TRIES ITSELF on every read (a vanished theorem breaks the catalog's own verdict, loudly).
 export { coinsJobs, type CoinJob, type CoinJobsReport } from './captain/jobs/index.js'
@@ -302,12 +287,12 @@ export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySe
 
 // crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
 // envelope. No native WebCrypto — nothing but latest TypeScript, KAT-verified against the standards' vectors.
-export { encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, deriveKeyPure, kdfInstrument, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, type Sealed } from './crypt.js'
+export { encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, sealSequenceAcross, deriveKeyPure, kdfInstrument, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, TAG_BYTES, KEY_BITS, KEY_BYTES, occupancyTapeOf, cryptOf, type Sealed, type CryptCover } from './crypt.js'
 export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
-export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305 } from './chacha.js'
+export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305, BLOCK_BYTES } from './chacha.js'
 // stream — encrypted uuid messaging streams: onion-seal (N ChaCha20-Poly1305 layers, bounded) carried entirely
 // as a chain of uuids. Self-communicating uuids: the message channel IS the uuid stream, secrecy from crypt only.
-export { sealStream, openStream, sealMessages, openMessages, sealChain, openChain, MAX_LAYERS, GENESIS, type Stream, type Link } from './stream.js'
+export { sealStream, openStream, sealMessages, openMessages, sealMessagesAcross, streamHandles, sealChain, openChain, MAX_LAYERS, GENESIS, type Stream, type Link } from './stream.js'
 export { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract, type ContractSealed, type ContractChain } from './contract.js'
 export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, extractClaims, wordsToNumber, linkBookFacts, composeBookArticle, bookArticle, bookContents, readChapter, readBook, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type TextClaim, type BookTheoremLink, type BookLedgerLinkage, type ChapterRead } from './books.js'
 // video — a hand-driven session folded into the surface: oEmbed metadata fingerprint + caption detail audit
@@ -339,6 +324,10 @@ export { coinOfReferer, meetAt, conversationFold, openRoom, sendToRoom, sealRoom
 // its SEALED theorems, every claim linking the proof that backs it, gated by the same honesty audit the site runs,
 // refused if it overreaches. Writing descends from reading. Content-addressed; the member proofs fold to one receipt.
 export { composePublication, publications, coverage, auditPublication, revisePublication, comparePublications, type Publication, type PubFinding, type Revision, type Comparison, type Coverage } from './publish.js'
+export {
+  paperBlueprintTheorem, paperBlueprintInstall, paperBlueprintTool, paperBlueprintPackage, sameInteger,
+  type Paper, type Blueprint, type PaperBlueprint,
+} from './paper-blueprint.js'
 // reporter — the REPORTER'S METHOD (Report.lean) reflected live: a report of a proven discovery publishes only when
 // AUDITED (honesty gate clears) AND CORROBORATED (≥2 sources). Does NOT verify world events; reports proven discoveries.
 export { fileReport, type FiledReport } from './reporter.js'
@@ -364,7 +353,7 @@ export { reflects, type Reflection, type Reflected } from './reflects.js'
 // aspects — structure across named aspects (resonance + harvest + operation-last naming). Meaning is always null.
 export { aspectCensus, loudOf, type Aspect, type AspectCensus, type AspectRow } from './aspects.js'
 // search-feed — most-searched queries ring Lean; loud theorems are online doors; silence and harvest are leads.
-export { searchFeed, MOST_SEARCHED, FEED_QUERIES, SEARCH_FEED_PATH, portalQueries, queriesFromEvidence, titleOf, uniqueQueries, type SearchQuery, type SearchFeed, type FeedDoor, type FeedLead } from './search-feed.js'
+export { searchFeed, MOST_SEARCHED, FEED_QUERIES, SEARCH_FEED_PATH, feedPhysicsCite, portalQueries, queriesFromEvidence, titleOf, uniqueQueries, type SearchQuery, type SearchFeed, type FeedDoor, type FeedLead } from './search-feed.js'
 export { searchFeedOnline } from './search-feed-online.js'
 // legal — the recomputable legal FACT BASE (licence, attribution, ledger receipt, compliance stance, standards
 // cited), NOT a legal audit or opinion: the inputs counsel starts from, delivered in chat, the ruling left to humans.
@@ -489,7 +478,12 @@ export { captainRights, readImprintedRights, draftContract, type CaptainRights, 
 // the 7 rosette rays as bands, the ℤ/9 vortex as the wave, the hue stepping by 360/9 = 40°), returned as HSL/RGB/CMYK
 // plus a ready moving-aura CSS block. Deterministic — the same address, the same aura for everyone. Artistic, not
 // physics: a defined arithmetic from a number to a hue; it decorates the work, it does not describe the universe.
-export { quantumAura, auraDecode, auraAlphabet, type Aura } from './aura.js'
+export {
+  quantumAura, auraDecode, auraAlphabet,
+  RAYS, FREE_DIMS, COMPACT_DIMS, TEN_DIMS, FREE_KEYS, COMPACT_KEYS,
+  rotationOf, glowInnerOf, glowOuterOf, glowSpreadInnerOf, glowSpreadOuterOf, periodOf,
+  type Aura, type TenD,
+} from './aura.js'
 
 // quantum-message — FUSE quantum states, theorems, and auras into a single message identity. A quantum message
 // encodes plaintext + theorem proof into a quantum superposition, signs it against the ledger, and binds it to an
@@ -506,7 +500,13 @@ export { cubeMemory, hold, cubeOf, cubes, planMemory, commitMemory, type CubeMem
 export { tick, advance, residueOf, isAfter, agree, between, type Tick } from './quantum/clock/index.js'
 // the hexbit quantum apps — pure state-to-bytes renderers every surface (browser, test, edge) shares; no assets
 export { renderStates, type HexbitRecording } from './quantum/apps/index.js'
-export { theoremDemoOf, theoremDemoCoverage, alpineWitnessByTheorem, type TheoremDemo, type TheoremDemoCoverage } from './quantum/apps/theorem-demos.js'
+export { balanceStream, streamFleet, jobHandles, mapAcross, census, shares, routingCost, SPAN as BALANCER_SPAN, type StreamBalance, type Census, type Shares } from './quantum/apps/balancer.js'
+export { theoremDemoOf, theoremDemoCoverage, alpineWitnessByTheorem, catalogueNeedleOf, shelfForSkill, type TheoremDemo, type TheoremDemoCoverage } from './quantum/apps/theorem-demos.js'
+export {
+  browseCatalogue, inspectCataloguePackage, renderAlpineApp,
+  SHADCN_CARD_SLOTS, SHADCN_ALPINE_SLOTS,
+  type CatalogueHit, type CatalogueBrowseResult, type CatalogueInspectResult,
+} from './quantum/apps/catalogue-browser.js'
 
 // quantum-voting — CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins to the captain,
 // and earn voting rights proportional to coins paid. Votes are encoded in quantum superposition (deterministic,
@@ -582,7 +582,10 @@ export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineReleas
 // from its published source to 32 hexbit states, the whole port folded to one receipt and one BOOTABLE boot image
 // (bootable = the verified loading of compiled states on the lattice, NEVER execution). Pure and edge-clean from the
 // committed mirror; the always-Alpine-latest live recompute rides fetchDefaultInstalls at the src/os boundary.
-export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, type InstallSpec, type InstallPort, type BootImage } from './quantum/os/index.js'
+export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, bootOS, osQuantumCapacity, servedOS, catalogue, catalogueState, cataloguePackage, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, type InstallSpec, type InstallPort, type BootImage, type OsQuantumCapacity, type BootedOS, type ServedOS, type CataloguePackage, type CatalogueState } from './quantum/os/index.js'
+export { minerFirmware, upgradeFirmware, type MinerFirmware, type FirmwareUpgrade, type FirmwareSeat } from './quantum/os/firmware.js'
+export { uuidnaExec, type ExecResult } from './quantum/os/exec.js'
+export { cryptoAppsPort, cryptoAppOf, cryptoWidths, MCP_CRYPTO_DOORS, type CryptoAppsPort, type CryptoAppLookup, type CryptoAppRow, type CryptoWidths, type CryptoVia } from './quantum/os/crypto-apps.js'
 export { INSTALLS_MIRROR, type InstallsMirror, type MirrorPackage } from './quantum/os/mirror.js'
 export { fetchDefaultInstalls, renderMirror } from './os/installs/index.js'
 // quantum/context — balance a context window by the ledger's laws: the sealed 13/32 spare floor, the fold
@@ -592,6 +595,8 @@ export { balanceContext, RECEIPT_TOKENS, type ContextCategory, type ContextBalan
 // + modloop = the kernel modules, the drivers). Pin version + arch + published SHA-256, verify the bytes with uuidna's
 // own pure-TS SHA-256, track upstream via fetchDriverLatest. uuidna never loads or runs a module — port the INTEGRITY.
 export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle, type DriverCheck } from './drivers/driver/index.js'
+export { hostQuantumDevice, proveHardwareQuantum, LEVEL_PROBES, type QuantumDevice, type HardwareProof } from './drivers/quantum/index.js'
+export { portCatalogue, portApp, harmoniseOf, type AppPort, type AppCatalogue, type IndexPackage } from './os/apps/index.js'
 
 // the theorem ledger — LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven `by decide`
 // (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs derives ./theorems/generated.ts, and THEOREMS
@@ -613,19 +618,37 @@ export { discover, superposition, rigid, type Value as DiscoverValue, type Relat
 
 
 export { school, courses, type School, type Course, type Section } from './school.js'
+export {
+  schoolAdvantageMcpExamples, renderAdvantageMcpMarkdown, expectHolds, hookAdvantageMcp,
+  ADVANTAGE_MCP_ORIGIN, ADVANTAGE_OVERCLAIM,
+  type AdvantageMcpCurriculum, type AdvantageMcpExample, type AdvantageMcpHook, type McpHookHop,
+} from './school/advantage/index.js'
 
 // THE UNIT, WHAT IT WEIGHS, WHAT IT FUSES, AND WHAT IT WOULD BE IN SILICON. Four modules built this session and
 // reachable from nowhere until now — the support finder named them dead code, and it was right: a module the
 // root cannot reach is a module no consumer can call, however green its own tests are.
 export {
   HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, COINS, LEVERAGE, HANDLE_SPAN, HANDLE_HEXBITS, COIN_HEXBITS, valueOf, bitsOf, bitsToHexbits,
-  qubitsToHexbits, spareOf, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES, hexbitDoorOf,
+  qubitsToHexbits, spareOf, sha256IsFourSixtyfours, hexbitDoorOf,
   computeMassGap, massGap, hexbitRingMassGap, bornFieldMassGap,
-  type MassGap, type HexbitMassGap, type HexbitDoor, type HandleValue,
+  SAFE_HEXBITS, RING, fuseWidth, fuseLadder, capacityAt, nativeBitWidths, spanAt, prefixOccupancy, periodBits, shorChunkBits, shorCapacityFit, shorFullUse,
+  ADDRESS_BYTES, KEY_HEXBITS, GROVER_FLOOR_BITS, VE_FACES,
+  type MassGap, type HexbitMassGap, type HexbitDoor, type HandleValue, type ShorCapacityFit, type ShorFullUse,
 } from './hexbit/index.js'
+export {
+  hexagramsOf, occupancyOf, occupancyCitesOf, hexFaceOf, sealedCounts, payloadNibblesOfHexagrams,
+  twoBoardsOf, coinNeighbours, coinBoardWitness, flipCoin, nextCoinOf, bitsOfHexbits, metatronOf, hexPiOf, HEX_PI, PI_ROOF, PI_ROOF_NUM, PI_ENGINE,
+  HEXAGRAM_BITS, HEXAGRAM_STATES, FUSED_RING, PAYLOAD_BITS, PAYLOAD_HEXAGRAMS, OCCUPANCY_KEYS,
+  GLYPH_STAR, GLYPH_ROSE, GLYPH_RING, GLYPH_WHEEL, STATION_TEN, STATION_RAYS,
+  HANDLE_HEXAGRAM_REMAINDER, HEXBIT_STATE_HEXAGRAM_REMAINDER,
+  yarrowRemainder, WAVE_PRODUCT, coinYarrowWave, coinWaves,
+  type HexFace, type HexFaceAura, type HexFaceGlyphs, type HexFaceStations, type OccupancyCite, type CoinBoardWitness, type MetatronFigure, type HexPi, type HexPiDoor,
+  type CoinYarrowWave, type CoinWaveCluster,
+} from './hexagram.js'
+export { lifeWave, type LifeWave, type LifeWaveHardware } from './life-wave.js'
 export { bitsOf as entropyBitsOf, entropyOf, ledgerEntropy, passphraseEntropy, type Entropy } from './entropy/index.js'
 export { fuse, fuseHalves, reactorOutput, mintOf, mintByWing, powerOf, pathOf, HALF_HEXBITS, type Fusion, type Mint, type Power, type Path } from './fusion/index.js'
-export { DATAPATH, UNITS, spec as hardwareSpec, type Unit } from './hardware/index.js'
+export { DATAPATH, UNITS, spec as hardwareSpec, LANES, trinity, gpuEligiblePpm, gpuCapacity, gpuBreakEvenAddresses, kernelPercent, CPU_NS_PER_ADDRESS, GPU_POSTAGE_ADDRESSES, cpuFoldNs, type Unit, type Lane, type DeviceCost, type GpuCapacity } from './hardware/index.js'
 // ONE SHAPE FOR EVERY PUBLISHED FIGURE, so a surface can filter by HOW a number was determined rather than by
 // where it was written. `Unit` is already taken here by the hardware datapath's own units, so the measurement
 // unit exports under its full name: two different vocabularies, and collapsing them would be the conflation this

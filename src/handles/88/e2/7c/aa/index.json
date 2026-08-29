@@ -1,0 +1,12 @@
+{
+  "handle": "88e27caa",
+  "address": "88e27caa-cb22-80f8-ab7c-e3aa59df2621",
+  "kind": "chunk",
+  "keys": [
+    "lanes_balance_within_one"
+  ],
+  "statement": "((List.range 14).map (fun l => ((List.range 64).filter (fun i => i % 14 == l)).length)).all (fun c => c == 4 || c == 5)",
+  "files": [
+    "Hardware.lean"
+  ]
+}

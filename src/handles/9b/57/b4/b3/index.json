@@ -1,0 +1,12 @@
+{
+  "handle": "9b57b4b3",
+  "address": "9b57b4b3-7930-8872-8102-a3945feaf1b2",
+  "kind": "chunk",
+  "keys": [
+    "words_outgrow_presentation"
+  ],
+  "statement": "((List.range 6).map (fun n => 8^n) = [1,8,64,512,4096,32768]) ∧ (((List.range 6).map (fun n => 8^n)).drop 1).all (fun w => w > 5)",
+  "files": [
+    "DoubleTorus.lean"
+  ]
+}

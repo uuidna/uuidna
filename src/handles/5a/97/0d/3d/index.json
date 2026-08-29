@@ -1,0 +1,12 @@
+{
+  "handle": "5a970d3d",
+  "address": "5a970d3d-1670-83e8-aaf5-f2cd57d33fba",
+  "kind": "chunk",
+  "keys": [
+    "rate_codes_intensity"
+  ],
+  "statement": "((if (6 : Int) >= 5 then 110 else 0) = (if (60 : Int) >= 5 then 110 else 0)) ∧ (((List.range 20).filter (fun t => t % 10 == 0)).length != ((List.range 20).filter (fun t => t % 2 == 0)).length)",
+  "files": [
+    "Neuro.lean"
+  ]
+}

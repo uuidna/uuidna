@@ -1,0 +1,12 @@
+{
+  "handle": "499a5ee1",
+  "address": "499a5ee1-3920-8bab-8324-41f9cd83e858",
+  "kind": "chunk",
+  "keys": [
+    "radial_squares_to_two"
+  ],
+  "statement": "VE.all (fun v => n2 v == 2)",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

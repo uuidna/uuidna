@@ -1,0 +1,12 @@
+{
+  "handle": "f8533e6a",
+  "address": "f8533e6a-a1a9-8e9e-bf8c-a62a0dcbca1c",
+  "kind": "chunk",
+  "keys": [
+    "divisors_of_11_number_2"
+  ],
+  "statement": "((List.range' 1 11).filter (fun k => 11 % k == 0)).length = 2",
+  "files": [
+    "Wave.lean"
+  ]
+}

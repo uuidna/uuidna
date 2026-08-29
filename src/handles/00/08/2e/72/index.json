@@ -1,0 +1,12 @@
+{
+  "handle": "00082e72",
+  "address": "00082e72-40d4-87c4-8315-61ce6b73eff2",
+  "kind": "chunk",
+  "keys": [
+    "real_pauli_group_order_8"
+  ],
+  "statement": "(2 * 4 = 8) ∧ (8 * 2 = 16)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

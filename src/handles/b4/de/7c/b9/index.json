@@ -1,0 +1,12 @@
+{
+  "handle": "b4de7cb9",
+  "address": "b4de7cb9-5860-86f8-aa44-b57ffb6214d6",
+  "kind": "chunk",
+  "keys": [
+    "xor_translation_is_sharply_transitive"
+  ],
+  "statement": "(fun (x : Nat → Nat → Nat) => ((List.range 16).all (fun k => ((List.range 16).map (fun a => x a k)).eraseDups.length == 16)) ∧ ((List.range 16).all (fun a => (List.range 16).all (fun b => ((List.range 16).filter (fun k => x a k == b)).length == 1))) ∧ ((List.range 16).all (fun a => (List.range 16).all (fun b => x a (x a b) == b)))) (fun a b => (if a % 2 == b % 2 then 0 else 1) + 2 * (if a / 2 % 2 == b / 2 % 2 then 0 else 1) + 4 * (if a / 4 % 2 == b / 4 % 2 then 0 else 1) + 8 * (if a / 8 % 2 == b / 8 % 2 then 0 else 1))",
+  "files": [
+    "Wave.lean"
+  ]
+}

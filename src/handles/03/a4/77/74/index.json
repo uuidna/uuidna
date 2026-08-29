@@ -1,0 +1,12 @@
+{
+  "handle": "03a47774",
+  "address": "03a47774-2343-8b84-9b51-0a7f0d4f4872",
+  "kind": "chunk",
+  "keys": [
+    "nilpotent_iff_triple"
+  ],
+  "statement": "(List.range 9).all (fun a => ((a*a)%9==0) == (a%3==0))",
+  "files": [
+    "Discover.lean"
+  ]
+}

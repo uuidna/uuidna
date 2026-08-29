@@ -1,0 +1,12 @@
+{
+  "handle": "268f5081",
+  "address": "268f5081-f21b-87d0-8aee-407cbb5ccad7",
+  "kind": "chunk",
+  "keys": [
+    "no_audit_catches_all"
+  ],
+  "statement": "((2:Nat)^3 < 2^4) ∧ ((2:Nat)^4 < 2^5)",
+  "files": [
+    "AuditGame.lean"
+  ]
+}

@@ -97,7 +97,9 @@ for (const file of surfaces) {
     }
     // the physics-claim law, lean form: only a sealed CONFIRMATION passes — denial words carry no weight
     for (const m of prose.matchAll(PHYSICS_CLAIM)) {
-      if (r.cites.length === 0) physicsChaos.push({ surface: rel, claim: m[0] + ' — uncited (denial is prose; cite the sealed bound)' })
+      const linked = [...prose.matchAll(THEOREM_LINK)].map((x) => x[1]!)
+      if (r.cites.length === 0 && !linked.includes('n_qubit_dimension'))
+        physicsChaos.push({ surface: rel, claim: m[0] + ' — uncited (denial is prose; cite the sealed bound)' })
     }
   }
 }

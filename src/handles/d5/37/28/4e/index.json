@@ -1,0 +1,12 @@
+{
+  "handle": "d537284e",
+  "address": "d537284e-672b-8619-8009-3f37bc548461",
+  "kind": "chunk",
+  "keys": [
+    "fraud_verdict_is_exactly_one"
+  ],
+  "statement": "(List.range 2).all (fun c => (List.range 2).all (fun s => verified c s + unverified c s == 1))",
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

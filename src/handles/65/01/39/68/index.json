@@ -1,0 +1,12 @@
+{
+  "handle": "65013968",
+  "address": "65013968-c234-8747-a553-63c78db68ced",
+  "kind": "chunk",
+  "keys": [
+    "nim_misere_bouton_closure"
+  ],
+  "statement": "((fun X : Nat → Nat → Nat → Nat => (fun W : Nat → Nat → Nat → Bool => (W 0 0 0) && ((List.range 5).all (fun a => (List.range 5).all (fun b => (List.range 5).all (fun c => (a + b + c == 0) || ((!(W a b c)) == (((List.range a).all (fun a' => W a' b c)) && ((List.range b).all (fun b' => W a b' c)) && ((List.range c).all (fun c' => W a b c'))))))))) (fun a b c => ((decide (2 ≤ a) || decide (2 ≤ b) || decide (2 ≤ c)) && (X a b c != 0)) || ((!(decide (2 ≤ a) || decide (2 ≤ b) || decide (2 ≤ c))) && (X a b c == 0)))) (fun a b c => (a + b + c) % 2 + 2 * ((a / 2 + b / 2 + c / 2) % 2) + 4 * ((a / 4 + b / 4 + c / 4) % 2))) = true",
+  "files": [
+    "Wave.lean"
+  ]
+}

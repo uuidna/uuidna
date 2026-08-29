@@ -1,0 +1,12 @@
+{
+  "handle": "be97ca55",
+  "address": "be97ca55-e826-81eb-80be-d971bd1dad39",
+  "kind": "chunk",
+  "keys": [
+    "a_window_exhausts_only_itself"
+  ],
+  "statement": "((List.range 20).all (fun n => n < 20)) ∧ (¬ (20 < 20)) ∧ (16 < 20)",
+  "files": [
+    "Negation.lean"
+  ]
+}

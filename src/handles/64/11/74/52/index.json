@@ -1,0 +1,12 @@
+{
+  "handle": "64117452",
+  "address": "64117452-e0d7-8365-9513-749b6446b97a",
+  "kind": "chunk",
+  "keys": [
+    "mombh_verified_ne_solved"
+  ],
+  "statement": "(3 >= 1) ∧ (0 < 1) ∧ (30 > 3)",
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

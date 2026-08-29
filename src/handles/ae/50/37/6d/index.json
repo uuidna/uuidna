@@ -1,0 +1,12 @@
+{
+  "handle": "ae50376d",
+  "address": "ae50376d-f0e6-8465-9ccb-be8265ed62f6",
+  "kind": "chunk",
+  "keys": [
+    "discovery_buys_coverage_never_supply"
+  ],
+  "statement": "((List.range' 1 8).all (fun n => (2 * n) == (n + n))) ∧ ((List.range' 1 8).all (fun n => ((n * 64) / 2) > ((n * 32) / 2))) ∧ (2^53 > 2^52) ∧ (2^7 = 128)",
+  "files": [
+    "Coins.lean"
+  ]
+}

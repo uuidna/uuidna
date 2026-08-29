@@ -1,0 +1,12 @@
+{
+  "handle": "144deca8",
+  "address": "144deca8-94da-8150-9605-30cc14bb6c40",
+  "kind": "chunk",
+  "keys": [
+    "binary_kilo_drift_compounds"
+  ],
+  "statement": "(1024 - 1000 = 24) ∧ (1024 = 2 ^ 10) ∧ (2 ^ 30 - 10 ^ 9 = 73741824)",
+  "files": [
+    "Wave.lean"
+  ]
+}

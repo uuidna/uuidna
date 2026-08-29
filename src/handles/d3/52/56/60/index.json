@@ -1,0 +1,12 @@
+{
+  "handle": "d3525660",
+  "address": "d3525660-9364-8f9a-ab92-be824b662919",
+  "kind": "chunk",
+  "keys": [
+    "n_people_make_n_half_pairs"
+  ],
+  "statement": "8 = 2 * 4",
+  "files": [
+    "Matching.lean"
+  ]
+}

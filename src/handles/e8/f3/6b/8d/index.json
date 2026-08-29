@@ -1,0 +1,12 @@
+{
+  "handle": "e8f36b8d",
+  "address": "e8f36b8d-4240-834b-af33-1a81ef9f2490",
+  "kind": "chunk",
+  "keys": [
+    "double_negation"
+  ],
+  "statement": "([true, false].all (fun p => (!(!p)) == p)) = true",
+  "files": [
+    "Reasoning.lean"
+  ]
+}

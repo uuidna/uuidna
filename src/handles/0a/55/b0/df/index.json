@@ -1,0 +1,12 @@
+{
+  "handle": "0a55b0df",
+  "address": "0a55b0df-3ae0-8f76-a77d-efa9ccd19fff",
+  "kind": "chunk",
+  "keys": [
+    "sha256_grover_margin_is_the_address"
+  ],
+  "statement": "(256 / 2 = 128) ∧ (256 % 2 = 0)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

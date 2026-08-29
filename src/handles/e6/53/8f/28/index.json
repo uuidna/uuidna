@@ -1,0 +1,12 @@
+{
+  "handle": "e6538f28",
+  "address": "e6538f28-34dc-88d8-bed9-585c5b26b73f",
+  "kind": "chunk",
+  "keys": [
+    "the_boot_pays_the_captains_fee"
+  ],
+  "statement": "(2^16 / 16 = 4096) ∧ (4096 - 4032 = 64) ∧ (48 * 1024 / 16 = 3072) ∧ (3072 = 3 * 1024)",
+  "files": [
+    "Pravets.lean"
+  ]
+}

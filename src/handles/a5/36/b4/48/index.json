@@ -1,0 +1,12 @@
+{
+  "handle": "a536b448",
+  "address": "a536b448-323d-8588-8ac2-29bdfc926eee",
+  "kind": "chunk",
+  "keys": [
+    "divisors_of_38_number_4"
+  ],
+  "statement": "((List.range' 1 38).filter (fun k => 38 % k == 0)).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

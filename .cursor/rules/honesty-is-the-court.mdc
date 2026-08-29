@@ -1,0 +1,20 @@
+---
+description: Honesty lives in Lean and doctrine, never in runtime strings or trial prose.
+alwaysApply: true
+---
+
+# Honesty is the court, not the code
+
+Scope, disclaimer, "not physics", "not money", "modeled not qubits" — that is the **court** (`by decide` keys, `docs/doctrine.md`). Putting it in TypeScript breeds another trial the moment the sentence moves.
+
+## Do not add
+
+- `honest:` / `HONEST` / `HONEST SCOPE` fields or comment blocks on new constructors
+- Tests that `includes()` a disclaimer (`never money`, `not physics`, `no advice`)
+- Axiom-hunt / CONTROL / covering hunts whose live predicate is wording
+- Origin-site honesty audits as new uuidna trials
+
+## Do
+
+- Return numbers, addresses, constructors. Algebra, prove, and claim stay with the captain.
+- Leave existing `honest:` payloads alone unless the user asked to strip them — a mass rewrite is itself endless trials.

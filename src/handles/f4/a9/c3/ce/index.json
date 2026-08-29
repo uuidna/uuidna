@@ -1,0 +1,12 @@
+{
+  "handle": "f4a9c3ce",
+  "address": "f4a9c3ce-cbac-8658-bb48-f092a76a862e",
+  "kind": "chunk",
+  "keys": [
+    "window_not_universal"
+  ],
+  "statement": "((List.range 10).all (fun n => n < 10)) ∧ ¬(10 < 10)",
+  "files": [
+    "Infinity.lean"
+  ]
+}

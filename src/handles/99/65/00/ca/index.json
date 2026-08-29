@@ -1,0 +1,12 @@
+{
+  "handle": "996500ca",
+  "address": "996500ca-0e05-842f-98f8-0e3749faf354",
+  "kind": "chunk",
+  "keys": [
+    "flag_requires_hollow"
+  ],
+  "statement": "(List.range 8).all (fun n => flag (n%2) (n/2%2) (n/4%2) <= n%2)",
+  "files": [
+    "Audit.lean"
+  ]
+}

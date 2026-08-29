@@ -1,0 +1,12 @@
+{
+  "handle": "5dd3f76e",
+  "address": "5dd3f76e-7eba-8540-ab73-553a33be1399",
+  "kind": "chunk",
+  "keys": [
+    "post_classes_leave_only_nor_and_nand"
+  ],
+  "statement": "((List.range 16).filter (fun m => (m % 2 == 1) && ((m / 8) % 2 == 0) && !((List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (List.range 2).all (fun d => !(decide (a <= c) && decide (b <= d)) || decide ((m / 2 ^ (2*a+b)) % 2 <= (m / 2 ^ (2*c+d)) % 2)))))) && !((List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*(1-a)+(1-b))) % 2) == 1 - ((m / 2 ^ (2*a+b)) % 2)))) && !((List.range 2).any (fun k => (List.range 2).any (fun w => (List.range 2).any (fun z => (List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*a+b)) % 2) == (k + w*a + z*b) % 2)))))))) = [1,7] ∧ ((List.range 2).all (fun a => (1-a)*(1-a) == 1-a)) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => 1 - (1-a)*(1-b) == a + b - a*b))) ∧ ((List.range 2).all (fun a => (List.range 2).all (fun b => (1-(1-a))*(1-(1-b)) == a*b)))",
+  "files": [
+    "Wave.lean"
+  ]
+}

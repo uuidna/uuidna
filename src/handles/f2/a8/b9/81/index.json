@@ -1,0 +1,12 @@
+{
+  "handle": "f2a8b981",
+  "address": "f2a8b981-83de-8c89-86e9-5cd839d2e5c8",
+  "kind": "chunk",
+  "keys": [
+    "units_iff_invertible"
+  ],
+  "statement": "(List.range 9).all (fun a => (invB a) == (Nat.gcd a 9 == 1))",
+  "files": [
+    "Discover.lean"
+  ]
+}

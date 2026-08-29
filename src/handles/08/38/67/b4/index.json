@@ -1,0 +1,12 @@
+{
+  "handle": "083867b4",
+  "address": "083867b4-dfb8-832a-b769-6fead0e519b4",
+  "kind": "chunk",
+  "keys": [
+    "metatron_seventyeight_lines"
+  ],
+  "statement": "13 * 12 / 2 = 78",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

@@ -10,6 +10,7 @@
 // shelf is advice of any kind. The desk answers "what did this cost in work-units" — a question about
 // arithmetic — and refuses every question about value, worth, or what anyone should do.
 import { bill, account, PRICE, type Billable } from '../../../../billing/index.js'
+import { coins } from '../../../../captain/billing/index.js'
 
 export interface WorkloadCost { events: number; coins: number; lines: { event: string; count: number; coins: number }[]; honest: string }
 
@@ -35,7 +36,7 @@ export function walletCensus(seals: number, derived: number): WalletCensus {
     minted,
     perExchange: PRICE,
     // conservation is a CHECK, not a promise: the rate must be exactly the sealed two, at every scale
-    conserved: PRICE === 2 && minted === 2 * (seals + derived),
+    conserved: PRICE === coins() && minted === coins() * (seals + derived),
     honest: 'the count of work-units minted by proofs and seals — no currency, no market, no holder',
   }
 }

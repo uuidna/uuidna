@@ -1,0 +1,12 @@
+{
+  "handle": "af221071",
+  "address": "af221071-a91a-8aa6-ae38-e1df2ebef1be",
+  "kind": "chunk",
+  "keys": [
+    "hamming_differences_are_the_code"
+  ],
+  "statement": "(fun (W : List Nat) (x : Nat → Nat → Nat) (w : Nat → Nat) => (W.all (fun a => W.all (fun b => W.contains (x a b)))) ∧ (W.all (fun t => W.any (fun a => W.any (fun b => x a b == t)))) ∧ (W.all (fun a => W.all (fun b => [0,3,4,7].contains (w (x a b))))) ∧ (W.length = 16)) [0,75,42,97,25,82,51,120,7,76,45,102,30,85,52,127] (fun a b => (if a % 2 == b % 2 then 0 else 1) + 2 * (if a / 2 % 2 == b / 2 % 2 then 0 else 1) + 4 * (if a / 4 % 2 == b / 4 % 2 then 0 else 1) + 8 * (if a / 8 % 2 == b / 8 % 2 then 0 else 1) + 16 * (if a / 16 % 2 == b / 16 % 2 then 0 else 1) + 32 * (if a / 32 % 2 == b / 32 % 2 then 0 else 1) + 64 * (if a / 64 % 2 == b / 64 % 2 then 0 else 1)) (fun n => n % 2 + n / 2 % 2 + n / 4 % 2 + n / 8 % 2 + n / 16 % 2 + n / 32 % 2 + n / 64 % 2)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "509c2c3c",
+  "address": "509c2c3c-af30-8b9c-b8eb-bb877f10d519",
+  "kind": "chunk",
+  "keys": [
+    "fib_single_digit_cycle_24"
+  ],
+  "statement": "fibCycle 9 [0,1,1,2,3,5,8,4,3,7,1,8,0,8,8,7,6,4,1,5,6,2,8,1] 24 = true",
+  "files": [
+    "Pentagram.lean"
+  ]
+}

@@ -11,6 +11,7 @@ import { edgeAbsentWhy } from '../mcp-http.js'
 import { adjudicate, theorems, toUuid } from '../index.js'
 import { gateVerdict, gateSelfTest } from '../gate-engine.js'
 import { ROOT } from './api.js'
+import { pageSafe, pageCell } from '../quantum/advantage/page/safe/index.js'
 // A WORKED EXAMPLE, computed at generation time from the package the tools wrap — so the request/response shown is
 // REAL and recomputable by anyone, not a hand-written mock (the honest 'production MCP example').
 const EX = adjudicate('FNV-1a is cryptographic')
@@ -21,9 +22,6 @@ const GATE = gateSelfTest(MCP_CATALOG.map((t) => t.name))
 const GRUN = gateVerdict('uuidna_gate_status', {}, GATE)
 const GLINE = `gate ${GRUN.gate.clean ? 'CLEAN' : 'DRAINED'} f${GRUN.gate.input} d${GRUN.gate.output} v${GRUN.gate.honesty} · ${GRUN.gate.receipt}`
 
-// Markdown/Vue-safe: escape < > (raw HTML) and split {{ (Vue interpolation) so descriptions render literally.
-const safe = (s: string): string => s.replace(/[<>]/g, (c) => (c === '<' ? '&lt;' : '&gt;')).replace(/\{\{/g, '{ {')
-
 // Group by category in first-seen order; collect the skills each category carries.
 const order: string[] = []
 const byCat = new Map<string, typeof MCP_CATALOG>()
@@ -32,13 +30,6 @@ for (const t of MCP_CATALOG) {
   byCat.get(t.category)!.push(t)
 }
 
-// Table-safe: escape the pipe (the cell delimiter) on top of the < > / {{ escaping safe() already does.
-// THE BACKSLASH GOES FIRST, and the order is the whole correctness argument. Escaping `|` alone means a source
-// backslash before a pipe produces `\` + `\|` — the reader sees an escaped backslash followed by a LIVE pipe, and
-// the row splits a column early. Escaping backslashes first makes the pipe's escape the only one that can be
-// consumed by something else (js/incomplete-sanitization). Reversing these two lines silently breaks the table.
-const cell = (s: string): string => safe(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
-
 // Render a tool's PARAMETERS from its JSON-schema input — name · type · required · description — so the page shows
 // how to CALL each tool, not only what it does. A tool with no inputs says so explicitly.
 const params = (schema?: { properties?: Record<string, { type?: string; description?: string }>; required?: string[] }): string => {
@@ -46,14 +37,14 @@ const params = (schema?: { properties?: Record<string, { type?: string; descript
   const req = new Set(schema?.required || [])
   const keys = Object.keys(props)
   if (!keys.length) return '_No parameters._'
-  const rows = keys.map((k) => `| \`${k}\` | ${props[k].type || 'any'} | ${req.has(k) ? '**yes**' : 'no'} | ${cell(props[k].description || '')} |`)
+  const rows = keys.map((k) => `| \`${k}\` | ${props[k].type || 'any'} | ${req.has(k) ? '**yes**' : 'no'} | ${pageCell(props[k].description || '')} |`)
   return ['**Parameters**', '', '| param | type | required | description |', '| --- | --- | --- | --- |', ...rows].join('\n')
 }
 
 const sections = order.map((cat) => {
   const tools = byCat.get(cat)!
   const skills = [...new Set(tools.map((t) => t.skill))].join(', ')
-  const rows = tools.map((t) => `### \`${t.name}\`\n\n${safe(t.description)}\n\n${params(t.inputSchema)}\n`).join('\n')
+  const rows = tools.map((t) => `### \`${t.name}\`\n\n${pageSafe(t.detail ?? t.description)}\n\n${params(t.inputSchema)}\n`).join('\n')
   return `## ${cat} <Badge type="tip" :text="'${tools.length}'" />\n\n*skill: ${skills}*\n\n${rows}`
 }).join('\n')
 
@@ -162,7 +153,7 @@ Every call is recomputable: same input, same receipt. That is the production con
 
 100% is a **finding**: a capability-absent tool is **named** on this page, not silently dropped so the hosted subset looks complete. \`uuidna_school_apis\` stays listed. The divergence list may only shrink.
 
-${ABSENT.map((a) => `- \`${a.name}\` — ${cell(a.why)}`).join('\n')}
+${ABSENT.map((a) => `- \`${a.name}\` — ${pageCell(a.why)}`).join('\n')}
 
 ${sections}
 `

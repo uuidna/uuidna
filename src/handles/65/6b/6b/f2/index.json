@@ -1,0 +1,12 @@
+{
+  "handle": "656b6bf2",
+  "address": "656b6bf2-009d-8c51-a370-146d5dbb4d90",
+  "kind": "chunk",
+  "keys": [
+    "tesla_leap_spring_to_grant"
+  ],
+  "statement": "(19 + 30 + 31 + 31 + 29 + 31 + 30 + 1 = 202) ∧ (1888 % 4 = 0) ∧ (¬ (1888 % 100 = 0))",
+  "files": [
+    "Tesla.lean"
+  ]
+}

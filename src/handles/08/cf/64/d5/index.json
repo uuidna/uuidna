@@ -1,0 +1,12 @@
+{
+  "handle": "08cf64d5",
+  "address": "08cf64d5-d7e2-8a77-a525-3fed7b9fa0e5",
+  "kind": "chunk",
+  "keys": [
+    "the_suanpan_rod_is_the_hexbit_ceiling"
+  ],
+  "statement": "(2 * 5 + 5 * 1 = 15) ∧ (15 = 16 - 1)",
+  "files": [
+    "Looms.lean"
+  ]
+}

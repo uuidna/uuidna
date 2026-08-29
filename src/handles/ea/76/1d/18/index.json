@@ -1,0 +1,12 @@
+{
+  "handle": "ea761d18",
+  "address": "ea761d18-14a8-81b6-ae47-714907d71857",
+  "kind": "chunk",
+  "keys": [
+    "isbn10_check_alphabet_eleven"
+  ],
+  "statement": "[0,1,2,3,4,5,6,7,8,9,10].length = 11",
+  "files": [
+    "Identifiers.lean"
+  ]
+}

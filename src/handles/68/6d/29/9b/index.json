@@ -1,0 +1,12 @@
+{
+  "handle": "686d299b",
+  "address": "686d299b-935e-8bb9-b958-fbefa583ebdc",
+  "kind": "chunk",
+  "keys": [
+    "two_clocks_meet_at_the_lcm_and_fuse_only_when_coprime"
+  ],
+  "statement": "(List.range' 1 10).all (fun a => (List.range' 1 10).all (fun b => (((List.range (a*b)).map (fun k => (k % a) * 16 + (k % b))).eraseDups.length == (a * b) / Nat.gcd a b) && ((((List.range (a*b)).map (fun k => (k % a) * 16 + (k % b))).eraseDups.length == a * b) == (Nat.gcd a b == 1)) && (((List.range' 1 (a*b)).filter (fun k => (k % a == 0) && (k % b == 0))).head? == some ((a * b) / Nat.gcd a b))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

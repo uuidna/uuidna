@@ -1,0 +1,12 @@
+{
+  "handle": "21483d71",
+  "address": "21483d71-a805-80f5-adc4-36ce1d2e012c",
+  "kind": "chunk",
+  "keys": [
+    "secure_channel_by_default"
+  ],
+  "statement": "(1 + 2 = 3) ∧ (1 < 3) ∧ (256 / 2 = 128)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

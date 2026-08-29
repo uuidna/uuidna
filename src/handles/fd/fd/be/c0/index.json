@@ -1,0 +1,12 @@
+{
+  "handle": "fdfdbec0",
+  "address": "fdfdbec0-3073-8753-a82d-57bb8734a529",
+  "kind": "chunk",
+  "keys": [
+    "dz_involution"
+  ],
+  "statement": "(List.range 10).all (fun x => dz (dz x) == x)",
+  "files": [
+    "DivByZero.lean"
+  ]
+}

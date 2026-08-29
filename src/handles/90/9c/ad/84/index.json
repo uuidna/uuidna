@@ -1,0 +1,12 @@
+{
+  "handle": "909cad84",
+  "address": "909cad84-693d-880c-afa6-e1d81e0f1dc8",
+  "kind": "chunk",
+  "keys": [
+    "the_hex_center_is_empty"
+  ],
+  "statement": "(((List.range 16).filter (fun d => 15 - d == d)) = []) ∧ (15 % 2 = 1)",
+  "files": [
+    "Waves.lean"
+  ]
+}

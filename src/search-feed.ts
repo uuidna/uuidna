@@ -59,7 +59,7 @@ export function portalQueries(): SearchQuery[] {
   return out
 }
 
-const PREFIX = /^(MO (answered|open)|arXiv \S+:|Wikipedia:|Wikinews:|Gutenberg \d+:|Open-Meteo place)\s*/i
+const PREFIX = /^(MO (answered|open):?|arXiv \S+:|Wikipedia:|Wikinews:|Gutenberg \d+:|Open-Meteo place)\s*/i
 
 /** titleOf(note) → the searchable phrase inside an API evidence note. Pure. */
 export function titleOf(note: string): string {
@@ -93,6 +93,16 @@ export function uniqueQueries(queries: readonly SearchQuery[]): SearchQuery[] {
     out.push(q)
   }
   return out
+}
+
+/** A feed query that names quantum advantage must cite the sealed classical bound on the same surface. */
+const FEED_PHYSICS = /quantum\s+(speedup|speed-up|advantage|supremacy)|faster\s+than\s+classical/i
+
+/** feedPhysicsCite(query) → markdown cite of n_qubit_dimension, or empty. Pure. */
+export function feedPhysicsCite(query: string): string {
+  return FEED_PHYSICS.test(query)
+    ? ' ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)'
+    : ''
 }
 
 /** Declared mill input: most-searched strings plus the wired portal probes, first spelling of each query wins. */

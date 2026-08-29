@@ -1,0 +1,12 @@
+{
+  "handle": "0cec632f",
+  "address": "0cec632f-1449-86c2-84d1-9c3c5ec1d335",
+  "kind": "chunk",
+  "keys": [
+    "trinities_cover_billion"
+  ],
+  "statement": "((3:Nat)^19 ≥ 10^9) ∧ ((3:Nat)^18 < 10^9)",
+  "files": [
+    "Trinities.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "46df6b88",
+  "address": "46df6b88-73cd-826e-a7bb-cd4d49625370",
+  "kind": "chunk",
+  "keys": [
+    "hebbian_coincidence_table"
+  ],
+  "statement": "([(0,0),(0,1),(1,0),(1,1)].map (fun p => p.1 * p.2) = [0,0,0,1]) ∧ ([(0,0),(0,1),(1,0),(1,1)].map (fun p => p.1) ≠ [0,0,0,1]) ∧ ([(0,0),(0,1),(1,0),(1,1)].map (fun p => max p.1 p.2) ≠ [0,0,0,1])",
+  "files": [
+    "Neuro.lean"
+  ]
+}

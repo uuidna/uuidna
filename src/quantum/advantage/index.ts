@@ -49,6 +49,11 @@ export {
   type PageAdvantageMetrics,
 } from './page/metrics/index.js'
 
+export {
+  pageSafe,
+  pageCell,
+} from './page/safe/index.js'
+
 /** Integer floor division. The folds here are exact arithmetic and the float-rounding intrinsics are hard-
  *  rejected by the laws gate (eslint-rules/no-float-math, and smoke.test.js scans the source for the name
  *  itself); for non-negative operands this IS the floor, written the way the rule asks. */

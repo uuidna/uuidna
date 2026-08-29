@@ -1,0 +1,12 @@
+{
+  "handle": "de862f77",
+  "address": "de862f77-69fd-826c-a70c-79b43e71207e",
+  "kind": "chunk",
+  "keys": [
+    "sexagesimal_arcseconds"
+  ],
+  "statement": "60 * 60 = 3600",
+  "files": [
+    "Astronomy.lean"
+  ]
+}

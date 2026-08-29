@@ -1,0 +1,12 @@
+{
+  "handle": "ef106a14",
+  "address": "ef106a14-d44d-8ec9-b8b0-a4f1735e7c35",
+  "kind": "chunk",
+  "keys": [
+    "nimsum_3_0"
+  ],
+  "statement": "lxor 3 0 = 3",
+  "files": [
+    "Nim.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a78b3964",
+  "address": "a78b3964-afa0-845b-ae9e-8ef54a6681c1",
+  "kind": "chunk",
+  "keys": [
+    "ten_square_ten_free"
+  ],
+  "statement": "(10 * 10 = 100) ∧ (100 / 2 = 50) ∧ (50 - 2 * 20 = 10)",
+  "files": [
+    "Chess.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "01ac6abe",
+  "address": "01ac6abe-7ddf-80b6-81e6-df45b69c9ecc",
+  "kind": "chunk",
+  "keys": [
+    "modus_tollens"
+  ],
+  "statement": "([true, false].all (fun p => [true, false].all (fun q => !((!q) && (!p || q)) || !p))) = true",
+  "files": [
+    "Reasoning.lean"
+  ]
+}

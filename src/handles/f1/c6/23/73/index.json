@@ -1,0 +1,12 @@
+{
+  "handle": "f1c62373",
+  "address": "f1c62373-78b9-8c1f-84a6-d691f846b41c",
+  "kind": "chunk",
+  "keys": [
+    "nimsum_3_1"
+  ],
+  "statement": "lxor 3 1 = 2",
+  "files": [
+    "Nim.lean"
+  ]
+}

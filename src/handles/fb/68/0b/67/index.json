@@ -1,0 +1,12 @@
+{
+  "handle": "fb680b67",
+  "address": "fb680b67-c71f-8ac6-b997-0955175ae701",
+  "kind": "chunk",
+  "keys": [
+    "hextorus_deficit_is_the_ten"
+  ],
+  "statement": "(2 * 6 - 2 = 10) ∧ (2 * 2 - 2 = 2)",
+  "files": [
+    "Torus.lean"
+  ]
+}

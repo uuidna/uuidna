@@ -1,0 +1,12 @@
+{
+  "handle": "b28bfe08",
+  "address": "b28bfe08-0717-8353-8c45-e0e61f2b7c7f",
+  "kind": "chunk",
+  "keys": [
+    "dunbar_layers_triple_and_round"
+  ],
+  "statement": "(5 * 3 = 15) ∧ (15 * 3 = 45) ∧ (50 - 45 = 5) ∧ (150 - 135 = 15)",
+  "files": [
+    "Psychology.lean"
+  ]
+}

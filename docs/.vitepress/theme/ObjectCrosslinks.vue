@@ -9,55 +9,22 @@ import { computed } from 'vue'
 import { useData } from 'vitepress'
 import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
 import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vue'
-import { data as ledger } from '../ledger.data'
-import { data as pubs } from '../publications.data'
 import Handle from './Handle.vue'
 import RefererCompass from './RefererCompass.vue'
 import { objectUi } from '../../../dist/object-i18n.js'
-import {
-  theoremGraph, publicationGraph, buildRelatedMaps,
-} from '../object-graph.js'
-import { theoremDemoOf } from '../../../dist/quantum/apps/theorem-demos.js'
 
 const { params, frontmatter } = useData()
 const props = defineProps({ localeTag: { type: String, default: 'en' } })
 
-const byKey = new Map(ledger.theorems.map((t) => [t.key, t]))
-const bySkill = new Map()
-const byPrin = new Map()
-for (const t of ledger.theorems) {
-  if (!bySkill.has(t.skill)) bySkill.set(t.skill, [])
-  bySkill.get(t.skill).push(t)
-  if (!byPrin.has(t.principle)) byPrin.set(t.principle, [])
-  byPrin.get(t.principle).push(t)
-}
-const relatedMaps = buildRelatedMaps(pubs.cards.filter((c) => c.publishable))
-
 const ui = computed(() => objectUi(props.localeTag))
 
-/** Prefer compose-object params.crosslinks (SSG); fall back to live ledger recompute. */
+/** This URL's monograph graph — composed at SSG into params/frontmatter. No census import. */
 const graph = computed(() => {
   const fm = frontmatter.value || {}
   if (fm.crosslinks && typeof fm.crosslinks === 'object') return fm.crosslinks
-  const p = params.value || {}
-  const key = p.key || (p.kind === 'theorem' ? p.id : undefined)
-  const slug = p.slug || (p.kind === 'publications' ? p.id : undefined)
-  if (key) {
-    const t = byKey.get(key)
-    if (!t) return null
-    const row = ledger.legs?.[key]
-    return theoremGraph(t, ledger.theorems, bySkill, byPrin, row, ledger.axiomHolds, relatedMaps)
-  }
-  if (slug) {
-    const pub = pubs.cards.find((c) => c.slug === slug)
-    if (!pub) return null
-    const theoremsForFile = ledger.theorems.filter((t) => t.file === pub.file).map((t) => t.key)
-    const full = { ...pub, theorems: theoremsForFile, count: pub.count }
-    return publicationGraph(full, pubs.cards, byKey)
-  }
-  const address = fm.seoAddress || ''
+  const address = fm.seoAddress || fm.address || ''
   return {
-    handle: address ? String(address).replace(/-/g, '').slice(0, 8) : '',
+    handle: fm.handle || '',
     address,
     sequence: { prev: null, next: null },
   }
@@ -120,16 +87,9 @@ const hasRelated = computed(() => graph.value && (
   || seals.value.length || graph.value.objectKind === 'publication'
 ))
 
-const useDemo = computed(() => {
-  if (graph.value?.use) return graph.value.use
-  const p = params.value || {}
-  const key = p.key || (p.kind === 'theorem' ? p.id : undefined)
-  if (!key) return null
-  const t = byKey.get(key)
-  return t ? theoremDemoOf(t.key, t.skill, 0) : null
-})
+const useDemo = computed(() => graph.value?.use || frontmatter.value?.use || null)
 
-const hasUse = computed(() => !!useDemo.value && graph.value?.objectKind === 'theorem')
+const hasUse = computed(() => !!useDemo.value)
 
 const shelfHref = computed(() => {
   const u = useDemo.value
@@ -232,7 +192,9 @@ const topicHref = (kw) => {
         <li v-if="useDemo.alpineApps" class="ox-item">
           <span class="ox-k">Alpine</span>
           <VPButton theme="alt" size="medium"
-            :href="`/catalogue?theorem=${encodeURIComponent(useDemo.key)}`"
+            :href="(useDemo.catalogueSkill || useDemo.skill)
+              ? `/catalogue?skill=${encodeURIComponent(useDemo.catalogueSkill || useDemo.skill)}`
+              : `/catalogue?theorem=${encodeURIComponent(useDemo.key)}`"
             :text="`${useDemo.alpineApps} apps harmonised`" />
         </li>
         <li class="ox-item">

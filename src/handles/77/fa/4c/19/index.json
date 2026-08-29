@@ -1,0 +1,12 @@
+{
+  "handle": "77fa4c19",
+  "address": "77fa4c19-586a-82aa-8c1f-f7334d3d20f3",
+  "kind": "chunk",
+  "keys": [
+    "the_promotion_chain_doubles_home"
+  ],
+  "statement": "(16 * 2 = 32) ∧ (32 * 2 = 64) ∧ (64 * 2 = 128) ∧ (128 = 16 * 2 ^ 3)",
+  "files": [
+    "Waves.lean"
+  ]
+}

@@ -6,7 +6,7 @@
 // not GENERATE the nonce; the verifier supplies it from their own entropy, and uuidna RESPONDS).
 //
 // HONEST SCOPE: integrity. This is a SYMMETRIC challenge-response — the verifier must share the secret to
-// check it (like the ChaCha passphrase); its strength is the SECRET'S entropy, measured not asserted. It is NOT
+// check it (like the ChaCha passphrase); its strength is the SECRET'S entropy, never a figure this module computes. It is NOT
 // zero-knowledge, NOT public-key, and NOT biometric: it proves knowledge of the shared secret for a fresh nonce, and
 // nothing about a person's voice, face, or liveness — those are runtime layers OUTSIDE uuidna's recomputable model.
 // The cube itself is ART (the aura's colour arithmetic rendered as a rotating cube). Reusing a nonce
@@ -30,7 +30,7 @@ const HONEST =
   'The quantum-cube challenge: a SYMMETRIC, deterministic challenge-response — the holder answers a verifier-supplied ' +
   'nonce by folding secret+nonce to a content-address and computing its aura (the spinning cube). The verifier ' +
   'recomputes and compares (it must SHARE the secret — not zero-knowledge. Strength is the secret\'s ' +
-  'entropy, measured not asserted; it proves knowledge of the shared secret for a fresh nonce, NOTHING about voice, ' +
+  'entropy, never a figure this module computes; it proves knowledge of the shared secret for a fresh nonce, NOTHING about voice, ' +
   'face, or liveness (those are runtime layers outside this recomputable model). The cube is ART. ' +
   'Integrity — the record recomputes for anyone.'
 

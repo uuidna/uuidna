@@ -1,0 +1,12 @@
+{
+  "handle": "8a641caf",
+  "address": "8a641caf-24c2-8171-ac05-612580b5f958",
+  "kind": "chunk",
+  "keys": [
+    "power_fixed_mod_35_number_9"
+  ],
+  "statement": "((List.range 35).filter (fun x => x ^ 35 % 35 == x)).length = 9",
+  "files": [
+    "Wave.lean"
+  ]
+}

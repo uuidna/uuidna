@@ -1,0 +1,12 @@
+{
+  "handle": "52e42b2c",
+  "address": "52e42b2c-61ce-8f44-8562-78bb739d77fc",
+  "kind": "chunk",
+  "keys": [
+    "electron_shells_2n2"
+  ],
+  "statement": "(List.range' 1 4).map (fun n => 2 * n * n) = [2, 8, 18, 32]",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

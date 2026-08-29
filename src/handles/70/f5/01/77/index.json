@@ -1,0 +1,12 @@
+{
+  "handle": "70f50177",
+  "address": "70f50177-dcad-82e5-8f13-e65fed5a9ddc",
+  "kind": "chunk",
+  "keys": [
+    "inhibition_vetoes_spike"
+  ],
+  "statement": "((if (7 : Int) >= 5 then 1 else 0) = 1) ∧ ((if (7 - 3 : Int) >= 5 then 1 else 0) = 0) ∧ ((if (12 - 4 : Int) >= 5 then 1 else 0) = 1) ∧ ((if (12 / 4 : Int) >= 5 then 1 else 0) = 0)",
+  "files": [
+    "Neuro.lean"
+  ]
+}

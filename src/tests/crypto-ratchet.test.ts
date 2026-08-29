@@ -3,14 +3,19 @@
 // identically, and a chain must break the moment a link is dropped, reordered or edited.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { sealMessages, openMessages, sealChain, openChain } from '../index.js'
+import { sealMessagesAcross, openMessages, sealChain, openChain } from '../index.js'
 
 test('the ratchet chain rotates, links forward, and breaks on drop, reorder or edit', () => {
   const msgs = ['dup', 'dup', 'dup'], keys = ['inner', 'outer']
-  const streams = sealMessages(msgs, ['key'], 0)
+  const across = sealMessagesAcross(msgs, ['key'], 8, 0)
+  const streams = across.streams
+  assert.equal(across.balance.gpuWorkers, 0, 'three jobs do not pay GPU postage')
+  assert.ok(across.balance.parallelSteps <= msgs.length)
+  assert.equal(across.balance.opened, msgs.length - across.balance.parallelSteps)
   assert.equal(new Set(streams.map((s) => s.receipt)).size, 3)            // identical plaintext, distinct envelopes
   assert.deepEqual(openMessages(streams, ['key']), msgs)
   const chain = sealChain(msgs, keys)
+  assert.equal(chain.length, msgs.length, 'sealChain stays serial — one link per message, no fleet fan-out')
   assert.equal(chain[1].referer, chain[0].receipt)                        // forward-linked
   assert.equal(chain[2].referer, chain[1].receipt)
   assert.equal(new Set(chain.map((l) => l.step)).size, 3)                 // every step rotated to a fresh value

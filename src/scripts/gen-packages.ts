@@ -29,9 +29,11 @@ const PARTITION: Record<string, string> = {
   './verify-statement.js': 'ledger', './fingerprint.js': 'ledger', './laws.js': 'ledger', './captain/credits/index.js': 'ledger',
   './conformance.js': 'ledger', './treason.js': 'ledger', './axiom-witness.js': 'ledger', './anti-fraud.js': 'ledger',
   './forensics.js': 'ledger', './evidence.js': 'ledger', './captain/trial/deposit/index.js': 'ledger', './security-audit.js': 'ledger',
-  './captain/billing/index.js': 'ledger',   './theorems/index.js': 'ledger',
+  './captain/billing/index.js': 'ledger', './coin-supply.js': 'ledger', './tamper-cost.js': 'ledger', './phd-proofs.js': 'ledger', './theorems/index.js': 'ledger',
   './theorem-forms.js': 'ledger',
   './hexbit/index.js': 'ledger',
+  './hexagram.js': 'ledger',
+  './life-wave.js': 'ledger',
   // research — recomputable research, corroboration, publications, external anchors
   './research.js': 'research', './corroborate.js': 'research', './books.js': 'research', './publish.js': 'research',
   './reporter.js': 'research', './priorart.js': 'research', './anchor.js': 'research', './constants.js': 'research',
@@ -46,8 +48,14 @@ const PARTITION: Record<string, string> = {
   './aura.js': 'quantum', './domain-wave.js': 'quantum', './quantum/message/index.js': 'quantum',
   './quantum/voting/index.js': 'quantum', './desk/sailing/library/index.js': 'quantum', './desk/news/portal/index.js': 'quantum',
   './desk/news/domains/index.js': 'quantum', './desk/sailing/weather/index.js': 'quantum', './desk/sailing/cross/book/index.js': 'quantum',
-  './desk/sailing/complete/index.js': 'quantum', './analytics.js': 'quantum', './os/alpine/index.js': 'quantum',
+  './desk/sailing/complete/index.js': 'quantum',   './analytics.js': 'quantum', './os/alpine/index.js': 'quantum',
   './drivers/driver/index.js': 'quantum',
+  './drivers/quantum/index.js': 'quantum',
+  './quantum/os/index.js': 'quantum',
+  './quantum/os/firmware.js': 'quantum',
+  './quantum/os/exec.js': 'quantum',
+  './quantum/apps/index.js': 'quantum',
+  './os/apps/index.js': 'quantum',
   // mcp — the server's I/O boundary (the bin re-serves the root server)
   './sanitize.js': 'mcp', './harness.js': 'mcp',
   // edge — the deployment surface

@@ -1,0 +1,12 @@
+{
+  "handle": "a169892e",
+  "address": "a169892e-1508-8a49-a20c-18e08ef762c5",
+  "kind": "chunk",
+  "keys": [
+    "ve_twelve_vertices"
+  ],
+  "statement": "VE.length = 12",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

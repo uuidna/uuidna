@@ -1,0 +1,12 @@
+{
+  "handle": "e18f766a",
+  "address": "e18f766a-495e-893d-9617-4c528b154916",
+  "kind": "chunk",
+  "keys": [
+    "the_movie_and_the_song_are_one"
+  ],
+  "statement": "(16 * 252 = 4032) ∧ (4032 = 9 * 7 * 64) ∧ (4032 = 63 * 64) ∧ (4032 = 24 * 24 * 7) ∧ (4032 = 24 * 168) ∧ (168 = 24 * 7)",
+  "files": [
+    "Referrer.lean"
+  ]
+}

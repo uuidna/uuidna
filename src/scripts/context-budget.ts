@@ -27,38 +27,16 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, report, type Gap } from './api.js'
+import { WIRE_CAP, LAW_PHRASE, sentences } from '../mcp-wire.js'
 
-/** A sentence at or below this length is a canonical law-phrase — a citation, cheap enough to repeat verbatim.
- *  The bound is set where the two canonical citations sit ("Integrity, not truth (theorem
- *  provenance_integrity_not_content_truth)." at 70 bytes, "Boundary declared — theorem drift_is_named_or_caught."
- *  at 52) and the 146-byte paragraph that motivated this finder does not. Repeating a citation is the honesty;
- *  repeating the essay around it is the toll. Move the bound only with a reason of that kind. */
-const LAW_PHRASE = 80
 /** Repetition at or above this many descriptions is duplication, not emphasis. */
 const REPEATS = 3
-/** A description longer than this owes its derivation to `detail` rather than to every request's context. */
-const WIRE_CAP = 1200
 
 export interface WireTool { name: string; description: string; detail?: string; inputSchema?: unknown }
 
-/** The exact bytes an MCP client puts in the model's context for `tools/list` — name, description, schema; no detail. */
+/** The exact bytes an MCP client puts in the model's context for `tools/list` — name, description, schema; never detail. */
 export const wireBytes = (tools: readonly WireTool[]): number =>
   JSON.stringify(tools.map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema }))).length
-
-/** Split a description into sentences, keeping bracketed shapes like `Returns {a,b}` intact. */
-const sentences = (t: string): string[] => {
-  const out: string[] = []
-  let buf = '', depth = 0
-  for (let i = 0; i < t.length; i++) {
-    const c = t[i]!
-    if (c === '{' || c === '[' || c === '(') depth++
-    if (c === '}' || c === ']' || c === ')') depth--
-    buf += c
-    if (depth <= 0 && (c === '.' || c === '!' || c === '?') && !/^ [a-z]/.test(t.slice(i + 1, i + 3))) { out.push(buf.trim()); buf = '' }
-  }
-  if (buf.trim()) out.push(buf.trim())
-  return out
-}
 
 export interface Budget { wireBytes: number; note: string }
 

@@ -1,0 +1,12 @@
+{
+  "handle": "585105a5",
+  "address": "585105a5-ff50-8ba5-8b2f-f2565721b6c3",
+  "kind": "chunk",
+  "keys": [
+    "scout_drones_spin"
+  ],
+  "statement": "(2^6 % 9 = 1) ∧ ([1,2,4,8,7,5].length = 6) ∧ (2 * 32 = 64)",
+  "files": [
+    "Security.lean"
+  ]
+}

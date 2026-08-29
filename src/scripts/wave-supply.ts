@@ -26,6 +26,7 @@ import { mirrorRows } from '../rosetta-legs.js'
 import { coverage } from '../publish.js'
 import { theorems, theoremNeighbours } from '../theorems/index.js'
 import { gridGaps, pairsGaps } from '../grid.js'
+import { axiomHunt } from './axiom-hunt.js'
 
 /** How many INDEPENDENT legs the sealed corpus is still owed — a witness or a falsifier absent from a theorem
  *  that is already proved. Counted per missing leg rather than per theorem, because each leg is its own piece of
@@ -109,6 +110,12 @@ export function waveSupply(): Supply {
     // cannot disagree about what is exposed.
     { name: 'exposed-coordinates', count: exposedCount(), where: 'grid.ts + theoremNeighbours',
       reach: 'lonely principles and broken seats — WHERE unsealed structure shows, never a theorem' },
+    // THE TABLE THAT WAS A SECOND COPY AWAY FROM THIS CENSUS. axiom-hunt used to live only as a script, so
+    // counting it here would have duplicated CANDIDATES. It now exports axiomHunt() — one table, two readers —
+    // and remaining covering work (live assumptions with no sealing theorem, or a copy of the coins that drifted)
+    // is supply, not a printed line that evaporates.
+    { name: 'exposed-axioms', count: axiomHunt().exposed.length, where: 'src/scripts/axiom-hunt.ts (axiomHunt)',
+      reach: 'live code assumptions with no sealing theorem — remaining axiom-covering work, including coin copies and harmonic-drift forks' },
   ]
   const pending = countIn(join('lean', 'wave-queue.json'), 'pending')
   const available = sources.reduce((n, s) => n + s.count, 0)
@@ -120,9 +127,8 @@ export function waveSupply(): Supply {
     honest:
       'A census of what the existing finders hold, never a discovery. An exhausted census is evidence about the ' +
       'FINDERS’ reach — it is not a proof that no theorem remains to be found, and it must never be read as one. ' +
-      'axiom-hunt is deliberately absent from this count: it runs as a script rather than exporting its table, so ' +
-      'counting it here would mean a second copy of that table, which the dry law refuses. Its verdict is printed ' +
-      'by `npm run build && node dist/scripts/axiom-hunt.js`.',
+      'axiom-hunt is counted through axiomHunt() on the same CANDIDATES table the CLI writes; a second copy of ' +
+      'that table is refused.',
   }
 }
 

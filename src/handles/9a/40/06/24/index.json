@@ -1,0 +1,12 @@
+{
+  "handle": "9a400624",
+  "address": "9a400624-fa0d-80e4-ae72-d46b01f1a1df",
+  "kind": "chunk",
+  "keys": [
+    "readings_seven_rays"
+  ],
+  "statement": "([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).length = 7 ∧ ([\"en\",\"bg\",\"de\",\"fr\",\"es\",\"ru\",\"zh\"] : List String).Nodup",
+  "files": [
+    "Readings.lean"
+  ]
+}

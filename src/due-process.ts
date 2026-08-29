@@ -18,6 +18,7 @@ import { toUuid, merkleFold } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { sealMessage, verifyMessage, type SealedQuantumMessage } from './quantum/message/index.js'
 import { verifyEnvelope } from './crypt.js'
+import { hexbitDoorOf, UUID_HEXBITS, type HexbitDoor } from './hexbit/index.js'
 
 // the six sealed guarantees that make the process DUE — each a lean/Legal.lean theorem, with the right it secures.
 const GUARANTEES: { key: string; right: string }[] = [
@@ -41,6 +42,8 @@ export interface DueProcess {
   traitors: DocketEntry[]        // the REFUTED — a decidable test existed and FAILED; a caught false claim
   allTheoremsVerified: boolean
   receipt: string
+  handle: string
+  hexbits: number[]
   honest: string
 }
 
@@ -67,6 +70,8 @@ export interface CourtProcedure {
   guaranteesCovered: boolean     // all six Legal.lean due-process guarantees appear among the stages
   docket: DocketEntry[]          // submitted claims, each walked through the same procedure
   receipt: string
+  handle: string
+  hexbits: number[]
   honest: string
 }
 
@@ -93,18 +98,23 @@ export function courtProcedure(claims: readonly string[] = []): CourtProcedure {
     }
   })
   const sealedGuarantees = new Set(stages.filter((s) => s.sealed).map((s) => s.theoremKey))
+  const receipt = merkleGravity([
+    merkleFold(stages.map((s) => s.theoremAddress)),
+    ...(docket.length ? [merkleFold(docket.map((d) => d.receipt))] : []),
+  ])
+  const door = hexbitDoorOf(receipt)
   return {
     stages,
     allStagesSealed: stages.every((s) => s.sealed),
     guaranteesCovered: GUARANTEES.every((g) => sealedGuarantees.has(g.key)),
     docket,
-    receipt: merkleGravity([
-      merkleFold(stages.map((s) => s.theoremAddress)),
-      ...(docket.length ? [merkleFold(docket.map((d) => d.receipt))] : []),
-    ]),
+    receipt,
+    handle: door.handle,
+    hexbits: door.hexbits,
     honest:
       'The court PROCEDURE, in the exact order a court follows, each stage backed by a sealed theorem — so a court ' +
-      'can use uuidna by walking its own sequence and RECOMPUTING every stage from the record. uuidna replicates the ' +
+      'can use uuidna by walking its own sequence and RECOMPUTING every stage from the record. Court speaks only hexbit ' +
+      `(${UUID_HEXBITS} states, hexbit_states_are_sixteen / a_spec_compiles_to_hexbits). uuidna replicates the ` +
       'ORDER and the recomputable guarantees' +
       'enforceable judgment; the standards of proof a jurisdiction applies (preponderance, clear-and-convincing, ' +
       'beyond reasonable doubt) are the court\'s own — uuidna\'s standard is recomputation, and where they differ ' +
@@ -157,6 +167,12 @@ export function dueProcess(claims: readonly string[] = []): DueProcess {
   const gaps = docket.filter((d) => d.verdict === 'UNVERIFIED')
   const traitors = docket.filter((d) => d.verdict === 'REFUTED')
 
+  const receipt = merkleGravity([
+      trial.receipt,
+      merkleFold(guarantees.map((g) => g.address)),
+      ...(docket.length ? [merkleFold(docket.map((d) => d.receipt))] : []),
+    ])
+  const door = hexbitDoorOf(receipt)
   return {
     verifiedAll: { theorems: trial.count, verified: trial.verified, unverified: trial.unverified, receipt: trial.receipt },
     guarantees,
@@ -165,15 +181,14 @@ export function dueProcess(claims: readonly string[] = []): DueProcess {
     gaps,
     traitors,
     allTheoremsVerified: trial.verified === trial.count && trial.unverified === 0,
-    receipt: merkleGravity([
-      trial.receipt,
-      merkleFold(guarantees.map((g) => g.address)),
-      ...(docket.length ? [merkleFold(docket.map((d) => d.receipt))] : []),
-    ]),
+    receipt,
+    handle: door.handle,
+    hexbits: door.hexbits,
     honest:
       'Verify all by DUE (recomputable) legal process: every theorem verified by one fair trial, the six due-process ' +
       'guarantees each a sealed theorem (one verdict, only-proven-admitted, non-justiciable-never-refuted, refuted-iff-' +
-      'test-fails, remand-total, two-coins-to-compute), any claim adjudicated by the same process. Integrity' +
+      'test-fails, remand-total, two-coins-to-compute), any claim adjudicated by the same process. Court speaks only ' +
+      `hexbit (${UUID_HEXBITS} states). Integrity` +
       '— the process is DUE (fair and recomputable). A fair ' +
       'process whose rules are theorems; the binding ruling stays a human court\'s.',
   }

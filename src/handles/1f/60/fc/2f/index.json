@@ -1,0 +1,12 @@
+{
+  "handle": "1f60fc2f",
+  "address": "1f60fc2f-208b-83c3-9c2e-64caa0a25ba3",
+  "kind": "chunk",
+  "keys": [
+    "phase_inversion_involutive"
+  ],
+  "statement": "(([3, -5, 8] : List Int).map (fun x => -x)).map (fun x => -x) = [3, -5, 8]",
+  "files": [
+    "Production.lean"
+  ]
+}

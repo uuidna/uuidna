@@ -1,0 +1,12 @@
+{
+  "handle": "b737f349",
+  "address": "b737f349-6164-8b69-a207-b464881d98b1",
+  "kind": "chunk",
+  "keys": [
+    "squares_mod_15_number_6"
+  ],
+  "statement": "(((List.range 15).map (fun x => (x * x) % 15)).eraseDups).length = 6",
+  "files": [
+    "Wave.lean"
+  ]
+}

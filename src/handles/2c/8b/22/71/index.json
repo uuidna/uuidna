@@ -1,0 +1,12 @@
+{
+  "handle": "2c8b2271",
+  "address": "2c8b2271-1b53-8481-9b31-0faeae9c3cc9",
+  "kind": "chunk",
+  "keys": [
+    "idempotents_mod_22_number_4"
+  ],
+  "statement": "((List.range 22).filter (fun x => (x * x) % 22 == x)).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b57724b3",
+  "address": "b57724b3-6a3e-8f7f-b242-29543d6b255c",
+  "kind": "chunk",
+  "keys": [
+    "knight_leap_is_odd"
+  ],
+  "statement": "1 + 2 = 3 ∧ 3 % 2 = 1",
+  "files": [
+    "Chess.lean"
+  ]
+}

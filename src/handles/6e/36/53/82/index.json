@@ -1,0 +1,12 @@
+{
+  "handle": "6e365382",
+  "address": "6e365382-0f6d-8ca9-b1de-9bbd76bf3b41",
+  "kind": "chunk",
+  "keys": [
+    "mutual_match_is_symmetric"
+  ],
+  "statement": "(let m := [[0,1,0],[1,0,1],[0,1,0]]; (List.range 3).all (fun a => (List.range 3).all (fun b => nth (nthR m a) b == nth (nthR m b) a))) = true",
+  "files": [
+    "Matching.lean"
+  ]
+}

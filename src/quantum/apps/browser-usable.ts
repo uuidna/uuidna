@@ -22,6 +22,7 @@ import { runExecLine } from './exec-shell.js'
 import { portPanelView } from './port-panel.js'
 import { LEAN_LEDGER } from '../../theorems/generated.js'
 import { theorems } from '../../theorems/index.js'
+import { schoolAdvantageMcpExamples } from '../../school/advantage/index.js'
 import { theoremDemoCoverage } from './theorem-demos.js'
 
 /** One interactive browser surface the store / OS claims visitors can use. */
@@ -46,6 +47,7 @@ export const BROWSER_SURFACES: readonly BrowserSurface[] = [
   { id: 'nim-play', shelf: 'gaming', route: '/games', mount: 'NimPlay', doc: 'games' },
   { id: 'chess', shelf: 'gaming', route: '/chess', mount: 'Chess', doc: 'chess' },
   { id: 'practice-loop', shelf: 'practice', route: '/school', mount: 'PracticeLoop', doc: 'school' },
+  { id: 'advantage-mcp', shelf: 'practice', route: '/school', mount: 'AdvantageMcp', doc: 'school' },
   { id: 'trading-floor', shelf: 'trading', route: '/trading', mount: 'TradingFloor', doc: 'trading' },
   { id: 'terminal', shelf: 'terminal', route: '/terminal', mount: 'ExecShell', doc: 'terminal' },
   { id: 'chat-terminal', shelf: 'terminal', route: '/chat', mount: 'UuidnaTerminal', doc: 'chat' },
@@ -123,6 +125,12 @@ const runCompute = (): ComputeCheck[] => {
   push('books/readPassage', () => { if (readPassage('2 + 2 = 4').chars < 1) throw new Error('empty') })
   push('books/findFacts', () => { findFacts('2 + 2 = 4') })
   push('books/tryQuote', () => { tryQuote('the round turns on seven, proven by theorem song_round_turns_on_seven') })
+  push('practice/advantage-mcp', () => {
+    const c = schoolAdvantageMcpExamples()
+    if (c.examples.length < 8) throw new Error('too few MCP examples')
+    if (c.examples.some((e) => e.tool === 'uuidna_quantum')) throw new Error('uuidna_quantum is named-absent on the hosted wire')
+    if (!c.endpoint.endsWith('/mcp')) throw new Error('examples must target the hosted MCP')
+  })
   push('practice/drill', () => {
     const d = drillOf('two_coins', LEAN_LEDGER)
     const t = attemptDrill(d, true, 100)

@@ -1,0 +1,12 @@
+{
+  "handle": "7022ae65",
+  "address": "7022ae65-9460-8c8f-8beb-9a7b0e992e9c",
+  "kind": "chunk",
+  "keys": [
+    "sound_ladder_432"
+  ],
+  "statement": "((List.range' 1 9).map (fun d => 48 * d) = [48,96,144,192,240,288,336,384,432]) ∧ (48 * 9 = 432)",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

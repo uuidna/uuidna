@@ -1,0 +1,12 @@
+{
+  "handle": "209b6a46",
+  "address": "209b6a46-11ad-84f1-a92f-bb7a6fd25b64",
+  "kind": "chunk",
+  "keys": [
+    "polar_nine_pairs"
+  ],
+  "statement": "(List.range' 1 8).all (fun d => d + (9 - d) == 9)",
+  "files": [
+    "Sequence.lean"
+  ]
+}

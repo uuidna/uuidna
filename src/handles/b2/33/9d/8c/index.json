@@ -1,0 +1,12 @@
+{
+  "handle": "b2339d8c",
+  "address": "b2339d8c-8c92-8de5-8089-a3b975b13de0",
+  "kind": "chunk",
+  "keys": [
+    "ve_twentyfour_edges"
+  ],
+  "statement": "12 * 4 / 2 = 24",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

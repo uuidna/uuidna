@@ -1,0 +1,12 @@
+{
+  "handle": "c1fa414b",
+  "address": "c1fa414b-dac3-8faf-a718-249d98e4a388",
+  "kind": "chunk",
+  "keys": [
+    "alphabet_names_each_nibble"
+  ],
+  "statement": "((List.range 16).length = 16) ∧ ((List.range 16).eraseDups.length = 16) ∧ ((List.range 16).all (fun v => v < 16))",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

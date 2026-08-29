@@ -1,0 +1,12 @@
+{
+  "handle": "873fdc27",
+  "address": "873fdc27-abd7-8a7b-b215-39cad0fb5e4f",
+  "kind": "chunk",
+  "keys": [
+    "crt21_idempotents_invert_the_pairing"
+  ],
+  "statement": "((List.range 21).all (fun x => (7 * (x % 3) + 15 * (x % 7)) % 21 == x)) ∧ ((List.range 3).all (fun a => (List.range 7).all (fun b => (((7 * a + 15 * b) % 21) % 3 == a) && (((7 * a + 15 * b) % 21) % 7 == b)))) ∧ ((7 * 7) % 21 = 7) ∧ ((15 * 15) % 21 = 15) ∧ ((7 * 15) % 21 = 0) ∧ ((7 + 15) % 21 = 1) ∧ (Nat.gcd 3 7 = 1) ∧ (3 * 7 = 21)",
+  "files": [
+    "Wave.lean"
+  ]
+}

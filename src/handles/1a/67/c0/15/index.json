@@ -1,0 +1,12 @@
+{
+  "handle": "1a67c015",
+  "address": "1a67c015-73d9-8ce9-bc9d-fe331e6fd93d",
+  "kind": "chunk",
+  "keys": [
+    "the_middle_is_not_a_pole"
+  ],
+  "statement": "(([0, 1, 2] : List Nat).Nodup) ∧ (([0, 1, 2] : List Nat).length = 3) ∧ (([0, 2] : List Nat).length = 2)",
+  "files": [
+    "Doctrine.lean"
+  ]
+}

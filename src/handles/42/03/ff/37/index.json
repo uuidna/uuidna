@@ -1,0 +1,12 @@
+{
+  "handle": "4203ff37",
+  "address": "4203ff37-3cec-8dcf-8054-2dd9c2381afa",
+  "kind": "chunk",
+  "keys": [
+    "hillside_three_four_five"
+  ],
+  "statement": "(300 * 300 + 400 * 400 = 500 * 500) ∧ (500 > 400)",
+  "files": [
+    "Topography.lean"
+  ]
+}

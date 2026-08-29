@@ -1,0 +1,14 @@
+{
+  "handle": "6de858fd",
+  "address": "6de858fd-fedc-8ab3-ac08-6f9b0ddd789d",
+  "kind": "chunk",
+  "keys": [
+    "pauli_group_order_16",
+    "proposals_bounded_by_n_squared"
+  ],
+  "statement": "4 * 4 = 16",
+  "files": [
+    "Matching.lean",
+    "Quantum.lean"
+  ]
+}

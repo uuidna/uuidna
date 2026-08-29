@@ -1,0 +1,12 @@
+{
+  "handle": "18f7e6fd",
+  "address": "18f7e6fd-409f-897c-9017-d48189bdcd91",
+  "kind": "chunk",
+  "keys": [
+    "swap_involution"
+  ],
+  "statement": "(List.range 4).all (fun i => (let s := (i % 2) * 2 + (i / 2 % 2); (s % 2) * 2 + (s / 2 % 2)) == i)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

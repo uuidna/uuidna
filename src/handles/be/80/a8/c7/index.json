@@ -1,0 +1,12 @@
+{
+  "handle": "be80a8c7",
+  "address": "be80a8c7-da60-89f6-b067-3f0877bb5282",
+  "kind": "chunk",
+  "keys": [
+    "supplement_completes_the_straight"
+  ],
+  "statement": "(30 + 150 = 180) ∧ (30 < 150) ∧ (5 < 30)",
+  "files": [
+    "MartialArts.lean"
+  ]
+}

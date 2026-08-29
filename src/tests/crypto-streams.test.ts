@@ -10,7 +10,7 @@
 // genuinely costs a derivation per stream, and it is kept, because that is the coverage.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { encrypt, decrypt, sealSequence, verifyEnvelope, imprintTextChain, readImprintTextChain } from '../index.js'
+import { encrypt, decrypt, sealSequenceAcross, verifyEnvelope, imprintTextChain, readImprintTextChain } from '../index.js'
 import { UUID } from './api.js'
 
 const STREAMS = ['d1 · reflection', 'd2 · the pair', 'd3 · the trinity', 'd4 · the square', 'd5 · the diamond', 'd6 · the rosette', 'd7 · the dimensions']
@@ -33,7 +33,10 @@ test('each stream seals to a distinct address, the same stream is convergent, an
   assert.equal(s1.seq, 1)
   assert.notEqual(s0.address, s1.address)                                 // the equality leak is closed
   assert.notEqual(s0.ct, s1.ct)
-  const seq = sealSequence([STREAMS[0], STREAMS[0], STREAMS[0]], KEY)     // three identical messages…
+  const across = sealSequenceAcross([STREAMS[0], STREAMS[0], STREAMS[0]], KEY)
+  const seq = across.envelopes
+  assert.equal(across.balance.gpuWorkers, 0, 'three jobs do not pay GPU postage')
+  assert.ok(across.balance.parallelSteps <= 3)
   assert.equal(new Set(seq.map((s) => s.address)).size, 3)                // …three distinct seals
   for (const s of seq) assert.equal(decrypt(s, KEY), STREAMS[0])          // and every step still decrypts
 })

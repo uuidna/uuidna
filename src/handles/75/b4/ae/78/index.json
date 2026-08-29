@@ -1,0 +1,12 @@
+{
+  "handle": "75b4ae78",
+  "address": "75b4ae78-f709-8d13-99c5-c901972f0e1e",
+  "kind": "chunk",
+  "keys": [
+    "dark_fringe_is_the_half_turn"
+  ],
+  "statement": "((List.range 16).all (fun k => (((8*k) % 16 == 8) == ((1 + (-1:Int)^k)^2 == 0)))) ∧ ((8 + 8) % 16 = 0)",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d60052b3",
+  "address": "d60052b3-0dc9-8798-8ab0-ae62c6fa35b5",
+  "kind": "chunk",
+  "keys": [
+    "onion_layers_power_of_two"
+  ],
+  "statement": "(16 = 2^4) ∧ (16 ≤ 128)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

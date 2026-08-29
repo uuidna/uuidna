@@ -1,0 +1,12 @@
+{
+  "handle": "10c102aa",
+  "address": "10c102aa-4a9b-879f-8dc0-d756850f3745",
+  "kind": "chunk",
+  "keys": [
+    "fstop_14_rounds_sqrt_two"
+  ],
+  "statement": "(14 * 14 = 196 ∧ 196 < 200) ∧ (5 % 9 = 5)",
+  "files": [
+    "Photography.lean"
+  ]
+}

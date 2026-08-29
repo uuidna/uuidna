@@ -1,0 +1,12 @@
+{
+  "handle": "f760b0a0",
+  "address": "f760b0a0-0ae2-8af9-be8f-b30e5d966e8e",
+  "kind": "chunk",
+  "keys": [
+    "nilpotents_mod_49_number_7"
+  ],
+  "statement": "((List.range 49).filter (fun x => x ^ 49 % 49 == 0)).length = 7",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9b050224",
+  "address": "9b050224-b6e4-837a-8f60-f8be410f74b4",
+  "kind": "chunk",
+  "keys": [
+    "referrer_cycle_is_total"
+  ],
+  "statement": "((List.range 6).all (fun k => (k + 1) % 6 < 6)) ∧ (5 + 1) % 6 = 0 ∧ 2 ^ 6 % 9 = 1",
+  "files": [
+    "Referrer.lean"
+  ]
+}

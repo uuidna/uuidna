@@ -1,0 +1,12 @@
+{
+  "handle": "921e40bb",
+  "address": "921e40bb-5bf0-8aa4-be91-b1bd0d51af0a",
+  "kind": "chunk",
+  "keys": [
+    "xor_differs_from_or"
+  ],
+  "statement": "(rowsOf 6 ≠ rowsOf 14) ∧ ((rowsOf 6).take 3 = (rowsOf 14).take 3) ∧ (rowsOf 6 = [0,1,1,0])",
+  "files": [
+    "Boolean.lean"
+  ]
+}

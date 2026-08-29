@@ -27,10 +27,10 @@ import { vortexOrbit } from '../../address.js'
 import { seedOf } from '../../handle.js'
 import { toUuid } from '../../address.js'
 import { coins } from '../../captain/billing/index.js'
-import { COINS } from '../../hexbit/index.js'
+import { COINS, HEXBIT_BITS, UUID_BITS } from '../../hexbit/index.js'
 
 /** the halves the fuse joins — 64 bits each, 16 hexbits each, two of them making the uuid */
-export const HALF_HEXBITS = UUID_HEXBITS / 2
+export const HALF_HEXBITS = UUID_HEXBITS / COINS
 
 export interface Fusion {
   keys: readonly string[]        // the sealed theorems fused, in the order given
@@ -79,9 +79,9 @@ export function fuse(...keys: readonly string[]): Fusion {
 export const fuseHalves = (): { half: number; whole: number; bits: number; coins: number; closes: boolean } => ({
   half: HALF_HEXBITS,
   whole: UUID_HEXBITS,
-  bits: UUID_HEXBITS * 4,
+  bits: UUID_HEXBITS * HEXBIT_BITS,
   coins: coins(),
-  closes: HALF_HEXBITS + HALF_HEXBITS === UUID_HEXBITS && UUID_HEXBITS * 4 === 128,
+  closes: HALF_HEXBITS + HALF_HEXBITS === UUID_HEXBITS && UUID_HEXBITS * HEXBIT_BITS === UUID_BITS && coins() === COINS,
 })
 
 /** the reactor's whole output: every sealed theorem fused at once — what the ledger covers, and what of the

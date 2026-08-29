@@ -1,0 +1,12 @@
+{
+  "handle": "1a87ab14",
+  "address": "1a87ab14-8cb0-8afe-b963-0b340b7fe4cb",
+  "kind": "chunk",
+  "keys": [
+    "salt_conv_step_is_division_by_zero"
+  ],
+  "statement": "(List.range 9).all (fun c => ((List.range 9).filter (fun s => saltConv c s == saltConv c 0)).length == 9)",
+  "files": [
+    "Sequence.lean"
+  ]
+}

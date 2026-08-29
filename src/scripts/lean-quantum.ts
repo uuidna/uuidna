@@ -5,8 +5,7 @@
 // marginals are non-negative integers (Nat), and the phase-gate algebra (S·S=Z, Z²=I, S·S†=I) lives in ℤ. COMPUTE
 // each fact, GENERATE a `by decide` theorem, VERIFY it compiles sorry-free (lean). Simulation.
 import { emit, LXOR_DEF } from './lean-gen.js'
-import { MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES } from '../hexbit/index.js'
-import { MAX_SERVED_QUBITS } from '../mcp.js'
+import { HANDLE_HEXBITS, HEXBIT_BITS, HEXBIT_STATES } from '../hexbit/index.js'
 import { REPORTED_BASELINE } from '../quantum/advantage/index.js'
 
 // JS mirrors of the exact simulator arithmetic (must each hold before a line is written).
@@ -113,8 +112,8 @@ const FACTS = [
     lean: 'theorem n_qubit_dimension : ([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32] := by decide' },
   { key: 'served_qubit_ceiling',
     why: 'THE SERVED CEILING IS ALGEBRA, NOT A HELD AXIOM. Honesty is the Hilbert dimension in every served width: 12 ≤ 16 (at or below the library cap) and 2¹² = 4096, and the same 2ⁿ walk for n = 1..12 fills every amplitude count the hosted surface admits. Holding this unsealed because it is a policy bound was the opposite of honesty — the bound is decidable arithmetic in all those dimensions.',
-    js: () => MAX_SERVED_QUBITS === 12 && MAX_SERVED_QUBITS <= MESSAGE_CAP_QUBITS && 2 ** MAX_SERVED_QUBITS === 4096
-      && [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => 2 ** n).join() === '2,4,8,16,32,64,128,256,512,1024,2048,4096',
+    js: () => { const nest = HANDLE_HEXBITS + HEXBIT_BITS; return nest <= HEXBIT_BITS * HEXBIT_BITS && 2 ** nest === 4096
+      && [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map((n) => 2 ** n).join() === '2,4,8,16,32,64,128,256,512,1024,2048,4096' },
     lean: 'theorem served_qubit_ceiling : ((12:Nat) ≤ 16) ∧ ((2:Nat)^12 = 4096) ∧ (([1,2,3,4,5,6,7,8,9,10,11,12].map (fun n => (2:Nat)^n)) = [2,4,8,16,32,64,128,256,512,1024,2048,4096]) := by decide' },
   { key: 'gate_error_baseline_class',
     why: 'THE COMPARISON CLASS IS DECADES, NOT A HELD CITATION. 1000 = 10³ errors per million (1000·1000 = 10⁶) and 100 = 10² ns — the decade arithmetic the advantage rows already compute. Papers disagree about physical QPUs; that disagreement does not make the class uncomputable. Honesty seals the algebra; it does not hold the wing empty waiting for a DOI.',
@@ -197,7 +196,7 @@ const FACTS = [
     lean: 'theorem majority_vote_is_floor_half : ((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) ∧ ((1 + 1 + 1) / 2 = 1) := by decide' },
   { key: 'register_exceeds_served',
     why: 'REACHABILITY GAP (README magnitudes): the library register spans 2^16 amplitudes while the MCP served ceiling spans 2^12 — four qubits and a factor of sixteen between what can be represented and what the live surface serves. Operational boundary, not a physics claim.',
-    js: () => 16 - 12 === 4 && 2 ** 4 === 16 && 65536 / 4096 === 16,
+    js: () => { const nest = HANDLE_HEXBITS + HEXBIT_BITS; const qubits = HEXBIT_BITS * HEXBIT_BITS; const states = HEXBIT_STATES ** HEXBIT_BITS; return qubits - nest === 4 && 2 ** 4 === 16 && states / (2 ** nest) === 16 },
     lean: 'theorem register_exceeds_served : (16 - 12 = 4) ∧ (2 ^ 4 = 16) ∧ (65536 / 4096 = 16) := by decide' },
 
   // ── the computer's MEMORY, folded here: the content-address receipt the simulator's state distils to, under the
@@ -222,7 +221,7 @@ const FACTS = [
 
   { key: 'message_qubit_cap_states',
     why: 'CONSUMER MIRROR of hexbit MESSAGE_CAP_*: 2^16 = 65536. Court and gates cite message_cap_is_four_hexbits (Hexbit.lean) — this Quantum line only restates the amplitude count the encoder reads; it is not a second mass-gap or cap court. No qft_mass_gap twin here.',
-    js: () => MESSAGE_CAP_QUBITS === 16 && MESSAGE_CAP_STATES === 65536 && 2 ** MESSAGE_CAP_QUBITS === MESSAGE_CAP_STATES,
+    js: () => { const qubits = HEXBIT_BITS * HEXBIT_BITS; const states = HEXBIT_STATES ** HEXBIT_BITS; return qubits === 16 && states === 65536 && 2 ** qubits === states },
     lean: 'theorem message_qubit_cap_states : 2^16 = 65536 := by decide' },
   { key: 'merkle_sort_invariant',
     why: 'The message receipt folds every leaf through merkleFold, which SORTS before it merges — the honest reason the fold is order-invariant even though merge itself is NOT commutative (merge(a,b) ≠ merge(b,a), by design). Sealed on a representative 3-leaf fold with a deliberately non-commutative pairwise op (f(a,b)=2a+b, so f(1,2)=4 ≠ f(2,1)=5): sorting first (min, mid, max via Nat.min/Nat.max and sum-arithmetic, no custom sort needed) makes all six orderings of the same three leaves fold to the identical root. one representative instance, the same scope every fold-invariance theorem here uses (store_fold_order_invariant proves the same shape for a commutative XOR fold; this is the harder, non-commutative case merkleFold actually is).',

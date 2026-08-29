@@ -1,0 +1,12 @@
+{
+  "handle": "1ec4c5b3",
+  "address": "1ec4c5b3-7759-8f73-bafb-4ae2ca7e40b1",
+  "kind": "chunk",
+  "keys": [
+    "recapitulation_is_the_involution"
+  ],
+  "statement": "(([1,4,2,8,5,7] : List Nat).reverse.reverse = [1,4,2,8,5,7])",
+  "files": [
+    "Symphony.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a7a85210",
+  "address": "a7a85210-355b-885c-a483-2220d7ce7ad3",
+  "kind": "chunk",
+  "keys": [
+    "group_does_not_commute"
+  ],
+  "statement": "(agl.any (fun f => agl.any (fun g => comp f g != comp g f))) ∧ (2376 + 540 = 2916) ∧ (2376 ≠ 0)",
+  "files": [
+    "Affine.lean"
+  ]
+}

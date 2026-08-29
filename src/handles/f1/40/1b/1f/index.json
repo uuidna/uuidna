@@ -1,0 +1,12 @@
+{
+  "handle": "f1401b1f",
+  "address": "f1401b1f-c1b1-875e-a45d-b3677ce532fb",
+  "kind": "chunk",
+  "keys": [
+    "fifty_move_rule_bounds_a_run"
+  ],
+  "statement": "50 * 2 = 100",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

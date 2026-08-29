@@ -1,0 +1,12 @@
+{
+  "handle": "9867404b",
+  "address": "9867404b-47ba-82e1-870f-2105c4b77264",
+  "kind": "chunk",
+  "keys": [
+    "agl9_pair_action_is_sharp_on_unit_differences"
+  ],
+  "statement": "(((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9))).length = 54) ∧ ((List.range 9).all (fun x => (List.range 9).all (fun y => ((List.range 81).filter (fun e => [1,2,4,5,7,8].contains (e / 9) && e % 9 == x && (e / 9 + e % 9) % 9 == y)).length == (if [1,2,4,5,7,8].contains ((y + 9 - x) % 9) then 1 else 0)))) ∧ (((List.range 9).map (fun x => ((List.range 9).filter (fun y => [1,2,4,5,7,8].contains ((y + 9 - x) % 9))).length)).foldl (fun s n => s + n) 0 = 54) ∧ (((List.range 9).map (fun x => ((List.range 9).filter (fun y => x != y && !([1,2,4,5,7,8].contains ((y + 9 - x) % 9)))).length)).foldl (fun s n => s + n) 0 = 18) ∧ ((List.range 9).all (fun x => (List.range 9).all (fun y => (List.range 81).any (fun e => [1,2,4,5,7,8].contains (e / 9) && (e / 9 * x + e % 9) % 9 == y))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

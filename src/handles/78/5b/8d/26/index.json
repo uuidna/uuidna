@@ -1,0 +1,12 @@
+{
+  "handle": "785b8d26",
+  "address": "785b8d26-0074-8eb0-8a27-63827f9f6348",
+  "kind": "chunk",
+  "keys": [
+    "kernel_channels_order_completely"
+  ],
+  "statement": "(List.range 8).all (fun i => (List.range 8).all (fun j => Nat.ble j i || nth [7002000, 7001009, 6018045, 6012104, 6006152, 6001183, 5015216, 5010265] i > nth [7002000, 7001009, 6018045, 6012104, 6006152, 6001183, 5015216, 5010265] j))",
+  "files": [
+    "Comparisons.lean"
+  ]
+}

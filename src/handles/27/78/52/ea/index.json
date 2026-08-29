@@ -1,0 +1,12 @@
+{
+  "handle": "277852ea",
+  "address": "277852ea-e0cd-8e97-b842-f7829351686f",
+  "kind": "chunk",
+  "keys": [
+    "abo_klein_four"
+  ],
+  "statement": "(List.range 4).all (fun a => (List.range 4).all (fun b => (lxor a b < 4) && (lxor a b == lxor b a)) && (lxor a a == 0))",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

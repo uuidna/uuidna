@@ -1,0 +1,12 @@
+{
+  "handle": "4a413c49",
+  "address": "4a413c49-e23e-8460-b9b3-56dd8d45f3ed",
+  "kind": "chunk",
+  "keys": [
+    "entanglement_determinant"
+  ],
+  "statement": "((1*1 - 0*0 : Int) ≠ 0) ∧ ((1*0 - 0*0 : Int) = 0) ∧ ((1*0 - 1*0 : Int) = 0)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

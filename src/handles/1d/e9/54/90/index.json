@@ -1,0 +1,12 @@
+{
+  "handle": "1de95490",
+  "address": "1de95490-6008-8cb9-9376-f5e5e7682c3d",
+  "kind": "chunk",
+  "keys": [
+    "aead_nonce_and_salt_bits"
+  ],
+  "statement": "(12 * 8 = 96) ∧ (16 * 8 = 128) ∧ (96 < 128)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9014bbb6",
+  "address": "9014bbb6-ab20-84fa-9fb0-fc5d54cc9916",
+  "kind": "chunk",
+  "keys": [
+    "nim_empty_heap_neutral"
+  ],
+  "statement": "(List.range 16).all (fun n => lxor n 0 == n)",
+  "files": [
+    "Nim.lean"
+  ]
+}

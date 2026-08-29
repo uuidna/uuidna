@@ -1,0 +1,12 @@
+{
+  "handle": "8d5c8a0c",
+  "address": "8d5c8a0c-b09c-8f8b-8df1-43365d4419de",
+  "kind": "chunk",
+  "keys": [
+    "angle_of_the_cut"
+  ],
+  "statement": "30 * 6 = 180",
+  "files": [
+    "Editing.lean"
+  ]
+}

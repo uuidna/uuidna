@@ -1,0 +1,12 @@
+{
+  "handle": "f7d60a28",
+  "address": "f7d60a28-2d23-842a-94d1-82dd3ed325aa",
+  "kind": "chunk",
+  "keys": [
+    "bond_shares_electron_pairs"
+  ],
+  "statement": "(([1,2,3] : List Nat).map (fun n => 2 * n)) = [2,4,6]",
+  "files": [
+    "Molecular.lean"
+  ]
+}

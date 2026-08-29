@@ -1,0 +1,12 @@
+{
+  "handle": "26e87645",
+  "address": "26e87645-9b22-8b16-81b3-d7d787b80274",
+  "kind": "chunk",
+  "keys": [
+    "anthem_closes_on_the_coin_octave"
+  ],
+  "statement": "864 = 2 * 432 ∧ 128 = 4 * 32 ∧ 2 ^ 2 = 4",
+  "files": [
+    "Anthem.lean"
+  ]
+}

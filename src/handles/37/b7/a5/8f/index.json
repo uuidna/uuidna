@@ -1,0 +1,12 @@
+{
+  "handle": "37b7a58f",
+  "address": "37b7a58f-9927-8609-aae6-1c30d90a470a",
+  "kind": "chunk",
+  "keys": [
+    "denial_drains_to_the_last_coin"
+  ],
+  "statement": "(64 - 63 = 1) ∧ (63 = 7 * 9) ∧ (1 + 1 = 2)",
+  "files": [
+    "Negation.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6b41a6a2",
+  "address": "6b41a6a2-70a9-8fa3-b4e9-73685b714abe",
+  "kind": "chunk",
+  "keys": [
+    "ve_fourteen_faces"
+  ],
+  "statement": "8 + 6 = 14",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

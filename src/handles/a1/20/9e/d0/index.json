@@ -1,0 +1,12 @@
+{
+  "handle": "a1209ed0",
+  "address": "a1209ed0-2284-8c37-a3db-ea194263f83c",
+  "kind": "chunk",
+  "keys": [
+    "page_outgrows_register"
+  ],
+  "statement": "((378:Nat)^2 > 65536) ∧ (378 < 65536)",
+  "files": [
+    "Channel.lean"
+  ]
+}

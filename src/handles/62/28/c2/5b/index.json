@@ -1,0 +1,12 @@
+{
+  "handle": "6228c25b",
+  "address": "6228c25b-883e-8a84-a603-b75a2e8bc178",
+  "kind": "chunk",
+  "keys": [
+    "entropy_never_decreases"
+  ],
+  "statement": "(List.range 9).all (fun t => t <= t + 1)",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

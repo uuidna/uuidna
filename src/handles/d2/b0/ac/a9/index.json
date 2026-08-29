@@ -1,0 +1,12 @@
+{
+  "handle": "d2b0aca9",
+  "address": "d2b0aca9-39be-8d21-94d4-c67ed6b8253a",
+  "kind": "chunk",
+  "keys": [
+    "every_map_inverts"
+  ],
+  "statement": "agl.all (fun f => agl.any (fun g => comp f g == 9))",
+  "files": [
+    "Affine.lean"
+  ]
+}

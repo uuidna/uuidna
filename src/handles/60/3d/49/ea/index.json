@@ -1,0 +1,12 @@
+{
+  "handle": "603d49ea",
+  "address": "603d49ea-9c69-8f8c-839b-aac61e2e1036",
+  "kind": "chunk",
+  "keys": [
+    "octave_of_light_doubles"
+  ],
+  "statement": "500 * 2 = 1000",
+  "files": [
+    "Spectrum.lean"
+  ]
+}

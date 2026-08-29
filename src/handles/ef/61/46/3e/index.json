@@ -1,0 +1,12 @@
+{
+  "handle": "ef61463e",
+  "address": "ef61463e-c7a9-8404-8ea6-cb4684c1cbeb",
+  "kind": "chunk",
+  "keys": [
+    "de_morgan_or"
+  ],
+  "statement": "([true, false].all (fun p => [true, false].all (fun q => (!(p || q)) == (!p && !q)))) = true",
+  "files": [
+    "Reasoning.lean"
+  ]
+}

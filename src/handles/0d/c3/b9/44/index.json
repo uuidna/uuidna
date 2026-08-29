@@ -1,0 +1,12 @@
+{
+  "handle": "0dc3b944",
+  "address": "0dc3b944-52d6-89ee-a27b-ae8b9a3436a2",
+  "kind": "chunk",
+  "keys": [
+    "asymptotic_freedom"
+  ],
+  "statement": "(List.range 30).all (fun n => 137 + 7*n < 137 + 7*(n+1))",
+  "files": [
+    "Infinity.lean"
+  ]
+}

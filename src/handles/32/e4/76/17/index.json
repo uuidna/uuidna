@@ -1,0 +1,12 @@
+{
+  "handle": "32e47617",
+  "address": "32e47617-484c-8296-9edd-408bad56e314",
+  "kind": "chunk",
+  "keys": [
+    "unproven_not_refuted"
+  ],
+  "statement": "(List.range 2).all (fun h => (List.range 2).all (fun c => 0*(1-h)*(1-c) == 0))",
+  "files": [
+    "Reasoning.lean"
+  ]
+}

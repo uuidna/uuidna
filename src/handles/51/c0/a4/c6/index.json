@@ -1,0 +1,12 @@
+{
+  "handle": "51c0a4c6",
+  "address": "51c0a4c6-f6c3-8156-99d0-62fd398319fb",
+  "kind": "chunk",
+  "keys": [
+    "identification_collapses_the_middle"
+  ],
+  "statement": "(([0, 1, 2] : List Nat).Nodup) ∧ (List.map (fun v => if v == 1 then 0 else v) [0, 1, 2] = [0, 0, 2]) ∧ (¬ ([0, 0, 2] : List Nat).Nodup)",
+  "files": [
+    "Doctrine.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7ce95f24",
+  "address": "7ce95f24-0878-8507-b2df-272cdca2335f",
+  "kind": "chunk",
+  "keys": [
+    "ohms_law"
+  ],
+  "statement": "12 = 2 * 6",
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

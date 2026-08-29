@@ -1,0 +1,12 @@
+{
+  "handle": "f53e9ecc",
+  "address": "f53e9ecc-0f24-845b-8366-f1de9b4c32e9",
+  "kind": "chunk",
+  "keys": [
+    "hextorus_mints_the_quorum"
+  ],
+  "statement": "(6 * 64 = 384) ∧ (384 = 3 * 128) ∧ (2 * 64 = 128)",
+  "files": [
+    "Torus.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "106ea89b",
+  "address": "106ea89b-f079-8d18-aa5a-fcfceabad352",
+  "kind": "chunk",
+  "keys": [
+    "inverted_pyramid_descends"
+  ],
+  "statement": "[1,2,3,4,5].reverse = [5,4,3,2,1]",
+  "files": [
+    "Report.lean"
+  ]
+}

@@ -36,3 +36,18 @@ theorem precise_tacks_compound : (([1,2,3] : List Nat).map (fun n => 3 * n)) = [
     working to windward lie a right angle apart. 45° is Day's figure for a good vessel of 1904 under his rig;
     modern yachts point higher, and this seals the ARITHMETIC of his stated angle. -/
 theorem four_points_is_45 : (4 * 360 = 32 * 45) ∧ (4 * 360 = 1440) ∧ (45 + 45 = 90) := by decide
+
+/-- THE ROSE AT THE BEAM REACH. Day's four-points identity (four_points_is_45) is the close-hauled cut of a
+    32-point rose; eight points is a right angle on that same rose — 8 · 360 = 32 · 90 — the beam-reach heading
+    points_of_sail already counts as 90°. The book stated four; the rose extends it without restating the
+    four-point product. -/
+theorem eight_points_is_90 : (8 * 360 = 32 * 90) ∧ (8 * 360 = 2880) := by decide
+
+/-- THE ROSE AT THE BROAD REACH. Twelve points on the 32-point compass is 135° — 12 · 360 = 32 · 135 — the
+    broad-reach heading in points_of_sail. Same rose, next multiple of four points after eight. -/
+theorem twelve_points_is_135 : (12 * 360 = 32 * 135) ∧ (12 * 360 = 4320) := by decide
+
+/-- THE ROSE AT A RUN. Sixteen points is half the rose and dead downwind — 16 · 360 = 32 · 180 — the running
+    heading in points_of_sail. Four, eight, twelve, sixteen: every quarter of the 32-point rose is an integer
+    degree on 360°. -/
+theorem sixteen_points_is_180 : (16 * 360 = 32 * 180) ∧ (16 * 360 = 5760) := by decide

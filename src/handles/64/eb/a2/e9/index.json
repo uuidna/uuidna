@@ -1,0 +1,12 @@
+{
+  "handle": "64eba2e9",
+  "address": "64eba2e9-7ea9-8f4a-bc73-12882079f176",
+  "kind": "chunk",
+  "keys": [
+    "four_subgroups_exhibited"
+  ],
+  "statement": "(([[1],[1,8],[1,4,7],[1,2,4,5,7,8]]).all isSub) ∧ (([[1],[1,8],[1,4,7],[1,2,4,5,7,8]]).length = 4)",
+  "files": [
+    "Subgroups.lean"
+  ]
+}

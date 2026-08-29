@@ -7,7 +7,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  isHandle, handleOf, seedOf, handleParts, handlePath, handleOfPath, handleDirs, pathOrderMatchesHandleOrder, HANDLE_ROOT,
+  isHandle, handleOf, seedOf, handleParts, reverseHandle, handlePath, handleOfPath, handleDirs, pathOrderMatchesHandleOrder, HANDLE_ROOT,
 } from '../handle.js'
 import { chunkHandleOf, buildChunks } from '../scripts/gen-handle-chunks.js'
 import { theorems } from '../index.js'
@@ -31,6 +31,8 @@ test('malformed handles are REFUSED', () => {
   }
   // and the control: a well-formed one must NOT throw
   assert.deepEqual(handleParts('cc9c0011'), ['cc', '9c', '00', '11'])
+  assert.equal(reverseHandle('cc9c0011'), '11009ccc')
+  assert.equal(reverseHandle(reverseHandle('cc9c0011')), 'cc9c0011')
 })
 
 // ── REVERSIBILITY. The property the site and the MCP catalogue currently lack: neither can recover the other's

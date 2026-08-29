@@ -1,0 +1,12 @@
+{
+  "handle": "f388ad30",
+  "address": "f388ad30-e409-88f2-bbe3-b5932edace30",
+  "kind": "chunk",
+  "keys": [
+    "proof_needs_citation"
+  ],
+  "statement": "(List.range 2).all (fun h => (List.range 2).all (fun c => 0*h + c - 0*h*c == c))",
+  "files": [
+    "Reasoning.lean"
+  ]
+}

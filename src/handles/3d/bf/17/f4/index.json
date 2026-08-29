@@ -1,0 +1,12 @@
+{
+  "handle": "3dbf17f4",
+  "address": "3dbf17f4-cb00-8629-ba62-52ab06343ebb",
+  "kind": "chunk",
+  "keys": [
+    "water_lewis_electrons"
+  ],
+  "statement": "2 * 1 + 6 = 8",
+  "files": [
+    "Molecular.lean"
+  ]
+}

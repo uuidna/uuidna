@@ -1,0 +1,12 @@
+{
+  "handle": "4198f256",
+  "address": "4198f256-74a5-80cd-9e2e-013f263ab8ef",
+  "kind": "chunk",
+  "keys": [
+    "reversible_erases_nothing"
+  ],
+  "statement": "0 * 287097813 = 0 ∧ 1 * 287097813 = 287097813 ∧ 0 < 287097813",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

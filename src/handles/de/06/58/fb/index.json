@@ -1,0 +1,12 @@
+{
+  "handle": "de0658fb",
+  "address": "de0658fb-c267-8c9a-a6a2-974105114889",
+  "kind": "chunk",
+  "keys": [
+    "forgery_flags_every_mismatch"
+  ],
+  "statement": "(((List.range 9).flatMap (fun c => (List.range 9).map (fun s => forged c s))).filter (fun x => x == 1)).length = 72 ∧ (((List.range 9).flatMap (fun c => (List.range 9).map (fun s => forged c s))).filter (fun x => x == 0)).length = 9",
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

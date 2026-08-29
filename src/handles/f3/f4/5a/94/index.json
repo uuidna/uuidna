@@ -1,0 +1,12 @@
+{
+  "handle": "f3f45a94",
+  "address": "f3f45a94-cf62-828d-8f7b-17c3b65fdafd",
+  "kind": "chunk",
+  "keys": [
+    "every_orbit_holds_zero"
+  ],
+  "statement": "orbits.all (fun o => o.contains 0)",
+  "files": [
+    "ProseTrial.lean"
+  ]
+}

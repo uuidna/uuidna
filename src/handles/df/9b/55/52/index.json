@@ -1,0 +1,12 @@
+{
+  "handle": "df9b5552",
+  "address": "df9b5552-8b74-8942-b173-ff8759994d77",
+  "kind": "chunk",
+  "keys": [
+    "ph_reflection_seven"
+  ],
+  "statement": "((List.range 15).all (fun p => 14 - (14 - p) == p)) ∧ ((List.range 15).filter (fun p => 14 - p == p)) = [7]",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

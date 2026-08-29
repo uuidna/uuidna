@@ -1,0 +1,12 @@
+{
+  "handle": "8ca9608f",
+  "address": "8ca9608f-c769-837f-8bbe-5ff199142005",
+  "kind": "chunk",
+  "keys": [
+    "void_folds_at_quadrature"
+  ],
+  "statement": "(360 / 4 = 90) ∧ (4 * 90 = 360) ∧ (2 * 4 = 8) ∧ (8 + 6 = 14)",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

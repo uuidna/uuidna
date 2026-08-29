@@ -1,0 +1,12 @@
+{
+  "handle": "2a06dc07",
+  "address": "2a06dc07-73c1-830c-ab89-eb3092c0caf9",
+  "kind": "chunk",
+  "keys": [
+    "speaking_an_address_costs_the_text"
+  ],
+  "statement": "(36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)",
+  "files": [
+    "Models.lean"
+  ]
+}

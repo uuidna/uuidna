@@ -1,0 +1,12 @@
+{
+  "handle": "d50b44b7",
+  "address": "d50b44b7-cf80-8664-8bde-dd206ae276bf",
+  "kind": "chunk",
+  "keys": [
+    "compass_rose_eight"
+  ],
+  "statement": "8 * 45 = 360",
+  "files": [
+    "Navigation.lean"
+  ]
+}

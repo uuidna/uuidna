@@ -1,0 +1,12 @@
+{
+  "handle": "43f7a43f",
+  "address": "43f7a43f-5da4-8c7a-8e58-f4c94f089f33",
+  "kind": "chunk",
+  "keys": [
+    "uv_partition_closed"
+  ],
+  "statement": "(List.range 9).all (fun k => 2 * (List.range (k+1)).foldl (fun s n => s + 3^n) 0 + 1 == 3^(k+1))",
+  "files": [
+    "Infinity.lean"
+  ]
+}

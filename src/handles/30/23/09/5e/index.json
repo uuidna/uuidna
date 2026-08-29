@@ -1,0 +1,12 @@
+{
+  "handle": "3023095e",
+  "address": "3023095e-dbe1-8ad1-923e-323fe7327535",
+  "kind": "chunk",
+  "keys": [
+    "idempotents_mod_35_number_4"
+  ],
+  "statement": "((List.range 35).filter (fun x => (x * x) % 35 == x)).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

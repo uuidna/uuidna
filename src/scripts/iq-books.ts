@@ -26,12 +26,12 @@
 //   node dist/scripts/iq-books.js [--seed <text>] [--n 12]
 import { toUuid } from '../index.js'
 import { handleOf } from '../handle.js'
-import { decode } from './decode-book.js'
+import { decode, probeOfDecoding, judge as judgeProbes, IQ_FACTS, type Probe, type Verdict } from '../quantum/apps/categories/books/structure.js'
+
+export type { Probe, Verdict }
+export { IQ_FACTS as FACTS }
 
 const CATALOGUE = 75000 // Gutenberg ids run roughly to here; misses are expected and reported
-
-export interface Probe { id: number; words: number; distinct: number; richness: number; top1: string; top2: string; c1: number; c2: number; letters: string }
-export interface Verdict { fact: string; held: number; failed: number; discriminates: boolean }
 
 /** Deterministic sample: fold the seed with the draw index, read the fold as an integer, land it in range.
  *  Same seed, same books, every time — on any machine, by anyone. */
@@ -45,33 +45,10 @@ export function sample(seed: string, n: number): number[] {
   return ids
 }
 
-/** The candidate facts, each asked of one decoding. Kept here rather than in decode-book so the question
- *  "does it discriminate" stays separate from the question "what does it say". */
-export const FACTS: { name: string; of: (p: Probe) => boolean }[] = [
-  { name: 'vocabulary richness is exactly 10x distinct', of: (p) => p.richness === 10 },
-  { name: 'rank1 exceeds rank2', of: (p) => p.c1 > p.c2 },
-  { name: 'rank1 is under twice rank2', of: (p) => p.c1 < 2 * p.c2 },
-  { name: "commonest word is 'the'", of: (p) => p.top1 === 'the' },
-  { name: "letter order begins 'eta'", of: (p) => p.letters === 'eta' },
-]
-
-export function judge(probes: readonly Probe[]): Verdict[] {
-  return FACTS.map((f) => {
-    const held = probes.filter((p) => f.of(p)).length
-    return { fact: f.name, held, failed: probes.length - held, discriminates: held > 0 && held < probes.length }
-  })
-}
+export const judge = judgeProbes
 
 export function probeOf(id: number, raw: string): Probe | null {
-  const d = decode(raw, 3)
-  if (!d.words || d.ranks.length < 2) return null
-  let k = 0
-  while ((k + 1) * d.distinct <= d.words) k++
-  return {
-    id, words: d.words, distinct: d.distinct, richness: k,
-    top1: d.ranks[0].word, top2: d.ranks[1].word, c1: d.ranks[0].count, c2: d.ranks[1].count,
-    letters: d.letters.slice(0, 3).map((l) => l.letter).join(''),
-  }
+  return probeOfDecoding(decode(raw, 3), id)
 }
 
 if (process.argv[1] && /iq-books\.(js|ts)$/.test(process.argv[1])) {

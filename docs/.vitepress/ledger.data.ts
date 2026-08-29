@@ -1,9 +1,9 @@
-// The ONE wiring point: Lean is the single source. This VitePress data loader derives the whole ledger from
-// lean/*.lean (via src/theorems/generated.ts, compiled to dist/index.js) and hands it to every page and to the
-// site config. No separate static generator — `vitepress build` reads this. A theorem computes in Lean, or it is
-// not a theorem. The recomputation-only capabilities (FNV address, gate, crypto) are TOOLS, not theorems.
+// The BUILD-TIME census used only by leftover surfaces that have not yet become a per-URL monograph
+// (LinkAuditor, unused on Layout). Listings (/theorems, /topics, /rosetta, /trials, home) read
+// frontmatter.axis / census from transformPageData (axis-monograph.ts). Layout must never import this
+// file — that was the entropy: every page paid for the full ledger because chrome imported it.
 //
-// Requires the package to be built first (`npm run build` → dist/). `npm run docs:build` does both in order.
+// Lean is the single source. Requires the package to be built first (`npm run build` → dist/).
 import { theorems, runTrial, PRINCIPLES, merkleGravity, toUuid, publications, rosettaIndex, quantumAura, discoverStaticPages, canonicalOrder, nextOf, axiomWitness } from '../../dist/index.js'
 import { mirrorRows } from '../../dist/rosetta-legs.js'
 

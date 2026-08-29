@@ -1,0 +1,12 @@
+{
+  "handle": "be7aa168",
+  "address": "be7aa168-b1e9-8c2d-8e62-dd45bddfe0a5",
+  "kind": "chunk",
+  "keys": [
+    "the_fused_ring_is_all_ones"
+  ],
+  "statement": "(63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^6) ∧ (63 < 64)",
+  "files": [
+    "Crt.lean"
+  ]
+}

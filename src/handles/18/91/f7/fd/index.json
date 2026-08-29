@@ -1,0 +1,12 @@
+{
+  "handle": "1891f7fd",
+  "address": "1891f7fd-1104-8341-834a-9dcd40663885",
+  "kind": "chunk",
+  "keys": [
+    "lagrange_units"
+  ],
+  "statement": "(List.range 9).all (fun a => (! invB a) || ((a^6) % 9 == 1))",
+  "files": [
+    "Discover.lean"
+  ]
+}

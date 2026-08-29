@@ -9,6 +9,7 @@ import assert from 'node:assert/strict'
 import { contractId, contractDomain, sealToContract, openFromContract, sealChainToContract, openChainFromContract,
   toUuid, encrypt, decrypt, imprintTextChain, readImprintTextChain, verifyEnvelope } from '../index.js'
 import { sealMessage, openMessage, verifyMessage, serializeMessage } from '../quantum/message/index.js'
+import { sha256IsFourSixtyfours } from '../hexbit/index.js'
 import { UUID } from './api.js'
 
 const TERMS = 'CC-COMMERCIAL — deployment #7, secret between uuidna and the licensee, do not share'
@@ -50,6 +51,7 @@ test('the contract ratchet seals and opens in order; drop, reorder or the wrong 
 test('the quantum fusion: the witness binds the ciphertext, verifies publicly, and every failure mode drains', () => {
   const PLAIN = 'the two coins are conserved', PASS = 'a strong passphrase for the fusion test', KEY = 'two_coins'
   const sqm = sealMessage(PLAIN, PASS, KEY)
+  assert.deepEqual(sqm.occupancy, sha256IsFourSixtyfours())
   assert.equal(verifyEnvelope(sqm.sealed), true)                          // the envelope address recomputes
   assert.equal(sqm.witness.plaintext, sqm.sealed.address, 'the witness binds the CIPHERTEXT address')
   assert.equal(verifyMessage(sqm.witness).valid, true)                    // and verifies against the ledger

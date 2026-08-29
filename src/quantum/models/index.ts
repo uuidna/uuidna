@@ -13,14 +13,14 @@
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { compileToHexbits, hexbitDoorOf } from '../os/index.js'
-import { UUID_HEXBITS, COINS } from '../../hexbit/index.js'
+import { UUID_HEXBITS, COINS, HEXBIT_BITS, UUID_BITS } from '../../hexbit/index.js'
 import { MODELS_MIRROR, type MirrorModel, type ModelsMirror } from './mirror.js'
 
 // the declared approximation and the fixed widths the arithmetic runs on — sealed in Models.lean
-export const TOKEN_BYTES = 4            // ≈ bytes per token (approximation, declared)
-export const HEXBITS_PER_TOKEN = 8      // 4 bytes × 2 nibbles
-export const UUID_TEXT_CHARS = 36       // a uuid spelled as text
-export const UUID_PAYLOAD_BITS = 128    // what those 36 chars actually carry
+export const TOKEN_BYTES = HEXBIT_BITS
+export const HEXBITS_PER_TOKEN = HEXBIT_BITS * COINS
+export const UUID_TEXT_CHARS = UUID_HEXBITS + HEXBIT_BITS
+export const UUID_PAYLOAD_BITS = UUID_BITS
 
 // integer division, no Math.* anywhere (the house law): exact for the non-negative integers this page divides
 const idiv = (a: number, b: number): number => (a - (a % b)) / b

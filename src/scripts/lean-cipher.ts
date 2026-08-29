@@ -9,6 +9,7 @@
 // these are the decidable BOUNDS of the algebra — what it guarantees and what it cannot. Secrecy is
 // ChaCha20-Poly1305 (src/crypt.ts); these theorems are the demarcation, computed.
 import { emit, LXOR_DEF } from './lean-gen.js'
+import { sha256IsFourSixtyfours } from '../hexbit/index.js'
 
 const comp = (x: number) => 3 - x // the base-pair complement — the diamond reflection on {A,C,G,T} = {0,1,2,3}
 const R = (a: number, b: number) => Array.from({ length: b - a }, (_, i) => a + i) // [a, b)
@@ -98,7 +99,7 @@ const FACTS = [
 
   { key: 'sha256_is_four_sixtyfours',
     why: 'THE STANDARD\'S OWN ARCHITECTURE, sealed (FIPS 180-4): the SHA-256 digest is 256 bits = 8 registers of 32 = FOUR SIXTY-FOURS — the same 4·64 = 256 = 2⁸ the double-torus riddle computed. The digest is four chessboards; the byte squared is the state; the standard the world already runs carries the session\'s numbers natively.',
-    js: () => 4 * 64 === 256 && 8 * 32 === 256 && 2 ** 8 === 256,
+    js: () => { const s = sha256IsFourSixtyfours(); return s.boards * s.sixtyfours === s.bits && 8 * 32 === s.bits && 2 ** 8 === s.bits },
     lean: 'theorem sha256_is_four_sixtyfours : (4 * 64 = 256) ∧ (8 * 32 = 256) ∧ ((2:Nat) ^ 8 = 256) := by decide' },
 
   { key: 'sha256_rounds_are_the_board',

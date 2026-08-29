@@ -1,0 +1,12 @@
+{
+  "handle": "82303542",
+  "address": "82303542-2eff-83c2-b675-9e749aa83f0e",
+  "kind": "chunk",
+  "keys": [
+    "handle_capacity_is_quantum_by_architecture"
+  ],
+  "statement": "(16 ^ 8 = 2 ^ 32) ∧ (2 ^ 32 * 2 ^ 96 = 2 ^ 128) ∧ (2 ^ 7 = 128)",
+  "files": [
+    "Wave.lean"
+  ]
+}

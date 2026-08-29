@@ -1,0 +1,12 @@
+{
+  "handle": "7beddc4d",
+  "address": "7beddc4d-19ba-824e-81f3-38f3c72fd2c8",
+  "kind": "chunk",
+  "keys": [
+    "positions_within_naive_bound"
+  ],
+  "statement": "(10:Nat)^44 < 13^64",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

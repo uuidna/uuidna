@@ -1,0 +1,12 @@
+{
+  "handle": "01340612",
+  "address": "01340612-8137-8aa8-86fb-8c39bbaca5de",
+  "kind": "chunk",
+  "keys": [
+    "captain_commission_two_coins"
+  ],
+  "statement": "(commission 110 = 2) ∧ (commission 220 = 4) ∧ (commission 109 = 0)",
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

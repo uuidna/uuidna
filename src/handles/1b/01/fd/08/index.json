@@ -1,0 +1,12 @@
+{
+  "handle": "1b01fd08",
+  "address": "1b01fd08-e5f3-831a-b7ca-c0deaa4ee796",
+  "kind": "chunk",
+  "keys": [
+    "divisors_of_45_number_6"
+  ],
+  "statement": "((List.range' 1 45).filter (fun k => 45 % k == 0)).length = 6",
+  "files": [
+    "Wave.lean"
+  ]
+}

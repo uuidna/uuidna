@@ -1,0 +1,12 @@
+{
+  "handle": "d5859979",
+  "address": "d5859979-4d28-8b0d-b753-7b871ff95b87",
+  "kind": "chunk",
+  "keys": [
+    "pentagon_interior_angle_108"
+  ],
+  "statement": "(5 - 2) * 180 = 540 ∧ 5 * 108 = 540",
+  "files": [
+    "Pentagram.lean"
+  ]
+}

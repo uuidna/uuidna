@@ -1,0 +1,12 @@
+{
+  "handle": "3b804108",
+  "address": "3b804108-9ece-8d6f-aeec-beef4aa80b2b",
+  "kind": "chunk",
+  "keys": [
+    "exeligmos_closes_the_day"
+  ],
+  "statement": "(3 * 223 = 669) ∧ (8 * 3 = 24) ∧ (([0,8,16] : List Nat).all (fun h => h % 8 == 0))",
+  "files": [
+    "Antikythera.lean"
+  ]
+}

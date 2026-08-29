@@ -6,19 +6,16 @@
 // the live tree. Regenerated with the rest of the generate manifest.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { publicApiRegistry, hexbitDoorOf, type PublicApiEntry } from '../index.js'
+import { publicApiRegistry, hexbitDoorOf, pageCell, type PublicApiEntry } from '../index.js'
 import { ROOT } from './api.js'
 
 const reg = publicApiRegistry()
 const door = hexbitDoorOf(reg.receipt)
 
-const cell = (s: string): string =>
-  s.replace(/\\/g, '\\\\').replace(/\|/g, '\\|').replace(/[<>]/g, (c) => (c === '<' ? '&lt;' : '&gt;'))
-
 const table = (rows: PublicApiEntry[]): string => {
   if (!rows.length) return '_none._'
   const body = rows.map((r) =>
-    `| \`${cell(r.id)}\` | ${cell(r.host)} | ${r.kind} | ${r.access} | ${r.direction} | ${r.sweep ? 'yes' : 'no'} | ${r.heartbeat ? 'yes' : 'no'} |`)
+    `| \`${pageCell(r.id)}\` | ${pageCell(r.host)} | ${r.kind} | ${r.access} | ${r.direction} | ${r.sweep ? 'yes' : 'no'} | ${r.heartbeat ? 'yes' : 'no'} |`)
   return ['| id | host | kind | access | direction | sweep | heartbeat |', '| --- | --- | --- | --- | --- | --- | --- |', ...body].join('\n')
 }
 

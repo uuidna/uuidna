@@ -1,0 +1,12 @@
+{
+  "handle": "338446f3",
+  "address": "338446f3-df3e-8067-a79d-eea195356cf4",
+  "kind": "chunk",
+  "keys": [
+    "molar_mass_water"
+  ],
+  "statement": "2 * 1 + 16 = 18",
+  "files": [
+    "Molecular.lean"
+  ]
+}

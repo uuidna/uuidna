@@ -1,0 +1,12 @@
+{
+  "handle": "3a061afe",
+  "address": "3a061afe-eb07-842a-8130-e6ae066ce69d",
+  "kind": "chunk",
+  "keys": [
+    "fib_rosette_cycle_16"
+  ],
+  "statement": "fibCycle 7 [0,1,1,2,3,5,1,6,0,6,6,5,4,2,6,1] 16 = true",
+  "files": [
+    "Pentagram.lean"
+  ]
+}

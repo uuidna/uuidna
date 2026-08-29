@@ -1,0 +1,12 @@
+{
+  "handle": "df18b9d3",
+  "address": "df18b9d3-4bcb-87f6-b525-e50ce3712858",
+  "kind": "chunk",
+  "keys": [
+    "renormalization_residue"
+  ],
+  "statement": "(List.range 40).all (fun L => (L*L + 137) - L*L == 137)",
+  "files": [
+    "Infinity.lean"
+  ]
+}

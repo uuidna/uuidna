@@ -1,0 +1,12 @@
+{
+  "handle": "460f4936",
+  "address": "460f4936-6494-8c74-b856-668aaa0919f3",
+  "kind": "chunk",
+  "keys": [
+    "nilpotents_mod_16_number_8"
+  ],
+  "statement": "((List.range 16).filter (fun x => x ^ 16 % 16 == 0)).length = 8",
+  "files": [
+    "Wave.lean"
+  ]
+}

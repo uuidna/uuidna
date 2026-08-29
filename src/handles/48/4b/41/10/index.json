@@ -1,0 +1,12 @@
+{
+  "handle": "484b4110",
+  "address": "484b4110-5487-8330-99a0-9ddbd7e77d2f",
+  "kind": "chunk",
+  "keys": [
+    "divisors_of_44_number_6"
+  ],
+  "statement": "((List.range' 1 44).filter (fun k => 44 % k == 0)).length = 6",
+  "files": [
+    "Wave.lean"
+  ]
+}

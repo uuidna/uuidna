@@ -1,0 +1,12 @@
+{
+  "handle": "a726c62e",
+  "address": "a726c62e-72b8-82fe-b91b-bebe38d1b4bc",
+  "kind": "chunk",
+  "keys": [
+    "safe_div_is_total"
+  ],
+  "statement": "[0,1,2,3,4,6].map (fun b => if b == 0 then 0 else 12 / b) = [0,12,6,4,3,2]",
+  "files": [
+    "Software.lean"
+  ]
+}

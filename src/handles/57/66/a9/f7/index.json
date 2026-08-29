@@ -1,0 +1,12 @@
+{
+  "handle": "5766a9f7",
+  "address": "5766a9f7-510a-83a2-852f-ad8e901d6f5a",
+  "kind": "chunk",
+  "keys": [
+    "dz_fixed_points"
+  ],
+  "statement": "((List.range 10).filter (fun x => dz x == x)) = [0, 5]",
+  "files": [
+    "DivByZero.lean"
+  ]
+}

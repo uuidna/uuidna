@@ -1,0 +1,12 @@
+{
+  "handle": "3a1e9e5e",
+  "address": "3a1e9e5e-a47e-842a-99a3-1286f1b8efe7",
+  "kind": "chunk",
+  "keys": [
+    "singleton_bound"
+  ],
+  "statement": "3 ≤ 7 - 4 + 1",
+  "files": [
+    "Codes.lean"
+  ]
+}

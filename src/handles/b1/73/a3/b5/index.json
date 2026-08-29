@@ -1,0 +1,12 @@
+{
+  "handle": "b173a3b5",
+  "address": "b173a3b5-9f64-8ed3-ab20-b2454bb05122",
+  "kind": "chunk",
+  "keys": [
+    "parallel_resistance"
+  ],
+  "statement": "3 * (6 + 6) = 6 * 6",
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

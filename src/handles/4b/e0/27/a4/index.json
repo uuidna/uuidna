@@ -1,0 +1,12 @@
+{
+  "handle": "4be027a4",
+  "address": "4be027a4-4145-8302-9be4-9dc973efe8cf",
+  "kind": "chunk",
+  "keys": [
+    "ascent_needs_a_stop"
+  ],
+  "statement": "((4 / 2 : Nat) = 2) ∧ ((4 / 1 : Nat) = 4) ∧ ((4 : Nat) > 2)",
+  "files": [
+    "Diving.lean"
+  ]
+}

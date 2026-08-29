@@ -1,0 +1,12 @@
+{
+  "handle": "32b69ce5",
+  "address": "32b69ce5-4e9c-8a62-8a53-cc0c7ea57b9e",
+  "kind": "chunk",
+  "keys": [
+    "a_gapless_index_admits_nothing_between"
+  ],
+  "statement": "(List.range 20).all (fun i => (i + 1) - i == 1) ∧ (List.range 20).all (fun i => (List.range 20).all (fun k => ¬ (i < k ∧ k < i + 1)))",
+  "files": [
+    "Calendar.lean"
+  ]
+}

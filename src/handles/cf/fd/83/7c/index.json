@@ -1,0 +1,12 @@
+{
+  "handle": "cffd837c",
+  "address": "cffd837c-21a1-839a-9817-f9d099f8fcf5",
+  "kind": "chunk",
+  "keys": [
+    "sixteen_alone_tiles"
+  ],
+  "statement": "(16 - 16 = 0) ∧ ([9,10,15].all (fun m => 16 - m > 0))",
+  "files": [
+    "Alignment.lean"
+  ]
+}

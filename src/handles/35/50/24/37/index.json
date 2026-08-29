@@ -1,0 +1,12 @@
+{
+  "handle": "35502437",
+  "address": "35502437-67b7-8ff5-9767-140a8d1029ff",
+  "kind": "chunk",
+  "keys": [
+    "no_reading_enters_here"
+  ],
+  "statement": "((List.range 12).all (fun s => res s == res s)) ∧ (res 7 ≠ res 8)",
+  "files": [
+    "Clock.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "40e43336",
+  "address": "40e43336-34f2-8102-af7f-d7795cc40bfd",
+  "kind": "chunk",
+  "keys": [
+    "dj_constant_reinforces"
+  ],
+  "statement": "(([1, 1, 1, 1] : List Int).sum = 4) ∧ (([-1, -1, -1, -1] : List Int).sum = -4)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

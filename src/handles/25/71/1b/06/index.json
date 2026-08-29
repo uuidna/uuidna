@@ -1,0 +1,12 @@
+{
+  "handle": "25711b06",
+  "address": "25711b06-1c4d-8e7f-a375-cd69c0707f3e",
+  "kind": "chunk",
+  "keys": [
+    "board_3d_is_two_nine"
+  ],
+  "statement": "(8:Nat)^3 = 512 ∧ 512 = 2^9",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

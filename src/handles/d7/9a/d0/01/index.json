@@ -1,0 +1,12 @@
+{
+  "handle": "d79ad001",
+  "address": "d79ad001-9fe0-8fbd-b4a6-c48d618d4229",
+  "kind": "chunk",
+  "keys": [
+    "frame_index_is_z24"
+  ],
+  "statement": "(List.range 24).length = 24 ∧ 24 % 24 = 0",
+  "files": [
+    "Editing.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "93269ace",
+  "address": "93269ace-e98c-87ae-aa26-8dd995524d90",
+  "kind": "chunk",
+  "keys": [
+    "unit_sum_mod_30_is_0"
+  ],
+  "statement": "(((List.range 30).filter (fun a => Nat.gcd a 30 == 1)).foldl (fun acc a => (acc + a) % 30) 0) = 0",
+  "files": [
+    "Wave.lean"
+  ]
+}

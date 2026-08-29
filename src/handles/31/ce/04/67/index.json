@@ -1,0 +1,12 @@
+{
+  "handle": "31ce0467",
+  "address": "31ce0467-f49b-8b63-a0db-a820fd02447e",
+  "kind": "chunk",
+  "keys": [
+    "correlated_failure_defeats_the_vote"
+  ],
+  "statement": "((0 + 0 + 1) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cee4df05",
+  "address": "cee4df05-1875-845e-a462-d9e9926e1dfc",
+  "kind": "chunk",
+  "keys": [
+    "complement_flips_two"
+  ],
+  "statement": "((List.range 4).all (fun x => dist x (lxor x 3) == 2)) ∧ (pop 3 = 2)",
+  "files": [
+    "Isometry.lean"
+  ]
+}

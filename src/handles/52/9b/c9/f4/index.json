@@ -1,0 +1,12 @@
+{
+  "handle": "529bc9f4",
+  "address": "529bc9f4-3cc9-83dc-85b8-2b8224e4a8e9",
+  "kind": "chunk",
+  "keys": [
+    "no_go_zone"
+  ],
+  "statement": "45 + 45 = 90",
+  "files": [
+    "Sailing.lean"
+  ]
+}

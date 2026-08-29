@@ -1,0 +1,12 @@
+{
+  "handle": "8968c62e",
+  "address": "8968c62e-d0c6-8f6c-933c-097854fdbdb4",
+  "kind": "chunk",
+  "keys": [
+    "hamming_triangle_inequality"
+  ],
+  "statement": "(fun (d : Nat → Nat → Nat) => ((List.range 16).all (fun a => (List.range 16).all (fun b => (List.range 16).all (fun c => decide (d a c ≤ d a b + d b c))))) ∧ (d 0 15 = d 0 5 + d 5 15) ∧ (d 0 0 < d 0 15 + d 15 0)) (fun a b => (if a % 2 == b % 2 then 0 else 1) + (if a / 2 % 2 == b / 2 % 2 then 0 else 1) + (if a / 4 % 2 == b / 4 % 2 then 0 else 1) + (if a / 8 % 2 == b / 8 % 2 then 0 else 1))",
+  "files": [
+    "Wave.lean"
+  ]
+}

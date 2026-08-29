@@ -1,0 +1,12 @@
+{
+  "handle": "3f17761d",
+  "address": "3f17761d-8af3-8075-858c-1750db15e899",
+  "kind": "chunk",
+  "keys": [
+    "pliska_seven_is_prime"
+  ],
+  "statement": "(List.range' 2 5).all (fun k => 7 % k != 0)",
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

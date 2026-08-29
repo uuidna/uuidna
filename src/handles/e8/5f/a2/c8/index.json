@@ -1,0 +1,12 @@
+{
+  "handle": "e85fa2c8",
+  "address": "e85fa2c8-7369-8f66-8885-c07753e4b8c1",
+  "kind": "chunk",
+  "keys": [
+    "cube_octahedron_dual"
+  ],
+  "statement": "((8,12,6).1 = (6,12,8).2.2) ∧ ((8,12,6).2.2 = (6,12,8).1) ∧ ((8,12,6).2.1 = (6,12,8).2.1)",
+  "files": [
+    "Solids.lean"
+  ]
+}

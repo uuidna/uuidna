@@ -1,0 +1,12 @@
+{
+  "handle": "0b308915",
+  "address": "0b308915-1112-859e-8289-fbe8a75da966",
+  "kind": "chunk",
+  "keys": [
+    "imaginings_meet_at_sixtyfour"
+  ],
+  "statement": "(2 * 32 = 64) ∧ (2 ^ 6 = 4 ^ 3) ∧ (2 ^ 6 = 64) ∧ (64 - 64 = 0)",
+  "files": [
+    "Waves.lean"
+  ]
+}

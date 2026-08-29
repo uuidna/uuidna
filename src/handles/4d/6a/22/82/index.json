@@ -1,0 +1,12 @@
+{
+  "handle": "4d6a2282",
+  "address": "4d6a2282-acf3-8e12-9639-cc8594f2630f",
+  "kind": "chunk",
+  "keys": [
+    "xor_checksum_catches_flip"
+  ],
+  "statement": "(List.range 8).all (fun a => lxor (lxor a 5) a == 5)",
+  "files": [
+    "Codes.lean"
+  ]
+}

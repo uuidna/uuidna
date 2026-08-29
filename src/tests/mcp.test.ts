@@ -5,7 +5,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { callTool, TOOL_NAMES, MCP_CATALOG, mcpBenchmark } from '../mcp.js'
-import { toUuid, adjudicate, theorems, runTrial, reviewDomains, SKILLS } from '../index.js'
+import { toUuid, adjudicate, theorems, runTrial, reviewDomains, SKILLS, HEXBIT_BITS } from '../index.js'
 
 test('catalog ↔ handlers: the catalog lists exactly the dispatchable tools, unknown tools throw', () => {
   assert.deepEqual([...TOOL_NAMES].sort(), [...MCP_CATALOG.map((t) => t.name)].sort())
@@ -28,6 +28,12 @@ test('CI through the MCP: the served tools return what the sealed package comput
   assert.equal(reviews.length, SKILLS.length)
   assert.ok(reviews.every((r) => r.verdict === 'VERIFIED'))
   assert.deepEqual(reviews, reviewDomains())
+})
+
+test('uuidna_quantum runs GHZ at the encoder width — no refuse', () => {
+  const r = callTool('uuidna_quantum', { circuit: 'ghz', qubits: HEXBIT_BITS * HEXBIT_BITS }) as { qubits: number; outcomes: Record<string, string> }
+  assert.equal(r.qubits, HEXBIT_BITS * HEXBIT_BITS)
+  assert.equal(Object.keys(r.outcomes).length, 2)
 })
 
 test('unify: one receipt folds theorems + domains + tools, recomputable', () => {

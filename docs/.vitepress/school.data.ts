@@ -1,4 +1,4 @@
-// school.data.ts — THE SCHOOL, RENDERED FROM THE ONE SOURCE. src/school.ts computed the eleven sections, the graded
+// school.data.ts — THE SCHOOL, RENDERED FROM THE ONE SOURCE. src/school.ts computed the twelve sections, the graded
 // courses and the levels, and nothing displayed them: the model reached nobody, and /school still served 546 lines of
 // authored prose describing a curriculum that had drifted from the ledger it claimed to teach. This loader is the
 // wiring. It authors NOTHING — every value below is school()'s own output, joined to the pages each course and lesson

@@ -1,0 +1,12 @@
+{
+  "handle": "b769b037",
+  "address": "b769b037-00d8-8047-a258-47438a6f4b2b",
+  "kind": "chunk",
+  "keys": [
+    "zero_closes_in_phase"
+  ],
+  "statement": "(dz 0 = 0) ∧ (dbl 0 = 0)",
+  "files": [
+    "Phase.lean"
+  ]
+}

@@ -54,9 +54,13 @@ const shelfHref = computed(() => {
   const r = use.value?.shelf?.route || '/school'
   return `${r}?key=${encodeURIComponent(key.value)}`
 })
-const catalogueHref = computed(() =>
-  use.value?.alpineApps ? `/catalogue?theorem=${encodeURIComponent(key.value)}` : null,
-)
+const catalogueHref = computed(() => {
+  if (!use.value?.alpineApps) return null
+  const skill = String(use.value.catalogueSkill || use.value.skill || drill.value?.skill || '')
+  return skill
+    ? `/catalogue?skill=${encodeURIComponent(skill)}`
+    : `/catalogue?theorem=${encodeURIComponent(key.value)}`
+})
 </script>
 
 <template>

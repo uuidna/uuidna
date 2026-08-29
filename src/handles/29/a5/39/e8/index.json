@@ -1,0 +1,12 @@
+{
+  "handle": "29a539e8",
+  "address": "29a539e8-2c20-8fe5-9203-7240ad9990b8",
+  "kind": "chunk",
+  "keys": [
+    "kirchhoff_voltage"
+  ],
+  "statement": "(12 - 4 - 8 : Int) = 0",
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "161b1cee",
+  "address": "161b1cee-6979-8621-9eac-fb78435eafe3",
+  "kind": "chunk",
+  "keys": [
+    "bond_order_n2_o2"
+  ],
+  "statement": "((8 - 2) / 2 = 3) ∧ ((8 - 4) / 2 = 2)",
+  "files": [
+    "Molecular.lean"
+  ]
+}

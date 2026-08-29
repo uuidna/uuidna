@@ -1,0 +1,12 @@
+{
+  "handle": "241251cf",
+  "address": "241251cf-75d6-8d40-8785-5545183b8566",
+  "kind": "chunk",
+  "keys": [
+    "power_fixed_mod_50_number_4"
+  ],
+  "statement": "((List.range 50).filter (fun x => x ^ 50 % 50 == x)).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

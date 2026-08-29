@@ -1,0 +1,12 @@
+{
+  "handle": "00f10cb5",
+  "address": "00f10cb5-e27f-8da4-a701-06b3620f7c6c",
+  "kind": "chunk",
+  "keys": [
+    "capacity_order_is_forced"
+  ],
+  "statement": "((([128, 48, 36, 12, 1] : List Nat).zip [48, 36, 12, 1]).all (fun p => Nat.blt p.snd p.fst) = true) ∧ (128 - 48 = 80)",
+  "files": [
+    "Wave.lean"
+  ]
+}

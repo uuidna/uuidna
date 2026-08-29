@@ -1,0 +1,12 @@
+{
+  "handle": "faecf6e9",
+  "address": "faecf6e9-8282-89d7-bce8-c00ef8a625c7",
+  "kind": "chunk",
+  "keys": [
+    "self_dual_two_bit_gates_ignore_an_input"
+  ],
+  "statement": "((List.range 16).filter (fun m => ((List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*(1-a)+(1-b))) % 2) == 1 - ((m / 2 ^ (2*a+b)) % 2)))))) = [3,5,10,12] ∧ ([3,5,10,12].all (fun m => ((List.range 2).all (fun a => ((m / 2 ^ (2*a)) % 2) == ((m / 2 ^ (2*a+1)) % 2))) || ((List.range 2).all (fun b => ((m / 2 ^ b) % 2) == ((m / 2 ^ (2+b)) % 2))))) ∧ ((List.range 8).all (fun n => (if 2 <= (1-n%2) + (1-(n/2)%2) + (1-(n/4)%2) then 1 else 0) == 1 - (if 2 <= n%2 + (n/2)%2 + (n/4)%2 then 1 else 0))) ∧ ((List.range 3).all (fun i => (List.range 8).any (fun n => (if 2 <= n%2 + (n/2)%2 + (n/4)%2 then 1 else 0) != (n / 2^i) % 2)))",
+  "files": [
+    "Wave.lean"
+  ]
+}

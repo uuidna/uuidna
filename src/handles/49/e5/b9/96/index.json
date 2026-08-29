@@ -1,0 +1,12 @@
+{
+  "handle": "49e5b996",
+  "address": "49e5b996-471e-875d-8802-e5503ed76eee",
+  "kind": "chunk",
+  "keys": [
+    "residue_returns_step_does_not"
+  ],
+  "statement": "(res 0 = res 6) ∧ ((0:Nat) ≠ 6)",
+  "files": [
+    "Clock.lean"
+  ]
+}

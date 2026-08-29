@@ -22,7 +22,7 @@
 import { theorems, toUuid } from '../../index.js'
 import { quantumAura, type Aura } from '../../aura.js'
 import { ket0, hadamard, pauliX, pauliZ, label, fraction, distribution, marginal, type QState } from '../index.js'
-import { qubitsToHexbits, MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES } from '../../hexbit/index.js'
+import { qubitsToHexbits, HEXBIT_BITS, sha256IsFourSixtyfours } from '../../hexbit/index.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { imprintTextChain, readImprintTextChain } from '../../imprint.js'
 import { encrypt, decrypt, verifyEnvelope, type Sealed } from '../../crypt.js'
@@ -51,11 +51,6 @@ export interface QuantumState {
 
 const THEOREMS = theorems()
 
-// Cap IS hexbit MESSAGE_CAP_* (court seals message_cap_is_four_hexbits in Hexbit.lean). Message consumes;
-// it does not own a parallel mass-gap or cap seal — traitors filtered by architecture.
-export const MAX_MESSAGE_QUBITS = MESSAGE_CAP_QUBITS
-export const MAX_MESSAGE_STATES = MESSAGE_CAP_STATES
-
 /** encodeMessage(plaintext, theoremKey) → a quantum message that fuses the plaintext with a sealed theorem proof.
  *  The message encodes the theorem's "truth" in quantum superposition (Hadamard + controlled-X per theorem bit).
  *  The same plaintext + theorem always folds to the same aura and quantum state (deterministic, content-addressed). */
@@ -68,7 +63,8 @@ export function encodeMessage(plaintext: string, theoremKey: string): QuantumMes
 
   // Encode the theorem's identity (key + address) into qubit basis labels
   const keyBits = Array.from(toUuid(theoremKey)).map((c, i) => i % 2 ? c.charCodeAt(0) % 2 : 0)
-  const qubits = keyBits.length < MAX_MESSAGE_QUBITS ? keyBits.length : MAX_MESSAGE_QUBITS
+  const hilbertQubits = HEXBIT_BITS * HEXBIT_BITS
+  const qubits = keyBits.length < hilbertQubits ? keyBits.length : hilbertQubits
 
   // Quantum state: start in |0…0⟩
   let state = ket0(qubits)
@@ -197,6 +193,7 @@ export interface SealedQuantumMessage {
   sealed: Sealed              // the ChaCha20-Poly1305 envelope — secrecy from crypt alone
   witness: QuantumMessage     // encodeMessage(sealed.address, theoremKey) — witnesses the ciphertext
   fold: string                // merkleGravity of (envelope address, witness fold) — one identity for the fusion
+  occupancy: { boards: number; sixtyfours: number; bits: number; hexbits: number }
   honest: string
 }
 
@@ -213,7 +210,7 @@ const SEALED_HONEST =
 export function sealMessage(plaintext: string, passphrase: string, theoremKey: string, step?: number): SealedQuantumMessage {
   const sealed = encrypt(plaintext, passphrase, step)
   const witness = encodeMessage(sealed.address, theoremKey)
-  return { sealed, witness, fold: merkleGravity([sealed.address, witness.fold]), honest: SEALED_HONEST }
+  return { sealed, witness, fold: merkleGravity([sealed.address, witness.fold]), occupancy: sha256IsFourSixtyfours(), honest: SEALED_HONEST }
 }
 
 /** openMessage(message, passphrase) → the plaintext, ONLY if the whole fusion verifies: the envelope's address

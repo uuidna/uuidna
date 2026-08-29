@@ -8,11 +8,36 @@
 // theory, and NOT a claim that sound IS light or that 432 Hz carries special physical power. It is a deterministic
 // aesthetic derived from the address: a defined arithmetic from a number to a hue. Recomputable by anyone; it decorates
 // the work, it does not describe the universe.
-import { toUuid, A432_STEP, vortexOrbit } from './address.js'
+import { toUuid, A432_STEP, vortexOrbit, BASE, TRINITY } from './address.js'
 import { seedOf } from './handle.js'   // THE one address→integer derivation — see handle.ts
+import { COINS, HANDLE_HEXBITS, LEVERAGE, HEXBIT_BITS } from './hexbit/index.js'
 
-const RAYS = 7                                   // the ℤ/7 rosette rays — the spectral bands (z7rays_seven)
+/** Rosette rays — BASE − COINS = 7 (z7rays_seven). Not a stranded 7. */
+export const RAYS = BASE - COINS
+/** Three free aura coordinates — residue, ray, wave (ten_square_computes_ten_dimensions). */
+export const FREE_DIMS = TRINITY
+/** Seven compactified — hue, sat, light, period, rotation, glowInner, glowOuter. Same count as the rays. */
+export const COMPACT_DIMS = RAYS
+/** 3 + 7 = 10. */
+export const TEN_DIMS = FREE_DIMS + COMPACT_DIMS
+
+export const FREE_KEYS = ['residue', 'ray', 'wave'] as const
+export const COMPACT_KEYS = ['hue', 'sat', 'light', 'period', 'rotation', 'glowInner', 'glowOuter'] as const
+
 const WAVE = vortexOrbit()                       // the ℤ/9 vortex orbit [1,2,4,8,7,5] — the wave each ray rides
+
+/** Turn of the colour wheel — A432_STEP × BASE. */
+export const rotationOf = (): number => A432_STEP * BASE
+/** Inner glow px — HANDLE_HEXBITS × TRINITY. */
+export const glowInnerOf = (): number => HANDLE_HEXBITS * TRINITY
+/** Outer glow px — LEVERAGE (the 64-bit coin). */
+export const glowOuterOf = (): number => LEVERAGE
+/** Inner shadow spread — one hexbit. */
+export const glowSpreadInnerOf = (): number => HEXBIT_BITS
+/** Outer shadow spread — hexbit × trinity. */
+export const glowSpreadOuterOf = (): number => HEXBIT_BITS * TRINITY
+/** Period in seconds — COINS × (hexagram width + ray). Hexagram width is HEXBIT_BITS + COINS. */
+export const periodOf = (ray: number): number => COINS * (HEXBIT_BITS + COINS + ray)
 
 export interface Aura {
   address: string          // the content-address the aura is folded from
@@ -23,7 +48,22 @@ export interface Aura {
   rgb: string              // the colour, RGB hex
   cmyk: [number, number, number, number]  // the print colour
   css: string              // a ready CSS block: the moving aura (hue-rotating glow), keyframes + a .uuidna-aura class
+  ten: TenD                // 3 free + 7 compactified — the 10D animation IS this record
   honest: string
+}
+
+/** The 10D bag: three free coordinates, seven compactified functions of them. Art, not physics. */
+export interface TenD {
+  residue: number
+  ray: number
+  wave: number
+  hue: number
+  sat: number
+  light: number
+  period: number
+  rotation: number
+  glowInner: number
+  glowOuter: number
 }
 
 const HONEST =
@@ -70,24 +110,30 @@ const rgbToCmyk = (r: number, g: number, b: number): [number, number, number, nu
 export function quantumAura(subject: string): Aura {
   const address = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/.test(subject) ? subject : toUuid(subject)
   const n = seedOf(address)                                        // a stable integer from the address
+  const residue = n % BASE
   const ray = n % RAYS                                             // 0..6 — the spectral band
   const wi = n % WAVE.length                                       // 0..5 — the wave index (lightness channel)
   const wave = WAVE[wi]                                            // the ray's phase on the ℤ/9 vortex wave
-  // hue: step by the A432 angle (40° = 360/9) per ℤ/9 residue, offset by the ray's share of the wheel (360/7 per ray)
-  const hue = ((n % 9) * A432_STEP + ray * floorN(360 / RAYS) + wave) % 360
-  const sat = 62 + 2 * ray + ((n % 9) % 3 === 0 ? 1 : 0)          // 62..75 % — the ray (+1 tiebreak on residues 0,3,6: two hue pairs mirror around 0° and round identical; the tiebreak keeps all 378 states distinct)
-  const light = 50 + 2 * wi                                        // 50..60 % — the wave index, readable from the colour
+  const turn = rotationOf()
+  const hue = (residue * A432_STEP + ray * floorN(turn / RAYS) + wave) % turn
+  const sat = 62 + 2 * ray + (residue % TRINITY === 0 ? 1 : 0)
+  const light = 50 + COINS * wi
   const [r, g, b] = hslToRgb(hue, sat, light)
   const rgb = '#' + hex2(r) + hex2(g) + hex2(b)
   const cmyk = rgbToCmyk(r, g, b)
   const hsl = `hsl(${hue}, ${sat}%, ${light}%)`
-  const period = 12 + ray * 2                                      // seconds — the ray sets the wave's tempo (deterministic)
+  const period = periodOf(ray)
+  const glowInner = glowInnerOf()
+  const glowOuter = glowOuterOf()
+  const spreadIn = glowSpreadInnerOf()
+  const spreadOut = glowSpreadOuterOf()
   const css =
-    `@keyframes uuidna-aura-${ray} { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(360deg); } }\n` +
+    `@keyframes uuidna-aura-${ray} { from { filter: hue-rotate(0deg); } to { filter: hue-rotate(${turn}deg); } }\n` +
     `.uuidna-aura { color: ${hsl};\n` +
-    `  box-shadow: 0 0 24px 4px ${hsl}, 0 0 64px 12px ${rgb}44;\n` +
+    `  box-shadow: 0 0 ${glowInner}px ${spreadIn}px ${hsl}, 0 0 ${glowOuter}px ${spreadOut}px ${rgb}44;\n` +
     `  animation: uuidna-aura-${ray} ${period}s linear infinite; }`
-  return { address, ray, wave, hue, hsl, rgb, cmyk, css, honest: HONEST }
+  const ten: TenD = { residue, ray, wave, hue, sat, light, period, rotation: turn, glowInner, glowOuter }
+  return { address, ray, wave, hue, hsl, rgb, cmyk, css, ten, honest: HONEST }
 }
 
 /** auraDecode(rgbHex) → the state the colour carries — {residue, ray, wave, hue, sat, light} — or null if the hex
@@ -104,10 +150,11 @@ export function auraDecode(rgbHex: string): { residue: number; ray: number; wave
  *  in state order. The colour lesson's table and auraDecode's source; the one receipt seals its fold. */
 export function auraAlphabet(): { residue: number; ray: number; wave: number; hue: number; sat: number; light: number; rgb: string }[] {
   const out: { residue: number; ray: number; wave: number; hue: number; sat: number; light: number; rgb: string }[] = []
-  for (let a = 0; a < 9; a++) for (let ray = 0; ray < RAYS; ray++) for (let wi = 0; wi < WAVE.length; wi++) {
+  const turn = rotationOf()
+  for (let a = 0; a < BASE; a++) for (let ray = 0; ray < RAYS; ray++) for (let wi = 0; wi < WAVE.length; wi++) {
     const wave = WAVE[wi]
-    const hue = (a * A432_STEP + ray * floorN(360 / RAYS) + wave) % 360
-    const sat = 62 + 2 * ray + (a % 3 === 0 ? 1 : 0), light = 50 + 2 * wi
+    const hue = (a * A432_STEP + ray * floorN(turn / RAYS) + wave) % turn
+    const sat = 62 + 2 * ray + (a % TRINITY === 0 ? 1 : 0), light = 50 + COINS * wi
     const [r, g, b] = hslToRgb(hue, sat, light)
     out.push({ residue: a, ray, wave, hue, sat, light, rgb: '#' + hex2(r) + hex2(g) + hex2(b) })
   }

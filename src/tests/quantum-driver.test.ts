@@ -13,9 +13,10 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  proveHardwareQuantum, runWitnesses, WITNESSES, hostQuantumDevice, LEVEL_PROBES, ledgerUnits, SIMULABLE_QUBITS,
+  proveHardwareQuantum, runWitnesses, WITNESSES, hostQuantumDevice, LEVEL_PROBES, ledgerUnits,
   type Witness,
 } from '../drivers/quantum/index.js'
+import { HEXBIT_BITS, HEXBIT_STATES } from '../hexbit/index.js'
 import { theoremByKey } from '../theorems/index.js'
 
 test('every witness in the battery cites a theorem that IS sealed in the ledger', () => {
@@ -79,7 +80,7 @@ test('the device is THIS host, folded — recomputable rather than asserted', ()
   assert.equal(a.deviceAddress, b.deviceAddress, 'the same machine must fold to the same address')
   assert.match(a.address, /^[0-9a-f-]{36}$/)
   assert.ok(a.logical >= 1)
-  assert.equal(a.simulableStates, 1 << SIMULABLE_QUBITS)
+  assert.equal(a.simulableStates, HEXBIT_STATES ** HEXBIT_BITS)
   assert.deepEqual([...a.witnesses].sort(), [...WITNESSES.map((w) => w.theorem)].sort())
 })
 
@@ -229,6 +230,10 @@ const FALSIFIED: readonly string[] = [
   'store_fold_change_moves_receipt',
   'hexbit_ring_mass_gap',
   'born_field_mass_gap_on_bell',
+  'served_qubit_ceiling',
+  'gate_error_baseline_class',
+  'usable_gap_eighty_bits',
+  'register_exceeds_served',
 ]
 
 test('THE FALSIFIED SET IS NAMED, AND CANNOT DRIFT FROM THE BATTERY IT DESCRIBES', () => {

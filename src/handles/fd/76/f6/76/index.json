@@ -1,0 +1,12 @@
+{
+  "handle": "fd76f676",
+  "address": "fd76f676-b33a-8ef7-bc63-5706fe150947",
+  "kind": "chunk",
+  "keys": [
+    "group_holds_fiftyfour"
+  ],
+  "statement": "(agl.length = 54) ∧ (agl.eraseDups.length = 54) ∧ (6 * 9 = 54)",
+  "files": [
+    "Affine.lean"
+  ]
+}

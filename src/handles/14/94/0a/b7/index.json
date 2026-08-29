@@ -1,0 +1,12 @@
+{
+  "handle": "14940ab7",
+  "address": "14940ab7-1404-8c71-b5d7-764d2224d4f8",
+  "kind": "chunk",
+  "keys": [
+    "absolute_zero_and_kelvin"
+  ],
+  "statement": "(0 + 273 = 273) ∧ (100 + 273 = 373)",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

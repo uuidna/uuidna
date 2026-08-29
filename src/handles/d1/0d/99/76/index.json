@@ -1,0 +1,12 @@
+{
+  "handle": "d10d9976",
+  "address": "d10d9976-f297-8b32-aedb-27a39c2ec2ec",
+  "kind": "chunk",
+  "keys": [
+    "merkle_shape_moves_root_iff_nonassociative"
+  ],
+  "statement": "((List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun d => ((2 * (2 * a + b) + (2 * c + d)) == (2 * (2 * (2 * a + b) + c) + d)) == (a == 0 && b == 0)))))) ∧ ((List.range 6).all (fun a => (List.range 6).all (fun b => (List.range 6).all (fun c => (List.range 6).all (fun d => ((a + b) + (c + d)) == (((a + b) + c) + d))))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

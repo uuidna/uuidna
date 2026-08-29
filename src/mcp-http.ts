@@ -18,10 +18,12 @@ import { decide } from './decide.js'
 import { matrixCss } from './css.js'
 import { toUuid } from './address.js'
 import { compileToHexbits } from './hexbit/index.js'   // one unit, both doors — the edge computes the same 32 states
+import { sealToolWire } from './mcp-wire.js'
 import { conformance } from './conformance.js'
 import { MCP_CATALOG, callTool, toolHandleOf, apiHandleOf, recordPayment, messagingSession } from './mcp.js'   // THE ONE CATALOGUE — the edge subtracts from it— gap 39's second party; the ONE handle fold, so both surfaces seal the same way
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
-import { coins, billUuidna } from './captain/billing/index.js'
+import { billUuidna } from './captain/billing/index.js'
+import { coinSupply } from './coin-supply.js'
 import { quantumAura } from './aura.js'
 import { imageProvenance, verifyImageProvenance } from './provenance.js'
 import { quantumCubeChallenge, verifyQuantumCube } from './cube.js'
@@ -42,7 +44,7 @@ import { skillSurface, skillIndex } from './skills.js'
 
 const PROTOCOL_VERSION = '2025-06-18'          // the MCP protocol revision this endpoint speaks
 /** Tools whose run() reads the full Alpine catalogue — the edge must prime /alpine-catalogue.tsv first. */
-const CATALOGUE_TOOLS = new Set(['uuidna_exec', 'uuidna_registry', 'uuidna_related'])
+const CATALOGUE_TOOLS = new Set(['uuidna_exec', 'uuidna_registry', 'uuidna_related', 'uuidna_crypto'])
 // The version this endpoint ADVERTISES to every client calling initialize. It sat at 0.1.1 through eleven
 // releases while the package reached 0.2.5, so every consumer asking what it was talking to got a false answer —
 // and nothing noticed, because no surface compared the two. It cannot be imported from package.json (rootDir is
@@ -51,14 +53,14 @@ const CATALOGUE_TOOLS = new Set(['uuidna_exec', 'uuidna_registry', 'uuidna_relat
 // unchecked one is how this drifted.
 const SERVER = { name: 'uuidna', version: '0.3.0' }
 
-interface HttpTool { name: string; description: string; inputSchema: Record<string, unknown>; run: (a: Record<string, unknown>) => unknown }
+interface HttpTool { name: string; description: string; detail?: string; inputSchema: Record<string, unknown>; run: (a: Record<string, unknown>) => unknown }
 
 // hex / base64 → bytes, pure (atob is available in the Workers runtime); for the image-provenance tool.
 const unhex = (s: string): Uint8Array => { const h = s.replace(/\s+/g, ''); const u = new Uint8Array(h.length / 2); for (let i = 0; i < u.length; i++) u[i] = parseInt(h.slice(i * 2, i * 2 + 2), 16); return u }
 const unb64 = (s: string): Uint8Array => { const bin = atob(s); const u = new Uint8Array(bin.length); for (let i = 0; i < bin.length; i++) u[i] = bin.charCodeAt(i); return u }
 
 // The Workers-safe tool set — the recomputable core, each a pure function of its input and the sealed ledger.
-const TOOLS: HttpTool[] = [
+const TOOLS: HttpTool[] = ([
   { name: 'uuidna_css', description: 'THE DESIGN MATRIX AS ONE SERVED STANDARD, at the edge — every colour and type size computed from the ℤ/9 sequence and the vortex orbit (six rungs: 2 has order 6 in ℤ/9*), none authored. Returns {css,vars,receipt,honest}: render the same receipt or you are rendering a different matrix.',
     inputSchema: { type: 'object', properties: {} },
     run: () => matrixCss() },
@@ -80,9 +82,9 @@ const TOOLS: HttpTool[] = [
   { name: 'uuidna_merkle_proof', description: 'The HOLOGRAPHIC MERKLE PROOF: given {leaves} and an {index}, returns the root, the O(log N) proof for that leaf, and its verification — verify the whole from a tiny part, no other leaf needed.',
     inputSchema: { type: 'object', properties: { leaves: { type: 'array', items: { type: 'string' } }, index: { type: 'integer' } }, required: ['leaves', 'index'] },
     run: (a) => { const leaves = (a.leaves as string[]).map(String); const i = Number(a.index); const root = merkleRoot(leaves); const proof = merkleProof(leaves, i); return { root, index: i, leaf: leaves[i], proof, verified: verifyProof(leaves[i], proof, root) } } },
-  { name: 'uuidna_coins', description: 'The two captain COINS — coins() = 2, the conserved fair-exchange invariant (110 − 108 = 2, the Euler characteristic −χ of the genus-2 double torus). The price the fuse (64-bit → 128-bit) is gated on.',
+  { name: 'uuidna_coins', description: 'Captain-coin issuance: coins() per sealed theorem, capped at quantum capacity × directed referrer combinations. Returns the live mint, remaining, and the cipher widths those coins occupy (one uuid of floor, two uuids of key).',
     inputSchema: { type: 'object', properties: {} },
-    run: () => ({ coins: coins() }) },
+    run: () => coinSupply() },
   { name: 'uuidna_bill', description: 'The MEASURED billing model: pass {commercial, recomputeOps, verifyOps} — returns the bits saved (recompute − verify), the two coins, and whether it is free (public interest is free; commercial is billed on the measured advantage).',
     inputSchema: { type: 'object', properties: { commercial: { type: 'boolean' }, recomputeOps: { type: 'integer' }, verifyOps: { type: 'integer' } } },
     run: (a) => billUuidna({ commercial: Boolean(a.commercial), recomputeOps: Number(a.recomputeOps ?? 0), verifyOps: Number(a.verifyOps ?? 1) }) },
@@ -125,7 +127,7 @@ const TOOLS: HttpTool[] = [
       const s = messagingSession()
       return gateStatus(SERVED.map((t) => t.name), { surface: 'edge', wireTools: SERVED, payments: s.payments, agent: s.agent })
     } },
-]
+] as HttpTool[]).map(sealToolWire)
 /** THE DECLARED ABSENCES, and the reason each one cannot serve here. This list MAY ONLY SHRINK.
  *
  *  Before this, the edge kept a SECOND hand-written list of tools and the two surfaces drifted: 173 pure

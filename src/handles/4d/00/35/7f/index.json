@@ -1,0 +1,12 @@
+{
+  "handle": "4d00357f",
+  "address": "4d00357f-4be4-87ef-adc1-77060d60a4b2",
+  "kind": "chunk",
+  "keys": [
+    "commutator_is_shift"
+  ],
+  "statement": "(List.range 9).all (fun x => ap 2 0 (ap 8 1 (ap 5 0 (ap 8 1 x))) == (x + 1) % 9)",
+  "files": [
+    "Sequence.lean"
+  ]
+}

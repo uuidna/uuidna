@@ -1,0 +1,12 @@
+{
+  "handle": "312edd39",
+  "address": "312edd39-463f-859c-9fe9-d6e9a64be7e4",
+  "kind": "chunk",
+  "keys": [
+    "derivative_finite_rate"
+  ],
+  "statement": "(List.range' 1 12).all (fun x => (List.range' 1 12).all (fun h => (x+h)*(x+h) - x*x == h*(2*x+h)))",
+  "files": [
+    "Infinity.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "db654a2a",
+  "address": "db654a2a-f812-80ec-9e47-1a5e8da76b88",
+  "kind": "chunk",
+  "keys": [
+    "z9add_0_4"
+  ],
+  "statement": "(0 + 4) % 9 = 4",
+  "files": [
+    "Ring.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e8583220",
+  "address": "e8583220-cf6f-8b8e-b3e1-03b05d7d30c2",
+  "kind": "chunk",
+  "keys": [
+    "order_of_two_mod_25_is_20"
+  ],
+  "statement": "(2^20 % 25 = 1) ∧ ((List.range' 1 19).all (fun k => 2^k % 25 != 1))",
+  "files": [
+    "Wave.lean"
+  ]
+}

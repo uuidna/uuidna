@@ -1,0 +1,12 @@
+{
+  "handle": "e03fe7ef",
+  "address": "e03fe7ef-f29c-8af9-b883-85eef7a11b7d",
+  "kind": "chunk",
+  "keys": [
+    "map_preserves_length"
+  ],
+  "statement": "((List.range 10).map (fun x => x + 1)).length = 10",
+  "files": [
+    "Software.lean"
+  ]
+}

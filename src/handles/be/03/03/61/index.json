@@ -1,0 +1,12 @@
+{
+  "handle": "be030361",
+  "address": "be030361-3258-8665-936d-cd935876563c",
+  "kind": "chunk",
+  "keys": [
+    "lp_optimum_is_eleven"
+  ],
+  "statement": "((List.range 4).all (fun x => (List.range 5).all (fun y => (x + y > 4) || (3*x + 2*y <= 11)))) ∧ (3*3 + 2*1 = 11)",
+  "files": [
+    "Optimisation.lean"
+  ]
+}

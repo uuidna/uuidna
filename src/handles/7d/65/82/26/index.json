@@ -1,0 +1,12 @@
+{
+  "handle": "7d658226",
+  "address": "7d658226-fe30-8e0e-86c0-17c252dbd2e6",
+  "kind": "chunk",
+  "keys": [
+    "missing_pair_involution"
+  ],
+  "statement": "((List.range 10).filter (fun d => !([0,1,3,4,5] ++ [0,9,7,6,5]).contains d) = [2, 8]) ∧ (dz 2 = 8)",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

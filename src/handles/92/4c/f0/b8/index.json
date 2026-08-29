@@ -1,0 +1,12 @@
+{
+  "handle": "924cf0b8",
+  "address": "924cf0b8-a00a-8a3f-9524-0178d8a08c78",
+  "kind": "chunk",
+  "keys": [
+    "nim_winning_move_exists"
+  ],
+  "statement": "(lxor (lxor 1 2) 4 = 7) ∧ (lxor 7 4 = 3)",
+  "files": [
+    "Nim.lean"
+  ]
+}

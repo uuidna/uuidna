@@ -1,0 +1,12 @@
+{
+  "handle": "e0d5b217",
+  "address": "e0d5b217-1804-81f0-ba37-39d58f3a53de",
+  "kind": "chunk",
+  "keys": [
+    "after_one_move_four_hundred"
+  ],
+  "statement": "20 * 20 = 400",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

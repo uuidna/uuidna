@@ -1,0 +1,12 @@
+{
+  "handle": "a1158be2",
+  "address": "a1158be2-d532-814f-bade-19e82c562691",
+  "kind": "chunk",
+  "keys": [
+    "five_returns_out_of_phase"
+  ],
+  "statement": "(dz 5 = 5) ∧ (dbl 5 = 1) ∧ (dbl 5 ≠ 5)",
+  "files": [
+    "Phase.lean"
+  ]
+}

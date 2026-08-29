@@ -1,0 +1,12 @@
+{
+  "handle": "69dbf084",
+  "address": "69dbf084-54e7-8eed-934f-b0ea36960fec",
+  "kind": "chunk",
+  "keys": [
+    "sanitize_max_depth_is_two_pow_five"
+  ],
+  "statement": "32 = 2^5",
+  "files": [
+    "Sanitize.lean"
+  ]
+}

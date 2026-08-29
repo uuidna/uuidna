@@ -12,7 +12,8 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
-import { capacity, childProbe, hostProfile, loadMeasurable, parentProbe, renderSpeedup, resolveShell, speedup } from '../os/host/index.js'
+import { capacity, childProbe, hostProfile, hostStreamFleet, loadMeasurable, parentProbe, renderSpeedup, resolveShell, speedup } from '../os/host/index.js'
+import { GPU_POSTAGE_ADDRESSES } from '../hardware/lanes/index.js'
 import { UUID } from './api.js'
 
 test('resolveShell — a POSIX host gets sh; the recipe runs one command string', () => {
@@ -66,6 +67,17 @@ test('capacity — measured, never assumed, and it always leaves the machine roo
   const greedy = capacity(0)
   assert.equal(greedy.lanes, greedy.logical < 2 ? 2 : greedy.logical)
   assert.ok(capacity(2).lanes <= greedy.lanes, 'reserving lanes cannot yield MORE lanes')
+})
+
+test('hostStreamFleet uses this machine\'s CPU lanes and adds the specified GPU worker at postage', () => {
+  const host = capacity()
+  const small = hostStreamFleet(1)
+  assert.equal(small.cpuWorkers, host.lanes)
+  assert.equal(small.gpuWorkers, 0)
+  const wide = hostStreamFleet(GPU_POSTAGE_ADDRESSES)
+  assert.equal(wide.cpuWorkers, host.lanes)
+  assert.equal(wide.gpuWorkers, 1)
+  assert.equal(wide.total, host.lanes + 1)
 })
 
 test('hostProfile — the reading moves between hosts, the fold does not move on one', () => {

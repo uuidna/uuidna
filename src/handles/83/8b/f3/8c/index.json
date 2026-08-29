@@ -1,0 +1,12 @@
+{
+  "handle": "838bf38c",
+  "address": "838bf38c-bb7b-8f39-9df4-6c4e243abf02",
+  "kind": "chunk",
+  "keys": [
+    "no_maximal_board"
+  ],
+  "statement": "((8:Nat)^1 < 8^2) ∧ ((8:Nat)^2 < 8^3)",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

@@ -50,5 +50,6 @@ test('the live census reads the real tree and states what it cannot see', () => 
   // THE HONEST BOUND, load-bearing: an exhausted census is evidence about the finders, never a proof that no
   // theorem remains. A census that claimed the stronger thing would be the overreach this tree exists to refuse.
   assert.match(s.honest, /not a proof that no theorem remains to be found/)
-  assert.match(s.honest, /axiom-hunt/, 'a source deliberately not counted must be named, or the census overstates its own coverage')
+  assert.match(s.honest, /axiomHunt/, 'axiom-hunt is counted through the exported hunt, never a second table')
+  assert.ok(s.sources.some((x) => x.name === 'exposed-axioms'), 'remaining covering work is a finder, not a printed line')
 })

@@ -1,0 +1,12 @@
+{
+  "handle": "79856e9a",
+  "address": "79856e9a-4052-8548-acfd-2de1b9cb116a",
+  "kind": "chunk",
+  "keys": [
+    "nilpotents_mod_36_number_6"
+  ],
+  "statement": "((List.range 36).filter (fun x => x ^ 36 % 36 == 0)).length = 6",
+  "files": [
+    "Wave.lean"
+  ]
+}

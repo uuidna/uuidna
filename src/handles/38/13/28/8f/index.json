@@ -1,0 +1,12 @@
+{
+  "handle": "3813288f",
+  "address": "3813288f-eea8-8d54-a4b8-f7b01ce12ceb",
+  "kind": "chunk",
+  "keys": [
+    "dodecahedron_twelve_pentagons"
+  ],
+  "statement": "12 * 5 = 2 * 30",
+  "files": [
+    "Solids.lean"
+  ]
+}

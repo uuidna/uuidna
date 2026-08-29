@@ -1,0 +1,12 @@
+{
+  "handle": "02dac3b1",
+  "address": "02dac3b1-27cc-846c-982c-33bb5c5a3b7b",
+  "kind": "chunk",
+  "keys": [
+    "arity_admits_exactly_one_dependent_trinity"
+  ],
+  "statement": "(((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))))).length = 16) ∧ (((List.range 32).filter (fun m => (((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))).length = 24) ∧ (((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))) && (((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))).length = 15) ∧ (((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))) && !(((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))).length = 1) ∧ (((List.range 32).filter (fun m => decide (3 <= ((m % 2) + ((m / 2) % 2) + ((m / 4) % 2) + ((m / 8) % 2) + ((m / 16) % 2))) && !(((m / 4) % 2 == 1) || ((m / 8) % 2 == 1)))) = [19])",
+  "files": [
+    "Wave.lean"
+  ]
+}

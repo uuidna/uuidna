@@ -1,0 +1,12 @@
+{
+  "handle": "031dc2fc",
+  "address": "031dc2fc-dfba-881f-b394-ef8b9126da4d",
+  "kind": "chunk",
+  "keys": [
+    "debruijn_order_four_cycle_reads_every_quadruple_once"
+  ],
+  "statement": "((List.range 16).map (fun i => 62864 / 2 ^ i % 2) = [0,0,0,0,1,0,0,1,1,0,1,0,1,1,1,1]) ∧ ((List.range 16).map (fun i => 8 * (62864 / 2 ^ i % 2) + 4 * (62864 / 2 ^ ((i + 1) % 16) % 2) + 2 * (62864 / 2 ^ ((i + 2) % 16) % 2) + (62864 / 2 ^ ((i + 3) % 16) % 2)) = [0,1,2,4,9,3,6,13,10,5,11,7,15,14,12,8]) ∧ (([0,1,2,4,9,3,6,13,10,5,11,7,15,14,12,8] : List Nat).length = 16) ∧ (([0,1,2,4,9,3,6,13,10,5,11,7,15,14,12,8] : List Nat).eraseDups.length = 16) ∧ ((List.range 16).all (fun v => ([0,1,2,4,9,3,6,13,10,5,11,7,15,14,12,8] : List Nat).contains v))",
+  "files": [
+    "Wave.lean"
+  ]
+}

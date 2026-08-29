@@ -1,0 +1,12 @@
+{
+  "handle": "bbbfb027",
+  "address": "bbbfb027-e542-8e18-86d1-39d079de8fdf",
+  "kind": "chunk",
+  "keys": [
+    "partition_six_three"
+  ],
+  "statement": "((List.range' 1 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length = 6 ∧ ((List.range' 1 9).filter (fun a => ¬ (List.range 9).any (fun e => a*e % 9 == 1))).length = 3",
+  "files": [
+    "Sequence.lean"
+  ]
+}

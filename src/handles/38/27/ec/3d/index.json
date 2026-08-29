@@ -1,0 +1,12 @@
+{
+  "handle": "3827ec3d",
+  "address": "3827ec3d-19f3-8d7f-9883-e1ba5524a121",
+  "kind": "chunk",
+  "keys": [
+    "a440_not_on_the_vortex"
+  ],
+  "statement": "(432 % 9 = 0) ∧ (440 % 9 = 8) ∧ (60000 / 252 / 2 = 119)",
+  "files": [
+    "Wave.lean"
+  ]
+}

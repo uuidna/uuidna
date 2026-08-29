@@ -1,0 +1,12 @@
+{
+  "handle": "dabb1d64",
+  "address": "dabb1d64-2856-8d7e-93e1-c5e61ad62783",
+  "kind": "chunk",
+  "keys": [
+    "trial_computes_only_with_two_coins"
+  ],
+  "statement": "(List.range 8).filter (fun k => 32 * k == 64) = [2]",
+  "files": [
+    "Legal.lean"
+  ]
+}

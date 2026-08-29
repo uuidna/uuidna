@@ -1,0 +1,12 @@
+{
+  "handle": "9d91dd03",
+  "address": "9d91dd03-2690-8504-a53f-0fddb032bb46",
+  "kind": "chunk",
+  "keys": [
+    "gas_volume_walks_the_harmonic_series"
+  ],
+  "statement": "((List.range' 1 6).all (fun n => n * (60 / n) = 60)) ∧ ((List.range' 1 5).all (fun n => 60 / n > 60 / (n + 1)))",
+  "files": [
+    "Waves.lean"
+  ]
+}

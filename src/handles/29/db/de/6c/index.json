@@ -1,0 +1,12 @@
+{
+  "handle": "29dbde6c",
+  "address": "29dbde6c-7181-84a1-a4cc-2401c35c6fc0",
+  "kind": "chunk",
+  "keys": [
+    "hour_of_film_is_a_day_of_seconds"
+  ],
+  "statement": "(24 * 60 * 60 = 86400) ∧ (24 * 3600 = 86400)",
+  "files": [
+    "Editing.lean"
+  ]
+}

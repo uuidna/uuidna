@@ -1,0 +1,14 @@
+{
+  "handle": "6520dd5b",
+  "address": "6520dd5b-e135-8ee5-9922-866aa392a9e5",
+  "kind": "chunk",
+  "keys": [
+    "visible_seven_colours",
+    "z7rays_seven"
+  ],
+  "statement": "(List.range 7).length = 7",
+  "files": [
+    "Rosette.lean",
+    "Spectrum.lean"
+  ]
+}

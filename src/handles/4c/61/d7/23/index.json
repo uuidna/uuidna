@@ -1,0 +1,12 @@
+{
+  "handle": "4c61d723",
+  "address": "4c61d723-58f2-8aa7-ba68-e9478ec14196",
+  "kind": "chunk",
+  "keys": [
+    "alphabetic_three_ranks"
+  ],
+  "statement": "9 + 9 + 9 = 27 ∧ 9 * 100 = 900",
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

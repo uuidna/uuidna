@@ -1,0 +1,12 @@
+{
+  "handle": "d426d157",
+  "address": "d426d157-e960-825d-9841-8dca64d331be",
+  "kind": "chunk",
+  "keys": [
+    "reduce_is_order_invariant"
+  ],
+  "statement": "List.foldl (fun a b => a + b) 0 [1,2,3,4] = List.foldl (fun a b => a + b) 0 [4,3,2,1]",
+  "files": [
+    "Software.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bbf4938c",
+  "address": "bbf4938c-c468-8f35-8e8b-a2040cc234d3",
+  "kind": "chunk",
+  "keys": [
+    "series_resistance_adds"
+  ],
+  "statement": "3 + 6 = 9",
+  "files": [
+    "Electromagnetism.lean"
+  ]
+}

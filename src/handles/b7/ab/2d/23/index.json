@@ -1,0 +1,12 @@
+{
+  "handle": "b7ab2d23",
+  "address": "b7ab2d23-cdb1-8d13-9a24-bfbe2a8a3bf4",
+  "kind": "chunk",
+  "keys": [
+    "sixteen_binary_functions"
+  ],
+  "statement": "((List.range 16).map rowsOf).eraseDups.length = 16 ∧ ((2:Nat)^(2^2) = 16)",
+  "files": [
+    "Boolean.lean"
+  ]
+}

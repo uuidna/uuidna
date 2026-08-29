@@ -3,13 +3,17 @@
 // a fixpoint: whenever every premise of a rule is known, it concludes the head by MODUS PONENS (or, for a multi-premise
 // rule, the chained hypothetical syllogism), and each derivation CITES the sealed theorem that licenses it. It is
 // bounded (a fixed round cap — it cannot loop forever), deterministic, and folds its whole derivation to one receipt,
-// so a reasoning is rechecked. HONEST SCOPE: bounded propositional forward-chaining over the rules you
+// so a reasoning is rechecked. This is the uninterrupted proof of a point in court (court_theorem_beats_assertion),
+// not an order to act; the mandate is the court's, and the loser develops the proven (court_loser_develops_the_proven).
+// HONEST SCOPE: bounded propositional forward-chaining over the rules you
 // give it (Horn clauses) — NOT a general theorem prover; it derives only what those rules entail
 // from those facts, each step backed by a rule uuidna already proved by decide. Integrity.
 import { toUuid, merkleFold } from './address.js'
 
-/** An implication rule: if every atom in `if` is known, then `then` follows. */
-export interface Rule { if: string[]; then: string }
+/** An implication rule: if every atom in `if` is known, then `then` follows.
+ *  Optional `cites` names a sealed inference theorem (modus_tollens, disjunctive_syllogism, …);
+ *  default is modus_ponens (one premise) or hypothetical_syllogism (a chain). */
+export interface Rule { if: string[]; then: string; cites?: string }
 
 /** One derivation step — what was concluded, from which premises, by which sealed rule. */
 export interface Derivation { conclude: string; from: string[]; rule: string; cites: string }
@@ -39,8 +43,10 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
     for (const r of rules) {
       if (r.if.length > 0 && r.if.every((a) => known.has(a)) && !known.has(r.then)) {
         known.add(r.then)
-        // one premise → modus ponens; several chained premises → the hypothetical syllogism. Both are sealed.
-        const rule = r.if.length === 1 ? 'modus_ponens' : 'hypothetical_syllogism'
+        // Default: one premise → modus ponens; several → the hypothetical syllogism. A rule may name a
+        // more specific sealed license (modus_tollens, disjunctive_syllogism, research_always_has_a_next).
+        const cited = r.cites && /^[a-z0-9_]+$/.test(r.cites) ? r.cites : null
+        const rule = cited ?? (r.if.length === 1 ? 'modus_ponens' : 'hypothetical_syllogism')
         trace.push({ conclude: r.then, from: [...r.if], rule, cites: `/theorem/${rule}` })
         changed = true
       }
@@ -60,9 +66,11 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
     reachedFixpoint,
     receipt,
     honest:
-      'Bounded propositional forward-chaining over the rules given: each conclusion follows by a sealed inference rule ' +
-      '(modus ponens, or the hypothetical syllogism for a chain), cited on the step. It is deterministic and folds to ' +
-      'one receipt anyone rechecks. It derives only what these rules entail from these facts — NOT a general theorem ' +
-      'prover, and it never claims a conclusion is TRUE, only that it FOLLOWS from what it was given. Integrity.',
+      'Bounded propositional forward-chaining over the rules given: each conclusion FOLLOWS by a sealed inference rule ' +
+      '(modus ponens, or the hypothetical syllogism for a chain), cited on the step. This is the uninterrupted proof of ' +
+      'a point in court — theorem court_theorem_beats_assertion: only the proof is admissible. It does not tell anyone ' +
+      'what to do or not to do. The court issues the mandate (courtProcedure stage 10); the loser develops the proven ' +
+      '(court_loser_develops_the_proven). Deterministic, one receipt. It never claims a conclusion is TRUE, only that ' +
+      'it FOLLOWS from what it was given. Integrity.',
   }
 }

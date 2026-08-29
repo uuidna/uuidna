@@ -1,0 +1,12 @@
+{
+  "handle": "ea09efe2",
+  "address": "ea09efe2-ca97-8a21-a25f-014d54861f15",
+  "kind": "chunk",
+  "keys": [
+    "the_record_has_holes_the_rule_does_not"
+  ],
+  "statement": "(15 - 4 - 1 = 10) ∧ (5 - 4 - 1 = 0) ∧ (15 - 4 = 11)",
+  "files": [
+    "Calendar.lean"
+  ]
+}

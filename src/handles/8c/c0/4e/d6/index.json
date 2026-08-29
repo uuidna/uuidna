@@ -1,0 +1,12 @@
+{
+  "handle": "8cc04ed6",
+  "address": "8cc04ed6-1427-8c4d-814e-e53254aeb42e",
+  "kind": "chunk",
+  "keys": [
+    "readings_de_names_sixteen"
+  ],
+  "statement": "([\"null\",\"eins\",\"zwei\",\"drei\",\"vier\",\"fünf\",\"sechs\",\"sieben\",\"acht\",\"neun\",\"zehn\",\"elf\",\"zwölf\",\"dreizehn\",\"vierzehn\",\"fünfzehn\"] : List String).length = 16 ∧ ([\"null\",\"eins\",\"zwei\",\"drei\",\"vier\",\"fünf\",\"sechs\",\"sieben\",\"acht\",\"neun\",\"zehn\",\"elf\",\"zwölf\",\"dreizehn\",\"vierzehn\",\"fünfzehn\"] : List String).Nodup",
+  "files": [
+    "Readings.lean"
+  ]
+}

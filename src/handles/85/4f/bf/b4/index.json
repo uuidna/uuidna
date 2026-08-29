@@ -1,0 +1,12 @@
+{
+  "handle": "854fbfb4",
+  "address": "854fbfb4-84f7-82e7-ab66-27d6ac4565e4",
+  "kind": "chunk",
+  "keys": [
+    "the_coin_keeps_its_order_in_the_fused_ring"
+  ],
+  "statement": "((2^6) % 63 = 1) ∧ ((2^6) % 9 = 1) ∧ ((2^3) % 7 = 1) ∧ ((5^6) % 63 = 1)",
+  "files": [
+    "Crt.lean"
+  ]
+}

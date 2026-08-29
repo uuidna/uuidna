@@ -1,0 +1,12 @@
+{
+  "handle": "4f3b9bc7",
+  "address": "4f3b9bc7-1658-86f5-8dd5-1d03e7451fa3",
+  "kind": "chunk",
+  "keys": [
+    "heartbeat_share_resolves_at_four_hexbits"
+  ],
+  "statement": "(16^4 = 65536) ∧ (16^3 = 4096) ∧ ((13 * 4096) / 579272 = 0) ∧ ((13 * 65536) / 579272 = 1) ∧ ((579272 * 65536) / 579272 = 65536)",
+  "files": [
+    "Coins.lean"
+  ]
+}

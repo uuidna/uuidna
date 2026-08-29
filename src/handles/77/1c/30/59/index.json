@@ -1,0 +1,12 @@
+{
+  "handle": "771c3059",
+  "address": "771c3059-404d-859e-9b71-a681da0aa776",
+  "kind": "chunk",
+  "keys": [
+    "proton_fit"
+  ],
+  "statement": "(108 * 17 = 1836) ∧ (108 % 9 = 0)",
+  "files": [
+    "Vortex.lean"
+  ]
+}

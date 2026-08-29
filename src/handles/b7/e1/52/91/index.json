@@ -1,0 +1,12 @@
+{
+  "handle": "b7e15291",
+  "address": "b7e15291-f5f2-823d-a5e7-816fcf2601fd",
+  "kind": "chunk",
+  "keys": [
+    "power_fixed_mod_30_number_8"
+  ],
+  "statement": "((List.range 30).filter (fun x => x ^ 30 % 30 == x)).length = 8",
+  "files": [
+    "Wave.lean"
+  ]
+}

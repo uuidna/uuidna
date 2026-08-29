@@ -1,0 +1,12 @@
+{
+  "handle": "4e0ee606",
+  "address": "4e0ee606-5653-872d-8db6-5245b9a220e8",
+  "kind": "chunk",
+  "keys": [
+    "code_holds_sixteen_words"
+  ],
+  "statement": "(words.length = 16) ∧ ((2:Nat)^4 = 16) ∧ ((2:Nat)^7 = 128)",
+  "files": [
+    "Hamming.lean"
+  ]
+}

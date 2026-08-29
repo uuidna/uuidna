@@ -1,0 +1,12 @@
+{
+  "handle": "5be3af98",
+  "address": "5be3af98-ae5f-8752-a7d6-f8f5036f1a50",
+  "kind": "chunk",
+  "keys": [
+    "identity_leaves_all"
+  ],
+  "statement": "(agl.contains 9) ∧ (agl.all (fun f => (comp f 9 == f) && (comp 9 f == f)))",
+  "files": [
+    "Affine.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "529038e0",
+  "address": "529038e0-8623-86f1-b0fb-990d86f90f7b",
+  "kind": "chunk",
+  "keys": [
+    "simplex_pivot_improves"
+  ],
+  "statement": "(3*3 + 2*0 = 9) ∧ (9 < 11)",
+  "files": [
+    "Optimisation.lean"
+  ]
+}

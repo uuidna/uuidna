@@ -1,0 +1,12 @@
+{
+  "handle": "7cdc8eaa",
+  "address": "7cdc8eaa-9317-8f0e-becd-1dfc88e5a5ae",
+  "kind": "chunk",
+  "keys": [
+    "tour_contra_reflects_each_digit"
+  ],
+  "statement": "(([0,1,2,4,8,7,5,3,6,9,0,1].map dz) = [0,9,8,6,2,3,5,7,4,1,0,9]) ∧ (dz 1 = 9)",
+  "files": [
+    "Sequence.lean"
+  ]
+}

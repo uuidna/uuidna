@@ -1,0 +1,12 @@
+{
+  "handle": "74a93410",
+  "address": "74a93410-6c2f-8c06-bb8a-f5d2c855e9cf",
+  "kind": "chunk",
+  "keys": [
+    "dodecahedron_icosahedron_dual"
+  ],
+  "statement": "((20,30,12).1 = (12,30,20).2.2) ∧ ((20,30,12).2.2 = (12,30,20).1) ∧ ((20,30,12).2.1 = (12,30,20).2.1)",
+  "files": [
+    "Solids.lean"
+  ]
+}

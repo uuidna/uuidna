@@ -1,0 +1,12 @@
+{
+  "handle": "32236c4f",
+  "address": "32236c4f-7088-8577-9dc0-8262f32df288",
+  "kind": "chunk",
+  "keys": [
+    "working_memory_span_seven"
+  ],
+  "statement": "(7 - 2 = 5) ∧ (7 + 2 = 9) ∧ (9 - 5 = 4)",
+  "files": [
+    "Psychology.lean"
+  ]
+}

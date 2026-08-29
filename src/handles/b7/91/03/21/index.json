@@ -1,0 +1,12 @@
+{
+  "handle": "b7910321",
+  "address": "b7910321-b133-8bac-8496-a8824436b578",
+  "kind": "chunk",
+  "keys": [
+    "torus_betti_alternates_to_zero"
+  ],
+  "statement": "((1:Int) - 2 + 1 = 0) ∧ (([1,2,1] : List Int).length = 3)",
+  "files": [
+    "Clay.lean"
+  ]
+}

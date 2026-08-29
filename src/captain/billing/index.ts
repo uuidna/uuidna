@@ -52,13 +52,13 @@ export function billUuidna(u: UuidnaUsage): { advantage: number; bitsSaved: numb
  *  (the tour and its reflection, tour_contra_involutes), so a theorem's coins = 2 · superpositions. The simplest
  *  theorem (one boundary) is worth exactly the two coins (two_coins) — the valuation law and the conservation law
  *  agree at the floor. Integrity. */
-export interface TheoremCoins { key: string; boundaries: number; directions: 2; uses: number; dimensions: number; coinValue: number }
+export interface TheoremCoins { key: string; boundaries: number; directions: number; uses: number; dimensions: number; coinValue: number }
 export interface LedgerCoins {
   theorems: number
   valued: TheoremCoins[]       // every theorem valued by the law — the per-theorem ledger of coins
   superpositions: number       // Σ boundaries covered, weighted by use — the sealed superpositions
-  totalCoins: number           // superpositions × 2 — one coin for each direction; more sealed superpositions, more coins
-  floor: number                // the minimum theorem value = 2 (one boundary, two directions) = coins()
+  totalCoins: number           // superpositions × coins() — one coin for each direction; more sealed superpositions, more coins
+  floor: number                // the minimum theorem value = coins() (one boundary, two directions)
   receipt: string
   honest: string
 }
@@ -83,7 +83,8 @@ export function boundariesOf(statement: string): number {
 export function theoremCoins(key: string, statement: string, uses = 0, dimensions = 1): TheoremCoins {
   const boundaries = boundariesOf(statement)
   const dims = dimensions >= 1 ? dimensions : 1
-  return { key, boundaries, directions: 2, uses, dimensions: dims, coinValue: boundaries * 2 * (1 + uses) * dims }
+  const C = coins()
+  return { key, boundaries, directions: C, uses, dimensions: dims, coinValue: boundaries * C * (1 + uses) * dims }
 }
 
 /** ledgerCoins(entries) → the whole ledger valued by the captain's law: superpositions = Σ (boundaries weighted by
@@ -100,17 +101,18 @@ export function ledgerCoins(entries: readonly { key: string; statement: string; 
     return theoremCoins(t.key, t.statement, uses, dims.size)
   })
   const superpositions = valued.reduce((s, v) => s + v.boundaries * (1 + v.uses) * v.dimensions, 0)
+  const C = coins()
   return {
     theorems: valued.length,
     valued,
     superpositions,
-    totalCoins: superpositions * 2,
-    floor: coins(),
-    receipt: toUuid('ledger-coins|' + valued.length + '|' + superpositions + '|' + superpositions * 2),
+    totalCoins: superpositions * C,
+    floor: C,
+    receipt: toUuid('ledger-coins|' + valued.length + '|' + superpositions + '|' + superpositions * C),
     honest:
       'The captain\'s valuation law: each theorem is worth one coin per direction per boundary covered — its ' +
       'top-level conjuncts held in superposition, each walked forward and contra (the tour and its reflection), ' +
-      'so total coins = superpositions × 2, THE MORE USED a theorem the more valuable it is (every citation of ' +
+      'so total coins = superpositions × coins(), THE MORE USED a theorem the more valuable it is (every citation of ' +
       'its key by another entry walks its boundaries again, each walk paying a coin per direction), and THE MORE ' +
       'DIMENSIONS it spans — the distinct domains standing on it — the more coins again. The floor ' +
       'is the two coins themselves: an unused one-boundary theorem is worth exactly coins() = 2, the valuation ' +

@@ -1,0 +1,12 @@
+{
+  "handle": "cdc6b1a5",
+  "address": "cdc6b1a5-29a7-8b13-9b6e-69b1e1344d62",
+  "kind": "chunk",
+  "keys": [
+    "gap_is_a_count"
+  ],
+  "statement": "(List.range 12).all (fun a => (List.range 12).all (fun b => (gap a b == gap b a) && ((gap a b == 0) == (a == b))))",
+  "files": [
+    "Clock.lean"
+  ]
+}

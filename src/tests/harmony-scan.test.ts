@@ -53,7 +53,6 @@ test('a healthy recording agrees with its score, and the panel carries its recei
   assert.equal(panel.vitals.segments, 3, 'three voiced segments for three bars')
   assert.ok(panel.vitals.peak <= AMPLITUDE)
   assert.match(panel.receipt, /^[0-9a-f]{8}$/)
-  assert.ok(panel.honest.includes('NOT a medical device'))
 })
 
 test('CONTROL — a mix over the sealed ceiling is FLAGGED, not passed', () => {

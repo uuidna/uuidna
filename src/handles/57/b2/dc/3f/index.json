@@ -1,0 +1,12 @@
+{
+  "handle": "57b2dc3f",
+  "address": "57b2dc3f-e86b-8c7d-93dc-1334852cb95a",
+  "kind": "chunk",
+  "keys": [
+    "one_orbit"
+  ],
+  "statement": "(List.range 9).all (fun y => (List.range 9).any (fun b => (0 + b) % 9 == y))",
+  "files": [
+    "Sequence.lean"
+  ]
+}

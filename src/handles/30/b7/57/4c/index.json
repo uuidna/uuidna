@@ -1,0 +1,12 @@
+{
+  "handle": "30b7574c",
+  "address": "30b7574c-8d91-8e09-a394-dbf82ceef34a",
+  "kind": "chunk",
+  "keys": [
+    "byte_holds_two_hexbits"
+  ],
+  "statement": "(2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ ((16:Nat)^2 = 256) ∧ (2 ≠ 4)",
+  "files": [
+    "Byte.lean"
+  ]
+}

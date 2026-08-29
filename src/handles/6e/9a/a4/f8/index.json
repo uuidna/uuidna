@@ -1,0 +1,12 @@
+{
+  "handle": "6e9aa4f8",
+  "address": "6e9aa4f8-1044-8461-aded-6a3d756022f0",
+  "kind": "chunk",
+  "keys": [
+    "glagolitic_units"
+  ],
+  "statement": "(List.range' 1 9) = [1,2,3,4,5,6,7,8,9]",
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

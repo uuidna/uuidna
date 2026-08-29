@@ -1,0 +1,12 @@
+{
+  "handle": "298fa678",
+  "address": "298fa678-7737-8e53-8662-fcff08d65f2c",
+  "kind": "chunk",
+  "keys": [
+    "lp_optimum_at_a_vertex"
+  ],
+  "statement": "(3 = 3) ∧ (3 + 1 = 4)",
+  "files": [
+    "Optimisation.lean"
+  ]
+}

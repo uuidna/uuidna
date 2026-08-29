@@ -404,6 +404,8 @@ crt_pairs_are_a_bijection 27
 fused_units_are_the_orbit_squared 27
 the_coin_keeps_its_order_in_the_fused_ring 27
 the_fused_ring_is_all_ones 27
+hexagram_width_closes_rosetta_and_glagolitic 27
+hexagram_stride_totals_the_rosetta 27
 #Discover.lean
 involution_census_self_explains 27
 happy_ending_verified_cases 27
@@ -1479,6 +1481,9 @@ balanced_helm_holds_course 27
 tacking_cancels_leeway 27
 precise_tacks_compound 27
 four_points_is_45 27
+eight_points_is_90 27
+twelve_points_is_135 19
+sixteen_points_is_180 19
 #Sanitize.lean
 sanitize_max_depth_is_two_pow_five 27
 sanitize_max_string_is_ten_pow_six 27
@@ -1753,6 +1758,7 @@ ve_double_five_merges_in_ten 27
 void_folds_at_quadrature 27
 ve_pentads_overlap_to_eight 27
 theorems_interact_as_faces 27
+imagine_all_as_clique_faces 27
 #Vortex.lean
 three_sq_zero 26
 six_sq_zero 26
@@ -2238,6 +2244,11 @@ self_inverse_mod_43_number_2 26
 self_inverse_mod_46_number_2 26
 self_inverse_mod_47_number_2 26
 no_power_of_three_is_a_power_of_two 26
+literature_sonnet_volume 26
+combinatorial_book_exceeds_handles 26
+combinatorial_book_fits_the_uuid 26
+station_ten_is_hexagram_plus_hexbit 26
+ve_faces_are_handle_hexbit_coins 26
 #Waves.lean
 captains_columns_sum_to_ten 27
 nine_complement_half_turns_the_orbit 27

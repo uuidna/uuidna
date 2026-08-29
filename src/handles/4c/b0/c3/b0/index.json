@@ -1,0 +1,12 @@
+{
+  "handle": "4cb0c3b0",
+  "address": "4cb0c3b0-5387-8cec-91fb-24613444dc78",
+  "kind": "chunk",
+  "keys": [
+    "pentagram_single_stroke"
+  ],
+  "statement": "(List.range 5).map (fun k => (2*k) % 5) = [0,2,4,1,3]",
+  "files": [
+    "Pentagram.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f7c00caa",
+  "address": "f7c00caa-a2ea-82bf-9bad-934edda67fb9",
+  "kind": "chunk",
+  "keys": [
+    "power_fixed_mod_9_number_3"
+  ],
+  "statement": "((List.range 9).filter (fun x => x ^ 9 % 9 == x)).length = 3",
+  "files": [
+    "Wave.lean"
+  ]
+}

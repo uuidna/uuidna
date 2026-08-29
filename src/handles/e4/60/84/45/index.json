@@ -1,0 +1,12 @@
+{
+  "handle": "e4608445",
+  "address": "e4608445-f350-8799-a8dd-3e74b1d196aa",
+  "kind": "chunk",
+  "keys": [
+    "gas_blend_by_partial_pressure"
+  ],
+  "statement": "(36 + 90 + 74 = 200) ∧ (9 % 9 = 0)",
+  "files": [
+    "Diving.lean"
+  ]
+}

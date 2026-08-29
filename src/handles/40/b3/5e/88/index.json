@@ -1,0 +1,12 @@
+{
+  "handle": "40b35e88",
+  "address": "40b35e88-91e2-813e-8c2a-94a471540ad9",
+  "kind": "chunk",
+  "keys": [
+    "alphabet_exceeds_wheel"
+  ],
+  "statement": "(9*7*6 = 378) ∧ (360 < 378)",
+  "files": [
+    "Colour.lean"
+  ]
+}

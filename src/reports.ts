@@ -14,11 +14,13 @@
 // truth. A section whose input artifact is absent reports itself absent rather than guessing, because a report
 // that fills its own gaps is the failure this file exists to end.
 import { theorems, PRINCIPLES, runTrial } from './theorems/index.js'
-import { rdRoot } from './boundary.js'
+import { rdRoot, existsRoot, lsRoot } from './boundary.js'
+import { workspacePackages } from './npm-pack.js'
 import { statementCensus } from './editorial.js'
 import { coins } from './captain/billing/index.js'
 import { toUuid, merkleFold } from './address.js'
 import { hexbitsOf, bitsOf, hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
+import { HANDLE_ROOT, handlePath, handleOfPath } from './handle.js'
 import { coverage as monographCoverage } from './publish.js'
 
 // the filesystem reach is the boundary's, not this module's — one layer owns it, everything else asks
@@ -109,11 +111,7 @@ function support(): ReportSection {
 /** packageInventory — the workspaces, read from their own manifests rather than remembered. */
 function packages(): ReportSection {
   const root = readJson<{ workspaces?: string[]; version: string }>('package.json')
-  const names: string[] = []
-  for (const dir of ['crypto', 'edge', 'ledger', 'mcp', 'quantum', 'research']) {
-    const p = readJson<{ name: string }>(`packages/${dir}/package.json`)
-    if (p) names.push(p.name)
-  }
+  const names = workspacePackages().map((p) => p.name)
   return section('Package inventory', 'packages/*/package.json', names.length > 0, {
     workspaces: names.length, version: root?.version ?? 'unknown', names: names.join(', '),
   })
@@ -124,7 +122,7 @@ function readiness(): ReportSection {
   const q = readJson<{ receipt: string; unified_fold: string; zero_entropy?: unknown }>('quantum-fold.json')
   if (!q) return section('Deployment readiness', 'quantum-fold.json', false, { note: 'not sealed — npm run guard' })
   return section('Deployment readiness', 'quantum-fold.json', true, {
-    foldReceipt: q.receipt, unifiedFold: q.unified_fold,
+    foldReceipt: q.receipt, unifiedFold: q.unified_fold, zeroEntropy: String(q.zero_entropy ?? ''),
   })
 }
 
@@ -150,8 +148,30 @@ function jsonCensus(): ReportSection {
     captainClaimsTheorems: claims?.total_theorems ?? 0,
     captainClaimsComplete: complete ? 'present (twin of captain-claims.json)' : 'absent',
     researchLeads: Array.isArray(research?.leads) ? research.leads.length : 'absent',
-    handleRoot: 'src/handle declared empty — chunks/seeds stay this wave',
+    handleRoot: handleStoreRoundTrip(),
   })
+}
+
+function firstHandleIndex(dir: string): string | null {
+  if (!existsRoot(dir)) return null
+  const ents = lsRoot(dir).slice().sort((a, b) => a.name < b.name ? -1 : a.name > b.name ? 1 : 0)
+  for (const e of ents) {
+    if (e.isDirectory() && /^[0-9a-f]{2}$/.test(e.name)) {
+      const nested = firstHandleIndex(dir + '/' + e.name)
+      if (nested) return nested
+    }
+    if (!e.isDirectory() && e.name === 'index.json') return dir + '/index.json'
+  }
+  return null
+}
+
+function handleStoreRoundTrip(): string {
+  if (!existsRoot(HANDLE_ROOT)) return HANDLE_ROOT + ' absent'
+  const found = firstHandleIndex(HANDLE_ROOT)
+  if (!found) return HANDLE_ROOT + ' empty'
+  const h = handleOfPath(found)
+  if (!h) return HANDLE_ROOT + ' path not invertible'
+  return handlePath(h) === found ? HANDLE_ROOT + ' live round-trip' : HANDLE_ROOT + ' round-trip failed'
 }
 
 /** reportAll() — every report and audit in one structure, folded to one order-invariant receipt. */

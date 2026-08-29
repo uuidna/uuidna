@@ -1,0 +1,12 @@
+{
+  "handle": "2a1b3473",
+  "address": "2a1b3473-905c-8a4e-a7e7-4a5afd53de74",
+  "kind": "chunk",
+  "keys": [
+    "fold_reads_by_handle_not_by_tile"
+  ],
+  "statement": "(4 * 8 = 32) ∧ (4 * 32 = 128) ∧ (32 / 4 = 8) ∧ (8 * 4 = 32)",
+  "files": [
+    "Coins.lean"
+  ]
+}

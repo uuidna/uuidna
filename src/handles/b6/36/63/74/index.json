@@ -1,0 +1,12 @@
+{
+  "handle": "b6366374",
+  "address": "b6366374-3b0b-883f-9f45-a94313b0ac0d",
+  "kind": "chunk",
+  "keys": [
+    "no_perpetual_motion"
+  ],
+  "statement": "(40 <= 100) ∧ ((100 - 40) = 60)",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0f720cb6",
+  "address": "0f720cb6-0bee-873e-9cad-3926bbf42d19",
+  "kind": "chunk",
+  "keys": [
+    "song_scale_is_glagolitic"
+  ],
+  "statement": "((List.range' 1 9).map (fun n => 432 * n)) = [432,864,1296,1728,2160,2592,3024,3456,3888]",
+  "files": [
+    "Song.lean"
+  ]
+}

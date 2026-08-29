@@ -1,0 +1,12 @@
+{
+  "handle": "c624d652",
+  "address": "c624d652-5060-8015-9220-d0bb23e0df35",
+  "kind": "chunk",
+  "keys": [
+    "every_alternative_differs"
+  ],
+  "statement": "((List.range 16).all (fun b => ((b + 1) % 16) != b)) ∧ ((List.range 16).all (fun b => b < 16)) ∧ (16 * 16 = 256) ∧ (256 - 1 = 255)",
+  "files": [
+    "Byte.lean"
+  ]
+}

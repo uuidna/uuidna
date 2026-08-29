@@ -1,0 +1,12 @@
+{
+  "handle": "f06c36d4",
+  "address": "f06c36d4-8d58-8e2a-bcc1-bc67a1713b49",
+  "kind": "chunk",
+  "keys": [
+    "six_figure_grid_tenths"
+  ],
+  "statement": "(100 / 10 = 10) ∧ (5 * 10 = 50)",
+  "files": [
+    "Topography.lean"
+  ]
+}

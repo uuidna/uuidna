@@ -1,0 +1,12 @@
+{
+  "handle": "9e402a43",
+  "address": "9e402a43-21b3-83cb-99ae-5afd22a116ab",
+  "kind": "chunk",
+  "keys": [
+    "partitions_conjugate_involution_in_4x4_box"
+  ],
+  "statement": "(List.range 5).all (fun a => (List.range 5).all (fun b => (List.range 5).all (fun c => (List.range 5).all (fun d => (! (b ≤ a && c ≤ b && d ≤ c)) || (let p : List Nat := [a, b, c, d]; let q : List Nat := (List.range' 1 4).map (fun j => (p.filter (fun x => j ≤ x)).length); let r : List Nat := (List.range' 1 4).map (fun j => (q.filter (fun x => j ≤ x)).length); (r == p) && (q.foldl (fun s x => s + x) 0 == p.foldl (fun s x => s + x) 0) && (q.all (fun x => x ≤ 4)) && ((List.range' 1 3).all (fun j => (p.filter (fun x => j + 1 ≤ x)).length ≤ (p.filter (fun x => j ≤ x)).length)))))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,10 +1,5 @@
-<!-- LinkAuditor — the UI follows any link and audits its destination from the REFERRER-ONLY perspective, by default,
-     automatically. A static site has no server, so the "referrer" is THIS page: it carries the sealed ledger (the
-     key→address map, baked at build), and with only that it classifies every outgoing link — VERIFIED when the link
-     points at a sealed theorem (its address is a leaf of the ledger fold), off-ledger otherwise. Nothing is fetched;
-     the audit is the same recomputable question slimGate asks (is the cited theorem sealed?), applied to the DOM.
-     "Verify the unverified" here means: mark what is verified, and leave the rest visibly UNVERIFIED — never a claim
-     the destination is false, only that this page cannot verify it from the ledger. Runs on mount and every route. -->
+<!-- LinkAuditor — unused on Layout (must stay unused: importing ledger.data here must not reach ObjectPage).
+     If remounted, give it THIS page's sealed key set from params, never the global census. -->
 <script setup>
 import { onMounted, watch, nextTick, ref } from 'vue'
 import { useRoute } from 'vitepress'

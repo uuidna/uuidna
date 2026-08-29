@@ -1,0 +1,12 @@
+{
+  "handle": "87c94099",
+  "address": "87c94099-9839-855c-aad4-48752e60e0e2",
+  "kind": "chunk",
+  "keys": [
+    "neutralization"
+  ],
+  "statement": "(1 + (-1) : Int) = 0",
+  "files": [
+    "Chemistry.lean"
+  ]
+}

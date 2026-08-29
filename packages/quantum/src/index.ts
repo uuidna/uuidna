@@ -19,8 +19,14 @@ export { pentagramHologramFractal, holofractalHook, type HoloFractal } from '@uu
 export { pentagramStream, type PentagramStream, type PentagramStreamCell } from '@uuidna/uuidna'
 export { pentagramMonographs, type Pentagram, type PentagramPoint, type PentagramMonographs } from '@uuidna/uuidna'
 export { quantumAnalytics, type QuantumAnalytics, type Distribution, type LayerMeasure } from '@uuidna/uuidna'
-export { quantumAura, auraDecode, auraAlphabet, type Aura } from '@uuidna/uuidna'
+export {
+  quantumAura, auraDecode, auraAlphabet,
+  RAYS, FREE_DIMS, COMPACT_DIMS, TEN_DIMS, FREE_KEYS, COMPACT_KEYS,
+  rotationOf, glowInnerOf, glowOuterOf, glowSpreadInnerOf, glowSpreadOuterOf, periodOf,
+  type Aura, type TenD,
+} from '@uuidna/uuidna'
 export { encodeMessage, measureMessage, verifyMessage, serializeMessage, deserializeMessage, sealMessage, openMessage, sealCubeMessage, readCubeMessage, verifyCubeMessage, sealCubeSecurely, type QuantumMessage, type QuantumState, type SealedQuantumMessage, type SealedCubeMessage } from '@uuidna/uuidna'
+export { renderStates, type HexbitRecording } from '@uuidna/uuidna'
 export { agentContribute, encodeVote, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, type AgentContribution, type Vote, type QuantumVote, type CommitWithVoting } from '@uuidna/uuidna'
 export { buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, type SailingBook, type QuantumSailingLibrary } from '@uuidna/uuidna'
 export { extractFactsFromArticle, auditFactAgainstLedger, buildNewsPortal, renderPortalSummary, tallyJudgmentVotes, shouldSealFact, type NewsArticle, type NewsExtractedFact, type FactJudgment, type NewsPortal, type JudgmentVote } from '@uuidna/uuidna'
@@ -29,4 +35,9 @@ export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantum
 export { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type BookPair, type CrossBookResonance, type CrossBookCluster } from '@uuidna/uuidna'
 export { automateQuantumSailing, serializeQuantumSailingComplete, type BookWithLinkage, type QuantumSailingComplete } from '@uuidna/uuidna'
 export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineRelease, type RootfsCheck } from '@uuidna/uuidna'
+export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, bootOS, osQuantumCapacity, servedOS, catalogue, catalogueState, cataloguePackage, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, type InstallSpec, type InstallPort, type BootImage, type OsQuantumCapacity, type BootedOS, type ServedOS, type CataloguePackage, type CatalogueState } from '@uuidna/uuidna'
+export { minerFirmware, upgradeFirmware, type MinerFirmware, type FirmwareUpgrade, type FirmwareSeat } from '@uuidna/uuidna'
+export { uuidnaExec, type ExecResult } from '@uuidna/uuidna'
 export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle, type DriverCheck } from '@uuidna/uuidna'
+export { hostQuantumDevice, proveHardwareQuantum, LEVEL_PROBES, type QuantumDevice, type HardwareProof } from '@uuidna/uuidna'
+export { portCatalogue, portApp, harmoniseOf, type AppPort, type AppCatalogue, type IndexPackage } from '@uuidna/uuidna'

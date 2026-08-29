@@ -1,0 +1,12 @@
+{
+  "handle": "69d5ebcc",
+  "address": "69d5ebcc-a1eb-8120-9fb2-1870365df396",
+  "kind": "chunk",
+  "keys": [
+    "three_recover_the_discard"
+  ],
+  "statement": "((378:Nat)^3 < 2^28) ∧ ((378:Nat)^4 > 2^28)",
+  "files": [
+    "Channel.lean"
+  ]
+}

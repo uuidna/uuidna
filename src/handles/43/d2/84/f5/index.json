@@ -1,0 +1,12 @@
+{
+  "handle": "43d284f5",
+  "address": "43d284f5-a82a-8874-8560-07cefd93fd72",
+  "kind": "chunk",
+  "keys": [
+    "doubling_reverses_ambiguously"
+  ],
+  "statement": "(preOf dbl 0 = 2) ∧ (dbl 0 = 0) ∧ (dbl 9 = 0) ∧ (preOf dbl 0 ≠ 1)",
+  "files": [
+    "Reversal.lean"
+  ]
+}

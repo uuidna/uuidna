@@ -1,0 +1,12 @@
+{
+  "handle": "492594aa",
+  "address": "492594aa-865b-8be5-b32e-18e929e588b7",
+  "kind": "chunk",
+  "keys": [
+    "uuidna_is_dna_times_the_two_coins"
+  ],
+  "statement": "(4^3 = 64) ∧ (2^6 = 64) ∧ (4^3 = 2^6) ∧ (128 = 2 * 64) ∧ (128 = 2^7)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

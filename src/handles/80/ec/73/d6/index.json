@@ -1,0 +1,12 @@
+{
+  "handle": "80ec73d6",
+  "address": "80ec73d6-a28a-8d55-9ebe-6083d8776f7b",
+  "kind": "chunk",
+  "keys": [
+    "vertical_exaggeration"
+  ],
+  "statement": "500 / 100 = 5",
+  "files": [
+    "Topography.lean"
+  ]
+}

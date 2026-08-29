@@ -1,0 +1,12 @@
+{
+  "handle": "c69f222d",
+  "address": "c69f222d-4a39-89bf-bf36-c12ab88971a3",
+  "kind": "chunk",
+  "keys": [
+    "four_wire_sorting_needs_five_comparators"
+  ],
+  "statement": "((List.range 36).all (fun p => (List.range 36).all (fun q => let code := p * 36 + q; let step := fun (n : Nat) (idx : Nat) => let e := (([1, 2, 3, 6, 7, 11] : List Nat).drop idx).headD 0; let i := e / 4; let j := e % 4; let a := n / 2 ^ i % 2; let b := n / 2 ^ j % 2; n - a * 2 ^ i - b * 2 ^ j + (if a ≤ b then a else b) * 2 ^ i + (if a ≤ b then b else a) * 2 ^ j; !((List.range 16).all (fun m => let r := step (step (step (step m (code % 6)) (code / 6 % 6)) (code / 36 % 6)) (code / 216 % 6); (List.range 3).all (fun k => decide (r / 2 ^ k % 2 ≤ r / 2 ^ (k + 1) % 2)))))) = true) ∧ ((List.range 16).all (fun m => let step := fun (n : Nat) (idx : Nat) => let e := (([1, 2, 3, 6, 7, 11] : List Nat).drop idx).headD 0; let i := e / 4; let j := e % 4; let a := n / 2 ^ i % 2; let b := n / 2 ^ j % 2; n - a * 2 ^ i - b * 2 ^ j + (if a ≤ b then a else b) * 2 ^ i + (if a ≤ b then b else a) * 2 ^ j; let r := step (step (step (step (step m 0) 5) 1) 4) 3; (List.range 3).all (fun k => decide (r / 2 ^ k % 2 ≤ r / 2 ^ (k + 1) % 2))) = true) ∧ ((List.range 16).all (fun u => (List.range 16).all (fun v => let m := u * 16 + v; let step := fun (n : Nat) (idx : Nat) => let e := (([1, 2, 3, 6, 7, 11] : List Nat).drop idx).headD 0; let i := e / 4; let j := e % 4; let a := n / 4 ^ i % 4; let b := n / 4 ^ j % 4; n - a * 4 ^ i - b * 4 ^ j + (if a ≤ b then a else b) * 4 ^ i + (if a ≤ b then b else a) * 4 ^ j; let r := step (step (step (step (step m 0) 5) 1) 4) 3; (List.range 3).all (fun k => decide (r / 4 ^ k % 4 ≤ r / 4 ^ (k + 1) % 4)))) = true)",
+  "files": [
+    "Wave.lean"
+  ]
+}

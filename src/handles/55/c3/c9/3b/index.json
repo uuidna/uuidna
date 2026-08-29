@@ -1,0 +1,12 @@
+{
+  "handle": "55c3c93b",
+  "address": "55c3c93b-6f5f-8c2f-9422-de1d2c9675c0",
+  "kind": "chunk",
+  "keys": [
+    "song_four_tongues_fuse"
+  ],
+  "statement": "Nat.gcd 9 7 = 1 ∧ Nat.gcd 7 4 = 1 ∧ Nat.gcd 4 9 = 1 ∧ 9 * 7 * 4 = 252",
+  "files": [
+    "Song.lean"
+  ]
+}

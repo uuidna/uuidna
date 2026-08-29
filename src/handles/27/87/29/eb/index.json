@@ -1,0 +1,12 @@
+{
+  "handle": "278729eb",
+  "address": "278729eb-c12a-88de-b9b8-334ac9791000",
+  "kind": "chunk",
+  "keys": [
+    "refractory_absolute_and_relative"
+  ],
+  "statement": "((List.range 200).all (fun d => (List.range 1).all (fun t => (if t < 1 then 0 else if d >= 8 then 1 else 0) == 0))) ∧ ((List.range' 8 20).all (fun d => (if (3:Nat) < 1 then 0 else if d >= 8 then 1 else 0) == 1)) ∧ ((if (1:Nat) < 1 then 0 else if 6 >= 8 then 1 else 0) = 0) ∧ ((if (1:Nat) < 1 then 0 else if 9 >= 8 then 1 else 0) = 1) ∧ ((if (3:Nat) < 1 then 0 else if 3 < 3 then (if 6 >= 8 then 1 else 0) else (if 6 >= 5 then 1 else 0)) = 1) ∧ ((List.range 6).map (fun t => if t < 1 then 0 else if t < 3 then (if 6 >= 8 then 1 else 0) else (if 6 >= 5 then 1 else 0)) = [0,0,0,1,1,1])",
+  "files": [
+    "Neuro.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f3c4bef1",
+  "address": "f3c4bef1-a5bf-84fc-bdf5-eb5d48b09fe8",
+  "kind": "chunk",
+  "keys": [
+    "unsigned_rejected"
+  ],
+  "statement": "(List.range 2).all (fun v => accept 0 v == 0)",
+  "files": [
+    "Command.lean"
+  ]
+}

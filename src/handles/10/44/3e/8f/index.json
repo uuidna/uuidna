@@ -1,0 +1,12 @@
+{
+  "handle": "10443e8f",
+  "address": "10443e8f-c084-87a4-91e6-a3469d3cab8f",
+  "kind": "chunk",
+  "keys": [
+    "squares_mod_35_number_12"
+  ],
+  "statement": "(((List.range 35).map (fun x => (x * x) % 35)).eraseDups).length = 12",
+  "files": [
+    "Wave.lean"
+  ]
+}

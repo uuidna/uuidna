@@ -1,0 +1,12 @@
+{
+  "handle": "7f4d3f32",
+  "address": "7f4d3f32-cd91-8827-a41a-582dfbaaca40",
+  "kind": "chunk",
+  "keys": [
+    "board_dims_add_three"
+  ],
+  "statement": "([1,2,3].map (fun d => (8:Nat)^d)) = [8, 64, 512]",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

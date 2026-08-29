@@ -1,0 +1,12 @@
+{
+  "handle": "ba38a4de",
+  "address": "ba38a4de-7e1c-822c-9e00-12de4f9969d0",
+  "kind": "chunk",
+  "keys": [
+    "unit_sum_mod_13_is_0"
+  ],
+  "statement": "(((List.range 13).filter (fun a => Nat.gcd a 13 == 1)).foldl (fun acc a => (acc + a) % 13) 0) = 0",
+  "files": [
+    "Wave.lean"
+  ]
+}

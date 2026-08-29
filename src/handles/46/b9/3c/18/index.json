@@ -1,0 +1,12 @@
+{
+  "handle": "46b93c18",
+  "address": "46b93c18-0a9e-8c1c-b4e7-7a9889c873ee",
+  "kind": "chunk",
+  "keys": [
+    "residues_identify_digit"
+  ],
+  "statement": "((List.range 16).all (fun a => (List.range 16).all (fun b => (!((a % 6 == b % 6) && (a % 9 == b % 9))) || (a == b)))) ∧ (2 * 9 = 18) ∧ (18 % 6 = 0) ∧ (18 % 9 = 0) ∧ (18 - 16 = 2)",
+  "files": [
+    "Crt.lean"
+  ]
+}

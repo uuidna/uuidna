@@ -1,0 +1,12 @@
+{
+  "handle": "0119bed5",
+  "address": "0119bed5-5a38-8020-89c6-e88b8468f682",
+  "kind": "chunk",
+  "keys": [
+    "longitude_four_minutes_per_degree"
+  ],
+  "statement": "15 * 4 = 60",
+  "files": [
+    "Astronomy.lean"
+  ]
+}

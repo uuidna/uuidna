@@ -1,0 +1,12 @@
+{
+  "handle": "6260d3b1",
+  "address": "6260d3b1-61b1-8df7-9517-dfd4d4ce07d6",
+  "kind": "chunk",
+  "keys": [
+    "store_fold_order_invariant"
+  ],
+  "statement": "(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => ([a,b,c].foldl lxor 0 == [a,c,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,a,c].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [b,c,a].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,a,b].foldl lxor 0) && ([a,b,c].foldl lxor 0 == [c,b,a].foldl lxor 0))))",
+  "files": [
+    "Quantum.lean"
+  ]
+}

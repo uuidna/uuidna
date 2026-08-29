@@ -1,0 +1,12 @@
+{
+  "handle": "965bfc2c",
+  "address": "965bfc2c-adf9-8f3d-acd3-8f6dbe70d2e5",
+  "kind": "chunk",
+  "keys": [
+    "the_passage_costs_a_coin_at_each_end"
+  ],
+  "statement": "(((List.range 10).filter (fun x => (if x == 0 then 0 else 10 - x) == x)).length = 2) ∧ (((List.range 10).filter (fun x => (if x == 0 then 0 else 10 - x) != x)).length = 8) ∧ ((List.range' 1 9).all (fun x => x + (10 - x) == 10)) ∧ (10 - 2 = 8)",
+  "files": [
+    "DivByZero.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6ca65f75",
+  "address": "6ca65f75-e7f2-82ed-a1fa-580021340f18",
+  "kind": "chunk",
+  "keys": [
+    "max_unit_order_mod_32_is_8"
+  ],
+  "statement": "((List.range 32).all (fun a => (Nat.gcd a 32 != 1) || (a ^ 8 % 32 == 1))) ∧ ((List.range 32).any (fun a => (Nat.gcd a 32 == 1) && ((List.range' 1 7).all (fun k => a ^ k % 32 != 1))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "31c51821",
+  "address": "31c51821-8878-8783-9efc-64c56dd84ec2",
+  "kind": "chunk",
+  "keys": [
+    "idempotents_mod_20_number_4"
+  ],
+  "statement": "((List.range 20).filter (fun x => (x * x) % 20 == x)).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

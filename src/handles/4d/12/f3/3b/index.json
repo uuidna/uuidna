@@ -1,0 +1,12 @@
+{
+  "handle": "4d12f33b",
+  "address": "4d12f33b-616d-8300-b9f0-ac43858db745",
+  "kind": "chunk",
+  "keys": [
+    "affine_is_permutation"
+  ],
+  "statement": "(List.range 5).all (fun y => (List.range 5).any (fun x => (2*x + 3) % 5 == y))",
+  "files": [
+    "Cipher.lean"
+  ]
+}

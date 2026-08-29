@@ -1,0 +1,12 @@
+{
+  "handle": "5c26b79b",
+  "address": "5c26b79b-a108-8282-86a1-0b1c76a65b74",
+  "kind": "chunk",
+  "keys": [
+    "oos_platform_trust"
+  ],
+  "statement": "2^0 = 1",
+  "files": [
+    "Exploits.lean"
+  ]
+}

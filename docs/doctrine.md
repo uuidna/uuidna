@@ -7,7 +7,7 @@ description: "What uuidna claims, folded to one page: the agreement, sufficiency
 
 > **Honest scope.** This page folds the project's doctrine to its essentials. The *formal, recomputable* terms live in
 > [The Captain's Agreement](/captain#the-five-terms) and [The Contract](/captain) — every clause there is backed by a
-> sealed theorem. Here, only linked `/theorem/<key>` citations are proven; everything else is design intent, stated
+> sealed theorem. Here, only linked `/theorem/&lt;key&gt;` citations are proven; everything else is design intent, stated
 > plainly so the gate has nothing to drain. **Sufficient for X / insufficient for Y** — the two sections below; neither
 > pretends the other is sealed as a world claim.
 
@@ -61,7 +61,7 @@ executives, insurers, accountants, compliance officers, tax accountants, arbitra
 to the same primitive — *verify a claim against a record both sides can recompute* — which is what the ledger does at
 zero marginal cost. The detailed 11-domain walkthrough is retired to git history; the operational replacements are
 live and linked: [the trials](/trials) (adjudication), [the tests](/tests) (audit), [MCP tools](/mcp) (the working
-interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" data-receipt="9a9a5ce7-daa9-89c6-b010-39352e1e8e15">2054</span><!--/L--> distinct theorems under <!--L:keys--><span class="ledger" data-slot="keys" data-receipt="9a9a5ce7-daa9-89c6-b010-39352e1e8e15">2137</span><!--/L--> keys](/theorems) (the record itself). *Honest scope:* uuidna replaces the
+interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" data-receipt="2826e929-d4c4-8c01-9d05-fed37809a689">2065</span><!--/L--> distinct theorems under <!--L:keys--><span class="ledger" data-slot="keys" data-receipt="2826e929-d4c4-8c01-9d05-fed37809a689">2148</span><!--/L--> keys](/theorems) (the record itself). *Honest scope:* uuidna replaces the
 **verification** these professions perform, not the judgment, advocacy, or human accountability they also carry.
 
 ## Sufficiency charter — what hexbit / uuidna *is* sufficient for
@@ -73,7 +73,7 @@ interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" 
 | Domain | Sufficient for | Sealed keys |
 | --- | --- | --- |
 | Finite windows | Exhaustive checks on a named bound — not induction over ℕ | [`window_not_universal`](/theorem/window_not_universal), [`bounded_silence_is_not_evidence`](/theorem/bounded_silence_is_not_evidence) |
-| Kernel seals | Sorry-free, Mathlib-free, axiom-free `by decide` objects | every `/theorem/<key>`; census on [/unlocks](/unlocks) |
+| Kernel seals | Sorry-free, Mathlib-free, axiom-free `by decide` objects | every `/theorem/&lt;key&gt;`; census on [/unlocks](/unlocks) |
 | Falsifiers | Independent second decide over sealed statements the evaluator reaches | generated falsifier board; grammar waves land tokens, never invent claims |
 | Receipts | Prove once, verify along a log-depth path (verify ≪ recompute) | [`verify_beats_recompute_by_magnitudes`](/theorem/verify_beats_recompute_by_magnitudes), [`store_fold_order_invariant`](/theorem/store_fold_order_invariant) |
 | Handle capacity | 2¹²⁸ content-address architecture; usable gap vs reported logical | [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture), [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty) |

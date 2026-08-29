@@ -1,0 +1,12 @@
+{
+  "handle": "55ae7bfa",
+  "address": "55ae7bfa-64e1-8874-acfb-6cb7d1b759c1",
+  "kind": "chunk",
+  "keys": [
+    "big_five_factors_pentad"
+  ],
+  "statement": "(List.range 5).length = 5",
+  "files": [
+    "Psychology.lean"
+  ]
+}

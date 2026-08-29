@@ -1,0 +1,12 @@
+{
+  "handle": "c010e13d",
+  "address": "c010e13d-a781-8df9-9c2e-07cdb3ac67d5",
+  "kind": "chunk",
+  "keys": [
+    "fold_supply_chain"
+  ],
+  "statement": "(16 * 69 = 1104) ∧ (6 % 9 = 6) ∧ ((List.range 10).all (fun d => d % 9 < 9))",
+  "files": [
+    "Exploits.lean"
+  ]
+}

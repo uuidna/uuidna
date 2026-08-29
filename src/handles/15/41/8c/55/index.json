@@ -1,0 +1,12 @@
+{
+  "handle": "15418c55",
+  "address": "15418c55-36a4-8c1d-8006-a55d80e7fdd2",
+  "kind": "chunk",
+  "keys": [
+    "combustion_methane_balances"
+  ],
+  "statement": "(4 = 2*2) ∧ (2*2 = 2 + 2)",
+  "files": [
+    "Chemistry.lean"
+  ]
+}

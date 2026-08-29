@@ -1,0 +1,12 @@
+{
+  "handle": "8867f00f",
+  "address": "8867f00f-7197-8da0-b53a-50ad9a99bc9e",
+  "kind": "chunk",
+  "keys": [
+    "momentum_conserved"
+  ],
+  "statement": "(100 * 3 + 60 * (-5) : Int) = 0",
+  "files": [
+    "Propulsion.lean"
+  ]
+}

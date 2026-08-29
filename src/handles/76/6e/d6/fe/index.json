@@ -1,0 +1,12 @@
+{
+  "handle": "766ed6fe",
+  "address": "766ed6fe-9001-89d8-8223-a2343a8d0acb",
+  "kind": "chunk",
+  "keys": [
+    "element_costs_nine"
+  ],
+  "statement": "((2:Nat)^8 < 378) ∧ (378 < (2:Nat)^9) ∧ (512 - 378 = 134)",
+  "files": [
+    "Channel.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4c3b3ab7",
+  "address": "4c3b3ab7-ac2c-8d38-b145-ee1c738e2b21",
+  "kind": "chunk",
+  "keys": [
+    "dna_base_pairing_involution"
+  ],
+  "statement": "(List.range 4).all (fun b => (lxor (lxor b 1) 1 == b) && (lxor b 1 != b))",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

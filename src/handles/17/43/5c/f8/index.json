@@ -1,0 +1,12 @@
+{
+  "handle": "17435cf8",
+  "address": "17435cf8-1930-8a6b-9f97-fd546ca99467",
+  "kind": "chunk",
+  "keys": [
+    "de_morgan_gate_law"
+  ],
+  "statement": "[(0,0),(0,1),(1,0),(1,1)].all (fun p => (1 - p.1 * p.2) == (1 - p.1) + (1 - p.2) - (1 - p.1) * (1 - p.2))",
+  "files": [
+    "Hardware.lean"
+  ]
+}

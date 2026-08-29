@@ -1,0 +1,12 @@
+{
+  "handle": "eb93c14f",
+  "address": "eb93c14f-795e-8530-b914-7e5914b98629",
+  "kind": "chunk",
+  "keys": [
+    "reverse_walks_inverse"
+  ],
+  "statement": "([(1,1),(2,5),(4,7),(5,2),(7,4),(8,8)].all (fun p => (((List.range 6).map (fun k => p.1 ^ k % 9)).reverse) == ((List.range 6).map (fun k => p.2 ^ (k+1) % 9)))) = true",
+  "files": [
+    "Sequence.lean"
+  ]
+}

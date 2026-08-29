@@ -6,7 +6,7 @@
 // Run:  npx @uuidna/uuidna         (bin: uuidna-mcp)
 // Add to a client's mcpServers as { "command": "npx", "args": ["-y", "@uuidna/uuidna"] }.
 import {
-  toUuid, strictUuidna, merge, coin64, merkleFold, merkleRoot, merkleProof, verifyProof, computes,
+  toUuid, strictUuidna, merge, coin64, merkleFold, merkleRoot, merkleProof, verifyProof, computes, coins, coinSupply,
   imprintTextChain, readImprintTextChain, billUuidna, reeducate,
   encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, MAX_ITER,
   sealStream, openStream, sealChain, openChain,
@@ -21,7 +21,7 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
-  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, osLayer, quantumAnalytics, quantumSeo, heroAnimation, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
+  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
@@ -29,28 +29,9 @@ import {
 import { unlockBoard } from './unlocks.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
 import { handleOf } from './handle.js'   // THE one derivation of a handle from an address
-import { compileToHexbits } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
+import { compileToHexbits, sha256IsFourSixtyfours } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
+import { sealToolWire } from './mcp-wire.js'
 
-/** THE SERVED QUBIT CEILING — NAMED, so it can be hunted.
- *
- *  It was the literal `12`, written four times: twice as `n > 12` in two guards and twice more inside the error
- *  strings that quote it. And gen-readme did not import it — it REGEXED it out of this file's source text
- *  (`/n > (\d+)\) throw new Error/`) to publish "N qubits served over MCP", under a header promising every
- *  number is "COMPUTED at generation from the ledger and the wired code". Reading a magic number out of source
- *  with a regex is the weakest possible sense of wired, and it is precisely why nobody could name the constant:
- *  naming it would have broken the parser.
- *
- *  So it could not be reached by `axiom-hunt` either. That hunter binds each assumption to a LIVE imported
- *  constant and reports it PROVEN or EXPOSED — and an unnamed inline bound is structurally invisible to it. The
- *  library cap (MAX_MESSAGE_QUBITS) is in that table and proven; this one, which is TIGHTER and is what actually
- *  governs every hosted caller, was in no table at all. An axiom that was never named cannot be exposed.
- *
- *  Named here it becomes an ordinary candidate, and honestly an EXPOSED one: no theorem seals 12. Measured on
- *  the build host, the simulator sustains 22 qubits in ~2 s and ~1 GB, so 12 (4,096 amplitudes, 2 ms, 6 MB) is
- *  not forced by the arithmetic. It is plausibly forced by the EDGE runtime's memory ceiling — a 20-qubit state
- *  measured 282 MB — but that constraint is nowhere stated, which is the gap. A limit with a reason is a
- *  theorem waiting to be sealed; a limit without one is an axiom in use. */
-export const MAX_SERVED_QUBITS = 12
 import { depositCandidates, type WaveCandidate } from './wave-deposit.js'   // the wire's door into the conveyor (lead 131)
 import { apiMintHarvest, apiMintDeposit } from './api-mint.js'
 import { ROOT } from './scripts/api.js'  // repo root, edge-guarded (resolves '/' where no node registry exists)
@@ -69,11 +50,14 @@ import { resources } from './resources.js' // Node-only (reads process/os) — i
 import { ROOT as LIB_ROOT } from './boundary.js'
 import { portAllAlpine } from './os/alpine/index.js' // os/ boundary — LIVE upstream read (named non-determinism), not via the deterministic index
 import { infuseAlpinePackages, alpinePackage } from './os/packages/index.js' // os/ boundary — each Alpine package → uuidna/<name>
-import { defaultInstalls, bootOS } from './quantum/os/index.js' // PURE — the port + the boot every surface stands on (no fetch, edge-clean)
+import { defaultInstalls, bootOS, servedOS } from './quantum/os/index.js' // PURE — the port + the boot every surface stands on (no fetch, edge-clean)
 import { uuidnaExec } from './quantum/os/exec.js' // Alpine apps via apk + man→hexbit (+ install ls); toy busybox folded away
+import { cryptoAppsPort, cryptoAppOf } from './quantum/os/crypto-apps.js'
 import { unifiedRegistry } from './quantum/os/registry.js' // the toolbox and the ported OS as ONE content-addressed registry
 import { portStatus } from './quantum/os/index.js' // the pinned Alpine port made observable — automate port updates
 import { relatedToTheorems } from './quantum/os/related.js' // which packages the theorems relate to, adjudicated
+import { paperBlueprintTheorem } from './paper-blueprint.js'
+import { labOf } from './school/laboratory/index.js'
 import { balanceContext } from './quantum/context/index.js' // PURE — the context-window balance by the unit's own spare law
 import { balanceMachine } from './quantum/machine/index.js' // PURE — the same spare law at the metal (self-report in, audit out)
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
@@ -122,9 +106,9 @@ const unb64 = (s: unknown): Uint8Array => { const bin = atob(String(s)); const u
 let LEG_ROWS: Rosetta[] | null = null
 const liveLegRows = (): Rosetta[] => (LEG_ROWS ??= legCensusRows())
 
-const TOOLS: Tool[] = [
+const TOOLS: Tool[] = ([
   { name: 'uuidna_address',
-    description: 'Content-address any text: a deterministic 128-bit v8 UUID. Same input → same address, for anyone, with no key. Integrity, not secrecy. Measured entropy: 122 free bits, ~2^61 birthday wall; non-cryptographic (forgeable by design).',
+    description: 'Content-address any text: a deterministic 128-bit v8 UUID. Same input → same address, for anyone, with no key. Integrity, not secrecy. 122 free bits (theorem imprint_capacity_chain); ~2^61 birthday wall; non-cryptographic (forgeable by design).',
     detail: 'THE ADDRESS AND ITS SPEECH, ONE SURFACE. Addressing a handle and speaking about it were never two questions: the address IS what folds to the residue the walk starts from, so the orbit comes free with the fold and costs no second call. THE VOCABULARY IS A THEOREM, NOT A TABLE — run every ledger key through the walk and all 1371 land on exactly SIX distinct orbits, the same six sealed as a literal in theorem orbits_closed_involution, each proven closed under dz(x) = 10 − x. A word therefore cannot be lost in a refactor unnoticed, the way a hand-typed phrase table can and did. The TITLE is the orbit written out (0–9, 0·1·9, 0), so it can never claim more than the walk performs — a name comes from the algebra or it is not a name. The DESCRIPTION is composed from the walk\'s own measurements, never selected from a phrase list, and ORDER is the orbit size: the period any motion must have, which is why a fixed point does not move and a ten-digit orbit turns ten. Served as a DIMENSION of the address rather than a tool of its own, for the same reason the capability axis is one surface and never one tool per skill: enumeration costs every agent wire bytes on every request, superposition costs none. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — a residue is not a fact about the thing that folded to it, and the speech reports the measured shape of a walk, never what a handle MEANS.',
     inputSchema: { type: 'object', properties: { text: { type: 'string', description: 'the value to address' } }, required: ['text'] },
     run: ({ text }) => toUuid(String(text)) },
@@ -152,6 +136,16 @@ const TOOLS: Tool[] = [
     description: 'Holographic inclusion proof for the leaf at index — an O(log N) audit path that verifies the whole from a tiny part.',
     inputSchema: { type: 'object', properties: { leaves: { type: 'array', items: { type: 'string' } }, index: { type: 'number' } }, required: ['leaves', 'index'] },
     run: ({ leaves, index }) => merkleProof((leaves as string[]).map(String), Number(index)) },
+  { name: 'uuidna_merkle_proof',
+    description: 'Holographic merkle proof: {leaves, index} → verified root, O(log N), both doors.',
+    inputSchema: { type: 'object', properties: { leaves: { type: 'array', items: { type: 'string' } }, index: { type: 'integer' } }, required: ['leaves', 'index'] },
+    run: ({ leaves, index }) => {
+      const L = (leaves as string[]).map(String)
+      const i = Number(index)
+      const root = merkleRoot(L)
+      const proof = merkleProof(L, i)
+      return { root, index: i, leaf: L[i], proof, verified: verifyProof(L[i]!, proof, root) }
+    } },
   { name: 'uuidna_merkle_verify',
     description: 'Verify a leaf against a root using an inclusion proof (a forged leaf fails).',
     inputSchema: { type: 'object', properties: { leaf: { type: 'string' }, proof: {}, root: { type: 'string' } }, required: ['leaf', 'proof', 'root'] },
@@ -168,6 +162,10 @@ const TOOLS: Tool[] = [
     description: 'Measured billing, fused to the two coins: the ADVANTAGE (recompute O(N) − verify O(1), the difference of computational power) priced on the two conserved coins (−χ of the double torus, 110 − 108 = 2). Public interest is free. The whole bill folds to a `receipt` — a content-address of every term — so a skeptic recomputes the bill themselves and lands on the same receipt, or it was altered. The price is rechecked, never trusted.',
     inputSchema: { type: 'object', properties: { commercial: { type: 'boolean' }, recomputeOps: { type: 'number' }, verifyOps: { type: 'number' } }, required: ['commercial', 'recomputeOps', 'verifyOps'] },
     run: (a) => billUuidna({ commercial: !!a.commercial, recomputeOps: Number(a.recomputeOps), verifyOps: Number(a.verifyOps) }) },
+  { name: 'uuidna_coins',
+    description: 'Captain-coin mint: coins() per theorem, cap = capacity × combinations. Returns mint, remaining, cipher widths.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => coinSupply() },
   { name: 'uuidna_license',
     description: 'Issue the recomputable LICENCE RECORD for a licensee and a usage: bind the CC-BY-NC-ND-4.0 terms and the measured two-coins bill into ONE content-addressed, verifiable artifact. Non-commercial use is FREE (0 coins) and needs no licence; commercial use is billed the two conserved coins (110 − 108 = 2) on the measured advantage (recompute − verify). HONEST SCOPE: a provenance-fingerprinted RECORD of the terms and the bill — proof of WHAT and HOW MUCH, recomputable by anyone — NOT a signed legal agreement, not legal advice, and not the grant itself; a commercial licence is executed between the parties. Returns {licensee,scope,spdx,terms,bill,address,honest}. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: { licensee: { type: 'string', description: 'the party the record binds (name or org)' }, commercial: { type: 'boolean' }, recomputeOps: { type: 'number' }, verifyOps: { type: 'number' } }, required: ['licensee'] },
@@ -266,7 +264,7 @@ const TOOLS: Tool[] = [
     run: (a) => verifyEnvelope(a.sealed as Sealed) },
   { name: 'uuidna_seal_onion',
     description: 'Onion-seal a message under N passphrases (ChaCha20-Poly1305 layers, 1..16) as a uuid chain. Open with uuidna_open_onion (involute). Returns { uuids, layers, receipt }. Boundary declared — theorem drift_is_named_or_caught.',
-    detail: 'passphrases[0] innermost, [n-1] outermost. Secrecy is ChaCha20-Poly1305 ONLY; uuid transport is public; receipt is non-crypto FNV. Seal SETS size; open only undoes it — reverse crypto does not multiply capacity (MAX_SERVED_QUBITS=12). Each theorem unlocks its own claim elsewhere (calendar 144, Shor posture); onion layer count does not re-mint them. Integrity.',
+    detail: `passphrases[0] innermost, [n-1] outermost. Secrecy is ChaCha20-Poly1305 ONLY; uuid transport is public; receipt is non-crypto FNV. Seal SETS size; open only undoes it — reverse crypto does not multiply occupancy (${sha256IsFourSixtyfours().bits} bits). Each theorem unlocks its own claim elsewhere (calendar 144, Shor posture); onion layer count does not re-mint them. Integrity.`,
     inputSchema: { type: 'object', properties: { message: { type: 'string' }, passphrases: { type: 'array', items: { type: 'string' }, description: 'innermost→outermost, 1..16 layers' }, step: { type: 'integer', description: 'optional advancing crypt-salt step' } }, required: ['message', 'passphrases'] },
     run: (a) => sealStream(String(a.message), (a.passphrases as string[]).map(String), a.step === undefined ? undefined : Number(a.step)) },
   { name: 'uuidna_open_onion',
@@ -579,6 +577,11 @@ const TOOLS: Tool[] = [
     description: 'Verify + open a raw ChaCha20-Poly1305 seal (local theorem). key/nonce/ct/tag are hex, optional aad hex; returns the UTF-8 plaintext. A wrong key or any tamper throws (Poly1305 authentication).',
     inputSchema: { type: 'object', properties: { key: { type: 'string' }, nonce: { type: 'string' }, ct: { type: 'string' }, tag: { type: 'string' }, aad: { type: 'string', description: 'optional hex' } }, required: ['key', 'nonce', 'ct', 'tag'] },
     run: (a) => td.decode(aeadDecrypt(need(unhex(a.key), 32, 'key'), need(unhex(a.nonce), 12, 'nonce'), unhex(a.ct), need(unhex(a.tag), 16, 'tag'), a.aad ? unhex(a.aad) : new Uint8Array())) },
+  { name: 'uuidna_crypto',
+    description: 'Alpine crypto apps through one door: catalogue plus Shor/Grover/SHA-256/ChaCha widths. Optional {name}. Integrity, not execution.',
+    detail: 'THE CAPTAIN ORDER to port Alpine apps that use crypto, without blowing the MCP wire ceiling. uuidna_exec already carries the whole man corpus through one door; this door is the crypto cut of that catalogue: a package is admitted when it IS a crypto library, its Alpine description matches the security harmony, it links so:libssl/libcrypto (nginx), or it depends on such a package by name (curl → libcurl). Each hit is a uuidna/<name> identity with 32 hexbit states — provenance, never Alpine ELF (theorem the_os_is_bootable_quantum). The uuidna-side port of those libraries is the existing primitive tools (SHA-256, HMAC, PBKDF2, ChaCha20, Poly1305, AEAD, envelope/onion/chain). widths is one crypto analysis: Shor 32-bit/128-bit modulus fit and encoder-width chunks, Grover floor = one uuid, digest/key = 256, nonce 96, salt/tag 128, birthday halves on the address and the digest. Sample of 24 by name; {name} for any row. Relates to uuidna_os, uuidna_exec, uuidna_related, uuidna_security_audit.',
+    inputSchema: { type: 'object', properties: { name: { type: 'string', description: 'one Alpine package, e.g. openssl, nginx, curl' } } },
+    run: (a = {}) => a.name ? cryptoAppOf(String(a.name)) : cryptoAppsPort() },
   // ── the uuid + dna surface: the ℤ/9 structure the content-address is built on — the units, the doubling
   //    vortex, the diamond involution (fixed point 5, the heart), the double torus — plus the strict address and
   //    the pigeonhole seat bound. Pure, decidable, recomputable by anyone. Integrity, not truth (theorem provenance_integrity_not_content_truth). ──
@@ -636,7 +639,7 @@ const TOOLS: Tool[] = [
     run: () => skillIndex() },
   { name: 'uuidna_skill',
     description: 'OPEN ONE SKILL — the capability axis served as a DIMENSION, not one tool per skill. Pass {skill}; returns its sealed theorems (key, name, statement, tactic, file, principle, Lean line, address, handle), the files and principles behind them, the group fold and handle, and the ESCO mapping onto the European Commission\'s taxonomy with the hop that fetches it. Pass `escoTitles` you already fetched to have them judged by the published whole-name rule that separates on-topic hits from homographs; both lists come back by name, never silently dropped. PURE — no network, same receipt for anyone, offline. An unknown skill is REFUSED by name with the live list (see uuidna_skills). Returns {skill,count,fold,handle,files,principles,theorems,esco,receipt,honest}. HONEST SCOPE: the ESCO leg is a MAP BETWEEN VOCABULARIES — what this capability is CALLED in a European taxonomy — never a claim that any authority recognises or accredits what is sealed here; uuidna awards no qualification. Integrity, not truth (theorem provenance_integrity_not_content_truth).',
-    detail: 'OPEN ONE SKILL — the capability axis served as a DIMENSION rather than as one tool per skill. Returns that skill\'s sealed theorems (key, name, statement, tactic, file, principle, the reconstructed Lean line, its content-address and its HANDLE), the files and principles they were derived in, the group\'s order-invariant fold and handle, and the skill\'s ESCO MAPPING onto the European Commission\'s own taxonomy of skills, competences and occupations: the exact lookup URL, its content-address, the one hop that actually fetches it (uuidna_school_apis) and the walk to the occupations ESCO relates it to (uuidna_education_jobs). Pass `escoTitles` — concept titles you already fetched — to have them judged by school-apis\' OWN published whole-name rule, which separates on-topic hits from homographs (a search guarantees the query\'s letters come back, so a fragment hit carries no information); both lists are returned by name, never silently dropped. PURE: this tool reaches no network, so it is deterministic and folds to the same receipt for anyone, offline. An unknown skill is REFUSED by name with the live list, never answered with an empty set that would read like "this capability is unproven". List the skills with uuidna_skills. HONEST SCOPE: the ESCO leg is a MAP BETWEEN VOCABULARIES — what this capability is CALLED in a European taxonomy — and never a claim that any authority recognises, accredits or would employ anything sealed here (theorem provenance_integrity_not_content_truth); uuidna awards no qualification.',
+    detail: 'OPEN ONE SKILL — the capability axis served as a DIMENSION rather than as one tool per skill. Returns that skill\'s sealed theorems (key, name, statement, tactic, file, principle, the reconstructed Lean line, its content-address and its HANDLE), the files and principles they were derived in, the group\'s order-invariant fold and handle, and the skill\'s ESCO MAPPING onto the European Commission\'s own taxonomy of skills, competences and occupations: the exact lookup URL, its content-address, the one hop that actually fetches it (uuidna_school_apis) and the walk to the occupations ESCO relates it to (uuidna_education_jobs). Pass `escoTitles` — concept titles you already fetched — to have them judged by school-apis\' OWN published whole-name rule, which separates on-topic hits from homographs (a search guarantees the query\'s letters come back, so a fragment hit carries no information); both lists are returned by name, never silently dropped. PURE: this tool reaches no network, so it is deterministic and folds to the same receipt for anyone, offline. An unknown skill is REFUSED by name with the live list, never answered with an empty set that would read like "this capability is unproven". List the skills with uuidna_skills. The school lab for that world domain (simulation + emulator, computationally entangled to the head theorem and related resources) rides the same call as `lab`. HONEST SCOPE: the ESCO leg is a MAP BETWEEN VOCABULARIES — what this capability is CALLED in a European taxonomy — and never a claim that any authority recognises, accredits or would employ anything sealed here (theorem provenance_integrity_not_content_truth); uuidna awards no qualification.',
     inputSchema: { type: 'object', properties: {
       skill: { type: 'string', description: 'a skill name from uuidna_skills (the live, recomputable list — never a fixed enum here, so it cannot go stale as wings are sealed)' },
       escoTitles: { type: 'array', items: { type: 'string' }, description: 'ESCO concept titles you already fetched, to be judged on-topic or homograph by the published whole-name rule' } }, required: ['skill'] },
@@ -663,8 +666,18 @@ const TOOLS: Tool[] = [
     run: (a) => reactor(Array.isArray(a?.claims) ? a.claims.map(String) : []) },
   { name: 'uuidna_theorem',
     description: 'Read ONE theorem by key: its detailed `by decide` Lean proof, its formal statement, its principle, source file and content-address, and the verdict (SEALED — its Lean proof compiles sorry-free). Keys from uuidna_theorems.',
+    detail: 'WHITE PAPER AND BLUEPRINTS AT ONCE, with its school lab: the sealed statement and Lean line are the paper; the handle, /theorem/<key> route, and 32 hexbit states are the drawing — same address (theorem a_spec_compiles_to_hexbits). The lab is computationally entangled to the theorem and related resources (cited sealed keys, PORTED benches this theorem names, the skill instrument). Verdict SEALED. Keys from uuidna_theorems.',
     inputSchema: { type: 'object', properties: { key: { type: 'string' } }, required: ['key'] },
-    run: ({ key }) => { const t = THEOREMS.find((x) => x.key === String(key)); if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)'); return { key: t.key, name: t.name, statement: t.statement, lean: t.lean, principle: t.principle, file: t.file, address: t.address, verdict: 'SEALED', source: 'https://github.com/uuidna/uuidna/blob/main/lean/' + t.file } } },
+    run: ({ key }) => {
+      const t = THEOREMS.find((x) => x.key === String(key))
+      if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)')
+      const dual = paperBlueprintTheorem(t)
+      return {
+        key: t.key, name: t.name, statement: t.statement, lean: t.lean, principle: t.principle, file: t.file,
+        address: t.address, verdict: 'SEALED', source: dual.paper.source,
+        paper: dual.paper, blueprint: dual.blueprint, lab: labOf(t.key),
+      }
+    } },
   { name: 'uuidna_laws',
     description: 'uuidna\'s standing INVARIANTS, IN uuidna and each DEMONSTRATED, not asserted: every law states what holds AND recomputes its `holds` from the actual gate that enforces it (generate-all-from-Lean → single-source + git-diff; any-manual-fails → every theorem address recomputes, red on tamper; honesty-demonstrated → a fabricated theorem citation drains; the two captain coins conserved; zero runtime deps + clean security). A law with holds:false is a red gate, not an opinion. Folds to one recomputable receipt. Returns {laws:[{law,enforcedBy,holds,detail}],allHold,receipt}. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: {} },
@@ -724,7 +737,7 @@ const TOOLS: Tool[] = [
       }
       const w = String(a.word).toLowerCase()
       const { imprintTextChain } = await import('./imprint.js')
-      const hits = all.filter((t: any) => t.key.includes(w)).slice(0, 24)
+      const hits = all.filter((t: any) => t.key.includes(w))
       return { word: w, count: hits.length, entries: hits.map((t: any) => ({ term: t.key, definition: t.statement, address: t.address, skill: t.skill, carrier_length: imprintTextChain(t.statement).length })), honest: hits.length ? 'each definition rides its reversible carrier — decode with uuidna_theorem_message' : 'not sealed yet — an absence, not a refutation; seal the fact and the word enters the dictionary' }
     } },
   { name: 'uuidna_quantum_voting',
@@ -777,20 +790,20 @@ const TOOLS: Tool[] = [
       return want === 'all' ? r : { ...r, gaps: r.gaps.filter((g) => g.likelihood === want) }
     } },
   { name: 'uuidna_school_apis',
-    description: 'THE EUROPEAN EDUCATION APIS BEHIND ONE DOOR, each PROBED before wiring. Pass nothing for the registry: the wired sources, what each serves, and the NAMED ABSENCES with why and what stands in their place. Pass {source} to call one — esco {text,type?} skills/occupations; eurostat {dataset,geo,time} or {vacancies:true,geo}; gisco {country,match} school locations; data-europa {text} dataset search; cordis {text} funded projects and calls; ted {cpv} tenders. HONEST SCOPE: network results are EVIDENCE, never a seal, and are never fabricated — an unreachable source returns an absence, not a refutation. Aggregates and institutions only; no pupil data. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.',
+    description: 'EU education APIs in one door: omit args for the registry, {source} to call one. Integrity, not truth (theorem provenance_integrity_not_content_truth).',
     detail: 'THE EUROPEAN EDUCATION APIS BEHIND ONE DOOR — every source PROBED before it was wired, and recorded with what it ACTUALLY answered rather than what its documentation promises. Pass NOTHING for the registry: the wired sources (esco, eurostat, gisco, data-europa, cordis, ted, oeapi), what each serves, its format and access model, and — the point — the NAMED ABSENCES, the sources that could not be called, each with why and what stands in its place (the Funding & Tenders SEDIA search: it ANSWERS, and that is the trap — the generic path returns the portal\'s own support pages and the filtered path 500s, so it is recorded rather than wired, with cordis as what serves that need; EURES: its documented vacancy search answered 404 and the app path 403, so there is no open door to wire; the European School Education Platform publishes no general read API; there is no EU-wide national school register, so GISCO is the cross-country stand-in at the cost of per-country variation). Pass {source} to CALL one: {source:"esco",text} the EU skill/occupation taxonomy (also {type:"occupation"|"qualification"}), {source:"eurostat",dataset,geo,time} education statistics decoded from JSON-stat 2.0 flat indices to LABELLED observations (or {source:"eurostat",vacancies:true,geo} for the jobs side, jvs_q_nace2), {source:"gisco",country,match} the member states\' own school locations with coordinates and levels, {source:"data-europa",text} WHICH European datasets exist for a phrase (the EU\'s catalogue of catalogues — the door the education sources were found through), {source:"cordis",text} what the EU has FUNDED and what it is CALLING FOR (project records and Horizon call topics in one index), {source:"ted",cpv} published EU tender notices under a CPV division (education = 80000000 by default). There is deliberately NO bulk ledger-to-ESCO mapping: it was built, measured over all 68 clusters, and REMOVED for producing confident wrong rows — it is in the named absences with the pairing walk (uuidna_education_jobs) as what stands in its place. HONEST SCOPE: what comes back over the network is EVIDENCE, never a seal — a provenance fingerprint of what a named public source said when asked, exactly as uuidna_corroborate treats its streams; only a `by decide` theorem SEALS. Rows are passed through unaltered and NEVER fabricated: an unreachable source returns nothing, which is an absence, not a refutation. Eurostat serves aggregates and GISCO serves institutions, so no pupil data passes here. The parse, the JSON-stat decode and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth (theorem provenance_integrity_not_content_truth). The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: {
-      source: { type: 'string', description: 'omit for the registry, or one of: esco, eurostat, gisco, data-europa, cordis, ted' },
-      cpv: { type: 'string', description: 'ted: a CPV division, default 80000000 (education services)' },
-      text: { type: 'string', description: 'esco: the phrase to look up' },
-      type: { type: 'string', description: 'esco: skill (default), occupation, or qualification' },
-      dataset: { type: 'string', description: 'eurostat: a dataset code, e.g. "educ_uoe_enrt01"' },
-      vacancies: { type: 'boolean', description: 'eurostat: the jobs side (jvs_q_nace2) instead of a dataset' },
-      geo: { type: 'string', description: 'eurostat: a country code, e.g. "BG"' },
-      time: { type: 'string', description: 'eurostat: a year, e.g. "2022"' },
-      country: { type: 'string', description: 'gisco: a two-letter country code, e.g. "BG"' },
-      match: { type: 'string', description: 'gisco: narrow to schools whose name or city contains this' },
-      limit: { type: 'number', description: 'how many rows to return (default 25, max 200)' } } },
+      source: { type: 'string', description: 'esco|eurostat|gisco|data-europa|cordis|ted, or omit' },
+      cpv: { type: 'string', description: 'TED CPV' },
+      text: { type: 'string', description: 'ESCO phrase' },
+      type: { type: 'string', description: 'skill|occupation|qualification' },
+      dataset: { type: 'string', description: 'Eurostat dataset code' },
+      vacancies: { type: 'boolean', description: 'Eurostat jobs table' },
+      geo: { type: 'string', description: 'ISO country' },
+      time: { type: 'string', description: 'year' },
+      country: { type: 'string', description: 'GISCO ISO country' },
+      match: { type: 'string', description: 'GISCO name/city filter' },
+      limit: { type: 'number', description: 'rows, max 200' } } },
     run: (a = {}) => a.source ? schoolApiFetch(String(a.source), { text: a.text ? String(a.text) : undefined, type: a.type ? String(a.type) : undefined, dataset: a.dataset ? String(a.dataset) : undefined, vacancies: Boolean(a.vacancies), geo: a.geo ? String(a.geo) : undefined, time: a.time ? String(a.time) : undefined, country: a.country ? String(a.country) : undefined, match: a.match ? String(a.match) : undefined, limit: a.limit !== undefined ? Number(a.limit) : undefined })
       : schoolApiRegistry() },
   { name: 'uuidna_education_jobs',
@@ -811,12 +824,13 @@ const TOOLS: Tool[] = [
     inputSchema: { type: 'object', properties: {} },
     run: () => softwareLayer() },
   { name: 'uuidna_os',
-    description: 'The OS-INTEGRITY ALGEBRA (lean/Os.lean) as one named spec — the third layer, completing hardware → software → os. The decidable facts a DEPLOYMENT is verified against: exact-copy is byte-equality, so a single-byte tamper, a truncation, or a REORDERING breaks the match (a provenance is a SEQUENCE, not a set); the SHA-256 digest is a fixed 256 bits, the content-address a fixed 128; and the non-determinism boundary is EXACTLY two named modules (src/os, src/drivers). Each a decidable, AXIOM-FREE `by decide` particle, folded to one order-invariant receipt. This is the SPEC; the runtime side (Alpine + driver provenance, uuidna_alpine to port the whole arch matrix) enforces it against real bytes with uuidna\'s own pure-TS SHA-256. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth), and NOT execution — uuidna seals what an exact-copy verification decides; it does NOT boot, port the runtime, link, or run an operating system. A sealed integrity spec, not a booted OS. Returns {principle,count,parts:[{key,title,statement,particle}],receipt,bits,boundary,honest}. Boundary declared — theorem drift_is_named_or_caught.',
+    description: 'uuidnaOS: verified lattice boot, four-width capacity, CPU/GPU fleet. Layer 1 load, never Alpine ELF. Integrity, not truth (theorem provenance_integrity_not_content_truth).',
+    detail: 'THE OS-INTEGRITY ALGEBRA (lean/Os.lean) as one named spec — the third layer, completing hardware → software → os. The decidable facts a DEPLOYMENT is verified against: exact-copy is byte-equality, so a single-byte tamper, a truncation, or a REORDERING breaks the match (a provenance is a SEQUENCE, not a set); the SHA-256 digest is a fixed 256 bits, the content-address a fixed 128; and the non-determinism boundary is EXACTLY two named modules (src/os, src/drivers). Each a decidable, AXIOM-FREE `by decide` particle, folded to one order-invariant receipt. This is the SPEC; the runtime side (Alpine + driver provenance, uuidna_alpine to port the whole arch matrix) enforces it against real bytes with uuidna\'s own pure-TS SHA-256. Boot here is verified hexbit loading of the default-install image (theorem the_os_is_bootable_quantum), never execution of Alpine ELF. capacity.stream is the independent-message CPU fleet plus one specified GPU residue class at postage; onion wraps and sealChain stay serial. HONEST SCOPE: integrity, not truth — uuidna seals what an exact-copy verification decides; it does NOT port the runtime, link, or run an operating system. Relates to uuidna_exec (Layer 1 applets), uuidna_port, uuidna_run (Layer 2).',
     inputSchema: { type: 'object', properties: {} },
-    run: () => osLayer() },
+    run: () => servedOS() },
   { name: 'uuidna_exec',
     description: 'ALPINE APPS IN THE VIRTUAL uuidnaOS (Layer 1 — simulated). Pass {line}: ls, apk (list/info/search/add/del/policy), man, busybox (cat/which/stat/pwd/echo/du), driver, device, help. apk add/del mutates SESSION state only — host rootfs unchanged. Full port on the lattice (theorem the_os_is_bootable_quantum); host binary execution is uuidna_run (Layer 2). Returns {line,applet,args,ok,output,data,receipt,hexbits,sealed,honest}.',
-    detail: 'Layer 1 simulation: install-port VFS, full catalogue, session apk add/del, busybox applets over virtual fs + session files. Nothing runs Alpine ELF inside this door — boot is verified hexbit loading. Layer 2 (uuidna_run, stdio only): verify-then-run pinned rootfs bytes on the host. Relates to uuidna_port, uuidna_registry, the terminal.',
+    detail: 'Layer 1 simulation: install-port VFS, full catalogue, session apk add/del, busybox applets over virtual fs + session files. device carries this host\'s CPU lanes plus the specified GPU stream worker (hostStreamFleet). Nothing runs Alpine ELF inside this door — boot is verified hexbit loading. Layer 2 (uuidna_run, stdio only): verify-then-run pinned rootfs bytes on the host. Relates to uuidna_os (boot + capacity), uuidna_port, uuidna_registry, the terminal.',
     inputSchema: { type: 'object', properties: { line: { type: 'string', description: 'e.g. "apk add nginx", "cat /core", "ls /catalogue", "man busybox", "apk policy"' } }, required: ['line'] },
     run: (a = {}) => uuidnaExec(String(a.line ?? '')) },
   { name: 'uuidna_run',
@@ -953,6 +967,7 @@ const TOOLS: Tool[] = [
     run: (a) => slimGate(String(a.claim)) },
   { name: 'uuidna_reason',
     description: 'IN-HOUSE reasoning that USES the sealed rules of inference. Give {facts:[atoms], rules:[{if:[atoms],then:atom}]} and it forward-chains to a fixpoint: whenever every premise of a rule is known it concludes the head by MODUS PONENS (or the hypothetical syllogism for a chain), CITING the sealed theorem at each step. Bounded (cannot loop forever), deterministic, and folds the whole derivation to one receipt anyone rechecks. Honest scope: bounded propositional forward-chaining over the rules you give — NOT a general theorem prover; it derives only what those rules entail, and never claims a conclusion is TRUE, only that it FOLLOWS. Boundary declared — theorem drift_is_named_or_caught.',
+    detail: 'The argument in court — theorem court_theorem_beats_assertion: only the proof is admissible — NOT an order to act or refrain. The court issues the mandate (courtProcedure / uuidna_due_process); the loser develops the proven (court_loser_develops_the_proven). It proves a point UNINTERRUPTED from the rules given, never a command.',
     inputSchema: { type: 'object', properties: { facts: { type: 'array', items: { type: 'string' } }, rules: { type: 'array', items: { type: 'object', properties: { if: { type: 'array', items: { type: 'string' } }, then: { type: 'string' } } } } }, required: ['facts', 'rules'] },
     run: (a) => reason((a.facts as string[]).map(String), (a.rules as { if: string[]; then: string }[])) },
   { name: 'uuidna_fingerprint',
@@ -1136,20 +1151,19 @@ const TOOLS: Tool[] = [
   //    CONFIRMED by theorem n_qubit_dimension. ──
   { name: 'uuidna_quantum',
     description: 'Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over √(2^scale) — no floats, no decimal drift). Either a named `circuit` (bell/ghz) OR an arbitrary `ops` circuit in OpenQASM/Qiskit gate names (h, x, y, z, s, sdg, cx, cz, swap, ccx, ccz) — so any system that speaks quantum circuits interops. Returns the EXACT rational distribution, per-qubit marginals (the no-signaling check), the order-invariant receipt, and — for an H-free circuit — the CLASSICAL truth table (the reversible logic the gates compute, usable directly by classical systems; Toffoli/ccx is universal). HONEST: classical simulation — 2^n amplitudes, EXPONENTIAL, the classical bound CONFIRMED by theorem n_qubit_dimension; NOT quantum hardware.',
-    inputSchema: { type: 'object', properties: { circuit: { type: 'string', enum: ['bell', 'ghz'], description: 'bell (2 qubits) or ghz (n qubits); ignored if ops is given' }, qubits: { type: 'number', description: 'qubit count, 1..12 (ghz default 3; required for ops)' }, ops: { type: 'array', description: 'OpenQASM circuit: [{gate, qubits:[...]}] with gate ∈ h,x,y,z,s,sdg,cx,cz,swap,ccx,ccz', items: { type: 'object', properties: { gate: { type: 'string' }, qubits: { type: 'array', items: { type: 'number' } } }, required: ['gate', 'qubits'] } } } },
+    inputSchema: { type: 'object', properties: { circuit: { type: 'string', enum: ['bell', 'ghz'], description: 'bell (2 qubits) or ghz (n qubits); ignored if ops is given' }, qubits: { type: 'number', description: 'qubit count (ghz default 3; required for ops)' }, ops: { type: 'array', description: 'OpenQASM circuit: [{gate, qubits:[...]}] with gate ∈ h,x,y,z,s,sdg,cx,cz,swap,ccx,ccz', items: { type: 'object', properties: { gate: { type: 'string' }, qubits: { type: 'array', items: { type: 'number' } } }, required: ['gate', 'qubits'] } } } },
     run: (a = {}) => {
       let state: QState, meta: { circuit: string; gates?: number }
       const ops = a.ops as GateOp[] | undefined
       if (Array.isArray(ops)) {
         const n = Number(a.qubits)
-        if (!Number.isInteger(n) || n < 1 || n > MAX_SERVED_QUBITS) throw new Error(`qubits must be an integer in 1..${MAX_SERVED_QUBITS} for an ops circuit`)
-        if (ops.length > 4096) throw new Error('circuit too long (max 4096 ops)')
+        if (!Number.isInteger(n) || n < 1) throw new Error('qubits must be a positive integer for an ops circuit')
         state = runCircuit(n, ops) // validates gate names + qubit ranges, throws on the unknown
         meta = { circuit: 'custom', gates: ops.length }
       } else {
         const circuit = a.circuit === 'ghz' ? 'ghz' : 'bell'
         const n = a.qubits ? Number(a.qubits) : 3
-        if (circuit === 'ghz' && (!Number.isInteger(n) || n < 1 || n > MAX_SERVED_QUBITS)) throw new Error(`qubits must be an integer in 1..${MAX_SERVED_QUBITS}`)
+        if (circuit === 'ghz' && (!Number.isInteger(n) || n < 1)) throw new Error('qubits must be a positive integer')
         state = circuit === 'ghz' ? ghzState(n) : bellState()
         meta = { circuit }
       }
@@ -1335,7 +1349,7 @@ const TOOLS: Tool[] = [
         ? { ...legCensus(rows), hostedMirror }
         : { ...legsFor(rows, String(a.key)), hostedMirror }
     } },
-]
+] as Tool[]).map(sealToolWire)
 
 // JSON-RPC 2.0 message shape over stdio. Ids may be string | number | null; params is method-specific.
 type JsonId = string | number | null | undefined
@@ -1524,7 +1538,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^(encrypt|decrypt|seal_stream|verify_envelope|seal_onion|open_onion|seal_chain|open_chain)$/, 'Crypto & streams', 'crypto'],
   [/^contract($|_)/, 'Contract-keyed messaging', 'contract'],
   [/^audit_(text|book|translation|movie|record|cve)$/, 'Provenance audit (public text & metadata)', 'books'],
-  [/^(sha256|hmac|pbkdf2|chacha20|poly1305|aead_encrypt|aead_decrypt)$/, 'Crypto primitives', 'crypto'],
+  [/^(sha256|hmac|pbkdf2|chacha20|poly1305|aead_encrypt|aead_decrypt|crypto)$/, 'Crypto primitives', 'crypto'],
   [/^(theorems|theorem|trial|skill|skills|render|render_list|fingerprint|review_domains|coverage|document)$/, 'Theorems & trial', 'theorem'],
   [/^(publish|edit|compare|vocabulary)$/, 'Publications (audited prose)', 'publish'],
   [/^(forensics|evidence)$/, 'Forensics & evidence (statements vs receipts)', 'forensics'],

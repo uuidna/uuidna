@@ -7,8 +7,5 @@
     { "tool": "uuidna_trial", "stdio": [], "edge": ["statement"], "note": "the stdio tool runs the whole trial with no arguments; the edge adjudicates one statement" },
     { "tool": "uuidna_bill", "stdio": ["commercial", "recomputeOps", "verifyOps"], "edge": [], "note": "the edge defaults every term, so a bare call bills against zeros instead of refusing" }
   ],
-  "edgeOnlyNames": [
-    { "tool": "uuidna_merkle_proof", "note": "the stdio catalogue spells the same capability uuidna_merkle_prove (and splits root/verify into their own tools)" },
-    { "tool": "uuidna_coins", "note": "the two captain coins; stdio reaches the same constant through uuidna_captain and the billing tools" }
-  ]
+  "edgeOnlyNames": []
 }

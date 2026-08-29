@@ -1,0 +1,12 @@
+{
+  "handle": "4cf2b920",
+  "address": "4cf2b920-8d0e-862d-9c91-7787f9f5b4a9",
+  "kind": "chunk",
+  "keys": [
+    "mechanism_lacks_one"
+  ],
+  "statement": "(2 * 4 - 3) - 4 = 1",
+  "files": [
+    "Structures.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "16222b9a",
+  "address": "16222b9a-b5f7-844b-b81e-e407a03a8a2b",
+  "kind": "chunk",
+  "keys": [
+    "verify_beats_recompute_by_magnitudes"
+  ],
+  "statement": "((2:Nat) ^ 10 = 1024) ∧ ((2:Nat) ^ 20 = 1048576) ∧ (1024 > 100 * 10) ∧ (1048576 > 10000 * 20)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

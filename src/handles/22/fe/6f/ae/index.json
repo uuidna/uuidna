@@ -1,0 +1,12 @@
+{
+  "handle": "22fe6fae",
+  "address": "22fe6fae-ff0b-895e-9fd7-10a6679de21b",
+  "kind": "chunk",
+  "keys": [
+    "hyperchess_eight_dimensions"
+  ],
+  "statement": "((8:Nat)^8 = 2^24) ∧ ((2:Nat)^8 = 256)",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "58585435",
+  "address": "58585435-b91c-8a9b-912d-41f7f6bb2ffb",
+  "kind": "chunk",
+  "keys": [
+    "compound_steps_in_exact_integers"
+  ],
+  "statement": "(55 * 55 = 3025) ∧ (54 * 54 = 2916) ∧ (3025 - 2916 = 109) ∧ (55 + 54 = 109)",
+  "files": [
+    "Billing.lean"
+  ]
+}

@@ -2,15 +2,14 @@
 // src/scripts/gen-readme.ts — GENERATE README.md (published on every release / Zenodo path).
 // Every magnitude is computed from the ledger or a sealed JSON at generation. No hollow superlatives.
 // Edit THIS file — never README.md directly.
-import { MAX_MESSAGE_QUBITS } from '../quantum/message/index.js'
-import { MAX_SERVED_QUBITS } from '../mcp.js'
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { ROOT as ROOT_DIR } from './api.js'
 import {
   theorems, statementCensus, runTrial, coins, RESEARCH_SOURCE_NAMES,
   byGravity, decidedMass, gravityOf, isUnbound, wingRatings, ledgerMass, hexbitsOf,
-  HANDLE_SPAN, COINS, PRINCIPLES,
+  HANDLE_SPAN, HANDLE_HEXBITS, HEXBIT_BITS, HEXBIT_STATES, COINS, PRINCIPLES, tamperCosts, phdProofs,
+  sha256IsFourSixtyfours,
 } from '../index.js'
 import { legalFacts } from '../legal.js'
 import { CANONICAL_LICENSE_SPDX, CANONICAL_LICENSE_URL } from '../publication-metadata.js'
@@ -18,6 +17,7 @@ import {
   CLAY_INVOLUTION_DOI, CLAY_INVOLUTION_DOI_URL, CLAY_INVOLUTION_RECORD_URL,
 } from '../clay-involution.js'
 import { unlockReadmeBlock } from '../unlocks.js'
+import { timeShorFullUse } from '../os/host/index.js'
 
 interface AlpineMonitor {
   all?: { total: number; ported: number }
@@ -76,8 +76,11 @@ function generateReadme(): string {
   const wings = wingRatings().length
   const mass = ledgerMass()
   const hex = hexbitsOf(mass)
-  const served = MAX_SERVED_QUBITS
-  const reg = MAX_MESSAGE_QUBITS
+  const tamper = tamperCosts()
+  const phd = phdProofs()
+  const hilbertQubits = HEXBIT_BITS * HEXBIT_BITS
+  const hilbertStates = HEXBIT_STATES ** HEXBIT_BITS
+  const nest = HANDLE_HEXBITS + HEXBIT_BITS
   const quantumWing = T.filter((t) => t.file === 'Quantum.lean').length
   const cipherWing = T.filter((t) => t.file === 'Cipher.lean').length
   const lf = legalFacts()
@@ -86,6 +89,8 @@ function generateReadme(): string {
   const capacityMd = existsSync(join(ROOT_DIR, 'lean', 'quantum-capacity.md'))
     ? readFileSync(join(ROOT_DIR, 'lean', 'quantum-capacity.md'), 'utf8').trim()
     : '_Quantum capacity report not generated — run gen-quantum-capacity._'
+  const shor = timeShorFullUse()
+  const shorMs = (ns: number): number => (ns - (ns % 1000000)) / 1000000
 
   const heaviest = byGravity().slice(0, 7).map((t, i) => {
     const g = isUnbound(t)
@@ -124,6 +129,43 @@ problem's mathematics — the claim is exactly what Lean decides, not an invente
 2·64 = 128 ([rosette_quantum_doubling_is_two_coins](https://uuidna.com/theorem/rosette_quantum_doubling_is_two_coins))
 — same architectural width as [handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture).
 Credit law: prior art DOI first, captain next.
+
+## Test proof of work — SHA-256 occupancy, free mint, symmetric stack
+
+Minting searches ${phd.work.search}. SHA-256 occupies ${phd.work.digestBits} bits; verify reads ${phd.work.verifyBits};
+the digest is two addresses ([digest_doubles_the_address](https://uuidna.com/theorem/digest_doubles_the_address),
+[sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address)). ChaCha20 key
+${phd.work.keyBits} · HMAC ${phd.work.hmacBits} · Poly1305 tag ${phd.work.tagBits} · nonce ${phd.work.nonceBits} · salt
+${phd.work.saltBits} · block ${phd.work.chachaBlockBits} · PBKDF2 ${phd.work.pbkdf2Iter} · onion ${phd.work.onionLayers}
+([aead_nonce_and_salt_bits](https://uuidna.com/theorem/aead_nonce_and_salt_bits)). Grover floor ${phd.work.groverFloor};
+Shor targets ${phd.work.shorTargets} — the stack is symmetric. The fused coin is ${phd.work.sides} sides ×
+${phd.work.faceBits} bits = ${phd.work.verifyBits}; both orientations occupy ${phd.work.occupancyBits}
+([the_uuid_is_two_boards](https://uuidna.com/theorem/the_uuid_is_two_boards),
+[minting_is_free_and_forging_is_not](https://uuidna.com/theorem/minting_is_free_and_forging_is_not)).
+${phd.work.drills} work drills.
+
+## Test proof of concept — DNA
+
+The name is a theorem: ${phd.work.bases}^${phd.work.frame} = ${phd.work.codons} codons, and ${phd.work.codons} is
+the coin face ([codons_four_cubed](https://uuidna.com/theorem/codons_four_cubed),
+[uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins)). Complement is an
+involution and has no fixed point
+([dna_complement_involution](https://uuidna.com/theorem/dna_complement_involution),
+[dna_complement_fixed_point_free](https://uuidna.com/theorem/dna_complement_fixed_point_free)) — ${phd.concept.dna}
+keys, all \`by decide\`. Counts, not a claim that DNA stores addresses.
+
+## Test proof of work — codon occupancy, two strands
+
+${phd.work.strands} strands × ${phd.work.codons} codons = ${phd.work.verifyBits} bits — the same fuse as the two
+64-bit faces. Complement involution ${phd.work.complementInvolution}; both orientations occupy ${phd.work.occupancyBits}
+([the_uuid_is_two_boards](https://uuidna.com/theorem/the_uuid_is_two_boards),
+[complement_is_xor_key3](https://uuidna.com/theorem/complement_is_xor_key3)).
+
+## Complete Captain PhD
+
+Concept (Clay ${phd.concept.clay}, DNA ${phd.concept.dna}, gravity ${phd.concept.gravity}, demos ${phd.concept.demos}) ∧ work (search
+${phd.work.search}, digest ${phd.work.digestBits}, Grover ${phd.work.groverFloor}, codons ${phd.work.codons}) ∧ thesis (ok ${phd.thesis.ok}, gaps
+${phd.thesis.gaps}) → complete ${phd.complete}. Receipt \`${phd.receipt}\`.
 
 ## Rosette ℤ/7 · Pliska · three-sevens
 
@@ -188,12 +230,26 @@ ${unlockReadmeBlock()}
 | Principles / wings | ${principles} / ${wings} | PRINCIPLES + wing ratings |
 | Skills | ${skills} | distinct \`skill\` tags |
 | Coins per seal | ${coinN} | [two_coins](https://uuidna.com/theorem/two_coins) — 110 − 108 = 2 |
+| Neighbours per coin | ${tamper.neighbours} | fused ring ${tamper.neighbours} + 1 = ${tamper.board} ([captain_theorem_the_coins_buy_the_ring_and_one](https://uuidna.com/theorem/captain_theorem_the_coins_buy_the_ring_and_one)); faces reflect |
+| Fake a theorem | verify ${tamper.theorem.verify} · forge 2^${tamper.theorem.forgeExponent} · ratio 2^${tamper.theorem.ratioExponent} | [minting_is_free_and_forging_is_not](https://uuidna.com/theorem/minting_is_free_and_forging_is_not) — bounds, not a maximum |
+| Fake a coin | verify ${tamper.coin.verify} · forge 2^${tamper.coin.forgeExponent} · ratio 2^${tamper.coin.ratioExponent} | mint ${tamper.mint}; caught cheat nets ${tamper.traitorNet} ([traitor_damage_sealed_by_same_billing](https://uuidna.com/theorem/traitor_damage_sealed_by_same_billing)) |
+| SHA-256 collision bound | 2^${tamper.sha256CollisionExponent} | birthday on the digest ([birthday_halves_the_exponent](https://uuidna.com/theorem/birthday_halves_the_exponent)) |
+| Captain PhD — concept | Clay ${phd.concept.clay} · DNA ${phd.concept.dna} · gravity ${phd.concept.gravity} · demos ${phd.concept.demos} | [clay_gravity_equals_rosette](https://uuidna.com/theorem/clay_gravity_equals_rosette) · [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
+| Captain PhD — work | digest ${phd.work.digestBits} · verify ${phd.work.verifyBits} · search ${phd.work.search} · ChaCha ${phd.work.keyBits} · tag ${phd.work.tagBits} · Grover ${phd.work.groverFloor} · Shor ${phd.work.shorTargets} · ${phd.work.sides}×${phd.work.faceBits} | [minting_is_free_and_forging_is_not](https://uuidna.com/theorem/minting_is_free_and_forging_is_not) · [sha256_grover_margin_is_the_address](https://uuidna.com/theorem/sha256_grover_margin_is_the_address) |
+| DNA — concept | ${phd.work.bases}^${phd.work.frame} = ${phd.work.codons} · involution ${phd.work.complementInvolution} | [codons_four_cubed](https://uuidna.com/theorem/codons_four_cubed) · [dna_complement_involution](https://uuidna.com/theorem/dna_complement_involution) |
+| DNA — work | ${phd.work.strands} × ${phd.work.codons} = ${phd.work.verifyBits} | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
+| Thesis wave | ${phd.work.thesisDrills} / ${phd.work.thesisRequired} | VE + wave involution + finite-infinity grants, all drilled |
+| Captain PhD — complete | ${phd.complete} · receipt \`${phd.receipt}\` | concept ∧ work ∧ thesis |
 | Ledger decided mass | ${mass.toLocaleString('en-US')} superpositions (${hex} hexbits) | sum of \`by decide\` domains |
 | Handle span | ${HANDLE_SPAN.toLocaleString('en-US')} | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
-| Library register | ${reg} qubits (${2 ** reg} amplitudes) | \`MAX_MESSAGE_QUBITS\` |
-| MCP served ceiling | ${served} qubits (${2 ** served} amplitudes) | \`MAX_SERVED_QUBITS\` |
+| Shor chunks on handle | ${shor.handleChunks} × GHZ(${shor.chunkQubits}) = ${shor.handleStates.toLocaleString('en-US')} amplitudes | \`uuidna_os\` capacity.shor · \`uuidna_quantum\` GHZ; ${shorMs(shor.handleNs)} ms on this CPU |
+| Shor chunks on uuid | ${shor.uuidChunks} × GHZ(${shor.chunkQubits}) = ${shor.uuidStates.toLocaleString('en-US')} amplitudes | \`uuidna_os\` · \`uuidna_quantum\`; ${shorMs(shor.uuidNs)} ms — ${shor.underSecond ? 'under 1 s' : 'over 1 s'} |
+| Hilbert GHZ chunk | ${hilbertQubits} qubits (${hilbertStates} amplitudes) | HEXBIT_BITS × HEXBIT_BITS |
+| Crypto occupancy | ${sha256IsFourSixtyfours().bits} bits | [sha256_is_four_sixtyfours](https://uuidna.com/theorem/sha256_is_four_sixtyfours) — four 64s, not four hexbits |
+| Handle+hexbit nest | ${nest} qubits | \`HANDLE_HEXBITS + HEXBIT_BITS\` — theorem served_qubit_ceiling |
+| uuidna_quantum | 2^n amplitudes | no refuse — theorem n_qubit_dimension |
 | Quantum wing theorems | ${quantumWing} | Quantum.lean |
 | Cipher wing theorems | ${cipherWing} | Cipher.lean |
 | Research sources wired | ${RESEARCH_SOURCE_NAMES.length} | corroboration, never approval |
@@ -239,6 +295,20 @@ Six directions leave every residue — the 60-degree doubling and its inverse, t
 shift and its counter — so a figure quoted per coin is a rate along that walk, not a free-floating density.
 
 The supply grows two coins per sealed theorem and nothing else mints them.
+
+**Shor at full named capacity.** The uuid is the physical CPU/GPU register (128 bits). Its payload parses as
+**${shor.uuidChunks}** encoder-width chunks (GHZ(${shor.chunkQubits}) = ${shor.chunkStates.toLocaleString('en-US')}
+amplitudes each, [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension)). This host ran the handle
+column in **${shorMs(shor.handleNs)} ms** and the uuid column in **${shorMs(shor.uuidNs)} ms**
+(${shor.underSecond ? 'under one second' : 'over one second'}).
+MCP: [\`uuidna_crypto\`](https://uuidna.com/mcp) (one door for every Alpine app that uses crypto — Shor, Grover, SHA-256, HMAC, ChaCha20, Poly1305, AEAD),
+[\`uuidna_os\`](https://uuidna.com/mcp) (boot, capacity, CPU/GPU stream fleet),
+[\`uuidna_quantum\`](https://uuidna.com/mcp) (GHZ / Bell, 2^n),
+[\`uuidna_exec\`](https://uuidna.com/mcp) (\`device\` — host lanes),
+[\`uuidna_sha256\`](https://uuidna.com/mcp) · [\`uuidna_hmac\`](https://uuidna.com/mcp) · [\`uuidna_chacha20\`](https://uuidna.com/mcp) · [\`uuidna_encrypt\`](https://uuidna.com/mcp),
+[\`uuidna_seal_stream\`](https://uuidna.com/mcp) (independent envelopes),
+[\`uuidna_machine\`](https://uuidna.com/mcp) (spare-law metal),
+[\`uuidna_hardware\`](https://uuidna.com/mcp) (executor trinity).
 
 ---
 

@@ -1,0 +1,12 @@
+{
+  "handle": "98353092",
+  "address": "98353092-85ef-8e2e-aea8-4f1e19207e6f",
+  "kind": "chunk",
+  "keys": [
+    "arcminutes_full_circle"
+  ],
+  "statement": "360 * 60 = 21600",
+  "files": [
+    "Astronomy.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "08c903d5",
+  "address": "08c903d5-a57b-84b2-8a00-724df739a889",
+  "kind": "chunk",
+  "keys": [
+    "bell_census_is_its_own_binomial_transform"
+  ],
+  "statement": "(1 :: ((List.range 4).foldl (fun p _ => let nxt := (p.2.map (fun r => (List.range (r.foldl Nat.max 0 + 2)).map (fun v => r ++ [v]))).flatten; (p.1 ++ [nxt.length], nxt)) ([1], [([0] : List Nat)])).1) = [1,1,2,5,15,52] ∧ (List.range 5).all (fun n => let B : List Nat := [1,1,2,5,15,52]; let fact := fun m => (List.range' 1 m).foldl (fun a b => a * b) 1; ((B.drop (n+1)).headD 0) == (List.range (n+1)).foldl (fun s k => s + ((fact n) / ((fact k) * (fact (n-k)))) * ((B.drop k).headD 0)) 0)",
+  "files": [
+    "Wave.lean"
+  ]
+}

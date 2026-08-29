@@ -1,0 +1,12 @@
+{
+  "handle": "65f1a10c",
+  "address": "65f1a10c-126d-823f-b504-7fc701e27cfc",
+  "kind": "chunk",
+  "keys": [
+    "default_install_is_dependency_closed"
+  ],
+  "statement": "(installEdges.all (fun e => e.1 < 25)) ∧ (installEdges.all (fun e => e.2 < 25)) ∧ (installEdges.length = 47) ∧ (installNames.length = 25) ∧ (25 = 5 * 5)",
+  "files": [
+    "Installs.lean"
+  ]
+}

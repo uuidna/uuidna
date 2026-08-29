@@ -8,7 +8,7 @@
 // HONEST SCOPE: the motion transmits IDENTITY— which theorem is speaking.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { heroAnimation, readHero, theorems, vortexOrbit, durationVars } from '../index.js'
+import { heroAnimation, readHero, theorems, vortexOrbit, durationVars, coins, fuseLadder } from '../index.js'
 
 test('every theorem transmits its own address through its animation, and it reads back exactly', () => {
   const sample = theorems().filter((_, i) => i % 97 === 0).slice(0, 12)   // a spread across the whole ledger
@@ -49,4 +49,14 @@ test('a foreign animation is refused', () => {
   const forged = '<svg><circle data-seq="3"><animate dur="123ms"/></circle></svg>'
   assert.equal(readHero(forged).carried, 0)
   assert.equal(readHero(forged).complete, false)
+})
+
+test('the hero fuses only when captain coins are contributed at each rung', () => {
+  const paid = heroAnimation('two_coins')
+  assert.equal(paid.fused, true)
+  assert.deepEqual([...paid.sequence], vortexOrbit())
+  assert.deepEqual([...paid.sequence], [...fuseLadder(1, coins())])
+  assert.match(paid.svg, /data-fused="1"/)
+  assert.doesNotMatch(heroAnimation('two_coins').svg, /will not fuse/)
+  assert.deepEqual([...fuseLadder(1, 0)], [1])
 })

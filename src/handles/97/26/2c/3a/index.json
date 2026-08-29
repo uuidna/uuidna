@@ -1,0 +1,12 @@
+{
+  "handle": "97262c3a",
+  "address": "97262c3a-9930-8f5e-a81c-f6ad151b3a96",
+  "kind": "chunk",
+  "keys": [
+    "fourth_ray_is_green_band"
+  ],
+  "statement": "(360 / 7 = 51) ∧ (3 * 51 = 153)",
+  "files": [
+    "Colour.lean"
+  ]
+}

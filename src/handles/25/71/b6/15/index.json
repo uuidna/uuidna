@@ -1,0 +1,12 @@
+{
+  "handle": "2571b615",
+  "address": "2571b615-7a05-8cb8-b529-ad5b2654ecba",
+  "kind": "chunk",
+  "keys": [
+    "likert_midpoint_is_fixed_point"
+  ],
+  "statement": "((List.range' 1 7).filter (fun x => 8 - x == x) = [4]) ∧ (4 - 1 = 7 - 4)",
+  "files": [
+    "Psychology.lean"
+  ]
+}

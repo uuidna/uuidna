@@ -1,0 +1,12 @@
+{
+  "handle": "0a3fa71b",
+  "address": "0a3fa71b-b988-8559-9741-4e5580eaf7db",
+  "kind": "chunk",
+  "keys": [
+    "divisors_of_49_number_3"
+  ],
+  "statement": "((List.range' 1 49).filter (fun k => 49 % k == 0)).length = 3",
+  "files": [
+    "Wave.lean"
+  ]
+}

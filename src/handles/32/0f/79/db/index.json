@@ -1,0 +1,12 @@
+{
+  "handle": "320f79db",
+  "address": "320f79db-4cf2-83ce-96c0-3ff3c813b816",
+  "kind": "chunk",
+  "keys": [
+    "entanglement_completes_one_at_a_time"
+  ],
+  "statement": "((List.range' 2 20).all (fun n => (n*(n-1))/2 - ((n-1)*(n-2))/2 == n-1)) ∧ ((List.range' 1 20).all (fun n => 2 * ((n*(n-1))/2) == n*(n-1))) ∧ ((List.range' 1 20).all (fun n => (n*(n-1)) % 2 == 0)) ∧ (1690*1689/2 = 1427205) ∧ (1690*1689 = 2854410) ∧ (1690-1 = 1689)",
+  "files": [
+    "Wave.lean"
+  ]
+}

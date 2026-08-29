@@ -1,0 +1,12 @@
+{
+  "handle": "a6ed1d56",
+  "address": "a6ed1d56-3603-839e-a5b4-43524dcd7ada",
+  "kind": "chunk",
+  "keys": [
+    "z9pow_2_8"
+  ],
+  "statement": "(2 ^ 8) % 9 = 4",
+  "files": [
+    "Ring.lean"
+  ]
+}

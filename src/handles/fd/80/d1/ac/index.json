@@ -1,0 +1,12 @@
+{
+  "handle": "fd80d1ac",
+  "address": "fd80d1ac-813f-8894-a2da-cc507c0f69af",
+  "kind": "chunk",
+  "keys": [
+    "icosahedron_twenty_triangles"
+  ],
+  "statement": "20 * 3 = 2 * 30",
+  "files": [
+    "Solids.lean"
+  ]
+}

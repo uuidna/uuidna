@@ -1,0 +1,12 @@
+{
+  "handle": "c09ed4b4",
+  "address": "c09ed4b4-88ff-8ae7-afab-0f3a0a462154",
+  "kind": "chunk",
+  "keys": [
+    "mean_motion_linear"
+  ],
+  "statement": "(([1,2,3] : List Nat).map (fun t => 30 * t)) = [30,60,90]",
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

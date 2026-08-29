@@ -1,0 +1,12 @@
+{
+  "handle": "6ff07782",
+  "address": "6ff07782-bd76-8f2c-ac4c-05cf5240742e",
+  "kind": "chunk",
+  "keys": [
+    "developmental_stages_double"
+  ],
+  "statement": "2 * 4 = 8",
+  "files": [
+    "Psychology.lean"
+  ]
+}

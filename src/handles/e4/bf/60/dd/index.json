@@ -1,0 +1,12 @@
+{
+  "handle": "e4bf60dd",
+  "address": "e4bf60dd-6f12-8eb2-b060-154dbaefaa0e",
+  "kind": "chunk",
+  "keys": [
+    "units_mod_27_number_18"
+  ],
+  "statement": "((List.range 27).filter (fun a => Nat.gcd a 27 == 1)).length = 18",
+  "files": [
+    "Wave.lean"
+  ]
+}

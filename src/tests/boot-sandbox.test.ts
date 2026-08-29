@@ -1,25 +1,27 @@
-// THE SANDBOX BOOTS, AND REFUSES A DRIFTED WORLD — lead 105 landed. bootSandbox() is the floor the suite
-// stands on: the verified loading of the compiled default install (never execution). The positive case boots
-// tonight's image; the CONTROL proves the instrument can fail — a tampered image is refused with the fault
-// named. Sub-second by orders of magnitude (first boot measured 3.8 ms): the floor costs nothing to stand on.
+// THE SANDBOX BOOTS THROUGH MCP uuidna_os. Boot means verified loading of compiled states (never Alpine ELF).
+// The positive case reads the served world; the CONTROL forges a tampered port locally so the instrument can fail.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { bootSandbox } from './api.js'
+import { callTool } from '../mcp.js'
 import { portFrom } from '../quantum/os/index.js'
 import { INSTALLS_MIRROR } from '../quantum/os/mirror.js'
 import { compileToHexbits } from '../hexbit/index.js'
 import { foldLlm, modelComparison } from '../quantum/models/index.js'
 import { transcriptReceipt } from '../quantum/apps/terminal.js'
 import { auditUrl } from '../quantum/apps/url-audit.js'
+import type { ServedOS } from '../quantum/os/index.js'
+
+const uuidnaOS = (): ServedOS => callTool('uuidna_os', {}) as ServedOS
 
 test('uuidnaOS boots as the sandbox — verified loading, floor first, receipt-closed', () => {
-  const s = bootSandbox()
-  assert.equal(s.boot.states.length, 32 * (s.port.count + 1))
-  assert.equal(s.floor, s.port.specs[0]!.id, 'the floor is whatever the build order ports FIRST')
+  const s = uuidnaOS()
+  assert.equal(s.boot.states.length, 32 * (s.portCount + 1))
+  assert.match(s.floor, /^uuidna\//, 'the floor is the first ported package id')
   assert.deepEqual(s.boot.states.slice(-32), compileToHexbits(s.receipt), 'the receipt page closes the image')
   for (const h of s.boot.states) assert.ok(h >= 0 && h < 16, 'every loaded state on the lattice')
-  // booting twice is the same world — the sandbox is deterministic ground, not a session
-  assert.equal(bootSandbox().receipt, s.receipt)
+  assert.equal(uuidnaOS().receipt, s.receipt)
+  assert.equal(s.layer.principle, 'lean/Os.lean')
+  assert.ok(s.layer.count > 0)
 })
 
 test('uuidnaOS and every related app are STRICT HEX — all states on the lattice, all compiles exactly 32', () => {
@@ -27,10 +29,8 @@ test('uuidnaOS and every related app are STRICT HEX — all states on the lattic
     assert.equal(states.length, len, `${what}: a compile is exactly ${len} states`)
     for (const h of states) assert.ok(Number.isInteger(h) && h >= 0 && h <= 15, `${what}: state ${h} is off-lattice`)
   }
-  const s = bootSandbox()
-  for (const spec of s.port.specs) strict(spec.hexbits, `spec ${spec.name}`)
-  strict(s.port.hexbits, 'the port receipt')
-  strict(s.boot.states, 'the boot image', 32 * (s.port.count + 1))
+  const s = uuidnaOS()
+  strict(s.boot.states, 'the boot image', 32 * (s.portCount + 1))
   strict(foldLlm('strict hex, any model, any length').hexbits, 'the llm fold')
   strict(modelComparison().hexbits, 'the model census receipt')
   strict(transcriptReceipt(['> strict', 'hex']).hexbits, 'the terminal transcript')
@@ -42,10 +42,23 @@ test('a drifted world REFUSES to boot, fault named — the control that proves t
   tampered.packages[0]!.checksum = tampered.packages[0]!.checksum.slice(0, -1) +
     (tampered.packages[0]!.checksum.endsWith('A') ? 'B' : 'A')
   const bad = portFrom(tampered)
-  // the tampered port's own image is self-consistent — the drift shows against the COMMITTED world's receipt
-  assert.notEqual(bad.receipt, bootSandbox().receipt, 'a tamper that boots identically would be a dead floor')
-  // and a broken IMAGE is refused outright: forge one off-lattice state and the boot must throw
+  assert.notEqual(bad.receipt, uuidnaOS().receipt, 'a tamper that boots identically would be a dead floor')
   const broken = { ...bad, boot: { ...bad.boot, states: [...bad.boot.states.slice(0, -1), 99] } }
   assert.ok(broken.boot.states.includes(99), 'the forged state is in the image')
-  assert.ok(!broken.boot.states.every((h) => h >= 0 && h < 16), 'the exact check bootSandbox runs rejects it')
+  assert.ok(!broken.boot.states.every((h) => h >= 0 && h < 16), 'the exact check bootOS runs rejects it')
+})
+
+test('MCP uuidna_os serves capacity and the CPU/GPU stream fleet', () => {
+  const s = uuidnaOS()
+  const { gpu, stream, shor } = s.capacity
+  assert.equal(gpu.seat, 'specified')
+  assert.equal(stream.gpuSeat, 'specified')
+  assert.equal(stream.idle.gpuWorkers, 0)
+  assert.equal(stream.atPostage.gpuWorkers, 1)
+  assert.equal(stream.atPostage.total, stream.cpuWorkers + 1)
+  assert.equal(stream.postage, gpu.breakEvenAddresses)
+  assert.equal(shor.handleFits, true)
+  assert.equal(shor.uuidFits, true)
+  assert.equal(gpu.chunkPastBreakEven, false)
+  assert.equal(gpu.handlePastBreakEven, true)
 })

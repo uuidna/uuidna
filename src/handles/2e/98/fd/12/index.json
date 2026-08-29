@@ -1,0 +1,12 @@
+{
+  "handle": "2e98fd12",
+  "address": "2e98fd12-ff8e-86ae-bc97-957f38a7a976",
+  "kind": "chunk",
+  "keys": [
+    "primary_secondary_split"
+  ],
+  "statement": "((List.range 6).filter (fun h => h % 2 == 0) = [0, 2, 4]) ∧ ((List.range 6).filter (fun h => h % 2 == 1) = [1, 3, 5])",
+  "files": [
+    "BioPhysics.lean"
+  ]
+}

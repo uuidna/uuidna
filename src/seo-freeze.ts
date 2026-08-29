@@ -7,9 +7,7 @@
 //
 // SEO audit (no vitepress build required for the freeze path): every subject has quantumSeo with canonical,
 // title, description band, JSON-LD; sitemap cover via site.gaps; zero handle collisions on the freeze map.
-import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './boundary.js'
+import { existsRoot, rdRoot, wrRoot, mkdirRoot } from './boundary.js'
 import { theorems } from './theorems/index.js'
 import { publications } from './publish.js'
 import { quantumSeo } from './seo.js'
@@ -93,14 +91,13 @@ export function buildSeoUrlMap(): SeoUrlMap {
 }
 
 export function readSealedSeoUrlMap(): SeoUrlMap | null {
-  const p = join(ROOT, SEO_URL_MAP_PATH)
-  if (!existsSync(p)) return null
-  return JSON.parse(readFileSync(p, 'utf8')) as SeoUrlMap
+  if (!existsRoot(SEO_URL_MAP_PATH)) return null
+  return JSON.parse(rdRoot(SEO_URL_MAP_PATH)) as SeoUrlMap
 }
 
 export function writeSeoUrlMap(map: SeoUrlMap = buildSeoUrlMap()): SeoUrlMap {
-  mkdirSync(join(ROOT, 'lean'), { recursive: true })
-  writeFileSync(join(ROOT, SEO_URL_MAP_PATH), JSON.stringify(map, null, 2) + '\n')
+  mkdirRoot('lean')
+  wrRoot(SEO_URL_MAP_PATH, JSON.stringify(map, null, 2) + '\n')
   return map
 }
 

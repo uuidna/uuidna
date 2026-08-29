@@ -1,0 +1,12 @@
+{
+  "handle": "4ca3e578",
+  "address": "4ca3e578-9e75-8e78-b705-e43ddd4f0d8f",
+  "kind": "chunk",
+  "keys": [
+    "forward_reflected_mirror"
+  ],
+  "statement": "([9,8,6,2,3,5,7,4,1] = ([1,2,4,8,7,5,3,6,9].map (fun d => 10 - d))) ∧ ([1,2,4,8,7,5,3,6,9] = ([9,8,6,2,3,5,7,4,1].map (fun d => 10 - d))) ∧ (9 % 9 = 0)",
+  "files": [
+    "Sequence.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e8e85f3a",
+  "address": "e8e85f3a-bc07-8a9a-aea3-6f3081c6bc3d",
+  "kind": "chunk",
+  "keys": [
+    "debruijn_order_three_cycle_reads_every_triple_once"
+  ],
+  "statement": "((List.range 8).map (fun i => 232 / 2 ^ i % 2) = [0,0,0,1,0,1,1,1]) ∧ ((List.range 8).map (fun i => 4 * (232 / 2 ^ i % 2) + 2 * (232 / 2 ^ ((i + 1) % 8) % 2) + (232 / 2 ^ ((i + 2) % 8) % 2)) = [0,1,2,5,3,7,6,4]) ∧ (([0,1,2,5,3,7,6,4] : List Nat).length = 8) ∧ (([0,1,2,5,3,7,6,4] : List Nat).eraseDups.length = 8) ∧ ((List.range 8).all (fun v => ([0,1,2,5,3,7,6,4] : List Nat).contains v))",
+  "files": [
+    "Wave.lean"
+  ]
+}

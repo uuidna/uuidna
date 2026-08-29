@@ -59,4 +59,4 @@ export const spec = (): { widthsAreTiles: boolean; uuidIsFourHandles: boolean; t
 })
 
 // the lanes face — the executor trinity, re-exported so src/hardware stays one name for one concept
-export { LANES, trinity, gpuEligiblePpm, kernelPercent, HANDLE_BITS, HANDLE_SPAN, type Lane, type Seat } from './lanes/index.js'
+export { LANES, trinity, gpuEligiblePpm, gpuCapacity, gpuBreakEvenAddresses, kernelPercent, HANDLE_BITS, HANDLE_SPAN, CPU_NS_PER_ADDRESS, GPU_POSTAGE_ADDRESSES, cpuFoldNs, type Lane, type Seat, type DeviceCost, type GpuCapacity } from './lanes/index.js'

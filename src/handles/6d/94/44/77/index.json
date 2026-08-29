@@ -1,0 +1,12 @@
+{
+  "handle": "6d944477",
+  "address": "6d944477-e07f-8ad1-9ba1-3bc9932ac76e",
+  "kind": "chunk",
+  "keys": [
+    "sbox_z5_permutation_count"
+  ],
+  "statement": "5 * 4 * 3 * 2 * 1 = 120",
+  "files": [
+    "Cipher.lean"
+  ]
+}

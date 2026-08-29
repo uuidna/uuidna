@@ -1,0 +1,12 @@
+{
+  "handle": "a949c57e",
+  "address": "a949c57e-9087-811f-9e54-839c8b6bd6a0",
+  "kind": "chunk",
+  "keys": [
+    "rosette_quantum_doubling_is_two_coins"
+  ],
+  "statement": "(2 * 21 = 42) ∧ (2 * 64 = 128) ∧ (110 - 108 = 2)",
+  "files": [
+    "Rosette.lean"
+  ]
+}

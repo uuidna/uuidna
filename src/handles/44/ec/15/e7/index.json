@@ -1,0 +1,12 @@
+{
+  "handle": "44ec15e7",
+  "address": "44ec15e7-03ff-8b61-93d2-fc2a67db7f3c",
+  "kind": "chunk",
+  "keys": [
+    "knight_corner_two"
+  ],
+  "statement": "(([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).filter (fun d => decide (0 <= 0 + d.1 ∧ 0 + d.1 < 8 ∧ 0 <= 0 + d.2 ∧ 0 + d.2 < 8))).length = 2",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

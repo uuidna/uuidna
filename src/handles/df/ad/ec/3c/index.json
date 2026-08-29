@@ -1,0 +1,12 @@
+{
+  "handle": "dfadec3c",
+  "address": "dfadec3c-b63d-8df1-ac81-3f443c6bc702",
+  "kind": "chunk",
+  "keys": [
+    "boards_are_diamond_self_inverses"
+  ],
+  "statement": "(64 % 9 = 1) ∧ (512 % 9 = 8) ∧ ((8 * 8) % 9 = 1)",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

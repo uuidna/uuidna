@@ -1,0 +1,12 @@
+{
+  "handle": "6d84a3c1",
+  "address": "6d84a3c1-170a-89ec-9104-edac28d27e11",
+  "kind": "chunk",
+  "keys": [
+    "divisors_of_35_number_4"
+  ],
+  "statement": "((List.range' 1 35).filter (fun k => 35 % k == 0)).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

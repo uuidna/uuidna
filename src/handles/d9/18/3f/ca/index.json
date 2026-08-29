@@ -1,0 +1,12 @@
+{
+  "handle": "d9183fca",
+  "address": "d9183fca-fc92-8e4b-bc3f-d4463c44e167",
+  "kind": "chunk",
+  "keys": [
+    "powers_are_not_the_bound"
+  ],
+  "statement": "((2:Nat)^8 ≠ (11 + 10 - 1) / 10) ∧ ((2:Nat)^10 ≠ (21 + 10 - 1) / 10)",
+  "files": [
+    "Seats.lean"
+  ]
+}

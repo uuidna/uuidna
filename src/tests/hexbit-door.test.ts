@@ -10,7 +10,7 @@ import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import {
   hexbitDoorOf, evidenceRow, compileToHexbits,
-  UUID_HEXBITS, HANDLE_HEXBITS, COIN_HEXBITS, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS,
+  UUID_HEXBITS, HANDLE_HEXBITS, COIN_HEXBITS,
   HEXBIT_BITS, HEXBIT_STATES, HANDLE_SPAN, COINS,
 } from '../hexbit/index.js'
 import { doubling, dz } from '../separation.js'
@@ -23,7 +23,7 @@ import { depositCandidates } from '../wave-deposit.js'
 import { answered } from '../apis/index.js'
 
 test('HANDLE_ROOT is declared four-level store — folded receipts write through handlePath', () => {
-  assert.equal(HANDLE_ROOT, 'src/handle')
+  assert.equal(HANDLE_ROOT, 'src/handles')
 })
 
 const seed = toUuid('hexbit-door-test')
@@ -31,12 +31,12 @@ const seed = toUuid('hexbit-door-test')
 test('HANDLE_HEXBITS is the uuid in hexbit tiles — derived, never stranded', () => {
   assert.equal(HANDLE_HEXBITS, UUID_HEXBITS / HEXBIT_BITS)
   assert.equal(COIN_HEXBITS, UUID_HEXBITS / COINS)
-  assert.equal(MESSAGE_CAP_QUBITS, MESSAGE_CAP_HEXBITS * HEXBIT_BITS)
+  assert.equal(HEXBIT_BITS * HEXBIT_BITS, HEXBIT_STATES)
   assert.equal(HANDLE_SPAN, HEXBIT_STATES ** HANDLE_HEXBITS)
 })
 
 test('the four widths stay four subjects — coin doubling is the vortex map, not hexbit doubling', () => {
-  assert.notEqual(MESSAGE_CAP_HEXBITS, HANDLE_HEXBITS)
+  assert.notEqual(HEXBIT_BITS, HANDLE_HEXBITS)
   assert.notEqual(HANDLE_HEXBITS, COIN_HEXBITS)
   assert.notEqual(COIN_HEXBITS, UUID_HEXBITS)
   assert.equal(COIN_HEXBITS % BASE, doubling(HANDLE_HEXBITS))
@@ -100,7 +100,7 @@ test('messagingEnvelope IS the fusion — door + compact witness + compact seque
   assert.equal(env.coin.length, COIN_HEXBITS)
   assert.equal(env.witness.theoremKey, 'crew_verifies_instantly')
   assert.ok(theoremByKey().has('crew_verifies_instantly'))
-  assert.equal(env.witness.quantumQubits, MESSAGE_CAP_QUBITS)
+  assert.equal(env.witness.quantumQubits, HEXBIT_BITS * HEXBIT_BITS)
   assert.equal(env.sequence.reflection, dz(env.sequence.seed))
   assert.equal(typeof env.sequence.fixed, 'boolean')
   assert.equal(typeof env.sequence.covers, 'boolean')

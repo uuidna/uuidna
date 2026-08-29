@@ -1,0 +1,12 @@
+{
+  "handle": "5595d625",
+  "address": "5595d625-a5d5-854d-975d-b6fb49dd1663",
+  "kind": "chunk",
+  "keys": [
+    "triadic_harmony_is_thirds"
+  ],
+  "statement": "(List.range 3).map (fun k => (4 * k) % 12) = [0,4,8]",
+  "files": [
+    "Colour.lean"
+  ]
+}

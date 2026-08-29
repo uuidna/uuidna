@@ -1,0 +1,12 @@
+{
+  "handle": "1992a562",
+  "address": "1992a562-fee9-8007-b82c-6c8428185250",
+  "kind": "chunk",
+  "keys": [
+    "handles_give_generators"
+  ],
+  "statement": "(2 * 2 = 4) ∧ (4 ≠ 2)",
+  "files": [
+    "DoubleTorus.lean"
+  ]
+}

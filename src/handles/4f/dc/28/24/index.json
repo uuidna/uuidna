@@ -1,0 +1,14 @@
+{
+  "handle": "4fdc2824",
+  "address": "4fdc2824-e304-82f0-8332-12a2f53b3885",
+  "kind": "chunk",
+  "keys": [
+    "majority_vote_is_floor_half",
+    "three_cell_vote_majority"
+  ],
+  "statement": "((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 0) ∧ ((1 + 1 + 0) / 2 = 1) ∧ ((1 + 1 + 1) / 2 = 1)",
+  "files": [
+    "Quantum.lean",
+    "Wave.lean"
+  ]
+}

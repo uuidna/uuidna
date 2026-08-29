@@ -1,0 +1,12 @@
+{
+  "handle": "e670d120",
+  "address": "e670d120-bdb6-8386-ad05-d5145b23c888",
+  "kind": "chunk",
+  "keys": [
+    "hardware_above_landauer"
+  ],
+  "statement": "100000000 * 287097813 < 100000000000000000000000000000000",
+  "files": [
+    "Thermodynamics.lean"
+  ]
+}

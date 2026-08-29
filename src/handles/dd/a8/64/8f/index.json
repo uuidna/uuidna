@@ -1,0 +1,12 @@
+{
+  "handle": "dda8648f",
+  "address": "dda8648f-87ee-81ce-8a60-651ccfdb7c1f",
+  "kind": "chunk",
+  "keys": [
+    "z7add_0_0"
+  ],
+  "statement": "(0 + 0) % 7 = 0",
+  "files": [
+    "Rosette.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1f11977d",
+  "address": "1f11977d-2790-83b4-b1b6-ddd97521c559",
+  "kind": "chunk",
+  "keys": [
+    "order_of_seven_is_three"
+  ],
+  "statement": "((List.range' 1 8).find? (fun k => (7^k) % 9 == 1)) = some 3",
+  "files": [
+    "Discover.lean"
+  ]
+}

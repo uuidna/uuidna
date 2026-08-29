@@ -1,0 +1,12 @@
+{
+  "handle": "b4bcd5a5",
+  "address": "b4bcd5a5-1d1a-8181-9a1a-d6ce7c04340a",
+  "kind": "chunk",
+  "keys": [
+    "nilpotents_mod_32_number_16"
+  ],
+  "statement": "((List.range 32).filter (fun x => x ^ 32 % 32 == 0)).length = 16",
+  "files": [
+    "Wave.lean"
+  ]
+}

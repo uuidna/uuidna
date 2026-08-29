@@ -61,9 +61,13 @@ test('breath: send ↔ receive under one referrer — AND a different referrer c
   assert.equal(call('uuidna_receive', { uuids: chain, passphrase: 'pw', session: 'referrer-A' }), M)
   // a DIFFERENT referrer cannot — the session is a real secrecy boundary, not a label
   assert.throws(() => call('uuidna_receive', { uuids: chain, passphrase: 'pw', session: 'referrer-B' }),
-    'referrer isolation: another session\'s receiver is rejected by Poly1305')
+    'referrer isolation: another session\'s receiver is rejected')
   // and the right referrer with the wrong passphrase is also refused (both keys are needed)
   assert.throws(() => call('uuidna_receive', { uuids: chain, passphrase: 'wrong', session: 'referrer-A' }))
+  // v3 does not open through uuidna_decrypt — the traveling salt is not the referrer
+  const sealed = JSON.parse(call('uuidna_read', { uuids: chain }))
+  assert.equal(sealed.v, 3)
+  assert.throws(() => call('uuidna_decrypt', { sealed, passphrase: 'pw' }), /referrer/)
 })
 
 test('breath: merkle root → prove → verify — the tree inhales the leaves, a proof exhales membership', () => {

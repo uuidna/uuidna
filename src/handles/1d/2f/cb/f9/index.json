@@ -1,0 +1,12 @@
+{
+  "handle": "1d2fcbf9",
+  "address": "1d2fcbf9-f336-8091-b2bb-648ee39f5cd8",
+  "kind": "chunk",
+  "keys": [
+    "append_length_adds"
+  ],
+  "statement": "([1,2,3] ++ [4,5]).length = 3 + 2",
+  "files": [
+    "Software.lean"
+  ]
+}

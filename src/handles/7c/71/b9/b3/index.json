@@ -1,0 +1,12 @@
+{
+  "handle": "7c71b9b3",
+  "address": "7c71b9b3-d82c-8d6b-b4fe-0562fd638c4f",
+  "kind": "chunk",
+  "keys": [
+    "path_column_differences_close"
+  ],
+  "statement": "((List.range 6).all (fun m => ((List.range m).foldl (fun l _ => List.zipWith (fun a b => b - a) l l.tail) ((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0))) == List.replicate (11 - m) 1)) ∧ ((List.range 6).all (fun m => ((List.range (m+1)).foldl (fun l _ => List.zipWith (fun a b => b - a) l l.tail) ((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0))) == List.replicate (10 - m) 0)) ∧ ((List.range' 1 5).all (fun m => (List.zipWith (fun a b => b - a) ((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0)) (((List.range 11).map (fun n => (((List.range m).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0)).tail)) == ((List.range 11).map (fun n => (((List.range (m-1)).foldl (fun r _ => (List.scanl (fun a b => a + b) 0 r).tail) (List.replicate (n+1) 1)).drop n).headD 0)).tail))",
+  "files": [
+    "Wave.lean"
+  ]
+}

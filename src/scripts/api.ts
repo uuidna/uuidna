@@ -306,6 +306,12 @@ export const importAbs = <T = Record<string, unknown>>(abs: string): Promise<T> 
 export const rd = (p: string): string => fsm().readFileSync(pathm().join(ROOT, p), 'utf8')
 /** does a repo-relative path exist */
 export const has = (p: string): boolean => fsm().existsSync(pathm().join(ROOT, p))
+/** write a repo-relative utf8 file */
+export const wr = (p: string, data: string): void => fsm().writeFileSync(pathm().join(ROOT, p), data)
+/** mkdir -p a repo-relative directory */
+export const mkdirp = (p: string): void => { fsm().mkdirSync(pathm().join(ROOT, p), { recursive: true }) }
+/** rm -rf a repo-relative path when it exists */
+export const rmrf = (p: string): void => { if (has(p)) fsm().rmSync(pathm().join(ROOT, p), { recursive: true, force: true }) }
 /** the 16-hex component fold */
 export const h16 = (data: string): string => cryptom().createHash('sha256').update(data).digest('hex').slice(0, 16)
 /** the 32-hex order-invariant fold over named components */
@@ -477,6 +483,8 @@ export const DRAIN_PATHS: readonly string[] = [
   // and a count in a comment is stale the next time a wing lands. Generated
   // 2026-08-19. The whole directory is one drain path, same convention as src/seeds.
   'src/chunks',
+  // four-level handle store (gen-handle-store) — chunks + freeze publication|page; wipe+rewrite
+  'src/handles',
 ]
 
 /** Concrete drain files whose single writer is NOT visible from RECONCILE_OUTPUTS / DOCS_BUILD_OUTPUTS alone —
@@ -541,6 +549,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-reports': ['reports.json'],
   'gen-lines': ['lean/statement-index.json'],
   'gen-handle-chunks': ['src/chunks'],
+  'gen-handle-store': ['src/handles'],
   'gen-analytics': ['docs/analytics.md'],
   'gen-song': ['docs/song.md', 'docs/public/song.wav'],
   'gen-anthem': ['docs/anthem.md'],

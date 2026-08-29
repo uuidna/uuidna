@@ -1,0 +1,12 @@
+{
+  "handle": "83dce120",
+  "address": "83dce120-6061-8db5-859b-8290903f5651",
+  "kind": "chunk",
+  "keys": [
+    "total_is_not_amplitudes"
+  ],
+  "statement": "(2097152 ≠ 65536) ∧ ((2:Nat)^21 > 2^16)",
+  "files": [
+    "HandleSpan.lean"
+  ]
+}

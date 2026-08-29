@@ -1,0 +1,12 @@
+{
+  "handle": "486a9c15",
+  "address": "486a9c15-5e16-84dc-be0a-1c5f676c3aba",
+  "kind": "chunk",
+  "keys": [
+    "which_path_conserves_the_total"
+  ],
+  "statement": "(((List.range 16).foldl (fun s _ => s + ((1:Int)*1 + 1*1)) (0:Int)) = 32) ∧ (8 * 4 + 8 * 0 = 16 * 2) ∧ (((List.range 16).foldl (fun s k => s + (1 + (-1:Int)^k)^2) (0:Int)) = ((List.range 16).foldl (fun s _ => s + (2:Int)) (0:Int)))",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c31dfce6",
+  "address": "c31dfce6-aeb3-8261-8cd2-961f97eae34f",
+  "kind": "chunk",
+  "keys": [
+    "the_foundation_depends_on_nothing"
+  ],
+  "statement": "(nthS installNames 19 = \"musl\") ∧ (nthS installRoutes 19 = \"/core\") ∧ (installEdges.all (fun e => e.1 != 19)) ∧ ((installEdges.filter (fun e => e.2 == 19)).length = 13) ∧ ((List.range 25).all (fun i => (installEdges.filter (fun e => e.2 == i)).length ≤ 13))",
+  "files": [
+    "Installs.lean"
+  ]
+}

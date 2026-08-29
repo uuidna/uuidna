@@ -1,0 +1,12 @@
+{
+  "handle": "09ab4e55",
+  "address": "09ab4e55-84e6-8e53-8c36-3eadc6397e97",
+  "kind": "chunk",
+  "keys": [
+    "weber_fechner_log_ladder"
+  ],
+  "statement": "(List.range 4).map (fun k => 2^k) = [1,2,4,8]",
+  "files": [
+    "Psychology.lean"
+  ]
+}

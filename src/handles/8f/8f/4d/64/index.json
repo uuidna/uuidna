@@ -1,0 +1,12 @@
+{
+  "handle": "8f8f4d64",
+  "address": "8f8f4d64-5c28-8050-8764-5e7c91f90ba0",
+  "kind": "chunk",
+  "keys": [
+    "four_carry_handle"
+  ],
+  "statement": "((378:Nat)^4 > 2^32) ∧ ((378:Nat)^3 < 2^32)",
+  "files": [
+    "Channel.lean"
+  ]
+}

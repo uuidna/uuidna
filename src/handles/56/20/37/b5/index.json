@@ -1,0 +1,12 @@
+{
+  "handle": "562037b5",
+  "address": "562037b5-5b8d-8e19-8164-0ca0d2388729",
+  "kind": "chunk",
+  "keys": [
+    "z7add_2_5"
+  ],
+  "statement": "(2 + 5) % 7 = 0",
+  "files": [
+    "Rosette.lean"
+  ]
+}

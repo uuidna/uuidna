@@ -1,0 +1,12 @@
+{
+  "handle": "1b057d82",
+  "address": "1b057d82-7744-84cb-81a7-01ccc5bdabc5",
+  "kind": "chunk",
+  "keys": [
+    "cycle_lemma_picks_one_rotation"
+  ],
+  "statement": "((List.range 8).filter (fun m => decide ((List.range 3).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 2))).length = 3 ∧ ((List.range 8).filter (fun m => decide ((List.range 3).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 2))).all (fun m => decide (((List.range 3).filter (fun r => (List.range' 1 3).all (fun k => decide (k < 2 * ((List.range k).foldl (fun s j => s + m / 2 ^ ((r + j) % 3) % 2) 0))))).length = 1)) = true ∧ ((List.range 32).filter (fun m => decide ((List.range 5).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 3))).length = 10 ∧ ((List.range 32).filter (fun m => decide ((List.range 5).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 3))).all (fun m => decide (((List.range 5).filter (fun r => (List.range' 1 5).all (fun k => decide (k < 2 * ((List.range k).foldl (fun s j => s + m / 2 ^ ((r + j) % 5) % 2) 0))))).length = 1)) = true ∧ ((List.range 128).filter (fun m => decide ((List.range 7).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 4))).length = 35 ∧ ((List.range 128).filter (fun m => decide ((List.range 7).foldl (fun s i => s + m / 2 ^ i % 2) 0 = 4))).all (fun m => decide (((List.range 7).filter (fun r => (List.range' 1 7).all (fun k => decide (k < 2 * ((List.range k).foldl (fun s j => s + m / 2 ^ ((r + j) % 7) % 2) 0))))).length = 1)) = true",
+  "files": [
+    "Wave.lean"
+  ]
+}

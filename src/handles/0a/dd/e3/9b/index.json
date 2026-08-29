@@ -1,0 +1,12 @@
+{
+  "handle": "0adde39b",
+  "address": "0adde39b-e0b6-86a4-90d5-f6dcae6df0e0",
+  "kind": "chunk",
+  "keys": [
+    "self_inverse_mod_37_number_2"
+  ],
+  "statement": "((List.range 37).filter (fun x => (x * x) % 37 == 1)).length = 2",
+  "files": [
+    "Wave.lean"
+  ]
+}

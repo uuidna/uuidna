@@ -8,7 +8,13 @@
 // bundles the whole graph untreeshaken); only CALLING rdRoot outside Node refuses, by name, with the reason.
 
 type Dirent = { name: string; isDirectory(): boolean }
-type FsModule = { readFileSync: (p: string, enc: 'utf8') => string; readdirSync: (p: string, opts: { withFileTypes: true }) => Dirent[]; existsSync: (p: string) => boolean }
+type FsModule = {
+  readFileSync: (p: string, enc: 'utf8') => string
+  readdirSync: (p: string, opts: { withFileTypes: true }) => Dirent[]
+  existsSync: (p: string) => boolean
+  writeFileSync: (p: string, data: string) => void
+  mkdirSync: (p: string, opts: { recursive: true }) => void
+}
 type PathModule = { join: (...p: string[]) => string; dirname: (p: string) => string }
 type UrlModule = { fileURLToPath: (u: string) => string }
 
@@ -39,4 +45,14 @@ export const lsRoot = (p: string): Dirent[] => {
 export const existsRoot = (p: string): boolean => {
   if (!fs || !path) throw new Error('boundary: filesystem reach is Node-only — a browser bundle must never call existsRoot')
   return fs.existsSync(path.join(ROOT, p))
+}
+/** write a repo-relative utf8 file — Node-only, same refusal-by-name outside Node. */
+export const wrRoot = (p: string, data: string): void => {
+  if (!fs || !path) throw new Error('boundary: filesystem reach is Node-only — a browser bundle must never call wrRoot')
+  fs.writeFileSync(path.join(ROOT, p), data)
+}
+/** mkdir -p a repo-relative directory — Node-only, same refusal-by-name outside Node. */
+export const mkdirRoot = (p: string): void => {
+  if (!fs || !path) throw new Error('boundary: filesystem reach is Node-only — a browser bundle must never call mkdirRoot')
+  fs.mkdirSync(path.join(ROOT, p), { recursive: true })
 }

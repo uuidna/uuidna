@@ -237,7 +237,8 @@ test('the two skill tools are CATEGORISED', () => {
     const entry = MCP_CATALOG.find((t) => t.name === tool)
     assert.ok(entry, `${tool} must be in the catalogue`)
     assert.notEqual(entry.category, 'Other', `${tool} falls through categoryOf — the generated /mcp page files it under Other`)
-    assert.ok(entry.description.length > 200, `${tool} must carry its honest scope in its description`)
+    assert.ok(entry.description.length > 20, `${tool} must say enough on the wire to choose it`)
+    assert.ok((entry.detail ?? entry.description).length > 200, `${tool} keeps honest scope in detail (not billed per request)`)
   }
   // NEGATIVE CONTROL — 'Other' is a category this catalogue can actually produce, so the check above is not vacuous
   assert.equal(MCP_CATALOG.find((t) => t.name === 'uuidna_no_such_tool'), undefined)

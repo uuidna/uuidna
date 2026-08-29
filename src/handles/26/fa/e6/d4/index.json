@@ -1,0 +1,12 @@
+{
+  "handle": "26fae6d4",
+  "address": "26fae6d4-b3b0-8ca9-8cb9-4abcae72a6f0",
+  "kind": "chunk",
+  "keys": [
+    "hasse_bound_holds_at_four_primes"
+  ],
+  "statement": "(([(0,5),(16,7),(0,11),(4,13)] : List (Nat × Nat)).all (fun q => q.1 ≤ 4 * q.2)) = true",
+  "files": [
+    "Clay.lean"
+  ]
+}

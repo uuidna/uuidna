@@ -1,0 +1,12 @@
+{
+  "handle": "6e894ae0",
+  "address": "6e894ae0-aa2c-84b9-8426-ddf71f1b8d1a",
+  "kind": "chunk",
+  "keys": [
+    "points_of_sail"
+  ],
+  "statement": "(([45,90,135,180] : List Nat).all (fun a => a % 45 == 0)) ∧ (180 / 45 = 4)",
+  "files": [
+    "Sailing.lean"
+  ]
+}

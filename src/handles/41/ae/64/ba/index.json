@@ -1,0 +1,12 @@
+{
+  "handle": "41ae64ba",
+  "address": "41ae64ba-faf5-88ad-a93a-2c34f906070b",
+  "kind": "chunk",
+  "keys": [
+    "s_dagger_inverse"
+  ],
+  "statement": "([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let s := (-(p.2), p.1); (s.2 == p.1) && (-(s.1) == p.2)))",
+  "files": [
+    "Quantum.lean"
+  ]
+}

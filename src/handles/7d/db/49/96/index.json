@@ -1,0 +1,12 @@
+{
+  "handle": "7ddb4996",
+  "address": "7ddb4996-41fa-8214-b303-e94fe1f5b8e7",
+  "kind": "chunk",
+  "keys": [
+    "accept_truth_table"
+  ],
+  "statement": "((List.range 4).map (fun n => accept (n%2) (n/2%2))) = [0,0,0,1]",
+  "files": [
+    "Command.lean"
+  ]
+}

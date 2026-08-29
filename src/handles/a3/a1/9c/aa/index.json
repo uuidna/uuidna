@@ -1,0 +1,12 @@
+{
+  "handle": "a3a19caa",
+  "address": "a3a19caa-c232-8f28-9653-f7dc3b98d148",
+  "kind": "chunk",
+  "keys": [
+    "hadamard_conjugates_x_to_z"
+  ],
+  "statement": "([(3,5),(1,-2),(4,0)] : List (Int × Int)).all (fun p => (let a := p.1; let b := p.2; ((a-b)+(a+b) == 2*a) && ((a-b)-(a+b) == -(2*b))))",
+  "files": [
+    "Quantum.lean"
+  ]
+}

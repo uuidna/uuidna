@@ -1,0 +1,12 @@
+{
+  "handle": "5a951473",
+  "address": "5a951473-2fff-84d5-8cbe-996efd62d802",
+  "kind": "chunk",
+  "keys": [
+    "angles_close"
+  ],
+  "statement": "10 * 36 = 360 ∧ 6 * 60 = 360",
+  "files": [
+    "Sequence.lean"
+  ]
+}

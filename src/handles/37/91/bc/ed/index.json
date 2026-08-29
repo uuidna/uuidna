@@ -1,0 +1,12 @@
+{
+  "handle": "3791bced",
+  "address": "3791bced-d301-8818-9daf-3aa24347a1c4",
+  "kind": "chunk",
+  "keys": [
+    "wgs84_polar_shorter"
+  ],
+  "statement": "6378137 * (298257223563 - 1000000000) / 298257223563 = 6356752 ∧ 6378137 - 6356752 = 21385",
+  "files": [
+    "Topography.lean"
+  ]
+}

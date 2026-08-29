@@ -1,0 +1,12 @@
+{
+  "handle": "1d53f95c",
+  "address": "1d53f95c-681c-8c88-a791-23274447665f",
+  "kind": "chunk",
+  "keys": [
+    "readings_states_sound_the_lattice"
+  ],
+  "statement": "((List.range 16).map (fun h => 432 * (h + 1))) = [432,864,1296,1728,2160,2592,3024,3456,3888,4320,4752,5184,5616,6048,6480,6912]",
+  "files": [
+    "Readings.lean"
+  ]
+}

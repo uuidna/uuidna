@@ -1,0 +1,12 @@
+{
+  "handle": "0fbb8736",
+  "address": "0fbb8736-a561-8440-8582-cfd81bb537fc",
+  "kind": "chunk",
+  "keys": [
+    "grover_halves_the_search_exponent"
+  ],
+  "statement": "(20 = 2 * 10) ∧ (2^20 = 1024 * 1024)",
+  "files": [
+    "Optimisation.lean"
+  ]
+}

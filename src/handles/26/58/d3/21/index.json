@@ -1,0 +1,12 @@
+{
+  "handle": "2658d321",
+  "address": "2658d321-c589-8981-b811-ad02b38c0864",
+  "kind": "chunk",
+  "keys": [
+    "swap_truth_table"
+  ],
+  "statement": "((List.range 4).map (fun i => (i % 2) * 2 + (i / 2 % 2))) = [0,2,1,3]",
+  "files": [
+    "Quantum.lean"
+  ]
+}

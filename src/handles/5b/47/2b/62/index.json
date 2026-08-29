@@ -1,0 +1,12 @@
+{
+  "handle": "5b472b62",
+  "address": "5b472b62-20e8-8f19-87df-68358600ec9a",
+  "kind": "chunk",
+  "keys": [
+    "greys_are_one_in_sixtyfive_thousand"
+  ],
+  "statement": "((16:Nat)^6 / 256 = 65536) ∧ ((2:Nat)^16 = 65536) ∧ (256 * 65536 = 16777216)",
+  "files": [
+    "SpectrumHex.lean"
+  ]
+}

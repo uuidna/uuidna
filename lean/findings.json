@@ -11,13 +11,6 @@
   },
   {
    "severity": "medium",
-   "where": "src/scripts/crypto-measure.ts:339 and :347",
-   "what": "computeLog2 is a six-branch ladder that cannot return 0, so a constant buffer with true entropy zero reports 1 bit/byte. And :339 prints 'approaching 8 bits/byte' directly under measured 4.0000 — unreachable by construction, since H <= log2(n) caps a 16-byte sample at 4.",
-   "reproduce": "all-zero input -> repo reports 1.0000, true value 0.0000",
-   "fix": "handle p = 1 explicitly; state the sample-size ceiling instead of an unreachable target"
-  },
-  {
-   "severity": "medium",
    "where": "lean/Thermodynamics.lean:7 with src/scripts/one-receipt.ts:472",
    "what": "entropy_never_decreases is (List.range 9).all (fun t => t <= t + 1) — a Nat tautology with S as the identity, so no input can falsify it. vacuousGaps() cannot see it because it splits at paren depth 0 and this sits at depth 1 inside the lambda.",
    "reproduce": "vacuousGaps() returns 0 against a theorem that is vacuous by inspection",
@@ -57,13 +50,6 @@
    "what": "approve() is documented as 'the HARD gate' and verifyLicense as making any altered term visible. Neither has a call site. verifyLicense IS falsifiable (zeroing bill.coins returns false) — a working check nobody runs.",
    "reproduce": "AST census over 349 files finds zero callers",
    "fix": "wire them into the gate, or retire the claim that they gate anything"
-  },
-  {
-   "severity": "low",
-   "where": "src/mcp.ts:68, src/cube.ts:9, src/reports.ts:114",
-   "what": "Three 'measured' claims that measure nothing: 'Measured entropy: 122 free bits' is 128-6 bit accounting; cube.ts says strength is 'measured not asserted' with no code path measuring it; reports.ts declares zero_entropy in the type and never reads it.",
-   "reproduce": "read the lines",
-   "fix": "measure, or drop the word"
   },
   {
    "severity": "low",
@@ -144,6 +130,16 @@
   }
  ],
  "fixed": [
+  {
+   "where": "src/scripts/crypto-measure.ts",
+   "what": "computeLog2 could not return 0, so a constant buffer reported 1 bit/byte; analysis claimed approaching 8 bits/byte under a 16-byte sample whose ceiling is bitsOf(16)=4.",
+   "closed_by": "PAID. computeLog2(1)=0; shannonBitsPerByte reports H and bitsOf(n) as the sample ceiling. src/tests/crypto-measure.test.ts"
+  },
+  {
+   "where": "src/mcp.ts uuidna_address, src/cube.ts, src/reports.ts readiness",
+   "what": "Three 'measured' claims that measure nothing: 122 free bits was imprint_capacity_chain accounting; cube strength was 'measured not asserted' with no meter; reports declared zero_entropy and never read it.",
+   "closed_by": "PAID. uuidna_address cites theorem imprint_capacity_chain; cube strength is the caller's secret, never a figure the module computes; readiness facts include zeroEntropy from quantum-fold.json"
+  },
   {
    "where": "src/quantum/voting/index.ts",
    "what": "encodeVote applied H then Z to every qubit, so YES and NO differed by a GLOBAL PHASE and produced the identical receipt — the ballot could not be read. Also a dead store overwrote the encoding with a plain merkle fold.",

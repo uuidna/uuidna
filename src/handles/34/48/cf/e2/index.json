@@ -1,0 +1,12 @@
+{
+  "handle": "3448cfe2",
+  "address": "3448cfe2-f52a-8715-9122-4dbaa1f8687d",
+  "kind": "chunk",
+  "keys": [
+    "alphabet_digital_root_is_nine"
+  ],
+  "statement": "(9*7*6 = 378) ∧ (3+7+8 = 18) ∧ (1+8 = 9)",
+  "files": [
+    "Colour.lean"
+  ]
+}

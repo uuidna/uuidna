@@ -6,50 +6,52 @@ aside: false
 
 <script setup>
 import { ref, computed } from 'vue'
-import { data } from './.vitepress/ledger.data'
+import { useData } from 'vitepress'
 import { dims } from './.vitepress/theme/dimensions'
 
-// The FILTERING SYSTEM — client-side, computed from the same ledger the pages render. Facet by principle (the
-// derivation cluster) and by skill (the capability), narrow by text; every filter recomputes the count and the
-// order-invariant fold of exactly what is shown, so the receipt below the list is a proof of the current view.
+// This URL is the sequence monograph. Members arrive in frontmatter.axis (SSG) — one copy, no Lean
+// proofs, not tripled into principle/skill bags. Filter is a reading of THIS monograph, not a second app.
+const { frontmatter } = useData()
+const axis = computed(() => frontmatter.value.axis || {
+  total: 0, members: [], order: [], publicationByPrinciple: {}, skills: [], trialReceipt: '',
+})
 const q = ref('')
 const principle = ref('')     // '' = all
 const skill = ref('')         // '' = all
 // aura is a shared DIMENSION (see theme/dimensions.ts) — this button and the ◈ dimensions control are the same
 // toggle, one source of truth, persisted in this browser only.
 const aura = computed({ get: () => dims.aura, set: (v) => { dims.aura = v } })
-const monographByPrinciple = Object.fromEntries(data.groups.map((g) => [g.name, g.monograph]))
 
 const shown = computed(() => {
   const needle = q.value.trim().toLowerCase()
-  return data.theorems.filter((t) =>
+  return axis.value.members.filter((t) =>
     (!principle.value || t.principle === principle.value) &&
     (!skill.value || t.skill === skill.value) &&
     (!needle || (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(needle)))
 })
 // Counts on each facet reflect the OTHER active filters, so a reader sees how many land in each before clicking.
 const principleFacets = computed(() =>
-  data.order.map((name) => ({ name, n: data.theorems.filter((t) => t.principle === name &&
+  axis.value.order.map((name) => ({ name, n: axis.value.members.filter((t) => t.principle === name &&
     (!skill.value || t.skill === skill.value) &&
     (!q.value.trim() || (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q.value.trim().toLowerCase()))).length })))
 const skillFacets = computed(() =>
-  data.skillGroups.map((g) => g.skill).map((s) => ({ s, n: data.theorems.filter((t) => t.skill === s &&
+  axis.value.skills.map((s) => ({ s, n: axis.value.members.filter((t) => t.skill === s &&
     (!principle.value || t.principle === principle.value) &&
     (!q.value.trim() || (t.key + ' ' + t.name + ' ' + t.statement).toLowerCase().includes(q.value.trim().toLowerCase()))).length })))
-const activeMonograph = computed(() => principle.value ? monographByPrinciple[principle.value] : null)
-// the rail shows the USABLE combinations of the filtered list — only clusters a click can still reach (n > 0);
-// the active cluster always stays visible (its own way back). Clear the filter and the rest return: an involution,
+const activePublication = computed(() => principle.value ? axis.value.publicationByPrinciple[principle.value] : null)
+// the rail shows the USABLE combinations of the filtered list — only principles a click can still reach (n > 0);
+// the active principle always stays visible (its own way back). Clear the filter and the rest return: an involution,
 // nothing destroyed.
-const usableClusters = computed(() => principleFacets.value.filter((f) => f.n > 0 || principle.value === f.name))
+const usablePrinciples = computed(() => principleFacets.value.filter((f) => f.n > 0 || principle.value === f.name))
 const clearAll = () => { q.value = ''; principle.value = ''; skill.value = '' }
 </script>
 
-# Theorems <Badge type="tip" :text="`${data.total} Lean-proven`" />
+# Theorems <Badge type="tip" :text="`${axis.total} Lean-proven`" />
 
 **Every proven Lean theorem — filter it, then read its proof.** Each is authored in `lean/*.lean`, proven `by decide`
-(Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`. Filter by **cluster** (the derivation principle) or
-**skill** (the capability), narrow by text, and open any theorem for its proof. Each cluster's **monograph** is its audited
-monograph. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.
+(Lean 4.33.0, no Mathlib), verified sorry-free by `npm run lean`. Filter by **principle** (the derivation wing) or
+**skill** (the capability), narrow by text, and open any theorem for its proof. Each principle's **publication** is its
+audited prose. Lean is the single source; the recomputation-only capabilities (address, gate, crypto) are tools, not theorems.
 Each theorem's **aura** is its content-address folded to an A432 hue at build time — deterministic, the same theorem
 always glows the same colour; the badge digit is its ℤ/7 rosette ray. Artistic decoration, not physics. To walk the
 set in learning order, [the school](/school) rides the doubling orbit out from [the core](/publications/core). The boundary is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught ([drift_is_named_or_caught](/theorem/drift_is_named_or_caught)).
@@ -70,8 +72,8 @@ set in learning order, [the school](/school) rides the doubling orbit out from [
 </div>
 
 <p class="filt-count">
-  <strong>{{ shown.length }}</strong> of {{ data.total }} shown{{ principle ? ` · cluster ${principle}` : '' }}{{ skill ? ` · skill ${skill}` : '' }}.
-  <a v-if="activeMonograph" :href="activeMonograph">Read the {{ principle }} monograph →</a>
+  <strong>{{ shown.length }}</strong> of {{ axis.total }} shown{{ principle ? ` · principle ${principle}` : '' }}{{ skill ? ` · skill ${skill}` : '' }}.
+  <a v-if="activePublication" :href="activePublication">Read the {{ principle }} publication →</a>
 </p>
 
 <ul class="tlist tlist-flat" :class="{ 'tlist-aura': aura }">
@@ -88,16 +90,16 @@ set in learning order, [the school](/school) rides the doubling orbit out from [
 
 </div>
 
-<aside class="trail" aria-label="clusters">
-  <strong class="trail-lbl">cluster · {{ usableClusters.length }} usable</strong>
-  <button class="chip" :class="{ on: !principle }" @click="principle = ''">all <span class="chip-n">{{ data.total }}</span></button>
-  <button v-for="f in usableClusters" :key="f.name" class="chip" :class="{ on: principle === f.name }" @click="principle = principle === f.name ? '' : f.name">{{ f.name }} <span class="chip-n">{{ f.n }}</span></button>
+<aside class="trail" aria-label="principles">
+  <strong class="trail-lbl">principle · {{ usablePrinciples.length }} usable</strong>
+  <button class="chip" :class="{ on: !principle }" @click="principle = ''">all <span class="chip-n">{{ axis.total }}</span></button>
+  <button v-for="f in usablePrinciples" :key="f.name" class="chip" :class="{ on: principle === f.name }" @click="principle = principle === f.name ? '' : f.name">{{ f.name }} <span class="chip-n">{{ f.n }}</span></button>
 </aside>
 
 </div>
 
-The whole set folds to one order-invariant receipt: <Handle :uuid="data.trial.receipt" />. Re-verify every proof with `npm run lean`.
-The same theorems grouped by skill are on [/topics](/topics); each cluster's monograph is on [/publications](/publications).
+The whole set folds to one order-invariant receipt: <Handle :uuid="axis.trialReceipt" />. Re-verify every proof with `npm run lean`.
+The same theorems grouped by skill are on [/topics](/topics); each principle's publication is on [/publications](/publications).
 
 <style scoped>
 /* the cluster facet is the RIGHT RAIL — the 60+ derivation chips stand aside as a sticky vertical index,

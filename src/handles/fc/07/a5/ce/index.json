@@ -1,0 +1,12 @@
+{
+  "handle": "fc07a5ce",
+  "address": "fc07a5ce-e4a3-8728-a0d5-da51e047bc4e",
+  "kind": "chunk",
+  "keys": [
+    "the_empty_string_still_sounds"
+  ],
+  "statement": "(0 * 4 = 0) ∧ (32 - 0 = 32) ∧ (32 > 0)",
+  "files": [
+    "Strings.lean"
+  ]
+}

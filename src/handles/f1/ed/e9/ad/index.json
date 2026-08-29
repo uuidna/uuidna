@@ -1,0 +1,12 @@
+{
+  "handle": "f1ede9ad",
+  "address": "f1ede9ad-cb7a-8f1f-9a4f-1b4e76ec2d6f",
+  "kind": "chunk",
+  "keys": [
+    "threshold_accommodates_ramp"
+  ],
+  "statement": "((List.range 8).map (fun t => if t >= 5 + t then 1 else 0) = [0,0,0,0,0,0,0,0]) ∧ ((List.range 8).map (fun t => if 3 * t >= 5 + t then 1 else 0) = [0,0,0,1,1,1,1,1]) ∧ ((List.range 8).map (fun t => if t >= 5 + t then 1 else 0) ≠ (List.range 8).map (fun t => if 3 * t >= 5 + t then 1 else 0))",
+  "files": [
+    "Neuro.lean"
+  ]
+}

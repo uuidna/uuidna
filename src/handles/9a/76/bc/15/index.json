@@ -1,0 +1,12 @@
+{
+  "handle": "9a76bc15",
+  "address": "9a76bc15-d5de-80b8-a8d6-f79391793993",
+  "kind": "chunk",
+  "keys": [
+    "readings_es_names_sixteen"
+  ],
+  "statement": "([\"cero\",\"uno\",\"dos\",\"tres\",\"cuatro\",\"cinco\",\"seis\",\"siete\",\"ocho\",\"nueve\",\"diez\",\"once\",\"doce\",\"trece\",\"catorce\",\"quince\"] : List String).length = 16 ∧ ([\"cero\",\"uno\",\"dos\",\"tres\",\"cuatro\",\"cinco\",\"seis\",\"siete\",\"ocho\",\"nueve\",\"diez\",\"once\",\"doce\",\"trece\",\"catorce\",\"quince\"] : List String).Nodup",
+  "files": [
+    "Readings.lean"
+  ]
+}

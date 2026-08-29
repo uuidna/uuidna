@@ -5,7 +5,7 @@
 // not reconcile — a suggestion tested in the trial, not confirmed by a question. Integrity, not truth.
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { theorems, coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, toUuid } from '../index.js'
+import { theorems, coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, toUuid, COINS, UUID_BITS, LEVERAGE, PRICE } from '../index.js'
 import { ROOT } from './lean-gen.js'
 
 const T = theorems()
@@ -35,6 +35,8 @@ check(acct.every((k) => T.some((t) => t.key === k)), 'the billing model itself i
 // account the COINS and the BITS — exercise the billing, do not just check its theorems exist.
 console.log('  accounting bits & coins — the billing exercised:')
 check(coins() === 2, `the two coins are conserved: coins() = ${coins()} (= −χ of the genus-2 double torus, 110 − 108)`)
+check(COINS === coins() && PRICE === coins(), `the three books agree: hexbit COINS = billing PRICE = coins() = ${coins()}`)
+check(UUID_BITS / COINS === LEVERAGE && ADDRESS_BITS === UUID_BITS, `leverage is bits over coins: ${UUID_BITS}/${COINS} = ${LEVERAGE}, billing ADDRESS_BITS is the same ${UUID_BITS}`)
 const free = billUuidna({ commercial: false, recomputeOps: 100, verifyOps: 1 })
 check(free.free && free.coins === 0, 'non-commercial use is free — 0 coins')
 const bill = billUuidna({ commercial: true, recomputeOps: 100, verifyOps: 1 })

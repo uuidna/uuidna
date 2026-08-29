@@ -1,0 +1,12 @@
+{
+  "handle": "012b287d",
+  "address": "012b287d-89b3-8e7f-999e-f2bf17b86b2f",
+  "kind": "chunk",
+  "keys": [
+    "crypto_widths_are_fixed_not_sampled"
+  ],
+  "statement": "(32 * 8 = 256) ∧ (16 * 8 = 128) ∧ (600000 = 6 * 100000)",
+  "files": [
+    "Models.lean"
+  ]
+}

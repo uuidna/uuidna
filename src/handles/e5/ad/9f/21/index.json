@@ -1,0 +1,12 @@
+{
+  "handle": "e5ad9f21",
+  "address": "e5ad9f21-97f6-8e10-8a5c-ee47e7f08e52",
+  "kind": "chunk",
+  "keys": [
+    "every_install_and_its_path_named_once"
+  ],
+  "statement": "((List.range 25).all (fun i => (List.range i).all (fun j => nthS installNames i != nthS installNames j))) ∧ ((List.range 25).all (fun i => (List.range i).all (fun j => nthS installRoutes i != nthS installRoutes j))) ∧ (installRoutes.length = installNames.length)",
+  "files": [
+    "Installs.lean"
+  ]
+}

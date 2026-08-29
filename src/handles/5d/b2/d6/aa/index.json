@@ -1,0 +1,12 @@
+{
+  "handle": "5db2d6aa",
+  "address": "5db2d6aa-3ce3-8f7c-b668-81410e9dcb26",
+  "kind": "chunk",
+  "keys": [
+    "pluck_preserves_bound_at_the_window"
+  ],
+  "statement": "(List.range' 0 65).all (fun s => (List.range' 0 9).all (fun k => s * k / 8 ≤ s))",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "ef690180",
+  "address": "ef690180-df98-8677-a52b-23bb93ff873a",
+  "kind": "chunk",
+  "keys": [
+    "reverse_cut_is_undone_by_itself"
+  ],
+  "statement": "(List.range 24).reverse.reverse = List.range 24",
+  "files": [
+    "Editing.lean"
+  ]
+}

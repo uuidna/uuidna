@@ -1,0 +1,12 @@
+{
+  "handle": "5aec9287",
+  "address": "5aec9287-db1b-83c4-96a7-5e5f3bda35c8",
+  "kind": "chunk",
+  "keys": [
+    "sha256_is_four_sixtyfours"
+  ],
+  "statement": "(4 * 64 = 256) ∧ (8 * 32 = 256) ∧ ((2:Nat) ^ 8 = 256)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

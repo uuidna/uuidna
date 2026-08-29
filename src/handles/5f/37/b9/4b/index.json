@@ -1,0 +1,12 @@
+{
+  "handle": "5f37b94b",
+  "address": "5f37b94b-b1e4-868d-980d-4e7740fdd198",
+  "kind": "chunk",
+  "keys": [
+    "imprint_header_minimal"
+  ],
+  "statement": "(2 ^ 6 < 116) ∧ (116 ≤ 2 ^ 7)",
+  "files": [
+    "Cipher.lean"
+  ]
+}

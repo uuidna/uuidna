@@ -1,0 +1,12 @@
+{
+  "handle": "43394b79",
+  "address": "43394b79-4e83-858a-85af-74581cd9671c",
+  "kind": "chunk",
+  "keys": [
+    "channel_is_two_hexbits"
+  ],
+  "statement": "(2 * 4 = 8) ∧ ((2:Nat)^8 = 256) ∧ (3 * 8 = 24) ∧ (3 * 2 = 6)",
+  "files": [
+    "SpectrumHex.lean"
+  ]
+}

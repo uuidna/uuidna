@@ -79,6 +79,7 @@ docs/models.md merge=derived
 src/quantum/models/mirror.ts merge=derived
 docs/doctrine.md merge=derived
 src/chunks/** merge=derived
+src/handles/** merge=derived
 
 # ── THE RECORDS UNDER A DIRECTORY ENTRY THAT ARE NOT DERIVED (2026-08-25) ────────────────────────────────────
 # A DRAIN_PATHS entry with no dot becomes a DIRECTORY glob above — 'lean' becomes lean/**. That is right for the

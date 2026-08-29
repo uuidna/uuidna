@@ -1,0 +1,12 @@
+{
+  "handle": "8e898e9d",
+  "address": "8e898e9d-b36c-8f9e-9bff-3fa693682c38",
+  "kind": "chunk",
+  "keys": [
+    "nand_reconstructs_and"
+  ],
+  "statement": "[(0,0),(0,1),(1,0),(1,1)].all (fun p => (1 - (1 - p.1 * p.2)) == p.1 * p.2)",
+  "files": [
+    "Hardware.lean"
+  ]
+}

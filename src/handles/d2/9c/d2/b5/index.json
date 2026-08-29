@@ -1,0 +1,12 @@
+{
+  "handle": "d29cd2b5",
+  "address": "d29cd2b5-7bfd-85c8-a635-fcbc65d9dd70",
+  "kind": "chunk",
+  "keys": [
+    "declination_spans_180"
+  ],
+  "statement": "(90 - (-90) : Int) = 180",
+  "files": [
+    "Astronomy.lean"
+  ]
+}

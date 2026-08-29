@@ -5,3 +5,8 @@ export * from './automate/improvement/index.js'
 export * from './practice/feedback/loop/index.js'
 // the open doors — the unverified organised in topics for the school (lead 88b)
 export { openQuestions, placeItem, isInvolutionShaped, type OpenItem, type OpenTopic, type PlacedItem } from './open/questions/index.js'
+// laboratory — labs entangled to theorems and related resources; sufficient for every admitted domain
+export {
+  labOf, domainLab, schoolLabs, simulationKind, LAB_CITES,
+  type Lab, type LabMember, type LabKind, type SimulationKind, type Simulation, type Emulator, type DomainLab, type SchoolLabs,
+} from './laboratory/index.js'

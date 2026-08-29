@@ -1,0 +1,12 @@
+{
+  "handle": "1d647d15",
+  "address": "1d647d15-8f34-8d13-96f3-d222d5b76715",
+  "kind": "chunk",
+  "keys": [
+    "drift_needs_two_to_hide_in"
+  ],
+  "statement": "(1 * 0 / 2 = 0) ∧ (2 * 1 / 2 = 1) ∧ (16 * 15 / 2 = 120)",
+  "files": [
+    "Singularity.lean"
+  ]
+}

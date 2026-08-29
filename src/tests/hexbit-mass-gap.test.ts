@@ -3,11 +3,10 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  HEXBIT_BITS, HEXBIT_STATES, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES,
+  HEXBIT_BITS, HEXBIT_STATES, sha256IsFourSixtyfours,
   computeMassGap, massGap, hexbitRingMassGap, bornFieldMassGap, qubitsToHexbits,
 } from '../hexbit/index.js'
 import { bellBornWeights, massGapOnBellBornField } from '../quantum/index.js'
-import { MAX_MESSAGE_QUBITS, MAX_MESSAGE_STATES } from '../quantum/message/index.js'
 import { theorems } from '../index.js'
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../address.js'
@@ -18,13 +17,16 @@ test('HEXBIT_STATES is the doubling of HEXBIT_BITS — the ring the mass gap wal
   assert.equal(HEXBIT_STATES, s)
 })
 
-test('message cap is four hexbits of Hilbert index — derived, not a magic 16', () => {
-  assert.equal(MESSAGE_CAP_QUBITS, MESSAGE_CAP_HEXBITS * HEXBIT_BITS)
-  assert.equal(MESSAGE_CAP_STATES, HEXBIT_STATES ** MESSAGE_CAP_HEXBITS)
-  assert.equal(MESSAGE_CAP_STATES, 2 ** MESSAGE_CAP_QUBITS)
-  assert.equal(qubitsToHexbits(MESSAGE_CAP_QUBITS), MESSAGE_CAP_HEXBITS)
-  assert.equal(MAX_MESSAGE_QUBITS, MESSAGE_CAP_QUBITS)
-  assert.equal(MAX_MESSAGE_STATES, MESSAGE_CAP_STATES)
+test('Hilbert 4×4 is HEXBIT_BITS × HEXBIT_BITS; crypto occupancy is four 64s', () => {
+  const qubits = HEXBIT_BITS * HEXBIT_BITS
+  const states = HEXBIT_STATES ** HEXBIT_BITS
+  assert.equal(qubits, HEXBIT_BITS * HEXBIT_BITS)
+  assert.equal(states, HEXBIT_STATES ** HEXBIT_BITS)
+  assert.equal(states, 2 ** qubits)
+  assert.equal(qubitsToHexbits(qubits), HEXBIT_BITS)
+  const s = sha256IsFourSixtyfours()
+  assert.equal(s.boards * s.sixtyfours, s.bits)
+  assert.notEqual(s.hexbits, HEXBIT_BITS)
 })
 
 test('computeMassGap derives Δ from the field — no hardcoded delta argument', () => {

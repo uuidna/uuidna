@@ -1,0 +1,12 @@
+{
+  "handle": "55fba61e",
+  "address": "55fba61e-4e8b-89d8-8c07-8d477cb1ee5f",
+  "kind": "chunk",
+  "keys": [
+    "birthday_halves_the_exponent"
+  ],
+  "statement": "2 * 64 = 128",
+  "files": [
+    "Security.lean"
+  ]
+}

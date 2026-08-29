@@ -1,0 +1,12 @@
+{
+  "handle": "72b40c8a",
+  "address": "72b40c8a-6bf0-8b61-806a-3fcdd5a7b0b7",
+  "kind": "chunk",
+  "keys": [
+    "the_second_voice_is_the_variant"
+  ],
+  "statement": "((List.range 16).filter (fun n => n / 4 == 2) = [8,9,10,11]) ∧ (((List.range 16).filter (fun n => n / 4 == 2)).length = 4) ∧ (4 * 4 = 16)",
+  "files": [
+    "Wave.lean"
+  ]
+}

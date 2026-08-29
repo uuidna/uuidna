@@ -1,0 +1,12 @@
+{
+  "handle": "86e1f673",
+  "address": "86e1f673-ecc9-8ef6-8ca3-197eb7aaf266",
+  "kind": "chunk",
+  "keys": [
+    "octet_rule"
+  ],
+  "statement": "4 + 4 = 8",
+  "files": [
+    "Molecular.lean"
+  ]
+}

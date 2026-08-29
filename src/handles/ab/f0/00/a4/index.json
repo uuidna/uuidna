@@ -1,0 +1,12 @@
+{
+  "handle": "abf000a4",
+  "address": "abf000a4-812d-8991-9b2f-5e2abc4662c7",
+  "kind": "chunk",
+  "keys": [
+    "pi_bracketed_by_finite_rationals"
+  ],
+  "statement": "223 * 7 = 1561 ∧ 22 * 71 = 1562 ∧ 223 * 7 < 22 * 71",
+  "files": [
+    "Pentagram.lean"
+  ]
+}

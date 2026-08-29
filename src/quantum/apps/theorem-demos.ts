@@ -2,6 +2,8 @@
 // FREE MINT meets USE: the drill records recompute attempts (minting_is_two_per_theorem); Alpine apps harmonise
 // by skill (integrity, not execution). Pure — no network.
 import { drillOf, type TheoremLike } from './categories/practice/drill.js'
+import { shelfForSkill } from './skill-shelf.js'
+export { shelfForSkill } from './skill-shelf.js'
 
 export interface TheoremDemo {
   key: string
@@ -10,31 +12,11 @@ export interface TheoremDemo {
   drill: { route: string; mount: string; label: string }
   /** skill-matched store shelf */
   shelf: { route: string; mount: string; label: string }
-  /** Alpine catalogue witness count when this theorem heads its skill (0 if none) */
+  /** Alpine catalogue witness count — every theorem of a harmonised skill, plus cipher occupancy on the crypto tally */
   alpineApps: number
+  /** Skill the catalogue door opens — cipher occupancy keys (even models/byte) search ssl */
+  catalogueSkill: string
   honest: string
-}
-
-const DEFAULT_SHELF = { route: '/school', mount: 'PracticeLoop', label: 'Practice drill' }
-
-/** skill → the browser shelf that best demonstrates the skill's concepts */
-const SKILL_SHELF: Record<string, { route: string; mount: string; label: string }> = {
-  chess: { route: '/chess', mount: 'Chess', label: 'Chess board' },
-  nim: { route: '/games', mount: 'NimPlay', label: 'Nim game' },
-  installs: { route: '/os', mount: 'PortPanel', label: 'Alpine install port' },
-  os: { route: '/terminal', mount: 'ExecShell', label: 'uuidnaOS shell' },
-  codes: { route: '/tools', mount: 'SchoolTools', label: 'Claim trial' },
-  coding: { route: '/tools', mount: 'SchoolTools', label: 'Claim trial' },
-  billing: { route: '/trading', mount: 'TradingFloor', label: 'Trading desk' },
-  coins: { route: '/trading', mount: 'TradingFloor', label: 'Two-coin desk' },
-  trading: { route: '/trading', mount: 'TradingFloor', label: 'Trading floor' },
-  books: { route: '/reading-room', mount: 'BookRoom', label: 'Book room' },
-  sailing: { route: '/reading-room', mount: 'BookRoom', label: 'Sailing library' },
-  song: { route: '/referrer-song', mount: 'HexbitPlayer', label: 'Hexbit player' },
-  anthem: { route: '/referrer-song', mount: 'HexbitPlayer', label: 'Hexbit player' },
-  'music-production': { route: '/referrer-song', mount: 'HexbitPlayer', label: 'Hexbit player' },
-  hexbit: { route: '/apps', mount: 'HexbitAnimator', label: 'Hexbit animator' },
-  catalogue: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
 }
 
 const HONEST =
@@ -44,13 +26,14 @@ const HONEST =
 
 /** theoremDemoOf(key, skill[, alpineApps]) → drill + shelf routes for UI crosslinks. Pure. */
 export function theoremDemoOf(key: string, skill: string, alpineApps = 0): TheoremDemo {
-  const shelf = SKILL_SHELF[skill] ?? DEFAULT_SHELF
+  const shelf = shelfForSkill(skill)
   return {
     key,
     skill,
     drill: { route: `/theorem/${key}`, mount: 'TheoremUse', label: 'In-page drill' },
     shelf,
     alpineApps,
+    catalogueSkill: catalogueSkillOf(skill, key),
     honest: HONEST,
   }
 }
@@ -79,13 +62,62 @@ export function theoremDemoCoverage(ledger: readonly TheoremLike[]): TheoremDemo
   }
 }
 
-/** alpineWitnessByTheorem(bySkill) → map theorem key → harmonised app count from lean/alpine-apps.json */
+/** Cipher occupancy powers the Alpine crypto apps (those packages harmonise as skill `security`). */
+const CRYPTO_POWER: readonly string[] = ['cipher', 'crypt-salt']
+
+/** Occupancy census keys whose statements are the cipher widths — they power the same tally even when skill is models or byte. */
+const CRYPTO_OCCUPANCY: readonly string[] = [
+  'crypto_widths_are_fixed_not_sampled',
+  'aead_nonce_and_salt_bits',
+  'key_floor_is_one_uuid',
+  'onion_layers_power_of_two',
+  'digest_doubles_the_address',
+  'sha256_is_four_sixtyfours',
+]
+
+function powersCrypto(skill: string, key: string): boolean {
+  return CRYPTO_POWER.includes(skill) || CRYPTO_OCCUPANCY.includes(key)
+}
+
+function catalogueSkillOf(skill: string, key: string): string {
+  return powersCrypto(skill, key) || skill === 'security' ? 'cipher' : skill
+}
+
+export interface AlpineSkillRow { skill?: string; theorem?: string; apps?: number }
+
+/** alpineWitnessByTheorem(bySkill[, ledger]) → theorem key → harmonised app count.
+ *  The heaviest witness still maps; when a ledger is given, every theorem of that skill does too, and
+ *  cipher / crypt-salt theorems carry the security tally — occupancy that powers those apps. */
 export function alpineWitnessByTheorem(
-  bySkill: readonly { theorem?: string; apps?: number }[],
+  bySkill: readonly AlpineSkillRow[],
+  ledger: readonly { key: string; skill: string }[] = [],
 ): Map<string, number> {
+  const appsBySkill = new Map<string, number>()
   const m = new Map<string, number>()
   for (const row of bySkill) {
+    if (row.skill && row.apps) appsBySkill.set(row.skill, row.apps)
     if (row.theorem && row.apps) m.set(row.theorem, row.apps)
   }
+  const cryptoApps = appsBySkill.get('security') ?? 0
+  for (const t of ledger) {
+    const n = appsBySkill.get(t.skill) ?? 0
+    const extra = powersCrypto(t.skill, t.key) ? cryptoApps : 0
+    const total = n + extra
+    if (total) m.set(t.key, total)
+  }
   return m
+}
+
+/** catalogueNeedleOf(skill[, key]) → the catalogue search that skill (or occupancy key) opens. Crypto occupancy searches ssl. */
+export function catalogueNeedleOf(skill: string, key = ''): string {
+  if (powersCrypto(skill, key) || skill === 'security') return 'ssl'
+  if (skill === 'typesetting') return 'font'
+  if (skill === 'codes') return 'checksum'
+  if (skill === 'music-production') return 'audio'
+  if (skill === 'editing') return 'video'
+  if (skill === 'photography') return 'camera'
+  if (skill === 'colour') return 'colour'
+  if (skill === 'identifiers') return 'isbn'
+  if (skill === 'calendar') return 'timezone'
+  return skill
 }

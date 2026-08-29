@@ -16,10 +16,11 @@
 import { encrypt, decrypt, type Sealed } from './crypt.js'
 import { imprintTextChain, readImprintTextChain } from './imprint.js'
 import { merkleFold, toUuid } from './address.js'
-import { SAFE_HEXBITS } from './hexbit/index.js'
+import { HEXBIT_STATES, SAFE_HEXBITS, HANDLE_HEXBITS } from './hexbit/index.js'
+import { balanceStream, jobHandles, mapAcross, type StreamBalance } from './quantum/apps/balancer.js'
 
 /** Bounded onion depth. Each layer re-base64s the one below (~4/3× size), so depth is finite by construction. */
-export const MAX_LAYERS = 16
+export const MAX_LAYERS = HEXBIT_STATES
 
 /** A sealed stream: the onion ciphertext carried as a uuid chain, its layer count, and its 7d-fold receipt. */
 export interface Stream {
@@ -58,10 +59,27 @@ export function openStream(uuids: readonly string[], passphrases: readonly strin
   return payload
 }
 
-/** sealMessages(messages, passphrases, start=0) → one sealed Stream per message, the step ADVANCING (start,
- *  start+1, …) so repeated messages never seal alike across the whole stream. The messaging-stream form. */
+/** Independent messages each get a handle so the CPU/GPU balancer can residue-map them. */
+export function streamHandles(messages: readonly string[], start = 0): string[] {
+  return jobHandles('stream', messages, start)
+}
+
+/** Same seals as a serial map, assigned across the CPU/GPU fleet. Onion layers and sealChain stay serial. */
+export function sealMessagesAcross(
+  messages: readonly string[],
+  passphrases: readonly string[],
+  cpuWorkers: number = HANDLE_HEXBITS,
+  start = 0,
+): { streams: Stream[]; balance: StreamBalance } {
+  const handles = streamHandles(messages, start)
+  const balance = balanceStream(handles, cpuWorkers)
+  const streams = mapAcross(handles, balance.workers, (i) => sealStream(messages[i]!, passphrases, start + i))
+  return { streams, balance }
+}
+
+/** sealMessages — one stream per message, step advancing, routed through the CPU/GPU fleet. */
 export function sealMessages(messages: readonly string[], passphrases: readonly string[], start = 0): Stream[] {
-  return messages.map((m, i) => sealStream(m, passphrases, start + i))
+  return sealMessagesAcross(messages, passphrases, HANDLE_HEXBITS, start).streams
 }
 
 /** openMessages(streams, passphrases) → the original messages, in order. */

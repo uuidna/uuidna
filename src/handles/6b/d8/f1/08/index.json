@@ -1,0 +1,12 @@
+{
+  "handle": "6bd8f108",
+  "address": "6bd8f108-1a93-87db-96c4-334356433bfb",
+  "kind": "chunk",
+  "keys": [
+    "each_key_bit_doubles"
+  ],
+  "statement": "2^11 = 2 * 2^10",
+  "files": [
+    "Security.lean"
+  ]
+}

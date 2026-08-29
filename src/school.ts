@@ -1,4 +1,4 @@
-// school — THE ELEVEN SECTIONS, COMPUTED FROM THE LEDGER RATHER THAN AUTHORED.
+// school — THE TWELVE SECTIONS, COMPUTED FROM THE LEDGER RATHER THAN AUTHORED.
 //
 // The school was 907 lines of script and 546 of prose, and unusable: a reader could not find what it taught, what
 // it cost, or how to begin. Rewriting that as better prose would reproduce the problem in a tidier shape, because
@@ -30,6 +30,8 @@ const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinM
 import { theorems } from './theorems/index.js'
 import { toUuid, merge } from './address.js'
 import { merkleGravity } from './gravity/index.js'
+import { schoolLabs, type SchoolLabs } from './school/laboratory/index.js'
+import { schoolAdvantageMcpExamples } from './school/advantage/index.js'
 
 /** One lesson in a course: the theorem, and what it cost the kernel to decide. `steps` is 0 when unmeasured. */
 export interface Lesson { key: string; name: string; steps: number }
@@ -55,6 +57,9 @@ export interface School {
    *  measurements and one resting on none rendered identically before this field: both were simply a list of
    *  courses. A reading that does not report how much it read cannot be audited. */
   covered: { graded: number; of: number }
+  /** THE LABORATORY. One lab per admitted world domain (skill), each with a simulation and an emulator,
+   *  entangled to the head theorem and its related resources. Sufficient iff every review domain is equipped. */
+  laboratory: Pick<SchoolLabs, 'domains' | 'sufficient' | 'receipt'>
 }
 
 /** THE COST OF A LESSON, MEASURED — lean/heartbeats.json holds the kernel decide-steps for every theorem, keyed by
@@ -461,7 +466,7 @@ const line = (label: string, value: string | number): string => `${label}: ${val
 
 /** THE MANIFEST IS THE SOURCE.
  *
- *  Eight of these eleven sections were authored strings — the licence, the Node requirement, the dependency count,
+ *  Eight of these twelve sections were authored strings — the licence, the Node requirement, the dependency count,
  *  every contact URL — each of which is a field in package.json that I retyped. A retyped field is a claim that
  *  cannot stay true, which is the same defect as a ledger count frozen into a comment. */
 const manifest = (): Record<string, string | Record<string, string>> => {
@@ -484,7 +489,7 @@ const releases = (): string[] => {
   } catch { return [] }
 }
 
-/** The eleven sections. `computed: false` marks a section whose content is a STANDING FACT about the project
+/** The twelve sections. `computed: false` marks a section whose content is a STANDING FACT about the project
  *  rather than a reading of the ledger — so a reader can tell which parts move on their own. */
 export function school(): School {
   const cs = courses()
@@ -492,6 +497,8 @@ export function school(): School {
   const T = theorems()
   const lessons = T.length
   const skills = [...new Set(T.map((t) => t.skill).filter(Boolean))].length
+  const labs = schoolLabs()
+  const mcpEx = schoolAdvantageMcpExamples()
 
   const sections: Section[] = [
     { id: 'name-mission', title: 'Name and mission', computed: true, body: [
@@ -545,6 +552,19 @@ export function school(): School {
       'To check the proofs at their source you need the Lean toolchain; the kernel-only witness ships so you can',
       'recompute offline.',
     ] },
+    { id: 'laboratory', title: 'Laboratory', computed: true, body: [
+      'The school laboratory is sufficient for every world domain the ledger admits — a skill in the domain review.',
+      'Each domain has a simulation (recompute the sealed arithmetic; classical state-vector for quantum; Layer 1',
+      'uuidna_exec for OS) and an emulator (32 hexbit states plus the skill-matched shelf). Labs are computationally',
+      'entangled to the theorem and its related resources: one order-invariant receipt; only sealed members bind.',
+      'A domain not admitted cannot pass the gates. This is not a physics-world simulator.',
+      line('World domains admitted', labs.domains),
+      line('Labs sufficient', labs.sufficient ? 'every admitted domain' : 'gaps named'),
+      ...labs.roster.map((r) => `  ${r.domain} — sim ${r.simulation} / emu ${r.emulator}`),
+      line('Quantum-advantage MCP examples', mcpEx.examples.length),
+      '  Each example is a tools/call on https://uuidna.com/mcp — constructor fields, named absents, no new theorem.',
+      ...mcpEx.examples.map((e) => `  ${e.tool} ${JSON.stringify(e.arguments)} — ${e.theorem}`),
+    ] },
     { id: 'handbook', title: 'Handbook and policies', computed: true, body: [
       'The policies are the gate— each is enforced on every change:',
       '  A claim cites a sealed theorem or it is UNVERIFIED. Unverified means undecided here.',
@@ -578,6 +598,7 @@ export function school(): School {
     sections, courses: cs, levels: ls,
     basis: b.reason ? { measure: b.measure, reason: b.reason } : { measure: b.measure },
     covered: { graded: cs.filter((c) => c.level > 0).length, of: cs.length },
+    laboratory: { domains: labs.domains, sufficient: labs.sufficient, receipt: labs.receipt },
     receipt: merkleGravity(sections.map((s) => toUuid(s.id + '|' + s.body.join('\n')))),
   }
 }

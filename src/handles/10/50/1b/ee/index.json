@@ -1,0 +1,12 @@
+{
+  "handle": "10501bee",
+  "address": "10501bee-d147-8a79-9d6a-bf3795ccd89e",
+  "kind": "chunk",
+  "keys": [
+    "collisions_are_forced_by_the_ceiling"
+  ],
+  "statement": "(16 > 8) ∧ ((2:Nat)^8 = 256) ∧ (256 > 255)",
+  "files": [
+    "Strings.lean"
+  ]
+}

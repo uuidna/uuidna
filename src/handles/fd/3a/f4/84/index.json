@@ -1,0 +1,12 @@
+{
+  "handle": "fd3af484",
+  "address": "fd3af484-5ef3-8292-a16b-a694c9100b20",
+  "kind": "chunk",
+  "keys": [
+    "groups_are_four_apart"
+  ],
+  "statement": "[8,4,4,4,12].map (fun g => g * 4) = [32,16,16,16,48]",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

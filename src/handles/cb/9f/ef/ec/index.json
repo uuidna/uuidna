@@ -1,0 +1,12 @@
+{
+  "handle": "cb9fefec",
+  "address": "cb9fefec-cec7-8038-8ee9-416c8f5f4283",
+  "kind": "chunk",
+  "keys": [
+    "taking_before_paying_differs"
+  ],
+  "statement": "(128 - 2 = 126) ∧ ((128:Nat) ≠ 126) ∧ (126 < 128)",
+  "files": [
+    "Contribution.lean"
+  ]
+}

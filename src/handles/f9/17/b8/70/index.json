@@ -1,0 +1,12 @@
+{
+  "handle": "f917b870",
+  "address": "f917b870-eb67-8dd1-9321-12a750b926a2",
+  "kind": "chunk",
+  "keys": [
+    "anthem_three_lengths_quarter_the_bar"
+  ],
+  "statement": "252 * 2 / 4 = 126 ∧ 252 * 3 / 4 = 189 ∧ 252 * 4 / 4 = 252",
+  "files": [
+    "Anthem.lean"
+  ]
+}

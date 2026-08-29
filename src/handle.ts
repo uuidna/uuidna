@@ -20,7 +20,7 @@
 // a near-miss will happily address two payloads to one place.
 
 /** the store's root, relative to the repository */
-export const HANDLE_ROOT = 'src/handle'
+export const HANDLE_ROOT = 'src/handles'
 
 /** eight lowercase hex characters — the shape chunkHandleOf already emits */
 const HANDLE = /^[0-9a-f]{8}$/
@@ -79,6 +79,87 @@ export const laneOf = (address: string, lanes: number): number =>
 export function handleParts(handle: string): string[] {
   if (!isHandle(handle)) throw new Error(`handle must be eight lowercase hex characters, got ${JSON.stringify(handle)}`)
   return [handle.slice(0, 2), handle.slice(2, 4), handle.slice(4, 6), handle.slice(6, 8)]
+}
+
+/** Four IPv4 octets — the handle already is a /32. Two hex characters are one octet (00..ff). */
+export const HANDLE_OCTETS = 4
+
+const HEX = '0123456789abcdef'
+const octetSpan = (): number => {
+  let n = 1
+  for (let i = 0; i < 2; i++) n = n * HEX.length
+  return n
+}
+const octetBits = (): number => {
+  const span = octetSpan()
+  let bits = 0
+  let n = 1
+  while (n < span) { n = n + n; bits++ }
+  return bits
+}
+
+/** IPv4 netmasks on a handle: /8 /16 /24 /32 — one octet of prefix per step. */
+export const ipv4Masks = (): readonly number[] => {
+  const b = octetBits()
+  const out: number[] = []
+  for (let i = 1; i <= HANDLE_OCTETS; i++) out.push(b * i)
+  return out
+}
+
+/** handleOctets(handle) → four integers 0..255, IPv4 dotted-quad order. */
+export function handleOctets(handle: string): [number, number, number, number] {
+  const p = handleParts(handle)
+  return [parseInt(p[0]!, 16), parseInt(p[1]!, 16), parseInt(p[2]!, 16), parseInt(p[3]!, 16)]
+}
+
+/** octetsToHandle(a,b,c,d) → the handle those four octets name. Inverse of handleOctets. */
+export function octetsToHandle(a: number, b: number, c: number, d: number): string {
+  const span = octetSpan()
+  const hex = (n: number): string => {
+    if (!Number.isInteger(n) || n < 0 || n >= span) throw new Error(`handle: octet ${n} is not 0..${span - 1}`)
+    return HEX[(n - n % 16) / 16]! + HEX[n % 16]!
+  }
+  return hex(a) + hex(b) + hex(c) + hex(d)
+}
+
+/** handleIpv4(handle) → dotted-quad, e.g. cc9c0011 → 204.156.0.17 */
+export const handleIpv4 = (handle: string): string => handleOctets(handle).join('.')
+
+/** cidrNetwork(handle, maskBits) → the IPv4 network this handle sits on at that mask (/8 /16 /24 /32). */
+export function cidrNetwork(handle: string, maskBits: number): { cidr: string; mask: number; octets: [number, number, number, number] } {
+  const bits = octetBits()
+  const masks = ipv4Masks()
+  if (!masks.includes(maskBits)) throw new Error(`handle: /${maskBits} is not an IPv4 netmask (need /${masks.join(', /')})`)
+  const keep = maskBits / bits
+  const o = handleOctets(handle)
+  const net: [number, number, number, number] = [0, 0, 0, 0]
+  for (let i = 0; i < HANDLE_OCTETS; i++) net[i] = i < keep ? o[i]! : 0
+  return { cidr: net.join('.') + '/' + maskBits, mask: maskBits, octets: net }
+}
+
+/** cidrHostSpan(maskBits) → how many handles sit in one network of that mask: 2^(32−mask). Doubling, never a log. */
+export function cidrHostSpan(maskBits: number): number {
+  const bits = octetBits()
+  const total = bits * HANDLE_OCTETS
+  const masks = ipv4Masks()
+  if (!masks.includes(maskBits)) throw new Error(`handle: /${maskBits} is not an IPv4 netmask`)
+  let n = 1
+  for (let i = 0; i < total - maskBits; i++) n = n + n
+  return n
+}
+
+/** cidrContains(outer, inner) → inner's address sits in outer's network and outer is a strictly shorter prefix. */
+export function cidrContains(outer: { cidr: string; mask: number; octets: readonly number[] }, inner: { mask: number; octets: readonly number[] }): boolean {
+  if (outer.mask >= inner.mask) return false
+  const bits = octetBits()
+  const keep = outer.mask / bits
+  for (let i = 0; i < keep; i++) if (outer.octets[i] !== inner.octets[i]) return false
+  return true
+}
+
+/** Reverse by path parts — a prefix of k chunks becomes a suffix of k chunks. Involution. */
+export function reverseHandle(handle: string): string {
+  return handleParts(handle).reverse().join('')
 }
 
 /** the path a handle's payload lives at */

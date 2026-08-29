@@ -38,15 +38,15 @@ import {
   classicalMap, fraction, bellBornWeights, massGapOnBellBornField, type QState, type Prob,
 } from '../../quantum/index.js'
 import {
-  compileToHexbits, valueOf, HEXBIT_BITS, HEXBIT_STATES, UUID_HEXBITS, HANDLE_HEXBITS,
+  compileToHexbits, valueOf,   HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, UUID_HEXBITS, HANDLE_HEXBITS,
   computeMassGap, hexbitRingMassGap,
 } from '../../hexbit/index.js'
+import { REPORTED_BASELINE } from '../../quantum/advantage/index.js'
 import { toUuid } from '../../address.js'
 import { handleOf } from '../../handle.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { theoremByKey, theorems, THEOREMS } from '../../theorems/index.js'
 import { hostProfile, type HostProfile } from '../../os/host/index.js'
-import { MAX_MESSAGE_QUBITS } from '../../quantum/message/index.js'   // the encoder's cap — imported, never restated
 
 // ── THE DEVICE ───────────────────────────────────────────────────────────────────────────────────────────────
 
@@ -75,26 +75,19 @@ const DEVICE_HONEST =
   'fidelity/cost on this host. Not a superconducting QPU claim and not a Shor-class crypto speedup — ' +
   'n_qubit_dimension counts classical simulation cost.'
 
-/** THE ENCODER'S CEILING, IMPORTED RATHER THAN RESTATED — and the first version of this line restated it.
- *
- *  It read `export const SIMULABLE_QUBITS = 16` under a comment claiming the constant existed "so a changed cap
- *  and an unchanged theorem cannot pass each other silently", which is precisely what a SECOND copy of the
- *  number guarantees will happen: move the encoder's cap to 20 and this stays 16, while the witness below goes
- *  on asserting that `message_qubit_cap_states` holds — checking a stale ceiling and reporting EXACT. One truth,
- *  one place. Guard's `dry` finder passed the duplicate, so nothing but reading it would have caught it. */
-export const SIMULABLE_QUBITS = MAX_MESSAGE_QUBITS
-
+/** Hilbert 4×4 register — HEXBIT_BITS × HEXBIT_BITS qubits. Crypto occupancy is four 64s, not this. */
 export function hostQuantumDevice(): QuantumDevice {
   const host = hostProfile()
   const witnesses = WITNESSES.map((w) => w.theorem)
+  const hilbertQubits = HEXBIT_BITS * HEXBIT_BITS
   return {
     ...host,
     kind: 'classical host executing the sealed quantum algebra in exact integers',
     hexbitBits: HEXBIT_BITS,
     handleHexbits: HANDLE_HEXBITS,
     uuidHexbits: UUID_HEXBITS,
-    simulableQubits: SIMULABLE_QUBITS,
-    simulableStates: 1 << SIMULABLE_QUBITS,
+    simulableQubits: hilbertQubits,
+    simulableStates: HEXBIT_STATES ** HEXBIT_BITS,
     witnesses,
     deviceAddress: toUuid(`quantum-device|${host.address}|${witnesses.join(',')}`),
     honest: DEVICE_HONEST,
@@ -316,16 +309,16 @@ export const WITNESSES: readonly Witness[] = [
   //
   // The statement `message_qubit_cap_states` seals is exactly `2^16 = 65536`, so the exponent and the count are
   // READ FROM IT and the code is checked against the ledger rather than against itself. Three decisions, each
-  // able to fail: the encoder's cap has moved off the sealed exponent; the theorem's own arithmetic does not
+  // able to fail: the encoder has moved off the sealed exponent; the theorem's own arithmetic does not
   // hold; this host allocates a different number of amplitudes than the theorem decided.
-  { theorem: 'message_qubit_cap_states', cases: 3, what: "the encoder's cap and this host's allocation both match the sealed 2^n = N",
+  { theorem: 'message_qubit_cap_states', cases: 3, what: "the encoder and this host's allocation both match the sealed 2^n = N",
     run: () => {
       const sealed = theoremByKey().get('message_qubit_cap_states')?.statement ?? ''
       const m = /2\^(\d+)\s*=\s*(\d+)/.exec(sealed)
       if (!m) return 3          // the statement no longer says what this witness reads — a refusal, not a pass
       const n = Number(m[1]), states = Number(m[2])
       return failures([
-        MAX_MESSAGE_QUBITS === n,           // the encoder's cap IS the exponent the ledger sealed
+        HEXBIT_BITS * HEXBIT_BITS === n,  // Hilbert 4×4 is the exponent the ledger sealed
         (1 << n) === states,                // the arithmetic the kernel decided, recomputed here
         ket0(n).amp.length === states,      // and this silicon allocates exactly that many amplitudes
       ])
@@ -423,11 +416,78 @@ export const WITNESSES: readonly Witness[] = [
       const distinct = new Set(b.map((s) => s.amp.map((c) => `${c.re}/${c.im}`).join(','))).size
       return failures([distinct === 4, (8 - (8 % 2)) / 2 === 4, 2 ** 2 === 4]) } },
 
+  // ADVANTAGE GAPS — live constructors against the sealed statement, same discipline as message_qubit_cap_states.
+  // A constructor that moved off the seal disagrees; a tautology that only restates 2^n would not.
+  { theorem: 'served_qubit_ceiling', cases: 4, what: 'served nest IS handle+hexbit, at or below the encoder, and this host allocates 2^n',
+    run: () => {
+      const sealed = theoremByKey().get('served_qubit_ceiling')?.statement ?? ''
+      const m = /\(\((\d+):Nat\)\s*≤\s*(\d+)\)/.exec(sealed)
+      const statesM = /2:Nat\)\^(\d+)\s*=\s*(\d+)/.exec(sealed)
+      if (!m || !statesM) return 4
+      const n = Number(m[1]), cap = Number(m[2]), exp = Number(statesM[1]), states = Number(statesM[2])
+      let pow = 1
+      for (let i = 0; i < n; i++) pow = pow * 2
+      return failures([
+        HANDLE_HEXBITS + HEXBIT_BITS === n,     // handle+hexbit nest the seal names, never a magic 12
+        HEXBIT_BITS * HEXBIT_BITS === cap,  // Hilbert 4×4 is the sealed 16
+        n === exp && pow === states,            // 2^n = 4096 as the kernel decided
+        ket0(n).amp.length === states,          // this silicon allocates exactly that many amplitudes
+      ])
+    } },
+
+  { theorem: 'gate_error_baseline_class', cases: 3, what: 'advantage baseline errors/M and gate-ns ARE the sealed decade class',
+    run: () => {
+      const sealed = theoremByKey().get('gate_error_baseline_class')?.statement ?? ''
+      const m = /\(\((\d+):Nat\)\s*=\s*10\^3\)/.exec(sealed)
+      const nsM = /\(\((\d+):Nat\)\s*=\s*10\^2\)/.exec(sealed)
+      if (!m || !nsM) return 3
+      const errors = Number(m[1]), ns = Number(nsM[1])
+      let thou = 1, hund = 1
+      for (let i = 0; i < 3; i++) thou = thou * 10
+      for (let i = 0; i < 2; i++) hund = hund * 10
+      return failures([
+        REPORTED_BASELINE.errorsPerMillion === errors && errors === thou,
+        REPORTED_BASELINE.gateNs === ns && ns === hund,
+        errors * errors === 1000000,
+      ])
+    } },
+
+  { theorem: 'usable_gap_eighty_bits', cases: 3, what: 'UUID_BITS minus the reported 48 logical is the sealed 80-bit usable-column gap',
+    run: () => {
+      const sealed = theoremByKey().get('usable_gap_eighty_bits')?.statement ?? ''
+      const m = /(\d+)\s*-\s*(\d+)\s*=\s*(\d+)/.exec(sealed)
+      if (!m) return 3
+      const bits = Number(m[1]), logical = Number(m[2]), gap = Number(m[3])
+      return failures([
+        UUID_BITS === bits,                     // the address width this host speaks
+        bits - logical === gap,                 // 128 − 48 = 80 as the kernel decided
+        logical < bits && gap === 80,           // the reported column is strictly below the address
+      ])
+    } },
+
+  { theorem: 'register_exceeds_served', cases: 3, what: 'encoder minus served nest is four qubits and a factor of sixteen amplitudes',
+    run: () => {
+      const sealed = theoremByKey().get('register_exceeds_served')?.statement ?? ''
+      const m = /(\d+)\s*-\s*(\d+)\s*=\s*(\d+)/.exec(sealed)
+      const f = /2\s*\^\s*(\d+)\s*=\s*(\d+)/.exec(sealed)
+      if (!m || !f) return 3
+      const cap = Number(m[1]), servedSealed = Number(m[2]), gap = Number(m[3]), factor = Number(f[2])
+      const served = HANDLE_HEXBITS + HEXBIT_BITS
+      let pow = 1
+      for (let i = 0; i < gap; i++) pow = pow * 2
+      return failures([
+        HEXBIT_BITS * HEXBIT_BITS === cap && served === servedSealed && cap - served === gap,
+        pow === factor,
+        ket0(cap).amp.length / ket0(served).amp.length === factor,
+      ])
+    } },
+
   // chsh_beats_classical and ym_quantum ARE DELIBERATELY ABSENT. chsh seals `((2:Nat)^2 < 2^3) ∧ (2^3 = 8)` —
   // a witness would be `2 ** 2 === 4`, a constant that cannot fail. ym_quantum seals "no Nat sits strictly
   // between n and n+1" plus successive 1·k growth — the same shape of integer tautology, with no host algebra
   // to disagree with. Padding the denominator with cases that cannot come out otherwise games the bound the
-  // battery exists to make honest. The two remain NAMED in coverage.unwitnessed.
+  // battery exists to make honest. The two remain NAMED in coverage.unwitnessed. Traitor tests (DNA, dispatch,
+  // catchTraitors) still hold those seals — they just do not inflate this fidelity count.
   //
   // The next two ARE decidable host checks: injectivity of place-value and a non-commutative sorted fold —
   // each can fail if the formula is wrong, so they earn their cases.

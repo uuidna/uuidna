@@ -1,0 +1,14 @@
+{
+  "handle": "454dc577",
+  "address": "454dc577-828d-841c-8e5c-e4247f7a93d7",
+  "kind": "chunk",
+  "keys": [
+    "blood_types_eight",
+    "hicks_law_three_bits"
+  ],
+  "statement": "(2:Nat)^3 = 8",
+  "files": [
+    "BioPhysics.lean",
+    "Psychology.lean"
+  ]
+}

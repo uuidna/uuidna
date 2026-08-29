@@ -1,0 +1,12 @@
+{
+  "handle": "059bb106",
+  "address": "059bb106-c399-8f1e-8900-770ad7b0d788",
+  "kind": "chunk",
+  "keys": [
+    "codewords_syndrome_zero"
+  ],
+  "statement": "words.all (fun w => ((w % 2) + ((w/4) % 2) + ((w/16) % 2) + ((w/64) % 2)) % 2 == 0)",
+  "files": [
+    "Hamming.lean"
+  ]
+}

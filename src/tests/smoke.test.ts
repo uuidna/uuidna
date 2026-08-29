@@ -393,6 +393,11 @@ test('sanitise by all standards — process any input, sanitise any output, rule
   assert.equal(MAX_DEPTH, 32); assert.equal(verifyStatement('32 = 2^5').verdict, 'VERIFIED', 'MAX_DEPTH sealed')
   assert.equal(MAX_STRING, 1000000); assert.equal(verifyStatement('1000000 = 10^6').verdict, 'VERIFIED', 'MAX_STRING sealed')
   assert.equal(MAX_ARRAY, 100000); assert.equal(MAX_KEYS, 100000); assert.equal(verifyStatement('(100000 = 10^5) ∧ (10^5 = 10^5)').verdict, 'VERIFIED', 'array/keys bound sealed')
+  let deep: unknown = { n: 0 }
+  for (let i = 0; i < 40; i++) deep = { n: i + 1, inner: deep }
+  const nested = sanitizeValue(deep) as { n: number; inner: unknown }
+  assert.equal(nested.n, 40)
+  assert.notEqual(nested, '[MaxDepth]')
 })
 
 test('the quantum engine — one input→output surface: any op dispatches, folds to a recomputable receipt', () => {

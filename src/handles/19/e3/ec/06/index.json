@@ -1,0 +1,12 @@
+{
+  "handle": "19e3ec06",
+  "address": "19e3ec06-3c99-8109-a9f2-67b94da544eb",
+  "kind": "chunk",
+  "keys": [
+    "parity_code_detects_one_but_ties_four_ways"
+  ],
+  "statement": "((List.range 16).countP (fun x => (x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) = 8) ∧ ((List.range 16).all (fun x => (List.range 16).all (fun y => !((x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) || !((y % 2 + y / 2 % 2 + y / 4 % 2 + y / 8 % 2) % 2 == 0) || (x == y) || decide (2 ≤ (x % 2 + y % 2) % 2 + (x / 2 % 2 + y / 2 % 2) % 2 + (x / 4 % 2 + y / 4 % 2) % 2 + (x / 8 % 2 + y / 8 % 2) % 2))) = true) ∧ ((List.range 16).any (fun x => (List.range 16).any (fun y => ((x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) && ((y % 2 + y / 2 % 2 + y / 4 % 2 + y / 8 % 2) % 2 == 0) && (!(x == y)) && (((x % 2 + y % 2) % 2 + (x / 2 % 2 + y / 2 % 2) % 2 + (x / 4 % 2 + y / 4 % 2) % 2 + (x / 8 % 2 + y / 8 % 2) % 2) == 2))) = true) ∧ ((List.range 16).all (fun x => !((x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) || [1, 2, 4, 8].all (fun p => (((x % 2 + p % 2) % 2 + (x / 2 % 2 + p / 2 % 2) % 2 + (x / 4 % 2 + p / 4 % 2) % 2 + (x / 8 % 2 + p / 8 % 2) % 2) % 2 == 1))) = true) ∧ ((List.range 16).all (fun x => ((x % 2 + x / 2 % 2 + x / 4 % 2 + x / 8 % 2) % 2 == 0) || ((List.range 16).countP (fun c => ((c % 2 + c / 2 % 2 + c / 4 % 2 + c / 8 % 2) % 2 == 0) && (((x % 2 + c % 2) % 2 + (x / 2 % 2 + c / 2 % 2) % 2 + (x / 4 % 2 + c / 4 % 2) % 2 + (x / 8 % 2 + c / 8 % 2) % 2) == 1)) == 4)) = true) ∧ ((List.range 16).countP (fun e => (e % 2 + e / 2 % 2 + e / 4 % 2 + e / 8 % 2) == 2) = 6) ∧ ((List.range 16).all (fun e => !((e % 2 + e / 2 % 2 + e / 4 % 2 + e / 8 % 2) == 2) || (List.range 16).all (fun c => !((c % 2 + c / 2 % 2 + c / 4 % 2 + c / 8 % 2) % 2 == 0) || (((c % 2 + e % 2) % 2 + (c / 2 % 2 + e / 2 % 2) % 2 + (c / 4 % 2 + e / 4 % 2) % 2 + (c / 8 % 2 + e / 8 % 2) % 2) % 2 == 0))) = true)",
+  "files": [
+    "Wave.lean"
+  ]
+}

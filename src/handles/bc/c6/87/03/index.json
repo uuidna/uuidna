@@ -1,0 +1,12 @@
+{
+  "handle": "bcc68703",
+  "address": "bcc68703-8c4f-8631-90fb-e64562cdda5b",
+  "kind": "chunk",
+  "keys": [
+    "units_form_six"
+  ],
+  "statement": "(units.length = 6) ∧ (units.all (fun a => units.any (fun b => mul9 a b == 1)))",
+  "files": [
+    "Subgroups.lean"
+  ]
+}

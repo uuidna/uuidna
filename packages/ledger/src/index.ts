@@ -15,6 +15,9 @@ export { dueProcess, courtProcedure, fileSealed, verifyFiling, tryClaim, type On
 export { signCommit, type CommitSignature } from '@uuidna/uuidna'
 export { adjudicate, adjudicateAll, proveVerdict, verifyUuidna, type Verdict, type VerdictKind, type ProvenVerdict, type UuidnaVerdict, type DimensionVerdict, type AllDimensionsVerdict } from '@uuidna/uuidna'
 export { coins, billUuidna, referenceBitsSaved, ADDRESS_BITS, boundariesOf, theoremCoins, ledgerCoins, type UuidnaUsage, type TheoremCoins, type LedgerCoins } from '@uuidna/uuidna'
+export { coinSupply, type CoinSupply, type CoinSupplyCrypto, type CoinSupplyWitness } from '@uuidna/uuidna'
+export { tamperCosts, type TamperCosts, type TamperWidth } from '@uuidna/uuidna'
+export { phdProofs, type PhdProofs, type PhdConcept, type PhdWork, type PhdThesis } from '@uuidna/uuidna'
 export { securityAudit, KNOWN_DEV_DEPS, DEFENCE_THEOREMS, type SecurityCheck, type SecurityAuditReport } from '@uuidna/uuidna'
 export { verifyStatement, type StatementVerdict } from '@uuidna/uuidna'
 export { overreachOf } from '@uuidna/uuidna'
@@ -33,7 +36,20 @@ export { theoremForms, cliqueEdges, type TheoremForms, type TheoremFace } from '
 export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, UUID_HEXBITS, dependsOn, byGravity, type Rating } from '@uuidna/uuidna'
 export {
   HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, COINS, LEVERAGE, HANDLE_SPAN, HANDLE_HEXBITS, COIN_HEXBITS, valueOf, bitsOf, bitsToHexbits,
-  qubitsToHexbits, spareOf, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_STATES, hexbitDoorOf,
+  qubitsToHexbits, spareOf, sha256IsFourSixtyfours, hexbitDoorOf,
   computeMassGap, massGap, hexbitRingMassGap, bornFieldMassGap,
-  type MassGap, type HexbitMassGap, type HexbitDoor, type HandleValue,
+  SAFE_HEXBITS, RING, fuseWidth, fuseLadder, capacityAt, nativeBitWidths, spanAt, prefixOccupancy, periodBits, shorChunkBits, shorCapacityFit, shorFullUse,
+  ADDRESS_BYTES, KEY_HEXBITS, GROVER_FLOOR_BITS, VE_FACES,
+  type MassGap, type HexbitMassGap, type HexbitDoor, type HandleValue, type ShorCapacityFit, type ShorFullUse,
 } from '@uuidna/uuidna'
+export {
+  hexagramsOf, occupancyOf, occupancyCitesOf, hexFaceOf, sealedCounts, payloadNibblesOfHexagrams,
+  twoBoardsOf, coinNeighbours, coinBoardWitness, flipCoin, nextCoinOf, bitsOfHexbits, metatronOf, hexPiOf, HEX_PI, PI_ROOF, PI_ROOF_NUM, PI_ENGINE,
+  HEXAGRAM_BITS, HEXAGRAM_STATES, FUSED_RING, PAYLOAD_BITS, PAYLOAD_HEXAGRAMS, OCCUPANCY_KEYS,
+  GLYPH_STAR, GLYPH_ROSE, GLYPH_RING, GLYPH_WHEEL, STATION_TEN, STATION_RAYS,
+  HANDLE_HEXAGRAM_REMAINDER, HEXBIT_STATE_HEXAGRAM_REMAINDER,
+  yarrowRemainder, WAVE_PRODUCT, coinYarrowWave, coinWaves,
+  type HexFace, type HexFaceAura, type HexFaceGlyphs, type HexFaceStations, type OccupancyCite, type CoinBoardWitness, type MetatronFigure, type HexPi, type HexPiDoor,
+  type CoinYarrowWave, type CoinWaveCluster,
+} from '@uuidna/uuidna'
+export { lifeWave, type LifeWave, type LifeWaveHardware } from '@uuidna/uuidna'

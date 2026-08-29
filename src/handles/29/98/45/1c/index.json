@@ -1,0 +1,12 @@
+{
+  "handle": "2998451c",
+  "address": "2998451c-1232-8308-890e-4b241940a16f",
+  "kind": "chunk",
+  "keys": [
+    "hexbit_ring_mass_gap"
+  ],
+  "statement": "((1:Nat) > 0) ∧ (List.range 16).all (fun n => ¬ (0 < n ∧ n < 1)) ∧ (List.range' 1 16).all (fun e => 1 ≤ e) ∧ (List.range 15).all (fun n => (n + 1) - n = 1)",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

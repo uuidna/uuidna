@@ -1,0 +1,12 @@
+{
+  "handle": "df8c7b89",
+  "address": "df8c7b89-128e-82fd-b2cb-149f53d86698",
+  "kind": "chunk",
+  "keys": [
+    "seasons_return_in_eighteen_years"
+  ],
+  "statement": "(90 / 5 = 18) ∧ (18 < 120) ∧ (4 * 365 = 1460) ∧ (120 < 1460)",
+  "files": [
+    "Wave.lean"
+  ]
+}

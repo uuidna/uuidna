@@ -1,0 +1,12 @@
+{
+  "handle": "326dce1c",
+  "address": "326dce1c-790f-89a0-a7b4-1748153aec04",
+  "kind": "chunk",
+  "keys": [
+    "the_terminal_is_the_toolbox"
+  ],
+  "statement": "(nthS installNames 7 = \"busybox\") ∧ (nthS installRoutes 7 = \"/terminal\") ∧ (nthS installNames 8 = \"busybox-binsh\") ∧ (nthS installRoutes 8 = \"/terminal/sh\") ∧ (nthS installNames 9 = \"busybox-ifupdown\") ∧ (nthS installRoutes 9 = \"/terminal/network\") ∧ (nthS installNames 10 = \"busybox-mdev-openrc\") ∧ (nthS installRoutes 10 = \"/terminal/devices\") ∧ (nthS installNames 11 = \"busybox-openrc\") ∧ (nthS installRoutes 11 = \"/terminal/services\") ∧ (nthS installNames 12 = \"busybox-suid\") ∧ (nthS installRoutes 12 = \"/terminal/privileged\") ∧ ((6 : Nat) = 6)",
+  "files": [
+    "Installs.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "12cb5fd2",
+  "address": "12cb5fd2-ebd8-810d-8ddb-9f5cebdc8ecc",
+  "kind": "chunk",
+  "keys": [
+    "century_leap_rule"
+  ],
+  "statement": "2000 % 400 = 0 ∧ 1900 % 100 = 0 ∧ 1900 % 400 ≠ 0",
+  "files": [
+    "Calendar.lean"
+  ]
+}

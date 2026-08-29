@@ -1,0 +1,12 @@
+{
+  "handle": "9a772d8e",
+  "address": "9a772d8e-f177-8f3a-993c-59bdb1ab21e2",
+  "kind": "chunk",
+  "keys": [
+    "oos_fnv_misuse"
+  ],
+  "statement": "10 - 10 = 0",
+  "files": [
+    "Exploits.lean"
+  ]
+}

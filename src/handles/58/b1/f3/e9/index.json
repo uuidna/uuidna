@@ -1,0 +1,14 @@
+{
+  "handle": "58b1f3e9",
+  "address": "58b1f3e9-b3fa-8188-9fa8-4243a11ac6de",
+  "kind": "chunk",
+  "keys": [
+    "teleportation_costs_the_two_coins",
+    "teleportation_costs_two_coins"
+  ],
+  "statement": "(2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 * 2 = 4)",
+  "files": [
+    "Quantum.lean",
+    "Wave.lean"
+  ]
+}

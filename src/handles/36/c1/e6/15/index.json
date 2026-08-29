@@ -1,0 +1,12 @@
+{
+  "handle": "36c1e615",
+  "address": "36c1e615-2452-87c7-848f-096285e0b392",
+  "kind": "chunk",
+  "keys": [
+    "anthem_rest_twelfths_the_bar"
+  ],
+  "statement": "252 / 12 = 21 ∧ 21 * 12 = 252",
+  "files": [
+    "Anthem.lean"
+  ]
+}

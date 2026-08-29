@@ -1,0 +1,12 @@
+{
+  "handle": "61478b1a",
+  "address": "61478b1a-ed68-8cc9-8c87-24926027a66e",
+  "kind": "chunk",
+  "keys": [
+    "solo_is_the_excluded_team"
+  ],
+  "statement": "(1 < 2) ∧ (1 < 3) ∧ (0 * 2 + 0 * 3 = 0)",
+  "files": [
+    "Doctrine.lean"
+  ]
+}

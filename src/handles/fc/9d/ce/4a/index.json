@@ -1,0 +1,12 @@
+{
+  "handle": "fc9dce4a",
+  "address": "fc9dce4a-21cd-80f0-82b0-72d1cf9a26d5",
+  "kind": "chunk",
+  "keys": [
+    "keplers_harmonic_law"
+  ],
+  "statement": "([(1,1),(4,8),(9,27)] : List (Nat × Nat)).all (fun p => p.2^2 == p.1^3)",
+  "files": [
+    "Astronomy.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "f14ae749",
+  "address": "f14ae749-5886-8f88-9c9c-995fe272e216",
+  "kind": "chunk",
+  "keys": [
+    "the_handle_molecule_is_the_mix_census"
+  ],
+  "statement": "(4 * 8 = 32) ∧ (4 * 3 = 2 * 6) ∧ (12 + 4 = 4 * 4) ∧ (4 * 32 = 128)",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

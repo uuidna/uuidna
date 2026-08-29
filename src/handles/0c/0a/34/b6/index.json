@@ -1,0 +1,12 @@
+{
+  "handle": "0c0a34b6",
+  "address": "0c0a34b6-2061-8466-92b9-a26fb921bd4e",
+  "kind": "chunk",
+  "keys": [
+    "fit_shares_nothing"
+  ],
+  "statement": "(seatCases.filter (fun c => c.1 ≤ c.2)).all (fun c => fullest c.1 c.2 = 1)",
+  "files": [
+    "Seats.lean"
+  ]
+}

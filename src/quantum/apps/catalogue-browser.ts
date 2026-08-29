@@ -9,6 +9,19 @@ import {
 } from '../os/catalogue.js'
 import { UUID_HEXBITS } from '../../hexbit/index.js'
 import { toUuid } from '../../address.js'
+import { handleOf } from '../../handle.js'
+
+/** shadcn card anatomy — the same slots renderTheorem ships, so Alpine apps are widget-API compatible. */
+export const SHADCN_CARD_SLOTS = [
+  'card', 'card-header', 'card-title', 'card-description', 'card-content', 'card-footer',
+] as const
+
+/** Alpine apps UI adds input / button / badge on the same card. No Tailwind, no React. */
+export const SHADCN_ALPINE_SLOTS = [...SHADCN_CARD_SLOTS, 'badge', 'button', 'input'] as const
+
+function escapeHtml(s: string): string {
+  return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c] as string))
+}
 
 export interface CatalogueHit {
   name: string
@@ -93,4 +106,23 @@ export function inspectCataloguePackage(name: string): CatalogueInspectResult {
     },
     receipt: toUuid(receiptBase + '|' + h.address),
   }
+}
+
+/** renderAlpineApp(hit) → one shadcn card for a published Alpine package. Pure HTML+CSS anatomy, no script.
+ *  Same slots as renderTheorem so a widget host that already paints theorem cards can paint apps. */
+export function renderAlpineApp(hit: CatalogueHit): string {
+  const handle = handleOf(hit.address)
+  const title = escapeHtml(`${hit.name}-${hit.version}`)
+  const desc = escapeHtml(hit.desc)
+  const repo = escapeHtml(hit.repo)
+  return `<article class="uuidna-card" data-slot="card" data-alpine="${escapeHtml(hit.name)}" data-state="${hit.state}">`
+    + `<div data-slot="card-header">`
+    + `<h3 data-slot="card-title">${title} <span data-slot="badge">${repo}</span></h3>`
+    + `<p data-slot="card-description">${desc}</p>`
+    + `</div>`
+    + `<div data-slot="card-content">`
+    + `<code data-slot="handle">${escapeHtml(handle)}</code>`
+    + `</div>`
+    + `<div data-slot="card-footer"><small>integrity — published metadata, never execution</small></div>`
+    + `</article>`
 }

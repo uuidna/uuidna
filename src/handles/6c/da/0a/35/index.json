@@ -1,0 +1,12 @@
+{
+  "handle": "6cda0a35",
+  "address": "6cda0a35-f5c0-8e5f-a732-3544967faa19",
+  "kind": "chunk",
+  "keys": [
+    "haber_balances"
+  ],
+  "statement": "(2 = 2*1) ∧ (3*2 = 2*3)",
+  "files": [
+    "Chemistry.lean"
+  ]
+}

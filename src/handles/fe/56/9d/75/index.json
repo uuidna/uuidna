@@ -1,0 +1,12 @@
+{
+  "handle": "fe569d75",
+  "address": "fe569d75-8740-890d-93cb-e3f5343d19fa",
+  "kind": "chunk",
+  "keys": [
+    "every_graph_on_five_obeys_the_handshake"
+  ],
+  "statement": "(List.range 32).all (fun hi => (List.range 32).all (fun lo => let m := hi * 32 + lo; let bit : Nat → Nat := fun i => m / 2 ^ i % 2; let degs := ([[0,1,2,3],[0,4,5,6],[1,4,7,8],[2,5,7,9],[3,6,8,9]] : List (List Nat)).map (fun l => (l.map bit).sum); let e := ((List.range 10).map bit).sum; (degs.sum == 2 * e) && (degs.sum % 2 == 0) && degs.all (fun d => decide (d <= 4)))) = true",
+  "files": [
+    "Wave.lean"
+  ]
+}

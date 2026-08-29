@@ -28,7 +28,7 @@
  * Run: npm run x -- crypto-measure
  */
 
-import { sha256, pbkdf2Sha256, chacha20, aeadEncrypt, aeadDecrypt, theorems } from '../index.js'
+import { sha256, pbkdf2Sha256, chacha20, aeadEncrypt, aeadDecrypt, theorems, bitsOf } from '../index.js'
 import { performance } from 'node:perf_hooks'
 
 const enc = new TextEncoder()
@@ -319,39 +319,44 @@ function measureDerivedEntropyQuality() {
   log('Computing Shannon entropy (H) for derived bytes:\n')
 
   for (const { name, value } of inputs) {
-    const freq = new Map<number, number>()
-    for (const byte of value) freq.set(byte, (freq.get(byte) ?? 0) + 1)
-
-    // Shannon entropy H = -Σ p·log2(p), with base-2 logs read from a small precomputed table.
-    let entropy = 0
-    for (const count of freq.values()) {
-      const p = count / value.length
-      entropy -= p * computeLog2(p)
-    }
-
+    const { entropy, n, ceiling } = shannonBitsPerByte(value)
     log(`  ${name}:`)
     log(`    Entropy: ${entropy.toFixed(4)} bits/byte`)
-    log(`    Utilization: ${((entropy / 8) * 100).toFixed(1)}% of theoretical max`)
+    if (ceiling > 0) log(`    Utilization: ${((entropy / ceiling) * 100).toFixed(1)}% of the ${n}-byte sample ceiling (${ceiling} bits/byte)`)
     log()
   }
 
   log(`📊 ANALYSIS:`)
-  log(`  Derived bytes show high entropy (approaching 8 bits/byte); SHA-256 whitens its output.`)
+  log(`  H is bounded by bitsOf(n) for an n-byte sample — a 16-byte salt ceilings at 4, never 8 (the alphabet). SHA-256 still whitens.`)
   log(anchorLine('derivedEntropy'))
   log(`     (The entropy of a fixed sample is an observation— it is not`)
   log(`      sealed, and this script does not claim it is.)`)
   log()
 }
 
-// base-2 log read from a small table (no library maths); used by the entropy measurement only.
-function computeLog2(p: number): number {
-  if (p <= 0) return 0
+/** log2(p) from a dyadic table. log2(1)=0; p in (0,1] only. No Math.*. */
+export function computeLog2(p: number): number {
+  if (p <= 0 || p >= 1) return 0
   if (p >= 0.5) return -1
   if (p >= 0.25) return -2
   if (p >= 0.125) return -3
   if (p >= 0.0625) return -4
   if (p >= 0.03125) return -5
   return -6
+}
+
+/** Shannon H = −Σ p·log2(p) in bits/byte, plus the sample-size ceiling bitsOf(n). */
+export function shannonBitsPerByte(bytes: Uint8Array): { entropy: number; n: number; ceiling: number } {
+  const n = bytes.length
+  if (n === 0) return { entropy: 0, n: 0, ceiling: 0 }
+  const freq = new Map<number, number>()
+  for (const byte of bytes) freq.set(byte, (freq.get(byte) ?? 0) + 1)
+  let entropy = 0
+  for (const count of freq.values()) {
+    const p = count / n
+    entropy -= p * computeLog2(p)
+  }
+  return { entropy, n, ceiling: bitsOf(n) }
 }
 
 // ════════════════════════════════════════════════════════════════════════════
@@ -485,7 +490,7 @@ async function main() {
     log('  2. Nonces unique with advancing step   ⟶  salt_seq_injective')
     log('  3. Poly1305 rejects every flipped tag  ⟶  tamper_changes_tag / xor_checksum_catches_flip')
     log('  4. Ciphertext length leaks             ⟶  transport_leaks_length  (R² slope: measurement)')
-    log('  5. SHA-256 outputs ~8 bits/byte        ⟶  (measurement only — entropy of a sample)')
+    log('  5. SHA-256 sample H vs bitsOf(n) ceiling ⟶  (measurement only — entropy of a sample)')
     log('  6. FNV admits birthday collisions      ⟶  birthday_halves_the_exponent')
     log('  7. v1 leaks equality, v2 fixes it      ⟶  salt_conv_leaks_equality / salt_seq_injective\n')
 
@@ -507,4 +512,6 @@ function approximateSqrt(n: number): number {
   return x
 }
 
-main()
+const isNodeMain = typeof process !== 'undefined' && Array.isArray(process.argv) && process.argv[1] !== undefined &&
+  import.meta.url === new URL(`file://${process.argv[1]}`).href
+if (isNodeMain) main()

@@ -1,0 +1,12 @@
+{
+  "handle": "1cb69503",
+  "address": "1cb69503-4f84-8b3b-a217-d5faceee1640",
+  "kind": "chunk",
+  "keys": [
+    "double_torus_boards_are_the_address"
+  ],
+  "statement": "(64 + 64 = 128) ∧ ((2:Int) - 2 * 2 = -2)",
+  "files": [
+    "Chess.lean"
+  ]
+}

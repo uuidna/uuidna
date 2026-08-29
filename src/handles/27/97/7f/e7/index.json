@@ -1,0 +1,12 @@
+{
+  "handle": "27977fe7",
+  "address": "27977fe7-a459-800e-b382-91bfd8913429",
+  "kind": "chunk",
+  "keys": [
+    "the_singularity_is_the_dry_law_at_scale"
+  ],
+  "statement": "(3 > 2) ∧ (2 > 1) ∧ (1 * 0 / 2 = 0)",
+  "files": [
+    "Singularity.lean"
+  ]
+}

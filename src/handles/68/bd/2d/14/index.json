@@ -1,0 +1,12 @@
+{
+  "handle": "68bd2d14",
+  "address": "68bd2d14-952d-81eb-9451-882dc6f47fe6",
+  "kind": "chunk",
+  "keys": [
+    "hypothetical_syllogism"
+  ],
+  "statement": "([true, false].all (fun p => [true, false].all (fun q => [true, false].all (fun r => !((!p || q) && (!q || r)) || (!p || r))))) = true",
+  "files": [
+    "Reasoning.lean"
+  ]
+}

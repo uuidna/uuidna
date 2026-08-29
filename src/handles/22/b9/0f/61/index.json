@@ -1,0 +1,12 @@
+{
+  "handle": "22b90f61",
+  "address": "22b90f61-bcde-8781-8eb8-2f1e3aac25db",
+  "kind": "chunk",
+  "keys": [
+    "t7_betti_row_is_the_uuid"
+  ],
+  "statement": "(1 + 7 + 21 + 35 + 35 + 21 + 7 + 1 = 128) ∧ (128 = 2 ^ 7)",
+  "files": [
+    "Torus.lean"
+  ]
+}

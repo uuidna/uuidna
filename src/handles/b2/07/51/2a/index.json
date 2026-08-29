@@ -1,0 +1,12 @@
+{
+  "handle": "b207512a",
+  "address": "b207512a-e106-83aa-8dec-dcfa050fcffb",
+  "kind": "chunk",
+  "keys": [
+    "negation_involution_solves"
+  ],
+  "statement": "((List.range 2).all (fun b => (1 - (1 - b) == b) && (1 - b != b))) ∧ ((List.range 2).all (fun b => (b == 1) == (1 - b == 0)))",
+  "files": [
+    "Negation.lean"
+  ]
+}

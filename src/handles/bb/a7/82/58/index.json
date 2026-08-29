@@ -1,0 +1,12 @@
+{
+  "handle": "bba78258",
+  "address": "bba78258-892e-8ecf-acad-643a49b177e0",
+  "kind": "chunk",
+  "keys": [
+    "light_on_null_cone"
+  ],
+  "statement": "(5*5 - 5*5 : Int) = 0",
+  "files": [
+    "Relativity.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "1ebcafbe",
+  "address": "1ebcafbe-f244-8e4d-a8c2-5aa9adacb1bd",
+  "kind": "chunk",
+  "keys": [
+    "four_movements_are_the_tongues"
+  ],
+  "statement": "(4 * 252 = 1008) ∧ (1008 = 16 * 63)",
+  "files": [
+    "Symphony.lean"
+  ]
+}

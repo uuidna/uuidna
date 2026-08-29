@@ -1,0 +1,12 @@
+{
+  "handle": "579e87ec",
+  "address": "579e87ec-d895-80e3-8e9a-d4fbd0bb249d",
+  "kind": "chunk",
+  "keys": [
+    "nilpotents_mod_15_number_1"
+  ],
+  "statement": "((List.range 15).filter (fun x => x ^ 15 % 15 == 0)).length = 1",
+  "files": [
+    "Wave.lean"
+  ]
+}

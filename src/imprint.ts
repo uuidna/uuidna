@@ -5,10 +5,14 @@
 // them back exactly. A uuid holds 128 bits; 6 are reserved (4 version + 2 variant) and 7 hold a length
 // header → up to 115 message bits per uuid. Round-trips exactly for L ≤ CAPACITY.
 
+import { UUID_BITS } from './hexbit/index.js'
+
 const RESERVED = new Set([48, 49, 50, 51, 64, 65])
 const LEN_BITS = 7
-const FREE = Array.from({ length: 128 }, (_, i) => i).filter((i) => !RESERVED.has(i))
-export const CAPACITY = FREE.length - LEN_BITS // 115 message bits per uuid
+const FREE = Array.from({ length: UUID_BITS }, (_, i) => i).filter((i) => !RESERVED.has(i))
+/** Free bits of a uuid after RFC version+variant seats — RESERVED.size, never a stranded 122. */
+export const FREE_BITS = FREE.length
+export const CAPACITY = FREE_BITS - LEN_BITS // 115 message bits per uuid
 
 const isBits = (s: string): boolean => /^[01]*$/.test(s)
 const num2bits = (n: number, width: number): string => n.toString(2).padStart(width, '0').slice(-width)

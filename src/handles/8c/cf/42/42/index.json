@@ -1,0 +1,12 @@
+{
+  "handle": "8ccf4242",
+  "address": "8ccf4242-ab0f-89e1-8a12-535c6b5840e0",
+  "kind": "chunk",
+  "keys": [
+    "chi_crystallises_three_genera"
+  ],
+  "statement": "(2 - 2 * 0 = 2) ∧ (2 - 2 * 1 = 0) ∧ (2 * 2 - 2 = 2) ∧ ((2 : Nat) ≠ 0)",
+  "files": [
+    "Waves.lean"
+  ]
+}

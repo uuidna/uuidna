@@ -1,0 +1,12 @@
+{
+  "handle": "9068986f",
+  "address": "9068986f-1d9f-811a-a4b3-8a944baa89fe",
+  "kind": "chunk",
+  "keys": [
+    "accept_matches_spec"
+  ],
+  "statement": "(List.range 4).all (fun n => accept (n%2) (n/2%2) == (if (n%2 == 1) && (n/2%2 == 1) then 1 else 0))",
+  "files": [
+    "Command.lean"
+  ]
+}

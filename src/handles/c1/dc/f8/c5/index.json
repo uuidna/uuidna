@@ -1,0 +1,12 @@
+{
+  "handle": "c1dcf8c5",
+  "address": "c1dcf8c5-2a8b-8da6-940a-f9f1742cb104",
+  "kind": "chunk",
+  "keys": [
+    "seats_pigeonhole"
+  ],
+  "statement": "(2:Nat)^8 = 256 ∧ (2:Nat)^0 = 1 ∧ (2:Nat)^10 = 1024",
+  "files": [
+    "Uuidna.lean"
+  ]
+}

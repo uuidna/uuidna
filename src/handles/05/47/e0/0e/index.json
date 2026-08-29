@@ -1,0 +1,12 @@
+{
+  "handle": "0547e00e",
+  "address": "0547e00e-6d3e-8bf2-870d-225c81c35e32",
+  "kind": "chunk",
+  "keys": [
+    "inch_is_seventytwo_points"
+  ],
+  "statement": "6 * 12 = 72",
+  "files": [
+    "Typesetting.lean"
+  ]
+}

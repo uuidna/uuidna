@@ -1,0 +1,12 @@
+{
+  "handle": "4aa1caa2",
+  "address": "4aa1caa2-8506-8830-82b0-f31d09e0dfe6",
+  "kind": "chunk",
+  "keys": [
+    "hexadecimal_asks_five"
+  ],
+  "statement": "((List.range 40).all (fun w => ((6 * w) % 15 == 0) == (w % 5 == 0))) ∧ ((6 * 72) % 15 ≠ 0)",
+  "files": [
+    "Grid.lean"
+  ]
+}

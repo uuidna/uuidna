@@ -1,0 +1,14 @@
+{
+  "handle": "f52979d7",
+  "address": "f52979d7-710a-83ec-ae36-f93ecb1b575a",
+  "kind": "chunk",
+  "keys": [
+    "rosette_pow_six",
+    "z7pow_3_6"
+  ],
+  "statement": "(3 ^ 6) % 7 = 1",
+  "files": [
+    "Rosette.lean",
+    "Vortex.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "9fb2b436",
+  "address": "9fb2b436-b5ac-8b31-9aeb-79efdf1e1818",
+  "kind": "chunk",
+  "keys": [
+    "dz_bounded"
+  ],
+  "statement": "(List.range 10).all (fun x => dz x < 10)",
+  "files": [
+    "DivByZero.lean"
+  ]
+}

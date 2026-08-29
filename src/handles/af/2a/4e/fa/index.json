@@ -1,0 +1,12 @@
+{
+  "handle": "af2a4efa",
+  "address": "af2a4efa-1875-8be2-8651-1d7d454b2e5c",
+  "kind": "chunk",
+  "keys": [
+    "three_pentagons_close_a_vertex"
+  ],
+  "statement": "(3 * 108 < 360) ∧ (360 < 4 * 108)",
+  "files": [
+    "Solids.lean"
+  ]
+}

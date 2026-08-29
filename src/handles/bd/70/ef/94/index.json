@@ -1,0 +1,12 @@
+{
+  "handle": "bd70ef94",
+  "address": "bd70ef94-201a-86f4-87fc-6fe55cbbc48f",
+  "kind": "chunk",
+  "keys": [
+    "tet_semitone_no_rational_at_the_window"
+  ],
+  "statement": "(List.range' 1 19).all (fun q => (List.range' 1 39).all (fun p => p ^ 12 ≠ 2 * q ^ 12))",
+  "files": [
+    "Wave.lean"
+  ]
+}

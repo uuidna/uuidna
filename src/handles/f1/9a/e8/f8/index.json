@@ -1,0 +1,12 @@
+{
+  "handle": "f19ae8f8",
+  "address": "f19ae8f8-6129-8f80-8208-a3b88d5bc2d3",
+  "kind": "chunk",
+  "keys": [
+    "nim_sum_associates"
+  ],
+  "statement": "(List.range 8).all (fun a => (List.range 8).all (fun b => (List.range 8).all (fun c => lxor (lxor a b) c == lxor a (lxor b c))))",
+  "files": [
+    "Nim.lean"
+  ]
+}

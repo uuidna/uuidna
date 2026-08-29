@@ -1,0 +1,12 @@
+{
+  "handle": "32a2e827",
+  "address": "32a2e827-1b82-8ccc-9e82-32e66712e18f",
+  "kind": "chunk",
+  "keys": [
+    "nilpotents_mod_22_number_1"
+  ],
+  "statement": "((List.range 22).filter (fun x => x ^ 22 % 22 == 0)).length = 1",
+  "files": [
+    "Wave.lean"
+  ]
+}

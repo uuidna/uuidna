@@ -1,0 +1,12 @@
+{
+  "handle": "230c596b",
+  "address": "230c596b-70f5-8fd6-8242-e5ed1b9d97ee",
+  "kind": "chunk",
+  "keys": [
+    "division_by_zero"
+  ],
+  "statement": "(1000 / 0 = 0) ∧ (0 / 0 = 0) ∧ (List.range 9).all (fun x => (0 * x) % 9 != 1) ∧ (List.range 9).all (fun x => (3 * x) % 9 != 1)",
+  "files": [
+    "Uuidna.lean"
+  ]
+}

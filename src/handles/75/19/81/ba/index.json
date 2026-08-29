@@ -1,0 +1,12 @@
+{
+  "handle": "751981ba",
+  "address": "751981ba-895d-88c5-9bab-7cdd8483c1ce",
+  "kind": "chunk",
+  "keys": [
+    "pentagram_point_angles_half_turn"
+  ],
+  "statement": "5 * 36 = 180",
+  "files": [
+    "Pentagram.lean"
+  ]
+}

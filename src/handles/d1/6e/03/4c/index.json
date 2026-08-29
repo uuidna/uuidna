@@ -1,0 +1,12 @@
+{
+  "handle": "d16e034c",
+  "address": "d16e034c-d140-8502-9b35-94e51ad3e2b5",
+  "kind": "chunk",
+  "keys": [
+    "nilpotents_mod_33_number_1"
+  ],
+  "statement": "((List.range 33).filter (fun x => x ^ 33 % 33 == 0)).length = 1",
+  "files": [
+    "Wave.lean"
+  ]
+}

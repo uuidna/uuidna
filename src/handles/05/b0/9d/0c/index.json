@@ -1,0 +1,12 @@
+{
+  "handle": "05b09d0c",
+  "address": "05b09d0c-625d-8c0f-a524-f8c7ae705896",
+  "kind": "chunk",
+  "keys": [
+    "order_of_four_is_three"
+  ],
+  "statement": "((List.range' 1 8).find? (fun k => (4^k) % 9 == 1)) = some 3",
+  "files": [
+    "Discover.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6829f5d5",
+  "address": "6829f5d5-ef94-8a67-a300-efc52b45ea6b",
+  "kind": "chunk",
+  "keys": [
+    "words_are_distinct"
+  ],
+  "statement": "words.eraseDups.length = 16",
+  "files": [
+    "Hamming.lean"
+  ]
+}

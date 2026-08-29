@@ -7,18 +7,18 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { laneOf, handleOf } from '../handle.js'
-import { LANES, trinity, HANDLE_BITS, HANDLE_SPAN, gpuEligiblePpm, kernelPercent } from '../hardware/lanes/index.js'
+import { LANES, trinity, HANDLE_BITS, HANDLE_SPAN, gpuEligiblePpm, kernelPercent, gpuCapacity, GPU_POSTAGE_ADDRESSES, CPU_NS_PER_ADDRESS, cpuFoldNs } from '../hardware/lanes/index.js'
 import { laneCensus, poolByHandle, ROOT } from '../scripts/api.js'
-import { theorems, toUuid } from '../index.js'
+import { theorems, toUuid, VE_FACES, UUID_HEXBITS } from '../index.js'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 test('a lane is decided by the address, so the same work lands in the same place every run', () => {
   const a = toUuid('a wing of the ledger')
-  assert.equal(laneOf(a, 14), laneOf(a, 14), 'the assignment cannot depend on when it was asked')
-  assert.equal(laneOf(a, 14), Number.parseInt(handleOf(a), 16) % 14, 'and it is the handle read as an integer, nothing else')
+  assert.equal(laneOf(a, VE_FACES), laneOf(a, VE_FACES), 'the assignment cannot depend on when it was asked')
+  assert.equal(laneOf(a, VE_FACES), Number.parseInt(handleOf(a), 16) % VE_FACES, 'and it is the handle read as an integer, nothing else')
   // it must actually SPREAD — a key that sent everything to one lane would pass a determinism test perfectly
-  const spread = new Set([...Array(50)].map((_, i) => laneOf(toUuid(`wing-${i}`), 14)))
+  const spread = new Set([...Array(50)].map((_, i) => laneOf(toUuid(`wing-${i}`), VE_FACES)))
   assert.ok(spread.size > 8, `fifty addresses must reach many lanes, reached ${spread.size}`)
   // one lane is the degenerate case and must not divide by it
   assert.equal(laneOf(a, 1), 0)
@@ -26,11 +26,11 @@ test('a lane is decided by the address, so the same work lands in the same place
 })
 
 test('THE BALANCE IS MEASURED ON THE LIVE LEDGER, not hoped for', () => {
-  // every real theorem address the ledger holds, across 14 lanes. Perfect balance is not the claim — uniformity
+  // every real theorem address the ledger holds, across VE_FACES lanes. Perfect balance is not the claim — uniformity
   // is — so the test is that no lane carries wildly more than its share, computed from the census rather than
   // from a number written here. A key that clumped would show up here and nowhere else.
   const addresses = theorems().map((t) => t.address)
-  const lanes = 14
+  const lanes = VE_FACES
   const counts = laneCensus(addresses, lanes)
   assert.equal(counts.length, lanes)
   assert.equal(counts.reduce((a, b) => a + b, 0), addresses.length, 'every piece of work is assigned exactly once')
@@ -62,14 +62,29 @@ test('the GPU lane carries the MEASUREMENT that decided it, not an opinion about
   assert.match(gpu.note, /0\.59 ms/, 'with the figure it rests on, so a reader can re-run it')
 })
 
+test('GPU capacity: four Shor chunks miss postage; the full handle span passes the first break-even', () => {
+  const g = gpuCapacity()
+  assert.equal(g.seat, 'specified', 'nothing is dispatched — the seat stays specified')
+  assert.equal(g.postageAddresses, GPU_POSTAGE_ADDRESSES)
+  assert.equal(g.breakEvenAddresses, GPU_POSTAGE_ADDRESSES, 'infinitely fast device break-even is the postage itself')
+  assert.equal(g.chunkAddresses, 4, 'handle is four independent 8-bit chunks')
+  assert.equal(g.chunkCpuNs, cpuFoldNs(4))
+  assert.equal(g.chunkPastBreakEven, false, 'four folds do not pay a 2000-address transfer')
+  assert.equal(g.handleSpan, HANDLE_SPAN)
+  assert.equal(g.handleCpuNs, CPU_NS_PER_ADDRESS * HANDLE_SPAN)
+  assert.equal(g.handlePastBreakEven, true, '2^32 addresses sit past the first threshold')
+  assert.equal(g.uuidChunks, 16)
+  assert.ok(g.eligiblePpm < 100, 'gate-share ppm is a different column from handle-span break-even')
+})
+
 test('the trinity seats exactly one empty chair, and it claims nothing', () => {
   const t = trinity()
-  assert.equal(t.seats, 3)
+  assert.equal(t.seats, t.measured + t.specified + t.empty)
   assert.equal(t.measured, 1, 'only the CPU lane has figures behind it')
   assert.equal(t.specified, 1, 'the GPU lane states its conditions and is not built')
   assert.equal(t.empty, 1)
   assert.equal(t.handleBits, HANDLE_BITS)
-  assert.equal(HANDLE_BITS, 32, 'eight tiles of four bits — the handle, and the shard key')
+  assert.equal(HANDLE_BITS, UUID_HEXBITS)
 
   const gpu = LANES.find((l) => l.name === 'GPU')!
   assert.match(gpu.note, /NOT BUILT/, 'a specified lane must say it is not built, in the note a reader sees first')

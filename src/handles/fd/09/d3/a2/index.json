@@ -1,0 +1,12 @@
+{
+  "handle": "fd09d3a2",
+  "address": "fd09d3a2-133e-8b0d-9d3f-01938b8434a4",
+  "kind": "chunk",
+  "keys": [
+    "closure_is_coprime"
+  ],
+  "statement": "(Nat.gcd 2 5 = 1) ∧ (Nat.gcd 3 7 = 1) ∧ (Nat.gcd 2 9 = 1) ∧ (Nat.gcd 5 24 = 1) ∧ (Nat.gcd 3 2 = 1)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

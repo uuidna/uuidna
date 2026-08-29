@@ -1,0 +1,12 @@
+{
+  "handle": "88d11f80",
+  "address": "88d11f80-b8ab-8aec-8ace-7d37c7057efc",
+  "kind": "chunk",
+  "keys": [
+    "seventytwo_is_decimal_only"
+  ],
+  "statement": "(6 * 72 = 432) ∧ (432 % 9 = 0) ∧ (432 % 15 = 12) ∧ (432 % 15 ≠ 0)",
+  "files": [
+    "Grid.lean"
+  ]
+}

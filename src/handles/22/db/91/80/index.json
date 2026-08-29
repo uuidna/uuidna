@@ -1,0 +1,12 @@
+{
+  "handle": "22db9180",
+  "address": "22db9180-77f0-8927-a214-d01d8b2b603a",
+  "kind": "chunk",
+  "keys": [
+    "max_unit_order_mod_8_is_2"
+  ],
+  "statement": "((List.range 8).all (fun a => (Nat.gcd a 8 != 1) || (a ^ 2 % 8 == 1))) ∧ ((List.range 8).any (fun a => (Nat.gcd a 8 == 1) && ((List.range' 1 1).all (fun k => a ^ k % 8 != 1))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

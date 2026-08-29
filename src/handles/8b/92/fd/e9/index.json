@@ -1,0 +1,16 @@
+{
+  "handle": "8b92fde9",
+  "address": "8b92fde9-9b6f-8205-970b-5a277009a079",
+  "kind": "chunk",
+  "keys": [
+    "mul9_3_3",
+    "three_sq_zero",
+    "z9mul_3_3"
+  ],
+  "statement": "(3 * 3) % 9 = 0",
+  "files": [
+    "Core.lean",
+    "Ring.lean",
+    "Vortex.lean"
+  ]
+}

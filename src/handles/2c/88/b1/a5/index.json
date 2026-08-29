@@ -1,0 +1,12 @@
+{
+  "handle": "2c88b1a5",
+  "address": "2c88b1a5-7c68-851b-bb1c-1d79a48459f3",
+  "kind": "chunk",
+  "keys": [
+    "vortex_is_the_units"
+  ],
+  "statement": "(((List.range 6).map (fun k => (2^k)%9)).all (fun x => invB x)) ∧ ((List.range 9).all (fun a => (invB a) == ((List.range 6).map (fun k => (2^k)%9)).contains a))",
+  "files": [
+    "Discover.lean"
+  ]
+}

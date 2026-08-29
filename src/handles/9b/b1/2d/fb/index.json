@@ -1,0 +1,12 @@
+{
+  "handle": "9bb12dfb",
+  "address": "9bb12dfb-ad1b-8aef-bcea-fdca9c8dc939",
+  "kind": "chunk",
+  "keys": [
+    "z7reflection_center"
+  ],
+  "statement": "(List.range 7).all (fun d => ((7 - (7 - d) % 7) % 7) == d % 7) ∧ ((List.range 7).filter (fun d => (7 - d) % 7 == d)).length = 1",
+  "files": [
+    "Rosette.lean"
+  ]
+}

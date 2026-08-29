@@ -312,8 +312,10 @@ export const depResolves = (d: string): boolean => {
   return stem !== null && soStems().has(stem)
 }
 
-/** Q1<base64 sha1> — apk's published digest form. It must DECODE, and to exactly 20 bytes. */
+/** Q1<base64 sha1> — apk's published digest form (20 bytes). Hex SHA-256 (64 chars) is PyPI / crates.io / RubyGems
+ *  published provenance — same integrity role, native width, not recast as Q1 (that would collapse 32 bytes to 20). */
 const checksumOk = (c: string): boolean => {
+  if (/^[a-f0-9]{64}$/.test(c)) return true
   if (!c.startsWith('Q1')) return false
   const b64 = c.slice(2)
   if (!/^[A-Za-z0-9+/]+={0,2}$/.test(b64)) return false
@@ -341,7 +343,9 @@ export function packageSelfTest(p: CataloguePackage): PackageTest {
     { check: 'identity', ok: /^[A-Za-z0-9._+-]+$/.test(p.name) && /^\d/.test(p.version),
       detail: `${p.name}-${p.version}` },
     { check: 'provenance', ok: checksumOk(p.checksum),
-      detail: p.checksum ? `${p.checksum.slice(0, 12)}… decodes to 20 bytes` : '(no published checksum)' },
+      detail: !p.checksum ? '(no published checksum)'
+        : /^[a-f0-9]{64}$/.test(p.checksum) ? 'published sha256 (32 bytes)'
+        : `${p.checksum.slice(0, 12)}… decodes to 20 bytes` },
     { check: 'closure', ok: unresolved.length === 0,
       detail: unresolved.length ? `${unresolved.length} of ${p.deps.length} deps resolve to nothing: ${unresolved.slice(0, 3).join(' ')}` : `${p.deps.length} deps all resolve` },
     { check: 'compile', ok: compileOk,
@@ -549,6 +553,58 @@ export function manAppWitness(man: CataloguePackage): ManAppWitness {
       ? `man ${man.name} → app ${resolved.app.name} (${resolved.via}) · both ${UUID_HEXBITS} hexbits`
       : `man ${man.name} → app ${resolved.app.name} (${resolved.via}) · manHexbits=${manOk} appHexbits=${appOk}`,
   }
+}
+
+/** published binaries this package PROVIDES — `cmd:foo=1.0` → `foo`. A Python CLI and a C ELF are the same
+ *  shape here: uuidnaOS runs them through one door, it does not grow a port per language. */
+export function providedCommands(p: CataloguePackage): string[] {
+  const out: string[] = []
+  for (const pv of p.provides) {
+    if (!pv.startsWith('cmd:')) continue
+    const name = pv.slice(4).split('=')[0]!
+    if (name && !out.includes(name)) out.push(name)
+  }
+  return out
+}
+
+export interface ManRunJob {
+  man: string
+  app: string
+  via: ManAppVia
+  command: string
+}
+
+export interface ManDrivenRunJobs {
+  definition: 'man→app→cmd'
+  jobs: ManRunJob[]
+  /** man packages whose app published no cmd: — libraries, fonts, corpora. Named, not missing ports. */
+  noBinary: string[]
+  witnessed: number
+  commands: number
+}
+
+/** manDrivenRunJobs() → every man-tested app's published binaries, as run jobs. The automated port:
+ *  man pages name the app, `cmd:` names what uuidna_run executes, no per-package helper is authored. */
+export function manDrivenRunJobs(repo?: 'main' | 'community' | typeof OVERLAY_REPO): ManDrivenRunJobs {
+  const list = manPagePackages(repo)
+  const jobs: ManRunJob[] = []
+  const noBinary: string[] = []
+  const unique = new Set<string>()
+  let witnessed = 0
+  for (const man of list) {
+    const w = manAppWitness(man)
+    if (!w.ok || !w.app || !w.via) continue
+    witnessed++
+    const app = cataloguePackage(w.app)
+    if (!app) continue
+    const cmds = providedCommands(app)
+    if (!cmds.length) { noBinary.push(man.name); continue }
+    for (const command of cmds) {
+      jobs.push({ man: man.name, app: app.name, via: w.via, command })
+      unique.add(command)
+    }
+  }
+  return { definition: 'man→app→cmd', jobs, noBinary, witnessed, commands: unique.size }
 }
 
 /** manDrivenPortCoverage — THE port-completeness meter: man pages testing apps, folded into hexbits.

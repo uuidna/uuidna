@@ -1,0 +1,12 @@
+{
+  "handle": "6c0934b4",
+  "address": "6c0934b4-bb1c-8945-9655-bd94fa2076fd",
+  "kind": "chunk",
+  "keys": [
+    "hexbit_states_are_sixteen"
+  ],
+  "statement": "((2:Nat)^4 = 16) ∧ (4 * 4 = 16)",
+  "files": [
+    "Hexbit.lean"
+  ]
+}

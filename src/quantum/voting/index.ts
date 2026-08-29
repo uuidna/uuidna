@@ -71,8 +71,7 @@ export function agentContribute(workAddress: string, theoremCited: string): Agen
 /** encodeVote(decision, weight) → quantum encode a weighted vote (yes/no, folded into superposition).
  *  Same vote always encodes to the same quantum state (deterministic, content-addressed). */
 export function encodeVote(decision: boolean, weight: number): QState {
-  // Use weight qubits: if weight=2, use 2 qubits; if weight > 16, cap at 16.
-  const qubits = weight < 1 ? 1 : weight > 16 ? 16 : weight
+  const qubits = weight < 1 ? 1 : weight
 
   // Start in |0…0⟩
   let state = ket0(qubits)

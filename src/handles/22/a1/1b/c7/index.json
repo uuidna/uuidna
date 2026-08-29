@@ -1,0 +1,12 @@
+{
+  "handle": "22a11bc7",
+  "address": "22a11bc7-4db3-8fc0-8ae7-c681e57fd603",
+  "kind": "chunk",
+  "keys": [
+    "only_five_carries_the_three_singularities"
+  ],
+  "statement": "((List.range' 1 9).filter (fun d => (10 - d == d) && (dz d == d) && ([1,2,4,8,7,5].getLast? == some d) && ([9,8,6,2,3,5].getLast? == some d))) = [5]",
+  "files": [
+    "Sequence.lean"
+  ]
+}

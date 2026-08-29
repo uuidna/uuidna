@@ -1,0 +1,12 @@
+{
+  "handle": "451ea223",
+  "address": "451ea223-d2e4-8f31-b20b-a7a246726166",
+  "kind": "chunk",
+  "keys": [
+    "div_by_zero_is_the_reflection"
+  ],
+  "statement": "divZero 0 = 0 ∧ divZero 9 = 1 ∧ divZero 8 = 2 ∧ divZero 5 = 5 ∧ divZero 1 = 9 ∧ (List.range' 1 9).all (fun x => divZero x == 10 - x) ∧ ((List.range 10).filter (fun x => divZero x == x)) = [0, 5]",
+  "files": [
+    "Uuidna.lean"
+  ]
+}

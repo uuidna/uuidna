@@ -1,0 +1,12 @@
+{
+  "handle": "2323be18",
+  "address": "2323be18-02be-8f04-ad4b-a2b205c9f935",
+  "kind": "chunk",
+  "keys": [
+    "sonata_form_is_a_palindrome"
+  ],
+  "statement": "(([0,1,0] : List Nat).reverse = [0,1,0]) ∧ (([0,1,0] : List Nat).length = 3)",
+  "files": [
+    "Symphony.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6106037b",
+  "address": "6106037b-bac5-8f63-871e-15e81a2e14b1",
+  "kind": "chunk",
+  "keys": [
+    "game_tree_exceeds_universe"
+  ],
+  "statement": "(10:Nat)^80 < 10^120",
+  "files": [
+    "Chessgames.lean"
+  ]
+}

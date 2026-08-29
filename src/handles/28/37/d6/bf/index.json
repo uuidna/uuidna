@@ -1,0 +1,12 @@
+{
+  "handle": "2837d6bf",
+  "address": "2837d6bf-bf38-88c8-b78b-2d7ada013d00",
+  "kind": "chunk",
+  "keys": [
+    "power_fixed_mod_18_number_4"
+  ],
+  "statement": "((List.range 18).filter (fun x => x ^ 18 % 18 == x)).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

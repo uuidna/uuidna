@@ -1,0 +1,12 @@
+{
+  "handle": "bab9a603",
+  "address": "bab9a603-9873-814b-ab93-73712f2e026d",
+  "kind": "chunk",
+  "keys": [
+    "seven_reach_five_classes"
+  ],
+  "statement": "(((List.range' 1 7).map dzMin).eraseDups.length = 5) ∧ (!(((List.range' 1 7).map dzMin).contains 0))",
+  "files": [
+    "Reflection.lean"
+  ]
+}

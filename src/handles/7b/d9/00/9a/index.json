@@ -1,0 +1,12 @@
+{
+  "handle": "7bd9009a",
+  "address": "7bd9009a-9a18-80c4-b3cd-2e4c8d9bb928",
+  "kind": "chunk",
+  "keys": [
+    "court_theorem_beats_assertion"
+  ],
+  "statement": "(List.range 2).all (fun a => (List.range 2).all (fun b => (a*(1-b) + b*(1-a) == (a+b) % 2) && ((a*(1-b)) * (b*(1-a)) == 0)))",
+  "files": [
+    "Legal.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "d3ac4f48",
+  "address": "d3ac4f48-512f-8001-b3d0-aefe9a932ec7",
+  "kind": "chunk",
+  "keys": [
+    "handle_spans_thirtytwo"
+  ],
+  "statement": "(8 * 4 = 32) ∧ ((2:Nat)^32 = 4294967296)",
+  "files": [
+    "HandleSpan.lean"
+  ]
+}

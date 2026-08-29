@@ -1,0 +1,12 @@
+{
+  "handle": "4f8e2d3c",
+  "address": "4f8e2d3c-8b3d-8881-99ae-899cbc236107",
+  "kind": "chunk",
+  "keys": [
+    "one_image_every_architecture"
+  ],
+  "statement": "((List.range 8).all (fun a => a + 832 - a = 832)) ∧ ((8 : Nat) / 8 = 1) ∧ (8 = 2 ^ 3) ∧ (832 = 26 * 32)",
+  "files": [
+    "Waves.lean"
+  ]
+}

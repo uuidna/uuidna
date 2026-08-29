@@ -1,0 +1,12 @@
+{
+  "handle": "ebb82771",
+  "address": "ebb82771-d216-841e-a95d-10980467aee4",
+  "kind": "chunk",
+  "keys": [
+    "temporal_summation_decays"
+  ],
+  "statement": "((List.range 6).map (fun d => if max (4 - Int.ofNat d) 0 + 4 >= 5 then 1 else 0) = [1,1,1,1,0,0]) ∧ ((if (4 : Int) >= 5 then 1 else 0) = 0)",
+  "files": [
+    "Neuro.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "7e6094f4",
+  "address": "7e6094f4-5d41-8d97-9432-4110ec862398",
+  "kind": "chunk",
+  "keys": [
+    "legal_non_justiciable_is_never_refuted"
+  ],
+  "statement": "(List.range 2).all (fun h => (List.range 2).all (fun c => lr 0 h c == 0))",
+  "files": [
+    "Legal.lean"
+  ]
+}

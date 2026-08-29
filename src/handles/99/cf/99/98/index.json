@@ -1,0 +1,12 @@
+{
+  "handle": "99cf9998",
+  "address": "99cf9998-c179-835c-a9cc-29bd025b9fcd",
+  "kind": "chunk",
+  "keys": [
+    "photon_energy_rises_with_band"
+  ],
+  "statement": "((List.range 7).map (fun b => b)) = [0,1,2,3,4,5,6]",
+  "files": [
+    "Spectrum.lean"
+  ]
+}

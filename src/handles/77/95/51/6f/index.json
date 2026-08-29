@@ -1,0 +1,12 @@
+{
+  "handle": "7795516f",
+  "address": "7795516f-82a0-8d19-95a7-511dc5f6c1bd",
+  "kind": "chunk",
+  "keys": [
+    "moduli_waste_states"
+  ],
+  "statement": "[9,10,15,16].map (fun m => 16 - m) = [7,6,1,0]",
+  "files": [
+    "Alignment.lean"
+  ]
+}

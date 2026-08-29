@@ -1,0 +1,12 @@
+{
+  "handle": "4e40d437",
+  "address": "4e40d437-77a0-8bfb-85df-070f8981a02f",
+  "kind": "chunk",
+  "keys": [
+    "lorentz_gamma_triangle"
+  ],
+  "statement": "5^2 + 12^2 = 13^2",
+  "files": [
+    "Relativity.lean"
+  ]
+}

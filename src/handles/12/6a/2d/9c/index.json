@@ -1,0 +1,12 @@
+{
+  "handle": "126a2d9c",
+  "address": "126a2d9c-2227-81d5-9a30-dc00241d443f",
+  "kind": "chunk",
+  "keys": [
+    "s_fourth_is_identity"
+  ],
+  "statement": "([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let a := (-(p.2), p.1); let b := (-(a.2), a.1); let c := (-(b.2), b.1); let d := (-(c.2), c.1); (d.1 == p.1) && (d.2 == p.2)))",
+  "files": [
+    "Quantum.lean"
+  ]
+}

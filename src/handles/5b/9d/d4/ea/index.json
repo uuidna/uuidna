@@ -1,0 +1,12 @@
+{
+  "handle": "5b9dd4ea",
+  "address": "5b9dd4ea-d4c2-84f8-a0b6-46d702264003",
+  "kind": "chunk",
+  "keys": [
+    "involution_replaces_the_raised_ceiling"
+  ],
+  "statement": "((List.range 2).all (fun b => ((b + 1) % 2 + 1) % 2 == b)) ∧ ((List.range' 1 12).all (fun k => 2 ^ k / 2 == 2 ^ (k - 1))) ∧ ((List.range' 1 12).all (fun k => 2 <= 2 ^ k)) ∧ (2 ^ 8 = 256) ∧ (2 < 256) ∧ (256 / 2 = 128)",
+  "files": [
+    "Wave.lean"
+  ]
+}

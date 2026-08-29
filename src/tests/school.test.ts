@@ -1,4 +1,4 @@
-// school — the eleven sections, computed rather than authored.
+// school — the twelve sections, computed rather than authored.
 //
 // The accreditation test is the one that matters. A school page implying credentials it does not hold would be the
 // one overclaim this ledger could not survive, because everything else it publishes rests on its claims being
@@ -8,11 +8,11 @@ import assert from 'node:assert/strict'
 import { school, courses, levels, levelOf, bandOf } from '../school.js'
 import { theorems, publications, oeapiCourses, oeapiProfile } from '../index.js'
 
-test('all eleven sections are present, each with a body', () => {
+test('all twelve sections are present, each with a body', () => {
   const s = school()
-  assert.equal(s.sections.length, 11)
+  assert.equal(s.sections.length, 12)
   for (const sec of s.sections) assert.ok(sec.body.length > 0, `${sec.id} is empty`)
-  assert.equal(new Set(s.sections.map((x) => x.id)).size, 11, 'no duplicate section ids')
+  assert.equal(new Set(s.sections.map((x) => x.id)).size, 12, 'no duplicate section ids')
 })
 
 // ── THE BINDING CONSTRAINT.
@@ -39,7 +39,7 @@ test('every wing is a course, and lessons sum to the ledger', () => {
   assert.equal(new Set(cs.map((c) => c.code)).size, cs.length, 'course codes must not collide')
 })
 
-// ── PROSE REPLACED BY READS. Eight of eleven sections were authored strings restating fields that already exist
+// ── PROSE REPLACED BY READS. Nine of twelve sections were authored strings restating fields that already exist
 // in package.json and CHANGELOG.md — a retyped field is a claim that cannot stay true, the same defect as a ledger
 // count frozen into a comment. Only positions that are NOT measurements may stay authored.
 test('most sections are computed, and the authored ones are positions rather than facts', () => {
@@ -217,4 +217,13 @@ test('the levels section RENDERS the derivation — the measure reaches the read
   for (const l of s.levels) assert.match(body, new RegExp(`Level ${l.level} \\(${l.band.replace('–', '.')}\\)`), `level ${l.level} is derived but never shown`)
   assert.match(body, new RegExp(`Start here: ${s.courses[0].code}`), 'the reader is told where to begin')
   assert.ok(!/undefined|NaN|: $/.test(body), 'the section has an unresolved field')
+})
+
+test('the laboratory section RENDERS every admitted domain — sufficient for simulations and emulators', () => {
+  const s = school()
+  assert.ok(s.laboratory.sufficient)
+  assert.equal(s.sections.filter((x) => x.computed).length >= 9, true)
+  const body = s.sections.find((x) => x.id === 'laboratory')!.body.join('\n')
+  assert.match(body, /World domains admitted: \d+/)
+  assert.match(body, /Labs sufficient: every admitted domain/)
 })

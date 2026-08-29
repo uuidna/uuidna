@@ -2,9 +2,10 @@
 // @non-harmonic: stamps a wall-clock ISO time into the generated analytics — a NAMED boundary. A wall-clock stamp is the one field that makes a re-run differ for no reason.
 // gen-analytics — Generate advantage metrics and statistics for README/homepage
 
-import { theorems } from '../index.js'
+import { theorems, publications, securityAudit, vocabulary } from '../index.js'
 import { writeFileSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { MCP_CATALOG } from '../mcp.js'
 
 const T = theorems()
 // the consolidated censuses — every measured statistic any page quotes, computed here in the one generator
@@ -34,6 +35,7 @@ interface Analytics {
   publications: number
   skills: number
   mcp_tools: number
+  mcp_categories: number
   confidence: number // percentage proven by decide
   security_checks: number
   supported_modules: number
@@ -49,6 +51,12 @@ interface Analytics {
   content_addressing: string
 }
 
+function supportModules(): number {
+  try {
+    return (JSON.parse(readFileSync(join(process.cwd(), 'support-audit.json'), 'utf8')) as { supported?: number }).supported ?? 0
+  } catch { return 0 }
+}
+
 // Build analytics from the ledger
 const analytics: Analytics = {
   theorems_total: T.length,
@@ -56,12 +64,13 @@ const analytics: Analytics = {
   // by decide — the exact-match undercounted 1205/1208 while printing 100%, an arithmetic dishonesty the school bans.
   theorems_axiom_free: T.filter(t => t.tactic.startsWith('decide')).length,
   principles: new Set(T.map(t => t.principle)).size,
-  publications: 66, // from gen-readme
+  publications: publications().length,
   skills: new Set(T.map(t => t.skill).filter(Boolean)).size,
-  mcp_tools: 154,
+  mcp_tools: MCP_CATALOG.length,
+  mcp_categories: new Set(MCP_CATALOG.map((t) => t.category)).size,
   confidence: (T.filter(t => t.tactic.startsWith('decide')).length / T.length) * 100,
-  security_checks: 10,
-  supported_modules: 223,
+  security_checks: securityAudit().checks.length,
+  supported_modules: supportModules(),
   determinism_clean: 100, // no Math.*/Date/RNG in core 86 modules
   gate_clean: 100, // no fabricated citations found
   coins_conserved: true,
@@ -70,7 +79,7 @@ const analytics: Analytics = {
   steps_per_address: T.length > 0 ? (proofSteps() - (proofSteps() % T.length)) / T.length : 0,  // integer division; Math.* settles no theorem
   zero_dependencies: true,
   zero_runtime_code: 100, // no third-party runtime deps
-  languages_supported: 20,
+  languages_supported: vocabulary().count,
   content_addressing: 'SHA-256 (cryptographic) + FNV-1a (non-cryptographic)'
 }
 
@@ -109,9 +118,9 @@ const md = `
 ### Scope & Capabilities
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **MCP tools** | ${analytics.mcp_tools} | In 36 categories (trials, addresses, theorems queries) |
+| **MCP tools** | ${analytics.mcp_tools} | In ${analytics.mcp_categories} categories |
 | **Publications** | ${analytics.publications} | Monographs linked to sealed theorems |
-| **Languages audited** | ${analytics.languages_supported}+ | Glagolitic→Cyrillic + UTF-8 + Latin scripts |
+| **Vocabulary terms** | ${analytics.languages_supported} | \`vocabulary()\` — ledger domains and skills |
 | **Content addressing** | ${analytics.content_addressing} | Two address spaces: cryptographic + deterministic |
 
 ---
@@ -167,7 +176,7 @@ Principles:           ${analytics.principles} domains
 Publications:         ${analytics.publications} monographs
 MCP tools:            ${analytics.mcp_tools} capabilities
 Security checks:      ${analytics.security_checks} automated
-Languages:            ${analytics.languages_supported}+ audited
+Languages:            ${analytics.languages_supported} vocabulary terms
 Runtime deps:         0 (zero)
 Code coverage:        100% reachable modules
 \`\`\`

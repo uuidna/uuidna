@@ -8,12 +8,12 @@ description: Most-searched queries and the wired public APIs ring the sealed led
 Most-searched queries and the wired public APIs (research streams, EU education portals, unanswered math —
 sourced, not scraped) ring the sealed ledger by resonance
 ([`silence_never_refutes`](/theorem/silence_never_refutes)). A loud theorem is an **online result**: a
-[`/theorem/<key>`](/theorems) door. A silent query, or harvest `decide()` confirms that the ledger does not
+[`/theorem/&lt;key&gt;`](/theorems) door. A silent query, or harvest `decide()` confirms that the ledger does not
 yet seal, is a **lead** the desk proposes. Only the kernel seals; only the captain holds or refuses
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted),
 [`two_coins`](/theorem/two_coins)). Meaning is null.
 
-Fold receipt `753e93dc-d07c-8765-a881-87e1e3033f41` · hexbit door [`753e93dc`](https://uuidna.com/753e93dc) ·
+Fold receipt `9ba24aa4-2b2e-8aee-a029-7005b4a9b38f` · hexbit door [`9ba24aa4`](https://uuidna.com/9ba24aa4) ·
 42 door(s) · 11 lead(s) · 9 silent
 .
 
@@ -21,48 +21,48 @@ Fold receipt `753e93dc-d07c-8765-a881-87e1e3033f41` · hexbit door [`753e93dc`](
 
 | query | theorem | wing | resonance |
 |-------|---------|------|-----------|
-| fifa world cup | [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) | wave | 4253 |
-| quantum advantage | [`captain_coins_respected_at_scale`](/theorem/captain_coins_respected_at_scale) | coins | 4166 |
-| quantum advantage | [`clifford_group_order_24`](/theorem/clifford_group_order_24) | quantum | 4166 |
-| quantum advantage | [`dj_balanced_cancels`](/theorem/dj_balanced_cancels) | quantum | 4166 |
-| quantum advantage | [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) | audit | 4166 |
-| quantum advantage | [`gate_error_baseline_class`](/theorem/gate_error_baseline_class) | quantum | 4166 |
-| mathematics | [`hasse_bound_holds_at_four_primes`](/theorem/hasse_bound_holds_at_four_primes) | clay | 2136 |
-| weather | [`naismith_rule_estimate`](/theorem/naismith_rule_estimate) | topography | 2136 |
-| fifa world cup | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) | hamming | 2131 |
-| fifa world cup | [`depolarisation_blocks_firing`](/theorem/depolarisation_blocks_firing) | neuro | 2131 |
-| fifa world cup | [`quantum_polygraph`](/theorem/quantum_polygraph) | reasoning | 2131 |
-| fifa world cup | [`seven_reach_five_classes`](/theorem/seven_reach_five_classes) | reflection | 2131 |
-| chemistry | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) | chemistry | 2124 |
-| chemistry | [`boyles_law`](/theorem/boyles_law) | chemistry | 2124 |
-| chemistry | [`charge_balance_neutral`](/theorem/charge_balance_neutral) | chemistry | 2124 |
-| chemistry | [`chemistry_water_and_the_table`](/theorem/chemistry_water_and_the_table) | wave | 2124 |
-| chemistry | [`combustion_methane_balances`](/theorem/combustion_methane_balances) | chemistry | 2124 |
-| science | [`abo_klein_four`](/theorem/abo_klein_four) | science-pairs | 2108 |
-| science | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) | science-pairs | 2108 |
-| science | [`agonist_antagonist_cancels`](/theorem/agonist_antagonist_cancels) | science-pairs | 2108 |
-| science | [`blood_types_eight`](/theorem/blood_types_eight) | science-pairs | 2108 |
-| science | [`chargaff_strand_balance`](/theorem/chargaff_strand_balance) | science-pairs | 2108 |
-| maps | [`agl9_exponent_is_eighteen_with_no_element_of_that_order`](/theorem/agl9_exponent_is_eighteen_with_no_element_of_that_order) | wave | 2105 |
-| maps | [`agl9_fixed_point_census_gives_a_single_orbit`](/theorem/agl9_fixed_point_census_gives_a_single_orbit) | wave | 2105 |
-| maps | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 2105 |
-| maps | [`censuses_differ`](/theorem/censuses_differ) | reversal | 2105 |
-| maps | [`codons_four_cubed`](/theorem/codons_four_cubed) | cipher | 2105 |
-| uuid | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) | reporting | 2067 |
-| uuid | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 2067 |
-| uuid | [`anthem_closes_on_the_coin_octave`](/theorem/anthem_closes_on_the_coin_octave) | anthem | 2067 |
-| uuid | [`anthem_finale_sings_one_uuid`](/theorem/anthem_finale_sings_one_uuid) | anthem | 2067 |
-| uuid | [`boundary_is_exactly_two_named_modules`](/theorem/boundary_is_exactly_two_named_modules) | os | 2067 |
-| quantum | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) | calendar | 2044 |
-| quantum | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) | models | 2044 |
-| quantum | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 2044 |
-| quantum | [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) | torus | 2044 |
-| quantum | [`bell_basis_orthogonal`](/theorem/bell_basis_orthogonal) | quantum | 2044 |
-| prime | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 2003 |
-| prime | [`anthem_pi_primes_trinity`](/theorem/anthem_pi_primes_trinity) | anthem | 2003 |
-| prime | [`axes_stride_coprime`](/theorem/axes_stride_coprime) | crt | 2003 |
-| prime | [`circle_of_fifths`](/theorem/circle_of_fifths) | science-pairs | 2003 |
-| prime | [`closure_is_coprime`](/theorem/closure_is_coprime) | quantum | 2003 |
+| fifa world cup | [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) | wave | 4273 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`captain_coins_respected_at_scale`](/theorem/captain_coins_respected_at_scale) | coins | 4188 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`clifford_group_order_24`](/theorem/clifford_group_order_24) | quantum | 4188 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`dj_balanced_cancels`](/theorem/dj_balanced_cancels) | quantum | 4188 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) | audit | 4188 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`gate_error_baseline_class`](/theorem/gate_error_baseline_class) | quantum | 4188 |
+| mathematics | [`hasse_bound_holds_at_four_primes`](/theorem/hasse_bound_holds_at_four_primes) | clay | 2147 |
+| weather | [`naismith_rule_estimate`](/theorem/naismith_rule_estimate) | topography | 2147 |
+| fifa world cup | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) | hamming | 2140 |
+| fifa world cup | [`combinatorial_book_exceeds_handles`](/theorem/combinatorial_book_exceeds_handles) | wave | 2140 |
+| fifa world cup | [`depolarisation_blocks_firing`](/theorem/depolarisation_blocks_firing) | neuro | 2140 |
+| fifa world cup | [`literature_sonnet_volume`](/theorem/literature_sonnet_volume) | wave | 2140 |
+| chemistry | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) | chemistry | 2135 |
+| chemistry | [`boyles_law`](/theorem/boyles_law) | chemistry | 2135 |
+| chemistry | [`charge_balance_neutral`](/theorem/charge_balance_neutral) | chemistry | 2135 |
+| chemistry | [`chemistry_water_and_the_table`](/theorem/chemistry_water_and_the_table) | wave | 2135 |
+| chemistry | [`combustion_methane_balances`](/theorem/combustion_methane_balances) | chemistry | 2135 |
+| science | [`abo_klein_four`](/theorem/abo_klein_four) | science-pairs | 2119 |
+| science | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) | science-pairs | 2119 |
+| science | [`agonist_antagonist_cancels`](/theorem/agonist_antagonist_cancels) | science-pairs | 2119 |
+| science | [`blood_types_eight`](/theorem/blood_types_eight) | science-pairs | 2119 |
+| science | [`chargaff_strand_balance`](/theorem/chargaff_strand_balance) | science-pairs | 2119 |
+| maps | [`agl9_exponent_is_eighteen_with_no_element_of_that_order`](/theorem/agl9_exponent_is_eighteen_with_no_element_of_that_order) | wave | 2116 |
+| maps | [`agl9_fixed_point_census_gives_a_single_orbit`](/theorem/agl9_fixed_point_census_gives_a_single_orbit) | wave | 2116 |
+| maps | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 2116 |
+| maps | [`censuses_differ`](/theorem/censuses_differ) | reversal | 2116 |
+| maps | [`codons_four_cubed`](/theorem/codons_four_cubed) | cipher | 2116 |
+| uuid | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) | reporting | 2077 |
+| uuid | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 2077 |
+| uuid | [`anthem_closes_on_the_coin_octave`](/theorem/anthem_closes_on_the_coin_octave) | anthem | 2077 |
+| uuid | [`anthem_finale_sings_one_uuid`](/theorem/anthem_finale_sings_one_uuid) | anthem | 2077 |
+| uuid | [`boundary_is_exactly_two_named_modules`](/theorem/boundary_is_exactly_two_named_modules) | os | 2077 |
+| quantum | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) | calendar | 2055 |
+| quantum | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) | models | 2055 |
+| quantum | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 2055 |
+| quantum | [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) | torus | 2055 |
+| quantum | [`bell_basis_orthogonal`](/theorem/bell_basis_orthogonal) | quantum | 2055 |
+| prime | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 2012 |
+| prime | [`anthem_pi_primes_trinity`](/theorem/anthem_pi_primes_trinity) | anthem | 2012 |
+| prime | [`axes_stride_coprime`](/theorem/axes_stride_coprime) | crt | 2012 |
+| prime | [`circle_of_fifths`](/theorem/circle_of_fifths) | science-pairs | 2012 |
+| prime | [`closure_is_coprime`](/theorem/closure_is_coprime) | quantum | 2012 |
 
 ## Leads — silence and unsealed harvest (desk proposes)
 
@@ -78,12 +78,12 @@ Fold receipt `753e93dc-d07c-8765-a881-87e1e3033f41` · hexbit door [`753e93dc`](
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
 - **cricket** — most-searched query "cricket" rings no sealed theorem
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
-- **quantum advantage** — harvest 128 - 70 = 58 from "quantum advantage" decides TRUE and is unsealed
+- **quantum advantage** — harvest 128 - 70 = 58 from "quantum advantage" decides TRUE and is unsealed ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
   <br><small>owes: captain dispose: wave-deposit the mint candidate, or refuse it at a named boundary — never auto-seal</small>
   <br><small>mint candidate api_15c15f63 · fragment 128 - 70 = 58 — not sealed, never auto-held ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted))</small>
-- **quantum advantage** — harvest 70 &lt; 128 from "quantum advantage" decides TRUE and is unsealed
+- **quantum advantage** — harvest 70 &amp;lt; 128 from "quantum advantage" decides TRUE and is unsealed ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
   <br><small>owes: captain dispose: wave-deposit the mint candidate, or refuse it at a named boundary — never auto-seal</small>
-  <br><small>mint candidate api_c9dabf27 · fragment 70 &lt; 128 — not sealed, never auto-held ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted))</small>
+  <br><small>mint candidate api_c9dabf27 · fragment 70 &amp;lt; 128 — not sealed, never auto-held ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted))</small>
 - **Euclid** — most-searched query "Euclid" rings no sealed theorem
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
 - **Sofia** — most-searched query "Sofia" rings no sealed theorem
@@ -106,7 +106,7 @@ is a measurement that moves.
 - **f1** — Similarweb global volume, Aug 2026
 - **cricket** — Similarweb ind vs eng / Year in Search 2025 cricket spike
 - **uuid** — this ledger's own subject
-- **quantum advantage** — desk 2026-08-28; IBM/UChicago arXiv 2607.25941
+- **quantum advantage** — desk 2026-08-28; IBM/UChicago arXiv 2607.25941 ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
 
 ## Wired portals (the APIs' own probes)
 
@@ -126,5 +126,5 @@ not a search string and stays out.
 
 ## Honest scope
 
-Most-searched queries and the wired public APIs (research streams, EU education portals, unanswered math) ring the sealed ledger by resonance. Loud theorems are the ONLINE RESULTS — /theorem/<key> doors. Silent queries and decided-unsealed harvest are LEADS the desk proposes; only the kernel seals, only the captain holds or refuses. Meaning is null. This does not scrape Google. Recomputable. Integrity. A silent query is a notice, not a refute ([`silence_never_refutes`](/theorem/silence_never_refutes)). Harvest is a mint candidate, never a seal ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted)). This page
+Most-searched queries and the wired public APIs (research streams, EU education portals, unanswered math) ring the sealed ledger by resonance. Loud theorems are the ONLINE RESULTS — /theorem/&amp;lt;key&amp;gt; doors. Silent queries and decided-unsealed harvest are LEADS the desk proposes; only the kernel seals, only the captain holds or refuses. Meaning is null. This does not scrape Google. Recomputable. Integrity. A silent query is a notice, not a refute ([`silence_never_refutes`](/theorem/silence_never_refutes)). Harvest is a mint candidate, never a seal ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted)). This page
 does not scrape Google.

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // gen-open-questions — THE SCHOOL OF OPEN DOORS, derived (lead 88b). Reads every unverified record the tree
-// keeps — the held leads, the research findings, the prose develop fragments — and derives docs/open-questions.md:
+// keeps — the held leads, the research findings, the prose develop fragments, the search-feed, the support
+// wave, the axiom-hunt exposed set — and derives docs/open-questions.md:
 // the open organised in topics beside the sealed, each claim with its develop plan (adjudicate's own, recomputed
 // here, never authored), its involution magnets (where the deep research points — the census law), its sealed
 // neighbors (what settled looks like), and the deposit path (a student's answer is a two-coin deposit, not a
@@ -13,6 +14,7 @@ import { ROOT } from './api.js'
 import { LEAN_LEDGER } from '../theorems/generated.js'
 import { openQuestions, type OpenItem } from '../school/open/questions/index.js'
 import { adjudicate } from '../adjudicate.js'
+import { pageSafe } from '../quantum/advantage/page/safe/index.js'
 
 const readJson = (p: string): unknown => (existsSync(join(ROOT, p)) ? JSON.parse(readFileSync(join(ROOT, p), 'utf8')) : null)
 
@@ -52,6 +54,18 @@ for (const l of feed?.leads ?? []) {
   if (closed(l.what)) continue
   items.push({ claim: l.what, source: `the search feed · ${l.query ?? 'query'}` })
 }
+const support = readJson('research-leads.json') as { leads?: { what?: string; fix?: string }[] } | null
+for (const l of support?.leads ?? []) {
+  const claim = String(l.what ?? '')
+  if (!claim || closed(claim)) continue
+  items.push({ claim, source: 'the support wave · research-leads' })
+}
+const exposed = readJson('lean/exposed-axioms.json') as { held?: { lead?: string }[] } | null
+for (const h of exposed?.held ?? []) {
+  const claim = String(h.lead ?? '')
+  if (!claim || closed(claim)) continue
+  items.push({ claim, source: 'the axiom hunt · exposed' })
+}
 
 const topics = openQuestions(items, LEAN_LEDGER)
 const total = items.length
@@ -62,7 +76,7 @@ const section = topics.map((t) => {
     const planLine = typeof plan === 'string' ? plan : plan ? JSON.stringify(plan) : 'name a decidable structure, express the claim over it, and let adjudicate decide'
     // a derived excerpt must not smuggle markup: truncation can split an inline-code span, and a bare < reads
     // as a tag to the Vue template compiler — so the excerpt is plain text, brackets escaped, backticks dropped
-    const clean = (s: string): string => s.replace(/`/g, '').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    const clean = (s: string): string => pageSafe(s.replace(/`/g, ''))
     const mag = p.involutions.length ? p.involutions.map((i) => `[\`${i.key}\`](/theorem/${i.key})`).join(' · ') : '_none yet — the first magnet is yours to seal_'
     const nb = p.neighbors.length ? p.neighbors.map((n) => `[\`${n.key}\`](/theorem/${n.key})`).join(' · ') : '_no sealed neighbor shares these words_'
     return `- **${clean(p.claim.length > 220 ? p.claim.slice(0, 220) + '…' : p.claim)}**\n  <br><small>door: ${p.source}${p.receipt ? ` · receipt \`${p.receipt}\`` : ''}</small>\n  <br><small>involutions around: ${mag} </small>\n  <br><small>sealed neighbors: ${nb} </small>\n  <br><small>develop: ${clean(String(planLine).slice(0, 200))}</small>`
@@ -85,7 +99,9 @@ description: The unverified, organised in topics — every door with its involut
 > visibly next to what is not.
 
 **${total} open doors** across ${topics.length} topics, derived from the tree's own records — the held leads,
-the research findings, the prose develop fragments, the search-feed leads. Placement is a word-overlap heuristic and says so: what the
+the research findings, the prose develop fragments, the search-feed leads, the support-wave research-leads,
+the axiom-hunt exposed set. After a wave of external research, local school development files every unverified
+here so the lab can discuss it. Placement is a word-overlap heuristic and says so: what the
 words cannot place waits in the **open frontier**, unforced.
 
 **How to answer one**: a student's answer is a **two-coin deposit**, never a comment — name the finite structure,
@@ -99,7 +115,8 @@ ${section}
 
 Organisation, not adjudication: nothing on this page verdicts a claim, and topic placement is shared-words, not
 understanding. The records are the tree's own (leads held, findings unsealed, prose fragments owed, search-feed
-leads); when a record closes, its door leaves this page by recomputation, never by edit.
+leads, support-wave research-leads, axiom-hunt exposed); when a record closes, its door leaves this page by
+recomputation, never by edit.
 `
 writeFileSync(join(ROOT, 'docs', 'open-questions.md'), page)
-console.log(`✓ gen-open-questions — docs/open-questions.md: ${total} doors in ${topics.length} topics, derived from four springs against ${LEAN_LEDGER.length} seals`)
+console.log(`✓ gen-open-questions — docs/open-questions.md: ${total} doors in ${topics.length} topics, derived from the springs against ${LEAN_LEDGER.length} seals`)

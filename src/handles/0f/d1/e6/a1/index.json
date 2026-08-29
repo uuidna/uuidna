@@ -1,0 +1,12 @@
+{
+  "handle": "0fd1e6a1",
+  "address": "0fd1e6a1-f1ed-8606-8e01-1108a5e1513e",
+  "kind": "chunk",
+  "keys": [
+    "agl_order_54"
+  ],
+  "statement": "((List.range 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length * 9 = 54",
+  "files": [
+    "Sequence.lean"
+  ]
+}

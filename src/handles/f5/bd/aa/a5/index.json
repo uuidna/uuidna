@@ -1,0 +1,14 @@
+{
+  "handle": "f5bdaaa5",
+  "address": "f5bdaaa5-95f4-8d14-9b54-05abeb40bebe",
+  "kind": "chunk",
+  "keys": [
+    "mul9_4_6",
+    "z9mul_4_6"
+  ],
+  "statement": "(4 * 6) % 9 = 6",
+  "files": [
+    "Core.lean",
+    "Ring.lean"
+  ]
+}

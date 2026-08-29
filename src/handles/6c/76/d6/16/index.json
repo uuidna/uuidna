@@ -1,0 +1,12 @@
+{
+  "handle": "6c76d616",
+  "address": "6c76d616-cc24-82f9-bd74-116079d53d5a",
+  "kind": "chunk",
+  "keys": [
+    "units_mod_35_number_24"
+  ],
+  "statement": "((List.range 35).filter (fun a => Nat.gcd a 35 == 1)).length = 24",
+  "files": [
+    "Wave.lean"
+  ]
+}

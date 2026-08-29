@@ -1,0 +1,12 @@
+{
+  "handle": "f584208c",
+  "address": "f584208c-c6aa-8db2-a336-cfc6c1a6a16c",
+  "kind": "chunk",
+  "keys": [
+    "isbn13_bookland_prefix"
+  ],
+  "statement": "979 - 978 = 1 ∧ 978 < 979",
+  "files": [
+    "Identifiers.lean"
+  ]
+}

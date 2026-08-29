@@ -29,12 +29,13 @@
 //
 // HONEST SCOPE: this is not speech. It does not pronounce words and no listener will hear language in it. It is
 // the ledger sounding its own addresses, which is a thing a machine can do exactly and a voice cannot.
-import { toUuid } from '../address.js'
+import { toUuid, TRINITY } from '../address.js'
 import { handleOf } from '../handle.js'
+import { HEXBIT_STATES, COINS } from '../hexbit/index.js'
 
-export const SAMPLE_RATE = 16000       // Nyquist 8000 clears state f's 6912 Hz fundamental; folded overtones sit at 1/9 amplitude or less
-export const AMPLITUDE = 8000          // headroom inside 16-bit signed
-export const A432_HZ = 432             // the tuning, and the only base: every tone is a whole multiple of this
+export const SAMPLE_RATE = 16000       // device rate; Nyquist is SAMPLE_RATE / COINS
+export const AMPLITUDE = SAMPLE_RATE / COINS  // headroom inside 16-bit signed
+export const A432_HZ = HEXBIT_STATES * (TRINITY ** TRINITY)
 export const BASE_HZ = A432_HZ         // state 0 sounds the tuning itself — nothing halved, nothing beside the series
 export const ATTACK_MS = 8             // the edge ramp: 128 samples in and out, the difference between a note and a click
 export const GAP_MS = 40               // the breath between tiles — cadence, so a listener can count eight

@@ -1,0 +1,12 @@
+{
+  "handle": "a47cfc1a",
+  "address": "a47cfc1a-34fb-8dd2-9ac0-5be853498477",
+  "kind": "chunk",
+  "keys": [
+    "action_reaction_and_charge_cancel"
+  ],
+  "statement": "((5 : Int) + (-5) = 0) ∧ ((-1 : Int) + 1 = 0)",
+  "files": [
+    "Harmony.lean"
+  ]
+}

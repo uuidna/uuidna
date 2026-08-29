@@ -1,0 +1,12 @@
+{
+  "handle": "540d2361",
+  "address": "540d2361-0458-87d5-8468-7c8110597103",
+  "kind": "chunk",
+  "keys": [
+    "cassini_golden_page"
+  ],
+  "statement": "5 * 5 - 3 * 8 = 1",
+  "files": [
+    "Typesetting.lean"
+  ]
+}

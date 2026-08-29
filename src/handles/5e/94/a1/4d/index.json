@@ -1,0 +1,12 @@
+{
+  "handle": "5e94a14d",
+  "address": "5e94a14d-6d9d-8643-89bc-7ed738ae6d5e",
+  "kind": "chunk",
+  "keys": [
+    "lanes_partition_the_work"
+  ],
+  "statement": "(List.range 14).foldl (fun a l => a + ((List.range 64).filter (fun i => i % 14 == l)).length) 0 = 64",
+  "files": [
+    "Hardware.lean"
+  ]
+}

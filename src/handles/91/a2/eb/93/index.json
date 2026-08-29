@@ -1,0 +1,12 @@
+{
+  "handle": "91a2eb93",
+  "address": "91a2eb93-2b57-8c3b-b36a-3b7021f9de22",
+  "kind": "chunk",
+  "keys": [
+    "residue_holds_three_grids"
+  ],
+  "statement": "(3 * 42 = 126) ∧ (128 - 2 = 3 * 42)",
+  "files": [
+    "Contribution.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0d1fc4ff",
+  "address": "0d1fc4ff-5270-87c1-a8de-561dc99c293a",
+  "kind": "chunk",
+  "keys": [
+    "double_spend_walks_every_list"
+  ],
+  "statement": "(lists.length = 27) ∧ ((lists.filter (fun l => [1,2,3].any (fun t => doubleSpent t l))).length = 21) ∧ ((lists.filter (fun l => !([1,2,3].any (fun t => doubleSpent t l)))).length = 6)",
+  "files": [
+    "AntiFraud.lean"
+  ]
+}

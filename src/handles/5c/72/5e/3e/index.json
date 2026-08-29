@@ -1,0 +1,12 @@
+{
+  "handle": "5c725e3e",
+  "address": "5c725e3e-34ea-81f5-868d-f3de6c2ced79",
+  "kind": "chunk",
+  "keys": [
+    "glagolitic_units_sum"
+  ],
+  "statement": "((List.range' 1 9).foldl (fun s n => s + n) 0 = 45) ∧ (4 + 5 = 9)",
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

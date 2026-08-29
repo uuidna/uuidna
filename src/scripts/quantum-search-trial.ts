@@ -11,7 +11,7 @@
 // given the same responses: ledger order, content-addresses, no wall-clock, no RNG.
 import { writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
-import { theorems, searchTrialFor } from '../index.js'
+import { theorems, searchTrialFor, pageCell } from '../index.js'
 import { handleOf } from '../handle.js'
 import { ROOT } from './api.js'
 
@@ -47,16 +47,13 @@ for (const wing of wings) {
   const { principle, findings, receipt } = s
   const leads = s.usable
   // Cell text is the least trusted string this repo writes: a finding's note and source come back from the online
-  // search, not from the ledger. Backslash first, then the pipe — escaping the pipe alone leaves `\|` in the source
-  // rendering as an escaped backslash plus a LIVE delimiter, which ends the cell early and lets the rest of the note
-  // land in the next column (js/incomplete-sanitization). `source` was interpolated raw and is escaped here too;
-  // CodeQL flagged only the note, but the two strings arrive by the same road.
-  const cell = (s: string): string => String(s).replace(/\\/g, '\\\\').replace(/\|/g, '\\|')
+  // search, not from the ledger. pageCell is the page-fidelity constructor (backslash, newline, pipe, then tags) —
+  // VitePress compiles markdown as Vue, so a raw `<span>` from Zenodo is an unclosed element and the site build dies.
   const physicsBound = wing === 'Quantum.lean'
     ? ' — third-party titles are evidence only; sealed bound: [n_qubit_dimension](/theorem/n_qubit_dimension)'
     : ''
   const rows = findings.map((f) =>
-    `| \`${handleOf(f.address)}\` | ${cell(f.source)} | ${cell(f.note)} | ${f.alone} | ${f.withBacking} |`)
+    `| \`${handleOf(f.address)}\` | ${pageCell(f.source)} | ${pageCell(f.note)} | ${f.alone} | ${f.withBacking} |`)
 
   const md = `---
 title: "The search on trial: ${principle.replace(/"/g, "'")}"

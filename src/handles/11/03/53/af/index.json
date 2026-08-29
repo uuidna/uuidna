@@ -1,0 +1,12 @@
+{
+  "handle": "110353af",
+  "address": "110353af-41b1-8a6b-b4ff-35df9c055138",
+  "kind": "chunk",
+  "keys": [
+    "nine_is_never_reached"
+  ],
+  "statement": "(preOf dbl 9 = 0) ∧ ((List.range 10).all (fun d => dbl d != 9))",
+  "files": [
+    "Reversal.lean"
+  ]
+}

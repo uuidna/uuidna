@@ -1,0 +1,12 @@
+{
+  "handle": "90dda610",
+  "address": "90dda610-2e84-8e94-b9c4-f66f8bed164b",
+  "kind": "chunk",
+  "keys": [
+    "spring_exceeds_neap"
+  ],
+  "statement": "2 + 1 > 2 - 1",
+  "files": [
+    "Tides.lean"
+  ]
+}

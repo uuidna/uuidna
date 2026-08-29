@@ -1,0 +1,12 @@
+{
+  "handle": "8cd3b25a",
+  "address": "8cd3b25a-70e5-8c61-a2cf-c02f6b9af744",
+  "kind": "chunk",
+  "keys": [
+    "involution_walks_home_in_two"
+  ],
+  "statement": "(((List.range 256).filter (fun c => (List.range 4).all (fun x => (c / 4 ^ (c / 4 ^ x % 4) % 4) == x))).length = 10) ∧ (1 + 6 + 3 = 10) ∧ (10 < 256)",
+  "files": [
+    "Wave.lean"
+  ]
+}

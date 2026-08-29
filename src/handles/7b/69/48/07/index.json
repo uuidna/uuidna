@@ -1,0 +1,12 @@
+{
+  "handle": "7b694807",
+  "address": "7b694807-7140-8b38-b7f9-9740406f97b4",
+  "kind": "chunk",
+  "keys": [
+    "the_punched_card_is_the_bit"
+  ],
+  "statement": "((2:Nat)^8 = 256) ∧ ((2:Nat)^1 = 2) ∧ ((List.range 4).all (fun n => (2:Nat)^(n+1) == 2 * 2^n))",
+  "files": [
+    "Looms.lean"
+  ]
+}

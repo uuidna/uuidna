@@ -1,0 +1,12 @@
+{
+  "handle": "05679d08",
+  "address": "05679d08-b7f8-8f87-bb23-8e8a8fbe6bd1",
+  "kind": "chunk",
+  "keys": [
+    "octave_doubles_frequency"
+  ],
+  "statement": "440 * 2 = 880",
+  "files": [
+    "Production.lean"
+  ]
+}

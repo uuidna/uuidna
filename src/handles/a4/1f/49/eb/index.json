@@ -1,0 +1,12 @@
+{
+  "handle": "a41f49eb",
+  "address": "a41f49eb-4225-8879-acfb-ad7b2c2dc15e",
+  "kind": "chunk",
+  "keys": [
+    "gates_name_their_tables"
+  ],
+  "statement": "(rowsOf 8 = [0,0,0,1]) ∧ (rowsOf 14 = [0,1,1,1]) ∧ (rowsOf 6 = [0,1,1,0]) ∧ (rowsOf 7 = [1,1,1,0]) ∧ (rowsOf 1 = [1,0,0,0])",
+  "files": [
+    "Boolean.lean"
+  ]
+}

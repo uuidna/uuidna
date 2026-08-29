@@ -1,0 +1,12 @@
+{
+  "handle": "229f79e7",
+  "address": "229f79e7-8da8-83c0-9877-409714c8d705",
+  "kind": "chunk",
+  "keys": [
+    "z_involution"
+  ],
+  "statement": "([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (-(-(p.1)) == p.1) && (-(-(p.2)) == p.2))",
+  "files": [
+    "Quantum.lean"
+  ]
+}

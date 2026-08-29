@@ -1,0 +1,12 @@
+{
+  "handle": "2f7a6fda",
+  "address": "2f7a6fda-326e-8b84-97ee-467fc754fefb",
+  "kind": "chunk",
+  "keys": [
+    "dz_involution_digits"
+  ],
+  "statement": "(List.range 10).all (fun d => dz (dz d) == d)",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

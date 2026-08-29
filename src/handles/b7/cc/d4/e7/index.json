@@ -1,0 +1,12 @@
+{
+  "handle": "b7ccd4e7",
+  "address": "b7ccd4e7-0daa-84d8-8549-629a06cae853",
+  "kind": "chunk",
+  "keys": [
+    "nilpotents_mod_44_number_2"
+  ],
+  "statement": "((List.range 44).filter (fun x => x ^ 44 % 44 == 0)).length = 2",
+  "files": [
+    "Wave.lean"
+  ]
+}

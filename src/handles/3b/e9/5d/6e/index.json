@@ -1,0 +1,12 @@
+{
+  "handle": "3be95d6e",
+  "address": "3be95d6e-e85d-84c6-9708-504ee31f5a7e",
+  "kind": "chunk",
+  "keys": [
+    "baseline_grid_snaps_to_four"
+  ],
+  "statement": "[12,16,20,24].all (fun n => n % 4 == 0)",
+  "files": [
+    "Typesetting.lean"
+  ]
+}

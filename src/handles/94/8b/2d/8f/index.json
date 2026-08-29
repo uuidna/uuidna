@@ -1,0 +1,12 @@
+{
+  "handle": "948b2d8f",
+  "address": "948b2d8f-fe67-813f-a7ea-093c5cc1b144",
+  "kind": "chunk",
+  "keys": [
+    "truss_maxwell_rule"
+  ],
+  "statement": "2*3 - 3 = 3",
+  "files": [
+    "Statics.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5d76b688",
+  "address": "5d76b688-07bc-8952-99be-b50347235468",
+  "kind": "chunk",
+  "keys": [
+    "self_seal"
+  ],
+  "statement": "(1*1*1*8*7*5*1*2*9) = (2*2*2*7*5*3*2*3)",
+  "files": [
+    "Vortex.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "b07ef219",
+  "address": "b07ef219-dc39-815c-9b5a-8da757221093",
+  "kind": "chunk",
+  "keys": [
+    "ve_pentads_overlap_to_eight"
+  ],
+  "statement": "(5 + 5 - 2 = 8) ∧ (10 - 2 = 8) ∧ (5 + 5 + 2 = 12) ∧ (VE.length = 12) ∧ (8 + 6 = 14)",
+  "files": [
+    "VectorEquilibrium.lean"
+  ]
+}

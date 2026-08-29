@@ -1,0 +1,12 @@
+{
+  "handle": "04f02777",
+  "address": "04f02777-8ceb-8e08-948b-a26d3ac744aa",
+  "kind": "chunk",
+  "keys": [
+    "frames_per_minute"
+  ],
+  "statement": "24 * 60 = 1440",
+  "files": [
+    "Editing.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "5fb9af42",
+  "address": "5fb9af42-6637-818b-9163-7342c7064196",
+  "kind": "chunk",
+  "keys": [
+    "saturation_deco_dominates"
+  ],
+  "statement": "(13 + 24 + 6 = 43) ∧ (13 < 24)",
+  "files": [
+    "Wave.lean"
+  ]
+}

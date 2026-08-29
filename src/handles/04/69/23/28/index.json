@@ -1,0 +1,12 @@
+{
+  "handle": "04692328",
+  "address": "04692328-8917-86ad-bbda-48e3a4d49da5",
+  "kind": "chunk",
+  "keys": [
+    "hexbit_bit_hook_is_linear"
+  ],
+  "statement": "((List.range 33).all (fun h => (4 * h) / 4 == h)) ∧ ((List.range 32).all (fun h => 4 * h < 4 * (h + 1))) ∧ (4 * 32 = 128)",
+  "files": [
+    "Coins.lean"
+  ]
+}

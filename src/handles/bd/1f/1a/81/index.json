@@ -1,0 +1,12 @@
+{
+  "handle": "bd1f1a81",
+  "address": "bd1f1a81-0cd8-81b6-a23b-caf20d4dbec7",
+  "kind": "chunk",
+  "keys": [
+    "teleportation_four_corrections"
+  ],
+  "statement": "(([0,1,2,3] : List Nat).length = 4) ∧ (2 + 2 = 4)",
+  "files": [
+    "Quantum.lean"
+  ]
+}

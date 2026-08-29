@@ -1,0 +1,12 @@
+{
+  "handle": "db388ad6",
+  "address": "db388ad6-8a76-8481-af9f-3e87aec62ccd",
+  "kind": "chunk",
+  "keys": [
+    "rule_of_thirds_power_points"
+  ],
+  "statement": "3 * 3 = 9 ∧ 2 * 2 = 4",
+  "files": [
+    "Editing.lean"
+  ]
+}

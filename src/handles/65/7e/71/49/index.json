@@ -1,0 +1,12 @@
+{
+  "handle": "657e7149",
+  "address": "657e7149-4320-82a6-a075-b52e61c3845f",
+  "kind": "chunk",
+  "keys": [
+    "nine_complement_half_turns_the_orbit"
+  ],
+  "statement": "(List.range 6).all (fun i => 9 - nth [1, 2, 4, 8, 7, 5] i = nth [1, 2, 4, 8, 7, 5] ((i + 3) % 6))",
+  "files": [
+    "Waves.lean"
+  ]
+}

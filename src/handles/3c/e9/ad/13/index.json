@@ -1,0 +1,12 @@
+{
+  "handle": "3ce9ad13",
+  "address": "3ce9ad13-a1b2-84c5-a4f7-cb63eb386e54",
+  "kind": "chunk",
+  "keys": [
+    "callippic_corrects_by_four"
+  ],
+  "statement": "(4 * 235 = 940) ∧ (4 * 19 = 76)",
+  "files": [
+    "Antikythera.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "cec81ca4",
+  "address": "cec81ca4-041b-87b9-9919-7a06b64bbdef",
+  "kind": "chunk",
+  "keys": [
+    "pentagram_closes_after_five"
+  ],
+  "statement": "(2*5) % 5 = 0",
+  "files": [
+    "Pentagram.lean"
+  ]
+}

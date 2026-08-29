@@ -1,0 +1,12 @@
+{
+  "handle": "9aa421b3",
+  "address": "9aa421b3-74cf-883d-b268-a60e984ea725",
+  "kind": "chunk",
+  "keys": [
+    "refractory_bounds_rate"
+  ],
+  "statement": "(((List.range 20).filter (fun t => t % 2 == 0)).length = 10) ∧ (((List.range 20).filter (fun t => t % 2 == 0)).length < (List.range 20).length) ∧ ((611 : Nat) < 1000)",
+  "files": [
+    "Neuro.lean"
+  ]
+}

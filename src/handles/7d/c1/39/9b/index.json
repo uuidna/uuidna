@@ -1,0 +1,12 @@
+{
+  "handle": "7dc1399b",
+  "address": "7dc1399b-3ec7-89ed-a28b-edd46e286d55",
+  "kind": "chunk",
+  "keys": [
+    "monotone_two_bit_gates_are_threshold"
+  ],
+  "statement": "((List.range 16).filter (fun m => ((List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (List.range 2).all (fun d => !(decide (a <= c) && decide (b <= d)) || decide ((m / 2 ^ (2*a+b)) % 2 <= (m / 2 ^ (2*c+d)) % 2)))))))) = [0,8,10,12,14,15] ∧ ((List.range 16).all (fun m => ((List.range 2).all (fun a => (List.range 2).all (fun b => (List.range 2).all (fun c => (List.range 2).all (fun d => !(decide (a <= c) && decide (b <= d)) || decide ((m / 2 ^ (2*a+b)) % 2 <= (m / 2 ^ (2*c+d)) % 2)))))) == ((List.range 3).any (fun w => (List.range 3).any (fun v => (List.range 6).any (fun t => (List.range 2).all (fun a => (List.range 2).all (fun b => ((m / 2 ^ (2*a+b)) % 2) == (if t <= w*a + v*b then 1 else 0)))))))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

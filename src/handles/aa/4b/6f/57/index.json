@@ -1,0 +1,12 @@
+{
+  "handle": "aa4b6f57",
+  "address": "aa4b6f57-0476-8af9-b2e0-fe10d1d43ca8",
+  "kind": "chunk",
+  "keys": [
+    "a_claim_is_verified_or_unverified"
+  ],
+  "statement": "[true, false].length = 2",
+  "files": [
+    "Report.lean"
+  ]
+}

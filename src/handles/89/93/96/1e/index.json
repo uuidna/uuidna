@@ -1,0 +1,12 @@
+{
+  "handle": "8993961e",
+  "address": "8993961e-be01-8e22-8f29-9f8505596431",
+  "kind": "chunk",
+  "keys": [
+    "doubling_collapses_nine"
+  ],
+  "statement": "(((List.range 10).map dbl).eraseDups.length = 9) ∧ (dbl 0 = dbl 9) ∧ (dbl 0 = 0)",
+  "files": [
+    "Phase.lean"
+  ]
+}

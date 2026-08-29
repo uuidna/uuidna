@@ -1,0 +1,12 @@
+{
+  "handle": "c64cd759",
+  "address": "c64cd759-64f7-8b36-87da-d5bd8c5b112f",
+  "kind": "chunk",
+  "keys": [
+    "max_unit_order_mod_9_is_6"
+  ],
+  "statement": "((List.range 9).all (fun a => (Nat.gcd a 9 != 1) || (a ^ 6 % 9 == 1))) ∧ ((List.range 9).any (fun a => (Nat.gcd a 9 == 1) && ((List.range' 1 5).all (fun k => a ^ k % 9 != 1))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

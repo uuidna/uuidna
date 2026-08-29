@@ -1,0 +1,12 @@
+{
+  "handle": "d8e3d0d7",
+  "address": "d8e3d0d7-a16c-8d34-aeb7-4ec3413fead4",
+  "kind": "chunk",
+  "keys": [
+    "s4_parity_splits_evenly_its_involutions_do_not"
+  ],
+  "statement": "((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 0)).length = 12 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y)) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 1)).length = 12 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 0)).length = 4 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x) && ((List.range 4).map (fun i => ((List.range 4).filter (fun j => decide (i < j) && decide (c / 4 ^ j % 4 < c / 4 ^ i % 4))).length)).sum % 2 == 1)).length = 6 ∧ ((List.range 256).filter (fun c => (List.range 4).all (fun x => c / 4 ^ (c / 4 ^ x % 4) % 4 == x) && !((List.range 4).all (fun y => (List.range 4).any (fun x => c / 4 ^ x % 4 == y))))).length = 0 ∧ 12 + 12 = 24 ∧ 4 + 6 = 10 ∧ 4 ≠ 6",
+  "files": [
+    "Wave.lean"
+  ]
+}

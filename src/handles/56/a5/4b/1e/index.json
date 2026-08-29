@@ -1,0 +1,12 @@
+{
+  "handle": "56a54b1e",
+  "address": "56a54b1e-da58-8e4b-8f02-a9acf3d2ecbf",
+  "kind": "chunk",
+  "keys": [
+    "two_coins_in_kilograms"
+  ],
+  "statement": "128 = 4 * 32 ∧ 128 / 32 = 4 ∧ 2 ^ 2 = 4",
+  "files": [
+    "Readings.lean"
+  ]
+}

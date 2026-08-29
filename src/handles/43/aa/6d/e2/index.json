@@ -1,0 +1,12 @@
+{
+  "handle": "43aa6de2",
+  "address": "43aa6de2-cc58-89cf-a196-2e06f4813e78",
+  "kind": "chunk",
+  "keys": [
+    "knight_has_eight_moves"
+  ],
+  "statement": "([(1,2),(2,1),(-1,2),(-2,1),(1,-2),(2,-1),(-1,-2),(-2,-1)] : List (Int × Int)).length = 8",
+  "files": [
+    "Chess.lean"
+  ]
+}

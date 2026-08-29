@@ -1,0 +1,12 @@
+{
+  "handle": "f4f41423",
+  "address": "f4f41423-1872-826b-8f3c-37fcc6a9338f",
+  "kind": "chunk",
+  "keys": [
+    "handle_splits_four"
+  ],
+  "statement": "(8 = 4 * 2) ∧ (256^4 = 4294967296) ∧ (16^8 = 4294967296) ∧ (256^4 = 16^8)",
+  "files": [
+    "Audit.lean"
+  ]
+}

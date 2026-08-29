@@ -1,0 +1,12 @@
+{
+  "handle": "2f3fc1e9",
+  "address": "2f3fc1e9-cdce-8a02-a175-3c3eb3aa8410",
+  "kind": "chunk",
+  "keys": [
+    "widescreen_wider_than_academy"
+  ],
+  "statement": "16 * 3 > 9 * 4",
+  "files": [
+    "Editing.lean"
+  ]
+}

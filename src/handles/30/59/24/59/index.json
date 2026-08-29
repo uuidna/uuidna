@@ -1,0 +1,12 @@
+{
+  "handle": "30592459",
+  "address": "30592459-cc33-8ded-a20d-4da5ae461bb7",
+  "kind": "chunk",
+  "keys": [
+    "hextorus_generators_are_the_jobs"
+  ],
+  "statement": "2 * 6 = 12",
+  "files": [
+    "Torus.lean"
+  ]
+}

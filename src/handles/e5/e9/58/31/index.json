@@ -1,0 +1,12 @@
+{
+  "handle": "e5e95831",
+  "address": "e5e95831-9925-88b2-9540-92e4e0225ae8",
+  "kind": "chunk",
+  "keys": [
+    "idempotents_mod_6_number_4"
+  ],
+  "statement": "((List.range 6).filter (fun x => (x * x) % 6 == x)).length = 4",
+  "files": [
+    "Wave.lean"
+  ]
+}

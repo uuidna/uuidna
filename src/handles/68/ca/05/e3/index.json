@@ -1,0 +1,12 @@
+{
+  "handle": "68ca05e3",
+  "address": "68ca05e3-e944-884a-873f-11e83fe92b36",
+  "kind": "chunk",
+  "keys": [
+    "n_qubit_dimension"
+  ],
+  "statement": "([1,2,3,4,5].map (fun n => (2:Nat)^n)) = [2,4,8,16,32]",
+  "files": [
+    "Quantum.lean"
+  ]
+}

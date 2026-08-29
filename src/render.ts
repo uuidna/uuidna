@@ -5,6 +5,9 @@
 // proof page (/theorem/<key>) — the statement and its proof are one edge. A content-address proves integrity,
 // not truth.
 import { toUuid, vortexOrbit } from './address.js'
+import { coins } from './captain/billing/index.js'
+import { PRICE } from './billing/index.js'
+import { COINS, fuseLadder } from './hexbit/index.js'
 import { handleOf } from './handle.js'   // the door /<handle> IS the handle — one derivation, see handle.ts
 import { DIMENSIONS } from './harness.js'
 import { sequenceVars, durationVars } from './css.js'
@@ -110,7 +113,8 @@ export function renderList(theorems: readonly TheoremView[], opts: RenderOpts = 
 export interface HeroAnimation {
   svg: string
   lead: string                      // the dimension that leads — resolved, so an unknown request is visible
-  sequence: readonly number[]      // the doubling orbit walked
+  sequence: readonly number[]      // the doubling orbit walked — unfused ([1]) unless coins() paid at each rung
+  fused: boolean                   // trial_computes_only_with_two_coins: the walk closes only when the two coins contribute
   dimensions: readonly string[]    // the seven rosetta rays
   durations: readonly string[]     // the sealed tempi, in orbit order
   address: string                  // the content-address of this exact hero
@@ -123,7 +127,9 @@ export interface HeroAnimation {
 export function heroAnimation(
   key = 'vortex_orbit', dimension = 'en', rung = 1, tempo = 444, base = DEFAULT_BASE,
 ): HeroAnimation {
-  const orbit = vortexOrbit()                                     // [1,2,4,8,7,5] — the path, sealed
+  const contributed = coins()
+  const fused = contributed === COINS && PRICE === contributed
+  const orbit = fuseLadder(1, contributed)                        // [1,2,4,8,7,5] only when coins() paid at each rung
   const dims = DIMENSIONS                                         // the seven rays, sealed
   const seq = sequenceVars()                                      // rung → hue, sealed
   const durs = durationVars()                                     // the units of ℤ/9, tripled, sealed
@@ -146,11 +152,15 @@ export function heroAnimation(
   const nodeHue = (i: number): string => seq[`--seq-${(digit(i) % 9) + 1}`] ?? seq['--seq-1']
   // six nodes on the ring, placed by their ORBIT INDEX (not by angle chosen for looks): step k sits at k/6 of the turn
   const node = (v: number, i: number): string => {
-    const turn = (i * 60)                                          // 360/6 — the orbit has six steps, so the ring does
+    const turn = (i * 360) / (orbit.length || 1)                    // 360/6 when fused — unpaid ladder is one rung
     // NO CHOSEN AMPLITUDE: the base radius is the orbit's own length and each rung pulses by ITS OWN VALUE, so the
     // node for 8 swells most and the node for 1 least — the motion's size IS the number it depicts.
+    // Without the coins the halves do not join: no pulse, the hero will not fuse.
+    const pulse = fused
+      ? `<animate attributeName="r" values="${orbit.length};${orbit.length + v};${orbit.length}" dur="${beat(i)}" repeatCount="indefinite"/>`
+      : ''
     return `<g transform="rotate(${turn} 100 100)"><circle cx="100" cy="30" r="${orbit.length}" fill="${nodeHue(i)}" data-seq="${digit(i) % 9}">` +
-      `<animate attributeName="r" values="${orbit.length};${orbit.length + v};${orbit.length}" dur="${beat(i)}" repeatCount="indefinite"/></circle>` +
+      pulse + `</circle>` +
       `<text x="100" y="34" text-anchor="middle" font-size="10" fill="#0b0b0b" transform="rotate(${-turn} 100 30)">${v}</text></g>`
   }
   // THE LEAD RAY IS THE SELECTED DIMENSION. `dimension` used to be accepted, folded into the address, and then
@@ -168,23 +178,24 @@ export function heroAnimation(
     // the lead holds what the six leave (1 − 1/7) and burns to one. Both derived from the dimension count.
     const share = 1 / dims.length
     const dim = share.toFixed(3), dim2 = (share * 2).toFixed(3), held = (1 - share).toFixed(3)
+    const pulse = fused
+      ? `><animate attributeName="opacity" values="${leads ? `${held};1;${held}` : `${dim};${dim2};${dim}`}" dur="${beat(i)}" repeatCount="indefinite"/></line>`
+      : '/>'
     return `<line x1="100" y1="100" x2="100" y2="${leads ? 54 : 64}" stroke="${hue(i + 1)}"` +
       ` stroke-width="${leads ? 3 : 1}" opacity="${leads ? '1' : dim}"` +
-      ` transform="rotate(${turn} 100 100)"><animate attributeName="opacity"` +
-      ` values="${leads ? `${held};1;${held}` : `${dim};${dim2};${dim}`}" dur="${beat(i)}" repeatCount="indefinite"/></line>` +
+      ` transform="rotate(${turn} 100 100)"` + pulse +
       (leads ? `<text x="100" y="50" text-anchor="middle" font-size="8" fill="${hue(i + 1)}">${d}</text>` : '')
   }
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img"` +
-    ` aria-label="the doubling orbit ${orbit.join('→')} across ${dims.length} dimensions">` +
-    `<title>${key} — the orbit walks ${orbit.join('→')}→${orbit[0]}, seven dimensions, tempi ${tempoKeys.map((k) => durs[k]).join(' ')}</title>` +
+    ` data-fused="${fused ? 1 : 0}" aria-label="the doubling orbit ${orbit.join('→')} across ${dims.length} dimensions">` +
+    `<title>${key} — ${fused ? `the orbit walks ${orbit.join('→')}→${orbit[0]}` : 'will not fuse — captain coins not contributed'}, seven dimensions, tempi ${tempoKeys.map((k) => durs[k]).join(' ')}</title>` +
     dims.map(ray).join('') + orbit.map(node).join('') +
     `<circle cx="100" cy="100" r="4" fill="${hue(5)}"/></svg>`   // 5 — the fixed point of the diamond involution
   return {
-    svg, lead: dims[lead], sequence: orbit, dimensions: dims,
+    svg, lead: dims[lead], sequence: orbit, fused, dimensions: dims,
     durations: tempoKeys.map((k) => durs[k]),
     address: toUuid(`hero:${key}|${dimension}|${rung}|${tempo}|${base}|${orbit.join(',')}`),
-    honest: 'A deterministic SVG computed from sealed constants: the path is the ℤ/9 doubling orbit, the hues are the ' +
-      'sequence, the tempi are the units of ℤ/9 written three times. It VISUALISES arithmetic and proves nothing further.',
+    honest: 'A deterministic SVG computed from sealed constants: the path is the ℤ/9 doubling orbit only when coins() is paid at each rung (trial_computes_only_with_two_coins). The hues are the sequence, the tempi are the units of ℤ/9 written three times. It VISUALISES arithmetic and proves nothing further.',
   }
 }
 

@@ -1,0 +1,12 @@
+{
+  "handle": "48eb6ee7",
+  "address": "48eb6ee7-a441-8eee-bbcd-1f37e13ea2a2",
+  "kind": "chunk",
+  "keys": [
+    "mombh_variability_is_four_sigma"
+  ],
+  "statement": "(4 * 7 <= 30) ∧ (30 < 5 * 7)",
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

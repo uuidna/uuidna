@@ -1,0 +1,12 @@
+{
+  "handle": "4213e21b",
+  "address": "4213e21b-39db-8da5-9fc3-dac71c9a6b81",
+  "kind": "chunk",
+  "keys": [
+    "gematria_ignores_order"
+  ],
+  "statement": "1 + 2 + 3 = 3 + 2 + 1 ∧ 1 + 2 + 3 = 6",
+  "files": [
+    "Glagolitic.lean"
+  ]
+}

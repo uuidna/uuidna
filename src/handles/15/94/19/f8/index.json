@@ -1,0 +1,12 @@
+{
+  "handle": "159419f8",
+  "address": "159419f8-3dcf-8a45-93d0-8872adb5f74d",
+  "kind": "chunk",
+  "keys": [
+    "hunting_teeth_wear_even"
+  ],
+  "statement": "(Nat.gcd 19 235 = 1) ∧ (Nat.gcd 4 223 = 1) ∧ (Nat.gcd 3 8 = 1)",
+  "files": [
+    "Antikythera.lean"
+  ]
+}

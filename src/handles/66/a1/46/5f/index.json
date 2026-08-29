@@ -1,0 +1,12 @@
+{
+  "handle": "66a1465f",
+  "address": "66a1465f-0783-8119-848b-ee07eef7da4f",
+  "kind": "chunk",
+  "keys": [
+    "captain_theorem"
+  ],
+  "statement": "(110 * 54 = 108 * 55) ∧ (110 - 108 = 2) ∧ (32 * 4 = 128) ∧ (128 / 2 = 64) ∧ (2 * 32 = 64) ∧ (63 * 2 + 2 = 128)",
+  "files": [
+    "Coins.lean"
+  ]
+}

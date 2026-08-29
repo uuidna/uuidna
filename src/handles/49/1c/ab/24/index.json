@@ -1,0 +1,12 @@
+{
+  "handle": "491cab24",
+  "address": "491cab24-6404-8a1f-adb3-9b9fb82306cd",
+  "kind": "chunk",
+  "keys": [
+    "cubes_mod_25_number_21"
+  ],
+  "statement": "(((List.range 25).map (fun x => (x * x * x) % 25)).eraseDups).length = 21",
+  "files": [
+    "Wave.lean"
+  ]
+}

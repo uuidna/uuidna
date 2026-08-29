@@ -1,0 +1,12 @@
+{
+  "handle": "55d29a98",
+  "address": "55d29a98-4cdf-8f66-8ff6-6fc94cbfffa1",
+  "kind": "chunk",
+  "keys": [
+    "axes_stride_coprime"
+  ],
+  "statement": "(3 + 3 + 1 = 7) ∧ (Nat.gcd 7 9 = 1) ∧ (7 * 9 = 63) ∧ (63 = 2^6 - 1) ∧ (Nat.gcd 2 8 = 2)",
+  "files": [
+    "Crt.lean"
+  ]
+}

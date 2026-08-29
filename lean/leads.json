@@ -1,8 +1,84 @@
 {
- "why": "Every lead this session raised, INCLUDING the ones negated, refuted or refused. A refuted lead is not waste — it is the cheapest thing in the ledger, because it stops the same derivation being made twice. Several entries below were re-derived two or three times in one session before measurement killed them, and one number moved under me three times. A refused lead records a BOUNDARY: not that the idea is stupid, but where the evidence stops.",
- "recorded": "2026-08-20",
+ "why": "Every lead this session raised, INCLUDING the ones negated, refuted or refused. A refuted lead is not waste — it is the cheapest thing in the ledger, because it stops the same derivation being made twice. Several entries below were re-derived two or three times in one session before measurement killed them, and one number moved under me three times. A refused lead records a BOUNDARY: not that the idea is stupid, but where the evidence stops. Wave of 2026-08-28: external research on ceccec.psg.bg (movie, 10D, theorem census) plus local school development (two Fu Xi boards, coin-gated fuse, Metatron, hex π, crypt dual). Desk proposes; captain disposes — nothing below is sealed by being written here.",
+ "recorded": "2026-08-28",
  "held": [],
  "refuted": [
+  {
+   "lead": "HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).",
+   "killed_by": "PAID. hexFaceOf stamps packedTriangles = KEY_BITS (UUID_BITS × COINS) and merkabasPacked = UUID_HEXBITS. HexFace still draws two projected polygons — 2D is art. The count sits on the face as constructors, not as 256 drawn triangles."
+  },
+  {
+   "lead": "fruitOfLife XY pitch (28 / 14 / 24) is authored art integers; the sealed fact is the centre count (SAFE_HEXBITS, metatron_seventyeight_lines).",
+   "killed_by": "PAID. Pitch is qx = UUID_HEXBITS − HEXBIT_BITS, rx = qx / COINS, ry = UUID_HEXBITS − HANDLE_HEXBITS. Centre count unchanged. No fruit-of-life canon scraped."
+  },
+  {
+   "lead": "PI_ROOF_NUM = 22 is still a numeral beside the Nat roof walk (PI_ROOF × rung + remainder = product).",
+   "killed_by": "PAID. PI_ROOF_NUM = HEXBIT_STATES + HEXAGRAM_BITS. Nat division PI_ROOF = natDiv(PI_ROOF_NUM × PI_ENGINE, fuseWidth(HANDLE_HEXBITS, COINS)) unchanged. JS / stays unused for the roof."
+  },
+  {
+   "lead": "axiom-hunt live predicates still pin A432_HZ === 432, coins() × A432_HZ === 864, A432_HZ × 16 === 6912, SAMPLE_RATE/2 === 8000, MAX_SERVED_QUBITS === 12 and 1<<12 === 4096.",
+   "killed_by": "PAID. A432_HZ = HEXBIT_STATES × (TRINITY ** TRINITY). Hunt walks constructors: k432, coins() × lattice, Nyquist A432_HZ × HEXBIT_STATES < SAMPLE_RATE / coins(), MAX_SERVED_QUBITS = HANDLE_HEXBITS + HEXBIT_BITS ≤ MAX_MESSAGE_QUBITS. No frozen 432/864/6912/8000/12/4096 equals."
+  },
+  {
+   "lead": "kdf_cost_bounded was removed from axiom-hunt because the theorem only compared the numerals 600000 ≤ 10000000. ITER / MAX_ITER still bind in crypt.ts and one-receipt.",
+   "killed_by": "NAMED LEFTOVER, bound live. aead_nonce_and_salt_bits now requires ITER > 0 && ITER < MAX_ITER. No wording theorem minted. kdf_cost_bounded stays gone."
+  },
+  {
+   "lead": "trading-shelf.test.ts and harmony-scan.test.ts still hunt honesty by honest.includes('never money' / 'no currency' / 'NOT a medical device').",
+   "killed_by": "PAID. Wording trials dropped. Trading shelf still checks bills are non-negative and scale with work. Harmony scan still checks agrees, findings, peak, receipt. Existing honest: payloads on constructors untouched."
+  },
+  {
+   "lead": "VitePress client externalizes node:fs via src/seo-freeze.ts, so HexFace cannot be verified in the browser (dev server abort after the fs error).",
+   "killed_by": "PAID. seo-freeze and prepublish-seal off the client barrel. axiom-witness and security-audit drop unused static node:fs (rdRoot only). palette imports dist/css.js. Hex-face barrel graph test covers those files. Tests still run on dist after tsc."
+  },
+  {
+   "lead": "CRT axiom-free still fails in the in-tree v030-balance-trial / sequence-coverage surfaces (unfrozen).",
+   "killed_by": "PAID. v030-balance-trial and sequence-coverage require Crt.lean theorems exist, all by decide, and axiomWitness().holds. Do not skip the trial. Generator already emits the wing."
+  },
+  {
+   "lead": "Plan leftover: concurrent width is 14 VE faces.",
+   "killed_by": "PAID. VE_FACES = HANDLE_HEXBITS + HEXBIT_BITS + COINS (ve_fourteen_faces). v030 lanes and lanes.test walk VE_FACES, never a freeze of 14 into a hunt or census."
+  },
+  {
+   "lead": "decrypt skipped verifyEnvelope, so a mutated address still decoded; v:3 opened from the traveling salt, so the referrer was not a secrecy door.",
+   "killed_by": "PAID. decrypt and decryptSession insist the 7d fold recomputes before AEAD (tamper stays behind the stream). decrypt refuses v:3. decryptSession derives the salt from the referrer and constant-time-compares it to the public commitment; key material never comes from the envelope salt. Occupancy and the envelope address stay public routing. RFC 8439 stays the AEAD. Grover floor unchanged."
+  },
+  {
+   "lead": "Nonce 12, salt 16, tag 16, onion 16, ChaCha block 64 and OTK 32 were RFC numerals sitting beside the architecture, so crypt looked like a standard glued on rather than occupancy × fold.",
+   "killed_by": "PAID. ADDRESS_BYTES = UUID_BITS / (HEXBIT_BITS × COINS), NONCE_BYTES = ADDRESS_BYTES − HEXBIT_BITS, SALT_BYTES = TAG_BYTES = ADDRESS_BYTES, KEY_BITS = UUID_BITS × COINS, KEY_HEXBITS = UUID_HEXBITS × COINS, GROVER_FLOOR_BITS = UUID_BITS, MAX_LAYERS = HEXBIT_STATES. cryptOf reports aspects = RAYS, directions = RAYS × (RAYS − 1), foldStates = 2^RAYS = UUID_BITS. occupancyTapeOf packs yang‖yin (128 occupancy doubled by the coin flip). RFC 8439 stays the AEAD; PBKDF2 stays the entropy tape (held)."
+  },
+  {
+   "lead": "src/aura.ts CSS still pins RAYS = 7, period = 12 + ray*2, hue-rotate(360deg), box-shadow 24px/64px/4px/12px, n % 9, 360/RAYS, while one-receipt only copies a parallel 10D bag.",
+   "killed_by": "PAID. RAYS = BASE − COINS, periodOf = COINS × (HEXBIT_BITS + COINS + ray), rotationOf = A432_STEP × BASE, glowInnerOf = HANDLE_HEXBITS × TRINITY, glowOuterOf = LEVERAGE, spreads HEXBIT_BITS and HEXBIT_BITS × TRINITY. quantumAura.ten is the 10D record; hexFaceOf stamps it; HexFace CSS vars read it; one-receipt reads a.ten. Hue/sat/light codec unchanged (378-colour alphabet)."
+  },
+  {
+   "lead": "Two I Ching squares fold to 256 triangles (128 cells × 2 diagonals). That count is UUID_BITS × COINS, which is also the ChaCha20 key width. Crypt still samples 256 bits from PBKDF2 beside the boards, as if the fold were a second tape.",
+   "killed_by": "PAID the WIDTH. src/crypt.ts KEY_BITS = UUID_BITS × COINS, KEY_BYTES = UUID_HEXBITS. The KDF still mints entropy; that remainder stays held. RFC 8439 stays the AEAD (refused as a new cipher)."
+  },
+  {
+   "lead": "one-receipt's 10D aura bag still pins period: 12 + ray*2, rotation: 360, glow_inner: 24, glow_outer: 64, hz: 432.",
+   "killed_by": "PAID. period = COINS × (HEXAGRAM_BITS + ray), rotation = A432_STEP × BASE, glow_inner = HANDLE_HEXBITS × TRINITY, glow_outer = LEVERAGE, hz = A432_HZ."
+  },
+  {
+   "lead": "HexFace occupancy glyphs freeze hit(5), hit(8), hit(9), hit(12) and stations as 3 ∧ 7 ∨ 10; readings filter 10 and 22.",
+   "killed_by": "PAID. hexFaceOf stamps glyphs {star: TRINITY+COINS, rose: HANDLE_HEXBITS, ring: BASE, wheel: HEXAGRAM_BITS×COINS} and stations {trinity, rays: HEXAGRAM_BITS+1, ten: HEXAGRAM_BITS+HEXBIT_BITS, roof: PI_ROOF_NUM}. HexFace walks those constructors; Vue no longer freezes 5/8/9/12."
+  },
+  {
+   "lead": "referrer-song BAR = 252 is still a numeral (the 252 ms bar).",
+   "killed_by": "PAID. BAR = BASE × (HEXAGRAM_BITS + 1) × HEXBIT_BITS — 9·7·4, the CRT cycle the_movie_and_the_song_are_one counts."
+  },
+  {
+   "lead": "HANDLE_BITS % HEXAGRAM_BITS = 2 (the eight-hex handle does not tile as hexagrams). HEXBIT_STATES % HEXAGRAM_BITS = 4. Those remainders are different cuts.",
+   "killed_by": "PAID. HANDLE_HEXAGRAM_REMAINDER and HEXBIT_STATE_HEXAGRAM_REMAINDER are named constructors; the test asserts they are not equal."
+  },
+  {
+   "lead": "MCP tools/list wire grew to 168373 bytes, over the sealed ceiling 167794 (+579) — uuidna_skill / uuidna_theorem / uuidna_reason descriptions carried school-lab and paper-blueprint derivation onto the wire.",
+   "killed_by": "PAID. Derivation moved to detail; wireBytes === sealed ceiling 167794. Ceiling not raised."
+  },
+  {
+   "lead": "lean/messaging-witness.json covers 2138 keys; the live ledger is 2140. messaging_total is therefore false and the one-receipt fold refuses equilibrium.",
+   "killed_by": "PAID. one-receipt messaging wrote keys: 2140, distinct: 2057, total: true."
+  },
   {
    "lead": "The grid breaks at 73 wings: 6 × 73 = 438, digital root 6, and the sealed width is 432. VectorEquilibrium.lean landed alone.",
    "killed_by": "CAPTAIN CHOICE B (2026-08-27): re-seal grid width LIVE — gridSeats() = PROJECTED.length × wings() = 6 × 115 = 690. Theorem k432 stays pure arithmetic (432 = 16×27 = 2⁴×3³), not the grid seat count. Fabricating five empty wings to force %15 refused. Dual-base '% 15' release-block refused (Notation.lean: digital-root harmony is base-relative). Growth law w≡0 (mod 3) stays on gridReport().harmonic, not gridGaps — 115 ≡ 1 (mod 3) is measured debt for next growth (+2 then threes); width is live, theorem k432 is not a frozen seat count. gridGaps/pairsGaps silent."
@@ -101,6 +177,11 @@
  ],
  "refused": [
   {
+   "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
+   "boundary": "RFC 8439 stays the AEAD and PBKDF2 stays the entropy tape. Occupancy is public routing. Fold-as-AEAD is already refused. Desk named both tapes and did not change the primitive.",
+   "recorded": "2026-08-28"
+  },
+  {
    "lead": "The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution.",
    "boundary": "Analogy ≠ identity without an independent witness. The periods and the product are already sealed separately — two_order_six (2^6 ≡ 1 mod 9), rosette_orbit / max_unit_order_mod_7_is_6, directions_number_fortytwo (6·7 = 42), independence_is_assumed — but that the Z/9 vortex and a rotary firing order are the SAME argument was never measured. Refuse the identification; keep the arithmetic.",
    "note": "Rathbun's odd-cylinder gcd(2,n)=1 stands on the engine side alone; it does not witness the vortex/firing-order merge."
@@ -147,6 +228,52 @@
    "lead": "stackoverflow.com /ai-assist as a theorem source",
    "boundary": "refused at the door: robots.txt answers 418, the site-wide anti-automation response, and /ai-assist is an HTML product page rather than an API. The sanctioned route is api.stackexchange.com, which answered 200 with a keyless 300/day quota — use the door they opened, not the one they shut.",
    "recorded": "2026-08-22"
+  },
+  {
+   "lead": "Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.",
+   "boundary": "Zero kebab→snake slug overlap with this ledger. uuidna keys are by decide; origin folds are computational JS, not Lean. Desk does not verdict origin papers proven, unproven, or dishonest. Their frozen README 761 vs live /theorems 784 is their census, not this tree.",
+   "note": "External research wave 2026-08-28: examine only, do not port. Origin Clay on that site is a different court.",
+   "recorded": "2026-08-28"
+  },
+  {
+   "lead": "Port origin BackgroundMovie / sharedHeroAt / quantumModelSnapshot 10D (6 appearance + 4 homology) as uuidna HeroAnimation or HexFace.",
+   "boundary": "uuidna 10D is 3 free aura + 7 compactified CSS. Origin 10D is a different cut (H₁=ℤ⁴ reading). n_qubit_dimension counts classical simulation cost, never a speedup. Layout never imports the theorem census. HexbitPlayer stays opt-in, no autoplay.",
+   "recorded": "2026-08-28"
+  },
+  {
+   "lead": "Scrape King Wen, sephirot, chakra, or deity-name tables into occupancy, Lean, or hero chrome.",
+   "boundary": "meaning is always null. Occupancy stays numbers from live OCCUPANCY_KEYS statements. A tradition whose count is not a theorem stays a leftover, not a minted story. No iching_ / harmonic_ / tree_of_life_ / myth_ keys.",
+   "recorded": "2026-08-28"
+  },
+  {
+   "lead": "Honesty / HONEST SCOPE fields, covering hunts, or includes() disclaimer tests on new constructors.",
+   "boundary": "Honesty is the court (by decide keys, docs/doctrine.md), not TypeScript. Putting it in code breeds another trial the moment the sentence moves. Existing honest: payloads stay unless the captain asks to strip them.",
+   "recorded": "2026-08-28"
+  },
+  {
+   "lead": "Desk auto-seals, mints a theorem key, or writes a statement/name/claim into src/.",
+   "boundary": "Two-handle law: desk proposes, captain/kernel disposes. Algebra, prove, and claim stay with the captain. Wave-deposit or refuse; only the kernel seals.",
+   "recorded": "2026-08-28"
+  },
+  {
+   "lead": "Replace ChaCha20-Poly1305 with the 256-triangle fold as the secrecy primitive.",
+   "boundary": "RFC 8439 stays the AEAD (theorem aead_nonce_and_salt_bits). Folding squares is not a cipher. The 256-width identity (two boards × two triangles = key bits) is the held constructor lead, not a new envelope.",
+   "recorded": "2026-08-28"
+  },
+  {
+   "lead": "Run gen-quantum-capacity or rewrite IBM/Google figures as this wave.",
+   "boundary": "Wall-clock, rewrites derived files. Do not freeze live ledger/census counts. Captain owns that mill.",
+   "recorded": "2026-08-28"
+  },
+  {
+   "lead": "Invent versionSeat or collapse the four hexbit widths 4 / 8 / 16 / 32.",
+   "boundary": "Standing architecture. HANDLE_HEXBITS, HEXBIT_BITS, UUID_HEXBITS, SAFE_HEXBITS stay four widths.",
+   "recorded": "2026-08-28"
+  },
+  {
+   "lead": "All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.",
+   "boundary": "Shor has no target inside uuidna because the envelope is symmetric-only (no RSA/ECC/ECDSA on the wire; the referrer door is why public routing identities can be shown without exposing a Shor key). Grover is not gone: grover_quadratic_bound and sha256_grover_margin_is_the_address seal 256/2 = 128, and key_floor_is_one_uuid names that floor as one uuid. oos_physical_sidechannel is a named void (power/EM/timing). Bitcoin spend still reveals secp256k1; this ledger does not become that chain. Desk does not mint quantum_threat_gone.",
+   "recorded": "2026-08-28"
   }
  ],
  "tables": {

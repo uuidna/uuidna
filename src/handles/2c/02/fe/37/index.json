@@ -1,0 +1,12 @@
+{
+  "handle": "2c02fe37",
+  "address": "2c02fe37-7721-8116-b619-bf7fa3aad441",
+  "kind": "chunk",
+  "keys": [
+    "usable_gap_is_two_to_eighty"
+  ],
+  "statement": "(48 < 128) ∧ (128 - 48 = 80) ∧ (2 ^ 128 = 2 ^ 80 * 2 ^ 48)",
+  "files": [
+    "Wave.lean"
+  ]
+}

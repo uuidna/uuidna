@@ -1,0 +1,12 @@
+{
+  "handle": "0dd895ab",
+  "address": "0dd895ab-c691-872d-8c00-ae9e3ba3dce7",
+  "kind": "chunk",
+  "keys": [
+    "astronomy_eight_planets"
+  ],
+  "statement": "(4 + 4 = 8) ∧ (8 < 9)",
+  "files": [
+    "Wave.lean"
+  ]
+}

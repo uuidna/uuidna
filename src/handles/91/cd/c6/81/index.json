@@ -1,0 +1,12 @@
+{
+  "handle": "91cdc681",
+  "address": "91cdc681-c626-81f6-9a4e-36287c92de4d",
+  "kind": "chunk",
+  "keys": [
+    "wave_probe_eleven_thirteens"
+  ],
+  "statement": "11 * 13 = 143",
+  "files": [
+    "Wave.lean"
+  ]
+}

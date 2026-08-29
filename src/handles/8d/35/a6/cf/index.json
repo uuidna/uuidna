@@ -1,0 +1,12 @@
+{
+  "handle": "8d35a6cf",
+  "address": "8d35a6cf-b449-81db-abc4-531872783265",
+  "kind": "chunk",
+  "keys": [
+    "gray_code_reflects_across_the_top_bit"
+  ],
+  "statement": "(List.range 32).all (fun n => ((((List.range 5).map (fun j => (((31 - n) / 2 ^ j + (31 - n) / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) % 16 == (((List.range 5).map (fun j => ((n / 2 ^ j + n / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) % 16)) ∧ (List.range 32).all (fun n => ((((List.range 5).map (fun j => (((31 - n) / 2 ^ j + (31 - n) / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) / 16 + (((List.range 5).map (fun j => ((n / 2 ^ j + n / 2 ^ (j + 1)) % 2) * 2 ^ j)).foldl (· + ·) 0) / 16 == 1))",
+  "files": [
+    "Wave.lean"
+  ]
+}

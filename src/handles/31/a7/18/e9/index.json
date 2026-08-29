@@ -1,0 +1,12 @@
+{
+  "handle": "31a718e9",
+  "address": "31a718e9-e5a7-8bd2-bcd1-61964ce6f78c",
+  "kind": "chunk",
+  "keys": [
+    "chemistry_water_and_the_table"
+  ],
+  "statement": "(2 + 1 = 3) ∧ (92 + 26 = 118)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c9c76def",
+  "address": "c9c76def-c336-81c9-9382-c8df9ebecf1f",
+  "kind": "chunk",
+  "keys": [
+    "codewords_sparse"
+  ],
+  "statement": "2^4 < 2^7",
+  "files": [
+    "Codes.lean"
+  ]
+}

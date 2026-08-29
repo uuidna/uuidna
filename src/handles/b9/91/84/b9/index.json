@@ -1,0 +1,12 @@
+{
+  "handle": "b99184b9",
+  "address": "b99184b9-9395-8a6c-93f6-e62817dde1ae",
+  "kind": "chunk",
+  "keys": [
+    "z7_primitive_roots_are_three_and_five"
+  ],
+  "statement": "((List.range' 1 6).filter (fun g => ((List.range' 1 6).map (fun k => (g ^ k) % 7)).eraseDups.length == 6)) = [3, 5] ∧ ((List.range' 1 6).map (fun g => ((List.range' 1 6).map (fun k => (g ^ k) % 7)).eraseDups.length)) = [1, 3, 6, 3, 6, 2] ∧ ((List.range' 1 6).all (fun g => 6 % ((List.range' 1 6).map (fun k => (g ^ k) % 7)).eraseDups.length == 0))",
+  "files": [
+    "Wave.lean"
+  ]
+}

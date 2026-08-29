@@ -1,0 +1,12 @@
+{
+  "handle": "a1cd0a4a",
+  "address": "a1cd0a4a-3920-85ad-a76a-5375056b2789",
+  "kind": "chunk",
+  "keys": [
+    "no_reactionless_thrust"
+  ],
+  "statement": "(List.range 10).all (fun v => 0 * v == 0)",
+  "files": [
+    "Propulsion.lean"
+  ]
+}

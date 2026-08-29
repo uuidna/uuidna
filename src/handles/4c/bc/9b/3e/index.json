@@ -1,0 +1,12 @@
+{
+  "handle": "4cbc9b3e",
+  "address": "4cbc9b3e-f39e-83c3-ba92-d1270125fe7b",
+  "kind": "chunk",
+  "keys": [
+    "mombh_quantum_edge_redshifts_into_filter_gap"
+  ],
+  "statement": "(3646 * 8757 / 10000 = 3192) ∧ (3100 < 3192) ∧ (3192 < 3560) ∧ (364 < 3100)",
+  "files": [
+    "MoMBHStar1.lean"
+  ]
+}

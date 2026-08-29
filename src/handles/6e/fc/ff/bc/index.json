@@ -1,0 +1,12 @@
+{
+  "handle": "6efcffbc",
+  "address": "6efcffbc-a600-8b0d-b288-fa9bc03b49ed",
+  "kind": "chunk",
+  "keys": [
+    "self_inverse_mod_3_number_2"
+  ],
+  "statement": "((List.range 3).filter (fun x => (x * x) % 3 == 1)).length = 2",
+  "files": [
+    "Wave.lean"
+  ]
+}
