@@ -71,6 +71,7 @@ const fsm = (): typeof import('node:fs') | null => {
 
 let LOADED: CataloguePackage[] | null = null
 let STATE: CatalogueState | null = null
+let CMD_INDEX: Map<string, CataloguePackage> | null = null
 
 // ── IT MUST RUN IN THE BROWSER TOO (the captain's order, 2026-08-25: "all executes in uuidnaOS in browser").
 //
@@ -93,6 +94,7 @@ export function primeCatalogue(text: string): CatalogueState {
   LOADED = packages
   UNIVERSE = null                                        // the dependency universe is derived — it must re-derive
   SO_STEMS = null
+  CMD_INDEX = null
   STATE = packages.length
     ? { present: true, count: packages.length, why: null }
     : { present: false, count: 0, why: 'primed with text that parsed to zero packages — a shape drift, not an empty Alpine' }
@@ -121,6 +123,7 @@ export async function primeCatalogueFrom(url: string): Promise<CatalogueState> {
       LOADED = []
       UNIVERSE = null
       SO_STEMS = null
+      CMD_INDEX = null
       return STATE
     }
     return primeCatalogue(await res.text())
@@ -128,6 +131,7 @@ export async function primeCatalogueFrom(url: string): Promise<CatalogueState> {
     LOADED = []
     UNIVERSE = null
     SO_STEMS = null
+    CMD_INDEX = null
     STATE = { present: false, count: 0, why: `catalogue fetch ${url} failed (${e instanceof Error ? e.message : String(e)}) — offline and not cached` }
     return STATE
   }
@@ -571,6 +575,40 @@ export function providedCommands(p: CataloguePackage): string[] {
     if (name && !out.includes(name)) out.push(name)
   }
   return out
+}
+
+export type AlpineAppVia = 'name' | 'cmd'
+export interface AlpineAppRef {
+  pkg: CataloguePackage
+  command: string
+  via: AlpineAppVia
+}
+
+function cmdIndex(): Map<string, CataloguePackage> {
+  if (CMD_INDEX) return CMD_INDEX
+  const m = new Map<string, CataloguePackage>()
+  for (const p of catalogue()) {
+    for (const cmd of providedCommands(p)) {
+      const prev = m.get(cmd)
+      if (!prev || (p.name === cmd && prev.name !== cmd)) m.set(cmd, p)
+    }
+  }
+  CMD_INDEX = m
+  return m
+}
+
+/** busybox already answers as applets (ls/cat/…) — its cmd: names stay applets, not a second app door. */
+const busyboxFamily = (name: string): boolean => name === 'busybox' || name.startsWith('busybox-')
+
+/** resolveAlpineApp(token) → the published package that token uses. Exact package name first; else a
+ *  published `cmd:` (dotnet → dotnet-host, omp → oh-my-pi). Busybox cmd: stays with the applets. */
+export function resolveAlpineApp(token: string): AlpineAppRef | null {
+  if (!token) return null
+  const named = cataloguePackage(token)
+  if (named) return { pkg: named, command: token, via: 'name' }
+  const viaCmd = cmdIndex().get(token)
+  if (!viaCmd || busyboxFamily(viaCmd.name)) return null
+  return { pkg: viaCmd, command: token, via: 'cmd' }
 }
 
 export interface ManRunJob {
