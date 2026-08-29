@@ -3,11 +3,10 @@
 // The gain is auditability. Pure; runs anywhere.
 import { toUuid, merkleFold } from './address.js'
 import { computes } from './gate.js'
+export { DIMENSIONS } from './dimensions.js'
+import { DIMENSIONS } from './dimensions.js'
 
 export type Harnessed = { output: string; address: string; reproducible: boolean; gatePass: boolean; auditable: boolean }
-
-/** The seven dimensions (the locale rays) — the structural "quantum" sense. */
-export const DIMENSIONS = ['en', 'bg', 'de', 'fr', 'es', 'ru', 'zh'] as const
 
 /** Content-address an output, confirm the address reproduces, gate-check it. `auditable` = it reproduces. */
 export function harness(output: string): Harnessed {

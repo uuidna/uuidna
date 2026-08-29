@@ -14,6 +14,9 @@ test('theoremDemoOf routes skills to shelves', () => {
   assert.equal(chess.shelf.route, '/chess')
   const coins = theoremDemoOf('two_coins', 'coins')
   assert.equal(coins.shelf.route, '/trading')
+  const type = theoremDemoOf('recto_odd_verso_even', 'typesetting', 406)
+  assert.equal(type.shelf.route, '/catalogue')
+  assert.equal(catalogueNeedleOf('typesetting'), 'font')
 })
 
 test('alpineWitnessByTheorem indexes harmonised counts', () => {

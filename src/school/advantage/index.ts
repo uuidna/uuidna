@@ -5,6 +5,7 @@ export {
   expectHolds,
   hookAdvantageMcp,
   renderAdvantageMcpMarkdown,
+  advantageCurriculum,
   schoolAdvantageMcpExamples,
   type AdvantageMcpCurriculum,
   type AdvantageMcpExample,

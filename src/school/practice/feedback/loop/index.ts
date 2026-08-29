@@ -3,25 +3,12 @@
 // Theorems that stump students get guides added. Paths with low completion get restructured.
 // The school learns by doing.
 
-import { theoremByKey, type VerdictKind } from '../../../../index.js'
+import { theoremByKey } from '../../../../theorems/index.js'
 import { toUuid } from '../../../../address.js'
 import { handleOf } from '../../../../handle.js'
 import { merkleGravity } from '../../../../gravity/index.js'
-
-// ============================================================================
-// PRACTICE TRIAL: STUDENTS LEARN BY DOING
-// ============================================================================
-
-export interface PracticeTrial {
-  studentId: string
-  theoremKey: string
-  attemptCount: number // how many tries before success
-  timeSpent: number // milliseconds
-  hintCount: number // how many hints were used
-  verdict: VerdictKind // VERIFIED or UNVERIFIED — never REFUTED-by-default
-  timestamp: string // the handle IS the timestamp: the receipt's handle orders events, no wall clock exists here
-  receipt: string // content-addressed trial result
-}
+import { foldPracticeTrial, type PracticeTrial } from './trial/index.js'
+export { foldPracticeTrial, type PracticeTrial } from './trial/index.js'
 
 export interface PracticeResult {
   trial: PracticeTrial
@@ -39,20 +26,8 @@ export function recordPracticeTrial(
 ): PracticeTrial {
   // The verdict is the ledger's, not a simulation: a practice claim on a sealed key is VERIFIED,
   // on an unsealed key it stays UNVERIFIED — never false, only not-yet (the trial's own law).
-  const verdict: VerdictKind = theoremByKey().has(theoremKey) ? 'VERIFIED' : 'UNVERIFIED'
-
-  const receipt = toUuid(`practice:${studentId}:${theoremKey}:${attemptCount}:${verdict}`)
-
-  return {
-    studentId,
-    theoremKey,
-    attemptCount,
-    timeSpent,
-    hintCount,
-    verdict,
-    timestamp: handleOf(receipt),
-    receipt,
-  }
+  const verdict = theoremByKey().has(theoremKey) ? 'VERIFIED' as const : 'UNVERIFIED' as const
+  return foldPracticeTrial(studentId, theoremKey, attemptCount, timeSpent, hintCount, verdict)
 }
 
 export function assessPracticeDifficulty(trial: PracticeTrial): PracticeResult {

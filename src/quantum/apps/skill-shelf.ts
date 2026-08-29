@@ -23,6 +23,14 @@ export const SKILL_SHELF: Record<string, { route: string; mount: string; label: 
   cipher: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
   'crypt-salt': { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
   security: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
+  typesetting: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
+  calendar: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
+  editing: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
+  colour: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
+  photography: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
+  identifiers: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
+  reasoning: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
+  tides: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
 }
 
 /** shelfForSkill(skill) → the live instrument that emulates this capability; default is the practice drill. */

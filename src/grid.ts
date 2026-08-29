@@ -22,8 +22,13 @@
 // claim that the wing has been rendered into that language. Integrity.
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
-import { DIMENSIONS } from './harness.js'
+import { DIMENSIONS } from './dimensions.js'
 import { theorems } from './theorems/index.js'
+export {
+  PAIR_SEATS, pairName, pairs, pairSeat, transpose, pairsRoot,
+  type Pair,
+} from './pairs.js'
+import { PAIR_SEATS, pairs, pairSeat, transpose, pairsRoot } from './pairs.js'
 
 /** The six PROJECTED rays. DIMENSIONS[0] ('en') is the source the wings are written in — its map is the identity. */
 export const PROJECTED = DIMENSIONS.slice(1) as readonly string[]
@@ -155,43 +160,6 @@ export function gridReport(): {
 // HONEST SCOPE: a pair is a named DIRECTION with a recomputable address — never evidence
 // that any content has been carried along it. The grid proves the directions are all present, distinct and
 // balanced; it says nothing about what travels.
-
-/** The pair grid's sealed width: 42 = 7 × 6 = every ordered pair of DISTINCT dimensions. */
-export const PAIR_SEATS = 42
-
-export interface Pair {
-  from: string      // the source dimension
-  to: string        // the target dimension
-  name: string      // uuidna_pair_<from>_<to>
-  address: string   // toUuid(from + '>' + to) — the direction's own address
-}
-
-/** The name of one direction — the "properly named" half, same shape as a wing seat. */
-export const pairName = (from: string, to: string): string => `uuidna_pair_${from}_${to}`
-
-/** THE 42 DIRECTIONS — every ordered pair of distinct dimensions, in sorted order. */
-export function pairs(): Pair[] {
-  const out: Pair[] = []
-  for (const from of DIMENSIONS)
-    for (const to of DIMENSIONS)
-      if (from !== to) out.push({ from, to, name: pairName(from, to), address: toUuid(from + '>' + to) })
-  return out
-}
-
-/** Address ONE direction. Returns null for an unknown dimension AND for the identity, which is never a seat. */
-export function pairSeat(from: string, to: string): Pair | null {
-  return pairs().find((p) => p.from === from && p.to === to) ?? null
-}
-
-/** The involution: the reverse direction. Squares to the identity, and never returns its own argument. */
-export function transpose(p: Pair): Pair | null {
-  return pairSeat(p.to, p.from)
-}
-
-/** The pair grid's one receipt — order-invariant over all 42 direction addresses. */
-export function pairsRoot(): string {
-  return merkleGravity(pairs().map((p) => p.address))
-}
 
 /** THE FINDER — a missing direction, a self-pair, a collision, an unbalanced dimension, a broken involution. */
 export function pairsGaps(): GridGap[] {

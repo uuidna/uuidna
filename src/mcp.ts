@@ -345,7 +345,8 @@ const TOOLS: Tool[] = ([
         if (!seat) throw new Error(`uuidna_grid: no seat for (${String(a.dimension)}, ${String(a.wing)}) — rays are ${PROJECTED.join(', ')} and there are ${wings().length} wings`)
         return seat
       }
-      return { ...gridReport(), seats_sample: grid().slice(0, 3) }
+      const seats = grid()
+      return { ...gridReport(), raysList: [...PROJECTED], wingsList: wings(), seats, seats_sample: seats.slice(0, 3) }
     } },
   { name: 'uuidna_pairs',
     description: 'THE 42 PAIR GRID — every ordered DIRECTION between dimensions, by the same rule that makes 432: the full product with the identity removed (7 × 7 = 49 minus the 7 self-pairs = 42). Transposition swaps the readings, squares to the identity and has no fixed point, so the 42 directions fall into exactly 21 orbits of size two; 42 is a SECOND grid, not a reshape of 432 (it does not divide it, and its digital root is 6). Omit args for the whole report; pass {from,to} for one direction. Returns {dimensions,directions,sealed,orbits,identityExcluded,readings,root,gaps} or {from,to,name,address}. HONEST SCOPE: a pair is a named direction with a recomputable address — never a translation, and never evidence that anything has been carried along it. Integrity, not truth (theorem provenance_integrity_not_content_truth).',

@@ -4,7 +4,7 @@
 // drill IS a practice trial, never a flashcard. Pure over the ledger the caller passes. HONEST SCOPE: the drill
 // presents and records; it never grades understanding — the statement either recomputes for the student or the
 // walker (4 of 4) names what to learn first.
-import { recordPracticeTrial, type PracticeTrial } from '../../../../school/practice/feedback/loop/index.js'
+import { foldPracticeTrial, type PracticeTrial } from '../../../../school/practice/feedback/loop/trial/index.js'
 
 export interface TheoremLike { key: string; name: string; statement: string; cases?: number; skill?: string }
 export interface Drill { key: string; name: string; statement: string; cases: number; skill: string }
@@ -19,5 +19,5 @@ export function drillOf(key: string, ledger: readonly TheoremLike[]): Drill {
  *  verdict is the LEDGER's (a sealed key verifies), so `correct` here feeds attemptCount/hintCount bookkeeping:
  *  a wrong attempt is attempt 1 with a hint owed, a right one attempt 1 clean — the same trial law, adapted. */
 export function attemptDrill(d: Drill, correct: boolean, ms: number, student = 'anonymous'): PracticeTrial {
-  return recordPracticeTrial(student, d.key, 1, ms, correct ? 0 : 1)
+  return foldPracticeTrial(student, d.key, 1, ms, correct ? 0 : 1, 'VERIFIED')
 }

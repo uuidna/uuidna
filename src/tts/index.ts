@@ -15,23 +15,18 @@
 // Nothing here is sealed as a theorem: an utterance is an event, and events are not decidable.
 // node:child_process is loaded LAZILY at the one call that needs it (the mcp.ts:38 pattern): a top-level import
 // rides every bundle that reaches this module, and the edge worker has no processes — validation refuses it.
-import { toUuid } from '../address.js'
-import { handleOf } from '../handle.js'
-import { HANDLE_HEXBITS } from '../hexbit/index.js'
+// HEXBIT_WORDS / utter / readHexbits live in ./readings.js so the monitor can translate without this device write.
+import { utter, type Utterance } from './readings.js'
 
 export * from './synth.js'
-
-export interface Utterance { lines: readonly string[]; text: string; address: string; handle: string; words: number; hexbits: number }
-
-/** UTTER — pure, and the whole testable half. Blank lines are dropped and whitespace collapsed so the same
- *  passage always yields the same utterance, whatever it was formatted like on the page. */
-export const utter = (lines: readonly string[]): Utterance => {
-  const clean = lines.map((l) => l.replace(/\s+/g, ' ').trim()).filter((l) => l.length > 0)
-  const text = clean.join('\n')
-  const address = toUuid(text)
-  // the utterance is addressed, so its width is the handle's: eight tiles, the unit every other surface reports in
-  return { lines: clean, text, address, handle: handleOf(address), words: clean.join(' ').split(' ').filter(Boolean).length, hexbits: HANDLE_HEXBITS }
-}
+export {
+  utter,
+  HEXBIT_WORDS,
+  readHexbits,
+  englishToHexbitReadings,
+  type Utterance,
+  type HexbitReading,
+} from './readings.js'
 
 /** a theorem, said the way a reader would say it: its name, then the statement it settles. */
 export const utterTheorem = (t: { key: string; name?: string; statement: string }): Utterance =>
@@ -52,44 +47,6 @@ export const emit = (u: Utterance, opts: { voice?: string; rate?: number; dryRun
   void import('node:child_process').then(({ execFile }) =>
     execFile('/usr/bin/say', args, () => { /* the device is the boundary: no verdict comes back from a speaker */ }))
   return { handle: u.handle, spoken: true, command }
-}
-
-// ── EACH LANGUAGE READS HEXBIT-TRANSLATED ENGLISH. English text folds to hexbits — that fold IS the
-// translation, the same address for anyone — and every locale ray reads the hexbits back in its own tongue:
-// sixteen states, seven spellings, one meaning. The table is the whole apparatus: no grammar, no model, just
-// each language's own names for the sixteen states, so a Bulgarian reader and a Chinese reader speak the SAME
-// handle and can check each other against the one address underneath. The keys are exactly the seven locale
-// rays (src/harness.ts DIMENSIONS) — a test holds the two lists identical so neither can drift alone.
-export const HEXBIT_WORDS: Readonly<Record<string, readonly string[]>> = {
-  en: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen'],
-  bg: ['нула', 'едно', 'две', 'три', 'четири', 'пет', 'шест', 'седем', 'осем', 'девет', 'десет', 'единадесет', 'дванадесет', 'тринадесет', 'четиринадесет', 'петнадесет'],
-  de: ['null', 'eins', 'zwei', 'drei', 'vier', 'fünf', 'sechs', 'sieben', 'acht', 'neun', 'zehn', 'elf', 'zwölf', 'dreizehn', 'vierzehn', 'fünfzehn'],
-  fr: ['zéro', 'un', 'deux', 'trois', 'quatre', 'cinq', 'six', 'sept', 'huit', 'neuf', 'dix', 'onze', 'douze', 'treize', 'quatorze', 'quinze'],
-  es: ['cero', 'uno', 'dos', 'tres', 'cuatro', 'cinco', 'seis', 'siete', 'ocho', 'nueve', 'diez', 'once', 'doce', 'trece', 'catorce', 'quince'],
-  ru: ['ноль', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять', 'десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать', 'пятнадцать'],
-  zh: ['零', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十', '十一', '十二', '十三', '十四', '十五'],
-}
-
-export interface HexbitReading { lang: string; hex: string; words: string[]; utterance: Utterance }
-
-/** readHexbits(hex, lang) → the hexbit string read out in that language, as an addressed utterance. A character
- *  outside the sixteen states is refused by name — a reader that guessed would be translating something else. */
-export const readHexbits = (hex: string, lang: string): HexbitReading => {
-  const table = HEXBIT_WORDS[lang]
-  if (!table) throw new Error(`readHexbits: no reading for language "${lang}" — the rays are ${Object.keys(HEXBIT_WORDS).join(', ')}`)
-  const words = [...hex.toLowerCase()].map((c) => {
-    const state = parseInt(c, 16)
-    if (!(state >= 0 && state <= 15) || !/^[0-9a-f]$/.test(c)) throw new Error(`readHexbits: "${c}" is not a hexbit state`)
-    return table[state]!
-  })
-  return { lang, hex: hex.toLowerCase(), words, utterance: utter([words.join(' ')]) }
-}
-
-/** englishToHexbitReadings(text) → the fold and all seven readings of it: English in, one address out, and every
- *  locale ray reading the same eight tiles in its own words — the translation that preserves the address. */
-export const englishToHexbitReadings = (text: string): { handle: string; readings: HexbitReading[] } => {
-  const handle = handleOf(toUuid(text))
-  return { handle, readings: Object.keys(HEXBIT_WORDS).map((lang) => readHexbits(handle, lang)) }
 }
 
 /** read a passage aloud and return what was said, addressed — compose then emit, in one call. */

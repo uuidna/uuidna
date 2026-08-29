@@ -5,7 +5,7 @@
 // words; what the kernel can hold about that is STRUCTURE: seven distinct rays, sixteen distinct names per ray
 // (two states sharing a name would be unreadable), the states sounding the A432 lattice under the Nyquist
 // ceiling, and the arithmetic the trial computed in all dimensions. The Lean lists are GENERATED from
-// src/tts/index.ts HEXBIT_WORDS and src/harness.ts DIMENSIONS — one source, never restated by hand.
+// src/tts/readings.ts HEXBIT_WORDS and src/harness.ts DIMENSIONS — one source, never restated by hand.
 // HONEST SCOPE: sealed is the tables' structure and arithmetic, NEVER linguistic correctness — no kernel can
 // decide that a word MEANS a number to a speaker; the tables are the declared readings, held distinct and
 // counted. COMPUTE → GENERATE → VERIFY.
@@ -23,7 +23,7 @@
 // re-countable by anyone who regenerates them, and they are worded that way below rather than as measurements.
 import { emit } from './lean-gen.js'
 import { DIMENSIONS } from '../harness.js'
-import { HEXBIT_WORDS } from '../tts/index.js'
+import { HEXBIT_WORDS } from '../tts/readings.js'
 import { SAMPLE_RATE, AMPLITUDE, BASE_HZ, toneOf } from '../tts/synth.js'
 
 const rays = [...DIMENSIONS]

@@ -7,7 +7,7 @@ import { rpcCall } from '../quantum/apps/terminal.js'
 import { QA_REQUIRED_THEOREMS } from '../quantum/advantage/audit/index.js'
 import {
   schoolAdvantageMcpExamples, expectHolds, ADVANTAGE_MCP_ORIGIN, ADVANTAGE_OVERCLAIM,
-  hookAdvantageMcp,
+  hookAdvantageMcp, renderAdvantageMcpMarkdown,
 } from '../school/advantage/index.js'
 
 const rpc = async (message: object): Promise<unknown> => {
@@ -51,6 +51,13 @@ test('overclaim example cites n_qubit_dimension — VERIFIED is not endorsement'
   assert.equal(g.tool, 'uuidna_gate')
   assert.equal((g.arguments as { claim?: string }).claim, ADVANTAGE_OVERCLAIM)
   assert.equal(g.expect.find((x) => x.path === 'verdict')?.equals, 'VERIFIED')
+})
+
+test('school advantage markdown cites the sealed classical bound on the same line as the claim', () => {
+  const md = renderAdvantageMcpMarkdown()
+  const first = md.split(/\n{2,}/)[0] ?? ''
+  assert.match(first, /quantum advantage/i)
+  assert.match(first, /\/theorem\/n_qubit_dimension/)
 })
 
 test('hosted handleMcpRpc answers the decide and os examples — same code uuidna.com serves', async () => {

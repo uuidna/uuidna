@@ -19,7 +19,8 @@
 // The quantum encoding adds NO secrecy and NO quantum channel — not QKD; the cost stays the classical 2^n
 // CONFIRMED by theorem n_qubit_dimension.
 
-import { theorems, toUuid } from '../../index.js'
+import { theorems } from '../../theorems/index.js'
+import { toUuid } from '../../address.js'
 import { quantumAura, type Aura } from '../../aura.js'
 import { ket0, hadamard, pauliX, pauliZ, label, fraction, distribution, marginal, type QState } from '../index.js'
 import { qubitsToHexbits, HEXBIT_BITS, sha256IsFourSixtyfours } from '../../hexbit/index.js'

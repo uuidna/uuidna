@@ -34,7 +34,8 @@ export { typeScale, typeScaleVars, applyTypeScale, type TypeRung } from './typog
 // citing its sealed proof), the prose-trial census, the publication's license law + archive conformance as
 // functions, the search-on-trial (online; evidence never approval), and the VIES register lookup (online; the
 // EU's own ledger). One implementation for the scripts, the MCP tools, and the CI automation.
-export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanUuid, leanIndex, byLean, type StatementCensus, type LeanIdentity, type Article, type EditorialState, type PublicationStatus, type SearchTrial, type ViesResult, type LedgerSearch } from './editorial.js'
+export { articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, statementCensus, leanUuid, leanIndex, byLean, type StatementCensus, type LeanIdentity, type Article, type EditorialState, type PublicationStatus, type SearchTrial, type ViesResult } from './editorial.js'
+export { searchLedger, type LedgerSearch } from './ledger-search.js'
 
 // prepublish-seal and seo-freeze stay off the client barrel (Node IO via boundary).
 // Scripts and Node trials import ./prepublish-seal.js and ./seo-freeze.js.
@@ -252,7 +253,7 @@ export { tamperCosts, type TamperCosts, type TamperWidth } from './tamper-cost.j
 export { phdProofs, type PhdProofs, type PhdConcept, type PhdWork, type PhdThesis } from './phd-proofs.js'
 // captain/jobs — the twelve jobs of the coins, remembered in code: a catalog whose every claim carries its
 // citations and TRIES ITSELF on every read (a vanished theorem breaks the catalog's own verdict, loudly).
-export { coinsJobs, type CoinJob, type CoinJobsReport } from './captain/jobs/index.js'
+export { coinsJobs, COIN_JOBS, type CoinJob, type CoinJobsReport } from './captain/jobs/index.js'
 
 // reports — EVERY REPORT AND AUDIT, CONSOLIDATED AND COMPUTED. The theorem accounting, heartbeat coverage,
 // citation audit, support audit, package inventory and deployment readiness in one structure, folded

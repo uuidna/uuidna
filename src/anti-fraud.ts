@@ -8,7 +8,10 @@
 // integrity. A forged theorem is a fact (the address does not recompute); a traitor is
 // a forgery in the artifact, never a person.
 
-import { theoremByKey, toUuid, merkleGravity, ledgerFingerprint, type Theorem, type LedgerFingerprint } from './index.js'
+import { theoremByKey, type Theorem } from './theorems/index.js'
+import { toUuid } from './address.js'
+import { merkleGravity } from './gravity/index.js'
+import { ledgerFingerprint, type LedgerFingerprint } from './fingerprint.js'
 import { catchTraitors, type TreasonReport } from './treason.js'
 import { forensics, type ForensicReport } from './forensics.js'
 import { conformance, type ConformanceReport } from './conformance.js'

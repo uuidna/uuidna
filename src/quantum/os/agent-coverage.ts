@@ -12,17 +12,9 @@ import { WORD_BYTES } from '../../mcp-wire.js'
 import { rpcCall, rpcList, resultText } from '../apps/terminal.js'
 import { manAppWitness, manPagePackages, type CataloguePackage } from './catalogue.js'
 import { MCP_ALPINE_DOOR } from './mcp-man.js'
-
-export const AGENT_ORIGIN = 'https://uuidna.com'
-export const AGENT_MCP_PATH = '/mcp'
+export { AGENT_ORIGIN, AGENT_MCP_PATH, hostedMcpUrl } from '../advantage/mcp/wire/index.js'
+import { hostedMcpUrl } from '../advantage/mcp/wire/index.js'
 export { MCP_ALPINE_DOOR }
-
-/** hostedMcpUrl() → the wire an external agent uses. Same-origin /mcp on a licensed uuidna host; uuidna.com from anywhere else. */
-export function hostedMcpUrl(): string {
-  if (typeof location !== 'undefined' && /\.?uuidna\.(com|net|org)$/.test(location.hostname))
-    return `${location.origin}${AGENT_MCP_PATH}`
-  return AGENT_ORIGIN + AGENT_MCP_PATH
-}
 
 export interface AlpineApiHit {
   man: string

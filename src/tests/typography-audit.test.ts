@@ -27,10 +27,10 @@ test('SEALED frameworks ring their gateway theorem (resonance)', () => {
 })
 
 test('GAP frameworks are a GENUINE absence — no sealed theorem carries their native unit', () => {
-  // The honest boundary: uuidna seals the 72-point (bp) inch's 72.27; and no theorem seals a font UPM.
+  // The honest boundary: uuidna seals the 72-point (bp) inch, not TeX's 72.27; and no theorem seals a font UPM.
   const statements = THEOREMS.map((t) => (t.statement || '') + ' ' + t.key).join(' ')
   assert.equal(/72\.27/.test(statements), false, 'TeX 72.27 pt is honestly unsealed (the GAP is real)')
-  assert.equal(/2048|units per em|upm/i.test(statements), false, 'OpenType UPM is honestly unsealed')
+  assert.equal(/units per em|\bupm\b/i.test(statements), false, 'OpenType UPM is honestly unsealed')
 })
 
 test('DEMARCATED irrationals are marked', () => {

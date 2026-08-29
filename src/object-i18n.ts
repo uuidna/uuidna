@@ -6,10 +6,10 @@
 // the primary ray via BCP-47 primary subtag; localeHandleOf names the full tag for PWA sync.
 //
 // HONEST SCOPE: hexbit reading preserves the content-address; it is NOT a semantic/NLP gloss of the Lean statement.
-import { DIMENSIONS } from './harness.js'
+import { DIMENSIONS } from './dimensions.js'
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'
-import { HEXBIT_WORDS, readHexbits } from './tts/index.js'
+import { HEXBIT_WORDS, readHexbits } from './tts/readings.js'
 
 export type LocaleRay = (typeof DIMENSIONS)[number]
 
