@@ -94,7 +94,7 @@ export default defineConfig({
     // The mill stays in Node (SSG). Rolldown must not parse generated.ts into the client/server AST —
     // that copy plus live theorems() is what blew Cloudflare's default 2 GiB heap.
     ssr: {
-      external: [/theorems\/generated/, /axis-monograph/, /phd-proofs/, /quantum\/index\.js/],
+      external: ['theorems/generated', 'axis-monograph', 'phd-proofs', 'quantum/index.js'],
     },
     // tsc and src edits were each a full VitePress restart; Shiki dispose raced loadLanguage and killed the process.
     server: {
