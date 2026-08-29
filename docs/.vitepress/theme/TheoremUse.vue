@@ -7,7 +7,6 @@ import VPButton from 'vitepress/dist/client/theme-default/components/VPButton.vu
 import {
   drillOf, attemptDrill, foldFeedback, meterLoop, CLOSES_AT,
 } from '../../../src/quantum/apps/categories/practice/index.js'
-import { LEAN_LEDGER } from '../../../src/theorems/generated.js'
 
 const props = defineProps({ theoremKey: { type: String, default: '' } })
 const { params } = useData()
@@ -22,7 +21,13 @@ const load = () => {
   trials.value = []
   if (!key.value) { drill.value = null; return }
   try {
-    const d = drillOf(key.value, LEAN_LEDGER)
+    const p = params.value || {}
+    const d = drillOf(key.value, [{
+      key: key.value,
+      name: String(p.name || key.value),
+      statement: String(p.statement || ''),
+      skill: String(p.skill || 'unskilled'),
+    }])
     drill.value = { key: d.key, name: d.name, statement: d.statement, cases: d.cases, skill: d.skill }
   } catch (e) {
     drill.value = null

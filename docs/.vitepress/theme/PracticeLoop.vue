@@ -5,18 +5,22 @@
 <script setup>
 import { ref, computed } from 'vue'
 import {
-  drillOf, attemptDrill, foldFeedback, meterLoop, CLOSES_AT, walkTo, prerequisitesOf,
+  drillOf, attemptDrill, foldFeedback, meterLoop, CLOSES_AT,
 } from '../../../src/quantum/apps/categories/practice/index.js'
-import { LEAN_LEDGER } from '../../../src/theorems/generated.js'
+import { advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
 
 const key = ref('two_coins')
 const drill = ref(null)
 const error = ref('')
 const trials = ref([])
-const load = () => {
+const load = async () => {
   error.value = ''
   try {
-    const d = drillOf(key.value.trim(), LEAN_LEDGER)
+    const t = await advantageCall('uuidna_theorem', { key: key.value.trim() })
+    const d = drillOf(key.value.trim(), [{
+      key: String(t.key), name: String(t.name), statement: String(t.statement),
+      cases: 1, skill: String(t.paper?.skill ?? t.skill ?? 'unskilled'),
+    }])
     drill.value = { key: d.key, name: d.name, statement: d.statement, cases: d.cases, skill: d.skill }
   } catch (e) {
     drill.value = null
@@ -36,14 +40,6 @@ const fold = computed(() => {
   return foldFeedback(recorded)
 })
 const meter = computed(() => meterLoop(trials.value.map((t) => t.correct)))
-const road = computed(() => {
-  try { return walkTo(key.value.trim(), LEAN_LEDGER) }
-  catch { return null }
-})
-const prereqs = computed(() => {
-  try { return prerequisitesOf(key.value.trim(), LEAN_LEDGER) }
-  catch { return [] }
-})
 load()
 </script>
 
@@ -67,9 +63,8 @@ load()
         · reopened {{ meter.reopened }}</small>
     </p>
     <h3>Walk — prerequisites before the target</h3>
-    <p v-if="prereqs.length"><small>prerequisites: {{ prereqs.join(', ') }}</small></p>
-    <p v-if="road"><small>road depth {{ road.depth }} · {{ road.chain.join(' → ') || '(none)' }} → {{ key }}</small></p>
-    <p><em>Computed in your browser; nothing is sent. The drill presents and records — it never grades understanding.</em></p>
+    <p><small>Walk the sealed citations on <code>uuidna_theorem</code> — this page does not recompute the ledger.</small></p>
+    <p><em>The drill presents and records — it never grades understanding. The mill is the hosted door.</em></p>
   </div>
 </template>
 

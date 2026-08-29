@@ -6,7 +6,7 @@
 <script setup>
 import { computed } from 'vue'
 import { withBase } from 'vitepress'
-import { DIMENSIONS } from '../../../dist/harness.js'
+import { DIMENSIONS } from '../../../src/dimensions.js'
 import { durationVars } from '../../../dist/css.js'
 import { toUuid, A432_STEP, BASE } from '../../../dist/address.js'
 import { coins } from '../../../dist/captain/billing/index.js'

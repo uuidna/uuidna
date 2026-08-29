@@ -6,7 +6,7 @@
 // is a dead node to a crawler. One source: it calls quantumSeo() from the compiled ledger (the same the MCP tool
 // serves), so the front and the MCP agree. HONEST SCOPE: integrity, not truth — honest discoverability of what is
 // sealed, never a ranking trick; recomputable by anyone. "Only Lean is verbose; all else is the address that delivers."
-import { quantumSeo, type HeadTuple } from '../../dist/index.js'
+import { quantumSeo, type HeadTuple } from '../../dist/seo.js'
 import { assertSeoPackage, seoPackageGaps } from '../../dist/seo-package.js'
 import { ZENODO_SEALS } from '../../dist/zenodo-seals.js'
 import { richPublicationMetadata } from '../../dist/publication-metadata.js'

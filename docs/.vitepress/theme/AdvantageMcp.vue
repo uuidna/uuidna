@@ -3,36 +3,18 @@
      on the hosted wire; 2^n is uuidna_decide. Click one row — a page view is not a catalogue walk. -->
 <script setup lang="ts">
 import { ref } from 'vue'
-import { hostedMcpUrl } from '../../../src/quantum/os/agent-coverage.js'
-import { rpcCall } from '../../../src/quantum/apps/terminal.js'
-import { resultText } from '../../../src/quantum/apps/terminal.js'
+import { hostedMcpUrl, advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
 import {
-  schoolAdvantageMcpExamples, expectHolds, hookAdvantageMcp, type AdvantageMcpExample,
-} from '../../../src/school/advantage/index.js'
+  advantageCurriculum, expectHolds, hookAdvantageMcp, type AdvantageMcpExample,
+} from '../../../src/quantum/advantage/mcp/curriculum/index.js'
 
-const cur = schoolAdvantageMcpExamples()
+const cur = advantageCurriculum()
 const endpoint = hostedMcpUrl()
 const line = ref(`the world door is ${endpoint} — ${cur.examples.length} worked calls, constructor fields`)
 const busy = ref<string | null>(null)
 const last = ref('')
 
-const payloadOf = (raw: unknown): unknown => {
-  const text = resultText(raw)
-  const first = text.split('\n')[0] ?? ''
-  if (first.startsWith('{') || first.startsWith('[')) {
-    try { return JSON.parse(first) } catch { return raw }
-  }
-  return raw
-}
-
-const callHosted = async (name: string, args: Record<string, unknown>): Promise<unknown> => {
-  const res = await fetch(endpoint, {
-    method: 'POST',
-    headers: { 'content-type': 'application/json' },
-    body: JSON.stringify(rpcCall({ kind: 'call', name, args }, 1)),
-  })
-  return payloadOf(await res.json())
-}
+const callHosted = (name: string, args: Record<string, unknown>) => advantageCall(name, args)
 
 const runOne = async (ex: AdvantageMcpExample) => {
   if (busy.value) return

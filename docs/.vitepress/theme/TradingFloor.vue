@@ -6,15 +6,16 @@ import { ref, computed } from 'vue'
 import {
   costOf, walletCensus, leverageOf, compoundAt, RATE_NUM, RATE_DEN, FIRST_DOUBLING,
 } from '../../../src/quantum/apps/categories/trading/index.js'
-import { theorems } from '../../../src/theorems/index.js'
+import { useData } from 'vitepress'
 
+const { frontmatter } = useData()
 const seal = ref(3)
 const spare = ref(64)
 const seals = ref(38)
-const ledger = theorems().length
+const ledger = computed(() => Number(frontmatter.value?.theoremCount) || 0)
 
 const desk = computed(() => costOf({ seal: Number(seal.value) || 0 }))
-const census = computed(() => walletCensus(ledger, ledger))
+const census = computed(() => walletCensus(ledger.value, ledger.value))
 const lev = computed(() => leverageOf(Number(spare.value) || 0))
 const compound = computed(() => compoundAt(Number(seals.value) || 0))
 </script>

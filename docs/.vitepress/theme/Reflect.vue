@@ -5,7 +5,7 @@
      or clicks. Privacy-preserving by design; a page visit collects nothing. -->
 <script setup>
 import { ref, computed } from 'vue'
-import { toUuid } from '../../../dist/index.js'
+import { toUuid } from '../../../src/address.js'
 
 const input = ref('')
 const address = computed(() => (input.value ? toUuid(input.value) : '—'))

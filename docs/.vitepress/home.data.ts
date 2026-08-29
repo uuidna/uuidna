@@ -21,9 +21,12 @@
 import { readFileSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import {
-  theorems, statementCensus, coins, runTrial, PRINCIPLES, publications, merkleGravity, computeSidebar,
-} from '../../dist/index.js'
+import { theorems, PRINCIPLES, runTrial } from '../../dist/theorems/index.js'
+import { statementCensus } from '../../dist/editorial.js'
+import { coins } from '../../dist/captain/billing/index.js'
+import { publications } from '../../dist/publish.js'
+import { merkleGravity } from '../../dist/gravity/index.js'
+import { computeSidebar } from '../../dist/site.js'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..')
 
@@ -53,7 +56,13 @@ declare const data: HomeData
 export { data }
 
 export default {
-  watch: ['../../dist/index.js', '../../lean/heartbeats.json'],
+  watch: [
+    '../../dist/theorems/generated.js',
+    '../../dist/editorial.js',
+    '../../dist/publish.js',
+    '../../dist/site.js',
+    '../../lean/heartbeats.json',
+  ],
   load(): HomeData {
     const T = theorems()
     const costs = (JSON.parse(readFileSync(join(ROOT, 'lean', 'heartbeats.json'), 'utf8')) as

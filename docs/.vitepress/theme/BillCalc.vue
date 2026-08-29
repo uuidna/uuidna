@@ -3,7 +3,7 @@
      money, no market, no price — a unit of proof-of-work-saved. Public / non-commercial use is free. -->
 <script setup>
 import { ref, computed } from 'vue'
-import { billUuidna } from '../../../dist/index.js'
+import { billUuidna } from '../../../src/captain/billing/index.js'
 
 const recompute = ref(64)
 const verify = ref(1)

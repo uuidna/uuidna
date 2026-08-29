@@ -23,7 +23,7 @@
 <script setup>
 import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue'
 import { useRoute } from 'vitepress'
-import { quantumAura } from '../../../dist/index.js'
+import { quantumAura } from '../../../src/aura.js'
 import {
   pickVoice, pitchFromRay, createReadAloudController,
   languagesOf, dialectsOf, canonicalTag, localeHandleOf, encodeLocale, decodeLocale,

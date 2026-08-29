@@ -1,61 +1,47 @@
-<!-- SearchResults — THE FUSED SEARCH. One function (searchLedger, src/editorial.ts) serves every surface: this
-     page runs it IN YOUR BROWSER over the bundled sealed ledger, the stdio MCP serves it as uuidna_search, and
-     the edge serves it at /mcp. The fusion is verifiable, not asserted: "verify at the edge" sends the same
-     query to the live /mcp and compares RECEIPTS — two independent parties computing the same fold. Matching
-     receipts prove browser and edge hold the same ledger; a mismatch exposes divergence instantly. The local
-     search itself sends nothing; only the explicit verify button calls the edge. -->
+<!-- SearchResults — uuidna_search on the hosted wire. The monitor verifies the mill; it does not bundle it
+     (theorem verify_beats_recompute_by_magnitudes). -->
 <script setup>
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 import { withBase } from 'vitepress'
-import { searchLedger } from '../../../dist/index.js'
+import { advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
 
 const q = ref('')
-const local = computed(() => searchLedger(q.value))
+const hit = ref(null)
+const state = ref('')
 const href = (key) => withBase(`/theorem/${key}`)
 
-const edge = ref(null)      // { receipt, count } from the live /mcp
-const edgeState = ref('')   // '' | 'asking' | 'ok' | 'fail'
-async function verifyAtEdge() {
-  edgeState.value = 'asking'; edge.value = null
+async function searchWire() {
+  const needle = q.value.trim()
+  if (!needle) { hit.value = null; state.value = ''; return }
+  state.value = 'asking'; hit.value = null
   try {
-    const res = await fetch('/mcp', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json', accept: 'application/json' },
-      body: JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'tools/call', params: { name: 'uuidna_search', arguments: { q: q.value } } }),
-    })
-    const d = await res.json()
-    const payload = JSON.parse(d.result?.content?.[0]?.text ?? '{}')
-    edge.value = { receipt: payload.receipt ?? '', count: payload.count ?? -1 }
-    edgeState.value = 'ok'
-  } catch { edgeState.value = 'fail' }
+    const payload = await advantageCall('uuidna_search', { q: needle })
+    hit.value = payload
+    state.value = 'ok'
+  } catch { state.value = 'fail' }
 }
-const agrees = computed(() => edge.value && edge.value.receipt === local.value.receipt)
 </script>
 
 <template>
   <div class="search">
-    <input v-model="q" class="search-in" type="search" placeholder="search the sealed theorems — the same function the MCP serves, run in your browser" aria-label="search theorems" />
-    <p class="search-count" v-if="q.trim()">
-      {{ local.count }} of {{ local.total }} theorems match · receipt <code>{{ local.receipt.slice(0, 8) }}</code>
-      <button class="search-verify" :disabled="edgeState === 'asking'" @click="verifyAtEdge">
-        {{ edgeState === 'asking' ? 'asking the edge…' : 'verify at the edge' }}
+    <input v-model="q" class="search-in" type="search" placeholder="search the sealed theorems — uuidna_search on the hosted wire" aria-label="search theorems" @keydown.enter.prevent="searchWire" />
+    <p class="search-count">
+      <button class="search-verify" :disabled="state === 'asking' || !q.trim()" @click="searchWire">
+        {{ state === 'asking' ? 'asking the mill…' : 'search the mill' }}
       </button>
     </p>
-    <p v-if="edgeState === 'ok'" class="search-edge" :class="agrees ? 'ok' : 'bad'">
-      <template v-if="agrees">✓ the edge computed the SAME receipt <code>{{ edge.receipt.slice(0, 8) }}</code> — two parties, one ledger, no trust needed.</template>
-      <template v-else>✗ RECEIPTS DIFFER — browser <code>{{ local.receipt.slice(0, 8) }}</code> vs edge <code>{{ edge.receipt.slice(0, 8) }}</code>: the ledgers have diverged (a deploy in flight, or a stale bundle). Reload and re-verify.</template>
+    <p v-if="state === 'ok' && hit" class="search-edge ok">
+      {{ hit.count }} of {{ hit.total }} theorems match · receipt <code>{{ String(hit.receipt || '').slice(0, 8) }}</code>
     </p>
-    <p v-if="edgeState === 'fail'" class="search-edge bad">the edge did not answer — the local result stands alone (evidence of one party only).</p>
-    <ul class="search-list">
-      <li v-for="t in local.matches" :key="t.key">
+    <p v-if="state === 'fail'" class="search-edge bad">the hosted mill did not answer.</p>
+    <ul class="search-list" v-if="hit && hit.matches">
+      <li v-for="t in hit.matches" :key="t.key">
         <a :href="href(t.key)"><code>{{ t.key }}</code> — {{ t.name }}</a>
         <span class="search-meta">{{ t.principle }} · {{ t.skill }}</span>
       </li>
     </ul>
-    <p class="search-note">THE FUSED SEARCH: this page, the stdio MCP (<code>uuidna_search</code>) and the live edge
-    (<code>/mcp</code>) all run the ONE function over the sealed ledger and fold the matches to one receipt. Typing
-    sends nothing; only "verify at the edge" calls out — and then the two receipts must agree, which you can see,
-    not trust. For full-text search of every page, use the box in the top bar.</p>
+    <p class="search-note">Quantum advantage here is VERIFY of <code>uuidna_search</code> on the hosted door
+    (<code>/mcp</code>), not a recompute of the ledger into this page. For full-text search of every page, use the box in the top bar.</p>
   </div>
 </template>
 

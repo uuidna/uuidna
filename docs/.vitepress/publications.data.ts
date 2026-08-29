@@ -3,7 +3,7 @@
 // single source: add a domain, its audited note appears. If any note overreaches a proof its `publishable` is false
 // and the index shows it refused — the per-note route ([slug].paths.js) fails the build outright, so a false note
 // never ships. Requires `npm run build` first (npm run docs:build does both in order).
-import { publications } from '../../dist/index.js'
+import { publications } from '../../dist/publish.js'
 
 export type PublicationCard = {
   slug: string
@@ -28,7 +28,7 @@ declare const data: PublicationsData
 export { data }
 
 export default {
-  watch: ['../../dist/index.js'],
+  watch: ['../../dist/publish.js', '../../dist/theorems/generated.js'],
   load(): PublicationsData {
     const P = publications()
     return {

@@ -5,7 +5,7 @@ import { defineConfig } from 'vitepress'
 import { SITE, urlOf, OG_IMAGE } from '../../src/site/index.js'
 import { computeSidebar, discoverStaticPages, canonicalOrder, nextOf } from '../../src/site.js'
 import { infuseQuantumPayload } from './uuidna-quantum.js'
-import { axisForRelativePath } from '../../src/axis-monograph.js'
+import { axisForRelativePath, axisMonographs } from '../../src/axis-monograph.js'
 import { handleOf } from '../../src/handle.js'
 import { hexFaceOf } from '../../src/hexagram.js'
 
@@ -75,12 +75,12 @@ export default defineConfig({
     search: {
       provider: 'local',
       options: {
-        // Dynamic object pages (theorems + publications) would MiniSearch-serialize into the
-        // client bundle; Cloudflare's Node heap is 2 GiB and Rolldown OOMs on that string.
+        // Dynamic object pages (theorems + publications) would MiniSearch-serialize the census
+        // into the client. The monitor reads constructors; it does not hold the ledger twice.
         async _render(src: string, env: { relativePath?: string; frontmatter?: { search?: boolean } }, md: { render: (s: string, e: unknown) => string }) {
           const rel = env.relativePath ?? ''
           if (env.frontmatter?.search === false) return ''
-          if (rel.includes('[id]') || rel.includes('[key]')) return ''
+          if (rel.includes('[id]') || rel.includes('[key]') || rel.includes('[slug]')) return ''
           return md.render(src, env)
         },
       },
@@ -91,10 +91,10 @@ export default defineConfig({
     define: {
       __DEV__: 'true',
     },
-    // tsc rewrites dist/ as hundreds of files; each was a full VitePress restart and the heap never came back.
+    // tsc and src edits were each a full VitePress restart; Shiki dispose raced loadLanguage and killed the process.
     server: {
       watch: {
-        ignored: ['**/dist/**'],
+        ignored: ['**/dist/**', '**/src/**'],
       },
     },
   },
@@ -103,6 +103,20 @@ export default defineConfig({
     theme: {
       light: 'github-light',
       dark: 'github-dark',
+    },
+    // Shiki has no Lean grammar. loadLanguage('lean') on every theorem fence raced HMR dispose and killed the process.
+    languageAlias: {
+      lean: 'txt',
+      bash: 'txt',
+      sh: 'txt',
+      shell: 'txt',
+      typescript: 'txt',
+      ts: 'txt',
+      javascript: 'txt',
+      js: 'txt',
+      markdown: 'txt',
+      md: 'txt',
+      vue: 'txt',
     },
   },
 
@@ -186,10 +200,11 @@ export default defineConfig({
       // Stock Layout #doc-before breadcrumbs (Home → kind → id/handle).
       if (p.breadcrumbs != null) fm.breadcrumbs = p.breadcrumbs
       if (p.use != null) fm.use = p.use
-      // MiniSearch indexes every dynamic object into the client bundle; skip theorem keys so
-      // Cloudflare's 2 GiB Node heap can finish the Rolldown pass.
-      if (p.key) fm.search = false
+      // MiniSearch indexes every dynamic object into the client bundle; skip theorem keys and publication slugs.
+      if (p.key || p.slug) fm.search = false
     }
+    const fmAll = pageData.frontmatter as Record<string, unknown>
+    fmAll.theoremCount ??= axisMonographs().census.theorems
     const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
     const canonical = urlOf(slug)   // the ONE origin — a third hardcoded copy lived here until 2026-08-18

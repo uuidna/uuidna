@@ -4,9 +4,10 @@
      observe them); the divisor — the theorem count — is the recomputable truth. Nothing is sent. -->
 <script setup>
 import { ref, computed } from 'vue'
-import { theorems } from '../../../dist/index.js'
+import { useData } from 'vitepress'
 
-const N = theorems().length
+const { frontmatter } = useData()
+const N = computed(() => Number(frontmatter.value?.theoremCount) || 0)
 const input = ref(120000)
 const output = ref(30000)
 const cached = ref(800000)
@@ -14,7 +15,7 @@ const reasoning = ref(50000)
 
 const num = (v) => Number(v) || 0
 const total = computed(() => num(input.value) + num(output.value) + num(cached.value) + num(reasoning.value))
-const perTheorem = computed(() => (N ? total.value / N : 0))
+const perTheorem = computed(() => (N.value ? total.value / N.value : 0))
 const frac = (v) => (total.value ? Math.round((num(v) / total.value) * 100) : 0)
 </script>
 
@@ -28,14 +29,14 @@ const frac = (v) => (total.value ? Math.round((num(v) / total.value) * 100) : 0)
     </div>
     <div class="tm-out">
       <div><b>{{ total.toLocaleString() }}</b><span>tokens</span></div>
-      <div><b>{{ N }}</b><span>theorems (live)</span></div>
+      <div><b>{{ N }}</b><span>theorems (census)</span></div>
       <div class="tm-key"><b>{{ perTheorem.toFixed(1) }}</b><span>tokens / theorem</span></div>
     </div>
     <div class="tm-dist">
       distribution — input {{ frac(input) }}% · output {{ frac(output) }}% · cached {{ frac(cached) }}% · reasoning {{ frac(reasoning) }}%
     </div>
     <p class="tm-note">The token counts are <strong>your self-report</strong> — this page cannot observe them. The
-    divisor, the theorem count, is the recomputable truth read live from the ledger. Fold many reports over a session
+    divisor, the theorem count, is the census stamped at build from the sealed ledger. Fold many reports over a session
     to watch the cost-per-theorem fall. Measured on independent skilled work, not money. Nothing is sent.</p>
   </div>
 </template>

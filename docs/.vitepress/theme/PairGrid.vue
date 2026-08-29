@@ -14,7 +14,7 @@
      carried along it. -->
 <script setup>
 import { ref, computed } from 'vue'
-import { pairs, pairSeat, pairsRoot, transpose, DIMENSIONS } from '../../../dist/index.js'
+import { pairs, pairSeat, pairsRoot, transpose, DIMENSIONS } from '../../../src/pairs.js'
 
 const dims = DIMENSIONS
 const all = pairs()

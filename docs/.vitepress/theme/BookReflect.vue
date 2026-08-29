@@ -5,7 +5,7 @@
      as you type. Opt-in by construction: nothing happens until the visitor writes. -->
 <script setup>
 import { ref, computed } from 'vue'
-import { auditText } from '../../../dist/index.js'
+import { auditText } from '../../../src/books.js'
 
 const text = ref('')
 const audit = computed(() => (text.value ? auditText(text.value) : null))

@@ -5,8 +5,8 @@
      Layout never imports the theorem census — that census is the /theorems monograph (and kin).
      Home (layout: home) uses DefaultTheme home composition; capacity door is /quantum. -->
 <script setup>
+import { computed, ref, watch, onMounted, defineAsyncComponent } from 'vue'
 import DefaultTheme from 'vitepress/theme'
-import { computed, ref, watch, onMounted } from 'vue'
 import { useData } from 'vitepress'
 import ObjectBreadcrumbs from './ObjectBreadcrumbs.vue'
 import ObjectCrosslinks from './ObjectCrosslinks.vue'
@@ -15,13 +15,14 @@ import ReadAloud from './ReadAloud.vue'
 import HexFace from './HexFace.vue'
 import SiteFooter from './SiteFooter.vue'
 import SponsorCard from './SponsorCard.vue'
-import UrlAudit from './UrlAudit.vue'
 import {
   OBJECT_LOCALE_RAYS,
   objectUi,
   primaryRayOf,
-} from '../../../dist/object-i18n.js'
+} from '../../../src/object-i18n.js'
 import { encodeLocale, decodeLocale } from './readAloudLogic.ts'
+
+const UrlAudit = defineAsyncComponent(() => import('./UrlAudit.vue'))
 
 const { Layout } = DefaultTheme
 const { frontmatter, params } = useData()

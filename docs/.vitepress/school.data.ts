@@ -6,7 +6,8 @@
 //
 // Requires the package to be built first (`npm run build` → dist/), exactly like ledger.data.ts. The heartbeats are
 // watched too: they ARE the grading, so a re-measure must move the page.
-import { school, publications } from '../../dist/index.js'
+import { school } from '../../dist/school.js'
+import { publications } from '../../dist/publish.js'
 
 export type SchoolLesson = { key: string; name: string; steps: number }
 export type SchoolCourse = {
@@ -30,7 +31,7 @@ declare const data: SchoolData
 export { data }
 
 export default {
-  watch: ['../../dist/index.js', '../../lean/heartbeats.json'],
+  watch: ['../../dist/school.js', '../../dist/publish.js', '../../lean/heartbeats.json'],
   load(): SchoolData {
     const s = school()
     const monographByWing = Object.fromEntries(publications().map((p) => [p.file, p.slug])) as Record<string, string>

@@ -3,7 +3,7 @@
      closed path iff gcd(step,n)=1, else it splits into gcd loops. Pure client-side geometry, nothing sent. -->
 <script setup>
 import { ref, computed } from 'vue'
-import { starPolygon } from '../../../dist/index.js'
+import { starPolygon } from '../../../src/cycles.js'
 
 const n = ref(5)
 const step = ref(2)

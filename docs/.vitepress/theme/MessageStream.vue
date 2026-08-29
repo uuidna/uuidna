@@ -6,7 +6,7 @@
      the passphrase. Sealing runs PBKDF2, so it is a deliberate button press, not per-keystroke. -->
 <script setup>
 import { ref } from 'vue'
-import { sealStream, openStream } from '../../../dist/index.js'
+import { sealStream, openStream } from '../../../src/stream.js'
 
 const message = ref('the vortex speaks at 432 Hz')
 const passphrase = ref('gold-string-60')

@@ -12,7 +12,7 @@ description: "The quantum school, implemented from what already exists: the ledg
 
 <ClientOnly><PracticeLoop /></ClientOnly>
 
-## Quantum advantage — worked MCP examples
+## Quantum advantage — worked MCP examples ([`n_qubit_dimension`](/theorem/n_qubit_dimension))
 
 The usable-column gap and the classical 2ⁿ cost are not essays at school: they are **tools/call** on
 [`https://uuidna.com/mcp`](https://uuidna.com/mcp) ([`n_qubit_dimension`](/theorem/n_qubit_dimension),

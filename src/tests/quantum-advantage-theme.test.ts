@@ -2,7 +2,7 @@
 // No QuantumAdvantage card chrome; ObjectPage has no per-page QA.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 
@@ -81,11 +81,57 @@ test('compose-object emits stock markdown H1 + lead under it', async () => {
   assert.match(pub.content, /^# /m)
 })
 
-test('docs:build raises the VitePress heap and skips MiniSearch on dynamic object pages', () => {
+test('the monitor does not import the package barrel; VitePress reads constructors', () => {
+  for (const f of readdirSync(THEME)) {
+    if (!/\.(vue|ts)$/.test(f) || f.endsWith('.test.ts')) continue
+    const src = readFileSync(join(THEME, f), 'utf8')
+    assert.doesNotMatch(src, /from ['"][^'"]*dist\/index\.js['"]/, `${f} must not import the package barrel`)
+    assert.doesNotMatch(src, /from ['"][^'"]*src\/index\.js['"]/, `${f} must not import the package barrel`)
+    assert.doesNotMatch(src, /theorems\/(index|generated)\.js/, `${f} must not recompute the ledger — quantum advantage verifies the wire`)
+    assert.doesNotMatch(src, /ledger-search/, `${f} must not bundle searchLedger`)
+    assert.doesNotMatch(src, /from ['"][^'"]*\/cost\.js['"]/, `${f} must not recompute cost`)
+    assert.doesNotMatch(src, /from ['"][^'"]*\/grid\.js['"]/, `${f} must not recompute the wing grid`)
+    assert.doesNotMatch(src, /school\/advantage/, `${f} must not load theoremByKey via school advantage`)
+    if (f !== 'Terminal.vue') {
+      assert.doesNotMatch(src, /apps\/terminal/, `${f} must not load OS via the terminal`)
+    }
+    if (f !== 'AgentCoverage.vue') {
+      assert.doesNotMatch(src, /agent-coverage/, `${f} must not load catalogue via agent-coverage`)
+    }
+    assert.doesNotMatch(src, /from ['"][^'"]*\/harness\.js['"]/, `${f} must not load the gate via harness`)
+  }
+  const idx = readFileSync(join(THEME, 'index.ts'), 'utf8')
+  assert.match(idx, /defineAsyncComponent/)
+  const hex = readFileSync(join(THEME, 'HexFace.vue'), 'utf8')
+  assert.doesNotMatch(hex, /import HexbitPlayer from/)
+  const i18n = readFileSync(join(ROOT, 'src/object-i18n.ts'), 'utf8')
+  assert.match(i18n, /tts\/readings\.js/)
+  assert.doesNotMatch(i18n, /tts\/index\.js/)
+  assert.match(i18n, /from ['"]\.\/dimensions\.js['"]/)
+  const cur = readFileSync(join(ROOT, 'src/quantum/advantage/mcp/curriculum/index.ts'), 'utf8')
+  assert.doesNotMatch(cur, /theorems\/index/)
+  assert.doesNotMatch(cur, /os\/index/)
+  assert.doesNotMatch(cur, /crypto-apps/)
+  assert.doesNotMatch(cur, /agent-coverage/)
+  const wire = readFileSync(join(ROOT, 'src/quantum/advantage/mcp/wire/index.ts'), 'utf8')
+  assert.match(wire, /hostedMcpUrl/)
+  assert.match(wire, /advantageCall/)
+  for (const rel of ['src/quantum/message/index.ts', 'src/quantum/voting/index.ts', 'src/anti-fraud.ts']) {
+    const src = readFileSync(join(ROOT, rel), 'utf8')
+    assert.doesNotMatch(src, /from ['"]\.\.\/\.\.\/index\.js['"]/, `${rel} must not import the package barrel`)
+    assert.doesNotMatch(src, /from ['"]\.\/index\.js['"]/, `${rel} must not import the package barrel`)
+  }
+  const vp = join(ROOT, 'docs/.vitepress')
+  for (const f of readdirSync(vp)) {
+    if (!/\.(ts|js)$/.test(f)) continue
+    const src = readFileSync(join(vp, f), 'utf8')
+    assert.doesNotMatch(src, /from ['"][^'"]*dist\/index\.js['"]/, `${f} must import constructors, not the package barrel`)
+  }
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
-  assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=8192/)
-  assert.match(readFileSync(join(ROOT, 'wrangler.toml'), 'utf8'), /NODE_OPTIONS=--max-old-space-size=8192/)
+  assert.doesNotMatch(pkg.scripts['docs:build'] ?? '', /max-old-space-size/)
+  assert.doesNotMatch(readFileSync(join(ROOT, 'wrangler.toml'), 'utf8'), /max-old-space-size/)
   const cfg = readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8')
   assert.match(cfg, /fm\.search = false/)
-  assert.match(cfg, /\[id\]/)
+  assert.match(cfg, /\[slug\]/)
+  assert.match(cfg, /theoremCount/)
 })

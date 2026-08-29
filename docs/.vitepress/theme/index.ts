@@ -1,45 +1,10 @@
 // https://vitepress.dev/guide/custom-theme
 // Layout = ObjectPage (stock H1 + crosslinks). Home uses stock VPHome; capacity door is /quantum (README keeps the table).
+// Widgets are async so Rolldown does not hold every shelf in the monitor's main chunk — TypeScript computes, VitePress reads.
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
-import RefererCompass from './RefererCompass.vue'
-import Terminal from './Terminal.vue'
-import ExecShell from './ExecShell.vue'
-import PortPanel from './PortPanel.vue'
-import CatalogueBrowser from './CatalogueBrowser.vue'
-import AgentCoverage from './AgentCoverage.vue'
-import HexbitPlayer from './HexbitPlayer.vue'
-import AnthemSuperposition from './AnthemSuperposition.vue'
-import AnthemLive from './AnthemLive.vue'
-import SchoolTools from './SchoolTools.vue'
-import BookRoom from './BookRoom.vue'
-import HandleStrips from './HandleStrips.vue'
-import HexbitAnimator from './HexbitAnimator.vue'
-import FoldAnimation from './FoldAnimation.vue'
-import HeroAnimation from './HeroAnimation.vue'
-import HexFace from './HexFace.vue'
+import { defineAsyncComponent } from 'vue'
 import ObjectPage from './ObjectPage.vue'
-import HomeGraph from './HomeGraph.vue'
-import Reflect from './Reflect.vue'
-import BookReflect from './BookReflect.vue'
-import SearchResults from './SearchResults.vue'
-import BillCalc from './BillCalc.vue'
-import StarPlay from './StarPlay.vue'
-import Chess from './Chess.vue'
-import MessageStream from './MessageStream.vue'
-import TokenMeter from './TokenMeter.vue'
-import CostMeter from './CostMeter.vue'
-import Handle from './Handle.vue'
-import NimPlay from './NimPlay.vue'
-import ChessMobility from './ChessMobility.vue'
-import AuditPanel from './AuditPanel.vue'
-import CaptainCoins from './CaptainCoins.vue'
-import GridLattice from './GridLattice.vue'
-import PairGrid from './PairGrid.vue'
-import PracticeLoop from './PracticeLoop.vue'
-import AdvantageMcp from './AdvantageMcp.vue'
-import TheoremUse from './TheoremUse.vue'
-import TradingFloor from './TradingFloor.vue'
 import { applySequence } from './palette'
 import './style.css'
 
@@ -48,42 +13,42 @@ export default {
   Layout: ObjectPage,
   enhanceApp({ app }) {
     applySequence()
-    app.component('RefererCompass', RefererCompass)
-    app.component('HexbitPlayer', HexbitPlayer)
-    app.component('HexFace', HexFace)
-    app.component('AnthemSuperposition', AnthemSuperposition)
-    app.component('AnthemLive', AnthemLive)
-    app.component('SchoolTools', SchoolTools)
-    app.component('BookRoom', BookRoom)
-    app.component('HandleStrips', HandleStrips)
-    app.component('HexbitAnimator', HexbitAnimator)
-    app.component('UuidnaTerminal', Terminal)
-    app.component('ExecShell', ExecShell)
-    app.component('PortPanel', PortPanel)
-    app.component('CatalogueBrowser', CatalogueBrowser)
-    app.component('AgentCoverage', AgentCoverage)
-    app.component('FoldAnimation', FoldAnimation)
-    app.component('HeroAnimation', HeroAnimation)
-    app.component('GridLattice', GridLattice)
-    app.component('PairGrid', PairGrid)
-    app.component('Reflect', Reflect)
-    app.component('BookReflect', BookReflect)
-    app.component('SearchResults', SearchResults)
-    app.component('BillCalc', BillCalc)
-    app.component('StarPlay', StarPlay)
-    app.component('Chess', Chess)
-    app.component('MessageStream', MessageStream)
-    app.component('TokenMeter', TokenMeter)
-    app.component('CostMeter', CostMeter)
-    app.component('HomeGraph', HomeGraph)
-    app.component('Handle', Handle)
-    app.component('NimPlay', NimPlay)
-    app.component('ChessMobility', ChessMobility)
-    app.component('PracticeLoop', PracticeLoop)
-    app.component('AdvantageMcp', AdvantageMcp)
-    app.component('TheoremUse', TheoremUse)
-    app.component('TradingFloor', TradingFloor)
-    app.component('AuditPanel', AuditPanel)
-    app.component('CaptainCoins', CaptainCoins)
+    app.component('RefererCompass', defineAsyncComponent(() => import('./RefererCompass.vue')))
+    app.component('HexbitPlayer', defineAsyncComponent(() => import('./HexbitPlayer.vue')))
+    app.component('HexFace', defineAsyncComponent(() => import('./HexFace.vue')))
+    app.component('AnthemSuperposition', defineAsyncComponent(() => import('./AnthemSuperposition.vue')))
+    app.component('AnthemLive', defineAsyncComponent(() => import('./AnthemLive.vue')))
+    app.component('SchoolTools', defineAsyncComponent(() => import('./SchoolTools.vue')))
+    app.component('BookRoom', defineAsyncComponent(() => import('./BookRoom.vue')))
+    app.component('HandleStrips', defineAsyncComponent(() => import('./HandleStrips.vue')))
+    app.component('HexbitAnimator', defineAsyncComponent(() => import('./HexbitAnimator.vue')))
+    app.component('UuidnaTerminal', defineAsyncComponent(() => import('./Terminal.vue')))
+    app.component('ExecShell', defineAsyncComponent(() => import('./ExecShell.vue')))
+    app.component('PortPanel', defineAsyncComponent(() => import('./PortPanel.vue')))
+    app.component('CatalogueBrowser', defineAsyncComponent(() => import('./CatalogueBrowser.vue')))
+    app.component('AgentCoverage', defineAsyncComponent(() => import('./AgentCoverage.vue')))
+    app.component('FoldAnimation', defineAsyncComponent(() => import('./FoldAnimation.vue')))
+    app.component('HeroAnimation', defineAsyncComponent(() => import('./HeroAnimation.vue')))
+    app.component('GridLattice', defineAsyncComponent(() => import('./GridLattice.vue')))
+    app.component('PairGrid', defineAsyncComponent(() => import('./PairGrid.vue')))
+    app.component('Reflect', defineAsyncComponent(() => import('./Reflect.vue')))
+    app.component('BookReflect', defineAsyncComponent(() => import('./BookReflect.vue')))
+    app.component('SearchResults', defineAsyncComponent(() => import('./SearchResults.vue')))
+    app.component('BillCalc', defineAsyncComponent(() => import('./BillCalc.vue')))
+    app.component('StarPlay', defineAsyncComponent(() => import('./StarPlay.vue')))
+    app.component('Chess', defineAsyncComponent(() => import('./Chess.vue')))
+    app.component('MessageStream', defineAsyncComponent(() => import('./MessageStream.vue')))
+    app.component('TokenMeter', defineAsyncComponent(() => import('./TokenMeter.vue')))
+    app.component('CostMeter', defineAsyncComponent(() => import('./CostMeter.vue')))
+    app.component('HomeGraph', defineAsyncComponent(() => import('./HomeGraph.vue')))
+    app.component('Handle', defineAsyncComponent(() => import('./Handle.vue')))
+    app.component('NimPlay', defineAsyncComponent(() => import('./NimPlay.vue')))
+    app.component('ChessMobility', defineAsyncComponent(() => import('./ChessMobility.vue')))
+    app.component('PracticeLoop', defineAsyncComponent(() => import('./PracticeLoop.vue')))
+    app.component('AdvantageMcp', defineAsyncComponent(() => import('./AdvantageMcp.vue')))
+    app.component('TheoremUse', defineAsyncComponent(() => import('./TheoremUse.vue')))
+    app.component('TradingFloor', defineAsyncComponent(() => import('./TradingFloor.vue')))
+    app.component('AuditPanel', defineAsyncComponent(() => import('./AuditPanel.vue')))
+    app.component('CaptainCoins', defineAsyncComponent(() => import('./CaptainCoins.vue')))
   }
 } satisfies Theme

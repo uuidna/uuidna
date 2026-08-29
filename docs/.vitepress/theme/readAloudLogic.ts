@@ -7,7 +7,8 @@
 // other 241 tests — wired into `npm run audit` (test:docs) so a regression here fails the SAME gate everything
 // else does, not something that has to be remembered and re-checked by hand next time this file changes.
 
-import { DIMENSIONS, toUuid } from '../../../dist/index.js'
+import { toUuid } from '../../../dist/address.js'
+import { DIMENSIONS } from '../../../src/dimensions.js'
 import { handleOf } from '../../../dist/handle.js'
 
 export interface VoiceLike { name: string; lang: string; default: boolean }

@@ -3,7 +3,7 @@
 <script setup>
 import { computed } from 'vue'
 import { withBase, useData } from 'vitepress'
-import { toUuid } from '../../../dist/index.js'
+import { toUuid } from '../../../src/address.js'
 // the sponsorship URL used to be typed here as a literal AND again in the aside's card; SITE.sponsor is the one
 // place it lives now, so the two surfaces cannot disagree the way two copies of a literal always eventually do
 import { SITE, sponsorDepositUrl } from '../../../dist/site/index.js'

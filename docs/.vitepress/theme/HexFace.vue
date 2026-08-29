@@ -3,12 +3,13 @@
      Colour is quantumAura (art, not physics). Sound is HexbitPlayer — opt-in, never autoplay.
      Motion is linear and referrer-driven — no free spin. Tokens from the matrix (--seq-*), not Tailwind. -->
 <script setup>
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
 import { useData, withBase } from 'vitepress'
-import HexbitPlayer from './HexbitPlayer.vue'
 import { vortexOrbit, A432_STEP, BASE, TRINITY } from '../../../dist/address.js'
-import { DIMENSIONS } from '../../../dist/harness.js'
+import { DIMENSIONS } from '../../../src/dimensions.js'
 import { COINS, HEXBIT_BITS } from '../../../dist/hexbit/index.js'
+
+const HexbitPlayer = defineAsyncComponent(() => import('./HexbitPlayer.vue'))
 
 const { params, frontmatter } = useData()
 

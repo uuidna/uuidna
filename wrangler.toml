@@ -12,7 +12,7 @@ main = "worker.js"
 [build]
 # docs:build produces ./docs/.vitepress/dist (the default VitePress outDir, incl. /lean proofs + /seeds); gen-handles writes ./handles.js (the first8→key map worker.js imports) — both BEFORE
 # wrangler bundles the worker, so the on-the-spot /<handle> resolver has its map and the assets are ready to serve.
-command = "NODE_OPTIONS=--max-old-space-size=8192 npm run docs:build && node dist/scripts/gen-handles.js && node dist/scripts/seo-freeze-audit.js"
+command = "npm run docs:build && node dist/scripts/gen-handles.js && node dist/scripts/seo-freeze-audit.js"
 
 # Trial CRUD storage (opt-in). POST /trials persists a trial ONLY with explicit consent, into this KV namespace.
 # Until a namespace exists the worker still computes and returns trials — it just cannot persist them. To enable

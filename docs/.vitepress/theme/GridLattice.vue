@@ -16,31 +16,37 @@
      HONEST SCOPE: this VISUALISES a structure already computed and already gated; it proves nothing further, and a
      seat remains a receipt that a wing is reachable from a ray, never a translation of it. -->
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 import { withBase } from 'vitepress'
-import { grid, PROJECTED, wings, gridRoot } from '../../../dist/index.js'
+import { advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
 
-// EVERYTHING SEALED, NOTHING TYPED — the figure reads the same functions the MCP tool and the guard read.
-const seats = grid()
-const rays = PROJECTED
-const wingList = wings()
-const root = gridRoot()
+const seats = ref([])
+const rays = ref([])
+const wingList = ref([])
+const root = ref('')
+const err = ref('')
 
-// The two shapes 432 admits. Both are COMPUTED from the ledger, not written down: the first is the grid's own axes,
-// the second is the digit-reversal of the wing count, which is why it is offered at all. If the ledger ever leaves
-// 72 wings the second shape simply stops being offered rather than lying about the arithmetic.
-const reversed = Number(String(wingList.length).split('').reverse().join(''))
-const byAxes = { cols: wingList.length, rows: rays.length, label: `${rays.length} × ${wingList.length}` }
-const byInvolution = { cols: reversed, rows: seats.length / reversed, label: `${seats.length / reversed} × ${reversed}` }
+onMounted(async () => {
+  try {
+    const r = await advantageCall('uuidna_grid', {})
+    seats.value = Array.isArray(r?.seats) ? r.seats : []
+    rays.value = Array.isArray(r?.raysList) ? r.raysList : []
+    wingList.value = Array.isArray(r?.wingsList) ? r.wingsList : []
+    root.value = String(r?.root ?? '')
+  } catch (e) { err.value = e instanceof Error ? e.message : String(e) }
+})
+
+const reversed = computed(() => Number(String(wingList.value.length).split('').reverse().join('')))
+const byAxes = computed(() => ({ cols: wingList.value.length, rows: rays.value.length, label: `${rays.value.length} × ${wingList.value.length}` }))
+const byInvolution = computed(() => ({ cols: reversed.value, rows: seats.value.length / reversed.value, label: `${seats.value.length / reversed.value} × ${reversed.value}` }))
 const shapes = computed(() =>
-  Number.isInteger(seats.length / reversed) && reversed !== wingList.length ? [byAxes, byInvolution] : [byAxes],
+  Number.isInteger(seats.value.length / reversed.value) && reversed.value !== wingList.value.length ? [byAxes.value, byInvolution.value] : [byAxes.value],
 )
 
 const shape = ref(0)
-const cols = computed(() => shapes.value[shape.value].cols)
+const cols = computed(() => shapes.value[shape.value]?.cols || 1)
 const selected = ref(null)
 
-// the hue is the address's own first hex digit — read, never chosen
 const hue = (address) => `var(--seq-${(parseInt(address[0], 16) % 9) + 1}, var(--vp-c-brand-1))`
 const show = (s) => { selected.value = s }
 </script>
@@ -49,6 +55,7 @@ const show = (s) => { selected.value = s }
   <figure class="grid-lattice">
     <figcaption>
       <strong>{{ seats.length }} seats</strong> — {{ rays.length }} projected rays × {{ wingList.length }} wings.
+      <span v-if="err">{{ err }}</span>
       <span v-if="shapes.length > 1">The same seats, two shapes:</span>
       <span class="shapes" v-if="shapes.length > 1">
         <button
