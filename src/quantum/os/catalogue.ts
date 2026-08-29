@@ -600,14 +600,20 @@ function cmdIndex(): Map<string, CataloguePackage> {
 /** busybox already answers as applets (ls/cat/…) — its cmd: names stay applets, not a second app door. */
 const busyboxFamily = (name: string): boolean => name === 'busybox' || name.startsWith('busybox-')
 
+/** A toolbox publishes dozens of cmd: names (busybox, uutils-coreutils). Those stay applets or honest misses. */
+function isToolboxProvider(p: CataloguePackage): boolean {
+  if (busyboxFamily(p.name) || /coreutils|toybox/.test(p.name)) return true
+  return providedCommands(p).length > 16
+}
+
 /** resolveAlpineApp(token) → the published package that token uses. Exact package name first; else a
- *  published `cmd:` (dotnet → dotnet-host, omp → oh-my-pi). Busybox cmd: stays with the applets. */
+ *  published `cmd:` (dotnet → dotnet-host, omp → oh-my-pi). Toolbox cmd: stays with the applets. */
 export function resolveAlpineApp(token: string): AlpineAppRef | null {
   if (!token) return null
   const named = cataloguePackage(token)
   if (named) return { pkg: named, command: token, via: 'name' }
   const viaCmd = cmdIndex().get(token)
-  if (!viaCmd || busyboxFamily(viaCmd.name)) return null
+  if (!viaCmd || isToolboxProvider(viaCmd)) return null
   return { pkg: viaCmd, command: token, via: 'cmd' }
 }
 

@@ -51,6 +51,7 @@ test('Alpine apps Vue shells use shadcn slots and do not pull Tailwind or React'
   for (const slot of SHADCN_ALPINE_SLOTS) {
     assert.match(vue, new RegExp('data-slot="' + slot + '"'), `CatalogueBrowser missing ${slot}`)
   }
+  assert.match(vue, /@click="useApp\(h.name\)"/)
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { dependencies?: Record<string, string>; devDependencies?: Record<string, string> }
   const deps = { ...pkg.dependencies, ...pkg.devDependencies }
   assert.ok(!deps.react && !deps.tailwindcss && !deps['@radix-ui/react-slot'] && !deps['shadcn-vue'])

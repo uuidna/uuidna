@@ -25,7 +25,12 @@ import {
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
-  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll, publicApiRegistry, searchFeed } from './index.js'
+  articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll, publicApiRegistry, searchFeed, runSequence } from './index.js'
+import {
+  throughVoid, foldVortexReflection, vortexStrokeGateways, decodeVortexDashAngles,
+  computeVortexInvariantsHold, developmentVortex, walkTour, livingFieldReport,
+} from './sequence-field.js'
+import type { WavePhase } from './sequence-field.js'
 import { unlockBoard } from './unlocks.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
 import { handleOf } from './handle.js'   // THE one derivation of a handle from an address
@@ -602,6 +607,43 @@ const TOOLS: Tool[] = ([
     description: 'The doubling circuit 1→2→4→8→7→5 — the vortex orbit of the units under ×2 mod 9, the DNA of the fold (5→1 closes the loop). Returns the array.',
     inputSchema: { type: 'object', properties: {} },
     run: () => vortexOrbit() },
+  { name: 'uuidna_through_void',
+    description: 'Mirror through the void — throughVoid(d)=1−d mod 9 on 1..9, void 0 fixed; involution fixed only at 5 (mirror_fixed_five). Returns the mirrored digit.',
+    inputSchema: { type: 'object', properties: { d: { type: 'number', description: 'digit 0..9' } }, required: ['d'] },
+    run: ({ d }) => throughVoid(Number(d)) },
+  { name: 'uuidna_run_sequence',
+    description: 'Walk ANY input through the ℤ/9 executor — dz and doubling alternated, period and polarity measured (ten-digit domain: 9 is plus, not void). Returns {input,seed,reflection,polarity,orbit,visited,period,covers,...}.',
+    inputSchema: { type: 'object', properties: { input: { type: 'string', description: 'number or text to fold' }, steps: { type: 'number', description: 'max alternation steps (default 18)' } }, required: ['input'] },
+    run: (a) => {
+      const raw = a.input ?? ''
+      const input = typeof raw === 'number' ? raw : String(raw)
+      return runSequence(input, a.steps !== undefined ? Number(a.steps) : undefined)
+    },
+  },
+  { name: 'uuidna_living_field',
+    description: 'The living field 1\\2\\4\\8/7/5/3\\6\\9/0\\1 — stroke, dash decode, reflection, tour seams, invariant gate. Computed from sequence-field.ts; proofs in lean/Sequence.lean. Returns the full report.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => livingFieldReport() },
+  { name: 'uuidna_vortex_reflection',
+    description: 'One structure read twice — foldVortexReflection: mirror pairs, orbit/axis exchange, ⟨D,M⟩ order 54, commutator shift. Returns {valid,forward,reflected,groupOrder,excess,...}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => foldVortexReflection() },
+  { name: 'uuidna_vortex_dash',
+    description: 'Decode the ±60° dash stroke — weighted bearing closes at 0 when fusionIgnites (angles_close). Returns {closes,fusionIgnites,weightedBearing,steps,...}.',
+    inputSchema: { type: 'object', properties: { encoded: { type: 'string', description: 'dash-encoded stroke (default living field)' } } },
+    run: (a = {}) => decodeVortexDashAngles(a.encoded ? String(a.encoded) : undefined) },
+  { name: 'uuidna_vortex_tour',
+    description: 'Walk the lean/Sequence.lean tour with carries9 carry rules — seams_two expects exactly 2 seams (5→3, 0→1). Returns {tour,steps,seams,seamCount}.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => walkTour() },
+  { name: 'uuidna_vortex_invariants',
+    description: 'README gateway boolean — living field stroke, dash closes, foldVortex and reflection valid, development vortex computes. false ⇒ restore gateway seals.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => ({ hold: computeVortexInvariantsHold() }) },
+  { name: 'uuidna_development_vortex',
+    description: 'Double-torus development throat — uuidna ledger ↔ zeropoint-node lobe fold per wave phase. Returns {wave,lobeL,lobeR,throat,stroke,vortex,dash,computes,root}.',
+    inputSchema: { type: 'object', properties: { wave: { type: 'string', description: 'origin|decode|design|learn|tune|edit|rebuild|verify' } } },
+    run: (a = {}) => developmentVortex((a.wave ? String(a.wave) : 'edit') as WavePhase) },
   { name: 'uuidna_double_torus',
     description: 'The double-torus 7D field of a set of addresses: the doubling vortex and its reverse rotate the set; at each of the 7 dimensions the two fold together, and the seven dimension-roots fold to ONE. Order-DEPENDENT (the sequence is the signal) — use uuidna_gravity for an order-invariant receipt. Returns {dims,root}.',
     inputSchema: { type: 'object', properties: { addresses: { type: 'array', items: { type: 'string' } } }, required: ['addresses'] },
@@ -831,7 +873,7 @@ const TOOLS: Tool[] = ([
     run: () => servedOS() },
   { name: 'uuidna_exec',
     description: 'ALPINE APPS IN THE VIRTUAL uuidnaOS (Layer 1 — simulated). Pass {line}: ls, apk (list/info/search/add/del/policy), man, busybox (cat/which/stat/pwd/echo/du), driver, device, help. apk add/del mutates SESSION state only — host rootfs unchanged. Full port on the lattice (theorem the_os_is_bootable_quantum); host binary execution is uuidna_run (Layer 2). Returns {line,applet,args,ok,output,data,receipt,hexbits,sealed,honest}.',
-    detail: 'Layer 1 simulation: install-port VFS, full catalogue, session apk add/del, busybox applets over virtual fs + session files. device carries this host\'s CPU lanes plus the specified GPU stream worker (hostStreamFleet). Nothing runs Alpine ELF inside this door — boot is verified hexbit loading. Layer 2 (uuidna_run, stdio only): verify-then-run pinned rootfs bytes on the host. Relates to uuidna_os (boot + capacity), uuidna_port, uuidna_registry, the terminal.',
+    detail: 'Layer 1 simulation: install-port VFS, full catalogue, session apk add/del, busybox applets over virtual fs + session files. A published package name (nginx, openssl) or cmd: (dotnet, omp) uses that app — identity + hexbits + man + cmds. device carries this host\'s CPU lanes plus the specified GPU stream worker (hostStreamFleet). Nothing runs Alpine ELF inside this door — boot is verified hexbit loading. Layer 2 (uuidna_run, stdio only): verify-then-run pinned rootfs bytes on the host. Relates to uuidna_os (boot + capacity), uuidna_port, uuidna_registry, the terminal.',
     inputSchema: { type: 'object', properties: { line: { type: 'string', description: 'e.g. "apk add nginx", "cat /core", "ls /catalogue", "man busybox", "apk policy"' } }, required: ['line'] },
     run: (a = {}) => uuidnaExec(String(a.line ?? '')) },
   { name: 'uuidna_run',
@@ -1533,6 +1575,7 @@ export interface McpCatalogEntry { name: string; description: string; detail?: s
 const CATEGORIES: [RegExp, string, string][] = [
   [/^(address|merge|coin64|strict|digital_root)$/, 'Identity & addressing', 'address'],
   [/^(units|triad|vortex|double_torus|diamond|involute|seats)$/, 'Vortex algebra', 'algebra'],
+  [/^(through_void|run_sequence|living_field|vortex_reflection|vortex_dash|vortex_tour|vortex_invariants|development_vortex)$/, 'Living field', 'sequence'],
   [/^(coprime|pentagram|fibonacci|rotate|crt)$/, 'Rotation & cycles', 'cycles'],
   [/^(merkle_root|merkle_prove|merkle_verify|gravity)$/, 'Merkle & gravity', 'merkle'],
   [/^(imprint|read|send|receive)$/, 'Imprint & messaging', 'imprint'],

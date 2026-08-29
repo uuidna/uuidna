@@ -15,9 +15,14 @@ description: Layer 1 uuidnaOS in the browser — ls, apk, man over the virtual i
   <ExecShell />
 </ClientOnly>
 
-**Production use:** type familiar busybox/apk lines; each answer folds to a content-address receipt and 32 hexbit
-states ([`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits)). Session `apk add/del` persists for
-this tab only — simulated install, host rootfs unchanged.
+**Production use:** type a published Alpine package (`nginx`, `openssl`, `busybox`) or a `cmd:` (`dotnet`, `omp`);
+each answer folds to a content-address receipt and 32 hexbit states
+([`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits)). Familiar busybox/apk lines still work. Session
+`apk add/del` persists for this tab only — simulated install, host rootfs unchanged.
+
+**Living field:** `sequence field`, `sequence run 9`, `sequence dash`, and `sequence invariants` walk the ℤ/9 vortex
+constructors from [Sequence.lean](/lean/Sequence.lean) — same surface as MCP **Living field** tools on [/mcp](/mcp).
+Full reference: [The living field](/sequence-field).
 
 | Layer | Where | What |
 |-------|-------|------|

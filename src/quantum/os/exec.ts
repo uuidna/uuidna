@@ -4,6 +4,7 @@
 import {
   catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile,
   resolveManPage, isManPagePackage, manAppWitness, catalogue, catalogueRouteOf,
+  resolveAlpineApp, providedCommands,
 } from './catalogue.js'
 import { INSTALLS_MIRROR } from './mirror.js'
 import { toUuid } from '../../address.js'
@@ -16,6 +17,8 @@ import {
   execSessionStamp, resetExecSession, sessionAdd, sessionDel, sessionAdded, sessionHasPackage,
   sessionRead, sessionWrite, sessionCwd, setSessionCwd,
 } from './session.js'
+import { livingFieldReport, computeVortexInvariantsHold } from '../../sequence-field.js'
+import { runSequence } from '../../sequence-run.js'
 
 export { resetExecSession, execSessionStamp }
 
@@ -137,7 +140,7 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'help'] as const
+export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
 
 /** Legacy fold list — toys are ported again as pure logic over the virtual OS + session vfs. */
@@ -145,6 +148,9 @@ export const FOLDED_APPLETS = [] as const
 
 /** apk READ + simulated WRITE (session only — host rootfs unchanged). Host binary run: uuidna_run. */
 export const APK_VERBS = ['list', 'info', 'search', 'depends', 'rdepends', 'add', 'del', 'policy'] as const
+
+/** sequence — living field constructors (lean/Sequence.lean runtime). */
+export const SEQUENCE_VERBS = ['field', 'run', 'dash', 'invariants'] as const
 
 /** THE THREE STATES A PACKAGE QUERY CAN END IN, kept apart in the one place they are worded.
  *
@@ -439,6 +445,14 @@ export function uuidnaExec(line: string): ExecResult {
       }
       const c = cataloguePackage(name)
       if (c) { emit([catalogueRouteOf(name)], { name, route: catalogueRouteOf(name), state: 'AVAILABLE' }); break }
+      const resolved = resolveAlpineApp(name)
+      if (resolved) {
+        const pkg = resolved.pkg
+        const route = specByName(pkg.name, specs)?.route ?? catalogueRouteOf(pkg.name)
+        const state = specByName(pkg.name, specs) ? 'INSTALLED' : sessionHasPackage(pkg.name) ? 'SESSION' : 'AVAILABLE'
+        emit([route], { name: pkg.name, command: name, via: resolved.via, route, state })
+        break
+      }
       err(`which: no ${name} in boot closure, session, or catalogue`)
       break
     }
@@ -507,18 +521,100 @@ export function uuidnaExec(line: string): ExecResult {
       ], { device: d, stream: { postage: GPU_POSTAGE_ADDRESSES, idle, atPostage } })
       break
     }
+    case 'sequence': {
+      const verb = args[0] ?? 'field'
+      if (verb === 'field') {
+        const r = livingFieldReport()
+        emit([
+          `seal_ten:     ${r.sealTen.join('')}`,
+          `stroke:       ${r.stroke.written}`,
+          `gateways:     ${r.stroke.gateways.join(',')}`,
+          `reflection:   ${r.reflection.valid ? 'valid' : 'invalid'} · order ${r.reflection.groupOrder}`,
+          `dash closes:  ${r.dash.closes}`,
+          `tour seams:   ${r.tour.seamCount}`,
+          `invariants:   ${r.invariantsHold}`,
+        ], { kind: 'sequence-field', ...r })
+        break
+      }
+      if (verb === 'run') {
+        const input = args.slice(1).join(' ') || '0'
+        const n = Number(input)
+        const walked = runSequence(Number.isFinite(n) && input.trim() === String(n) ? n : input)
+        emit([
+          `input:      ${walked.input}`,
+          `seed:       ${walked.seed}`,
+          `reflection: ${walked.reflection}`,
+          `polarity:   ${walked.polarity}`,
+          `period:     ${walked.period}`,
+          `orbit:      ${walked.orbit.join(' → ')}`,
+        ], { execKind: 'sequence-run', ...walked })
+        break
+      }
+      if (verb === 'dash') {
+        const d = livingFieldReport().dash
+        emit([
+          `closes:           ${d.closes}`,
+          `weightedBearing:  ${d.weightedBearing}`,
+          `fusionIgnites:    ${d.fusionIgnites}`,
+          `steps:            ${d.steps.length}`,
+        ], { kind: 'sequence-dash', ...d })
+        break
+      }
+      if (verb === 'invariants') {
+        const hold = computeVortexInvariantsHold()
+        emit([`vortexInvariantsHold: ${hold}`], { hold })
+        break
+      }
+      err(`sequence: ${verb}: not a ported verb — try: ${SEQUENCE_VERBS.join(' ')}`)
+      break
+    }
     case 'help': emit(['applets: ' + APPLETS.join(' '),
       'ls <path>  — install-port routes (/…) or full census (/catalogue, /catalogue/main|community|overlay)',
       'apk list · apk list --all · apk info · apk search · apk depends · apk rdepends · apk add · apk del · apk policy',
       'man <topic>  — Alpine documentation package → 32 hexbits (man→app→hexbit)',
+      '<package>  — use a published Alpine app (nginx, openssl, busybox); cmd: too (dotnet, omp)',
       'cat · which · stat · pwd · echo · du  — busybox over virtual vfs + session files',
+      'sequence field · sequence run <n|text> · sequence dash · sequence invariants  — living field (Sequence.lean)',
       'driver  — netboot/modloop driver bundle provenance (pinned release)',
       'device  — this host executing the sealed quantum algebra (drivers/quantum)',
       'host binary execution: uuidna_run (stdio MCP — verify-then-run, separate door)',
       'Layer 1 simulates; Layer 2 executes pinned bytes when mirror rootfs is present'],
       { applets: APPLETS, apk: APK_VERBS, sessionStamp: execSessionStamp() }); break
     case '': err('exec: empty command — try `help`'); break
-    default: err(`exec: ${applet}: not a ported applet (try \`help\`); surface is ls · apk · man · busybox · driver · device`)
+    default: {
+      const resolved = resolveAlpineApp(applet)
+      if (!resolved) {
+        err(`exec: ${applet}: not a ported applet (try \`help\`); surface is ls · apk · man · busybox · driver · device · <alpine-app>`)
+        break
+      }
+      const pkg = resolved.pkg
+      const compiled = catalogueCompile(pkg)
+      const boot = specByName(pkg.name, specs)
+      const state = boot ? 'INSTALLED' : sessionHasPackage(pkg.name) ? 'SESSION' : 'AVAILABLE'
+      const route = boot?.route ?? catalogueRouteOf(pkg.name)
+      const cmds = providedCommands(pkg)
+      const doc = resolveManPage(pkg.name)
+      const witness = doc ? manAppWitness(doc) : null
+      emit([
+        `${pkg.name}-${pkg.version}  [${pkg.repo}]  ${state}`,
+        `  ${pkg.desc}`,
+        `  ${compiled.id}  ${route}`,
+        `  address:  ${compiled.address}`,
+        `  hexbits:  ${compiled.hexbits.length} states`,
+        ...(cmds.length ? [`  cmd:      ${cmds.join(' ')}`] : ['  cmd:      (none — library/meta/data)']),
+        ...(resolved.via === 'cmd' ? [`  via:      cmd:${applet} → ${pkg.name}`] : []),
+        ...(witness
+          ? [witness.ok
+            ? `  man:      ${doc!.name} → ${witness.app} (${witness.via})`
+            : `  man:      ${doc!.name} (orphan — ${witness.detail})`]
+          : ['  man:      (no documentation package published)']),
+      ], {
+        kind: 'app', name: pkg.name, command: applet, via: resolved.via, version: pkg.version, repo: pkg.repo,
+        meaning: pkg.desc, checksum: pkg.checksum, deps: pkg.deps, commands: cmds, route,
+        address: compiled.address, hexbits: compiled.hexbits, id: compiled.id, state,
+        man: doc?.name ?? null, app: witness?.app ?? pkg.name, witnessOk: witness ? witness.ok : true,
+      })
+    }
   }
 
   const receipt = toUuid('exec|' + execSessionStamp() + '|' + applet + '|' + args.join(' ') + '|' + (ok ? '0' : '1') + '|' + output.join('\n'))

@@ -406,6 +406,7 @@ export const DRAIN_PATHS: readonly string[] = [
   'gate-receipt.json',
   // the practice block is generated from the ledger; a figure that moves must move the file
   'docs/school.md',
+  'docs/sequence-field.md',
   // the falsifier leg for every sealed statement a second implementation can decide — regenerated whenever the
   // ledger moves, and listed BEFORE the mirror because the census below reads it to grant the leg. It carries the
   // sealed statements as strings and re-decides them, so a statement that moves makes it fail as a stale copy
@@ -586,6 +587,7 @@ export const DOCS_BUILD_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-mcp': ['docs/mcp.md'],
   'gen-apis': ['docs/apis.md'],
   'gen-captain-claims': ['docs/captain-claims.json', 'docs/captain-claims.md'],
+  'gen-sequence-field': ['docs/sequence-field.md'],
   'lean-payload-seeds': ['src/seeds'],   // the whole directory is one drain path — see stageDerived
   'payload-sync': ['src/seeds'],
   'copy-lean-to-site': [],   // writes into docs/.vitepress/dist, which is gitignored — nothing to drain

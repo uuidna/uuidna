@@ -1,4 +1,4 @@
 {
-  "wireBytes": 67428,
-  "note": "Re-sealed 67163→67428 for three new doors (uuidna_crypto, uuidna_coins, uuidna_merkle_proof). tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
+  "wireBytes": 69411,
+  "note": "Re-sealed 67428→69411 for sequence-field and os/run MCP doors (uuidna_run, uuidna_vortex_dash, uuidna_development_vortex, uuidna_gate_status). tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
 }

@@ -35,7 +35,7 @@ export { discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantum
 export { correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, type BookPair, type CrossBookResonance, type CrossBookCluster } from '@uuidna/uuidna'
 export { automateQuantumSailing, serializeQuantumSailingComplete, type BookWithLinkage, type QuantumSailingComplete } from '@uuidna/uuidna'
 export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineRelease, type RootfsCheck } from '@uuidna/uuidna'
-export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, bootOS, osQuantumCapacity, servedOS, catalogue, catalogueState, cataloguePackage, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, type InstallSpec, type InstallPort, type BootImage, type OsQuantumCapacity, type BootedOS, type ServedOS, type CataloguePackage, type CatalogueState } from '@uuidna/uuidna'
+export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, bootOS, osQuantumCapacity, servedOS, catalogue, catalogueState, cataloguePackage, resolveAlpineApp, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, type InstallSpec, type InstallPort, type BootImage, type OsQuantumCapacity, type BootedOS, type ServedOS, type CataloguePackage, type CatalogueState, type AlpineAppRef, type AlpineAppVia } from '@uuidna/uuidna'
 export { minerFirmware, upgradeFirmware, type MinerFirmware, type FirmwareUpgrade, type FirmwareSeat } from '@uuidna/uuidna'
 export { uuidnaExec, type ExecResult } from '@uuidna/uuidna'
 export { driverBundle, verifyDriverBundle, fetchDriverLatest, type DriverBundle, type DriverCheck } from '@uuidna/uuidna'

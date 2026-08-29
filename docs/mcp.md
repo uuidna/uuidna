@@ -4,13 +4,13 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="210 keys" />
+# MCP tools <Badge type="tip" text="218 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 210 tools below are read from the server's own tool list and
-organised into 38 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 218 tools below are read from the server's own tool list and
+organised into 39 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 4d8faaa9-a3ec-824d-be90-ce0f19204b9d
+gate CLEAN f0 d0 v0 · ecc254ed-31aa-856d-bbf1-e2fc921364bb
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 210-tool registry folds to its
-order-invariant identity `09e86053-8166-88f5-9974-fc17d1bb483d` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 218-tool registry folds to its
+order-invariant identity `e81993ba-f457-886f-b6c2-5b3070e0dfb4` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`210`" />
+## The grid <Badge type="tip" :text="`218`" />
 
-210 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 83 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+218 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 89 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -69,6 +69,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-credits-summary"><code>credits_summary</code></a>
 <a href="#uuidna-crypto"><code>crypto</code></a>
 <a href="#uuidna-css"><code>css</code></a>
+<a href="#uuidna-development-vortex"><code>development_vortex</code></a>
 <a href="#uuidna-dictionary"><code>dictionary</code></a>
 <a href="#uuidna-due-process"><code>due_process</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
@@ -88,6 +89,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-laws"><code>laws</code></a>
 <a href="#uuidna-lean-index"><code>lean_index</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
+<a href="#uuidna-living-field"><code>living_field</code></a>
 <a href="#uuidna-mcp-benchmark"><code>mcp_benchmark</code></a>
 <a href="#uuidna-oeapi"><code>oeapi</code></a>
 <a href="#uuidna-os"><code>os</code></a>
@@ -136,6 +138,10 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-unlocks"><code>unlocks</code></a>
 <a href="#uuidna-vocabulary"><code>vocabulary</code></a>
 <a href="#uuidna-vortex"><code>vortex</code></a>
+<a href="#uuidna-vortex-dash"><code>vortex_dash</code></a>
+<a href="#uuidna-vortex-invariants"><code>vortex_invariants</code></a>
+<a href="#uuidna-vortex-reflection"><code>vortex_reflection</code></a>
+<a href="#uuidna-vortex-tour"><code>vortex_tour</code></a>
 <a href="#uuidna-address"><code>address</code></a>
 <a href="#uuidna-adjudicate"><code>adjudicate</code></a>
 <a href="#uuidna-anchor"><code>anchor</code></a>
@@ -197,6 +203,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-research"><code>research</code></a>
 <a href="#uuidna-reveal"><code>reveal</code></a>
 <a href="#uuidna-run"><code>run</code></a>
+<a href="#uuidna-run-sequence"><code>run_sequence</code></a>
 <a href="#uuidna-search"><code>search</code></a>
 <a href="#uuidna-search-trial"><code>search_trial</code></a>
 <a href="#uuidna-seats"><code>seats</code></a>
@@ -208,6 +215,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-spin"><code>spin</code></a>
 <a href="#uuidna-strict"><code>strict</code></a>
 <a href="#uuidna-theorem"><code>theorem</code></a>
+<a href="#uuidna-through-void"><code>through_void</code></a>
 <a href="#uuidna-transform"><code>transform</code></a>
 <a href="#uuidna-try"><code>try</code></a>
 <a href="#uuidna-verify"><code>verify</code></a>
@@ -1136,7 +1144,7 @@ _No parameters._
 
 ALPINE APPS IN THE VIRTUAL uuidnaOS (Layer 1 — simulated). Pass {line}: ls, apk (list/info/search/add/del/policy), man, busybox (cat/which/stat/pwd/echo/du), driver, device, help. apk add/del mutates SESSION state only — host rootfs unchanged. Full port on the lattice (theorem the_os_is_bootable_quantum); host binary execution is uuidna_run (Layer 2). Returns {line,applet,args,ok,output,data,receipt,hexbits,sealed,honest}.
 
-Layer 1 simulation: install-port VFS, full catalogue, session apk add/del, busybox applets over virtual fs + session files. device carries this host's CPU lanes plus the specified GPU stream worker (hostStreamFleet). Nothing runs Alpine ELF inside this door — boot is verified hexbit loading. Layer 2 (uuidna_run, stdio only): verify-then-run pinned rootfs bytes on the host. Relates to uuidna_os (boot + capacity), uuidna_port, uuidna_registry, the terminal.
+Layer 1 simulation: install-port VFS, full catalogue, session apk add/del, busybox applets over virtual fs + session files. A published package name (nginx, openssl) or cmd: (dotnet, omp) uses that app — identity + hexbits + man + cmds. device carries this host's CPU lanes plus the specified GPU stream worker (hostStreamFleet). Nothing runs Alpine ELF inside this door — boot is verified hexbit loading. Layer 2 (uuidna_run, stdio only): verify-then-run pinned rootfs bytes on the host. Relates to uuidna_os (boot + capacity), uuidna_port, uuidna_registry, the terminal.
 
 **Parameters**
 
@@ -2322,6 +2330,75 @@ The pigeonhole seat bound: a b-bit digest has 2^b distinct seats, so past 2^b in
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `bits` | number | **yes** |  |
+
+## Living field <Badge type="tip" :text="'8'" />
+
+*skill: sequence*
+
+### `uuidna_through_void`
+
+Mirror through the void — throughVoid(d)=1−d mod 9 on 1..9, void 0 fixed; involution fixed only at 5 (mirror_fixed_five). Returns the mirrored digit.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `d` | number | **yes** | digit 0..9 |
+
+### `uuidna_run_sequence`
+
+Walk ANY input through the ℤ/9 executor — dz and doubling alternated, period and polarity measured (ten-digit domain: 9 is plus, not void). Returns {input,seed,reflection,polarity,orbit,visited,period,covers,...}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `input` | string | **yes** | number or text to fold |
+| `steps` | number | no | max alternation steps (default 1 |
+
+### `uuidna_living_field`
+
+The living field 1\2\4\8/7/5/3\6\9/0\1 — stroke, dash decode, reflection, tour seams, invariant gate. Computed from sequence-field.ts; proofs in lean/Sequence.lean. Returns the full report.
+
+_No parameters._
+
+### `uuidna_vortex_reflection`
+
+One structure read twice — foldVortexReflection: mirror pairs, orbit/axis exchange, ⟨D,M⟩ order 54, commutator shift. Returns {valid,forward,reflected,groupOrder,excess,...}.
+
+_No parameters._
+
+### `uuidna_vortex_dash`
+
+Decode the ±60° dash stroke — weighted bearing closes at 0 when fusionIgnites (angles_close). Returns {closes,fusionIgnites,weightedBearing,steps,...}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `encoded` | string | no | dash-encoded stroke (default liv |
+
+### `uuidna_vortex_tour`
+
+Walk the lean/Sequence.lean tour with carries9 carry rules — seams_two expects exactly 2 seams (5→3, 0→1). Returns {tour,steps,seams,seamCount}.
+
+_No parameters._
+
+### `uuidna_vortex_invariants`
+
+README gateway boolean — living field stroke, dash closes, foldVortex and reflection valid, development vortex computes. false ⇒ restore gateway seals.
+
+_No parameters._
+
+### `uuidna_development_vortex`
+
+Double-torus development throat — uuidna ledger ↔ zeropoint-node lobe fold per wave phase. Returns {wave,lobeL,lobeR,throat,stroke,vortex,dash,computes,root}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `wave` | string | no | origin\|decode\|design\|learn\|tune\| |
 
 ## Publications (audited prose) <Badge type="tip" :text="'4'" />
 

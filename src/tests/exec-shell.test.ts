@@ -9,6 +9,8 @@ test('execShellHelp names Layer 1 and examples', () => {
   assert.match(h, /Layer 1/)
   assert.match(h, /ls \/terminal/)
   assert.match(h, /apk info busybox/)
+  assert.match(h, /sequence field/)
+  assert.match(h, /nginx/)
 })
 
 test('runExecLine — install port ls and apk info', () => {
@@ -20,6 +22,10 @@ test('runExecLine — install port ls and apk info', () => {
   const info = runExecLine('apk info busybox')
   assert.ok(info.ok, info.output.join('\n'))
   assert.ok(info.output.some((l) => l.includes('busybox')))
+
+  const app = runExecLine('nginx')
+  assert.ok(app.ok, app.output.join('\n'))
+  assert.equal(app.applet, 'nginx')
 })
 
 test('portPanelView — pinned port observable offline', () => {

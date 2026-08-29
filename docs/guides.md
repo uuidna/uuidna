@@ -49,6 +49,22 @@ Fetch and audit any Project Gutenberg book by id (the one tool that reaches the 
 Or just **[write on the Books page](/books#writing)** — the audit reflects back live in your browser, nothing sent.
 Honest scope: provenance and structure, never decryption or a judgement of merit.
 
+## Walk the living field
+
+The vortex sequence \`0\\1\\2\\4\\8/7/5/3\\6\\9/0\\1\` is sealed in [lean/Sequence.lean](/lean/Sequence.lean) and exposed at runtime:
+
+```ts
+import {
+  vortexStrokeGateways, foldVortexReflection, computeVortexInvariantsHold, runSequence,
+} from '@uuidna/uuidna'
+
+vortexStrokeGateways().written          // 1\2\4\8/7/5/3\6\9/0\1
+computeVortexInvariantsHold()           // true when all gateway seals hold
+runSequence('hello').orbit              // measured dz + doubling walk
+```
+
+Full reference: [The living field](/sequence-field) · theorem article: [sequence & reflection group](/articles/sequence).
+
 ## Seal a message under a contract
 
 The domain **is** the contract's address, and the contract text is the key:

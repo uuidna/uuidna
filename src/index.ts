@@ -583,7 +583,7 @@ export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineReleas
 // from its published source to 32 hexbit states, the whole port folded to one receipt and one BOOTABLE boot image
 // (bootable = the verified loading of compiled states on the lattice, NEVER execution). Pure and edge-clean from the
 // committed mirror; the always-Alpine-latest live recompute rides fetchDefaultInstalls at the src/os boundary.
-export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, bootOS, osQuantumCapacity, servedOS, catalogue, catalogueState, cataloguePackage, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, type InstallSpec, type InstallPort, type BootImage, type OsQuantumCapacity, type BootedOS, type ServedOS, type CataloguePackage, type CatalogueState } from './quantum/os/index.js'
+export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, bootOS, osQuantumCapacity, servedOS, catalogue, catalogueState, cataloguePackage, resolveAlpineApp, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, type InstallSpec, type InstallPort, type BootImage, type OsQuantumCapacity, type BootedOS, type ServedOS, type CataloguePackage, type CatalogueState, type AlpineAppRef, type AlpineAppVia } from './quantum/os/index.js'
 export { minerFirmware, upgradeFirmware, type MinerFirmware, type FirmwareUpgrade, type FirmwareSeat } from './quantum/os/firmware.js'
 export { uuidnaExec, type ExecResult } from './quantum/os/exec.js'
 export { cryptoAppsPort, cryptoAppOf, cryptoWidths, MCP_CRYPTO_DOORS, type CryptoAppsPort, type CryptoAppLookup, type CryptoAppRow, type CryptoWidths, type CryptoVia } from './quantum/os/crypto-apps.js'
@@ -608,6 +608,17 @@ export { portCatalogue, portApp, harmoniseOf, type AppPort, type AppCatalogue, t
 export { speak, speechCensus, compose, tryProse, type Speech, type ProseTrial, type ProseVerdict } from './speech.js'
 // sequence-run — the walk itself, which had no public door until now (its own header said the primitives lacked one).
 export { runSequence, polarityOf, MINUS_DIGITS, NEUTRAL_DIGITS, PLUS_DIGITS, type SequenceRun, type DigitPolarity } from './sequence-run.js'
+// sequence-field — living field constructors (throughVoid, foldVortexReflection, stroke gateways, dash angles).
+export {
+  SEAL_TEN, VORTEX_SEQUENCE, VORTEX_MIRROR, VORTEX_ORBIT, VORTEX_AXIS, VORTEX_TOUR, VORTEX_TOUR_12,
+  STRIP_FORWARD, STRIP_REFLECTED, VORTEX_STROKE_FORWARD, VORTEX_STROKE_REFLECTED,
+  VORTEX_DASH_ENCODED, VORTEX_DASH_ANGLE_DEG, WAVE_CHAIN,
+  throughVoid, foldVortex, foldVortexReflection, vortexStrokeGateways, vortexStrokeSegments,
+  decodeVortexDashAngles, computeVortexInvariantsHold, developmentVortex, walkTour, carries9,
+  vortexNext, vortexPrev, foldPair, parseVortexDashEncoded, livingFieldReport,
+  ap, polar, saltConv, saltSeq, tourContra, UNITS9,
+  type VortexDashToken, type WavePhase,
+} from './sequence-field.js'
 export { theoremForms, cliqueEdges, type TheoremForms, type TheoremFace } from './theorem-forms.js'
 export { odometerNext } from './odometer.js'
 // singularity — every vector folded at once, through the involution, to one order-invariant core.

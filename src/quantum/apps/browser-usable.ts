@@ -163,6 +163,8 @@ const runCompute = (): ComputeCheck[] => {
     if (!r.ok || r.output.length < 1) throw new Error('ls /terminal failed')
     const h = runExecLine('help')
     if (!h.ok) throw new Error('help failed')
+    const app = runExecLine('nginx')
+    if (!app.ok || app.applet !== 'nginx') throw new Error('nginx app use failed')
   })
   push('os/port-panel', () => {
     const v = portPanelView()
@@ -184,7 +186,7 @@ const runManSamples = (): ManSampleCheck[] => MAN_BROWSER_SAMPLES.map((topic) =>
 })
 
 /** uuidnaOS terminal doors beyond man samples — full catalogue census + driver/device provenance. */
-const CATALOGUE_EXEC_LINES = ['apk list --all', 'ls /catalogue', 'driver', 'device'] as const
+const CATALOGUE_EXEC_LINES = ['apk list --all', 'ls /catalogue', 'driver', 'device', 'nginx', 'openssl'] as const
 
 const runCatalogueExec = (): ManSampleCheck[] => CATALOGUE_EXEC_LINES.map((line) => {
   const r = uuidnaExec(line)
@@ -199,6 +201,11 @@ const runCatalogueExec = (): ManSampleCheck[] => CATALOGUE_EXEC_LINES.map((line)
   if (line === 'device') {
     const addr = (r.data as { device?: { deviceAddress?: string } }).device?.deviceAddress ?? ''
     return { topic: line, ok: addr.includes('-'), detail: `device ${addr}` }
+  }
+  if (line === 'nginx' || line === 'openssl') {
+    const d = r.data as { kind?: string; hexbits?: number[]; name?: string }
+    const ok = d.kind === 'app' && Array.isArray(d.hexbits) && d.hexbits.length === UUID_HEXBITS
+    return { topic: line, ok, detail: ok ? `use ${d.name} → ${UUID_HEXBITS} hexbits` : 'app use missed' }
   }
   return { topic: line, ok: r.output.some((l) => l.includes('alpine-netboot')), detail: 'driver provenance' }
 })

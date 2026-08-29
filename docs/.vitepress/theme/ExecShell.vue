@@ -11,6 +11,8 @@ const HELP = [
   'Examples:',
   '  ls /terminal',
   '  ls /catalogue',
+  '  nginx',
+  '  openssl',
   '  apk info busybox',
   '  apk search musl',
   '  man busybox',
@@ -85,7 +87,7 @@ const run = async () => {
           :disabled="busy || !ready"
           spellcheck="false"
           autocomplete="off"
-          :placeholder="busy ? 'running…' : ready ? 'ls /terminal · apk info busybox · man openssl' : 'waiting for the mill…'"
+          :placeholder="busy ? 'running…' : ready ? 'nginx · openssl · ls /terminal · apk info busybox' : 'waiting for the mill…'"
           aria-label="uuidnaOS command"
         />
         <button data-slot="button" type="submit" :disabled="busy || !ready">run</button>

@@ -17,5 +17,6 @@ Every package also has a path: `/catalogue/<name>` — audited like the install 
   <CatalogueBrowser />
 </ClientOnly>
 
-Search primes the same committed TSV the [terminal](/terminal) and MCP use. Integrity and meaning — nothing
+Search primes the same committed TSV the [terminal](/terminal) and MCP use. Type a package name at the terminal (or
+**use** here) to load that app — identity, hexbits, man, published `cmd:`. Integrity and meaning — nothing
 installs, links, or executes.

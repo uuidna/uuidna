@@ -77,3 +77,32 @@ test('the SERVED tool uuidna_exec dispatches — Alpine apps at the wire', () =>
   assert.equal(r.applet, 'apk')
   assert.equal(r.hexbits.length, 32)
 })
+
+test('published Alpine apps are used by name — nginx, busybox, cmd:dotnet; rm stays refused', () => {
+  const nginx = uuidnaExec('nginx')
+  assert.ok(nginx.ok, nginx.output.join('\n'))
+  assert.equal(nginx.applet, 'nginx')
+  const d = nginx.data as { kind?: string; name?: string; hexbits?: number[]; state?: string }
+  assert.equal(d.kind, 'app')
+  assert.equal(d.name, 'nginx')
+  assert.equal(d.state, 'AVAILABLE')
+  assert.equal(d.hexbits?.length, 32)
+
+  const box = uuidnaExec('busybox')
+  assert.ok(box.ok, box.output.join('\n'))
+  assert.equal((box.data as { name: string; state: string }).name, 'busybox')
+  assert.equal((box.data as { state: string }).state, 'INSTALLED')
+
+  const dotnet = uuidnaExec('dotnet')
+  assert.ok(dotnet.ok, dotnet.output.join('\n'))
+  assert.equal((dotnet.data as { name: string; via: string }).name, 'dotnet-host')
+  assert.equal((dotnet.data as { via: string }).via, 'cmd')
+
+  const omp = uuidnaExec('omp')
+  assert.ok(omp.ok, omp.output.join('\n'))
+  assert.equal((omp.data as { name: string }).name, 'oh-my-pi')
+
+  const unknown = uuidnaExec('rm -rf /')
+  assert.equal(unknown.ok, false)
+  assert.match(unknown.output[0]!, /not a ported applet/)
+})

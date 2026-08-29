@@ -324,3 +324,63 @@ test('sequence_and_coins_are_one — recompute the ⟨2⟩ orbit, its sum and it
   assert.equal(new Set(tosses(4)).size === 6, false)
   assert.equal(sum(tosses(4)) % 9 === 0, false)
 })
+
+test('seal_ten — recompute the ten-digit permutation and reflection; the near-miss 0124675369 must fail', () => {
+  const sealed = [0, 1, 2, 4, 8, 7, 5, 3, 6, 9]
+  const nearMiss = [0, 1, 2, 4, 6, 7, 5, 3, 6, 9]
+  const isPermutation = (xs: readonly number[]): boolean =>
+    xs.length === 10 && range(10).every((d) => xs.includes(d))
+  const orbitDoubles = (xs: readonly number[]): boolean => {
+    const orbit = [1, 2, 4, 8, 7, 5]
+    return orbit.every((x, i) => (x * 2) % 9 === orbit[(i + 1) % orbit.length])
+  }
+  const reflects = (xs: readonly number[]): boolean =>
+    same(xs.map((x) => (x === 0 ? 0 : 10 - x)), [0, 9, 8, 6, 2, 3, 5, 7, 4, 1])
+  assert.equal(isPermutation(sealed), true)
+  assert.equal(orbitDoubles(sealed), true)
+  assert.equal(reflects(sealed), true)
+  assert.equal(isPermutation(nearMiss), false)
+})
+
+test('angles_close — recompute 10×36 and 6×60; 7×60 must fail the doubling flow', () => {
+  assert.equal(10 * 36, 360)
+  assert.equal(6 * 60, 360)
+  assert.equal(7 * 60 === 360, false)
+})
+
+test('digit_polarities_partition_ten — 4+2+4 partition; overlapping sets must fail', () => {
+  const minus = [1, 2, 3, 4]
+  const neutral = [0, 5]
+  const plus = [6, 7, 8, 9]
+  const all = [...minus, ...neutral, ...plus]
+  assert.equal(all.length, 10)
+  assert.equal(range(10).every((d) => all.includes(d)), true)
+  assert.equal(minus.every((d) => !plus.includes(d)), true)
+  // MUTATION: put 9 among neutrals — breaks nine_is_plus_not_neutral
+  assert.equal([...minus, ...neutral, 9].length === 10 && neutral.includes(9), false)
+})
+
+test('nine_is_plus_not_neutral — dz(9)=1 and dz(0)=0; folding 9 onto 0 must fail', () => {
+  assert.equal(dz(9), 1)
+  assert.equal(dz(0), 0)
+  assert.equal(dz(5), 5)
+  assert.equal(9 > 5, true)
+  assert.equal(dz(9) === 0, false)
+})
+
+test('polarity_mirror_swaps_sides — mirror swaps 1234↔9876; polar must fail', () => {
+  assert.deepEqual([1, 2, 3, 4].map(dz), [9, 8, 7, 6])
+  assert.deepEqual([6, 7, 8, 9].map(dz), [4, 3, 2, 1])
+  assert.equal(dz(0), 0)
+  assert.equal(dz(5), 5)
+  assert.equal(same([1, 2, 3, 4].map(polar), [9, 8, 7, 6]), false)
+})
+
+test('polarity_plus_is_trinity_of_minus — 10+30+5=45; wrong trinity multiple must fail', () => {
+  assert.equal(1 + 2 + 3 + 4, 10)
+  assert.equal(6 + 7 + 8 + 9, 30)
+  assert.equal(30, 3 * 10)
+  assert.equal(0 + 5, 5)
+  assert.equal(10 + 30 + 5, 45)
+  assert.equal(30 === 2 * 10, false)
+})

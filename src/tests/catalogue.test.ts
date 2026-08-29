@@ -13,7 +13,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { uuidnaExec } from '../quantum/os/exec.js'
-import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, isUpstreamClosureGap, catalogueRouteOf, catalogueFor } from '../quantum/os/catalogue.js'
+import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, isUpstreamClosureGap, catalogueRouteOf, catalogueFor, resolveAlpineApp } from '../quantum/os/catalogue.js'
 import { ROOT } from '../scripts/api.js'
 
 test('the catalogue carries ALL of Alpine, not the boot closure', () => {
@@ -105,6 +105,31 @@ test('search is bounded and ranked, and reports the total it did not show', () =
   const m = catalogueSearch('musl', 5)
   assert.equal(m.hits[0]!.name, 'musl', 'an exact hit ranks first')
   assert.deepEqual(catalogueSearch('', 5), { hits: [], total: 0 }, 'an empty query matches nothing rather than everything')
+})
+
+test('resolveAlpineApp — package name, published cmd:, busybox cmd: stays applets', () => {
+  const nginx = resolveAlpineApp('nginx')
+  assert.ok(nginx)
+  assert.equal(nginx.pkg.name, 'nginx')
+  assert.equal(nginx.via, 'name')
+
+  const box = resolveAlpineApp('busybox')
+  assert.ok(box)
+  assert.equal(box.pkg.name, 'busybox')
+  assert.equal(box.via, 'name')
+
+  const dotnet = resolveAlpineApp('dotnet')
+  assert.ok(dotnet)
+  assert.equal(dotnet.pkg.name, 'dotnet-host')
+  assert.equal(dotnet.via, 'cmd')
+
+  const omp = resolveAlpineApp('omp')
+  assert.ok(omp)
+  assert.equal(omp.pkg.name, 'oh-my-pi')
+  assert.equal(omp.via, 'cmd')
+
+  assert.equal(resolveAlpineApp('rm'), null, 'busybox cmd:rm stays an applet miss (uutils-coreutils does not steal it)')
+  assert.equal(resolveAlpineApp(''), null)
 })
 
 test('rdepends walks the WHOLE published graph, not the 25 that boot', () => {

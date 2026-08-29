@@ -22,6 +22,7 @@ const hits = ref<Hit[]>([])
 const total = ref(0)
 const receipt = ref('')
 const selected = ref<Hit | null>(null)
+const used = ref<string[]>([])
 const err = ref('')
 
 const deepPkg = (): string | null => {
@@ -61,6 +62,7 @@ const search = async () => {
 
 const inspect = async (name: string) => {
   err.value = ''
+  used.value = []
   try {
     const payload = await advantageCall('uuidna_exec', { line: `apk info ${name}` }) as {
       ok?: boolean; data?: Hit; output?: string[]; receipt?: string
@@ -71,6 +73,25 @@ const inspect = async (name: string) => {
       return
     }
     selected.value = payload.data
+    if (payload.receipt) receipt.value = payload.receipt
+  } catch (e) {
+    err.value = e instanceof Error ? e.message : String(e)
+  }
+}
+
+const useApp = async (name: string) => {
+  err.value = ''
+  used.value = []
+  try {
+    const payload = await advantageCall('uuidna_exec', { line: name }) as {
+      ok?: boolean; output?: string[]; receipt?: string; data?: Hit
+    }
+    if (payload.ok === false) {
+      err.value = (payload.output ?? []).join('\n') || `use ${name} missed`
+      return
+    }
+    used.value = payload.output ?? []
+    if (payload.data?.name) selected.value = { ...selected.value, ...payload.data }
     if (payload.receipt) receipt.value = payload.receipt
   } catch (e) {
     err.value = e instanceof Error ? e.message : String(e)
@@ -135,6 +156,7 @@ onMounted(async () => {
             </div>
             <div data-slot="card-footer">
               <button data-slot="button" type="button" @click="inspect(h.name)">inspect</button>
+              <button data-slot="button" type="button" @click="useApp(h.name)">use</button>
             </div>
           </article>
         </li>
@@ -154,14 +176,16 @@ onMounted(async () => {
           </p>
         </div>
         <div data-slot="card-footer">
+          <button data-slot="button" type="button" @click="useApp(selected.name)">use</button>
           <code v-if="selected.address" data-slot="handle">{{ handleOf(selected.address) }}</code>
         </div>
       </article>
+      <pre v-if="used.length" class="cat-use">{{ used.join('\n') }}</pre>
     </div>
     <div data-slot="card-footer">
       <small>Integrity and meaning only — nothing installs or executes
-        (<code>the_os_is_bootable_quantum</code>). Same surface as <code>apk search</code> / <code>apk info</code> via
-        <code>uuidna_exec</code>.</small>
+        (<code>the_os_is_bootable_quantum</code>). Search, inspect, and <strong>use</strong> via
+        <code>uuidna_exec</code> (package name = the app).</small>
     </div>
   </article>
 </template>
@@ -185,6 +209,7 @@ onMounted(async () => {
 .cat [data-slot="card-content"],
 .cat [data-slot="card-footer"] { padding: .15rem 0; }
 .cat-meta { font-size: .82rem; color: var(--vp-c-text-2); word-break: break-all; }
+.cat-use { margin: .7rem 0 0; padding: .6rem .8rem; font-size: .78rem; white-space: pre-wrap; border: 1px solid var(--vp-c-divider); border-radius: 8px; background: var(--vp-c-bg-alt); }
 .cat [data-slot="handle"] { font-size: .78rem; color: var(--vp-c-text-3); }
 .cat > [data-slot="card-content"] { padding: .4rem 0; }
 .cat > [data-slot="card-footer"] { font-size: .8rem; color: var(--vp-c-text-3); }
