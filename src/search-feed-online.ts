@@ -11,13 +11,13 @@ import { FEED_QUERIES, queriesFromEvidence, searchFeed, uniqueQueries, type Sear
 const LIVE_CAP = 24
 const MILL_SUBJECT = 'mathematics'
 
-/** searchFeedOnline() → declared mill + live API titles (unanswered math, education portals, research streams). */
-export async function searchFeedOnline(): Promise<SearchFeed> {
+/** searchFeedOnline(refusedKeys?) → declared mill + live API titles (unanswered math, education portals, research streams). */
+export async function searchFeedOnline(refusedKeys: ReadonlySet<string> = new Set()): Promise<SearchFeed> {
   const unanswered = await unansweredMath()
   const portals = await collectApiEvidence(MILL_SUBJECT)
   const live = queriesFromEvidence([
     ...unanswered.map((r) => ({ source: r.source, address: r.address, text: r.note })),
     ...portals.map((e) => ({ source: e.source, address: e.address, text: e.text })),
   ]).slice(0, LIVE_CAP)
-  return searchFeed(uniqueQueries([...FEED_QUERIES, ...live]))
+  return searchFeed(uniqueQueries([...FEED_QUERIES, ...live]), refusedKeys)
 }

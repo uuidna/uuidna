@@ -135,8 +135,8 @@ export interface SearchFeed extends HexbitDoor {
   honest: string
 }
 
-/** searchFeed() → most-searched queries and wired-API probes ring Lean; loud keys are online doors; the rest are leads. Pure. */
-export function searchFeed(queries: readonly SearchQuery[] = FEED_QUERIES): SearchFeed {
+/** searchFeed(queries?, refusedKeys?) → most-searched queries ring Lean; loud keys are doors; harvest the desk may still propose unless the conveyor already refused the key. Pure. */
+export function searchFeed(queries: readonly SearchQuery[] = FEED_QUERIES, refusedKeys: ReadonlySet<string> = new Set()): SearchFeed {
   const census = aspectCensus(queries.map((q) => ({ id: q.id, text: q.query })))
   const byId = new Map(census.aspects.map((row) => [row.id, row]))
   const results: FeedDoor[] = []
@@ -168,6 +168,15 @@ export function searchFeed(queries: readonly SearchQuery[] = FEED_QUERIES): Sear
       }
     }
     for (const h of harvest) {
+      if (refusedKeys.has(h.key)) {
+        leads.push({
+          query: q.query,
+          source: q.source,
+          what: `harvest ${h.fragment} from ${JSON.stringify(q.query)} — refused at the wave conveyor`,
+          owes: 'a `by decide` wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal',
+        })
+        continue
+      }
       leads.push({
         query: q.query,
         source: q.source,

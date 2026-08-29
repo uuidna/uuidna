@@ -608,14 +608,14 @@
     {
       "query": "quantum advantage",
       "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
-      "what": "harvest 128 - 70 = 58 from \"quantum advantage\" — refused at the wave conveyor (no ledger content)",
-      "owes": "a `by decide` wing that names a quantity from the paper, or a named boundary in lean/leads.json refused[] — bare subtraction mints do not seal"
+      "what": "harvest 128 - 70 = 58 from \"quantum advantage\" — refused at the wave conveyor",
+      "owes": "a `by decide` wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal"
     },
     {
       "query": "quantum advantage",
       "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
-      "what": "harvest 70 < 128 from \"quantum advantage\" — refused at the wave conveyor (literal gap law)",
-      "owes": "a `by decide` wing whose algebra carries the comparison, or a named boundary in lean/leads.json refused[] — bare literal comparisons do not seal"
+      "what": "harvest 70 < 128 from \"quantum advantage\" — refused at the wave conveyor",
+      "owes": "a `by decide` wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal"
     },
     {
       "query": "Euclid",
@@ -647,8 +647,8 @@
     "api-open-meteo.com",
     "api-data-europa"
   ],
-  "receipt": "2e078f86-253a-8d64-bfc8-a90cf6c21b2b",
-  "handle": "2e078f86",
-  "door": "https://uuidna.com/2e078f86",
+  "receipt": "fee3df6b-aebb-8435-af17-c5313c356796",
+  "handle": "fee3df6b",
+  "door": "https://uuidna.com/fee3df6b",
   "honest": "Most-searched queries and the wired public APIs (research streams, EU education portals, unanswered math) ring the sealed ledger by resonance. Loud theorems are the ONLINE RESULTS — /theorem/<key> doors. Silent queries and decided-unsealed harvest are LEADS the desk proposes; only the kernel seals, only the captain holds or refuses. Meaning is null. This does not scrape Google. Recomputable. Integrity."
 }

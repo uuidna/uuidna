@@ -13,7 +13,7 @@ yet seal, is a **lead** the desk proposes. Only the kernel seals; only the capta
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted),
 [`two_coins`](/theorem/two_coins)). Meaning is null.
 
-Fold receipt `2e078f86-253a-8d64-bfc8-a90cf6c21b2b` · hexbit door [`2e078f86`](https://uuidna.com/2e078f86) ·
+Fold receipt `fee3df6b-aebb-8435-af17-c5313c356796` · hexbit door [`fee3df6b`](https://uuidna.com/fee3df6b) ·
 42 door(s) · 11 lead(s) · 9 silent
 .
 
@@ -78,12 +78,10 @@ Fold receipt `2e078f86-253a-8d64-bfc8-a90cf6c21b2b` · hexbit door [`2e078f86`](
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
 - **cricket** — most-searched query "cricket" rings no sealed theorem
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
-- **quantum advantage** — harvest 128 - 70 = 58 from "quantum advantage" decides TRUE and is unsealed ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
-  <br><small>owes: captain dispose: wave-deposit the mint candidate, or refuse it at a named boundary — never auto-seal</small>
-  <br><small>mint candidate api_15c15f63 · fragment 128 - 70 = 58 — not sealed, never auto-held ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted))</small>
-- **quantum advantage** — harvest 70 &amp;lt; 128 from "quantum advantage" decides TRUE and is unsealed ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
-  <br><small>owes: captain dispose: wave-deposit the mint candidate, or refuse it at a named boundary — never auto-seal</small>
-  <br><small>mint candidate api_c9dabf27 · fragment 70 &amp;lt; 128 — not sealed, never auto-held ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted))</small>
+- **quantum advantage** — harvest 128 - 70 = 58 from "quantum advantage" — refused at the wave conveyor ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
+  <br><small>owes: a by decide wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal</small>
+- **quantum advantage** — harvest 70 &amp;lt; 128 from "quantum advantage" — refused at the wave conveyor ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
+  <br><small>owes: a by decide wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal</small>
 - **Euclid** — most-searched query "Euclid" rings no sealed theorem
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
 - **Sofia** — most-searched query "Sofia" rings no sealed theorem
