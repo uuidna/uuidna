@@ -32,8 +32,14 @@ import { INSTALLS_MIRROR } from './mirror.js'
 export const CATALOGUE_FILE = 'mirror/alpine-catalogue.tsv'
 /** npm/curl-ported apps outside APKINDEX — merged at read time; NOT Alpine distro (repo = overlay). */
 export const CATALOGUE_OVERLAY_FILE = 'mirror/alpine-overlay.tsv'
+/** edge/testing rows that latest-stable already depends on — merged at read; Alpine apk, not the pinned branch. */
+export const CATALOGUE_TESTING_FILE = 'mirror/alpine-testing-leads.tsv'
 /** Repo tag for overlay rows — distinct from Alpine main/community. */
 export const OVERLAY_REPO = 'overlay' as const
+/** Repo tag for edge/testing leads that close latest-stable community deps. */
+export const TESTING_REPO = 'testing' as const
+/** Alpine's published branch for TESTING_REPO rows. */
+export const TESTING_BRANCH = 'edge' as const
 export const ALPINE_DISTRO_REPOS = ['main', 'community'] as const
 
 export function isAlpineDistroPackage(p: CataloguePackage): boolean {
@@ -43,11 +49,15 @@ export function isAlpineDistroPackage(p: CataloguePackage): boolean {
 export function isOverlayPackage(p: CataloguePackage): boolean {
   return p.repo === OVERLAY_REPO
 }
+
+export function isTestingPackage(p: CataloguePackage): boolean {
+  return p.repo === TESTING_REPO
+}
 /** the TSV columns, in order — the generator writes these and the parser reads them by position */
 export const CATALOGUE_COLUMNS = ['repo', 'name', 'version', 'checksum', 'desc', 'deps', 'provides'] as const
 
 export interface CataloguePackage {
-  repo: string          // 'main' | 'community' — which Alpine repository publishes it
+  repo: string          // 'main' | 'community' | 'testing' | 'overlay'
   name: string
   version: string
   checksum: string      // upstream's PUBLISHED checksum — the provenance, not a recomputation
@@ -163,15 +173,52 @@ export function mergeCataloguePackages(base: CataloguePackage[], overlay: Catalo
   return sortCatalogue([...byName.values()])
 }
 
+/** merge layers in order — later layers win on name. latest-stable, then testing leads, then overlay. */
+export function mergeCatalogueLayers(...layers: CataloguePackage[][]): CataloguePackage[] {
+  return layers.reduce((acc, layer) => layer.length ? mergeCataloguePackages(acc, layer) : acc, [] as CataloguePackage[])
+}
+
+/** parse one APKINDEX body into catalogue rows — the same field letters os/installs reads. */
+export function parseApkIndex(apkindex: string, repo: string): CataloguePackage[] {
+  return apkindex.split('\n\n').filter((r) => r.includes('P:')).map((r) => {
+    const g = (k: string): string => (r.match(new RegExp(`^${k}:(.+)$`, 'm')) || [])[1] ?? ''
+    return {
+      repo, name: g('P'), version: g('V'), checksum: g('C'),
+      desc: g('T').replace(/[\t\r\n]+/g, ' ').trim(),
+      deps: g('D').split(' ').filter(Boolean),
+      provides: g('p').split(' ').filter(Boolean),
+    }
+  }).filter((p) => p.name)
+}
+
+/** package-name deps that no row in `packages` names or provides — the mill fills these from edge/testing. */
+export function missingPackageNameDeps(packages: readonly CataloguePackage[]): string[] {
+  const names = new Set<string>()
+  for (const p of packages) {
+    names.add(p.name)
+    for (const pv of p.provides) names.add(pv.split('=')[0]!)
+  }
+  const missing = new Set<string>()
+  for (const p of packages) {
+    for (const d of p.deps) {
+      if (d.startsWith('!')) continue
+      const b = d.split('=')[0]!.split(/[<>~]/)[0]!
+      if (b.startsWith('so:') || b.startsWith('cmd:') || b.startsWith('pc:')) continue
+      if (!names.has(b)) missing.add(b)
+    }
+  }
+  return [...missing].sort()
+}
+
 /** serialize package rows for TSV (no header). */
 export function catalogueTsvBody(packages: CataloguePackage[]): string {
   return packages.map((p) =>
     [p.repo, p.name, p.version, p.checksum, p.desc, p.deps.join(' '), p.provides.join(' ')].join('\t')).join('\n')
 }
 
-function readOverlayPackages(fs: typeof import('node:fs')): CataloguePackage[] {
+function readCatalogueLayer(fs: typeof import('node:fs'), file: string): CataloguePackage[] {
   try {
-    const url = new URL('../../../' + CATALOGUE_OVERLAY_FILE, import.meta.url)
+    const url = new URL('../../../' + file, import.meta.url)
     return parseCatalogue(fs.readFileSync(url, 'utf8'))
   } catch {
     return []
@@ -194,8 +241,9 @@ function load(): { packages: CataloguePackage[]; state: CatalogueState } {
     const url = new URL('../../../' + CATALOGUE_FILE, import.meta.url)
     const text = fs.readFileSync(url, 'utf8')
     const base = parseCatalogue(text)
-    const overlay = readOverlayPackages(fs)
-    LOADED = overlay.length ? mergeCataloguePackages(base, overlay) : base
+    const testing = readCatalogueLayer(fs, CATALOGUE_TESTING_FILE)
+    const overlay = readCatalogueLayer(fs, CATALOGUE_OVERLAY_FILE)
+    LOADED = mergeCatalogueLayers(base, testing, overlay)
     STATE = { present: LOADED.length > 0, count: LOADED.length, why: LOADED.length ? null : 'the catalogue file parsed to zero packages' }
   } catch (e) {
     LOADED = []
@@ -333,12 +381,13 @@ const checksumOk = (c: string): boolean => {
 }
 
 /** catalogueCompile(pkg) → the same mint+compile the boot port uses: published tuple → 128-bit address →
- *  UUID_HEXBITS states on the lattice. Arch and branch are the pinned mirror's; repo is the package's own
- *  (main | community), so a community package does not pretend to live in main. */
+ *  UUID_HEXBITS states on the lattice. Arch is the pinned mirror's; branch is latest-stable except testing
+ *  leads, which mint as edge. Repo is the package's own, so a community package does not pretend to live in main. */
 export function catalogueCompile(p: CataloguePackage): { id: string; address: string } & HexbitDoor {
   const minted = uuidnaPackage({
     name: p.name, version: p.version, checksum: p.checksum, repo: p.repo,
-    arch: INSTALLS_MIRROR.arch, branch: INSTALLS_MIRROR.branch,
+    arch: INSTALLS_MIRROR.arch,
+    branch: p.repo === TESTING_REPO ? TESTING_BRANCH : INSTALLS_MIRROR.branch,
   })
   return { id: minted.id, address: minted.address, ...hexbitDoorOf(minted.address) }
 }
@@ -375,17 +424,19 @@ export function packageSelfTest(p: CataloguePackage): PackageTest {
  *  Measured on the committed mirror (2026-08-26): community 22,678/22,678 · main 5,961/5,961 · all 28,639 —
  *  every published row on the pinned branch folds to 32 states via the same mint the boot port uses. */
 export interface HexbitPortCoverage {
-  repo: 'main' | 'community' | 'all' | typeof OVERLAY_REPO
+  repo: 'main' | 'community' | 'all' | typeof OVERLAY_REPO | typeof TESTING_REPO
   total: number
   ported: number
   missing: string[]   // names that failed compile, capped so a regression names the gap without dumping 28k
 }
-export function hexbitPortCoverage(repo?: 'main' | 'community' | typeof OVERLAY_REPO | 'all'): HexbitPortCoverage {
+export function hexbitPortCoverage(repo?: 'main' | 'community' | typeof OVERLAY_REPO | typeof TESTING_REPO | 'all'): HexbitPortCoverage {
   const { packages, state } = load()
-  const tag: HexbitPortCoverage['repo'] = repo === OVERLAY_REPO ? OVERLAY_REPO : (repo ?? 'all')
+  const tag: HexbitPortCoverage['repo'] = repo === OVERLAY_REPO || repo === TESTING_REPO ? repo : (repo ?? 'all')
   if (!state.present) return { repo: tag, total: 0, ported: 0, missing: [] }
   const list = repo === OVERLAY_REPO
     ? packages.filter(isOverlayPackage)
+    : repo === TESTING_REPO
+      ? packages.filter(isTestingPackage)
     : repo === 'main' || repo === 'community'
       ? packages.filter((p) => p.repo === repo)
       : packages.filter(isAlpineDistroPackage)
@@ -754,7 +805,8 @@ export interface PackageSelfTestCoverage {
   pct: number
 }
 
-/** packageSelfTestCoverage — every catalogue row tests itself; upstream APKINDEX gaps are named, never padded. */
+/** packageSelfTestCoverage — every catalogue row tests itself. A named gap is closed from published testing,
+ *  never left as an allowed failure. */
 export function packageSelfTestCoverage(limitFailures = 25): PackageSelfTestCoverage {
   const r = testAllPackages(limitFailures)
   const gaps = r.failures.map((f) => ({ name: f.name, unresolved: f.unresolved }))

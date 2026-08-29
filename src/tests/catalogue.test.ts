@@ -13,7 +13,7 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { uuidnaExec } from '../quantum/os/exec.js'
-import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, isUpstreamClosureGap, catalogueRouteOf, catalogueFor, resolveAlpineApp } from '../quantum/os/catalogue.js'
+import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, catalogueRouteOf, catalogueFor, resolveAlpineApp } from '../quantum/os/catalogue.js'
 import { ROOT } from '../scripts/api.js'
 
 test('the catalogue carries ALL of Alpine, not the boot closure', () => {
@@ -165,11 +165,8 @@ test('every package tests ITSELF, and the suite reports its own denominator', ()
   assert.equal(cov.total, r.tested)
   assert.equal(cov.passed, r.passed)
   assert.equal(cov.failed, r.failed)
-  assert.equal(cov.failed, cov.upstreamGaps,
-    `non-upstream closure failures: ${cov.missing.filter((n) => {
-      const g = cov.gaps.find((x) => x.name === n)!
-      return !isUpstreamClosureGap(g.unresolved)
-    }).join(', ')}`)
+  assert.equal(cov.failed, 0,
+    `self-test must close; got ${cov.failed}: ${cov.missing.join(', ')}`)
 })
 
 test('a package\'s self-test CAN FAIL — all four checks, driven by hand', () => {

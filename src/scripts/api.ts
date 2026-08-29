@@ -470,6 +470,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'lean/browser-apps-usable.json',
   // npm/curl apps ported as Alpine overlay (omp/oh-my-pi) — merged at catalogue read time
   'mirror/alpine-overlay.tsv',
+  // edge/testing packages that close latest-stable community deps (gen-alpine-testing-leads)
+  'mirror/alpine-testing-leads.tsv',
   // docs/public/alpine-catalogue.tsv is a BUILD ARTIFACT (gitignored) — served from dist via copy-lean-to-site;
   // never a drain path (stageDerived would fail on git add -- of an ignored file).
   'docs/store.md',
@@ -564,6 +566,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-utterances': ['docs/utterances.md'],
   'gen-os': ['docs/os.md', 'lean/alpine-hexbit-monitor.json', 'docs/public/alpine-hexbit-monitor.jsonld', 'lean/mcp-alpine-man.json'],
   'gen-alpine-overlay': ['mirror/alpine-overlay.tsv'],   // docs/public/alpine-catalogue.tsv is gitignored build artifact
+  'gen-alpine-testing-leads': ['mirror/alpine-testing-leads.tsv'],
   'browser-apps-usable': ['lean/browser-apps-usable.json'],
   // the model comparison over all public live data — derived from the committed feed mirror by gen-models
   'gen-models': ['docs/models.md'],

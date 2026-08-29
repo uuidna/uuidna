@@ -25,25 +25,10 @@ import { writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { untarGzipMember } from '../os/packages/index.js'
-import { CATALOGUE_FILE, CATALOGUE_COLUMNS, type CataloguePackage } from '../quantum/os/catalogue.js'
+import { CATALOGUE_FILE, CATALOGUE_COLUMNS, parseApkIndex, type CataloguePackage } from '../quantum/os/catalogue.js'
 
 const CDN = 'https://dl-cdn.alpinelinux.org/alpine'
 const REPOS = ['main', 'community'] as const
-
-/** parse one APKINDEX body into its records — the same field letters os/installs reads, kept to the two the
- *  catalogue can honestly carry plus what `apk depends` needs. */
-const parseIndex = (apkindex: string, repo: string): CataloguePackage[] =>
-  apkindex.split('\n\n').filter((r) => r.includes('P:')).map((r) => {
-    const g = (k: string): string => (r.match(new RegExp(`^${k}:(.+)$`, 'm')) || [])[1] ?? ''
-    return {
-      repo, name: g('P'), version: g('V'), checksum: g('C'),
-      // tabs and newlines are the row and column separators — a description carrying one would split the row,
-      // so they are folded to spaces HERE rather than trusted not to occur upstream
-      desc: g('T').replace(/[\t\r\n]+/g, ' ').trim(),
-      deps: g('D').split(' ').filter(Boolean),
-      provides: g('p').split(' ').filter(Boolean),
-    }
-  }).filter((p) => p.name)
 
 async function main(): Promise<void> {
   const branch = process.env.UUIDNA_ALPINE_BRANCH ?? 'latest-stable'
@@ -61,7 +46,7 @@ async function main(): Promise<void> {
       // the member SEARCH, never the whole-buffer decode: APKINDEX.tar.gz is TWO concatenated gzip members
       // (the signature, then the index), and decoding the first returns the signature — which for a long time
       // read as "Alpine has no packages". See untarGzipMember in os/packages.
-      recs = parseIndex(await untarGzipMember(gz, 'APKINDEX'), repo)
+      recs = parseApkIndex(await untarGzipMember(gz, 'APKINDEX'), repo)
     } catch (e) {
       // A REPO THAT COULD NOT BE READ IS NOT A REPO WITH NO PACKAGES. Writing a catalogue that silently lost
       // 22,678 packages would publish a smaller Alpine as though upstream had shrunk, and every later `apk

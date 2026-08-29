@@ -18,7 +18,7 @@
 import { readdirSync, mkdirSync, copyFileSync, existsSync, readFileSync, writeFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, parseCatalogue, mergeCataloguePackages, catalogueTsvBody } from '../quantum/os/catalogue.js'
+import { CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, parseCatalogue, mergeCatalogueLayers, catalogueTsvBody } from '../quantum/os/catalogue.js'
 
 const LEAN = join(ROOT, 'lean')
 const SEEDS = join(ROOT, 'src', 'seeds')
@@ -86,8 +86,10 @@ if (!existsSync(CATALOGUE)) {
 }
 const baseText = readFileSync(CATALOGUE, 'utf8')
 const overlayPath = join(ROOT, CATALOGUE_OVERLAY_FILE)
+const testingPath = join(ROOT, CATALOGUE_TESTING_FILE)
 const overlay = existsSync(overlayPath) ? parseCatalogue(readFileSync(overlayPath, 'utf8')) : []
-const merged = overlay.length ? mergeCataloguePackages(parseCatalogue(baseText), overlay) : parseCatalogue(baseText)
+const testing = existsSync(testingPath) ? parseCatalogue(readFileSync(testingPath, 'utf8')) : []
+const merged = mergeCatalogueLayers(parseCatalogue(baseText), testing, overlay)
 const catHeader = baseText.split('\n').filter((l) => l.charCodeAt(0) === 35).join('\n') + '\n'
 writeFileSync(join(SITE, 'alpine-catalogue.tsv'), catHeader + catalogueTsvBody(merged) + '\n')
 

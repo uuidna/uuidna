@@ -225,7 +225,7 @@ const figures: Figure[] = [
   { name: 'Alpine man-page packages — ported', value: manAll.ported, unitText: 'packages', measurementTechnique: 'computed',
     citation: 'manPagePortCoverage() over -doc / *-man-pages / man-pages · provenance compile of the documentation corpus' },
   { name: 'package self-test — passed', value: selfTest.passed, unitText: 'packages', measurementTechnique: 'computed',
-    citation: 'packageSelfTestCoverage() — every catalogue row tests itself; upstream APKINDEX gaps named' },
+    citation: 'packageSelfTestCoverage() — every catalogue row tests itself; named gaps closed from published testing' },
   { name: 'package self-test — coverage', value: Number(pct(selfTest.passed, selfTest.total)), unitText: '%', measurementTechnique: 'computed',
     citation: 'closure + compile + provenance per package · gate alpine-hexbit-port.test.ts' },
   { name: 'usable address space', value: UUID_BITS, unitText: 'bits (2^N states)', measurementTechnique: 'declared',

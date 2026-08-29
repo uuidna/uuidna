@@ -9,8 +9,8 @@ import assert from 'node:assert/strict'
 import {
   catalogue, catalogueCompile, cataloguePackage, hexbitPortCoverage, manPagePortCoverage,
   manPagePackages, manDrivenPortCoverage, overlayManDrivenPortCoverage,
-  manAppWitness, resolveManApp, manAppOriginCandidates, packageSelfTestCoverage, isUpstreamClosureGap,
-  resolveManPage,
+  manAppWitness, resolveManApp, manAppOriginCandidates, packageSelfTestCoverage, TESTING_REPO,
+  resolveManPage, packageSelfTest, isTestingPackage,
 } from '../quantum/os/catalogue.js'
 import { uuidnaExec, APPLETS } from '../quantum/os/exec.js'
 import { UUID_HEXBITS, UUID_BITS, hexbitDoorOf } from '../hexbit/index.js'
@@ -126,17 +126,14 @@ test('PROVENANCE — 100% of Alpine man-page packages compile to hexbits', () =>
     `man-page hexbit port ${man.ported}/${man.total} — missing: ${man.missing.join(', ') || '(none named)'}`)
 })
 
-test('PACKAGE SELF-TEST — every catalogue row tests itself; upstream APKINDEX gaps are named', () => {
+test('PACKAGE SELF-TEST — every catalogue row tests itself; named gaps are closed', () => {
   const st = packageSelfTestCoverage()
   assert.equal(st.definition, 'package-self-test')
   assert.ok(st.total > 25000, `whole catalogue must exceed 25k; got ${st.total}`)
   assert.equal(st.passed + st.failed, st.total)
-  assert.equal(st.failed, st.upstreamGaps,
-    `non-upstream failures must be zero; got ${st.failed - st.upstreamGaps}: ${st.missing.join(', ')}`)
-  assert.ok(st.gaps.every((g) => isUpstreamClosureGap(g.unresolved)),
-    `every gap must be upstream: ${st.gaps.map((g) => g.name).join(', ')}`)
-  assert.ok(st.passed >= st.total - 5,
-    `self-test ${st.passed}/${st.total} — gaps: ${st.missing.join(', ')}`)
+  assert.equal(st.failed, 0,
+    `self-test gaps must be closed, not allowed: ${st.missing.join(', ')}`)
+  assert.equal(st.passed, st.total)
 })
 
 test('FULL MAN CORPUS — uuidna_exec man resolves every witnessed documentation package', () => {
@@ -280,4 +277,22 @@ test('overlayManDrivenPortCoverage — npm/curl ports separate from APKINDEX', (
   const h = hexbitPortCoverage('overlay')
   assert.equal(h.ported, h.total)
   assert.ok(h.total >= 2)
+})
+
+test('edge/testing leads close latest-stable community deps — not allowed gaps', () => {
+  const perl = cataloguePackage('perl-libintl-perl')
+  const river = cataloguePackage('river-bedload')
+  assert.ok(perl, 'perl-libintl-perl must be pulled from published testing')
+  assert.ok(river, 'river-bedload must be pulled from published testing')
+  assert.equal(perl!.repo, TESTING_REPO)
+  assert.equal(river!.repo, TESTING_REPO)
+  assert.ok(isTestingPackage(perl!))
+  assert.equal(packageSelfTest(cataloguePackage('pcsc-tools-gscriptor')!).ok, true)
+  assert.equal(packageSelfTest(cataloguePackage('sxmo-utils-river')!).ok, true)
+  const t = hexbitPortCoverage(TESTING_REPO)
+  assert.equal(t.repo, TESTING_REPO)
+  assert.ok(t.total >= 2)
+  assert.equal(t.ported, t.total)
+  assert.equal(manPagePackages().some((p) => p.repo === TESTING_REPO), false,
+    'testing leads stay out of latest-stable man completeness')
 })

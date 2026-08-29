@@ -9,9 +9,9 @@
 // census does not parse uuidnaExec per row. --limit N still walks the exec door. Omit the limit for this walk.
 import { defaultInstalls, type InstallSpec } from './index.js'
 import {
-  cataloguePackage, catalogueCompile, packageSelfTest, isUpstreamClosureGap, resolveManPage,
+  cataloguePackage, catalogueCompile, packageSelfTest, resolveManPage,
   manAppWitness, providedCommands, catalogue, catalogueState, isAlpineDistroPackage, isOverlayPackage,
-  catalogueRouteOf, type CataloguePackage,
+  isTestingPackage, catalogueRouteOf, type CataloguePackage,
 } from './catalogue.js'
 import { uuidnaExec } from './exec.js'
 import { handleOf, handlePath, handleOfPath, isHandle } from '../../handle.js'
@@ -29,10 +29,7 @@ export interface PackageAtATime {
   checks: PackageCheck[]
 }
 
-const honestSelf = (p: CataloguePackage): boolean => {
-  const t = packageSelfTest(p)
-  return t.ok || isUpstreamClosureGap(t.unresolved)
-}
+const honestSelf = (p: CataloguePackage): boolean => packageSelfTest(p).ok
 
 const handleOk = (address: string): boolean => {
   const h = handleOf(address)
@@ -139,9 +136,10 @@ function nextAfterDefault(done: ReadonlySet<string>, complete: boolean, failed: 
   }
   const st = catalogueState()
   const alpine = catalogue().filter((p) => isAlpineDistroPackage(p) && !done.has(p.name))
+  const testing = catalogue().filter((p) => isTestingPackage(p) && !done.has(p.name))
   const overlay = catalogue().filter((p) => isOverlayPackage(p) && !done.has(p.name))
-  const nextPkg = alpine[0] ?? overlay[0] ?? null
-  const remaining = alpine.length + overlay.length
+  const nextPkg = alpine[0] ?? testing[0] ?? overlay[0] ?? null
+  const remaining = alpine.length + testing.length + overlay.length
   const steps: string[] = []
   if (nextPkg) {
     steps.push(`package-at-a-time: ${nextPkg.name} [${nextPkg.repo}] — AVAILABLE, not in the boot closure`)
@@ -150,6 +148,9 @@ function nextAfterDefault(done: ReadonlySet<string>, complete: boolean, failed: 
     steps.push(`${alpine.length} Alpine catalogue packages remain after the default install, same automated door`)
   } else if (alpine.length === 1) {
     steps.push('one Alpine catalogue package remains after the default install')
+  }
+  if (testing.length) {
+    steps.push(`${testing.length} edge/testing lead(s) after Alpine distro (published apk, not latest-stable)`)
   }
   if (overlay.length) {
     steps.push(`${overlay.length} overlay port(s) after Alpine distro (not APKINDEX completeness)`)
@@ -233,10 +234,11 @@ export interface PackageAtATimeRun {
   next: DefaultInstallNext
 }
 
-/** Remaining AVAILABLE rows after the boot closure — Alpine distro first, then overlay. */
+/** Remaining AVAILABLE rows after the boot closure — Alpine distro first, then testing leads, then overlay. */
 export function remainingAvailableQueue(done: ReadonlySet<string>): CataloguePackage[] {
   return [
     ...catalogue().filter((p) => isAlpineDistroPackage(p) && !done.has(p.name)),
+    ...catalogue().filter((p) => isTestingPackage(p) && !done.has(p.name)),
     ...catalogue().filter((p) => isOverlayPackage(p) && !done.has(p.name)),
   ]
 }

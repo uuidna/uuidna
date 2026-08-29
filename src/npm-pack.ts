@@ -38,7 +38,7 @@ const packedHas = (packed: readonly string[], dir: string): boolean =>
 
 /** Gaps when the root files field or a measured pack list drops a workspace. packed=[] checks the field only. */
 /** Committed uuidnaOS data that must ride the umbrella tarball — the catalogue load is `../../../mirror/` from dist/quantum/os. */
-export const OS_SHIP_FILES = ['mirror/alpine-catalogue.tsv', 'mirror/alpine-overlay.tsv'] as const
+export const OS_SHIP_FILES = ['mirror/alpine-catalogue.tsv', 'mirror/alpine-overlay.tsv', 'mirror/alpine-testing-leads.tsv'] as const
 
 const osFileCovered = (files: readonly string[], rel: string): boolean =>
   files.some((f) => f === rel || f === 'mirror' || f === 'mirror/*' || (rel.startsWith('mirror/') && f.startsWith('mirror/')))

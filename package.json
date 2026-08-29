@@ -98,7 +98,8 @@
     "lean/axioms.json",
     "packages",
     "mirror/alpine-catalogue.tsv",
-    "mirror/alpine-overlay.tsv"
+    "mirror/alpine-overlay.tsv",
+    "mirror/alpine-testing-leads.tsv"
   ],
   "sideEffects": false,
   "engines": {

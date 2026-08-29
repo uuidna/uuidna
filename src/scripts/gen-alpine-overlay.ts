@@ -8,8 +8,8 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { OVERLAY_APPS, npmShasumToQ1, overlayDocChecksum } from '../os/overlay/index.js'
 import {
-  CATALOGUE_COLUMNS, CATALOGUE_FILE, OVERLAY_REPO,
-  mergeCataloguePackages, catalogueTsvBody, parseCatalogue, type CataloguePackage,
+  CATALOGUE_COLUMNS, CATALOGUE_FILE, CATALOGUE_TESTING_FILE, OVERLAY_REPO,
+  mergeCatalogueLayers, catalogueTsvBody, parseCatalogue, type CataloguePackage,
 } from '../quantum/os/catalogue.js'
 
 export const OVERLAY_FILE = 'mirror/alpine-overlay.tsv'
@@ -59,7 +59,9 @@ async function main(): Promise<void> {
   const basePath = join(ROOT, CATALOGUE_FILE)
   if (existsSync(basePath)) {
     const baseText = readFileSync(basePath, 'utf8')
-    const merged = mergeCataloguePackages(parseCatalogue(baseText), rows)
+    const testingPath = join(ROOT, CATALOGUE_TESTING_FILE)
+    const testing = existsSync(testingPath) ? parseCatalogue(readFileSync(testingPath, 'utf8')) : []
+    const merged = mergeCatalogueLayers(parseCatalogue(baseText), testing, rows)
     const servedHeader = baseText.split('\n').filter((l) => l.charCodeAt(0) === 35).join('\n') + '\n'
     const served = join(ROOT, 'docs/public/alpine-catalogue.tsv')
     mkdirSync(join(ROOT, 'docs/public'), { recursive: true })

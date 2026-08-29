@@ -11,7 +11,7 @@ import assert from 'node:assert/strict'
 import {
   catalogue, catalogueCompile, cataloguePackage, manPagePackages, manAppWitness, resolveManApp,
   resolveManPage, manAppOriginCandidates, manDrivenPortCoverage, overlayManDrivenPortCoverage,
-  packageSelfTest, isUpstreamClosureGap, isManPagePackage, providedCommands,
+  packageSelfTest, isManPagePackage, providedCommands,
   type CataloguePackage, type ManAppVia,
 } from '../quantum/os/catalogue.js'
 import { uuidnaExec } from '../quantum/os/exec.js'
@@ -24,10 +24,7 @@ const VIAS: readonly ManAppVia[] = ['corpus', 'origin', 'gtk-doc', 'libs', 'dev'
 
 const cmdsOf = (p: CataloguePackage): string[] => providedCommands(p)
 
-const honestPass = (p: CataloguePackage): boolean => {
-  const t = packageSelfTest(p)
-  return t.ok || isUpstreamClosureGap(t.unresolved)
-}
+const honestPass = (p: CataloguePackage): boolean => packageSelfTest(p).ok
 
 const handleRoundTrip = (p: CataloguePackage): boolean => {
   const h = handleOf(catalogueCompile(p).address)

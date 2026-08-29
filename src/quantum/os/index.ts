@@ -362,4 +362,4 @@ export function bootOS(): BootedOS {
   return (BOOTED = { port, boot, receipt: port.receipt, floor: port.specs[0]!.id, capacity: latticeCapacity() })
 }
 
-export { catalogue, catalogueState, cataloguePackage, resolveAlpineApp, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, type CataloguePackage, type CatalogueState, type AlpineAppRef, type AlpineAppVia } from './catalogue.js'
+export { catalogue, catalogueState, cataloguePackage, resolveAlpineApp, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, type CataloguePackage, type CatalogueState, type AlpineAppRef, type AlpineAppVia } from './catalogue.js'

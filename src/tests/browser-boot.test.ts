@@ -14,7 +14,7 @@ test('bootUuidnaOSInBrowser loads committed catalogue in Node', async () => {
   assert.ok(r.selfTest, 'self-test must run when catalogue is present')
   assert.equal(r.selfTest!.tested, r.catalogue.count)
   assert.equal(r.selfTest!.passed + r.selfTest!.failed, r.selfTest!.tested)
-  assert.equal(r.selfTest!.failed, r.selfTest!.upstreamGaps)
+  assert.equal(r.selfTest!.failed, 0)
 })
 
 test('the VitePress monitor verifies uuidna_os / uuidna_exec instead of booting the mill', () => {

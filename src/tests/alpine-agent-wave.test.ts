@@ -11,7 +11,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { runWaves, type WaveJob } from '../quantum/os/waves.js'
 import {
-  catalogue, catalogueCompile, packageSelfTest, isUpstreamClosureGap, type CataloguePackage,
+  catalogue, catalogueCompile, packageSelfTest, type CataloguePackage,
 } from '../quantum/os/catalogue.js'
 import { laneOf, handleOf, handlePath, handleOfPath, isHandle } from '../handle.js'
 import { empty, remember, union, receipt, verify, missing, type Store } from '../agent/memory/index.js'
@@ -44,8 +44,7 @@ function shard(): Share[] {
 }
 
 function honestPass(p: CataloguePackage): boolean {
-  const t = packageSelfTest(p)
-  return t.ok || isUpstreamClosureGap(t.unresolved)
+  return packageSelfTest(p).ok
 }
 
 test('fourteen agents test the whole catalogue in ONE wave — partitioned, concurrent, no coordinator', async () => {
@@ -78,7 +77,7 @@ test('fourteen agents test the whole catalogue in ONE wave — partitioned, conc
   const wave = await runWaves(jobs, { width: FACES })
   assert.equal(wave.waves.length, 1, 'width = faces, so every agent runs in the same wave')
   assert.equal(wave.jobs, FACES)
-  assert.equal(wave.okTotal, FACES, 'every face share is honest (upstream gaps named, not padded)')
+  assert.equal(wave.okTotal, FACES, 'every face share is closed — no allowed self-test gaps')
 })
 
 test('agents communicate by receipt — merge order cannot change what they agree on, and they build the cover by reasoning', async () => {
