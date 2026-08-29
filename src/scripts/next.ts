@@ -14,6 +14,7 @@ import { ROOT } from './api.js'
 import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, theoremCountByFile, type PageNode } from '../index.js'
 import { searchFeed } from '../search-feed.js'
 import { tableLeadsFrom } from '../table-leads.js'
+import { waveQueueInFlightKeys } from '../wave-deposit.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { decide } from '../decide.js'
 import { quantumAdvantageAudit } from '../quantum/advantage/audit/index.js'
@@ -250,7 +251,8 @@ try {
   if (lonely > 0) leverage.push({ act: 'npm run build && node dist/scripts/connect-lonely.js', closes: `${lonely} theorem(s) connecting to no neighbour — the dry run reports, --write applies` })
 } catch { /* the survey is on-demand; its absence is not a failure */ }
 try {
-  const harvest = searchFeed().leads.filter((l) => l.harvest)
+  const inFlight = waveQueueInFlightKeys(join(ROOT, 'lean', 'wave-queue.json'))
+  const harvest = searchFeed().leads.filter((l) => l.harvest && !inFlight.has(l.harvest.key))
   if (harvest.length) leverage.push({
     act: 'npm run books  # deposits search-feed harvest onto the conveyor (never seals)',
     closes: `${harvest.length} TRUE-unsealed fragment(s) still waiting — desk proposes, kernel disposes; never rewrite usable_gap_is_two_to_eighty`,

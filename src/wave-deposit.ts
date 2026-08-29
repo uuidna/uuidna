@@ -47,6 +47,17 @@ interface WaveQueueFile { pending: WaveCandidate[]; accepted: (WaveCandidate & {
 // bundle that reaches this module, and the edge worker has no filesystem (the api.ts pattern, same law).
 const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
 
+/** waveQueueInFlightKeys(queuePath) → keys already pending or accepted — harvest on the conveyor is not "waiting". */
+export function waveQueueInFlightKeys(queuePath: string): Set<string> {
+  try {
+    const fs = fsm()
+    if (typeof fs?.readFileSync !== 'function' || !fs.existsSync(queuePath)) return new Set()
+    const q = JSON.parse(fs.readFileSync(queuePath, 'utf8')) as WaveQueueFile
+    if (!Array.isArray(q.pending) || !Array.isArray(q.accepted)) return new Set()
+    return new Set([...q.pending.map((c) => c.key), ...q.accepted.map((c) => c.key)])
+  } catch { return new Set() }
+}
+
 /** depositCandidates(candidates[, queuePath]) → validate every candidate at the conveyor's own door and land
  *  the lawful ones in `pending`; refusals return WITH their reasons and are never written (the wire's refusals
  *  go back to the depositor — the queue file's refused[] is the KERNEL's roster, not the doorman's). */

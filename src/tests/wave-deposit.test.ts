@@ -9,7 +9,7 @@ import assert from 'node:assert/strict'
 import { writeFileSync, readFileSync, mkdtempSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
-import { validateCandidate, depositCandidates } from '../wave-deposit.js'
+import { validateCandidate, depositCandidates, waveQueueInFlightKeys } from '../wave-deposit.js'
 import { theoremByKey } from '../theorems/index.js'
 
 const scratch = (): string => {
@@ -43,4 +43,17 @@ test('a deposit lands only the lawful, returns refusals with reasons, and never 
   const again = depositCandidates([lawful], p)
   assert.equal(again.deposited.length, 0)
   assert.match(again.refused[0]!.reason, /already pending/)
+})
+
+test('waveQueueInFlightKeys — pending and accepted keys, not refused', () => {
+  const p = scratch()
+  writeFileSync(p, JSON.stringify({
+    pending: [{ key: 'pending_key', why: 'x'.repeat(20), lean: 'theorem pending_key : 1 = 1 := by decide' }],
+    accepted: [{ key: 'accepted_key', why: 'y'.repeat(20), lean: 'theorem accepted_key : 1 = 1 := by decide', receipt: 'r' }],
+    refused: [{ key: 'refused_key', why: 'z'.repeat(20), lean: 'theorem refused_key : 1 = 1 := by decide', reason: 'no' }],
+  }, null, 2))
+  const keys = waveQueueInFlightKeys(p)
+  assert.ok(keys.has('pending_key'))
+  assert.ok(keys.has('accepted_key'))
+  assert.equal(keys.has('refused_key'), false)
 })
