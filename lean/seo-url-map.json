@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "8b64fee4-3",
+  "generated": "a5792010-6",
   "entries": [
     {
       "route": "/",
@@ -3538,6 +3538,15 @@
       "address": "90d2de83-838b-80d4-b035-84e749a915de",
       "handle": "90d2de83",
       "hexbitDoor": "https://uuidna.com/90d2de83"
+    },
+    {
+      "route": "/sequence-field",
+      "kind": "page",
+      "identity": "/sequence-field",
+      "canonical": "https://uuidna.com/sequence-field",
+      "address": "2ff210f7-1649-8078-8614-9d919904c857",
+      "handle": "2ff210f7",
+      "hexbitDoor": "https://uuidna.com/2ff210f7"
     },
     {
       "route": "/song",
@@ -23007,6 +23016,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "8b64fee4-3bad-85b0-b76b-41b9d978598e",
+  "receipt": "a5792010-6c1b-8c2b-9d42-0a45f5e305b5",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }
