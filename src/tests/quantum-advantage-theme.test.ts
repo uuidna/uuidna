@@ -136,7 +136,8 @@ test('the monitor does not import the package barrel; VitePress reads constructo
     assert.doesNotMatch(src, /from ['"][^'"]*dist\/index\.js['"]/, `${f} must import constructors, not the package barrel`)
   }
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
-  assert.doesNotMatch(pkg.scripts['docs:build'] ?? '', /max-old-space-size/)
+  assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=4096/, 'SSG mill needs Node argv heap — Cloudflare strips NODE_OPTIONS and 8192 OOMs the 8 GiB VM')
+  assert.doesNotMatch(pkg.scripts['docs:build'] ?? '', /8192/)
   assert.doesNotMatch(readFileSync(join(ROOT, 'wrangler.toml'), 'utf8'), /max-old-space-size/)
   const cfg = readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8')
   assert.match(cfg, /fm\.search = false/)

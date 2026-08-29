@@ -5,7 +5,7 @@ import { defineConfig } from 'vitepress'
 import { SITE, urlOf, OG_IMAGE } from '../../src/site/index.js'
 import { computeSidebar, discoverStaticPages, canonicalOrder, nextOf } from '../../src/site.js'
 import { infuseQuantumPayload } from './uuidna-quantum.js'
-import { axisForRelativePath, axisMonographs } from '../../src/axis-monograph.js'
+import { theorems } from '../../src/theorems/index.js'
 import { handleOf } from '../../src/handle.js'
 import { hexFaceOf } from '../../src/hexagram.js'
 
@@ -91,6 +91,11 @@ export default defineConfig({
     define: {
       __DEV__: 'true',
     },
+    // The mill stays in Node (SSG). Rolldown must not parse generated.ts into the client/server AST —
+    // that copy plus live theorems() is what blew Cloudflare's default 2 GiB heap.
+    ssr: {
+      external: [/theorems\/generated/, /axis-monograph/, /phd-proofs/, /quantum\/index\.js/],
+    },
     // tsc and src edits were each a full VitePress restart; Shiki dispose raced loadLanguage and killed the process.
     server: {
       watch: {
@@ -146,7 +151,7 @@ export default defineConfig({
   // Dynamic object pages: hero fields live in params (compose-object). Merge into frontmatter here —
   // YAML-in-content is NOT parsed (VitePress injects @content after the route template, so gray-matter
   // never sees a leading --- and the bag would leak into the rendered body).
-  transformPageData(pageData) {
+  async transformPageData(pageData) {
     const p = pageData.params as {
       address?: string; key?: string; slug?: string; statement?: string; tactic?: string; principle?: string
       title?: string; heroTitle?: string; abstract?: string; handle?: string; handleUrl?: string
@@ -204,7 +209,7 @@ export default defineConfig({
       if (p.key || p.slug) fm.search = false
     }
     const fmAll = pageData.frontmatter as Record<string, unknown>
-    fmAll.theoremCount ??= axisMonographs().census.theorems
+    fmAll.theoremCount ??= theorems().length
     const slug = p?.key ? `theorem/${p.key}` : p?.slug ? `publications/${p.slug}`
       : pageData.relativePath.replace(/(^|\/)index\.md$/, '$1').replace(/\.md$/, '')
     const canonical = urlOf(slug)   // the ONE origin — a third hardcoded copy lived here until 2026-08-18
@@ -258,9 +263,14 @@ export default defineConfig({
     if (walkNext) fm.walkNext = walkNext
 
     // Axis listings are monographs of that fold — attach only this URL's slice (not the Layout census).
-    const axis = axisForRelativePath(pageData.relativePath)
-    if (axis.axis) fm.axis = axis.axis
-    if (axis.census) fm.census = axis.census
+    // Load the census after Rolldown: phd/os/host/ghz must not sit in the config graph during the bundle.
+    const listing = pageData.relativePath.replace(/\\/g, '/')
+    if (listing === 'theorems.md' || listing === 'topics.md' || listing === 'rosetta.md' || listing === 'trials.md' || listing === 'index.md') {
+      const { axisForRelativePath } = await import('../../src/axis-monograph.js')
+      const axis = axisForRelativePath(pageData.relativePath)
+      if (axis.axis) fm.axis = axis.axis
+      if (axis.census) fm.census = axis.census
+    }
     // Do not stamp objectKind onto listing markdown — ObjectBreadcrumbs would treat /theorems as an
     // object leaf (Home → handle) instead of the docs trail (Home → Theorems).
 
