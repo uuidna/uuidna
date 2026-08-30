@@ -1268,7 +1268,7 @@ export function lanesGaps(): Gap[] {
       if (!existsSync(abs))
         gaps.push({
           what: `packages/${pkg} (${j.name ?? pkg}) test lane names ${ref}, which the build does not produce`,
-          fix: `repoint it at the live compiled path (the tests compile from src/tests/ to dist/tests/). A lane aimed at a directory the build no longer writes keeps PASSING against stale output — it does not fail, it silently stops testing.`,
+          fix: `repoint it at the live compiled path (tests compile beside their module under dist/). A lane aimed at a path the build no longer writes keeps PASSING against stale output — it does not fail, it silently stops testing.`,
         })
       else referenced++
     }
@@ -1724,19 +1724,35 @@ export function seal(): void {
 // ── dry: the DUPLICATION FINDER — see dry-gaps.ts (split so fill-gaps-run does not pull node:crypto into Workers).
 import { dryGaps } from './dry-gaps.js'
 export { dryGaps } from './dry-gaps.js'
+import { LEGACY_TEST_DIR } from '../test-paths.js'
 
-/** dryClean — migrate mechanical boilerplate onto api.js, rebuild when touched, re-run dry finder. */
+/** dryClean — relocate legacy src/tests/, migrate boilerplate onto api.js, rebuild when touched, re-run dry finder. */
 export function dryClean(): { gaps: Gap[]; scripts: number; migrated: number; rebuilt: boolean } {
-  const before = dryGaps()
-  if (before.gaps.length === 0) return { gaps: [], scripts: before.scripts, migrated: 0, rebuilt: false }
-  const { touched } = migrate()
+  let relocated = 0
   let rebuilt = false
+  const legacyTests = join(ROOT, LEGACY_TEST_DIR)
+  if (existsSync(legacyTests)) {
+    const n = readdirSync(legacyTests).filter((f) => f.endsWith('.test.ts') || f === 'api.ts').length
+    if (n > 0) {
+      execSync('node dist/scripts/relocate-tests.js', { stdio: 'inherit', cwd: ROOT })
+      execSync('node dist/scripts/fix-test-imports.js', { stdio: 'inherit', cwd: ROOT })
+      execSync('node dist/scripts/repair-test-imports.js', { stdio: 'inherit', cwd: ROOT })
+      relocated = n
+      execSync('npm run build', { stdio: 'inherit', cwd: ROOT })
+      rebuilt = true
+    }
+  }
+  const before = dryGaps()
+  if (before.gaps.length === 0) {
+    return { gaps: [], scripts: before.scripts, migrated: relocated, rebuilt }
+  }
+  const { touched } = migrate()
   if (touched > 0) {
     execSync('npm run build', { stdio: 'inherit', cwd: ROOT })
     rebuilt = true
   }
   const after = dryGaps()
-  return { gaps: after.gaps, scripts: after.scripts, migrated: touched, rebuilt }
+  return { gaps: after.gaps, scripts: after.scripts, migrated: relocated + touched, rebuilt }
 }
 
 // ── the fifteen leaves, five trinities ──

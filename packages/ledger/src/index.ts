@@ -53,7 +53,7 @@ export {
   UUID_LAYOUT_GROUPS, UUID_LAYOUT_HEX_CHARS, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_AMPLITUDES,
   HEX_TRINITY_COUNT, TAIL_HEXBITS, EXECUTABLE_HEXBITS, PAYLOAD_HEXBITS,
   layoutGroups, hexTrinityStates, executableStates, tailStates, torusStep, uuidChannel,
-  layoutMatchesHandle, layoutWidths, layoutCoversUuid, uuidHex, channelAudit, channelSeal,
+  layoutMatchesHandle, layoutWidths, layoutCoversUuid, uuidHex, channelAudit, channelSeal, channelOpen,
   type HexFace, type HexFaceAura, type HexFaceGlyphs, type HexFaceStations, type OccupancyCite, type CoinBoardWitness, type MetatronFigure, type HexPi, type HexPiDoor,
   type CoinYarrowWave, type CoinWaveCluster, type UuidLayout, type ChannelStream, type LifeWave, type LifeWaveHardware,
 } from '@uuidna/uuidna'

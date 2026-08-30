@@ -36,6 +36,7 @@
     "uuidna_credits",
     "uuidna_credits_summary",
     "uuidna_crew",
+    "uuidna_decode",
     "uuidna_detect_double_spends",
     "uuidna_detect_forgery",
     "uuidna_discovery_train",

@@ -29,7 +29,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node --test ../../dist/tests/books.test.js ../../dist/tests/publish.test.js ../../dist/tests/reason.test.js",
+    "test": "node --test ../../dist/books.test.js ../../dist/publish.test.js ../../dist/reason.test.js",
     "gen:claims": "npm run gen:captain-claims --prefix ../..",
     "seal:audit": "npm run seal:claims --prefix ../.."
   },

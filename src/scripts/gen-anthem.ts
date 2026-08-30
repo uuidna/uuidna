@@ -69,7 +69,7 @@ description: The whole ledger as a superposition — theorem k at bar k, collaps
 The recording above is minted whole before it plays. This one is not minted at all: an **AudioWorklet**
 computes each sample from its position in your own audio thread — O(1) memory, no download, and no last byte,
 so it can play as long as you let it. It is the SAME music, bit-identical to the file, and that is a test
-(\`src/tests/anthem-stream.test.ts\` drives both paths and compares sample for sample, the worklet's own
+(\`src/quantum/os/harness/anthem-stream.test.ts\` drives both paths and compares sample for sample, the worklet's own
 inlined copy included). What a stream trades away is the whole-artifact address; what it keeps is the receipt
 that matters — the seed and the score, from which any segment recomputes.
 

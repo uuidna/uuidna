@@ -5,6 +5,7 @@
 // the NIST beacon anchor, CODATA constants, CVE fingerprints, the vocabulary, transform-until-verified, the
 // reasoner, and reflections. Provenance and structure. Integrity.
 export { RESEARCH_SOURCE_NAMES, corroborate, evidenceRow, approve, firewall, entangle, researchEvidence, researchSweep, reachOf, corroborateWithResearch, scanPublications, type ResearchEvidence, type Corroboration, type SourceReading, type Reach, type FirewallResult, type Entanglement, type PublicationScan, type PublicationFinding } from '@uuidna/uuidna'
+export { publicApiRegistry, type PublicApiEntry, type PublicApiKind } from '@uuidna/uuidna'
 export { deepResearch, type DeepResearch } from '@uuidna/uuidna'
 export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, auditZenodo, auditStandard, extractDecidable, extractClaims, wordsToNumber, linkBookFacts, composeBookArticle, bookArticle, bookContents, readChapter, readBook, type BookAudit, type TranslationAudit, type FetchedBook, type MovieAudit, type RecordAudit, type StandardAudit, type ExtractedFact, type TextClaim, type BookTheoremLink, type BookLedgerLinkage, type ChapterRead } from '@uuidna/uuidna'
 export { transformUntilVerified, transformOne, type TransformCell, type TransformRun } from '@uuidna/uuidna'

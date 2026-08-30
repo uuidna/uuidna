@@ -29,7 +29,7 @@ export default tseslint.config(
   // `${receipt.slice(0, 8)}` inside a log line, which SHOWS a handle rather than minting one. Calling handleOf()
   // there is still the better sentence, so the warning stands rather than an exemption: an `off` would be the rule
   // quietly shrinking to fit what the code already does, which is how a law becomes a description.
-  { files: ['src/scripts/**', 'src/tests/**', 'eslint-rules/**'],
+  { files: ['src/scripts/**', '**/*.test.ts', 'eslint-rules/**'],
     rules: { 'uuidna/no-float-math': 'off', 'uuidna/one-handle-derivation': 'warn' } },
   { files: ['eslint-rules/**', '*.js'], ...tseslint.configs.disableTypeChecked },
 )

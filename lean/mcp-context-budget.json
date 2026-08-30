@@ -1,4 +1,4 @@
 {
-  "wireBytes": 74877,
-  "note": "Re-sealed after uuidna_open_channel on the MCP wire. tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
+  "wireBytes": 75224,
+  "note": "Re-sealed after uuidna_cern and uuidnaOS school/research ports (shared fetch cache). tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
 }

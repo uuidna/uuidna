@@ -40,7 +40,7 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
   },
   {
     claim: 'uuidna is dna times the two coins',
-    prose: 'coin measures six doublings of bits (2⁶ = 64) — the same number by two routes',
+    prose: '4³ = 64 codons and 2⁶ = 64 coin bits — the same number by two routes',
     backing: T.filter(t => t.key === 'uuidna_is_dna_times_the_two_coins')
   },
   {
@@ -70,7 +70,7 @@ const evidenceData: Omit<EvidenceEntry, 'address'>[] = [
   },
   {
     claim: 'hexbit sixteen versus z9 root',
-    prose: 'distinct rings, CRT joins',
+    prose: 'CRT join ℤ/7×ℤ/9 = 63',
     backing: T.filter(t => t.key === 'crt_pairs_are_a_bijection' || t.key === 'rosette_and_vortex_are_coprime')
   },
   {

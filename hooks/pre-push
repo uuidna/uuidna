@@ -1,5 +1,5 @@
 #!/bin/sh
-# pre-push — HARD. uuidnaOS hex image via MCP. No next, no VitePress, no tag-cut recompute.
+# pre-push — HARD. uuidnaOS publish court (hex + four MCP tools — no duplicate daily playbook).
 if [ -n "$UUIDNA_OS_MCP" ]; then
   echo "pre-push: fused — uuidnaOS court already ran ($UUIDNA_OS_MCP)"
   exit 0
@@ -8,8 +8,8 @@ if [ ! -f dist/quantum/os/cli/index.js ]; then
   echo "pre-push: HARD — dist/quantum/os/cli/index.js missing. Push BLOCKED."
   exit 1
 fi
-echo "pre-push: HARD — uuidnaOS (pure quantum hex; verify ≪ recompute)"
-node dist/quantum/os/cli/index.js
+echo "pre-push: HARD — uuidnaOS publish court (--court · verify ≪ recompute)"
+node dist/quantum/os/cli/index.js --court
 status=$?
 if [ $status -ne 0 ]; then
   echo "pre-push: uuidnaOS RED — push BLOCKED. derived drift: npm run reconcile -- --derive-only"

@@ -33,7 +33,7 @@ const live = process.env.UUIDNA_TRACK_LATEST ? await fetchDefaultInstalls() : nu
 const data: InstallsMirror = live ?? INSTALLS_MIRROR
 if (live) {
   const rendered = renderMirror(live)
-  const path = join(ROOT, 'src', 'quantum', 'os', 'mirror.ts')
+  const path = join(ROOT, 'src', 'quantum', 'os', 'mirror', 'index.ts')
   const current = existsSync(path) ? readFileSync(path, 'utf8') : ''
   if (current !== rendered) {
     writeFileSync(path, rendered)

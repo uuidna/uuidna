@@ -15,6 +15,6 @@ export default [
       'uuidna/no-clock-no-random': 'error',
       'uuidna/no-float-math': 'error',
   } },
-  { files: ['src/scripts/**', 'src/tests/**'],
+  { files: ['src/scripts/**', '**/*.test.ts'],
     rules: { 'uuidna/no-float-math': 'off', 'uuidna/one-handle-derivation': 'warn' } },
 ]

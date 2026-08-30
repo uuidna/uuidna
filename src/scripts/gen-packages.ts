@@ -59,6 +59,15 @@ const PARTITION: Record<string, string> = {
   './sanitize.js': 'mcp', './harness.js': 'mcp',
   // edge — the deployment surface
   './cloudflare.js': 'edge', './site.js': 'edge', './seo.js': 'edge', './oeapi.js': 'edge', './render.js': 'edge',
+  './quantum/os/fetch/index.js': 'quantum',
+  './quantum/os/school/index.js': 'quantum',
+  './quantum/os/research/index.js': 'quantum',
+  './quantum/os/cern/index.js': 'quantum',
+  './quantum/os/public/index.js': 'quantum',
+  './quantum/os/weather/index.js': 'quantum',
+  './quantum/os/news/index.js': 'quantum',
+  './quantum/os/channel/index.js': 'quantum',
+  './public-apis.js': 'research',
   './school-apis.js': 'research',
   './editor.js': 'edge', './payload-seed.js': 'edge', './profile.js': 'edge', './social.js': 'edge',
 }

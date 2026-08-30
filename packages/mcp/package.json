@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "node --test ../../dist/tests/mcp.test.js ../../dist/tests/mcp-http.test.js ../../dist/tests/mcp-coverage.test.js",
+    "test": "node --test ../../dist/mcp.test.js ../../dist/mcp-http.test.js ../../dist/mcp-coverage.test.js",
     "mcp": "node bin.js"
   },
   "dependencies": {
