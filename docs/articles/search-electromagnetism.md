@@ -20,10 +20,10 @@ the hard gate of the corroboration law.
 | `3fb39a09` | zenodo.org | zenodo record 3553924: Highly Automated Import of Metadata into an Institutional Repository: A PHP Tool | UNVERIFIED | VERIFIED |
 | `2dc8b689` | zenodo.org | zenodo record 14748918: Workshop, "Basics of Research Data Management", WSL PYRN Workshop, 2025 | UNVERIFIED | VERIFIED |
 | `3c3a523b` | zenodo.org | zenodo record 8161027: A Search Tool for Aggregated Information on Open Access | UNVERIFIED | VERIFIED |
+| `b626e155` | zenodo.org | zenodo record 3242789: Universal Declaration of Human Rights, Volume 02 | UNVERIFIED | VERIFIED |
 | `d26a6089` | zenodo.org | zenodo record 14128038: PM_063842_B_Morlanwelz | UNVERIFIED | VERIFIED |
-| `d1fa230d` | zenodo.org | zenodo record 14128050: PM_063843_B_Morlanwelz | UNVERIFIED | VERIFIED |
-| `a14e54d0` | crossref.org | DOI 10.1117/12.3079234.826bcd05-395b-f011-a9aa-005056914f1c:  | UNVERIFIED | VERIFIED |
 | `67e21894` | crossref.org | DOI 10.1117/12.3042172.cb7e5fc4-9443-ef11-a9a2-005056914f1c:  | UNVERIFIED | VERIFIED |
+| `a14e54d0` | crossref.org | DOI 10.1117/12.3079234.826bcd05-395b-f011-a9aa-005056914f1c:  | UNVERIFIED | VERIFIED |
 | `c4e936e9` | crossref.org | DOI 10.1049/sbew514e_ch12: Total field/scattered field formulation | UNVERIFIED | VERIFIED |
 | `9fc671c7` | crossref.org | DOI 10.1049/sbew514e_ch9: Near-field to far-field transformation | UNVERIFIED | VERIFIED |
 | `afafc9d2` | crossref.org | DOI 10.32657/10356/50472: Finite-difference time-domain methods for anisotropic media with total-field/sca | UNVERIFIED | VERIFIED |
@@ -41,17 +41,18 @@ the hard gate of the corroboration law.
 | `d631d2e0` | arxiv.org | arXiv 1409.5893v2: Fast evaluation of far-field signals for time-domain wave propagation | UNVERIFIED | VERIFIED |
 | `f310dc2c` | arxiv.org | arXiv 2604.22734v1: Radiation outer boundary conditions and near-to-far field signal transformations | UNVERIFIED | VERIFIED |
 | `9274e3d1` | arxiv.org | arXiv 0604089v3: Space-time transformation properties of inter-charge forces and dipole radiation | UNVERIFIED | VERIFIED |
-| `82ccbfb0` | arxiv.org | arXiv 0704.1574v3: Retarded electric and magnetic fields of a moving charge: Feynman's derivation o | UNVERIFIED | VERIFIED |
 | `2b2ddaa1` | arxiv.org | arXiv 0409103v2: Derivation of the Lorentz Force Law, the Magnetic Field Concept and the Faraday- | UNVERIFIED | VERIFIED |
+| `82ccbfb0` | arxiv.org | arXiv 0704.1574v3: Retarded electric and magnetic fields of a moving charge: Feynman's derivation o | UNVERIFIED | VERIFIED |
 | `d094d17e` | arxiv.org | arXiv 1506.06630v2: Comment on "Measuring propagation speed of Coulomb fields" [R. de Sangro {\\it et | UNVERIFIED | VERIFIED |
 | `c2758ba1` | arxiv.org | arXiv 0307133v1: Derivation of the Lorentz Force Law and the Magnetic Field Concept using an Inva | UNVERIFIED | VERIFIED |
 | `916c12af` | arxiv.org | arXiv 1202.1038v2: Numerical simulations with a first order BSSN formulation of Einstein's field eq | UNVERIFIED | VERIFIED |
 | `f70f555d` | esco | {"source":"esco","address":"33011440-7ec2-8426-83a8-f59c87d23407","uri":"http://data.europa.eu/esco/skill/6f2080b0-146a-47f6-a638-49f089f2f0a5","title":"assess environment of animals","conceptType":"Skill"} {"source":"esco","address":"3bc1db3d-fe70-824d-95e8-cc79dc749b99","uri":"http://data.europa.eu/esco/skill/6f5850ea-5785-4e2c-b062-743066fd5bdb","title":"environmental legislation","conceptType":"Skill"} {"source":"esco","address":"43045837-5722-8cf7-b737-79a0c3e4d909","uri":"http://data.europa.eu/esco/skill/89ebe683-b456-4e23-ac10-46ee4ab399dd","title":"provide directions to guests","conceptType":"Skill"} {"source":"esco","address":"1f06228a-2739-893f-9694-af020c0ae3e9","uri":"http://data.europa.eu/esco/skill/d1052480-60f7-404b-83f1-254666daf790","title":"clean street furniture","concep | UNVERIFIED | VERIFIED |
 | `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}} {"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}} {"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}} {"source":"euro | UNVERIFIED | VERIFIED |
-| `1aa5080a` | data-europa | {"source":"data-europa","address":"56d764df-279e-89a3-a3c4-5ada838dc1ae","id":"swisscollections-openglam","title":"Metadata of swisscollections, the gateway to historical and modern collections in Swiss libraries and archives","country":"Switzerland","catalogue":"opendata-swiss"} {"source":"data-europa","address":"a8b94178-38dd-8e1f-94f0-f75c42096c00","id":"wuedata-10-58160-0gnwmkstz6508zta","title":"The magnetic domain structure of holmium films at low temperatures","country":"Germany","catalogue":"govdata"} {"source":"data-europa","address":"e54e14a2-29f2-847a-b80b-8dc132b81b70","id":"https-komserv4gdi-service24-rlp-de-0e3de565-8a2f-1eb0-e4ed-d2b45732384e","title":"In the wood field/in the Grub","country":"Germany","catalogue":"govdata"} {"source":"data-europa","address":"5bec9d7d-eec4-8 | UNVERIFIED | VERIFIED |
+| `9a5aeeba` | data-europa | {"source":"data-europa","address":"56d764df-279e-89a3-a3c4-5ada838dc1ae","id":"swisscollections-openglam","title":"Metadata of swisscollections, the gateway to historical and modern collections in Swiss libraries and archives","country":"Switzerland","catalogue":"opendata-swiss"} {"source":"data-europa","address":"a8b94178-38dd-8e1f-94f0-f75c42096c00","id":"wuedata-10-58160-0gnwmkstz6508zta","title":"The magnetic domain structure of holmium films at low temperatures","country":"Germany","catalogue":"govdata"} {"source":"data-europa","address":"5bec9d7d-eec4-85a7-80ce-32eb4373d629","id":"adp-dioscu07","title":"Expansion to the East, Expansion to the West","country":"Slovenia","catalogue":"odprti-podatki-slovenije"} {"source":"data-europa","address":"e54e14a2-29f2-847a-b80b-8dc132b81b70","id | UNVERIFIED | VERIFIED |
 | `93929a2d` | cordis |  | UNVERIFIED | VERIFIED |
 | `93929a2d` | gisco |  | UNVERIFIED | VERIFIED |
 | `72ee28c7` | ted | {"source":"ted","address":"b63acfc6-8774-80b5-bd3d-9e366942f5b4","publication":"296601-2016","title":"Turkey-Ankara: Technical assistance for operating structure to prepare and strengthen programming for the period 2014–2020","link":"https://ted.europa.eu/en/notice/296601-2016"} {"source":"ted","address":"4615cc99-42f5-87e9-8076-f63582a66126","publication":"296609-2016","title":"Ukraine-Lutsk: EBRD - Alternative Fuel Boiler at Bozhenko-32 Boiler House","link":"https://ted.europa.eu/en/notice/296609-2016"} {"source":"ted","address":"629e7e4f-f0c3-879b-b3a1-74139408a435","publication":"297090-2016","title":"Poland-Warsaw: Computer courses","link":"https://ted.europa.eu/en/notice/297090-2016"} {"source":"ted","address":"3ab5d830-bb21-8d41-bb8c-5f4a97bf53ee","publication":"297091-2016","title" | UNVERIFIED | VERIFIED |
+| `4a6ae67c` | open-meteo-forecast | temperature_2m_c 30.3 °C wind_speed_10m_kmh 10.5 km/h pressure_hpa 955 hPa | UNVERIFIED | VERIFIED |
 | `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
 | `d00df28e` | mathoverflow.net | MO open: Grothendieck–Teichm&#252;ller conjecture | UNVERIFIED | VERIFIED |
 | `72ee786b` | mathoverflow.net | MO open: A proof of $\\dim(R[T])=\\dim(R)+1$ without prime ideals? | UNVERIFIED | VERIFIED |
@@ -62,7 +63,7 @@ the hard gate of the corroboration law.
 | `c5c6319f` | mathoverflow.net | MO open: Are there periodicity phenomena in manifold topology with odd period? | UNVERIFIED | VERIFIED |
 | `1b8667e6` | mathoverflow.net | MO open: On the first sequence without triple in arithmetic progression | UNVERIFIED | VERIFIED |
 
-**47 findings · 47 usable search-trial combinations · receipt `8813d365`** (fold of every finding's address — recompute by re-running the search).
+**48 findings · 48 usable search-trial combinations · receipt `be497bc1`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

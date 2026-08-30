@@ -14,14 +14,14 @@ the hard gate of the corroboration law.
 
 | finding | source | record | alone | with sealed backing |
 |---|---|---|---|---|
+| `4ad252b2` | zenodo.org | zenodo record 18171153: Data-driven models for a salt production process towards an Industry 4.0 evoluti | UNVERIFIED | VERIFIED |
 | `b41f7cd5` | zenodo.org | zenodo record 13453497: Décharges | UNVERIFIED | VERIFIED |
 | `70165140` | zenodo.org | zenodo record 11394802: The Fribourg Sessions | UNVERIFIED | VERIFIED |
-| `4ad252b2` | zenodo.org | zenodo record 18171153: Data-driven models for a salt production process towards an Industry 4.0 evoluti | UNVERIFIED | VERIFIED |
 | `b8fc1e19` | zenodo.org | zenodo record 7647604: Singing on the nest is a widespread behavior in incubating Northern Mockingbirds | UNVERIFIED | VERIFIED |
 | `177eda50` | zenodo.org | zenodo record 17116246: New Year's Eve | UNVERIFIED | VERIFIED |
 | `e215f9da` | zenodo.org | zenodo record 5652637: Video Clip and Artiste's Image as Tools of the Song Hit's Mediavirus Action Stre | UNVERIFIED | VERIFIED |
 | `05ac198e` | zenodo.org | zenodo record 6259952: THE SYMBOL OF ELEGANCE AND LOYALTY | UNVERIFIED | VERIFIED |
-| `b9d944d5` | zenodo.org | zenodo record 4316823: Laudacja bohatera narodowego w "Pieśniach o księciu Józefie" Artura Oppmana [Lau | UNVERIFIED | VERIFIED |
+| `215304bb` | zenodo.org | zenodo record 7064169: Deliverable of Youtube Platform as a Commercial Health Awareness Communication t | UNVERIFIED | VERIFIED |
 | `bff4df46` | crossref.org | DOI 10.1093/oed/7738583761: referrer, n.¹ | UNVERIFIED | VERIFIED |
 | `0602c160` | crossref.org | DOI 10.1093/oed/2299003142: referrer, n.² | UNVERIFIED | VERIFIED |
 | `0906f460` | crossref.org | DOI 10.26226/morressier.5c76c8b5e2ea5a72376120ab: The Role of the General Practitioner as Referrer to Specialized Palliative Care  | UNVERIFIED | VERIFIED |
@@ -52,7 +52,7 @@ the hard gate of the corroboration law.
 | `93929a2d` | cordis |  | UNVERIFIED | VERIFIED |
 | `93929a2d` | gisco |  | UNVERIFIED | VERIFIED |
 | `72ee28c7` | ted | {"source":"ted","address":"b63acfc6-8774-80b5-bd3d-9e366942f5b4","publication":"296601-2016","title":"Turkey-Ankara: Technical assistance for operating structure to prepare and strengthen programming for the period 2014–2020","link":"https://ted.europa.eu/en/notice/296601-2016"} {"source":"ted","address":"4615cc99-42f5-87e9-8076-f63582a66126","publication":"296609-2016","title":"Ukraine-Lutsk: EBRD - Alternative Fuel Boiler at Bozhenko-32 Boiler House","link":"https://ted.europa.eu/en/notice/296609-2016"} {"source":"ted","address":"629e7e4f-f0c3-879b-b3a1-74139408a435","publication":"297090-2016","title":"Poland-Warsaw: Computer courses","link":"https://ted.europa.eu/en/notice/297090-2016"} {"source":"ted","address":"3ab5d830-bb21-8d41-bb8c-5f4a97bf53ee","publication":"297091-2016","title" | UNVERIFIED | VERIFIED |
-| `615340b6` | open-meteo-forecast | temperature_2m_c 30.5 °C wind_speed_10m_kmh 8.4 km/h pressure_hpa 954.6 hPa | UNVERIFIED | VERIFIED |
+| `1fccd1ea` | open-meteo-forecast | temperature_2m_c 30.3 °C wind_speed_10m_kmh 10.6 km/h pressure_hpa 954.9 hPa | UNVERIFIED | VERIFIED |
 | `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
 | `d00df28e` | mathoverflow.net | MO open: Grothendieck–Teichm&#252;ller conjecture | UNVERIFIED | VERIFIED |
 | `72ee786b` | mathoverflow.net | MO open: A proof of $\\dim(R[T])=\\dim(R)+1$ without prime ideals? | UNVERIFIED | VERIFIED |
@@ -63,7 +63,7 @@ the hard gate of the corroboration law.
 | `c5c6319f` | mathoverflow.net | MO open: Are there periodicity phenomena in manifold topology with odd period? | UNVERIFIED | VERIFIED |
 | `1b8667e6` | mathoverflow.net | MO open: On the first sequence without triple in arithmetic progression | UNVERIFIED | VERIFIED |
 
-**48 findings · 48 usable search-trial combinations · receipt `eee738aa`** (fold of every finding's address — recompute by re-running the search).
+**48 findings · 48 usable search-trial combinations · receipt `61dcb175`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

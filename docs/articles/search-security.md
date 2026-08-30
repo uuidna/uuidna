@@ -52,6 +52,7 @@ the hard gate of the corroboration law.
 | `d329c78c` | cordis | {"source":"cordis","address":"5e80e7e5-4f62-80c2-ab42-44023b8e32f3","id":"101082230","title":"Earth Observation Multi-mission federation layer","teaser":"The DOMINO-E project, proposed by a consortium of European organisations, including scientific institutes and SMEs and led by Airbus Defence and Space, aims at solving the key challenge of availability and reactivity of earth observations f","contentType":"project"} {"source":"cordis","address":"f25d532a-b625-8841-9a86-40dee704df31","id":"101121288","title":"Underwater Security","teaser":"Maritime security, including the underwater, is of paramount importance to assure the smooth and safe transportation of goods and people to/from the EU ports, as well as to preserve uninterrupted operations of critical coastal-based/river-b","contentType | UNVERIFIED | VERIFIED |
 | `93929a2d` | gisco |  | UNVERIFIED | VERIFIED |
 | `72ee28c7` | ted | {"source":"ted","address":"b63acfc6-8774-80b5-bd3d-9e366942f5b4","publication":"296601-2016","title":"Turkey-Ankara: Technical assistance for operating structure to prepare and strengthen programming for the period 2014–2020","link":"https://ted.europa.eu/en/notice/296601-2016"} {"source":"ted","address":"4615cc99-42f5-87e9-8076-f63582a66126","publication":"296609-2016","title":"Ukraine-Lutsk: EBRD - Alternative Fuel Boiler at Bozhenko-32 Boiler House","link":"https://ted.europa.eu/en/notice/296609-2016"} {"source":"ted","address":"629e7e4f-f0c3-879b-b3a1-74139408a435","publication":"297090-2016","title":"Poland-Warsaw: Computer courses","link":"https://ted.europa.eu/en/notice/297090-2016"} {"source":"ted","address":"3ab5d830-bb21-8d41-bb8c-5f4a97bf53ee","publication":"297091-2016","title" | UNVERIFIED | VERIFIED |
+| `1fccd1ea` | open-meteo-forecast | temperature_2m_c 30.3 °C wind_speed_10m_kmh 10.6 km/h pressure_hpa 954.9 hPa | UNVERIFIED | VERIFIED |
 | `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
 | `d00df28e` | mathoverflow.net | MO open: Grothendieck–Teichm&#252;ller conjecture | UNVERIFIED | VERIFIED |
 | `72ee786b` | mathoverflow.net | MO open: A proof of $\\dim(R[T])=\\dim(R)+1$ without prime ideals? | UNVERIFIED | VERIFIED |
@@ -62,7 +63,7 @@ the hard gate of the corroboration law.
 | `c5c6319f` | mathoverflow.net | MO open: Are there periodicity phenomena in manifold topology with odd period? | UNVERIFIED | VERIFIED |
 | `1b8667e6` | mathoverflow.net | MO open: On the first sequence without triple in arithmetic progression | UNVERIFIED | VERIFIED |
 
-**47 findings · 47 usable search-trial combinations · receipt `d3353271`** (fold of every finding's address — recompute by re-running the search).
+**48 findings · 48 usable search-trial combinations · receipt `239338f5`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 

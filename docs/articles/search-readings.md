@@ -17,8 +17,8 @@ the hard gate of the corroboration law.
 | `7fc0abbd` | zenodo.org | zenodo record 22080140: Qur'anic Recitation - The Seven Qirāʾāt | UNVERIFIED | VERIFIED |
 | `03ddfc38` | zenodo.org | zenodo record 15002806: MACRAMÉ Deliverable Report D3.1: Information Hub, Data Exchange Format Specifica | UNVERIFIED | VERIFIED |
 | `36f7e671` | zenodo.org | zenodo record 12574326: Seven Readings of the Qur'an (Kitab al-Sab'ah fi al-Qira'at) by Ibn Mujahid | UNVERIFIED | VERIFIED |
-| `9c8baab6` | zenodo.org | zenodo record 13890306: COMPASS Plan for the Exploitation and Dissemination of Results Including Communi | UNVERIFIED | VERIFIED |
 | `430053f9` | zenodo.org | zenodo record 3344008: İmâmiyye Şîası'nın Kıraat ve "Ahruf-i Seb'a" Anlayışı | UNVERIFIED | VERIFIED |
+| `9c8baab6` | zenodo.org | zenodo record 13890306: COMPASS Plan for the Exploitation and Dissemination of Results Including Communi | UNVERIFIED | VERIFIED |
 | `41ecf2e1` | zenodo.org | zenodo record 8298539: Replication Guidance | UNVERIFIED | VERIFIED |
 | `be4e5af1` | zenodo.org | zenodo record 21648709: A Practical CRA Documentation Guide | UNVERIFIED | VERIFIED |
 | `afb35278` | zenodo.org | zenodo record 15098565: Corpus | UNVERIFIED | VERIFIED |
@@ -28,8 +28,8 @@ the hard gate of the corroboration law.
 | `65182d17` | crossref.org | DOI 10.1055/b-0038-162228: Suggested Readings | UNVERIFIED | VERIFIED |
 | `3921b838` | crossref.org | DOI 10.1017/9781942401209.006: “Monster Culture (Seven Theses)” | UNVERIFIED | VERIFIED |
 | `73108a39` | crossref.org | DOI 10.1055/b-0034-67091: Suggested Readings | UNVERIFIED | VERIFIED |
-| `fbcb3f01` | crossref.org | DOI 10.2307/j.ctvfxvc3p.10: “MONSTER CULTURE (SEVEN THESES)” | UNVERIFIED | VERIFIED |
 | `8504b53f` | crossref.org | DOI 10.4324/9781003023203-6: Seven Short Readings of Non-Shakespearean Early-Modern Plays | UNVERIFIED | VERIFIED |
+| `fbcb3f01` | crossref.org | DOI 10.2307/j.ctvfxvc3p.10: “MONSTER CULTURE (SEVEN THESES)” | UNVERIFIED | VERIFIED |
 | `23b4bc15` | openalex.org | OpenAlex SEVEN. Reading Broken Skin: Violence in Roman Elegy [Crime, Deviance, and Social Co] | UNVERIFIED | VERIFIED |
 | `675e77a2` | openalex.org | OpenAlex Repeat Associated Non-ATG Translation Initiation: One DNA, Two Transcr [Genetic Neurodegenerative Dise] | UNVERIFIED | VERIFIED |
 | `bfc3c67a` | openalex.org | OpenAlex Genome-wide association study of 14,000 cases of seven common diseases [Genetic Associations and Epide] | UNVERIFIED | VERIFIED |
@@ -46,13 +46,21 @@ the hard gate of the corroboration law.
 | `9bde989a` | arxiv.org | arXiv 2608.06538v1: Tuza's conjecture for graphs of maximum degree at most seven | UNVERIFIED | VERIFIED |
 | `e6ed7318` | arxiv.org | arXiv 1904.12919v2: Female citation impact superiority 1996-2018 in six out of seven English-speakin | UNVERIFIED | VERIFIED |
 | `24f58df5` | arxiv.org | arXiv 9707023v1: An upper limit on the branching ratio for tau decays into seven charged particle | UNVERIFIED | VERIFIED |
+| `33418145` | en.wikinews.org | Wikinews: Streaming platform Twitch bans rapper Kanye West seven minutes into first stream | UNVERIFIED | VERIFIED |
+| `edd3d227` | en.wikinews.org | Wikinews: Renewed concern over nuclear response following atomic bomb anniversary | UNVERIFIED | VERIFIED |
+| `d7c1c6db` | en.wikinews.org | Wikinews: Canadian military hosts first gay military wedding | UNVERIFIED | VERIFIED |
+| `621e0958` | en.wikinews.org | Wikinews: Seven south Thailand constituencies face one horse race | UNVERIFIED | VERIFIED |
+| `6cd9f8e7` | en.wikinews.org | Wikinews: Football: Fulham FC sacks coach Chris Coleman | UNVERIFIED | VERIFIED |
+| `5bd3b53d` | en.wikinews.org | Wikinews: Two Australian car ferry operators caught drunk on the job | UNVERIFIED | VERIFIED |
+| `d183b5bd` | en.wikinews.org | Wikinews: Numerous home pregnancy tests recalled after false negative results reported | UNVERIFIED | VERIFIED |
+| `ea6b3ff4` | en.wikinews.org | Wikinews: University study finds U.S. defense contract information in 'electronic waste' i | UNVERIFIED | VERIFIED |
 | `404c3b66` | esco | {"source":"esco","address":"7bdcfa1c-6863-8a09-8be2-a15072f155ea","uri":"http://data.europa.eu/esco/skill/8e91c9b3-45de-4db2-91df-138d10031cf0","title":"log transmitter readings","conceptType":"Skill"} {"source":"esco","address":"8e17e684-a3eb-8986-8854-69af2c4cd376","uri":"http://data.europa.eu/esco/skill/806557a0-49e6-4a06-9398-51cbf72f7a4c","title":"report utility meter readings","conceptType":"Skill"} {"source":"esco","address":"ae31e295-d440-8d80-b1dc-2f24e1eb62d8","uri":"http://data.europa.eu/esco/skill/d2727736-9224-4956-86ed-4734e36b1085","title":"teach religious texts","conceptType":"Skill"} {"source":"esco","address":"7462d5f8-f017-8839-8ecb-d983f9cbd137","uri":"http://data.europa.eu/esco/skill/79329ded-7ee7-45c5-a89c-85386473efef","title":"temperature scales","conceptType":"Skil | UNVERIFIED | VERIFIED |
 | `3eb4ffd5` | eurostat | {"source":"eurostat","address":"ff7b4866-9229-8cfb-93ba-ae9ec5030ccc","value":226981,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Tertiary education (levels 5-8)","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}} {"source":"eurostat","address":"853f79f8-c80c-86b5-9e99-b9ba88c7d894","value":146799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}} {"source":"eurostat","address":"eec743d8-59e4-8240-a1fc-f2d9d4c7a120","value":7799,"dimensions":{"time":"2022","geo":"Bulgaria","isced11":"Bachelor's or equivalent level - professional","sex":"Total","sector":"Total","worktime":"Total","unit":"Number","freq":"Annual"}} {"source":"euro | UNVERIFIED | VERIFIED |
-| `c7646a6a` | data-europa | {"source":"data-europa","address":"4db6bac6-ba7f-8f80-8137-df6d77c73cc3","id":"f5af2782-fb3b-4cc4-a40a-a37fea28354d","title":"GUIT04 - Respondents physical activity in the last seven days","country":"Ireland","catalogue":"data-gov-ie"} {"source":"data-europa","address":"1809c7b0-5e4a-8050-8555-1a43fc49ea54","id":"covid-19-positive-tests-in-the-previous-seven-days1","title":"Covid-19 - Positive tests in the previous seven days","country":"United Kingdom","catalogue":"data-gov-uk"} {"source":"data-europa","address":"5748b705-7ff1-8b13-809e-bd6779b6932c","id":"8cd54ce1-ccf6-4f19-b986-96c9c639b5f6","title":"Noise and Air Quality Monitoring API DCC","country":"Ireland","catalogue":"data-gov-ie"} {"source":"data-europa","address":"b0777f34-2b72-8c84-b0a1-1ceb2b382c23","id":"fcfeef38-9041-4c22-b7 | UNVERIFIED | VERIFIED |
+| `4001fc14` | data-europa | {"source":"data-europa","address":"1809c7b0-5e4a-8050-8555-1a43fc49ea54","id":"covid-19-positive-tests-in-the-previous-seven-days1","title":"Covid-19 - Positive tests in the previous seven days","country":"United Kingdom","catalogue":"data-gov-uk"} {"source":"data-europa","address":"4db6bac6-ba7f-8f80-8137-df6d77c73cc3","id":"f5af2782-fb3b-4cc4-a40a-a37fea28354d","title":"GUIT04 - Respondents physical activity in the last seven days","country":"Ireland","catalogue":"data-gov-ie"} {"source":"data-europa","address":"5748b705-7ff1-8b13-809e-bd6779b6932c","id":"8cd54ce1-ccf6-4f19-b986-96c9c639b5f6","title":"Noise and Air Quality Monitoring API DCC","country":"Ireland","catalogue":"data-gov-ie"} {"source":"data-europa","address":"b0777f34-2b72-8c84-b0a1-1ceb2b382c23","id":"fcfeef38-9041-4c22-b7 | UNVERIFIED | VERIFIED |
 | `63c99a93` | cordis | {"source":"cordis","address":"c071365c-3b57-83ae-9fa1-6e9d82711805","id":"461183-a-transnational-cultural-exchange","title":"A transnational cultural exchange","teaser":"A network of residencies spanning Europe benefits local communities and participating writers.","contentType":"article"} {"source":"cordis","address":"e17840e3-8240-8b5f-9162-af5be07fdb2d","id":"101061500","title":"The Ideosphere of the Late Ottoman Arabic Press: Mapping the Discursive Field of Authors and Texts through Computational Approaches","teaser":"\\"SIHAFA explores the late Ottoman (1890s–1918) Arabic ideosphere of the Eastern Mediterranean through its periodical press. SIHAFA transcends the individual periodical for a systematic and computational study of the periodical press as a di","contentType":"project"} {"so | UNVERIFIED | VERIFIED |
 | `93929a2d` | gisco |  | UNVERIFIED | VERIFIED |
 | `72ee28c7` | ted | {"source":"ted","address":"b63acfc6-8774-80b5-bd3d-9e366942f5b4","publication":"296601-2016","title":"Turkey-Ankara: Technical assistance for operating structure to prepare and strengthen programming for the period 2014–2020","link":"https://ted.europa.eu/en/notice/296601-2016"} {"source":"ted","address":"4615cc99-42f5-87e9-8076-f63582a66126","publication":"296609-2016","title":"Ukraine-Lutsk: EBRD - Alternative Fuel Boiler at Bozhenko-32 Boiler House","link":"https://ted.europa.eu/en/notice/296609-2016"} {"source":"ted","address":"629e7e4f-f0c3-879b-b3a1-74139408a435","publication":"297090-2016","title":"Poland-Warsaw: Computer courses","link":"https://ted.europa.eu/en/notice/297090-2016"} {"source":"ted","address":"3ab5d830-bb21-8d41-bb8c-5f4a97bf53ee","publication":"297091-2016","title" | UNVERIFIED | VERIFIED |
-| `615340b6` | open-meteo-forecast | temperature_2m_c 30.5 °C wind_speed_10m_kmh 8.4 km/h pressure_hpa 954.6 hPa | UNVERIFIED | VERIFIED |
+| `1fccd1ea` | open-meteo-forecast | temperature_2m_c 30.3 °C wind_speed_10m_kmh 10.6 km/h pressure_hpa 954.9 hPa | UNVERIFIED | VERIFIED |
 | `b908e1a0` | noaa-tides | tide_height_m 0.708 m | UNVERIFIED | VERIFIED |
 | `d00df28e` | mathoverflow.net | MO open: Grothendieck–Teichm&#252;ller conjecture | UNVERIFIED | VERIFIED |
 | `72ee786b` | mathoverflow.net | MO open: A proof of $\\dim(R[T])=\\dim(R)+1$ without prime ideals? | UNVERIFIED | VERIFIED |
@@ -63,7 +71,7 @@ the hard gate of the corroboration law.
 | `c5c6319f` | mathoverflow.net | MO open: Are there periodicity phenomena in manifold topology with odd period? | UNVERIFIED | VERIFIED |
 | `1b8667e6` | mathoverflow.net | MO open: On the first sequence without triple in arithmetic progression | UNVERIFIED | VERIFIED |
 
-**48 findings · 48 usable search-trial combinations · receipt `2bf101c7`** (fold of every finding's address — recompute by re-running the search).
+**56 findings · 56 usable search-trial combinations · receipt `92f5d249`** (fold of every finding's address — recompute by re-running the search).
 
 The sealed backing this trial held the findings beside:
 
