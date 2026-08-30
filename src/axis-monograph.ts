@@ -12,6 +12,8 @@ import { axiomWitness } from './axiom-witness.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
 import { publications } from './publish.js'
+import { SITE } from './site/index.js'
+import { SIDEBAR_CATEGORIES } from './site.js'
 import { quantumAura } from './aura.js'
 import { timeShorFullUse } from './os/host/index.js'
 import { phdProofs } from './phd-proofs.js'
@@ -143,6 +145,45 @@ export type HomeCensus = {
     complementInvolution: boolean
     thesisDrills: number
     thesisRequired: number
+  }
+}
+
+export type HomeHeroAction = { theme: 'brand' | 'alt'; text: string; link: string }
+export type HomeHeroFeature = { title: string; details: string; link: string }
+
+/** Stock VP home hero — SITE identity and ledger counts. Typed YAML on index.md is a crack. */
+export function homeHeroOf(census: HomeCensus): {
+  name: string
+  text: string
+  tagline: string
+  actions: HomeHeroAction[]
+  features: HomeHeroFeature[]
+} {
+  const origin = new URL(SITE.origin)
+  const repo = new URL(SITE.repo)
+  const clayLead = theorems()
+    .filter((t) => t.key.startsWith('clay_'))
+    .sort((a, b) => a.key.localeCompare(b.key))[0]
+  const features: HomeHeroFeature[] = []
+  if (clayLead) {
+    features.push({ title: clayLead.key, details: clayLead.statement, link: `/theorem/${clayLead.key}` })
+  }
+  const quantumLink = SIDEBAR_CATEGORIES.flatMap(([, rs]) => rs).find((r) => r.split('/').pop() === 'quantum')
+  features.push(
+    { title: String(census.theorems), details: '/theorems', link: '/theorems' },
+    quantumLink
+      ? { title: quantumLink.replace(/^\//, ''), details: quantumLink, link: quantumLink }
+      : { title: String(census.skills), details: '/topics', link: '/topics' },
+  )
+  return {
+    name: SITE.name,
+    text: SITE.tagline,
+    tagline: SITE.description,
+    actions: [
+      { theme: 'brand', text: origin.host, link: SITE.origin },
+      { theme: 'alt', text: repo.host, link: SITE.repo },
+    ],
+    features: features.slice(0, 3),
   }
 }
 

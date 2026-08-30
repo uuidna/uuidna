@@ -146,7 +146,13 @@ export interface HeroAt {
 export function resolveReferrer(referrer: string): string {
   const raw = String(referrer || '').trim()
   if (UUID.test(raw)) return raw.toLowerCase()
-  const fromUrl = raw.includes('uuidna.com/') ? raw.replace(/.*uuidna\.com\//i, '').split(/[?#/]/)[0]! : raw
+  let fromUrl = raw
+  try {
+    const u = new URL(raw)
+    if (u.hostname === 'uuidna.com' || u.hostname.endsWith('.uuidna.com')) {
+      fromUrl = u.pathname.replace(/^\//, '').split('/')[0] ?? raw
+    }
+  } catch { /* not a URL — handle or seed below */ }
   if (HANDLE8.test(fromUrl)) return toUuid(fromUrl.toLowerCase())
   if (HANDLE8.test(raw)) return toUuid(raw.toLowerCase())
   return toUuid(raw || 'uuidna')

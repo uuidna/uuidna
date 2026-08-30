@@ -5,6 +5,7 @@ import assert from 'node:assert/strict'
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
+import { axisForRelativePath, homeHeroOf } from '../axis-monograph.js'
 
 const THEME = join(ROOT, 'docs/.vitepress/theme')
 
@@ -37,21 +38,21 @@ test('home doors to /quantum; capacity table on /quantum and README only', () =>
   assert.doesNotMatch(home, /<QuantumAdvantage\s*\/>/)
   assert.doesNotMatch(home, /<CostMeter\s*\/>/)
   assert.doesNotMatch(home, /quantum-capacity:begin/)
-  assert.match(home, /\/quantum/)
-  assert.match(home, /link:\s*\/guides/)
-  assert.match(home, /link:\s*\/mcp/)
+  const hero = homeHeroOf(axisForRelativePath('index.md').census!)
+  assert.ok(hero.features.some((f) => f.link === '/quantum'))
+  assert.match(home, /\/guides/)
+  assert.match(home, /\/mcp/)
   assert.match(home, /^## Use$/m)
   const footer = readFileSync(join(THEME, 'SiteFooter.vue'), 'utf8')
   assert.match(footer, /#use/, 'README use door — the old #verify heading is gone')
   assert.doesNotMatch(footer, /#verify/)
-  assert.equal((home.match(/^\s+- title:/gm) || []).length, 3, 'home features slimmed to 3')
   const fmEnd = home.indexOf('\n---\n', 4)
   assert.ok(fmEnd > 0, 'homepage opens with YAML frontmatter')
-  const details = home.slice(4, fmEnd).split('\n').filter((l) => /^\s+details:/.test(l))
-  assert.equal(details.length, 3)
-  for (const line of details) {
-    assert.match(line, /^\s+details:\s+".*"\s*$/, `quote feature details — unquoted Doors: splits VitePress YAML: ${line.slice(0, 96)}`)
-  }
+  const fm = home.slice(0, fmEnd)
+  assert.match(fm, /layout:\s*home/)
+  assert.doesNotMatch(fm, /^hero:/m)
+  assert.doesNotMatch(fm, /^features:/m)
+  assert.doesNotMatch(fm, /^description:/m)
   assert.ok(!existsSync(join(ROOT, 'docs/.vitepress/advantage.data.ts')))
   const quantum = readFileSync(join(ROOT, 'docs/quantum.md'), 'utf8')
   assert.match(quantum, /quantum-capacity:begin/)
@@ -61,11 +62,13 @@ test('home doors to /quantum; capacity table on /quantum and README only', () =>
 
 test('Clay is the visible test POC on home and README — computationally claimed', () => {
   const home = readFileSync(join(ROOT, 'docs/index.md'), 'utf8')
-  assert.match(home, /^\s+- title:\s*Clay\s*$/m)
-  assert.match(home, /link:\s*\/articles\/clay/)
-  assert.match(home, /computationally claimed|clay_gravity_equals_rosette/)
   assert.match(home, /clay_gravity_equals_rosette/)
   assert.doesNotMatch(home, /seal\s*≠\s*solution|not a solution claim/i)
+  const census = axisForRelativePath('index.md').census
+  assert.ok(census)
+  const hero = homeHeroOf(census)
+  assert.ok(hero.features.some((f) =>
+    f.title.startsWith('clay_') && f.link.startsWith('/theorem/clay_')))
   const readme = readFileSync(join(ROOT, 'README.md'), 'utf8')
   assert.match(readme, /## Test proof of concept — Clay/)
   assert.match(readme, /computational claim/)

@@ -266,10 +266,19 @@ export default defineConfig({
     // Axis listings are monographs of that fold — attach only this URL's slice (not the Layout census).
     // Load the census after Rolldown: phd/os/host/ghz must not sit in the config graph during the bundle.
     if (isAxisListing || listingPath === 'index.md') {
-      const { axisForRelativePath } = await import('../../src/axis-monograph.js')
+      const { axisForRelativePath, homeHeroOf } = await import('../../src/axis-monograph.js')
       const axis = axisForRelativePath(pageData.relativePath)
       if (axis.axis) fm.axis = axis.axis
-      if (axis.census) fm.census = axis.census
+      if (axis.census) {
+        fm.census = axis.census
+        if (listingPath === 'index.md') {
+          const bag = homeHeroOf(axis.census)
+          fm.description = SITE.description
+          pageData.description = SITE.description
+          fm.hero = { name: bag.name, text: bag.text, tagline: bag.tagline, actions: bag.actions }
+          fm.features = bag.features
+        }
+      }
     }
     // Do not stamp objectKind onto listing markdown — ObjectBreadcrumbs would treat /theorems as an
     // object leaf (Home → handle) instead of the docs trail (Home → Theorems).

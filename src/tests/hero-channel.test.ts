@@ -58,6 +58,14 @@ test('the hero fuses only when captain coins are contributed at each rung', () =
   assert.deepEqual([...fuseLadder(1, 0)], [1])
 })
 
+test('resolveReferrer parses uuidna.com via URL host, not a substring', () => {
+  const a = heroAt(resolveReferrer('https://uuidna.com/caf5e83a'))
+  const b = heroAt(resolveReferrer('caf5e83a'))
+  assert.equal(a.handle, b.handle)
+  const decoy = resolveReferrer('https://evil.example/uuidna.com/caf5e83a')
+  assert.notEqual(handleOf(decoy), a.handle)
+})
+
 test('heroAt: two handles differ in boards, hsl, and referrer door', () => {
   const a = heroAt(resolveReferrer('caf5e83a'))
   const b = heroAt(resolveReferrer('0333fd7e'))

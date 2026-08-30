@@ -1,32 +1,5 @@
 ---
 layout: home
-description: "Lean 4 theorem ledger — content-addressed identity, honest by construction. Two coins conserved; cite by DOI-class handle."
-
-hero:
-  name: "uuidna"
-  text: "Content-addressed identity, honest by construction"
-  tagline: "Lean 4 theorem ledger — content-addressed identity, honest by construction. Two coins conserved; cite by handle."
-  actions:
-    - theme: brand
-      text: Use
-      link: /guides
-    - theme: alt
-      text: Clay — test POC
-      link: /articles/clay
-    - theme: alt
-      text: MCP
-      link: /mcp
-
-features:
-  - title: Clay
-    details: "Test POC — seven finite instances in Clay.lean, computationally claimed by decide. clay_gravity_equals_rosette (ℤ/7 · 21 · 42 · 2·64=128). Prior art DOI 10.5281/zenodo.21781603 first; captain next (credit law)."
-    link: /articles/clay
-  - title: Rosette · Glagolitic
-    details: "Pliska ℤ/7 — z7rays_seven · pliska_seven_rays · three_sevens_twentyone. Glagolitic computes in 7; letters fold to 9 (glagolitic_units_sum); digit×self uses vortex_orbit and digital_root."
-    link: /rosetta
-  - title: Quantum
-    details: "Hexbit 16-state tiles · 128=2^7 address (handle_capacity_is_quantum_by_architecture). Usable gap 2^80 (usable_gap_is_two_to_eighty). Doors: /mcp uuidna_os · uuidna_quantum."
-    link: /quantum
 ---
 
 ## Use

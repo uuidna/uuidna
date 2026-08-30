@@ -28,7 +28,6 @@ export default {
     app.component('CatalogueBrowser', defineAsyncComponent(() => import('./CatalogueBrowser.vue')))
     app.component('AgentCoverage', defineAsyncComponent(() => import('./AgentCoverage.vue')))
     app.component('FoldAnimation', defineAsyncComponent(() => import('./FoldAnimation.vue')))
-    app.component('HeroAnimation', defineAsyncComponent(() => import('./HeroAnimation.vue')))
     app.component('GridLattice', defineAsyncComponent(() => import('./GridLattice.vue')))
     app.component('PairGrid', defineAsyncComponent(() => import('./PairGrid.vue')))
     app.component('Reflect', defineAsyncComponent(() => import('./Reflect.vue')))

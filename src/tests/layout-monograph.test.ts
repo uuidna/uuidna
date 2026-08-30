@@ -5,7 +5,8 @@ import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import { theorems } from '../theorems/index.js'
-import { axisMonographs, axisForRelativePath } from '../axis-monograph.js'
+import { axisMonographs, axisForRelativePath, homeHeroOf } from '../axis-monograph.js'
+import { SITE } from '../site/index.js'
 
 const THEME = join(ROOT, 'docs/.vitepress/theme')
 const DOCS = join(ROOT, 'docs')
@@ -61,10 +62,33 @@ test('axisForRelativePath attaches only the URL that is that axis', () => {
   assert.deepEqual(other, {})
 })
 
+test('home hero is SITE + census — index.md YAML has no typed hero bag', () => {
+  const src = readFileSync(join(DOCS, 'index.md'), 'utf8')
+  const fmEnd = src.indexOf('\n---\n', 4)
+  const fm = src.slice(0, fmEnd)
+  assert.match(fm, /layout:\s*home/)
+  assert.doesNotMatch(fm, /^hero:/m)
+  assert.doesNotMatch(fm, /^features:/m)
+  assert.doesNotMatch(fm, /^description:/m)
+  const census = axisForRelativePath('index.md').census
+  assert.ok(census)
+  const hero = homeHeroOf(census)
+  assert.equal(hero.name, SITE.name)
+  assert.equal(hero.text, SITE.tagline)
+  assert.equal(hero.tagline, SITE.description)
+  assert.equal(hero.actions[0]?.link, SITE.origin)
+  assert.equal(hero.actions[1]?.link, SITE.repo)
+  assert.equal(hero.features.length, 3)
+  assert.equal(hero.features[1]?.title, String(census.theorems))
+  assert.equal(hero.features[2]?.link, '/quantum')
+  assert.doesNotMatch(JSON.stringify(hero.features), /Test POC|Rosette · Glagolitic/)
+})
+
 test('transformPageData bakes walkNext; ReferrerNav reads it', () => {
   const cfg = readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8')
   assert.match(cfg, /walkNext/)
   assert.match(cfg, /axisForRelativePath/)
+  assert.match(cfg, /homeHeroOf/)
   assert.match(cfg, /Do not stamp objectKind onto listing markdown/)
   assert.match(cfg, /monographFaceOf/)
   assert.match(cfg, /Object\.assign\(fm, monographFaceOf/)

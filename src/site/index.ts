@@ -13,7 +13,6 @@
 /** The site's identity — the one place its name, voice and origin are written. */
 export const SITE = {
   name: 'uuidna',
-  // Aligned with docs/index.md hero description — one voice for VitePress config + homepage.
   description:
     'Lean 4 theorem ledger — content-addressed identity, honest by construction. Two coins conserved; cite by DOI-class handle.',
   origin: 'https://uuidna.com',

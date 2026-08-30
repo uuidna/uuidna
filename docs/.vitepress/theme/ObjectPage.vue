@@ -3,7 +3,7 @@
      Hero = handle + hex face (tiles, Fu Xi board, aura). Locale chrome + Lean lead sit with the doc.
      Breadcrumbs: Layout #doc-before via ObjectBreadcrumbs. Nav next = this page's walkNext.
      Layout never imports the theorem census — that census is the /theorems monograph (and kin).
-     Home (layout: home) uses stock VPHome + HeroAnimation in #home-hero-after; uuidnaOS serves the handle door. -->
+     Home (layout: home) uses stock VPHome; uuidnaOS serves handle doors. -->
 <script setup>
 import { computed, ref, watch, onMounted, defineAsyncComponent } from 'vue'
 import DefaultTheme from 'vitepress/theme'
@@ -13,7 +13,6 @@ import ObjectCrosslinks from './ObjectCrosslinks.vue'
 import ReferrerNav from './ReferrerNav.vue'
 import ReadAloud from './ReadAloud.vue'
 import HexFace from './HexFace.vue'
-import HeroAnimation from './HeroAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
 import SponsorCard from './SponsorCard.vue'
 import {
@@ -73,9 +72,6 @@ watch(localeTag, (t) => {
     </template>
     <template #aside-ads-before>
       <SponsorCard />
-    </template>
-    <template #home-hero-after>
-      <HeroAnimation :size="280" />
     </template>
     <template #doc-before>
       <!-- Stock VP Layout slot for breadcrumbs (vitepress.dev/guide/extending-default-theme). -->
