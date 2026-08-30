@@ -683,6 +683,8 @@ export {
   type TrainingRow, type TrainingKind, type DiscoveryHint, type DiscoveryHintKind, type DiscoveryTrainReport, type TopicPattern,
 } from './refusal-trials.js'
 
+export { trialBookLead, trialAllBookLeads, bookTrialsUntried, type BookTrialRow, type BookTrialsRecord } from './book-trials.js'
+
 export { discover, superposition, rigid, type Value as DiscoverValue, type Relation } from './discover.js'
 
 

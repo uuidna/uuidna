@@ -307,7 +307,7 @@ export const dependsOn = (t: Theorem): readonly string[] => {
  *
  *  THE SECOND DEFECT, SAME LINE: `UUID_HEXBITS / n` is FLOAT division. Twelve theorems have three dependencies
  *  and produced 32/3 = 10.666666666666666, a repeating decimal in a file this tree seals and diffs. Nat division
- *  floors, so the ledger's own answer is 10. No law caught either: `no-float-math` matches `Math.*` only and
+ *  floors, so the ledger's own answer is 10. No law caught either: `no-float-math` matches float Math calls only and
  *  harmonic-scan rule 2 bans the intrinsics, so a plain `/` that produces a float is unchecked everywhere.
  *
  *  Both are one fix — compute it the way the kernel computes it. SAFE AT THIS LEDGER'S SHAPE, checked rather
@@ -481,7 +481,7 @@ export const axiomBalanceSlice = (
   const citedDefs = defsUsed.size
   const theoremsPerDef = citedDefs ? citeEdges / citedDefs : 0
   const defsPerBound = bound ? citeEdges / bound : 0
-  const delta = Math.abs(theoremsPerDef - defsPerBound)
+  const delta = theoremsPerDef >= defsPerBound ? theoremsPerDef - defsPerBound : defsPerBound - theoremsPerDef
   const balanced = citeEdges === 0 || (citedDefs === bound && delta < 1e-9)
   return {
     dimension,

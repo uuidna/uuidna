@@ -231,8 +231,12 @@ export const decodeRosettaLedger = (ts: readonly Theorem[] = THEOREMS, rows: rea
     for (let i = 0; i < 5; i++) if (m & (1 << i)) pop++
     maskCoins += 2 * pop
   }
-  const minRay = Math.min(...rays.map((r) => r.theorems))
-  const maxRay = Math.max(...rays.map((r) => r.theorems))
+  let minRay = rays[0]?.theorems ?? 0
+  let maxRay = minRay
+  for (const r of rays) {
+    if (r.theorems < minRay) minRay = r.theorems
+    if (r.theorems > maxRay) maxRay = r.theorems
+  }
   const witness = census.perLeg.find((p) => p.leg === 'witness')?.theorems ?? 0
   const falsifier = census.perLeg.find((p) => p.leg === 'falsifier')?.theorems ?? 0
   const ratios = [
@@ -297,7 +301,7 @@ export const decodeLife = (): LifeDecode => {
   const sample = latentEntries.slice(0, 12).map((e) => ({ file: e.file, def: e.def, principle: e.principle }))
   let revealGap = latentEntries.length
   for (const s of bal.worst) {
-    if (!s.balanced) revealGap += Math.abs(s.citedDefs - s.bound)
+    if (!s.balanced) revealGap += s.citedDefs >= s.bound ? s.citedDefs - s.bound : s.bound - s.citedDefs
   }
   const cap = os.capacity
   const fourWidths: [number, number, number, number] = [

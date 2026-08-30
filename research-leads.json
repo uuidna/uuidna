@@ -1,4 +1,19 @@
 {
-  "leads": [],
-  "receipt": "7d7bb53c-13ea-8260-a838-4ae2dc8eae16"
+  "leads": [
+    {
+      "module": "src/quantum/os/cli.ts",
+      "capability": [],
+      "reason": "no root reaches it — nothing in the public API, the scripts, or the tests imports it",
+      "develop": {
+        "local": [
+          "wire it to a root — import its exports from index.ts (public API), a script, or a test",
+          "promote its claim to a Lean theorem so the trial verifies it",
+          "find the existing caller it was meant to serve, and connect it"
+        ],
+        "online": "if every local option is exhausted, escalate the lead ONLINE — external research (domainWave outer wave / deepResearch) on whether the capability is worth reviving; then TRIAL the results AT QUANTUM SCALE — adjudicate each finding VERIFIED/UNVERIFIED and fold them to the order-invariant quantum receipt (quantumReceipt / merkleGravity) — so nothing revived enters unverified, before it is archived"
+      },
+      "receipt": "801aeb8e-623c-8e23-a84c-cb66e890829d"
+    }
+  ],
+  "receipt": "fa8bb779-da1f-8c12-b8fd-a9373e07d483"
 }

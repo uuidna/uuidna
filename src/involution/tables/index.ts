@@ -1,7 +1,8 @@
 // involution/tables — sealed Lean mirrors the evaluator must know by name (Installs.lean, Models.lean).
 // Derived from the same committed mirrors the Lean generators use — never hand-edited.
 import { INSTALLS_MIRROR } from '../../quantum/os/mirror.js'
-import { buildOrder, routeOf } from '../../quantum/os/index.js'
+import { buildOrder } from '../../quantum/os/index.js'
+import { routeOf } from '../../quantum/os/routes.js'
 import { MODELS_MIRROR } from '../../quantum/models/mirror.js'
 import { modelComparison } from '../../quantum/models/index.js'
 

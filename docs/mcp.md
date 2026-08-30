@@ -4,13 +4,13 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="229 keys" />
+# MCP tools <Badge type="tip" text="230 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 229 tools below are read from the server's own tool list and
-organised into 40 categories and their skills, so the site search and this page's navigation stay in
+is **built from the keys**: the 230 tools below are read from the server's own tool list and
+organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
 page; an MCP client GETs the JSON discovery document and POSTs JSON-RPC to the live hosted subset at
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 83718313-15c3-8099-a1aa-e172cd59a86d
+gate CLEAN f0 d0 v0 · 325722f0-1b93-8c73-bb7d-1216c82d136a
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 229-tool registry folds to its
-order-invariant identity `6e1f7e89-5a45-8393-9fa8-5acff0855d88` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 230-tool registry folds to its
+order-invariant identity `d6aa74b9-1aca-86d0-abb9-39f266e6d252` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`229`" />
+## The grid <Badge type="tip" :text="`230`" />
 
-229 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 95 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+230 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 96 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -70,6 +70,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-credits-summary"><code>credits_summary</code></a>
 <a href="#uuidna-crypto"><code>crypto</code></a>
 <a href="#uuidna-css"><code>css</code></a>
+<a href="#uuidna-decode"><code>decode</code></a>
 <a href="#uuidna-development-vortex"><code>development_vortex</code></a>
 <a href="#uuidna-dictionary"><code>dictionary</code></a>
 <a href="#uuidna-discovery-train"><code>discovery_train</code></a>
@@ -567,7 +568,7 @@ _No parameters._
 
 ### `uuidna_trial`
 
-Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger's integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.
+Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by decide` proof, each address walked through runSequence (polarity, spin as period, angle as digit-step × seed, rosetta ray degrees). Content-addresses fold order-invariantly to ONE receipt. Returns {count,verified,receipt,sequence,verdicts}. Same lean/*.lean, same receipt.
 
 _No parameters._
 
@@ -1411,7 +1412,7 @@ Each theorem SCANS its NEIGHBOURS: given a key, return the sealed theorems that 
 
 ### `uuidna_axiom_index`
 
-WING AXIOMS ↔ THEOREMS, both directions. Pass {file,def} for one wing def and every theorem whose statement cites it (axiomExplain). Pass nothing for the full index: every def declared in lean/*.lean, which theorems cite it, and which defs are unused vocabulary. Pairs with uuidna_theorem axioms field (theorem → defs). Recomputable from WING_DEFS + dependsOn. Returns {totalDefs,citedDefs,unusedDefs,wings,entries} or one {file,def,principle,theorems,theoremCount,unused}.
+WING AXIOMS ↔ THEOREMS, both directions. Pass {file,def} for one wing def and every theorem whose statement cites it (axiomExplain). Pass nothing for the full index: every def declared in lean/*.lean, which theorems cite it, which defs are unused vocabulary, and the fused axiom-balance receipt across ledger/wing/principle/skill/ray (both-direction ratios). Pairs with uuidna_theorem axioms field (theorem → defs). Recomputable from WING_DEFS + dependsOn. Returns {totalDefs,citedDefs,unusedDefs,wings,entries,balance} or one {file,def,principle,theorems,theoremCount,unused}.
 
 **Parameters**
 
@@ -2512,6 +2513,20 @@ Double-torus development throat — uuidna ledger ↔ zeropoint-node lobe fold p
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `wave` | string | no | origin\|decode\|design\|learn\|tune\| |
+
+## Decoded Sequence + Rosetta + life <Badge type="tip" :text="'1'" />
+
+*skill: measure*
+
+### `uuidna_decode`
+
+DECODED uuidna — one recomputable door: runSequence polarities on every theorem address, ±60° dash angles, 360/7° rosetta rays, uuidnaOS boot ground (four widths + boot receipt), living ledger, latent wing axioms and reveal gap, genesis chain, axiom-balance ratios. Pass {key} for one theorem through Sequence + Rosetta. Nothing authored — all read off sealed facts. Returns full decode or one DecodedTheorem row. Pairs with uuidna_analytics audit field and measure uuidna-decode.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `key` | string | no | optional theorem key — decode on |
 
 ## Publications (audited prose) <Badge type="tip" :text="'4'" />
 

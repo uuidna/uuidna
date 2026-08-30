@@ -8,6 +8,8 @@ import { waveQueueState } from './wave-deposit.js'
 import { leadsTrialGaps, type LeadsRecord } from './school/leads/index.js'
 import { gatherOpenLeads } from './school/open/questions/springs.js'
 import { ROOT } from './boundary.js'
+import { DERIVE_SURFACES_CMD } from './derive-surfaces-cmd.js'
+import { bookTrialsUntried, type BookTrialsRecord } from './book-trials.js'
 import { refusalTrialsOpen, type RefusalTrialsRecord } from './refusal-trials.js'
 
 // ── boundary-law — NO BOUNDARY UNLESS IN THEOREMS. ──
@@ -122,11 +124,8 @@ export function lonelyGaps(): LonelyGap[] {
   return gaps
 }
 
-/** One command — regrow every desk surface derived from the live records. */
-export const DERIVE_SURFACES_CMD =
-  'node dist/scripts/derive-prose-trials.js && node dist/scripts/gen-search-feed.js && node dist/scripts/gen-open-questions.js && node dist/scripts/gen-school.js'
-
-// ── gap survey ──
+/** Re-export for gap buckets — defined in derive-surfaces-cmd to avoid circular init with fill-gaps-plan. */
+export { DERIVE_SURFACES_CMD } from './derive-surfaces-cmd.js'
 
 export interface GapBucket {
   kind: string
@@ -149,6 +148,7 @@ export interface GapSurvey {
   wavePending: number
   waveInFlight: number
   refusalOpen: number
+  bookTrialsUntried: number
   buckets: GapBucket[]
   kernelOnly: GapBucket[]
   automatable: GapBucket[]
@@ -171,6 +171,10 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   const trialsRecord = readRepoJson('lean/refusal-trials.json') as RefusalTrialsRecord | null
   const refusedCount = (record?.refused ?? []).filter((r) => String(r.boundary ?? '').trim() && String(r.lead ?? '').trim()).length
   const refusalOpen = trialsRecord ? refusalTrialsOpen(trialsRecord) : refusedCount
+  const bookRaw = readRepoJson('book-leads.json') as { lead?: unknown[] } | null
+  const bookCorpus = bookRaw?.lead?.length ?? 0
+  const bookRecord = readRepoJson('lean/book-trials.json') as BookTrialsRecord | null
+  const bookTrialsGap = bookTrialsUntried(bookCorpus, bookRecord)
   const release = readings.length ? leadCensus(readings) : { ready: true, open: [] as never[] }
 
   const buckets: GapBucket[] = []
@@ -217,6 +221,11 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
     act: 'node dist/scripts/trial-refusals.js --books',
     note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — trial each refused boundary against the ledger and book corpus until lean or exposed`,
   })
+  if (bookTrialsGap > 0) buckets.push({
+    kind: 'book-trials', count: bookTrialsGap, automatable: true,
+    act: 'node dist/scripts/trial-book-leads.js',
+    note: `${boundaryCitation(BOUNDARY_THEOREMS.remand)} — trial every book-leads candidate; remand open doors to school`,
+  })
   if (openLeads > 0) buckets.push({
     kind: 'open-leads', count: openLeads, automatable: true,
     act: DERIVE_SURFACES_CMD,
@@ -246,6 +255,7 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
     wavePending: wave.pending,
     waveInFlight: wave.inFlight.size,
     refusalOpen,
+    bookTrialsUntried: bookTrialsGap,
     buckets,
     kernelOnly,
     automatable,

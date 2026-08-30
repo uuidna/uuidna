@@ -2,8 +2,8 @@
 // fill-gaps-run.ts so the Workers bundle stays clean (verify_beats_recompute_by_magnitudes at the edge door).
 import { toUuid } from '../address.js'
 import { hexbitReceipt } from '../hexbit/index.js'
-import { gapSurvey, type GapSurvey } from '../gap-survey.js'
-import { DERIVE_SURFACES_CMD } from '../gap-survey.js'
+import { DERIVE_SURFACES_CMD } from '../derive-surfaces-cmd.js'
+import { type GapSurvey } from '../gap-survey.js'
 
 export interface FillGapsPhase {
   name: string
@@ -39,6 +39,12 @@ export const FILL_GAPS_CORE_PHASES: readonly FillGapsPhase[] = [
     cmd: 'node dist/scripts/trial-refusals.js --books',
     note: 'collide each refused boundary against peers and cited theorems — verified, purged, or open',
     when: (s) => s.refusalOpen > 0,
+  },
+  {
+    name: 'trial-book-leads',
+    cmd: 'node dist/scripts/trial-book-leads.js',
+    note: 'testClaim every book-leads candidate — remand open doors to school',
+    when: (s) => s.bookTrialsUntried > 0,
   },
   {
     name: 'wave',

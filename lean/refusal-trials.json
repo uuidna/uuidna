@@ -1,6 +1,6 @@
 {
  "why": "Each refused lead trialed against the sealed ledger, book corpus, pairwise refusal collisions, and per-key theorem adjudication. Witness keys push across colliding lean→open neighbours until stable. verified = policy boundary OR lean with every sealed key adjudicated VERIFIED; purged = duplicate lead; open = still unsettled. Desk proposes; captain seals.",
- "recorded": "10696140-5",
+ "recorded": "7980c073-8",
  "refused": 20,
  "lean": 11,
  "policy": 9,
@@ -9,7 +9,7 @@
  "purged": 0,
  "collisionPairs": 27,
  "rounds": 0,
- "receipt": "10696140-5b99-8b2b-9542-589c1cba1672",
+ "receipt": "7980c073-8f35-8783-896a-05782bcc1ce4",
  "trials": [
   {
    "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
@@ -24,51 +24,10 @@
    "status": "policy",
    "bookHits": [
     {
-     "claim": "And five bars",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "boards",
-      "boards",
-      "boards"
-     ]
-    },
-    {
-     "claim": "six steps",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "stays",
-      "beside",
-      "stays"
-     ]
-    },
-    {
-     "claim": "thousand and seven hundred shekels",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "beside",
-      "beside"
-     ]
-    },
-    {
-     "claim": "300 years",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
-     "overlap": [
-      "both"
-     ]
-    },
-    {
-     "claim": "and ten thousand measures",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "four points",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
       "both"
      ]
@@ -124,7 +83,7 @@
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "99f078cb-777b-8fd2-a7d6-584fdb293212"
+   "receipt": "435bfcd3-d92e-8665-88ec-7ddc5bed8a8c"
   },
   {
    "lead": "The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution.",
@@ -151,19 +110,6 @@
    "status": "lean",
    "bookHits": [
     {
-     "claim": "one step",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
-     "overlap": [
-      "step",
-      "argument",
-      "step",
-      "independent",
-      "never"
-     ]
-    },
-    {
      "claim": "And one day",
      "bookTitle": "The Koran (Al-Qur'an)",
      "bookId": 2800,
@@ -188,27 +134,35 @@
      ]
     },
     {
-     "claim": "one year",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "forty-five degrees",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "before",
-      "before",
-      "against",
-      "before"
+      "never",
+      "order",
+      "points"
      ]
     },
     {
      "claim": "six days",
-     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
-     "bookId": 39863,
-     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
+      "witness",
       "before",
-      "already",
-      "before",
-      "number"
+      "before"
+     ]
+    },
+    {
+     "claim": "45 degrees, or four points",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "points",
+      "points"
      ]
     }
    ],
@@ -293,7 +247,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "b5ed6a64-b18d-89d8-b74a-78036563f287"
+   "receipt": "784ed87c-aa24-852e-b039-683451afb024"
   },
   {
    "lead": "Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.",
@@ -318,17 +272,6 @@
    "status": "lean",
    "bookHits": [
     {
-     "claim": "eleven days",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "against",
-      "between",
-      "pass"
-     ]
-    },
-    {
      "claim": "four days",
      "bookTitle": "The Koran (Al-Qur'an)",
      "bookId": 2800,
@@ -337,17 +280,6 @@
       "tower",
       "whether",
       "against"
-     ]
-    },
-    {
-     "claim": "three and four years",
-     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
-     "bookId": 39863,
-     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
-     "overlap": [
-      "where",
-      "between",
-      "tower"
      ]
     },
     {
@@ -361,13 +293,30 @@
      ]
     },
     {
-     "claim": "five days",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "20 miles",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "neither",
-      "until"
+      "source"
+     ]
+    },
+    {
+     "claim": "9 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "alone"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "against"
      ]
     }
    ],
@@ -423,7 +372,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "76fcf816-bd0a-8392-b604-b19189b3d909"
+   "receipt": "624d45dc-042e-8b48-8ccb-a5fa637aad14"
   },
   {
    "lead": "The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bound is ALREADY SEALED as gematria_forces_collisions (22^3 = 10648 > 1198 sums) and seats_pigeonhole.",
@@ -446,55 +395,50 @@
    "status": "lean",
    "bookHits": [
     {
-     "claim": "six months",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "forty-five degrees",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "every",
-      "until",
-      "every"
+      "direction",
+      "direction"
      ]
     },
     {
-     "claim": "six years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "Four points, or forty-five degrees",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "covered",
-      "free",
-      "nothing"
+      "direction",
+      "direction"
      ]
     },
     {
-     "claim": "300 years",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "claim": "12 inches",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "every",
-      "every"
+      "bound"
      ]
     },
     {
-     "claim": "Fifteen cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "45 degrees",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "covered",
-      "covered"
+      "direction"
      ]
     },
     {
-     "claim": "forty baths",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "45 degrees, or four points",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "every",
-      "every"
+      "direction"
      ]
     }
    ],
@@ -584,7 +528,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "380d7a82-5d68-825a-a007-65fc9d859453"
+   "receipt": "52699345-d2b7-8695-ba43-ee2e418f2a13"
   },
   {
    "lead": "Dual-base wing harmony (w divisible by 15) as a release-blocking grid gate",
@@ -603,58 +547,49 @@
    "status": "lean",
    "bookHits": [
     {
-     "claim": "seven steps",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "fifty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
       "after",
-      "gate",
-      "gate",
-      "gate"
+      "after"
      ]
     },
     {
-     "claim": "eighteen thousand measures",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
-      "gate",
-      "gate",
-      "gate"
+      "after"
      ]
     },
     {
-     "claim": "five and twenty cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "12 inches",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "measured",
-      "gate",
-      "gate"
+      "after"
      ]
     },
     {
-     "claim": "thirteen cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "Forty days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
-      "measured",
-      "gate",
-      "gate"
+      "after"
      ]
     },
     {
-     "claim": "and six cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "four points",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "measured",
-      "gate"
+      "both"
      ]
     }
    ],
@@ -716,7 +651,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "c9eefb31-f1c3-8909-90ad-d9f063f12573"
+   "receipt": "1233cfc9-e768-8136-8afe-901a827f8526"
   },
   {
    "lead": "Over-unity / free energy devices",
@@ -756,39 +691,6 @@
      ]
     },
     {
-     "claim": "and five and twenty cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "were",
-      "were",
-      "were"
-     ]
-    },
-    {
-     "claim": "And seven days",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "water",
-      "water",
-      "were"
-     ]
-    },
-    {
-     "claim": "Fifteen cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "were",
-      "were",
-      "were"
-     ]
-    },
-    {
      "claim": "four feet",
      "bookTitle": "The Koran (Al-Qur'an)",
      "bookId": 2800,
@@ -797,6 +699,37 @@
       "water",
       "what",
       "over"
+     ]
+    },
+    {
+     "claim": "two feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "water",
+      "what",
+      "over"
+     ]
+    },
+    {
+     "claim": "10 feet",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "over",
+      "full"
+     ]
+    },
+    {
+     "claim": "16 feet",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "over",
+      "were"
      ]
     }
    ],
@@ -855,7 +788,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "2a494693-af27-86d7-97fa-e45050c6db67"
+   "receipt": "61527f1d-205e-8350-be15-17c47263bad8"
   },
   {
    "lead": "Water itself as fuel",
@@ -886,53 +819,47 @@
    "status": "lean",
    "bookHits": [
     {
-     "claim": "two cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "00 Year",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "half",
-      "half",
-      "half"
-     ]
-    },
-    {
-     "claim": "and one cubit",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "half",
-      "half"
-     ]
-    },
-    {
-     "claim": "And seven days",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "water",
       "water"
      ]
     },
     {
-     "claim": "one foot",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "claim": "and seven days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
-      "water",
+      "itself"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "water"
+     ]
+    },
+    {
+     "claim": "six feet",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
       "same"
      ]
     },
     {
-     "claim": "one foot, or a weight of one pound 772 feet",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
-      "water",
       "same"
      ]
     }
@@ -1017,7 +944,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "b5b87a76-8b6a-8e2b-8868-1b6f9cd96f94"
+   "receipt": "dd6eda63-2d06-88f9-bc50-0e0c5eaa46ca"
   },
   {
    "lead": "MFC exhausting pure drinkable water",
@@ -1060,33 +987,30 @@
      ]
     },
     {
-     "claim": "And seven days",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "00 Knots",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "water",
+      "pilot"
+     ]
+    },
+    {
+     "claim": "00 Year",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
       "water"
      ]
     },
     {
-     "claim": "five and twenty cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "10 miles",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "measured",
-      "against"
-     ]
-    },
-    {
-     "claim": "one point",
-     "bookTitle": "Novum organum : $b or, True suggestions for the interpretation of nature",
-     "bookId": 45988,
-     "address": "7ca27499-5b18-8b26-be82-5657c2de26ec",
-     "overlap": [
-      "water",
-      "water"
+      "only"
      ]
     }
    ],
@@ -1133,7 +1057,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "05ed1b36-4875-87c4-bc59-04b8864115cc"
+   "receipt": "ea94708b-c05b-8d71-947c-f89d35a362ce"
   },
   {
    "lead": "Bulk crawling of chitanka.info",
@@ -1148,46 +1072,6 @@
    "status": "policy",
    "bookHits": [
     {
-     "claim": "300 years",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
-     "overlap": [
-      "every",
-      "every"
-     ]
-    },
-    {
-     "claim": "forty baths",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "every",
-      "every"
-     ]
-    },
-    {
-     "claim": "six feet",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
-     "overlap": [
-      "every",
-      "every"
-     ]
-    },
-    {
-     "claim": "six months",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "every",
-      "every"
-     ]
-    },
-    {
      "claim": "10 feet",
      "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
      "bookId": 45493,
@@ -1195,12 +1079,48 @@
      "overlap": [
       "full"
      ]
+    },
+    {
+     "claim": "20 feet",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "full"
+     ]
+    },
+    {
+     "claim": "20 inches",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "full"
+     ]
+    },
+    {
+     "claim": "32 feet",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "full"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "single"
+     ]
     }
    ],
    "collisions": [],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "07f35d7b-9616-8359-8ed1-faf6d39d1ec9"
+   "receipt": "6e482bfa-3961-82c8-9f56-ad9030aeddc4"
   },
   {
    "lead": "Quantum advantage or speedup claims",
@@ -1229,42 +1149,39 @@
      ]
     },
     {
-     "claim": "one year",
-     "bookTitle": "Our Knowledge of the External World as a Field for Scientific Method in Philosophy",
-     "bookId": 37090,
-     "address": "6809979f-46d8-89d0-9f78-438b3e89632a",
-     "overlap": [
-      "never",
-      "such"
-     ]
-    },
-    {
-     "claim": "Twenty years",
-     "bookTitle": "Our Knowledge of the External World as a Field for Scientific Method in Philosophy",
-     "bookId": 37090,
-     "address": "6809979f-46d8-89d0-9f78-438b3e89632a",
-     "overlap": [
-      "classical",
-      "classical"
-     ]
-    },
-    {
-     "claim": "two points",
-     "bookTitle": "Our Knowledge of the External World as a Field for Scientific Method in Philosophy",
-     "bookId": 37090,
-     "address": "6809979f-46d8-89d0-9f78-438b3e89632a",
-     "overlap": [
-      "next",
-      "next"
-     ]
-    },
-    {
      "claim": "16 feet",
      "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
      "bookId": 45493,
      "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
       "such"
+     ]
+    },
+    {
+     "claim": "5 feet",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "such"
+     ]
+    },
+    {
+     "claim": "forty-five degrees",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "never"
+     ]
+    },
+    {
+     "claim": "Four points, or forty-five degrees",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "never"
      ]
     }
    ],
@@ -1310,7 +1227,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "641192ee-5053-87ac-afdf-1240537e01e3"
+   "receipt": "766bef34-2da6-819c-baaa-41304216b3e9"
   },
   {
    "lead": "stackoverflow.com /ai-assist as a theorem source",
@@ -1337,18 +1254,6 @@
      ]
     },
     {
-     "claim": "Twelve years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "which",
-      "which",
-      "they",
-      "they"
-     ]
-    },
-    {
      "claim": "and eight days",
      "bookTitle": "The Koran (Al-Qur'an)",
      "bookId": 2800,
@@ -1356,17 +1261,6 @@
      "overlap": [
       "they",
       "which",
-      "they"
-     ]
-    },
-    {
-     "claim": "And seven months",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "they",
-      "they",
       "they"
      ]
     },
@@ -1380,12 +1274,34 @@
       "which",
       "they"
      ]
+    },
+    {
+     "claim": "seven years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "they",
+      "which",
+      "which"
+     ]
+    },
+    {
+     "claim": "ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "they",
+      "which",
+      "they"
+     ]
     }
    ],
    "collisions": [],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "f20a07ab-4082-8e63-88e6-e0606528756d"
+   "receipt": "b3022456-bf54-8f05-adc5-0bbd6b39aedf"
   },
   {
    "lead": "Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.",
@@ -1400,28 +1316,6 @@
    "status": "policy",
    "bookHits": [
     {
-     "claim": "twenty cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "their",
-      "their",
-      "their",
-      "their"
-     ]
-    },
-    {
-     "claim": "2 Day",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "their",
-      "their"
-     ]
-    },
-    {
      "claim": "and ten days",
      "bookTitle": "The Koran (Al-Qur'an)",
      "bookId": 2800,
@@ -1432,20 +1326,40 @@
      ]
     },
     {
-     "claim": "fifty years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "their",
+      "origin"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
       "their",
       "their"
      ]
     },
     {
-     "claim": "fifty years",
-     "bookTitle": "Novum organum : $b or, True suggestions for the interpretation of nature",
-     "bookId": 45988,
-     "address": "7ca27499-5b18-8b26-be82-5657c2de26ec",
+     "claim": "thousand years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "their",
+      "their"
+     ]
+    },
+    {
+     "claim": "three months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
       "their",
       "their"
@@ -1518,7 +1432,7 @@
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "04878a15-371c-8306-94dc-2f5b6d6b5deb"
+   "receipt": "e1fb7af7-ed22-8067-8683-efa129e4f65f"
   },
   {
    "lead": "Port origin BackgroundMovie / sharedHeroAt / quantumModelSnapshot 10D (6 appearance + 4 homology) as uuidna HeroAnimation or HexFace.",
@@ -1530,42 +1444,19 @@
    "citedKeys": [
     "n_qubit_dimension"
    ],
-   "witnessKeys": [],
+   "witnessKeys": [
+    "station_ten_is_hexagram_plus_hexbit",
+    "ten_square_computes_ten_dimensions",
+    "z7rays_seven"
+   ],
    "sealedKeys": [
-    "n_qubit_dimension"
+    "n_qubit_dimension",
+    "station_ten_is_hexagram_plus_hexbit",
+    "ten_square_computes_ten_dimensions",
+    "z7rays_seven"
    ],
    "status": "lean",
    "bookHits": [
-    {
-     "claim": "303 Point",
-     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
-     "bookId": 39863,
-     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
-     "overlap": [
-      "reading",
-      "reading"
-     ]
-    },
-    {
-     "claim": "six steps",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "stays",
-      "stays"
-     ]
-    },
-    {
-     "claim": "Twenty years",
-     "bookTitle": "Our Knowledge of the External World as a Field for Scientific Method in Philosophy",
-     "bookId": 37090,
-     "address": "6809979f-46d8-89d0-9f78-438b3e89632a",
-     "overlap": [
-      "classical",
-      "classical"
-     ]
-    },
     {
      "claim": "five years",
      "bookTitle": "The Koran (Al-Qur'an)",
@@ -1582,6 +1473,33 @@
      "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
       "never"
+     ]
+    },
+    {
+     "claim": "Four points, or forty-five degrees",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "never"
+     ]
+    },
+    {
+     "claim": "six feet",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "port"
+     ]
+    },
+    {
+     "claim": "two months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "free"
      ]
     }
    ],
@@ -1616,10 +1534,22 @@
     {
      "key": "n_qubit_dimension",
      "verdict": "VERIFIED"
+    },
+    {
+     "key": "station_ten_is_hexagram_plus_hexbit",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "ten_square_computes_ten_dimensions",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "z7rays_seven",
+     "verdict": "VERIFIED"
     }
    ],
    "disposition": "verified",
-   "receipt": "2fe4aec6-b5f1-8ca5-a41d-8a65847f9e4c"
+   "receipt": "8d5b755e-9528-8f87-bb9e-1d2d4cea5bf9"
   },
   {
    "lead": "Scrape King Wen, sephirot, chakra, or deity-name tables into occupancy, Lean, or hero chrome.",
@@ -1634,51 +1564,6 @@
    "status": "policy",
    "bookHits": [
     {
-     "claim": "six feet",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
-     "overlap": [
-      "name",
-      "name",
-      "name",
-      "name"
-     ]
-    },
-    {
-     "claim": "and thirty talents",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "king",
-      "king",
-      "king"
-     ]
-    },
-    {
-     "claim": "Five and twenty years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "king",
-      "king",
-      "name"
-     ]
-    },
-    {
-     "claim": "hundred and seven and twenty years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "whose",
-      "name",
-      "life"
-     ]
-    },
-    {
      "claim": "one day",
      "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
      "bookId": 2017,
@@ -1687,6 +1572,45 @@
       "life",
       "life",
       "life"
+     ]
+    },
+    {
+     "claim": "100 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "tradition",
+      "life"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "life",
+      "life"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "always",
+      "whose"
+     ]
+    },
+    {
+     "claim": "250 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "numbers"
      ]
     }
    ],
@@ -1726,7 +1650,7 @@
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "cf94981c-f973-84c5-8590-a08c01feccae"
+   "receipt": "87acc0e4-8c58-89dc-b6ec-962faa692dd3"
   },
   {
    "lead": "Honesty / HONEST SCOPE fields, covering hunts, or includes() disclaimer tests on new constructors.",
@@ -1741,52 +1665,21 @@
    "status": "policy",
    "bookHits": [
     {
-     "claim": "and twenty cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "court",
-      "court"
-     ]
-    },
-    {
-     "claim": "eight cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "court",
-      "court"
-     ]
-    },
-    {
-     "claim": "eight steps",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "court",
-      "court"
-     ]
-    },
-    {
-     "claim": "hundred cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "court",
-      "court"
-     ]
-    },
-    {
      "claim": "one day",
      "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
      "bookId": 2017,
      "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
      "overlap": [
       "lives",
+      "lives"
+     ]
+    },
+    {
+     "claim": "hundred years",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
       "lives"
      ]
     }
@@ -1814,7 +1707,7 @@
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "86767a08-ac0f-8786-9ffb-16f473ad6b26"
+   "receipt": "38ae4952-df06-8049-9060-04eeb0678d2f"
   },
   {
    "lead": "Desk auto-seals, mints a theorem key, or writes a statement/name/claim into src/.",
@@ -1829,18 +1722,6 @@
    "status": "policy",
    "bookHits": [
     {
-     "claim": "six feet",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
-     "overlap": [
-      "name",
-      "name",
-      "name",
-      "name"
-     ]
-    },
-    {
      "claim": "60 years",
      "bookTitle": "The Koran (Al-Qur'an)",
      "bookId": 2800,
@@ -1851,40 +1732,46 @@
      ]
     },
     {
-     "claim": "fifty days",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "10 miles",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "wave",
-      "wave"
+      "only"
      ]
     },
     {
-     "claim": "hundred and thirty years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "20 miles",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "name",
+      "only"
+     ]
+    },
+    {
+     "claim": "37 miles",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
       "name"
      ]
     },
     {
-     "claim": "twenty and one years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
-      "name",
-      "name"
+      "only"
      ]
     }
    ],
    "collisions": [],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "0faf693e-8ef8-8d83-b9f3-1b5be134cef0"
+   "receipt": "98e672f7-6d22-83b5-8d43-29a7eb1c938a"
   },
   {
    "lead": "Replace ChaCha20-Poly1305 with the 256-triangle fold as the secrecy primitive.",
@@ -1901,57 +1788,7 @@
     "aead_nonce_and_salt_bits"
    ],
    "status": "lean",
-   "bookHits": [
-    {
-     "claim": "And five bars",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "boards",
-      "boards",
-      "boards"
-     ]
-    },
-    {
-     "claim": "fourteen cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "squares",
-      "squares"
-     ]
-    },
-    {
-     "claim": "six steps",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "stays",
-      "stays"
-     ]
-    },
-    {
-     "claim": "four months",
-     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
-     "bookId": 39863,
-     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
-     "overlap": [
-      "held"
-     ]
-    },
-    {
-     "claim": "one cubit",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "boards"
-     ]
-    }
-   ],
+   "bookHits": [],
    "collisions": [
     {
      "handle": "94f264b4",
@@ -1973,7 +1810,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "39aabbd1-3401-852d-9486-13acf9c77362"
+   "receipt": "67837013-d0b3-862d-85d9-066c7ec288c8"
   },
   {
    "lead": "Run gen-quantum-capacity or rewrite IBM/Google figures as this wave.",
@@ -1988,50 +1825,12 @@
    "status": "policy",
    "bookHits": [
     {
-     "claim": "fifty days",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "forty years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
      "overlap": [
-      "wave",
-      "wave"
-     ]
-    },
-    {
-     "claim": "hundred and forty and four cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "wall",
-      "wall"
-     ]
-    },
-    {
-     "claim": "and ten cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "wall"
-     ]
-    },
-    {
-     "claim": "and three years",
-     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
-     "bookId": 39863,
-     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
-     "overlap": [
-      "wall"
-     ]
-    },
-    {
-     "claim": "eight hundred and fifteen years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "live"
+      "derived"
      ]
     }
    ],
@@ -2057,7 +1856,7 @@
    ],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "f53a139d-2da3-886e-a987-b5e49f27015f"
+   "receipt": "711cfad1-8409-8df4-84d4-33de49cb1f98"
   },
   {
    "lead": "Invent versionSeat or collapse the four hexbit widths 4 / 8 / 16 / 32.",
@@ -2072,45 +1871,6 @@
    "status": "policy",
    "bookHits": [
     {
-     "claim": "four miles",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
-     "overlap": [
-      "four",
-      "four",
-      "four",
-      "four",
-      "four",
-      "four",
-      "four"
-     ]
-    },
-    {
-     "claim": "four and thirty years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "four",
-      "four",
-      "four",
-      "four"
-     ]
-    },
-    {
-     "claim": "four feet",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "four",
-      "four",
-      "four",
-      "four"
-     ]
-    },
-    {
      "claim": "four feet",
      "bookTitle": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
      "bookId": 2388,
@@ -2122,12 +1882,41 @@
      ]
     },
     {
-     "claim": "four hundred and thirty years",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "claim": "45 degrees, or four points",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
       "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
       "four",
       "four"
      ]
@@ -2136,7 +1925,7 @@
    "collisions": [],
    "theoremTrials": [],
    "disposition": "verified",
-   "receipt": "4dc14b39-67a0-8b52-bb95-4d08a1cd45ae"
+   "receipt": "6f4af2fe-0c05-8b00-8b4d-56954316e45e"
   },
   {
    "lead": "All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.",
@@ -2182,16 +1971,6 @@
      ]
     },
     {
-     "claim": "five and twenty cubits",
-     "bookTitle": "The King James Version of the Bible",
-     "bookId": 10,
-     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
-     "overlap": [
-      "door",
-      "door"
-     ]
-    },
-    {
      "claim": "seventy cubits",
      "bookTitle": "The Koran (Al-Qur'an)",
      "bookId": 2800,
@@ -2202,13 +1981,21 @@
      ]
     },
     {
-     "claim": "six feet",
-     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
-     "bookId": 27942,
-     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "claim": "00 Year",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
      "overlap": [
-      "because",
-      "because"
+      "power"
+     ]
+    },
+    {
+     "claim": "10 miles",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "only"
      ]
     }
    ],
@@ -2278,7 +2065,7 @@
     }
    ],
    "disposition": "verified",
-   "receipt": "6152f6e2-cd49-8d9e-a47d-c37710050567"
+   "receipt": "99971e2a-a86f-8e5f-b17e-b060b4c38eee"
   }
  ]
 }

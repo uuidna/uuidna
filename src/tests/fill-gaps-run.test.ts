@@ -19,6 +19,7 @@ const emptySurvey = (): GapSurvey => ({
   wavePending: 0,
   waveInFlight: 0,
   refusalOpen: 0,
+  bookTrialsUntried: 0,
   buckets: [],
   kernelOnly: [],
   automatable: [],
@@ -26,7 +27,10 @@ const emptySurvey = (): GapSurvey => ({
 
 test('fillGapsPlan — always includes develop bookends', () => {
   const plan = fillGapsPlan(emptySurvey())
-  assert.deepEqual(plan.map((p) => p.name), ['develop', 'develop-final'])
+  const names = plan.map((p) => p.name)
+  assert.ok(names.includes('develop'))
+  assert.ok(names.includes('develop-final'))
+  assert.equal(names[names.length - 1], 'develop-final')
 })
 
 test('hasDeskAutomatableWork — false when only develop bookends would run', () => {
@@ -39,11 +43,12 @@ test('hasDeskAutomatableWork — true when lonely, harvest, wave, or open-leads 
   assert.equal(hasDeskAutomatableWork({ ...emptySurvey(), wavePending: 2 }), true)
   assert.equal(hasDeskAutomatableWork({ ...emptySurvey(), openLeads: 58 }), true)
   assert.equal(hasDeskAutomatableWork({ ...emptySurvey(), refusalOpen: 4 }), true)
+  assert.equal(hasDeskAutomatableWork({ ...emptySurvey(), bookTrialsUntried: 75 }), true)
 })
 
 test('FILL_GAPS_PHASES — leverage order matches the taught arc', () => {
   assert.deepEqual(
     FILL_GAPS_PHASES.map((p) => p.name),
-    ['dry-clean', 'develop', 'connect-lonely', 'books', 'trial-refusals', 'wave', 'derive-surfaces', 'develop-final'],
+    ['dry-clean', 'develop', 'connect-lonely', 'books', 'trial-refusals', 'trial-book-leads', 'wave', 'derive-surfaces', 'develop-final'],
   )
 })

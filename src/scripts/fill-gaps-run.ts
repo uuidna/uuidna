@@ -42,6 +42,7 @@ export function printFillGapsSurvey(label: string, s: GapSurvey): void {
   console.log(`  harvest waiting   : ${s.harvest}`)
   console.log(`  wave pending      : ${s.wavePending} (${s.waveInFlight} in flight)`)
   console.log(`  refusal open      : ${s.refusalOpen}`)
+  console.log(`  book untried      : ${s.bookTrialsUntried}`)
   if (s.kernelOnly.length) {
     console.log('  kernel-only (named, not faked):')
     for (const b of s.kernelOnly) console.log(`    · ${b.kind} (${b.count}) — ${b.act}`)

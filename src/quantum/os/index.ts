@@ -19,40 +19,8 @@ import { merkleGravity } from '../../gravity/index.js'
 import { uuidnaPackage } from '../../os/packages/index.js'
 import { INSTALLS_MIRROR, type InstallsMirror, type MirrorPackage } from './mirror.js'
 import { driverBundle } from '../../drivers/driver/index.js'
-
-/** The path each default install specifies on uuidna.com — the authored translation of each package's ROLE
- *  into a route (declared editorial, like sidebar group names: "the toolbox of common UNIX utilities" IS the
- *  terminal). A package the map does not know yet still gets a total answer: '/' + its name. */
-export const INSTALL_ROUTES: Readonly<Record<string, string>> = {
-  'alpine-base': '/',                          // the meta package — home installs the default set
-  'alpine-baselayout': '/layout',              // base dir structure and init scripts
-  'alpine-baselayout-data': '/layout/data',
-  'alpine-conf': '/setup',                     // configuration management scripts
-  'alpine-keys': '/keys',                      // the public keys packages are verified against
-  'alpine-release': '/release',                // release data
-  'apk-tools': '/packages',                    // the package manager
-  'busybox': '/terminal',                      // the toolbox of many common UNIX utilities
-  'busybox-binsh': '/terminal/sh',             // the shell
-  'busybox-ifupdown': '/terminal/network',
-  'busybox-mdev-openrc': '/terminal/devices',
-  'busybox-openrc': '/terminal/services',
-  'busybox-suid': '/terminal/privileged',
-  'ca-certificates-bundle': '/trust',          // the pre-generated trust bundle
-  'libapk': '/apk',                            // the package manager's own library
-  'libcap2': '/capabilities',
-  'libcrypto3': '/crypto',
-  'libssl3': '/tls',
-  'mdev-conf': '/devices',
-  'musl': '/core',                             // the C library — the floor everything stands on
-  'musl-utils': '/core/utils',
-  'openrc': '/services',                       // manages the services, startup and shutdown
-  'openrc-user': '/services/user',
-  'scanelf': '/scan',                          // scan ELF binaries
-  'zlib': '/compression',
-}
-
-/** routeOf(name) → the uuidna.com path a default install specifies — total (an unmapped name is '/' + name). */
-export const routeOf = (name: string): string => INSTALL_ROUTES[name] ?? '/' + name
+import { INSTALL_ROUTES, routeOf } from './routes.js'
+export { INSTALL_ROUTES, routeOf }
 
 /** compileToHexbits — the unit's own address→states compiler (src/hexbit owns it; re-exported here because
  *  the port is where "compile from source in hexbit" is spoken). 32 states 0..15, one per nibble, directly

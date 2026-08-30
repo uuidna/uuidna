@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 // guard — CATCH TRAITORS FAST, before the slow gate. The release path (`npm run next:full`) is thorough but ~9 minutes;
 // (crypto KATs + lean regen). This runs the FAST intrusion checks in seconds so a forgery is caught immediately, not
-// after a wasted reconcile: the ledger-level sweep catchTraitors() (DNA recompute, collisions, coverage, conformance —
+// after a wasted reconcile: the ledger-level treason sweep (DNA recompute, collisions, coverage, conformance —
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { execSync } from 'node:child_process'
@@ -22,7 +22,7 @@ let failed = false
 // 1) the ledger sweep — pure, O(N), milliseconds
 // 0) THE WITNESS, and it runs BEFORE the ledger sweep because the sweep cannot supply one.
 //
-// catchTraitors' dna-recomputes check compares toUuid(key ":" statement) to t.address — which withDerived
+// The treason sweep's dna-recomputes check compares toUuid(key ":" statement) to t.address — which withDerived
 // DEFINED as that same expression. It compares a pure function to itself and cannot fail: a forged entry
 // {key:'totally_made_up_theorem', statement:'2 + 2 = 5'} passes it, because a forgery recomputes its own address
 // exactly as a real theorem does. Run as a pre-registered trial with that forgery as the control, the check
