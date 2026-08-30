@@ -450,8 +450,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000008008",
-   "completionPrice": "0.00000016016"
+   "promptPrice": "0.00000007952",
+   "completionPrice": "0.00000015904"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000437436",
-   "completionPrice": "0.000000874872"
+   "promptPrice": "0.000000417252",
+   "completionPrice": "0.000000834504"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -1073,8 +1073,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "mistralai/devstral-2512",
    "name": "Mistral: Devstral 2 2512",
    "contextTokens": 262144,
-   "promptPrice": "0.00000044",
-   "completionPrice": "0.0000022"
+   "promptPrice": "0.0000004",
+   "completionPrice": "0.000002"
   },
   {
    "id": "mistralai/ministral-14b-2512",
