@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "dcce04f422e0a5bcf0b72674c12cc6b0",
-    "lean": "8cc8640fb4d4a2497a3b308827bea8f2"
+    "src": "e66d6fb274fbab0bc4f5f5308fb52289",
+    "lean": "b839258ae08d1056180b9930517316ae"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -253,7 +253,7 @@
     "lean/tesla-manifest.json": "1d524d0df7888ba1",
     "lean/thermodynamics-manifest.json": "fbf9e1c16619c6e3",
     "lean/tides-manifest.json": "bc631e4f2cb9b4be",
-    "lean/tool-exercise-baseline.json": "2d6a69c45257affc",
+    "lean/tool-exercise-baseline.json": "4e37c199efa5455a",
     "lean/topography-manifest.json": "3e8bc58e37634201",
     "lean/torus-manifest.json": "2c9b0fa8d71b4196",
     "lean/trinities-manifest.json": "19fffae03b9a906b",
@@ -3587,7 +3587,7 @@
     "src/theorem-forms.ts": "90e2a0cb50c59f44",
     "src/theorems/generated.ts": "2f384bc11a321a24",
     "src/theorems/index.ts": "74df85e96be845db",
-    "src/tool-scope.ts": "1972b95b4556cb04",
+    "src/tool-scope.ts": "da73485c1e0bf3cb",
     "src/transform.ts": "f78e4a7843febc0b",
     "src/treason.ts": "ea44d5de28998f08",
     "src/trial-protocol.ts": "4669e9cb87e005f2",
