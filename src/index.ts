@@ -68,6 +68,7 @@ export {
   primaryRayOf,
   OBJECT_LOCALE_RAYS,
   OBJECT_UI,
+  OBJECT_UI_KEYS,
   type ObjectTranslation,
   type LocaleRay,
 } from './object-i18n.js'
@@ -274,7 +275,12 @@ export {
   report, fraction, label, type QState, type Prob, type Cx, type GateOp,
 } from './quantum/index.js'
 
-export { heroAnimation, readHero, type HeroAnimation, renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from './render.js'
+export {
+  heroAnimation, heroAnimationOf, readHero, type HeroAnimation,
+  renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts,
+  heroAt, resolveReferrer, coinHexFromHandle, handleColorsOf, gateColorOf, ichingGatesOf,
+  type HeroAt, type HeroAtOpts, type HeroCoinColor, type HeroGate,
+} from './render.js'
 // editor — the SERIALIZER CONTRACT of a content-addressed document (a Lexical-shaped node tree), the fold lean/Editor
 // proves ORDER-SENSITIVE (a document is a SEQUENCE, not a set), change-sensitive and bounded-injective. serialize →
 // merkleRoot over the leaves → the document handle; editing is re-addressing. payloadFoldHook is the PayloadCMS hook
@@ -624,7 +630,12 @@ export { odometerNext } from './odometer.js'
 // singularity — every vector folded at once, through the involution, to one order-invariant core.
 export { singularity, type Singularity } from './separation.js'
 
-export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, UUID_HEXBITS, dependsOn, byGravity, type Rating } from './theorems/index.js'
+export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type Rating } from './theorems/index.js'
+
+export {
+  trainFromLeads, trainRow, topicPatterns, discoveryHints, discoveryTrain,
+  type TrainingRow, type TrainingKind, type DiscoveryHint, type DiscoveryHintKind, type DiscoveryTrainReport, type TopicPattern,
+} from './refusal-trials.js'
 
 export { discover, superposition, rigid, type Value as DiscoverValue, type Relation } from './discover.js'
 
@@ -645,19 +656,23 @@ export {
   computeMassGap, massGap, hexbitRingMassGap, bornFieldMassGap,
   SAFE_HEXBITS, RING, fuseWidth, fuseLadder, capacityAt, nativeBitWidths, spanAt, prefixOccupancy, periodBits, shorChunkBits, shorCapacityFit, shorFullUse,
   ADDRESS_BYTES, KEY_HEXBITS, GROVER_FLOOR_BITS, VE_FACES,
+  GLAGOLITIC_BASE, glagoliticOf, glagoliticUnitOf, glagoliticNibbleOf,
   type MassGap, type HexbitMassGap, type HexbitDoor, type HandleValue, type ShorCapacityFit, type ShorFullUse,
 } from './hexbit/index.js'
 export {
-  hexagramsOf, occupancyOf, occupancyCitesOf, hexFaceOf, sealedCounts, payloadNibblesOfHexagrams,
+  hexagramsOf, occupancyOf, occupancyCitesOf, hexFaceOf, monographFaceOf, sealedCounts, payloadNibblesOfHexagrams,
   twoBoardsOf, coinNeighbours, coinBoardWitness, flipCoin, nextCoinOf, bitsOfHexbits, metatronOf, hexPiOf, HEX_PI, PI_ROOF, PI_ROOF_NUM, PI_ENGINE,
   HEXAGRAM_BITS, HEXAGRAM_STATES, FUSED_RING, PAYLOAD_BITS, PAYLOAD_HEXAGRAMS, OCCUPANCY_KEYS,
   GLYPH_STAR, GLYPH_ROSE, GLYPH_RING, GLYPH_WHEEL, STATION_TEN, STATION_RAYS,
-  HANDLE_HEXAGRAM_REMAINDER, HEXBIT_STATE_HEXAGRAM_REMAINDER,
-  yarrowRemainder, WAVE_PRODUCT, coinYarrowWave, coinWaves,
+  HANDLE_HEXAGRAM_REMAINDER, HEXBIT_STATE_HEXAGRAM_REMAINDER, referrerDoorOf,
+  yarrowRemainder, WAVE_PRODUCT, coinYarrowWave, coinWaves, lifeWave,
+  UUID_LAYOUT_GROUPS, UUID_LAYOUT_HEX_CHARS, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_AMPLITUDES,
+  HEX_TRINITY_COUNT, TAIL_HEXBITS, EXECUTABLE_HEXBITS, PAYLOAD_HEXBITS,
+  layoutGroups, hexTrinityStates, executableStates, tailStates, torusStep, uuidChannel,
+  layoutMatchesHandle, layoutWidths, layoutCoversUuid, uuidHex, channelAudit, channelSeal,
   type HexFace, type HexFaceAura, type HexFaceGlyphs, type HexFaceStations, type OccupancyCite, type CoinBoardWitness, type MetatronFigure, type HexPi, type HexPiDoor,
-  type CoinYarrowWave, type CoinWaveCluster,
+  type CoinYarrowWave, type CoinWaveCluster, type UuidLayout, type ChannelStream, type LifeWave, type LifeWaveHardware,
 } from './hexagram.js'
-export { lifeWave, type LifeWave, type LifeWaveHardware } from './life-wave.js'
 export { bitsOf as entropyBitsOf, entropyOf, ledgerEntropy, passphraseEntropy, type Entropy } from './entropy/index.js'
 export { fuse, fuseHalves, reactorOutput, mintOf, mintByWing, powerOf, pathOf, HALF_HEXBITS, type Fusion, type Mint, type Power, type Path } from './fusion/index.js'
 export { DATAPATH, UNITS, spec as hardwareSpec, LANES, trinity, gpuEligiblePpm, gpuCapacity, gpuBreakEvenAddresses, kernelPercent, CPU_NS_PER_ADDRESS, GPU_POSTAGE_ADDRESSES, cpuFoldNs, type Unit, type Lane, type DeviceCost, type GpuCapacity } from './hardware/index.js'

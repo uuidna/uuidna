@@ -42,6 +42,7 @@ export function quantumAdvantagePlaybook(): QuantumAdvantagePlaybook {
   const servedQubits = HEXBIT_BITS * HEXBIT_BITS
   const cur = advantageCurriculum()
 
+  const channelAddr = toUuid('channel-playbook')
   const steps: PlaybookStep[] = [
     {
       order: 1,
@@ -52,34 +53,41 @@ export function quantumAdvantagePlaybook(): QuantumAdvantagePlaybook {
     },
     {
       order: 2,
+      tool: 'uuidna_uuid_channel',
+      arguments: { address: channelAddr },
+      theorem: 'layout_groups_thirtytwo',
+      reads: 'handle + 3 hex trinities + tail, torusHome=true — route/messaging without payload store',
+    },
+    {
+      order: 3,
       tool: 'uuidna_decide',
       arguments: { input: `2^${ghz4}=${pow2(ghz4)}` },
       theorem: 'n_qubit_dimension',
       reads: 'verdict=VERIFIED_BY_DECIDE — simulation cost is 2^n amplitudes (not a hardware speedup claim)',
     },
     {
-      order: 3,
+      order: 4,
       tool: 'uuidna_quantum',
       arguments: { circuit: 'bell' },
       theorem: 'n_qubit_dimension',
       reads: 'outcomes and marginals — exact classical state-vector; honest field names simulation',
     },
     {
-      order: 4,
+      order: 5,
       tool: 'uuidna_crypto',
       arguments: {},
       theorem: 'sha256_grover_margin_is_the_address',
       reads: `widths.groverFloorBits=${GROVER_FLOOR_BITS} — one uuid is the Grover floor on this column`,
     },
     {
-      order: 5,
+      order: 6,
       tool: 'uuidna_theorem',
       arguments: { key: 'verify_beats_recompute_by_magnitudes' },
       theorem: 'verify_beats_recompute_by_magnitudes',
       reads: 'read the sealed statement — magnitudes are VERIFY vs RECOMPUTE, not physics supremacy',
     },
     {
-      order: 6,
+      order: 7,
       tool: 'uuidna_exec',
       arguments: { line: 'openssl' },
       theorem: 'the_os_is_bootable_quantum',

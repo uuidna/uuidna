@@ -2,7 +2,12 @@
 // (the one export surface). Regenerate with `npm run gen:packages`; the guard hard-rejects drift.
 // @uuidna/edge — the DEPLOYMENT SURFACE: the Cloudflare bindings audit (committed config. Integrity.
 export { auditCloudflareBindings, type CloudflareAudit, type BindingAudit } from '@uuidna/uuidna'
-export { heroAnimation, readHero, type HeroAnimation, renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts } from '@uuidna/uuidna'
+export {
+  heroAnimation, heroAnimationOf, readHero, type HeroAnimation,
+  renderTheorem, renderList, renderHero, type TheoremView, type RenderOpts,
+  heroAt, resolveReferrer, coinHexFromHandle, handleColorsOf, gateColorOf, ichingGatesOf,
+  type HeroAt, type HeroAtOpts, type HeroCoinColor, type HeroGate,
+} from '@uuidna/uuidna'
 export { serialize, documentAddress, documentHandle, reAddress, payloadFoldHook, type DocNode, type EditorState, type DocFold, type PayloadHookArgs } from '@uuidna/uuidna'
 export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySeed, toPayloadDocs, type SeedStatus, type SeedIdentity, type LeanPageSeed, type PayloadDoc } from '@uuidna/uuidna'
 export { canonicalOrder, nextOf, gaps, discoverStaticPages, computeSidebar, SIDEBAR_CATEGORIES, type PageNode, type SidebarGroup } from '@uuidna/uuidna'

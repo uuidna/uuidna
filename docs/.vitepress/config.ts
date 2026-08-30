@@ -7,10 +7,13 @@ import { computeSidebar, discoverStaticPages, canonicalOrder, nextOf } from '../
 import { infuseQuantumPayload } from './uuidna-quantum.js'
 import { theorems } from '../../src/theorems/index.js'
 import { handleOf } from '../../src/handle.js'
-import { hexFaceOf } from '../../src/hexagram.js'
+import { monographFaceOf } from '../../src/hexagram.js'
 
 // relativePath → clean route (cleanUrls): 'guides.md' → '/guides', 'index.md' → '/'
 const routeOf = (rel: string): string => '/' + rel.replace(/\.md$/, '').replace(/\/index$/, '').replace(/^index$/, '')
+
+/** Axis listing monographs — census only; never stamp seoAddress as a hex face. */
+const AXIS_LISTINGS = new Set(['theorems.md', 'topics.md', 'rosetta.md', 'trials.md', 'axioms.md'])
 
 /** Wrapping walk next for THIS route — baked into page data so Layout never imports the census. */
 let WALK: Map<string, { text: string; link: string }> | null = null
@@ -46,6 +49,9 @@ export default defineConfig({
     // browsers still probe /favicon.ico by default; declare the served SVG so the 47/day bare-probe 404s stop
     // once clients honour the link, and the worker rewrites /favicon.ico → /icon.svg for the rest
     ['link', { rel: 'icon', href: '/icon.svg', type: 'image/svg+xml' }],
+    ['link', { rel: 'manifest', href: '/manifest.webmanifest' }],
+    ['meta', { name: 'theme-color', content: '#0b1020' }],
+    ['meta', { name: 'mobile-web-app-capable', content: 'yes' }],
   ],
 
   themeConfig: {
@@ -57,6 +63,7 @@ export default defineConfig({
       { text: 'School', link: '/school' },
       { text: 'Doctrine', link: '/doctrine' },
       { text: 'Theorems', link: '/theorems' },
+      { text: 'Axioms', link: '/axioms' },
     ],
 
     // computeSidebar() (src/site.ts) walks the REAL docs/ tree (boundary.ts's lsRoot, Node-only — safe here,
@@ -233,30 +240,23 @@ export default defineConfig({
         }
       }
     }
-    // Hex face whenever a monograph has an address — theorems and every other object page, not home.
-    if (fm.layout !== 'home') {
-      const address = String(p?.address || fm.seoAddress || fm.address || '')
+    // Hex face for object monographs (theorem/publication params) — not home, not axis listings, not seoAddress alone.
+    const listingPath = pageData.relativePath.replace(/\\/g, '/')
+    const isAxisListing = AXIS_LISTINGS.has(listingPath)
+    if (fm.layout !== 'home' && !isAxisListing) {
+      const address = String(p?.address || fm.address || '')
       if (address) {
         try {
-          const face = hexFaceOf(address)
+          Object.assign(fm, monographFaceOf(address))
           fm.address ??= address
-          fm.handle ??= face.handle
-          fm.hexbits ??= face.hexbits
-          fm.hexagrams ??= face.hexagrams
-          fm.occupancy ??= face.occupancy
-          fm.occupancyCites ??= face.occupancyCites
-          fm.occupancyDoors ??= face.occupancyDoors
-          fm.aura ??= face.aura
-          fm.handleParts ??= face.handleParts
-          fm.handleUrl ??= face.door
-          fm.board ??= face.board
-          fm.gates ??= face.gates
-          fm.hexagramBits ??= face.hexagramBits
-          fm.packedTriangles ??= face.packedTriangles
-          fm.merkabasPacked ??= face.merkabasPacked
-          fm.veFaces ??= face.veFaces
         } catch { /* non-uuid addresses are not a hex face */ }
       }
+    }
+    // Axis listings carry seoAddress for OG — never stamp per-theorem occupancy on the census page.
+    if (isAxisListing) {
+      fm.occupancyDoors = []
+      fm.occupancyCites = []
+      fm.occupancy = []
     }
     const here = p?.key ? `/theorem/${p.key}` : p?.slug ? `/publications/${p.slug}`
       : routeOf(pageData.relativePath)
@@ -265,8 +265,7 @@ export default defineConfig({
 
     // Axis listings are monographs of that fold — attach only this URL's slice (not the Layout census).
     // Load the census after Rolldown: phd/os/host/ghz must not sit in the config graph during the bundle.
-    const listing = pageData.relativePath.replace(/\\/g, '/')
-    if (listing === 'theorems.md' || listing === 'topics.md' || listing === 'rosetta.md' || listing === 'trials.md' || listing === 'index.md') {
+    if (isAxisListing || listingPath === 'index.md') {
       const { axisForRelativePath } = await import('../../src/axis-monograph.js')
       const axis = axisForRelativePath(pageData.relativePath)
       if (axis.axis) fm.axis = axis.axis

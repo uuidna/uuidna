@@ -281,3 +281,110 @@ export const byGravity = (): readonly Theorem[] =>
   [...THEOREMS].sort((a, b) =>
     (dependsOn(a).length - dependsOn(b).length) || (decidedMass(b) - decidedMass(a)) || a.key.localeCompare(b.key))
 
+/** wingDefsFor(file) → every `def` the Lean wing declares — the axiom vocabulary for that file. */
+export const wingDefsFor = (file: string): readonly string[] => WING_DEFS.get(file) ?? []
+
+export interface TheoremAxioms {
+  key: string
+  file: string
+  dependsOn: readonly string[]
+  wingDefs: readonly string[]
+  unusedDefs: readonly string[]
+  depCount: number
+  gravity: number
+  unbound: boolean
+  neighbourCount: number
+}
+
+/** theoremAxioms(key) → how this theorem is explained: wing defs it cites, gravity, neighbours. */
+export const theoremAxioms = (key: string): TheoremAxioms | null => {
+  const t = theoremByKey().get(key)
+  if (!t) return null
+  const deps = dependsOn(t)
+  const wingDefs = wingDefsFor(t.file)
+  const depSet = new Set(deps)
+  return {
+    key,
+    file: t.file,
+    dependsOn: deps,
+    wingDefs,
+    unusedDefs: wingDefs.filter((d) => !depSet.has(d)),
+    depCount: deps.length,
+    gravity: gravityOf(t),
+    unbound: isUnbound(t),
+    neighbourCount: theoremNeighbours(key).neighbours.length,
+  }
+}
+
+export interface WingDefEntry {
+  file: string
+  def: string
+  principle: string
+  theorems: readonly { key: string; name: string }[]
+  theoremCount: number
+  unused: boolean
+}
+
+export interface AxiomIndex {
+  entries: readonly WingDefEntry[]
+  totalDefs: number
+  citedDefs: number
+  unusedDefs: number
+  wings: number
+}
+
+let _axiomIndex: AxiomIndex | null = null
+
+/** axiomIndex() → wing vocabulary indexed by which theorems cite each def (vice versa of theoremAxioms). */
+export const axiomIndex = (): AxiomIndex => {
+  if (_axiomIndex) return _axiomIndex
+  const principleOf = new Map<string, string>()
+  for (const t of THEOREMS) principleOf.set(t.file, t.principle)
+  const cited = new Map<string, string[]>()
+  for (const t of THEOREMS) {
+    for (const d of dependsOn(t)) {
+      const id = `${t.file}\0${d}`
+      const list = cited.get(id) ?? []
+      list.push(t.key)
+      cited.set(id, list)
+    }
+  }
+  const entries: WingDefEntry[] = []
+  for (const [file, defs] of WING_DEFS) {
+    const principle = principleOf.get(file) ?? file
+    for (const def of defs) {
+      const keys = [...new Set(cited.get(`${file}\0${def}`) ?? [])].sort()
+      entries.push({
+        file,
+        def,
+        principle,
+        theorems: keys.map((key) => {
+          const t = theoremByKey().get(key)!
+          return { key, name: t.name }
+        }),
+        theoremCount: keys.length,
+        unused: keys.length === 0,
+      })
+    }
+  }
+  entries.sort((a, b) => a.file.localeCompare(b.file) || a.def.localeCompare(b.def) || a.principle.localeCompare(b.principle))
+  _axiomIndex = {
+    entries,
+    totalDefs: entries.length,
+    citedDefs: entries.filter((e) => !e.unused).length,
+    unusedDefs: entries.filter((e) => e.unused).length,
+    wings: WING_DEFS.size,
+  }
+  return _axiomIndex
+}
+
+/** axiomExplain(file, def) → one wing def and every theorem whose statement cites it. */
+export const axiomExplain = (file: string, def: string): WingDefEntry | null => {
+  if (!wingDefsFor(file).includes(def)) return null
+  return axiomIndex().entries.find((e) => e.file === file && e.def === def) ?? null
+}
+
+/** theoremsForDef(file, def) → theorem keys citing this wing def — shorthand for axiomExplain. */
+export const theoremsForDef = (file: string, def: string): readonly string[] =>
+  (axiomExplain(file, def)?.theorems.map((t) => t.key) ?? [])
+

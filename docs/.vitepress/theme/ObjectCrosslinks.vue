@@ -81,6 +81,20 @@ const hasProof = computed(() => graph.value && (
   graph.value.address || graph.value.handle || graph.value.file || graph.value.legs
 ))
 
+const hasAxioms = computed(() => graph.value && (
+  graph.value.unbound
+  || (graph.value.dependsOn?.length > 0)
+  || (graph.value.wingDefs?.length > 0)
+  || graph.value.depCount > 0
+))
+
+const wingUnused = computed(() => {
+  const g = graph.value
+  if (!g?.wingDefs?.length) return []
+  const used = new Set(g.dependsOn || [])
+  return g.wingDefs.filter((d) => !used.has(d))
+})
+
 const hasRelated = computed(() => graph.value && (
   keywords.value.length || relatedPubs.value.length || relatedTheorems.value.length
   || priorArt.value || graph.value.monograph || graph.value.unlocks || graph.value.waves
@@ -106,6 +120,45 @@ const topicHref = (kw) => {
   if (s.startsWith('doi:')) return `https://doi.org/${s.slice(4)}`
   return `/topics#skill-${s}`
 }
+
+const axiomHref = (def) => {
+  const f = graph.value?.file || ''
+  return `/axioms?file=${encodeURIComponent(f)}&def=${encodeURIComponent(def)}`
+}
+
+const fill = (template, vars) => String(template).replace(/\{(\w+)\}/g, (_, k) => String(vars[k] ?? ''))
+
+const gravityText = computed(() => {
+  const g = graph.value
+  if (!g) return ''
+  if (g.unbound) return ui.value.gravityUnbound
+  return fill(ui.value.gravityBound, { gravity: g.gravity, count: g.depCount })
+})
+
+const neighboursText = computed(() => {
+  const g = graph.value
+  if (!g || g.neighbourCount == null) return ''
+  return fill(ui.value.neighboursClique, { count: g.neighbourCount })
+})
+
+const unusedText = computed(() => fill(ui.value.unusedInTheorem, { n: wingUnused.value.length }))
+
+const hasTen = computed(() => !!graph.value?.ten)
+const hasChannel = computed(() => !!graph.value?.channel)
+
+const tenFreeText = computed(() => {
+  const ten = graph.value?.ten
+  if (!ten) return ''
+  return fill(ui.value.tenFreeSummary, ten)
+})
+
+const tenCompactText = computed(() => {
+  const ten = graph.value?.ten
+  if (!ten) return ''
+  return fill(ui.value.tenCompactSummary, ten)
+})
+
+const stationTen = computed(() => graph.value?.stations?.ten ?? null)
 </script>
 
 <template>
@@ -174,6 +227,105 @@ const topicHref = (kw) => {
           <VPButton v-if="hasLeg('falsifier')" theme="alt" size="medium" href="/tests" text="falsifier" />
           <VPButton v-if="hasLeg('address')" theme="alt" size="medium" href="/trials" text="address fold" />
           <span v-if="graph.missing?.length" class="ox-muted">missing {{ graph.missing.join(' · ') }}</span>
+        </li>
+      </ul>
+    </section>
+
+    <section v-if="hasAxioms" class="ox-group">
+      <h3 class="ox-g">{{ ui.groupAxioms }}</h3>
+      <ul class="ox-row">
+        <li class="ox-item">
+          <span class="ox-k">{{ ui.dependsOnLabel }}</span>
+          <span v-if="graph.unbound" class="ox-muted">{{ ui.unboundLabel }} — {{ ui.unboundNote }}</span>
+          <VPButton
+            v-for="def in graph.dependsOn"
+            :key="def"
+            theme="brand"
+            size="medium"
+            :href="axiomHref(def)"
+            :text="def"
+          />
+          <span v-if="!graph.unbound && !graph.dependsOn?.length" class="ox-muted">—</span>
+        </li>
+
+        <li v-if="graph.wingDefs?.length" class="ox-item ox-item-stack">
+          <span class="ox-k">{{ ui.wingCatalog }}</span>
+          <span class="ox-prior-row">
+            <VPButton
+              v-for="def in graph.wingDefs"
+              :key="'w-' + def"
+              :theme="graph.dependsOn?.includes(def) ? 'brand' : 'alt'"
+              size="medium"
+              :href="axiomHref(def)"
+              :text="def"
+            />
+          </span>
+          <span v-if="wingUnused.length" class="ox-muted">{{ unusedText }}</span>
+        </li>
+
+        <li class="ox-item">
+          <span class="ox-k">{{ ui.gravityLabel }}</span>
+          <span class="ox-muted">{{ gravityText }}</span>
+          <VPButton theme="alt" size="medium" href="/axioms" :text="ui.axiomIndexBtn" />
+          <VPButton theme="alt" size="medium" href="/theorems?binding=unbound" :text="ui.unboundIndexBtn" />
+        </li>
+
+        <li v-if="graph.neighbourCount != null" class="ox-item">
+          <span class="ox-k">{{ ui.neighboursLabel }}</span>
+          <span class="ox-muted">{{ neighboursText }}</span>
+          <VPButton
+            v-if="graph.principle"
+            theme="alt"
+            size="medium"
+            :href="`/theorems?principle=${encodeURIComponent(graph.principle.name)}`"
+            :text="graph.principle.name"
+          />
+        </li>
+      </ul>
+    </section>
+
+    <section v-if="hasTen || hasChannel" class="ox-group">
+      <h3 v-if="hasTen" class="ox-g">{{ ui.groupTenD }}</h3>
+      <ul v-if="hasTen" class="ox-row">
+        <li class="ox-item">
+          <span class="ox-k">{{ ui.tenFreeLabel }}</span>
+          <span class="ox-muted">{{ tenFreeText }}</span>
+        </li>
+        <li class="ox-item">
+          <span class="ox-k">{{ ui.tenCompactLabel }}</span>
+          <span class="ox-muted">{{ tenCompactText }}</span>
+          <span v-if="graph.auraHsl" class="ox-muted">{{ graph.auraHsl }}</span>
+        </li>
+        <li v-if="stationTen != null" class="ox-item">
+          <span class="ox-k">{{ ui.stationTenLabel }}</span>
+          <span class="ox-muted">{{ stationTen }}</span>
+        </li>
+        <li class="ox-item">
+          <VPButton theme="alt" size="medium" href="/quantum#uuid-channel" :text="ui.tenQuantumBtn" />
+        </li>
+      </ul>
+
+      <h3 v-if="hasChannel" class="ox-g">{{ ui.groupChannel }}</h3>
+      <ul v-if="hasChannel" class="ox-row">
+        <li class="ox-item">
+          <span class="ox-k">Handle</span>
+          <Handle :handle="graph.channel.handle" />
+        </li>
+        <li class="ox-item">
+          <span class="ox-k">{{ ui.trinityLabel }}</span>
+          <span class="ox-muted"><code>{{ graph.channel.trinities.join(' · ') }}</code></span>
+        </li>
+        <li class="ox-item">
+          <span class="ox-k">{{ ui.tailLabel }}</span>
+          <span class="ox-muted"><code>{{ graph.channel.tail }}</code></span>
+        </li>
+        <li class="ox-item">
+          <span class="ox-k">Torus</span>
+          <span class="ox-muted">{{ graph.channel.torusHome ? 'home' : '—' }}</span>
+        </li>
+        <li class="ox-item">
+          <span class="ox-muted">{{ ui.channelNote }}</span>
+          <VPButton theme="alt" size="medium" href="/quantum#uuid-channel" text="uuid channel" />
         </li>
       </ul>
     </section>

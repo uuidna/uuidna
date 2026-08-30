@@ -12,7 +12,7 @@ import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { FEED_QUERIES, MOST_SEARCHED, SEARCH_FEED_PATH, feedPhysicsCite, portalQueries, searchFeed } from '../search-feed.js'
-import { readRepoJson } from '../desk/index.js'
+import { readRepoJson } from '../desk/repo/json/index.js'
 import { waveQueueState } from '../wave-deposit.js'
 import { pageSafe } from '../quantum/advantage/page/safe/index.js'
 

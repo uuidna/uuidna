@@ -12,15 +12,27 @@ import {
   hexbitDoorOf, evidenceRow, compileToHexbits, hexbitReceipt, hexbitReceiptLanes,
   UUID_HEXBITS, HANDLE_HEXBITS, COIN_HEXBITS,
   HEXBIT_BITS, HEXBIT_STATES, HANDLE_SPAN, COINS, VE_FACES,
+  glagoliticOf, glagoliticUnitOf, glagoliticNibbleOf, GLAGOLITIC_BASE,
 } from '../hexbit/index.js'
 import { doubling, dz } from '../separation.js'
 import { BASE, toUuid } from '../address.js'
 import { runSequence } from '../sequence-run.js'
-import { HANDLE_ROOT } from '../handle.js'
+import { HANDLE_ROOT, handleOf } from '../handle.js'
 import { messagingEnvelope, gateVerdict, depositCoins } from '../gate-engine.js'
 import { theoremByKey } from '../theorems/index.js'
 import { depositCandidates } from '../wave-deposit.js'
 import { answered } from '../apis/index.js'
+import { animateStates } from '../quantum/apps/hexbit-animator.js'
+import {
+  UUID_LAYOUT_GROUPS, HEX_TRINITY_COUNT, MESSAGE_CAP_HEXBITS, TAIL_HEXBITS,
+  EXECUTABLE_HEXBITS, PAYLOAD_HEXBITS, layoutGroups, hexTrinityStates,
+  executableStates, tailStates, torusStep, uuidChannel, layoutMatchesHandle,
+  layoutWidths, layoutCoversUuid, MESSAGE_CAP_AMPLITUDES, channelSeal,
+} from '../hexagram.js'
+import {
+  coinYarrowWave, growLife, hardwareLayer, lifeWave, osLayer, softwareLayer,
+  theorems, skillGroups, DATAPATH, LANES, KEY_BITS, UUID_BITS, WAVE_PRODUCT,
+} from '../index.js'
 
 test('HANDLE_ROOT is declared four-level store — folded receipts write through handlePath', () => {
   assert.equal(HANDLE_ROOT, 'src/handles')
@@ -114,6 +126,9 @@ test('messagingEnvelope IS the fusion — door + compact witness + compact seque
   assert.equal(typeof env.sequence.fixed, 'boolean')
   assert.equal(typeof env.sequence.covers, 'boolean')
   assert.ok(Array.isArray(env.sequence.orbit))
+  assert.equal(env.channel.handle, door.handle)
+  assert.equal(env.channel.torusHome, true)
+  assert.equal(env.channel.trinities.length, 3)
 })
 
 test('depositCandidates and answered() spread the same door', () => {
@@ -126,4 +141,106 @@ test('depositCandidates and answered() spread the same door', () => {
   assert.equal(a.door, d2.door)
   assert.equal(a.coin.length, COIN_HEXBITS)
   assert.equal(a.handle.length, HANDLE_HEXBITS)
+})
+
+const LADDR = toUuid('two_coins')
+
+test('glagoliticOf — page states map to the Unicode block', () => {
+  assert.equal(glagoliticOf(0), String.fromCodePoint(GLAGOLITIC_BASE))
+  assert.equal(glagoliticOf(15), String.fromCodePoint(GLAGOLITIC_BASE + 15))
+  assert.equal(glagoliticNibbleOf(10), glagoliticOf(10))
+})
+
+test('glagoliticUnitOf — Az..Zemlja is the unit row', () => {
+  assert.equal(glagoliticUnitOf(1), glagoliticOf(0))
+  assert.equal(glagoliticUnitOf(BASE), glagoliticOf(BASE - 1))
+})
+
+test('glagolitic refuses off-page states', () => {
+  assert.throws(() => glagoliticOf(-1), /outside 0/)
+  assert.throws(() => glagoliticOf(HEXBIT_STATES), /outside 0/)
+  assert.throws(() => glagoliticUnitOf(0), /Az\.\.Zemlja/)
+  assert.throws(() => glagoliticUnitOf(BASE + 1), /Az\.\.Zemlja/)
+})
+
+test('hexbit-animator shares the same glyph projection', () => {
+  const { keyframes } = animateStates([0, 1, 15])
+  assert.equal(keyframes[0]!.glyph, glagoliticOf(0))
+  assert.equal(keyframes[1]!.glyph, glagoliticOf(1))
+  assert.equal(keyframes[2]!.glyph, glagoliticOf(15))
+})
+
+test('layout widths match sealed hexbit theorems', () => {
+  const w = layoutWidths()
+  assert.deepEqual([...w.groups], [8, 4, 4, 4, 12])
+  assert.deepEqual([...w.bits], [32, 16, 16, 16, 48])
+  assert.equal(w.hexChars, 32)
+  assert.equal(w.payloadHexbits, 24)
+  assert.equal(UUID_LAYOUT_GROUPS.reduce((a, b) => a + b, 0), 32)
+})
+
+test('message cap is one 4-hex trinity tile', () => {
+  assert.equal(MESSAGE_CAP_HEXBITS, 4)
+  assert.equal(MESSAGE_CAP_AMPLITUDES, 65536)
+  assert.equal(HEX_TRINITY_COUNT, 3)
+  assert.equal(EXECUTABLE_HEXBITS, HEX_TRINITY_COUNT * MESSAGE_CAP_HEXBITS)
+  assert.equal(TAIL_HEXBITS, 12)
+  assert.equal(HANDLE_HEXBITS + PAYLOAD_HEXBITS, 32)
+})
+
+test('layoutGroups slices handle, trinities, and tail', () => {
+  const g = layoutGroups(LADDR)
+  assert.equal(g.handle, handleOf(LADDR))
+  assert.equal(g.trinities.length, 3)
+  assert.equal(g.tail.length, 12)
+  assert.equal(g.handle.length + g.trinities.join('').length + g.tail.length, 32)
+  assert.ok(layoutMatchesHandle(LADDR))
+  assert.ok(layoutCoversUuid(LADDR))
+})
+
+test('executable and tail partition the payload compile vector', () => {
+  const full = compileToHexbits(LADDR)
+  const exe = executableStates(LADDR)
+  const tail = tailStates(LADDR)
+  assert.equal(exe.length, EXECUTABLE_HEXBITS)
+  assert.equal(tail.length, TAIL_HEXBITS)
+  assert.deepEqual(full.slice(HANDLE_HEXBITS), [...exe, ...tail])
+  const tris = hexTrinityStates(LADDR)
+  assert.deepEqual(tris.flat(), exe)
+})
+
+test('torusStep flips home — double torus memory is involutive', () => {
+  assert.equal(torusStep(LADDR).home, true)
+})
+
+test('uuidChannel carries door and marks payload store optional', () => {
+  const ch = uuidChannel(LADDR)
+  assert.equal(ch.handle, handleOf(LADDR))
+  assert.equal(ch.door, `https://uuidna.com/${ch.handle}`)
+  assert.equal(ch.payloadStoreOptional, true)
+  assert.equal(ch.executable.length, 12)
+  assert.equal(ch.tailStates.length, 12)
+})
+
+test('channelSeal attaches channel slices to every uuid in the stream', () => {
+  const s = channelSeal('automation', ['pass'], 0)
+  assert.ok(s.uuids.length >= 1)
+  assert.equal(s.channels.length, s.uuids.length)
+  assert.equal(s.channels[0]!.trinities.length, 3)
+})
+
+test('lifeWave — one conserved product over the living ledger', () => {
+  const T = theorems()
+  const L = lifeWave()
+  const life = growLife()
+  assert.equal(L.wave.seals, T.length)
+  assert.equal(L.living, life.life.living)
+  assert.equal(L.covers, true)
+  assert.equal(L.product, WAVE_PRODUCT)
+  assert.equal(L.hardware.digestBits, KEY_BITS)
+  assert.equal(L.hardware.verifyBits, UUID_BITS)
+  assert.equal(L.skills, skillGroups().length)
+  const omitted = coinYarrowWave(T.length - 1)
+  assert.notEqual(omitted.seals, L.wave.seals)
+  assert.equal(omitted.product, WAVE_PRODUCT)
 })

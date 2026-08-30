@@ -237,7 +237,7 @@ test('hexFaceOf / occupancyOf: same address, same face; aura hsl; 32 hexbits; no
 
 test('composeTheorem: H1 is the handle; hex face params; Lean body; no principleSiblings', async () => {
   const { composeTheorem, composePublication } = await import(
-    pathToFileURL(join(ROOT, 'docs/.vitepress/compose-object.js')).href
+    pathToFileURL(join(ROOT, 'dist/compose-object.js')).href
   ) as {
     composeTheorem: (t: { address: string; key: string; name: string; principle: string; skill: string; statement: string; tactic: string; lean: string; file: string }) => {
       params: Record<string, unknown>
@@ -289,7 +289,7 @@ test('composeTheorem: H1 is the handle; hex face params; Lean body; no principle
     assert.equal(pubPage.params.handle, handleOf(pub.address || pub.receipt))
     assert.equal(pubPage.params.title, pubPage.params.handle)
   }
-  const composeSrc = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
+  const composeSrc = readFileSync(join(ROOT, 'src/compose-object.ts'), 'utf8')
   assert.match(composeSrc, /handleOf\(address\)/)
   assert.doesNotMatch(composeSrc, /\(p\.address \|\| p\.receipt\)\.replace/)
   assert.doesNotMatch(composeSrc, /from '\.\.\/\.\.\/dist\/index\.js'/)
@@ -300,7 +300,7 @@ test('composeTheorem: H1 is the handle; hex face params; Lean body; no principle
 test('ObjectPage draws HexFace when an address exists; HexbitPlayer on the face; no autoplay', () => {
   const page = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectPage.vue'), 'utf8')
   assert.match(page, /HexFace/)
-  assert.match(page, /hasAddress/)
+  assert.match(page, /showHexFace/)
   const face = readFileSync(join(ROOT, 'docs/.vitepress/theme/HexFace.vue'), 'utf8')
   assert.match(face, /data-slot="gate"/)
   assert.match(face, /data-slot="hex-face"/)
@@ -326,9 +326,24 @@ test('ObjectPage draws HexFace when an address exists; HexbitPlayer on the face;
   assert.doesNotMatch(hero, /from '\.\.\/\.\.\/\.\.\/dist\/index\.js'/)
   assert.doesNotMatch(hero, /theorems\(\)/)
   assert.doesNotMatch(hero, /ease-in-out/)
-  assert.match(hero, /fuseLadder/)
+  assert.match(hero, /heroAt/)
+  assert.match(hero, /dist\/render\.js/)
+  assert.match(hero, /hero-resonance/)
+  assert.match(hero, /hero-coin-a/)
+  assert.match(hero, /hero-coin-b/)
+  assert.match(hero, /coinColors/)
+  assert.match(hero, /gateColorOf/)
+  assert.match(hero, /mix-blend-mode/)
+  assert.match(hero, /@keyframes/)
   assert.match(hero, /data-fused/)
+  assert.match(hero, /data-handle/)
+  assert.match(hero, /data-door/)
+  assert.match(hero, /referrerDoor/)
+  assert.match(hero, /coin-face/)
+  assert.match(hero, /next-coin/)
   assert.match(face, /data-slot="hexbit-tile"/)
+  assert.match(face, /hexbit\/index/)
+  assert.match(face, /data-glyph/)
   assert.match(face, /data-slot="occupancy"/)
   assert.match(face, /data-slot="occupancy-doors"/)
   assert.match(face, /\/theorem\//)
@@ -432,7 +447,7 @@ test('hex-face constructors are not in hexbit/index.ts', () => {
 })
 
 test('object-graph and ObjectCrosslinks mint handles via handleOf, never an address slice', () => {
-  const graph = readFileSync(join(ROOT, 'docs/.vitepress/object-graph.js'), 'utf8')
+  const graph = readFileSync(join(ROOT, 'src/object-graph.ts'), 'utf8')
   assert.match(graph, /handleOf/)
   assert.doesNotMatch(graph, /address\.replace\(\/-\/g, ''\)\.slice\(0,\s*8\)/)
   const xl = readFileSync(join(ROOT, 'docs/.vitepress/theme/ObjectCrosslinks.vue'), 'utf8')

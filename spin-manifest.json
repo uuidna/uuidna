@@ -4,14 +4,14 @@
     "lean/PRINCIPLE.md": "4887ddee9c388fbe",
     "CHANGELOG.md": "82375045e6178c9d",
     "lean/axioms.json": "1791454517788bcf",
-    "docs/mcp.md": "4aa06a5be60c8fde",
+    "docs/mcp.md": "32e064c150088a05",
     "audit-citations.json": "bd5145c79bbe81ec",
-    "support-audit.json": "e56bb8b7fd138ebd",
-    "research-leads.json": "92b37efe6b4987e1",
+    "support-audit.json": "985bca2ce78182ac",
+    "research-leads.json": "c75be0478aa58a65",
     ".zenodo.json": "f568de01091a8011",
     "reports.json": "7ea7edd206e98270",
     "lean/statement-index.json": "3c65ee51fb0789e8",
-    "README.md": "fe6c4182fc7e8749",
+    "README.md": "9737f4d934448020",
     "llm.txt": "bbce1d877b408524",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -2261,7 +2261,7 @@
     "lean/martialarts-manifest.json": "d392cbcd865e81bd",
     "lean/matching-manifest.json": "2b8b1987e23e8043",
     "lean/mcp-alpine-man.json": "b6d13f55dbab8749",
-    "lean/mcp-context-budget.json": "2005eded376f8bce",
+    "lean/mcp-context-budget.json": "26b7dc45e6a38778",
     "lean/mcp-surface-divergence.json": "bd1b3b799169889b",
     "lean/messaging-witness.json": "522fae9c9c4684a6",
     "lean/models-manifest.json": "c5bd75d0f0148ab5",
@@ -2308,7 +2308,7 @@
     "lean/search-feed.json": "5a23fcb19f108575",
     "lean/seats-manifest.json": "2c8a9c7a75fc815f",
     "lean/security-manifest.json": "959f67a719188dad",
-    "lean/seo-url-map.json": "0fc30622ef768866",
+    "lean/seo-url-map.json": "a5b3bbd4c78088ef",
     "lean/sequence-manifest.json": "173b2a13698e8a57",
     "lean/sessions.json": "9ee49bc069518933",
     "lean/singularity-manifest.json": "6a560503828d88c9",
@@ -2341,5 +2341,5 @@
     "lean/wave-queue.json": "aea574e2a5748ff0",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "0873828a-e9a0-8af4-b4a6-ec6a6df0da0b"
+  "receipt": "e5e5d5d3-1e3c-82b1-b014-22a2fd9cc775"
 }

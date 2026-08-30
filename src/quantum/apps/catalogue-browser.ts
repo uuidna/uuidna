@@ -4,7 +4,7 @@
 // Same mint as apk info / man: provenance identity + 32 hexbits, never binary execution
 // (theorem the_os_is_bootable_quantum). The Vue shell is docs/.vitepress/theme/CatalogueBrowser.vue.
 import {
-  catalogueSearch, cataloguePackage, catalogueCompile, catalogueState, resolveManPage, manAppWitness,
+  catalogueSearch, cataloguePackage, catalogueCompile, catalogueState, catalogueBrowse, resolveManPage, manAppWitness,
   type CataloguePackage,
 } from '../os/catalogue.js'
 import { UUID_HEXBITS } from '../../hexbit/index.js'
@@ -35,6 +35,7 @@ export interface CatalogueHit {
 
 export interface CatalogueBrowseResult {
   query: string
+  repo: 'main' | 'community' | 'all'
   total: number
   shown: number
   hits: CatalogueHit[]
@@ -59,20 +60,23 @@ const hitOf = (p: CataloguePackage): CatalogueHit => {
   }
 }
 
-/** browseCatalogue(query) → bounded search over the primed census (same ranking as catalogueSearch). */
-export function browseCatalogue(query: string, limit = 40): CatalogueBrowseResult {
+/** browseCatalogue(query, limit?, repo?) → bounded browse over the primed census (offline PWA shelf). */
+export function browseCatalogue(query: string, limit = 40, repo: 'main' | 'community' | 'all' = 'all'): CatalogueBrowseResult {
   const st = catalogueState()
+  const repoTag = repo
   if (!st.present) {
     return {
-      query, total: 0, shown: 0, hits: [], present: false, why: st.why,
-      receipt: toUuid('catalogue-browse|absent|' + query),
+      query, repo: repoTag, total: 0, shown: 0, hits: [], present: false, why: st.why,
+      receipt: toUuid('catalogue-browse|absent|' + repoTag + '|' + query),
     }
   }
-  const { hits, total } = catalogueSearch(query, limit)
+  const { hits, total } = query.trim()
+    ? catalogueBrowse(query, limit, repo === 'all' ? undefined : repo)
+    : catalogueBrowse('', limit, repo === 'all' ? undefined : repo)
   const rows = hits.map(hitOf)
   return {
-    query, total, shown: rows.length, hits: rows, present: true, why: null,
-    receipt: toUuid('catalogue-browse|' + query + '|' + total + '|' + rows.map((h) => h.name).join(',')),
+    query, repo: repoTag, total, shown: rows.length, hits: rows, present: true, why: null,
+    receipt: toUuid('catalogue-browse|' + repoTag + '|' + query + '|' + total + '|' + rows.map((h) => h.name).join(',')),
   }
 }
 

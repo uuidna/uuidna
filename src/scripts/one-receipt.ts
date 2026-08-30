@@ -1304,6 +1304,8 @@ export function dormantGaps(): Gap[] {
     if (!existsSync(p)) continue
     for (const f of readdirSync(p)) corpus += ' ' + fileText(join(p, f))
   }
+  const wrangler = join(ROOT, 'wrangler.toml')
+  if (existsSync(wrangler)) corpus += ' ' + fileText(wrangler) // [build] runs ship-build.js on deploy
   // a sibling script naming this one counts as an invocation; the file naming ITSELF does not. Found 2026-08-19:
   // a script that documents its own usage as `node dist/scripts/<name>.js …` had that comment read
   // as proof something ran it — so ANY dormant script could exempt itself simply by naming its compiled form.
@@ -2530,7 +2532,7 @@ export function incompleteGaps(): Gap[] {
  *  ADVISORY, NOT BLOCKING. A wing's first theorem in a new direction has no neighbours yet, and that is growth
  *  rather than rot — so this reports and never refuses. `incomplete` blocks because a universal with nothing
  *  quantified is always wrong; lonely is a question, not a verdict. */
-export { lonelyGaps } from '../lonely-gaps.js'
+export { lonelyGaps } from '../gap-survey.js'
 
 /** MARKUP THAT DOES NOT CLOSE — the defect that broke every theorem page and passed every gate.
  *

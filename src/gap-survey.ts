@@ -1,18 +1,132 @@
 // gap-survey — WHAT IS STILL OPEN, DERIVED FROM THE RECORDS. Counts never pinned; the survey recomputes.
-// Desk-automatable gaps carry an act; kernel-only gaps cite sealed theorems — no boundary prose (boundary-law.ts).
-import { boundaryCitation, BOUNDARY_THEOREMS } from './boundary-law.js'
-import { readRepoJson } from './desk/index.js'
+// Desk-automatable gaps carry an act; kernel-only gaps cite sealed theorems — no boundary prose.
+import { readRepoJson } from './desk/repo/json/index.js'
 import { leadCensus, type SourceReading } from './leads.js'
-import { tableLeadsFrom } from './table-leads.js'
-import { theoremCountByFile } from './theorems/index.js'
+import { theoremCountByFile, theoremByKey, theorems } from './theorems/index.js'
 import { pendingHarvestLeads } from './search-feed.js'
 import { waveQueueState } from './wave-deposit.js'
 import { leadsTrialGaps, type LeadsRecord } from './school/leads/index.js'
 import { gatherOpenLeads } from './school/open/questions/springs.js'
-import { lonelyGaps } from './lonely-gaps.js'
 import { ROOT } from './boundary.js'
-import { DERIVE_SURFACES_CMD } from './derive-surfaces.js'
 import { refusalTrialsOpen, type RefusalTrialsRecord } from './refusal-trials.js'
+
+// ── boundary-law — NO BOUNDARY UNLESS IN THEOREMS. ──
+
+export const BOUNDARY_POINTER = 'Boundary declared — theorem drift_is_named_or_caught'
+
+export const BOUNDARY_THEOREMS = {
+  harmony: 'drift_is_named_or_caught',
+  admission: 'legal_only_the_proven_is_admitted',
+  integrity: 'provenance_integrity_not_content_truth',
+  silence: 'silence_never_refutes',
+  window: 'window_not_universal',
+  remand: 'legal_remand_is_total_nothing_discarded',
+} as const
+
+export type BoundaryTheoremKey = (typeof BOUNDARY_THEOREMS)[keyof typeof BOUNDARY_THEOREMS]
+
+export function boundaryCitation(key: BoundaryTheoremKey): string {
+  return `Boundary declared — theorem ${key}`
+}
+
+export function isSealedBoundaryTheorem(key: string): boolean {
+  return theoremByKey().has(key)
+}
+
+export function allBoundaryTheoremsSealed(): string[] {
+  const missing: string[] = []
+  for (const key of Object.values(BOUNDARY_THEOREMS)) {
+    if (!isSealedBoundaryTheorem(key)) missing.push(key)
+  }
+  return missing
+}
+
+const sealedKeys = (): ReadonlySet<string> => new Set(theoremByKey().keys())
+
+export function hasBoundaryPointer(text: string, keys: ReadonlySet<string> = sealedKeys()): boolean {
+  if (/Boundary declared — theorem [a-z][a-z0-9_]+/i.test(text)) return true
+  if (/\/theorem\/[a-z][a-z0-9_]+/.test(text)) return true
+  return [...text.matchAll(/\b([a-z][a-z0-9_]{6,})\b/g)].some((m) => keys.has(m[1]!))
+}
+
+export function bareBoundaryProse(text: string, keys: ReadonlySet<string> = sealedKeys()): boolean {
+  if (!/\bHONEST SCOPE\b|\bNOT PROVEN\b|\bnever a (?:chip|solver|proof)\b|\bsolv(?:e[sd])?\s+none\b/i.test(text)) return false
+  return !hasBoundaryPointer(text, keys)
+}
+
+// ── table-leads — tables.found vs sealed census. ──
+
+export interface TableFound { wing: string; object: string; size: string }
+export interface TableLead {
+  wing: string
+  file: string
+  object: string
+  stated: number
+  sealed: number
+  owes: string
+}
+
+export const tableFileOf = (wing: string): string => `${wing}.lean`
+
+export function tableLeadsFrom(
+  found: readonly TableFound[],
+  counts: ReadonlyMap<string, number>,
+): TableLead[] {
+  const out: TableLead[] = []
+  for (const row of found) {
+    const stated = Number(row.size)
+    if (!Number.isFinite(stated) || stated <= 0) continue
+    const file = tableFileOf(row.wing)
+    const sealed = counts.get(file) ?? 0
+    if (sealed >= stated) continue
+    out.push({
+      wing: row.wing,
+      file,
+      object: row.object,
+      stated,
+      sealed,
+      owes: `${file} states ${row.object} (${stated}) and seals ${sealed} — enumerate the table; desk proposes, kernel disposes`,
+    })
+  }
+  return out.sort((a, b) => (b.stated - b.sealed) - (a.stated - a.sealed) || (a.wing < b.wing ? -1 : 1))
+}
+
+// ── lonely-gaps — wing-isolated theorems. ──
+
+export interface LonelyGap {
+  what: string
+  fix: string
+}
+
+export function lonelyGaps(): LonelyGap[] {
+  const STOP = /^(List|range|fun|all|Nat|Int|true|false|filter|map|length|sum|if|then|else)$/
+  const toks = (s: string): Set<string> => new Set([
+    ...(s.match(/[A-Za-z_][A-Za-z0-9_]{2,}/g) ?? []).filter((w) => !STOP.test(w)),
+    ...(s.match(/\b\d+\b/g) ?? []),
+  ])
+  const byWing = new Map<string, ReturnType<typeof theorems>>()
+  for (const t of theorems()) byWing.set(t.file, [...(byWing.get(t.file) ?? []), t])
+  const gaps: LonelyGap[] = []
+  for (const [file, ts] of byWing) {
+    if (ts.length < 2) continue
+    for (const t of ts) {
+      const mine = toks(t.statement)
+      if (mine.size === 0) continue
+      if (ts.some((o) => o.key !== t.key && [...toks(o.statement)].some((w) => mine.has(w)))) continue
+      gaps.push({
+        what: `${t.key} shares no symbol and no constant with any neighbour in ${file} — \`${t.statement.slice(0, 46)}\``,
+        fix: 'connect it: state it over a constant or definition the wing already uses, so the theorem leans on its neighbours instead of standing alone under its name',
+      })
+    }
+  }
+  return gaps
+}
+
+/** One command — regrow every desk surface derived from the live records. */
+export const DERIVE_SURFACES_CMD =
+  'node dist/scripts/derive-prose-trials.js && node dist/scripts/gen-search-feed.js && node dist/scripts/gen-open-questions.js && node dist/scripts/gen-school.js'
+
+// ── gap survey ──
 
 export interface GapBucket {
   kind: string

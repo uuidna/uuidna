@@ -7,7 +7,8 @@
 // Naming: publication = audited domain prose. principle = derivation wing. skill = capability axis.
 // monograph = any URL's relations + body. Layout never reads this module; transformPageData attaches
 // only the slice that URL is.
-import { theorems, runTrial, PRINCIPLES, rosettaIndex } from './theorems/index.js'
+import { theorems, runTrial, PRINCIPLES, rosettaIndex, dependsOn, gravityOf, isUnbound, axiomIndex, type Theorem } from './theorems/index.js'
+import { axiomWitness } from './axiom-witness.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
 import { publications } from './publish.js'
@@ -24,6 +25,10 @@ export type AxisMember = {
   principle: string
   aura: { hsl: string; ray: number }
   lineAura: { hsl: string; ray: number }
+  dependsOn: string[]
+  depCount: number
+  gravity: number
+  unbound: boolean
 }
 
 export type TheoremsAxis = {
@@ -34,6 +39,8 @@ export type TheoremsAxis = {
   publicationByPrinciple: Record<string, string | null>
   skills: string[]
   trialReceipt: string
+  axiomHolds: boolean
+  unboundCount: number
 }
 
 export type TopicsAxis = {
@@ -58,6 +65,23 @@ export type TrialsAxis = {
     orderInvariant: boolean
     chainTip: string
   }
+}
+
+export type AxiomsAxis = {
+  objectKind: 'axioms'
+  totalDefs: number
+  citedDefs: number
+  unusedDefs: number
+  wings: number
+  axiomHolds: boolean
+  entries: {
+    file: string
+    def: string
+    principle: string
+    theoremCount: number
+    unused: boolean
+    theorems: { key: string; name: string }[]
+  }[]
 }
 
 export type HomeCensus = {
@@ -127,17 +151,16 @@ export type AxisBundle = {
   topics: TopicsAxis
   rosetta: RosettaAxis
   trials: TrialsAxis
+  axioms: AxiomsAxis
   census: HomeCensus
 }
 
 let CACHED: AxisBundle | null = null
 
-function thinMember(t: {
-  key: string; name: string; statement: string; skill: string; principle: string
-  address: string; lineAddress: string
-}): AxisMember {
+function thinMember(t: Theorem): AxisMember {
   const a = quantumAura(t.address)
   const la = quantumAura(t.lineAddress)
+  const deps = [...dependsOn(t)]
   return {
     key: t.key,
     name: t.name,
@@ -146,6 +169,10 @@ function thinMember(t: {
     principle: t.principle,
     aura: { hsl: a.hsl, ray: a.ray },
     lineAura: { hsl: la.hsl, ray: la.ray },
+    dependsOn: deps,
+    depCount: deps.length,
+    gravity: gravityOf(t),
+    unbound: isUnbound(t),
   }
 }
 
@@ -180,6 +207,10 @@ export function axisMonographs(): AxisBundle {
       .sort((a, b) => b.count - a.count),
   }
   const roots = LEDGER.map((t) => t.address)
+  let axiomHolds = false
+  try { axiomHolds = !!axiomWitness().holds } catch { axiomHolds = false }
+  const unboundCount = LEDGER.filter(isUnbound).length
+  const axiomsIdx = axiomIndex()
   CACHED = {
     theorems: {
       objectKind: 'theorems',
@@ -189,6 +220,8 @@ export function axisMonographs(): AxisBundle {
       publicationByPrinciple,
       skills: skillNames,
       trialReceipt: trial.receipt,
+      axiomHolds,
+      unboundCount,
     },
     topics,
     rosetta: {
@@ -212,6 +245,22 @@ export function axisMonographs(): AxisBundle {
         orderInvariant: trial.receipt === merkleGravity([...roots].reverse()),
         chainTip: roots.reduce((tip, r) => toUuid(tip + '→' + r), 'axiom'),
       },
+    },
+    axioms: {
+      objectKind: 'axioms',
+      totalDefs: axiomsIdx.totalDefs,
+      citedDefs: axiomsIdx.citedDefs,
+      unusedDefs: axiomsIdx.unusedDefs,
+      wings: axiomsIdx.wings,
+      axiomHolds,
+      entries: axiomsIdx.entries.map((e) => ({
+        file: e.file,
+        def: e.def,
+        principle: e.principle,
+        theoremCount: e.theoremCount,
+        unused: e.unused,
+        theorems: e.theorems.map((t) => ({ key: t.key, name: t.name })),
+      })),
     },
     census: {
       objectKind: 'page',
@@ -287,7 +336,7 @@ export function axisMonographs(): AxisBundle {
 /** Slice of the census that THIS markdown path is the monograph of. Other URLs get none. */
 export function axisForRelativePath(relativePath: string): { axis?: object; census?: HomeCensus; objectKind?: string } {
   const rel = relativePath.replace(/\\/g, '/')
-  if (rel !== 'theorems.md' && rel !== 'topics.md' && rel !== 'rosetta.md' && rel !== 'trials.md' && rel !== 'index.md') {
+  if (rel !== 'theorems.md' && rel !== 'topics.md' && rel !== 'rosetta.md' && rel !== 'trials.md' && rel !== 'axioms.md' && rel !== 'index.md') {
     return {}
   }
   const bundle = axisMonographs()
@@ -295,6 +344,7 @@ export function axisForRelativePath(relativePath: string): { axis?: object; cens
   if (rel === 'topics.md') return { axis: bundle.topics, objectKind: 'topics' }
   if (rel === 'rosetta.md') return { axis: bundle.rosetta, objectKind: 'rosetta' }
   if (rel === 'trials.md') return { axis: bundle.trials, objectKind: 'trials' }
+  if (rel === 'axioms.md') return { axis: bundle.axioms, objectKind: 'axioms' }
   if (rel === 'index.md') return { census: bundle.census, objectKind: 'page' }
   return {}
 }

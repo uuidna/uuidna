@@ -19,6 +19,7 @@
 import { sealMessage, openMessage, type SealedQuantumMessage } from '../../../message/index.js'
 import { toUuid } from '../../../../address.js'
 import { handleOf } from '../../../../handle.js'
+import { glagoliticNibbleOf } from '../../../../hexbit/index.js'
 
 export interface Envelope {
   glyphs: string                  // the identity in Cyril's letters — 32 states, the message's own address
@@ -31,7 +32,7 @@ export interface Envelope {
 }
 
 const glyphsOf = (uuid: string): string =>
-  [...uuid.replace(/-/g, '')].map((c) => String.fromCodePoint(0x2C00 + parseInt(c, 16))).join('')
+  [...uuid.replace(/-/g, '')].map((c) => glagoliticNibbleOf(parseInt(c, 16))).join('')
 
 /** the message of record: identity, seal, prose — in that order, always. */
 export function envelopeOf(text: string, theoremKey: string, passphrase: string, tldr = ''): Envelope {

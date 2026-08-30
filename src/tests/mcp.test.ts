@@ -43,6 +43,23 @@ test('unify: one receipt folds theorems + domains + tools, recomputable', () => 
   assert.deepEqual(u, callTool('uuidna_unify', {}))      // recomputes identically
 })
 
+test('uuidna_uuid_channel and uuidna_seal_channel — automation slices without payload store', () => {
+  const addr = toUuid('automation-channel')
+  const ch = callTool('uuidna_uuid_channel', { address: addr }) as {
+    handle: string; torusHome: boolean; trinities: string[]; payloadStoreOptional: boolean
+  }
+  assert.equal(ch.handle.length, 8)
+  assert.equal(ch.trinities.length, 3)
+  assert.equal(ch.torusHome, true)
+  assert.equal(ch.payloadStoreOptional, true)
+  const sealed = callTool('uuidna_seal_channel', { message: 'ping', passphrases: ['k'], step: 1 }) as {
+    uuids: string[]; channels: { handle: string }[]
+  }
+  assert.ok(sealed.uuids.length >= 1)
+  assert.equal(sealed.channels.length, sealed.uuids.length)
+  assert.equal(sealed.channels[0]!.handle.length, 8)
+})
+
 test('mcp tests itself: catalog↔handlers hold, zero-arg tools recompute (only live resources may vary)', () => {
   const s = callTool('uuidna_selftest', {}) as { checks: number; passed: number; deterministic: number; failed: { name: string }[] }
   assert.ok(s.checks > 80 && s.deterministic > 0)

@@ -283,17 +283,26 @@ export const catalogueFor = (route: string): CataloguePackage | null => {
   return cataloguePackage(name)
 }
 
-/** search name and published description, name matches first, then alphabetical — bounded, so a one-letter
- *  query cannot return 28,639 lines into a caller's context. `total` is the true count before the cap. */
-export const catalogueSearch = (query: string, limit = 40): { hits: CataloguePackage[]; total: number } => {
-  const q = query.toLowerCase()
-  if (!q) return { hits: [], total: 0 }
-  const all = load().packages.filter((p) => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q))
-  all.sort((a, b) => {
-    const an = a.name.toLowerCase() === q ? 0 : a.name.toLowerCase().startsWith(q) ? 1 : 2
-    const bn = b.name.toLowerCase() === q ? 0 : b.name.toLowerCase().startsWith(q) ? 1 : 2
-    return an !== bn ? an - bn : a.name < b.name ? -1 : a.name > b.name ? 1 : 0
-  })
+/** search name and published description, name matches first, then alphabetical — bounded. Empty query → nothing. */
+export const catalogueSearch = (query: string, limit = 40, repo?: 'main' | 'community'): { hits: CataloguePackage[]; total: number } => {
+  if (!query.trim()) return { hits: [], total: 0 }
+  return catalogueBrowse(query, limit, repo)
+}
+
+/** catalogueBrowse(query, limit, repo?) — bounded browse; empty query lists alphabetically (PWA shelf). */
+export const catalogueBrowse = (query: string, limit = 40, repo?: 'main' | 'community'): { hits: CataloguePackage[]; total: number } => {
+  const pool = repo ? load().packages.filter((p) => p.repo === repo) : load().packages
+  const q = query.trim().toLowerCase()
+  let all = q
+    ? pool.filter((p) => p.name.toLowerCase().includes(q) || p.desc.toLowerCase().includes(q))
+    : [...pool].sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+  if (q) {
+    all.sort((a, b) => {
+      const an = a.name.toLowerCase() === q ? 0 : a.name.toLowerCase().startsWith(q) ? 1 : 2
+      const bn = b.name.toLowerCase() === q ? 0 : b.name.toLowerCase().startsWith(q) ? 1 : 2
+      return an !== bn ? an - bn : a.name < b.name ? -1 : a.name > b.name ? 1 : 0
+    })
+  }
   return { hits: all.slice(0, limit), total: all.length }
 }
 

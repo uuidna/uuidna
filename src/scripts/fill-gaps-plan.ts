@@ -3,7 +3,7 @@
 import { toUuid } from '../address.js'
 import { hexbitReceipt } from '../hexbit/index.js'
 import { gapSurvey, type GapSurvey } from '../gap-survey.js'
-import { DERIVE_SURFACES_CMD } from '../derive-surfaces.js'
+import { DERIVE_SURFACES_CMD } from '../gap-survey.js'
 
 export interface FillGapsPhase {
   name: string

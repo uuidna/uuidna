@@ -1,10 +1,4 @@
-// default-install packages — ONE AT A TIME, 100% OF THE SEALED CLOSURE.
-//
-// Start here, not at the 28k catalogue. alpine-base's dependency graph is the world uuidnaOS boots
-// (default_install_is_dependency_closed). Each spec is tested as its own package: catalogue identity,
-// self-test, handle, apk INSTALLED, ls/cat/stat of its route, man→app when Alpine published docs,
-// published cmd: handed to the one Layer 2 planner. No per-language port. A package without man or
-// without a binary is named; 100% is every member of the closure, not a padded man corpus.
+// os-install — alpine-base closure, one package at a time
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { defaultInstalls } from '../quantum/os/index.js'
@@ -18,7 +12,10 @@ import { planAlpineRuns } from '../os/runtime/index.js'
 import { catalogue, cataloguePackage, isAlpineDistroPackage, providedCommands } from '../quantum/os/catalogue.js'
 import { UUID_HEXBITS, UUID_BITS, nativeBitWidths } from '../hexbit/index.js'
 import { theoremByKey } from '../theorems/index.js'
-import { uuidnaExec } from '../quantum/os/exec.js'
+import {  fresh, exec } from '../quantum/os/harness.js'
+
+test.beforeEach(fresh)
+
 
 test('every default-install package is tested, one at a time, in sealed build order — 100%', () => {
   const port = defaultInstalls()
@@ -208,14 +205,14 @@ test('reverse of an AVAILABLE row agrees with the exec door; a Python CLI and a 
   const frontier = cataloguePackage(testDefaultInstallPackages().next.package!)
   assert.ok(frontier)
   const rev = readAvailableApp(frontier, done)
-  const exec = testAvailablePackage(frontier)
+  const row = testAvailablePackage(frontier)
   assert.equal(rev.state, 'AVAILABLE')
-  assert.equal(rev.ok, exec.ok)
-  assert.equal(rev.name, exec.name)
-  assert.equal(rev.man, exec.man)
-  assert.deepEqual(rev.commands, exec.commands)
+  assert.equal(rev.ok, row.ok)
+  assert.equal(rev.name, row.name)
+  assert.equal(rev.man, row.man)
+  assert.deepEqual(rev.commands, row.commands)
   assert.equal(rev.hexbits.length, UUID_HEXBITS)
-  const apk = uuidnaExec(`apk info ${frontier.name}`)
+  const apk = exec(`apk info ${frontier.name}`)
   assert.equal((apk.data as { state?: string })?.state, 'AVAILABLE')
 
   const py = catalogue().find((p) => p.name.startsWith('py3-') && providedCommands(p).length > 0 && !done.has(p.name))

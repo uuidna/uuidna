@@ -1,20 +1,14 @@
-// catalogue — ALL OF ALPINE AT THE SURFACE, and the three states that were two.
-//
-// MEASURED BEFORE (2026-08-25): the install port compiles alpine-base's closure — 25 packages — and `apk search`
-// filtered exactly those. Alpine publishes 28,639 on latest-stable/x86_64 (main 5,961 · community 22,678), so the
-// surface answered for 0.087% of Alpine and said "(no ported package matches "nodejs")" for the rest. That string
-// is a claim about uuidna's port; a caller choosing what to rest a project on reads it as a claim about ALPINE,
-// and for 28,614 packages that reading was wrong with total confidence.
-//
-// The defect is the one this tree keeps finding in new clothes: NOT-PORTED and NOT-IN-ALPINE were one value. The
-// cure is a third and a fourth state, and these tests hold all four apart.
+// os-catalogue — four states; Alpine corpus ≠ boot closure
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { uuidnaExec } from '../quantum/os/exec.js'
+import { fresh, exec } from '../quantum/os/harness.js'
 import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, catalogueRouteOf, catalogueFor, resolveAlpineApp } from '../quantum/os/catalogue.js'
 import { ROOT } from '../scripts/api.js'
+
+test.beforeEach(fresh)
+
 
 test('the catalogue carries ALL of Alpine, not the boot closure', () => {
   const st = catalogueState()
@@ -34,7 +28,7 @@ test('a package OUTSIDE the boot closure is now ANSWERED, with upstream\'s own v
   assert.match(node.checksum, /^Q1/, 'upstream\'s PUBLISHED checksum — provenance, never a recomputation')
   assert.ok(node.deps.length > 0, 'and its published dependency edge, which `apk depends` now walks')
 
-  const r = uuidnaExec('apk search nodejs')
+  const r = exec('apk search nodejs')
   assert.equal(r.ok, true)
   assert.ok(r.output.some((l) => l.startsWith('nodejs-')), 'the surface returns it, not a miss')
   assert.ok(!r.output.some((l) => l.includes('no ported package matches')), 'the old string must never come back')
@@ -42,7 +36,7 @@ test('a package OUTSIDE the boot closure is now ANSWERED, with upstream\'s own v
 
 test('INSTALLED, AVAILABLE and ABSENT are three DIFFERENT answers', () => {
   // (1) in the boot closure — installed, and still carrying its route in the virtual OS
-  const inst = uuidnaExec('apk info busybox')
+  const inst = exec('apk info busybox')
   assert.equal(inst.ok, true)
   assert.equal((inst.data as { state: string }).state, 'INSTALLED')
   assert.ok(inst.output.some((l) => l.includes('webpage')), 'an installed package keeps its uuidnaOS route')
@@ -51,7 +45,7 @@ test('INSTALLED, AVAILABLE and ABSENT are three DIFFERENT answers', () => {
   assert.ok(typeof (inst.data as { address?: string }).address === 'string', 'INSTALLED carries its address')
 
   // (2) published by Alpine but not booted — available, and SAID to be available rather than silently listed
-  const avail = uuidnaExec('apk info nodejs')
+  const avail = exec('apk info nodejs')
   assert.equal(avail.ok, true)
   assert.equal((avail.data as { state: string }).state, 'AVAILABLE')
   assert.ok(avail.output.some((l) => l.includes('AVAILABLE')), 'the distinction is stated to the reader, not only in data')
@@ -63,7 +57,7 @@ test('INSTALLED, AVAILABLE and ABSENT are three DIFFERENT answers', () => {
   assert.ok(availData.hexbits!.every((h) => Number.isInteger(h) && h >= 0 && h < 16), 'every state is a hexbit')
 
   // (3) not published at all — a refusal that names its DENOMINATOR, so the claim is checkable
-  const gone = uuidnaExec('apk info zzz-no-such-package-anywhere')
+  const gone = exec('apk info zzz-no-such-package-anywhere')
   assert.equal(gone.ok, false)
   assert.match(gone.output[0]!, /no such package/)
   assert.match(gone.output[0]!, /28\d{3}|\d{5}/, 'it states how many packages it actually searched')
@@ -137,7 +131,7 @@ test('rdepends walks the WHOLE published graph, not the 25 that boot', () => {
   // "who in the running world needs this" is a different question from "who could".
   const r = catalogueRdepends('musl')
   assert.ok(r.total >= 5, `the published reverse edge must be real: got ${r.total}`)
-  const surfaced = uuidnaExec('apk rdepends musl')
+  const surfaced = exec('apk rdepends musl')
   assert.equal(surfaced.ok, true)
   assert.ok(surfaced.output.some((l) => l.includes('[installed]')), 'boot packages are marked, not merged away')
 })
@@ -218,7 +212,7 @@ test('a runtime with NO filesystem is primed, not crippled', async () => {
   assert.equal(st.present, true)
   assert.ok(st.count > 20000, 'the browser gets the WHOLE catalogue, not a subset')
   assert.equal(cataloguePrimed(), true)
-  // and the sync surface still works afterwards — uuidnaExec is sync by design and must not become async
+  // and the sync surface still works afterwards — exec is sync by design and must not become async
   // because one host opens files differently
   assert.ok(cataloguePackage('nodejs'), 'the sync accessors read the primed world')
 

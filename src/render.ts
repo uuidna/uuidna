@@ -4,13 +4,16 @@
 // the same bound as a single address. Every card is schema.org microdata and LINKS its statement to its
 // proof page (/theorem/<key>) — the statement and its proof are one edge. A content-address proves integrity,
 // not truth.
-import { toUuid, vortexOrbit } from './address.js'
+import { toUuid, vortexOrbit, TRINITY } from './address.js'
+import { handleOf } from './handle.js'   // the door /<handle> IS the handle — one derivation, see handle.ts
+import { durationVars, sequenceVars } from './css.js'
+import type { TenD } from './aura.js'
+import { quantumAura, rotationOf } from './aura.js'
 import { coins } from './captain/billing/index.js'
 import { PRICE } from './billing/index.js'
-import { COINS, fuseLadder } from './hexbit/index.js'
-import { handleOf } from './handle.js'   // the door /<handle> IS the handle — one derivation, see handle.ts
 import { DIMENSIONS } from './harness.js'
-import { sequenceVars, durationVars } from './css.js'
+import { COINS, HEXBIT_BITS, HANDLE_HEXBITS, fuseLadder } from './hexbit/index.js'
+import { HEXAGRAM_BITS, twoBoardsOf, referrerDoorOf } from './hexagram.js'
 // the ledger, for the address a hero carries — aliased because renderList already binds the name `theorems`
 import { theorems as ledger } from './theorems/index.js'
 import { packageSeoLink, seoMicrodataAttrs } from './seo-package.js'
@@ -101,6 +104,131 @@ export function renderList(theorems: readonly TheoremView[], opts: RenderOpts = 
   return `<div class="uuidna-list" style="display:grid;gap:.4rem">${theorems.map((t) => renderTheorem(t, opts)).join('')}</div>`
 }
 
+// ── heroAt — double Fu Xi boards keyed by referrer handle colour + 10D resonance. ──
+
+const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i
+const HANDLE8 = /^[0-9a-f]{8}$/i
+
+export interface HeroAtOpts {
+  dimension?: string
+  rung?: number
+  tempo?: number
+}
+
+export interface HeroGate {
+  i: number
+  lit: boolean
+  lines: readonly number[]
+}
+
+export interface HeroCoinColor {
+  hex: string
+  offset: number
+}
+
+export interface HeroAt {
+  address: string
+  handle: string
+  door: string
+  referrerDoor: number
+  fused: boolean
+  board: number
+  gates: number
+  hexagramBits: number
+  boards: readonly [readonly HeroGate[], readonly HeroGate[]]
+  handleColors: readonly string[]
+  coinColors: readonly [HeroCoinColor, HeroCoinColor]
+  ten: TenD
+  hsl: string
+  styleVars: Readonly<Record<string, string>>
+}
+
+export function resolveReferrer(referrer: string): string {
+  const raw = String(referrer || '').trim()
+  if (UUID.test(raw)) return raw.toLowerCase()
+  const fromUrl = raw.includes('uuidna.com/') ? raw.replace(/.*uuidna\.com\//i, '').split(/[?#/]/)[0]! : raw
+  if (HANDLE8.test(fromUrl)) return toUuid(fromUrl.toLowerCase())
+  if (HANDLE8.test(raw)) return toUuid(raw.toLowerCase())
+  return toUuid(raw || 'uuidna')
+}
+
+export function coinHexFromHandle(handle: string, offset: number): string {
+  const ring = handle + handle.slice(0, 2)
+  return `#${ring.slice(offset, offset + 6)}`
+}
+
+export function handleColorsOf(handle: string): readonly string[] {
+  const seq = sequenceVars()
+  return [...handle].map((ch) => {
+    const d = (parseInt(ch, 16) % 9) + 1
+    return seq[`--seq-${d}`] ?? seq['--seq-5']!
+  })
+}
+
+export function gateColorOf(handleColors: readonly string[], gateIndex: number): string {
+  return handleColors[gateIndex % handleColors.length] ?? handleColors[0]!
+}
+
+export function ichingGatesOf(face: readonly number[]): readonly HeroGate[] {
+  const n = face.length
+  const linesN = HEXAGRAM_BITS
+  const out: HeroGate[] = []
+  for (let i = 0; i < n; i++) {
+    const lines: number[] = []
+    for (let b = 0; b < linesN; b++) lines.push((i >> b) & 1)
+    out.push({ i, lit: face[i] === 1, lines })
+  }
+  return out
+}
+
+export function heroAt(referrer: string, _opts: HeroAtOpts = {}): HeroAt {
+  const address = resolveReferrer(referrer)
+  const handle = handleOf(address)
+  const door = `https://uuidna.com/${handle}`
+  const referrerDoor = referrerDoorOf(handle)
+  const contributed = coins()
+  const fused = contributed === COINS && PRICE === contributed
+  const faces = twoBoardsOf(address)
+  const aura = quantumAura(address)
+  const ten = aura.ten
+  const handleColors = handleColorsOf(handle)
+  const coinColors: [HeroCoinColor, HeroCoinColor] = [
+    { hex: coinHexFromHandle(handle, 0), offset: 0 },
+    { hex: coinHexFromHandle(handle, 2), offset: 2 },
+  ]
+  const turn = rotationOf()
+  const phase = turn / COINS
+  return {
+    address,
+    handle,
+    door,
+    referrerDoor,
+    fused,
+    board: HANDLE_HEXBITS,
+    gates: faces[0]!.length,
+    hexagramBits: HEXAGRAM_BITS,
+    boards: [ichingGatesOf(faces[0]!), ichingGatesOf(faces[1]!)],
+    handleColors,
+    coinColors,
+    ten,
+    hsl: aura.hsl,
+    styleVars: {
+      '--hero-aura': aura.hsl,
+      '--hero-period': ten.period + 's',
+      '--hero-turn': turn + 'deg',
+      '--coin-phase': phase + 'deg',
+      '--coin-a': coinColors[0].hex,
+      '--coin-b': coinColors[1].hex,
+      '--coin-weight': (1 / COINS).toFixed(3),
+      '--glow-inner': ten.glowInner + 'px',
+      '--glow-outer': ten.glowOuter + 'px',
+      '--glow-spread-in': HEXBIT_BITS + 'px',
+      '--glow-spread-out': (HEXBIT_BITS * TRINITY) + 'px',
+      '--face-board': String(HANDLE_HEXBITS),
+    },
+  }
+}
+
 // ── THE HERO ANIMATION — motion computed from the ledger
 // Every number that moves here is sealed. The path is the DOUBLING ORBIT (vortexOrbit: 1→2→4→8→7→5→1, the unit group
 // of ℤ/9 generated by 2 — vortex_is_the_units, order_of_two_is_six), so the walk closes because the orbit does. The
@@ -112,90 +240,105 @@ export function renderList(theorems: readonly TheoremView[], opts: RenderOpts = 
 // anything the arithmetic does not already prove, and it claims nothing about what the motion depicts.
 export interface HeroAnimation {
   svg: string
-  lead: string                      // the dimension that leads — resolved, so an unknown request is visible
-  sequence: readonly number[]      // the doubling orbit walked — unfused ([1]) unless coins() paid at each rung
-  fused: boolean                   // trial_computes_only_with_two_coins: the walk closes only when the two coins contribute
-  dimensions: readonly string[]    // the seven rosetta rays
-  durations: readonly string[]     // the sealed tempi, in orbit order
-  address: string                  // the content-address of this exact hero
+  lead: string
+  sequence: readonly number[]
+  fused: boolean
+  dimensions: readonly string[]
+  durations: readonly string[]
+  address: string
+  handle: string
+  door: string
+  referrerDoor: number
+  ten: TenD
+  hsl: string
   honest: string
 }
 
-/** heroAnimation(key, dimension, rung, tempo, base) → the sequence and dimensions as one animated SVG, every value
- *  sealed. FIVE parameters, all optional: which theorem it announces, which of the seven dimensions leads, which
- *  sequence rung the colour starts on, which sealed tempo drives it, and the URL base its proof link uses. */
+/** heroAnimation — MCP/legacy entry: theorem key resolves to its address, then heroAt. Prefer heroAt(referrer). */
 export function heroAnimation(
   key = 'vortex_orbit', dimension = 'en', rung = 1, tempo = 444, base = DEFAULT_BASE,
 ): HeroAnimation {
-  const contributed = coins()
-  const fused = contributed === COINS && PRICE === contributed
-  const orbit = fuseLadder(1, contributed)                        // [1,2,4,8,7,5] only when coins() paid at each rung
-  const dims = DIMENSIONS                                         // the seven rays, sealed
-  const seq = sequenceVars()                                      // rung → hue, sealed
-  const durs = durationVars()                                     // the units of ℤ/9, tripled, sealed
+  const subject = ledger().find((t) => t.key === key)?.address ?? toUuid(key)
+  return heroAnimationOf(subject, { dimension, rung, tempo }, base, key)
+}
+
+/** heroAnimationOf(referrer, opts) → SVG + bag; referrer is address, handle, or door URL. Iching boards only. */
+export function heroAnimationOf(
+  referrer: string, opts: HeroAtOpts = {}, base = DEFAULT_BASE, title = '',
+): HeroAnimation {
+  const h = heroAt(referrer, opts)
+  const durs = durationVars()
   const tempoKeys = Object.keys(durs)
-  // ── THE THEOREM SPEAKS THROUGH THE MOTION ────────────────────────────────────────────────────────────────────
-  // Until now every theorem animated identically: the figure showed the shared LAW and said nothing about WHICH
-  // theorem it announced. Now each node carries one hex digit of the theorem's own content-address, encoded in the
-  // two things a viewer can actually see — WHICH sealed tempo it beats on and WHICH sequence rung it wears.
-  //
-  // The channel is exact, and the ledger already proves why: a hex digit is 0..15, the tempi number 6 and the
-  // sequence 9, and lcm(6, 9) = 18 > 16 — so (digit mod 6, digit mod 9) determines the digit UNIQUELY by the
-  // LCM BOUND — 18 = 2·9 is the two coins on the ring, and 18 − 16 = 2 is the coins again as headroom (residues_identify_digit; NOT the Chinese Remainder Theorem, which would need 6 and 9 coprime, and rosette_and_vortex_are_coprime seals gcd(9,6) = 3). Six nodes therefore transmit six digits, and readHero() recovers them
-  // from the rendered SVG alone. HONEST SCOPE: it carries the ADDRESS, which is identity— the
-  // motion tells you which theorem is speaking.
-  const hex = (ledger().find((t) => t.key === key)?.address ?? toUuid(key)).replace(/-/g, '')
-  const digit = (i: number): number => parseInt(hex[i % hex.length], 16)
-  const hue = (n: number): string => seq[`--seq-${((n + rung - 1) % 9) + 1}`] ?? seq['--seq-1']
-  // the node's tempo and colour are its digit's two residues — the pair that recovers the digit
-  const beat = (i: number): string => durs[tempoKeys[digit(i) % tempoKeys.length]] ?? `${tempo}ms`
-  const nodeHue = (i: number): string => seq[`--seq-${(digit(i) % 9) + 1}`] ?? seq['--seq-1']
-  // six nodes on the ring, placed by their ORBIT INDEX (not by angle chosen for looks): step k sits at k/6 of the turn
-  const node = (v: number, i: number): string => {
-    const turn = (i * 360) / (orbit.length || 1)                    // 360/6 when fused — unpaid ladder is one rung
-    // NO CHOSEN AMPLITUDE: the base radius is the orbit's own length and each rung pulses by ITS OWN VALUE, so the
-    // node for 8 swells most and the node for 1 least — the motion's size IS the number it depicts.
-    // Without the coins the halves do not join: no pulse, the hero will not fuse.
-    const pulse = fused
-      ? `<animate attributeName="r" values="${orbit.length};${orbit.length + v};${orbit.length}" dur="${beat(i)}" repeatCount="indefinite"/>`
-      : ''
-    return `<g transform="rotate(${turn} 100 100)"><circle cx="100" cy="30" r="${orbit.length}" fill="${nodeHue(i)}" data-seq="${digit(i) % 9}">` +
-      pulse + `</circle>` +
-      `<text x="100" y="34" text-anchor="middle" font-size="10" fill="#0b0b0b" transform="rotate(${-turn} 100 30)">${v}</text></g>`
+  const cell = 11
+  const boardN = h.board
+  const boardW = boardN * cell
+  const lineSvg = (board: readonly HeroGate[], ox: number, oy: number, coinHex: string, side: number): string => {
+    let out = `<g data-slot="coin-face" data-side="${side}" opacity="0.55" style="mix-blend-mode:screen">`
+    out += `<rect x="${ox}" y="${oy}" width="${boardW}" height="${boardW}" fill="${coinHex}" opacity="0.12"/>`
+    for (const gate of board) {
+      const col = gate.i % boardN
+      const row = (gate.i / boardN) | 0
+      const x = ox + col * cell
+      const y = oy + row * cell
+      const op = gate.lit ? '1' : '0.35'
+      const stroke = gateColorOf(h.handleColors, gate.i)
+      const door = gate.i === h.referrerDoor ? ' data-door-gate="1"' : ''
+      out += `<g data-slot="gate" data-gate="${gate.i}" data-lit="${gate.lit ? 1 : 0}"${door} opacity="${op}">`
+      const pad = cell * 0.15
+      const lineH = cell * 0.08 < 0.6 ? 0.6 : cell * 0.08
+      const step = (cell - pad * 2 - lineH * 6) / 7
+      for (let li = 0; li < gate.lines.length; li++) {
+        const yang = gate.lines[li]
+        const ly = y + pad + li * (lineH + step)
+        if (yang) {
+          out += `<line x1="${x + pad}" y1="${ly}" x2="${x + cell - pad}" y2="${ly}" stroke="${stroke}" stroke-width="${lineH}"/>`
+        } else {
+          const mid = x + cell / 2
+          out += `<line x1="${x + pad}" y1="${ly}" x2="${mid - cell * 0.12}" y2="${ly}" stroke="${stroke}" stroke-width="${lineH}"/>`
+          out += `<line x1="${mid + cell * 0.12}" y1="${ly}" x2="${x + cell - pad}" y2="${ly}" stroke="${stroke}" stroke-width="${lineH}"/>`
+        }
+      }
+      out += '</g>'
+    }
+    out += '</g>'
+    return out
   }
-  // THE LEAD RAY IS THE SELECTED DIMENSION. `dimension` used to be accepted, folded into the address, and then
-  // ignored by the geometry — a parameter that changes nothing is the quiet dishonesty this repo spent the day
-  // removing, so it now does what its name says: the chosen dimension turns to the top, burns bright and long, and
-  // the other six dim behind it. An unrecognised value falls back to the first dimension and SAYS SO in the return
-  // (`lead`), rather than silently drawing something the caller did not ask for.
-  const found = (dims as readonly string[]).indexOf(dimension)
-  const lead = found < 0 ? 0 : found
-  const ray = (d: string, i: number): string => {
-    const leads = i === lead
-    // every ray turns by its distance FROM the lead, so the selected dimension always points up
-    const turn = (((i - lead + dims.length) % dims.length) * 360) / dims.length
-    // the dimmed rays share ONE WHOLE attention equally — 1/7 each — and breathe between that share and twice it;
-    // the lead holds what the six leave (1 − 1/7) and burns to one. Both derived from the dimension count.
-    const share = 1 / dims.length
-    const dim = share.toFixed(3), dim2 = (share * 2).toFixed(3), held = (1 - share).toFixed(3)
-    const pulse = fused
-      ? `><animate attributeName="opacity" values="${leads ? `${held};1;${held}` : `${dim};${dim2};${dim}`}" dur="${beat(i)}" repeatCount="indefinite"/></line>`
-      : '/>'
-    return `<line x1="100" y1="100" x2="100" y2="${leads ? 54 : 64}" stroke="${hue(i + 1)}"` +
-      ` stroke-width="${leads ? 3 : 1}" opacity="${leads ? '1' : dim}"` +
-      ` transform="rotate(${turn} 100 100)"` + pulse +
-      (leads ? `<text x="100" y="50" text-anchor="middle" font-size="8" fill="${hue(i + 1)}">${d}</text>` : '')
-  }
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img"` +
-    ` data-fused="${fused ? 1 : 0}" aria-label="the doubling orbit ${orbit.join('→')} across ${dims.length} dimensions">` +
-    `<title>${key} — ${fused ? `the orbit walks ${orbit.join('→')}→${orbit[0]}` : 'will not fuse — captain coins not contributed'}, seven dimensions, tempi ${tempoKeys.map((k) => durs[k]).join(' ')}</title>` +
-    dims.map(ray).join('') + orbit.map(node).join('') +
-    `<circle cx="100" cy="100" r="4" fill="${hue(5)}"/></svg>`   // 5 — the fixed point of the diamond involution
+  const label = title || h.handle
+  const style =
+    `<style>@keyframes hero-res-${h.ten.ray}{from{filter:hue-rotate(0deg)}to{filter:hue-rotate(${h.ten.rotation}deg)}}` +
+    `.hero-coin{animation:hero-res-${h.ten.ray} ${h.ten.period}s linear infinite}.hero-coin-b{animation-direction:reverse;animation-delay:${-h.ten.period / 2}s}</style>`
+  const ox = 8
+  const left = `<g class="hero-coin hero-coin-a">${lineSvg(h.boards[0]!, ox, 8, h.coinColors[0].hex, 0)}</g>`
+  const right = `<g class="hero-coin hero-coin-b">${lineSvg(h.boards[1]!, ox, 8, h.coinColors[1].hex, 1)}</g>`
+  const svgW = boardW + 16
+  const svgH = boardW + 16
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${svgW} ${svgH}" width="${svgW}" height="${svgH}" role="img"` +
+    ` data-fused="${h.fused ? 1 : 0}" data-handle="${h.handle}" data-door="${h.referrerDoor}"` +
+    ` data-period="${h.ten.period}" data-rotation="${h.ten.rotation}"` +
+    ` data-residue="${h.ten.residue}" data-ray="${h.ten.ray}" data-wave="${h.ten.wave}"` +
+    ` data-hue="${h.ten.hue}" data-sat="${h.ten.sat}" data-light="${h.ten.light}"` +
+    ` data-glow-inner="${h.ten.glowInner}" data-glow-outer="${h.ten.glowOuter}"` +
+    ` data-coin-a="${h.coinColors[0].hex}" data-coin-b="${h.coinColors[1].hex}"` +
+    ` aria-label="double i ching ${h.handle} in resonance, referrer door ${h.referrerDoor}">` +
+    `<title>${label} — ${h.fused ? 'resonance' : 'will not fuse'}, door ${h.referrerDoor}</title>` +
+    style + left + right + `</svg>`
+  const dims = DIMENSIONS
+  const lead = dims[h.referrerDoor % dims.length]!
+  const sequence = fuseLadder(1, coins())
   return {
-    svg, lead: dims[lead], sequence: orbit, fused, dimensions: dims,
+    svg,
+    lead,
+    sequence,
+    fused: h.fused,
+    dimensions: dims,
     durations: tempoKeys.map((k) => durs[k]),
-    address: toUuid(`hero:${key}|${dimension}|${rung}|${tempo}|${base}|${orbit.join(',')}`),
-    honest: 'A deterministic SVG computed from sealed constants: the path is the ℤ/9 doubling orbit only when coins() is paid at each rung (trial_computes_only_with_two_coins). The hues are the sequence, the tempi are the units of ℤ/9 written three times. It VISUALISES arithmetic and proves nothing further.',
+    address: h.address,
+    handle: h.handle,
+    door: h.door,
+    referrerDoor: h.referrerDoor,
+    ten: h.ten,
+    hsl: h.hsl,
+    honest: 'heroAt(referrer): double Fu Xi iching boards from twoBoardsOf; 10D aura from quantumAura; referrer door marks one gate.',
   }
 }
 

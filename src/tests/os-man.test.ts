@@ -1,11 +1,4 @@
-// man-combinations — EVERY MAN→APP VIA, EVERY TOPIC FORM, ONE AUTOMATED RUN DOOR.
-//
-// uuidnaOS does not grow a TypeScript port per language or per binary. The catalogue already IS the port
-// (uuidna/<name>, derived, nothing authored). Layer 1 (uuidna_exec) is man/apk/hexbit identity on the lattice.
-// Layer 2 (uuidna_run / planAlpineRun) verify-then-runs whatever Alpine shipped — Python, a C ELF, a Go
-// static binary — through the same chroot. Man pages name the app; `cmd:` provides name the binary; one door
-// runs it. This suite tests each ManAppVia scenario and each topic form that actually resolves to that man
-// package, then hands the published command to that one run planner. No per-package helper is invented.
+// os-man — man page → one exec door → Layer 2 run planner
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
@@ -14,11 +7,14 @@ import {
   packageSelfTest, isManPagePackage, providedCommands,
   type CataloguePackage, type ManAppVia,
 } from '../quantum/os/catalogue.js'
-import { uuidnaExec } from '../quantum/os/exec.js'
+import { fresh, exec } from '../quantum/os/harness.js'
 import { planAlpineRun } from '../os/runtime/index.js'
 import { handleOf, handlePath, handleOfPath, isHandle } from '../handle.js'
 import { HANDLE_HEXBITS, UUID_HEXBITS } from '../hexbit/index.js'
 import { callTool, MCP_CATALOG } from '../mcp.js'
+
+test.beforeEach(fresh)
+
 
 const VIAS: readonly ManAppVia[] = ['corpus', 'origin', 'gtk-doc', 'libs', 'dev', 'provides', 'self']
 
@@ -105,7 +101,7 @@ function assertLayer1(s: Scenario, topics: string[]): void {
     assert.ok(honestPass(s.app), `${s.app.name} self-test must be honest`)
   }
   for (const topic of topics) {
-    const r = uuidnaExec(`man ${topic}`)
+    const r = exec(`man ${topic}`)
     assert.equal(r.ok, true, `man ${topic}: ${r.output[0]}`)
     const d = r.data as { name?: string; app?: string; witnessOk?: boolean; hexbits?: number[]; kind?: string }
     assert.equal(d.kind, 'man')
@@ -114,7 +110,7 @@ function assertLayer1(s: Scenario, topics: string[]): void {
     assert.equal(d.witnessOk, true)
     assert.equal(d.hexbits?.length, UUID_HEXBITS)
   }
-  const apk = uuidnaExec(`apk info ${s.app.name}`)
+  const apk = exec(`apk info ${s.app.name}`)
   assert.equal(apk.ok, true, apk.output[0])
   assert.equal((apk.data as { name?: string }).name, s.app.name)
 }
@@ -196,7 +192,7 @@ test('name-shape combinations: -doc, -man-pages, -gtk-doc, corpus, overlay — n
     if (label !== 'overlay') assertLayer1({ via: w.via!, man, app: resolved.app }, topicsHitting(man))
     else {
       for (const topic of topicsHitting(man)) {
-        const r = uuidnaExec(`man ${topic}`)
+        const r = exec(`man ${topic}`)
         assert.equal(r.ok, true, `man ${topic}`)
         assert.equal((r.data as { witnessOk?: boolean }).witnessOk, true)
       }
@@ -217,10 +213,10 @@ test('s6 origin prefers -doc over -man-pages — two published docs, one topic c
 })
 
 test('refusals: empty topic, unknown topic, orphan documentation — the combinations that must fail', () => {
-  const empty = uuidnaExec('man')
+  const empty = exec('man')
   assert.equal(empty.ok, false)
   assert.match(empty.output[0]!, /topic is required/)
-  const gone = uuidnaExec('man zzz-no-such-topic-anywhere')
+  const gone = exec('man zzz-no-such-topic-anywhere')
   assert.equal(gone.ok, false)
   assert.match(gone.output[0]!, /no documentation package/)
   const orphan = manAppWitness({

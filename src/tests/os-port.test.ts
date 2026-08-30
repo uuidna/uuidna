@@ -1,9 +1,4 @@
-// alpine hexbit port — TypeScript is the quantum computer; VitePress is the quantum monitor.
-//
-// PORT COMPLETENESS is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — not the
-// package-count compile table alone. hexbitPortCoverage / manPagePortCoverage remain provenance meters
-// (every published row folds to 32 states). The gate fails if the man→app→hexbit witness regresses, and it
-// refuses to call orphan documentation rows "100%".
+// os-port — man→app→hexbit witness; package-count alone is not port completeness
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
@@ -12,10 +7,13 @@ import {
   manAppWitness, resolveManApp, manAppOriginCandidates, packageSelfTestCoverage, TESTING_REPO,
   resolveManPage, packageSelfTest, isTestingPackage,
 } from '../quantum/os/catalogue.js'
-import { uuidnaExec, APPLETS } from '../quantum/os/exec.js'
+import { fresh, exec, APPLETS } from '../quantum/os/harness.js'
 import { UUID_HEXBITS, UUID_BITS, hexbitDoorOf } from '../hexbit/index.js'
 import { theoremByKey } from '../theorems/index.js'
 import { LEVELS } from '../quantum/advantage/index.js'
+
+test.beforeEach(fresh)
+
 
 const pct = (n: number, of: number): number => of === 0 ? 0 : ((n * 100) - ((n * 100) % of)) / of
 
@@ -54,7 +52,7 @@ test('man pages test apps end-to-end — busybox man→app→hexbit', () => {
   assert.ok(resolved)
   assert.equal(resolved.app.name, 'busybox')
   // applet path: man busybox resolves the documentation package and folds hexbits
-  const r = uuidnaExec('man busybox')
+  const r = exec('man busybox')
   assert.equal(r.ok, true)
   const d = r.data as { name: string; hexbits: number[]; kind: string }
   assert.equal(d.name, 'busybox-doc')
@@ -152,7 +150,7 @@ test('FULL MAN CORPUS — uuidna_exec man resolves every witnessed documentation
   const failures: string[] = []
   for (const p of manPagePackages()) {
     const topic = topicForDoc(p)
-    const r = uuidnaExec(`man ${topic}`)
+    const r = exec(`man ${topic}`)
     if (!r.ok) failures.push(`${p.name} (${topic}): ${r.output[0]}`)
     else {
       const d = r.data as { name: string; hexbits?: number[]; witnessOk?: boolean }
@@ -166,18 +164,18 @@ test('FULL MAN CORPUS — uuidna_exec man resolves every witnessed documentation
 })
 
 test('FULL CATALOGUE — apk list --all and ls /catalogue expose the census', () => {
-  const all = uuidnaExec('apk list --all')
+  const all = exec('apk list --all')
   assert.ok(all.ok)
   const d = all.data as { total: number; scope: string }
   assert.equal(d.scope, 'all')
   assert.ok(d.total > 25000)
   assert.ok(all.output.some((l) => l.includes('[community]')))
 
-  const ls = uuidnaExec('ls /catalogue')
+  const ls = exec('ls /catalogue')
   assert.ok(ls.ok)
   assert.ok(ls.output.some((l) => l.endsWith('/')))
 
-  const main = uuidnaExec('apk list main')
+  const main = exec('apk list main')
   assert.ok(main.ok)
   assert.ok((main.data as { total: number }).total > 5000)
 })
@@ -185,18 +183,18 @@ test('FULL CATALOGUE — apk list --all and ls /catalogue expose the census', ()
 test('driver and device applets — provenance and host quantum executor', () => {
   assert.ok(APPLETS.includes('driver'))
   assert.ok(APPLETS.includes('device'))
-  const drv = uuidnaExec('driver')
+  const drv = exec('driver')
   assert.ok(drv.ok)
   assert.match(drv.output[0]!, /alpine-netboot/)
   assert.match(drv.output.join('\n'), /9a7769ea8fa1737b1b49d82f1bdd53d0a17338d6d3b7cfc6f2c3ec5158596d8b/)
-  const dev = uuidnaExec('device')
+  const dev = exec('device')
   assert.ok(dev.ok)
   assert.match(dev.output[0]!, /logical cores/)
   assert.ok((dev.data as { device: { deviceAddress: string } }).device.deviceAddress.includes('-'))
 })
 
 test('man applet resolves documentation packages with 32 hexbits', () => {
-  const r = uuidnaExec('man busybox')
+  const r = exec('man busybox')
   assert.equal(r.ok, true)
   assert.equal(r.applet, 'man')
   const d = r.data as { name: string; hexbits: number[]; address: string; kind: string }
@@ -204,10 +202,10 @@ test('man applet resolves documentation packages with 32 hexbits', () => {
   assert.equal(d.kind, 'man')
   assert.equal(d.hexbits.length, UUID_HEXBITS)
   assert.ok(typeof d.address === 'string' && d.address.includes('-'))
-  const direct = uuidnaExec('man man-pages')
+  const direct = exec('man man-pages')
   assert.equal(direct.ok, true)
   assert.equal((direct.data as { name: string }).name, 'man-pages')
-  const gone = uuidnaExec('man zzz-no-such-topic-anywhere')
+  const gone = exec('man zzz-no-such-topic-anywhere')
   assert.equal(gone.ok, false)
   assert.match(gone.output[0]!, /no documentation package/)
 })
@@ -262,7 +260,7 @@ test('oh-my-pi (omp) is overlay — NOT Alpine distro; separate from APKINDEX co
   assert.equal(w.ok, true, w.detail)
   assert.equal(w.app, 'oh-my-pi')
   assert.equal(w.via, 'origin')
-  const run = uuidnaExec('man oh-my-pi')
+  const run = exec('man oh-my-pi')
   assert.equal(run.ok, true, run.output.join('\n'))
   const d = run.data as { witnessOk?: boolean; app?: string } | null
   assert.equal(d?.witnessOk, true)

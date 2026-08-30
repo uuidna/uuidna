@@ -33,7 +33,6 @@ const PARTITION: Record<string, string> = {
   './theorem-forms.js': 'ledger',
   './hexbit/index.js': 'ledger',
   './hexagram.js': 'ledger',
-  './life-wave.js': 'ledger',
   // research — recomputable research, corroboration, publications, external anchors
   './research.js': 'research', './corroborate.js': 'research', './books.js': 'research', './publish.js': 'research',
   './reporter.js': 'research', './priorart.js': 'research', './anchor.js': 'research', './constants.js': 'research',

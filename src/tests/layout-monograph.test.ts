@@ -24,7 +24,7 @@ test('Layout chrome does not import ledger.data or publications.data', () => {
 })
 
 test('axis listings are monographs of frontmatter, not ledger.data', () => {
-  for (const f of ['theorems.md', 'topics.md', 'rosetta.md', 'trials.md', 'index.md']) {
+  for (const f of ['theorems.md', 'topics.md', 'rosetta.md', 'trials.md', 'axioms.md', 'index.md']) {
     const src = readFileSync(join(DOCS, f), 'utf8')
     assert.doesNotMatch(src, /ledger\.data/, `${f} is this URL's monograph, not a live ledger query`)
     assert.match(src, /useData|frontmatter/, `${f} reads composed page data`)
@@ -66,6 +66,10 @@ test('transformPageData bakes walkNext; ReferrerNav reads it', () => {
   assert.match(cfg, /walkNext/)
   assert.match(cfg, /axisForRelativePath/)
   assert.match(cfg, /Do not stamp objectKind onto listing markdown/)
+  assert.match(cfg, /monographFaceOf/)
+  assert.match(cfg, /Object\.assign\(fm, monographFaceOf/)
+  assert.match(cfg, /occupancyDoors = \[\]/)
+  assert.match(cfg, /occupancyCites = \[\]/)
   const nav = readFileSync(join(THEME, 'ReferrerNav.vue'), 'utf8')
   assert.match(nav, /walkNext/)
   assert.doesNotMatch(nav, /principleSiblings/)

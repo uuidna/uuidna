@@ -108,3 +108,41 @@ test('trialAllRefusals — folds every refused row with boundary', () => {
   assert.equal(record.verified, 2)
   assert.ok(record.receipt)
 })
+
+import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import {
+  trainFromLeads, trainRow, topicPatterns, discoveryHints, discoveryTrain,
+} from '../refusal-trials.js'
+import type { LeadsRecord } from '../school/leads/index.js'
+
+const DISC_ROOT = join(import.meta.dirname, '..', '..')
+
+test('trainRow — refuted cites sealed keys from killed_by', () => {
+  const row = trainRow('refuted', {
+    lead: 'src/aura.ts pins period 12+ray',
+    killed_by: 'PAID. quantumAura.ten is the 10D record; ten_square_computes_ten_dimensions seals 3+7=10.',
+  })
+  assert.ok(row)
+  assert.equal(row!.kind, 'refuted')
+  assert.ok(row!.citedKeys.includes('ten_square_computes_ten_dimensions'))
+})
+
+test('discoveryHints — 10D query surfaces aura and station sealing theorems', () => {
+  const record = JSON.parse(readFileSync(join(DISC_ROOT, 'lean/leads.json'), 'utf8')) as LeadsRecord
+  const rows = trainFromLeads(record)
+  const hints = discoveryHints('10D aura quantumAura period rotation hexFace', rows)
+  const keys = hints.map((h) => h.theoremKey).filter(Boolean)
+  assert.ok(
+    keys.some((k) => k!.includes('ten_square') || k!.includes('station_ten') || k!.includes('z7rays')),
+    `expected 10D-related keys in hints, got: ${keys.slice(0, 8).join(', ')}`,
+  )
+})
+
+test('discoveryTrain — receipt folds trained census', () => {
+  const report = discoveryTrain()
+  assert.ok(report.trained > 0)
+  assert.ok(report.refuted > 0)
+  assert.ok(report.refused > 0)
+  assert.match(report.receipt, /^[0-9a-f-]{36}$/)
+})

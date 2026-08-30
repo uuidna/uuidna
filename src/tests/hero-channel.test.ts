@@ -1,26 +1,23 @@
-// hero-channel — THEOREMS COMMUNICATE THROUGH THEIR ANIMATIONS, and this is the proof that they do rather than the
-// claim that they might. An animation whose numbers merely LOOK derived is decoration; one whose source can be
-// RECOVERED from what a viewer sees is a channel. Each node shows two residues — the sealed tempo it beats on (mod 6,
-// six tempi) and the sequence rung it wears (mod 9) — and since lcm(6, 9) = 18 exceeds the 16 values a hex digit can
-// take, the pair fixes the digit uniquely by the LCM BOUND (residues_identify_digit): 18 = 2·9 is the two coins on the ring and 18 − 16 = 2 is the coins as headroom. NOT the CRT — gcd(9,6) = 3, sealed. Six nodes therefore carry six digits of
-// the theorem's own content-address, and readHero() reads them back out of the SVG.
-//
-// HONEST SCOPE: the motion transmits IDENTITY— which theorem is speaking.
+// hero-channel — hero SVG is iching-only for the moment; read-back via orbit nodes resumes when that layer returns.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { heroAnimation, readHero, theorems, vortexOrbit, durationVars, coins, fuseLadder } from '../index.js'
+import {
+  heroAnimation, readHero, theorems, vortexOrbit, durationVars, coins, fuseLadder,
+  heroAt, resolveReferrer, coinHexFromHandle, ichingGatesOf,
+} from '../index.js'
+import { referrerDoorOf, HEXAGRAM_BITS } from '../hexagram.js'
+import { handleOf } from '../handle.js'
+import { heroAnimationOf } from '../render.js'
+import { COINS } from '../hexbit/index.js'
 
-test('every theorem transmits its own address through its animation, and it reads back exactly', () => {
-  const sample = theorems().filter((_, i) => i % 97 === 0).slice(0, 12)   // a spread across the whole ledger
-  assert.ok(sample.length >= 8, 'the sample should span the ledger')
-  const failures: string[] = []
-  for (const t of sample) {
-    const read = readHero(heroAnimation(t.key).svg)
-    const want = t.address.replace(/-/g, '').slice(0, read.carried)
-    if (read.digits !== want) failures.push(`${t.key}: read ${read.digits}, address starts ${want}`)
-    if (!read.complete) failures.push(`${t.key}: carried only ${read.carried} of ${vortexOrbit().length} digits`)
-  }
-  assert.deepEqual(failures, [], 'the animation must carry the address it announces')
+test('iching hero svg carries handle and door, not the legacy orbit channel', () => {
+  const h = heroAnimation('two_coins')
+  assert.match(h.svg, /data-handle="[0-9a-f]{8}"/)
+  assert.match(h.svg, /data-door="\d+"/)
+  assert.match(h.svg, /data-slot="gate"/)
+  const read = readHero(h.svg)
+  assert.equal(read.carried, 0)
+  assert.equal(read.complete, false)
 })
 
 test('different theorems animate differently — the channel distinguishes, it does not decorate', () => {
@@ -28,14 +25,12 @@ test('different theorems animate differently — the channel distinguishes, it d
   assert.notEqual(a, b)
   assert.notEqual(b, c)
   assert.notEqual(a, c)
-  // and the same theorem always animates the same — a channel that wandered would carry nothing
   assert.equal(heroAnimation('two_coins').svg, a)
 })
 
 test('the lcm bound makes the read exact — and the margin over a hex digit is exactly the two coins', () => {
   const tempi = Object.keys(durationVars()).length
   assert.equal(tempi, 6, 'six sealed tempi')
-  // lcm(6, 9) = 18 > 16: every hex digit has a UNIQUE residue pair, so the read is exact rather than probable
   const seen = new Map<string, number>()
   for (let d = 0; d < 16; d++) {
     const pair: string = `${d % tempi}:${d % 9}`
@@ -45,7 +40,6 @@ test('the lcm bound makes the read exact — and the margin over a hex digit is 
 })
 
 test('a foreign animation is refused', () => {
-  // an SVG whose tempo is not one of the sealed six carries nothing this reader will invent a digit for
   const forged = '<svg><circle data-seq="3"><animate dur="123ms"/></circle></svg>'
   assert.equal(readHero(forged).carried, 0)
   assert.equal(readHero(forged).complete, false)
@@ -57,6 +51,48 @@ test('the hero fuses only when captain coins are contributed at each rung', () =
   assert.deepEqual([...paid.sequence], vortexOrbit())
   assert.deepEqual([...paid.sequence], [...fuseLadder(1, coins())])
   assert.match(paid.svg, /data-fused="1"/)
+  assert.match(paid.svg, /data-period="/)
+  assert.ok(paid.ten.period > 0)
+  assert.ok(paid.ten.rotation > 0)
   assert.doesNotMatch(heroAnimation('two_coins').svg, /will not fuse/)
   assert.deepEqual([...fuseLadder(1, 0)], [1])
+})
+
+test('heroAt: two handles differ in boards, hsl, and referrer door', () => {
+  const a = heroAt(resolveReferrer('caf5e83a'))
+  const b = heroAt(resolveReferrer('0333fd7e'))
+  assert.notEqual(a.hsl, b.hsl)
+  assert.notEqual(a.handle, b.handle)
+  assert.notEqual(JSON.stringify(a.boards), JSON.stringify(b.boards))
+  assert.equal(a.referrerDoor, referrerDoorOf(a.handle))
+  assert.equal(b.referrerDoor, referrerDoorOf(b.handle))
+  assert.equal(a.boards.length, COINS)
+  assert.equal(a.boards[0]!.length, a.gates)
+  assert.equal(a.boards[0]![0]!.lines.length, HEXAGRAM_BITS)
+})
+
+test('ichingGatesOf: six lines per gate from gate index bits', () => {
+  const gates = ichingGatesOf(Array(64).fill(0))
+  assert.equal(gates.length, 64)
+  assert.deepEqual(gates[5]!.lines, [1, 0, 1, 0, 0, 0])
+})
+
+test('coinHexFromHandle: two coins overlap by two handle nibbles', () => {
+  const a = heroAt(resolveReferrer('caf5e83a'))
+  assert.equal(a.coinColors[0].hex, coinHexFromHandle(a.handle, 0))
+  assert.equal(a.coinColors[1].hex, coinHexFromHandle(a.handle, 2))
+  assert.notEqual(a.coinColors[0].hex, a.coinColors[1].hex)
+  assert.match(a.coinColors[0].hex, /^#[0-9a-f]{6}$/)
+  assert.equal(a.handleColors.length, 8)
+})
+
+test('heroAnimationOf(referrer) stamps handle, door, and iching gates on svg', () => {
+  const addr = theorems()[0]!.address
+  const h = heroAnimationOf(addr)
+  assert.equal(h.handle, handleOf(addr))
+  assert.match(h.svg, new RegExp(`data-handle="${h.handle}"`))
+  assert.match(h.svg, /data-door="\d+"/)
+  assert.match(h.svg, /data-slot="gate"/)
+  assert.match(h.svg, /data-coin-a="#[0-9a-f]{6}"/)
+  assert.match(h.svg, /hero-coin/)
 })

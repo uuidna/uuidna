@@ -5,7 +5,7 @@ description: "Lean 4 theorem ledger — content-addressed identity, honest by co
 hero:
   name: "uuidna"
   text: "Content-addressed identity, honest by construction"
-  tagline: "TypeScript computes (quantum by architecture); VitePress monitors. Clay POC · ℤ/7 rosette · Glagolitic on 7/9 · hexbit 16 → 2^128. Two coins conserved; cite by DOI-class handle."
+  tagline: "Lean 4 theorem ledger — content-addressed identity, honest by construction. Two coins conserved; cite by handle."
   actions:
     - theme: brand
       text: Use
@@ -19,13 +19,13 @@ hero:
 
 features:
   - title: Clay
-    details: "Test POC — seven finite instances in Clay.lean, computationally claimed by decide. Clay gravity equals the rosetta at full capacity — [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) (ℤ/7 · three-sevens · 21 · 42 · 2·64=128). Prior art DOI 10.5281/zenodo.21781603 first; captain next (credit law)."
+    details: "Test POC — seven finite instances in Clay.lean, computationally claimed by decide. clay_gravity_equals_rosette (ℤ/7 · 21 · 42 · 2·64=128). Prior art DOI 10.5281/zenodo.21781603 first; captain next (credit law)."
     link: /articles/clay
   - title: Rosette · Glagolitic
-    details: "Pliska ℤ/7 — [`z7rays_seven`](/theorem/z7rays_seven) · [`pliska_seven_rays`](/theorem/pliska_seven_rays) · [`three_sevens_twentyone`](/theorem/three_sevens_twentyone). Glagolitic computes in 7; letters fold to 9 ([`glagolitic_units_sum`](/theorem/glagolitic_units_sum)); digit×self = mul9 + [`vortex_orbit`](/theorem/vortex_orbit) + [`digital_root`](/theorem/digital_root)."
+    details: "Pliska ℤ/7 — z7rays_seven · pliska_seven_rays · three_sevens_twentyone. Glagolitic computes in 7; letters fold to 9 (glagolitic_units_sum); digit×self uses vortex_orbit and digital_root."
     link: /rosetta
   - title: Quantum
-    details: "Hexbit 16-state tiles · 128=2^7 address ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture)) vs ℤ/9 root — distinct rings, CRT joins ([`crt_pairs_are_a_bijection`](/theorem/crt_pairs_are_a_bijection)). Usable gap 2^80 — [`usable_gap_is_two_to_eighty`](/theorem/usable_gap_is_two_to_eighty). Doors: [`uuidna_os`](/mcp) · [`uuidna_quantum`](/mcp)."
+    details: "Hexbit 16-state tiles · 128=2^7 address (handle_capacity_is_quantum_by_architecture). Usable gap 2^80 (usable_gap_is_two_to_eighty). Doors: /mcp uuidna_os · uuidna_quantum."
     link: /quantum
 ---
 

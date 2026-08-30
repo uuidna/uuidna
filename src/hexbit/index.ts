@@ -16,7 +16,7 @@
 // one would be a unit this ledger could not seal.
 import { handleOf, laneOf } from '../handle.js'
 import { merkleGravity } from '../gravity/index.js'
-import { toUuid } from '../address.js'
+import { toUuid, BASE } from '../address.js'
 
 const HEXBIT_DOOR_HOST = 'https://uuidna.com'
 
@@ -24,6 +24,28 @@ const HEXBIT_DOOR_HOST = 'https://uuidna.com'
 export const HEXBIT_BITS = 4
 /** One hexbit's state alphabet (0..15). Doubling climb from HEXBIT_BITS — never a stranded literal. */
 export const HEXBIT_STATES: number = (() => { let s = 1; for (let i = 0; i < HEXBIT_BITS; i++) s = s * 2; return s })()
+
+/** Unicode block for Cyril's page — the readable layer of hexbit states (the_page_admits_sixteen). */
+export const GLAGOLITIC_BASE = 0x2c00
+
+/** glagoliticOf(state) → Ⰰ..Ⰿ for hexbit state 0..HEXBIT_STATES−1. */
+export function glagoliticOf(state: number): string {
+  if (!Number.isInteger(state) || state < 0 || state >= HEXBIT_STATES)
+    throw new Error(`hexbit: state ${state} is outside 0..${HEXBIT_STATES - 1}`)
+  return String.fromCodePoint(GLAGOLITIC_BASE + state)
+}
+
+/** glagoliticUnitOf(n) → Az..Zemlja for census units 1..BASE (glagolitic_units). */
+export function glagoliticUnitOf(n: number): string {
+  if (!Number.isInteger(n) || n < 1 || n > BASE)
+    throw new Error(`hexbit: unit ${n} is outside Az..Zemlja 1..${BASE}`)
+  return String.fromCodePoint(GLAGOLITIC_BASE + n - 1)
+}
+
+/** glagoliticNibbleOf(n) → page glyph for one address hex digit 0..15. */
+export function glagoliticNibbleOf(n: number): string {
+  return glagoliticOf(n)
+}
 
 /** 32 hexbits = 128 bits = one uuid, entire (`key_floor_is_one_uuid`: 32 * 4 = 128). */
 export const UUID_HEXBITS = 32

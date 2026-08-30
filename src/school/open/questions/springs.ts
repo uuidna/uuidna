@@ -7,7 +7,7 @@
 // (uuidna_research_ledger, search-feed page, …). Every open lead adjudicates UNVERIFIED until a seal verifies.
 import { adjudicate } from '../../../adjudicate.js'
 import { decide } from '../../../decide.js'
-import { readRepoJson } from '../../../desk/index.js'
+import { readRepoJson } from '../../../desk/repo/json/index.js'
 import type { OpenItem } from './index.js'
 
 const rawOpenItems = (): OpenItem[] => {

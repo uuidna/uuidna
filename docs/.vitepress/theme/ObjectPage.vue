@@ -3,7 +3,7 @@
      Hero = handle + hex face (tiles, Fu Xi board, aura). Locale chrome + Lean lead sit with the doc.
      Breadcrumbs: Layout #doc-before via ObjectBreadcrumbs. Nav next = this page's walkNext.
      Layout never imports the theorem census — that census is the /theorems monograph (and kin).
-     Home (layout: home) uses DefaultTheme home composition; capacity door is /quantum. -->
+     Home (layout: home) uses stock VPHome + HeroAnimation in #home-hero-after; capacity door is /quantum. -->
 <script setup>
 import { computed, ref, watch, onMounted, defineAsyncComponent } from 'vue'
 import DefaultTheme from 'vitepress/theme'
@@ -13,6 +13,7 @@ import ObjectCrosslinks from './ObjectCrosslinks.vue'
 import ReferrerNav from './ReferrerNav.vue'
 import ReadAloud from './ReadAloud.vue'
 import HexFace from './HexFace.vue'
+import HeroAnimation from './HeroAnimation.vue'
 import SiteFooter from './SiteFooter.vue'
 import SponsorCard from './SponsorCard.vue'
 import {
@@ -32,7 +33,13 @@ const localeTag = ref('en')
 
 const isHome = computed(() => frontmatter.value?.layout === 'home')
 const ui = computed(() => objectUi(localeTag.value))
-const hasAddress = computed(() => !!(params.value?.address || frontmatter.value?.address))
+/** Hex face only on composed object monographs — not axis listings or SEO-only addresses. */
+const showHexFace = computed(() => {
+  if (isHome.value) return false
+  const kind = params.value?.kind
+  if (kind === 'theorem' || kind === 'publication') return !!(params.value?.address || frontmatter.value?.address)
+  return !!(params.value?.address)
+})
 
 function persistLocale(tag) {
   localeTag.value = tag
@@ -67,10 +74,13 @@ watch(localeTag, (t) => {
     <template #aside-ads-before>
       <SponsorCard />
     </template>
+    <template #home-hero-after>
+      <HeroAnimation :size="280" />
+    </template>
     <template #doc-before>
       <!-- Stock VP Layout slot for breadcrumbs (vitepress.dev/guide/extending-default-theme). -->
       <ObjectBreadcrumbs v-if="!isHome" />
-      <HexFace v-if="!isHome && hasAddress" />
+      <HexFace v-if="showHexFace" />
       <template v-if="!isHome">
         <div class="object-locale" role="group" :aria-label="ui.locale">
           <label class="object-locale-label">{{ ui.locale }}

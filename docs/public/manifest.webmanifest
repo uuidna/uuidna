@@ -1,9 +1,9 @@
 {
-  "name": "uuidna — content-addressed identity",
+  "name": "uuidna — Alpine community apps",
   "short_name": "uuidna",
-  "description": "Content-addressed identity, honest by construction — a ledger of Lean theorems (by decide, sorry-free) folded to one recomputable receipt, with pure-TS crypto and an MCP server.",
-  "id": "/",
-  "start_url": "/",
+  "description": "Every Alpine community package — searchable offline after install. Content-addressed identity, uuidnaOS catalogue PWA.",
+  "id": "/catalogue",
+  "start_url": "/catalogue",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",

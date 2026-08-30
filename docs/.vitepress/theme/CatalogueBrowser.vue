@@ -1,7 +1,9 @@
-<!-- CatalogueBrowser — apk search / apk info through hosted uuidna_exec. -->
+<!-- CatalogueBrowser — offline PWA shelf: boot uuidnaOS, prime the census, browse community apps locally. -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
+import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
+import { browseCatalogue, inspectCataloguePackage } from '../../../src/quantum/apps/catalogue-browser.js'
+import { runExecLine } from '../../../src/quantum/apps/exec-shell.js'
 import { handleOf } from '../../../src/handle.js'
 
 type Hit = {
@@ -11,13 +13,14 @@ type Hit = {
   state?: string
   address?: string
   hexbits?: number[]
-  meaning?: string
   desc?: string
+  man?: string
+  app?: string | null
 }
 
 const q = ref('')
 const ready = ref(false)
-const bootLine = ref('asking uuidna_os…')
+const bootLine = ref('booting uuidnaOS…')
 const hits = ref<Hit[]>([])
 const total = ref(0)
 const receipt = ref('')
@@ -36,85 +39,72 @@ const deepNeedle = (): string => {
   return p.get('skill') || p.get('theorem') || ''
 }
 
-const asHits = (payload: unknown): { hits: Hit[]; total: number; receipt: string } => {
-  const r = payload as { data?: { hits?: Hit[]; total?: number }; receipt?: string; output?: string[] }
-  const list = Array.isArray(r.data?.hits) ? r.data.hits : []
-  return { hits: list, total: Number(r.data?.total ?? list.length), receipt: String(r.receipt ?? '') }
-}
-
-const search = async () => {
+const search = () => {
   err.value = ''
   selected.value = null
-  if (!ready.value) { err.value = 'mill not answering'; return }
-  const needle = q.value.trim()
-  if (!needle) { hits.value = []; total.value = 0; receipt.value = ''; return }
-  try {
-    const payload = await advantageCall('uuidna_exec', { line: `apk search ${needle}` })
-    const r = asHits(payload)
-    hits.value = r.hits
-    total.value = r.total
-    receipt.value = r.receipt
-    if (!r.hits.length) err.value = 'no packages matched'
-  } catch (e) {
-    err.value = e instanceof Error ? e.message : String(e)
-  }
+  if (!ready.value) { err.value = 'catalogue not primed'; return }
+  const r = browseCatalogue(q.value.trim(), 40, 'community')
+  hits.value = r.hits
+  total.value = r.total
+  receipt.value = r.receipt
+  if (!r.present) err.value = r.why ?? 'catalogue absent'
+  else if (r.total === 0 && q.value.trim()) err.value = 'no community packages matched'
 }
 
-const inspect = async (name: string) => {
+const inspect = (name: string) => {
   err.value = ''
   used.value = []
-  try {
-    const payload = await advantageCall('uuidna_exec', { line: `apk info ${name}` }) as {
-      ok?: boolean; data?: Hit; output?: string[]; receipt?: string
-    }
-    if (payload.ok === false || !payload.data?.name) {
-      err.value = (payload.output ?? []).join('\n') || `apk info ${name} missed`
-      selected.value = null
-      return
-    }
-    selected.value = payload.data
-    if (payload.receipt) receipt.value = payload.receipt
-  } catch (e) {
-    err.value = e instanceof Error ? e.message : String(e)
+  const i = inspectCataloguePackage(name)
+  if (!i.ok || !i.package) {
+    err.value = i.detail
+    selected.value = null
+    return
   }
+  if (i.package.repo !== 'community') {
+    err.value = `${name} is [${i.package.repo}], not community`
+    selected.value = null
+    return
+  }
+  selected.value = i.package
+  receipt.value = i.receipt
 }
 
-const useApp = async (name: string) => {
+const useApp = (name: string) => {
   err.value = ''
   used.value = []
-  try {
-    const payload = await advantageCall('uuidna_exec', { line: name }) as {
-      ok?: boolean; output?: string[]; receipt?: string; data?: Hit
-    }
-    if (payload.ok === false) {
-      err.value = (payload.output ?? []).join('\n') || `use ${name} missed`
-      return
-    }
-    used.value = payload.output ?? []
-    if (payload.data?.name) selected.value = { ...selected.value, ...payload.data }
-    if (payload.receipt) receipt.value = payload.receipt
-  } catch (e) {
-    err.value = e instanceof Error ? e.message : String(e)
+  const r = runExecLine(name)
+  if (!r.ok) {
+    err.value = r.output.join('\n') || `use ${name} missed`
+    return
   }
+  used.value = r.output
+  if (r.receipt) receipt.value = r.receipt
 }
 
 onMounted(async () => {
   try {
-    const os = await advantageCall('uuidna_os', {}) as { bootReceipt?: string; receipt?: string }
-    ready.value = true
-    const boot = os.bootReceipt ?? os.receipt ?? ''
-    bootLine.value = `uuidna_exec · mill \`${String(boot).slice(0, 8)}\``
+    const boot = await bootUuidnaOSInBrowser('/alpine-catalogue.tsv')
+    ready.value = boot.catalogue.present
+    const n = browseCatalogue('', 1, 'community').total
+    bootLine.value = boot.catalogue.present
+      ? `uuidnaOS · ${n.toLocaleString('en-US')} community apps · offline · boot \`${boot.bootReceipt.slice(0, 8)}\``
+      : `catalogue absent — ${boot.catalogue.why ?? 'not cached'}`
     const pkg = deepPkg()
     const needle = deepNeedle()
     if (pkg) {
       q.value = pkg
-      await inspect(pkg)
+      inspect(pkg)
     } else if (needle) {
       q.value = needle
-      await search()
+      search()
+    } else {
+      search()
+    }
+    if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js').catch(() => {})
     }
   } catch (e) {
-    bootLine.value = `uuidna_os refused — ${e instanceof Error ? e.message : String(e)}`
+    bootLine.value = `boot refused — ${e instanceof Error ? e.message : String(e)}`
   }
 })
 </script>
@@ -122,7 +112,7 @@ onMounted(async () => {
 <template>
   <article class="uuidna-card cat" data-slot="card">
     <div data-slot="card-header">
-      <h3 data-slot="card-title">Alpine catalogue</h3>
+      <h3 data-slot="card-title">Alpine community apps</h3>
       <p data-slot="card-description">{{ bootLine }}</p>
     </div>
     <div data-slot="card-content">
@@ -131,15 +121,15 @@ onMounted(async () => {
           v-model="q"
           data-slot="input"
           type="search"
-          placeholder="search Alpine packages — uuidna_exec apk search"
-          aria-label="search Alpine catalogue"
+          placeholder="search community packages — offline PWA"
+          aria-label="search Alpine community catalogue"
           :disabled="!ready"
         />
         <button data-slot="button" type="submit" :disabled="!ready">search</button>
       </form>
       <p v-if="err" data-slot="alert" class="cat-err">{{ err }}</p>
-      <p v-else-if="q.trim() && receipt" class="cat-count">
-        {{ hits.length }} of {{ total.toLocaleString('en-US') }} · receipt <code>{{ receipt.slice(0, 8) }}</code>
+      <p v-else-if="ready && receipt" class="cat-count">
+        {{ hits.length }} of {{ total.toLocaleString('en-US') }} community · receipt <code>{{ receipt.slice(0, 8) }}</code>
       </p>
       <ul class="cat-list">
         <li v-for="h in hits" :key="h.name">
@@ -149,7 +139,7 @@ onMounted(async () => {
                 <code>{{ h.name }}</code><template v-if="h.version">-{{ h.version }}</template>
                 <span v-if="h.repo || h.state" data-slot="badge">{{ h.repo || h.state }}</span>
               </h3>
-              <p v-if="h.desc || h.meaning" data-slot="card-description">{{ h.desc || h.meaning }}</p>
+              <p v-if="h.desc" data-slot="card-description">{{ h.desc }}</p>
             </div>
             <div data-slot="card-content">
               <code v-if="h.address" data-slot="handle">{{ handleOf(h.address) }}</code>
@@ -167,12 +157,14 @@ onMounted(async () => {
             <code>{{ selected.name }}</code><template v-if="selected.version">-{{ selected.version }}</template>
             <span v-if="selected.repo || selected.state" data-slot="badge">{{ selected.repo || selected.state }}</span>
           </h3>
-          <p v-if="selected.desc || selected.meaning" data-slot="card-description">{{ selected.desc || selected.meaning }}</p>
+          <p v-if="selected.desc" data-slot="card-description">{{ selected.desc }}</p>
         </div>
         <div data-slot="card-content">
           <p class="cat-meta">
             <template v-if="selected.address">address <code>{{ selected.address }}</code></template>
             <template v-if="selected.hexbits"> · {{ selected.hexbits.length }} hexbits</template>
+            <template v-if="selected.man"> · man {{ selected.man }}</template>
+            <template v-if="selected.app"> · app {{ selected.app }}</template>
           </p>
         </div>
         <div data-slot="card-footer">
@@ -183,9 +175,8 @@ onMounted(async () => {
       <pre v-if="used.length" class="cat-use">{{ used.join('\n') }}</pre>
     </div>
     <div data-slot="card-footer">
-      <small>Integrity and meaning only — nothing installs or executes
-        (<code>the_os_is_bootable_quantum</code>). Search, inspect, and <strong>use</strong> via
-        <code>uuidna_exec</code> (package name = the app).</small>
+      <small>Installable PWA — the census is precached; search primes locally after uuidnaOS boots.
+        Integrity and meaning only — nothing installs or executes (<code>the_os_is_bootable_quantum</code>).</small>
     </div>
   </article>
 </template>

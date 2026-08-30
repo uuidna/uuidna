@@ -33,9 +33,10 @@ import {
   HEXBIT_BITS, HEXBIT_STATES,
   hexbitRingMassGap, computeMassGap,
 } from '../hexbit/index.js'
+import { UUID_LAYOUT_GROUPS } from '../hexagram.js'
 import { bellBornWeights, massGapOnBellBornField } from '../quantum/index.js'
 
-const GROUPS = [8, 4, 4, 4, 12]
+const GROUPS = [...UUID_LAYOUT_GROUPS]
 const CHARS = GROUPS.reduce((a, b) => a + b, 0)
 const NIBBLES = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
 const L = (xs: readonly number[]) => '[' + xs.join(',') + ']'

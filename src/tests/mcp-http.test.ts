@@ -66,6 +66,7 @@ test('messagingEnvelope matches ledgerLine on both surfaces', () => {
   assert.equal(edge.door, door.door)
   assert.deepEqual(edge.hexbits, door.hexbits)
   assert.equal(edge.witness.theoremKey, 'crew_verifies_instantly')
+  assert.equal(edge.channel.handle, door.handle)
 })
 
 test('every judged edge call carries _meta.messaging', () => {

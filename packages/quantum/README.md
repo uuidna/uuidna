@@ -8,7 +8,7 @@ import { ket0, hadamard, cnot, bellState, distribution, merkleGravity, quantumAu
 
 ## What this package is
 
-A domain-scoped view over the root `@uuidna/uuidna` package. The implementation lives in the root `src/` (sealed by the determinism gates); this package re-exports exactly the quantum surface.
+A domain-scoped view over the root `@uuidna/uuidna` package. The implementation lives in the root `src/` (sealed by the determinism gates); this package re-exports exactly the quantum surface. The **uuid channel** (`uuidChannel`, `channelAudit`, `monographFaceOf` in `src/hexagram.ts`) slices every address into handle + three hex trinities + tail — route and secure messaging without the payload store unless loaded. See [uuidna.com/quantum#uuid-channel](https://uuidna.com/quantum#uuid-channel).
 
 ## Honest scope
 

@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { changedFiles, deltaTestFiles, needsFullSuite } from '../gate-receipt-index.js'
-import { planTestRun } from '../test-delta.js'
+import { planTestRun } from '../gate-receipt-index.js'
 
 test('needsFullSuite — lean drift forces full suite', () => {
   assert.equal(needsFullSuite(['lean/Wave.lean']), true)

@@ -3,7 +3,7 @@
 //
 // Surveys lean/leads.json, the wave conveyor, table-leads, open-questions springs, and lonely theorems;
 // runs the taught closers in leverage order (develop → connect-lonely → books → wave → derive surfaces → develop).
-// Kernel-only gaps cite sealed theorems only (src/boundary-law.ts) — no scope prose outside lean/*.lean.
+// Kernel-only gaps cite sealed theorems only (gap-survey boundary-law section) — no scope prose outside lean/*.lean.
 //
 //   npm run x -- fill-gaps           → survey, run every automatable phase, survey again
 //   npm run x -- fill-gaps -- --dry  → survey and print the plan only

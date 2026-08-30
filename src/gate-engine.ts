@@ -20,6 +20,7 @@ import { sanitizeInput, sanitizeValue } from './sanitize.js'
 import { slimGate } from './slimgate.js'
 import { theoremByKey, theorems } from './theorems/index.js'
 import { hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
+import { channelAudit } from './hexagram.js'
 import { runSequence } from './sequence-run.js'
 import { encodeMessage, serializeMessage } from './quantum/message/index.js'
 
@@ -154,6 +155,8 @@ export interface MessagingEnvelope extends HexbitDoor {
   deposit: Pick<CoinDeposit, 'coins' | 'id' | 'receipt' | 'honest'>
   witness: ReturnType<typeof serializeMessage>
   sequence: EnvelopeSequence
+  /** 8-4-4-4-12 channel slice of the gate receipt — handle, trinities, tail; payload store optional. */
+  channel: ReturnType<typeof channelAudit>
   receipt?: { receipt: string; seq: number; referer: string; tool: string }
   ledger: string
   honest: string
@@ -184,6 +187,7 @@ export function messagingEnvelope(opts: {
       covers: walked.covers,
       fixed: walked.fixed,
     },
+    channel: channelAudit(gate.receipt),
     ...(receipt ? { receipt } : {}),
     ledger,
     honest: surface === 'stdio'

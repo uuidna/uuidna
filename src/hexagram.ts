@@ -8,15 +8,19 @@
 // Occupancy is which sealed COUNTS the door arithmetic hits — hexagram indices, hexbit tiles, aura ray/wave,
 // digital root, and the door's own widths. The count set is derived from live theorem statements of named
 // keys already in the ledger. Change the ledger, the face follows. No deity table, no authored myth list.
-import { digitalRoot, BASE, TRINITY } from './address.js'
-import { quantumAura, type TenD } from './aura.js'
+import { digitalRoot, BASE, TRINITY, toUuid } from './address.js'
+import { quantumAura, rotationOf, type TenD } from './aura.js'
 import { handleOf, handleParts, seedOf } from './handle.js'
 import { coins } from './captain/billing/index.js'
+import { growLife } from './grow.js'
+import { DATAPATH, LANES } from './hardware/index.js'
+import { hardwareLayer, osLayer, softwareLayer } from './layers.js'
+import { sealStream, type Stream } from './stream.js'
 import {
   HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, UUID_HEXBITS, HANDLE_HEXBITS, HANDLE_BITS, LEVERAGE, COINS, COIN_HEXBITS,
   SAFE_HEXBITS, compileToHexbits, hexbitDoorOf, fuseLadder, fuseWidth, KEY_BITS, VE_FACES,
 } from './hexbit/index.js'
-import { theoremByKey, skillGroups } from './theorems/index.js'
+import { theoremByKey, skillGroups, theorems } from './theorems/index.js'
 
 /** Six lines — the gate width. Not HEXBIT_BITS. */
 export const HEXAGRAM_BITS = HEXBIT_BITS + 2
@@ -28,6 +32,11 @@ export const FUSED_RING = HEXAGRAM_STATES - 1
 export const PAYLOAD_BITS = UUID_BITS - HANDLE_BITS
 /** How many hexagrams the payload tiles — PAYLOAD_BITS / HEXAGRAM_BITS. */
 export const PAYLOAD_HEXAGRAMS = PAYLOAD_BITS / HEXAGRAM_BITS
+
+/** First handle tile mod six — door_of_the_referrer. */
+export function referrerDoorOf(handle: string): number {
+  return parseInt(handle[0]!, 16) % HEXAGRAM_BITS
+}
 
 /** coinNeighbours(gate) → the other FUSED_RING gates on the 64-board. The coin is the +1 that closes the ring
  *  (captain_theorem_the_coins_buy_the_ring_and_one); it is not its own neighbour. */
@@ -558,7 +567,7 @@ export function hexFaceOf(address: string): HexFace {
     hexagramBits: HEXAGRAM_BITS,
     faces,
     coins: COINS,
-    referrerDoor: parseInt(handle[0]!, 16) % HEXAGRAM_BITS,
+    referrerDoor: referrerDoorOf(handle),
     merkaba: HANDLE_HEXBITS,
     ladder,
     rosette,
@@ -571,5 +580,241 @@ export function hexFaceOf(address: string): HexFace {
     packedTriangles: KEY_BITS,
     merkabasPacked: UUID_HEXBITS,
     veFaces: VE_FACES,
+  }
+}
+
+/** monographFaceOf(address) → flat params bag for compose / VitePress transformPageData. */
+export function monographFaceOf(address: string): Record<string, unknown> {
+  const face = hexFaceOf(address)
+  return {
+    handle: face.handle,
+    hexbits: face.hexbits,
+    hexagrams: face.hexagrams,
+    occupancy: face.occupancy,
+    occupancyCites: face.occupancyCites,
+    occupancyDoors: face.occupancyDoors,
+    aura: face.aura,
+    handleParts: face.handleParts,
+    handleUrl: face.door,
+    depositReferrer: face.door,
+    board: face.board,
+    gates: face.gates,
+    hexagramBits: face.hexagramBits,
+    faces: face.faces,
+    coins: face.coins,
+    referrerDoor: face.referrerDoor,
+    merkaba: face.merkaba,
+    ladder: face.ladder,
+    rosette: face.rosette,
+    pentad: face.pentad,
+    fused: face.fused,
+    metatron: face.metatron,
+    hexPi: face.hexPi,
+    glyphs: face.glyphs,
+    stations: face.stations,
+    packedTriangles: face.packedTriangles,
+    merkabasPacked: face.merkabasPacked,
+    veFaces: face.veFaces,
+  }
+}
+
+// ── UUID channel — the 8-4-4-4-12 cut (layout_groups_thirtytwo). Payload store optional on the wire. ──
+
+/** RFC 9562 printable groups — 32 hex digits; four hyphens bring the printed form to 36 characters. */
+export const UUID_LAYOUT_GROUPS = [8, 4, 4, 4, 12] as const
+export const UUID_LAYOUT_SEPARATORS = UUID_LAYOUT_GROUPS.length - 1
+export const UUID_LAYOUT_HEX_CHARS = UUID_LAYOUT_GROUPS.reduce((a, b) => a + b, 0)
+export const UUID_LAYOUT_PRINTED_CHARS = UUID_LAYOUT_HEX_CHARS + UUID_LAYOUT_SEPARATORS
+
+/** One 4-hex group = message_cap_is_four_hexbits: 4 tiles × 4 bits = 16 qubits, 2^16 amplitudes. */
+export const MESSAGE_CAP_HEXBITS = UUID_LAYOUT_GROUPS[1]
+export const MESSAGE_CAP_QUBITS = MESSAGE_CAP_HEXBITS * HEXBIT_BITS
+export const MESSAGE_CAP_AMPLITUDES = HEXBIT_STATES ** MESSAGE_CAP_HEXBITS
+
+/** Three middle [xxxx] groups execute; the closing twelve hex carries the sealed micro-message. */
+export const HEX_TRINITY_COUNT = 3
+export const TAIL_HEXBITS = UUID_LAYOUT_GROUPS[4]
+export const EXECUTABLE_HEXBITS =
+  UUID_LAYOUT_GROUPS[1] + UUID_LAYOUT_GROUPS[2] + UUID_LAYOUT_GROUPS[3]
+export const PAYLOAD_HEXBITS = EXECUTABLE_HEXBITS + TAIL_HEXBITS
+
+export type UuidLayout = {
+  handle: string
+  trinities: readonly [string, string, string]
+  tail: string
+}
+
+/** Strip hyphens; refuse wrong width. */
+export function uuidHex(address: string): string {
+  const hex = String(address).replace(/-/g, '').toLowerCase()
+  if (hex.length !== UUID_LAYOUT_HEX_CHARS)
+    throw new Error(`uuid channel: expected ${UUID_LAYOUT_HEX_CHARS} hex digits, got ${hex.length}`)
+  if (!/^[0-9a-f]+$/.test(hex)) throw new Error('uuid channel: not lowercase hex')
+  return hex
+}
+
+/** Split the address into handle, three hex trinities, and tail. */
+export function layoutGroups(address: string): UuidLayout {
+  const hex = uuidHex(address)
+  let at = 0
+  const take = (n: number): string => {
+    const s = hex.slice(at, at + n)
+    at += n
+    return s
+  }
+  return {
+    handle: take(UUID_LAYOUT_GROUPS[0]),
+    trinities: [take(UUID_LAYOUT_GROUPS[1]), take(UUID_LAYOUT_GROUPS[2]), take(UUID_LAYOUT_GROUPS[3])],
+    tail: take(UUID_LAYOUT_GROUPS[4]),
+  }
+}
+
+/** Each middle group as four hexbit states (0..15) — one message-cap unit per trinity. */
+export function hexTrinityStates(address: string): readonly [number[], number[], number[]] {
+  const { trinities } = layoutGroups(address)
+  return trinities.map((g) => g.split('').map((c) => parseInt(c, 16))) as [number[], number[], number[]]
+}
+
+/** Executable action states — the three trinities compiled (12 hexbits after the handle). */
+export function executableStates(address: string): number[] {
+  return compileToHexbits(address).slice(HANDLE_HEXBITS, HANDLE_HEXBITS + EXECUTABLE_HEXBITS)
+}
+
+/** Tail states — sealed micro-message channel (12 hexbits). */
+export function tailStates(address: string): number[] {
+  return compileToHexbits(address).slice(HANDLE_HEXBITS + EXECUTABLE_HEXBITS)
+}
+
+/** Double-torus memory step: two boards swap involutively — flip twice returns home. */
+export function torusStep(address: string): {
+  faces: ReturnType<typeof twoBoardsOf>
+  once: ReturnType<typeof flipCoin>
+  home: boolean
+} {
+  const faces = twoBoardsOf(address)
+  const once = flipCoin(faces)
+  const twice = flipCoin(once)
+  const home =
+    twice[0].every((b, i) => b === faces[0]![i]) &&
+    twice[1].every((b, i) => b === faces[1]![i])
+  return { faces, once, home }
+}
+
+/** Channel view — secure messaging without the payload store unless loaded. */
+export function uuidChannel(address: string): {
+  address: string
+  handle: string
+  door: string
+  trinities: readonly [string, string, string]
+  tail: string
+  executable: readonly number[]
+  tailStates: readonly number[]
+  payloadStoreOptional: true
+} {
+  const { handle, trinities, tail } = layoutGroups(address)
+  return {
+    address: uuidHex(address),
+    handle,
+    door: `https://uuidna.com/${handle}`,
+    trinities,
+    tail,
+    executable: executableStates(address),
+    tailStates: tailStates(address),
+    payloadStoreOptional: true,
+  }
+}
+
+export function layoutMatchesHandle(address: string): boolean {
+  return layoutGroups(address).handle === handleOf(address)
+}
+
+export function layoutWidths(): {
+  groups: readonly number[]
+  bits: readonly number[]
+  hexChars: number
+  payloadHexbits: number
+} {
+  return {
+    groups: UUID_LAYOUT_GROUPS,
+    bits: UUID_LAYOUT_GROUPS.map((g) => g * HEXBIT_BITS),
+    hexChars: UUID_LAYOUT_HEX_CHARS,
+    payloadHexbits: PAYLOAD_HEXBITS,
+  }
+}
+
+export function layoutCoversUuid(address: string): boolean {
+  return compileToHexbits(address).length === UUID_HEXBITS
+}
+
+export function channelAudit(address: string): ReturnType<typeof uuidChannel> & {
+  torusHome: boolean
+  widths: ReturnType<typeof layoutWidths>
+} {
+  return { ...uuidChannel(address), torusHome: torusStep(address).home, widths: layoutWidths() }
+}
+
+export type ChannelStream = Stream & { channels: ReturnType<typeof uuidChannel>[] }
+
+export function channelSeal(
+  message: string,
+  passphrases: readonly string[],
+  step?: number,
+): ChannelStream {
+  const stream = sealStream(message, passphrases, step)
+  return { ...stream, channels: stream.uuids.map((u) => uuidChannel(u)) }
+}
+
+// ── lifeWave — one conserved product over the living ledger and hardware spec. ──
+
+export interface LifeWaveHardware {
+  layerSeals: number
+  hardware: number
+  software: number
+  os: number
+  datapath: number
+  lanes: number
+  digestBits: number
+  verifyBits: number
+}
+
+export interface LifeWave {
+  wave: CoinYarrowWave
+  hardware: LifeWaveHardware
+  living: number
+  skills: number
+  product: number
+  covers: boolean
+  receipt: string
+}
+
+/** lifeWave() → one conserved wave over every sealed theorem, carrying the hardware spec and the living count. */
+export function lifeWave(): LifeWave {
+  const T = theorems()
+  const wave = coinYarrowWave(T.length)
+  const hw = hardwareLayer()
+  const sw = softwareLayer()
+  const os = osLayer()
+  const life = growLife()
+  const skills = skillGroups()
+  let clustered = 0
+  for (const g of skills) clustered += g.count
+  const hardware: LifeWaveHardware = {
+    layerSeals: hw.count + sw.count + os.count,
+    hardware: hw.count,
+    software: sw.count,
+    os: os.count,
+    datapath: DATAPATH.length,
+    lanes: LANES.length,
+    digestBits: KEY_BITS,
+    verifyBits: UUID_BITS,
+  }
+  return {
+    wave,
+    hardware,
+    living: life.life.living,
+    skills: skills.length,
+    product: WAVE_PRODUCT,
+    covers: wave.seals === life.life.living && clustered === T.length && wave.product === WAVE_PRODUCT,
+    receipt: toUuid('life-wave|' + wave.seals + '|' + hardware.layerSeals + '|' + life.life.living + '|' + skills.length),
   }
 }

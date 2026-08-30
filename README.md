@@ -35,6 +35,38 @@ encrypt('text', 'passphrase')
 
 `handleOf` is the eight-hex door ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)). `encrypt` is ChaCha20-Poly1305 under PBKDF2 ([aead_nonce_and_salt_bits](https://uuidna.com/theorem/aead_nonce_and_salt_bits)). Hosted mill: [uuidna.com](https://uuidna.com).
 
+## UUID channel — handle, hex trinities, tail
+
+Every address is the **8-4-4-4-12** layout ([layout_groups_thirtytwo](https://uuidna.com/theorem/layout_groups_thirtytwo)) — not decoration, the callable channel:
+
+```
+cccccccc - aaaa - bbbb - cccc - dddddddddddd
+│ handle │  T1  │  T2  │  T3  │     tail
+  door      └─ 3 hex trinities ─┘   sealed micro-msg
+```
+
+| Region | Hex | Code | Role |
+| --- | ---: | --- | --- |
+| **Handle** | 8 | `handleOf` · `seedOf` | **Double-torus door** — one coin; two coins fuse to the full uuid ([the_uuid_is_two_boards](https://uuidna.com/theorem/the_uuid_is_two_boards), [double_torus_boards_are_the_address](https://uuidna.com/theorem/double_torus_boards_are_the_address)). `flipCoin` swaps the two boards involutively — memory moves with itself. |
+| **Trinities** | 4+4+4 | `executableStates` | Three **message-cap** tiles ([message_cap_is_four_hexbits](https://uuidna.com/theorem/message_cap_is_four_hexbits)) — `compileToHexbits` action + 7D aura film. |
+| **Tail** | 12 | `tailStates` | **Encrypted micro-message** — `encrypt` / `sealStream` (ChaCha20-Poly1305); imprint carries the ciphertext in uuid chains. |
+
+**No payload store on the wire.** Route, aura, board motion, and secure messaging read the uuid alone (`uuidChannel`, `channelAudit`, `monographFaceOf` in `src/hexagram.ts`). The body at `src/handles/<handle>/index.json` loads **only when needed** — cube memory seals one complete uuid per neighbourhood and carries no duplicate payload ([payload_carries_the_strand](https://uuidna.com/theorem/payload_carries_the_strand): handle addresses, payload carries).
+
+```ts
+import { uuidChannel, torusStep, sealStream } from '@uuidna/uuidna'
+
+uuidChannel(address)   // handle + trinities + tail — no file dependency
+torusStep(address).home  // true — flipCoin is involutive
+sealStream('hello', ['passphrase'])  // message channel IS the uuid chain
+```
+
+**Automation (MCP / agents):** every gated tool response carries `_meta.messaging.channel` (handle, trinities, tail, `torusHome`). Agents call `uuidna_uuid_channel { address }` to audit any uuid, or `uuidna_seal_channel { message, passphrases }` to seal and receive per-link channel slices — no `src/handles` load required.
+
+Full anatomy: [What quantum means here — UUID channel](https://uuidna.com/quantum#uuid-channel).
+
+Layer 1 (`/terminal`, `/catalogue`): boot → catalogue → exec locally. Same wire, face, and MCP mint — domain is data, not a branch.
+
 ## Develop
 
 Lean is the single source of theorems ([legal_only_the_proven_is_admitted](https://uuidna.com/theorem/legal_only_the_proven_is_admitted)). A deposit queues a candidate; only the kernel seals ([minting_is_free_and_forging_is_not](https://uuidna.com/theorem/minting_is_free_and_forging_is_not)).

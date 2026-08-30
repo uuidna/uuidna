@@ -282,8 +282,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "arcee-ai/trinity-large-thinking",
    "name": "Arcee AI: Trinity Large Thinking",
    "contextTokens": 262144,
-   "promptPrice": "0.00000022",
-   "completionPrice": "0.00000085"
+   "promptPrice": "0.00000025",
+   "completionPrice": "0.0000008"
   },
   {
    "id": "baidu/ernie-4.5-vl-424b-a47b",
@@ -436,8 +436,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v3.2",
    "name": "DeepSeek: DeepSeek V3.2",
    "contextTokens": 163840,
-   "promptPrice": "0.00000026",
-   "completionPrice": "0.00000038"
+   "promptPrice": "0.000000269",
+   "completionPrice": "0.0000004"
   },
   {
    "id": "deepseek/deepseek-v3.2-exp",
@@ -450,8 +450,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000000812",
-   "completionPrice": "0.0000001624"
+   "promptPrice": "0.00000008008",
+   "completionPrice": "0.00000016016"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000051852",
-   "completionPrice": "0.00000103704"
+   "promptPrice": "0.000000437436",
+   "completionPrice": "0.000000874872"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -913,7 +913,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "Meta: Llama 4 Maverick",
    "contextTokens": 1048576,
    "promptPrice": "0.0000002",
-   "completionPrice": "0.000000696"
+   "completionPrice": "0.0000008"
   },
   {
    "id": "meta-llama/llama-4-scout",
@@ -2733,7 +2733,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
    "promptPrice": "0.00000003",
-   "completionPrice": "0.00000014"
+   "completionPrice": "0.00000016"
   },
   {
    "id": "~google/gemini-flash-latest",

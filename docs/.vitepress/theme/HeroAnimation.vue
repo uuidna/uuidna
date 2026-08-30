@@ -1,96 +1,188 @@
-<!-- The hero, animated — and every number in it is SEALED, not chosen. The path is the fuse ladder
-     (coins × width mod ring: 1→2→4→8→7→5), which is the doubling orbit only when captain coins() are
-     contributed at each rung (trial_computes_only_with_two_coins). Without the coins the hero will not fuse:
-     one unfused rung, no pulse. The rays are the seven reading DIMENSIONS. Motion is linear (speed law).
-     Address is a prop or toUuid(theorem) — this component does not import the theorem census. -->
+<!-- Hero — overlapping double iching; handle hex colours in resonance (two coins, half-turn phase). -->
 <script setup>
 import { computed } from 'vue'
-import { withBase } from 'vitepress'
-import { DIMENSIONS } from '../../../src/dimensions.js'
-import { durationVars } from '../../../dist/css.js'
-import { toUuid, A432_STEP, BASE } from '../../../dist/address.js'
-import { coins } from '../../../dist/captain/billing/index.js'
-import { PRICE } from '../../../dist/billing/index.js'
-import { COINS, fuseLadder } from '../../../dist/hexbit/index.js'
+import { useData, withBase } from 'vitepress'
+import { heroAt, gateColorOf } from '../../../dist/render.js'
 
 const props = defineProps({
-  dimension: { type: String, default: 'en' },
-  rung: { type: Number, default: 1 },
-  theorem: { type: String, default: 'vortex_orbit' },
-  address: { type: String, default: '' },
+  referrer: { type: String, default: '' },
   size: { type: Number, default: 240 },
 })
 
-const contributed = coins()
-const fused = contributed === COINS && PRICE === contributed
-const orbit = fuseLadder(1, contributed)
-const dims = DIMENSIONS
-const TEMPI = Object.values(durationVars())
-const BASE_R = orbit.length
-const DIM_OPACITY = 1 / DIMENSIONS.length
+const { frontmatter } = useData()
 
-const found = computed(() => dims.indexOf(props.dimension))
-const lead = computed(() => (found.value < 0 ? 0 : found.value))
-const leadName = computed(() => dims[lead.value])
-const proof = computed(() => withBase(`/theorem/${props.theorem}`))
-const hue = (n) => `var(--seq-${((n + props.rung - 1) % 9) + 1}, var(--vp-c-brand-1))`
-const hex = computed(() => (String(props.address || toUuid(props.theorem))).replace(/-/g, ''))
-const digit = (i) => parseInt(hex.value[i % hex.value.length], 16)
-const beat = (i) => TEMPI[digit(i) % TEMPI.length]
-const nodeHue = (i) => `var(--seq-${(digit(i) % 9) + 1}, var(--vp-c-brand-1))`
-const TURN = A432_STEP * BASE
-const rayTurn = (i) => ((i - lead.value + dims.length) % dims.length) * (TURN / dims.length)
-const nodeTurn = (i) => i * (TURN / (orbit.length || 1))
+const referrerIn = computed(() => {
+  if (props.referrer) return props.referrer
+  const fm = frontmatter.value || {}
+  return String(fm.seoAddress || fm.address || fm.handleUrl || fm.handle || '')
+})
+
+const h = computed(() => heroAt(referrerIn.value))
+
+const doorHref = computed(() => {
+  const handle = h.value.handle
+  return handle ? withBase('/' + handle) : withBase('/')
+})
+
+const gateColor = (gateIndex) => gateColorOf(h.value.handleColors, gateIndex)
 </script>
 
 <template>
-  <figure class="heroanim">
-    <a :href="proof" :aria-label="`the proof of ${theorem}`">
-      <svg :width="size" :height="size" viewBox="0 0 200 200" role="img"
-           :data-fused="fused ? 1 : 0"
-           :aria-label="fused ? `the doubling orbit ${orbit.join('→')} across ${dims.length} dimensions, ${leadName} leading` : 'will not fuse — captain coins not contributed'">
-        <g class="rays">
-          <g v-for="(d, i) in dims" :key="d" :transform="`rotate(${rayTurn(i)} 100 100)`">
-            <line x1="100" y1="100" :x2="100" :y2="i === lead ? 54 : 64" :stroke="hue(i + 1)"
-                  :stroke-width="i === lead ? 3 : 1" :class="i === lead ? 'lead' : 'dim'"
-                  :style="{ '--beat': beat(i), '--dim': DIM_OPACITY, '--dim2': DIM_OPACITY * 2 }" />
-            <text v-if="i === lead" x="100" y="50" text-anchor="middle" font-size="8" :fill="hue(i + 1)">{{ d }}</text>
-          </g>
-        </g>
-        <g class="orbit">
-          <g v-for="(v, i) in orbit" :key="v" :transform="`rotate(${nodeTurn(i)} 100 100)`">
-            <circle cx="100" cy="30" :r="BASE_R" :fill="nodeHue(i)" :data-seq="digit(i) % 9">
-              <animate v-if="fused" attributeName="r" :values="`${BASE_R};${BASE_R + v};${BASE_R}`" :dur="beat(i)" repeatCount="indefinite" />
-            </circle>
-            <text x="100" y="34" text-anchor="middle" font-size="10" class="num"
-                  :transform="`rotate(${-nodeTurn(i)} 100 30)`">{{ v }}</text>
-          </g>
-        </g>
-        <circle cx="100" cy="100" r="4" :fill="hue(5)" />
-      </svg>
+  <figure
+    class="heroanim"
+    data-slot="hero-animation"
+    :data-handle="h.handle"
+    :data-door="h.referrerDoor"
+    :data-fused="h.fused ? 1 : 0"
+    :data-period="h.ten.period"
+    :data-rotation="h.ten.rotation"
+    :data-coin-a="h.coinColors[0].hex"
+    :data-coin-b="h.coinColors[1].hex"
+    :style="h.styleVars"
+  >
+    <a :href="doorHref" :aria-label="'handle ' + h.handle + ', referrer door ' + h.referrerDoor">
+      <div
+        class="hero-iching hero-resonance"
+        data-slot="next-coin"
+        data-genus="2"
+        role="img"
+        :aria-label="h.fused ? `double i ching ${h.handle} in resonance, door ${h.referrerDoor}` : 'will not fuse'"
+      >
+        <div
+          v-for="(board, side) in h.boards"
+          :key="side"
+          class="hero-board"
+          :class="side === 0 ? 'hero-coin-a' : 'hero-coin-b'"
+          data-slot="coin-face"
+          :data-side="side"
+          :style="{ '--coin-hex': h.coinColors[side].hex }"
+        >
+          <div
+            v-for="gate in board"
+            :key="gate.i"
+            class="hero-gate"
+            data-slot="gate"
+            :data-gate="gate.i"
+            :data-lit="gate.lit ? '1' : '0'"
+            :data-door-gate="gate.i === h.referrerDoor ? '1' : '0'"
+          >
+            <span
+              v-for="(yang, li) in gate.lines"
+              :key="li"
+              class="hero-line"
+              :data-yang="yang ? '1' : '0'"
+              :style="{ '--line-color': gateColor(gate.i) }"
+            />
+          </div>
+        </div>
+      </div>
     </a>
     <figcaption>
-      <template v-if="fused">
-        the doubling orbit {{ orbit.join(' → ') }} → {{ orbit[0] }}, {{ dims.length }} dimensions,
-        <strong>{{ leadName }}</strong> leading<span v-if="found < 0"> (asked for “{{ dimension }}”, which is not one of the seven)</span>
-      </template>
-      <template v-else>will not fuse — captain coins not contributed at each rung</template>
+      <code>{{ h.handle }}</code>
+      <span class="hero-coin-swatches" aria-hidden="true">
+        <i :style="{ background: h.coinColors[0].hex }" />
+        <i :style="{ background: h.coinColors[1].hex }" />
+      </span>
+      <template v-if="h.fused"> · door {{ h.referrerDoor }} · resonance</template>
+      <template v-else> · will not fuse</template>
     </figcaption>
   </figure>
 </template>
 
 <style scoped>
 .heroanim { margin: 1.5rem auto; text-align: center }
-.heroanim a { display: inline-block; text-decoration: none }
+.heroanim a {
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 0.35rem;
+  box-shadow:
+    0 0 var(--glow-inner) var(--glow-spread-in) color-mix(in srgb, var(--hero-aura) 40%, transparent),
+    0 0 var(--glow-outer) var(--glow-spread-out) color-mix(in srgb, var(--hero-aura) 14%, transparent);
+}
+.hero-iching {
+  position: relative;
+  width: v-bind('size + "px"');
+  height: v-bind('size + "px"');
+  margin: 0 auto;
+}
+.hero-resonance {
+  isolation: isolate;
+}
+.hero-board {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(var(--face-board, 8), 1fr);
+  gap: 2px;
+  padding: 2px;
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--coin-hex) 22%, var(--vp-c-bg-soft));
+  mix-blend-mode: screen;
+  opacity: var(--coin-weight, 0.5);
+  animation: hero-resonance var(--hero-period) linear infinite;
+  will-change: filter;
+}
+.hero-coin-a {
+  z-index: 1;
+  animation-direction: normal;
+}
+.hero-coin-b {
+  z-index: 2;
+  animation-direction: reverse;
+  animation-delay: calc(var(--hero-period) * -0.5);
+}
+@keyframes hero-resonance {
+  from { filter: hue-rotate(0deg) saturate(1.1); }
+  to { filter: hue-rotate(var(--hero-turn)) saturate(1.1); }
+}
+.hero-gate {
+  aspect-ratio: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+  padding: 2px 3px;
+  background: color-mix(in srgb, var(--coin-hex) 8%, var(--vp-c-bg));
+  opacity: 0.4;
+}
+.hero-gate[data-lit="1"] {
+  opacity: 1;
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--line-color) 70%, var(--coin-hex));
+}
+.hero-gate[data-door-gate="1"] {
+  box-shadow: inset 0 0 0 2px var(--line-color);
+}
+.hero-line {
+  display: block;
+  height: 2px;
+  background: var(--line-color);
+}
+.hero-line[data-yang="0"] {
+  background: linear-gradient(
+    90deg,
+    var(--line-color) 38%,
+    transparent 38%,
+    transparent 62%,
+    var(--line-color) 62%
+  );
+}
+.heroanim[data-fused="0"] .hero-board { animation: none; opacity: 0.35; mix-blend-mode: normal; }
+.hero-coin-swatches {
+  display: inline-flex;
+  gap: 0.2rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+.hero-coin-swatches i {
+  display: inline-block;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 2px;
+  border: 1px solid var(--vp-c-divider);
+}
 figcaption { font-size: .78rem; color: var(--vp-c-text-2); margin-top: .4rem }
-.lead { animation: burn var(--beat) infinite linear }
-.dim { opacity: var(--dim); animation: fade var(--beat) infinite linear }
-.heroanim svg[data-fused="0"] .lead,
-.heroanim svg[data-fused="0"] .dim { animation: none }
-.num { fill: var(--vp-c-bg); font-weight: 600 }
-@keyframes burn { 0%, 100% { opacity: calc(1 - var(--dim)) } 50% { opacity: 1 } }
-@keyframes fade { 0%, 100% { opacity: var(--dim) } 50% { opacity: var(--dim2) } }
+figcaption code { font-size: .85em; color: var(--hero-aura); }
 @media (prefers-reduced-motion: reduce) {
-  .lead, .dim { animation: none }
+  .hero-board { animation: none; }
 }
 </style>

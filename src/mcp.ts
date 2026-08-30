@@ -21,7 +21,7 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
-  THEOREMS, runTrial, theorems, theoremNeighbours, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
+  THEOREMS, runTrial, theorems, theoremNeighbours, theoremAxioms, axiomIndex, axiomExplain, discoveryTrain, discoveryHints, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, heroAnimationOf, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
@@ -70,6 +70,7 @@ import { balanceContext } from './quantum/context/index.js' // PURE — the cont
 import { balanceMachine } from './quantum/machine/index.js' // PURE — the same spare law at the metal (self-report in, audit out)
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
 import { gateVerdict, gateSelfTest, gateStatus, registryReceipt, depositCoins, ledgerLine, messagingEnvelope, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate and deposits the two coins
+import { channelAudit, channelSeal } from './hexagram.js'
 import { payment, coinCensus, whoPaid, enrollCrew, type CoinPayment } from './coin-ledger.js' // the captain-coin account + crew enrollment (licences bound to handles)
 import { legalFacts } from './legal.js'
 import { license } from './license.js'
@@ -120,6 +121,14 @@ const TOOLS: Tool[] = ([
     detail: 'THE ADDRESS AND ITS SPEECH, ONE SURFACE. Addressing a handle and speaking about it were never two questions: the address IS what folds to the residue the walk starts from, so the orbit comes free with the fold and costs no second call. THE VOCABULARY IS A THEOREM, NOT A TABLE — run every ledger key through the walk and all 1371 land on exactly SIX distinct orbits, the same six sealed as a literal in theorem orbits_closed_involution, each proven closed under dz(x) = 10 − x. A word therefore cannot be lost in a refactor unnoticed, the way a hand-typed phrase table can and did. The TITLE is the orbit written out (0–9, 0·1·9, 0), so it can never claim more than the walk performs — a name comes from the algebra or it is not a name. The DESCRIPTION is composed from the walk\'s own measurements, never selected from a phrase list, and ORDER is the orbit size: the period any motion must have, which is why a fixed point does not move and a ten-digit orbit turns ten. Served as a DIMENSION of the address rather than a tool of its own, for the same reason the capability axis is one surface and never one tool per skill: enumeration costs every agent wire bytes on every request, superposition costs none. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — a residue is not a fact about the thing that folded to it, and the speech reports the measured shape of a walk, never what a handle MEANS.',
     inputSchema: { type: 'object', properties: { text: { type: 'string', description: 'the value to address' } }, required: ['text'] },
     run: ({ text }) => toUuid(String(text)) },
+  { name: 'uuidna_uuid_channel',
+    description: 'THE 8-4-4-4-12 CHANNEL — slice any uuid into handle (double-torus door), three hex trinities (executable message-cap tiles), and tail (sealed micro-message). Returns {handle,door,trinities,tail,executable,tailStates,torusHome,widths,payloadStoreOptional}. No payload store required for route, aura, boards, or crypt — load src/handles only when the body is needed. Sealed: layout_groups_thirtytwo, message_cap_is_four_hexbits, the_uuid_is_two_boards.',
+    inputSchema: { type: 'object', properties: { address: { type: 'string', description: 'a 128-bit uuid (with or without hyphens)' } }, required: ['address'] },
+    run: ({ address }) => channelAudit(String(address)) },
+  { name: 'uuidna_seal_channel',
+    description: 'AUTOMATION PATH — onion-seal a message (uuidna_seal_onion) and attach per-uuid channel slices for every link in the chain. Returns {uuids,layers,receipt,channels} where each channel is handle+trinities+tail without any payload-store dependency. Passphrases innermost→outermost; optional advancing step closes the equality leak.',
+    inputSchema: { type: 'object', properties: { message: { type: 'string' }, passphrases: { type: 'array', items: { type: 'string' }, description: 'innermost→outermost, 1..16 layers' }, step: { type: 'integer', description: 'optional advancing crypt-salt step' } }, required: ['message', 'passphrases'] },
+    run: (a) => channelSeal(String(a.message), (a.passphrases as string[]).map(String), a.step === undefined ? undefined : Number(a.step)) },
   { name: 'uuidna_merge',
     description: 'Fold two content-addresses into one, ORDER-SENSITIVE (merge(a,b) ≠ merge(b,a)) — the directed edge. For the order-INVARIANT fold use uuidna_gravity or uuidna_merkle_root.',
     inputSchema: { type: 'object', properties: { a: { type: 'string' }, b: { type: 'string' } }, required: ['a', 'b'] },
@@ -711,7 +720,7 @@ const TOOLS: Tool[] = ([
     inputSchema: { type: 'object', properties: { claims: { type: 'array', items: { type: 'string' }, description: 'claims or external theories to adjudicate and recycle' } }, required: ['claims'] },
     run: (a) => reactor(Array.isArray(a?.claims) ? a.claims.map(String) : []) },
   { name: 'uuidna_open_leads',
-    description: 'YOUR PROJECT BACKLOG — pass {items:[{claim,source?}]} and each claim is adjudicated against the public sealed ledger; UNVERIFIED items are open leads (not-yet sealed here, never "false"). Omit items on uuidna.com to see the ledger\'s own open leads as a worked example. Optional {limit}. Returns {total,open,verified,unverified,items,receipt,honest}. Pure, edge-safe, no repo access required when you supply items.',
+    description: 'Adjudicate {items:[{claim,source?}]} against the sealed ledger; UNVERIFIED = open leads. Returns {open,items,receipt,honest}.',
     inputSchema: { type: 'object', properties: {
       items: { type: 'array', description: 'your backlog — each {claim, source?}', items: { type: 'object', properties: { claim: { type: 'string' }, source: { type: 'string' }, receipt: { type: 'string' } }, required: ['claim'] } },
       limit: { type: 'integer', description: 'cap how many open items are returned' },
@@ -727,7 +736,7 @@ const TOOLS: Tool[] = ([
       limit: a?.limit != null ? Number(a.limit) : undefined,
     }) },
   { name: 'uuidna_leads_gate',
-    description: 'YOUR RELEASE GATE — pass {sources:[{source,reached,why?,open:[{source,what,owes}],settled}]} for any project. Ready is true only when every source ANSWERED and none holds a lead; unmeasured sources block (three-state law — unread is not "clean"). Returns the lead census {ready,why,open,unmeasured,receipt,...}. Pure, edge-safe — your readings, your ship/no-ship decision.',
+    description: 'Release gate — pass {sources:[{source,reached,open,settled}]}; ready only when every source answered and no open leads. Returns {ready,open,receipt}.',
     inputSchema: { type: 'object', properties: {
       sources: { type: 'array', description: 'lead-source readings you gathered', items: { type: 'object', properties: {
         source: { type: 'string' }, reached: { type: 'boolean' }, why: { type: 'string' },
@@ -737,7 +746,7 @@ const TOOLS: Tool[] = ([
     }, required: ['sources'] },
     run: (a) => leadsGatePublic({ sources: (Array.isArray(a?.sources) ? a.sources : []) as SourceReading[] }) },
   { name: 'uuidna_open_questions',
-    description: 'YOUR OPEN QUESTIONS BY TOPIC — pass {items:[{claim,source?}]}; UNVERIFIED claims are placed under topics derived from word overlap with the public sealed theorems (heuristic, not a verdict). Returns {topics,open,total,curriculum,receipt,honest}. Pure and edge-safe for any project backlog.',
+    description: 'Group {items:[{claim,source?}]} by topic overlap with sealed theorems; UNVERIFIED = open. Returns {topics,open,receipt,honest}.',
     inputSchema: { type: 'object', properties: {
       items: { type: 'array', description: 'your open claims', items: { type: 'object', properties: { claim: { type: 'string' }, source: { type: 'string' } }, required: ['claim'] } },
       limit: { type: 'integer', description: 'cap items per topic' },
@@ -760,10 +769,12 @@ const TOOLS: Tool[] = ([
       const t = THEOREMS.find((x) => x.key === String(key))
       if (!t) throw new Error('unknown theorem: ' + key + ' (see uuidna_theorems)')
       const dual = paperBlueprintTheorem(t)
+      const axioms = theoremAxioms(t.key)
       return {
         key: t.key, name: t.name, statement: t.statement, lean: t.lean, principle: t.principle, file: t.file,
         address: t.address, verdict: 'SEALED', source: dual.paper.source,
         paper: dual.paper, blueprint: dual.blueprint, lab: labOf(t.key),
+        axioms,
       }
     } },
   { name: 'uuidna_laws',
@@ -848,8 +859,13 @@ const TOOLS: Tool[] = ([
     run: (a = {}) => quantumSeo({ key: a.key ? String(a.key) : undefined, slug: a.slug ? String(a.slug) : undefined, route: a.route !== undefined ? String(a.route) : undefined, title: a.title ? String(a.title) : undefined }) },
   { name: 'uuidna_hero_animation',
     description: 'THE HERO ANIMATION — the sequence and the dimensions as one deterministic SVG, every moving number SEALED. The path is the doubling orbit 1→2→4→8→7→5→1 (the unit group of Z/9 generated by 2 — vortex_is_the_units, order_of_two_is_six), so the walk closes because the orbit does; each rung takes its hue from the Z/9 sequence; the TEMPI are the units of Z/9 written three times (111, 222, 444, 555, 777, 888 ms), so the motion keeps the same arithmetic as the path; and the seven rays are the rosetta dimensions, with the diamond involution fixed point 5 at the centre. FIVE parameters, all optional: {key} the theorem it announces, {dimension} which of the seven leads, {rung} where the sequence colour starts, {tempo} the sealed beat, {base} the URL base for the proof link. HONEST SCOPE: it VISUALISES arithmetic already proven and proves nothing further; nothing is tuned by eye, so changing a sealed fact changes the motion. Returns {svg,sequence,dimensions,durations,address,honest}.',
-    inputSchema: { type: 'object', properties: { key: { type: 'string', description: 'the theorem it announces' }, dimension: { type: 'string', description: 'which of the seven rosetta dimensions leads' }, rung: { type: 'number', description: 'the sequence rung the colour starts on' }, tempo: { type: 'number', description: 'the sealed tempo in ms' }, base: { type: 'string', description: 'URL base for the proof link' } } },
-    run: (a = {}) => heroAnimation(a.key ? String(a.key) : undefined, a.dimension ? String(a.dimension) : undefined, a.rung !== undefined ? Number(a.rung) : undefined, a.tempo !== undefined ? Number(a.tempo) : undefined, a.base ? String(a.base) : undefined) },
+    inputSchema: { type: 'object', properties: { key: { type: 'string', description: 'theorem key (legacy — address of that theorem)' }, referrer: { type: 'string', description: 'referrer handle, door URL, or content-address' }, handle: { type: 'string', description: 'eight-hex handle (alias of referrer)' }, address: { type: 'string', description: 'content-address (alias of referrer)' }, dimension: { type: 'string', description: 'which of the seven rosetta dimensions leads' }, rung: { type: 'number', description: 'the sequence rung the colour starts on' }, tempo: { type: 'number', description: 'the sealed tempo in ms' }, base: { type: 'string', description: 'URL base for the proof link' } } },
+    run: (a = {}) => {
+      const ref = a.referrer ? String(a.referrer) : a.handle ? String(a.handle) : a.address ? String(a.address) : undefined
+      if (ref) return heroAnimationOf(ref, { dimension: a.dimension ? String(a.dimension) : undefined, rung: a.rung !== undefined ? Number(a.rung) : undefined, tempo: a.tempo !== undefined ? Number(a.tempo) : undefined }, a.base ? String(a.base) : undefined)
+      return heroAnimation(a.key ? String(a.key) : undefined, a.dimension ? String(a.dimension) : undefined, a.rung !== undefined ? Number(a.rung) : undefined, a.tempo !== undefined ? Number(a.tempo) : undefined, a.base ? String(a.base) : undefined)
+    },
+  },
   { name: 'uuidna_try',
     description: 'ONE TRIAL — every stage of the sealed procedure in a single call, for a claim made ANYWHERE, including in conversation. The tree is gated everywhere (prose walks to a theorem, a release fails on a publication claiming quantum advantage (theorem n_qubit_dimension bounds what this system computes), the vacuity finder refuses a proof true regardless of content) but a claim made in CHAT passes through none of it — which is exactly where an unproven claim can live unbounded. This gates it: the honesty gate (binary 0 ONLY for a fabricated citation), the calculator verdict over the sealed ledger, the docket, the GOVERNING guarantee named by key, and the remand. Pass {claim}; the verdict is UNVERIFIED unless a sealed theorem is cited or a decidable test holds. HONEST SCOPE: the court decides ADMISSIBILITY, never truth — UNVERIFIED IS NOT FALSE (legal_non_justiciable_is_never_refuted binds it: with no decidable test the court MAY NOT refute), and nothing is discarded — what is not admitted is REMANDED with the exact steps that would admit it. Returns {claim,gate,verdict,kind,cites,admitted,governing,remand,docket,receipt,honest}.',
     inputSchema: { type: 'object', properties: { claim: { type: 'string', description: 'the statement to try, exactly as it would be asserted' } }, required: ['claim'] },
@@ -984,6 +1000,26 @@ const TOOLS: Tool[] = ([
       if (n.principle === null) throw new Error('unknown theorem: ' + String(key) + ' (see uuidna_theorems)')
       return { key: n.key, principle: n.principle, count: n.neighbours.length,
                neighbours: n.neighbours.map((t) => ({ key: t.key, name: t.name, address: t.address })) } } },
+  { name: 'uuidna_axiom_index',
+    description: 'WING AXIOMS ↔ THEOREMS, both directions. Pass {file,def} for one wing def and every theorem whose statement cites it (axiomExplain). Pass nothing for the full index: every def declared in lean/*.lean, which theorems cite it, and which defs are unused vocabulary. Pairs with uuidna_theorem axioms field (theorem → defs). Recomputable from WING_DEFS + dependsOn. Returns {totalDefs,citedDefs,unusedDefs,wings,entries} or one {file,def,principle,theorems,theoremCount,unused}.',
+    inputSchema: { type: 'object', properties: { file: { type: 'string', description: 'lean wing file, e.g. DivByZero.lean' }, def: { type: 'string', description: 'wing def name, e.g. dz' } } },
+    run: (a = {}) => {
+      if (a.file && a.def) {
+        const e = axiomExplain(String(a.file), String(a.def))
+        if (!e) throw new Error(`unknown wing def: ${a.file} ${a.def}`)
+        return e
+      }
+      return axiomIndex()
+    } },
+  { name: 'uuidna_discovery_train',
+    description: 'Train theorem/axiom discovery from refuted and refused leads in lean/leads.json. Refutations name what sealed (killed_by cites theorem keys and src paths); refusals name boundaries. Pass {query} for ranked hints (witness theorems, wing defs, exposed axiom-hunt leads, prior refutations on similar topics). Pass nothing for the full training report: settlement count, topic→theorem patterns, exposed axioms, unused wing defs. Pairs with uuidna_axiom_index and uuidna_theorem axioms. Recomputable. Returns {trained,refuted,refused,patterns,hints,exposedAxioms,unusedWingDefs,receipt}.',
+    inputSchema: { type: 'object', properties: { query: { type: 'string', description: 'optional topic — e.g. "10D aura", "wing def dz", "sanitize depth"' } } },
+    run: (a = {}) => {
+      const q = String(a.query ?? '').trim()
+      const report = discoveryTrain(q)
+      if (q) return { query: q, hints: report.hints, patterns: report.patterns.slice(0, 12), receipt: report.receipt }
+      return report
+    } },
   { name: 'uuidna_publish',
     description: 'Write a PUBLICATION in lean human prose about ONE domain, AUDITED before publishing. Composed by READING that domain\'s sealed theorems and writing only what they settle — every claim links the proof that backs it — then gated by uuidna\'s own honesty audit; a note that cites a proof not in the ledger is REFUSED, not shipped. Call with no argument to list every domain\'s publication (slug + count + publishable + receipt), or with `file` (e.g. "Tides.lean", from uuidna_theorems) to get that note\'s full markdown, content-address, member proofs and audit findings. Writing descends from reading; integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: { file: { type: 'string', description: 'a lean/*.lean file name, e.g. "Codes.lean" — omit to list all publications' } } },
@@ -1280,7 +1316,7 @@ const TOOLS: Tool[] = ([
       }
     } },
   { name: 'uuidna_fill_gaps',
-    description: 'FILL GAPS AT SCALE AT ONCE — the same quantum-advantage law applied to the whole gap census: one merkle fold over every gap bucket, open-leads sample, and playbook (verify_beats_recompute_by_magnitudes — verify the receipt, not re-survey each class). Default: snapshot + plan. {verify:true} runs the full advantage+gap MCP hook and returns scaleReceipt. {run:true} spawns the host desk arc (stdio only). Returns {survey,plan,openLeads,playbook,deskWork,receipt,honest,...}.',
+    description: 'Gap census at scale — one folded receipt (verify_beats_recompute_by_magnitudes). {verify:true} full hook; {run:true} host desk arc. Returns {survey,plan,receipt}.',
     inputSchema: { type: 'object', properties: {
       verify: { type: 'boolean', description: 'run the full advantage+gap MCP hook (hosted-safe)' },
       run: { type: 'boolean', description: 'spawn npm run x -- fill-gaps on the host (stdio only)' },
@@ -1486,10 +1522,10 @@ type JsonId = string | number | null | undefined
 const INSTRUCTIONS = [
   'uuidna — content-addressed identity, honest by construction. A ledger of Lean theorems (every one proven `by decide`, sorry-free, no Mathlib) folded to ONE recomputable receipt, plus pure-TS crypto and a measured billing model.',
   'Every tool call returns a CHAINED receipt (receipt · seq · referer): you always hold tamper-evident provenance for your command, and the whole session folds to one tip you can recompute yourself. Nothing to trust — everything to recheck.',
-  'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_trial (ONE answer: VERIFIED or UNVERIFIED, all else void), uuidna_run_ledger (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
+  'Start here: uuidna_theorems (browse the sealed ledger; filter by principle/skill), uuidna_address (content-address anything), uuidna_uuid_channel (slice handle+trinities+tail — automation without payload store), uuidna_trial (ONE answer: VERIFIED or UNVERIFIED, all else void), uuidna_run_ledger (fold the whole ledger to its receipt), uuidna_tokens (report your token distribution to measure tokens-per-theorem).',
   'Honest scope, always demarcated: receipts and content-addresses are NON-crypto FNV (integrity/routing, not secrecy, not a binding commitment); secrecy is ChaCha20-Poly1305 only; the quantum tools are EXACT classical simulation (no advantage), not hardware; nothing is infinite or unbreakable. A claim is either linked to a sealed theorem or refused. Integrity, not truth (theorem provenance_integrity_not_content_truth).',
   'EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS — contribute first, then take, enforced by the protocol. Each tools/call passes the sealed conjunction gate cleanAudit(f,d,v) (input sanitized, output sanitized, no fabricated theorem citation; one violation drains the verdict, named) and mints its deterministic two-coin deposit, the id the content-address of its own deposit statement, always citing theorem captain_commission_two_coins and theorem two_coins. Your first call has already contributed.',
-  'Every result is TWO content blocks: the answer, then ONE ledger line — `gate CLEAN|DRAINED f d v · <gate receipt> · deposit 2 · <deposit id> · receipt <receipt> · seq <n>`. Those ids are the whole audit; the constants behind them (the two deposit theorems above) and the referer (the PRIOR receipt) are not re-sent per call, and full detail stays in _meta.messaging (gate, deposit, hexbits, ledger, receipt chain). Multi-agent coordination: declare clientInfo.name at initialize, hold the receipt chain, poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. Recompute the gate: uuidna_gate_status (theorem anti_fraud_check_deterministic).',
+  'Every result is TWO content blocks: the answer, then ONE ledger line — `gate CLEAN|DRAINED f d v · <gate receipt> · deposit 2 · <deposit id> · receipt <receipt> · seq <n>`. Those ids are the whole audit; the constants behind them (the two deposit theorems above) and the referer (the PRIOR receipt) are not re-sent per call, and full detail stays in _meta.messaging (gate, deposit, hexbits, channel, ledger, receipt chain). Multi-agent coordination: declare clientInfo.name at initialize, hold the receipt chain, poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. Recompute the gate: uuidna_gate_status (theorem anti_fraud_check_deterministic).',
   'After the two coins: uuidna_quantum_advantage — the ordered playbook to compute quantum (uuidna_os → uuidna_decide 2^n → uuidna_quantum bell/ghz → uuidna_crypto → uuidna_theorem verify_beats_recompute_by_magnitudes) and read magnitudes over classical re-run (verify O(log N) vs recompute O(N), theorem verify_beats_recompute_by_magnitudes — not hardware supremacy). uuidna_fill_gaps — same law at scale: one receipt over the whole gap census; {verify:true} runs the hook at once; host writes: {run:true} or npm run x -- fill-gaps. Alpine community apps: uuidna_exec one door (/terminal, /catalogue on uuidna.com).',
 ].join(' ')
 

@@ -9,6 +9,7 @@ import {
   objectUi,
   primaryRayOf,
   OBJECT_LOCALE_RAYS,
+  OBJECT_UI_KEYS,
   DIMENSIONS,
   HEXBIT_WORDS,
   toUuid,
@@ -45,8 +46,9 @@ test('primaryRayOf collapses dialects; unknown → en', () => {
 test('objectUi covers every ray', () => {
   for (const ray of OBJECT_LOCALE_RAYS) {
     const ui = objectUi(ray)
-    assert.ok(ui.proves.length > 0)
-    assert.ok(ui.hexbitDoor.length > 0)
+    for (const key of OBJECT_UI_KEYS) {
+      assert.ok(typeof ui[key] === 'string' && ui[key].length > 0, `${ray} missing OBJECT_UI.${key}`)
+    }
   }
 })
 
@@ -57,7 +59,7 @@ test('catch-all: sole ObjectPage layout + compose-object; no per-type path templ
   assert.ok(existsSync(join(ROOT, 'docs/.vitepress/compose-object.js')))
   assert.ok(!existsSync(join(ROOT, 'docs/theorem/[key].paths.js')))
   assert.ok(!existsSync(join(ROOT, 'docs/publications/[slug].paths.js')))
-  const compose = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
+  const compose = readFileSync(join(ROOT, 'src/compose-object.ts'), 'utf8')
   assert.match(compose, /allObjectPaths/)
   assert.match(compose, /composeTheorem/)
   assert.match(compose, /composePublication/)
@@ -69,7 +71,7 @@ test('catch-all: sole ObjectPage layout + compose-object; no per-type path templ
 test('allObjectPaths emits theorem, publication, chunk, sequence, and ve kinds', async () => {
   const { pathToFileURL } = await import('node:url')
   const { allObjectPaths } = await import(
-    pathToFileURL(join(ROOT, 'docs/.vitepress/compose-object.js')).href
+    pathToFileURL(join(ROOT, 'dist/compose-object.js')).href
   ) as {
     allObjectPaths: () => { params: { kind: string; id: string; objectKind?: string } }[]
   }
@@ -88,10 +90,10 @@ test('allObjectPaths emits theorem, publication, chunk, sequence, and ve kinds',
 test('compose-object: hero fields in params, never YAML-in-content (no bag leak)', async () => {
   // VitePress injects path content at <!-- @content -->, which sits after any template preamble.
   // gray-matter only parses leading ---, so YAML-in-content dumps title/heroTitle/abstract into the body.
-  const composeSrc = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
+  const composeSrc = readFileSync(join(ROOT, 'src/compose-object.ts'), 'utf8')
   assert.doesNotMatch(composeSrc, /content:\s*`---/)
   assert.match(composeSrc, /heroTitle/)
-  assert.match(composeSrc, /depositReferrer/)
+  assert.match(composeSrc, /monographFaceOf/)
   assert.match(
     readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8'),
     /pageData\.title\s*=\s*p\.title/,
@@ -104,7 +106,7 @@ test('compose-object: hero fields in params, never YAML-in-content (no bag leak)
   const { theorems } = await import('../index.js')
   const { pathToFileURL } = await import('node:url')
   const { composeTheorem } = await import(
-    pathToFileURL(join(ROOT, 'docs/.vitepress/compose-object.js')).href
+    pathToFileURL(join(ROOT, 'dist/compose-object.js')).href
   ) as {
     composeTheorem: (t: { address: string; key: string; name: string; principle: string; skill: string; statement: string; tactic: string; lean: string; file: string }) => {
       params: { title: string; heroTitle: string; abstract: string; handleUrl: string }
@@ -144,12 +146,13 @@ test('ObjectCrosslinks wires full related-object graph via VPLink/VPButton (no c
   assert.doesNotMatch(vue, /ox-grid|ox-card/)
   assert.match(vue, /ox-row/)
   assert.match(vue, /ox-group/)
-  assert.match(vue, /groupAxes|groupRelated/)
+  assert.match(vue, /groupAxes|groupRelated|groupAxioms/)
   assert.match(vue, /VPButton/)
   assert.match(vue, /VPLink/)
   assert.match(vue, /rotation/)
   assert.match(vue, /falsifier/)
   assert.match(vue, /axiom-free|axiomHolds/)
+  assert.match(vue, /dependsOn|groupAxioms|unbound/)
   assert.match(vue, /RefererCompass/)
   assert.match(vue, /relatedPubs|relatedPublications/)
   assert.match(vue, /keywords|priorArt/)
@@ -175,7 +178,7 @@ test('ObjectBreadcrumbs: Layout doc-before + VPLink; Home → kind → id/handle
 
   const { pathToFileURL } = await import('node:url')
   const { objectBreadcrumbs, docsBreadcrumbs } = await import(
-    pathToFileURL(join(ROOT, 'docs/.vitepress/object-graph.js')).href
+    pathToFileURL(join(ROOT, 'dist/object-graph.js')).href
   ) as {
     objectBreadcrumbs: (o: { objectKind?: string; id?: string; handle?: string }) => { text: string; link?: string; handle?: string }[]
     docsBreadcrumbs: (rel: string, title?: string) => { text: string; link?: string }[]
@@ -205,7 +208,7 @@ test('compose-object stamps breadcrumbs with prev/next + crosslinks (no essay ba
   const { pathToFileURL } = await import('node:url')
   const { theorems } = await import('../index.js')
   const { composeTheorem } = await import(
-    pathToFileURL(join(ROOT, 'docs/.vitepress/compose-object.js')).href
+    pathToFileURL(join(ROOT, 'dist/compose-object.js')).href
   ) as {
     composeTheorem: (t: { address: string; key: string; name: string; principle: string; skill: string; statement: string; tactic: string; lean: string; file: string }) => {
       params: {
@@ -224,6 +227,8 @@ test('compose-object stamps breadcrumbs with prev/next + crosslinks (no essay ba
   assert.equal(page.params.breadcrumbs[1]!.link, '/theorems')
   assert.equal(page.params.breadcrumbs[2]!.text, t.key)
   assert.ok(page.params.crosslinks?.rotation?.discovery?.key)
+  assert.ok('dependsOn' in (page.params.crosslinks || {}), 'crosslinks carry wing-def axioms')
+  assert.match(page.content, /\| kernel \|/)
   assert.match(
     readFileSync(join(ROOT, 'docs/.vitepress/config.ts'), 'utf8'),
     /fm\.breadcrumbs\s*=\s*p\.breadcrumbs/,
@@ -234,7 +239,7 @@ test('compose-object stamps stock VPDocFooter prev/next + crosslinks graph (no e
   const { pathToFileURL } = await import('node:url')
   const { theorems } = await import('../index.js')
   const { composeTheorem } = await import(
-    pathToFileURL(join(ROOT, 'docs/.vitepress/compose-object.js')).href
+    pathToFileURL(join(ROOT, 'dist/compose-object.js')).href
   ) as {
     composeTheorem: (t: { address: string; key: string; name: string; principle: string; skill: string; statement: string; tactic: string; lean: string; file: string }) => {
       params: {
@@ -270,16 +275,16 @@ test('ObjectPage wires locale rays for crosslinks; stock markdown H1 is the hand
   assert.doesNotMatch(vue, /object-hero|object-h1/)
   assert.match(vue, /OBJECT_LOCALE_RAYS/)
   assert.match(vue, /object-locale/)
-  const compose = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
+  const compose = readFileSync(join(ROOT, 'src/compose-object.ts'), 'utf8')
   assert.match(compose, /# \$\{mdSafe\(handle\)\}/)
   assert.match(compose, /Every URL is a monograph/)
   assert.doesNotMatch(compose, /principleSiblings/)
 })
 
 test('TheoremUse / ExecShell / PortPanel are composed in — one constructor, not a second template', () => {
-  const compose = readFileSync(join(ROOT, 'docs/.vitepress/compose-object.js'), 'utf8')
+  const compose = readFileSync(join(ROOT, 'src/compose-object.ts'), 'utf8')
   assert.match(compose, /<ClientOnly><TheoremUse \/>/)
-  assert.match(compose, /hexFaceOf/)
+  assert.match(compose, /monographFaceOf/)
   const theme = readFileSync(join(ROOT, 'docs/.vitepress/theme/index.ts'), 'utf8')
   assert.match(theme, /TheoremUse/)
   assert.match(theme, /ExecShell/)

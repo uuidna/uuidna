@@ -41,6 +41,6 @@ writeFileSync(RECEIPT, JSON.stringify({
   excludes: 'src/seeds, src/chunks — generated payloads the tests and the guard never read',
   honest: 'Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. ' +
     'Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted ' +
-    '(test-delta runs the moved tests only).',
+    '(gate-receipt-index planTestRun runs the moved tests only).',
 }, null, 2) + '\n')
 console.log('✓ gate-receipt — written; covers src, lean + per-file manifest')

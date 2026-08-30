@@ -1,29 +1,16 @@
-<!-- ExecShell — Layer 1 applets via hosted uuidna_exec. The mill stays on /mcp. -->
+<!-- ExecShell — Layer 1 uuidnaOS in the browser: boot, prime catalogue, runExecLine locally. -->
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
-import { advantageCall } from '../../../src/quantum/advantage/mcp/wire/index.js'
+import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
+import { runExecLine, execShellHelp } from '../../../src/quantum/apps/exec-shell.js'
 
-const HELP = [
-  'uuidnaOS Layer 1 — uuidna_exec on the hosted mill. Nothing runs Alpine binaries here.',
-  '',
-  'Applets: ls, apk, man, driver, device, cat, which, stat, pwd, echo, du, help',
-  '',
-  'Examples:',
-  '  ls /terminal',
-  '  ls /catalogue',
-  '  nginx',
-  '  openssl',
-  '  apk info busybox',
-  '  apk search musl',
-  '  man busybox',
-  '  pwd',
-].join('\n')
+const HELP = execShellHelp()
 
 const lines = ref<string[]>([])
 const input = ref('')
 const busy = ref(false)
 const ready = ref(false)
-const bootLine = ref('asking uuidna_os…')
+const bootLine = ref('booting uuidnaOS…')
 const receipt = ref<{ address: string; hexbits: number[] } | null>(null)
 const scroller = ref<HTMLElement | null>(null)
 
@@ -35,13 +22,16 @@ const print = async (text: string) => {
 
 onMounted(async () => {
   try {
-    const os = await advantageCall('uuidna_os', {}) as { bootReceipt?: string; receipt?: string; capacity?: unknown }
-    ready.value = true
-    const boot = os.bootReceipt ?? os.receipt ?? ''
-    bootLine.value = `Layer 1 · uuidna_os \`${String(boot).slice(0, 8)}\``
+    const boot = await bootUuidnaOSInBrowser()
+    ready.value = boot.catalogue.present
+    const n = boot.catalogue.count
+    bootLine.value = boot.catalogue.present
+      ? `Layer 1 · uuidnaOS \`${boot.bootReceipt.slice(0, 8)}\` · ${n.toLocaleString('en-US')} packages · offline`
+      : `uuidnaOS booted — catalogue absent (${boot.catalogue.why ?? 'unknown'})`
     await print(HELP)
+    if (!boot.catalogue.present) await print(`✗ ${bootLine.value}`)
   } catch (e) {
-    bootLine.value = `uuidna_os refused — ${e instanceof Error ? e.message : String(e)}`
+    bootLine.value = `uuidnaOS refused — ${e instanceof Error ? e.message : String(e)}`
     await print(`✗ ${bootLine.value}`)
   }
 })
@@ -52,19 +42,15 @@ const run = async () => {
   const trimmed = line.trim()
   if (!trimmed) return
   await print('> ' + trimmed)
-  if (!ready.value) return print('✗ mill not answering — uuidna_os failed')
+  if (!ready.value) return print('✗ catalogue not primed — uuidnaOS cannot exec')
   if (trimmed === 'clear') { lines.value = []; receipt.value = null; return }
   if (trimmed === 'help') return print(HELP)
   busy.value = true
   try {
-    const r = await advantageCall('uuidna_exec', { line: trimmed }) as {
-      ok?: boolean; output?: string[]; receipt?: string; hexbits?: number[]
-    }
-    if (Array.isArray(r.output) && r.output.length) await print(r.output.join('\n'))
-    else if (r.ok === false) await print('✗ command failed')
-    if (r.receipt) receipt.value = { address: r.receipt, hexbits: Array.isArray(r.hexbits) ? r.hexbits : [] }
-  } catch (e) {
-    await print('✗ uuidna_exec did not answer — ' + (e instanceof Error ? e.message : String(e)))
+    const r = runExecLine(trimmed)
+    if (r.output.length) await print(r.output.join('\n'))
+    else if (!r.ok) await print('✗ command failed')
+    if (r.receipt) receipt.value = { address: r.receipt, hexbits: r.hexbits }
   } finally { busy.value = false }
 }
 </script>
@@ -87,7 +73,7 @@ const run = async () => {
           :disabled="busy || !ready"
           spellcheck="false"
           autocomplete="off"
-          :placeholder="busy ? 'running…' : ready ? 'nginx · openssl · ls /terminal · apk info busybox' : 'waiting for the mill…'"
+          :placeholder="busy ? 'running…' : ready ? 'nginx · openssl · ls /terminal · apk info busybox' : 'booting uuidnaOS…'"
           aria-label="uuidnaOS command"
         />
         <button data-slot="button" type="submit" :disabled="busy || !ready">run</button>

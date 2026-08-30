@@ -48,6 +48,7 @@ test('the directions are named, so a per-coin figure means something', () => {
 test('the README opens a use door and a develop door — not only the census', () => {
   const md = readme()
   assert.match(md, /^## Use$/m)
+  assert.match(md, /^## UUID channel/m)
   assert.match(md, /^## Develop$/m)
   assert.match(md, /npm install @uuidna\/uuidna/)
   assert.match(md, /npx/)
@@ -55,5 +56,8 @@ test('the README opens a use door and a develop door — not only the census', (
   assert.match(md, /npm run reconcile/)
   assert.match(md, /handleOf/)
   assert.match(md, /encrypt/)
+  assert.match(md, /uuidChannel/)
+  assert.match(md, /layout_groups_thirtytwo/)
+  assert.match(md, /message_cap_is_four_hexbits/)
   assert.match(md, /uuidna\.com\/guides/)
 })

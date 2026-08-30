@@ -6,6 +6,7 @@
 import { computed, defineAsyncComponent } from 'vue'
 import { useData, withBase } from 'vitepress'
 import { vortexOrbit, A432_STEP, BASE, TRINITY } from '../../../dist/address.js'
+import { glagoliticOf, glagoliticUnitOf } from '../../../dist/hexbit/index.js'
 import { DIMENSIONS } from '../../../src/dimensions.js'
 import { COINS, HEXBIT_BITS } from '../../../dist/hexbit/index.js'
 
@@ -127,6 +128,8 @@ const merkabaTurn = computed(() => referrerDoor.value * (TURN / orbit.length))
 const vertexTurn = (i) => i * (TURN / (merkaba.value || 1))
 
 const hit = (n) => occupancy.value.includes(n)
+const pageGlyph = (state) => glagoliticOf(Number(state) || 0)
+const unitGlyph = (n) => (n >= 1 && n <= BASE ? glagoliticUnitOf(n) : '')
 const glyphs = computed(() => fm.value.glyphs || {})
 const station = computed(() => fm.value.stations || {})
 const starN = computed(() => Number(glyphs.value.star) || 0)
@@ -209,6 +212,7 @@ const cellsOf = (bits) => {
         </div>
       </div>
       <div
+        v-if="false"
         class="hex-merkaba q-superposition"
         data-slot="merkaba"
         :data-vertices="merkaba"
@@ -227,7 +231,7 @@ const cellsOf = (bits) => {
         </svg>
       </div>
       <svg
-        v-if="metatron.centres"
+        v-if="false"
         class="hex-metatron"
         data-slot="metatron"
         :data-centres="metatron.centres"
@@ -251,7 +255,7 @@ const cellsOf = (bits) => {
           :data-lit="metatron.nodes[i] ? '1' : '0'"
         />
       </svg>
-      <svg v-if="fused" class="hex-rosetta" data-slot="rosetta" :data-rosette="rosetteN" viewBox="0 0 200 200" aria-hidden="true">
+      <svg v-if="false" class="hex-rosetta" data-slot="rosetta" :data-rosette="rosetteN" viewBox="0 0 200 200" aria-hidden="true">
         <g class="hex-rays">
           <g v-for="(d, i) in dims" :key="d" :transform="'rotate(' + rayTurn(i) + ' 100 100)'">
             <line x1="100" y1="100" :x2="100" :y2="i === leadRay ? 28 : 42"
@@ -311,16 +315,22 @@ const cellsOf = (bits) => {
         class="hex-tile"
         data-slot="hexbit-tile"
         :data-state="state"
-      >{{ state.toString(16) }}</li>
+        :data-glyph="pageGlyph(state)"
+        :title="String(state)"
+      >{{ pageGlyph(state) }}</li>
     </ol>
 
     <ol v-if="readings.length" class="hex-readings" data-slot="readings" aria-label="ten and twenty-two">
-      <li v-for="n in readings" :key="n" data-slot="reading" :data-count="n">{{ n }}</li>
+      <li v-for="n in readings" :key="n" data-slot="reading" :data-count="n">
+        <span v-if="unitGlyph(n)" class="hex-reading-glyph">{{ unitGlyph(n) }}</span>
+        <span class="hex-reading-n">{{ n }}</span>
+      </li>
     </ol>
 
     <ol class="hex-occupancy" data-slot="occupancy" aria-label="sealed counts">
       <li v-for="hit in occupancyCites" :key="hit.n" data-slot="count" :data-count="hit.n">
-        <span>{{ hit.n }}</span>
+        <span v-if="unitGlyph(hit.n)" class="hex-occupancy-glyph">{{ unitGlyph(hit.n) }}</span>
+        <span class="hex-occupancy-n">{{ hit.n }}</span>
         <a
           v-for="key in hit.keys"
           :key="key"
@@ -550,10 +560,20 @@ const cellsOf = (bits) => {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.65rem;
-  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+  font-family: 'Noto Sans Glagolitic', 'Segoe UI Historic', serif;
   color: var(--seq-center, var(--vp-c-text-1));
   border: 1px solid var(--vp-c-divider);
+}
+.hex-reading-glyph, .hex-occupancy-glyph {
+  font-family: 'Noto Sans Glagolitic', 'Segoe UI Historic', serif;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.hex-reading-n, .hex-occupancy-n {
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  opacity: 0.72;
 }
 .hex-readings, .hex-occupancy {
   display: flex;

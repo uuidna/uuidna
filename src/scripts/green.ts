@@ -20,7 +20,7 @@ import { execSync, spawnSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT, HERE, lastLines } from './api.js'
 import { shellOrExit } from '../os/host/index.js'
-import { planTestRun } from '../test-delta.js'
+import { planTestRun } from '../gate-receipt-index.js'
 
 /** What an arm returns. THREE states, never two — the whole point of this file's night.
  *

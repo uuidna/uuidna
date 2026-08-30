@@ -11,6 +11,7 @@
 // layers carry IDENTITY made visible and audible — no claim that the motion means anything beyond the states.
 import { toUuid } from '../../address.js'
 import { handleOf } from '../../handle.js'
+import { glagoliticOf } from '../../hexbit/index.js'
 import { renderStates, type HexbitRecording } from './hexbit-player.js'
 
 export const BAR_MS = 9 * 7 * 4           // the four tongues' bar — computed, so the reason cannot drift from the value
@@ -45,7 +46,7 @@ export function animateStates(states: readonly number[], ms = BAR_MS): Animation
     state: h,
     ray: h,
     level: h + 1,
-    glyph: String.fromCodePoint(0x2C00 + h),
+    glyph: glagoliticOf(h),
     hz: 432 * (h + 1),
     atMs: i * (ms + GAP_MS),
   }))
