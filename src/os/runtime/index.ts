@@ -3,9 +3,9 @@
 // Layer 2 beside uuidna_exec (Layer 1). uuidna_exec simulates on the lattice; uuidna_run executes pinned
 // Alpine bytes on the host when a rootfs tarball is present and verified. Output is DATA (content-addressed),
 // never folded into the boot hexbit image (theorem the_os_is_bootable_quantum stays true for Layer 1).
-import { join } from './host-node.js'
-import { existsSync, readFileSync, mkdtempSync, writeFileSync, rmSync } from './host-node.js'
-import { tmpdir, spawnSync, execFileAsync } from './host-node.js'
+import { join } from './hostnode/index.js'
+import { existsSync, readFileSync, mkdtempSync, writeFileSync, rmSync } from './hostnode/index.js'
+import { tmpdir, spawnSync, execFileAsync } from './hostnode/index.js'
 import { toUuid } from '../../address.js'
 import { sha256 } from '../../sha256.js'
 import { alpineRelease, verifyAlpineRootfs, type AlpineRelease, type RootfsCheck } from '../alpine/index.js'
@@ -13,11 +13,11 @@ import { resolveShell, type ShellDriver, type PosixShell } from '../host/index.j
 import { INSTALLS_MIRROR } from '../../quantum/os/mirror/index.js'
 import { ROOT } from '../../boundary.js'
 import { bootOS } from '../../quantum/os/index.js'
-import { ensureExtractedRootfs, fetchPinnedRootfs, extractedRootfsDir, rootfsDownloadUrl } from './rootfs.js'
+import { ensureExtractedRootfs, fetchPinnedRootfs, extractedRootfsDir, rootfsDownloadUrl } from './rootfs/index.js'
 import {
   SANDBOX_HONEST, dockerPlatformOf, ensureSandboxImage, sandboxDockerFlags,
   isSafeCmdName, isProbeableCmdName, reasonFromRefused, probeSh,
-} from './sandbox.js'
+} from './sandbox/index.js'
 import type { Reasoning } from '../../reason.js'
 
 export { fetchPinnedRootfs, ensureExtractedRootfs, extractedRootfsDir, rootfsDownloadUrl }
@@ -436,4 +436,4 @@ export function renderSandboxSuite(s: SandboxCommandSuite): string {
 export {
   isSafeCmdName, isProbeableCmdName, hullCracks, reasonFromRefused,
   SANDBOX_SKIP_SPAWN, SANDBOX_HONEST,
-} from './sandbox.js'
+} from './sandbox/index.js'

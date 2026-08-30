@@ -5,9 +5,9 @@
 // filesystem is read-only. A catalogue `cmd:` that is not in the minirootfs is ABSENT — AVAILABLE, not INSTALLED —
 // named, not a missing port. Tools that would be unsafe as a host bulk-wave (pwntools, scanners) are safe here
 // because they cannot reach the host or the network.
-import { spawnSync } from './host-node.js'
-import type { PosixShell } from '../host/index.js'
-import { reason, type Reasoning, type Rule } from '../../reason.js'
+import { spawnSync } from '../hostnode/index.js'
+import type { PosixShell } from '../../host/index.js'
+import { reason, type Reasoning, type Rule } from '../../../reason.js'
 
 export const SANDBOX_HONEST =
   'Layer 2 uuidnaOS sandbox: the pinned minirootfs is imported as a throwaway image, then spawned with ' +

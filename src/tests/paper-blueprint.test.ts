@@ -15,7 +15,7 @@ import { callTool } from '../mcp.js'
 import {
   paperBlueprintTheorem, paperBlueprintInstall, paperBlueprintTool, paperBlueprintPackage, sameInteger,
 } from '../paper-blueprint.js'
-import { quantumiseRegistry } from '../os/overlay/quantumise.js'
+import { quantumiseRegistry } from '../os/overlay/quantumise/index.js'
 
 test('a sealed theorem is white paper and blueprints at once — same address, 32 hexbits', () => {
   assert.ok(theoremByKey().has('a_spec_compiles_to_hexbits'))

@@ -63,9 +63,9 @@ test('the worker graph never static-imports Node builtins Cloudflare refuses (co
     'src/tts/index.ts',
     'src/scripts/context-budget.ts',
     'src/os/runtime/index.ts',
-    'src/os/runtime/rootfs.ts',
-    'src/os/runtime/sandbox.ts',
-    'src/os/runtime/host-node.ts',
+    'src/os/runtime/rootfs/index.ts',
+    'src/os/runtime/sandbox/index.ts',
+    'src/os/runtime/hostnode/index.ts',
     'src/quantum/os/cache/index.ts',
   ]
   for (const rel of files) {
