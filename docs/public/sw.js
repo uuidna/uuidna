@@ -4,7 +4,7 @@
 // wraps asset fetches and lets respondWith reject will brick the whole page on a single transient failure (the
 // earlier bug: "FetchEvent.respondWith received an error: Load failed"); this version cannot, because it never
 // touches those requests. Bump CACHE to force-replace an older worker.
-const CACHE = 'uuidna-v3'
+const CACHE = 'uuidna-v4'
 
 self.addEventListener('install', (event) => {
   event.waitUntil((async () => {

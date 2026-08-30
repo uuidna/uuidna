@@ -20,6 +20,7 @@ import {
   objectUi,
   primaryRayOf,
 } from '../../../src/object-i18n.js'
+import { registerServiceWorker } from '../../../src/quantum/os/browser/index.js'
 import { encodeLocale, decodeLocale } from './readAloudLogic.ts'
 
 const UrlAudit = defineAsyncComponent(() => import('./UrlAudit.vue'))
@@ -55,7 +56,10 @@ function loadLocale() {
   localeTag.value = nav
 }
 
-onMounted(loadLocale)
+onMounted(() => {
+  loadLocale()
+  registerServiceWorker()
+})
 
 watch(localeTag, (t) => {
   if (typeof document !== 'undefined') document.documentElement.lang = primaryRayOf(t)

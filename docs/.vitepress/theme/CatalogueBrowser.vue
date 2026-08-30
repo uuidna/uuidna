@@ -1,7 +1,7 @@
 <!-- CatalogueBrowser — offline PWA shelf: boot uuidnaOS, prime the census, browse community apps locally. -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/boot/index.js'
+import { mountUuidnaOS, formatBootLine } from '../../../src/quantum/os/browser/index.js'
 import { browseCatalogue, inspectCataloguePackage } from '../../../src/quantum/apps/catalogue-browser.js'
 import { runExecLine } from '../../../src/quantum/apps/exec-shell.js'
 import { handleOf } from '../../../src/handle.js'
@@ -83,12 +83,12 @@ const useApp = (name: string) => {
 
 onMounted(async () => {
   try {
-    const boot = await bootUuidnaOSInBrowser('/alpine-catalogue.tsv')
+    const boot = await mountUuidnaOS({ registerSw: false })
     ready.value = boot.catalogue.present
     const n = browseCatalogue('', 1, 'community').total
     bootLine.value = boot.catalogue.present
       ? `uuidnaOS · ${n.toLocaleString('en-US')} community apps · offline · boot \`${boot.bootReceipt.slice(0, 8)}\``
-      : `catalogue absent — ${boot.catalogue.why ?? 'not cached'}`
+      : formatBootLine(boot, 'catalogue')
     const pkg = deepPkg()
     const needle = deepNeedle()
     if (pkg) {
@@ -99,9 +99,6 @@ onMounted(async () => {
       search()
     } else {
       search()
-    }
-    if (typeof navigator !== 'undefined' && 'serviceWorker' in navigator) {
-      navigator.serviceWorker.register('/sw.js').catch(() => {})
     }
   } catch (e) {
     bootLine.value = `boot refused — ${e instanceof Error ? e.message : String(e)}`

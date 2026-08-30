@@ -13,8 +13,8 @@ yet seal, is a **lead** the desk proposes. Only the kernel seals; only the capta
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted),
 [`two_coins`](/theorem/two_coins)). Meaning is null.
 
-Fold receipt `fee3df6b-aebb-8435-af17-c5313c356796` · hexbit door [`fee3df6b`](https://uuidna.com/fee3df6b) ·
-42 door(s) · 11 lead(s) · 9 silent
+Fold receipt `91c1cf6c-24b6-8045-8eef-500bf9e3fe80` · hexbit door [`91c1cf6c`](https://uuidna.com/91c1cf6c) ·
+42 door(s) · 12 lead(s) · 10 silent
 .
 
 ## Online results — loud theorems the queries already ring
@@ -86,6 +86,8 @@ Fold receipt `fee3df6b-aebb-8435-af17-c5313c356796` · hexbit door [`fee3df6b`](
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
 - **Sofia** — most-searched query "Sofia" rings no sealed theorem
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
+- **CMS Higgs** — most-searched query "CMS Higgs" rings no sealed theorem
+  <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
 - **education** — most-searched query "education" rings no sealed theorem
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
 
@@ -118,9 +120,11 @@ not a search string and stays out.
 - **Euclid** — gutendex.com
 - **Sofia** — open-meteo.com
 - **science** — en.wikinews.org
+- **CMS Higgs** — opendata.cern.ch
 - **chemistry** — esco — ESCO — European Skills, Competences, Qualifications and Occupations
 - **education** — data-europa — data.europa.eu — the EU open data catalogue
 - **quantum** — cordis — CORDIS — EU research projects and Horizon programme topics
+- **CMS Higgs** — cern-opendata — CERN Open Data — LHC experiment catalogue
 
 ## Honest scope
 

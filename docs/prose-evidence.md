@@ -44,7 +44,7 @@
 
 ## uuidna is dna times the two coins
 
-**Prose:** "coin measures six doublings of bits (2⁶ = 64) — the same number by two routes"
+**Prose:** "4³ = 64 codons and 2⁶ = 64 coin bits — the same number by two routes"
 
 **Address:** `be8307e5-614d-87d7-8221-e2f84251ad42`
 
@@ -128,7 +128,7 @@
 
 ## hexbit sixteen versus z9 root
 
-**Prose:** "distinct rings, CRT joins"
+**Prose:** "CRT join ℤ/7×ℤ/9 = 63"
 
 **Address:** `f3b0feaf-00e4-8032-a9de-b3130c04f13d`
 

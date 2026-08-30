@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="230 keys" />
+# MCP tools <Badge type="tip" text="231 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 230 tools below are read from the server's own tool list and
+is **built from the keys**: the 231 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 325722f0-1b93-8c73-bb7d-1216c82d136a
+gate CLEAN f0 d0 v0 · 60f1f41c-2842-8298-95c7-772c98c07a9e
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 230-tool registry folds to its
-order-invariant identity `d6aa74b9-1aca-86d0-abb9-39f266e6d252` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 231-tool registry folds to its
+order-invariant identity `73b2afb4-c863-8dbb-a333-2f8bef434ec6` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`230`" />
+## The grid <Badge type="tip" :text="`231`" />
 
-230 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 96 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+231 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 96 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -257,6 +257,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-merkle-proof"><code>merkle_proof</code></a>
 <a href="#uuidna-merkle-prove"><code>merkle_prove</code></a>
 <a href="#uuidna-open-chain"><code>open_chain</code></a>
+<a href="#uuidna-open-channel"><code>open_channel</code></a>
 <a href="#uuidna-open-onion"><code>open_onion</code></a>
 <a href="#uuidna-pbkdf2"><code>pbkdf2</code></a>
 <a href="#uuidna-poly1305"><code>poly1305</code></a>
@@ -426,7 +427,7 @@ Fold two content-addresses into one, ORDER-SENSITIVE (merge(a,b) ≠ merge(b,a))
 
 ### `uuidna_coin64`
 
-Mint a 64-bit coin (16 hex digits) from any content — the top 64 bits of its content-address. A shorter pointer; ~2^32 birthday wall (halve the address bits, halve the exponent). Integrity, not secrecy.
+Mint a 64-bit coin (16 hex digits) from any content — the top 64 bits of its content-address, carrying handle architecture inside. Forging must satisfy FUSED_RING neighbour witnesses and the reflecting face (63+1=64). Integrity routing, not secrecy.
 
 **Parameters**
 
@@ -572,143 +573,20 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Honesty gate <Badge type="tip" :text="'8'" />
-
-*skill: gate*
-
-### `uuidna_gate`
-
-The honesty gate: does the prose hold the floor (binary 1) or drain as an overclaim (0)? 7-language. Returns {binary,hit}. A tripwire, not an oracle. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `text` | string | **yes** |  |
-
-### `uuidna_reeducate`
-
-Bound a failing/overclaiming output to the honest floor, keeping the honest remainder. Returns {passed,...}. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `text` | string | **yes** |  |
-
-### `uuidna_adjudicate`
-
-The trial: ONE recomputable answer for a statement, and only one of two, all else void — VERIFIED (a decidable test holds, or it cites a sealed Lean theorem that ALSO shares vocabulary with the claim — a citation is not entailment, so a real theorem cited for an unrelated sentence verifies nothing) or UNVERIFIED (everything else, including a citation to a proof not in the ledger, or a real citation about a different topic). uuidna verifies, it never refutes. Integrity, not truth (theorem provenance_integrity_not_content_truth).
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `statement` | string | **yes** |  |
-
-### `uuidna_prove_verdict`
-
-Fold a statement plus any decidable formula receipts through the order-invariant gravity to ONE proof-of-verdict root — a recomputable seal of the trial.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `statement` | string | **yes** |  |
-| `formulaReceipts` | array | no |  |
-
-### `uuidna_verify`
-
-The self-verdict: recompute uuidna's own claims from a seed and return the recomputable UuidnaVerdict (integrity, not truth (theorem provenance_integrity_not_content_truth)).
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `seed` | string | **yes** |  |
-
-### `uuidna_harness`
-
-Make any output auditable: wrap it with its content-address and honesty-gate verdict. Returns {output,address,auditable,...}. Boundary declared — theorem drift_is_named_or_caught.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `text` | string | **yes** |  |
-
-### `uuidna_harness7`
-
-Audit an output across all seven dimensions at once — seven receipts folded to one root. Returns {receipts,root,auditableInAll}.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `text` | string | **yes** |  |
-
-### `uuidna_gate_status`
-
-Gate self-test: eight-state verdict table vs sealed spec, registry receipt. Pass {messaging:true} for coordinated health (witness, wire budget, session census). Boundary declared — theorem drift_is_named_or_caught.
-
-THE GATE PROVES ITSELF, live against the sealed spec: every served tools/call passes the conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — f the input-sanitize bit, d the output-sanitize bit, v the honesty bit (a fabricated theorem citation, slimGate) — and this tool recomputes the eight-state verdict table and REQUIRES it to equal both the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle). With {messaging:true}: ledger messaging totality witness, MCP wire within budget, this process's coin census and receipt-chain tip — poll to monitor; pair with uuidna_coin_ledger for WHO paid.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `messaging` | boolean | no | include messaging witness, wire |
-
-## Merkle & gravity <Badge type="tip" :text="'4'" />
-
-*skill: merkle*
-
-### `uuidna_merkle_root`
-
-Order-free merkle root of a list of leaves (a tamper-evident seal of the set).
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `leaves` | array | **yes** |  |
-
-### `uuidna_merkle_prove`
-
-Holographic inclusion proof for the leaf at index — an O(log N) audit path that verifies the whole from a tiny part.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `leaves` | array | **yes** |  |
-| `index` | number | **yes** |  |
-
-### `uuidna_merkle_verify`
-
-Verify a leaf against a root using an inclusion proof (a forged leaf fails).
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `leaf` | string | **yes** |  |
-| `proof` | any | **yes** |  |
-| `root` | string | **yes** |  |
-
-### `uuidna_gravity`
-
-The quantum receipt: the order-INVARIANT merkle gravity of a set of addresses — every observer ordering falls to the SAME root. NOT physics (theorem provenance_integrity_not_content_truth); a content-addressed fixed point.
-
-**Parameters**
-
-| param | type | required | description |
-| --- | --- | --- | --- |
-| `addresses` | array | **yes** |  |
-
-## Other <Badge type="tip" :text="'98'" />
+## Other <Badge type="tip" :text="'99'" />
 
 *skill: other*
+
+### `uuidna_open_channel`
+
+INVOLUTE of uuidna_seal_channel — one command: peel the onion (ChaCha20-Poly1305, outermost-first), decode the plaintext, and attach every uuid channel slice (handle + merged words + tail) so handles work together without the payload store. Wrong key, reorder, or tamper throws (Poly1305). Returns {message,uuids,layers,receipt,channels,tamper} where tamper is verify-vs-forge at handle, coin, and uuid tiers including neighbour and related witness counts (63·2+2=128 at uuid). Boundary declared — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `uuids` | array | **yes** | uuid chain from uuidna_seal_chan |
+| `passphrases` | array | **yes** | innermost→outermost, same order |
 
 ### `uuidna_merkle_proof`
 
@@ -723,7 +601,7 @@ Holographic merkle proof: {leaves, index} → verified root, O(log N), both door
 
 ### `uuidna_coins`
 
-Captain-coin mint: coins() per theorem, cap = capacity × combinations. Returns mint, remaining, cipher widths.
+Captain-coin mint: coins() per theorem, cap = capacity × combinations. Returns mint, remaining, cipher widths, and tamper costs (handle/coin/uuid ladder with neighbour + related witnesses).
 
 _No parameters._
 
@@ -1710,6 +1588,140 @@ Live quantum messaging demonstration: send a test message from Alice to Bob, com
 | `from` | string | no | sender address (default: alice@u |
 | `to` | string | no | recipient address (default: bob@ |
 | `content` | string | no | message content (default: Hello |
+
+## Honesty gate <Badge type="tip" :text="'8'" />
+
+*skill: gate*
+
+### `uuidna_gate`
+
+The honesty gate: does the prose hold the floor (binary 1) or drain as an overclaim (0)? 7-language. Returns {binary,hit}. A tripwire, not an oracle. Boundary declared — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** |  |
+
+### `uuidna_reeducate`
+
+Bound a failing/overclaiming output to the honest floor, keeping the honest remainder. Returns {passed,...}. Boundary declared — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** |  |
+
+### `uuidna_adjudicate`
+
+The trial: ONE recomputable answer for a statement, and only one of two, all else void — VERIFIED (a decidable test holds, or it cites a sealed Lean theorem that ALSO shares vocabulary with the claim — a citation is not entailment, so a real theorem cited for an unrelated sentence verifies nothing) or UNVERIFIED (everything else, including a citation to a proof not in the ledger, or a real citation about a different topic). uuidna verifies, it never refutes. Integrity, not truth (theorem provenance_integrity_not_content_truth).
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `statement` | string | **yes** |  |
+
+### `uuidna_prove_verdict`
+
+Fold a statement plus any decidable formula receipts through the order-invariant gravity to ONE proof-of-verdict root — a recomputable seal of the trial.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `statement` | string | **yes** |  |
+| `formulaReceipts` | array | no |  |
+
+### `uuidna_verify`
+
+The self-verdict: recompute uuidna's own claims from a seed and return the recomputable UuidnaVerdict (integrity, not truth (theorem provenance_integrity_not_content_truth)).
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `seed` | string | **yes** |  |
+
+### `uuidna_harness`
+
+Make any output auditable: wrap it with its content-address and honesty-gate verdict. Returns {output,address,auditable,...}. Boundary declared — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** |  |
+
+### `uuidna_harness7`
+
+Audit an output across all seven dimensions at once — seven receipts folded to one root. Returns {receipts,root,auditableInAll}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** |  |
+
+### `uuidna_gate_status`
+
+Gate self-test: eight-state verdict table vs sealed spec, registry receipt. Pass {messaging:true} for coordinated health (witness, wire budget, session census). Boundary declared — theorem drift_is_named_or_caught.
+
+THE GATE PROVES ITSELF, live against the sealed spec: every served tools/call passes the conjunction gate cleanAudit(f,d,v) = (1−f)·(1−d)·(1−v) — f the input-sanitize bit, d the output-sanitize bit, v the honesty bit (a fabricated theorem citation, slimGate) — and this tool recomputes the eight-state verdict table and REQUIRES it to equal both the sealed table [1,0,0,0,0,0,0,0] (theorem anti_fraud_check_deterministic) and the boolean spec (theorem honesty_gate_is_theorem_not_oracle). With {messaging:true}: ledger messaging totality witness, MCP wire within budget, this process's coin census and receipt-chain tip — poll to monitor; pair with uuidna_coin_ledger for WHO paid.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `messaging` | boolean | no | include messaging witness, wire |
+
+## Merkle & gravity <Badge type="tip" :text="'4'" />
+
+*skill: merkle*
+
+### `uuidna_merkle_root`
+
+Order-free merkle root of a list of leaves (a tamper-evident seal of the set).
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `leaves` | array | **yes** |  |
+
+### `uuidna_merkle_prove`
+
+Holographic inclusion proof for the leaf at index — an O(log N) audit path that verifies the whole from a tiny part.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `leaves` | array | **yes** |  |
+| `index` | number | **yes** |  |
+
+### `uuidna_merkle_verify`
+
+Verify a leaf against a root using an inclusion proof (a forged leaf fails).
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `leaf` | string | **yes** |  |
+| `proof` | any | **yes** |  |
+| `root` | string | **yes** |  |
+
+### `uuidna_gravity`
+
+The quantum receipt: the order-INVARIANT merkle gravity of a set of addresses — every observer ordering falls to the SAME root. NOT physics (theorem provenance_integrity_not_content_truth); a content-addressed fixed point.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `addresses` | array | **yes** |  |
 
 ## Imprint & messaging <Badge type="tip" :text="'4'" />
 

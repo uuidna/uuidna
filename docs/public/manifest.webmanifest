@@ -1,9 +1,9 @@
 {
-  "name": "uuidna — Alpine community apps",
+  "name": "uuidna — quantum OS in the browser",
   "short_name": "uuidna",
-  "description": "Every Alpine community package — searchable offline after install. Content-addressed identity, uuidnaOS catalogue PWA.",
-  "id": "/catalogue",
-  "start_url": "/catalogue",
+  "description": "Verified uuidnaOS: terminal, Alpine catalogue, and MCP mount — offline after install. Layer 1 exec on your device; full toolbox at /mcp.",
+  "id": "/",
+  "start_url": "/terminal",
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
@@ -14,5 +14,25 @@
   "icons": [
     { "src": "/icon.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" },
     { "src": "/icon.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    {
+      "name": "Terminal",
+      "short_name": "Terminal",
+      "description": "Layer 1 uuidnaOS shell — ls, apk, man offline",
+      "url": "/terminal"
+    },
+    {
+      "name": "Catalogue",
+      "short_name": "Apps",
+      "description": "Search 28k+ Alpine community packages",
+      "url": "/catalogue"
+    },
+    {
+      "name": "MCP wire",
+      "short_name": "MCP",
+      "description": "Agent mount — discovery document",
+      "url": "/.well-known/mcp.json"
+    }
   ]
 }

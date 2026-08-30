@@ -4,7 +4,7 @@ aside: true
 outline: [2, 3]
 ---
 
-# Public APIs <Badge type="tip" text="26 doors" />
+# Public APIs <Badge type="tip" text="28 doors" />
 
 <!-- GENERATED from publicApiRegistry() by scripts/gen-apis — DO NOT EDIT. -->
 
@@ -13,7 +13,7 @@ Every keyless public door this repository names, probes, or sweeps — one catal
 [`two_coins`](/theorem/two_coins)). Empty `uuidna_api_mint` serves the same object at the edge. A host that is
 fetched under `src/` and is not here is a gap the tests name.
 
-**26 APIs** · sweep 11 · door [`1b6d4eca`](https://uuidna.com/1b6d4eca) · receipt `1b6d4eca-82cc-8538-98e3-b7245723080b`
+**28 APIs** · sweep 12 · door [`56115d40`](https://uuidna.com/56115d40) · receipt `56115d40-7779-88b5-9c42-43fe129e302d`
 
 EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a named public EU source answered when it was asked, and only a `by decide` theorem SEALS. The rows are passed through unaltered and are never fabricated — an unreachable source returns nothing, which is an absence, not a refutation. The parse and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth.
 
@@ -32,6 +32,7 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 | `gutendex-com` | gutendex.com | research | keyless | fetched | yes | yes |
 | `open-meteo-com` | open-meteo.com | research | keyless | fetched | yes | yes |
 | `en-wikinews-org` | en.wikinews.org | research | keyless | fetched | yes | yes |
+| `opendata-cern-ch` | opendata.cern.ch | research | keyless | fetched | yes | yes |
 
 ## EU education
 
@@ -42,6 +43,7 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 | `gisco` | gisco-services.ec.europa.eu | eu-education | keyless | fetched | no | yes |
 | `data-europa` | data.europa.eu | eu-education | keyless | fetched | no | yes |
 | `cordis` | cordis.europa.eu | eu-education | keyless | fetched | no | yes |
+| `cern-opendata` | opendata.cern.ch | eu-education | keyless | fetched | no | yes |
 | `ted` | api.ted.europa.eu | eu-education | keyless | fetched | no | yes |
 | `oeapi` | oeapi.eu | eu-education | keyless | served | no | no |
 
@@ -68,4 +70,4 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 | `nvd` | services.nvd.nist.gov | registry | keyless | fetched | no | no |
 | `uuidna-site` | uuidna.com | served | served-not-fetched | served | no | no |
 
-Cite handle `https://uuidna.com/1b6d4eca`.
+Cite handle `https://uuidna.com/56115d40`.

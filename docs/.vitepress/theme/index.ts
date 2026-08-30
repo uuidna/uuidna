@@ -23,7 +23,7 @@ export default {
     app.component('HandleStrips', defineAsyncComponent(() => import('./HandleStrips.vue')))
     app.component('HexbitAnimator', defineAsyncComponent(() => import('./HexbitAnimator.vue')))
     app.component('UuidnaTerminal', defineAsyncComponent(() => import('./Terminal.vue')))
-    app.component('ExecShell', defineAsyncComponent(() => import('./ExecShell.vue')))
+    app.component('ExecShell', defineAsyncComponent(() => import('./Terminal.vue')))
     app.component('PortPanel', defineAsyncComponent(() => import('./PortPanel.vue')))
     app.component('CatalogueBrowser', defineAsyncComponent(() => import('./CatalogueBrowser.vue')))
     app.component('AgentCoverage', defineAsyncComponent(() => import('./AgentCoverage.vue')))

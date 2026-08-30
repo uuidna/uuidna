@@ -5,7 +5,7 @@ description: The whole ledger as a superposition — theorem k at bar k, collaps
 
 # The release anthem <Badge type="tip" text="collapsed per visitor" />
 
-> The anthem is the **whole ledger in place** — 2120 theorems, theorem k at bar k, each bar that
+> The anthem is the **whole ledger in place** — 2148 theorems, theorem k at bar k, each bar that
 > theorem's two address-coins as a chord — and it is **not a file**. It is a superposition: until you arrived it
 > was every entry at once, and your visit collapses it — your referrer folds to a handle, the handle picks your
 > entry bar on the closed cycle (`referrer_cycle_is_total`), and the recursion plays as DEPTH: your window's
@@ -21,7 +21,7 @@ description: The whole ledger as a superposition — theorem k at bar k, collaps
 The recording above is minted whole before it plays. This one is not minted at all: an **AudioWorklet**
 computes each sample from its position in your own audio thread — O(1) memory, no download, and no last byte,
 so it can play as long as you let it. It is the SAME music, bit-identical to the file, and that is a test
-(`src/tests/anthem-stream.test.ts` drives both paths and compares sample for sample, the worklet's own
+(`src/quantum/os/harness/anthem-stream.test.ts` drives both paths and compares sample for sample, the worklet's own
 inlined copy included). What a stream trades away is the whole-artifact address; what it keeps is the receipt
 that matters — the seed and the score, from which any segment recomputes.
 
@@ -47,17 +47,17 @@ carry **proofs**.
 
 | movement | theorems (in place) |
 |---|---|
-| 1 | 1–530 |
-| 2 | 531–1060 |
-| 3 | 1061–1590 |
-| 4 | 1591–2120 |
+| 1 | 1–537 |
+| 2 | 538–1074 |
+| 3 | 1075–1611 |
+| 4 | 1612–2148 |
 
 **Each bar is one theorem paying its two coins** (`anthem_chord_halves_the_bar`: 252/2 = 126), its length
 picked by its own bytes from the sealed three (`anthem_three_lengths_quarter_the_bar`: 126 · 189 · 252 ms),
 the breath the sealed twelfth (`anthem_rest_twelfths_the_bar`: 21 ms). π's round is clasped by two trinities
 of primes (`anthem_pi_primes_trinity`: 999999 = 999·1001 = 3³·37 · 7·11·13).
 
-**The whole ledger folds to** `e7318241-b124-8e7c-9973-73dafbf8da48` — and the coin octave, 432 against 864
+**The whole ledger folds to** `16b88a9c-631c-8661-96e5-055f102c7eee` — and the coin octave, 432 against 864
 (`anthem_closes_on_the_coin_octave`), is the interval every collapse resolves to: the same factor two
 [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) weighs in black-hole mass.
 
