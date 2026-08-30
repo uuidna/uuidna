@@ -21,6 +21,7 @@ import { join } from 'node:path'
 import { ROOT, HERE, lastLines } from './api.js'
 import { shellOrExit } from '../os/host/index.js'
 import { planTestRun } from '../gate-receipt-index.js'
+import { testRunGlobs } from '../test-paths.js'
 
 /** What an arm returns. THREE states, never two — the whole point of this file's night.
  *
@@ -98,7 +99,7 @@ const ARMS: Arm[] = [
   { name: 'qa', why: 'full quantum-advantage audit by VERIFY of lean/quantum-advantage.json — metrics-aligned, <60s',
     run: () => sh('node dist/scripts/quantum-advantage-audit.js') },
 
-  { name: 'tests', why: 'gate-receipt verify O(1); delta tests when only src/tests moved; full suite on ledger drift (verify_beats_recompute_by_magnitudes)',
+  { name: 'tests', why: 'gate-receipt verify O(1); delta tests when only colocated *.test.ts moved; full suite on ledger drift (verify_beats_recompute_by_magnitudes)',
     run: () => {
       const plan = planTestRun()
       if (plan.mode === 'skip') {
@@ -110,7 +111,7 @@ const ARMS: Arm[] = [
         return sh(`node --test ${plan.files.join(' ')}`)
       }
       console.log(`  · tests — full suite: ${plan.why}`)
-      return sh('node --test dist/tests/*.test.js')
+      return sh(`node --test ${testRunGlobs().join(' ')}`)
     } },
 
   ...(full ? [{ name: 'kernel', why: 'every wing re-proven sorry-free and every theorem kernel-only (UUIDNA_PROVE_ALL=1)',

@@ -8,7 +8,7 @@ export { openQuestions, placeItem, isInvolutionShaped, type OpenItem, type OpenT
 // the leads roster — held, refuted, and refused, so none is invisible at school
 export {
   schoolLeads, leadsCensus, leadsTrialCensus, leadsTrialGaps, leadTrialVerdict,
-  renderSchoolLeads, LEAD_KINDS, type SchoolLead, type LeadsRecord, type LeadTrialVerdict,
+  renderSchoolLeads, LEAD_KINDS, type LeadKind, type LeadRow, type SchoolLead, type LeadsRecord, type LeadTrialVerdict,
 } from './leads/index.js'
 // laboratory — labs entangled to theorems and related resources; sufficient for every admitted domain
 export {

@@ -5,6 +5,9 @@ import { readFileSync, existsSync } from 'node:fs'
 import { execSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './scripts/api.js'
+import { deltaTestFiles, isTestSource } from './test-paths.js'
+
+export { deltaTestFiles } from './test-paths.js'
 
 export const COVERED = ['src', 'lean'] as const
 export const EXCLUDED = /^src\/(seeds|chunks)\//
@@ -70,27 +73,6 @@ export function needsFullSuite(changed: readonly string[]): boolean {
   return changed.some((f) => FULL_SUITE_PREFIXES.some((p) => f.startsWith(p)))
 }
 
-export function testDistForSource(srcPath: string): string | null {
-  const m = srcPath.match(/^src\/tests\/(.+)\.ts$/)
-  if (!m) return null
-  const base = m[1]!.endsWith('.test') ? m[1]! : `${m[1]}.test`
-  return `dist/tests/${base}.js`
-}
-
-/** deltaTestFiles(changed) → dist test paths to rerun when only non-critical src moved. */
-export function deltaTestFiles(changed: readonly string[]): string[] {
-  const tests = new Set<string>()
-  for (const f of changed) {
-    const direct = testDistForSource(f)
-    if (direct) tests.add(direct)
-    if (f.startsWith('src/') && !f.startsWith('src/tests/')) {
-      const base = f.replace(/^src\//, '').replace(/\.ts$/, '')
-      tests.add(`dist/tests/${base}.test.js`)
-    }
-  }
-  return [...tests].filter((t) => existsSync(join(ROOT, t))).sort()
-}
-
 export type TestRunPlan =
   | { mode: 'skip'; why: string }
   | { mode: 'full'; why: string }
@@ -123,7 +105,7 @@ export function planTestRun(root: string = ROOT): TestRunPlan {
   if (needsFullSuite(moved)) {
     return { mode: 'full', why: `ledger or served surface moved (${moved.slice(0, 4).join(', ')}${moved.length > 4 ? '…' : ''})` }
   }
-  const onlyTests = moved.every((f) => f.startsWith('src/tests/'))
+  const onlyTests = moved.every((f) => isTestSource(f))
   if (!onlyTests) {
     return { mode: 'full', why: `non-test src moved (${moved.slice(0, 4).join(', ')}${moved.length > 4 ? '…' : ''})` }
   }

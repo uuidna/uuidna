@@ -83,6 +83,9 @@ const CURES: Cure[] = [
   { name: 'package surface drift', when: /packages? (?:receipt|surface)|gen:packages/,
     cmd: 'node dist/scripts/gen-packages.js',
     because: 'the six package surfaces are generated from src/index.ts; the guard hard-rejects drift' },
+  { name: 'legacy test dir', when: /src\/tests\/ still holds/,
+    cmd: 'node dist/scripts/relocate-tests.js && node dist/scripts/fix-test-imports.js && node dist/scripts/repair-test-imports.js && node dist/scripts/fix-colocated-imports.js && node dist/scripts/repair-fs-imports.js && node dist/scripts/index-test-imports.js && npm run build',
+    because: 'tests belong beside their module or under quantum/os/harness/; gate-receipt delta runs only when colocated *.test.ts move' },
   // A neighbourhood that will not seal is nearly always a census taken while the wings were being written — the
   // memory walked lean/ mid-generation and saw a file that had not finished moving. Regenerating the wings and
   // re-sealing is the whole repair, and it is safe to attempt because a stale memory can only cost extra sealing:
@@ -106,6 +109,7 @@ const NO_CURE: { when: RegExp; why: string }[] = [
 /** The walk: the cheapest gates first, each able to name its own objection. */
 const WALK: { label: string; cmd: string }[] = [
   { label: 'build', cmd: 'npm run build' },
+  { label: 'court', cmd: 'node dist/quantum/os/cli/index.js --court' },
   { label: 'guard', cmd: 'npm run guard' },
   { label: 'account', cmd: 'node dist/scripts/account.js' },
   { label: 'spin --verify', cmd: 'node dist/scripts/spin.js --verify' },

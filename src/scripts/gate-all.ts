@@ -136,7 +136,7 @@ const TREE_TOUCHING: readonly RegExp[] = [
  *  skip is never trust, always verification. Only the receipt's own covered checks qualify — the docs suite
  *  and every generator read outside the fingerprint and always run. */
 const RECEIPT_COVERED: readonly RegExp[] = [
-  /^node --test dist\/tests\/\*\.test\.js$/,
+  /^node --test (?:'|\")?dist\/\*\*\/\*\.test\.js(?:'|\")?$/,
   /\bdist\/scripts\/guard\.js$/,
 ]
 
@@ -250,7 +250,7 @@ export const plan = (auditScript: string, scripts: Readonly<Record<string, strin
  *  timing census with a stranger in it (lead 132b's cheapest fold — a report can only shrink what it names). */
 export const label = (cmd: string): string =>
   cmd.startsWith('node --test ')
-    ? ('test ' + cmd.replace('node --test ', '').replace(/\/\*.*$/, '')).slice(0, 46)
+    ? ('test ' + cmd.replace('node --test ', '').replace(/^['"]|['"]$/g, '').replace(/\/\*\*\/\*\.test\.js$/, '').replace(/\/\*.*$/, '')).slice(0, 46)
     : cmd.replace('node dist/scripts/', '').replace(/\.js\b/, '').replace(/ --.*$/, '').replace(/^npm run /, 'npm:').slice(0, 46)
 
 // the lane pool now lives in the scripts' singularity — lean-gen fans the kernel spawns with the same one, and a

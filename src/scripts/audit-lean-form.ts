@@ -23,11 +23,11 @@ const EXEMPT = new Set([
   'src/scripts/one-receipt.ts',         // the NEG demarcation regex
   'src/scripts/derive-prose-trials.ts', // the law's own statement (PHYSICS_CLAIM)
   'src/scripts/audit-lean-form.ts',     // this finder
-  'src/tests/energy.test.ts',           // the assertion that tool descriptions stay clean
-  'src/tests/readme-quantum.test.ts',   // the assertion that the README stays clean
+  'src/energy.test.ts',           // the assertion that tool descriptions stay clean
+  'src/readme-quantum.test.ts',   // the assertion that the README stays clean
   'lean/leads.json',                    // a research lead NAMES the claim class it hunts
-  'src/tests/daemon.test.ts',           // NEGATIVE FIXTURE: the sentence fed to the refuser to prove it refuses
-  'src/tests/smoke.test.ts',            // NEGATIVE FIXTURE: same, through reeducate()
+  'src/daemon.test.ts',           // NEGATIVE FIXTURE: the sentence fed to the refuser to prove it refuses
+  'src/smoke.test.ts',            // NEGATIVE FIXTURE: same, through reeducate()
   'src/theorems/generated.ts',          // GENERATED from the lean-*.ts sources; fixing a copy is drift
 ])
 
