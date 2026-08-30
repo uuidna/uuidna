@@ -4,10 +4,10 @@
     "lean/PRINCIPLE.md": "4887ddee9c388fbe",
     "CHANGELOG.md": "82375045e6178c9d",
     "lean/axioms.json": "1791454517788bcf",
-    "docs/mcp.md": "32e064c150088a05",
+    "docs/mcp.md": "1dbbd39e7ffc82c0",
     "audit-citations.json": "bd5145c79bbe81ec",
-    "support-audit.json": "985bca2ce78182ac",
-    "research-leads.json": "c75be0478aa58a65",
+    "support-audit.json": "0971e71906cd8d2b",
+    "research-leads.json": "53e8422e156586dc",
     ".zenodo.json": "f568de01091a8011",
     "reports.json": "7ea7edd206e98270",
     "lean/statement-index.json": "3c65ee51fb0789e8",
@@ -2261,7 +2261,7 @@
     "lean/martialarts-manifest.json": "d392cbcd865e81bd",
     "lean/matching-manifest.json": "2b8b1987e23e8043",
     "lean/mcp-alpine-man.json": "b6d13f55dbab8749",
-    "lean/mcp-context-budget.json": "26b7dc45e6a38778",
+    "lean/mcp-context-budget.json": "c198d41208d58583",
     "lean/mcp-surface-divergence.json": "bd1b3b799169889b",
     "lean/messaging-witness.json": "522fae9c9c4684a6",
     "lean/models-manifest.json": "c5bd75d0f0148ab5",
@@ -2297,7 +2297,7 @@
     "lean/reflection-manifest.json": "7935f62f983386bf",
     "lean/refusal-trials.json": "81d8a30edc59898b",
     "lean/relativity-manifest.json": "e43928bb739f84e1",
-    "lean/remaining-alpine-port.json": "501b8d6a904d80ce",
+    "lean/remaining-alpine-port.json": "16cb62ba3f9384e9",
     "lean/report-manifest.json": "d2a95082f567846c",
     "lean/research-ledger.json": "cd1a413da4d7822a",
     "lean/reversal-manifest.json": "3ba4b9c942c18f41",
@@ -2325,7 +2325,7 @@
     "lean/tesla-manifest.json": "a88ced0fc41a8adc",
     "lean/thermodynamics-manifest.json": "22a3c81550688010",
     "lean/tides-manifest.json": "fc18ddce67318cbb",
-    "lean/tool-exercise-baseline.json": "16f75d7d9c0e8cff",
+    "lean/tool-exercise-baseline.json": "db7d22c23c3485a7",
     "lean/topography-manifest.json": "1f1b37d79f2b81c0",
     "lean/torus-manifest.json": "24fd85fc1f808ea7",
     "lean/trinities-manifest.json": "5a70c39b9d0886da",
@@ -2341,5 +2341,5 @@
     "lean/wave-queue.json": "aea574e2a5748ff0",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "e5e5d5d3-1e3c-82b1-b014-22a2fd9cc775"
+  "receipt": "760879bf-895d-8102-a3dc-a656d0d7b961"
 }

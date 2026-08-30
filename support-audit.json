@@ -1,10 +1,7 @@
 {
-  "modules": 854,
-  "roots": 546,
-  "supported": 852,
-  "dead": [
-    "src/compose-object.ts",
-    "src/object-graph.ts"
-  ],
-  "receipt": "c7fda312-ad53-8685-a53c-157c76dc5fc2"
+  "modules": 857,
+  "roots": 548,
+  "supported": 857,
+  "dead": [],
+  "receipt": "e7d438d1-506b-8a58-97ea-9058a8a2bbc0"
 }
