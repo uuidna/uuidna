@@ -18,6 +18,10 @@ import { harvestFragments } from './harvest.js'
 import { rdRoot } from './boundary.js'
 import { decide } from './decide.js'
 import { hexbitDoorOf } from './hexbit/index.js'
+import { normStatement, groupByStatement, allStatementChunks, type StatementChunk } from './statement-chunks.js'
+
+export type { StatementChunk }
+export { allStatementChunks }
 
 interface Entry { key: string; name: string; statement: string; tactic: string; file: string; principle: string; skill: string }
 
@@ -50,8 +54,6 @@ export interface StatementCensus {
   renamings: number
   groups: Array<{ statement: string; keys: string[]; files: string[] }>
 }
-const normStatement = (s: string): string =>
-  s.replace(/\s+/g, '').replace(/\((\d+)\s*:\s*Nat\)/g, '$1').replace(/[()]/g, '')
 
 /** THE LEAN UUID — a theorem's identity is its Lean, so the identity is the address of the STATEMENT, never of
  *  the key. Two entries proving the same proposition share one lean uuid however they are named or wherever
@@ -86,16 +88,6 @@ export function byLean(query: string): LeanIdentity | null {
     ?? idx.find((e) => normStatement(e.statement) === normStatement(q))
     ?? null
 }
-function groupByStatement(): Map<string, Array<Entry & { statement: string }>> {
-  const T = theorems() as Array<Entry & { statement: string }>
-  const by = new Map<string, Array<Entry & { statement: string }>>()
-  for (const t of T) {
-    const k = normStatement(t.statement)
-    const g = by.get(k)
-    if (g) g.push(t); else by.set(k, [t])
-  }
-  return by
-}
 export function statementCensus(): StatementCensus {
   const by = groupByStatement()
   const T = [...by.values()].flat()
@@ -105,20 +97,6 @@ export function statementCensus(): StatementCensus {
     files: [...new Set(g.map((t) => t.file))],
   }))
   return { entries: T.length, distinct: by.size, renamings: T.length - by.size, groups }
-}
-
-/** EVERY distinct proven fact, singleton or reused — the reusable Lean-line CHUNK a handle addresses. Unlike
- *  statementCensus's `groups` (which names only the 79 RE-USED facts, the backlog guard tracks), this names all
- *  1224: the storable unit is the algebra, not the theorem record, so every distinct statement gets one chunk
- *  whether one key cites it or five. */
-export interface StatementChunk { statement: string; tactic: string; keys: string[]; files: string[] }
-export function allStatementChunks(): StatementChunk[] {
-  return [...groupByStatement().values()].map((g) => ({
-    statement: g[0]!.statement,
-    tactic: g[0]!.tactic.replace(/\s*--.*$/, '').trim(),
-    keys: g.map((t) => t.key).sort(),
-    files: [...new Set(g.map((t) => t.file))].sort(),
-  }))
 }
 
 /** the desk's census — the committed prose-trials artifact (derived, never authored); repo-reads via the boundary */

@@ -61,7 +61,7 @@ export const MEASUREMENTS: readonly Measurement[] = [
   { name: 'handle-roundtrip', what: 'every live handle recovers itself from its path',
     run: async () => {
       const { handlePath, handleOfPath } = await import('../handle.js')
-      const { chunkHandleOf } = await import('./gen-handle-chunks.js')
+      const { chunkHandleOf } = await import('../handle-chunks.js')
       const { theorems } = await import('../index.js')
       const hs = [...new Set(theorems().map((t) => chunkHandleOf(t.key)).filter((h): h is string => !!h))]
       return { handles: hs.length, broken: hs.filter((h) => handleOfPath(handlePath(h)) !== h).length }

@@ -8,7 +8,7 @@
 import { writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { handleOf, handlePath, handleDirs, HANDLE_ROOT, isHandle } from '../handle.js'
-import { buildChunks } from './gen-handle-chunks.js'
+import { buildChunks } from '../handle-chunks.js'
 import { buildSeoUrlMap } from '../seo-freeze.js'
 import { ROOT } from './api.js'
 

@@ -37,6 +37,7 @@
 const fsm = (): typeof import('node:fs') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:fs') as typeof import('node:fs')
 const pathm = (): typeof import('node:path') => (process as unknown as { getBuiltinModule(id: string): unknown }).getBuiltinModule('node:path') as typeof import('node:path') // lazy: the edge bundles this module but never calls it
 import { ROOT } from './api.js'
+import { listTestSources } from '../test-paths.js'
 import { LEGS, maskOfLegs, legsOfMask, floorGaps, type Leg, type Rosetta } from '../rosetta-legs.js'
 
 export { LEGS, floorGaps, type Leg, type Rosetta }
@@ -108,16 +109,15 @@ export function commentAbove(src: string, key: string): string {
 export function census(): Rosetta[] {
   const leanDir = pathm().join(ROOT, 'lean')
   const wings = fsm().readdirSync(leanDir).filter((f) => f.endsWith('.lean'))
-  const testDir = pathm().join(ROOT, 'src', 'tests')
   // COMMENTS ARE NOT COVERAGE. This scan is a substring match, so for a long time a theorem key merely MENTIONED in
   // a test's prose earned the falsifier leg — two of the keys the published floor rested on were named only as
   // examples in a test about key length, in a file that was then deleted. A leg that a comment can earn measures
   // nothing, so comment lines are stripped and only executable test text counts.
   const executable = (src: string): string =>
     src.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').filter((l) => !/^\s*(\/\/|\*)/.test(l)).join('\n')
-  const tests = fsm().existsSync(testDir)
-    ? fsm().readdirSync(testDir).filter((f) => f.endsWith('.ts')).map((f) => executable(fsm().readFileSync(pathm().join(testDir, f), 'utf8'))).join('\n')
-    : ''
+  const tests = listTestSources(ROOT)
+    .map((rel) => executable(fsm().readFileSync(pathm().join(ROOT, rel), 'utf8')))
+    .join('\n')
   const emitters = fsm().readdirSync(pathm().join(ROOT, 'src', 'scripts')).filter((f) => /^lean-.*\.ts$/.test(f))
     .map((f) => fsm().readFileSync(pathm().join(ROOT, 'src', 'scripts', f), 'utf8')).join('\n')
   const generated = fsm().existsSync(pathm().join(ROOT, 'src', 'theorems', 'generated.ts'))
