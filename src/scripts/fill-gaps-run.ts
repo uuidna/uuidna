@@ -6,6 +6,7 @@ import { hexbitReceipt, hexbitReceiptLanes } from '../hexbit/index.js'
 import { gapSurvey, type GapSurvey } from '../gap-survey.js'
 import type { SourceReading } from '../leads.js'
 import { ROOT, teeStep } from './api.js'
+import { dryGaps } from './one-receipt.js'
 
 export interface FillGapsPhase {
   name: string
@@ -18,6 +19,12 @@ import { DERIVE_SURFACES_CMD } from '../derive-surfaces.js'
 
 /** THE MANIFEST — same leverage order as next.ts, folded into one arc the desk can run unattended. */
 export const FILL_GAPS_PHASES: readonly FillGapsPhase[] = [
+  {
+    name: 'dry-clean',
+    cmd: 'node dist/scripts/one-receipt.js dry-clean',
+    note: 'migrate script boilerplate onto api.js, rebuild, re-run dry finder',
+    when: () => dryGaps().gaps.length > 0,
+  },
   {
     name: 'develop',
     cmd: 'node dist/scripts/develop.js',

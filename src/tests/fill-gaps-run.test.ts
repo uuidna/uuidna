@@ -44,6 +44,6 @@ test('hasDeskAutomatableWork — true when lonely, harvest, wave, or open-leads 
 test('FILL_GAPS_PHASES — leverage order matches the taught arc', () => {
   assert.deepEqual(
     FILL_GAPS_PHASES.map((p) => p.name),
-    ['develop', 'connect-lonely', 'books', 'trial-refusals', 'wave', 'derive-surfaces', 'develop-final'],
+    ['dry-clean', 'develop', 'connect-lonely', 'books', 'trial-refusals', 'wave', 'derive-surfaces', 'develop-final'],
   )
 })

@@ -123,9 +123,9 @@ const TOOLS: HttpTool[] = ([
   { name: 'uuidna_gate_status', description: 'Gate self-test at the edge: verdict table vs sealed spec, registry receipt. Pass {messaging:true} for coordinated health (witness, wire budget, isolate census). Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: { messaging: { type: 'boolean', description: 'include messaging witness, wire budget headroom, session coin census' } } },
     run: (a) => {
-      if (!a.messaging) return gateSelfTest(SERVED.map((t) => t.name))
+      if (!a.messaging) return gateSelfTest(served().map((t) => t.name))
       const s = messagingSession()
-      return gateStatus(SERVED.map((t) => t.name), { surface: 'edge', wireTools: SERVED, payments: s.payments, agent: s.agent })
+      return gateStatus(served().map((t) => t.name), { surface: 'edge', wireTools: served(), payments: s.payments, agent: s.agent })
     } },
 ] as HttpTool[]).map(sealToolWire)
 /** THE DECLARED ABSENCES, and the reason each one cannot serve here. This list MAY ONLY SHRINK.
@@ -184,23 +184,26 @@ const EDGE_ABSENT: Record<string, string> = {
   "uuidna_run": 'CAPABILITY: requires filesystem + spawn (docker/chroot) — stdio/host only by design; Layer 1 uuidna_exec serves the browser',
 }
 
-/** The catalogue tools this edge INHERITS — computed. */
-const INHERITED = MCP_CATALOG
-  .filter((t) => !(t.name in EDGE_ABSENT))
-  .filter((t) => !TOOLS.some((own) => own.name === t.name))
-  // dispatched through callTool — the STDIO SERVER'S OWN DOOR, so an inherited tool is answered by exactly the
-  // code the stdio surface answers with, schema enforcement included. Two lists were the drift; two dispatches
-  // would be the next one.
-  .map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema,
-                 run: (a: Record<string, unknown>) => callTool(t.name, a) as unknown }))
-
-/** every tool this endpoint serves: the edge's own, then everything the catalogue can lawfully lend it */
-const SERVED = [...TOOLS, ...INHERITED]
+/** every tool this endpoint serves — lazy so mcp-http can load while mcp.ts is still initializing (guard → mcp → desk → fill-gaps-run → one-receipt → here). */
+let _served: HttpTool[] | null = null
+const served = (): HttpTool[] => {
+  if (_served) return _served
+  const inherited = MCP_CATALOG
+    .filter((t) => !(t.name in EDGE_ABSENT))
+    .filter((t) => !TOOLS.some((own) => own.name === t.name))
+    // dispatched through callTool — the STDIO SERVER'S OWN DOOR, so an inherited tool is answered by exactly the
+    // code the stdio surface answers with, schema enforcement included. Two lists were the drift; two dispatches
+    // would be the next one.
+    .map((t): HttpTool => ({ name: t.name, description: t.description, inputSchema: t.inputSchema as Record<string, unknown>,
+                   run: (a: Record<string, unknown>) => callTool(t.name, a) as unknown }))
+  _served = [...TOOLS, ...inherited] as HttpTool[]
+  return _served
+}
 
 // the edge's listing is sealed the same way the stdio listing is: per-tool contract handles from THE one fold
 // (toolHandleOf in mcp.ts) — this surface serves a different subset, so its api fold DIFFERS from stdio's by
 // construction, and each surface's listing names exactly what that surface promises
-const listing = (): unknown[] => SERVED.map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema, handle: toolHandleOf(t) }))
+const listing = (): unknown[] => served().map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema, handle: toolHandleOf(t) }))
 const rpc = (id: unknown, result: unknown) => ({ jsonrpc: '2.0', id, result })
 const rpcErr = (id: unknown, code: number, message: string) => ({ jsonrpc: '2.0', id, error: { code, message } })
 
@@ -217,10 +220,10 @@ export function handleMcpRpc(msg: { jsonrpc?: string; id?: unknown; method?: str
     instructions: 'uuidna hosted MCP — Workers-safe, read-only, recomputable subset. EVERY response is GATE-ENFORCED and DEPOSITS THE TWO COINS. After your first deposit: uuidna_quantum_advantage (compute path + magnitudes over classical re-run — verify_beats_recompute_by_magnitudes, not hardware supremacy). Alpine apps: uuidna_exec. Multi-agent: declare clientInfo.name at initialize; poll uuidna_gate_status {messaging:true} or uuidna_coin_ledger. Integrity.' })
   if (method === 'ping') return rpc(id, {})
   if (typeof method === 'string' && method.startsWith('notifications/')) return null   // a notification carries no reply
-  if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(SERVED) } })
+  if (method === 'tools/list') return rpc(id, { tools: listing(), _meta: { api: apiHandleOf(served()) } })
   if (method === 'tools/call') {
     const name = String(params.name ?? '')
-    const tool = SERVED.find((t) => t.name === name)
+    const tool = served().find((t) => t.name === name)
     if (!tool) return rpcErr(id, -32602, 'unknown tool: ' + name)
     const dispatch = (): object | null | Promise<object | null> => {
     // THE EDGE RUNS FROM uuidnaOS TOO: first call boots the verified world (cached), a drifted world refuses
@@ -295,5 +298,5 @@ export const edgeAbsentWhy = (): { name: string; why: string }[] =>
   edgeAbsentNames().map((name) => ({ name, why: EDGE_ABSENT[name]! }))
 
 /** The tool names the hosted endpoint serves — for a GET /mcp discovery page. */
-export const mcpHttpToolNames = (): string[] => SERVED.map((t) => t.name)
+export const mcpHttpToolNames = (): string[] => served().map((t) => t.name)
 export const MCP_HTTP_PROTOCOL = PROTOCOL_VERSION

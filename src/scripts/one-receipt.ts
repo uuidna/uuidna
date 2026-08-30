@@ -193,7 +193,7 @@ export function wave(statement: string): void {
     // current theorem, and the heartbeats measure ONLY the missing addresses (the incremental default — seconds
     // per newcomer, free when no one enrolls). No theorem enrolls unmeasured.
     enroll: 'npm run axioms && npm run x -- lean-heartbeats',
-    dry: `node ${JSON.stringify(self)} dry`, legal: `node ${JSON.stringify(self)} legal`,
+    dry: `node ${JSON.stringify(self)} dry-clean`, legal: `node ${JSON.stringify(self)} legal`,
     prose: `node ${JSON.stringify(self)} prose`, fold: `node ${JSON.stringify(self)} fold`,
     guard: 'npm run guard', next: 'npm run next', mint: `node ${JSON.stringify(self)} mint ${JSON.stringify(statement)}`,
   }
@@ -215,7 +215,7 @@ function depositRecord(): { receipts: { id: string; statement: string }[] } {
 // boilerplate variants are removed and the api import inserted (multi-line-import-safe — the splice bug of the
 // first codemod is the lesson baked in; a re-export must bind locally — the lean-gen lesson too). What it cannot
 // match it leaves, honestly listed, for dry to keep objecting to. Idempotent: a second run touches nothing. ──
-export function migrate(): void {
+export function migrate(): { touched: number; left: string[] } {
   const VARIANTS = [
     /^const HERE = dirname\(fileURLToPath\(import\.meta\.url\)\)\s*$/m,
     /^const ROOT = join\(dirname\(fileURLToPath\(import\.meta\.url\)\), '\.\.', '\.\.'\)\s*$/m,
@@ -247,6 +247,7 @@ export function migrate(): void {
     touched++
   }
   console.log(`✓ one-receipt migrate — ${touched} script(s) folded onto the api${left.length ? `; left for dry (nonstandard, needs a human): ${left.join(' ')}` : ''}. Re-run \`one-receipt dry\` to confirm, then \`npm run build\`.`)
+  return { touched, left }
 }
 
 // ── seo: THE DISCOVERABILITY AUDIT — the zero-click finding (pages rank 4-9 but titles do not promise the answer)
@@ -1696,6 +1697,20 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
   return { gaps, scripts: files.length }
 }
 
+/** dryClean — migrate mechanical boilerplate onto api.js, rebuild when touched, re-run dry finder. */
+export function dryClean(): { gaps: Gap[]; scripts: number; migrated: number; rebuilt: boolean } {
+  const before = dryGaps()
+  if (before.gaps.length === 0) return { gaps: [], scripts: before.scripts, migrated: 0, rebuilt: false }
+  const { touched } = migrate()
+  let rebuilt = false
+  if (touched > 0) {
+    execSync('npm run build', { stdio: 'inherit', cwd: ROOT })
+    rebuilt = true
+  }
+  const after = dryGaps()
+  return { gaps: after.gaps, scripts: after.scripts, migrated: touched, rebuilt }
+}
+
 // ── the fifteen leaves, five trinities ──
 
 const powmodWalk = (base: number, mod: number, len: number): number[] => {
@@ -1991,6 +2006,13 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'micro') { const r = microGaps(); report('one-receipt micro', r.gaps, `${r.pages} JSON-LD blocks, ${r.claims} structured claims — every identifier a real address, every cited part a sealed theorem.`) }
   else if (cmd === 'wave') wave(process.argv[3]?.trim() || '')
   else if (cmd === 'dry') { const r = dryGaps(); report('one-receipt dry', r.gaps, `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`) }
+  else if (cmd === 'dry-clean') {
+    const r = dryClean()
+    const tail = r.migrated
+      ? (r.gaps.length ? `${r.migrated} script(s) migrated${r.rebuilt ? ', rebuilt' : ''}; remaining gap(s) need a human` : `${r.migrated} script(s) migrated${r.rebuilt ? ', rebuilt' : ''} — all ${r.scripts} files speak the one api`)
+      : `all ${r.scripts} scripts speak the one api — boilerplate declared once, imported everywhere.`
+    report('one-receipt dry-clean', r.gaps, tail)
+  }
   else if (cmd === 'stage') { const r = stageDerived(ROOT); console.log('✓ one-receipt stage — ' + r.staged + ' derived path(s) staged' + (r.leftForHumans.length ? '; left for a human (not staged' + r.leftForHumans.join(', ') : '; nothing else pending')) }
   else if (cmd === 'counts') report('one-receipt counts', countsGaps(), 'every surface states both ledger sizes, and both are live')
   else if (cmd === 'expected') report('one-receipt expected', expectedGaps(), 'no gate hardcodes an expected ledger count — the size is read, never remembered')
@@ -1999,7 +2021,7 @@ if (import.meta.url === pathToFileURL(process.argv[1] || '').href) {
   else if (cmd === 'fold') fold()
   else if (cmd === 'mint') await mint(process.argv[3]?.trim() || '')
   else if (cmd === 'skills') report('one-receipt skills', skillsGaps(), 'every skill the sealed ledger carries is openable through the live API on BOTH surfaces, and enumerable with its theorem count — no capability is proven and unreachable')
-  else { console.error('one-receipt — the singularity api: legal | prose | dry | precede | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | counts | expected | lines | skills | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
+  else { console.error('one-receipt — the singularity api: legal | prose | dry | dry-clean | precede | micro | seo | coherent | absence | re | pipes | crypto | migrate | words | counts | expected | lines | skills | stage | seal | fold | wave | mint "<statement>"'); process.exit(1) }
 }
 
 /** RENAMING A THEOREM IS RENAMING A PUBLISHED CONTRACT. A regeneration of AntiFraud renamed two keys —
