@@ -57,6 +57,15 @@ const LICENSED = new Set([])
 const json = (obj, status = 200) =>
   new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8' } })
 
+/** CDN verify-don't-recompute — hashed bundles are immutable until the next deploy. */
+function assetCacheControl(pathname) {
+  if (/^\/assets\/.+\.[A-Za-z0-9_-]{6,}\.(js|css|woff2?)$/.test(pathname)) return 'public, max-age=31536000, immutable'
+  if (pathname.startsWith('/lean/') || pathname.startsWith('/seeds/')) return 'public, max-age=86400, immutable'
+  if (pathname === '/alpine-catalogue.tsv' || pathname === '/llm.txt' || pathname === '/llms.txt') return 'public, max-age=3600, must-revalidate'
+  if (/\.(svg|ico|png|webp|woff2?)$/.test(pathname)) return 'public, max-age=604800, immutable'
+  return 'public, max-age=120, must-revalidate'
+}
+
 // The trial CRUD. Returns a Response for an API request, or null to fall through (e.g. GET /trials → the page).
 //
 // STORAGE IS ENCRYPTED END-TO-END. Plaintext is NEVER persisted. To store, the owner seals the trial CLIENT-SIDE
@@ -246,8 +255,9 @@ export default {
     const assetUrl = url.pathname === '/favicon.ico' ? new URL('/icon.svg', url) : url
     const assetReq = assetUrl === url ? request : new Request(assetUrl, request)
     const asset = await env.ASSETS.fetch(assetReq)
-    const out = new Response(asset.body, asset)
-    out.headers.set('link', `<${url.origin}/mcp>; rel="mcp"`)
-    return out
+    const headers = new Headers(asset.headers)
+    headers.set('link', `<${url.origin}/mcp>; rel="mcp"`)
+    headers.set('cache-control', assetCacheControl(assetUrl.pathname))
+    return new Response(asset.body, { status: asset.status, statusText: asset.statusText, headers })
   },
 }

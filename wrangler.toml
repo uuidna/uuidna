@@ -10,9 +10,8 @@ compatibility_date = "2026-08-01"
 main = "worker.js"
 
 [build]
-# docs:build produces ./docs/.vitepress/dist; gen-handles writes ./handles.js and exercises the freeze
-# audit (one door — do not list that audit again here or the mill pays twice). Both run BEFORE wrangler bundles.
-command = "npm run docs:build && node dist/scripts/gen-handles.js"
+# ship-build.ts: full docs:build when wrangler runs alone (CI); gen-handles only when deploy-run already built.
+command = "node dist/scripts/ship-build.js"
 
 # Trial CRUD storage (opt-in). POST /trials persists a trial ONLY with explicit consent, into this KV namespace.
 # Until a namespace exists the worker still computes and returns trials — it just cannot persist them. To enable

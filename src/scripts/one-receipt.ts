@@ -1665,37 +1665,9 @@ export function seal(): void {
   process.exit(1)
 }
 
-// ── dry: the DUPLICATION FINDER — the api is declared once; a script that re-declares it is objected to with the
-// exact fix, so the boilerplate class that once spanned 25 files can never regrow. Fold the finder, forever. ──
-export function dryGaps(): { gaps: Gap[]; scripts: number } {
-  const gaps: Gap[] = []
-  // the WHOLE tree: scripts + the library + the generated package surfaces. Exactly TWO exemptions — the two
-  // declared singularities (scripts/api.ts, src/boundary.ts): each layer has ONE named place, nothing else may.
-  const SINGULARITIES = new Set(['src/scripts/api.ts', 'src/boundary.ts', 'src/tests/api.ts'])
-  const dirs = ['src/scripts', 'src', 'src/quantum', 'src/theorems', 'src/tests', 'src/site', 'src/desk', ...readdirSync(join(ROOT, 'packages')).map((d) => `packages/${d}/src`)]
-  const files: string[] = []
-  for (const d of dirs) {
-    if (!existsSync(join(ROOT, d))) continue
-    for (const f of readdirSync(join(ROOT, d)).filter((x) => x.endsWith('.ts'))) {
-      const rel = `${d}/${f}`
-      if (!SINGULARITIES.has(rel)) files.push(rel)
-    }
-  }
-  for (const rel of files) {
-    const src = rd(rel)
-    const f = rel
-    if (/dirname\(fileURLToPath\(import\.meta\.url\)\)/.test(src))
-      gaps.push({ what: `${f}: re-declares HERE/ROOT boilerplate instead of importing its layer's singularity`, fix: `edit ${f}: delete the dirname(fileURLToPath(…)) declaration(s) and import from './api.js' (a script) or './boundary.js' (a library module)` })
-    if (/^const rd = \(p: string\) =>/m.test(src))
-      gaps.push({ what: `${f}: re-declares rd() instead of importing its layer's singularity`, fix: `edit ${f}: delete the local rd declaration and import { rd } from './api.js' (a script) or { rdRoot } from './boundary.js' (a library module)` })
-    // the generators' own boilerplate class: a range walk re-declared as a literal (const R8 = [0,1,…,7]) instead
-    // of the ONE shared range() in lean-gen. Same law as HERE/ROOT and rd(), applied one layer in.
-    const rangeDecl = /^const R\d+ = \[/m.exec(src)
-    if (rangeDecl)
-      gaps.push({ what: `${f}: re-declares a range literal (${rangeDecl[0].trim()}…) instead of the shared range()`, fix: `edit ${f}: delete the R<n> literal and import { range } from './lean-gen.js', then use range(n)` })
-  }
-  return { gaps, scripts: files.length }
-}
+// ── dry: the DUPLICATION FINDER — see dry-gaps.ts (split so fill-gaps-run does not pull node:crypto into Workers).
+import { dryGaps } from './dry-gaps.js'
+export { dryGaps } from './dry-gaps.js'
 
 /** dryClean — migrate mechanical boilerplate onto api.js, rebuild when touched, re-run dry finder. */
 export function dryClean(): { gaps: Gap[]; scripts: number; migrated: number; rebuilt: boolean } {

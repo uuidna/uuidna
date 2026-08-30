@@ -35,11 +35,12 @@ test('THE DISCOVERY DOCUMENT IS ONE DECLARATION — two copies would drift, whic
 
 test('every static page carries the endpoint in a Link header — "paste any uuidna.com link" means ANY', () => {
   const src = worker()
-  assert.match(src, /out\.headers\.set\('link', `<\$\{url\.origin\}\/mcp>; rel="mcp"`\)/, 'the asset response must name the endpoint')
+  assert.match(src, /headers\.set\('link', `<\$\{url\.origin\}\/mcp>; rel="mcp"`\)/, 'the asset response must name the endpoint')
   // THE MUTATION THAT MATTERS: an ASSETS response's headers are immutable, so the response has to be REBUILT.
   // Setting a header on the original throws at the edge and nowhere else — the failure that only appears in
   // production. This pins the rebuild, so a future simplification back to the direct return is caught here.
-  assert.match(src, /new Response\(asset\.body, asset\)/, 'the response must be rebuilt, never mutated — ASSETS headers are immutable at the edge')
+  assert.match(src, /new Response\(asset\.body, \{ status: asset\.status/, 'the response must be rebuilt, never mutated — ASSETS headers are immutable at the edge')
+  assert.match(src, /headers\.set\('cache-control', assetCacheControl/, 'hashed assets verify at the CDN — immutable cache until deploy')
   assert.ok(!/env\.ASSETS\.fetch\(request\) \/\/ serve the static site/.test(src), 'the un-headered direct return must not come back')
 })
 
@@ -73,7 +74,7 @@ test('the worker graph never static-imports Node builtins Cloudflare refuses (co
     assert.doesNotMatch(src, /(?:await |void )import\(['"]node:(fs|path|os|child_process|util)['"]\)/, rel)
   }
   const wrangler = readFileSync(join(ROOT, 'wrangler.toml'), 'utf8')
-  assert.match(wrangler, /gen-handles\.js/)
+  assert.match(wrangler, /ship-build\.js/)
   assert.doesNotMatch(wrangler, /command = .*seo-freeze-audit/, 'gen-handles already runs the audit — listing it again on wrangler [build] double-pays')
 })
 

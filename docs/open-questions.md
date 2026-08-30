@@ -15,7 +15,7 @@ description: The unverified, organised in topics — every door with its involut
 **0 open leads** across 0 topics — only **held** leads from lean/leads.json, prose develop
 fragments `decide()` has not yet closed, support-wave research-leads, and axiom-hunt exposed items. Refuted
 (measurement closed) and refused (boundary closed) enroll on [research leads](/leads), not here. Research
-findings and search-feed silence live on their own surfaces ([research ledger](/research-ledger),
+findings and search-feed silence live on their own surfaces ([research ledger](/mcp#uuidna-research-ledger),
 [search feed](/search-feed)). Placement is a word-overlap heuristic and says so: what the words cannot place
 waits in the **open frontier**, unforced.
 

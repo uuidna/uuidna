@@ -93,7 +93,7 @@ else {
 // ── 3 · BUILD AND SHIP ──────────────────────────────────────────────────────────────────────────────────────
 await step('build the site', 'npm run docs:build')
 if (DRY) { console.log('\ndeploy-run · --dry: the worker is NOT shipped; stopping before the outward act.'); process.exit(0) }
-await step('ship the worker', 'npx wrangler deploy')
+await step('ship the worker', 'UUIDNA_SITE_BUILT=1 npx wrangler deploy')
 // Zone harden is AGNOSTIC (every owned apex): www Workers Domains + Always Use HTTPS + redirect rule when the
 // token can write. Wrangler OAuth alone attaches www; CLOUDFLARE_API_TOKEN with Zone Settings:Edit flips HTTPS.
 // Failure here is reported by the script; the worker also 301s http→https and www→apex, so a refused zone write

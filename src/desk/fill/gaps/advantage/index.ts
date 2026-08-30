@@ -12,7 +12,7 @@ import {
   gapSurveyReceipt,
   hasDeskAutomatableWork,
   type FillGapsPhase,
-} from '../../../../scripts/fill-gaps-run.js'
+} from '../../../../scripts/fill-gaps-plan.js'
 import { ROOT } from '../../../../boundary.js'
 import { openLeadsPublic } from '../../../project/surface/index.js'
 
