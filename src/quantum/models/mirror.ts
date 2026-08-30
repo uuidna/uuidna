@@ -436,8 +436,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v3.2",
    "name": "DeepSeek: DeepSeek V3.2",
    "contextTokens": 163840,
-   "promptPrice": "0.000000269",
-   "completionPrice": "0.0000004"
+   "promptPrice": "0.00000026",
+   "completionPrice": "0.00000038"
   },
   {
    "id": "deepseek/deepseek-v3.2-exp",
@@ -450,8 +450,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000008204",
-   "completionPrice": "0.00000016408"
+   "promptPrice": "0.00000008148",
+   "completionPrice": "0.00000016296"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000538878",
-   "completionPrice": "0.000001077756"
+   "promptPrice": "0.000000528786",
+   "completionPrice": "0.000001057572"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -913,7 +913,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "Meta: Llama 4 Maverick",
    "contextTokens": 1048576,
    "promptPrice": "0.0000002",
-   "completionPrice": "0.0000008"
+   "completionPrice": "0.000000696"
   },
   {
    "id": "meta-llama/llama-4-scout",
@@ -2102,7 +2102,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-next-80b-a3b-instruct",
    "name": "Qwen: Qwen3 Next 80B A3B Instruct",
    "contextTokens": 262144,
-   "promptPrice": "0.0000001",
+   "promptPrice": "0.00000009",
    "completionPrice": "0.0000011"
   },
   {
@@ -2466,7 +2466,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "thinkingmachines/inkling",
    "name": "Thinking Machines: Inkling",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000095",
+   "promptPrice": "0.000001",
    "completionPrice": "0.00000405"
   },
   {
@@ -2655,8 +2655,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.1",
    "name": "Z.ai: GLM 5.1",
    "contextTokens": 204800,
-   "promptPrice": "0.00000126",
-   "completionPrice": "0.00000396"
+   "promptPrice": "0.000000966",
+   "completionPrice": "0.000003036"
   },
   {
    "id": "z-ai/glm-5.2",
@@ -2733,7 +2733,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
    "promptPrice": "0.00000003",
-   "completionPrice": "0.0000001"
+   "completionPrice": "0.00000014"
   },
   {
    "id": "~google/gemini-flash-latest",

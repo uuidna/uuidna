@@ -14335,8 +14335,8 @@ community	pianobar-doc	2024.12.21-r2	Q1r2/eA5UCPFtfGL7D8hCUQNkGuV8=	Commandline 
 community	picard	2.13.3_git20251006-r2	Q1fwc5TINFAfJW79E8hxLDvKE6zpc=	Official MusicBrainz tagger	chromaprint py3-dateutil py3-fasteners py3-mutagen py3-qt6 py3-yaml qt6-qtimageformats python3~3.14 so:libc.musl-x86_64.so.1	cmd:picard=2.13.3_git20251006-r2 py3.14:picard=2.13.3_git20251006-r2
 community	picard-lang	2.13.3_git20251006-r2	Q1k4L4biUooW0/J9RR8zRbqkeSpn4=	Official MusicBrainz tagger	chromaprint py3-dateutil py3-fasteners py3-mutagen py3-qt6 py3-yaml qt6-qtimageformats python3~3.14	
 community	picard-pyc	2.13.3_git20251006-r2	Q1ndScZeGkhuOUMF+qsCgnofVOl+o=	Precompiled Python bytecode for picard	python3~3.14	
-community	picat	3.9.6-r0	Q1YgXTeKCmKK6R2TFbbhzg6ShEt9I=	Logic-based multi-paradigm programming language	so:libc.musl-x86_64.so.1 so:libstdc++.so.6	cmd:picat=3.9.6-r0
-community	picat-doc	3.9.6-r0	Q1PRyXAhu6um1RnAVS5jAfV0gg5Zg=	Logic-based multi-paradigm programming language (documentation)		
+community	picat	3.9.12-r0	Q1oNCwa4UuHxLKat/bCelETrIzNfw=	Logic-based multi-paradigm programming language	so:libc.musl-x86_64.so.1 so:libstdc++.so.6	cmd:picat=3.9.12-r0
+community	picat-doc	3.9.12-r0	Q1F+6sWFlR2Kgktf6WdzzgZssZsVY=	Logic-based multi-paradigm programming language (documentation)		
 community	picocom	2024.07-r0	Q1umzh++19UWU5bzaS7WjDed1/vYM=	Minimal dumb-terminal emulation program	so:libc.musl-x86_64.so.1	cmd:picocom=2024.07-r0
 community	picocom-doc	2024.07-r0	Q1IxFKLPRdovfM0rgMSXXeGTyuzss=	Minimal dumb-terminal emulation program (documentation)		
 community	picolibc	1.8.11-r0	Q1S/a4I4tZ5KqHwc2K/9OyrAtucFU=	A C standard library based on newlib with focus on compact size	picolibc-arm-none-eabi picolibc-riscv-none-elf	

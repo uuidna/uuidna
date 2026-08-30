@@ -5,13 +5,11 @@
 // is the subject adjudicated, and the verdict comes back with its receipt and its develop-plan. Pure hexbit-app
 // law: no network, no clock, no float — the same claim gives the same verdict and the same receipt on any
 // machine, which is what makes the tool a TEACHER: the student can recompute everything it says.
-// HONEST SCOPE: the verdict algebra is integrity, not truth — VERIFIED means cited-and-sealed or recomputed-true,
-// UNVERIFIED means unproven-as-stated (never false); the tool settles arithmetic and citations, never the world.
 import { adjudicate, type Verdict } from '../../../../adjudicate.js'
 import { noticeOf, type Notice } from './notice.js'
 
 export interface ControlRun { name: string; statement: string; verdict: string; rejected: boolean }
-export interface ClaimTest { controls: ControlRun[]; instrumentValid: boolean; subject: Verdict | null; notice: Notice | null; honest: string }
+export interface ClaimTest { controls: ControlRun[]; instrumentValid: boolean; subject: Verdict | null; notice: Notice | null }
 
 // each canary lives in a field literally named `control:` — the declared-control idiom the citations finder
 // reads (a canary exists to be refused; a ledger that never holds its key is the design, not a fabrication).
@@ -35,8 +33,5 @@ export function testClaim(claim: string, decidableTest?: () => boolean): ClaimTe
     instrumentValid,
     subject: notice,
     notice,
-    honest: instrumentValid
-      ? 'controls all rejected — the instrument can fail, so its verdict on your claim means something'
-      : 'a control VERIFIED — the instrument is broken and adjudicates nothing (a void names the instrument, not your claim)',
   }
 }

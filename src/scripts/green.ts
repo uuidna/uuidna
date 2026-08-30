@@ -20,6 +20,7 @@ import { execSync, spawnSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT, HERE, lastLines } from './api.js'
 import { shellOrExit } from '../os/host/index.js'
+import { planTestRun } from '../test-delta.js'
 
 /** What an arm returns. THREE states, never two — the whole point of this file's night.
  *
@@ -97,16 +98,18 @@ const ARMS: Arm[] = [
   { name: 'qa', why: 'full quantum-advantage audit by VERIFY of lean/quantum-advantage.json — metrics-aligned, <60s',
     run: () => sh('node dist/scripts/quantum-advantage-audit.js') },
 
-  { name: 'tests', why: 'hexbit verify of gate-receipt when tree matches; full suite only on drift (verify_beats_recompute_by_magnitudes)',
+  { name: 'tests', why: 'gate-receipt verify O(1); delta tests when only src/tests moved; full suite on ledger drift (verify_beats_recompute_by_magnitudes)',
     run: () => {
-      // VERIFY-DON'T-RECOMPUTE: if gate-receipt.json covers current src/+lean/, skip the ~40s suite.
-      const v = spawnSync(process.execPath, [join(ROOT, 'dist/scripts/gate-receipt.js'), '--verify'], {
-        cwd: ROOT, encoding: 'utf8',
-      })
-      if (v.status === 0) {
-        console.log('  · tests — gate-receipt covers this tree — verified O(1), suite not recomputed')
+      const plan = planTestRun()
+      if (plan.mode === 'skip') {
+        console.log(`  · tests — ${plan.why}`)
         return pass
       }
+      if (plan.mode === 'delta') {
+        console.log(`  · tests — delta: ${plan.why}`)
+        return sh(`node --test ${plan.files.join(' ')}`)
+      }
+      console.log(`  · tests — full suite: ${plan.why}`)
       return sh('node --test dist/tests/*.test.js')
     } },
 

@@ -90,7 +90,7 @@ test('a quantum-advantage query cites the sealed classical bound', () => {
 
 test('books-run deposits search-feed harvest onto the conveyor — queue, never seal', () => {
   const src = readFileSync(join(ROOT, 'src/scripts/books-run.ts'), 'utf8')
-  assert.match(src, /searchFeed\(\)/)
+  assert.match(src, /pendingHarvestLeads/)
   assert.match(src, /mintLeadsToCandidates/)
 })
 

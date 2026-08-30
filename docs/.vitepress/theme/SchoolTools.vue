@@ -43,7 +43,7 @@ const ringDots = computed(() => Array.from({ length: FRAME_RING }, (_, i) => i))
     <div v-if="result">
       <p><small v-for="c in result.controls" :key="c.name">{{ c.rejected ? '✓' : '✗' }} control «{{ c.name }}» {{ c.rejected ? 'rejected' : 'ACCEPTED — VOID' }}<br/></small></p>
       <p v-if="result.subject"><strong>{{ result.subject.verdict }}</strong> — {{ result.subject.note }}<br/><small>receipt <code>{{ result.subject.receipt }}</code></small></p>
-      <p><em>{{ result.honest }}</em></p>
+      <p v-if="result.notice?.where"><em>{{ result.notice.where }}</em></p>
     </div>
 
     <h3>Edit — the ring whose undo is its own law</h3>

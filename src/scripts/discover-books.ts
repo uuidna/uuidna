@@ -31,6 +31,7 @@ export const SUBJECTS: { domain: string; queries: readonly string[] }[] = [
   { domain: 'advocacy', queries: ['cross-examination', 'evidence law', 'trial practice', 'rhetoric argument'] },
   { domain: 'deception', queries: ['pathology of lying', 'swindling', 'fraud', 'forensic psychiatry'] },
   { domain: 'method', queries: ['scientific method', 'novum organum', 'logic', 'induction reasoning'] },
+  { domain: 'solving', queries: ['problem solving', 'how to solve', 'heuristic reasoning', 'mathematical discovery', 'rational method'] },
   { domain: 'measurement', queries: ['experimental research', 'metrology', 'weights and measures'] },
   { domain: 'engines', queries: ['gas engine', 'oil engine', 'steam engine', 'producer gas'] },
   { domain: 'navigation', queries: ['yacht sailing', 'navigation', 'seamanship'] },

@@ -24,14 +24,16 @@ test('gatherOpenLeads excludes a claim sealed by citation', () => {
   assert.ok(!leads.some((l) => l.claim === claim), 'a VERIFIED citation is not an open lead')
 })
 
-test('gatherOpenLeads includes refuted and refused from lean/leads.json', () => {
+test('gatherOpenLeads excludes closed refuted and refused from lean/leads.json', () => {
   const leads = JSON.parse(readFileSync(join(ROOT, 'lean/leads.json'), 'utf8')) as {
     refuted?: { lead: string; killed_by?: string }[]
     refused?: { lead: string; boundary?: string }[]
   }
   const open = gatherOpenLeads(ROOT)
-  const sample = (leads.refuted ?? []).find((r) => r.killed_by && r.lead)
-  if (sample) assert.ok(open.some((l) => l.claim === sample.lead), 'refuted lead is an open lead (UNVERIFIED)')
-  const bound = (leads.refused ?? []).find((r) => r.boundary && r.lead)
-  if (bound) assert.ok(open.some((l) => l.claim === bound.lead), 'refused lead is an open lead (UNVERIFIED)')
+  for (const r of leads.refuted ?? []) {
+    if (r.killed_by && r.lead) assert.ok(!open.some((l) => l.claim === r.lead), 'refuted with killed_by is closed')
+  }
+  for (const r of leads.refused ?? []) {
+    if (r.boundary && r.lead) assert.ok(!open.some((l) => l.claim === r.lead), 'refused with boundary is closed')
+  }
 })

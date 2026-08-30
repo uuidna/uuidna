@@ -10,6 +10,7 @@ import {
 import { occupancyTapeOf } from '../crypt.js'
 import { theoremByKey } from '../theorems/index.js'
 import { gridGaps } from '../grid.js'
+import { adjudicate } from '../adjudicate.js'
 import { toUuid } from '../address.js'
 import { ROOT } from '../scripts/api.js'
 
@@ -30,6 +31,35 @@ test('RFC 8439 stays the AEAD and PBKDF2 stays the entropy tape — occupancy is
   assert.doesNotMatch(encryptSrc, /occupancyTapeOf/)
   const tape = occupancyTapeOf(toUuid('key_floor_is_one_uuid'))
   assert.equal(tape.length, 32)
+})
+
+test('c9ddc617 — quantum threat overclaim splits into verifiable parts', () => {
+  for (const statement of [
+    'All quantum threat is gone with uuidna.',
+    'Grover quantum threat is gone with uuidna.',
+    'Timing sidechannel threat is gone with uuidna.',
+    'Bitcoin ECDSA threat is gone with uuidna.',
+  ]) assert.equal(adjudicate(statement).verdict, 'UNVERIFIED', statement)
+
+  for (const [statement, key] of [
+    ['Shor has no asymmetric target on a symmetric-only stack, proven by theorem grover_quadratic_bound', 'grover_quadratic_bound'],
+    ['Grover is a quadratic speedup only, proven by theorem grover_quadratic_bound', 'grover_quadratic_bound'],
+    ['Grover halves SHA-256 preimage strength to the address width, proven by theorem sha256_grover_margin_is_the_address', 'sha256_grover_margin_is_the_address'],
+    ['The post-quantum cipher floor is one uuid wide, proven by theorem key_floor_is_one_uuid', 'key_floor_is_one_uuid'],
+    ['Physical sidechannels are out of scope, proven by theorem oos_physical_sidechannel', 'oos_physical_sidechannel'],
+  ] as const) {
+    const v = adjudicate(statement)
+    assert.equal(v.verdict, 'VERIFIED', statement)
+    assert.ok(v.cites?.some((c) => c.key === key), statement)
+  }
+
+  assert.equal(
+    adjudicate('Quantum threat is gone, proven by theorem quantum_threat_gone').verdict,
+    'UNVERIFIED',
+  )
+
+  const crypt = readFileSync(join(ROOT, 'src/crypt.ts'), 'utf8')
+  assert.doesNotMatch(crypt, /\b(ECDSA|secp256|elliptic)\b/i, 'Bitcoin ECDSA is out of scope — no asymmetric wire')
 })
 
 test('desk does not mint quantum_threat_gone; Grover floor and n_qubit_dimension stay sealed', () => {

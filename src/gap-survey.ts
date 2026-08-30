@@ -12,6 +12,7 @@ import { gatherOpenLeads } from './school/open/questions/springs.js'
 import { lonelyGaps } from './lonely-gaps.js'
 import { ROOT } from './boundary.js'
 import { DERIVE_SURFACES_CMD } from './derive-surfaces.js'
+import { refusalTrialsOpen, type RefusalTrialsRecord } from './refusal-trials.js'
 
 export interface GapBucket {
   kind: string
@@ -33,6 +34,7 @@ export interface GapSurvey {
   harvest: number
   wavePending: number
   waveInFlight: number
+  refusalOpen: number
   buckets: GapBucket[]
   kernelOnly: GapBucket[]
   automatable: GapBucket[]
@@ -52,6 +54,9 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   const lonely = lonelyGaps().length
   const wave = waveQueueState(readRepoJson('lean/wave-queue.json'))
   const harvest = pendingHarvestLeads(wave.refused, wave.inFlight).length
+  const trialsRecord = readRepoJson('lean/refusal-trials.json') as RefusalTrialsRecord | null
+  const refusedCount = (record?.refused ?? []).filter((r) => String(r.boundary ?? '').trim() && String(r.lead ?? '').trim()).length
+  const refusalOpen = trialsRecord ? refusalTrialsOpen(trialsRecord) : refusedCount
   const release = readings.length ? leadCensus(readings) : { ready: true, open: [] as never[] }
 
   const buckets: GapBucket[] = []
@@ -93,10 +98,15 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
       note: boundaryCitation(BOUNDARY_THEOREMS.window),
     })
   }
+  if (refusalOpen > 0) buckets.push({
+    kind: 'refusal-trials', count: refusalOpen, automatable: true,
+    act: 'node dist/scripts/trial-refusals.js --books',
+    note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — trial each refused boundary against the ledger and book corpus until lean or exposed`,
+  })
   if (openLeads > 0) buckets.push({
     kind: 'open-leads', count: openLeads, automatable: true,
     act: DERIVE_SURFACES_CMD,
-    note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — every desk gap is an open lead; held, refuted, and refused all adjudicate UNVERIFIED until a seal verifies`,
+    note: `${boundaryCitation(BOUNDARY_THEOREMS.silence)} — only held and undecided prose develop feed open-questions; refuted and refused are closed on docs/leads`,
   })
 
   buckets.push({
@@ -121,6 +131,7 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
     harvest,
     wavePending: wave.pending,
     waveInFlight: wave.inFlight.size,
+    refusalOpen,
     buckets,
     kernelOnly,
     automatable,

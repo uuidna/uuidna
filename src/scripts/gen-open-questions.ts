@@ -49,13 +49,12 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**${total} open leads** across ${topics.length} topics, derived from the tree's own records — held, refuted, and
-refused from lean/leads.json (each adjudicates UNVERIFIED until a seal verifies), plus research findings, prose
-develop fragments, search-feed leads, support-wave research-leads, and the axiom-hunt exposed set. After a wave
-of external research, local school development files every unverified here so the lab can discuss it. The full
-leads record enrolls at [the school](/school#leads); refuted and refused are results, not seals — they stay on
-this page until adjudicate returns VERIFIED. Placement is a word-overlap heuristic and says so: what the words
-cannot place waits in the **open frontier**, unforced.
+**${total} open leads** across ${topics.length} topics — only **held** leads from lean/leads.json, prose develop
+fragments \`decide()\` has not yet closed, support-wave research-leads, and axiom-hunt exposed items. Refuted
+(measurement closed) and refused (boundary closed) enroll on [research leads](/leads), not here. Research
+findings and search-feed silence live on their own surfaces ([research ledger](/research-ledger),
+[search feed](/search-feed)). Placement is a word-overlap heuristic and says so: what the words cannot place
+waits in the **open frontier**, unforced.
 
 **How to answer one**: a student's answer is a **two-coin deposit**, never a comment — name the finite structure,
 express the claim as an exact predicate over it, run the [tester](/tools) with its controls, and if the denial

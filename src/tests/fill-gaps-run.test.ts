@@ -18,6 +18,7 @@ const emptySurvey = (): GapSurvey => ({
   harvest: 0,
   wavePending: 0,
   waveInFlight: 0,
+  refusalOpen: 0,
   buckets: [],
   kernelOnly: [],
   automatable: [],
@@ -37,11 +38,12 @@ test('hasDeskAutomatableWork — true when lonely, harvest, wave, or open-leads 
   assert.equal(hasDeskAutomatableWork({ ...emptySurvey(), harvest: 1 }), true)
   assert.equal(hasDeskAutomatableWork({ ...emptySurvey(), wavePending: 2 }), true)
   assert.equal(hasDeskAutomatableWork({ ...emptySurvey(), openLeads: 58 }), true)
+  assert.equal(hasDeskAutomatableWork({ ...emptySurvey(), refusalOpen: 4 }), true)
 })
 
 test('FILL_GAPS_PHASES — leverage order matches the taught arc', () => {
   assert.deepEqual(
     FILL_GAPS_PHASES.map((p) => p.name),
-    ['develop', 'connect-lonely', 'books', 'wave', 'derive-surfaces', 'develop-final'],
+    ['develop', 'connect-lonely', 'books', 'trial-refusals', 'wave', 'derive-surfaces', 'develop-final'],
   )
 })

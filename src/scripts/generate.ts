@@ -68,6 +68,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-evasion.js', args: [], note: 'the evasion ticker — the tricks with their finders and convicting seals, the tape folded live, the board singing its address' },
   { file: 'gen-apps.js', args: [], note: 'the store — shelves derived from the category registry itself' },
   { file: 'gen-open-questions.js', args: [], note: 'the school of open doors — the unverified in topics, involution magnets attached, derived from the springs (held, research, prose, search-feed, support-wave, axiom-hunt)' },
+  { file: 'gen-sequence-field.js', args: [], note: 'the sequence field legend — live constructors from sequence-field.ts' },
   { file: 'gen-referrer-song.js', args: [], note: 'the referrer song — the doors, the measured walk census, and the site cycle sounded; every claim a Referrer.lean seal' },
   { file: 'gen-store.js', args: [], note: 'the storefront — apps, games, books unified at /store, derived from each shelf' },
   { file: 'gen-os.js', args: [], note: 'the default install — every path\'s exact meaning from the committed Alpine mirror; every claim an Installs.lean seal' },

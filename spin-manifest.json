@@ -6,13 +6,13 @@
     "lean/axioms.json": "1791454517788bcf",
     "docs/mcp.md": "b4a541c96cf88830",
     "audit-citations.json": "bd5145c79bbe81ec",
-    "support-audit.json": "16d74e4417848e91",
-    "research-leads.json": "802a6a5c963a88c1",
+    "support-audit.json": "e9dd7415a85b8e6e",
+    "research-leads.json": "0bacecec31c08ad6",
     ".zenodo.json": "f568de01091a8011",
     "reports.json": "7ea7edd206e98270",
     "lean/statement-index.json": "3c65ee51fb0789e8",
     "README.md": "fe6c4182fc7e8749",
-    "llm.txt": "756df7b192548b93",
+    "llm.txt": "bbce1d877b408524",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
     "src/chunks/00/476e9d.json": "cc81754bbb7287bb",
@@ -2255,7 +2255,7 @@
     "lean/infinity-manifest.json": "290938950f568d9b",
     "lean/installs-manifest.json": "b2c8548ae34d85e5",
     "lean/isometry-manifest.json": "67d91c8f67d28b44",
-    "lean/leads.json": "c5421c4920f78b86",
+    "lean/leads.json": "f6adff0c42fd8b3c",
     "lean/legal-manifest.json": "e71b72d2ebb58fdd",
     "lean/looms-manifest.json": "27aa01dca8fe8ff0",
     "lean/martialarts-manifest.json": "d392cbcd865e81bd",
@@ -2339,5 +2339,5 @@
     "lean/wave-queue.json": "aea574e2a5748ff0",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "b71d7c98-e3e8-80de-aefc-f932eab7d6cb"
+  "receipt": "ef651681-8772-8cd9-8b2e-367d0b387b90"
 }

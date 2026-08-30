@@ -46,6 +46,8 @@ test('no empty call can spawn a process — every orchestration tool declares a 
   for (const b of blocks) {
     const name = b.slice(0, b.indexOf("'"))
     if (!/spawnSync|execSync/.test(b)) continue
+    // spawn behind an explicit host flag — empty {} stays snapshot-only (uuidna_fill_gaps)
+    if (/if\s*\(\s*a\.run\s*===?\s*true\s*\)[\s\S]*spawnSync/.test(b)) continue
     const entry = MCP_CATALOG.find((t) => t.name === name)
     if (!entry || !requiredOf(entry).length) offenders.push(name)
   }

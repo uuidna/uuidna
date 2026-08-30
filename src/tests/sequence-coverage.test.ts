@@ -147,12 +147,23 @@ test('each sealed theorem is entangled in all directions as fused hexbits — ga
 
   const T = theorems()
   const n = T.length
-  for (const stride of [1, 7, 9]) {
-    assert.equal(coprime(stride, n), true, `axes_stride_coprime: stride ${stride} must leave no orphan on the live ledger`)
-    const star = starPolygon(n, stride)
-    assert.equal(star.single, true)
-    assert.equal(star.loops, 1)
-    assert.equal(star.stroke.length, n)
+  const crtStrides = [1, 7, 9] as const
+  for (const stride of crtStrides) {
+    const g = gcd(stride, n)
+    if (g === 1) {
+      assert.equal(coprime(stride, n), true, `axes_stride_coprime: stride ${stride} must leave no orphan on the live ledger`)
+      const star = starPolygon(n, stride)
+      assert.equal(star.single, true)
+      assert.equal(star.loops, 1)
+      assert.equal(star.stroke.length, n)
+    } else {
+      // live count shares a factor with the vortex stride — orbit partitions (stride_cycle_is_modulus_over_gcd)
+      const star = starPolygon(n, stride)
+      assert.equal(star.single, false)
+      assert.equal(star.loops, g)
+      assert.equal(star.stroke.length, n)
+      assert.equal(new Set(star.stroke).size, n / g, `stride ${stride} on ${n} keys: ${g} loops of ${n / g}`)
+    }
   }
   assert.equal(gcd(2, 8), 2, 'axes_stride_coprime discriminates: gcd(2,8)=2, not a covering stride')
 
@@ -185,7 +196,7 @@ test('each sealed theorem is entangled in all directions as fused hexbits — ga
     assert.ok(face)
     const nb = theoremNeighbours(t.key)
     assert.equal(nb.neighbours.length, face!.vertices - 1)
-    for (const stride of [1, 7, 9]) assert.ok(T[(i + stride) % n], `${t.key}: stride ${stride} lands on a theorem`)
+    for (const stride of crtStrides) assert.ok(T[(i + stride) % n], `${t.key}: stride ${stride} lands on a theorem`)
   }
 
   const all = reactorOutput()

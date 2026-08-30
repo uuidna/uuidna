@@ -18,6 +18,11 @@ import { handleOf, handlePath, handleOfPath, isHandle } from '../../handle.js'
 import { HANDLE_HEXBITS, UUID_HEXBITS, UUID_BITS, hexbitDoorOf, nativeBitWidths } from '../../hexbit/index.js'
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
+import {
+  readRemainingAlpineCache,
+  remainingAlpineCacheKey,
+  writeRemainingAlpineCache,
+} from './remaining-alpine-cache.js'
 
 export interface PackageCheck { check: string; ok: boolean; detail: string }
 export interface PackageAtATime {
@@ -367,8 +372,14 @@ export function foldRemainingAlpine(
 
 /** portRemainingAlpine() → remaining catalogue after the sealed boot names, one major reverse-and-quantumize batch. */
 export function portRemainingAlpine(bitWidth: number = UUID_BITS): RemainingAlpinePort {
-  const done = new Set(defaultInstalls().specs.map((s) => s.name))
-  return foldRemainingAlpine(remainingAvailableQueue(done), done, bitWidth)
+  const boot = defaultInstalls()
+  const done = new Set(boot.specs.map((s) => s.name))
+  const key = remainingAlpineCacheKey([...done], bitWidth)
+  const cached = readRemainingAlpineCache(key)
+  if (cached) return cached
+  const out = foldRemainingAlpine(remainingAvailableQueue(done), done, bitWidth)
+  writeRemainingAlpineCache(key, out)
+  return out
 }
 
 /** renderRemainingAlpine(port) → remaining census completion. */

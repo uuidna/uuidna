@@ -37,6 +37,12 @@ export const FILL_GAPS_PHASES: readonly FillGapsPhase[] = [
     when: (s) => s.harvest > 0,
   },
   {
+    name: 'trial-refusals',
+    cmd: 'node dist/scripts/trial-refusals.js --books',
+    note: 'collide each refused boundary against peers and cited theorems — verified, purged, or open',
+    when: (s) => s.refusalOpen > 0,
+  },
+  {
     name: 'wave',
     cmd: 'node dist/scripts/wave-run.js',
     note: 'kernel-probe pending candidates, guard, reconcile',
@@ -77,6 +83,7 @@ export function printFillGapsSurvey(label: string, s: GapSurvey): void {
   console.log(`  lonely theorems   : ${s.lonely}`)
   console.log(`  harvest waiting   : ${s.harvest}`)
   console.log(`  wave pending      : ${s.wavePending} (${s.waveInFlight} in flight)`)
+  console.log(`  refusal open      : ${s.refusalOpen}`)
   if (s.kernelOnly.length) {
     console.log('  kernel-only (named, not faked):')
     for (const b of s.kernelOnly) console.log(`    · ${b.kind} (${b.count}) — ${b.act}`)

@@ -559,6 +559,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-store': ['docs/store.md'],
   'gen-referrer-song': ['docs/referrer-song.md'],
   'gen-open-questions': ['docs/open-questions.md'],
+  'gen-sequence-field': ['docs/sequence-field.md'],
   'gen-search-feed': ['lean/search-feed.json', 'docs/search-feed.md'],
   'gen-apps': ['docs/apps.md'],
   'gen-evasion': ['docs/evasion.md'],

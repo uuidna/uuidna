@@ -1,0 +1,2284 @@
+{
+ "why": "Each refused lead trialed against the sealed ledger, book corpus, pairwise refusal collisions, and per-key theorem adjudication. Witness keys push across colliding lean→open neighbours until stable. verified = policy boundary OR lean with every sealed key adjudicated VERIFIED; purged = duplicate lead; open = still unsettled. Desk proposes; captain seals.",
+ "recorded": "10696140-5",
+ "refused": 20,
+ "lean": 11,
+ "policy": 9,
+ "open": 0,
+ "verified": 20,
+ "purged": 0,
+ "collisionPairs": 27,
+ "rounds": 0,
+ "receipt": "10696140-5b99-8b2b-9542-589c1cba1672",
+ "trials": [
+  {
+   "lead": "KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.",
+   "handle": "94f264b4",
+   "boundary": "RFC 8439 stays the AEAD and PBKDF2 stays the entropy tape. Occupancy is public routing. Fold-as-AEAD is already refused. Desk named both tapes and did not change the primitive.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [
+    {
+     "claim": "And five bars",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "boards",
+      "boards",
+      "boards"
+     ]
+    },
+    {
+     "claim": "six steps",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "stays",
+      "beside",
+      "stays"
+     ]
+    },
+    {
+     "claim": "thousand and seven hundred shekels",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "beside",
+      "beside"
+     ]
+    },
+    {
+     "claim": "300 years",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "both"
+     ]
+    },
+    {
+     "claim": "and ten thousand measures",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "both"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "4642b5b4",
+     "sharedKeys": [],
+     "overlap": [
+      "fold",
+      "already",
+      "already",
+      "already"
+     ]
+    },
+    {
+     "handle": "d84f3bfe",
+     "sharedKeys": [],
+     "overlap": [
+      "occupancy",
+      "occupancy",
+      "stays",
+      "occupancy"
+     ]
+    },
+    {
+     "handle": "27321b4d",
+     "sharedKeys": [],
+     "overlap": [
+      "fold",
+      "primitive",
+      "stays",
+      "aead",
+      "boards",
+      "bits"
+     ]
+    },
+    {
+     "handle": "c9ddc617",
+     "sharedKeys": [],
+     "overlap": [
+      "public",
+      "routing",
+      "uuid",
+      "names",
+      "uuid",
+      "named",
+      "still",
+      "desk"
+     ]
+    }
+   ],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "99f078cb-777b-8fd2-a7d6-584fdb293212"
+  },
+  {
+   "lead": "The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step 21 (8,1) and step 42 (1,1) — two contact points per revolution.",
+   "handle": "de5612a2",
+   "boundary": "Analogy ≠ identity without an independent witness. The periods and the product are already sealed separately — two_order_six (2^6 ≡ 1 mod 9), rosette_orbit / max_unit_order_mod_7_is_6, directions_number_fortytwo (6·7 = 42), independence_is_assumed — but that the Z/9 vortex and a rotary firing order are the SAME argument was never measured. Refuse the identification; keep the arithmetic.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [
+    "two_order_six",
+    "rosette_orbit",
+    "max_unit_order_mod_7_is_6",
+    "independence_is_assumed",
+    "directions_number_fortytwo"
+   ],
+   "witnessKeys": [],
+   "sealedKeys": [
+    "directions_number_fortytwo",
+    "independence_is_assumed",
+    "max_unit_order_mod_7_is_6",
+    "rosette_orbit",
+    "two_order_six"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "one step",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "step",
+      "argument",
+      "step",
+      "independent",
+      "never"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "witness",
+      "against",
+      "witness",
+      "against"
+     ]
+    },
+    {
+     "claim": "Four points, or forty-five degrees",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "points",
+      "never",
+      "order",
+      "points"
+     ]
+    },
+    {
+     "claim": "one year",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "before",
+      "before",
+      "against",
+      "before"
+     ]
+    },
+    {
+     "claim": "six days",
+     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
+     "bookId": 39863,
+     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
+     "overlap": [
+      "before",
+      "already",
+      "before",
+      "number"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "c83060ec",
+     "sharedKeys": [],
+     "overlap": [
+      "never",
+      "against",
+      "refuse"
+     ]
+    },
+    {
+     "handle": "4642b5b4",
+     "sharedKeys": [],
+     "overlap": [
+      "directions",
+      "arithmetic",
+      "already",
+      "sealed",
+      "refuse",
+      "directions",
+      "independence",
+      "doubling",
+      "measured",
+      "orbit",
+      "already",
+      "walk",
+      "without",
+      "already"
+     ]
+    },
+    {
+     "handle": "4092e4c9",
+     "sharedKeys": [],
+     "overlap": [
+      "arithmetic",
+      "measured",
+      "sealed"
+     ]
+    },
+    {
+     "handle": "63632e0e",
+     "sharedKeys": [],
+     "overlap": [
+      "already",
+      "refuse",
+      "same"
+     ]
+    },
+    {
+     "handle": "607701a3",
+     "sharedKeys": [],
+     "overlap": [
+      "already",
+      "sealed",
+      "never"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "directions_number_fortytwo",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "independence_is_assumed",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "max_unit_order_mod_7_is_6",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "rosette_orbit",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "two_order_six",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "b5ed6a64-b18d-89d8-b74a-78036563f287"
+  },
+  {
+   "lead": "Girdler sulfide dual-temperature exchange as separation-by-involution: the equilibrium preference reverses between a cold and a hot tower, so cycling enriches where neither pass alone separates.",
+   "handle": "c83060ec",
+   "boundary": "No primary source verified in this repo — asserted from recall, researcher stalled. Dual-temperature GS enrichment exists in the literature generally, but THIS ledger's involution framing was never checked against temperatures, per-stage factors, or whether 'involution' is chemistry or imposition. Refuse until a primary source is attached.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [
+    "doubling_collapses_nine",
+    "dz_loses_nothing",
+    "maps_differ_in_reach",
+    "reversible_erases_nothing"
+   ],
+   "sealedKeys": [
+    "doubling_collapses_nine",
+    "dz_loses_nothing",
+    "maps_differ_in_reach",
+    "reversible_erases_nothing"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "eleven days",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "against",
+      "between",
+      "pass"
+     ]
+    },
+    {
+     "claim": "four days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "tower",
+      "whether",
+      "against"
+     ]
+    },
+    {
+     "claim": "three and four years",
+     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
+     "bookId": 39863,
+     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
+     "overlap": [
+      "where",
+      "between",
+      "tower"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "against",
+      "against"
+     ]
+    },
+    {
+     "claim": "five days",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "neither",
+      "until"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "de5612a2",
+     "sharedKeys": [],
+     "overlap": [
+      "never",
+      "against",
+      "refuse"
+     ]
+    },
+    {
+     "handle": "4642b5b4",
+     "sharedKeys": [],
+     "overlap": [
+      "refuse",
+      "until",
+      "involution",
+      "involution"
+     ]
+    },
+    {
+     "handle": "63632e0e",
+     "sharedKeys": [
+      "doubling_collapses_nine",
+      "dz_loses_nothing",
+      "maps_differ_in_reach",
+      "reversible_erases_nothing"
+     ],
+     "overlap": [
+      "refuse"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "doubling_collapses_nine",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "dz_loses_nothing",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "maps_differ_in_reach",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "reversible_erases_nothing",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "76fcf816-bd0a-8392-b604-b19189b3d909"
+  },
+  {
+   "lead": "The compression 2^128 addresses → 10 seeds → 5 covering → ×12 VE directions → ×7 rays = 420 is real arithmetic, but the collapse ratio proves nothing on its own: ANY fold to ten classes turns billions into tens. That bound is ALREADY SEALED as gematria_forces_collisions (22^3 = 10648 > 1198 sums) and seats_pigeonhole.",
+   "handle": "4642b5b4",
+   "boundary": "Refuse multiplying by 12 VE directions until independence from dz/doubling is shown. Every measured orbit set is already dz-closed (orbits_closed_involution) — involution is inside the walk, not an extra direction; any free factor inflates 420. Collapse-without-VE is already covered by gematria_forces_collisions and seats_pigeonhole.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [
+    "seats_pigeonhole",
+    "gematria_forces_collisions",
+    "orbits_closed_involution"
+   ],
+   "witnessKeys": [],
+   "sealedKeys": [
+    "gematria_forces_collisions",
+    "orbits_closed_involution",
+    "seats_pigeonhole"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "six months",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "every",
+      "until",
+      "every"
+     ]
+    },
+    {
+     "claim": "six years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "covered",
+      "free",
+      "nothing"
+     ]
+    },
+    {
+     "claim": "300 years",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "every",
+      "every"
+     ]
+    },
+    {
+     "claim": "Fifteen cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "covered",
+      "covered"
+     ]
+    },
+    {
+     "claim": "forty baths",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "every",
+      "every"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "94f264b4",
+     "sharedKeys": [],
+     "overlap": [
+      "fold",
+      "already",
+      "already",
+      "already"
+     ]
+    },
+    {
+     "handle": "de5612a2",
+     "sharedKeys": [],
+     "overlap": [
+      "directions",
+      "arithmetic",
+      "already",
+      "sealed",
+      "refuse",
+      "directions",
+      "independence",
+      "doubling",
+      "measured",
+      "orbit",
+      "already",
+      "walk",
+      "without",
+      "already"
+     ]
+    },
+    {
+     "handle": "c83060ec",
+     "sharedKeys": [],
+     "overlap": [
+      "refuse",
+      "until",
+      "involution",
+      "involution"
+     ]
+    },
+    {
+     "handle": "4092e4c9",
+     "sharedKeys": [],
+     "overlap": [
+      "arithmetic",
+      "forces",
+      "measured",
+      "sealed"
+     ]
+    },
+    {
+     "handle": "a56e35a0",
+     "sharedKeys": [],
+     "overlap": [
+      "covering",
+      "covering",
+      "sealed"
+     ]
+    },
+    {
+     "handle": "c9ddc617",
+     "sharedKeys": [],
+     "overlap": [
+      "inside",
+      "shown",
+      "without",
+      "bound"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "gematria_forces_collisions",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "orbits_closed_involution",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "seats_pigeonhole",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "380d7a82-5d68-825a-a007-65fc9d859453"
+  },
+  {
+   "lead": "Dual-base wing harmony (w divisible by 15) as a release-blocking grid gate",
+   "handle": "4092e4c9",
+   "boundary": "Digital-root harmony is base-relative (Notation.lean / reversal_escapes_arithmetic). Requiring lcm(3,5)=15 for both decimal and hex as a release block forces fabricating wings or freezing a false width. The LIVE growth law remains w ≡ 0 (mod 3) measured on gridReport().harmonic; gridGaps no longer fails the tree for %15 or for a non-multiple-of-3 count after width was re-sealed live.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [
+    "reversal_escapes_arithmetic"
+   ],
+   "witnessKeys": [],
+   "sealedKeys": [
+    "reversal_escapes_arithmetic"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "seven steps",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "after",
+      "gate",
+      "gate",
+      "gate"
+     ]
+    },
+    {
+     "claim": "eighteen thousand measures",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "gate",
+      "gate",
+      "gate"
+     ]
+    },
+    {
+     "claim": "five and twenty cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "measured",
+      "gate",
+      "gate"
+     ]
+    },
+    {
+     "claim": "thirteen cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "measured",
+      "gate",
+      "gate"
+     ]
+    },
+    {
+     "claim": "and six cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "measured",
+      "gate"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "de5612a2",
+     "sharedKeys": [],
+     "overlap": [
+      "arithmetic",
+      "measured",
+      "sealed"
+     ]
+    },
+    {
+     "handle": "4642b5b4",
+     "sharedKeys": [],
+     "overlap": [
+      "arithmetic",
+      "forces",
+      "measured",
+      "sealed"
+     ]
+    },
+    {
+     "handle": "607701a3",
+     "sharedKeys": [],
+     "overlap": [
+      "fails",
+      "release",
+      "sealed"
+     ]
+    },
+    {
+     "handle": "4495c8dd",
+     "sharedKeys": [],
+     "overlap": [
+      "sealed",
+      "lean",
+      "live",
+      "tree"
+     ]
+    },
+    {
+     "handle": "d84f3bfe",
+     "sharedKeys": [],
+     "overlap": [
+      "lean",
+      "live",
+      "count",
+      "harmonic",
+      "tree"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "reversal_escapes_arithmetic",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "c9eefb31-f1c3-8909-90ad-d9f063f12573"
+  },
+  {
+   "lead": "Over-unity / free energy devices",
+   "handle": "ff24b99e",
+   "boundary": "the first law. Splitting water costs at least what burning it returns. NOT refused as a topic — the ambient-harvesting articles were written in full; refused only as a net-positive loop.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [
+    "carnot_efficiency_below_one",
+    "combustion_methane_balances",
+    "first_law_conservation",
+    "molar_mass_water",
+    "no_perpetual_motion",
+    "oxidation_states_sum"
+   ],
+   "sealedKeys": [
+    "carnot_efficiency_below_one",
+    "combustion_methane_balances",
+    "first_law_conservation",
+    "molar_mass_water",
+    "no_perpetual_motion",
+    "oxidation_states_sum"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "written",
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "and five and twenty cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "were",
+      "were",
+      "were"
+     ]
+    },
+    {
+     "claim": "And seven days",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "water",
+      "water",
+      "were"
+     ]
+    },
+    {
+     "claim": "Fifteen cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "were",
+      "were",
+      "were"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "water",
+      "what",
+      "over"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "63632e0e",
+     "sharedKeys": [
+      "combustion_methane_balances",
+      "molar_mass_water",
+      "oxidation_states_sum"
+     ],
+     "overlap": [
+      "water",
+      "water",
+      "water"
+     ]
+    },
+    {
+     "handle": "24641eb5",
+     "sharedKeys": [
+      "combustion_methane_balances",
+      "molar_mass_water",
+      "oxidation_states_sum"
+     ],
+     "overlap": [
+      "water",
+      "water",
+      "only"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "carnot_efficiency_below_one",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "combustion_methane_balances",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "first_law_conservation",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "molar_mass_water",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "no_perpetual_motion",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "oxidation_states_sum",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "2a494693-af27-86d7-97fa-e45050c6db67"
+  },
+  {
+   "lead": "Water itself as fuel",
+   "handle": "63632e0e",
+   "boundary": "water is combustion's ash, already fully oxidised. But the CONTAMINANT in polluted water is fuel, and I was wrong to refuse that half — corrected the same session.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [
+    "combustion_methane_balances",
+    "doubling_collapses_nine",
+    "dz_loses_nothing",
+    "maps_differ_in_reach",
+    "molar_mass_water",
+    "oxidation_states_sum",
+    "reversible_erases_nothing"
+   ],
+   "sealedKeys": [
+    "combustion_methane_balances",
+    "doubling_collapses_nine",
+    "dz_loses_nothing",
+    "maps_differ_in_reach",
+    "molar_mass_water",
+    "oxidation_states_sum",
+    "reversible_erases_nothing"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "two cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "half",
+      "half",
+      "half"
+     ]
+    },
+    {
+     "claim": "and one cubit",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "half",
+      "half"
+     ]
+    },
+    {
+     "claim": "And seven days",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "water",
+      "water"
+     ]
+    },
+    {
+     "claim": "one foot",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "water",
+      "same"
+     ]
+    },
+    {
+     "claim": "one foot, or a weight of one pound 772 feet",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "water",
+      "same"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "de5612a2",
+     "sharedKeys": [],
+     "overlap": [
+      "already",
+      "refuse",
+      "same"
+     ]
+    },
+    {
+     "handle": "c83060ec",
+     "sharedKeys": [
+      "doubling_collapses_nine",
+      "dz_loses_nothing",
+      "maps_differ_in_reach",
+      "reversible_erases_nothing"
+     ],
+     "overlap": [
+      "refuse"
+     ]
+    },
+    {
+     "handle": "ff24b99e",
+     "sharedKeys": [
+      "combustion_methane_balances",
+      "molar_mass_water",
+      "oxidation_states_sum"
+     ],
+     "overlap": [
+      "water",
+      "water",
+      "water"
+     ]
+    },
+    {
+     "handle": "24641eb5",
+     "sharedKeys": [
+      "combustion_methane_balances",
+      "molar_mass_water",
+      "oxidation_states_sum"
+     ],
+     "overlap": [
+      "water",
+      "combustion",
+      "water"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "combustion_methane_balances",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "doubling_collapses_nine",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "dz_loses_nothing",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "maps_differ_in_reach",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "molar_mass_water",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "oxidation_states_sum",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "reversible_erases_nothing",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "b5b87a76-8b6a-8e2b-8868-1b6f9cd96f94"
+  },
+  {
+   "lead": "MFC exhausting pure drinkable water",
+   "handle": "24641eb5",
+   "boundary": "measured pilot effluent 247 +/- 206 mg/L COD against a ~60 target. Cleaner, not clean. And CH4 combustion emits CO2 — water is not the only exhaust.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [
+    "combustion_methane_balances",
+    "molar_mass_water",
+    "oxidation_states_sum"
+   ],
+   "sealedKeys": [
+    "combustion_methane_balances",
+    "molar_mass_water",
+    "oxidation_states_sum"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "And one day",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "against",
+      "against"
+     ]
+    },
+    {
+     "claim": "And seven days",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "water",
+      "water"
+     ]
+    },
+    {
+     "claim": "five and twenty cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "measured",
+      "against"
+     ]
+    },
+    {
+     "claim": "one point",
+     "bookTitle": "Novum organum : $b or, True suggestions for the interpretation of nature",
+     "bookId": 45988,
+     "address": "7ca27499-5b18-8b26-be82-5657c2de26ec",
+     "overlap": [
+      "water",
+      "water"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "ff24b99e",
+     "sharedKeys": [
+      "combustion_methane_balances",
+      "molar_mass_water",
+      "oxidation_states_sum"
+     ],
+     "overlap": [
+      "water",
+      "water",
+      "only"
+     ]
+    },
+    {
+     "handle": "63632e0e",
+     "sharedKeys": [
+      "combustion_methane_balances",
+      "molar_mass_water",
+      "oxidation_states_sum"
+     ],
+     "overlap": [
+      "water",
+      "combustion",
+      "water"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "combustion_methane_balances",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "molar_mass_water",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "oxidation_states_sum",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "05ed1b36-4875-87c4-bc59-04b8864115cc"
+  },
+  {
+   "lead": "Bulk crawling of chitanka.info",
+   "handle": "0c36ef19",
+   "boundary": "its robots.txt disallows /api and every full-text format. A single user-directed fetch is a different act and remains available; systematic retrieval is not.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [
+    {
+     "claim": "300 years",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "every",
+      "every"
+     ]
+    },
+    {
+     "claim": "forty baths",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "every",
+      "every"
+     ]
+    },
+    {
+     "claim": "six feet",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "every",
+      "every"
+     ]
+    },
+    {
+     "claim": "six months",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "every",
+      "every"
+     ]
+    },
+    {
+     "claim": "10 feet",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "full"
+     ]
+    }
+   ],
+   "collisions": [],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "07f35d7b-9616-8359-8ed1-faf6d39d1ec9"
+  },
+  {
+   "lead": "Quantum advantage or speedup claims",
+   "handle": "607701a3",
+   "boundary": "already gated by the project: next.ts fails a release on such a title, and a test asserts the prose drains. No unbacked claim exists — the opposite is enforced, and the sealed boundary is theorem n_qubit_dimension: 2^n counts the classical simulation COST, never a speedup.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "VERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [
+    "n_qubit_dimension"
+   ],
+   "witnessKeys": [],
+   "sealedKeys": [
+    "n_qubit_dimension"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "four feet",
+     "bookTitle": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
+     "bookId": 2388,
+     "address": "dd8e92be-df49-823f-b232-57d824d45e19",
+     "overlap": [
+      "such",
+      "such"
+     ]
+    },
+    {
+     "claim": "one year",
+     "bookTitle": "Our Knowledge of the External World as a Field for Scientific Method in Philosophy",
+     "bookId": 37090,
+     "address": "6809979f-46d8-89d0-9f78-438b3e89632a",
+     "overlap": [
+      "never",
+      "such"
+     ]
+    },
+    {
+     "claim": "Twenty years",
+     "bookTitle": "Our Knowledge of the External World as a Field for Scientific Method in Philosophy",
+     "bookId": 37090,
+     "address": "6809979f-46d8-89d0-9f78-438b3e89632a",
+     "overlap": [
+      "classical",
+      "classical"
+     ]
+    },
+    {
+     "claim": "two points",
+     "bookTitle": "Our Knowledge of the External World as a Field for Scientific Method in Philosophy",
+     "bookId": 37090,
+     "address": "6809979f-46d8-89d0-9f78-438b3e89632a",
+     "overlap": [
+      "next",
+      "next"
+     ]
+    },
+    {
+     "claim": "16 feet",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "such"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "de5612a2",
+     "sharedKeys": [],
+     "overlap": [
+      "already",
+      "sealed",
+      "never"
+     ]
+    },
+    {
+     "handle": "4092e4c9",
+     "sharedKeys": [],
+     "overlap": [
+      "fails",
+      "release",
+      "sealed"
+     ]
+    },
+    {
+     "handle": "1a11d61c",
+     "sharedKeys": [
+      "n_qubit_dimension"
+     ],
+     "overlap": [
+      "counts",
+      "classical",
+      "simulation",
+      "cost",
+      "never",
+      "speedup",
+      "never"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "n_qubit_dimension",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "641192ee-5053-87ac-afdf-1240537e01e3"
+  },
+  {
+   "lead": "stackoverflow.com /ai-assist as a theorem source",
+   "handle": "228e89d2",
+   "boundary": "refused at the door: robots.txt answers 418, the site-wide anti-automation response, and /ai-assist is an HTML product page rather than an API. The sanctioned route is api.stackexchange.com, which answered 200 with a keyless 300/day quota — use the door they opened, not the one they shut.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [
+    {
+     "claim": "four months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "which",
+      "they",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "Twelve years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "which",
+      "which",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and eight days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "they",
+      "which",
+      "they"
+     ]
+    },
+    {
+     "claim": "And seven months",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "they",
+      "they",
+      "they"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "they",
+      "which",
+      "they"
+     ]
+    }
+   ],
+   "collisions": [],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "f20a07ab-4082-8e63-88e6-e0606528756d"
+  },
+  {
+   "lead": "Import ceccec.psg.bg papers, kebab theorem slugs, or that site's Clay OPEN mixed with SEALED as uuidna theorems.",
+   "handle": "4495c8dd",
+   "boundary": "Zero kebab→snake slug overlap with this ledger. uuidna keys are by decide; origin folds are computational JS, not Lean. Desk does not verdict origin papers proven, unproven, or dishonest. Their frozen README 761 vs live /theorems 784 is their census, not this tree.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [
+    {
+     "claim": "twenty cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "their",
+      "their",
+      "their",
+      "their"
+     ]
+    },
+    {
+     "claim": "2 Day",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "their",
+      "their"
+     ]
+    },
+    {
+     "claim": "and ten days",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "their",
+      "their"
+     ]
+    },
+    {
+     "claim": "fifty years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "their",
+      "their"
+     ]
+    },
+    {
+     "claim": "fifty years",
+     "bookTitle": "Novum organum : $b or, True suggestions for the interpretation of nature",
+     "bookId": 45988,
+     "address": "7ca27499-5b18-8b26-be82-5657c2de26ec",
+     "overlap": [
+      "their",
+      "their"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "4092e4c9",
+     "sharedKeys": [],
+     "overlap": [
+      "sealed",
+      "lean",
+      "live",
+      "tree"
+     ]
+    },
+    {
+     "handle": "1a11d61c",
+     "sharedKeys": [],
+     "overlap": [
+      "origin",
+      "uuidna",
+      "uuidna",
+      "origin"
+     ]
+    },
+    {
+     "handle": "d84f3bfe",
+     "sharedKeys": [],
+     "overlap": [
+      "lean",
+      "live",
+      "keys",
+      "tree",
+      "keys"
+     ]
+    },
+    {
+     "handle": "a56e35a0",
+     "sharedKeys": [],
+     "overlap": [
+      "decide",
+      "keys",
+      "sealed",
+      "keys"
+     ]
+    },
+    {
+     "handle": "6726dc46",
+     "sharedKeys": [],
+     "overlap": [
+      "live",
+      "ledger",
+      "census"
+     ]
+    },
+    {
+     "handle": "c9ddc617",
+     "sharedKeys": [],
+     "overlap": [
+      "uuidna",
+      "uuidna",
+      "ledger",
+      "does",
+      "desk",
+      "does"
+     ]
+    }
+   ],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "04878a15-371c-8306-94dc-2f5b6d6b5deb"
+  },
+  {
+   "lead": "Port origin BackgroundMovie / sharedHeroAt / quantumModelSnapshot 10D (6 appearance + 4 homology) as uuidna HeroAnimation or HexFace.",
+   "handle": "1a11d61c",
+   "boundary": "uuidna 10D is 3 free aura + 7 compactified CSS. Origin 10D is a different cut (H₁=ℤ⁴ reading). n_qubit_dimension counts classical simulation cost, never a speedup. Layout never imports the theorem census. HexbitPlayer stays opt-in, no autoplay.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [
+    "n_qubit_dimension"
+   ],
+   "witnessKeys": [],
+   "sealedKeys": [
+    "n_qubit_dimension"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "303 Point",
+     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
+     "bookId": 39863,
+     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
+     "overlap": [
+      "reading",
+      "reading"
+     ]
+    },
+    {
+     "claim": "six steps",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "stays",
+      "stays"
+     ]
+    },
+    {
+     "claim": "Twenty years",
+     "bookTitle": "Our Knowledge of the External World as a Field for Scientific Method in Philosophy",
+     "bookId": 37090,
+     "address": "6809979f-46d8-89d0-9f78-438b3e89632a",
+     "overlap": [
+      "classical",
+      "classical"
+     ]
+    },
+    {
+     "claim": "five years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "origin"
+     ]
+    },
+    {
+     "claim": "forty-five degrees",
+     "bookTitle": "On Yacht Sailing: A Simple Treatise for Beginners upon the Art of Handling Small Yachts and Boats",
+     "bookId": 45493,
+     "address": "fec13c42-2180-8890-83eb-c1e7fbd7300d",
+     "overlap": [
+      "never"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "607701a3",
+     "sharedKeys": [
+      "n_qubit_dimension"
+     ],
+     "overlap": [
+      "counts",
+      "classical",
+      "simulation",
+      "cost",
+      "never",
+      "speedup",
+      "never"
+     ]
+    },
+    {
+     "handle": "4495c8dd",
+     "sharedKeys": [],
+     "overlap": [
+      "origin",
+      "uuidna",
+      "uuidna",
+      "origin"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "n_qubit_dimension",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "2fe4aec6-b5f1-8ca5-a41d-8a65847f9e4c"
+  },
+  {
+   "lead": "Scrape King Wen, sephirot, chakra, or deity-name tables into occupancy, Lean, or hero chrome.",
+   "handle": "d84f3bfe",
+   "boundary": "meaning is always null. Occupancy stays numbers from live OCCUPANCY_KEYS statements. A tradition whose count is not a theorem stays a leftover, not a minted story. No iching_ / harmonic_ / tree_of_life_ / myth_ keys.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [
+    {
+     "claim": "six feet",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "name",
+      "name",
+      "name",
+      "name"
+     ]
+    },
+    {
+     "claim": "and thirty talents",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "king",
+      "king",
+      "king"
+     ]
+    },
+    {
+     "claim": "Five and twenty years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "king",
+      "king",
+      "name"
+     ]
+    },
+    {
+     "claim": "hundred and seven and twenty years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "whose",
+      "name",
+      "life"
+     ]
+    },
+    {
+     "claim": "one day",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "life",
+      "life",
+      "life"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "94f264b4",
+     "sharedKeys": [],
+     "overlap": [
+      "occupancy",
+      "occupancy",
+      "stays",
+      "occupancy"
+     ]
+    },
+    {
+     "handle": "4092e4c9",
+     "sharedKeys": [],
+     "overlap": [
+      "lean",
+      "live",
+      "count",
+      "harmonic",
+      "tree"
+     ]
+    },
+    {
+     "handle": "4495c8dd",
+     "sharedKeys": [],
+     "overlap": [
+      "lean",
+      "live",
+      "keys",
+      "tree",
+      "keys"
+     ]
+    }
+   ],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "cf94981c-f973-84c5-8590-a08c01feccae"
+  },
+  {
+   "lead": "Honesty / HONEST SCOPE fields, covering hunts, or includes() disclaimer tests on new constructors.",
+   "handle": "a56e35a0",
+   "boundary": "Honesty is the court (by decide keys, docs/doctrine.md), not TypeScript. Captain 2026-08-30: strip existing honest: payloads from constructors on touch; no new HONEST SCOPE fields, covering hunts, or includes() disclaimer tests. Scope lives in doctrine and sealed keys; R&D continues unrestricted.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [
+    {
+     "claim": "and twenty cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "court",
+      "court"
+     ]
+    },
+    {
+     "claim": "eight cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "court",
+      "court"
+     ]
+    },
+    {
+     "claim": "eight steps",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "court",
+      "court"
+     ]
+    },
+    {
+     "claim": "hundred cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "court",
+      "court"
+     ]
+    },
+    {
+     "claim": "one day",
+     "bookTitle": "Dhammapada, a Collection of Verses; Being One of the Canonical Books of the Buddhists",
+     "bookId": 2017,
+     "address": "f6848431-f32b-8183-9318-5a8abc7d492e",
+     "overlap": [
+      "lives",
+      "lives"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "4642b5b4",
+     "sharedKeys": [],
+     "overlap": [
+      "covering",
+      "covering",
+      "sealed"
+     ]
+    },
+    {
+     "handle": "4495c8dd",
+     "sharedKeys": [],
+     "overlap": [
+      "decide",
+      "keys",
+      "sealed",
+      "keys"
+     ]
+    }
+   ],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "86767a08-ac0f-8786-9ffb-16f473ad6b26"
+  },
+  {
+   "lead": "Desk auto-seals, mints a theorem key, or writes a statement/name/claim into src/.",
+   "handle": "a7480598",
+   "boundary": "Two-handle law: desk proposes, captain/kernel disposes. Algebra, prove, and claim stay with the captain. Wave-deposit or refuse; only the kernel seals.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [
+    {
+     "claim": "six feet",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "name",
+      "name",
+      "name",
+      "name"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "fifty days",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "wave",
+      "wave"
+     ]
+    },
+    {
+     "claim": "hundred and thirty years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "name",
+      "name"
+     ]
+    },
+    {
+     "claim": "twenty and one years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "name",
+      "name"
+     ]
+    }
+   ],
+   "collisions": [],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "0faf693e-8ef8-8d83-b9f3-1b5be134cef0"
+  },
+  {
+   "lead": "Replace ChaCha20-Poly1305 with the 256-triangle fold as the secrecy primitive.",
+   "handle": "27321b4d",
+   "boundary": "RFC 8439 stays the AEAD (theorem aead_nonce_and_salt_bits). Folding squares is not a cipher. The 256-width identity (two boards × two triangles = key bits) is the held constructor lead, not a new envelope.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "VERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [
+    "aead_nonce_and_salt_bits"
+   ],
+   "witnessKeys": [],
+   "sealedKeys": [
+    "aead_nonce_and_salt_bits"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "And five bars",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "boards",
+      "boards",
+      "boards"
+     ]
+    },
+    {
+     "claim": "fourteen cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "squares",
+      "squares"
+     ]
+    },
+    {
+     "claim": "six steps",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "stays",
+      "stays"
+     ]
+    },
+    {
+     "claim": "four months",
+     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
+     "bookId": 39863,
+     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
+     "overlap": [
+      "held"
+     ]
+    },
+    {
+     "claim": "one cubit",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "boards"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "94f264b4",
+     "sharedKeys": [],
+     "overlap": [
+      "fold",
+      "primitive",
+      "stays",
+      "aead",
+      "boards",
+      "bits"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "aead_nonce_and_salt_bits",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "39aabbd1-3401-852d-9486-13acf9c77362"
+  },
+  {
+   "lead": "Run gen-quantum-capacity or rewrite IBM/Google figures as this wave.",
+   "handle": "6726dc46",
+   "boundary": "Wall-clock, rewrites derived files. Do not freeze live ledger/census counts. Captain owns that mill.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [
+    {
+     "claim": "fifty days",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "wave",
+      "wave"
+     ]
+    },
+    {
+     "claim": "hundred and forty and four cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "wall",
+      "wall"
+     ]
+    },
+    {
+     "claim": "and ten cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "wall"
+     ]
+    },
+    {
+     "claim": "and three years",
+     "bookTitle": "The Montessori Method: Scientific Pedagogy as Applied to Child Education in 'The Children's Houses' with Additions and Revisions by the Author",
+     "bookId": 39863,
+     "address": "8fc6e1a1-e288-8c6d-8503-56210ceb9568",
+     "overlap": [
+      "wall"
+     ]
+    },
+    {
+     "claim": "eight hundred and fifteen years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "live"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "4495c8dd",
+     "sharedKeys": [],
+     "overlap": [
+      "live",
+      "ledger",
+      "census"
+     ]
+    },
+    {
+     "handle": "c9ddc617",
+     "sharedKeys": [],
+     "overlap": [
+      "quantum",
+      "ledger",
+      "quantum"
+     ]
+    }
+   ],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "f53a139d-2da3-886e-a987-b5e49f27015f"
+  },
+  {
+   "lead": "Invent versionSeat or collapse the four hexbit widths 4 / 8 / 16 / 32.",
+   "handle": "c1b5cd04",
+   "boundary": "Standing architecture. HANDLE_HEXBITS, HEXBIT_BITS, UUID_HEXBITS, SAFE_HEXBITS stay four widths.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [],
+   "witnessKeys": [],
+   "sealedKeys": [],
+   "status": "policy",
+   "bookHits": [
+    {
+     "claim": "four miles",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "four",
+      "four",
+      "four",
+      "four",
+      "four",
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four and thirty years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "four",
+      "four",
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "four",
+      "four",
+      "four",
+      "four"
+     ]
+    },
+    {
+     "claim": "four feet",
+     "bookTitle": "The Song Celestial; Or, Bhagavad-Gîtâ (from the Mahâbhârata): Being a discourse between Arjuna, Prince of India, and the Supreme Being under the form of Krishna",
+     "bookId": 2388,
+     "address": "dd8e92be-df49-823f-b232-57d824d45e19",
+     "overlap": [
+      "four",
+      "four",
+      "safe"
+     ]
+    },
+    {
+     "claim": "four hundred and thirty years",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "four",
+      "four",
+      "four"
+     ]
+    }
+   ],
+   "collisions": [],
+   "theoremTrials": [],
+   "disposition": "verified",
+   "receipt": "4dc14b39-67a0-8b52-bb95-4d08a1cd45ae"
+  },
+  {
+   "lead": "All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.",
+   "handle": "c9ddc617",
+   "boundary": "Shor has no target inside uuidna because the envelope is symmetric-only (no RSA/ECC/ECDSA on the wire; the referrer door is why public routing identities can be shown without exposing a Shor key). Grover is not gone: grover_quadratic_bound and sha256_grover_margin_is_the_address seal 256/2 = 128, and key_floor_is_one_uuid names that floor as one uuid. oos_physical_sidechannel is a named void (power/EM/timing). Bitcoin spend still reveals secp256k1; this ledger does not become that chain. Desk does not mint quantum_threat_gone.",
+   "leadVerdict": "UNVERIFIED",
+   "boundaryVerdict": "UNVERIFIED",
+   "instrumentValid": true,
+   "citedKeys": [
+    "key_floor_is_one_uuid",
+    "grover_quadratic_bound",
+    "sha256_grover_margin_is_the_address",
+    "oos_physical_sidechannel"
+   ],
+   "witnessKeys": [],
+   "sealedKeys": [
+    "grover_quadratic_bound",
+    "key_floor_is_one_uuid",
+    "oos_physical_sidechannel",
+    "sha256_grover_margin_is_the_address"
+   ],
+   "status": "lean",
+   "bookHits": [
+    {
+     "claim": "thousand months",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "power",
+      "power",
+      "power"
+     ]
+    },
+    {
+     "claim": "60 years",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "only",
+      "only"
+     ]
+    },
+    {
+     "claim": "five and twenty cubits",
+     "bookTitle": "The King James Version of the Bible",
+     "bookId": 10,
+     "address": "b129a698-05a3-8354-a354-09ee65278b0b",
+     "overlap": [
+      "door",
+      "door"
+     ]
+    },
+    {
+     "claim": "seventy cubits",
+     "bookTitle": "The Koran (Al-Qur'an)",
+     "bookId": 2800,
+     "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
+     "overlap": [
+      "chain",
+      "chain"
+     ]
+    },
+    {
+     "claim": "six feet",
+     "bookTitle": "A System of Logic, Ratiocinative and Inductive",
+     "bookId": 27942,
+     "address": "1e2393f1-edb1-8589-8894-2a12d40de88b",
+     "overlap": [
+      "because",
+      "because"
+     ]
+    }
+   ],
+   "collisions": [
+    {
+     "handle": "94f264b4",
+     "sharedKeys": [],
+     "overlap": [
+      "public",
+      "routing",
+      "uuid",
+      "names",
+      "uuid",
+      "named",
+      "still",
+      "desk"
+     ]
+    },
+    {
+     "handle": "4642b5b4",
+     "sharedKeys": [],
+     "overlap": [
+      "inside",
+      "shown",
+      "without",
+      "bound"
+     ]
+    },
+    {
+     "handle": "4495c8dd",
+     "sharedKeys": [],
+     "overlap": [
+      "uuidna",
+      "uuidna",
+      "ledger",
+      "does",
+      "desk",
+      "does"
+     ]
+    },
+    {
+     "handle": "6726dc46",
+     "sharedKeys": [],
+     "overlap": [
+      "quantum",
+      "ledger",
+      "quantum"
+     ]
+    }
+   ],
+   "theoremTrials": [
+    {
+     "key": "grover_quadratic_bound",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "key_floor_is_one_uuid",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "oos_physical_sidechannel",
+     "verdict": "VERIFIED"
+    },
+    {
+     "key": "sha256_grover_margin_is_the_address",
+     "verdict": "VERIFIED"
+    }
+   ],
+   "disposition": "verified",
+   "receipt": "6152f6e2-cd49-8d9e-a47d-c37710050567"
+  }
+ ]
+}

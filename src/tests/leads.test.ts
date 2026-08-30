@@ -90,7 +90,7 @@ test('the LIVE sources all answer — every declared source is readable on this 
     'a source that cannot be read makes the gate measure less than it claims — fix the reader, not the census')
 })
 
-test('open-questions lists refuted and refused leads — they map to UNVERIFIED, not VERIFIED', () => {
+test('closed refuted and refused stay on leads.md, not open-questions', () => {
   const page = readFileSync(join(ROOT, 'docs', 'open-questions.md'), 'utf8')
   const leads = JSON.parse(readFileSync(join(ROOT, 'lean', 'leads.json'), 'utf8')) as {
     refuted?: { lead: string; killed_by?: string }[]
@@ -100,7 +100,7 @@ test('open-questions lists refuted and refused leads — they map to UNVERIFIED,
     ...(leads.refuted ?? []).filter((r) => r.killed_by && r.lead),
     ...(leads.refused ?? []).filter((r) => r.boundary && r.lead),
   ]
-  const missing = settled.filter((s) => s.lead && !page.includes(s.lead.slice(0, 48)))
-  assert.deepEqual(missing.map((s) => s.lead.slice(0, 60)), [],
-    'refuted and refused are open leads — they adjudicate UNVERIFIED until a seal verifies')
+  const leaked = settled.filter((s) => s.lead && page.includes(s.lead.slice(0, 48)))
+  assert.deepEqual(leaked.map((s) => s.lead.slice(0, 60)), [],
+    'refuted and refused are closed — they belong on docs/leads, not open-questions homework')
 })
