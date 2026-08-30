@@ -826,7 +826,12 @@ export function foldersGaps(): Gap[] {
   // rather than kept in a list I have to remember to update: a singular folder is one concept and carries index
   // faces only; a plural folder is many independent things and its members are named. `clock` is a model, so it
   // holds index.ts and index.md; `scripts` is a collection, so it holds a hundred named files and that is correct.
-  const isCollection = (name: string): boolean => /s$/.test(name)
+  // `os` ends in s but IS uuidnaOS — one model, index faces only (not a collection).
+  // PATH LAW mirrors the uuid channel (layout_groups_thirtytwo): handle addresses; the middle is the three
+  // message-cap words merged (not three nested folders), extended with the tail message — merge hyphens, never split.
+  const SINGULAR_DESPITE_TRAILING_S = new Set(['os'])
+  const isCollection = (name: string): boolean => /s$/.test(name) && !SINGULAR_DESPITE_TRAILING_S.has(name)
+  const mergeWords = (name: string): string => name.replace(/\.[^.]+$/, '').replace(/-/g, '')
   const walk = (dir: string, rel: string): void => {
     for (const e of readdirSync(dir, { withFileTypes: true })) {
       if (!e.isDirectory()) continue
@@ -834,9 +839,9 @@ export function foldersGaps(): Gap[] {
       const files = readdirSync(join(dir, e.name), { withFileTypes: true }).filter((f) => !f.isDirectory()).map((f) => f.name)
       if (!isCollection(e.name)) {
         if (!/^[a-z]+$/.test(e.name))
-          gaps.push({ what: `src/${r} is not ONE WORD — a hyphenated folder is two concepts sharing a directory`, fix: `nest it: src/${r.replace(/-/g, '/')}/index.ts, so each word names a folder and the leaf holds the faces` })
+          gaps.push({ what: `src/${r} is not ONE WORD — a hyphenated folder is two concepts sharing a directory`, fix: `merge the words into one folder name (e.g. package-at-a-time → patime) and move faces to src/${e.name.replace(/-/g, '')}/index.ts` })
         for (const f of files.filter((n) => !/^index\./.test(n)))
-          gaps.push({ what: `src/${r} is SINGULAR (a model) but holds the named file ${f} — one concept, one name, and the extension names the face`, fix: `move it to src/${r}/${f.replace(/\.[^.]+$/, '').replace(/-/g, '/')}/index${f.slice(f.lastIndexOf('.'))} and re-export from src/${r}/index.ts — or rename the folder plural if it is genuinely a collection` })
+          gaps.push({ what: `src/${r} is SINGULAR (a model) but holds the named file ${f} — one concept, one name, and the extension names the face`, fix: `merge words into one folder (e.g. host-node → hostnode) at src/${r}/${mergeWords(f)}/index${f.slice(f.lastIndexOf('.'))} and re-export from src/${r}/index.ts — or rename the folder plural if it is genuinely a collection` })
       }
       // A COLLECTION'S MEMBERS ARE ITS OWN BUSINESS — do not descend. src/seeds holds ninety content-addressed
       // page seeds whose names are uuids by construction; judging them as models would demand a uuid be one word.
@@ -844,6 +849,55 @@ export function foldersGaps(): Gap[] {
     }
   }
   walk(join(ROOT, 'src'), '')
+  return gaps
+}
+
+// ── imports: THE STACK ORDER — mint below unit below door. address.ts mints; hexbit/index.ts names widths;
+// handle and gravity sit between. address must not import hexbit (that inverts the stack and was a cycle:
+// address → hexbit → address via toUuid). Singular model folders carry index.* only; src/*.ts at the root is
+// the public API collection (172 modules) — same law as scripts/, not a folders violation.
+export function importGaps(): Gap[] {
+  const gaps: Gap[] = []
+  const addrPath = join(ROOT, 'src/address.ts')
+  if (existsSync(addrPath)) {
+    const addr = fileText(addrPath)
+    if (/from ['"]\.\/hexbit\//.test(addr) || /from ['"]\.\.\/hexbit\//.test(addr))
+      gaps.push({
+        what: 'src/address.ts imports hexbit — the mint layer must sit BELOW the unit (address → sha256 only; hexbit imports address for toUuid)',
+        fix: 'delete the hexbit import; derive coin width as 32/2 hex chars locally (COIN_HEX_CHARS), or move coin64 into hexbit and re-export from index.ts',
+      })
+  }
+  const hexPath = join(ROOT, 'src/hexbit/index.ts')
+  if (existsSync(hexPath)) {
+    const hex = fileText(hexPath)
+    if (!/from ['"]\.\.\/address\.js['"]/.test(hex))
+      gaps.push({
+        what: 'src/hexbit/index.ts does not import address — the unit layer must mint doors through toUuid',
+        fix: "import { toUuid, BASE } from '../address.js' in src/hexbit/index.ts",
+      })
+  }
+  // Core cycle detector: address ↔ hexbit (the only forbidden pair in the foundation).
+  const resolveLocal = (from: string, spec: string): string | null => {
+    if (!spec.startsWith('.')) return null
+    const base = join(dirname(from), spec)
+    for (const cand of [base.replace(/\.js$/, '.ts'), base + '.ts', join(base, 'index.ts')])
+      if (existsSync(cand)) return cand
+    return null
+  }
+  const importsOfFile = (abs: string): string[] => {
+    const text = fileText(abs)
+    const specs = [...text.matchAll(/(?:from|import)\s*['"](\.[^'"]+)['"]/g)].map((m) => m[1]!)
+    return [...new Set(specs.map((s) => resolveLocal(dirname(abs), s)).filter((x): x is string => x !== null))]
+  }
+  if (existsSync(addrPath) && existsSync(hexPath)) {
+    const aIm = importsOfFile(addrPath)
+    const hIm = importsOfFile(hexPath)
+    if (aIm.includes(hexPath) && hIm.includes(addrPath))
+      gaps.push({
+        what: 'address.ts ↔ hexbit/index.ts import cycle — the stack cannot recompute in one pass',
+        fix: 'break the cycle: address stays mint-only; hexbit owns COIN_HEXBITS and coin64 if needed',
+      })
+  }
   return gaps
 }
 

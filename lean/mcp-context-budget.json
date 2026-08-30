@@ -1,4 +1,4 @@
 {
-  "wireBytes": 74417,
-  "note": "Re-sealed after book-trials + trial-gate exports on the MCP wire. tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
+  "wireBytes": 74877,
+  "note": "Re-sealed after uuidna_open_channel on the MCP wire. tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
 }

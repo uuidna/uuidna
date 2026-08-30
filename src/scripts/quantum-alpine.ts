@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // quantum-alpine — FULL crypto-related Alpine coverage: Layer 1 exec + Layer 2 plans + optional sandbox.
-import { testQuantumAlpineCoverage, renderQuantumAlpineCoverage } from '../quantum/os/quantum-alpine.js'
+import { testQuantumAlpineCoverage, renderQuantumAlpineCoverage } from '../quantum/os/alpine/index.js'
 import { renderSandboxSuite } from '../os/runtime/index.js'
 
 const sandbox = process.argv.includes('--sandbox')

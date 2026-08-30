@@ -3,14 +3,14 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { callTool } from '../mcp.js'
 import { planAlpineRuns, detectRunBackend, verifyPinnedRootfs } from '../os/runtime/index.js'
-import { cryptoAppsPort, type CryptoAppsPort } from '../quantum/os/crypto-apps.js'
+import { cryptoAppsPort, type CryptoAppsPort } from '../quantum/os/cryptoapps/index.js'
 import {
   quantumAlpinePackageNames, testQuantumAlpinePackage, testQuantumAlpineCoverage,
   renderQuantumAlpineCoverage,
-} from '../quantum/os/quantum-alpine.js'
+} from '../quantum/os/alpine/index.js'
 import { quantumAdvantagePlaybook } from '../quantum/advantage/mcp/agent/playbook/index.js'
 import { theoremByKey } from '../theorems/index.js'
-import { fresh } from '../quantum/os/harness.js'
+import { fresh } from '../quantum/os/harness/index.js'
 
 test.beforeEach(fresh)
 

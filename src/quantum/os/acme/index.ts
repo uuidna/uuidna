@@ -2,15 +2,15 @@
 // uuidna_run (Layer 2). Theorems come from the apps — harmoniseOf binds each catalogue row to a
 // sealed witness; crypto-using clients carry /theorem/sha256_grover_margin_is_the_address when unnamed.
 import { domainToASCII } from 'node:url'
-import { cataloguePackage } from './catalogue.js'
-import { defaultInstalls } from './index.js'
-import { uuidnaExec } from './exec.js'
-import { testInstallPackage, testAvailablePackage, type PackageAtATime } from './package-at-a-time.js'
-import { planAlpineRun, planAlpineRuns, type RunPlan } from '../../os/runtime/index.js'
-import { foldAppTheorems, type AppTheoremBehind, type AppTheoremFold, type TheoremClaim } from './app-theorem.js'
-import { UUID_HEXBITS, hexbitDoorOf } from '../../hexbit/index.js'
-import { toUuid } from '../../address.js'
-import { merkleGravity } from '../../gravity/index.js'
+import { cataloguePackage } from '../catalogue/index.js'
+import { defaultInstalls } from '../index.js'
+import { uuidnaExec } from '../exec/index.js'
+import { testInstallPackage, testAvailablePackage, type PackageAtATime } from '../patime/index.js'
+import { planAlpineRun, planAlpineRuns, type RunPlan } from '../../../os/runtime/index.js'
+import { foldAppTheorems, type AppTheoremBehind, type AppTheoremFold, type TheoremClaim } from '../apptheorem/index.js'
+import { UUID_HEXBITS, hexbitDoorOf } from '../../../hexbit/index.js'
+import { toUuid } from '../../../address.js'
+import { merkleGravity } from '../../../gravity/index.js'
 
 /** Published Let's Encrypt ACME v2 directory (RFC 8555). */
 export const LETS_ENCRYPT_DIRECTORY = 'https://acme-v02.api.letsencrypt.org/directory'

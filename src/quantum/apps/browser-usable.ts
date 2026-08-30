@@ -6,8 +6,8 @@
 // the catalogue is provenance; the man→app corpus (~4.7k docs) is the computable completeness denominator.
 //
 // Mount presence is checked by the caller (scripts/tests hold the docs/ read — this module stays browser-clean).
-import { manDrivenPortCoverage, type ManDrivenPortCoverage } from '../os/catalogue.js'
-import { uuidnaExec } from '../os/exec.js'
+import { manDrivenPortCoverage, type ManDrivenPortCoverage } from '../os/catalogue/index.js'
+import { uuidnaExec } from '../os/exec/index.js'
 import { defaultInstalls } from '../os/index.js'
 import { UUID_HEXBITS } from '../../hexbit/index.js'
 import { testClaim, start, applyStride, undo, build } from './categories/coding/index.js'

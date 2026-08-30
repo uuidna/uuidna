@@ -1,10 +1,10 @@
 // court — WHAT uuidna NEEDS: hex boot, MCP court, wave cargo, commit-msg gate. All gates enter here.
 import { readFileSync, writeFileSync } from 'node:fs'
-import { callTool } from '../../mcp.js'
-import { gateCommitMessage } from '../../sign.js'
-import { HEXBIT_STATES, UUID_HEXBITS, hexbitDoorOf } from '../../hexbit/index.js'
-import { quantumAdvantagePlaybook, type PlaybookStep } from '../advantage/mcp/agent/playbook/index.js'
-import { runWaves, type WaveJob, type WaveHooks } from './waves.js'
+import { callTool } from '../../../mcp.js'
+import { gateCommitMessage } from '../../../sign.js'
+import { HEXBIT_STATES, UUID_HEXBITS, hexbitDoorOf } from '../../../hexbit/index.js'
+import { quantumAdvantagePlaybook, type PlaybookStep } from '../../advantage/mcp/agent/playbook/index.js'
+import { runWaves, type WaveJob, type WaveHooks } from '../waves/index.js'
 
 export type NeedBag = Record<string, unknown>
 export interface NeedFail { tool: string; detail: string }

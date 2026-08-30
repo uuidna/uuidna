@@ -16,8 +16,8 @@
 // NON-ARBITRARY ADDRESS: a tool's address is toUuid('tool:' + name + ':' + description) — the EXACT preimage
 // apiHandleOf merkle-folds for the served API seal (mcp.ts). So a tool's registry address already equals its
 // sealed contract handle's preimage: the registry does not invent an address, it reads the one the API sealed.
-import { toUuid, merkleFold } from '../../address.js'
-import { hexbitDoorOf, defaultInstalls, type InstallSpec } from './index.js'
+import { toUuid, merkleFold } from '../../../address.js'
+import { hexbitDoorOf, defaultInstalls, type InstallSpec } from '../index.js'
 
 /** THE ONE SHAPE a tool and a ported package share: a uuidna/<name> identity, a 128-bit content-address, the 32
  *  hexbit states it compiles to, its published meaning, and the virtual-OS route it lives at. `kind` records

@@ -1,6 +1,6 @@
 // crypto-via — whether a catalogue row uses crypto (same law as uuidna_crypto census).
-import { catalogue, cataloguePackage, type CataloguePackage } from './catalogue.js'
-import { harmoniseOf } from '../../os/apps/index.js'
+import { catalogue, cataloguePackage, type CataloguePackage } from '../catalogue/index.js'
+import { harmoniseOf } from '../../../os/apps/index.js'
 
 export const CRYPTO_PKG = new Set([
   'libcrypto3', 'libssl3', 'openssl', 'openssl3', 'libressl', 'gnutls', 'nettle', 'libsodium', 'libgcrypt',

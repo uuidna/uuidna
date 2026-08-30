@@ -6,8 +6,8 @@ import {
   resolveManPage, manAppOriginCandidates, manDrivenPortCoverage, overlayManDrivenPortCoverage,
   packageSelfTest, isManPagePackage, providedCommands,
   type CataloguePackage, type ManAppVia,
-} from '../quantum/os/catalogue.js'
-import { fresh, exec } from '../quantum/os/harness.js'
+} from '../quantum/os/catalogue/index.js'
+import { fresh, exec } from '../quantum/os/harness/index.js'
 import { planAlpineRun } from '../os/runtime/index.js'
 import { handleOf, handlePath, handleOfPath, isHandle } from '../handle.js'
 import { HANDLE_HEXBITS, UUID_HEXBITS } from '../hexbit/index.js'

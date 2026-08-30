@@ -1,7 +1,7 @@
 <!-- ExecShell — Layer 1 uuidnaOS in the browser: boot, prime catalogue, runExecLine locally. -->
 <script setup lang="ts">
 import { ref, onMounted, nextTick } from 'vue'
-import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
+import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/boot/index.js'
 import { runExecLine, execShellHelp } from '../../../src/quantum/apps/exec-shell.js'
 
 const HELP = execShellHelp()

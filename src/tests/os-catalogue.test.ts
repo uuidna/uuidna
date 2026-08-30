@@ -3,8 +3,8 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { fresh, exec } from '../quantum/os/harness.js'
-import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, catalogueRouteOf, catalogueFor, resolveAlpineApp } from '../quantum/os/catalogue.js'
+import { fresh, exec } from '../quantum/os/harness/index.js'
+import { catalogue, catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, parseCatalogue, CATALOGUE_FILE, packageSelfTest, testAllPackages, testAllPackagesChunked, primeCatalogue, primeCatalogueFrom, cataloguePrimed, packageSelfTestCoverage, catalogueRouteOf, catalogueFor, resolveAlpineApp } from '../quantum/os/catalogue/index.js'
 import { ROOT } from '../scripts/api.js'
 
 test.beforeEach(fresh)

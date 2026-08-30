@@ -6,7 +6,7 @@
 // "all related packages are carried" while being unable to detect an uncarried one would prove nothing.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { relatedPackages } from '../quantum/os/related.js'
+import { relatedPackages } from '../quantum/os/related/index.js'
 import { defaultInstalls } from '../quantum/os/index.js'
 import { callTool } from '../mcp.js'
 

@@ -73,7 +73,7 @@ if (acceptedCount() > before) {
   console.log('wave-run · no new cargo — lift and witness skipped (an empty wave never re-proves for nothing)')
 }
 
-if (!(await step('court', 'node dist/quantum/os/cli.js --court')).ok) {
+if (!(await step('court', 'node dist/quantum/os/cli/index.js --court')).ok) {
   console.error('wave-run — uuidnaOS court red; fix before finders')
   process.exit(1)
 }

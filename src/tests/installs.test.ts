@@ -8,7 +8,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { defaultInstalls, installFor, portFrom, buildOrder, routeOf, compileToHexbits, INSTALL_ROUTES } from '../quantum/os/index.js'
-import { INSTALLS_MIRROR } from '../quantum/os/mirror.js'
+import { INSTALLS_MIRROR } from '../quantum/os/mirror/index.js'
 import { uuidnaPackage } from '../os/packages/index.js'
 import { merkleGravity } from '../gravity/index.js'
 

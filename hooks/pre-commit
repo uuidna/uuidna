@@ -4,12 +4,12 @@ if [ -n "$UUIDNA_OS_MCP" ]; then
   echo "pre-commit: fused — uuidnaOS court already ran ($UUIDNA_OS_MCP)"
   exit 0
 fi
-if [ ! -f dist/quantum/os/cli.js ]; then
-  echo "pre-commit: HARD — dist/quantum/os/cli.js missing. Reconcile builds dist; this hook does not spend tsc. Commit BLOCKED."
+if [ ! -f dist/quantum/os/cli/index.js ]; then
+  echo "pre-commit: HARD — dist/quantum/os/cli/index.js missing. Reconcile builds dist; this hook does not spend tsc. Commit BLOCKED."
   exit 1
 fi
 echo "pre-commit: HARD — uuidnaOS court (hex · treason · conformance · trial · QA playbook)"
-node dist/quantum/os/cli.js
+node dist/quantum/os/cli/index.js
 status=$?
 if [ $status -ne 0 ]; then
   echo "pre-commit: uuidnaOS RED — commit BLOCKED. derived drift: npm run reconcile -- --derive-only"

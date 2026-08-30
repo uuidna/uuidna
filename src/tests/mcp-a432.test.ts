@@ -2,7 +2,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { MCP_CATALOG } from '../mcp.js'
-import { MCP_ALPINE_DOOR } from '../quantum/os/mcp-man.js'
+import { MCP_ALPINE_DOOR } from '../quantum/os/mcpman/index.js'
 import { mcpA432Fusion, MCP_A432 } from '../mcp-a432.js'
 import { A432_HZ } from '../tts/synth.js'
 import { HEXBIT_STATES, UUID_HEXBITS } from '../hexbit/index.js'

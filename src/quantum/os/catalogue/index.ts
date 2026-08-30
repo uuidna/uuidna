@@ -24,9 +24,9 @@
 // address or hexbits while claiming the same compile the boot closure actually performs. The mint is the same
 // `uuidnaPackage` the install port uses; the states are `compileToHexbits` from src/hexbit. If it is named a
 // hexbit, the unit computed it.
-import { uuidnaPackage } from '../../os/packages/index.js'
-import { compileToHexbits, hexbitDoorOf, UUID_HEXBITS, type HexbitDoor } from '../../hexbit/index.js'
-import { INSTALLS_MIRROR } from './mirror.js'
+import { uuidnaPackage } from '../../../os/packages/index.js'
+import { compileToHexbits, hexbitDoorOf, UUID_HEXBITS, type HexbitDoor } from '../../../hexbit/index.js'
+import { INSTALLS_MIRROR } from '../mirror/index.js'
 
 /** where the committed catalogue lives, repo-relative — one declaration, read by the generator and the reader */
 export const CATALOGUE_FILE = 'mirror/alpine-catalogue.tsv'
@@ -218,7 +218,7 @@ export function catalogueTsvBody(packages: CataloguePackage[]): string {
 
 function readCatalogueLayer(fs: typeof import('node:fs'), file: string): CataloguePackage[] {
   try {
-    const url = new URL('../../../' + file, import.meta.url)
+    const url = new URL('../../../../' + file, import.meta.url)
     return parseCatalogue(fs.readFileSync(url, 'utf8'))
   } catch {
     return []
@@ -238,7 +238,7 @@ function load(): { packages: CataloguePackage[]; state: CatalogueState } {
   }
   try {
     // resolved from this module rather than from cwd: a script run from anywhere must find the same file
-    const url = new URL('../../../' + CATALOGUE_FILE, import.meta.url)
+    const url = new URL('../../../../' + CATALOGUE_FILE, import.meta.url)
     const text = fs.readFileSync(url, 'utf8')
     const base = parseCatalogue(text)
     const testing = readCatalogueLayer(fs, CATALOGUE_TESTING_FILE)

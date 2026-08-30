@@ -1,11 +1,11 @@
 // app-theorem — THE THEOREM BEHIND ANY APP. Apps are the main source: harmoniseOf binds each catalogue
 // row to the heaviest sealed theorem in its skill; crypto-census apps carry sha256_grover_margin; every
 // ported app rides the_os_is_bootable_quantum.
-import { cataloguePackage } from './catalogue.js'
-import { INSTALLS_MIRROR } from './mirror.js'
-import { packageInCryptoCensus } from './crypto-via.js'
-import { portApp } from '../../os/apps/index.js'
-import { theoremByKey } from '../../theorems/index.js'
+import { cataloguePackage } from '../catalogue/index.js'
+import { INSTALLS_MIRROR } from '../mirror/index.js'
+import { packageInCryptoCensus } from '../cryptovia/index.js'
+import { portApp } from '../../../os/apps/index.js'
+import { theoremByKey } from '../../../theorems/index.js'
 
 export const PORT_THEOREM = 'the_os_is_bootable_quantum' as const
 export const CRYPTO_THEOREM = 'sha256_grover_margin_is_the_address' as const

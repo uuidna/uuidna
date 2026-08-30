@@ -6,8 +6,8 @@
     "lean/axioms.json": "1791454517788bcf",
     "docs/mcp.md": "9d396e36e72a85cc",
     "audit-citations.json": "bd5145c79bbe81ec",
-    "support-audit.json": "16cd234e66098af9",
-    "research-leads.json": "a790fe1b13a48bee",
+    "support-audit.json": "80a31958b2d08fcf",
+    "research-leads.json": "308b5c92b7eb8846",
     ".zenodo.json": "f568de01091a8011",
     "reports.json": "7ea7edd206e98270",
     "lean/statement-index.json": "3c65ee51fb0789e8",
@@ -2208,6 +2208,7 @@
     "lean/auditgame-manifest.json": "71f442457b1c824b",
     "lean/billing-manifest.json": "114be29ba6cd81d9",
     "lean/biophysics-manifest.json": "ef2f646ee87084cb",
+    "lean/book-trials.json": "4a1e1daf22858399",
     "lean/boolean-manifest.json": "78aa0af28e468b54",
     "lean/browser-apps-usable.json": "f6da5385c9d18cdb",
     "lean/byte-manifest.json": "b012730bd6428b05",
@@ -2341,5 +2342,5 @@
     "lean/wave-queue.json": "aea574e2a5748ff0",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "3ef3ae87-2802-8dfe-9dd7-15fb35c137bf"
+  "receipt": "6f613018-9fcf-8e3e-bec1-751d3b08d25f"
 }

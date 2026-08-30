@@ -27,7 +27,7 @@ import {
   UUID_LAYOUT_GROUPS, HEX_TRINITY_COUNT, MESSAGE_CAP_HEXBITS, TAIL_HEXBITS,
   EXECUTABLE_HEXBITS, PAYLOAD_HEXBITS, layoutGroups, hexTrinityStates,
   executableStates, tailStates, torusStep, uuidChannel, layoutMatchesHandle,
-  layoutWidths, layoutCoversUuid, MESSAGE_CAP_AMPLITUDES, channelSeal,
+  layoutWidths, layoutCoversUuid, MESSAGE_CAP_AMPLITUDES, channelSeal, channelOpen,
 } from '../hexagram.js'
 import {
   coinYarrowWave, growLife, hardwareLayer, lifeWave, osLayer, softwareLayer,
@@ -188,11 +188,14 @@ test('message cap is one 4-hex trinity tile', () => {
   assert.equal(HANDLE_HEXBITS + PAYLOAD_HEXBITS, 32)
 })
 
-test('layoutGroups slices handle, trinities, and tail', () => {
+test('layoutGroups slices handle, trinities, tail, and merged middle', () => {
   const g = layoutGroups(LADDR)
   assert.equal(g.handle, handleOf(LADDR))
   assert.equal(g.trinities.length, 3)
   assert.equal(g.tail.length, 12)
+  assert.equal(g.words, g.trinities.join(''))
+  assert.equal(g.middle, g.words + g.tail)
+  assert.equal(g.handle.length + g.middle.length, 32)
   assert.equal(g.handle.length + g.trinities.join('').length + g.tail.length, 32)
   assert.ok(layoutMatchesHandle(LADDR))
   assert.ok(layoutCoversUuid(LADDR))
@@ -213,13 +216,24 @@ test('torusStep flips home — double torus memory is involutive', () => {
   assert.equal(torusStep(LADDR).home, true)
 })
 
-test('uuidChannel carries door and marks payload store optional', () => {
+test('uuidChannel carries door, merged words, middle payload, and marks payload store optional', () => {
   const ch = uuidChannel(LADDR)
   assert.equal(ch.handle, handleOf(LADDR))
   assert.equal(ch.door, `https://uuidna.com/${ch.handle}`)
+  assert.equal(ch.words, ch.trinities.join(''))
+  assert.equal(ch.middle, ch.words + ch.tail)
   assert.equal(ch.payloadStoreOptional, true)
   assert.equal(ch.executable.length, 12)
   assert.equal(ch.tailStates.length, 12)
+})
+
+test('channelSeal ↔ channelOpen — seal, slice handles, peel back', () => {
+  const sealed = channelSeal('automation', ['pass'], 0)
+  const opened = channelOpen(sealed.uuids, ['pass'])
+  assert.equal(opened.message, 'automation')
+  assert.equal(opened.channels.length, sealed.channels.length)
+  assert.deepEqual(opened.channels.map((c) => c.handle), sealed.channels.map((c) => c.handle))
+  assert.throws(() => channelOpen(sealed.uuids, ['wrong']))
 })
 
 test('channelSeal attaches channel slices to every uuid in the stream', () => {

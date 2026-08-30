@@ -4,11 +4,11 @@ import assert from 'node:assert/strict'
 import {
   ACME_CLIENT_PACKAGES, ACME_EDGE_PACKAGES, LETS_ENCRYPT_DIRECTORY,
   acmeDomainLabels, planLetsEncryptIssuance, testAcmePort, renderAcmePort, renderAcmeIssuance,
-} from '../quantum/os/acme-port.js'
+} from '../quantum/os/acme/index.js'
 import { planAlpineRun } from '../os/runtime/index.js'
 import { theoremByKey } from '../theorems/index.js'
-import { CRYPTO_THEOREM } from '../quantum/os/app-theorem.js'
-import { fresh } from '../quantum/os/harness.js'
+import { CRYPTO_THEOREM } from '../quantum/os/apptheorem/index.js'
+import { fresh } from '../quantum/os/harness/index.js'
 
 test.beforeEach(fresh)
 

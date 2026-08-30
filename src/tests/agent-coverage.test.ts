@@ -3,11 +3,11 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { handleMcpRpc } from '../mcp-http.js'
-import { MCP_ALPINE_DOOR } from '../quantum/os/mcp-man.js'
+import { MCP_ALPINE_DOOR } from '../quantum/os/mcpman/index.js'
 import {
   foldAlpineAgentCoverage, walkHostedAlpineApis, hostedMcpUrl, AGENT_ORIGIN,
-} from '../quantum/os/agent-coverage.js'
-import { manPagePackages } from '../quantum/os/catalogue.js'
+} from '../quantum/os/coverage/index.js'
+import { manPagePackages } from '../quantum/os/catalogue/index.js'
 
 const rpc: (message: object) => Promise<unknown> = async (message) => {
   const r = handleMcpRpc(message as { jsonrpc?: string; id?: unknown; method?: string; params?: Record<string, unknown> })

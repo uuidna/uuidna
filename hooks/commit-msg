@@ -1,8 +1,8 @@
 #!/bin/sh
 # commit-msg — HARD. Honesty + sign through uuidnaOS court (--msg). Missing dist is a denial.
-if [ ! -f dist/quantum/os/cli.js ]; then
-  echo "commit-msg: HARD — dist/quantum/os/cli.js missing. Commit BLOCKED (no tsc on this path)."
+if [ ! -f dist/quantum/os/cli/index.js ]; then
+  echo "commit-msg: HARD — dist/quantum/os/cli/index.js missing. Commit BLOCKED (no tsc on this path)."
   exit 1
 fi
-node dist/quantum/os/cli.js --msg "$1"
+node dist/quantum/os/cli/index.js --msg "$1"
 exit $?

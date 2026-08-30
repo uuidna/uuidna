@@ -4,7 +4,7 @@
 // Default install first (100% of alpine-base's closure). If that holds, continue without a hand-off.
 // Omit --limit to reverse-and-quantumize the remaining census as one major batch (any language's
 // published cmd: is the same shape). `--limit N` still walks N rows through the exec door.
-import { runPackageAtATime, renderPackageAtATime } from '../quantum/os/package-at-a-time.js'
+import { runPackageAtATime, renderPackageAtATime } from '../quantum/os/patime/index.js'
 import { planAlpineRuns, sandboxTestCommands, renderSandboxSuite } from '../os/runtime/index.js'
 
 function parseLimit(argv: string[]): number | undefined {

@@ -6,8 +6,8 @@ import {
   manPagePackages, manDrivenPortCoverage, overlayManDrivenPortCoverage,
   manAppWitness, resolveManApp, manAppOriginCandidates, packageSelfTestCoverage, TESTING_REPO,
   resolveManPage, packageSelfTest, isTestingPackage,
-} from '../quantum/os/catalogue.js'
-import { fresh, exec, APPLETS } from '../quantum/os/harness.js'
+} from '../quantum/os/catalogue/index.js'
+import { fresh, exec, APPLETS } from '../quantum/os/harness/index.js'
 import { UUID_HEXBITS, UUID_BITS, hexbitDoorOf } from '../hexbit/index.js'
 import { theoremByKey } from '../theorems/index.js'
 import { LEVELS } from '../quantum/advantage/index.js'

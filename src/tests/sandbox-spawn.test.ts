@@ -6,12 +6,12 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { bootOS } from '../quantum/os/index.js'
-import { testDefaultInstallPackages } from '../quantum/os/package-at-a-time.js'
+import { testDefaultInstallPackages } from '../quantum/os/patime/index.js'
 import {
   sandboxTestCommands, renderSandboxSuite, isSafeCmdName, isProbeableCmdName, hullCracks,
   reasonFromRefused, verifyPinnedRootfs, detectRunBackend,
 } from '../os/runtime/index.js'
-import { catalogue, providedCommands } from '../quantum/os/catalogue.js'
+import { catalogue, providedCommands } from '../quantum/os/catalogue/index.js'
 import { theoremByKey } from '../theorems/index.js'
 import { courtProcedure } from '../index.js'
 

@@ -13,7 +13,7 @@
 import { toUuid } from '../../address.js'
 import { contentWords } from '../../adjudicate.js'
 import { defaultInstalls, installFor, hexbitDoorOf } from '../os/index.js'
-import { catalogueFor, catalogueCompile } from '../os/catalogue.js'
+import { catalogueFor, catalogueCompile } from '../os/catalogue/index.js'
 
 export interface UrlAuditMatch {
   kind: 'spec' | 'family' | 'page' | 'theorem' | 'search' | 'home' | 'catalogue'

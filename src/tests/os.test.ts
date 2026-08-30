@@ -10,11 +10,11 @@ import { handleOf } from '../handle.js'
 import { channelAudit, layoutCoversUuid, layoutMatchesHandle, monographFaceOf } from '../hexagram.js'
 import { theorems } from '../theorems/index.js'
 import { publications } from '../publish.js'
-import { catalogueCompile, cataloguePackage } from '../quantum/os/catalogue.js'
+import { catalogueCompile, cataloguePackage } from '../quantum/os/catalogue/index.js'
 import {
   boot, bootBrowser, reset, fresh, exec, shell, ls, servedOS, execShellHelp,
   execSessionStamp, sessionWrite, APPLETS, APK_VERBS, SEQUENCE_VERBS,
-} from '../quantum/os/harness.js'
+} from '../quantum/os/harness/index.js'
 import { browseCatalogue, inspectCataloguePackage, renderAlpineApp, SHADCN_ALPINE_SLOTS } from '../quantum/apps/catalogue-browser.js'
 import { portPanelView } from '../quantum/apps/port-panel.js'
 import { defaultInstalls } from '../quantum/os/index.js'

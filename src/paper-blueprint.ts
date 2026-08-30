@@ -11,8 +11,8 @@ import { hexbitDoorOf, compileToHexbits, UUID_HEXBITS } from './hexbit/index.js'
 import { handleOf } from './handle.js'
 import type { Theorem } from './theorems/index.js'
 import type { InstallSpec } from './quantum/os/index.js'
-import { catalogueCompile, type CataloguePackage } from './quantum/os/catalogue.js'
-import { portTool } from './quantum/os/registry.js'
+import { catalogueCompile, type CataloguePackage } from './quantum/os/catalogue/index.js'
+import { portTool } from './quantum/os/registry/index.js'
 
 export interface Paper {
   title: string

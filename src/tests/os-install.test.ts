@@ -7,12 +7,12 @@ import {
   runPackageAtATime, renderPackageAtATime, testAvailablePackage,
   portRemainingAlpine, foldRemainingAlpine, remainingAvailableQueue, readAvailableApp,
   renderRemainingAlpine,
-} from '../quantum/os/package-at-a-time.js'
+} from '../quantum/os/patime/index.js'
 import { planAlpineRuns } from '../os/runtime/index.js'
-import { catalogue, cataloguePackage, isAlpineDistroPackage, providedCommands } from '../quantum/os/catalogue.js'
+import { catalogue, cataloguePackage, isAlpineDistroPackage, providedCommands } from '../quantum/os/catalogue/index.js'
 import { UUID_HEXBITS, UUID_BITS, nativeBitWidths } from '../hexbit/index.js'
 import { theoremByKey } from '../theorems/index.js'
-import {  fresh, exec } from '../quantum/os/harness.js'
+import {  fresh, exec } from '../quantum/os/harness/index.js'
 
 test.beforeEach(fresh)
 

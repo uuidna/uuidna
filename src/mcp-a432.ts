@@ -9,7 +9,7 @@ import { A432_HZ } from './tts/synth.js'
 import { HEXBIT_STATES, hexbitDoorOf, UUID_HEXBITS } from './hexbit/index.js'
 import { TRINITY, toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
-import { MCP_ALPINE_DOOR } from './quantum/os/mcp-man.js'
+import { MCP_ALPINE_DOOR } from './quantum/os/mcpman/index.js'
 import { cidrNetwork, ipv4Masks, cidrHostSpan, cidrContains, isHandle } from './handle.js'
 
 export { A432_HZ, MCP_ALPINE_DOOR }

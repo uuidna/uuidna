@@ -15,7 +15,7 @@ import {
   CATALOGUE_COLUMNS, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE,
   TESTING_REPO, parseCatalogue, parseApkIndex, mergeCatalogueLayers, catalogueTsvBody,
   missingPackageNameDeps, type CataloguePackage,
-} from '../quantum/os/catalogue.js'
+} from '../quantum/os/catalogue/index.js'
 
 const CDN = 'https://dl-cdn.alpinelinux.org/alpine'
 const TESTING_BRANCH = 'edge'

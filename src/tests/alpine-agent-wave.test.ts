@@ -9,10 +9,10 @@
 // no execution of Alpine.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { runWaves, type WaveJob } from '../quantum/os/waves.js'
+import { runWaves, type WaveJob } from '../quantum/os/waves/index.js'
 import {
   catalogue, catalogueCompile, packageSelfTest, type CataloguePackage,
-} from '../quantum/os/catalogue.js'
+} from '../quantum/os/catalogue/index.js'
 import { laneOf, handleOf, handlePath, handleOfPath, isHandle } from '../handle.js'
 import { empty, remember, union, receipt, verify, missing, type Store } from '../agent/memory/index.js'
 import { reason } from '../reason.js'

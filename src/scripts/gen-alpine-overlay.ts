@@ -10,7 +10,7 @@ import { OVERLAY_APPS, npmShasumToQ1, overlayDocChecksum } from '../os/overlay/i
 import {
   CATALOGUE_COLUMNS, CATALOGUE_FILE, CATALOGUE_TESTING_FILE, OVERLAY_REPO,
   mergeCatalogueLayers, catalogueTsvBody, parseCatalogue, type CataloguePackage,
-} from '../quantum/os/catalogue.js'
+} from '../quantum/os/catalogue/index.js'
 
 export const OVERLAY_FILE = 'mirror/alpine-overlay.tsv'
 

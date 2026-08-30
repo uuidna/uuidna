@@ -6,7 +6,7 @@
 import {
   catalogueSearch, cataloguePackage, catalogueCompile, catalogueState, catalogueBrowse, resolveManPage, manAppWitness,
   type CataloguePackage,
-} from '../os/catalogue.js'
+} from '../os/catalogue/index.js'
 import { UUID_HEXBITS } from '../../hexbit/index.js'
 import { toUuid } from '../../address.js'
 import { handleOf } from '../../handle.js'

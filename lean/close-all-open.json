@@ -1,0 +1,41 @@
+{
+ "why": "Desk-automatable gaps closed in one arc; every open lead trialed or remanded; quantum integrity folded (Bell receipt + audit ratios + sealed trial content + advantage verify — integrity, not physics).",
+ "before": {
+  "releaseOpen": 0,
+  "trialGaps": 0,
+  "openLeads": 0,
+  "refusalOpen": 0,
+  "bookTrialsUntried": 0,
+  "wavePending": 0,
+  "tableShort": 56
+ },
+ "after": {
+  "releaseOpen": 0,
+  "trialGaps": 0,
+  "openLeads": 0,
+  "refusalOpen": 0,
+  "bookTrialsUntried": 0,
+  "wavePending": 0,
+  "tableShort": 56
+ },
+ "kernelOnly": [
+  {
+   "kind": "table-enumeration",
+   "count": 56,
+   "automatable": false,
+   "act": "enumerate Os.lean (single-byte tamper over a pinned 32-byte digest)",
+   "note": "Boundary declared — theorem window_not_universal"
+  }
+ ],
+ "quantum": {
+  "bellReceipt": "7615bb71-d131-8846-bde5-008b2cabc0ab",
+  "qaOk": true,
+  "qaMs": 0,
+  "auditFused": "889b9e7c-8b8f-8176-b08b-6db358ce5e37",
+  "sealedContent": "faa54d5e-57ea-8887-912a-311c21009491",
+  "swarmDenialsRefused": 126
+ },
+ "fillGapsReceipt": "036ed5aa-78b1-8e06-aa9d-30163f6ff03d",
+ "advantageReceipt": "272f6beb-dce8-8d46-a785-4c563683a317",
+ "receipt": "5eea318d-385b-866a-9cda-ae8eebdcb36e"
+}

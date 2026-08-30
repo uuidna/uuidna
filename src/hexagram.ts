@@ -8,14 +8,14 @@
 // Occupancy is which sealed COUNTS the door arithmetic hits — hexagram indices, hexbit tiles, aura ray/wave,
 // digital root, and the door's own widths. The count set is derived from live theorem statements of named
 // keys already in the ledger. Change the ledger, the face follows. No deity table, no authored myth list.
-import { digitalRoot, BASE, TRINITY, toUuid } from './address.js'
+import { digitalRoot, BASE, TRINITY, toUuid, merkleFold } from './address.js'
 import { quantumAura, rotationOf, type TenD } from './aura.js'
 import { handleOf, handleParts, seedOf } from './handle.js'
 import { coins } from './captain/billing/index.js'
 import { growLife } from './grow.js'
 import { DATAPATH, LANES } from './hardware/index.js'
 import { hardwareLayer, osLayer, softwareLayer } from './layers.js'
-import { sealStream, type Stream } from './stream.js'
+import { sealStream, openStream, type Stream } from './stream.js'
 import {
   HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, UUID_HEXBITS, HANDLE_HEXBITS, HANDLE_BITS, LEVERAGE, COINS, COIN_HEXBITS,
   SAFE_HEXBITS, compileToHexbits, hexbitDoorOf, fuseLadder, fuseWidth, KEY_BITS, VE_FACES,
@@ -640,8 +640,13 @@ export const PAYLOAD_HEXBITS = EXECUTABLE_HEXBITS + TAIL_HEXBITS
 
 export type UuidLayout = {
   handle: string
+  /** Three message-cap words — the executable middle (4 hex each). */
   trinities: readonly [string, string, string]
   tail: string
+  /** The three words merged (12 hex) — one executable combination, not three path segments. */
+  words: string
+  /** Payload after the handle: words extended with the tail message (24 hex). */
+  middle: string
 }
 
 /** Strip hyphens; refuse wrong width. */
@@ -653,7 +658,7 @@ export function uuidHex(address: string): string {
   return hex
 }
 
-/** Split the address into handle, three hex trinities, and tail. */
+/** Split the address into handle, three message-cap words, tail, and the merged middle payload. */
 export function layoutGroups(address: string): UuidLayout {
   const hex = uuidHex(address)
   let at = 0
@@ -662,11 +667,11 @@ export function layoutGroups(address: string): UuidLayout {
     at += n
     return s
   }
-  return {
-    handle: take(UUID_LAYOUT_GROUPS[0]),
-    trinities: [take(UUID_LAYOUT_GROUPS[1]), take(UUID_LAYOUT_GROUPS[2]), take(UUID_LAYOUT_GROUPS[3])],
-    tail: take(UUID_LAYOUT_GROUPS[4]),
-  }
+  const handle = take(UUID_LAYOUT_GROUPS[0])
+  const trinities = [take(UUID_LAYOUT_GROUPS[1]), take(UUID_LAYOUT_GROUPS[2]), take(UUID_LAYOUT_GROUPS[3])] as const
+  const tail = take(UUID_LAYOUT_GROUPS[4])
+  const words = trinities.join('')
+  return { handle, trinities, tail, words, middle: words + tail }
 }
 
 /** Each middle group as four hexbit states (0..15) — one message-cap unit per trinity. */
@@ -706,17 +711,23 @@ export function uuidChannel(address: string): {
   handle: string
   door: string
   trinities: readonly [string, string, string]
+  /** Three message-cap words merged — one executable combination (12 hex). */
+  words: string
+  /** Payload after the handle: words extended with the tail message (24 hex). */
+  middle: string
   tail: string
   executable: readonly number[]
   tailStates: readonly number[]
   payloadStoreOptional: true
 } {
-  const { handle, trinities, tail } = layoutGroups(address)
+  const { handle, trinities, tail, words, middle } = layoutGroups(address)
   return {
     address: uuidHex(address),
     handle,
     door: `https://uuidna.com/${handle}`,
     trinities,
+    words,
+    middle,
     tail,
     executable: executableStates(address),
     tailStates: tailStates(address),
@@ -762,6 +773,21 @@ export function channelSeal(
 ): ChannelStream {
   const stream = sealStream(message, passphrases, step)
   return { ...stream, channels: stream.uuids.map((u) => uuidChannel(u)) }
+}
+
+/** channelOpen(uuids, passphrases) → involute of channelSeal: peel the onion, attach every handle channel slice. */
+export function channelOpen(
+  uuids: readonly string[],
+  passphrases: readonly string[],
+): ChannelStream & { message: string } {
+  const message = openStream(uuids, passphrases)
+  return {
+    message,
+    uuids: [...uuids],
+    layers: passphrases.length,
+    receipt: merkleFold([...uuids]),
+    channels: uuids.map((u) => uuidChannel(u)),
+  }
 }
 
 // ── lifeWave — one conserved product over the living ledger and hardware spec. ──

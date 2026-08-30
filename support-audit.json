@@ -1,9 +1,7 @@
 {
-  "modules": 891,
-  "roots": 561,
-  "supported": 890,
-  "dead": [
-    "src/quantum/os/cli.ts"
-  ],
-  "receipt": "fa8bb779-da1f-8c12-b8fd-a9373e07d483"
+  "modules": 892,
+  "roots": 562,
+  "supported": 892,
+  "dead": [],
+  "receipt": "3858a0bd-f858-8278-8aa5-a16ed135a085"
 }

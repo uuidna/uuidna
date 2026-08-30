@@ -3,25 +3,25 @@
 // Doctrine (same as uuidna_exec / mcp-man): never mint one wire tool per package. libcrypto3, openssl, nginx,
 // curl, and every other catalogue row that links libssl/libcrypto (or whose published purpose is cryptographic)
 // get a uuidna identity here; the primitives they stand on are the existing MCP crypto doors.
-import { catalogue, cataloguePackage, catalogueState, type CataloguePackage } from './catalogue.js'
-import { INSTALLS_MIRROR } from './mirror.js'
-import { portApp, originOf, type AppPort } from '../../os/apps/index.js'
+import { catalogue, cataloguePackage, catalogueState, type CataloguePackage } from '../catalogue/index.js'
+import { INSTALLS_MIRROR } from '../mirror/index.js'
+import { portApp, originOf, type AppPort } from '../../../os/apps/index.js'
 import {
   KEY_BITS, UUID_BITS, COINS, HEXBIT_BITS, GROVER_FLOOR_BITS, shorCapacityFit, shorFullUse,
   type ShorCapacityFit, type ShorFullUse,
-} from '../../hexbit/index.js'
-import { NONCE_BYTES, SALT_BYTES, TAG_BYTES, ITER } from '../../crypt.js'
-import { BLOCK_BYTES } from '../../chacha.js'
-import { MAX_LAYERS } from '../../stream.js'
-import { pqcPosture, type PqcPosture } from '../../pqc/index.js'
-import { CAPACITY, FREE_BITS } from '../../imprint.js'
-import { toUuid } from '../../address.js'
-import { merkleGravity } from '../../gravity/index.js'
-import { appTheoremBehind } from './app-theorem.js'
+} from '../../../hexbit/index.js'
+import { NONCE_BYTES, SALT_BYTES, TAG_BYTES, ITER } from '../../../crypt.js'
+import { BLOCK_BYTES } from '../../../chacha.js'
+import { MAX_LAYERS } from '../../../stream.js'
+import { pqcPosture, type PqcPosture } from '../../../pqc/index.js'
+import { CAPACITY, FREE_BITS } from '../../../imprint.js'
+import { toUuid } from '../../../address.js'
+import { merkleGravity } from '../../../gravity/index.js'
+import { appTheoremBehind } from '../apptheorem/index.js'
 import {
   type CryptoVia,
   viaOf, directCryptoNames,
-} from './crypto-via.js'
+} from '../cryptovia/index.js'
 
 export interface CryptoWidths {
   shor: ShorCapacityFit
@@ -82,7 +82,7 @@ export const MCP_CRYPTO_DOORS = [
   'uuidna_quantum', 'uuidna_crypto',
 ] as const
 
-export type { CryptoVia } from './crypto-via.js'
+export type { CryptoVia } from '../cryptovia/index.js'
 
 export function cryptoWidths(): CryptoWidths {
   const full = shorFullUse()

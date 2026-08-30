@@ -5,15 +5,15 @@
 // `apk info <app>` / `man <topic>`}. 100% is every man-corpus app answering through that hosted door.
 // uuidna_run is a named stdio orphan (Layer 2), never a silent hole. The listing is learned live — this
 // module names the one door constant, never a per-app uuidna_* catalogue.
-import { toUuid } from '../../address.js'
-import { merkleGravity } from '../../gravity/index.js'
-import { hexbitDoorOf, UUID_HEXBITS } from '../../hexbit/index.js'
-import { WORD_BYTES } from '../../mcp-wire.js'
-import { rpcCall, rpcList, resultText } from '../apps/terminal.js'
-import { manAppWitness, manPagePackages, type CataloguePackage } from './catalogue.js'
-import { MCP_ALPINE_DOOR } from './mcp-man.js'
-export { AGENT_ORIGIN, AGENT_MCP_PATH, hostedMcpUrl } from '../advantage/mcp/wire/index.js'
-import { hostedMcpUrl } from '../advantage/mcp/wire/index.js'
+import { toUuid } from '../../../address.js'
+import { merkleGravity } from '../../../gravity/index.js'
+import { hexbitDoorOf, UUID_HEXBITS } from '../../../hexbit/index.js'
+import { WORD_BYTES } from '../../../mcp-wire.js'
+import { rpcCall, rpcList, resultText } from '../../apps/terminal.js'
+import { manAppWitness, manPagePackages, type CataloguePackage } from '../catalogue/index.js'
+import { MCP_ALPINE_DOOR } from '../mcpman/index.js'
+export { AGENT_ORIGIN, AGENT_MCP_PATH, hostedMcpUrl } from '../../advantage/mcp/wire/index.js'
+import { hostedMcpUrl } from '../../advantage/mcp/wire/index.js'
 export { MCP_ALPINE_DOOR }
 
 export interface AlpineApiHit {

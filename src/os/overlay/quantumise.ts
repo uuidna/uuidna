@@ -6,7 +6,7 @@
 // module MAPS a registry record onto CataloguePackage. Ingest of a live index stays at the os/ boundary
 // (like APKINDEX / gen-alpine-overlay). A census is derived, never frozen in Lean.
 import { npmShasumToQ1 } from './index.js'
-import type { CataloguePackage } from '../../quantum/os/catalogue.js'
+import type { CataloguePackage } from '../../quantum/os/catalogue/index.js'
 
 export const REGISTRY_REPOS = ['npm', 'rubygems', 'pypi', 'crates'] as const
 export type RegistryRepo = (typeof REGISTRY_REPOS)[number]

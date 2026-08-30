@@ -1,14 +1,14 @@
 // harness — Layer 1 tests boot here; exec never bypasses the verified world.
 import assert from 'node:assert/strict'
-import { bootOS, servedOS, type BootedOS } from './index.js'
-import { catalogueState } from './catalogue.js'
-import { bootUuidnaOSInBrowser, type BrowserBootResult } from './browser-boot.js'
+import { bootOS, servedOS, type BootedOS } from '../index.js'
+import { catalogueState } from '../catalogue/index.js'
+import { bootUuidnaOSInBrowser, type BrowserBootResult } from '../boot/index.js'
 import {
   uuidnaExec, uuidnaLs, resetExecSession as resetExecInner,
   APPLETS, APK_VERBS, SEQUENCE_VERBS, type ExecResult,
-} from './exec.js'
-import { resetExecSession, execSessionStamp, sessionWrite } from './session.js'
-import { runExecLine, execShellHelp, type ExecShellLine } from '../apps/exec-shell.js'
+} from '../exec/index.js'
+import { resetExecSession, execSessionStamp, sessionWrite } from '../session/index.js'
+import { runExecLine, execShellHelp, type ExecShellLine } from '../../apps/exec-shell.js'
 
 let mill: BootedOS | null = null
 

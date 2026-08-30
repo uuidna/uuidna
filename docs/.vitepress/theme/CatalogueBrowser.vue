@@ -1,7 +1,7 @@
 <!-- CatalogueBrowser — offline PWA shelf: boot uuidnaOS, prime the census, browse community apps locally. -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/browser-boot.js'
+import { bootUuidnaOSInBrowser } from '../../../src/quantum/os/boot/index.js'
 import { browseCatalogue, inspectCataloguePackage } from '../../../src/quantum/apps/catalogue-browser.js'
 import { runExecLine } from '../../../src/quantum/apps/exec-shell.js'
 import { handleOf } from '../../../src/handle.js'

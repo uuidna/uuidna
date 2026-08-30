@@ -11,7 +11,7 @@
 // their own honest scope (the aura is art, image provenance is exact-copy not content-truth, the cube is symmetric).
 import { adjudicate } from './adjudicate.js'
 import { bootOS } from './quantum/os/index.js'
-import { ensureEdgeCatalogue } from './quantum/os/browser-boot.js'
+import { ensureEdgeCatalogue } from './quantum/os/boot/index.js'
 import { reveal } from './gate.js'
 import { searchLedger } from './editorial.js'
 import { decide } from './decide.js'

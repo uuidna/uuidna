@@ -57,7 +57,7 @@ if (existsSync(path)) {
   await import(pathToFileURL(path).href)
   process.exit(0)
 }
-const { uuidnaExec } = await import('../quantum/os/exec.js')
+const { uuidnaExec } = await import('../quantum/os/exec/index.js')
 const ran = uuidnaExec([name, ...rest].join(' '))
 for (const line of ran.output) console.log(line)
 process.exit(ran.ok ? 0 : 1)

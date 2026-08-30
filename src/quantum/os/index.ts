@@ -17,9 +17,9 @@
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
 import { uuidnaPackage } from '../../os/packages/index.js'
-import { INSTALLS_MIRROR, type InstallsMirror, type MirrorPackage } from './mirror.js'
+import { INSTALLS_MIRROR, type InstallsMirror, type MirrorPackage } from './mirror/index.js'
 import { driverBundle } from '../../drivers/driver/index.js'
-import { INSTALL_ROUTES, routeOf } from './routes.js'
+import { INSTALL_ROUTES, routeOf } from './routes/index.js'
 export { INSTALL_ROUTES, routeOf }
 
 /** compileToHexbits — the unit's own address→states compiler (src/hexbit owns it; re-exported here because
@@ -35,7 +35,7 @@ export { compileToHexbits, hexbitDoorOf }
 import { gpuCapacity, type GpuCapacity } from '../../hardware/lanes/index.js'
 import { streamFleet } from '../apps/balancer.js'
 import { osLayer, type NamedLayer } from '../../layers.js'
-import { upgradeFirmware, type FirmwareUpgrade } from './firmware.js'
+import { upgradeFirmware, type FirmwareUpgrade } from './firmware/index.js'
 
 /** One default install, ported: the uuidna/<name> identity plus its path, its published meaning, its
  *  dependency names, and its hexbit compile. */
@@ -330,4 +330,4 @@ export function bootOS(): BootedOS {
   return (BOOTED = { port, boot, receipt: port.receipt, floor: port.specs[0]!.id, capacity: latticeCapacity() })
 }
 
-export { catalogue, catalogueState, cataloguePackage, resolveAlpineApp, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, type CataloguePackage, type CatalogueState, type AlpineAppRef, type AlpineAppVia } from './catalogue.js'
+export { catalogue, catalogueState, cataloguePackage, resolveAlpineApp, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, type CataloguePackage, type CatalogueState, type AlpineAppRef, type AlpineAppVia } from './catalogue/index.js'

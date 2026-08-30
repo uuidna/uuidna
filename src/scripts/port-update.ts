@@ -18,7 +18,7 @@ import { spawnSync } from 'node:child_process'
 import { join } from 'node:path'
 import { portStatus, portDelta, defaultInstalls } from '../quantum/os/index.js'
 import { fetchDefaultInstalls } from '../os/installs/index.js'
-import { INSTALLS_MIRROR } from '../quantum/os/mirror.js'
+import { INSTALLS_MIRROR } from '../quantum/os/mirror/index.js'
 import { verifyPinnedRootfs } from '../os/runtime/index.js'
 import { ROOT } from './api.js'
 

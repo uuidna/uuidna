@@ -7,9 +7,9 @@ import { KEY_BITS, UUID_BITS, COINS, HEXBIT_BITS, GROVER_FLOOR_BITS, UUID_HEXBIT
 import { NONCE_BYTES, SALT_BYTES, TAG_BYTES, ITER } from '../crypt.js'
 import { BLOCK_BYTES } from '../chacha.js'
 import { CAPACITY, FREE_BITS } from '../imprint.js'
-import { MCP_CRYPTO_DOORS, type CryptoAppsPort, type CryptoAppLookup } from '../quantum/os/crypto-apps.js'
+import { MCP_CRYPTO_DOORS, type CryptoAppsPort, type CryptoAppLookup } from '../quantum/os/cryptoapps/index.js'
 import { theoremByKey } from '../theorems/index.js'
-import { CRYPTO_THEOREM } from '../quantum/os/app-theorem.js'
+import { CRYPTO_THEOREM } from '../quantum/os/apptheorem/index.js'
 
 test('uuidna_crypto is ONE door — no per-app Alpine crypto tools', () => {
   assert.ok(MCP_CATALOG.some((t) => t.name === 'uuidna_crypto'))

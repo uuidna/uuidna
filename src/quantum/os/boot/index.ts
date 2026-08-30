@@ -2,11 +2,11 @@
 //
 // bootOS() seals the default install; the catalogue must be primed separately in the browser
 // (primeCatalogueFrom). Node self-loads mirror/ on first catalogueState().
-import { bootOS } from './index.js'
+import { bootOS } from '../index.js'
 import {
   primeCatalogueFrom, catalogueState, testAllPackagesChunked, isUpstreamClosureGap, primeCatalogue,
   type CatalogueState,
-} from './catalogue.js'
+} from '../catalogue/index.js'
 
 export const DEFAULT_CATALOGUE_URL = '/alpine-catalogue.tsv'
 

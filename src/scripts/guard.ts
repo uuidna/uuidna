@@ -15,7 +15,7 @@ import { HERE, ROOT, type Gap } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -207,6 +207,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // one word, one name, many faces — a module folder holds index.* only; the 17-module migration that satisfied
   // this landed with the finder unwired, and the dormant-finder test caught it before the law could rot.
   { name: 'folders', run: () => foldersGaps() },
+  { name: 'imports', run: () => importGaps() },
   // the two Payload emissions must never disagree — richText docs and layout blocks address the same
   // theorem identically, or the "same data, two envelopes" claim from 2026-08-18 ("each theorem is a
   // block") is false. Skips clean when the optional exports have not been generated yet.

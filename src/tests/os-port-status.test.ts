@@ -7,7 +7,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { portStatus, portDelta } from '../quantum/os/index.js'
-import { INSTALLS_MIRROR } from '../quantum/os/mirror.js'
+import { INSTALLS_MIRROR } from '../quantum/os/mirror/index.js'
 import { callTool } from '../mcp.js'
 
 test('portStatus reports the pinned port — the committed mirror made observable', () => {

@@ -4,7 +4,7 @@
 // All of it inside the booted sandbox: the first assertion of every run is the world itself.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { runWaves, type WaveJob } from '../quantum/os/waves.js'
+import { runWaves, type WaveJob } from '../quantum/os/waves/index.js'
 import { theorems } from '../theorems/index.js'
 import { compileToHexbits } from '../hexbit/index.js'
 

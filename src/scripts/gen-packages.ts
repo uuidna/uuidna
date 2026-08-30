@@ -51,8 +51,8 @@ const PARTITION: Record<string, string> = {
   './drivers/driver/index.js': 'quantum',
   './drivers/quantum/index.js': 'quantum',
   './quantum/os/index.js': 'quantum',
-  './quantum/os/firmware.js': 'quantum',
-  './quantum/os/exec.js': 'quantum',
+  './quantum/os/firmware/index.js': 'quantum',
+  './quantum/os/exec/index.js': 'quantum',
   './quantum/apps/index.js': 'quantum',
   './os/apps/index.js': 'quantum',
   // mcp — the server's I/O boundary (the bin re-serves the root server)

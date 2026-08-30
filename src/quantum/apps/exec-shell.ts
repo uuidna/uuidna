@@ -2,8 +2,8 @@
 //
 // Runs uuidnaExec locally after catalogue prime — no MCP round-trip, no Alpine binaries.
 // Session state (apk add/del) persists for the page lifetime via session.ts.
-import { uuidnaExec, type ExecResult } from '../os/exec.js'
-import { execSessionStamp } from '../os/session.js'
+import { uuidnaExec, type ExecResult } from '../os/exec/index.js'
+import { execSessionStamp } from '../os/session/index.js'
 
 export interface ExecShellLine {
   ok: boolean

@@ -6,24 +6,24 @@ import {
   catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile,
   resolveManPage, isManPagePackage, manAppWitness, catalogue, catalogueRouteOf,
   resolveAlpineApp, providedCommands,
-} from './catalogue.js'
-import { INSTALLS_MIRROR } from './mirror.js'
-import { toUuid } from '../../address.js'
-import { handleOf } from '../../handle.js'
-import { bootOS, hexbitDoorOf, type InstallSpec } from './index.js'
-import { hostQuantumDevice } from '../../drivers/quantum/index.js'
-import { hostStreamFleet } from '../../os/host/index.js'
-import { GPU_POSTAGE_ADDRESSES } from '../../hardware/lanes/index.js'
-import { driverBundle } from '../../drivers/driver/index.js'
+} from '../catalogue/index.js'
+import { INSTALLS_MIRROR } from '../mirror/index.js'
+import { toUuid } from '../../../address.js'
+import { handleOf } from '../../../handle.js'
+import { bootOS, hexbitDoorOf, type InstallSpec } from '../index.js'
+import { hostQuantumDevice } from '../../../drivers/quantum/index.js'
+import { hostStreamFleet } from '../../../os/host/index.js'
+import { GPU_POSTAGE_ADDRESSES } from '../../../hardware/lanes/index.js'
+import { driverBundle } from '../../../drivers/driver/index.js'
 import {
   execSessionStamp, resetExecSession, sessionAdd, sessionDel, sessionAdded, sessionHasPackage,
   sessionRead, sessionWrite, sessionCwd, setSessionCwd,
-} from './session.js'
-import { livingFieldReport, computeVortexInvariantsHold } from '../../sequence-field.js'
-import { runSequence } from '../../sequence-run.js'
-import { parseCourtPlan, runCourtCli, runCourtSync } from './court.js'
-import { testQuantumAlpineCoverage, renderQuantumAlpineCoverage } from './quantum-alpine.js'
-import { planLetsEncryptIssuance, renderAcmeIssuance, testAcmePort, renderAcmePort } from './acme-port.js'
+} from '../session/index.js'
+import { livingFieldReport, computeVortexInvariantsHold } from '../../../sequence-field.js'
+import { runSequence } from '../../../sequence-run.js'
+import { parseCourtPlan, runCourtCli, runCourtSync } from '../court/index.js'
+import { testQuantumAlpineCoverage, renderQuantumAlpineCoverage } from '../alpine/index.js'
+import { planLetsEncryptIssuance, renderAcmeIssuance, testAcmePort, renderAcmePort } from '../acme/index.js'
 
 export { resetExecSession, execSessionStamp }
 
@@ -576,7 +576,7 @@ export function uuidnaExec(line: string): ExecResult {
     case 'run': {
       const cmd = args.join(' ')
       if (!cmd) { err('run: a command is required — e.g. `run busybox --help` or `run nginx -v`'); break }
-      const { planAlpineRun } = createRequire(import.meta.url)('../../os/runtime/index.js') as typeof import('../../os/runtime/index.js')
+      const { planAlpineRun } = createRequire(import.meta.url)('../../../os/runtime/index.js') as typeof import('../../../os/runtime/index.js')
       const plan = planAlpineRun(cmd)
       if (!plan.ok) {
         emit([`run: ${plan.reason ?? 'refused'}`, ...(plan.remedy ? [`remedy: ${plan.remedy}`] : [])], { kind: 'run-plan', plan })

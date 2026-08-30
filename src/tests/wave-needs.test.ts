@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { courtJobs, dailyNeedJobs, hexBootJob, publishNeedJobs } from '../quantum/os/court.js'
-import { runWaves } from '../quantum/os/waves.js'
+import { courtJobs, dailyNeedJobs, hexBootJob, publishNeedJobs } from '../quantum/os/court/index.js'
+import { runWaves } from '../quantum/os/waves/index.js'
 
 test('uuidna needs — court waves boot inside the sandbox', async () => {
   const jobs = [hexBootJob(), ...courtJobs()]

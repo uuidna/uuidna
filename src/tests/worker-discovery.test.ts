@@ -66,7 +66,7 @@ test('the worker graph never static-imports Node builtins Cloudflare refuses (co
     'src/os/runtime/rootfs.ts',
     'src/os/runtime/sandbox.ts',
     'src/os/runtime/host-node.ts',
-    'src/quantum/os/remaining-alpine-cache.ts',
+    'src/quantum/os/cache/index.ts',
   ]
   for (const rel of files) {
     const src = readFileSync(join(ROOT, rel), 'utf8')

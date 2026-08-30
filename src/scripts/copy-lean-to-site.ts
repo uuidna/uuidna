@@ -18,7 +18,7 @@
 import { readdirSync, mkdirSync, copyFileSync, existsSync, readFileSync, writeFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, parseCatalogue, mergeCatalogueLayers, catalogueTsvBody } from '../quantum/os/catalogue.js'
+import { CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, parseCatalogue, mergeCatalogueLayers, catalogueTsvBody } from '../quantum/os/catalogue/index.js'
 
 const LEAN = join(ROOT, 'lean')
 const SEEDS = join(ROOT, 'src', 'seeds')

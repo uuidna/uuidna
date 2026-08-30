@@ -4,7 +4,7 @@
 // the SAME preimage the served API seal folds — so the two surfaces cannot drift. Controls that fail.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { unifiedRegistry, portTool } from '../quantum/os/registry.js'
+import { unifiedRegistry, portTool } from '../quantum/os/registry/index.js'
 import { defaultInstalls } from '../quantum/os/index.js'
 import { toUuid } from '../address.js'
 import { callTool } from '../mcp.js'

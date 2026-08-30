@@ -9,7 +9,7 @@
 import { untarGzipMember } from '../packages/index.js'
 import { fetchAlpineLatest } from '../alpine/index.js'
 import { fetchDriverLatest } from '../../drivers/driver/index.js'
-import { type InstallsMirror } from '../../quantum/os/mirror.js'
+import { type InstallsMirror } from '../../quantum/os/mirror/index.js'
 
 const CDN = 'https://dl-cdn.alpinelinux.org/alpine'
 interface IndexRecord { name: string; version: string; checksum: string; desc: string; deps: string[]; provides: string[] }

@@ -2,8 +2,8 @@
 //
 // The boot closure stays sealed; session adds AVAILABLE packages and content-addressed files
 // in-process. Receipts name execSessionStamp() so simulated state is never silent.
-import { cataloguePackage } from './catalogue.js'
-import { toUuid } from '../../address.js'
+import { cataloguePackage } from '../catalogue/index.js'
+import { toUuid } from '../../../address.js'
 
 export interface SessionFile {
   path: string

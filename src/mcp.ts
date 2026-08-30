@@ -60,18 +60,19 @@ import type { SourceReading } from './leads.js'
 import { portAllAlpine } from './os/alpine/index.js' // os/ boundary — LIVE upstream read (named non-determinism), not via the deterministic index
 import { infuseAlpinePackages, alpinePackage } from './os/packages/index.js' // os/ boundary — each Alpine package → uuidna/<name>
 import { defaultInstalls, bootOS, servedOS } from './quantum/os/index.js' // PURE — the port + the boot every surface stands on (no fetch, edge-clean)
-import { uuidnaExec } from './quantum/os/exec.js' // Alpine apps via apk + man→hexbit (+ install ls); toy busybox folded away
-import { cryptoAppsPort, cryptoAppOf } from './quantum/os/crypto-apps.js'
-import { unifiedRegistry } from './quantum/os/registry.js' // the toolbox and the ported OS as ONE content-addressed registry
+import { uuidnaExec } from './quantum/os/exec/index.js' // Alpine apps via apk + man→hexbit (+ install ls); toy busybox folded away
+import { cryptoAppsPort, cryptoAppOf } from './quantum/os/cryptoapps/index.js'
+import { unifiedRegistry } from './quantum/os/registry/index.js' // the toolbox and the ported OS as ONE content-addressed registry
 import { portStatus } from './quantum/os/index.js' // the pinned Alpine port made observable — automate port updates
-import { relatedToTheorems } from './quantum/os/related.js' // which packages the theorems relate to, adjudicated
+import { relatedToTheorems } from './quantum/os/related/index.js' // which packages the theorems relate to, adjudicated
 import { paperBlueprintTheorem } from './paper-blueprint.js'
 import { labOf } from './school/laboratory/index.js'
 import { balanceContext } from './quantum/context/index.js' // PURE — the context-window balance by the unit's own spare law
 import { balanceMachine } from './quantum/machine/index.js' // PURE — the same spare law at the metal (self-report in, audit out)
 import { sanitizeValue, sanitizeInput } from './sanitize.js' // process any input, sanitise any output — the engine's I/O guards
 import { gateVerdict, gateSelfTest, gateStatus, registryReceipt, depositCoins, ledgerLine, messagingEnvelope, GATE_THEOREMS } from './gate-engine.js' // the gated dispatch core — every served result passes the sealed conjunction gate and deposits the two coins
-import { channelAudit, channelSeal } from './hexagram.js'
+import { channelAudit, channelSeal, channelOpen } from './hexagram.js'
+import { tamperCosts } from './tamper-cost.js'
 import { payment, coinCensus, whoPaid, enrollCrew, type CoinPayment } from './coin-ledger.js' // the captain-coin account + crew enrollment (licences bound to handles)
 import { legalFacts } from './legal.js'
 import { license } from './license.js'
@@ -159,6 +160,10 @@ const TOOLS: Tool[] = ([
     description: 'AUTOMATION PATH — onion-seal a message (uuidna_seal_onion) and attach per-uuid channel slices for every link in the chain. Returns {uuids,layers,receipt,channels} where each channel is handle+trinities+tail without any payload-store dependency. Passphrases innermost→outermost; optional advancing step closes the equality leak.',
     inputSchema: { type: 'object', properties: { message: { type: 'string' }, passphrases: { type: 'array', items: { type: 'string' }, description: 'innermost→outermost, 1..16 layers' }, step: { type: 'integer', description: 'optional advancing crypt-salt step' } }, required: ['message', 'passphrases'] },
     run: (a) => channelSeal(String(a.message), (a.passphrases as string[]).map(String), a.step === undefined ? undefined : Number(a.step)) },
+  { name: 'uuidna_open_channel',
+    description: 'INVOLUTE of uuidna_seal_channel — one command: peel the onion (ChaCha20-Poly1305, outermost-first), decode the plaintext, and attach every uuid channel slice (handle + merged words + tail) so handles work together without the payload store. Wrong key, reorder, or tamper throws (Poly1305). Returns {message,uuids,layers,receipt,channels,tamper} where tamper is verify-vs-forge costs at the live widths (2^128 theorem / 2^64 coin). Boundary declared — theorem drift_is_named_or_caught.',
+    inputSchema: { type: 'object', properties: { uuids: { type: 'array', items: { type: 'string' }, description: 'uuid chain from uuidna_seal_channel' }, passphrases: { type: 'array', items: { type: 'string' }, description: 'innermost→outermost, same order as seal' } }, required: ['uuids', 'passphrases'] },
+    run: (a) => ({ ...channelOpen((a.uuids as string[]).map(String), (a.passphrases as string[]).map(String)), tamper: tamperCosts() }) },
   { name: 'uuidna_merge',
     description: 'Fold two content-addresses into one, ORDER-SENSITIVE (merge(a,b) ≠ merge(b,a)) — the directed edge. For the order-INVARIANT fold use uuidna_gravity or uuidna_merkle_root.',
     inputSchema: { type: 'object', properties: { a: { type: 'string' }, b: { type: 'string' } }, required: ['a', 'b'] },

@@ -1,7 +1,7 @@
 // @non-harmonic: fetch and extract the pinned Alpine minirootfs at the os/ boundary.
 import { existsSync, mkdirSync, readFileSync, writeFileSync, join, spawnSync } from './host-node.js'
 import { ROOT } from '../../boundary.js'
-import { INSTALLS_MIRROR } from '../../quantum/os/mirror.js'
+import { INSTALLS_MIRROR } from '../../quantum/os/mirror/index.js'
 import { alpineRelease, verifyAlpineRootfs, type RootfsCheck } from '../alpine/index.js'
 import { resolveShell } from '../host/index.js'
 

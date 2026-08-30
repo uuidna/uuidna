@@ -1,10 +1,12 @@
-// uuidna — the content-addressed core. Dependency-free, exact integer arithmetic (no Math.*).
-// toUuid provides INTEGRITY.
+// uuidna — the content-addressed core. Below hexbit in the stack — mint and fold only (no unit widths).
+// toUuid provides INTEGRITY. Exact integer arithmetic (no Math.*).
 // FNV-1a is NON-cryptographic by design — public and reproducible. For adversarial integrity use
 // cryptoAddress (SHA-256), which is collision- and preimage-resistant.
 // Licensed CC BY-NC-ND 4.0 · Attribution: Tsvetan Rouschev (ceccec@psg.bg).
 import { sha256 } from './sha256.js'
-import { COIN_HEXBITS } from './hexbit/index.js'
+
+/** uuid hex digits per coin — 32 hexbits / 2 coins = 16 (matches hexbit COIN_HEXBITS; not imported — address stays below hexbit). */
+const COIN_HEX_CHARS = 32 / 2
 
 const enc = new TextEncoder()
 const BYTE_MASK = 0xff
@@ -155,7 +157,7 @@ export function merge(a: string, b: string): string {
 
 /** A 64-bit coin (16 hex digits) minted from any content — the top 64 bits of its content-address. */
 export function coin64(text: string): string {
-  return toUuid(text).replace(/-/g, '').slice(0, COIN_HEXBITS)   // half the uuid, from the unit
+  return toUuid(text).replace(/-/g, '').slice(0, COIN_HEX_CHARS)   // half the uuid — two coins on one address
 }
 
 /** Canonical JSON of a plain object with some keys dropped and the rest key-sorted — ready for toUuid().

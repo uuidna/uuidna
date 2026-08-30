@@ -8,7 +8,7 @@ import { ROOT } from '../boundary.js'
 import {
   BROWSER_SURFACES, MAN_BROWSER_SAMPLES, browserAppsUsable, docHasMount,
 } from '../quantum/apps/browser-usable.js'
-import { resolveManPage, manAppWitness } from '../quantum/os/catalogue.js'
+import { resolveManPage, manAppWitness } from '../quantum/os/catalogue/index.js'
 
 const loadDocs = (): Map<string, string> => {
   const m = new Map<string, string>()

@@ -23,7 +23,7 @@ import { ROOT } from './api.js'
 import { fetchDefaultInstalls, renderMirror } from '../os/installs/index.js'
 import { routeOf, compileToHexbits, portFrom, buildOrder } from '../quantum/os/index.js'
 import { alpineRelease } from '../os/alpine/index.js'
-import { INSTALLS_MIRROR, type InstallsMirror } from '../quantum/os/mirror.js'
+import { INSTALLS_MIRROR, type InstallsMirror } from '../quantum/os/mirror/index.js'
 
 // ── always latest: refresh the mirror at the boundary, best-effort, then seal from the SAME data ─────────────
 // EXCEPT under UUIDNA_PROVE_ALL: the gate's re-prove verifies the COMMITTED world — a live refresh inside the

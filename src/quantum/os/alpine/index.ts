@@ -1,17 +1,17 @@
 // quantum-alpine — FULL quantum coverage: every Alpine package related to crypto/quantum playbook,
 // tested through uuidna_exec (Layer 1) and planned for uuidna_run (Layer 2). One door per package,
 // not one MCP tool per apk. A row without man or cmd: is NAMED, not padded.
-import { quantumAdvantagePlaybook } from '../advantage/mcp/agent/playbook/index.js'
-import { cryptoAppsPort, type CryptoVia } from './crypto-apps.js'
-import { cataloguePackage } from './catalogue.js'
-import { defaultInstalls } from './index.js'
-import { uuidnaExec } from './exec.js'
-import { testInstallPackage, testAvailablePackage, type PackageAtATime } from './package-at-a-time.js'
-import { planAlpineRuns, sandboxTestCommands, type SandboxCommandSuite } from '../../os/runtime/index.js'
-import { UUID_HEXBITS, hexbitDoorOf } from '../../hexbit/index.js'
-import { toUuid } from '../../address.js'
-import { merkleGravity } from '../../gravity/index.js'
-import { foldAppTheorems, type TheoremClaim } from './app-theorem.js'
+import { quantumAdvantagePlaybook } from '../../advantage/mcp/agent/playbook/index.js'
+import { cryptoAppsPort, type CryptoVia } from '../cryptoapps/index.js'
+import { cataloguePackage } from '../catalogue/index.js'
+import { defaultInstalls } from '../index.js'
+import { uuidnaExec } from '../exec/index.js'
+import { testInstallPackage, testAvailablePackage, type PackageAtATime } from '../patime/index.js'
+import { planAlpineRuns, sandboxTestCommands, type SandboxCommandSuite } from '../../../os/runtime/index.js'
+import { UUID_HEXBITS, hexbitDoorOf } from '../../../hexbit/index.js'
+import { toUuid } from '../../../address.js'
+import { merkleGravity } from '../../../gravity/index.js'
+import { foldAppTheorems, type TheoremClaim } from '../apptheorem/index.js'
 
 export interface PlaybookExecHit {
   line: string

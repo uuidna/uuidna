@@ -1,13 +1,13 @@
 // remaining-alpine-cache — VERIFY THE ALPINE PORT CENSUS (verify_beats_recompute_by_magnitudes).
 // Host writes lean/remaining-alpine-port.json through boundary; edge never touches disk (ROOT '').
-import { existsRoot, rdRoot, wrRoot, ROOT } from '../../boundary.js'
-import { sha256 } from '../../sha256.js'
+import { existsRoot, rdRoot, wrRoot, ROOT } from '../../../boundary.js'
+import { sha256 } from '../../../sha256.js'
 import {
   CATALOGUE_FILE,
   CATALOGUE_OVERLAY_FILE,
   CATALOGUE_TESTING_FILE,
-} from './catalogue.js'
-import type { RemainingAlpinePort } from './package-at-a-time.js'
+} from '../catalogue/index.js'
+import type { RemainingAlpinePort } from '../patime/index.js'
 
 const CACHE = 'lean/remaining-alpine-port.json'
 const onHost = (): boolean => ROOT.length > 0

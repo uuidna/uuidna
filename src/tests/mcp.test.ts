@@ -58,6 +58,14 @@ test('uuidna_uuid_channel and uuidna_seal_channel — automation slices without 
   assert.ok(sealed.uuids.length >= 1)
   assert.equal(sealed.channels.length, sealed.uuids.length)
   assert.equal(sealed.channels[0]!.handle.length, 8)
+  const opened = callTool('uuidna_open_channel', { uuids: sealed.uuids, passphrases: ['k'] }) as {
+    message: string; channels: { handle: string; middle: string }[]; tamper: { theorem: { forgeExponent: number } }
+  }
+  assert.equal(opened.message, 'ping')
+  assert.equal(opened.channels.length, sealed.uuids.length)
+  assert.equal(opened.channels[0]!.handle, sealed.channels[0]!.handle)
+  assert.ok(opened.channels[0]!.middle.length === 24)
+  assert.equal(opened.tamper.theorem.forgeExponent, 128)
 })
 
 test('uuidna_handle and uuidna_send_trial — store witness and enriched detail trial', () => {

@@ -14,8 +14,8 @@ import { defaultInstalls } from '../quantum/os/index.js'
 import {
   hexbitPortCoverage, manPagePortCoverage, manPagePackages, manDrivenPortCoverage,
   overlayManDrivenPortCoverage, catalogueCompile, catalogue, packageSelfTestCoverage,
-} from '../quantum/os/catalogue.js'
-import { mcpManDrivenCoverage, overlayMcpManDrivenCoverage } from '../quantum/os/mcp-man.js'
+} from '../quantum/os/catalogue/index.js'
+import { mcpManDrivenCoverage, overlayMcpManDrivenCoverage } from '../quantum/os/mcpman/index.js'
 import { UUID_HEXBITS, UUID_BITS } from '../hexbit/index.js'
 import { toUuid } from '../address.js'
 import { reportDataset, type Figure } from '../microdata.js'

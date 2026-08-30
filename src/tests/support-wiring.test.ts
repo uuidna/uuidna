@@ -3,8 +3,9 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { scanSource } from '../harmony.js'
 import { studyOf } from '../study.js'
-import { uuidnaExec } from '../quantum/os/npm.js'
+import { uuidnaExec } from '../quantum/os/npm/index.js'
 import { hostedMcpUrl, advantageCurriculum } from '../quantum/advantage/mcp/index.js'
+import { runUuidnaOsCli } from '../quantum/os/cli/index.js'
 
 test('harmony scanSource — clean source passes the two rules', () => {
   const r = scanSource('export const x = 1\n')
@@ -28,4 +29,8 @@ test('@uuidna/uuidna/os npm door — uuidnaExec help', () => {
 test('advantage MCP barrel — wire + curriculum re-export', () => {
   assert.match(hostedMcpUrl(), /\/mcp$/)
   assert.ok(advantageCurriculum().examples.length > 0)
+})
+
+test('uuidnaOS cli door — reachable from a test root', () => {
+  assert.equal(typeof runUuidnaOsCli, 'function')
 })

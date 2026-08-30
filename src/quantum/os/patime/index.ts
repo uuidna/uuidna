@@ -7,22 +7,22 @@
 // (`one_image_every_architecture`) and is native from 1 bit to the width the architecture allows (UUID_BITS).
 // readAvailableApp recovers apk / which / man FROM the published record — the same law as readSeed — so the
 // census does not parse uuidnaExec per row. --limit N still walks the exec door. Omit the limit for this walk.
-import { defaultInstalls, type InstallSpec } from './index.js'
+import { defaultInstalls, type InstallSpec } from '../index.js'
 import {
   cataloguePackage, catalogueCompile, packageSelfTest, resolveManPage,
   manAppWitness, providedCommands, catalogue, catalogueState, isAlpineDistroPackage, isOverlayPackage,
   isTestingPackage, catalogueRouteOf, type CataloguePackage,
-} from './catalogue.js'
-import { uuidnaExec } from './exec.js'
-import { handleOf, handlePath, handleOfPath, isHandle } from '../../handle.js'
-import { HANDLE_HEXBITS, UUID_HEXBITS, UUID_BITS, hexbitDoorOf, nativeBitWidths } from '../../hexbit/index.js'
-import { toUuid } from '../../address.js'
-import { merkleGravity } from '../../gravity/index.js'
+} from '../catalogue/index.js'
+import { uuidnaExec } from '../exec/index.js'
+import { handleOf, handlePath, handleOfPath, isHandle } from '../../../handle.js'
+import { HANDLE_HEXBITS, UUID_HEXBITS, UUID_BITS, hexbitDoorOf, nativeBitWidths } from '../../../hexbit/index.js'
+import { toUuid } from '../../../address.js'
+import { merkleGravity } from '../../../gravity/index.js'
 import {
   readRemainingAlpineCache,
   remainingAlpineCacheKey,
   writeRemainingAlpineCache,
-} from './remaining-alpine-cache.js'
+} from '../cache/index.js'
 
 export interface PackageCheck { check: string; ok: boolean; detail: string }
 export interface PackageAtATime {

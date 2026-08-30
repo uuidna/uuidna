@@ -4,13 +4,13 @@
 // mint one wire tool per package (ceiling ~168130 bytes; 4759 descriptors would blow it). The honest surface is
 // uuidna_exec: `man <topic>` exercises the documentation package → app witness → hexbits; `apk info <app>`
 // reaches the catalogued app. This meter seals man-tested apps exposed through that door = N/M.
-import { UUID_HEXBITS } from '../../hexbit/index.js'
-import { toUuid } from '../../address.js'
+import { UUID_HEXBITS } from '../../../hexbit/index.js'
+import { toUuid } from '../../../address.js'
 import {
   manPagePackages, manAppWitness, manDrivenPortCoverage, overlayManDrivenPortCoverage,
   OVERLAY_REPO, type ManDrivenPortCoverage,
-} from './catalogue.js'
-import { uuidnaExec } from './exec.js'
+} from '../catalogue/index.js'
+import { uuidnaExec } from '../exec/index.js'
 
 export const MCP_ALPINE_DOOR = 'uuidna_exec' as const
 

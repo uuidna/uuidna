@@ -3,9 +3,9 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
   appTheoremBehind, foldAppTheorems, PORT_THEOREM, CRYPTO_THEOREM,
-} from '../quantum/os/app-theorem.js'
+} from '../quantum/os/apptheorem/index.js'
 import { theoremByKey } from '../theorems/index.js'
-import { fresh } from '../quantum/os/harness.js'
+import { fresh } from '../quantum/os/harness/index.js'
 
 test.beforeEach(fresh)
 

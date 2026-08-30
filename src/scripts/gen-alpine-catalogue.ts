@@ -25,7 +25,7 @@ import { writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { untarGzipMember } from '../os/packages/index.js'
-import { CATALOGUE_FILE, CATALOGUE_COLUMNS, parseApkIndex, type CataloguePackage } from '../quantum/os/catalogue.js'
+import { CATALOGUE_FILE, CATALOGUE_COLUMNS, parseApkIndex, type CataloguePackage } from '../quantum/os/catalogue/index.js'
 
 const CDN = 'https://dl-cdn.alpinelinux.org/alpine'
 const REPOS = ['main', 'community'] as const

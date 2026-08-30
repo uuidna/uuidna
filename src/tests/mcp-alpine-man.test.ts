@@ -5,8 +5,8 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { MCP_CATALOG, callTool } from '../mcp.js'
-import { mcpManDrivenCoverage, overlayMcpManDrivenCoverage, MCP_ALPINE_DOOR } from '../quantum/os/mcp-man.js'
-import { manDrivenPortCoverage } from '../quantum/os/catalogue.js'
+import { mcpManDrivenCoverage, overlayMcpManDrivenCoverage, MCP_ALPINE_DOOR } from '../quantum/os/mcpman/index.js'
+import { manDrivenPortCoverage } from '../quantum/os/catalogue/index.js'
 import { UUID_HEXBITS } from '../hexbit/index.js'
 import { wireBytes } from '../scripts/context-budget.js'
 

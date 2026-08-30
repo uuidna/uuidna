@@ -6,11 +6,11 @@
 // (sha256_grover_margin_is_the_address: KEY_BITS / coins() = UUID_BITS). Boards shard the handle span by
 // residue — no scheduler (lanes_partition_the_work). Nothing here flashes a device; the image and the
 // widths recompute.
-import { toUuid } from '../../address.js'
-import { coinSupply } from '../../coin-supply.js'
-import { LANES, type Seat } from '../../hardware/lanes/index.js'
-import { GROVER_FLOOR_BITS, HANDLE_HEXBITS, HANDLE_SPAN, KEY_BITS, UUID_BITS, shorCapacityFit } from '../../hexbit/index.js'
-import { bootOS } from './index.js'
+import { toUuid } from '../../../address.js'
+import { coinSupply } from '../../../coin-supply.js'
+import { LANES, type Seat } from '../../../hardware/lanes/index.js'
+import { GROVER_FLOOR_BITS, HANDLE_HEXBITS, HANDLE_SPAN, KEY_BITS, UUID_BITS, shorCapacityFit } from '../../../hexbit/index.js'
+import { bootOS } from '../index.js'
 
 export interface MinerFirmware {
   boards: number

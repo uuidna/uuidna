@@ -621,10 +621,10 @@ export { alpineRelease, verifyAlpineRootfs, fetchAlpineLatest, type AlpineReleas
 // (bootable = the verified loading of compiled states on the lattice, NEVER execution). Pure and edge-clean from the
 // committed mirror; the always-Alpine-latest live recompute rides fetchDefaultInstalls at the src/os boundary.
 export { defaultInstalls, installFor, routeOf, compileToHexbits, portFrom, buildOrder, INSTALL_ROUTES, bootOS, osQuantumCapacity, servedOS, catalogue, catalogueState, cataloguePackage, resolveAlpineApp, primeCatalogue, primeCatalogueFrom, CATALOGUE_FILE, CATALOGUE_OVERLAY_FILE, CATALOGUE_TESTING_FILE, type InstallSpec, type InstallPort, type BootImage, type OsQuantumCapacity, type BootedOS, type ServedOS, type CataloguePackage, type CatalogueState, type AlpineAppRef, type AlpineAppVia } from './quantum/os/index.js'
-export { minerFirmware, upgradeFirmware, type MinerFirmware, type FirmwareUpgrade, type FirmwareSeat } from './quantum/os/firmware.js'
-export { uuidnaExec, type ExecResult } from './quantum/os/exec.js'
-export { cryptoAppsPort, cryptoAppOf, cryptoWidths, MCP_CRYPTO_DOORS, type CryptoAppsPort, type CryptoAppLookup, type CryptoAppRow, type CryptoWidths, type CryptoVia } from './quantum/os/crypto-apps.js'
-export { INSTALLS_MIRROR, type InstallsMirror, type MirrorPackage } from './quantum/os/mirror.js'
+export { minerFirmware, upgradeFirmware, type MinerFirmware, type FirmwareUpgrade, type FirmwareSeat } from './quantum/os/firmware/index.js'
+export { uuidnaExec, type ExecResult } from './quantum/os/exec/index.js'
+export { cryptoAppsPort, cryptoAppOf, cryptoWidths, MCP_CRYPTO_DOORS, type CryptoAppsPort, type CryptoAppLookup, type CryptoAppRow, type CryptoWidths, type CryptoVia } from './quantum/os/cryptoapps/index.js'
+export { INSTALLS_MIRROR, type InstallsMirror, type MirrorPackage } from './quantum/os/mirror/index.js'
 export { fetchDefaultInstalls, renderMirror } from './os/installs/index.js'
 // quantum/context — balance a context window by the ledger's laws: the sealed 13/32 spare floor, the fold
 // priced per category, exact-integer permille — uuidna fused to any model's window, self-report in, audit out.
@@ -725,7 +725,7 @@ export {
   UUID_LAYOUT_GROUPS, UUID_LAYOUT_HEX_CHARS, MESSAGE_CAP_HEXBITS, MESSAGE_CAP_QUBITS, MESSAGE_CAP_AMPLITUDES,
   HEX_TRINITY_COUNT, TAIL_HEXBITS, EXECUTABLE_HEXBITS, PAYLOAD_HEXBITS,
   layoutGroups, hexTrinityStates, executableStates, tailStates, torusStep, uuidChannel,
-  layoutMatchesHandle, layoutWidths, layoutCoversUuid, uuidHex, channelAudit, channelSeal,
+  layoutMatchesHandle, layoutWidths, layoutCoversUuid, uuidHex, channelAudit, channelSeal, channelOpen,
   type HexFace, type HexFaceAura, type HexFaceGlyphs, type HexFaceStations, type OccupancyCite, type CoinBoardWitness, type MetatronFigure, type HexPi, type HexPiDoor,
   type CoinYarrowWave, type CoinWaveCluster, type UuidLayout, type ChannelStream, type LifeWave, type LifeWaveHardware,
 } from './hexagram.js'
