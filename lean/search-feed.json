@@ -53,7 +53,7 @@
     {
       "id": "quantum-advantage",
       "query": "quantum advantage",
-      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941"
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension"
     },
     {
       "id": "api-arxiv.org",
@@ -113,7 +113,7 @@
     },
     {
       "query": "quantum advantage",
-      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension",
       "key": "captain_coins_respected_at_scale",
       "principle": "The two coins & the 64",
       "skill": "coins",
@@ -125,7 +125,7 @@
     },
     {
       "query": "quantum advantage",
-      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension",
       "key": "clifford_group_order_24",
       "principle": "The quantum computer",
       "skill": "quantum",
@@ -137,7 +137,7 @@
     },
     {
       "query": "quantum advantage",
-      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension",
       "key": "dj_balanced_cancels",
       "principle": "The quantum computer",
       "skill": "quantum",
@@ -149,7 +149,7 @@
     },
     {
       "query": "quantum advantage",
-      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension",
       "key": "drift_is_named_or_caught",
       "principle": "The detectors, proven",
       "skill": "audit",
@@ -161,7 +161,7 @@
     },
     {
       "query": "quantum advantage",
-      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension",
       "key": "gate_error_baseline_class",
       "principle": "The quantum computer",
       "skill": "quantum",
@@ -607,13 +607,13 @@
     },
     {
       "query": "quantum advantage",
-      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension",
       "what": "harvest 128 - 70 = 58 from \"quantum advantage\" — refused at the wave conveyor",
       "owes": "a `by decide` wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal"
     },
     {
       "query": "quantum advantage",
-      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941",
+      "source": "desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension",
       "what": "harvest 70 < 128 from \"quantum advantage\" — refused at the wave conveyor",
       "owes": "a `by decide` wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal"
     },

@@ -104,7 +104,7 @@ is a measurement that moves.
 - **f1** — Similarweb global volume, Aug 2026
 - **cricket** — Similarweb ind vs eng / Year in Search 2025 cricket spike
 - **uuid** — this ledger's own subject
-- **quantum advantage** — desk 2026-08-28; IBM/UChicago arXiv 2607.25941 ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
+- **quantum advantage** — desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
 
 ## Wired portals (the APIs' own probes)
 

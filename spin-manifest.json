@@ -6,13 +6,13 @@
     "lean/axioms.json": "1791454517788bcf",
     "docs/mcp.md": "1dbbd39e7ffc82c0",
     "audit-citations.json": "bd5145c79bbe81ec",
-    "support-audit.json": "0971e71906cd8d2b",
-    "research-leads.json": "53e8422e156586dc",
+    "support-audit.json": "469b2bf07cbd8c09",
+    "research-leads.json": "e2fcd8e612308510",
     ".zenodo.json": "f568de01091a8011",
     "reports.json": "7ea7edd206e98270",
     "lean/statement-index.json": "3c65ee51fb0789e8",
     "README.md": "9737f4d934448020",
-    "llm.txt": "bbce1d877b408524",
+    "llm.txt": "497732d807158a28",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
     "src/chunks/00/476e9d.json": "cc81754bbb7287bb",
@@ -2305,7 +2305,7 @@
     "lean/rosette-manifest.json": "8f726ca066f08713",
     "lean/sailing-manifest.json": "19b588a8172983e8",
     "lean/sanitize-manifest.json": "8f3fbea63568819b",
-    "lean/search-feed.json": "5a23fcb19f108575",
+    "lean/search-feed.json": "7459800d95dc8db1",
     "lean/seats-manifest.json": "2c8a9c7a75fc815f",
     "lean/security-manifest.json": "959f67a719188dad",
     "lean/seo-url-map.json": "a5b3bbd4c78088ef",
@@ -2325,7 +2325,7 @@
     "lean/tesla-manifest.json": "a88ced0fc41a8adc",
     "lean/thermodynamics-manifest.json": "22a3c81550688010",
     "lean/tides-manifest.json": "fc18ddce67318cbb",
-    "lean/tool-exercise-baseline.json": "db7d22c23c3485a7",
+    "lean/tool-exercise-baseline.json": "af653282811585b4",
     "lean/topography-manifest.json": "1f1b37d79f2b81c0",
     "lean/torus-manifest.json": "24fd85fc1f808ea7",
     "lean/trinities-manifest.json": "5a70c39b9d0886da",
@@ -2341,5 +2341,5 @@
     "lean/wave-queue.json": "aea574e2a5748ff0",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "760879bf-895d-8102-a3dc-a656d0d7b961"
+  "receipt": "0b91bcc6-f8e8-8739-909c-018e3f821926"
 }
