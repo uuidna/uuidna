@@ -1,6 +1,6 @@
 {
   "why": "Per-script folds of the BUILT bytes, from the last sweep in which each exited 0, plus the manifest fold. A script whose fold is unchanged cannot have changed behaviour, so only the MOVED ones are re-exercised — the cost of a change is the cost of the change, not the cost of the roster. The manifest is global: it declares what each script may write, so when it moves everything is re-exercised. Delete this file to force a full sweep.",
-  "fold": "37947066-ee6c-8d5c-b7c6-eeabe395c79d",
+  "fold": "e8545800-dc12-87a6-8c67-61bdad4d11a2",
   "manifest": "917fd2c5-7cef-862b-bb02-849745a91954",
   "count": 31,
   "scripts": {
@@ -13,7 +13,7 @@
     "captain-claim-algebra.ts": "9d41978e-1018-86d8-9770-34269ca01782",
     "captain-discovers-novelty.ts": "cf826f57-d9d4-8edc-8efa-828b2d928682",
     "cloudflare-analytics.ts": "7a7c2a4e-230c-8336-9008-ab927de18ecd",
-    "crypto-measure.ts": "564b9d4e-0e62-868d-b08e-56dc20b4dddc",
+    "crypto-measure.ts": "768b31ad-dcf6-8836-8939-d87c3db638f0",
     "entanglement-games.ts": "a27cf3f2-33d0-841b-b6f3-a33d6375b0b8",
     "gcp-analytics.ts": "6e54f4b2-10ab-80fd-bd40-eced12f3c2d6",
     "gen-captain-claims-complete.ts": "d0a96c95-be19-813d-8c18-08400aeed7a3",
@@ -36,7 +36,7 @@
     "quantum-school.ts": "00fe6eed-e4b3-8dcb-a2fb-cfa775098beb",
     "refactor.ts": "680092dc-62bb-80fc-a767-d3f12e6d1b0a",
     "reserve.ts": "2042a417-3e6c-85a3-a5a5-7b40a58ddef4",
-    "scout.ts": "6de8b08e-c46a-8321-9bb8-7cbfd8c29838",
+    "scout.ts": "c5ec99f9-65b9-8751-89ee-f7d467256ae3",
     "machine.ts": "4e749914-efae-8354-afab-430fb967768f",
     "audit-video.ts": "16b6095c-9309-8c45-b340-216efe4643c4"
   }

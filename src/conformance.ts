@@ -15,7 +15,9 @@ export interface ConformanceReport { checks: ConformanceCheck[]; conforms: boole
 
 /** conformance() — fold the core DNA invariants into one report. `conforms` is true iff every check passes; the
  *  report folds order-invariantly to a receipt anyone recomputes. The enforcement a commit cannot slip past. */
+let CACHED: ConformanceReport | null = null
 export function conformance(): ConformanceReport {
+  if (CACHED) return CACHED
   const T = theorems()
   const checks: ConformanceCheck[] = []
   const mk = (id: string, pass: boolean, detail: string): void => { checks.push({ id, pass, detail }) }
@@ -41,5 +43,5 @@ export function conformance(): ConformanceReport {
 
   const failed = checks.filter((c) => !c.pass)
   const receipt = merkleGravity(checks.map((c) => toUuid(c.id + '|' + c.pass)))
-  return { checks, conforms: failed.length === 0, passed: checks.length - failed.length, failed: failed.length, receipt }
+  return (CACHED = { checks, conforms: failed.length === 0, passed: checks.length - failed.length, failed: failed.length, receipt })
 }

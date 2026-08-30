@@ -13,7 +13,8 @@
 // HONEST SCOPE: these are DESCRIPTIVE measures of what is sealed and what the gates recorded — integrity, not
 // truth. A section whose input artifact is absent reports itself absent rather than guessing, because a report
 // that fills its own gaps is the failure this file exists to end.
-import { theorems, PRINCIPLES, runTrial } from './theorems/index.js'
+import { theorems, PRINCIPLES } from './theorems/index.js'
+import { runTrial } from './trial-run.js'
 import { rdRoot, existsRoot, lsRoot } from './boundary.js'
 import { workspacePackages } from './npm-pack.js'
 import { statementCensus } from './editorial.js'

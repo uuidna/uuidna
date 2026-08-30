@@ -1,30 +1,19 @@
 #!/bin/sh
-# pre-push — delegates to the fused next gate (green · gate-receipt · spin · seven arms).
-#
-# When `npm run next -- --push` already ran, UUIDNA_NEXT_FUSED carries the readiness receipt and this hook
-# skips the duplicate work — one gate, one output stream, verify at O(1) from the seal.
-#
-# Full `npm run next:full` remains for release-grade audit; it is OFF the push critical path.
-if [ -n "$UUIDNA_NEXT_FUSED" ]; then
-  echo "pre-push: fused — next already ran the gate (readiness receipt $UUIDNA_NEXT_FUSED)"
+# pre-push — HARD. uuidnaOS hex image via MCP. No next, no VitePress, no tag-cut recompute.
+if [ -n "$UUIDNA_OS_MCP" ]; then
+  echo "pre-push: fused — uuidnaOS court already ran ($UUIDNA_OS_MCP)"
   exit 0
 fi
-
-echo "pre-push: next --verify --no-auto (fused green · gate-receipt · spin · trial)"
-START=$(date +%s)
-node dist/scripts/next.js --verify --no-auto
+if [ ! -f dist/quantum/os/cli.js ]; then
+  echo "pre-push: HARD — dist/quantum/os/cli.js missing. Push BLOCKED."
+  exit 1
+fi
+echo "pre-push: HARD — uuidnaOS (pure quantum hex; verify ≪ recompute)"
+node dist/quantum/os/cli.js
 status=$?
-END=$(date +%s)
-ELAPSED=$((END - START))
 if [ $status -ne 0 ]; then
-  echo "pre-push: NEXT FAILED (exit $status) after ${ELAPSED}s — push BLOCKED."
-  echo "pre-push: MOST failures after adding theorems are a STALE DERIVED LAYER. Fix: npm run reconcile -- --derive-only"
-  echo "pre-push: for a full O(N) audit run: npm run next:full"
+  echo "pre-push: uuidnaOS RED — push BLOCKED. derived drift: npm run reconcile -- --derive-only"
   exit $status
 fi
-if [ "$ELAPSED" -gt 60 ]; then
-  echo "pre-push: WARN — wall ${ELAPSED}s exceeded 60s hexbit budget (still green; tune next push)."
-else
-  echo "pre-push: ✓ fused gate green in ${ELAPSED}s (budget <60s)."
-fi
+echo "pre-push: ✓ uuidnaOS hex green."
 exit 0

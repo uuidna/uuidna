@@ -1,6 +1,7 @@
 // quantum/os/exec — Alpine apps via apk + man→hexbit, plus install-port `ls`.
 // Toy busybox (cat/which/stat/pwd/echo/du) FOLDED: Alpine packages ARE the apps (man→app→hexbit).
 // `uuidnaLs` is internal for `ls`; MCP tool uuidna_ls removed — use uuidna_exec.
+import { createRequire } from 'node:module'
 import {
   catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile,
   resolveManPage, isManPagePackage, manAppWitness, catalogue, catalogueRouteOf,
@@ -20,6 +21,9 @@ import {
 } from './session.js'
 import { livingFieldReport, computeVortexInvariantsHold } from '../../sequence-field.js'
 import { runSequence } from '../../sequence-run.js'
+import { parseCourtPlan, runCourtCli, runCourtSync } from './court.js'
+import { testQuantumAlpineCoverage, renderQuantumAlpineCoverage } from './quantum-alpine.js'
+import { planLetsEncryptIssuance, renderAcmeIssuance, testAcmePort, renderAcmePort } from './acme-port.js'
 
 export { resetExecSession, execSessionStamp }
 
@@ -141,7 +145,7 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'help'] as const
+export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
 
 /** Legacy fold list — toys are ported again as pure logic over the virtual OS + session vfs. */
@@ -569,12 +573,72 @@ export function uuidnaExec(line: string): ExecResult {
       err(`sequence: ${verb}: not a ported verb — try: ${SEQUENCE_VERBS.join(' ')}`)
       break
     }
+    case 'run': {
+      const cmd = args.join(' ')
+      if (!cmd) { err('run: a command is required — e.g. `run busybox --help` or `run nginx -v`'); break }
+      const { planAlpineRun } = createRequire(import.meta.url)('../../os/runtime/index.js') as typeof import('../../os/runtime/index.js')
+      const plan = planAlpineRun(cmd)
+      if (!plan.ok) {
+        emit([`run: ${plan.reason ?? 'refused'}`, ...(plan.remedy ? [`remedy: ${plan.remedy}`] : [])], { kind: 'run-plan', plan })
+        ok = false
+        break
+      }
+      emit([
+        `Layer 2 recipe (${plan.backend}) — verify-then-run in uuidnaOS sandbox`,
+        `command: ${cmd}`,
+        `spawn: uuidna_run {command, spawn:true} — stdout/stderr are DATA, not hex image`,
+        ...(plan.recipe ? [`argv: ${plan.recipe.file} ${plan.recipe.argv.join(' ')}`] : []),
+      ], { kind: 'run-plan', plan, honest: 'Alpine binary via catalogue cmd: — not a TypeScript port per package' })
+      break
+    }
+    case 'court': {
+      const { msgFile, ...plan } = parseCourtPlan(args)
+      if (msgFile) {
+        const code = runCourtCli(['--msg', msgFile])
+        emit([`court --msg: ${code === 0 ? 'green' : 'blocked'}`], { kind: 'court-msg', exit: code })
+        ok = code === 0
+        break
+      }
+      const r = runCourtSync(plan)
+      emit([
+        `court: ${r.ok ? 'green' : 'blocked'} · ${Math.round(r.ms)}ms`,
+        ...(r.receipt ? [`receipt: ${r.receipt.slice(0, 8)}…`] : []),
+        ...(r.fails.length ? r.fails.map((f) => `${f.tool}: ${f.detail}`) : ['playbook: daily (fast — no crypto census); --full for uuidna_crypto']),
+      ], { kind: 'court', ...r })
+      ok = r.ok
+      break
+    }
+    case 'quantum-cover': {
+      const sandbox = args.includes('--sandbox')
+      const c = testQuantumAlpineCoverage({ sandbox })
+      emit([renderQuantumAlpineCoverage(c)], { kind: 'quantum-alpine', ...c })
+      ok = c.complete && (!c.sandbox || c.sandbox.ok)
+      break
+    }
+    case 'acme': {
+      if (args[0] === 'issue') {
+        const domains = args.slice(1).filter((a) => !a.startsWith('--'))
+        const client = args.includes('--certbot') ? 'certbot' as const : 'lego' as const
+        const p = planLetsEncryptIssuance({ domains: domains.length ? domains : ['localhost'], client })
+        emit([renderAcmeIssuance(p)], { kind: 'acme-issue', ...p })
+        ok = p.layer1.every((h) => h.ok) && p.packages.every((x) => x.ok)
+        break
+      }
+      const c = testAcmePort()
+      emit([renderAcmePort(c)], { kind: 'acme-port', ...c })
+      ok = c.complete
+      break
+    }
     case 'help': emit(['applets: ' + APPLETS.join(' '),
       'ls <path>  — install-port routes (/…) or full census (/catalogue, /catalogue/main|community|overlay)',
       'apk list · apk list --all · apk info · apk search · apk depends · apk rdepends · apk add · apk del · apk policy',
       'man <topic>  — Alpine documentation package → 32 hexbits (man→app→hexbit)',
       '<package>  — use a published Alpine app (nginx, openssl, busybox); cmd: too (dotnet, omp)',
       'cat · which · stat · pwd · echo · du  — busybox over virtual vfs + session files',
+      'run <cmd>  — Alpine cmd: recipe (Layer 2 sandbox via uuidna_run; not a manual TS port)',
+      'court [--court|--full|--probe|--msg file]  — uuidnaOS court (hex + MCP + playbook + commit-msg)',
+      'quantum-cover [--sandbox]  — full crypto-related Alpine coverage (Layer 1 exec + Layer 2 plans)',
+      'acme  — ACME/Let\'s Encrypt port census; acme issue <domain…> [--certbot] plans HTTP-01 issuance',
       'sequence field · sequence run <n|text> · sequence dash · sequence invariants  — living field (Sequence.lean)',
       'driver  — netboot/modloop driver bundle provenance (pinned release)',
       'device  — this host executing the sealed quantum algebra (drivers/quantum)',

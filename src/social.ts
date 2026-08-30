@@ -9,7 +9,7 @@
 // what is already public and sealed.
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
-import { runTrial } from './theorems/index.js'
+import { runTrial } from './trial-run.js'
 import { quantumAura } from './aura.js'
 import { creditsSummary } from './captain/credits/index.js'
 import { captainRights } from './captain/rights/index.js'

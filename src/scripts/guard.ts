@@ -8,7 +8,7 @@ import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { catchTraitors, forgedAgainstWings } from '../treason.js'
+import { forgedAgainstWings } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
 import { HERE, ROOT, type Gap } from './api.js'
 // THE COST OF BEING CONNECTED — the tools/list payload every agent carries on every request, held to a sealed ceiling.
@@ -49,14 +49,7 @@ if (forged.length) {
   console.error('  fix: seal it in a wing, or remove it from the ledger. The ledger may not carry what the kernel never saw.')
 } else console.log(`✓ guard — all ${theorems().length} ledger entries witnessed by a wing`)
 
-const t = catchTraitors()
-if (t.clean) {
-  console.log(`✓ guard — ledger clean: ${t.scanned} theorems, no traitor caught (${t.checks.join(', ')}); receipt ${t.receipt}`)
-} else {
-  failed = true
-  console.error(`✗ guard — ${t.traitors.length} TRAITOR(S) caught in the ledger:`)
-  for (const v of t.traitors) console.error(`    [${v.kind}] ${v.detail}`)
-}
+// treason · conformance · trial — uuidnaOS court via os-mcp-gate --court in the publish chain, not here.
 
 // 1b) the AXIOM WITNESS — bring the guard FORWARD of the slow gate: a clever traitor sealing a NON-KERNEL theorem
 // (borrowing propext/Classical.choice) or a NEW theorem not yet audited slips the structural checks and only trips

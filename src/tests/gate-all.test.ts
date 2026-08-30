@@ -15,7 +15,7 @@ import assert from 'node:assert/strict'
 import { plan, kindOf, runPlan, pool, label } from '../scripts/gate-all.js'
 
 const CHAIN = 'npm run lean && npm run build && node dist/scripts/gen-lines.js && node dist/scripts/guard.js'
-  + ' && node dist/scripts/gen-reports.js && node dist/scripts/spin.js && node dist/scripts/conformance.js'
+  + ' && node dist/scripts/gen-reports.js && node dist/scripts/spin.js && node dist/quantum/os/cli.js --court'
   + ' && node dist/scripts/exercise-dormant.js && git diff --exit-code -- lean/'
 
 const green = async () => ({ exit: 0, out: '' })
@@ -65,7 +65,7 @@ test('the three classes are told apart by what a step DOES', () => {
 
 // ── THE POINT (1): every failing check is reported from one pass.
 test('every failing CHECK is reported in a single pass', async () => {
-  const failing = new Set(['node dist/scripts/guard.js', 'node dist/scripts/spin.js', 'node dist/scripts/conformance.js'])
+  const failing = new Set(['node dist/scripts/guard.js', 'node dist/scripts/spin.js', 'node dist/quantum/os/cli.js --court'])
   const { verdicts, aborted } = await runPlan(plan(CHAIN), async (cmd) => ({ exit: failing.has(cmd) ? 1 : 0, out: '' }), 8)
   assert.equal(aborted, null, 'no generator failed, so nothing may abort')
   assert.equal(verdicts.length, 9, 'the walk must reach EVERY step')

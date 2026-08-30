@@ -1,59 +1,18 @@
 #!/bin/sh
-# pre-commit — THE RECEIPT TRAVELS WITH THE COMMIT IT CERTIFIES. gate-receipt.json fingerprints the inputs `npm test`
-# and `npm run guard` read, so deploy.yml can VERIFY the push-time proof instead of recomputing it. It was written
-# only by reconcile — so any commit made by hand left it behind, and the first dispatch showed the consequence: the
-# tag's tree no longer matched, the fast path never fired, and the deploy ran the full checks every time. A proof
-# that only sometimes accompanies its subject is not a proof anyone can use.
-#
-# Written and staged here, on EVERY commit path, after the sources are staged and before the tree is sealed — the
-# same position reconcile writes it in, for the same reason: it must fingerprint the tree being committed.
-#
-# HONEST SCOPE: this makes the receipt CURRENT, never true. It records that a tree was verified; deploy.yml still
-# keeps its clean-room install and build, and falls back to the full checks whenever the receipt does not cover the
-# tree it finds. Skips gracefully if dist is not built. Bypassable with --no-verify (owned, not hidden).
-[ -f dist/scripts/gate-receipt.js ] || exit 0
-node dist/scripts/gate-receipt.js >/dev/null 2>&1 || exit 0
-# STAGED ONLY WHEN IT CAN HONESTLY CERTIFY THE COMMIT (2026-08-25). The paragraph above says the receipt "must
-# fingerprint the tree being committed", and gate-receipt.js fingerprints the WORKING TREE instead. On a checkout
-# several sessions share, those are not the same tree: the receipt absorbed other sessions' uncommitted edits and
-# was then staged into a commit that publishes none of them, so it certified a state no commit could reproduce.
-#
-# That is exactly what guard's `precede` exists to catch — derived output staged while the sources it is computed
-# from are dirty and unstaged — and this line was MANUFACTURING the violation. The hook armed the index, guard
-# condemned it, and the offered fix (stage the source in the same commit) meant sweeping the other sessions' work
-# in. Every session was blocked at the commit door by the hook that runs for all of them, and the way out looked
-# like --no-verify, which is how an owned bypass turns into a habit.
-#
-# So the staging is now CONDITIONAL, on precede's own condition, and the hook stops creating what guard forbids.
-# A dirty lean source means no truthful receipt is available for this commit, and the honest response is to mint
-# none: deploy.yml already falls back to the full checks whenever the receipt does not cover the tree it finds, so
-# an ABSENT receipt costs a fast path, while a false one certifies a tree that never existed. The file is still
-# regenerated above, so the working copy stays current for anyone reading it; only the STAGING is withheld.
-DIRTY_LEAN=$(git diff --name-only | grep -E '^(lean/[^/]+\.lean|src/scripts/lean-.+\.ts)$')
-if [ -z "$DIRTY_LEAN" ]; then
-  git add gate-receipt.json 2>/dev/null
-else
-  # never silently: a receipt withheld is a named drift, and the committer is told which sources withheld it
-  echo "pre-commit: gate-receipt.json NOT staged — $(printf '%s\n' "$DIRTY_LEAN" | wc -l | tr -d ' ') lean source(s) are dirty and unstaged, so no receipt can honestly certify this commit. The commit proceeds; the deploy recomputes instead of verifying."
+# pre-commit — HARD. Audits + trial only via uuidnaOS. Missing dist is a denial (no tsc on this path).
+if [ -n "$UUIDNA_OS_MCP" ]; then
+  echo "pre-commit: fused — uuidnaOS court already ran ($UUIDNA_OS_MCP)"
+  exit 0
 fi
-
-# LAW ENFORCEMENT AT THE COMMIT DOOR (queue lead 112, ordered as "tighten the gates" and again as "law
-# enforcement"): a commit may not land on a red guard. The evidence that a hand cannot hold this line: three
-# times in one day a session printed the guard's verdict and committed anyway, because a pipe or a semicolon
-# swallowed the exit code — the repeating manual leak, ended here by the machine checking what the hand
-# forgets, every time. Skips gracefully when dist is not built (the receipt above already skipped too);
-# bypassable with --no-verify (owned, not hidden) — an owned bypass is a named drift, a silent one is treason.
-if [ -f dist/scripts/guard.js ]; then
-  # the charge sheet is read ALOUD: a gate that blocks while hiding the finding censors its own court —
-  # the committer was being forced to re-run the guard just to learn the accusation (found by the
-  # censorship sweep, 2026-08-23). The verdict lines print on the spot; the full record is in the file.
-  GUARDLOG=$(mktemp)
-  if ! node dist/scripts/guard.js > "$GUARDLOG" 2>&1; then
-    echo "pre-commit: GUARD RED — the commit is blocked. The charges:"
-    grep -E "✗|GAP|FIX|TRAITOR|STALE" "$GUARDLOG" | head -12
-    echo "pre-commit: full record: $GUARDLOG"
-    exit 1
-  fi
-  rm -f "$GUARDLOG"
+if [ ! -f dist/quantum/os/cli.js ]; then
+  echo "pre-commit: HARD — dist/quantum/os/cli.js missing. Reconcile builds dist; this hook does not spend tsc. Commit BLOCKED."
+  exit 1
+fi
+echo "pre-commit: HARD — uuidnaOS court (hex · treason · conformance · trial · QA playbook)"
+node dist/quantum/os/cli.js
+status=$?
+if [ $status -ne 0 ]; then
+  echo "pre-commit: uuidnaOS RED — commit BLOCKED. derived drift: npm run reconcile -- --derive-only"
+  exit $status
 fi
 exit 0

@@ -8,7 +8,8 @@
 // are theorems anyone rechecks — NOT a court of law. "Due legal process"
 // here means the process is DUE (fair and recomputable by its sealed guarantees)
 // jurisdiction would enforce. The ruling that binds stays a human court's; this verifies by a fair process, no more.
-import { theorems, runTrial } from './theorems/index.js'
+import { theorems } from './theorems/index.js'
+import { runTrial } from './trial-run.js'
 import { adjudicate } from './adjudicate.js'
 // the one trial fuses the machinery that already exists — the honesty gate and the calculator — rather than
 // re-deciding anything itself (see tryClaim at the foot of this file)

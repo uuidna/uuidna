@@ -69,3 +69,23 @@ test('axiomIndex — bidirectional count: sum of citations ≥ bound theorem dep
   const depSum = bound.reduce((s, t) => s + dependsOn(t).length, 0)
   assert.equal(citeSum, depSum)
 })
+
+test('axiomBalance — fused receipt is deterministic and conservation holds on global slice', async () => {
+  const { axiomBalance } = await import('../theorems/index.js')
+  const [a, b] = [axiomBalance(), axiomBalance()]
+  assert.equal(a.fused, b.fused)
+  assert.equal(a.global.citeEdges, axiomIndex().entries.reduce((s, e) => s + e.theoremCount, 0))
+  assert.ok(a.active > 0)
+  assert.ok(a.slices.some((s) => s.dimension === 'wing'))
+  assert.ok(a.slices.some((s) => s.dimension === 'skill'))
+  assert.ok(a.slices.some((s) => s.dimension === 'ray'))
+  assert.ok(a.slices.some((s) => s.dimension === 'principle'))
+})
+
+test('axiomBalanceSlice — balanced iff citedDefs equals bound with matching ratios', async () => {
+  const { axiomBalanceSlice } = await import('../theorems/index.js')
+  const t = theoremByKey().get('two_coins')!
+  const empty = axiomBalanceSlice('ledger', 'kernel-only', [t])
+  assert.equal(empty.balanced, true)
+  assert.equal(empty.citeEdges, 0)
+})

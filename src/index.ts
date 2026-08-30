@@ -443,6 +443,28 @@ export { hardwareLayer, softwareLayer, osLayer, namedLayer, type NamedLayer, typ
 // fingerprint), folded ORDER-INVARIANT to one receipt — the same analytics for every observer, no clock/RNG/telemetry.
 // It measures the ledger, not a user. Integrity, not truth.
 export { quantumAnalytics, type QuantumAnalytics, type Distribution, type LayerMeasure } from './analytics.js'
+export {
+  quantumAuditRatios,
+  uuidnaDecode,
+  decodeTheorem,
+  decodeLife,
+  decodePolarities,
+  decodeAngles,
+  decodeSequenceLedger,
+  decodeRosettaLedger,
+  genesisDecode,
+  rosettaRayOf,
+  rosettaRayDegrees,
+  bidirectionalRatio,
+  type QuantumAuditRatios,
+  type UuidnaDecode,
+  type LifeDecode,
+  type LatentAxiom,
+  type BidirectionalRatio,
+  type PolaritiesDecode,
+  type AnglesDecode,
+  type DecodedTheorem,
+} from './quantum-audit-ratios.js'
 // profile / social — uuidna's own content-addressed self-portrait (quantumProfile: identity+aura, proofs+kernel-only
 // witness, symmetric-only quantum-crypto posture, coins, integrity, rights) and its public shareable card
 // (socialProfile: handle, ledger-computed bio, aura colour, canonical links, credit). Both composed from sealed facts,
@@ -639,7 +661,22 @@ export { odometerNext } from './odometer.js'
 // singularity — every vector folded at once, through the involution, to one order-invariant core.
 export { singularity, type Singularity } from './separation.js'
 
-export { THEOREMS, runTrial, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type Rating } from './theorems/index.js'
+export { THEOREMS, theorems, theoremByKey, theoremCountByFile, theoremNeighbours, PRINCIPLES, skillOf, SKILLS, skillGroups, rosettaIndex, reviewDomains, type Theorem, type LeanTheorem, type TheoremVerdict, type TrialResult, type TrialSequence, type TrialSequenceSummary, trialSequenceOf, trialRayOf, trialRayDegrees, TRIAL_DIGIT_ANGLE, type SkillGroup, type RosettaRay, type DomainReview , decidedMass, byMass, wingRatings, heaviestOf, ledgerMass, hexbitsOf, gravityOf, isUnbound, UUID_HEXBITS, dependsOn, byGravity, wingDefsFor, theoremAxioms, axiomIndex, axiomExplain, theoremsForDef, axiomBalance, axiomBalanceSlice, type TheoremAxioms, type WingDefEntry, type AxiomIndex, type AxiomBalance, type AxiomBalanceSlice, type AxiomBalanceDimension, type Rating } from './theorems/index.js'
+export { runTrial, trialSealContent } from './trial-run.js'
+export {
+  trialAdmit,
+  trialAdmitMany,
+  trialAgentSwarm,
+  assertTrialGate,
+  buildTrialMerkaba,
+  refusalReceipt,
+  type TrialCandidate,
+  type TrialAdmission,
+  type TrialMerkaba,
+  type TrialSwarmSeal,
+  type TrialSealedContent,
+  type TrialRefusalKind,
+} from './trial-gate.js'
 
 export {
   trainFromLeads, trainRow, topicPatterns, discoveryHints, discoveryTrain,

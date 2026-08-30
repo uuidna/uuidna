@@ -21,7 +21,8 @@ import { slimGate } from './slimgate.js'
 import { theoremByKey, theorems } from './theorems/index.js'
 import { hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
 import { channelAudit } from './hexagram.js'
-import { runSequence } from './sequence-run.js'
+import { runSequence, type DigitPolarity } from './sequence-run.js'
+import { TRIAL_DIGIT_ANGLE } from './theorems/index.js'
 import { encodeMessage, serializeMessage } from './quantum/message/index.js'
 
 const WITNESS_CACHE = new Map<string, ReturnType<typeof serializeMessage>>()
@@ -143,6 +144,9 @@ export interface EnvelopeSequence {
   orbit: number[]
   covers: boolean
   fixed: boolean
+  polarity: DigitPolarity
+  spin: number
+  angle: number
 }
 
 /** THE COORDINATED ENVELOPE — the fusion: hexbitDoorOf IS the identity, compact crew_verifies_instantly witness,
@@ -186,6 +190,9 @@ export function messagingEnvelope(opts: {
       orbit: walked.orbit,
       covers: walked.covers,
       fixed: walked.fixed,
+      polarity: walked.polarity,
+      spin: walked.period,
+      angle: (walked.seed * TRIAL_DIGIT_ANGLE) % 360,
     },
     channel: channelAudit(gate.receipt),
     ...(receipt ? { receipt } : {}),

@@ -1,6 +1,8 @@
 #!/bin/sh
-# commit-msg — the commit-message gate. A commit message is a thought published to the record; it must come cleanly
-# from uuidna. Runs the honesty gate on the message ($1 is git's message file); a non-zero exit BLOCKS the commit.
-# The INVERTED overclaim (gate-work, a refutation, the lexicon named) is cleared — the reflection that balances the
-# ledger. Skips gracefully if dist is not built. Bypassable with --no-verify (owned, not hidden).
-[ -f dist/scripts/check-msg.js ] && node dist/scripts/check-msg.js "$1"
+# commit-msg — HARD. Honesty + sign through uuidnaOS court (--msg). Missing dist is a denial.
+if [ ! -f dist/quantum/os/cli.js ]; then
+  echo "commit-msg: HARD — dist/quantum/os/cli.js missing. Commit BLOCKED (no tsc on this path)."
+  exit 1
+fi
+node dist/quantum/os/cli.js --msg "$1"
+exit $?

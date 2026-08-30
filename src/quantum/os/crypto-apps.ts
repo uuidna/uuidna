@@ -5,7 +5,7 @@
 // get a uuidna identity here; the primitives they stand on are the existing MCP crypto doors.
 import { catalogue, cataloguePackage, catalogueState, type CataloguePackage } from './catalogue.js'
 import { INSTALLS_MIRROR } from './mirror.js'
-import { portApp, originOf, harmoniseOf, type AppPort } from '../../os/apps/index.js'
+import { portApp, originOf, type AppPort } from '../../os/apps/index.js'
 import {
   KEY_BITS, UUID_BITS, COINS, HEXBIT_BITS, GROVER_FLOOR_BITS, shorCapacityFit, shorFullUse,
   type ShorCapacityFit, type ShorFullUse,
@@ -17,21 +17,11 @@ import { pqcPosture, type PqcPosture } from '../../pqc/index.js'
 import { CAPACITY, FREE_BITS } from '../../imprint.js'
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
-
-/** MCP tools that ARE the uuidna port of Alpine crypto (symmetric stack). Not one tool per apk. */
-export const MCP_CRYPTO_DOORS = [
-  'uuidna_sha256', 'uuidna_hmac', 'uuidna_pbkdf2', 'uuidna_chacha20', 'uuidna_poly1305',
-  'uuidna_aead_encrypt', 'uuidna_aead_decrypt', 'uuidna_encrypt', 'uuidna_decrypt',
-  'uuidna_verify_envelope', 'uuidna_seal_stream', 'uuidna_seal_onion', 'uuidna_open_onion',
-  'uuidna_seal_chain', 'uuidna_open_chain', 'uuidna_seats', 'uuidna_os', 'uuidna_exec',
-  'uuidna_quantum', 'uuidna_crypto',
-] as const
-
-const CRYPTO_PKG = new Set([
-  'libcrypto3', 'libssl3', 'openssl', 'openssl3', 'libressl', 'gnutls', 'nettle', 'libsodium', 'libgcrypt',
-])
-
-export type CryptoVia = 'purpose' | 'depends' | 'both'
+import { appTheoremBehind } from './app-theorem.js'
+import {
+  type CryptoVia,
+  viaOf, directCryptoNames,
+} from './crypto-via.js'
 
 export interface CryptoWidths {
   shor: ShorCapacityFit
@@ -83,59 +73,16 @@ export interface CryptoAppLookup extends CryptoAppsPort {
   package: CryptoAppRow | null
 }
 
-function soIsCrypto(tok: string): boolean {
-  if (!tok.startsWith('so:')) return false
-  const stem = tok.slice(3).split('=')[0]!
-  return stem.startsWith('libssl.so')
-    || stem.startsWith('libcrypto.so')
-    || stem.startsWith('libssl3.so')
-    || stem.startsWith('libnss3.so')
-    || stem.startsWith('libsmime3.so')
-    || stem.startsWith('libgnutls.so')
-    || stem.startsWith('libsodium.so')
-    || stem.startsWith('libgcrypt.so')
-    || stem.startsWith('libnettle.so')
-}
+/** MCP tools that ARE the uuidna port of Alpine crypto (symmetric stack). Not one tool per apk. */
+export const MCP_CRYPTO_DOORS = [
+  'uuidna_sha256', 'uuidna_hmac', 'uuidna_pbkdf2', 'uuidna_chacha20', 'uuidna_poly1305',
+  'uuidna_aead_encrypt', 'uuidna_aead_decrypt', 'uuidna_encrypt', 'uuidna_decrypt',
+  'uuidna_verify_envelope', 'uuidna_seal_stream', 'uuidna_seal_onion', 'uuidna_open_onion',
+  'uuidna_seal_chain', 'uuidna_open_chain', 'uuidna_seats', 'uuidna_os', 'uuidna_exec',
+  'uuidna_quantum', 'uuidna_crypto',
+] as const
 
-function pkgDepIsCrypto(tok: string): boolean {
-  if (tok.startsWith('so:') || tok.startsWith('cmd:') || tok.startsWith('pc:') || tok.startsWith('/')) return false
-  return CRYPTO_PKG.has(tok.split('=')[0]!)
-}
-
-function purposeCrypto(p: CataloguePackage): boolean {
-  return CRYPTO_PKG.has(p.name) || harmoniseOf(p.name, p.desc)?.skill === 'security'
-}
-
-function depCrypto(p: CataloguePackage): boolean {
-  for (const d of p.deps) {
-    if (soIsCrypto(d) || pkgDepIsCrypto(d)) return true
-  }
-  return false
-}
-
-function namedDeps(p: CataloguePackage): string[] {
-  const out: string[] = []
-  for (const d of p.deps) {
-    if (d.startsWith('so:') || d.startsWith('cmd:') || d.startsWith('pc:') || d.startsWith('/')) continue
-    const n = d.split('=')[0]!
-    if (n) out.push(n)
-  }
-  return out
-}
-
-function viaOf(p: CataloguePackage, direct: ReadonlySet<string>): CryptoVia | null {
-  const purpose = purposeCrypto(p)
-  let depends = depCrypto(p)
-  if (!depends) {
-    for (const n of namedDeps(p)) {
-      if (direct.has(n)) { depends = true; break }
-    }
-  }
-  if (purpose && depends) return 'both'
-  if (purpose) return 'purpose'
-  if (depends) return 'depends'
-  return null
-}
+export type { CryptoVia } from './crypto-via.js'
 
 export function cryptoWidths(): CryptoWidths {
   const full = shorFullUse()
@@ -162,29 +109,23 @@ export function cryptoWidths(): CryptoWidths {
 
 function rowOf(p: CataloguePackage, via: CryptoVia): CryptoAppRow {
   const port: AppPort = portApp(p, p.repo, INSTALLS_MIRROR.branch, INSTALLS_MIRROR.arch)
+  const behind = appTheoremBehind(p.name)
   return {
     name: p.name,
     id: port.id,
     address: port.address,
     hexbits: port.hexbits,
-    skill: port.skill,
-    theorem: port.theorem,
+    skill: behind.skill ?? port.skill,
+    theorem: behind.theorem,
     via,
     route: '/catalogue/' + p.name,
   }
 }
 
 let CACHED: CryptoAppsPort | null = null
-let DIRECT: Set<string> | null = null
 
 function directNames(): Set<string> {
-  if (DIRECT) return DIRECT
-  const s = new Set<string>()
-  for (const p of catalogue()) {
-    if (purposeCrypto(p) || depCrypto(p)) s.add(p.name)
-  }
-  DIRECT = s
-  return s
+  return directCryptoNames()
 }
 
 function emptyPort(widths: CryptoWidths): CryptoAppsPort {

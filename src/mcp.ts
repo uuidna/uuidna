@@ -21,8 +21,8 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
-  THEOREMS, runTrial, theorems, theoremNeighbours, theoremAxioms, axiomIndex, axiomExplain, discoveryTrain, discoveryHints, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, heroAnimationOf, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
-  publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit,
+  THEOREMS, runTrial, theorems, theoremNeighbours, theoremAxioms, axiomIndex, axiomExplain, axiomBalance, discoveryTrain, discoveryHints, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, heroAnimationOf, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
+  publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit, uuidnaDecode, decodeTheorem,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll, publicApiRegistry, searchFeed, runSequence } from './index.js'
@@ -45,7 +45,7 @@ import { speak, speechCensus } from './speech.js' // what a handle SAYS, read of
 import { schoolApiRegistry, schoolApiFetch, pairEducationToJobs } from './school-apis.js' // the European education APIs behind one door — ESCO / Eurostat / GISCO fetched, OOAPI served
 import { skillSurface, skillIndex } from './skills.js' // THE CAPABILITY AXIS, SERVED AS A DIMENSION — one computed surface over every skill the wings carry, never one tool per skill
 import { ledgerReport } from './research-ledger.js' // the findings, each carrying how well it was verified — the SAME report the hosted edge serves
-import { legCensus, legsFor, mirrorAgreement, type Rosetta } from './rosetta-legs.js' // the leg census, interpreted by the one law both surfaces run
+import { legCensus, legsFor, mirrorAgreement, mirrorRows, type Rosetta } from './rosetta-legs.js' // the leg census, interpreted by the one law both surfaces run
 import { census as legCensusRows } from './scripts/rosetta.js' // deciding a leg reads the tree, so the LIVE decision is local-only; the edge answers from the shipped mirror — rosetta and scripts/api load their node builtins LAZILY, so this static import carries none of them to the edge
 import { resources } from './resources.js' // Node-only (reads process/os) — imported here, not via the browser index
 // NOTE: node:child_process and node:url are loaded LAZILY, at the two places that need them. They were top-level
@@ -821,6 +821,17 @@ const TOOLS: Tool[] = ([
     detail: 'QUANTUM ANALYTICS over the sealed ledger — descriptive measures anyone RECOMPUTES identically, folded ORDER-INVARIANT to one receipt (the same analytics for every observer, no privileged view). Returns the theorem count, the number of principles, the per-principle DISTRIBUTION (each domain\'s count + share, largest first), the named LAYERS (hardware → software → os sizes + receipts), the CREDIT tally (historical / contextual / captain-alone), COVERAGE (covered/total/ready), the two COINS, the recomputed COLLISION census (keys/addresses — 0/0 or an intrusion), and the ledger INTEGRITY fingerprint (FNV + SHA-256 + tamper cost). DETERMINISTIC: no clock, no RNG, no telemetry, no user tracking — the inputs are the public ledger alone, so the numbers are the same next year and on every machine. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — DESCRIPTIVE analytics of what is sealed, NOT predictive statistics, NOT inference, and NOT observation of any person. It measures the ledger, not a user. Returns {theorems,principles,distribution,layers,credits,coverage,coins,collisions,integrity,receipt,honest}. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: {} },
     run: () => quantumAnalytics() },
+  { name: 'uuidna_decode',
+    description: 'DECODED uuidna — one recomputable door: runSequence polarities on every theorem address, ±60° dash angles, 360/7° rosetta rays, uuidnaOS boot ground (four widths + boot receipt), living ledger, latent wing axioms and reveal gap, genesis chain, axiom-balance ratios. Pass {key} for one theorem through Sequence + Rosetta. Nothing authored — all read off sealed facts. Returns full decode or one DecodedTheorem row. Pairs with uuidna_analytics audit field and measure uuidna-decode.',
+    inputSchema: { type: 'object', properties: { key: { type: 'string', description: 'optional theorem key — decode one row through Sequence and Rosetta' } } },
+    run: (a = {}) => {
+      if (a.key) {
+        const t = THEOREMS.find((x) => x.key === String(a.key))
+        if (!t) throw new Error('unknown theorem: ' + String(a.key))
+        return decodeTheorem(t, mirrorRows())
+      }
+      return uuidnaDecode()
+    } },
   { name: 'uuidna_treason',
     description: 'CATCH TRAITORS AS FAST AS A HERO — one pure O(N) pass (milliseconds, no crypto, no disk) catching every forgery in the sealed ledger: a theorem whose DNA does not recompute, a key or address COLLISION, an UNCOVERED theorem, a broken CONFORMANCE invariant, or a PROSE-OVERCLAIM (the DNA check recomputes the statement but never the NAME, so every name also runs the honesty gate). A "traitor" is a forgery in the ARTIFACT, NEVER a person. Returns {clean,scanned,traitors:[{kind,detail}],checks,receipt}. HONEST SCOPE: it proves the artifact is unforged and self-consistent; passing is NOT a claim the theorems are true, and the prose check catches a fabricated CITATION only, never an unbacked narrative carried by a true statement. Integrity, not truth (theorem provenance_integrity_not_content_truth). Boundary declared — theorem drift_is_named_or_caught.',
     detail: 'CATCH TRAITORS AS FAST AS A HERO — one pure, O(N) pass (milliseconds, no crypto, no disk) that catches every FORGERY/INTRUSION in the sealed ledger: a theorem whose DNA does not recompute (a tampered key/statement/address), a key or address COLLISION (a smuggled duplicate), an UNCOVERED theorem (a domain sneaked in without a monograph), a broken CONFORMANCE invariant, OR a PROSE-OVERCLAIM — the DNA check recomputes the STATEMENT but never the NAME, so this also runs every theorem\'s name through the honesty gate and catches a name that DRAINS it (a fabricated theorem citation hiding in the prose). A "traitor" is a forgery in the ARTIFACT, NEVER a person — every finding is a recomputable fact about the ledger. Returns {clean, scanned, traitors:[{kind,detail}], checks, receipt}. The `npm run guard` command runs this plus the harmonic-scan as the fast pre-reconcile gate, so no manual pre-flight is needed. HONEST SCOPE: integrity, not truth (theorem provenance_integrity_not_content_truth) — it proves the artifact is unforged and self-consistent; passing is NOT a claim the theorems are true. The prose check catches a fabricated CITATION only, NOT an unbacked NARRATIVE carried by a true statement (a false "discovered/novel/proven-elsewhere" story) — the gate scores that identically to an honest description; only the COURT (uuidna_reveal/adjudicate) and human vigilance catch it. Recomputable by anyone. The boundary here is DECLARED, and a declared boundary is exactly what passes while an undeclared one is caught — theorem drift_is_named_or_caught.',
@@ -1031,7 +1042,7 @@ const TOOLS: Tool[] = ([
       return { key: n.key, principle: n.principle, count: n.neighbours.length,
                neighbours: n.neighbours.map((t) => ({ key: t.key, name: t.name, address: t.address })) } } },
   { name: 'uuidna_axiom_index',
-    description: 'WING AXIOMS ↔ THEOREMS, both directions. Pass {file,def} for one wing def and every theorem whose statement cites it (axiomExplain). Pass nothing for the full index: every def declared in lean/*.lean, which theorems cite it, and which defs are unused vocabulary. Pairs with uuidna_theorem axioms field (theorem → defs). Recomputable from WING_DEFS + dependsOn. Returns {totalDefs,citedDefs,unusedDefs,wings,entries} or one {file,def,principle,theorems,theoremCount,unused}.',
+    description: 'WING AXIOMS ↔ THEOREMS, both directions. Pass {file,def} for one wing def and every theorem whose statement cites it (axiomExplain). Pass nothing for the full index: every def declared in lean/*.lean, which theorems cite it, which defs are unused vocabulary, and the fused axiom-balance receipt across ledger/wing/principle/skill/ray (both-direction ratios). Pairs with uuidna_theorem axioms field (theorem → defs). Recomputable from WING_DEFS + dependsOn. Returns {totalDefs,citedDefs,unusedDefs,wings,entries,balance} or one {file,def,principle,theorems,theoremCount,unused}.',
     inputSchema: { type: 'object', properties: { file: { type: 'string', description: 'lean wing file, e.g. DivByZero.lean' }, def: { type: 'string', description: 'wing def name, e.g. dz' } } },
     run: (a = {}) => {
       if (a.file && a.def) {
@@ -1039,7 +1050,17 @@ const TOOLS: Tool[] = ([
         if (!e) throw new Error(`unknown wing def: ${a.file} ${a.def}`)
         return e
       }
-      return axiomIndex()
+      const b = axiomBalance()
+      return {
+        ...axiomIndex(),
+        balance: {
+          active: b.active,
+          balanced: b.balanced,
+          global: b.global,
+          worst: b.worst,
+          fused: b.fused,
+        },
+      }
     } },
   { name: 'uuidna_discovery_train',
     description: 'Train theorem/axiom discovery from refuted and refused leads in lean/leads.json. Refutations name what sealed (killed_by cites theorem keys and src paths); refusals name boundaries. Pass {query} for ranked hints (witness theorems, wing defs, exposed axiom-hunt leads, prior refutations on similar topics). Pass nothing for the full training report: settlement count, topic→theorem patterns, exposed axioms, unused wing defs. Pairs with uuidna_axiom_index and uuidna_theorem axioms. Recomputable. Returns {trained,refuted,refused,patterns,hints,exposedAxioms,unusedWingDefs,receipt}.',
@@ -1165,7 +1186,7 @@ const TOOLS: Tool[] = ([
       } },
   },
   { name: 'uuidna_trial',
-    description: 'Run the whole Lean ledger through the trial: every theorem is VERIFIED by its `by decide` proof, and their content-addresses fold order-invariantly to ONE recomputable receipt (the ledger\'s integrity). Returns {count,verified,unverified,leanBacked,receipt,verdicts}. Same lean/*.lean, same receipt.',
+    description: 'Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by decide` proof, each address walked through runSequence (polarity, spin as period, angle as digit-step × seed, rosetta ray degrees). Content-addresses fold order-invariantly to ONE receipt. Returns {count,verified,receipt,sequence,verdicts}. Same lean/*.lean, same receipt.',
     inputSchema: { type: 'object', properties: {} },
     run: () => runTrial() },
   { name: 'uuidna_css',
@@ -1758,6 +1779,7 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^unify$/, 'Unified self-description (one receipt)', 'measure'],
   [/^(quantum_profile|social_profile)$/, 'Self-profile (one receipt)', 'measure'],
   [/^grow_life$/, 'The mission — legally grow life', 'measure'],
+  [/^decode$/, 'Decoded Sequence + Rosetta + life', 'measure'],
   [/^scan_publications$/, 'Publication scanner (research boundary)', 'measure'],
   [/^quantum_cube$/, 'Quantum-cube challenge (symmetric)', 'gate'],
   [/^image_provenance$/, 'Byte-level image provenance', 'gate'],

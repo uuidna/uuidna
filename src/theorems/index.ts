@@ -7,6 +7,63 @@ import { WING_DEFS, LEAN_LEDGER, PRINCIPLES, type LeanTheorem } from './generate
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../address.js'
 import { coins } from '../captain/billing/index.js'
+import { runSequence, type DigitPolarity } from '../sequence-run.js'
+import { decodeVortexDashAngles, VORTEX_DASH_ANGLE_DEG } from '../sequence-field.js'
+
+/** Rosetta ray — address mod 7 (same law as rosettaIndex). */
+export const trialRayOf = (address: string): number =>
+  Number(BigInt('0x' + address.replace(/-/g, '')) % 7n)
+
+/** Integer degrees per ray — 360/7. */
+export const trialRayDegrees = (ray: number): number => (ray * (360 / 7)) | 0
+
+/** A432 digit step — polarity_angles_are_the_system_counts: 360/9 = 40. */
+export const TRIAL_DIGIT_ANGLE = (360 / 9) | 0
+
+/** One theorem walked through the living sequence: polarity, spin (period), angle (digit step × seed), ray. */
+export interface TrialSequence {
+  polarity: DigitPolarity
+  spin: number
+  angle: number
+  seed: number
+  ray: number
+  rayDegrees: number
+}
+
+/** trialSequenceOf(address) → polarity, spin, and angle read off runSequence — the trial IS the walk. */
+export const trialSequenceOf = (address: string): TrialSequence => {
+  const s = runSequence(address)
+  const ray = trialRayOf(address)
+  return {
+    polarity: s.polarity,
+    spin: s.period,
+    angle: (s.seed * TRIAL_DIGIT_ANGLE) % 360,
+    seed: s.seed,
+    ray,
+    rayDegrees: trialRayDegrees(ray),
+  }
+}
+
+export interface TrialSequenceSummary {
+  polarities: { minus: number; neutral: number; plus: number }
+  dash: { closes: boolean; stepDegrees: number; weightedBearing: number }
+  angles: { digitStep: number; rosettaStep: number; spinStep: number }
+  receipt: string
+}
+
+export const trialSequenceSummary = (verdicts: readonly { sequence: TrialSequence }[]): TrialSequenceSummary => {
+  const polarities = { minus: 0, neutral: 0, plus: 0 }
+  for (const v of verdicts) polarities[v.sequence.polarity]++
+  const dash = decodeVortexDashAngles()
+  const leafs = verdicts.map((v) =>
+    toUuid(`trial-seq|${v.sequence.polarity}|${v.sequence.spin}|${v.sequence.angle}|${v.sequence.ray}`))
+  return {
+    polarities,
+    dash: { closes: dash.closes, stepDegrees: VORTEX_DASH_ANGLE_DEG, weightedBearing: dash.weightedBearing },
+    angles: { digitStep: TRIAL_DIGIT_ANGLE, rosettaStep: (360 / 7) | 0, spinStep: VORTEX_DASH_ANGLE_DEG },
+    receipt: merkleGravity([dash.root, ...leafs]),
+  }
+}
 
 export { PRINCIPLES }
 export type { LeanTheorem }
@@ -120,21 +177,12 @@ export function reviewDomains(): DomainReview[] {
 
 export interface TheoremVerdict {
   key: string; name: string; statement: string; file: string; principle: string; lean: string; verdict: 'VERIFIED'; address: string
+  sequence: TrialSequence
 }
 export interface TrialResult {
   count: number; verified: number; unverified: number; leanBacked: number; receipt: string; verdicts: TheoremVerdict[]
-}
-
-/** Run the whole ledger through the trial. Every theorem is SEALED by its `by decide` Lean proof — verified
- *  sorry-free by `npm run lean` before the ledger was generated — so the seal's authority is the Lean proof, not
- *  a runtime re-check. Their content-addresses fold, order-invariantly, to ONE recomputable receipt: the ledger's
- *  integrity. Recomputable by anyone from the same lean/*.lean. Integrity, not truth. */
-export function runTrial(): TrialResult {
-  const verdicts: TheoremVerdict[] = THEOREMS.map((t) => ({
-    key: t.key, name: t.name, statement: t.statement, file: t.file, principle: t.principle, lean: t.lean, verdict: 'VERIFIED', address: t.address,
-  }))
-  const receipt = merkleGravity(verdicts.map((v) => v.address))
-  return { count: verdicts.length, verified: verdicts.length, unverified: 0, leanBacked: verdicts.length, receipt, verdicts }
+  sequence: TrialSequenceSummary
+  merkaba: import('../trial-gate.js').TrialMerkaba
 }
 
 /** The ledger, by reference — each theorem's key, name, statement, Lean proof, principle, skill, source file,
@@ -387,4 +435,100 @@ export const axiomExplain = (file: string, def: string): WingDefEntry | null => 
 /** theoremsForDef(file, def) → theorem keys citing this wing def — shorthand for axiomExplain. */
 export const theoremsForDef = (file: string, def: string): readonly string[] =>
   (axiomExplain(file, def)?.theorems.map((t) => t.key) ?? [])
+
+export type AxiomBalanceDimension = 'ledger' | 'wing' | 'principle' | 'skill' | 'ray'
+
+/** One slice: wing axioms ↔ theorems in BOTH directions. Balanced when citedDefs = bound and E/D = E/B. */
+export interface AxiomBalanceSlice {
+  dimension: AxiomBalanceDimension
+  id: string
+  theorems: number
+  citedDefs: number
+  bound: number
+  citeEdges: number
+  theoremsPerDef: number
+  defsPerBound: number
+  delta: number
+  balanced: boolean
+}
+
+export interface AxiomBalance {
+  slices: readonly AxiomBalanceSlice[]
+  active: number
+  balanced: number
+  global: AxiomBalanceSlice
+  fused: string
+  worst: readonly AxiomBalanceSlice[]
+}
+
+/** axiomBalanceSlice — both-direction ratios for one theorem set (recomputable building block). */
+export const axiomBalanceSlice = (
+  dimension: AxiomBalanceDimension,
+  id: string,
+  ts: readonly Theorem[],
+): AxiomBalanceSlice => {
+  let citeEdges = 0
+  let bound = 0
+  const defsUsed = new Set<string>()
+  for (const t of ts) {
+    const deps = dependsOn(t)
+    if (deps.length) {
+      bound++
+      citeEdges += deps.length
+      for (const d of deps) defsUsed.add(`${t.file}\0${d}`)
+    }
+  }
+  const citedDefs = defsUsed.size
+  const theoremsPerDef = citedDefs ? citeEdges / citedDefs : 0
+  const defsPerBound = bound ? citeEdges / bound : 0
+  const delta = Math.abs(theoremsPerDef - defsPerBound)
+  const balanced = citeEdges === 0 || (citedDefs === bound && delta < 1e-9)
+  return {
+    dimension,
+    id,
+    theorems: ts.length,
+    citedDefs,
+    bound,
+    citeEdges,
+    theoremsPerDef: +theoremsPerDef.toFixed(3),
+    defsPerBound: +defsPerBound.toFixed(3),
+    delta: +delta.toFixed(3),
+    balanced,
+  }
+}
+
+let _axiomBalance: AxiomBalance | null = null
+
+/** axiomBalance() — land every indexed dimension (ledger, wing, principle, skill, ray) and fuse to one receipt. */
+export const axiomBalance = (): AxiomBalance => {
+  if (_axiomBalance) return _axiomBalance
+  const slices: AxiomBalanceSlice[] = []
+  const global = axiomBalanceSlice('ledger', 'ledger', THEOREMS)
+  slices.push(global)
+  for (const file of [...new Set(THEOREMS.map((t) => t.file))].sort()) {
+    slices.push(axiomBalanceSlice('wing', file, THEOREMS.filter((t) => t.file === file)))
+  }
+  for (const principle of [...new Set(THEOREMS.map((t) => t.principle))].sort()) {
+    slices.push(axiomBalanceSlice('principle', principle, THEOREMS.filter((t) => t.principle === principle)))
+  }
+  for (const g of skillGroups()) {
+    slices.push(axiomBalanceSlice('skill', g.skill, g.theorems))
+  }
+  for (const r of rosettaIndex()) {
+    slices.push(axiomBalanceSlice('ray', String(r.ray), r.theorems))
+  }
+  const activeSlices = slices.filter((s) => s.citeEdges > 0)
+  const leafs = slices.map((s) =>
+    toUuid(`axiom-balance|${s.dimension}|${s.id}|${s.citedDefs}|${s.bound}|${s.citeEdges}|${s.balanced}`))
+  const worst = [...activeSlices].sort((a, b) => b.delta - a.delta || b.citeEdges - a.citeEdges).slice(0, 8)
+  _axiomBalance = {
+    slices,
+    active: activeSlices.length,
+    balanced: activeSlices.filter((s) => s.balanced).length,
+    global,
+    fused: merkleGravity(leafs),
+    worst,
+  }
+  return _axiomBalance
+}
 

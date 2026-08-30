@@ -93,6 +93,76 @@ export const MEASUREMENTS: readonly Measurement[] = [
       for (const x of j.open) by[x.severity] = (by[x.severity] ?? 0) + 1
       return { open: j.open.length, fixed: j.fixed.length, bySeverity: by }
     } },
+  { name: 'axiom-balance', what: 'wing axioms ↔ theorems balanced in both directions across ledger, wing, principle, skill, and ray — fused',
+    run: async () => {
+      const { axiomBalance } = await import('../theorems/index.js')
+      const b = axiomBalance()
+      return {
+        active: b.active,
+        balanced: b.balanced,
+        global: b.global,
+        worst: b.worst,
+        fused: b.fused,
+      }
+    } },
+  { name: 'quantum-audit-ratios', what: 'ratios, angles, polarities, and life decoded from Sequence, Rosetta, uuidnaOS — fused',
+    run: async () => {
+      const { quantumAuditRatios } = await import('../quantum-audit-ratios.js')
+      const q = quantumAuditRatios()
+      return {
+        polarities: q.polarities,
+        angles: q.angles,
+        life: q.life,
+        ratios: q.ratios.length,
+        balanced: q.ratios.filter((r) => r.balanced).length,
+        maskCoins: q.rosetta.maskCoins,
+        revealGap: q.life.balance.revealGap,
+        fused: q.fused,
+      }
+    } },
+  { name: 'uuidna-decode', what: 'one door — Sequence, Rosetta, angles, polarities, life, genesis, axiom balance',
+    run: async () => {
+      const { uuidnaDecode } = await import('../quantum-audit-ratios.js')
+      const d = uuidnaDecode()
+      return {
+        living: d.life.living.count,
+        latent: d.life.latent.count,
+        revealGap: d.life.balance.revealGap,
+        polarities: { minus: d.polarities.minus, neutral: d.polarities.neutral, plus: d.polarities.plus },
+        angles: { closes: d.angles.closes, rosettaRayStep: d.angles.rosettaRayStep },
+        ratios: d.audit.ratios.length,
+        fused: d.fused,
+      }
+    } },
+  { name: 'trial-sequence', what: 'trial as living sequence — polarity, spin, angle on every theorem',
+    run: async () => {
+      const { runTrial } = await import('../trial-run.js')
+      const t = runTrial()
+      return {
+        count: t.count,
+        polarities: t.sequence.polarities,
+        dash: t.sequence.dash,
+        angles: t.sequence.angles,
+        receipt: t.sequence.receipt,
+      }
+    } },
+  { name: 'trial-sealed-content', what: 'verified trial imprint + swarm refusal receipts fused',
+    run: async () => {
+      const { trialSealContent } = await import('../trial-run.js')
+      const s = trialSealContent(128)
+      return {
+        theorems: s.trial.count,
+        swarmVerified: s.swarm.verified,
+        swarmDenialsRefused: s.swarm.denialsRefused,
+        swarmDenialsFixed: s.swarm.denialsFixed,
+        involutions: s.swarm.involutions,
+        kinds: s.swarm.kinds,
+        imprintLinks: s.imprint.length,
+        refusalCarriers: s.refused.length,
+        address: s.address,
+        receipt: s.receipt,
+      }
+    } },
 ]
 
 if (process.argv[1] && /measure\.(js|ts)$/.test(process.argv[1])) {

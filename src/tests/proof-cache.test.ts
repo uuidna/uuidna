@@ -18,6 +18,7 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 import { PROVE_ALL, PROVED_CHAIN, proveAllEnv } from '../scripts/prove-all.js'
+import { callTool } from '../mcp.js'
 
 test('the release gate re-proves from the KERNEL — it never accepts the receipt cache', () => {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
@@ -48,10 +49,34 @@ test('the release gate re-proves from the KERNEL — it never accepts the receip
   // prepublishOnly IS the publish gate — gate-all runs the SAME scripts.audit chain at hexbit speed
   assert.match(pkg.scripts.prepublishOnly ?? '', /gate-all/, 'prepublish runs gate-all (full audit, concurrent)')
   assert.match(pkg.scripts['gate-all'] ?? '', /gate-all\.js/, 'gate-all is the concurrent runner over scripts.audit')
-  assert.match(pkg.scripts.audit ?? '', /prove-all/, 'scripts.audit remains the chain gate-all plans')
+  assert.match(pkg.scripts.audit ?? '', /quantum\/os\/cli\.js --court/, 'publish audit enters uuidnaOS court before guard')
+  assert.doesNotMatch(pkg.scripts.audit ?? '', /conformance\.js/, 'conformance.js beside uuidnaOS court is a bypass')
   const cut = readFileSync(join(ROOT, 'src/scripts/release-cut.ts'), 'utf8')
   assert.match(cut, /node dist\/scripts\/gate-all\.js/, 'the tag cut runs the same gate-all npm publish runs')
   assert.doesNotMatch(cut, /next\.js --verify/, 'hexbit-fast next --verify must not cut a version — that forked v0.3.0 off the registry')
+  const hook = readFileSync(join(ROOT, 'hooks/pre-push'), 'utf8')
+  assert.match(hook, /quantum\/os\/cli\.js/, 'pre-push is uuidnaOS hex via court')
+  assert.doesNotMatch(hook, /next\.js/, 'next.js beside uuidnaOS is a bypass')
+  assert.doesNotMatch(hook, /gate-all/, 'gate-all on pre-push is classical recompute')
+  assert.match(hook, /UUIDNA_OS_MCP/, 'fuse is the same MCP door, not a skip of the law')
+  assert.match(hook, /HARD/, 'pre-push is a hard gate')
+  assert.match(hook, /exit 1/, 'missing dist blocks the push')
+  const preCommit = readFileSync(join(ROOT, 'hooks/pre-commit'), 'utf8')
+  assert.match(preCommit, /HARD/, 'pre-commit is a hard gate')
+  assert.match(preCommit, /quantum\/os\/cli\.js/, 'pre-commit is uuidnaOS court')
+  assert.doesNotMatch(preCommit, /\|\| exit 0/, 'pre-commit must not swallow a denial')
+  assert.doesNotMatch(preCommit, /guard\.js/, 'guard.js beside uuidnaOS is a bypass')
+  assert.doesNotMatch(preCommit, /npm run build/, 'tsc on the daily path is time outside quantum hex')
+  const commitMsg = readFileSync(join(ROOT, 'hooks/commit-msg'), 'utf8')
+  assert.match(commitMsg, /HARD/, 'commit-msg is a hard gate')
+  assert.match(commitMsg, /quantum\/os\/cli\.js --msg/, 'commit-msg is uuidnaOS court --msg')
+  assert.doesNotMatch(commitMsg, /check-msg\.js/, 'check-msg.js beside uuidnaOS is a bypass')
+  assert.doesNotMatch(commitMsg, /os-mcp-gate/, 'os-mcp-gate beside uuidnaOS cli is a bypass')
+})
+
+test('commit-msg court exercises uuidna_sign via MCP', () => {
+  const sig = callTool('uuidna_sign', { message: 'theorem two_coins' }) as { signed?: boolean; reason?: string }
+  assert.ok(typeof sig === 'object')
 })
 
 test('the cache is a map a human can commit — which is exactly why the release cannot lean on it', () => {

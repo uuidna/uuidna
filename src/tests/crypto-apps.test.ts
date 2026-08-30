@@ -8,6 +8,8 @@ import { NONCE_BYTES, SALT_BYTES, TAG_BYTES, ITER } from '../crypt.js'
 import { BLOCK_BYTES } from '../chacha.js'
 import { CAPACITY, FREE_BITS } from '../imprint.js'
 import { MCP_CRYPTO_DOORS, type CryptoAppsPort, type CryptoAppLookup } from '../quantum/os/crypto-apps.js'
+import { theoremByKey } from '../theorems/index.js'
+import { CRYPTO_THEOREM } from '../quantum/os/app-theorem.js'
 
 test('uuidna_crypto is ONE door — no per-app Alpine crypto tools', () => {
   assert.ok(MCP_CATALOG.some((t) => t.name === 'uuidna_crypto'))
@@ -52,6 +54,8 @@ test('callTool uuidna_crypto ports Alpine apps that use crypto — census + name
     assert.equal(p.hexbits.length, UUID_HEXBITS)
     assert.ok(p.hexbits.every((h) => h >= 0 && h < 16))
     assert.ok(p.via === 'purpose' || p.via === 'depends' || p.via === 'both')
+    assert.ok(p.theorem, `${p.name} must carry a theorem`)
+    assert.ok(theoremByKey().has(p.theorem!), p.theorem!)
   }
   assert.equal(JSON.stringify(callTool('uuidna_crypto', {})), JSON.stringify(r), 'deterministic')
 })
@@ -61,12 +65,13 @@ test('openssl and nginx use crypto; perl-moose does not', () => {
   assert.equal(openssl.uses, true)
   assert.ok(openssl.package)
   assert.equal(openssl.package!.name, 'openssl')
-  assert.ok(openssl.package!.via === 'purpose' || openssl.package!.via === 'both')
+  assert.ok(openssl.package!.theorem)
+  assert.ok(theoremByKey().has(openssl.package!.theorem!))
 
   const nginx = callTool('uuidna_crypto', { name: 'nginx' }) as CryptoAppLookup
   assert.equal(nginx.uses, true)
   assert.equal(nginx.package!.name, 'nginx')
-  assert.ok(nginx.package!.via === 'depends' || nginx.package!.via === 'both')
+  assert.equal(nginx.package!.theorem, CRYPTO_THEOREM)
 
   const curl = callTool('uuidna_crypto', { name: 'curl' }) as CryptoAppLookup
   assert.equal(curl.uses, true, 'curl depends on libcurl which links libssl — one hop')

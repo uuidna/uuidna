@@ -9,6 +9,7 @@
 // (unsigned) and refused; one citing a real sealed theorem is signed; one citing a fabricated proof is refused. No
 // word-list, no numerology forced — only whether the ledger seals what the message cites.
 import { slimGate } from './slimgate.js'
+import { overreachOf } from './prose-gate.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { THEOREMS } from './theorems/index.js'
@@ -48,4 +49,43 @@ export function signCommit(message: string): CommitSignature {
       'fabricated), and is content-addressed and folded to one gravity root through the abstract-0 — NOT that the ' +
       'claim is true. It signs the citation, not the world. A fabricated citation or no citation is refused. Integrity, not truth.',
   }
+}
+
+/** Shell-damage scan — backtick substitution and collapsed whitespace (2026-08-17). Unique: the permanent record
+ *  must arrive whole; this is integrity, not an honesty verdict. */
+export function messageDamage(msg: string): string[] {
+  const damage: string[] = []
+  const mentioned = (l: string): string => l.replace(/"[^"]*"/g, 'Q').replace(/`[^`]*`/g, 'Q').replace(/'[^']{2,}'/g, 'Q')
+  const prose = msg.split('\n').filter((l) => !/^\s*[|\-*+#>]/.test(l) && !/^\s{2,}/.test(l))
+  const collapsed = prose.map(mentioned).flatMap((l) => l.match(/\w  +\w/g) ?? [])
+  if (collapsed.length) damage.push(`vanished text: ${collapsed.length} gap(s) of doubled space between words, e.g. "${collapsed[0]}"`)
+  if ((msg.match(/`/g) ?? []).length % 2 === 1) damage.push('an odd number of backticks — one is unclosed, or its pair was consumed by the shell')
+  const scrubbed = mentioned(msg)
+  if (/(?:^|[^\w.])\(\s*\)/.test(scrubbed) || /""/.test(scrubbed)) damage.push('an empty delimiter — whatever stood between it is gone')
+  return damage
+}
+
+const COMMIT_META = /\b(gate|harden\w*|lexicon|overclaim\w*|drain\w*|demarcat\w*|refut\w*|hollow|honesty|provenance|irrational)\b/i
+
+/** gateCommitMessage — full commit-msg court: damage → overreach units → sign. */
+export function gateCommitMessage(raw: string): {
+  ok: boolean
+  damage: string[]
+  overreach: { unit: string; kind: string }[]
+  sig: CommitSignature
+  body: string
+} {
+  const msg = raw.replace(/^#.*$/gm, '').trim()
+  const damage = messageDamage(msg)
+  const body = msg.replace(/^Trial-Receipt:.*$/gm, '').trimEnd()
+  if (damage.length) return { ok: false, damage, overreach: [], sig: signCommit(body), body }
+  if (COMMIT_META.test(msg)) {
+    const sig = signCommit(body)
+    return { ok: !sig.fabricated.length, damage: [], overreach: [], sig, body }
+  }
+  const units = msg.split(/(?<=[.!?])\s+|\n+/).map((s) => s.trim()).filter((s) => s.length > 3)
+  const overreach = units.map((u) => ({ unit: u, kind: overreachOf(u) })).filter((x): x is { unit: string; kind: string } => x.kind !== null)
+  if (overreach.length) return { ok: false, damage: [], overreach, sig: signCommit(body), body }
+  const sig = signCommit(body)
+  return { ok: !sig.fabricated.length, damage: [], overreach: [], sig, body }
 }

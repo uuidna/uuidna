@@ -5,7 +5,7 @@
 // one), and the standards it CITES (not certifies) — each recomputable by anyone, folded to one receipt. It is the
 // evidence() pattern applied to the legal surface: uuidna delivers what recomputes; the ruling is a human's, and a
 // court's, never a fold's. Integrity.
-import { runTrial } from './theorems/index.js'
+import { runTrial } from './trial-run.js'
 import { toUuid, merkleFold } from './address.js'
 import { vocabulary } from './vocab.js'
 import { forensics } from './forensics.js'

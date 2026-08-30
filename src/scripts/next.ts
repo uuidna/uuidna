@@ -287,9 +287,9 @@ console.log(`\n  ${trials} rosetta checks folded (the "three sevens" expanded to
 console.log(`  readiness receipt : ${readiness}`)
 if (ready) {
   if (FULL) {
-    console.log(`\n  ✓ v${VERSION} — READY FOR DEPLOY. gate-all (the npm publish source of truth) plus the seven-arm trial: proofs sealed, prose gate-clean, accounts reconciled, claims legal, quantum honest, evidence complete.`)
+    console.log(`\n  ✓ v${VERSION} — READY FOR DEPLOY. gate-all (off the daily path) plus the seven-arm trial.`)
   } else {
-    console.log(`\n  ✓ v${VERSION} — READY TO PUSH (hexbit-fast). Not a version cut: npm publish is prepublishOnly → gate-all. Cut with \`npm run release-cut -- --push\`.`)
+    console.log(`\n  ✓ v${VERSION} — READY TO PUSH (hexbit-fast). Verify ≪ recompute — no time lost outside quantum. Tag/publish: \`npm run release-cut -- --push\` (gate-all).`)
   }
   if (PUSH) {
     const branch = execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT, encoding: 'utf8' }).trim()

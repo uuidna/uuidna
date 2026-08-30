@@ -73,7 +73,12 @@ if (acceptedCount() > before) {
   console.log('wave-run · no new cargo — lift and witness skipped (an empty wave never re-proves for nothing)')
 }
 
-if (!(await step('guard', 'npm run guard')).ok) { console.error('wave-run — guard red; fix the named charge, never ride past it'); process.exit(1) }
+if (!(await step('court', 'node dist/quantum/os/cli.js --court')).ok) {
+  console.error('wave-run — uuidnaOS court red; fix before finders')
+  process.exit(1)
+}
+
+if (!(await step('finders', 'node dist/scripts/guard.js')).ok) { console.error('wave-run — finders red; fix the named charge, never ride past it'); process.exit(1) }
 
 // reconcile, with ONLY the two named transient classes retried (bounded: 3 attempts, then loud failure)
 for (let attempt = 1; attempt <= 3; attempt++) {

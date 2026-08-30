@@ -4,7 +4,8 @@
 // file — that was the entropy: every page paid for the full ledger because chrome imported it.
 //
 // Lean is the single source. Requires the package to be built first (`npm run build` → dist/).
-import { theorems, runTrial, PRINCIPLES, rosettaIndex } from '../../dist/theorems/index.js'
+import { theorems, PRINCIPLES, rosettaIndex } from '../../dist/theorems/index.js'
+import { runTrial } from '../../dist/trial-run.js'
 import { merkleGravity } from '../../dist/gravity/index.js'
 import { toUuid } from '../../dist/address.js'
 import { publications } from '../../dist/publish.js'

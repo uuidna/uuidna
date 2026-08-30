@@ -480,7 +480,7 @@ export function countsGaps(): Gap[] {
 export function expectedGaps(): Gap[] {
   const gaps: Gap[] = []
   // SAME GATE SET as gate-paths.test.ts — the scripts that decide whether a reconcile may run.
-  const GATE = /^(audit|guard|next|conformance|security-audit|spin|provenance|predict-and-fill|support|one-receipt|seal-claims-audit|account|harmonic-scan|axiom-hunt|audit-.*)\.ts$/
+  const GATE = /^(audit|guard|next|security-audit|spin|provenance|predict-and-fill|support|one-receipt|seal-claims-audit|account|harmonic-scan|axiom-hunt|audit-.*)\.ts$/
   const strip = (s: string): string => s.replace(/\/\*[\s\S]*?\*\//g, ' ').replace(/(^|\s)\/\/[^\n]*/g, ' ')
   const gateFiles = [
     ...readdirSync(join(ROOT, 'src', 'scripts')).filter((f) => GATE.test(f)).map((f) => join('src', 'scripts', f)),

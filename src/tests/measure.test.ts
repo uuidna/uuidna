@@ -40,3 +40,12 @@ test('no handle fails to recover itself from its path', async () => {
   const v = (await take(MEASUREMENTS.find((x) => x.name === 'handle-roundtrip')!)).value as { broken: number }
   assert.equal(v.broken, 0)
 })
+
+test('axiom-balance lands all dimensions and fuses', async () => {
+  const r = await take(MEASUREMENTS.find((x) => x.name === 'axiom-balance')!)
+  const v = r.value as { active: number; balanced: number; fused: string; global: { citeEdges: number }; worst: unknown[] }
+  assert.ok(v.fused.length > 0)
+  assert.ok(v.active > 0)
+  assert.ok(v.global.citeEdges > 0)
+  assert.ok(Array.isArray(v.worst))
+})

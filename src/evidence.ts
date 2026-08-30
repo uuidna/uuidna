@@ -8,7 +8,7 @@
 // fold's. Deterministic and offline. Integrity.
 import { THEOREMS, theoremByKey } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
-import { runTrial } from './theorems/index.js'
+import { runTrial } from './trial-run.js'
 import { adjudicate, type VerdictKind } from './adjudicate.js'
 import { forensics, type ForensicReport } from './forensics.js'
 

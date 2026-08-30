@@ -10,7 +10,8 @@
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts
 import { merkleGravity } from './gravity/index.js'
-import { theorems, runTrial } from './theorems/index.js'
+import { theorems } from './theorems/index.js'
+import { runTrial } from './trial-run.js'
 import { quantumAura } from './aura.js'
 import { axiomWitness } from './axiom-witness.js'
 import { securityAudit, DEFENCE_THEOREMS } from './security-audit.js'
@@ -65,6 +66,7 @@ export function quantumProfile(): QuantumProfile {
     audit.receipt,
     toUuid('quantum-crypto|' + symmetricOnly + '|' + POST_QUANTUM_FLOOR.join(',') + '|coins=' + coins()),
     toUuid('integrity|' + analytics.integrity.fnvReceipt + '|' + analytics.integrity.sha256),
+    analytics.decode.fused,
     rights.receipt,
   ]
   const receipt = merkleGravity(fieldReceipts)

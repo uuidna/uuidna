@@ -10,7 +10,7 @@
 // it names the external anchor to cite, and fakes nothing. You cannot notarise your own document. Integrity, not truth.
 import { THEOREMS, theoremByKey } from './theorems/index.js'
 import { toUuid, merkleFold } from './address.js'
-import { runTrial } from './theorems/index.js'
+import { runTrial } from './trial-run.js'
 
 const LICENSE_LINE =
   'CC BY-NC-ND 4.0 — free to read and redistribute with attribution, non-commercially, and without modification. Canonical at uuidna.com/license.'

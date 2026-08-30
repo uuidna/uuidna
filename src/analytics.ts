@@ -14,6 +14,7 @@ import { creditsSummary } from './captain/credits/index.js'
 import { coverage } from './publish.js'
 import { ledgerFingerprint } from './fingerprint.js'
 import { hardwareLayer, softwareLayer, osLayer } from './layers.js'
+import { quantumAuditRatios, uuidnaDecode } from './quantum-audit-ratios.js'
 
 export interface Distribution { principle: string; count: number; share: string }
 export interface LayerMeasure { name: string; principle: string; count: number; receipt: string }
@@ -28,6 +29,13 @@ export interface QuantumAnalytics {
   coins: number                                 // the conserved fair-exchange invariant (= 2)
   collisions: { keys: number; addresses: number }  // recomputed — 0/0 or an intrusion
   integrity: { fnvReceipt: string; sha256: string; tamperCost: string }
+  audit: {
+    fused: string
+    polarities: { minus: number; neutral: number; plus: number }
+    angles: { closes: boolean; dashStepDegrees: number }
+    life: { living: number; latent: number; revealGap: number; osReceipt: string }
+  }
+  decode: { fused: string }
   receipt: string                               // order-invariant fold of every sub-measure's address — the ONE analytics receipt
   honest: string
 }
@@ -67,6 +75,8 @@ export function quantumAnalytics(): QuantumAnalytics {
   const cs = creditsSummary()
   const cov = coverage()
   const fp = ledgerFingerprint()
+  const audit = quantumAuditRatios()
+  const decode = uuidnaDecode()
 
   // the ONE analytics receipt — every sub-measure's address folded ORDER-INVARIANT (a set
   // analytics is the same for every observer regardless of the order they read it in. This is the quantum receipt.
@@ -77,6 +87,7 @@ export function quantumAnalytics(): QuantumAnalytics {
     toUuid('analytics-fingerprint:' + fp.sha256),
     toUuid('analytics-coins:' + coins()),
     merkleFold(distribution.map((d) => toUuid(d.principle + ':' + d.count))),
+    decode.fused,
   ])
 
   _cache = {
@@ -89,6 +100,18 @@ export function quantumAnalytics(): QuantumAnalytics {
     coins: coins(),
     collisions,
     integrity: { fnvReceipt: fp.fnvReceipt, sha256: fp.sha256, tamperCost: fp.tamperCost },
+    audit: {
+      fused: audit.fused,
+      polarities: { minus: audit.polarities.minus, neutral: audit.polarities.neutral, plus: audit.polarities.plus },
+      angles: { closes: audit.angles.closes, dashStepDegrees: audit.angles.dashStepDegrees },
+      life: {
+        living: audit.life.living.count,
+        latent: audit.life.latent.count,
+        revealGap: audit.life.balance.revealGap,
+        osReceipt: audit.life.os.receipt,
+      },
+    },
+    decode: { fused: decode.fused },
     receipt,
     honest:
       'Quantum analytics: DESCRIPTIVE measures over the sealed ledger, recomputed identically by every observer and ' +

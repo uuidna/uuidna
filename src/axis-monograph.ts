@@ -7,7 +7,8 @@
 // Naming: publication = audited domain prose. principle = derivation wing. skill = capability axis.
 // monograph = any URL's relations + body. Layout never reads this module; transformPageData attaches
 // only the slice that URL is.
-import { theorems, runTrial, PRINCIPLES, rosettaIndex, dependsOn, gravityOf, isUnbound, axiomIndex, type Theorem } from './theorems/index.js'
+import { theorems, PRINCIPLES, rosettaIndex, dependsOn, gravityOf, isUnbound, axiomIndex, type Theorem } from './theorems/index.js'
+import { runTrial } from './trial-run.js'
 import { axiomWitness } from './axiom-witness.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
