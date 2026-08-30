@@ -19,11 +19,11 @@
 // Handles are LOWERCASE hex. Anything else is refused rather than coerced, because a scheme that silently accepts
 // a near-miss will happily address two payloads to one place.
 
-import { existsSync, readFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './boundary.js'
+import { ROOT, existsRoot, rdRoot } from './boundary.js'
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
+
+const onHost = (): boolean => ROOT.length > 0
 
 export const HANDLE_ROOT = 'src/handles'
 
@@ -217,10 +217,10 @@ export function resolveHandleInput(input: { address?: string; handle?: string })
 export function handleWitness(input: { address?: string; handle?: string; loadPayload?: boolean }) {
   const { address, handle } = resolveHandleInput(input)
   const path = handlePath(handle)
-  const abs = join(ROOT, path)
   const recovered = handleOfPath(path)
   const roundTrip = recovered === handle && path === handlePath(handle)
-  const payload = input.loadPayload && existsSync(abs) ? JSON.parse(readFileSync(abs, 'utf8')) as unknown : null
+  const payloadPresent = onHost() && existsRoot(path)
+  const payload = input.loadPayload && payloadPresent ? JSON.parse(rdRoot(path)) as unknown : null
   const receipt = merkleGravity([toUuid('handle|' + handle), toUuid(String(roundTrip)), ...(address ? [address] : [])])
   return {
     address,
@@ -228,7 +228,7 @@ export function handleWitness(input: { address?: string; handle?: string; loadPa
     path,
     parts: handleParts(handle),
     roundTrip,
-    payloadPresent: existsSync(abs),
+    payloadPresent,
     ...(payload !== null ? { payload } : {}),
     theorems: [...HANDLE_THEOREMS],
     ldapParallel: {

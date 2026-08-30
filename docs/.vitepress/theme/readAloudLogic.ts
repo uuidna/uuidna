@@ -8,7 +8,7 @@
 // else does, not something that has to be remembered and re-checked by hand next time this file changes.
 
 import { toUuid } from '../../../dist/address.js'
-import { DIMENSIONS } from '../../../src/dimensions.js'
+import { DIMENSIONS } from '../../../dist/dimensions.js'
 import { handleOf } from '../../../dist/handle.js'
 
 export interface VoiceLike { name: string; lang: string; default: boolean }

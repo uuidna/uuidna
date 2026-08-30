@@ -93,7 +93,7 @@ test('the monitor does not import the package barrel; VitePress reads constructo
     const src = readFileSync(join(THEME, f), 'utf8')
     assert.doesNotMatch(src, /from ['"][^'"]*dist\/index\.js['"]/, `${f} must not import the package barrel`)
     assert.doesNotMatch(src, /from ['"][^'"]*src\/index\.js['"]/, `${f} must not import the package barrel`)
-    assert.doesNotMatch(src, /theorems\/(index|generated)\.js/, `${f} must not recompute the ledger — quantum advantage verifies the wire`)
+    assert.doesNotMatch(src, /theorems\/(index|generated)\.js/, `${f} must not recompute the ledger — quantum advantage verifies the wire (n_qubit_dimension)`)
     assert.doesNotMatch(src, /ledger-search/, `${f} must not bundle searchLedger`)
     assert.doesNotMatch(src, /from ['"][^'"]*\/cost\.js['"]/, `${f} must not recompute cost`)
     assert.doesNotMatch(src, /from ['"][^'"]*\/grid\.js['"]/, `${f} must not recompute the wing grid`)

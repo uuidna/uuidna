@@ -13,6 +13,7 @@ import { aspectCensus } from './aspects.js'
 import { mintLeadsFromText, type MintLead } from './harvest.js'
 import { hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
 import { merkleFold, toUuid } from './address.js'
+import { handleOf } from './handle.js'
 import { EXTENDED_RESEARCH_PROBES } from './research-sources.js'
 import { SCHOOL_APIS } from './school-apis.js'
 
@@ -40,7 +41,7 @@ export const MOST_SEARCHED: readonly SearchQuery[] = [
   { id: 'f1', query: 'f1', source: 'Similarweb global volume, Aug 2026' },
   { id: 'cricket', query: 'cricket', source: 'Similarweb ind vs eng / Year in Search 2025 cricket spike' },
   { id: 'uuid', query: 'uuid', source: 'this ledger\'s own subject' },
-  { id: 'quantum-advantage', query: 'quantum advantage', source: 'desk 2026-08-28; IBM/UChicago arXiv 2607.25941',
+  { id: 'quantum-advantage', query: 'quantum advantage', source: 'desk 2026-08-28; IBM/UChicago arXiv 2607.25941; bound n_qubit_dimension',
     ore: '128 - 70 = 58. 70 < 128.' },
 ]
 
@@ -74,7 +75,7 @@ export function queriesFromEvidence(rows: readonly { source: string; address: st
   for (const r of rows) {
     const query = titleOf(r.text)
     if (query.length < 8) continue
-    const id = 'live-' + r.address.replace(/-/g, '').slice(0, 8)
+    const id = 'live-' + handleOf(r.address)
     if (seen.has(id)) continue
     seen.add(id)
     out.push({ id, query, source: r.source, ore: r.text })

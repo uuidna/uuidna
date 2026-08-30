@@ -13,6 +13,7 @@ import {
 import { NONCE_BYTES, SALT_BYTES, TAG_BYTES, ITER } from '../../crypt.js'
 import { BLOCK_BYTES } from '../../chacha.js'
 import { MAX_LAYERS } from '../../stream.js'
+import { pqcPosture, type PqcPosture } from '../../pqc/index.js'
 import { CAPACITY, FREE_BITS } from '../../imprint.js'
 import { toUuid } from '../../address.js'
 import { merkleGravity } from '../../gravity/index.js'
@@ -67,6 +68,7 @@ export interface CryptoAppsPort {
   wireDoors: 1
   doors: readonly string[]
   widths: CryptoWidths
+  pqc: PqcPosture
   total: number
   origins: number
   via: { purpose: number; depends: number; both: number }
@@ -192,6 +194,7 @@ function emptyPort(widths: CryptoWidths): CryptoAppsPort {
     wireDoors: 1,
     doors: MCP_CRYPTO_DOORS,
     widths,
+    pqc: pqcPosture(),
     total: 0,
     origins: 0,
     via: { purpose: 0, depends: 0, both: 0 },
@@ -227,6 +230,7 @@ export function cryptoAppsPort(): CryptoAppsPort {
     wireDoors: 1,
     doors: MCP_CRYPTO_DOORS,
     widths,
+    pqc: pqcPosture(),
     total: hits.length,
     origins: origins.size,
     via,

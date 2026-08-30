@@ -8,6 +8,7 @@ import {
 } from './catalogue.js'
 import { INSTALLS_MIRROR } from './mirror.js'
 import { toUuid } from '../../address.js'
+import { handleOf } from '../../handle.js'
 import { bootOS, hexbitDoorOf, type InstallSpec } from './index.js'
 import { hostQuantumDevice } from '../../drivers/quantum/index.js'
 import { hostStreamFleet } from '../../os/host/index.js'
@@ -483,7 +484,7 @@ export function uuidnaExec(line: string): ExecResult {
       }
       const ls = uuidnaLs(path)
       if (ls.count > 0 || path === '/') {
-        emit([`  Directory: ${path}`, `  Entries: ${ls.count}`, `  receipt: ${ls.receipt.slice(0, 8)}`], { path, kind: 'dir', count: ls.count })
+        emit([`  Directory: ${path}`, `  Entries: ${ls.count}`, `  receipt: ${handleOf(ls.receipt)}`], { path, kind: 'dir', count: ls.count })
         break
       }
       err(`stat: cannot stat '${path}'`)

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+// @non-harmonic: wall-clock elapsed for the fused-gate budget warning; git push on --push.
 // next — THE ONE COMMAND. uuidna is not ready to ship until it has been fed to its OWN trials: desk automation,
 // the fused push gate (green · gate-receipt · spin · seven arms — what pre-push used to run separately),
 // then optionally `git push` with --push. Skip desk automation: --no-auto.
@@ -13,6 +14,7 @@ import { gatherLeads } from './leads-gate.js'
 import { hasDeskAutomatableWork, printFillGapsSurvey, runFillGapsArc } from './fill-gaps-run.js'
 import { fillGapsAdvantageSnapshot, mergeFillGapsReceipts } from '../desk/index.js'
 import { ROOT, teeStep } from './api.js'
+import { handleOf } from '../handle.js'
 import { theorems, runTrial, merkleGravity, toUuid, publications, canonicalOrder, gaps, slimGate, discoverStaticPages, type PageNode } from '../index.js'
 import { MCP_CATALOG } from '../mcp.js'
 import { decide } from '../decide.js'
@@ -52,7 +54,7 @@ if (!NO_AUTO) {
     const survey = advSnap.survey
     if (hasDeskAutomatableWork(survey)) {
       console.log('\n  next · auto fill-gaps — desk-automatable gap(s) before the trial')
-      console.log(`  next · advantage-at-scale receipt ${advSnap.receipt.slice(0, 8)}… (${advSnap.survey.openLeads} open-leads, ${advSnap.plan.length} phase(s) planned)\n`)
+      console.log(`  next · advantage-at-scale receipt ${handleOf(advSnap.receipt)}… (${advSnap.survey.openLeads} open-leads, ${advSnap.plan.length} phase(s) planned)\n`)
       printFillGapsSurvey('BEFORE', survey)
       const arc = runFillGapsArc({ readings, resurveyReadings: () => gatherLeads(), labelPrefix: 'next · fill-gaps' })
       printFillGapsSurvey('AFTER', arc.after)
@@ -65,7 +67,7 @@ if (!NO_AUTO) {
       }
     } else {
       fillGapsAutoReceipt = advSnap.receipt
-      console.log(`\n  next · fill-gaps — no desk arc needed; advantage-at-scale receipt ${fillGapsAutoReceipt.slice(0, 8)}…\n`)
+      console.log(`\n  next · fill-gaps — no desk arc needed; advantage-at-scale receipt ${handleOf(fillGapsAutoReceipt)}…\n`)
     }
   } catch (e) {
     fillGapsFail = `fill-gaps: auto arc failed to survey — ${e instanceof Error ? e.message : e}`
@@ -284,7 +286,11 @@ let ready = fails.length === 0
 console.log(`\n  ${trials} rosetta checks folded (the "three sevens" expanded to seven arms: proofs · prose · accounts · graph · legal · quantum · evidence).`)
 console.log(`  readiness receipt : ${readiness}`)
 if (ready) {
-  console.log(`\n  ✓ v${VERSION} — READY FOR DEPLOY. uuidna passed its own trials: proofs sealed, prose gate-clean, accounts reconciled, claims legal, quantum honest, evidence complete.`)
+  if (FULL) {
+    console.log(`\n  ✓ v${VERSION} — READY FOR DEPLOY. gate-all (the npm publish source of truth) plus the seven-arm trial: proofs sealed, prose gate-clean, accounts reconciled, claims legal, quantum honest, evidence complete.`)
+  } else {
+    console.log(`\n  ✓ v${VERSION} — READY TO PUSH (hexbit-fast). Not a version cut: npm publish is prepublishOnly → gate-all. Cut with \`npm run release-cut -- --push\`.`)
+  }
   if (PUSH) {
     const branch = execSync('git rev-parse --abbrev-ref HEAD', { cwd: ROOT, encoding: 'utf8' }).trim()
     const elapsed = ((Date.now() - pushStart) / 1000) | 0

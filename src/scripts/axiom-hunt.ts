@@ -19,9 +19,7 @@ import { handleBookOf, STRIP_LINES, STRIP_CHOICES } from '../quantum/apps/catego
 import { hexbitRingMassGap } from '../hexbit/index.js'
 import { massGapOnBellBornField } from '../quantum/index.js'
 import { REPORTED_BASELINE } from '../quantum/advantage/index.js'
-import { writeFileSync } from 'node:fs'
-import { join } from 'node:path'
-import { ROOT } from './api.js'
+import { wrRoot } from '../boundary.js'
 
 export type HuntCandidate = { theorem: string; assumes: string; where: string; live: () => boolean }
 export type HuntHeld = { lead: string; status: string; owes: string }
@@ -245,7 +243,7 @@ export function axiomHunt(): HuntReport {
   return { proven, exposed, refuted }
 }
 
-const IS_CLI = (process.argv[1] ?? '').endsWith('axiom-hunt.js')
+const IS_CLI = typeof process !== 'undefined' && (process.argv[1] ?? '').endsWith('axiom-hunt.js')
 if (IS_CLI) {
   const hunt = axiomHunt()
   console.log('axiom-hunt — the assumptions the code runs on, each bound to its sealing theorem by KEY:')
@@ -272,7 +270,7 @@ if (IS_CLI) {
   // exposed, because "no file" and "nothing exposed" must not render alike, which is the defect this whole
   // instrument exists to catch one level down.
   const out = { why: 'Assumptions the running code makes that NO sealed theorem states. Each is a lead: seal it, and axiom-hunt reports it proven on the next run. Written by src/scripts/axiom-hunt.ts on every run, empty included — an absent file and an empty set are different facts.', exposed: hunt.exposed.length, held: hunt.exposed }
-  writeFileSync(join(ROOT, 'lean', 'exposed-axioms.json'), JSON.stringify(out, null, 1) + '\n')
+  wrRoot('lean/exposed-axioms.json', JSON.stringify(out, null, 1) + '\n')
 
   if (hunt.exposed.length) {
     console.log(`⚠ axiom-hunt — ${hunt.exposed.length} axiom(s) in use with NO sealing theorem: seal each (add the fact to its domain generator, then npm run lean).`)

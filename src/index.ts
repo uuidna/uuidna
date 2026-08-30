@@ -297,7 +297,14 @@ export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySe
 // crypt — full PURE-TS encryption: ChaCha20-Poly1305 (RFC 8439) core + PBKDF2-SHA256 KDF + uuidna 7d-fold
 // envelope. No native WebCrypto — nothing but latest TypeScript, KAT-verified against the standards' vectors.
 export { encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, sealSequenceAcross, deriveKeyPure, kdfInstrument, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, TAG_BYTES, KEY_BITS, KEY_BYTES, occupancyTapeOf, cryptOf, type Sealed, type CryptCover } from './crypt.js'
+export {
+  cryptSuites, suiteById, suitePolicy, missingAsymmetricSlots, pqcPosture,
+  hybridDerive, hybridDeriveReceipt, sealHybrid, openHybrid,
+  SYMMETRIC_SUITE_ID, HYBRID_SUITE_ID,
+  type CryptoSuite, type PqcPosture, type HybridEnvelope, type HybridSecrets, type HybridContext,
+} from './pqc/index.js'
 export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
+export { hkdfExtract, hkdfExpand, hkdfSha256 } from './hkdf.js'
 export { aeadEncrypt, aeadDecrypt, chachaBlock, chacha20, poly1305, BLOCK_BYTES } from './chacha.js'
 // stream — encrypted uuid messaging streams: onion-seal (N ChaCha20-Poly1305 layers, bounded) carried entirely
 // as a chain of uuids. Self-communicating uuids: the message channel IS the uuid stream, secrecy from crypt only.
@@ -648,6 +655,14 @@ export {
   ADVANTAGE_MCP_ORIGIN, ADVANTAGE_OVERCLAIM,
   type AdvantageMcpCurriculum, type AdvantageMcpExample, type AdvantageMcpHook, type McpHookHop,
 } from './school/advantage/index.js'
+export {
+  schoolPqcMcpExamples, renderPqcMcpMarkdown, PQC_OVERCLAIM, PQC_MCP_ORIGIN,
+  type PqcMcpCurriculum,
+} from './school/pqc/index.js'
+export {
+  schoolSequenceMcpExamples, renderSequenceMcpMarkdown, SEQUENCE_OVERCLAIM, SEQUENCE_MCP_ORIGIN,
+  type SequenceMcpCurriculum,
+} from './school/sequence/index.js'
 
 // THE UNIT, WHAT IT WEIGHS, WHAT IT FUSES, AND WHAT IT WOULD BE IN SILICON. Four modules built this session and
 // reachable from nowhere until now — the support finder named them dead code, and it was right: a module the

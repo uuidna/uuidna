@@ -3,13 +3,12 @@
 //
 // release-cut — AUTOMATE THE VERSION TAG (captain 2026-08-27: "address release errors and automate").
 //
-// VERIFY, DO NOT RE-DERIVE. Slow time stacked lean-all + heartbeats --sync here so a dirty tip could grease
-// through; that is a raised ceiling. The involution is seal-once / verify-forever
-// (verify_beats_recompute_by_magnitudes, involution_replaces_the_raised_ceiling): reconcile seals the
-// derived layer; this cut only checks the seal. Drift fails closed — commit the fixed point, re-run.
+// THE TAG GATE IS THE PUBLISH GATE. prepublishOnly is `npm run gate-all` — that is the one source of truth
+// npm consults. Hexbit-fast `next --verify` may push main; it must not cut a version. v0.3.0 was tagged
+// green on the fast path and refused on CI's gate-all. One ready, one cut.
 //
-//   npm run release-cut           → verify ready; print the tag that would be cut (no push)
-//   npm run release-cut -- --push → verify, annotated tag v$version, push tag (triggers release.yml)
+//   npm run release-cut           → gate-all; print the tag that would be cut (no push)
+//   npm run release-cut -- --push → gate-all, annotated tag v$version, push tag (triggers publish.yml)
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT, streamStep } from './api.js'
@@ -42,10 +41,8 @@ if (dirty) {
 // ── 2 · NO RELEASE OVER AN OPEN LEAD ──────────────────────────────────────────────────────────────────────────
 await step('leads-gate', 'node dist/scripts/leads-gate.js')
 
-// ── 3 · SEALED FIXED POINT (hexbit verify — never lean-all / heartbeats --sync on the cut path) ───────────────
-await step('spin --verify', 'node dist/scripts/spin.js --verify')
-await step('account', 'node dist/scripts/account.js')
-await step('next --verify', 'node dist/scripts/next.js --verify')
+// ── 3 · THE PUBLISH GATE — same instrument as prepublishOnly (scripts.audit via gate-all) ────────────────────
+await step('gate-all', 'node dist/scripts/gate-all.js')
 
 // ── 4 · CHANGELOG CARRIES THIS VERSION + THIS LEDGER RECEIPT ──────────────────────────────────────────────────
 await step('sync changelog ledger line', 'node dist/scripts/sync-changelog.js')

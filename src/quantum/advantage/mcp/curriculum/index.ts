@@ -1,5 +1,5 @@
 // @non-harmonic: hookAdvantageMcp awaits the school's live tools/call chain on the hosted wire.
-// quantum/advantage/mcp/curriculum — quantum advantage as hosted MCP calls.
+// quantum/advantage/mcp/curriculum — quantum advantage as hosted MCP calls (bound n_qubit_dimension).
 // Numbers from hexbit constructors and decide/reveal-shaped expects the mill already serves.
 // No theoremByKey, no bootOS, no catalogue: the school page verifies the wire.
 import { toUuid } from '../../../../address.js'

@@ -53,7 +53,7 @@ export interface FillGapsAtScaleHook extends AdvantageMcpHook {
   scaleReceipt: string
 }
 
-/** hookFillGapsAtScale(call) → quantum advantage hook plus gap-specific MCP probes, one scale receipt. */
+/** hookFillGapsAtScale(call) → quantum advantage hook plus gap-specific MCP probes, one scale receipt. Bound: n_qubit_dimension. */
 export async function hookFillGapsAtScale(
   call: (name: string, args: Record<string, unknown>) => unknown | Promise<unknown>,
   readings: readonly SourceReading[] = [],

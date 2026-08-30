@@ -47,7 +47,7 @@ is `npm run ship`.
 
 ```bash
 npm run gate-all    # the whole release gate (hexbit speed — full coverage)
-npm run release-cut -- --push   # spin/account/next verify + annotated tag (derive via reconcile)
+npm run release-cut -- --push   # same gate-all, then annotated tag (publish.yml)
 npm run ship        # contribute-first · wrangler · live proof
 ```
 

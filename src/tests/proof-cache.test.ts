@@ -49,6 +49,9 @@ test('the release gate re-proves from the KERNEL — it never accepts the receip
   assert.match(pkg.scripts.prepublishOnly ?? '', /gate-all/, 'prepublish runs gate-all (full audit, concurrent)')
   assert.match(pkg.scripts['gate-all'] ?? '', /gate-all\.js/, 'gate-all is the concurrent runner over scripts.audit')
   assert.match(pkg.scripts.audit ?? '', /prove-all/, 'scripts.audit remains the chain gate-all plans')
+  const cut = readFileSync(join(ROOT, 'src/scripts/release-cut.ts'), 'utf8')
+  assert.match(cut, /node dist\/scripts\/gate-all\.js/, 'the tag cut runs the same gate-all npm publish runs')
+  assert.doesNotMatch(cut, /next\.js --verify/, 'hexbit-fast next --verify must not cut a version — that forked v0.3.0 off the registry')
 })
 
 test('the cache is a map a human can commit — which is exactly why the release cannot lean on it', () => {

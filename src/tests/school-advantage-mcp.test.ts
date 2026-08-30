@@ -1,4 +1,4 @@
-// school advantage MCP examples — quantum advantage as hosted tools/call (decide for 2^n, uuidna_quantum for state vectors).
+// school advantage MCP examples — quantum advantage as hosted tools/call (decide for 2^n, uuidna_quantum for state vectors; n_qubit_dimension).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { handleMcpRpc } from '../mcp-http.js'

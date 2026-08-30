@@ -207,11 +207,11 @@ const stationTen = computed(() => graph.value?.stations?.ten ?? null)
           <span class="ox-k">{{ ui.hexbitDoor }}</span>
           <Handle v-if="graph.address" :uuid="graph.address" />
           <VPButton
-            v-if="graph.handle"
+            v-if="graph.door"
             theme="alt"
             size="medium"
-            :href="'/' + graph.handle"
-            :text="'/' + graph.handle"
+            :href="graph.door"
+            :text="graph.handle"
           />
         </li>
 

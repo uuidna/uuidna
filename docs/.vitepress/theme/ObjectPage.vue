@@ -3,7 +3,7 @@
      Hero = handle + hex face (tiles, Fu Xi board, aura). Locale chrome + Lean lead sit with the doc.
      Breadcrumbs: Layout #doc-before via ObjectBreadcrumbs. Nav next = this page's walkNext.
      Layout never imports the theorem census — that census is the /theorems monograph (and kin).
-     Home (layout: home) uses stock VPHome + HeroAnimation in #home-hero-after; capacity door is /quantum. -->
+     Home (layout: home) uses stock VPHome + HeroAnimation in #home-hero-after; uuidnaOS serves the handle door. -->
 <script setup>
 import { computed, ref, watch, onMounted, defineAsyncComponent } from 'vue'
 import DefaultTheme from 'vitepress/theme'

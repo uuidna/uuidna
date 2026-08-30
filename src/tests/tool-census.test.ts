@@ -112,7 +112,7 @@ test('open_leads, leads_gate, open_questions — agnostic project backlog tools 
   assert.equal(gate.open.length, 1)
   assert.match(gate.honest, /YOUR release gate/i)
 
-  const topics = call('uuidna_open_questions', { items: [{ claim: 'quantum advantage over classical', source: 'desk' }] })
+  const topics = call('uuidna_open_questions', { items: [{ claim: 'quantum advantage over classical', source: 'desk n_qubit_dimension' }] })
   assert.ok(topics.topics >= 1)
   assert.ok(Array.isArray(topics.curriculum))
   assert.match(topics.receipt, /^[0-9a-f-]{36}$/)
@@ -125,7 +125,7 @@ test('open_leads, leads_gate, open_questions — agnostic project backlog tools 
 test('uuidna_quantum_advantage — paying agents get the compute playbook and magnitudes', () => {
   const p = call('uuidna_quantum_advantage')
   assert.ok(Array.isArray(p.steps) && p.steps.length >= 5)
-  assert.equal(p.steps[2]!.tool, 'uuidna_quantum')
+  assert.equal(p.steps[3]!.tool, 'uuidna_quantum')
   assert.equal(p.magnitudes.theorem, 'verify_beats_recompute_by_magnitudes')
   assert.match(p.honest, /not.*hardware/i)
   assert.match(p.receipt, /^[0-9a-f-]{36}$/)

@@ -45,6 +45,9 @@ export const SUBJECTS: { domain: string; queries: readonly string[] }[] = [
   // terms and one that knows what they have meant. HONEST SCOPE, unchanged from every other subject: reading a
   // book yields leads, never theorems. The desk proposes; the captain disposes.
   { domain: 'economy', queries: ['political economy', 'wealth of nations', 'money and banking', 'taxation', 'value and price'] },
+  // SEQUENCE — the ℤ/9 living field and its reflection group. zeropoint-node shares src/0 arithmetic; uuidna
+  // seals it in lean/Sequence.lean. Reading yields leads on modular groups and digital roots, never theorems.
+  { domain: 'sequence', queries: ['modular arithmetic', 'digital root', 'reflection group', 'affine group', 'cyclic group'] },
 ]
 
 export interface Found { id: number; title: string; author: string; domain: string; query: string; downloads: number; library?: string; ref?: string }

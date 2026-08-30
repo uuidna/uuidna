@@ -17,6 +17,7 @@
 
 // Axes are DERIVED from the ledger order, never authored. Handle identity is handleOf — never an inline slice.
 import { handleOf } from './handle.js'
+import { hexbitDoorOf } from './hexbit/index.js'
 import { channelAudit } from './hexagram.js'
 
 /** Short plain title for VPDocFooter / VPLink labels (no markdown). */
@@ -145,6 +146,7 @@ export function theoremGraph(t, all, bySkill, byPrin, legsRow, axiomHolds, relat
     file: t.file,
     address: t.address,
     handle: handleOf(t.address),
+    door: hexbitDoorOf(t.address).door,
     ten: face?.aura?.ten || null,
     stations: face?.stations || null,
     auraHsl: face?.aura?.hsl || '',
@@ -209,6 +211,7 @@ export function publicationGraph(p, pubs, byKey, rich, seals) {
     objectKind: 'publication',
     sequence: { prev, next },
     handle,
+    door: addr ? hexbitDoorOf(addr).door : '',
     address: addr,
     file: p.file || '',
     keywords: rich?.keywords ? [...rich.keywords].slice(0, 12) : [],

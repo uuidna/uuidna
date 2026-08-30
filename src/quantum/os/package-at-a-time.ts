@@ -387,7 +387,7 @@ export function renderRemainingAlpine(p: RemainingAlpinePort): string {
   const status = p.complete ? 'COMPLETE' : 'INCOMPLETE'
   const lines = [
     `${status} remaining Alpine port ${p.passed}/${p.remaining} starting at ${p.started ?? '(none remaining)'}`,
-    `  man ${p.withMan}/${p.remaining} · binaries ${p.withBinary}/${p.remaining} · ${p.commands} cmd: · reversed ${p.reversed} · ${p.bitWidth}-bit · ${p.receipt.slice(0, 8)}`,
+    `  man ${p.withMan}/${p.remaining} · binaries ${p.withBinary}/${p.remaining} · ${p.commands} cmd: · reversed ${p.reversed} · ${p.bitWidth}-bit · ${handleOf(p.receipt)}`,
   ]
   if (p.failedCount) {
     lines.push(`  failed ${p.failedCount}: ${p.failed.join(', ')}${p.failedCount > p.failed.length ? ' …' : ''}`)

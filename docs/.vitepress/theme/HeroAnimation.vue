@@ -1,7 +1,9 @@
-<!-- Hero — overlapping double iching; handle hex colours in resonance (two coins, half-turn phase). -->
+<!-- Hero — double iching in the documented home-hero-after slot. Href is heroAt().door (hexbit door);
+     uuidnaOS serves that handle; VitePress does not invent a page for it. VPLink treats an absolute door as external. -->
 <script setup>
 import { computed } from 'vue'
-import { useData, withBase } from 'vitepress'
+import { useData } from 'vitepress'
+import VPLink from 'vitepress/dist/client/theme-default/components/VPLink.vue'
 import { heroAt, gateColorOf } from '../../../dist/render.js'
 
 const props = defineProps({
@@ -19,11 +21,6 @@ const referrerIn = computed(() => {
 
 const h = computed(() => heroAt(referrerIn.value))
 
-const doorHref = computed(() => {
-  const handle = h.value.handle
-  return handle ? withBase('/' + handle) : withBase('/')
-})
-
 const gateColor = (gateIndex) => gateColorOf(h.value.handleColors, gateIndex)
 </script>
 
@@ -40,7 +37,7 @@ const gateColor = (gateIndex) => gateColorOf(h.value.handleColors, gateIndex)
     :data-coin-b="h.coinColors[1].hex"
     :style="h.styleVars"
   >
-    <a :href="doorHref" :aria-label="'handle ' + h.handle + ', referrer door ' + h.referrerDoor">
+    <VPLink :href="h.door" no-icon :aria-label="'handle ' + h.handle + ', referrer door ' + h.referrerDoor">
       <div
         class="hero-iching hero-resonance"
         data-slot="next-coin"
@@ -76,7 +73,7 @@ const gateColor = (gateIndex) => gateColorOf(h.value.handleColors, gateIndex)
           </div>
         </div>
       </div>
-    </a>
+    </VPLink>
     <figcaption>
       <code>{{ h.handle }}</code>
       <span class="hero-coin-swatches" aria-hidden="true">

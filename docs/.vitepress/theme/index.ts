@@ -1,5 +1,5 @@
 // https://vitepress.dev/guide/custom-theme
-// Layout = ObjectPage (stock H1 + crosslinks). Home uses stock VPHome; capacity door is /quantum (README keeps the table).
+// Layout = ObjectPage (stock H1 + crosslinks). Home uses stock VPHome; uuidnaOS serves handle doors.
 // Widgets are async so Rolldown does not hold every shelf in the monitor's main chunk — TypeScript computes, VitePress reads.
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
