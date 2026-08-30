@@ -1,4 +1,4 @@
 {
-  "wireBytes": 73286,
-  "note": "Re-sealed for uuidna_fill_gaps, uuidna_open_leads, uuidna_leads_gate, uuidna_open_questions. tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
+  "wireBytes": 74129,
+  "note": "Re-sealed for uuidna_handle and uuidna_send_trial (handle store witness + enriched detail trial). tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
 }

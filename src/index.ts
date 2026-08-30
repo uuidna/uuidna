@@ -169,6 +169,8 @@ export { adjudicate, adjudicateAll, proveVerdict, verifyUuidna, type Verdict, ty
 // then the citation trial), controls FIRST (a control accepted voids the audit — the instrument must be able to
 // fail), fold every detail's receipt with its verdict to ONE order-invariant receipt. Integrity, not truth.
 export { auditDetails, auditDetail, splitDetails, type DetailAudit, type DetailVerdict, type DetailVerdictKind, type ControlRun } from './detail-audit.js'
+export { enrichTrialText, sendTrial } from './trial-send.js'
+export { handleWitness, resolveHandleInput, handlePath, handleOfPath, handleOf, HANDLE_ROOT } from './handle.js'
 
 // coin-ledger — WHO PAID THE CAPTAIN'S COINS, WHEN AND WHERE, IN MESSAGING HANDLES: each gated call's deposit
 // registered as a derived row (agent handle, when = the deposit's own handle — time as content, where = op +

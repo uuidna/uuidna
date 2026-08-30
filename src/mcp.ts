@@ -33,7 +33,8 @@ import {
 import type { WavePhase } from './sequence-field.js'
 import { unlockBoard } from './unlocks.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
-import { handleOf } from './handle.js'   // THE one derivation of a handle from an address
+import { handleOf, handleWitness } from './handle.js'   // THE one derivation of a handle from an address
+import { sendTrial } from './trial-send.js'
 import { compileToHexbits, sha256IsFourSixtyfours } from './hexbit/index.js'   // THE unit computes hexbits — every response carries its 32 states
 import { sealToolWire } from './mcp-wire.js'
 
@@ -125,6 +126,35 @@ const TOOLS: Tool[] = ([
     description: 'THE 8-4-4-4-12 CHANNEL — slice any uuid into handle (double-torus door), three hex trinities (executable message-cap tiles), and tail (sealed micro-message). Returns {handle,door,trinities,tail,executable,tailStates,torusHome,widths,payloadStoreOptional}. No payload store required for route, aura, boards, or crypt — load src/handles only when the body is needed. Sealed: layout_groups_thirtytwo, message_cap_is_four_hexbits, the_uuid_is_two_boards.',
     inputSchema: { type: 'object', properties: { address: { type: 'string', description: 'a 128-bit uuid (with or without hyphens)' } }, required: ['address'] },
     run: ({ address }) => channelAudit(String(address)) },
+  { name: 'uuidna_handle',
+    description: 'Handle store — derive path from address or handle, live round-trip, optional payload. Pure. Sealed: handle_splits_four, message_carries_address, payload_carries_the_strand.',
+    inputSchema: { type: 'object', properties: {
+      address: { type: 'string', description: 'content-address (first 8 hex → handle)' },
+      handle: { type: 'string', description: 'eight lowercase hex characters' },
+      loadPayload: { type: 'boolean', description: 'read index.json when present (host-side)' },
+    } },
+    run: (a) => handleWitness(
+      a.address === undefined && a.handle === undefined
+        ? { address: runTrial().receipt, loadPayload: a.loadPayload === true }
+        : {
+          address: a.address === undefined ? undefined : String(a.address),
+          handle: a.handle === undefined ? undefined : String(a.handle),
+          loadPayload: a.loadPayload === true,
+        },
+    ) },
+  { name: 'uuidna_send_trial',
+    description: 'Send prose to trial — enrich sealed-topic citations, then detail audit (controls first). For video use uuidna_audit_video. Returns audit receipt + per-detail verdicts.',
+    inputSchema: { type: 'object', properties: {
+      text: { type: 'string', description: 'claims to adjudicate detail-by-detail' },
+      title: { type: 'string' },
+      delimiter: { type: 'string', description: 'detail boundary (newline default)' },
+      enrich: { type: 'boolean', description: 'append theorem citations for sealed topics (default true)' },
+    }, required: ['text'] },
+    run: (a) => sendTrial(String(a.text), {
+      title: a.title === undefined ? undefined : String(a.title),
+      delimiter: a.delimiter === undefined ? undefined : String(a.delimiter),
+      enrich: a.enrich === undefined ? true : a.enrich === true,
+    }) },
   { name: 'uuidna_seal_channel',
     description: 'AUTOMATION PATH — onion-seal a message (uuidna_seal_onion) and attach per-uuid channel slices for every link in the chain. Returns {uuids,layers,receipt,channels} where each channel is handle+trinities+tail without any payload-store dependency. Passphrases innermost→outermost; optional advancing step closes the equality leak.',
     inputSchema: { type: 'object', properties: { message: { type: 'string' }, passphrases: { type: 'array', items: { type: 'string' }, description: 'innermost→outermost, 1..16 layers' }, step: { type: 'integer', description: 'optional advancing crypt-salt step' } }, required: ['message', 'passphrases'] },
@@ -1694,7 +1724,7 @@ if (isNodeMain) {
 export interface ToolSchema { type?: string; properties?: Record<string, { type?: string; description?: string }>; required?: string[] }
 export interface McpCatalogEntry { name: string; description: string; detail?: string; category: string; skill: string; inputSchema?: ToolSchema }
 const CATEGORIES: [RegExp, string, string][] = [
-  [/^(address|merge|coin64|strict|digital_root)$/, 'Identity & addressing', 'address'],
+  [/^(address|merge|coin64|strict|digital_root|uuid_channel|seal_channel|handle)$/, 'Identity & addressing', 'address'],
   [/^(units|triad|vortex|double_torus|diamond|involute|seats)$/, 'Vortex algebra', 'algebra'],
   [/^(through_void|run_sequence|living_field|vortex_reflection|vortex_dash|vortex_tour|vortex_invariants|development_vortex)$/, 'Living field', 'sequence'],
   [/^(coprime|pentagram|fibonacci|rotate|crt)$/, 'Rotation & cycles', 'cycles'],
@@ -1702,9 +1732,9 @@ const CATEGORIES: [RegExp, string, string][] = [
   [/^(imprint|read|send|receive)$/, 'Imprint & messaging', 'imprint'],
   [/^(encrypt|decrypt|seal_stream|verify_envelope|seal_onion|open_onion|seal_chain|open_chain)$/, 'Crypto & streams', 'crypto'],
   [/^contract($|_)/, 'Contract-keyed messaging', 'contract'],
-  [/^audit_(text|book|translation|movie|record|cve)$/, 'Provenance audit (public text & metadata)', 'books'],
+  [/^audit_(text|book|translation|movie|record|cve|details|video)$/, 'Provenance audit (public text & metadata)', 'books'],
   [/^(sha256|hmac|pbkdf2|chacha20|poly1305|aead_encrypt|aead_decrypt|crypto)$/, 'Crypto primitives', 'crypto'],
-  [/^(theorems|theorem|trial|skill|skills|render|render_list|fingerprint|review_domains|coverage|document)$/, 'Theorems & trial', 'theorem'],
+  [/^(theorems|theorem|trial|send_trial|skill|skills|render|render_list|fingerprint|review_domains|coverage|document)$/, 'Theorems & trial', 'theorem'],
   [/^(publish|edit|compare|vocabulary)$/, 'Publications (audited prose)', 'publish'],
   [/^(forensics|evidence)$/, 'Forensics & evidence (statements vs receipts)', 'forensics'],
   [/^(legal_facts|prior_art)$/, 'Legal fact base & prior art (not an opinion)', 'legal'],

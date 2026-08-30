@@ -19,7 +19,12 @@
 // Handles are LOWERCASE hex. Anything else is refused rather than coerced, because a scheme that silently accepts
 // a near-miss will happily address two payloads to one place.
 
-/** the store's root, relative to the repository */
+import { existsSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from './boundary.js'
+import { toUuid } from './address.js'
+import { merkleGravity } from './gravity/index.js'
+
 export const HANDLE_ROOT = 'src/handles'
 
 /** eight lowercase hex characters — the shape chunkHandleOf already emits */
@@ -186,4 +191,50 @@ export const pathOrderMatchesHandleOrder = (handles: readonly string[]): boolean
   const byHandle = [...handles].sort()
   const byPath = [...handles].sort((a, b) => (handlePath(a) < handlePath(b) ? -1 : handlePath(a) > handlePath(b) ? 1 : 0))
   return byHandle.every((h, i) => h === byPath[i])
+}
+
+const HANDLE_THEOREMS = [
+  'handle_splits_four',
+  'handle_is_the_first_group',
+  'message_carries_address',
+  'payload_carries_the_strand',
+] as const
+
+/** resolveHandleInput — address or eight-hex handle; refuses ambiguous input. */
+export function resolveHandleInput(input: { address?: string; handle?: string }): { address?: string; handle: string } {
+  const h = input.handle ? String(input.handle).toLowerCase() : ''
+  const addr = input.address ? String(input.address) : ''
+  if (h && addr && handleOf(addr) !== h) throw new Error('handle and address disagree')
+  if (h) {
+    if (!isHandle(h)) throw new Error(`handle: "${h}" is not eight lowercase hex characters`)
+    return { handle: h, ...(addr ? { address: addr } : {}) }
+  }
+  if (!addr) throw new Error('pass address or handle')
+  return { address: addr, handle: handleOf(addr) }
+}
+
+/** handleWitness — live path round-trip + sealed width citations (LDAP is structural parallel only). */
+export function handleWitness(input: { address?: string; handle?: string; loadPayload?: boolean }) {
+  const { address, handle } = resolveHandleInput(input)
+  const path = handlePath(handle)
+  const abs = join(ROOT, path)
+  const recovered = handleOfPath(path)
+  const roundTrip = recovered === handle && path === handlePath(handle)
+  const payload = input.loadPayload && existsSync(abs) ? JSON.parse(readFileSync(abs, 'utf8')) as unknown : null
+  const receipt = merkleGravity([toUuid('handle|' + handle), toUuid(String(roundTrip)), ...(address ? [address] : [])])
+  return {
+    address,
+    handle,
+    path,
+    parts: handleParts(handle),
+    roundTrip,
+    payloadPresent: existsSync(abs),
+    ...(payload !== null ? { payload } : {}),
+    theorems: [...HANDLE_THEOREMS],
+    ldapParallel: {
+      uuidna: { levels: 4, width: 2, derived: true, root: HANDLE_ROOT, leaf: 'index.json' },
+      ldap: { shape: 'variable DN components', assigned: true, note: 'external directory standard — not sealed here' },
+    },
+    receipt,
+  }
 }

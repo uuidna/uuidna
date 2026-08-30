@@ -60,6 +60,19 @@ test('uuidna_uuid_channel and uuidna_seal_channel — automation slices without 
   assert.equal(sealed.channels[0]!.handle.length, 8)
 })
 
+test('uuidna_handle and uuidna_send_trial — store witness and enriched detail trial', () => {
+  const addr = toUuid('handle-mcp-door')
+  const hw = callTool('uuidna_handle', { address: addr }) as { handle: string; roundTrip: boolean; path: string }
+  assert.equal(hw.handle.length, 8)
+  assert.equal(hw.roundTrip, true)
+  assert.match(hw.path, /^src\/handles\//)
+  const trial = callTool('uuidna_send_trial', {
+    text: 'The full uuid carries 128 payload bits; RFC 4122 reserves six bits for version and variant, leaving 122 free.',
+  }) as { outcome: string; counts: { verified: number } }
+  assert.equal(trial.outcome, 'audited')
+  assert.ok(trial.counts.verified >= 1)
+})
+
 test('mcp tests itself: catalog↔handlers hold, zero-arg tools recompute (only live resources may vary)', () => {
   const s = callTool('uuidna_selftest', {}) as { checks: number; passed: number; deterministic: number; failed: { name: string }[] }
   assert.ok(s.checks > 80 && s.deterministic > 0)
