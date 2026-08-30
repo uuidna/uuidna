@@ -1,11 +1,11 @@
 // @non-harmonic: fans out to every wired public API, harvests decidable arithmetic, and queues FREE-MINT theorem
 // candidates — decide() at zero marginal cost (theorem minting_is_free_and_forging_is_not), the kernel seals, two
 // coins follow. HONEST: corroboration supplies ore; only `by decide` mints; deposit is queueing, never approval.
-import { researchSweep } from './corroborate.js'
+import { researchSweep } from './quantum/os/research/index.js'
 import { unansweredMath } from './research-sources.js'
-import { escoSearch, eurostatEducation, dataEuropaSearch, giscoSchools, cordisSearch, tedNotices } from './school-apis.js'
-import { fetchOpenMeteoForecast, fetchNoaaTideHeight } from './desk/sailing/weather/index.js'
-import { fetchWikinewsFeatured } from './desk/news/fetch.js'
+import { escoSearch, eurostatEducation, dataEuropaSearch, giscoSchools, cordisSearch, tedNotices } from './quantum/os/school/index.js'
+import { fetchOpenMeteoForecast, fetchNoaaTideHeight } from './quantum/os/weather/index.js'
+import { fetchWikinewsFeatured } from './quantum/os/news/index.js'
 import { extractFactsFromArticle, type NewsArticle } from './desk/news/portal/index.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'

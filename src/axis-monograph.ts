@@ -106,16 +106,31 @@ export type HomeCensus = {
   tamper: {
     mint: number
     traitorNet: number
+    handleVerify: number
+    handleForgeExponent: number
+    handleRatioExponent: number
+    handleCompletionExponent: number
+    handleForgeWithWitnessesExponent: number
     theoremVerify: number
     theoremForgeExponent: number
     theoremRatioExponent: number
+    theoremNeighbourWitnesses: number
+    theoremRelatedWitnesses: number
+    theoremForgeWithWitnessesExponent: number
     coinVerify: number
     coinForgeExponent: number
     coinRatioExponent: number
+    coinNeighbourWitnesses: number
+    coinRelatedWitnesses: number
+    coinForgeWithWitnessesExponent: number
     sha256CollisionExponent: number
     neighbours: number
     board: number
     coins: number
+    handlesPerUuid: number
+    handlesPerCoin: number
+    rosettaLegs: number
+    locateLegs: number
   }
   phd: {
     complete: boolean
@@ -325,16 +340,31 @@ export function axisMonographs(): AxisBundle {
         return {
           mint: t.mint,
           traitorNet: t.traitorNet,
+          handleVerify: t.handle.verify,
+          handleForgeExponent: t.handle.forgeExponent,
+          handleRatioExponent: t.handle.ratioExponent,
+          handleCompletionExponent: t.handle.completionExponent ?? 0,
+          handleForgeWithWitnessesExponent: t.handle.forgeWithWitnessesExponent,
           theoremVerify: t.theorem.verify,
           theoremForgeExponent: t.theorem.forgeExponent,
           theoremRatioExponent: t.theorem.ratioExponent,
+          theoremNeighbourWitnesses: t.theorem.neighbourWitnesses,
+          theoremRelatedWitnesses: t.theorem.relatedWitnesses,
+          theoremForgeWithWitnessesExponent: t.theorem.forgeWithWitnessesExponent,
           coinVerify: t.coin.verify,
           coinForgeExponent: t.coin.forgeExponent,
           coinRatioExponent: t.coin.ratioExponent,
+          coinNeighbourWitnesses: t.coin.neighbourWitnesses,
+          coinRelatedWitnesses: t.coin.relatedWitnesses,
+          coinForgeWithWitnessesExponent: t.coin.forgeWithWitnessesExponent,
           sha256CollisionExponent: t.sha256CollisionExponent,
           neighbours: t.neighbours,
           board: t.board,
           coins: t.coins,
+          handlesPerUuid: t.handlesPerUuid,
+          handlesPerCoin: t.handlesPerCoin,
+          rosettaLegs: t.rosettaLegs,
+          locateLegs: t.locateLegs,
         }
       })(),
       phd: (() => {

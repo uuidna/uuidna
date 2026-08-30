@@ -1,4 +1,4 @@
-// @non-harmonic: external free-API research corroboration (network — evidence— NAMED boundary; the harmonic core must never carry these ops.
+// @non-harmonic: orchestrates the uuidnaOS research sweep (network in quantum/os/research) — async fan-out boundary.
 // corroborate — augment the LOCAL binary verification (adjudicate: VERIFIED / UNVERIFIED, where UNVERIFIED is never
 // "false", only "not yet verified") with EXTERNAL RESEARCH streamed from FREE APIs. HONEST SCOPE: external evidence
 // is a recomputable PROVENANCE FINGERPRINT of what a public source says — it CORROBORATES, it does NOT prove. Only a
@@ -8,10 +8,9 @@
 // The evidence folds ORDER-INVARIANTLY to one receipt (the same merkle-gravity fold the quantum domain uses).
 // Integrity — the record recomputes for anyone.
 import { adjudicate } from './adjudicate.js'
-import { nistConstant } from './constants.js'
 import { merkleGravity } from './gravity/index.js'
 import { toUuid } from './address.js'
-import { extendedResearchSources, EXTENDED_RESEARCH_SOURCE_NAMES } from './research-sources.js'
+import { researchEvidence, researchSweep } from './quantum/os/research/index.js'
 import { hexbitDoorOf, evidenceRow, type HexbitDoor } from './hexbit/index.js'
 
 /** One piece of external research — a provenance-fingerprinted attestation from a free public API. NOT a proof. */
@@ -110,92 +109,7 @@ export const reachOf = (readings: readonly SourceReading[]): Reach => ({
   unreachable: readings.filter((r) => !r.reached).map((r) => r.source),
 })
 
-/** an archive that answered, with whatever it held (possibly nothing — which is evidence about the world) */
-const answered = (source: string, evidence: ResearchEvidence[]): SourceReading => ({ source, reached: true, why: null, evidence })
-/** an archive that REFUSED — it is up, it declined. Not a fact about the claim. */
-const refused = (source: string, status: number): SourceReading =>
-  ({ source, reached: false, why: `answered HTTP ${status}`, evidence: [] })
-/** an archive never reached at all — offline, DNS, timeout. Not a fact about the claim either. */
-const unreached = (source: string, e: unknown): SourceReading =>
-  ({ source, reached: false, why: e instanceof Error ? e.message : String(e), evidence: [] })
-
-const nistSource: ResearchSource = async (query) => {
-  try {
-    const nist = await nistConstant(query)
-    return answered('nist.gov', nist.matches.slice(0, 8).map((m) => evidenceRow(nist.source, toUuid(JSON.stringify(m)), JSON.stringify(m).replace(/[{}"]/g, '').slice(0, 100))))
-  } catch (e) { return unreached('nist.gov', e) } // a free API may be unreachable — best-effort, and it SAYS SO
-}
-
-const zenodoSource: ResearchSource = async (query) => {
-  try {
-    const res = await fetch('https://zenodo.org/api/records?size=8&q=' + encodeURIComponent(query))
-    if (!res.ok) return refused('zenodo.org', res.status)
-    const hits = ((await res.json()) as { hits?: { hits?: { id: number; metadata?: { title?: string } }[] } }).hits?.hits ?? []
-    return answered('zenodo.org', hits.map((h) => evidenceRow('zenodo.org', toUuid('zenodo:' + h.id), `zenodo record ${h.id}: ${(h.metadata?.title ?? '').slice(0, 80)}`)))
-  } catch (e) { return unreached('zenodo.org', e) }
-}
-
-// A third reachable free source: Crossref, the canonical DOI registry (api.crossref.org, no key; ?mailto for the
-// polite pool). Each hit is a provenance-fingerprinted publication mention — content-addressed.
-const crossrefSource: ResearchSource = async (query) => {
-  try {
-    const res = await fetch('https://api.crossref.org/works?rows=8&mailto=ceccec@psg.bg&query=' + encodeURIComponent(query))
-    if (!res.ok) return refused('crossref.org', res.status)
-    const items = ((await res.json()) as { message?: { items?: { DOI?: string; title?: string[] }[] } }).message?.items ?? []
-    return answered('crossref.org', items.map((it) => evidenceRow('crossref.org', toUuid('crossref:' + (it.DOI ?? '')), `DOI ${it.DOI ?? ''}: ${(it.title?.[0] ?? '').slice(0, 80)}`)))
-  } catch (e) { return unreached('crossref.org', e) }
-}
-
-// FREE AI-CAPABLE SEARCH, inside the law — two archives with machine intelligence built in and NO key required.
-// Semantic Scholar returns an AI-GENERATED TLDR per paper; OpenAlex returns ML-classified works. Their AI output
-// is EVIDENCE like any other note — content-addressed, quoted, tried at the gate
-// approval (only a Lean seal approves). Quantum secure and fast the same way every source is: parallel fan-out,
-// best-effort, a down archive returns [] — the sweep never fabricates and never stalls.
-const semanticScholarSource: ResearchSource = async (query) => {
-  try {
-    const res = await fetch('https://api.semanticscholar.org/graph/v1/paper/search?limit=8&fields=title,tldr,externalIds&query=' + encodeURIComponent(query))
-    if (!res.ok) return refused('semanticscholar.org', res.status)
-    const papers = ((await res.json()) as { data?: { paperId?: string; title?: string; tldr?: { text?: string } }[] }).data ?? []
-    return answered('semanticscholar.org', papers.map((p) => evidenceRow('semanticscholar.org', toUuid('s2:' + (p.paperId ?? '')),
-      `S2 ${(p.title ?? '').slice(0, 60)}${p.tldr?.text ? ' — AI tldr: ' + p.tldr.text.slice(0, 90) : ''}`)))
-  } catch (e) { return unreached('semanticscholar.org', e) }
-}
-
-const openAlexSource: ResearchSource = async (query) => {
-  try {
-    const res = await fetch('https://api.openalex.org/works?per-page=8&mailto=ceccec@psg.bg&search=' + encodeURIComponent(query))
-    if (!res.ok) return refused('openalex.org', res.status)
-    const works = ((await res.json()) as { results?: { id?: string; display_name?: string; primary_topic?: { display_name?: string } }[] }).results ?? []
-    return answered('openalex.org', works.map((w) => evidenceRow('openalex.org', toUuid('openalex:' + (w.id ?? '')),
-      `OpenAlex ${(w.display_name ?? '').slice(0, 70)}${w.primary_topic?.display_name ? ' [' + w.primary_topic.display_name.slice(0, 30) + ']' : ''}`)))
-  } catch (e) { return unreached('openalex.org', e) }
-}
-
-const CORE_RESEARCH_SOURCES: ResearchSource[] = [nistSource, zenodoSource, crossrefSource, semanticScholarSource, openAlexSource]
-const RESEARCH_SOURCES: ResearchSource[] = [
-  ...CORE_RESEARCH_SOURCES,
-  ...extendedResearchSources({ answered, refused, unreached }),
-]
-/** the sources BY NAME — so any surface states how many are actually wired. */
-export const RESEARCH_SOURCE_NAMES: readonly string[] = [
-  'nist.gov', 'zenodo.org', 'crossref.org', 'semanticscholar.org', 'openalex.org',
-  ...EXTENDED_RESEARCH_SOURCE_NAMES,
-]
-
-/** researchEvidence(query) → external research from the free API STREAMS, FANNED OUT IN PARALLEL (Promise.all over
- *  RESEARCH_SOURCES): the wall-clock is the slowest source
- *  Evidence item. The responses are DATA — content-addressed. Best-effort: a down/empty stream yields
- *  no evidence, never a fabricated one. The one parallel fan-out every research consumer shares (DRY). */
-export async function researchEvidence(query: string): Promise<ResearchEvidence[]> {
-  return (await researchSweep(query)).flatMap((r) => r.evidence)
-}
-
-/** researchSweep(query) → the same parallel fan-out, but every archive's READING: what it said AND whether it
- *  spoke at all. This is the call a verdict should use; researchEvidence keeps its shape for consumers that only
- *  want the rows (editorial.ts), and loses exactly the thing they never asked for. */
-export async function researchSweep(query: string): Promise<SourceReading[]> {
-  return await Promise.all(RESEARCH_SOURCES.map((s) => s(query)))
-}
+export { researchEvidence, researchSweep, RESEARCH_SOURCE_NAMES } from './quantum/os/research/index.js'
 
 /** approve(c) → the HARD gate: ONLY a local by-decide seal (the "quantum" verification — a proof that COMPUTES)
  *  approves a claim. THROWS if a non-sealed source is used as approval — CORROBORATED (external research) and

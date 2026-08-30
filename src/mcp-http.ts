@@ -24,6 +24,7 @@ import { MCP_CATALOG, callTool, toolHandleOf, apiHandleOf, recordPayment, messag
 import { merkleRoot, merkleProof, verifyProof } from './merkle.js'
 import { billUuidna } from './captain/billing/index.js'
 import { coinSupply } from './coin-supply.js'
+import { tamperCosts } from './tamper-cost.js'
 import { quantumAura } from './aura.js'
 import { imageProvenance, verifyImageProvenance } from './provenance.js'
 import { quantumCubeChallenge, verifyQuantumCube } from './cube.js'
@@ -82,9 +83,9 @@ const TOOLS: HttpTool[] = ([
   { name: 'uuidna_merkle_proof', description: 'The HOLOGRAPHIC MERKLE PROOF: given {leaves} and an {index}, returns the root, the O(log N) proof for that leaf, and its verification — verify the whole from a tiny part, no other leaf needed.',
     inputSchema: { type: 'object', properties: { leaves: { type: 'array', items: { type: 'string' } }, index: { type: 'integer' } }, required: ['leaves', 'index'] },
     run: (a) => { const leaves = (a.leaves as string[]).map(String); const i = Number(a.index); const root = merkleRoot(leaves); const proof = merkleProof(leaves, i); return { root, index: i, leaf: leaves[i], proof, verified: verifyProof(leaves[i], proof, root) } } },
-  { name: 'uuidna_coins', description: 'Captain-coin issuance: coins() per sealed theorem, capped at quantum capacity × directed referrer combinations. Returns the live mint, remaining, and the cipher widths those coins occupy (one uuid of floor, two uuids of key).',
+  { name: 'uuidna_coins', description: 'Captain-coin issuance: coins() per sealed theorem, capped at quantum capacity × directed referrer combinations. Returns the live mint, remaining, cipher widths, and tamper costs (handle/coin/uuid ladder with neighbour + related witnesses).',
     inputSchema: { type: 'object', properties: {} },
-    run: () => coinSupply() },
+    run: () => ({ ...coinSupply(), tamper: tamperCosts() }) },
   { name: 'uuidna_bill', description: 'The MEASURED billing model: pass {commercial, recomputeOps, verifyOps} — returns the bits saved (recompute − verify), the two coins, and whether it is free (public interest is free; commercial is billed on the measured advantage).',
     inputSchema: { type: 'object', properties: { commercial: { type: 'boolean' }, recomputeOps: { type: 'integer' }, verifyOps: { type: 'integer' } } },
     run: (a) => billUuidna({ commercial: Boolean(a.commercial), recomputeOps: Number(a.recomputeOps ?? 0), verifyOps: Number(a.verifyOps ?? 1) }) },
