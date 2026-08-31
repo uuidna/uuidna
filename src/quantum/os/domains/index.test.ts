@@ -9,7 +9,7 @@ const why = 'domain port census claim, exact over the committed mirror; membersh
 
 test('the seeded domains are ported and counted', () => {
   const all = allDomainCensuses()
-  assert.deepEqual(all.map((d) => d.domain), ['database', 'filesystem', 'blockchain'])
+  assert.deepEqual(all.map((d) => d.domain), ['database', 'filesystem', 'blockchain', 'driver'])
   for (const d of all) {
     assert.ok(d.packages > 0, `${d.domain} matched something`)
     assert.ok(d.origins > 0 && d.origins <= d.packages, `${d.domain} origins bound its packages`)
@@ -60,11 +60,13 @@ test('CONTROL — the conveyor ACCEPTS every domain claim', () => {
 })
 
 test('inclusion-exclusion holds across every pair, and the overlap is reported rather than resolved', () => {
-  // As it happens all three seeded domains are DISJOINT under these patterns, so each identity reduces to plain
-  // addition. That is worth stating rather than dressing up: the claim still catches a miscount in any of the
-  // four counts, and it would carry more if a future pattern did straddle two domains — which is exactly why the
-  // overlap is reported as a number instead of being assumed away.
-  for (const [a, b] of [['database', 'filesystem'], ['database', 'blockchain'], ['filesystem', 'blockchain']]) {
+  // The first three seeded domains were mutually DISJOINT, so every identity reduced to plain addition and was
+  // recorded as carrying less than its shape suggested. The driver domain settles that: it straddles database
+  // by 61 packages and filesystem by 8, so 438 + 630 - 61 = 1007 is a real set identity. The disjointness was an
+  // artefact of three narrow patterns, not a property of the catalogue — which is why the overlap is REPORTED as
+  // a number rather than assumed away, and why a claim that can only ever read `x + y - 0` is worth suspecting.
+  for (const [a, b] of [['database', 'filesystem'], ['database', 'blockchain'], ['filesystem', 'blockchain'],
+                        ['database', 'driver'], ['filesystem', 'driver'], ['blockchain', 'driver']]) {
     const o = domainsOverlap(a!, b!)!
     assert.equal(o.onlyA + o.onlyB + o.both, o.union, `${a}/${b}: the three parts are the union`)
     assert.match(o.lean, new RegExp(`${o.onlyA + o.both} \\+ ${o.onlyB + o.both} - ${o.both} = ${o.union}`))
@@ -93,7 +95,7 @@ test('an unseeded domain is null, not an empty census that reads like a real one
 test('uuidna_domains answers the roster, one domain, and an overlap', async () => {
   const { callTool } = await import('../../../mcp.js')
   const roster = callTool('uuidna_domains', {}) as { seeded: { domain: string }[] }
-  assert.deepEqual(roster.seeded.map((d) => d.domain), ['database', 'filesystem', 'blockchain'])
+  assert.deepEqual(roster.seeded.map((d) => d.domain), ['database', 'filesystem', 'blockchain', 'driver'])
 
   const one = callTool('uuidna_domains', { domain: 'blockchain' }) as { packages: number; origins: number; claims: unknown[]; classifier: string }
   assert.ok(one.packages > 0 && one.origins > 0 && one.origins <= one.packages)
@@ -112,4 +114,17 @@ test('CONTROL — an unseeded domain is refused BY NAME, not answered with an em
     assert.equal(miss.packages, undefined, 'no counts for a domain that was never seeded')
     assert.match(String(miss.error), /no seeded domain/)
   })
+})
+
+test('the driver domain STRADDLES, which is what makes inclusion-exclusion worth stating', () => {
+  const dbDriver = domainsOverlap('database', 'driver')!
+  assert.ok(dbDriver.both > 0, `database and driver share packages (${dbDriver.both}) — the identity is not addition`)
+  assert.equal(dbDriver.onlyA + dbDriver.onlyB + dbDriver.both, dbDriver.union)
+})
+
+test('the driver census keeps the sharpest honest scope of the four', () => {
+  const d = domainCensus('driver')!
+  assert.match(d.note, /does not manage a device/i)
+  assert.match(d.note, /never a working graphics stack/i)
+  assert.equal(d.classifier, 'pattern')
 })

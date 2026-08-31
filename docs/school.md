@@ -271,7 +271,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    it, which is the law [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) enforces for the unit and nothing enforced for the film.
    *Practice:* run `UUIDNA_METER=1 npm run x -- guard`, find a leaf whose subject is already sealed upstream, then
    ask the harder question — does its name still describe what it computes?
-8. **Discuss the open at school** — every lead enrolls on this page (6 held · 45 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
+8. **Discuss the open at school** — every lead enrolls on this page (6 held · 46 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
    *Practice:* open a held door, name a finite structure, deposit the two coins
    ([`two_coins`](/theorem/two_coins)). A student's answer is a deposit, not a comment.
 9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
@@ -953,7 +953,7 @@ Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)
 **two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the
 same way, lives on [the leads page](/leads).
 
-**71 leads** — 6 held · 45 refuted · 20 refused · 6 in trial.
+**72 leads** — 6 held · 46 refuted · 20 refused · 6 in trial.
 
 - **held** · `6bf44ca8` — 1120 of 1832 commits carry no Trial-Receipt. The commit-msg gate was dead for 229 commits (entry guard stopped matching cli/index.js), but most unsigned commits predate it and were never covered by the convention at all
   <br><small>a decision on whether the record should be uniform; backfilling rewrites 1120 SHAs and invalidates gate-receipt content-addressing and any DOI provenance pointing into this history</small>
@@ -963,10 +963,10 @@ same way, lives on [the leads page](/leads).
   <br><small>an alpine-specific pending count in GapSurvey so the phase runs when there is Alpine work, not when an unrelated conveyor is busy</small>
 - **held** · `82ec724e` — decide() spends about 11 microseconds on input that reaches NO verdict at all — measured as the prose path, against 0.93 us for a sealed-theorem hit and 17.4 us for the arithmetic path. The ledger lookup is not the cost;…
   <br><small>a split of that 11 us into its parts, and either a cheaper reject for input that decides nothing or a statement that the scan is inherent to deciding</small>
-- **held** · `924c55c4` — kubo (IPFS, 4 packages) is genuinely filesystem AND chain and no domain pattern claims it; electrs is a database over chain data. The three domains are disjoint because the patterns are mutually exclusive BY CONSTRUCTION…
-  <br><small>a pattern that reaches the straddling software, after which the inclusion-exclusion claims carry information — or dropping those three claims as low-information and keeping the partition and origin ones</small>
 - **held** · `bf82c361` — an honest alpinePending for GapSurvey costs 644 ms — it must classify all 28,635 packages to know the binding counts. catalogue() warm is free; the classification is not. This is why the phase gate reached for a cheap pr…
   <br><small>a decision: pay 644 ms per survey, or cache the census keyed on the catalogue receipt and pay it only when the mirror moves</small>
+- **held** · `8b69c3a7` — deploy-run reports COMPLETE and exits 0 while four steps inside it FAILED: always_use_https could not authenticate for uuidna.com, uuidna.net, uuidna.org and perma.family. The redirect is in fact enforced (http answers 3…
+  <br><small>either a token with zone scope so the hardening can actually verify, or a non-zero exit when a hardening step fails — a deploy that reports COMPLETE over four failures is the same shape as the gate that exited 0 without running</small>
 - **refuted** · `8609c55d` — HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).
   <br><small>PAID. hexFaceOf stamps packedTriangles = KEY_BITS (UUID_BITS × COINS) and merkabasPacked = UUID_HEXBITS. HexFace still draws two projected polygons — 2D is art. The count sits on the face as constructors, not as 256 drawn triangles.</small>
 - **refuted** · `0809c1db` — fruitOfLife XY pitch (28 / 14 / 24) is authored art integers; the sealed fact is the centre count (SAFE_HEXBITS, metatron_seventyeight_lines).
@@ -1057,6 +1057,8 @@ same way, lives on [the leads page](/leads).
   <br><small>Measured before widening: the fixed dir list finds 0 boilerplate files and a recursive walk adds 0. The scope hole was real but INERT — no live finding anywhere in src/. Widened anyway, at no cost, onto the recursive walk the overshoot check already runs, so the latent case canno…</small>
 - **refuted** · `f762bdb3` — catalogue() full materialisation is still ~32 ms — the lazy parse DEFERRED it, it did not remove it. discovery, patime, cryptovia and gen-os each walk everything and pay it in full
   <br><small>Checked every consumer: gen-os, patime, discovery, cryptovia, domains and exec each filter or sort across the WHOLE catalogue. None is a lookup in disguise — that was the browser path, and it is lazy now. The 32 ms is real work, paid once per process, and is accepted as measured …</small>
+- **refuted** · `924c55c4` — kubo (IPFS, 4 packages) is genuinely filesystem AND chain and no domain pattern claims it; electrs is a database over chain data. The three domains are disjoint because the patterns are mutually exclusive BY CONSTRUCTION…
+  <br><small>Settled by adding a fourth domain rather than by argument. The driver domain (630 packages, 460 origins) genuinely STRADDLES: 61 packages shared with database and 8 with filesystem, so 438 + 630 - 61 = 1007 is a real set identity and not the addition the first three reduced to. T…</small>
 - **refused** · `94f264b4` — KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.
   <br><small>RFC 8439 stays the AEAD and PBKDF2 stays the entropy tape. Occupancy is public routing. Fold-as-AEAD is already refused. Desk named both tapes and did not change the primitive.</small>
 - **refused** · `de5612a2` — The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…

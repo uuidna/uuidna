@@ -54,6 +54,26 @@
       "key": "alpine_domains_fi_bc_incl_excl_244",
       "why": "Inclusion-exclusion across filesystem and blockchain, exact over the committed mirror. These two are DISJOINT under the seeded patterns (overlap 0), so the identity reduces to addition — it still fails if any of the four counts is wrong, which is what it is for.",
       "lean": "theorem alpine_domains_fi_bc_incl_excl_244 : (215 + 29 - 0 = 244) := by decide"
+    },
+    {
+      "key": "alpine_domain_driver_partitions_28635",
+      "why": "Alpine domain port (driver): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match and is a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT manage a device. Nothing here addresses hardware. the driver domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_driver_partitions_28635 : (630 + 28005 = 28635) := by decide"
+    },
+    {
+      "key": "alpine_domain_driver_origins_630",
+      "why": "Alpine domain port (driver): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match and is a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT manage a device. Nothing here addresses hardware. 170 of the 630 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_driver_origins_630 : (460 <= 630) ∧ (630 - 460 = 170) := by decide"
+    },
+    {
+      "key": "alpine_domains_da_dr_incl_excl_1007",
+      "why": "Inclusion-exclusion across database and driver, exact over the committed mirror. These two genuinely OVERLAP (61 packages), so the identity is a real set statement rather than the addition the first three disjoint domains reduced to.",
+      "lean": "theorem alpine_domains_da_dr_incl_excl_1007 : (438 + 630 - 61 = 1007) := by decide"
+    },
+    {
+      "key": "alpine_domains_fi_dr_incl_excl_837",
+      "why": "Inclusion-exclusion across filesystem and driver, exact over the committed mirror. These two genuinely OVERLAP (8 packages), so the identity is a real set statement rather than the addition the first three disjoint domains reduced to.",
+      "lean": "theorem alpine_domains_fi_dr_incl_excl_837 : (215 + 630 - 8 = 837) := by decide"
     }
   ],
   "accepted": [

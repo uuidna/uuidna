@@ -19,12 +19,12 @@
       "owes": "a split of that 11 us into its parts, and either a cheaper reject for input that decides nothing or a statement that the scan is inherent to deciding"
     },
     {
-      "lead": "kubo (IPFS, 4 packages) is genuinely filesystem AND chain and no domain pattern claims it; electrs is a database over chain data. The three domains are disjoint because the patterns are mutually exclusive BY CONSTRUCTION, not because the catalogue lacks straddling software",
-      "owes": "a pattern that reaches the straddling software, after which the inclusion-exclusion claims carry information — or dropping those three claims as low-information and keeping the partition and origin ones"
-    },
-    {
       "lead": "an honest alpinePending for GapSurvey costs 644 ms — it must classify all 28,635 packages to know the binding counts. catalogue() warm is free; the classification is not. This is why the phase gate reached for a cheap proxy",
       "owes": "a decision: pay 644 ms per survey, or cache the census keyed on the catalogue receipt and pay it only when the mirror moves"
+    },
+    {
+      "lead": "deploy-run reports COMPLETE and exits 0 while four steps inside it FAILED: always_use_https could not authenticate for uuidna.com, uuidna.net, uuidna.org and perma.family. The redirect is in fact enforced (http answers 301), so the zone setting was already on and only the verification failed — but the run could not tell the difference and said nothing",
+      "owes": "either a token with zone scope so the hardening can actually verify, or a non-zero exit when a hardening step fails — a deploy that reports COMPLETE over four failures is the same shape as the gate that exited 0 without running"
     }
   ],
   "refuted": [
@@ -210,6 +210,10 @@
     {
       "lead": "catalogue() full materialisation is still ~32 ms — the lazy parse DEFERRED it, it did not remove it. discovery, patime, cryptovia and gen-os each walk everything and pay it in full",
       "killed_by": "Checked every consumer: gen-os, patime, discovery, cryptovia, domains and exec each filter or sort across the WHOLE catalogue. None is a lookup in disguise — that was the browser path, and it is lazy now. The 32 ms is real work, paid once per process, and is accepted as measured rather than carried as a defect."
+    },
+    {
+      "lead": "kubo (IPFS, 4 packages) is genuinely filesystem AND chain and no domain pattern claims it; electrs is a database over chain data. The three domains are disjoint because the patterns are mutually exclusive BY CONSTRUCTION, not because the catalogue lacks straddling software",
+      "killed_by": "Settled by adding a fourth domain rather than by argument. The driver domain (630 packages, 460 origins) genuinely STRADDLES: 61 packages shared with database and 8 with filesystem, so 438 + 630 - 61 = 1007 is a real set identity and not the addition the first three reduced to. The disjointness was an artefact of three narrow, mutually exclusive patterns — exactly as suspected — and not a property of the catalogue. kubo/IPFS remains unclaimed by any pattern, which is now a smaller and sharper thing to want."
     }
   ],
   "refused": [
