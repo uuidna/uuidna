@@ -8,7 +8,7 @@ import { ROOT } from '../../../boundary.js'
 import {
   BROWSER_SURFACES, MAN_BROWSER_SAMPLES, browserAppsUsable, docHasMount,
 } from '../../apps/browser-usable.js'
-import { resolveManPage, manAppWitness } from './index.js'
+import { resolveManPage, manAppWitness, primeCatalogue, catalogue, catalogueBrowse, cataloguePackage, CATALOGUE_FILE } from './index.js'
 
 const loadDocs = (): Map<string, string> => {
   const m = new Map<string, string>()
@@ -58,4 +58,35 @@ test('docHasMount sees ClientOnly wrappers', () => {
   assert.equal(docHasMount('<ClientOnly><Chess /></ClientOnly>', 'Chess'), true)
   assert.equal(docHasMount('<HexbitAnimator />', 'HexbitAnimator'), true)
   assert.equal(docHasMount('no mount here', 'Chess'), false)
+})
+
+// ── THE LAZY PATH MUST ANSWER EXACTLY WHAT THE EAGER ONE DOES ────────────────────────────────────────────────
+// Priming indexes lines instead of materialising 28,635 rows, so a browse or a lookup can answer without the
+// 21.9 ms of deps/provides splitting nothing on those paths reads. A fast answer that differs from the slow one
+// is not an answer, so these compare the two directly rather than trusting that the same code was reused.
+test('lazy browse returns exactly what the materialised browse returns', async () => {
+  primeCatalogue(readFileSync(join(ROOT, CATALOGUE_FILE), 'utf8'))
+  const lazy = [['', 40, undefined], ['ngin', 40, undefined], ['ssl', 25, 'main'], ['zzzz', 40, undefined]]
+    .map(([q, n, r]) => catalogueBrowse(q as string, n as number, r as 'main' | undefined))
+  catalogue()   // force full materialisation — subsequent browses take the eager path
+  const eager = [['', 40, undefined], ['ngin', 40, undefined], ['ssl', 25, 'main'], ['zzzz', 40, undefined]]
+    .map(([q, n, r]) => catalogueBrowse(q as string, n as number, r as 'main' | undefined))
+  for (let i = 0; i < lazy.length; i++) {
+    assert.equal(lazy[i]!.total, eager[i]!.total, 'the totals must match')
+    assert.deepEqual(lazy[i]!.hits.map((h) => h.name), eager[i]!.hits.map((h) => h.name), 'same rows, same order')
+  }
+})
+
+test('a lazily materialised row equals the eagerly parsed one, field for field', () => {
+  primeCatalogue(readFileSync(join(ROOT, CATALOGUE_FILE), 'utf8'))
+  const lazyRow = cataloguePackage('busybox')
+  catalogue()
+  const eagerRow = cataloguePackage('busybox')
+  assert.deepEqual(lazyRow, eagerRow, 'one line parsed alone must equal the same line parsed in the walk')
+})
+
+test('CONTROL — priming reports the row count without materialising the rows', () => {
+  const st = primeCatalogue(readFileSync(join(ROOT, CATALOGUE_FILE), 'utf8'))
+  assert.ok(st.present && st.count > 28000, `primed count is real (${st.count})`)
+  assert.equal(cataloguePackage('busybox')?.name, 'busybox', 'and a lookup answers from the index')
 })

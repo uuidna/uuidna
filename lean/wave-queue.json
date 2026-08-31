@@ -1,5 +1,41 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "key": "alpine_domain_database_partitions_28635",
+      "why": "Alpine domain port (database): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. the database domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_database_partitions_28635 : (438 + 28197 = 28635) := by decide"
+    },
+    {
+      "key": "alpine_domain_database_origins_438",
+      "why": "Alpine domain port (database): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. 113 of the 438 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_database_origins_438 : (325 <= 438) ∧ (438 - 325 = 113) := by decide"
+    },
+    {
+      "key": "alpine_domain_filesystem_partitions_28635",
+      "why": "Alpine domain port (filesystem): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. the filesystem domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_filesystem_partitions_28635 : (215 + 28420 = 28635) := by decide"
+    },
+    {
+      "key": "alpine_domain_filesystem_origins_215",
+      "why": "Alpine domain port (filesystem): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. 103 of the 215 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_filesystem_origins_215 : (112 <= 215) ∧ (215 - 112 = 103) := by decide"
+    },
+    {
+      "key": "alpine_domains_db_fs_incl_excl_653",
+      "why": "Inclusion-exclusion across two ported domains: |A|+|B|-|A and B| = |A or B|, exact over the committed mirror. The overlap is REPORTED rather than resolved — domains are not disjoint by construction and this states by how much.",
+      "lean": "theorem alpine_domains_db_fs_incl_excl_653 : (438 + 215 - 0 = 653) := by decide"
+    },
+    {
+      "key": "alpine_bindings_partition_packages_28635",
+      "why": "Alpine port census structural claim: every package holds exactly one binding — the classes are exhaustive and disjoint. Exact over the committed mirror and recomputed when it moves; says the counting is coherent, never that any package binding is correct.",
+      "lean": "theorem alpine_bindings_partition_packages_28635 : (2034 + 3087 + 23514 = 28635) := by decide"
+    },
+    {
+      "key": "alpine_binding_origins_overcount_16083",
+      "why": "Alpine port census structural claim: 1856 origins ship into more than one class — origins do NOT partition. Exact over the committed mirror and recomputed when it moves; says the counting is coherent, never that any package binding is correct.",
+      "lean": "theorem alpine_binding_origins_overcount_16083 : (1277 + 2819 + 13843 = 17939) ∧ (17939 - 16083 = 1856) := by decide"
+    }
+  ],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
