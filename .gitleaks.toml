@@ -16,6 +16,7 @@ paths = [
   '''quantum-fold\.json''',
   '''heartbeats\.json''',
   '''spin-manifest\.json''',
+  '''gate-receipt\.json''',
   '''payload-sync\.json''',
   '''audit-citations\.json''',
   '''support-audit\.json''',
