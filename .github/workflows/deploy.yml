@@ -32,20 +32,22 @@ name: deploy
 #               taken only when the proof provably applies; a tree that moved by one byte takes the slow one.
 # A failing check FAILS the deploy — never production on a tree that no longer verifies. Integrity, not truth.
 #
-# THIS WORKFLOW DEPLOYS NOTHING, AND THAT IS THE DESIGN — read the closing note before adding a step here.
-# The block that used to stand in this place asked for CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID and told the
-# reader to disable Cloudflare's own Git integration so that Actions would be "the SOLE deploy path". None of that
-# was true any more: 228a63b3 removed the wrangler step because the secrets were dead while the site stayed
-# current — the platform's Git integration had been doing the deploying the whole time. The instruction outlived
-# the step it configured, and a workflow named `deploy` whose header promised secrets it never used read as
-# broken to everyone who opened it, including the audit that went looking for the missing deploy.
+# THIS WORKFLOW DEPLOYS AGAIN, and the claim that it needn't was folklore that went unchecked for a year.
+# 228a63b3 deleted the wrangler step saying "Cloudflare's Git integration ships on every push". The instrument
+# disagrees: `wrangler deployments list` reports Source: Unknown (deployment) for EVERY release — direct uploads
+# from a workstation, never a git trigger. On the day this was written, 27 commits landed on main and produced no
+# deployment at all, leaving the worker 25 hours behind a fully green CI. There was no second path; there was no
+# path. The site went stale in silence because the only thing watching was a comment.
 #
-# WHERE DEPLOYS ACTUALLY HAPPEN, both outside this file:
-#   • the site   — Cloudflare's own Git integration, on every push to main. No secrets here, nothing to lose.
-#   • the worker — `npm run ship` (deploy-run.ts) from a workstation, against wrangler.toml.
-# What this workflow owns is the PROOF: types on a clean runner, and tests + guard whenever the push-time receipt
-# does not cover the tag's tree. Adding a deploy step would not restore a lost capability — it would open a SECOND
-# path racing the platform's, which is the exact failure the removal was written to end.
+# SECRETS, held by an operator and never by this file (repo → Settings → Secrets and variables → Actions):
+#   CLOUDFLARE_API_TOKEN    — a Workers-scoped API token
+#   CLOUDFLARE_ACCOUNT_ID   — the account the worker lives in
+# Missing either one FAILS the run. It does not skip: a step that quietly does nothing when unconfigured cannot be
+# told apart from one that worked, and that confusion is the entire defect this file is correcting.
+#
+# `npm run ship` (deploy-run.ts) remains the workstation path and still works; wrangler.toml's [build] runs the
+# docs build on either route, so both ship the same artefact. If BOTH are used, they are two writers to one
+# worker — cut releases from one of them, not from whichever is nearest to hand.
 
 on:
   push:
@@ -95,6 +97,32 @@ jobs:
         if: steps.receipt.outcome == 'failure'
         run: npm test && npm run guard
 
-      # DEPLOYMENT IS CLOUDFLARE'S OWN GIT INTEGRATION — it builds and ships on every push by itself, which is why
-      # the site stayed current even while this job's old wrangler step failed on dead secrets. One deploy path,
-      # owned by the platform; this workflow PROVES the tree (types, tests, guard) and nothing else. No secrets.
+      # THE DEPLOY ITSELF — restored. 228a63b3 removed it on the grounds that "Cloudflare's Git integration ships
+      # on every push", and that was never true: `wrangler deployments list` reports Source: Unknown (deployment)
+      # for every release — direct uploads from a workstation, never a git trigger — and on the day this was
+      # written 27 commits landed on main and produced ZERO deployments, leaving the worker 25 hours behind a
+      # fully green CI. A folklore claim justified deleting the only automated path, and nothing ever reported it.
+      #
+      # It runs only after the proofs above, so production never follows a tree that stopped verifying, and it
+      # REFUSES rather than skips when unconfigured. That is the whole lesson of the outage this file is
+      # correcting: a step that quietly does nothing when it is not set up is indistinguishable from a step that
+      # worked, which is exactly how three HARD gates exited 0 for 229 commits without anyone noticing.
+      - name: DEPLOY — worker and assets to Cloudflare
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
+            echo "::error::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are not set, so this workflow cannot deploy."
+            echo "An operator adds both at Settings -> Secrets and variables -> Actions, then re-runs this job."
+            echo "Failing rather than skipping is deliberate: a green run that shipped nothing is worse than a red one."
+            exit 1
+          fi
+          npx wrangler deploy
+
+      # AND THE DEPLOY IS VERIFIED RATHER THAN ASSUMED — the same instrument that exposed the folklore.
+      - name: PROVE — the deployment landed
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx wrangler deployments list | head -40
