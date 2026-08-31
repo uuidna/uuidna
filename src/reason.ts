@@ -18,15 +18,26 @@ export interface Rule { if: string[]; then: string; cites?: string }
 /** One derivation step — what was concluded, from which premises, by which sealed rule. */
 export interface Derivation { conclude: string; from: string[]; rule: string; cites: string }
 
+/** A pair the reasoner holds at once: an atom and its own negation, both concluded from the same facts. */
+export interface Contradiction { atom: string; negation: string; }
+
 export interface Reasoning {
   given: string[]
   derived: string[]        // atoms newly concluded (not in `given`)
   trace: Derivation[]      // the ordered derivation, each step citing its sealed inference rule
   rounds: number           // forward-chaining passes to reach the fixpoint (bounded)
   reachedFixpoint: boolean // true if it settled before the round cap
+  contradictions: Contradiction[] // atoms held together with their own negation — reported, never smoothed over
+  consistent: boolean      // false when the derivation concluded both an atom and its negation
   receipt: string          // the whole derivation folded, order-invariant — recompute it or it was altered
   honest: string
 }
+
+/** negationOf(atom) → the atom this one denies, or null when it denies nothing SYNTACTICALLY. Two spellings are
+ *  recognised, "not_x" and `¬x`, because those are the two this tree already writes. A rule set that encodes its
+ *  negation some other way is invisible here — which is stated in `honest` rather than left to be discovered. */
+const negationOf = (atom: string): string | null =>
+  atom.startsWith('not_') ? atom.slice(4) : atom.startsWith('¬') ? atom.slice(1) : null
 
 const ROUND_CAP = 64 // bounded: the reasoner cannot loop forever, even on a pathological rule set
 
@@ -52,11 +63,24 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
       }
     }
   }
-  const derived = [...known].filter((a) => !facts.includes(a))
+  // A REASONER THAT CANNOT NOTICE A CONTRADICTION WILL ENTAIL ANYTHING. Forward chaining is monotone: it only
+  // ever adds atoms, so if the rules license both `x` and "not_x" it concludes both and, on its own, reports a
+  // clean derivation over an inconsistent set — from which every further rule fires and every conclusion looks
+  // equally earned. The engine does not resolve the conflict (it holds no policy for choosing a side) and it
+  // does not refuse the derivation; it NAMES the pair and drops `consistent`, which is this tree's rule for a
+  // finding: report it where the caller must look at it, never quietly repair it.
+  const givenSet = new Set(facts)
+  const derived = [...known].filter((a) => !givenSet.has(a))
+  const contradictions: Contradiction[] = [...known]
+    .map((a) => ({ a, base: negationOf(a) }))
+    .filter((x): x is { a: string; base: string } => x.base !== null && known.has(x.base))
+    .map((x) => ({ atom: x.base, negation: x.a }))
+    .sort((l, r) => l.atom.localeCompare(r.atom))
   const reachedFixpoint = !changed
   const receipt = merkleFold([
     toUuid('given:' + [...facts].sort().join(',')),
     ...trace.map((t) => toUuid(t.from.slice().sort().join('&') + '→' + t.conclude + '|' + t.rule)),
+    ...contradictions.map((c) => toUuid('contradiction:' + c.atom + '&' + c.negation)),
   ])
   return {
     given: [...facts],
@@ -64,6 +88,8 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
     trace,
     rounds,
     reachedFixpoint,
+    contradictions,
+    consistent: contradictions.length === 0,
     receipt,
     honest:
       'Bounded propositional forward-chaining over the rules given: each conclusion FOLLOWS by a sealed inference rule ' +
@@ -71,6 +97,11 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
       'a point in court — theorem court_theorem_beats_assertion: only the proof is admissible. It does not tell anyone ' +
       'what to do or not to do. The court issues the mandate (courtProcedure stage 10); the loser develops the proven ' +
       '(court_loser_develops_the_proven). Deterministic, one receipt. It never claims a conclusion is TRUE, only that ' +
-      'it FOLLOWS from what it was given. Integrity.',
+      'it FOLLOWS from what it was given. If the rules license an atom AND its negation, both are concluded — ' +
+      'forward chaining is monotone and cannot retract — so the pair is NAMED in `contradictions` and `consistent` ' +
+      'goes false; from an inconsistent set every later conclusion is equally derivable, and a caller must know ' +
+      'that before reading the trace as support. Negation is recognised syntactically, as "not_x" or `¬x` beside ' +
+      '`x`: a rule set that spells its negation another way is NOT checked, and silence here is not consistency. ' +
+      'Integrity.',
   }
 }

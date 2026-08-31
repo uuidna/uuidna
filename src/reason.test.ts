@@ -44,3 +44,43 @@ test('bounded — a cyclic rule set settles at the round cap', () => {
   assert.ok(r.rounds <= 64, 'the round cap holds')
   assert.ok(r.derived.includes('b'))
 })
+
+// ── CONTRADICTION: the thing a monotone reasoner cannot do for itself ────────────────────────────────────────
+// Forward chaining only ever ADDS atoms. Give it rules that license both `x` and "not_x" and it concludes both,
+// then reports a clean trace over an inconsistent set — after which every later rule fires and every conclusion
+// looks equally earned. The engine holds no policy for choosing a side, so it names the pair rather than picking.
+test('a contradiction is NAMED, and consistency drops with it', () => {
+  const r = reason(['storm'], [
+    { if: ['storm'], then: 'sail' },
+    { if: ['storm'], then: 'not_sail' },
+  ])
+  assert.equal(r.consistent, false, 'both an atom and its negation were concluded')
+  assert.deepEqual(r.contradictions, [{ atom: 'sail', negation: 'not_sail' }])
+  assert.ok(r.derived.includes('sail') && r.derived.includes('not_sail'),
+    'both are still reported — a monotone reasoner cannot retract, and hiding one would be the lie')
+})
+
+test('the ¬ spelling is caught too, since this tree writes both', () => {
+  const r = reason(['a'], [{ if: ['a'], then: 'b' }, { if: ['a'], then: '¬b' }])
+  assert.equal(r.consistent, false)
+  assert.deepEqual(r.contradictions, [{ atom: 'b', negation: '¬b' }])
+})
+
+test('CONTROL — an ordinary derivation stays consistent, so the flag means something', () => {
+  const r = reason(['hull-closed'], [{ if: ['hull-closed'], then: 'skipped-is-zero' }])
+  assert.equal(r.consistent, true)
+  assert.deepEqual(r.contradictions, [])
+})
+
+test('CONTROL — an unrelated not_ atom is not a contradiction; only a PAIR is', () => {
+  // "not_rain" alone denies nothing that is also known: absence of `rain` is not its presence.
+  const r = reason(['clear'], [{ if: ['clear'], then: 'not_rain' }])
+  assert.equal(r.consistent, true, 'a negation without its atom is just another fact')
+  assert.deepEqual(r.contradictions, [])
+})
+
+test('the contradiction rides the receipt — a derivation cannot be altered to look consistent', () => {
+  const bad = reason(['s'], [{ if: ['s'], then: 'x' }, { if: ['s'], then: 'not_x' }])
+  const good = reason(['s'], [{ if: ['s'], then: 'x' }, { if: ['s'], then: 'not_y' }])
+  assert.notEqual(bad.receipt, good.receipt, 'the folded receipt must record that the pair was held')
+})
