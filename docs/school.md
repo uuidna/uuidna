@@ -271,7 +271,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    it, which is the law [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) enforces for the unit and nothing enforced for the film.
    *Practice:* run `UUIDNA_METER=1 npm run x -- guard`, find a leaf whose subject is already sealed upstream, then
    ask the harder question — does its name still describe what it computes?
-8. **Discuss the open at school** — every lead enrolls on this page (0 held · 42 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
+8. **Discuss the open at school** — every lead enrolls on this page (8 held · 42 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
    *Practice:* open a held door, name a finite structure, deposit the two coins
    ([`two_coins`](/theorem/two_coins)). A student's answer is a deposit, not a comment.
 9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
@@ -953,8 +953,24 @@ Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)
 **two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the
 same way, lives on [the leads page](/leads).
 
-**62 leads** — 0 held · 42 refuted · 20 refused · 0 in trial.
+**70 leads** — 8 held · 42 refuted · 20 refused · 8 in trial.
 
+- **held** · `1e7fec45` — exec reaches os/runtime through createRequire, which is opaque to the bundler — the Layer-1/Layer-2 boundary is HIDDEN from tooling rather than declared, so no import-walking check (including the edge-clean one) can see …
+  <br><small>declare os/runtime external to the worker build and reach it through a named door; a naive dynamic import() instead would pull Layer 2 spawnSync/docker/tar into the bundle and re-break the deploy</small>
+- **held** · `d9601781` — dryGaps still scans a FIXED directory list non-recursively for the HERE/ROOT boilerplate; only the root-OVERSHOOT check was widened. src/quantum/os/harness was never opened by the boilerplate half
+  <br><small>widen the boilerplate scan to the same recursive walk, or state why the two halves have different reach</small>
+- **held** · `6bf44ca8` — 1120 of 1832 commits carry no Trial-Receipt. The commit-msg gate was dead for 229 commits (entry guard stopped matching cli/index.js), but most unsigned commits predate it and were never covered by the convention at all
+  <br><small>a decision on whether the record should be uniform; backfilling rewrites 1120 SHAs and invalidates gate-receipt content-addressing and any DOI provenance pointing into this history</small>
+- **held** · `f762bdb3` — catalogue() full materialisation is still ~32 ms — the lazy parse DEFERRED it, it did not remove it. discovery, patime, cryptovia and gen-os each walk everything and pay it in full
+  <br><small>a per-consumer answer (do they need every row?) or an accepted, measured cost recorded as such</small>
+- **held** · `7176c02b` — the three seeded domains (database, filesystem, blockchain) are mutually DISJOINT, so all three inclusion-exclusion claims reduce to plain addition and carry less than their shape suggests
+  <br><small>patterns that genuinely straddle two domains, or dropping those three claims as low-information and keeping only the partition and origin ones</small>
+- **held** · `c08442a1` — gpuPresence DETECTS an accelerator and nothing in the tree dispatches to one. The field is honest but the gap is permanent until something uses it
+  <br><small>either a real data-parallel dispatch measured against the CPU baseline now recorded, or an explicit statement that none is intended so the field stops reading as a TODO</small>
+- **held** · `5257ec31` — decide.arithmetic costs ~34 microseconds, about 124 calibration units — three orders above the lattice ops it sits beside (valueOf 1.25 units)
+  <br><small>a measurement of where that goes (parse vs evaluate) and a judgement on whether it is inherent to deciding a fragment or a parse cost worth cutting</small>
+- **held** · `55161239` — the alpine-discovery phase gate is a STAND-IN: it fires on s.harvest, which counts search-feed leads, not Alpine ore. The contract it restored is real but the signal is the wrong one
+  <br><small>an alpine-specific pending count in GapSurvey so the phase runs when there is Alpine work, not when an unrelated conveyor is busy</small>
 - **refuted** · `8609c55d` — HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).
   <br><small>PAID. hexFaceOf stamps packedTriangles = KEY_BITS (UUID_BITS × COINS) and merkabasPacked = UUID_HEXBITS. HexFace still draws two projected polygons — 2D is art. The count sits on the face as constructors, not as 256 drawn triangles.</small>
 - **refuted** · `0809c1db` — fruitOfLife XY pitch (28 / 14 / 24) is authored art integers; the sealed fact is the centre count (SAFE_HEXBITS, metatron_seventyeight_lines).

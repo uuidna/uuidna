@@ -18,6 +18,9 @@
 //   node dist/scripts/measure.js            list what can be measured
 //   node dist/scripts/measure.js <name>     run one, with its receipt
 //   node dist/scripts/measure.js --all      run every one
+import { timingCensus } from '../os/timing/index.js'
+import { valueOf } from '../hexbit/index.js'
+import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../index.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 
@@ -33,6 +36,35 @@ export async function take(m: Measurement): Promise<Receipted> {
 }
 
 export const MEASUREMENTS: readonly Measurement[] = [
+  // TIME, MEASURED WHERE MEASUREMENT BELONGS. The captain's standard is that uuidnaOS computes in nanoseconds
+  // and anything slower is a crack — so time has to be checked somewhere, and the somewhere is NOT the guard.
+  // The advisory tier below it was emptied on the reasoning that a finder which cannot refuse a proof is custom
+  // logic over presentation, and a timing census cannot refuse a proof: it reports what a machine did, not what
+  // the kernel decided. Prediction was moved out of the gate to `npm run audit` for exactly this reason, and
+  // this rides the same chain. Reporting is not gating, and a crack that costs time is still a crack — named
+  // here, on every audit, with a receipt anyone can recompute.
+  { name: 'timing', what: 'the lattice ops and the data-parallel ops against per-host calibrated budgets — verdicts sealed, durations reported',
+    run: () => {
+      const handles = Array.from({ length: 10_000 }, (_, i) => ((i * 2654435761) >>> 0).toString(16).padStart(8, '0').slice(0, 8))
+      const addrs = Array.from({ length: 1024 }, (_, i) => toUuid('a' + i))
+      const c = timingCensus([
+        { op: 'handle.valueOf', run: () => valueOf('deadbeef').value },
+        { op: 'parallel.valueOf', run: () => handles.map((h) => valueOf(h).value), elements: handles.length },
+        { op: 'parallel.merkleGravity', run: () => merkleGravity(addrs), elements: addrs.length, iterations: 30 },
+      ])
+      // NO DURATIONS IN THE VALUE. receiptOf folds the whole value, so a nanosecond count here moves the
+      // address on every run while nothing has changed — which is precisely the contract the timing module was
+      // built to protect, undone at the integration point. Caught by running it three times and reading three
+      // receipts: 4544e2db, 9402a62c, 7259ecde. The verdicts and the host are what recompute; the durations are
+      // a live reading, available from timingCensus to anyone who asks, and are not a record.
+      return {
+        arch: `${c.arch.platform}/${c.arch.arch}/${c.arch.cpus}`,
+        accelerator: c.accelerator.webgpu ? 'webgpu present, no dispatch' : 'none',
+        within: c.within,
+        cracks: c.cracks,
+        verdicts: c.timings.map((t) => ({ op: t.op, budget: t.budget, within: t.within })),
+      }
+    } },
   { name: 'ledger', what: 'keys, distinct statements, and the re-namings between them',
     run: async () => {
       const { theorems } = await import('../index.js')
