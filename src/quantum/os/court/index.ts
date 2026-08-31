@@ -1,4 +1,5 @@
 // court — WHAT uuidna NEEDS: hex boot, MCP court, wave cargo, commit-msg gate. All gates enter here.
+import { handleOf } from '../../../handle.js'
 import { readFileSync, writeFileSync } from 'node:fs'
 import { callTool } from '../../../mcp.js'
 import { gateCommitMessage } from '../../../sign.js'
@@ -257,7 +258,7 @@ export function runCourtCli(argv: readonly string[]): number {
     }
     if (g.sig.signed) {
       writeFileSync(msgFile, g.body + '\n\nTrial-Receipt: ' + g.sig.fold + '\n')
-      console.log('✓ court — Trial-Receipt ' + g.sig.fold.slice(0, 8) + '…')
+      console.log('✓ court — Trial-Receipt ' + handleOf(g.sig.fold) + '…')
     } else {
       console.log('· court — ' + g.sig.reason)
     }
@@ -269,7 +270,7 @@ export function runCourtCli(argv: readonly string[]): number {
     console.error(`\n✗ court — BLOCKED: ${r.fails.map((f) => f.tool).join(', ')}`)
     return 1
   }
-  if (!courtOnly) process.env.UUIDNA_OS_MCP = r.receipt?.slice(0, 8) ?? 'green'
+  if (!courtOnly) process.env.UUIDNA_OS_MCP = r.receipt ? handleOf(r.receipt) : 'green'
   console.log('\n✓ court — uuidnaOS green' + (courtOnly ? ' (publish)' : ' (daily hex)'))
   return 0
 }

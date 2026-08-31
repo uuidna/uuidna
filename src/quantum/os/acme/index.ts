@@ -1,6 +1,7 @@
 // acme-port — Let's Encrypt on uuidnaOS: Alpine ACME clients through uuidna_exec (Layer 1) and
 // uuidna_run (Layer 2). Theorems come from the apps — harmoniseOf binds each catalogue row to a
 // sealed witness; crypto-using clients carry /theorem/sha256_grover_margin_is_the_address when unnamed.
+import { handleOf } from '../../../handle.js'
 import { domainToASCII } from 'node:url'
 import { cataloguePackage } from '../catalogue/index.js'
 import { defaultInstalls } from '../index.js'
@@ -222,7 +223,7 @@ export function renderAcmePort(c: AcmePortCoverage): string {
     `  theorems from apps ${c.cites.length} (harmonised ${c.theoremFold.harmonised} · crypto ${c.theoremFold.crypto} · port ${c.theoremFold.port})`,
     `  cites ${c.cites.map((t) => t.route).join(' · ')}`,
     ...(c.failed.length ? [`  failed: ${c.failed.join(', ')}`] : []),
-    `  receipt ${c.receipt.slice(0, 8)}…`,
+    `  receipt ${handleOf(c.receipt)}…`,
   ].join('\n')
 }
 
@@ -240,7 +241,7 @@ export function renderAcmeIssuance(p: AcmeIssuancePlan): string {
     `  layer2: ${p.layer2.command}`,
     `  layer2 plan: ${p.layer2.plan.ok ? p.layer2.plan.backend ?? 'ok' : p.layer2.plan.reason ?? 'refused'}`,
     ...p.layer1.map((h) => `  exec ${h.ok ? '✓' : '✗'} ${h.line}`),
-    `  receipt ${p.receipt.slice(0, 8)}…`,
+    `  receipt ${handleOf(p.receipt)}…`,
   ].join('\n')
 }
 

@@ -602,7 +602,7 @@ export function uuidnaExec(line: string): ExecResult {
       const r = runCourtSync(plan)
       emit([
         `court: ${r.ok ? 'green' : 'blocked'} · ${(r.ms + 0.5) | 0}ms`,
-        ...(r.receipt ? [`receipt: ${r.receipt.slice(0, 8)}…`] : []),
+        ...(r.receipt ? [`receipt: ${handleOf(r.receipt)}…`] : []),
         ...(r.fails.length ? r.fails.map((f) => `${f.tool}: ${f.detail}`) : ['playbook: daily (fast — no crypto census); --full for uuidna_crypto']),
       ], { kind: 'court', ...r })
       ok = r.ok

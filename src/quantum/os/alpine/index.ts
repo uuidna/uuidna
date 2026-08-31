@@ -1,6 +1,7 @@
 // quantum-alpine — FULL quantum coverage: every Alpine package related to crypto/quantum playbook,
 // tested through uuidna_exec (Layer 1) and planned for uuidna_run (Layer 2). One door per package,
 // not one MCP tool per apk. A row without man or cmd: is NAMED, not padded.
+import { handleOf } from '../../../handle.js'
 import { quantumAdvantagePlaybook } from '../../advantage/mcp/agent/playbook/index.js'
 import { cryptoAppsPort, type CryptoVia } from '../cryptoapps/index.js'
 import { cataloguePackage } from '../catalogue/index.js'
@@ -163,6 +164,6 @@ export function renderQuantumAlpineCoverage(c: QuantumAlpineCoverage): string {
     lines.push(`  sandbox present ${c.sandbox.present} · spawned ${c.sandbox.spawned} · absent ${c.sandbox.absent}`)
     if (!c.sandbox.ok && c.sandbox.reason) lines.push(`  sandbox refused: ${c.sandbox.reason}`)
   }
-  lines.push(`  receipt ${c.receipt.slice(0, 8)}…`)
+  lines.push(`  receipt ${handleOf(c.receipt)}…`)
   return lines.join('\n')
 }

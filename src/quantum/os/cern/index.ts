@@ -1,5 +1,6 @@
 // @non-harmonic: LHC open-data catalogue on uuidnaOS — network boundary; evidence only, never seals.
 // cern — THE CERN OPEN-DATA PORT. One fetcher for research sweep, school APIs, and uuidna_cern on the wire.
+import { handleOf } from '../../../handle.js'
 import { toUuid } from '../../../address.js'
 import { hexbitDoorOf } from '../../../hexbit/index.js'
 import { merkleGravity } from '../../../gravity/index.js'
@@ -101,6 +102,6 @@ export function renderCernPort(r: CernPortResult): string {
     `${status} cern-opendata · ${r.count} records · query "${r.query}"`,
     ...(r.declined ? [`  note: ${r.note}`] : []),
     ...r.hits.slice(0, 8).map((h) => `  ${h.experiment} ${h.id}: ${h.title.slice(0, 72)}`),
-    `  receipt ${r.receipt.slice(0, 8)}… · door ${r.door}`,
+    `  receipt ${handleOf(r.receipt)}… · door ${r.door}`,
   ].join('\n')
 }
