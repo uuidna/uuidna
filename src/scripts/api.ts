@@ -468,6 +468,7 @@ export const DRAIN_PATHS: readonly string[] = [
   'lean/mcp-alpine-man.json',
   // browser usability seal — store mounts + man→app→hexbit + terminal samples (not 28k sessions)
   'lean/browser-apps-usable.json',
+  'lean/alpine-discovery.json',
   // npm/curl apps ported as Alpine overlay (omp/oh-my-pi) — merged at catalogue read time
   'mirror/alpine-overlay.tsv',
   // edge/testing packages that close latest-stable community deps (gen-alpine-testing-leads)
@@ -569,6 +570,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-alpine-overlay': ['mirror/alpine-overlay.tsv'],   // docs/public/alpine-catalogue.tsv is gitignored build artifact
   'gen-alpine-testing-leads': ['mirror/alpine-testing-leads.tsv'],
   'browser-apps-usable': ['lean/browser-apps-usable.json'],
+  'alpine-discovery': ['lean/alpine-discovery.json'],
   // the model comparison over all public live data — derived from the committed feed mirror by gen-models
   'gen-models': ['docs/models.md'],
   'lean-heartbeats': ['lean/heartbeats.json'],

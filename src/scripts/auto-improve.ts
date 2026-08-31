@@ -66,6 +66,8 @@ const JOBS: readonly Job[] = [
   // stable enough to be published.
   { cmd: 'node dist/scripts/axiom-hunt.js',
     writes: ['lean/exposed-axioms.json'] },
+  { cmd: 'node dist/scripts/alpine-discovery.js',
+    writes: ['lean/alpine-discovery.json'] },
 ]
 
 /** the job's own name, read off the command it runs — never stored twice */

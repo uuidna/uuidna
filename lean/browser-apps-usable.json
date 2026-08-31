@@ -82,6 +82,14 @@
       "detail": "school.md mounts <PracticeLoop>"
     },
     {
+      "id": "advantage-mcp",
+      "route": "/school",
+      "mount": "AdvantageMcp",
+      "doc": "school",
+      "ok": true,
+      "detail": "school.md mounts <AdvantageMcp>"
+    },
+    {
       "id": "trading-floor",
       "route": "/trading",
       "mount": "TradingFloor",
@@ -92,10 +100,18 @@
     {
       "id": "terminal",
       "route": "/terminal",
-      "mount": "UuidnaTerminal",
+      "mount": "ExecShell",
       "doc": "terminal",
       "ok": true,
-      "detail": "terminal.md mounts <UuidnaTerminal>"
+      "detail": "terminal.md mounts <ExecShell>"
+    },
+    {
+      "id": "chat-terminal",
+      "route": "/chat",
+      "mount": "UuidnaTerminal",
+      "doc": "chat",
+      "ok": true,
+      "detail": "chat.md mounts <UuidnaTerminal>"
     },
     {
       "id": "os-boot",
@@ -104,6 +120,22 @@
       "doc": "os",
       "ok": true,
       "detail": "os.md mounts <HexbitPlayer>"
+    },
+    {
+      "id": "os-port",
+      "route": "/os",
+      "mount": "PortPanel",
+      "doc": "os",
+      "ok": true,
+      "detail": "os.md mounts <PortPanel>"
+    },
+    {
+      "id": "catalogue-browser",
+      "route": "/catalogue",
+      "mount": "CatalogueBrowser",
+      "doc": "catalogue",
+      "ok": true,
+      "detail": "catalogue.md mounts <CatalogueBrowser>"
     }
   ],
   "compute": [
@@ -134,6 +166,11 @@
     },
     {
       "id": "books/tryQuote",
+      "ok": true,
+      "detail": "computed"
+    },
+    {
+      "id": "practice/advantage-mcp",
       "ok": true,
       "detail": "computed"
     },
@@ -169,6 +206,26 @@
     },
     {
       "id": "kernel/animator",
+      "ok": true,
+      "detail": "computed"
+    },
+    {
+      "id": "os/catalogue-browser",
+      "ok": true,
+      "detail": "computed"
+    },
+    {
+      "id": "os/exec-shell",
+      "ok": true,
+      "detail": "computed"
+    },
+    {
+      "id": "os/port-panel",
+      "ok": true,
+      "detail": "computed"
+    },
+    {
+      "id": "theorem/drill-coverage",
       "ok": true,
       "detail": "computed"
     }
@@ -233,6 +290,38 @@
       "topic": "oh-my-pi",
       "ok": true,
       "detail": "man oh-my-pi → 32 hexbits"
+    }
+  ],
+  "catalogueExec": [
+    {
+      "topic": "apk list --all",
+      "ok": true,
+      "detail": "catalogue 28635 packages"
+    },
+    {
+      "topic": "ls /catalogue",
+      "ok": true,
+      "detail": "repo dirs listed"
+    },
+    {
+      "topic": "driver",
+      "ok": true,
+      "detail": "driver provenance"
+    },
+    {
+      "topic": "device",
+      "ok": true,
+      "detail": "device 64376687-8692-81f6-a541-a120a07c990b"
+    },
+    {
+      "topic": "nginx",
+      "ok": true,
+      "detail": "use nginx → 32 hexbits"
+    },
+    {
+      "topic": "openssl",
+      "ok": true,
+      "detail": "use openssl → 32 hexbits"
     }
   ],
   "installRoutes": [
@@ -388,16 +477,17 @@
     }
   ],
   "totals": {
-    "surfaces": 11,
-    "mountsOk": 11,
-    "computeOk": 13,
+    "surfaces": 15,
+    "mountsOk": 15,
+    "computeOk": 18,
     "manSamplesOk": 12,
+    "catalogueExecOk": 6,
     "installOk": 25,
     "manWitnessed": 4757,
     "manTotal": 4757
   },
   "gaps": [],
   "ok": true,
-  "honest": "Honest scope: store interactive mounts + uuidnaOS terminal man samples + default-install routes + manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.",
-  "receipt": "38f141db-f2b8-8a1d-8506-6c494f76d6c5"
+  "honest": "Honest scope: store interactive mounts + uuidnaOS terminal (man samples + catalogue census via apk/ls + driver/device) + default-install routes + manDrivenPortCoverage (man→app→hexbit). Not 28k browser sessions. Orphan -doc rows are named, never padded.",
+  "receipt": "e42d4c5a-aa1d-8dca-a0dd-601aeb341219"
 }

@@ -1,0 +1,735 @@
+{
+  "definition": "alpine-port·theorem·axiom·discovery",
+  "packages": 28635,
+  "origins": 16083,
+  "bindings": {
+    "harmonised": 2034,
+    "crypto": 3087,
+    "port": 23514
+  },
+  "bindingOrigins": {
+    "harmonised": 1277,
+    "crypto": 2819,
+    "port": 13843
+  },
+  "theorems": [
+    {
+      "key": "the_os_is_bootable_quantum",
+      "packages": 23514,
+      "origins": 13843
+    },
+    {
+      "key": "sha256_grover_margin_is_the_address",
+      "packages": 3087,
+      "origins": 2819
+    },
+    {
+      "key": "recto_odd_verso_even",
+      "packages": 406,
+      "origins": 333
+    },
+    {
+      "key": "fifth_cycles_all_twelve",
+      "packages": 379,
+      "origins": 203
+    },
+    {
+      "key": "birthday_halves_the_exponent",
+      "packages": 358,
+      "origins": 207
+    },
+    {
+      "key": "a_gapless_index_admits_nothing_between",
+      "packages": 342,
+      "origins": 207
+    },
+    {
+      "key": "frame_ring_undo_involutive",
+      "packages": 320,
+      "origins": 176
+    },
+    {
+      "key": "complementary_hues_oppose",
+      "packages": 92,
+      "origins": 67
+    },
+    {
+      "key": "xor_checksum_catches_flip",
+      "packages": 52,
+      "origins": 35
+    },
+    {
+      "key": "equivalent_exposure",
+      "packages": 47,
+      "origins": 29
+    },
+    {
+      "key": "isbn13_valid_check",
+      "packages": 17,
+      "origins": 8
+    },
+    {
+      "key": "closed_knight_tour_even",
+      "packages": 12,
+      "origins": 6
+    },
+    {
+      "key": "manipulation_never_faster",
+      "packages": 6,
+      "origins": 4
+    },
+    {
+      "key": "cube_seals_at_completeness_only",
+      "packages": 2,
+      "origins": 1
+    },
+    {
+      "key": "flood_and_ebb",
+      "packages": 1,
+      "origins": 1
+    }
+  ],
+  "harvest": [
+    {
+      "key": "api_315b6584",
+      "fragment": "5=5",
+      "lean": "theorem api_315b6584 : (5 = 5) := by decide",
+      "packages": 41,
+      "origins": 41,
+      "sample": "attica5-dev"
+    },
+    {
+      "key": "api_4cdbaa15",
+      "fragment": "2>=2",
+      "lean": "theorem api_4cdbaa15 : (2≥2) := by decide",
+      "packages": 24,
+      "origins": 24,
+      "sample": "babl-dev"
+    },
+    {
+      "key": "api_16fbf7cd",
+      "fragment": "1>=0",
+      "lean": "theorem api_16fbf7cd : (1≥0) := by decide",
+      "packages": 20,
+      "origins": 20,
+      "sample": "flatpak-dev"
+    },
+    {
+      "key": "api_c5c69c70",
+      "fragment": "2=2",
+      "lean": "theorem api_c5c69c70 : (2 = 2) := by decide",
+      "packages": 20,
+      "origins": 19,
+      "sample": "blosc2-dev"
+    },
+    {
+      "key": "api_41496f16",
+      "fragment": "4>=4",
+      "lean": "theorem api_41496f16 : (4≥4) := by decide",
+      "packages": 19,
+      "origins": 19,
+      "sample": "clapper-dev"
+    },
+    {
+      "key": "api_f673b9ca",
+      "fragment": "1>=1",
+      "lean": "theorem api_f673b9ca : (1≥1) := by decide",
+      "packages": 18,
+      "origins": 18,
+      "sample": "abiword-dev"
+    },
+    {
+      "key": "api_0e3ca44d",
+      "fragment": "3>=3",
+      "lean": "theorem api_0e3ca44d : (3≥3) := by decide",
+      "packages": 17,
+      "origins": 16,
+      "sample": "gnunet-dev"
+    },
+    {
+      "key": "api_82c5e290",
+      "fragment": "3=3",
+      "lean": "theorem api_82c5e290 : (3 = 3) := by decide",
+      "packages": 17,
+      "origins": 16,
+      "sample": "gtkmm3-dev"
+    },
+    {
+      "key": "api_fb2d33ba",
+      "fragment": "18=18",
+      "lean": "theorem api_fb2d33ba : (18 = 18) := by decide",
+      "packages": 15,
+      "origins": 15,
+      "sample": "ceph18-base"
+    },
+    {
+      "key": "api_c55671fb",
+      "fragment": "2>=1",
+      "lean": "theorem api_c55671fb : (2≥1) := by decide",
+      "packages": 11,
+      "origins": 11,
+      "sample": "abiword-dev"
+    },
+    {
+      "key": "api_26991a11",
+      "fragment": "11>=1",
+      "lean": "theorem api_26991a11 : (11≥1) := by decide",
+      "packages": 10,
+      "origins": 10,
+      "sample": "gtk-vnc-dev"
+    },
+    {
+      "key": "api_fd74d159",
+      "fragment": "28=28",
+      "lean": "theorem api_fd74d159 : (28 = 28) := by decide",
+      "packages": 9,
+      "origins": 9,
+      "sample": "erlang28-debugger"
+    },
+    {
+      "key": "api_ffa18d9f",
+      "fragment": "27=27",
+      "lean": "theorem api_ffa18d9f : (27 = 27) := by decide",
+      "packages": 9,
+      "origins": 9,
+      "sample": "erlang27-debugger"
+    },
+    {
+      "key": "api_0d1257c0",
+      "fragment": "0>=0",
+      "lean": "theorem api_0d1257c0 : (0≥0) := by decide",
+      "packages": 8,
+      "origins": 8,
+      "sample": "clutter-dev"
+    },
+    {
+      "key": "api_dd3e5d92",
+      "fragment": "19=19",
+      "lean": "theorem api_dd3e5d92 : (19 = 19) := by decide",
+      "packages": 8,
+      "origins": 8,
+      "sample": "ceph19-base"
+    },
+    {
+      "key": "api_fba837b0",
+      "fragment": "1=1",
+      "lean": "theorem api_fba837b0 : (1 = 1) := by decide",
+      "packages": 8,
+      "origins": 7,
+      "sample": "iir1-dev"
+    },
+    {
+      "key": "api_4aa6a9c4",
+      "fragment": "16=16",
+      "lean": "theorem api_4aa6a9c4 : (16 = 16) := by decide",
+      "packages": 7,
+      "origins": 7,
+      "sample": "clang16-dev"
+    },
+    {
+      "key": "api_791923ca",
+      "fragment": "4=4",
+      "lean": "theorem api_791923ca : (4 = 4) := by decide",
+      "packages": 6,
+      "origins": 6,
+      "sample": "gtkmm4-dev"
+    },
+    {
+      "key": "api_9cbf6e8e",
+      "fragment": "17=17",
+      "lean": "theorem api_9cbf6e8e : (17 = 17) := by decide",
+      "packages": 6,
+      "origins": 6,
+      "sample": "openjdk17-static-libs"
+    },
+    {
+      "key": "api_265fde63",
+      "fragment": "2>1",
+      "lean": "theorem api_265fde63 : (2> 1) := by decide",
+      "packages": 5,
+      "origins": 5,
+      "sample": "aria2-dbg"
+    },
+    {
+      "key": "api_4317dc46",
+      "fragment": "22=22",
+      "lean": "theorem api_4317dc46 : (22 = 22) := by decide",
+      "packages": 5,
+      "origins": 5,
+      "sample": "clang22-analyzer"
+    },
+    {
+      "key": "api_dc7768e4",
+      "fragment": "9=9",
+      "lean": "theorem api_dc7768e4 : (9 = 9) := by decide",
+      "packages": 5,
+      "origins": 4,
+      "sample": "trafficserver9-dev"
+    },
+    {
+      "key": "api_1c490f80",
+      "fragment": "3>=1",
+      "lean": "theorem api_1c490f80 : (3≥1) := by decide",
+      "packages": 4,
+      "origins": 4,
+      "sample": "libshumate-dev"
+    },
+    {
+      "key": "api_28744432",
+      "fragment": "5>=5",
+      "lean": "theorem api_28744432 : (5≥5) := by decide",
+      "packages": 4,
+      "origins": 4,
+      "sample": "foundry-dev"
+    },
+    {
+      "key": "api_da0734d9",
+      "fragment": "4>=2",
+      "lean": "theorem api_da0734d9 : (4≥2) := by decide",
+      "packages": 4,
+      "origins": 4,
+      "sample": "atkmm2.28-dev"
+    },
+    {
+      "key": "api_e23f26f6",
+      "fragment": "21=21",
+      "lean": "theorem api_e23f26f6 : (21 = 21) := by decide",
+      "packages": 4,
+      "origins": 4,
+      "sample": "openjdk21-static-libs"
+    },
+    {
+      "key": "api_10f87561",
+      "fragment": "68>=2",
+      "lean": "theorem api_10f87561 : (68≥2) := by decide",
+      "packages": 3,
+      "origins": 3,
+      "sample": "atkmm2.36-dev"
+    },
+    {
+      "key": "api_5359962c",
+      "fragment": "4>=0",
+      "lean": "theorem api_5359962c : (4≥0) := by decide",
+      "packages": 3,
+      "origins": 3,
+      "sample": "foundry-dev"
+    },
+    {
+      "key": "api_7e0ea44c",
+      "fragment": "20=20",
+      "lean": "theorem api_7e0ea44c : (20 = 20) := by decide",
+      "packages": 3,
+      "origins": 3,
+      "sample": "clang20-dev"
+    },
+    {
+      "key": "api_96a27cc3",
+      "fragment": "2>=0",
+      "lean": "theorem api_96a27cc3 : (2≥0) := by decide",
+      "packages": 3,
+      "origins": 3,
+      "sample": "gexiv2-0.16-dev"
+    },
+    {
+      "key": "api_c4494588",
+      "fragment": "0<2",
+      "lean": "theorem api_c4494588 : (0< 2) := by decide",
+      "packages": 3,
+      "origins": 3,
+      "sample": "gtk+2.0-dbg"
+    },
+    {
+      "key": "api_e8d2209f",
+      "fragment": "4>=1",
+      "lean": "theorem api_e8d2209f : (4≥1) := by decide",
+      "packages": 3,
+      "origins": 3,
+      "sample": "gtkmm3-dev"
+    },
+    {
+      "key": "api_f3a4af5e",
+      "fragment": "3<8",
+      "lean": "theorem api_f3a4af5e : (3< 8) := by decide",
+      "packages": 3,
+      "origins": 3,
+      "sample": "php83-dbg"
+    },
+    {
+      "key": "api_f66305b6",
+      "fragment": "2<8",
+      "lean": "theorem api_f66305b6 : (2< 8) := by decide",
+      "packages": 3,
+      "origins": 3,
+      "sample": "php83-dbg"
+    },
+    {
+      "key": "api_0fa9e0b8",
+      "fragment": "2>0",
+      "lean": "theorem api_0fa9e0b8 : (2> 0) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "gnome-software-plugin-apk2-dbg"
+    },
+    {
+      "key": "api_1a1b2b7b",
+      "fragment": "2<6",
+      "lean": "theorem api_1a1b2b7b : (2< 6) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "radare2-dbg"
+    },
+    {
+      "key": "api_1cefb2ae",
+      "fragment": "16>=1",
+      "lean": "theorem api_1cefb2ae : (16≥1) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "gtkmm4-dev"
+    },
+    {
+      "key": "api_3097a474",
+      "fragment": "11>1",
+      "lean": "theorem api_3097a474 : (11> 1) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "pipewire-dbg"
+    },
+    {
+      "key": "api_386932c2",
+      "fragment": "7=7",
+      "lean": "theorem api_386932c2 : (7 = 7) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "granite7-dev"
+    },
+    {
+      "key": "api_4ced1520",
+      "fragment": "11>5",
+      "lean": "theorem api_4ced1520 : (11> 5) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "imv-dbg"
+    },
+    {
+      "key": "api_64e559ac",
+      "fragment": "8>=0",
+      "lean": "theorem api_64e559ac : (8≥0) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "gnome-calculator-dev"
+    },
+    {
+      "key": "api_68c34a46",
+      "fragment": "3>0",
+      "lean": "theorem api_68c34a46 : (3> 0) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "jimtcl-dbg"
+    },
+    {
+      "key": "api_9f7853e8",
+      "fragment": "6>=2",
+      "lean": "theorem api_9f7853e8 : (6≥2) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "gtkmm3-dev"
+    },
+    {
+      "key": "api_d8a8f50d",
+      "fragment": "1<2",
+      "lean": "theorem api_d8a8f50d : (1< 2) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "neatvnc-dev"
+    },
+    {
+      "key": "api_ddb5a169",
+      "fragment": "5>3",
+      "lean": "theorem api_ddb5a169 : (5> 3) := by decide",
+      "packages": 2,
+      "origins": 2,
+      "sample": "wxwidgets-dbg"
+    },
+    {
+      "key": "api_0b443fa0",
+      "fragment": "84>8",
+      "lean": "theorem api_0b443fa0 : (84> 8) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "php84-dbg"
+    },
+    {
+      "key": "api_0c20797f",
+      "fragment": "3>=0",
+      "lean": "theorem api_0c20797f : (3≥0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "mpv-dev"
+    },
+    {
+      "key": "api_0d7c3a1f",
+      "fragment": "5>=0",
+      "lean": "theorem api_0d7c3a1f : (5≥0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "spice-gtk-dev"
+    },
+    {
+      "key": "api_14422573",
+      "fragment": "4<44",
+      "lean": "theorem api_14422573 : (4< 44) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "gnome-desktop-dbg"
+    },
+    {
+      "key": "api_18259c7e",
+      "fragment": "64>=8",
+      "lean": "theorem api_18259c7e : (64≥8) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "incus-vm"
+    },
+    {
+      "key": "api_2d7f0d02",
+      "fragment": "11>6",
+      "lean": "theorem api_2d7f0d02 : (11> 6) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "qt6-qtbase-dbg"
+    },
+    {
+      "key": "api_2ee03bce",
+      "fragment": "56>=0",
+      "lean": "theorem api_2ee03bce : (56≥0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "vala-lint"
+    },
+    {
+      "key": "api_39009700",
+      "fragment": "85>8",
+      "lean": "theorem api_39009700 : (85> 8) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "php85-dbg"
+    },
+    {
+      "key": "api_42fee526",
+      "fragment": "5<10",
+      "lean": "theorem api_42fee526 : (5< 10) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "openssh-dbg"
+    },
+    {
+      "key": "api_4ceda3c8",
+      "fragment": "6>=6",
+      "lean": "theorem api_4ceda3c8 : (6≥6) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "gedit-dev"
+    },
+    {
+      "key": "api_5c0ba565",
+      "fragment": "0<3",
+      "lean": "theorem api_5c0ba565 : (0< 3) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "gtk+3.0-dbg"
+    },
+    {
+      "key": "api_645cc578",
+      "fragment": "10>=0",
+      "lean": "theorem api_645cc578 : (10≥0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "abiword-dev"
+    },
+    {
+      "key": "api_68c91552",
+      "fragment": "4<5",
+      "lean": "theorem api_68c91552 : (4< 5) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "lua5.4-dbg"
+    },
+    {
+      "key": "api_6d60a741",
+      "fragment": "6>=1",
+      "lean": "theorem api_6d60a741 : (6≥1) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "gupnp-dev"
+    },
+    {
+      "key": "api_720b4612",
+      "fragment": "3<5",
+      "lean": "theorem api_720b4612 : (3< 5) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "lua5.3-dbg"
+    },
+    {
+      "key": "api_95540232",
+      "fragment": "300>=299",
+      "lean": "theorem api_95540232 : (300≥299) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "libgedit-tepl-dev"
+    },
+    {
+      "key": "api_9f5c42a6",
+      "fragment": "25=25",
+      "lean": "theorem api_9f5c42a6 : (25 = 25) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "openjdk25-static-libs"
+    },
+    {
+      "key": "api_a3a1ec81",
+      "fragment": "128>1",
+      "lean": "theorem api_a3a1ec81 : (128> 1) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "pipewire-dbg"
+    },
+    {
+      "key": "api_ac852321",
+      "fragment": "19>0",
+      "lean": "theorem api_ac852321 : (19> 0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "wlroots0.19-dbg"
+    },
+    {
+      "key": "api_beba0d83",
+      "fragment": "3>1",
+      "lean": "theorem api_beba0d83 : (3> 1) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "freeswitch-dbg"
+    },
+    {
+      "key": "api_c18b1143",
+      "fragment": "264>0",
+      "lean": "theorem api_c18b1143 : (264> 0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "x264-dbg"
+    },
+    {
+      "key": "api_c1b6d1ee",
+      "fragment": "64>=0",
+      "lean": "theorem api_c1b6d1ee : (64≥0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "ruby-full"
+    },
+    {
+      "key": "api_cb2be44f",
+      "fragment": "4>0",
+      "lean": "theorem api_cb2be44f : (4> 0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "vte3-dbg"
+    },
+    {
+      "key": "api_cba9eed7",
+      "fragment": "0=0",
+      "lean": "theorem api_cba9eed7 : (0 = 0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "ocaml-sexplib0-dev"
+    },
+    {
+      "key": "api_d0a37c7d",
+      "fragment": "15=15",
+      "lean": "theorem api_d0a37c7d : (15 = 15) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "llvm15-dev"
+    },
+    {
+      "key": "api_d578b6ab",
+      "fragment": "3<6",
+      "lean": "theorem api_d578b6ab : (3< 6) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "kamailio-dbg"
+    },
+    {
+      "key": "api_d67c76c4",
+      "fragment": "20>0",
+      "lean": "theorem api_d67c76c4 : (20> 0) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "wlroots0.20-dbg"
+    },
+    {
+      "key": "api_d6bd718d",
+      "fragment": "2<5",
+      "lean": "theorem api_d6bd718d : (2< 5) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "lua5.2-dbg"
+    },
+    {
+      "key": "api_d727b8e6",
+      "fragment": "3<44",
+      "lean": "theorem api_d727b8e6 : (3< 44) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "gnome-desktop-dbg"
+    },
+    {
+      "key": "api_d9da7e34",
+      "fragment": "0<4",
+      "lean": "theorem api_d9da7e34 : (0< 4) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "gtk4.0-dbg"
+    },
+    {
+      "key": "api_e3c7fe34",
+      "fragment": "1<5",
+      "lean": "theorem api_e3c7fe34 : (1< 5) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "lua5.1-dbg"
+    },
+    {
+      "key": "api_e73ccb5f",
+      "fragment": "48>=2",
+      "lean": "theorem api_e73ccb5f : (48≥2) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "gtkmm4-dev"
+    },
+    {
+      "key": "api_f1d5c3ad",
+      "fragment": "6<152",
+      "lean": "theorem api_f1d5c3ad : (6< 152) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "chromium-dbg"
+    },
+    {
+      "key": "api_f728a8ff",
+      "fragment": "83>8",
+      "lean": "theorem api_f728a8ff : (83> 8) := by decide",
+      "packages": 1,
+      "origins": 1,
+      "sample": "php83-dbg"
+    }
+  ],
+  "harvestTotal": 79,
+  "exposedAxioms": [],
+  "axiomHunt": {
+    "proven": 44,
+    "exposed": 0,
+    "refuted": 0
+  },
+  "receipt": "3c9dfbc3-f54a-81bc-9c3e-cd383b078003",
+  "honest": "Alpine port census: harmonised skill witnesses, crypto-census bindings, port-only identities, harvest fragments decide() confirms but the ledger does not seal, and axiom-hunt exposed runtime assumptions. Integrity and meaning only — nothing installed, linked, or executed. Desk proposes; captain seals."
+}

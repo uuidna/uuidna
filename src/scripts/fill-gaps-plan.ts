@@ -35,6 +35,12 @@ export const FILL_GAPS_CORE_PHASES: readonly FillGapsPhase[] = [
     when: (s) => s.harvest > 0,
   },
   {
+    name: 'alpine-discovery',
+    cmd: 'node dist/scripts/alpine-discovery.js --deposit',
+    note: 'Alpine port census harvest → wave conveyor (28k catalogue ore, never auto-seal)',
+    when: () => true,
+  },
+  {
     name: 'trial-refusals',
     cmd: 'node dist/scripts/trial-refusals.js --books',
     note: 'collide each refused boundary against peers and cited theorems — verified, purged, or open',

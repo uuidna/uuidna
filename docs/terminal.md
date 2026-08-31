@@ -12,7 +12,7 @@ description: uuidnaOS on the MCP wire — Layer 1 exec, court, and the full tool
 > ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
 <ClientOnly>
-  <UuidnaTerminal />
+  <ExecShell />
 </ClientOnly>
 
 **Layer 1:** type `ls /terminal`, `apk info busybox`, `nginx`, or `court` — the wire runs `uuidna_exec` on the host and
