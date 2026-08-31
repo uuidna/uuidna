@@ -32,8 +32,20 @@ name: deploy
 #               taken only when the proof provably applies; a tree that moved by one byte takes the slow one.
 # A failing check FAILS the deploy — never production on a tree that no longer verifies. Integrity, not truth.
 #
-# SECRETS (repo → Settings → Secrets and variables → Actions): CLOUDFLARE_API_TOKEN (a Workers-scoped API token) and
-# CLOUDFLARE_ACCOUNT_ID. Disable Cloudflare's own Git/Workers-Builds integration so GitHub Actions is the SOLE deploy path.
+# THIS WORKFLOW DEPLOYS NOTHING, AND THAT IS THE DESIGN — read the closing note before adding a step here.
+# The block that used to stand in this place asked for CLOUDFLARE_API_TOKEN and CLOUDFLARE_ACCOUNT_ID and told the
+# reader to disable Cloudflare's own Git integration so that Actions would be "the SOLE deploy path". None of that
+# was true any more: 228a63b3 removed the wrangler step because the secrets were dead while the site stayed
+# current — the platform's Git integration had been doing the deploying the whole time. The instruction outlived
+# the step it configured, and a workflow named `deploy` whose header promised secrets it never used read as
+# broken to everyone who opened it, including the audit that went looking for the missing deploy.
+#
+# WHERE DEPLOYS ACTUALLY HAPPEN, both outside this file:
+#   • the site   — Cloudflare's own Git integration, on every push to main. No secrets here, nothing to lose.
+#   • the worker — `npm run ship` (deploy-run.ts) from a workstation, against wrangler.toml.
+# What this workflow owns is the PROOF: types on a clean runner, and tests + guard whenever the push-time receipt
+# does not cover the tag's tree. Adding a deploy step would not restore a lost capability — it would open a SECOND
+# path racing the platform's, which is the exact failure the removal was written to end.
 
 on:
   push:
