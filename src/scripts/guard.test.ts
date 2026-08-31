@@ -51,7 +51,7 @@ test('every finder one-receipt exports is wired: blocking in the guard, advisory
 
   const unwired: string[] = []
   for (const f of finders) {
-    const leaf = f === 'pipe' ? 'pipes' : f          // pipeGaps is invoked as the 'pipes' leaf
+    const leaf = f === 'pipe' ? 'pipes' : f === 'import' ? 'imports' : f
     if (blocking.has(leaf) || advisory.has(leaf) || leaf in ON_DEMAND) continue
     unwired.push(`${f}Gaps → nothing runs it`)
   }

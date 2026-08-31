@@ -6,11 +6,13 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
+import { join } from 'node:path'
+import { ROOT } from './boundary.js'
 import { DERIVED_FILES, sealSpin, verifySpin } from './index.js'
 
 /** the paths the audit chain actually diffs — read from package.json, so this cannot drift from the real gate */
 const gated = (): string[] => {
-  const audit = (JSON.parse(readFileSync(new URL('../../package.json', import.meta.url), 'utf8')) as
+  const audit = (JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as
     { scripts: Record<string, string> }).scripts.audit
   // the gated list ends at the first chain operator: an `&&` and whatever follows it are the NEXT command,
   // not gated files — the one-writer release wrapper taught this parser that the diff arm is not always last
