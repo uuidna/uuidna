@@ -74,6 +74,7 @@ lean/alpine-hexbit-monitor.json merge=derived
 docs/public/alpine-hexbit-monitor.jsonld merge=derived
 lean/mcp-alpine-man.json merge=derived
 lean/browser-apps-usable.json merge=derived
+lean/alpine-discovery.json merge=derived
 mirror/alpine-overlay.tsv merge=derived
 mirror/alpine-testing-leads.tsv merge=derived
 docs/store.md merge=derived
