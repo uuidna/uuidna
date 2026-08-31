@@ -9,9 +9,17 @@ name: deploy
 # drove it. Now the tag is the single event that moves npm, Zenodo, the GitHub Release and the site together, and
 # uuidna.com states a version that a consumer can actually install.
 #
-# THE COST, STATED: work merged to main no longer reaches production until the next tag. That is the intended
-# trade — the site is a published surface, not a preview — but it means a docs fix waits for a release. Use
-# workflow_dispatch to deploy deliberately between releases; it is kept for exactly that.
+# THAT COST WAS PAID AND THE TRADE WAS REVISED (2026-08-31, the captain's call). Tag-only meant work merged to
+# main did not reach production until the next cut, and with the wrangler step gone as well the two absences
+# compounded: no tag was cut for a day, so nothing shipped at all, and 27 landings sat behind a green CI while
+# the worker went 25 hours stale. The trade only held while someone cut tags often; nothing enforced that, and
+# nothing reported when it stopped. main now ships on every landing AND a tag still ships, so a release reaches
+# production on its own rather than depending on a habit.
+#
+# WHAT THIS COSTS INSTEAD, stated as plainly: every landing is a production deploy, so main must stay releasable
+# — which is what the pre-push court and the proofs below already require. The concurrency group is keyed on the
+# ref with cancel-in-progress, so a burst of landings collapses to the newest rather than queueing a deploy per
+# commit. workflow_dispatch is kept for a deliberate out-of-band ship.
 #
 # ORDERING WITH publish.yml: both fire on the same tag. publish's `live` job verifies uuidna.com and waits on
 # `publish`, whose prepublishOnly audit runs ~8 minutes, while this deploy takes ~2 — so the site is already
@@ -51,7 +59,8 @@ name: deploy
 
 on:
   push:
-    tags: ['v*']          # the release tag, not main — production follows what was published
+    branches: [main]      # every landing ships — the tag-only trigger is why 27 commits deployed nothing
+    tags: ['v*']          # and a release tag still ships, so a cut version reaches production on its own
   workflow_dispatch:     # deliberate out-of-band deploy (a docs fix that should not wait for a release)
 
 concurrency:
