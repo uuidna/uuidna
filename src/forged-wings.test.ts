@@ -10,10 +10,15 @@ import { readdirSync, readFileSync } from 'node:fs'
 import { forgedAgainstWings } from './treason.js'
 import { theorems } from './index.js'
 
+// `../lean`, not `../../lean`: this file sits one level under the root as
+// src/ and again as dist/ (rootDir src, outDir dist), so two levels up leaves
+// the repository. It resolved to /lean, readdirSync threw ENOENT, and all four
+// tests that call this failed before reaching an assertion — which reads as
+// four broken checks rather than one wrong path. school.ts:87 has it right.
 const wings = (): string =>
-  readdirSync(new URL('../../lean', import.meta.url))
+  readdirSync(new URL('../lean', import.meta.url))
     .filter((f) => f.endsWith('.lean'))
-    .map((f) => readFileSync(new URL(`../../lean/${f}`, import.meta.url), 'utf8'))
+    .map((f) => readFileSync(new URL(`../lean/${f}`, import.meta.url), 'utf8'))
     .join('\n')
 
 test('the real ledger is fully witnessed by the wings', () => {
