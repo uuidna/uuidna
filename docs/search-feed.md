@@ -13,8 +13,8 @@ yet seal, is a **lead** the desk proposes. Only the kernel seals; only the capta
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted),
 [`two_coins`](/theorem/two_coins)). Meaning is null.
 
-Fold receipt `91c1cf6c-24b6-8045-8eef-500bf9e3fe80` · hexbit door [`91c1cf6c`](https://uuidna.com/91c1cf6c) ·
-42 door(s) · 12 lead(s) · 10 silent
+Fold receipt `8b72c279-337b-816a-a7b1-fe0999696465` · hexbit door [`8b72c279`](https://uuidna.com/8b72c279) ·
+42 door(s) · 11 lead(s) · 10 silent
 .
 
 ## Online results — loud theorems the queries already ring
@@ -79,8 +79,6 @@ Fold receipt `91c1cf6c-24b6-8045-8eef-500bf9e3fe80` · hexbit door [`91c1cf6c`](
 - **cricket** — most-searched query "cricket" rings no sealed theorem
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>
 - **quantum advantage** — harvest 128 - 70 = 58 from "quantum advantage" — refused at the wave conveyor ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
-  <br><small>owes: a by decide wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal</small>
-- **quantum advantage** — harvest 70 &amp;lt; 128 from "quantum advantage" — refused at the wave conveyor ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation)
   <br><small>owes: a by decide wing whose algebra carries the quantity, or a named boundary in lean/leads.json refused[] — bare literal mints do not seal</small>
 - **Euclid** — most-searched query "Euclid" rings no sealed theorem
   <br><small>owes: a by decide wing whose key or gloss names that query, or a named boundary in lean/leads.json refused[] that declines the subject</small>

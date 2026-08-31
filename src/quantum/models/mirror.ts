@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 396,
+ "count": 395,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -450,8 +450,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000088606",
-   "completionPrice": "0.000000177212"
+   "promptPrice": "0.00000008554",
+   "completionPrice": "0.00000017108"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000016",
-   "completionPrice": "0.0000032"
+   "promptPrice": "0.000001035996",
+   "completionPrice": "0.000002071992"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -830,13 +830,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 262144,
    "promptPrice": "0",
    "completionPrice": "0"
-  },
-  {
-   "id": "kwaipilot/kat-coder-air-v2.5",
-   "name": "Kwaipilot: KAT-Coder-Air V2.5",
-   "contextTokens": 256000,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000006"
   },
   {
    "id": "kwaipilot/kat-coder-pro-v2",
