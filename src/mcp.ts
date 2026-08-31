@@ -542,11 +542,16 @@ const TOOLS: Tool[] = ([
     run: (a) => auditZenodo(Number(a.recordId)) },
   { name: 'uuidna_domains',
     description: 'THE ALPINE PORT, BY DOMAIN — database, filesystem and blockchain read off Alpine\'s own published names and descriptions, with the arithmetic each domain satisfies. Pass {domain} for one census, or nothing for all three; pass {a,b} instead for the inclusion-exclusion across two. WHAT IS PROVEN AND WHAT IS MEASURED, and they must not be confused: the ARITHMETIC over the counts is exact and decided by the kernel (a domain and its complement sum to the catalogue; origins bound packages, and the difference is the companion -dev/-doc/-libs packages). The MEMBERSHIP is a pattern match and is a MEASUREMENT with known failures — addrwatch-mysql is a monitoring tool and aws-sdk-cpp-timestream-influxdb is an SDK, neither is a database. No sum promotes a match into a fact about the world. HONEST SCOPE: provenance only — nothing is installed, mounted, linked, executed, no key is held and no chain is followed; a filesystem domain is a list of names and versions, not a mounted volume. Returns {domain,packages,origins,outside,claims,classifier,honest,receipt}. Boundary declared — theorem drift_is_named_or_caught.',
-    inputSchema: { type: 'object', properties: { domain: { type: 'string' }, a: { type: 'string' }, b: { type: 'string' } } },
+    inputSchema: { type: 'object', properties: { domain: { type: 'string' }, a: { type: 'string' }, b: { type: 'string' }, all: { type: 'boolean' } } },
     run: (x) => {
       if (x.a && x.b) return domainsOverlap(String(x.a), String(x.b)) ?? { error: 'unseeded domain — ask without arguments for the roster' }
       if (x.domain) return domainCensus(String(x.domain)) ?? { error: `no seeded domain "${String(x.domain)}" — ask without arguments for the roster` }
-      return { domains: allDomainCensuses(), seeded: DOMAIN_PATTERNS.map((d) => ({ domain: d.domain, note: d.note })) }
+      // THE ROSTER IS A LIST OF NAMES AND COSTS NOTHING. It used to compute all three censuses to answer it —
+      // walking 28,635 packages three times to return three names, measured at 90.9 ms, which made this the
+      // fourth slowest tool on the whole surface an hour after it shipped. Found by the timing census added the
+      // same day, on its own author. A caller that wants every census asks for it with {all:true} and pays then.
+      if (x.all) return { domains: allDomainCensuses(), seeded: DOMAIN_PATTERNS.map((d) => ({ domain: d.domain, note: d.note })) }
+      return { seeded: DOMAIN_PATTERNS.map((d) => ({ domain: d.domain, note: d.note })), ask: 'pass {domain} for one census, {a,b} for an overlap, or {all:true} for every census — the roster itself walks nothing' }
     } },
   { name: 'uuidna_coprime',
     description: 'gcd(a,b) and whether a and b are coprime (gcd = 1). Coprimality is what makes a step permute ℤ/n — visiting every point in one stroke — and what fuses moduli (CRT). Mirrors the sealed circle_of_fifths and trinity_rosette_coprime. Returns {gcd,coprime}.',
