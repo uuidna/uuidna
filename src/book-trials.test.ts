@@ -3,8 +3,11 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { trialBookLead, trialAllBookLeads, bookTrialsUntried } from './index.js'
-
-const ROOT = join(import.meta.dirname, '..', '..')
+// ROOT IS IMPORTED, NOT RE-DERIVED — this file sits ONE level under the root, and the local
+// `join(import.meta.dirname, '..', '..')` it used to carry climbed two, landing OUTSIDE the repo. The read then
+// ENOENT'd before a single assertion ran, so the live book-leads fold was not being tested at all. boundary.ts
+// declares the resolution once for exactly this reason; the fourth file this session found re-deriving it.
+import { ROOT } from './boundary.js'
 
 test('trialBookLead — remands narrative claim as UNVERIFIED', () => {
   const row = trialBookLead({

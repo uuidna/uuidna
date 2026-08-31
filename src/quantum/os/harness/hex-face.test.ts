@@ -351,7 +351,10 @@ test('shadcn slots: hex-face cells and render.ts card anatomy; no Tailwind/React
   const alpine = [
     'docs/.vitepress/theme/CatalogueBrowser.vue',
     'docs/.vitepress/theme/PortPanel.vue',
-    'docs/.vitepress/theme/ExecShell.vue',
+    // ExecShell.vue was DELETED in d1688563 ("VitePress theme drops ExecShell; Terminal uses script-side
+    // placeholder"). The NAME survives — theme/index.ts registers ExecShell as an alias of Terminal.vue — so the
+    // card anatomy is owed by the constructor that actually renders, which is this file.
+    'docs/.vitepress/theme/Terminal.vue',
     'docs/.vitepress/theme/BookRoom.vue',
   ]
   for (const f of alpine) {

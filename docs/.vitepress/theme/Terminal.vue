@@ -103,11 +103,11 @@ const run = async () => {
 
 <template>
   <article class="uu-terminal" data-slot="card">
-    <div class="uu-head">
-      <strong>uuidnaOS</strong>
-      <small class="uu-boot">{{ bootLine }}</small>
+    <div class="uu-head" data-slot="card-header">
+      <strong data-slot="card-title">uuidnaOS</strong>
+      <small class="uu-boot" data-slot="card-description">{{ bootLine }}</small>
     </div>
-    <div class="scroll" ref="scroller" aria-live="polite">
+    <div class="scroll" ref="scroller" aria-live="polite" data-slot="card-content">
       <div v-for="(l, i) in lines" :key="i" class="line">{{ l }}</div>
     </div>
     <form class="prompt" @submit.prevent="run">
@@ -115,7 +115,7 @@ const run = async () => {
       <input v-model="input" :disabled="busy" spellcheck="false" autocomplete="off"
         :placeholder="busy ? 'the wire is answering…' : idlePlaceholder" aria-label="uuidnaOS command" />
     </form>
-    <p v-if="receipt" class="receipt">
+    <p v-if="receipt" class="receipt" data-slot="card-footer">
       <small>transcript <code>{{ receipt.address.slice(0, 8) }}</code> · hexbits [{{ receipt.hexbits.slice(0, 8).join(' ') }}…]{{ toolCount !== null ? ` · toolbox ${toolCount}` : '' }}</small>
     </p>
   </article>

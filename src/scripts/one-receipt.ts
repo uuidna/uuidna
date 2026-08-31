@@ -2206,16 +2206,43 @@ export function binaryGaps(full = false): Gap[] {
  *  behind and the wing kept emitting, failing against a ledger that no longer held its theorems. The same shape
  *  made a stale dist/tests/smoke.test.js run tests absent from source. Any dist/scripts/lean-*.js without a
  *  matching source is a generator nobody can read but everybody runs. */
+/** walk dist for compiled tests — tsc mirrors rootDir src onto outDir dist, so the source of any dist test is
+ *  its path with .js swapped for .ts. A file that fails that check is output tsc no longer has a reason to make. */
+function distTests(dir: string, out: string[] = []): string[] {
+  if (!existsSync(dir)) return out
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    const full = join(dir, e.name)
+    if (e.isDirectory()) distTests(full, out)
+    else if (e.name.endsWith('.test.js')) out.push(full)
+  }
+  return out
+}
+
 export function orphanGaps(): Gap[] {
   const d = join(ROOT, 'dist', 'scripts')
-  if (!existsSync(d)) return []
-  return readdirSync(d)
+  const lean = !existsSync(d) ? [] : readdirSync(d)
     .filter((f) => /^lean-.*\.js$/.test(f))
     .filter((f) => !existsSync(join(ROOT, 'src', 'scripts', f.replace(/\.js$/, '.ts'))))
     .map((f) => ({
       what: `dist/scripts/${f} has no source — tsc leaves orphaned output, and lean-all runs every dist/scripts/lean-*.js it finds`,
       fix: `rm dist/scripts/${f} (the source was deleted; a clean \`rm -rf dist && npm run build\` also clears it)`,
     }))
+
+  // THE SAME DEFECT, ONE DIRECTORY WIDER, and it cost a whole review to see (2026-08-31). The audit runs
+  // `node --test 'dist/**/*.test.js'` — a GLOB over output, not over source — so a test file that MOVES leaves its
+  // old compiled copy behind and the glob keeps running it. After the colocated-test migration, dist held both
+  // dist/redos-bounds.test.js and dist/quantum/os/harness/redos-bounds.test.js from ONE source: the same failure
+  // reported twice, which reads as two independent bugs and was briefed to a peer as exactly that. tsc mirrors
+  // src onto dist, so the test is total: no source at the mirrored path means nothing should have compiled there.
+  // Sweeping dist fixes the count; this fixes the class — the artefact must not outlive the path.
+  const stale = distTests(join(ROOT, 'dist')).map((full) => full.slice(join(ROOT, 'dist').length + 1))
+    .filter((rel) => !existsSync(join(ROOT, 'src', rel.replace(/\.js$/, '.ts'))))
+    .map((rel) => ({
+      what: `dist/${rel} has no source at src/${rel.replace(/\.js$/, '.ts')} — the audit globs dist/**/*.test.js, so this artefact is still RUN, and a copy left by a moved file reports its failures a second time`,
+      fix: `rm -rf dist && npm run build (a moved or deleted test leaves its old output; the glob cannot tell it from a live one)`,
+    }))
+
+  return [...lean, ...stale]
 }
 
 /** ONE UNIT, ONE IMPLEMENTATION. The hexbit conversion had grown four homes — a division loop in theorems/, a

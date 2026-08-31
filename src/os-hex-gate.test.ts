@@ -11,15 +11,15 @@ const rd = (p: string): string => readFileSync(join(ROOT, p), 'utf8')
 test('hooks enter uuidnaOS hex only — no classical script beside the image', () => {
   for (const f of ['hooks/pre-commit', 'hooks/pre-push', 'hooks/commit-msg']) {
     const body = rd(f)
-    assert.match(body, /quantum\/os\/cli\.js/, `${f} must call uuidnaOS cli`)
+    assert.match(body, /quantum\/os\/cli\/index\.js/, `${f} must call uuidnaOS cli`)
     assert.match(body, /HARD/, `${f} is a hard gate`)
     assert.doesNotMatch(body, /next\.js/, `${f}: next.js bypasses the hex OS`)
     assert.doesNotMatch(body, /guard\.js/, `${f}: guard.js bypasses the hex OS`)
     assert.doesNotMatch(body, /npm run build/, `${f}: tsc bypasses the hex OS`)
     assert.doesNotMatch(body, /vitepress/, `${f}: VitePress bypasses the hex OS`)
   }
-  const cli = rd('src/quantum/os/cli.ts')
-  const court = rd('src/quantum/os/court.ts')
+  const cli = rd('src/quantum/os/cli/index.ts')
+  const court = rd('src/quantum/os/court/index.ts')
   assert.match(cli, /runCourtCli/, 'cli delegates to runCourtCli')
   assert.match(court, /callTool/, 'the court is MCP callTool')
   assert.match(court, /uuidna_os/, 'boot is uuidna_os')
@@ -33,6 +33,6 @@ test('hooks enter uuidnaOS hex only — no classical script beside the image', (
 
 test('dry finder names a uuidnaOS bypass', () => {
   const { gaps } = dryGaps()
-  const os = gaps.filter((g) => /uuidnaOS|cli\.js|quantum hex|hex image/i.test(g.what))
+  const os = gaps.filter((g) => /uuidnaOS|cli\/index\.js|quantum hex|hex image/i.test(g.what))
   assert.equal(os.length, 0, os.map((g) => g.what).join('\n'))
 })

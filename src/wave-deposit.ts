@@ -38,6 +38,17 @@ function isBareLiteralStatement(stmt: string): boolean {
   return stmt.split('∧').every((c) => BARE_LITERAL_CLAUSE.test(c.trim()))
 }
 
+/** isBareLiteralLean(lean) → would the door turn this away as bare literals? EXPORTED so a MINTER can ask before
+ *  it proposes, instead of the conveyor discovering it after. The Alpine port census walked 28,635 packages and
+ *  offered 79 candidates; all 79 were refused here, every one a `5 = 5` read off a digit in a package name
+ *  (attica5-dev). Refusing at the door was correct and far too late — the census had already been walked and the
+ *  ore already carried. The predicate stays declared HERE, once: a miner that re-states this law would drift from
+ *  the door that enforces it, and then the two would disagree about what a claim is. */
+export function isBareLiteralLean(lean: string): boolean {
+  const stmt = statementFromLean(lean)
+  return stmt !== null && isBareLiteralStatement(stmt)
+}
+
 /** validateCandidate(c, sealed) → the reason this candidate cannot even reach the kernel, or null when it may.
  *  THE ONE DECLARATION of the conveyor's door laws — queue-wave.ts imports this, never re-states it. */
 export function validateCandidate(c: WaveCandidate, sealed: ReadonlyMap<string, unknown>): string | null {

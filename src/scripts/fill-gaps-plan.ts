@@ -38,7 +38,15 @@ export const FILL_GAPS_CORE_PHASES: readonly FillGapsPhase[] = [
     name: 'alpine-discovery',
     cmd: 'node dist/scripts/alpine-discovery.js --deposit',
     note: 'Alpine port census harvest → wave conveyor (28k catalogue ore, never auto-seal)',
-    when: () => true,
+    // GATED, because `() => true` made hasDeskAutomatableWork a CONSTANT: every non-core phase is what that
+    // predicate reads, so a phase that always runs means the desk can never answer "nothing to automate" — and
+    // the test that says so was failing correctly. Unconditional was also untrue on its own terms: the Alpine
+    // mirror is committed and static, so a re-walk of an unchanged catalogue re-proposes the same candidates,
+    // and the deposit's own record shows 0 deposited against 79 refused, every one a bare-literal tautology the
+    // gap law turns away. HONEST SCOPE: `harvest` counts SEARCH-FEED leads, not Alpine ore, so this ties the
+    // census to conveyor activity as a stand-in — the survey carries no alpine-specific pending count, and the
+    // right fix is to give it one. Named here rather than smoothed over, so the debt is visible where it is owed.
+    when: (s) => s.harvest > 0,
   },
   {
     name: 'trial-refusals',

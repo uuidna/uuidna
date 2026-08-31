@@ -5,7 +5,7 @@ import { decide } from './decide.js'
 import { handleOf } from './handle.js'
 import { toUuid } from './address.js'
 import { theoremByKey } from './theorems/index.js'
-import type { WaveCandidate } from './wave-deposit.js'
+import { isBareLiteralLean, type WaveCandidate } from './wave-deposit.js'
 
 // Bounded quantifiers: commas are stripped before matchAll, so the class is digits only; unbounded
 // `\s*` next to `%` in the operator class is the ReDoS shape CodeQL names (js/polynomial-redos).
@@ -62,6 +62,12 @@ export function mintLeadsFromText(source: string, from: string, text: string): M
     const key = keyFromFragment(fragment)
     if (sealed.has(key)) continue
     const lean = `theorem ${key} : ${prop} := by decide`
+    // ASK THE DOOR BEFORE CARRYING THE ORE. decide() confirms `5 = 5` as readily as it confirms real arithmetic —
+    // truth is not the scarce thing, ALGEBRA is — so a fragment of two bare literals passes the check above and is
+    // still nothing the ledger can want. ARITH_FRAG's second alternative allows ZERO operators, which is how a
+    // digit inside a package name became a proposed theorem 79 times over. The door law is imported, never
+    // restated, so a miner cannot drift from the conveyor that judges it.
+    if (isBareLiteralLean(lean)) continue
     leads.push({
       key,
       fragment,

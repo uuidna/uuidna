@@ -50,7 +50,17 @@ export const BOOT_PAGE_COUNT = 26
 export const ROOTFS_NIBBLE_COUNT = 64
 export const RELEASE_ADDRESS_COUNT = 32
 
-const cmp = modelComparison(MODELS_MIRROR)
-export const MODEL_CONTEXT_ROWS: readonly (readonly number[])[] = chunk32(cmp.rows.map((r: { contextTokens: number }) => r.contextTokens))
-export const MODEL_TRANSIENT_ROWS: readonly (readonly number[])[] = chunk32(cmp.rows.map((r: { hexbitCapacity: number }) => r.hexbitCapacity))
-export const MODEL_UUID_COUNT_ROWS: readonly (readonly number[])[] = chunk32(cmp.rows.map((r: { uuidsPerContext: number }) => r.uuidsPerContext))
+// THESE ARE FUNCTIONS BECAUSE THE CALL WAS A CYCLE, not because a value would not do. `const cmp =
+// modelComparison(MODELS_MIRROR)` ran at MODULE SCOPE, and quantum/models reaches this file through quantum/os —
+// so in ESM, where every import is evaluated before one line of the importer's body, the call landed while
+// quantum/models had not run its own body yet. Every module-scope binding it needs was in its temporal dead zone,
+// and READING one throws: first `Cannot access 'CACHE' before initialization`, then `row` behind it — a queue of
+// them, because the whole body is what had not run. Hoisting a declaration cannot fix that and neither can moving
+// the cache, since the body runs after the imports either way. Deferring the CALL is the fix: nothing is computed
+// while the cycle is open, and the first real caller runs after quantum/models is whole. Memoised, so the census
+// is still walked once. The same shape as the edge rule this tree already keeps — no module-scope registry calls.
+let cmpMemo: ReturnType<typeof modelComparison> | null = null
+const cmp = (): ReturnType<typeof modelComparison> => (cmpMemo ??= modelComparison(MODELS_MIRROR))
+export const modelContextRows = (): readonly (readonly number[])[] => chunk32(cmp().rows.map((r: { contextTokens: number }) => r.contextTokens))
+export const modelTransientRows = (): readonly (readonly number[])[] => chunk32(cmp().rows.map((r: { hexbitCapacity: number }) => r.hexbitCapacity))
+export const modelUuidCountRows = (): readonly (readonly number[])[] => chunk32(cmp().rows.map((r: { uuidsPerContext: number }) => r.uuidsPerContext))

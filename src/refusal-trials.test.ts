@@ -111,12 +111,16 @@ test('trialAllRefusals — folds every refused row with boundary', () => {
 
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { ROOT } from './boundary.js'
 import {
   trainFromLeads, trainRow, topicPatterns, discoveryHints, discoveryTrain,
 } from './index.js'
 import type { LeadsRecord } from './school/leads/index.js'
 
-const DISC_ROOT = join(import.meta.dirname, '..', '..')
+// SIXTH FILE THIS SESSION TO RE-DERIVE THE ROOT AND MISS. This one sits ONE level under it, so '..','..' climbs
+// out of the repo and lean/leads.json was read from the parent directory — the exact ENOENT that ended the audit
+// run. boundary.ts declares the resolution once; the correct depth is not a thing each reader should recompute.
+const DISC_ROOT = ROOT
 
 test('trainRow — refuted cites sealed keys from killed_by', () => {
   const row = trainRow('refuted', {

@@ -7,7 +7,10 @@ import assert from 'node:assert/strict'
 const load = async (key: string | undefined): Promise<typeof import('../../../scripts/lean-gen.js')> => {
   if (key === undefined) delete process.env.UUIDNA_PROOF_KEY
   else process.env.UUIDNA_PROOF_KEY = key
-  return import('../scripts/lean-gen.js?key=' + encodeURIComponent(String(key)))
+  // THE TYPE AND THE IMPORT MUST NAME THE SAME FILE. The annotation above reaches '../../../scripts/lean-gen.js'
+  // and this line reached '../scripts/...' — so tsc checked the real module while the runtime asked for
+  // quantum/os/scripts/lean-gen.js, which does not exist. A type-only path is not evidence the import resolves.
+  return import('../../../scripts/lean-gen.js?key=' + encodeURIComponent(String(key)))
 }
 
 test('a keyed host mints signed entries, verifies them, and DISTRUSTS the unsigned and the forged', async () => {

@@ -290,6 +290,10 @@ test('TheoremUse / ExecShell / PortPanel are composed in — one constructor, no
   assert.match(theme, /ExecShell/)
   assert.match(theme, /PortPanel/)
   assert.ok(existsSync(join(ROOT, 'docs/.vitepress/theme/TheoremUse.vue')))
-  assert.ok(existsSync(join(ROOT, 'docs/.vitepress/theme/ExecShell.vue')))
+  // ExecShell has NO file of its own and must not grow one: theme/index.ts binds the name to Terminal.vue, which
+  // is this test's title stated as code — one constructor, not a second template. Asserting the alias is strictly
+  // stronger than asserting a file existed, and it is what d1688563 deliberately left in place.
+  assert.match(theme, /app\.component\('ExecShell',.*Terminal\.vue/)
+  assert.ok(!existsSync(join(ROOT, 'docs/.vitepress/theme/ExecShell.vue')), 'ExecShell must stay an alias, never a second template')
   assert.ok(existsSync(join(ROOT, 'docs/.vitepress/theme/PortPanel.vue')))
 })

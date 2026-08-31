@@ -39,7 +39,7 @@ import { theorems } from '../theorems/index.js'
 import { merkleGravity } from '../gravity/index.js'
 import {
   BFS_ORDER, BOOT_PAGE_COUNT, INSTALL_EDGE_PAIRS, INSTALL_MEANINGS, INSTALL_NAMES, INSTALL_ROUTES,
-  INV_ORDER, MODEL_CONTEXT_ROWS, MODEL_TRANSIENT_ROWS, MODEL_UUID_COUNT_ROWS,
+  INV_ORDER, modelContextRows, modelTransientRows, modelUuidCountRows,
   RELEASE_ADDRESS_COUNT, ROOTFS_NIBBLE_COUNT,
 } from './tables/index.js'
 
@@ -409,9 +409,16 @@ const INSTALL_EDGES: Val[] = INSTALL_EDGE_PAIRS.map(([a, b]) => pair(a, b))
 const BOOT_PAGES: Val[] = Array.from({ length: BOOT_PAGE_COUNT }, () => lst(Array(32).fill(0)))
 const ROOTFS_NIBBLES: Val[] = Array(ROOTFS_NIBBLE_COUNT).fill(0)
 const RELEASE_ADDRESS: Val[] = Array(RELEASE_ADDRESS_COUNT).fill(0)
-const MODEL_CTX_ROWS: Val[] = MODEL_CONTEXT_ROWS.map((r) => toNatLst(r))
-const MODEL_TRAN_ROWS: Val[] = MODEL_TRANSIENT_ROWS.map((r) => toNatLst(r))
-const MODEL_UUID_ROWS: Val[] = MODEL_UUID_COUNT_ROWS.map((r) => toNatLst(r))
+// DEFERRED FOR THE SAME CYCLE the tables file names: this module is itself inside it (quantum/models →
+// quantum/os → here → involution/tables → quantum/models), so computing at module scope re-opened the dead zone
+// one level up. The three readers below are the only callers and they run inside the parser, long after the
+// cycle closes. Memoised: the census is still walked once per row set, never per parse.
+let ctxMemo: Val[] | null = null
+let tranMemo: Val[] | null = null
+let uuidMemo: Val[] | null = null
+const MODEL_CTX_ROWS = (): Val[] => (ctxMemo ??= modelContextRows().map((r) => toNatLst(r)))
+const MODEL_TRAN_ROWS = (): Val[] => (tranMemo ??= modelTransientRows().map((r) => toNatLst(r)))
+const MODEL_UUID_ROWS = (): Val[] => (uuidMemo ??= modelUuidCountRows().map((r) => toNatLst(r)))
 const fibCycleFn = (m: number, f: Val[], len: number): boolean => {
   if (f.length !== len) return false
   if (f.length < 2 || asNum(f[0]!) !== 0 || asNum(f[1]!) !== 1) return false
@@ -1206,9 +1213,9 @@ const atom = (c: Cursor): Val => {
   if (eat(c, 'bootPages')) return postfix(c, lst(BOOT_PAGES))
   if (eat(c, 'rootfsNibbles')) return postfix(c, lst(ROOTFS_NIBBLES))
   if (eat(c, 'releaseAddress')) return postfix(c, lst(RELEASE_ADDRESS))
-  if (eat(c, 'modelContextRows')) return postfix(c, lst(MODEL_CTX_ROWS))
-  if (eat(c, 'modelTransientRows')) return postfix(c, lst(MODEL_TRAN_ROWS))
-  if (eat(c, 'modelUuidCountRows')) return postfix(c, lst(MODEL_UUID_ROWS))
+  if (eat(c, 'modelContextRows')) return postfix(c, lst(MODEL_CTX_ROWS()))
+  if (eat(c, 'modelTransientRows')) return postfix(c, lst(MODEL_TRAN_ROWS()))
+  if (eat(c, 'modelUuidCountRows')) return postfix(c, lst(MODEL_UUID_ROWS()))
   // Bare `fun binders => body` — sealed `let fold3 := fun (a b c : Nat) => …`.
   if (eat(c, 'fun')) {
     const bindersStart = c.i

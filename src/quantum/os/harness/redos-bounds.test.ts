@@ -23,8 +23,12 @@ import { join } from 'node:path'
 import { extractMedicineFacts, extractClimateFacts, extractEconomicsFacts } from '../../../desk/news/domains/index.js'
 
 const PROBE_TIMEOUT_MS = 15000
-const DOMAINS = new URL('../desk/news/domains/index.js', import.meta.url).href
-const RENDER = new URL('../render.js', import.meta.url).href
+// THREE LEVELS, NOT ONE — this file moved into quantum/os/harness/ and the relative reach did not follow it.
+// '../desk/...' resolved to quantum/os/desk/news/domains, which has never existed; the probe child then died at
+// import with ERR_MODULE_NOT_FOUND. The harness above is careful to distinguish "killed at the timeout" from
+// "never launched" for exactly this reason, and it was reporting the honest answer: nothing was measured.
+const DOMAINS = new URL('../../../desk/news/domains/index.js', import.meta.url).href
+const RENDER = new URL('../../../render.js', import.meta.url).href   // src/render.ts — three levels up, same move as DOMAINS above
 
 /** run one adversarial probe in a killable child; returns false if — and ONLY if — it had to be killed.
  *

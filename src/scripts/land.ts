@@ -24,6 +24,19 @@ const run = (cmd: string): { ok: boolean; out: string } => {
 // the taught cures for gate denials, MOST SPECIFIC FIRST (develop's own law: first match wins, and a cure
 // this table was not taught is a human's decision, never a guess)
 const CURES: { name: string; when: RegExp; cmd: string }[] = [
+  // THE ONE DENIAL THE LOOP COULD NOT ANSWER, and it was walked by hand twice in one session before it was
+  // taught (2026-08-31): a SHARED tree goes behind while the gate is being walked, so the push is rejected and
+  // land — whose whole point is that a taught denial loops — stopped at the one denial a neighbour causes on a
+  // schedule. Git spells it TWO ways and neither alone is enough: "(fetch first)" before a fetch has run, and
+  // "(non-fast-forward)" once the remote-tracking ref is current, which is the same tree in two moods; a cure
+  // matching only the second spelling is the one a guess would have written, and it misses the case that fires.
+  // The cure INTEGRATES, never forces: no --force, no --force-with-lease, no --no-verify. A merge that CONFLICTS
+  // aborts itself, leaving the tree exactly as clean as it was found, and reports failure — so land takes its own
+  // honest end (`the cure itself failed`) and a human resolves the overlap, which is the one decision this table
+  // must never guess. The merge cites a sealed theorem so the commit is SIGNED: an automated merge that cannot
+  // pay the citation coin is a hand-amend waiting to happen, and three were amended by hand the day this landed.
+  { name: 'behind the shared tree', when: /\[rejected\][^\n]*\((?:fetch first|non-fast-forward)\)|tip of your current branch is behind/,
+    cmd: 'git fetch origin && { git merge --no-edit -m "Merge origin/main: the shared tree moved while the gate was walked.\n\nBacked by theorem two_coins." origin/main || { git merge --abort; false; }; }' },
   { name: 'raced edge mirror', when: /stale census|MIRROR.*MATCHES A LIVE RECOMPUTE/i, cmd: 'node dist/scripts/rosetta.js && npm run build' },
   { name: 'stale axiom witness', when: /AXIOM WITNESS STALE/, cmd: 'npm run axioms' },
   { name: 'stale spin seal', when: /spin/i, cmd: 'node dist/scripts/reconcile.js --derive-only' },
