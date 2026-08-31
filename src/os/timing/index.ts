@@ -57,6 +57,30 @@ export const hostArch = (): Arch => {
  *  has to mean if a budget is to travel: the architecture calibrates itself and the claim stays comparable. */
 export const calibrationNs = (): number => timeNs(() => { let s = 0; for (let i = 0; i < 64; i++) s = (s + i * 7) % 9; return s }, 2000)
 
+/** ── WHAT ACCELERATOR THIS HOST ACTUALLY HAS ────────────────────────────────────────────────────────────────
+ *  DETECTION IS NOT USE, and the gap is the whole point of reporting it. `webgpu: true` says the runtime exposes
+ *  navigator.gpu; it does NOT say uuidna dispatches anything to it, and today nothing here does — the worker is
+ *  JS on Cloudflare and the browser surface is Vue over integer arithmetic, with no shader and no kernel. The
+ *  field exists so the question stops being answered from memory, and so a future dispatch has something to
+ *  compare against rather than a claim.
+ *
+ *  AND A GPU/CPU RATIO WOULD NOT BE A QUANTUM ADVANTAGE. It is a throughput ratio between two classical
+ *  processors; naming it `qpu` would make a measurement sound like a proof, which is the one move this tree
+ *  refuses everywhere else. uuidna_quantum_advantage computes its own sealed thing and is not this. */
+export interface Accelerator { webgpu: boolean; cores: number; dispatches: false; why: string }
+export const gpuPresence = (): Accelerator => {
+  const nav = (globalThis as { navigator?: { gpu?: unknown; hardwareConcurrency?: number } }).navigator
+  const webgpu = typeof nav?.gpu === 'object' && nav.gpu !== null
+  return {
+    webgpu,
+    cores: nav?.hardwareConcurrency ?? hostArch().cpus,
+    dispatches: false,
+    why: webgpu
+      ? 'navigator.gpu is present, and nothing in uuidna dispatches to it — the timings below are one CPU core'
+      : 'no navigator.gpu on this runtime (Node and Workers expose none); the timings below are one CPU core',
+  }
+}
+
 export interface Budget { op: string; ratio: number; why: string }
 
 /** THE DECLARED BUDGETS, as multiples of one calibration unit. Open to being argued with rather than hidden in
@@ -66,18 +90,33 @@ export const BUDGETS: readonly Budget[] = [
   { op: 'handle.valueOf', ratio: 4, why: 'the lattice\'s smallest step — 322 ns against a ~180 ns calibration when set' },
   { op: 'catalogue.lookup', ratio: 40, why: 'an indexed read — 211 ns warm, 940 ns lazy when set' },
   { op: 'decide.arithmetic', ratio: 4_000, why: 'parses and evaluates a fragment; not a lattice step' },
+  // DATA-PARALLEL OPS, budgeted PER ELEMENT. These are the only shapes here a wide processor could ever help:
+  // the same independent work over many items. sha256 of one buffer is deliberately absent — its blocks chain,
+  // so it is sequential by construction and no width makes it faster.
+  { op: 'parallel.valueOf', ratio: 1, why: 'one handle read per element, 10k elements — 132 ns/element when set' },
+  { op: 'parallel.toUuid', ratio: 2, why: 'one address per element, 1k elements — 161 ns/element when set' },
+  { op: 'parallel.merkleGravity', ratio: 3, why: 'a tree reduction over 1024 addresses, parallel in log depth — 355 ns/element when set' },
 ]
 
 export interface Timing { op: string; ns: number; units: number; budget: number; within: boolean }
 export interface TimingCensus {
   definition: 'uuidna-timing-census'
   arch: Arch
+  accelerator: Accelerator
   calibrationNs: number
   timings: Timing[]
   cracks: string[]         // ops over budget — named, never averaged away
   within: boolean
   receipt: string          // folds the VERDICTS and budgets, never the durations
   honest: string
+}
+
+/** timePerElementNs(fn, elements, iterations) → nanoseconds PER ELEMENT for a data-parallel op. The per-CALL
+ *  number is meaningless for these: it scales with the batch, so a bigger batch looks slower while the work per
+ *  item is unchanged. Per element is the figure a wider processor would have to beat. */
+export function timePerElementNs(fn: () => unknown, elements: number, iterations = 20): number {
+  if (elements < 1) throw new Error('timing: a data-parallel op needs at least one element')
+  return timeNs(fn, iterations) / elements
 }
 
 /** timeNs(fn, iterations) → nanoseconds PER CALL. Iterated because a single call measures the clock as much as
@@ -92,14 +131,14 @@ export function timeNs(fn: () => unknown, iterations = 1000): number {
 
 /** timingCensus(ops) → each op against its declared budget. An op with no budget is REFUSED rather than passed:
  *  a timing with nothing to fail against is a number, not a verdict. */
-export function timingCensus(ops: { op: string; run: () => unknown; iterations?: number }[]): TimingCensus {
+export function timingCensus(ops: { op: string; run: () => unknown; iterations?: number; elements?: number }[]): TimingCensus {
   const unit = calibrationNs()
   if (unit <= 0) throw new Error('timing: the calibration measured zero — this clock is too coarse to judge anything')
   const timings: Timing[] = []
   for (const o of ops) {
     const b = BUDGETS.find((x) => x.op === o.op)
     if (!b) throw new Error(`timing: "${o.op}" has no declared budget — declare one in BUDGETS or do not measure it`)
-    const ns = timeNs(o.run, o.iterations ?? 1000)
+    const ns = o.elements ? timePerElementNs(o.run, o.elements, o.iterations ?? 20) : timeNs(o.run, o.iterations ?? 1000)
     const units = ns / unit
     timings.push({ op: o.op, ns, units, budget: b.ratio, within: units <= b.ratio })
   }
@@ -107,6 +146,7 @@ export function timingCensus(ops: { op: string; run: () => unknown; iterations?:
   return {
     definition: 'uuidna-timing-census',
     arch: hostArch(),
+    accelerator: gpuPresence(),
     calibrationNs: unit,
     timings,
     cracks,

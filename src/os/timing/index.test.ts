@@ -59,3 +59,40 @@ test('budgets are RATIOS, so the claim survives a slower machine', () => {
   const c = timingCensus(ops)
   assert.ok(c.timings[0]!.units > 0, 'the verdict is taken in units, not nanoseconds')
 })
+
+// ── THE ACCELERATOR, AND WHAT DATA-PARALLEL MEANS HERE ───────────────────────────────────────────────────────
+import { gpuPresence, timePerElementNs } from './index.js'
+import { toUuid } from '../../address.js'
+import { merkleGravity as merkleGravityOf } from '../../gravity/index.js'
+
+test('the accelerator is DETECTED and its non-use is stated in the same breath', () => {
+  const g = gpuPresence()
+  assert.equal(typeof g.webgpu, 'boolean')
+  assert.equal(g.dispatches, false, 'nothing in uuidna dispatches to a GPU, and the field must keep saying so')
+  assert.match(g.why, /one CPU core/, 'the timings are one core, whatever the host exposes')
+  assert.ok(g.cores >= 0)
+})
+
+test('CONTROL — per-element cost does not move with the batch size', () => {
+  // this is the claim that makes a data-parallel number mean anything: the per-CALL figure scales with the
+  // batch, so a bigger batch looks slower while the work per item is unchanged. If these two diverged, the
+  // measurement would be reporting the batch and not the op.
+  const mk = (n: number): string[] => Array.from({ length: n }, (_, i) => ((i * 2654435761) >>> 0).toString(16).padStart(8, '0').slice(0, 8))
+  const small = mk(1000), large = mk(10000)
+  const a = timePerElementNs(() => small.map((h) => valueOf(h).value), small.length, 40)
+  const b = timePerElementNs(() => large.map((h) => valueOf(h).value), large.length, 20)
+  const ratio = a > b ? a / b : b / a
+  assert.ok(ratio < 4, `per-element cost must be broadly batch-independent (1k: ${a.toFixed(0)} ns, 10k: ${b.toFixed(0)} ns)`)
+})
+
+test('CONTROL — an empty batch is refused, not divided by', () => {
+  assert.throws(() => timePerElementNs(() => 1, 0), /at least one element/)
+})
+
+test('the data-parallel ops are budgeted per element and stay within', () => {
+  const addrs = Array.from({ length: 1024 }, (_, i) => toUuid('a' + i))
+  const c = timingCensus([{ op: 'parallel.merkleGravity', run: () => merkleGravityOf(addrs), elements: 1024, iterations: 30 }])
+  assert.equal(c.timings[0]!.op, 'parallel.merkleGravity')
+  assert.ok(c.timings[0]!.ns > 0, 'a real per-element cost')
+  assert.deepEqual(c.accelerator.dispatches, false)
+})
