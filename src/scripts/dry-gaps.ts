@@ -36,6 +36,45 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
     if (rangeDecl)
       gaps.push({ what: `${f}: re-declares a range literal (${rangeDecl[0].trim()}…) instead of the shared range()`, fix: `edit ${f}: delete the R<n> literal and import { range } from './lean-gen.js', then use range(n)` })
   }
+  // CLIMBING PAST THE ROOT IS NOT A STYLE QUESTION — it is a read from outside the repository, and this finder
+  // could not see any of the six that happened. Two reasons, both fixed here: it matched only the
+  // dirname(fileURLToPath(…)) spelling, missing import.meta.dirname and new URL('../..', import.meta.url); and it
+  // walked a FIXED LIST of directories non-recursively, so src/quantum/os/harness was never opened at all.
+  // The test is exact rather than stylistic: a file d levels under src/ can climb at most d before it leaves the
+  // tree. Climbing further is not a preference about imports, it is a path that cannot resolve — and every one of
+  // the six died in setup, so the suites they guarded reported passes while asserting nothing.
+  // Fewer climbs than d is legitimate (reaching a sibling module), so only the overshoot is named.
+  const climbers = (dir: string, out: string[] = []): string[] => {
+    for (const e of readdirSync(join(ROOT, dir), { withFileTypes: true })) {
+      if (e.isDirectory()) climbers(`${dir}/${e.name}`, out)
+      else if (e.name.endsWith('.ts')) out.push(`${dir}/${e.name}`)
+    }
+    return out
+  }
+  for (const rel of climbers('src')) {
+    if (SINGULARITIES.has(rel)) continue
+    // depth = directories BETWEEN the root and this file, which is how many climbs reach the root exactly.
+    // src/a.ts → 1 (dist/a.js: '..' is the root) ; src/x/y/a.ts → 3. Off by one here reads every correct
+    // root-relative climb in the tree as an escape, which is what the first run of this finder did.
+    const depth = rel.split('/').length - 1
+    // COMMENTS ARE NOT CODE, and this finder learned it the way the markup guard did: the two files it first
+    // accused were the two whose comments EXPLAIN this very bug, quoting the bad expression to describe it. A
+    // scanner that cannot tell use from mention convicts the note written to prevent the defect. Whole-line
+    // comments are dropped; an expression that survives is one the runtime will actually evaluate.
+    const body = rd(rel).split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l)).join('\n')
+    const climbs: { expr: string; up: number }[] = []
+    for (const m of body.matchAll(/new URL\(\s*'((?:\.\.\/)+)[^']*'\s*,\s*import\.meta\.url\s*\)/g))
+      climbs.push({ expr: m[0], up: (m[1]!.match(/\.\.\//g) ?? []).length })
+    for (const m of body.matchAll(/(?:import\.meta\.dirname|dirname\(fileURLToPath\(import\.meta\.url\)\))((?:\s*,\s*'\.\.')+)/g))
+      climbs.push({ expr: m[0].replace(/\s+/g, ' '), up: (m[1]!.match(/'\.\.'/g) ?? []).length })
+    for (const c of climbs)
+      if (c.up > depth)
+        gaps.push({
+          what: `${rel}: \`${c.expr.slice(0, 70)}\` climbs ${c.up} from depth ${depth} — that is OUTSIDE the repository, so the read cannot resolve and the test dies in setup while appearing to pass`,
+          fix: `edit ${rel}: import { ROOT } from './boundary.js' (or '../'.repeat(${depth}) + 'boundary.js') and join(ROOT, …) — the resolution is declared once, never recomputed per reader`,
+        })
+  }
+
   // TWO READIES IS NOT DRY. npm publish is prepublishOnly → gate-all. A tag cut that ran next --verify
   // shipped a version GitHub accepted and the registry refused. One instrument, or the finder names the fork.
   const cut = rd('src/scripts/release-cut.ts')
