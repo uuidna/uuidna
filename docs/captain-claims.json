@@ -2,8 +2,8 @@
   "generated": "2026-08-31",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2148,
-  "total_theorems": 2148,
+  "total_claimed": 2163,
+  "total_theorems": 2163,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3847,8 +3847,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "cdabe1b8-738b-8e28-9fb0-8b29c0cf8b1b",
-      "address": "4cd45235-d9ca-8856-8fe3-76adb8f58068",
+      "lineAddress": "3bb10c6a-c844-8c91-8f48-1c9a8606bf1f",
+      "address": "a8c97331-fbe4-8bf7-a9cf-fa0431f886f9",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4117,38 +4117,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "f49c3082-3177-8318-9468-d1522497bdd0",
-      "address": "517e7917-46bf-888b-8583-c24e569d8969",
+      "lineAddress": "2f2a633a-1c0c-88fc-b4db-daff6b1ed68b",
+      "address": "f6ac8502-8b32-868b-b3fc-70bc628e744b",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "10abbce0-4abb-814b-bb9f-ff818583cacc",
-      "address": "58fe1d66-6058-8edb-b9b8-3f0d5c5d4447",
+      "lineAddress": "7a5a1833-42fc-8f4e-9033-e97a9b799c58",
+      "address": "15fd4665-f750-85da-8711-3348a839af06",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "a0587055-b97e-81ce-b128-e6de19cb413a",
-      "address": "f9bfa511-1553-8ce3-b2ed-0e59fcf7e9cd",
+      "lineAddress": "3b962fd5-0240-80f6-82d2-650832b9e057",
+      "address": "335b5e3b-7d2e-82aa-ae2a-1856d5ca418a",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "ddd8d652-5b64-8aba-aba2-6f575a810ee1",
-      "address": "d45975fb-e6a7-88d7-9e92-c8a8eff6473c",
+      "lineAddress": "2b30c930-a744-8d4b-b1f5-aee872c1df5d",
+      "address": "1869ee26-dbde-8113-8184-c94a7eb18a96",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "45a5ac19-501e-80e1-813d-e08782a3588f",
-      "address": "1e9d6b18-3b83-81a3-84b9-d157c2b251ee",
+      "lineAddress": "ce0ab4db-9cef-8d05-9a29-6d373d8409b4",
+      "address": "133431ad-19db-833b-bacc-c923e2e8ac28",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "6c1515c2-ee69-8f9c-a865-65373843c2f4",
-      "address": "b613ae1b-a9fe-8f3f-8f57-23e9f1bc871c",
+      "lineAddress": "2210be3e-0faf-8183-a691-1203735931d2",
+      "address": "4f585ec6-b8c8-89d5-a45c-4b5a887be0d3",
       "principle": "The detectors, proven"
     },
     {
@@ -4537,14 +4537,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "991ae944-d3cf-88b9-9847-7efb10bb29ce",
-      "address": "43da6113-bf80-8e59-a32b-1d72aff132fc",
+      "lineAddress": "3f2999bd-240b-8f89-ab6a-cbb6e38660c9",
+      "address": "6323a53f-7918-89b3-9602-d0e9c7837ce2",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "007864db-ea6a-8da9-832c-6f3542e62cdb",
-      "address": "1b86bafb-1601-862a-8e7f-16062f1cf85b",
+      "lineAddress": "d6bc6834-105f-8a1a-94fe-517419bebd75",
+      "address": "3d7a64d4-77c1-83e5-a35f-6605ff47101a",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -11286,6 +11286,96 @@
       "principle": "The conveyor's first wave"
     },
     {
+      "key": "alpine_domain_database_partitions_28635",
+      "lineAddress": "3441113c-7b36-8680-a5b4-ab032e0f7f6b",
+      "address": "e43c1858-d177-8197-9527-5c63a9d5d990",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domain_database_origins_438",
+      "lineAddress": "45d3c10e-d3db-8596-a772-02046c8836af",
+      "address": "732ecd09-9e5f-8ab2-b24b-dbb57016909f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domain_filesystem_partitions_28635",
+      "lineAddress": "0d551b36-7b7a-826b-8cae-4ed328c1241f",
+      "address": "3ed0f334-da54-8c88-add0-cb04fdb6d6a7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domain_filesystem_origins_215",
+      "lineAddress": "b5e87a35-0503-80b8-8a38-bb8af27dd5d5",
+      "address": "af7e2765-4394-896f-8a0d-c5fba2345945",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domains_db_fs_incl_excl_653",
+      "lineAddress": "64f00d41-a5d4-80d1-87c9-e550bb135d56",
+      "address": "37c4ce54-9717-86a7-8b5f-fa79c8224c8f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_bindings_partition_packages_28635",
+      "lineAddress": "e4d9c52d-e20d-832c-a5f4-a2f9dbe96e74",
+      "address": "34dc27c3-9c40-8a39-a672-3aaf993e8e9d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_binding_origins_overcount_16083",
+      "lineAddress": "e03b0eaf-18aa-89b9-8d33-7aa7a775a54b",
+      "address": "75f274f1-f065-853d-9e25-2dc0ad89d5f2",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domain_blockchain_partitions_28635",
+      "lineAddress": "1518e46a-8108-8d3e-8ccc-cffb9c44377b",
+      "address": "b1c1d327-45ef-8dea-a0e7-2e75e6ddec7d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domain_blockchain_origins_29",
+      "lineAddress": "1addb93b-0474-8e8b-96bb-1e8d06313c83",
+      "address": "93a92c04-624e-8244-825b-68a2c70cd06b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domains_da_bc_incl_excl_467",
+      "lineAddress": "7aa39d87-5ac3-8274-9407-e7b443918b49",
+      "address": "231f7395-8b72-8df7-a0c0-11afd4d98730",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domains_fi_bc_incl_excl_244",
+      "lineAddress": "8aecc8dd-1218-833c-9eb2-41ea26e8ec1e",
+      "address": "541712b4-c1de-83b8-b691-c9bc0c3c3162",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domain_driver_partitions_28635",
+      "lineAddress": "c26c67c6-1bc7-85b7-be8b-e8c86884a82e",
+      "address": "7a9f00ba-6620-8bab-becc-65e7c302c720",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domain_driver_origins_630",
+      "lineAddress": "408d9ba9-9b73-82e8-abee-8da7e76bd847",
+      "address": "58ad45ce-e427-8330-bbc2-95b8b62bdfca",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domains_da_dr_incl_excl_1007",
+      "lineAddress": "b4587a22-aaa8-8340-952f-c12d6644413f",
+      "address": "f5740de3-52f4-88ff-ade0-036909f4a6f7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_domains_fi_dr_incl_excl_837",
+      "lineAddress": "8b49d1f1-7423-8075-8cca-0a6511727123",
+      "address": "7cc1c234-7d1a-8d0f-8414-6f41d8116185",
+      "principle": "The conveyor's first wave"
+    },
+    {
       "key": "eclipse_four_hundred",
       "lineAddress": "f1a040b8-8dd3-80f1-9165-ccf2b7a04bdf",
       "address": "ca628f34-1810-8b0a-ae92-7fa9a2b30ea9",
@@ -12265,8 +12355,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "f63fc700-ead6-8f0a-82f2-9575adba3f63",
-      "address": "3e6c2014-f3a8-8b3c-a74b-04fe1ceb0ce9",
+      "lineAddress": "2b4d22ed-949d-83fc-84fe-e5f7593255d0",
+      "address": "1f7aceea-ac9a-8a5f-a44c-a07fc502c4f6",
       "principle": "The models"
     },
     {
@@ -12894,7 +12984,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "61e62147-32eb-8010-80c8-9dd55a695c36",
+  "claim_receipt": "ce2b2e39-5626-8d17-80c3-269e046f3ff0",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

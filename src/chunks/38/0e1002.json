@@ -1,0 +1,12 @@
+{
+  "handle": "380e1002",
+  "address": "380e1002-3a40-87ca-8c29-b697f2fbfb36",
+  "statement": "(438 + 29 - 0 = 467)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domains_da_bc_incl_excl_467"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

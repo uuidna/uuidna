@@ -889,6 +889,7 @@ THE ALPINE PORT, BY DOMAIN — database, filesystem and blockchain read off Alpi
 | `domain` | string | no |  |
 | `a` | string | no |  |
 | `b` | string | no |  |
+| `all` | boolean | no |  |
 
 ### `uuidna_snapshot`
 

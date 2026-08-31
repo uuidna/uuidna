@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 395,
+ "count": 425,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -450,8 +450,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000008554",
-   "completionPrice": "0.00000017108"
+   "promptPrice": "0.00000008092",
+   "completionPrice": "0.00000016184"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000001035996",
-   "completionPrice": "0.000002071992"
+   "promptPrice": "0.00000087",
+   "completionPrice": "0.00000174"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -809,6 +809,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 131072,
    "promptPrice": "0.00000005",
    "completionPrice": "0.0000001"
+  },
+  {
+   "id": "ibm-granite/granite-4.2-8b",
+   "name": "IBM: Granite 4.2 8B",
+   "contextTokens": 131072,
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.00000015"
   },
   {
    "id": "inception/mercury-2",
@@ -1434,6 +1441,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000002"
   },
   {
+   "id": "openai/gpt-3.5-turbo:batch",
+   "name": "OpenAI: GPT-3.5 Turbo (batch)",
+   "contextTokens": 16385,
+   "promptPrice": "0.00000025",
+   "completionPrice": "0.00000075"
+  },
+  {
    "id": "openai/gpt-4",
    "name": "OpenAI: GPT-4",
    "contextTokens": 8191,
@@ -1455,6 +1469,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00003"
   },
   {
+   "id": "openai/gpt-4-turbo:batch",
+   "name": "OpenAI: GPT-4 Turbo (batch)",
+   "contextTokens": 128000,
+   "promptPrice": "0.000005",
+   "completionPrice": "0.000015"
+  },
+  {
    "id": "openai/gpt-4.1",
    "name": "OpenAI: GPT-4.1",
    "contextTokens": 1047576,
@@ -1469,11 +1490,32 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000016"
   },
   {
+   "id": "openai/gpt-4.1-mini:batch",
+   "name": "OpenAI: GPT-4.1 Mini (batch)",
+   "contextTokens": 1047576,
+   "promptPrice": "0.0000002",
+   "completionPrice": "0.0000008"
+  },
+  {
    "id": "openai/gpt-4.1-nano",
    "name": "OpenAI: GPT-4.1 Nano",
    "contextTokens": 1047576,
    "promptPrice": "0.0000001",
    "completionPrice": "0.0000004"
+  },
+  {
+   "id": "openai/gpt-4.1-nano:batch",
+   "name": "OpenAI: GPT-4.1 Nano (batch)",
+   "contextTokens": 1047576,
+   "promptPrice": "0.00000005",
+   "completionPrice": "0.0000002"
+  },
+  {
+   "id": "openai/gpt-4.1:batch",
+   "name": "OpenAI: GPT-4.1 (batch)",
+   "contextTokens": 1047576,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000004"
   },
   {
    "id": "openai/gpt-4o",
@@ -1518,6 +1560,20 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000006"
   },
   {
+   "id": "openai/gpt-4o-mini:batch",
+   "name": "OpenAI: GPT-4o-mini (batch)",
+   "contextTokens": 128000,
+   "promptPrice": "0.000000075",
+   "completionPrice": "0.0000003"
+  },
+  {
+   "id": "openai/gpt-4o:batch",
+   "name": "OpenAI: GPT-4o (batch)",
+   "contextTokens": 128000,
+   "promptPrice": "0.00000125",
+   "completionPrice": "0.000005"
+  },
+  {
    "id": "openai/gpt-5",
    "name": "OpenAI: GPT-5",
    "contextTokens": 400000,
@@ -1546,6 +1602,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000002"
   },
   {
+   "id": "openai/gpt-5-mini:batch",
+   "name": "OpenAI: GPT-5 Mini (batch)",
+   "contextTokens": 400000,
+   "promptPrice": "0.000000125",
+   "completionPrice": "0.000001"
+  },
+  {
    "id": "openai/gpt-5-nano",
    "name": "OpenAI: GPT-5 Nano",
    "contextTokens": 400000,
@@ -1553,11 +1616,25 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000004"
   },
   {
+   "id": "openai/gpt-5-nano:batch",
+   "name": "OpenAI: GPT-5 Nano (batch)",
+   "contextTokens": 400000,
+   "promptPrice": "0.000000025",
+   "completionPrice": "0.0000002"
+  },
+  {
    "id": "openai/gpt-5-pro",
    "name": "OpenAI: GPT-5 Pro",
    "contextTokens": 400000,
    "promptPrice": "0.000015",
    "completionPrice": "0.00012"
+  },
+  {
+   "id": "openai/gpt-5-pro:batch",
+   "name": "OpenAI: GPT-5 Pro (batch)",
+   "contextTokens": 400000,
+   "promptPrice": "0.0000075",
+   "completionPrice": "0.00006"
   },
   {
    "id": "openai/gpt-5.1",
@@ -1588,6 +1665,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000002"
   },
   {
+   "id": "openai/gpt-5.1:batch",
+   "name": "OpenAI: GPT-5.1 (batch)",
+   "contextTokens": 400000,
+   "promptPrice": "0.000000625",
+   "completionPrice": "0.000005"
+  },
+  {
    "id": "openai/gpt-5.2",
    "name": "OpenAI: GPT-5.2",
    "contextTokens": 400000,
@@ -1614,6 +1698,20 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 400000,
    "promptPrice": "0.000021",
    "completionPrice": "0.000168"
+  },
+  {
+   "id": "openai/gpt-5.2-pro:batch",
+   "name": "OpenAI: GPT-5.2 Pro (batch)",
+   "contextTokens": 400000,
+   "promptPrice": "0.0000105",
+   "completionPrice": "0.000084"
+  },
+  {
+   "id": "openai/gpt-5.2:batch",
+   "name": "OpenAI: GPT-5.2 (batch)",
+   "contextTokens": 400000,
+   "promptPrice": "0.000000875",
+   "completionPrice": "0.000007"
   },
   {
    "id": "openai/gpt-5.3-codex",
@@ -1644,6 +1742,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000045"
   },
   {
+   "id": "openai/gpt-5.4-mini:batch",
+   "name": "OpenAI: GPT-5.4 Mini (batch)",
+   "contextTokens": 400000,
+   "promptPrice": "0.000000375",
+   "completionPrice": "0.00000225"
+  },
+  {
    "id": "openai/gpt-5.4-nano",
    "name": "OpenAI: GPT-5.4 Nano",
    "contextTokens": 400000,
@@ -1651,11 +1756,32 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000125"
   },
   {
+   "id": "openai/gpt-5.4-nano:batch",
+   "name": "OpenAI: GPT-5.4 Nano (batch)",
+   "contextTokens": 400000,
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.000000625"
+  },
+  {
    "id": "openai/gpt-5.4-pro",
    "name": "OpenAI: GPT-5.4 Pro",
    "contextTokens": 1050000,
    "promptPrice": "0.00003",
    "completionPrice": "0.00018"
+  },
+  {
+   "id": "openai/gpt-5.4-pro:batch",
+   "name": "OpenAI: GPT-5.4 Pro (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000015",
+   "completionPrice": "0.00009"
+  },
+  {
+   "id": "openai/gpt-5.4:batch",
+   "name": "OpenAI: GPT-5.4 (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.00000125",
+   "completionPrice": "0.0000075"
   },
   {
    "id": "openai/gpt-5.5",
@@ -1672,6 +1798,20 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00018"
   },
   {
+   "id": "openai/gpt-5.5-pro:batch",
+   "name": "OpenAI: GPT-5.5 Pro (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000015",
+   "completionPrice": "0.00009"
+  },
+  {
+   "id": "openai/gpt-5.5:batch",
+   "name": "OpenAI: GPT-5.5 (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.0000025",
+   "completionPrice": "0.000015"
+  },
+  {
    "id": "openai/gpt-5.6-luna",
    "name": "OpenAI: GPT-5.6 Luna",
    "contextTokens": 1050000,
@@ -1684,6 +1824,20 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1050000,
    "promptPrice": "0.0000002",
    "completionPrice": "0.0000012"
+  },
+  {
+   "id": "openai/gpt-5.6-luna-pro:batch",
+   "name": "OpenAI: GPT-5.6 Luna Pro (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000006"
+  },
+  {
+   "id": "openai/gpt-5.6-luna:batch",
+   "name": "OpenAI: GPT-5.6 Luna (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "openai/gpt-5.6-sol",
@@ -1700,6 +1854,20 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00001"
   },
   {
+   "id": "openai/gpt-5.6-sol-pro:batch",
+   "name": "OpenAI: GPT-5.6 Sol Pro (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000005"
+  },
+  {
+   "id": "openai/gpt-5.6-sol:batch",
+   "name": "OpenAI: GPT-5.6 Sol (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000005"
+  },
+  {
    "id": "openai/gpt-5.6-terra",
    "name": "OpenAI: GPT-5.6 Terra",
    "contextTokens": 1050000,
@@ -1712,6 +1880,27 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1050000,
    "promptPrice": "0.000002",
    "completionPrice": "0.000012"
+  },
+  {
+   "id": "openai/gpt-5.6-terra-pro:batch",
+   "name": "OpenAI: GPT-5.6 Terra Pro (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000006"
+  },
+  {
+   "id": "openai/gpt-5.6-terra:batch",
+   "name": "OpenAI: GPT-5.6 Terra (batch)",
+   "contextTokens": 1050000,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000006"
+  },
+  {
+   "id": "openai/gpt-5:batch",
+   "name": "OpenAI: GPT-5 (batch)",
+   "contextTokens": 400000,
+   "promptPrice": "0.000000625",
+   "completionPrice": "0.000005"
   },
   {
    "id": "openai/gpt-audio",
@@ -1805,11 +1994,25 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000044"
   },
   {
+   "id": "openai/o3-mini:batch",
+   "name": "OpenAI: o3 Mini (batch)",
+   "contextTokens": 200000,
+   "promptPrice": "0.00000055",
+   "completionPrice": "0.0000022"
+  },
+  {
    "id": "openai/o3-pro",
    "name": "OpenAI: o3 Pro",
    "contextTokens": 200000,
    "promptPrice": "0.00002",
    "completionPrice": "0.00008"
+  },
+  {
+   "id": "openai/o3:batch",
+   "name": "OpenAI: o3 (batch)",
+   "contextTokens": 200000,
+   "promptPrice": "0.000001",
+   "completionPrice": "0.000004"
   },
   {
    "id": "openai/o4-mini",
@@ -1824,6 +2027,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 200000,
    "promptPrice": "0.0000011",
    "completionPrice": "0.0000044"
+  },
+  {
+   "id": "openai/o4-mini:batch",
+   "name": "OpenAI: o4 Mini (batch)",
+   "contextTokens": 200000,
+   "promptPrice": "0.00000055",
+   "completionPrice": "0.0000022"
   },
   {
    "id": "openrouter/auto",
@@ -2095,7 +2305,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-next-80b-a3b-instruct",
    "name": "Qwen: Qwen3 Next 80B A3B Instruct",
    "contextTokens": 262144,
-   "promptPrice": "0.00000009",
+   "promptPrice": "0.0000001",
    "completionPrice": "0.0000011"
   },
   {
@@ -2417,8 +2627,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.000000132",
-   "completionPrice": "0.000000528"
+   "promptPrice": "0.0000000825",
+   "completionPrice": "0.00000033"
   },
   {
    "id": "tencent/hy3-preview",
@@ -2725,7 +2935,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~deepseek/deepseek-v4-flash-latest",
    "name": "DeepSeek V4 Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000003",
+   "promptPrice": "0.00000005",
    "completionPrice": "0.00000016"
   },
   {
@@ -2774,8 +2984,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000011875",
-   "completionPrice": "0.00000418"
+   "promptPrice": "0.00000117",
+   "completionPrice": "0.00000396"
   }
  ]
 }

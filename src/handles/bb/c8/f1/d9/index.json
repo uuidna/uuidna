@@ -1,0 +1,12 @@
+{
+  "handle": "bbc8f1d9",
+  "address": "bbc8f1d9-8ecb-87c9-9dab-8895180fa5e8",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domains_da_dr_incl_excl_1007"
+  ],
+  "statement": "(438 + 630 - 61 = 1007)",
+  "files": [
+    "Wave.lean"
+  ]
+}

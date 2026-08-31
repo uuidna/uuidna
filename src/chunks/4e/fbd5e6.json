@@ -1,0 +1,12 @@
+{
+  "handle": "4efbd5e6",
+  "address": "4efbd5e6-1805-8d24-8900-25edd3856be0",
+  "statement": "(0 + 2113 = 2113) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_terminator_escaped"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

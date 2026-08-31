@@ -1,0 +1,12 @@
+{
+  "handle": "0245c2cd",
+  "address": "0245c2cd-441b-8ba1-aea5-0f97cb373d2b",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_driver_partitions_28635"
+  ],
+  "statement": "(630 + 28005 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}
