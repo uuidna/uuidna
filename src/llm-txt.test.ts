@@ -12,7 +12,11 @@ import { theorems, toUuid } from './index.js'
 import { handleOf } from './index.js'
 import { MCP_CATALOG } from './mcp.js'
 
-const txt = (): string => readFileSync(new URL('../../llm.txt', import.meta.url), 'utf8')
+// Resolve through ROOT, the one declared place (boundary.ts), rather than re-deriving it.
+// `new URL('../../llm.txt', import.meta.url)` overshot: from src/ it lands on /tmp/llm.txt
+// and from dist/ on /llm.txt — never the repo root. boundary.ts exists precisely so this
+// resolution is declared once, and the rest of this file already uses join(ROOT, ...).
+const txt = (): string => readFileSync(join(ROOT, 'llm.txt'), 'utf8')
 
 // ── CITATIONS. Every identifier it names must be a sealed theorem OR a dispatching tool.
 //
