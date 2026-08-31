@@ -8,6 +8,7 @@ import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { theorems, PRINCIPLES } from '../index.js'
 import { HERE, ROOT } from './api.js'
+import { listTestSources, testDistForSource } from '../test-paths.js'
 
 interface DimensionGap {
   dimensions: string[] // which dimensions affected (e.g., ["theorems", "principles"])
@@ -99,9 +100,10 @@ function scanExportPackageDimension(): DimensionGap[] {
 function scanTestLaneDimension(): DimensionGap[] {
   const gaps: DimensionGap[] = []
   const PACKAGES = ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge']
-  const rootDistTests = readdirSync(join(ROOT, 'dist', 'tests'), { withFileTypes: true })
-    .filter((e) => e.isFile() && e.name.endsWith('.test.js'))
-    .map((e) => e.name)
+  const rootDistTests = listTestSources()
+    .map((src) => testDistForSource(src))
+    .filter((p): p is string => p !== null)
+    .map((p) => p.replace(/^dist\//, ''))
 
   // Predict: test file → test lane coverage matrix
   const uncoveredTests: string[] = []
@@ -171,7 +173,7 @@ function scanDeploymentReadinessDimension(): DimensionGap[] {
     packages: ['crypto', 'ledger', 'research', 'quantum', 'mcp', 'edge'].every((pkg) =>
       existsSync(join(ROOT, 'packages', pkg, 'dist', 'index.js')),
     ),
-    tests: existsSync(join(ROOT, 'dist', 'tests')),
+    tests: listTestSources().length > 0,
     site: existsSync(join(ROOT, 'docs', '.vitepress', 'dist', 'index.html')), // the served assets tree (the default VitePress outDir)
   }
 
