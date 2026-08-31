@@ -30,6 +30,7 @@ import {
   throughVoid, foldVortexReflection, vortexStrokeGateways, decodeVortexDashAngles,
   computeVortexInvariantsHold, developmentVortex, walkTour, livingFieldReport,
 } from './sequence-field.js'
+import { domainCensus, allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS } from './quantum/os/domains/index.js'
 import type { WavePhase } from './sequence-field.js'
 import { unlockBoard } from './unlocks.js'
 import { windBetzCeiling, biogasEngineYield, microbialFuelCellYield, photonElectrolysisYield } from './energy.js' // the four DIY energy routes — pure integer arithmetic, every verdict a bracket
@@ -539,6 +540,14 @@ const TOOLS: Tool[] = ([
     description: 'Fetch an OPEN-ACCESS Zenodo research record by id (via the public Zenodo REST API, developers.zenodo.org, no key) and content-address its PUBLIC metadata — title, DOI, creators, date — to a recomputable provenance fingerprint + structure + honesty gate. HONEST AND BOUNDED: it fingerprints the public metadata only, NOT the deposited files or their content, which uuidna does not fetch or reproduce. A check digit and a uuid are the same idea at different scales. Returns the audit + the DOI. Boundary declared — theorem drift_is_named_or_caught.',
     inputSchema: { type: 'object', properties: { recordId: { type: 'integer', description: 'a Zenodo record id, e.g. 1234567' } }, required: ['recordId'] },
     run: (a) => auditZenodo(Number(a.recordId)) },
+  { name: 'uuidna_domains',
+    description: 'THE ALPINE PORT, BY DOMAIN — database, filesystem and blockchain read off Alpine\'s own published names and descriptions, with the arithmetic each domain satisfies. Pass {domain} for one census, or nothing for all three; pass {a,b} instead for the inclusion-exclusion across two. WHAT IS PROVEN AND WHAT IS MEASURED, and they must not be confused: the ARITHMETIC over the counts is exact and decided by the kernel (a domain and its complement sum to the catalogue; origins bound packages, and the difference is the companion -dev/-doc/-libs packages). The MEMBERSHIP is a pattern match and is a MEASUREMENT with known failures — addrwatch-mysql is a monitoring tool and aws-sdk-cpp-timestream-influxdb is an SDK, neither is a database. No sum promotes a match into a fact about the world. HONEST SCOPE: provenance only — nothing is installed, mounted, linked, executed, no key is held and no chain is followed; a filesystem domain is a list of names and versions, not a mounted volume. Returns {domain,packages,origins,outside,claims,classifier,honest,receipt}. Boundary declared — theorem drift_is_named_or_caught.',
+    inputSchema: { type: 'object', properties: { domain: { type: 'string' }, a: { type: 'string' }, b: { type: 'string' } } },
+    run: (x) => {
+      if (x.a && x.b) return domainsOverlap(String(x.a), String(x.b)) ?? { error: 'unseeded domain — ask without arguments for the roster' }
+      if (x.domain) return domainCensus(String(x.domain)) ?? { error: `no seeded domain "${String(x.domain)}" — ask without arguments for the roster` }
+      return { domains: allDomainCensuses(), seeded: DOMAIN_PATTERNS.map((d) => ({ domain: d.domain, note: d.note })) }
+    } },
   { name: 'uuidna_coprime',
     description: 'gcd(a,b) and whether a and b are coprime (gcd = 1). Coprimality is what makes a step permute ℤ/n — visiting every point in one stroke — and what fuses moduli (CRT). Mirrors the sealed circle_of_fifths and trinity_rosette_coprime. Returns {gcd,coprime}.',
     inputSchema: { type: 'object', properties: { a: { type: 'integer' }, b: { type: 'integer' } }, required: ['a', 'b'] },

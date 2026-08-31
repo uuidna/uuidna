@@ -271,7 +271,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    it, which is the law [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) enforces for the unit and nothing enforced for the film.
    *Practice:* run `UUIDNA_METER=1 npm run x -- guard`, find a leaf whose subject is already sealed upstream, then
    ask the harder question — does its name still describe what it computes?
-8. **Discuss the open at school** — every lead enrolls on this page (8 held · 42 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
+8. **Discuss the open at school** — every lead enrolls on this page (6 held · 45 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
    *Practice:* open a held door, name a finite structure, deposit the two coins
    ([`two_coins`](/theorem/two_coins)). A student's answer is a deposit, not a comment.
 9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
@@ -953,24 +953,20 @@ Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)
 **two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the
 same way, lives on [the leads page](/leads).
 
-**70 leads** — 8 held · 42 refuted · 20 refused · 8 in trial.
+**71 leads** — 6 held · 45 refuted · 20 refused · 6 in trial.
 
-- **held** · `1e7fec45` — exec reaches os/runtime through createRequire, which is opaque to the bundler — the Layer-1/Layer-2 boundary is HIDDEN from tooling rather than declared, so no import-walking check (including the edge-clean one) can see …
-  <br><small>declare os/runtime external to the worker build and reach it through a named door; a naive dynamic import() instead would pull Layer 2 spawnSync/docker/tar into the bundle and re-break the deploy</small>
-- **held** · `d9601781` — dryGaps still scans a FIXED directory list non-recursively for the HERE/ROOT boilerplate; only the root-OVERSHOOT check was widened. src/quantum/os/harness was never opened by the boilerplate half
-  <br><small>widen the boilerplate scan to the same recursive walk, or state why the two halves have different reach</small>
 - **held** · `6bf44ca8` — 1120 of 1832 commits carry no Trial-Receipt. The commit-msg gate was dead for 229 commits (entry guard stopped matching cli/index.js), but most unsigned commits predate it and were never covered by the convention at all
   <br><small>a decision on whether the record should be uniform; backfilling rewrites 1120 SHAs and invalidates gate-receipt content-addressing and any DOI provenance pointing into this history</small>
-- **held** · `f762bdb3` — catalogue() full materialisation is still ~32 ms — the lazy parse DEFERRED it, it did not remove it. discovery, patime, cryptovia and gen-os each walk everything and pay it in full
-  <br><small>a per-consumer answer (do they need every row?) or an accepted, measured cost recorded as such</small>
-- **held** · `7176c02b` — the three seeded domains (database, filesystem, blockchain) are mutually DISJOINT, so all three inclusion-exclusion claims reduce to plain addition and carry less than their shape suggests
-  <br><small>patterns that genuinely straddle two domains, or dropping those three claims as low-information and keeping only the partition and origin ones</small>
 - **held** · `c08442a1` — gpuPresence DETECTS an accelerator and nothing in the tree dispatches to one. The field is honest but the gap is permanent until something uses it
   <br><small>either a real data-parallel dispatch measured against the CPU baseline now recorded, or an explicit statement that none is intended so the field stops reading as a TODO</small>
-- **held** · `5257ec31` — decide.arithmetic costs ~34 microseconds, about 124 calibration units — three orders above the lattice ops it sits beside (valueOf 1.25 units)
-  <br><small>a measurement of where that goes (parse vs evaluate) and a judgement on whether it is inherent to deciding a fragment or a parse cost worth cutting</small>
 - **held** · `55161239` — the alpine-discovery phase gate is a STAND-IN: it fires on s.harvest, which counts search-feed leads, not Alpine ore. The contract it restored is real but the signal is the wrong one
   <br><small>an alpine-specific pending count in GapSurvey so the phase runs when there is Alpine work, not when an unrelated conveyor is busy</small>
+- **held** · `82ec724e` — decide() spends about 11 microseconds on input that reaches NO verdict at all — measured as the prose path, against 0.93 us for a sealed-theorem hit and 17.4 us for the arithmetic path. The ledger lookup is not the cost;…
+  <br><small>a split of that 11 us into its parts, and either a cheaper reject for input that decides nothing or a statement that the scan is inherent to deciding</small>
+- **held** · `924c55c4` — kubo (IPFS, 4 packages) is genuinely filesystem AND chain and no domain pattern claims it; electrs is a database over chain data. The three domains are disjoint because the patterns are mutually exclusive BY CONSTRUCTION…
+  <br><small>a pattern that reaches the straddling software, after which the inclusion-exclusion claims carry information — or dropping those three claims as low-information and keeping the partition and origin ones</small>
+- **held** · `bf82c361` — an honest alpinePending for GapSurvey costs 644 ms — it must classify all 28,635 packages to know the binding counts. catalogue() warm is free; the classification is not. This is why the phase gate reached for a cheap pr…
+  <br><small>a decision: pay 644 ms per survey, or cache the census keyed on the catalogue receipt and pay it only when the mirror moves</small>
 - **refuted** · `8609c55d` — HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).
   <br><small>PAID. hexFaceOf stamps packedTriangles = KEY_BITS (UUID_BITS × COINS) and merkabasPacked = UUID_HEXBITS. HexFace still draws two projected polygons — 2D is art. The count sits on the face as constructors, not as 256 drawn triangles.</small>
 - **refuted** · `0809c1db` — fruitOfLife XY pitch (28 / 14 / 24) is authored art integers; the sealed fact is the centre count (SAFE_HEXBITS, metatron_seventyeight_lines).
@@ -1055,6 +1051,12 @@ same way, lives on [the leads page](/leads).
   <br><small>MEASURED, not read. roundTrips(m) is readImprint(imprint(m)) === m — a SINGLE imprint over a BINARY string, capacity 115 bits. An address is 36 characters of text and not binary at all, so roundTrips(addr) is correctly false; roundTrips("1011") is true and roundTrips of 116 bits …</small>
 - **refuted** · `1592e26d` — runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.
   <br><small>RUN, where the lead says in its own last sentence that it was not. Over the alternating dz/doubling walk: seed 0 gives period 2; seed 2 first returns at index 6, which is EVEN and therefore out of phase; seeds 1 and 3 never return within 24. period() accepts a return only at an O…</small>
+- **refuted** · `1e7fec45` — exec reaches os/runtime through createRequire, which is opaque to the bundler — the Layer-1/Layer-2 boundary is HIDDEN from tooling rather than declared, so no import-walking check (including the edge-clean one) can see …
+  <br><small>Measured, not argued: os/runtime is ALREADY edge-clean (its only static node: imports are in a test file; hostnode uses the lazy pattern deliberately), so a STATIC import carries it with zero node: warnings and a marginally SMALLER bundle — 5682.37 KiB against 5682.74 KiB, the cr…</small>
+- **refuted** · `d9601781` — dryGaps still scans a FIXED directory list non-recursively for the HERE/ROOT boilerplate; only the root-OVERSHOOT check was widened. src/quantum/os/harness was never opened by the boilerplate half
+  <br><small>Measured before widening: the fixed dir list finds 0 boilerplate files and a recursive walk adds 0. The scope hole was real but INERT — no live finding anywhere in src/. Widened anyway, at no cost, onto the recursive walk the overshoot check already runs, so the latent case canno…</small>
+- **refuted** · `f762bdb3` — catalogue() full materialisation is still ~32 ms — the lazy parse DEFERRED it, it did not remove it. discovery, patime, cryptovia and gen-os each walk everything and pay it in full
+  <br><small>Checked every consumer: gen-os, patime, discovery, cryptovia, domains and exec each filter or sort across the WHOLE catalogue. None is a lookup in disguise — that was the browser path, and it is lazy now. The 32 ms is real work, paid once per process, and is accepted as measured …</small>
 - **refused** · `94f264b4` — KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.
   <br><small>RFC 8439 stays the AEAD and PBKDF2 stays the entropy tape. Occupancy is public routing. Fold-as-AEAD is already refused. Desk named both tapes and did not change the primitive.</small>
 - **refused** · `de5612a2` — The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…

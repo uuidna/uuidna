@@ -84,3 +84,32 @@ test('an unseeded domain is null, not an empty census that reads like a real one
   assert.equal(domainsOverlap('database', 'nope'), null)
   assert.ok(DOMAIN_PATTERNS.length >= 2)
 })
+
+// ── THE TOOL SURFACE — a census nobody can reach is not usable ───────────────────────────────────────────────
+// The census existed as a library and was reachable from NOWHERE: not an MCP tool, not in the apps registry,
+// not imported by any surface. It passed its own tests the whole time, which is exactly why the tool ratchet
+// exists — a new tool earns a test, or the under-tested set grows in silence. These exercise it the way a
+// caller does, through callTool, not through the module it happens to wrap.
+test('uuidna_domains answers the roster, one domain, and an overlap', async () => {
+  const { callTool } = await import('../../../mcp.js')
+  const roster = callTool('uuidna_domains', {}) as { seeded: { domain: string }[] }
+  assert.deepEqual(roster.seeded.map((d) => d.domain), ['database', 'filesystem', 'blockchain'])
+
+  const one = callTool('uuidna_domains', { domain: 'blockchain' }) as { packages: number; origins: number; claims: unknown[]; classifier: string }
+  assert.ok(one.packages > 0 && one.origins > 0 && one.origins <= one.packages)
+  assert.equal(one.claims.length, 2)
+  assert.equal(one.classifier, 'pattern', 'the tool must keep saying membership is measured, not decided')
+
+  const ov = callTool('uuidna_domains', { a: 'database', b: 'filesystem' }) as { onlyA: number; onlyB: number; both: number; union: number }
+  assert.equal(ov.onlyA + ov.onlyB + ov.both, ov.union)
+})
+
+test('CONTROL — an unseeded domain is refused BY NAME, not answered with an empty census', () => {
+  // an empty census reads exactly like a real one for a domain that happens to match nothing, which is how a
+  // caller learns something false. The tool names the miss instead.
+  return import('../../../mcp.js').then(({ callTool }) => {
+    const miss = callTool('uuidna_domains', { domain: 'not-a-seeded-domain' }) as { error?: string; packages?: number }
+    assert.equal(miss.packages, undefined, 'no counts for a domain that was never seeded')
+    assert.match(String(miss.error), /no seeded domain/)
+  })
+})

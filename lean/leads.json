@@ -3,36 +3,28 @@
   "recorded": "2026-08-28",
   "held": [
     {
-      "lead": "exec reaches os/runtime through createRequire, which is opaque to the bundler — the Layer-1/Layer-2 boundary is HIDDEN from tooling rather than declared, so no import-walking check (including the edge-clean one) can see it",
-      "owes": "declare os/runtime external to the worker build and reach it through a named door; a naive dynamic import() instead would pull Layer 2 spawnSync/docker/tar into the bundle and re-break the deploy"
-    },
-    {
-      "lead": "dryGaps still scans a FIXED directory list non-recursively for the HERE/ROOT boilerplate; only the root-OVERSHOOT check was widened. src/quantum/os/harness was never opened by the boilerplate half",
-      "owes": "widen the boilerplate scan to the same recursive walk, or state why the two halves have different reach"
-    },
-    {
       "lead": "1120 of 1832 commits carry no Trial-Receipt. The commit-msg gate was dead for 229 commits (entry guard stopped matching cli/index.js), but most unsigned commits predate it and were never covered by the convention at all",
       "owes": "a decision on whether the record should be uniform; backfilling rewrites 1120 SHAs and invalidates gate-receipt content-addressing and any DOI provenance pointing into this history"
-    },
-    {
-      "lead": "catalogue() full materialisation is still ~32 ms — the lazy parse DEFERRED it, it did not remove it. discovery, patime, cryptovia and gen-os each walk everything and pay it in full",
-      "owes": "a per-consumer answer (do they need every row?) or an accepted, measured cost recorded as such"
-    },
-    {
-      "lead": "the three seeded domains (database, filesystem, blockchain) are mutually DISJOINT, so all three inclusion-exclusion claims reduce to plain addition and carry less than their shape suggests",
-      "owes": "patterns that genuinely straddle two domains, or dropping those three claims as low-information and keeping only the partition and origin ones"
     },
     {
       "lead": "gpuPresence DETECTS an accelerator and nothing in the tree dispatches to one. The field is honest but the gap is permanent until something uses it",
       "owes": "either a real data-parallel dispatch measured against the CPU baseline now recorded, or an explicit statement that none is intended so the field stops reading as a TODO"
     },
     {
-      "lead": "decide.arithmetic costs ~34 microseconds, about 124 calibration units — three orders above the lattice ops it sits beside (valueOf 1.25 units)",
-      "owes": "a measurement of where that goes (parse vs evaluate) and a judgement on whether it is inherent to deciding a fragment or a parse cost worth cutting"
-    },
-    {
       "lead": "the alpine-discovery phase gate is a STAND-IN: it fires on s.harvest, which counts search-feed leads, not Alpine ore. The contract it restored is real but the signal is the wrong one",
       "owes": "an alpine-specific pending count in GapSurvey so the phase runs when there is Alpine work, not when an unrelated conveyor is busy"
+    },
+    {
+      "lead": "decide() spends about 11 microseconds on input that reaches NO verdict at all — measured as the prose path, against 0.93 us for a sealed-theorem hit and 17.4 us for the arithmetic path. The ledger lookup is not the cost; the scanning before any decision is",
+      "owes": "a split of that 11 us into its parts, and either a cheaper reject for input that decides nothing or a statement that the scan is inherent to deciding"
+    },
+    {
+      "lead": "kubo (IPFS, 4 packages) is genuinely filesystem AND chain and no domain pattern claims it; electrs is a database over chain data. The three domains are disjoint because the patterns are mutually exclusive BY CONSTRUCTION, not because the catalogue lacks straddling software",
+      "owes": "a pattern that reaches the straddling software, after which the inclusion-exclusion claims carry information — or dropping those three claims as low-information and keeping the partition and origin ones"
+    },
+    {
+      "lead": "an honest alpinePending for GapSurvey costs 644 ms — it must classify all 28,635 packages to know the binding counts. catalogue() warm is free; the classification is not. This is why the phase gate reached for a cheap proxy",
+      "owes": "a decision: pay 644 ms per survey, or cache the census keyed on the catalogue receipt and pay it only when the mirror moves"
     }
   ],
   "refuted": [
@@ -206,6 +198,18 @@
       "lead": "runSequence was not exported from src/index.ts — sequence-run.ts's header said the primitives 'had no front door' and it built one, but the door was not on the public surface. EXPORTED 2026-08-21.",
       "killed_by": "RUN, where the lead says in its own last sentence that it was not. Over the alternating dz/doubling walk: seed 0 gives period 2; seed 2 first returns at index 6, which is EVEN and therefore out of phase; seeds 1 and 3 never return within 24. period() accepts a return only at an ODD index — a completed dz-then-doubling pair — so 0 for seeds 1, 2 and 3 is an accurate report that no in-phase period exists. The lead's correction of its own earlier false claim is confirmed figure for figure.",
       "replaced_by": "AND THE COSMETIC HALF DOES NOT SURVIVE MEASUREMENT EITHER: period() returns i+1 with i >= 0, so its least possible value is 1 and 0 can never be a real period. The sentinel is unambiguous, which is exactly what the two-state instruments found this week were not. It is rendered in one place (sequence-run.ts), beside the seed that produced it, not in a column of measurements. Nothing to fix; the concern was well-aimed and does not apply here."
+    },
+    {
+      "lead": "exec reaches os/runtime through createRequire, which is opaque to the bundler — the Layer-1/Layer-2 boundary is HIDDEN from tooling rather than declared, so no import-walking check (including the edge-clean one) can see it",
+      "killed_by": "Measured, not argued: os/runtime is ALREADY edge-clean (its only static node: imports are in a test file; hostnode uses the lazy pattern deliberately), so a STATIC import carries it with zero node: warnings and a marginally SMALLER bundle — 5682.37 KiB against 5682.74 KiB, the createRequire shim being the difference. import() stays ruled out because uuidnaExec is synchronous with zero async and a test forbids making it async, but that was never the binding constraint. The hack bought nothing and is gone; the Layer-1/Layer-2 edge is now a declared import every import-walking check can see."
+    },
+    {
+      "lead": "dryGaps still scans a FIXED directory list non-recursively for the HERE/ROOT boilerplate; only the root-OVERSHOOT check was widened. src/quantum/os/harness was never opened by the boilerplate half",
+      "killed_by": "Measured before widening: the fixed dir list finds 0 boilerplate files and a recursive walk adds 0. The scope hole was real but INERT — no live finding anywhere in src/. Widened anyway, at no cost, onto the recursive walk the overshoot check already runs, so the latent case cannot reappear unseen."
+    },
+    {
+      "lead": "catalogue() full materialisation is still ~32 ms — the lazy parse DEFERRED it, it did not remove it. discovery, patime, cryptovia and gen-os each walk everything and pay it in full",
+      "killed_by": "Checked every consumer: gen-os, patime, discovery, cryptovia, domains and exec each filter or sort across the WHOLE catalogue. None is a lookup in disguise — that was the browser path, and it is lazy now. The 32 ms is real work, paid once per process, and is accepted as measured rather than carried as a defect."
     }
   ],
   "refused": [

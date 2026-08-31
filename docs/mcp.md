@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="231 keys" />
+# MCP tools <Badge type="tip" text="232 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 231 tools below are read from the server's own tool list and
+is **built from the keys**: the 232 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 60f1f41c-2842-8298-95c7-772c98c07a9e
+gate CLEAN f0 d0 v0 · f0ca0a9a-a42d-8550-9035-81610bdd0adc
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 231-tool registry folds to its
-order-invariant identity `73b2afb4-c863-8dbb-a333-2f8bef434ec6` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 232-tool registry folds to its
+order-invariant identity `c1fea2fa-0f13-8997-bd06-ff9b361dc6a5` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`231`" />
+## The grid <Badge type="tip" :text="`232`" />
 
-231 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 96 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+232 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 97 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -74,6 +74,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-development-vortex"><code>development_vortex</code></a>
 <a href="#uuidna-dictionary"><code>dictionary</code></a>
 <a href="#uuidna-discovery-train"><code>discovery_train</code></a>
+<a href="#uuidna-domains"><code>domains</code></a>
 <a href="#uuidna-due-process"><code>due_process</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-editorial"><code>editorial</code></a>
@@ -573,7 +574,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'99'" />
+## Other <Badge type="tip" :text="'100'" />
 
 *skill: other*
 
@@ -876,6 +877,18 @@ No query → publicApiRegistry() (pure, edge-safe). With query, fans out to rese
 | --- | --- | --- | --- |
 | `query` | string | no | topic to ask every API; omit for |
 | `deposit` | boolean | no | queue lawful candidates pending |
+
+### `uuidna_domains`
+
+THE ALPINE PORT, BY DOMAIN — database, filesystem and blockchain read off Alpine's own published names and descriptions, with the arithmetic each domain satisfies. Pass {domain} for one census, or nothing for all three; pass {a,b} instead for the inclusion-exclusion across two. WHAT IS PROVEN AND WHAT IS MEASURED, and they must not be confused: the ARITHMETIC over the counts is exact and decided by the kernel (a domain and its complement sum to the catalogue; origins bound packages, and the difference is the companion -dev/-doc/-libs packages). The MEMBERSHIP is a pattern match and is a MEASUREMENT with known failures — addrwatch-mysql is a monitoring tool and aws-sdk-cpp-timestream-influxdb is an SDK, neither is a database. No sum promotes a match into a fact about the world. HONEST SCOPE: provenance only — nothing is installed, mounted, linked, executed, no key is held and no chain is followed; a filesystem domain is a list of names and versions, not a mounted volume. Returns {domain,packages,origins,outside,claims,classifier,honest,receipt}. Boundary declared — theorem drift_is_named_or_caught.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `domain` | string | no |  |
+| `a` | string | no |  |
+| `b` | string | no |  |
 
 ### `uuidna_snapshot`
 

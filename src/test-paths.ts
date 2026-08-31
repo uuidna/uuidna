@@ -5,7 +5,7 @@
 import { ROOT, nodeBuiltin } from './boundary.js'
 
 type Stat = { isDirectory(): boolean }
-type FsModule = { existsSync: (p: string) => boolean; readdirSync: (p: string) => string[]; statSync: (p: string) => Stat }
+type FsModule = { existsSync: (p: string) => boolean; readdirSync: (p: string) => string[]; statSync: (p: string) => Stat; readFileSync: (p: string, enc: 'utf8') => string }
 type PathModule = { join: (...p: string[]) => string; dirname: (p: string) => string; relative: (a: string, b: string) => string }
 const fsm = (): FsModule => {
   const fs = nodeBuiltin<FsModule>('node:fs')
@@ -98,4 +98,70 @@ export function rewriteTestImports(content: string, fromRel: string, toRel: stri
 
 export function allTestFiles(root: string = ROOT): string[] {
   return listTestSources(root)
+}
+
+// ── DEPENDENT-AWARE DELTA — fast AND safe, because the fast one alone was not ────────────────────────────────
+// deltaTestFiles maps a changed file to ITS OWN colocated test and stops. Measured against a real regression
+// from 2026-08-31: a change to quantum/os/catalogue/index.ts selects catalogue/index.test.js and MISSES
+// quantum/os/harness/os-catalogue.test.js — which is the test that actually caught it (cataloguePrimed read
+// LOADED !== null, so a fully primed browser reported itself crippled). A delta that cannot see dependents is
+// not a faster full suite, it is a different and weaker check wearing the same name.
+//
+// This walks the reverse import graph: every module that transitively imports a changed file is itself changed
+// for testing purposes, and its colocated test comes too. The graph is built from the source text once.
+const IMPORT_RE = /(?:from|import)\s*\(?\s*['"](\.[^'"]+)['"]\)?/g
+
+/** sourceGraph() → { importer → [imported] } over src, as repo-relative .ts paths. */
+export function sourceGraph(root: string = ROOT): Map<string, string[]> {
+  const files = walkAllSources('src', root)
+  const g = new Map<string, string[]>()
+  for (const rel of files) {
+    const body = fsm().readFileSync(join(root, rel), 'utf8')
+    const out: string[] = []
+    for (const m of body.matchAll(IMPORT_RE)) {
+      const spec = m[1]!.replace(/\.js$/, '.ts')
+      const abs = pathm().join(pathm().dirname(rel), spec).replace(/\\/g, '/')
+      for (const cand of [abs, abs.replace(/\.ts$/, '/index.ts')]) {
+        if (files.includes(cand)) { out.push(cand); break }
+      }
+    }
+    g.set(rel, out)
+  }
+  return g
+}
+
+function walkAllSources(dir: string, root: string, out: string[] = []): string[] {
+  const abs = join(root, dir)
+  if (!existsSync(abs)) return out
+  for (const n of readdirSync(abs)) {
+    const rel = `${dir}/${n}`
+    if (n === 'node_modules') continue
+    if (statSync(join(root, rel)).isDirectory()) walkAllSources(rel, root, out)
+    else if (rel.endsWith('.ts')) out.push(rel)
+  }
+  return out
+}
+
+/** dependentTestFiles(changed) → the delta tests PLUS the tests of every module that transitively imports a
+ *  changed file. Bounded by the graph; a cycle cannot loop it because `seen` only ever grows. */
+export function dependentTestFiles(changed: readonly string[], root: string = ROOT): string[] {
+  const g = sourceGraph(root)
+  const reverse = new Map<string, string[]>()
+  for (const [importer, imported] of g) for (const dep of imported) {
+    const list = reverse.get(dep) ?? []; list.push(importer); reverse.set(dep, list)
+  }
+  const seen = new Set<string>(changed.filter((c) => c.endsWith('.ts')))
+  const queue = [...seen]
+  while (queue.length) {
+    const cur = queue.pop()!
+    for (const importer of reverse.get(cur) ?? []) {
+      if (!seen.has(importer)) { seen.add(importer); queue.push(importer) }
+    }
+  }
+  const tests = new Set<string>(deltaTestFiles(changed))
+  for (const rel of seen) {
+    const direct = testDistForSource(rel); if (direct) tests.add(direct)
+    const mod = testDistForModule(rel); if (mod) tests.add(mod)
+  }
+  return [...tests].filter((t) => existsSync(join(ROOT, t))).sort()
 }

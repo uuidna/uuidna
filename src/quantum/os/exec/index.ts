@@ -6,6 +6,7 @@
 // success while nothing shipped. The reach goes through boundary's one declared accessor; on the edge it is
 // simply absent, and the caller below refuses by name rather than dying on a resolution error.
 import { nodeBuiltin } from '../../../boundary.js'
+import { planAlpineRun as planAlpineRunStatic } from '../../../os/runtime/index.js'
 type ModuleModule = { createRequire: (u: string) => (id: string) => unknown }
 const createRequire = (u: string): ((id: string) => unknown) => {
   const m = nodeBuiltin<ModuleModule>('node:module')
@@ -586,7 +587,7 @@ export function uuidnaExec(line: string): ExecResult {
     case 'run': {
       const cmd = args.join(' ')
       if (!cmd) { err('run: a command is required — e.g. `run busybox --help` or `run nginx -v`'); break }
-      const { planAlpineRun } = createRequire(import.meta.url)('../../../os/runtime/index.js') as typeof import('../../../os/runtime/index.js')
+      const planAlpineRun = planAlpineRunStatic
       const plan = planAlpineRun(cmd)
       if (!plan.ok) {
         emit([`run: ${plan.reason ?? 'refused'}`, ...(plan.remedy ? [`remedy: ${plan.remedy}`] : [])], { kind: 'run-plan', plan })

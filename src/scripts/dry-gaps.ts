@@ -51,6 +51,10 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
     }
     return out
   }
+  // THE BOILERPLATE CHECK RIDES THIS WALK TOO. Its own loop above reads a FIXED list of directories,
+  // non-recursively, so src/quantum/os/harness was never opened by it — the same scope gap that let six
+  // root-overshoots through. Measured before widening: the fixed list finds 0 and a recursive walk adds 0, so
+  // this closes a LATENT hole rather than a live one, at no cost — these files are already being read here.
   for (const rel of climbers('src')) {
     if (SINGULARITIES.has(rel)) continue
     // depth = directories BETWEEN the root and this file, which is how many climbs reach the root exactly.
@@ -67,6 +71,10 @@ export function dryGaps(): { gaps: Gap[]; scripts: number } {
       climbs.push({ expr: m[0], up: (m[1]!.match(/\.\.\//g) ?? []).length })
     for (const m of body.matchAll(/(?:import\.meta\.dirname|dirname\(fileURLToPath\(import\.meta\.url\)\))((?:\s*,\s*'\.\.')+)/g))
       climbs.push({ expr: m[0].replace(/\s+/g, ' '), up: (m[1]!.match(/'\.\.'/g) ?? []).length })
+    const bodyRaw = rd(rel)
+    if (/dirname\(fileURLToPath\(import\.meta\.url\)\)/.test(bodyRaw) && !files.includes(rel))
+      gaps.push({ what: `${rel}: re-declares HERE/ROOT boilerplate instead of importing its layer's singularity (found by the recursive walk, which the fixed dir list does not reach)`, fix: `edit ${rel}: delete the dirname(fileURLToPath(…)) declaration(s) and import ROOT from boundary.js` })
+
     for (const c of climbs)
       if (c.up > depth)
         gaps.push({
