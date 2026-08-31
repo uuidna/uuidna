@@ -11,11 +11,12 @@
 // folds but by no dedicated check). HONEST SCOPE: "directly exercised" is a LOWER BOUND on real coverage — an
 // aggregate-only tool is not untested, it is under-tested; the census names the under-tested set so it can only
 // shrink, never a claim that 165 tools are unchecked. Deterministic; folds to one receipt anyone recomputes.
-import { readFileSync, readdirSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { toUuid } from '../address.js'
 import { merkleFold } from '../address.js'
+import { listTestSources } from '../test-paths.js'
 
 const TOOL_RE = /\{ name: '([a-z0-9_]+)'/g
 const REF_RE = /uuidna_[a-z0-9_]+/g
@@ -29,11 +30,9 @@ export function toolExercise(): {
 } {
   const mcp = readFileSync(join(ROOT, 'src', 'mcp.ts'), 'utf8')
   const tools = [...new Set([...mcp.matchAll(TOOL_RE)].map((m) => m[1]!))].sort()
-  const testDir = join(ROOT, 'src', 'tests')
   const referenced = new Set<string>()
-  for (const f of readdirSync(testDir)) {
-    if (!f.endsWith('.ts')) continue
-    for (const m of readFileSync(join(testDir, f), 'utf8').matchAll(REF_RE)) referenced.add(m[0])
+  for (const rel of listTestSources()) {
+    for (const m of readFileSync(join(ROOT, rel), 'utf8').matchAll(REF_RE)) referenced.add(m[0])
   }
   const directlyExercised = tools.filter((t) => referenced.has(t))
   const aggregateOnly = tools.filter((t) => !referenced.has(t))

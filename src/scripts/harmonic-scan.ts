@@ -42,7 +42,7 @@ const OPS: [string, RegExp][] = [
 // LIBRARY only (scripts/tests/drivers/os may legitimately time). RNG (the Math random read) is caught by the Math rule.
 const MATH_CALL = /\bMath\s*\.\s*[a-zA-Z]/
 const WALLCLOCK = /\b(?:Date\s*\.\s*now|new\s+Date|performance\s*\.\s*now|process\s*\.\s*hrtime|crypto\s*\.\s*getRandomValues)\b/
-const isLibrary = (p: string): boolean => !/[\\/](?:scripts|tests?|drivers|os)[\\/]/.test(p)
+const isLibrary = (p: string): boolean => !/[\\/](?:scripts|tests?|drivers|os)[\\/]/.test(p) && !/\.test\.ts$/.test(p)
 // strip comments LINE-BASED, robustly: drop only whole comment lines (a line whose first non-space is // or * or /*).
 // A line-based drop cannot swallow code across lines (the prior regex strip mis-parsed and ATE real code — a false
 // negative that let non-quantum code avoid the scanner). A rare trailing inline comment could false-positive; that is

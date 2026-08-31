@@ -17,7 +17,7 @@ test('the MCP covers every theorem in full functionality, in all dimensions; eac
   for (const t of MCP_CATALOG) {
     try {
       const r = callTool(t.name, {})
-      // the @non-harmonic tools (network) return a Promise that may reject (no args / offline) — swallow it: we are
+      // non-harmonic tools (network) return a Promise that may reject (no args / offline) — swallow it: we are
       // testing that the name DISPATCHES. An un-caught reject would flake the suite.
       if (r && typeof (r as { then?: unknown }).then === 'function') (r as Promise<unknown>).catch(() => {})
     } catch (e) { assert.doesNotMatch(String((e as Error).message), /unknown tool/, `dispatchable: ${t.name}`) }
