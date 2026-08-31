@@ -11,7 +11,7 @@
       "id": 2800,
       "title": "The Koran (Al-Qur'an)",
       "address": "8b41f6a4-dd31-853a-9f0d-982ba263b01c",
-      "cached": true,
+      "cached": false,
       "claims": 45,
       "unitEq": 0,
       "hexbitCandidates": 0,
