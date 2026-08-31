@@ -450,8 +450,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000007868",
-   "completionPrice": "0.00000015736"
+   "promptPrice": "0.000000088606",
+   "completionPrice": "0.000000177212"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -471,22 +471,22 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000022",
-   "completionPrice": "0.00000066"
+   "promptPrice": "0.00000044",
+   "completionPrice": "0.00000132"
   },
   {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000417252",
-   "completionPrice": "0.000000834504"
+   "promptPrice": "0.0000016",
+   "completionPrice": "0.0000032"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000066",
-   "completionPrice": "0.00000198"
+   "promptPrice": "0.00000132",
+   "completionPrice": "0.00000396"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813:batch",
@@ -913,7 +913,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "name": "Meta: Llama 4 Maverick",
    "contextTokens": 1048576,
    "promptPrice": "0.0000002",
-   "completionPrice": "0.0000008"
+   "completionPrice": "0.000000696"
   },
   {
    "id": "meta-llama/llama-4-scout",
@@ -1255,8 +1255,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "moonshotai/kimi-k2.5",
    "name": "MoonshotAI: Kimi K2.5",
    "contextTokens": 262144,
-   "promptPrice": "0.0000006",
-   "completionPrice": "0.000003"
+   "promptPrice": "0.00000045",
+   "completionPrice": "0.00000225"
   },
   {
    "id": "moonshotai/kimi-k2.6",
@@ -2424,8 +2424,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000825",
-   "completionPrice": "0.00000033"
+   "promptPrice": "0.000000132",
+   "completionPrice": "0.000000528"
   },
   {
    "id": "tencent/hy3-preview",

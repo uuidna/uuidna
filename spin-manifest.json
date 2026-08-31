@@ -4,14 +4,14 @@
     "lean/PRINCIPLE.md": "4887ddee9c388fbe",
     "CHANGELOG.md": "82375045e6178c9d",
     "lean/axioms.json": "1791454517788bcf",
-    "docs/mcp.md": "6ee1b087a6848731",
+    "docs/mcp.md": "654003d3613c8433",
     "audit-citations.json": "bd5145c79bbe81ec",
-    "support-audit.json": "4c2075be286e8408",
-    "research-leads.json": "086e4ce45c5a8765",
+    "support-audit.json": "42d203a8ef9f8b5c",
+    "research-leads.json": "7171639d87b08c57",
     ".zenodo.json": "f568de01091a8011",
     "reports.json": "7ea7edd206e98270",
     "lean/statement-index.json": "3c65ee51fb0789e8",
-    "README.md": "9737f4d934448020",
+    "README.md": "324f611df25b8e37",
     "llm.txt": "497732d807158a28",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -2236,7 +2236,7 @@
     "lean/diving-manifest.json": "636537af9f528b58",
     "lean/doctrine-manifest.json": "f09bac7f05c68f4e",
     "lean/dormant-receipt.json": "2e2abf05cc4686e5",
-    "lean/dormant-scripts.json": "5a6e455c9d23888c",
+    "lean/dormant-scripts.json": "daadea139bfb8e24",
     "lean/doubletorus-manifest.json": "5718f6c5aef782ed",
     "lean/editing-manifest.json": "e87a2cc25dd2891a",
     "lean/editor-manifest.json": "4bf17f879bb78ef4",
@@ -2327,7 +2327,7 @@
     "lean/tesla-manifest.json": "a88ced0fc41a8adc",
     "lean/thermodynamics-manifest.json": "22a3c81550688010",
     "lean/tides-manifest.json": "fc18ddce67318cbb",
-    "lean/tool-exercise-baseline.json": "d4cae22184b1871f",
+    "lean/tool-exercise-baseline.json": "a82e7ffaa5088622",
     "lean/topography-manifest.json": "1f1b37d79f2b81c0",
     "lean/torus-manifest.json": "24fd85fc1f808ea7",
     "lean/trinities-manifest.json": "5a70c39b9d0886da",
@@ -2343,5 +2343,5 @@
     "lean/wave-queue.json": "aea574e2a5748ff0",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "53236f33-ef93-8ec2-897d-f26aacbb70fc"
+  "receipt": "d68e80d2-c583-8eae-9664-34f64b0215c7"
 }
