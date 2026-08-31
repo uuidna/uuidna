@@ -36,6 +36,11 @@ export const DOMAIN_PATTERNS: readonly DomainPattern[] = [
     match: /\b(e2fsprogs|btrfs|xfsprogs|f2fs|jfs|ntfs|exfat|dosfstools|squashfs|zfs|fuse|cryptsetup|lvm2|mdadm|overlayfs|filesystem)\b/i,
     note: 'on-disk formats, volume managers and FUSE bridges as Alpine publishes them — names and versions only',
   },
+  {
+    domain: 'blockchain',
+    match: /\b(bitcoin|monero|ethereum|litecoin|dogecoin|zcash|electrum|blockchain|libbitcoin|secp256k1|namecoin|ripple|stellar|solana|cardano|tendermint|geth|besu|btcpay)\b/i,
+    note: 'chain nodes, wallets and the curve libraries they lean on, as Alpine publishes them — provenance only, nothing is run, no key is held and no chain is followed',
+  },
 ]
 
 export interface DomainCensus {

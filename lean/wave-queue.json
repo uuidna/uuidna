@@ -34,6 +34,26 @@
       "key": "alpine_binding_origins_overcount_16083",
       "why": "Alpine port census structural claim: 1856 origins ship into more than one class — origins do NOT partition. Exact over the committed mirror and recomputed when it moves; says the counting is coherent, never that any package binding is correct.",
       "lean": "theorem alpine_binding_origins_overcount_16083 : (1277 + 2819 + 13843 = 17939) ∧ (17939 - 16083 = 1856) := by decide"
+    },
+    {
+      "key": "alpine_domain_blockchain_partitions_28635",
+      "why": "Alpine domain port (blockchain): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run, no key is held and no chain is followed. the blockchain domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_blockchain_partitions_28635 : (29 + 28606 = 28635) := by decide"
+    },
+    {
+      "key": "alpine_domain_blockchain_origins_29",
+      "why": "Alpine domain port (blockchain): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run, no key is held and no chain is followed. 10 of the 29 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_blockchain_origins_29 : (19 <= 29) ∧ (29 - 19 = 10) := by decide"
+    },
+    {
+      "key": "alpine_domains_da_bc_incl_excl_467",
+      "why": "Inclusion-exclusion across database and blockchain, exact over the committed mirror. These two are DISJOINT under the seeded patterns (overlap 0), so the identity reduces to addition — it still fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_domains_da_bc_incl_excl_467 : (438 + 29 - 0 = 467) := by decide"
+    },
+    {
+      "key": "alpine_domains_fi_bc_incl_excl_244",
+      "why": "Inclusion-exclusion across filesystem and blockchain, exact over the committed mirror. These two are DISJOINT under the seeded patterns (overlap 0), so the identity reduces to addition — it still fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_domains_fi_bc_incl_excl_244 : (215 + 29 - 0 = 244) := by decide"
     }
   ],
   "accepted": [

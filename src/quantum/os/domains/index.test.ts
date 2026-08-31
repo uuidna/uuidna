@@ -9,7 +9,7 @@ const why = 'domain port census claim, exact over the committed mirror; membersh
 
 test('the seeded domains are ported and counted', () => {
   const all = allDomainCensuses()
-  assert.deepEqual(all.map((d) => d.domain), ['database', 'filesystem'])
+  assert.deepEqual(all.map((d) => d.domain), ['database', 'filesystem', 'blockchain'])
   for (const d of all) {
     assert.ok(d.packages > 0, `${d.domain} matched something`)
     assert.ok(d.origins > 0 && d.origins <= d.packages, `${d.domain} origins bound its packages`)
@@ -59,10 +59,16 @@ test('CONTROL — the conveyor ACCEPTS every domain claim', () => {
   }
 })
 
-test('inclusion-exclusion holds, and the overlap is reported rather than resolved', () => {
-  const o = domainsOverlap('database', 'filesystem')!
-  assert.equal(o.onlyA + o.onlyB + o.both, o.union, 'the three parts are the union')
-  assert.match(o.lean, new RegExp(`${o.onlyA + o.both} \\+ ${o.onlyB + o.both} - ${o.both} = ${o.union}`))
+test('inclusion-exclusion holds across every pair, and the overlap is reported rather than resolved', () => {
+  // As it happens all three seeded domains are DISJOINT under these patterns, so each identity reduces to plain
+  // addition. That is worth stating rather than dressing up: the claim still catches a miscount in any of the
+  // four counts, and it would carry more if a future pattern did straddle two domains — which is exactly why the
+  // overlap is reported as a number instead of being assumed away.
+  for (const [a, b] of [['database', 'filesystem'], ['database', 'blockchain'], ['filesystem', 'blockchain']]) {
+    const o = domainsOverlap(a!, b!)!
+    assert.equal(o.onlyA + o.onlyB + o.both, o.union, `${a}/${b}: the three parts are the union`)
+    assert.match(o.lean, new RegExp(`${o.onlyA + o.both} \\+ ${o.onlyB + o.both} - ${o.both} = ${o.union}`))
+  }
 })
 
 test('the classification is declared a MEASUREMENT, never a verdict', () => {
