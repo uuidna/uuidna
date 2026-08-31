@@ -27,6 +27,14 @@ const fs = getBuiltin?.<FsModule>('node:fs')
 const path = getBuiltin?.<PathModule>('node:path')
 const url = getBuiltin?.<UrlModule>('node:url')
 
+/** nodeBuiltin(name) → a Node builtin, or undefined where there is none (the edge, a browser). THE ONE PLACE
+ *  this reach is declared. Cloudflare rejects a static `node:` import in ANY uploaded module (error 10021), and
+ *  it rejects at UPLOAD — so `wrangler deploy --dry-run` bundles such a module happily, reports success, and the
+ *  deploy simply never appears. Three modules that ride the worker had one each; rather than three copies of the
+ *  same shim drifting apart, they ask here. A caller that cannot proceed without the builtin refuses BY NAME
+ *  instead of throwing a resolution error nobody can read. */
+export const nodeBuiltin = <T,>(name: string): T | undefined => getBuiltin?.<T>(name)
+
 /** the repo root (dist/boundary.js → one level up); '' in a browser, where no path exists to resolve */
 export const ROOT = fs && path && url ? path.join(path.dirname(url.fileURLToPath(import.meta.url)), '..') : ''
 /** read a repo-relative file as utf8 — the boundary's first verb; Node-only, refuses elsewhere by name */

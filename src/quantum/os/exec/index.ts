@@ -1,7 +1,17 @@
 // quantum/os/exec — Alpine apps via apk + man→hexbit, plus install-port `ls`.
 // Toy busybox (cat/which/stat/pwd/echo/du) FOLDED: Alpine packages ARE the apps (man→app→hexbit).
 // `uuidnaLs` is internal for `ls`; MCP tool uuidna_ls removed — use uuidna_exec.
-import { createRequire } from 'node:module'
+// NO STATIC `node:` IMPORT — the LAST one in the worker bundle, and the reason the deploy never appeared.
+// Cloudflare rejects node: in any uploaded module at UPLOAD, so --dry-run bundled this happily and reported
+// success while nothing shipped. The reach goes through boundary's one declared accessor; on the edge it is
+// simply absent, and the caller below refuses by name rather than dying on a resolution error.
+import { nodeBuiltin } from '../../../boundary.js'
+type ModuleModule = { createRequire: (u: string) => (id: string) => unknown }
+const createRequire = (u: string): ((id: string) => unknown) => {
+  const m = nodeBuiltin<ModuleModule>('node:module')
+  if (!m) throw new Error('exec: the Alpine run plan is loaded through require — Node only, and this is not Node')
+  return m.createRequire(u)
+}
 import {
   catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile,
   resolveManPage, isManPagePackage, manAppWitness, catalogue, catalogueRouteOf,

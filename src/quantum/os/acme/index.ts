@@ -2,7 +2,14 @@
 // uuidna_run (Layer 2). Theorems come from the apps — harmoniseOf binds each catalogue row to a
 // sealed witness; crypto-using clients carry /theorem/sha256_grover_margin_is_the_address when unnamed.
 import { handleOf } from '../../../handle.js'
-import { domainToASCII } from 'node:url'
+// NO STATIC `node:` IMPORT — this module is reachable from the worker through exec and npm, and Cloudflare
+// REJECTS a bundle carrying node: in any uploaded module (error 10021). The rejection happens at UPLOAD, so
+// `wrangler deploy --dry-run` bundles it happily and says nothing; the deploy simply never appears. The builtin
+// is reached through boundary's nodeBuiltin — ONE declared place for this reach, absent on the edge, so
+// importing here can never throw there.
+import { nodeBuiltin } from '../../../boundary.js'
+type UrlModule = { domainToASCII: (d: string) => string }
+const urlModule = (): UrlModule | undefined => nodeBuiltin<UrlModule>('node:url')
 import { cataloguePackage } from '../catalogue/index.js'
 import { defaultInstalls } from '../index.js'
 import { uuidnaExec } from '../exec/index.js'
@@ -91,7 +98,11 @@ function acmeTheoremFold(): AppTheoremFold {
 /** acmeDomainLabels(domains) → U-label / A-label pairs; ACME and nginx use A-labels on the wire. */
 export function acmeDomainLabels(domains: readonly string[]): AcmeDomainLabel[] {
   return domains.map((uLabel) => {
-    const aLabel = domainToASCII(uLabel)
+    // Node punycodes it; on the edge the URL parser performs the same IDNA mapping, and a host that resolves
+    // neither way is REFUSED by name rather than silently passed through as its unicode label.
+    const u = urlModule()
+    const aLabel = u ? u.domainToASCII(uLabel) : new URL('https://' + uLabel).hostname
+    if (!aLabel) throw new Error(`acme: "${uLabel}" has no ASCII (A-label) form — refusing rather than sending a unicode label`)
     return { uLabel, aLabel, idn: aLabel !== uLabel }
   })
 }

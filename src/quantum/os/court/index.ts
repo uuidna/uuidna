@@ -1,6 +1,19 @@
 // court — WHAT uuidna NEEDS: hex boot, MCP court, wave cargo, commit-msg gate. All gates enter here.
 import { handleOf } from '../../../handle.js'
-import { readFileSync, writeFileSync } from 'node:fs'
+// NO STATIC `node:` IMPORT — the court is reached from the worker through cli, exec and npm, and Cloudflare
+// rejects node: in any uploaded module (error 10021). That rejection lands at UPLOAD, which is why --dry-run
+// never saw it and the deploy just stopped appearing. Only the --msg path touches a file, and that path runs
+// under a git hook, which is always Node; on the edge the reach is simply absent and says so by name.
+import { nodeBuiltin } from '../../../boundary.js'
+type FsModule = {
+  readFileSync: (p: string, enc: 'utf8') => string
+  writeFileSync: (p: string, data: string) => void
+}
+const fsModule = (): FsModule => {
+  const fs = nodeBuiltin<FsModule>('node:fs')
+  if (!fs) throw new Error('court: the commit-msg gate reads a file — Node only, and this is not Node')
+  return fs
+}
 import { callTool } from '../../../mcp.js'
 import { gateCommitMessage } from '../../../sign.js'
 import { HEXBIT_STATES, UUID_HEXBITS, hexbitDoorOf } from '../../../hexbit/index.js'
@@ -239,7 +252,7 @@ export function parseCourtPlan(argv: readonly string[]): NeedPlan & { msgFile?: 
 export function runCourtCli(argv: readonly string[]): number {
   const { msgFile, ...plan } = parseCourtPlan(argv)
   if (msgFile) {
-    const raw = readFileSync(msgFile, 'utf8')
+    const raw = fsModule().readFileSync(msgFile, 'utf8')
     const g = gateCommitMessage(raw)
     if (g.damage.length) {
       console.error('✗ court — the MESSAGE ITSELF arrived damaged; a signed record must be whole:')
@@ -257,7 +270,7 @@ export function runCourtCli(argv: readonly string[]): number {
       return 1
     }
     if (g.sig.signed) {
-      writeFileSync(msgFile, g.body + '\n\nTrial-Receipt: ' + g.sig.fold + '\n')
+      fsModule().writeFileSync(msgFile, g.body + '\n\nTrial-Receipt: ' + g.sig.fold + '\n')
       console.log('✓ court — Trial-Receipt ' + handleOf(g.sig.fold) + '…')
     } else {
       console.log('· court — ' + g.sig.reason)

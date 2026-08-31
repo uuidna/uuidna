@@ -1,7 +1,28 @@
 // test-paths — where tests live: index.test.ts beside index.ts, or {module}.test.ts beside {module}.ts.
-import { existsSync, readdirSync, statSync } from 'node:fs'
-import { join, dirname, relative } from 'node:path'
-import { ROOT } from './boundary.js'
+// NO STATIC `node:` IMPORT. This module rides the worker through gate-receipt-index, and Cloudflare rejects
+// node: in any uploaded module — at UPLOAD, which is why --dry-run bundled it without complaint while the deploy
+// never appeared. The reach is asked of boundary, the one declared place, rather than re-shimmed here.
+import { ROOT, nodeBuiltin } from './boundary.js'
+
+type Stat = { isDirectory(): boolean }
+type FsModule = { existsSync: (p: string) => boolean; readdirSync: (p: string) => string[]; statSync: (p: string) => Stat }
+type PathModule = { join: (...p: string[]) => string; dirname: (p: string) => string; relative: (a: string, b: string) => string }
+const fsm = (): FsModule => {
+  const fs = nodeBuiltin<FsModule>('node:fs')
+  if (!fs) throw new Error('test-paths: walking the test tree reads the disk — Node only, and this is not Node')
+  return fs
+}
+const pathm = (): PathModule => {
+  const p = nodeBuiltin<PathModule>('node:path')
+  if (!p) throw new Error('test-paths: resolving a test path needs node:path — Node only, and this is not Node')
+  return p
+}
+const existsSync = (p: string): boolean => fsm().existsSync(p)
+const readdirSync = (p: string): string[] => fsm().readdirSync(p)
+const statSync = (p: string): Stat => fsm().statSync(p)
+const join = (...p: string[]): string => pathm().join(...p)
+const dirname = (p: string): string => pathm().dirname(p)
+const relative = (a: string, b: string): string => pathm().relative(a, b)
 
 export const LEGACY_TEST_DIR = 'src/tests'
 
