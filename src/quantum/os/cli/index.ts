@@ -20,6 +20,19 @@ export function runUuidnaOsCli(argv: readonly string[]): number {
   return runCourtCli(argv)
 }
 
-if (process.argv[1]?.endsWith('cli.js') || process.argv[1]?.endsWith('cli.ts')) {
+// THE ENTRY CHECK COMPARES THIS MODULE TO THE ENTRY, not a filename it hopes still matches. It used to read
+// `endsWith('cli.js')`, and when cli.ts became cli/index.ts the guard stopped matching its own file: every hook
+// runs `node dist/quantum/os/cli/index.js`, which ends in index.js, so the condition was false and the process
+// exited 0 having done NOTHING. pre-commit, commit-msg and pre-push all route through here, so three HARD gates
+// were passing everything silently — the shell echoed "uuidnaOS court" and no court sat. A gate that cannot fail
+// is not a gate, and this one could not even report its absence. Comparing against import.meta.url survives the
+// next move, which is the only guarantee worth having: the file may be renamed again, the check may not care.
+const isEntry = ((): boolean => {
+  const entry = process.argv[1]
+  if (!entry) return false
+  const norm = (s: string): string => s.replace(/\\/g, '/').replace(/^file:\/\//, '')
+  return norm(import.meta.url).endsWith(norm(entry))
+})()
+if (isEntry) {
   process.exit(runUuidnaOsCli(process.argv.slice(2)))
 }
