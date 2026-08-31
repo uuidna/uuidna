@@ -50,8 +50,11 @@ name: deploy
 # SECRETS, held by an operator and never by this file (repo → Settings → Secrets and variables → Actions):
 #   CLOUDFLARE_API_TOKEN    — a Workers-scoped API token
 #   CLOUDFLARE_ACCOUNT_ID   — the account the worker lives in
-# Missing either one FAILS the run. It does not skip: a step that quietly does nothing when unconfigured cannot be
-# told apart from one that worked, and that confusion is the entire defect this file is correcting.
+# Missing either one SKIPS the deploy and keeps the run green — the tree really was proven — but the skip is
+# announced as a ::warning:: on the run and a block in the job summary. The distinction is the whole point: the
+# defect this file corrects was never that a deploy was absent, it was that its absence said NOTHING for a year.
+# A skip nobody can see is the same bug wearing a different colour, so green here means "proved, did not ship",
+# and it says so where a person looks.
 #
 # `npm run ship` (deploy-run.ts) remains the workstation path and still works; wrangler.toml's [build] runs the
 # docs build on either route, so both ship the same artefact. If BOTH are used, they are two writers to one
@@ -112,25 +115,44 @@ jobs:
       # written 27 commits landed on main and produced ZERO deployments, leaving the worker 25 hours behind a
       # fully green CI. A folklore claim justified deleting the only automated path, and nothing ever reported it.
       #
-      # It runs only after the proofs above, so production never follows a tree that stopped verifying, and it
-      # REFUSES rather than skips when unconfigured. That is the whole lesson of the outage this file is
-      # correcting: a step that quietly does nothing when it is not set up is indistinguishable from a step that
-      # worked, which is exactly how three HARD gates exited 0 for 229 commits without anyone noticing.
+      # It runs only after the proofs above, so production never follows a tree that stopped verifying.
+      #
+      # UNCONFIGURED IS A SKIP, NOT A FAILURE (the captain's call) — but never a SILENT one, which is the part
+      # that matters. An unset secret is an operator's pending task, not a broken tree, and reddening every
+      # landing over it trains people to ignore red. What cannot be allowed is the skip going unnoticed: an
+      # absent deploy that says nothing is exactly how this file came to delete its own deploy step and how three
+      # HARD gates exited 0 for 229 commits. So the skip announces itself in the two places a person actually
+      # looks — a ::warning:: annotation on the run, and a block in the job summary — and the run stays green
+      # because the tree really was proven. Green here means "proved, did not ship", and it says so out loud.
       - name: DEPLOY — worker and assets to Cloudflare
+        id: deploy
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: |
           if [ -z "$CLOUDFLARE_API_TOKEN" ] || [ -z "$CLOUDFLARE_ACCOUNT_ID" ]; then
-            echo "::error::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are not set, so this workflow cannot deploy."
-            echo "An operator adds both at Settings -> Secrets and variables -> Actions, then re-runs this job."
-            echo "Failing rather than skipping is deliberate: a green run that shipped nothing is worse than a red one."
-            exit 1
+            echo "shipped=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Deploy skipped — nothing shipped::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ACCOUNT_ID are not set. The tree was proven but NOT deployed."
+            {
+              echo "### Deploy SKIPPED — the tree was proven, nothing shipped"
+              echo
+              echo 'Set `CLOUDFLARE_API_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` at'
+              echo '**Settings → Secrets and variables → Actions**, then re-run this job.'
+              echo
+              echo 'Until then production keeps whatever was last deployed, and a green run on this'
+              echo 'workflow means *proved*, not *shipped*.'
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 0
           fi
+          echo "shipped=true" >> "$GITHUB_OUTPUT"
           npx wrangler deploy
 
-      # AND THE DEPLOY IS VERIFIED RATHER THAN ASSUMED — the same instrument that exposed the folklore.
+      # AND A DEPLOY THAT HAPPENED IS VERIFIED RATHER THAN ASSUMED — the same instrument that exposed the
+      # folklore. Guarded on the step above having actually shipped, so a skipped deploy does not then fail here
+      # on the very secrets it just reported missing; that would be the failure the skip was chosen to avoid,
+      # arriving one step later.
       - name: PROVE — the deployment landed
+        if: steps.deploy.outputs.shipped == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
