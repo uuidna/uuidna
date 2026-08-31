@@ -2235,7 +2235,7 @@
     "lean/divbyzero-manifest.json": "acba7e4255ed8376",
     "lean/diving-manifest.json": "636537af9f528b58",
     "lean/doctrine-manifest.json": "f09bac7f05c68f4e",
-    "lean/dormant-receipt.json": "2e2abf05cc4686e5",
+    "lean/dormant-receipt.json": "c8ed3e8ec08686a0",
     "lean/dormant-scripts.json": "daadea139bfb8e24",
     "lean/doubletorus-manifest.json": "5718f6c5aef782ed",
     "lean/editing-manifest.json": "e87a2cc25dd2891a",
@@ -2343,5 +2343,5 @@
     "lean/wave-queue.json": "aea574e2a5748ff0",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "d68e80d2-c583-8eae-9664-34f64b0215c7"
+  "receipt": "5ade74e5-1970-8d96-abb4-1f4ff080fa9b"
 }

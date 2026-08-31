@@ -1,8 +1,8 @@
 {
   "why": "Per-script folds of the BUILT bytes, from the last sweep in which each exited 0, plus the manifest fold. A script whose fold is unchanged cannot have changed behaviour, so only the MOVED ones are re-exercised — the cost of a change is the cost of the change, not the cost of the roster. The manifest is global: it declares what each script may write, so when it moves everything is re-exercised. Delete this file to force a full sweep.",
-  "fold": "e8545800-dc12-87a6-8c67-61bdad4d11a2",
-  "manifest": "917fd2c5-7cef-862b-bb02-849745a91954",
-  "count": 31,
+  "fold": "e8a88f48-f344-86ab-a95a-f3c6b43bdced",
+  "manifest": "daadea13-9bfb-8e24-b563-8dc6943c555a",
+  "count": 33,
   "scripts": {
     "audit-mcp-native.ts": "14712a77-5643-8c60-bdac-b27680126464",
     "audit-prose-entropy.ts": "105929b4-9d28-8b2f-8cf8-9f15026930cb",
@@ -24,7 +24,7 @@
     "migrate-skills.ts": "58ecd3c4-1ad7-879e-9e0b-6011ab83574c",
     "multi-cloud-analytics.ts": "b6fd0881-d521-8ddf-ac2b-7bdaf27307f5",
     "outward.ts": "1eef1489-142e-8df8-a8eb-a95f53953ec2",
-    "quantum-dimension-scan.ts": "8bb7aca3-9545-88f4-8ca2-1533a2009bad",
+    "quantum-dimension-scan.ts": "e02a0927-cce0-8d83-8652-0cfa0e9f1111",
     "quantum-external-fusion.ts": "3cb47436-27fd-84a9-805d-f773be17302e",
     "quantum-games-from-leads.ts": "7a8f5e9c-7791-8cdc-a16a-65bcc4a1b20e",
     "quantum-guards-teach.ts": "af6c5f48-d485-81d3-bea8-584eff66722a",
@@ -38,6 +38,8 @@
     "reserve.ts": "2042a417-3e6c-85a3-a5a5-7b40a58ddef4",
     "scout.ts": "c5ec99f9-65b9-8751-89ee-f7d467256ae3",
     "machine.ts": "4e749914-efae-8354-afab-430fb967768f",
-    "audit-video.ts": "16b6095c-9309-8c45-b340-216efe4643c4"
+    "audit-video.ts": "16b6095c-9309-8c45-b340-216efe4643c4",
+    "close-all-open.ts": "d5394b3e-d8c3-8288-814a-4774b456d844",
+    "quantum-alpine.ts": "1c494af3-2da7-8d05-8a00-d4f497d6e298"
   }
 }
