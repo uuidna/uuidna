@@ -1,5 +1,4 @@
-// pqc — post-quantum readiness: suite registry, hybrid derivation, v4 envelopes. Symmetric stack is present;
-// ML-KEM / X25519 / ML-DSA instruments are named slots awaiting an external implementation.
+// pqc — post-quantum stack in pure TS (nobles): ML-KEM, X25519, ML-DSA, SLH-DSA, hybrid KEM presets.
 import { toUuid } from '../address.js'
 import { merkleGravity } from '../gravity/index.js'
 import { GROVER_FLOOR_BITS, KEY_BITS, ITER } from '../crypt.js'
@@ -19,8 +18,31 @@ export {
   type HybridSecrets, type HybridContext, type HybridSubkeys,
 } from './hybrid/index.js'
 export {
-  sealHybrid, openHybrid, type HybridEnvelope, type HybridSealInput, HYBRID_TAG_BYTES,
+  sealHybrid, openHybrid, sealHybridAuto, openHybridAuto,
+  type HybridEnvelope, type HybridSealInput, type HybridSealAutoInput, type HybridRecipientKeys,
+  HYBRID_TAG_BYTES,
 } from './envelope/index.js'
+export {
+  ml_kem768, kem768Keygen, kem768Encapsulate, kem768Decapsulate,
+  type Kem768KeyPair, type Kem768Encap,
+} from './mlkem/index.js'
+export {
+  ml_dsa65, dsa65Keygen, dsa65Sign, dsa65Verify,
+  type Dsa65KeyPair,
+} from './mldsa/index.js'
+export {
+  x25519, x25519Keygen, x25519PublicKey, x25519SharedSecret,
+  type X25519KeyPair,
+} from './montgomery/index.js'
+export {
+  hybridKem768X25519, kitchenSinkMlKem768X25519,
+  qsfMlKem768P256, hybridKem768P256, hybridKem1024P384,
+  combineKEMS, combineSigners, expandSeedXof, _ecdhKem, ecSigner, ed25519Signer,
+  type Combiner, type ExpandSeed,
+} from './hybridkem/index.js'
+export {
+  slh_dsa_sha2_128s, slhDsa128sKeygen, slhDsa128sSign, slhDsa128sVerify,
+} from './slhdsa/index.js'
 
 export interface PqcPosture {
   label: 'PQC-adjacent'

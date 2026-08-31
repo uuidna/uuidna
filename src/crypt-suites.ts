@@ -1,5 +1,4 @@
-// crypt-suites — algorithm identifiers and suite policy for the symmetric stack and the hybrid PQC profile.
-// Desk registers what is present vs what awaits an external KEM/signature instrument; no ML-KEM implementation here.
+// crypt-suites — full hybrid PQC profile: ML-KEM-768, X25519, ML-DSA-65, SLH-DSA (pure TS / nobles).
 import { toUuid } from './address.js'
 import { merkleGravity } from './gravity/index.js'
 import { KEY_BITS, GROVER_FLOOR_BITS, ITER } from './crypt.js'
@@ -51,7 +50,7 @@ const SYMMETRIC: CryptoSuite = {
 const HYBRID: CryptoSuite = {
   id: HYBRID_SUITE_ID,
   version: 1,
-  present: false,
+  present: true,
   symmetric: {
     aead: 'ChaCha20-Poly1305',
     kdf: 'HKDF-SHA256',
@@ -60,10 +59,10 @@ const HYBRID: CryptoSuite = {
     groverFloorBits: GROVER_FLOOR_BITS,
   },
   asymmetric: {
-    kem: { id: 'ML-KEM-768', present: false },
-    classicalKem: { id: 'X25519', present: false },
-    signature: { id: 'ML-DSA-65', present: false },
-    optionalSignature: { id: 'SLH-DSA', present: false },
+    kem: { id: 'ML-KEM-768', present: true },
+    classicalKem: { id: 'X25519', present: true },
+    signature: { id: 'ML-DSA-65', present: true },
+    optionalSignature: { id: 'SLH-DSA', present: true },
   },
 }
 

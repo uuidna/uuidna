@@ -299,9 +299,18 @@ export { seedUuid, readSeed, filterSeeds, belongsTo, buildLeanPageSeed, verifySe
 export { encrypt, encryptSession, decrypt, decryptSession, verifyEnvelope, sealSequence, sealSequenceAcross, deriveKeyPure, kdfInstrument, ITER, MAX_ITER, NONCE_BYTES, SALT_BYTES, TAG_BYTES, KEY_BITS, KEY_BYTES, occupancyTapeOf, cryptOf, type Sealed, type CryptCover } from './crypt.js'
 export {
   cryptSuites, suiteById, suitePolicy, missingAsymmetricSlots, pqcPosture,
-  hybridDerive, hybridDeriveReceipt, sealHybrid, openHybrid,
+  hybridDerive, hybridDeriveReceipt, sealHybrid, openHybrid, sealHybridAuto, openHybridAuto,
+  kem768Keygen, kem768Encapsulate, kem768Decapsulate,
+  dsa65Keygen, dsa65Sign, dsa65Verify,
+  x25519Keygen, x25519PublicKey, x25519SharedSecret,
+  hybridKem768X25519, kitchenSinkMlKem768X25519,
+  qsfMlKem768P256, hybridKem768P256, hybridKem1024P384,
+  combineKEMS, combineSigners, expandSeedXof, _ecdhKem, ecSigner, ed25519Signer,
+  slhDsa128sKeygen, slhDsa128sSign, slhDsa128sVerify,
   SYMMETRIC_SUITE_ID, HYBRID_SUITE_ID,
   type CryptoSuite, type PqcPosture, type HybridEnvelope, type HybridSecrets, type HybridContext,
+  type Kem768KeyPair, type Kem768Encap, type Dsa65KeyPair, type X25519KeyPair,
+  type HybridSealAutoInput, type HybridRecipientKeys,
 } from './pqc/index.js'
 export { sha256, hmacSha256, pbkdf2Sha256 } from './sha256.js'
 export { hkdfExtract, hkdfExpand, hkdfSha256 } from './hkdf.js'
