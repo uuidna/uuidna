@@ -1060,7 +1060,7 @@ computed, never typed:
 | in trial | count |
 |---|---|
 | sealed propositions | 2431 (2514 entries, 83 re-namings — a theorem is its Lean |
-| prose paragraphs tried | 7021 — 3177 usable, 3844 held open, 0 drained |
+| prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
 docket keeps its own verdict: a VERIFIED paragraph is backed, an UNVERIFIED one is an open door with nobody's

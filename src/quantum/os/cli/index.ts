@@ -9,41 +9,7 @@
 import { runCourtCli } from '../court/index.js'
 import { testQuantumAlpineCoverage, renderQuantumAlpineCoverage } from '../alpine/index.js'
 import { treeCovers } from '../../../gate-receipt-index.js'
-import { nodeBuiltin } from '../../../boundary.js'
-
-// ── THE PUSH DOOR'S PROOF ARM LIVES HERE, NOT IN THE COURT, and a browser told me why.
-//
-// "No push unless all green" (the captain, 2026-09-01) is enforced by checking that gate-receipt.json — written
-// only after the guard and the suite pass — still covers this exact tree. I put that check inside runCourtCli,
-// which was the wrong floor: the court is SHARED logic that also runs in a tab, and gate-receipt-index reaches
-// node:crypto, node:fs, node:child_process and node:path EAGERLY — not because the check needs a host, but
-// because of how that module happens to be written. So the import travelled
-// exec → court → gate-receipt-index and dropped `path.join` into the browser bundle, where the page died with
-// "(0, m_.join) is not a function" and took every ported API on it down.
-//
-// The CLI is the door the hooks call and nothing else imports it, so the arm sits here for now and the court
-// stays runnable anywhere. THIS IS A PLACEMENT, NOT A CEILING (the captain, 2026-09-01: "all runs in uuidnaOS
-// without limits"): the receipt check is a hash comparison over bytes, and bytes can be handed in the same way
-// primeCatalogue takes the catalogue — inject them and the same check decides in a tab. What blocks it today is
-// one module's eager imports, which is a thing to fix rather than a boundary to respect. Deposited as a lead.
-//
-// Nothing but a browser was ever going to catch the bug itself: tsc was happy, the guard was happy, and the
-// deploy would have been happy right up until a visitor loaded the page.
-function receiptCoversTree(): { ok: boolean; why: string } {
-  const fs = nodeBuiltin<typeof import('node:fs')>('node:fs')
-  if (!fs) return { ok: false, why: 'no filesystem on this host — the receipt cannot be read' }
-  try {
-    const want = JSON.parse(fs.readFileSync(process.cwd() + '/gate-receipt.json', 'utf8')) as { covers?: Record<string, string> }
-    const have = treeCovers()
-    const moved = Object.keys(have).filter((k) => want.covers?.[k] !== have[k])
-    return moved.length
-      ? { ok: false, why: `the tree MOVED since it was proven green (${moved.join(', ')}) — the receipt certifies different bytes` }
-      : { ok: true, why: 'receipt covers this tree' }
-  } catch (e) {
-    // an unreadable receipt and a missing one are the same verdict — NOT PROVEN
-    return { ok: false, why: `gate-receipt.json unreadable or absent (${e instanceof Error ? e.message : String(e)})` }
-  }
-}
+import { primeTreeCovers } from '../../../gate-receipt-compare.js'
 
 /** runUuidnaOsCli(argv) → exit code; importable from scripts/tests so support audit reaches this door. */
 export function runUuidnaOsCli(argv: readonly string[]): number {
@@ -53,20 +19,11 @@ export function runUuidnaOsCli(argv: readonly string[]): number {
     console.log(renderQuantumAlpineCoverage(c))
     return c.complete && (!c.sandbox || c.sandbox.ok) ? 0 : 1
   }
-  const code = runCourtCli(argv)
-  if (code !== 0) return code
-  // --proven is the PUSH door only. The wave phase calls --court mid-arc right after sealing theorems, when the
-  // receipt correctly no longer covers a tree the arc just changed; "has this been proven green?" is a question
-  // for the moment work LEAVES, never for every court that sits during it.
-  if (argv.includes('--proven')) {
-    const proven = receiptCoversTree()
-    if (!proven.ok) {
-      console.error(`\n✗ court — BLOCKED: ${proven.why}`)
-      console.error('  FIX npm run guard && npm test   (a green run writes the receipt; the court reads it)')
-      return 1
-    }
-  }
-  return 0
+  // PRIME THE COURT WITH THIS HOST'S DIGESTS, then let it decide. The CLI is where a filesystem exists, so the
+  // gathering happens here and the JUDGEMENT stays in the court — which is why the court can now run in a tab
+  // and still carry the arm. Only the push door (--proven) reads the result; priming always is harmless.
+  if (argv.includes('--proven')) primeTreeCovers(treeCovers())
+  return runCourtCli(argv)
 }
 
 // THE ENTRY CHECK COMPARES THIS MODULE TO THE ENTRY, not a filename it hopes still matches. It used to read

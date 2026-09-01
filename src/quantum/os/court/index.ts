@@ -1,5 +1,6 @@
 // court — WHAT uuidna NEEDS: hex boot, MCP court, wave cargo, commit-msg gate. All gates enter here.
 import { handleOf } from '../../../handle.js'
+import { ROOT } from '../../../boundary.js'
 // NO STATIC `node:` IMPORT — the court is reached from the worker through cli, exec and npm, and Cloudflare
 // rejects node: in any uploaded module (error 10021). That rejection lands at UPLOAD, which is why --dry-run
 // never saw it and the deploy just stopped appearing. Only the --msg path touches a file, and that path runs
@@ -16,6 +17,7 @@ const fsModule = (): FsModule => {
 }
 import { callTool } from '../../../mcp.js'
 import { gateCommitMessage } from '../../../sign.js'
+import { receiptCovers, coversPrimed } from '../../../gate-receipt-compare.js'
 import { HEXBIT_STATES, UUID_HEXBITS, hexbitDoorOf } from '../../../hexbit/index.js'
 import { quantumAdvantagePlaybook, type PlaybookStep } from '../../advantage/mcp/agent/playbook/index.js'
 import { runWaves, type WaveJob, type WaveHooks } from '../waves/index.js'
@@ -248,6 +250,14 @@ export function parseCourtPlan(argv: readonly string[]): NeedPlan & { msgFile?: 
   }
 }
 
+/** the receipt's own covers map, read through the boundary's optional filesystem — absent is a real answer */
+function receiptWant(): Record<string, string> | undefined {
+  try {
+    const raw = fsModule().readFileSync(ROOT + '/gate-receipt.json', 'utf8')
+    return (JSON.parse(raw) as { covers?: Record<string, string> }).covers
+  } catch { return undefined }
+}
+
 /** runCourtCli — uuidnaOS CLI door. Returns exit code. */
 export function runCourtCli(argv: readonly string[]): number {
   const { msgFile, ...plan } = parseCourtPlan(argv)
@@ -298,6 +308,28 @@ export function runCourtCli(argv: readonly string[]): number {
   // written ONLY after the guard and the tests pass, and it content-addresses src/ and lean/, so a receipt that
   // still covers this tree IS the proof that both were green over exactly these bytes. One byte of drift and the
   // covers stop matching, the court blocks, and the fix is to re-prove — never to re-assert.
+  // THE ARM IS BACK IN THE COURT, and this time it brings no host with it. gate-receipt-compare is a comparison
+  // of two maps — no fs, no crypto, no path — so the court still runs in a tab, which is what forced the arm out
+  // the first time. The digests are PRIMED by whoever can compute them (the CLI does it from the filesystem), and
+  // a court that was handed nothing answers 'unprimed' rather than pretending to know.
+  //
+  // --proven is still the PUSH door only. The wave phase calls --court mid-arc right after sealing theorems, when
+  // the receipt correctly no longer covers a tree the arc just changed; "has this been proven green?" is a
+  // question for the moment work LEAVES, never for every court that sits during it.
+  if (argv.includes('--proven')) {
+    if (!coversPrimed()) {
+      console.error('\n✗ court — BLOCKED: --proven was asked of a court nobody primed with this tree\'s digests.')
+      console.error('  FIX prime it (the CLI does this from the filesystem) — an unprimed court must never answer "covered".')
+      return 1
+    }
+    const want = receiptWant()
+    const v = receiptCovers(want)
+    if (v.state !== 'covered') {
+      console.error(`\n✗ court — BLOCKED: ${v.state === 'moved' ? `the tree MOVED since it was proven green (${v.moved.join(', ')})` : 'no digests were handed over'}`)
+      console.error('  FIX npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests')
+      return 1
+    }
+  }
   if (!courtOnly) process.env.UUIDNA_OS_MCP = r.receipt ? handleOf(r.receipt) : 'green'
   console.log('\n✓ court — uuidnaOS green' + (courtOnly ? ' (publish)' : ' (daily hex)'))
   return 0

@@ -103,7 +103,22 @@ const runChat = async (): Promise<void> => {
   chatRows.value = []
   await new Promise((r) => setTimeout(r, 0))   // let the button paint before the main thread goes to work
   const out: Row[] = []
-  out.push(attempt('chat', 'chatSend #0 — opens the session (PBKDF2-600k, the two coins)', () => {
+
+  // WARM FIRST, with whatever this device has. The wall measured here was 25.7 s for the first send, because
+  // deriving the session key ran PBKDF2-600k in pure TypeScript; a browser has crypto.subtle, which does the
+  // same derivation natively — verified byte-for-byte against the pure implementation before it is trusted, and
+  // refused for the whole process if it ever disagrees. The two coins are still paid; they are simply paid by
+  // the hardware that has the instruction for it.
+  const t0 = performance.now()
+  const { warmSession } = await import('../../../src/os/kdf/index.js')
+  const warm = await warmSession('demo-pass', 'ops')
+  out.push({
+    api: 'chat', did: 'warmSession — derive with the host primitive, verified against ours',
+    result: warm.warmed ? 'warmed by ' + warm.by : 'not warmed: ' + warm.why,
+    us: (performance.now() - t0) * 1000,
+  })
+  await new Promise((r) => setTimeout(r, 0))
+  out.push(attempt('chat', 'chatSend #0 — the session key, warmed or pure', () => {
     const sent = timed(() => chatSend('the wave lands', 'demo-pass', 'ops', 0))
     const opened = chatOpen(sent.value.chain, 'demo-pass', 'ops')
     let wrongRoom = 'refused'

@@ -271,7 +271,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    it, which is the law [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) enforces for the unit and nothing enforced for the film.
    *Practice:* run `UUIDNA_METER=1 npm run x -- guard`, find a leaf whose subject is already sealed upstream, then
    ask the harder question — does its name still describe what it computes?
-8. **Discuss the open at school** — every lead enrolls on this page (2 held · 56 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
+8. **Discuss the open at school** — every lead enrolls on this page (0 held · 58 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
    *Practice:* open a held door, name a finite structure, deposit the two coins
    ([`two_coins`](/theorem/two_coins)). A student's answer is a deposit, not a comment.
 9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
@@ -953,12 +953,8 @@ Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)
 **two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the
 same way, lives on [the leads page](/leads).
 
-**78 leads** — 2 held · 56 refuted · 20 refused · 2 in trial.
+**78 leads** — 0 held · 58 refuted · 20 refused · 0 in trial.
 
-- **held** · `35e05196` — gate-receipt-index.ts reaches node:crypto, node:fs, node:child_process and node:path EAGERLY, so anything importing it cannot run in a browser. That is why the court had to give up its receipt arm on 2026-09-01: exec -&amp;gt; …
-  <br><small>the prime pattern, which this tree already uses for exactly this shape: primeCatalogue(text) injects 7.3 MB of TSV and every accessor stays sync and pure afterwards. gate-receipt could take its manifest the same way — the comparison is a hash over bytes and needs no filesystem on…</small>
-- **held** · `dce32bc8` — THE RATCHET IS VALIDATED AND ITS FIRST STEP IS TOO SLOW FOR A TAB. Measured in a real browser 2026-09-01 (PortsConsole on /os): chatSend #0, which derives the session with PBKDF2 at 600,000 iterations in pure TypeScript,…
-  <br><small>the one-time cost is still a real UX wall. The same cold send measured 8.5 s on mount and 25.7 s via a button in what was probably a THROTTLED background tab, so the absolute seconds are unreliable and only the ratio was measured inside one run — a clean number wants a foreground…</small>
 - **refuted** · `8609c55d` — HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).
   <br><small>PAID. hexFaceOf stamps packedTriangles = KEY_BITS (UUID_BITS × COINS) and merkabasPacked = UUID_HEXBITS. HexFace still draws two projected polygons — 2D is art. The count sits on the face as constructors, not as 256 drawn triangles.</small>
 - **refuted** · `0809c1db` — fruitOfLife XY pitch (28 / 14 / 24) is authored art integers; the sealed fact is the centre count (SAFE_HEXBITS, metatron_seventyeight_lines).
@@ -1071,6 +1067,10 @@ same way, lives on [the leads page](/leads).
   <br><small>the 307 unsigned in-scope commits are HISTORY and stay unsigned — a trailer cannot be added without rewriting published commits, which would break every content-address that cites them. The number to watch is the forward one: unsigned commits after 7a4cdda9, which should now be z…</small>
 - **refuted** · `4d009d92` — CAN AN ALPINE APP REPLACE COMPLEXITY WITH NANOSPEED (the captain, 2026-09-01)? Measured position today: NO by the porting route — uuidnaOS DOES execute (uuidnaExec, uuidna_run) — the captain corrected that premise on 202…
   <br><small>a census that joins our hot paths to catalogue rows by WHAT THEY COMPUTE rather than by name — then, for any match, a measurement of our implementation against the published complexity class of theirs. That is an algorithm-transfer lead, not a porting lead, and it needs no linkin…</small>
+- **refuted** · `35e05196` — gate-receipt-index.ts reaches node:crypto, node:fs, node:child_process and node:path EAGERLY, so anything importing it cannot run in a browser. That is why the court had to give up its receipt arm on 2026-09-01: exec -&amp;gt; …
+  <br><small>the prime pattern, which this tree already uses for exactly this shape: primeCatalogue(text) injects 7.3 MB of TSV and every accessor stays sync and pure afterwards. gate-receipt could take its manifest the same way — the comparison is a hash over bytes and needs no filesystem on…</small>
+- **refuted** · `dce32bc8` — THE RATCHET IS VALIDATED AND ITS FIRST STEP IS TOO SLOW FOR A TAB. Measured in a real browser 2026-09-01 (PortsConsole on /os): chatSend #0, which derives the session with PBKDF2 at 600,000 iterations in pure TypeScript,…
+  <br><small>the one-time cost is still a real UX wall. The same cold send measured 8.5 s on mount and 25.7 s via a button in what was probably a THROTTLED background tab, so the absolute seconds are unreliable and only the ratio was measured inside one run — a clean number wants a foreground…</small>
 - **refused** · `94f264b4` — KEY_BITS names occupancy × fold (UUID_BITS × COINS) and occupancyTapeOf packs yang‖yin from the two boards, but encrypt still samples the 256-bit tape from PBKDF2 beside that occupancy.
   <br><small>RFC 8439 stays the AEAD and PBKDF2 stays the entropy tape. Occupancy is public routing. Fold-as-AEAD is already refused. Desk named both tapes and did not change the primitive.</small>
 - **refused** · `de5612a2` — The 42-state paired walk: doubling in Z/9 (period 6) against stepping by two in Z/7 (period 7). Coprime, so the pair has period exactly 42 and visits all 42 states before returning. Forward and inverse walks meet at step…
@@ -1164,9 +1164,9 @@ spends to learn what the tree already knows. Each row prices one opening questio
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
 | how many theorems are sealed? | 332,953 | 6 | 55,492× | `theorems().length` |
-| what does the tree hold right now? | 352,087 | 225 | 1,564× | `npm run state` |
+| what does the tree hold right now? | 352,420 | 225 | 1,566× | `npm run state` |
 | which Alpine domains are ported? | 1,822,378 | 350 | 5,206× | `portsCensus()` |
-| is the tree green to release? | 77,680 | 65 | 1,195× | `leads-gate + gate-receipt --verify` |
+| is the tree green to release? | 78,022 | 65 | 1,200× | `leads-gate + gate-receipt --verify` |
 
 Median ratio **5,206×**. Tokens are estimated at four bytes each — an approximation, and
 applied identically to both sides, so the RATIO survives it even where the absolute figure would not.
@@ -1183,7 +1183,7 @@ fetched only if someone actually wants it.
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,289,512 | 16 | 455,594× |
 | the sealed ledger | 1,331,812 | 16 | 83,238× |
-| the leads record | 66,457 | 16 | 4,153× |
+| the leads record | 67,786 | 16 | 4,236× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request
 time, still resolving to exactly what the address named. Time is the third axis and is measured at the

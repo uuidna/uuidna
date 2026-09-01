@@ -91,8 +91,28 @@ const hostPbkdf2 = (): Pbkdf2Sync | null => {
   return hostKdf
 }
 
+/** the cache's own key for a derivation — exported so an ACCELERATED deriver can fill the cache before a send.
+ *
+ *  THE WALL THIS OPENS. On Node the host's pbkdf2Sync answers in milliseconds; in a browser there is no
+ *  node:crypto, the pure implementation runs, and a first send measured 8.5 s on mount and 25.7 s in a
+ *  background tab. The design is right — the two coins are paid ONCE and every later message rotates free at
+ *  ~2.4 ms, a ratio of about 10,700 — but a multi-second first send is a wall a person actually hits.
+ *
+ *  The browser's accelerated primitive is crypto.subtle.deriveBits, and it is ASYNC, so it cannot slot into this
+ *  synchronous path. It does not need to: the cache already exists, so an async warmer can derive the key with
+ *  the host's primitive and PUT IT HERE, after which the synchronous send finds it and costs nothing. The sync
+ *  API keeps its shape, the pure implementation stays the definition, and the acceleration is an optional
+ *  pre-step rather than a fork in the algorithm. */
+export const kdfCacheKey = (pass: Uint8Array, salt: Uint8Array, iter: number): string =>
+  b64(sha256(enc.encode('uuidna-kdf-v1|' + iter + '|' + b64(salt) + '|' + b64(pass))))
+
+/** put a derived key in the cache — ONLY for a key derived by an equivalent PBKDF2-HMAC-SHA256 over the same
+ *  inputs. A wrong key here does not fail loudly; it silently seals messages nobody can open, so the os-side
+ *  warmer verifies its first derivation against the pure implementation before it ever calls this. */
+export const primeKdfCache = (cacheKey: string, key: Uint8Array): void => { kdfCache.set(cacheKey, key) }
+
 const deriveKey = (pass: Uint8Array, salt: Uint8Array, iter: number): Uint8Array => {
-  const memoKey = b64(sha256(enc.encode('uuidna-kdf-v1|' + iter + '|' + b64(salt) + '|' + b64(pass)))) // collision-resistant memo key
+  const memoKey = kdfCacheKey(pass, salt, iter)
   let key = kdfCache.get(memoKey)
   if (!key) {
     const host = hostPbkdf2()

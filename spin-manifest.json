@@ -6,12 +6,12 @@
     "lean/axioms.json": "d66b32316cb18621",
     "docs/mcp.md": "e55d37960aaa894a",
     "audit-citations.json": "685076d3359583c9",
-    "support-audit.json": "7201d940dc6985d8",
-    "research-leads.json": "35974a543a578902",
+    "support-audit.json": "f199746babaf8916",
+    "research-leads.json": "c1edf1ad1d8c88b7",
     ".zenodo.json": "36ae760cab93870c",
     "reports.json": "7ea7edd206e98270",
     "lean/statement-index.json": "d624f0ec0a5a8b72",
-    "README.md": "3f3d5c73e6fa8978",
+    "README.md": "08f159c125a48127",
     "llm.txt": "c75b98e2cf688d10",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -616,6 +616,7 @@
     "src/chunks/3d/933a83.json": "31575970642f8715",
     "src/chunks/3d/ba6d2a.json": "b99e5e8f3eb28fa5",
     "src/chunks/3d/bf17f4.json": "526aae09aa4988ad",
+    "src/chunks/3d/c23db2.json": "ab61592067c28a4a",
     "src/chunks/3d/d704bc.json": "aaa96b92016785ce",
     "src/chunks/3d/d8854c.json": "182d0dfaa13c8fe7",
     "src/chunks/3e/0bc6cb.json": "1a17a3460dd28f92",
@@ -2623,7 +2624,7 @@
     "lean/infinity-manifest.json": "290938950f568d9b",
     "lean/installs-manifest.json": "b2c8548ae34d85e5",
     "lean/isometry-manifest.json": "67d91c8f67d28b44",
-    "lean/leads.json": "2c36856703c38f86",
+    "lean/leads.json": "92fc5f0266218f5b",
     "lean/legal-manifest.json": "e71b72d2ebb58fdd",
     "lean/looms-manifest.json": "27aa01dca8fe8ff0",
     "lean/martialarts-manifest.json": "d392cbcd865e81bd",
@@ -2709,5 +2710,5 @@
     "lean/wave-queue.json": "e4866cdb99288004",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "5a6c1f3c-ed6b-899a-86dc-799bdc713b7c"
+  "receipt": "b7b6fdde-0c43-88a3-b517-8d22ed3843c7"
 }
