@@ -72,6 +72,17 @@ export const DOMAIN_PATTERNS: readonly DomainPattern[] = [
     note: 'shells and the core utilities. KNOWN IMPRECISION, stated rather than tuned away: completion packages such as acme-redirect-bash-completion match on the shell they serve, so this domain over-counts companions of unrelated tools',
   },
   {
+    // TWO TERMS HERE ARE HOMONYMS AND THE FIRST PATTERN FELL FOR BOTH. A bare /\bmatrix\b/ collects cmatrix, the
+    // terminal screensaver; a bare /\bsignal\b/ collects libsigc++, a C++ signal framework. Both are the wrong
+    // Matrix and the wrong Signal, and a name alone cannot tell which is meant. So the ambiguous product names
+    // are admitted only alongside a messaging word in the DESCRIPTION, while the unambiguous protocol and client
+    // names (irc, xmpp, ejabberd, weechat, bitlbee…) stand on their own. 324 loose matches became 249 across 140
+    // origins, keeping conduit and flare, dropping cmatrix and libsigc++.
+    domain: 'chat',
+    match: /\b(irc|ircd|xmpp|jabber|ejabberd|prosody|weechat|irssi|bitlbee|mumble|rocket\.?chat|instant messag\w*|chat (client|server|network|bridge|bot))\b|\b(matrix|signal|telegram|discord|slack|mastodon)\b(?=[\s\S]*\b(chat|messag\w*|client|server|bridge|bot|protocol|homeserver)\b)/i,
+    note: 'the chat and messaging surface Alpine publishes — protocols, servers, clients and bridges, by name and version only. uuidna does NOT speak IRC, XMPP or Matrix; this is provenance, and the one chat API beside it is uuidna\'s own sealed channel, not a bridge to theirs',
+  },
+  {
     domain: 'build',
     match: /\b(gcc|clang|llvm|cmake|meson|ninja|autoconf|automake|libtool|pkgconf|binutils|musl-dev|linux-headers)\b/i,
     note: 'compilers, build systems and the headers they need — the toolchain Alpine publishes, recorded and not invoked',
@@ -199,13 +210,33 @@ export function domainsOverlap(a: string, b: string): { a: string; b: string; on
 import { theorems } from '../../../theorems/index.js'
 import { catalogueState } from '../catalogue/index.js'
 
-/** every claim key the current catalogue implies — derived from the count alone, never from a census walk */
+// ONE OF THESE KEYS IS COUNTED IN ORIGINS, NOT PACKAGES, and the first version of this function did not know it.
+// discovery mints alpine_binding_origins_overcount_<ORIGIN COUNT> — 16083 — because that claim is ABOUT origins;
+// I built it with the catalogue count, 28635. No depositor has ever minted that name, so it could never be sealed
+// and never be queued, and alpinePending reported 1 on every single pass: a gate firing forever over work with a
+// known answer, which is the exact failure this signal was written to end. It survived because I checked that the
+// number moved, never that the NAME was one the tree actually mints.
+//
+// The origin count is not derivable from the package count, so it is walked: 70 ms cold, 3 ms warm — well inside
+// the budget, and far from the 644 ms that made the stand-in look reasonable in the first place. Memoised on the
+// catalogue's size, which is the only thing that can change it within a process.
+let ORIGINS: { of: number; count: number } | null = null
+const originCount = (): number => {
+  const n = catalogueState().count
+  if (ORIGINS && ORIGINS.of === n) return ORIGINS.count
+  const seen = new Set<string>()
+  for (const p of catalogue()) seen.add(originOf(p.name))
+  ORIGINS = { of: n, count: seen.size }
+  return seen.size
+}
+
+/** every claim key the current catalogue implies — names the depositors actually mint, counted as they count */
 export const alpineExpectedClaimKeys = (): string[] => {
   const n = catalogueState().count
   if (n === 0) return []            // no catalogue, no claims — absent is not the same as complete
   return [
     `alpine_bindings_partition_packages_${n}`,
-    `alpine_binding_origins_overcount_${n}`,
+    `alpine_binding_origins_overcount_${originCount()}`,
     ...DOMAIN_PATTERNS.map((d) => `alpine_domain_${d.domain}_partitions_${n}`),
   ]
 }

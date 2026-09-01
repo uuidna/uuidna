@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "24693ab74ede5c4dd9ebe86c1c47e49a",
+    "src": "6dbce9cd6c8802473d24ae9575b01f80",
     "lean": "d00e465d16d2506156be8b390aaf160c"
   },
   "files": {
@@ -277,6 +277,7 @@
     "src/adjudicate.ts": "2bcbdfa9bd0d10ea",
     "src/agent-memory.test.ts": "5f8cd268a0960764",
     "src/agent/memory/index.ts": "8fa0ee7ef6bf16c5",
+    "src/alpine-claim-keys.test.ts": "07bf5fd99c8b5013",
     "src/analytics-handler.ts": "9d24edd958ecc680",
     "src/analytics.ts": "a02fd44d7846efbc",
     "src/anchor.ts": "4489a7e3c7b6dadc",
@@ -3249,6 +3250,8 @@
     "src/quantum/os/cern/index.ts": "b4e27973f0c8b165",
     "src/quantum/os/channel/index.test.ts": "82746a629024e84a",
     "src/quantum/os/channel/index.ts": "dadbe80821fc4298",
+    "src/quantum/os/chat/index.test.ts": "1846690baab0fa39",
+    "src/quantum/os/chat/index.ts": "7d6130f967e90808",
     "src/quantum/os/cli/index.test.ts": "06f0496fc0a6d907",
     "src/quantum/os/cli/index.ts": "6a8e019bd57909e1",
     "src/quantum/os/court/index.ts": "e464786862a3e713",
@@ -3259,7 +3262,7 @@
     "src/quantum/os/discovery/index.test.ts": "b80b17cde28b693d",
     "src/quantum/os/discovery/index.ts": "b059a7af2f76db3c",
     "src/quantum/os/domains/index.test.ts": "fd44916a73c33b01",
-    "src/quantum/os/domains/index.ts": "edf950597ef09868",
+    "src/quantum/os/domains/index.ts": "d7fb90634ba349ba",
     "src/quantum/os/exec/index.ts": "482028e39f9b94b6",
     "src/quantum/os/fetch/index.ts": "42b836993dc9c418",
     "src/quantum/os/firmware/index.test.ts": "0c3cca5cc6cd86af",
