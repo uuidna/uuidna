@@ -1,0 +1,12 @@
+{
+  "handle": "c78bd965",
+  "address": "c78bd965-5856-851e-9a6e-abce9c840484",
+  "statement": "(237 <= 332) ∧ (332 - 237 = 95)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_network_origins_332"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

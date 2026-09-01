@@ -1,0 +1,12 @@
+{
+  "handle": "dda5a470",
+  "address": "dda5a470-a5b8-8180-acc3-f657627c7a63",
+  "kind": "chunk",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "statement": "(0 < 2165) ∧ (0 + 2165 = 2165)",
+  "files": [
+    "Audit.lean"
+  ]
+}

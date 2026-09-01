@@ -92,8 +92,8 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "apk-tools",
-   "version": "3.0.7-r0",
-   "checksum": "Q1dLXHOFXPYF6O8puceaa15gWGTDU=",
+   "version": "3.0.8-r0",
+   "checksum": "Q1eGEwqPLTrGn8MWEYdXt+gVG4uMM=",
    "desc": "Alpine Package Keeper - package manager for alpine",
    "deps": [
     "ca-certificates-bundle",
@@ -166,8 +166,8 @@ export const INSTALLS_MIRROR: InstallsMirror = {
   },
   {
    "name": "libapk",
-   "version": "3.0.7-r0",
-   "checksum": "Q1PvZp8Y+OXreXo6B9LCOkRTE2NTo=",
+   "version": "3.0.8-r0",
+   "checksum": "Q1uTzpVzwdDbPup84yhBrQhXq8SlQ=",
    "desc": "Alpine Package Keeper - package manager for alpine",
    "deps": [
     "libcrypto3",

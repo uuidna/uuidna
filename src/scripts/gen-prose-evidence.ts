@@ -1,5 +1,15 @@
 #!/usr/bin/env node
 // gen-prose-evidence — Create a comprehensive ledger of prose claims backed by theorems
+//
+// THE CITATION RIDES THE CLAIM'S OWN LINE (2026-09-01). It used to sit in a "Backing theorems" block one
+// paragraph below, which reads fine and fails the coin law: that law is PARAGRAPH-scoped — a paragraph saying
+// "64 coin bits" must carry a citation, since a coin outside {0, 2} is explained only by a theorem — and it
+// found this file claiming 64 with nothing beside it. The claim was never unbacked; the backing was simply in
+// the next paragraph, where a paragraph-scoped reader cannot see it.
+//
+// Fixed by moving the citation rather than by widening the law. A law that learns to look one paragraph further
+// is a law with a longer reach and a weaker grip, and the next surface to split a claim from its evidence would
+// pass. Emitting them together makes the document true at the granularity the law actually reads.
 // Every claim in README/homepage is content-addressed and linked to its sealing theorems
 
 import { theorems, toUuid } from '../index.js'
@@ -100,7 +110,7 @@ ${ledger
     (e) => `
 ## ${e.claim}
 
-**Prose:** "${e.prose}"
+**Prose:** "${e.prose}" — backed by ${e.backing.map((t) => `[${t.key}](/theorem/${t.key})`).join(', ')}
 
 **Address:** \`${e.address}\`
 

@@ -371,7 +371,7 @@ export { slimGate, type SlimVerdict } from './slimgate.js'
 export { snapshot, reactor, type Snapshot, type Viewpoint, type ReactorRun, type ReactorCell } from './reactor.js'
 // reason — an IN-HOUSE forward-chaining reasoner that USES the sealed rules of inference: it derives conclusions by
 // modus ponens / the hypothetical syllogism, citing the sealed theorem at each step, bounded and recomputable.
-export { reason, type Rule, type Derivation, type Reasoning } from './reason.js'
+export { reason, supportOf, type Rule, type Derivation, type Reasoning, type Contradiction, type Support } from './reason.js'
 // reflects — reveal the sealed theorems a real-world system ALREADY reflects, matched from the ledger and folded to
 // a receipt. A resemblance the ledger carries, not an endorsement of the system.
 export { reflects, type Reflection, type Reflected } from './reflects.js'

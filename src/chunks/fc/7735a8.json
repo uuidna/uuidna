@@ -1,0 +1,12 @@
+{
+  "handle": "fc7735a8",
+  "address": "fc7735a8-1da6-8119-9895-bad60a1ceafb",
+  "statement": "(29 + 332 - 0 = 361)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_bl_ne_ie_361"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

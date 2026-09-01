@@ -163,6 +163,20 @@ export function decide(input: string): Decision {
   })
 
   // (2) the grammar — fresh arithmetic, decided totally (division by zero is the reflection
+  //
+  // A DIGIT IS NECESSARY, so its absence is decided before a parser is built (held lead: decide() spends most of
+  // its time on input that reaches no verdict). Measured on a prose line the ledger does not back: 5.3 us total,
+  // of which reveal() — the part that actually consults the ledger — is 0.4 us. The other 92% was scanning, and
+  // the largest single piece was constructing a Parser over a sentence and taking its THROW as the answer.
+  // Exceptions are the expensive way to say no.
+  //
+  // The test is necessary rather than heuristic: every verdict this branch can return is a number or a comparison
+  // of numbers, and both need a numeral. Prose with no digit cannot reach either, so skipping the parse changes
+  // no verdict — it only refuses to spend a throw discovering what one character already settles.
+  if (!/\d/.test(norm)) {
+    const early = reveal(raw)   // once: reveal walks the ledger, and calling it per field would undo the saving
+    return seal({ input: raw, kind: 'prose', verdict: early.verdict, value: null, cites: early.cites, honest: early.reveal })
+  }
   try {
     const v = new Parser(norm).parse()
     if (v.b !== undefined) return seal({

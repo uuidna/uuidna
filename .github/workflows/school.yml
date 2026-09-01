@@ -38,6 +38,13 @@ jobs:
         with:
           path: ~/.elan
           key: elan-${{ runner.os }}-${{ hashFiles('lean-toolchain') }}
+      # THE SIGNING GATE LIVES IN hooks/, AND A FRESH CHECKOUT DOES NOT KNOW THAT (2026-09-01). Measured over the
+      # 27 commits since the entry-guard fix: 3 unsigned, ALL of them from workflow bots, ZERO from the
+      # workstation. The gate was never broken here — it was never installed. actions/checkout writes a bare
+      # .git with hooks disabled, so commit-msg never ran and every bot commit landed without a Trial-Receipt.
+      - name: install the signing gate (hooks are not checked out active)
+        run: git config core.hooksPath hooks
+
       - name: 'KERNEL — install the judge (elan resolves the repo-pinned toolchain)'
         run: |
           if [ ! -x "$HOME/.elan/bin/elan" ]; then

@@ -1,0 +1,12 @@
+{
+  "handle": "b7b88ca9",
+  "address": "b7b88ca9-f321-8265-a035-75f75e1d120b",
+  "statement": "(158 <= 259) ∧ (259 - 158 = 101)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_media_origins_259"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

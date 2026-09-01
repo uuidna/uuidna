@@ -1,0 +1,12 @@
+{
+  "handle": "ee234f53",
+  "address": "ee234f53-7ccb-8ae2-a2a0-47cb6d29c436",
+  "statement": "(680 <= 1279) ∧ (1279 - 680 = 599)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_shell_origins_1279"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "c6de9909",
+  "address": "c6de9909-446f-89ba-a91f-9a38a5806856",
+  "statement": "(74 + 28561 = 28635)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_science_partitions_28635"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

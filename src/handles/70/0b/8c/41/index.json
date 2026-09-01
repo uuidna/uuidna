@@ -1,0 +1,12 @@
+{
+  "handle": "700b8c41",
+  "address": "700b8c41-6563-8183-86bf-9c83c7a4cd9e",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_science_origins_74"
+  ],
+  "statement": "(42 <= 74) ∧ (74 - 42 = 32)",
+  "files": [
+    "Wave.lean"
+  ]
+}

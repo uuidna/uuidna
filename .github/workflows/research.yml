@@ -67,6 +67,13 @@ jobs:
       # the SAME command, so the answer cannot drift between them, and --assert exits non-zero naming the broken law.
       - name: STATE — the laws, the ledger, the sync and the finders, asked once (MCP-first automation)
         run: npm run state -- --assert
+      # THE SIGNING GATE LIVES IN hooks/, AND A FRESH CHECKOUT DOES NOT KNOW THAT (2026-09-01). Measured over the
+      # 27 commits since the entry-guard fix: 3 unsigned, ALL of them from workflow bots, ZERO from the
+      # workstation. The gate was never broken here — it was never installed. actions/checkout writes a bare
+      # .git with hooks disabled, so commit-msg never ran and every bot commit landed without a Trial-Receipt.
+      - name: install the signing gate (hooks are not checked out active)
+        run: git config core.hooksPath hooks
+
       - name: PUBLISH — the trials' returns push as publications (the site deploys on push)
         id: publish
         run: |

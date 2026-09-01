@@ -9,6 +9,7 @@ import { leadsTrialGaps, type LeadsRecord } from './school/leads/index.js'
 import { gatherOpenLeads } from './school/open/questions/springs.js'
 import { ROOT } from './boundary.js'
 import { DERIVE_SURFACES_CMD } from './derive-surfaces-cmd.js'
+import { alpineExpectedClaimKeys } from './quantum/os/domains/index.js'
 import { bookTrialsUntried, type BookTrialsRecord } from './book-trials.js'
 import { refusalTrialsOpen, type RefusalTrialsRecord } from './refusal-trials.js'
 
@@ -145,6 +146,8 @@ export interface GapSurvey {
   tableLeadTop: { file: string; object: string; gap: number } | null
   lonely: number
   harvest: number
+  /** Alpine claims the current catalogue implies that are neither sealed NOR already on the conveyor. */
+  alpinePending: number
   wavePending: number
   waveInFlight: number
   refusalOpen: number
@@ -168,6 +171,24 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   const lonely = lonelyGaps().length
   const wave = waveQueueState(readRepoJson('lean/wave-queue.json'))
   const harvest = pendingHarvestLeads(wave.refused, wave.inFlight).length
+
+  // THE ALPINE PHASES ASKED THE WRONG QUEUE (held lead 2). They gated on `harvest`, which counts SEARCH-FEED
+  // leads — a stand-in taken because the honest signal was measured at 644 ms (lead 4) and that is too slow to
+  // sit in a gate. Both leads dissolve at once: every Alpine claim embeds the catalogue count in its own name,
+  // so the keys the catalogue implies are derivable without running any census, and the only question left is
+  // whether the ledger or the conveyor already holds them.
+  //
+  // NEITHER SEALED NOR PENDING is the whole condition, and the pending half is not decoration: 57 Alpine claims
+  // sit deposited-but-unsealed right now, which is the system working as designed — the desk proposes and the
+  // kernel disposes on its own schedule. A gate that read the LEDGER alone would call those 57 pending forever
+  // and re-offer them on every pass, so the phase would never go quiet while the kernel was simply taking its
+  // time. Reading both is what makes the signal mean "there is something NEW to offer".
+  const rawQueue = readRepoJson('lean/wave-queue.json') as { pending?: unknown[]; accepted?: unknown[] } | null
+  const alpineQueued = new Set<string>(
+    [...(rawQueue?.pending ?? []), ...(rawQueue?.accepted ?? [])].map((c) => String((c as { key?: unknown }).key ?? '')),
+  )
+  const sealedNames = new Set<string>(theorems().map((t: { name: string }) => t.name))
+  const alpinePending = alpineExpectedClaimKeys().filter((k) => !sealedNames.has(k) && !alpineQueued.has(k)).length
   const trialsRecord = readRepoJson('lean/refusal-trials.json') as RefusalTrialsRecord | null
   const refusedCount = (record?.refused ?? []).filter((r) => String(r.boundary ?? '').trim() && String(r.lead ?? '').trim()).length
   const refusalOpen = trialsRecord ? refusalTrialsOpen(trialsRecord) : refusedCount
@@ -252,6 +273,7 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
       : null,
     lonely,
     harvest,
+    alpinePending,
     wavePending: wave.pending,
     waveInFlight: wave.inFlight.size,
     refusalOpen,

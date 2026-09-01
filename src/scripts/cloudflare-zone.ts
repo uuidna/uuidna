@@ -220,6 +220,8 @@ const wwwSet = new Set(owned.filter((d) => d.hostname.startsWith('www.')).map((d
 const lines: string[] = []
 let needScope = false
 let failed = 0
+// apexes where the redirect is neither writable NOR observably in force — the only https finding that is real
+const unenforced: string[] = []
 
 for (const [apex, meta] of [...apexes.entries()].sort()) {
   const www = `www.${apex}`
@@ -231,9 +233,49 @@ for (const [apex, meta] of [...apexes.entries()].sort()) {
     lines.push(`· www already attached: ${www} → ${meta.service}`)
   }
 
+  // A REFUSED WRITE IS NOT A KNOWN-BAD SETTING, and reporting it as either was the actual defect (held lead 5,
+  // 2026-09-01): four always_use_https writes failed for want of zone scope, the redirect was enforced the whole
+  // time — http answered 301 — and the run could not tell the difference, so it said nothing useful in either
+  // direction. Flipping the exit code alone would have been the wrong cure: it converts a false all-clear into a
+  // false alarm, and CI that cannot get a broader token would learn to ignore the step, which is how a check dies.
+  //
+  // The evidence to settle it was already being COLLECTED and thrown away — the live probes below print exactly
+  // this 301. So when the API refuses, ASK THE ZONE WHAT IT DOES rather than what it says: an http request that
+  // answers 301 to an https location proves always_use_https is in force, whoever set it and whenever. That is a
+  // stronger claim than the write's own success, which only proves the setting was accepted, not that it applies.
+  //
+  // HONEST SCOPE, and it is the reason this is a distinct verdict rather than a pass: the effect probe cannot
+  // distinguish the ZONE setting from the WORKER's own 301, which this deploy also installs. It proves the
+  // redirect is enforced — the property anyone actually depends on — not which layer enforces it. Defense in
+  // depth means either layer satisfies the requirement; a zone left off behind a working worker is a real but
+  // lesser gap, and it is named here rather than hidden inside a green tick.
   const https = await alwaysUseHttps(auth.token, meta.zone_id, meta.zone_name)
-  lines.push((https.ok ? '✓ ' : '✗ ') + https.detail)
-  if (!https.ok) { failed++; if (https.needScope) needScope = true }
+  if (https.ok) {
+    lines.push('✓ ' + https.detail)
+  } else {
+    // THREE-WAY, NEVER TWO. The first cut of this check was binary — redirect or not — and it accused
+    // uuidna.net of serving plain http on its very first run, while the live probes twelve lines below showed
+    // 301 for the same host in the same run. The probe had simply failed to connect (status 0), and a binary
+    // verdict has nowhere to put "I could not tell", so it filed the blip under the worst answer available.
+    // That is a false alarm that HARD-FAILS A DEPLOY: strictly worse than the silence this fold was replacing,
+    // because it blocks a correct ship on a network hiccup. Unreachable is its own verdict, and it retries first
+    // — a real outage survives three attempts, a blip does not.
+    let eff = await probe(`http://${apex}/`)
+    for (let attempt = 0; attempt < 2 && eff.status === 0; attempt++) eff = await probe(`http://${apex}/`)
+    const enforced = (eff.status === 301 || eff.status === 308) && eff.location.startsWith('https://')
+    if (eff.status === 0) {
+      lines.push(`· always_use_https UNKNOWN for ${meta.zone_name} — the API write was refused (${https.detail}) AND the effect probe could not connect after 3 attempts (${eff.location}). Not asserted either way; a check must never file "unreachable" as "broken" or as "fine".`)
+      if (https.needScope) needScope = true
+    } else if (enforced) {
+      lines.push(`✓ always_use_https ENFORCED for ${meta.zone_name} — verified by effect (http ${eff.status} → ${eff.location}), not by the API write, which was refused: ${https.detail}`)
+      if (https.needScope) needScope = true
+    } else {
+      lines.push('✗ ' + https.detail + ` — AND the effect probe agrees it is not enforced (http ${eff.status || 'unreachable'}${eff.location ? ' → ' + eff.location : ''})`)
+      failed++
+      unenforced.push(apex)
+      if (https.needScope) needScope = true
+    }
+  }
 
   const redir = await ensureWwwRedirect(auth.token, meta.zone_id, meta.zone_name)
   lines.push((redir.ok ? '✓ ' : '· ') + redir.detail)
@@ -260,7 +302,15 @@ if (needScope) {
 // HARD FAIL only when a www Workers Domain could not be attached — that is the 522 class. Zone Settings /
 // Redirect Rule refusals are SCOPE GAPS: printed above, exit 0 so `npm run ship` still completes (the worker
 // enforces the same redirects). Pass --assert to make any refused write non-zero for CI that has a full token.
-const hard = lines.filter((l) => l.startsWith('✗ ') && l.includes('attach '))
+// THE HARD SET GREW A SECOND MEMBER, and it is the one the lead was actually about. A www attach failure is the
+// 522 class. An apex whose http does NOT redirect is the plain-text class: the API refused the write and the
+// zone demonstrably is not doing it, which is no longer a scope gap — it is an unencrypted front door, and a
+// deploy must never report COMPLETE over it.
+const hard = lines.filter((l) => l.startsWith('✗ ') && l.includes('attach ')).concat(unenforced.map((a) => `unenforced https: ${a}`))
+if (unenforced.length) {
+  console.error(`\n✗ cloudflare-zone — ${unenforced.length} apex(es) serve http WITHOUT a redirect to https: ${unenforced.join(', ')}`)
+  console.error('  This is not the scope gap; a scope gap still shows a 301. Fix the zone setting or the worker route.')
+}
 if (process.argv.includes('--assert') && (failed || needScope) && !DRY) {
   console.error('✗ cloudflare-zone — --assert: one or more zone writes refused (see scopes above)')
   process.exitCode = 1

@@ -29,6 +29,8 @@ export interface Reasoning {
   reachedFixpoint: boolean // true if it settled before the round cap
   contradictions: Contradiction[] // atoms held together with their own negation — reported, never smoothed over
   consistent: boolean      // false when the derivation concluded both an atom and its negation
+  unusedFacts: string[]    // given, and no rule ever needed them — the reasoning did not rest on these
+  dormantRules: number     // rules whose premises never all held; they contributed nothing to this derivation
   receipt: string          // the whole derivation folded, order-invariant — recompute it or it was altered
   honest: string
 }
@@ -70,6 +72,16 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
   // does not refuse the derivation; it NAMES the pair and drops `consistent`, which is this tree's rule for a
   // finding: report it where the caller must look at it, never quietly repair it.
   const givenSet = new Set(facts)
+  // WHAT IT DID NOT USE IS PART OF WHAT IT KNOWS. A derivation that rests on two of forty given facts is a
+  // different claim from one that needs all forty, and the trace alone does not say which — a reader must
+  // reconstruct it. Naming the unused facts and the dormant rules costs one pass and makes the SHAPE of the
+  // reasoning legible: a conclusion supported by little is not thereby weak, but it should be visibly so.
+  const touched = new Set<string>()
+  for (const t of trace) for (const a of t.from) touched.add(a)
+  const unusedFacts = facts.filter((f) => !touched.has(f))
+  const firedHeads = new Set(trace.map((t) => t.conclude))
+  const dormantRules = rules.filter((r) => !firedHeads.has(r.then) || !r.if.every((a) => known.has(a))).length
+
   const derived = [...known].filter((a) => !givenSet.has(a))
   const contradictions: Contradiction[] = [...known]
     .map((a) => ({ a, base: negationOf(a) }))
@@ -88,6 +100,8 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
     trace,
     rounds,
     reachedFixpoint,
+    unusedFacts,
+    dormantRules,
     contradictions,
     consistent: contradictions.length === 0,
     receipt,
@@ -103,5 +117,50 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
       'that before reading the trace as support. Negation is recognised syntactically, as "not_x" or `¬x` beside ' +
       '`x`: a rule set that spells its negation another way is NOT checked, and silence here is not consistency. ' +
       'Integrity.',
+  }
+}
+
+export interface Support { atom: string; givens: string[]; rules: string[]; steps: number; derived: boolean; honest: string }
+
+/** supportOf(reasoning, atom) → the GIVEN facts a conclusion actually rests on, and the sealed rules that carried
+ *  it there. The trace records every step in order; this answers the question a reader actually asks of a
+ *  derivation — WHY do you hold this — by walking those steps backwards from the atom to the facts underneath.
+ *
+ *  Forward chaining alone cannot answer that. It only ever adds, so by the end every conclusion sits in one
+ *  undifferentiated set and a reader must reconstruct the path by hand. A reasoner that cannot say what a claim
+ *  depends on can still be right, but nobody can check it cheaply, and unauditable support is how a conclusion
+ *  drawn from a contradiction looks exactly like one drawn from evidence.
+ *
+ *  HONEST SCOPE: this reports the support THIS derivation used, not the smallest support that exists. Where two
+ *  rules could each conclude the same atom, the first to fire is the one recorded, so the answer is a witness
+ *  and not a minimal proof — stated here rather than implied by the word "support". */
+export function supportOf(r: Reasoning, atom: string): Support {
+  const given = new Set(r.given)
+  if (given.has(atom)) {
+    return { atom, givens: [atom], rules: [], steps: 0, derived: false,
+      honest: 'the atom was GIVEN, so it rests on itself — a fact carries no derivation and none is invented for it' }
+  }
+  const byHead = new Map(r.trace.map((t) => [t.conclude, t]))
+  const givens = new Set<string>(), used = new Set<string>(), seen = new Set<string>()
+  const queue = [atom]
+  let steps = 0
+  while (queue.length) {
+    const cur = queue.pop()!
+    if (seen.has(cur)) continue
+    seen.add(cur)
+    if (given.has(cur)) { givens.add(cur); continue }
+    const step = byHead.get(cur)
+    if (!step) continue                       // neither given nor derived: not part of this reasoning
+    steps++
+    used.add(step.rule)
+    for (const from of step.from) queue.push(from)
+  }
+  return {
+    atom, givens: [...givens].sort(), rules: [...used].sort(), steps, derived: byHead.has(atom),
+    honest: byHead.has(atom)
+      ? 'the givens this conclusion actually rests on, and the sealed rules that carried it — a WITNESS to the ' +
+        'derivation taken, never a claim that no shorter one exists'
+      : 'this atom was neither given nor derived here, so nothing supports it in this reasoning — an empty ' +
+        'support is not a weak one, it is an absent one',
   }
 }

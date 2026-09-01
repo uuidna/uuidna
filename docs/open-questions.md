@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**0 open leads** across 0 topics — only **held** leads from lean/leads.json, prose develop
+**1 open leads** across 1 topics — only **held** leads from lean/leads.json, prose develop
 fragments `decide()` has not yet closed, support-wave research-leads, and axiom-hunt exposed items. Refuted
 (measurement closed) and refused (boundary closed) enroll on [research leads](/leads), not here. Research
 findings and search-feed silence live on their own surfaces ([research ledger](/mcp#uuidna-research-ledger),
@@ -24,7 +24,13 @@ express the claim as an exact predicate over it, run the [tester](/tools) with i
 drains, seal it ([the wave](/theorem/denial_drains_to_the_last_coin)). The door then closes as a count, and this
 page regrows without it.
 
+## installs — 1 open
 
+- **CAN AN ALPINE APP REPLACE COMPLEXITY WITH NANOSPEED (the captain, 2026-09-01)? Measured position today: NO by the porting route — uuidnaOS DOES execute (uuidnaExec, uuidna_run) — the captain corrected that premise on 202…**
+  <br><small>door: the held leads</small>
+  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) </small>
+  <br><small>sealed neighbors: [`the_install_set_names_the_bytes_it_rests_on`](/theorem/the_install_set_names_the_bytes_it_rests_on) · [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`parity_code_detects_one_but_ties_four_ways`](/theorem/parity_code_detects_one_but_ties_four_ways) </small>
+  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## Honest scope
 

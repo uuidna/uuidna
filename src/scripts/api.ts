@@ -302,12 +302,51 @@ export const laneCensus = (addresses: readonly string[], lanes: number): number[
 export const importAbs = <T = Record<string, unknown>>(abs: string): Promise<T> =>
   import(urlm().pathToFileURL(abs).href) as Promise<T>
 
-/** read a repo-relative file as utf8 */
-export const rd = (p: string): string => fsm().readFileSync(pathm().join(ROOT, p), 'utf8')
+// ── ONE READ PER FILE PER PROCESS (2026-09-01, "dry clean the laws to serve quantum") ────────────────────────
+//
+// The guard is 45 finders and they all read the same tree. Measured over one run: 3,159 readFileSync calls for
+// 1,078 distinct files — 2,081 of them REDUNDANT, two thirds of the I/O spent fetching bytes the process already
+// had. docs/license.md was read 16 times, package.json 13, docs/captain.md 10. Nothing was wrong with any single
+// finder; the entropy is that each one is written as though it were the only reader, which is exactly what makes
+// them independently correct and collectively wasteful.
+//
+// The cache is sound only because the WRITE goes through the same door: wr() drops the entry it overwrites, so a
+// generator that writes a file and reads it back in one process still sees its own bytes. That is not a detail —
+// it is the whole safety argument, and it is why this belongs on rd/wr rather than inside any one finder. A
+// cache in a finder would be private and safe; a cache here is shared and must be invalidated, so it is.
+//
+// HONEST SCOPE: within one process only, and blind to a write that bypasses wr() — a spawned child, an execSync
+// git checkout, a direct fsm().writeFileSync. Those exist (reconcile spawns generators), which is why this holds
+// no state across processes and why every phase boundary in a chain is a fresh process that starts cold.
+// VALIDATED BY MTIME, NOT BY TRUST. The first cut invalidated on wr() alone and would have been correct only if
+// wr() were the only writer. It is not: direct fsm().writeFileSync calls exist, reconcile spawns generators that
+// write this same tree, and an execSync git checkout moves files under a running process. Any of those hands a
+// wr()-only cache a stale answer, and a stale read inside the GUARD is the worst possible place for one — the
+// gate would pass on bytes that are no longer there.
+//
+// A stat is not free, but it is the cheap half of the pair: it reads metadata rather than content, so a 300 KB
+// generated.ts costs one stat instead of one full parse-and-decode. Correctness first, and the saving survives.
+const READS = new Map<string, { mtimeMs: number; text: string }>()
+
+/** read a repo-relative file as utf8 — cached per process, revalidated by mtime on every hit */
+export const rd = (p: string): string => {
+  const abs = pathm().join(ROOT, p)
+  const hit = READS.get(p)
+  const mtimeMs = ((): number => { try { return fsm().statSync(abs).mtimeMs } catch { return -1 } })()
+  if (hit && hit.mtimeMs === mtimeMs && mtimeMs !== -1) return hit.text
+  const text = fsm().readFileSync(abs, 'utf8')
+  READS.set(p, { mtimeMs, text })
+  return text
+}
 /** does a repo-relative path exist */
 export const has = (p: string): boolean => fsm().existsSync(pathm().join(ROOT, p))
-/** write a repo-relative utf8 file */
-export const wr = (p: string, data: string): void => fsm().writeFileSync(pathm().join(ROOT, p), data)
+/** write a repo-relative utf8 file — drops the cached read so the next rd sees these bytes */
+export const wr = (p: string, data: string): void => {
+  READS.delete(p)
+  fsm().writeFileSync(pathm().join(ROOT, p), data)
+}
+/** forget every cached read — for a caller that knows the tree moved underneath it (a spawn, a checkout) */
+export const forgetReads = (): void => { READS.clear() }
 /** mkdir -p a repo-relative directory */
 export const mkdirp = (p: string): void => { fsm().mkdirSync(pathm().join(ROOT, p), { recursive: true }) }
 /** rm -rf a repo-relative path when it exists */

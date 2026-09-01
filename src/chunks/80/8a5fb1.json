@@ -1,0 +1,12 @@
+{
+  "handle": "808a5fb1",
+  "address": "808a5fb1-7888-8b37-a1e4-905ff7b8e86e",
+  "statement": "(332 + 28303 = 28635)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_network_partitions_28635"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

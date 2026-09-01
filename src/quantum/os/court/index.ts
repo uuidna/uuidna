@@ -16,6 +16,8 @@ const fsModule = (): FsModule => {
 }
 import { callTool } from '../../../mcp.js'
 import { gateCommitMessage } from '../../../sign.js'
+import { treeCovers } from '../../../gate-receipt-index.js'
+import { ROOT } from '../../../boundary.js'
 import { HEXBIT_STATES, UUID_HEXBITS, hexbitDoorOf } from '../../../hexbit/index.js'
 import { quantumAdvantagePlaybook, type PlaybookStep } from '../../advantage/mcp/agent/playbook/index.js'
 import { runWaves, type WaveJob, type WaveHooks } from '../waves/index.js'
@@ -248,6 +250,21 @@ export function parseCourtPlan(argv: readonly string[]): NeedPlan & { msgFile?: 
   }
 }
 
+/** Does a green gate-receipt still describe THIS tree? Pure reads and hashes — no execution, no network. */
+function receiptCoversTree(): { ok: boolean; why: string } {
+  try {
+    // an unreadable receipt and a missing one are the same verdict — NOT PROVEN — so one catch covers both
+    const want = JSON.parse(fsModule().readFileSync(ROOT + '/gate-receipt.json', 'utf8')) as { covers?: Record<string, string> }
+    const have = treeCovers()
+    const moved = Object.keys(have).filter((k) => want.covers?.[k] !== have[k])
+    return moved.length
+      ? { ok: false, why: `the tree MOVED since it was proven green (${moved.join(', ')}) — the receipt certifies different bytes` }
+      : { ok: true, why: 'receipt covers this tree' }
+  } catch (e) {
+    return { ok: false, why: `gate-receipt.json unreadable (${e instanceof Error ? e.message : String(e)})` }
+  }
+}
+
 /** runCourtCli — uuidnaOS CLI door. Returns exit code. */
 export function runCourtCli(argv: readonly string[]): number {
   const { msgFile, ...plan } = parseCourtPlan(argv)
@@ -282,6 +299,34 @@ export function runCourtCli(argv: readonly string[]): number {
   if (!r.ok) {
     console.error(`\n✗ court — BLOCKED: ${r.fails.map((f) => f.tool).join(', ')}`)
     return 1
+  }
+  // THE PUBLISH DOOR ALSO ASKS WHETHER THE TREE WAS EVER PROVEN (the captain's rule, 2026-09-01: no push unless
+  // all green pre-push). The court's five tools are a narrow instrument — hex, treason, conformance, trial, gate
+  // status — and a tree can pass every one of them with a RED guard or failing tests, which is exactly how a push
+  // used to get out. The obvious cure was to run the guard and the tests from the hook beside this court; the dry
+  // finder refuses it in those words ("the door is uuidnaOS court"), and it is right to: two doors is no door.
+  //
+  // So the arm goes INSIDE, and it VERIFIES rather than runs. Not because this surface cannot execute — uuidnaOS
+  // executes, that is what uuidnaExec is for, and the captain corrected me on exactly this sentence — but because
+  // verify_beats_recompute_by_magnitudes is a sealed theorem and the receipt makes it apply: running the guard and
+  // the suite again over byte-identical inputs is the same computation for the same answer at ~150 s a push.
+  // Re-running is available whenever the bytes have moved, which is precisely when the receipt stops covering
+  // them, so nothing is given up by reading first. gate-receipt.json is
+  // written ONLY after the guard and the tests pass, and it content-addresses src/ and lean/, so a receipt that
+  // still covers this tree IS the proof that both were green over exactly these bytes. One byte of drift and the
+  // covers stop matching, the court blocks, and the fix is to re-prove — never to re-assert.
+  // --proven GATES THIS ARM, and the first cut without it was wrong in a way only running the tree revealed.
+  // Gating on --court alone looked right: --court is the publish door. But the wave phase calls the same door
+  // MID-ARC, right after sealing new theorems, so the receipt correctly no longer covered a tree the arc had
+  // just and legitimately changed — and fill-gaps died at `wave` having sealed 57 claims. "Has this tree been
+  // proven green?" is a question for the moment work LEAVES, not for every court that sits during it.
+  if (argv.includes('--proven')) {
+    const proven = receiptCoversTree()
+    if (!proven.ok) {
+      console.error(`\n✗ court — BLOCKED: ${proven.why}`)
+      console.error('  FIX npm run guard && npm test   (a green run writes the receipt; the court reads it)')
+      return 1
+    }
   }
   if (!courtOnly) process.env.UUIDNA_OS_MCP = r.receipt ? handleOf(r.receipt) : 'green'
   console.log('\n✓ court — uuidnaOS green' + (courtOnly ? ' (publish)' : ' (daily hex)'))

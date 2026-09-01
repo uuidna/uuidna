@@ -11,7 +11,7 @@ export { auditText, auditTranslation, fetchGutenberg, auditBook, auditMovie, aud
 export { transformUntilVerified, transformOne, type TransformCell, type TransformRun } from '@uuidna/uuidna'
 export { composePublication, publications, coverage, auditPublication, revisePublication, comparePublications, type Publication, type PubFinding, type Revision, type Comparison, type Coverage } from '@uuidna/uuidna'
 export { fileReport, type FiledReport } from '@uuidna/uuidna'
-export { reason, type Rule, type Derivation, type Reasoning } from '@uuidna/uuidna'
+export { reason, supportOf, type Rule, type Derivation, type Reasoning, type Contradiction, type Support } from '@uuidna/uuidna'
 export { reflects, type Reflection, type Reflected } from '@uuidna/uuidna'
 export { aspectCensus, loudOf, type Aspect, type AspectCensus, type AspectRow } from '@uuidna/uuidna'
 export { searchFeed, MOST_SEARCHED, FEED_QUERIES, SEARCH_FEED_PATH, feedPhysicsCite, portalQueries, queriesFromEvidence, titleOf, uniqueQueries, type SearchQuery, type SearchFeed, type FeedDoor, type FeedLead } from '@uuidna/uuidna'

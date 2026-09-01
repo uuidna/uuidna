@@ -43,10 +43,26 @@ export const FILL_GAPS_CORE_PHASES: readonly FillGapsPhase[] = [
     // the test that says so was failing correctly. Unconditional was also untrue on its own terms: the Alpine
     // mirror is committed and static, so a re-walk of an unchanged catalogue re-proposes the same candidates,
     // and the deposit's own record shows 0 deposited against 79 refused, every one a bare-literal tautology the
-    // gap law turns away. HONEST SCOPE: `harvest` counts SEARCH-FEED leads, not Alpine ore, so this ties the
-    // census to conveyor activity as a stand-in — the survey carries no alpine-specific pending count, and the
-    // right fix is to give it one. Named here rather than smoothed over, so the debt is visible where it is owed.
-    when: (s) => s.harvest > 0,
+    // gap law turns away.
+    //
+    // THE DEBT NAMED HERE IS PAID (held leads 2 and 4, closed 2026-09-01). The stand-in read `harvest`, which
+    // counts SEARCH-FEED leads — a queue this phase neither fills nor drains — because the honest signal had been
+    // measured at 644 ms and that is too slow for a gate. It was never that expensive: every Alpine claim embeds
+    // the catalogue count in its own NAME, so the keys the catalogue implies are derivable without walking any
+    // census, and alpinePending counts the ones neither sealed nor already on the conveyor. 0.27 ms warm, and
+    // exact — the catalogue moving and a new domain pattern both change the answer, while the 57 already-queued
+    // claims stop reading as work. Today it says 1: alpine_binding_origins_overcount_28635, genuinely new.
+    when: (s) => s.alpinePending > 0,
+  },
+  {
+    name: 'domains-deposit',
+    cmd: 'node dist/scripts/domains-deposit.js',
+    note: 'Alpine domain census claims → wave conveyor (idempotent: a sealed claim refuses as a duplicate)',
+    // ASKS ITS OWN QUEUE NOW (held lead 2, closed 2026-09-01). This first shipped gated on `s.harvest`, copied
+    // from the neighbour below — and `harvest` counts SEARCH-FEED leads, so both phases were reading a queue
+    // neither of them fills. alpinePending counts the Alpine claims the current catalogue implies that are
+    // neither sealed nor already on the conveyor: exact, and cheaper than the stand-in was wrong.
+    when: (s) => s.alpinePending > 0,
   },
   {
     name: 'trial-refusals',

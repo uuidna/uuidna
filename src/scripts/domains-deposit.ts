@@ -17,6 +17,7 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS } from '../quantum/os/domains/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
+import { theorems } from '../theorems/index.js'
 
 const DRY = process.argv.includes('--dry')
 
@@ -62,7 +63,24 @@ if (DRY) {
   process.exit(0)
 }
 
-const r = depositCandidates(candidates, join(ROOT, 'lean/wave-queue.json'))
+// REFUSED BY STATEMENT, NOT BY KEY, and the difference cost five duplicate seals before it was written. The
+// conveyor's own idempotency is keyed on the KEY, which is exactly right for re-running this script — and blind
+// to a claim already sealed under a DIFFERENT name. Five domain pairs had been deposited by hand in an earlier
+// session as alpine_domains_db_fs_incl_excl_653; this script names the same pair alpine_dom_da_fi_ie_653, so the
+// door saw a new key, the wave sealed it, and Wave.lean carried the same Lean line twice under two names. One
+// proof, checked twice, indexed twice, published twice — no kernel independence bought, and the lines finder
+// caught it only after the seal.
+//
+// The statement is what the kernel actually decides, so the statement is what a duplicate must be measured
+// against. Normalised on whitespace alone: two spellings of the same arithmetic are the same claim, and any
+// difference the kernel would notice survives the trim.
+const sealedLean = new Set(theorems().map((t: { statement: string }) => t.statement.replace(/\s+/g, ' ').trim()))
+const fresh = candidates.filter((c) => !sealedLean.has(String(c.lean).replace(/\s+/g, ' ').trim()))
+if (fresh.length !== candidates.length) {
+  console.log(`· domains-deposit — ${candidates.length - fresh.length} candidate(s) withheld: the ledger already seals that exact Lean line under another name`)
+}
+
+const r = depositCandidates(fresh, join(ROOT, 'lean/wave-queue.json'))
 console.log(`✓ domains-deposit — ${r.deposited.length} deposited, ${r.refused.length} refused, ${r.pending} pending · receipt ${r.receipt}`)
 for (const k of r.deposited) console.log(`    landed  ${k}`)
 // A DUPLICATE IS THE SUCCESS CASE, in both of its spellings. The door says "already sealed in the ledger" once

@@ -2,7 +2,7 @@
 // only what the rules entail, cites a sealed inference rule per step, and never loops forever. Integrity.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { reason } from './index.js'
+import { reason, supportOf } from './index.js'
 
 test('modus ponens and the chained syllogism, each citing a sealed rule', () => {
   const r = reason(['a'], [{ if: ['a'], then: 'b' }, { if: ['b'], then: 'c' }])
@@ -83,4 +83,57 @@ test('the contradiction rides the receipt — a derivation cannot be altered to 
   const bad = reason(['s'], [{ if: ['s'], then: 'x' }, { if: ['s'], then: 'not_x' }])
   const good = reason(['s'], [{ if: ['s'], then: 'x' }, { if: ['s'], then: 'not_y' }])
   assert.notEqual(bad.receipt, good.receipt, 'the folded receipt must record that the pair was held')
+})
+
+// ── IT CAN SAY WHY ───────────────────────────────────────────────────────────────────────────────────────────
+// Forward chaining only ever adds, so by the end every conclusion sits in one undifferentiated set and a reader
+// must reconstruct the path by hand. A reasoner that cannot say what a claim depends on can still be right, and
+// nobody can check it cheaply — which is how a conclusion drawn from a contradiction comes to look exactly like
+// one drawn from evidence.
+test('a conclusion names the GIVENS it rests on and the rules that carried it', () => {
+  const r = reason(['storm', 'night'], [
+    { if: ['storm'], then: 'reef' },
+    { if: ['reef', 'night'], then: 'anchor' },
+    { if: ['anchor'], then: 'wait' },
+  ])
+  const s = supportOf(r, 'wait')
+  assert.deepEqual(s.givens, ['night', 'storm'], 'both facts are underneath it')
+  assert.equal(s.steps, 3, 'three derivations carried it')
+  assert.ok(s.rules.includes('modus_ponens') && s.rules.includes('hypothetical_syllogism'))
+  assert.equal(s.derived, true)
+})
+
+test('a GIVEN atom rests on itself, and no derivation is invented for it', () => {
+  const s = supportOf(reason(['storm'], [{ if: ['storm'], then: 'reef' }]), 'storm')
+  assert.deepEqual(s.givens, ['storm'])
+  assert.equal(s.steps, 0)
+  assert.equal(s.derived, false)
+})
+
+test('CONTROL — an atom that was never derived has an ABSENT support, not a weak one', () => {
+  const s = supportOf(reason(['a'], [{ if: ['a'], then: 'b' }]), 'nowhere')
+  assert.deepEqual(s.givens, [], 'nothing supports it here')
+  assert.equal(s.steps, 0)
+  assert.equal(s.derived, false)
+  assert.match(s.honest, /absent one/, 'an empty support must not read as a supported claim')
+})
+
+test('the reasoning names the facts it never needed and the rules that never fired', () => {
+  const r = reason(['storm', 'unused-fact'], [
+    { if: ['storm'], then: 'reef' },
+    { if: ['calm'], then: 'sail' },          // never fires: calm was never known
+  ])
+  assert.deepEqual(r.unusedFacts, ['unused-fact'], 'a fact no rule needed is named')
+  assert.equal(r.dormantRules, 1, 'the rule whose premise never held contributed nothing')
+  assert.ok(r.derived.includes('reef'))
+})
+
+test('CONTROL — support is a WITNESS, not a claim that no shorter path exists', () => {
+  // two rules can each conclude the same atom; the first to fire is the one recorded, so the answer is the
+  // derivation TAKEN. Asserting minimality here would be asserting something the engine never computed.
+  const r = reason(['p', 'q'], [{ if: ['p'], then: 'z' }, { if: ['q'], then: 'z' }])
+  const s = supportOf(r, 'z')
+  assert.equal(s.steps, 1, 'one step carried it, whichever rule won the round')
+  assert.equal(s.givens.length, 1, 'and it names that path only')
+  assert.match(s.honest, /never a claim that no shorter one exists/)
 })

@@ -5,7 +5,7 @@
 
 ## two coins on the homepage account
 
-**Prose:** "110 − 108 = −χ of the double torus"
+**Prose:** "110 − 108 = −χ of the double torus" — backed by [two_coins](/theorem/two_coins)
 
 **Address:** `d9239271-b1cb-8ce2-b44f-72809c68069b`
 
@@ -18,7 +18,7 @@
 
 ## coins equal minus chi of the double torus
 
-**Prose:** "Coins conserved"
+**Prose:** "Coins conserved" — backed by [two_coins](/theorem/two_coins)
 
 **Address:** `55b48740-d44b-81a5-8282-72a3f515f35e`
 
@@ -31,7 +31,7 @@
 
 ## denomination two from the seal
 
-**Prose:** "110 − 108 = 2"
+**Prose:** "110 − 108 = 2" — backed by [two_coins](/theorem/two_coins)
 
 **Address:** `d14140c7-5f1d-8134-adbd-b7e081469661`
 
@@ -44,7 +44,7 @@
 
 ## uuidna is dna times the two coins
 
-**Prose:** "4³ = 64 codons and 2⁶ = 64 coin bits — the same number by two routes"
+**Prose:** "4³ = 64 codons and 2⁶ = 64 coin bits — the same number by two routes" — backed by [uuidna_is_dna_times_the_two_coins](/theorem/uuidna_is_dna_times_the_two_coins)
 
 **Address:** `be8307e5-614d-87d7-8221-e2f84251ad42`
 
@@ -57,7 +57,7 @@
 
 ## usable capacity gap is two to eighty
 
-**Prose:** "usable_gap_is_two_to_eighty"
+**Prose:** "usable_gap_is_two_to_eighty" — backed by [usable_gap_is_two_to_eighty](/theorem/usable_gap_is_two_to_eighty)
 
 **Address:** `fe9d468f-a1e5-88af-8385-b57439ac8979`
 
@@ -70,7 +70,7 @@
 
 ## typescript is the quantum computer
 
-**Prose:** "TypeScript is the quantum computer"
+**Prose:** "TypeScript is the quantum computer" — backed by [handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)
 
 **Address:** `05ff2ef5-ee94-8a4d-bcca-9410cf2982cf`
 
@@ -83,7 +83,7 @@
 
 ## cost per seal is always two coins
 
-**Prose:** "Cost per seal is always two coins"
+**Prose:** "Cost per seal is always two coins" — backed by [captain_theorem](/theorem/captain_theorem), [two_coins](/theorem/two_coins)
 
 **Address:** `dbf6fc34-7e0a-8d64-82b0-55ec31aa8658`
 
@@ -99,7 +99,7 @@
 
 ## clay gravity equals the rosetta
 
-**Prose:** "clay_gravity_equals_rosette"
+**Prose:** "clay_gravity_equals_rosette" — backed by [clay_gravity_equals_rosette](/theorem/clay_gravity_equals_rosette)
 
 **Address:** `99623553-d0d3-8639-8dd5-517131c417b8`
 
@@ -112,7 +112,7 @@
 
 ## glagolitic letters fold to nine
 
-**Prose:** "letters fold to 9"
+**Prose:** "letters fold to 9" — backed by [digital_root](/theorem/digital_root), [glagolitic_units_sum](/theorem/glagolitic_units_sum)
 
 **Address:** `b4222f48-807d-8daf-8593-d748157d6414`
 
@@ -128,7 +128,7 @@
 
 ## hexbit sixteen versus z9 root
 
-**Prose:** "CRT join ℤ/7×ℤ/9 = 63"
+**Prose:** "CRT join ℤ/7×ℤ/9 = 63" — backed by [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime), [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection)
 
 **Address:** `f3b0feaf-00e4-8032-a9de-b3130c04f13d`
 
@@ -144,7 +144,7 @@
 
 ## vitepress is the monitor
 
-**Prose:** "VitePress is the monitor"
+**Prose:** "VitePress is the monitor" — backed by [handle_capacity_is_quantum_by_architecture](/theorem/handle_capacity_is_quantum_by_architecture)
 
 **Address:** `022f6208-8f5b-8609-8e28-0f9e057bb016`
 
@@ -157,7 +157,7 @@
 
 ## each theorem unlocks what it seals
 
-**Prose:** "the ledger is the unlock board"
+**Prose:** "the ledger is the unlock board" — backed by [two_coins](/theorem/two_coins), [captain_computes_only_with_two_coins](/theorem/captain_computes_only_with_two_coins)
 
 **Address:** `83184401-ce92-8b8a-abfa-64dfa128e77f`
 

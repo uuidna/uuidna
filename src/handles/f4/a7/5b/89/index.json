@@ -1,0 +1,12 @@
+{
+  "handle": "f4a75b89",
+  "address": "f4a75b89-e00c-8c2e-a3f8-470065637a1a",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_language_origins_7486"
+  ],
+  "statement": "(4421 <= 7486) ∧ (7486 - 4421 = 3065)",
+  "files": [
+    "Wave.lean"
+  ]
+}

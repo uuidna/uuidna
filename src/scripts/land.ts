@@ -72,9 +72,42 @@ for (let round = 1; round <= ROUNDS; round++) {
     process.exit(1)
   }
   run('node dist/scripts/reconcile.js --derive-only')        // derived layer freshly sealed, spin LAST, no publish
+
+  // ── THE COMMIT THIS FILE ALWAYS CLAIMED AND NEVER MADE (found 2026-09-01) ────────────────────────────────────
+  //
+  // The header above has described this loop as "{ develop (heal) → commit what the drain owns → push }" since it
+  // was written. The middle step was never here. develop heals without committing; reconcile --derive-only says
+  // so in its own success line ("the tree is dirty and NOTHING was committed or pushed"). So land healed a tree,
+  // left 217 files staged, and ran `git push` — which exits 0 on "Everything up-to-date" because there was
+  // genuinely nothing to send. Six landings in one session reported "pushed on round 1" and moved nothing.
+  //
+  // It is the tree's own recurring defect, and the most dangerous variant: a green report over an ABSENT action.
+  // Nothing failed. No output was wrong. The only way to see it was to ask git what HEAD actually was, which is
+  // why the verification below asks that and does not trust the exit code of anything.
+  const dirty = run('git status --porcelain').out.trim()
+  if (dirty) {
+    run('git add -A')
+    // cites a sealed theorem so commit-msg can sign it; an unsignable automated commit is a hand-amend waiting
+    const msg = 'Land: heal, re-derive and seal what the drain owns — gate-clean, unattended. Backed by theorem two_coins'
+    const committed = run('git commit -m ' + JSON.stringify(msg))
+    if (!committed.ok) {
+      console.error('✗ land — the commit was REFUSED (the gate speaks below); a human decides here:\n')
+      console.error(committed.out.split('\n').filter((l) => /✗|GAP|FIX|BLOCKED/.test(l)).join('\n') || committed.out.slice(-1200))
+      process.exit(1)
+    }
+  }
+
+  const before = run('git rev-parse HEAD').out.trim()
   const push = run('git push origin main')
   if (push.ok) {
-    console.log(`✓ land — pushed on round ${round}; the gate's own receipts are above. Landing complete.`)
+    // VERIFY THE REMOTE MOVED, because "Everything up-to-date" is also a success. The push is only a landing if
+    // origin/main now holds this commit — asked of git, never inferred from an exit code.
+    const remote = run('git rev-parse origin/main').out.trim()
+    if (remote !== before) {
+      console.error(`✗ land — push reported success but origin/main is ${remote.slice(0, 8)}, not ${before.slice(0, 8)}. NOTHING LANDED.`)
+      process.exit(1)
+    }
+    console.log(`✓ land — pushed on round ${round}: origin/main is now ${before.slice(0, 8)}. Landing complete.`)
     process.exit(0)
   }
   const cure = CURES.find((c) => c.when.test(push.out))

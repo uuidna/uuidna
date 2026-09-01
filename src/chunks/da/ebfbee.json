@@ -1,0 +1,12 @@
+{
+  "handle": "daebfbee",
+  "address": "daebfbee-7177-82a2-889a-501b1b4a16c7",
+  "statement": "(630 + 7486 - 61 = 8055)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_dr_la_ie_8055"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

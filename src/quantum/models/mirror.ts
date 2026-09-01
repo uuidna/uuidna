@@ -471,8 +471,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000022",
-   "completionPrice": "0.00000066"
+   "promptPrice": "0.00000044",
+   "completionPrice": "0.00000132"
   },
   {
    "id": "deepseek/deepseek-v4-pro",
@@ -485,8 +485,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000066",
-   "completionPrice": "0.00000198"
+   "promptPrice": "0.0000011154",
+   "completionPrice": "0.0000033462"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813:batch",
@@ -793,8 +793,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "gryphe/mythomax-l2-13b",
    "name": "MythoMax 13B",
    "contextTokens": 8192,
-   "promptPrice": "0.00000035",
-   "completionPrice": "0.0000006"
+   "promptPrice": "0.00000006",
+   "completionPrice": "0.00000006"
   },
   {
    "id": "ibm-granite/granite-4.0-h-micro",
@@ -2172,8 +2172,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-235b-a22b-2507",
    "name": "Qwen: Qwen3 235B A22B Instruct 2507",
    "contextTokens": 262144,
-   "promptPrice": "0.00000009",
-   "completionPrice": "0.00000055"
+   "promptPrice": "0.0000000875",
+   "completionPrice": "0.00000035"
   },
   {
    "id": "qwen/qwen3-235b-a22b-thinking-2507",

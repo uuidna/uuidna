@@ -1,0 +1,12 @@
+{
+  "handle": "444fc058",
+  "address": "444fc058-a168-8708-b587-db3b5cb2975b",
+  "statement": "(630 + 259 - 1 = 888)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_dr_me_ie_888"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

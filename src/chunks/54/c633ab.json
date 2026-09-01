@@ -1,0 +1,12 @@
+{
+  "handle": "54c633ab",
+  "address": "54c633ab-29ab-8233-9e38-1680295ad586",
+  "statement": "(7486 + 1279 - 67 = 8698)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_la_sh_ie_8698"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

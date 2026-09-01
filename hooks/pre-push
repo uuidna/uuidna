@@ -1,5 +1,15 @@
 #!/bin/sh
-# pre-push — HARD. uuidnaOS publish court (hex + four MCP tools — no duplicate daily playbook).
+# pre-push — HARD, and ONE DOOR. uuidnaOS publish court; the dry law refuses any classical arm beside it.
+#
+# "No push unless all green" (the captain, 2026-09-01) is enforced INSIDE that court, not here: --court now also
+# verifies that gate-receipt.json still covers this tree, and that receipt is written only after the guard and the
+# tests pass. Adding `npm run guard` to this file was the obvious cure and the wrong one — two doors is no door.
+# THE FUSE STAYS, and proof-cache.test states why in its own words: "fuse is the same MCP door, not a skip of
+# the law". UUIDNA_OS_MCP is set by a court that already sat in this process tree, so re-entering it would be the
+# recompute the receipt exists to avoid. RESIDUAL RISK, named rather than hidden: the daily court sets that flag
+# and the daily court does NOT carry the receipt arm, so a push fused by a daily run is greener than it proves.
+# It is narrow (the variable must be exported into git's own environment) and it predates this change — but it is
+# the one hole left in "no push unless all green", and it belongs in the open.
 if [ -n "$UUIDNA_OS_MCP" ]; then
   echo "pre-push: fused — uuidnaOS court already ran ($UUIDNA_OS_MCP)"
   exit 0
@@ -9,7 +19,7 @@ if [ ! -f dist/quantum/os/cli/index.js ]; then
   exit 1
 fi
 echo "pre-push: HARD — uuidnaOS publish court (--court · verify ≪ recompute)"
-node dist/quantum/os/cli/index.js --court
+node dist/quantum/os/cli/index.js --court --proven
 status=$?
 if [ $status -ne 0 ]; then
   echo "pre-push: uuidnaOS RED — push BLOCKED. derived drift: npm run reconcile -- --derive-only"

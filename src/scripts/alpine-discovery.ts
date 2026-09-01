@@ -6,10 +6,10 @@
 // Walks the committed mirror (28k+ packages), classifies harmonised / crypto / port bindings, harvests decidable
 // arithmetic from Alpine's own words, and folds axiom-hunt exposed assumptions. Desk proposes; never auto-seals.
 //
-//   npm run alpine-discovery           → census + lean/alpine-discovery.json
-//   npm run alpine-discovery -- --online  → also fold live search-feed titles (named fetch doors)
-//   npm run alpine-discovery -- --deposit → deposit harvest candidates onto the wave conveyor
-//   npm run alpine-discovery -- --dry     → report only, no writes or deposits
+//   npm run x -- alpine-discovery           → census + lean/alpine-discovery.json
+//   npm run x -- alpine-discovery -- --online  → also fold live search-feed titles (named fetch doors)
+//   npm run x -- alpine-discovery -- --deposit → deposit harvest candidates onto the wave conveyor
+//   npm run x -- alpine-discovery -- --dry     → report only, no writes or deposits
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'

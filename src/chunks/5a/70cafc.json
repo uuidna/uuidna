@@ -1,0 +1,12 @@
+{
+  "handle": "5a70cafc",
+  "address": "5a70cafc-3489-858c-bbf3-701b49f81022",
+  "statement": "(29 + 74 - 0 = 103)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_bl_sc_ie_103"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

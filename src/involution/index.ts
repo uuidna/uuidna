@@ -1540,7 +1540,32 @@ function conjunction(c: Cursor): boolean {
 }
 
 /** holds(statement) → true, false, or null when it could not be decided here. Three states, never two. */
+// MEMOISED ON THE STATEMENT, because the census evaluates the SAME statement once per involution and the cost
+// is not spread evenly enough for that to be a rounding error. Measured 2026-09-01 over the whole ledger: the
+// median theorem decides in 0.086 ms and the MEAN is 29.65 ms — the distribution is that skewed. Ten statements
+// carry 72.9% of a 64 s census, and one of them, four_wire_sorting_needs_five_comparators, costs 14.5 s by
+// itself: they are exhaustive combinatorial searches (sorting networks, S4 permutations, Post classes), so they
+// are expensive for a legitimate reason and re-deciding them is pure waste.
+//
+// A pure function of an immutable string, so the memo is sound by construction — same input, same verdict, and
+// a statement is never mutated in place. It stores the null verdict too: "this does not evaluate" is an answer
+// that costs a parse to reach, and the second caller deserves it as cheaply as the first.
+//
+// THIS IS THE CROSS-INVOLUTION SAVING, and it is the one census's own memo cannot make. That memo is keyed on
+// the involution, so it correctly returns a held answer for a repeat of the SAME census and does nothing at all
+// for the next one — yet every census asks holds(t.statement) for every sealed theorem before it asks anything
+// about its involution. The statements are the shared work; the involution only decides what happens after.
+const HOLDS = new Map<string, boolean | null>()
+
 export function holds(statement: string): boolean | null {
+  const memo = HOLDS.get(statement)
+  if (memo !== undefined || HOLDS.has(statement)) return memo as boolean | null
+  const verdict = holdsUncached(statement)
+  HOLDS.set(statement, verdict)
+  return verdict
+}
+
+function holdsUncached(statement: string): boolean | null {
   const cleaned = stripComments(statement)
   if (!evaluable(cleaned)) return null
   const src = stripAscriptions(cleaned)

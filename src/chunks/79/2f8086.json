@@ -1,0 +1,12 @@
+{
+  "handle": "792f8086",
+  "address": "792f8086-b28a-8a6d-a8b9-3f103114f769",
+  "statement": "(438 + 260 - 0 = 698)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_da_bu_ie_698"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

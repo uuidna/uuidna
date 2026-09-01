@@ -1,0 +1,12 @@
+{
+  "handle": "3ff12f88",
+  "address": "3ff12f88-a038-8126-9dd2-c018a095d24d",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_language_partitions_28635"
+  ],
+  "statement": "(7486 + 21149 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

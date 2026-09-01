@@ -171,3 +171,49 @@ export function domainsOverlap(a: string, b: string): { a: string; b: string; on
     lean: `theorem alpine_domains_${a}_${b}_incl_excl_${union} : (${onlyA + both} + ${onlyB + both} - ${both} = ${union}) := by decide`,
   }
 }
+
+// ── IS THERE ALPINE WORK PENDING, AND WHAT DOES IT COST TO ASK? (held leads 2 and 4, closed 2026-09-01) ───────
+//
+// The fill-gaps arc gated its two Alpine phases on `s.harvest > 0`, which counts SEARCH-FEED leads — a different
+// queue entirely. It was a stand-in taken because the honest question looked expensive: lead 4 measured a real
+// alpinePending at 644 ms, since answering it seemed to require classifying all 28,635 packages to learn the
+// binding counts. A 644 ms survey is too slow to sit in a gate, so a wrong-but-instant signal went in instead,
+// and I then COPIED it into the domains-deposit phase, which is how a stand-in becomes a convention.
+//
+// The expense was never real. Every claim these phases deposit embeds the catalogue count in its own NAME —
+// alpine_domain_database_partitions_28635, alpine_bindings_partition_packages_28635 — because the count is what
+// the claim is about. So the question "would a deposit offer anything new?" is answered by NAMES, not by work:
+// build the keys the current catalogue implies, and ask the ledger whether it already holds them. The census
+// that computes the claims never has to run to find out whether it should.
+//
+// This is exact rather than a heuristic, and it is exact in both directions:
+//   • the catalogue moves → the count moves → every key changes → all of them are unsealed → pending, correctly;
+//   • a new domain PATTERN is added with the catalogue unchanged → its key has never been sealed → pending, which
+//     is the case a "did the catalogue change?" fingerprint would have missed entirely;
+//   • nothing moved and the claims are sealed → zero, and the phases skip work with a known answer.
+//
+// HONEST SCOPE. It tells you the deposit has something to OFFER, never that the offer is worth sealing — the
+// conveyor still refuses duplicates and the kernel still disposes. It also reasons only about the structural
+// claims whose keys are derivable from the count; a claim keyed on something else would not be seen here, so a
+// new claim SHAPE must add its key builder alongside these or it will be invisible to the gate.
+import { theorems } from '../../../theorems/index.js'
+import { catalogueState } from '../catalogue/index.js'
+
+/** every claim key the current catalogue implies — derived from the count alone, never from a census walk */
+export const alpineExpectedClaimKeys = (): string[] => {
+  const n = catalogueState().count
+  if (n === 0) return []            // no catalogue, no claims — absent is not the same as complete
+  return [
+    `alpine_bindings_partition_packages_${n}`,
+    `alpine_binding_origins_overcount_${n}`,
+    ...DOMAIN_PATTERNS.map((d) => `alpine_domain_${d.domain}_partitions_${n}`),
+  ]
+}
+
+/** how many of those the ledger does NOT hold — the gate's honest signal, at a ledger lookup rather than 644 ms */
+export const alpinePendingClaims = (): number => {
+  const expected = alpineExpectedClaimKeys()
+  if (expected.length === 0) return 0
+  const sealed = new Set(theorems().map((t: { name: string }) => t.name))
+  return expected.filter((k) => !sealed.has(k)).length
+}

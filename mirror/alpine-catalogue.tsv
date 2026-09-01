@@ -22949,13 +22949,13 @@ main	apg	2.2.3-r7	Q1rEC0mZUoRoGSxfofr4HF2gNHloI=	Automated Password Generator.	s
 main	apg-doc	2.2.3-r7	Q1TcKebsrDuZAGqSbR3juhR8iERzs=	Automated Password Generator. (documentation)		
 main	api-sanity-checker	1.98.7-r6	Q1EFKo4eq86RaTj6oOL3uE+/YaXHM=	A tool for creating automated test suites from any set of C sources	perl build-base	cmd:api-sanity-checker=1.98.7-r6
 main	apk-cron	1.0-r3	Q1KPKerUnzxULq3sNGIiRh+na3Aes=	Periodic software updates	apk-tools	
-main	apk-tools	3.0.7-r0	Q1dLXHOFXPYF6O8puceaa15gWGTDU=	Alpine Package Keeper - package manager for alpine	musl>=1.2.3_git20230424 libcrypto3>=3.5 libapk=3.0.7-r0 ca-certificates-bundle so:libapk.so.3.0.0 so:libc.musl-x86_64.so.1 so:libz.so.1	apk-tools3=3.0.7-r0 cmd:apk=3.0.7-r0
-main	apk-tools-bash-completion	3.0.7-r0	Q19hP61cS7hbZj6Qyky1MgQvde8wg=	Bash completions for apk-tools		
-main	apk-tools-dbg	3.0.7-r0	Q1bWwJ3CW7xnr7kvsA7XTyi8cVJKY=	Alpine Package Keeper - package manager for alpine (debug symbols)	!apk-tools<3.0.7-r0 !apk-tools>3.0.7-r0 !libapk<3.0.7-r0 !libapk>3.0.7-r0 !lua5.5-apk<3.0.7-r0 !lua5.5-apk>3.0.7-r0 !py3-apk<3.0.7-r0 !py3-apk>3.0.7-r0	
-main	apk-tools-dev	3.0.7-r0	Q16l6xS/ylPCHLuO5kYt+e47SfDn4=	Alpine Package Keeper - package manager for alpine (development files)	libapk=3.0.7-r0 pc:openssl pc:zlib pkgconfig	pc:apk=3.0.0
-main	apk-tools-doc	3.0.7-r0	Q1G/dD9bEMHufWvRBnU67M4KOxH6E=	Alpine Package Keeper - package manager for alpine (documentation)		
-main	apk-tools-static	3.0.7-r0	Q1fvk8udOVcZBE+lbCwGVBQn6OBF4=	Alpine Package Keeper - static binary		cmd:apk.static=3.0.7-r0
-main	apk-tools-zsh-completion	3.0.7-r0	Q1l3ULKDSkj0f+yj+3eVZLyVJQWM4=	Zsh completions for apk-tools		
+main	apk-tools	3.0.8-r0	Q1eGEwqPLTrGn8MWEYdXt+gVG4uMM=	Alpine Package Keeper - package manager for alpine	musl>=1.2.3_git20230424 libcrypto3>=3.5 libapk=3.0.8-r0 ca-certificates-bundle so:libapk.so.3.0.0 so:libc.musl-x86_64.so.1 so:libz.so.1	apk-tools3=3.0.8-r0 cmd:apk=3.0.8-r0
+main	apk-tools-bash-completion	3.0.8-r0	Q1FrSW2ZGYOBY1IMpS7AQK5LFEn0A=	Bash completions for apk-tools		
+main	apk-tools-dbg	3.0.8-r0	Q1MPYwPzFavi5juhs8XRUCXcthyOs=	Alpine Package Keeper - package manager for alpine (debug symbols)	!apk-tools<3.0.8-r0 !apk-tools>3.0.8-r0 !libapk<3.0.8-r0 !libapk>3.0.8-r0 !lua5.5-apk<3.0.8-r0 !lua5.5-apk>3.0.8-r0 !py3-apk<3.0.8-r0 !py3-apk>3.0.8-r0	
+main	apk-tools-dev	3.0.8-r0	Q1UGnZDjqVe0Tt5w1Vb8C62z8cF4Y=	Alpine Package Keeper - package manager for alpine (development files)	libapk=3.0.8-r0 pc:openssl pc:zlib pkgconfig	pc:apk=3.0.0
+main	apk-tools-doc	3.0.8-r0	Q12l8MU9dEqy0eyVAosrRdRnuUOPo=	Alpine Package Keeper - package manager for alpine (documentation)		
+main	apk-tools-static	3.0.8-r0	Q1TCE/mRpC4Bbpa1h1MzU8PnPgVrQ=	Alpine Package Keeper - static binary		cmd:apk.static=3.0.8-r0
+main	apk-tools-zsh-completion	3.0.8-r0	Q1VSMDm8MLqRKicrDOYECkAa/MVwA=	Zsh completions for apk-tools		
 main	apkbuild-cpan	3.17.0-r0	Q16yFap1+iHPJQM7ZozmgA96fnZzA=	Script to generate perl APKBUILD from CPAN	perl perl-libwww perl-json perl-module-build perl-module-build-tiny perl-lwp-protocol-https	cmd:apkbuild-cpan=3.17.0-r0
 main	apkbuild-gem-resolver	3.17.0-r0	Q1or2t0Zpoc3BI38gyricYHmK9ZAE=	APKBUILD dependency resolver for RubyGems	ruby ruby-augeas	cmd:apkbuild-gem-resolver=3.17.0-r0
 main	apkbuild-pypi	3.17.0-r0	Q1MjFvjjRUxc5sk5W1I1Si/uMUKXY=	Script to generate python3 APKBUILD from PYPI	perl perl-libwww perl-json perl-module-build-tiny perl-lwp-protocol-https perl-ipc-system-simple	cmd:apkbuild-pypi=3.17.0-r0
@@ -24516,7 +24516,7 @@ main	lftp-zsh-completion	4.9.3-r0	Q1m1dHTcukoOhFAvA09yOHttIjCok=	Zsh completions
 main	libaio	0.3.113-r2	Q1rl4XuMVII8/9APw85wwqdek7ziU=	Asynchronous input/output library	so:libc.musl-x86_64.so.1	so:libaio.so.1=1.0.2
 main	libaio-dev	0.3.113-r2	Q1u1m7/3aXp44+S8tMlD9GPV4nA9c=	Asynchronous input/output library (development files)	libaio=0.3.113-r2	
 main	libaio-doc	0.3.113-r2	Q1p2lglon5ZnoheDqxcpM1p//ldFc=	Asynchronous input/output library (documentation)		
-main	libapk	3.0.7-r0	Q1PvZp8Y+OXreXo6B9LCOkRTE2NTo=	Alpine Package Keeper - package manager for alpine	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3 so:libz.so.1	libapk2=3.0.7-r0 so:libapk.so.3.0.0=3.0.0
+main	libapk	3.0.8-r0	Q1uTzpVzwdDbPup84yhBrQhXq8SlQ=	Alpine Package Keeper - package manager for alpine	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3 so:libz.so.1	libapk2=3.0.8-r0 so:libapk.so.3.0.0=3.0.0
 main	libapparmor	4.1.7-r1	Q12hUuswi81hP1oUh2t3GUNcw1dfc=	AppArmor library	so:libc.musl-x86_64.so.1	so:libapparmor.so.1=1.24.3
 main	libapparmor-dev	4.1.7-r1	Q1B+uVF172ZOly4udZQktzFyAbPLs=	Linux application security framework - mandatory access control for programs (development files)	libapparmor=4.1.7-r1 pkgconfig	pc:libapparmor=4.1.7
 main	libarchive	3.8.7-r0	Q1mrlHV79h8vmcl8FIfzI5P4YqX68=	library that can create and read several streaming archive formats	so:libacl.so.1 so:libbz2.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libexpat.so.1 so:liblz4.so.1 so:liblzma.so.5 so:libz.so.1 so:libzstd.so.1	so:libarchive.so.13=13.8.7
@@ -25676,7 +25676,7 @@ main	lua5.4-uuid	0.3-r1	Q1CmGIfixlxqnM7gBFn17oFNgbI2w=	A pure Lua uuid generator
 main	lua5.4-yaml	1.1.2-r9	Q1L5FJIyYbTHvq2VD+1jBf9yxOukk=	LibYaml binding for Lua 5.4	lua5.4 lua5.4-lub so:libc.musl-x86_64.so.1	
 main	lua5.5	5.5.0-r1	Q1BTFJ1ZT2V2ng8xnIV/tCCUxPvS0=	Powerful light-weight programming language	so:libc.musl-x86_64.so.1 so:liblua-5.5.so.0	lua cmd:lua5.5=5.5.0-r1 cmd:luac5.5=5.5.0-r1
 main	lua5.5-alt-getopt	0.8.0-r2	Q1j2M9VOB4zRgO0cxaU2A1FrA8QEM=	Lua module for processing options similar to getopt_long(3) for Lua 5.5		
-main	lua5.5-apk	3.0.7-r0	Q1Qr6aH2AgWrhHdu80LJhE9dlr5Mw=	Lua module for apk-tools	so:libapk.so.3.0.0 so:libc.musl-x86_64.so.1 so:liblua-5.5.so.0	
+main	lua5.5-apk	3.0.8-r0	Q1k6tYKFZalEKmJqpqync+DApqA88=	Lua module for apk-tools	so:libapk.so.3.0.0 so:libc.musl-x86_64.so.1 so:liblua-5.5.so.0	
 main	lua5.5-augeas	0.1.2-r8	Q1DEO7o0R3GkKuUFs/wfNa4hiGuVg=	Lua 5.5 bindings for Augeas	so:libaugeas.so.0 so:libc.musl-x86_64.so.1	
 main	lua5.5-b64	0.1-r6	Q1jqIEVcEGmnGtWC0zJm/VPhV5wBc=	Lua base64 implementation with support for urlsafe (for Lua 5.5)	lua5.5 so:libc.musl-x86_64.so.1	
 main	lua5.5-bit32	5.3.0-r7	Q15i/2uiTHUEbd+aEKxydoxXwefRo=	A lua library providing bitwise operations (for Lua 5.5)	lua5.5 so:libc.musl-x86_64.so.1	lua5.5-bitlib=5.3.0-r7
@@ -27285,7 +27285,7 @@ main	pwgen	2.08-r3	Q1VH65OK2IdaWl4c+rcf/mTOd7n1U=	A Password Generator	so:libc.m
 main	pwgen-doc	2.08-r3	Q1xigSirPTsz5DTOjk0UcIhmuU/UI=	A Password Generator (documentation)		
 main	py3-alabaster	1.0.0-r1	Q1o7Odw7spA/5O908pOEGEstywdb4=	Lightweight, configurable Sphinx theme	python3 python3~3.14	py-alabaster=1.0.0-r1 py3.14:alabaster=1.0.0-r1
 main	py3-alabaster-pyc	1.0.0-r1	Q1NjG3bzXg7nDtIfuVminm7Pv4wl0=	Precompiled Python bytecode for py3-alabaster	python3~3.14	
-main	py3-apk	3.0.7-r0	Q1N0plCv66sdBgCE5OLab8utXgH0Q=	Python module for apk-tools	python3~3.14 so:libapk.so.3.0.0 so:libc.musl-x86_64.so.1	
+main	py3-apk	3.0.8-r0	Q1Tb6DNx6eZ64iN/CygiiaOueXDPs=	Python module for apk-tools	python3~3.14 so:libapk.so.3.0.0 so:libc.musl-x86_64.so.1	
 main	py3-apparmor	4.1.7-r1	Q1nnZQm3dvQ1B4DoipCGuBaS2ZShc=	Python3 module for apparmor	libapparmor=4.1.7-r1 python3 python3~3.14	py3.14:LibAppArmor=4.1.7-r1
 main	py3-apparmor-pyc	4.1.7-r1	Q1tirLm3+AkTRBHYzTcDRj44n5/9E=	Precompiled Python bytecode for py3-apparmor	python3~3.14	
 main	py3-appdirs	1.4.4-r9	Q1uqjVyiq7Zb/IqclqMliIaAqJJXQ=	A small Python module for determining appropriate platform-specific dirs.	python3 python3~3.14	py3.14:appdirs=1.4.4-r9
