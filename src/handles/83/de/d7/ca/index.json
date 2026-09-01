@@ -1,0 +1,12 @@
+{
+  "handle": "83ded7ca",
+  "address": "83ded7ca-e266-8324-8898-89f9f6303c29",
+  "kind": "chunk",
+  "keys": [
+    "impossibility_claims_debt_622"
+  ],
+  "statement": "(6 + 0 = 6) ∧ (622 > 6) ∧ (291 < 622)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -73,12 +73,22 @@ const row = (k: string, v: string, prop?: string): string =>
   `<div data-slot="card-content"><strong>${esc(k)}</strong> ` +
   `<code${prop ? ` itemprop="${esc(prop)}"` : ''}>${esc(v)}</code></div>`
 
+// EVERY ENTRY IS SERVED — the 40 was a number nobody derived (the captain: port all apps unlimited).
+//
+// It truncated with an honest "… N more", which is better than silence and still a page that does not carry
+// what the package is. Measured before removing it: the largest dependency list is 422 (aws-sdk-cpp-dev), the
+// largest provides list 1162 (rocq), and only 315 packages of 28,635 — 1.10% — exceed 40 at all. So the cap was
+// paid by every reader of those 315 pages and bought nothing on the other 98.9%.
+//
+// A truncated list is also worse than it looks in THIS page specifically: the entries carry itemprop microdata,
+// so a dropped dependency is not merely invisible to a person, it is absent from the machine-readable graph an
+// agent or a search engine reads. The page's whole argument is that the markup IS the answer; a page that
+// silently answers 40 of 422 is answering a different question.
 const list = (k: string, xs: readonly string[], link?: (x: string) => string, prop?: string): string =>
   !xs.length ? '' : `<div data-slot="card-content"><strong>${esc(k)}</strong> ` +
-    xs.slice(0, 40).map((x) => link
+    xs.map((x) => link
       ? `<a${prop ? ` itemprop="${esc(prop)}"` : ''} href="${esc(link(x))}">${esc(x)}</a>`
-      : `<code${prop ? ` itemprop="${esc(prop)}"` : ''}>${esc(x)}</code>`).join(' ') +
-    (xs.length > 40 ? ` <small>… ${xs.length - 40} more</small>` : '') + '</div>'
+      : `<code${prop ? ` itemprop="${esc(prop)}"` : ''}>${esc(x)}</code>`).join(' ') + '</div>'
 
 /** renderPackagePage(page, tools) → the served HTML. The tool list is passed IN rather than imported, so this
  *  module carries no opinion about which roster a host serves — the edge subset and the full one both fit. */

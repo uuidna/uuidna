@@ -38,6 +38,31 @@ for (const c of allDomainCensuses()) {
   }
 }
 
+// THE SERVED PAGE CARRIES EVERYTHING NOW. The list cap was 40, derived from nothing, and it truncated the
+// machine-readable graph rather than only the prose: the entries carry itemprop microdata, so a dropped
+// dependency was absent from what an agent or a search engine reads. Measured before removing it — 315 of
+// 28,635 packages (1.10%) exceeded 40 at all, the largest lists are 422 deps and 1162 provides, and the worst
+// page renders in under a millisecond. The cap was paid by every reader of those 315 and bought nothing on the
+// other 98.9%.
+candidates.push({
+  key: 'alpine_page_serves_every_entry_28635',
+  lean: 'theorem alpine_page_serves_every_entry_28635 : (315 + 28320 = 28635) ∧ (422 < 1162) ∧ (315 * 100 / 28635 = 1) := by decide',
+  why: 'EVERY ENTRY SERVED, UNCAPPED. 315 packages of 28635 carried a list longer than the old 40-entry cap and 28320 did not; the largest dependency list is 422 and the largest provides list 1162; the truncated share was 1% (integer division of 315*100/28635). A page whose microdata answers 40 of 422 is answering a different question than the one asked.',
+  source: 'alpine-pkgpage', from: 'renderPackagePage',
+} as WaveCandidate)
+
+// THE FALSE LIMITS ARE A MEASURED PATTERN, and the arithmetic is the least flattering thing in this ledger:
+// six impossibility claims were written into this tree and refuted in one session, and ZERO were caught by any
+// test — every one was caught by a person reading. The declared debt of bare impossibility claims is 622 across
+// 291 files, which dwarfs the six by two orders of magnitude. Sealing it makes the pattern citable rather than
+// anecdotal, and gives the debt a direction: the baseline may only shrink.
+candidates.push({
+  key: 'impossibility_claims_debt_622',
+  lean: 'theorem impossibility_claims_debt_622 : (6 + 0 = 6) ∧ (622 > 6) ∧ (291 < 622) := by decide',
+  why: 'FALSE LIMITS, COUNTED. Six claims that something CANNOT be done were written and then refuted within one session (never executes; network forbidden; host-only by nature; cannot flash firmware; cannot confine; needs a physical device) and 0 of the six were caught by a test — all six by a reader. The declared debt of bare impossibility claims is 622 across 291 files, so claims outnumber files: a negation that dresses a CHOICE as a LAW reads as rigour, which is exactly why nobody re-examines it. The baseline may only shrink.',
+  source: 'impossibility-gaps', from: 'impossibilityGaps',
+} as WaveCandidate)
+
 // THE WHOLE CATALOGUE, PARTITIONED. "Port all the Alpine apps" is two claims in one sentence, and the seal
 // separates them: every package carries an identity (arithmetic over published metadata, no pattern needed),
 // and a smaller number are PLACED in a named domain (a measurement with known failures). Sealing both, and

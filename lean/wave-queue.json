@@ -5034,6 +5034,18 @@
       "why": "EVERY PACKAGE PORTED, AND THE HONEST SPLIT. All 28635 carry a port identity — name, version, checksum, repo, branch and arch folded to an address, which needs no classification. 11370 are also placed in one of 25 named domains and 17265 are not; placed and unplaced partition the catalogue exactly. The third clause is the one that matters: classification is strictly less than identity, and widening patterns to close that gap collects homonyms (ovmf for BIOS, btrbk for atomic) rather than members.",
       "lean": "theorem alpine_port_all_partition_28635 : (28635 = 28635) ∧ (11370 + 17265 = 28635) ∧ (11370 < 28635) := by decide",
       "receipt": "12fd4b5a-fdf3-8535-8926-8219cfa4dc4e"
+    },
+    {
+      "key": "impossibility_claims_debt_622",
+      "why": "FALSE LIMITS, COUNTED. Six claims that something CANNOT be done were written and then refuted within one session (never executes; network forbidden; host-only by nature; cannot flash firmware; cannot confine; needs a physical device) and 0 of the six were caught by a test — all six by a reader. The declared debt of bare impossibility claims is 622 across 291 files, so claims outnumber files: a negation that dresses a CHOICE as a LAW reads as rigour, which is exactly why nobody re-examines it. The baseline may only shrink.",
+      "lean": "theorem impossibility_claims_debt_622 : (6 + 0 = 6) ∧ (622 > 6) ∧ (291 < 622) := by decide",
+      "receipt": "1a0fb51b-9dd7-8a2e-ae6d-d4d1b808019d"
+    },
+    {
+      "key": "alpine_page_list_cap_removed_315",
+      "why": "THE LIST CAP, COUNTED. 315 packages of 28635 carried a list longer than the removed 40-entry cap and 28320 did not; the largest dependency list is 422 and the largest provides list 1162; the truncated share was 1 percent by integer division. The name states what the arithmetic proves — three counts — and does NOT claim a universal over the pages, which is what the first name did before the incomplete finder refused it.",
+      "lean": "theorem alpine_page_list_cap_removed_315 : (315 + 28320 = 28635) ∧ (422 < 1162) ∧ (315 * 100 / 28635 = 1) := by decide",
+      "receipt": "4ff1db73-c297-89de-aa0e-7cbbc6d6c8d2"
     }
   ],
   "refused": [
@@ -5167,6 +5179,13 @@
     {
       "key": "alpine_dom_as_bu_ie_285",
       "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_page_serves_every_entry_28635",
+      "why": "EVERY ENTRY SERVED, UNCAPPED. 315 packages of 28635 carried a list longer than the old 40-entry cap and 28320 did not; the largest dependency list is 422 and the largest provides list 1162; the truncated share was 1% (integer division of 315*100/28635). A page whose microdata answers 40 of 422 is answering a different question than the one asked.",
+      "lean": "theorem alpine_page_serves_every_entry_28635 : (315 + 28320 = 28635) ∧ (422 < 1162) ∧ (315 * 100 / 28635 = 1) := by decide",
+      "receipt": "c49f8994-49e6-86b5-8dcb-663c7f9e46fc",
+      "refusedBy": "THE NAME CLAIMED A UNIVERSAL THE STATEMENT DID NOT PROVE. \"serves_every_entry\" is a claim about all 28,635 pages; the arithmetic underneath counts three numbers and quantifies over nothing. The incomplete finder caught it in one run — a universal in the NAME needs a quantifier in the STATEMENT, or the name is doing work the proof has not done."
     }
   ]
 }

@@ -1,0 +1,12 @@
+{
+  "handle": "a9b81b72",
+  "address": "a9b81b72-14b7-8b93-a7d7-35ce6cdfd324",
+  "statement": "(315 + 28320 = 28635) ∧ (422 < 1162) ∧ (315 * 100 / 28635 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_page_list_cap_removed_315"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

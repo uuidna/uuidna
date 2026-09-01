@@ -1,0 +1,12 @@
+{
+  "handle": "f767fdcf",
+  "address": "f767fdcf-c164-8dfe-b52f-87b35ab0a1de",
+  "statement": "(2472 + 0 = 2472) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_round_trips"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

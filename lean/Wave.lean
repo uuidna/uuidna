@@ -5017,3 +5017,16 @@ theorem mcp_tool_coverage_partition_244 : (144 + 100 = 244) ∧ (100 < 119) := b
     the one that matters: classification is strictly less than identity, and widening patterns to close that gap
     collects homonyms (ovmf for BIOS, btrbk for atomic) rather than members. -/
 theorem alpine_port_all_partition_28635 : (28635 = 28635) ∧ (11370 + 17265 = 28635) ∧ (11370 < 28635) := by decide
+
+/-- FALSE LIMITS, COUNTED. Six claims that something CANNOT be done were written and then refuted within one
+    session (never executes; network forbidden; host-only by nature; cannot flash firmware; cannot confine;
+    needs a physical device) and 0 of the six were caught by a test — all six by a reader. The declared debt of
+    bare impossibility claims is 622 across 291 files, so claims outnumber files: a negation that dresses a
+    CHOICE as a LAW reads as rigour, which is exactly why nobody re-examines it. The baseline may only shrink. -/
+theorem impossibility_claims_debt_622 : (6 + 0 = 6) ∧ (622 > 6) ∧ (291 < 622) := by decide
+
+/-- THE LIST CAP, COUNTED. 315 packages of 28635 carried a list longer than the removed 40-entry cap and 28320
+    did not; the largest dependency list is 422 and the largest provides list 1162; the truncated share was 1
+    percent by integer division. The name states what the arithmetic proves — three counts — and does NOT claim
+    a universal over the pages, which is what the first name did before the incomplete finder refused it. -/
+theorem alpine_page_list_cap_removed_315 : (315 + 28320 = 28635) ∧ (422 < 1162) ∧ (315 * 100 / 28635 = 1) := by decide
