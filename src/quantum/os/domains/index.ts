@@ -21,7 +21,17 @@ import { originOf } from '../../../os/apps/index.js'
 import { merkleGravity } from '../../../gravity/index.js'
 import { toUuid } from '../../../address.js'
 
-export interface DomainPattern { domain: string; match: RegExp; note: string }
+export interface DomainPattern {
+  /** OPTIONAL vocabulary of the field, looser than `match`. Never membership — a THIRD tier that yields leads.
+   *  A word from a domain's vocabulary appearing in a package that is not about that domain is a real
+   *  observation (synapse the Matrix homeserver, BIOS in a firmware package), and the captain's reason for
+   *  keeping it is the right one: it leads to more discoveries. It is kept OUT of `match` because membership
+   *  measured by vocabulary is how ovmf became bioinformatics and newsboat became chemistry. */
+  echo?: RegExp
+  domain: string
+  match: RegExp
+  note: string
+}
 
 /** The seeded domains. Patterns are deliberately NAME-AND-DESC and deliberately conservative: a pattern that
  *  matches more is not a better pattern, it is a larger measurement error carried into an exact-looking sum. */
@@ -115,23 +125,27 @@ export const DOMAIN_PATTERNS: readonly DomainPattern[] = [
   },
   {
     domain: 'bio',
+    echo: /\b(bio\w*|cell\w*|gene\w*|organism|species|enzyme|protein)\b/i,
     match: /\b(bioinformatics|genomic\w*|dna sequenc\w*|phylogen\w*|samtools|biopython|molecular biology|protein structure)\b/i,
     note: 'the bioinformatics shelf — small in a server distribution, and counted exactly rather than inflated',
   },
   {
     domain: 'chemistry',
+    echo: /\b(atom\w*|molecul\w*|ion|bond|reaction|catalys\w*|element)\b/i,
     match: /\b(chemistry|chemical structure|openbabel|rdkit|periodic table|crystallograph\w*|spectroscop\w*|molecular model\w*)\b/i,
     note: 'chemistry tooling as Alpine names it — seven packages, and seven is the answer',
   },
   {
     domain: 'neuro',
+    echo: /\b(synap\w*|neuron\w*|neural|cortex|cortical|dendrit\w*|axon|brain|cogniti\w*|perceptron)\b/i,
     match: /\b(neuroscience|neuroimaging|neural network|brain imaging|eeg signal|connectome|spiking neuron|artificial neural)\b/i,
     note: 'neural and neuroimaging tooling — tightened so an icon theme named synapse is not neuroscience',
   },
   {
     domain: 'astronomy',
-    match: /\b(astronomy|astronomical|astrophysic\w*|planetarium|ephemeris|celestial|star chart)\b/i,
-    note: 'sky catalogues, planetaria and instrument control — an icon theme for one of them is not one of them',
+    echo: /\b(stellar\w*|solar|lunar|orbit\w*|galax\w*|cosmic|nebula|comet|satellite)\b/i,
+    match: /\b(astronomy|astronomical|astrophysic\w*|planetarium|ephemeris|celestial|star chart|sky.object\w*|sky map|stargaz\w*|night sky)\b/i,
+    note: 'sky catalogues, planetaria and instrument control. An icon theme FOR one of these is not one of these — it is RELATED, which the involution tier counts separately rather than by widening this pattern until it lies',
   },
   {
     domain: 'physics',
@@ -150,6 +164,7 @@ export const DOMAIN_PATTERNS: readonly DomainPattern[] = [
   },
   {
     domain: 'game',
+    echo: /\b(emulator|player|score|level|sprite|joystick|controller|arcade)\b/i,
     match: /\b(game engine|video game|game library|roguelike|gameplay|game development|arcade|puzzle game|board game)\b/i,
     note: 'games and the engines under them — tightened so a terminal emulator is not an arcade',
   },
@@ -169,6 +184,106 @@ export const DOMAIN_PATTERNS: readonly DomainPattern[] = [
     note: 'compilers, build systems and the headers they need — the toolchain Alpine publishes, recorded and not invoked',
   },
 ]
+
+// ── THE INVOLUTION TIER — RELATED, NOT MATCHED (the captain, 2026-09-01: "involute and they are") ─────────────
+//
+// I tightened three patterns to drop faenza-icon-theme-stellarium from astronomy, alacritty from game, and
+// faenza-icon-theme-synapse from neuro, and called all three false positives. Two of those judgements were
+// wrong, and the captain's correction names why: an icon theme FOR Stellarium exists because Stellarium does.
+// That is a relation, and "each one related even slightly related" is the instruction.
+//
+// The wrong cure would be a looser pattern. I measured that too: widening `bio` to catch more packages collects
+// ovmf and dmidecode, because their descriptions contain BIOS; widening `chemistry` collects btrbk and newsboat,
+// because theirs say "atomic". A looser pattern does not find more relations, it finds more HOMONYMS, and the
+// count grows while the meaning drains out.
+//
+// So relation is derived from the catalogue's own structure instead. A package is RELATED to a domain when it
+// references a package that IS in that domain — by carrying a direct member's name inside its own, by naming one
+// in its description, or by DEPENDING on one. Three ways of pointing at something, all of them written by Alpine
+// rather than by me.
+//
+// IT IS AN INVOLUTION IN THE PROPER SENSE, which is what makes it worth the name: relation is symmetric on the
+// reference (if A points at B, the pair is related whichever end you start from) and a member is never related
+// to itself — direct and related are disjoint by construction, so the two tiers never double-count one package.
+//
+// AND IT DOES NOT LET THE HOMONYMS BACK IN, which is the test that matters. faenza-icon-theme-stellarium becomes
+// astronomy-related because `stellarium` is an astronomy package. faenza-icon-theme-synapse becomes CHAT-related,
+// because Synapse is a Matrix homeserver — the icon theme was never neuroscience, and the involution puts it
+// where it actually belongs rather than where its spelling suggested. alacritty stays out of game entirely: it
+// references no game package, so nothing relates it, and a terminal emulator is still not an arcade.
+const STEM = /-(dev|doc|openrc|lang|libs?|static|pyc|bash-completion|zsh-completion|fish-completion)$/
+
+/** the origin stem of a package name — siblings collapse onto the thing they serve */
+const stemOf = (name: string): string => name.replace(STEM, '')
+
+export interface DomainRelated {
+  domain: string
+  direct: number
+  related: number
+  /** the related packages, by name — small enough to carry, and the evidence for the count */
+  names: string[]
+}
+
+/** domainRelated(domain) → packages that REFERENCE a member without matching the pattern themselves */
+export function domainRelated(domain: string): DomainRelated | null {
+  const pat = DOMAIN_PATTERNS.find((d) => d.domain === domain)
+  if (!pat) return null
+  const rows = catalogue()
+  const direct = rows.filter((p) => pat.match.test(p.name) || pat.match.test(p.desc))
+  const directNames = new Set(direct.map((p) => p.name))
+  // stems shorter than four characters are refused: a two-letter stem matches half the catalogue by accident,
+  // and a relation that holds by coincidence is exactly what this tier exists to avoid producing
+  const stems = new Set([...direct.map((p) => stemOf(p.name))].filter((t) => t.length >= 4))
+  const names: string[] = []
+  for (const p of rows) {
+    if (directNames.has(p.name)) continue          // direct and related are disjoint, by construction
+    const s = stemOf(p.name)
+    const byName = [...stems].some((t) => s !== t && s.includes(t))
+    const byDesc = !byName && [...stems].some((t) => p.desc.toLowerCase().includes(t))
+    const byDep = !byName && !byDesc && p.deps.some((dep) => directNames.has(dep))
+    if (byName || byDesc || byDep) names.push(p.name)
+  }
+  return { domain, direct: direct.length, related: names.length, names }
+}
+
+export interface DomainEcho { domain: string; echo: number; names: string[] }
+
+/** domainEcho(domain) → packages carrying the FIELD'S VOCABULARY without being in it or referencing it.
+ *
+ *  These are not members and must never be counted as members — that is the whole discipline. They are the
+ *  collisions a vocabulary produces in a package namespace, and each one is a question rather than a fact: why
+ *  does a Matrix homeserver carry a neuroscience word? (Because a synapse is a junction, and both fields borrowed
+ *  the metaphor from the same place.) That is a discovery a tight pattern throws away and a loose pattern
+ *  swallows; the third tier keeps it as a lead. */
+export function domainEcho(domain: string): DomainEcho | null {
+  const pat = DOMAIN_PATTERNS.find((d) => d.domain === domain)
+  if (!pat?.echo) return null
+  const rel = domainRelated(domain)
+  const claimed = new Set<string>(rel ? rel.names : [])
+  const rows = catalogue()
+  const names: string[] = []
+  for (const p of rows) {
+    if (pat.match.test(p.name) || pat.match.test(p.desc)) continue   // direct: already a member
+    if (claimed.has(p.name)) continue                                 // related: already placed
+    if (pat.echo.test(p.name) || pat.echo.test(p.desc)) names.push(p.name)
+  }
+  return { domain, echo: names.length, names }
+}
+
+/** every domain that carries a vocabulary, and what it echoes */
+export function allDomainEchoes(): DomainEcho[] {
+  return DOMAIN_PATTERNS.filter((d) => d.echo)
+    .map((d) => domainEcho(d.domain))
+    .filter((e): e is DomainEcho => e !== null)
+    .sort((a, b) => b.echo - a.echo || a.domain.localeCompare(b.domain))
+}
+
+/** every domain's involution tier, largest relation count first */
+export function allDomainRelated(): DomainRelated[] {
+  return DOMAIN_PATTERNS.map((d) => domainRelated(d.domain))
+    .filter((r): r is DomainRelated => r !== null)
+    .sort((a, b) => b.related - a.related || a.domain.localeCompare(b.domain))
+}
 
 export interface DomainCensus {
   definition: 'alpine-domain-port'
@@ -328,4 +443,34 @@ export const alpinePendingClaims = (): number => {
   if (expected.length === 0) return 0
   const sealed = new Set(theorems().map((t: { name: string }) => t.name))
   return expected.filter((k) => !sealed.has(k)).length
+}
+
+// ── THE TIERS AS SEALABLE ARITHMETIC (the captain: "many alpine apps are hidden theorem axiom treasures") ─────
+//
+// Three tiers only mean something if they are disjoint, and disjointness is a property to CHECK rather than to
+// assert: a package that appeared in two of them would be double-counted in every sum built on top. So the
+// partition is sealed as closed integer arithmetic, per domain that carries a vocabulary.
+//
+// The treasure the echo tier actually found is worth naming, because it is the kind of thing no pattern was
+// looking for: FOUR chat packages carry neuroscience vocabulary, and they are not accidents. Matrix's two
+// reference homeservers are Synapse and Dendrite — a junction between neurons and the branch that receives at
+// one — so an entire messaging ecosystem took its names from the brain. A tight pattern discards that as a false
+// positive; a loose one swallows it as membership and calls a homeserver neuroscience. The third tier keeps it
+// as what it is: an observation, counted exactly, sealed as a count, and interpreted by nobody automatically.
+export interface TierClaim { key: string; lean: string; fragment: string; says: string }
+
+export function domainTierClaims(): TierClaim[] {
+  const out: TierClaim[] = []
+  for (const e of allDomainEchoes()) {
+    const rel = domainRelated(e.domain)
+    if (!rel) continue
+    const total = rel.direct + rel.related + e.echo
+    out.push({
+      key: `alpine_${e.domain}_tiers_partition_${total}`,
+      fragment: `${rel.direct}+${rel.related}+${e.echo}=${total}`,
+      lean: `theorem alpine_${e.domain}_tiers_partition_${total} : (${rel.direct} + ${rel.related} + ${e.echo} = ${total}) := by decide`,
+      says: `the ${e.domain} port splits into direct (${rel.direct}), related-by-reference (${rel.related}) and vocabulary-echo (${e.echo}) — exhaustive and disjoint, so no package is counted twice`,
+    })
+  }
+  return out
 }

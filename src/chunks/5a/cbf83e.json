@@ -1,0 +1,12 @@
+{
+  "handle": "5acbf83e",
+  "address": "5acbf83e-92c0-8336-994e-9843b7b3d9a6",
+  "statement": "(11 <= 25) ∧ (25 - 11 = 14)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_astronomy_origins_25"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

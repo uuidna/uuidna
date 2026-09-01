@@ -2603,6 +2603,18 @@ alpine_dom_ga_bu_ie_285 26
 alpine_dom_fo_au_ie_280 26
 alpine_dom_fo_bu_ie_342 26
 alpine_dom_au_bu_ie_458 26
+alpine_domain_astronomy_origins_25 26
+alpine_bio_tiers_partition_577 26
+alpine_game_tiers_partition_510 26
+alpine_chemistry_tiers_partition_54 26
+alpine_astronomy_tiers_partition_73 26
+alpine_neuro_tiers_partition_29 26
+alpine_dom_la_as_ie_7501 26
+alpine_dom_sh_as_ie_1301 26
+alpine_dom_as_ph_ie_32 26
+alpine_dom_as_ge_ie_87 26
+alpine_dom_as_vi_ie_257 26
+alpine_dom_as_ga_ie_50 26
 #Waves.lean
 captains_columns_sum_to_ten 27
 nine_complement_half_turns_the_orbit 27

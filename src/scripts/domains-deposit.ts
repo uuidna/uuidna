@@ -15,7 +15,7 @@
 //   npm run x -- domains-deposit -- --dry → report what WOULD land, write nothing
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS } from '../quantum/os/domains/index.js'
+import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS, domainTierClaims } from '../quantum/os/domains/index.js'
 import { shellClaims } from '../quantum/os/shellapi/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
 import { theorems } from '../theorems/index.js'
@@ -33,6 +33,12 @@ for (const c of allDomainCensuses()) {
   for (const cl of c.claims) {
     candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS(c.domain, cl.says), source: 'alpine-domains', from: `domainCensus/${c.domain}` } as WaveCandidate)
   }
+}
+
+// THE THREE-TIER PARTITIONS RIDE IT TOO — direct, related-by-reference, vocabulary-echo — because disjointness
+// is a property to prove rather than to assume: a package in two tiers would be double-counted in every sum.
+for (const cl of domainTierClaims()) {
+  candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS(`${cl.key.split('_')[1]}-tiers`, cl.says), source: 'alpine-domains', from: 'domainTierClaims' } as WaveCandidate)
 }
 
 // THE SHELL PARTITION RIDES THE SAME CONVEYOR. It is Alpine arithmetic like every other claim here — derived
@@ -82,8 +88,32 @@ if (DRY) {
 // The statement is what the kernel actually decides, so the statement is what a duplicate must be measured
 // against. Normalised on whitespace alone: two spellings of the same arithmetic are the same claim, and any
 // difference the kernel would notice survives the trim.
-const sealedLean = new Set(theorems().map((t: { statement: string }) => t.statement.replace(/\s+/g, ' ').trim()))
-const fresh = candidates.filter((c) => !sealedLean.has(String(c.lean).replace(/\s+/g, ' ').trim()))
+// THE STATEMENT, NOT THE LINE — and comparing the line is why the first two versions of this check missed
+// everything they were written to catch. A Lean line carries its own theorem NAME, so two claims that prove the
+// identical proposition under different names are different STRINGS and identical PROOFS. The lines finder
+// compares what sits between the colon and the `:=`, which is the proposition itself, so this must too.
+const norm = (lean: string): string => {
+  const line = String(lean)
+  const colon = line.indexOf(' : ')
+  const assign = line.indexOf(':=')
+  const body = colon >= 0 && assign > colon ? line.slice(colon + 3, assign) : line
+  return body.replace(/\s+/g, ' ').trim()
+}
+const sealedLean = new Set(theorems().map((t: { statement: string }) => norm(t.statement)))
+
+// AND WITHIN THE BATCH TOO, which the first version missed and Wave.lean caught. Deduping only against ALREADY
+// SEALED statements leaves duplicates that arrive together: game and astronomy both hold 25 direct members, so
+// the database↔game and database↔astronomy inclusion–exclusion claims compute the same union and emit the same
+// Lean line under two names. Neither was sealed when the batch was built, so both passed the sealed check and
+// both landed — one proof, checked twice, published twice, exactly the waste the lines finder exists to catch.
+// The batch is a set of statements, not just a set of keys.
+const seenInBatch = new Set<string>()
+const fresh = candidates.filter((c) => {
+  const line = norm(String(c.lean))
+  if (sealedLean.has(line) || seenInBatch.has(line)) return false
+  seenInBatch.add(line)
+  return true
+})
 if (fresh.length !== candidates.length) {
   console.log(`· domains-deposit — ${candidates.length - fresh.length} candidate(s) withheld: the ledger already seals that exact Lean line under another name`)
 }

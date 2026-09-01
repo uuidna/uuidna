@@ -1,0 +1,12 @@
+{
+  "handle": "92b9d565",
+  "address": "92b9d565-1b69-8619-8680-4249ac1835fd",
+  "statement": "(2 + 0 + 575 = 577)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_bio_tiers_partition_577"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -41,7 +41,19 @@ export interface Reasoning {
 const negationOf = (atom: string): string | null =>
   atom.startsWith('not_') ? atom.slice(4) : atom.startsWith('¬') ? atom.slice(1) : null
 
-const ROUND_CAP = 64 // bounded: the reasoner cannot loop forever, even on a pathological rule set
+// ── THE BOUND IS STRUCTURAL, NOT A NUMBER I PICKED (the captain, 2026-09-01: "why keeping artificial caps?") ──
+//
+// This was ROUND_CAP = 64, and 64 was not derived from anything. It made the reasoner SILENTLY INCOMPLETE: a
+// chain of 400 rules in adverse order derived 64 atoms, stopped, and returned a clean-looking result — the same
+// green-over-absent shape this tree keeps meeting, this time inside the thing that is supposed to reason. The
+// caller was told `reachedFixpoint: false`, which is honest as far as it goes, and every caller that read
+// `derived` without reading that flag was quietly handed a truncated conclusion.
+//
+// Forward chaining does not need an arbitrary cap, because it cannot run forever anyway: it is MONOTONE — every
+// round adds at least one atom or the loop ends — and the atoms it can add are exactly the heads of the rules.
+// So after |rules| productive rounds every rule that will ever fire has fired, and one more round confirms the
+// fixpoint. That is a real ceiling, it scales with the problem instead of truncating it, and it needs no faith.
+const roundBound = (rules: readonly Rule[]): number => rules.length + 1
 
 /** reason(facts, rules) → forward-chain the rules over the facts to a fixpoint, citing a sealed inference rule at
  *  every step. Deterministic and recomputable: same facts + rules → same derivation → same receipt. */
@@ -50,10 +62,40 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
   const trace: Derivation[] = []
   let rounds = 0
   let changed = true
-  while (changed && rounds < ROUND_CAP) {
+
+  // ── DENDRITIC WAKING: a rule is reconsidered only when one of its inputs newly fired ──────────────────────────
+  //
+  // Forward chaining as written re-scanned EVERY rule on EVERY round, which is the one thing a neuron never does.
+  // A cell does not re-poll the network each cycle asking whether anything changed; it sits inert until a dendrite
+  // receives, and the arriving signal is what wakes it. The captain's instruction to use neuroscience is worth
+  // taking literally here, because the biological arrangement is also the cheaper one — the same conclusions, the
+  // same trace, reached without asking a rule whose premises nobody has touched.
+  //
+  // AFFERENTS, built once: atom → the rules that listen to it. When an atom becomes known it wakes exactly its
+  // listeners for the next round, so work is proportional to what actually CHANGED rather than to the size of the
+  // rule set. A rule with no inputs in the index is simply never woken, which is what dormant means.
+  //
+  // THE TRACE IS BYTE-IDENTICAL AND THAT IS A CONSTRAINT, not a hope: receipts fold over it, so a reordering
+  // would move addresses across the tree for no reason. Rounds are kept, and within a round the woken rules are
+  // visited in their original index order — the same rules fire in the same order as before, and only the ones
+  // that could not possibly fire are skipped.
+  const afferents = new Map<string, number[]>()
+  rules.forEach((r, i) => {
+    for (const a of r.if) {
+      const listeners = afferents.get(a)
+      if (listeners) listeners.push(i)
+      else afferents.set(a, [i])
+    }
+  })
+  let awake: number[] = rules.map((_, i) => i)   // the first round wakes everything: nothing has fired yet
+
+  const cap = roundBound(rules)
+  while (changed && rounds < cap) {
     changed = false
     rounds++
-    for (const r of rules) {
+    const woken = new Set<number>()
+    for (const i of awake) {
+      const r = rules[i]!
       if (r.if.length > 0 && r.if.every((a) => known.has(a)) && !known.has(r.then)) {
         known.add(r.then)
         // Default: one premise → modus ponens; several → the hypothetical syllogism. A rule may name a
@@ -62,8 +104,11 @@ export function reason(facts: readonly string[], rules: readonly Rule[]): Reason
         const rule = cited ?? (r.if.length === 1 ? 'modus_ponens' : 'hypothetical_syllogism')
         trace.push({ conclude: r.then, from: [...r.if], rule, cites: `/theorem/${rule}` })
         changed = true
+        for (const listener of afferents.get(r.then) ?? []) woken.add(listener)
       }
     }
+    // sorted, so the next round visits woken rules in their original index order and the trace cannot reorder
+    awake = [...woken].sort((a, b) => a - b)
   }
   // A REASONER THAT CANNOT NOTICE A CONTRADICTION WILL ENTAIL ANYTHING. Forward chaining is monotone: it only
   // ever adds atoms, so if the rules license both `x` and "not_x" it concludes both and, on its own, reports a

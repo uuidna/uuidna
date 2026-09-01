@@ -2,8 +2,8 @@
   "generated": "2026-09-01",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2502,
-  "total_theorems": 2502,
+  "total_claimed": 2514,
+  "total_theorems": 2514,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3847,8 +3847,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "2aabdd37-02f2-82e1-b7d1-c556bea5c0a5",
-      "address": "32554279-bb4b-86da-8150-fe0d7c5bdb54",
+      "lineAddress": "022e390b-51f8-86cd-971a-5db70e2559f6",
+      "address": "35b0ed22-cdd8-8216-9d8f-9e705e7916bb",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4117,38 +4117,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "92191172-2b97-8e5d-985e-213e03c0deff",
-      "address": "dd629272-920c-808b-b715-add75138a9d3",
+      "lineAddress": "e1af89dc-91d0-82bb-b33a-c9de712886de",
+      "address": "aa24861b-e2a1-8525-bdbc-69a59008440e",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "43357f74-6f06-8612-8285-e386ae07770a",
-      "address": "0aa976aa-8c84-83a8-b9f4-1ffc2286d26f",
+      "lineAddress": "16f0b638-8c75-827a-b316-de9c03bf0e97",
+      "address": "36f93213-eb57-83fe-a07b-021151a19790",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "c90a5b52-3281-83f2-80ef-108905b0756c",
-      "address": "a6bb611e-fc2d-812c-a7b6-a978e941ac51",
+      "lineAddress": "34620cc1-05d1-8f45-88c2-16534295c128",
+      "address": "a2561409-c603-84ac-b77b-062fb71230ef",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "2f4c346f-9e88-8c0d-af5d-06f48b1fb335",
-      "address": "5cd519b1-ff2b-89f5-bc8c-c504c20aab7b",
+      "lineAddress": "a24ca3a6-7578-8b26-a74a-e98f7c59dec3",
+      "address": "21b72e6f-0d46-8809-8eaa-ad06ded1920f",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "e141dfe6-87da-85bc-9cf7-ef1af665a54f",
-      "address": "9cc292cc-8691-84e5-8fc9-48216b1d1a48",
+      "lineAddress": "cc6a02a6-846a-83c3-bd82-0115f578306b",
+      "address": "0ab5ce5c-e63a-8b0d-a67f-bf905dab1938",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "e7360883-6d5d-8daa-9641-95054c1a5840",
-      "address": "361647c2-ce0d-899d-955c-1e53a737f688",
+      "lineAddress": "dbb0a322-ec15-8ed6-95c4-62d5a171b429",
+      "address": "ccd20e33-5b5d-8c94-aac1-bb1105bf9b10",
       "principle": "The detectors, proven"
     },
     {
@@ -4537,14 +4537,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "45d3138d-8302-8673-860f-586c093e87df",
-      "address": "d3c3a1a5-4209-8a73-a4bc-5d06706d6e4c",
+      "lineAddress": "4b795e24-ec6b-8c2e-bd9c-7ae8cc8a58bd",
+      "address": "7f5140ce-e264-825f-82e3-429e4d47c249",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "db6ddd1f-41bb-8c54-86a9-e6630141e0be",
-      "address": "f8e545ba-2ff1-8471-9a7f-700d672b783a",
+      "lineAddress": "6c534f14-1587-8132-a513-a2d9022b2287",
+      "address": "f359b7d9-dfb2-8145-9f27-a8a0343c5d84",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -13410,6 +13410,78 @@
       "principle": "The conveyor's first wave"
     },
     {
+      "key": "alpine_domain_astronomy_origins_25",
+      "lineAddress": "4e256567-a454-8263-8e3e-f48a1dca6ddd",
+      "address": "e21c2ba0-4418-881b-b1aa-ef9e31005983",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_bio_tiers_partition_577",
+      "lineAddress": "54329116-61ab-805f-b0f6-ac93c3571673",
+      "address": "318a5792-9f73-87af-a082-8f64a6557f99",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_game_tiers_partition_510",
+      "lineAddress": "7381ac98-36c1-8ba9-afca-47453d4d5d1d",
+      "address": "12d263f8-bfb8-805d-9a34-67b0222e475b",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_chemistry_tiers_partition_54",
+      "lineAddress": "476d50a0-f49a-8123-9ede-c91a5e52a421",
+      "address": "b281abc6-235d-80af-b721-0d3543d9a51c",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_astronomy_tiers_partition_73",
+      "lineAddress": "3f083952-30df-8f1a-abe3-44162aa8cdbb",
+      "address": "5fe959fa-4d56-82fc-8719-0e455172ca1e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_neuro_tiers_partition_29",
+      "lineAddress": "d3e5cac7-65ca-8281-877c-3adcec39a397",
+      "address": "c7366b8f-1304-83ef-8d39-ad466d37fda7",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_as_ie_7501",
+      "lineAddress": "518b80d9-40b9-8769-9b27-1d159946dfb1",
+      "address": "601559e0-62b2-8029-aadf-dba533a9d085",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_sh_as_ie_1301",
+      "lineAddress": "3234cc03-512e-8908-ad0c-1c1c4e5c08fc",
+      "address": "e59faedc-cdbd-8370-b1bb-651f74a4a484",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_as_ph_ie_32",
+      "lineAddress": "a937adc6-8832-897a-b3ff-aaf3f94dd0d1",
+      "address": "85096efa-dd02-8929-801d-55531743ca13",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_as_ge_ie_87",
+      "lineAddress": "6cd5ca12-f8a8-8990-bb11-91fa56014eb7",
+      "address": "ab027ce9-d3dd-8c7d-8b71-e7270aa7ca29",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_as_vi_ie_257",
+      "lineAddress": "a23e6319-3db1-81ed-8c1e-1aeaf4353b36",
+      "address": "2ed3cf4f-77b5-8f41-9659-a404e0e943eb",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_as_ga_ie_50",
+      "lineAddress": "cfa42293-e178-8aed-9ddf-6f37b9832b09",
+      "address": "5e3ddabf-e5ef-8ebd-b61e-761467fe88f6",
+      "principle": "The conveyor's first wave"
+    },
+    {
       "key": "eclipse_four_hundred",
       "lineAddress": "f1a040b8-8dd3-80f1-9165-ccf2b7a04bdf",
       "address": "ca628f34-1810-8b0a-ae92-7fa9a2b30ea9",
@@ -15018,7 +15090,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "010401ab-2c8e-8837-8d06-aecf80177911",
+  "claim_receipt": "414baf60-81d2-88dc-863c-d80fa99bff46",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

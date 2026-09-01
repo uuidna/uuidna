@@ -12,7 +12,7 @@ description: The unverified, organised in topics — every door with its involut
 > — the magnets the research should feel first — beside its plain sealed neighbors, so what is settled sits
 > visibly next to what is not.
 
-**3 open leads** across 2 topics — only **held** leads from lean/leads.json, prose develop
+**2 open leads** across 1 topics — only **held** leads from lean/leads.json, prose develop
 fragments `decide()` has not yet closed, support-wave research-leads, and axiom-hunt exposed items. Refuted
 (measurement closed) and refused (boundary closed) enroll on [research leads](/leads), not here. Research
 findings and search-feed silence live on their own surfaces ([research ledger](/mcp#uuidna-research-ledger),
@@ -35,14 +35,6 @@ page regrows without it.
   <br><small>door: the held leads</small>
   <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`involution_walks_home_in_two`](/theorem/involution_walks_home_in_two) · [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) </small>
   <br><small>sealed neighbors: [`teleportation_costs_the_two_coins`](/theorem/teleportation_costs_the_two_coins) · [`fourth_repeat_buys_the_flag_not_the_fix`](/theorem/fourth_repeat_buys_the_flag_not_the_fix) · [`two_coins_in_kilograms`](/theorem/two_coins_in_kilograms) </small>
-  <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
-
-## installs — 1 open
-
-- **CAN AN ALPINE APP REPLACE COMPLEXITY WITH NANOSPEED (the captain, 2026-09-01)? Measured position today: NO by the porting route — uuidnaOS DOES execute (uuidnaExec, uuidna_run) — the captain corrected that premise on 202…**
-  <br><small>door: the held leads</small>
-  <br><small>involutions around: [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) · [`partitions_conjugate_involution_in_4x4_box`](/theorem/partitions_conjugate_involution_in_4x4_box) · [`pilgrims_homecoming_arithmetic`](/theorem/pilgrims_homecoming_arithmetic) </small>
-  <br><small>sealed neighbors: [`the_install_set_names_the_bytes_it_rests_on`](/theorem/the_install_set_names_the_bytes_it_rests_on) · [`capacity_order_is_forced`](/theorem/capacity_order_is_forced) · [`parity_code_detects_one_but_ties_four_ways`](/theorem/parity_code_detects_one_but_ties_four_ways) </small>
   <br><small>develop: ["Name the finite structure the claim lives in (ℤ/9, the affine group AGL(1,ℤ/9), an n-bit truth table, the Clifford group).","Express the claim as a boolean predicate that recomputes over it — exact </small>
 
 ## Honest scope

@@ -1,0 +1,12 @@
+{
+  "handle": "de61ac4e",
+  "address": "de61ac4e-473f-8783-ac43-2fdb8a68ea24",
+  "kind": "chunk",
+  "keys": [
+    "alpine_game_tiers_partition_510"
+  ],
+  "statement": "(25 + 10 + 475 = 510)",
+  "files": [
+    "Wave.lean"
+  ]
+}

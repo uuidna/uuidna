@@ -4926,6 +4926,78 @@
       "why": "Inclusion-exclusion across audio and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
       "lean": "theorem alpine_dom_au_bu_ie_458 : (198 + 260 - 0 = 458) := by decide",
       "receipt": "ebaf6d00-656a-8e48-ac22-ca1a1c57e2cd"
+    },
+    {
+      "key": "alpine_domain_astronomy_origins_25",
+      "why": "Alpine domain port (astronomy): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 14 of the 25 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_astronomy_origins_25 : (11 <= 25) ∧ (25 - 11 = 14) := by decide",
+      "receipt": "4e256567-a454-8263-8e3e-f48a1dca6ddd"
+    },
+    {
+      "key": "alpine_bio_tiers_partition_577",
+      "why": "Alpine domain port (bio-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the bio port splits into direct (2), related-by-reference (0) and vocabulary-echo (575) — exhaustive and disjoint, so no package is counted twice",
+      "lean": "theorem alpine_bio_tiers_partition_577 : (2 + 0 + 575 = 577) := by decide",
+      "receipt": "54329116-61ab-805f-b0f6-ac93c3571673"
+    },
+    {
+      "key": "alpine_game_tiers_partition_510",
+      "why": "Alpine domain port (game-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the game port splits into direct (25), related-by-reference (10) and vocabulary-echo (475) — exhaustive and disjoint, so no package is counted twice",
+      "lean": "theorem alpine_game_tiers_partition_510 : (25 + 10 + 475 = 510) := by decide",
+      "receipt": "7381ac98-36c1-8ba9-afca-47453d4d5d1d"
+    },
+    {
+      "key": "alpine_chemistry_tiers_partition_54",
+      "why": "Alpine domain port (chemistry-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the chemistry port splits into direct (3), related-by-reference (2) and vocabulary-echo (49) — exhaustive and disjoint, so no package is counted twice",
+      "lean": "theorem alpine_chemistry_tiers_partition_54 : (3 + 2 + 49 = 54) := by decide",
+      "receipt": "476d50a0-f49a-8123-9ede-c91a5e52a421"
+    },
+    {
+      "key": "alpine_astronomy_tiers_partition_73",
+      "why": "Alpine domain port (astronomy-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the astronomy port splits into direct (25), related-by-reference (7) and vocabulary-echo (41) — exhaustive and disjoint, so no package is counted twice",
+      "lean": "theorem alpine_astronomy_tiers_partition_73 : (25 + 7 + 41 = 73) := by decide",
+      "receipt": "3f083952-30df-8f1a-abe3-44162aa8cdbb"
+    },
+    {
+      "key": "alpine_neuro_tiers_partition_29",
+      "why": "Alpine domain port (neuro-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the neuro port splits into direct (11), related-by-reference (2) and vocabulary-echo (16) — exhaustive and disjoint, so no package is counted twice",
+      "lean": "theorem alpine_neuro_tiers_partition_29 : (11 + 2 + 16 = 29) := by decide",
+      "receipt": "d3e5cac7-65ca-8281-877c-3adcec39a397"
+    },
+    {
+      "key": "alpine_dom_la_as_ie_7501",
+      "why": "Inclusion-exclusion across language and astronomy, exact over the committed mirror. They share 10 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_as_ie_7501 : (7486 + 25 - 10 = 7501) := by decide",
+      "receipt": "518b80d9-40b9-8769-9b27-1d159946dfb1"
+    },
+    {
+      "key": "alpine_dom_sh_as_ie_1301",
+      "why": "Inclusion-exclusion across shell and astronomy, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_as_ie_1301 : (1279 + 25 - 3 = 1301) := by decide",
+      "receipt": "3234cc03-512e-8908-ad0c-1c1c4e5c08fc"
+    },
+    {
+      "key": "alpine_dom_as_ph_ie_32",
+      "why": "Inclusion-exclusion across astronomy and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_ph_ie_32 : (25 + 7 - 0 = 32) := by decide",
+      "receipt": "a937adc6-8832-897a-b3ff-aaf3f94dd0d1"
+    },
+    {
+      "key": "alpine_dom_as_ge_ie_87",
+      "why": "Inclusion-exclusion across astronomy and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_ge_ie_87 : (25 + 62 - 0 = 87) := by decide",
+      "receipt": "6cd5ca12-f8a8-8990-bb11-91fa56014eb7"
+    },
+    {
+      "key": "alpine_dom_as_vi_ie_257",
+      "why": "Inclusion-exclusion across astronomy and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_vi_ie_257 : (25 + 232 - 0 = 257) := by decide",
+      "receipt": "a23e6319-3db1-81ed-8c1e-1aeaf4353b36"
+    },
+    {
+      "key": "alpine_dom_as_ga_ie_50",
+      "why": "Inclusion-exclusion across astronomy and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_ga_ie_50 : (25 + 25 - 0 = 50) := by decide",
+      "receipt": "cfa42293-e178-8aed-9ddf-6f37b9832b09"
     }
   ],
   "refused": [
@@ -4987,6 +5059,78 @@
       "lean": "theorem alpine_dom_fi_dr_ie_837 : (215 + 630 - 8 = 837) := by decide",
       "receipt": "a7d70ca1-926d-8731-b8ee-bd68fdd6b627",
       "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed."
+    },
+    {
+      "key": "alpine_dom_da_as_ie_463",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_fi_as_ie_240",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_bl_as_ie_54",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_dr_as_ie_655",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_ne_as_ie_357",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_sc_as_ie_99",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_me_as_ie_284",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_ch_as_ie_266",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_cr_as_ie_224",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_se_as_ie_111",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_ma_as_ie_65",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_ar_as_ie_78",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_bi_as_ie_27",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_ch_as_ie_28",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_ne_as_ie_36",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_as_fo_ie_107",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_as_au_ie_223",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+    },
+    {
+      "key": "alpine_dom_as_bu_ie_285",
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
     }
   ]
 }

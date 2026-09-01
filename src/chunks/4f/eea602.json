@@ -1,0 +1,12 @@
+{
+  "handle": "4feea602",
+  "address": "4feea602-8ef4-8aa3-ab88-62dc9630f0f0",
+  "statement": "(2464 + 0 = 2464) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_round_trips"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

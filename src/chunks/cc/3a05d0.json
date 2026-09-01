@@ -1,0 +1,12 @@
+{
+  "handle": "cc3a05d0",
+  "address": "cc3a05d0-7227-8931-8005-2ece00b03418",
+  "statement": "(3 + 2 + 49 = 54)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_chemistry_tiers_partition_54"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

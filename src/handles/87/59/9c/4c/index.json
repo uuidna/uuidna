@@ -1,0 +1,12 @@
+{
+  "handle": "87599c4c",
+  "address": "87599c4c-b340-8983-9268-1c5c484c9fe8",
+  "kind": "chunk",
+  "keys": [
+    "alpine_astronomy_tiers_partition_73"
+  ],
+  "statement": "(25 + 7 + 41 = 73)",
+  "files": [
+    "Wave.lean"
+  ]
+}

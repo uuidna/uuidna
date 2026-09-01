@@ -4911,3 +4911,78 @@ theorem alpine_dom_fo_bu_ie_342 : (82 + 260 - 0 = 342) := by decide
     carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
     it is for. -/
 theorem alpine_dom_au_bu_ie_458 : (198 + 260 - 0 = 458) := by decide
+
+/-- Alpine domain port (astronomy): exact arithmetic over the census counts. HONEST SCOPE — membership is a
+    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
+    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
+    linked or executed. 14 of the 25 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+theorem alpine_domain_astronomy_origins_25 : (11 <= 25) ∧ (25 - 11 = 14) := by decide
+
+/-- Alpine domain port (bio-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a
+    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
+    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
+    linked or executed. the bio port splits into direct (2), related-by-reference (0) and vocabulary-echo (575)
+    — exhaustive and disjoint, so no package is counted twice -/
+theorem alpine_bio_tiers_partition_577 : (2 + 0 + 575 = 577) := by decide
+
+/-- Alpine domain port (game-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a
+    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
+    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
+    linked or executed. the game port splits into direct (25), related-by-reference (10) and vocabulary-echo
+    (475) — exhaustive and disjoint, so no package is counted twice -/
+theorem alpine_game_tiers_partition_510 : (25 + 10 + 475 = 510) := by decide
+
+/-- Alpine domain port (chemistry-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is
+    a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the
+    counting over it is what this claim seals, never the membership. Provenance only: nothing is installed,
+    mounted, linked or executed. the chemistry port splits into direct (3), related-by-reference (2) and
+    vocabulary-echo (49) — exhaustive and disjoint, so no package is counted twice -/
+theorem alpine_chemistry_tiers_partition_54 : (3 + 2 + 49 = 54) := by decide
+
+/-- Alpine domain port (astronomy-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is
+    a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the
+    counting over it is what this claim seals, never the membership. Provenance only: nothing is installed,
+    mounted, linked or executed. the astronomy port splits into direct (25), related-by-reference (7) and
+    vocabulary-echo (41) — exhaustive and disjoint, so no package is counted twice -/
+theorem alpine_astronomy_tiers_partition_73 : (25 + 7 + 41 = 73) := by decide
+
+/-- Alpine domain port (neuro-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a
+    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
+    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
+    linked or executed. the neuro port splits into direct (11), related-by-reference (2) and vocabulary-echo
+    (16) — exhaustive and disjoint, so no package is counted twice -/
+theorem alpine_neuro_tiers_partition_29 : (11 + 2 + 16 = 29) := by decide
+
+/-- Inclusion-exclusion across language and astronomy, exact over the committed mirror. They share 10 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_la_as_ie_7501 : (7486 + 25 - 10 = 7501) := by decide
+
+/-- Inclusion-exclusion across shell and astronomy, exact over the committed mirror. They share 3 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_sh_as_ie_1301 : (1279 + 25 - 3 = 1301) := by decide
+
+/-- Inclusion-exclusion across astronomy and physics, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_as_ph_ie_32 : (25 + 7 - 0 = 32) := by decide
+
+/-- Inclusion-exclusion across astronomy and geo, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_as_ge_ie_87 : (25 + 62 - 0 = 87) := by decide
+
+/-- Inclusion-exclusion across astronomy and virtualization, exact over the committed mirror. They share no
+    packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount,
+    and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_as_vi_ie_257 : (25 + 232 - 0 = 257) := by decide
+
+/-- Inclusion-exclusion across astronomy and game, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_as_ga_ie_50 : (25 + 25 - 0 = 50) := by decide

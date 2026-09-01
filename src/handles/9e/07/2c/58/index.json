@@ -1,0 +1,12 @@
+{
+  "handle": "9e072c58",
+  "address": "9e072c58-0be1-80f3-8e3c-a70e25f79ad8",
+  "kind": "chunk",
+  "keys": [
+    "alpine_neuro_tiers_partition_29"
+  ],
+  "statement": "(11 + 2 + 16 = 29)",
+  "files": [
+    "Wave.lean"
+  ]
+}
