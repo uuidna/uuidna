@@ -4184,7 +4184,7 @@ community	font-urw-base35	20200910-r0	Q1i3vMfMtjud1b0Vrv8IB0PMrle0M=	URW++ font 
 community	font-uw-ttyp0	1.3-r0	Q1ptZ+TDIx19Y+rQTGvjwI6+xiqqM=	bitmap monospaced font with unicode support		
 community	font-victor-mono-nerd	3.4.0-r0	Q1B2pV95TjcRThE8fmfMsnReesYfE=	VictorMono Nerd Font (modified Victor Mono Font)	fontconfig	
 community	font-viewer	0.9.4-r1	Q1kVTLC70fu0lY4wyvLKRQs47OSBM=	Full featured font file preview application for GTK+ Desktop Environments	so:libc.musl-x86_64.so.1 so:libfontmanager.so.0 so:libgio-2.0.so.0 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:libgtk-4.so.1 so:libjson-glib-1.0.so.0	
-community	font-wqy-zenhei	0.9.45-r5	Q1LLEIqlfS9f8rjrIZ6VOWOq03MNg=	Hei-Ti style (sans-serif) Chinese outline font	fontconfig mkfontscale	wqy-zenhei=0.9.45-r5
+community	font-wqy-zenhei	0.9.46-r0	Q15mqu/qJFuGfSLXrfCauSVskAJ0M=	Hei-Ti style (sans-serif) Chinese outline font	fontconfig mkfontscale	wqy-zenhei=0.9.46-r0
 community	fontforge	20251009-r1	Q1t1/ll5McheFeH8SwDBBQz45OfFg=	Free (libre) font editor (CLI tools)	/bin/sh so:libc.musl-x86_64.so.1 so:libfontforge.so.4 so:libintl.so.8	cmd:fontforge=20251009-r1 cmd:fontimage=20251009-r1 cmd:fontlint=20251009-r1 cmd:sfddiff=20251009-r1
 community	fontforge-dev	20251009-r1	Q1kh4RnJu2/s8YJdL7X/vF3HfaMYo=	Free (libre) font editor (development files)	fontforge-libs=20251009-r1	
 community	fontforge-doc	20251009-r1	Q1h23nwc3Akuw5HOVbPIO72Z7fqhk=	Free (libre) font editor (documentation)		

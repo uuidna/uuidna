@@ -29,14 +29,19 @@ const err = ref('')
 const running = ref(false)
 type Sec = Awaited<ReturnType<typeof import('../../../src/os/kdf/index.js')['securityLevel']>>
 const sec = ref<Sec | null>(null)
+type Margin = ReturnType<typeof import('../../../src/os/kdf/index.js')['quantumMargin']>
+const margin = ref<Margin | null>(null)
 
 // SPEED AND SECURITY ARE THE SAME NUMBER FROM OPPOSITE ENDS, so they are measured in one pass and shown
 // together. Every millisecond a first send waits is a millisecond an attacker pays PER GUESS — that is what
 // 600,000 iterations buys, and showing the speed table without it would report half the trade.
 const measureSecurity = async (): Promise<void> => {
   try {
-    const { securityLevel } = await import('../../../src/os/kdf/index.js')
+    const { securityLevel, quantumMargin } = await import('../../../src/os/kdf/index.js')
     sec.value = await securityLevel()
+    // the ×1000 is FOLDED here, not merely named: it is subtracted from the sealed floor along with Grover's
+    // halving, and what the table shows is what an attacker still has to cross after both are granted
+    margin.value = quantumMargin(sec.value.adversaryFactor)
   } catch { sec.value = null }
 }
 
@@ -134,6 +139,24 @@ onMounted(() => { measure(); void measureSecurity() })
           quietly absorbed. A security claim that assumes the attacker shares your hardware is not a claim.
         </p>
         <p v-else>the security probe did not run on this host — reported rather than shown as a zero.</p>
+
+        <h4 v-if="margin">Both advantages, folded — what is still left to cross</h4>
+        <table v-if="margin">
+          <tbody>
+            <tr><td>the address</td><td>{{ margin.addressBits }} bits</td></tr>
+            <tr><td>Grover, granted in full</td><td>halves it to <strong>{{ margin.groverFloorBits }}</strong> bits <em>— sha256_grover_margin_is_the_address</em></td></tr>
+            <tr><td>a ×{{ sec?.adversaryFactor.toLocaleString() }} classical machine</td><td>removes at most <strong>{{ margin.classicalBitsRemoved }}</strong> more</td></tr>
+            <tr><td>{{ margin.kdfBitsAdded }} bits back</td><td>the KDF adds at least that per guess</td></tr>
+            <tr><td><strong>margin remaining</strong></td><td><strong>{{ margin.marginBits }} bits</strong> — <code>2^{{ margin.marginBits }}</code> work after every advantage above</td></tr>
+          </tbody>
+        </table>
+        <p v-if="margin">
+          Every step is an exact integer inequality — <code>1000 ≤ 1024 = 2¹⁰</code>, <code>600000 &gt; 524288 = 2¹⁹</code>,
+          <code>128 / 2 = 64</code> — so no logarithm has to be trusted and the whole line is sealed
+          <code>by decide</code>. Both bounds are taken in the <em>attacker's</em> favour; the margin is what
+          survives that generosity. This is not a supremacy claim and not a promise about hardware that does not
+          exist: it is arithmetic over three named quantities, and changing any of them recomputes it in public.
+        </p>
 
         <p>
           <strong>Read the ratio, not the nanoseconds.</strong> Browsers clamp their clocks and throttle hidden

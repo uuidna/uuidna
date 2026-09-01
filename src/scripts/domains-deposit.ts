@@ -17,6 +17,7 @@ import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS, domainTierClaims } from '../quantum/os/domains/index.js'
 import { shellClaims } from '../quantum/os/shellapi/index.js'
+import { quantumMargin } from '../os/kdf/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
 import { theorems } from '../theorems/index.js'
 
@@ -33,6 +34,20 @@ for (const c of allDomainCensuses()) {
   for (const cl of c.claims) {
     candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS(c.domain, cl.says), source: 'alpine-domains', from: `domainCensus/${c.domain}` } as WaveCandidate)
   }
+}
+
+// THE ADVERSARY MARGIN RIDES THIS CONVEYOR TOO, and the source label says so rather than pretending it is an
+// Alpine claim. It is here because this is the one deposit door that refuses duplicates BY STATEMENT, and a
+// second door would be a second place for that law to be forgotten — the drain law's argument, applied to
+// conveyors instead of files.
+{
+  const q = quantumMargin()
+  candidates.push({
+    key: `quantum_margin_after_both_advantages_${q.marginBits}`,
+    lean: q.lean,
+    why: `SECURITY MARGIN AFTER EVERY NAMED ADVANTAGE. ${q.honest}`,
+    source: 'os-kdf', from: 'quantumMargin',
+  } as WaveCandidate)
 }
 
 // THE THREE-TIER PARTITIONS RIDE IT TOO — direct, related-by-reference, vocabulary-echo — because disjointness

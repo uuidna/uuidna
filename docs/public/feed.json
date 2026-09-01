@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:4e189bbf-3841-8c51-b2f9-bd6bdcb6ecf6",
+  "@id": "urn:uuid:9de6e2e2-6e02-8d68-9810-4131375ef199",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -19852,11 +19852,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:022e390b-51f8-86cd-971a-5db70e2559f6",
+        "@id": "urn:uuid:1d27dcd3-94a9-8bf9-adad-588603e557a4",
         "@type": "ScholarlyArticle",
         "headline": "EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 838, 18]).foldl (· + ·) 0 = 2501) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 838, 18] = [6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 838, 18])",
-        "identifier": "35b0ed22-cdd8-8216-9d8f-9e705e7916bb",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 839, 18]).foldl (· + ·) 0 = 2502) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 839, 18] = [6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 839, 18])",
+        "identifier": "9e310620-f132-8d67-829d-69c27295462f",
         "url": "https://uuidna.com/theorem/reach_all_decide",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -19874,7 +19874,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/35b0ed22"
+          "https://uuidna.com/9e310620"
         ]
       }
     },
@@ -21247,11 +21247,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:e1af89dc-91d0-82bb-b33a-c9de712886de",
+        "@id": "urn:uuid:e03e8cc6-fbbc-8740-a6e5-169b87df82f4",
         "@type": "ScholarlyArticle",
-        "headline": "every generated theorem carries prose IN the Lean — 2464 of 2464 documented across 111 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 18, 838, 18].foldl (· + ·) 0) = 2464) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 18, 838, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 18, 838, 18])",
-        "identifier": "aa24861b-e2a1-8525-bdbc-69a59008440e",
+        "headline": "every generated theorem carries prose IN the Lean — 2465 of 2465 documented across 111 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 18, 839, 18].foldl (· + ·) 0) = 2465) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 18, 839, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 16, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 18, 839, 18])",
+        "identifier": "2d7215e9-d521-8237-8e6e-b8c62a5974c8",
         "url": "https://uuidna.com/theorem/prose_coverage_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21269,7 +21269,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/aa24861b"
+          "https://uuidna.com/2d7215e9"
         ]
       }
     },
@@ -21278,11 +21278,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:16f0b638-8c75-827a-b316-de9c03bf0e97",
+        "@id": "urn:uuid:fb0f23df-5936-80e6-a7a4-1d65f9ed4111",
         "@type": "ScholarlyArticle",
-        "headline": "the prose round-trips exactly — 2464 of 2464 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
-        "abstract": "(2464 + 0 = 2464) ∧ (0 = 0)",
-        "identifier": "36f93213-eb57-83fe-a07b-021151a19790",
+        "headline": "the prose round-trips exactly — 2465 of 2465 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed",
+        "abstract": "(2465 + 0 = 2465) ∧ (0 = 0)",
+        "identifier": "f0920628-8ca6-81c5-9699-61ec4bc165ac",
         "url": "https://uuidna.com/theorem/prose_round_trips",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21300,7 +21300,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/36f93213"
+          "https://uuidna.com/f0920628"
         ]
       }
     },
@@ -21309,11 +21309,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:34620cc1-05d1-8f45-88c2-16534295c128",
+        "@id": "urn:uuid:82f4dcd1-a84f-8d5c-8ac0-17603a9627ea",
         "@type": "ScholarlyArticle",
-        "headline": "no doc comment contains an unescaped -/ — 0 found across 2464; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
-        "abstract": "(0 + 2464 = 2464) ∧ (0 = 0)",
-        "identifier": "a2561409-c603-84ac-b77b-062fb71230ef",
+        "headline": "no doc comment contains an unescaped -/ — 0 found across 2465; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today",
+        "abstract": "(0 + 2465 = 2465) ∧ (0 = 0)",
+        "identifier": "e6d69251-1a8c-82a3-a508-2ad1aab2e2a5",
         "url": "https://uuidna.com/theorem/prose_terminator_escaped",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21331,7 +21331,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/a2561409"
+          "https://uuidna.com/e6d69251"
         ]
       }
     },
@@ -21340,11 +21340,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:a24ca3a6-7578-8b26-a74a-e98f7c59dec3",
+        "@id": "urn:uuid:4371dba9-4ae4-82fd-90c1-c992f5d7f3c1",
         "@type": "ScholarlyArticle",
-        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 2464 informative against 0 bare, of 2464; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
-        "abstract": "(0 < 2464) ∧ (0 + 2464 = 2464)",
-        "identifier": "21b72e6f-0d46-8809-8eaa-ad06ded1920f",
+        "headline": "prose that says more than the statement OUTNUMBERS prose that repeats it — 2465 informative against 0 bare, of 2465; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed",
+        "abstract": "(0 < 2465) ∧ (0 + 2465 = 2465)",
+        "identifier": "68089612-3252-86a3-bda6-691a4869b99b",
         "url": "https://uuidna.com/theorem/prose_beats_restatement",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21362,7 +21362,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/21b72e6f"
+          "https://uuidna.com/68089612"
         ]
       }
     },
@@ -21371,11 +21371,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:cc6a02a6-846a-83c3-bd82-0115f578306b",
+        "@id": "urn:uuid:6b09dfc2-644b-8928-a1a8-37818c8efbec",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 643062 characters across 2464 doc comments in 111 wings fold to 3; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6583, 1774, 3857, 3451, 4156, 10021, 2753, 1597, 1239, 13779, 5016, 1389, 1736, 1372, 960, 6188, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 1402, 2171, 2848, 1506, 1335, 1330, 3288, 1848, 11238, 959, 4088, 5637, 1452, 3105, 2783, 1621, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 1393, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14675, 9396, 10650, 6393, 1646, 987, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 7619, 2244, 6848, 1937, 3396, 1946, 1544, 1412, 2571, 919, 1453, 2419, 2104, 3304, 805, 5711, 2905, 1522, 3958, 3675, 1667, 5402, 287437, 10447].foldl (· + ·) 0) = 643062) ∧ (643062 % 9 = 3) ∧ (3 < 9)",
-        "identifier": "0ab5ce5c-e63a-8b0d-a67f-bf905dab1938",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 643590 characters across 2465 doc comments in 111 wings fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6583, 1774, 3857, 3451, 4156, 10021, 2753, 1597, 1239, 13779, 5016, 1389, 1736, 1372, 960, 6188, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 1402, 2171, 2848, 1506, 1335, 1330, 3288, 1848, 11238, 959, 4088, 5637, 1452, 3105, 2783, 1621, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 1393, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14675, 9396, 10650, 6393, 1646, 987, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 7619, 2244, 6848, 1937, 3396, 1946, 1544, 1412, 2571, 919, 1453, 2419, 2104, 3304, 805, 5711, 2905, 1522, 3958, 3675, 1667, 5402, 287965, 10447].foldl (· + ·) 0) = 643590) ∧ (643590 % 9 = 0) ∧ (0 < 9)",
+        "identifier": "3a7bff13-4dff-8d36-b821-61a74d372aaf",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21393,7 +21393,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/0ab5ce5c"
+          "https://uuidna.com/3a7bff13"
         ]
       }
     },
@@ -21402,11 +21402,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:dbb0a322-ec15-8ed6-95c4-62d5a171b429",
+        "@id": "urn:uuid:687696c4-2924-8d57-967e-756f494e3eb1",
         "@type": "ScholarlyArticle",
         "headline": "the audit is TOTAL over what a generator writes — 111 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states",
-        "abstract": "(0 < 111) ∧ (0 < 3) ∧ (2464 = 2464 + 0)",
-        "identifier": "ccd20e33-5b5d-8c94-aac1-bb1105bf9b10",
+        "abstract": "(0 < 111) ∧ (0 < 3) ∧ (2465 = 2465 + 0)",
+        "identifier": "495773b5-ec31-8ba7-a1b7-26d3e9f1d715",
         "url": "https://uuidna.com/theorem/prose_audit_total",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21424,7 +21424,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/ccd20e33"
+          "https://uuidna.com/495773b5"
         ]
       }
     },
@@ -23417,11 +23417,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:4b795e24-ec6b-8c2e-bd9c-7ae8cc8a58bd",
+        "@id": "urn:uuid:88bda470-9e67-882f-a14b-c4d8cefa3eec",
         "@type": "ScholarlyArticle",
-        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 115 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 114 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 2498, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.",
-        "abstract": "(((List.range 115).filter (fun k => k == 114)).length = 1) ∧ (((List.range 114).filter (fun k => k == 114)).length = 0) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 838, 18].all (fun n => (n == n) && !(n - 1 == n))) ∧ (([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 838, 18].foldl (· + ·) 0) = 2498)",
-        "identifier": "7f5140ce-e264-825f-82e3-429e4d47c249",
+        "headline": "A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 115 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 114 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 2499, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.",
+        "abstract": "(((List.range 115).filter (fun k => k == 114)).length = 1) ∧ (((List.range 114).filter (fun k => k == 114)).length = 0) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 839, 18].all (fun n => (n == n) && !(n - 1 == n))) ∧ (([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 839, 18].foldl (· + ·) 0) = 2499)",
+        "identifier": "ab8bf2bb-d254-85c6-be90-7723db9972d1",
         "url": "https://uuidna.com/theorem/cube_seals_at_completeness_only",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -23439,7 +23439,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/7f5140ce"
+          "https://uuidna.com/ab8bf2bb"
         ]
       }
     },
@@ -23448,11 +23448,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:6c534f14-1587-8132-a513-a2d9022b2287",
+        "@id": "urn:uuid:70bc8972-9123-8879-a57c-daaba7a26835",
         "@type": "ScholarlyArticle",
-        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 114 measured wing counts and lands on 2498 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
-        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 838, 18].foldl (· + ·) 0) = 2498) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 838, 18].length = 114) ∧ (114 < 2498)",
-        "identifier": "f359b7d9-dfb2-8145-9f27-a8a0343c5d84",
+        "headline": "THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 114 measured wing counts and lands on 2499 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.",
+        "abstract": "(([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 839, 18].foldl (· + ·) 0) = 2499) ∧ ([6, 6, 6, 9, 13, 8, 11, 17, 11, 6, 17, 6, 5, 15, 6, 9, 13, 24, 30, 8, 6, 8, 25, 17, 7, 4, 5, 64, 10, 16, 13, 8, 10, 6, 14, 4, 13, 7, 12, 10, 6, 6, 6, 17, 8, 20, 6, 13, 12, 6, 10, 6, 4, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 7, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 5, 7, 6, 234, 148, 10, 7, 6, 9, 32, 5, 11, 11, 8, 6, 8, 6, 3, 6, 6, 6, 11, 6, 17, 8, 6, 13, 7, 2, 15, 18, 16, 839, 18].length = 114) ∧ (114 < 2499)",
+        "identifier": "5538b3ca-5bac-8456-a125-47016b5de727",
         "url": "https://uuidna.com/theorem/cubes_partition_ledger",
         "keywords": "software, The software-verifiable algebra",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Software.lean",
@@ -23470,7 +23470,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/f359b7d9"
+          "https://uuidna.com/5538b3ca"
         ]
       }
     },
@@ -69630,6 +69630,37 @@
         },
         "sameAs": [
           "https://uuidna.com/5e3ddabf"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:14034eb7-e0ad-84ef-9db3-f26304821aab",
+        "@type": "ScholarlyArticle",
+        "headline": "SECURITY MARGIN AFTER EVERY NAMED ADVANTAGE. After granting the adversary BOTH advantages — Grover halving the 128-bit address to 64 bits, and a ×1000 classical machine removing at most 10 more — the 600,000 KDF iterations still add at least 19 bits per guess, leaving 73 bits to cross. Both bounds are taken in the attacker's favour; the margin is what survives that. Not a supremacy claim and not a promise about hardware that does not exist — arithmetic over three named quantities, any of which can be argued with in public.",
+        "abstract": "(128 / 2 = 64) ∧ (1000 <= 1024) ∧ (600000 > 524288) ∧ (64 - 10 + 19 = 73)",
+        "identifier": "8f825112-ea75-8c48-ad9f-423b2ad26f32",
+        "url": "https://uuidna.com/theorem/quantum_margin_after_both_advantages_73",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/8f825112"
         ]
       }
     },

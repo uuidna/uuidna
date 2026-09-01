@@ -4986,3 +4986,10 @@ theorem alpine_dom_as_vi_ie_257 : (25 + 232 - 0 = 257) := by decide
     carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
     it is for. -/
 theorem alpine_dom_as_ga_ie_50 : (25 + 25 - 0 = 50) := by decide
+
+/-- SECURITY MARGIN AFTER EVERY NAMED ADVANTAGE. After granting the adversary BOTH advantages — Grover halving
+    the 128-bit address to 64 bits, and a ×1000 classical machine removing at most 10 more — the 600,000 KDF
+    iterations still add at least 19 bits per guess, leaving 73 bits to cross. Both bounds are taken in the
+    attacker's favour; the margin is what survives that. Not a supremacy claim and not a promise about hardware
+    that does not exist — arithmetic over three named quantities, any of which can be argued with in public. -/
+theorem quantum_margin_after_both_advantages_73 : (128 / 2 = 64) ∧ (1000 <= 1024) ∧ (600000 > 524288) ∧ (64 - 10 + 19 = 73) := by decide

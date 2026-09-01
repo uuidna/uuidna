@@ -146,3 +146,63 @@ export async function securityLevel(): Promise<SecurityLevel> {
       'once per attempt for them.',
   }
 }
+
+// ── THE ADVANTAGES, FOLDED INTO ONE MARGIN (the captain: "fold and use in quantum supremacy") ─────────────────
+//
+// Naming the ×1000 GPU factor beside the guess rate was honest and it was not enough: a factor that sits in a
+// footnote is not part of the argument. So both adversary advantages — the classical one and the quantum one —
+// are subtracted from the sealed floor in one computation, and what remains is the margin an attacker still has
+// to cross after being granted every advantage this tree knows how to name.
+//
+// EVERY STEP IS AN EXACT INTEGER INEQUALITY, which is the only reason this is sealable rather than estimated.
+// No logarithm is taken and none has to be trusted:
+//   • 1000 < 1024 = 2^10, so a ×1000 GPU advantage removes AT MOST 10 bits — an upper bound on the attacker
+//   • 600000 > 524288 = 2^19, so PBKDF2-600k adds AT LEAST 19 bits per guess — a lower bound on their cost
+//   • Grover searches an n-bit space in 2^(n/2), so the 128-bit address floors at 2^64 (sha256_grover_margin_is
+//     _the_address, already sealed) — the quantum advantage granted in full, not argued with
+// Both bounds are chosen in the ATTACKER'S favour. The margin is what survives that generosity.
+//
+// WHAT THIS IS NOT. It is not a claim that uuidna resists a quantum computer that does not exist, and it is not
+// a supremacy claim of its own — n_qubit_dimension counts classical simulation cost and this tree has refused
+// "all quantum threat is gone" as a lead. It is arithmetic over three named quantities, and its whole value is
+// that the quantities are named: change any of them and the margin recomputes in public.
+export interface QuantumMargin {
+  addressBits: number
+  groverFloorBits: number      // 2^(addressBits/2) — the quantum advantage, granted in full
+  classicalBitsRemoved: number // an upper bound from the named GPU factor
+  kdfBitsAdded: number         // a lower bound from the iteration count
+  marginBits: number           // what remains after both
+  lean: string
+  honest: string
+}
+
+export function quantumMargin(adversaryFactor = 1000, iterations = ITER): QuantumMargin {
+  // THE SMALLEST k WITH 2^k >= factor, and the direction is the whole point. The first version took the LARGEST
+  // k with 2^k <= factor, which gives 9 for a ×1000 machine — but 1000 is more than 2^9 = 512, so that hands the
+  // attacker LESS advantage than they actually have, while the comment above claimed every bound favours them.
+  // A bound stated in the wrong direction is worse than no bound: it reads as conservative and is not.
+  let removed = 0
+  while (2 ** removed < adversaryFactor) removed++
+  // the largest k with 2^k <= iterations — the cost the attacker pays per guess, floored in their favour
+  let added = 0
+  while (2 ** (added + 1) <= iterations) added++
+
+  const addressBits = ADDR_BYTES * 8
+  const groverFloorBits = addressBits / 2
+  const marginBits = groverFloorBits - removed + added
+  return {
+    addressBits,
+    groverFloorBits,
+    classicalBitsRemoved: removed,
+    kdfBitsAdded: added,
+    marginBits,
+    lean: `theorem quantum_margin_after_both_advantages_${marginBits} : (${addressBits} / 2 = ${groverFloorBits}) ∧ (${adversaryFactor} <= ${2 ** removed}) ∧ (${iterations} > ${2 ** added}) ∧ (${groverFloorBits} - ${removed} + ${added} = ${marginBits}) := by decide`,
+    honest:
+      `After granting the adversary BOTH advantages — Grover halving the ${addressBits}-bit address to ` +
+      `${groverFloorBits} bits, and a ×${adversaryFactor} classical machine removing at most ${removed} more — the ` +
+      `${iterations.toLocaleString('en-US')} KDF iterations still add at least ${added} bits per guess, leaving ` +
+      `${marginBits} bits to cross. Both bounds are taken in the attacker's favour; the margin is what survives ` +
+      'that. Not a supremacy claim and not a promise about hardware that does not exist — arithmetic over three ' +
+      'named quantities, any of which can be argued with in public.',
+  }
+}

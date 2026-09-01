@@ -27,6 +27,8 @@ const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as {
 // IDENTITY — read, never retyped. A renamed package renames its own archive links.
 const author = pkg.author.replace(/\s*<.*$/, '').trim().split(/\s+/)
 const creator = `${author[author.length - 1]}, ${author.slice(0, -1).join(' ')}`
+/** ORCID iD — the author's persistent identifier, bare (no https:// prefix), which is the form Zenodo expects. */
+const ORCID = '0009-0000-7312-9778'
 
 // MEASUREMENT — the live census. A theorem is its Lean, not its name, so BOTH sizes are stated with the reason
 // for the gap; a lone key count is the larger of two true numbers presented alone.
@@ -64,7 +66,12 @@ const zenodo = {
   upload_type: 'software',
   access_right: 'open',
   license: pkg.license.toLowerCase(),
-  creators: [{ name: creator }],
+  // THE ORCID IS THE AUTHOR'S PERSISTENT IDENTIFIER, and it belongs beside the name for the same reason a DOI
+  // belongs beside a release: a name is ambiguous across archives and an iD is not. Zenodo resolves it against
+  // ORCID's own registry, so a deposit made under this record is attributable without a human matching strings.
+  // Recorded once, here, because .zenodo.json is DERIVED — editing the file would be overwritten on the next
+  // generation, and the identity would silently revert on a release nobody was watching.
+  creators: [{ name: creator, orcid: ORCID }],
   keywords: ['content-address', 'uuid', 'merkle-proof', 'integrity', 'Lean 4', 'formal verification', 'by decide',
     'axiom-free', 'decidable arithmetic', 'model-context-protocol', 'honest by construction', 'paper on trial',
     'verification infrastructure',

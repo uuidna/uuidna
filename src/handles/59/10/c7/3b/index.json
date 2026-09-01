@@ -1,0 +1,12 @@
+{
+  "handle": "5910c73b",
+  "address": "5910c73b-d25f-8069-8e98-b547e2d5b898",
+  "kind": "chunk",
+  "keys": [
+    "quantum_margin_after_both_advantages_73"
+  ],
+  "statement": "(128 / 2 = 64) ∧ (1000 <= 1024) ∧ (600000 > 524288) ∧ (64 - 10 + 19 = 73)",
+  "files": [
+    "Wave.lean"
+  ]
+}
