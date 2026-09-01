@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "b40973fa3ace48299259d8b84003e587",
+    "src": "30b15f2a5183346a7d0f0be15c398164",
     "lean": "69a582ae5742d6d5ae297bb00788f232"
   },
   "files": {
@@ -3736,6 +3736,8 @@
     "src/school/pqc/index.ts": "4f0ec6eb5640bba5",
     "src/school/practice/feedback/loop/index.ts": "331956eb97633680",
     "src/school/practice/feedback/loop/trial/index.ts": "70f2668dd269c00d",
+    "src/school/refusals/index.test.ts": "a729689f7aca8c71",
+    "src/school/refusals/index.ts": "e67c10b42883e549",
     "src/school/sequence/index.ts": "1b33db49de600f91",
     "src/scripts/account.ts": "12d4b17d1045f90b",
     "src/scripts/all-run.test.ts": "1e1a12751b7126c2",
