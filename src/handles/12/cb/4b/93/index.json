@@ -1,0 +1,12 @@
+{
+  "handle": "12cb4b93",
+  "address": "12cb4b93-aebd-8f69-9068-0ce8e4f0e54b",
+  "kind": "chunk",
+  "keys": [
+    "mcp_tool_coverage_partition_244"
+  ],
+  "statement": "(144 + 100 = 244) ∧ (100 < 119)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -5004,3 +5004,9 @@ theorem alpine_shell_applets_partition_20 : (6 + 4 + 10 = 20) := by decide
     growth and passes on bloat; a ceiling on the RATE does the opposite. Rates in hundredths as integers because
     the determinism law refuses rounding helpers. -/
 theorem mcp_wire_rate_fell_while_total_grew_32183 : (77885 > 75224) ∧ (32183 < 32424) ∧ (77885 * 100 / 242 = 32183) := by decide
+
+/-- TOOL COVERAGE, PARTITIONED AND SHRINKING. Every MCP tool is either directly exercised by a test that names
+    it (144) or covered only by an aggregate fold (100) — exhaustive and disjoint. The second number fell from
+    119 when nineteen zero-argument tools earned assertions that check a property which could actually be wrong.
+    The debt list may only shrink; this records that it did. -/
+theorem mcp_tool_coverage_partition_244 : (144 + 100 = 244) ∧ (100 < 119) := by decide

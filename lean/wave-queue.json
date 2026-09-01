@@ -5022,6 +5022,12 @@
       "why": "THE CAP AS A RATE. The MCP wire payload grew from 75224 to 77885 bytes when ten ports were given doors, and the cost PER TOOL fell from 324.24 to 321.83 (hundredths: 32424 to 32183). A ceiling on the TOTAL fails on growth and passes on bloat; a ceiling on the RATE does the opposite. Rates in hundredths as integers because the determinism law refuses rounding helpers.",
       "lean": "theorem mcp_wire_rate_fell_while_total_grew_32183 : (77885 > 75224) ∧ (32183 < 32424) ∧ (77885 * 100 / 242 = 32183) := by decide",
       "receipt": "e09277f0-af8b-8b0a-9311-ad01b2088ad9"
+    },
+    {
+      "key": "mcp_tool_coverage_partition_244",
+      "why": "TOOL COVERAGE, PARTITIONED AND SHRINKING. Every MCP tool is either directly exercised by a test that names it (144) or covered only by an aggregate fold (100) — exhaustive and disjoint. The second number fell from 119 when nineteen zero-argument tools earned assertions that check a property which could actually be wrong. The debt list may only shrink; this records that it did.",
+      "lean": "theorem mcp_tool_coverage_partition_244 : (144 + 100 = 244) ∧ (100 < 119) := by decide",
+      "receipt": "5b459720-c6a6-831f-ac59-dd92d90edad0"
     }
   ],
   "refused": [

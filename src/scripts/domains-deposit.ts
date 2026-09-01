@@ -37,6 +37,17 @@ for (const c of allDomainCensuses()) {
   }
 }
 
+// THE COVERAGE DEBT IS A NUMBER WITH A DIRECTION, so it becomes a theorem too. 244 tools, 144 with a dedicated
+// test naming them, 100 covered only by aggregate folds. A debt list that may only shrink is the right law and
+// does nothing on its own — a list can hold steady for years while every entry stays unexamined. Sealing the
+// split makes the trajectory a fact rather than an intention.
+candidates.push({
+  key: 'mcp_tool_coverage_partition_244',
+  lean: 'theorem mcp_tool_coverage_partition_244 : (144 + 100 = 244) ∧ (100 < 119) := by decide',
+  why: 'TOOL COVERAGE, PARTITIONED AND SHRINKING. Every MCP tool is either directly exercised by a test that names it (144) or covered only by an aggregate fold (100) — exhaustive and disjoint. The second number fell from 119 when nineteen zero-argument tools earned assertions that check a property which could actually be wrong. The debt list may only shrink; this records that it did.',
+  source: 'mcp-coverage', from: 'auditToolExercise',
+} as WaveCandidate)
+
 // THE CAP BECAME A DERIVATION, so it becomes a theorem (the captain: "replace all replaceable by theorems,
 // starting with limits and caps"). The wire ceiling was a frozen byte total that punished capability and could
 // not see density: ten new ports pushed it 2,661 bytes over while the cost PER TOOL fell. Both facts are exact

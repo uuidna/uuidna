@@ -2619,6 +2619,7 @@ quantum_margin_after_both_advantages_73 26
 alpine_security_ops_plannable_4 26
 alpine_shell_applets_partition_20 26
 mcp_wire_rate_fell_while_total_grew_32183 26
+mcp_tool_coverage_partition_244 26
 #Waves.lean
 captains_columns_sum_to_ten 27
 nine_complement_half_turns_the_orbit 27
