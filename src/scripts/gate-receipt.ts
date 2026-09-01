@@ -26,6 +26,30 @@ if (process.argv.includes('--verify')) {
   const moved = (['src', 'lean'] as const).filter((d) => want.covers?.[d] !== have[d])
   if (moved.length) {
     console.error(`✗ gate-receipt — the tree MOVED since it was proven: ${moved.join(', ')} does not match the receipt`)
+    // AND IT SAYS WHICH FILES, because the coarse verdict alone costs a full suite to diagnose. This refusal used
+    // to name only the directory, so the only way to learn whether a real source file had moved or a generator had
+    // rewritten a derived index was to re-run ten minutes of checks. The per-file manifest that answers it in
+    // milliseconds was already in the receipt; nothing read it here. A gate that knows the answer and does not say
+    // it makes the caller pay magnitudes for what it is holding — theorem verify_beats_recompute_by_magnitudes is
+    // about exactly that arithmetic, and it applies to the gate's own diagnosis, not only to the checks behind it.
+    const prior = (want as { files?: Record<string, string> }).files ?? {}
+    if (Object.keys(prior).length) {
+      const now = fileManifest()
+      const changed = Object.keys(now).filter((f) => prior[f] !== undefined && prior[f] !== now[f])
+      const appeared = Object.keys(now).filter((f) => prior[f] === undefined)
+      const vanished = Object.keys(prior).filter((f) => now[f] === undefined)
+      const show = (label: string, xs: string[]): void => {
+        if (!xs.length) return
+        console.error(`  ${label} ${xs.length}: ${xs.slice(0, 6).join(', ')}${xs.length > 6 ? ` …and ${xs.length - 6} more` : ''}`)
+      }
+      show('CHANGED', changed)
+      show('ADDED', appeared)
+      show('REMOVED', vanished)
+      if (!changed.length) {
+        console.error('  NO file changed content — the drift is only files appearing or disappearing, which is what a')
+        console.error('  generator does. Settle the derived layer FIRST, then prove: reconcile --derive-only, then guard, tests, receipt.')
+      }
+    }
     console.error('  the receipt certifies a different tree, so its proof does not apply here — run the checks in full')
     process.exit(1)
   }
