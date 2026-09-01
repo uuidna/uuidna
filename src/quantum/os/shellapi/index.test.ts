@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { APPLETS, shellCoverage, shellRun, shellCensus } from './index.js'
+import { APPLETS, shellCoverage, shellRun, shellCensus, shellCommandUniverse, catalogueCommandUniverse } from './index.js'
 import { ROOT } from '../../../boundary.js'
 
 test('APPLETS matches the live dispatcher — a list is not a surface unless it agrees with the switch', () => {
@@ -15,13 +15,24 @@ test('APPLETS matches the live dispatcher — a list is not a surface unless it 
   assert.deepEqual([...APPLETS].sort(), [...new Set(cases)].sort(), 'APPLETS drifted from the dispatcher')
 })
 
-test('coverage is honest — the missing utilities are listed, not rounded away', () => {
+test('the denominator is READ from Alpine, not written down by us', () => {
+  // The first version measured coverage against 36 utility names I typed from memory, so the ratio was a fact
+  // about my recollection: change the list, change the number, and nothing in the tree could disagree. Alpine
+  // publishes the answer in its provides column as cmd:<name>, so the denominator is now parsed from the mirror
+  // and moves when the mirror moves.
   const c = shellCoverage()
   assert.ok(c.ported.packages > 1000, 'the shell domain is the second largest Alpine publishes')
   assert.equal(c.coverage.met, c.implemented.length)
-  assert.ok(c.missing.length > c.implemented.length, 'most expected utilities are NOT implemented, and saying so is the point')
-  assert.ok(c.missing.includes('grep') && c.missing.includes('sed'), 'the absent ones a reader will actually reach for must appear by name')
-  assert.ok(c.implemented.every((u) => !c.missing.includes(u)), 'implemented and missing must not overlap')
+  assert.ok(c.coverage.of > 100, 'the shell domain declares hundreds of commands — a denominator no one hand-listed')
+  assert.ok(c.coverage.universe > c.coverage.of, 'the catalogue-wide command universe must exceed one domain of it')
+  assert.ok(c.coverage.met < c.coverage.of, 'and uuidnaOS answers a small fraction of them, which is the honest number')
+})
+
+test('every implemented applet is a command Alpine itself declares', () => {
+  const c = shellCoverage()
+  const universe = shellCommandUniverse()
+  for (const a of c.implemented) assert.ok(universe.has(a), `${a} must be declared by the shell domain to count`)
+  for (const b of c.beyond) assert.ok(!catalogueCommandUniverse().has(b), `${b} is uuidna's own — no package declares it`)
 })
 
 test('an unknown applet REFUSES rather than answering emptily', () => {

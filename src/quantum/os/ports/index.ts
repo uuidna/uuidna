@@ -58,7 +58,7 @@ export function portsCensus(): PortsCensus {
 
   const ports: PortedApi[] = [
     { domain: 'shell', offers: 'one exec door over uuidnaOS applets', packages: shell.ported.packages, origins: shell.ported.origins,
-      api: ['shellRun', 'shellCoverage'], detail: { applets: shell.applets.length, met: shell.coverage.met, of: shell.coverage.of, missing: shell.missing.length } },
+      api: ['shellRun', 'shellCoverage'], detail: { applets: shell.applets.length, met: shell.coverage.met, of: shell.coverage.of, universe: shell.coverage.universe } },
     { domain: 'driver', offers: 'the machine and the published bundle behind one door', packages: drv.ported.packages, origins: drv.ported.origins,
       api: drv.api, detail: { logical: drv.device.logical, memoryGiB: drv.device.memoryGiB, platform: drv.device.platform, arch: drv.device.arch } },
     { domain: 'database', offers: 'one query door where the address is the key', packages: db.ported.packages, origins: db.ported.origins,

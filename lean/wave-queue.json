@@ -1,5 +1,76 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "key": "alpine_domain_chat_partitions_28635",
+      "why": "Alpine domain port (chat): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the chat domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_chat_partitions_28635 : (241 + 28394 = 28635) := by decide"
+    },
+    {
+      "key": "alpine_domain_chat_origins_241",
+      "why": "Alpine domain port (chat): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 111 of the 241 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_chat_origins_241 : (130 <= 241) ∧ (241 - 130 = 111) := by decide"
+    },
+    {
+      "key": "alpine_shell_applets_partition_17",
+      "why": "Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (3), or uuidna's own (8) — exhaustive and disjoint",
+      "lean": "theorem alpine_shell_applets_partition_17 : (6 + 3 + 8 = 17) := by decide"
+    },
+    {
+      "key": "alpine_shell_domain_commands_345",
+      "why": "Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the shell domain declares 345 commands of 19095 the whole catalogue declares — the denominator is read from Alpine's provides column, never written down",
+      "lean": "theorem alpine_shell_domain_commands_345 : (345 < 19095) ∧ (19095 - 345 = 18750) := by decide"
+    },
+    {
+      "key": "alpine_dom_da_ch_ie_679",
+      "why": "Inclusion-exclusion across database and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_ch_ie_679 : (438 + 241 - 0 = 679) := by decide"
+    },
+    {
+      "key": "alpine_dom_fi_ch_ie_454",
+      "why": "Inclusion-exclusion across filesystem and chat, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_ch_ie_454 : (215 + 241 - 2 = 454) := by decide"
+    },
+    {
+      "key": "alpine_dom_bl_ch_ie_270",
+      "why": "Inclusion-exclusion across blockchain and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_ch_ie_270 : (29 + 241 - 0 = 270) := by decide"
+    },
+    {
+      "key": "alpine_dom_dr_ch_ie_871",
+      "why": "Inclusion-exclusion across driver and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_ch_ie_871 : (630 + 241 - 0 = 871) := by decide"
+    },
+    {
+      "key": "alpine_dom_la_ch_ie_7685",
+      "why": "Inclusion-exclusion across language and chat, exact over the committed mirror. They share 42 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ch_ie_7685 : (7486 + 241 - 42 = 7685) := by decide"
+    },
+    {
+      "key": "alpine_dom_ne_ch_ie_573",
+      "why": "Inclusion-exclusion across network and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ch_ie_573 : (332 + 241 - 0 = 573) := by decide"
+    },
+    {
+      "key": "alpine_dom_sc_ch_ie_315",
+      "why": "Inclusion-exclusion across science and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_ch_ie_315 : (74 + 241 - 0 = 315) := by decide"
+    },
+    {
+      "key": "alpine_dom_me_ch_ie_500",
+      "why": "Inclusion-exclusion across media and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_ch_ie_500 : (259 + 241 - 0 = 500) := by decide"
+    },
+    {
+      "key": "alpine_dom_sh_ch_ie_1517",
+      "why": "Inclusion-exclusion across shell and chat, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_ch_ie_1517 : (1279 + 241 - 3 = 1517) := by decide"
+    },
+    {
+      "key": "alpine_dom_ch_bu_ie_501",
+      "why": "Inclusion-exclusion across chat and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_bu_ie_501 : (241 + 260 - 0 = 501) := by decide"
+    }
+  ],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",

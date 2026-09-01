@@ -16,6 +16,7 @@
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS } from '../quantum/os/domains/index.js'
+import { shellClaims } from '../quantum/os/shellapi/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
 import { theorems } from '../theorems/index.js'
 
@@ -32,6 +33,13 @@ for (const c of allDomainCensuses()) {
   for (const cl of c.claims) {
     candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS(c.domain, cl.says), source: 'alpine-domains', from: `domainCensus/${c.domain}` } as WaveCandidate)
   }
+}
+
+// THE SHELL PARTITION RIDES THE SAME CONVEYOR. It is Alpine arithmetic like every other claim here — derived
+// from the provides column rather than from a list anyone typed — so it deposits through the one door that
+// already refuses duplicates by statement, instead of growing a second deposit script beside it.
+for (const cl of shellClaims()) {
+  candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS('shell-applets', cl.says), source: 'alpine-domains', from: 'shellClaims' } as WaveCandidate)
 }
 
 // every unordered pair, so a new domain brings its overlaps with all the others without anyone listing them

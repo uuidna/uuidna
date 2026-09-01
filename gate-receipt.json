@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "2b9308b0434b19e8da687ace216859ba",
-    "lean": "4f1055e4cc5767eb2de950616cbd743c"
+    "src": "8a88ef488bce8c2bf837f65b828d5231",
+    "lean": "848d416ec867ede32a932095f2a6fc0f"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -185,7 +185,7 @@
     "lean/infinity-manifest.json": "919a6ca93df3bf5a",
     "lean/installs-manifest.json": "ae576d76cbc72a14",
     "lean/isometry-manifest.json": "cc3c9b03cda28778",
-    "lean/leads.json": "f133328640c68604",
+    "lean/leads.json": "25274db280b57a5c",
     "lean/legal-manifest.json": "e03e21d75528f9c9",
     "lean/looms-manifest.json": "11a5b2aade2e4b1e",
     "lean/martialarts-manifest.json": "f22403cbd84a05f0",
@@ -269,7 +269,7 @@
     "lean/vectorequilibrium-manifest.json": "14fc462cc36da9f3",
     "lean/vortex-manifest.json": "8cee6bae2655d702",
     "lean/wave-manifest.json": "dc374a8c451975a3",
-    "lean/wave-queue.json": "c716705adf2fd249",
+    "lean/wave-queue.json": "b067023bb9b47320",
     "lean/waves-manifest.json": "3aea18251fc02537",
     "src/address.test.ts": "46a4b9450de91b84",
     "src/address.ts": "2df9c3763cf4500b",
@@ -3339,7 +3339,7 @@
     "src/quantum/os/patime/index.ts": "53466a2854bf0ac0",
     "src/quantum/os/pkgpage/index.test.ts": "e4b2d73404bdf81f",
     "src/quantum/os/pkgpage/index.ts": "806b5919bc4a61ba",
-    "src/quantum/os/ports/index.ts": "7c0aafb4b5935099",
+    "src/quantum/os/ports/index.ts": "852bcce947508e41",
     "src/quantum/os/public/index.ts": "e871426ec82e5473",
     "src/quantum/os/registry/index.test.ts": "65681ecad9467124",
     "src/quantum/os/registry/index.ts": "7eb5b381ab07e4ac",
@@ -3349,8 +3349,8 @@
     "src/quantum/os/routes/index.ts": "dd4e429b4c01330f",
     "src/quantum/os/school/index.ts": "14ec5aa75db3bb1b",
     "src/quantum/os/session/index.ts": "f83e5df00574d05b",
-    "src/quantum/os/shellapi/index.test.ts": "3d934fa75f4b9cf5",
-    "src/quantum/os/shellapi/index.ts": "0ea8b1f7c45e17c0",
+    "src/quantum/os/shellapi/index.test.ts": "583cb50f7c3079cb",
+    "src/quantum/os/shellapi/index.ts": "d5799ad969e34760",
     "src/quantum/os/waves/index.test.ts": "e1062a5a2086aff4",
     "src/quantum/os/waves/index.ts": "eea359e360efd152",
     "src/quantum/os/weather/index.ts": "dd5e7544464d7414",
@@ -3456,7 +3456,7 @@
     "src/scripts/develop.ts": "3677f8416c3876d6",
     "src/scripts/dirty-paths.test.ts": "f36fbfa3ece6baba",
     "src/scripts/discover-books.ts": "13f30db02dac5418",
-    "src/scripts/domains-deposit.ts": "1ad746c11f5b7a77",
+    "src/scripts/domains-deposit.ts": "ddf38f71c373e095",
     "src/scripts/dry-gaps.ts": "e55fe065a62672e9",
     "src/scripts/entanglement-games-spec.json": "a971072db79dbf51",
     "src/scripts/entanglement-games.ts": "8d1c607b83a24497",

@@ -11,7 +11,7 @@
     ".zenodo.json": "883741aa025b8a12",
     "reports.json": "7ea7edd206e98270",
     "lean/statement-index.json": "8ac7e5609c768238",
-    "README.md": "72468427875a8653",
+    "README.md": "0775914dbc7c8356",
     "llm.txt": "a760dc020c388ef0",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -2325,7 +2325,7 @@
     "lean/infinity-manifest.json": "290938950f568d9b",
     "lean/installs-manifest.json": "b2c8548ae34d85e5",
     "lean/isometry-manifest.json": "67d91c8f67d28b44",
-    "lean/leads.json": "b73248a384ae8cc1",
+    "lean/leads.json": "3f49630c1d6c8c34",
     "lean/legal-manifest.json": "e71b72d2ebb58fdd",
     "lean/looms-manifest.json": "27aa01dca8fe8ff0",
     "lean/martialarts-manifest.json": "d392cbcd865e81bd",
@@ -2408,8 +2408,8 @@
     "lean/vectorequilibrium-manifest.json": "b3077e18389c8ec8",
     "lean/vortex-manifest.json": "00f3c80ac8fe8ebd",
     "lean/wave-manifest.json": "59d7fbc93ac489a2",
-    "lean/wave-queue.json": "16147cea99ba8e52",
+    "lean/wave-queue.json": "26d553fa605a8dc0",
     "lean/waves-manifest.json": "18c307a128278bb8"
   },
-  "receipt": "57226f03-9bb5-8d24-8d6f-f96fe07d2a1d"
+  "receipt": "009eca7a-1668-845b-a655-8e0e43acfa5f"
 }
