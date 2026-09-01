@@ -2627,6 +2627,7 @@
     "lean/heartbeats.json": "d08c24ccaab08368",
     "lean/hexbit-manifest.json": "ac2fe83697a68f29",
     "lean/identifiers-manifest.json": "2e15f4dcc69982b6",
+    "lean/impossibility-baseline.json": "ba29833eab898eb9",
     "lean/infinity-manifest.json": "290938950f568d9b",
     "lean/installs-manifest.json": "b2c8548ae34d85e5",
     "lean/isometry-manifest.json": "67d91c8f67d28b44",
@@ -2716,5 +2717,5 @@
     "lean/wave-queue.json": "99a3ef1c31ad8e54",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "a23d1f79-347f-8584-84dd-f2dda10b8a3a"
+  "receipt": "544151c7-3adc-8296-8f63-fc8a91c37d46"
 }

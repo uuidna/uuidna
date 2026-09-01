@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "c063bd35e00b8e592ca5fa09bb6251a7",
-    "lean": "c2275d351943d9c7eba94ec958a4a9fb"
+    "src": "5786952f3158efbc29f9523bba73e5bc",
+    "lean": "b37e6abb664719729889c994b09740d7"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -182,6 +182,7 @@
     "lean/heartbeats.json": "4bfaa0973432cc00",
     "lean/hexbit-manifest.json": "9b9c644972d0ada4",
     "lean/identifiers-manifest.json": "ecb53ab71710bb0b",
+    "lean/impossibility-baseline.json": "0486da23999c8414",
     "lean/infinity-manifest.json": "919a6ca93df3bf5a",
     "lean/installs-manifest.json": "ae576d76cbc72a14",
     "lean/isometry-manifest.json": "cc3c9b03cda28778",
@@ -3854,6 +3855,7 @@
     "src/scripts/harmonic-scan.test.ts": "0bb9d22e5cb3c809",
     "src/scripts/harmonic-scan.ts": "b14e41db661b9a47",
     "src/scripts/hexbit-from-books.ts": "4b93ec9f5887309c",
+    "src/scripts/impossibility-gaps.ts": "276b1c2d5693d6d1",
     "src/scripts/index-test-imports.ts": "6e1099a4e0bc5e06",
     "src/scripts/iq-books.ts": "7007db73db1e898c",
     "src/scripts/land.ts": "2974181e94464a69",
