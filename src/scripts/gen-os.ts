@@ -188,6 +188,25 @@ taking advantage of the device in the wrong sense.
   <PortsConsole />
 </ClientOnly>
 
+## The budgets, on your architecture
+
+Every timing in this repository was set on one machine, and a benchmark printed in a repository is a fact about
+the machine that ran it. Quoting an Apple M1 Max at a reader on a phone would be quoting someone else's hardware
+at them, so the table below measures on whatever is reading this page.
+
+It calibrates first — the same fixed integer loop every host runs — and then reports each operation as a MULTIPLE
+of that calibration rather than in nanoseconds. A processor half the speed doubles both the calibration and the
+work, so the ratio survives; a regression in the code moves only one side, which is the thing a budget is for.
+That is what makes a budget portable across architectures instead of a claim about one desk.
+
+Read the ratio, not the nanoseconds: browsers clamp their clocks and throttle hidden tabs, and the same key
+derivation in this tree measured 8.5 s visible against 25.7 s backgrounded. Both sides of a ratio throttle
+together, which is exactly why the ratio is the column worth reading.
+
+<ClientOnly>
+  <ArchMetrics />
+</ClientOnly>
+
 ## GPU dispatch — the one measurement this repository cannot take
 
 The lattice's smallest step is a residue, and over many handles it is the same independent arithmetic per

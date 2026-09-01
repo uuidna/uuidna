@@ -51,5 +51,6 @@ export default {
     app.component('GpuDispatch', defineAsyncComponent(() => import('./GpuDispatch.vue')))
     app.component('DomainPort', defineAsyncComponent(() => import('./DomainPort.vue')))
     app.component('PortsConsole', defineAsyncComponent(() => import('./PortsConsole.vue')))
+    app.component('ArchMetrics', defineAsyncComponent(() => import('./ArchMetrics.vue')))
   }
 } satisfies Theme

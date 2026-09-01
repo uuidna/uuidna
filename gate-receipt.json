@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "f1296f54523bd4831dde79378f835270",
-    "lean": "ad747acdf7310efcf2fe3f1c239643ce"
+    "src": "75d2729389c3dbcf95ba4c1ab926f489",
+    "lean": "da9401444c2debfa6882032011f7e50e"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -126,7 +126,7 @@
     "lean/alpine-apps.json": "0dc78c8f1f6e0be0",
     "lean/alpine-apps.md": "61c82d227a00f9c3",
     "lean/alpine-discovery.json": "6bf80f1ce61e9e45",
-    "lean/alpine-hexbit-monitor.json": "1bc50274e8dd8e94",
+    "lean/alpine-hexbit-monitor.json": "34efbcc85264a8e2",
     "lean/anthem-manifest.json": "c5608e8f20ea26df",
     "lean/antifraud-manifest.json": "03571950d926e2b0",
     "lean/antikythera-manifest.json": "a8ec30f0e003d51c",
@@ -3807,7 +3807,7 @@
     "src/scripts/gen-mcp.ts": "bfe79fcc2021bfe9",
     "src/scripts/gen-models.ts": "a9e0f29949a8d5ec",
     "src/scripts/gen-open-questions.ts": "e22ce9252a2f2e7e",
-    "src/scripts/gen-os.ts": "9df5df842e05604e",
+    "src/scripts/gen-os.ts": "6e0e0b70de1bf7e3",
     "src/scripts/gen-packages.ts": "e377f27874e5bb08",
     "src/scripts/gen-prose-evidence.ts": "23b66da618d622a3",
     "src/scripts/gen-quantum-advantage.ts": "653a442ac27c3d2d",
