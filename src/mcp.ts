@@ -83,6 +83,7 @@ import { portsCensus } from './quantum/os/ports/index.js'
 import { uiApi } from './quantum/os/uiapi/index.js'
 import { portAll } from './quantum/os/portall/index.js'
 import { cernPortSearch } from './quantum/os/cern/index.js'
+import { refusalCensus } from './school/refusals/index.js'
 import { chatApi, chatSend } from './quantum/os/chat/index.js'
 import { shellRun, shellCoverage } from './quantum/os/shellapi/index.js'
 import { fsSeal } from './quantum/os/fsapi/index.js'
@@ -1650,6 +1651,11 @@ const TOOLS: Tool[] = ([
     detail: 'uuidna reimplements none of these binaries; it adds that the command and the bytes are content-addressed, so a verdict is citable rather than a screenshot. Nothing here is a security scan: clamav scans files for signatures, the guard scans source for determinism violations.',
     inputSchema: { type: 'object', properties: { op: { type: 'string', enum: ['confine', 'inspect-files', 'packet-policy', 'audit-tls'] }, args: { type: 'string' } } },
     run: (a) => (a.op === undefined ? secApi() : planSecurityOp(String(a.op), String(a.args ?? ''))) },
+  { name: 'uuidna_refusals',
+    description: 'Every refusal with its boundary, classified as a law, a scope or an incapacity, and whether that boundary survived scrutiny. Withdrawn refusals are kept beside the ones that held.',
+    detail: 'Refusing WORK and refusing the COURT are opposite acts, and only the first is recorded — the second has no legitimate instance, because the court verdict is what gives every other claim here its weight. The informative column is not the refusal but whether its boundary held: a boundary naming a law is checkable and usually does; a boundary naming an incapacity is the class to distrust. In this record every withdrawn refusal named an incapacity, which is one case out of one — a pattern to watch, not a proof. The larger corroboration is sealed separately as impossibility_claims_debt_622: six impossibility claims written into this tree and refuted in a single session, none caught by a test.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => refusalCensus() },
   { name: 'uuidna_cern',
     description: 'Search CERN Open Data and address every record. A query that could not be reached returns declined:true with a reason, so an unreachable socket never reads as a claim about physics (theorem no_instrument_narrower_than_its_question).',
     detail: 'Alpine ships no CERN physics packages: the six catalogue rows matching HEP are Homer Encapsulation Protocol, a VoIP capture agent, not High Energy Physics. So this port reaches the source directly at opendata.cern.ch rather than through the mirror. Each record is content-addressed, so a citation pins the record rather than the query that found it. Evidence only: a fetched record is never sealed, because a remote answer carries provenance rather than truth (theorem provenance_integrity_not_content_truth) and the network is the one source this tree refuses to treat as a witness.',

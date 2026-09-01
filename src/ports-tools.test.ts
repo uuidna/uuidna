@@ -96,6 +96,12 @@ test('uuidna_cern — a query that could not be reached DECLINES rather than rep
   if (r.declined) assert.ok(r.note.length > 0, 'a decline must say why')
 })
 
+test('uuidna_refusals — the withdrawn one is visible, not tidied away', () => {
+  const c = callTool('uuidna_refusals') as { refused: number; withdrawn: number; rows: { survived: boolean }[] }
+  assert.ok(c.withdrawn > 0, 'a registry showing only successful refusals teaches nothing')
+  assert.equal(c.rows.length, c.refused + c.withdrawn)
+})
+
 test('all ten ports have a door', () => {
   for (const n of ['uuidna_ports', 'uuidna_chat', 'uuidna_shell', 'uuidna_fs_seal', 'uuidna_db_query',
     'uuidna_chain_seal', 'uuidna_net_read', 'uuidna_driver_state', 'uuidna_security_plan', 'uuidna_os_census']) {

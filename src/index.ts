@@ -782,4 +782,6 @@ export { portAll, renderPortAll, type PortAllCensus } from './quantum/os/portall
 // CERN open data — the port existed with no door on either surface, which is a capability nobody has
 export { fetchCernOpenData, cernPortSearch, renderCernPort, CERN_OD, CERN_PROBE_QUERY, type CernRecord, type CernFetchResult, type CernPortResult } from './quantum/os/cern/index.js'
 // the school graded in the student's own currency, and the payloadless space argument beside it
+// refusals — every refusal with its boundary, and whether that boundary survived scrutiny
+export { refusalCensus, involuteRefusals, type RefusalCensus, type RefusalRow, type InvolutedRefusal } from './school/refusals/index.js'
 export { schoolEfficiency, payloadlessSpace, tokensOf, ADDRESS_BYTES as EFFICIENCY_ADDRESS_BYTES, type EfficiencyRow, type SpaceRow } from './school/efficiency/index.js'

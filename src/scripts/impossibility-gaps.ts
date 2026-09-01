@@ -37,12 +37,16 @@ const COMMENT = /^\s*(\/\/|\*)/
 // that put an icon theme in neuroscience and flagged four prose mentions of `git push` as unverified pushes.
 // Third time today; the exemption is the same one landing-gaps carries, and for the same reason: the finder is
 // not the act.
-const SELF = 'src/scripts/impossibility-gaps.ts'
+const SELF = new Set([
+  'src/scripts/impossibility-gaps.ts',
+  // classifies refusal boundaries BY these words, so it must name them — the mention case, fifth time today
+  'src/school/refusals/index.ts',
+])
 
 export function impossibilityGaps(files: readonly string[], baseline: ReadonlySet<string>): Gap[] {
   const gaps: Gap[] = []
   for (const rel of files) {
-    if (rel === SELF || baseline.has(rel)) continue
+    if (SELF.has(rel) || baseline.has(rel)) continue
     let text: string
     try { text = rd(rel) } catch { continue }
     const lines = text.split('\n')
