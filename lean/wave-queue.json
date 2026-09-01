@@ -1,16 +1,5 @@
 {
-  "pending": [
-    {
-      "key": "alpine_security_ops_plannable_4",
-      "why": "Alpine domain port (security-ops): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every named security operation is plannable against the pinned rootfs (4 of 4, none blocked) — the fact the withdrawn refusal denied",
-      "lean": "theorem alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0) := by decide"
-    },
-    {
-      "key": "alpine_shell_applets_partition_20",
-      "why": "Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (4), or uuidna's own (10) — exhaustive and disjoint",
-      "lean": "theorem alpine_shell_applets_partition_20 : (6 + 4 + 10 = 20) := by decide"
-    }
-  ],
+  "pending": [],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
@@ -5015,6 +5004,18 @@
       "why": "SECURITY MARGIN AFTER EVERY NAMED ADVANTAGE. After granting the adversary BOTH advantages — Grover halving the 128-bit address to 64 bits, and a ×1000 classical machine removing at most 10 more — the 600,000 KDF iterations still add at least 19 bits per guess, leaving 73 bits to cross. Both bounds are taken in the attacker's favour; the margin is what survives that. Not a supremacy claim and not a promise about hardware that does not exist — arithmetic over three named quantities, any of which can be argued with in public.",
       "lean": "theorem quantum_margin_after_both_advantages_73 : (128 / 2 = 64) ∧ (1000 <= 1024) ∧ (600000 > 524288) ∧ (64 - 10 + 19 = 73) := by decide",
       "receipt": "14034eb7-e0ad-84ef-9db3-f26304821aab"
+    },
+    {
+      "key": "alpine_security_ops_plannable_4",
+      "why": "Alpine domain port (security-ops): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every named security operation is plannable against the pinned rootfs (4 of 4, none blocked) — the fact the withdrawn refusal denied",
+      "lean": "theorem alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0) := by decide",
+      "receipt": "0ce7950b-3e11-8091-a20e-d3ef9a602f9d"
+    },
+    {
+      "key": "alpine_shell_applets_partition_20",
+      "why": "Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (4), or uuidna's own (10) — exhaustive and disjoint",
+      "lean": "theorem alpine_shell_applets_partition_20 : (6 + 4 + 10 = 20) := by decide",
+      "receipt": "95bc90db-0d75-8bd4-bfbc-d717661be5ab"
     }
   ],
   "refused": [

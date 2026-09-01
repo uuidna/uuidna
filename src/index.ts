@@ -754,3 +754,26 @@ export { scopeOf, scopeCensus, toolsInScope, type ToolScope, type ScopeCensus } 
 // unlocks — EACH THEOREM UNLOCKS what it seals `by decide`. The ledger IS the unlock board; illustrations are presence checks, not a closed set.
 export { unlockBoard, unlockReadmeBlock, unlockHomeFragment, UNLOCK_ILLUSTRATIONS, UNLOCK_LAW, type UnlockBoard, type UnlockCount, type UnlockIllustration } from './unlocks.js'
 // crossref — a DOI RESOLVED rather than trusted. The witness leg is granted by a keyword roster over text, so a// string containing "DOI" earns the scarcest leg in the ledger without a source behind it. This resolves it.export { doisIn, crossrefUrl, crossrefSearchUrl, parseCrossref, verifyCitations, searchSources, type Citation, type CitationCheck, type CitationReport, type CandidateSource } from './crossref.js'
+
+// ── THE ALPINE PORTS (2026-09-01) — seven domains, each one door, plus the machine asking about itself ────────
+// Built across one session and, until this line, reachable by nothing outside the tree: src/index.ts IS the
+// public surface the six packages are generated from, so an API absent here is an API a consumer cannot call.
+// The session revision found all eleven missing at once — the ports existed and were unpublished, which is the
+// same shape as a theorem sealed and never lifted into the ledger.
+export { chatApi, chatSend, chatOpen, chatProtocols, chatCensus, type ChatMessage, type ChatApiCensus } from './quantum/os/chat/index.js'
+export { shellRun, shellCoverage, shellCensus, shellMembers, shellCommandUniverse, catalogueCommandUniverse, shellClaims, APPLETS, type ShellCoverage } from './quantum/os/shellapi/index.js'
+export { fsSeal, fsVerify, fsApi, fsCensus, type FsEntry, type FsManifest, type FsVerdict, type FsApiCensus } from './quantum/os/fsapi/index.js'
+export { dbQuery, dbApi, dbCensus, type DbQuery, type DbResult, type DbApiCensus } from './quantum/os/dbapi/index.js'
+export { chainSeal, chainAppend, chainProve, chainVerify, chainApi, chainCensus, type Chain, type ChainProof, type ChainApiCensus } from './quantum/os/chainapi/index.js'
+export { netRead, netVerify, netApi, networkCensus, type NetRead, type NetVerdict, type NetApiCensus } from './os/netapi/index.js'
+export { driverState, driverPin, driverCheck, driverCensus, type DriverApiState } from './drivers/driverapi/index.js'
+export { portsCensus, portsFragment, injectPorts, type PortedApi, type PortsCensus } from './quantum/os/ports/index.js'
+// the machine asked about itself — the monitor it draws on, the translations it performs, the arches it spans
+export { primeMonitor, monitorPrimed, monitorCensus, renderMonitor, compilerCensus, renderCompilers, archMatrix, renderArchMatrix, type MonitorInventory, type MonitorCensus, type CompilerCensus, type ArchMatrix } from './quantum/os/census/index.js'
+// security — ATTESTED operations, not reimplementations; and a hardware key folded to an address
+export { secApi, planSecurityOp, attestBytes, securityClaims, securityCensus, SECURITY_OPS, type AttestedPlan, type SecApiCensus } from './os/secapi/index.js'
+export { authnPresence, addressCredential, enrol, type AuthnPresence, type AddressedCredential, type EnrolResult } from './os/webauthn/index.js'
+// the installer discipline — simulate, then commit, and never destroy without naming what is destroyed
+export { planChange, renderPlan, commitChange, type InstallPlan, type CommitResult } from './quantum/os/installer/index.js'
+// the school graded in the student's own currency, and the payloadless space argument beside it
+export { schoolEfficiency, payloadlessSpace, tokensOf, ADDRESS_BYTES as EFFICIENCY_ADDRESS_BYTES, type EfficiencyRow, type SpaceRow } from './school/efficiency/index.js'

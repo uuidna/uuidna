@@ -2935,8 +2935,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000117",
-   "completionPrice": "0.00000396"
+   "promptPrice": "0.0000011875",
+   "completionPrice": "0.00000418"
   }
  ]
 }

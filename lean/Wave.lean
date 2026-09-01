@@ -4993,3 +4993,17 @@ theorem alpine_dom_as_ga_ie_50 : (25 + 25 - 0 = 50) := by decide
     attacker's favour; the margin is what survives that. Not a supremacy claim and not a promise about hardware
     that does not exist — arithmetic over three named quantities, any of which can be argued with in public. -/
 theorem quantum_margin_after_both_advantages_73 : (128 / 2 = 64) ∧ (1000 <= 1024) ∧ (600000 > 524288) ∧ (64 - 10 + 19 = 73) := by decide
+
+/-- Alpine domain port (security-ops): exact arithmetic over the census counts. HONEST SCOPE — membership is a
+    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
+    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
+    linked or executed. every named security operation is plannable against the pinned rootfs (4 of 4, none
+    blocked) — the fact the withdrawn refusal denied -/
+theorem alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0) := by decide
+
+/-- Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a
+    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
+    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
+    linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere
+    (4), or uuidna's own (10) — exhaustive and disjoint -/
+theorem alpine_shell_applets_partition_20 : (6 + 4 + 10 = 20) := by decide

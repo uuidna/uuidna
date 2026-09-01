@@ -1,0 +1,12 @@
+{
+  "handle": "1fa45320",
+  "address": "1fa45320-bd7b-8fe5-a964-ccaa04987ae6",
+  "statement": "(6 + 4 + 10 = 20)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_shell_applets_partition_20"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

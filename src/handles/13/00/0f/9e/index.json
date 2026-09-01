@@ -1,0 +1,12 @@
+{
+  "handle": "13000f9e",
+  "address": "13000f9e-b8e6-85eb-a0ff-9b20c3417b64",
+  "kind": "chunk",
+  "keys": [
+    "alpine_security_ops_plannable_4"
+  ],
+  "statement": "(4 + 0 = 4) ∧ (0 = 0)",
+  "files": [
+    "Wave.lean"
+  ]
+}

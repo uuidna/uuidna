@@ -1,0 +1,12 @@
+{
+  "handle": "ba8bb468",
+  "address": "ba8bb468-b20e-850a-a020-09a2cd9fd22a",
+  "statement": "(0 + 2467 = 2467) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_terminator_escaped"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

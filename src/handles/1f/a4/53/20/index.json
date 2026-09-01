@@ -1,0 +1,12 @@
+{
+  "handle": "1fa45320",
+  "address": "1fa45320-bd7b-8fe5-a964-ccaa04987ae6",
+  "kind": "chunk",
+  "keys": [
+    "alpine_shell_applets_partition_20"
+  ],
+  "statement": "(6 + 4 + 10 = 20)",
+  "files": [
+    "Wave.lean"
+  ]
+}
