@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "6dbce9cd6c8802473d24ae9575b01f80",
+    "src": "c4113d85b672f1c686818b79f507b1c1",
     "lean": "d00e465d16d2506156be8b390aaf160c"
   },
   "files": {
@@ -3267,6 +3267,8 @@
     "src/quantum/os/fetch/index.ts": "42b836993dc9c418",
     "src/quantum/os/firmware/index.test.ts": "0c3cca5cc6cd86af",
     "src/quantum/os/firmware/index.ts": "9b1c8ad1335ad4ed",
+    "src/quantum/os/fsapi/index.test.ts": "ab4635e1034b5a2b",
+    "src/quantum/os/fsapi/index.ts": "7f5e6d002794a36a",
     "src/quantum/os/harness/agent-coverage.test.ts": "9fe9bde549149329",
     "src/quantum/os/harness/alpine-agent-wave.test.ts": "09ee8849f14613f2",
     "src/quantum/os/harness/anthem-stream.test.ts": "2197748da6c16381",
@@ -3338,6 +3340,8 @@
     "src/quantum/os/routes/index.ts": "dd4e429b4c01330f",
     "src/quantum/os/school/index.ts": "14ec5aa75db3bb1b",
     "src/quantum/os/session/index.ts": "f83e5df00574d05b",
+    "src/quantum/os/shellapi/index.test.ts": "3d934fa75f4b9cf5",
+    "src/quantum/os/shellapi/index.ts": "0ea8b1f7c45e17c0",
     "src/quantum/os/waves/index.test.ts": "e1062a5a2086aff4",
     "src/quantum/os/waves/index.ts": "eea359e360efd152",
     "src/quantum/os/weather/index.ts": "dd5e7544464d7414",
