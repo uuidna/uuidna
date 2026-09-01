@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "6ae94972bd9913239fd8c90f1ea8974d",
-    "lean": "e44b9e51b4480493c4dd0039ba497aad"
+    "src": "59481df8c4e9083bd4a7a56672cf38c1",
+    "lean": "5c175f11268d6e9aaaa30fb839e441ee"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -158,7 +158,7 @@
     "lean/contribution-manifest.json": "d8e9948877be7862",
     "lean/core-manifest.json": "4910e7a5c650bacb",
     "lean/crt-manifest.json": "3102556b1cb18ee3",
-    "lean/cube-memory.json": "2b3deff4c604f3d5",
+    "lean/cube-memory.json": "e4fac4eab18a45c9",
     "lean/discover-manifest.json": "caa8a64c042769f1",
     "lean/divbyzero-manifest.json": "58ff90cd291d5a13",
     "lean/diving-manifest.json": "0a2fd9302a4568a9",
@@ -179,7 +179,7 @@
     "lean/handlespan-manifest.json": "0a9b532a1d4d75b4",
     "lean/hardware-manifest.json": "ad7fceba3a01497e",
     "lean/harmony-manifest.json": "08e6c536fc09765f",
-    "lean/heartbeats.json": "018731c279f6fb62",
+    "lean/heartbeats.json": "adccee29d7d53b90",
     "lean/hexbit-manifest.json": "ad3cd2d7258ce992",
     "lean/identifiers-manifest.json": "ecb53ab71710bb0b",
     "lean/infinity-manifest.json": "919a6ca93df3bf5a",
@@ -3521,7 +3521,7 @@
     "src/quantum/memory/index.ts": "b7b351bf72901094",
     "src/quantum/message/index.ts": "06d410c4984993b8",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "6c39b0eeb5afe78a",
+    "src/quantum/models/mirror.ts": "80e4b90a7e588a18",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",
     "src/quantum/os/acme/index.ts": "ddb7a56cfc383c59",
     "src/quantum/os/alpine/index.test.ts": "b6f70f0a806153fb",
