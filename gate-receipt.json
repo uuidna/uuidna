@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "68451252dda58390c89f678d28eab54b",
-    "lean": "7a1f1136eb5a117933261e7a5f3653a6"
+    "src": "6b5ec610b8d46656091ea079577fcc21",
+    "lean": "bb854dbe429f505eee4e9721a3e1e21e"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -185,7 +185,7 @@
     "lean/infinity-manifest.json": "919a6ca93df3bf5a",
     "lean/installs-manifest.json": "ae576d76cbc72a14",
     "lean/isometry-manifest.json": "cc3c9b03cda28778",
-    "lean/leads.json": "28f81137828f83e7",
+    "lean/leads.json": "a721f68ed560a59b",
     "lean/legal-manifest.json": "e03e21d75528f9c9",
     "lean/looms-manifest.json": "11a5b2aade2e4b1e",
     "lean/martialarts-manifest.json": "f22403cbd84a05f0",
@@ -3421,6 +3421,8 @@
     "src/os/runtime/rootfs/index.ts": "764b312765e13da5",
     "src/os/runtime/sandbox/index.test.ts": "8454cea0ad4498da",
     "src/os/runtime/sandbox/index.ts": "1adc2e0b4d401f0f",
+    "src/os/secapi/index.test.ts": "d0ec36849fdc4945",
+    "src/os/secapi/index.ts": "0d22d00dc2f9b342",
     "src/os/timing/index.test.ts": "1455a7e00e7b422e",
     "src/os/timing/index.ts": "1bf6693c41d34167",
     "src/page-metrics.test.ts": "8f613016992b0ff8",
@@ -3537,7 +3539,7 @@
     "src/quantum/memory/index.ts": "b7b351bf72901094",
     "src/quantum/message/index.ts": "06d410c4984993b8",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "1d6ee870f217375f",
+    "src/quantum/models/mirror.ts": "a4cf0c820902b8ed",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",
     "src/quantum/os/acme/index.ts": "ddb7a56cfc383c59",
     "src/quantum/os/alpine/index.test.ts": "b6f70f0a806153fb",
