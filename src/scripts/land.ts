@@ -43,7 +43,10 @@ const CURES: { name: string; when: RegExp; cmd: string }[] = [
   // new receipt the honest way — guard, then the suite, then write it — and only then push. Slow by design; the
   // receipt is worth precisely as much as the run behind it.
   { name: 'receipt no longer covers the tree', when: /the tree MOVED since it was proven green|receipt certifies different bytes/,
-    cmd: 'npm run guard && npm test && node dist/scripts/gate-receipt.js' },
+    // --verified names EXACTLY the two arms this cure just ran, and nothing else. The receipt used to assert
+    // five (types, tests, guard, qa, next --verify) because the list was typed into the writer rather than
+    // passed by the runner — so it claimed a green run whoever called it and however little had happened.
+    cmd: 'npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests' },
   { name: 'raced edge mirror', when: /stale census|MIRROR.*MATCHES A LIVE RECOMPUTE/i, cmd: 'node dist/scripts/rosetta.js && npm run build' },
   { name: 'stale axiom witness', when: /AXIOM WITNESS STALE/, cmd: 'npm run axioms' },
   { name: 'stale spin seal', when: /spin/i, cmd: 'node dist/scripts/reconcile.js --derive-only' },

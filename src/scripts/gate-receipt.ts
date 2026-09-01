@@ -33,11 +33,35 @@ if (process.argv.includes('--verify')) {
   process.exit(0)
 }
 
+// ── THE RECEIPT MUST NOT CLAIM WHAT NOBODY RAN (found 2026-09-01, by writing one on a red tree) ───────────────
+//
+// This field was a LITERAL: verified: ['types', 'tests', 'guard', 'qa', 'next --verify']. It said those five
+// checks passed, always, because it was typed — and the command that wrote it ran none of them. I called it by
+// hand after a suite with one failure, the push gate read `covers` and let the push through, and the receipt now
+// on record asserts a green run that did not happen. It is the sharpest form of the shape this tree keeps
+// meeting: not a check that failed to run, but an ATTESTATION with nothing behind it.
+//
+// So the writer must be TOLD, and a bare write is refused. --verified takes the comma-separated list of arms the
+// caller actually ran; the caller is the chain that just ran them (land's cure, the push gate), so the claim and
+// the run sit in the same command and cannot drift apart. A receipt that names fewer arms is weaker and honest;
+// one that names none is not written at all.
+const VERIFIED = ((): string[] => {
+  const i = process.argv.indexOf('--verified')
+  const list = i >= 0 && process.argv[i + 1] ? String(process.argv[i + 1]).split(',').map((x) => x.trim()).filter(Boolean) : []
+  if (!list.length) {
+    console.error('✗ gate-receipt — REFUSED: a receipt must name what was actually verified.')
+    console.error('  usage: gate-receipt --verified tests,guard   (the caller that ran them writes it)')
+    console.error('  A receipt is an attestation. Writing one without a run is how a red tree passes a green gate.')
+    process.exit(1)
+  }
+  return list
+})()
+
 // --write: called by the push gate AFTER every arm passes, so the receipt can only ever describe a green tree.
 writeFileSync(RECEIPT, JSON.stringify({
   covers: treeCovers(),
   files: fileManifest(),
-  verified: ['types (tsc noEmitOnError)', 'tests', 'guard', 'qa (sealed)', 'next --verify (hexbit-fast)'],
+  verified: VERIFIED,
   excludes: 'src/seeds, src/chunks — generated payloads the tests and the guard never read',
   honest: 'Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. ' +
     'Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted ' +
