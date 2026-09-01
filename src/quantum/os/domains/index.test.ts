@@ -53,8 +53,9 @@ test('CONTROL — every emitted key fits the door, whatever the domain is named'
 
 test('CONTROL — the conveyor takes every domain claim, or has already sealed it', () => {
   // This asserted ACCEPTED outright, which was true only while the claims were unsealed. The kernel has since
-  // judged all fifteen deposited claims and sealed them into the ledger — 2148 theorems became 2163 — so the
-  // door now refuses them as duplicates, which is the SUCCESS case wearing a refusal's clothes. The durable
+  // judged the deposited claims and sealed them, so the door now refuses them as duplicates — the SUCCESS case
+  // wearing a refusal's clothes. (No count is written here on purpose: the guard's comments finder is right that
+  // a ledger figure in prose is wrong on the next landing, and naming the source beats scheduling the drift.) The durable
   // assertion is the one that survives both states: a claim is either takeable or already a theorem. What must
   // never appear is a refusal for being a bare literal or an unlawful key, because those are the two ways a
   // claim can be worthless, and they are the reason all 79 of the original name-scraped candidates were turned
