@@ -19,6 +19,8 @@ import {
   resolveAlpineApp, providedCommands,
 } from '../catalogue/index.js'
 import { INSTALLS_MIRROR } from '../mirror/index.js'
+import { primeMonitor, monitorCensus, renderMonitor } from '../monitor/index.js'
+import { MONITOR_INVENTORY } from '../monitor/inventory/index.js'
 import { toUuid } from '../../../address.js'
 import { handleOf } from '../../../handle.js'
 import { bootOS, hexbitDoorOf, type InstallSpec } from '../index.js'
@@ -156,7 +158,7 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'help'] as const
+export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'monitor', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
 
 /** Legacy fold list — toys are ported again as pure logic over the virtual OS + session vfs. */
@@ -638,6 +640,16 @@ export function uuidnaExec(line: string): ExecResult {
       const c = testAcmePort()
       emit([renderAcmePort(c)], { kind: 'acme-port', ...c })
       ok = c.complete
+      break
+    }
+    // THE MONITOR IS A DEVICE OF THIS OS, asked about exactly as the driver bundle and the boot image are. It
+    // DISPLAYS and does not compute — every figure on every panel is computed here in TypeScript before it
+    // reaches a page — so what this reports is an inventory and a split: which panels draw what the build knew,
+    // and which run on the reader's own machine.
+    case 'monitor': {
+      primeMonitor(MONITOR_INVENTORY)
+      const c = monitorCensus()
+      emit(renderMonitor(c), c)
       break
     }
     case 'help': emit(['applets: ' + APPLETS.join(' '),

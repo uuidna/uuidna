@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "7ff9ea573bb5e54dda74c19ea6f3f29d",
-    "lean": "066cd64fe37d6541f3ccb2494812706e"
+    "src": "a238e5a987415f4e854ada9805092147",
+    "lean": "49896863c8f69650f2e49a0c5c6823bc"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -126,7 +126,7 @@
     "lean/alpine-apps.json": "0dc78c8f1f6e0be0",
     "lean/alpine-apps.md": "61c82d227a00f9c3",
     "lean/alpine-discovery.json": "6bf80f1ce61e9e45",
-    "lean/alpine-hexbit-monitor.json": "34efbcc85264a8e2",
+    "lean/alpine-hexbit-monitor.json": "28921881b34ffebf",
     "lean/anthem-manifest.json": "c5608e8f20ea26df",
     "lean/antifraud-manifest.json": "03571950d926e2b0",
     "lean/antikythera-manifest.json": "a8ec30f0e003d51c",
@@ -3574,7 +3574,7 @@
     "src/quantum/os/discovery/index.ts": "b059a7af2f76db3c",
     "src/quantum/os/domains/index.test.ts": "fd44916a73c33b01",
     "src/quantum/os/domains/index.ts": "e1ac19f8a83aa089",
-    "src/quantum/os/exec/index.ts": "482028e39f9b94b6",
+    "src/quantum/os/exec/index.ts": "4c509753c4afcacd",
     "src/quantum/os/fetch/index.ts": "42b836993dc9c418",
     "src/quantum/os/firmware/index.test.ts": "0c3cca5cc6cd86af",
     "src/quantum/os/firmware/index.ts": "9b1c8ad1335ad4ed",
@@ -3638,6 +3638,9 @@
     "src/quantum/os/mcpman/index.test.ts": "382b35ea90f2329a",
     "src/quantum/os/mcpman/index.ts": "c4612b19576823f4",
     "src/quantum/os/mirror/index.ts": "936609d472a2fd4b",
+    "src/quantum/os/monitor/index.test.ts": "20b3696ec341da9e",
+    "src/quantum/os/monitor/index.ts": "7c23e9bfe0bb13d3",
+    "src/quantum/os/monitor/inventory/index.ts": "88478eaad2b7c08d",
     "src/quantum/os/news/index.ts": "0d6316a85d8f8907",
     "src/quantum/os/npm/index.ts": "40e260cc5108e5bb",
     "src/quantum/os/patime/index.test.ts": "a04d4006b70c6771",
@@ -3655,7 +3658,7 @@
     "src/quantum/os/school/index.ts": "14ec5aa75db3bb1b",
     "src/quantum/os/session/index.ts": "f83e5df00574d05b",
     "src/quantum/os/shellapi/index.test.ts": "583cb50f7c3079cb",
-    "src/quantum/os/shellapi/index.ts": "d5799ad969e34760",
+    "src/quantum/os/shellapi/index.ts": "4f485ed8c4e4541d",
     "src/quantum/os/waves/index.test.ts": "e1062a5a2086aff4",
     "src/quantum/os/waves/index.ts": "eea359e360efd152",
     "src/quantum/os/weather/index.ts": "dd5e7544464d7414",
@@ -3808,7 +3811,7 @@
     "src/scripts/gen-mcp.ts": "bfe79fcc2021bfe9",
     "src/scripts/gen-models.ts": "a9e0f29949a8d5ec",
     "src/scripts/gen-open-questions.ts": "e22ce9252a2f2e7e",
-    "src/scripts/gen-os.ts": "6e0e0b70de1bf7e3",
+    "src/scripts/gen-os.ts": "0bcc710ba0d7429e",
     "src/scripts/gen-packages.ts": "e377f27874e5bb08",
     "src/scripts/gen-prose-evidence.ts": "23b66da618d622a3",
     "src/scripts/gen-quantum-advantage.ts": "653a442ac27c3d2d",

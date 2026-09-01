@@ -17,17 +17,17 @@
 // construction, which is what lets it run in a browser tab.
 import { catalogue } from '../catalogue/index.js'
 import { DOMAIN_PATTERNS, domainCensus, type DomainCensus } from '../domains/index.js'
-import { uuidnaExec } from '../exec/index.js'
+import { uuidnaExec, APPLETS } from '../exec/index.js'
 import { toUuid } from '../../../address.js'
 
 export const SHELL_DOMAIN = 'shell' as const
 
-// THE APPLETS uuidnaExec DISPATCHES, named here because a switch statement is not a surface anyone can query.
-// This list is asserted against the live dispatcher by the test beside it, so it cannot drift into a claim.
-export const APPLETS: readonly string[] = [
-  'ls', 'apk', 'man', 'pwd', 'echo', 'which', 'cat', 'stat', 'du',
-  'driver', 'device', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'help',
-]
+// THE APPLET LIST IS IMPORTED, NOT RESTATED, and the test beside this caught why. This module kept its own copy
+// of the seventeen applet names so a caller could find the door without reading exec — reasonable, and a second
+// list that has to be remembered. Adding `monitor` to one and not the other broke the cross-check within a
+// minute, which is the good outcome: the drift was found by a law rather than by a user. exec exports the names
+// it dispatches, so exec is the source and this re-exports it.
+export { APPLETS } from '../exec/index.js'
 
 // THE DENOMINATOR IS ALPINE'S OWN, NOT MY MEMORY OF POSIX (the captain: replace hardcoded with theorems).
 //
@@ -119,7 +119,9 @@ export function shellCoverage(): ShellCoverage {
 /** shellRun — the ONE exec door, with the refusal made explicit rather than returned as an empty success. */
 export function shellRun(line: string): { ok: boolean; output: string[]; data: unknown; applet: string } {
   const applet = String(line).trim().split(/\s+/)[0] ?? ''
-  if (applet && !APPLETS.includes(applet)) {
+  // widened deliberately: APPLETS is a literal tuple (so exec's switch is exhaustively typed), and membership
+  // is being asked of arbitrary user input, which is a string by nature
+  if (applet && !(APPLETS as readonly string[]).includes(applet)) {
     // AN UNKNOWN APPLET IS A REFUSAL, NOT AN EMPTY RESULT. A shell that answered nothing to `grep` would read
     // as "no matches" — the same green-over-absent shape this tree keeps meeting — so it says the word instead.
     return {
