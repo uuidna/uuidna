@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "c4113d85b672f1c686818b79f507b1c1",
+    "src": "8f73802eb0a044b189d68dc70c047e41",
     "lean": "d00e465d16d2506156be8b390aaf160c"
   },
   "files": {
@@ -384,6 +384,8 @@
     "src/drain-owners.test.ts": "88b87978733ad447",
     "src/driver.test.ts": "0d7217061eefdddb",
     "src/drivers/driver/index.ts": "fd8d15b27693d488",
+    "src/drivers/driverapi/index.test.ts": "f13b98fe16245876",
+    "src/drivers/driverapi/index.ts": "6d546315925db168",
     "src/drivers/quantum/index.ts": "7b4350601c72a915",
     "src/due-process.test.ts": "b516ec7d88275ac8",
     "src/due-process.ts": "8a148ed7e8822186",
@@ -3105,6 +3107,8 @@
     "src/os/host/index.ts": "caa35a00b832f82e",
     "src/os/installs/index.ts": "0e90219e9c2635f1",
     "src/os/models/index.ts": "968cc81382c27e22",
+    "src/os/netapi/index.test.ts": "8b55fe9b60df2d9b",
+    "src/os/netapi/index.ts": "5fdcd3e62b9cab1b",
     "src/os/overlay/index.ts": "41a78db51532b7d9",
     "src/os/overlay/quantumise/index.ts": "675863926b67a7bc",
     "src/os/packages/index.test.ts": "c2c55c390dd713d3",
