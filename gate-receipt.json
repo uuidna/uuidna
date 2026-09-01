@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "f1f94f5877c22f826ba5fa015be746d8",
+    "src": "de8874b29627ab110d45032b977717da",
     "lean": "4f7271c0aac176aee9cd7cedb033daef"
   },
   "files": {
@@ -4088,6 +4088,7 @@
     "src/social.ts": "3508b1a7fb77fa64",
     "src/song-lattice.test.ts": "8d626df940287131",
     "src/speech.ts": "38d53b5a0eaafd17",
+    "src/spend-declaration.test.ts": "30b3e56fa4084eab",
     "src/spin-parity.test.ts": "130d86f097da0eb6",
     "src/spin.ts": "d404ed676f929a5e",
     "src/statement-chunks.ts": "d158b3d1b4336e44",
