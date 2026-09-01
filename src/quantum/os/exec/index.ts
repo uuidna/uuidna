@@ -20,6 +20,7 @@ import {
 } from '../catalogue/index.js'
 import { INSTALLS_MIRROR } from '../mirror/index.js'
 import { primeMonitor, monitorCensus, renderMonitor } from '../monitor/index.js'
+import { compilerCensus, renderCompilers } from '../compilers/index.js'
 import { MONITOR_INVENTORY } from '../monitor/inventory/index.js'
 import { theorems } from '../../../theorems/index.js'
 import { toUuid } from '../../../address.js'
@@ -159,7 +160,7 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'monitor', 'top', 'help'] as const
+export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'monitor', 'top', 'compilers', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
 
 /** Legacy fold list — toys are ported again as pure logic over the virtual OS + session vfs. */
@@ -677,6 +678,14 @@ export function uuidnaExec(line: string): ExecResult {
         applets: APPLETS.length,
         installs: specs.length,
       })
+      break
+    }
+    // EVERY TRANSLATION THIS MACHINE PERFORMS. Alpine's `language` domain is the largest in the catalogue and
+    // uuidna can offer no API over it — it cannot run python. What it can answer is the same question turned
+    // inward: this repository IS a compilation pipeline, and until now none of its stages were measured.
+    case 'compilers': {
+      const c = compilerCensus()
+      emit(renderCompilers(c), c)
       break
     }
     case 'monitor': {

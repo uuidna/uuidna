@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "2175b5791bf0cdf886dce182008192bc",
+    "src": "288cd9f148a3a7aafce2c2a95b5bd420",
     "lean": "49896863c8f69650f2e49a0c5c6823bc"
   },
   "files": {
@@ -3563,6 +3563,8 @@
     "src/quantum/os/chat/index.ts": "7d6130f967e90808",
     "src/quantum/os/cli/index.test.ts": "06f0496fc0a6d907",
     "src/quantum/os/cli/index.ts": "e651710f2a1e566d",
+    "src/quantum/os/compilers/index.test.ts": "928b25f831f77d73",
+    "src/quantum/os/compilers/index.ts": "79c61d248d57bd46",
     "src/quantum/os/court/index.ts": "13e98700ecc5a60c",
     "src/quantum/os/coverage/index.ts": "15556178decd7114",
     "src/quantum/os/cryptoapps/index.test.ts": "a4b47fbefda571d2",
@@ -3574,7 +3576,7 @@
     "src/quantum/os/discovery/index.ts": "b059a7af2f76db3c",
     "src/quantum/os/domains/index.test.ts": "fd44916a73c33b01",
     "src/quantum/os/domains/index.ts": "e1ac19f8a83aa089",
-    "src/quantum/os/exec/index.ts": "e7a3f47551d8bda8",
+    "src/quantum/os/exec/index.ts": "a3c60e710d772265",
     "src/quantum/os/fetch/index.ts": "42b836993dc9c418",
     "src/quantum/os/firmware/index.test.ts": "0c3cca5cc6cd86af",
     "src/quantum/os/firmware/index.ts": "9b1c8ad1335ad4ed",
