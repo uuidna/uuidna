@@ -1,6 +1,6 @@
 // @non-harmonic: orchestrates the uuidnaOS research sweep (network in quantum/os/research) — async fan-out boundary.
 // corroborate — augment the LOCAL binary verification (adjudicate: VERIFIED / UNVERIFIED, where UNVERIFIED is never
-// "false", only "not yet verified") with EXTERNAL RESEARCH streamed from FREE APIs. HONEST SCOPE: external evidence
+// "false", only "not yet verified") with EXTERNAL RESEARCH streamed from FREE APIs. external evidence
 // is a recomputable PROVENANCE FINGERPRINT of what a public source says — it CORROBORATES, it does NOT prove. Only a
 // `by decide` theorem SEALS (VERIFIED); CORROBORATED means "unverified locally, but a named free source attests it" —
 // evidence, never truth. A local VERIFIED (a sealed proof) always outranks external evidence; a binary gate can prove
@@ -151,7 +151,7 @@ export interface FirewallResult {
 const FIREWALL_HONEST =
   'A WATERFALL of hard gates: each layer crosses ONLY on a local by-decide seal (VERIFIED); the first unsealed layer ' +
   'BLOCKS the whole cascade — nothing downstream is even reached — and reflects the develop path to seal it. Defence-' +
-  'in-depth, the same "no maximum, only bounds" the Security domain proves. HONEST SCOPE: "quantum" names the ' +
+  'in-depth, the same "no maximum, only bounds" the Security domain proves. "quantum" names the ' +
   'recomputable Lean seal and the order-invariant fold; external research corroborates but never crosses.'
 
 /** firewall(layers) → the QUANTUM FIREWALL as a WATERFALL: run the corroborations in order, each APPROVED only by a

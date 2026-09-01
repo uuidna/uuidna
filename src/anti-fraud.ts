@@ -3,7 +3,7 @@
 // A theorem-backed fraud audit: detect every forgery vector from the sealed ledger
 // and the captain's coin economy. Returns recomputable, order-invariant receipts.
 //
-// HONEST SCOPE: uuidna audits RECOMPUTABLE FACTS ONLY (theorem addresses, coin tallies,
+// uuidna audits RECOMPUTABLE FACTS ONLY (theorem addresses, coin tallies,
 // vote weights, ledger DNA). It does NOT judge intention or identity — only the work's
 // integrity. A forged theorem is a fact (the address does not recompute); a traitor is
 // a forgery in the artifact, never a person.

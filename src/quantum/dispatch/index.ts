@@ -23,7 +23,7 @@
 //      only checks that citations EXIST cannot see. So the witness must appear in the claim's own citation set.
 //      This is the condition that can fail on honest code, and it is the reason to have this file.
 //
-// HONEST SCOPE. Passing this gate means the claim's citations are sealed and its witness is one of them. It
+// Passing this gate means the claim's citations are sealed and its witness is one of them. It
 // does NOT mean the claim is true — uuidna verifies, it never refutes, and slimgate.ts says so at length. A
 // VERIFIED verdict is backing, not endorsement; an UNVERIFIED claim is unbacked, not false. The quantum
 // encoding adds no secrecy and no channel — secrecy lives one module over, in the sealed ChaCha20-Poly1305

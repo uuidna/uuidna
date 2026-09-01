@@ -2,15 +2,15 @@
   "generated": "2026-09-01",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_theorems": 2517,
-  "total_claimed": 2517,
+  "total_theorems": 2518,
+  "total_claimed": 2518,
   "categories": 2,
   "coverage_percent": "100.0",
   "categories_list": [
     {
       "category": "Uncategorized",
-      "theorems": 2104,
-      "address": "bacea57a-70c9-885d-a07e-af4d86c5bd9a",
+      "theorems": 2105,
+      "address": "934cbf2b-a2c1-87a3-bfa5-b1c84b7b8a04",
       "verified": true
     },
     {
@@ -20,10 +20,10 @@
       "verified": false
     }
   ],
-  "claim_receipt": "b00d5001-0079-83ea-94c2-4894bb5843b9",
+  "claim_receipt": "18d86c01-e968-86d8-af57-55cea5d3673e",
   "honest_scope": {
     "proves": [
-      "All 2434 distinct theorems (under 2517 keys) are Lean-verified (by decide)",
+      "All 2435 distinct theorems (under 2518 keys) are Lean-verified (by decide)",
       "Every theorem is categorized and accounted for",
       "The captain takes responsibility for all claims",
       "No theorem escapes the audit (100% coverage)"
@@ -35,5 +35,5 @@
       "That categorization implies priority or use"
     ]
   },
-  "signature": "By this claim, the captain asserts: \"All 2434 distinct theorems under 2517 keys are accounted for. They are Lean-verified. No theorem escapes the audit. Verify yourself: npm run lean.\""
+  "signature": "By this claim, the captain asserts: \"All 2435 distinct theorems under 2518 keys are accounted for. They are Lean-verified. No theorem escapes the audit. Verify yourself: npm run lean.\""
 }

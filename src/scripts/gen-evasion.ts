@@ -4,7 +4,7 @@
 // census, the drift-cures in the log — every figure recomputed here from files, never typed, the whole board
 // folding to one address whose states the page can SING through the standard player (a catch is a note). The
 // catalogue's integrity is held by its test: an entry citing an unsealed key fails the build — the catalogue
-// cannot itself evade. HONEST SCOPE: rates over the records as they stand; the tricks are finite as LISTED,
+// cannot itself evade. rates over the records as they stand; the tricks are finite as LISTED,
 // never as possible — the lexicon grows and the board never claims completeness.
 import { readFileSync, existsSync } from 'node:fs'
 import { writeFileSync } from 'node:fs'

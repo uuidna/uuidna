@@ -24,16 +24,23 @@ test('boundaryCitation points at a theorem — never restates scope', () => {
   }
 })
 
-test('bare HONEST SCOPE without a theorem pointer is unlawful surface prose', () => {
-  assert.equal(bareBoundaryProse('HONEST SCOPE: not physics, not money'), true)
-  assert.equal(bareBoundaryProse(`HONEST SCOPE: integrity only. ${boundaryCitation(BOUNDARY_THEOREMS.integrity)}`), false)
+test('bare boundary prose without a theorem pointer is unlawful surface prose', () => {
+  // THE FIXTURE MOVED WITH THE PHRASE. This example used to lead with a label that has been purged from the
+  // tree, and the sweep rewrote the fixture along with everything else — leaving a test asserting that a string
+  // triggers a detector which no longer looks for it. The LAW is unchanged (boundary prose must point at a
+  // sealed theorem); only the trigger it demonstrates had to become one that still exists.
+  assert.equal(bareBoundaryProse('NOT PROVEN: not physics, not money'), true)
+  assert.equal(bareBoundaryProse(`integrity only. ${boundaryCitation(BOUNDARY_THEOREMS.integrity)}`), false)
 })
 
 test('gap survey kernel buckets cite theorems — no free-standing boundary prose', () => {
   const s = gapSurvey(ROOT)
   for (const b of s.kernelOnly) {
     assert.ok(hasBoundaryPointer(b.note), `${b.kind} note must cite a sealed theorem`)
-    assert.doesNotMatch(b.note, /\bHONEST SCOPE\b/)
+    // was a check that the note did not lead with the purged label; the label is gone tree-wide, so what
+    // remains worth asserting is the pointer above — a note that cites nothing is the finding, not a note that
+    // uses a particular word.
+    assert.equal(bareBoundaryProse(b.note), false, `${b.kind} note must not be bare boundary prose`)
   }
   for (const b of s.automatable.filter((x) => x.kind !== 'guard-heal')) {
     if (b.note) assert.ok(hasBoundaryPointer(b.note), `${b.kind} note must cite a sealed theorem`)

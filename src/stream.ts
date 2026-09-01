@@ -2,7 +2,7 @@
 // ChaCha20-Poly1305 layer, crypt.ts), then carry the outer envelope ENTIRELY inside a chain of uuids (imprint.ts).
 // openStream peels the layers back to the plaintext. The message channel IS the uuid stream — no separate blob.
 //
-// HONEST SCOPE (integrity
+//  (integrity
 //  · Layers are BOUNDED (1..MAX_LAYERS). Each onion wrap re-encodes the layer below as base64
 //    JSON, so the sealed size grows ~(4/3)^N — unbounded depth is physically impossible.
 //    The "infinities" in this repo are the FINITE Lean witnesses (lean/Infinity.lean).

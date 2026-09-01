@@ -13,7 +13,7 @@
 // INTEGER DISCIPLINE: prices ride as integer CENTS, averages use floor division, PnL is integer cents —
 // no floats, no Math.*, the same total arithmetic the kernel decides.
 //
-// HONEST SCOPE: a receipted backtest proves REPRODUCIBILITY, never profitability — past series prove nothing
+// a receipted backtest proves REPRODUCIBILITY, never profitability — past series prove nothing
 // about future ones (the window is a window: window_not_universal), and the control run proves only that the
 // instrument CAN show zero edge on no-signal data. Integrity, not alpha.
 import { toUuid } from './address.js'

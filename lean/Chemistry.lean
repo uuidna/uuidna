@@ -21,9 +21,9 @@ theorem oxidation_states_sum : (2*1 + (-2) : Int) = 0 := by decide
     cancel over Int, the same shape charge_balance_neutral, oxidation_states_sum and neutralization use — pH 3
     with pOH 11 gives (3-7) + (11-7) = 0, and the fixed point is 7 itself, the neutral solution. The chemistry
     is the same fact twice: neutralization is H+ + OH- making water, and pH + pOH = 14 is that equilibrium
-    constant read logarithmically, so the wing states one equilibrium in two units. HONEST SCOPE: arithmetic of
-    a reflection at 25 °C, where 14 is a measured value (Kw is temperature-dependent and the centre moves with
-    it); no claim about any solution outside standard conditions. -/
+    constant read logarithmically, so the wing states one equilibrium in two units. arithmetic of a reflection
+    at 25 °C, where 14 is a measured value (Kw is temperature-dependent and the centre moves with it); no claim
+    about any solution outside standard conditions. -/
 theorem ph_plus_poh_14 : (7 + 7 = 14) ∧ (((3 - 7) + (11 - 7) : Int) = 0) ∧ (14 - 7 = 7) := by decide
 
 /-- Boyle's law keeps P·V constant at fixed temperature: halving the volume doubles the pressure — 2·6 = 4·3 =
@@ -51,9 +51,9 @@ theorem stoichiometry_scales : (([1,2,3] : List Nat).map (fun k => 2 * k)) = [2,
     only case with nothing at the centre; every other reflection in this ledger — pH about 7, the tens
     complement about 5, the supplement about 90 — has a populated middle. So a universe found with matter at its
     centre is what a reflection through a non-zero centre looks like, and only the w = 0 reading makes that a
-    paradox demanding explanation. HONEST SCOPE, and it is narrow: what is proven is the arithmetic — charge
-    sums to zero, energy sums to 1022 keV both sides, and the complement map has a fixed point wherever the
-    centre is even. It does NOT explain the baryon asymmetry, does not derive a value for it, does not
-    contradict CPT or the Standard Model, and does not claim physics has made an error of fact. It says the WORD
-    carries a zero that the physics does not, which is a claim about naming. -/
+    paradox demanding explanation. what is proven is the arithmetic — charge sums to zero, energy sums to 1022
+    keV both sides, and the complement map has a fixed point wherever the centre is even. It does NOT explain
+    the baryon asymmetry, does not derive a value for it, does not contradict CPT or the Standard Model, and
+    does not claim physics has made an error of fact. It says the WORD carries a zero that the physics does not,
+    which is a claim about naming. -/
 theorem annihilation_conserves_everything : (((-1) + 1 : Int) = 0) ∧ (511 + 511 = 1022) ∧ (1022 ≠ 0) := by decide

@@ -5,7 +5,7 @@
 // Shor's algorithm has NO asymmetric (RSA/ECC) target, and Grover only halves the symmetric strength to a ~128-bit
 // floor — still strong.
 //
-// HONEST SCOPE: integrity. This audits the committed CONFIG posture
+// integrity. This audits the committed CONFIG posture
 // TRIAL_KEY secret and any KV id are set at the edge via `wrangler secret put` / `wrangler kv namespace create` and are
 // NOT in the repo (by design) — so this cannot and does not attest that the running edge is configured correctly, only
 // that the committed config leaks no secret and the crypto is post-quantum-appropriate. A real deployment audit needs

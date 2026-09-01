@@ -6,7 +6,7 @@
 // is the suite itself, which every landing already runs) and renders the corpus: uuidna's own row in the model
 // comparison, the "LLM" whose per-utterance cost is a test run and whose every utterance carries the two coins.
 // The test NAMES are the prompt engineering — write them as sentences worth reading, because they are read.
-// HONEST SCOPE: the corpus is the titles as written; their truth is the suite's, enforced at every gate, and a
+// the corpus is the titles as written; their truth is the suite's, enforced at every gate, and a
 // title's PROSE quality is its author's — the derivation adds nothing and hides nothing.
 import { readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'

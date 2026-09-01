@@ -148,7 +148,7 @@ export function alpineDiscoveryCensus(opts: AlpineDiscoveryOptions = {}): Alpine
   //     origins shipping packages into more than one class. That asymmetry is a real property of the catalogue,
   //     it was not put there by this file, and nothing in the tree had stated it before the sum was taken.
   //
-  // HONEST SCOPE, and it is the whole caveat: these are theorems ABOUT THIS CENSUS, exact for the mirror as
+  // these are theorems ABOUT THIS CENSUS, exact for the mirror as
   // committed and recomputed whenever it moves. They say the counting is coherent. They do NOT say the binding
   // of any package to a class is correct — that is a classification, a measurement about the world, and no
   // arithmetic promotes a measurement into a proof.

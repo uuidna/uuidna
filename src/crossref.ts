@@ -16,7 +16,7 @@
 // INJECTED, never imported: this module must not put a network call on the library's import graph, the edge
 // bundles what it can reach, and a test that needs the internet to run is a test that fails on a train.
 //
-// HONEST SCOPE: resolving a DOI proves the RECORD EXISTS and says what the publisher deposited. It does not read
+// resolving a DOI proves the RECORD EXISTS and says what the publisher deposited. It does not read
 // the paper, and it cannot tell whether the cited work supports the claim citing it — that is the same gap the
 // citation gate has, and no metadata service closes it. Integrity, not truth.
 

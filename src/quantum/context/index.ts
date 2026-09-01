@@ -10,7 +10,7 @@
 // that can stay FOLDED, computable by request, while the window carries receipts. (3) THE TWO-COIN LAW —
 // what stays in the window pays its way: the claim AND its receipt; what cannot pay folds out. All integer
 // arithmetic (permille, never floats), deterministic, edge-clean; the report carries its own receipt and
-// 32-state compile like every census on this site. HONEST SCOPE: the categories and token counts are the
+// 32-state compile like every census on this site. the categories and token counts are the
 // CALLER's self-report (a page cannot read Claude's window); the arithmetic on them is exact.
 import { toUuid } from '../../address.js'
 import { hexbitDoorOf, SAFE_HEXBITS, UUID_HEXBITS } from '../../hexbit/index.js'

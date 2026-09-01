@@ -6,7 +6,7 @@
 // holding the same index. Automate updates/upgrades: re-read the index and the identities move with the published
 // versions. It NEVER installs, links, or runs a package — it FINGERPRINTS the published metadata so a deployment can
 // PROVE which exact packages it rests on. Non-determinism (a live "latest" read) is honest HERE, the named boundary.
-// HONEST SCOPE: integrity. uuidna/<package> is a provenance identity
+// integrity. uuidna/<package> is a provenance identity
 // runnable package; it names the upstream bytes, it does not host or modify them. Best-effort: a down mirror yields an
 // empty catalog, never a faked checksum.
 import { toUuid } from '../../address.js'

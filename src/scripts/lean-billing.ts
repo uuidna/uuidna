@@ -6,7 +6,7 @@
 // triangle over the sequence group's own order, a superparticular comma, unit-free in any currency). Advantage
 // COMPOUNDS at that rate: +55/54 per sealed exchange, and the doubling period is EXACTLY 38 seals — proven in
 // exact integers, no logarithm anywhere. Subtraction is the clink; the ratio is the interest; the exponent has
-// a receipt. HONEST SCOPE: the arithmetic of the conserved pair and its compound. A coin is a unit of work saved
+// a receipt. the arithmetic of the conserved pair and its compound. A coin is a unit of work saved
 // per verified exchange, COUNTED by the ledger that mints it rather than read off any instrument — so there is no
 // outside authority to name for 110, 108 or 55/54, and inventing one would be worse than the silence: they are
 // this project's own definitions, and the kernel confirms only that they compound as claimed. Never a price in any

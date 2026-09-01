@@ -241,7 +241,7 @@ export function openMessage(message: SealedQuantumMessage, passphrase: string): 
 // A cube therefore witnesses its own completion out of its own contents, and a fabricated cube cannot borrow one:
 // encodeMessage refuses a key the ledger does not carry.
 //
-// HONEST SCOPE: this is TAMPER-EVIDENCE AND REVERSIBILITY. The carrier is a codec—
+// this is TAMPER-EVIDENCE AND REVERSIBILITY. The carrier is a codec—
 // everyone who holds the chain reads the address back. For secrecy, sealCubeSecurely puts the same address inside
 // the ChaCha20-Poly1305 envelope, where the secrecy comes from the cipher alone (symmetric-only: no Shor target,
 // Grover halving 256 bits to a ~128-bit floor) and the quantum encoding adds none. No quantum channel, no QKD, no

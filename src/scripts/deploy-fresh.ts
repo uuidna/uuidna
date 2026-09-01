@@ -13,7 +13,7 @@
 // exactly the year-long silence this whole comment exists to prevent. So the fold is not "look more carefully":
 // it is to read the LAST Created, in code, where sort order cannot be misremembered.
 //
-// HONEST SCOPE. This compares two timestamps and nothing more. It cannot tell WHY a deploy is missing, and it
+// This compares two timestamps and nothing more. It cannot tell WHY a deploy is missing, and it
 // says nothing about whether the deployed bytes are correct — deploy-run's post-deploy proof owns that. It also
 // reports UNKNOWN rather than failing when wrangler cannot be reached or is unauthenticated: an audit that dies
 // offline teaches people to skip it, and a check nobody runs is worth less than one that admits what it cannot see.

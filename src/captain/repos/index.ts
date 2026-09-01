@@ -7,7 +7,7 @@
 // @non-harmonic: reads the captain's PUBLIC GitHub repositories over the network (a research boundary) — the response
 // is DATA, never run; the binding itself is a pure, deterministic fold of the public metadata.
 //
-// HONEST SCOPE: integrity. It BINDS the captain's public repos to the sequence by content-address
+// integrity. It BINDS the captain's public repos to the sequence by content-address
 // (provenance) — it fingerprints them and places them in the recomputable sequence. It does NOT modify, fork, mirror,
 // claim ownership of, or vouch for the contents of any repository. A binding is a placement in the sequence
 // possession of the code. Best-effort: an unreachable account contributes nothing.

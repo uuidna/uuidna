@@ -4,7 +4,7 @@
 // the stepped drum). Each computed EXACTLY, before electricity, and each left arithmetic the ledger can seal:
 // the suanpan's fifteen-per-rod (the hexbit's own ceiling, four centuries early), the punched card as the bit
 // and the card-chain as the tape, Babbage's finite differences (a polynomial by ADDITION ALONE — the method
-// that made a machine possible at all), and Leibniz's carry. HONEST SCOPE: documented mechanism arithmetic —
+// that made a machine possible at all), and Leibniz's carry. documented mechanism arithmetic —
 // counts, capacities, difference tables — never the histories' contested attributions, never a claim about who
 // invented what first, and never that any of these machines "was" a computer in the modern sense; what is
 // sealed is what they COUNTED. COMPUTE → GENERATE → VERIFY.

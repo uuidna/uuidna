@@ -399,7 +399,7 @@ export function domainsOverlap(a: string, b: string): { a: string; b: string; on
 //     is the case a "did the catalogue change?" fingerprint would have missed entirely;
 //   • nothing moved and the claims are sealed → zero, and the phases skip work with a known answer.
 //
-// HONEST SCOPE. It tells you the deposit has something to OFFER, never that the offer is worth sealing — the
+// It tells you the deposit has something to OFFER, never that the offer is worth sealing — the
 // conveyor still refuses duplicates and the kernel still disposes. It also reasons only about the structural
 // claims whose keys are derivable from the count; a claim keyed on something else would not be seen here, so a
 // new claim SHAPE must add its key builder alongside these or it will be invisible to the gate.

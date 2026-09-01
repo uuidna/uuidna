@@ -4,7 +4,7 @@
 // the card wears, the canonical links (site, source, package, licence), the credit tally (who is credited), and a
 // content-addressed avatar seed. Deterministic and OFFLINE — it composes sealed/recomputable facts and static
 // canonical links; it does NOT fetch the network, post anything, or represent a person's private data. Folded to one
-// receipt: the same social card for every observer. HONEST SCOPE: integrity— a recomputable public card,
+// receipt: the same social card for every observer. integrity— a recomputable public card,
 // its bio BACKED by the ledger count; the aura is ART (an address→hue arithmetic). It shares nothing but
 // what is already public and sealed.
 import { toUuid } from './address.js'

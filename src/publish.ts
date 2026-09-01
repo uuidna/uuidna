@@ -9,7 +9,7 @@
 // overclaiming note is REFUSED. `publishable` is false when any sentence trips the gate unbacked;
 // the generator (docs/publications/[slug].paths.js) fails the build rather than emit it. Audited before published.
 //
-// HONEST SCOPE (integrity
+//  (integrity
 // proof and that the note itself passes the overreach gate. It does NOT claim the domain is complete, nor that the
 // prose is elegant — only that it says nothing its theorems do not. Its content-address recomputes from the text;
 // the member proofs fold, order-invariantly, to one receipt anyone recomputes from the same ledger.

@@ -7,7 +7,7 @@
 // by dominant-then-subdominant (7 + 5 = 12 — the fifth up and the fourth up ARE the octave, so the finale ends
 // where the overture began), and the deepest formal fact: a symphony is a SEQUENCE, not a set — the same
 // movements in another order are another work (the chain law), while its FOLD is one address (the deposit law) —
-// both true at once, each carrying what only it can. HONEST SCOPE: the arithmetic of musical FORM — counts,
+// both true at once, each carrying what only it can. the arithmetic of musical FORM — counts,
 // palindromes, ring walks — never a claim about beauty, and no composer's intent sealed. COMPUTE → GENERATE →
 // VERIFY.
 import { emit } from './lean-gen.js'

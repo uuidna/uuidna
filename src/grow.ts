@@ -4,7 +4,7 @@
 // growth stays inside the licence (CC BY-NC-ND), the sole-representation reservation (uuidna.com only) and the credit
 // law, and inside the honest cost model (bill_never_negative: never take more than the measured saving); LIFE — the
 // count of living, by-decide theorems, growing toward the 1024 milestone, each one kept, none destroyed. Folded to
-// one receipt anyone recomputes. HONEST SCOPE: integrity— "grow life" is the MONOTONE, lawful growth of a
+// one receipt anyone recomputes. integrity— "grow life" is the MONOTONE, lawful growth of a
 // recomputable ledger (a living system of proofs); "uses
 // all tools" is the recomputable capabilities serving the growth. It composes what is
 // already sealed; it asserts nothing new.

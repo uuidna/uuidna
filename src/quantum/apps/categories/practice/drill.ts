@@ -1,7 +1,7 @@
 // categories/practice/drill — THE DRILL (lead 81c, 1 of 4): a sealed theorem presented as a recompute challenge.
 // The student does not read that a theorem is true — they are handed its exact statement and its case count and
 // asked to recompute; the drill records the attempt through the school's own loop (recordPracticeTrial), so a
-// drill IS a practice trial, never a flashcard. Pure over the ledger the caller passes. HONEST SCOPE: the drill
+// drill IS a practice trial, never a flashcard. Pure over the ledger the caller passes. the drill
 // presents and records; it never grades understanding — the statement either recomputes for the student or the
 // walker (4 of 4) names what to learn first.
 import { foldPracticeTrial, type PracticeTrial } from '../../../../school/practice/feedback/loop/trial/index.js'

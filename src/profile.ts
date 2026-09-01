@@ -5,7 +5,7 @@
 // Grover only halves to a ~128-bit floor — with the post-quantum floor theorems that back it), the two captain coins,
 // the integrity fingerprint (FNV + SHA-256 + tamper cost), and the rights (© + licence). Every field carries its own
 // receipt, and the profile folds them order-invariantly to one profileReceipt: the same profile for every observer.
-// HONEST SCOPE: integrity— a recomputable SELF-DESCRIPTION, decorated by its own aura; it composes sealed
+// integrity— a recomputable SELF-DESCRIPTION, decorated by its own aura; it composes sealed
 // facts, it asserts nothing new. The aura is ART (a defined arithmetic from the address to a hue).
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'   // THE one derivation — see handle.ts

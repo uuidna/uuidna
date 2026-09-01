@@ -5,7 +5,7 @@
 // Callippic correction, the Saros eclipse count on its prime 223, the Exeligmos that closes the day, the spiral
 // dials' cell arithmetic, and the pin-and-slot pair whose equal teeth hide the mechanism's deepest idea. The
 // figures are the DOCUMENTED reconstruction (Freeth et al., Nature 2006/2021 tradition; the standard dial and
-// cycle counts) — cycle arithmetic sealed, CONTESTED tooth-counts left out by name. HONEST SCOPE: the arithmetic
+// cycle counts) — cycle arithmetic sealed, CONTESTED tooth-counts left out by name. the arithmetic
 // of the cycles and dials the mechanism instantiates — never a claim about its maker, its purpose debates, or
 // astronomy beyond the counting; the ancient machine computed exactly, and exactly is what seals.
 // COMPUTE → GENERATE → VERIFY.

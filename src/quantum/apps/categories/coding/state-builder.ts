@@ -3,7 +3,7 @@
 // standard player is the kernel of the builder), its content-address, the door their composition enters the round
 // by, the trinity multiplier behind that door, and the beat their adjacent steps make in units of A432. Building
 // and understanding are one act: every figure the report carries cites the seal that makes it computable. Pure
-// hexbit-app law throughout. HONEST SCOPE: states, doors, ratios — the composition's arithmetic, not its beauty.
+// hexbit-app law throughout. states, doors, ratios — the composition's arithmetic, not its beauty.
 import { renderStates, type HexbitRecording } from '../../hexbit-player.js'
 
 export interface Composition extends HexbitRecording {

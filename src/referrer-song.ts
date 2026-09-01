@@ -7,7 +7,7 @@
 // and next total (referrer_cycle_is_total — the wrap buys totality). PURE AND FS-FREE BY CONSTRUCTION: every
 // function returns values, the song returns BYTES — no filesystem, no network, no host voice — so the edge
 // worker can render a visitor's greeting per request (the synth is exact integers; the same referrer hears the
-// same bytes forever). HONEST SCOPE: consonance is a measured ordering, never a taste; the door is an address
+// same bytes forever). consonance is a measured ordering, never a taste; the door is an address
 // derivation, never a profile — a referrer is folded, not tracked, and the handle forgets everything but 32 bits.
 import { toUuid, BASE } from './address.js'
 import { handleOf } from './handle.js'

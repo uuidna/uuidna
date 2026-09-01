@@ -54,7 +54,7 @@ const description = [
   'Also: holographic merkle proofs, a reversible imprint codec, the slim honesty gate (a fabricated citation is the',
   'one decidably-false case), pure-TypeScript ChaCha20-Poly1305 (KAT-pinned) under a 7-dimensional fold envelope,',
   'and an MCP server exposing the ledger.',
-  'HONEST SCOPE: a content-address proves integrity, not truth; a verified theorem proves its exact statement,',
+  'a content-address proves integrity, not truth; a verified theorem proves its exact statement,',
   'never a grander claim — verified is not solved, n=1 stays n=1, and every non-proven claim is remanded, not',
   'admitted. The proofs recompute from source with `npm run lean`; the deposited metadata is GENERATED from the',
   'ledger it describes, so the archive states the ledger that exists rather than one that has moved on.',

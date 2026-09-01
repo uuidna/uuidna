@@ -5,7 +5,7 @@
 // bounded (a fixed round cap — it cannot loop forever), deterministic, and folds its whole derivation to one receipt,
 // so a reasoning is rechecked. This is the uninterrupted proof of a point in court (court_theorem_beats_assertion),
 // not an order to act; the mandate is the court's, and the loser develops the proven (court_loser_develops_the_proven).
-// HONEST SCOPE: bounded propositional forward-chaining over the rules you
+// bounded propositional forward-chaining over the rules you
 // give it (Horn clauses) — NOT a general theorem prover; it derives only what those rules entail
 // from those facts, each step backed by a rule uuidna already proved by decide. Integrity.
 import { toUuid, merkleFold } from './address.js'
@@ -176,7 +176,7 @@ export interface Support { atom: string; givens: string[]; rules: string[]; step
  *  depends on can still be right, but nobody can check it cheaply, and unauditable support is how a conclusion
  *  drawn from a contradiction looks exactly like one drawn from evidence.
  *
- *  HONEST SCOPE: this reports the support THIS derivation used, not the smallest support that exists. Where two
+ *  this reports the support THIS derivation used, not the smallest support that exists. Where two
  *  rules could each conclude the same atom, the first to fire is the one recorded, so the answer is a witness
  *  and not a minimal proof — stated here rather than implied by the word "support". */
 export function supportOf(r: Reasoning, atom: string): Support {

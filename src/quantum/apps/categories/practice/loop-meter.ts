@@ -2,7 +2,7 @@
 // trinity closes the loop: three consecutive correct recomputations, because one right answer is a step and a
 // step is not a walk (the ledger paid for that lesson), two could be the coin-pair of luck, and three is the
 // smallest walk the rosette's own generator takes. The meter is exact: closed or not, streak counted, remainder
-// named — never a percentage feeling. HONEST SCOPE: closure measures CONSISTENT RECOMPUTATION of one sealed
+// named — never a percentage feeling. closure measures CONSISTENT RECOMPUTATION of one sealed
 // statement, not mastery of a field and not intelligence; the loop reopens the moment an attempt fails, because
 // a ratchet that cannot reopen is a certificate, not a meter.
 export const CLOSES_AT = 3   // the trinity: the smallest walk that is not a step and not a coin-toss pair

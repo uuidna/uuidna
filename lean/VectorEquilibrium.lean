@@ -74,8 +74,7 @@ theorem missing_pair_involution : ((List.range 10).filter (fun d => !([0,1,3,4,5
 
 /-- FIVE MERGES WITH FIVE IN 1 AND 0. Two pentads sum to the rung: 5+5=10, and 10 is the place-value 1·10+0 —
     the digits 1 and 0 that open the sequence. The inverse of 5 is 5 (dz 5 = 5), so the double-five is one 5 and
-    the same 5 inverted. HONEST SCOPE: the arithmetic of 5+5=10 and the already-sealed fixed point; not a claim
-    about glyphs. -/
+    the same 5 inverted. the arithmetic of 5+5=10 and the already-sealed fixed point; not a claim about glyphs. -/
 theorem ve_double_five_merges_in_ten : (5 + 5 = 10) ∧ (1 * 10 + 0 = 10) ∧ (dz 5 = 5) := by decide
 
 /-- ZERO FOLDS NINETY DEGREES. A circle (the void 0) closes at 360°, and 360/4=90 is the quadrature this tree

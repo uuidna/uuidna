@@ -20,7 +20,7 @@
 // with the contract the way a hand-kept list of 204 labels would. Adding a parameter changes the answer; nobody
 // has to remember to relabel anything.
 //
-// HONEST SCOPE: this reports what a tool can be TOLD, never what it is good at. A `generic` tool is not thereby
+// this reports what a tool can be TOLD, never what it is good at. A `generic` tool is not thereby
 // useful and a `self` tool is not thereby useless — a caller studying uuidna wants the self-scoped ones and
 // should be able to ask for exactly those. Integrity, not truth.
 
@@ -34,8 +34,14 @@ export type ToolScope =
 /** Parameter names that carry the CALLER'S OWN content. Matched on the parameter NAME because that is the part
  *  of the contract a client sees; a description is prose and drifts, a name is the key you must actually pass.
  *  Plurals of these stems are admitted by `numberInvolute` — not by widening the open set of author names.
+ *
+ *  CLOSED AGAIN 2026-09-01, the same way the energy units closed it. Ten ported-Alpine tools arrived naming
+ *  their caller inputs `entries`, `records`, `expect`, `of`, `by`, `room`, `args`, `prove`, and six of them fell
+ *  into `unclassified` — which is the bucket working: an unrecognised name is measured as unknown rather than
+ *  guessed into `generic`. These are caller content by inspection (a room to seal into, records to fold, a URL's
+ *  expected address), so they join the roster. The bucket stays honest; the next unknown name still lands in it.
  *  Energy magnitudes use ENERGY_UNIT_STEM (suffix), not this open roster. */
-const CALLER_SUPPLIED = /^(draft|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|c|d|m|n|x|y|left|right|uuids|links|leaf|proof|root|deposit|material|candidate|fact|vote|query|title|name|word|hex|path|file|index|arg|term|sealed|bit|party|op|step|stride|length|iteration|limit|mod|branch|kind|status|state|type|filter|match|line|from|to|action|agent|session|counter|tag|ct|aad|base64|sha256|response|proposal|circuit|chain|contract|dimension|delimiter|contains|likelihood|commercial|licensee|license|output|cached|reasoning|label|author|caption|contribution|source|sourceLang|targetLang|translation|book|bookId|bookIds|scale|tempo|rung|base|bound|gate|install|repo|arch|writer|core|qubit|genesis|start|oneTimeKey|capacity|category|country|countryCode|cpv|dataset|geo|time|vacancy|perSkill|escoTitle|escoTitles|rule|formulaReceipt|formulaReceipts|recomputeOp|recomputeOps|verifyOp|verifyOps|claimedCoin|claimedCoins|expectedReceiptAll|vatNumber|seenAddress|seenAddresses|centiLoad1|memTotalMb|memFreeMb|cylinders|encoded|wave|command|spawn|fetch|messaging|run|verify|enrich|loadPayload|all)$/i
+const CALLER_SUPPLIED = /^(draft|before|after|text|prose|body|content|message|data|input|payload|plaintext|ciphertext|value|values|items|list|claim|statement|question|subject|html|css|json|url|password|passphrase|secret|seed|key64|nonce|salt|a|b|c|d|m|n|x|y|left|right|uuids|links|leaf|proof|root|deposit|material|candidate|fact|vote|query|title|name|word|hex|path|file|index|arg|term|sealed|bit|party|op|step|stride|length|iteration|limit|mod|branch|kind|status|state|type|filter|match|line|from|to|action|agent|session|counter|tag|ct|aad|base64|sha256|response|proposal|circuit|chain|contract|dimension|delimiter|contains|likelihood|commercial|licensee|license|output|cached|reasoning|label|author|caption|contribution|source|sourceLang|targetLang|translation|book|bookId|bookIds|scale|tempo|rung|base|bound|gate|install|repo|arch|writer|core|qubit|genesis|start|oneTimeKey|capacity|category|country|countryCode|cpv|dataset|geo|time|vacancy|perSkill|escoTitle|escoTitles|rule|formulaReceipt|formulaReceipts|recomputeOp|recomputeOps|verifyOp|verifyOps|claimedCoin|claimedCoins|expectedReceiptAll|vatNumber|seenAddress|seenAddresses|centiLoad1|memTotalMb|memFreeMb|cylinders|encoded|wave|command|spawn|fetch|messaging|run|verify|enrich|loadPayload|all|entries|records|expect|of|by|room|args|prove)$/i
 
 /** Energy / SI-magnitude unit stems — the four uuidna_energy_* tools name caller inputs with a quantity + unit
  *  suffix (wavelengthNanometres, appliedMillivolts, …). Matched as a SUFFIX so a new magnitude on the same

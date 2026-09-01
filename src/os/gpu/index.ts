@@ -143,7 +143,7 @@ interface GpuEncoder {
  *  the CPU alone, which is what the plain dispatch measured. Overlapping is the only arrangement in which both
  *  processors are a gain rather than a queue.
  *
- *  HONEST SCOPE: the overlap is real but it is not free. The submission itself costs main-thread time, so the
+ *  the overlap is real but it is not free. The submission itself costs main-thread time, so the
  *  CPU's share starts late by exactly that much, and the merge and the verify are pure CPU on top. A fraction of
  *  0 is the CPU alone and 1 is the dispatch alone; the interesting question is whether ANY fraction between them
  *  beats 0, and the answer is a measurement about this host rather than a property of hybrids. */

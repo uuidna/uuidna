@@ -4,7 +4,7 @@
 // (coin64) — one order-invariant fold (`store_fold_order_invariant`), no re-derivation. A file whose re-spun coin
 // equals its sealed coin has not drifted; a file whose coin MOVED is the "non-quantum" drift — it is hard-rejected.
 // This is the two-coin advantage made operational: recompute O(N) − verify O(1) (`verify_cheaper_than_forge`),
-// priced on the conserved two coins (`two_coins`, `captain_computes_only_with_two_coins`). HONEST SCOPE: spin
+// priced on the conserved two coins (`two_coins`, `captain_computes_only_with_two_coins`). spin
 // proves a file is unchanged SINCE ITS LAST SEAL (self-consistency) — it does NOT re-prove the file against the
 // ledger; that remains the O(N) gate. Spin is the fast door. Integrity.
 import { coin64, toUuid } from './address.js'

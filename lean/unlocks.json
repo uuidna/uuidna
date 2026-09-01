@@ -1,13 +1,13 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 2517,
- "distinct": 2434,
+ "keys": 2518,
+ "distinct": 2435,
  "skills": 112,
  "files": 115,
  "bySkill": [
   {
    "name": "wave",
-   "n": 841
+   "n": 842
   },
   {
    "name": "z9-ring",
@@ -457,7 +457,7 @@
  "byFile": [
   {
    "name": "Wave.lean",
-   "n": 841
+   "n": 842
   },
   {
    "name": "Ring.lean",
@@ -669,7 +669,7 @@
    "key": "digit_polarities_partition_ten",
    "label": "sequence polarity 4+2+4",
    "present": true,
-   "name": "THE SEQUENCE IMAGINED ON TEN DIGITS, NOT NINE: 1,2,3,4 are one polarity, 6,7,8,9 the other, and 0 with 5 are the neutrals. Four plus two plus four is the whole ring, the three sets are pairwise disjoint, and every digit 0..9 sits in exactly one — a partition, decided. HONEST SCOPE: this is the TEN-DIGIT strip (dz on 0..9). polarities_plus_minus remains true as ℤ/9 arithmetic (9%9=0); it does not place 9 among the neutrals of this partition."
+   "name": "THE SEQUENCE IMAGINED ON TEN DIGITS, NOT NINE: 1,2,3,4 are one polarity, 6,7,8,9 the other, and 0 with 5 are the neutrals. Four plus two plus four is the whole ring, the three sets are pairwise disjoint, and every digit 0..9 sits in exactly one — a partition, decided. this is the TEN-DIGIT strip (dz on 0..9). polarities_plus_minus remains true as ℤ/9 arithmetic (9%9=0); it does not place 9 among the neutrals of this partition."
   },
   {
    "key": "ve_pentads_overlap_to_eight",
@@ -711,7 +711,7 @@
    "key": "four_vectors_reach_the_uuid",
    "label": "entangled in seven vectors",
    "present": true,
-   "name": "A HANDLE ENTANGLED IN ALL SEVEN VECTORS CARRIES MORE THAN THE UUID, AND FOUR IS WHERE IT FIRST DOES. The harness addresses one payload in every dimension (DIMENSIONS has seven, six projected rays plus the source), and each address yields a handle of 32 bits. So the entangled tuple carries 7 * 32 = 224 bits against the uuid 128 — the handle does not shrink the address when it is repeated across the rays, it exceeds it. The threshold is exact and is walked here rather than asserted: over one to seven vectors, v * 32 reaches 128 precisely when v reaches 4, which is the same four the molecule is built from. HONEST SCOPE: this is a count of BITS AVAILABLE, not a construction. It does NOT claim the seven handles can be inverted to recover the uuid, that any decoding exists, or that entangling adds information about the payload; carrying enough bits to distinguish is not the same as being able to reconstruct, and no such reconstruction is sealed."
+   "name": "A HANDLE ENTANGLED IN ALL SEVEN VECTORS CARRIES MORE THAN THE UUID, AND FOUR IS WHERE IT FIRST DOES. The harness addresses one payload in every dimension (DIMENSIONS has seven, six projected rays plus the source), and each address yields a handle of 32 bits. So the entangled tuple carries 7 * 32 = 224 bits against the uuid 128 — the handle does not shrink the address when it is repeated across the rays, it exceeds it. The threshold is exact and is walked here rather than asserted: over one to seven vectors, v * 32 reaches 128 precisely when v reaches 4, which is the same four the molecule is built from. this is a count of BITS AVAILABLE, not a construction. It does NOT claim the seven handles can be inverted to recover the uuid, that any decoding exists, or that entangling adds information about the payload; carrying enough bits to distinguish is not the same as being able to reconstruct, and no such reconstruction is sealed."
   },
   {
    "key": "gap_is_a_count",
@@ -828,6 +828,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "d2aaa263-111e-8268-b38f-74e9afd158f1",
+ "receipt": "1c1ac8e5-3990-8ab8-a123-b20079eb01df",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

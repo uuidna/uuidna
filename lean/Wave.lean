@@ -42,8 +42,8 @@ theorem wave_probe_eleven_thirteens : 11 * 13 = 143 := by decide
     four-step traces over three states, and every single one holds a repeat (at most three distinct among four)
     — no exception exists, the kernel checked each trace. Beside it, the real space's size: 16^8 = 4294967296
     addresses, so the live walk revisits within 4294967297 steps — the BOUND is sealed; the empty seed's actual
-    cycle length stays open as computation (lead 128b). HONEST SCOPE: exhaustive pigeonhole on the model,
-    arithmetic on the space — never a claim about which theorems any cycle greets. -/
+    cycle length stays open as computation (lead 128b). exhaustive pigeonhole on the model, arithmetic on the
+    space — never a claim about which theorems any cycle greets. -/
 theorem pilgrims_walk_must_cycle : ((List.range 81).all (fun v => (([v % 3, v / 3 % 3, v / 9 % 3, v / 27 % 3].eraseDups).length ≤ 3))) ∧ (16 ^ 8 = 4294967296) := by decide
 
 /-- THE SCRUBBER'S SAFETY MARGIN, PROVEN: soda lime absorbs 23 L of CO2 per 100 g, so a 2.5 kg canister holds 23
@@ -138,10 +138,10 @@ theorem cron_judges_by_itself : 17 * 19 = 323 := by decide
 /-- THE LAW SCHOOL GRADUATES ITS FIRST STUDENT: tet_semitone_no_integer_lattice was refused because the
     irrationality of the twelfth root of two is not a by-decide — and the accredited restatement is: NO rational
     p/q at the window satisfies (p/q)^12 = 2, checked exhaustively for every q below 20 and p below 40 (p^12 =
-    2·q^12 has no solution there). HONEST SCOPE, the graduation lesson itself: this seals irrationality AT THE
-    WINDOW and not beyond it (window_not_universal) — the full irrationality stays with the literature; the
-    window is exactly what the kernel can hold, stated so it cannot claim more. The 12-TET semitone still has no
-    integer lattice as far as the kernel can see, which is the honest form of the songbook schism (lead 73). -/
+    2·q^12 has no solution there). this seals irrationality AT THE WINDOW and not beyond it
+    (window_not_universal) — the full irrationality stays with the literature; the window is exactly what the
+    kernel can hold, stated so it cannot claim more. The 12-TET semitone still has no integer lattice as far as
+    the kernel can see, which is the honest form of the songbook schism (lead 73). -/
 theorem tet_semitone_no_rational_at_the_window : (List.range' 1 19).all (fun q => (List.range' 1 39).all (fun p => p ^ 12 ≠ 2 * q ^ 12)) := by decide
 
 /-- THE SECOND GRADUATION: pluck_preserves_bound was refused because its lead owed the bounded form — here it
@@ -208,9 +208,9 @@ theorem involution_walks_home_in_two : (((List.range 256).filter (fun c => (List
     fifths overshoot seven octaves by the Pythagorean comma — clearing (3/2)^12 against 2^7 gives 3^12 vs 2^19,
     and 531441 − 524288 = 7153, with 2^19 < 3^12 the overshoot's direction. Equal temperament is the DECLARED
     distortion budget that spreads this comma across twelve steps — cartography's flat-map law applied to music:
-    every tuning is a chart, lawful when its comma is disclosed. HONEST SCOPE: the seal is the arithmetic of the
-    drift, never a claim that any tuning sounds better — conventional science does not contradict harmonics, it
-    is harmonics with the drift accounted. -/
+    every tuning is a chart, lawful when its comma is disclosed. the seal is the arithmetic of the drift, never
+    a claim that any tuning sounds better — conventional science does not contradict harmonics, it is harmonics
+    with the drift accounted. -/
 theorem pythagorean_comma_is_the_drift : (2 ^ 19 < 3 ^ 12) ∧ (3 ^ 12 - 2 ^ 19 = 7153) := by decide
 
 /-- THE CONCERT-PITCH DRIFT, NAMED AND HARMONISED (lead 130, captain: 'seal the a440 drift through the conveyor'
@@ -218,25 +218,24 @@ theorem pythagorean_comma_is_the_drift : (2 ^ 19 < 3 ^ 12) ∧ (3 ^ 12 - 2 ^ 19 
     2^4 · 3^3, and carries the eleven the vortex refuses (440 = 2^3 · 5 · 11; a440_not_on_the_vortex sealed the
     residue, this seals the SIZE). THE HARMONISATION is a rational retuning, integer-exact: 440/432 = 55/54,
     proven by the cross-product 55 · 432 = 54 · 440 = 23760 — the drift closes on a ratio two small integers
-    already hold. HONEST SCOPE: arithmetic of the drift and its closure only; which pitch sounds better is
-    aesthetics, UNVERIFIED forever. -/
+    already hold. arithmetic of the drift and its closure only; which pitch sounds better is aesthetics,
+    UNVERIFIED forever. -/
 theorem a440_drifts_eight_from_the_lattice : (440 - 432 = 8) ∧ (432 = 2 ^ 4 * 3 ^ 3) ∧ (440 = 2 ^ 3 * 5 * 11) ∧ (55 * 432 = 54 * 440) := by decide
 
 /-- THE SOLAR YEAR'S DRIFT FROM THE CIRCLE, HARMONISED BY EGYPT (lead 130, all-domains sweep): the year runs 365
     − 360 = 5 past the 360-degree circle convention, and the oldest civil calendar harmonised exactly this way —
     twelve 30-day months plus the five epagomenal days OUTSIDE the circle: 12 · 30 + 5 = 365. The drift was
     never denied; it was given five named days of its own, which is the whole doctrine in one ancient act.
-    HONEST SCOPE: integer skeleton of the civil convention; the tropical year's remaining quarter-day is the
-    NEXT drift, harmonised by the leap rule sealed beside this. -/
+    integer skeleton of the civil convention; the tropical year's remaining quarter-day is the NEXT drift,
+    harmonised by the leap rule sealed beside this. -/
 theorem egyptian_five_harmonise_the_circle : (365 - 360 = 5) ∧ (12 * 30 + 5 = 365) := by decide
 
 /-- THE LEAP DRIFT, HARMONISED TO A CLOSED CYCLE (lead 130, all-domains sweep): Julian's every-fourth-year rule
     drifts against the tropical year, and the Gregorian harmonisation drops exactly 100 − 97 = 3 leap days per
     400 years (97 remain). The cycle's total 400 · 365 + 97 = 146097 days — and the harmonisation runs deeper
     than intended: 146097 = 7 · 20871, an exact whole number of WEEKS, so the calendar returns to the same
-    weekday alignment every 400 years. A drift accounted twice over. HONEST SCOPE: the convention's own
-    integers; the tropical year's residual drift (~1 day per ~3200 years) stays in the literature, named not
-    sealed. -/
+    weekday alignment every 400 years. A drift accounted twice over. the convention's own integers; the tropical
+    year's residual drift (~1 day per ~3200 years) stays in the literature, named not sealed. -/
 theorem gregorian_cycle_closes_on_the_week : (100 - 97 = 3) ∧ (400 * 365 + 97 = 146097) ∧ (146097 = 7 * 20871) := by decide
 
 /-- THE LUNAR YEAR'S ELEVEN, HARMONISED BY METON WITH THE SALTUS NAMED (lead 130, all-domains sweep): a lunar
@@ -244,8 +243,8 @@ theorem gregorian_cycle_closes_on_the_week : (100 - 97 = 3) ∧ (400 * 365 + 97 
     epact, and the eleven again (the same prime A440 carries). THE HARMONISATION: over the Metonic 19 years the
     epact accumulates 19 · 11 = 209 days, absorbed by seven embolismic 30-day months — 7 · 30 = 210 — leaving
     210 − 209 = 1, the saltus lunae, the one-day jump the computus DECLARES rather than hides. Sits beside the
-    sealed Metonic 19 · 12 + 7 = 235. HONEST SCOPE: the convention's integer skeleton; real lunations drift
-    further and the computus names that too. -/
+    sealed Metonic 19 · 12 + 7 = 235. the convention's integer skeleton; real lunations drift further and the
+    computus names that too. -/
 theorem epact_eleven_harmonised_by_meton : (6 * 29 + 6 * 30 = 354) ∧ (365 - 354 = 11) ∧ (19 * 11 = 209) ∧ (7 * 30 - 209 = 1) := by decide
 
 /-- THE KILO DRIFT COMPOUNDS BY POWER, SO IT MUST BE NAMED (lead 130, all-domains sweep, computing): the binary
@@ -253,17 +252,17 @@ theorem epact_eleven_harmonised_by_meton : (6 * 29 + 6 * 30 = 354) ∧ (365 - 35
     cube it is 2^30 − 10^9 = 73741824, over 7 percent of the unit — which is why an unnamed drift here became
     consumer lawsuits over disk sizes. THE HARMONISATION is vocabulary, exactly the doctrine's cheapest coin:
     IEC 80000-13 names KiB/MiB/GiB so each lattice carries its own word and the drift stops masquerading as
-    equality. HONEST SCOPE: the arithmetic seals; which convention a vendor uses is disclosure, adjudicated by
-    the naming, never by this theorem. -/
+    equality. the arithmetic seals; which convention a vendor uses is disclosure, adjudicated by the naming,
+    never by this theorem. -/
 theorem binary_kilo_drift_compounds : (1024 - 1000 = 24) ∧ (1024 = 2 ^ 10) ∧ (2 ^ 30 - 10 ^ 9 = 73741824) := by decide
 
 /-- THE HUMAN EFFECT OF THE CONCERT-PITCH DRIFT (captain: 'compute the theorems explaining the effect on human',
     beside a440_drifts_eight_from_the_lattice): the 8 Hz drift on 432 is 1000·8/432 = 18 per-mille of frequency
     — exactly 3 × the reported just-noticeable difference for pitch (~6 per-mille, the psychoacoustics
     literature's figure, REPORTED not sealed): a human ear plainly HEARS A440 against A432. The drift is above
-    perception, which is why the convention needed deciding at all. HONEST SCOPE: the arithmetic seals; the JND
-    is the literature's number and human hearing varies — the seal prices the drift against the reported
-    threshold, never against any one ear. -/
+    perception, which is why the convention needed deciding at all. the arithmetic seals; the JND is the
+    literature's number and human hearing varies — the seal prices the drift against the reported threshold,
+    never against any one ear. -/
 theorem a440_drift_is_heard : (1000 * 8 / 432 = 18) ∧ (3 * 6 = 18) := by decide
 
 /-- WHY EQUAL TEMPERAMENT WORKED ON THE HUMAN EAR (captain: 'compute the theorems explaining the effect on
@@ -272,8 +271,8 @@ theorem a440_drift_is_heard : (1000 * 8 / 432 = 18) ∧ (3 * 6 = 18) := by decid
     2 cents per fifth in the musician's unit, the captain's figure — UNDER the reported ~6 per-mille JND: the
     harmonisation succeeds precisely because the per-step drift falls below human resolution, where A440's whole
     drift (18 per-mille, 3×JND) sits above it. The PAIR is the human law: a harmonisation is invisible when
-    drift-per-step < JND, and a convention is audible when its drift exceeds it. HONEST SCOPE: floors of exact
-    integers; cents and JND are the literature's units, reported. -/
+    drift-per-step < JND, and a convention is audible when its drift exceeds it. floors of exact integers; cents
+    and JND are the literature's units, reported. -/
 theorem the_comma_hides_below_hearing : (1000 * 7153 / 524288 = 13) ∧ (13 / 12 = 1) ∧ (1 < 6) := by decide
 
 /-- WHICH CALENDAR DRIFTS A HUMAN LIVES TO SEE (captain: 'compute the theorems explaining the effect on human',
@@ -282,8 +281,8 @@ theorem the_comma_hides_below_hearing : (1000 * 7153 / 524288 = 13) ∧ (13 / 12
     watch harvest festivals slide into the wrong season before their firstborn grew. The remaining quarter-day
     drift wanders the whole year only over 4·365 = 1460 years (the Sothic cycle) — beyond the longest reported
     life (120 < 1460), so THAT drift is invisible to any person and only an institution's records catch it. The
-    human effect law: harmonise what a life can see; archive what only civilisations can. HONEST SCOPE: integer
-    floors; 120 is the reported longevity ceiling, not a biology theorem. -/
+    human effect law: harmonise what a life can see; archive what only civilisations can. integer floors; 120 is
+    the reported longevity ceiling, not a biology theorem. -/
 theorem seasons_return_in_eighteen_years : (90 / 5 = 18) ∧ (18 < 120) ∧ (4 * 365 = 1460) ∧ (120 < 1460) := by decide
 
 /-- THE HARMONISATION HUMANS FELT IN THEIR OWN DATES (captain: 'compute the theorems explaining the effect on
@@ -292,7 +291,7 @@ theorem seasons_return_in_eighteen_years : (90 / 5 = 18) ∧ (18 < 120) ∧ (4 *
     landed (14 − 5 + 1 = 10 dates removed; the 4th was followed by the 15th). People rioted over 'stolen days';
     rents and name-days had to be re-adjudicated. The human effect: an accounted drift, left too long, is not
     paid in arithmetic but in lived days — harmonise early and nobody feels it, harmonise late and everyone
-    does. HONEST SCOPE: the date arithmetic seals; the social history is the record's, reported. -/
+    does. the date arithmetic seals; the social history is the record's, reported. -/
 theorem gregory_deleted_ten_days : (14 - 5 + 1 = 10) ∧ (1582 - 325 = 1257) := by decide
 
 /-- THE LAWFUL UNHARMONISED DRIFT A HUMAN LIVES INSIDE (captain: 'compute the theorems explaining the effect on
@@ -300,9 +299,8 @@ theorem gregory_deleted_ten_days : (14 - 5 + 1 = 10) ∧ (1582 - 325 = 1257) := 
     the 11-day epact is never absorbed, so the months walk the whole solar year in 365/11 = 33 years, and in a
     long life (2·33 = 66 < 120) a person fasts Ramadan through every season TWICE. This is drift worn openly —
     the calendar never claims solar alignment, so there is no collision (the drift law's honest class, like the
-    UFO's name carrying its own verdict): the human effect of a DECLARED drift is experience, not error. HONEST
-    SCOPE: floor arithmetic on the civil epact; real lunations vary and the observed calendar follows the moon,
-    reported. -/
+    UFO's name carrying its own verdict): the human effect of a DECLARED drift is experience, not error. floor
+    arithmetic on the civil epact; real lunations vary and the observed calendar follows the moon, reported. -/
 theorem ramadan_walks_the_year_in_a_life : (365 / 11 = 33) ∧ (2 * 33 = 66) ∧ (66 < 120) := by decide
 
 /-- THE HUMAN EFFECT OF AN UNNAMED DRIFT: THE MISSING GIGABYTES (captain: 'compute the theorems explaining the
@@ -311,8 +309,8 @@ theorem ramadan_walks_the_year_in_a_life : (365 / 11 = 33) ∧ (2 * 33 = 66) ∧
     and reads theft where there is only an unnamed unit drift. This exact perception gap filed real lawsuits;
     the IEC naming (KiB/GiB) is the harmonisation because the human effect was never the 24-per-kilo arithmetic
     — it was the WORD 'gigabyte' meaning two different lattices at once. A drift a human can misread as fraud
-    must be harmonised in vocabulary, not just accounted. HONEST SCOPE: the arithmetic seals; the litigation
-    history is the record's, reported. -/
+    must be harmonised in vocabulary, not just accounted. the arithmetic seals; the litigation history is the
+    record's, reported. -/
 theorem the_buyer_sees_thirty_five_missing : (500 * 10 ^ 9 / 2 ^ 30 = 465) ∧ (500 - 465 = 35) := by decide
 
 /-- THE ENTANGLEMENT PROTOCOL'S CLASSICAL PRICE IS THE TWO COINS (captain: 'quantum entanglement cost (captain
@@ -321,11 +319,11 @@ theorem the_buyer_sees_thirty_five_missing : (500 * 10 ^ 9 / 2 ^ 30 = 465) ∧ (
     classical bits (Bennett et al. 1993, the literature's protocol, REPORTED), and superdense coding returns the
     same rate reversed (one ebit + one qubit carries two classical bits). The exchange rate of entanglement,
     both directions, is 2 — the captain's conserved coins() = 2 appearing in the quantum accounting as the
-    FORCED minimum, not a chosen fee. HONEST SCOPE: the counting arithmetic seals (four outcomes need two bits —
-    pigeonhole on names); the protocols are the literature's; no PHYSICS quantum advantage is claimed by this
-    ledger (classical computation throughout, per the RULE); the advantage the house DOES report is
-    ARCHITECTURAL and MEASURED — build-speed comparisons of receipt-verification against re-derivation, timings
-    carried as data in the reported class. -/
+    FORCED minimum, not a chosen fee. the counting arithmetic seals (four outcomes need two bits — pigeonhole on
+    names); the protocols are the literature's; no PHYSICS quantum advantage is claimed by this ledger
+    (classical computation throughout, per the RULE); the advantage the house DOES report is ARCHITECTURAL and
+    MEASURED — build-speed comparisons of receipt-verification against re-derivation, timings carried as data in
+    the reported class. -/
 theorem teleportation_costs_the_two_coins : (2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 * 2 = 4) := by decide
 
 /-- THE HANDLE SPACE IS QUANTUM-SHAPED BY CONSTRUCTION (captain: 'uuidna handle capacity is quantum by
@@ -372,8 +370,8 @@ theorem uuid_mix_census_halves : (1 + 45 + 210 + 210 + 45 + 1 = 512) ∧ (10 + 1
     1859 fixed A435 (a REPORTED date and figure, the record's), sitting 435 − 432 = 3 above the harmonic
     lattice, and ISO 16's A440 stands 440 − 435 = 5 above that — the sealed drift of 8 is exactly the sum of the
     two historical steps, 5 + 3 = 8. A drift accounted stepwise is a drift with a history, not an accident; each
-    convention paid its own leg. HONEST SCOPE: the arithmetic of the steps seals; the dates and the institutions
-    are the record's, reported. -/
+    convention paid its own leg. the arithmetic of the steps seals; the dates and the institutions are the
+    record's, reported. -/
 theorem a440_drift_walked_in_history : (440 - 435 = 5) ∧ (435 - 432 = 3) ∧ (5 + 3 = 8) := by decide
 
 /-- THE MONEY DOMAIN JOINS THE DRIFT LAW (lead 130, all-domains sweep continued): the pre-1971 pound ran the
@@ -382,7 +380,7 @@ theorem a440_drift_walked_in_history : (440 - 435 = 5) ∧ (435 - 432 = 3) ∧ (
     100. The same shape as Gregory deleting ten days: a drift left for centuries is paid in lived units — the
     human effect (REPORTED, the record's): rounded prices and a generation converting in its head. The old
     lattice was not wrong; it was a convention whose drift from decimal was finally named and paid at a declared
-    rate. HONEST SCOPE: the two lattices' arithmetic seals; the social history is reported. -/
+    rate. the two lattices' arithmetic seals; the social history is reported. -/
 theorem decimal_day_recoined_the_pound : (12 * 20 = 240) ∧ (20 * 5 = 100) := by decide
 
 /-- THE TEMPERATURE DOMAIN, WITH ITS TRUNCATION NAMED (lead 130's last named ore: the 273 floor): Celsius is
@@ -390,8 +388,8 @@ theorem decimal_day_recoined_the_pound : (12 * 20 = 240) ∧ (20 * 5 = 100) := b
     SAID so, never smoothed: lead 130's own law) — and the harmonisation is that the SPAN survives the shift
     exactly: water's hundred degrees ride unchanged, 273 + 100 = 373 and 373 − 273 = 100. A shifted origin with
     a conserved span is the drift law's cleanest case: the convention moves the zero, physics keeps the
-    interval. HONEST SCOPE: integer floors of the reported offsets; the exact 273.15 and the 2019 SI
-    redefinition stay in the literature, reported. -/
+    interval. integer floors of the reported offsets; the exact 273.15 and the 2019 SI redefinition stay in the
+    literature, reported. -/
 theorem kelvin_floor_carries_the_hundred : (273 + 100 = 373) ∧ (373 - 273 = 100) := by decide
 
 /-- THE HOMECOMING'S OWN ARITHMETIC (queue lead 128b, closed by the frozen pilgrim over the 1646-bar score): the
@@ -401,9 +399,8 @@ theorem kelvin_floor_carries_the_hundred : (273 + 100 = 373) ∧ (373 - 273 = 10
     stations: 2008 ≡ 1, 2436 ≡ 6, 4444 ≡ 7 (mod 9) — the unit, the six, the rosette. And the distance from grace
     is exact: 2436 = 1218 · 2 — the cycle is one thousand two hundred eighteen involutions laid end to end, the
     measured gap between the anthem's walk and the self-inverse's two-step home (involution_walks_home_in_two).
-    HONEST SCOPE: sealed is the ARITHMETIC OF the measured numbers; the measurement itself — that these ARE the
-    empty seed's mu and lambda — lives in the frozen-score run receipt and moves with releases, never in the
-    kernel. -/
+    sealed is the ARITHMETIC OF the measured numbers; the measurement itself — that these ARE the empty seed's
+    mu and lambda — lives in the frozen-score run receipt and moves with releases, never in the kernel. -/
 theorem pilgrims_homecoming_arithmetic : (2008 + 2436 = 4444) ∧ (4444 = 4 * 1111) ∧ (2008 % 9 = 1) ∧ (2436 % 9 = 6) ∧ (4444 % 9 = 7) ∧ (2436 = 1218 * 2) := by decide
 
 /-- THE PLUCK NEVER GROWS A SAMPLE — the bounded form lead 74 owed the conveyor since its first refusal, now
@@ -418,8 +415,8 @@ theorem pluck_preserves_bound : ((List.range 129).all (fun k => 8000 * k / 128 �
     decomposes as 13 days of compression and work-up, 24 of decompression, 6 at depth — 13 + 24 + 6 = 43 — and
     the load-bearing inequality is 13 < 24: the return costs more days than the descent, the one law that binds
     diver and astronaut alike (the pre-breathe IS the deco stop; Henry and Dalton, one law, two fluids — the
-    captain's doctrine off-planet, lead 109). HONEST SCOPE: the day-count arithmetic of the sourced dive seals;
-    the physiology is the literature's, reported. -/
+    captain's doctrine off-planet, lead 109). the day-count arithmetic of the sourced dive seals; the physiology
+    is the literature's, reported. -/
 theorem saturation_deco_dominates : (13 + 24 + 6 = 43) ∧ (13 < 24) := by decide
 
 /-- THE ANTHEM SINGS RFC 4122 OUT LOUD, and nobody noticed until an instrument with a control asked. Every bar
@@ -429,8 +426,8 @@ theorem saturation_deco_dominates : (13 + 24 + 6 = 43) ∧ (13 < 24) := by decid
     The arithmetic, decided: of the sixteen nibbles exactly four satisfy n/4 = 2 (the 10xx form), those four are
     [8,9,10,11], and 4 · 4 = 16 — the variant costs precisely two bits, which is two of the four the nibble
     carries. The harmony of every uuid-derived chord in this tree is therefore a standard's signature, not a
-    choice. HONEST SCOPE: this seals the NIBBLE ARITHMETIC of the variant field; that a given ledger's addresses
-    spread evenly across it is a measurement (observed 402/430/419/429 over 1680 bars), never a theorem. -/
+    choice. this seals the NIBBLE ARITHMETIC of the variant field; that a given ledger's addresses spread evenly
+    across it is a measurement (observed 402/430/419/429 over 1680 bars), never a theorem. -/
 theorem the_second_voice_is_the_variant : ((List.range 16).filter (fun n => n / 4 == 2) = [8,9,10,11]) ∧ (((List.range 16).filter (fun n => n / 4 == 2)).length = 4) ∧ (4 * 4 = 16) := by decide
 
 /-- At the measured live figures (XMR 427.32 USD, Monero network 6.11 GH/s RandomX, ~65W at 0.25 USD/kWh) a CPU
@@ -446,10 +443,10 @@ theorem monero_cpu_breakeven_is_thirteen_kilohash : ((List.range 13).all (fun k 
     SPAN: for every power of two up to 256 the span divides evenly (4294967296 = 2^32, and 2^32 / 2^k is whole
     for k ≤ 8), so each of the N workers owns precisely the same number of handle values — 2 workers take
     2147483648 each, 16 take 268435456 each, 256 take 16777216 each, and no worker is ever handed a larger share
-    by the arithmetic. HONEST SCOPE, and it is the whole caveat: an EQUAL SHARE OF THE ADDRESS SPACE is not an
-    equal share of the work — that holds only if handles arrive uniformly (a measurement about traffic, never a
-    theorem) and if jobs cost the same (a claim about the work, not about addresses). Where N does not divide
-    the span the remainder is a real bias, the same honesty moduli_waste_states already keeps. -/
+    by the arithmetic. an EQUAL SHARE OF THE ADDRESS SPACE is not an equal share of the work — that holds only
+    if handles arrive uniformly (a measurement about traffic, never a theorem) and if jobs cost the same (a
+    claim about the work, not about addresses). Where N does not divide the span the remainder is a real bias,
+    the same honesty moduli_waste_states already keeps. -/
 theorem handles_balance_the_load_for_free : (16 ^ 8 = 4294967296) ∧ ((List.range 9).all (fun k => 4294967296 % (2 ^ k) == 0)) ∧ (4294967296 / 2 = 2147483648) ∧ (4294967296 / 16 = 268435456) ∧ (4294967296 / 256 = 16777216) := by decide
 
 /-- THE ARITY TEST ADMITS EXACTLY ONE DEPENDENT TRINITY. rosetta-legs decides canLocateFault by legs.length >=
@@ -1040,11 +1037,11 @@ theorem byte_weight_splits_across_its_two_tiles : ((List.range 16).all (fun hi =
     tamper, all 8 of them at every byte, 2048 cases walked. (2) A census of the 255 non-zero alteration patterns
     by weight parity: exactly 128 have odd weight and exactly 127 have even weight, and 128 + 127 = 255. Since
     parity changes precisely on odd-weight differences, that is the reach of the check: 128 of the 255 rejected,
-    127 not. HONEST SCOPE: part (2) is a count of difference patterns by weight parity, and the step from
-    'odd-weight difference' to 'parity bit rejects' is proved here only for the single-bit case in part (1) —
-    the general equivalence at full byte width is not walked (65536 pairs exceeds the kernel heartbeat limit);
-    it is walked at tile width in tile_tamper_distance_census_is_binomial. No claim is made about adversaries,
-    only about how many of the 255 patterns are odd. -/
+    127 not. part (2) is a count of difference patterns by weight parity, and the step from 'odd-weight
+    difference' to 'parity bit rejects' is proved here only for the single-bit case in part (1) — the general
+    equivalence at full byte width is not walked (65536 pairs exceeds the kernel heartbeat limit); it is walked
+    at tile width in tile_tamper_distance_census_is_binomial. No claim is made about adversaries, only about how
+    many of the 255 patterns are odd. -/
 theorem parity_bit_rejects_half_the_byte_tamper_set : ((List.range 16).all (fun hi => (List.range 16).all (fun lo => (List.range 8).all (fun i => ((List.range 8).foldl (fun s j => s + (if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) / 2^j % 2) 0 % 2 != (List.range 8).foldl (fun s j => s + (hi * 16 + lo) / 2^j % 2) 0 % 2) && ((if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) != hi * 16 + lo) && ((if (hi * 16 + lo) / 2^i % 2 == 0 then (hi * 16 + lo) + 2^i else (hi * 16 + lo) - 2^i) < 256))))) ∧ (((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (hi * 16 + lo != 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == 1))).length)).foldl (· + ·) 0 = 128) ∧ (((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => (hi * 16 + lo != 0) && ((List.range 8).foldl (fun s i => s + (hi * 16 + lo) / 2^i % 2) 0 % 2 == 0))).length)).foldl (· + ·) 0 = 127) ∧ (128 + 127 = 255) ∧ (128 < 255) := by decide
 
 /-- A complete census of the hexbit tile under tamper distance. Distance is inlined as the count of differing
@@ -1272,12 +1269,12 @@ theorem merkle_odd_level_padding_costs_above_leaf_count : (List.range' 1 32).all
 
 /-- THE SEMITONE CARRIES NO SMALL INTEGER LATTICE. If 2^(1/12) were the rational p/q then p^12 = 2*q^12; this
     walks every pair with p below 30 and q below 24 and finds no such pair, so no rational with a denominator
-    under 24 is the 12-TET semitone. HONEST SCOPE, and it is the reason this candidate was remanded rather than
-    admitted the first time: THIS IS NOT A PROOF OF IRRATIONALITY. Irrationality quantifies over all rationals
-    and needs a rationality argument, which is a different proof class and not decidable. What is sealed here is
-    the bounded witness only — the finite shadow of the claim, in the same manner Clay.lean seals bounded
-    instances of unbounded problems. The original refusal stands as correct; this does not overturn it, it
-    supplies the statement the remand was owed. -/
+    under 24 is the 12-TET semitone. , and it is the reason this candidate was remanded rather than admitted the
+    first time: THIS IS NOT A PROOF OF IRRATIONALITY. Irrationality quantifies over all rationals and needs a
+    rationality argument, which is a different proof class and not decidable. What is sealed here is the bounded
+    witness only — the finite shadow of the claim, in the same manner Clay.lean seals bounded instances of
+    unbounded problems. The original refusal stands as correct; this does not overturn it, it supplies the
+    statement the remand was owed. -/
 theorem tet_semitone_no_integer_lattice : ((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 2 * q ^ 12))) := by decide
 
 /-- Z/5 carries exactly 1 nilpotent residue(s) — those whose 5-fold power is zero — walked over every residue
@@ -2727,8 +2724,8 @@ theorem bell_census_is_its_own_binomial_transform : (1 :: ((List.range 4).foldl 
     past the walk, and the third conjunct exhibits that witness. Same shape, same silence, opposite truth. This
     is the falsifying control for the scope caveat carried by tet_semitone_no_integer_lattice, which states in
     prose that a bounded search cannot establish irrationality; the caveat is now decided by the kernel instead
-    of trusted. HONEST SCOPE: it shows that THIS form of bounded search cannot distinguish the two cases. It is
-    not a general theory of what finite methods can decide. -/
+    of trusted. it shows that THIS form of bounded search cannot distinguish the two cases. It is not a general
+    theory of what finite methods can decide. -/
 theorem bounded_silence_is_not_evidence : ((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 2 * q ^ 12))) ∧ ((List.range' 1 24).all (fun q => (List.range' 1 30).all (fun p => p ^ 12 != 31 ^ 12 * q ^ 12))) ∧ (31 ^ 12 = 31 ^ 12 * 1 ^ 12) := by decide
 
 /-- Exactly 1 residue(s) of Z/2 are their own inverse (x*x = 1), walked exhaustively — the 2-torsion of the unit
@@ -2821,30 +2818,28 @@ theorem station_ten_is_hexagram_plus_hexbit : 6 + 4 = 10 := by decide
     fourteen from eight triangles plus six squares. The constructor is the sum; the kernel seals the arithmetic. -/
 theorem ve_faces_are_handle_hexbit_coins : 8 + 4 + 2 = 14 := by decide
 
-/-- Alpine domain port (database): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or
-    SDK matches its engine name); the counting over it is what this claim seals, never the membership. the
-    database domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
-    lost -/
+/-- Alpine domain port (database): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its
+    engine name); the counting over it is what this claim seals, never the membership. the database domain and
+    everything outside it sum to the catalogue — nothing is counted twice and nothing is lost -/
 theorem alpine_domain_database_partitions_28635 : (438 + 28197 = 28635) := by decide
 
-/-- Alpine domain port (database): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or
-    SDK matches its engine name); the counting over it is what this claim seals, never the membership. 113 of
-    the 438 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (database): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its
+    engine name); the counting over it is what this claim seals, never the membership. 113 of the 438 packages
+    are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_database_origins_438 : (325 <= 438) ∧ (438 - 325 = 113) := by decide
 
-/-- Alpine domain port (filesystem): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or
-    SDK matches its engine name); the counting over it is what this claim seals, never the membership. the
-    filesystem domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
-    lost -/
+/-- Alpine domain port (filesystem): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its
+    engine name); the counting over it is what this claim seals, never the membership. the filesystem domain and
+    everything outside it sum to the catalogue — nothing is counted twice and nothing is lost -/
 theorem alpine_domain_filesystem_partitions_28635 : (215 + 28420 = 28635) := by decide
 
-/-- Alpine domain port (filesystem): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or
-    SDK matches its engine name); the counting over it is what this claim seals, never the membership. 103 of
-    the 215 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (filesystem): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its
+    engine name); the counting over it is what this claim seals, never the membership. 103 of the 215 packages
+    are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_filesystem_origins_215 : (112 <= 215) ∧ (215 - 112 = 103) := by decide
 
 /-- Inclusion-exclusion across two ported domains: |A|+|B|-|A and B| = |A or B|, exact over the committed
@@ -2862,16 +2857,16 @@ theorem alpine_bindings_partition_packages_28635 : (2034 + 3087 + 23514 = 28635)
     package binding is correct. -/
 theorem alpine_binding_origins_overcount_16083 : (1277 + 2819 + 13843 = 17939) ∧ (17939 - 16083 = 1856) := by decide
 
-/-- Alpine domain port (blockchain): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run,
-    no key is held and no chain is followed. the blockchain domain and everything outside it sum to the
-    catalogue — nothing is counted twice and nothing is lost -/
+/-- Alpine domain port (blockchain): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run, no key is held
+    and no chain is followed. the blockchain domain and everything outside it sum to the catalogue — nothing is
+    counted twice and nothing is lost -/
 theorem alpine_domain_blockchain_partitions_28635 : (29 + 28606 = 28635) := by decide
 
-/-- Alpine domain port (blockchain): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run,
-    no key is held and no chain is followed. 10 of the 29 packages are companions (-dev, -doc, -libs) of an
-    origin already counted -/
+/-- Alpine domain port (blockchain): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run, no key is held
+    and no chain is followed. 10 of the 29 packages are companions (-dev, -doc, -libs) of an origin already
+    counted -/
 theorem alpine_domain_blockchain_origins_29 : (19 <= 29) ∧ (29 - 19 = 10) := by decide
 
 /-- Inclusion-exclusion across database and blockchain, exact over the committed mirror. These two are DISJOINT
@@ -2884,16 +2879,16 @@ theorem alpine_domains_da_bc_incl_excl_467 : (438 + 29 - 0 = 467) := by decide
     of the four counts is wrong, which is what it is for. -/
 theorem alpine_domains_fi_bc_incl_excl_244 : (215 + 29 - 0 = 244) := by decide
 
-/-- Alpine domain port (driver): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match and is a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT
-    manage a device. Nothing here addresses hardware. the driver domain and everything outside it sum to the
-    catalogue — nothing is counted twice and nothing is lost -/
+/-- Alpine domain port (driver): exact arithmetic over the census counts. — membership is a pattern match and is
+    a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT manage a device.
+    Nothing here addresses hardware. the driver domain and everything outside it sum to the catalogue — nothing
+    is counted twice and nothing is lost -/
 theorem alpine_domain_driver_partitions_28635 : (630 + 28005 = 28635) := by decide
 
-/-- Alpine domain port (driver): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match and is a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT
-    manage a device. Nothing here addresses hardware. 170 of the 630 packages are companions (-dev, -doc, -libs)
-    of an origin already counted -/
+/-- Alpine domain port (driver): exact arithmetic over the census counts. — membership is a pattern match and is
+    a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT manage a device.
+    Nothing here addresses hardware. 170 of the 630 packages are companions (-dev, -doc, -libs) of an origin
+    already counted -/
 theorem alpine_domain_driver_origins_630 : (460 <= 630) ∧ (630 - 460 = 170) := by decide
 
 /-- Inclusion-exclusion across database and driver, exact over the committed mirror. These two genuinely OVERLAP
@@ -2906,83 +2901,82 @@ theorem alpine_domains_da_dr_incl_excl_1007 : (438 + 630 - 61 = 1007) := by deci
     disjoint domains reduced to. -/
 theorem alpine_domains_fi_dr_incl_excl_837 : (215 + 630 - 8 = 837) := by decide
 
-/-- Alpine domain port (language): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the language domain and everything outside it sum to the catalogue — nothing is counted
-    twice and nothing is lost -/
+/-- Alpine domain port (language): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the language domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_language_partitions_28635 : (7486 + 21149 = 28635) := by decide
 
-/-- Alpine domain port (language): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. 3065 of the 7486 packages are companions (-dev, -doc, -libs) of an origin already
-    counted -/
+/-- Alpine domain port (language): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    3065 of the 7486 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_language_origins_7486 : (4421 <= 7486) ∧ (7486 - 4421 = 3065) := by decide
 
-/-- Alpine domain port (network): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the network domain and everything outside it sum to the catalogue — nothing is counted
-    twice and nothing is lost -/
+/-- Alpine domain port (network): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the network domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_network_partitions_28635 : (332 + 28303 = 28635) := by decide
 
-/-- Alpine domain port (network): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. 95 of the 332 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (network): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    95 of the 332 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_network_origins_332 : (237 <= 332) ∧ (332 - 237 = 95) := by decide
 
-/-- Alpine domain port (science): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the science domain and everything outside it sum to the catalogue — nothing is counted
-    twice and nothing is lost -/
+/-- Alpine domain port (science): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the science domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_science_partitions_28635 : (74 + 28561 = 28635) := by decide
 
-/-- Alpine domain port (science): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. 32 of the 74 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (science): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    32 of the 74 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_science_origins_74 : (42 <= 74) ∧ (74 - 42 = 32) := by decide
 
-/-- Alpine domain port (media): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the media domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (media): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the media domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_media_partitions_28635 : (259 + 28376 = 28635) := by decide
 
-/-- Alpine domain port (media): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 101 of the 259 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (media): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    101 of the 259 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_media_origins_259 : (158 <= 259) ∧ (259 - 158 = 101) := by decide
 
-/-- Alpine domain port (shell): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the shell domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (shell): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the shell domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_shell_partitions_28635 : (1279 + 27356 = 28635) := by decide
 
-/-- Alpine domain port (shell): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 599 of the 1279 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (shell): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    599 of the 1279 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_shell_origins_1279 : (680 <= 1279) ∧ (1279 - 680 = 599) := by decide
 
-/-- Alpine domain port (build): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the build domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (build): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the build domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_build_partitions_28635 : (260 + 28375 = 28635) := by decide
 
-/-- Alpine domain port (build): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 85 of the 260 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (build): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    85 of the 260 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_build_origins_260 : (175 <= 260) ∧ (260 - 175 = 85) := by decide
 
 /-- Inclusion-exclusion across database and language, exact over the committed mirror. They share 154 packages,
@@ -3207,31 +3201,31 @@ theorem alpine_dom_me_bu_ie_519 : (259 + 260 - 0 = 519) := by decide
     which is what it is for. -/
 theorem alpine_dom_sh_bu_ie_1533 : (1279 + 260 - 6 = 1533) := by decide
 
-/-- Alpine domain port (chat): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the chat domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (chat): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the chat domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_chat_partitions_28635 : (241 + 28394 = 28635) := by decide
 
-/-- Alpine domain port (chat): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 111 of the 241 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (chat): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    111 of the 241 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_chat_origins_241 : (130 <= 241) ∧ (241 - 130 = 111) := by decide
 
-/-- Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere
-    (3), or uuidna's own (8) — exhaustive and disjoint -/
+/-- Alpine domain port (shell-applets): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (3), or
+    uuidna's own (8) — exhaustive and disjoint -/
 theorem alpine_shell_applets_partition_17 : (6 + 3 + 8 = 17) := by decide
 
-/-- Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the shell domain declares 345 commands of 19095 the whole catalogue declares — the
-    denominator is read from Alpine's provides column, never written down -/
+/-- Alpine domain port (shell-applets): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the shell domain declares 345 commands of 19095 the whole catalogue declares — the denominator is
+    read from Alpine's provides column, never written down -/
 theorem alpine_shell_domain_commands_345 : (345 < 19095) ∧ (19095 - 345 = 18750) := by decide
 
 /-- Inclusion-exclusion across database and chat, exact over the committed mirror. They share no packages under
@@ -3291,186 +3285,183 @@ theorem alpine_dom_sh_ch_ie_1517 : (1279 + 241 - 3 = 1517) := by decide
     for. -/
 theorem alpine_dom_ch_bu_ie_501 : (241 + 260 - 0 = 501) := by decide
 
-/-- Alpine domain port (crypto): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the crypto domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (crypto): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the crypto domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_crypto_partitions_28635 : (199 + 28436 = 28635) := by decide
 
-/-- Alpine domain port (crypto): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 85 of the 199 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (crypto): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    85 of the 199 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_crypto_origins_199 : (114 <= 199) ∧ (199 - 114 = 85) := by decide
 
-/-- Alpine domain port (security): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the security domain and everything outside it sum to the catalogue — nothing is counted
-    twice and nothing is lost -/
+/-- Alpine domain port (security): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the security domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_security_partitions_28635 : (86 + 28549 = 28635) := by decide
 
-/-- Alpine domain port (security): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. 39 of the 86 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (security): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    39 of the 86 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_security_origins_86 : (47 <= 86) ∧ (86 - 47 = 39) := by decide
 
-/-- Alpine domain port (math): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the math domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (math): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the math domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_math_partitions_28635 : (40 + 28595 = 28635) := by decide
 
-/-- Alpine domain port (math): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 19 of the 40 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (math): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    19 of the 40 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_math_origins_40 : (21 <= 40) ∧ (40 - 21 = 19) := by decide
 
-/-- Alpine domain port (art): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the art domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (art): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the art domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost -/
 theorem alpine_domain_art_partitions_28635 : (53 + 28582 = 28635) := by decide
 
-/-- Alpine domain port (art): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 24 of the 53 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (art): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    24 of the 53 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_art_origins_53 : (29 <= 53) ∧ (53 - 29 = 24) := by decide
 
-/-- Alpine domain port (bio): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the bio domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (bio): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the bio domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost -/
 theorem alpine_domain_bio_partitions_28635 : (2 + 28633 = 28635) := by decide
 
-/-- Alpine domain port (bio): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 1 of the 2 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (bio): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    1 of the 2 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_bio_origins_2 : (1 <= 2) ∧ (2 - 1 = 1) := by decide
 
-/-- Alpine domain port (chemistry): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the chemistry domain and everything outside it sum to the catalogue — nothing is counted
-    twice and nothing is lost -/
+/-- Alpine domain port (chemistry): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the chemistry domain and everything outside it sum to the catalogue — nothing is counted twice and
+    nothing is lost -/
 theorem alpine_domain_chemistry_partitions_28635 : (3 + 28632 = 28635) := by decide
 
-/-- Alpine domain port (chemistry): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. 2 of the 3 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (chemistry): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. 2 of the 3 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_chemistry_origins_3 : (1 <= 3) ∧ (3 - 1 = 2) := by decide
 
-/-- Alpine domain port (neuro): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the neuro domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (neuro): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the neuro domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_neuro_partitions_28635 : (11 + 28624 = 28635) := by decide
 
-/-- Alpine domain port (neuro): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 4 of the 11 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (neuro): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    4 of the 11 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_neuro_origins_11 : (7 <= 11) ∧ (11 - 7 = 4) := by decide
 
-/-- Alpine domain port (astronomy): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the astronomy domain and everything outside it sum to the catalogue — nothing is counted
-    twice and nothing is lost -/
+/-- Alpine domain port (astronomy): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the astronomy domain and everything outside it sum to the catalogue — nothing is counted twice and
+    nothing is lost -/
 theorem alpine_domain_astronomy_partitions_28635 : (17 + 28618 = 28635) := by decide
 
-/-- Alpine domain port (astronomy): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. 8 of the 17 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (astronomy): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. 8 of the 17 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_astronomy_origins_17 : (9 <= 17) ∧ (17 - 9 = 8) := by decide
 
-/-- Alpine domain port (physics): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the physics domain and everything outside it sum to the catalogue — nothing is counted
-    twice and nothing is lost -/
+/-- Alpine domain port (physics): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the physics domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_physics_partitions_28635 : (7 + 28628 = 28635) := by decide
 
-/-- Alpine domain port (physics): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. 4 of the 7 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (physics): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    4 of the 7 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_physics_origins_7 : (3 <= 7) ∧ (7 - 3 = 4) := by decide
 
-/-- Alpine domain port (geo): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the geo domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (geo): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the geo domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost -/
 theorem alpine_domain_geo_partitions_28635 : (62 + 28573 = 28635) := by decide
 
-/-- Alpine domain port (geo): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 11 of the 62 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (geo): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    11 of the 62 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_geo_origins_62 : (51 <= 62) ∧ (62 - 51 = 11) := by decide
 
-/-- Alpine domain port (virtualization): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the virtualization domain and everything outside it sum to the catalogue — nothing is
-    counted twice and nothing is lost -/
+/-- Alpine domain port (virtualization): exact arithmetic over the census counts. — membership is a pattern
+    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
+    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the virtualization domain and everything outside it sum to the catalogue — nothing is counted
+    twice and nothing is lost -/
 theorem alpine_domain_virtualization_partitions_28635 : (232 + 28403 = 28635) := by decide
 
-/-- Alpine domain port (virtualization): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. 54 of the 232 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (virtualization): exact arithmetic over the census counts. — membership is a pattern
+    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
+    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. 54 of the 232 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_virtualization_origins_232 : (178 <= 232) ∧ (232 - 178 = 54) := by decide
 
-/-- Alpine domain port (game): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the game domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (game): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the game domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_game_partitions_28635 : (25 + 28610 = 28635) := by decide
 
-/-- Alpine domain port (game): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 10 of the 25 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (game): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    10 of the 25 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_game_origins_25 : (15 <= 25) ∧ (25 - 15 = 10) := by decide
 
-/-- Alpine domain port (font): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the font domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (font): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the font domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_font_partitions_28635 : (82 + 28553 = 28635) := by decide
 
-/-- Alpine domain port (font): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 23 of the 82 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (font): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    23 of the 82 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_font_origins_82 : (59 <= 82) ∧ (82 - 59 = 23) := by decide
 
-/-- Alpine domain port (audio): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. the audio domain and everything outside it sum to the catalogue — nothing is counted twice and
-    nothing is lost -/
+/-- Alpine domain port (audio): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the audio domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
 theorem alpine_domain_audio_partitions_28635 : (198 + 28437 = 28635) := by decide
 
-/-- Alpine domain port (audio): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern
-    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
-    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. 82 of the 198 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (audio): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    82 of the 198 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_audio_origins_198 : (116 <= 198) ∧ (198 - 116 = 82) := by decide
 
 /-- Inclusion-exclusion across database and crypto, exact over the committed mirror. They share no packages
@@ -4912,45 +4903,45 @@ theorem alpine_dom_fo_bu_ie_342 : (82 + 260 - 0 = 342) := by decide
     it is for. -/
 theorem alpine_dom_au_bu_ie_458 : (198 + 260 - 0 = 458) := by decide
 
-/-- Alpine domain port (astronomy): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. 14 of the 25 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+/-- Alpine domain port (astronomy): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. 14 of the 25 packages are companions (-dev, -doc, -libs) of an origin already counted -/
 theorem alpine_domain_astronomy_origins_25 : (11 <= 25) ∧ (25 - 11 = 14) := by decide
 
-/-- Alpine domain port (bio-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the bio port splits into direct (2), related-by-reference (0) and vocabulary-echo (575)
-    — exhaustive and disjoint, so no package is counted twice -/
+/-- Alpine domain port (bio-tiers): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the bio port splits into direct (2), related-by-reference (0) and vocabulary-echo (575) —
+    exhaustive and disjoint, so no package is counted twice -/
 theorem alpine_bio_tiers_partition_577 : (2 + 0 + 575 = 577) := by decide
 
-/-- Alpine domain port (game-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the game port splits into direct (25), related-by-reference (10) and vocabulary-echo
-    (475) — exhaustive and disjoint, so no package is counted twice -/
+/-- Alpine domain port (game-tiers): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the game port splits into direct (25), related-by-reference (10) and vocabulary-echo (475) —
+    exhaustive and disjoint, so no package is counted twice -/
 theorem alpine_game_tiers_partition_510 : (25 + 10 + 475 = 510) := by decide
 
-/-- Alpine domain port (chemistry-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is
-    a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the
-    counting over it is what this claim seals, never the membership. Provenance only: nothing is installed,
-    mounted, linked or executed. the chemistry port splits into direct (3), related-by-reference (2) and
-    vocabulary-echo (49) — exhaustive and disjoint, so no package is counted twice -/
+/-- Alpine domain port (chemistry-tiers): exact arithmetic over the census counts. — membership is a pattern
+    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
+    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the chemistry port splits into direct (3), related-by-reference (2) and vocabulary-echo (49) —
+    exhaustive and disjoint, so no package is counted twice -/
 theorem alpine_chemistry_tiers_partition_54 : (3 + 2 + 49 = 54) := by decide
 
-/-- Alpine domain port (astronomy-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is
-    a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the
-    counting over it is what this claim seals, never the membership. Provenance only: nothing is installed,
-    mounted, linked or executed. the astronomy port splits into direct (25), related-by-reference (7) and
-    vocabulary-echo (41) — exhaustive and disjoint, so no package is counted twice -/
+/-- Alpine domain port (astronomy-tiers): exact arithmetic over the census counts. — membership is a pattern
+    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
+    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the astronomy port splits into direct (25), related-by-reference (7) and vocabulary-echo (41) —
+    exhaustive and disjoint, so no package is counted twice -/
 theorem alpine_astronomy_tiers_partition_73 : (25 + 7 + 41 = 73) := by decide
 
-/-- Alpine domain port (neuro-tiers): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. the neuro port splits into direct (11), related-by-reference (2) and vocabulary-echo
-    (16) — exhaustive and disjoint, so no package is counted twice -/
+/-- Alpine domain port (neuro-tiers): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the neuro port splits into direct (11), related-by-reference (2) and vocabulary-echo (16) —
+    exhaustive and disjoint, so no package is counted twice -/
 theorem alpine_neuro_tiers_partition_29 : (11 + 2 + 16 = 29) := by decide
 
 /-- Inclusion-exclusion across language and astronomy, exact over the committed mirror. They share 10 packages,
@@ -4994,16 +4985,22 @@ theorem alpine_dom_as_ga_ie_50 : (25 + 25 - 0 = 50) := by decide
     that does not exist — arithmetic over three named quantities, any of which can be argued with in public. -/
 theorem quantum_margin_after_both_advantages_73 : (128 / 2 = 64) ∧ (1000 <= 1024) ∧ (600000 > 524288) ∧ (64 - 10 + 19 = 73) := by decide
 
-/-- Alpine domain port (security-ops): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. every named security operation is plannable against the pinned rootfs (4 of 4, none
-    blocked) — the fact the withdrawn refusal denied -/
+/-- Alpine domain port (security-ops): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. every named security operation is plannable against the pinned rootfs (4 of 4, none blocked) — the
+    fact the withdrawn refusal denied -/
 theorem alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0) := by decide
 
-/-- Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a
-    pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting
-    over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted,
-    linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere
-    (4), or uuidna's own (10) — exhaustive and disjoint -/
+/-- Alpine domain port (shell-applets): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (4), or
+    uuidna's own (10) — exhaustive and disjoint -/
 theorem alpine_shell_applets_partition_20 : (6 + 4 + 10 = 20) := by decide
+
+/-- THE CAP AS A RATE. The MCP wire payload grew from 75224 to 77885 bytes when ten ports were given doors, and
+    the cost PER TOOL fell from 324.24 to 321.83 (hundredths: 32424 to 32183). A ceiling on the TOTAL fails on
+    growth and passes on bloat; a ceiling on the RATE does the opposite. Rates in hundredths as integers because
+    the determinism law refuses rounding helpers. -/
+theorem mcp_wire_rate_fell_while_total_grew_32183 : (77885 > 75224) ∧ (32183 < 32424) ∧ (77885 * 100 / 242 = 32183) := by decide

@@ -17,7 +17,7 @@
 // assumptions someone already wrote down goes quiet the moment its table is fully proven, and reports that as
 // health. (axiom-hunt is exactly this shape today: a hand-written CANDIDATES table, every entry now proven.)
 //
-// HONEST SCOPE: this counts what the existing finders hold. It does not discover work, and an exhausted census is
+// this counts what the existing finders hold. It does not discover work, and an exhausted census is
 // evidence about the finders' reach, never a proof that no theorem remains to be found. Integrity, not truth.
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'

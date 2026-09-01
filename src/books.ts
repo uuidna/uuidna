@@ -7,7 +7,7 @@
 // pulls a public-domain text from Project Gutenberg via the public Gutendex API using Node's BUILT-IN fetch, so the
 // package stays zero-npm-dependency; only its offline property is relaxed, and only for the book-fetch tool.
 //
-// HONEST SCOPE (integrity, not truth):
+//  (integrity, not truth):
 //  · Fetched book text is DATA — content-addressed and counted, NEVER executed. Instruction-shaped prose inside a
 //    book is content, not a command; this module only measures and folds it.
 //  · "Decode" here is PROVENANCE + STRUCTURE, never decryption (a public book is not encrypted) and never
@@ -158,7 +158,7 @@ const EXTRACT_OPS: Record<string, [(a: number, b: number) => number, string]> = 
 }
 
 /** extractDecidable(text) → the DECIDABLE INTEGER ARITHMETIC the text asserts, each independently sealed by decide
- *  (VERIFIED) or corrected (REFUTED — the book's sum is wrong). HONEST SCOPE: integer arithmetic ONLY — the sliver
+ *  (VERIFIED) or corrected (REFUTED — the book's sum is wrong). integer arithmetic ONLY — the sliver
  *  of a book that computes; this does NOT autoformalize the book's meaning, argument, or non-decidable mathematics,
  *  and the proofs are uuidna's own, not the book's. A theorem computes in Lean, or it is not a theorem. */
 export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
@@ -257,7 +257,7 @@ const UNIT = '(?:degrees?|points?|cubits?|feet|foot|inches|spans?|handbreadths?|
  *  UNIT-EQUIVALENCE ("45 degrees, or four points by compass") — the shape that carries domain knowledge and that
  *  extractDecidable cannot see, because the text never writes it as arithmetic; and MEASUREMENT ("300 cubits the
  *  length"), the shape a scripture or a treatise states its dimensions in.
- *  HONEST SCOPE, and it is the whole point: this reports WHAT A TEXT SAYS, never whether the text is right, and
+ *  this reports WHAT A TEXT SAYS, never whether the text is right, and
  *  never anything about the text's meaning or authority. A verdict is not attempted here — untested_stays_unproven
  *  governs any claim about the world that carries no decidable test, and a shared number is the expected case by
  *  pigeonhole (gematria_forces_collisions), never evidence of a connection. Deterministic: no model, no network. */
@@ -335,7 +335,7 @@ const LINK_HONEST =
   'fact a text asserts to the SEALED ledger (sealed-match), flags a VERIFIED fact NOT yet in the ledger as NOVEL (a ' +
   'discovery — a candidate research lead for humanity), and marks false arithmetic REFUTED. Independent: no authority ' +
   'decides it, anyone recomputes from the public ledger; closed-door: purely recomputable, no network, no external ' +
-  'trust. HONEST SCOPE: integrity, not truth — it links DECIDABLE ARITHMETIC only (a sliver of a book), NOT the book\'s ' +
+  'trust. integrity, not truth — it links DECIDABLE ARITHMETIC only (a sliver of a book), NOT the book\'s ' +
   'meaning; a NOVEL fact is a CANDIDATE a human seals by decide, discovered here, never auto-admitted. A theorem ' +
   'computes in Lean, or it is not a theorem.'
 
@@ -369,7 +369,7 @@ export function linkBookFacts(text: string, limit = 100): BookLedgerLinkage {
 
 /** composeBookArticle(audit, facts) → an AUDITED article about a public-domain text: its provenance fingerprint, its
  *  structure, and the decidable arithmetic uuidna sealed (or refuted) from it, each backed by a by-decide proof.
- *  HONEST SCOPE: the article claims ONLY the provenance and the decidable integer arithmetic — never the book's
+ *  the article claims ONLY the provenance and the decidable integer arithmetic — never the book's
  *  meaning, argument, or non-decidable mathematics; the proofs are uuidna's, not the book's. */
 export function composeBookArticle(audit: BookAudit, facts: ExtractedFact[]): { markdown: string; address: string; receipt: string } {
   const v = facts.filter((f) => f.verdict === 'VERIFIED').length
@@ -389,7 +389,7 @@ export function composeBookArticle(audit: BookAudit, facts: ExtractedFact[]): { 
 
 /** bookArticle(gutenbergId) → fetch a public-domain book, extract its decidable arithmetic, and return the AUDITED
  *  article + the order-invariant receipt over the sealed facts. The one network call; the fetched text is DATA to be
- *  content-addressed and decided, never executed. HONEST SCOPE: seals only the book's integer arithmetic, never its
+ *  content-addressed and decided, never executed. seals only the book's integer arithmetic, never its
  *  meaning or argument. */
 export async function bookArticle(id: number | string): Promise<{ title: string; address: string; receipt: string; verified: number; refuted: number; facts: ExtractedFact[]; article: string }> {
   const b = await fetchGutenberg(id)
@@ -578,7 +578,7 @@ export interface StandardAudit extends BookAudit { standard: string; checks: Ext
 
 /** auditStandard(name) → the recomputable FLOOR of a standards/law audit: content-address the PUBLIC Wikipedia
  *  description of a standard or law (CC BY-SA, free, no key), decode its structure, and extract the DECIDABLE checks
- *  it states — each sealed or refuted `by decide`. HONEST SCOPE: this is the FLOOR a human auditor STARTS from — the
+ *  it states — each sealed or refuted `by decide`. this is the FLOOR a human auditor STARTS from — the
  *  provenance fingerprint and the decidable checks — NOT a compliance / legal RULING, which requires a licensed
  *  auditor or counsel reviewing the specific jurisdiction, edition and deployment. uuidna delivers what recomputes
  *  and leaves the ruling to humans; the "free" is a free public API + LOCAL by-decide checks. The text is DATA,
@@ -614,7 +614,7 @@ export async function auditStandard(name: string): Promise<StandardAudit> {
 // that book actually contains. That is strictly MORE than an ordinary reader gets — a plain text file can be
 // altered silently, while a chapter carrying its proof cannot: change one character and `belongs` goes false.
 //
-// HONEST SCOPE: this returns the book's own words, unmodified, public-domain. It is READING, never interpretation —
+// this returns the book's own words, unmodified, public-domain. It is READING, never interpretation —
 // uuidna proves WHICH text you hold, never what it means. Integrity, not truth.
 
 export interface ChapterRead {

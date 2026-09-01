@@ -15,7 +15,7 @@
 // the opposite of recomputable. So this pass reports and exits 0 on unreachable; only a CHANGED answer is news, and
 // only a crash in our own code is an error.
 //
-// HONEST SCOPE: it records that an external answer moved. Corroboration is evidence;
+// it records that an external answer moved. Corroboration is evidence;
 // approval still requires a local by-decide seal (approve() hard-fails without one). Integrity.
 import { writeFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'

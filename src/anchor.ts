@@ -6,7 +6,7 @@
 // re-verifiable by anyone against NIST's public archive. This is the rigorous form of "the Schumann resonance at the
 // time": a global, unpredictable, independently-recorded signal used as the clock.
 //
-// HONEST SCOPE: it gives a NOT-BEFORE bound only. For NOT-AFTER, publish the anchor to an independent observer (a git
+// it gives a NOT-BEFORE bound only. For NOT-AFTER, publish the anchor to an independent observer (a git
 // push, whose time GitHub records). For a FORMAL legal timestamp, an RFC 3161 timestamp authority or OpenTimestamps
 // (Bitcoin-anchored) signs a hash of your document directly — the recognised instruments. This is one network call
 // (Node's built-in fetch); the fold itself is pure. Integrity.

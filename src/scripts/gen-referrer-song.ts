@@ -6,7 +6,7 @@
 // and a beat in units of A432 — tuning_cancels_from_every_interval, adjacent_steps_beat_at_the_tuning), and the
 // WALK's own recording (docs/public/walk.wav — the closed cycle sounded page by page on the lattice, one 252 ms
 // bar each, 4032 samples = 24 frame-slots of 168 — the_movie_and_the_song_are_one). A missing seal THROWS: the
-// surface cannot render an unsealed claim. HONEST SCOPE: doors, ratios and rings measured on the site's own
+// surface cannot render an unsealed claim. doors, ratios and rings measured on the site's own
 // addresses — nothing about listeners or taste, and no referrer header is read or trusted anywhere here; the
 // REFERRER is a position, and positions are arithmetic.
 import { writeFileSync } from 'node:fs'

@@ -242,7 +242,7 @@ export function heroAt(referrer: string, _opts: HeroAtOpts = {}): HeroAt {
 // — 111, 222, 444, 555, 777, 888 ms (durationVars) — so the animation's tempo is the same arithmetic as its path.
 // The seven rays are the rosetta DIMENSIONS. Nothing is tuned by eye: change a sealed fact and the motion changes.
 //
-// HONEST SCOPE: a deterministic SVG computed from sealed constants. It VISUALISES the arithmetic; it does not prove
+// a deterministic SVG computed from sealed constants. It VISUALISES the arithmetic; it does not prove
 // anything the arithmetic does not already prove, and it claims nothing about what the motion depicts.
 export interface HeroAnimation {
   svg: string
@@ -356,7 +356,7 @@ export function heroAnimationOf(
  *  determines the digit uniquely by the lcm bound — a number is fixed modulo 18 = 2·9, the two coins on the ring, and a hex digit sits 2 below that (residues_identify_digit). NOT the Chinese Remainder Theorem: 6 and 9 are not coprime. Nothing is guessed and nothing is
  *  approximate: either the residues agree on a digit under 16 or the read fails loudly.
  *
- *  HONEST SCOPE: it recovers the leading digits of the theorem's content-address — its IDENTITY.
+ *  it recovers the leading digits of the theorem's content-address — its IDENTITY.
  *  Six nodes carry six digits; that is a pointer to the proof. */
 export function readHero(svg: string): { digits: string; carried: number; complete: boolean } {
   const durs = durationVars()

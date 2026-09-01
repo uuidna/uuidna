@@ -106,7 +106,7 @@ export function readAll(posted: readonly { bucket: number; sealed: unknown }[]):
 // wave. Order inside a neuron, no order across the wave: one directed operation and one sorted fold, both
 // already sealed, and the sixteen need no coordinator because the sort does the agreeing for them.
 //
-// HONEST SCOPE, because the word memory promises more than a hash can pay: the uuid state is a COMMITMENT to
+// the uuid state is a COMMITMENT to
 // the history, not a readable store — the fold is one-way, so no one recovers a finding from a state. Recall
 // lives in the sealed messages, which really do open; the state's job is to PROVE that a claimed history is
 // the one that happened, which is what replay() checks and what a wrong history fails. Two layers, the same
@@ -166,7 +166,7 @@ export function recall(n: Neuron): Finding[] {
 
 /** THE WAVE: one address for the whole board. merkleFold SORTS before it merges, so the sixteen may fire in any
  *  order and still land on one address — that is merkle_sort_invariant's property, and it holds whatever digest
- *  sits underneath, because sorting is what buys it. HONEST SCOPE: merkleFold merges with toUuid, so the wave is
+ *  sits underneath, because sorting is what buys it. merkleFold merges with toUuid, so the wave is
  *  a fast public SUMMARY and not a commitment. Each neuron's own state is the cryptographic object; the wave
  *  says the sixteen agree, and anyone who needs that agreement to resist an adversary must fold the states with
  *  cryptoAddress instead — the same choice this file makes one level down, left open here on purpose. */

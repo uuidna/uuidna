@@ -1,7 +1,6 @@
 // reporter — reflect the REPORTER'S METHOD (Report.lean, sealed) as a LIVE check: a report of a PROVEN discovery
 // ships only when it is AUDITED (passes the honesty gate — no fabricated theorem citation) AND CORROBORATED (≥ 2
-// independent sources), the AND the ledger seals as `publish_gate_is_conjunction`. HONEST SCOPE, stated first because
-// it is the whole point: uuidna does NOT verify world events — no `by decide` settles whether something happened out
+// independent sources), the AND the ledger seals as `publish_gate_is_conjunction`. uuidna does NOT verify world events — no `by decide` settles whether something happened out
 // there. The reporter reports uuidna's OWN proven discoveries; this tool checks the DECIDABLE discipline (the gate +
 // the source count), and leaves the completeness (the 5 W's + 1 H) and the trinity edit to human passes. The report
 // content-addresses, so any edit is visible. Integrity.
@@ -21,7 +20,7 @@ export interface FiledReport {
 const HONEST =
   'The reporter\'s method, live: a report of a PROVEN discovery PUBLISHES only when AUDITED (the honesty gate clears — ' +
   'no fabricated theorem citation) AND CORROBORATED (≥ 2 independent sources) — the AND sealed as ' +
-  'publish_gate_is_conjunction. HONEST SCOPE: uuidna does NOT verify world events; the reporter reports uuidna\'s OWN ' +
+  'publish_gate_is_conjunction. uuidna does NOT verify world events; the reporter reports uuidna\'s OWN ' +
   'proven discoveries. Completeness (the 5 W\'s + 1 H) and the trinity edit are HUMAN passes. ' +
   'Integrity — the record recomputes for anyone.'
 

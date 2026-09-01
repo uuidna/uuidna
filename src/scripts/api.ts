@@ -315,7 +315,7 @@ export const importAbs = <T = Record<string, unknown>>(abs: string): Promise<T> 
 // it is the whole safety argument, and it is why this belongs on rd/wr rather than inside any one finder. A
 // cache in a finder would be private and safe; a cache here is shared and must be invalidated, so it is.
 //
-// HONEST SCOPE: within one process only, and blind to a write that bypasses wr() — a spawned child, an execSync
+// within one process only, and blind to a write that bypasses wr() — a spawned child, an execSync
 // git checkout, a direct fsm().writeFileSync. Those exist (reconcile spawns generators), which is why this holds
 // no state across processes and why every phase boundary in a chain is a fresh process that starts cold.
 // VALIDATED BY MTIME, NOT BY TRUST. The first cut invalidated on wr() alone and would have been correct only if

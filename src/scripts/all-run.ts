@@ -16,7 +16,7 @@
 // no phase can prove is that THIS ARC ran as one act: the fold binds every phase's name and verdict
 // order-invariantly (merkleGravity), so an arc that skipped a phase, or ran them apart, folds to a different
 // receipt. One stroke, one address — the same law the ledger keeps for theorems, kept for the act that ships
-// them. HONEST SCOPE: the arc receipt proves WHICH phases ran and how they ended (integrity, theorem
+// them. the arc receipt proves WHICH phases ran and how they ended (integrity, theorem
 // provenance_integrity_not_content_truth) — never that the world outside is as the phases described it.
 import { spawnSync } from 'node:child_process'
 import { toUuid, merkleGravity } from '../index.js'

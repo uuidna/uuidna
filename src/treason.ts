@@ -3,7 +3,7 @@
 // never a person — it is a FORGERY in the artifact: a theorem whose DNA does not recompute (a tampered key/statement/
 // address), a key or address collision (a smuggled duplicate), or a broken conformance invariant. Every finding is a recomputable fact about the LEDGER, folded to one
 // receipt anyone rechecks. No crypto KATs, no filesystem — pure and fast (milliseconds), so it runs before every push
-// AND inline. HONEST SCOPE: integrity— it proves the artifact is unforged and self-consistent; it does not
+// AND inline. integrity— it proves the artifact is unforged and self-consistent; it does not
 // judge a person, and passing it is not a claim the theorems are TRUE, only that none was tampered with or smuggled in.
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'

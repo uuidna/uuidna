@@ -143,7 +143,7 @@ export function shellRun(line: string): { ok: boolean; output: string[]; data: u
 // applets (apk, man, which) are declared by Alpine somewhere OTHER than the shell domain, a case the first
 // two-way split would have silently miscounted as uuidna's own.
 //
-// HONEST SCOPE, unchanged from every other Alpine claim here: the counting is what this seals. Whether a given
+// the counting is what this seals. Whether a given
 // applet BEHAVES like the command Alpine declares is a compatibility question no arithmetic can settle, and this
 // module says elsewhere and plainly that a shared name is not a compatibility claim.
 export interface ShellClaim { key: string; lean: string; fragment: string; says: string }

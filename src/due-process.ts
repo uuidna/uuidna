@@ -4,7 +4,7 @@
 // REFUTED only on a failed uncited test, remand total (nothing discarded), and the trial computing only with the two
 // coins. Any submitted claim is adjudicated by that same process. Folded to one recomputable docket receipt.
 //
-// HONEST SCOPE: integrity. This is uuidna's OWN recomputable adjudication — a decidable process whose rules
+// integrity. This is uuidna's OWN recomputable adjudication — a decidable process whose rules
 // are theorems anyone rechecks — NOT a court of law. "Due legal process"
 // here means the process is DUE (fair and recomputable by its sealed guarantees)
 // jurisdiction would enforce. The ruling that binds stays a human court's; this verifies by a fair process, no more.
@@ -206,7 +206,7 @@ export function dueProcess(claims: readonly string[] = []): DueProcess {
 // already exists (the honesty gate, the calculator's decision, the docket and its fee, the six guarantees, the remand)
 // into one receipted docket, so an agent can try a sentence BEFORE asserting it, at the cost of one call.
 //
-// HONEST SCOPE: the court decides admissibility. UNVERIFIED is not false — legal_non_justiciable_is_never
+// the court decides admissibility. UNVERIFIED is not false — legal_non_justiciable_is_never
 // _refuted binds it — and nothing is discarded: what is not admitted is REMANDED with the exact predicate that would
 // admit it. Integrity.
 export interface OneTrial {

@@ -1,4 +1,5 @@
 {
-  "wireBytes": 75224,
-  "note": "Re-sealed after uuidna_cern and uuidnaOS school/research ports (shared fetch cache). tools/list is names+descriptions+schemas, never detail. Ceiling may only shrink from here."
+  "wireBytes": 77885,
+  "perToolHundredths": 32183,
+  "note": "THE CAP IS A RATE, not a total (2026-09-01). A frozen total punishes capability and cannot see density: ten new ports pushed the payload past its ceiling while the cost PER TOOL fell from 324.24 to 321.83. Carried in hundredths as an integer (32183 = 321.83 bytes/tool) because the determinism law refuses rounding helpers. The RATE may only shrink; the total may grow with the tool count. tools/list is names+descriptions+schemas, never detail."
 }

@@ -27,7 +27,7 @@
 //     and marked `declared` for exactly that reason. This is the column a reader is most tempted to read as a
 //     measurement, so it is the one that must be denied the flattering class it is not entitled to.
 //
-// HONEST SCOPE, LOAD-BEARING AND UNCHANGED FROM THE CAPACITY REPORT: uuidna is CLASSICAL. Nothing here claims a
+// uuidna is CLASSICAL. Nothing here claims a
 // physics quantum advantage, a speedup over any quantum algorithm, or a complexity separation — the sealed
 // bound is theorem n_qubit_dimension (n qubits span 2^n amplitudes, which counts the SIMULATION COST and is
 // explicitly not a speedup). The advantage measured here is architectural and its axes are named above: exact,

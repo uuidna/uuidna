@@ -1304,7 +1304,7 @@ const LANE_FLOOR = 21
 //      — a false POSITIVE against a properly cited wing. A year CLOSING a parenthetical is the citation shape;
 //      a bare year still is not. Three misses on two files is why this ships with a declared backlog
 //      verdict on the whole tree.
-// HONEST SCOPE: this is a prose heuristic. It was wrong twice on the one file known to violate it,
+// this is a prose heuristic. It was wrong twice on the one file known to violate it,
 // so it is deliberately paired with a DECLARED backlog rather than trusted to judge the whole tree from scratch.
 export function sourcesGaps(): Gap[] {
   const gaps: Gap[] = []
@@ -1443,7 +1443,7 @@ const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts', 'wave-supply.ts', 'he
 // the other five earn their place another way — rosetta and topics compute from a .data loader, guides is a link
 // index, changelog and analytics are generated artifacts. So the involution already held; this keeps it holding.
 // A page that ASSERTS while standing on nothing is the gap — it cannot be recomputed, and nothing catches it drifting.
-// HONEST SCOPE: a page's theorem fold is its BACKING. Prose is not removed and not generated — the
+// a page's theorem fold is its BACKING. Prose is not removed and not generated — the
 // captain's rule is that values compute while prose stays authored, and a fold records which proofs a page rests on.
 export function pagesGaps(): Gap[] {
   const gaps: Gap[] = []

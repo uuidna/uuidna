@@ -20,7 +20,7 @@
 // gen-quantum-capacity, which is the exact drift class schema-org-vocab.ts was extracted to end: one vocabulary,
 // one audit, one emitter, not one per file that happens to emit structured data.
 //
-// HONEST SCOPE: this changes the SERIALISATION, never the claim. It cannot make a figure more true than the
+// this changes the SERIALISATION, never the claim. It cannot make a figure more true than the
 // report already made it; it only stops the qualifier from being lost in transit. Every @type and property it
 // emits is vetted in schema-org-vocab.ts and walked by auditJsonLd, the same gate seo.ts and gen-feed.ts pass —
 // an unvetted term fails the build rather than shipping as plausible-looking markup.

@@ -6,7 +6,7 @@
 // ZENODO_ACCESS_TOKEN. A local npm/wave/land/ad-hoc curl that minted a DOI would split the standing chain and
 // date a record outside the release audit — so this module REFUSES every caller that is not that job.
 //
-// HONEST SCOPE: a gate on WHO MAY PUBLISH, not on what the metadata says. Reading Zenodo (corroborate search) is
+// a gate on WHO MAY PUBLISH, not on what the metadata says. Reading Zenodo (corroborate search) is
 // unchanged. Regenerating .zenodo.json is unchanged. Only the deposit/publish API path is gated here.
 export interface ZenodoPublishGate {
   ok: boolean

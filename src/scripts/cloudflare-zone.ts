@@ -244,7 +244,7 @@ for (const [apex, meta] of [...apexes.entries()].sort()) {
   // answers 301 to an https location proves always_use_https is in force, whoever set it and whenever. That is a
   // stronger claim than the write's own success, which only proves the setting was accepted, not that it applies.
   //
-  // HONEST SCOPE, and it is the reason this is a distinct verdict rather than a pass: the effect probe cannot
+  // the effect probe cannot
   // distinguish the ZONE setting from the WORKER's own 301, which this deploy also installs. It proves the
   // redirect is enforced — the property anyone actually depends on — not which layer enforces it. Defense in
   // depth means either layer satisfies the requirement; a zone left off behind a working worker is a real but

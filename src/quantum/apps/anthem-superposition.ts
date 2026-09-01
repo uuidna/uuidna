@@ -9,7 +9,7 @@
 // geometric and sealed (anthem_superposition_mix_closes: 4000 + 2000 + 1000 + … < 8000, at every finite depth).
 // Different entry bars and vortex-picked lengths make the layers polyrhythmic: many streams, many waves, one
 // exact recording. PURE: no filesystem, no network, no float, no clock — the same referrer collapses to the
-// same sound forever, in a browser, under test, or at the edge. HONEST SCOPE: a referrer is FOLDED, never
+// same sound forever, in a browser, under test, or at the edge. a referrer is FOLDED, never
 // tracked (the handle forgets everything but 32 bits), and "superposition" is claimed capacity in the sealed
 // sense (captain_claims_all_superpositions) — room, never physics.
 import { theorems } from '../../theorems/index.js'

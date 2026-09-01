@@ -11,7 +11,7 @@
 // checked on every fuse rather than asserted, because a reactor that could mint coverage would be a machine for
 // claiming proofs nobody made.
 //
-// HONEST SCOPE: this is bookkeeping over sealed proofs, not a physical process and not a speed claim. Nothing
+// this is bookkeeping over sealed proofs, not a physical process and not a speed claim. Nothing
 // here runs a quantum circuit (src/quantum does that, classically and exactly); nothing here proves a theorem
 // (lean/ does that, and the kernel signs it). The reactor only fuses what is already sealed, prices it at the
 // two coins, and refuses when the arithmetic does not close. Integrity, not truth.

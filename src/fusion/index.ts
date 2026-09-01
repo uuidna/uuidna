@@ -23,6 +23,6 @@
 // `two_coins` is that: pure numerals, zero dependencies, infinite gravity. A fusion is `unbound` when every
 // input is.
 //
-// HONEST SCOPE: bookkeeping over sealed proofs. No physics, no speed claim, no quantum circuit (src/quantum runs
+// bookkeeping over sealed proofs. No physics, no speed claim, no quantum circuit (src/quantum runs
 // those, classically and exactly), and no proving (lean/ does that, and the kernel signs it). Integrity, not truth.
 export { fuse, fuseHalves, reactorOutput, mintOf, mintByWing, powerOf, pathOf, HALF_HEXBITS, type Fusion, type Mint, type Power, type Path } from './reactor/index.js'

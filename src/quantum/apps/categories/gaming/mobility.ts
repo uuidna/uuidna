@@ -1,7 +1,7 @@
 // categories/gaming/mobility — THE BOARD'S DECIDABLE GEOMETRY (lead 79): place a knight or king anywhere and the
 // reachable squares are exactly the move-deltas that stay on the 8×8 — the same filter the chess wing seals, and
 // every reachable COUNT names its sealed theorem (knight_corner_two through king_centre_eight). Pure integer
-// geometry. HONEST SCOPE: mobility counting on an empty board — real board arithmetic, still not an engine and
+// geometry. mobility counting on an empty board — real board arithmetic, still not an engine and
 // not a solved game (the shell's own words, kept).
 export type MobilityPiece = 'N' | 'K'
 const KN = [[1, 2], [2, 1], [-1, 2], [-2, 1], [1, -2], [2, -1], [-1, -2], [-2, -1]] as const

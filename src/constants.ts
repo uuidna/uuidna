@@ -3,7 +3,7 @@
 // official NIST fundamental-constants table (physics.nist.gov, the recognised reference) and finds a constant by
 // name, returning its value, uncertainty, unit and a content-address — so a physical constant uuidna uses (the speed
 // of light, Landauer's kT·ln2, Boltzmann's k) is not self-asserted but RECHECKED against the
-// external authority. HONEST SCOPE: it VERIFIES against NIST's published values; it is NOT a claim that NIST endorses
+// external authority. it VERIFIES against NIST's published values; it is NOT a claim that NIST endorses
 // uuidna, and CODATA values carry uncertainties (except the ones defined exact). One network call (Node's built-in
 // fetch); the parse and addressing are pure and recomputable. Integrity.
 import { toUuid } from './address.js'

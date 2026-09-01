@@ -2,7 +2,7 @@
 // own prerequisite, and the walker turns that law into a road. The prerequisite edges are DERIVED, never
 // authored: a sealed theorem's doc-name that speaks another theorem's key CITES it — the same citation-edge scan
 // the school's graph is generated from — so the walk to any theorem is the chain of its cited keys, breadth-first,
-// cycle-safe, deterministic. HONEST SCOPE: the edges are what the names actually cite — a missing edge means the
+// cycle-safe, deterministic. the edges are what the names actually cite — a missing edge means the
 // prose cited nothing, not that no dependency exists; the walker reads the ledger's own words and invents no
 // pedagogy.
 export interface TheoremLike { key: string; name: string }

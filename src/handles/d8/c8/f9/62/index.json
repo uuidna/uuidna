@@ -1,0 +1,12 @@
+{
+  "handle": "d8c8f962",
+  "address": "d8c8f962-8624-878f-be0d-320cfb0ac09a",
+  "kind": "chunk",
+  "keys": [
+    "mcp_wire_rate_fell_while_total_grew_32183"
+  ],
+  "statement": "(77885 > 75224) ∧ (32183 < 32424) ∧ (77885 * 100 / 242 = 32183)",
+  "files": [
+    "Wave.lean"
+  ]
+}

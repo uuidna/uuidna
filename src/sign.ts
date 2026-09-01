@@ -4,7 +4,7 @@
 // fold: "folding to 1 through 0". The reconcile FAILS unless the commit is signed-true, so a message that overclaims
 // (cites a proof not in the ledger, or cites none) cannot be committed AS TRUTH.
 //
-// HONEST SCOPE: integrity, not truth. "Signed-true" means the message is BACKED by a sealed proof it names — NOT that
+// integrity, not truth. "Signed-true" means the message is BACKED by a sealed proof it names — NOT that
 // the underlying claim is true. It signs the citation, not the world. A commit citing no theorem is UNVERIFIED
 // (unsigned) and refused; one citing a real sealed theorem is signed; one citing a fabricated proof is refused. No
 // word-list, no numerology forced — only whether the ledger seals what the message cites.

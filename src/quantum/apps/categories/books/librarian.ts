@@ -2,7 +2,7 @@
 // record the caller brings (the committed book-leads — no network; the browser reads what the tree already
 // holds). Ranking is DECLARED, never felt: facts found in the text weigh first (a book that states decidable
 // arithmetic is a book the school can drain), then breadth of ledger linkage, ties by title — the same ordering
-// on any machine. HONEST SCOPE: an ordering of RECORDS by counted properties; not a judgment of literature, and
+// on any machine. an ordering of RECORDS by counted properties; not a judgment of literature, and
 // a book low on the shelf is low on arithmetic, nothing else.
 export interface BookLead { id?: number | string; title?: string; authors?: string[]; facts?: number; linked?: number; why?: string }
 export interface ShelfEntry extends BookLead { rank: number; weight: number }

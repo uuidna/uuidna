@@ -125,7 +125,7 @@ const FACTS = [
   // hinges {0,5} leaves eight — the VE's triangular faces. 5+5+2=12 is the vertices. SCOPE: counts and
   // integer identities already on this wing; not a physical collapse of the cuboctahedron.
   { key: 've_double_five_merges_in_ten',
-    why: 'FIVE MERGES WITH FIVE IN 1 AND 0. Two pentads sum to the rung: 5+5=10, and 10 is the place-value 1·10+0 — the digits 1 and 0 that open the sequence. The inverse of 5 is 5 (dz 5 = 5), so the double-five is one 5 and the same 5 inverted. HONEST SCOPE: the arithmetic of 5+5=10 and the already-sealed fixed point; not a claim about glyphs.',
+    why: 'FIVE MERGES WITH FIVE IN 1 AND 0. Two pentads sum to the rung: 5+5=10, and 10 is the place-value 1·10+0 — the digits 1 and 0 that open the sequence. The inverse of 5 is 5 (dz 5 = 5), so the double-five is one 5 and the same 5 inverted. the arithmetic of 5+5=10 and the already-sealed fixed point; not a claim about glyphs.',
     js: () => 5 + 5 === 10 && 1 * 10 + 0 === 10 && dz(5) === 5,
     lean: 'theorem ve_double_five_merges_in_ten : (5 + 5 = 10) ∧ (1 * 10 + 0 = 10) ∧ (dz 5 = 5) := by decide' },
   { key: 'void_folds_at_quadrature',

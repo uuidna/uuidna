@@ -4,7 +4,7 @@
 // prose claims that carry numbers without arithmetic are surfaced as claims, never verdicted. The instrument
 // validates itself first: the standard three controls run before any extraction is trusted (an instrument that
 // cannot fail proves nothing — the same discipline every trial in this tree keeps). Pure hexbit-app law.
-// HONEST SCOPE: the ear hears ARITHMETIC; a sentence whose sums it cannot hear excludes nothing (lead 71's
+// the ear hears ARITHMETIC; a sentence whose sums it cannot hear excludes nothing (lead 71's
 // family names what stays deaf — unit-wearing compounds wait at 71b), and a beautiful sentence with no numbers
 // is not this tool's business.
 import { extractClaims, type TextClaim } from '../../../../books.js'

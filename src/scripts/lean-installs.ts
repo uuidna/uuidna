@@ -12,7 +12,7 @@
 // cycle, named rather than smoothed), the terminal is the toolbox (busybox ↔ /terminal, the family sealed pair
 // by pair), the foundation depends on nothing (musl ↔ /core, and nothing outranks its in-degree), every path
 // carries its PUBLISHED meaning verbatim, and every spec COMPILES FROM SOURCE IN HEXBIT (128 bits = 32 states
-// of 0..15). HONEST SCOPE: integrity and meaning; this surface loads and checks rather than running — nothing is installed, linked, booted, or
+// of 0..15). integrity and meaning; this surface loads and checks rather than running — nothing is installed, linked, booted, or
 // run; the routes are an authored translation, declared; the meanings are the repository's own words.
 // COMPUTE → GENERATE → VERIFY.
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'

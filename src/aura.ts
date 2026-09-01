@@ -4,7 +4,7 @@
 // every observer (no RNG, no clock) — the colour is content-addressed, like everything else. The MOVING aura is a CSS
 // block whose animation parameters are computed from the address, so a page's glow IS its fingerprint in light.
 //
-// HONEST SCOPE: integrity. This is an ARTISTIC, recomputable colour mapping — NOT physics
+// integrity. This is an ARTISTIC, recomputable colour mapping — NOT physics
 // theory, and NOT a claim that sound IS light or that 432 Hz carries special physical power. It is a deterministic
 // aesthetic derived from the address: a defined arithmetic from a number to a hue. Recomputable by anyone; it decorates
 // the work, it does not describe the universe.

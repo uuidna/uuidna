@@ -17,7 +17,7 @@
 // still commit it — removal is sometimes exactly right, as when a duplicate proposition is withdrawn — but it
 // must pass `allowRemovals`, which is a decision recorded in the call rather than an accident buried in a diff.
 //
-// HONEST SCOPE: this compares KEYED RECORDS, which is what the conveyor, the leads and the queue all are. It
+// this compares KEYED RECORDS, which is what the conveyor, the leads and the queue all are. It
 // does not diff arbitrary text and it is not a merge tool — two writers editing the same record still need the
 // one-writer lock. What it guarantees is that a change which drops a key cannot be mistaken for one that does not.
 import { toUuid } from '../../../address.js'

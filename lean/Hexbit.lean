@@ -54,10 +54,10 @@ theorem build_counts_in_hexbits : (32 / 8 = 4) ∧ (32 * 4 = 128) ∧ (8 * 4 = 3
     = 64 of them). The PAYLOAD is 24 hexbits = 96 bits = 48 bases = EXACTLY 16 codons, 96 = 6 * 16 with nothing
     left. The HANDLE is 32 bits and the WHOLE uuid is 128, and neither divides: both leave the same remainder 2.
     So the strand fits the payload and fits neither the name nor the whole — the handle addresses, the payload
-    carries. HONEST SCOPE: this is arithmetic about WIDTHS and divisibility, nothing more. It does NOT claim a
-    uuid encodes genetic material, that any payload holds a gene, or that biology is stored in an address; the
-    shared 2 is a remainder that two numbers happen to share, and any reading of it as the two coins is unsealed
-    until someone proves it. -/
+    carries. this is arithmetic about WIDTHS and divisibility, nothing more. It does NOT claim a uuid encodes
+    genetic material, that any payload holds a gene, or that biology is stored in an address; the shared 2 is a
+    remainder that two numbers happen to share, and any reading of it as the two coins is unsealed until someone
+    proves it. -/
 theorem payload_carries_the_strand : (8 + 24 = 32) ∧ (24 * 4 = 96) ∧ (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (32 % 6 = 2) ∧ (128 % 6 = 2) := by decide
 
 /-- THE PAYLOAD DIVIDES IN EVERY ALPHABET THE BODY USES, AND THE NAME DIVIDES IN NONE. Read the 96-bit payload
@@ -70,11 +70,11 @@ theorem payload_carries_the_strand : (8 + 24 = 32) ∧ (24 * 4 = 96) ∧ (96 % 6
     32, exactly 32 blood-states, and 32 is the uuid width in hexbits. Now the handle: 32 bits leaves remainder 2
     against 6 AND against 3, and the whole uuid at 128 bits leaves remainder 2 against both as well. So the
     strand, the hexagram and the blood system all tile the payload with nothing left over, and none of them
-    tiles the name or the whole. The payload carries; the handle addresses. HONEST SCOPE, stated as boldly as
-    the arithmetic: what is proven here is CARDINALITY AND WIDTH — 64 = 64, 6 = 6, 96 divides and 32 does not.
-    That the codon space and the hexagram space are the same size and shape is a fact about numbers, and it is
-    fully proven. It says NOTHING about whether any 64-gate system describes a person, and nothing about what a
-    payload should hold; a shared width is a shared width. -/
+    tiles the name or the whole. The payload carries; the handle addresses. what is proven here is CARDINALITY
+    AND WIDTH — 64 = 64, 6 = 6, 96 divides and 32 does not. That the codon space and the hexagram space are the
+    same size and shape is a fact about numbers, and it is fully proven. It says NOTHING about whether any
+    64-gate system describes a person, and nothing about what a payload should hold; a shared width is a shared
+    width. -/
 theorem payload_aligns_where_the_name_does_not : (96 % 6 = 0) ∧ (96 / 6 = 16) ∧ (96 % 3 = 0) ∧ (96 / 3 = 32) ∧ (32 % 6 = 2) ∧ (32 % 3 = 2) ∧ (128 % 6 = 2) ∧ (128 % 3 = 2) ∧ (4 ^ 3 = 2 ^ 6) := by decide
 
 /-- THE UUID IS A MOLECULE OF FOUR HANDLE-ATOMS, AND ITS BONDING IS THE MIX CENSUS ONE SCALE DOWN. Four handles
@@ -85,11 +85,11 @@ theorem payload_aligns_where_the_name_does_not : (96 % 6 = 0) ∧ (96 / 6 = 16) 
     measured live over a real address, 0 of 6 bonds symmetric. Add the four self-bonds and the census completes
     the square: 12 + 4 = 16 = 4 * 4. That is the SAME law uuid_mix_census_is_quantum proves at ten (10 * 9 = 2 *
     45, 90 + 10 = 100), instantiated at four, which is why this is a connection and not a coincidence — one
-    census law, two scales. The molecule weighs 4 * 32 = 128 bits, one whole uuid. HONEST SCOPE: this is the
-    arithmetic of a complete directed graph on four nodes and the width of an address. It does NOT claim a uuid
-    is chemically a molecule, that handles bond by any physical force, or that the atom analogy carries past
-    counting. That 4 * 4 = 16 equals the hexbit alphabet is a shared integer reached two different ways (4
-    squared here, 2 to the fourth there) and is NOT sealed as a relation. -/
+    census law, two scales. The molecule weighs 4 * 32 = 128 bits, one whole uuid. this is the arithmetic of a
+    complete directed graph on four nodes and the width of an address. It does NOT claim a uuid is chemically a
+    molecule, that handles bond by any physical force, or that the atom analogy carries past counting. That 4 *
+    4 = 16 equals the hexbit alphabet is a shared integer reached two different ways (4 squared here, 2 to the
+    fourth there) and is NOT sealed as a relation. -/
 theorem the_handle_molecule_is_the_mix_census : (4 * 8 = 32) ∧ (4 * 3 = 2 * 6) ∧ (12 + 4 = 4 * 4) ∧ (4 * 32 = 128) := by decide
 
 /-- A HANDLE ENTANGLED IN ALL SEVEN VECTORS CARRIES MORE THAN THE UUID, AND FOUR IS WHERE IT FIRST DOES. The
@@ -97,10 +97,10 @@ theorem the_handle_molecule_is_the_mix_census : (4 * 8 = 32) ∧ (4 * 3 = 2 * 6)
     and each address yields a handle of 32 bits. So the entangled tuple carries 7 * 32 = 224 bits against the
     uuid 128 — the handle does not shrink the address when it is repeated across the rays, it exceeds it. The
     threshold is exact and is walked here rather than asserted: over one to seven vectors, v * 32 reaches 128
-    precisely when v reaches 4, which is the same four the molecule is built from. HONEST SCOPE: this is a count
-    of BITS AVAILABLE, not a construction. It does NOT claim the seven handles can be inverted to recover the
-    uuid, that any decoding exists, or that entangling adds information about the payload; carrying enough bits
-    to distinguish is not the same as being able to reconstruct, and no such reconstruction is sealed. -/
+    precisely when v reaches 4, which is the same four the molecule is built from. this is a count of BITS
+    AVAILABLE, not a construction. It does NOT claim the seven handles can be inverted to recover the uuid, that
+    any decoding exists, or that entangling adds information about the payload; carrying enough bits to
+    distinguish is not the same as being able to reconstruct, and no such reconstruction is sealed. -/
 theorem four_vectors_reach_the_uuid : (4 * 32 = 128) ∧ (7 * 32 = 224) ∧ (224 > 128) ∧ ((List.range' 1 7).all (fun v => (decide (v * 32 >= 128)) == (decide (v >= 4)))) := by decide
 
 /-- THE SLIT DRAWN ON THE HEXBIT: two sources a half-turn apart on the 16-state ring, and detector k reads the

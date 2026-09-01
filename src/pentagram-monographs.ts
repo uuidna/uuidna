@@ -3,7 +3,7 @@
 // ledger), then chunked five to a pentagram. Each pentagram is WALKED in the {5/2} single-stroke order [0,2,4,1,3]
 // (`pentagram_single_stroke`, `pentagram_closes_after_five`, `gcd 2 5 = 1`) — the star drawn in one stroke — while
 // its IDENTITY is the order-INVARIANT fold of its five members (`merkleGravity`): the walk is a sequence, the seal
-// is a set. So the grouping is a surprise of the addresses. HONEST SCOPE (integrity, not
+// is a set. So the grouping is a surprise of the addresses.  (integrity, not
 // truth): this is a content-addressed PARTITION — it claims no thematic kinship between the five in a pentagram,
 // only that this is the split the addresses produce, and that anyone recomputes the same one.
 import { publications, type Publication } from './publish.js'

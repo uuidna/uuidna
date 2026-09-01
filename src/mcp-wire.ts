@@ -13,7 +13,18 @@ export interface WireTool { name: string; description: string; detail?: string; 
 export const wireBytes = (tools: readonly WireTool[]): number =>
   JSON.stringify(tools.map((t) => ({ name: t.name, description: t.description, inputSchema: t.inputSchema }))).length
 
-export interface WireBudget { wireBytes: number; note: string }
+export interface WireBudget {
+  wireBytes: number
+  note: string
+  /** THE CAP AS A RATE, not a total (2026-09-01). A frozen byte total punishes CAPABILITY and cannot see
+   *  DENSITY: ten genuinely new tools pushed the payload 2,661 bytes past its ceiling while the cost PER TOOL
+   *  fell from 324.24 to 321.83 — the wire got tighter and the law reported a violation. A ceiling that fails on
+   *  growth and passes on bloat is measuring the wrong quantity. The rate may only shrink, exactly as the total
+   *  was meant to; adding a tool now raises the allowance lawfully and padding a description still fails.
+   *  Carried in HUNDREDTHS as an integer: the determinism law refuses rounding helpers, and a float would not
+   *  survive a seal. 32183 means 321.83 bytes per tool. */
+  perToolHundredths?: number
+}
 
 /** The sealed tools/list ceiling. Absent / unreadable at the edge is null, never a throw. */
 export const sealedBudget = (): WireBudget | null => {

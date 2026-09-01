@@ -15,7 +15,7 @@
  *   6. FNV birthday collisions           — birthday_halves_the_exponent / verify_cheaper_than_forge
  *   7. Convergent-encryption equality    — salt_conv_leaks_equality / salt_conv_step_is_division_by_zero
  *
- * HONEST SCOPE: measurements 1, 5, and the R² slope of 4 have NO decidable anchor — a timing
+ * measurements 1, 5, and the R² slope of 4 have NO decidable anchor — a timing
  * magnitude and the entropy of a fixed sample are empirical`by decide` propositions, and
  * this script never dresses them up as theorems. The rest are anchored: the measurement is the
  * observable shadow, the cited theorem is the sealed diamond. Before running, the script asserts
@@ -226,7 +226,7 @@ function measureAuthenticationTagValidation() {
   log(`  Poly1305 rejects all forged tags: ${falsePositives === 0 ? '✓ YES' : `✗ NO (${falsePositives} false positives)`}`)
   log(anchorLine('tagValidation'))
   log(`     (tamper_changes_tag + xor_checksum_catches_flip: a 1-bit flip changes the tag, so the`)
-  log(`      equality gate rejects it. HONEST SCOPE: this is the decidable reason no flip is a no-op;`)
+  log(`      equality gate rejects it. this is the decidable reason no flip is a no-op;`)
   log(`      full Poly1305 unforgeability is cryptographic.)`)
   log()
 }
@@ -494,7 +494,7 @@ async function main() {
     log('  6. FNV admits birthday collisions      ⟶  birthday_halves_the_exponent')
     log('  7. v1 leaks equality, v2 fixes it      ⟶  salt_conv_leaks_equality / salt_seq_injective\n')
 
-    log('HONEST SCOPE:')
+    log('')
     log('- The DECIDABLE core of each anchored property is proven by decide in the ledger (npm run lean).')
     log('- Measurements 1 and 5 (and the R² slope of 4) are magnitudes— never sealed.')
     log('- This script settles a stopwatch and a byte histogram; the Lean kernel settles the theorems.\n')

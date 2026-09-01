@@ -16,7 +16,7 @@
 // asserts the theorem's own claim fails under it. A falsifier nobody ran is a mutation nobody checked breaks
 // anything, and the module distributing this work says so in its own header.
 //
-// HONEST SCOPE: a falsifier shows the statement is SENSITIVE to its own content — that it is not vacuously true,
+// a falsifier shows the statement is SENSITIVE to its own content — that it is not vacuously true,
 // and that the particular numbers carry the claim. It says nothing about whether the astronomy is right; that is
 // the witness leg's question, and these theorems still owe it. Integrity, not truth.
 import { test } from 'node:test'

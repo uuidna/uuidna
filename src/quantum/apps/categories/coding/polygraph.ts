@@ -12,7 +12,7 @@
 // person, and the examined agent reads its own chart first. The other direction (touched-but-unnamed) is left
 // unmeasured on purpose: a wave legitimately touches derived files it need not list, and a finder that demanded
 // exhaustive listing would teach padding — the exact evasion the catalogue warns of.
-// Pure hexbit-app law: the caller supplies the commits; this module counts. HONEST SCOPE: conduct arithmetic
+// Pure hexbit-app law: the caller supplies the commits; this module counts. conduct arithmetic
 // over the record, never over a mind.
 export interface CommitRecord { hash: string; message: string; touched: readonly string[] }
 export interface SayDo { hash: string; claimed: string[]; untouched: string[]; kept: number }

@@ -15,7 +15,7 @@
 //   oeapi     — the interoperability standard. Not fetched: uuidna already SERVES it (src/oeapi.ts, uuidna_oeapi),
 //               which is the only one of the four that runs the other way round.
 //
-// HONEST SCOPE: what comes back over the network is EVIDENCE, never a seal — a provenance fingerprint of what a named
+// what comes back over the network is EVIDENCE, never a seal — a provenance fingerprint of what a named
 // public source said when it was asked, exactly as corroborate.ts treats its streams. Only a `by decide` theorem
 // SEALS. Eurostat publishes aggregates and GISCO publishes institutions, so nothing here carries a pupil's data; the
 // contact fields in a GISCO row are the member state's own published INSTITUTIONAL contacts, and they are passed

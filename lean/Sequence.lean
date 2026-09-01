@@ -142,9 +142,9 @@ theorem sequence_and_coins_are_one : (((List.range' 1 6).map (fun k => 2^k % 9))
 
 /-- THE SEQUENCE IMAGINED ON TEN DIGITS, NOT NINE: 1,2,3,4 are one polarity, 6,7,8,9 the other, and 0 with 5 are
     the neutrals. Four plus two plus four is the whole ring, the three sets are pairwise disjoint, and every
-    digit 0..9 sits in exactly one — a partition, decided. HONEST SCOPE: this is the TEN-DIGIT strip (dz on
-    0..9). polarities_plus_minus remains true as ℤ/9 arithmetic (9%9=0); it does not place 9 among the neutrals
-    of this partition. -/
+    digit 0..9 sits in exactly one — a partition, decided. this is the TEN-DIGIT strip (dz on 0..9).
+    polarities_plus_minus remains true as ℤ/9 arithmetic (9%9=0); it does not place 9 among the neutrals of this
+    partition. -/
 theorem digit_polarities_partition_ten : (([1,2,3,4] ++ [0,5] ++ [6,7,8,9]).length = 10) ∧ ((List.range 10).all (fun d => ([1,2,3,4] ++ [0,5] ++ [6,7,8,9]).contains d)) ∧ ([1,2,3,4].all (fun d => !(([0,5] ++ [6,7,8,9]).contains d))) ∧ ([6,7,8,9].all (fun d => !(([0,5] ++ [1,2,3,4]).contains d))) ∧ ([0,5].all (fun d => !(([1,2,3,4] ++ [6,7,8,9]).contains d))) := by decide
 
 /-- NINE IS PLUS, NOT A SECOND VOID. On the ten digits, dz 9 = 1 (it moves) and dz 0 = 0 (it stays); 9 > 5 so it

@@ -12,7 +12,7 @@
 // and a roster entry is stale when the ledger has moved further than DRIFT past it. Time is data; the ledger's
 // own growth is the clock every device already agrees on, and it cannot be faked by a wrong system clock.
 //
-// HONEST SCOPE: a roster carries DECLARATIONS, never proof of life. An entry means "this session said this,
+// a roster carries DECLARATIONS, never proof of life. An entry means "this session said this,
 // at this ledger height" — it does not mean the session is still running, and nothing here should be read as
 // authority. Coordination is still consent between crews; this only tells them who to ask.
 import { toUuid } from './address.js'

@@ -19,7 +19,7 @@
 //   · FIDELITY CARRIES ITS COUNT. Zero disagreements over N is a bound better than one in N — never a proof of
 //     zero — and a bound without its denominator is a boast. `over` is the denominator and it travels.
 //
-// HONEST SCOPE: this reports how each figure was DETERMINED, never whether it is accurate. Integrity, not truth
+// this reports how each figure was DETERMINED, never whether it is accurate. Integrity, not truth
 // (theorem provenance_integrity_not_content_truth).
 import type { Measurement } from './measurement.js'
 import { gpuEligiblePpm, kernelPercent, CPU_NS_PER_ADDRESS } from './hardware/lanes/index.js'

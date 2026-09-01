@@ -5,7 +5,7 @@
 // CONTENT-ADDRESS — the encrypted quantum message that DELIVERS the payload: a 128-bit pointer that recomputes to the
 // exact page, the same for every crawler and every host. Folded to one receipt.
 //
-// HONEST SCOPE: integrity. This describes what is SEALED — it never manipulates a ranking, cloaks, keyword-
+// integrity. This describes what is SEALED — it never manipulates a ranking, cloaks, keyword-
 // stuffs, or claims a position; the description is the theorem's real statement, the JSON-LD cites the real proof and
 // address, and rel=canonical folds every serving host (.net/.org/CNAME) to the one recomputable home. Recomputable by
 // anyone from the same ledger. It optimises for HONEST discovery.

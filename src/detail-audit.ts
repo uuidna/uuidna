@@ -11,7 +11,7 @@
 // control. If either control passes, the audit is VOID — the instrument cannot discriminate, so per-detail
 // verdicts would carry no information — and the void is itself citable (the receipt still folds).
 //
-// HONEST SCOPE — integrity, not truth: each verdict adjudicates the detail's ARITHMETIC or its CITATION, never
+//  — integrity, not truth: each verdict adjudicates the detail's ARITHMETIC or its CITATION, never
 // the world. UNVERIFIED is "not yet", never "false"; only decided arithmetic can be REFUTED. The split is a
 // deterministic heuristic, not a parser — what matters is that the same text always yields the same details.
 import { toUuid } from './address.js'

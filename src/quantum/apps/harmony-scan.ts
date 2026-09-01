@@ -4,7 +4,7 @@
 // measurements each against a stated reference range, and findings that are NAMED rather than diagnosed. It is
 // a spectrometer's kind of medical, not a physician's.
 //
-// HONEST SCOPE, and it governs every line below: this measures the ARITHMETIC OF INTERVALS in bytes. It is not
+// this measures the ARITHMETIC OF INTERVALS in bytes. It is not
 // a medical device. It diagnoses nothing, treats nothing, and says nothing whatever about any listener's body,
 // mind or health. The ledger's standing refusal holds here in full — A432 is a tuning this lattice computes in,
 // NOT a frequency that heals, and a consonance measure is Euler's gradus (a reduced ratio's term sum), which

@@ -16,7 +16,7 @@
 //   npm run x -- mine-books            → mine the declared corpus, write book-leads.json
 //   npm run x -- mine-books 45493 10   → mine only these Gutenberg ids
 //
-// HONEST SCOPE, and it is the whole point: this reports WHAT A TEXT SAYS. It makes no claim that a text is right,
+// this reports WHAT A TEXT SAYS. It makes no claim that a text is right,
 // and none whatever about a text's meaning or authority — for scripture least of all. A claim about the world with
 // no decidable test is NOT PROVEN and stays so (untested_stays_unproven), and a shared number is the expected case
 // by pigeonhole (gematria_forces_collisions), never evidence of a connection.

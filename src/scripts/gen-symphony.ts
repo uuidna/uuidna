@@ -7,7 +7,7 @@
 // walk at double speed — the pages dance. Movement IV (Finale, the whole): the entire ledger's fold — every
 // sealed theorem in one address, 32 states, the work of years in nine seconds. Every tempo tiles the film ring
 // (the_tempi_tile_the_film); the movement ORDER is the work (a_symphony_is_a_sequence_not_a_set); a missing
-// seal THROWS. HONEST SCOPE: form and derivation — the symphony is exactly its sources, and beauty stays the
+// seal THROWS. form and derivation — the symphony is exactly its sources, and beauty stays the
 // listener's.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'

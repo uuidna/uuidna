@@ -13,7 +13,7 @@
 // trinity in ℤ/7 (10 ≡ 3 mod 7 — the decimal shift is the rosette step), phase-total reachability with prev/next
 // mutually inverse, the tuning cancelling from every interval, adjacent steps beating at A432, film-to-paper
 // development as the 9−d involution (the canonical recording is the undeveloped film), and the bar 4032 = 9·7·64
-// = 24²·7 where the movie and the song are one integer. HONEST SCOPE: consonance is a decidable ORDERING and a
+// = 24²·7 where the movie and the song are one integer. consonance is a decidable ORDERING and a
 // door is an address derivation — never a taste, never a profile; a referrer is folded, not tracked.
 // COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'

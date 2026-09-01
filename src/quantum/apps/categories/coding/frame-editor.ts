@@ -4,7 +4,7 @@
 // applying the SAME stride again IS the undo, always, for every legal move. The student edits by strides and
 // discovers the algebra by using it: redo equals do, undo equals do, and the history is a word in a group where
 // every generator is its own inverse. Pure hexbit-app law: positions and strides are integers, the same edits
-// give the same cut anywhere. HONEST SCOPE: the arithmetic of ℤ/24 — an editor's model, not an NLE, and no claim
+// give the same cut anywhere. the arithmetic of ℤ/24 — an editor's model, not an NLE, and no claim
 // about film aesthetics.
 export const FRAME_RING = 24
 /** the invertible strides of ℤ/24 — each its own inverse, which is the whole editing lesson. */

@@ -289,7 +289,7 @@ theorem all_signaling_duality : (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a =
     screen sees (1+1)² = 4 bright and (1−1)² = 0 dark — fringes of visibility 4. RECORDED, summing over the
     unread record basis: (1±0)² + (0±1)² = 2 at BOTH phases (the minus phase computed in ℤ) — flat, visibility
     0. No collapse postulate enters: the fringes were the cross term, and the record made the branches
-    orthogonal. HONEST SCOPE: exact bookkeeping of the integer amplitude vectors this wing already counts
+    orthogonal. exact bookkeeping of the integer amplitude vectors this wing already counts
     (bell_basis_orthogonal); it decides the ARITHMETIC of which-path decoherence, never a claim about photons —
     and why THIS outcome occurs (the Born selection) stays exactly as unexplained as before. -/
 theorem hexbit_slit_visibility : ((1 + 1)^2 = 4) ∧ ((1 - 1)^2 = 0) ∧ (((1 : Int) + 0)^2 + ((0 : Int) + 1)^2 = 2) ∧ (((1 : Int) - 0)^2 + ((0 : Int) - 1)^2 = 2) := by decide

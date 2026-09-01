@@ -143,7 +143,7 @@ test('a generator that writes ANY path is INVOKED by the chain, or it is rot wai
   // not a count of orphans (that is the list's job) but of WIRED ones, because the failure mode being guarded is
   // silent LOSS, and a floor only detects what it counts.
   //
-  // HONEST SCOPE, because a guard that overstates its reach is the thing this file is about: as of the day it was
+  // as of the day it was
   // added, EVERY wired generator uses writeFileSync, so the probe above already sees all of them and this floor
   // catches nothing the list would miss today. Its value is entirely prospective — the first generator written
   // against appendFileSync or fs.promises.writeFile is the case it exists for, and that generator has not been

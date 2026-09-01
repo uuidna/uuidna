@@ -3,7 +3,7 @@
 // (handles on one surface — the deficit 2g−2 walks the evens, pricing each shape in the coins' currency) and
 // the DIMENSION axis (Tⁿ, n circles — homology Pascal's row n), meeting at the hextorus (genus 2·3 = 6, the
 // double torus times the trinity) and at T⁷, whose 128 homology classes are the uuid's own bit count — the
-// 7-qubit fold of every file header, given its geometric body. HONEST SCOPE, load-bearing: the kernel seals
+// 7-qubit fold of every file header, given its geometric body. the kernel seals
 // the INTEGER TABLE — products, sums, the Pascal-row arithmetic — never the topology; that a Betti number
 // counts holes is the literature's bridge, named in the prose and left outside the kernel, exactly as
 // chi_all_three_genera left Gauss–Bonnet outside. COMPUTE → GENERATE → VERIFY.

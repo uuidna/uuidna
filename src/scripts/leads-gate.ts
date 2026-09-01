@@ -67,7 +67,7 @@ function exposeLeads(): SourceReading {
 }
 
 /** a sealed theorem shown in no monograph is a proof the reader cannot reach — verified in the kernel, unpublished
- *  in the record. HONEST SCOPE: coverage's per-theorem check is implied by its per-FILE one (a publication is
+ *  in the record. coverage's per-theorem check is implied by its per-FILE one (a publication is
  *  composed of every theorem in its file), so this surfaces uncovered FILES as the load-bearing half. */
 function coverageLeads(): SourceReading {
   try {

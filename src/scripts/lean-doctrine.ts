@@ -3,7 +3,7 @@
 // the diving TEAM cover (pairs and triples reach every crew size, solo the one excluded case), the diving
 // LADDER's pressure and record arithmetic (water to space, one decompression law), and the VERDICT DOMAIN
 // (the middle is a real third state; identification collapses three states onto two poles and pigeonhole
-// forbids the way back). HONEST SCOPE: the kernel seals INTEGER TABLES — team arithmetic, pressure ratios,
+// forbids the way back). the kernel seals INTEGER TABLES — team arithmetic, pressure ratios,
 // record orderings, state counts; the doctrines (who dives with whom, what a UFO is) live in the prose, and
 // the physical figures are the literature's and the record bodies', cited not derived. COMPUTE → GENERATE → VERIFY.
 //

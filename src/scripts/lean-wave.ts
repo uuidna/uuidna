@@ -5,7 +5,7 @@
 // involution (lead 20). THE CONVEYOR'S RULE, applied: lift what carries a decidable statement, REFUSE what
 // needs judgment — refused this wave and left for the model: tet_semitone_no_integer_lattice (irrationality of
 // 2^(1/12) — not a by-decide), pluck_preserves_bound (needs its bounded-∀ form specified in the lead first).
-// HONEST SCOPE: integer tables sealed; the amplitude ceiling, the tuning frequencies and the dance figures are
+// integer tables sealed; the amplitude ceiling, the tuning frequencies and the dance figures are
 // the leads' measurements and the literature's, cited in prose. COMPUTE → GENERATE → VERIFY.
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
@@ -77,7 +77,7 @@ const FACTS = [
   // above walks a four-cell row; this says WHY that four-cell walk was enough, and involution_walks_home_in_two
   // counts the involutions themselves.
   //
-  // HONEST SCOPE. The kernel seals the arithmetic and the two-state return. That the direct walk at 256 EXCEEDS the
+  // The kernel seals the arithmetic and the two-state return. That the direct walk at 256 EXCEEDS the
   // default depth is a fact about the kernel, not a proposition inside it, so it is measured and cited here rather
   // than asserted below — the same line the wing already keeps between what it walks and what it reads.
   { key: 'involution_replaces_the_raised_ceiling',

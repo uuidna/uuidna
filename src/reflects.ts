@@ -1,7 +1,7 @@
 // reflects — reveal the sealed theorems a real-world system ALREADY reflects. Given a description of a system (its
 // devices, its concepts), it matches those concepts against the ledger and returns the EXISTING theorems whose
 // decidable arithmetic the system rests on — folded to one receipt. It reveals a reflection; it does not build one.
-// HONEST SCOPE: the matched theorems already exist and were proven `by decide` for their own domain; this shows that
+// the matched theorems already exist and were proven `by decide` for their own domain; this shows that
 // the SAME arithmetic recurs in the system named — it does NOT claim uuidna IS that system, nor that the theorems
 // were made for it, nor that citing them makes the system secure/correct. A reflection is a resemblance the ledger
 // already carries, recomputable by anyone. Integrity.

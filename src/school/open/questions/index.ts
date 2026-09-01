@@ -6,7 +6,7 @@
 // keeps finding the unexplained self-inverse, so the self-inverse neighbors are where the research points), and
 // contrasted with its nearest sealed neighbors so a student sees what settled looks like beside what has not.
 // The placement is a WORD-OVERLAP heuristic and says so: a claim the words cannot place lands in the open
-// frontier honestly, never forced under a topic. HONEST SCOPE: organisation, not adjudication — nothing here
+// frontier honestly, never forced under a topic. organisation, not adjudication — nothing here
 // verdicts a claim; every item is a door still open (silence_never_refutes), and the page this feeds closes each
 // entry with the deposit path, because a student's answer is a two-coin deposit, not a comment.
 import { contentWords } from '../../../adjudicate.js'

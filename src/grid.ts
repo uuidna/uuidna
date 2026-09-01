@@ -17,7 +17,7 @@
 // already seals that digital-root harmony is base-relative; requiring both bases was the overclaim.
 // Live count 115 ≡ 1 (mod 3), so harmonic is false today — next growth adds two to restore mod 3, then threes.
 //
-// HONEST SCOPE: a seat is the content-address of one wing read along one locale ray — a receipt
+// a seat is the content-address of one wing read along one locale ray — a receipt
 // translation. The grid proves that every wing is reachable from every ray and that nothing is missing; it makes no
 // claim that the wing has been rendered into that language. Integrity.
 import { toUuid } from './address.js'
@@ -157,7 +157,7 @@ export function gridReport(): {
 // 42 IS NOT A RESHAPE OF THE WING GRID. It does not divide 6w in general and its digital root is 6.
 // This is a SECOND grid over a different domain, deliberately kept separate.
 //
-// HONEST SCOPE: a pair is a named DIRECTION with a recomputable address — never evidence
+// a pair is a named DIRECTION with a recomputable address — never evidence
 // that any content has been carried along it. The grid proves the directions are all present, distinct and
 // balanced; it says nothing about what travels.
 

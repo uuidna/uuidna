@@ -7,7 +7,7 @@
 // payment is the handle of the deposit itself — time is data, never minted, and the handle IS the timestamp
 // (the deposit id is deterministic in the judged call, so its handle names the moment-as-content, not a clock).
 //
-// HONEST SCOPE: coins are RECORDS of judged work, not value transfers (the deposit says so itself); this ledger
+// coins are RECORDS of judged work, not value transfers (the deposit says so itself); this ledger
 // is an ACCOUNT of those records — per-process on the serving surface, recomputable row by row (every id
 // re-derives from op + gate receipt), folded order-invariantly so any observer lands on the same census receipt.
 import { toUuid } from './address.js'
@@ -109,7 +109,7 @@ export const whoPaid = (rows: readonly CoinPayment[], handle: string): CoinPayme
 // details: CREW must lean in ALL dimensions at once; any missing or non-recomputing dimension leaves the
 // application UNVERIFIED (never "rejected" — bring the missing receipt and re-present).
 //
-// HONEST SCOPE: this verifies what receipts CAN prove — the licence is present and addressed, the education
+// this verifies what receipts CAN prove — the licence is present and addressed, the education
 // and reeducation receipts are present, and every payment row RECOMPUTES from its own fields (a forged row
 // moves its address and fails). It confirms records, not virtue: presenting is proof of the paperwork, and the
 // paperwork is proof of the judged work behind it, exactly as far as those receipts recompute and no further.

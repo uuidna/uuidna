@@ -5,7 +5,7 @@
 // Readings.lean. en is the identity projection (wings are written in en). Dialects (en-GB, zh-CN, …) collapse to
 // the primary ray via BCP-47 primary subtag; localeHandleOf names the full tag for PWA sync.
 //
-// HONEST SCOPE: hexbit reading preserves the content-address; it is NOT a semantic/NLP gloss of the Lean statement.
+// hexbit reading preserves the content-address; it is NOT a semantic/NLP gloss of the Lean statement.
 import { DIMENSIONS } from './dimensions.js'
 import { toUuid } from './address.js'
 import { handleOf } from './handle.js'

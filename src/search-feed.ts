@@ -6,7 +6,7 @@
 // DOORS (`/theorem/<key>`). Silent queries and harvest that decide() confirms but the ledger does not yet seal
 // become LEADS (desk proposes; captain disposes — never auto-seal, never auto-held in lean/leads.json).
 //
-// HONEST SCOPE: this does not scrape Google. The queries are declared from public trend reports and from
+// this does not scrape Google. The queries are declared from public trend reports and from
 // publicApiRegistry / SCHOOL_APIS probes. Live titles (MathOverflow unanswered, catalogue hits) arrive through
 // searchFeedOnline. Meaning is null. A silent query is a notice, not a refute. Integrity.
 import { aspectCensus } from './aspects.js'

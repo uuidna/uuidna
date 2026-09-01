@@ -98,7 +98,7 @@ export function verifySeed(seed: LeanPageSeed, fileStem: string, contents: strin
 // ---- PAYLOAD COLLECTION SYNC — no collections of our own. uuidna emits docs in the STANDARD shapes the Payload
 // pages collection and its stock plugins already speak — the nested-docs parent relation, the drafts `_status`,
 // the lexical `content` field — so a vanilla Payload instance AUTO-RECOGNIZES the seeds with zero custom schema.
-// HONEST SCOPE, checked against Payload's OWN production site (github.com/payloadcms/website, 2026-08-18):
+// com/payloadcms/website, 2026-08-18):
 // "vanilla" here means a richText/lexical `content` field — payloadcms/website itself does NOT use one. Its
 // Pages collection renders a `layout` BLOCKS array (callout/cta/content/…), so this doc shape would sit
 // unrendered there. toPayloadBlocksDoc BELOW is that second shape — EACH THEOREM IS A BLOCK, one page per

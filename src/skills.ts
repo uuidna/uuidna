@@ -18,7 +18,7 @@
 // tool is deterministic and Workers-safe; the caller fetches through uuidna_school_apis and hands the titles back
 // to be judged by the same published rule, rather than the rule being re-invented at the call site.
 //
-// HONEST SCOPE: a skill groups theorems by the CAPABILITY they demonstrate — an axis orthogonal to `principle`. The
+// a skill groups theorems by the CAPABILITY they demonstrate — an axis orthogonal to `principle`. The
 // ESCO leg says what a skill IS CALLED in a European vocabulary; it is never a claim that anyone recognises,
 // accredits, or would employ what is sealed here. Integrity.
 import { skillGroups, type Theorem } from './theorems/index.js'

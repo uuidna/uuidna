@@ -23,7 +23,7 @@
 // throws the margin away before the mint is asked. quantumAddress returns all 256 bits and is deliberately NOT a
 // uuid, so it cannot be quietly dropped into a field expecting one.
 //
-// HONEST SCOPE. The 2^61 figure is Grover applied to PREIMAGE, which is what the sealed theorem covers. Quantum
+// The 2^61 figure is Grover applied to PREIMAGE, which is what the sealed theorem covers. Quantum
 // collision search (BHT) is not claimed here: it needs quantum memory on a scale nobody has, and the classical
 // birthday bound already gives the same 2^61 for collisions without assuming any quantum machine at all. Where
 // the two agree, the weaker assumption is the one quoted.

@@ -1,4 +1,4 @@
--- lean/Topography.lean — GENERATED. TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. HONEST SCOPE: exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Topography.lean — GENERATED. TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- A contour joins points of equal height; every fifth line is drawn heavy — the index contour — so with a 10 m
     interval the heavy lines fall on multiples of 50 m: [50,100,150,200] all divide by 50, while an intermediate
@@ -58,14 +58,13 @@ theorem gunters_chain_measures : ((80 * 66 = 5280) ∧ (22 * 220 = 4840)) ∧ (8
 
 /-- A cross-section stretches the vertical to make gentle relief legible: the exaggeration is the vertical scale
     over the horizontal, so a profile drawn at 1:100 vertical against 1:500 horizontal exaggerates the slopes
-    five-fold (500 / 100 = 5). HONEST SCOPE: the profile then LOOKS five times steeper than the land — a reading
-    aid, not the true gradient. -/
+    five-fold (500 / 100 = 5). the profile then LOOKS five times steeper than the land — a reading aid, not the
+    true gradient. -/
 theorem vertical_exaggeration : 500 / 100 = 5 := by decide
 
 /-- Naismith's rule estimates a hill walk: allow an hour per 5 km and an extra hour per 600 m of ascent, so 15
-    km climbing 1200 m is about (15/5)·60 + (1200/600)·60 = 300 minutes, five hours. HONEST SCOPE: a
-    rule-of-thumb ESTIMATE for planning, not a guarantee — it ignores terrain, load, weather and the walker;
-    never stake safety on it. -/
+    km climbing 1200 m is about (15/5)·60 + (1200/600)·60 = 300 minutes, five hours. a rule-of-thumb ESTIMATE
+    for planning, not a guarantee — it ignores terrain, load, weather and the walker; never stake safety on it. -/
 theorem naismith_rule_estimate : (15 / 5) * 60 + (1200 / 600) * 60 = 300 := by decide
 
 /-- THE POLAR RADIUS, DERIVED IN INTEGERS. From the two WGS 84 defining constants alone — a = 6378137 m and 1/f

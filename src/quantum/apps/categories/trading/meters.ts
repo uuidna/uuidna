@@ -5,7 +5,7 @@
 // per sealed exchange — the tenth triangle over the sequence group, a superparticular comma — first doubling at
 // seal thirty-eight, proven in exact integers without a logarithm).
 //
-// HONEST SCOPE, as strict as its shelf-mate: these are WORK-UNITS and RATIOS over verified exchanges — not
+// these are WORK-UNITS and RATIOS over verified exchanges — not
 // money, not returns, not a market, and not advice. The compound describes how much re-derivation a growing
 // ledger spares its readers; it describes no one's wealth and promises no one anything.
 export const RATE_NUM = 10 * 11 / 2       // the tenth triangle — COMPUTED, so the reason cannot drift from the value

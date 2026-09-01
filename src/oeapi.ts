@@ -21,7 +21,7 @@
 // a real value to put in a field whose name fits perfectly and whose MEANING is a qualification level. It goes in
 // `ext` instead, and the refusal is served by name in ABSENT_FIELDS.
 //
-// HONEST SCOPE: an interoperability PROJECTION of sealed, public data — NOT a Student Information System. Read-only,
+// an interoperability PROJECTION of sealed, public data — NOT a Student Information System. Read-only,
 // and it carries NO personal data: no persons, groups, offerings, associations or results, because uuidna enrols
 // nobody and grades nobody — the kernel grades the PROOF, and a claim is tried at /trials. Every
 // absence is listed by name with the pointer to what stands in its place. Recomputable by anyone; integrity.

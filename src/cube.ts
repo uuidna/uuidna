@@ -5,7 +5,7 @@
 // a DIFFERENT nonce fails). verifyQuantumCube recomputes and compares. Deterministic — no clock, no RNG (uuidna does
 // not GENERATE the nonce; the verifier supplies it from their own entropy, and uuidna RESPONDS).
 //
-// HONEST SCOPE: integrity. This is a SYMMETRIC challenge-response — the verifier must share the secret to
+// integrity. This is a SYMMETRIC challenge-response — the verifier must share the secret to
 // check it (like the ChaCha passphrase); its strength is the SECRET'S entropy, never a figure this module computes. It is NOT
 // zero-knowledge, NOT public-key, and NOT biometric: it proves knowledge of the shared secret for a fresh nonce, and
 // nothing about a person's voice, face, or liveness — those are runtime layers OUTSIDE uuidna's recomputable model.

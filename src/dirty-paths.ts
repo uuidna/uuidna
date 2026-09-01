@@ -23,7 +23,7 @@
 // after the session opened, a path outside the scanned scope, a missing manifest — each is UNKNOWN, and unknown
 // asks rather than assumes.
 
-// HONEST SCOPE — THE HOLE THIS DOES NOT CLOSE, named here rather than discovered later. The question answered is
+//  — THE HOLE THIS DOES NOT CLOSE, named here rather than discovered later. The question answered is
 // "was this path already dirty when I arrived". It therefore catches the case that actually bit: a peer was mid-
 // edit in a file and a whole-file commit swept their hunks. It does NOT catch a path that became dirty AFTER the
 // session opened but by somebody else's hand — that reads `mine`, because from this session's local knowledge it

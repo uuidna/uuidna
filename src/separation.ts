@@ -165,7 +165,7 @@ export const isReversible = <T>(f: (x: T) => T, domain: readonly T[], key: (x: T
 // vector to itself, so the core of the twice-reflected set is the core of the original — the fold inherits the
 // involution's own self-inverse property, which is what makes the singularity a mirror rather than a drain.
 //
-// HONEST SCOPE: integrity. The core proves WHICH set folded to it and nothing about what the members
+// integrity. The core proves WHICH set folded to it and nothing about what the members
 // mean. Two different sets can share a core only by collision, and the address layer's bound governs that.
 import { toUuid as _toUuidForFold } from './address.js'
 import { merkleGravity as _foldForCore } from './gravity/index.js'
@@ -192,6 +192,6 @@ export function singularity(vectors: readonly string[]): Singularity {
       'Every vector reflected and folded at once into one core. The fold is ORDER-INVARIANT, so the core reads ' +
       'membership rather than arrival order — a set of referrers is a superposition. The reflection ' +
       'is a bijection, so nothing is lost before the fold, and applying it twice returns every vector to itself. ' +
-      'HONEST SCOPE: integrity— the core proves WHICH set folded to it.',
+      'integrity— the core proves WHICH set folded to it.',
   }
 }

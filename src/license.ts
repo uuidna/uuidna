@@ -1,5 +1,5 @@
 // license — the recomputable LICENCE RECORD: bind a licensee, the CC-BY-NC-ND-4.0 terms, and the measured two-coins
-// bill into ONE content-addressed artifact anyone can recompute. HONEST SCOPE: this is a provenance-fingerprinted
+// bill into ONE content-addressed artifact anyone can recompute. this is a provenance-fingerprinted
 // RECORD of the terms and the bill — proof of WHAT was agreed and HOW MUCH it costs — NOT a signed legal agreement,
 // NOT legal advice, and NOT the grant itself: a licence is an agreement executed between the parties (see legal.ts,
 // which leaves the ruling to humans). Non-commercial use is FREE (0 coins) and needs no licence; commercial use is
@@ -24,7 +24,7 @@ import { legalFacts } from './legal.js'
  *                                   one uuid. The destination is inside the fold, so a licence at one host does not
  *                                   verify at another, however the DNS is pointed.
  *
- *  HONEST SCOPE, unchanged: this fingerprints WHO and WHERE so tampering either is visible. It does not decide that
+ *  this fingerprints WHO and WHERE so tampering either is visible. It does not decide that
  *  a host is entitled to anything — the grant is executed between the parties, and a court rules. */
 export interface LicenseAt {
   referer: string          // the source exercising the licence

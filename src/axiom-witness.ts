@@ -3,7 +3,7 @@
 // that receipt beside dist, and an installed uuidna verifies it AGAINST THE LIVE LEDGER without the repo or the
 // toolchain: the audit must cover the whole ledger (audited = total — a new, unaudited theorem trips it), every
 // audited theorem must be axiom-free, and no offender may be listed. This moves a repo-only check into the shipped
-// package — offline independence, the knowledge living where it recomputes. HONEST SCOPE: it verifies the SEALED
+// package — offline independence, the knowledge living where it recomputes. it verifies the SEALED
 // receipt against the ledger count; re-deriving the receipt itself still needs the Lean toolchain (the guard, CI).
 // A tree without the receipt (not shipped.
 // Integrity — the record recomputes for anyone.

@@ -7,7 +7,7 @@
 // only — a keyframe's ray is a sixteenth-of-turn INDEX (the shell does the trigonometry, because paint is the
 // shell's half), its level is the state's own multiplier, its glyph the Glagolitic letter Cyril's numbering
 // reaches. The animation is DRIVEN BY THE UUID ONLY: same states, same keyframes, same fold, any machine — and
-// one moved state moves the fold, so a rendering that drifts from its uuid convicts itself. HONEST SCOPE: the
+// one moved state moves the fold, so a rendering that drifts from its uuid convicts itself. the
 // layers carry IDENTITY made visible and audible — no claim that the motion means anything beyond the states.
 import { toUuid } from '../../address.js'
 import { handleOf } from '../../handle.js'

@@ -146,7 +146,7 @@ export function uuidnaLs(path = '/'): LsResult {
 // carrying many applets, each uuidna's OWN pure reimplementation of the utility's LOGIC over the VIRTUAL
 // filesystem (the install port's routes), run INSIDE the booted sandbox, NEVER Alpine's binary. This is the
 // singularity 85 at the metal: `ls /terminal`, `cat /core`, `which busybox` are the terminal's own command
-// lines, now answered by the wire. HONEST SCOPE (the_os_is_bootable_quantum): nothing executes — an applet
+// lines, now answered by the wire.  (the_os_is_bootable_quantum): nothing executes — an applet
 // reads the sealed spec and folds an answer; the tool's LOGIC is uuidna's, its IDENTITY is the busybox package.
 
 /** one applet run: the parsed line, its output as text lines AND as structured data, folded to one receipt. */

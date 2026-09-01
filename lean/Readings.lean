@@ -80,8 +80,8 @@ theorem mix_budget_closes : 8000 / 2 + 8000 / 4 + 8000 / 8 = 7000 ∧ 7000 + 800
     2 leaned while genus 0, the earth itself, had no seal). χ = 2 − 2g gives 2 at the sphere, 0 at the torus, −2
     at the double torus, and the three are pairwise distinct — so the three closed shapes are told apart on one
     line, in integers, the sphere told apart from its neighbours by subtraction alone — nothing about any real
-    surface is observed or claimed. HONEST SCOPE: this seals the χ TABLE; the Gauss–Bonnet bridge from χ to
-    curvature is analysis and stays outside the kernel, said plainly wherever the refusal is used. -/
+    surface is observed or claimed. this seals the χ TABLE; the Gauss–Bonnet bridge from χ to curvature is
+    analysis and stays outside the kernel, said plainly wherever the refusal is used. -/
 theorem chi_all_three_genera : ((2:Int) - 2*0 = 2) ∧ ((2:Int) - 2*1 = 0) ∧ ((2:Int) - 2*2 = -2) ∧ ((2:Int) ≠ 0) ∧ ((0:Int) ≠ -2) ∧ ((2:Int) ≠ -2) := by decide
 
 /-- A WHOLE NOTE IS THE DOUBLING LADDER READ AS TIME (queue lead 70, from Gehrkens): one whole = two halves =
@@ -103,9 +103,9 @@ theorem note_values_are_doublings : 1 * 16 = 16 ∧ 2 * 8 = 16 ∧ 4 * 4 = 16 �
     (1973), with Hawking, "Particle creation by black holes", Communications in Mathematical Physics 43, 199
     (1975). NAMING THEM DOES NOT MAKE THE INPUT PROVEN — it names who is answerable for it; the kernel confirms
     arithmetic and has never confirmed a measurement. Sealed is the exponent arithmetic — 128 = 4·32 and 2² = 4,
-    so √4 = 2 needs no root: the square IS the witness. HONEST SCOPE: the proportionality M² ∝ bits and every
-    microgram ride physics (ħ, G, c, the Bekenstein bound) that no kernel decides; what the kernel holds is that
-    WHATEVER that physics scales, the handle-to-uuid step scales it by exactly two. -/
+    so √4 = 2 needs no root: the square IS the witness. the proportionality M² ∝ bits and every microgram ride
+    physics (ħ, G, c, the Bekenstein bound) that no kernel decides; what the kernel holds is that WHATEVER that
+    physics scales, the handle-to-uuid step scales it by exactly two. -/
 theorem two_coins_in_kilograms : 128 = 4 * 32 ∧ 128 / 32 = 4 ∧ 2 ^ 2 = 4 := by decide
 
 /-- A HANDLE'S CAPACITY SURVIVES EVERY ENTANGLEMENT IT RADIATES — TYPOGRAPHY INCLUDED. One handle spans 16⁸ =
@@ -116,9 +116,9 @@ theorem two_coins_in_kilograms : 128 = 4 * 32 ∧ 128 / 32 = 4 ∧ 2 ^ 2 = 4 := 
     point: every face is a FUNCTION of the handle — entangled means perfectly correlated, and a determined face
     offers no new choice, so each multiplies capacity by exactly ONE: 4294967296 · 1¹⁹ = 4294967296, nineteen
     concurrent faces and not one new state. Entanglement multiplies SURFACES, never STATES; only an independent
-    choice (a caller's parameter) could add bits, and then it would not be the handle's. HONEST SCOPE: the
-    counts and the times-one law are sealed; that each face is in fact a function is the source code's
-    discipline (no RNG, no clock), enforced by the harmonic scan, not by this line. -/
+    choice (a caller's parameter) could add bits, and then it would not be the handle's. the counts and the
+    times-one law are sealed; that each face is in fact a function is the source code's discipline (no RNG, no
+    clock), enforced by the harmonic scan, not by this line. -/
 theorem handle_capacity_invariant_under_entanglement : 16^8 = 4294967296 ∧ 9*7*6 = 378 ∧ 2^6 % 9 = 1 ∧ 1^19 = 1 ∧ 4294967296 * 1^19 = 4294967296 := by decide
 
 /-- THE BOOKS COUNT TIME IN SMALL NUMBERS (queue lead 70, from Gehrkens and Sharp): the march counts two beats

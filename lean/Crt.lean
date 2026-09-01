@@ -70,8 +70,8 @@ theorem the_fused_ring_is_all_ones : (63 = 32 + 16 + 8 + 4 + 2 + 1) ∧ (64 = 2^
     − 1: the hexagram saturated, which captain_theorem_the_coins_buy_the_ring_and_one already buys with one to
     spare. THE SEAM, named rather than smoothed: 6 is the ORDER of 2 only on ℤ/9; on ℤ/7 the order is 3
     (the_coin_keeps_its_order_in_the_fused_ring) and 6 is two periods — Fermat's exponent, not a second order.
-    HONEST SCOPE: cardinality and orders. It does not claim the I Ching describes a person, that Glagolitic
-    letters are hexagrams, or that the rosette was built to encode six lines. -/
+    cardinality and orders. It does not claim the I Ching describes a person, that Glagolitic letters are
+    hexagrams, or that the rosette was built to encode six lines. -/
 theorem hexagram_width_closes_rosetta_and_glagolitic : (2^6 = 64) ∧ ((2^6) % 9 = 1) ∧ ((2^6) % 7 = 1) ∧ (Nat.gcd 7 9 = 1) ∧ (7 * 9 = 63) ∧ (63 = 2^6 - 1) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6) := by decide
 
 /-- THE SAME SIX BEHAVES DIFFERENTLY IN THE TWO DIMENSIONS. A stride of the hexagram width on the seven rosetta
@@ -79,7 +79,6 @@ theorem hexagram_width_closes_rosetta_and_glagolitic : (2^6 = 64) ∧ ((2^6) % 9
     (axes_stride_coprime) are completely traversable at hexagram pace. The same stride on the Glagolitic nine is
     NOT total: gcd(6, 9) = 3, so k ↦ 6k (mod 9) has exactly three residues {0, 3, 6} — three orbits, the factor
     residues_identify_digit already named when it refused CRT for 6 and 9. One width, two moduli, two
-    geometries: the rosetta is generated; the vortex is partitioned. HONEST SCOPE: residue orbits of
-    multiplication by 6. It does not claim a hexagram "means" a dimension, or that walking theorems at stride 6
-    is a ritual. -/
+    geometries: the rosetta is generated; the vortex is partitioned. residue orbits of multiplication by 6. It
+    does not claim a hexagram "means" a dimension, or that walking theorems at stride 6 is a ritual. -/
 theorem hexagram_stride_totals_the_rosetta : (Nat.gcd 6 7 = 1) ∧ (Nat.gcd 6 9 = 3) ∧ ((List.range 7).map (fun k => (k * 6) % 7)).eraseDups.length = 7 ∧ ((List.range 9).map (fun k => (k * 6) % 9)).eraseDups.length = 3 := by decide

@@ -9,7 +9,7 @@
 // Alpine published meaning and a browser shelf are extra SURFACES of the same handle, never extra STATES
 // (handle_capacity_invariant_under_entanglement). Entanglement completes one theorem at a time.
 //
-// HONEST SCOPE: this is not a physics-world simulator. n_qubit_dimension counts classical simulation cost.
+// this is not a physics-world simulator. n_qubit_dimension counts classical simulation cost.
 // A domain the ledger does not admit cannot pass the gates (legal_only_the_proven_is_admitted). The 28k
 // Alpine catalogue is the warehouse, not the bench set. Nothing here installs, links, or runs Alpine ELF.
 import { toUuid } from '../../address.js'

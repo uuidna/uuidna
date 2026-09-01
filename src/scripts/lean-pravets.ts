@@ -21,7 +21,7 @@
 // 640 = 10·64 — and it settles that whether or not the input is right. Naming who documented a specification
 // would not have proven it either; a citation buys a reader somewhere to go, never a proof.
 //
-// HONEST SCOPE: documented specifications as integer facts — never the era's politics, never the machines'
+// documented specifications as integer facts — never the era's politics, never the machines'
 // merit, and the charset's exact letter ORDER (which varied by model) deliberately not sealed. Pravets to
 // Pliska, one road. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'

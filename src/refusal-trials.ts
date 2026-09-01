@@ -86,7 +86,7 @@ export interface BookLeadInput {
 }
 
 const POLICY =
-  /\b(desk|captain|robots\.txt|auto-?seal|HONEST SCOPE|gen-quantum|versionSeat|stackoverflow|chitanka|ceccec\.psg|scrape|import.*origin|two-handle|RFC 8439 stays|meaning is always null|Wall-clock|Standing architecture)\b/i
+  /\b(desk|captain|robots\.txt|auto-?seal||gen-quantum|versionSeat|stackoverflow|chitanka|ceccec\.psg|scrape|import.*origin|two-handle|RFC 8439 stays|meaning is always null|Wall-clock|Standing architecture)\b/i
 
 /** Topic → sealed keys the ledger already holds; boundaries often refuse without naming them. */
 const WITNESS_RULES: readonly { pattern: RegExp; keys: readonly string[] }[] = [

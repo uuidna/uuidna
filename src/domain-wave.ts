@@ -1,7 +1,7 @@
 // @non-harmonic: external free-API research wave (network — evidence— NAMED boundary; the harmonic core must never carry these ops.
 // domain-wave — for ONE domain (principle/skill), run BOTH waves: the LOCAL development audit (its theorems fold
 // order-invariantly to a receipt and are sealed by decide — the approval) AND the EXTERNAL free-research wave
-// (corroborate the domain's topic against a free public API — evidence. HONEST SCOPE: the LOCAL wave
+// (corroborate the domain's topic against a free public API — evidence. the LOCAL wave
 // is the seal — only a by-decide proof approves; the EXTERNAL wave only CORROBORATES, and for a pure-arithmetic
 // domain (ℤ/9, ℤ/7) a physics-constants stream honestly returns NO evidence, which is correct. The
 // order-invariant fold is the "quantum touch" (bell_no_signaling). Integrity.

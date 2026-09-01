@@ -94,7 +94,7 @@ console.log(`Authority:     Captain coins (two_coins theorem)`)
 console.log()
 
 // Honest scope statement
-console.log('HONEST SCOPE:')
+console.log('')
 console.log('─────────────────────────────')
 console.log('What this claim proves:')
 console.log('  ✓ These algebra theorems are Lean-verified (by decide)')

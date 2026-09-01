@@ -6,7 +6,7 @@
 // exact, no epsilon), COMPLEMENTARY SLACKNESS (positive dual ↔ tight constraint, both pairs), and one simplex
 // pivot strictly improving. The quantum bridge is the honest one: enumerating n binary decisions IS walking the
 // 2^n basis states the exact simulator holds (n_qubit_dimension) — and the sealed Grover margin only ever
-// HALVES that exponent, never removes it. HONEST SCOPE: exact optima of small named instances by enumeration —
+// HALVES that exponent, never removes it. exact optima of small named instances by enumeration —
 // NOT a solver at scale, NOT an NP claim, NO quantum advantage (the simulator is classical and says so).
 import { emit } from './lean-gen.js'
 

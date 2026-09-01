@@ -19,7 +19,7 @@
 // The captain's answer therefore comes with its own evidence: what is related is carried, what is refuted names
 // its refuting quote, and what cannot be decided lexically is declared undecided instead of silently dropped.
 //
-// HONEST SCOPE (theorem the_os_is_bootable_quantum): relatedness is about PROVENANCE and MEANING — nothing is
+//  (theorem the_os_is_bootable_quantum): relatedness is about PROVENANCE and MEANING — nothing is
 // installed, linked, or run. Pure and total: the haystack and the candidate names are passed in, so this decides
 // offline over sealed data and can be recomputed by anyone.
 import { toUuid } from '../../../address.js'

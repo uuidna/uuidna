@@ -8,7 +8,7 @@
 // the arithmetic. Where N does NOT divide the span the remainder is a real bias, reported rather than hidden:
 // `wastes` names exactly how many values sit in the uneven tail, the same honesty moduli_waste_states keeps.
 //
-// HONEST SCOPE, and it is the load-bearing caveat: an equal share of the ADDRESS SPACE is not an equal share of
+// an equal share of the ADDRESS SPACE is not an equal share of
 // the WORK. That follows only if handles arrive uniformly (a measurement about traffic, never a theorem — the
 // anthem's own second voice turned out to be the RFC variant nibble, four values of sixteen) and if jobs cost
 // the same (a claim about the work). The balancer therefore ships with a CENSUS: measure your real traffic,

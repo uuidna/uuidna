@@ -9,7 +9,7 @@
 // THE SINGULARITY LAW HOLDS HERE: the magnet ranking is NOT re-implemented — it is the school's own
 // placeItem, imported. One source, many surfaces (one_source_is_exactly_one): the open-questions page and this
 // notice point at the same magnets by construction, so they can never drift into two opinions.
-// HONEST SCOPE: pointers, never promises — a magnet is a place to look, not a claim that the answer is there,
+// pointers, never promises — a magnet is a place to look, not a claim that the answer is there,
 // and a claim whose words the ledger has never sealed honestly gets an EMPTY list rather than an invented one.
 import { adjudicate, type Verdict } from '../../../../adjudicate.js'
 import { placeItem, type SealedRef } from '../../../../school/open/questions/index.js'

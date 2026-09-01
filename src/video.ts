@@ -4,7 +4,7 @@
 // as scratchpad curl + a hand-held transcript + a hand-driven detail audit, five receipts of manual work): the
 // same chain now runs as ONE reusable tool, so the next video costs a call, not a session.
 //
-// HONEST SCOPE (integrity, not truth):
+//  (integrity, not truth):
 //  · The metadata is what the platform PUBLICLY POSTS via oEmbed (title, channel) — REPORTED data, content-
 //    addressed; the fingerprint proves WHICH listing was audited, never that the listing is true.
 //  · Caption text is SUPPLIED BY THE CALLER and audited as DATA — content-addressed and adjudicated, never

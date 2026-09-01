@@ -14,7 +14,7 @@
 // ONE WORD, ONE NAME, MANY FACES: the folder is the module and every face is an `index.*` — index.ts is the code,
 // index.md is what it means. A second named file would be a second name for one thing.
 //
-// HONEST SCOPE: a deterministic step algebra over the sealed sequence laws — the ordering of computation, never a
+// a deterministic step algebra over the sealed sequence laws — the ordering of computation, never a
 // measurement of duration, never a wall time, and never a claim about physical clocks.
 import { toUuid } from '../../address.js'
 

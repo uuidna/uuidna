@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 418,
+ "count": 419,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -92,6 +92,13 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "anthropic/claude-fable-5",
    "name": "Anthropic: Claude Fable 5",
+   "contextTokens": 1000000,
+   "promptPrice": "0.00001",
+   "completionPrice": "0.00005"
+  },
+  {
+   "id": "anthropic/claude-fable-5.1",
+   "name": "Anthropic: Claude Fable 5.1",
    "contextTokens": 1000000,
    "promptPrice": "0.00001",
    "completionPrice": "0.00005"
@@ -2935,8 +2942,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.0000011875",
-   "completionPrice": "0.00000418"
+   "promptPrice": "0.00000117",
+   "completionPrice": "0.00000396"
   }
  ]
 }

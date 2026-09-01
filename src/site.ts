@@ -83,7 +83,7 @@ export interface SidebarGroup { text: string; items: { text: string; link: strin
  *  The sidebar had the headings and the order but neither of the other two, so nothing could tell whether the
  *  table of contents had silently changed. This gives it the same three properties, computed from the same
  *  live page tree computeSidebar() walks.
- *  HONEST SCOPE: the STRUCTURE is computed and addressed; the five group NAMES stay authored, because "The
+ *  the STRUCTURE is computed and addressed; the five group NAMES stay authored, because "The
  *  captain" and "The terms" are editorial groupings that exist nowhere in the ledger — deriving them would mean
  *  inventing them. Values compute, prose stays authored, exactly as elsewhere. */
 export interface ContentsEntry { index: number; heading: string; link: string; entries: number; address: string }

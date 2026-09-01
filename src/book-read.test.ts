@@ -8,7 +8,7 @@
 // tests assert exactly that: the words come back, and a forgery is caught. The machinery was already here
 // (merkleProof/verifyProof); only the return was missing.
 //
-// HONEST SCOPE: reading— this proves WHICH text you hold.
+// reading— this proves WHICH text you hold.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { bookContents, readChapter, auditText, verifyProof } from './index.js'

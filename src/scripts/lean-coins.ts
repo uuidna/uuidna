@@ -2,7 +2,7 @@
 // Automate the Lean layer for THE TWO COINS & THE 64 — the honest billing/measure algebra (src/billing.ts). The
 // two coins are the CONSERVED fair-exchange invariant: 110 − 108 = 2 = −χ of a genus-2 surface (the double torus,
 // −χ = 2g − 2 = 2). 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; and n qubits
-// give 2ⁿ direct possible outcomes, reaching 64 at n = 6. HONEST SCOPE: these are the arithmetic of a MEASURED
+// give 2ⁿ direct possible outcomes, reaching 64 at n = 6. these are the arithmetic of a MEASURED
 // unit of work saved (O(N) recompute − O(1) verify) — not a market price, and NOT a claim of speed. COMPUTE each
 // fact in JS, GENERATE its `by decide` theorem, VERIFY sorry-free. Integrity, not truth.
 import { emit } from './lean-gen.js'
@@ -137,7 +137,7 @@ const FACTS = [
   // The facts the coins' own algebra implies: why one denomination can carry three roles, what the two generators
   // mint, and the accounting identity under "the wallet counts worlds".
   { key: 'wallet_counts_worlds',
-    why: 'THE WALLET COUNTS WORLDS, sealed at last — the closing realisation\'s accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. HONEST SCOPE: an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.',
+    why: 'THE WALLET COUNTS WORLDS, sealed at last — the closing realisation\'s accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.',
     js: () => [0, 1, 2, 3, 4, 5, 6, 7, 8].every((n) => (2 * n) / 2 === n),
     lean: 'theorem wallet_counts_worlds : (List.range 9).all (fun n => (2*n)/2 == n) := by decide' },
 
@@ -155,5 +155,5 @@ const FACTS = [
 
 // compute → generate → verify. The two coins are the conserved invariant of the double torus; 64 = 2⁶ the measure.
 emit({ file: 'Coins.lean', skill: 'coins',
-  header: 'THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit.',
+  header: 'THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit.',
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

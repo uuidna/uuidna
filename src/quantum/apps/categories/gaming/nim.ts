@@ -2,7 +2,7 @@
 // theorem makes it the whole game — zero is a P-position (the mover loses against right play), nonzero is a win
 // with an EXACT move back to zero. You VERIFY the position by one fold instead of RECOMPUTING the game tree —
 // the shelf's clearest lesson in why paying the coins is magnitudes faster. Pure integer arithmetic; the same
-// operation the axiom-free lxor seals across Nim.lean. HONEST SCOPE: normal-play nim on finite heaps — the
+// operation the axiom-free lxor seals across Nim.lean. normal-play nim on finite heaps — the
 // theorem is Bouton's, sealed where the ledger seals it; this module just plays it.
 export interface NimVerdict { nimsum: number; pPosition: boolean; winMove: { heap: number; from: number; to: number } | null }
 

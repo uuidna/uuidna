@@ -6,7 +6,7 @@
 // market-surveillance half: metrics folded from the records the caller passes in (pure hexbit-app law — the
 // generator reads files, this module only counts), every figure recomputable, the whole board folding to one
 // address whose states can SING (the surveillance board with a voice — a catch is a note, never a secret).
-// HONEST SCOPE: conduct and artifact METRICS over the tree's own records — rates and counts, never intention;
+// conduct and artifact METRICS over the tree's own records — rates and counts, never intention;
 // the tricks are finite as LISTED, never as possible (no_audit_catches_all is the catalogue's own first entry
 // in spirit: the lexicon grows, the board never claims completeness).
 import { toUuid } from '../../../../address.js'

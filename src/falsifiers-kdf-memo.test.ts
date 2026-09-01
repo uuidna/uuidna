@@ -11,7 +11,7 @@
 // passphrase's key. The failure is exhibited, not described. Then the same two inputs are put through the memo
 // key crypt.ts actually uses, which separates them.
 //
-// HONEST SCOPE, and it is the whole reason this test is written at a reduced width. The collision produced below
+// The collision produced below
 // is on 32 bits of the FNV fold, which costs about 2^16 attempts and is found here in milliseconds. A collision
 // on the FULL 128-bit fold costs about 2^64 by the birthday bound and is NOT produced, NOT attempted, and NOT
 // claimed — so this does not show that crypt.ts would have collided in practice had it used FNV. It shows the

@@ -7,7 +7,7 @@
 // the referrer folds to a handle, the handle picks the entry bar, the recursion deepens as mixed streams at
 // halving amplitudes (anthem_superposition_mix_closes), and the sound is LOSSLESS uncompressed PCM the browser
 // mints as a Blob — no file fetched, no asset stored, movie-ready (the_movie_and_the_song_are_one). Every
-// structural figure is a SEALED theorem, cited by figure — a missing seal THROWS. HONEST SCOPE: arithmetic
+// structural figure is a SEALED theorem, cited by figure — a missing seal THROWS. arithmetic
 // sung; a referrer is folded in the visitor's page, never tracked; superposition is sealed room, never physics.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -106,7 +106,7 @@ of primes (\`anthem_pi_primes_trinity\`: 999999 = 999·1001 = 3³·37 · 7·11·
 (\`anthem_closes_on_the_coin_octave\`), is the interval every collapse resolves to: the same factor two
 [\`two_coins_in_kilograms\`](/theorem/two_coins_in_kilograms) weighs in black-hole mass.
 
-HONEST SCOPE: arithmetic sung on a lattice — no tuning mysticism, no numerology, no tracking; the
+arithmetic sung on a lattice — no tuning mysticism, no numerology, no tracking; the
 demarcations live in the theorems, and the superposition is claimed ROOM — capacity, never physics.
 `
 writeFileSync(join(ROOT, 'docs', 'anthem.md'), page)

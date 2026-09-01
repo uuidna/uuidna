@@ -5,7 +5,7 @@
 // refusal recorded, from the host's own robots.txt, so a recorded boundary that no longer matches the live file
 // is named rather than trusted from memory.
 //
-// HONEST SCOPE: this fetches robots.txt (or accepts a supplied body). It does not crawl. A host that answers 418
+// this fetches robots.txt (or accepts a supplied body). It does not crawl. A host that answers 418
 // or refuses the fetch is reported as unread, never as "allows everything" — the same unread≠empty law
 // refused-hosts carries. Offline tests inject fixtures; live recompute is opt-in (UUIDNA_LIVE_ROBOTS=1).
 // @non-harmonic: live robots.txt recompute for refused hosts — fetch is the reading, fixtures keep the suite offline

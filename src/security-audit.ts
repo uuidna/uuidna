@@ -2,7 +2,7 @@
 // always included by npm, plus the in-dist sealed ledger and the honesty gate), folded to a receipt anyone rechecks.
 // It is not a scanner and not a pentest: it asserts the posture PROVABLE from the package itself — the supply-chain
 // surface, the sealed defence-in-depth theorems, collision resistance by pigeonhole, and the honesty gate biting a
-// fabricated citation. HONEST SCOPE: the repo-tree scans (no committed secret, KAT suite present) need the source
+// fabricated citation. the repo-tree scans (no committed secret, KAT suite present) need the source
 // tree, not the shipped package, so they live in scripts/security-audit and CI — NOT here. Integrity.
 import { theorems } from './theorems/index.js'
 import { toUuid } from './address.js'

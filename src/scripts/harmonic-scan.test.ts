@@ -3,7 +3,7 @@
 // cross-check even though both are valid audio; a tone off the lattice must be measured as off. The healthy
 // case is checked too, but it is the least interesting line in the file — an instrument is trusted for what it
 // refuses, not for what it approves.
-// HONEST SCOPE, restated where it will be read: nothing here is medical. It measures interval arithmetic.
+// nothing here is medical. It measures interval arithmetic.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { intervalOf, scanStructure, scanVitals, scanSong, measuredHz, pcmOfWav, nameOf, REST_FLOOR, type Bar } from '../quantum/apps/harmony-scan.js'

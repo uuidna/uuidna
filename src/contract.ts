@@ -4,7 +4,7 @@
 // and lets a holder PROVE they hold the tagged contract (re-address their terms and compare) — while the contract
 // TEXT is the private KEY. Same addressing as the license's own receipt, so the license itself is a contract.
 //
-// HONEST SCOPE (integrity. Confidentiality is EXACTLY the secrecy of the contract text — pure-TS
+//  (integrity. Confidentiality is EXACTLY the secrecy of the contract text — pure-TS
 // ChaCha20-Poly1305 (crypt.ts) keyed by it:
 //  · If the contract is PUBLIC (the CC BY-NC license on uuidna.com/license), there is NO secrecy — a public key is
 //    public. That is sealed"a fixed pad is public"). Sealing under

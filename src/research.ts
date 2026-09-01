@@ -1,7 +1,7 @@
 // research — deep-research with the REVERSIBLE imprint codec: PRESS external research into a uuid chain and
 // DECOMPRESS it back LOSSLESSLY (the round-trip proves it), bind the pressed pieces to the computable ENTANGLED
 // algebra (the order-invariant merkle-gravity fold), and report NOVELTY as content-address uniqueness — a never-seen
-// address is novel CONTENT. HONEST SCOPE, stated first because it is the whole point: uuidna fingerprints STRUCTURE
+// address is novel CONTENT. uuidna fingerprints STRUCTURE
 // and NOVELTY, it does NOT extract MEANING — "decode is provenance + structure" (books.ts).
 // Novelty is DECIDABLE (a new content-address); MEANING is human/semantic and is left to the reader — `meaning` is
 // null by design. Integrity.
@@ -25,7 +25,7 @@ export interface DeepResearch {
 const HONEST =
   'Deep research pressed and decompressed with the REVERSIBLE imprint codec (the round-trip returns the exact input), ' +
   'bound to the computable ENTANGLED algebra (the order-invariant fold), with NOVELTY reported as content-address ' +
-  'uniqueness — a never-seen address is novel CONTENT. HONEST SCOPE: uuidna fingerprints STRUCTURE and NOVELTY, it ' +
+  'uniqueness — a never-seen address is novel CONTENT. uuidna fingerprints STRUCTURE and NOVELTY, it ' +
   'does NOT extract MEANING — provenance + structure. Novelty is decidable (a new address); ' +
   'meaning is the reader\'s — `meaning` is null by design. Integrity.'
 

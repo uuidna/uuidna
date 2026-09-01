@@ -56,12 +56,11 @@ theorem february_is_the_only_month_of_whole_weeks : ([31,28,31,30,31,30,31,31,30
 theorem julian_cycle_closes_at_twenty_eight : 28 * 365 + 7 = 10227 ∧ 10227 % 7 = 0 ∧ 4 * 365 + 1 = 1461 ∧ 1461 % 7 = 5 := by decide
 
 /-- The 400-year cycle stated as the number it is: 146097 = 20871 × 7, so the calendar returns after twenty
-    thousand eight hundred and seventy-one weeks exactly. AND THE HONEST SCOPE, because the factorisation
-    invites more than it earns: 146097 = 63 · 2319 with 63 = 7·9, the fused ring — but only the SEVEN is a fact
-    about calendars, earned by the 97-leap-day rule and able to come out otherwise. The nine is ordinary
-    arithmetic and NOT a second witness: 146097 = 7 · 20871 and 20871 is itself divisible by nine, so that half
-    follows by multiplication. A fact and its consequence, sealed together and labelled, rather than counted
-    twice. -/
+    thousand eight hundred and seventy-one weeks exactly. AND THE 146097 = 63 · 2319 with 63 = 7·9, the fused
+    ring — but only the SEVEN is a fact about calendars, earned by the 97-leap-day rule and able to come out
+    otherwise. The nine is ordinary arithmetic and NOT a second witness: 146097 = 7 · 20871 and 20871 is itself
+    divisible by nine, so that half follows by multiplication. A fact and its consequence, sealed together and
+    labelled, rather than counted twice. -/
 theorem the_gregorian_cycle_counted_in_weeks : 146097 = 20871 * 7 ∧ 146097 = 63 * 2319 ∧ 63 = 7 * 9 ∧ 20871 % 9 = 0 := by decide
 
 /-- WHAT THE CENTURY RULE ACTUALLY COSTS, and the one part of the drift that IS decidable. Both calendars are
@@ -82,11 +81,11 @@ theorem the_reform_is_exactly_three_days_in_four_hundred : (400 * 365 + 100 = 14
     were never lived. Laid against a GAPLESS integer day index the deletion returns as arithmetic rather than as
     remembered history — the two dates the record treats as adjacent are eleven apart, and eleven less the one
     day that did elapse is TEN. A gapless ruler measures the holes in a thing that has them; that is its use.
-    The same subtraction over a genuine successor returns zero, which is the control: 5 − 4 − 1 = 0. HONEST
-    SCOPE: this seals the ARITHMETIC of the deletion, not the history — that Gregory ordered it, that the papal
-    states obeyed in 1582 and Britain in 1752, and that the leap rule was misapplied for fifty years after
-    Caesar are matters of record, cited in src/calendar.ts and decidable by no kernel. What the kernel holds is
-    that a gapless index and a calendar with a hole in it disagree by exactly the size of the hole. -/
+    The same subtraction over a genuine successor returns zero, which is the control: 5 − 4 − 1 = 0. this seals
+    the ARITHMETIC of the deletion, not the history — that Gregory ordered it, that the papal states obeyed in
+    1582 and Britain in 1752, and that the leap rule was misapplied for fifty years after Caesar are matters of
+    record, cited in src/calendar.ts and decidable by no kernel. What the kernel holds is that a gapless index
+    and a calendar with a hole in it disagree by exactly the size of the hole. -/
 theorem the_record_has_holes_the_rule_does_not : (15 - 4 - 1 = 10) ∧ (5 - 4 - 1 = 0) ∧ (15 - 4 = 11) := by decide
 
 /-- WHAT GAPLESS MEANS, and the ledger already decided it once. A day index is gapless when successive days

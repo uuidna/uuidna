@@ -42,7 +42,7 @@ export const SUBJECTS: { domain: string; queries: readonly string[] }[] = [
   // reading behind it. The classical literature states the questions in the same terms — value against price,
   // what a measure of value must hold constant, why a token circulates — so a corpus that can quote Smith,
   // Ricardo, Mill and Bastiat on value and money is the difference between a billing model that asserts its
-  // terms and one that knows what they have meant. HONEST SCOPE, unchanged from every other subject: reading a
+  // terms and one that knows what they have meant. reading a
   // book yields leads, never theorems. The desk proposes; the captain disposes.
   { domain: 'economy', queries: ['political economy', 'wealth of nations', 'money and banking', 'taxation', 'value and price'] },
   // SEQUENCE — the ℤ/9 living field and its reflection group. zeropoint-node shares src/0 arithmetic; uuidna

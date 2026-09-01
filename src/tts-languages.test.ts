@@ -7,7 +7,7 @@
 // utterance to a ledger that speaks bytes, so a dialect pair must address apart and sound apart, and this test
 // holds both directions — every language in, every handle singable, every dialect pair distinguishable.
 //
-// HONEST SCOPE: the deterministic layer only. The host half (macOS `say`) is a named non-determinism boundary —
+// the deterministic layer only. The host half (macOS `say`) is a named non-determinism boundary —
 // its voices and dialects live on the device, so it is exercised here strictly as dryRun: the command composes,
 // the device is never touched, and no claim is made about any sound a host produces.
 import { test } from 'node:test'

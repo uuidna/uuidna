@@ -35,7 +35,7 @@ test('measurement is deterministic — the same message measures the same', () =
   assert.equal(measureMessage(encodeMessage('x', k)), measureMessage(encodeMessage('x', k)))
 })
 
-// ── HONEST SCOPE. The quantum receipt is evidence about the THEOREM CITED.
+// ── The quantum receipt is evidence about the THEOREM CITED.
 test('the quantum receipt folds the theorem, and the message fold carries the content', () => {
   const k = theorems()[0].key
   const a = encodeMessage('hello', k), b = encodeMessage('DIFFERENT', k)

@@ -3,7 +3,7 @@
 // It COMPOSES the measures already computed elsewhere (coverage, creditsSummary, the layers, the ledger fingerprint,
 // the coins) rather than recomputing them (DRY), and adds the recomputed collision census. No wall-clock, no RNG, no
 // telemetry, no per-user tracking — the inputs are the public ledger alone, so the numbers are the same next year and
-// on every machine. HONEST SCOPE: integrity. This is DESCRIPTIVE analytics of what is sealed — counts,
+// on every machine. integrity. This is DESCRIPTIVE analytics of what is sealed — counts,
 // distributions, and a recomputable receipt — NOT predictive statistics
 // person. It measures the ledger.
 import { theorems } from './theorems/index.js'

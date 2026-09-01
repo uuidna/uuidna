@@ -23,7 +23,7 @@
 //      quantum message bound to the sealed theorem it cites, and ONE refusal stops the whole write. The report
 //      is not inspected by a gate afterwards; it is made of what the gate passed.
 //
-// HONEST SCOPE: TypeScript is the quantum-by-architecture computer; this host executes it. Measured usable-
+// TypeScript is the quantum-by-architecture computer; this host executes it. Measured usable-
 // capacity quantum advantage is theorem usable_gap_is_two_to_eighty. Per-level COST/FIDELITY are measured here.
 // n_qubit_dimension counts classical simulation cost and is not a Shor-class crypto speedup. VitePress monitors.
 import { writeFileSync, mkdirSync } from 'node:fs'

@@ -4,7 +4,7 @@
 // many surfaces): the desk prices a workload in the ledger's own unit, and the census counts what has been
 // minted against what is conserved.
 //
-// HONEST SCOPE, THE STRICTEST ON ANY SHELF — the psychology wing's discipline applied at full strength: a coin
+// , THE STRICTEST ON ANY SHELF — the psychology wing's discipline applied at full strength: a coin
 // here is a MEASURED UNIT OF WORK SAVED (two per verified exchange, conserved by theorem two_coins), never a
 // price in any nation's money, never a security, never a claim about anyone's finances, and NOTHING on this
 // shelf is advice of any kind. The desk answers "what did this cost in work-units" — a question about

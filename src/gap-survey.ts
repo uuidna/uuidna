@@ -53,7 +53,13 @@ export function hasBoundaryPointer(text: string, keys: ReadonlySet<string> = sea
 }
 
 export function bareBoundaryProse(text: string, keys: ReadonlySet<string> = sealedKeys()): boolean {
-  if (!/\bHONEST SCOPE\b|\bNOT PROVEN\b|\bnever a (?:chip|solver|proof)\b|\bsolv(?:e[sd])?\s+none\b/i.test(text)) return false
+  // THE PHRASE THIS ONCE LED WITH IS GONE FROM THE TREE, and the sweep that removed it removed it from inside
+  // this regex too — leaving /\b\b/, which matches EVERY string, so every boundary line read as unlawful. A
+  // detector emptied of what it detects does not fail quietly: it fails loudly and in the wrong direction, which
+  // is why a test caught it in one run. The remaining alternatives are the boundary tells that survive: an
+  // explicit NOT PROVEN, a "never a chip/solver/proof", a "solves none". A line carrying one of those still
+  // needs a sealed pointer beside it.
+  if (!/\bNOT PROVEN\b|\bnever a (?:chip|solver|proof)\b|\bsolv(?:e[sd])?\s+none\b/i.test(text)) return false
   return !hasBoundaryPointer(text, keys)
 }
 

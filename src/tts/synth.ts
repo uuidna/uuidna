@@ -27,7 +27,7 @@
 // gives the handle a cadence a listener can count. That is the whole honest meaning of "humanise" here — the
 // machine artifacts are removed, the lattice is untouched.
 //
-// HONEST SCOPE: this is not speech. It does not pronounce words and no listener will hear language in it. It is
+// this is not speech. It does not pronounce words and no listener will hear language in it. It is
 // the ledger sounding its own addresses, which is a thing a machine can do exactly and a voice cannot.
 import { toUuid, TRINITY } from '../address.js'
 import { handleOf } from '../handle.js'

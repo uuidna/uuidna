@@ -17,7 +17,7 @@
 // a script that mutates git must VERIFY the mutation. A `git push` must read a ref back; a `git commit` must
 // check that it succeeded. Both are cheap, both are exactly what was missing, and both are visible in the source.
 //
-// HONEST SCOPE, and it is a real limit. This is lexical: it sees the call and the verification, not whether the
+// it sees the call and the verification, not whether the
 // verification is CORRECT — a script could read a ref and ignore it and still pass here. It reasons about git
 // alone, so the deploy and registry variants of the same class are out of its reach. It is a floor under one
 // recurring failure, not a theory of the whole family, and naming it as such is the point: the family is caught

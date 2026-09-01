@@ -3,7 +3,7 @@
 // board-parameterized functions: full legal-move generation (pawn double-step, en passant, promotion, castling
 // with all its conditions), check / checkmate / stalemate, and the material alpha-beta engine ("waves" = plies).
 // Determinism-law clean: the shell's builtin max/min helpers became ternaries and its unbounded sentinels explicit integer bounds —
-// the same values, the lattice's discipline. HONEST SCOPE: complete rules and a shallow material engine — real
+// the same values, the lattice's discipline. complete rules and a shallow material engine — real
 // chess, NOT a strong engine and NOT a solved game; the engine sees material and mate, enough to let chess play
 // chess. The search approximates castling/ep by the root state's rights (the shell's own documented light-AI
 // simplification, now explicit in the signature).

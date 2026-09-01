@@ -7,8 +7,7 @@
 // hole), its INDEPENDENCE FROM LENGTH (a one-character page and a million-character book have the same
 // thirty-two modes — which is why an address can be sung in nine seconds), the bijection between spectra and
 // addresses (unison IS collision: two strings sound alike exactly when they address alike), and the honest
-// pigeonhole ceiling that forces collisions to exist at all. HONEST SCOPE, stated as plainly as the pun
-// deserves: this is about CHARACTER STRINGS and their folds — the arithmetic of names and their spectra — and
+// pigeonhole ceiling that forces collisions to exist at all. this is about CHARACTER STRINGS and their folds — the arithmetic of names and their spectra — and
 // carries no claim whatever about physics' string theory, whose strings are not these. COMPUTE → GENERATE →
 // VERIFY.
 import { emit } from './lean-gen.js'

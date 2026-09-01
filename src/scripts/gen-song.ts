@@ -7,7 +7,7 @@
 // sealed Glagolitic row on A432, the note length is the sealed 252, the coda length the sealed 999. A section
 // whose seal is missing from the ledger THROWS — the artifact cannot render an unsealed note. The audio is the
 // tts/synth lattice (exact integers, no float, no host voice), so the WAV is the SAME BYTES for anyone, forever,
-// and folds to an address a listener can hold against the page. HONEST SCOPE: arithmetic sung on a lattice — not
+// and folds to an address a listener can hold against the page. arithmetic sung on a lattice — not
 // a claim that 432 Hz heals, that π is mystical, or that DNA encodes music; the demarcations live in the theorems.
 import { writeFileSync } from 'node:fs'
 import { join } from 'node:path'

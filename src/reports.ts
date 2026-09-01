@@ -10,7 +10,7 @@
 // quantum: any harness asks for the report and recomputes the same numbers, in the same order-independent fold,
 // without trusting the file or the machine that wrote it.
 //
-// HONEST SCOPE: these are DESCRIPTIVE measures of what is sealed and what the gates recorded — integrity, not
+// these are DESCRIPTIVE measures of what is sealed and what the gates recorded — integrity, not
 // truth. A section whose input artifact is absent reports itself absent rather than guessing, because a report
 // that fills its own gaps is the failure this file exists to end.
 import { theorems, PRINCIPLES } from './theorems/index.js'

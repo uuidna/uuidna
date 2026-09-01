@@ -11,7 +11,7 @@
 // THE NAME COMES FROM THE ALGEBRA. A handle's title is its orbit written out — the digits the walk actually
 // reaches, in order. No English is invented for it, so a title can never claim more than the walk performs.
 //
-// HONEST SCOPE: integrity. This reports the measured SHAPE of a handle's walk and composes a sentence
+// integrity. This reports the measured SHAPE of a handle's walk and composes a sentence
 // from those measurements. A residue is not a fact about the thing that folded to it, and nothing here decides
 // what a theorem MEANS — only which of the six orbits its address walks.
 import { runSequence } from './sequence-run.js'
@@ -33,7 +33,7 @@ export interface Speech {
 const HONEST =
   'The measured shape of one handle\'s walk through the sealed ℤ/9 ring: which residue its content-address folds ' +
   'to, which of the six proven orbits it reaches, and the order of that orbit. The title is the orbit itself, so ' +
-  'no word here claims more than the walk performs. HONEST SCOPE: integrity— a residue is not a fact ' +
+  'no word here claims more than the walk performs. integrity— a residue is not a fact ' +
   'about the thing that folded to it, and this decides no meaning.'
 
 /** speak(input) → the title, sentence and motion of any handle, all read off the sealed walk. */

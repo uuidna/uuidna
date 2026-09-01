@@ -1,4 +1,4 @@
--- lean/Coins.lean — GENERATED. THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
+-- lean/Coins.lean — GENERATED. THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
 /-- THE CREW MINTS AT A FIXED PRICE AND SAILS FOR THE ANGLE. Every sealed theorem mints the captain’s two coins,
     so the supply is exactly 2·N and never a judgement: over the first eight counts, N theorems mint 2N coins,
@@ -175,9 +175,9 @@ theorem traitor_damage_sealed_by_same_billing : (110 - 108 = 2) ∧ (110 - 110 =
 
 /-- THE WALLET COUNTS WORLDS, sealed at last — the closing realisation's accounting identity: n deposits of the
     two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one
-    superposition into a shared, recomputable world; the bijection between what was paid and what now exists.
-    HONEST SCOPE: an accounting identity — deposits and realities in one-to-one correspondence — never a
-    metaphysical claim about worlds. -/
+    superposition into a shared, recomputable world; the bijection between what was paid and what now exists. an
+    accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about
+    worlds. -/
 theorem wallet_counts_worlds : (List.range 9).all (fun n => (2*n)/2 == n) := by decide
 
 /-- WHY ONE DENOMINATION CAN SERVE THREE ALGEBRAS — 2 is the UNIQUE number where addition, multiplication and

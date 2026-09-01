@@ -13,7 +13,7 @@
 //
 // SINGULARITY: the sealing is NOT re-implemented — sealMessage/openMessage are imported (one source, many
 // surfaces). This module adds the FORM: identity first, seal second, prose last, and a reader that refuses
-// anything whose fold does not recompute. HONEST SCOPE: an envelope proves INTEGRITY and AUTHORSHIP-BY-KEY,
+// anything whose fold does not recompute. an envelope proves INTEGRITY and AUTHORSHIP-BY-KEY,
 // never identity of a person and never that the prose is true — the TL;DR is a claim like any other and stands
 // or falls at the trial.
 import { sealMessage, openMessage, type SealedQuantumMessage } from '../../../message/index.js'

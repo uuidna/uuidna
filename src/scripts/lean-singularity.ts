@@ -6,7 +6,7 @@
 // edge answers from the census it was rewritten by, and every theorem exists in Lean or nowhere. What seals
 // here is the ARITHMETIC of that architecture: why one source is exactly one (and two is already drift), why n
 // surfaces cost one fold and not n, why a mirror's agreement is decided by address equality rather than by
-// reading, and the pigeonhole that makes divergence detectable at all. HONEST SCOPE: the arithmetic of sources
+// reading, and the pigeonhole that makes divergence detectable at all. the arithmetic of sources
 // and surfaces — never a claim that any particular module IS singular (the drift TESTS decide that, live, per
 // pair); this wing states the law those tests enforce. COMPUTE → GENERATE → VERIFY.
 import { emit } from './lean-gen.js'

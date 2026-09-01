@@ -14,7 +14,7 @@
 // — the 10-qubit lattice, sealed whole as theorem uuid_mix_census_is_quantum (whose dimension it cites from
 // optimisation_space_is_qubit_dimension). The census is ASSERTED below, so a changed schema set fails loudly.
 //
-// HONEST SCOPE: this is ORCHESTRATION and a RECEIPT over the run. Verification of what a generator emitted belongs
+// this is ORCHESTRATION and a RECEIPT over the run. Verification of what a generator emitted belongs
 // to its own authority — guard, provenance and audit-lean-form are the judges. Integrity.
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'

@@ -8,7 +8,7 @@
 // and the lawful ones land in lean/wave-queue.json `pending` — where the resident half-hourly wave probes each
 // alone with the kernel as the judge, survivors lift into Wave.lean, refusals enroll at the law school.
 //
-// HONEST SCOPE: a deposit buys VALIDATION and QUEUEING, never a seal — only the kernel issues verdicts (the
+// a deposit buys VALIDATION and QUEUEING, never a seal — only the kernel issues verdicts (the
 // first cron wave's lesson: a missing instrument VOIDS, it never refuses), and the kernel judges host-side on
 // the janitor's next tick. A deposit that validates is still only PENDING; its theorem exists when the kernel
 // says so. Integrity, not truth (theorem provenance_integrity_not_content_truth).

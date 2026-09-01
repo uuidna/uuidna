@@ -9,7 +9,7 @@
 //   UNVERIFIED (cites none) is not waste — it is fed back as MATERIAL, carrying the develop plan that says which new
 //   aspect would seal its honest kernel. "Refuted" holds "re-fuse": the refusal is the start of the next fusion.
 //
-// HONEST SCOPE (integrity
+//  (integrity
 // recomputable address; the recycle plan is the honest NEXT. Nothing
 // here decides truth — the ledger and the develop plan are recomputable by anyone. Integrity.
 import { THEOREMS } from './theorems/index.js'

@@ -5,7 +5,7 @@
 // drift table, the poles at the quadrature folding to the vortex axis, and the handle space that gives every
 // sealed thing its address — the known universe, literary handled by uuidna handles: each theorem here, like
 // every theorem in the ledger, is content-addressed and its handle is eight hex of that address (handleOf).
-// HONEST SCOPE: the kernel seals INTEGER TABLES; the astronomy (diameters, distances, epochs) is the
+// the kernel seals INTEGER TABLES; the astronomy (diameters, distances, epochs) is the
 // literature's measurement, cited in prose; totality is an EPOCH — the moon recedes and the fit is rented,
 // not owned — and NO law demands the coincidence: as necessity it stays honestly unverified while its
 // arithmetic seals. COMPUTE → GENERATE → VERIFY.

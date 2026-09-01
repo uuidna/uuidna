@@ -10,7 +10,7 @@
 // committed mirror only — offline, edge-clean, O(1) after the first call. The LIVE "always Alpine latest" read
 // lives at the named non-determinism boundary (src/os/installs), never here. NOTHING EXECUTES: uuidna never
 // installs, links, boots, or runs a package — the port is the port of the INTEGRITY and the MEANING (Alpine's
-// own published description). HONEST SCOPE: the ROUTE each package takes on the site (busybox → /terminal) is
+// own published description). the ROUTE each package takes on the site (busybox → /terminal) is
 // an authored translation, editorial the way sidebar group names are; the MEANING is the repository's own T:
 // field, data not prose; the closure, the reachability from home, the bottom-up build order, and the hexbit
 // compile are computed and sealed (lean/Installs.lean).

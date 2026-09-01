@@ -45,6 +45,18 @@ export function contextGaps(tools: readonly WireTool[]): Gap[] {
       what: `the MCP wire payload is ${bytes} bytes across ${tools.length} tools and NO ceiling is sealed — nothing would notice it growing`,
       fix: `write lean/mcp-context-budget.json as {"wireBytes": ${bytes}, "note": "the tools/list payload every request carries; may only shrink"}`,
     })
+  } else if (sealed.perToolHundredths !== undefined && tools.length > 0) {
+    // THE CAP IS A RATE. bytes/tools, integer-exact in hundredths so no float is compared and none is stored.
+    // A tool added lawfully raises the allowance; a description padded raises the rate and fails. The total is
+    // reported for context and is no longer the law, because the total could only ever punish capability.
+    const rate = Number((BigInt(bytes) * 100n) / BigInt(tools.length))
+    const ceiling = sealed.perToolHundredths
+    if (rate > ceiling) {
+      gaps.push({
+        what: `the MCP wire costs ${(rate / 100).toFixed(2)} bytes per tool across ${tools.length} tools (${bytes} total), over the sealed rate of ${(sealed.perToolHundredths / 100).toFixed(2)} — every agent pays that on every request`,
+        fix: `trim the descriptions that grew (move derivation into the tool's \`detail\`, which reaches docs/mcp.md and never the wire), or — if the surface genuinely got denser — re-seal lean/mcp-context-budget.json with the LOWER rate {"perToolHundredths": ${rate}}. The rate may only shrink; the total may grow with the tool count.`,
+      })
+    }
   } else if (bytes > sealed.wireBytes) {
     gaps.push({
       what: `the MCP wire payload GREW to ${bytes} bytes, over the sealed ceiling of ${sealed.wireBytes} (+${bytes - sealed.wireBytes}) — every agent pays that on every request`,

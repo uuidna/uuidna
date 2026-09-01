@@ -17,7 +17,7 @@
 // `exact` is a defect this module can NAME (see `violations`), and a UI can filter the unstable figures out of a
 // view rather than each surface remembering the rule.
 //
-// HONEST SCOPE: this standardises the CARRIAGE of a figure — its units, its technique, whether it may be sealed.
+// this standardises the CARRIAGE of a figure — its units, its technique, whether it may be sealed.
 // It does not verify any value, and a `measured` label is a claim about method, not a warrant of accuracy.
 // Integrity, not truth (theorem provenance_integrity_not_content_truth).
 

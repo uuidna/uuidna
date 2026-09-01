@@ -7,7 +7,7 @@
 // the rounded layers of Dunbar. Sealing "a 7-point scale has a neutral 4th point" says NOTHING about whether the
 // scale measures anything real, whether the Big Five is true, or what a person feels. Every mentalistic claim ABOUT
 // the mind is sent to the trial and comes back UNVERIFIED — revealed as unbacked — which is exactly the honest
-// result. HONEST SCOPE (integrity, not truth): the arithmetic of the instruments, NOT a claim about the mind,
+// result.  (integrity, not truth): the arithmetic of the instruments, NOT a claim about the mind,
 // behaviour, emotion, personality, or any diagnosis; uuidna is not a clinician and makes no psychological claim.
 import { emit } from './lean-gen.js'
 

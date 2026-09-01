@@ -4,7 +4,7 @@
 // Deterministic and offline — the same bytes fingerprint to the same address for everyone; change ONE byte and both
 // the hash and the handle move, so a tamper is caught by recomputing and comparing.
 //
-// HONEST SCOPE: integrity. This proves EXACT-COPY and TAMPER-EVIDENCE of the bytes — NOT authenticity of
+// integrity. This proves EXACT-COPY and TAMPER-EVIDENCE of the bytes — NOT authenticity of
 // what the image DEPICTS. It says NOTHING about whether an image is a genuine photograph, where or when it was taken,
 // whether it shows the poles or anything else, or whether its CONTENT was manipulated before these bytes existed.
 // Content authenticity, origin, and liveness are outside uuidna's recomputable model (like voice/video biometrics and
@@ -23,7 +23,7 @@ export interface ImageProvenance {
 
 const HONEST =
   'Byte-level provenance: the SHA-256 of the exact bytes (exact-copy + tamper-evidence) and a uuidna handle over it. ' +
-  'Change one byte and both move, so a tamper is caught by recomputing. HONEST SCOPE: it fingerprints the BYTES' +
+  'Change one byte and both move, so a tamper is caught by recomputing. it fingerprints the BYTES' +
   'the truth of the image — it does NOT verify the picture is genuine, where/when it was taken, that it depicts the ' +
   'poles (or anything), or that its content was not manipulated before these bytes. Content authenticity, origin and ' +
   'liveness are outside the recomputable model. A match proves byte-identity.'

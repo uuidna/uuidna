@@ -6,7 +6,7 @@
 // term is content-addressed, so a translation binds to THIS term by a provenance receipt (auditTranslation), the same
 // way a source binds to its rendering — uuidna proves the pairing.
 //
-// HONEST SCOPE (integrity
+//  (integrity
 // and folds to one receipt. It maps each domain to the STANDARDS it formalizes or references (RFC 8439, ISBN/ISO
 // 2108, SMPTE, Nyquist–Shannon …) — a citation
 // content-address can settle. Efficiency here is MEASURED and recomputable"maximum".

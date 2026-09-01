@@ -25,7 +25,7 @@
 // replaces its receipt, a held cube contributes nothing at all. The memory forgets only what it has actually
 // re-measured, so a partial run costs nothing and destroys nothing.
 //
-// HONEST SCOPE: integrity. This decides SAMENESS — whether the content behind a handle is byte-for-byte
+// integrity. This decides SAMENESS — whether the content behind a handle is byte-for-byte
 // the content a receipt was issued for. It does not decide whether the theorem is right; the kernel does that, and
 // the receipt only records that the kernel already did. A stale receipt can cost extra sealing
 // the handle is recomputed from the address every time and compared.

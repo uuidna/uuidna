@@ -15,7 +15,7 @@
 // until it closes. Reversibility is tested over the whole domain rather than claimed from the definition — dz is
 // an involution and doubling is not, and the executor discovers that each time rather than remembering it.
 //
-// HONEST SCOPE: this executes the ℤ/9 walk and reports its measured shape. It decides nothing about the input's
+// this executes the ℤ/9 walk and reports its measured shape. It decides nothing about the input's
 // MEANING, seals no theorem, and a residue is not a fact about the thing that folded to it. The theorems this walk
 // belongs to are sealed in lean/Sequence.lean and lean/DivByZero.lean; this is the runner.
 import { dz, doubling, DIGITS, reach, period, involutes, isReversible, orderMatters } from './separation.js'
@@ -57,7 +57,7 @@ export interface SequenceRun {
 const HONEST =
   'The ℤ/9 walk EXECUTED and measured: the orbit is stepped rather than looked up, the period found by walking ' +
   'until it closes, and reversibility tested over the whole domain rather than read off a definition. A text enters ' +
-  'through its content-address, which is a stated convention and not a property of the text. HONEST SCOPE: this ' +
+  'through its content-address, which is a stated convention and not a property of the text. this ' +
   'reports the SHAPE of the walk— a residue is not a fact about what folded to it, ' +
   'and nothing here seals a theorem. Integrity.'
 

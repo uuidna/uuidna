@@ -5,7 +5,7 @@
 // Every figure is IMPORTED from the sealed billing surface or computed from a sealed constant; nothing here is
 // re-implemented (one_source_is_exactly_one).
 //
-// THE SHELF'S HONEST SCOPE, stricter than any other and stated once for all four: a coin is a MEASURED UNIT OF
+// THE SHELF'S a coin is a MEASURED UNIT OF
 // WORK SAVED, conserved at two per verified exchange (two_coins) — it is not money, not a security, not a
 // holding, and not anyone's wealth. Nothing on this floor is financial advice, a valuation, a forecast, or a
 // claim about markets; the psychology wing's discipline applies at full strength. These instruments answer

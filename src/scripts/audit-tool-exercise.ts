@@ -8,7 +8,7 @@
 //
 // THE CENSUS, pure and static: parse the tool names the registry declares (src/mcp.ts), scan the test tree for
 // each name, and split the tools into DIRECTLY-EXERCISED (a test names it) and AGGREGATE-ONLY (covered by the
-// folds but by no dedicated check). HONEST SCOPE: "directly exercised" is a LOWER BOUND on real coverage — an
+// folds but by no dedicated check). "directly exercised" is a LOWER BOUND on real coverage — an
 // aggregate-only tool is not untested, it is under-tested; the census names the under-tested set so it can only
 // shrink, never a claim that 165 tools are unchecked. Deterministic; folds to one receipt anyone recomputes.
 import { readFileSync, existsSync } from 'node:fs'

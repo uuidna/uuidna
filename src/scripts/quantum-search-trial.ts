@@ -86,7 +86,7 @@ ${s.novel.map((n) => `- \`${n.fragment}\` — from finding \`${n.from.slice(0, 8
 
 ${entries.map((e) => `- [${e.key}](/theorem/${e.key}) — \`${e.statement.slice(0, 90)}\``).join('\n')}
 
-::: warning HONEST SCOPE
+::: warning 
 External findings are corroboration at the time of the search — the sources' own records, quoted by address, not
 endorsed and not re-verified here. A finding with no sealed counterpart is a novelty lead, remanded to development,
 never a claim. Approval has exactly one door: a theorem proven \`by decide\` in the ledger.

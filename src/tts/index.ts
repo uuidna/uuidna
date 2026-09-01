@@ -10,7 +10,7 @@
 // against the ledger: same words, same handle, and a drifted reading announces itself. Speech is the one surface
 // where a listener cannot scroll back and compare, which is exactly why it must carry its receipt.
 //
-// HONEST SCOPE: this composes and emits; it does not transcribe, and it makes no claim about what a listener
+// this composes and emits; it does not transcribe, and it makes no claim about what a listener
 // hears. The voice is the host's — macOS `say` — so the sound is the operating system's and the words are ours.
 // Nothing here is sealed as a theorem: an utterance is an event, and events are not decidable.
 // node:child_process is loaded LAZILY at the one call that needs it (the mcp.ts:38 pattern): a top-level import

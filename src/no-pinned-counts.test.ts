@@ -59,7 +59,7 @@ test('no test pins the ledger count — the forbidden literal is derived, so thi
       // always writes the count as its own numeral, so digit boundaries answer the real question at no cost in
       // true positives; the two controls below prove both directions.
       //
-      // HONEST SCOPE — this HALVES the problem, it does not end it. The same sweep puts the boundary rule at 144
+      //  — this HALVES the problem, it does not end it. The same sweep puts the boundary rule at 144
       // of 3,501 counts, 4.1%. What it removes completely is the DIGIT class: a count found inside a longer
       // numeral, which is never a pin under any reading. What remains is a collision of VALUE — a line legitimately
       // writing the number that today happens to equal the ledger count. No textual rule can separate that from a

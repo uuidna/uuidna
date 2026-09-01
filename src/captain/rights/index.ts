@@ -5,7 +5,7 @@
 // that decodes back to the exact rights line. Infused everywhere (every page's head + JSON-LD, an MCP tool), so the
 // captain's rights are inseparable from every artifact.
 //
-// HONEST SCOPE: integrity. These are FACTUAL rights — the real copyright (© Tsvetan Rouschev), the real
+// integrity. These are FACTUAL rights — the real copyright (© Tsvetan Rouschev), the real
 // licence (CC BY-NC-ND 4.0), and uuidna's own credit law — content-addressed so they are tamper-evident and
 // recomputable, NOT a legal ruling or a compliance claim (legalFacts disclaims that). A content-address proves the
 // terms are unaltered; it does not adjudicate them. The imprint marks the work; it does not enforce the law — that is

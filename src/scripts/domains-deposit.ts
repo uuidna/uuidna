@@ -25,7 +25,7 @@ import { theorems } from '../theorems/index.js'
 const DRY = process.argv.includes('--dry')
 
 const WHY_CENSUS = (domain: string, says: string): string =>
-  `Alpine domain port (${domain}): exact arithmetic over the census counts. HONEST SCOPE — membership is a ` +
+  `Alpine domain port (${domain}): exact arithmetic over the census counts.  — membership is a ` +
   `pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting ` +
   `over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, ` +
   `linked or executed. ${says}`
@@ -36,6 +36,17 @@ for (const c of allDomainCensuses()) {
     candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS(c.domain, cl.says), source: 'alpine-domains', from: `domainCensus/${c.domain}` } as WaveCandidate)
   }
 }
+
+// THE CAP BECAME A DERIVATION, so it becomes a theorem (the captain: "replace all replaceable by theorems,
+// starting with limits and caps"). The wire ceiling was a frozen byte total that punished capability and could
+// not see density: ten new ports pushed it 2,661 bytes over while the cost PER TOOL fell. Both facts are exact
+// integers, and stating them together is the whole argument for measuring a rate instead of a sum.
+candidates.push({
+  key: 'mcp_wire_rate_fell_while_total_grew_32183',
+  lean: 'theorem mcp_wire_rate_fell_while_total_grew_32183 : (77885 > 75224) ∧ (32183 < 32424) ∧ (77885 * 100 / 242 = 32183) := by decide',
+  why: 'THE CAP AS A RATE. The MCP wire payload grew from 75224 to 77885 bytes when ten ports were given doors, and the cost PER TOOL fell from 324.24 to 321.83 (hundredths: 32424 to 32183). A ceiling on the TOTAL fails on growth and passes on bloat; a ceiling on the RATE does the opposite. Rates in hundredths as integers because the determinism law refuses rounding helpers.',
+  source: 'mcp-wire', from: 'contextGaps',
+} as WaveCandidate)
 
 // THE SECURITY PORT FEEDS THE CONVEYOR like every other port — a port that only serves callers is a dead end,
 // consuming the catalogue and returning nothing the kernel can seal.
