@@ -60,4 +60,14 @@ console.log(`· dead-exports — ${dead.length} export(s) read by nothing, acros
 console.log('  (public surface excluded: an export named in src/index.ts is API, whatever its reference count)')
 for (const [f, n] of worst) console.log(`    ${String(n).padStart(3)}  ${f}`)
 if (ALL) for (const d of dead) console.log(`    ${d.file} → ${d.name}`)
-else console.log(`  run with --all for every name; this REPORTS, it does not delete — an unreferenced export is a question, not a verdict`)
+else {
+  console.log(`  run with --all for every name; this REPORTS, it does not delete — an unreferenced export is a question, not a verdict`)
+  // THE CAVEAT THAT COST THREE WRONG MEASUREMENTS IN ONE SESSION, printed where the next reader will meet it.
+  // A static scan cannot see DYNAMIC DISPATCH, and this tree runs on it: scripts/run.ts discovers every file in
+  // scripts/ with readdirSync and invokes it by name, so `npm run x -- <anything>` reaches all 300-odd of them.
+  // An ad-hoc "nothing imports this" scan therefore reports the entire scripts/ directory as unreachable, which
+  // is how I concluded 286 dead modules (including the CLI every git hook runs), then 137, then 143 "unrun"
+  // scripts — each number smaller and each still an artefact of the same blind spot.
+  console.log(`  NOT REACHABILITY: scripts/ is dispatched dynamically (run.ts reads the directory), so no static`)
+  console.log(`  scan can call a script unreachable. Unrun-by-a-chain is a different question — lean/dormant-scripts.json`)
+}

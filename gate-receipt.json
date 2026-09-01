@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "e591c3122ded1fdba0b8722baaeaf016",
+    "src": "68451252dda58390c89f678d28eab54b",
     "lean": "7a1f1136eb5a117933261e7a5f3653a6"
   },
   "files": {
@@ -3756,7 +3756,7 @@
     "src/scripts/copy-lean-to-site.ts": "8040f7c346f4eede",
     "src/scripts/crypto-measure.ts": "dec9fa05ebc941eb",
     "src/scripts/cube-memory.ts": "8f9bbae4d11e57ff",
-    "src/scripts/dead-exports.ts": "59956f34bb877d54",
+    "src/scripts/dead-exports.ts": "969adc60463378ba",
     "src/scripts/decode-book.ts": "7d60d65c848d5d49",
     "src/scripts/deploy-fresh.ts": "70d9fe9467bec8f3",
     "src/scripts/deploy-run.ts": "0db01c8a78faa2bc",
