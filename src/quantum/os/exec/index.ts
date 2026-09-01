@@ -19,9 +19,8 @@ import {
   resolveAlpineApp, providedCommands,
 } from '../catalogue/index.js'
 import { INSTALLS_MIRROR } from '../mirror/index.js'
-import { primeMonitor, monitorCensus, renderMonitor } from '../monitor/index.js'
-import { compilerCensus, renderCompilers } from '../compilers/index.js'
-import { MONITOR_INVENTORY } from '../monitor/inventory/index.js'
+import { primeMonitor, monitorCensus, renderMonitor, compilerCensus, renderCompilers } from '../census/index.js'
+import { MONITOR_INVENTORY } from '../census/inventory/index.js'
 import { theorems } from '../../../theorems/index.js'
 import { toUuid } from '../../../address.js'
 import { handleOf } from '../../../handle.js'

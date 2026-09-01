@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { primeMonitor, monitorCensus, renderMonitor, monitorPrimed } from './index.js'
+import { primeMonitor, monitorCensus, renderMonitor, monitorPrimed, compilerCensus, archMatrix } from './index.js'
 import { MONITOR_INVENTORY } from './inventory/index.js'
 import { uuidnaExec, APPLETS } from '../exec/index.js'
 
@@ -60,4 +60,50 @@ test('`top` OBSERVES residency without causing it', async () => {
   assert.equal(out.ok, true)
   assert.equal(cataloguePrimed(), false, 'running top must NOT prime the catalogue')
   assert.ok(out.output.some((l) => /NOT primed/.test(l)), 'and it must report the lazy state it found')
+})
+
+// ── FOLDED IN with compilers/ and archmatrix/. Deleting those folders would have taken their assertions with
+// them, which is coverage lost in a refactor — the same content-loss shape the installer refuses. Every test
+// below stood in its own file before the merge and still stands.
+
+test('every compiler measures a real translation, in both directions', () => {
+  const c = compilerCensus()
+  assert.equal(c.present, true)
+  for (const r of c.rows) {
+    assert.ok(r.inBytes > 0, `${r.compiler} must have an input`)
+    assert.ok(r.outBytes > 0, `${r.compiler} must have an output`)
+  }
+})
+
+test('the ratio unit is fine enough to show a CONTRACTION', () => {
+  // tenths truncated the edge mirror's 0.05× to a flat 0.0, reporting the most interesting compiler as doing
+  // nothing. A unit too coarse to show a contraction hides one.
+  const mirror = compilerCensus().rows.find((r) => r.compiler === 'ledger → edge mirror')!
+  assert.ok(mirror.ratioHundredths > 0 && mirror.ratioHundredths < 100)
+})
+
+test('expansion and contraction both appear — the pipeline is not one-directional', () => {
+  const c = compilerCensus()
+  assert.ok(c.rows.some((r) => r.ratioHundredths > 100), 'markdown → site expands: every theorem gets a page')
+  assert.ok(c.rows.some((r) => r.ratioHundredths < 100), 'ledger → mirror contracts')
+})
+
+test('provenance MUST separate across architectures', () => {
+  // Two arches sharing an address would let a deployment verify against the wrong binary.
+  const m = archMatrix()
+  assert.equal(m.distinctAddresses, m.arches.length)
+  assert.equal(m.provenanceSeparates, true)
+})
+
+test('computation MUST NOT vary across architectures', () => {
+  // Exact integer arithmetic, no floating point — a ledger that decided differently on s390x would make every
+  // sealed theorem a claim about one machine.
+  const m = archMatrix()
+  assert.equal(m.distinctComputations, 1)
+  assert.equal(m.computationIsArchInvariant, true)
+})
+
+test('uuidnaOS answers about compilers and architectures through the one door', () => {
+  assert.equal(uuidnaExec('compilers').ok, true)
+  assert.ok((APPLETS as readonly string[]).includes('compilers'))
 })

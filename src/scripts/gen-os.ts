@@ -431,7 +431,7 @@ console.log(`  → lean/mcp-alpine-man.json · ${mcpMan.exposed}/${mcpMan.total}
   ].join('\n')
   // the folders law: a SINGULAR folder may not hold a named file beside its index, so the inventory is its own
   // folder with its own index — one concept, one name, and the extension names the face
-  mkdirSync(join(ROOT, 'src', 'quantum', 'os', 'monitor', 'inventory'), { recursive: true })
-  writeFileSync(join(ROOT, 'src', 'quantum', 'os', 'monitor', 'inventory', 'index.ts'), body)
+  mkdirSync(join(ROOT, 'src', 'quantum', 'os', 'census', 'inventory'), { recursive: true })
+  writeFileSync(join(ROOT, 'src', 'quantum', 'os', 'census', 'inventory', 'index.ts'), body)
   console.log(`✓ gen-os — monitor inventory: ${panels.length} panels, ${pages.length} pages, ${live.length} live`)
 }
