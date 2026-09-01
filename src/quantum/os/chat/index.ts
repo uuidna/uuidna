@@ -24,6 +24,7 @@ import { catalogue } from '../catalogue/index.js'
 import { encryptSession, decryptSession, type Sealed } from '../../../crypt.js'
 import { imprintTextChain, readImprintTextChain } from '../../../imprint.js'
 import { toUuid } from '../../../address.js'
+import { gateCommitMessage } from '../../../sign.js'
 
 export const CHAT_DOMAIN = 'chat' as const
 
@@ -75,13 +76,55 @@ export interface ChatMessage {
   chain: readonly string[]
   /** the room's own address, so a chain can be filed without naming the room in the clear */
   roomAddress: string
+  /** what the message gate found — carried with the message, so a recipient sees the verdict too */
+  gate: MessageGate
 }
 
+export interface MessageGate {
+  /** citations in the text that name no sealed theorem — treason, and the send is refused */
+  fabricated: string[]
+  /** sentences claiming more than the ledger backs — carried, not refused: an overclaim is an argument, not a forgery */
+  overreach: { unit: string; kind: string }[]
+  /** the text arrived damaged (broken quoting, mangled escapes) */
+  damage: string[]
+  signed: boolean
+}
+
+/** gateMessage(text) → the SAME gate the commit-msg hook runs, applied to a message before it is sealed. */
+export function gateMessage(text: string): MessageGate {
+  const g = gateCommitMessage(text)
+  return { fabricated: [...g.sig.fabricated], overreach: [...g.overreach], damage: [...g.damage], signed: g.sig.signed }
+}
+
+// ── TREASON DOES NOT RIDE THE WIRE (the captain: "catch treason in messaging") ────────────────────────────────
+//
+// A commit message that cites a theorem the ledger does not seal is refused at the commit-msg hook, and has been
+// for the whole life of that gate. A MESSAGE carrying the identical forgery was sealed and sent without anyone
+// looking — same tree, same ledger, same forgery, one door checked and one not. That asymmetry is the gap, and
+// it is worse in messaging than in commits: a commit stays in a repository a reader can audit, while a sealed
+// message arrives somewhere else carrying a citation its recipient has no way to check.
+//
+// So the same gate runs here, and the verdicts are kept apart because they are different acts:
+//   • FABRICATED citation — a theorem key that is not in the ledger. This is forgery and the send is REFUSED.
+//     Nothing about the ratchet or the address would make a false citation true, and sealing one would put
+//     uuidna's own integrity behind it.
+//   • OVERREACH — a claim larger than what is cited. Carried with the message rather than refused: an overclaim
+//     is an argument someone can answer, and a channel that silently dropped arguments would be worse than one
+//     that carries a weak one. The recipient is told.
+//   • DAMAGE — mangled quoting or escapes. Reported, because a message that arrived broken is not a message.
 /** chatSend — the ONE send. Seals text under the room ratchet and returns it as a uuid chain. */
 export function chatSend(text: string, passphrase: string, room: string, step: number): ChatMessage {
   if (!Number.isInteger(step) || step < 0) throw new Error('chat: step must be a non-negative integer — it rotates the key, and a reused step reuses a key')
+  const gate = gateMessage(text)
+  if (gate.fabricated.length) {
+    throw new Error(
+      `chat: REFUSED — the message cites ${gate.fabricated.length} theorem(s) the ledger does not seal ` +
+      `(${gate.fabricated.join(', ')}). A fabricated citation is forgery, and sealing it would put uuidna's own ` +
+      'integrity behind a claim nobody can check. Cite a sealed key, or say it without one.',
+    )
+  }
   const sealed = encryptSession(text, passphrase, room, step)
-  return { room, step, chain: imprintTextChain(JSON.stringify(sealed)), roomAddress: toUuid('chat:room:' + room) }
+  return { room, step, chain: imprintTextChain(JSON.stringify(sealed)), roomAddress: toUuid('chat:room:' + room), gate }
 }
 
 /** chatOpen — the ONE receive. A different room, or a wrong passphrase, does not open it. */

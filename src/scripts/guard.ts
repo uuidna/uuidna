@@ -5,14 +5,20 @@
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { landingGaps } from './landing-gaps.js'
+import { impossibilityGaps } from './impossibility-gaps.js'
 import { sourceGraph } from '../test-paths.js'
+/** the declared debt — files already carrying bare impossibility claims. May only shrink. */
+const impossibilityBaseline = (): ReadonlySet<string> => {
+  try { return new Set((JSON.parse(rd('lean/impossibility-baseline.json')) as { files: string[] }).files) }
+  catch { return new Set() }
+}
 import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { forgedAgainstWings } from '../treason.js'
 import { theorems, statementCensus, gridGaps, pairsGaps } from '../index.js'
-import { HERE, ROOT, type Gap } from './api.js'
+import { HERE, ROOT, type Gap, rd } from './api.js'
 // THE COST OF BEING CONNECTED — the tools/list payload every agent carries on every request, held to a sealed ceiling.
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
@@ -241,6 +247,11 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // described "heal → commit → push" while the commit step did not exist. Asks the one decidable question that
   // keeps costing landings: a script that mutates git must verify the mutation.
   { name: 'landing', run: () => landingGaps([...sourceGraph().keys()]) },
+  // A CLAIM THAT SOMETHING CANNOT BE DONE MUST SAY WHY. Six false walls were written and corrected in one
+  // session, none caught by a test: a negation that dresses a CHOICE as an IMPOSSIBILITY reads as rigour, so
+  // nobody re-examines it and the work behind it never gets done. The existing 622 are a declared debt that may
+  // only shrink; a NEW file claiming impossibility must name a host fact, a theorem, a boundary, or by-construction.
+  { name: 'impossibility', run: () => impossibilityGaps([...sourceGraph().keys()], impossibilityBaseline()) },
   // THE MIRROR MUST AGREE BY VALUE— a js mirror doing Number arithmetic past 2^53 can round to
   // the SAME wrong value as the Lean it is checked against and pass emit()'s comparison by luck. Three mirrors
   // needed BigInt in one session (2026-08-19); the third was caught by hand, which is what makes it a finder.

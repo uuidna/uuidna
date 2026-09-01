@@ -31,6 +31,7 @@ const EXEMPT: Record<string, string> = {
   'src/scripts/land.test.ts': 'a test ABOUT landing quotes the commands it checks; quoting is not performing',
   'src/scripts/landing-gaps.ts': 'this file names the commands in order to look for them — the finder is not the act',
   'src/reconcile-covers.test.ts': 'lists git commands as FORBIDDEN — it asserts the same law from the other side, and its list is quoted by construction',
+  'src/scripts/impossibility-gaps.ts': 'discusses THIS finder in prose and quotes its example in backticks — a sibling finder describing a sibling finder is the mention case twice over',
 }
 
 // USE, NOT MENTION — and the first cut got this wrong in the way this tree has a whole law about. Matching
