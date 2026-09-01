@@ -271,7 +271,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    it, which is the law [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) enforces for the unit and nothing enforced for the film.
    *Practice:* run `UUIDNA_METER=1 npm run x -- guard`, find a leaf whose subject is already sealed upstream, then
    ask the harder question — does its name still describe what it computes?
-8. **Discuss the open at school** — every lead enrolls on this page (1 held · 55 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
+8. **Discuss the open at school** — every lead enrolls on this page (3 held · 55 refuted · 20 refused this generation, [the leads roster](/school#leads)). Held doors also sit in [open questions](/open-questions); a refutation is a measurement, a refusal a boundary. Local labs (`labOf`) recompute only the sealed half. Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)).
    *Practice:* open a held door, name a finite structure, deposit the two coins
    ([`two_coins`](/theorem/two_coins)). A student's answer is a deposit, not a comment.
 9. **Quantum advantage is a worked MCP call** — the usable-column gap and the classical 2ⁿ cost are
@@ -953,10 +953,14 @@ Silence never refutes ([`silence_never_refutes`](/theorem/silence_never_refutes)
 **two-coin deposit**, never a comment ([`two_coins`](/theorem/two_coins)). The same record, addressed the
 same way, lives on [the leads page](/leads).
 
-**76 leads** — 1 held · 55 refuted · 20 refused · 1 in trial.
+**78 leads** — 3 held · 55 refuted · 20 refused · 3 in trial.
 
 - **held** · `4d009d92` — CAN AN ALPINE APP REPLACE COMPLEXITY WITH NANOSPEED (the captain, 2026-09-01)? Measured position today: NO by the porting route — uuidnaOS DOES execute (uuidnaExec, uuidna_run) — the captain corrected that premise on 202…
   <br><small>a census that joins our hot paths to catalogue rows by WHAT THEY COMPUTE rather than by name — then, for any match, a measurement of our implementation against the published complexity class of theirs. That is an algorithm-transfer lead, not a porting lead, and it needs no linkin…</small>
+- **held** · `35e05196` — gate-receipt-index.ts reaches node:crypto, node:fs, node:child_process and node:path EAGERLY, so anything importing it cannot run in a browser. That is why the court had to give up its receipt arm on 2026-09-01: exec -&amp;gt; …
+  <br><small>the prime pattern, which this tree already uses for exactly this shape: primeCatalogue(text) injects 7.3 MB of TSV and every accessor stays sync and pure afterwards. gate-receipt could take its manifest the same way — the comparison is a hash over bytes and needs no filesystem on…</small>
+- **held** · `dce32bc8` — THE RATCHET IS VALIDATED AND ITS FIRST STEP IS TOO SLOW FOR A TAB. Measured in a real browser 2026-09-01 (PortsConsole on /os): chatSend #0, which derives the session with PBKDF2 at 600,000 iterations in pure TypeScript,…
+  <br><small>the one-time cost is still a real UX wall. The same cold send measured 8.5 s on mount and 25.7 s via a button in what was probably a THROTTLED background tab, so the absolute seconds are unreliable and only the ratio was measured inside one run — a clean number wants a foreground…</small>
 - **refuted** · `8609c55d` — HexFace draws two projected polygons (yang/yin tets) plus eight vertices, not 256 unit triangles packing 32 merkabas (256/8 = UUID_HEXBITS).
   <br><small>PAID. hexFaceOf stamps packedTriangles = KEY_BITS (UUID_BITS × COINS) and merkabasPacked = UUID_HEXBITS. HexFace still draws two projected polygons — 2D is art. The count sits on the face as constructors, not as 256 drawn triangles.</small>
 - **refuted** · `0809c1db` — fruitOfLife XY pitch (28 / 14 / 24) is authored art integers; the sealed fact is the centre count (SAFE_HEXBITS, metatron_seventyeight_lines).

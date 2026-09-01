@@ -102,7 +102,16 @@ test('the monitor does not import the package barrel; VitePress reads constructo
     assert.doesNotMatch(src, /from ['"][^'"]*\/cost\.js['"]/, `${f} must not recompute cost`)
     assert.doesNotMatch(src, /from ['"][^'"]*\/grid\.js['"]/, `${f} must not recompute the wing grid`)
     assert.doesNotMatch(src, /school\/advantage/, `${f} must not load theoremByKey via school advantage`)
-    if (f !== 'CatalogueBrowser.vue' && f !== 'ExecShell.vue') {
+    // THE EXEMPTION IS A LIST OF PURPOSES, NOT A LOOPHOLE. Most components are MONITORS: they display what the
+    // edge already computed, and pulling 7.3 MB of catalogue into a visitor's tab to redisplay it would be a cost
+    // imposed for nothing. A few components are the OS ITSELF running client-side, and for those the census is
+    // not overhead — it is the subject. CatalogueBrowser and ExecShell were already named; PortsConsole joins them
+    // because it exists to run the ported APIs on the reader's own device (the captain's order, 2026-09-01).
+    //
+    // What the law protects is preserved rather than traded away: PortsConsole never parses on mount. The prime is
+    // a button carrying its own size, so the reader spends the 7.3 MB deliberately or not at all. An exemption
+    // that let a component parse the census at page load would be the loophole this comment exists to refuse.
+    if (f !== 'CatalogueBrowser.vue' && f !== 'ExecShell.vue' && f !== 'PortsConsole.vue') {
       assert.doesNotMatch(src, /from ['"][^'"]*browser-boot/, `${f} must not boot uuidnaOS into the client bundle`)
       assert.doesNotMatch(src, /from ['"][^'"]*os\/catalogue/, `${f} must not parse the Alpine census in the monitor`)
       assert.doesNotMatch(src, /from ['"][^'"]*os\/exec/, `${f} must not run Layer 1 locally`)

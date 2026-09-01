@@ -167,6 +167,27 @@ a completion package matches the shell it serves.
   <DomainPort />
 </ClientOnly>
 
+## The seven ported APIs, running in your tab
+
+Each Alpine domain above is a census. Beside each one uuidna carries a single API of its own — one door where
+Alpine ships hundreds of disagreeing implementations. The console below is not a report of a run that happened
+somewhere else: it executes those APIs in this page, on this machine, and the microsecond column is your
+device's answer.
+
+Four of them need nothing but the page and run the moment it loads — a merkle ledger with an inclusion proof, a
+filesystem manifest that names exactly what moved, a sealed chat channel sent and reopened, and a network read
+that returns the content-address of what it fetched. The controls run beside the results on purpose: a harness
+that shows only the passing case proves nothing, so the wrong record, the reordered tree and the wrong chat room
+are all attempted and all refused in front of you.
+
+The remaining three want the Alpine catalogue — 7.3 MB and 28,635 rows — and that is never loaded on your
+behalf. It is a button with its size on it, because a page that quietly pulls seven megabytes to fill a table is
+taking advantage of the device in the wrong sense.
+
+<ClientOnly>
+  <PortsConsole />
+</ClientOnly>
+
 ## GPU dispatch — the one measurement this repository cannot take
 
 The lattice's smallest step is a residue, and over many handles it is the same independent arithmetic per

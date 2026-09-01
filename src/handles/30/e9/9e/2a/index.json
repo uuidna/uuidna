@@ -1,0 +1,12 @@
+{
+  "handle": "30e99e2a",
+  "address": "30e99e2a-0004-8667-9272-15d53e40decf",
+  "kind": "chunk",
+  "keys": [
+    "context_windows_are_transient_hexbits"
+  ],
+  "statement": "(((modelContextRows.map (fun r => r.length)).sum) = 417) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+  "files": [
+    "Models.lean"
+  ]
+}

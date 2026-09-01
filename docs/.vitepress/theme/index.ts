@@ -50,5 +50,6 @@ export default {
     app.component('CaptainCoins', defineAsyncComponent(() => import('./CaptainCoins.vue')))
     app.component('GpuDispatch', defineAsyncComponent(() => import('./GpuDispatch.vue')))
     app.component('DomainPort', defineAsyncComponent(() => import('./DomainPort.vue')))
+    app.component('PortsConsole', defineAsyncComponent(() => import('./PortsConsole.vue')))
   }
 } satisfies Theme

@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 419,
+ "count": 417,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -188,13 +188,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000025"
   },
   {
-   "id": "anthropic/claude-opus-4.8-fast",
-   "name": "Anthropic: Claude Opus 4.8 (Fast)",
-   "contextTokens": 1000000,
-   "promptPrice": "0.00001",
-   "completionPrice": "0.00005"
-  },
-  {
    "id": "anthropic/claude-opus-4.8:batch",
    "name": "Anthropic: Claude Opus 4.8 (batch)",
    "contextTokens": 1000000,
@@ -207,13 +200,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1000000,
    "promptPrice": "0.000005",
    "completionPrice": "0.000025"
-  },
-  {
-   "id": "anthropic/claude-opus-5-fast",
-   "name": "Claude Opus 5 (Fast)",
-   "contextTokens": 1000000,
-   "promptPrice": "0.00001",
-   "completionPrice": "0.00005"
   },
   {
    "id": "anthropic/claude-opus-5:batch",
@@ -443,8 +429,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000008092",
-   "completionPrice": "0.00000016184"
+   "promptPrice": "0.00000007938",
+   "completionPrice": "0.00000015876"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
