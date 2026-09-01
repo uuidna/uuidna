@@ -87,14 +87,14 @@
  },
  "community": {
   "repo": "community",
-  "total": 22669,
-  "ported": 22669,
+  "total": 22670,
+  "ported": 22670,
   "missing": []
  },
  "all": {
   "repo": "all",
-  "total": 28630,
-  "ported": 28630,
+  "total": 28631,
+  "ported": 28631,
   "missing": []
  },
  "man": {
@@ -119,8 +119,8 @@
  },
  "selfTest": {
   "definition": "package-self-test",
-  "total": 28634,
-  "passed": 28634,
+  "total": 28635,
+  "passed": 28635,
   "failed": 0,
   "upstreamGaps": 0,
   "missing": [],
@@ -134,15 +134,15 @@
   "pct": 100
  },
  "time": {
-  "communityCompileNs": 49042625,
-  "communityNsPer": 2163,
-  "manCompileNs": 10592166,
-  "manNsPer": 2226
+  "communityCompileNs": 53325750,
+  "communityNsPer": 2352,
+  "manCompileNs": 11926417,
+  "manNsPer": 2507
  },
  "scale": {
   "usableAddressesPow2": 128,
   "seals": "handle_capacity_is_quantum_by_architecture"
  },
- "receipt": "8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f",
+ "receipt": "8ddc9d3c-a3de-8c71-ba34-776bfb001445",
  "honest": "TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim."
 }

@@ -36,12 +36,12 @@ distro membership. Provenance meters still recompute below so every published ro
 |---------|------|----------|--------------------|----------|-------|
 | **man → app → hexbit** | **completeness** | 4,757 | **4,757** / 4,757 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | **MCP · `uuidna_exec` · man→app** | **MCP port** | 4,757 | **4,757** / 4,757 | **100%** · 1 wire door (not 4,757) | [`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum) |
-| community (compile) | provenance | 22,669 | 22,669 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
-| main + community (compile) | provenance | 28,630 | 28,630 | 100% | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
+| community (compile) | provenance | 22,670 | 22,670 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| main + community (compile) | provenance | 28,631 | 28,631 | 100% | [`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits) |
 | man pages (compile) | provenance | 4,757 | 4,757 | 100% | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | man pages · community | provenance | 3,668 | 3,668 | 100% | — |
 | man pages · main | provenance | 1,089 | 1,089 | 100% | — |
-| **package self-test** | **catalogue closure** | 28,634 | **28,634** / 28,634 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
+| **package self-test** | **catalogue closure** | 28,635 | **28,635** / 28,635 | **100%** | [`a_spec_compiles_to_hexbits`](/theorem/a_spec_compiles_to_hexbits) |
 | **overlay · man→app→hexbit** | **npm/curl (NOT apk)** | 1 | **1** / 1 | **100%** | separate from APKINDEX |
 | overlay (compile) | provenance | 2 | 2 | 100% | repo=overlay |
 | **overlay · MCP · `uuidna_exec`** | **npm/curl MCP** | 1 | **1** / 1 | **100%** | same door, NOT apk |
@@ -54,8 +54,8 @@ distro membership. Provenance meters still recompute below so every published ro
 
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
-- **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,669 community packages ≪ 2^128.
-- **Time:** community compile sweep **49,042,625 ns** (~**2,163 ns**/package); man-page corpus **10,592,166 ns** (~**2,226 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,670 community packages ≪ 2^128.
+- **Time:** community compile sweep **53,325,750 ns** (~**2,352 ns**/package); man-page corpus **11,926,417 ns** (~**2,507 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
@@ -68,7 +68,7 @@ resolved by the `man <topic>` applet in uuidnaOS. Completeness walks each docume
 app it documents, and requires **both** to compile to 32 hexbit states — man pages testing apps,
 never the manpage bytes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)).
 
-Monitor receipt `8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
+Monitor receipt `8ddc9d3c-a3de-8c71-ba34-776bfb001445` · structured form [/alpine-hexbit-monitor.jsonld](/alpine-hexbit-monitor.jsonld)
 
 ## Port status — pinned release
 
@@ -78,9 +78,26 @@ Monitor receipt `8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f` · structured form [/alpi
 
 **Production shell:** run Layer 1 commands locally at [/terminal](/terminal) (`ls /terminal`, `apk info busybox`, `man openssl`).
 
+## GPU dispatch — the one measurement this repository cannot take
+
+The lattice's smallest step is a residue, and over many handles it is the same independent arithmetic per
+element — the only shape a wide processor can help with. `src/os/gpu` ships a real WGSL dispatch of exactly
+that, and the test suite can never run it: Node and Workers expose no `navigator.gpu`, so the suite verifies
+detection, refusal and the CPU reference and reports `agrees: null` because nothing was compared. This panel is
+the only place the shader actually runs, on your hardware, and it reports the answer it gets.
+
+Correctness is checked element for element before any timing is shown — a dispatch that disagrees reports no
+timing at all. The CPU baseline it must beat is sealed at 132 ns/element. The prediction, recorded before the
+measurement: below roughly a hundred thousand elements the **CPU should win**, because a buffer write, a submit
+and a readback cost hundreds of microseconds of fixed overhead. If it does, that is the result.
+
+<ClientOnly>
+  <GpuDispatch />
+</ClientOnly>
+
 ## Catalogue — every published package, searchable
 
-The default install is **25 paths**; Alpine publishes **28,630** packages on the pinned branch. Browse the full census on the dedicated [**/catalogue**](/catalogue) page (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)). Each package also has an editorial path `/catalogue/<name>` — audited like the install routes.
+The default install is **25 paths**; Alpine publishes **28,631** packages on the pinned branch. Browse the full census on the dedicated [**/catalogue**](/catalogue) page (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes ([`the_os_is_bootable_quantum`](/theorem/the_os_is_bootable_quantum)). Each package also has an editorial path `/catalogue/<name>` — audited like the install routes.
 
 ## Ported lowest level first — firmware and up
 

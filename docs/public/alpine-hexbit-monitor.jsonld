@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:a7733623-bd4b-8752-b60c-550ddb6579f3",
+  "@id": "urn:uuid:65234cf8-3f30-8241-9732-af0542c96217",
   "@type": "Dataset",
   "name": "uuidna Alpine hexbit quantum monitor",
   "description": "TypeScript computes Alpine port completeness as man pages testing apps folded into hexbits; VitePress monitors that witness plus provenance compile coverage and measured usable-capacity / scale-time quantum advantage (usable_gap_is_two_to_eighty).",
   "url": "https://uuidna.com/alpine-hexbit-monitor.jsonld",
-  "identifier": "8ade9b3e-4f50-84cf-b4c2-ac0f6e71084f",
+  "identifier": "8ddc9d3c-a3de-8c71-ba34-776bfb001445",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -75,7 +75,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine community hexbit port — packages",
-      "value": 22669,
+      "value": 22670,
       "unitText": "packages",
       "measurementTechnique": "measured",
       "citation": "committed mirror/alpine-catalogue.tsv · hexbitPortCoverage(community) provenance meter"
@@ -83,7 +83,7 @@
     {
       "@type": "PropertyValue",
       "name": "Alpine community hexbit port — ported",
-      "value": 22669,
+      "value": 22670,
       "unitText": "packages",
       "measurementTechnique": "computed",
       "citation": "catalogueCompile → UUID_HEXBITS states · theorem a_spec_compiles_to_hexbits · provenance, not completeness"
@@ -99,7 +99,7 @@
     {
       "@type": "PropertyValue",
       "name": "package self-test — passed",
-      "value": 28634,
+      "value": 28635,
       "unitText": "packages",
       "measurementTechnique": "computed",
       "citation": "packageSelfTestCoverage() — every catalogue row tests itself; named gaps closed from published testing"
@@ -123,7 +123,7 @@
     {
       "@type": "PropertyValue",
       "name": "community compile — ns per package",
-      "value": 2163,
+      "value": 2352,
       "unitText": "ns",
       "measurementTechnique": "measured",
       "citation": "TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable"

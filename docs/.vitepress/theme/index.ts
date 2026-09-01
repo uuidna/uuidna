@@ -48,5 +48,6 @@ export default {
     app.component('TradingFloor', defineAsyncComponent(() => import('./TradingFloor.vue')))
     app.component('AuditPanel', defineAsyncComponent(() => import('./AuditPanel.vue')))
     app.component('CaptainCoins', defineAsyncComponent(() => import('./CaptainCoins.vue')))
+    app.component('GpuDispatch', defineAsyncComponent(() => import('./GpuDispatch.vue')))
   }
 } satisfies Theme

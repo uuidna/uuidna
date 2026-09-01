@@ -155,6 +155,23 @@ Monitor receipt \`${monitorReceipt}\` · structured form [/alpine-hexbit-monitor
 
 **Production shell:** run Layer 1 commands locally at [/terminal](/terminal) (\`ls /terminal\`, \`apk info busybox\`, \`man openssl\`).
 
+## GPU dispatch — the one measurement this repository cannot take
+
+The lattice's smallest step is a residue, and over many handles it is the same independent arithmetic per
+element — the only shape a wide processor can help with. \`src/os/gpu\` ships a real WGSL dispatch of exactly
+that, and the test suite can never run it: Node and Workers expose no \`navigator.gpu\`, so the suite verifies
+detection, refusal and the CPU reference and reports \`agrees: null\` because nothing was compared. This panel is
+the only place the shader actually runs, on your hardware, and it reports the answer it gets.
+
+Correctness is checked element for element before any timing is shown — a dispatch that disagrees reports no
+timing at all. The CPU baseline it must beat is sealed at 132 ns/element. The prediction, recorded before the
+measurement: below roughly a hundred thousand elements the **CPU should win**, because a buffer write, a submit
+and a readback cost hundreds of microseconds of fixed overhead. If it does, that is the result.
+
+<ClientOnly>
+  <GpuDispatch />
+</ClientOnly>
+
 ## Catalogue — every published package, searchable
 
 The default install is **${port.count} paths**; Alpine publishes **${all.total.toLocaleString('en-US')}** packages on the pinned branch. Browse the full census on the dedicated [**/catalogue**](/catalogue) page (primes the same committed TSV the terminal and MCP use). Integrity and meaning — nothing installs or executes (${th('the_os_is_bootable_quantum')}). Each package also has an editorial path \`/catalogue/<name>\` — audited like the install routes.

@@ -146,6 +146,15 @@ function walkAllSources(dir: string, root: string, out: string[] = []): string[]
  *  changed file. Bounded by the graph; a cycle cannot loop it because `seen` only ever grows. */
 export function dependentTestFiles(changed: readonly string[], root: string = ROOT): string[] {
   const g = sourceGraph(root)
+  // A SELECTOR THAT ANSWERS "NOTHING" FOR INPUT IT COULD NOT READ IS THE DEFECT IT EXISTS TO PREVENT. Called
+  // with a mangled path — `ocs/...` for `docs/...`, off by the width of a git-status prefix — this returned an
+  // empty set, which reads exactly like "your change needs no tests" and would wave anything through. The whole
+  // point of this file is that a fast check must not be a weaker one wearing the same name, so an unresolvable
+  // path is REFUSED by name rather than silently contributing nothing.
+  const unknown = changed.filter((c) => c.endsWith('.ts') && !g.has(c))
+  if (unknown.length) {
+    throw new Error(`test-paths: ${unknown.length} path(s) are not in the source graph and cannot be resolved to tests — ${unknown.slice(0, 3).join(', ')}. Refusing rather than selecting nothing, which would read as "no tests needed".`)
+  }
   const reverse = new Map<string, string[]>()
   for (const [importer, imported] of g) for (const dep of imported) {
     const list = reverse.get(dep) ?? []; list.push(importer); reverse.set(dep, list)

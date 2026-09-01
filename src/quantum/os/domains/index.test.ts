@@ -51,11 +51,21 @@ test('CONTROL — every emitted key fits the door, whatever the domain is named'
     'the key scheme has headroom — a longer domain name must not silently lose its claim')
 })
 
-test('CONTROL — the conveyor ACCEPTS every domain claim', () => {
+test('CONTROL — the conveyor takes every domain claim, or has already sealed it', () => {
+  // This asserted ACCEPTED outright, which was true only while the claims were unsealed. The kernel has since
+  // judged all fifteen deposited claims and sealed them into the ledger — 2148 theorems became 2163 — so the
+  // door now refuses them as duplicates, which is the SUCCESS case wearing a refusal's clothes. The durable
+  // assertion is the one that survives both states: a claim is either takeable or already a theorem. What must
+  // never appear is a refusal for being a bare literal or an unlawful key, because those are the two ways a
+  // claim can be worthless, and they are the reason all 79 of the original name-scraped candidates were turned
+  // away. A test pinned to a moment in the ledger's life is a test that fails when the work succeeds.
   const sealed = theoremByKey()
   for (const d of allDomainCensuses()) for (const c of d.claims) {
-    assert.equal(validateCandidate({ key: c.key, lean: c.lean, why, source: 'alpine', from: 'domains' } as never, sealed), null,
-      `${c.key} must reach the kernel, not the refusal list`)
+    const verdict = validateCandidate({ key: c.key, lean: c.lean, why, source: 'alpine', from: 'domains' } as never, sealed)
+    if (verdict !== null) {
+      assert.match(verdict, /already sealed in the ledger/, `${c.key} may only be refused for being sealed already, not: ${verdict}`)
+      assert.ok(sealed.has(c.key), `${c.key} claims to be sealed, so the ledger must actually hold it`)
+    }
   }
 })
 
