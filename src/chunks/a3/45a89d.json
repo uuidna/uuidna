@@ -1,0 +1,12 @@
+{
+  "handle": "a345a89d",
+  "address": "a345a89d-5b52-87f4-a94e-480880e84704",
+  "statement": "(1277 + 2819 + 13843 = 17939) ∧ (17939 - 16083 = 1856)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_binding_origins_overcount_16083"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

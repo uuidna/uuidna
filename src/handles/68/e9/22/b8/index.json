@@ -1,0 +1,12 @@
+{
+  "handle": "68e922b8",
+  "address": "68e922b8-f30c-8ad3-9763-e40c0a372c42",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domains_db_fs_incl_excl_653"
+  ],
+  "statement": "(438 + 215 - 0 = 653)",
+  "files": [
+    "Wave.lean"
+  ]
+}

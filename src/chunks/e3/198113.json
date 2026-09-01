@@ -1,0 +1,12 @@
+{
+  "handle": "e3198113",
+  "address": "e3198113-5fe1-8b00-985c-ba968065d721",
+  "statement": "(112 <= 215) ∧ (215 - 112 = 103)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_filesystem_origins_215"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

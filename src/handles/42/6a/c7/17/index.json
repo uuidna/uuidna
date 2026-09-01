@@ -1,0 +1,12 @@
+{
+  "handle": "426ac717",
+  "address": "426ac717-6fc1-8292-9cd7-43fc29745cb1",
+  "kind": "chunk",
+  "keys": [
+    "alpine_bindings_partition_packages_28635"
+  ],
+  "statement": "(2034 + 3087 + 23514 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

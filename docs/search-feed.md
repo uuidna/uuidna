@@ -13,7 +13,7 @@ yet seal, is a **lead** the desk proposes. Only the kernel seals; only the capta
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted),
 [`two_coins`](/theorem/two_coins)). Meaning is null.
 
-Fold receipt `8b72c279-337b-816a-a7b1-fe0999696465` · hexbit door [`8b72c279`](https://uuidna.com/8b72c279) ·
+Fold receipt `ea9f39a5-f45f-8aaf-a999-399efc55ef1c` · hexbit door [`ea9f39a5`](https://uuidna.com/ea9f39a5) ·
 42 door(s) · 11 lead(s) · 10 silent
 .
 
@@ -21,48 +21,48 @@ Fold receipt `8b72c279-337b-816a-a7b1-fe0999696465` · hexbit door [`8b72c279`](
 
 | query | theorem | wing | resonance |
 |-------|---------|------|-----------|
-| fifa world cup | [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) | wave | 4273 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`captain_coins_respected_at_scale`](/theorem/captain_coins_respected_at_scale) | coins | 4188 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`clifford_group_order_24`](/theorem/clifford_group_order_24) | quantum | 4188 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`dj_balanced_cancels`](/theorem/dj_balanced_cancels) | quantum | 4188 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) | audit | 4188 |
-| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`gate_error_baseline_class`](/theorem/gate_error_baseline_class) | quantum | 4188 |
-| mathematics | [`hasse_bound_holds_at_four_primes`](/theorem/hasse_bound_holds_at_four_primes) | clay | 2147 |
-| weather | [`naismith_rule_estimate`](/theorem/naismith_rule_estimate) | topography | 2147 |
-| fifa world cup | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) | hamming | 2140 |
-| fifa world cup | [`combinatorial_book_exceeds_handles`](/theorem/combinatorial_book_exceeds_handles) | wave | 2140 |
-| fifa world cup | [`depolarisation_blocks_firing`](/theorem/depolarisation_blocks_firing) | neuro | 2140 |
-| fifa world cup | [`literature_sonnet_volume`](/theorem/literature_sonnet_volume) | wave | 2140 |
-| chemistry | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) | chemistry | 2135 |
-| chemistry | [`boyles_law`](/theorem/boyles_law) | chemistry | 2135 |
-| chemistry | [`charge_balance_neutral`](/theorem/charge_balance_neutral) | chemistry | 2135 |
-| chemistry | [`chemistry_water_and_the_table`](/theorem/chemistry_water_and_the_table) | wave | 2135 |
-| chemistry | [`combustion_methane_balances`](/theorem/combustion_methane_balances) | chemistry | 2135 |
-| science | [`abo_klein_four`](/theorem/abo_klein_four) | science-pairs | 2119 |
-| science | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) | science-pairs | 2119 |
-| science | [`agonist_antagonist_cancels`](/theorem/agonist_antagonist_cancels) | science-pairs | 2119 |
-| science | [`blood_types_eight`](/theorem/blood_types_eight) | science-pairs | 2119 |
-| science | [`chargaff_strand_balance`](/theorem/chargaff_strand_balance) | science-pairs | 2119 |
-| maps | [`agl9_exponent_is_eighteen_with_no_element_of_that_order`](/theorem/agl9_exponent_is_eighteen_with_no_element_of_that_order) | wave | 2116 |
-| maps | [`agl9_fixed_point_census_gives_a_single_orbit`](/theorem/agl9_fixed_point_census_gives_a_single_orbit) | wave | 2116 |
-| maps | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 2116 |
-| maps | [`censuses_differ`](/theorem/censuses_differ) | reversal | 2116 |
-| maps | [`codons_four_cubed`](/theorem/codons_four_cubed) | cipher | 2116 |
-| uuid | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) | reporting | 2077 |
-| uuid | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 2077 |
-| uuid | [`anthem_closes_on_the_coin_octave`](/theorem/anthem_closes_on_the_coin_octave) | anthem | 2077 |
-| uuid | [`anthem_finale_sings_one_uuid`](/theorem/anthem_finale_sings_one_uuid) | anthem | 2077 |
-| uuid | [`boundary_is_exactly_two_named_modules`](/theorem/boundary_is_exactly_two_named_modules) | os | 2077 |
-| quantum | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) | calendar | 2055 |
-| quantum | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) | models | 2055 |
-| quantum | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 2055 |
-| quantum | [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) | torus | 2055 |
-| quantum | [`bell_basis_orthogonal`](/theorem/bell_basis_orthogonal) | quantum | 2055 |
-| prime | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 2012 |
-| prime | [`anthem_pi_primes_trinity`](/theorem/anthem_pi_primes_trinity) | anthem | 2012 |
-| prime | [`axes_stride_coprime`](/theorem/axes_stride_coprime) | crt | 2012 |
-| prime | [`circle_of_fifths`](/theorem/circle_of_fifths) | science-pairs | 2012 |
-| prime | [`closure_is_coprime`](/theorem/closure_is_coprime) | quantum | 2012 |
+| fifa world cup | [`arity_admits_exactly_one_dependent_trinity`](/theorem/arity_admits_exactly_one_dependent_trinity) | wave | 4303 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`captain_coins_respected_at_scale`](/theorem/captain_coins_respected_at_scale) | coins | 4218 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`clifford_group_order_24`](/theorem/clifford_group_order_24) | quantum | 4218 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`dj_balanced_cancels`](/theorem/dj_balanced_cancels) | quantum | 4218 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`drift_is_named_or_caught`](/theorem/drift_is_named_or_caught) | audit | 4218 |
+| quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`gate_error_baseline_class`](/theorem/gate_error_baseline_class) | quantum | 4218 |
+| mathematics | [`hasse_bound_holds_at_four_primes`](/theorem/hasse_bound_holds_at_four_primes) | clay | 2162 |
+| weather | [`naismith_rule_estimate`](/theorem/naismith_rule_estimate) | topography | 2162 |
+| fifa world cup | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) | hamming | 2155 |
+| fifa world cup | [`combinatorial_book_exceeds_handles`](/theorem/combinatorial_book_exceeds_handles) | wave | 2155 |
+| fifa world cup | [`depolarisation_blocks_firing`](/theorem/depolarisation_blocks_firing) | neuro | 2155 |
+| fifa world cup | [`literature_sonnet_volume`](/theorem/literature_sonnet_volume) | wave | 2155 |
+| chemistry | [`annihilation_conserves_everything`](/theorem/annihilation_conserves_everything) | chemistry | 2150 |
+| chemistry | [`boyles_law`](/theorem/boyles_law) | chemistry | 2150 |
+| chemistry | [`charge_balance_neutral`](/theorem/charge_balance_neutral) | chemistry | 2150 |
+| chemistry | [`chemistry_water_and_the_table`](/theorem/chemistry_water_and_the_table) | wave | 2150 |
+| chemistry | [`combustion_methane_balances`](/theorem/combustion_methane_balances) | chemistry | 2150 |
+| science | [`abo_klein_four`](/theorem/abo_klein_four) | science-pairs | 2134 |
+| science | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) | science-pairs | 2134 |
+| science | [`agonist_antagonist_cancels`](/theorem/agonist_antagonist_cancels) | science-pairs | 2134 |
+| science | [`blood_types_eight`](/theorem/blood_types_eight) | science-pairs | 2134 |
+| science | [`chargaff_strand_balance`](/theorem/chargaff_strand_balance) | science-pairs | 2134 |
+| maps | [`agl9_exponent_is_eighteen_with_no_element_of_that_order`](/theorem/agl9_exponent_is_eighteen_with_no_element_of_that_order) | wave | 2131 |
+| maps | [`agl9_fixed_point_census_gives_a_single_orbit`](/theorem/agl9_fixed_point_census_gives_a_single_orbit) | wave | 2131 |
+| maps | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 2131 |
+| maps | [`censuses_differ`](/theorem/censuses_differ) | reversal | 2131 |
+| maps | [`codons_four_cubed`](/theorem/codons_four_cubed) | cipher | 2131 |
+| uuid | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) | reporting | 2092 |
+| uuid | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 2092 |
+| uuid | [`anthem_closes_on_the_coin_octave`](/theorem/anthem_closes_on_the_coin_octave) | anthem | 2092 |
+| uuid | [`anthem_finale_sings_one_uuid`](/theorem/anthem_finale_sings_one_uuid) | anthem | 2092 |
+| uuid | [`boundary_is_exactly_two_named_modules`](/theorem/boundary_is_exactly_two_named_modules) | os | 2092 |
+| quantum | [`a_gapless_index_admits_nothing_between`](/theorem/a_gapless_index_admits_nothing_between) | calendar | 2070 |
+| quantum | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) | models | 2070 |
+| quantum | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 2070 |
+| quantum | [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette) | torus | 2070 |
+| quantum | [`bell_basis_orthogonal`](/theorem/bell_basis_orthogonal) | quantum | 2070 |
+| prime | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 2027 |
+| prime | [`anthem_pi_primes_trinity`](/theorem/anthem_pi_primes_trinity) | anthem | 2027 |
+| prime | [`axes_stride_coprime`](/theorem/axes_stride_coprime) | crt | 2027 |
+| prime | [`circle_of_fifths`](/theorem/circle_of_fifths) | science-pairs | 2027 |
+| prime | [`closure_is_coprime`](/theorem/closure_is_coprime) | quantum | 2027 |
 
 ## Leads — silence and unsealed harvest (desk proposes)
 

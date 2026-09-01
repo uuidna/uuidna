@@ -1,0 +1,12 @@
+{
+  "handle": "4a96760e",
+  "address": "4a96760e-7eea-86d3-9298-d5029e7479d6",
+  "statement": "(325 <= 438) ∧ (438 - 325 = 113)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_database_origins_438"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

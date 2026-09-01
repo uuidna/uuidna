@@ -1,0 +1,12 @@
+{
+  "handle": "8a864323",
+  "address": "8a864323-c6a0-84d1-8618-d756cf85b833",
+  "statement": "(215 + 630 - 8 = 837)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domains_fi_dr_incl_excl_837"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

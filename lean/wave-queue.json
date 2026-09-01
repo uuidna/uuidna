@@ -1,81 +1,5 @@
 {
-  "pending": [
-    {
-      "key": "alpine_domain_database_partitions_28635",
-      "why": "Alpine domain port (database): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. the database domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
-      "lean": "theorem alpine_domain_database_partitions_28635 : (438 + 28197 = 28635) := by decide"
-    },
-    {
-      "key": "alpine_domain_database_origins_438",
-      "why": "Alpine domain port (database): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. 113 of the 438 packages are companions (-dev, -doc, -libs) of an origin already counted",
-      "lean": "theorem alpine_domain_database_origins_438 : (325 <= 438) ∧ (438 - 325 = 113) := by decide"
-    },
-    {
-      "key": "alpine_domain_filesystem_partitions_28635",
-      "why": "Alpine domain port (filesystem): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. the filesystem domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
-      "lean": "theorem alpine_domain_filesystem_partitions_28635 : (215 + 28420 = 28635) := by decide"
-    },
-    {
-      "key": "alpine_domain_filesystem_origins_215",
-      "why": "Alpine domain port (filesystem): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. 103 of the 215 packages are companions (-dev, -doc, -libs) of an origin already counted",
-      "lean": "theorem alpine_domain_filesystem_origins_215 : (112 <= 215) ∧ (215 - 112 = 103) := by decide"
-    },
-    {
-      "key": "alpine_domains_db_fs_incl_excl_653",
-      "why": "Inclusion-exclusion across two ported domains: |A|+|B|-|A and B| = |A or B|, exact over the committed mirror. The overlap is REPORTED rather than resolved — domains are not disjoint by construction and this states by how much.",
-      "lean": "theorem alpine_domains_db_fs_incl_excl_653 : (438 + 215 - 0 = 653) := by decide"
-    },
-    {
-      "key": "alpine_bindings_partition_packages_28635",
-      "why": "Alpine port census structural claim: every package holds exactly one binding — the classes are exhaustive and disjoint. Exact over the committed mirror and recomputed when it moves; says the counting is coherent, never that any package binding is correct.",
-      "lean": "theorem alpine_bindings_partition_packages_28635 : (2034 + 3087 + 23514 = 28635) := by decide"
-    },
-    {
-      "key": "alpine_binding_origins_overcount_16083",
-      "why": "Alpine port census structural claim: 1856 origins ship into more than one class — origins do NOT partition. Exact over the committed mirror and recomputed when it moves; says the counting is coherent, never that any package binding is correct.",
-      "lean": "theorem alpine_binding_origins_overcount_16083 : (1277 + 2819 + 13843 = 17939) ∧ (17939 - 16083 = 1856) := by decide"
-    },
-    {
-      "key": "alpine_domain_blockchain_partitions_28635",
-      "why": "Alpine domain port (blockchain): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run, no key is held and no chain is followed. the blockchain domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
-      "lean": "theorem alpine_domain_blockchain_partitions_28635 : (29 + 28606 = 28635) := by decide"
-    },
-    {
-      "key": "alpine_domain_blockchain_origins_29",
-      "why": "Alpine domain port (blockchain): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run, no key is held and no chain is followed. 10 of the 29 packages are companions (-dev, -doc, -libs) of an origin already counted",
-      "lean": "theorem alpine_domain_blockchain_origins_29 : (19 <= 29) ∧ (29 - 19 = 10) := by decide"
-    },
-    {
-      "key": "alpine_domains_da_bc_incl_excl_467",
-      "why": "Inclusion-exclusion across database and blockchain, exact over the committed mirror. These two are DISJOINT under the seeded patterns (overlap 0), so the identity reduces to addition — it still fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_domains_da_bc_incl_excl_467 : (438 + 29 - 0 = 467) := by decide"
-    },
-    {
-      "key": "alpine_domains_fi_bc_incl_excl_244",
-      "why": "Inclusion-exclusion across filesystem and blockchain, exact over the committed mirror. These two are DISJOINT under the seeded patterns (overlap 0), so the identity reduces to addition — it still fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_domains_fi_bc_incl_excl_244 : (215 + 29 - 0 = 244) := by decide"
-    },
-    {
-      "key": "alpine_domain_driver_partitions_28635",
-      "why": "Alpine domain port (driver): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match and is a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT manage a device. Nothing here addresses hardware. the driver domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
-      "lean": "theorem alpine_domain_driver_partitions_28635 : (630 + 28005 = 28635) := by decide"
-    },
-    {
-      "key": "alpine_domain_driver_origins_630",
-      "why": "Alpine domain port (driver): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match and is a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT manage a device. Nothing here addresses hardware. 170 of the 630 packages are companions (-dev, -doc, -libs) of an origin already counted",
-      "lean": "theorem alpine_domain_driver_origins_630 : (460 <= 630) ∧ (630 - 460 = 170) := by decide"
-    },
-    {
-      "key": "alpine_domains_da_dr_incl_excl_1007",
-      "why": "Inclusion-exclusion across database and driver, exact over the committed mirror. These two genuinely OVERLAP (61 packages), so the identity is a real set statement rather than the addition the first three disjoint domains reduced to.",
-      "lean": "theorem alpine_domains_da_dr_incl_excl_1007 : (438 + 630 - 61 = 1007) := by decide"
-    },
-    {
-      "key": "alpine_domains_fi_dr_incl_excl_837",
-      "why": "Inclusion-exclusion across filesystem and driver, exact over the committed mirror. These two genuinely OVERLAP (8 packages), so the identity is a real set statement rather than the addition the first three disjoint domains reduced to.",
-      "lean": "theorem alpine_domains_fi_dr_incl_excl_837 : (215 + 630 - 8 = 837) := by decide"
-    }
-  ],
+  "pending": [],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
@@ -2878,6 +2802,96 @@
       "why": "THE FOURTEEN VE FACES ARE HANDLE TILES PLUS HEXBIT WIDTH PLUS THE COINS — 8+4+2=14, the other partition of fourteen from eight triangles plus six squares. The constructor is the sum; the kernel seals the arithmetic.",
       "lean": "theorem ve_faces_are_handle_hexbit_coins : 8 + 4 + 2 = 14 := by decide",
       "receipt": "63fd3f71-3ab8-8558-9728-1e0cbdf4abf7"
+    },
+    {
+      "key": "alpine_domain_database_partitions_28635",
+      "why": "Alpine domain port (database): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. the database domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_database_partitions_28635 : (438 + 28197 = 28635) := by decide",
+      "receipt": "3441113c-7b36-8680-a5b4-ab032e0f7f6b"
+    },
+    {
+      "key": "alpine_domain_database_origins_438",
+      "why": "Alpine domain port (database): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. 113 of the 438 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_database_origins_438 : (325 <= 438) ∧ (438 - 325 = 113) := by decide",
+      "receipt": "45d3c10e-d3db-8596-a772-02046c8836af"
+    },
+    {
+      "key": "alpine_domain_filesystem_partitions_28635",
+      "why": "Alpine domain port (filesystem): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. the filesystem domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_filesystem_partitions_28635 : (215 + 28420 = 28635) := by decide",
+      "receipt": "0d551b36-7b7a-826b-8cae-4ed328c1241f"
+    },
+    {
+      "key": "alpine_domain_filesystem_origins_215",
+      "why": "Alpine domain port (filesystem): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures (a client or SDK matches its engine name); the counting over it is what this claim seals, never the membership. 103 of the 215 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_filesystem_origins_215 : (112 <= 215) ∧ (215 - 112 = 103) := by decide",
+      "receipt": "b5e87a35-0503-80b8-8a38-bb8af27dd5d5"
+    },
+    {
+      "key": "alpine_domains_db_fs_incl_excl_653",
+      "why": "Inclusion-exclusion across two ported domains: |A|+|B|-|A and B| = |A or B|, exact over the committed mirror. The overlap is REPORTED rather than resolved — domains are not disjoint by construction and this states by how much.",
+      "lean": "theorem alpine_domains_db_fs_incl_excl_653 : (438 + 215 - 0 = 653) := by decide",
+      "receipt": "64f00d41-a5d4-80d1-87c9-e550bb135d56"
+    },
+    {
+      "key": "alpine_bindings_partition_packages_28635",
+      "why": "Alpine port census structural claim: every package holds exactly one binding — the classes are exhaustive and disjoint. Exact over the committed mirror and recomputed when it moves; says the counting is coherent, never that any package binding is correct.",
+      "lean": "theorem alpine_bindings_partition_packages_28635 : (2034 + 3087 + 23514 = 28635) := by decide",
+      "receipt": "e4d9c52d-e20d-832c-a5f4-a2f9dbe96e74"
+    },
+    {
+      "key": "alpine_binding_origins_overcount_16083",
+      "why": "Alpine port census structural claim: 1856 origins ship into more than one class — origins do NOT partition. Exact over the committed mirror and recomputed when it moves; says the counting is coherent, never that any package binding is correct.",
+      "lean": "theorem alpine_binding_origins_overcount_16083 : (1277 + 2819 + 13843 = 17939) ∧ (17939 - 16083 = 1856) := by decide",
+      "receipt": "e03b0eaf-18aa-89b9-8d33-7aa7a775a54b"
+    },
+    {
+      "key": "alpine_domain_blockchain_partitions_28635",
+      "why": "Alpine domain port (blockchain): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run, no key is held and no chain is followed. the blockchain domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_blockchain_partitions_28635 : (29 + 28606 = 28635) := by decide",
+      "receipt": "1518e46a-8108-8d3e-8ccc-cffb9c44377b"
+    },
+    {
+      "key": "alpine_domain_blockchain_origins_29",
+      "why": "Alpine domain port (blockchain): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT; provenance only, nothing is run, no key is held and no chain is followed. 10 of the 29 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_blockchain_origins_29 : (19 <= 29) ∧ (29 - 19 = 10) := by decide",
+      "receipt": "1addb93b-0474-8e8b-96bb-1e8d06313c83"
+    },
+    {
+      "key": "alpine_domains_da_bc_incl_excl_467",
+      "why": "Inclusion-exclusion across database and blockchain, exact over the committed mirror. These two are DISJOINT under the seeded patterns (overlap 0), so the identity reduces to addition — it still fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_domains_da_bc_incl_excl_467 : (438 + 29 - 0 = 467) := by decide",
+      "receipt": "7aa39d87-5ac3-8274-9407-e7b443918b49"
+    },
+    {
+      "key": "alpine_domains_fi_bc_incl_excl_244",
+      "why": "Inclusion-exclusion across filesystem and blockchain, exact over the committed mirror. These two are DISJOINT under the seeded patterns (overlap 0), so the identity reduces to addition — it still fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_domains_fi_bc_incl_excl_244 : (215 + 29 - 0 = 244) := by decide",
+      "receipt": "8aecc8dd-1218-833c-9eb2-41ea26e8ec1e"
+    },
+    {
+      "key": "alpine_domain_driver_partitions_28635",
+      "why": "Alpine domain port (driver): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match and is a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT manage a device. Nothing here addresses hardware. the driver domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_driver_partitions_28635 : (630 + 28005 = 28635) := by decide",
+      "receipt": "c26c67c6-1bc7-85b7-be8b-e8c86884a82e"
+    },
+    {
+      "key": "alpine_domain_driver_origins_630",
+      "why": "Alpine domain port (driver): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match and is a MEASUREMENT; this records that a driver EXISTS at a version with a checksum and does NOT manage a device. Nothing here addresses hardware. 170 of the 630 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_driver_origins_630 : (460 <= 630) ∧ (630 - 460 = 170) := by decide",
+      "receipt": "408d9ba9-9b73-82e8-abee-8da7e76bd847"
+    },
+    {
+      "key": "alpine_domains_da_dr_incl_excl_1007",
+      "why": "Inclusion-exclusion across database and driver, exact over the committed mirror. These two genuinely OVERLAP (61 packages), so the identity is a real set statement rather than the addition the first three disjoint domains reduced to.",
+      "lean": "theorem alpine_domains_da_dr_incl_excl_1007 : (438 + 630 - 61 = 1007) := by decide",
+      "receipt": "b4587a22-aaa8-8340-952f-c12d6644413f"
+    },
+    {
+      "key": "alpine_domains_fi_dr_incl_excl_837",
+      "why": "Inclusion-exclusion across filesystem and driver, exact over the committed mirror. These two genuinely OVERLAP (8 packages), so the identity is a real set statement rather than the addition the first three disjoint domains reduced to.",
+      "lean": "theorem alpine_domains_fi_dr_incl_excl_837 : (215 + 630 - 8 = 837) := by decide",
+      "receipt": "8b49d1f1-7423-8075-8cca-0a6511727123"
     }
   ],
   "refused": [

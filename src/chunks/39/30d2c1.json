@@ -1,0 +1,12 @@
+{
+  "handle": "3930d2c1",
+  "address": "3930d2c1-6921-8a8f-bd75-38763082a454",
+  "statement": "(215 + 29 - 0 = 244)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domains_fi_bc_incl_excl_244"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "11edef89",
+  "address": "11edef89-9cc0-8403-96cc-601eac013a72",
+  "statement": "(438 + 28197 = 28635)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_database_partitions_28635"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

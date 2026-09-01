@@ -1,0 +1,12 @@
+{
+  "handle": "6fb0cbbd",
+  "address": "6fb0cbbd-abf5-8847-8beb-7a29edf1318f",
+  "statement": "(19 <= 29) ∧ (29 - 19 = 10)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_blockchain_origins_29"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}
