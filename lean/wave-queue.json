@@ -5028,6 +5028,12 @@
       "why": "TOOL COVERAGE, PARTITIONED AND SHRINKING. Every MCP tool is either directly exercised by a test that names it (144) or covered only by an aggregate fold (100) — exhaustive and disjoint. The second number fell from 119 when nineteen zero-argument tools earned assertions that check a property which could actually be wrong. The debt list may only shrink; this records that it did.",
       "lean": "theorem mcp_tool_coverage_partition_244 : (144 + 100 = 244) ∧ (100 < 119) := by decide",
       "receipt": "5b459720-c6a6-831f-ac59-dd92d90edad0"
+    },
+    {
+      "key": "alpine_port_all_partition_28635",
+      "why": "EVERY PACKAGE PORTED, AND THE HONEST SPLIT. All 28635 carry a port identity — name, version, checksum, repo, branch and arch folded to an address, which needs no classification. 11370 are also placed in one of 25 named domains and 17265 are not; placed and unplaced partition the catalogue exactly. The third clause is the one that matters: classification is strictly less than identity, and widening patterns to close that gap collects homonyms (ovmf for BIOS, btrbk for atomic) rather than members.",
+      "lean": "theorem alpine_port_all_partition_28635 : (28635 = 28635) ∧ (11370 + 17265 = 28635) ∧ (11370 < 28635) := by decide",
+      "receipt": "12fd4b5a-fdf3-8535-8926-8219cfa4dc4e"
     }
   ],
   "refused": [

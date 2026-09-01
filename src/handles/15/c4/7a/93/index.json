@@ -1,0 +1,12 @@
+{
+  "handle": "15c47a93",
+  "address": "15c47a93-c4a6-865f-a295-9ee4fa641f11",
+  "kind": "chunk",
+  "keys": [
+    "alpine_port_all_partition_28635"
+  ],
+  "statement": "(28635 = 28635) ∧ (11370 + 17265 = 28635) ∧ (11370 < 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

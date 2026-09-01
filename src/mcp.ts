@@ -81,6 +81,7 @@ import { priorArt } from './priorart.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { portsCensus } from './quantum/os/ports/index.js'
 import { uiApi } from './quantum/os/uiapi/index.js'
+import { portAll } from './quantum/os/portall/index.js'
 import { chatApi, chatSend } from './quantum/os/chat/index.js'
 import { shellRun, shellCoverage } from './quantum/os/shellapi/index.js'
 import { fsSeal } from './quantum/os/fsapi/index.js'
@@ -1648,6 +1649,11 @@ const TOOLS: Tool[] = ([
     detail: 'uuidna reimplements none of these binaries; it adds that the command and the bytes are content-addressed, so a verdict is citable rather than a screenshot. Nothing here is a security scan: clamav scans files for signatures, the guard scans source for determinism violations.',
     inputSchema: { type: 'object', properties: { op: { type: 'string', enum: ['confine', 'inspect-files', 'packet-policy', 'audit-tls'] }, args: { type: 'string' } } },
     run: (a) => (a.op === undefined ? secApi() : planSecurityOp(String(a.op), String(a.args ?? ''))) },
+  { name: 'uuidna_port_all',
+    description: 'Every package in the catalogue, ported. All 28,635 carry a port identity; 11,370 are also placed in a named domain and 17,265 are not. Both numbers, never averaged.',
+    detail: 'Identity is arithmetic over published metadata — name, version, checksum, repo, branch, arch folded to an address — so it needs no pattern and no opinion, and that half was complete before anyone asked. Classification is a measurement with known failures. Widening the patterns to close the gap raises the second number and lowers its meaning: loosening bio collects ovmf and dmidecode because their descriptions contain BIOS, loosening chemistry collects btrbk and newsboat because theirs say atomic. The unclassified remainder is described by name prefix rather than dismissed — language bindings, vendored SDKs, desktop stacks, fonts.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => portAll() },
   { name: 'uuidna_interface',
     description: 'The interface surface, censused on BOTH sides: 1424 Alpine packages across six classes, and what uuidnaOS itself provides for each. Most of the domain is given TO a tab rather than implemented here, and it says which.',
     detail: 'uuidna already has a terminal (uuidnaExec and its applets), a GUI (the panels the monitor draws) and served pages, so this port is a census rather than a new capability. It draws no pixels and owns no window: the browser is its display server, compositor and input stack. The accessibility row rests on a measured count of schema.org itemprops on a real rendered page, which is machine-readable by a screen reader, a search engine and an agent through the same markup; it is not a WCAG conformance claim, which an audit decides.',

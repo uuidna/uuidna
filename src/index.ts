@@ -777,5 +777,7 @@ export { authnPresence, addressCredential, enrol, type AuthnPresence, type Addre
 export { planChange, renderPlan, commitChange, type InstallPlan, type CommitResult } from './quantum/os/installer/index.js'
 // the interface surface — censused on BOTH sides, because uuidna already has a terminal, a GUI and served pages
 export { uiApi, renderUi, UI_CLASSES, type UiApiCensus, type UiClassRow } from './quantum/os/uiapi/index.js'
+// every package ported — identity for all, classification for those a pattern can honestly place
+export { portAll, renderPortAll, type PortAllCensus } from './quantum/os/portall/index.js'
 // the school graded in the student's own currency, and the payloadless space argument beside it
 export { schoolEfficiency, payloadlessSpace, tokensOf, ADDRESS_BYTES as EFFICIENCY_ADDRESS_BYTES, type EfficiencyRow, type SpaceRow } from './school/efficiency/index.js'

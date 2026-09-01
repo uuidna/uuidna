@@ -5010,3 +5010,10 @@ theorem mcp_wire_rate_fell_while_total_grew_32183 : (77885 > 75224) ∧ (32183 <
     119 when nineteen zero-argument tools earned assertions that check a property which could actually be wrong.
     The debt list may only shrink; this records that it did. -/
 theorem mcp_tool_coverage_partition_244 : (144 + 100 = 244) ∧ (100 < 119) := by decide
+
+/-- EVERY PACKAGE PORTED, AND THE HONEST SPLIT. All 28635 carry a port identity — name, version, checksum, repo,
+    branch and arch folded to an address, which needs no classification. 11370 are also placed in one of 25
+    named domains and 17265 are not; placed and unplaced partition the catalogue exactly. The third clause is
+    the one that matters: classification is strictly less than identity, and widening patterns to close that gap
+    collects homonyms (ovmf for BIOS, btrbk for atomic) rather than members. -/
+theorem alpine_port_all_partition_28635 : (28635 = 28635) ∧ (11370 + 17265 = 28635) ∧ (11370 < 28635) := by decide

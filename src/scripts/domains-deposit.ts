@@ -19,6 +19,7 @@ import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS, domainTierClaims } 
 import { shellClaims } from '../quantum/os/shellapi/index.js'
 import { quantumMargin } from '../os/kdf/index.js'
 import { securityClaims } from '../os/secapi/index.js'
+import { portAll } from '../quantum/os/portall/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
 import { theorems } from '../theorems/index.js'
 
@@ -35,6 +36,20 @@ for (const c of allDomainCensuses()) {
   for (const cl of c.claims) {
     candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS(c.domain, cl.says), source: 'alpine-domains', from: `domainCensus/${c.domain}` } as WaveCandidate)
   }
+}
+
+// THE WHOLE CATALOGUE, PARTITIONED. "Port all the Alpine apps" is two claims in one sentence, and the seal
+// separates them: every package carries an identity (arithmetic over published metadata, no pattern needed),
+// and a smaller number are PLACED in a named domain (a measurement with known failures). Sealing both, and
+// their sum, is what stops the second silently standing in for the first.
+{
+  const pa = portAll()
+  candidates.push({
+    key: `alpine_port_all_partition_${pa.packages}`,
+    lean: `theorem alpine_port_all_partition_${pa.packages} : (${pa.identities} = ${pa.packages}) ∧ (${pa.classified} + ${pa.unclassified} = ${pa.packages}) ∧ (${pa.classified} < ${pa.packages}) := by decide`,
+    why: `EVERY PACKAGE PORTED, AND THE HONEST SPLIT. All ${pa.packages} carry a port identity — name, version, checksum, repo, branch and arch folded to an address, which needs no classification. ${pa.classified} are also placed in one of ${pa.domains} named domains and ${pa.unclassified} are not; placed and unplaced partition the catalogue exactly. The third clause is the one that matters: classification is strictly less than identity, and widening patterns to close that gap collects homonyms (ovmf for BIOS, btrbk for atomic) rather than members.`,
+    source: 'alpine-portall', from: 'portAll',
+  } as WaveCandidate)
 }
 
 // THE COVERAGE DEBT IS A NUMBER WITH A DIRECTION, so it becomes a theorem too. 244 tools, 144 with a dedicated
