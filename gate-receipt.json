@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "15e7bf1ecdbb3cf616c877539d7550c4",
+    "src": "bf02c16d9d94e6dc1537590585af9c5e",
     "lean": "d00e465d16d2506156be8b390aaf160c"
   },
   "files": {
@@ -3510,13 +3510,14 @@
     "src/scripts/generate.ts": "578b1d253e92b2ec",
     "src/scripts/green.ts": "824f756076b4120c",
     "src/scripts/guard.test.ts": "28537249ce682000",
-    "src/scripts/guard.ts": "8bcb3518e2809e9b",
+    "src/scripts/guard.ts": "7582ae88ba0e1ebe",
     "src/scripts/harmonic-scan.test.ts": "9f7f15b10749218d",
     "src/scripts/harmonic-scan.ts": "b14e41db661b9a47",
     "src/scripts/hexbit-from-books.ts": "4b93ec9f5887309c",
     "src/scripts/index-test-imports.ts": "6e1099a4e0bc5e06",
     "src/scripts/iq-books.ts": "7007db73db1e898c",
     "src/scripts/land.ts": "ebcec4dd33d7c422",
+    "src/scripts/landing-gaps.ts": "8d42f2635c8e3131",
     "src/scripts/leads-gate.ts": "42d096c9a529e6d5",
     "src/scripts/lean-acoustics.ts": "9949a39d4ea75e82",
     "src/scripts/lean-affine.ts": "26a56adf06cf03f5",
@@ -3693,7 +3694,7 @@
     "src/scripts/ship-build.ts": "99a25fed092f7b8f",
     "src/scripts/spin.ts": "b556e071b8775d15",
     "src/scripts/stamp.ts": "9648ff47da218e70",
-    "src/scripts/state.ts": "f6367f5cb4a8e5e5",
+    "src/scripts/state.ts": "83f0cca70af099f6",
     "src/scripts/steady-state.ts": "f3d95b33e19271fb",
     "src/scripts/support.ts": "674df996bb2b4242",
     "src/scripts/sync-changelog.ts": "b154b566636295d7",

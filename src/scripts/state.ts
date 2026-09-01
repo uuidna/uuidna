@@ -8,6 +8,8 @@
 // So this folds the whole question into one receipted answer: the ledger, the sync, the working tree, the fast
 // finders, and THE NEXT EXACT COMMAND. Deterministic (no clock, no randomness) and read-only — it changes nothing,
 // so it is safe to ask before anything. `npm run state`.
+import { landingGaps } from './landing-gaps.js'
+import { sourceGraph } from '../test-paths.js'
 import { execSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
@@ -32,7 +34,7 @@ const finders: [string, number][] = [
   ['dry', dryGaps().gaps.length], ['coherent', (await coherentGaps()).length], ['absence', absenceGaps().length],
   ['pipes', pipeGaps().length], ['actions', actionsGaps().length], ['vacuous', vacuousGaps().length], ['citations', citationsGaps().length], ['literal', literalGaps().length], ['binary', binaryGaps().length], ['orphan', orphanGaps().length], ['unit', unitGaps().length], ['hexbit', hexbitGaps().length], ['incomplete', incompleteGaps().length], ['markup', markupGaps().length], ['name', nameGaps().length], ['deadkey', deadkeyGaps().length], ['constant', constantGaps().length],
   ['negation', negationGaps().length], ['lean-negation', leanNegationGaps().length], ['drain', drainGaps().length], ['precede', precedeGaps().length], ['frozen', frozenGaps().length], ['stale', staleGaps().length],
-  ['folders', foldersGaps().length], ['imports', importGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['mirror', mirrorGaps().length], ['lanes', lanesGaps().length], ['pages', pagesGaps().length], ['comments', commentsGaps().length],
+  ['folders', foldersGaps().length], ['imports', importGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['landing', landingGaps([...sourceGraph().keys()]).length], ['mirror', mirrorGaps().length], ['lanes', lanesGaps().length], ['pages', pagesGaps().length], ['comments', commentsGaps().length],
   ['counts', countsGaps().length], ['expected', expectedGaps().length], ['census', censusGaps().length], ['lines', linesGaps().length],
   ['pairs', pairsGaps().length],
   ['context', contextGaps(MCP_CATALOG).length],

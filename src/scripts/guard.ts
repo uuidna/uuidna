@@ -4,6 +4,8 @@
 // after a wasted reconcile: the ledger-level treason sweep (DNA recompute, collisions, coverage, conformance —
 // pure, O(N)) AND the source-level harmonic-scan (non-quantum / Math.* / wall-clock / RNG sneak). Exit 1 on any traitor.
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
+import { landingGaps } from './landing-gaps.js'
+import { sourceGraph } from '../test-paths.js'
 import { execSync } from 'node:child_process'
 import { existsSync, readFileSync, readdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
@@ -235,6 +237,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // or a docs page calls it by name, and that set is recomputed here rather than declared.
   { name: 'stale', run: () => staleGaps() },
   { name: 'scripts', run: () => scriptsGaps() },
+  // A GREEN REPORT OVER AN ACTION NEVER TAKEN — ten times in one session, most plainly in `land` itself, which
+  // described "heal → commit → push" while the commit step did not exist. Asks the one decidable question that
+  // keeps costing landings: a script that mutates git must verify the mutation.
+  { name: 'landing', run: () => landingGaps([...sourceGraph().keys()]) },
   // THE MIRROR MUST AGREE BY VALUE— a js mirror doing Number arithmetic past 2^53 can round to
   // the SAME wrong value as the Lean it is checked against and pass emit()'s comparison by luck. Three mirrors
   // needed BigInt in one session (2026-08-19); the third was caught by hand, which is what makes it a finder.
