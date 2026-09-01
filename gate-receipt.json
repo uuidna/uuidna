@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "59481df8c4e9083bd4a7a56672cf38c1",
+    "src": "9645fb2fab9deb5664068b8a69136f6d",
     "lean": "5c175f11268d6e9aaaa30fb839e441ee"
   },
   "files": {
@@ -3688,6 +3688,7 @@
     "src/school/advantage/index.ts": "7473a246663d59a1",
     "src/school/advantage/mcp/examples/index.ts": "97cd20435bb33824",
     "src/school/automate/improvement/index.ts": "2a90dfd28f8a978e",
+    "src/school/efficiency/index.ts": "0bf998d9418bf129",
     "src/school/index.ts": "1d722f46f9bc3003",
     "src/school/laboratory/index.ts": "bef2d53aeeb35861",
     "src/school/leads/index.ts": "9cfb77f8b6787ba4",
@@ -3797,7 +3798,7 @@
     "src/scripts/gen-readme.ts": "2b5a7632ff1b124e",
     "src/scripts/gen-referrer-song.ts": "4d60547b51e0c35b",
     "src/scripts/gen-reports.ts": "7a29ed45b9b27aa2",
-    "src/scripts/gen-school.ts": "608ef426b4dbf1ba",
+    "src/scripts/gen-school.ts": "267d1537f13a3037",
     "src/scripts/gen-search-feed.ts": "53750675473a3f42",
     "src/scripts/gen-seo-freeze.ts": "550be1880d6b8458",
     "src/scripts/gen-sequence-field.ts": "9010d1276f327e03",
