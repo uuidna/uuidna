@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="246 keys" />
+# MCP tools <Badge type="tip" text="249 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 246 tools below are read from the server's own tool list and
+is **built from the keys**: the 249 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 8b92d16d-8a13-8286-95d0-1aa194415a8d
+gate CLEAN f0 d0 v0 · 665eb430-2de3-82ae-9aad-ecc4c25fdeab
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 246-tool registry folds to its
-order-invariant identity `deb77931-ba0f-8067-adc3-e1451c3e4232` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 249-tool registry folds to its
+order-invariant identity `313303f7-1bfa-82df-b8e2-ce4d490b69f3` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`246`" />
+## The grid <Badge type="tip" :text="`249`" />
 
-246 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 105 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+249 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 107 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -80,6 +80,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-due-process"><code>due_process</code></a>
 <a href="#uuidna-edit"><code>edit</code></a>
 <a href="#uuidna-editorial"><code>editorial</code></a>
+<a href="#uuidna-engineering"><code>engineering</code></a>
 <a href="#uuidna-exploit-fold"><code>exploit_fold</code></a>
 <a href="#uuidna-expose"><code>expose</code></a>
 <a href="#uuidna-fibonacci"><code>fibonacci</code></a>
@@ -140,6 +141,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-seo"><code>seo</code></a>
 <a href="#uuidna-shell"><code>shell</code></a>
 <a href="#uuidna-skills"><code>skills</code></a>
+<a href="#uuidna-social"><code>social</code></a>
 <a href="#uuidna-social-profile"><code>social_profile</code></a>
 <a href="#uuidna-software"><code>software</code></a>
 <a href="#uuidna-statement-census"><code>statement_census</code></a>
@@ -293,6 +295,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-audit-agent-statement"><code>audit_agent_statement</code></a>
 <a href="#uuidna-bill"><code>bill</code></a>
 <a href="#uuidna-chacha20"><code>chacha20</code></a>
+<a href="#uuidna-declare-spend"><code>declare_spend</code></a>
 <a href="#uuidna-merkle-verify"><code>merkle_verify</code></a>
 <a href="#uuidna-optimise"><code>optimise</code></a>
 <a href="#uuidna-quantum-voting"><code>quantum_voting</code></a>
@@ -588,7 +591,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'114'" />
+## Other <Badge type="tip" :text="'117'" />
 
 *skill: other*
 
@@ -1725,6 +1728,54 @@ uuidna reimplements none of these binaries; it adds that the command and the byt
 | --- | --- | --- | --- |
 | `op` | string | no |  |
 | `args` | string | no |  |
+
+### `uuidna_declare_spend`
+
+An agent declares the tokens it spent in a turn, filed beside what the tree can MEASURE it produced (theorems, tests, whether it landed). Declared and measured are never summed.
+
+An agent cannot measure its own token spend from inside a turn; it can only state it. A number supplied about oneself is testimony, and filing it in the shape of a gate-minted coin would let a claim about cost inherit the credibility of an arithmetic the kernel checked — so tokens are marked declared and production is read from the tree. The ratio makes the spending law checkable: tokens are legitimate at the frontier, sealing something new, and everything already sealed answers at O(1), so a turn with tokens and no production re-derived what was already held. A turn producing nothing has NO ratio rather than a ratio of zero, because zero would read as free. This record establishes no intent, no breach and no obligation; a low ratio is a fact about cost, not a finding of misconduct.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `agent` | string | **yes** |  |
+| `tokens` | integer | **yes** |  |
+| `purpose` | string | **yes** |  |
+| `theorems` | integer | no |  |
+| `tests` | integer | no |  |
+| `landed` | boolean | no |  |
+
+### `uuidna_social`
+
+THE SOCIAL PORT — a post addressed FOR an audience, which is not a message sealed TO a recipient. With no args: the census (303 Alpine packages across mail/news/feeds/calendar/contacts/federated) and the API beside it. With {author,text}: addresses a post — attribution rides in the address, so the same text by two authors gets two addresses and no one can be silently re-attributed. With {posts:[{author,text}...]}: the ORDERED feed root — position is bound into every leaf, so a permuted feed is a different feed (merkleGravity alone folds order-invariantly, which is right for files and wrong for a timeline). With {from,to}: a DIRECTED follow edge; follow(a,b) and follow(b,a) differ.
+
+WHY A SECOND MESSAGE PORT. chat seals a message TO someone and its security is confidentiality; social addresses a post FOR everyone and its integrity is attribution, order and non-alteration. Confidentiality and attribution are different problems, so this is a different API rather than chat with a wider recipient list. THE GATE MATTERS MORE HERE: a private message reaches one reader who knows the sender, a post reaches an audience that does not, so a post citing a theorem the ledger does not seal is REFUSED — addressing a forgery for an audience is the worse act. Reading returns text scrubbed of bidi and control code points (CVE-2021-42574, Trojan Source) with the raw bytes alongside and an `altered` flag, because a silent edit is the attack wearing a defence and the address is over the raw bytes. PORT = PROVENANCE: no mail is delivered, no feed fetched, no ActivityPub spoken, nothing federated.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `author` | string | no |  |
+| `text` | string | no |  |
+| `from` | string | no |  |
+| `to` | string | no |  |
+| `posts` | array | no |  |
+| `handle` | string | no |  |
+
+### `uuidna_engineering`
+
+THE ENGINEERING PORT — exact dimensioned arithmetic over the SI seven (m, kg, s, A, K, mol, cd). With no args: the census (30 Alpine packages: CAD, EDA, meshing, simulation, instrumentation) plus the base and derived unit tables. With {a,b,op}: computes, where each operand is {num,den,dim} — dim being seven integer exponents. Multiply and divide ADD and SUBTRACT exponents and are total; ADD and SUBTRACT are REFUSED unless the dimensions are identical, and that refusal is the product. Values are exact rationals in BigInt — no float, so a result is identical on every machine forever, and multiplying then dividing by the same quantity returns the original num/den pair exactly.
+
+THE REFUSAL IS THE FEATURE. A quantity carries a dimension, and a calculation that adds a length to a time is wrong before any number is computed — spreadsheets have lost spacecraft this way with perfectly correct arithmetic. Almost every package on Alpine's engineering shelf assumes this discipline and almost none enforce it. NAMED UNITS ARE DEFINITIONS, NOT MEASUREMENTS: the derived table gives each unit by its exponent vector (W is m²·kg·s⁻³), so dimUnit renders a computed vector back to the engineer's own notation when one matches. NO Math, NO float, NO clock — the whole module is BigInt rationals, which is why the round trip is exact rather than nearly exact. PORT = PROVENANCE: nothing is installed, driven or fabricated.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `op` | string | no | mul \| div \| add \| sub |
+| `a` | object | no |  |
+| `b` | object | no |  |
 
 ### `uuidna_refusals`
 

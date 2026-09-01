@@ -80,6 +80,8 @@ import { license } from './license.js'
 import { priorArt } from './priorart.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { portsCensus } from './quantum/os/ports/index.js'
+import { socialApi, post, readPost, feedRoot, follow, timeline, type Post } from './quantum/os/socialapi/index.js'
+import { engApi, quantity, qMul, qDiv, qAdd, dimUnit, DIMENSIONLESS, type Dim } from './quantum/os/engapi/index.js'
 import { uiApi } from './quantum/os/uiapi/index.js'
 import { portAll } from './quantum/os/portall/index.js'
 import { cernPortSearch } from './quantum/os/cern/index.js'
@@ -1661,6 +1663,35 @@ const TOOLS: Tool[] = ([
       tests: a.tests === undefined ? 0 : Number(a.tests),
       landed: a.landed === true,
     }) },
+  { name: 'uuidna_social',
+    description: 'THE SOCIAL PORT — a post addressed FOR an audience, which is not a message sealed TO a recipient. With no args: the census (303 Alpine packages across mail/news/feeds/calendar/contacts/federated) and the API beside it. With {author,text}: addresses a post — attribution rides in the address, so the same text by two authors gets two addresses and no one can be silently re-attributed. With {posts:[{author,text}...]}: the ORDERED feed root — position is bound into every leaf, so a permuted feed is a different feed (merkleGravity alone folds order-invariantly, which is right for files and wrong for a timeline). With {from,to}: a DIRECTED follow edge; follow(a,b) and follow(b,a) differ.',
+    detail: 'WHY A SECOND MESSAGE PORT. chat seals a message TO someone and its security is confidentiality; social addresses a post FOR everyone and its integrity is attribution, order and non-alteration. Confidentiality and attribution are different problems, so this is a different API rather than chat with a wider recipient list. THE GATE MATTERS MORE HERE: a private message reaches one reader who knows the sender, a post reaches an audience that does not, so a post citing a theorem the ledger does not seal is REFUSED — addressing a forgery for an audience is the worse act. Reading returns text scrubbed of bidi and control code points (CVE-2021-42574, Trojan Source) with the raw bytes alongside and an `altered` flag, because a silent edit is the attack wearing a defence and the address is over the raw bytes. PORT = PROVENANCE: no mail is delivered, no feed fetched, no ActivityPub spoken, nothing federated.',
+    inputSchema: { type: 'object', properties: { author: { type: 'string' }, text: { type: 'string' }, from: { type: 'string' }, to: { type: 'string' }, posts: { type: 'array', items: { type: 'object', properties: { author: { type: 'string' }, text: { type: 'string' } } } }, handle: { type: 'string' } } },
+    run: (a) => {
+      const mk = (xs: unknown): Post[] => (Array.isArray(xs) ? xs : []).map((x) => { const o = x as { author?: unknown; text?: unknown }; return post(String(o.author ?? ''), String(o.text ?? '')) })
+      if (a.from !== undefined && a.to !== undefined) return follow(String(a.from), String(a.to))
+      if (a.posts !== undefined) {
+        const ps = mk(a.posts)
+        if (a.handle !== undefined) return timeline(String(a.handle), ps, [])
+        return { count: ps.length, posts: ps.map(readPost), root: feedRoot(ps) }
+      }
+      if (a.author !== undefined && a.text !== undefined) return readPost(post(String(a.author), String(a.text)))
+      return socialApi()
+    } },
+  { name: 'uuidna_engineering',
+    description: 'THE ENGINEERING PORT — exact dimensioned arithmetic over the SI seven (m, kg, s, A, K, mol, cd). With no args: the census (30 Alpine packages: CAD, EDA, meshing, simulation, instrumentation) plus the base and derived unit tables. With {a,b,op}: computes, where each operand is {num,den,dim} — dim being seven integer exponents. Multiply and divide ADD and SUBTRACT exponents and are total; ADD and SUBTRACT are REFUSED unless the dimensions are identical, and that refusal is the product. Values are exact rationals in BigInt — no float, so a result is identical on every machine forever, and multiplying then dividing by the same quantity returns the original num/den pair exactly.',
+    detail: 'THE REFUSAL IS THE FEATURE. A quantity carries a dimension, and a calculation that adds a length to a time is wrong before any number is computed — spreadsheets have lost spacecraft this way with perfectly correct arithmetic. Almost every package on Alpine\'s engineering shelf assumes this discipline and almost none enforce it. NAMED UNITS ARE DEFINITIONS, NOT MEASUREMENTS: the derived table gives each unit by its exponent vector (W is m²·kg·s⁻³), so dimUnit renders a computed vector back to the engineer\'s own notation when one matches. NO Math, NO float, NO clock — the whole module is BigInt rationals, which is why the round trip is exact rather than nearly exact. PORT = PROVENANCE: nothing is installed, driven or fabricated.',
+    inputSchema: { type: 'object', properties: { op: { type: 'string', description: 'mul | div | add | sub' }, a: { type: 'object', properties: { num: { type: 'integer' }, den: { type: 'integer' }, dim: { type: 'array', items: { type: 'integer' } } } }, b: { type: 'object', properties: { num: { type: 'integer' }, den: { type: 'integer' }, dim: { type: 'array', items: { type: 'integer' } } } } } },
+    run: (a) => {
+      const q = (x: unknown) => { const o = (x ?? {}) as { num?: unknown; den?: unknown; dim?: unknown }
+        return quantity(BigInt(String(o.num ?? 0)), BigInt(String(o.den ?? 1)), (Array.isArray(o.dim) && o.dim.length === 7 ? o.dim.map(Number) : DIMENSIONLESS) as unknown as Dim) }
+      if (a.a === undefined || a.b === undefined) return engApi()
+      const x = q(a.a); const y = q(a.b)
+      const op = String(a.op ?? 'mul')
+      const r = op === 'div' ? qDiv(x, y) : op === 'add' ? qAdd(x, y) : op === 'sub' ? qAdd(x, quantity(-y.num, y.den, y.dim)) : qMul(x, y)
+      return { op, a: { ...x, num: String(x.num), den: String(x.den) }, b: { ...y, num: String(y.num), den: String(y.den) },
+        result: { ...r, num: String(r.num), den: String(r.den) }, unit: dimUnit(r.dim) }
+    } },
   { name: 'uuidna_refusals',
     description: 'Every refusal with its boundary, classified as a law, a scope or an incapacity, and whether that boundary survived scrutiny. Withdrawn refusals are kept beside the ones that held.',
     detail: 'Refusing WORK and refusing the COURT are opposite acts, and only the first is recorded — the second has no legitimate instance, because the court verdict is what gives every other claim here its weight. The informative column is not the refusal but whether its boundary held: a boundary naming a law is checkable and usually does; a boundary naming an incapacity is the class to distrust. In this record every withdrawn refusal named an incapacity, which is one case out of one — a pattern to watch, not a proof. The larger corroboration is sealed separately as impossibility_claims_debt_622: six impossibility claims written into this tree and refuted in a single session, none caught by a test.',

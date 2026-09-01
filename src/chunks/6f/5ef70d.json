@@ -1,0 +1,12 @@
+{
+  "handle": "6f5ef70d",
+  "address": "6f5ef70d-0aa6-8255-828a-0807c213eb48",
+  "statement": "(7 * 10 = 70)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_eng_base_dimensions_7"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

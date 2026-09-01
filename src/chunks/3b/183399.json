@@ -1,0 +1,12 @@
+{
+  "handle": "3b183399",
+  "address": "3b183399-642d-8b3d-a245-8d3dd90af177",
+  "statement": "(438 + 30 - 0 = 468)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_da_en_ie_468"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

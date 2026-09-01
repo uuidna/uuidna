@@ -768,6 +768,8 @@ export { chainSeal, chainAppend, chainProve, chainVerify, chainApi, chainCensus,
 export { netRead, netVerify, netApi, networkCensus, type NetRead, type NetVerdict, type NetApiCensus } from './os/netapi/index.js'
 export { driverState, driverPin, driverCheck, driverCensus, type DriverApiState } from './drivers/driverapi/index.js'
 export { portsCensus, portsFragment, injectPorts, type PortedApi, type PortsCensus } from './quantum/os/ports/index.js'
+export { post, readPost, feedRoot, follow, timeline, socialApi, socialShelves, socialCensus, SOCIAL_DOMAIN, type Post, type ReadPost, type FollowEdge, type SocialShelf, type SocialApiCensus } from './quantum/os/socialapi/index.js'
+export { quantity, qMul, qDiv, qAdd, qSub, qEq, dimUnit, engApi, engineeringCensus, BASE_DIMENSIONS, DERIVED, DIMENSIONLESS, ENGINEERING_DOMAIN, type Dim, type Quantity, type EngApiCensus } from './quantum/os/engapi/index.js'
 // the machine asked about itself — the monitor it draws on, the translations it performs, the arches it spans
 export { primeMonitor, monitorPrimed, monitorCensus, renderMonitor, compilerCensus, renderCompilers, archMatrix, renderArchMatrix, type MonitorInventory, type MonitorCensus, type CompilerCensus, type ArchMatrix } from './quantum/os/census/index.js'
 // security — ATTESTED operations, not reimplementations; and a hardware key folded to an address

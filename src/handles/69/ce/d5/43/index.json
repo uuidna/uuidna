@@ -1,0 +1,12 @@
+{
+  "handle": "69ced543",
+  "address": "69ced543-e316-89e7-bab8-567f073658c5",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_engineering_origins_30"
+  ],
+  "statement": "(15 <= 30) ∧ (30 - 15 = 15)",
+  "files": [
+    "Wave.lean"
+  ]
+}

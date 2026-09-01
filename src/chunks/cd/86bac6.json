@@ -1,0 +1,12 @@
+{
+  "handle": "cd86bac6",
+  "address": "cd86bac6-4c31-8e04-8346-9f167beeb7f0",
+  "statement": "(25 + 303 - 0 = 328)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_as_so_ie_328"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

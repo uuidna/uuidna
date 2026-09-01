@@ -1,0 +1,12 @@
+{
+  "handle": "84eb8c58",
+  "address": "84eb8c58-cf40-8ddb-ad86-392e2b00f56b",
+  "statement": "(2 + 8 = 10)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_eng_derived_cancel_split_10"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "940cc872",
+  "address": "940cc872-6efb-800a-9ae3-b649079192e4",
+  "statement": "(40 + 30 - 0 = 70)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ma_en_ie_70"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

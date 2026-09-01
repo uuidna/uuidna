@@ -1,0 +1,12 @@
+{
+  "handle": "ffb962e6",
+  "address": "ffb962e6-38a3-8495-bfb8-a9393e61f97a",
+  "statement": "(53 + 30 - 0 = 83)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ar_en_ie_83"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

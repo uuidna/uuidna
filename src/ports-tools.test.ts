@@ -1,5 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
+import { theoremByKey } from './theorems/index.js'
 import { callTool, TOOL_NAMES } from './mcp.js'
 
 // Ten ports were given MCP doors and the tool-exercise audit objected within one run: a tool with no dedicated
@@ -100,6 +101,36 @@ test('uuidna_refusals — the withdrawn one is visible, not tidied away', () => 
   const c = callTool('uuidna_refusals') as { refused: number; withdrawn: number; rows: { survived: boolean }[] }
   assert.ok(c.withdrawn > 0, 'a registry showing only successful refusals teaches nothing')
   assert.equal(c.rows.length, c.refused + c.withdrawn)
+})
+
+test('uuidna_social — a post is addressed to its author, and the feed is ordered', () => {
+  const one = callTool('uuidna_social', { author: 'alice', text: 'port day' }) as { address: string; altered: boolean }
+  const other = callTool('uuidna_social', { author: 'bob', text: 'port day' }) as { address: string }
+  assert.notEqual(one.address, other.address)          // same text, two authors, two addresses
+  const ab = callTool('uuidna_social', { posts: [{ author: 'a', text: '1' }, { author: 'a', text: '2' }] }) as { root: string; count: number }
+  const ba = callTool('uuidna_social', { posts: [{ author: 'a', text: '2' }, { author: 'a', text: '1' }] }) as { root: string }
+  assert.equal(ab.count, 2)
+  assert.notEqual(ab.root, ba.root)                     // position is bound into every leaf
+  const f = callTool('uuidna_social', { from: 'a', to: 'b' }) as { address: string }
+  assert.notEqual(f.address, (callTool('uuidna_social', { from: 'b', to: 'a' }) as { address: string }).address)
+  const census = callTool('uuidna_social', {}) as { ported: { packages: number }; shelves: unknown[] }
+  assert.ok(census.ported.packages > 0 && census.shelves.length === 6)
+})
+
+test('uuidna_social — a post citing an unsealed theorem is REFUSED at the door', () => {
+  assert.throws(() => callTool('uuidna_social', { author: 'mallory', text: 'Backed by theorem no_such_theorem_at_all' }), /REFUSED/)
+})
+
+test('uuidna_engineering — exponents compose, and a mismatched sum is refused', () => {
+  const r = callTool('uuidna_engineering', { op: 'mul', a: { num: 3, den: 1, dim: [1, 1, -2, 0, 0, 0, 0] }, b: { num: 2, den: 1, dim: [1, 0, 0, 0, 0, 0, 0] } }) as { unit: string; result: { num: string } }
+  assert.equal(r.unit, 'J')                              // force × distance = energy, named back from the vector
+  assert.equal(r.result.num, '6')
+  assert.throws(() => callTool('uuidna_engineering', { op: 'add', a: { num: 1, den: 1, dim: [1, 0, 0, 0, 0, 0, 0] }, b: { num: 1, den: 1, dim: [0, 0, 1, 0, 0, 0, 0] } }), /REFUSED/)
+  const census = callTool('uuidna_engineering', {}) as { base: unknown[]; derived: unknown[]; claims: { key: string }[] }
+  assert.equal(census.base.length, 7)
+  assert.ok(census.derived.length > 0)
+  // the door CITES its own theorem keys, so the ledger must seal them — an unsealed citation drains the gate
+  assert.ok(census.claims.every((c) => theoremByKey().has(c.key)))
 })
 
 test('uuidna_declare_spend — testimony and measurement stay apart', () => {

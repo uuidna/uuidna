@@ -19,6 +19,7 @@ import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS, domainTierClaims } 
 import { shellClaims } from '../quantum/os/shellapi/index.js'
 import { quantumMargin } from '../os/kdf/index.js'
 import { securityClaims } from '../os/secapi/index.js'
+import { engApi } from '../quantum/os/engapi/index.js'
 import { portAll } from '../quantum/os/portall/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
 import { theorems } from '../theorems/index.js'
@@ -164,6 +165,15 @@ for (const cl of domainTierClaims()) {
 // THE SHELL PARTITION RIDES THE SAME CONVEYOR. It is Alpine arithmetic like every other claim here — derived
 // from the provides column rather than from a list anyone typed — so it deposits through the one door that
 // already refuses duplicates by statement, instead of growing a second deposit script beside it.
+// THE ENGINEERING PORT'S OWN ARITHMETIC, deposited the same way the shell and security ports deposit theirs.
+// This one was not a choice of tidiness: engApi() emits its claims INSIDE its own output, so the hosted MCP
+// door returned a `lean:` line citing a theorem key the ledger did not hold — and the edge honesty gate flagged
+// the whole response isError, correctly, as a fabricated citation. The gate was right and the module was
+// wrong. A tool that cites is a tool that must SEAL, and the fix is to seal rather than to stop citing.
+for (const cl of engApi().claims) {
+  candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS('engineering-units', cl.says), source: 'alpine-domains', from: 'engApi' } as WaveCandidate)
+}
+
 for (const cl of shellClaims()) {
   candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS('shell-applets', cl.says), source: 'alpine-domains', from: 'shellClaims' } as WaveCandidate)
 }

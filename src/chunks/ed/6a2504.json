@@ -1,0 +1,12 @@
+{
+  "handle": "ed6a2504",
+  "address": "ed6a2504-1698-850f-b11d-b7b9924e70cc",
+  "statement": "(7486 + 30 - 1 = 7515)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_la_en_ie_7515"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

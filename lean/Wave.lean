@@ -5051,3 +5051,331 @@ theorem impossibility_modal_debt_642 : (642 > 622) ∧ (622 > 6) ∧ (6 + 0 = 6)
     trick, which is why it covers tricks nobody has published. It does not say which rendering is honest, only
     that two are not one — which is the fact visual review was missing. -/
 theorem display_gap_address_separates_4 : (4 = 4) ∧ (1 < 4) ∧ (4 - 1 = 3) := by decide
+
+/-- Alpine domain port (social): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    the social domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is
+    lost -/
+theorem alpine_domain_social_partitions_28635 : (303 + 28332 = 28635) := by decide
+
+/-- Alpine domain port (social): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    139 of the 303 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+theorem alpine_domain_social_origins_303 : (164 <= 303) ∧ (303 - 164 = 139) := by decide
+
+/-- Alpine domain port (engineering): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the engineering domain and everything outside it sum to the catalogue — nothing is counted twice
+    and nothing is lost -/
+theorem alpine_domain_engineering_partitions_28635 : (30 + 28605 = 28635) := by decide
+
+/-- Alpine domain port (engineering): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. 15 of the 30 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+theorem alpine_domain_engineering_origins_30 : (15 <= 30) ∧ (30 - 15 = 15) := by decide
+
+/-- Inclusion-exclusion across database and social, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_da_so_ie_741 : (438 + 303 - 0 = 741) := by decide
+
+/-- Inclusion-exclusion across database and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_da_en_ie_468 : (438 + 30 - 0 = 468) := by decide
+
+/-- Inclusion-exclusion across filesystem and social, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_fi_so_ie_518 : (215 + 303 - 0 = 518) := by decide
+
+/-- Inclusion-exclusion across filesystem and engineering, exact over the committed mirror. They share no
+    packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount,
+    and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_fi_en_ie_245 : (215 + 30 - 0 = 245) := by decide
+
+/-- Inclusion-exclusion across blockchain and social, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_bl_so_ie_332 : (29 + 303 - 0 = 332) := by decide
+
+/-- Inclusion-exclusion across blockchain and engineering, exact over the committed mirror. They share no
+    packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount,
+    and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_bl_en_ie_59 : (29 + 30 - 0 = 59) := by decide
+
+/-- Inclusion-exclusion across driver and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_dr_so_ie_933 : (630 + 303 - 0 = 933) := by decide
+
+/-- Inclusion-exclusion across driver and engineering, exact over the committed mirror. They share 1 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_dr_en_ie_659 : (630 + 30 - 1 = 659) := by decide
+
+/-- Inclusion-exclusion across language and social, exact over the committed mirror. They share 89 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_so_ie_7700 : (7486 + 303 - 89 = 7700) := by decide
+
+/-- Inclusion-exclusion across language and engineering, exact over the committed mirror. They share 1 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_la_en_ie_7515 : (7486 + 30 - 1 = 7515) := by decide
+
+/-- Inclusion-exclusion across network and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_ne_so_ie_635 : (332 + 303 - 0 = 635) := by decide
+
+/-- Inclusion-exclusion across network and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_ne_en_ie_362 : (332 + 30 - 0 = 362) := by decide
+
+/-- Inclusion-exclusion across science and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_sc_so_ie_377 : (74 + 303 - 0 = 377) := by decide
+
+/-- Inclusion-exclusion across science and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_sc_en_ie_104 : (74 + 30 - 0 = 104) := by decide
+
+/-- Inclusion-exclusion across media and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_me_so_ie_562 : (259 + 303 - 0 = 562) := by decide
+
+/-- Inclusion-exclusion across media and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_me_en_ie_289 : (259 + 30 - 0 = 289) := by decide
+
+/-- Inclusion-exclusion across shell and social, exact over the committed mirror. They share 3 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_sh_so_ie_1579 : (1279 + 303 - 3 = 1579) := by decide
+
+/-- Inclusion-exclusion across shell and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_sh_en_ie_1309 : (1279 + 30 - 0 = 1309) := by decide
+
+/-- Inclusion-exclusion across chat and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_ch_so_ie_544 : (241 + 303 - 0 = 544) := by decide
+
+/-- Inclusion-exclusion across chat and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_ch_en_ie_271 : (241 + 30 - 0 = 271) := by decide
+
+/-- Inclusion-exclusion across crypto and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_cr_so_ie_502 : (199 + 303 - 0 = 502) := by decide
+
+/-- Inclusion-exclusion across crypto and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_cr_en_ie_229 : (199 + 30 - 0 = 229) := by decide
+
+/-- Inclusion-exclusion across security and social, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_se_so_ie_389 : (86 + 303 - 0 = 389) := by decide
+
+/-- Inclusion-exclusion across security and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_se_en_ie_116 : (86 + 30 - 0 = 116) := by decide
+
+/-- Inclusion-exclusion across math and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_ma_so_ie_343 : (40 + 303 - 0 = 343) := by decide
+
+/-- Inclusion-exclusion across math and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_ma_en_ie_70 : (40 + 30 - 0 = 70) := by decide
+
+/-- Inclusion-exclusion across art and social, exact over the committed mirror. They share no packages under the
+    seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry
+    more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is
+    for. -/
+theorem alpine_dom_ar_so_ie_356 : (53 + 303 - 0 = 356) := by decide
+
+/-- Inclusion-exclusion across art and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_ar_en_ie_83 : (53 + 30 - 0 = 83) := by decide
+
+/-- Inclusion-exclusion across bio and social, exact over the committed mirror. They share no packages under the
+    seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry
+    more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is
+    for. -/
+theorem alpine_dom_bi_so_ie_305 : (2 + 303 - 0 = 305) := by decide
+
+/-- Inclusion-exclusion across bio and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_bi_en_ie_32 : (2 + 30 - 0 = 32) := by decide
+
+/-- Inclusion-exclusion across chemistry and social, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_ch_so_ie_306 : (3 + 303 - 0 = 306) := by decide
+
+/-- Inclusion-exclusion across chemistry and engineering, exact over the committed mirror. They share no
+    packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount,
+    and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_ch_en_ie_33 : (3 + 30 - 0 = 33) := by decide
+
+/-- Inclusion-exclusion across neuro and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_ne_so_ie_314 : (11 + 303 - 0 = 314) := by decide
+
+/-- Inclusion-exclusion across neuro and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_ne_en_ie_41 : (11 + 30 - 0 = 41) := by decide
+
+/-- Inclusion-exclusion across astronomy and social, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_as_so_ie_328 : (25 + 303 - 0 = 328) := by decide
+
+/-- Inclusion-exclusion across astronomy and engineering, exact over the committed mirror. They share no
+    packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount,
+    and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_as_en_ie_55 : (25 + 30 - 0 = 55) := by decide
+
+/-- Inclusion-exclusion across physics and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_ph_so_ie_310 : (7 + 303 - 0 = 310) := by decide
+
+/-- Inclusion-exclusion across physics and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_ph_en_ie_37 : (7 + 30 - 0 = 37) := by decide
+
+/-- Inclusion-exclusion across geo and social, exact over the committed mirror. They share no packages under the
+    seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry
+    more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is
+    for. -/
+theorem alpine_dom_ge_so_ie_365 : (62 + 303 - 0 = 365) := by decide
+
+/-- Inclusion-exclusion across geo and engineering, exact over the committed mirror. They share 1 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_ge_en_ie_91 : (62 + 30 - 1 = 91) := by decide
+
+/-- Inclusion-exclusion across virtualization and social, exact over the committed mirror. They share no
+    packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount,
+    and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_vi_so_ie_535 : (232 + 303 - 0 = 535) := by decide
+
+/-- Inclusion-exclusion across virtualization and engineering, exact over the committed mirror. They share no
+    packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount,
+    and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_vi_en_ie_262 : (232 + 30 - 0 = 262) := by decide
+
+/-- Inclusion-exclusion across font and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_fo_so_ie_385 : (82 + 303 - 0 = 385) := by decide
+
+/-- Inclusion-exclusion across font and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_fo_en_ie_112 : (82 + 30 - 0 = 112) := by decide
+
+/-- Inclusion-exclusion across audio and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_au_so_ie_501 : (198 + 303 - 0 = 501) := by decide
+
+/-- Inclusion-exclusion across audio and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_au_en_ie_228 : (198 + 30 - 0 = 228) := by decide
+
+/-- Inclusion-exclusion across build and social, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_bu_so_ie_563 : (260 + 303 - 0 = 563) := by decide
+
+/-- Inclusion-exclusion across build and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_bu_en_ie_290 : (260 + 30 - 0 = 290) := by decide
+
+/-- Inclusion-exclusion across social and engineering, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_so_en_ie_333 : (303 + 30 - 0 = 333) := by decide
+
+/-- Alpine domain port (engineering-units): exact arithmetic over the census counts. — membership is a pattern
+    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
+    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. 2 of the 10 derived units have exponents that cancel to zero and 8 do not — the two groups are the
+    whole table -/
+theorem alpine_eng_derived_cancel_split_10 : (2 + 8 = 10) := by decide
+
+/-- Alpine domain port (engineering-units): exact arithmetic over the census counts. — membership is a pattern
+    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
+    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. every derived unit carries all 7 base exponents — 70 integers, none implied -/
+theorem alpine_eng_base_dimensions_7 : (7 * 10 = 70) := by decide

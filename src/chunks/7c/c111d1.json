@@ -1,0 +1,12 @@
+{
+  "handle": "7cc111d1",
+  "address": "7cc111d1-da2a-8eb3-aab6-9742873baf0f",
+  "statement": "(7486 + 303 - 89 = 7700)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_la_so_ie_7700"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

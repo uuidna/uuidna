@@ -1,0 +1,12 @@
+{
+  "handle": "c2d1cce2",
+  "address": "c2d1cce2-4f82-8a5a-9f8d-0684a6206bc1",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_social_partitions_28635"
+  ],
+  "statement": "(303 + 28332 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

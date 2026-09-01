@@ -1,0 +1,12 @@
+{
+  "handle": "43678e6b",
+  "address": "43678e6b-a411-85a1-9759-9f6ad71ddc5f",
+  "statement": "(199 + 303 - 0 = 502)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_cr_so_ie_502"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

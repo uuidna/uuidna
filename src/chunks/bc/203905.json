@@ -1,0 +1,12 @@
+{
+  "handle": "bc203905",
+  "address": "bc203905-92f8-8789-b9c5-4a70dbd24f76",
+  "statement": "(53 + 303 - 0 = 356)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ar_so_ie_356"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

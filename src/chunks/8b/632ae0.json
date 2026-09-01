@@ -1,0 +1,12 @@
+{
+  "handle": "8b632ae0",
+  "address": "8b632ae0-c990-8fd2-a405-9b4e7f8f2f7f",
+  "statement": "(164 <= 303) ∧ (303 - 164 = 139)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_social_origins_303"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

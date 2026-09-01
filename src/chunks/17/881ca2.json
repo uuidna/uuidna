@@ -1,0 +1,12 @@
+{
+  "handle": "17881ca2",
+  "address": "17881ca2-3391-8a34-a43c-21b31455f54e",
+  "statement": "(630 + 303 - 0 = 933)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_dr_so_ie_933"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

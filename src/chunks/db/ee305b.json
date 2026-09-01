@@ -1,0 +1,12 @@
+{
+  "handle": "dbee305b",
+  "address": "dbee305b-0d29-8e4a-8416-cdcab991a4d9",
+  "statement": "(7 + 303 - 0 = 310)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ph_so_ie_310"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

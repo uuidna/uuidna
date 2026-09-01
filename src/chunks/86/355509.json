@@ -1,0 +1,12 @@
+{
+  "handle": "86355509",
+  "address": "86355509-decc-87d4-bc32-4b8ed1e99156",
+  "statement": "(332 + 30 - 0 = 362)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ne_en_ie_362"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

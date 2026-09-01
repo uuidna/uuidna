@@ -15,6 +15,8 @@
 // wrong on the next landing. portsCensus() is computed from the committed mirror on every build, so the surfaces
 // quote a function rather than a memory.
 import { chatApi } from '../chat/index.js'
+import { socialApi } from '../socialapi/index.js'
+import { engApi } from '../engapi/index.js'
 import { shellCoverage } from '../shellapi/index.js'
 import { fsApi } from '../fsapi/index.js'
 import { dbApi } from '../dbapi/index.js'
@@ -55,6 +57,8 @@ export function portsCensus(): PortsCensus {
   const chain = chainApi()
   const net = netApi()
   const drv = driverState()
+  const soc = socialApi()
+  const eng = engApi()
 
   const ports: PortedApi[] = [
     { domain: 'shell', offers: 'one exec door over uuidnaOS applets', packages: shell.ported.packages, origins: shell.ported.origins,
@@ -69,6 +73,10 @@ export function portsCensus(): PortsCensus {
       api: chat.api, detail: { protocols: chat.protocols.length, largest: chat.protocols[0]?.protocol ?? '' } },
     { domain: 'filesystem', offers: 'one question: are these the bytes that were sealed', packages: fs.ported.packages, origins: fs.ported.origins,
       api: fs.api, detail: {} },
+    { domain: 'social', offers: 'a post addressed FOR an audience — attribution, order, no alteration', packages: soc.ported.packages, origins: soc.ported.origins,
+      api: soc.api, detail: { shelves: soc.shelves.length, largest: soc.shelves[0]?.shelf ?? '', distinctFromChat: soc.distinctFromChat } },
+    { domain: 'engineering', offers: 'exact dimensioned arithmetic — and the refusal that makes it worth having', packages: eng.ported.packages, origins: eng.ported.origins,
+      api: eng.api, detail: { base: eng.base.length, derived: eng.derived.length } },
     { domain: 'blockchain', offers: 'inclusion without disclosure', packages: chain.ported.packages, origins: chain.ported.origins,
       api: chain.api, detail: { leftToTheOperator: chain.leftToTheOperator.length } },
   ]

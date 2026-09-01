@@ -1,0 +1,12 @@
+{
+  "handle": "26ceb056",
+  "address": "26ceb056-a478-8ad2-be6c-6cbae181e926",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_engineering_partitions_28635"
+  ],
+  "statement": "(30 + 28605 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

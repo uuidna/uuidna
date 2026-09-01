@@ -1,0 +1,12 @@
+{
+  "handle": "4a5bc000",
+  "address": "4a5bc000-02a3-8d6f-9a5d-2a3a6df8e9e4",
+  "statement": "(198 + 303 - 0 = 501)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_au_so_ie_501"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

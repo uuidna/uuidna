@@ -1,0 +1,12 @@
+{
+  "handle": "7b780f44",
+  "address": "7b780f44-052f-8606-b636-af4c307eb80e",
+  "statement": "(82 + 30 - 0 = 112)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_fo_en_ie_112"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

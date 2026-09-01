@@ -1,0 +1,12 @@
+{
+  "handle": "b21da565",
+  "address": "b21da565-5784-8c96-9b47-90d71284cbc2",
+  "statement": "(40 + 303 - 0 = 343)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ma_so_ie_343"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

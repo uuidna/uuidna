@@ -1,0 +1,12 @@
+{
+  "handle": "759f104d",
+  "address": "759f104d-26cb-8ccb-921d-13e9d115dcee",
+  "statement": "(7 + 30 - 0 = 37)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ph_en_ie_37"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

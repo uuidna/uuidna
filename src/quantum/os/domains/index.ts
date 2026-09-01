@@ -183,6 +183,25 @@ export const DOMAIN_PATTERNS: readonly DomainPattern[] = [
     match: /\b(gcc|clang|llvm|cmake|meson|ninja|autoconf|automake|libtool|pkgconf|binutils|musl-dev|linux-headers)\b/i,
     note: 'compilers, build systems and the headers they need — the toolchain Alpine publishes, recorded and not invoked',
   },
+  {
+    // SOCIAL IS THE ASYNCHRONOUS, ADDRESSED, PUBLIC SIDE — and the pattern is written to stay OFF chat's shelf.
+    // `chat` already owns IRC, XMPP, Matrix and the bridges: the live, private, symmetric channel. What is left
+    // is the half Alpine ships far more of and nobody had counted here — mail, news, feeds, calendars, contacts
+    // and the collaboration tools around them. A message with a recipient and a message with an AUDIENCE are
+    // different objects, and the port beside this census is built on that difference rather than papering it.
+    domain: 'social',
+    match: /\b(e-?mail|mail (transfer|delivery|server|client|filter)|imap|smtp|pop3|maildir|mbox|\bmua\b|\bmta\b|newsreader|nntp|usenet|activitypub|fediverse|microblog\w*|feed (reader|aggregator)|rss|atom feed|syndicat\w*|webmail|carddav|caldav|vcard|icalendar|address ?book|mailing list|webring|guestbook)\b/i,
+    note: 'the asynchronous social shelf as Alpine publishes it — mail, news, feeds, calendars and contacts, by name and version only. Deliberately DISJOINT in intent from `chat`, which owns the live channel; nothing here is installed, delivered, subscribed or posted',
+  },
+  {
+    // ENGINEERING IS DESIGN AND MEASUREMENT, not the toolchain — `build` owns compilers and `math` owns the
+    // numeric shelf, so this pattern names neither. What it names is the work of describing a physical thing
+    // and checking that the description balances: CAD, EDA, meshes, finite elements, CNC, simulation and
+    // instrumentation. That is also exactly what the API beside it does, which is why the two belong together.
+    domain: 'engineering',
+    match: /\b(\bcad\b|solid model\w*|\beda\b|schematic capture|\bpcb\b|circuit simulat\w*|spice simulat\w*|verilog|vhdl|\bfpga\b|finite element|\bfem\b|mesh generat\w*|\bcnc\b|g-?code|3d print\w*|slicer|computational fluid|\bcfd\b|multibody|kinematic\w*|oscilloscope|logic analy[sz]er|data acquisition|unit conversion|dimensional analysis)\b/i,
+    note: 'the engineering shelf — CAD, EDA, meshing, simulation and instrumentation as Alpine publishes them. Deliberately disjoint in intent from `build` (compilers) and `math` (the numeric shelf); nothing is installed, driven or fabricated',
+  },
 ]
 
 // ── THE INVOLUTION TIER — RELATED, NOT MATCHED (the captain, 2026-09-01: "involute and they are") ─────────────
