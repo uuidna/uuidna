@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="245 keys" />
+# MCP tools <Badge type="tip" text="246 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 245 tools below are read from the server's own tool list and
+is **built from the keys**: the 246 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · fb79cd21-9e2f-87bb-b797-4c7e867f6c08
+gate CLEAN f0 d0 v0 · 8b92d16d-8a13-8286-95d0-1aa194415a8d
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 245-tool registry folds to its
-order-invariant identity `c4946f04-cffd-8725-ba21-b4c6dc2fefda` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 246-tool registry folds to its
+order-invariant identity `deb77931-ba0f-8067-adc3-e1451c3e4232` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`245`" />
+## The grid <Badge type="tip" :text="`246`" />
 
-245 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 104 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+246 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 105 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -120,6 +120,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-quantum-sailing-cross-book"><code>quantum_sailing_cross_book</code></a>
 <a href="#uuidna-quantum-sailing-library"><code>quantum_sailing_library</code></a>
 <a href="#uuidna-quantum-sailing-weather"><code>quantum_sailing_weather</code></a>
+<a href="#uuidna-refusals"><code>refusals</code></a>
 <a href="#uuidna-registry"><code>registry</code></a>
 <a href="#uuidna-related"><code>related</code></a>
 <a href="#uuidna-reports"><code>reports</code></a>
@@ -587,7 +588,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'113'" />
+## Other <Badge type="tip" :text="'114'" />
 
 *skill: other*
 
@@ -1724,6 +1725,14 @@ uuidna reimplements none of these binaries; it adds that the command and the byt
 | --- | --- | --- | --- |
 | `op` | string | no |  |
 | `args` | string | no |  |
+
+### `uuidna_refusals`
+
+Every refusal with its boundary, classified as a law, a scope or an incapacity, and whether that boundary survived scrutiny. Withdrawn refusals are kept beside the ones that held.
+
+Refusing WORK and refusing the COURT are opposite acts, and only the first is recorded — the second has no legitimate instance, because the court verdict is what gives every other claim here its weight. The informative column is not the refusal but whether its boundary held: a boundary naming a law is checkable and usually does; a boundary naming an incapacity is the class to distrust. In this record every withdrawn refusal named an incapacity, which is one case out of one — a pattern to watch, not a proof. The larger corroboration is sealed separately as impossibility_claims_debt_622: six impossibility claims written into this tree and refuted in a single session, none caught by a test.
+
+_No parameters._
 
 ### `uuidna_cern`
 

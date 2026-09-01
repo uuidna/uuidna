@@ -1,0 +1,12 @@
+{
+  "handle": "ca553d11",
+  "address": "ca553d11-34c9-8ff1-b113-29dd66451594",
+  "kind": "chunk",
+  "keys": [
+    "impossibility_modal_debt_642"
+  ],
+  "statement": "(642 > 622) ∧ (622 > 6) ∧ (6 + 0 = 6)",
+  "files": [
+    "Wave.lean"
+  ]
+}

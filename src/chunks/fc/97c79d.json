@@ -1,0 +1,12 @@
+{
+  "handle": "fc97c79d",
+  "address": "fc97c79d-cd98-867a-854f-f8c7f214f3b0",
+  "statement": "(100 < 119) ∧ (144 + 100 = 244)",
+  "tactic": "decide",
+  "keys": [
+    "mcp_tool_debt_100"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -5030,3 +5030,17 @@ theorem impossibility_claims_debt_622 : (6 + 0 = 6) ∧ (622 > 6) ∧ (291 < 622
     percent by integer division. The name states what the arithmetic proves — three counts — and does NOT claim
     a universal over the pages, which is what the first name did before the incomplete finder refused it. -/
 theorem alpine_page_list_cap_removed_315 : (315 + 28320 = 28635) ∧ (422 < 1162) ∧ (315 * 100 / 28635 = 1) := by decide
+
+/-- THE RATCHETED NUMBER, IN THE KEY. 100 MCP tools are covered only by aggregate folds, down from 119 when
+    nineteen zero-argument tools earned assertions checking a property that could be wrong. The sibling key
+    mcp_tool_coverage_partition_244 states the same partition but is named for the tool count, so a ratchet
+    finder reading the suffix would watch 244 rather than the debt. A convention that stores the value in the
+    key only holds if the key stores THAT value. -/
+theorem mcp_tool_debt_100 : (100 < 119) ∧ (144 + 100 = 244) := by decide
+
+/-- THE RATCHET UNDER THE NEW RULER. 642 bare modal claims — impossibility AND obligation — where the
+    impossibility-only detector found 622. The first clause records that the count ROSE, which is the honest
+    shape: a widened ruler finds what was always there and was invisible, and a shrink-only law that quietly
+    absorbed the rise would be the loosening it exists to prevent. The old family stays sealed; this one
+    ratchets from 642 down. -/
+theorem impossibility_modal_debt_642 : (642 > 622) ∧ (622 > 6) ∧ (6 + 0 = 6) := by decide

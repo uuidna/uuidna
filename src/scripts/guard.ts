@@ -6,6 +6,8 @@
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { landingGaps } from './landing-gaps.js'
 import { impossibilityGaps } from './impossibility-gaps.js'
+import { ratchetGaps } from './ratchet-gaps.js'
+import { RATCHETS } from './ratchets.js'
 import { sourceGraph } from '../test-paths.js'
 /** the declared debt — files already carrying bare impossibility claims. May only shrink. */
 const impossibilityBaseline = (): ReadonlySet<string> => {
@@ -252,6 +254,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // nobody re-examines it and the work behind it never gets done. The existing 622 are a declared debt that may
   // only shrink; a NEW file claiming impossibility must name a host fact, a theorem, a boundary, or by-construction.
   { name: 'impossibility', run: () => impossibilityGaps([...sourceGraph().keys()], impossibilityBaseline()) },
+  // A MEASURE MAY NOT BE LOOSENED TO FIT A RESULT. Runs the ratchets: each live measurement against the value
+  // sealed in the ledger, and the measure's OWN address before the reading — because a number checked against a
+  // ceiling set by a different ruler is worse than an unchecked number, it is a confident verdict about nothing.
+  { name: 'ratchet', run: () => ratchetGaps(RATCHETS) },
   // THE MIRROR MUST AGREE BY VALUE— a js mirror doing Number arithmetic past 2^53 can round to
   // the SAME wrong value as the Lean it is checked against and pass emit()'s comparison by luck. Three mirrors
   // needed BigInt in one session (2026-08-19); the third was caught by hand, which is what makes it a finder.

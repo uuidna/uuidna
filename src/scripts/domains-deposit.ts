@@ -77,6 +77,28 @@ candidates.push({
   } as WaveCandidate)
 }
 
+// A NEW RULER EARNS A NEW FAMILY. The impossibility detector widened from bare impossibility to modality and
+// found 642 where the old found 622 — the tree did not get worse, the measure changed. Re-sealing 642 under the
+// old key would silently raise a shrink-only ceiling, so the widened detector gets its own family and
+// impossibility_claims_debt_622 stays sealed as history under the old name. The two numbers are not comparable
+// and the naming says so.
+candidates.push({
+  key: 'impossibility_modal_debt_642',
+  lean: 'theorem impossibility_modal_debt_642 : (642 > 622) ∧ (622 > 6) ∧ (6 + 0 = 6) := by decide',
+  why: 'THE RATCHET UNDER THE NEW RULER. 642 bare modal claims — impossibility AND obligation — where the impossibility-only detector found 622. The first clause records that the count ROSE, which is the honest shape: a widened ruler finds what was always there and was invisible, and a shrink-only law that quietly absorbed the rise would be the loosening it exists to prevent. The old family stays sealed; this one ratchets from 642 down.',
+  source: 'impossibility-gaps', from: 'RATCHETS',
+} as WaveCandidate)
+
+// THE DEBT GETS ITS OWN KEY, because the ratchet convention only works when the key carries the number being
+// ratcheted. mcp_tool_coverage_partition_244 carries the TOOL COUNT; the thing that may only shrink is the 100
+// tools with no dedicated test, and a finder reading the suffix would have watched the wrong number.
+candidates.push({
+  key: 'mcp_tool_debt_100',
+  lean: 'theorem mcp_tool_debt_100 : (100 < 119) ∧ (144 + 100 = 244) := by decide',
+  why: 'THE RATCHETED NUMBER, IN THE KEY. 100 MCP tools are covered only by aggregate folds, down from 119 when nineteen zero-argument tools earned assertions checking a property that could be wrong. The sibling key mcp_tool_coverage_partition_244 states the same partition but is named for the tool count, so a ratchet finder reading the suffix would watch 244 rather than the debt. A convention that stores the value in the key only holds if the key stores THAT value.',
+  source: 'mcp-coverage', from: 'auditToolExercise',
+} as WaveCandidate)
+
 // THE COVERAGE DEBT IS A NUMBER WITH A DIRECTION, so it becomes a theorem too. 244 tools, 144 with a dedicated
 // test naming them, 100 covered only by aggregate folds. A debt list that may only shrink is the right law and
 // does nothing on its own — a list can hold steady for years while every entry stays unexamined. Sealing the

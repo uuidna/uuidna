@@ -1,13 +1,13 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 2522,
- "distinct": 2439,
+ "keys": 2524,
+ "distinct": 2441,
  "skills": 112,
  "files": 115,
  "bySkill": [
   {
    "name": "wave",
-   "n": 846
+   "n": 848
   },
   {
    "name": "z9-ring",
@@ -457,7 +457,7 @@
  "byFile": [
   {
    "name": "Wave.lean",
-   "n": 846
+   "n": 848
   },
   {
    "name": "Ring.lean",
@@ -828,6 +828,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "8ef7451f-4842-8a15-87dc-ccfcf26d513c",
+ "receipt": "1d91812d-6323-819b-9c75-8bcd4a49bdb2",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }
