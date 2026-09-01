@@ -7,10 +7,6 @@
       "owes": "a decision on whether the record should be uniform; backfilling rewrites 1120 SHAs and invalidates gate-receipt content-addressing and any DOI provenance pointing into this history"
     },
     {
-      "lead": "gpuPresence DETECTS an accelerator and nothing in the tree dispatches to one. The field is honest but the gap is permanent until something uses it",
-      "owes": "either a real data-parallel dispatch measured against the CPU baseline now recorded, or an explicit statement that none is intended so the field stops reading as a TODO"
-    },
-    {
       "lead": "the alpine-discovery phase gate is a STAND-IN: it fires on s.harvest, which counts search-feed leads, not Alpine ore. The contract it restored is real but the signal is the wrong one",
       "owes": "an alpine-specific pending count in GapSurvey so the phase runs when there is Alpine work, not when an unrelated conveyor is busy"
     },
@@ -25,6 +21,10 @@
     {
       "lead": "deploy-run reports COMPLETE and exits 0 while four steps inside it FAILED: always_use_https could not authenticate for uuidna.com, uuidna.net, uuidna.org and perma.family. The redirect is in fact enforced (http answers 301), so the zone setting was already on and only the verification failed — but the run could not tell the difference and said nothing",
       "owes": "either a token with zone scope so the hardening can actually verify, or a non-zero exit when a hardening step fails — a deploy that reports COMPLETE over four failures is the same shape as the gate that exited 0 without running"
+    },
+    {
+      "lead": "one census() costs 66 seconds — it evaluates every sealed statement under an involution, about 30 ms per theorem. Memoising removed all REDUNDANCY (four calls became two, one per involution, the minimum), so the suite floor is now 2 x 66 s and is set by the evaluation itself rather than by repetition",
+      "owes": "a measurement of where those 30 ms go inside involutionSurvives — parse, evaluate, or address fold — and then either a cheaper evaluator or a statement that deciding 2,163 statements twice is what the guarantee costs"
     }
   ],
   "refuted": [
@@ -214,6 +214,10 @@
     {
       "lead": "kubo (IPFS, 4 packages) is genuinely filesystem AND chain and no domain pattern claims it; electrs is a database over chain data. The three domains are disjoint because the patterns are mutually exclusive BY CONSTRUCTION, not because the catalogue lacks straddling software",
       "killed_by": "Settled by adding a fourth domain rather than by argument. The driver domain (630 packages, 460 origins) genuinely STRADDLES: 61 packages shared with database and 8 with filesystem, so 438 + 630 - 61 = 1007 is a real set identity and not the addition the first three reduced to. The disjointness was an artefact of three narrow, mutually exclusive patterns — exactly as suspected — and not a property of the catalogue. kubo/IPFS remains unclaimed by any pattern, which is now a smaller and sharper thing to want."
+    },
+    {
+      "lead": "gpuPresence DETECTS an accelerator and nothing in the tree dispatches to one. The field is honest but the gap is permanent until something uses it",
+      "killed_by": "MEASURED, on real hardware, through the browser harness at /os — the first time anything in this repository has run on a GPU. The shader AGREED with the CPU reference element for element at every size, so the dispatch is correct. And the CPU won at every size: 1525.88x at 1,024 elements, 10.39x at 16,384, 4.84x at 262,144 and 2.72x at 1,048,576. The prediction recorded before the measurement was that the CPU would win below roughly a hundred thousand elements; it in fact wins at a million, the margin narrowing but never crossing. A dispatch is a buffer write, a submit and a readback, and that fixed cost never amortises against 37-83 ns/element on work this shape. The dispatch stays as a MEASURED negative result rather than a capability: it is real, it is correct, and it is slower. — CORRECTED THE SAME DAY, and the refutation above measured the wrong arrangement. Those figures are the GPU used ALONE, awaited immediately, which idles the CPU and can only lose. Split across both processors with the dispatch submitted first and the CPU share computed while it is in flight, the involution BEATS the CPU alone at 1,048,576 elements: 170.70 ms for CPU alone against 134.90 ms at a 10% GPU share (1.27x), 141.10 ms at 50% (1.21x) and 159.40 ms at 25% (1.07x), with correctness holding at every split. It loses again at 75% and 100%. The ordering is NON-MONOTONIC, so run-to-run noise is comparable to the effect and no optimal split is claimed — only that the involution can beat either processor alone, which is the opposite of what the first measurement concluded."
     }
   ],
   "refused": [

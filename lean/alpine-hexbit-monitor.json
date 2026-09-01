@@ -134,10 +134,10 @@
   "pct": 100
  },
  "time": {
-  "communityCompileNs": 53325750,
-  "communityNsPer": 2352,
-  "manCompileNs": 11926417,
-  "manNsPer": 2507
+  "communityCompileNs": 52559875,
+  "communityNsPer": 2318,
+  "manCompileNs": 11979958,
+  "manNsPer": 2518
  },
  "scale": {
   "usableAddressesPow2": 128,

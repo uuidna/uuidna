@@ -1599,8 +1599,27 @@ export interface Census {
 
 /** census(inv) → the whole ledger judged by one named involution, with the unreached counted rather than
  *  dropped. A filter that reported only what it kept would be a reading with no denominator. */
+// MEMOISED, because it is a pure function of an immutable pair and was recomputed for every caller. census walks
+// every sealed theorem and EVALUATES each statement under the involution; the test file alone asks for it six
+// times over two involutions, so five of those walks recomputed an answer already in hand — the largest single
+// cost in the suite.
+//
+// KEYED ON THE INVOLUTION AND THE LEDGER SIZE, and the first draft of this got it wrong in an instructive way.
+// It keyed on the theorems() ARRAY IDENTITY, copying the fix the catalogue's name index needed the same day —
+// but theorems() BUILDS A NEW ARRAY on every call, so the identity never matched, the cache cleared itself every
+// time, and the memo was dead code that looked like an optimisation. Measured before believing it.
+//
+// The size guard is sound HERE for a reason that does not hold there: the ledger is a static import with no
+// prime path, so it cannot change within a process. The catalogue can — primeCatalogue installs a different one
+// at runtime, possibly of the same size — which is exactly why that index is keyed on identity and this is not.
+const CENSUS = new Map<string, Census>()
+let CENSUS_SIZE = -1
+
 export function census(inv: Involution): Census {
   const T = theorems()
+  if (CENSUS_SIZE !== T.length) { CENSUS.clear(); CENSUS_SIZE = T.length }
+  const memo = CENSUS.get(inv.name)
+  if (memo) return memo
   const survives: string[] = [], fixed: string[] = [], breaks: string[] = []
   const addrS: string[] = [], addrB: string[] = []
   let unreached = 0
@@ -1612,11 +1631,13 @@ export function census(inv: Involution): Census {
       default: unreached++
     }
   }
-  return {
+  const out: Census = {
     involution: inv.name, survives, fixed, breaks, unreached, ofLedger: T.length,
     rootOfSurvivors: addrS.length ? merkleGravity(addrS) : '',
     rootOfBreakers: addrB.length ? merkleGravity(addrB) : '',
   }
+  CENSUS.set(inv.name, out)
+  return out
 }
 
 /** The ℤ/9 digital root of an address — the tree's own residue, over the hex digits. */

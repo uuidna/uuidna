@@ -55,7 +55,7 @@ distro membership. Provenance meters still recompute below so every published ro
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^128** usable states ([`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) — 128 = 2^7, the 7-qubit fold). 22,670 community packages ≪ 2^128.
-- **Time:** community compile sweep **53,325,750 ns** (~**2,352 ns**/package); man-page corpus **11,926,417 ns** (~**2,507 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep **52,559,875 ns** (~**2,318 ns**/package); man-page corpus **11,979,958 ns** (~**2,518 ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — [`n_qubit_dimension`](/theorem/n_qubit_dimension) counts simulation cost.
   **Each theorem unlocks** what it seals `by decide` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
@@ -77,6 +77,18 @@ Monitor receipt `8ddc9d3c-a3de-8c71-ba34-776bfb001445` · structured form [/alpi
 </ClientOnly>
 
 **Production shell:** run Layer 1 commands locally at [/terminal](/terminal) (`ls /terminal`, `apk info busybox`, `man openssl`).
+
+## The port, by domain
+
+Alpine publishes tens of thousands of packages; the census classifies them into named domains and states the
+arithmetic each one satisfies. A domain and its complement sum to the catalogue, and origins bound packages by
+exactly the companion `-dev`, `-doc` and `-libs` rows. Those sums are sealed theorems. The MEMBERSHIP is a
+pattern over Alpine's own name and description and stays a measurement: a client matches its engine's name, and
+a completion package matches the shell it serves.
+
+<ClientOnly>
+  <DomainPort />
+</ClientOnly>
 
 ## GPU dispatch — the one measurement this repository cannot take
 

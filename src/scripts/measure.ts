@@ -19,6 +19,7 @@
 //   node dist/scripts/measure.js <name>     run one, with its receipt
 //   node dist/scripts/measure.js --all      run every one
 import { timingCensus } from '../os/timing/index.js'
+import { packagePage, renderPackagePage } from '../quantum/os/pkgpage/index.js'
 import { valueOf } from '../hexbit/index.js'
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../index.js'
@@ -45,12 +46,21 @@ export const MEASUREMENTS: readonly Measurement[] = [
   // here, on every audit, with a receipt anyone can recompute.
   { name: 'timing', what: 'the lattice ops and the data-parallel ops against per-host calibrated budgets — verdicts sealed, durations reported',
     run: () => {
+      // the page ops only measure where the catalogue is present — a host without it measures the rest rather
+      // than reporting a zero, and says which by simply not listing them.
+      const pkg = packagePage('busybox')
+      const pkgReady = pkg !== null
+      const TOOL_SAMPLE = [{ name: 'uuidna_port' }, { name: 'uuidna_exec' }]
       const handles = Array.from({ length: 10_000 }, (_, i) => ((i * 2654435761) >>> 0).toString(16).padStart(8, '0').slice(0, 8))
       const addrs = Array.from({ length: 1024 }, (_, i) => toUuid('a' + i))
       const c = timingCensus([
         { op: 'handle.valueOf', run: () => valueOf('deadbeef').value },
         { op: 'parallel.valueOf', run: () => handles.map((h) => valueOf(h).value), elements: handles.length },
         { op: 'parallel.merkleGravity', run: () => merkleGravity(addrs), elements: addrs.length, iterations: 30 },
+        ...(pkgReady ? [
+          { op: 'page.packagePage', run: () => packagePage('busybox'), iterations: 200 },
+          { op: 'page.render', run: () => renderPackagePage(pkg!, TOOL_SAMPLE), iterations: 200 },
+        ] : []),
       ])
       // NO DURATIONS IN THE VALUE. receiptOf folds the whole value, so a nanosecond count here moves the
       // address on every run while nothing has changed — which is precisely the contract the timing module was

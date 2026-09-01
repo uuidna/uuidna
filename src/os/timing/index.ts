@@ -96,6 +96,12 @@ export const BUDGETS: readonly Budget[] = [
   { op: 'parallel.valueOf', ratio: 1, why: 'one handle read per element, 10k elements — 132 ns/element when set' },
   { op: 'parallel.toUuid', ratio: 2, why: 'one address per element, 1k elements — 161 ns/element when set' },
   { op: 'parallel.merkleGravity', ratio: 3, why: 'a tree reduction over 1024 addresses, parallel in log depth — 355 ns/element when set' },
+  // THE SERVED REQUEST PATH. A package page is computed per request, so its cost is a visitor's cost and belongs
+  // under a budget rather than in a one-off audit — which is the whole argument measure.ts opens with. Measured
+  // when set: the lookup 0.8 us, the page 11.5 us, the render 8.1 us, so about 20 us of compute for a served
+  // page, against a 13.5 ms prime paid once per isolate and never per request.
+  { op: 'page.packagePage', ratio: 80, why: 'a lookup, ten domain patterns and a man resolve — 11.5 us when set' },
+  { op: 'page.render', ratio: 60, why: 'the microdata page rendered to a string — 8.1 us when set' },
 ]
 
 export interface Timing { op: string; ns: number; units: number; budget: number; within: boolean }

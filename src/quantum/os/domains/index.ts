@@ -46,6 +46,36 @@ export const DOMAIN_PATTERNS: readonly DomainPattern[] = [
     match: /\b(driver|firmware|kmod|linux-firmware|mesa|nvidia|amdgpu|intel-media|libdrm|vulkan|opencl|xf86-video|xf86-input|alsa|pipewire|libinput|usbutils|pciutils|acpid|lm[-_]sensors|dkms)\b/i,
     note: 'kernel modules, firmware blobs, GPU stacks and input/audio bridges as Alpine publishes them. PROVENANCE ONLY, and the caveat is sharper here than anywhere else: this records that a driver EXISTS at a version with a checksum. It does not manage a device. Nothing in this tree can address hardware — a memory controller, a cache line, a storage bus — and porting mesa yields its name and version, never a working graphics stack',
   },
+  {
+    domain: 'language',
+    match: /\b(python3|py3-[a-z0-9]+|perl|perl-[a-z0-9]+|ruby|ruby-[a-z0-9]+|php[0-9]*|nodejs|npm|lua[0-9.]*|ghc|ocaml|erlang|elixir|rust|cargo|golang|openjdk[0-9]*|kotlin|scala)\b/i,
+    note: 'runtimes, interpreters and their published module ecosystems. The largest domain by far and the loosest: py3- and perl- module packages dominate it, so a hit here says Alpine names a language in the package, not that the package IS a language',
+  },
+  {
+    domain: 'network',
+    match: /\b(curl|wget|nginx|apache2|haproxy|bind|dnsmasq|openssh|iptables|nftables|wireguard|openvpn|net-tools|iproute2|socat|netcat|tcpdump|wireshark)\b/i,
+    note: 'servers, clients, routing and packet tooling as Alpine publishes them — names and versions, no socket is opened here',
+  },
+  {
+    domain: 'science',
+    match: /\b(numpy|scipy|blas|lapack|gsl|fftw|octave|gnuplot|hdf5|netcdf|petsc|sundials|opencv|tensorflow|pytorch)\b/i,
+    note: 'numerical libraries and the frameworks built on them. The smallest domain, and the one whose members are most often a dependency of something else rather than a thing anyone installs directly',
+  },
+  {
+    domain: 'media',
+    match: /\b(ffmpeg|gstreamer|libav|x264|x265|vpx|opus|flac|lame|imagemagick|graphicsmagick|libjpeg|libpng|libwebp|cairo|pango|freetype|harfbuzz)\b/i,
+    note: 'codecs, image and font stacks as Alpine publishes them — provenance only, nothing is decoded or rendered',
+  },
+  {
+    domain: 'shell',
+    match: /\b(bash|zsh|fish|busybox|coreutils|findutils|gawk|tar|gzip|xz|bzip2|zstd|less|vim|nano|tmux|screen)\b/i,
+    note: 'shells and the core utilities. KNOWN IMPRECISION, stated rather than tuned away: completion packages such as acme-redirect-bash-completion match on the shell they serve, so this domain over-counts companions of unrelated tools',
+  },
+  {
+    domain: 'build',
+    match: /\b(gcc|clang|llvm|cmake|meson|ninja|autoconf|automake|libtool|pkgconf|binutils|musl-dev|linux-headers)\b/i,
+    note: 'compilers, build systems and the headers they need — the toolchain Alpine publishes, recorded and not invoked',
+  },
 ]
 
 export interface DomainCensus {

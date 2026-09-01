@@ -18,6 +18,8 @@
 // node:child_process helper unavailable in the Workers runtime); adjudicate/address and their deps are pure.
 import { adjudicate } from './dist/adjudicate.js'
 import { toUuid } from './dist/address.js'
+import { primeCatalogue, cataloguePrimed } from './dist/quantum/os/catalogue/index.js'
+import { packagePage, renderPackagePage } from './dist/quantum/os/pkgpage/index.js'
 import { conversationFold } from './dist/conversation.js' // the one fold — worker and library share it (DRY)
 import { hmacSha256 } from './dist/sha256.js'
 // The HOSTED MCP over HTTP (JSON-RPC 2.0, the MCP Streamable-HTTP transport) at /mcp — the Workers-safe, pure,
@@ -250,6 +252,34 @@ export default {
     // The response is REBUILT rather than mutated because an ASSETS response's headers are immutable — assigning
     // to them throws at the edge, which is the kind of failure that only shows up in production.
     //
+    // A PAGE PER PUBLISHED PACKAGE, COMPUTED HERE. gen-os has told readers that "each package also has an
+    // editorial path /catalogue/<name>"; the route answered 404, so the claim was prose. It is computed now, and
+    // computed rather than generated on purpose: Alpine publishes 28,635 packages against a 4,705-page site, so
+    // generating one file each is two orders of magnitude of build and deploy for what is a lookup.
+    //
+    // MEASURED, because "minimum memory" is a claim like any other: the primed index holds 17.1 MB and answers a
+    // lookup in ~211 ns with no measurable allocation, where materialising every row would hold 35.3 MB. The
+    // lazy catalogue is what makes that true — priming indexes name to line and parses ONE row on demand.
+    //
+    // The catalogue is primed through the SAME door /mcp uses; a second loader would be the dry law's own
+    // counterexample. Nothing about the page is hardcoded: domains are matched from the seeded patterns, the man
+    // page comes from the catalogue's resolver, and the tools are the live roster, so new ones appear by
+    // themselves.
+    const pkgMatch = url.pathname.match(/^\/catalogue\/([A-Za-z0-9][A-Za-z0-9._+-]*)$/)
+    if (pkgMatch && request.method === 'GET') {
+      if (!cataloguePrimed()) {
+        primeCatalogue(await (await env.ASSETS.fetch(new Request(new URL('/alpine-catalogue.tsv', url.origin)))).text())
+      }
+      const page = packagePage(pkgMatch[1])
+      if (page) {
+        return new Response(renderPackagePage(page, mcpHttpToolNames().map((n) => ({ name: n }))), {
+          headers: { 'content-type': 'text/html; charset=utf-8', 'cache-control': 'public, max-age=3600, must-revalidate' },
+        })
+      }
+      // a name the catalogue does not publish falls through to the asset handler, which answers the site's own
+      // 404 — never a page that looks real for a package that does not exist.
+    }
+
     // /favicon.ico — browsers probe it by default (~47/day on uuidna.com). The brand mark is /icon.svg; rewrite
     // the bare probe so Cloudflare does not serve a 404 HTML page as an "icon".
     const assetUrl = url.pathname === '/favicon.ico' ? new URL('/icon.svg', url) : url

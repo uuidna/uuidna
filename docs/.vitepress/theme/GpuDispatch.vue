@@ -7,11 +7,12 @@
      shown; a faster wrong answer is not a result. -->
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { gpuPresence, residuesOnCpu, dispatchResidues } from '../../../src/os/gpu/index.js'
+import { gpuPresence, residuesOnCpu, dispatchResidues, hybridResidues } from '../../../src/os/gpu/index.js'
 
 const present = ref(false)
 const why = ref('')
 const rows = ref<{ n: number; cpuNs: number; gpuMs: number | null; agrees: boolean | null; verdict: string }[]>([])
+const hybrid = ref<{ frac: string; ms: number; split: number; agrees: boolean | null; vs: string }[]>([])
 const err = ref('')
 const running = ref(false)
 
@@ -40,6 +41,23 @@ const run = async (): Promise<void> => {
         : `CPU wins by ${(gpuMs! / cpuMs).toFixed(2)}x`
       rows.value.push({ n, cpuNs, gpuMs, agrees: d.agrees, verdict })
     }
+    // THE INVOLUTION: one problem split across both processors, the accelerator submitted first and the CPU's
+    // share computed while that submission is in flight. Fraction 0 is the CPU alone and is the baseline every
+    // other fraction must beat — if none does, "use both all the time" is a slower arrangement, measured.
+    const n = 1048576
+    const v = new Uint32Array(n)
+    for (let i = 0; i < n; i++) v[i] = (i * 2654435761) >>> 0
+    let baseline = 0
+    for (const frac of [0, 0.1, 0.25, 0.5, 0.75, 1]) {
+      const t = performance.now()
+      const r = await hybridResidues(v, frac)
+      const ms = performance.now() - t
+      if (frac === 0) baseline = ms
+      hybrid.value.push({
+        frac: `${(frac * 100).toFixed(0)}% GPU`, ms, split: r.split, agrees: r.agrees,
+        vs: frac === 0 ? 'baseline — CPU alone' : ms < baseline ? `${(baseline / ms).toFixed(2)}x FASTER than CPU alone` : `${(ms / baseline).toFixed(2)}x slower than CPU alone`,
+      })
+    }
   } catch (e) { err.value = e instanceof Error ? e.message : String(e) }
   running.value = false
 }
@@ -65,6 +83,15 @@ onMounted(() => { const p = gpuPresence(); present.value = p.webgpu; why.value =
             <td>{{ r.gpuMs === null ? '—' : r.gpuMs.toFixed(2) + ' ms' }}</td>
             <td>{{ r.agrees === null ? 'not compared' : r.agrees ? 'yes' : 'NO' }}</td>
             <td>{{ r.verdict }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <table v-if="hybrid.length">
+        <thead><tr><th>split</th><th>elements to GPU</th><th>total</th><th>agrees</th><th>vs CPU alone</th></tr></thead>
+        <tbody>
+          <tr v-for="h in hybrid" :key="h.frac">
+            <td>{{ h.frac }}</td><td>{{ h.split.toLocaleString() }}</td><td>{{ h.ms.toFixed(2) }} ms</td>
+            <td>{{ h.agrees === null ? 'CPU only' : h.agrees ? 'yes' : 'NO' }}</td><td>{{ h.vs }}</td>
           </tr>
         </tbody>
       </table>

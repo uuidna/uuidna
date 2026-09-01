@@ -49,5 +49,6 @@ export default {
     app.component('AuditPanel', defineAsyncComponent(() => import('./AuditPanel.vue')))
     app.component('CaptainCoins', defineAsyncComponent(() => import('./CaptainCoins.vue')))
     app.component('GpuDispatch', defineAsyncComponent(() => import('./GpuDispatch.vue')))
+    app.component('DomainPort', defineAsyncComponent(() => import('./DomainPort.vue')))
   }
 } satisfies Theme

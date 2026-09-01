@@ -1,0 +1,77 @@
+#!/usr/bin/env node
+// @non-harmonic: writes lean/wave-queue.json — host boundary only.
+//
+// domains-deposit — THE DEPOSIT, FOLDED. Every domain census claim this session reached the conveyor through a
+// hand-typed `node -e` — three times, each computing correctly and then vanishing. measure.ts names that class
+// exactly: "a one-liner is manual work wearing computation's clothes: it computes, and it is not reusable,
+// sealed, testable or citable." The claims are sealed theorems now and the command that carried them was not
+// even a file. This is that command.
+//
+// IDEMPOTENT BY THE DOOR'S OWN LAW: a claim already sealed is refused as a duplicate, which is the success case,
+// so re-running deposits only what is genuinely new. Nothing here seals anything — the desk proposes and the
+// kernel disposes on the resident wave.
+//
+//   npm run x -- domains-deposit          → deposit every domain claim the ledger does not already hold
+//   npm run x -- domains-deposit -- --dry → report what WOULD land, write nothing
+import { join } from 'node:path'
+import { ROOT } from './api.js'
+import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS } from '../quantum/os/domains/index.js'
+import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
+
+const DRY = process.argv.includes('--dry')
+
+const WHY_CENSUS = (domain: string, says: string): string =>
+  `Alpine domain port (${domain}): exact arithmetic over the census counts. HONEST SCOPE — membership is a ` +
+  `pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting ` +
+  `over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, ` +
+  `linked or executed. ${says}`
+
+const candidates: WaveCandidate[] = []
+for (const c of allDomainCensuses()) {
+  for (const cl of c.claims) {
+    candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS(c.domain, cl.says), source: 'alpine-domains', from: `domainCensus/${c.domain}` } as WaveCandidate)
+  }
+}
+
+// every unordered pair, so a new domain brings its overlaps with all the others without anyone listing them
+const names = DOMAIN_PATTERNS.map((d) => d.domain)
+for (let i = 0; i < names.length; i++) {
+  for (let j = i + 1; j < names.length; j++) {
+    const o = domainsOverlap(names[i]!, names[j]!)
+    if (!o) continue
+    const key = `alpine_dom_${names[i]!.slice(0, 2)}_${names[j]!.slice(0, 2)}_ie_${o.union}`
+    candidates.push({
+      key,
+      lean: o.lean.replace(/theorem \S+ :/, `theorem ${key} :`),
+      why: `Inclusion-exclusion across ${names[i]} and ${names[j]}, exact over the committed mirror. They share ` +
+challenge(o.both) + ` The identity fails if any of the four counts is wrong, which is what it is for.`,
+      source: 'alpine-domains', from: 'domainsOverlap',
+    } as WaveCandidate)
+  }
+}
+
+function challenge(both: number): string {
+  return both > 0
+    ? `${both} packages, so this is a real set statement rather than an addition.`
+    : `no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them.`
+}
+
+if (DRY) {
+  console.log(`· domains-deposit --dry — ${candidates.length} candidate(s) from ${names.length} domains; nothing written`)
+  for (const c of candidates.slice(0, 8)) console.log(`    ${c.key}`)
+  process.exit(0)
+}
+
+const r = depositCandidates(candidates, join(ROOT, 'lean/wave-queue.json'))
+console.log(`✓ domains-deposit — ${r.deposited.length} deposited, ${r.refused.length} refused, ${r.pending} pending · receipt ${r.receipt}`)
+for (const k of r.deposited) console.log(`    landed  ${k}`)
+// A DUPLICATE IS THE SUCCESS CASE, in both of its spellings. The door says "already sealed in the ledger" once
+// the kernel has taken a claim, and "already pending, accepted, or refused in the queue" while it is still on
+// the conveyor — and the first draft here treated only the former as benign, so a harmless second run exited 1
+// and would have failed the audit for re-offering work that had already landed.
+const notSealed = r.refused.filter((x) => !/already sealed|already pending, accepted, or refused/.test(x.reason))
+for (const x of notSealed) console.log(`    REFUSED ${x.key} — ${x.reason}`)
+if (notSealed.length) {
+  console.error(`✗ domains-deposit — ${notSealed.length} candidate(s) refused for a reason OTHER than being already sealed; a claim the door turns away is a claim worth reading before it is re-offered.`)
+  process.exit(1)
+}

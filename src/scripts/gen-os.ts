@@ -155,6 +155,18 @@ Monitor receipt \`${monitorReceipt}\` · structured form [/alpine-hexbit-monitor
 
 **Production shell:** run Layer 1 commands locally at [/terminal](/terminal) (\`ls /terminal\`, \`apk info busybox\`, \`man openssl\`).
 
+## The port, by domain
+
+Alpine publishes tens of thousands of packages; the census classifies them into named domains and states the
+arithmetic each one satisfies. A domain and its complement sum to the catalogue, and origins bound packages by
+exactly the companion \`-dev\`, \`-doc\` and \`-libs\` rows. Those sums are sealed theorems. The MEMBERSHIP is a
+pattern over Alpine's own name and description and stays a measurement: a client matches its engine's name, and
+a completion package matches the shell it serves.
+
+<ClientOnly>
+  <DomainPort />
+</ClientOnly>
+
 ## GPU dispatch — the one measurement this repository cannot take
 
 The lattice's smallest step is a residue, and over many handles it is the same independent arithmetic per

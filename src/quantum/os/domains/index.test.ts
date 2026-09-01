@@ -9,7 +9,10 @@ const why = 'domain port census claim, exact over the committed mirror; membersh
 
 test('the seeded domains are ported and counted', () => {
   const all = allDomainCensuses()
-  assert.deepEqual(all.map((d) => d.domain), ['database', 'filesystem', 'blockchain', 'driver'])
+  assert.deepEqual(all.map((d) => d.domain), DOMAIN_PATTERNS.map((p) => p.domain),
+    'every seeded pattern yields a census, in declaration order — asserted against the roster itself, because a ' +
+    'hand-listed set of names is the same drift as a hand-written count and every new domain would edit it')
+  assert.ok(all.length >= 4, 'the four originals at least')
   for (const d of all) {
     assert.ok(d.packages > 0, `${d.domain} matched something`)
     assert.ok(d.origins > 0 && d.origins <= d.packages, `${d.domain} origins bound its packages`)
@@ -106,7 +109,8 @@ test('an unseeded domain is null, not an empty census that reads like a real one
 test('uuidna_domains answers the roster, one domain, and an overlap', async () => {
   const { callTool } = await import('../../../mcp.js')
   const roster = callTool('uuidna_domains', {}) as { seeded: { domain: string }[] }
-  assert.deepEqual(roster.seeded.map((d) => d.domain), ['database', 'filesystem', 'blockchain', 'driver'])
+  assert.deepEqual(roster.seeded.map((d) => d.domain), DOMAIN_PATTERNS.map((p) => p.domain),
+    'the tool roster is the pattern roster — not a copy of it that drifts')
 
   const one = callTool('uuidna_domains', { domain: 'blockchain' }) as { packages: number; origins: number; claims: unknown[]; classifier: string }
   assert.ok(one.packages > 0 && one.origins > 0 && one.origins <= one.packages)
