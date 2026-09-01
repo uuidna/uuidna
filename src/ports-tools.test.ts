@@ -79,6 +79,13 @@ test('uuidna_interface — both sides counted, and the browser half named', () =
   assert.ok(c.own.applets > 0, 'and uuidna already has a terminal')
 })
 
+test('uuidna_port_all — identity is complete, classification is not, and both are reported', () => {
+  const c = callTool('uuidna_port_all') as { packages: number; identities: number; classified: number; unclassified: number }
+  assert.equal(c.identities, c.packages, 'every package carries an address — that half needs no pattern')
+  assert.equal(c.classified + c.unclassified, c.packages, 'placed and unplaced partition the catalogue')
+  assert.ok(c.classified < c.packages, 'not every package is placed, and averaging the two would hide which is a measurement')
+})
+
 test('all ten ports have a door', () => {
   for (const n of ['uuidna_ports', 'uuidna_chat', 'uuidna_shell', 'uuidna_fs_seal', 'uuidna_db_query',
     'uuidna_chain_seal', 'uuidna_net_read', 'uuidna_driver_state', 'uuidna_security_plan', 'uuidna_os_census']) {
