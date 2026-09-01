@@ -27,9 +27,29 @@ import { rd } from './api.js'
 
 export interface Gap { what: string; fix: string }
 
-const IMPOSSIBLE = /\b(cannot|can't|is unable to|are unable to|impossible|no way to)\b/i
+// WIDENED TO MODALITY, on a peer session's evidence (zeropoint-node, 2026-09-02). My class was bare
+// IMPOSSIBILITY — "cannot", "never executes". Theirs was bare OBLIGATION, which this finder would have missed
+// entirely: they asserted that additive changes REQUIRE a minor version bump, and were corrected — patch-first
+// is that project's rule, and they had written a convention as a law. Same error, opposite modality: I wrote a
+// limit that was actually a choice, they wrote a requirement that was actually a choice.
+//
+// So the rule is not about impossibility, it is about MODALITY: must, cannot, never, always, requires, only —
+// every one asserts that the world admits no alternative, and every one needs a named source. "Patch-first is
+// this project's rule" passes, because it names a decision. "Additive changes require a minor bump" fails,
+// because it states a convention as physics.
+// AND MEASURED BEFORE WIDENING, because the obvious version was wrong. Adding bare `must` doubles the debt
+// (614 → 1250) and adding `always`/`only` quadruples it (2372), and those hits are overwhelmingly INVARIANTS a
+// test enforces two lines later — "the count must equal the parts" is not a claim that the world admits no
+// alternative, it is a description of what the adjacent assertion checks. The distinguishing feature is whether
+// the modal is about the WORLD or about THIS CODE. So the obligation forms are taken and the bare ones are not,
+// and the count lands at 606 — BELOW the impossibility-only baseline, because widening the justified sources
+// (a named project decision is a legitimate source) offsets more than the new modals add.
+const IMPOSSIBLE = /\b(cannot|can't|is unable to|are unable to|impossible|no way to|must always|must never|is required to|require[sd]? that)\b/i
 /** a claim of impossibility earns its place by naming a host fact, a law, or a construction */
-const JUSTIFIED = /\b(theorem [a-z0-9_]+|by construction|host|browser|no filesystem|secure context|determinism|hard-reject|kernel|physical device|edge|isolate|tab|upstream|vendored)\b/i
+// a modal claim earns its place by naming a host fact, a law, a construction, or an explicit DECISION — the
+// last was added for the obligation class: a project rule is a legitimate source, it simply has to be named as
+// one rather than dressed as a necessity
+const JUSTIFIED = /\b(theorem [a-z0-9_]+|by construction|host|browser|no filesystem|secure context|determinism|hard-reject|kernel|physical device|edge|isolate|tab|upstream|vendored|this project|the captain|decision|convention|rule of this|chosen|deliberate)\b/i
 const COMMENT = /^\s*(\/\/|\*)/
 
 /** impossibilityGaps(files, baseline) → bare impossibility claims not already declared. */
