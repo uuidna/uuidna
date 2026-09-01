@@ -82,6 +82,7 @@ import type { Sealed, GateOp, QState, Link } from './index.js'
 import { portsCensus } from './quantum/os/ports/index.js'
 import { uiApi } from './quantum/os/uiapi/index.js'
 import { portAll } from './quantum/os/portall/index.js'
+import { cernPortSearch } from './quantum/os/cern/index.js'
 import { chatApi, chatSend } from './quantum/os/chat/index.js'
 import { shellRun, shellCoverage } from './quantum/os/shellapi/index.js'
 import { fsSeal } from './quantum/os/fsapi/index.js'
@@ -1649,6 +1650,11 @@ const TOOLS: Tool[] = ([
     detail: 'uuidna reimplements none of these binaries; it adds that the command and the bytes are content-addressed, so a verdict is citable rather than a screenshot. Nothing here is a security scan: clamav scans files for signatures, the guard scans source for determinism violations.',
     inputSchema: { type: 'object', properties: { op: { type: 'string', enum: ['confine', 'inspect-files', 'packet-policy', 'audit-tls'] }, args: { type: 'string' } } },
     run: (a) => (a.op === undefined ? secApi() : planSecurityOp(String(a.op), String(a.args ?? ''))) },
+  { name: 'uuidna_cern',
+    description: 'Search CERN Open Data and address every record. A query that could not be reached returns declined:true with a reason, so an unreachable socket never reads as a claim about physics (theorem no_instrument_narrower_than_its_question).',
+    detail: 'Alpine ships no CERN physics packages: the six catalogue rows matching HEP are Homer Encapsulation Protocol, a VoIP capture agent, not High Energy Physics. So this port reaches the source directly at opendata.cern.ch rather than through the mirror. Each record is content-addressed, so a citation pins the record rather than the query that found it. Evidence only: a fetched record is never sealed, because a remote answer carries provenance rather than truth (theorem provenance_integrity_not_content_truth) and the network is the one source this tree refuses to treat as a witness.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' }, limit: { type: 'integer' } }, required: ['text'] },
+    run: async (a) => cernPortSearch(String(a.text), a.limit === undefined ? 8 : Number(a.limit)) },
   { name: 'uuidna_port_all',
     description: 'Every package in the catalogue, ported. All 28,635 carry a port identity; 11,370 are also placed in a named domain and 17,265 are not. Both numbers, never averaged.',
     detail: 'Identity is arithmetic over published metadata — name, version, checksum, repo, branch, arch folded to an address — so it needs no pattern and no opinion, and that half was complete before anyone asked. Classification is a measurement with known failures. Widening the patterns to close the gap raises the second number and lowers its meaning: loosening bio collects ovmf and dmidecode because their descriptions contain BIOS, loosening chemistry collects btrbk and newsboat because theirs say atomic. The unclassified remainder is described by name prefix rather than dismissed — language bindings, vendored SDKs, desktop stacks, fonts.',

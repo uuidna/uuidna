@@ -86,6 +86,16 @@ test('uuidna_port_all — identity is complete, classification is not, and both 
   assert.ok(c.classified < c.packages, 'not every package is placed, and averaging the two would hide which is a measurement')
 })
 
+test('uuidna_cern — a query that could not be reached DECLINES rather than reporting no physics', async () => {
+  // The network is the one source this tree refuses to treat as a witness, so an unreachable CERN is a distinct
+  // verdict. An empty result would read as "no such record", which is a claim about physics rather than about
+  // a socket. Asserted on the shape so the test does not depend on opendata.cern.ch being up.
+  const r = await (callTool('uuidna_cern', { text: 'CMS Higgs', limit: 2 }) as Promise<{ count: number; declined: boolean; note: string; hits: unknown[] }>)
+  assert.equal(typeof r.declined, 'boolean')
+  assert.equal(r.count, r.hits.length, 'the count must BE the hits, not a number beside them')
+  if (r.declined) assert.ok(r.note.length > 0, 'a decline must say why')
+})
+
 test('all ten ports have a door', () => {
   for (const n of ['uuidna_ports', 'uuidna_chat', 'uuidna_shell', 'uuidna_fs_seal', 'uuidna_db_query',
     'uuidna_chain_seal', 'uuidna_net_read', 'uuidna_driver_state', 'uuidna_security_plan', 'uuidna_os_census']) {

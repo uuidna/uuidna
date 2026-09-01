@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="244 keys" />
+# MCP tools <Badge type="tip" text="245 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 244 tools below are read from the server's own tool list and
+is **built from the keys**: the 245 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · b5a2f833-2395-8241-a93f-d9ca52b707e5
+gate CLEAN f0 d0 v0 · fb79cd21-9e2f-87bb-b797-4c7e867f6c08
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 244-tool registry folds to its
-order-invariant identity `3113fc28-779c-8e00-a0c4-a5969ad8028e` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 245-tool registry folds to its
+order-invariant identity `c4946f04-cffd-8725-ba21-b4c6dc2fefda` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`244`" />
+## The grid <Badge type="tip" :text="`245`" />
 
-244 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 104 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+245 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 104 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -173,6 +173,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-book-article"><code>book_article</code></a>
 <a href="#uuidna-book-contents"><code>book_contents</code></a>
 <a href="#uuidna-by-lean"><code>by_lean</code></a>
+<a href="#uuidna-cern"><code>cern</code></a>
 <a href="#uuidna-chain-seal"><code>chain_seal</code></a>
 <a href="#uuidna-coin64"><code>coin64</code></a>
 <a href="#uuidna-contract"><code>contract</code></a>
@@ -586,7 +587,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'112'" />
+## Other <Badge type="tip" :text="'113'" />
 
 *skill: other*
 
@@ -1723,6 +1724,19 @@ uuidna reimplements none of these binaries; it adds that the command and the byt
 | --- | --- | --- | --- |
 | `op` | string | no |  |
 | `args` | string | no |  |
+
+### `uuidna_cern`
+
+Search CERN Open Data and address every record. A query that could not be reached returns declined:true with a reason, so an unreachable socket never reads as a claim about physics (theorem no_instrument_narrower_than_its_question).
+
+Alpine ships no CERN physics packages: the six catalogue rows matching HEP are Homer Encapsulation Protocol, a VoIP capture agent, not High Energy Physics. So this port reaches the source directly at opendata.cern.ch rather than through the mirror. Each record is content-addressed, so a citation pins the record rather than the query that found it. Evidence only: a fetched record is never sealed, because a remote answer carries provenance rather than truth (theorem provenance_integrity_not_content_truth) and the network is the one source this tree refuses to treat as a witness.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | **yes** |  |
+| `limit` | integer | no |  |
 
 ### `uuidna_port_all`
 

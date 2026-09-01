@@ -779,5 +779,7 @@ export { planChange, renderPlan, commitChange, type InstallPlan, type CommitResu
 export { uiApi, renderUi, UI_CLASSES, type UiApiCensus, type UiClassRow } from './quantum/os/uiapi/index.js'
 // every package ported — identity for all, classification for those a pattern can honestly place
 export { portAll, renderPortAll, type PortAllCensus } from './quantum/os/portall/index.js'
+// CERN open data — the port existed with no door on either surface, which is a capability nobody has
+export { fetchCernOpenData, cernPortSearch, renderCernPort, CERN_OD, CERN_PROBE_QUERY, type CernRecord, type CernFetchResult, type CernPortResult } from './quantum/os/cern/index.js'
 // the school graded in the student's own currency, and the payloadless space argument beside it
 export { schoolEfficiency, payloadlessSpace, tokensOf, ADDRESS_BYTES as EFFICIENCY_ADDRESS_BYTES, type EfficiencyRow, type SpaceRow } from './school/efficiency/index.js'
