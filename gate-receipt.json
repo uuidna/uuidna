@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "d543bb84d3c4e9cfb90647704c11a25b",
+    "src": "f1f94f5877c22f826ba5fa015be746d8",
     "lean": "4f7271c0aac176aee9cd7cedb033daef"
   },
   "files": {
@@ -322,7 +322,7 @@
     "src/clay-involution.ts": "861ec8ca1cb37ea5",
     "src/cloudflare.ts": "5c10ed3961b1e973",
     "src/coin-ledger.test.ts": "da056965044bf652",
-    "src/coin-ledger.ts": "ec50b95dc8267ed7",
+    "src/coin-ledger.ts": "c2f3e28cec11650b",
     "src/coin-supply.test.ts": "3d39da7d03ba39ff",
     "src/coin-supply.ts": "32a3bee710c5af60",
     "src/collection.test.ts": "418f8466fba607a8",
@@ -3322,7 +3322,7 @@
     "src/holofractal.ts": "9c6dded81a66c7d9",
     "src/import-architecture.test.ts": "204cadf4c00b0d70",
     "src/imprint.ts": "f4cc47aee596beba",
-    "src/index.ts": "88020cabf5660c63",
+    "src/index.ts": "0ed318f88b2278b8",
     "src/involution-seals.ts": "5aa65518b03fff6b",
     "src/involution.test.ts": "a192827a4a1365df",
     "src/involution/index.ts": "ab1827d46ff12a9f",
@@ -3356,7 +3356,7 @@
     "src/mcp-wire.test.ts": "91edd9ddd4cb27b2",
     "src/mcp-wire.ts": "61f99fd7e4ed0695",
     "src/mcp.test.ts": "2b8100729d7e1744",
-    "src/mcp.ts": "a8a77e0d41828915",
+    "src/mcp.ts": "b4462d38c9581932",
     "src/measurement-sources.ts": "752a5e3a0decdc40",
     "src/measurement.test.ts": "3da9d489881e97d3",
     "src/measurement.ts": "b563d6e9dfe8bba0",
@@ -3451,7 +3451,7 @@
     "src/phd-proofs.test.ts": "9d3fde3de41eeeee",
     "src/phd-proofs.ts": "73cf759d8e2ec5e3",
     "src/polygraph.test.ts": "ee31024a4c39b326",
-    "src/ports-tools.test.ts": "de09b35029031891",
+    "src/ports-tools.test.ts": "c7acac5e4e2bf970",
     "src/pqc-hybrid.test.ts": "740971ecb25453bc",
     "src/pqc-nist.test.ts": "c57ca9b0706e12fd",
     "src/pqc/envelope/index.ts": "06cfedad44470108",
@@ -4104,7 +4104,7 @@
     "src/theorems/index.ts": "8e0f51139a419f4d",
     "src/tool-debt.test.ts": "f577d8de1872748d",
     "src/tool-exercise.test.ts": "324aa53d2b6bdfeb",
-    "src/tool-scope.ts": "06013a39ad38968a",
+    "src/tool-scope.ts": "91a1095cf4ce26e4",
     "src/trading-shelf.test.ts": "d9ce7ee7bdd79b7c",
     "src/transform.ts": "f78e4a7843febc0b",
     "src/treason.ts": "78379a986c438646",

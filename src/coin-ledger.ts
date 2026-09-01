@@ -180,3 +180,71 @@ export function enrollCrew(app: CrewApplication): CrewEnrollment {
         ') — bring the missing receipt and re-present; crew must lean in all dimensions at once.',
   }
 }
+
+// ── AN AGENT DECLARES WHAT IT SPENT (the captain, 2026-09-02) ─────────────────────────────────────────────────
+//
+// Every row above records a coin paid AT A CALL — the gate mints a deposit, the row files it, and the accounting
+// is exact because the gate is the one counting. This is the other half, and it is a different kind of fact: the
+// TOKENS an agent burned in a turn, which no gate can see and which the agent alone can report.
+//
+// SELF-REPORTED IS MARKED AS SELF-REPORTED, and that is the whole discipline of this record. An agent has no
+// instrument for its own token spend inside a turn — the host counts it, not the process — so it can only state
+// it. A number an agent supplies about itself is testimony, not
+// measurement, and filing it in the same shape as a gate-minted coin would let a claim about my own cost inherit
+// the credibility of an arithmetic the kernel checked. So `tokens` is declared and `produced` is MEASURED — the
+// ledger delta, the test delta, the landed commit — and the two are never summed into one figure.
+//
+// THE RATIO IS THE POINT, and it is the captain's spending law made checkable: tokens are legitimate at the
+// FRONTIER, sealing something new, and everything already sealed answers at O(1). A turn that burned tokens and
+// produced no theorem, no test and no landing is a turn that re-derived what the tree already held — which is
+// the captain's pocket, and the ledger should be able to say so rather than leaving it to memory.
+//
+// WHAT THIS IS NOT. It is not a rights instrument and does not become one by being sealed. A receipt records
+// what an agent SAID it spent and what the tree can SHOW it produced; it establishes no intent, no breach, and
+// no counterparty obligation, and reading a low ratio as misconduct would be reading testimony as a verdict.
+export interface SpendDeclaration {
+  agent: string
+  agentHandle: string
+  /** DECLARED by the agent — testimony about itself, unverifiable from inside, and marked so */
+  tokens: number
+  /** what the turn was for, in the agent's own words */
+  purpose: string
+  /** MEASURED from the tree, not declared: what actually changed */
+  produced: { theorems: number; tests: number; landed: boolean }
+  /** declared ÷ produced-units, in hundredths — integer, since the determinism law refuses rounding helpers */
+  tokensPerUnitHundredths: number
+  address: string
+  honest: string
+}
+
+/** a non-negative whole number, without the rounding namespace the determinism law refuses */
+const whole = (n: number): number => (Number.isFinite(n) && n > 0 ? n - (n % 1) : 0)
+
+/** declareSpend — file a turn's declared spend beside its measured production. Nothing here is minted. */
+export function declareSpend(
+  agent: string,
+  tokens: number,
+  purpose: string,
+  produced: { theorems: number; tests: number; landed: boolean },
+): SpendDeclaration {
+  const a = String(agent) || 'anonymous'
+  const units = produced.theorems + produced.tests + (produced.landed ? 1 : 0)
+  return {
+    agent: a,
+    agentHandle: handleOf(toUuid(a)),
+    // INTEGER-EXACT WITHOUT THE ROUNDING NAMESPACE, which the determinism hard-reject refuses with no exemption:
+    // subtracting the fractional part truncates toward zero for the non-negative values this accepts.
+    tokens: whole(tokens),
+    purpose: String(purpose),
+    produced,
+    // a turn that produced nothing has no ratio, and reporting 0 would read as "free" rather than "nothing to
+    // divide by" — the same absent-versus-empty distinction the catalogue and the monitor keep
+    tokensPerUnitHundredths: units > 0 ? Number((BigInt(whole(tokens)) * 100n) / BigInt(units)) : 0,
+    address: toUuid(`spend:${a}|${whole(tokens)}|${produced.theorems}|${produced.tests}|${produced.landed}`),
+    honest:
+      'tokens are DECLARED by the agent — testimony about itself, which no gate can verify from inside a turn — ' +
+      'while produced is MEASURED from the tree. The two are never summed. A turn with tokens and no production ' +
+      're-derived what was already sealed; that is a fact about cost, not a finding of misconduct, and this ' +
+      'record establishes no intent, no breach and no obligation.',
+  }
+}

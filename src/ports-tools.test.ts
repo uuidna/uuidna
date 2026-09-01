@@ -102,6 +102,13 @@ test('uuidna_refusals — the withdrawn one is visible, not tidied away', () => 
   assert.equal(c.rows.length, c.refused + c.withdrawn)
 })
 
+test('uuidna_declare_spend — testimony and measurement stay apart', () => {
+  const d = callTool('uuidna_declare_spend', { agent: 'claude', tokens: 5000, purpose: 'a wave', theorems: 2, tests: 4, landed: true }) as { tokens: number; produced: { theorems: number }; honest: string }
+  assert.equal(d.tokens, 5000)
+  assert.equal(d.produced.theorems, 2)
+  assert.match(d.honest, /establishes no intent, no breach and no obligation/)
+})
+
 test('all ten ports have a door', () => {
   for (const n of ['uuidna_ports', 'uuidna_chat', 'uuidna_shell', 'uuidna_fs_seal', 'uuidna_db_query',
     'uuidna_chain_seal', 'uuidna_net_read', 'uuidna_driver_state', 'uuidna_security_plan', 'uuidna_os_census']) {

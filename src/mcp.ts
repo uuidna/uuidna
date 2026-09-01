@@ -84,6 +84,7 @@ import { uiApi } from './quantum/os/uiapi/index.js'
 import { portAll } from './quantum/os/portall/index.js'
 import { cernPortSearch } from './quantum/os/cern/index.js'
 import { refusalCensus } from './school/refusals/index.js'
+import { declareSpend } from './coin-ledger.js'
 import { chatApi, chatSend } from './quantum/os/chat/index.js'
 import { shellRun, shellCoverage } from './quantum/os/shellapi/index.js'
 import { fsSeal } from './quantum/os/fsapi/index.js'
@@ -1651,6 +1652,15 @@ const TOOLS: Tool[] = ([
     detail: 'uuidna reimplements none of these binaries; it adds that the command and the bytes are content-addressed, so a verdict is citable rather than a screenshot. Nothing here is a security scan: clamav scans files for signatures, the guard scans source for determinism violations.',
     inputSchema: { type: 'object', properties: { op: { type: 'string', enum: ['confine', 'inspect-files', 'packet-policy', 'audit-tls'] }, args: { type: 'string' } } },
     run: (a) => (a.op === undefined ? secApi() : planSecurityOp(String(a.op), String(a.args ?? ''))) },
+  { name: 'uuidna_declare_spend',
+    description: 'An agent declares the tokens it spent in a turn, filed beside what the tree can MEASURE it produced (theorems, tests, whether it landed). Declared and measured are never summed.',
+    detail: 'An agent cannot measure its own token spend from inside a turn; it can only state it. A number supplied about oneself is testimony, and filing it in the shape of a gate-minted coin would let a claim about cost inherit the credibility of an arithmetic the kernel checked — so tokens are marked declared and production is read from the tree. The ratio makes the spending law checkable: tokens are legitimate at the frontier, sealing something new, and everything already sealed answers at O(1), so a turn with tokens and no production re-derived what was already held. A turn producing nothing has NO ratio rather than a ratio of zero, because zero would read as free. This record establishes no intent, no breach and no obligation; a low ratio is a fact about cost, not a finding of misconduct.',
+    inputSchema: { type: 'object', properties: { agent: { type: 'string' }, tokens: { type: 'integer' }, purpose: { type: 'string' }, theorems: { type: 'integer' }, tests: { type: 'integer' }, landed: { type: 'boolean' } }, required: ['agent', 'tokens', 'purpose'] },
+    run: (a) => declareSpend(String(a.agent), Number(a.tokens), String(a.purpose ?? ''), {
+      theorems: a.theorems === undefined ? 0 : Number(a.theorems),
+      tests: a.tests === undefined ? 0 : Number(a.tests),
+      landed: a.landed === true,
+    }) },
   { name: 'uuidna_refusals',
     description: 'Every refusal with its boundary, classified as a law, a scope or an incapacity, and whether that boundary survived scrutiny. Withdrawn refusals are kept beside the ones that held.',
     detail: 'Refusing WORK and refusing the COURT are opposite acts, and only the first is recorded — the second has no legitimate instance, because the court verdict is what gives every other claim here its weight. The informative column is not the refusal but whether its boundary held: a boundary naming a law is checkable and usually does; a boundary naming an incapacity is the class to distrust. In this record every withdrawn refusal named an incapacity, which is one case out of one — a pattern to watch, not a proof. The larger corroboration is sealed separately as impossibility_claims_debt_622: six impossibility claims written into this tree and refuted in a single session, none caught by a test.',
