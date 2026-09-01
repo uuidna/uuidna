@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "6b5ec610b8d46656091ea079577fcc21",
-    "lean": "bb854dbe429f505eee4e9721a3e1e21e"
+    "src": "5e637de011848964c2471dd256c1aee4",
+    "lean": "5071c0689aba4cdc3a2abf852ef21052"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -269,7 +269,7 @@
     "lean/vectorequilibrium-manifest.json": "14fc462cc36da9f3",
     "lean/vortex-manifest.json": "8cee6bae2655d702",
     "lean/wave-manifest.json": "b31848fd2388e9d4",
-    "lean/wave-queue.json": "0d516c6b8a2bf178",
+    "lean/wave-queue.json": "fe441a20f46b844c",
     "lean/waves-manifest.json": "3aea18251fc02537",
     "src/address.test.ts": "46a4b9450de91b84",
     "src/address.ts": "2df9c3763cf4500b",
@@ -3422,9 +3422,11 @@
     "src/os/runtime/sandbox/index.test.ts": "8454cea0ad4498da",
     "src/os/runtime/sandbox/index.ts": "1adc2e0b4d401f0f",
     "src/os/secapi/index.test.ts": "d0ec36849fdc4945",
-    "src/os/secapi/index.ts": "0d22d00dc2f9b342",
+    "src/os/secapi/index.ts": "6a0ebbc2c5cc101c",
     "src/os/timing/index.test.ts": "1455a7e00e7b422e",
     "src/os/timing/index.ts": "1bf6693c41d34167",
+    "src/os/webauthn/index.test.ts": "f5d2b7bf720c193d",
+    "src/os/webauthn/index.ts": "df0c96d0f496b8cb",
     "src/page-metrics.test.ts": "8f613016992b0ff8",
     "src/page-safe.test.ts": "a5fb103f1ee5bbbd",
     "src/pair-grid.test.ts": "90d06ea8364a7cee",
@@ -3767,7 +3769,7 @@
     "src/scripts/develop.ts": "3677f8416c3876d6",
     "src/scripts/dirty-paths.test.ts": "f36fbfa3ece6baba",
     "src/scripts/discover-books.ts": "13f30db02dac5418",
-    "src/scripts/domains-deposit.ts": "e7179487813e3467",
+    "src/scripts/domains-deposit.ts": "9ea851fe9caee70c",
     "src/scripts/dry-gaps.ts": "e55fe065a62672e9",
     "src/scripts/entanglement-games-spec.json": "a971072db79dbf51",
     "src/scripts/entanglement-games.ts": "8d1c607b83a24497",

@@ -18,6 +18,7 @@ import { ROOT } from './api.js'
 import { allDomainCensuses, domainsOverlap, DOMAIN_PATTERNS, domainTierClaims } from '../quantum/os/domains/index.js'
 import { shellClaims } from '../quantum/os/shellapi/index.js'
 import { quantumMargin } from '../os/kdf/index.js'
+import { securityClaims } from '../os/secapi/index.js'
 import { depositCandidates, type WaveCandidate } from '../wave-deposit.js'
 import { theorems } from '../theorems/index.js'
 
@@ -34,6 +35,12 @@ for (const c of allDomainCensuses()) {
   for (const cl of c.claims) {
     candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS(c.domain, cl.says), source: 'alpine-domains', from: `domainCensus/${c.domain}` } as WaveCandidate)
   }
+}
+
+// THE SECURITY PORT FEEDS THE CONVEYOR like every other port — a port that only serves callers is a dead end,
+// consuming the catalogue and returning nothing the kernel can seal.
+for (const cl of securityClaims()) {
+  candidates.push({ key: cl.key, lean: cl.lean, why: WHY_CENSUS('security-ops', cl.says), source: 'os-secapi', from: 'securityClaims' } as WaveCandidate)
 }
 
 // THE ADVERSARY MARGIN RIDES THIS CONVEYOR TOO, and the source label says so rather than pretending it is an

@@ -1,5 +1,16 @@
 {
-  "pending": [],
+  "pending": [
+    {
+      "key": "alpine_security_ops_plannable_4",
+      "why": "Alpine domain port (security-ops): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every named security operation is plannable against the pinned rootfs (4 of 4, none blocked) — the fact the withdrawn refusal denied",
+      "lean": "theorem alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0) := by decide"
+    },
+    {
+      "key": "alpine_shell_applets_partition_20",
+      "why": "Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (4), or uuidna's own (10) — exhaustive and disjoint",
+      "lean": "theorem alpine_shell_applets_partition_20 : (6 + 4 + 10 = 20) := by decide"
+    }
+  ],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",

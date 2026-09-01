@@ -108,3 +108,28 @@ export function secApi(): SecApiCensus {
       'out of reach here — it needs a physical device, which is a fact about hardware and not a choice.',
   }
 }
+
+// ── THE PORT FEEDS THE LEDGER (the captain: "waves in automation each feeding the other") ─────────────────────
+//
+// A port that only serves callers is a dead end in the conveyor: it consumes the catalogue and returns nothing
+// the kernel can seal. Every other Alpine port here deposits what it can prove about itself — the domain
+// partitions, the shell applet split — so this one does too, and the loop closes: catalogue feeds the census,
+// the census feeds a claim, the claim feeds the wave, the wave feeds the ledger, and the ledger feeds the
+// surfaces that report the port.
+//
+// WHAT IS SEALABLE HERE is the counting, exactly as everywhere else. That every named operation is PLANNABLE is
+// the fact my refusal denied, and it is exact: four operations, four plans, none unaccounted for. Whether
+// clamscan finds a virus is a measurement about the world and no arithmetic promotes it.
+export interface SecClaim { key: string; lean: string; fragment: string; says: string }
+
+export function securityClaims(): SecClaim[] {
+  const a = secApi()
+  const plannable = a.ops.filter((o) => o.plannable).length
+  const blocked = a.ops.length - plannable
+  return [{
+    key: `alpine_security_ops_plannable_${a.ops.length}`,
+    fragment: `${plannable}+${blocked}=${a.ops.length}`,
+    lean: `theorem alpine_security_ops_plannable_${a.ops.length} : (${plannable} + ${blocked} = ${a.ops.length}) ∧ (${blocked} = 0) := by decide`,
+    says: `every named security operation is plannable against the pinned rootfs (${plannable} of ${a.ops.length}, none blocked) — the fact the withdrawn refusal denied`,
+  }]
+}

@@ -36,6 +36,8 @@ const primeMs = ref(0)
 const primeErr = ref('')
 const netRow = ref<Row | null>(null)
 const chatRows = ref<Row[]>([])
+const authnRow = ref<Row | null>(null)
+const enrolling = ref(false)
 const chatting = ref(false)
 const query = ref('sqlite')
 const queryOut = ref('')
@@ -134,6 +136,35 @@ const runChat = async (): Promise<void> => {
   chatting.value = false
 }
 
+// WEBAUTHN IS ONLY REACHABLE HERE, which is the point. I called fido2/webauthn "genuinely out of reach — it
+// needs a physical device" and offered it as the one real limit among five fake ones; it was fake too. The
+// browser exposes navigator.credentials and this page runs on the reader's own machine, where their key already
+// is. A hardware key touched here becomes a uuidna ADDRESS — the same address on any machine that sees the same
+// public key, with no registry and no server trusted to remember. The private half never leaves the device.
+const runAuthn = async (): Promise<void> => {
+  enrolling.value = true
+  const t0 = performance.now()
+  try {
+    const { authnPresence, enrol } = await import('../../../src/os/webauthn/index.js')
+    const p = authnPresence()
+    if (!p.available || !p.secureContext) {
+      authnRow.value = { api: 'webauthn', did: 'authnPresence', result: p.why, us: (performance.now() - t0) * 1000 }
+      return
+    }
+    const challenge = new TextEncoder().encode('uuidna-enrol-' + location.origin)
+    const r = await enrol(challenge)
+    authnRow.value = {
+      api: 'webauthn', did: 'enrol — touch your key; it becomes an address',
+      result: r.enrolled ? `address ${r.credential.address}` : r.why,
+      us: (performance.now() - t0) * 1000,
+    }
+  } catch (e) {
+    authnRow.value = { api: 'webauthn', did: 'enrol', result: 'failed: ' + (e instanceof Error ? e.message : String(e)), us: (performance.now() - t0) * 1000 }
+  } finally {
+    enrolling.value = false
+  }
+}
+
 // network — impure by nature, so it is its own action and its own row
 const runNet = async (): Promise<void> => {
   const t0 = performance.now()
@@ -212,6 +243,9 @@ const runCmd = async (): Promise<void> => {
           <tr v-for="(r, i) in chatRows" :key="'c' + i">
             <td><code>{{ r.api }}</code></td><td>{{ r.did }}</td><td>{{ r.result }}</td><td>{{ r.us.toFixed(0) }}</td>
           </tr>
+          <tr v-if="authnRow">
+            <td><code>{{ authnRow.api }}</code></td><td>{{ authnRow.did }}</td><td>{{ authnRow.result }}</td><td>{{ authnRow.us.toFixed(0) }}</td>
+          </tr>
           <tr v-if="netRow">
             <td><code>{{ netRow.api }}</code></td><td>{{ netRow.did }}</td><td>{{ netRow.result }}</td><td>{{ netRow.us.toFixed(0) }}</td>
           </tr>
@@ -221,6 +255,12 @@ const runCmd = async (): Promise<void> => {
         <button :disabled="chatting" @click="runChat">{{ chatting ? 'deriving the session…' : 'open a sealed chat session and send twice' }}</button>
         — the first send derives a 600,000-iteration session key and takes seconds; the second rides the ratchet
         and costs microseconds. The expensive step is the security, paid once, and it is never charged to page load.
+      </p>
+      <p>
+        <button :disabled="enrolling" @click="runAuthn">{{ enrolling ? 'touch your key…' : 'enrol a hardware key as an address' }}</button>
+        — your authenticator, on your machine. The private key never leaves it; what uuidna keeps is an address
+        folded from the credential id and a digest of the PUBLIC key, identical on every machine that sees it.
+        A host without an authenticator says so rather than failing.
       </p>
       <p><button @click="runNet">fetch and address /llm.txt</button> — the one impure API, so it waits to be asked</p>
 
