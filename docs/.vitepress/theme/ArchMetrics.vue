@@ -27,6 +27,18 @@ const rows = ref<Row[]>([])
 const cracks = ref<string[]>([])
 const err = ref('')
 const running = ref(false)
+type Sec = Awaited<ReturnType<typeof import('../../../src/os/kdf/index.js')['securityLevel']>>
+const sec = ref<Sec | null>(null)
+
+// SPEED AND SECURITY ARE THE SAME NUMBER FROM OPPOSITE ENDS, so they are measured in one pass and shown
+// together. Every millisecond a first send waits is a millisecond an attacker pays PER GUESS — that is what
+// 600,000 iterations buys, and showing the speed table without it would report half the trade.
+const measureSecurity = async (): Promise<void> => {
+  try {
+    const { securityLevel } = await import('../../../src/os/kdf/index.js')
+    sec.value = await securityLevel()
+  } catch { sec.value = null }
+}
 
 const measure = (): void => {
   running.value = true
@@ -56,7 +68,7 @@ const measure = (): void => {
   }
 }
 
-onMounted(measure)
+onMounted(() => { measure(); void measureSecurity() })
 </script>
 
 <template>
@@ -104,6 +116,24 @@ onMounted(measure)
           — a second run on the same machine should land close; a wide gap means the tab was throttled, which is
           itself worth knowing.
         </p>
+
+        <h4>What the security costs, priced here</h4>
+        <table v-if="sec">
+          <tbody>
+            <tr><td>key / address / Grover floor</td><td><strong>{{ sec.sealed.keyBits }}</strong> / {{ sec.sealed.addressBits }} / {{ sec.sealed.groverFloorBits }} bits <em>— sealed theorems</em></td></tr>
+            <tr><td>cipher · derivation</td><td>{{ sec.sealed.aead }} · {{ sec.sealed.kdf }}, {{ sec.sealed.iterations.toLocaleString() }} iterations</td></tr>
+            <tr><td>one session derivation, here</td><td><strong>{{ sec.derivationMs ?? '—' }} ms</strong> <em>— measured on this machine</em></td></tr>
+            <tr><td>passphrase guesses / second, one core</td><td><strong>{{ sec.defenderGuessesPerSecond ?? '—' }}</strong> <em>— what an attacker pays on hardware like yours</em></td></tr>
+            <tr><td>GPU adversary advantage</td><td>×{{ sec.adversaryFactor.toLocaleString() }} <em>— named, never folded into the figure above</em></td></tr>
+          </tbody>
+        </table>
+        <p v-if="sec">
+          The bit widths are proven; the guess rate is the softest number on this page. An adversary is not using
+          your laptop — running PBKDF2 lanes on GPUs is generally credited with a 10³–10⁴ advantage, so the honest
+          reading is the measured rate multiplied by that, and it is shown as a separate factor rather than
+          quietly absorbed. A security claim that assumes the attacker shares your hardware is not a claim.
+        </p>
+        <p v-else>the security probe did not run on this host — reported rather than shown as a zero.</p>
 
         <p>
           <strong>Read the ratio, not the nanoseconds.</strong> Browsers clamp their clocks and throttle hidden

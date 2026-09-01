@@ -82,3 +82,67 @@ export async function warmSession(passphrase: string, session: string): Promise<
     return { warmed: false, why: 'the derivation threw' }
   }
 }
+
+// ── WHAT THE SECURITY COSTS, PRICED ON THIS MACHINE (the captain: "let the stats show the security level") ────
+//
+// The same clock that measures speed can price an attacker's guess, and the two numbers belong side by side
+// because they are the same number seen from opposite ends. Every millisecond a legitimate first send waits is
+// a millisecond an attacker pays PER GUESS — that is what 600,000 iterations buys, and it is the honest reading
+// of "highest speed comes at highest security": the cost is real, it is paid once by the user and once per
+// attempt by everyone else.
+//
+// WHAT IS SEALED AND WHAT IS MEASURED are kept apart here, because they are different kinds of fact. The bit
+// widths are sealed theorems — KEY_BITS = 256, the address 128, the Grover floor 128 (sha256_grover_margin_is_
+// the_address). The guess rate is MEASURED on whatever host is asking, and it is the softest figure on the page.
+//
+// AND THE ATTACKER IS NOT USING THIS LAPTOP. A defender measures one derivation on one core in a browser; an
+// adversary buys GPUs and runs thousands of PBKDF2 lanes in parallel, and published figures put that advantage
+// in the 10³–10⁴ range for PBKDF2-HMAC-SHA256. So the number reported is DEFENDER-RATE, stated as such, with the
+// adversary factor named rather than folded in — a security claim that quietly assumes the attacker shares your
+// hardware is not a security claim.
+import { KEY_BITS, GROVER_FLOOR_BITS, ADDRESS_BYTES as ADDR_BYTES } from '../../hexbit/index.js'
+
+export interface SecurityLevel {
+  /** SEALED — bit widths the ledger proves, not measured here */
+  sealed: { keyBits: number; addressBits: number; groverFloorBits: number; iterations: number; aead: string; kdf: string }
+  /** MEASURED — one full session derivation on this host, in milliseconds */
+  derivationMs: number | null
+  /** derived from the measurement: how many passphrase guesses one core of THIS host manages per second */
+  defenderGuessesPerSecond: number | null
+  /** the order-of-magnitude advantage a GPU adversary is generally credited with for PBKDF2-HMAC-SHA256 */
+  adversaryFactor: number
+  honest: string
+}
+
+/** securityLevel() → what is proven, what was measured here, and what an adversary changes about the reading. */
+export async function securityLevel(): Promise<SecurityLevel> {
+  const subtle = subtleOf()
+  let derivationMs: number | null = null
+  if (subtle && (await hostAgrees(subtle))) {
+    const pass = enc.encode('uuidna-security-probe')
+    const salt = sessionSalt('uuidna-security-probe')
+    const t0 = Date.now()
+    await hostDerive(subtle, pass, salt, ITER)
+    derivationMs = Date.now() - t0
+  }
+  return {
+    sealed: {
+      keyBits: KEY_BITS,
+      addressBits: ADDR_BYTES * 8,
+      groverFloorBits: GROVER_FLOOR_BITS,
+      iterations: ITER,
+      aead: 'ChaCha20-Poly1305 (RFC 8439)',
+      kdf: 'PBKDF2-HMAC-SHA256',
+    },
+    derivationMs,
+    // integer-exact: guesses per second is 1000/ms, floored, and a derivation too fast to time reports null
+    defenderGuessesPerSecond: derivationMs && derivationMs > 0 ? Number(1000n / BigInt(derivationMs)) : null,
+    adversaryFactor: 1000,
+    honest:
+      'The bit widths are SEALED (KEY_BITS, the address, the Grover floor). The guess rate is MEASURED on this ' +
+      'host, one core, and is the softest figure here: a GPU adversary running PBKDF2 lanes in parallel is ' +
+      'generally credited with a 10^3-10^4 advantage, which is named rather than folded in. What 600,000 ' +
+      'iterations buys is that every guess costs an attacker what your first send cost you — once for you, ' +
+      'once per attempt for them.',
+  }
+}
