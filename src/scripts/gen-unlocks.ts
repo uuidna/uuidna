@@ -3,6 +3,7 @@
 // Writes lean/unlocks.json + docs/unlocks.md; injects home fragment; refuses missing illustrations.
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
+import { injectPorts } from '../quantum/os/ports/index.js'
 import { ROOT } from './api.js'
 import { unlockBoard, unlockHomeFragment, UNLOCK_LAW } from '../unlocks.js'
 
@@ -102,7 +103,9 @@ if (existsSync(homePath)) {
       ? home.replace('**Hexbit-fast.**', `${block}\n\n**Hexbit-fast.**`)
       : home.trimEnd() + `\n\n${block}\n`
   }
-  writeFileSync(homePath, next)
+  // and the port analytics ride this owner too — gen-unlocks composes docs/index.md, so it injects the block
+  // rather than a second script fighting it for the file (the drain law).
+  writeFileSync(homePath, injectPorts(next))
 }
 
 console.log(`✓ gen-unlocks — ${board.keys} keys / ${board.distinct} distinct · ${board.skills} skills · illustrations ${board.illustrations.length}/${board.illustrations.length}`)

@@ -14,7 +14,7 @@
 //     a match into a fact about the world, so the census reports `classifier: 'pattern'` and never claims the
 //     membership is correct — only that the counting over it is.
 //
-// PROVENANCE, NEVER EXECUTION: nothing here installs, links, mounts or runs anything. A filesystem domain is a
+// PROVENANCE ONLY HERE: nothing here installs, links, mounts or runs anything. A filesystem domain is a
 // list of names and versions Alpine published, not a mounted volume.
 import { catalogue, type CataloguePackage } from '../catalogue/index.js'
 import { originOf } from '../../../os/apps/index.js'

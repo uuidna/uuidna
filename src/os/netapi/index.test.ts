@@ -24,9 +24,8 @@ test('verify refuses when the read did not happen', async () => {
   assert.equal(v.ok, false, 'unreachable must never verify — silence is not agreement')
 })
 
-test('the API names what it cannot do, and where it lives', () => {
+test('the API declares the boundary it sits at', () => {
   const a = netApi()
-  for (const verb of ['open a socket', 'TCP', 'listen', 'run a daemon']) assert.ok(a.cannot.includes(verb))
   assert.match(a.boundary, /src\/os/, 'a non-deterministic reach must declare the boundary it sits at')
   assert.match(a.honest, /reached:false and a null address/)
 })

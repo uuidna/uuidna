@@ -1,5 +1,6 @@
 // quantum/os — the OS-INTEGRATION boundary. uuidnaOS is NOT an operating system you boot, and this does NOT port, run,
-// compile, or link Alpine's binaries: uuidna NEVER EXECUTES — that is the whole foundation. What this IS: a
+// compile, or link Alpine's binaries — THIS MODULE runs nothing, though uuidnaOS does execute elsewhere
+// (uuidnaExec applets; os/runtime verifies then runs host binaries). What this IS: a
 // content-addressed PROVENANCE MANIFEST of an EXACT Alpine release. It pins the version, arch, and Alpine's PUBLISHED
 // rootfs SHA-256, folds them to one recomputable receipt, and VERIFIES your actual rootfs bytes with uuidna's OWN
 // pure-TS SHA-256 (use only uuidna. So a deployment can PROVE it rests on exactly this upstream base,

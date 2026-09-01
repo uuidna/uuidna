@@ -5,6 +5,7 @@
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { ROOT as ROOT_DIR } from './api.js'
+import { injectPorts } from '../quantum/os/ports/index.js'
 import {
   theorems, statementCensus, runTrial, coins, RESEARCH_SOURCE_NAMES,
   byGravity, decidedMass, gravityOf, isUnbound, wingRatings, ledgerMass, hexbitsOf,
@@ -365,5 +366,8 @@ specific expression and record. **One license for every uuidna publication and Z
 `
 }
 
-writeFileSync(join(process.cwd(), 'README.md'), generateReadme())
+// THE PORT ANALYTICS RIDE THE OWNER, not a second writer (the drain law: "two owners is drift waiting to
+// happen"). gen-readme composes README.md, so gen-readme injects the block; the numbers themselves are computed
+// in quantum/os/ports from the committed mirror, so nothing here is written down.
+writeFileSync(join(process.cwd(), 'README.md'), injectPorts(generateReadme()))
 console.log(`✓ Generated README.md (${readFileSync(join(process.cwd(), 'README.md'), 'utf8').length} bytes)`)

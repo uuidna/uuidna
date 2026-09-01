@@ -11,7 +11,7 @@
 //
 // LOAD-BEARING HONESTY (theorem the_os_is_bootable_quantum): nothing here executes. A tool-package is EITHER a
 // package's provenance spec OR uuidna's own pure reimplementation of a utility's logic — never Alpine's binary
-// run. A tool's LOGIC is uuidna's; a tool's IDENTITY is a package port. Integrity, never execution.
+// run. A tool's LOGIC is uuidna's; a tool's IDENTITY is a package port. Integrity, loading rather than running.
 //
 // NON-ARBITRARY ADDRESS: a tool's address is toUuid('tool:' + name + ':' + description) — the EXACT preimage
 // apiHandleOf merkle-folds for the served API seal (mcp.ts). So a tool's registry address already equals its

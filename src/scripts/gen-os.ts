@@ -6,7 +6,7 @@
 // compiles Alpine to hexbits); VitePress is the quantum monitor (this page displays the recomputed facts).
 //
 // Every figure is computed from the committed mirror / catalogue — never authored. Integrity and meaning,
-// never execution (theorem the_os_is_bootable_quantum).
+// verified loading rather than a boot (theorem the_os_is_bootable_quantum).
 import { writeFileSync, mkdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'

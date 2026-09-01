@@ -79,7 +79,6 @@ export interface NetApiCensus {
   definition: 'alpine-network-port·one-fetch-and-address-api'
   ported: { packages: number; origins: number }
   api: readonly string[]
-  cannot: readonly string[]
   boundary: string
   honest: string
 }
@@ -90,7 +89,6 @@ export function netApi(): NetApiCensus {
     definition: 'alpine-network-port·one-fetch-and-address-api',
     ported: { packages: c.packages, origins: c.origins },
     api: ['netRead', 'netVerify', 'networkCensus'],
-    cannot: ['open a socket', 'TCP', 'UDP', 'listen', 'bind', 'resolve DNS itself', 'run a daemon', 'speak below HTTP'],
     boundary: 'src/os — the NAMED non-determinism boundary; a remote host answering is not a decidable fact',
     honest:
       `PORT = PROVENANCE over ${c.packages} packages, ${c.origins} origins. API = one verb, fetch-and-address: ` +

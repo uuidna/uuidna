@@ -185,7 +185,7 @@ export interface AppCatalogue {
 }
 
 const HONEST =
-  'PROVENANCE, NEVER EXECUTION. Every entry is Alpine\'s own published metadata — name, version, arch, repo, ' +
+  'PROVENANCE ONLY IN THIS MODULE. Every entry is Alpine\'s own published metadata — name, version, arch, repo, ' +
   'branch, and Alpine\'s own checksum — folded to a content-address anyone with the same index recomputes. ' +
   'uuidna does not install, link, unpack, boot or run any of these packages, and holds none of their bytes. ' +
   'HARMONISED means the ledger has sealed arithmetic for what the app declares it does, and the heaviest ' +

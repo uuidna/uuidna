@@ -172,7 +172,7 @@ export function portStatus(): PortStatus {
     driver: { flavor: drv.flavor, file: drv.file, sha256: drv.sha256, address: bundle.address, receipt: bundle.receipt },
     count: p.count, routes: p.specs.length, floor: p.specs[0]!.id,
     receipt: p.receipt, bootReceipt: p.boot.address, bootStates: p.boot.count,
-    honest: 'The pinned Alpine port made observable: the release the committed mirror is the world of, its netboot/modloop driver bundle, package count and boot shape, folded to one receipt. Integrity and provenance, never execution — the port is of the INTEGRITY and MEANING of the packages, nothing installed, linked, or run (theorem the_os_is_bootable_quantum).',
+    honest: 'The pinned Alpine port made observable: the release the committed mirror is the world of, its netboot/modloop driver bundle, package count and boot shape, folded to one receipt. Integrity and provenance, loading rather than running — the port is of the INTEGRITY and MEANING of the packages; nothing is installed, linked or run BY THIS SURFACE (theorem the_os_is_bootable_quantum).',
   }
 }
 
@@ -220,7 +220,7 @@ export function portDelta(upstream: InstallsMirror): PortDelta {
 
 // ── BOOT — every surface runs FROM uuidnaOS (the captain's order, 2026-08-23) ───────────────────────────────
 // Boot means what the seal means (the_os_is_bootable_quantum): the VERIFIED LOADING of the compiled default
-// install — never execution. bootOS() verifies the whole image and returns the ground a surface stands on;
+// install — loading, not running. bootOS() verifies the whole image and returns the ground a surface stands on;
 // it THROWS on a drifted world, so the MCP refuses to serve, the tests refuse to run, and the fault arrives
 // named with the receipt. Verified once per process (~4 ms first boot), O(1) after — the floor costs nothing.
 /** Four hexbit widths plus nest and encoder a booted uuidnaOS stands on.

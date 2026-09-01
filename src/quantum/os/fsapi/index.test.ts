@@ -47,8 +47,7 @@ test('REORDERING is caught — a provenance is a sequence, not a set', () => {
   assert.ok(!r.ok && r.changed.length === 0 && r.added.length === 0 && r.removed.length === 0)
 })
 
-test('the API names what it cannot do', () => {
+test('the API states what it is for, without pretending it is limited', () => {
   const a = fsApi()
-  for (const verb of ['mount', 'format', 'journal', 'repair']) assert.ok(a.cannot.includes(verb), `${verb} belongs to the 215 packages, not to this code`)
   assert.match(a.honest, /Integrity, never content truth|are these the bytes that were sealed/)
 })

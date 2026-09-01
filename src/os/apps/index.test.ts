@@ -125,7 +125,10 @@ test('the catalogue root is ORDER-INVARIANT — two readers of the same index ge
 
 test('the honest scope travels in the catalogue, not only in a comment', () => {
   const c = portCatalogue([pkg('freetype', 'A free font engine')], ['main'])
-  assert.match(c.honest, /NEVER EXECUTION/)
+  // WAS /NEVER EXECUTION/, and that was a false claim this test was keeping alive (the captain, 2026-09-01).
+  // uuidnaOS executes: uuidnaExec runs applets, os/runtime verifies then runs host binaries. What is true is
+  // narrower and belongs to THIS module — it carries provenance and runs nothing.
+  assert.match(c.honest, /PROVENANCE ONLY IN THIS MODULE/)
   assert.match(c.honest, /does NOT mean the app was verified/)
 })
 

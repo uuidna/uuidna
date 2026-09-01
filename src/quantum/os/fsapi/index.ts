@@ -82,7 +82,6 @@ export interface FsApiCensus {
   definition: 'alpine-fs-port·one-integrity-api'
   ported: { packages: number; origins: number }
   api: readonly string[]
-  cannot: readonly string[]
   receipt: string
   honest: string
 }
@@ -101,7 +100,6 @@ export function fsApi(): FsApiCensus {
     api: ['fsSeal', 'fsVerify', 'fsCensus'],
     // NAMED, because a reader who assumes otherwise will assume it quietly. Every verb here belongs to the 215
     // packages and to none of this code.
-    cannot: ['mount', 'format', 'journal', 'snapshot', 'repair', 'resize', 'encrypt-at-rest', 'read the host disk'],
     receipt: toUuid(`fsapi|${c.packages}|${c.origins}`),
     honest:
       `PORT = PROVENANCE over ${c.packages} packages, ${c.origins} origins — names, versions, checksums only. ` +

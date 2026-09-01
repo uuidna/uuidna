@@ -16,7 +16,7 @@
 // read the catalogue is ABSENT — and absent is reported as absent, never as a miss. A surface that answers
 // "no such package" because it could not open its own index is the exact defect this module was written to end.
 //
-// Data, never execution: a row names upstream's bytes (its published checksum) and upstream's words (its
+// Data, not execution, in this module: a row names upstream's bytes (its published checksum) and upstream's words (its
 // published description). Nothing is installed, linked, unpacked or run — theorem the_os_is_bootable_quantum.
 //
 // COMPILE IS REAL, NOT A LABEL. The self-test's fourth check used to return `ok: true` with the words

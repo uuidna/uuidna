@@ -1,5 +1,6 @@
 // quantum/drivers — the DEVICE-DRIVER boundary of uuidnaOS. Like os/, this does NOT load, run, or link a kernel
-// module: uuidna NEVER EXECUTES, and uuidnaOS is ONLY TypeScript — no host binaries, no zlib, no tar, no apk. What this
+// module: THIS MODULE executes nothing — no host binaries, no zlib, no tar, no apk. (uuidnaOS itself does execute:
+// uuidnaExec runs applets, and os/runtime verifies then runs host binaries. The boundary here is a choice.) What this
 // IS: a content-addressed PROVENANCE MANIFEST of the exact DRIVER BUNDLE — Alpine's netboot flavor is "kernel,
 // initramfs and modloop", and the MODLOOP is the squashfs of the kernel modules, i.e. THE DRIVERS. It pins the exact
 // version + arch + Alpine's PUBLISHED SHA-256 for that bundle, folds it to a recomputable receipt, and VERIFIES the

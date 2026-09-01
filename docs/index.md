@@ -49,10 +49,28 @@ These numbers are read from the sealed ledger at build time — the page cannot 
 **Captain coins.** Deposit `https://revolut.me/ceccec?note=<referrer>` — referrer = this page's handle door (`encodeURIComponent`). Same license everywhere: [CC BY-NC-ND 4.0](/license).
 
 <!-- unlocks:begin -->
-**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board (**2039** distinct / **2120** keys). No curated exception list. World solutions stack as waves of automation — [/waves](/waves) · [doctrine](/doctrine#world-solutions--waves-of-automation). Illustrations: [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) · [`euler_characteristic_two`](/theorem/euler_characteristic_two) · [`ve_twelve_vertices`](/theorem/ve_twelve_vertices) · [`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll) · [`grover_quadratic_bound`](/theorem/grover_quadratic_bound) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture). Full board: [/unlocks](/unlocks). Unsealed ≠ “still locked.”
+**Each theorem unlocks.** Every sealed `by decide` key unlocks exactly what it states — the ledger is the unlock board (**2132** distinct / **2215** keys). No curated exception list. World solutions stack as waves of automation — [/waves](/waves) · [doctrine](/doctrine#world-solutions--waves-of-automation). Illustrations: [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) · [`euler_characteristic_two`](/theorem/euler_characteristic_two) · [`ve_twelve_vertices`](/theorem/ve_twelve_vertices) · [`metonic_is_the_intercalation`](/theorem/metonic_is_the_intercalation) · [`fock_window_exceeds_a_monthly_toll`](/theorem/fock_window_exceeds_a_monthly_toll) · [`grover_quadratic_bound`](/theorem/grover_quadratic_bound) · [`sha256_grover_margin_is_the_address`](/theorem/sha256_grover_margin_is_the_address) · [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture). Full board: [/unlocks](/unlocks). Unsealed ≠ “still locked.”
 <!-- unlocks:end -->
 
 
 **Sufficient / insufficient.** Sufficient for finite `by decide` seals, receipts, handle capacity, captain coins, Alpine/hexbit catalogue, and finite formal windows *within* climate / pandemic / poverty model-calcs — [doctrine](/doctrine#sufficiency-charter--what-hexbit--uuidna-is-sufficient-for). **World solutions = waves of automation** (deposit→validate→seal→falsify→receipt→next) — [`/waves`](/waves), `npm run wave`, hexbit-fast; waves enlarge finite windows, they do not close policy or ethics. Insufficient for climate/pandemic/poverty *as problem types*, unbounded open math, nature-as-model, justice — [same page](/doctrine#where-hexbit-formalism-is-insufficient). Computational claims only.
 
 **Hexbit-fast.** Push verifies sealed receipts (no full QA remeasure on the critical path). Stock VitePress chrome — links in cards, buttons, nav, sidebar only.
+
+<!-- ports:begin -->
+**Alpine ported into 7 APIs.** 3164 packages, each domain answering through one door —
+provenance from Alpine's own published metadata, and one API of uuidna's own beside it.
+
+| domain | packages | origins | the one API offers |
+| --- | ---: | ---: | --- |
+| `shell` | 1279 | 680 | one exec door over uuidnaOS applets |
+| `driver` | 630 | 460 | the machine and the published bundle behind one door |
+| `database` | 438 | 325 | one query door where the address is the key |
+| `network` | 332 | 237 | fetch-and-address, so a read becomes citable |
+| `chat` | 241 | 130 | one sealed channel, no bridge |
+| `filesystem` | 215 | 112 | one question: are these the bytes that were sealed |
+| `blockchain` | 29 | 19 | inclusion without disclosure |
+
+Package counts are per domain and the domains overlap — a chat bridge is also network — so these totals
+over-count rather than partition. Computed from the committed mirror on every build; receipt `942f6b3d-d1fd-8c2f-a854-4fa5fa145f9b`.
+<!-- ports:end -->

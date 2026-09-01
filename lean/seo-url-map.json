@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "54ba1c9a-1",
+  "generated": "6786441e-0",
   "entries": [
     {
       "route": "/",
@@ -2491,9 +2491,9 @@
       "kind": "publication",
       "identity": "audit",
       "canonical": "https://uuidna.com/publications/audit",
-      "address": "953938b8-48db-814c-b103-af060f4febe3",
-      "handle": "953938b8",
-      "hexbitDoor": "https://uuidna.com/953938b8"
+      "address": "b68ac315-2a2b-8d09-995f-184caaeb5dac",
+      "handle": "b68ac315",
+      "hexbitDoor": "https://uuidna.com/b68ac315"
     },
     {
       "route": "/publications/audit-game",
@@ -2923,9 +2923,9 @@
       "kind": "publication",
       "identity": "models",
       "canonical": "https://uuidna.com/publications/models",
-      "address": "eb8de4d3-ebbf-8847-bade-098eee12af7f",
-      "handle": "eb8de4d3",
-      "hexbitDoor": "https://uuidna.com/eb8de4d3"
+      "address": "d38df7d2-8cac-8189-900f-ff03ff759f9f",
+      "handle": "d38df7d2",
+      "hexbitDoor": "https://uuidna.com/d38df7d2"
     },
     {
       "route": "/publications/molecular",
@@ -3058,9 +3058,9 @@
       "kind": "publication",
       "identity": "pravets",
       "canonical": "https://uuidna.com/publications/pravets",
-      "address": "5ff3ca4c-3b54-84de-bd22-1f370c844cb4",
-      "handle": "5ff3ca4c",
-      "hexbitDoor": "https://uuidna.com/5ff3ca4c"
+      "address": "7230952d-d44d-8c74-a412-83471e4bc7e5",
+      "handle": "7230952d",
+      "hexbitDoor": "https://uuidna.com/7230952d"
     },
     {
       "route": "/publications/production",
@@ -6064,9 +6064,9 @@
       "kind": "theorem",
       "identity": "context_windows_are_transient_hexbits",
       "canonical": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
-      "address": "b3a57e23-ffb3-8efd-9b84-f6384befb88d",
-      "handle": "b3a57e23",
-      "hexbitDoor": "https://uuidna.com/b3a57e23"
+      "address": "d60c8a85-2d22-8d33-b9c2-cd0304f94740",
+      "handle": "d60c8a85",
+      "hexbitDoor": "https://uuidna.com/d60c8a85"
     },
     {
       "route": "/theorem/contour_index_every_fifth",
@@ -15019,9 +15019,9 @@
       "kind": "theorem",
       "identity": "prose_folds_receipt",
       "canonical": "https://uuidna.com/theorem/prose_folds_receipt",
-      "address": "7d0373a8-382b-86ec-b846-fdc39efe61bc",
-      "handle": "7d0373a8",
-      "hexbitDoor": "https://uuidna.com/7d0373a8"
+      "address": "4f2b943e-9c33-8e7c-985c-1e652b6d2da8",
+      "handle": "4f2b943e",
+      "hexbitDoor": "https://uuidna.com/4f2b943e"
     },
     {
       "route": "/theorem/prose_round_trips",
@@ -23628,6 +23628,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "54ba1c9a-1396-8f0a-988e-22253959d0f6",
+  "receipt": "6786441e-00ed-80b7-98f8-50cc2c7bfb78",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

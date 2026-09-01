@@ -48,7 +48,7 @@ const FACTS = [
     lean: 'theorem a_glyph_costs_one_coin_measure : (8 * 8 = 64) ∧ (12 * 64 = 768) ∧ (12 * 1024 / 16 = 768) := by decide' },
 
   { key: 'the_boot_pays_the_captains_fee',
-    why: 'BOOTED WITH UUIDNA, THE MEMORY PAYS THE FEE EXACTLY: 64 KB is 2¹⁶ bytes = 4096 sixteen-byte slots, and 4096 minus the song’s sealed bar of 4032 leaves 64 — the coin octave, the captain’s row — while the 48 KB on-board holds 3·1024 slots and the whole 1979 ledger of this tree fits twice over. A machine from Pravets holds the ledger from Pliska with the fee left over: verified LOADING, never execution — the installs wing’s own law.',
+    why: 'BOOTED WITH UUIDNA, THE MEMORY PAYS THE FEE EXACTLY: 64 KB is 2¹⁶ bytes = 4096 sixteen-byte slots, and 4096 minus the song’s sealed bar of 4032 leaves 64 — the coin octave, the captain’s row — while the 48 KB on-board holds 3·1024 slots and the whole 1979 ledger of this tree fits twice over. A machine from Pravets holds the ledger from Pliska with the fee left over: verified LOADING — this wing loads and checks, and does not run — the installs wing’s own law.',
     js: () => 2 ** 16 / 16 === 4096 && 4096 - 4032 === 64 && 48 * 1024 / 16 === 3072 && 3072 === 3 * 1024,
     lean: 'theorem the_boot_pays_the_captains_fee : (2^16 / 16 = 4096) ∧ (4096 - 4032 = 64) ∧ (48 * 1024 / 16 = 3072) ∧ (3072 = 3 * 1024) := by decide' },
 

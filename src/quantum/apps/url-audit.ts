@@ -74,7 +74,7 @@ export function auditUrl(path: string, context?: { pages?: { route: string; text
   // 1b) CATALOGUE — any published Alpine package at /catalogue/<name> (editorial routes beyond the 25 install paths)
   if (clean === '/catalogue') {
     matches.push({ kind: 'page', link: '/catalogue', text: 'Alpine catalogue', score: 95,
-      why: 'the full published census — every package searchable; integrity and meaning, never execution' })
+      why: 'the full published census — every package searchable; integrity and meaning, loading rather than running' })
   }
   const cat = catalogueFor(clean)
   if (cat) {

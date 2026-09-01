@@ -2,8 +2,8 @@
   "timestamp": "2026-08-15T00:00:00Z",
   "trinities": {
     "sealed": {
-      "theorems": "26ee9a85f000c3da",
-      "principles": "da565fe1a3a0834a",
+      "theorems": "7df19b4b419f8e04",
+      "principles": "50204a12395d9d04",
       "monographs": "f8462dfcc4b56e1c"
     },
     "served": {
@@ -28,31 +28,31 @@
     }
   },
   "trinity_folds": {
-    "sealed": "5e90b09d5196a71cfd55c66e94c34116",
+    "sealed": "8e9006f53860ce035ac34bdbee5b6856",
     "served": "f0bed9ac7fe521a7f0cea59ff174f2a0",
     "proven": "65b94142221a0948f87ca3002d3d9f06",
     "record": "473cc2404109a573f551e09a4ca5fd86",
     "walks": "ed4de90a1daed8de2d4923a5977008bc"
   },
-  "unified_fold": "971c593e2c185e28",
-  "receipt": "9bf1c83b8ea5c586",
+  "unified_fold": "2e7ac9789c3ecaf7",
+  "receipt": "3822e0d78d54483d",
   "rosette_receipt": {
     "rays": [
       "89cef547099abbc7",
       "5ad598c2325f5962",
-      "a5f4e287b23f8541",
+      "e36368a707f6b2b1",
       "a20454282e566346",
-      "d563a12e8e319084",
+      "338b7baf7c2af22a",
       "a761502744407dcd",
       "5aa704d3140f8b97"
     ],
-    "concurrence": "ace7c679716c206439201d46c8dcffe5"
+    "concurrence": "d1fd840ff943e77b4dad0f2e15e2984f"
   },
   "aura": {
-    "rgb": "#d651ba",
-    "hsl": "hsl(47, 62%, 58%)",
+    "rgb": "#dce147",
+    "hsl": "hsl(62, 72%, 58%)",
     "alphabet": "b6819334641853db",
-    "movie": "41f5b5f020fdec7a",
+    "movie": "fe83bb6e15dabf55",
     "lessons": "77e8e186a46edde8",
     "report": "940001b6ff9bd2fc",
     "session": "e573823290a288c4",
@@ -71,13 +71,13 @@
       "md-dimension-ray-4": "VACANT by recomputation — the open seat verified empty via quantumAura over the fifteen dimension names"
     },
     "dimensions": {
-      "residue": 1,
-      "ray": 0,
+      "residue": 4,
+      "ray": 5,
       "wave": 7,
-      "hue": 47,
-      "sat": 62,
+      "hue": 62,
+      "sat": 72,
       "light": 58,
-      "period": 12,
+      "period": 22,
       "rotation": 360,
       "glow_inner": 24,
       "glow_outer": 64

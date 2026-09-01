@@ -43,7 +43,6 @@ export interface DriverApiState {
   /** PUBLISHED — provenance over what Alpine names. Nothing here was measured on this machine. */
   ported: { packages: number; origins: number }
   api: readonly string[]
-  cannot: readonly string[]
   boundary: string
   receipt: string
   honest: string
@@ -59,7 +58,6 @@ export function driverState(): DriverApiState {
     device,
     ported: { packages: c.packages, origins: c.origins },
     api: ['driverState', 'driverPin', 'driverCheck', 'driverCensus'],
-    cannot: ['insert a kernel module', 'flash firmware', 'open a device node', 'issue an ioctl', 'run an Alpine binary', 'install anything'],
     boundary: 'src/drivers — the NAMED non-determinism boundary; logical processors, memory and platform are facts about silicon',
     // the receipt folds the SEALED half only. Folding the measured half would move the receipt from machine to
     // machine and make it useless as an identity for the port — the device carries its own address for that.
@@ -67,8 +65,9 @@ export function driverState(): DriverApiState {
     honest:
       `PORT = PROVENANCE over ${c.packages} packages, ${c.origins} origins — names, versions and Alpine's own ` +
       'published digests. DEVICE = MEASURED on this host and impure by construction, kept separate in this ' +
-      'answer because "what this machine is" and "what was published" are different kinds of fact. Nothing is ' +
-      'loaded, flashed, opened or executed: the bundle is VERIFIED, never installed.',
+      'answer because "what this machine is" and "what was published" are different kinds of fact. This API loads, ' +
+      'flashes and executes NOTHING — a boundary it holds by choice, not by incapacity: os/runtime can verify and ' +
+      'then run host binaries, and declining to act on a verdict is what keeps the verdict worth auditing.',
   }
 }
 

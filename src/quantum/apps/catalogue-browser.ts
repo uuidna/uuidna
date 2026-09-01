@@ -127,6 +127,6 @@ export function renderAlpineApp(hit: CatalogueHit): string {
     + `<div data-slot="card-content">`
     + `<code data-slot="handle">${escapeHtml(handle)}</code>`
     + `</div>`
-    + `<div data-slot="card-footer"><small>integrity — published metadata, never execution</small></div>`
+    + `<div data-slot="card-footer"><small>integrity — published metadata, loading rather than running</small></div>`
     + `</article>`
 }

@@ -4141,8 +4141,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "0cb13dc9-9598-838c-ba4c-9d08398e524a",
-      "address": "7d0373a8-382b-86ec-b846-fdc39efe61bc",
+      "lineAddress": "d4830688-73fd-8528-90d2-d33817b2f02d",
+      "address": "4f2b943e-9c33-8e7c-985c-1e652b6d2da8",
       "principle": "The detectors, proven"
     },
     {
@@ -12667,8 +12667,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "a1ec18af-29bb-8270-886f-44054d022162",
-      "address": "b3a57e23-ffb3-8efd-9b84-f6384befb88d",
+      "lineAddress": "6aa3bbd9-b5f7-82a7-ad8b-7a2ae57b6c43",
+      "address": "d60c8a85-2d22-8d33-b9c2-cd0304f94740",
       "principle": "The models"
     },
     {
@@ -13296,7 +13296,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "fa9b56c7-8154-8289-8aed-0f72809539fc",
+  "claim_receipt": "c1dcc723-fe71-83d4-a0ec-0f8091f49240",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

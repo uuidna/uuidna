@@ -12,7 +12,7 @@
 // cycle, named rather than smoothed), the terminal is the toolbox (busybox ↔ /terminal, the family sealed pair
 // by pair), the foundation depends on nothing (musl ↔ /core, and nothing outranks its in-degree), every path
 // carries its PUBLISHED meaning verbatim, and every spec COMPILES FROM SOURCE IN HEXBIT (128 bits = 32 states
-// of 0..15). HONEST SCOPE: integrity and meaning, never execution — nothing is installed, linked, booted, or
+// of 0..15). HONEST SCOPE: integrity and meaning; this surface loads and checks rather than running — nothing is installed, linked, booted, or
 // run; the routes are an authored translation, declared; the meanings are the repository's own words.
 // COMPUTE → GENERATE → VERIFY.
 import { writeFileSync, readFileSync, existsSync } from 'node:fs'
@@ -240,5 +240,5 @@ const FACTS: Fact[] = [
 for (const f of FACTS) if (!f.js!()) throw new Error('offline audit FAILED before seal: ' + f.key)
 
 emit({ file: 'Installs.lean', skill: 'installs', defs,
-  header: `THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the ${N} packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED ${data.branch} index, Alpine ${data.release.version}), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising from the floor with the published cycle named, the terminal the toolbox, the foundation depending on nothing, every meaning verbatim, every spec compiled from source to 32 hexbit states, and the BOOT IMAGE sealed verbatim (${32 * (N + 1)} on-lattice states, build-ordered, receipt-closed) — the OS bootable on the lattice, never on a CPU — and THE EXTERNAL ANCHOR the whole port rests on: Alpine's PUBLISHED rootfs SHA-256 for ${data.release.version}/${data.arch}, compiled to 64 on-lattice nibbles so the seal names which BYTES and not only which release. Integrity and meaning, never execution.`,
+  header: `THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the ${N} packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED ${data.branch} index, Alpine ${data.release.version}), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising from the floor with the published cycle named, the terminal the toolbox, the foundation depending on nothing, every meaning verbatim, every spec compiled from source to 32 hexbit states, and the BOOT IMAGE sealed verbatim (${32 * (N + 1)} on-lattice states, build-ordered, receipt-closed) — the OS bootable on the lattice, never on a CPU — and THE EXTERNAL ANCHOR the whole port rests on: Alpine's PUBLISHED rootfs SHA-256 for ${data.release.version}/${data.arch}, compiled to 64 on-lattice nibbles so the seal names which BYTES and not only which release. Integrity and meaning, loading rather than running.`,
   facts: FACTS.map((f) => ({ ...f, name: f.why })) })

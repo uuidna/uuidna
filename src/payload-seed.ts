@@ -5,7 +5,7 @@
 // immutable, append-only, exactly like diamonds. And because the status travels IN the uuid, filtering and indexing
 // cost NOTHING: readSeed(dirname) recovers (status, stem, content) with zero file reads and zero index — the folder
 // listing IS the index, reverse-engineered from the names. Integrity
-// structure; PayloadCMS renders it, uuidna never executes it.
+// structure; PayloadCMS renders it, and this module runs none of it.
 import { coin64 } from './address.js'
 import { imprint, readImprint } from './imprint.js'
 import { documentAddress, type DocNode, type EditorState } from './editor.js'

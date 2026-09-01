@@ -1,4 +1,4 @@
-// quantum/os/packages — EACH ALPINE PACKAGE BECOMES uuidna/[package]. At the os/ provenance boundary (never execution),
+// quantum/os/packages — EACH ALPINE PACKAGE BECOMES uuidna/[package]. At the os/ provenance boundary (loading rather than running),
 // this reads Alpine's PUBLISHED apk index (APKINDEX.tar.gz over the network — the response is DATA
 // it with the platform DecompressionStream (a web primitive like fetch— uuidnaOS stays pure TS),
 // untars it in pure TS, and mints each package as a content-addressed provenance identity `uuidna/<name>`: the exact

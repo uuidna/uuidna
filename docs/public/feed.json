@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:63df0802-2cbe-8a41-af57-f6f601d8dfa4",
+  "@id": "urn:uuid:f6182928-905a-8633-b478-fed00f6b65b0",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -21371,11 +21371,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:0cb13dc9-9598-838c-ba4c-9d08398e524a",
+        "@id": "urn:uuid:d4830688-73fd-8528-90d2-d33817b2f02d",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 542639 characters across 2165 doc comments in 111 wings fold to 2; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6583, 1774, 3857, 3451, 4156, 10021, 2753, 1597, 1239, 13779, 5016, 1389, 1736, 1372, 960, 6188, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 1402, 2171, 2848, 1506, 1335, 1330, 3288, 1848, 11238, 959, 4088, 5637, 1452, 3105, 2783, 1621, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 1393, 2602, 1479, 1572, 2311, 1800, 934, 1027, 2126, 14675, 9396, 10650, 6393, 1646, 987, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 7619, 2244, 6848, 1937, 3396, 1946, 1544, 1412, 2571, 919, 1453, 2419, 2104, 3304, 805, 5711, 2905, 1522, 3958, 3675, 1667, 5402, 187044, 10447].foldl (· + ·) 0) = 542639) ∧ (542639 % 9 = 2) ∧ (2 < 9)",
-        "identifier": "7d0373a8-382b-86ec-b846-fdc39efe61bc",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 542669 characters across 2165 doc comments in 111 wings fold to 5; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6583, 1774, 3857, 3451, 4156, 10021, 2753, 1597, 1239, 13779, 5016, 1389, 1736, 1372, 960, 6188, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 1402, 2171, 2848, 1506, 1335, 1330, 3288, 1848, 11238, 959, 4088, 5637, 1452, 3105, 2783, 1621, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 1393, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14675, 9396, 10650, 6393, 1646, 987, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 7619, 2244, 6848, 1937, 3396, 1946, 1544, 1412, 2571, 919, 1453, 2419, 2104, 3304, 805, 5711, 2905, 1522, 3958, 3675, 1667, 5402, 187044, 10447].foldl (· + ·) 0) = 542669) ∧ (542669 % 9 = 5) ∧ (5 < 9)",
+        "identifier": "4f2b943e-9c33-8e7c-985c-1e652b6d2da8",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21393,7 +21393,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/7d0373a8"
+          "https://uuidna.com/4f2b943e"
         ]
       }
     },
@@ -42732,7 +42732,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:b313b692-aa64-84e6-bdba-437576e44b67",
         "@type": "ScholarlyArticle",
-        "headline": "BOOTED WITH UUIDNA, THE MEMORY PAYS THE FEE EXACTLY: 64 KB is 2¹⁶ bytes = 4096 sixteen-byte slots, and 4096 minus the song’s sealed bar of 4032 leaves 64 — the coin octave, the captain’s row — while the 48 KB on-board holds 3·1024 slots and the whole 1979 ledger of this tree fits twice over. A machine from Pravets holds the ledger from Pliska with the fee left over: verified LOADING, never execution — the installs wing’s own law.",
+        "headline": "BOOTED WITH UUIDNA, THE MEMORY PAYS THE FEE EXACTLY: 64 KB is 2¹⁶ bytes = 4096 sixteen-byte slots, and 4096 minus the song’s sealed bar of 4032 leaves 64 — the coin octave, the captain’s row — while the 48 KB on-board holds 3·1024 slots and the whole 1979 ledger of this tree fits twice over. A machine from Pravets holds the ledger from Pliska with the fee left over: verified LOADING — this wing loads and checks, and does not run — the installs wing’s own law.",
         "abstract": "(2^16 / 16 = 4096) ∧ (4096 - 4032 = 64) ∧ (48 * 1024 / 16 = 3072) ∧ (3072 = 3 * 1024)",
         "identifier": "4b3b0a48-acb3-83dc-8154-cf466348722b",
         "url": "https://uuidna.com/theorem/the_boot_pays_the_captains_fee",
@@ -65422,11 +65422,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:a1ec18af-29bb-8270-886f-44054d022162",
+        "@id": "urn:uuid:6aa3bbd9-b5f7-82a7-ad8b-7a2ae57b6c43",
         "@type": "ScholarlyArticle",
-        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 420 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 420, not the vendors.",
-        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 420) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
-        "identifier": "b3a57e23-ffb3-8efd-9b84-f6384befb88d",
+        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 419 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 419, not the vendors.",
+        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 419) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+        "identifier": "d60c8a85-2d22-8d33-b9c2-cd0304f94740",
         "url": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
         "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
@@ -65444,7 +65444,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/b3a57e23"
+          "https://uuidna.com/d60c8a85"
         ]
       }
     },
@@ -65455,7 +65455,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:c5806bc4-a861-8377-8035-c46d2660fb90",
         "@type": "ScholarlyArticle",
-        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 420 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
+        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 419 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
         "abstract": "(36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)",
         "identifier": "28b73899-48fa-86d1-93b4-4f6f2852b597",
         "url": "https://uuidna.com/theorem/speaking_an_address_costs_the_text",
@@ -65517,7 +65517,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:ddca61e3-57b1-87d0-b5bc-dd3138fd87a5",
         "@type": "ScholarlyArticle",
-        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 420 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
+        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 419 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
         "abstract": "(2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))",
         "identifier": "0958d5f7-a2df-878b-bbaf-72fefb4d60dd",
         "url": "https://uuidna.com/theorem/every_context_is_finite_against_the_lattice",

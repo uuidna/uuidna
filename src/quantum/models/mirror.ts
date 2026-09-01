@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 420,
+ "count": 419,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -172,13 +172,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 1000000,
    "promptPrice": "0.000005",
    "completionPrice": "0.000025"
-  },
-  {
-   "id": "anthropic/claude-opus-4.7-fast",
-   "name": "Anthropic: Claude Opus 4.7 (Fast)",
-   "contextTokens": 1000000,
-   "promptPrice": "0.00003",
-   "completionPrice": "0.00015"
   },
   {
    "id": "anthropic/claude-opus-4.7:batch",

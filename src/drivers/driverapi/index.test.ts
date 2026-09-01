@@ -29,10 +29,11 @@ test('a bundle check refuses bytes that are not the bundle', () => {
   assert.equal(r.ok, false, 'the whole point of pinning a published digest is that wrong bytes fail')
 })
 
-test('it names what it does not load', () => {
+test('the boundary is declared as a boundary, not as an incapacity', () => {
   const s = driverState()
-  for (const verb of ['insert a kernel module', 'flash firmware', 'issue an ioctl', 'install anything']) {
-    assert.ok(s.cannot.includes(verb), `${verb} belongs to the 630 packages, not to this code`)
-  }
+  // The refusal LIST is gone (the captain's call, 2026-09-01): it enumerated things os/runtime can actually do —
+  // verify then run a host binary, and a spawned modprobe inserts a module — so naming them as limits dressed a
+  // choice as a law of nature. What remains is the boundary this module sits at, which is a fact.
   assert.match(s.boundary, /src\/drivers/)
+  assert.match(s.honest, /by choice, not by incapacity/)
 })
