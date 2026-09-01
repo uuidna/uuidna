@@ -48,3 +48,16 @@ test('the receipt recomputes and moves with the inventory', () => {
   assert.notEqual(monitorCensus().receipt, a, 'a panel added must move it')
   primeMonitor(MONITOR_INVENTORY)
 })
+
+test('`top` OBSERVES residency without causing it', async () => {
+  // The defect this exists for: the first `top` called catalogueState(), which triggers the lazy load — so
+  // asking what was resident MATERIALISED 7.3 MB and then reported it as resident. It said PRIMED every time
+  // and the reason was itself. A monitor that changes what it measures is worse than none.
+  const { uuidnaExec } = await import('../exec/index.js')
+  const { cataloguePrimed } = await import('../catalogue/index.js')
+  if (cataloguePrimed()) return                       // another test primed it; the observer effect is untestable here
+  const out = uuidnaExec('top')
+  assert.equal(out.ok, true)
+  assert.equal(cataloguePrimed(), false, 'running top must NOT prime the catalogue')
+  assert.ok(out.output.some((l) => /NOT primed/.test(l)), 'and it must report the lazy state it found')
+})

@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "a238e5a987415f4e854ada9805092147",
+    "src": "2175b5791bf0cdf886dce182008192bc",
     "lean": "49896863c8f69650f2e49a0c5c6823bc"
   },
   "files": {
@@ -3574,7 +3574,7 @@
     "src/quantum/os/discovery/index.ts": "b059a7af2f76db3c",
     "src/quantum/os/domains/index.test.ts": "fd44916a73c33b01",
     "src/quantum/os/domains/index.ts": "e1ac19f8a83aa089",
-    "src/quantum/os/exec/index.ts": "4c509753c4afcacd",
+    "src/quantum/os/exec/index.ts": "e7a3f47551d8bda8",
     "src/quantum/os/fetch/index.ts": "42b836993dc9c418",
     "src/quantum/os/firmware/index.test.ts": "0c3cca5cc6cd86af",
     "src/quantum/os/firmware/index.ts": "9b1c8ad1335ad4ed",
@@ -3638,7 +3638,7 @@
     "src/quantum/os/mcpman/index.test.ts": "382b35ea90f2329a",
     "src/quantum/os/mcpman/index.ts": "c4612b19576823f4",
     "src/quantum/os/mirror/index.ts": "936609d472a2fd4b",
-    "src/quantum/os/monitor/index.test.ts": "20b3696ec341da9e",
+    "src/quantum/os/monitor/index.test.ts": "403a2264b6ffc273",
     "src/quantum/os/monitor/index.ts": "7c23e9bfe0bb13d3",
     "src/quantum/os/monitor/inventory/index.ts": "88478eaad2b7c08d",
     "src/quantum/os/news/index.ts": "0d6316a85d8f8907",

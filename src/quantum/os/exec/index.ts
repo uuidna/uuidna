@@ -14,13 +14,14 @@ const createRequire = (u: string): ((id: string) => unknown) => {
   return m.createRequire(u)
 }
 import {
-  catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile,
+  catalogueState, cataloguePackage, catalogueSearch, catalogueRdepends, catalogueCompile, cataloguePrimed,
   resolveManPage, isManPagePackage, manAppWitness, catalogue, catalogueRouteOf,
   resolveAlpineApp, providedCommands,
 } from '../catalogue/index.js'
 import { INSTALLS_MIRROR } from '../mirror/index.js'
 import { primeMonitor, monitorCensus, renderMonitor } from '../monitor/index.js'
 import { MONITOR_INVENTORY } from '../monitor/inventory/index.js'
+import { theorems } from '../../../theorems/index.js'
 import { toUuid } from '../../../address.js'
 import { handleOf } from '../../../handle.js'
 import { bootOS, hexbitDoorOf, type InstallSpec } from '../index.js'
@@ -158,7 +159,7 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'monitor', 'help'] as const
+export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'monitor', 'top', 'help'] as const
 export type Applet = (typeof APPLETS)[number]
 
 /** Legacy fold list — toys are ported again as pure logic over the virtual OS + session vfs. */
@@ -646,6 +647,38 @@ export function uuidnaExec(line: string): ExecResult {
     // DISPLAYS and does not compute — every figure on every panel is computed here in TypeScript before it
     // reaches a page — so what this reports is an inventory and a split: which panels draw what the build knew,
     // and which run on the reader's own machine.
+    // `top` — WHAT THIS MACHINE IS CARRYING RIGHT NOW. Alpine's top lists processes because a Unix machine's
+    // load is processes; uuidnaOS has no processes, so listing them would be theatre. What it carries instead is
+    // RESIDENT STRUCTURE — the sealed ledger, the primed catalogue, the ported domains — and the honest analogue
+    // of load is how much of each is materialised in this isolate at this moment.
+    //
+    // THE CATALOGUE LINE IS THE ONE WORTH READING. It is 28,635 rows and 7.3 MB, and it is LAZY: unprimed it
+    // costs nothing, primed it dominates everything else here. A `top` that hid that would hide the single
+    // largest thing an isolate can be made to hold — which is exactly what the lazy prime was built to control.
+    case 'top': {
+      // ASK WITHOUT TOUCHING. The first version called catalogueState() unconditionally — and catalogueState()
+      // triggers the lazy load, so running `top` MATERIALISED the 7.3 MB catalogue it was reporting on. A
+      // monitor that changes what it measures is worse than no monitor: it reported PRIMED every time, and the
+      // reason was itself. cataloguePrimed() is a pure read of a flag, so residency is asked before anything
+      // that could create it, and the count is only fetched when the rows are already there to count.
+      const primed = cataloguePrimed()
+      const cat = primed ? catalogueState() : null
+      const rows = [
+        `uuidnaOS — resident structure (no processes: this machine's load is what it has materialised)`,
+        `  theorems   ${theorems().length} sealed · always resident (a static import, no prime path)`,
+        `  catalogue  ${cat ? `PRIMED ${cat.count} rows` : 'lazy, NOT primed — costs nothing until something asks for a row'}`,
+        `  applets    ${APPLETS.length} on the exec door`,
+        `  installs   ${specs.length} pinned paths in the boot image`,
+      ]
+      emit(rows, {
+        theorems: theorems().length,
+        cataloguePrimed: primed,
+        catalogueRows: cat ? cat.count : 0,
+        applets: APPLETS.length,
+        installs: specs.length,
+      })
+      break
+    }
     case 'monitor': {
       primeMonitor(MONITOR_INVENTORY)
       const c = monitorCensus()
