@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "54ba1c9a-1",
+  "generated": "ef4ce22f-1",
   "entries": [
     {
       "route": "/",
@@ -2923,9 +2923,9 @@
       "kind": "publication",
       "identity": "models",
       "canonical": "https://uuidna.com/publications/models",
-      "address": "eb8de4d3-ebbf-8847-bade-098eee12af7f",
-      "handle": "eb8de4d3",
-      "hexbitDoor": "https://uuidna.com/eb8de4d3"
+      "address": "d38df7d2-8cac-8189-900f-ff03ff759f9f",
+      "handle": "d38df7d2",
+      "hexbitDoor": "https://uuidna.com/d38df7d2"
     },
     {
       "route": "/publications/molecular",
@@ -6064,9 +6064,9 @@
       "kind": "theorem",
       "identity": "context_windows_are_transient_hexbits",
       "canonical": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
-      "address": "b3a57e23-ffb3-8efd-9b84-f6384befb88d",
-      "handle": "b3a57e23",
-      "hexbitDoor": "https://uuidna.com/b3a57e23"
+      "address": "d60c8a85-2d22-8d33-b9c2-cd0304f94740",
+      "handle": "d60c8a85",
+      "hexbitDoor": "https://uuidna.com/d60c8a85"
     },
     {
       "route": "/theorem/contour_index_every_fifth",
@@ -23628,6 +23628,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "54ba1c9a-1396-8f0a-988e-22253959d0f6",
+  "receipt": "ef4ce22f-1319-8b83-a29e-38f688c04412",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }
