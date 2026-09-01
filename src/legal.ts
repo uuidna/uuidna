@@ -18,6 +18,8 @@ export interface LegalFacts {
   license: { spdx: string; address: string; attribution: string; canonical: string }
   ledger: { theorems: number; receipt: string; note: string }
   complianceStance: { makesComplianceClaim: boolean; note: string; overclaimRefused: boolean }
+  /** rights that arise AUTOMATICALLY and are therefore asserted rather than applied for */
+  rightsAsserted: { right: string; instrument: string; basis: string; automatic: boolean }[]
   standardsCited: Record<string, string[]>
   forCounsel: string
   receipt: string
@@ -45,6 +47,42 @@ export function legalFacts(): LegalFacts {
       note: 'The project makes NO compliance claim — it disclaims one (privacy by design. See /privacy.',
       overclaimRefused,
     },
+    // ── CLAIM WHAT IS CLAIMABLE, AND ONLY THAT ───────────────────────────────────────────────────────────────
+    //
+    // Two rights here arise the moment the work exists, with no registration, no fee and no filing — which means
+    // the only thing that was ever missing is the ASSERTION. An unasserted automatic right is not a stronger
+    // right for being modest: in a dispute, the maker and the date are what have to be shown, and a record that
+    // never named them makes that harder for no gain.
+    //
+    // WHAT IS DELIBERATELY ABSENT is as much the point. No patent is claimed — the licence is ND and the ledger
+    // is published as prior art precisely so nobody, including this project, can enclose it. No trademark
+    // registration is claimed, because none has been filed and a claim of one would be false. No compliance
+    // opinion is offered; the stance above refuses that in the fact base itself, and this block does not
+    // quietly reintroduce it. Asserting a right you hold is not the same act as claiming a status you do not.
+    rightsAsserted: [
+      {
+        right: 'Moral rights — attribution and integrity',
+        instrument: 'Berne Convention art. 6bis (as implemented in each member state)',
+        basis:
+          'Arises on creation for the author, independently of the economic licence and independently of any ' +
+          'registry. The CC BY-NC-ND terms carry the same two requirements contractually — attribution, and no ' +
+          'derivative works — so the licence and the moral right point the same way; naming the right records ' +
+          'that it survives the licence rather than depending on it.',
+        automatic: true,
+      },
+      {
+        right: 'Sui generis database right in the sealed ledger and the committed mirror',
+        instrument: 'Directive 96/9/EC art. 7 (EU/EEA makers)',
+        basis:
+          'Protects the MAKER of a database showing substantial investment in obtaining, verifying or presenting ' +
+          'its contents — which is what this repository does and can evidence rather than assert: every entry is ' +
+          'content-addressed, every theorem is machine-checked and axiom-free, and the verification is ' +
+          'recomputable by anyone from the same bytes. The maker is an EU entity (PSG EOOD, Bulgaria, VAT ' +
+          'BG130087268), which is the qualifying condition. Independent of copyright in the individual entries: ' +
+          'it protects the investment in the collection, not the originality of a row.',
+        automatic: true,
+      },
+    ],
     standardsCited,
     forCounsel:
       'These are recomputable inputs. A qualified IP/technology attorney should review them against ' +

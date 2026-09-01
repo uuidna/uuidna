@@ -100,8 +100,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "anthropic/claude-fable-5.1",
    "name": "Anthropic: Claude Fable 5.1",
    "contextTokens": 1000000,
-   "promptPrice": "0.00001",
-   "completionPrice": "0.00005"
+   "promptPrice": "0",
+   "completionPrice": "0"
   },
   {
    "id": "anthropic/claude-fable-5:batch",
