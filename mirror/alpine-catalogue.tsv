@@ -25075,20 +25075,20 @@ main	lighttpd-doc	1.4.85-r0	Q1y0tWVVBY8eXwq50SWl6dkk2vY2w=	Secure, fast, complia
 main	lighttpd-mod_auth	1.4.85-r0	Q1AQVoE6mA4GbtyheqILXt8b1Z/54=	Authentication module for lighttpd	so:libc.musl-x86_64.so.1 so:libcrypto.so.3	
 main	lighttpd-mod_webdav	1.4.85-r0	Q1vvnpHdG8rcI7yuBHcR3V9K1xQls=	WebDAV module for lighttpd	so:libc.musl-x86_64.so.1 so:libsqlite3.so.0 so:libxml2.so.2	
 main	lighttpd-openrc	1.4.85-r0	Q1RKDpdPBmXUeoxvNNOypZWEJ+vj8=	Secure, fast, compliant and very flexible web-server (OpenRC init scripts)		
-main	limine	12.6.1-r0	Q1z1mIL4hc/EbHzZeWneJqNCjpE3c=	Modern, secure, portable, multiprotocol bootloader and boot manager	limine-tool limine-efi-aarch64 limine-efi-loongarch64 limine-efi-riscv64 limine-efi-x86 limine-efi-x86_64 limine-efi-cd limine-bios limine-bios-pxe limine-bios-cd	
-main	limine-bios	12.6.1-r0	Q1+978llqIRLze41TXjBeGqZd8oCg=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS sys file)		limine-sys=12.6.1-r0
-main	limine-bios-cd	12.6.1-r0	Q1QJXZ4G3GG8D9rRGEc6hhN/89T/w=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS CD binary)	limine-bios=12.6.1-r0	
-main	limine-bios-pxe	12.6.1-r0	Q1g90sJ3ac3VPap6pfIjpMcGiB6K8=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS PXE executable)	limine-bios=12.6.1-r0	limine-pxe=12.6.1-r0
-main	limine-bios-updater	12.6.1-r0	Q1o0vET+TVoRXkCErxJWnQ7Q8lgUE=	Limine auto-updater for BIOS	limine-tool=12.6.1-r0 limine-bios=12.6.1-r0 /bin/sh	cmd:limine-bios-updater.sh=12.6.1-r0
-main	limine-doc	12.6.1-r0	Q1xETWjf+cBd+8hJsGYVZYNcYDD1w=	Modern, secure, portable, multiprotocol bootloader and boot manager (documentation)		
-main	limine-efi-aarch64	12.6.1-r0	Q1QwjrwPkibyNVGvJ69FGXAvC+5O0=	Modern, secure, portable, multiprotocol bootloader and boot manager (aarch64 EFI image)		limine-aarch64=12.6.1-r0
-main	limine-efi-cd	12.6.1-r0	Q1+tI1/FRJdqbzhKD2OMMwP/lJcuI=	Modern, secure, portable, multiprotocol bootloader and boot manager (EFI CD binary)		
-main	limine-efi-loongarch64	12.6.1-r0	Q1c7Om+6l11FgZoUl5cD0ObbUcwBU=	Modern, secure, portable, multiprotocol bootloader and boot manager (loongarch64 EFI image)		limine-loongarch64=12.6.1-r0
-main	limine-efi-riscv64	12.6.1-r0	Q1fD5by6gXHp9terjkFkZ7oLsTBwc=	Modern, secure, portable, multiprotocol bootloader and boot manager (riscv64 EFI image)		limine-riscv64=12.6.1-r0
-main	limine-efi-updater	12.6.1-r0	Q17UEZe2MsHhXesZSifcHYsaep0WE=	Limine auto-updater for EFI payload	/bin/sh	cmd:limine-efi-updater.sh=12.6.1-r0
-main	limine-efi-x86	12.6.1-r0	Q1QvaKV5oV0sUahuNXwBXChcJJpkc=	Modern, secure, portable, multiprotocol bootloader and boot manager (IA-32 EFI image)		limine-x86=12.6.1-r0
-main	limine-efi-x86_64	12.6.1-r0	Q1LjqIYHM/ot4Sf9M1CocUHUvhidU=	Modern, secure, portable, multiprotocol bootloader and boot manager (x86-64 EFI image)		limine-x86_64=12.6.1-r0
-main	limine-tool	12.6.1-r0	Q1IphHGCtT4AnaKLtC4FC6cWHXgvo=	Limine host tool	so:libc.musl-x86_64.so.1	cmd:limine=12.6.1-r0
+main	limine	12.7.0-r0	Q1/mPdzwL5mDUQM1MTC1e2+4I2FFE=	Modern, secure, portable, multiprotocol bootloader and boot manager	limine-tool limine-efi-aarch64 limine-efi-loongarch64 limine-efi-riscv64 limine-efi-x86 limine-efi-x86_64 limine-efi-cd limine-bios limine-bios-pxe limine-bios-cd	
+main	limine-bios	12.7.0-r0	Q1lyxKQJr2Dknq9cY+PcNUVKgj4cI=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS sys file)		limine-sys=12.7.0-r0
+main	limine-bios-cd	12.7.0-r0	Q1tnowpmzW1TW++Ozv1pwdApexsHA=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS CD binary)	limine-bios=12.7.0-r0	
+main	limine-bios-pxe	12.7.0-r0	Q1NyLnRUxOlZpWQErVeIlz2u9kBvQ=	Modern, secure, portable, multiprotocol bootloader and boot manager (BIOS PXE executable)	limine-bios=12.7.0-r0	limine-pxe=12.7.0-r0
+main	limine-bios-updater	12.7.0-r0	Q18pwf0D2xY9kuKyOmsGpK2weGp+A=	Limine auto-updater for BIOS	limine-tool=12.7.0-r0 limine-bios=12.7.0-r0 /bin/sh	cmd:limine-bios-updater.sh=12.7.0-r0
+main	limine-doc	12.7.0-r0	Q1O3Wfq8STF8e9NSIGIR+xIzq3QtI=	Modern, secure, portable, multiprotocol bootloader and boot manager (documentation)		
+main	limine-efi-aarch64	12.7.0-r0	Q1TAzW6NIg67fSyw+4Nnjz3+cUGRo=	Modern, secure, portable, multiprotocol bootloader and boot manager (aarch64 EFI image)		limine-aarch64=12.7.0-r0
+main	limine-efi-cd	12.7.0-r0	Q1Y7C7Fw6qdgcrUEHew+HOQvJ15bA=	Modern, secure, portable, multiprotocol bootloader and boot manager (EFI CD binary)		
+main	limine-efi-loongarch64	12.7.0-r0	Q1mii5XWkoWedwX+FiPXCsYcP6hcE=	Modern, secure, portable, multiprotocol bootloader and boot manager (loongarch64 EFI image)		limine-loongarch64=12.7.0-r0
+main	limine-efi-riscv64	12.7.0-r0	Q1E1InNUDvGZ7lsa7cB86b4hCPpuE=	Modern, secure, portable, multiprotocol bootloader and boot manager (riscv64 EFI image)		limine-riscv64=12.7.0-r0
+main	limine-efi-updater	12.7.0-r0	Q1M8jTCtjYY5g/k3WSWumjhojaJx4=	Limine auto-updater for EFI payload	/bin/sh	cmd:limine-efi-updater.sh=12.7.0-r0
+main	limine-efi-x86	12.7.0-r0	Q1YRZdCmriHUIUVSqcmKV6NfqXrdY=	Modern, secure, portable, multiprotocol bootloader and boot manager (IA-32 EFI image)		limine-x86=12.7.0-r0
+main	limine-efi-x86_64	12.7.0-r0	Q1r8RmsAqQHsGHemnwrpNVFBV2GIM=	Modern, secure, portable, multiprotocol bootloader and boot manager (x86-64 EFI image)		limine-x86_64=12.7.0-r0
+main	limine-tool	12.7.0-r0	Q11Fz/uIi33V6nWWXxDN4Sw1jvayQ=	Limine host tool	so:libc.musl-x86_64.so.1	cmd:limine=12.7.0-r0
 main	linenoise	1.0-r5	Q15o9tOwtVMUD3MVcmzRq4G+Jorzk=	Minimal replacement for readline	so:libc.musl-x86_64.so.1	so:liblinenoise.so.0=0.0.0
 main	linenoise-dev	1.0-r5	Q1WnYxSOvscDjtQEgQ+ATuimvbN3U=	Minimal replacement for readline (development files)	linenoise=1.0-r5	
 main	links	2.30-r1	Q178dbqq4uT/yhRYHlaBXErHGjAKQ=	Web browser running in both graphics and text mode	so:libbz2.so.1 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libssl.so.3 so:libz.so.1 so:libzstd.so.1	cmd:links=2.30-r1

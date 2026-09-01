@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "10f40d5312cd6b6385ac6474edc1f4bc",
+    "src": "37db5b3c863ec13dc31b4bc96863d78a",
     "lean": "1508ebdcce78c67904381910e3193cf8"
   },
   "files": {
@@ -3702,6 +3702,7 @@
     "src/research.ts": "ca1346bcc10ed66a",
     "src/resonance/index.ts": "f0b3f17a245c254a",
     "src/resources.ts": "fd1f2a4569134815",
+    "src/rights-asserted.test.ts": "a8efd5c09378c479",
     "src/rosetta-legs.test.ts": "2c9c353d17ceb87f",
     "src/rosetta-legs.ts": "69879f896a6573b7",
     "src/rosetta-mirror.ts": "4186c3be7f48ba79",
