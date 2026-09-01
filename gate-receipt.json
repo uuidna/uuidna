@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "96f1d59100a2a03fbc1a5f0733151606",
+    "src": "c851cd4ef52a7a681c8642f6006a2fce",
     "lean": "a2a1cbb4f44923a262b93a0a7be81847"
   },
   "files": {
@@ -3667,6 +3667,8 @@
     "src/quantum/os/session/index.ts": "f83e5df00574d05b",
     "src/quantum/os/shellapi/index.test.ts": "583cb50f7c3079cb",
     "src/quantum/os/shellapi/index.ts": "67b9b0145c5c823f",
+    "src/quantum/os/uiapi/index.test.ts": "4b96d65416397b8d",
+    "src/quantum/os/uiapi/index.ts": "90b711a7d0287e5f",
     "src/quantum/os/waves/index.test.ts": "e1062a5a2086aff4",
     "src/quantum/os/waves/index.ts": "eea359e360efd152",
     "src/quantum/os/weather/index.ts": "dd5e7544464d7414",
