@@ -1,0 +1,12 @@
+{
+  "handle": "587984a7",
+  "address": "587984a7-47f1-87b0-aeb3-312d6a8994a3",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_ge_ga_ie_87"
+  ],
+  "statement": "(62 + 25 - 0 = 87)",
+  "files": [
+    "Wave.lean"
+  ]
+}

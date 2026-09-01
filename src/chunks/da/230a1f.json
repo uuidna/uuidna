@@ -1,0 +1,12 @@
+{
+  "handle": "da230a1f",
+  "address": "da230a1f-c19b-86a2-bd5a-fedb3f3d9695",
+  "statement": "(3 + 198 - 0 = 201)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ch_au_ie_201"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

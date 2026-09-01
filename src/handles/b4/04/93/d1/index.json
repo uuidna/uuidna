@@ -1,0 +1,12 @@
+{
+  "handle": "b40493d1",
+  "address": "b40493d1-a266-88c3-860b-dd60e5cbd9b9",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_chemistry_partitions_28635"
+  ],
+  "statement": "(3 + 28632 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

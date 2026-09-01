@@ -1,0 +1,12 @@
+{
+  "handle": "f9443ac4",
+  "address": "f9443ac4-c59a-856e-8d25-70ff074905ce",
+  "statement": "(199 + 11 - 0 = 210)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_cr_ne_ie_210"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

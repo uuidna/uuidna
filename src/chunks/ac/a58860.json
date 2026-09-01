@@ -1,0 +1,12 @@
+{
+  "handle": "aca58860",
+  "address": "aca58860-ad44-83c9-b498-82cac5fe12bd",
+  "statement": "(7486 + 241 - 42 = 7685)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_la_ch_ie_7685"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

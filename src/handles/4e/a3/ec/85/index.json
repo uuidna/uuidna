@@ -1,0 +1,12 @@
+{
+  "handle": "4ea3ec85",
+  "address": "4ea3ec85-cf12-868c-9d96-a607eaaeca5c",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_dr_se_ie_716"
+  ],
+  "statement": "(630 + 86 - 0 = 716)",
+  "files": [
+    "Wave.lean"
+  ]
+}

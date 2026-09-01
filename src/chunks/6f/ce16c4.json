@@ -1,0 +1,12 @@
+{
+  "handle": "6fce16c4",
+  "address": "6fce16c4-3a45-816a-981a-f97082d5caaf",
+  "statement": "(17 + 82 - 0 = 99)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_as_fo_ie_99"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

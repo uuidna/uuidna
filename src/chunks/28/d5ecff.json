@@ -1,0 +1,12 @@
+{
+  "handle": "28d5ecff",
+  "address": "28d5ecff-045e-85bb-981b-0084ebab0cd1",
+  "statement": "(259 + 232 - 0 = 491)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_me_vi_ie_491"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

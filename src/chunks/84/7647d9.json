@@ -1,0 +1,12 @@
+{
+  "handle": "847647d9",
+  "address": "847647d9-421b-8ad4-81a7-6aa891d23651",
+  "statement": "(51 <= 62) ∧ (62 - 51 = 11)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_geo_origins_62"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

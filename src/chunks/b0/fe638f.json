@@ -1,0 +1,12 @@
+{
+  "handle": "b0fe638f",
+  "address": "b0fe638f-4d40-805c-b4d5-cf945eb93887",
+  "statement": "(241 + 260 - 0 = 501)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ch_bu_ie_501"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

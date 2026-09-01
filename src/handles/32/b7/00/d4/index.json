@@ -1,0 +1,12 @@
+{
+  "handle": "32b700d4",
+  "address": "32b700d4-ceef-8004-ab07-81464fc1d5eb",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_as_ph_ie_24"
+  ],
+  "statement": "(17 + 7 - 0 = 24)",
+  "files": [
+    "Wave.lean"
+  ]
+}

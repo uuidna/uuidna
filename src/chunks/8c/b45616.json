@@ -1,0 +1,12 @@
+{
+  "handle": "8cb45616",
+  "address": "8cb45616-fc58-8b28-a615-32d5d212a939",
+  "statement": "(40 + 25 - 0 = 65)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ma_ga_ie_65"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

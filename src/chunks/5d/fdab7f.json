@@ -1,0 +1,12 @@
+{
+  "handle": "5dfdab7f",
+  "address": "5dfdab7f-7716-8dbc-85d8-7d8f750b7ec9",
+  "statement": "(2 + 3 - 0 = 5)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_bi_ch_ie_5"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

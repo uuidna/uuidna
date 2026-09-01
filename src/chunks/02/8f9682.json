@@ -1,0 +1,12 @@
+{
+  "handle": "028f9682",
+  "address": "028f9682-320e-83d8-900a-ccabbe3d3048",
+  "statement": "(332 + 232 - 1 = 563)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ne_vi_ie_563"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

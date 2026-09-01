@@ -1,0 +1,12 @@
+{
+  "handle": "9a719a90",
+  "address": "9a719a90-0e66-8f71-a17a-6278a593b29d",
+  "statement": "(259 + 3 - 0 = 262)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_me_ch_ie_262"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

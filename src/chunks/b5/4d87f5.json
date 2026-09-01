@@ -1,0 +1,12 @@
+{
+  "handle": "b54d87f5",
+  "address": "b54d87f5-9d1c-8ef3-98db-ce8be3235761",
+  "statement": "(438 + 7 - 0 = 445)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_da_ph_ie_445"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e4dbaf78",
+  "address": "e4dbaf78-d885-8fbb-acd5-bf606bb16af2",
+  "statement": "(232 + 28403 = 28635)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_virtualization_partitions_28635"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

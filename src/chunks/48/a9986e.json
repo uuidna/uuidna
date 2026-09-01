@@ -1,0 +1,12 @@
+{
+  "handle": "48a9986e",
+  "address": "48a9986e-14b0-8884-9d5e-5af4d3ba3aae",
+  "statement": "(3 + 7 - 0 = 10)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ch_ph_ie_10"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

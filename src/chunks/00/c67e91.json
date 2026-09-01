@@ -1,0 +1,12 @@
+{
+  "handle": "00c67e91",
+  "address": "00c67e91-2bad-8c60-85ed-fc25fa50b044",
+  "statement": "(3 + 232 - 0 = 235)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ch_vi_ie_235"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

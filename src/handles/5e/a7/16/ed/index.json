@@ -1,0 +1,12 @@
+{
+  "handle": "5ea716ed",
+  "address": "5ea716ed-33f8-83dd-b7e4-99ba4ab8ad87",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_astronomy_partitions_28635"
+  ],
+  "statement": "(17 + 28618 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

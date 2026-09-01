@@ -1,0 +1,12 @@
+{
+  "handle": "32e21413",
+  "address": "32e21413-0d87-8c29-af31-9b9f9cca806e",
+  "statement": "(53 + 3 - 0 = 56)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ar_ch_ie_56"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

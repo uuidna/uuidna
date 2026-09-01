@@ -1,0 +1,12 @@
+{
+  "handle": "faebfa43",
+  "address": "faebfa43-0ff2-8507-923d-46c5aa52a659",
+  "statement": "(53 + 260 - 0 = 313)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ar_bu_ie_313"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

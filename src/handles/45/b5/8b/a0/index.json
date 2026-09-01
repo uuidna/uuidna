@@ -1,0 +1,12 @@
+{
+  "handle": "45b58ba0",
+  "address": "45b58ba0-d809-8cfd-a528-95a785b475e6",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_font_origins_82"
+  ],
+  "statement": "(59 <= 82) ∧ (82 - 59 = 23)",
+  "files": [
+    "Wave.lean"
+  ]
+}

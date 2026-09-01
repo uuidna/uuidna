@@ -1,0 +1,12 @@
+{
+  "handle": "971b467a",
+  "address": "971b467a-eb52-804c-966f-fcf94c1984e0",
+  "statement": "(1279 + 40 - 0 = 1319)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_sh_ma_ie_1319"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

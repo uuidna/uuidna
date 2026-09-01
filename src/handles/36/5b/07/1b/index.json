@@ -1,0 +1,12 @@
+{
+  "handle": "365b071b",
+  "address": "365b071b-777e-85b1-a78a-7d60779e5f3b",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_neuro_partitions_28635"
+  ],
+  "statement": "(11 + 28624 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

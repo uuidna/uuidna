@@ -1,0 +1,12 @@
+{
+  "handle": "2313288d",
+  "address": "2313288d-844b-8e01-9357-05ff1cc68019",
+  "statement": "(199 + 2 - 0 = 201)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_cr_bi_ie_201"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

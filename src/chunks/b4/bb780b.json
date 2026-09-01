@@ -1,0 +1,12 @@
+{
+  "handle": "b4bb780b",
+  "address": "b4bb780b-17c2-890b-bce6-d2ebbb1c8f12",
+  "statement": "(215 + 232 - 3 = 444)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_fi_vi_ie_444"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "a9356f4a",
+  "address": "a9356f4a-0a06-82f5-b33e-30d82a507554",
+  "statement": "(438 + 198 - 0 = 636)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_da_au_ie_636"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

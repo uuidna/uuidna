@@ -1,0 +1,12 @@
+{
+  "handle": "2665bd4b",
+  "address": "2665bd4b-ab5c-866e-9620-1d89822ba7b1",
+  "statement": "(17 + 25 - 0 = 42)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_as_ga_ie_42"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

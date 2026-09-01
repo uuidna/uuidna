@@ -1,0 +1,12 @@
+{
+  "handle": "8ab58b35",
+  "address": "8ab58b35-c370-8ea9-a573-b8d441893297",
+  "statement": "(29 <= 53) ∧ (53 - 29 = 24)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_art_origins_53"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

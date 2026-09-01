@@ -1,0 +1,12 @@
+{
+  "handle": "b9bead38",
+  "address": "b9bead38-1b49-8916-a1fb-b628258bdf48",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_vi_ga_ie_257"
+  ],
+  "statement": "(232 + 25 - 0 = 257)",
+  "files": [
+    "Wave.lean"
+  ]
+}

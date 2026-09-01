@@ -1,0 +1,12 @@
+{
+  "handle": "4f593ea0",
+  "address": "4f593ea0-e070-8b64-9e06-a0514ac70b23",
+  "statement": "(259 + 241 - 0 = 500)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_me_ch_ie_500"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

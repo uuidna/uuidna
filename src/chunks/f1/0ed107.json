@@ -1,0 +1,12 @@
+{
+  "handle": "f10ed107",
+  "address": "f10ed107-8b39-8af8-997e-74a10eed5a4d",
+  "statement": "(7486 + 232 - 16 = 7702)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_la_vi_ie_7702"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

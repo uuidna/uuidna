@@ -1,0 +1,12 @@
+{
+  "handle": "b3b67708",
+  "address": "b3b67708-911d-8c65-891a-bf463e571853",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_crypto_origins_199"
+  ],
+  "statement": "(114 <= 199) ∧ (199 - 114 = 85)",
+  "files": [
+    "Wave.lean"
+  ]
+}

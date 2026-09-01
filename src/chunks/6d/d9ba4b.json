@@ -1,0 +1,12 @@
+{
+  "handle": "6dd9ba4b",
+  "address": "6dd9ba4b-3a57-8406-815e-e01d6ca23039",
+  "statement": "(29 + 11 - 0 = 40)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_bl_ne_ie_40"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

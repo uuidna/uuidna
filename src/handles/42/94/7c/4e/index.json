@@ -1,0 +1,12 @@
+{
+  "handle": "42947c4e",
+  "address": "42947c4e-763f-879f-953d-a450f7b6a9cf",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_virtualization_origins_232"
+  ],
+  "statement": "(178 <= 232) ∧ (232 - 178 = 54)",
+  "files": [
+    "Wave.lean"
+  ]
+}

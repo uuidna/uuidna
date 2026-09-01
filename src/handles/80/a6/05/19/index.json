@@ -1,0 +1,12 @@
+{
+  "handle": "80a60519",
+  "address": "80a60519-ad5d-842a-add4-0155e3111384",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_art_partitions_28635"
+  ],
+  "statement": "(53 + 28582 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

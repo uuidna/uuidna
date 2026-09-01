@@ -1,0 +1,12 @@
+{
+  "handle": "fa988e0f",
+  "address": "fa988e0f-29e9-8c59-8433-0b5eaace1342",
+  "statement": "(332 + 7 - 0 = 339)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ne_ph_ie_339"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "e7969617",
+  "address": "e7969617-7888-8b00-a366-cf4fb86200fd",
+  "statement": "(53 + 2 - 0 = 55)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ar_bi_ie_55"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

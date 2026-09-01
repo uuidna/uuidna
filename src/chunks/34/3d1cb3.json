@@ -1,0 +1,12 @@
+{
+  "handle": "343d1cb3",
+  "address": "343d1cb3-8d59-8a24-a2b4-90b7bdad656e",
+  "statement": "(15 <= 25) ∧ (25 - 15 = 10)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_game_origins_25"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

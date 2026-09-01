@@ -1,0 +1,12 @@
+{
+  "handle": "7f15ad4f",
+  "address": "7f15ad4f-e2dc-8f68-a817-996b50cd4f4a",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_chat_partitions_28635"
+  ],
+  "statement": "(241 + 28394 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

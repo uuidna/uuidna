@@ -1,0 +1,12 @@
+{
+  "handle": "bc160d59",
+  "address": "bc160d59-9e70-8f61-a77e-ad35067dfb85",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_security_origins_86"
+  ],
+  "statement": "(47 <= 86) ∧ (86 - 47 = 39)",
+  "files": [
+    "Wave.lean"
+  ]
+}

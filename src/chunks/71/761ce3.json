@@ -1,0 +1,12 @@
+{
+  "handle": "71761ce3",
+  "address": "71761ce3-4363-823a-9288-41c6b4d43ff0",
+  "statement": "(1 <= 3) ∧ (3 - 1 = 2)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_chemistry_origins_3"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "23e3e81f",
+  "address": "23e3e81f-f13e-8bae-9d1f-2e96bbe99b5c",
+  "statement": "(40 + 2 - 0 = 42)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ma_bi_ie_42"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "3e3f039f",
+  "address": "3e3f039f-5acb-8ff7-8d71-a20d780dd739",
+  "statement": "(438 + 86 - 0 = 524)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_da_se_ie_524"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

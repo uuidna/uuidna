@@ -1,0 +1,12 @@
+{
+  "handle": "ff6c35f5",
+  "address": "ff6c35f5-8d70-8ba7-b1ce-d08872abc949",
+  "statement": "(3 <= 7) ∧ (7 - 3 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_physics_origins_7"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

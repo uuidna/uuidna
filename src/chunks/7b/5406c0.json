@@ -1,0 +1,12 @@
+{
+  "handle": "7b5406c0",
+  "address": "7b5406c0-09a7-8d67-b032-680227dc95a0",
+  "statement": "(130 <= 241) ∧ (241 - 130 = 111)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_chat_origins_241"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

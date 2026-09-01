@@ -1,0 +1,12 @@
+{
+  "handle": "a36f2a64",
+  "address": "a36f2a64-7a77-8a24-a178-2722c665b78b",
+  "statement": "(7 <= 11) ∧ (11 - 7 = 4)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_neuro_origins_11"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

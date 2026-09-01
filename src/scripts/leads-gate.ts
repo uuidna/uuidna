@@ -16,7 +16,8 @@
 // UNREAD and blocks, because an unread source and a clean source return the same empty list, and a gate that
 // cannot tell them apart is the instrument theorem no_instrument_narrower_than_its_question forbids. This gate
 // exists to refuse unverified claims; shipping on a census nobody managed to take would be one.
-import { readFileSync, existsSync } from 'node:fs'
+import { readFileSync, existsSync, writeFileSync } from 'node:fs'
+import { execFileSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { leadCensus, renderCensus, read, unread, type Lead, type SourceReading } from '../leads.js'
@@ -107,9 +108,73 @@ export function gatherLeads(): SourceReading[] {
   })
 }
 
+// ── SETTLING IS A COMMAND NOW, NOT JSON SURGERY (the captain: "refusals and refutals do not stand in the way") ──
+//
+// Every lead settled in this session was settled the same way: a `node -e` that read lean/leads.json, spliced an
+// entry from held[] into refuted[], and wrote it back — followed by three generators run by hand, because
+// docs/leads.md, docs/school.md and docs/open-questions.md all derive from that file and go stale the moment it
+// moves. Forget one and the suite goes red on a surface nobody edited. measure.ts names this exactly: "a
+// one-liner is manual work wearing computation's clothes — it computes, and it is not reusable, sealed, testable
+// or citable." It was the most repeated manual act of the session, so it is the one most worth folding.
+//
+// THE LAW IS ENFORCED HERE RATHER THAN DISCOVERED LATER. A refutation without killed_by and a refusal without a
+// boundary are exactly what the school test rejects, so this refuses them at the door with the reason, instead of
+// writing a record that fails a test three steps downstream. And it never deletes: a settled lead moves, keeping
+// what was tried, because the record of a dead end is the only thing that stops it being walked again.
+const settleLead = (argv: readonly string[]): number => {
+  const arg = (flag: string): string | null => {
+    const i = argv.indexOf(flag)
+    return i >= 0 && argv[i + 1] !== undefined ? String(argv[i + 1]) : null
+  }
+  const refute = arg('--refute')
+  const refuse = arg('--refuse')
+  const because = arg('--because')
+  const boundary = arg('--boundary')
+  const match = refute ?? refuse
+
+  if (!match) {
+    console.error('✗ settle — name the lead: --refute "<prefix>" --because "<the measurement that killed it>"')
+    console.error('                    or:  --refuse "<prefix>" --boundary "<the named law or scope>"')
+    return 1
+  }
+  if (refute && !because) { console.error('✗ settle — a refutation REQUIRES --because: what measurement killed it? An unexplained refutation is a deletion with extra steps.'); return 1 }
+  if (refuse && !boundary) { console.error('✗ settle — a refusal REQUIRES --boundary: which named law or scope declines it? "we did not want to" is not a boundary.'); return 1 }
+
+  const path = join(ROOT, 'lean/leads.json')
+  const record = JSON.parse(readFileSync(path, 'utf8')) as { held: Record<string, unknown>[]; refuted: Record<string, unknown>[]; refused: Record<string, unknown>[] }
+  const idx = record.held.findIndex((h) => String(h.lead ?? '').startsWith(match))
+  if (idx < 0) {
+    console.error(`✗ settle — no HELD lead starts with ${JSON.stringify(match.slice(0, 60))}. Held leads now:`)
+    for (const h of record.held) console.error('    · ' + String(h.lead ?? '').slice(0, 96))
+    return 1
+  }
+  const [lead] = record.held.splice(idx, 1)
+  if (refute) record.refuted.push({ ...lead, killed_by: because })
+  else record.refused.push({ ...lead, boundary })
+  writeFileSync(path, JSON.stringify(record, null, 2) + '\n')
+
+  console.log(`✓ settle — ${refute ? 'REFUTED' : 'REFUSED'}: ${String(lead.lead).slice(0, 72)}…`)
+  console.log(`  held ${record.held.length} · refuted ${record.refuted.length} · refused ${record.refused.length}`)
+
+  // AND THE SURFACES FOLLOW IN THE SAME BREATH, which is the half that kept being forgotten. leads.json is the
+  // source for three generated pages; settling without regenerating leaves a tree that is correct in its record
+  // and red in its tests, which reads as a broken suite rather than as an unfinished act.
+  for (const gen of ['gen-leads.js', 'gen-school.js', 'gen-open-questions.js']) {
+    try {
+      execFileSync(process.execPath, [join(ROOT, 'dist/scripts', gen)], { cwd: ROOT, stdio: 'pipe' })
+      console.log(`  ✓ ${gen}`)
+    } catch (e) {
+      console.error(`  ✗ ${gen} failed — the record moved but its surfaces did not: ${e instanceof Error ? e.message.slice(0, 120) : String(e)}`)
+      return 1
+    }
+  }
+  return 0
+}
+
 // THE ARC RUNS ONLY WHEN IT IS THE COMMAND — importing this module gives you the sources, running it renders the
 // verdict and exits. Same guard every runner in this tree carries.
 if (process.argv[1]?.endsWith('leads-gate.js')) {
+  if (process.argv.includes('--settle')) process.exit(settleLead(process.argv.slice(2)))
   const census = leadCensus(gatherLeads())
   console.log('leads — A LEAD IS ANYTHING NOT VERIFIED. No release ships while one is held.\n')
   for (const line of renderCensus(census)) console.log(line)

@@ -1,0 +1,12 @@
+{
+  "handle": "f59057a5",
+  "address": "f59057a5-4401-8a8c-8f36-0c9d683d5b45",
+  "statement": "(3 + 11 - 0 = 14)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ch_ne_ie_14"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

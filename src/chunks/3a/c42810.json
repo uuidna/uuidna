@@ -1,0 +1,12 @@
+{
+  "handle": "3ac42810",
+  "address": "3ac42810-34b0-8121-9acf-4ec9d0e6bf34",
+  "statement": "(40 + 62 - 0 = 102)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ma_ge_ie_102"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

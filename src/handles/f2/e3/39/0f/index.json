@@ -1,0 +1,12 @@
+{
+  "handle": "f2e3390f",
+  "address": "f2e3390f-65e9-80c9-ba1e-86ebf1c14a29",
+  "kind": "chunk",
+  "keys": [
+    "alpine_shell_applets_partition_17"
+  ],
+  "statement": "(6 + 3 + 8 = 17)",
+  "files": [
+    "Wave.lean"
+  ]
+}

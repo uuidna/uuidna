@@ -1,0 +1,12 @@
+{
+  "handle": "55adb863",
+  "address": "55adb863-5097-8215-99e2-f3d7363de58f",
+  "statement": "(29 + 232 - 0 = 261)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_bl_vi_ie_261"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

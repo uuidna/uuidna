@@ -1,0 +1,12 @@
+{
+  "handle": "ddb61c65",
+  "address": "ddb61c65-c6dc-8cfb-9240-889146abccaf",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_fi_ga_ie_240"
+  ],
+  "statement": "(215 + 25 - 0 = 240)",
+  "files": [
+    "Wave.lean"
+  ]
+}

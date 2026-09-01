@@ -1,0 +1,12 @@
+{
+  "handle": "dfdbaa4b",
+  "address": "dfdbaa4b-476a-830b-9d49-508e1826d59b",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_bi_vi_ie_234"
+  ],
+  "statement": "(2 + 232 - 0 = 234)",
+  "files": [
+    "Wave.lean"
+  ]
+}

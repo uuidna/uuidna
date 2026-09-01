@@ -1,0 +1,12 @@
+{
+  "handle": "f9107c04",
+  "address": "f9107c04-5295-8205-9621-17cb84a5719f",
+  "statement": "(630 + 82 - 0 = 712)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_dr_fo_ie_712"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

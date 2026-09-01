@@ -1,0 +1,12 @@
+{
+  "handle": "04cc6493",
+  "address": "04cc6493-c8cc-8788-a6b0-df345432fa6b",
+  "statement": "(3 + 82 - 0 = 85)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ch_fo_ie_85"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

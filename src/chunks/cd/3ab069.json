@@ -1,0 +1,12 @@
+{
+  "handle": "cd3ab069",
+  "address": "cd3ab069-e5d5-8dfe-aa15-44ac18723ef2",
+  "statement": "(53 + 7 - 0 = 60)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ar_ph_ie_60"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

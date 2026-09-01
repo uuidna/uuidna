@@ -1,0 +1,12 @@
+{
+  "handle": "977fc7dc",
+  "address": "977fc7dc-9300-88a7-b2fc-d7120930d7e4",
+  "statement": "(1279 + 62 - 1 = 1340)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_sh_ge_ie_1340"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

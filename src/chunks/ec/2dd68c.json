@@ -1,0 +1,12 @@
+{
+  "handle": "ec2dd68c",
+  "address": "ec2dd68c-121e-8c72-a9fc-fccbc5e8ae2a",
+  "statement": "(40 + 232 - 0 = 272)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ma_vi_ie_272"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

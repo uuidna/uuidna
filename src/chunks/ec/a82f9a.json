@@ -1,0 +1,12 @@
+{
+  "handle": "eca82f9a",
+  "address": "eca82f9a-7659-8ecd-9efc-9fb193c4143c",
+  "statement": "(40 + 82 - 0 = 122)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ma_fo_ie_122"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

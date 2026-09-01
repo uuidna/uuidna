@@ -1,0 +1,12 @@
+{
+  "handle": "92ec53cf",
+  "address": "92ec53cf-9e89-836c-9165-391c0aeb1cd8",
+  "statement": "(2 + 198 - 0 = 200)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_bi_au_ie_200"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

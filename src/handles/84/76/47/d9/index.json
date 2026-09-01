@@ -1,0 +1,12 @@
+{
+  "handle": "847647d9",
+  "address": "847647d9-421b-8ad4-81a7-6aa891d23651",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_geo_origins_62"
+  ],
+  "statement": "(51 <= 62) ∧ (62 - 51 = 11)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,76 +1,5 @@
 {
-  "pending": [
-    {
-      "key": "alpine_domain_chat_partitions_28635",
-      "why": "Alpine domain port (chat): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the chat domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
-      "lean": "theorem alpine_domain_chat_partitions_28635 : (241 + 28394 = 28635) := by decide"
-    },
-    {
-      "key": "alpine_domain_chat_origins_241",
-      "why": "Alpine domain port (chat): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 111 of the 241 packages are companions (-dev, -doc, -libs) of an origin already counted",
-      "lean": "theorem alpine_domain_chat_origins_241 : (130 <= 241) ∧ (241 - 130 = 111) := by decide"
-    },
-    {
-      "key": "alpine_shell_applets_partition_17",
-      "why": "Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (3), or uuidna's own (8) — exhaustive and disjoint",
-      "lean": "theorem alpine_shell_applets_partition_17 : (6 + 3 + 8 = 17) := by decide"
-    },
-    {
-      "key": "alpine_shell_domain_commands_345",
-      "why": "Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the shell domain declares 345 commands of 19095 the whole catalogue declares — the denominator is read from Alpine's provides column, never written down",
-      "lean": "theorem alpine_shell_domain_commands_345 : (345 < 19095) ∧ (19095 - 345 = 18750) := by decide"
-    },
-    {
-      "key": "alpine_dom_da_ch_ie_679",
-      "why": "Inclusion-exclusion across database and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_da_ch_ie_679 : (438 + 241 - 0 = 679) := by decide"
-    },
-    {
-      "key": "alpine_dom_fi_ch_ie_454",
-      "why": "Inclusion-exclusion across filesystem and chat, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_fi_ch_ie_454 : (215 + 241 - 2 = 454) := by decide"
-    },
-    {
-      "key": "alpine_dom_bl_ch_ie_270",
-      "why": "Inclusion-exclusion across blockchain and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_bl_ch_ie_270 : (29 + 241 - 0 = 270) := by decide"
-    },
-    {
-      "key": "alpine_dom_dr_ch_ie_871",
-      "why": "Inclusion-exclusion across driver and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_dr_ch_ie_871 : (630 + 241 - 0 = 871) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ch_ie_7685",
-      "why": "Inclusion-exclusion across language and chat, exact over the committed mirror. They share 42 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ch_ie_7685 : (7486 + 241 - 42 = 7685) := by decide"
-    },
-    {
-      "key": "alpine_dom_ne_ch_ie_573",
-      "why": "Inclusion-exclusion across network and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_ne_ch_ie_573 : (332 + 241 - 0 = 573) := by decide"
-    },
-    {
-      "key": "alpine_dom_sc_ch_ie_315",
-      "why": "Inclusion-exclusion across science and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_sc_ch_ie_315 : (74 + 241 - 0 = 315) := by decide"
-    },
-    {
-      "key": "alpine_dom_me_ch_ie_500",
-      "why": "Inclusion-exclusion across media and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_me_ch_ie_500 : (259 + 241 - 0 = 500) := by decide"
-    },
-    {
-      "key": "alpine_dom_sh_ch_ie_1517",
-      "why": "Inclusion-exclusion across shell and chat, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_sh_ch_ie_1517 : (1279 + 241 - 3 = 1517) := by decide"
-    },
-    {
-      "key": "alpine_dom_ch_bu_ie_501",
-      "why": "Inclusion-exclusion across chat and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_ch_bu_ie_501 : (241 + 260 - 0 = 501) := by decide"
-    }
-  ],
+  "pending": [],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
@@ -3275,6 +3204,1728 @@
       "why": "Inclusion-exclusion across shell and build, exact over the committed mirror. They share 6 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
       "lean": "theorem alpine_dom_sh_bu_ie_1533 : (1279 + 260 - 6 = 1533) := by decide",
       "receipt": "01efc85e-1def-8a51-bf84-fd6a13a2e1f1"
+    },
+    {
+      "key": "alpine_domain_chat_partitions_28635",
+      "why": "Alpine domain port (chat): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the chat domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_chat_partitions_28635 : (241 + 28394 = 28635) := by decide",
+      "receipt": "ab46f97f-2992-8392-9d00-f39c7cb880b1"
+    },
+    {
+      "key": "alpine_domain_chat_origins_241",
+      "why": "Alpine domain port (chat): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 111 of the 241 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_chat_origins_241 : (130 <= 241) ∧ (241 - 130 = 111) := by decide",
+      "receipt": "29849950-74aa-8ca1-b272-f04860bac50f"
+    },
+    {
+      "key": "alpine_shell_applets_partition_17",
+      "why": "Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (3), or uuidna's own (8) — exhaustive and disjoint",
+      "lean": "theorem alpine_shell_applets_partition_17 : (6 + 3 + 8 = 17) := by decide",
+      "receipt": "4cd579a2-cbfd-8a83-b7f3-c9c266a88376"
+    },
+    {
+      "key": "alpine_shell_domain_commands_345",
+      "why": "Alpine domain port (shell-applets): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the shell domain declares 345 commands of 19095 the whole catalogue declares — the denominator is read from Alpine's provides column, never written down",
+      "lean": "theorem alpine_shell_domain_commands_345 : (345 < 19095) ∧ (19095 - 345 = 18750) := by decide",
+      "receipt": "df57023c-e463-839d-aba1-2db037b9c641"
+    },
+    {
+      "key": "alpine_dom_da_ch_ie_679",
+      "why": "Inclusion-exclusion across database and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_ch_ie_679 : (438 + 241 - 0 = 679) := by decide",
+      "receipt": "27469416-cb9a-83ed-8e12-e725a6edade1"
+    },
+    {
+      "key": "alpine_dom_fi_ch_ie_454",
+      "why": "Inclusion-exclusion across filesystem and chat, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_ch_ie_454 : (215 + 241 - 2 = 454) := by decide",
+      "receipt": "531670bf-5a4d-84f9-9c21-d98fca624ce3"
+    },
+    {
+      "key": "alpine_dom_bl_ch_ie_270",
+      "why": "Inclusion-exclusion across blockchain and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_ch_ie_270 : (29 + 241 - 0 = 270) := by decide",
+      "receipt": "9163a532-5bd1-8788-8479-ef1866d6afb9"
+    },
+    {
+      "key": "alpine_dom_dr_ch_ie_871",
+      "why": "Inclusion-exclusion across driver and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_ch_ie_871 : (630 + 241 - 0 = 871) := by decide",
+      "receipt": "cbaf08f6-ea34-80ee-9f83-518215cea9bf"
+    },
+    {
+      "key": "alpine_dom_la_ch_ie_7685",
+      "why": "Inclusion-exclusion across language and chat, exact over the committed mirror. They share 42 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ch_ie_7685 : (7486 + 241 - 42 = 7685) := by decide",
+      "receipt": "359d405a-a4e3-876a-a825-77031d608a5b"
+    },
+    {
+      "key": "alpine_dom_ne_ch_ie_573",
+      "why": "Inclusion-exclusion across network and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ch_ie_573 : (332 + 241 - 0 = 573) := by decide",
+      "receipt": "6af6597a-d072-8cc8-9d80-8e32c6d508e4"
+    },
+    {
+      "key": "alpine_dom_sc_ch_ie_315",
+      "why": "Inclusion-exclusion across science and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_ch_ie_315 : (74 + 241 - 0 = 315) := by decide",
+      "receipt": "97e9a05d-fc92-8a61-84ef-c6e9616c3831"
+    },
+    {
+      "key": "alpine_dom_me_ch_ie_500",
+      "why": "Inclusion-exclusion across media and chat, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_ch_ie_500 : (259 + 241 - 0 = 500) := by decide",
+      "receipt": "11b2f407-6392-83b3-b7e4-719a0c22ac47"
+    },
+    {
+      "key": "alpine_dom_sh_ch_ie_1517",
+      "why": "Inclusion-exclusion across shell and chat, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_ch_ie_1517 : (1279 + 241 - 3 = 1517) := by decide",
+      "receipt": "b21efb94-4d78-87eb-99a7-44e27c5e054e"
+    },
+    {
+      "key": "alpine_dom_ch_bu_ie_501",
+      "why": "Inclusion-exclusion across chat and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_bu_ie_501 : (241 + 260 - 0 = 501) := by decide",
+      "receipt": "b22d7da6-2ed7-8b63-9c0a-d8b5a1e8ad59"
+    },
+    {
+      "key": "alpine_domain_crypto_partitions_28635",
+      "why": "Alpine domain port (crypto): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the crypto domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_crypto_partitions_28635 : (199 + 28436 = 28635) := by decide",
+      "receipt": "f7310062-db1d-8a46-aa66-a8d20dfefa59"
+    },
+    {
+      "key": "alpine_domain_crypto_origins_199",
+      "why": "Alpine domain port (crypto): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 85 of the 199 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_crypto_origins_199 : (114 <= 199) ∧ (199 - 114 = 85) := by decide",
+      "receipt": "33ff7ceb-d2a7-8b0c-bd55-bbf1d6cdb53c"
+    },
+    {
+      "key": "alpine_domain_security_partitions_28635",
+      "why": "Alpine domain port (security): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the security domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_security_partitions_28635 : (86 + 28549 = 28635) := by decide",
+      "receipt": "48188a5b-3898-85be-b672-4330c1c958ff"
+    },
+    {
+      "key": "alpine_domain_security_origins_86",
+      "why": "Alpine domain port (security): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 39 of the 86 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_security_origins_86 : (47 <= 86) ∧ (86 - 47 = 39) := by decide",
+      "receipt": "61e4d9eb-f307-8dc2-aace-70690575a302"
+    },
+    {
+      "key": "alpine_domain_math_partitions_28635",
+      "why": "Alpine domain port (math): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the math domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_math_partitions_28635 : (40 + 28595 = 28635) := by decide",
+      "receipt": "3217bf6d-0d54-85d5-8772-69c404e21d2f"
+    },
+    {
+      "key": "alpine_domain_math_origins_40",
+      "why": "Alpine domain port (math): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 19 of the 40 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_math_origins_40 : (21 <= 40) ∧ (40 - 21 = 19) := by decide",
+      "receipt": "345e8c7d-0a4a-8abc-8353-bacc567688e4"
+    },
+    {
+      "key": "alpine_domain_art_partitions_28635",
+      "why": "Alpine domain port (art): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the art domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_art_partitions_28635 : (53 + 28582 = 28635) := by decide",
+      "receipt": "3a0caa84-2667-8e31-a0a5-74c8b36cb59c"
+    },
+    {
+      "key": "alpine_domain_art_origins_53",
+      "why": "Alpine domain port (art): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 24 of the 53 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_art_origins_53 : (29 <= 53) ∧ (53 - 29 = 24) := by decide",
+      "receipt": "8217d7b0-cb12-8e1e-95aa-292aa5bb7128"
+    },
+    {
+      "key": "alpine_domain_bio_partitions_28635",
+      "why": "Alpine domain port (bio): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the bio domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_bio_partitions_28635 : (2 + 28633 = 28635) := by decide",
+      "receipt": "baf20f68-da41-8747-9e3d-5d84f9744117"
+    },
+    {
+      "key": "alpine_domain_bio_origins_2",
+      "why": "Alpine domain port (bio): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 1 of the 2 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_bio_origins_2 : (1 <= 2) ∧ (2 - 1 = 1) := by decide",
+      "receipt": "febcd3a5-1fa4-898f-9338-273cea280c82"
+    },
+    {
+      "key": "alpine_domain_chemistry_partitions_28635",
+      "why": "Alpine domain port (chemistry): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the chemistry domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_chemistry_partitions_28635 : (3 + 28632 = 28635) := by decide",
+      "receipt": "4bc427bf-ac2c-8558-b2cc-6333c0f17e3e"
+    },
+    {
+      "key": "alpine_domain_chemistry_origins_3",
+      "why": "Alpine domain port (chemistry): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 2 of the 3 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_chemistry_origins_3 : (1 <= 3) ∧ (3 - 1 = 2) := by decide",
+      "receipt": "4eb0352b-4c5a-8de0-8c25-5399e6006289"
+    },
+    {
+      "key": "alpine_domain_neuro_partitions_28635",
+      "why": "Alpine domain port (neuro): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the neuro domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_neuro_partitions_28635 : (11 + 28624 = 28635) := by decide",
+      "receipt": "a1b3632b-bff1-885f-a368-1677bf543068"
+    },
+    {
+      "key": "alpine_domain_neuro_origins_11",
+      "why": "Alpine domain port (neuro): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 4 of the 11 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_neuro_origins_11 : (7 <= 11) ∧ (11 - 7 = 4) := by decide",
+      "receipt": "4edc07b9-e23d-864a-8d56-cb9b016f324e"
+    },
+    {
+      "key": "alpine_domain_astronomy_partitions_28635",
+      "why": "Alpine domain port (astronomy): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the astronomy domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_astronomy_partitions_28635 : (17 + 28618 = 28635) := by decide",
+      "receipt": "6e59de78-9a8d-8959-a91b-ad45fb382ecb"
+    },
+    {
+      "key": "alpine_domain_astronomy_origins_17",
+      "why": "Alpine domain port (astronomy): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 8 of the 17 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_astronomy_origins_17 : (9 <= 17) ∧ (17 - 9 = 8) := by decide",
+      "receipt": "65dcdfbb-14e4-8f1e-a1a8-d3ea42bdcba3"
+    },
+    {
+      "key": "alpine_domain_physics_partitions_28635",
+      "why": "Alpine domain port (physics): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the physics domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_physics_partitions_28635 : (7 + 28628 = 28635) := by decide",
+      "receipt": "efe98b18-2a97-87fe-8c45-abecc7b35469"
+    },
+    {
+      "key": "alpine_domain_physics_origins_7",
+      "why": "Alpine domain port (physics): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 4 of the 7 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_physics_origins_7 : (3 <= 7) ∧ (7 - 3 = 4) := by decide",
+      "receipt": "3471946f-3931-84d6-b3a1-7415ce21ecfc"
+    },
+    {
+      "key": "alpine_domain_geo_partitions_28635",
+      "why": "Alpine domain port (geo): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the geo domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_geo_partitions_28635 : (62 + 28573 = 28635) := by decide",
+      "receipt": "3ca169d3-c43f-883d-a02e-fde55157e715"
+    },
+    {
+      "key": "alpine_domain_geo_origins_62",
+      "why": "Alpine domain port (geo): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 11 of the 62 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_geo_origins_62 : (51 <= 62) ∧ (62 - 51 = 11) := by decide",
+      "receipt": "8d7a4488-d95e-8fa4-9a9e-56bbcedc1705"
+    },
+    {
+      "key": "alpine_domain_virtualization_partitions_28635",
+      "why": "Alpine domain port (virtualization): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the virtualization domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_virtualization_partitions_28635 : (232 + 28403 = 28635) := by decide",
+      "receipt": "5cabb6f7-1933-861b-b14b-9fc317eee38e"
+    },
+    {
+      "key": "alpine_domain_virtualization_origins_232",
+      "why": "Alpine domain port (virtualization): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 54 of the 232 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_virtualization_origins_232 : (178 <= 232) ∧ (232 - 178 = 54) := by decide",
+      "receipt": "b3f56f09-9649-850c-89cb-9e57d4bd7ba5"
+    },
+    {
+      "key": "alpine_domain_game_partitions_28635",
+      "why": "Alpine domain port (game): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the game domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_game_partitions_28635 : (25 + 28610 = 28635) := by decide",
+      "receipt": "f2692ce3-6ac7-89fc-9a9e-b836cb3f4c63"
+    },
+    {
+      "key": "alpine_domain_game_origins_25",
+      "why": "Alpine domain port (game): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 10 of the 25 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_game_origins_25 : (15 <= 25) ∧ (25 - 15 = 10) := by decide",
+      "receipt": "5a255ecb-209d-8038-8fd5-fb26e0218db0"
+    },
+    {
+      "key": "alpine_domain_font_partitions_28635",
+      "why": "Alpine domain port (font): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the font domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_font_partitions_28635 : (82 + 28553 = 28635) := by decide",
+      "receipt": "81c1f506-cec0-8e30-b805-d749a4700d23"
+    },
+    {
+      "key": "alpine_domain_font_origins_82",
+      "why": "Alpine domain port (font): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 23 of the 82 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_font_origins_82 : (59 <= 82) ∧ (82 - 59 = 23) := by decide",
+      "receipt": "d2c608f6-9a65-82c2-bdb8-c77c4af1c92b"
+    },
+    {
+      "key": "alpine_domain_audio_partitions_28635",
+      "why": "Alpine domain port (audio): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the audio domain and everything outside it sum to the catalogue — nothing is counted twice and nothing is lost",
+      "lean": "theorem alpine_domain_audio_partitions_28635 : (198 + 28437 = 28635) := by decide",
+      "receipt": "14eb3b92-d724-8ed7-b80e-6241d72ffa07"
+    },
+    {
+      "key": "alpine_domain_audio_origins_198",
+      "why": "Alpine domain port (audio): exact arithmetic over the census counts. HONEST SCOPE — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 82 of the 198 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_audio_origins_198 : (116 <= 198) ∧ (198 - 116 = 82) := by decide",
+      "receipt": "7f65df45-ece3-859e-8548-ee16391c59ff"
+    },
+    {
+      "key": "alpine_dom_da_cr_ie_637",
+      "why": "Inclusion-exclusion across database and crypto, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_cr_ie_637 : (438 + 199 - 0 = 637) := by decide",
+      "receipt": "56434689-12ef-8804-9570-bd0c5cdabad4"
+    },
+    {
+      "key": "alpine_dom_da_se_ie_524",
+      "why": "Inclusion-exclusion across database and security, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_se_ie_524 : (438 + 86 - 0 = 524) := by decide",
+      "receipt": "834bbc3f-056a-8f7a-9d6e-d526e4a8f33b"
+    },
+    {
+      "key": "alpine_dom_da_ma_ie_478",
+      "why": "Inclusion-exclusion across database and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_ma_ie_478 : (438 + 40 - 0 = 478) := by decide",
+      "receipt": "e4e45d9d-db4a-8e83-977e-c376f51e21d2"
+    },
+    {
+      "key": "alpine_dom_da_ar_ie_491",
+      "why": "Inclusion-exclusion across database and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_ar_ie_491 : (438 + 53 - 0 = 491) := by decide",
+      "receipt": "ae8b2762-a05b-8ad2-9f08-ce21d7755c5c"
+    },
+    {
+      "key": "alpine_dom_da_bi_ie_440",
+      "why": "Inclusion-exclusion across database and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_bi_ie_440 : (438 + 2 - 0 = 440) := by decide",
+      "receipt": "2bd143ea-0e5e-8782-8088-2aafb810840e"
+    },
+    {
+      "key": "alpine_dom_da_ch_ie_441",
+      "why": "Inclusion-exclusion across database and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_ch_ie_441 : (438 + 3 - 0 = 441) := by decide",
+      "receipt": "b9eb26e8-009f-89cc-a467-af4bbff98002"
+    },
+    {
+      "key": "alpine_dom_da_ne_ie_449",
+      "why": "Inclusion-exclusion across database and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_ne_ie_449 : (438 + 11 - 0 = 449) := by decide",
+      "receipt": "0d344f1f-7630-8c3f-925e-e46326c9c818"
+    },
+    {
+      "key": "alpine_dom_da_as_ie_455",
+      "why": "Inclusion-exclusion across database and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_as_ie_455 : (438 + 17 - 0 = 455) := by decide",
+      "receipt": "a75425b1-3497-8b0a-8438-447a472688d4"
+    },
+    {
+      "key": "alpine_dom_da_ph_ie_445",
+      "why": "Inclusion-exclusion across database and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_ph_ie_445 : (438 + 7 - 0 = 445) := by decide",
+      "receipt": "2c5d4382-e0b8-8541-8b03-206cfe9a3f84"
+    },
+    {
+      "key": "alpine_dom_da_ge_ie_496",
+      "why": "Inclusion-exclusion across database and geo, exact over the committed mirror. They share 4 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_ge_ie_496 : (438 + 62 - 4 = 496) := by decide",
+      "receipt": "4dd67602-d2f9-8899-9f02-ffd2cabe05fe"
+    },
+    {
+      "key": "alpine_dom_da_vi_ie_670",
+      "why": "Inclusion-exclusion across database and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_vi_ie_670 : (438 + 232 - 0 = 670) := by decide",
+      "receipt": "831ce444-ad99-8703-8c61-d3f6441a1e29"
+    },
+    {
+      "key": "alpine_dom_da_ga_ie_463",
+      "why": "Inclusion-exclusion across database and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_ga_ie_463 : (438 + 25 - 0 = 463) := by decide",
+      "receipt": "5dc6fe4e-7968-85f8-a703-1e1b5b52d026"
+    },
+    {
+      "key": "alpine_dom_da_fo_ie_520",
+      "why": "Inclusion-exclusion across database and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_fo_ie_520 : (438 + 82 - 0 = 520) := by decide",
+      "receipt": "3ddcc9a5-ad97-8502-b03f-ed73e1977e6e"
+    },
+    {
+      "key": "alpine_dom_da_au_ie_636",
+      "why": "Inclusion-exclusion across database and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_au_ie_636 : (438 + 198 - 0 = 636) := by decide",
+      "receipt": "fadd7de6-33f7-8dff-b742-df85b105df91"
+    },
+    {
+      "key": "alpine_dom_fi_cr_ie_413",
+      "why": "Inclusion-exclusion across filesystem and crypto, exact over the committed mirror. They share 1 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_cr_ie_413 : (215 + 199 - 1 = 413) := by decide",
+      "receipt": "bf8644a8-dc37-87c2-a09e-8552fb2bf4aa"
+    },
+    {
+      "key": "alpine_dom_fi_se_ie_301",
+      "why": "Inclusion-exclusion across filesystem and security, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_se_ie_301 : (215 + 86 - 0 = 301) := by decide",
+      "receipt": "aad8219d-51f9-886e-b2d5-b6bd51474995"
+    },
+    {
+      "key": "alpine_dom_fi_ma_ie_255",
+      "why": "Inclusion-exclusion across filesystem and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_ma_ie_255 : (215 + 40 - 0 = 255) := by decide",
+      "receipt": "20c69207-0e1c-8501-a8e8-9aa568ad3d10"
+    },
+    {
+      "key": "alpine_dom_fi_ar_ie_268",
+      "why": "Inclusion-exclusion across filesystem and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_ar_ie_268 : (215 + 53 - 0 = 268) := by decide",
+      "receipt": "4dd8037f-7877-859a-ab41-2551f6ed6f47"
+    },
+    {
+      "key": "alpine_dom_fi_bi_ie_217",
+      "why": "Inclusion-exclusion across filesystem and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_bi_ie_217 : (215 + 2 - 0 = 217) := by decide",
+      "receipt": "053bab17-07a4-8d7f-89b4-1fce3fea50cc"
+    },
+    {
+      "key": "alpine_dom_fi_ch_ie_218",
+      "why": "Inclusion-exclusion across filesystem and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_ch_ie_218 : (215 + 3 - 0 = 218) := by decide",
+      "receipt": "d68c6daa-e16c-8a44-94f7-f54c779f8768"
+    },
+    {
+      "key": "alpine_dom_fi_ne_ie_226",
+      "why": "Inclusion-exclusion across filesystem and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_ne_ie_226 : (215 + 11 - 0 = 226) := by decide",
+      "receipt": "adedb73c-7836-88c1-b841-015c97d805a0"
+    },
+    {
+      "key": "alpine_dom_fi_as_ie_232",
+      "why": "Inclusion-exclusion across filesystem and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_as_ie_232 : (215 + 17 - 0 = 232) := by decide",
+      "receipt": "558c5079-c8c5-8e5a-a09f-8c90cf835aac"
+    },
+    {
+      "key": "alpine_dom_fi_ph_ie_222",
+      "why": "Inclusion-exclusion across filesystem and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_ph_ie_222 : (215 + 7 - 0 = 222) := by decide",
+      "receipt": "a3c19011-32e0-8994-9ed9-ce57ce07d1ce"
+    },
+    {
+      "key": "alpine_dom_fi_ge_ie_277",
+      "why": "Inclusion-exclusion across filesystem and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_ge_ie_277 : (215 + 62 - 0 = 277) := by decide",
+      "receipt": "a30e156d-5a67-856c-bd47-da92afca132f"
+    },
+    {
+      "key": "alpine_dom_fi_vi_ie_444",
+      "why": "Inclusion-exclusion across filesystem and virtualization, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_vi_ie_444 : (215 + 232 - 3 = 444) := by decide",
+      "receipt": "132e1c3d-bc3a-843a-b5d2-3b82bd7c86e7"
+    },
+    {
+      "key": "alpine_dom_fi_ga_ie_240",
+      "why": "Inclusion-exclusion across filesystem and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_ga_ie_240 : (215 + 25 - 0 = 240) := by decide",
+      "receipt": "8eac609f-5bda-82a0-aabb-6064a185ea4d"
+    },
+    {
+      "key": "alpine_dom_fi_fo_ie_297",
+      "why": "Inclusion-exclusion across filesystem and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_fo_ie_297 : (215 + 82 - 0 = 297) := by decide",
+      "receipt": "68b74784-2c72-8eb6-8743-467d35ab212e"
+    },
+    {
+      "key": "alpine_dom_fi_au_ie_413",
+      "why": "Inclusion-exclusion across filesystem and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_au_ie_413 : (215 + 198 - 0 = 413) := by decide",
+      "receipt": "7a4f44f0-eabf-83db-b74e-bf3c5c510688"
+    },
+    {
+      "key": "alpine_dom_bl_cr_ie_228",
+      "why": "Inclusion-exclusion across blockchain and crypto, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_cr_ie_228 : (29 + 199 - 0 = 228) := by decide",
+      "receipt": "02be14cb-9506-86b7-bcb1-6258de67b842"
+    },
+    {
+      "key": "alpine_dom_bl_se_ie_115",
+      "why": "Inclusion-exclusion across blockchain and security, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_se_ie_115 : (29 + 86 - 0 = 115) := by decide",
+      "receipt": "940c16e1-f590-8df1-a75c-0c458f1a98d6"
+    },
+    {
+      "key": "alpine_dom_bl_ma_ie_69",
+      "why": "Inclusion-exclusion across blockchain and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_ma_ie_69 : (29 + 40 - 0 = 69) := by decide",
+      "receipt": "d8a612a8-161f-82aa-89ca-2d029adade6d"
+    },
+    {
+      "key": "alpine_dom_bl_ar_ie_82",
+      "why": "Inclusion-exclusion across blockchain and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_ar_ie_82 : (29 + 53 - 0 = 82) := by decide",
+      "receipt": "336914ed-727e-8808-97f4-f23aaa3642ca"
+    },
+    {
+      "key": "alpine_dom_bl_bi_ie_31",
+      "why": "Inclusion-exclusion across blockchain and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_bi_ie_31 : (29 + 2 - 0 = 31) := by decide",
+      "receipt": "fc97b51f-ba5f-80b0-8981-2b962fdf7bed"
+    },
+    {
+      "key": "alpine_dom_bl_ch_ie_32",
+      "why": "Inclusion-exclusion across blockchain and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_ch_ie_32 : (29 + 3 - 0 = 32) := by decide",
+      "receipt": "17e75488-223c-8290-805e-d80287ec69b5"
+    },
+    {
+      "key": "alpine_dom_bl_ne_ie_40",
+      "why": "Inclusion-exclusion across blockchain and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_ne_ie_40 : (29 + 11 - 0 = 40) := by decide",
+      "receipt": "43c13aaa-7d36-8777-aa32-f68f73c87480"
+    },
+    {
+      "key": "alpine_dom_bl_as_ie_46",
+      "why": "Inclusion-exclusion across blockchain and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_as_ie_46 : (29 + 17 - 0 = 46) := by decide",
+      "receipt": "eb455533-5a76-8da6-a908-253d6f3036e6"
+    },
+    {
+      "key": "alpine_dom_bl_ph_ie_36",
+      "why": "Inclusion-exclusion across blockchain and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_ph_ie_36 : (29 + 7 - 0 = 36) := by decide",
+      "receipt": "6affcc98-d3b8-8d5d-b1e8-daa06e702090"
+    },
+    {
+      "key": "alpine_dom_bl_ge_ie_91",
+      "why": "Inclusion-exclusion across blockchain and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_ge_ie_91 : (29 + 62 - 0 = 91) := by decide",
+      "receipt": "49a9dfd7-7548-89ac-8f9a-7768b1ba3fa2"
+    },
+    {
+      "key": "alpine_dom_bl_vi_ie_261",
+      "why": "Inclusion-exclusion across blockchain and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_vi_ie_261 : (29 + 232 - 0 = 261) := by decide",
+      "receipt": "365778f3-d4ce-8ca5-a57e-a45517f196cd"
+    },
+    {
+      "key": "alpine_dom_bl_ga_ie_54",
+      "why": "Inclusion-exclusion across blockchain and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_ga_ie_54 : (29 + 25 - 0 = 54) := by decide",
+      "receipt": "e9d10bff-8a12-8722-8e87-353e1f0981eb"
+    },
+    {
+      "key": "alpine_dom_bl_fo_ie_111",
+      "why": "Inclusion-exclusion across blockchain and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_fo_ie_111 : (29 + 82 - 0 = 111) := by decide",
+      "receipt": "456c2de7-3fe2-819d-98a1-d3e31cbd414b"
+    },
+    {
+      "key": "alpine_dom_bl_au_ie_227",
+      "why": "Inclusion-exclusion across blockchain and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_au_ie_227 : (29 + 198 - 0 = 227) := by decide",
+      "receipt": "8a5e713c-d035-8582-97c2-d568dd92a3ea"
+    },
+    {
+      "key": "alpine_dom_dr_cr_ie_829",
+      "why": "Inclusion-exclusion across driver and crypto, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_cr_ie_829 : (630 + 199 - 0 = 829) := by decide",
+      "receipt": "b40866bd-617d-8f15-9f88-8341c5e3dc80"
+    },
+    {
+      "key": "alpine_dom_dr_se_ie_716",
+      "why": "Inclusion-exclusion across driver and security, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_se_ie_716 : (630 + 86 - 0 = 716) := by decide",
+      "receipt": "dcff5d70-2fbf-89de-9d97-818f38d354ea"
+    },
+    {
+      "key": "alpine_dom_dr_ma_ie_670",
+      "why": "Inclusion-exclusion across driver and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_ma_ie_670 : (630 + 40 - 0 = 670) := by decide",
+      "receipt": "0d635d8a-2377-8b42-a5e5-96480b7eed5b"
+    },
+    {
+      "key": "alpine_dom_dr_ar_ie_683",
+      "why": "Inclusion-exclusion across driver and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_ar_ie_683 : (630 + 53 - 0 = 683) := by decide",
+      "receipt": "1b1958b6-bd33-8b77-a0d7-2365989cdf2c"
+    },
+    {
+      "key": "alpine_dom_dr_bi_ie_632",
+      "why": "Inclusion-exclusion across driver and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_bi_ie_632 : (630 + 2 - 0 = 632) := by decide",
+      "receipt": "470a5d80-815a-8f5c-9765-b88123232f2c"
+    },
+    {
+      "key": "alpine_dom_dr_ch_ie_633",
+      "why": "Inclusion-exclusion across driver and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_ch_ie_633 : (630 + 3 - 0 = 633) := by decide",
+      "receipt": "33377654-c07b-8483-975e-e3e373a5290a"
+    },
+    {
+      "key": "alpine_dom_dr_ne_ie_641",
+      "why": "Inclusion-exclusion across driver and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_ne_ie_641 : (630 + 11 - 0 = 641) := by decide",
+      "receipt": "e7abd171-e806-82a3-a965-e4aa5fcb7e51"
+    },
+    {
+      "key": "alpine_dom_dr_as_ie_647",
+      "why": "Inclusion-exclusion across driver and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_as_ie_647 : (630 + 17 - 0 = 647) := by decide",
+      "receipt": "412f1471-5429-8157-b8fe-a64a83c69b9b"
+    },
+    {
+      "key": "alpine_dom_dr_ph_ie_637",
+      "why": "Inclusion-exclusion across driver and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_ph_ie_637 : (630 + 7 - 0 = 637) := by decide",
+      "receipt": "5f8f60bb-ae13-82b5-840a-49f9b8a5fccf"
+    },
+    {
+      "key": "alpine_dom_dr_ge_ie_654",
+      "why": "Inclusion-exclusion across driver and geo, exact over the committed mirror. They share 38 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_ge_ie_654 : (630 + 62 - 38 = 654) := by decide",
+      "receipt": "95f6920f-96ba-8b43-a7d1-eca8f3fb004f"
+    },
+    {
+      "key": "alpine_dom_dr_vi_ie_850",
+      "why": "Inclusion-exclusion across driver and virtualization, exact over the committed mirror. They share 12 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_vi_ie_850 : (630 + 232 - 12 = 850) := by decide",
+      "receipt": "68e65697-ffce-88d2-91f4-7d7e685a52ca"
+    },
+    {
+      "key": "alpine_dom_dr_ga_ie_655",
+      "why": "Inclusion-exclusion across driver and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_ga_ie_655 : (630 + 25 - 0 = 655) := by decide",
+      "receipt": "5a49891a-28ab-8ce1-94eb-05e9df6b3c81"
+    },
+    {
+      "key": "alpine_dom_dr_fo_ie_712",
+      "why": "Inclusion-exclusion across driver and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_fo_ie_712 : (630 + 82 - 0 = 712) := by decide",
+      "receipt": "1f69bccf-7eb4-80bd-a2e1-757deba26a4c"
+    },
+    {
+      "key": "alpine_dom_dr_au_ie_739",
+      "why": "Inclusion-exclusion across driver and audio, exact over the committed mirror. They share 89 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_au_ie_739 : (630 + 198 - 89 = 739) := by decide",
+      "receipt": "541efb2f-b6f4-8953-8859-09fa92ac95b6"
+    },
+    {
+      "key": "alpine_dom_la_cr_ie_7639",
+      "why": "Inclusion-exclusion across language and crypto, exact over the committed mirror. They share 46 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_cr_ie_7639 : (7486 + 199 - 46 = 7639) := by decide",
+      "receipt": "cd020977-cbe1-8c5b-a2d2-1267b05e32cb"
+    },
+    {
+      "key": "alpine_dom_la_se_ie_7563",
+      "why": "Inclusion-exclusion across language and security, exact over the committed mirror. They share 9 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_se_ie_7563 : (7486 + 86 - 9 = 7563) := by decide",
+      "receipt": "991f9c7d-07d0-8435-852d-9865d4fd5594"
+    },
+    {
+      "key": "alpine_dom_la_ma_ie_7520",
+      "why": "Inclusion-exclusion across language and math, exact over the committed mirror. They share 6 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ma_ie_7520 : (7486 + 40 - 6 = 7520) := by decide",
+      "receipt": "7939a703-3fa4-80e1-9580-f00515ac6c89"
+    },
+    {
+      "key": "alpine_dom_la_ar_ie_7534",
+      "why": "Inclusion-exclusion across language and art, exact over the committed mirror. They share 5 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ar_ie_7534 : (7486 + 53 - 5 = 7534) := by decide",
+      "receipt": "7079e33a-f785-8f90-a765-19cf8a54d637"
+    },
+    {
+      "key": "alpine_dom_la_bi_ie_7486",
+      "why": "Inclusion-exclusion across language and bio, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_bi_ie_7486 : (7486 + 2 - 2 = 7486) := by decide",
+      "receipt": "b2b77791-b7b2-8370-aa22-a96c391f0302"
+    },
+    {
+      "key": "alpine_dom_la_ch_ie_7489",
+      "why": "Inclusion-exclusion across language and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ch_ie_7489 : (7486 + 3 - 0 = 7489) := by decide",
+      "receipt": "38b60f37-5b3b-8c8d-9045-cc00538124d2"
+    },
+    {
+      "key": "alpine_dom_la_ne_ie_7494",
+      "why": "Inclusion-exclusion across language and neuro, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ne_ie_7494 : (7486 + 11 - 3 = 7494) := by decide",
+      "receipt": "abde7274-8554-8ecc-8c6b-524ecf81f948"
+    },
+    {
+      "key": "alpine_dom_la_as_ie_7493",
+      "why": "Inclusion-exclusion across language and astronomy, exact over the committed mirror. They share 10 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_as_ie_7493 : (7486 + 17 - 10 = 7493) := by decide",
+      "receipt": "76b51eb7-c695-8260-b1d0-f262f12eb9b4"
+    },
+    {
+      "key": "alpine_dom_la_ph_ie_7493",
+      "why": "Inclusion-exclusion across language and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ph_ie_7493 : (7486 + 7 - 0 = 7493) := by decide",
+      "receipt": "2a8c9763-3d40-88a6-9709-40e872a7c8a8"
+    },
+    {
+      "key": "alpine_dom_la_ge_ie_7545",
+      "why": "Inclusion-exclusion across language and geo, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ge_ie_7545 : (7486 + 62 - 3 = 7545) := by decide",
+      "receipt": "428c7775-89a5-8795-9cdc-5022765c53b2"
+    },
+    {
+      "key": "alpine_dom_la_vi_ie_7702",
+      "why": "Inclusion-exclusion across language and virtualization, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_vi_ie_7702 : (7486 + 232 - 16 = 7702) := by decide",
+      "receipt": "d8e95638-749b-86de-8c51-9d806c2fecbe"
+    },
+    {
+      "key": "alpine_dom_la_ga_ie_7511",
+      "why": "Inclusion-exclusion across language and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ga_ie_7511 : (7486 + 25 - 0 = 7511) := by decide",
+      "receipt": "cd4a0654-58ee-8565-8a22-ae28bb3a00e1"
+    },
+    {
+      "key": "alpine_dom_la_fo_ie_7564",
+      "why": "Inclusion-exclusion across language and font, exact over the committed mirror. They share 4 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_fo_ie_7564 : (7486 + 82 - 4 = 7564) := by decide",
+      "receipt": "666b9f92-3a91-8f47-b34f-1804e47b0418"
+    },
+    {
+      "key": "alpine_dom_la_au_ie_7682",
+      "why": "Inclusion-exclusion across language and audio, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_au_ie_7682 : (7486 + 198 - 2 = 7682) := by decide",
+      "receipt": "aacf1b8c-97c5-88c8-9b5e-d1582ad0391e"
+    },
+    {
+      "key": "alpine_dom_ne_cr_ie_531",
+      "why": "Inclusion-exclusion across network and crypto, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_cr_ie_531 : (332 + 199 - 0 = 531) := by decide",
+      "receipt": "f9ada217-2789-8d95-b027-3c56f0237ada"
+    },
+    {
+      "key": "alpine_dom_ne_se_ie_415",
+      "why": "Inclusion-exclusion across network and security, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_se_ie_415 : (332 + 86 - 3 = 415) := by decide",
+      "receipt": "e75bac2f-6ba3-88df-9f31-3de26e9d4938"
+    },
+    {
+      "key": "alpine_dom_ne_ma_ie_372",
+      "why": "Inclusion-exclusion across network and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ma_ie_372 : (332 + 40 - 0 = 372) := by decide",
+      "receipt": "a3093194-3115-8368-849a-b1d41dbc7d8e"
+    },
+    {
+      "key": "alpine_dom_ne_ar_ie_385",
+      "why": "Inclusion-exclusion across network and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ar_ie_385 : (332 + 53 - 0 = 385) := by decide",
+      "receipt": "b90d0b8a-d29b-89eb-9334-eeb0add03d6c"
+    },
+    {
+      "key": "alpine_dom_ne_bi_ie_334",
+      "why": "Inclusion-exclusion across network and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_bi_ie_334 : (332 + 2 - 0 = 334) := by decide",
+      "receipt": "72f69a09-bd59-82aa-94e5-cb328a40eff1"
+    },
+    {
+      "key": "alpine_dom_ne_ch_ie_335",
+      "why": "Inclusion-exclusion across network and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ch_ie_335 : (332 + 3 - 0 = 335) := by decide",
+      "receipt": "6ac206c5-d5db-85a5-8bd6-a4ac9a81adf7"
+    },
+    {
+      "key": "alpine_dom_ne_ne_ie_343",
+      "why": "Inclusion-exclusion across network and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ne_ie_343 : (332 + 11 - 0 = 343) := by decide",
+      "receipt": "a5d1f46a-6f50-8749-a529-6ac123ccc4a0"
+    },
+    {
+      "key": "alpine_dom_ne_as_ie_349",
+      "why": "Inclusion-exclusion across network and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_as_ie_349 : (332 + 17 - 0 = 349) := by decide",
+      "receipt": "a4c87409-8a8f-818b-8dbe-ebe9dea42807"
+    },
+    {
+      "key": "alpine_dom_ne_ph_ie_339",
+      "why": "Inclusion-exclusion across network and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ph_ie_339 : (332 + 7 - 0 = 339) := by decide",
+      "receipt": "8b1005d8-c5d9-807e-9661-a871de6a9f3e"
+    },
+    {
+      "key": "alpine_dom_ne_ge_ie_394",
+      "why": "Inclusion-exclusion across network and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ge_ie_394 : (332 + 62 - 0 = 394) := by decide",
+      "receipt": "9e332401-93e1-8ece-873f-b433b8a55dd4"
+    },
+    {
+      "key": "alpine_dom_ne_vi_ie_563",
+      "why": "Inclusion-exclusion across network and virtualization, exact over the committed mirror. They share 1 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_vi_ie_563 : (332 + 232 - 1 = 563) := by decide",
+      "receipt": "e73b3cda-860b-81a2-b06e-eb3e4538063d"
+    },
+    {
+      "key": "alpine_dom_ne_ga_ie_357",
+      "why": "Inclusion-exclusion across network and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ga_ie_357 : (332 + 25 - 0 = 357) := by decide",
+      "receipt": "545a59e7-8c5a-8ca6-a0dd-46784f1e245a"
+    },
+    {
+      "key": "alpine_dom_ne_fo_ie_414",
+      "why": "Inclusion-exclusion across network and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_fo_ie_414 : (332 + 82 - 0 = 414) := by decide",
+      "receipt": "e8b6d021-3b75-8af5-8ced-88c4160a8510"
+    },
+    {
+      "key": "alpine_dom_ne_au_ie_530",
+      "why": "Inclusion-exclusion across network and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_au_ie_530 : (332 + 198 - 0 = 530) := by decide",
+      "receipt": "fbf93343-5bf8-8707-bd4f-3c0feb4716af"
+    },
+    {
+      "key": "alpine_dom_sc_cr_ie_273",
+      "why": "Inclusion-exclusion across science and crypto, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_cr_ie_273 : (74 + 199 - 0 = 273) := by decide",
+      "receipt": "966a23cb-0087-87bf-97a7-c5fe094353b8"
+    },
+    {
+      "key": "alpine_dom_sc_se_ie_160",
+      "why": "Inclusion-exclusion across science and security, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_se_ie_160 : (74 + 86 - 0 = 160) := by decide",
+      "receipt": "a95cec5e-195e-8657-af6a-e4f1cd84c0e8"
+    },
+    {
+      "key": "alpine_dom_sc_ma_ie_100",
+      "why": "Inclusion-exclusion across science and math, exact over the committed mirror. They share 14 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_ma_ie_100 : (74 + 40 - 14 = 100) := by decide",
+      "receipt": "62c9ef96-bf16-8937-b6e3-3090a0669d7d"
+    },
+    {
+      "key": "alpine_dom_sc_ar_ie_127",
+      "why": "Inclusion-exclusion across science and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_ar_ie_127 : (74 + 53 - 0 = 127) := by decide",
+      "receipt": "3751ec9a-0bc9-885b-87b0-e684882e2ccd"
+    },
+    {
+      "key": "alpine_dom_sc_bi_ie_76",
+      "why": "Inclusion-exclusion across science and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_bi_ie_76 : (74 + 2 - 0 = 76) := by decide",
+      "receipt": "e2923278-e757-8696-aa6f-25614ad3b1c9"
+    },
+    {
+      "key": "alpine_dom_sc_ch_ie_77",
+      "why": "Inclusion-exclusion across science and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_ch_ie_77 : (74 + 3 - 0 = 77) := by decide",
+      "receipt": "52f66989-ffc3-84b4-a646-8e62b1738c56"
+    },
+    {
+      "key": "alpine_dom_sc_ne_ie_85",
+      "why": "Inclusion-exclusion across science and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_ne_ie_85 : (74 + 11 - 0 = 85) := by decide",
+      "receipt": "59d728a4-9689-8d88-8639-663ae88a3995"
+    },
+    {
+      "key": "alpine_dom_sc_as_ie_91",
+      "why": "Inclusion-exclusion across science and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_as_ie_91 : (74 + 17 - 0 = 91) := by decide",
+      "receipt": "2f982474-f081-8433-a8c6-1f7d1e44f7ad"
+    },
+    {
+      "key": "alpine_dom_sc_ph_ie_81",
+      "why": "Inclusion-exclusion across science and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_ph_ie_81 : (74 + 7 - 0 = 81) := by decide",
+      "receipt": "6dc9b759-cc97-8de9-9ac9-19041c5def33"
+    },
+    {
+      "key": "alpine_dom_sc_ge_ie_134",
+      "why": "Inclusion-exclusion across science and geo, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_ge_ie_134 : (74 + 62 - 2 = 134) := by decide",
+      "receipt": "0aa11ed1-eb95-80d1-9baa-ca1ef472f941"
+    },
+    {
+      "key": "alpine_dom_sc_vi_ie_306",
+      "why": "Inclusion-exclusion across science and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_vi_ie_306 : (74 + 232 - 0 = 306) := by decide",
+      "receipt": "c10972c7-e3d3-8a9c-9965-5f8a519d3fcb"
+    },
+    {
+      "key": "alpine_dom_sc_ga_ie_99",
+      "why": "Inclusion-exclusion across science and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_ga_ie_99 : (74 + 25 - 0 = 99) := by decide",
+      "receipt": "6bd761f1-472d-88d8-82f3-9a4cdec350b7"
+    },
+    {
+      "key": "alpine_dom_sc_fo_ie_156",
+      "why": "Inclusion-exclusion across science and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_fo_ie_156 : (74 + 82 - 0 = 156) := by decide",
+      "receipt": "2f1913c6-06f3-87a8-8032-20f9c702aee2"
+    },
+    {
+      "key": "alpine_dom_sc_au_ie_272",
+      "why": "Inclusion-exclusion across science and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sc_au_ie_272 : (74 + 198 - 0 = 272) := by decide",
+      "receipt": "7cd71546-30ae-843c-bd2d-d69966dad477"
+    },
+    {
+      "key": "alpine_dom_me_cr_ie_458",
+      "why": "Inclusion-exclusion across media and crypto, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_cr_ie_458 : (259 + 199 - 0 = 458) := by decide",
+      "receipt": "de7a0e08-76db-822f-81c5-4d1a5701844a"
+    },
+    {
+      "key": "alpine_dom_me_se_ie_345",
+      "why": "Inclusion-exclusion across media and security, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_se_ie_345 : (259 + 86 - 0 = 345) := by decide",
+      "receipt": "de64b81e-eada-8cad-b3a5-a4bc2aaf4076"
+    },
+    {
+      "key": "alpine_dom_me_ma_ie_299",
+      "why": "Inclusion-exclusion across media and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_ma_ie_299 : (259 + 40 - 0 = 299) := by decide",
+      "receipt": "60785e70-8253-8851-bb99-316c248723bc"
+    },
+    {
+      "key": "alpine_dom_me_ar_ie_297",
+      "why": "Inclusion-exclusion across media and art, exact over the committed mirror. They share 15 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_ar_ie_297 : (259 + 53 - 15 = 297) := by decide",
+      "receipt": "f56ea32d-eab0-827e-bbbc-0fb26a7b32cc"
+    },
+    {
+      "key": "alpine_dom_me_bi_ie_261",
+      "why": "Inclusion-exclusion across media and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_bi_ie_261 : (259 + 2 - 0 = 261) := by decide",
+      "receipt": "774581e5-d435-801d-966c-dffec464f938"
+    },
+    {
+      "key": "alpine_dom_me_ch_ie_262",
+      "why": "Inclusion-exclusion across media and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_ch_ie_262 : (259 + 3 - 0 = 262) := by decide",
+      "receipt": "858b907c-b15d-8577-9c78-dcabd4589179"
+    },
+    {
+      "key": "alpine_dom_me_ne_ie_270",
+      "why": "Inclusion-exclusion across media and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_ne_ie_270 : (259 + 11 - 0 = 270) := by decide",
+      "receipt": "ec98275c-fcfe-80b7-aa5b-ebb58acca239"
+    },
+    {
+      "key": "alpine_dom_me_as_ie_276",
+      "why": "Inclusion-exclusion across media and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_as_ie_276 : (259 + 17 - 0 = 276) := by decide",
+      "receipt": "80da2d73-dc7b-8371-b003-e9eddde4030e"
+    },
+    {
+      "key": "alpine_dom_me_ph_ie_266",
+      "why": "Inclusion-exclusion across media and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_ph_ie_266 : (259 + 7 - 0 = 266) := by decide",
+      "receipt": "022a4129-ce5d-8764-b36b-1507c29a6d3b"
+    },
+    {
+      "key": "alpine_dom_me_ge_ie_321",
+      "why": "Inclusion-exclusion across media and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_ge_ie_321 : (259 + 62 - 0 = 321) := by decide",
+      "receipt": "2e10d499-8df1-8898-80de-8b6aa3d6e603"
+    },
+    {
+      "key": "alpine_dom_me_vi_ie_491",
+      "why": "Inclusion-exclusion across media and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_vi_ie_491 : (259 + 232 - 0 = 491) := by decide",
+      "receipt": "d5c2e0a8-18a0-85c6-8dff-ad1c06f7d16f"
+    },
+    {
+      "key": "alpine_dom_me_ga_ie_284",
+      "why": "Inclusion-exclusion across media and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_ga_ie_284 : (259 + 25 - 0 = 284) := by decide",
+      "receipt": "2d93db3e-9180-8884-b02d-68032834c901"
+    },
+    {
+      "key": "alpine_dom_me_fo_ie_317",
+      "why": "Inclusion-exclusion across media and font, exact over the committed mirror. They share 24 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_fo_ie_317 : (259 + 82 - 24 = 317) := by decide",
+      "receipt": "96f69ac5-0c37-8538-977c-a86080896975"
+    },
+    {
+      "key": "alpine_dom_me_au_ie_449",
+      "why": "Inclusion-exclusion across media and audio, exact over the committed mirror. They share 8 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_me_au_ie_449 : (259 + 198 - 8 = 449) := by decide",
+      "receipt": "aa1de9d6-0c0b-8d0e-992d-f285130cfb60"
+    },
+    {
+      "key": "alpine_dom_sh_cr_ie_1468",
+      "why": "Inclusion-exclusion across shell and crypto, exact over the committed mirror. They share 10 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_cr_ie_1468 : (1279 + 199 - 10 = 1468) := by decide",
+      "receipt": "6a94c84e-ef7d-8bb8-a43d-3f2153476133"
+    },
+    {
+      "key": "alpine_dom_sh_se_ie_1361",
+      "why": "Inclusion-exclusion across shell and security, exact over the committed mirror. They share 4 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_se_ie_1361 : (1279 + 86 - 4 = 1361) := by decide",
+      "receipt": "c870905b-e047-8207-8fba-6285abe35669"
+    },
+    {
+      "key": "alpine_dom_sh_ma_ie_1319",
+      "why": "Inclusion-exclusion across shell and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_ma_ie_1319 : (1279 + 40 - 0 = 1319) := by decide",
+      "receipt": "e7348f6a-2b27-8c15-a373-5368a37b57fe"
+    },
+    {
+      "key": "alpine_dom_sh_ar_ie_1331",
+      "why": "Inclusion-exclusion across shell and art, exact over the committed mirror. They share 1 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_ar_ie_1331 : (1279 + 53 - 1 = 1331) := by decide",
+      "receipt": "f7225fd3-956d-8697-a8c1-79e2ab81d8e8"
+    },
+    {
+      "key": "alpine_dom_sh_bi_ie_1281",
+      "why": "Inclusion-exclusion across shell and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_bi_ie_1281 : (1279 + 2 - 0 = 1281) := by decide",
+      "receipt": "3772172c-e218-8116-8ac4-abbb6ed27151"
+    },
+    {
+      "key": "alpine_dom_sh_ch_ie_1282",
+      "why": "Inclusion-exclusion across shell and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_ch_ie_1282 : (1279 + 3 - 0 = 1282) := by decide",
+      "receipt": "59d2d6eb-6b38-8283-962e-91f7e07db901"
+    },
+    {
+      "key": "alpine_dom_sh_ne_ie_1290",
+      "why": "Inclusion-exclusion across shell and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_ne_ie_1290 : (1279 + 11 - 0 = 1290) := by decide",
+      "receipt": "a36757a5-1335-84b5-9fa7-49eecbb332c0"
+    },
+    {
+      "key": "alpine_dom_sh_as_ie_1296",
+      "why": "Inclusion-exclusion across shell and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_as_ie_1296 : (1279 + 17 - 0 = 1296) := by decide",
+      "receipt": "e6259f75-f6bf-81b5-9b27-4953cca925a8"
+    },
+    {
+      "key": "alpine_dom_sh_ph_ie_1286",
+      "why": "Inclusion-exclusion across shell and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_ph_ie_1286 : (1279 + 7 - 0 = 1286) := by decide",
+      "receipt": "7e3b9013-9903-8171-b37c-c02362236dbf"
+    },
+    {
+      "key": "alpine_dom_sh_ge_ie_1340",
+      "why": "Inclusion-exclusion across shell and geo, exact over the committed mirror. They share 1 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_ge_ie_1340 : (1279 + 62 - 1 = 1340) := by decide",
+      "receipt": "973c9b0c-31d5-86d3-88a4-68a506446261"
+    },
+    {
+      "key": "alpine_dom_sh_vi_ie_1505",
+      "why": "Inclusion-exclusion across shell and virtualization, exact over the committed mirror. They share 6 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_vi_ie_1505 : (1279 + 232 - 6 = 1505) := by decide",
+      "receipt": "f0172f92-78bb-8332-b0de-8eee51818010"
+    },
+    {
+      "key": "alpine_dom_sh_ga_ie_1304",
+      "why": "Inclusion-exclusion across shell and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_ga_ie_1304 : (1279 + 25 - 0 = 1304) := by decide",
+      "receipt": "cb95ea26-8266-8d4b-83d4-5c4ee7b21ef3"
+    },
+    {
+      "key": "alpine_dom_sh_fo_ie_1361",
+      "why": "Inclusion-exclusion across shell and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_fo_ie_1361 : (1279 + 82 - 0 = 1361) := by decide",
+      "receipt": "35472562-4bf4-87fe-a459-3f09584ad673"
+    },
+    {
+      "key": "alpine_dom_sh_au_ie_1473",
+      "why": "Inclusion-exclusion across shell and audio, exact over the committed mirror. They share 4 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_sh_au_ie_1473 : (1279 + 198 - 4 = 1473) := by decide",
+      "receipt": "011e54fd-cf7b-8a25-84fd-a27c5c7e5363"
+    },
+    {
+      "key": "alpine_dom_ch_cr_ie_440",
+      "why": "Inclusion-exclusion across chat and crypto, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_cr_ie_440 : (241 + 199 - 0 = 440) := by decide",
+      "receipt": "9013bd00-c6ae-80a0-b592-609879dfc60a"
+    },
+    {
+      "key": "alpine_dom_ch_se_ie_327",
+      "why": "Inclusion-exclusion across chat and security, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_se_ie_327 : (241 + 86 - 0 = 327) := by decide",
+      "receipt": "76eb792a-7580-8610-9558-4a9e21f3ef27"
+    },
+    {
+      "key": "alpine_dom_ch_ma_ie_281",
+      "why": "Inclusion-exclusion across chat and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ma_ie_281 : (241 + 40 - 0 = 281) := by decide",
+      "receipt": "1bc1774c-99a7-8be7-8e17-4946638cb35c"
+    },
+    {
+      "key": "alpine_dom_ch_ar_ie_294",
+      "why": "Inclusion-exclusion across chat and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ar_ie_294 : (241 + 53 - 0 = 294) := by decide",
+      "receipt": "048e886a-2a92-8f69-b0a9-2cb49934e4e1"
+    },
+    {
+      "key": "alpine_dom_ch_bi_ie_243",
+      "why": "Inclusion-exclusion across chat and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_bi_ie_243 : (241 + 2 - 0 = 243) := by decide",
+      "receipt": "1676bdae-2100-8ef3-9271-abeae0e611b6"
+    },
+    {
+      "key": "alpine_dom_ch_ch_ie_244",
+      "why": "Inclusion-exclusion across chat and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ch_ie_244 : (241 + 3 - 0 = 244) := by decide",
+      "receipt": "222f1977-120e-8cbc-9a3f-e70e581184aa"
+    },
+    {
+      "key": "alpine_dom_ch_ne_ie_252",
+      "why": "Inclusion-exclusion across chat and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ne_ie_252 : (241 + 11 - 0 = 252) := by decide",
+      "receipt": "ee295d2a-ae78-80d9-9ca0-88bb5ad93792"
+    },
+    {
+      "key": "alpine_dom_ch_as_ie_258",
+      "why": "Inclusion-exclusion across chat and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_as_ie_258 : (241 + 17 - 0 = 258) := by decide",
+      "receipt": "13ba48bd-f0ae-8e5a-9f77-b50d53e384d5"
+    },
+    {
+      "key": "alpine_dom_ch_ph_ie_248",
+      "why": "Inclusion-exclusion across chat and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ph_ie_248 : (241 + 7 - 0 = 248) := by decide",
+      "receipt": "c6249892-d0f0-8849-a811-6d34a2378269"
+    },
+    {
+      "key": "alpine_dom_ch_ge_ie_303",
+      "why": "Inclusion-exclusion across chat and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ge_ie_303 : (241 + 62 - 0 = 303) := by decide",
+      "receipt": "b3d5c8b8-1968-84e8-97d9-2868a1cadf91"
+    },
+    {
+      "key": "alpine_dom_ch_vi_ie_473",
+      "why": "Inclusion-exclusion across chat and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_vi_ie_473 : (241 + 232 - 0 = 473) := by decide",
+      "receipt": "478aca98-f473-8528-aa7c-6e714e28decd"
+    },
+    {
+      "key": "alpine_dom_ch_ga_ie_266",
+      "why": "Inclusion-exclusion across chat and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ga_ie_266 : (241 + 25 - 0 = 266) := by decide",
+      "receipt": "f5073724-dc27-8e46-afd2-b4bad3181dc0"
+    },
+    {
+      "key": "alpine_dom_ch_fo_ie_323",
+      "why": "Inclusion-exclusion across chat and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_fo_ie_323 : (241 + 82 - 0 = 323) := by decide",
+      "receipt": "7b42e474-106d-8ca1-b533-d4abfb392ea3"
+    },
+    {
+      "key": "alpine_dom_ch_au_ie_439",
+      "why": "Inclusion-exclusion across chat and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_au_ie_439 : (241 + 198 - 0 = 439) := by decide",
+      "receipt": "f46b364c-8a70-8f2e-8f2a-3d620398de86"
+    },
+    {
+      "key": "alpine_dom_cr_se_ie_285",
+      "why": "Inclusion-exclusion across crypto and security, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_se_ie_285 : (199 + 86 - 0 = 285) := by decide",
+      "receipt": "d5d1551a-c79e-8557-8980-8061ba025e37"
+    },
+    {
+      "key": "alpine_dom_cr_ma_ie_239",
+      "why": "Inclusion-exclusion across crypto and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_ma_ie_239 : (199 + 40 - 0 = 239) := by decide",
+      "receipt": "c3eb25c7-7d5f-8379-8765-17bd169b6aea"
+    },
+    {
+      "key": "alpine_dom_cr_ar_ie_252",
+      "why": "Inclusion-exclusion across crypto and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_ar_ie_252 : (199 + 53 - 0 = 252) := by decide",
+      "receipt": "f92121aa-32be-81b8-bd27-9bb1e14eb691"
+    },
+    {
+      "key": "alpine_dom_cr_bi_ie_201",
+      "why": "Inclusion-exclusion across crypto and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_bi_ie_201 : (199 + 2 - 0 = 201) := by decide",
+      "receipt": "08967a98-8edd-8f02-8465-dcfd1f9c7d65"
+    },
+    {
+      "key": "alpine_dom_cr_ch_ie_202",
+      "why": "Inclusion-exclusion across crypto and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_ch_ie_202 : (199 + 3 - 0 = 202) := by decide",
+      "receipt": "4fc0ef2e-5740-8d7e-9a6f-8bbc0ba93537"
+    },
+    {
+      "key": "alpine_dom_cr_ne_ie_210",
+      "why": "Inclusion-exclusion across crypto and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_ne_ie_210 : (199 + 11 - 0 = 210) := by decide",
+      "receipt": "835b93a3-ae54-816a-840f-cd0e43207470"
+    },
+    {
+      "key": "alpine_dom_cr_as_ie_216",
+      "why": "Inclusion-exclusion across crypto and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_as_ie_216 : (199 + 17 - 0 = 216) := by decide",
+      "receipt": "6b7bf607-c7f3-88a7-b4bb-27793311fa5f"
+    },
+    {
+      "key": "alpine_dom_cr_ph_ie_206",
+      "why": "Inclusion-exclusion across crypto and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_ph_ie_206 : (199 + 7 - 0 = 206) := by decide",
+      "receipt": "2b0dc95a-4876-844d-beb0-ce3b31c4166e"
+    },
+    {
+      "key": "alpine_dom_cr_ge_ie_261",
+      "why": "Inclusion-exclusion across crypto and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_ge_ie_261 : (199 + 62 - 0 = 261) := by decide",
+      "receipt": "25c5be90-67fd-881d-83a1-89677c081447"
+    },
+    {
+      "key": "alpine_dom_cr_vi_ie_431",
+      "why": "Inclusion-exclusion across crypto and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_vi_ie_431 : (199 + 232 - 0 = 431) := by decide",
+      "receipt": "8888ad05-63ab-894e-ba6f-6e827d3d93e3"
+    },
+    {
+      "key": "alpine_dom_cr_ga_ie_224",
+      "why": "Inclusion-exclusion across crypto and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_ga_ie_224 : (199 + 25 - 0 = 224) := by decide",
+      "receipt": "f22b873d-9fd4-81f2-b869-da454495bc10"
+    },
+    {
+      "key": "alpine_dom_cr_fo_ie_281",
+      "why": "Inclusion-exclusion across crypto and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_fo_ie_281 : (199 + 82 - 0 = 281) := by decide",
+      "receipt": "02cb570b-51de-8c7b-a932-e3dd8f5e56a6"
+    },
+    {
+      "key": "alpine_dom_cr_au_ie_397",
+      "why": "Inclusion-exclusion across crypto and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_au_ie_397 : (199 + 198 - 0 = 397) := by decide",
+      "receipt": "60073735-f53d-8624-b8a8-99f6d0309a3b"
+    },
+    {
+      "key": "alpine_dom_cr_bu_ie_459",
+      "why": "Inclusion-exclusion across crypto and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_cr_bu_ie_459 : (199 + 260 - 0 = 459) := by decide",
+      "receipt": "b1ad6f0c-47b1-8b9b-903c-5bff5b83066e"
+    },
+    {
+      "key": "alpine_dom_se_ma_ie_126",
+      "why": "Inclusion-exclusion across security and math, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_ma_ie_126 : (86 + 40 - 0 = 126) := by decide",
+      "receipt": "c7580dba-0091-8e36-bd08-27d838439f8a"
+    },
+    {
+      "key": "alpine_dom_se_ar_ie_139",
+      "why": "Inclusion-exclusion across security and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_ar_ie_139 : (86 + 53 - 0 = 139) := by decide",
+      "receipt": "5f929525-33ae-80e8-ae96-7fc4b27bb74d"
+    },
+    {
+      "key": "alpine_dom_se_bi_ie_88",
+      "why": "Inclusion-exclusion across security and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_bi_ie_88 : (86 + 2 - 0 = 88) := by decide",
+      "receipt": "4aaea860-86db-80f2-96b6-6487e2e83a9b"
+    },
+    {
+      "key": "alpine_dom_se_ch_ie_89",
+      "why": "Inclusion-exclusion across security and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_ch_ie_89 : (86 + 3 - 0 = 89) := by decide",
+      "receipt": "61667627-f3c6-8501-951a-73694c2c1bae"
+    },
+    {
+      "key": "alpine_dom_se_ne_ie_97",
+      "why": "Inclusion-exclusion across security and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_ne_ie_97 : (86 + 11 - 0 = 97) := by decide",
+      "receipt": "7d0f451c-f8d4-8909-8822-e44caa7ada89"
+    },
+    {
+      "key": "alpine_dom_se_as_ie_103",
+      "why": "Inclusion-exclusion across security and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_as_ie_103 : (86 + 17 - 0 = 103) := by decide",
+      "receipt": "76bbb7ed-376c-89dd-83cc-83a93c023f63"
+    },
+    {
+      "key": "alpine_dom_se_ph_ie_93",
+      "why": "Inclusion-exclusion across security and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_ph_ie_93 : (86 + 7 - 0 = 93) := by decide",
+      "receipt": "102c7420-bde4-887f-8b5b-71d655dc95c6"
+    },
+    {
+      "key": "alpine_dom_se_ge_ie_148",
+      "why": "Inclusion-exclusion across security and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_ge_ie_148 : (86 + 62 - 0 = 148) := by decide",
+      "receipt": "15d020bf-83be-84aa-9429-7b1b3ec72e27"
+    },
+    {
+      "key": "alpine_dom_se_vi_ie_318",
+      "why": "Inclusion-exclusion across security and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_vi_ie_318 : (86 + 232 - 0 = 318) := by decide",
+      "receipt": "04038036-83de-8ff7-a1b6-39da00a170cc"
+    },
+    {
+      "key": "alpine_dom_se_ga_ie_111",
+      "why": "Inclusion-exclusion across security and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_ga_ie_111 : (86 + 25 - 0 = 111) := by decide",
+      "receipt": "f5741707-1ca1-896e-9e39-e8cd22fb6f17"
+    },
+    {
+      "key": "alpine_dom_se_fo_ie_168",
+      "why": "Inclusion-exclusion across security and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_fo_ie_168 : (86 + 82 - 0 = 168) := by decide",
+      "receipt": "c549c6f6-003f-8934-9d23-130abc1a94cc"
+    },
+    {
+      "key": "alpine_dom_se_au_ie_284",
+      "why": "Inclusion-exclusion across security and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_au_ie_284 : (86 + 198 - 0 = 284) := by decide",
+      "receipt": "ea23408f-ce46-847b-b49c-5c66125eff81"
+    },
+    {
+      "key": "alpine_dom_se_bu_ie_346",
+      "why": "Inclusion-exclusion across security and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_se_bu_ie_346 : (86 + 260 - 0 = 346) := by decide",
+      "receipt": "dee44c1e-7adc-8993-baaf-981c1759c015"
+    },
+    {
+      "key": "alpine_dom_ma_ar_ie_93",
+      "why": "Inclusion-exclusion across math and art, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_ar_ie_93 : (40 + 53 - 0 = 93) := by decide",
+      "receipt": "267248d7-2cc1-8b6c-922c-a6b7cbbbc8cd"
+    },
+    {
+      "key": "alpine_dom_ma_bi_ie_42",
+      "why": "Inclusion-exclusion across math and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_bi_ie_42 : (40 + 2 - 0 = 42) := by decide",
+      "receipt": "32658866-19f8-8ecc-9c85-b806f4e1ba8a"
+    },
+    {
+      "key": "alpine_dom_ma_ch_ie_43",
+      "why": "Inclusion-exclusion across math and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_ch_ie_43 : (40 + 3 - 0 = 43) := by decide",
+      "receipt": "6d50dbcd-6c2e-8f02-990d-f305ad8be527"
+    },
+    {
+      "key": "alpine_dom_ma_ne_ie_51",
+      "why": "Inclusion-exclusion across math and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_ne_ie_51 : (40 + 11 - 0 = 51) := by decide",
+      "receipt": "1a724405-f51e-85bb-88f7-d93d49a27042"
+    },
+    {
+      "key": "alpine_dom_ma_as_ie_57",
+      "why": "Inclusion-exclusion across math and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_as_ie_57 : (40 + 17 - 0 = 57) := by decide",
+      "receipt": "2ee0a926-c9e4-8fd6-8a14-69dd05193b42"
+    },
+    {
+      "key": "alpine_dom_ma_ph_ie_47",
+      "why": "Inclusion-exclusion across math and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_ph_ie_47 : (40 + 7 - 0 = 47) := by decide",
+      "receipt": "47086e86-dbab-8c5a-8421-99ef33366a14"
+    },
+    {
+      "key": "alpine_dom_ma_ge_ie_102",
+      "why": "Inclusion-exclusion across math and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_ge_ie_102 : (40 + 62 - 0 = 102) := by decide",
+      "receipt": "e29281db-0abf-801e-9382-a6d922976283"
+    },
+    {
+      "key": "alpine_dom_ma_vi_ie_272",
+      "why": "Inclusion-exclusion across math and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_vi_ie_272 : (40 + 232 - 0 = 272) := by decide",
+      "receipt": "0b17d58e-0d58-8eb2-9e19-3b89519e3710"
+    },
+    {
+      "key": "alpine_dom_ma_ga_ie_65",
+      "why": "Inclusion-exclusion across math and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_ga_ie_65 : (40 + 25 - 0 = 65) := by decide",
+      "receipt": "5062109e-b027-8708-9d87-f09eb5dc68ce"
+    },
+    {
+      "key": "alpine_dom_ma_fo_ie_122",
+      "why": "Inclusion-exclusion across math and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_fo_ie_122 : (40 + 82 - 0 = 122) := by decide",
+      "receipt": "b3354f2e-ad39-8b95-ab55-8bb2d9adea93"
+    },
+    {
+      "key": "alpine_dom_ma_au_ie_238",
+      "why": "Inclusion-exclusion across math and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_au_ie_238 : (40 + 198 - 0 = 238) := by decide",
+      "receipt": "50f9e90e-c18a-8b56-9d73-0181ba0ba51c"
+    },
+    {
+      "key": "alpine_dom_ma_bu_ie_300",
+      "why": "Inclusion-exclusion across math and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ma_bu_ie_300 : (40 + 260 - 0 = 300) := by decide",
+      "receipt": "3676ea88-3845-8a1c-b0d2-01bcb75107c6"
+    },
+    {
+      "key": "alpine_dom_ar_bi_ie_55",
+      "why": "Inclusion-exclusion across art and bio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_bi_ie_55 : (53 + 2 - 0 = 55) := by decide",
+      "receipt": "17ffd90d-21b2-889a-b6b1-d0d320ffe5ce"
+    },
+    {
+      "key": "alpine_dom_ar_ch_ie_56",
+      "why": "Inclusion-exclusion across art and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_ch_ie_56 : (53 + 3 - 0 = 56) := by decide",
+      "receipt": "04361c6d-34ad-8c30-a6ac-7133d6c81e2b"
+    },
+    {
+      "key": "alpine_dom_ar_ne_ie_64",
+      "why": "Inclusion-exclusion across art and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_ne_ie_64 : (53 + 11 - 0 = 64) := by decide",
+      "receipt": "91b2a7fe-483a-8da0-94fe-73fadd515164"
+    },
+    {
+      "key": "alpine_dom_ar_as_ie_70",
+      "why": "Inclusion-exclusion across art and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_as_ie_70 : (53 + 17 - 0 = 70) := by decide",
+      "receipt": "9a3b5f19-5887-8cf8-88cb-b1764872649d"
+    },
+    {
+      "key": "alpine_dom_ar_ph_ie_60",
+      "why": "Inclusion-exclusion across art and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_ph_ie_60 : (53 + 7 - 0 = 60) := by decide",
+      "receipt": "39a107d4-84ca-8cc9-81c0-b61ee976d5e6"
+    },
+    {
+      "key": "alpine_dom_ar_ge_ie_115",
+      "why": "Inclusion-exclusion across art and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_ge_ie_115 : (53 + 62 - 0 = 115) := by decide",
+      "receipt": "6da78046-85b1-80d5-b3a5-4ea21d570bb8"
+    },
+    {
+      "key": "alpine_dom_ar_vi_ie_285",
+      "why": "Inclusion-exclusion across art and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_vi_ie_285 : (53 + 232 - 0 = 285) := by decide",
+      "receipt": "23b0184b-acb8-8a39-bb97-4d155507a801"
+    },
+    {
+      "key": "alpine_dom_ar_ga_ie_78",
+      "why": "Inclusion-exclusion across art and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_ga_ie_78 : (53 + 25 - 0 = 78) := by decide",
+      "receipt": "760853fc-154b-8d72-9ea6-98848ae4981c"
+    },
+    {
+      "key": "alpine_dom_ar_fo_ie_135",
+      "why": "Inclusion-exclusion across art and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_fo_ie_135 : (53 + 82 - 0 = 135) := by decide",
+      "receipt": "8de222ec-67fe-86ef-a4c1-896f677850e4"
+    },
+    {
+      "key": "alpine_dom_ar_au_ie_251",
+      "why": "Inclusion-exclusion across art and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_au_ie_251 : (53 + 198 - 0 = 251) := by decide",
+      "receipt": "e7aaa940-3936-8778-9f50-1ff130ada7c1"
+    },
+    {
+      "key": "alpine_dom_ar_bu_ie_313",
+      "why": "Inclusion-exclusion across art and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ar_bu_ie_313 : (53 + 260 - 0 = 313) := by decide",
+      "receipt": "b72d12f5-2728-8e5f-8e55-ee84f02927d2"
+    },
+    {
+      "key": "alpine_dom_bi_ch_ie_5",
+      "why": "Inclusion-exclusion across bio and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_ch_ie_5 : (2 + 3 - 0 = 5) := by decide",
+      "receipt": "1cbbbc2f-24a8-896e-a7e5-50ddabe8eb83"
+    },
+    {
+      "key": "alpine_dom_bi_ne_ie_13",
+      "why": "Inclusion-exclusion across bio and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_ne_ie_13 : (2 + 11 - 0 = 13) := by decide",
+      "receipt": "eb56c213-26c7-88f4-81ec-872b09d207a4"
+    },
+    {
+      "key": "alpine_dom_bi_as_ie_19",
+      "why": "Inclusion-exclusion across bio and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_as_ie_19 : (2 + 17 - 0 = 19) := by decide",
+      "receipt": "b4c1bd49-198d-8875-9a08-3bb44919849a"
+    },
+    {
+      "key": "alpine_dom_bi_ph_ie_9",
+      "why": "Inclusion-exclusion across bio and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_ph_ie_9 : (2 + 7 - 0 = 9) := by decide",
+      "receipt": "098d4ab2-e097-8db8-9d8c-83e8546fd101"
+    },
+    {
+      "key": "alpine_dom_bi_ge_ie_64",
+      "why": "Inclusion-exclusion across bio and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_ge_ie_64 : (2 + 62 - 0 = 64) := by decide",
+      "receipt": "32e06a71-8e94-8084-bb23-f92035e65184"
+    },
+    {
+      "key": "alpine_dom_bi_vi_ie_234",
+      "why": "Inclusion-exclusion across bio and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_vi_ie_234 : (2 + 232 - 0 = 234) := by decide",
+      "receipt": "5efc097d-efa2-8e62-aa28-43c70fb0e4d9"
+    },
+    {
+      "key": "alpine_dom_bi_ga_ie_27",
+      "why": "Inclusion-exclusion across bio and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_ga_ie_27 : (2 + 25 - 0 = 27) := by decide",
+      "receipt": "8c697b56-8388-8933-9a86-5f284ecbdf9d"
+    },
+    {
+      "key": "alpine_dom_bi_fo_ie_84",
+      "why": "Inclusion-exclusion across bio and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_fo_ie_84 : (2 + 82 - 0 = 84) := by decide",
+      "receipt": "5503b2bd-ef48-8cc1-8ec9-674568698b91"
+    },
+    {
+      "key": "alpine_dom_bi_au_ie_200",
+      "why": "Inclusion-exclusion across bio and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_au_ie_200 : (2 + 198 - 0 = 200) := by decide",
+      "receipt": "61b0fc83-d9e2-8080-b38a-7fe9168f4dc5"
+    },
+    {
+      "key": "alpine_dom_bi_bu_ie_262",
+      "why": "Inclusion-exclusion across bio and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bi_bu_ie_262 : (2 + 260 - 0 = 262) := by decide",
+      "receipt": "f075b2ba-ce30-8620-8c02-a2767a018f79"
+    },
+    {
+      "key": "alpine_dom_ch_ne_ie_14",
+      "why": "Inclusion-exclusion across chemistry and neuro, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ne_ie_14 : (3 + 11 - 0 = 14) := by decide",
+      "receipt": "38f8aeb2-e871-89ff-8370-3baa4ac4c330"
+    },
+    {
+      "key": "alpine_dom_ch_as_ie_20",
+      "why": "Inclusion-exclusion across chemistry and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_as_ie_20 : (3 + 17 - 0 = 20) := by decide",
+      "receipt": "f063a44d-f757-805f-bd50-e64b5ac346bc"
+    },
+    {
+      "key": "alpine_dom_ch_ph_ie_10",
+      "why": "Inclusion-exclusion across chemistry and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ph_ie_10 : (3 + 7 - 0 = 10) := by decide",
+      "receipt": "f1aff36e-a501-860f-bb9d-73025d28f810"
+    },
+    {
+      "key": "alpine_dom_ch_ge_ie_65",
+      "why": "Inclusion-exclusion across chemistry and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ge_ie_65 : (3 + 62 - 0 = 65) := by decide",
+      "receipt": "581716c0-e0e6-841f-a7f5-ae98b1e0fd71"
+    },
+    {
+      "key": "alpine_dom_ch_vi_ie_235",
+      "why": "Inclusion-exclusion across chemistry and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_vi_ie_235 : (3 + 232 - 0 = 235) := by decide",
+      "receipt": "f92312bf-6c02-8375-a19b-210e48b0b431"
+    },
+    {
+      "key": "alpine_dom_ch_ga_ie_28",
+      "why": "Inclusion-exclusion across chemistry and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_ga_ie_28 : (3 + 25 - 0 = 28) := by decide",
+      "receipt": "818c5e7e-6d0b-8693-8113-e407d56c6064"
+    },
+    {
+      "key": "alpine_dom_ch_fo_ie_85",
+      "why": "Inclusion-exclusion across chemistry and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_fo_ie_85 : (3 + 82 - 0 = 85) := by decide",
+      "receipt": "23660c51-3620-8b1b-9a3c-f4c5094f6abf"
+    },
+    {
+      "key": "alpine_dom_ch_au_ie_201",
+      "why": "Inclusion-exclusion across chemistry and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_au_ie_201 : (3 + 198 - 0 = 201) := by decide",
+      "receipt": "100a05e1-4ae7-88bb-813b-989dccf8f15e"
+    },
+    {
+      "key": "alpine_dom_ch_bu_ie_263",
+      "why": "Inclusion-exclusion across chemistry and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ch_bu_ie_263 : (3 + 260 - 0 = 263) := by decide",
+      "receipt": "77bfbd18-fab0-8b1f-9842-01e70c2029e8"
+    },
+    {
+      "key": "alpine_dom_ne_as_ie_28",
+      "why": "Inclusion-exclusion across neuro and astronomy, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_as_ie_28 : (11 + 17 - 0 = 28) := by decide",
+      "receipt": "c125a179-dfe8-8b01-b574-0c2f753337b9"
+    },
+    {
+      "key": "alpine_dom_ne_ph_ie_18",
+      "why": "Inclusion-exclusion across neuro and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ph_ie_18 : (11 + 7 - 0 = 18) := by decide",
+      "receipt": "2dde58b2-c1dc-8d12-995f-5d034b4afb16"
+    },
+    {
+      "key": "alpine_dom_ne_ge_ie_73",
+      "why": "Inclusion-exclusion across neuro and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ge_ie_73 : (11 + 62 - 0 = 73) := by decide",
+      "receipt": "680ff43b-be79-8b63-a72d-bb93a51cbe2d"
+    },
+    {
+      "key": "alpine_dom_ne_vi_ie_243",
+      "why": "Inclusion-exclusion across neuro and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_vi_ie_243 : (11 + 232 - 0 = 243) := by decide",
+      "receipt": "60556ff6-72a5-81f1-831a-50fc15dc19ae"
+    },
+    {
+      "key": "alpine_dom_ne_ga_ie_36",
+      "why": "Inclusion-exclusion across neuro and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_ga_ie_36 : (11 + 25 - 0 = 36) := by decide",
+      "receipt": "46420a3d-2e19-8b18-916e-72fc78b49a77"
+    },
+    {
+      "key": "alpine_dom_ne_fo_ie_93",
+      "why": "Inclusion-exclusion across neuro and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_fo_ie_93 : (11 + 82 - 0 = 93) := by decide",
+      "receipt": "e6439cbc-3559-8754-b834-4acf89140441"
+    },
+    {
+      "key": "alpine_dom_ne_au_ie_209",
+      "why": "Inclusion-exclusion across neuro and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_au_ie_209 : (11 + 198 - 0 = 209) := by decide",
+      "receipt": "7753ee69-3ce4-8bcb-896e-d6ef98c8534b"
+    },
+    {
+      "key": "alpine_dom_ne_bu_ie_271",
+      "why": "Inclusion-exclusion across neuro and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ne_bu_ie_271 : (11 + 260 - 0 = 271) := by decide",
+      "receipt": "2d41aa07-ec09-8d64-a86a-0b761fb1b73d"
+    },
+    {
+      "key": "alpine_dom_as_ph_ie_24",
+      "why": "Inclusion-exclusion across astronomy and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_ph_ie_24 : (17 + 7 - 0 = 24) := by decide",
+      "receipt": "9e5af9b1-1bd4-8a3c-8a4d-10251cf023ab"
+    },
+    {
+      "key": "alpine_dom_as_ge_ie_79",
+      "why": "Inclusion-exclusion across astronomy and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_ge_ie_79 : (17 + 62 - 0 = 79) := by decide",
+      "receipt": "f48bdd7b-cc15-84fa-bd52-d8dee441fe72"
+    },
+    {
+      "key": "alpine_dom_as_vi_ie_249",
+      "why": "Inclusion-exclusion across astronomy and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_vi_ie_249 : (17 + 232 - 0 = 249) := by decide",
+      "receipt": "ca69b451-d903-8f63-ac22-f3d72997f0af"
+    },
+    {
+      "key": "alpine_dom_as_ga_ie_42",
+      "why": "Inclusion-exclusion across astronomy and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_ga_ie_42 : (17 + 25 - 0 = 42) := by decide",
+      "receipt": "99ba8ec5-d9be-8df3-b3af-4fa265a2672d"
+    },
+    {
+      "key": "alpine_dom_as_fo_ie_99",
+      "why": "Inclusion-exclusion across astronomy and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_fo_ie_99 : (17 + 82 - 0 = 99) := by decide",
+      "receipt": "ce913a74-1424-8d1e-9a3d-52e9b47f35bd"
+    },
+    {
+      "key": "alpine_dom_as_au_ie_215",
+      "why": "Inclusion-exclusion across astronomy and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_au_ie_215 : (17 + 198 - 0 = 215) := by decide",
+      "receipt": "ee043b52-7631-89e0-9a97-4e52b3d379b9"
+    },
+    {
+      "key": "alpine_dom_as_bu_ie_277",
+      "why": "Inclusion-exclusion across astronomy and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_as_bu_ie_277 : (17 + 260 - 0 = 277) := by decide",
+      "receipt": "1fbf48bb-d744-8b4e-9f45-0aab749c3c8c"
+    },
+    {
+      "key": "alpine_dom_ph_ge_ie_69",
+      "why": "Inclusion-exclusion across physics and geo, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ph_ge_ie_69 : (7 + 62 - 0 = 69) := by decide",
+      "receipt": "fdb3795f-b8d7-8541-b1f9-19d9de47ed40"
+    },
+    {
+      "key": "alpine_dom_ph_vi_ie_239",
+      "why": "Inclusion-exclusion across physics and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ph_vi_ie_239 : (7 + 232 - 0 = 239) := by decide",
+      "receipt": "90b1e16f-e448-8daa-af3c-a0650a503e15"
+    },
+    {
+      "key": "alpine_dom_ph_ga_ie_32",
+      "why": "Inclusion-exclusion across physics and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ph_ga_ie_32 : (7 + 25 - 0 = 32) := by decide",
+      "receipt": "2ab12aae-cd52-8365-ba8f-610228305613"
+    },
+    {
+      "key": "alpine_dom_ph_fo_ie_89",
+      "why": "Inclusion-exclusion across physics and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ph_fo_ie_89 : (7 + 82 - 0 = 89) := by decide",
+      "receipt": "b345ee30-d551-871b-98d0-e4cb9497516b"
+    },
+    {
+      "key": "alpine_dom_ph_au_ie_205",
+      "why": "Inclusion-exclusion across physics and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ph_au_ie_205 : (7 + 198 - 0 = 205) := by decide",
+      "receipt": "b9287f80-1f1b-8f85-879c-e7b59b85ea90"
+    },
+    {
+      "key": "alpine_dom_ph_bu_ie_267",
+      "why": "Inclusion-exclusion across physics and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ph_bu_ie_267 : (7 + 260 - 0 = 267) := by decide",
+      "receipt": "dc2160e3-0b8d-8d2c-945b-1d3be7d8aa94"
+    },
+    {
+      "key": "alpine_dom_ge_vi_ie_294",
+      "why": "Inclusion-exclusion across geo and virtualization, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ge_vi_ie_294 : (62 + 232 - 0 = 294) := by decide",
+      "receipt": "c0c1408f-85bb-8dc3-a78f-2c66aacf3e12"
+    },
+    {
+      "key": "alpine_dom_ge_ga_ie_87",
+      "why": "Inclusion-exclusion across geo and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ge_ga_ie_87 : (62 + 25 - 0 = 87) := by decide",
+      "receipt": "243e1c08-4b18-89e4-9a2e-c82ec0ded347"
+    },
+    {
+      "key": "alpine_dom_ge_fo_ie_144",
+      "why": "Inclusion-exclusion across geo and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ge_fo_ie_144 : (62 + 82 - 0 = 144) := by decide",
+      "receipt": "d00ebea4-9752-8427-8836-3641c8b1d7b8"
+    },
+    {
+      "key": "alpine_dom_ge_au_ie_260",
+      "why": "Inclusion-exclusion across geo and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ge_au_ie_260 : (62 + 198 - 0 = 260) := by decide",
+      "receipt": "af92c4d9-f8e9-8dba-ab51-ab73b27fed5b"
+    },
+    {
+      "key": "alpine_dom_ge_bu_ie_322",
+      "why": "Inclusion-exclusion across geo and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ge_bu_ie_322 : (62 + 260 - 0 = 322) := by decide",
+      "receipt": "9432c079-4178-85a8-a60e-26caabcdfa06"
+    },
+    {
+      "key": "alpine_dom_vi_ga_ie_257",
+      "why": "Inclusion-exclusion across virtualization and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_vi_ga_ie_257 : (232 + 25 - 0 = 257) := by decide",
+      "receipt": "8eb315ec-d557-8baf-9350-b5d2abcc7a24"
+    },
+    {
+      "key": "alpine_dom_vi_fo_ie_314",
+      "why": "Inclusion-exclusion across virtualization and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_vi_fo_ie_314 : (232 + 82 - 0 = 314) := by decide",
+      "receipt": "57a56b38-3b4a-889f-90b7-acc00b0ccc89"
+    },
+    {
+      "key": "alpine_dom_vi_au_ie_428",
+      "why": "Inclusion-exclusion across virtualization and audio, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_vi_au_ie_428 : (232 + 198 - 2 = 428) := by decide",
+      "receipt": "776c983f-ed8c-8be8-a5ab-b3e4c32a2f41"
+    },
+    {
+      "key": "alpine_dom_vi_bu_ie_492",
+      "why": "Inclusion-exclusion across virtualization and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_vi_bu_ie_492 : (232 + 260 - 0 = 492) := by decide",
+      "receipt": "9715fc6f-2a9d-87f2-a200-7951938c4549"
+    },
+    {
+      "key": "alpine_dom_ga_fo_ie_107",
+      "why": "Inclusion-exclusion across game and font, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ga_fo_ie_107 : (25 + 82 - 0 = 107) := by decide",
+      "receipt": "32e6d218-5b81-8e9e-9c40-733d04368f57"
+    },
+    {
+      "key": "alpine_dom_ga_au_ie_223",
+      "why": "Inclusion-exclusion across game and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ga_au_ie_223 : (25 + 198 - 0 = 223) := by decide",
+      "receipt": "3d5072e9-647b-8f8e-adf0-16a20afbd916"
+    },
+    {
+      "key": "alpine_dom_ga_bu_ie_285",
+      "why": "Inclusion-exclusion across game and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_ga_bu_ie_285 : (25 + 260 - 0 = 285) := by decide",
+      "receipt": "2048b33e-a9db-8e1e-801b-c62711e1576c"
+    },
+    {
+      "key": "alpine_dom_fo_au_ie_280",
+      "why": "Inclusion-exclusion across font and audio, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fo_au_ie_280 : (82 + 198 - 0 = 280) := by decide",
+      "receipt": "a6ce1120-c5d3-8822-aa97-bf6c84365b28"
+    },
+    {
+      "key": "alpine_dom_fo_bu_ie_342",
+      "why": "Inclusion-exclusion across font and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fo_bu_ie_342 : (82 + 260 - 0 = 342) := by decide",
+      "receipt": "182b1bde-edd3-8ba1-b463-1a5dc8e09471"
+    },
+    {
+      "key": "alpine_dom_au_bu_ie_458",
+      "why": "Inclusion-exclusion across audio and build, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_au_bu_ie_458 : (198 + 260 - 0 = 458) := by decide",
+      "receipt": "ebaf6d00-656a-8e48-ac22-ca1a1c57e2cd"
     }
   ],
   "refused": [

@@ -1,0 +1,12 @@
+{
+  "handle": "9d681d2d",
+  "address": "9d681d2d-486d-894f-8ef6-f48dfe549783",
+  "statement": "(199 + 198 - 0 = 397)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_cr_au_ie_397"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

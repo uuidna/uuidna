@@ -1,0 +1,12 @@
+{
+  "handle": "ff4dffe7",
+  "address": "ff4dffe7-3437-8e99-99fa-6941d1005eec",
+  "statement": "(3 + 260 - 0 = 263)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ch_bu_ie_263"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "6aed2215",
+  "address": "6aed2215-4670-834a-9f30-62957681b598",
+  "statement": "(7 + 25 - 0 = 32)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ph_ga_ie_32"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

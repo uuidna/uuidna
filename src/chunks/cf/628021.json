@@ -1,0 +1,12 @@
+{
+  "handle": "cf628021",
+  "address": "cf628021-1c52-844a-b220-26b074c574f2",
+  "statement": "(332 + 199 - 0 = 531)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ne_cr_ie_531"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

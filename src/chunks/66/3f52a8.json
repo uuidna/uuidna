@@ -1,0 +1,12 @@
+{
+  "handle": "663f52a8",
+  "address": "663f52a8-dbb4-816c-88fe-ae3b00b587cf",
+  "statement": "(62 + 28573 = 28635)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_geo_partitions_28635"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

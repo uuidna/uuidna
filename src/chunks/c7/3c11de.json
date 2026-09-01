@@ -1,0 +1,12 @@
+{
+  "handle": "c73c11de",
+  "address": "c73c11de-1fa4-827b-acb1-ed4c3adf7f10",
+  "statement": "(332 + 82 - 0 = 414)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ne_fo_ie_414"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0b206483",
+  "address": "0b206483-2b55-8f4a-a82b-d339dce83ac9",
+  "statement": "(215 + 3 - 0 = 218)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_fi_ch_ie_218"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

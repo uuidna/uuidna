@@ -1,0 +1,12 @@
+{
+  "handle": "8d463de3",
+  "address": "8d463de3-3686-8742-84cf-8fe77660b480",
+  "statement": "(86 + 40 - 0 = 126)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_se_ma_ie_126"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

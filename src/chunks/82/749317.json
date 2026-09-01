@@ -1,0 +1,12 @@
+{
+  "handle": "82749317",
+  "address": "82749317-0305-894b-a71e-b83050e05a51",
+  "statement": "(11 + 7 - 0 = 18)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ne_ph_ie_18"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

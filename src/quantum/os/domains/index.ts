@@ -83,6 +83,87 @@ export const DOMAIN_PATTERNS: readonly DomainPattern[] = [
     note: 'the chat and messaging surface Alpine publishes — protocols, servers, clients and bridges, by name and version only. uuidna does NOT speak IRC, XMPP or Matrix; this is provenance, and the one chat API beside it is uuidna\'s own sealed channel, not a bridge to theirs',
   },
   {
+    // ── THE REST OF THE CATALOGUE (the captain, 2026-09-01: "land all theorems and axioms crypto art bio chemo
+    // neuro etc domains — each one related even slightly related"). Eleven domains covered the obvious systems
+    // software; these cover what Alpine ships for people doing WORK, and several are deliberately tiny. bio is 2
+    // packages and chemistry 7 — that is not a failed pattern, it is the honest size of that shelf in a
+    // distribution built for servers, and a domain census whose value depended on being large would be a census
+    // measuring its own ambition.
+    //
+    // THREE OF THESE WERE TIGHTENED AFTER MEASURING, because the loose versions collected the same class of
+    // homonym that `matrix` and `signal` produced in chat: bare `synap\w*` matched faenza-icon-theme-SYNAPSE,
+    // bare `stellarium` matched an icon theme for it, and bare `emulator` matched alacritty — a terminal, not a
+    // game. Each now requires a word that only the real subject uses, and all three false positives are gone.
+    domain: 'crypto',
+    match: /\b(openssl|libressl|gnupg|gpg|nettle|libgcrypt|libsodium|mbedtls|wolfssl|pkcs11|tpm2|opensc|sequoia|botan|libksba|p11-kit)\b/i,
+    note: 'the cryptographic shelf Alpine publishes — libraries, agents and token stacks, by name and version only',
+  },
+  {
+    domain: 'security',
+    match: /\b(selinux|apparmor|clamav|fail2ban|firejail|seccomp|yubikey|fido2|webauthn|intrusion detection|vulnerability scan\w*)\b/i,
+    note: 'confinement, scanning and second-factor hardware as Alpine names them — provenance only',
+  },
+  {
+    domain: 'math',
+    match: /\b(gmp|mpfr|lapack|blas|linear algebra|sagemath|maxima|octave|sympy|arbitrary.precision arithmetic|computer algebra)\b/i,
+    note: 'the numerical and symbolic shelf — the arithmetic this ledger does by decide, as other people package it',
+  },
+  {
+    domain: 'art',
+    match: /\b(inkscape|gimp|krita|blender|vector graphics|raster graphics|digital paint\w*|illustration|image editor)\b/i,
+    note: 'drawing, painting and modelling tools as Alpine publishes them',
+  },
+  {
+    domain: 'bio',
+    match: /\b(bioinformatics|genomic\w*|dna sequenc\w*|phylogen\w*|samtools|biopython|molecular biology|protein structure)\b/i,
+    note: 'the bioinformatics shelf — small in a server distribution, and counted exactly rather than inflated',
+  },
+  {
+    domain: 'chemistry',
+    match: /\b(chemistry|chemical structure|openbabel|rdkit|periodic table|crystallograph\w*|spectroscop\w*|molecular model\w*)\b/i,
+    note: 'chemistry tooling as Alpine names it — seven packages, and seven is the answer',
+  },
+  {
+    domain: 'neuro',
+    match: /\b(neuroscience|neuroimaging|neural network|brain imaging|eeg signal|connectome|spiking neuron|artificial neural)\b/i,
+    note: 'neural and neuroimaging tooling — tightened so an icon theme named synapse is not neuroscience',
+  },
+  {
+    domain: 'astronomy',
+    match: /\b(astronomy|astronomical|astrophysic\w*|planetarium|ephemeris|celestial|star chart)\b/i,
+    note: 'sky catalogues, planetaria and instrument control — an icon theme for one of them is not one of them',
+  },
+  {
+    domain: 'physics',
+    match: /\b(physics engine|rigid body|thermodynam\w*|lattice qcd|particle simulation|collision detection)\b/i,
+    note: 'simulation and physical modelling as Alpine publishes it',
+  },
+  {
+    domain: 'geo',
+    match: /\b(gdal|geospatial|postgis|openstreetmap|cartograph\w*|geotiff|coordinate reference system|map projection)\b/i,
+    note: 'geospatial data, projections and map tooling',
+  },
+  {
+    domain: 'virtualization',
+    match: /\b(qemu|kvm|libvirt|virtualbox|lxc|podman|containerd|runc|firecracker|hypervisor|container runtime)\b/i,
+    note: 'hypervisors and container runtimes — named and counted, never run',
+  },
+  {
+    domain: 'game',
+    match: /\b(game engine|video game|game library|roguelike|gameplay|game development|arcade|puzzle game|board game)\b/i,
+    note: 'games and the engines under them — tightened so a terminal emulator is not an arcade',
+  },
+  {
+    domain: 'font',
+    match: /\b(typeface|freetype|fontconfig|harfbuzz|opentype|truetype|glyph|font family|monospace font)\b/i,
+    note: 'typefaces and the shaping stack that renders them',
+  },
+  {
+    domain: 'audio',
+    match: /\b(alsa|pulseaudio|pipewire|jack audio|lv2 plugin|ladspa|synthesiz\w*|midi|sound server|audio codec)\b/i,
+    note: 'the audio stack — servers, plugins and codecs as Alpine names them',
+  },
+  {
     domain: 'build',
     match: /\b(gcc|clang|llvm|cmake|meson|ninja|autoconf|automake|libtool|pkgconf|binutils|musl-dev|linux-headers)\b/i,
     note: 'compilers, build systems and the headers they need — the toolchain Alpine publishes, recorded and not invoked',

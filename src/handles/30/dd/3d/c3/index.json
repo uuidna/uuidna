@@ -1,0 +1,12 @@
+{
+  "handle": "30dd3dc3",
+  "address": "30dd3dc3-f1f7-8439-9ae9-8ec50420e3b6",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_game_partitions_28635"
+  ],
+  "statement": "(25 + 28610 = 28635)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "4dcdb54a",
+  "address": "4dcdb54a-5fe5-8697-b7b5-2ed9f2c20f87",
+  "statement": "(232 + 82 - 0 = 314)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_vi_fo_ie_314"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

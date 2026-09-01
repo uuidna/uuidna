@@ -1,0 +1,12 @@
+{
+  "handle": "78b7b5be",
+  "address": "78b7b5be-f531-85f5-a662-4e5360e445ef",
+  "statement": "(199 + 7 - 0 = 206)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_cr_ph_ie_206"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

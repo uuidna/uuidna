@@ -1,0 +1,12 @@
+{
+  "handle": "b1036853",
+  "address": "b1036853-b9f5-8089-b255-80fa0aaf4019",
+  "kind": "chunk",
+  "keys": [
+    "alpine_shell_domain_commands_345"
+  ],
+  "statement": "(345 < 19095) ∧ (19095 - 345 = 18750)",
+  "files": [
+    "Wave.lean"
+  ]
+}

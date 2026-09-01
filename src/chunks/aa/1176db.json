@@ -1,0 +1,12 @@
+{
+  "handle": "aa1176db",
+  "address": "aa1176db-34a9-832c-ba77-0161197f400f",
+  "statement": "(9 <= 17) ∧ (17 - 9 = 8)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_astronomy_origins_17"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

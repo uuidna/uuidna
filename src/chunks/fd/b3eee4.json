@@ -1,0 +1,12 @@
+{
+  "handle": "fdb3eee4",
+  "address": "fdb3eee4-2ec6-87dd-8608-5e2c46ed5cf4",
+  "statement": "(7 + 82 - 0 = 89)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ph_fo_ie_89"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

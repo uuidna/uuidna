@@ -1,0 +1,12 @@
+{
+  "handle": "1e88e203",
+  "address": "1e88e203-6c5f-8f02-9def-ab8528960665",
+  "statement": "(21 <= 40) ∧ (40 - 21 = 19)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_math_origins_40"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

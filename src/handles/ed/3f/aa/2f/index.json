@@ -1,0 +1,12 @@
+{
+  "handle": "ed3faa2f",
+  "address": "ed3faa2f-64ec-8dc7-bc92-0145b79d160c",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_ch_ga_ie_28"
+  ],
+  "statement": "(3 + 25 - 0 = 28)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "272dd053",
+  "address": "272dd053-a639-8929-a66f-4d240785a2a3",
+  "statement": "(82 + 28553 = 28635)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_font_partitions_28635"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

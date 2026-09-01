@@ -1,0 +1,12 @@
+{
+  "handle": "c70cf93a",
+  "address": "c70cf93a-6569-89d0-9b42-910a06ef719f",
+  "statement": "(241 + 198 - 0 = 439)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ch_au_ie_439"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

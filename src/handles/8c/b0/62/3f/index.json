@@ -1,0 +1,12 @@
+{
+  "handle": "8cb0623f",
+  "address": "8cb0623f-4c54-8071-a175-1f37f0257951",
+  "kind": "chunk",
+  "keys": [
+    "alpine_domain_audio_origins_198"
+  ],
+  "statement": "(116 <= 198) ∧ (198 - 116 = 82)",
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "bacaf471",
+  "address": "bacaf471-ef18-886a-9399-3b45f3cd005e",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_bi_as_ie_19"
+  ],
+  "statement": "(2 + 17 - 0 = 19)",
+  "files": [
+    "Wave.lean"
+  ]
+}

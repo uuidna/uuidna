@@ -1,0 +1,12 @@
+{
+  "handle": "fa480f33",
+  "address": "fa480f33-3fba-8dc0-80dc-2fc6011389cb",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_fi_ma_ie_255"
+  ],
+  "statement": "(215 + 40 - 0 = 255)",
+  "files": [
+    "Wave.lean"
+  ]
+}

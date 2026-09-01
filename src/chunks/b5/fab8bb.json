@@ -1,0 +1,12 @@
+{
+  "handle": "b5fab8bb",
+  "address": "b5fab8bb-f67b-84c5-9644-bd06c6caa25b",
+  "statement": "(198 + 260 - 0 = 458)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_au_bu_ie_458"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

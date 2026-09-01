@@ -1,0 +1,12 @@
+{
+  "handle": "31526f65",
+  "address": "31526f65-4280-8f98-8827-7ef161fe90f6",
+  "statement": "(86 + 62 - 0 = 148)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_se_ge_ie_148"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

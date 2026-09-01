@@ -1,0 +1,12 @@
+{
+  "handle": "3ca3b737",
+  "address": "3ca3b737-b7fd-873b-8d5f-407f28ef11fe",
+  "statement": "(82 + 260 - 0 = 342)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_fo_bu_ie_342"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

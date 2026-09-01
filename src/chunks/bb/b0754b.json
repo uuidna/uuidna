@@ -1,0 +1,12 @@
+{
+  "handle": "bbb0754b",
+  "address": "bbb0754b-f6d2-8751-922f-a709e22a86a6",
+  "statement": "(232 + 260 - 0 = 492)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_vi_bu_ie_492"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

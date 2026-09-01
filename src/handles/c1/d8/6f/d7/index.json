@@ -1,0 +1,12 @@
+{
+  "handle": "c1d86fd7",
+  "address": "c1d86fd7-108a-8944-8588-f604f0cf1675",
+  "kind": "chunk",
+  "keys": [
+    "prose_terminator_escaped"
+  ],
+  "statement": "(0 + 2452 = 2452) ∧ (0 = 0)",
+  "files": [
+    "Audit.lean"
+  ]
+}

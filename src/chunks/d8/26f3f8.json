@@ -1,0 +1,12 @@
+{
+  "handle": "d826f3f8",
+  "address": "d826f3f8-2d9f-892d-81bd-0543f37dc0cf",
+  "statement": "(630 + 232 - 12 = 850)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_dr_vi_ie_850"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

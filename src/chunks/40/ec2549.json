@@ -1,0 +1,12 @@
+{
+  "handle": "40ec2549",
+  "address": "40ec2549-c736-8d8c-bba6-8a0e87612d93",
+  "statement": "(62 + 198 - 0 = 260)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_ge_au_ie_260"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

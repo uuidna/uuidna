@@ -1,0 +1,12 @@
+{
+  "handle": "e5af8d92",
+  "address": "e5af8d92-20f2-8633-8ce7-ef91f8426a22",
+  "statement": "(199 + 82 - 0 = 281)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_cr_fo_ie_281"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

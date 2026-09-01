@@ -1,0 +1,12 @@
+{
+  "handle": "2387862f",
+  "address": "2387862f-8635-8e61-a981-afb3527d595c",
+  "statement": "(215 + 199 - 1 = 413)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_fi_cr_ie_413"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "0aa42f90",
+  "address": "0aa42f90-6e65-8998-8042-1963f41faa94",
+  "statement": "(232 + 198 - 2 = 428)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_vi_au_ie_428"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "20ff6df4",
+  "address": "20ff6df4-a90f-8f59-bde1-85c80e98afe3",
+  "statement": "(1 <= 2) ∧ (2 - 1 = 1)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_bio_origins_2"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}
