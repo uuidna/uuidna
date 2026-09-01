@@ -18,6 +18,7 @@
 // exists to refuse unverified claims; shipping on a census nobody managed to take would be one.
 import { readFileSync, existsSync, writeFileSync } from 'node:fs'
 import { execFileSync } from 'node:child_process'
+import { commitChange, renderPlan } from '../quantum/os/installer/index.js'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
 import { leadCensus, renderCensus, read, unread, type Lead, type SourceReading } from '../leads.js'
@@ -148,9 +149,29 @@ const settleLead = (argv: readonly string[]): number => {
     for (const h of record.held) console.error('    · ' + String(h.lead ?? '').slice(0, 96))
     return 1
   }
+  // THE PLAN IS SHOWN BEFORE THE WRITE, apk-style, because settling REMOVES a lead from held[] and a removal
+  // that nobody sees is how content is lost (a `git checkout` on the conveyor discarded thirty accepted claims
+  // the same session, and the ledger dropped 30 theorems with nothing reporting it). Here the removal is the
+  // whole point, so it is allowed — but it is allowed EXPLICITLY, with the reason recorded in the call, and the
+  // affected key is named rather than folded into a count.
+  const held0 = record.held.map((h) => ({ key: String(h.lead ?? '').slice(0, 48) }))
   const [lead] = record.held.splice(idx, 1)
+  const held1 = record.held.map((h) => ({ key: String(h.lead ?? '').slice(0, 48) }))
+  const commit = commitChange(held0, held1, { allowRemovals: true, reason: refute ? 'refuted with evidence' : 'refused with a boundary' })
+  for (const line of renderPlan(commit.plan, 'held lead')) console.log('  ' + line)
+
   if (refute) record.refuted.push({ ...lead, killed_by: because })
   else record.refused.push({ ...lead, boundary })
+
+  // AND THE TOTAL MUST NOT DROP. A lead moves between arrays; it is never destroyed, so the three lengths must
+  // sum to what they summed to before. This is the check that would have caught the queue revert: not "did the
+  // write succeed" but "is everything that went in still in there somewhere".
+  const total0 = held0.length + (record.refuted.length - (refute ? 1 : 0)) + (record.refused.length - (refuse ? 1 : 0))
+  const total1 = record.held.length + record.refuted.length + record.refused.length
+  if (total0 !== total1) {
+    console.error(`✗ settle — CONTENT WOULD BE LOST: ${total0} leads before, ${total1} after. A settled lead MOVES; nothing is written.`)
+    return 1
+  }
   writeFileSync(path, JSON.stringify(record, null, 2) + '\n')
 
   console.log(`✓ settle — ${refute ? 'REFUTED' : 'REFUSED'}: ${String(lead.lead).slice(0, 72)}…`)

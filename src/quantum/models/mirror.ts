@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 417,
+ "count": 418,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -802,6 +802,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 128000,
    "promptPrice": "0.00000025",
    "completionPrice": "0.00000075"
+  },
+  {
+   "id": "inception/mercury-2.5-preview",
+   "name": "Inception: Mercury 2.5 Preview",
+   "contextTokens": 260000,
+   "promptPrice": "0.00000004",
+   "completionPrice": "0.00000015"
   },
   {
    "id": "inclusionai/ling-3.0-flash",
