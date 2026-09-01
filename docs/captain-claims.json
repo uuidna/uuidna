@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-31",
+  "generated": "2026-09-01",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
   "total_claimed": 2163,
@@ -12355,8 +12355,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "2b4d22ed-949d-83fc-84fe-e5f7593255d0",
-      "address": "1f7aceea-ac9a-8a5f-a44c-a07fc502c4f6",
+      "lineAddress": "a1ec18af-29bb-8270-886f-44054d022162",
+      "address": "b3a57e23-ffb3-8efd-9b84-f6384befb88d",
       "principle": "The models"
     },
     {
@@ -12984,7 +12984,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "ce2b2e39-5626-8d17-80c3-269e046f3ff0",
+  "claim_receipt": "66adc125-58fb-8b56-a3f0-38bfff960f52",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

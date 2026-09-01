@@ -161,7 +161,7 @@ console.log(runSequence(9).reflection)   // 1, not 0
 | `hero-channel.test.ts` | — | SVG ↔ orbit |
 
 ```bash
-npm run build && node --test dist/tests/sequence-field.test.js dist/tests/falsifiers-sequence.test.js dist/tests/mcp-sequence.test.js dist/tests/exec-sequence.test.js
+npm run build && node --test dist/sequence-field.test.js dist/falsifiers-sequence.test.js dist/mcp-sequence.test.js dist/sequence-run.test.js
 npm run lean   # re-decide lean/Sequence.lean
 ```
 

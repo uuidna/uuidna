@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 425,
+ "count": 420,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -79,7 +79,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "anthracite-org/magnum-v4-72b",
    "name": "Magnum v4 72B",
    "contextTokens": 32768,
-   "promptPrice": "0.000003",
+   "promptPrice": "0.0000025",
    "completionPrice": "0.000005"
   },
   {
@@ -478,8 +478,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000087",
-   "completionPrice": "0.00000174"
+   "promptPrice": "0.0000016",
+   "completionPrice": "0.0000032"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -793,8 +793,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "gryphe/mythomax-l2-13b",
    "name": "MythoMax 13B",
    "contextTokens": 8192,
-   "promptPrice": "0.00000006",
-   "completionPrice": "0.00000006"
+   "promptPrice": "0.00000035",
+   "completionPrice": "0.0000006"
   },
   {
    "id": "ibm-granite/granite-4.0-h-micro",
@@ -863,7 +863,7 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "mancer/weaver",
    "name": "Mancer: Weaver (alpha)",
    "contextTokens": 8000,
-   "promptPrice": "0.0000005",
+   "promptPrice": "0.0000004",
    "completionPrice": "0.00000075"
   },
   {
@@ -919,8 +919,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "meta-llama/llama-4-scout",
    "name": "Meta: Llama 4 Scout",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000011",
-   "completionPrice": "0.00000034"
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000003"
   },
   {
    "id": "meta-llama/llama-guard-4-12b",
@@ -1063,13 +1063,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000009"
   },
   {
-   "id": "mistralai/codestral-2508:batch",
-   "name": "Mistral: Codestral 2508 (batch)",
-   "contextTokens": 256000,
-   "promptPrice": "0.0000003",
-   "completionPrice": "0.0000009"
-  },
-  {
    "id": "mistralai/devstral-2512",
    "name": "Mistral: Devstral 2 2512",
    "contextTokens": 262144,
@@ -1098,13 +1091,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.00000015"
   },
   {
-   "id": "mistralai/ministral-8b-2512:batch",
-   "name": "Mistral: Ministral 3 8B 2512 (batch)",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.00000015"
-  },
-  {
    "id": "mistralai/mistral-large",
    "name": "Mistral Large",
    "contextTokens": 128000,
@@ -1121,13 +1107,6 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "mistralai/mistral-large-2512",
    "name": "Mistral: Mistral Large 3 2512",
-   "contextTokens": 262144,
-   "promptPrice": "0.0000005",
-   "completionPrice": "0.0000015"
-  },
-  {
-   "id": "mistralai/mistral-large-2512:batch",
-   "name": "Mistral: Mistral Large 3 2512 (batch)",
    "contextTokens": 262144,
    "promptPrice": "0.0000005",
    "completionPrice": "0.0000015"
@@ -1161,13 +1140,6 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.000002"
   },
   {
-   "id": "mistralai/mistral-medium-3.1:batch",
-   "name": "Mistral: Mistral Medium 3.1 (batch)",
-   "contextTokens": 131072,
-   "promptPrice": "0.0000004",
-   "completionPrice": "0.000002"
-  },
-  {
    "id": "mistralai/mistral-nemo",
    "name": "Mistral: Mistral Nemo",
    "contextTokens": 131072,
@@ -1191,13 +1163,6 @@ export const MODELS_MIRROR: ModelsMirror = {
   {
    "id": "mistralai/mistral-small-2603",
    "name": "Mistral: Mistral Small 4",
-   "contextTokens": 262144,
-   "promptPrice": "0.00000015",
-   "completionPrice": "0.0000006"
-  },
-  {
-   "id": "mistralai/mistral-small-2603:batch",
-   "name": "Mistral: Mistral Small 4 (batch)",
    "contextTokens": 262144,
    "promptPrice": "0.00000015",
    "completionPrice": "0.0000006"
@@ -2207,8 +2172,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3-235b-a22b-2507",
    "name": "Qwen: Qwen3 235B A22B Instruct 2507",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000875",
-   "completionPrice": "0.00000035"
+   "promptPrice": "0.00000009",
+   "completionPrice": "0.00000055"
   },
   {
    "id": "qwen/qwen3-235b-a22b-thinking-2507",
@@ -2627,8 +2592,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.0000000825",
-   "completionPrice": "0.00000033"
+   "promptPrice": "0.000000132",
+   "completionPrice": "0.000000528"
   },
   {
    "id": "tencent/hy3-preview",
