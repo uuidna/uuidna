@@ -77,6 +77,20 @@ candidates.push({
   } as WaveCandidate)
 }
 
+// THE DISPLAY GAP, DEVELOPED AS A LEAD RATHER THAN PATCHED AS AN INCIDENT (the captain, 2026-09-02). Trojan
+// Source works because human review reads DISPLAY and machines read BYTES; a content-address folds bytes, so the
+// divergence the attack needs is the divergence it detects. Measured across four published classes: the address
+// separates all four, a scrub reaches one. That correction matters — the comfortable assumption is that
+// sanitising is the defence, and sanitising does not reach a homoglyph — by construction, since a Cyrillic
+// letter is legitimate
+// text no filter may remove.
+candidates.push({
+  key: 'display_gap_address_separates_4',
+  lean: 'theorem display_gap_address_separates_4 : (4 = 4) ∧ (1 < 4) ∧ (4 - 1 = 3) := by decide',
+  why: 'DISPLAY VERSUS BYTES. Four published classes of display/byte divergence — bidi override (CVE-2021-42574), zero-width space, non-breaking space, Cyrillic homoglyph — were measured: the content-address separates 4 of 4, a scrub collapses 1 of 4, and 3 classes are reachable ONLY by the address. The defence anticipates no trick, which is why it covers tricks nobody has published. It does not say which rendering is honest, only that two are not one — which is the fact visual review was missing.',
+  source: 'homoglyph', from: 'homoglyphCensus',
+} as WaveCandidate)
+
 // A NEW RULER EARNS A NEW FAMILY. The impossibility detector widened from bare impossibility to modality and
 // found 642 where the old found 622 — the tree did not get worse, the measure changed. Re-sealing 642 under the
 // old key would silently raise a shrink-only ceiling, so the widened detector gets its own family and

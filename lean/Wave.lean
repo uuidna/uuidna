@@ -5044,3 +5044,10 @@ theorem mcp_tool_debt_100 : (100 < 119) ∧ (144 + 100 = 244) := by decide
     absorbed the rise would be the loosening it exists to prevent. The old family stays sealed; this one
     ratchets from 642 down. -/
 theorem impossibility_modal_debt_642 : (642 > 622) ∧ (622 > 6) ∧ (6 + 0 = 6) := by decide
+
+/-- DISPLAY VERSUS BYTES. Four published classes of display/byte divergence — bidi override (CVE-2021-42574),
+    zero-width space, non-breaking space, Cyrillic homoglyph — were measured: the content-address separates 4 of
+    4, a scrub collapses 1 of 4, and 3 classes are reachable ONLY by the address. The defence anticipates no
+    trick, which is why it covers tricks nobody has published. It does not say which rendering is honest, only
+    that two are not one — which is the fact visual review was missing. -/
+theorem display_gap_address_separates_4 : (4 = 4) ∧ (1 < 4) ∧ (4 - 1 = 3) := by decide

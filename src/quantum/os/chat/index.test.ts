@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { chatApi, chatSend, chatOpen, chatProtocols, chatCensus, gateMessage } from './index.js'
+import { chatApi, chatSend, chatOpen, openMessage, chatProtocols, chatCensus, gateMessage } from './index.js'
 
 test('the port is provenance and the census counts it', () => {
   const c = chatCensus()
@@ -75,4 +75,51 @@ test('the verdict travels WITH the message, so the recipient sees it too', () =>
 test('gateMessage is the same gate, callable without sending', () => {
   assert.deepEqual(gateMessage('nothing cited here').fabricated, [])
   assert.ok(gateMessage('theorem totally_made_up_key_9999').fabricated.length > 0)
+})
+
+// ── SANITISE ON RECEIVE ───────────────────────────────────────────────────────────────────────────────────────
+//
+// NO LITERAL CONTROL OR BIDI BYTES IN THIS FILE, built from escapes instead — the same rule sanitize.ts keeps.
+// The reason arrived as a demonstration: writing these tests with the real characters inline was refused by the
+// tooling for "control characters that would be hidden in the approval dialog", which is precisely the attack
+// under test. A file about invisible characters must not contain invisible characters.
+const RLO = String.fromCharCode(0x202E)   // right-to-left override — the Trojan-Source lever
+const NUL = String.fromCharCode(0x00)     // C0 control — log and terminal injection
+
+test('a Trojan-Source message is scrubbed for display and the scrub is DISCLOSED', () => {
+  // The override makes displayed text differ from actual text (CVE-2021-42574): a reviewer sees one thing and
+  // the machine reads another. Returning cleaned text with no signal would be the defence behaving like the
+  // attack — the reader still could not tell that what arrived is not what is shown.
+  const sent = chatSend('transfer to alice' + RLO + 'rehcuov a si siht', 'p', 'r', 0)
+  const o = openMessage(sent.chain, 'p', 'r')
+  assert.equal(o.altered, true, 'the scrub must be disclosed, never silent')
+  assert.ok(!o.text.includes(RLO), 'the displayed text carries no bidi override')
+  assert.ok(o.raw.includes(RLO), 'and the RAW bytes are preserved — the address is over those')
+})
+
+test('control characters are scrubbed too', () => {
+  const o = openMessage(chatSend('clean' + NUL + 'text', 'p', 'r', 1).chain, 'p', 'r')
+  assert.equal(o.altered, true)
+  assert.ok(!o.text.includes(NUL))
+})
+
+test('an ordinary message is NOT reported as altered', () => {
+  // The control that makes `altered` mean something: if everything were flagged, nothing would be.
+  const o = openMessage(chatSend('the wave lands', 'p', 'r', 2).chain, 'p', 'r')
+  assert.equal(o.altered, false)
+  assert.equal(o.text, o.raw)
+})
+
+test('scrubbing does not rewrite what was sealed', () => {
+  // The address folds the sealed bytes. If scrubbing changed them, two readers of one message would compute
+  // different addresses and the channel would lose the property that makes it citable.
+  const trojan = 'a' + RLO + 'b'
+  const sent = chatSend(trojan, 'p', 'r', 3)
+  assert.equal(openMessage(sent.chain, 'p', 'r').raw, trojan, 'the raw bytes round-trip exactly')
+})
+
+test('chatOpen still returns a plain string, and it is the SAFE one', () => {
+  const s = chatOpen(chatSend('plain' + RLO + 'text', 'p', 'r', 4).chain, 'p', 'r')
+  assert.equal(typeof s, 'string')
+  assert.ok(!s.includes(RLO), 'the simple door hands back the scrubbed text, not the raw')
 })

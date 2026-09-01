@@ -25,6 +25,7 @@ import { encryptSession, decryptSession, type Sealed } from '../../../crypt.js'
 import { imprintTextChain, readImprintTextChain } from '../../../imprint.js'
 import { toUuid } from '../../../address.js'
 import { gateCommitMessage } from '../../../sign.js'
+import { scrubString } from '../../../sanitize.js'
 
 export const CHAT_DOMAIN = 'chat' as const
 
@@ -102,7 +103,7 @@ export function gateMessage(text: string): MessageGate {
 // for the whole life of that gate. A MESSAGE carrying the identical forgery was sealed and sent without anyone
 // looking — same tree, same ledger, same forgery, one door checked and one not. That asymmetry is the gap, and
 // it is worse in messaging than in commits: a commit stays in a repository a reader can audit, while a sealed
-// message arrives somewhere else carrying a citation its recipient has no way to check.
+// message arrives somewhere else carrying a citation its recipient has no ledger to check it against.
 //
 // So the same gate runs here, and the verdicts are kept apart because they are different acts:
 //   • FABRICATED citation — a theorem key that is not in the ledger. This is forgery and the send is REFUSED.
@@ -127,10 +128,42 @@ export function chatSend(text: string, passphrase: string, room: string, step: n
   return { room, step, chain: imprintTextChain(JSON.stringify(sealed)), roomAddress: toUuid('chat:room:' + room), gate }
 }
 
+export interface OpenedMessage {
+  /** what a reader should be shown — scrubbed of code points that make displayed text differ from actual text */
+  text: string
+  /** the sealed bytes as they were, unaltered: the address is over THESE, and scrubbing must not rewrite history */
+  raw: string
+  /** true when scrubbing removed something — disclosed, because a silent edit is the attack wearing a defence */
+  altered: boolean
+  gate: MessageGate
+}
+
+// ── SANITISE ON RECEIVE (the captain: "sanitise messages so no traitors sneak in communication") ──────────────
+//
+// The send door already refuses a forged citation. The RECEIVE door was returning the decrypted string raw, and
+// that is the half where a message can lie about itself: Unicode BIDI overrides (U+202A–202E, U+2066–2069) make
+// displayed text differ from actual text, which is the Trojan-Source attack, CVE-2021-42574 — a reviewer sees
+// one thing and the machine reads another. C0/C1 controls do the same to a terminal and to a log.
+//
+// sanitize.ts has defended against exactly this everywhere else in the tree; the channel simply never called it.
+//
+// THE SCRUB IS DISCLOSED, NEVER SILENT, and that is the whole design. Returning cleaned text with no signal
+// would be the defence behaving like the attack — by construction, since the reader still could not tell that
+// what arrived is not what is
+// shown. So both are returned — the scrubbed text to display, the raw bytes because the ADDRESS is over those
+// and scrubbing must not rewrite what was sealed — plus a flag saying they differ. A recipient who wants the
+// original has it; a recipient who displays the safe one knows it was made safe.
 /** chatOpen — the ONE receive. A different room, or a wrong passphrase, does not open it. */
 export function chatOpen(chain: readonly string[], passphrase: string, room: string): string {
+  return openMessage(chain, passphrase, room).text
+}
+
+/** openMessage — the full receive: scrubbed text, the raw bytes, whether they differ, and the gate's verdict. */
+export function openMessage(chain: readonly string[], passphrase: string, room: string): OpenedMessage {
   const sealed = JSON.parse(readImprintTextChain(chain)) as Sealed
-  return decryptSession(sealed, passphrase, room)
+  const raw = decryptSession(sealed, passphrase, room)
+  const text = scrubString(raw)
+  return { text, raw, altered: text !== raw, gate: gateMessage(raw) }
 }
 
 export interface ChatApiCensus {

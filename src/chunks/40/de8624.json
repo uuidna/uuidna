@@ -1,0 +1,12 @@
+{
+  "handle": "40de8624",
+  "address": "40de8624-ff4d-80fc-bd2c-c74d26273836",
+  "statement": "(0 < 2475) ∧ (0 + 2475 = 2475)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}
