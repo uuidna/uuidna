@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="242 keys" />
+# MCP tools <Badge type="tip" text="243 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 242 tools below are read from the server's own tool list and
+is **built from the keys**: the 243 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 8d591c33-2b36-8657-a525-1d0f1dba9640
+gate CLEAN f0 d0 v0 · 89f801cd-adff-8232-b1a8-a398e2f74768
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 242-tool registry folds to its
-order-invariant identity `50a27aa4-b772-8f61-b04a-8a81e48a950f` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 243-tool registry folds to its
+order-invariant identity `d995663d-2998-8585-94b7-96d5debbdc94` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`242`" />
+## The grid <Badge type="tip" :text="`243`" />
 
-242 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 102 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+243 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 103 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-alpine"><code>alpine</code></a>
@@ -94,6 +94,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-hardware"><code>hardware</code></a>
 <a href="#uuidna-hero-animation"><code>hero_animation</code></a>
 <a href="#uuidna-image-provenance"><code>image_provenance</code></a>
+<a href="#uuidna-interface"><code>interface</code></a>
 <a href="#uuidna-laws"><code>laws</code></a>
 <a href="#uuidna-lean-index"><code>lean_index</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
@@ -584,7 +585,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'110'" />
+## Other <Badge type="tip" :text="'111'" />
 
 *skill: other*
 
@@ -1721,6 +1722,14 @@ uuidna reimplements none of these binaries; it adds that the command and the byt
 | --- | --- | --- | --- |
 | `op` | string | no |  |
 | `args` | string | no |  |
+
+### `uuidna_interface`
+
+The interface surface, censused on BOTH sides: 1424 Alpine packages across six classes, and what uuidnaOS itself provides for each. Most of the domain is given TO a tab rather than implemented here, and it says which.
+
+uuidna already has a terminal (uuidnaExec and its applets), a GUI (the panels the monitor draws) and served pages, so this port is a census rather than a new capability. It draws no pixels and owns no window: the browser is its display server, compositor and input stack. The accessibility row rests on a measured count of schema.org itemprops on a real rendered page, which is machine-readable by a screen reader, a search engine and an agent through the same markup; it is not a WCAG conformance claim, which an audit decides.
+
+_No parameters._
 
 ### `uuidna_os_census`
 

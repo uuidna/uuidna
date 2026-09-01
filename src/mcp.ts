@@ -80,6 +80,7 @@ import { license } from './license.js'
 import { priorArt } from './priorart.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { portsCensus } from './quantum/os/ports/index.js'
+import { uiApi } from './quantum/os/uiapi/index.js'
 import { chatApi, chatSend } from './quantum/os/chat/index.js'
 import { shellRun, shellCoverage } from './quantum/os/shellapi/index.js'
 import { fsSeal } from './quantum/os/fsapi/index.js'
@@ -1647,6 +1648,11 @@ const TOOLS: Tool[] = ([
     detail: 'uuidna reimplements none of these binaries; it adds that the command and the bytes are content-addressed, so a verdict is citable rather than a screenshot. Nothing here is a security scan: clamav scans files for signatures, the guard scans source for determinism violations.',
     inputSchema: { type: 'object', properties: { op: { type: 'string', enum: ['confine', 'inspect-files', 'packet-policy', 'audit-tls'] }, args: { type: 'string' } } },
     run: (a) => (a.op === undefined ? secApi() : planSecurityOp(String(a.op), String(a.args ?? ''))) },
+  { name: 'uuidna_interface',
+    description: 'The interface surface, censused on BOTH sides: 1424 Alpine packages across six classes, and what uuidnaOS itself provides for each. Most of the domain is given TO a tab rather than implemented here, and it says which.',
+    detail: 'uuidna already has a terminal (uuidnaExec and its applets), a GUI (the panels the monitor draws) and served pages, so this port is a census rather than a new capability. It draws no pixels and owns no window: the browser is its display server, compositor and input stack. The accessibility row rests on a measured count of schema.org itemprops on a real rendered page, which is machine-readable by a screen reader, a search engine and an agent through the same markup; it is not a WCAG conformance claim, which an audit decides.',
+    inputSchema: { type: 'object', properties: {} },
+    run: () => uiApi() },
   { name: 'uuidna_os_census',
     description: 'uuidnaOS asked about itself: the monitor it draws on, the compilers it runs, or the architecture matrix it spans. Absent is reported as absent, never as zeros.',
     detail: 'The monitor splits panels running in the reader tab from those drawing what the build knew. The compilers report each translation expansion or contraction. The arch matrix asserts two invariants: provenance MUST separate across architectures, computation MUST NOT.',

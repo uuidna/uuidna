@@ -775,5 +775,7 @@ export { secApi, planSecurityOp, attestBytes, securityClaims, securityCensus, SE
 export { authnPresence, addressCredential, enrol, type AuthnPresence, type AddressedCredential, type EnrolResult } from './os/webauthn/index.js'
 // the installer discipline — simulate, then commit, and never destroy without naming what is destroyed
 export { planChange, renderPlan, commitChange, type InstallPlan, type CommitResult } from './quantum/os/installer/index.js'
+// the interface surface — censused on BOTH sides, because uuidna already has a terminal, a GUI and served pages
+export { uiApi, renderUi, UI_CLASSES, type UiApiCensus, type UiClassRow } from './quantum/os/uiapi/index.js'
 // the school graded in the student's own currency, and the payloadless space argument beside it
 export { schoolEfficiency, payloadlessSpace, tokensOf, ADDRESS_BYTES as EFFICIENCY_ADDRESS_BYTES, type EfficiencyRow, type SpaceRow } from './school/efficiency/index.js'

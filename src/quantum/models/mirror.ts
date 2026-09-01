@@ -100,8 +100,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "anthropic/claude-fable-5.1",
    "name": "Anthropic: Claude Fable 5.1",
    "contextTokens": 1000000,
-   "promptPrice": "0",
-   "completionPrice": "0"
+   "promptPrice": "0.00001",
+   "completionPrice": "0.00005"
   },
   {
    "id": "anthropic/claude-fable-5:batch",
@@ -436,8 +436,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000007476",
-   "completionPrice": "0.00000014952"
+   "promptPrice": "0.00000007322",
+   "completionPrice": "0.00000014644"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",

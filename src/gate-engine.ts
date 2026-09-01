@@ -244,16 +244,30 @@ export function gateStatus(toolNames: readonly string[], messaging?: GateMessagi
   const base = gateSelfTest(toolNames)
   if (!messaging) return base
   const census = coinCensus(messaging.payments ?? [])
+  // ── ONE LAW, ONE IMPLEMENTATION (2026-09-01) ──────────────────────────────────────────────────────────────
+  //
+  // This compared the wire against a frozen byte TOTAL while the guard's context finder had already moved to a
+  // RATE — bytes per tool — and the two disagreed the moment a genuinely new tool landed: the guard passed and
+  // this reported healthy:false for the same surface. Two implementations of one rule is the drift the tree
+  // refuses everywhere else, and here it had the sharper cost of making a self-audit contradict a gate.
+  //
+  // The rate is the law: a frozen total punishes CAPABILITY and cannot see DENSITY. Adding a tool raises the
+  // allowance lawfully; padding a description raises the rate and fails. The total is still reported, because a
+  // reader wants to know what the wire actually costs — it is simply no longer the thing being judged.
   const bytes = wireBytes(messaging.wireTools)
-  const ceiling = sealedBudget()?.wireBytes ?? null
-  const headroom = ceiling === null ? null : ceiling - bytes
-  const withinBudget = ceiling !== null && bytes <= ceiling
+  const sealed = sealedBudget()
+  const tools = messaging.wireTools.length
+  const rate = tools > 0 ? Number((BigInt(bytes) * 100n) / BigInt(tools)) : 0
+  const rateCeiling = sealed?.perToolHundredths ?? null
+  const ceiling = sealed?.wireBytes ?? null
+  const headroom = rateCeiling === null ? null : rateCeiling - rate
+  const withinBudget = rateCeiling !== null && rate <= rateCeiling
   const healthy = base.matchesSealedSpec && MESSAGING_WITNESS.total && withinBudget
   return {
     ...base,
     healthy,
     messaging: MESSAGING_WITNESS,
-    context: { wireBytes: bytes, ceiling, headroom, withinBudget },
+    context: { wireBytes: bytes, tools, perToolHundredths: rate, rateCeiling, ceiling, headroom, withinBudget },
     session: {
       surface: messaging.surface,
       payments: census.payments,

@@ -72,6 +72,13 @@ test('uuidna_os_census — three faces, and each is present', () => {
   }
 })
 
+test('uuidna_interface — both sides counted, and the browser half named', () => {
+  const c = callTool('uuidna_interface') as { alpineTotal: number; providedByBrowser: number; own: { applets: number } }
+  assert.ok(c.alpineTotal > 1000)
+  assert.ok(c.providedByBrowser > 0, 'most of the domain is given to a tab, not implemented here')
+  assert.ok(c.own.applets > 0, 'and uuidna already has a terminal')
+})
+
 test('all ten ports have a door', () => {
   for (const n of ['uuidna_ports', 'uuidna_chat', 'uuidna_shell', 'uuidna_fs_seal', 'uuidna_db_query',
     'uuidna_chain_seal', 'uuidna_net_read', 'uuidna_driver_state', 'uuidna_security_plan', 'uuidna_os_census']) {

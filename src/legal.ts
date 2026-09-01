@@ -20,6 +20,8 @@ export interface LegalFacts {
   complianceStance: { makesComplianceClaim: boolean; note: string; overclaimRefused: boolean }
   /** rights that arise AUTOMATICALLY and are therefore asserted rather than applied for */
   rightsAsserted: { right: string; instrument: string; basis: string; automatic: boolean }[]
+  /** what use costs — stated beside the rights, because vesting and price are different questions */
+  consideration: { nonCommercial: string; commercial: string; contribution: string; note: string }
   standardsCited: Record<string, string[]>
   forCounsel: string
   receipt: string
@@ -49,10 +51,18 @@ export function legalFacts(): LegalFacts {
     },
     // ── CLAIM WHAT IS CLAIMABLE, AND ONLY THAT ───────────────────────────────────────────────────────────────
     //
-    // Two rights here arise the moment the work exists, with no registration, no fee and no filing — which means
-    // the only thing that was ever missing is the ASSERTION. An unasserted automatic right is not a stronger
-    // right for being modest: in a dispute, the maker and the date are what have to be shown, and a record that
-    // never named them makes that harder for no gain.
+    // Two rights here VEST without registration, fee or filing — which means the only thing that was ever
+    // missing is the ASSERTION. An unasserted automatic right is not a stronger right for being modest: in a
+    // dispute, the maker and the date are what have to be shown, and a record that never named them makes that
+    // harder for no gain.
+    //
+    // THAT IS ABOUT VESTING, NOT ABOUT PRICE, and the captain corrected an earlier phrasing that blurred the
+    // two. uuidna is not free of consideration: non-commercial use needs no licence, COMMERCIAL use is billed
+    // the two conserved coins (110 − 108 = 2) on the measured advantage (recompute − verify), and every
+    // publication carries a contribution path (revolut.me/ceccec, noted with the work's own handle URL, in
+    // publication-metadata). The rights cost nothing to HOLD; using them commercially is priced, and the price
+    // is computed rather than negotiated. Recording only the first half would read as a claim that nothing is
+    // owed.
     //
     // WHAT IS DELIBERATELY ABSENT is as much the point. No patent is claimed — the licence is ND and the ledger
     // is published as prior art precisely so nobody, including this project, can enclose it. No trademark
@@ -83,6 +93,13 @@ export function legalFacts(): LegalFacts {
         automatic: true,
       },
     ],
+    // the consideration, stated beside the rights so neither half is read alone
+    consideration: {
+      nonCommercial: 'free, and needs no licence — CC BY-NC-ND 4.0',
+      commercial: 'billed the two conserved coins (110 − 108 = 2) on the measured advantage (recompute − verify)',
+      contribution: 'https://revolut.me/ceccec — carried on every publication, noted with the work\'s own handle URL',
+      note: 'The rights above VEST without fee. Use is a separate question, and commercial use is priced by computation rather than by negotiation.',
+    },
     standardsCited,
     forCounsel:
       'These are recomputable inputs. A qualified IP/technology attorney should review them against ' +

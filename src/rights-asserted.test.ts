@@ -26,6 +26,18 @@ test('no patent, no trademark registration, no compliance status is claimed', ()
   assert.equal(f.complianceStance.overclaimRefused, true, 'the gate still refuses a blanket compliance claim')
 })
 
+test('vesting and price are stated as different questions', () => {
+  // An earlier phrasing said the rights arise with "no registration, no fee, no filing" and stopped there,
+  // which reads as a claim that nothing is owed. Vesting is free; USE is priced — non-commercial needs no
+  // licence, commercial is billed the two conserved coins on the measured advantage, and every publication
+  // carries a contribution path. Recording only the first half would be the overclaim.
+  const c = legalFacts().consideration
+  assert.match(c.nonCommercial, /free/i)
+  assert.match(c.commercial, /billed|coins/i)
+  assert.match(c.contribution, /^https:\/\//, 'the contribution path is a real URL, not a description of one')
+  assert.match(c.note, /vest/i)
+})
+
 test('the fact base still leads with what it is not', () => {
   assert.match(legalFacts().disclaimer, /NOT A LEGAL AUDIT|not.*legal advice/i)
 })
