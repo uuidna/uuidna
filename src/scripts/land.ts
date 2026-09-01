@@ -37,6 +37,13 @@ const CURES: { name: string; when: RegExp; cmd: string }[] = [
   // pay the citation coin is a hand-amend waiting to happen, and three were amended by hand the day this landed.
   { name: 'behind the shared tree', when: /\[rejected\][^\n]*\((?:fetch first|non-fast-forward)\)|tip of your current branch is behind/,
     cmd: 'git fetch origin && { git merge --no-edit -m "Merge origin/main: the shared tree moved while the gate was walked.\n\nBacked by theorem two_coins." origin/main || { git merge --abort; false; }; }' },
+  // THE DENIAL THIS LOOP MEETS EVERY TIME IT CHANGES SOURCE (taught 2026-09-01, the day the receipt arm shipped).
+  // --court --proven refuses a push whose tree the green receipt no longer covers, which is exactly right and is
+  // exactly what a landing that edited src/ has just caused. The cure is not to weaken the arm: it is to EARN a
+  // new receipt the honest way — guard, then the suite, then write it — and only then push. Slow by design; the
+  // receipt is worth precisely as much as the run behind it.
+  { name: 'receipt no longer covers the tree', when: /the tree MOVED since it was proven green|receipt certifies different bytes/,
+    cmd: 'npm run guard && npm test && node dist/scripts/gate-receipt.js' },
   { name: 'raced edge mirror', when: /stale census|MIRROR.*MATCHES A LIVE RECOMPUTE/i, cmd: 'node dist/scripts/rosetta.js && npm run build' },
   { name: 'stale axiom witness', when: /AXIOM WITNESS STALE/, cmd: 'npm run axioms' },
   { name: 'stale spin seal', when: /spin/i, cmd: 'node dist/scripts/reconcile.js --derive-only' },
