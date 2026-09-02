@@ -77,7 +77,23 @@ if (process.argv.includes('--seal')) {
     console.log(`✓ spin --verify — the derived layer is a fixed point of its seal (${Object.keys(manifest.coins).length} coins match), receipt ${receipt}`)
   } else {
     console.error(`✗ spin --verify — NON-QUANTUM DRIFT: ${drift.length} derived file(s) moved since the last seal (receipt ${receipt} ≠ sealed ${sealedReceipt}):`)
-    for (const d of drift) console.error(`    ${d.path}: coin ${d.sealed} → ${d.spun}`)
+    for (const d of drift) {
+      console.error(`    ${d.path}: coin ${d.sealed} → ${d.spun}`)
+      // AND, FOR A JSON DOCUMENT, WHICH FIELD (2026-09-02). A coin over a whole file says THAT it moved and
+      // never WHERE, so six v0.3.0 publishes each spent ~12 minutes of CI to learn one bit. The committed
+      // version is right there in HEAD, so the two can be compared field by field and the drift can name its own
+      // subtree — which is the captain's law about statements applied to a failure message: an aggregate that
+      // cannot be checked in parts should be split into ones that can.
+      if (!d.path.endsWith('.json')) continue
+      try {
+        const head = execFileSync('git', ['show', `HEAD:${d.path}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+        const was = JSON.parse(head) as Record<string, unknown>
+        const now = JSON.parse(readFileSync(join(ROOT, d.path), 'utf8')) as Record<string, unknown>
+        const keys = [...new Set([...Object.keys(was), ...Object.keys(now)])].sort()
+        const moved = keys.filter((k) => JSON.stringify(was[k]) !== JSON.stringify(now[k]))
+        if (moved.length) console.error(`      fields that differ from HEAD: ${moved.join(', ')}`)
+      } catch { /* a file absent from HEAD is new, and a new file has no field to compare */ }
+    }
     // THE SAFE DOOR NAMED FIRST (2026-08-25). This said "npm run reconcile", which re-derives AND stages AND
     // commits AND pushes — and stages DRAIN_PATHS as DIRECTORIES, so on a shared checkout it sweeps another
     // session's untracked files into your commit. Five sessions work this tree. `--derive-only` does the half
