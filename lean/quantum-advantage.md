@@ -18,9 +18,12 @@ between them. Three axes, and every figure carries the class it was determined b
 * **FIDELITY** — decisions executed here that disagreed with the value Lean sealed. Zero over N is an upper
   bound of better than one in N. It is **never** a proof of zero, and the bound is what the table prints.
 
-**Host:** Apple M1 Max · darwin/arm64 · 10 logical · 32 GiB ·
-folded to `f480641c-6867-8400-a856-23f8db60a8d4` (handle `f480641c`), so "measured on this host" is something the
-next reader recomputes rather than something this report asserts.
+**Host:** none is named, and that is deliberate. Every cost above is a DECADE, chosen because a decade survives
+a change of machine; a sealed file that also named one CPU could only be reproduced on that CPU, and this report
+is committed. It is addressed to the declared constant `e03fd44b-1f10-8082-a05c-0342bdcb1cc4` (handle
+`e03fd44b`), so any reader on any host regenerates these exact bytes — which is what makes
+"recompute it yourself" a real invitation rather than a claim only one laptop can honour. The machine that ran
+the sweep is reported live by `uuidna_quantum_advantage`, where a measurement of one host belongs.
 
 | level | reach | reach class | op cost (measured) | ops/s | estimates | decisions | disagreements | bound | baseline would predict |
 |-------|-------|-------------|--------------------|-------|-------------|-----------|---------------|-------|------------------------|
@@ -156,7 +159,7 @@ each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witne
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
 *exist* cannot see. Dispatch receipt: `d8e16dc8-45f4-801c-ae52-9ede23e58ce8`.
 
-Report receipt: `f5830912-83d6-858a-a783-2196f6fd2ab9` · measured-when as its own handle: `f5830912`.
+Report receipt: `d51c5ef0-c4d8-8cf3-97f5-fc76e7f5259d` · measured-when as its own handle: `d51c5ef0`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->

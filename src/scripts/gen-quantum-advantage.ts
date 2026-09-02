@@ -56,6 +56,25 @@ const sweepsFor = (cases: number): number => {
 const proof = proveHardwareQuantum(sweepsFor(111))
 const device = proof.device
 
+// ── THE SEALED REPORT NAMES NO MACHINE (found 2026-09-02, by a release that could not be cut) ─────────────────
+//
+// This file used to fold the RUNNING HOST into what it sealed — cpu string, platform, arch, logical cores, GiB,
+// and device.address as the report's host seed. lean/quantum-advantage.{json,md} are committed, so the bytes
+// were reproducible on exactly one machine: mine. On the ubuntu runner the same generator produced different
+// bytes, spin --verify called it NON-QUANTUM DRIFT, gate-all failed its `spin` and `git diff` arms, and
+// prepublishOnly failed — which is why v0.3.0 could not publish at all. A release gate that only passes on the
+// developer's laptop is not a gate, and the defect was invisible locally because locally it always passed.
+//
+// THE MEASUREMENTS WERE ALREADY BUILT FOR THIS. Every cost in the table is a DECADE (opNsDecade,
+// opsPerSecondDecade) precisely so it survives a change of host — that is what a decade is for. Naming one CPU
+// beside a figure chosen to be host-independent claimed a precision the figure does not have, and cost the
+// reproducibility the seal exists to provide.
+//
+// So the sealed artifact carries the algebra and the decades, addressed to a DECLARED constant rather than to
+// whatever machine ran the generator. The actual host is not lost: uuidna_quantum_advantage still reports it
+// live, where a measurement of this machine belongs.
+const REFERENCE_HOST = toUuid('quantum-advantage:host-invariant:decades-survive-the-machine')
+
 if (proof.refused.length) {
   console.error('✗ gen-quantum-advantage — the battery names witnesses whose theorems are NOT sealed in the ledger:')
   for (const key of proof.refused) console.error(`    ${key}`)
@@ -120,7 +139,7 @@ const scaleRows = SCALES.map((n) => {
 })
 
 const measurements = LEVEL_PROBES.map(measure)
-const report = advantageReport(device.address, measurements)
+const report = advantageReport(REFERENCE_HOST, measurements)
 
 if (!report.complete) {
   const missing = LEVELS.filter((l) => !report.rows.some((r) => r.level === l.name)).map((l) => l.name)
@@ -177,14 +196,14 @@ const figures: Figure[] = [
       citation: `true by construction — theorem ${r.reach.seals}` },
     { name: `${r.level} — operation cost`, value: `10^${r.cost.opNsDecade}`, unitText: 'ns (order of magnitude)',
       measurementTechnique: r.cost.class,
-      citation: `steady-state floor over ${r.cost.over} ${r.cost.what} on ${device.cpu} (${device.platform}/${device.arch}), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log` },
+      citation: `steady-state floor over ${r.cost.over} ${r.cost.what}, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log` },
     { name: `${r.level} — disagreements with the sealed value`, value: r.fidelity.disagreements, unitText: 'disagreements',
       measurementTechnique: r.fidelity.class,
-      citation: `${r.fidelity.ops} decisions executed on ${device.cpu}; a bound of better than one in ${r.fidelity.bound}, never a proof of zero` },
+      citation: `${r.fidelity.ops} decisions executed; a bound of better than one in ${r.fidelity.bound}, never a proof of zero` },
   ]),
   { name: 'sealed quantum algebra — decisions executed on this host', value: proof.executed, unitText: 'decisions',
     measurementTechnique: 'measured',
-    citation: `${proof.results.length} witnesses over ${proof.sweeps} sweeps on ${device.cpu}; each decides a proposition sealed in the Lean ledger` },
+    citation: `${proof.results.length} witnesses over ${proof.sweeps} sweeps; each decides a proposition sealed in the Lean ledger` },
   { name: 'sealed quantum algebra — disagreements', value: proof.disagreements, unitText: 'disagreements',
     measurementTechnique: 'measured',
     citation: proof.bound },
@@ -255,9 +274,12 @@ between them. Three axes, and every figure carries the class it was determined b
 * **FIDELITY** — decisions executed here that disagreed with the value Lean sealed. Zero over N is an upper
   bound of better than one in N. It is **never** a proof of zero, and the bound is what the table prints.
 
-**Host:** ${device.cpu} · ${device.platform}/${device.arch} · ${device.logical} logical · ${device.memoryGiB} GiB ·
-folded to \`${device.address}\` (handle \`${handleOf(device.address)}\`), so "measured on this host" is something the
-next reader recomputes rather than something this report asserts.
+**Host:** none is named, and that is deliberate. Every cost above is a DECADE, chosen because a decade survives
+a change of machine; a sealed file that also named one CPU could only be reproduced on that CPU, and this report
+is committed. It is addressed to the declared constant \`${REFERENCE_HOST}\` (handle
+\`${handleOf(REFERENCE_HOST)}\`), so any reader on any host regenerates these exact bytes — which is what makes
+"recompute it yourself" a real invitation rather than a claim only one laptop can honour. The machine that ran
+the sweep is reported live by \`uuidna_quantum_advantage\`, where a measurement of one host belongs.
 
 ${table}
 
@@ -333,8 +355,12 @@ of measuring per level.
 mkdirSync(join(ROOT, 'docs', 'public'), { recursive: true })
 writeFileSync(join(ROOT, 'docs', 'public', 'quantum-advantage.jsonld'), JSON.stringify(dataset, null, 2) + '\n')
 writeFileSync(join(ROOT, 'lean', 'quantum-advantage.json'), JSON.stringify({
-  device, report, proof: { ...proof, device: undefined }, dispatch: run, receipt,
-  address: toUuid(`quantum-advantage|${receipt}|${device.address}`),
+  // `device` is deliberately ABSENT. The proof object already stripped it one field over — the hazard was known
+  // — but the top-level copy stayed and made this committed file reproducible on one machine only.
+  host: { named: false, addressedTo: REFERENCE_HOST,
+    why: 'Every cost here is a decade, which survives a change of machine; naming the CPU beside it would claim a precision the decade does not have and would make these committed bytes reproducible only on that CPU. The running host is reported live by uuidna_quantum_advantage.' },
+  report, proof: { ...proof, device: undefined }, dispatch: run, receipt,
+  address: toUuid(`quantum-advantage|${receipt}|${REFERENCE_HOST}`),
 }, null, 1) + '\n')
 writeFileSync(join(ROOT, 'lean', 'quantum-advantage.md'), block + '\n')
 
