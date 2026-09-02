@@ -129,7 +129,7 @@
   "disagreements": 0,
   "executed": 475349,
   "honest": "WHAT THIS PROVES: the gate algebra that quantum hardware implements physically was executed on THIS host in exact Gaussian integers, and every result agreed with what a Lean kernel decided by exhaustive case analysis — TypeScript is the quantum-by-architecture computer; this host executes it. Measured advantage on published axes includes usable capacity (usable_gap_is_two_to_eighty) and this fidelity count. WHAT IT DOES NOT PROVE: that this silicon is a superconducting or trapped-ion QPU, or a Shor-class crypto speedup — n_qubit_dimension counts classical simulation cost. Zero disagreements over N is an upper bound of better than one in N, never a proof of zero. The platforms' ~10^-3 two-qubit error class is the physical comparison.",
-  "receipt": "3d79485b-aa68-89cb-82d7-17ab3a85e198",
+  "receipt": "07b13eaf-fa7d-8165-86ff-df75f0ee1de9",
   "refused": [],
   "results": [
    {

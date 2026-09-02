@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "24d72318792f8f8a41208c8b207ac6a4",
-    "lean": "2acc2b2f1d4677e5734e18262da75dcf"
+    "src": "d2ba58bb6adf07f03d417f9e7573550b",
+    "lean": "2595ae652d3d88ca62d63939616a3bd9"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -217,8 +217,8 @@
     "lean/propulsion-manifest.json": "c9470e0344be84de",
     "lean/prosetrial-manifest.json": "5a48558b70ab5658",
     "lean/psychology-manifest.json": "dd0f5c4fc0aec5fe",
-    "lean/quantum-advantage-fields.json": "a1a2d8ff67b997c3",
-    "lean/quantum-advantage.json": "69f1bf5d457a9cd8",
+    "lean/quantum-advantage-fields.json": "dc16554642ef6c7c",
+    "lean/quantum-advantage.json": "5dfc7a214cad6468",
     "lean/quantum-advantage.md": "61de63d36a76014b",
     "lean/quantum-capacity.json": "f3886773ed0a720c",
     "lean/quantum-capacity.md": "4e85688cee9a81ee",
@@ -388,7 +388,7 @@
     "src/drivers/driver/index.ts": "491d0498328428dd",
     "src/drivers/driverapi/index.test.ts": "17eab661a2f4077c",
     "src/drivers/driverapi/index.ts": "6f682cd1fa34c8ad",
-    "src/drivers/quantum/index.ts": "7b4350601c72a915",
+    "src/drivers/quantum/index.ts": "4eef4b52e2901db6",
     "src/due-process.test.ts": "b516ec7d88275ac8",
     "src/due-process.ts": "fdf2bb538d904fae",
     "src/editor.test.ts": "edfae161acc93c09",
@@ -3612,7 +3612,7 @@
     "src/quantum/memory/index.ts": "c1a6fdac0fe707db",
     "src/quantum/message/index.ts": "0b9ec596de0c33f0",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "e4b07225ac1cd8d6",
+    "src/quantum/models/mirror.ts": "ea71096580cff9a7",
     "src/quantum/os/aas/index.test.ts": "63b9d3e4bf6e7e75",
     "src/quantum/os/aas/index.ts": "a290180288c04fe7",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",

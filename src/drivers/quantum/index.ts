@@ -700,7 +700,17 @@ export function runWitnesses(list: readonly Witness[], sweeps = 1): HardwareProo
     bound: disagreements === 0
       ? `better than one disagreement per ${executed} executions on this host, across ${coverage.witnessed} of the wing's ${coverage.wing} theorems — a bound from the count, not a proof of zero, and not a claim about the ${coverage.unwitnessed.length} this battery does not decide`
       : `${disagreements} disagreements in ${executed} executions on this host — the algebra did NOT reproduce the sealed values here`,
-    receipt: merkleGravity([toUuid(`device:${device.deviceAddress}`), ...results.map((r) => r.address)]),
+    // THE RECEIPT FOLDS THE WITNESSES, NOT THE MACHINE (2026-09-02, the last of seven host leaks in one file).
+    // This folded device.deviceAddress — an address over this host's cpu, cores and memory — into the proof's
+    // identity, so the SAME battery over the SAME theorems receipted differently on every machine. That is
+    // reasonable for a live answer and wrong for a COMMITTED one: lean/quantum-advantage.json carries this
+    // receipt, so the file could only ever be reproduced on the machine that wrote it. Nine v0.3.0 publishes
+    // failed on it, each ~12 minutes, and six other measured figures came out of that file before this one was
+    // found — it was last because it is the only leak that survives every check on the machine that has it.
+    //
+    // The witnesses are the claim: the same theorems, decided the same way, are the same proof whoever runs
+    // them. The device is still reported on `device` for a caller that wants to know where it ran.
+    receipt: merkleGravity(results.map((r) => r.address)),
     honest: PROOF_HONEST,
   }
 }
