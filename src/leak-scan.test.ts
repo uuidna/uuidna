@@ -12,7 +12,12 @@ const CREDENTIAL_SAMPLES: readonly [string, string][] = [
   ['github token', 'ghp_' + 'a'.repeat(36)],
   ['openai-style', 'sk-' + 'b'.repeat(40)],
   ['slack', 'xoxb-' + '1234567890abcdef'],
-  ['private key', '-----BEGIN RSA PRIVATE KEY-----'],
+  // ASSEMBLED, NEVER WRITTEN OUT. The finder scans the whole index and this file is in it, so a literal key
+  // header here is a finding — correctly so: by construction a pattern scanner sees bytes and not intent, so a
+  // sample and a key read identically to it. The cure is
+  // to build the sample rather than exempt this file: an exemption would make the one file guaranteed to hold
+  // credential-shaped strings the one file nobody scans, which is exactly where a real key would hide best.
+  ['private key', ['-----BEGIN', 'RSA', 'PRIVATE', 'KEY-----'].join(' ')],
 ]
 
 const CREDENTIALS = [

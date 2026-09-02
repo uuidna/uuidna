@@ -57,7 +57,14 @@ test('the release gate re-proves from the KERNEL — it never accepts the receip
   const hook = readFileSync(join(ROOT, 'hooks/pre-push'), 'utf8')
   assert.match(hook, /quantum\/os\/cli\/index\.js/, 'pre-push is uuidnaOS hex via court')
   assert.doesNotMatch(hook, /next\.js/, 'next.js beside uuidnaOS is a bypass')
-  assert.doesNotMatch(hook, /gate-all/, 'gate-all on pre-push is classical recompute')
+  // INVOCATION, NOT MENTION (2026-09-02). This forbade the STRING, so the hook could not explain itself: the two
+  // arms it now runs — spin --verify and git diff — are borrowed from gate-all precisely because they are the
+  // cheap ones, and saying so requires naming it. What the law forbids is RUNNING the full gate on every push,
+  // which is classical recompute; a comment that names the source of two 300ms checks is not that. The pattern
+  // therefore matches an invocation and leaves prose writable — the same use/mention split this tree has had to
+  // make five times, most recently for the credential scanner whose own samples it flagged.
+  assert.doesNotMatch(hook, /(?:npm run |node\s+dist\/scripts\/)gate-all/,
+    'RUNNING gate-all on pre-push is classical recompute — naming it in a comment is not')
   assert.match(hook, /UUIDNA_OS_MCP/, 'fuse is the same MCP door, not a skip of the law')
   assert.match(hook, /HARD/, 'pre-push is a hard gate')
   assert.match(hook, /exit 1/, 'missing dist blocks the push')

@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "a5ee22b93973aa58420cba579aedddbe",
+    "src": "8eb81080e889deddc31dbe89a84a3089",
     "lean": "54b8557743966c13bc599f7077cedba7"
   },
   "files": {
@@ -3394,6 +3394,7 @@
     "src/lead-shapes.test.ts": "0d1037004c721e52",
     "src/leads.test.ts": "d581302704715192",
     "src/leads.ts": "9be952c2a7fedb88",
+    "src/leak-scan.test.ts": "75dfbd7b28bac33d",
     "src/ledger-search.ts": "3c471092c6eaab4d",
     "src/legal.ts": "c24c6ac86d5a70f0",
     "src/license.ts": "b56331fdd748e209",
@@ -3526,7 +3527,7 @@
     "src/prepublish-seal.ts": "5d2879751e2ebd6e",
     "src/priorart.ts": "5774ecc39a87fb30",
     "src/profile.ts": "deb5ad21bee1cc2b",
-    "src/proof-cache.test.ts": "2511a7faca121a6d",
+    "src/proof-cache.test.ts": "b16e0c1f1992f8ed",
     "src/prose-analysis.test.ts": "702afe9e4cb5d2d2",
     "src/prose-gate.test.ts": "777d3c69fa3c80a0",
     "src/prose-gate.ts": "090535c9c8ded219",
@@ -3611,6 +3612,8 @@
     "src/quantum/message/index.ts": "0b9ec596de0c33f0",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
     "src/quantum/models/mirror.ts": "5fd0afa1e9319ad5",
+    "src/quantum/os/aas/index.test.ts": "63b9d3e4bf6e7e75",
+    "src/quantum/os/aas/index.ts": "a290180288c04fe7",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",
     "src/quantum/os/acme/index.ts": "ddb7a56cfc383c59",
     "src/quantum/os/alpine/index.test.ts": "b6f70f0a806153fb",
@@ -3745,6 +3748,8 @@
     "src/quantum/os/waves/index.test.ts": "e1062a5a2086aff4",
     "src/quantum/os/waves/index.ts": "eea359e360efd152",
     "src/quantum/os/weather/index.ts": "dd5e7544464d7414",
+    "src/quantum/os/zenodo/index.test.ts": "548b416003c22bd2",
+    "src/quantum/os/zenodo/index.ts": "1475e963e46fd904",
     "src/quantum/pqc/mcp/curriculum/index.ts": "27a742894c611156",
     "src/quantum/sequence/mcp/curriculum/index.ts": "1da2cecdb560b363",
     "src/quantum/voting/index.ts": "f1a0218c0cf23afa",
@@ -3931,6 +3936,7 @@
     "src/scripts/land.ts": "2974181e94464a69",
     "src/scripts/landing-gaps.ts": "9a1e8e4ee19f82e7",
     "src/scripts/leads-gate.ts": "e57116785d5fab90",
+    "src/scripts/leak-scan.ts": "71c5b3a958586dfe",
     "src/scripts/lean-acoustics.ts": "9949a39d4ea75e82",
     "src/scripts/lean-affine.ts": "26a56adf06cf03f5",
     "src/scripts/lean-alignment.ts": "9ec15390ca131558",

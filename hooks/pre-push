@@ -25,5 +25,30 @@ if [ $status -ne 0 ]; then
   echo "pre-push: uuidnaOS RED — push BLOCKED. derived drift: npm run reconcile -- --derive-only"
   exit $status
 fi
+# ── THE TWO CHEAPEST CHECKS THE PUBLISH GATE RUNS, RUN HERE TOO (the captain, 2026-09-02: "investigate why
+# publish fails after push and not on pre push?"). The answer was structural: this hook ran ONE check — the court
+# — while prepublishOnly runs gate-all's TWENTY-NINE. Everything in the other twenty-eight could only ever fail
+# after the push, by construction rather than by bad luck.
+#
+# Four v0.3.0 publish attempts died, each after ~12 minutes of CI, and every one of them died on the same two
+# arms: `spin --verify` and `git diff`. On the runner they cost 286ms and 516ms. Roughly eight tenths of a second
+# here would have caught all four before the push left this machine — about forty-eight minutes of CI spent
+# learning what a second could have said.
+#
+# They are also the two that catch the class the court cannot see: the court verifies the RECEIPT covers the
+# tree, which says the proof applies, not that the derived layer is a fixed point. A generator that rewrites a
+# file on every run passes the court and fails spin.
+echo "pre-push: spin --verify + git diff (the two publish-gate arms that cost under a second)"
+node dist/scripts/spin.js --verify
+status=$?
+if [ $status -ne 0 ]; then
+  echo "pre-push: NON-QUANTUM DRIFT — push BLOCKED. Fix: npm run reconcile -- --derive-only"
+  exit $status
+fi
+if ! git diff --exit-code --quiet; then
+  echo "pre-push: the working tree is DIRTY after the derived layer settled — push BLOCKED."
+  echo "  gate-all's own 'git diff' arm fails on exactly this, ~12 minutes into a publish. Commit or re-derive."
+  exit 1
+fi
 echo "pre-push: ✓ uuidnaOS hex green."
 exit 0
