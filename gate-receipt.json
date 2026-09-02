@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "07b6863e9500ca9ef4f75cbc5ae3baec",
+    "src": "5f9980381d4e6d306b303196e7fb864e",
     "lean": "c35e76fb43a14b0f6ee3427d9895695f"
   },
   "files": {
@@ -3608,7 +3608,7 @@
     "src/quantum/memory/index.ts": "c1a6fdac0fe707db",
     "src/quantum/message/index.ts": "0b9ec596de0c33f0",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "e39d2fc39c61f367",
+    "src/quantum/models/mirror.ts": "dfec2fdc2482398d",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",
     "src/quantum/os/acme/index.ts": "ddb7a56cfc383c59",
     "src/quantum/os/alpine/index.test.ts": "b6f70f0a806153fb",
