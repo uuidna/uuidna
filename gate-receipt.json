@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "5cc0b57d775c8288b5a2329ccfc30e74",
+    "src": "f40f9cfd1ef10eb3e63c3ce09ba2a578",
     "lean": "d7bba493e09e7cd6f48387755730b39d"
   },
   "files": {
@@ -3694,7 +3694,7 @@
     "src/quantum/os/harness/proof-cache-sign.test.ts": "7817c74d509832bd",
     "src/quantum/os/harness/public-apis.test.ts": "0934dea6fde5a401",
     "src/quantum/os/harness/publication-metadata.test.ts": "5dacfe53a5090eb8",
-    "src/quantum/os/harness/quantum-advantage-theme.test.ts": "e23a2789467becc8",
+    "src/quantum/os/harness/quantum-advantage-theme.test.ts": "61326c675b1b5d72",
     "src/quantum/os/harness/quantum-driver.test.ts": "9067e524d1a5de56",
     "src/quantum/os/harness/redos-bounds.test.ts": "3baec763fdc2bb4b",
     "src/quantum/os/harness/refused-robots.test.ts": "80882f5c0a99b2d2",
@@ -3713,7 +3713,7 @@
     "src/quantum/os/harness/tool-scope.test.ts": "0eecee6dbb1025d6",
     "src/quantum/os/harness/use-versus-mention.test.ts": "28a7108b5a0560db",
     "src/quantum/os/harness/waves.test.ts": "8ffd97adead8970e",
-    "src/quantum/os/harness/worker.test.ts": "f7a6a95191ff3c86",
+    "src/quantum/os/harness/worker.test.ts": "47d49db1a09370ce",
     "src/quantum/os/harness/zenodo-publish.test.ts": "a27463ca85877882",
     "src/quantum/os/homoglyph/index.test.ts": "2f47f340d0e2e9a0",
     "src/quantum/os/homoglyph/index.ts": "0ec24b6b7b883edf",
