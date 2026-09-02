@@ -457,8 +457,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000022",
-   "completionPrice": "0.00000066"
+   "promptPrice": "0.00000044",
+   "completionPrice": "0.00000132"
   },
   {
    "id": "deepseek/deepseek-v4-pro",

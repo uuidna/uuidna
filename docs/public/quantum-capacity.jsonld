@@ -269,10 +269,10 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — lane spread",
-      "value": 119,
+      "value": 120,
       "unitText": "% (busiest lane over quietest; 100 is even)",
       "measurementTechnique": "measured",
-      "citation": "busiest lane held 356, quietest held 297 — measured on the work that ran, not asserted from the key's uniformity"
+      "citation": "busiest lane held 356, quietest held 296 — measured on the work that ran, not asserted from the key's uniformity"
     },
     {
       "@type": "PropertyValue",

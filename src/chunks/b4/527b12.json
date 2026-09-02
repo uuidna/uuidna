@@ -1,0 +1,12 @@
+{
+  "handle": "b4527b12",
+  "address": "b4527b12-62b1-8fb5-838b-3a48757f1de0",
+  "statement": "(0 < 2532) ∧ (0 + 2532 = 2532)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

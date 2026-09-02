@@ -1,0 +1,12 @@
+{
+  "handle": "13f49bd0",
+  "address": "13f49bd0-e9ed-8fb6-ad28-b08c7e7e974d",
+  "kind": "chunk",
+  "keys": [
+    "prose_audit_total"
+  ],
+  "statement": "(0 < 111) ∧ (0 < 3) ∧ (2532 = 2532 + 0)",
+  "files": [
+    "Audit.lean"
+  ]
+}
