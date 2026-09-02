@@ -1,7 +1,7 @@
 {
   "covers": {
     "src": "599c90360bbf3ee53b9b5c314a80462f",
-    "lean": "29e0493326227f5fe56302cb5f05be78"
+    "lean": "2acc2b2f1d4677e5734e18262da75dcf"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -217,6 +217,7 @@
     "lean/propulsion-manifest.json": "c9470e0344be84de",
     "lean/prosetrial-manifest.json": "5a48558b70ab5658",
     "lean/psychology-manifest.json": "dd0f5c4fc0aec5fe",
+    "lean/quantum-advantage-fields.json": "a1a2d8ff67b997c3",
     "lean/quantum-advantage.json": "69f1bf5d457a9cd8",
     "lean/quantum-advantage.md": "61de63d36a76014b",
     "lean/quantum-capacity.json": "f3886773ed0a720c",
