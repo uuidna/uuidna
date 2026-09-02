@@ -89,9 +89,26 @@ if (process.argv.includes('--seal')) {
         const head = execFileSync('git', ['show', `HEAD:${d.path}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
         const was = JSON.parse(head) as Record<string, unknown>
         const now = JSON.parse(readFileSync(join(ROOT, d.path), 'utf8')) as Record<string, unknown>
-        const keys = [...new Set([...Object.keys(was), ...Object.keys(now)])].sort()
-        const moved = keys.filter((k) => JSON.stringify(was[k]) !== JSON.stringify(now[k]))
-        if (moved.length) console.error(`      fields that differ from HEAD: ${moved.join(', ')}`)
+        // TO THE EXACT PATH, not the outermost key. Naming `proof` cost another round trip, because `proof` is a
+        // whole subtree; the walk below descends until the difference is a leaf, so one CI log answers the
+        // question instead of narrowing it by one level per twelve minutes.
+        const paths: string[] = []
+        const walk = (a: unknown, b: unknown, at: string, depth: number): void => {
+          if (JSON.stringify(a) === JSON.stringify(b)) return
+          const bothObjects = a && b && typeof a === 'object' && typeof b === 'object'
+          if (!bothObjects || depth > 6 || paths.length > 24) { paths.push(at); return }
+          if (Array.isArray(a) !== Array.isArray(b)) { paths.push(at); return }
+          if (Array.isArray(a) && Array.isArray(b)) {
+            if (a.length !== b.length) { paths.push(`${at}[] length ${b.length}→${a.length}`); return }
+            for (let i = 0; i < a.length; i++) walk(a[i], b[i], `${at}[${i}]`, depth + 1)
+            return
+          }
+          const ao = a as Record<string, unknown>
+          const bo = b as Record<string, unknown>
+          for (const k of [...new Set([...Object.keys(ao), ...Object.keys(bo)])].sort()) walk(ao[k], bo[k], at ? `${at}.${k}` : k, depth + 1)
+        }
+        walk(now, was, '', 0)
+        if (paths.length) console.error(`      differs from HEAD at: ${paths.slice(0, 12).join(', ')}`)
       } catch { /* a file absent from HEAD is new, and a new file has no field to compare */ }
     }
     // THE SAFE DOOR NAMED FIRST (2026-08-25). This said "npm run reconcile", which re-derives AND stages AND
