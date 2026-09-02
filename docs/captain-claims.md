@@ -1,6 +1,6 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-01
+**Generated:** 2026-09-02
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
 **Total claimed:** 2580/2580 theorems — every one, by construction
