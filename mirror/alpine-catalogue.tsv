@@ -24810,8 +24810,8 @@ main	libpciaccess-dbg	0.19-r0	Q1MrGfFLEJdM5oXPALGVb6J5aASJk=	X11 PCI access libr
 main	libpciaccess-dev	0.19-r0	Q1gRNm7cl9mroH8cq9sl6J2PrSk5U=	X11 PCI access library (development files)	libpciaccess=0.19-r0 pkgconfig	pc:pciaccess=0.19
 main	libpciaccess-doc	0.19-r0	Q1aw3pAkLoManHtePCfJMsy+eLVfM=	X11 PCI access library (documentation)		
 main	libpcre16	8.45-r4	Q1+05EuvG7bxZJLflc0iH+Koxwrbo=	PCRE with 16 bit character support	so:libc.musl-x86_64.so.1	so:libpcre16.so.0=0.2.13
-main	libpcre2-16	10.47-r1	Q1oqu//aciszaHSxVGBeWV9rwh2ac=	PCRE2 with 16 bit character support	so:libc.musl-x86_64.so.1	so:libpcre2-16.so.0=0.15.0
-main	libpcre2-32	10.47-r1	Q1g3Fh1MEsPFW6F2UjsVwMm4QpArY=	PCRE2 with 32 bit character support	so:libc.musl-x86_64.so.1	so:libpcre2-32.so.0=0.15.0
+main	libpcre2-16	10.48-r0	Q1OHqzuqW/rvxX8/FU8CSqWoGpTbI=	PCRE2 with 16 bit character support	so:libc.musl-x86_64.so.1	so:libpcre2-16.so.0=0.16.0
+main	libpcre2-32	10.48-r0	Q1duL0b5oKJabEWToUZ8qz+aUoKm4=	PCRE2 with 32 bit character support	so:libc.musl-x86_64.so.1	so:libpcre2-32.so.0=0.16.0
 main	libpcre32	8.45-r4	Q1zCu43VanV/xbxHduSxCCbntx7YI=	PCRE with 32 bit character support	so:libc.musl-x86_64.so.1	so:libpcre32.so.0=0.0.13
 main	libpcrecpp	8.45-r4	Q1CGCLrLRK+sWgegWB++dwfjwViCQ=	C++ bindings for PCRE	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libpcre.so.1 so:libstdc++.so.6	so:libpcrecpp.so.0=0.0.2
 main	libpng	1.6.58-r1	Q1wsxAneG10hTX8gjHK+U+faF9XqY=	Portable Network Graphics library	so:libc.musl-x86_64.so.1 so:libz.so.1	so:libpng16.so.16=16.58.0
@@ -26418,11 +26418,11 @@ main	pcre-dev	8.45-r4	Q1fSRPbSvDlVTdG0TysJNVqj1u46Q=	Perl-compatible regular exp
 main	pcre-doc	8.45-r4	Q1acosYhVZt/2kbRthVluVY4LHjSg=	Perl-compatible regular expression library (documentation)		
 main	pcre-static	8.45-r4	Q1uleAyp53Xv07X+b3tEnDTc5cRrE=	Perl-compatible regular expression library (static library)	pcre-dev	
 main	pcre-tools	8.45-r4	Q1Iehl5E5GyMwV0m3p5s2R6/5q4m4=	Auxiliary utilities for PCRE	so:libc.musl-x86_64.so.1 so:libpcre.so.1 so:libpcre16.so.0 so:libpcre32.so.0 so:libpcreposix.so.0	cmd:pcregrep=8.45-r4 cmd:pcretest=8.45-r4
-main	pcre2	10.47-r1	Q1itYRmkomBEkiuWzY4vyC82olbeg=	Perl-compatible regular expression library	so:libc.musl-x86_64.so.1	so:libpcre2-8.so.0=0.15.0 so:libpcre2-posix.so.3=3.0.7
-main	pcre2-dev	10.47-r1	Q1vX8i4P8DJBz7KltE61ieLsFz9YE=	Perl-compatible regular expression library (development files)	libedit-dev zlib-dev libpcre2-16=10.47-r1 libpcre2-32=10.47-r1 pcre2=10.47-r1 pkgconfig	cmd:pcre2-config=10.47-r1 pc:libpcre2-16=10.47 pc:libpcre2-32=10.47 pc:libpcre2-8=10.47 pc:libpcre2-posix=10.47
-main	pcre2-doc	10.47-r1	Q1V/ZiMO0GBHDItGWp4nvLJ7z9L6Y=	Perl-compatible regular expression library (documentation)		
-main	pcre2-static	10.47-r1	Q1nH6pSQxZ3uZPCc6Z1Yfc59GothM=	Perl-compatible regular expression library (static library)	pcre2-dev	
-main	pcre2-tools	10.47-r1	Q1fvFK47MPVnsO0RfXp+roW5L6Idc=	Auxiliary utilities for PCRE2	so:libc.musl-x86_64.so.1 so:libedit.so.0 so:libpcre2-16.so.0 so:libpcre2-32.so.0 so:libpcre2-8.so.0 so:libpcre2-posix.so.3 so:libz.so.1	cmd:pcre2grep=10.47-r1 cmd:pcre2test=10.47-r1
+main	pcre2	10.48-r0	Q1R8XO5zv/GM4xu1AQQ8Yo8E0q+Uo=	Perl-compatible regular expression library	so:libc.musl-x86_64.so.1	so:libpcre2-8.so.0=0.16.0 so:libpcre2-posix.so.3=3.0.8
+main	pcre2-dev	10.48-r0	Q1b24Pr818dsmChENp1Er/SG4OkNI=	Perl-compatible regular expression library (development files)	libedit-dev zlib-dev libpcre2-16=10.48-r0 libpcre2-32=10.48-r0 pcre2=10.48-r0 pkgconfig	cmd:pcre2-config=10.48-r0 pc:libpcre2-16=10.48 pc:libpcre2-32=10.48 pc:libpcre2-8=10.48 pc:libpcre2-posix=10.48
+main	pcre2-doc	10.48-r0	Q1hOa18+ZiWH+gKqerhcBqX55TxeM=	Perl-compatible regular expression library (documentation)		
+main	pcre2-static	10.48-r0	Q1WA28N9BampsrGdRhmW8Cvklo05I=	Perl-compatible regular expression library (static library)	pcre2-dev	
+main	pcre2-tools	10.48-r0	Q1nmapjvjATVBIiZDaKUJng5PLtOo=	Auxiliary utilities for PCRE2	so:libc.musl-x86_64.so.1 so:libedit.so.0 so:libpcre2-16.so.0 so:libpcre2-32.so.0 so:libpcre2-8.so.0 so:libpcre2-posix.so.3 so:libz.so.1	cmd:pcre2grep=10.48-r0 cmd:pcre2test=10.48-r0
 main	pcsc-lite	2.4.0-r4	Q1rq1fLNcwLldOlH05LSkSAmUK2v0=	Middleware to access a smart card using SCard API (PC/SC)	/bin/sh so:libc.musl-x86_64.so.1 so:libudev.so.1	cmd:pcsc-spy=2.4.0-r4 cmd:pcscd=2.4.0-r4
 main	pcsc-lite-dev	2.4.0-r4	Q1oPdHyKlnCkPjTR8ROV665T1xtTs=	Middleware to access a smart card using SCard API (PC/SC) (development files)	pcsc-lite-libs=2.4.0-r4 eudev-dev pcsc-lite-libs=2.4.0-r4 pcsc-lite-spy-libs=2.4.0-r4 pkgconfig	pc:libpcsclite=2.4.0
 main	pcsc-lite-doc	2.4.0-r4	Q1/oa9Ukg40QjYkdQIQCMWHJYmLKI=	Middleware to access a smart card using SCard API (PC/SC) (documentation)		
