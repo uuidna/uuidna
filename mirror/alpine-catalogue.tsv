@@ -1829,9 +1829,9 @@ community	cflow-lang	1.8-r0	Q1y68Skrkb2iC/JRvpdaTbcWT0RGE=	Languages for package
 community	cgal	6.0.1-r0	Q1uIrXUtrYryl8Am0XeZNZ82XADaw=	Efficient and reliable geometric algorithms as C++ library		
 community	cgal-dev	6.0.1-r0	Q17J0tozg9h2XxeKtikaKEwQ5cpy4=	Efficient and reliable geometric algorithms as C++ library (development files)		cmd:cgal_create_CMakeLists=6.0.1-r0 cmd:cgal_create_cmake_script=6.0.1-r0
 community	cgal-doc	6.0.1-r0	Q1J/dskflIv/ziFeWN/6UiPhY14jU=	Efficient and reliable geometric algorithms as C++ library (documentation)		
-community	cgif	0.5.3-r0	Q1IjtrM0rcQSKjta6JZKmRO5NzbSw=	Fast and lightweight GIF encoder written in C	so:libc.musl-x86_64.so.1	so:libcgif.so.0=0.5.3
-community	cgif-dev	0.5.3-r0	Q1bLqWyJrWh9rEunrMn7LK3RpUaS0=	Fast and lightweight GIF encoder written in C (development files)	cgif=0.5.3-r0 pkgconfig	pc:cgif=0.5.3
-community	cgif-doc	0.5.3-r0	Q1uZYWBdfTsK9u9LncOzE9C8mFJk8=	Fast and lightweight GIF encoder written in C (documentation)		
+community	cgif	0.5.4-r0	Q10lrtKB4c0IQ3gcUjGT1KxBLkJNE=	Fast and lightweight GIF encoder written in C	so:libc.musl-x86_64.so.1	so:libcgif.so.0=0.5.4
+community	cgif-dev	0.5.4-r0	Q10njXn28nfs/8TqUcoC7MuLvQkCA=	Fast and lightweight GIF encoder written in C (development files)	cgif=0.5.4-r0 pkgconfig	pc:cgif=0.5.4
+community	cgif-doc	0.5.4-r0	Q1xJpzrZebjCzpPWgQKmrLQuQTiN8=	Fast and lightweight GIF encoder written in C (documentation)		
 community	cgit-pink	1.4.1-r1	Q1/76Fv6vX7eO4BJYd2aFn0RbJZlk=	web frontend for git	so:libc.musl-x86_64.so.1 so:libz.so.1	
 community	cgit-pink-doc	1.4.1-r1	Q1aCmqdAlanJDy3HkbOUuegK5Edww=	web frontend for git (documentation)		
 community	cglm	0.9.6-r0	Q1d8KwM15vi0YTYeXxGiNDQXJBmqc=	Highly Optimized Graphics Math (glm) for C	so:libc.musl-x86_64.so.1	so:libcglm.so.0=0.9.6

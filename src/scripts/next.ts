@@ -78,13 +78,38 @@ if (!NO_AUTO) {
 const fails: string[] = []
 if (fillGapsFail) fails.push(fillGapsFail)
 
+// ── THE RECEIPT NAMES WHAT THIS RUN ACTUALLY RAN, READ OFF THE RUNNER'S OWN OUTPUT.
+//
+// gate-receipt was hardened on 2026-09-01 to REFUSE a bare write: a receipt is an attestation, and one written
+// without a run is how a red tree passes a green gate. It now requires `--verified <arms>`, "the caller that ran
+// them writes it". next was never taught to pass it, so both call sites invoked a bare write, the refusal fired
+// correctly on every run, and `next` reported v0.3.0 NOT READY for one reason only: the arm that mints the proof
+// was calling the minter wrong. A hardening landed and its caller did not follow — the drift this tree spends
+// its finders on, sitting inside the finder chain itself.
+//
+// THE LIST IS PARSED, NEVER TYPED. Typing `['types','tests','guard','qa']` here would rebuild the exact defect
+// the hardening removed, by construction: written once, it claims every later run whatever those runs did.
+// green prints one line per arm with its
+// verdict, so the arms it reports as passing ARE the list; gate-all reports a count rather than names, so it
+// contributes its own name and nothing more. An output that names nothing yields NO receipt, because a proof
+// nobody can attribute is the thing being refused.
+const armsVerifiedFrom = (out: string): string[] => {
+  const named = [...out.matchAll(/^\u2713 green \u2014 (\S+)\s+passes/gm)].map((m) => m[1]!)
+  if (named.length) return [...new Set(named)]
+  return /^\u2713 gate-all \u2014 all \d+ checks green/m.test(out) ? ['gate-all'] : []
+}
+
 // ── FUSED PUSH GATE — green + gate-receipt (pre-push steps), then spin or gate-all. Green already runs guard.
 if (!fillGapsFail && FAST) {
   const green = teeStep('next · green', 'node dist/scripts/green.js')
   if (!green.ok) fillGapsFail = 'green failed — the push gate blocked before the trial'
   else {
-    const receipt = teeStep('next · gate-receipt', 'node dist/scripts/gate-receipt.js')
-    if (!receipt.ok) fillGapsFail = 'gate-receipt failed — the push-time proof was not minted'
+    const arms = armsVerifiedFrom(green.out)
+    const receipt = arms.length
+      ? teeStep('next · gate-receipt', `node dist/scripts/gate-receipt.js --verified ${arms.join(',')}`)
+      : { ok: false, out: '', tail: '' }
+    if (!arms.length) fillGapsFail = 'green named no passing arm — a receipt may not be minted for a run it cannot attribute'
+    else if (!receipt.ok) fillGapsFail = 'gate-receipt failed — the push-time proof was not minted'
     else {
       const spin = teeStep('next · spin --verify', 'node dist/scripts/spin.js --verify')
       if (!spin.ok) fillGapsFail = 'spin drift after desk automation — re-seal or reconcile before the trial'
@@ -94,8 +119,12 @@ if (!fillGapsFail && FAST) {
   const gate = teeStep('next · gate-all', 'node dist/scripts/gate-all.js')
   if (!gate.ok) fillGapsFail = 'gate-all failed after desk automation'
   else {
-    const receipt = teeStep('next · gate-receipt', 'node dist/scripts/gate-receipt.js')
-    if (!receipt.ok) fillGapsFail = 'gate-receipt failed after gate-all'
+    const arms = armsVerifiedFrom(gate.out)
+    const receipt = arms.length
+      ? teeStep('next · gate-receipt', `node dist/scripts/gate-receipt.js --verified ${arms.join(',')}`)
+      : { ok: false, out: '', tail: '' }
+    if (!arms.length) fillGapsFail = 'gate-all named no green pass — a receipt may not be minted for a run it cannot attribute'
+    else if (!receipt.ok) fillGapsFail = 'gate-receipt failed after gate-all'
   }
 }
 if (fillGapsFail && !fails.includes(fillGapsFail)) fails.push(fillGapsFail)

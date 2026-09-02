@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "f40f9cfd1ef10eb3e63c3ce09ba2a578",
+    "src": "6069da440b19289ac3f433940c687e63",
     "lean": "d7bba493e09e7cd6f48387755730b39d"
   },
   "files": {
@@ -433,7 +433,7 @@
     "src/gate-backing.test.ts": "984c11cf640b68b4",
     "src/gate-engine.ts": "d640579d70ae0ce9",
     "src/gate-receipt-compare.ts": "6c9db71ab2449426",
-    "src/gate-receipt-index.test.ts": "1a34c696411d2c43",
+    "src/gate-receipt-index.test.ts": "cb6fcae94af00c1d",
     "src/gate-receipt-index.ts": "ad81cd18b564e325",
     "src/gate.ts": "7495edcecb0471a5",
     "src/gravity.test.ts": "b7916bad1ea2f01d",
@@ -4073,7 +4073,7 @@
     "src/scripts/mine-books.ts": "d4a42e3285118c17",
     "src/scripts/mine-wikisource.ts": "0981f8d1cab1df52",
     "src/scripts/multi-cloud-analytics.ts": "a35455a929934a58",
-    "src/scripts/next.ts": "bfc3a9acf62b26ac",
+    "src/scripts/next.ts": "7339567d21812518",
     "src/scripts/one-receipt.ts": "17e9237b5fe5328b",
     "src/scripts/one-writer.ts": "7d640e496c01d657",
     "src/scripts/outward.ts": "bbd798d9ac995e5a",
@@ -4214,7 +4214,12 @@
     "src/zenodo-seals.ts": "a99a677badd740a0"
   },
   "verified": [
-    "guard",
+    "behind",
+    "index",
+    "types",
+    "articles",
+    "ledger",
+    "qa",
     "tests"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
