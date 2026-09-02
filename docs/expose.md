@@ -11,8 +11,8 @@ seals, and regenerates on every reconcile — a board of TODAY's digs, not a his
 opens is two calls: `uuidna_expose` finds the coordinates, and `uuidna_wave_deposit` saves candidates into
 [the conveyor](/waves), where the kernel judges each alone.
 
-**Counts:** 0 lonely · 2 grid gap(s) · 0 pair gap(s) ·
-fold receipt `2f49bf29-1ad2-8955-ad04-ffbcb60caa05`
+**Counts:** 0 lonely · 0 grid gap(s) · 0 pair gap(s) ·
+fold receipt `b19808dc-0817-8dc1-8e0e-b771cf44e443`
 
 ## Lonely principles — clusters of one, asking for their second
 
@@ -25,10 +25,7 @@ belongs beside it (same principle, same wing — the reader's craft, not a scrip
 
 ## Grid gaps — the 432 grid's own report
 
-- **115 wings is harmonic in hexadecimal only — 6 × 115 = 690 leaves 6 mod 9 and 0 mod 15**
-  — fix: a count divisible by FIFTEEN is harmonic in both bases (lcm(3,5) = 15): 105 or 120 wings. Three-at-a-time was the decimal rule; five-at-a-time is the hexadecimal one, and fifteen is base-agnostic
-- **the grid is 690 seats— the ledger moved to 115 wings**
-  — fix: either restore 72 wings, or re-seal the width: k432's 16 × 27 no longer reads as 6 × 115
+- none open today
 
 ## Pair gaps
 

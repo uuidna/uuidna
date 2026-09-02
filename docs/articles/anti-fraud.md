@@ -103,4 +103,8 @@ The ledger holds this as [fabricated_cite_stays_unverified](/theorem/fabricated_
 ```
 
 
+::: warning 
+THE ANTI-FRAUD DETECTORS — generated, and exhaustive where the wing used to sample. The boundary is confirmed by the wing's own sealed theorems — e.g. [captain_commission_two_coins](/theorem/captain_commission_two_coins) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

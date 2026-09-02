@@ -88,7 +88,7 @@ The ledger holds this as [julian_cycle_closes_at_twenty_eight](/theorem/julian_c
 28 * 365 + 7 = 10227 ∧ 10227 % 7 = 0 ∧ 4 * 365 + 1 = 1461 ∧ 1461 % 7 = 5
 ```
 
-### The 400-year cycle stated as the number it is: 146097 = 20871 × 7, so the calendar returns after twenty thousand eight hundred and seventy-one weeks exactly. AND THE HONEST SCOPE, because the factorisation invites more than it earns: 146097 = 63 · 2319 with 63 = 7·9, the fused ring — but only the SEVEN is a fact about calendars, earned by the 97-leap-day rule and able to come out otherwise. The nine is ordinary arithmetic and NOT a second witness: 146097 = 7 · 20871 and 20871 is itself divisible by nine, so that half follows by multiplication. A fact and its consequence, sealed together and labelled, rather than counted twice.
+### The 400-year cycle stated as the number it is: 146097 = 20871 × 7, so the calendar returns after twenty thousand eight hundred and seventy-one weeks exactly. AND THE 146097 = 63 · 2319 with 63 = 7·9, the fused ring — but only the SEVEN is a fact about calendars, earned by the 97-leap-day rule and able to come out otherwise. The nine is ordinary arithmetic and NOT a second witness: 146097 = 7 · 20871 and 20871 is itself divisible by nine, so that half follows by multiplication. A fact and its consequence, sealed together and labelled, rather than counted twice.
 The ledger holds this as [the_gregorian_cycle_counted_in_weeks](/theorem/the_gregorian_cycle_counted_in_weeks) — proven `by decide`, sorry-free:
 
 ```lean
@@ -102,7 +102,7 @@ The ledger holds this as [the_reform_is_exactly_three_days_in_four_hundred](/the
 (400 * 365 + 100 = 146100) ∧ (146100 - 146097 = 3) ∧ (1461 * 100 = 146100) ∧ (100 - 97 = 3)
 ```
 
-### THE WING ABOVE IS ABOUT THE RULE; THIS IS ABOUT WHAT WAS KEPT. Every theorem here so far — the week closing, the year precessing, the four-hundred-year cycle — describes the RULE, and the rule is clean. The calendar actually kept is not: in October 1582 the fourth was followed by the fifteenth, and the ten days between were never lived. Laid against a GAPLESS integer day index the deletion returns as arithmetic rather than as remembered history — the two dates the record treats as adjacent are eleven apart, and eleven less the one day that did elapse is TEN. A gapless ruler measures the holes in a thing that has them; that is its use. The same subtraction over a genuine successor returns zero, which is the control: 5 − 4 − 1 = 0. HONEST SCOPE: this seals the ARITHMETIC of the deletion, not the history — that Gregory ordered it, that the papal states obeyed in 1582 and Britain in 1752, and that the leap rule was misapplied for fifty years after Caesar are matters of record, cited in src/calendar.ts and decidable by no kernel. What the kernel holds is that a gapless index and a calendar with a hole in it disagree by exactly the size of the hole.
+### THE WING ABOVE IS ABOUT THE RULE; THIS IS ABOUT WHAT WAS KEPT. Every theorem here so far — the week closing, the year precessing, the four-hundred-year cycle — describes the RULE, and the rule is clean. The calendar actually kept is not: in October 1582 the fourth was followed by the fifteenth, and the ten days between were never lived. Laid against a GAPLESS integer day index the deletion returns as arithmetic rather than as remembered history — the two dates the record treats as adjacent are eleven apart, and eleven less the one day that did elapse is TEN. A gapless ruler measures the holes in a thing that has them; that is its use. The same subtraction over a genuine successor returns zero, which is the control: 5 − 4 − 1 = 0. this seals the ARITHMETIC of the deletion, not the history — that Gregory ordered it, that the papal states obeyed in 1582 and Britain in 1752, and that the leap rule was misapplied for fifty years after Caesar are matters of record, cited in src/calendar.ts and decidable by no kernel. What the kernel holds is that a gapless index and a calendar with a hole in it disagree by exactly the size of the hole.
 The ledger holds this as [the_record_has_holes_the_rule_does_not](/theorem/the_record_has_holes_the_rule_does_not) — proven `by decide`, sorry-free:
 
 ```lean
@@ -116,5 +116,9 @@ The ledger holds this as [a_gapless_index_admits_nothing_between](/theorem/a_gap
 (List.range 20).all (fun i => (i + 1) - i == 1) ∧ (List.range 20).all (fun i => (List.range 20).all (fun k => ¬ (i < k ∧ k < i + 1)))
 ```
 
+
+::: warning 
+THE CALENDAR — the seven-day week as ℤ/7 and the Gregorian 400-year cycle, as decidable arithmetic. The boundary is confirmed by the wing's own sealed theorems — e.g. [week_is_z7](/theorem/week_is_z7) — never merely denied.
+:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

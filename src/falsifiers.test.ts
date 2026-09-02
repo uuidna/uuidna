@@ -2336,6 +2336,7 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["alpine_eng_derived_cancel_split_10", "(2 + 8 = 10)"],
   ["alpine_eng_base_dimensions_7", "(7 * 10 = 70)"],
   ["quantum_types_decide_before_computing_121", "(11 + 110 = 121) ∧ (27 < 121) ∧ (7 < 110)"],
+  ["truncated_run_counted_47", "(46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41)"],
   ["eclipse_four_hundred", "((400 * 3474 = 1389600) ∧ (149600000 / 384400 = 389) ∧ (400 ≠ 389)) ∧ (4 % 9 = 4)"],
   ["saros_metonic_bridge", "(223 + 12 = 235) ∧ ((List.range' 2 221).all (fun d => 223 % d != 0))"],
   ["flat_drift_is_quadratic", "List.map (fun m => 8 * m * m) [1, 2, 3] = [8, 32, 72]"],

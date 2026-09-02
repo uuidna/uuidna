@@ -54,4 +54,8 @@ The ledger holds this as [the_tempi_tile_the_film](/theorem/the_tempi_tile_the_f
 ```
 
 
+::: warning 
+SYMPHONY — a432 symphonies are theorems: the form sealed — four tongues, the palindrome, the homecoming involution, the keys walking home, the tempi tiling the film. The boundary is confirmed by the wing's own sealed theorems — e.g. [four_movements_are_the_tongues](/theorem/four_movements_are_the_tongues) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

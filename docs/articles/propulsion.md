@@ -47,4 +47,8 @@ The ledger holds this as [acceleration_finite](/theorem/acceleration_finite) —
 ```
 
 
+::: warning 
+PROPULSION — Newtonian and BOUNDED, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [momentum_conserved](/theorem/momentum_conserved) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

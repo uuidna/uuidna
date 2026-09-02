@@ -54,4 +54,8 @@ The ledger holds this as [magnification](/theorem/magnification) — proven `by 
 ```
 
 
+::: warning 
+OPTICS — the light domain, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [law_of_reflection](/theorem/law_of_reflection) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

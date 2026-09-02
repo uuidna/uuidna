@@ -40,4 +40,8 @@ The ledger holds this as [editor_fold_injective_bounded](/theorem/editor_fold_in
 ```
 
 
+::: warning 
+The document fold — the serializer contract of a content-addressed document (a node SEQUENCE), proven ORDER-SENSITIVE (reordering moves the address, unlike the memory store's order-invariant fold), change-sensitive, and bounded-injective (the address determines the node sequence). The boundary is confirmed by the wing's own sealed theorems — e.g. [editor_empty_doc_folds_zero](/theorem/editor_empty_doc_folds_zero) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

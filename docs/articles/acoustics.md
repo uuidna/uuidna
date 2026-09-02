@@ -54,4 +54,8 @@ The ledger holds this as [intensity_inverse_square](/theorem/intensity_inverse_s
 ```
 
 
+::: warning 
+ACOUSTICS — the sound domain, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [harmonic_series](/theorem/harmonic_series) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

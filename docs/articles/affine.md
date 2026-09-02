@@ -54,4 +54,8 @@ The ledger holds this as [group_does_not_commute](/theorem/group_does_not_commut
 ```
 
 
+::: warning 
+AGL(1,ℤ/9), ENUMERATED — the group OneLeap. The boundary is confirmed by the wing's own sealed theorems — e.g. [group_holds_fiftyfour](/theorem/group_holds_fiftyfour) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

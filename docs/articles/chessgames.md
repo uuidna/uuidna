@@ -180,4 +180,8 @@ The ledger holds this as [central_four_squares](/theorem/central_four_squares) �
 ```
 
 
+::: warning 
+THE CHESS HORIZON — the honest kernel of "all chess games recompute instantly in uuidna": the opening combinations (20 first moves, 400 after one), the un-enumerable game tree (Shannon ~10^120 exceeds the ~10^80 atoms of the universe), the pigeonhole collision of content-addresses (2^128 uuids < ~10^44 legal positions < the naive 13^64), the FINITE game (the fifty-move rule) whose address is therefore a bounded, instant identity (6000 < 10^120 — recompute is O(moves). The boundary is confirmed by the wing's own sealed theorems — e.g. [first_move_twenty](/theorem/first_move_twenty) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

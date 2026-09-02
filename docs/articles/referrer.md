@@ -110,4 +110,8 @@ The ledger holds this as [the_movie_and_the_song_are_one](/theorem/the_movie_and
 ```
 
 
+::: warning 
+REFERRER — the referrer song's sealed arithmetic: six doors into the round, consonance as a COMPUTED ladder (a definition on integers, not a reading of the world; the tuning cancels), the lower lattice's octave completeness, and the wrap that makes the page-cycle total. The boundary is confirmed by the wing's own sealed theorems — e.g. [referrer_six_doors](/theorem/referrer_six_doors) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

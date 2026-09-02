@@ -75,4 +75,8 @@ The ledger holds this as [anthem_finale_sings_one_uuid](/theorem/anthem_finale_s
 ```
 
 
+::: warning 
+ANTHEM — the release anthem's sealed structure: two coins to the bar, rhythm quartering it on the vortex's three, four movements from the DNA tongue, and the coin octave as the final chord. The boundary is confirmed by the wing's own sealed theorems — e.g. [anthem_chord_halves_the_bar](/theorem/anthem_chord_halves_the_bar) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

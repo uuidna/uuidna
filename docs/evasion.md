@@ -13,19 +13,19 @@ description: Every trick with the finder that catches it and the seal that convi
 
 | metric | value | unit |
 |---|---|---|
-| sealed theorems | **2120** | by decide, axiom-free |
-| prose unverified | **2480** / 4606 | paragraphs — doors, not defeats |
-| prose drained | **0** / 4606 | fabricated citations caught |
-| doors held open | **12** | leads awaiting their two coins |
-| refuted honestly | **14** | killed by a measurement, recorded |
-| refused at boundary | **6** | sources that answered 418, named |
+| sealed theorems | **2582** | by decide, axiom-free |
+| prose unverified | **3867** / 7044 | paragraphs — doors, not defeats |
+| prose drained | **0** / 7044 | fabricated citations caught |
+| doors held open | **0** | leads awaiting their two coins |
+| refuted honestly | **59** | killed by a measurement, recorded |
+| refused at boundary | **20** | sources that answered 418, named |
 | tricks catalogued | **10** | each with its finder and its convicting seal |
 
-Board fold: `c2b8eb6f` — recompute it from these figures or the tape has moved.
+Board fold: `c0f19f6f` — recompute it from these figures or the tape has moved.
 
 **The catches, sung** — the board's own address on the lattice:
 
-<HexbitPlayer :states="[12,2,11,8,14,11,6,15,4,14,10,5,8,10,2,13,11,3,3,15,3,9,2,3,15,12,2,5,3,10,15,2]" />
+<HexbitPlayer :states="[12,0,15,1,9,15,6,15,2,4,6,12,8,0,0,5,8,13,7,5,14,10,0,7,7,10,7,8,5,10,11,5]" />
 
 ## The catalogue — 10 tricks, each convicted at least once
 

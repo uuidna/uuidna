@@ -54,4 +54,8 @@ The ledger holds this as [seventh_covers_reflection_cannot](/theorem/seventh_cov
 ```
 
 
+::: warning 
+THE REFLECTION'S REACH — what an involution alone can and cannot separate. The boundary is confirmed by the wing's own sealed theorems — e.g. [reflection_splits_six](/theorem/reflection_splits_six) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

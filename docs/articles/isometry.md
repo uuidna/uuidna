@@ -54,4 +54,8 @@ The ledger holds this as [isometry_bounds_correction](/theorem/isometry_bounds_c
 ```
 
 
+::: warning 
+THE XOR ISOMETRY — the one identity the cipher, the strand and the code each hold a corner of. The boundary is confirmed by the wing's own sealed theorems — e.g. [xor_preserves_distance](/theorem/xor_preserves_distance) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

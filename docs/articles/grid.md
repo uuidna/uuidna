@@ -54,4 +54,8 @@ The ledger holds this as [six_rays_stay_derived](/theorem/six_rays_stay_derived)
 ```
 
 
+::: warning 
+THE GRID RULE, BASE-AGNOSTIC — the growth law stated so it does not depend on how numbers are written. The boundary is confirmed by the wing's own sealed theorems — e.g. [decimal_asks_three](/theorem/decimal_asks_three) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

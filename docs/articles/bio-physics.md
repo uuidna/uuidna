@@ -131,4 +131,8 @@ The ledger holds this as [reflection_is_total_by_the_key](/theorem/reflection_is
 ```
 
 
+::: warning 
+The ALGEBRAIC STRUCTURE across the sciences — eight paired structures: blood (Klein four-group), DNA (base-pair involution + codons 4³), sound (432 ladder + octave), chemistry (2n² shells, 4l+2 subshells), music (circle of fifths + tritone in ℤ/12), acid-base (pH reflection through 7), heredity (Mendelian 3:1 + allele-swap involution), colour (ℤ/6 complement wheel). The boundary is confirmed by the wing's own sealed theorems — e.g. [abo_klein_four](/theorem/abo_klein_four) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

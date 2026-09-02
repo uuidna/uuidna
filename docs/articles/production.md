@@ -82,4 +82,8 @@ The ledger holds this as [fifth_cycles_all_twelve](/theorem/fifth_cycles_all_twe
 ```
 
 
+::: warning 
+THE MIX — the studio involutions (reverse, invert, and their fusion) and the counting of pitch, tempo and sample, as decidable arithmetic. The boundary is confirmed by the wing's own sealed theorems — e.g. [reverse_involutive](/theorem/reverse_involutive) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

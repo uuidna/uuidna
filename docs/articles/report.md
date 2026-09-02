@@ -61,4 +61,8 @@ The ledger holds this as [a_claim_is_verified_or_unverified](/theorem/a_claim_is
 ```
 
 
+::: warning 
+THE REPORT — the reporter's METHOD as decidable arithmetic: the six questions, a chronological timeline, corroboration by two reputable sources, trinity editing, full-quorum publication, the inverted pyramid, and the VERIFIED/UNVERIFIED verdict on every claim. The boundary is confirmed by the wing's own sealed theorems — e.g. [five_ws_and_one_h](/theorem/five_ws_and_one_h) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

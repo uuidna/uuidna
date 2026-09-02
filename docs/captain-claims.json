@@ -2,8 +2,8 @@
   "generated": "2026-09-02",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2581,
-  "total_theorems": 2581,
+  "total_claimed": 2582,
+  "total_theorems": 2582,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -13884,6 +13884,12 @@
       "principle": "The conveyor's first wave"
     },
     {
+      "key": "truncated_run_counted_47",
+      "lineAddress": "34c76b9d-256a-864e-81cf-07d6baf22b7a",
+      "address": "5ba2779e-55a5-80c5-8a42-6ab8164d2e6b",
+      "principle": "The conveyor's first wave"
+    },
+    {
       "key": "eclipse_four_hundred",
       "lineAddress": "f1a040b8-8dd3-80f1-9165-ccf2b7a04bdf",
       "address": "ca628f34-1810-8b0a-ae92-7fa9a2b30ea9",
@@ -15492,7 +15498,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "d468d321-7da9-8937-bf81-b809c92f4840",
+  "claim_receipt": "08d39350-7bd5-8211-9942-d3490660a1b4",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

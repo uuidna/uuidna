@@ -61,4 +61,8 @@ The ledger holds this as [market_tides_and_the_strategy_bar](/theorem/market_tid
 ```
 
 
+::: warning 
+UNIVERSE — the day's sky-and-earth run sealed without gaps: the eclipse's four-hundred surprise with its gap named, the prime Saros bridged to the Metonic by twelve, the flat chart's quadratic price list, the poles at the quadrature on the vortex axis, and the counted handle universe that addresses it all. The boundary is confirmed by the wing's own sealed theorems — e.g. [eclipse_four_hundred](/theorem/eclipse_four_hundred) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

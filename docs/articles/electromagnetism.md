@@ -103,4 +103,8 @@ The ledger holds this as [faraday_needs_changing_flux](/theorem/faraday_needs_ch
 ```
 
 
+::: warning 
+ELECTROMAGNETISM — the field domain, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [plasma_fourth_state](/theorem/plasma_fourth_state) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

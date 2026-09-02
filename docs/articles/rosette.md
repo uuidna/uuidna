@@ -1048,4 +1048,8 @@ The ledger holds this as [rosette_quantum_doubling_is_two_coins](/theorem/rosett
 ```
 
 
+::: warning 
+The ROSETTE ℤ/7 (the Pliska group) — its full multiplication, addition and power tables. The boundary is confirmed by the wing's own sealed theorems — e.g. [z7mul_0_0](/theorem/z7mul_0_0) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

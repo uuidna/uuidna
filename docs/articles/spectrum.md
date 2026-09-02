@@ -68,4 +68,8 @@ The ledger holds this as [visible_seven_colours](/theorem/visible_seven_colours)
 ```
 
 
+::: warning 
+THE SPECTRUM — the electromagnetic spectrum as decidable arithmetic: wavelength × frequency = c, the seven bands in order, photon energy rising with frequency, the visible window under one octave, and the 300,000 km/s rounding gap. The boundary is confirmed by the wing's own sealed theorems — e.g. [wave_product_is_constant](/theorem/wave_product_is_constant) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

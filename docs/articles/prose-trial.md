@@ -54,4 +54,8 @@ orbits.all (fun o => o.contains 0)
 ```
 
 
+::: warning 
+THE PROSE TRIAL — the derivation law decided by the KERNEL rather than by a string comparison. The boundary is confirmed by the wing's own sealed theorems — e.g. [orbits_number_six](/theorem/orbits_number_six) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

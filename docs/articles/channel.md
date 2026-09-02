@@ -54,4 +54,8 @@ The ledger holds this as [page_outgrows_register](/theorem/page_outgrows_registe
 ```
 
 
+::: warning 
+THE PAGE CHANNEL — how much a rendered element carries when its typography is computed from the sequence. The boundary is confirmed by the wing's own sealed theorems — e.g. [channel_multiplies_three](/theorem/channel_multiplies_three) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

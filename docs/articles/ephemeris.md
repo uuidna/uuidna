@@ -61,4 +61,8 @@ The ledger holds this as [julian_date_is_a_day_count](/theorem/julian_date_is_a_
 ```
 
 
+::: warning 
+EPHEMERIS — the astronomical TIME coordinate, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [seconds_per_day](/theorem/seconds_per_day) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -131,4 +131,8 @@ The ledger holds this as [no_digit_is_an_exact_complement](/theorem/no_digit_is_
 ```
 
 
+::: warning 
+THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. The boundary is confirmed by the wing's own sealed theorems — e.g. [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -138,4 +138,8 @@ The ledger holds this as [threshold_is_quasi_threshold](/theorem/threshold_is_qu
 ```
 
 
+::: warning 
+NEUROSCIENCE — the algebra of the neuron, demarcated, and rebuilt so a DEAD NEURON CANNOT SATISFY IT. The boundary is confirmed by the wing's own sealed theorems — e.g. [subthreshold_silent](/theorem/subthreshold_silent) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -115,19 +115,5 @@
     "refuted": 0
   },
   "receipt": "005f3d36-19f3-83c6-a482-9beec19773b7",
-  "honest": "Alpine port census: harmonised skill witnesses, crypto-census bindings, port-only identities, harvest fragments decide() confirms but the ledger does not seal, and axiom-hunt exposed runtime assumptions. Integrity and meaning only — nothing installed, linked, or executed. Desk proposes; captain seals.",
-  "deposit": {
-    "deposited": [],
-    "refused": [
-      {
-        "key": "alpine_bindings_partition_packages_28635",
-        "reason": "key already sealed in the ledger"
-      },
-      {
-        "key": "alpine_binding_origins_overcount_16083",
-        "reason": "key already sealed in the ledger"
-      }
-    ],
-    "pending": 0
-  }
+  "honest": "Alpine port census: harmonised skill witnesses, crypto-census bindings, port-only identities, harvest fragments decide() confirms but the ledger does not seal, and axiom-hunt exposed runtime assumptions. Integrity and meaning only — nothing installed, linked, or executed. Desk proposes; captain seals."
 }

@@ -21,11 +21,11 @@ moves at once, every layer refolding to one identity (the DVD read whole — lea
 
 <HexbitAnimator />
 
-## books — 4 instruments
+## books — 13 instruments
 
 categories/books — THE READING ROOM SHELF (lead 81b, the captain's "next 4/4 come from books"): the corpus pipeline as four hand instruments — the reader (a text's recomputable identity and its ledger linkage), the fact-finder (the word-arithmetic ear, controls-first), the librarian (the shelf ranked by counted weight), and the quote-trial (a quoted sentence stands the citation trial and leaves addressed). The books the first thread surfaced — music, dance, singing — become the school's own read
 
-`readPassage` · `findFacts` · `rankShelf` · `tryQuote` — live at [/reading-room](/reading-room)
+`readPassage` · `findFacts` · `rankShelf` · `tryQuote` · `handleBookOf` · `stripsOf` · `STRIP_LINES` · `STRIP_CHOICES` · `decode` · `candidates` · `structureOf` · `judge` · `VACUOUS_ON_CORPUS` — live at [/reading-room](/reading-room)
 
 ## coding — 13 instruments
 

@@ -131,4 +131,8 @@ The ledger holds this as [lanes_even_on_complete_system](/theorem/lanes_even_on_
 ```
 
 
+::: warning 
+THE HARDWARE-VERIFIABLE BINARY ALGEBRA — the named nucleus of low-level combinational logic, each fact a decidable, axiom-free `by decide` particle. The boundary is confirmed by the wing's own sealed theorems — e.g. [not_gate_truth_table](/theorem/not_gate_truth_table) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

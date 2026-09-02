@@ -54,4 +54,8 @@ The ledger holds this as [wheel_divides_by_nine_and_six](/theorem/wheel_divides_
 ```
 
 
+::: warning 
+THE COLOUR AS SIX HEXBITS — the spectrum sized in the unit the machine writes it in. The boundary is confirmed by the wing's own sealed theorems — e.g. [colour_is_six_hexbits](/theorem/colour_is_six_hexbits) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -61,4 +61,8 @@ The ledger holds this as [boundary_is_exactly_two_named_modules](/theorem/bounda
 ```
 
 
+::: warning 
+THE OS-INTEGRITY ALGEBRA — the third named layer, completing hardware → software → os: the decidable facts a DEPLOYMENT is verified against. The boundary is confirmed by the wing's own sealed theorems — e.g. [exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

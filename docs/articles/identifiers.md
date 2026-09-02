@@ -54,4 +54,8 @@ The ledger holds this as [isbn13_bookland_prefix](/theorem/isbn13_bookland_prefi
 ```
 
 
+::: warning 
+THE IDENTIFIERS — ISBN-10/13 check-digit arithmetic: the mod-11/mod-10 weighted sums and the errors they catch, decidable. The boundary is confirmed by the wing's own sealed theorems — e.g. [isbn10_valid_check](/theorem/isbn10_valid_check) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

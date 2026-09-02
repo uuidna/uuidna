@@ -75,4 +75,8 @@ The ledger holds this as [no_maximum_only_bounds](/theorem/no_maximum_only_bound
 ```
 
 
+::: warning 
+THE LAYERED DEFENCE — the arithmetic of defence in depth (bits add, space multiplies, no maximum), as decidable facts. The boundary is confirmed by the wing's own sealed theorems — e.g. [scout_drones_spin](/theorem/scout_drones_spin) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

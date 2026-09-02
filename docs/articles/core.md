@@ -460,4 +460,8 @@ The ledger holds this as [mul9_8_8](/theorem/mul9_8_8) — proven `by decide`, s
 ```
 
 
+::: warning 
+The 8×8 CORE: the multiplication table of ℤ/9's eight non-zero residues {1. The boundary is confirmed by the wing's own sealed theorems — e.g. [mul9_1_1](/theorem/mul9_1_1) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -75,4 +75,8 @@ The ledger holds this as [assignment_two_by_two_optimum](/theorem/assignment_two
 ```
 
 
+::: warning 
+THE LINEAR OPTIMUM — linear optimisation as decidable arithmetic on one exact instance: the optimum by total enumeration at a vertex, weak and STRONG duality (gap zero, not epsilon), complementary slackness both pairs, one improving simplex pivot; the honest quantum bridge (the search space IS the qubit basis, Grover only halves the exponent, the classical simulator claims no advantage). The boundary is confirmed by the wing's own sealed theorems — e.g. [lp_optimum_is_eleven](/theorem/lp_optimum_is_eleven) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

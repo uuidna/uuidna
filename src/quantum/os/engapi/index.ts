@@ -147,8 +147,9 @@ export const qSub = (a: Quantity, b: Quantity): Sum => qAdd(a, quantity(-b.num, 
 // ── TYPES ARE THE ADVANTAGE (the captain, 2026-09-02: "quantum types quantum advantage") ──────────────────────
 //
 // The dimension vector IS a type, and checking it is the same arithmetic the whole ledger runs on: seven integer
-// comparisons, decided before any computation begins. That is the verify-beats-recompute shape applied one level
-// earlier — not "prove once, verify forever" but "type once, never compute the wrong thing at all".
+// comparisons, decided before any computation begins. That is theorem verify_beats_recompute_by_magnitudes one
+// level earlier — not "prove once, verify forever" but "type once, and never compute the wrong thing at all" —
+// and the counting behind it is sealed as theorem quantum_types_decide_before_computing_121.
 //
 // AND THE MEASUREMENT REFUTES THE OVERCLAIM IT INVITES. Multiplication is TOTAL on the type system: any two
 // exponent vectors add, so all 121 ordered pairs compute. But only 27 of those 121 products land back on a

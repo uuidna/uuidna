@@ -54,4 +54,8 @@ The ledger holds this as [total_is_not_amplitudes](/theorem/total_is_not_amplitu
 ```
 
 
+::: warning 
+THE HANDLE SPAN — what 65536 handles of 32 qubits each come to, and what that total is NOT. The boundary is confirmed by the wing's own sealed theorems — e.g. [handles_times_qubits](/theorem/handles_times_qubits) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

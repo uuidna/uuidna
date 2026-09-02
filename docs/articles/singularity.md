@@ -47,4 +47,8 @@ The ledger holds this as [the_singularity_is_the_dry_law_at_scale](/theorem/the_
 ```
 
 
+::: warning 
+SINGULARITY — one source, many surfaces, drift impossible: the arithmetic of the architecture, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [one_source_is_exactly_one](/theorem/one_source_is_exactly_one) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

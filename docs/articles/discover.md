@@ -124,4 +124,8 @@ The ledger holds this as [generators_are_two_and_five](/theorem/generators_are_t
 ```
 
 
+::: warning 
+Self-discovery; all computes by itself. The boundary is confirmed by the wing's own sealed theorems — e.g. [involution_census_self_explains](/theorem/involution_census_self_explains) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -68,4 +68,8 @@ The ledger holds this as [hunting_teeth_wear_even](/theorem/hunting_teeth_wear_e
 ```
 
 
+::: warning 
+ANTIKYTHERA — the geared computer of Rhodes as decidable arithmetic, demarcated: the cycles, the spirals, the prime, the pin-and-slot. The boundary is confirmed by the wing's own sealed theorems — e.g. [metonic_is_the_intercalation](/theorem/metonic_is_the_intercalation) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

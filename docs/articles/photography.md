@@ -68,4 +68,8 @@ The ledger holds this as [stops_fold_mod_nine](/theorem/stops_fold_mod_nine) —
 ```
 
 
+::: warning 
+THE EXPOSURE — where the photographic standard ROUNDS (1/125≈1/128, f/1. The boundary is confirmed by the wing's own sealed theorems — e.g. [full_stop_is_exact_doubling](/theorem/full_stop_is_exact_doubling) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

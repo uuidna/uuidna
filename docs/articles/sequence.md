@@ -207,7 +207,7 @@ The ledger holds this as [sequence_and_coins_are_one](/theorem/sequence_and_coin
 (((List.range' 1 6).map (fun k => 2^k % 9)) = [2,4,8,7,5,1]) ∧ ((2 * 5) % 9 = 1) ∧ (1+2+4+8+7+5 = 27) ∧ (27 = 9 * 3) ∧ (6 = 2 * 3)
 ```
 
-### THE SEQUENCE IMAGINED ON TEN DIGITS, NOT NINE: 1,2,3,4 are one polarity, 6,7,8,9 the other, and 0 with 5 are the neutrals. Four plus two plus four is the whole ring, the three sets are pairwise disjoint, and every digit 0..9 sits in exactly one — a partition, decided. HONEST SCOPE: this is the TEN-DIGIT strip (dz on 0..9). polarities_plus_minus remains true as ℤ/9 arithmetic (9%9=0); it does not place 9 among the neutrals of this partition.
+### THE SEQUENCE IMAGINED ON TEN DIGITS, NOT NINE: 1,2,3,4 are one polarity, 6,7,8,9 the other, and 0 with 5 are the neutrals. Four plus two plus four is the whole ring, the three sets are pairwise disjoint, and every digit 0..9 sits in exactly one — a partition, decided. this is the TEN-DIGIT strip (dz on 0..9). polarities_plus_minus remains true as ℤ/9 arithmetic (9%9=0); it does not place 9 among the neutrals of this partition.
 The ledger holds this as [digit_polarities_partition_ten](/theorem/digit_polarities_partition_ten) — proven `by decide`, sorry-free:
 
 ```lean
@@ -235,5 +235,9 @@ The ledger holds this as [polarity_plus_is_trinity_of_minus](/theorem/polarity_p
 (1+2+3+4 = 10) ∧ (6+7+8+9 = 30) ∧ (30 = 3 * 10) ∧ (0+5 = 5) ∧ (10+30+5 = 45)
 ```
 
+
+::: warning 
+The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. The boundary is confirmed by the wing's own sealed theorems — e.g. [seal_ten](/theorem/seal_ten) — never merely denied.
+:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

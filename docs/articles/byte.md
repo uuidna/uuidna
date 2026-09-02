@@ -47,4 +47,8 @@ The ledger holds this as [tamper_set_counts_eight_thousand](/theorem/tamper_set_
 ```
 
 
+::: warning 
+THE BYTE — two hexbits, and the unit exact-copy verification actually compares in. The boundary is confirmed by the wing's own sealed theorems — e.g. [byte_holds_two_hexbits](/theorem/byte_holds_two_hexbits) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -110,4 +110,8 @@ The ledger holds this as [angle_of_the_cut](/theorem/angle_of_the_cut) — prove
 ```
 
 
+::: warning 
+THE CUT — timecode as a ring, drop-frame, 4K as four HD, the crossfade and the sync, as decidable arithmetic. The boundary is confirmed by the wing's own sealed theorems — e.g. [dropframe_entangles_the_coins](/theorem/dropframe_entangles_the_coins) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

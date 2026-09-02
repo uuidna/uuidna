@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:19d8845e-9832-8fcd-b129-e66e2d776424",
+  "@id": "urn:uuid:c2b476e2-1911-8e89-b605-859a35c07bcb",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -71707,6 +71707,37 @@
         },
         "sameAs": [
           "https://uuidna.com/4d1dc7b2"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:34c76b9d-256a-864e-81cf-07d6baf22b7a",
+        "@type": "ScholarlyArticle",
+        "headline": "SILENT TRUNCATION, COUNTED. Of 47 listed generators exactly 1 ends with a module-scope exit call; loaded into the shared runner it ended that runner at 6 of 47 while the runner itself reported 0, skipping 41 — including gen-readme and gen-llm, so every published figure froze one ledger behind under a green gate. Each generator now runs isolated and the runner compares its result count to its list length. The defect class is this tree's recurring one: not a check that failed, but an ACTION THAT WAS ABSENT reporting success. The name counts and does not quantify: `generate_` is itself in the incomplete finder's universal vocabulary, which caught two names before this one.",
+        "abstract": "(46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41)",
+        "identifier": "5ba2779e-55a5-80c5-8a42-6ab8164d2e6b",
+        "url": "https://uuidna.com/theorem/truncated_run_counted_47",
+        "keywords": "wave, The conveyor's first wave",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Wave.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/5ba2779e"
         ]
       }
     },

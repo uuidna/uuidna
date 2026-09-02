@@ -65,6 +65,13 @@ export function validateCandidate(c: WaveCandidate, sealed: ReadonlyMap<string, 
   return null
 }
 
+/** A refusal MUST carry its reason — the type has always said so and the data did not. Enforced at the write. */
+export const assertReason = (key: string, reason: string | undefined): string => {
+  const r = (reason ?? '').trim()
+  if (!r) throw new Error(`wave-deposit: a refusal must name its reason (${key}) — an unreasoned refusal cannot be answered, re-offered, or audited`)
+  return r
+}
+
 interface WaveQueueFile { pending: WaveCandidate[]; accepted: (WaveCandidate & { receipt: string })[]; refused: (WaveCandidate & { reason: string })[] }
 
 // node:fs and node:path ride LAZILY through the runtime's own registry — a top-level import rides every

@@ -68,4 +68,8 @@ The ledger holds this as [clay_gravity_equals_rosette](/theorem/clay_gravity_equ
 ```
 
 
+::: warning 
+THE SEVEN MILLENNIUM PROBLEMS — one FINITE instance each, drawn from that problem’s own mathematics and decided here. The boundary is confirmed by the wing's own sealed theorems — e.g. [two_bit_conjunctions_are_four_of_sixteen](/theorem/two_bit_conjunctions_are_four_of_sixteen) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

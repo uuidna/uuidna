@@ -54,4 +54,8 @@ The ledger holds this as [flood_and_ebb](/theorem/flood_and_ebb) — proven `by 
 ```
 
 
+::: warning 
+THE TIDES — the rule of twelfths, half-tide, the semidiurnal period and spring/neap, as decidable arithmetic. The boundary is confirmed by the wing's own sealed theorems — e.g. [rule_of_twelfths](/theorem/rule_of_twelfths) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -75,4 +75,8 @@ The ledger holds this as [covering_seeds_are_named](/theorem/covering_seeds_are_
 ```
 
 
+::: warning 
+THE ORBITS, WALKED — and the generator's own facts are walked too. The boundary is confirmed by the wing's own sealed theorems — e.g. [orbit_0_1_2_3_4_5_6_7_8_9_closes](/theorem/orbit_0_1_2_3_4_5_6_7_8_9_closes) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

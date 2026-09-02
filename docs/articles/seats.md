@@ -54,4 +54,8 @@ The ledger holds this as [ten_seats_bound_any_ring](/theorem/ten_seats_bound_any
 ```
 
 
+::: warning 
+THE SEAT BOUND — the pigeonhole, stated. The boundary is confirmed by the wing's own sealed theorems — e.g. [fullest_seat_ceiling](/theorem/fullest_seat_ceiling) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

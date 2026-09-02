@@ -54,4 +54,8 @@ The ledger holds this as [collisions_are_forced_by_the_ceiling](/theorem/collisi
 ```
 
 
+::: warning 
+STRINGS — every route, key and page is a string, and every string is a thirty-two-mode spectrum: the arithmetic of names, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [every_string_has_thirty_two_modes](/theorem/every_string_has_thirty_two_modes) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

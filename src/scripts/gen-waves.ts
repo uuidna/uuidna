@@ -13,6 +13,15 @@ import { handleOf } from '../handle.js'
 interface Candidate { key: string; why: string; lean: string }
 interface Q { pending: Candidate[]; accepted: (Candidate & { receipt: string })[]; refused: (Candidate & { reason: string })[] }
 
+// A REFUSAL WITHOUT ITS REASON IS STILL REPORTED, and reported AS missing rather than smoothed over. This line
+// used to read `c.reason.split(...)` and crashed the whole generator on the first refusal that carried none — 24
+// of 28 in the queue did, because a writer moved them without recording why. The generator exited 1, generate.js
+// imported it in-process and died with it, and the remaining generators never ran. The board is exactly where
+// that gap belongs: inventing a plausible reason here would be the worse failure, and dropping the entry would
+// lose a candidate. So it says what is actually known — that nobody wrote it down.
+const reasonOf = (c: { reason?: string }): string =>
+  (c.reason ?? '').split('\n')[0] || 'reason NOT RECORDED by the writer that refused it — unjudgeable until one is'
+
 const q = JSON.parse(readFileSync(join(ROOT, 'lean', 'wave-queue.json'), 'utf8')) as Q
 const byKey = theoremByKey()
 
@@ -40,7 +49,7 @@ const pendingRows = q.pending.length
 // refused keys render WITHOUT backticks on purpose: a refusal is not sealed, and the deadkey finder rightly
 // refuses any backtick-quoted key the ledger does not hold — an enrollment is named in words, never cited
 const refusedRows = q.refused.length
-  ? q.refused.map((c) => `- **${c.key.replace(/_/g, ' ')}** (candidate, not sealed) — ${c.reason.split('\n')[0]}`).join('\n')
+  ? q.refused.map((c) => `- **${c.key.replace(/_/g, ' ')}** (candidate, not sealed) — ${reasonOf(c)}`).join('\n')
   : '- none — no refusal stands unanswered today'
 
 const page = `---

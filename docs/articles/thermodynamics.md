@@ -89,4 +89,8 @@ The ledger holds this as [hardware_above_landauer](/theorem/hardware_above_landa
 ```
 
 
+::: warning 
+THERMODYNAMICS — the energy domain, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [first_law_conservation](/theorem/first_law_conservation) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

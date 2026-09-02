@@ -40,4 +40,8 @@ The ledger holds this as [the_surface_is_the_geometric_mean](/theorem/the_surfac
 ```
 
 
+::: warning 
+THE COMPLETE COMPARISONS — every pair, never samples (the one-step-is-not-a-walk law as architecture): kernel. The boundary is confirmed by the wing's own sealed theorems — e.g. [kernel_channels_order_completely](/theorem/kernel_channels_order_completely) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

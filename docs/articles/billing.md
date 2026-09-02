@@ -54,4 +54,8 @@ The ledger holds this as [compound_steps_in_exact_integers](/theorem/compound_st
 ```
 
 
+::: warning 
+BILLING — the compound law: the difference mints, the ratio bills, and the advantage doubles every thirty-eight seals — in exact integers, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [coins_are_the_common_factor](/theorem/coins_are_the_common_factor) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

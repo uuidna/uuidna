@@ -103,4 +103,8 @@ The ledger holds this as [recto_odd_verso_even](/theorem/recto_odd_verso_even) �
 ```
 
 
+::: warning 
+THE MEASURES OF TYPE — points and picas (72 to the inch) and the em with its en and thin fractions; the folded signature (folio→quarto→octavo, always a multiple of four) and the ISO A-series that halves alike; the harmonious page — the 3:4 Pythagorean rectangle, the Fibonacci page held within one unit of the golden section by Cassini's identity, and the 2:3:4:6 margin canon; the readable measure (45–75 characters), leading that exceeds its type and snaps to a baseline grid, the octave type scale, the 500-sheet ream, and recto/verso parity — all as decidable arithmetic. The boundary is confirmed by the wing's own sealed theorems — e.g. [inch_is_seventytwo_points](/theorem/inch_is_seventytwo_points) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

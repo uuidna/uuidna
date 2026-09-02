@@ -33,4 +33,8 @@ The ledger holds this as [mechanism_lacks_one](/theorem/mechanism_lacks_one) —
 ```
 
 
+::: warning 
+STRUCTURES — Maxwell's rule m = 2j − 3: determinate, redundant, mechanism — the three regimes as decidable arithmetic. The boundary is confirmed by the wing's own sealed theorems — e.g. [maxwells_rule_truss](/theorem/maxwells_rule_truss) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

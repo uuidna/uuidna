@@ -82,4 +82,8 @@ The ledger holds this as [court_loser_develops_the_proven](/theorem/court_loser_
 ```
 
 
+::: warning 
+The LEGAL VOCABULARY of the trial as decidable theorems — PROVEN (admitted), REFUTED (recomputably wrong). The boundary is confirmed by the wing's own sealed theorems — e.g. [solutions_not_skipped](/theorem/solutions_not_skipped) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

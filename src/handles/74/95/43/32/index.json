@@ -1,0 +1,12 @@
+{
+  "handle": "74954332",
+  "address": "74954332-3b02-8f8b-bfdc-f323104138e4",
+  "kind": "chunk",
+  "keys": [
+    "truncated_run_counted_47"
+  ],
+  "statement": "(46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41)",
+  "files": [
+    "Wave.lean"
+  ]
+}

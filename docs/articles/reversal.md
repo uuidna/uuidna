@@ -54,4 +54,8 @@ The ledger holds this as [reflection_explores_all](/theorem/reflection_explores_
 ```
 
 
+::: warning 
+REVERSAL — why undoing an INVOLUTION and undoing a PATH are different acts, and where the walk never goes. The boundary is confirmed by the wing's own sealed theorems — e.g. [reflection_reverses_uniquely](/theorem/reflection_reverses_uniquely) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

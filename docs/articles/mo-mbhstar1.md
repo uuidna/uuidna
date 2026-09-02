@@ -89,4 +89,8 @@ The ledger holds this as [mombh_quantum_n2_population_needs_density](/theorem/mo
 ```
 
 
+::: warning 
+THE PAPER ON TRIAL — "A gas-enshrouded and gas-reddened black hole at cosmic dawn" (DOI 10. The boundary is confirmed by the wing's own sealed theorems — e.g. [mombh_balmer_break_exceeds_stellar_ceiling](/theorem/mombh_balmer_break_exceeds_stellar_ceiling) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

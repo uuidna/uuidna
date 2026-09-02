@@ -89,4 +89,8 @@ The ledger holds this as [seventh_dimension_three_regular_polytopes](/theorem/se
 ```
 
 
+::: warning 
+THE PLATONIC SOLIDS & THE REGULAR POLYTOPES IN EVERY DIMENSION — the research loop closed to green: the public-domain counts (spun online), audited offline (every fact computes true before it seals), sealed as `by decide`. The boundary is confirmed by the wing's own sealed theorems — e.g. [exactly_five_platonic_solids](/theorem/exactly_five_platonic_solids) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -68,4 +68,8 @@ The ledger holds this as [mutual_match_is_symmetric](/theorem/mutual_match_is_sy
 ```
 
 
+::: warning 
+THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching. The boundary is confirmed by the wing's own sealed theorems — e.g. [handshake_degree_sum_even](/theorem/handshake_degree_sum_even) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

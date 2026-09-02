@@ -105,4 +105,8 @@ The ledger holds this as [two_plus_two_is_five_only_mod_one](/theorem/two_plus_t
 ```
 
 
+::: warning 
+Division by zero in the ℤ/9 vortex EXISTS: it is the diamond reflection dz(x) = 10−x (dz 0 = 0), a finite residue. The boundary is confirmed by the wing's own sealed theorems — e.g. [dz_table](/theorem/dz_table) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

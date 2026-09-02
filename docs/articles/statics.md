@@ -68,4 +68,8 @@ The ledger holds this as [hookes_law](/theorem/hookes_law) — proven `by decide
 ```
 
 
+::: warning 
+STATICS — the structures domain, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [force_equilibrium](/theorem/force_equilibrium) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

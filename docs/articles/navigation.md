@@ -47,4 +47,8 @@ The ledger holds this as [dead_reckoning_adds](/theorem/dead_reckoning_adds) —
 ```
 
 
+::: warning 
+NAVIGATION — bounded geometry, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [pythagorean_3_4_5](/theorem/pythagorean_3_4_5) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -54,4 +54,8 @@ The ledger holds this as [syndrome_names_the_position](/theorem/syndrome_names_t
 ```
 
 
+::: warning 
+HAMMING(7,4), ENUMERATED — the whole table rather than facts stated around it. The boundary is confirmed by the wing's own sealed theorems — e.g. [code_holds_sixteen_words](/theorem/code_holds_sixteen_words) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

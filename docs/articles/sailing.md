@@ -82,4 +82,8 @@ The ledger holds this as [sixteen_points_is_180](/theorem/sixteen_points_is_180)
 ```
 
 
+::: warning 
+SAILING — the points-of-sail domain, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [no_go_zone](/theorem/no_go_zone) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

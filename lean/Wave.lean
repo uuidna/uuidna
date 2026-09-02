@@ -5388,3 +5388,12 @@ theorem alpine_eng_base_dimensions_7 : (7 * 10 = 70) := by decide
     but only 27 products land on a NAMED unit: the type system is closed, the table of names is not, and saying
     so is the difference between a measurement and a boast. -/
 theorem quantum_types_decide_before_computing_121 : (11 + 110 = 121) ∧ (27 < 121) ∧ (7 < 110) := by decide
+
+/-- SILENT TRUNCATION, COUNTED. Of 47 listed generators exactly 1 ends with a module-scope exit call; loaded
+    into the shared runner it ended that runner at 6 of 47 while the runner itself reported 0, skipping 41 —
+    including gen-readme and gen-llm, so every published figure froze one ledger behind under a green gate. Each
+    generator now runs isolated and the runner compares its result count to its list length. The defect class is
+    this tree's recurring one: not a check that failed, but an ACTION THAT WAS ABSENT reporting success. The
+    name counts and does not quantify: `generate_` is itself in the incomplete finder's universal vocabulary,
+    which caught two names before this one. -/
+theorem truncated_run_counted_47 : (46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41) := by decide

@@ -10,7 +10,7 @@ description: One storefront — the apps, the games, and the books, each a shelf
 > cites the theorem it rests on — nothing here is a demo, and nothing is sold: the coins are contributed, not
 > charged ([`two_coins`](/theorem/two_coins), [the captain's coins](/captain)).
 
-## 🎛 [The app store](/apps) — **45** instruments
+## 🎛 [The app store](/apps) — **54** instruments
 
 Every instrument here obeys one law: a pure function from states to verifiable output — browser-computable,
 

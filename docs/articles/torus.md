@@ -68,4 +68,8 @@ The ledger holds this as [b2_is_trinity_rosette](/theorem/b2_is_trinity_rosette)
 ```
 
 
+::: warning 
+TORUS — the torus dimensions sealed: the genus ladder pricing in coins (2g − 2 over g = 1. The boundary is confirmed by the wing's own sealed theorems — e.g. [hextorus_is_coins_times_trinity](/theorem/hextorus_is_coins_times_trinity) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

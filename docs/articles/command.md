@@ -61,4 +61,8 @@ The ledger holds this as [linear_tag_is_forgeable](/theorem/linear_tag_is_forgea
 ```
 
 
+::: warning 
+COMMAND AUTHENTICATION — the gate logic, proven, HMAC-backed. The boundary is confirmed by the wing's own sealed theorems — e.g. [accept_truth_table](/theorem/accept_truth_table) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

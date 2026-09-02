@@ -102,7 +102,7 @@ The ledger holds this as [missing_pair_involution](/theorem/missing_pair_involut
 ((List.range 10).filter (fun d => !([0,1,3,4,5] ++ [0,9,7,6,5]).contains d) = [2, 8]) ∧ (dz 2 = 8)
 ```
 
-### FIVE MERGES WITH FIVE IN 1 AND 0. Two pentads sum to the rung: 5+5=10, and 10 is the place-value 1·10+0 — the digits 1 and 0 that open the sequence. The inverse of 5 is 5 (dz 5 = 5), so the double-five is one 5 and the same 5 inverted. HONEST SCOPE: the arithmetic of 5+5=10 and the already-sealed fixed point; not a claim about glyphs.
+### FIVE MERGES WITH FIVE IN 1 AND 0. Two pentads sum to the rung: 5+5=10, and 10 is the place-value 1·10+0 — the digits 1 and 0 that open the sequence. The inverse of 5 is 5 (dz 5 = 5), so the double-five is one 5 and the same 5 inverted. the arithmetic of 5+5=10 and the already-sealed fixed point; not a claim about glyphs.
 The ledger holds this as [ve_double_five_merges_in_ten](/theorem/ve_double_five_merges_in_ten) — proven `by decide`, sorry-free:
 
 ```lean
@@ -137,5 +137,9 @@ The ledger holds this as [imagine_all_as_clique_faces](/theorem/imagine_all_as_c
 ((List.range 13).map (fun n => n * (n - 1) / 2) = [0, 0, 1, 3, 6, 10, 15, 21, 28, 36, 45, 55, 66]) ∧ (12 * 11 / 2 = 66) ∧ (8 + 6 = 14)
 ```
 
+
+::: warning 
+THE VECTOR EQUILIBRIUM (the cuboctahedron) AND THE INVOLUTION'S SHAPE — PURE ARITHMETIC, no empirical quantity: every number here is a count or an integer squared-length, and nothing is measured from the world. The boundary is confirmed by the wing's own sealed theorems — e.g. [ve_twelve_vertices](/theorem/ve_twelve_vertices) — never merely denied.
+:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

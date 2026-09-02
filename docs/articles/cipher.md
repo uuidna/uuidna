@@ -222,4 +222,8 @@ The ledger holds this as [byte_xor_hexbit_involution](/theorem/byte_xor_hexbit_i
 ```
 
 
+::: warning 
+CRYPTO ∩ DNA — the shared algebra of ciphers and the strand, and its limits: base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR, a linear fold is malleable (a receipt is integrity. The boundary is confirmed by the wing's own sealed theorems — e.g. [key_floor_is_one_uuid](/theorem/key_floor_is_one_uuid) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

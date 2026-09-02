@@ -61,4 +61,8 @@ The ledger holds this as [sanitize_bidi_points_are_nine](/theorem/sanitize_bidi_
 ```
 
 
+::: warning 
+THE SANITISE STANDARDS — the engine's input/output guard, its rules kept IN THE THEOREMS: MAX_DEPTH = 32 = 2⁵, MAX_STRING = 10⁶, arrays and keys bounded to 10⁵, the three prototype-pollution poison keys dropped, and the nine Trojan-Source BIDI code points (5 overrides + 4 isolates) stripped — process any input, sanitise any output, by all standards. The boundary is confirmed by the wing's own sealed theorems — e.g. [sanitize_max_depth_is_two_pow_five](/theorem/sanitize_max_depth_is_two_pow_five) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

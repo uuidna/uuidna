@@ -68,4 +68,8 @@ The ledger holds this as [pairs_share_one_centre](/theorem/pairs_share_one_centr
 ```
 
 
+::: warning 
+THE HARMONY OF PAIRS — the same complementary-pair arithmetic across biology, medicine, chemistry and physics (DNA bases, acid/base, agonist/antagonist, action/reaction, cation/anion), proven to be ONE reflection at different centres. The boundary is confirmed by the wing's own sealed theorems — e.g. [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

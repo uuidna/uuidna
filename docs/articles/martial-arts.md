@@ -40,4 +40,8 @@ The ledger holds this as [lever_ratio_is_exact_division](/theorem/lever_ratio_is
 ```
 
 
+::: warning 
+MARTIAL ARTS — the arithmetic of stance and angle: the complement map's fixed point is the half (one law at 90, 100 and the ledger's 10), the supplement pair, the chain's off-by-one, the exact lever ratio. The boundary is confirmed by the wing's own sealed theorems — e.g. [complement_fixes_the_half](/theorem/complement_fixes_the_half) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

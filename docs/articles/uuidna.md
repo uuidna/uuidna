@@ -117,4 +117,8 @@ The ledger holds this as [billing_arith](/theorem/billing_arith) — proven `by 
 ```
 
 
+::: warning 
+Uuidna — the algebra, formalised in Lean 4. The boundary is confirmed by the wing's own sealed theorems — e.g. [units_z9](/theorem/units_z9) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -68,4 +68,8 @@ The ledger holds this as [dunbar_layers_triple_and_round](/theorem/dunbar_layers
 ```
 
 
+::: warning 
+THE INSTRUMENT — the ARITHMETIC of psychology's instruments and named models (the Likert midpoint, the Big Five count, Miller's span, Hick's bits, the detection table, the Weber–Fechner ladder, Dunbar's rounded layers) and ONLY that. The boundary is confirmed by the wing's own sealed theorems — e.g. [likert_midpoint_is_fixed_point](/theorem/likert_midpoint_is_fixed_point) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

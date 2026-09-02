@@ -82,4 +82,8 @@ The ledger holds this as [gematria_forces_collisions](/theorem/gematria_forces_c
 ```
 
 
+::: warning 
+GLAGOLITIC — the numerals and the Pliska rosette, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [glagolitic_units](/theorem/glagolitic_units) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

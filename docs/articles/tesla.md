@@ -54,4 +54,8 @@ The ledger holds this as [teleautomaton_precedes_transmission](/theorem/teleauto
 ```
 
 
+::: warning 
+TESLA — the register's alternation law as decidable arithmetic, demarcated: the trio, the tilings, the second phase, the grid's minute. The boundary is confirmed by the wing's own sealed theorems — e.g. [tesla_trio_files_adjacent](/theorem/tesla_trio_files_adjacent) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

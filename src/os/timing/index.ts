@@ -66,7 +66,9 @@ export const calibrationNs = (): number => timeNs(() => { let s = 0; for (let i 
  *
  *  AND A GPU/CPU RATIO WOULD NOT BE A QUANTUM ADVANTAGE. It is a throughput ratio between two classical
  *  processors; naming it `qpu` would make a measurement sound like a proof, which is the one move this tree
- *  refuses everywhere else. uuidna_quantum_advantage computes its own sealed thing and is not this. */
+ *  refuses everywhere else. uuidna_quantum_advantage computes its own sealed thing and is not this: the
+ *  advantage this tree actually claims is theorem verify_beats_recompute_by_magnitudes — prove once at O(N),
+ *  verify forever at O(log N) — which is a statement about proof structure, not about anybody's silicon. */
 export interface Accelerator { webgpu: boolean; cores: number; dispatches: false; why: string }
 export const gpuPresence = (): Accelerator => {
   const nav = (globalThis as { navigator?: { gpu?: unknown; hardwareConcurrency?: number } }).navigator

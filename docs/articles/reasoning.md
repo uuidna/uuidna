@@ -187,4 +187,8 @@ The ledger holds this as [unfalsifiable_excludes_nothing](/theorem/unfalsifiable
 ```
 
 
+::: warning 
+THE RULES OF INFERENCE — classical propositional logic as decidable truth tables (modus ponens/tollens, De Morgan, the syllogisms). The boundary is confirmed by the wing's own sealed theorems — e.g. [modus_ponens](/theorem/modus_ponens) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

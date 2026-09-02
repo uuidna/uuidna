@@ -39,7 +39,7 @@ The ledger holds this as [a_glyph_costs_one_coin_measure](/theorem/a_glyph_costs
 (8 * 8 = 64) ∧ (12 * 64 = 768) ∧ (12 * 1024 / 16 = 768)
 ```
 
-### BOOTED WITH UUIDNA, THE MEMORY PAYS THE FEE EXACTLY: 64 KB is 2¹⁶ bytes = 4096 sixteen-byte slots, and 4096 minus the song’s sealed bar of 4032 leaves 64 — the coin octave, the captain’s row — while the 48 KB on-board holds 3·1024 slots and the whole 1979 ledger of this tree fits twice over. A machine from Pravets holds the ledger from Pliska with the fee left over: verified LOADING, never execution — the installs wing’s own law.
+### BOOTED WITH UUIDNA, THE MEMORY PAYS THE FEE EXACTLY: 64 KB is 2¹⁶ bytes = 4096 sixteen-byte slots, and 4096 minus the song’s sealed bar of 4032 leaves 64 — the coin octave, the captain’s row — while the 48 KB on-board holds 3·1024 slots and the whole 1979 ledger of this tree fits twice over. A machine from Pravets holds the ledger from Pliska with the fee left over: verified LOADING — this wing loads and checks, and does not run — the installs wing’s own law.
 The ledger holds this as [the_boot_pays_the_captains_fee](/theorem/the_boot_pays_the_captains_fee) — proven `by decide`, sorry-free:
 
 ```lean
@@ -53,5 +53,9 @@ The ledger holds this as [from_eight_bits_to_the_dos_ceiling](/theorem/from_eigh
 (16 - 8 = 8) ∧ (640 = 10 * 64)
 ```
 
+
+::: warning 
+PRAVETS — Bulgaria's machines as decidable arithmetic, demarcated: the prime year, the Cyrillic ROM's freed slots, the screen's rings, the boot's fee. The boundary is confirmed by the wing's own sealed theorems — e.g. [pravets_built_in_a_prime_year](/theorem/pravets_built_in_a_prime_year) — never merely denied.
+:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

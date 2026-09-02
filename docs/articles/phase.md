@@ -54,4 +54,8 @@ The ledger holds this as [reach_shrinks_each_pass](/theorem/reach_shrinks_each_p
 ```
 
 
+::: warning 
+PHASE — why the alternating walk does not close, and which half is responsible. The boundary is confirmed by the wing's own sealed theorems — e.g. [dz_loses_nothing](/theorem/dz_loses_nothing) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

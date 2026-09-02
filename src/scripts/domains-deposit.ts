@@ -52,6 +52,24 @@ candidates.push({
   source: 'alpine-pkgpage', from: 'renderPackagePage',
 } as WaveCandidate)
 
+// THE SILENT TRUNCATION, SEALED (the captain, 2026-09-02: "npm should publish green — no red after push", and
+// "involuted the theorems prove themselves"). generate.js imported its 47 generators into its own process. ONE
+// of them, gen-captain-claims-complete, ends with a module-scope process.exit(0) — and a generator that exits
+// does not return to its caller, it ends the RUNNER. The run stopped at 6 of 47 and reported success: gen-readme
+// and gen-llm never ran, so every published figure froze at the previous ledger, reconcile said the derived
+// layer was re-derived, and the staleness only surfaced ten minutes later as failing prose tests, which then
+// made land's taught cure fail on every round. Nothing errored. The exit code was 0.
+//
+// The cure is isolation plus arithmetic: each generator runs in a child process, whose exit ends only itself by
+// the operating system's process model, and the runner compares what it ran to what it listed. A run whose
+// result count falls short of its own list did not finish — and now it says so instead of exiting green.
+candidates.push({
+  key: 'truncated_run_counted_47',
+  lean: 'theorem truncated_run_counted_47 : (46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41) := by decide',
+  why: 'SILENT TRUNCATION, COUNTED. Of 47 listed generators exactly 1 ends with a module-scope exit call; loaded into the shared runner it ended that runner at 6 of 47 while the runner itself reported 0, skipping 41 — including gen-readme and gen-llm, so every published figure froze one ledger behind under a green gate. Each generator now runs isolated and the runner compares its result count to its list length. The defect class is this tree\'s recurring one: not a check that failed, but an ACTION THAT WAS ABSENT reporting success. The name counts and does not quantify: `generate_` is itself in the incomplete finder\'s universal vocabulary, which caught two names before this one.',
+  source: 'generate-isolation', from: 'generate.ts',
+} as WaveCandidate)
+
 // THE FALSE LIMITS ARE A MEASURED PATTERN, and the arithmetic is the least flattering thing in this ledger:
 // six impossibility claims were written into this tree and refuted in one session, and ZERO were caught by any
 // test — every one was caught by a person reading. The declared debt of bare impossibility claims is 622 across

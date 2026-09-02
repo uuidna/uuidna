@@ -103,4 +103,8 @@ The ledger holds this as [queen_corner_twentyone](/theorem/queen_corner_twentyon
 ```
 
 
+::: warning 
+THE CHESSBOARD — the 8×8 = 64 = 2⁶ board, its two-colouring, and the pieces’ parity and reach, decidable. The boundary is confirmed by the wing's own sealed theorems — e.g. [torus_chessboard_chi_zero](/theorem/torus_chessboard_chi_zero) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

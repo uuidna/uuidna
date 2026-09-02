@@ -14,7 +14,7 @@
       "value": 128,
       "unitText": "qubits",
       "measurementTechnique": "declared",
-      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-2120-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
+      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-2582-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -22,7 +22,7 @@
       "value": 1000,
       "unitText": "ns",
       "measurementTechnique": "measured",
-      "citation": "measured by this generator: full-2120-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+      "citation": "measured by this generator: full-2582-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
     },
     {
       "@type": "PropertyValue",
@@ -261,7 +261,7 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — work distributed",
-      "value": 2120,
+      "value": 2582,
       "unitText": "items",
       "measurementTechnique": "measured",
       "citation": "every piece the fan-out actually routed this run, counted from the lane census rather than from what was queued"
@@ -269,10 +269,10 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — lane spread",
-      "value": 126,
+      "value": 119,
       "unitText": "% (busiest lane over quietest; 100 is even)",
       "measurementTechnique": "measured",
-      "citation": "busiest lane held 297, quietest held 235 — measured on the work that ran, not asserted from the key's uniformity"
+      "citation": "busiest lane held 356, quietest held 297 — measured on the work that ran, not asserted from the key's uniformity"
     },
     {
       "@type": "PropertyValue",
@@ -303,7 +303,7 @@
       "name": "executor seat — CPU",
       "value": "measured",
       "measurementTechnique": "measured",
-      "citation": "anything the tree computes: exact integer arithmetic, process spawns, filesystem reads — the whole ledger runs here — the only lane with figures behind it. The proof sweep was measured across 14 lanes, and the lane count itself is read from the host rather than assumed (os/host capacity), never hard-coded."
+      "citation": "anything the tree computes: exact integer arithmetic, process spawns, filesystem reads — the whole ledger runs here — the only lane with figures behind it. The proof sweep was measured across 14 lanes (VE_FACES = HANDLE_HEXBITS + HEXBIT_BITS + COINS), and the lane count itself is read from the host rather than assumed (os/host capacity), never hard-coded."
     },
     {
       "@type": "PropertyValue",
@@ -311,6 +311,13 @@
       "value": "specified",
       "measurementTechnique": "computed",
       "citation": "work that is (1) INDEPENDENT per element — no piece reads another's result; (2) EXACT INTEGER — this tree runs no floats, so a lane that computes in floating point cannot hold a fold; (3) WIDE ENOUGH to pay for the transfer, since moving a few kilobytes to a device and back costs more than folding it in place — NOT BUILT, and MEASURED NOT TO PAY at this ledger's scale. The shapes that qualify are real — the merkle fold is a balanced XOR tree whose siblings are independent by construction, and the receipt sweep applies one pure function across the whole ledger — but the whole of that work, over every theorem the ledger holds, is 0.59 ms on one CPU core (sweep 0.038 ms, fold 0.554 ms, 23 ns per address). A device round trip costs more than that before it computes anything. The lane is specified rather than built because the algebra says yes and the stopwatch says it would not matter."
+    },
+    {
+      "@type": "PropertyValue",
+      "name": "executor seat — VM",
+      "value": "specified",
+      "measurementTechnique": "computed",
+      "citation": "verify-then-run of the pinned Alpine minirootfs — docker chroot into extracted mirror/.rootfs/<sha256>/ — Layer 2 (uuidna_run). fetch-pinned-rootfs downloads + verifies + extracts; docker run chroot executes /bin/busybox inside the pinned bytes. Stdio MCP only — absent from Workers. Measured when Docker daemon runs."
     },
     {
       "@type": "PropertyValue",

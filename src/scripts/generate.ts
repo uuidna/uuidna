@@ -16,6 +16,7 @@
 //
 // this is ORCHESTRATION and a RECEIPT over the run. Verification of what a generator emitted belongs
 // to its own authority — guard, provenance and audit-lean-form are the judges. Integrity.
+import { spawnSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { pathToFileURL } from 'node:url'
@@ -98,7 +99,22 @@ for (const g of GENERATORS) {
   if (!existsSync(path)) { console.log(`    ✗ ${g.file} — build first (npm run build)`); process.exit(1) }
   const t0 = process.hrtime.bigint()
   let ok = true
-  try { await import(pathToFileURL(path).href) } catch (e) { ok = false; console.log(`    ✗ ${g.file} — ${(e as Error).message}`) }
+  // ── EVERY GENERATOR RUNS IN ITS OWN PROCESS, and the reason is the worst kind of green ───────────────────────
+  //
+  // These were `await import`ed into THIS process. Three of them (gen-unlocks, gen-os, gen-falsifiers) end with a
+  // module-scope `process.exit(...)`, and a generator that exits does not return to its caller — it ends the
+  // RUNNER. On 2026-09-02 that truncated a full run at 6 of 29 generators and exited 0: gen-readme, gen-llm,
+  // gen-unlocks and twenty more never ran, reconcile reported the derived layer re-derived, and the staleness
+  // surfaced ten minutes later as failing prose tests, which then made land's taught cure fail on every round.
+  //
+  // It is this tree's recurring defect in its purest form — not a check that failed, but an ACTION THAT WAS
+  // ABSENT reporting success. Nothing errored. The exit code was 0. The only witness was a figure in a README.
+  //
+  // A child's exit ends only itself — that is the operating system's process model, by construction, not a
+  // convention of this tree. Whatever a generator does to its own exit code is therefore a RESULT the runner
+  // reads, which is what this loop always claimed to be doing.
+  const r = spawnSync(process.execPath, [path, ...g.args], { stdio: 'inherit', cwd: ROOT })
+  if (r.status !== 0) { ok = false; console.log(`    ✗ ${g.file} — exit ${r.status ?? 'signal ' + String(r.signal)}`) }
   // THE ONE-SECOND LAW NEEDS A METER, so the meter ships: any generator over 250ms names itself and its cost.
   // AND THE METER IS NOW A METRIC (2026-08-24). Printing it named the slow generator and then lost it with the
   // scrollback, so nothing could say whether a generator got slower — the one question a meter exists to answer.
@@ -112,6 +128,20 @@ for (const g of GENERATORS) {
   console.log(`    ${ok ? '✓' : '✗'} ${g.file.padEnd(24)} ${g.note}`)
   if (!ok) process.exit(1)
 }
+
+// ── THE RUN PROVES ITSELF (the captain, 2026-09-02: "involuted the theorems prove themselves") ────────────────
+//
+// The truncated run above reported success because nothing counted. A runner that says "done" without checking
+// that it reached the end of its own list is testimony; a runner whose completion is ARITHMETIC is a proof. The
+// two numbers are the list and the results, and they are equal or this exits non-zero — so the failure mode
+// that hid for a full session is caught here by construction: the comparison runs after the loop, so a short
+// run fails the arithmetic whatever a generator does to its own exit code.
+if (results.length !== GENERATORS.length) {
+  console.log(`    ✗ generate — RAN ${results.length} of ${GENERATORS.length} generators. A truncated run that`)
+  console.log('      reports success is how the derived layer goes stale under a green gate; the count is the proof.')
+  process.exit(1)
+}
+console.log(`    ✓ generate — ${results.length} + 0 = ${GENERATORS.length}: every generator ran, and the count says so`)
 
 // ── THE DIMENSIONAL FUSION ────────────────────────────────────────────────────────────────────────────────────────
 // the ten RFC 9562 uuid types — the schemas. Locale is one axis of values, counted once (see the header).

@@ -54,4 +54,8 @@ The ledger holds this as [nine_divides_by_construction](/theorem/nine_divides_by
 ```
 
 
+::: warning 
+NOTATION — which harmonic facts are about NUMBERS and which are about how numbers are WRITTEN. The boundary is confirmed by the wing's own sealed theorems — e.g. [ten_reduces_to_one](/theorem/ten_reduces_to_one) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

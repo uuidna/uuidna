@@ -47,4 +47,8 @@ The ledger holds this as [taking_before_paying_differs](/theorem/taking_before_p
 ```
 
 
+::: warning 
+THE CONTRIBUTION — what the address becomes once the coins are paid. The boundary is confirmed by the wing's own sealed theorems — e.g. [contribution_leaves_one_twentysix](/theorem/contribution_leaves_one_twentysix) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

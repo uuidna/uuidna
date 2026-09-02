@@ -82,4 +82,8 @@ The ledger holds this as [compass_opposites_involute](/theorem/compass_opposites
 ```
 
 
+::: warning 
+DOCTRINE — the captain's doctrines sealed: pairs and triples cover every crew with solo the excluded case, the diving ladder's pressures and records integer-exact from 40 m to 41,419 m with saturation's day-priced exit and the NBL's floor-honest ratio, and the verdict domain's three real states with identification the pigeonhole collapse onto the poles. The boundary is confirmed by the wing's own sealed theorems — e.g. [team_pairs_triples_cover](/theorem/team_pairs_triples_cover) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

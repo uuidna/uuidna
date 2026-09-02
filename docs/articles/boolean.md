@@ -54,4 +54,8 @@ The ledger holds this as [implication_is_a_gate](/theorem/implication_is_a_gate)
 ```
 
 
+::: warning 
+THE SIXTEEN BINARY BOOLEAN FUNCTIONS — enumerated, under the names mathematics and digital logic already use. The boundary is confirmed by the wing's own sealed theorems — e.g. [sixteen_binary_functions](/theorem/sixteen_binary_functions) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

@@ -68,4 +68,8 @@ The ledger holds this as [codewords_sparse](/theorem/codewords_sparse) — prove
 ```
 
 
+::: warning 
+THE ERROR-CORRECTING CODES — Hamming(7,4), the perfect-code sphere-packing, distance/correction bounds, and the XOR checksum, decidable. The boundary is confirmed by the wing's own sealed theorems — e.g. [hamming_seven_four](/theorem/hamming_seven_four) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

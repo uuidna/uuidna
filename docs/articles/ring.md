@@ -1650,4 +1650,8 @@ The ledger holds this as [z9pow_8_9](/theorem/z9pow_8_9) — proven `by decide`,
 ```
 
 
+::: warning 
+The RING ℤ/9 (the vortex) — its full multiplication, addition and power tables. The boundary is confirmed by the wing's own sealed theorems — e.g. [z9mul_0_0](/theorem/z9mul_0_0) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

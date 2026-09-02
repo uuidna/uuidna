@@ -2682,6 +2682,7 @@ alpine_dom_so_en_ie_333 26
 alpine_eng_derived_cancel_split_10 26
 alpine_eng_base_dimensions_7 26
 quantum_types_decide_before_computing_121 26
+truncated_run_counted_47 26
 #Waves.lean
 captains_columns_sum_to_ten 27
 nine_complement_half_turns_the_orbit 27

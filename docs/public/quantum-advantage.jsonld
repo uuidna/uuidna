@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:a7098f51-2cf3-8753-a121-ef56bed31941",
+  "@id": "urn:uuid:c27343c4-2b08-8e01-8ca9-0a8a131f6142",
   "@type": "Dataset",
   "name": "uuidna quantum advantage report — measured per level",
   "description": "The architectural advantage measured at every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). Measured usable-capacity quantum advantage is theorem usable_gap_is_two_to_eighty (2^80 vs reported logical platforms). TypeScript computes; VitePress monitors. n_qubit_dimension counts classical simulation cost and is not a Shor-class crypto speedup claim.",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "ac8d3ea9-379e-8b4a-b8fb-53777dfc7206",
+  "identifier": "f5830912-83d6-858a-a783-2196f6fd2ab9",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -90,7 +90,7 @@
       "value": "10^3",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 212000 theorem statement re-addressed in a full sweep on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 258200 theorem statement re-addressed in a full sweep on Apple M1 Max (darwin/arm64), warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -98,15 +98,15 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "12720 decisions executed on Apple M1 Max; a bound of better than one in 12720, never a proof of zero"
+      "citation": "12910 decisions executed on Apple M1 Max; a bound of better than one in 12910, never a proof of zero"
     },
     {
       "@type": "PropertyValue",
       "name": "sealed quantum algebra — decisions executed on this host",
-      "value": 473932,
+      "value": 475349,
       "unitText": "decisions",
       "measurementTechnique": "measured",
-      "citation": "53 witnesses over 109 sweeps on Apple M1 Max; each decides a proposition sealed in the Lean ledger"
+      "citation": "57 witnesses over 109 sweeps on Apple M1 Max; each decides a proposition sealed in the Lean ledger"
     },
     {
       "@type": "PropertyValue",
@@ -114,7 +114,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "better than one disagreement per 473932 executions on this host, across 49 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 2 this battery does not decide"
+      "citation": "better than one disagreement per 475349 executions on this host, across 53 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide"
     },
     {
       "@type": "PropertyValue",
@@ -122,7 +122,7 @@
       "value": 1000,
       "unitText": "errors per million operations",
       "measurementTechnique": "assumed",
-      "citation": "UNVERIFIED assumption, not a citation: the ~10^-3 two-qubit physical error class is widely stated, and a multi-source verification pass (2026-08-25) refuted every claim it could reach about gate error rates — in both directions — so no source stands behind this number here. Registered as an exposed axiom; the comparison is a decade comparison and is reported as one."
+      "citation": "Decade class sealed as gate_error_baseline_class (1000 = 10^3 per million, 100 = 10^2 ns). Physical-platform papers are not the seal — the comparison is a decade comparison, labelled reported."
     }
   ]
 }

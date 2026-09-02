@@ -54,4 +54,8 @@ The ledger holds this as [handle_discards_before_walking](/theorem/handle_discar
 ```
 
 
+::: warning 
+ALIGNMENT — which moduli tile a qubit and which waste it. The boundary is confirmed by the wing's own sealed theorems — e.g. [hexbit_is_four_qubits](/theorem/hexbit_is_four_qubits) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

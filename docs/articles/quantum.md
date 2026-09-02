@@ -403,7 +403,7 @@ The ledger holds this as [all_signaling_duality](/theorem/all_signaling_duality)
 (1 + 0 = 0 + 1) ∧ ((List.range 3).all (fun a => (List.range 3).all (fun b => (List.range 3).all (fun c => (List.range 3).all (fun d => (10*a+b == 10*c+d) == (a == c && b == d))))))
 ```
 
-### THE HEXBIT SLIT — the double slit's "unexplained", read as handle bookkeeping in exact integers. Two slits are one path qubit with amplitudes [1,1]; a which-path read APPENDS a record qubit — a handle-read that gives the branch a definite time-space address (the handle is the timestamp) — and the joint state is EXACTLY the Bell vector [1,0,0,1] this wing already stabilises (bell_stabilized_by_xx). UNRECORDED, the screen sees (1+1)² = 4 bright and (1−1)² = 0 dark — fringes of visibility 4. RECORDED, summing over the unread record basis: (1±0)² + (0±1)² = 2 at BOTH phases (the minus phase computed in ℤ) — flat, visibility 0. No collapse postulate enters: the fringes were the cross term, and the record made the branches orthogonal. HONEST SCOPE: exact bookkeeping of the integer amplitude vectors this wing already counts (bell_basis_orthogonal); it decides the ARITHMETIC of which-path decoherence, never a claim about photons — and why THIS outcome occurs (the Born selection) stays exactly as unexplained as before.
+### THE HEXBIT SLIT — the double slit's "unexplained", read as handle bookkeeping in exact integers. Two slits are one path qubit with amplitudes [1,1]; a which-path read APPENDS a record qubit — a handle-read that gives the branch a definite time-space address (the handle is the timestamp) — and the joint state is EXACTLY the Bell vector [1,0,0,1] this wing already stabilises (bell_stabilized_by_xx). UNRECORDED, the screen sees (1+1)² = 4 bright and (1−1)² = 0 dark — fringes of visibility 4. RECORDED, summing over the unread record basis: (1±0)² + (0±1)² = 2 at BOTH phases (the minus phase computed in ℤ) — flat, visibility 0. No collapse postulate enters: the fringes were the cross term, and the record made the branches orthogonal. exact bookkeeping of the integer amplitude vectors this wing already counts (bell_basis_orthogonal); it decides the ARITHMETIC of which-path decoherence, never a claim about photons — and why THIS outcome occurs (the Born selection) stays exactly as unexplained as before.
 The ledger holds this as [hexbit_slit_visibility](/theorem/hexbit_slit_visibility) — proven `by decide`, sorry-free:
 
 ```lean
@@ -417,5 +417,9 @@ The ledger holds this as [hexbit_slit_cross_is_overlap](/theorem/hexbit_slit_cro
 (1*1 + 0*0 = 1) ∧ (1*0 + 0*1 = 0) ∧ (1*1 + 0*1 = 1) ∧ (0*1 + 1*1 = 1)
 ```
 
+
+::: warning 
+The QUANTUM computer — the exact facts the classical state-vector simulator (src/quantum. The boundary is confirmed by the wing's own sealed theorems — e.g. [bell_born_weights](/theorem/bell_born_weights) — never merely denied.
+:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

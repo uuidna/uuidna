@@ -26,4 +26,8 @@ The ledger holds this as [vortex_one_leap](/theorem/vortex_one_leap) — proven 
 ```
 
 
+::: warning 
+lean/OneLeap. The boundary is confirmed by the wing's own sealed theorems — e.g. [vortex_dz_involution_at_ten](/theorem/vortex_dz_involution_at_ten) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

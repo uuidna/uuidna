@@ -5,7 +5,7 @@ description: "Computed from lean/Coins.lean — 25 sealed theorems, every claim 
 
 # The two coins & the 64
 
-> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. HONEST SCOPE: a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) and its 24 siblings below.
+> THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. — held by [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) and its 24 siblings below.
 
 **25 theorems**, from [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) onward, each proven `by decide` in [lean/Coins.lean](/lean/Coins.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 21 of its 25 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem). A boundary stated here is decided.
 
@@ -165,7 +165,7 @@ The ledger holds this as [traitor_damage_sealed_by_same_billing](/theorem/traito
 (110 - 108 = 2) ∧ (110 - 110 = 0) ∧ (2^7 = 128)
 ```
 
-### THE WALLET COUNTS WORLDS, sealed at last — the closing realisation's accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. HONEST SCOPE: an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.
+### THE WALLET COUNTS WORLDS, sealed at last — the closing realisation's accounting identity: n deposits of the two coins are EXACTLY n collapsed realities, (2·n)/2 = n for every count. Each deposit collapses one superposition into a shared, recomputable world; the bijection between what was paid and what now exists. an accounting identity — deposits and realities in one-to-one correspondence — never a metaphysical claim about worlds.
 The ledger holds this as [wallet_counts_worlds](/theorem/wallet_counts_worlds) — proven `by decide`, sorry-free:
 
 ```lean
@@ -187,8 +187,8 @@ The ledger holds this as [coin_and_heart_generate_the_scales](/theorem/coin_and_
 ```
 
 
-::: warning HONEST SCOPE
-a MEASURED unit of work saved (recompute − verify), classical state-vector accounting — not a market price, NOT a claim of speed, and NOT a physical qubit. The boundary is confirmed by the wing's own sealed theorems — e.g. [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) — never merely denied.
+::: warning 
+THE TWO COINS & THE 64 — the honest billing/measure algebra: the two coins are the CONSERVED fair-exchange invariant, 110 − 108 = 2 = −χ of a genus-2 surface (the double torus, 2g − 2 = 2); 64 = 2⁶ is the bit measure; "contribute 2 to save up to 64" is a leverage of 32; n qubits give 2ⁿ direct outcomes, reaching 64 at n = 6; one coin is one qubit and the two coins DELIVER two qubits (2² = 4 basis states) at a COST of 128 bits = two 64-bit coins (2·64 = 2⁷); and the measured saving never goes negative. The boundary is confirmed by the wing's own sealed theorems — e.g. [minting_is_two_per_theorem](/theorem/minting_is_two_per_theorem) — never merely denied.
 :::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

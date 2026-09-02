@@ -54,4 +54,8 @@ The ledger holds this as [no_reading_enters_here](/theorem/no_reading_enters_her
 ```
 
 
+::: warning 
+THE CLOCK WITHOUT A NOW — the step algebra src/quantum/clock computes, decided. The boundary is confirmed by the wing's own sealed theorems — e.g. [residue_walks_the_orbit](/theorem/residue_walks_the_orbit) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

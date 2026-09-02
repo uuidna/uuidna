@@ -27,24 +27,24 @@ next reader recomputes rather than something this report asserts.
 | hexbit tile | 2^4 | declared | 10^1 ns per hexbit tile compiled from an address | 10^8 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | handle | 2^32 | declared | 10^2 ns per handle read to its value and residue | 10^7 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | uuid | 2^128 | declared | 10^3 ns per address folded from a distinct seed | 10^6 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
-| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 12720 | 0 | better than 1 in 12720 | 12 errors |
+| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 12910 | 0 | better than 1 in 12910 | 12 errors |
 
 ### The sealed quantum algebra, executed on this silicon
 
 The gate algebra that quantum hardware implements *physically* — the Pauli group, the Clifford count, the CNOT
 and Toffoli permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa interference — was executed here in
 exact Gaussian integers, with no floating point at any step, and every result compared to what a Lean kernel
-decided by exhaustive case analysis. **53 witnesses · 109 sweeps ·
-473932 decisions · 0 disagreements · verdict EXACT.**
+decided by exhaustive case analysis. **57 witnesses · 109 sweeps ·
+475349 decisions · 0 disagreements · verdict EXACT.**
 
-**Coverage: 49 of the quantum wing's 51 theorems**, and the 2 this battery
-does not decide are named rather than counted: `chsh_beats_classical`, `ym_quantum`. The battery is a
+**Coverage: 53 of the quantum wing's 57 theorems**, and the 4 this battery
+does not decide are named rather than counted: `chsh_beats_classical`, `majority_vote_is_floor_half`, `teleportation_costs_two_coins`, `ym_quantum`. The battery is a
 hand-written list and a hand-written list can only lag the ledger it draws from — one of those keys was sealed by
 another session on the night this was written, and nothing noticed until the denominator was printed. Several of
 the rest state things this simulator cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
-Better than one disagreement per 473932 executions on this host, across 49 of the wing's 51 theorems — a bound from the count, not a proof of zero, and not a claim about the 2 this battery does not decide.
+Better than one disagreement per 475349 executions on this host, across 53 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up
 as a shrinking count and not as an unchanged green verdict. This run refused 0.
@@ -85,7 +85,7 @@ as a shrinking count and not as an unchanged green verdict. This run refused 0.
 | [no_cloning_dimension](https://uuidna.com/theorem/no_cloning_dimension) | 1 | 109 | 0 | a cloner would need (2^n)² dimensions from 2^n — 4 < 16 |
 | [clifford_group_order_24](https://uuidna.com/theorem/clifford_group_order_24) | 1 | 109 | 0 | 24 = six signed axes for X's image times four anticommuting images of Z |
 | [pauli_group_order_16](https://uuidna.com/theorem/pauli_group_order_16) | 1 | 109 | 0 | four operators times four phases are sixteen distinct elements |
-| [message_qubit_cap_states](https://uuidna.com/theorem/message_qubit_cap_states) | 3 | 327 | 0 | the encoder's cap and this host's allocation both match the sealed 2^n = N |
+| [message_qubit_cap_states](https://uuidna.com/theorem/message_qubit_cap_states) | 3 | 327 | 0 | the encoder and this host's allocation both match the sealed 2^n = N |
 | [hexbit_slit_visibility](https://uuidna.com/theorem/hexbit_slit_visibility) | 1 | 109 | 0 | unrecorded fringes are 4 and 0; a which-path record flattens both to 2 |
 | [ghz3_normalized](https://uuidna.com/theorem/ghz3_normalized) | 1 | 109 | 0 | the GHZ(3) distribution sums to exactly 1 over its two corners |
 | [w_state_three_outcomes](https://uuidna.com/theorem/w_state_three_outcomes) | 8 | 872 | 0 | exactly three of the eight corners carry weight in the sealed W vector |
@@ -98,6 +98,10 @@ as a shrinking count and not as an unchanged green verdict. This run refused 0.
 | [types_count_as_arithmetic](https://uuidna.com/theorem/types_count_as_arithmetic) | 3 | 327 | 0 | sum, product and function space over Bool each hold four inhabitants, built and counted |
 | [closure_is_coprime](https://uuidna.com/theorem/closure_is_coprime) | 5 | 545 | 0 | every walk this system closes is closed by a generator coprime to its ring |
 | [four_messages_two_bits](https://uuidna.com/theorem/four_messages_two_bits) | 1 | 109 | 0 | the order-8 signed group carries four distinguishable messages: 8/2 = 4 = 2² |
+| [served_qubit_ceiling](https://uuidna.com/theorem/served_qubit_ceiling) | 4 | 436 | 0 | served nest IS handle+hexbit, at or below the encoder, and this host allocates 2^n |
+| [gate_error_baseline_class](https://uuidna.com/theorem/gate_error_baseline_class) | 3 | 327 | 0 | advantage baseline errors/M and gate-ns ARE the sealed decade class |
+| [usable_gap_eighty_bits](https://uuidna.com/theorem/usable_gap_eighty_bits) | 3 | 327 | 0 | UUID_BITS minus the reported 48 logical is the sealed 80-bit usable-column gap |
+| [register_exceeds_served](https://uuidna.com/theorem/register_exceeds_served) | 3 | 327 | 0 | encoder minus served nest is four qubits and a factor of sixteen amplitudes |
 | [all_signaling_duality](https://uuidna.com/theorem/all_signaling_duality) | 82 | 8938 | 0 | marginal sum is blind (1+0=0+1) and place-value 10·a+b is injective on the digit model |
 | [merkle_sort_invariant](https://uuidna.com/theorem/merkle_sort_invariant) | 5 | 545 | 0 | sorted non-commutative fold3(a,b)=2a+b agrees on all six orderings of {1,2,3} |
 | [store_fold_order_invariant](https://uuidna.com/theorem/store_fold_order_invariant) | 1 | 109 | 0 | the fold gives one root for all six orderings of three members |
@@ -121,7 +125,7 @@ costs every leaf, while checking one proof costs log2(N) siblings.
 | 64 | 6 | 10^1 |
 | 256 | 8 | 10^1 |
 | 1024 | 10 | 10^2 |
-| 4096 | 12 | 10^3 |
+| 4096 | 12 | 10^2 |
 | 16384 | 14 | 10^3 |
 | 65536 | 16 | 10^4 |
 
@@ -150,9 +154,9 @@ silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto spe
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `0a8a5d8f-9eeb-8b09-8fe9-dab91b7772b2`.
+*exist* cannot see. Dispatch receipt: `d8e16dc8-45f4-801c-ae52-9ede23e58ce8`.
 
-Report receipt: `ac8d3ea9-379e-8b4a-b8fb-53777dfc7206` · measured-when as its own handle: `ac8d3ea9`.
+Report receipt: `f5830912-83d6-858a-a783-2196f6fd2ab9` · measured-when as its own handle: `f5830912`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->

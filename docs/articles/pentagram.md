@@ -103,4 +103,8 @@ The ledger holds this as [pi_bracketed_by_finite_rationals](/theorem/pi_brackete
 ```
 
 
+::: warning 
+THE PENTAGRAM & THE FIBONACCI DIGITS — the star polygon {5/2} and the single-digit (Pisano) Fibonacci cycles, finite and decidable. The boundary is confirmed by the wing's own sealed theorems — e.g. [pentagram_single_stroke](/theorem/pentagram_single_stroke) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

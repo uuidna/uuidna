@@ -5,7 +5,7 @@ description: "Computed from lean/Installs.lean — 12 sealed theorems, every cla
 
 # The installs
 
-> THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the 25 packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED latest-stable index, Alpine 3.24.1), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising from the floor with the published cycle named, the terminal the toolbox, the foundation depending on nothing, every meaning verbatim, every spec compiled from source to 32 hexbit states, and the BOOT IMAGE sealed verbatim (832 on-lattice states, build-ordered, receipt-closed) — the OS bootable on the lattice, never on a CPU — and THE EXTERNAL ANCHOR the whole port rests on: Alpine's PUBLISHED rootfs SHA-256 for 3.24.1/x86_64, compiled to 64 on-lattice nibbles so the seal names which BYTES and not only which release. Integrity and meaning, never execution. — held by [default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed) and its 11 siblings below.
+> THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the 25 packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED latest-stable index, Alpine 3.24.1), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising from the floor with the published cycle named, the terminal the toolbox, the foundation depending on nothing, every meaning verbatim, every spec compiled from source to 32 hexbit states, and the BOOT IMAGE sealed verbatim (832 on-lattice states, build-ordered, receipt-closed) — the OS bootable on the lattice, never on a CPU — and THE EXTERNAL ANCHOR the whole port rests on: Alpine's PUBLISHED rootfs SHA-256 for 3.24.1/x86_64, compiled to 64 on-lattice nibbles so the seal names which BYTES and not only which release. Integrity and meaning, loading rather than running. — held by [default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed) and its 11 siblings below.
 
 **12 theorems**, from [default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed) onward, each proven `by decide` in [lean/Installs.lean](/lean/Installs.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 12 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed). A boundary stated here is decided.
 
@@ -95,5 +95,9 @@ The ledger holds this as [the_install_set_names_the_bytes_it_rests_on](/theorem/
 (rootfsNibbles.length = 64) ∧ (64 * 4 = 256) ∧ (rootfsNibbles.all (fun h => h < 16)) ∧ (releaseAddress.length = 32) ∧ (releaseAddress.all (fun h => h < 16))
 ```
 
+
+::: warning 
+THE DEFAULT INSTALL — uuidna. The boundary is confirmed by the wing's own sealed theorems — e.g. [default_install_is_dependency_closed](/theorem/default_install_is_dependency_closed) — never merely denied.
+:::
 
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

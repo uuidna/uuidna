@@ -54,4 +54,8 @@ The ledger holds this as [growth_is_not_bounded_here](/theorem/growth_is_not_bou
 ```
 
 
+::: warning 
+THE DOUBLE TORUS PRESENTATION — the finite description of an unbounded thing. The boundary is confirmed by the wing's own sealed theorems — e.g. [chi_measures_genus](/theorem/chi_measures_genus) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

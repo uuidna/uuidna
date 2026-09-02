@@ -89,4 +89,8 @@ The ledger holds this as [declination_spans_180](/theorem/declination_spans_180)
 ```
 
 
+::: warning 
+ASTRONOMY — the fixed references of the sky, as decidable arithmetic. The boundary is confirmed by the wing's own sealed theorems — e.g. [sky_turns_15_per_hour](/theorem/sky_turns_15_per_hour) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

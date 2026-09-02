@@ -68,4 +68,8 @@ The ledger holds this as [denial_drains_to_the_last_coin](/theorem/denial_drains
 ```
 
 
+::: warning 
+NEGATION — solutions from negation involutions to denial exhaustion, in waves: the method sealed, with its honest boundaries beside it. The boundary is confirmed by the wing's own sealed theorems — e.g. [negation_involution_solves](/theorem/negation_involution_solves) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

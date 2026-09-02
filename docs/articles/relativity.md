@@ -47,4 +47,8 @@ The ledger holds this as [causality_forbids_ftl](/theorem/causality_forbids_ftl)
 ```
 
 
+::: warning 
+RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [light_on_null_cone](/theorem/light_on_null_cone) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

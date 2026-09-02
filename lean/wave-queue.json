@@ -5400,6 +5400,12 @@
       "why": "Alpine domain port (engineering-units): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. Of 121 ordered pairs of dimension types, 11 add lawfully and 110 come back with the exact gap instead of a value — decided by 7 integer comparisons before any computation runs. Multiplication is total, but only 27 products land on a NAMED unit: the type system is closed, the table of names is not, and saying so is the difference between a measurement and a boast.",
       "lean": "theorem quantum_types_decide_before_computing_121 : (11 + 110 = 121) ∧ (27 < 121) ∧ (7 < 110) := by decide",
       "receipt": "3ae15e7c-20ba-82ab-8ba8-67674bc17d56"
+    },
+    {
+      "key": "truncated_run_counted_47",
+      "why": "SILENT TRUNCATION, COUNTED. Of 47 listed generators exactly 1 ends with a module-scope exit call; loaded into the shared runner it ended that runner at 6 of 47 while the runner itself reported 0, skipping 41 — including gen-readme and gen-llm, so every published figure froze one ledger behind under a green gate. Each generator now runs isolated and the runner compares its result count to its list length. The defect class is this tree's recurring one: not a check that failed, but an ACTION THAT WAS ABSENT reporting success. The name counts and does not quantify: `generate_` is itself in the incomplete finder's universal vocabulary, which caught two names before this one.",
+      "lean": "theorem truncated_run_counted_47 : (46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41) := by decide",
+      "receipt": "34c76b9d-256a-864e-81cf-07d6baf22b7a"
     }
   ],
   "refused": [
@@ -5432,114 +5438,152 @@
       "why": "Inclusion-exclusion across database and filesystem, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
       "lean": "theorem alpine_dom_da_fi_ie_653 : (438 + 215 - 0 = 653) := by decide",
       "receipt": "bb7b3d73-5164-8b10-9aa6-94686f147be7",
-      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed."
+      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_da_bl_ie_467",
       "why": "Inclusion-exclusion across database and blockchain, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
       "lean": "theorem alpine_dom_da_bl_ie_467 : (438 + 29 - 0 = 467) := by decide",
       "receipt": "02d1df68-78e7-8ce5-b2e3-e310d25c1292",
-      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed."
+      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_fi_bl_ie_244",
       "why": "Inclusion-exclusion across filesystem and blockchain, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
       "lean": "theorem alpine_dom_fi_bl_ie_244 : (215 + 29 - 0 = 244) := by decide",
       "receipt": "d2b8f9b4-966d-8488-b8ba-24e86111245a",
-      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed."
+      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_da_dr_ie_1007",
       "why": "Inclusion-exclusion across database and driver, exact over the committed mirror. They share 61 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
       "lean": "theorem alpine_dom_da_dr_ie_1007 : (438 + 630 - 61 = 1007) := by decide",
       "receipt": "4145b943-7eed-88da-8e54-914f54e193c4",
-      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed."
+      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_fi_dr_ie_837",
       "why": "Inclusion-exclusion across filesystem and driver, exact over the committed mirror. They share 8 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
       "lean": "theorem alpine_dom_fi_dr_ie_837 : (215 + 630 - 8 = 837) := by decide",
       "receipt": "a7d70ca1-926d-8731-b8ee-bd68fdd6b627",
-      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed."
+      "refusedBy": "DUPLICATE LEAN LINE — the same statement is already sealed in the same wing under a fuller name. Re-sealing inside one file buys no kernel independence: one proof, checked twice, indexed twice, published twice. The pair census is right; the abbreviated key was blind to what the earlier hand-deposit had already sealed.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_da_as_ie_463",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_fi_as_ie_240",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_bl_as_ie_54",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_dr_as_ie_655",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_ne_as_ie_357",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_sc_as_ie_99",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_me_as_ie_284",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_ch_as_ie_266",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_cr_as_ie_224",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_se_as_ie_111",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_ma_as_ie_65",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_ar_as_ie_78",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_bi_as_ie_27",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_ch_as_ie_28",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_ne_as_ie_36",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_as_fo_ie_107",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_as_au_ie_223",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_dom_as_bu_ie_285",
-      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once."
+      "refusedBy": "DUPLICATE PROPOSITION — a sibling pair computes the same union and proves the identical statement under another name. Withdrawn by the lines law: one proof, checked once.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
     },
     {
       "key": "alpine_page_serves_every_entry_28635",
       "why": "EVERY ENTRY SERVED, UNCAPPED. 315 packages of 28635 carried a list longer than the old 40-entry cap and 28320 did not; the largest dependency list is 422 and the largest provides list 1162; the truncated share was 1% (integer division of 315*100/28635). A page whose microdata answers 40 of 422 is answering a different question than the one asked.",
       "lean": "theorem alpine_page_serves_every_entry_28635 : (315 + 28320 = 28635) ∧ (422 < 1162) ∧ (315 * 100 / 28635 = 1) := by decide",
       "receipt": "c49f8994-49e6-86b5-8dcb-663c7f9e46fc",
-      "refusedBy": "THE NAME CLAIMED A UNIVERSAL THE STATEMENT DID NOT PROVE. \"serves_every_entry\" is a claim about all 28,635 pages; the arithmetic underneath counts three numbers and quantifies over nothing. The incomplete finder caught it in one run — a universal in the NAME needs a quantifier in the STATEMENT, or the name is doing work the proof has not done."
+      "refusedBy": "THE NAME CLAIMED A UNIVERSAL THE STATEMENT DID NOT PROVE. \"serves_every_entry\" is a claim about all 28,635 pages; the arithmetic underneath counts three numbers and quantifies over nothing. The incomplete finder caught it in one run — a universal in the NAME needs a quantifier in the STATEMENT, or the name is doing work the proof has not done.",
+      "reason": "reason NOT RECORDED by the writer that refused it (found 2026-09-02) — not reconstructed, because a reason invented after the fact is worse than a missing one"
+    },
+    {
+      "key": "generate_isolates_every_generator_47",
+      "why": "SILENT TRUNCATION, COUNTED. Of 47 listed generators exactly 1 carries a module-scope process.exit; imported in-process it ended the shared runner at 6 of 47 while the runner exited 0, skipping 41 — including gen-readme and gen-llm, so every published figure froze one ledger behind under a green gate. Each generator now runs in its own process and the runner proves completeness by comparing results to list length. The defect class is this tree's recurring one: not a check that failed, but an ACTION THAT WAS ABSENT reporting success.",
+      "lean": "theorem generate_isolates_every_generator_47 : (46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41) := by decide",
+      "receipt": "72d61c8a-0ee5-8a8e-b17c-dc8cd57d56d8",
+      "reason": "RENAMED to generate_run_count_vs_list_47 — the name claimed a universal (\"every generator\") that the arithmetic does not quantify over; the incomplete finder caught it, and the counting claim is re-deposited under a name that only counts."
+    },
+    {
+      "key": "generate_run_count_vs_list_47",
+      "why": "SILENT TRUNCATION, COUNTED. Of 47 listed generators exactly 1 ends with a module-scope exit call; loaded into the shared runner it ended that runner at 6 of 47 while the runner itself reported 0, skipping 41 — including gen-readme and gen-llm, so every published figure froze one ledger behind under a green gate. Each generator now runs isolated and the runner compares its result count to its list length. The defect class is this tree's recurring one: not a check that failed, but an ACTION THAT WAS ABSENT reporting success. The name counts; it does not quantify over the 47.",
+      "lean": "theorem generate_run_count_vs_list_47 : (46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41) := by decide",
+      "receipt": "543c650c-986b-821b-afb3-8348c898d716",
+      "reason": "RENAMED to truncated_run_counted_47 — `generate` is in the incomplete finder's universal vocabulary (every|never|always|reach|connect|generate|closed), so the key read as a universal the arithmetic does not quantify over."
     }
   ]
 }

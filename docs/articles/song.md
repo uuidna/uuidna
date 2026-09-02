@@ -89,4 +89,8 @@ Nat.gcd 9 7 = 1 ∧ Nat.gcd 7 4 = 1 ∧ Nat.gcd 4 9 = 1 ∧ 9 * 7 * 4 = 252
 ```
 
 
+::: warning 
+SONG — the song from the ledger: π's rational round, base-paired verses, the Glagolitic scale, prime time — as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [song_pi_roof_opens](/theorem/song_pi_roof_opens) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

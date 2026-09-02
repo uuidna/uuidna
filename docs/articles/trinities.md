@@ -54,4 +54,8 @@ The ledger holds this as [eightyone_squares_nine](/theorem/eightyone_squares_nin
 ```
 
 
+::: warning 
+THE TRINITY COVERING — how many threes span a space. The boundary is confirmed by the wing's own sealed theorems — e.g. [trinities_span_powers](/theorem/trinities_span_powers) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*

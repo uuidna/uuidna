@@ -54,4 +54,8 @@ The ledger holds this as [the_road_computes_in_one_arithmetic](/theorem/the_road
 ```
 
 
+::: warning 
+LOOMS AND ENGINES — the abacus, the card, the difference engine and the stepped drum as decidable arithmetic, demarcated. The boundary is confirmed by the wing's own sealed theorems — e.g. [the_suanpan_rod_is_the_hexbit_ceiling](/theorem/the_suanpan_rod_is_the_hexbit_ceiling) — never merely denied.
+:::
+
 *Computed from the sealed ledger. Re-verify any theorem with `npm run lean`; the article regenerates with `npm run editorial`.*
