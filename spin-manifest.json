@@ -11,7 +11,7 @@
     ".zenodo.json": "60479a0b89818f46",
     "reports.json": "f68e829a49e78a65",
     "lean/statement-index.json": "8360ea221cc185fe",
-    "README.md": "0087c7b75f508a28",
+    "README.md": "6605809378678c29",
     "llm.txt": "ee7923541bec81d5",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -2634,7 +2634,7 @@
     "lean/alpine-apps.json": "207dbd2ac7048620",
     "lean/alpine-apps.md": "8a1aeae0e1488618",
     "lean/alpine-discovery.json": "b119078f2b688e09",
-    "lean/alpine-hexbit-monitor.json": "a456b8b9bb9f87c8",
+    "lean/alpine-hexbit-monitor.json": "72f83f2e972880c3",
     "lean/anthem-manifest.json": "5918343cf4e985a1",
     "lean/antifraud-manifest.json": "4457805cd5078a11",
     "lean/antikythera-manifest.json": "be97e2330c018bcb",
@@ -2779,5 +2779,5 @@
     "lean/wave-queue.json": "bc136de9316b89f7",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "1a79f573-57e8-84aa-a35d-b072f7721fe3"
+  "receipt": "10a1ba94-cdb8-8cc1-8420-9279e310df6e"
 }

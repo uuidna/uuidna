@@ -97,7 +97,8 @@ function generateReadme(): string {
   // into README — a committed file. A duration belongs to this host on this run, so every regeneration changed
   // it, and the derived layer therefore had no fixed point: reconcile on a clean tree dirtied six files, spin
   // reported drift, and the pre-push court blocked pushes that were otherwise green. Sealing the decade keeps
-  // the claim (it is milliseconds, not seconds) and drops the part that cannot reseal.
+  // the claim (it is milliseconds, not seconds) and drops the part that varies by host and run by
+  // construction, which is the part no reseal can ever reproduce.
   const shorMs = (ns: number): number => levelOf((ns - (ns % 1000000)) / 1000000)
   const capacityRef = capacityMd.replace(/^## Quantum capacity/m, '### Quantum capacity')
 
