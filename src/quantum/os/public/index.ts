@@ -42,7 +42,23 @@ const NEWS_APIS: PublicApiEntry[] = [
     honest: 'Featured RSS feed — articles are AUDITED by the news portal, not auto-sealed.' },
 ]
 
+/** Doors whose REST base is not the host root, or whose scope must be said in its own words rather than the
+ *  generic research line. Keyed by host, so a door is described once and the sweep list stays a list of names. */
+const RESEARCH_DOOR_OVERRIDES: Record<string, { base?: string; honest?: string }> = {
+  'journals.aas.org': {
+    base: 'https://journals.aas.org/wp-json/wp/v2',
+    honest: 'AAS’s OWN journal pages — scope, policy, author instructions, the pre-submission checklist — through '
+      + 'the keyless WordPress REST API. The ARTICLES are IOP’s, under DOI prefix 10.3847: this door serves none of '
+      + 'them, and a hit here is AAS writing about a journal, never a paper in it.',
+  },
+}
+
 const OTHER_APIS: PublicApiEntry[] = [
+  { id: 'zenodo-communities', host: 'zenodo.org', base: 'https://zenodo.org/api/communities',
+    kind: 'registry', access: 'keyless', direction: 'fetched', sweep: false, heartbeat: true,
+    probe: { query: 'astronomy' },
+    honest: 'The OTHER half of the Zenodo API: who curates what. A community listing is the RECEIPT for a deposit’s '
+      + 'own membership CLAIM — provenance, never peer review, and never a seal.' },
   { id: 'stooq', host: 'stooq.com', base: 'https://stooq.com/q/d/l/', kind: 'market', access: 'keyless',
     direction: 'fetched', sweep: false, heartbeat: false,
     honest: 'Historic series — fetch-once mirror in market.ts; reproducibility, not prophecy.' },
@@ -77,15 +93,17 @@ export function publicApiRegistry(): {
     return {
       id: host.replace(/\./g, '-'),
       host,
-      base: host === 'mathoverflow.net' || host === 'api.stackexchange.com' || host.endsWith('.stackexchange.com')
-        ? 'https://api.stackexchange.com' : `https://${host}`,
+      base: RESEARCH_DOOR_OVERRIDES[host]?.base
+        ?? (host === 'mathoverflow.net' || host === 'api.stackexchange.com' || host.endsWith('.stackexchange.com')
+          ? 'https://api.stackexchange.com' : `https://${host}`),
       kind: 'research' as const,
       access: host === 'crossref.org' || host === 'openalex.org' ? 'mailto-polite' as const : 'keyless' as const,
       direction: 'fetched' as const,
       sweep: true,
       heartbeat: true,
       ...(ext ? { probe: { query: ext.query } } : { probe: { query: 'quantum' } }),
-      honest: 'External research CORROBORATES — provenance fingerprint only; only a by-decide theorem SEALS.',
+      honest: RESEARCH_DOOR_OVERRIDES[host]?.honest
+        ?? 'External research CORROBORATES — provenance fingerprint only; only a by-decide theorem SEALS.',
     }
   })
 

@@ -3,6 +3,8 @@ import assert from 'node:assert/strict'
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { publicApiRegistry, RESEARCH_SOURCE_NAMES } from '../public/index.js'
+import { apiMintReceipt } from '../../../api-mint.js'
+import { handleOf } from '../../../handle.js'
 import { hexbitDoorOf, HANDLE_HEXBITS, UUID_HEXBITS } from '../../../hexbit/index.js'
 import { SCHOOL_APIS } from '../../../school-apis.js'
 import { ROOT } from '../../../boundary.js'
@@ -104,4 +106,18 @@ test('every src fetch host is in publicApiRegistry or SCHOOL_APIS — undeclared
   }
   walk(join(ROOT, 'src'))
   assert.deepEqual(undeclared, [], 'a fetched host must be in publicApiRegistry or SCHOOL_APIS')
+})
+
+// THE ZERO-LEAD HARVEST. A merkle fold of one leaf IS that leaf. api-mint seeded its fold with the raw query
+// string, so any search that produced no mintable lead returned the QUERY as its receipt, and the door built from
+// it threw `handle: "quantum" does not begin with eight hex characters` — a crash that only appeared when a
+// harvest found nothing, which is exactly when nobody is watching. The seed is addressed now; this holds it.
+test('apiMintReceipt folds a zero-lead harvest to a lawful address, not to the query string', () => {
+  const empty = apiMintReceipt('quantum', [])
+  assert.notEqual(empty, 'quantum', 'a one-leaf fold returns the leaf — an unaddressed seed leaks straight out')
+  assert.match(empty, /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/)
+  assert.match(handleOf(empty), /^[0-9a-f]{8}$/, 'the door must open on a harvest that found nothing')
+  // and the fold still SEPARATES: different queries and different leads land on different receipts
+  assert.notEqual(apiMintReceipt('quantum', []), apiMintReceipt('prime', []))
+  assert.notEqual(apiMintReceipt('quantum', []), apiMintReceipt('quantum', [apiMintReceipt('seed', [])]))
 })

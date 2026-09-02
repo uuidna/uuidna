@@ -157,7 +157,7 @@ silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto spe
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `d8e16dc8-45f4-801c-ae52-9ede23e58ce8`.
+*exist* cannot see. Dispatch receipt: `c03aa8c0-d1e7-8bec-8022-29b73f1623ef`.
 
 Report receipt: `b187c6ac-c4c4-868b-90cc-13e4d28975a3` · measured-when as its own handle: `b187c6ac`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point

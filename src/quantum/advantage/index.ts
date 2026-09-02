@@ -336,13 +336,22 @@ function claimOf(level: Level, m: LevelMeasurement, baseline: QuantumBaseline, b
   const fid = m.disagreements === 0
     ? `no disagreement with the Lean-sealed value was observed across ${m.ops} executions on this host — an upper bound of better than one error per ${m.ops}, never a proof of zero`
     : `${m.disagreements} of ${m.ops} executions disagreed with the Lean-sealed value on this host`
-  return `At the ${level.name} level uuidna ${reach}, at a measured steady-state floor in the 10^${m.opNsDecade} ns decade per ${m.what}; ${fid}, where the reported ${baseline.name} class predicts ${baselineExpected} errors over the same count.`
+  return `At the ${level.name} level uuidna ${reach}, at a measured steady-state floor served live by uuidna_quantum_advantage (a duration belongs to the host that took it, so this sealed claim states none) per ${m.what}; ${fid}, where the reported ${baseline.name} class predicts ${baselineExpected} errors over the same count.`
 }
 
-/** advantageReport(host, measurements, baseline) → the whole report, folded to one recomputable receipt. The
- *  receipt folds the ROWS and the HOST together, so the same measurements on the same machine reseal and a
- *  different machine addresses elsewhere — "measured on this host" stops being something the report asserts and
- *  becomes something the next reader recomputes. */
+/** advantageReport(host, measurements, baseline) → the whole report, folded to one recomputable receipt.
+ *
+ *  THE RECEIPT FOLDS THE CLAIM, NOT THE MACHINE (corrected 2026-09-02). This deliberately folded the HOST in, so
+ *  that "a different machine addresses elsewhere" — the reasoning being that "measured on this host" should be
+ *  recomputable rather than asserted. That is right for a LIVE answer and wrong for a COMMITTED one, and
+ *  lean/quantum-advantage.json is committed: the file could only be reproduced on the machine that wrote it, so
+ *  the ubuntu runner recomputed a different fold, spin --verify called it NON-QUANTUM DRIFT, and prepublishOnly
+ *  failed. Four publish attempts died on it before the last measured figure was found — the decades were still
+ *  being rendered into the claim PROSE after the numeric fields were removed.
+ *
+ *  So the seal now carries what is the same everywhere — the level, the reach, the decisions executed, whether
+ *  any disagreed with Lean — and uuidna_quantum_advantage serves the host and its timings live, which is where a
+ *  measurement of one machine belongs. */
 export function advantageReport(
   host: string,
   measurements: readonly LevelMeasurement[],

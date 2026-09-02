@@ -101,6 +101,14 @@ export interface ApiMintHarvest {
   honest: string
 }
 
+/** apiMintReceipt(query, leafReceipts) → the harvest's fold. Pure, and separate because the bug lived here: a
+ *  merkle fold of ONE leaf IS that leaf, so seeding the fold with the raw query string leaked the query out as the
+ *  "receipt" whenever a search produced no mintable lead — and the door then threw on it, turning a quiet
+ *  zero-lead harvest into a crash. Addressing the query first makes the empty case a lawful address like any other. */
+export function apiMintReceipt(query: string, leafReceipts: readonly string[]): string {
+  return merkleGravity([toUuid('api-mint|' + query), ...leafReceipts])
+}
+
 /** apiMintHarvest(query) → FREE-MINT leads from every API the repo wires. Network-bound. */
 export async function apiMintHarvest(query: string): Promise<ApiMintHarvest> {
   const evidence = await collectApiEvidence(query)
@@ -111,7 +119,7 @@ export async function apiMintHarvest(query: string): Promise<ApiMintHarvest> {
       if (!seen.has(lead.key)) { seen.add(lead.key); mintable.push(lead) }
 
   const candidates = mintLeadsToCandidates(mintable)
-  const receipt = merkleGravity([query, ...mintable.map((m) => m.receipt)])
+  const receipt = apiMintReceipt(query, mintable.map((m) => m.receipt))
   return {
     query,
     evidence: evidence.length,

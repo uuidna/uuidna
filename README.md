@@ -211,7 +211,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | uuidna_quantum | 2^n amplitudes | no refuse — theorem n_qubit_dimension |
 | Quantum wing theorems | 58 | Quantum.lean |
 | Cipher wing theorems | 30 | Cipher.lean |
-| Research sources wired | 12 | corroboration, never approval |
+| Research sources wired | 13 | corroboration, never approval |
 | Conserved price paid | 5,164 coins | 2582 × 2 |
 
 - **Alpine catalogue (hexbit port — upgraded with the captain unlocks):** completeness is **man pages testing the apps** folded into hexbits man→app→hexbit 4,757 / 4,757 (100%);

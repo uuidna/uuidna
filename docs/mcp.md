@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="249 keys" />
+# MCP tools <Badge type="tip" text="251 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 249 tools below are read from the server's own tool list and
+is **built from the keys**: the 251 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 665eb430-2de3-82ae-9aad-ecc4c25fdeab
+gate CLEAN f0 d0 v0 · 4c08d921-6757-8fb8-97f2-0e972af7f871
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 249-tool registry folds to its
-order-invariant identity `313303f7-1bfa-82df-b8e2-ce4d490b69f3` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 251-tool registry folds to its
+order-invariant identity `78eaa275-5354-8dc9-bc5b-47f993ba2ef6` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,11 +48,12 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`249`" />
+## The grid <Badge type="tip" :text="`251`" />
 
-249 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 107 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+251 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 109 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
+<a href="#uuidna-aas"><code>aas</code></a>
 <a href="#uuidna-alpine"><code>alpine</code></a>
 <a href="#uuidna-analytics"><code>analytics</code></a>
 <a href="#uuidna-api-mint"><code>api_mint</code></a>
@@ -160,6 +161,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-vortex-invariants"><code>vortex_invariants</code></a>
 <a href="#uuidna-vortex-reflection"><code>vortex_reflection</code></a>
 <a href="#uuidna-vortex-tour"><code>vortex_tour</code></a>
+<a href="#uuidna-zenodo-communities"><code>zenodo_communities</code></a>
 <a href="#uuidna-address"><code>address</code></a>
 <a href="#uuidna-adjudicate"><code>adjudicate</code></a>
 <a href="#uuidna-anchor"><code>anchor</code></a>
@@ -591,7 +593,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'117'" />
+## Other <Badge type="tip" :text="'119'" />
 
 *skill: other*
 
@@ -1797,6 +1799,36 @@ Alpine ships no CERN physics packages: the six catalogue rows matching HEP are H
 | --- | --- | --- | --- |
 | `text` | string | **yes** |  |
 | `limit` | integer | no |  |
+
+### `uuidna_aas`
+
+The AAS journals site (journals.aas.org) through its keyless WordPress REST API: search its pages, or read the pre-submission checklist item by item, each item content-addressed. A door that could not be reached declines with a reason.
+
+The scope is the honest part. journals.aas.org publishes what the SOCIETY says — journal scopes, editorial policy, author instructions, the publication timeline — and that is what this door serves. The articles are IOP’s, under Crossref DOI prefix 10.3847, and none of them is fetched here: a hit titled "The AJ becomes a Gold Open Access journal" is AAS’s own timeline entry about a journal, not a paper in it. The checklist mode reads the requirements AAS publishes for authors and addresses each one, so a citation pins the requirement rather than the page that carried it; uuidna does not judge a manuscript against them and hosts no manuscript to judge. robots.txt allows every path and asks Crawl-delay 10 — one REST request answers one query, and the OS fetch cache makes a repeat free.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `text` | string | no |  |
+| `checklist` | boolean | no |  |
+| `slug` | string | no |  |
+| `limit` | integer | no |  |
+
+### `uuidna_zenodo_communities`
+
+The curation half of the Zenodo API: search communities, read one community’s own record listing, or check a deposit’s community CLAIM against that listing. Three states are kept apart — nothing claimed, claimed but not listed, and carried — and an unreachable door declines instead of voting.
+
+The research sweep already asks zenodo.org for records. Communities were the unwired half, and they are the half that can be VERIFIED from outside: a deposit’s own metadata declares its communities, which is a claim written by the depositor, while the community’s record listing is written by its curators. A record can name a community that does not exist, or one that never accepted it, and the deposit alone cannot tell those apart — so the claim mode asks both doors and reports which of the three states holds. Membership is provenance, never peer review: it says who accepted a deposit, never that its contents are right (theorem provenance_integrity_not_content_truth). A door that did not answer returns declined, because an unread listing is not an absent membership.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `query` | string | no |  |
+| `slug` | string | no |  |
+| `record` | string | no |  |
+| `size` | integer | no |  |
 
 ### `uuidna_port_all`
 

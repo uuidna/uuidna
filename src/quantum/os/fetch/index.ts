@@ -3,6 +3,9 @@ export type DataKind = 'json' | 'csv' | 'text'
 
 export interface Fetched<T> { data: T | null; declined: boolean; note: string }
 
+/** the deadline every port inherits — one bound, so a fan-out costs one deadline and not the sum of its doors */
+export const FETCH_TIMEOUT_MS = 25_000
+
 const isHtml = (contentType: string, body: string): boolean =>
   /text\/html/i.test(contentType) || /^\s*(<!doctype html|<html[\s>])/i.test(body.slice(0, 200))
 
@@ -28,7 +31,18 @@ export async function fetchData<T>(url: string, kind: DataKind, init?: RequestIn
   }
   const accept = kind === 'json' ? 'application/json' : kind === 'csv' ? 'text/csv' : 'text/plain,*/*'
   let r: Response
-  try { r = await fetch(url, { ...init, headers: { accept, ...(init?.headers ?? {}) } }) }
+  try {
+    r = await fetch(url, {
+      ...init,
+      headers: { accept, ...(init?.headers ?? {}) },
+      // A DOOR THAT NEVER ANSWERS IS NOT A DOOR THAT SAYS NO. Without a deadline one unresponsive host held the
+      // whole fan-out open for as long as the socket stayed alive, so a sweep's cost was the SLOWEST host rather
+      // than the deadline — and a hung port read as "still working" instead of declining. The bound is the same
+      // for every port, a caller may pass its own signal for a door known to be slow (zenodo's community listing
+      // takes tens of seconds), and a timeout arrives as a NAMED refusal like any other.
+      signal: init?.signal ?? AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    })
+  }
   catch (e) { return { data: null, declined: true, note: 'unreachable: ' + String((e as Error).message).slice(0, 90) } }
   if (!r.ok) return { data: null, declined: true, note: `responded ${r.status}` }
   const text = await r.text()

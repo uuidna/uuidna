@@ -6309,11 +6309,11 @@ community	imagemagick-static	7.1.2.30-r0	Q1q9teGmS1J2sR/SJ0yxYCteKrKa8=	Collecti
 community	imagemagick-svg	7.1.2.30-r0	Q1oM0N8bXklYavz5svJKBP8Fcil7k=	Collection of tools and libraries for many image formats (SVG support modules)	so:libMagickCore-7.Q16HDRI.so.10 so:libc.musl-x86_64.so.1 so:libcairo.so.2 so:libglib-2.0.so.0 so:libgobject-2.0.so.0 so:librsvg-2.so.2 so:libxml2.so.2	
 community	imagemagick-tiff	7.1.2.30-r0	Q1MWtOJQr+Rs4aW52+71H1UH3DwY8=	Collection of tools and libraries for many image formats (TIFF support modules)	so:libMagickCore-7.Q16HDRI.so.10 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libgomp.so.1 so:libtiff.so.6 so:libz.so.1	
 community	imagemagick-webp	7.1.2.30-r0	Q1bZ81DvxwdcGpOvLLbPQj0F9prRg=	Collection of tools and libraries for many image formats (WebP support modules)	so:libMagickCore-7.Q16HDRI.so.10 so:libc.musl-x86_64.so.1 so:libwebp.so.7 so:libwebpdemux.so.2 so:libwebpmux.so.3	
-community	imapgoose	0.5.3-r1	Q1S5JFRnO9iqnDnuXwkyPorKmpVv8=	Keep local Maildirs synchronised with IMAP mailboxes	so:libc.musl-x86_64.so.1 so:libsqlite3.so.0	cmd:imapgoose=0.5.3-r1
-community	imapgoose-doc	0.5.3-r1	Q15TFcni+8nh2/nnzaClj2NCPbcWw=	Keep local Maildirs synchronised with IMAP mailboxes (documentation)		
-community	imapgoose-openrc	0.5.3-r1	Q19F4Tyzj8OJRqnvLYf/YZqB/u8Zk=	Keep local Maildirs synchronised with IMAP mailboxes (OpenRC init scripts)		
-community	imapgoose-systemd	0.5.3-r1	Q1KCoSTzvxAwhTd2AFkqSeQar+1Ow=	Keep local Maildirs synchronised with IMAP mailboxes (systemd files)		
-community	imapgoose-zsh-completion	0.5.3-r1	Q1TILzTdygRZl4AR7r+6na6S5YFeo=	Zsh completions for imapgoose		
+community	imapgoose	0.5.5-r0	Q1UMNg54gZtao6oI1NN34OX9KCDCs=	Keep local Maildirs synchronised with IMAP mailboxes	so:libc.musl-x86_64.so.1 so:libsqlite3.so.0	cmd:imapgoose=0.5.5-r0
+community	imapgoose-doc	0.5.5-r0	Q1fWespojFggWpZBpCbwR3D/Mk9Kk=	Keep local Maildirs synchronised with IMAP mailboxes (documentation)		
+community	imapgoose-openrc	0.5.5-r0	Q17ePQd/A87t08dLnxP0Pt9NKkAiQ=	Keep local Maildirs synchronised with IMAP mailboxes (OpenRC init scripts)		
+community	imapgoose-systemd	0.5.5-r0	Q1fyfx8lE04fHxHDXbYhD9hENrHwo=	Keep local Maildirs synchronised with IMAP mailboxes (systemd files)		
+community	imapgoose-zsh-completion	0.5.5-r0	Q1yU7uhIXB0Apc8unxwh/CNtZHYTY=	Zsh completions for imapgoose		
 community	imath	3.2.2-r1	Q1NSqUsC33VxnnaJWavUiS4MAhKhk=	C++ and python library of 2D and 3D vector, matrix, and math operations for computer graphics	so:libc.musl-x86_64.so.1 so:libstdc++.so.6	so:libImath-3_2.so.30=30.3.2.2
 community	imath-dev	3.2.2-r1	Q1jZeXAblWvb8MV4+vIk3t/7vcC+g=	C++ and python library of 2D and 3D vector, matrix, and math operations for computer graphics (development files)	imath=3.2.2-r1 py3-imath=3.2.2-r1 pkgconfig	pc:Imath=3.2.2 pc:PyImath=3.2.2
 community	img	0.5.11-r42	Q1PTIve7FfpTO/NWZdv6//ISNpblY=	Standalone, daemon-less, unprivileged Dockerfile and OCI compatible container image builder	runc shadow-subids so:libc.musl-x86_64.so.1	cmd:img=0.5.11-r42

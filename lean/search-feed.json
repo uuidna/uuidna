@@ -91,6 +91,11 @@
       "source": "opendata.cern.ch"
     },
     {
+      "id": "api-journals.aas.org",
+      "query": "open access",
+      "source": "journals.aas.org"
+    },
+    {
       "id": "api-esco",
       "query": "chemistry",
       "source": "esco — ESCO — European Skills, Competences, Qualifications and Occupations"
@@ -199,6 +204,17 @@
       ]
     },
     {
+      "query": "open access",
+      "source": "journals.aas.org",
+      "key": "safe_index_is_total",
+      "principle": "The software-verifiable algebra",
+      "skill": "software",
+      "resonance": 2581,
+      "concepts": [
+        "access"
+      ]
+    },
+    {
       "query": "fifa world cup",
       "source": "Similarweb global volume, FIFA World Cup 2026 knockout phase",
       "key": "code_holds_sixteen_words",
@@ -295,6 +311,50 @@
       "resonance": 2550,
       "concepts": [
         "maps"
+      ]
+    },
+    {
+      "query": "open access",
+      "source": "journals.aas.org",
+      "key": "a_claim_is_verified_or_unverified",
+      "principle": "The report",
+      "skill": "reporting",
+      "resonance": 2544,
+      "concepts": [
+        "open"
+      ]
+    },
+    {
+      "query": "open access",
+      "source": "journals.aas.org",
+      "key": "all_signaling_duality",
+      "principle": "The quantum computer",
+      "skill": "quantum",
+      "resonance": 2544,
+      "concepts": [
+        "open"
+      ]
+    },
+    {
+      "query": "open access",
+      "source": "journals.aas.org",
+      "key": "catalan_counts_the_dyck_words",
+      "principle": "The conveyor's first wave",
+      "skill": "wave",
+      "resonance": 2544,
+      "concepts": [
+        "open"
+      ]
+    },
+    {
+      "query": "open access",
+      "source": "journals.aas.org",
+      "key": "central_four_squares",
+      "principle": "The chess horizon",
+      "skill": "chess",
+      "resonance": 2544,
+      "concepts": [
+        "open"
       ]
     },
     {
@@ -653,8 +713,8 @@
     "api-opendata.cern.ch",
     "api-data-europa"
   ],
-  "receipt": "982f8e81-237f-807b-baa1-08e9b318c4d6",
-  "handle": "982f8e81",
-  "door": "https://uuidna.com/982f8e81",
+  "receipt": "3dd7efad-7ac2-82b6-938f-878829f3c270",
+  "handle": "3dd7efad",
+  "door": "https://uuidna.com/3dd7efad",
   "honest": "Most-searched queries and the wired public APIs (research streams, EU education portals, unanswered math) ring the sealed ledger by resonance. Loud theorems are the ONLINE RESULTS — /theorem/<key> doors. Silent queries and decided-unsealed harvest are LEADS the desk proposes; only the kernel seals, only the captain holds or refuses. Meaning is null. This does not scrape Google. Recomputable. Integrity."
 }

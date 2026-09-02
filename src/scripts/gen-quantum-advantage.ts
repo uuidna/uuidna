@@ -367,6 +367,15 @@ writeFileSync(join(ROOT, 'lean', 'quantum-advantage.json'), JSON.stringify({
   // and ops-per-second decades are served live by uuidna_quantum_advantage, where a measurement belongs.
   report: {
     ...report,
+    // WHETHER THIS HOST'S ESTIMATES AGREED IS NOT A PROPERTY OF THE CLAIM. `unsealable` records the levels whose
+    // independent timing estimates failed to settle on one decade, and `levelsMeasured`/`complete` are read off
+    // it — so all three describe the timing NOISE of the machine that ran the generator. A quiet laptop settles
+    // and a shared CI runner does not, which means these fields differ by host on identical code, and this file
+    // is committed. That is the last of five measured figures that had to come out of it before v0.3.0 could
+    // publish; each one passed locally and failed on ubuntu, which is what a host-dependent seal always does.
+    unsealable: 'served live — whether independent estimates settled on one decade is this host\'s timing noise',
+    levelsMeasured: 'served live — read off the agreement above, so it moves with the host',
+    complete: 'served live — read off the agreement above, so it moves with the host',
     rows: report.rows.map((r) => ({
       ...r,
       cost: { ...r.cost, opNsDecade: 'served live — measured, never sealed', opsPerSecondDecade: 'served live — measured, never sealed', agreedEstimates: 'served live — how many repeated estimates agreed is a fact about this host\'s timing noise' },

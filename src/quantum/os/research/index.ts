@@ -4,6 +4,7 @@ import { nistConstant } from '../../../constants.js'
 import { evidenceRow } from '../../../hexbit/index.js'
 import { GUTENDEX_HEADERS } from '../../../books.js'
 import { fetchCernOpenData } from '../cern/index.js'
+import { fetchAasJournals } from '../aas/index.js'
 import { fetchData } from '../fetch/index.js'
 import type { ResearchEvidence, SourceReading } from '../../../corroborate.js'
 
@@ -185,6 +186,18 @@ const cernOpenDataSource = (io: Io): ExtendedResearchSource => async (query) => 
   } catch (e) { return io.unreached('opendata.cern.ch', e) }
 }
 
+/** journals.aas.org — the AAS journals' own pages via the keyless WordPress REST API (uuidnaOS aas port).
+ *  Corroborates AAS POLICY and TIMELINE, never a paper: the articles are IOP's, under DOI prefix 10.3847. */
+const aasJournalsSource = (io: Io): ExtendedResearchSource => async (query) => {
+  try {
+    const got = await fetchAasJournals(query, 8)
+    if (got.declined) return io.refused('journals.aas.org', got.status ?? 503)
+    const evidence = got.hits.map((h) =>
+      evidenceRow('journals.aas.org', h.address, `AAS ${h.subtype} ${h.id}: ${h.title.slice(0, 80)}`))
+    return io.answered('journals.aas.org', evidence)
+  } catch (e) { return io.unreached('journals.aas.org', e) }
+}
+
 /** en.wikinews.org — news article search (MediaWiki API, keyless). */
 const wikinewsSource = (io: Io): ExtendedResearchSource => async (query) => {
   try {
@@ -200,11 +213,12 @@ const wikinewsSource = (io: Io): ExtendedResearchSource => async (query) => {
 
 export const EXTENDED_RESEARCH_SOURCE_NAMES: readonly string[] = [
   'arxiv.org', 'mathoverflow.net', 'en.wikipedia.org', 'gutendex.com', 'open-meteo.com', 'en.wikinews.org', 'opendata.cern.ch',
+  'journals.aas.org',
 ]
 
-/** extendedResearchSources(io) → the seven streams beyond the original five academic archives. */
+/** extendedResearchSources(io) → the eight streams beyond the original five academic archives. */
 export function extendedResearchSources(io: Io): ExtendedResearchSource[] {
-  return [arxivSource(io), mathOverflowSource(io), wikipediaSource(io), gutendexSource(io), openMeteoSource(io), wikinewsSource(io), cernOpenDataSource(io)]
+  return [arxivSource(io), mathOverflowSource(io), wikipediaSource(io), gutendexSource(io), openMeteoSource(io), wikinewsSource(io), cernOpenDataSource(io), aasJournalsSource(io)]
 }
 
 /** probe query each extended source accepts — the heartbeat's known-good ask. */
@@ -216,6 +230,7 @@ export const EXTENDED_RESEARCH_PROBES: readonly { id: string; query: string }[] 
   { id: 'open-meteo.com', query: 'Sofia' },
   { id: 'en.wikinews.org', query: 'science' },
   { id: 'opendata.cern.ch', query: 'CMS Higgs' },
+  { id: 'journals.aas.org', query: 'open access' },
 ]
 
 /** every wired research stream by name — core five plus extended seven. */

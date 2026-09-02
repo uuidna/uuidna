@@ -4,7 +4,7 @@ aside: true
 outline: [2, 3]
 ---
 
-# Public APIs <Badge type="tip" text="28 doors" />
+# Public APIs <Badge type="tip" text="30 doors" />
 
 <!-- GENERATED from publicApiRegistry() by scripts/gen-apis — DO NOT EDIT. -->
 
@@ -13,7 +13,7 @@ Every keyless public door this repository names, probes, or sweeps — one catal
 [`two_coins`](/theorem/two_coins)). Empty `uuidna_api_mint` serves the same object at the edge. A host that is
 fetched under `src/` and is not here is a gap the tests name.
 
-**28 APIs** · sweep 12 · door [`56115d40`](https://uuidna.com/56115d40) · receipt `56115d40-7779-88b5-9c42-43fe129e302d`
+**30 APIs** · sweep 13 · door [`9d6a949f`](https://uuidna.com/9d6a949f) · receipt `9d6a949f-adeb-88ca-ac62-897f2b5bc039`
 
 EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a named public EU source answered when it was asked, and only a `by decide` theorem SEALS. The rows are passed through unaltered and are never fabricated — an unreachable source returns nothing, which is an absence, not a refutation. The parse and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth.
 
@@ -33,6 +33,7 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 | `open-meteo-com` | open-meteo.com | research | keyless | fetched | yes | yes |
 | `en-wikinews-org` | en.wikinews.org | research | keyless | fetched | yes | yes |
 | `opendata-cern-ch` | opendata.cern.ch | research | keyless | fetched | yes | yes |
+| `journals-aas-org` | journals.aas.org | research | keyless | fetched | yes | yes |
 
 ## EU education
 
@@ -65,9 +66,10 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 
 | id | host | kind | access | direction | sweep | heartbeat |
 | --- | --- | --- | --- | --- | --- | --- |
+| `zenodo-communities` | zenodo.org | registry | keyless | fetched | no | yes |
 | `stooq` | stooq.com | market | keyless | fetched | no | no |
 | `beacon-nist` | beacon.nist.gov | metadata | keyless | fetched | no | no |
 | `nvd` | services.nvd.nist.gov | registry | keyless | fetched | no | no |
 | `uuidna-site` | uuidna.com | served | served-not-fetched | served | no | no |
 
-Cite handle `https://uuidna.com/56115d40`.
+Cite handle `https://uuidna.com/9d6a949f`.

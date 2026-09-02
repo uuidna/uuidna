@@ -7,6 +7,7 @@
 import { landingGaps } from './landing-gaps.js'
 import { impossibilityGaps } from './impossibility-gaps.js'
 import { ratchetGaps } from './ratchet-gaps.js'
+import { leakGaps } from './leak-scan.js'
 import { RATCHETS } from './ratchets.js'
 import { sourceGraph } from '../test-paths.js'
 /** the declared debt — files already carrying bare impossibility claims. May only shrink. */
@@ -258,6 +259,14 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // sealed in the ledger, and the measure's OWN address before the reading — because a number checked against a
   // ceiling set by a different ruler is worse than an unchecked number, it is a confident verdict about nothing.
   { name: 'ratchet', run: () => ratchetGaps(RATCHETS) },
+  // NOTHING LOOKED AT WHAT THE BYTES CONTAIN (the captain, 2026-09-02: "there are git leaks not caught pre
+  // push"). pre-push ran guard, the court and reconcile, and not one of them read a committed file for a
+  // credential or for this machine's hardware. lean/quantum-advantage.json carried a `device` object — cpu
+  // model, core count, installed memory — committed and served publicly, and no gate objected for the whole life
+  // of that generator. CI failed it eventually, but only as a determinism drift on a runner with different
+  // hardware: a privacy leak caught by accident, and only because it happened to be non-reproducible. A
+  // credential reproduces perfectly on every host and would never have been caught at all.
+  { name: 'leak', run: () => leakGaps().map((l) => ({ what: `${l.file}:${l.line} — ${l.kind}`, fix: l.why })) },
   // THE MIRROR MUST AGREE BY VALUE— a js mirror doing Number arithmetic past 2^53 can round to
   // the SAME wrong value as the Lean it is checked against and pass emit()'s comparison by luck. Three mirrors
   // needed BigInt in one session (2026-08-19); the third was caught by hand, which is what makes it a finder.

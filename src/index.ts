@@ -785,6 +785,10 @@ export { portAll, renderPortAll, type PortAllCensus } from './quantum/os/portall
 export { displayGaps, homoglyphCensus, type DisplayGap, type HomoglyphCensus } from './quantum/os/homoglyph/index.js'
 // CERN open data — the port existed with no door on either surface, which is a capability nobody has
 export { fetchCernOpenData, cernPortSearch, renderCernPort, CERN_OD, CERN_PROBE_QUERY, type CernRecord, type CernFetchResult, type CernPortResult } from './quantum/os/cern/index.js'
+// AAS journals — the society's own pages (policy, scope, the pre-submission checklist) through the keyless WP REST API
+export { fetchAasJournals, fetchAasPage, aasPortSearch, aasChecklist, renderAasPort, renderAasChecklist, decodeEntities, stripHtml, listItemsOf, AAS_HOST, AAS_WP, AAS_PROBE_QUERY, AAS_CHECKLIST_SLUG, AAS_DOI_PREFIX, type AasHit, type AasFetchResult, type AasPage, type AasPageResult, type AasPortResult, type AasChecklistResult } from './quantum/os/aas/index.js'
+// Zenodo COMMUNITIES — the curation half of the API, and the claim/receipt check a deposit's own metadata cannot do
+export { zenodoCommunities, zenodoCommunity, verifyZenodoCommunityClaim, renderZenodoCommunities, renderZenodoCommunity, renderZenodoCommunityClaim, ZENODO_API, ZENODO_COMMUNITIES, ZENODO_PROBE_QUERY, UUIDNA_COMMUNITY, type ZenodoCommunity, type ZenodoCommunityRecord, type ZenodoCommunitiesResult, type ZenodoCommunityResult, type ZenodoCommunityClaim } from './quantum/os/zenodo/index.js'
 // the school graded in the student's own currency, and the payloadless space argument beside it
 // refusals — every refusal with its boundary, and whether that boundary survived scrutiny
 // an agent declares what it spent, beside what the tree can show it produced

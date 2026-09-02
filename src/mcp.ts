@@ -85,6 +85,8 @@ import { engApi, quantity, qMul, qDiv, qAdd, qSub, dimUnit, DIMENSIONLESS, type 
 import { uiApi } from './quantum/os/uiapi/index.js'
 import { portAll } from './quantum/os/portall/index.js'
 import { cernPortSearch } from './quantum/os/cern/index.js'
+import { aasPortSearch, aasChecklist, AAS_CHECKLIST_SLUG } from './quantum/os/aas/index.js'
+import { zenodoCommunities, zenodoCommunity, verifyZenodoCommunityClaim } from './quantum/os/zenodo/index.js'
 import { refusalCensus } from './school/refusals/index.js'
 import { declareSpend } from './coin-ledger.js'
 import { chatApi, chatSend } from './quantum/os/chat/index.js'
@@ -1714,6 +1716,24 @@ const TOOLS: Tool[] = ([
     detail: 'Alpine ships no CERN physics packages: the six catalogue rows matching HEP are Homer Encapsulation Protocol, a VoIP capture agent, not High Energy Physics. So this port reaches the source directly at opendata.cern.ch rather than through the mirror. Each record is content-addressed, so a citation pins the record rather than the query that found it. Evidence only: a fetched record is never sealed, because a remote answer carries provenance rather than truth (theorem provenance_integrity_not_content_truth) and the network is the one source this tree refuses to treat as a witness.',
     inputSchema: { type: 'object', properties: { text: { type: 'string' }, limit: { type: 'integer' } }, required: ['text'] },
     run: async (a) => cernPortSearch(String(a.text), a.limit === undefined ? 8 : Number(a.limit)) },
+  { name: 'uuidna_aas',
+    description: 'The AAS journals site (journals.aas.org) through its keyless WordPress REST API: search its pages, or read the pre-submission checklist item by item, each item content-addressed. A door that could not be reached declines with a reason.',
+    detail: 'The scope is the honest part. journals.aas.org publishes what the SOCIETY says — journal scopes, editorial policy, author instructions, the publication timeline — and that is what this door serves. The articles are IOP’s, under Crossref DOI prefix 10.3847, and none of them is fetched here: a hit titled "The AJ becomes a Gold Open Access journal" is AAS’s own timeline entry about a journal, not a paper in it. The checklist mode reads the requirements AAS publishes for authors and addresses each one, so a citation pins the requirement rather than the page that carried it; uuidna does not judge a manuscript against them and hosts no manuscript to judge. robots.txt allows every path and asks Crawl-delay 10 — one REST request answers one query, and the OS fetch cache makes a repeat free.',
+    inputSchema: { type: 'object', properties: { text: { type: 'string' }, checklist: { type: 'boolean' }, slug: { type: 'string' }, limit: { type: 'integer' } } },
+    run: async (a) => (a.checklist === true || (a.text === undefined && a.slug !== undefined))
+      ? aasChecklist(a.slug === undefined ? AAS_CHECKLIST_SLUG : String(a.slug))
+      : a.text === undefined
+        ? aasChecklist(AAS_CHECKLIST_SLUG)
+        : aasPortSearch(String(a.text), a.limit === undefined ? 8 : Number(a.limit)) },
+  { name: 'uuidna_zenodo_communities',
+    description: 'The curation half of the Zenodo API: search communities, read one community’s own record listing, or check a deposit’s community CLAIM against that listing. Three states are kept apart — nothing claimed, claimed but not listed, and carried — and an unreachable door declines instead of voting.',
+    detail: 'The research sweep already asks zenodo.org for records. Communities were the unwired half, and they are the half that can be VERIFIED from outside: a deposit’s own metadata declares its communities, which is a claim written by the depositor, while the community’s record listing is written by its curators. A record can name a community that does not exist, or one that never accepted it, and the deposit alone cannot tell those apart — so the claim mode asks both doors and reports which of the three states holds. Membership is provenance, never peer review: it says who accepted a deposit, never that its contents are right (theorem provenance_integrity_not_content_truth). A door that did not answer returns declined, because an unread listing is not an absent membership.',
+    inputSchema: { type: 'object', properties: { query: { type: 'string' }, slug: { type: 'string' }, record: { type: 'string' }, size: { type: 'integer' } } },
+    run: async (a) => a.record !== undefined
+      ? verifyZenodoCommunityClaim(String(a.record), a.size === undefined ? 25 : Number(a.size))
+      : a.slug !== undefined
+        ? zenodoCommunity(String(a.slug), a.size === undefined ? 8 : Number(a.size))
+        : zenodoCommunities(a.query === undefined ? 'astronomy' : String(a.query), a.size === undefined ? 8 : Number(a.size)) },
   { name: 'uuidna_port_all',
     description: 'Every package in the catalogue, ported. All 28,635 carry a port identity; 11,370 are also placed in a named domain and 17,265 are not. Both numbers, never averaged.',
     detail: 'Identity is arithmetic over published metadata — name, version, checksum, repo, branch, arch folded to an address — so it needs no pattern and no opinion, and that half was complete before anyone asked. Classification is a measurement with known failures. Widening the patterns to close the gap raises the second number and lowers its meaning: loosening bio collects ovmf and dmidecode because their descriptions contain BIOS, loosening chemistry collects btrbk and newsboat because theirs say atomic. The unclassified remainder is described by name prefix rather than dismissed — language bindings, vendored SDKs, desktop stacks, fonts.',

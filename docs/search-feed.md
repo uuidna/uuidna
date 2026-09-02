@@ -13,8 +13,8 @@ yet seal, is a **lead** the desk proposes. Only the kernel seals; only the capta
 ([`legal_only_the_proven_is_admitted`](/theorem/legal_only_the_proven_is_admitted),
 [`two_coins`](/theorem/two_coins)). Meaning is null.
 
-Fold receipt `982f8e81-237f-807b-baa1-08e9b318c4d6` · hexbit door [`982f8e81`](https://uuidna.com/982f8e81) ·
-42 door(s) · 11 lead(s) · 10 silent
+Fold receipt `3dd7efad-7ac2-82b6-938f-878829f3c270` · hexbit door [`3dd7efad`](https://uuidna.com/3dd7efad) ·
+47 door(s) · 11 lead(s) · 10 silent
 .
 
 ## Online results — loud theorems the queries already ring
@@ -29,6 +29,7 @@ Fold receipt `982f8e81-237f-807b-baa1-08e9b318c4d6` · hexbit door [`982f8e81`](
 | quantum advantage ([`n_qubit_dimension`](/theorem/n_qubit_dimension) bounds the classical simulation) | [`gate_error_baseline_class`](/theorem/gate_error_baseline_class) | quantum | 5053 |
 | mathematics | [`hasse_bound_holds_at_four_primes`](/theorem/hasse_bound_holds_at_four_primes) | clay | 2581 |
 | weather | [`naismith_rule_estimate`](/theorem/naismith_rule_estimate) | topography | 2581 |
+| open access | [`safe_index_is_total`](/theorem/safe_index_is_total) | software | 2581 |
 | fifa world cup | [`code_holds_sixteen_words`](/theorem/code_holds_sixteen_words) | hamming | 2574 |
 | fifa world cup | [`combinatorial_book_exceeds_handles`](/theorem/combinatorial_book_exceeds_handles) | wave | 2574 |
 | fifa world cup | [`depolarisation_blocks_firing`](/theorem/depolarisation_blocks_firing) | neuro | 2574 |
@@ -38,6 +39,10 @@ Fold receipt `982f8e81-237f-807b-baa1-08e9b318c4d6` · hexbit door [`982f8e81`](
 | maps | [`agl9_pair_action_is_sharp_on_unit_differences`](/theorem/agl9_pair_action_is_sharp_on_unit_differences) | wave | 2550 |
 | maps | [`censuses_differ`](/theorem/censuses_differ) | reversal | 2550 |
 | maps | [`codons_four_cubed`](/theorem/codons_four_cubed) | cipher | 2550 |
+| open access | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) | reporting | 2544 |
+| open access | [`all_signaling_duality`](/theorem/all_signaling_duality) | quantum | 2544 |
+| open access | [`catalan_counts_the_dyck_words`](/theorem/catalan_counts_the_dyck_words) | wave | 2544 |
+| open access | [`central_four_squares`](/theorem/central_four_squares) | chess | 2544 |
 | chemistry | [`alpine_chemistry_tiers_partition_54`](/theorem/alpine_chemistry_tiers_partition_54) | wave | 2540 |
 | chemistry | [`alpine_dom_ar_ch_ie_56`](/theorem/alpine_dom_ar_ch_ie_56) | wave | 2540 |
 | chemistry | [`alpine_dom_bi_ch_ie_5`](/theorem/alpine_dom_bi_ch_ie_5) | wave | 2540 |
@@ -119,6 +124,7 @@ not a search string and stays out.
 - **Sofia** — open-meteo.com
 - **science** — en.wikinews.org
 - **CMS Higgs** — opendata.cern.ch
+- **open access** — journals.aas.org
 - **chemistry** — esco — ESCO — European Skills, Competences, Qualifications and Occupations
 - **education** — data-europa — data.europa.eu — the EU open data catalogue
 - **quantum** — cordis — CORDIS — EU research projects and Horizon programme topics
