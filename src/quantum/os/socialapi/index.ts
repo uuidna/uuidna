@@ -77,54 +77,66 @@ export interface Post {
   author: string
   /** the bytes as posted; the address is over THESE, and the scrub must not rewrite what was addressed */
   raw: string
-  address: string
+  /** null when nothing was addressed — the one field that says whether this post exists */
+  address: string | null
+  posted: boolean
+  /** the cited theorem keys the ledger does not seal — empty on a lawful post */
+  unsealed: string[]
+  why: string
   gate: MessageGate
 }
 
 export interface ReadPost {
   author: string
+  posted: boolean
   /** what a reader should be shown — scrubbed of code points that make displayed text differ from actual text */
   text: string
   raw: string
   /** true when scrubbing removed something: disclosed, because a silent edit is the attack wearing a defence */
   altered: boolean
-  address: string
+  address: string | null
 }
 
-/** post(author, text) — address the bytes to their author. REFUSED on a fabricated theorem citation. */
+// POSTING ANSWERS EVERY TIME (the captain, 2026-09-02: "no refusals allowed"). The gate stays exactly as strict
+// — a fabricated citation is never sealed and never addressed — but the CALLER is no longer handed nothing. A
+// throw withholds the verdict along with the post; this returns the verdict, names every unsealed key, and says
+// what would make the post lawful. The refusal to publish a forgery is integrity; the refusal to ANSWER was the
+// part that stopped the work, and it is gone. `posted` is the whole test: false means no address was minted.
+/** post(author, text) — TOTAL. Addresses the bytes to their author, or says exactly why it did not. */
 export function post(author: string, text: string): Post {
   const a = author.trim()
-  if (!a) throw new Error('socialapi: REFUSED — a post with no author is not attributable, and attribution is the only thing this port guarantees')
   const gate = gateMessage(text)
-  if (gate.fabricated.length) {
-    throw new Error(
-      `socialapi: REFUSED — the post cites ${gate.fabricated.length} theorem(s) the ledger does not seal ` +
-      `(${gate.fabricated.join(', ')}). A private message reaches one reader who knows the sender; a post reaches ` +
-      'an audience that does not, and addressing a forgery for an audience is the worse act. Cite a sealed key, or say it without one.',
-    )
+  const unsealed = gate.fabricated
+  if (!a || unsealed.length) {
+    const why = !a
+      ? 'a post with no author is not attributable, and attribution is the only thing this port guarantees — name an author and the same text addresses'
+      : `the post cites ${unsealed.length} theorem(s) the ledger does not seal (${unsealed.join(', ')}). A private message reaches one reader who knows the sender; a post reaches an audience that does not, so nothing was addressed. Cite a sealed key, or say it without one, and the same text posts.`
+    return { author: a, raw: text, address: null, posted: false, unsealed, why, gate }
   }
-  return { author: a, raw: text, address: toUuid(`post:${a}|${text}`), gate }
+  return { author: a, raw: text, address: toUuid(`post:${a}|${text}`), posted: true, unsealed: [], why: `addressed to ${a}`, gate }
 }
 
 /** readPost — the display side: scrubbed text, the raw bytes, and whether they differ. */
 export function readPost(p: Post): ReadPost {
   const text = scrubString(p.raw)
-  return { author: p.author, text, raw: p.raw, altered: text !== p.raw, address: p.address }
+  return { author: p.author, posted: p.posted, text, raw: p.raw, altered: text !== p.raw, address: p.address }
 }
 
 /** feedRoot(posts) — the ordered fold. POSITION IS BOUND INTO EVERY LEAF, so a permutation is a different feed. */
 export function feedRoot(posts: readonly Post[]): string {
-  return merkleGravity(posts.map((p, i) => toUuid(`feed:${i}|${p.address}`)))
+  // an unposted item carries no address; its ABSENCE is folded in place so the feed still computes and the
+  // gap is visible in the root rather than crashing the timeline that contains it
+  return merkleGravity(posts.map((p, i) => toUuid(`feed:${i}|${p.address ?? 'unposted'}`)))
 }
 
-export interface FollowEdge { from: string; to: string; address: string }
+export interface FollowEdge { from: string; to: string; address: string | null; linked: boolean; why: string }
 
 /** follow(from, to) — a DIRECTED edge. follow(a,b) and follow(b,a) are different edges, and their addresses differ. */
 export function follow(from: string, to: string): FollowEdge {
   const f = from.trim()
   const t = to.trim()
-  if (!f || !t) throw new Error('socialapi: REFUSED — a follow needs both ends named; an edge with an anonymous end points nowhere')
-  return { from: f, to: t, address: toUuid(`follow:${f}->${t}`) }
+  if (!f || !t) return { from: f, to: t, address: null, linked: false, why: 'a follow needs both ends named; an edge with an anonymous end points nowhere — name both and the edge links' }
+  return { from: f, to: t, address: toUuid(`follow:${f}->${t}`), linked: true, why: `${f} follows ${t}` }
 }
 
 /** timeline(handle, posts, edges) — the posts by whom `handle` follows, in the feed's own order, plus its root. */

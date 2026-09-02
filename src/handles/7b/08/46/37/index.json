@@ -1,0 +1,12 @@
+{
+  "handle": "7b084637",
+  "address": "7b084637-ea5f-8567-953b-956f14192463",
+  "kind": "chunk",
+  "keys": [
+    "quantum_types_decide_before_computing_121"
+  ],
+  "statement": "(11 + 110 = 121) ∧ (27 < 121) ∧ (7 < 110)",
+  "files": [
+    "Wave.lean"
+  ]
+}

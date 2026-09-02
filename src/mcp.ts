@@ -81,7 +81,7 @@ import { priorArt } from './priorart.js'
 import type { Sealed, GateOp, QState, Link } from './index.js'
 import { portsCensus } from './quantum/os/ports/index.js'
 import { socialApi, post, readPost, feedRoot, follow, timeline, type Post } from './quantum/os/socialapi/index.js'
-import { engApi, quantity, qMul, qDiv, qAdd, dimUnit, DIMENSIONLESS, type Dim } from './quantum/os/engapi/index.js'
+import { engApi, quantity, qMul, qDiv, qAdd, qSub, dimUnit, DIMENSIONLESS, type Dim, type Quantity } from './quantum/os/engapi/index.js'
 import { uiApi } from './quantum/os/uiapi/index.js'
 import { portAll } from './quantum/os/portall/index.js'
 import { cernPortSearch } from './quantum/os/cern/index.js'
@@ -1685,12 +1685,24 @@ const TOOLS: Tool[] = ([
     run: (a) => {
       const q = (x: unknown) => { const o = (x ?? {}) as { num?: unknown; den?: unknown; dim?: unknown }
         return quantity(BigInt(String(o.num ?? 0)), BigInt(String(o.den ?? 1)), (Array.isArray(o.dim) && o.dim.length === 7 ? o.dim.map(Number) : DIMENSIONLESS) as unknown as Dim) }
+      const show = (x: Quantity) => ({ ...x, num: String(x.num), den: String(x.den) })
       if (a.a === undefined || a.b === undefined) return engApi()
       const x = q(a.a); const y = q(a.b)
       const op = String(a.op ?? 'mul')
-      const r = op === 'div' ? qDiv(x, y) : op === 'add' ? qAdd(x, y) : op === 'sub' ? qAdd(x, quantity(-y.num, y.den, y.dim)) : qMul(x, y)
-      return { op, a: { ...x, num: String(x.num), den: String(x.den) }, b: { ...y, num: String(y.num), den: String(y.den) },
-        result: { ...r, num: String(r.num), den: String(r.den) }, unit: dimUnit(r.dim) }
+      // TOTAL AT THE DOOR (the captain: "no refusals allowed"). Every input produces a computed answer. An
+      // unlawful sum returns the exact gap that would make it lawful; a division by a zero quantity returns the
+      // reason rather than dying, because a caller told "no" and nothing else has been given nothing.
+      if (op === 'add' || op === 'sub') {
+        const s = op === 'sub' ? qSub(x, y) : qAdd(x, y)
+        return { op, a: show(x), b: show(y), lawful: s.lawful, result: s.quantity ? show(s.quantity) : null,
+          unit: s.quantity ? s.quantity.unit : null, gap: s.gap, gapUnit: s.gapUnit, why: s.why }
+      }
+      if (op === 'div' && y.num === 0n) {
+        return { op, a: show(x), b: show(y), lawful: false, result: null, unit: null,
+          why: 'division by a zero quantity has no exact value — reported rather than thrown, and never answered with a float Infinity that would be wrong quietly' }
+      }
+      const r = op === 'div' ? qDiv(x, y) : qMul(x, y)
+      return { op, a: show(x), b: show(y), lawful: true, result: show(r), unit: dimUnit(r.dim) }
     } },
   { name: 'uuidna_refusals',
     description: 'Every refusal with its boundary, classified as a law, a scope or an incapacity, and whether that boundary survived scrutiny. Withdrawn refusals are kept beside the ones that held.',

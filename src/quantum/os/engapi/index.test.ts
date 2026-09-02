@@ -1,15 +1,39 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { quantity, qMul, qDiv, qAdd, qSub, qEq, dimUnit, engApi, DIMENSIONLESS, DERIVED, BASE_DIMENSIONS, type Dim } from './index.js'
+import { quantity, qMul, qDiv, qAdd, qSub, qEq, dimUnit, engApi, typeAdvantage, DIMENSIONLESS, DERIVED, BASE_DIMENSIONS, type Dim } from './index.js'
 
 const N: Dim = [1, 1, -2, 0, 0, 0, 0]
 const M: Dim = [1, 0, 0, 0, 0, 0, 0]
 const S: Dim = [0, 0, 1, 0, 0, 0, 0]
 
-test('the refusal IS the product — a length plus a time is not a quantity', () => {
-  assert.throws(() => qAdd(quantity(1n, 1n, M), quantity(1n, 1n, S)), /REFUSED/)
-  assert.throws(() => qSub(quantity(1n, 1n, M), quantity(1n, 1n, S)), /REFUSED/)
-  assert.equal(qAdd(quantity(1n, 2n, M), quantity(1n, 3n, M)).num, 5n)   // and it adds when it may
+test('an unlawful sum COMPUTES — it returns the gap that would make it lawful, never a throw', () => {
+  const bad = qAdd(quantity(1n, 1n, M), quantity(1n, 1n, S))
+  assert.equal(bad.lawful, false)
+  assert.equal(bad.quantity, null)                    // the wrong NUMBER is still withheld
+  assert.deepEqual([...bad.gap], [1, 0, -1, 0, 0, 0, 0])   // m − s: exactly the factor the second operand lacks
+  assert.equal(bad.gapUnit, 'm·s⁻¹')
+  assert.match(bad.why, /Multiply the second operand/)
+  // and the gap is the CURE, not a label: apply it and the same sum becomes lawful
+  const fixed = qAdd(quantity(1n, 1n, M), qMul(quantity(1n, 1n, S), quantity(1n, 1n, bad.gap)))
+  assert.equal(fixed.lawful, true)
+  assert.equal(fixed.quantity!.num, 2n)
+})
+
+test('a lawful sum carries the value, and subtraction is the same totality', () => {
+  const ok = qAdd(quantity(1n, 2n, M), quantity(1n, 3n, M))
+  assert.equal(ok.lawful, true)
+  assert.equal(ok.quantity!.num, 5n)
+  assert.equal(ok.quantity!.den, 6n)
+  assert.equal(qSub(quantity(1n, 1n, M), quantity(1n, 1n, S)).lawful, false)
+  assert.equal(qSub(quantity(3n, 1n, M), quantity(1n, 1n, M)).quantity!.num, 2n)
+})
+
+test('types decide before anything computes — and the count refutes closure', () => {
+  const t = typeAdvantage()
+  assert.equal(t.addLawful + t.addCarriesGap, t.orderedPairs)
+  assert.equal(t.multiplyAccepts, t.orderedPairs)        // multiplication is TOTAL on the type system
+  assert.ok(t.namedProducts < t.orderedPairs)            // the NAMED table is not closed, and says so
+  assert.equal(t.comparisonsPerCheck, 7)
 })
 
 test('multiply then divide is EXACT — the same num/den pair, not a rounding of it', () => {

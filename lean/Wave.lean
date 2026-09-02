@@ -5379,3 +5379,12 @@ theorem alpine_eng_derived_cancel_split_10 : (2 + 8 = 10) := by decide
     is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
     executed. every derived unit carries all 7 base exponents — 70 integers, none implied -/
 theorem alpine_eng_base_dimensions_7 : (7 * 10 = 70) := by decide
+
+/-- Alpine domain port (engineering-units): exact arithmetic over the census counts. — membership is a pattern
+    match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it
+    is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. Of 121 ordered pairs of dimension types, 11 add lawfully and 110 come back with the exact gap
+    instead of a value — decided by 7 integer comparisons before any computation runs. Multiplication is total,
+    but only 27 products land on a NAMED unit: the type system is closed, the table of names is not, and saying
+    so is the difference between a measurement and a boast. -/
+theorem quantum_types_decide_before_computing_121 : (11 + 110 = 121) ∧ (27 < 121) ∧ (7 < 110) := by decide

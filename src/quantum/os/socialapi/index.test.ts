@@ -19,11 +19,23 @@ test('a feed is ORDERED — position is bound, so a permutation is a different f
 
 test('a follow is DIRECTED — being read is not the same as reading', () => {
   assert.notEqual(follow('a', 'b').address, follow('b', 'a').address)
-  assert.throws(() => follow('a', '  '), /both ends named/)
 })
 
-test('a fabricated citation is REFUSED, because a post reaches strangers', () => {
-  assert.throws(() => post('mallory', 'Backed by theorem no_such_theorem_anywhere'), /REFUSED/)
+test('a fabricated citation posts NOTHING but still ANSWERS — no address, and the reason named', () => {
+  const p = post('mallory', 'Backed by theorem no_such_theorem_anywhere')
+  assert.equal(p.posted, false)
+  assert.equal(p.address, null)                       // nothing was addressed: the gate is unchanged
+  assert.deepEqual(p.unsealed, ['no_such_theorem_anywhere'])
+  assert.match(p.why, /the ledger does not seal/)
+  // and the cure computes: drop the forged citation and the same author posts
+  assert.equal(post('mallory', 'said plainly, uncited').posted, true)
+})
+
+test('an anonymous end answers too — the edge does not link, and says why', () => {
+  const e = follow('a', '  ')
+  assert.equal(e.linked, false)
+  assert.equal(e.address, null)
+  assert.match(e.why, /both ends named/)
 })
 
 test('the scrub is disclosed, never silent — and the raw bytes survive it', () => {

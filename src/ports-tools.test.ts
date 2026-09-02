@@ -117,15 +117,23 @@ test('uuidna_social — a post is addressed to its author, and the feed is order
   assert.ok(census.ported.packages > 0 && census.shelves.length === 6)
 })
 
-test('uuidna_social — a post citing an unsealed theorem is REFUSED at the door', () => {
-  assert.throws(() => callTool('uuidna_social', { author: 'mallory', text: 'Backed by theorem no_such_theorem_at_all' }), /REFUSED/)
+test('uuidna_social — an unsealed citation posts nothing and still answers at the door', () => {
+  const p = callTool('uuidna_social', { author: 'mallory', text: 'Backed by theorem no_such_theorem_at_all' }) as { posted: boolean; address: string | null }
+  assert.equal(p.posted, false)
+  assert.equal(p.address, null)
 })
 
 test('uuidna_engineering — exponents compose, and a mismatched sum is refused', () => {
   const r = callTool('uuidna_engineering', { op: 'mul', a: { num: 3, den: 1, dim: [1, 1, -2, 0, 0, 0, 0] }, b: { num: 2, den: 1, dim: [1, 0, 0, 0, 0, 0, 0] } }) as { unit: string; result: { num: string } }
   assert.equal(r.unit, 'J')                              // force × distance = energy, named back from the vector
   assert.equal(r.result.num, '6')
-  assert.throws(() => callTool('uuidna_engineering', { op: 'add', a: { num: 1, den: 1, dim: [1, 0, 0, 0, 0, 0, 0] }, b: { num: 1, den: 1, dim: [0, 0, 1, 0, 0, 0, 0] } }), /REFUSED/)
+  const bad = callTool('uuidna_engineering', { op: 'add', a: { num: 1, den: 1, dim: [1, 0, 0, 0, 0, 0, 0] }, b: { num: 1, den: 1, dim: [0, 0, 1, 0, 0, 0, 0] } }) as { lawful: boolean; result: unknown; gapUnit: string }
+  assert.equal(bad.lawful, false)
+  assert.equal(bad.result, null)          // the wrong number is withheld
+  assert.equal(bad.gapUnit, 'm·s⁻¹')      // and the factor that would make it lawful is handed back
+  const byZero = callTool('uuidna_engineering', { op: 'div', a: { num: 1, den: 1, dim: [1, 0, 0, 0, 0, 0, 0] }, b: { num: 0, den: 1, dim: [0, 0, 1, 0, 0, 0, 0] } }) as { lawful: boolean; why: string }
+  assert.equal(byZero.lawful, false)
+  assert.match(byZero.why, /no exact value/)
   const census = callTool('uuidna_engineering', {}) as { base: unknown[]; derived: unknown[]; claims: { key: string }[] }
   assert.equal(census.base.length, 7)
   assert.ok(census.derived.length > 0)

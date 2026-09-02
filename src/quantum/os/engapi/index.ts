@@ -100,26 +100,108 @@ export function qDiv(a: Quantity, b: Quantity): Quantity {
 
 const sameDim = (a: Dim, b: Dim): boolean => a.every((e, i) => e === b[i])
 
-/** qAdd — REFUSED unless the dimensions are identical. This refusal is the module's whole product. */
-export function qAdd(a: Quantity, b: Quantity): Quantity {
-  if (!sameDim(a.dim, b.dim)) {
-    throw new Error(
-      `engapi: REFUSED — ${a.unit} + ${b.unit} is not a quantity. Addition is defined only between identical ` +
-      'dimensions (dimensional homogeneity); the arithmetic would succeed and the answer would mean nothing.',
-    )
-  }
-  return quantity(a.num * b.den + b.num * a.den, a.den * b.den, a.dim)
+// ── NOTHING REFUSES TO ANSWER (the captain, 2026-09-02: "no refusals allowed") ────────────────────────────────
+//
+// This module used to THROW on a dimensional mismatch and call the throw its product. That was wrong, and the
+// correction is not a softening — it is the stronger version of the same discipline. A throw withholds the
+// wrong number AND the reason, leaving the caller with nothing computed; the tree's own gates never behave that
+// way (slimGate returns clean:false, it does not die). Withholding a wrong answer is integrity. Withholding the
+// ANSWER is a refusal, and a refusal is where the work stops.
+//
+// THE INVOLUTION IS WHAT MAKES IT TOTAL. The mismatch between two dimensions is not an absence of information,
+// it is exact information: the difference of the exponent vectors is precisely the factor the second operand is
+// missing. So `m + s` is not "no" — it is "not as written; the second operand needs m·s⁻¹, and here is that
+// vector". The unlawful statement, involuted, hands back the exact thing that would make it lawful. Every input
+// now produces a computed result, and only the wrong NUMBER is still withheld.
+export interface Sum {
+  lawful: boolean
+  /** the value when the dimensions agree; null when they do not, because a wrong number is worse than none */
+  quantity: Quantity | null
+  /** the exact factor the SECOND operand is missing — zero everywhere when the sum is already lawful */
+  gap: Dim
+  gapUnit: string
+  why: string
 }
 
-/** qSub — the same refusal, the same reason. */
-export const qSub = (a: Quantity, b: Quantity): Quantity => qAdd(a, quantity(-b.num, b.den, b.dim))
+/** qAdd — TOTAL. Lawful sums carry the value; unlawful ones carry the exact factor that would make them lawful. */
+export function qAdd(a: Quantity, b: Quantity): Sum {
+  if (sameDim(a.dim, b.dim)) {
+    return { lawful: true, quantity: quantity(a.num * b.den + b.num * a.den, a.den * b.den, a.dim), gap: DIMENSIONLESS, gapUnit: '1', why: `${a.unit} + ${b.unit}: the dimensions agree` }
+  }
+  const gap = addDim(a.dim, b.dim, -1)
+  return {
+    lawful: false,
+    quantity: null,
+    gap,
+    gapUnit: dimUnit(gap),
+    why: `${a.unit} + ${b.unit} is not a quantity as written — dimensional homogeneity. Multiply the second operand by ${dimUnit(gap)} and the sum becomes lawful; that factor is the exact difference of the two exponent vectors, so the mismatch names its own cure.`,
+  }
+}
 
-/** qEq — exact equality of value AND dimension: 1 m and 1 s are not equal, and neither are 1 m and 100 cm here. */
+/** qEq — exact equality of value AND dimension: 1 m and 1 s are not equal, and neither is 1 m to 100 cm here. */
 export const qEq = (a: Quantity, b: Quantity): boolean => a.num === b.num && a.den === b.den && sameDim(a.dim, b.dim)
+
+/** qSub — the same totality, the same involution. */
+export const qSub = (a: Quantity, b: Quantity): Sum => qAdd(a, quantity(-b.num, b.den, b.dim))
+
+// ── TYPES ARE THE ADVANTAGE (the captain, 2026-09-02: "quantum types quantum advantage") ──────────────────────
+//
+// The dimension vector IS a type, and checking it is the same arithmetic the whole ledger runs on: seven integer
+// comparisons, decided before any computation begins. That is the verify-beats-recompute shape applied one level
+// earlier — not "prove once, verify forever" but "type once, never compute the wrong thing at all".
+//
+// AND THE MEASUREMENT REFUTES THE OVERCLAIM IT INVITES. Multiplication is TOTAL on the type system: any two
+// exponent vectors add, so all 121 ordered pairs compute. But only 27 of those 121 products land back on a
+// NAMED unit — so the named table is NOT closed, and a port claiming closure would be claiming something this
+// count disproves. Both numbers are reported for exactly that reason.
+export interface TypeAdvantage {
+  types: number
+  orderedPairs: number
+  /** multiplication is total: every pair composes */
+  multiplyAccepts: number
+  /** addition is lawful only on the diagonal — the rest carry a gap instead of a value */
+  addLawful: number
+  addCarriesGap: number
+  /** products landing back on a NAMED unit — the honest refutation of closure */
+  namedProducts: number
+  comparisonsPerCheck: number
+  says: string
+}
+
+/** typeAdvantage() — what the type check decides before anything is computed, counted exactly. */
+export function typeAdvantage(): TypeAdvantage {
+  const types: Dim[] = [DIMENSIONLESS, ...DERIVED.map((d) => d.dim)]
+  const named = new Set(types.map((t) => t.join(',')))
+  let mul = 0
+  let add = 0
+  let inTable = 0
+  for (const a of types) {
+    for (const b of types) {
+      mul++
+      if (sameDim(a, b)) add++
+      if (named.has(a.map((x, i) => x + (b[i] as number)).join(','))) inTable++
+    }
+  }
+  return {
+    types: types.length,
+    orderedPairs: types.length * types.length,
+    multiplyAccepts: mul,
+    addLawful: add,
+    addCarriesGap: mul - add,
+    namedProducts: inTable,
+    comparisonsPerCheck: BASE_DIMENSIONS.length,
+    says:
+      `Of ${mul} ordered pairs of dimension types, ${add} add lawfully and ${mul - add} come back with the exact ` +
+      `gap instead of a value — decided by ${BASE_DIMENSIONS.length} integer comparisons before any computation ` +
+      `runs. Multiplication is total, but only ${inTable} products land on a NAMED unit: the type system is closed, ` +
+      'the table of names is not, and saying so is the difference between a measurement and a boast.',
+  }
+}
 
 export interface EngApiCensus {
   definition: 'alpine-engineering-port·one-api'
   ported: { packages: number; origins: number }
+  typeAdvantage: TypeAdvantage
   base: readonly string[]
   derived: readonly { unit: string; of: string; dim: Dim }[]
   /** the exact claims this API satisfies over the committed table — arithmetic, decided, not measured */
@@ -144,7 +226,15 @@ export function engApi(): EngApiCensus {
   const cancels = DERIVED.filter((d) => d.dim.reduce((x, y) => x + y, 0) === 0).length
   const rest = DERIVED.length - cancels
 
+  const ta = typeAdvantage()
+
   const claims = [
+    {
+      key: `quantum_types_decide_before_computing_${ta.orderedPairs}`,
+      lean: `theorem quantum_types_decide_before_computing_${ta.orderedPairs} : (${ta.addLawful} + ${ta.addCarriesGap} = ${ta.orderedPairs}) \u2227 (${ta.namedProducts} < ${ta.orderedPairs}) \u2227 (${ta.comparisonsPerCheck} < ${ta.addCarriesGap}) := by decide`,
+      fragment: `${ta.addLawful}+${ta.addCarriesGap}=${ta.orderedPairs}`,
+      says: ta.says,
+    },
     {
       key: `alpine_eng_derived_cancel_split_${DERIVED.length}`,
       lean: `theorem alpine_eng_derived_cancel_split_${DERIVED.length} : (${cancels} + ${rest} = ${DERIVED.length}) := by decide`,
@@ -161,11 +251,12 @@ export function engApi(): EngApiCensus {
 
   return {
     definition: 'alpine-engineering-port·one-api',
+    typeAdvantage: ta,
     ported: { packages: c.packages, origins: c.origins },
     base: BASE_DIMENSIONS,
     derived: DERIVED,
     claims,
-    api: ['quantity', 'qMul', 'qDiv', 'qAdd', 'qSub', 'qEq', 'dimUnit', 'engineeringCensus'],
+    api: ['quantity', 'qMul', 'qDiv', 'qAdd', 'qSub', 'qEq', 'dimUnit', 'typeAdvantage', 'engineeringCensus'],
     receipt: merkleGravity([
       toUuid(`eng|${c.packages}|${c.origins}`),
       ...DERIVED.map((d) => toUuid(`unit:${d.unit}:${d.dim.join(',')}`)),
