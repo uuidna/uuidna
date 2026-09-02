@@ -27390,7 +27390,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 421 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 421, not the vendors."
+                      "text": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 423 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 423, not the vendors."
                     }
                   ]
                 },
@@ -27400,7 +27400,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "(((modelContextRows.map (fun r => r.length)).sum) = 421) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)"
+                      "text": "(((modelContextRows.map (fun r => r.length)).sum) = 423) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)"
                     }
                   ]
                 },
@@ -27410,14 +27410,14 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 421) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide"
+                      "text": "theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 423) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide"
                     }
                   ]
                 }
               ]
             }
           },
-          "uuidnaAddress": "91d877d5-cd58-8e57-b828-21f473977eac"
+          "uuidnaAddress": "06c40373-1d9a-86b2-9691-24f7809ff2c1"
         },
         {
           "blockType": "theorem",
@@ -27433,7 +27433,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 421 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted)."
+                      "text": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 423 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted)."
                     }
                   ]
                 },
@@ -27460,7 +27460,7 @@
               ]
             }
           },
-          "uuidnaAddress": "bf716239-9af9-8166-bb8e-6dc531be4359"
+          "uuidnaAddress": "b7fc94c4-d2a1-884f-94bd-7fcef3a38b8f"
         },
         {
           "blockType": "theorem",
@@ -27519,7 +27519,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "text": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 421 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all."
+                      "text": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 423 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all."
                     }
                   ]
                 },
@@ -27546,7 +27546,7 @@
               ]
             }
           },
-          "uuidnaAddress": "f68376f5-2aae-82ba-bfb7-70782fcc5757"
+          "uuidnaAddress": "3cfafd28-1680-85c9-84c9-aea7c25d4e42"
         },
         {
           "blockType": "theorem",
@@ -27635,8 +27635,8 @@
           "uuidnaAddress": "2de6f384-c5fa-8da0-bf58-19f16a2dbe49"
         }
       ],
-      "uuidnaVersion": "c6532b21-addd-83a8-be1d-89748a470000",
-      "uuidnaAddress": "32756c22-f15d-80bd-ac1f-5c9dcf01ecdd"
+      "uuidnaVersion": "c6532b21-ade0-8a48-ab33-f5798ce90000",
+      "uuidnaAddress": "b19c6fa1-f82b-8ad7-8287-281d3b2aea1e"
     },
     {
       "slug": "molecular",

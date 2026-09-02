@@ -157,19 +157,23 @@ test('the monitor does not import the package barrel; VitePress reads constructo
     assert.doesNotMatch(src, /from ['"][^'"]*dist\/index\.js['"]/, `${f} must import constructors, not the package barrel`)
   }
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
-  // THE SSG HEAP IS A BOUNDED WINDOW, and BOTH bounds are measured — this assertion used to pin 4096 exactly,
-  // which was right when it was written and became wrong when the dynamic route grew.
-  //   UPPER: 8192 OOMs the 8 GiB Cloudflare VM (measured earlier; Cloudflare strips NODE_OPTIONS, so the budget
-  //          rides Node's argv by construction, because Cloudflare strips NODE_OPTIONS from the build).
-  //   LOWER: 4096 ABORTS at 5246 dynamic pages — `FATAL ERROR: Ineffective mark-compacts near heap limit` in a
-  //          Workers Build on 2026-09-02, reproduced locally (exit 134) and cleared at 6144 (exit 0, 108s).
-  // So the value lives strictly between them, and this is the ONE place that holds it — worker.test.ts holds the
-  // CI-only branch that pays it, and deliberately asserts no number of its own.
-  const heap = /--max-old-space-size=(\d+)/.exec(pkg.scripts['docs:build'] ?? '')
-  assert.ok(heap, 'the SSG budget must ride Node argv — Cloudflare strips NODE_OPTIONS')
-  const mib = Number(heap[1])
-  assert.ok(mib > 4096, `${mib} MiB: 4096 was measured to abort at 5246 pages`)
-  assert.ok(mib < 8192, `${mib} MiB: 8192 was measured to OOM the 8 GiB Cloudflare VM`)
+  // THE SSG'S MEMORY IS A CONCURRENCY, AND THE HEAP FLAG IS THE WRONG LEVER — learned by pulling the wrong one.
+  //
+  // This pinned 4096 exactly, with the note that 8192 OOMs the 8 GiB Cloudflare VM. On 2026-09-02 a Workers
+  // Build died at 4096 with `Ineffective mark-compacts near heap limit` (5246 dynamic pages), and the obvious
+  // move was to raise the flag. Measured, that move is nearly useless: peak RSS came out 8.12 GB at cap 8192 and
+  // 8.56 GB at cap 6144 — HIGHER with the smaller cap — because the flag governs when V8 gives up, not what the
+  // process holds. VitePress renders 64 pages CONCURRENTLY by default; at `buildConcurrency: 8` the same site
+  // builds at the ORIGINAL 4096 cap (exit 0, 128s against 108s). So the pin stands, the earlier measurement of
+  // the upper bound stands, and the fix was one level down.
+  assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=4096/, 'SSG mill needs Node argv heap — Cloudflare strips NODE_OPTIONS and 8192 OOMs the 8 GiB VM')
+  assert.doesNotMatch(pkg.scripts['docs:build'] ?? '', /8192/)
+  // AND THE CONCURRENCY IS WHAT MAKES 4096 ENOUGH — pinned here, beside the flag it rescues, because raising one
+  // without the other is exactly the mistake this comment records.
+  const vpConfig = readFileSync(join(ROOT, 'docs', '.vitepress', 'config.ts'), 'utf8')
+  const conc = /buildConcurrency:\s*(\d+)/.exec(vpConfig)
+  assert.ok(conc, 'docs/.vitepress/config.ts must set buildConcurrency — the default 64 aborts at 5246 pages')
+  assert.ok(Number(conc[1]) <= 16, `buildConcurrency is ${conc[1]}; 8 was measured to build at 4096 and 64 was measured to abort`)
   const wrangler = readFileSync(join(ROOT, 'wrangler.toml'), 'utf8')
   assert.doesNotMatch(wrangler, /max-old-space-size/)
   assert.doesNotMatch(wrangler, /command = .*seo-freeze-audit/)

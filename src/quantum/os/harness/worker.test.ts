@@ -91,9 +91,10 @@ test('the worker graph never static-imports Node builtins Cloudflare refuses (co
 // branch only CI can fail on, which is why the flag is now held by a test rather than by whoever last edited the
 // script chain.
 test('the CI-only deploy branch is declared, and it is the one that pays the SSG', () => {
-  // NO NUMBER LIVES HERE. quantum-advantage-theme.test.ts owns the heap window (both bounds measured); two
-  // tests asserting one value is the drift this tree spends its finders on. This holds the SHAPE: the branch
-  // exists, CI is the caller that takes it, and the site build is what it runs.
+  // NO NUMBER LIVES HERE. quantum-advantage-theme.test.ts owns both the heap flag and the render concurrency,
+  // with the measurements beside them; two tests asserting one value is the drift this tree spends its finders
+  // on. This holds the SHAPE: the branch exists, CI is the caller that takes it, and the site build is what it
+  // runs — which is why the SSG's memory is a CI problem and never a local one.
   const ship = readFileSync(join(ROOT, 'src', 'scripts', 'ship-build.ts'), 'utf8')
   assert.match(ship, /UUIDNA_SITE_BUILT/, 'the cheap/expensive split is what makes the CI branch CI-only')
   assert.match(ship, /docs:build/, 'the CI branch runs the full site build inside wrangler')

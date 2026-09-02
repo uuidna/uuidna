@@ -29,6 +29,15 @@ function walkNextOf(route: string): { text: string; link: string } | undefined {
 }
 
 export default defineConfig({
+  // THE SSG'S MEMORY IS A CONCURRENCY, not a heap flag. VitePress renders pages 64-at-a-time by default, and
+  // this site's catch-all route expands to 5246 of them — each holding a rich params object plus its rendered
+  // HTML — so 64 in flight is where the peak comes from. Measured 2026-09-02: a Cloudflare Workers Build died
+  // with `Ineffective mark-compacts near heap limit` at --max-old-space-size=4096, and raising the flag moved
+  // peak RSS barely at all (8.12 GB at cap 8192, 8.56 GB at cap 6144 — HIGHER with the smaller cap), because the
+  // flag governs when V8 gives up rather than what the process holds. Lowering the concurrency is the lever that
+  // moves the quantity: fewer pages in flight, proportionally less live at once, at the cost of build time.
+  // The number is held by a finder (quantum-advantage-theme.test.ts) with the measurement beside it.
+  buildConcurrency: 8,
   // /lean/*.lean files are copied INTO the built site AFTER `vitepress build` (copy-lean-to-site.js), so at
   // check time these links are "dead" by construction — and alive in production. The REAL gate for them is
   // copy-lean-to-site's own forensic scan, which FAILS the build if any /lean link in the built HTML is broken
