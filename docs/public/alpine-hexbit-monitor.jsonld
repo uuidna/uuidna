@@ -122,8 +122,8 @@
     },
     {
       "@type": "PropertyValue",
-      "name": "community compile — ns per package",
-      "value": 2354,
+      "name": "community compile — ns per package (decade)",
+      "value": 100,
       "unitText": "ns",
       "measurementTechnique": "measured",
       "citation": "TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable"

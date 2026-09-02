@@ -9,9 +9,9 @@
     "support-audit.json": "4d5bb822bf058dd4",
     "research-leads.json": "b0ebee1c46c380c0",
     ".zenodo.json": "60479a0b89818f46",
-    "reports.json": "6f8ec2ed638c898c",
+    "reports.json": "f68e829a49e78a65",
     "lean/statement-index.json": "8360ea221cc185fe",
-    "README.md": "414d004584e8821b",
+    "README.md": "0087c7b75f508a28",
     "llm.txt": "ee7923541bec81d5",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -1194,6 +1194,7 @@
     "src/chunks/72/fadb42.json": "182430439c30854f",
     "src/chunks/73/446226.json": "9a4d631294328a2c",
     "src/chunks/73/61ee5a.json": "9a80aab3b0a089b6",
+    "src/chunks/73/7631ea.json": "cf704049df1989e7",
     "src/chunks/73/bb900c.json": "a378c0bbe8d981c8",
     "src/chunks/73/c476a2.json": "3a798cf2351b800e",
     "src/chunks/73/cf6e41.json": "afc230332bdb818d",
@@ -2633,7 +2634,7 @@
     "lean/alpine-apps.json": "207dbd2ac7048620",
     "lean/alpine-apps.md": "8a1aeae0e1488618",
     "lean/alpine-discovery.json": "b119078f2b688e09",
-    "lean/alpine-hexbit-monitor.json": "2e7d0a55d1fb8bcb",
+    "lean/alpine-hexbit-monitor.json": "a456b8b9bb9f87c8",
     "lean/anthem-manifest.json": "5918343cf4e985a1",
     "lean/antifraud-manifest.json": "4457805cd5078a11",
     "lean/antikythera-manifest.json": "be97e2330c018bcb",
@@ -2734,7 +2735,7 @@
     "lean/reflection-manifest.json": "7935f62f983386bf",
     "lean/refusal-trials.json": "12249cc6098487f3",
     "lean/relativity-manifest.json": "e43928bb739f84e1",
-    "lean/remaining-alpine-port.json": "30aee49eea198dd5",
+    "lean/remaining-alpine-port.json": "261026094fb585b6",
     "lean/report-manifest.json": "d2a95082f567846c",
     "lean/research-ledger.json": "cd1a413da4d7822a",
     "lean/reversal-manifest.json": "3ba4b9c942c18f41",
@@ -2778,5 +2779,5 @@
     "lean/wave-queue.json": "bc136de9316b89f7",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "1d587295-0469-84b8-a458-2523356a4bec"
+  "receipt": "1a79f573-57e8-84aa-a35d-b072f7721fe3"
 }

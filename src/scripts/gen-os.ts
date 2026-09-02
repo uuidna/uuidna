@@ -7,6 +7,7 @@
 //
 // Every figure is computed from the committed mirror / catalogue — never authored. Integrity and meaning,
 // verified loading rather than a boot (theorem the_os_is_bootable_quantum).
+import { levelOf } from '../school.js'
 import { writeFileSync, mkdirSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
@@ -38,19 +39,29 @@ const manCommunity = manPagePortCoverage('community')
 const manMain = manPagePortCoverage('main')
 const selfTest = packageSelfTestCoverage()
 
-// TIME — TypeScript computes the compile sweep; the monitor only prints the measured decade.
+// TIME — TypeScript computes the compile sweep, and ONLY ITS DECADE is written. That was always this block's
+// stated intent one line down, and the code did not do it: the raw nanosecond reading went into
+// lean/alpine-hexbit-monitor.json and docs/os.md, both COMMITTED. A duration is a property of this host on this
+// run, so it differs every time — which made the derived layer a moving target rather than a fixed point.
+// Reconcile on a CLEAN tree produced six changed files, spin --verify reported non-quantum drift, the pre-push
+// court blocked every push, land spent all four rounds on a tree that was never going to settle, and gate-all
+// failed its `git diff` and `spin` arms. One un-rounded reading did all of that.
+//
+// generate.ts already carries the rule and the reason — "decades reseal and are comparable across runs; rawMs is
+// this run on this host only. Gitignored: a timing is state, never source." The decade is stable because it only
+// moves when the cost moves by an order of magnitude, which is the only thing a committed figure should claim.
 const manList = manPagePackages()
 const t0 = process.hrtime.bigint()
 for (const p of manList) catalogueCompile(p)
-const manCompileNs = Number(process.hrtime.bigint() - t0)
-const manNsPer = manAll.total === 0 ? 0 : (manCompileNs - (manCompileNs % manAll.total)) / manAll.total
+const manCompileNsDecade = levelOf(Number(process.hrtime.bigint() - t0))
+const manNsPerDecade = manAll.total === 0 ? 0 : levelOf((manCompileNsDecade - (manCompileNsDecade % manAll.total)) / manAll.total)
 
 const communityList = catalogue().filter((p) => p.repo === 'community')
 const t1 = process.hrtime.bigint()
 for (const p of communityList) catalogueCompile(p)
-const communityCompileNs = Number(process.hrtime.bigint() - t1)
-const communityNsPer = community.total === 0 ? 0
-  : (communityCompileNs - (communityCompileNs % community.total)) / community.total
+const communityCompileNsDecade = levelOf(Number(process.hrtime.bigint() - t1))
+const communityNsPerDecade = community.total === 0 ? 0
+  : levelOf((communityCompileNsDecade - (communityCompileNsDecade % community.total)) / community.total)
 
 const pct = (n: number, of: number): string => of === 0 ? '0' : String(((n * 100) - ((n * 100) % of)) / of)
 const completenessPct = pct(completeness.witnessed, completeness.total)
@@ -132,7 +143,7 @@ ${mcpMan.exposed < mcpMan.total
 **Architectural advantage (scale · time)** — declared and measured in TypeScript, monitored here:
 
 - **Scale:** every package address lives in **2^${UUID_BITS}** usable states (${th('handle_capacity_is_quantum_by_architecture')} — 128 = 2^7, the 7-qubit fold). ${community.ported.toLocaleString('en-US')} community packages ≪ 2^128.
-- **Time:** community compile sweep **${communityCompileNs.toLocaleString('en-US')} ns** (~**${communityNsPer.toLocaleString('en-US')} ns**/package); man-page corpus **${manCompileNs.toLocaleString('en-US')} ns** (~**${manNsPer.toLocaleString('en-US')} ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
+- **Time:** community compile sweep in the **${communityCompileNsDecade.toLocaleString('en-US')} ns** decade (~**${communityNsPerDecade.toLocaleString('en-US')} ns**/package decade); man-page corpus **${manCompileNsDecade.toLocaleString('en-US')} ns** (~**${manNsPerDecade.toLocaleString('en-US')} ns**/doc). Classical enumeration of 2^128 states is not a runnable baseline.
 - **Honesty:** uuidna is classical — ${th('n_qubit_dimension')} counts simulation cost.
   **Each theorem unlocks** what it seals \`by decide\` — the ledger is the unlock board; Alpine's hexbit port is one
   surface among all. Illustrations already sealed: calendar 144
@@ -307,7 +318,7 @@ const figures: Figure[] = [
     citation: 'closure + compile + provenance per package · gate alpine-hexbit-port.test.ts' },
   { name: 'usable address space', value: UUID_BITS, unitText: 'bits (2^N states)', measurementTechnique: 'declared',
     citation: 'theorem handle_capacity_is_quantum_by_architecture — 128 = 2^7, the 7-qubit fold; classical architecture' },
-  { name: 'community compile — ns per package', value: communityNsPer, unitText: 'ns', measurementTechnique: 'measured',
+  { name: 'community compile — ns per package (decade)', value: communityNsPerDecade, unitText: 'ns', measurementTechnique: 'measured',
     citation: 'TypeScript catalogueCompile sweep over community on the build host; classical 2^128 enumeration is not runnable' },
 ]
 
@@ -381,7 +392,7 @@ writeFileSync(join(ROOT, 'lean', 'alpine-hexbit-monitor.json'), JSON.stringify({
   },
   community, all, man: { all: manAll, community: manCommunity, main: manMain },
   selfTest,
-  time: { communityCompileNs, communityNsPer, manCompileNs, manNsPer },
+  time: { communityCompileNsDecade, communityNsPerDecade, manCompileNsDecade, manNsPerDecade },
   scale: { usableAddressesPow2: UUID_BITS, seals: 'handle_capacity_is_quantum_by_architecture' },
   receipt: monitorReceipt,
   honest: 'TypeScript is the quantum computer; VitePress is the quantum monitor. Port completeness is man pages testing the apps, folded into hexbits (manDrivenPortCoverage) — package-count compile tables are provenance, not the 100% witness. MCP exposure is mcpManDrivenCoverage through uuidna_exec (one wire door, not one tool per app). Orphan -doc rows are named. Each theorem unlocks what it seals by decide. Measured usable-capacity and scale/time advantage — not a superconducting QPU claim.',

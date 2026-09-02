@@ -203,8 +203,8 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
-| Shor chunks on handle | 4 × GHZ(16) = 262,144 amplitudes | `uuidna_os` capacity.shor · `uuidna_quantum` GHZ; 52 ms on this CPU |
-| Shor chunks on uuid | 16 × GHZ(16) = 1,048,576 amplitudes | `uuidna_os` · `uuidna_quantum`; 188 ms — under 1 s |
+| Shor chunks on handle | 4 × GHZ(16) = 262,144 amplitudes | `uuidna_os` capacity.shor · `uuidna_quantum` GHZ; the 10 ms decade on this CPU |
+| Shor chunks on uuid | 16 × GHZ(16) = 1,048,576 amplitudes | `uuidna_os` · `uuidna_quantum`; the 100 ms decade — under 1 s |
 | Hilbert GHZ chunk | 16 qubits (65536 amplitudes) | HEXBIT_BITS × HEXBIT_BITS |
 | Crypto occupancy | 256 bits | [sha256_is_four_sixtyfours](https://uuidna.com/theorem/sha256_is_four_sixtyfours) — four 64s, not four hexbits |
 | Handle+hexbit nest | 12 qubits | `HANDLE_HEXBITS + HEXBIT_BITS` — theorem served_qubit_ceiling |
@@ -293,7 +293,7 @@ The supply grows two coins per sealed theorem and nothing else mints them.
 **Shor at full named capacity.** The uuid is the physical CPU/GPU register (128 bits). Its payload parses as
 **16** encoder-width chunks (GHZ(16) = 65,536
 amplitudes each, [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension)). This host ran the handle
-column in **52 ms** and the uuid column in **188 ms**
+column in the **10 ms** decade and the uuid column in the **100 ms** decade
 (under one second). MCP tools: see **Use → Quick reference** above.
 
 ### License
