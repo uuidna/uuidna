@@ -312,7 +312,15 @@ export function advantageRows(
       claim: claimOf(level, m, baseline, baselineExpected),
       // the DECADE folds into the address, never the raw figure — an address built over a drifting number is a
       // derived layer with no fixed point, which is the defect this tree spent a run of commits undoing
-      address: toUuid(`advantage|${level.name}|10^${m.opNsDecade}|${m.ops}|${m.disagreements}`),
+      // THE ADDRESS IDENTIFIES THE CLAIM, NOT THE MACHINE'S SPEED (2026-09-02). This folded m.opNsDecade — a
+      // measured timing — into the row's identity, so the SAME claim addressed differently on a different host.
+      // lean/quantum-advantage.json is committed, which made those bytes reproducible on one machine only:
+      // ubuntu recomputed a different address, spin --verify called it NON-QUANTUM DRIFT, and prepublishOnly
+      // failed. Stripping the printed field did nothing while the identity still carried the stopwatch.
+      //
+      // What the level IS — its name, the decisions executed, and whether any disagreed with Lean — is the same
+      // arithmetic anywhere. How fast one box ran it is served live by uuidna_quantum_advantage.
+      address: toUuid(`advantage|${level.name}|${m.ops}|${m.disagreements}`),
     })
   }
   return rows

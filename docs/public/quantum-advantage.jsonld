@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:1175bca6-2436-8483-b29f-7c4e5e69af6d",
+  "@id": "urn:uuid:00bda0ff-9731-803b-b713-ca21020d9447",
   "@type": "Dataset",
   "name": "uuidna quantum advantage report — measured per level",
   "description": "The architectural advantage measured at every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). Measured usable-capacity quantum advantage is theorem usable_gap_is_two_to_eighty (2^80 vs reported logical platforms). TypeScript computes; VitePress monitors. n_qubit_dimension counts classical simulation cost and is not a Shor-class crypto speedup claim.",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "d51c5ef0-c4d8-8cf3-97f5-fc76e7f5259d",
+  "identifier": "b187c6ac-c4c4-868b-90cc-13e4d28975a3",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {

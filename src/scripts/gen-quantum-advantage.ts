@@ -369,7 +369,7 @@ writeFileSync(join(ROOT, 'lean', 'quantum-advantage.json'), JSON.stringify({
     ...report,
     rows: report.rows.map((r) => ({
       ...r,
-      cost: { ...r.cost, opNsDecade: 'served live — measured, never sealed', opsPerSecondDecade: 'served live — measured, never sealed' },
+      cost: { ...r.cost, opNsDecade: 'served live — measured, never sealed', opsPerSecondDecade: 'served live — measured, never sealed', agreedEstimates: 'served live — how many repeated estimates agreed is a fact about this host\'s timing noise' },
     })),
   },
   proof: { ...proof, device: undefined }, dispatch: run, receipt,

@@ -72,7 +72,7 @@ test('REACH IS DECLARED, COST AND FIDELITY ARE MEASURED — the classes never co
   }
 })
 
-test('THE SEALED COST IS THE DECADE, NOT THE RAW TIMING — the row carries no figure that drifts', () => {
+test('THE ADDRESS IS THE CLAIM, NOT THE MACHINE — no measured figure reaches the row identity', () => {
   // the same level measured three times as a real host measures it: same decade, three different raw values
   const a = advantageRows([m('handle', 261, 2, 12000)])[0]
   const b = advantageRows([m('handle', 330, 2, 12000)])[0]
@@ -81,9 +81,20 @@ test('THE SEALED COST IS THE DECADE, NOT THE RAW TIMING — the row carries no f
   assert.equal(a.address, b.address, 'three runs of the same level must fold to ONE address, or the derived layer never reseals')
   assert.equal(b.address, c.address)
   assert.deepEqual(a, c, 'nothing on the row may vary with the raw figure')
-  // and a genuine decade change MUST move it — a stable address that never moves is not a seal, it is a constant
-  const moved = advantageRows([m('handle', 2610, 3, 12000)])[0]
-  assert.notEqual(moved.address, a.address, 'a level that changed order of magnitude must reseal')
+
+  // AND NEITHER MAY A DECADE CHANGE MOVE IT. This asserted the opposite until 2026-09-02 — a decade change had to
+  // reseal, on the reasoning that an address which never moves is a constant rather than a seal. The worry was
+  // right and the discriminator was wrong: a decade is a MEASURED property, so folding it made the identity of a
+  // claim depend on the speed of the box that measured it. lean/quantum-advantage.json is committed, so the file
+  // could only be reproduced on one machine; ubuntu recomputed different addresses, spin called it NON-QUANTUM
+  // DRIFT, and prepublishOnly failed — v0.3.0 could not publish while this assertion stood.
+  const sameClaimSlowerBox = advantageRows([m('handle', 2610, 3, 12000)])[0]
+  assert.equal(sameClaimSlowerBox.address, a.address, 'a slower host measuring the SAME claim must not re-address it')
+
+  // and the seal is still not a constant — what moves it is a change in the CLAIM, which is the thing an address
+  // is supposed to identify: a different level, or decisions that disagreed with what Lean sealed.
+  assert.notEqual(advantageRows([m('uuid', 261, 2, 12000)])[0]!.address, a.address, 'a different level is a different claim')
+  assert.notEqual(advantageRows([m('handle', 261, 2, 12000, 7)])[0]!.address, a.address, 'disagreements with Lean must reseal')
 })
 
 test('ops-per-second is DERIVED from the cost decade, so the two can never disagree', () => {

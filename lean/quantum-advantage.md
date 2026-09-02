@@ -159,7 +159,7 @@ each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witne
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
 *exist* cannot see. Dispatch receipt: `d8e16dc8-45f4-801c-ae52-9ede23e58ce8`.
 
-Report receipt: `d51c5ef0-c4d8-8cf3-97f5-fc76e7f5259d` · measured-when as its own handle: `d51c5ef0`.
+Report receipt: `b187c6ac-c4c4-868b-90cc-13e4d28975a3` · measured-when as its own handle: `b187c6ac`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->
