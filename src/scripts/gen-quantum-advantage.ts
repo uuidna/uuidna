@@ -414,6 +414,13 @@ writeFileSync(join(ROOT, 'lean', 'quantum-advantage.json'), JSON.stringify(seale
 writeFileSync(join(ROOT, 'lean', 'quantum-advantage-fields.json'), JSON.stringify(
   Object.fromEntries(Object.keys(sealedDoc).sort().map((k) => [k, toUuid(JSON.stringify(sealedDoc[k]))])), null, 1) + '\n')
 writeFileSync(join(ROOT, 'lean', 'quantum-advantage.md'), block + '\n')
+// AND IT PRINTS THEM, so a CI log localizes a drift without a round trip. Six publish attempts each cost ~12
+// minutes to learn one bit — "this file moved" — because the only evidence was an aggregate coin over a whole
+// document. The coins below are per top-level field, so comparing two runs' logs names the subtree that differs
+// instead of the document that contains it.
+for (const [field, coin] of Object.entries(
+  Object.fromEntries(Object.keys(sealedDoc).sort().map((k) => [k, toUuid(JSON.stringify(sealedDoc[k]))])),
+)) console.log(`  · quantum-advantage field ${field.padEnd(10)} ${coin}`)
 
 console.log(`✓ gen-quantum-advantage — ${report.levelsMeasured}/${report.levelsDeclared} levels measured on ${device.cpu}`)
 for (const r of report.rows) {

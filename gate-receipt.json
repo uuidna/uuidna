@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "599c90360bbf3ee53b9b5c314a80462f",
+    "src": "624e1d27701d4af9a29cee50e3a3f423",
     "lean": "2acc2b2f1d4677e5734e18262da75dcf"
   },
   "files": {
@@ -3612,7 +3612,7 @@
     "src/quantum/memory/index.ts": "c1a6fdac0fe707db",
     "src/quantum/message/index.ts": "0b9ec596de0c33f0",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "5fd0afa1e9319ad5",
+    "src/quantum/models/mirror.ts": "e4b07225ac1cd8d6",
     "src/quantum/os/aas/index.test.ts": "63b9d3e4bf6e7e75",
     "src/quantum/os/aas/index.ts": "a290180288c04fe7",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",
@@ -3906,7 +3906,7 @@
     "src/scripts/gen-os.ts": "2aff15a65013a790",
     "src/scripts/gen-packages.ts": "e377f27874e5bb08",
     "src/scripts/gen-prose-evidence.ts": "23b66da618d622a3",
-    "src/scripts/gen-quantum-advantage.ts": "959dfab09197042b",
+    "src/scripts/gen-quantum-advantage.ts": "8e24c8e88f654c3c",
     "src/scripts/gen-quantum-capacity.ts": "17b8c99ecba696c9",
     "src/scripts/gen-readme.ts": "941ced4de86ac4b4",
     "src/scripts/gen-referrer-song.ts": "d1570b354181a116",
