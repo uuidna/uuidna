@@ -78,3 +78,29 @@ test('the worker graph never static-imports Node builtins Cloudflare refuses (co
   assert.doesNotMatch(wrangler, /command = .*seo-freeze-audit/, 'gen-handles already runs the audit — listing it again on wrangler [build] double-pays')
 })
 
+
+// ── THE CI-ONLY DEPLOY BRANCH, AND THE CEILING IT HIT. Measured 2026-09-02: a Cloudflare Workers Build ran
+// `npx wrangler deploy`, wrangler's [build] hook ran ship-build.js, and because CI has no UUIDNA_SITE_BUILT it
+// took the expensive branch — the whole docs:build inside wrangler — and the SSG died with
+// `FATAL ERROR: Ineffective mark-compacts near heap limit` at `--max-old-space-size=4096`, rendering 5246 dynamic
+// pages. Reproduced locally at 4096 (exit 134) and cleared at 6144 (exit 0, 108s), so the ceiling is the finding
+// and 6144 is the smallest step that cleared it.
+//
+// THE LOCAL PATH NEVER EXERCISES THIS. deploy-run builds the site first and sets UUIDNA_SITE_BUILT=1, so
+// ship-build's cheap branch runs and the SSG's memory is never paid inside wrangler. A branch only CI takes is a
+// branch only CI can fail on, which is why the flag is now held by a test rather than by whoever last edited the
+// script chain.
+test('the CI-only deploy branch is declared, and it is the one that pays the SSG', () => {
+  // NO NUMBER LIVES HERE. quantum-advantage-theme.test.ts owns the heap window (both bounds measured); two
+  // tests asserting one value is the drift this tree spends its finders on. This holds the SHAPE: the branch
+  // exists, CI is the caller that takes it, and the site build is what it runs.
+  const ship = readFileSync(join(ROOT, 'src', 'scripts', 'ship-build.ts'), 'utf8')
+  assert.match(ship, /UUIDNA_SITE_BUILT/, 'the cheap/expensive split is what makes the CI branch CI-only')
+  assert.match(ship, /docs:build/, 'the CI branch runs the full site build inside wrangler')
+  assert.match(ship, /gen-handles/, 'the cheap branch still seals the handles')
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  assert.match(pkg.scripts['docs:build'] ?? '', /vitepress\.js build docs/, 'the SSG is what the branch pays for')
+  // and the local path must keep setting the flag, or it starts paying the CI cost too
+  const deployRun = readFileSync(join(ROOT, 'src', 'scripts', 'deploy-run.ts'), 'utf8')
+  assert.match(deployRun, /UUIDNA_SITE_BUILT/, 'the local path builds the site FIRST and says so')
+})

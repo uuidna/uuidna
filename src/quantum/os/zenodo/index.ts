@@ -183,8 +183,9 @@ export async function zenodoCommunity(slug: string, size = 8): Promise<ZenodoCom
 }
 
 /** verifyZenodoCommunityClaim(recordId, size) → the deposit's community CLAIM against the community's own listing.
- *  Three honest states, never conflated: nothing claimed, claimed but not listed, and carried. A door that could
- *  not be reached returns DECLINED — an unread listing is not an absent membership. */
+ *  FOUR distinct results, one of which is always returned: NO-COMMUNITY-CLAIMED, CLAIMED-NOT-LISTED, CARRIED, or
+ *  DECLINED when a door failed to answer — so an unread listing lands in its own state, countable and separate
+ *  from an absent membership. */
 export async function verifyZenodoCommunityClaim(recordId: string, size = 25): Promise<ZenodoCommunityClaim> {
   const honest = 'Membership is provenance, not peer review: a community listing proves who accepted a deposit, '
     + 'never that its contents are correct. Only a by-decide theorem seals a claim in this tree.'

@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 421,
+ "count": 423,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -443,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000008554",
-   "completionPrice": "0.00000017108"
+   "promptPrice": "0.000000084",
+   "completionPrice": "0.000000168"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -471,8 +471,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000001034256",
-   "completionPrice": "0.000002068512"
+   "promptPrice": "0.000001030776",
+   "completionPrice": "0.000002061552"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -702,8 +702,22 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "google/gemini-3.7-flash:batch",
    "name": "Google: Gemini 3.7 Flash (batch)",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000001875",
-   "completionPrice": "0.0000009375"
+   "promptPrice": "0.000000375",
+   "completionPrice": "0.000001875"
+  },
+  {
+   "id": "google/gemini-3.8-flash",
+   "name": "Google: Gemini 3.8 Flash",
+   "contextTokens": 1048576,
+   "promptPrice": "0.00000075",
+   "completionPrice": "0.00000375"
+  },
+  {
+   "id": "google/gemini-3.8-flash:batch",
+   "name": "Google: Gemini 3.8 Flash (batch)",
+   "contextTokens": 1048576,
+   "promptPrice": "0.000000375",
+   "completionPrice": "0.000001875"
   },
   {
    "id": "google/gemma-2-27b-it",
@@ -2592,8 +2606,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.000000132",
-   "completionPrice": "0.000000528"
+   "promptPrice": "0.0000000825",
+   "completionPrice": "0.00000033"
   },
   {
    "id": "tencent/hy3-preview",

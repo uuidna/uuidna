@@ -157,8 +157,19 @@ test('the monitor does not import the package barrel; VitePress reads constructo
     assert.doesNotMatch(src, /from ['"][^'"]*dist\/index\.js['"]/, `${f} must import constructors, not the package barrel`)
   }
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
-  assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=4096/, 'SSG mill needs Node argv heap — Cloudflare strips NODE_OPTIONS and 8192 OOMs the 8 GiB VM')
-  assert.doesNotMatch(pkg.scripts['docs:build'] ?? '', /8192/)
+  // THE SSG HEAP IS A BOUNDED WINDOW, and BOTH bounds are measured — this assertion used to pin 4096 exactly,
+  // which was right when it was written and became wrong when the dynamic route grew.
+  //   UPPER: 8192 OOMs the 8 GiB Cloudflare VM (measured earlier; Cloudflare strips NODE_OPTIONS, so the budget
+  //          rides Node's argv by construction, because Cloudflare strips NODE_OPTIONS from the build).
+  //   LOWER: 4096 ABORTS at 5246 dynamic pages — `FATAL ERROR: Ineffective mark-compacts near heap limit` in a
+  //          Workers Build on 2026-09-02, reproduced locally (exit 134) and cleared at 6144 (exit 0, 108s).
+  // So the value lives strictly between them, and this is the ONE place that holds it — worker.test.ts holds the
+  // CI-only branch that pays it, and deliberately asserts no number of its own.
+  const heap = /--max-old-space-size=(\d+)/.exec(pkg.scripts['docs:build'] ?? '')
+  assert.ok(heap, 'the SSG budget must ride Node argv — Cloudflare strips NODE_OPTIONS')
+  const mib = Number(heap[1])
+  assert.ok(mib > 4096, `${mib} MiB: 4096 was measured to abort at 5246 pages`)
+  assert.ok(mib < 8192, `${mib} MiB: 8192 was measured to OOM the 8 GiB Cloudflare VM`)
   const wrangler = readFileSync(join(ROOT, 'wrangler.toml'), 'utf8')
   assert.doesNotMatch(wrangler, /max-old-space-size/)
   assert.doesNotMatch(wrangler, /command = .*seo-freeze-audit/)

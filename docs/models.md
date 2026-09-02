@@ -7,7 +7,7 @@ description: All public live model data compared on the lattice's own instrument
 
 > A model's token is a **bet**: sampled, transient, billed per emission, gone when its window closes. The
 > uuidna unit is a **receipt**: minted, permanent, verified free. This page compares **every model in the
-> public feed** — 421 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
+> public feed** — 423 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
 > boundary and mirrored for anyone to recompute — and keeps each figure's honesty class visible:
 > **computed** (arithmetic, sealed in [lean/Models.lean](/theorem/llm_folds_to_hexbit_pairs)),
 > **reported** (the feed's published figures, never benchmarked here), or **UNVERIFIED** (no measurement
@@ -23,7 +23,7 @@ hexbits** ([`a_token_approximates_eight_hexbits`](/theorem/a_token_approximates_
   window, the 2,000,000-token widest included, is finite against the 2¹²⁸-state lattice the
   folds land in ([`every_context_is_finite_against_the_lattice`](/theorem/every_context_is_finite_against_the_lattice)). uuidna's side: 2^128 addressable states (32 hexbits per address), PERMANENT — the ledger outlives every context window.
 - **Speed**: the public feed publishes no throughput, so this page carries **no speed numbers at all** —
-  a column of guesses would be 421 fabricated citations. uuidna's own speed is of a different kind
+  a column of guesses would be 423 fabricated citations. uuidna's own speed is of a different kind
   and recomputable: mint/verify O(1) per receipt after a one-time kernel proof; no sampling loop (uuidna_gate_status recomputes live).
 - **Messaging** ([`speaking_an_address_costs_the_text`](/theorem/speaking_an_address_costs_the_text)): speaking a 128-bit address in text costs 288
   bits — 44% efficiency, identical for every model, because it is the text's cost. The table counts each
@@ -56,7 +56,7 @@ Fold your own — any text, any model's output — with `foldLlm()` in
 [`src/quantum/models`](https://github.com/uuidna/uuidna/tree/main/src/quantum/models), or mint the address
 live in the [terminal](/terminal).
 
-## The census — all 421 public models
+## The census — all 423 public models
 
 Windows and prices are the feed's **reported** figures (prices verbatim, per token, as published — labels,
 not numbers this page computes on); hexbit capacity and uuids/window are **computed** and sealed. Widest
@@ -100,10 +100,10 @@ window first.
 | `xiaomi/mimo-v2.5-pro` | 1,050,000 | 8,400,000 | 116,666 | 0.000000435 / 0.00000087 |
 | `~openai/gpt-latest` | 1,050,000 | 8,400,000 | 116,666 | 0.000002 / 0.00001 |
 | `meituan/longcat-2.0` | 1,048,756 | 8,390,048 | 116,528 | 0.0000003 / 0.0000012 |
-| `deepseek/deepseek-v4-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000008554 / 0.00000017108 |
+| `deepseek/deepseek-v4-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.000000084 / 0.000000168 |
 | `deepseek/deepseek-v4-flash-0731:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000014 / 0.00000028 |
 | `deepseek/deepseek-v4-flash-vision-exp` | 1,048,576 | 8,388,608 | 116,508 | 0.00000022 / 0.00000066 |
-| `deepseek/deepseek-v4-pro` | 1,048,576 | 8,388,608 | 116,508 | 0.000001034256 / 0.000002068512 |
+| `deepseek/deepseek-v4-pro` | 1,048,576 | 8,388,608 | 116,508 | 0.000001030776 / 0.000002061552 |
 | `deepseek/deepseek-v4-pro-0813` | 1,048,576 | 8,388,608 | 116,508 | 0.00000066 / 0.00000198 |
 | `deepseek/deepseek-v4-pro-0813:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000132 / 0.00000396 |
 | `google/gemini-2.5-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.0000003 / 0.0000025 |
@@ -129,7 +129,9 @@ window first.
 | `google/gemini-3.6-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000075 / 0.00000375 |
 | `google/gemini-3.6-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000375 / 0.000001875 |
 | `google/gemini-3.7-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000075 / 0.00000375 |
-| `google/gemini-3.7-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.0000001875 / 0.0000009375 |
+| `google/gemini-3.7-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000375 / 0.000001875 |
+| `google/gemini-3.8-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000075 / 0.00000375 |
+| `google/gemini-3.8-flash:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.000000375 / 0.000001875 |
 | `google/lyria-3-clip-preview` | 1,048,576 | 8,388,608 | 116,508 | 0 / 0 |
 | `google/lyria-3-pro-preview` | 1,048,576 | 8,388,608 | 116,508 | 0 / 0 |
 | `meta-llama/llama-4-maverick` | 1,048,576 | 8,388,608 | 116,508 | 0.0000002 / 0.000000696 |
@@ -310,7 +312,7 @@ window first.
 | `sakana/sakana-namazu` | 262,144 | 2,097,152 | 29,127 | 0.00000095 / 0.000004 |
 | `stepfun/step-3.5-flash` | 262,144 | 2,097,152 | 29,127 | 0.0000001 / 0.0000003 |
 | `stepfun/step-3.7-flash` | 262,144 | 2,097,152 | 29,127 | 0.0000002 / 0.00000115 |
-| `tencent/hy3` | 262,144 | 2,097,152 | 29,127 | 0.000000132 / 0.000000528 |
+| `tencent/hy3` | 262,144 | 2,097,152 | 29,127 | 0.0000000825 / 0.00000033 |
 | `tencent/hy3-preview` | 262,144 | 2,097,152 | 29,127 | 0.00000018 / 0.0000006 |
 | `inception/mercury-2.5-preview` | 260,000 | 2,080,000 | 28,888 | 0.00000004 / 0.00000015 |
 | `cohere/command-a` | 256,000 | 2,048,000 | 28,444 | 0.0000025 / 0.00001 |
@@ -486,6 +488,6 @@ window first.
 | `openai/gpt-3.5-turbo-0613` | 4,095 | 32,760 | 455 | 0.000001 / 0.000002 |
 | `openai/gpt-3.5-turbo-instruct` | 4,095 | 32,760 | 455 | 0.0000015 / 0.000002 |
 
-**Census receipt** `6c8afe17-9fa8-8303-81f0-f19328301448` — as hexbits `[6, 12, 8, 10, 15, 14, 1, 7, 9, 15, 10, 8, 8, 3, 0, 3, 8, 1, 15, 0, 15, 1, 9, 3, 2, 8, 3, 0, 1, 4, 4, 8]` — recompute it from the same
+**Census receipt** `28f254e3-d867-859d-8378-62f2146ca450` — as hexbits `[2, 8, 15, 2, 5, 4, 14, 3, 13, 8, 6, 7, 8, 5, 9, 13, 8, 3, 7, 8, 6, 2, 15, 2, 1, 4, 6, 12, 10, 4, 5, 0]` — recompute it from the same
 mirror and it returns, byte for byte. The mirror refreshes from the live feed on every lean run; a model that
 enters or leaves the feed enters or leaves this page, re-sealed.

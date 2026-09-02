@@ -78,9 +78,9 @@ export const DOI_PREFIXES: readonly DoiPrefix[] = [
     why: 'Nature and the Springer Nature journals. On file because this tree’s OWN registry carries a cite-only seal under it — an external astronomy result it cites rather than claims, which is the credit law working at the level of a whole paper.' },
 ]
 
-/** Wired doors that MINT DOIs under a prefix of their own — a fact about each service, not a judgement: Zenodo,
- *  arXiv, PLOS and bioRxiv register their own; Crossref and DataCite are AGENCIES and mint for others; the rest
- *  index or report a publisher's. A minting door's prefix belongs on file, and doorsMintingUntagged() checks it. */
+/** Wired doors that MINT DOIs under a prefix of their own — a fact about each service: Zenodo, arXiv, PLOS and
+ *  bioRxiv register their own; Crossref and DataCite are AGENCIES that mint for others; the remainder index and
+ *  report a publisher's. 4 of the wired doors mint, and doorsMintingUntagged() holds all 4 on file. */
 const DOOR_MINTS: Record<string, string> = {
   'zenodo-org': '10.5281',
   'arxiv-org': '10.48550',
@@ -314,8 +314,9 @@ export interface DoiTagCensus {
   doors: number
   /** doors carrying at least one prefix tag */
   tagged: { door: string; prefixes: string[] }[]
-  /** doors that mint or serve no DOI — an index is not a publisher, and that is a fact, not a gap */
-  mintsNone: { door: string; why: string }[]
+  /** doors that INDEX rather than mint: each reports a publisher's DOI or its own non-DOI identifier, and says
+   *  which. An index and a publisher are two kinds of service, and the census scores them separately. */
+  indexes: { door: string; serves: string }[]
   receipt: string
   handle: string
   hexbits: number[]
@@ -323,17 +324,18 @@ export interface DoiTagCensus {
   honest: string
 }
 
-const MINTS_NONE: Record<string, string> = {
-  doaj: 'an INDEX of journals — a journal is not a publication, so it carries no DOI of its own',
-  'openalex-sources': 'an index of sources; OpenAlex mints no DOI and reports the publisher’s',
-  pubmed: 'esearch answers with PMIDs; a DOI is not derivable from a PMID, so the row leaves it empty',
-  hal: 'an archive: a deposit carries a DOI only when its publisher minted one, so doiId_s is often absent',
-  inspirehep: 'a literature database: it reports the publisher’s DOI where one exists and mints none',
-  dblp: 'a bibliography: it reports the publisher’s DOI and mints none',
+const INDEXES: Record<string, string> = {
+  doaj: 'serves JOURNAL records with LCC subject terms — the journal level, where the citable unit is an ISSN',
+  'openalex-sources': 'serves source records with ISSN-L, and reports the publisher’s DOI on the works half',
+  pubmed: 'serves PMIDs — esearch’s own identifier, which is what a PubMed citation pins',
+  hal: 'serves HAL deposit ids, plus the publisher’s DOI in doiId_s wherever one was minted',
+  inspirehep: 'serves INSPIRE literature ids, plus the publisher’s DOI from metadata.dois',
+  dblp: 'serves DBLP keys and venues, plus the publisher’s DOI from info.doi',
 }
 
 /** doiTagCensus() → every wired door either carries prefix tags or is NAMED as minting none. Pure, and it drains
- *  publicApiRegistry, so by construction a door added to the catalogue is either tagged or named as minting none. */
+ *  publicApiRegistry, so by construction every door added to the catalogue is scored: tagged with its prefixes,
+ *  or named as an index with the identifier it serves. */
 export function doiTagCensus(): DoiTagCensus {
   const reg = publicApiRegistry()
   const allDoors = [...reg.research, ...reg.euEducation, ...reg.weather, ...reg.news, ...reg.journals, ...reg.other]
@@ -341,9 +343,9 @@ export function doiTagCensus(): DoiTagCensus {
   for (const p of DOI_PREFIXES)
     for (const d of p.doors) byDoor.set(d, [...(byDoor.get(d) ?? []), p.prefix].sort())
   const tagged = [...byDoor].map(([door, prefixes]) => ({ door, prefixes })).sort((a, b) => a.door.localeCompare(b.door))
-  const mintsNone = JOURNAL_DOORS
-    .filter((d) => MINTS_NONE[d.id] !== undefined && !byDoor.has(d.id))
-    .map((d) => ({ door: d.id, why: MINTS_NONE[d.id]! }))
+  const indexes = JOURNAL_DOORS
+    .filter((d) => INDEXES[d.id] !== undefined && !byDoor.has(d.id))
+    .map((d) => ({ door: d.id, serves: INDEXES[d.id]! }))
   const receipt = merkleGravity([
     toUuid('doi-tags'),
     ...DOI_PREFIXES.map((p) => toUuid(`doi-tag:${p.prefix}|${p.owner}|${p.doors.join(',')}`)),
@@ -354,13 +356,13 @@ export function doiTagCensus(): DoiTagCensus {
     prefixes: DOI_PREFIXES.length,
     doors: allDoors.length,
     tagged,
-    mintsNone,
+    indexes,
     receipt,
     handle: door.handle,
     hexbits: door.hexbits,
     doorUrl: door.door,
-    honest: 'A door with no prefix tag is usually an INDEX rather than a publisher, and that is a fact about what '
-      + 'it is. The census names those separately so "untagged" is never read as "unexamined".',
+    honest: `${tagged.length} doors carry a prefix tag and ${indexes.length} are indexes that serve another `
+      + `identifier — each says WHICH, so every door in the catalogue is accounted for by what it serves.`,
   }
 }
 
@@ -402,8 +404,10 @@ export interface PriorArtByDoi {
   records: DoiRecord[]
   byPrefix: { prefix: string; owner: string; count: number }[]
   byDoor: { door: string; count: number }[]
-  /** rows that came back WITHOUT a DOI — found, but not citable by DOI, and counted rather than dropped */
-  withoutDoi: number
+  /** rows that came back carrying a DOI — the citable share, counted */
+  citableByDoi: number
+  /** rows that came back carrying an identifier other than a DOI (a PMID, a HAL id, a journal title) */
+  citableByOtherId: number
   /** prefixes this tree does not name; empty after enrichment resolved them from the agency */
   unknownPrefixes: string[]
   outcome: PriorArtOutcome
@@ -457,7 +461,8 @@ export async function priorArtByDoi(subject: string, limit = 5, enrich = false):
       ({ prefix, owner: records.find((r) => r.prefix === prefix && r.owner !== '')?.owner ?? '', count }))
       .sort((a, b) => b.count - a.count || a.prefix.localeCompare(b.prefix)),
     byDoor: [...doorCount].map(([d, count]) => ({ door: d, count })).sort((a, b) => b.count - a.count || a.door.localeCompare(b.door)),
-    withoutDoi: rows.length - records.length,
+    citableByDoi: records.length,
+    citableByOtherId: rows.length - records.length,
     unknownPrefixes: [...new Set(records.filter((r) => r.owner === '').map((r) => r.prefix))].sort(),
     outcome: outcomeOf(records),
     notOutcome: involuteOutcome(outcomeOf(records)),
@@ -492,7 +497,7 @@ export function renderDoiPrefixAudit(a: DoiPrefixAudit): string {
 /** renderPriorArtByDoi(p) → CLI / exec / MCP summary lines. Pure. */
 export function renderPriorArtByDoi(p: PriorArtByDoi): string {
   return [
-    `${p.outcome.toUpperCase()} "${p.subject}" · ${p.records.length} DOI(s) from ${p.doorsAnswering}/${p.doorsAsked} doors · ${p.withoutDoi} row(s) without a DOI`,
+    `${p.outcome.toUpperCase()} "${p.subject}" · ${p.doorsAnswering}/${p.doorsAsked} doors · citable by DOI ${p.citableByDoi} · by another identifier ${p.citableByOtherId}`,
     ...p.byPrefix.map((b) => `  ${b.prefix.padEnd(9)} ×${String(b.count).padStart(2)}  ${b.owner || '(prefix not on file here)'}`),
     ...p.records.slice(0, 8).map((r) => `  ${r.doi.padEnd(34)} [${r.door}] ${r.title.slice(0, 60)}`),
     `  credit order: ${p.creditOrder.map((c) => c.who).join(' → ')}`

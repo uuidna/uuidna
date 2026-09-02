@@ -99,14 +99,15 @@ test('the credit law: priors first, the captain last among claimants, and never 
   assert.equal(creditOrderFor([rec('10.3847/a', 'AAS'), rec('10.3847/a', 'AAS')]).length, 2)
 })
 
-test('the tag census names every door, and separates "mints none" from untagged', () => {
+test('the tag census scores every door: tagged with prefixes, or an index with what it serves', () => {
   const c = doiTagCensus()
   assert.equal(c.prefixes, DOI_PREFIXES.length)
   assert.ok(c.doors > c.prefixes, 'the catalogue is wider than the prefixes it names')
   for (const t of c.tagged) assert.ok(t.prefixes.length >= 1)
-  for (const m of c.mintsNone) {
-    assert.ok(m.why.length > 30, `${m.door} must say why it mints none`)
-    assert.equal(c.tagged.some((t) => t.door === m.door), false, `${m.door} is both tagged and minting none`)
+  assert.ok(c.indexes.length >= 3, 'the index doors are a real class, scored separately')
+  for (const m of c.indexes) {
+    assert.ok(m.serves.length > 30, `${m.door} must say WHICH identifier it serves`)
+    assert.equal(c.tagged.some((t) => t.door === m.door), false, `${m.door} appears in exactly one class`)
   }
   // the AAS door and its publisher's prefix are both reachable — the distinction the port exists to keep
   assert.ok(c.tagged.some((t) => t.door === 'journals-aas-org' && t.prefixes.includes('10.3847')))
@@ -132,6 +133,7 @@ test('uuidna_doi subject — prior art comes back as tagged DOIs with the credit
   assert.equal(p.outcome, outcomeOf(p.records), 'the outcome must BE the record set’s emptiness')
   assert.equal(p.notOutcome, involuteOutcome(p.outcome))
   assert.equal(p.claimedTheUnclaimed, p.records.length === 0)
+  assert.equal(p.citableByDoi, p.records.length, 'the citable-by-DOI count IS the record set')
   assert.equal(p.creditOrder[p.creditOrder.length - 1]!.who, CAPTAIN_CREDIT.who, 'the captain is always last')
   for (const r of p.records) {
     assert.equal(r.prefix, doiPrefixOf(r.doi))

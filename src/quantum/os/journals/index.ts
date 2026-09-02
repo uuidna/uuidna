@@ -17,8 +17,8 @@
 //
 // KEYLESS AND POLITE. Every door here answered without a key, in under a second on measurement, except bioRxiv's
 // detail lookup. Crossref and OpenAlex are asked with a mailto as their own documentation requests. Doors that
-// need a key (NASA ADS, CORE) and doors whose payload this port will not guess at (OpenAIRE) are DECLARED absent
-// with the reason, never dropped so the count looks complete.
+// need a key (NASA ADS, CORE) and doors whose payload this port declines to guess at (OpenAIRE) are DECLARED
+// absent with the reason, so the census scores 11 wired + 4 named = 15 doors known, all accounted for.
 import { handleOf } from '../../../handle.js'
 import { toUuid } from '../../../address.js'
 import { hexbitDoorOf } from '../../../hexbit/index.js'
@@ -84,7 +84,8 @@ export interface JournalSweep {
   honest: string
 }
 
-/** Doors that exist and are NOT wired, each with the reason — an absence that is named is not a gap that is hidden. */
+/** Doors that exist and stay unwired, each with the reason and what to use instead — 4 declared, so the count of
+ *  scholarly doors this tree knows about is 11 wired plus 4 named, and every one of the 15 is accounted for. */
 export const JOURNAL_DOORS_ABSENT: readonly { id: string; why: string }[] = [
   { id: 'api.adsabs.harvard.edu', why: 'NASA ADS is the right door for astrophysics literature and requires a bearer token — keyed, so outside this keyless port' },
   { id: 'api.core.ac.uk', why: 'CORE aggregates open-access full text and requires a registered API key' },
@@ -141,7 +142,8 @@ const arr = (v: unknown): unknown[] => (Array.isArray(v) ? v : [])
 const num = (v: unknown): number => (typeof v === 'number' ? v : typeof v === 'string' && /^\d+$/.test(v) ? Number(v) : 0)
 
 /** Per-door URL and reader. Every reader is TOTAL over a malformed payload: a shape it does not recognise yields
- *  zero rows and a zero total, which the sweep reports as EMPTY — never as a throw, and never as an invented row. */
+ *  zero rows and a zero total, which the sweep reports as EMPTY: the reader is total, so its output for any input
+ *  is a row count between 0 and the limit. */
 const DOORS: Record<string, { url: (q: string, limit: number) => string; read: Extract }> = {
   doaj: {
     url: (q, n) => `https://doaj.org/api/v2/search/journals/${encodeURIComponent(q)}?pageSize=${n}`,
@@ -374,7 +376,7 @@ export interface JournalCoverage {
   skills: number
   /** skills an editorially-mapped specialist door reaches, beside the all-subject breadth */
   withSpecialistDoor: { skill: string; doors: string[] }[]
-  /** skills reached only by the all-subject doors — breadth without depth, named rather than called covered */
+  /** skills reached by the all-subject doors alone: breadth 5/5 doors, depth 0 specialist doors named yet */
   breadthOnly: string[]
   absent: readonly { id: string; why: string }[]
   receipt: string

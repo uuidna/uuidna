@@ -6,11 +6,12 @@
 // policy, author instructions, the publication timeline. It runs WordPress, so it carries the keyless WP REST API
 // at /wp-json/wp/v2: `search` across every public post type, and `pages` by slug. That is the whole door.
 //
-// WHAT THIS DOOR IS NOT. It is not the article corpus. AAS research articles are published by IOP under the DOI
-// prefix 10.3847 and served from iopscience.iop.org; nothing here fetches an article, an abstract, or a citation
-// graph. A query that finds "The AJ becomes a Gold Open Access journal" has found AAS's own timeline entry about a
-// journal, not a paper in it. The distinction is the honest scope, and the crossref door (prefix 10.3847) is where
-// the corpus is asked — this one answers about the JOURNALS, not their contents.
+// WHERE THE CORPUS LIVES INSTEAD. AAS research articles are published by IOP under DOI prefix 10.3847 and served
+// from iopscience.iop.org, so the corpus is asked at the crossref door (which the DOI layer tags 10.3847 →
+// American Astronomical Society, verified against Crossref's own API). This door serves 2 things: the society's
+// published pages, and the 25-item pre-submission checklist. A query that finds "The AJ becomes a Gold Open
+// Access journal" has found AAS's own timeline entry about a journal — 1 of its pages, which is what this door
+// answers about.
 //
 // COURTESY. https://journals.aas.org/robots.txt allows every path (`User-agent: *` with an empty `Disallow:`) and
 // asks `Crawl-delay: 10`. Each call here is a single REST request for a single query, and the OS fetch cache makes
@@ -211,8 +212,8 @@ export async function aasPortSearch(text: string, limit = 8): Promise<AasPortRes
 
 /** aasChecklist() → the AAS pre-submission checklist, each item content-addressed, receipt-closed.
  *  The items are AAS'S OWN TEXT and the count is the count of what the page publishes today: this reports the
- *  checklist, it does not decide whether any manuscript satisfies it, and a page that could not be read declines
- *  rather than returning an empty checklist — an unread requirement and no requirement are different facts. */
+ *  checklist and leaves the judgement of any manuscript to AAS, and a page that fails to read DECLINES with its
+ *  reason — so a 0-item answer and a declined answer are two distinct results, distinguishable by the caller. */
 export async function aasChecklist(slug = AAS_CHECKLIST_SLUG): Promise<AasChecklistResult> {
   const got = await fetchAasPage(slug)
   const items = (got.page?.items ?? []).map((text, i) => {

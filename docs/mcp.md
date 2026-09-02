@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="253 keys" />
+# MCP tools <Badge type="tip" text="254 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 253 tools below are read from the server's own tool list and
+is **built from the keys**: the 254 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 7a34190a-61a4-81f9-b43c-ae33e397eedd
+gate CLEAN f0 d0 v0 · d4f44743-933b-8d75-9c7d-bb80f51e8b51
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 253-tool registry folds to its
-order-invariant identity `bb112658-7221-83ce-af90-70c8b3a637a9` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 254-tool registry folds to its
+order-invariant identity `3f66e7f9-498f-86b7-93c8-9d57cb639b91` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`253`" />
+## The grid <Badge type="tip" :text="`254`" />
 
-253 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 111 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+254 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 112 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>aas</code></a>
@@ -116,6 +116,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-ports"><code>ports</code></a>
 <a href="#uuidna-publication"><code>publication</code></a>
 <a href="#uuidna-publish"><code>publish</code></a>
+<a href="#uuidna-qc"><code>qc</code></a>
 <a href="#uuidna-quantum"><code>quantum</code></a>
 <a href="#uuidna-quantum-advantage"><code>quantum_advantage</code></a>
 <a href="#uuidna-quantum-message-demo"><code>quantum_message_demo</code></a>
@@ -595,7 +596,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'121'" />
+## Other <Badge type="tip" :text="'122'" />
 
 *skill: other*
 
@@ -1862,6 +1863,18 @@ A DOI is prefix/suffix and the PREFIX is registered to one organisation by one a
 | `verify` | boolean | no |  |
 | `enrich` | boolean | no |  |
 | `limit` | integer | no |  |
+
+### `uuidna_qc`
+
+What a quantum computer is, read off an external document, and exactly where this tree stands against it. Pass {of:'audit'} for the external audit run as a guard, {of:'census'} for every quantum-flavoured seal counted, or nothing for the demarcation. The demarcation answers NO to "is uuidna a quantum computer" and shows the working: which of the document’s ingredients have an arithmetic analogue here, which of its stages are reached, which of its metrics could ever be sealed, and which matching counts are refused as numerology.
+
+The document is an eight-page answer with fifteen references, mostly NIST and the National Academies, and it is used because it states the definition plainly — a definition stated plainly is the only thing a demarcation can be measured against. Its lists are transcribed rather than paraphrased into this tree’s vocabulary, and the file is content-addressed so the transcription is checkable against the bytes it came from. The verdict: no qubit is prepared here, no coherence preserved, no pulse calibrated, nothing measured; two of five ingredients have an exact-arithmetic analogue on the address lattice, three have none, and none of the four build stages is reached. What IS claimed names a sealed theorem each time, and a citation whose key is absent from the ledger reports itself as refused rather than resolving to prose. The characterisation metrics are judged by the rule this tree already applies to its own numbers: a decade class is sealable arithmetic and a stopwatch reading is not, so T1, T2 and gate fidelity are evidence and the leakage COUNT is arithmetic. The matching counts the document offers — seven build steps beside seven gate arms, five platforms beside a pentagram — are recorded as refused, because a refusal nobody can see is indistinguishable from never having noticed.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `of` | string | no |  |
 
 ### `uuidna_port_all`
 

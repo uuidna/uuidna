@@ -89,6 +89,7 @@ import { aasPortSearch, aasChecklist, AAS_CHECKLIST_SLUG } from './quantum/os/aa
 import { zenodoCommunities, zenodoCommunity, verifyZenodoCommunityClaim } from './quantum/os/zenodo/index.js'
 import { journalSweep, journalCoverage, journalSearch } from './quantum/os/journals/index.js'
 import { doiTagCensus, ownDoiRecords, priorArtByDoi, verifyDoiPrefixes } from './quantum/os/doi/index.js'
+import { qcVerdict, auditConformance, quantumClaimCensus } from './quantum/os/qc/index.js'
 import { refusalCensus } from './school/refusals/index.js'
 import { declareSpend } from './coin-ledger.js'
 import { chatApi, chatSend } from './quantum/os/chat/index.js'
@@ -1753,6 +1754,11 @@ const TOOLS: Tool[] = ([
       : a.deposit === true ? ownDoiRecords()
       : a.subject !== undefined ? priorArtByDoi(String(a.subject), a.limit === undefined ? 5 : Number(a.limit), a.enrich === true)
       : doiTagCensus() },
+  { name: 'uuidna_qc',
+    description: 'What a quantum computer is, read off an external document, and exactly where this tree stands against it. Pass {of:\'audit\'} for the external audit run as a guard, {of:\'census\'} for every quantum-flavoured seal counted, or nothing for the demarcation. The demarcation answers NO to "is uuidna a quantum computer" and shows the working: which of the document’s ingredients have an arithmetic analogue here, which of its stages are reached, which of its metrics could ever be sealed, and which matching counts are refused as numerology.',
+    detail: 'The document is an eight-page answer with fifteen references, mostly NIST and the National Academies, and it is used because it states the definition plainly — a definition stated plainly is the only thing a demarcation can be measured against. Its lists are transcribed rather than paraphrased into this tree’s vocabulary, and the file is content-addressed so the transcription is checkable against the bytes it came from. The verdict: no qubit is prepared here, no coherence preserved, no pulse calibrated, nothing measured; two of five ingredients have an exact-arithmetic analogue on the address lattice, three have none, and none of the four build stages is reached. What IS claimed names a sealed theorem each time, and a citation whose key is absent from the ledger reports itself as refused rather than resolving to prose. The characterisation metrics are judged by the rule this tree already applies to its own numbers: a decade class is sealable arithmetic and a stopwatch reading is not, so T1, T2 and gate fidelity are evidence and the leakage COUNT is arithmetic. The matching counts the document offers — seven build steps beside seven gate arms, five platforms beside a pentagram — are recorded as refused, because a refusal nobody can see is indistinguishable from never having noticed.',
+    inputSchema: { type: 'object', properties: { of: { type: 'string', enum: ['demarcation', 'audit', 'census'] } } },
+    run: (a) => a.of === 'audit' ? auditConformance() : a.of === 'census' ? quantumClaimCensus() : qcVerdict() },
   { name: 'uuidna_port_all',
     description: 'Every package in the catalogue, ported. All 28,635 carry a port identity; 11,370 are also placed in a named domain and 17,265 are not. Both numbers, never averaged.',
     detail: 'Identity is arithmetic over published metadata — name, version, checksum, repo, branch, arch folded to an address — so it needs no pattern and no opinion, and that half was complete before anyone asked. Classification is a measurement with known failures. Widening the patterns to close the gap raises the second number and lowers its meaning: loosening bio collects ovmf and dmidecode because their descriptions contain BIOS, loosening chemistry collects btrbk and newsboat because theirs say atomic. The unclassified remainder is described by name prefix rather than dismissed — language bindings, vendored SDKs, desktop stacks, fonts.',
