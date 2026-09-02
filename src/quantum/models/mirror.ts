@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 423,
+ "count": 425,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -443,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000008554",
-   "completionPrice": "0.00000017108"
+   "promptPrice": "0.00000008246",
+   "completionPrice": "0.00000016492"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -471,8 +471,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000001030776",
-   "completionPrice": "0.000002061552"
+   "promptPrice": "0.00000102747",
+   "completionPrice": "0.00000205494"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
@@ -979,6 +979,20 @@ export const MODELS_MIRROR: ModelsMirror = {
    "completionPrice": "0.0000002"
   },
   {
+   "id": "meta/muse-spark-1.3",
+   "name": "Meta: Muse Spark 1.3",
+   "contextTokens": 1048576,
+   "promptPrice": "0.00000125",
+   "completionPrice": "0.00000425"
+  },
+  {
+   "id": "meta/muse-spark-1.3-contributor",
+   "name": "Meta: Muse Spark 1.3 Contributor",
+   "contextTokens": 1048576,
+   "promptPrice": "0.0000001",
+   "completionPrice": "0.0000002"
+  },
+  {
    "id": "microsoft/phi-4",
    "name": "Microsoft: Phi 4",
    "contextTokens": 16384,
@@ -1353,8 +1367,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "nvidia/nemotron-3-ultra-550b-a55b",
    "name": "NVIDIA: Nemotron 3 Ultra",
    "contextTokens": 262144,
-   "promptPrice": "0.000000625",
-   "completionPrice": "0.000003125"
+   "promptPrice": "0.0000006",
+   "completionPrice": "0.0000024"
   },
   {
    "id": "nvidia/nemotron-3-ultra-550b-a55b:batch",

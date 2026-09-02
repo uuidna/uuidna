@@ -8,7 +8,7 @@ import {
   boundaryCitation, hasBoundaryPointer, bareBoundaryProse,
   gapSurvey, tableLeadsFrom, tableFileOf, lonelyGaps,
 } from '../gap-survey.js'
-import { theoremCountByFile } from '../index.js'
+import { theoremCountByFile, theoremCasesByFile } from '../index.js'
 import { ROOT } from '../boundary.js'
 
 test('every cited boundary law key is sealed in the live ledger', () => {
@@ -71,11 +71,42 @@ test('live tables.found is read, never copied — the finder names the short win
   }
   const found = ledger.tables?.found ?? []
   assert.ok(found.length > 0, 'the tables record names finite objects')
-  const leads = tableLeadsFrom(found, theoremCountByFile())
+  const leads = tableLeadsFrom(found, theoremCasesByFile(), theoremCountByFile())
   for (const l of leads) {
     assert.ok(l.stated > l.sealed, `${l.file} would not be a lead if it already enumerated`)
     assert.match(l.file, /\.lean$/)
   }
+})
+
+// ── THE TABLE METRIC MEASURES ENUMERATED ROWS, NOT THEOREM FILES. Measured 2026-09-02: the sealed side was
+// theoremCountByFile(), so a table's ROW COUNT was compared against the number of THEOREMS in its wing — two
+// different units, and the difference is what `by decide` is for. It reported 56 wings short, of which 21 had
+// already enumerated their table (Editor.lean states 512 and carries 60739 cases across 4 theorems), and its top
+// lead asked for 8160 theorems in Os.lean. A gap whose only stated remedy is 8160 theorems stops being read.
+test('the sealed side is summed CASES — one theorem enumerating a table closes it', () => {
+  const found = [{ wing: 'Editor', object: '512-row table', size: '512' }]
+  // four theorems carrying the whole table between them: enumerated, so SILENT
+  assert.deepEqual(tableLeadsFrom(found, new Map([['Editor.lean', 60739]]), new Map([['Editor.lean', 4]])), [])
+  // the same wing measured by theorem COUNT would report it short — the defect, held here so it cannot return
+  const byCount = tableLeadsFrom(found, new Map([['Editor.lean', 4]]), new Map([['Editor.lean', 4]]))
+  assert.equal(byCount.length, 1, 'counting theorems instead of cases is what produced 21 false gaps')
+  // and a wing that truly states more than it enumerates is STILL a lead, with both numbers reported
+  const short = tableLeadsFrom([{ wing: 'Structures', object: '220 rows', size: '220' }],
+    new Map([['Structures.lean', 3]]), new Map([['Structures.lean', 3]]))
+  assert.equal(short.length, 1)
+  assert.equal(short[0]!.sealed, 3, 'the sealed side is the enumerated cases')
+  assert.equal(short[0]!.theorems, 3, 'and the theorem split rides along, informative but not the denominator')
+  assert.match(short[0]!.owes, /enumerates 3 case\(s\) across 3 theorem\(s\)/, 'the report names both units')
+})
+
+test('theoremCasesByFile sums declared cases, and an undeclared theorem counts as its one case', () => {
+  const cases = theoremCasesByFile()
+  const counts = theoremCountByFile()
+  for (const [file, n] of counts)
+    assert.ok((cases.get(file) ?? 0) >= n, `${file}: cases can never be fewer than theorems — each is at least one`)
+  // and the two indexes DIFFER somewhere, or the change measured nothing
+  assert.ok([...counts].some(([f, n]) => (cases.get(f) ?? 0) > n),
+    'some wing enumerates more rows than it has theorems — otherwise the units were never distinct')
 })
 
 test('lonelyGaps — each gap names a wing-isolated theorem and a connect fix', () => {

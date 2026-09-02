@@ -2,7 +2,7 @@
 // Desk-automatable gaps carry an act; kernel-only gaps cite sealed theorems — no boundary prose.
 import { readRepoJson } from './desk/repo/json/index.js'
 import { leadCensus, type SourceReading } from './leads.js'
-import { theoremCountByFile, theoremByKey, theorems } from './theorems/index.js'
+import { theoremCountByFile, theoremCasesByFile, theoremByKey, theorems } from './theorems/index.js'
 import { pendingHarvestLeads } from './search-feed.js'
 import { waveQueueState } from './wave-deposit.js'
 import { leadsTrialGaps, type LeadsRecord } from './school/leads/index.js'
@@ -71,30 +71,50 @@ export interface TableLead {
   file: string
   object: string
   stated: number
+  /** ENUMERATED ROWS the wing seals — the summed `cases`, which is the unit a table row is measured in */
   sealed: number
+  /** how those cases were split into theorems — informative, and deliberately not the denominator */
+  theorems: number
   owes: string
 }
 
 export const tableFileOf = (wing: string): string => `${wing}.lean`
 
+/** tableLeadsFrom(found, cases, theoremCounts) → the tables a wing STATES and has yet to ENUMERATE.
+ *
+ *  THE DENOMINATOR WAS THE WRONG QUANTITY (measured 2026-09-02). This compared a table's ROW COUNT against the
+ *  number of THEOREMS in the wing's file, which are different units — and the difference is exactly what
+ *  `by decide` is for: one theorem enumerating 512 rows seals a 512-row table. Counting it as "1" reported 56
+ *  wings short, of which 21 had already enumerated their table: Editor.lean states 512 and carries 60739 cases
+ *  across 4 theorems, Hardware states 64 and carries 2692, Calendar states 412 and carries 515. A gap that
+ *  closable only by writing 8160 theorems reads as permanent debt and stops being read at all — the top lead asked for
+ *  8160 theorems in Os.lean, which nobody would ever write.
+ *
+ *  So the sealed side is now the summed CASES, and the theorem count rides along in the report because both
+ *  numbers are informative: cases say whether the table is enumerated, theorems say how it was split. This
+ *  SHRINKS the metric from 56 to 35, and the shrink is earned by measuring the right thing rather than by
+ *  loosening a threshold — which is why both numbers are printed rather than one. */
 export function tableLeadsFrom(
   found: readonly TableFound[],
-  counts: ReadonlyMap<string, number>,
+  cases: ReadonlyMap<string, number>,
+  theoremCounts: ReadonlyMap<string, number> = new Map(),
 ): TableLead[] {
   const out: TableLead[] = []
   for (const row of found) {
     const stated = Number(row.size)
     if (!Number.isFinite(stated) || stated <= 0) continue
     const file = tableFileOf(row.wing)
-    const sealed = counts.get(file) ?? 0
+    const sealed = cases.get(file) ?? 0
     if (sealed >= stated) continue
+    const theorems = theoremCounts.get(file) ?? 0
     out.push({
       wing: row.wing,
       file,
       object: row.object,
       stated,
       sealed,
-      owes: `${file} states ${row.object} (${stated}) and seals ${sealed} — enumerate the table; desk proposes, kernel disposes`,
+      theorems,
+      owes: `${file} states ${row.object} (${stated}) and enumerates ${sealed} case(s) across ${theorems} theorem(s) — enumerate the table; desk proposes, kernel disposes`,
     })
   }
   return out.sort((a, b) => (b.stated - b.sealed) - (a.stated - a.sealed) || (a.wing < b.wing ? -1 : 1))
@@ -173,7 +193,7 @@ export function gapSurvey(_root: string = ROOT, readings: readonly SourceReading
   const held = (record?.held ?? []).filter((r) => String(r.lead ?? '').trim()).length
   const openLeads = gatherOpenLeads().length
   const tables = record as { tables?: { found?: { wing: string; object: string; size: string }[] } } | null
-  const short = tableLeadsFrom(tables?.tables?.found ?? [], theoremCountByFile())
+  const short = tableLeadsFrom(tables?.tables?.found ?? [], theoremCasesByFile(), theoremCountByFile())
   const lonely = lonelyGaps().length
   const wave = waveQueueState(readRepoJson('lean/wave-queue.json'))
   const harvest = pendingHarvestLeads(wave.refused, wave.inFlight).length

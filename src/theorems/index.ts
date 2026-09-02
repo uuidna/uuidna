@@ -212,6 +212,16 @@ let _countByFile: Map<string, number> | null = null
 export const theoremCountByFile = (): ReadonlyMap<string, number> =>
   (_countByFile ??= THEOREMS.reduce((m, t) => (m.set(t.file, (m.get(t.file) ?? 0) + 1), m), new Map<string, number>()))
 
+let _casesByFile: Map<string, number> | null = null
+/** theoremCasesByFile() → ENUMERATED ROWS per lean file: the sum of each theorem's `cases`, built once.
+ *
+ *  A theorem and a table row are different units, and the difference is the whole point of `by decide`: one
+ *  theorem enumerating 512 rows seals a 512-row table, and counting it as "1" measures the wrong quantity.
+ *  Editor.lean is the clearest case — 4 theorems carrying 60739 cases between them. A theorem with no declared
+ *  `cases` counts as the single case it is. */
+export const theoremCasesByFile = (): ReadonlyMap<string, number> =>
+  (_casesByFile ??= THEOREMS.reduce((m, t) => (m.set(t.file, (m.get(t.file) ?? 0) + (t.cases ?? 1)), m), new Map<string, number>()))
+
 let _byPrinciple: Map<string, Theorem[]> | null = null
 /** theoremNeighbours(key) → the theorems that SHARE this one's computing principle (its domain), excluding itself —
  *  each theorem scans its neighbours. Built once from the immutable ledger; the neighbourhoods partition the whole
