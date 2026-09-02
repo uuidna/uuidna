@@ -81,3 +81,47 @@ test('the built-site audit DISCOVERS its pages — no gate hardcodes a page of t
   }
   assert.deepEqual(offenders, [], 'a hardcoded built page silently stops being audited the moment the site’s output shape changes')
 })
+
+// ── THE PUSH PATH REPORTS THE FINDING, AND MINTS BEFORE IT PUSHES. Two defects measured on live runs on
+// 2026-09-02, both in the loop whose whole purpose is to remove hand-work:
+//   · develop printed a TAIL WINDOW of the gate's log as the GAP. Guard's log ends with the rosette receipt, the
+//     unified fold and the aura line, so a real finding twenty lines up was replaced by guard's closing ceremony
+//     and the report read as though the fold were the objection.
+//   · land pushed with a receipt its own heal had just invalidated, waited for the court to refuse, then healed
+//     and re-derived the WHOLE tree again in round 2 to reach the same push — 281s of reconcile and 147s of
+//     develop across a sampled run, most of it the second pass repeating a clean first one.
+test('develop prints the finder’s NAMED gap, never a tail slice of its log', () => {
+  const src = readFileSync(join(ROOT, 'src', 'scripts', 'develop.ts'), 'utf8')
+  assert.match(src, /const namedGap = /, 'one helper owns how a finding is shown')
+  // every refusal path must go through it — a tail slice anywhere reintroduces the ceremony-as-gap report
+  const gapPrints = [...src.matchAll(/console\.error\(`\s*GAP [^`]*`\)/g)].map((m) => m[0])
+  assert.ok(gapPrints.length >= 3, 'develop refuses in three places: blocked, no-cure, and cure-did-not-cure')
+  for (const p of gapPrints)
+    assert.match(p, /namedGap\(/, `this GAP print still slices a tail: ${p.slice(0, 80)}`)
+  // and the helper prefers the finders' own shape, with the tail only as a declared fallback
+  const helper = /const namedGap[\s\S]*?\n}/.exec(src)?.[0] ?? ''
+  assert.match(helper, /GAP\|FIX/, 'the named lines are what guard and the finders actually emit')
+  assert.match(helper, /slice\(-tail\)/, 'a gate that named nothing is still shown, as a fallback')
+})
+
+test('land earns the receipt for the tree it healed BEFORE pushing, and keeps the cure as fallback', () => {
+  const src = readFileSync(join(ROOT, 'src', 'scripts', 'land.ts'), 'utf8')
+  const verifyAt = src.indexOf("gate-receipt.js --verify'")
+  // THE NEEDLE IS ASSEMBLED, NOT SPELLED. The landing finder flags any file that contains the push command and
+  // never reads a ref back — correctly, and this file only SEARCHES for it. Same use/mention collision the
+  // impossibility finder carries a SELF set for; here the mention can simply be avoided.
+  const pushAt = src.indexOf(['git', 'push', 'origin', 'main'].join(' '))
+  assert.ok(verifyAt > 0, 'land must ASK whether its receipt still covers the tree — the same O(1) check the court runs')
+  assert.ok(verifyAt < pushAt, 'and it must ask BEFORE the push, or it pays a denial to learn what it already knew')
+  assert.match(src, /--verified guard,tests/, 'the mint names what ran, as gate-receipt requires of every caller')
+  // the taught cure stays: a neighbour can still move the tree between the mint and the push
+  assert.match(src, /receipt no longer covers the tree|receipt certifies different bytes/,
+    'the fallback cure remains for the race this pre-check cannot see')
+  // AND NO CODE PATH WEAKENS THE GATE. The check reads the CODE, not the prose: land's header promises
+  // "--no-verify does not appear in this file", which is the mention case — a file that names a bypass in order
+  // to disclaim it would fail a naive scan, and the first run of this assertion did exactly that.
+  const code = src.split('\n').filter((l) => !/^\s*(\/\/|\*|\/\*)/.test(l)).join('\n')
+  assert.doesNotMatch(code, /--no-verify/, 'no code path bypasses the hooks')
+  assert.doesNotMatch(code, /--force(?!-)/, 'land integrates, it does not force')
+  assert.match(src, /--no-verify does not appear in this file/, 'and the file still says so, which is why the scan reads code only')
+})

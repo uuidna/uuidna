@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "0d67016bd98aceb4f9c798869b174551",
+    "src": "8352b8228e474ad8eb56e3c2342b04ae",
     "lean": "4f184d48d38be849264f30f440182265"
   },
   "files": {
@@ -3860,7 +3860,7 @@
     "src/scripts/deploy-run.ts": "0db01c8a78faa2bc",
     "src/scripts/derive-prose-trials.ts": "0859eff9ea61b58c",
     "src/scripts/detail-audit.test.ts": "17463fce632986e3",
-    "src/scripts/develop.ts": "3677f8416c3876d6",
+    "src/scripts/develop.ts": "d01c35a686588340",
     "src/scripts/dirty-paths.test.ts": "f36fbfa3ece6baba",
     "src/scripts/discover-books.ts": "2a5891422ec4d23d",
     "src/scripts/domains-deposit.ts": "6865be8e39b7ef46",
@@ -3879,7 +3879,7 @@
     "src/scripts/gap-survey.test.ts": "fb648901b0a4523e",
     "src/scripts/gate-all.test.ts": "f853d8d3498d8af9",
     "src/scripts/gate-all.ts": "f38d3514b3493e9d",
-    "src/scripts/gate-paths.test.ts": "de0c8e0de1adf901",
+    "src/scripts/gate-paths.test.ts": "a85d687f4c97ac45",
     "src/scripts/gate-receipt.ts": "daded06a4a8b34a4",
     "src/scripts/gateways.ts": "335c1b47091d0b46",
     "src/scripts/gcp-analytics.ts": "50bb97627d5c81cc",
@@ -3940,7 +3940,7 @@
     "src/scripts/impossibility-gaps.ts": "19bb907b097ffbc9",
     "src/scripts/index-test-imports.ts": "6e1099a4e0bc5e06",
     "src/scripts/iq-books.ts": "7007db73db1e898c",
-    "src/scripts/land.ts": "2974181e94464a69",
+    "src/scripts/land.ts": "dcad0c2d7fd8662b",
     "src/scripts/landing-gaps.ts": "9a1e8e4ee19f82e7",
     "src/scripts/leads-gate.ts": "e57116785d5fab90",
     "src/scripts/leak-scan.ts": "71c5b3a958586dfe",

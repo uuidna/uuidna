@@ -83,6 +83,31 @@ for (let round = 1; round <= ROUNDS; round++) {
   }
   run('node dist/scripts/reconcile.js --derive-only')        // derived layer freshly sealed, spin LAST, no publish
 
+  // ── THE RECEIPT IS MINTED FOR THE TREE THIS ROUND HEALED, BEFORE THE PUSH (found 2026-09-02, by measuring) ──
+  //
+  // Every landing took TWO rounds and the first one could never succeed. develop and reconcile --derive-only both
+  // WRITE, so by the time the push runs, the tree has moved past whatever gate-receipt.json covered — and the
+  // court's --proven arm refuses exactly that. So land pushed, was told "the receipt no longer covers the tree",
+  // ran the taught cure (guard + suite + mint), and then healed and re-derived THE WHOLE TREE AGAIN in round 2 to
+  // reach the same push. Sampled on a live run: 3 starts of reconcile --derive-only totalling 281s and 2 of
+  // develop totalling 147s, most of it the second pass repeating what the first had already made clean.
+  //
+  // The loop was paying a DENIAL to learn something it already knew: it had just written files. This asks the
+  // same instrument the court uses — gate-receipt --verify, O(1) — and mints only when the answer is no, before
+  // the commit, so the fresh receipt is committed with the work it covers and the push passes on round 1. The
+  // taught cure below stays as the fallback for the one case outside this check's reach by construction — a
+  // neighbour moving the tree between the mint and the push, which is the case it was written for.
+  const covered = run('node dist/scripts/gate-receipt.js --verify')
+  if (!covered.ok) {
+    console.log('\nland — the heal moved the tree, so its receipt is stale; earning a new one before the push …')
+    const proof = run('npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests')
+    if (!proof.ok) {
+      console.error('✗ land — the tree does not prove green, so no receipt was minted. Its GAP+FIX, verbatim:\n')
+      console.error(proof.out.split('\n').filter((l) => /✗|GAP|FIX|not ok/.test(l)).join('\n') || proof.out.slice(-1500))
+      process.exit(1)
+    }
+  }
+
   // ── THE COMMIT THIS FILE ALWAYS CLAIMED AND NEVER MADE (found 2026-09-01) ────────────────────────────────────
   //
   // The header above has described this loop as "{ develop (heal) → commit what the drain owns → push }" since it

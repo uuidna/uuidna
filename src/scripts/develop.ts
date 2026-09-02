@@ -24,6 +24,24 @@ type Cure = { name: string; when: RegExp; cmd: string; because: string }
 // run: a spin objection NAMES the files that moved, so a filename cure (regenerate support-audit.json) matched before
 // the spin cure (reconcile, which re-derives AND re-seals) and "cured" the wrong thing twice; the run converged only
 // because the guard happens to re-seal the fold. A drift of the SEAL is never cured by regenerating one of its files.
+/** namedGap(out, tail) → the FINDER'S OWN named gap, not the tail of its log.
+ *
+ *  All three refusal paths below used to print `out.split('\n').slice(-8)`. Measured 2026-09-02: guard failed on
+ *  a bare modal claim in one comment, and the tail window showed the rosette receipt, the unified fold and the
+ *  aura line — guard's closing ceremony — while the actual GAP sat twenty lines above and the report read as
+ *  though the fold itself were the objection. A gate that knows the finding and prints something else makes the
+ *  next hand re-run it to learn the accusation, which is the cost this whole loop exists to remove.
+ *
+ *  Guard and the finders emit their findings in a fixed shape (`GAP …` / `FIX …`, under a `✗ <finder>` line), so
+ *  those lines ARE the answer. The tail stays as the fallback for a gate that named nothing in that shape — an
+ *  output with no named gap is still worth showing, and showing it is not the same as pretending it was named. */
+const namedGap = (out: string, tail: number): string => {
+  const lines = out.split('\n').map((l) => l.trimEnd())
+  const named = lines.filter((l) => /^\s*(GAP|FIX)\b/.test(l) || /^✗\s/.test(l))
+  const pick = named.length ? named : lines.filter((l) => l.trim().length > 0).slice(-tail)
+  return pick.join('\n         ')
+}
+
 const CURES: Cure[] = [
   { name: 'derived layer drift (spin)', when: /NON-QUANTUM DRIFT|Spin hard-rejects drift/,
     // --derive-only, NOT plain reconcile. Plain reconcile ends by committing AND PUSHING to origin, so this cure
@@ -217,21 +235,21 @@ for (let round = 1; round <= MAX_ROUNDS; round++) {
   const blocked = NO_CURE.find((n) => n.when.test(objection.out))
   if (blocked) {
     console.error(`\n✗ develop — the "${objection.label}" gate objected, and this is NOT a machine's to cure:`)
-    console.error(`    GAP ${objection.label}: ${objection.out.trimEnd().split('\n').slice(-6).join('\n         ')}`)
+    console.error(`    GAP ${objection.label}: ${namedGap(objection.out, 6)}`)
     console.error(`    FIX ${blocked.why}`)
     process.exit(1)
   }
   const cure = CURES.find((c) => c.when.test(objection.out))
   if (!cure) {
     console.error(`\n✗ develop — the "${objection.label}" gate objected with no taught cure. Read it, fix it, and TEACH it:`)
-    console.error(`    GAP ${objection.out.trimEnd().split('\n').slice(-8).join('\n         ')}`)
+    console.error(`    GAP ${namedGap(objection.out, 8)}`)
     console.error('    FIX add the objection\'s signature + its deterministic command to CURES in src/scripts/develop.ts')
     process.exit(1)
   }
   const attempt = `${cure.name}::${objection.label}`
   if (attempt === lastAttempt) {
     console.error(`\n✗ develop — the cure for "${cure.name}" did not cure it: the "${objection.label}" gate objects the same way twice.`)
-    console.error(`    GAP ${objection.out.trimEnd().split('\n').slice(-8).join('\n         ')}`)
+    console.error(`    GAP ${namedGap(objection.out, 8)}`)
     console.error(`    FIX either the signature matches the wrong cure (order CURES most-specific-first) or the cure is incomplete`)
     process.exit(1)
   }
