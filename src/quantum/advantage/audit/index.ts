@@ -162,8 +162,22 @@ export function quantumAdvantageAudit(): QuantumAdvantageAudit {
       if (row.reach?.seals && !byKey.has(row.reach.seals)) {
         gaps.push({ what: `${level.name}: cites unsealed theorem ${row.reach.seals}`, fix: 'seal the key or fix LEVELS' })
       }
-      if (row.cost?.class !== 'measured' || typeof row.cost.opNsDecade !== 'number') {
-        gaps.push({ what: `${level.name}: cost must be measured with opNsDecade`, fix: 'remeasure' })
+      // THE SEAL CARRIES THE CLAIM, NOT THE STOPWATCH (2026-09-02). This required a NUMBER here, which is what
+      // forced a host measurement into a committed file: lean/quantum-advantage.json could then only be
+      // reproduced on the machine that measured it, ubuntu produced different bytes, spin called it drift, and
+      // prepublishOnly failed — v0.3.0 could not publish for that reason alone. Bucketing to a decade was not
+      // enough; a decade is more stable than a reading, not invariant, and a slower runner crosses the boundary.
+      //
+      // What is auditable in a SEALED file is that the cost is declared measured and explicitly not sealed. The
+      // number itself is served live by uuidna_quantum_advantage, where a measurement of one host belongs.
+      if (row.cost?.class !== 'measured') {
+        gaps.push({ what: `${level.name}: cost must be classed measured`, fix: 'remeasure' })
+      }
+      if (typeof row.cost?.opNsDecade === 'number') {
+        gaps.push({
+          what: `${level.name}: a measured timing is SEALED (opNsDecade=${row.cost.opNsDecade})`,
+          fix: 'a duration belongs to the host that took it — serve it live and seal the marker instead',
+        })
       }
       if (row.fidelity?.class !== 'measured' || !(row.fidelity.ops! > 0)) {
         gaps.push({ what: `${level.name}: fidelity must be measured with ops>0`, fix: 'remeasure' })

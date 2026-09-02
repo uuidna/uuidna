@@ -11,7 +11,7 @@
     ".zenodo.json": "60479a0b89818f46",
     "reports.json": "f68e829a49e78a65",
     "lean/statement-index.json": "8360ea221cc185fe",
-    "README.md": "6605809378678c29",
+    "README.md": "7e6efed4f7be80cd",
     "llm.txt": "ee7923541bec81d5",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -2645,7 +2645,7 @@
     "lean/biophysics-manifest.json": "ef2f646ee87084cb",
     "lean/book-trials.json": "4a1e1daf22858399",
     "lean/boolean-manifest.json": "78aa0af28e468b54",
-    "lean/browser-apps-usable.json": "4c60aae79c668d3f",
+    "lean/browser-apps-usable.json": "c3e60f3ba99e8a2e",
     "lean/byte-manifest.json": "b012730bd6428b05",
     "lean/calendar-manifest.json": "881b91eaad958a41",
     "lean/channel-manifest.json": "50bd3239f2d888ff",
@@ -2724,7 +2724,7 @@
     "lean/propulsion-manifest.json": "dd4ce996a8f18260",
     "lean/prosetrial-manifest.json": "23892b099ad18e7b",
     "lean/psychology-manifest.json": "573f1cc3d653898b",
-    "lean/quantum-advantage.json": "aa4628e5359b813f",
+    "lean/quantum-advantage.json": "dc803d68663b8df7",
     "lean/quantum-advantage.md": "7342cdb1cef38b10",
     "lean/quantum-capacity.json": "3688d60a2c298df9",
     "lean/quantum-capacity.md": "a5fe0022c4af8314",
@@ -2779,5 +2779,5 @@
     "lean/wave-queue.json": "bc136de9316b89f7",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "7e8e768a-034e-89dc-b565-d283d000e26a"
+  "receipt": "58eb555d-e4fa-8573-9b94-f86471ad00df"
 }

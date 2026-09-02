@@ -311,7 +311,7 @@
     {
       "topic": "device",
       "ok": true,
-      "detail": "device 64376687-8692-81f6-a541-a120a07c990b"
+      "detail": "device door returns an address (the value is this host's, reported live, never sealed)"
     },
     {
       "topic": "nginx",

@@ -359,7 +359,20 @@ writeFileSync(join(ROOT, 'lean', 'quantum-advantage.json'), JSON.stringify({
   // — but the top-level copy stayed and made this committed file reproducible on one machine only.
   host: { named: false, addressedTo: REFERENCE_HOST,
     why: 'Every cost here is a decade, which survives a change of machine; naming the CPU beside it would claim a precision the decade does not have and would make these committed bytes reproducible only on that CPU. The running host is reported live by uuidna_quantum_advantage.' },
-  report, proof: { ...proof, device: undefined }, dispatch: run, receipt,
+  // MEASURED TIMINGS ARE NOT SEALED, and the file already knew the difference: every cost and fidelity block
+  // carries `class: "declared"` or `class: "measured"`. A declared value is arithmetic and reproduces anywhere; a
+  // measured one belongs to the machine that took it. Sealing the second kind is what made these bytes
+  // host-specific. Bucketing to a decade was not enough — a decade is more stable than a reading, not invariant,
+  // and a slower runner crosses the boundary. Counts of decisions stay (they are deterministic); the nanosecond
+  // and ops-per-second decades are served live by uuidna_quantum_advantage, where a measurement belongs.
+  report: {
+    ...report,
+    rows: report.rows.map((r) => ({
+      ...r,
+      cost: { ...r.cost, opNsDecade: 'served live — measured, never sealed', opsPerSecondDecade: 'served live — measured, never sealed' },
+    })),
+  },
+  proof: { ...proof, device: undefined }, dispatch: run, receipt,
   address: toUuid(`quantum-advantage|${receipt}|${REFERENCE_HOST}`),
 }, null, 1) + '\n')
 writeFileSync(join(ROOT, 'lean', 'quantum-advantage.md'), block + '\n')

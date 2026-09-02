@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "0a28943b1e577217605c181679f06856",
-    "lean": "6f661143cfd4c83401f053ad7783c6ab"
+    "src": "df34e469e0c7b9bb32e5b0a701c4585d",
+    "lean": "67b16d9bdd3b22327f2a0914ef4d4c87"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -138,7 +138,7 @@
     "lean/biophysics-manifest.json": "83eb428d27b61c57",
     "lean/book-trials.json": "873b1062733344c8",
     "lean/boolean-manifest.json": "12e7d85c36e3cd28",
-    "lean/browser-apps-usable.json": "fdcad79006705e66",
+    "lean/browser-apps-usable.json": "28233f5bba82407d",
     "lean/byte-manifest.json": "55a6746e1551921d",
     "lean/calendar-manifest.json": "5f814c554191c46b",
     "lean/channel-manifest.json": "49db78a27c5a098b",
@@ -217,7 +217,7 @@
     "lean/propulsion-manifest.json": "c9470e0344be84de",
     "lean/prosetrial-manifest.json": "5a48558b70ab5658",
     "lean/psychology-manifest.json": "dd0f5c4fc0aec5fe",
-    "lean/quantum-advantage.json": "0eccfcaf7bfa7a68",
+    "lean/quantum-advantage.json": "486eb008241a2741",
     "lean/quantum-advantage.md": "1dfaf72079cee0e0",
     "lean/quantum-capacity.json": "f3886773ed0a720c",
     "lean/quantum-capacity.md": "4e85688cee9a81ee",
@@ -3547,7 +3547,7 @@
     "src/quantum-message.test.ts": "3ba86e0f9dfe2eed",
     "src/quantum-news-portal.test.ts": "d4ca1b66ee3cf2cc",
     "src/quantum.test.ts": "2ae6274ace003ff4",
-    "src/quantum/advantage/audit/index.ts": "4dd7383471ac4444",
+    "src/quantum/advantage/audit/index.ts": "3c530d77e29049a1",
     "src/quantum/advantage/index.ts": "ecdf1a9f08d68675",
     "src/quantum/advantage/mcp/agent/playbook/index.ts": "bde321a40f5cce5a",
     "src/quantum/advantage/mcp/curriculum/index.ts": "6ac3f293a93d4140",
@@ -3559,7 +3559,7 @@
     "src/quantum/apps/anthem-superposition.test.ts": "1fc5b3290bd858aa",
     "src/quantum/apps/anthem-superposition.ts": "a917167584c795af",
     "src/quantum/apps/balancer.ts": "8704ddf698acbcd6",
-    "src/quantum/apps/browser-usable.ts": "4d552dd1b717b986",
+    "src/quantum/apps/browser-usable.ts": "1acea75efc94850e",
     "src/quantum/apps/catalogue-browser.ts": "0c9cde48243676bf",
     "src/quantum/apps/categories/books/fact-finder.ts": "dce63f81f526012c",
     "src/quantum/apps/categories/books/index.ts": "fcf04d081c819597",
@@ -3900,9 +3900,9 @@
     "src/scripts/gen-os.ts": "2aff15a65013a790",
     "src/scripts/gen-packages.ts": "e377f27874e5bb08",
     "src/scripts/gen-prose-evidence.ts": "23b66da618d622a3",
-    "src/scripts/gen-quantum-advantage.ts": "7cf9bef8d22c8e6d",
+    "src/scripts/gen-quantum-advantage.ts": "5715a443a00c6341",
     "src/scripts/gen-quantum-capacity.ts": "17b8c99ecba696c9",
-    "src/scripts/gen-readme.ts": "594980c916a11a19",
+    "src/scripts/gen-readme.ts": "941ced4de86ac4b4",
     "src/scripts/gen-referrer-song.ts": "d1570b354181a116",
     "src/scripts/gen-reports.ts": "7a29ed45b9b27aa2",
     "src/scripts/gen-school.ts": "267d1537f13a3037",

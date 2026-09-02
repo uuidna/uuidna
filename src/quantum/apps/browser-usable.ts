@@ -199,8 +199,17 @@ const runCatalogueExec = (): ManSampleCheck[] => CATALOGUE_EXEC_LINES.map((line)
     return { topic: line, ok: r.output.some((l) => l.endsWith('/')), detail: 'repo dirs listed' }
   }
   if (line === 'device') {
+    // THE VERDICT IS SEALED, THE ADDRESS IS NOT (the captain, 2026-09-02: "if a statement cannot be verified with
+    // true or false then it needs to be split in statements that can"). `detail` used to carry the device address
+    // itself, which is folded from THIS machine's cores, memory, platform and arch — so this committed file could
+    // only be reproduced on the machine that wrote it. On the ubuntu runner the bytes differed, spin called it
+    // NON-QUANTUM DRIFT, and prepublishOnly failed; that is why v0.3.0 could not publish.
+    //
+    // Split into the two statements underneath: "the device door returns an address" is decidable on any host and
+    // is what this file seals; the address VALUE is a fact about one machine, which uuidna_driver_state reports
+    // live. A host fact in a sealed file is not a stronger claim, it is a claim nobody else can check.
     const addr = (r.data as { device?: { deviceAddress?: string } }).device?.deviceAddress ?? ''
-    return { topic: line, ok: addr.includes('-'), detail: `device ${addr}` }
+    return { topic: line, ok: addr.includes('-'), detail: 'device door returns an address (the value is this host\'s, reported live, never sealed)' }
   }
   if (line === 'nginx' || line === 'openssl') {
     const d = r.data as { kind?: string; hexbits?: number[]; name?: string }

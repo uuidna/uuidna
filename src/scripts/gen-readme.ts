@@ -2,7 +2,6 @@
 // src/scripts/gen-readme.ts — GENERATE README.md (published on every release / Zenodo path).
 // Every magnitude is computed from the ledger or a sealed JSON at generation. No hollow superlatives.
 // Edit THIS file — never README.md directly.
-import { levelOf } from '../school.js'
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { ROOT as ROOT_DIR } from './api.js'
@@ -99,7 +98,6 @@ function generateReadme(): string {
   // reported drift, and the pre-push court blocked pushes that were otherwise green. Sealing the decade keeps
   // the claim (it is milliseconds, not seconds) and drops the part that varies by host and run by
   // construction, which is the part no reseal can ever reproduce.
-  const shorMs = (ns: number): number => levelOf((ns - (ns % 1000000)) / 1000000)
   const capacityRef = capacityMd.replace(/^## Quantum capacity/m, '### Quantum capacity')
 
   const heaviest = byGravity().slice(0, 7).map((t, i) => {
@@ -312,8 +310,8 @@ ${unlockReadmeBlock()}
 | Handle span | ${HANDLE_SPAN.toLocaleString('en-US')} | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
-| Shor chunks on handle | ${shor.handleChunks} × GHZ(${shor.chunkQubits}) = ${shor.handleStates.toLocaleString('en-US')} amplitudes | \`uuidna_os\` capacity.shor · \`uuidna_quantum\` GHZ; the ${shorMs(shor.handleNs)} ms decade on this CPU |
-| Shor chunks on uuid | ${shor.uuidChunks} × GHZ(${shor.chunkQubits}) = ${shor.uuidStates.toLocaleString('en-US')} amplitudes | \`uuidna_os\` · \`uuidna_quantum\`; the ${shorMs(shor.uuidNs)} ms decade — ${shor.underSecond ? 'under 1 s' : 'over 1 s'} |
+| Shor chunks on handle | ${shor.handleChunks} × GHZ(${shor.chunkQubits}) = ${shor.handleStates.toLocaleString('en-US')} amplitudes | \`uuidna_os\` capacity.shor · \`uuidna_quantum\` GHZ; measured live (\`uuidna_quantum_advantage\`) — never sealed in this file |
+| Shor chunks on uuid | ${shor.uuidChunks} × GHZ(${shor.chunkQubits}) = ${shor.uuidStates.toLocaleString('en-US')} amplitudes | \`uuidna_os\` · \`uuidna_quantum\`; the measured live (\`uuidna_quantum_advantage\`) — a duration belongs to the host that took it, so this README seals none |
 | Hilbert GHZ chunk | ${hilbertQubits} qubits (${hilbertStates} amplitudes) | HEXBIT_BITS × HEXBIT_BITS |
 | Crypto occupancy | ${sha256IsFourSixtyfours().bits} bits | [sha256_is_four_sixtyfours](https://uuidna.com/theorem/sha256_is_four_sixtyfours) — four 64s, not four hexbits |
 | Handle+hexbit nest | ${nest} qubits | \`HANDLE_HEXBITS + HEXBIT_BITS\` — theorem served_qubit_ceiling |
@@ -361,7 +359,7 @@ The supply grows two coins per sealed theorem and nothing else mints them.
 **Shor at full named capacity.** The uuid is the physical CPU/GPU register (128 bits). Its payload parses as
 **${shor.uuidChunks}** encoder-width chunks (GHZ(${shor.chunkQubits}) = ${shor.chunkStates.toLocaleString('en-US')}
 amplitudes each, [n_qubit_dimension](https://uuidna.com/theorem/n_qubit_dimension)). This host ran the handle
-column in the **${shorMs(shor.handleNs)} ms** decade and the uuid column in the **${shorMs(shor.uuidNs)} ms** decade
+column and the uuid column in times this README does not seal — a duration belongs to the host that measured it, so \`uuidna_quantum_advantage\` reports both live
 (${shor.underSecond ? 'under one second' : 'over one second'}). MCP tools: see **Use → Quick reference** above.
 
 ### License

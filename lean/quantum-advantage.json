@@ -17,9 +17,9 @@
      "seals": "nand_functionally_complete"
     },
     "cost": {
-     "opNsDecade": 1,
+     "opNsDecade": "served live — measured, never sealed",
      "over": 6553600,
-     "opsPerSecondDecade": 8,
+     "opsPerSecondDecade": "served live — measured, never sealed",
      "class": "measured",
      "what": "hexbit tile compiled from an address",
      "agreedEstimates": 5
@@ -44,9 +44,9 @@
      "seals": "handle_string_spans_the_quarter"
     },
     "cost": {
-     "opNsDecade": 2,
+     "opNsDecade": "served live — measured, never sealed",
      "over": 204800,
-     "opsPerSecondDecade": 7,
+     "opsPerSecondDecade": "served live — measured, never sealed",
      "class": "measured",
      "what": "handle read to its value and residue",
      "agreedEstimates": 5
@@ -71,9 +71,9 @@
      "seals": "handle_capacity_is_quantum_by_architecture"
     },
     "cost": {
-     "opNsDecade": 3,
+     "opNsDecade": "served live — measured, never sealed",
      "over": 204800,
-     "opsPerSecondDecade": 6,
+     "opsPerSecondDecade": "served live — measured, never sealed",
      "class": "measured",
      "what": "address folded from a distinct seed",
      "agreedEstimates": 5
@@ -98,9 +98,9 @@
      "seals": "n_qubit_dimension"
     },
     "cost": {
-     "opNsDecade": 3,
+     "opNsDecade": "served live — measured, never sealed",
      "over": 258200,
-     "opsPerSecondDecade": 6,
+     "opsPerSecondDecade": "served live — measured, never sealed",
      "class": "measured",
      "what": "theorem statement re-addressed in a full sweep",
      "agreedEstimates": 5
