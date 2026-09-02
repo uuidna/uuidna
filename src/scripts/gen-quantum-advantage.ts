@@ -354,7 +354,32 @@ of measuring per level.
 
 mkdirSync(join(ROOT, 'docs', 'public'), { recursive: true })
 writeFileSync(join(ROOT, 'docs', 'public', 'quantum-advantage.jsonld'), JSON.stringify(dataset, null, 2) + '\n')
-writeFileSync(join(ROOT, 'lean', 'quantum-advantage.json'), JSON.stringify({
+// ── THE SEAL IS ORDERED, AND IT SAYS WHERE IT MOVED (2026-09-02, after five publish attempts) ─────────────────
+//
+// Five v0.3.0 publishes died on `lean/quantum-advantage.json: coin X → Y` and nothing more. That message names
+// the FILE and not the field, so each attempt cost ~12 minutes of CI to learn one bit, and six measured figures
+// came out of this file one cycle at a time. An aggregate coin over a whole document cannot say what moved —
+// which is the captain's own law about statements: if it cannot be checked true or false on its own, split it
+// into parts that can.
+//
+// So two things happen here. Every array is ORDERED by a stable key, because an aggregate fold is order-
+// sensitive and array order in this document comes from iteration, not from meaning — two hosts that agree on
+// every value still disagree on the coin if anything iterates differently. And a per-field coin map is written
+// beside the document, so the next drift names its own subtree instead of costing a round trip to locate.
+const sortedSeal = (o: unknown): unknown => {
+  if (Array.isArray(o)) {
+    const mapped = o.map(sortedSeal)
+    return [...mapped].sort((a, b) => JSON.stringify(a).localeCompare(JSON.stringify(b)))
+  }
+  if (o && typeof o === 'object') {
+    const out: Record<string, unknown> = {}
+    for (const k of Object.keys(o as Record<string, unknown>).sort()) out[k] = sortedSeal((o as Record<string, unknown>)[k])
+    return out
+  }
+  return o
+}
+
+const sealedDoc = sortedSeal({
   // `device` is deliberately ABSENT. The proof object already stripped it one field over — the hazard was known
   // — but the top-level copy stayed and made this committed file reproducible on one machine only.
   host: { named: false, addressedTo: REFERENCE_HOST,
@@ -383,7 +408,11 @@ writeFileSync(join(ROOT, 'lean', 'quantum-advantage.json'), JSON.stringify({
   },
   proof: { ...proof, device: undefined }, dispatch: run, receipt,
   address: toUuid(`quantum-advantage|${receipt}|${REFERENCE_HOST}`),
-}, null, 1) + '\n')
+}) as Record<string, unknown>
+writeFileSync(join(ROOT, 'lean', 'quantum-advantage.json'), JSON.stringify(sealedDoc, null, 1) + '\n')
+// the per-field coin map — where a drift is, not merely that one happened
+writeFileSync(join(ROOT, 'lean', 'quantum-advantage-fields.json'), JSON.stringify(
+  Object.fromEntries(Object.keys(sealedDoc).sort().map((k) => [k, toUuid(JSON.stringify(sealedDoc[k]))])), null, 1) + '\n')
 writeFileSync(join(ROOT, 'lean', 'quantum-advantage.md'), block + '\n')
 
 console.log(`✓ gen-quantum-advantage — ${report.levelsMeasured}/${report.levelsDeclared} levels measured on ${device.cpu}`)

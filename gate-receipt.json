@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "8eb81080e889deddc31dbe89a84a3089",
-    "lean": "54b8557743966c13bc599f7077cedba7"
+    "src": "599c90360bbf3ee53b9b5c314a80462f",
+    "lean": "29e0493326227f5fe56302cb5f05be78"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -217,7 +217,7 @@
     "lean/propulsion-manifest.json": "c9470e0344be84de",
     "lean/prosetrial-manifest.json": "5a48558b70ab5658",
     "lean/psychology-manifest.json": "dd0f5c4fc0aec5fe",
-    "lean/quantum-advantage.json": "c20c9b904cce301f",
+    "lean/quantum-advantage.json": "69f1bf5d457a9cd8",
     "lean/quantum-advantage.md": "61de63d36a76014b",
     "lean/quantum-capacity.json": "f3886773ed0a720c",
     "lean/quantum-capacity.md": "4e85688cee9a81ee",
@@ -3905,7 +3905,7 @@
     "src/scripts/gen-os.ts": "2aff15a65013a790",
     "src/scripts/gen-packages.ts": "e377f27874e5bb08",
     "src/scripts/gen-prose-evidence.ts": "23b66da618d622a3",
-    "src/scripts/gen-quantum-advantage.ts": "2dac3cb5dd9782aa",
+    "src/scripts/gen-quantum-advantage.ts": "959dfab09197042b",
     "src/scripts/gen-quantum-capacity.ts": "17b8c99ecba696c9",
     "src/scripts/gen-readme.ts": "941ced4de86ac4b4",
     "src/scripts/gen-referrer-song.ts": "d1570b354181a116",
