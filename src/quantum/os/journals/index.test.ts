@@ -86,7 +86,14 @@ test('uuidna_journals — the sweep asks every search door concurrently and each
   assert.equal(s.journalLevel.length + s.articleLevel.length, s.asked, 'no door may vanish in the fan-out')
   assert.equal(s.concurrency.doorsAskedAtOnce, s.asked)
   assert.equal(s.concurrency.magnitude, s.asked, 'the magnitude IS the fan-out width — one deadline instead of n')
-  assert.ok(s.answering >= 6, `most doors should answer, got ${s.answering}/${s.asked}: ${s.declined.join(' · ')}`)
+  // THE THRESHOLD MEASURED SOMEONE ELSE'S RATE LIMIT. This asserted `answering >= 6`, which fails when several
+  // polite-pool doors 429 at once — measured from the hosted edge (openalex-sources: responded 429) and reachable
+  // locally too after repeated sweeps. A door that says NO with a reason is this port working; a suite that goes
+  // red because OpenAlex is busy is measuring the weather. So the invariant is that every door ACCOUNTS for
+  // itself and at least one answers — the fan-out, the limits and the addressing are asserted below and depend on
+  // nothing outside this tree.
+  assert.ok(s.answering >= 1, `no door answered at all — that is a network outage, not a rate limit: ${s.declined.join(' · ')}`)
+  assert.equal(s.answering + s.declined.length, s.asked, 'every door either answered or declined with a reason')
   for (const r of [...s.journalLevel, ...s.articleLevel]) {
     if (r.declined) { assert.ok(r.note.length > 0, `${r.door} must say why`); continue }
     assert.ok(r.rows.length <= 3, `${r.door} must honour the limit`)

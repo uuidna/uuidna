@@ -116,7 +116,20 @@ test('land earns the receipt for the tree it healed BEFORE pushing, and keeps th
   assert.match(src, /--verified guard,tests/, 'the mint names what ran, as gate-receipt requires of every caller')
   // the taught cure stays: a neighbour can still move the tree between the mint and the push
   assert.match(src, /receipt no longer covers the tree|receipt certifies different bytes/,
-    'the fallback cure remains for the race this pre-check cannot see')
+    'the fallback cure remains for the race this pre-check does not reach')
+  // AND A CURED DENIAL STILL REPORTS THE VERDICT. Printing only the cure's name discards the court's per-file
+  // manifest, which is the one thing that says WHICH files moved — measured by needing it and not having it.
+  // AND EVERY FAILURE PRINTER IS ANCHORED. The first mint-failure printer filtered on /GAP|FIX/ anywhere in a
+  // line and printed six PASSING test titles while the real failure sat in the discarded remainder — the same
+  // use/mention collision, this time inside the reporter meant to end it.
+  for (const m of src.matchAll(/\.filter\(\(l\) => \/([^/]+)\/\.test\(l/g)) {
+    const pattern = m[1]!
+    assert.match(pattern, /\^/, `an unanchored failure filter matches test NAMES: /${pattern}/`)
+  }
+  const cureAt = src.indexOf('CURES.find')
+  const denialAt = src.indexOf('the gate said, verbatim')
+  assert.ok(denialAt > 0, 'a cured denial must print the gate’s own verdict, not just the cure’s name')
+  assert.ok(denialAt < cureAt, 'and print it BEFORE choosing the cure, so the reason survives the choice')
   // AND NO CODE PATH WEAKENS THE GATE. The check reads the CODE, not the prose: land's header promises
   // "--no-verify does not appear in this file", which is the mention case — a file that names a bypass in order
   // to disclaim it would fail a naive scan, and the first run of this assertion did exactly that.

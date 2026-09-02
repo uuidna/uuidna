@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "f387ec32992ab3083f2ffae370637cc6",
+    "src": "3ac6be52fcae72922956e6d6a50af05e",
     "lean": "99a84e6cf8d29d6634aa7c6e2a180e9d"
   },
   "files": {
@@ -3721,7 +3721,7 @@
     "src/quantum/os/index.ts": "9ec1efc56623b85d",
     "src/quantum/os/installer/index.test.ts": "b7cfda8e2cebc933",
     "src/quantum/os/installer/index.ts": "b5e837387b6201c9",
-    "src/quantum/os/journals/index.test.ts": "f4a87f28c457f97a",
+    "src/quantum/os/journals/index.test.ts": "7c4dadf0ac915985",
     "src/quantum/os/journals/index.ts": "daffe8084ea60aa3",
     "src/quantum/os/mcpman/index.test.ts": "382b35ea90f2329a",
     "src/quantum/os/mcpman/index.ts": "c4612b19576823f4",
@@ -3879,7 +3879,7 @@
     "src/scripts/gap-survey.test.ts": "967b9bf7918dfc40",
     "src/scripts/gate-all.test.ts": "f853d8d3498d8af9",
     "src/scripts/gate-all.ts": "f38d3514b3493e9d",
-    "src/scripts/gate-paths.test.ts": "a85d687f4c97ac45",
+    "src/scripts/gate-paths.test.ts": "33dfa0553f4dd495",
     "src/scripts/gate-receipt.ts": "daded06a4a8b34a4",
     "src/scripts/gateways.ts": "335c1b47091d0b46",
     "src/scripts/gcp-analytics.ts": "50bb97627d5c81cc",
@@ -3940,7 +3940,7 @@
     "src/scripts/impossibility-gaps.ts": "19bb907b097ffbc9",
     "src/scripts/index-test-imports.ts": "6e1099a4e0bc5e06",
     "src/scripts/iq-books.ts": "7007db73db1e898c",
-    "src/scripts/land.ts": "dcad0c2d7fd8662b",
+    "src/scripts/land.ts": "6ac34a258d1063a8",
     "src/scripts/landing-gaps.ts": "9a1e8e4ee19f82e7",
     "src/scripts/leads-gate.ts": "e57116785d5fab90",
     "src/scripts/leak-scan.ts": "71c5b3a958586dfe",

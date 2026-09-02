@@ -78,7 +78,7 @@ for (let round = 1; round <= ROUNDS; round++) {
   const heal = run('node dist/scripts/develop.js')          // taught cures only; prints its own receipts
   if (!heal.ok) {
     console.error('✗ land — develop met an objection with NO taught cure. Its GAP+FIX, verbatim — a human decides here (that is the design, not a failure of it):\n')
-    console.error(heal.out.split('\n').filter((l) => /✗|GAP|FIX/.test(l)).join('\n') || heal.out.slice(-1500))
+    console.error(heal.out.split('\n').filter((l) => /^(✗|GAP|FIX)/.test(l.trim())).join('\n') || heal.out.slice(-1500))
     process.exit(1)
   }
   run('node dist/scripts/reconcile.js --derive-only')        // derived layer freshly sealed, spin LAST, no publish
@@ -102,8 +102,15 @@ for (let round = 1; round <= ROUNDS; round++) {
     console.log('\nland — the heal moved the tree, so its receipt is stale; earning a new one before the push …')
     const proof = run('npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests')
     if (!proof.ok) {
-      console.error('✗ land — the tree does not prove green, so no receipt was minted. Its GAP+FIX, verbatim:\n')
-      console.error(proof.out.split('\n').filter((l) => /✗|GAP|FIX|not ok/.test(l)).join('\n') || proof.out.slice(-1500))
+      // ANCHORED, because the first version of this filter matched test NAMES containing "GAP" and "FIX" and
+      // printed six PASSING lines while the real failure stayed in the discarded remainder. A marker means
+      // something only at the start of a line: `✖` and `not ok` are the suite's, `✗ guard` and `✗ gate-receipt`
+      // are the gates'. The tail rides along unconditionally, because a chain can also die without any marker.
+      console.error('✗ land — the tree does not prove green, so no receipt was minted. What it said:\n')
+      const lines = proof.out.split('\n')
+      const marked = lines.filter((l) => /^(✖|not ok|✗ (guard|gate-receipt|gen-packages)|# fail)/.test(l.trim()))
+      if (marked.length) console.error(marked.slice(0, 20).join('\n'))
+      console.error('\n  … the chain\u2019s last lines:\n' + lines.filter((l) => l.trim()).slice(-12).join('\n'))
       process.exit(1)
     }
   }
@@ -127,7 +134,7 @@ for (let round = 1; round <= ROUNDS; round++) {
     const committed = run('git commit -m ' + JSON.stringify(msg))
     if (!committed.ok) {
       console.error('✗ land — the commit was REFUSED (the gate speaks below); a human decides here:\n')
-      console.error(committed.out.split('\n').filter((l) => /✗|GAP|FIX|BLOCKED/.test(l)).join('\n') || committed.out.slice(-1200))
+      console.error(committed.out.split('\n').filter((l) => /^(✗|GAP|FIX|BLOCKED)/.test(l.trim())).join('\n') || committed.out.slice(-1200))
       process.exit(1)
     }
   }
@@ -145,10 +152,23 @@ for (let round = 1; round <= ROUNDS; round++) {
     console.log(`✓ land — pushed on round ${round}: origin/main is now ${before.slice(0, 8)}. Landing complete.`)
     process.exit(0)
   }
+  // ── THE DENIAL IS READ ALOUD EVEN WHEN A CURE APPLIES (found 2026-09-02, by needing it and not having it).
+  //
+  // A cured denial printed only the cure's NAME, and `push.out` — the court's actual verdict, with the per-file
+  // manifest naming exactly which files moved — was discarded. So when a landing that had just minted a fresh
+  // receipt was denied anyway for "the receipt no longer covers the tree", there was nothing to diagnose from:
+  // the loop knew which files had moved, said the cure's name, and threw the answer away. That is the same shape
+  // this tree already names elsewhere — a gate that knows the finding and prints something else makes the next
+  // hand re-run it to learn the accusation. A cure is not a reason to stop reporting.
+  const denial = push.out.split('\n').filter((l) => /^(✗|GAP|FIX|CHANGED|APPEARED|VANISHED|MOVED|!|remote:|error:|hint:)/.test(l.trim()))
+  if (denial.length) {
+    console.error('  land — the gate said, verbatim:')
+    for (const l of denial.slice(0, 12)) console.error(`    ${l.trim()}`)
+  }
   const cure = CURES.find((c) => c.when.test(push.out))
   if (!cure) {
     console.error('✗ land — the gate denied with NO taught cure. Its verdict follows verbatim; a human decides here:\n')
-    console.error(push.out.split('\n').filter((l) => /✗|GAP|FIX/.test(l)).join('\n') || push.out.slice(-2000))
+    console.error(push.out.split('\n').filter((l) => /^(✗|GAP|FIX|!|remote:|error:|hint:)/.test(l.trim())).join('\n') || push.out.slice(-2000))
     process.exit(1)
   }
   console.log(`· land — gate denied; taught cure applies: ${cure.name} → ${cure.cmd}`)
