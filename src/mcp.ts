@@ -87,6 +87,8 @@ import { portAll } from './quantum/os/portall/index.js'
 import { cernPortSearch } from './quantum/os/cern/index.js'
 import { aasPortSearch, aasChecklist, AAS_CHECKLIST_SLUG } from './quantum/os/aas/index.js'
 import { zenodoCommunities, zenodoCommunity, verifyZenodoCommunityClaim } from './quantum/os/zenodo/index.js'
+import { journalSweep, journalCoverage, journalSearch } from './quantum/os/journals/index.js'
+import { doiTagCensus, ownDoiRecords, priorArtByDoi, verifyDoiPrefixes } from './quantum/os/doi/index.js'
 import { refusalCensus } from './school/refusals/index.js'
 import { declareSpend } from './coin-ledger.js'
 import { chatApi, chatSend } from './quantum/os/chat/index.js'
@@ -1734,6 +1736,23 @@ const TOOLS: Tool[] = ([
       : a.slug !== undefined
         ? zenodoCommunity(String(a.slug), a.size === undefined ? 8 : Number(a.size))
         : zenodoCommunities(a.query === undefined ? 'astronomy' : String(a.query), a.size === undefined ? 8 : Number(a.size)) },
+  { name: 'uuidna_journals',
+    description: 'Every keyless scholarly door this tree can ask, in one concurrent fan-out: DOAJ, Crossref /journals and OpenAlex /sources at the JOURNAL level; DataCite, HAL, Europe PMC, PubMed, DBLP, INSPIRE-HEP and PLOS at the ARTICLE level; bioRxiv as a DOI resolver. Pass {query} to sweep, {source} for one door, {all} to include the DOI resolver, or nothing for the coverage census.',
+    detail: 'Two things are called a journal API and conflating them is the trap: a journal-level door answers WHICH JOURNALS EXIST (titles, ISSNs, publishers), an article-level door answers WHAT WAS PUBLISHED. A census that mixed them would report journals and have counted papers, so every door declares its level and the sweep reports the two separately. Subject breadth is each operator’s OWN published scope — DOAJ and Crossref and OpenAlex and DataCite and HAL take every subject, PubMed says biomedicine, DBLP says computer science — and that is the only thing the coverage claim rests on. Which specialist door is right for a given skill of THIS tree is a judgement made here, labelled editorial, and never folded into the breadth number; a skill with no specialist door is reported as breadth-only rather than as covered. The doors are asked concurrently, so the wait is ONE deadline rather than eleven, and every reader is total over a payload it does not recognise: an unexpected shape yields an empty page rather than a throw, and an empty page rather than a row it invented. A hit is provenance — someone published — never that the claim inside it is true.',
+    inputSchema: { type: 'object', properties: { query: { type: 'string' }, source: { type: 'string' }, limit: { type: 'integer' }, all: { type: 'boolean' } } },
+    run: (a) => a.query === undefined && a.source === undefined
+      ? journalCoverage()
+      : a.source !== undefined
+        ? journalSearch(String(a.source), String(a.query ?? 'quantum'), a.limit === undefined ? 5 : Number(a.limit))
+        : journalSweep(String(a.query), { limit: a.limit === undefined ? 5 : Number(a.limit), includeLookup: a.all === true }) },
+  { name: 'uuidna_doi',
+    description: 'Tag a DOI with the prefix it is registered under and the organisation that owns it — the smallest fact that says who published, and a checkable one. Nothing: the prefix→door census. {subject}: the prior work the live journal doors find, every DOI tagged with its prefix and owner, with the credit order applied. {deposit:true}: this tree’s own deposits. {enrich:true}: resolve a prefix this tree does not name from the agency itself, rather than leaving the owner blank or growing a hand list. {verify:true}: every named prefix re-checked against its registration agency’s own API.',
+    detail: 'A DOI is prefix/suffix and the PREFIX is registered to one organisation by one agency, so a prefix is the smallest fact that says who published — 10.3847 is the American Astronomical Society, 10.1088 is IOP Publishing (its publisher), 10.5281 is Zenodo. That makes a prefix the right tag for a door: it links a citation to the door that can serve it, and it is checkable. The owner names here are a CLAIM; the receipt is the agency itself, and verify asks it, reporting agreement, disagreement and unread as three states. Crossref NAMES an owner so agreement there is a name match; DataCite’s public prefix route confirms registration without naming one, so agreement there is the weaker claim and is reported as such. Prior art is computed from live doors rather than a hand-kept list: a subject with DOIs is a CREDIT and they come first, the captain last among claimants; a subject with none is the unclaimed, and the captain is then the only claimant. A claim outcome means THESE doors returned no DOI for THIS phrasing — the reach of a search, and a different phrasing routinely changes it.',
+    inputSchema: { type: 'object', properties: { subject: { type: 'string' }, deposit: { type: 'boolean' }, verify: { type: 'boolean' }, enrich: { type: 'boolean' }, limit: { type: 'integer' } } },
+    run: (a) => a.verify === true ? verifyDoiPrefixes()
+      : a.deposit === true ? ownDoiRecords()
+      : a.subject !== undefined ? priorArtByDoi(String(a.subject), a.limit === undefined ? 5 : Number(a.limit), a.enrich === true)
+      : doiTagCensus() },
   { name: 'uuidna_port_all',
     description: 'Every package in the catalogue, ported. All 28,635 carry a port identity; 11,370 are also placed in a named domain and 17,265 are not. Both numbers, never averaged.',
     detail: 'Identity is arithmetic over published metadata — name, version, checksum, repo, branch, arch folded to an address — so it needs no pattern and no opinion, and that half was complete before anyone asked. Classification is a measurement with known failures. Widening the patterns to close the gap raises the second number and lowers its meaning: loosening bio collects ovmf and dmidecode because their descriptions contain BIOS, loosening chemistry collects btrbk and newsboat because theirs say atomic. The unclassified remainder is described by name prefix rather than dismissed — language bindings, vendored SDKs, desktop stacks, fonts.',

@@ -23425,13 +23425,13 @@ main	cups-doc	2.4.19-r0	Q1ObjRdSiKwhaE2R5hBHtTUZuaJzw=	The CUPS Printing System 
 main	cups-lang	2.4.19-r0	Q18kRqYtRYNnzHYh1NJJ3KHZOu2kY=	Languages for package cups		
 main	cups-libs	2.4.19-r0	Q1wPPoPRk7srpqi5LsBjhDsClqfdU=	CUPS libraries	so:libavahi-client.so.3 so:libavahi-common.so.3 so:libc.musl-x86_64.so.1 so:libgnutls.so.30 so:libz.so.1	so:libcups.so.2=2 so:libcupsimage.so.2=2
 main	cups-openrc	2.4.19-r0	Q1/yU23OaQtOLL8Par+idAZ3PPeY0=	The CUPS Printing System (OpenRC init scripts)		
-main	curl	8.21.0-r0	Q1Opk/zzFiQfVst9ubrkkUvMJ9G2A=	URL retrieval utility and library	libcurl=8.21.0-r0 so:libc.musl-x86_64.so.1 so:libcurl.so.4 so:libz.so.1	wcurl=8.21.0-r0 cmd:curl=8.21.0-r0 cmd:wcurl=8.21.0-r0
-main	curl-dbg	8.21.0-r0	Q1QLDCkYE5yRV/Zih2BEgPtzggEp0=	URL retrieval utility and library (debug symbols)	!curl<8.21.0-r0 !curl>8.21.0-r0 !libcurl<8.21.0-r0 !libcurl>8.21.0-r0	
-main	curl-dev	8.21.0-r0	Q1ke0iByI/evBlUjiEFoZ41fjxKQE=	URL retrieval utility and library (development files)	brotli-dev c-ares-dev libidn2-dev libpsl-dev nghttp2-dev openssl-dev>3 zlib-dev zstd-dev libcurl=8.21.0-r0 pc:libbrotlicommon pc:libbrotlidec pc:libcares pc:libidn2 pc:libnghttp2 pc:libpsl pc:libzstd pc:openssl pc:zlib pkgconfig	cmd:cd2nroff=8.21.0-r0 cmd:curl-config=8.21.0-r0 pc:libcurl=8.21.0
-main	curl-doc	8.21.0-r0	Q1mjRcAZdmQjVsnpqty7D5dCxXFMo=	URL retrieval utility and library (documentation)		
-main	curl-fish-completion	8.21.0-r0	Q14+tN1YdROrsmlCnLlRDJNIbwOq0=	Fish completions for curl		
-main	curl-static	8.21.0-r0	Q1F4JP7S1btL5kVjNIMaNBvZggFl8=	URL retrieval utility and library (static library)	curl-dev	
-main	curl-zsh-completion	8.21.0-r0	Q13RTDKZXfY0znIyoDHdSznvIJ3FY=	Zsh completions for curl		
+main	curl	8.22.0-r0	Q1z7t4s42PaeMxKbfpiGPxdZh4AQ0=	URL retrieval utility and library	libcurl=8.22.0-r0 so:libc.musl-x86_64.so.1 so:libcurl.so.4 so:libz.so.1	wcurl=8.22.0-r0 cmd:curl=8.22.0-r0 cmd:wcurl=8.22.0-r0
+main	curl-dbg	8.22.0-r0	Q14uHKCUJeWsuwRe/65XwF0QdZubs=	URL retrieval utility and library (debug symbols)	!curl<8.22.0-r0 !curl>8.22.0-r0 !libcurl<8.22.0-r0 !libcurl>8.22.0-r0	
+main	curl-dev	8.22.0-r0	Q1KcmBJzSrgSyO0Qui0Bk96HLsF4s=	URL retrieval utility and library (development files)	brotli-dev c-ares-dev libidn2-dev libpsl-dev nghttp2-dev openssl-dev>3 zlib-dev zstd-dev libcurl=8.22.0-r0 pc:libbrotlicommon pc:libbrotlidec pc:libcares pc:libidn2 pc:libnghttp2 pc:libpsl pc:libzstd pc:openssl pc:zlib pkgconfig	cmd:cd2nroff=8.22.0-r0 cmd:curl-config=8.22.0-r0 pc:libcurl=8.22.0
+main	curl-doc	8.22.0-r0	Q1UQf+bWv8wTiu2iQNVGw1FJggvxU=	URL retrieval utility and library (documentation)		
+main	curl-fish-completion	8.22.0-r0	Q1X75j3THbvuHSmGBQCDn0kU1/x28=	Fish completions for curl		
+main	curl-static	8.22.0-r0	Q18Msy42bsib4HY7zG1eFhTZBrRRQ=	URL retrieval utility and library (static library)	curl-dev	
+main	curl-zsh-completion	8.22.0-r0	Q1C+F1OfbmRb/yU26SesatvYlqTew=	Zsh completions for curl		
 main	cutter	1.04-r5	Q1uRTvUb/JsrQt9UjxCHMfgdJFYsQ=	A program that allows firewall administrators to abort TCP/IP connections	so:libc.musl-x86_64.so.1	cmd:cutter=1.04-r5
 main	cvechecker	4.0-r6	Q1VJNMeGz6HzBIFS/gjUmO0MOmQ7M=	A local CVE checker tool	gawk wget libxslt jq /bin/sh so:libc.musl-x86_64.so.1 so:libconfig.so.15 so:libmariadb.so.3 so:libsqlite3.so.0	cmd:cvechecker=4.0-r6 cmd:cvegenversdat=4.0-r6 cmd:cvereport=4.0-r6 cmd:cverules=4.0-r6 cmd:pullcves=4.0-r6
 main	cvechecker-doc	4.0-r6	Q1dNR3sJfkH1b449c9Mx/V07qEeTk=	A local CVE checker tool (documentation)		
@@ -24583,7 +24583,7 @@ main	libconfig-dev	1.8.2-r0	Q1AeEbUYGKM1R9b7jAYBkjq/8Vj70=	A simple library for 
 main	libconfig-doc	1.8.2-r0	Q1WTpBqW0fuJAtYhUTUt7QXxydwZE=	A simple library for manipulating structured configuration files (documentation)		
 main	libconfig-static	1.8.2-r0	Q1YUFQyXYXgAX0Q3EeejIZ5UtRwHw=	A simple library for manipulating structured configuration files (static libraries)		
 main	libcrypto3	3.5.8-r0	Q1GzufwME29JNpMryy7CFJnwrl39M=	Crypto library from openssl	so:libc.musl-x86_64.so.1	so:libcrypto.so.3=3
-main	libcurl	8.21.0-r0	Q1xZEzZzvboPzJLIl9neaCwjAbXX8=	The multiprotocol file transfer library	ca-certificates-bundle so:libbrotlidec.so.1 so:libc.musl-x86_64.so.1 so:libcares.so.2 so:libcrypto.so.3 so:libidn2.so.0 so:libnghttp2.so.14 so:libpsl.so.5 so:libssl.so.3 so:libz.so.1 so:libzstd.so.1	so:libcurl.so.4=4.8.0
+main	libcurl	8.22.0-r0	Q1eBYAa2ryJwq25+hfdK25TBa9xIs=	The multiprotocol file transfer library	ca-certificates-bundle so:libbrotlidec.so.1 so:libc.musl-x86_64.so.1 so:libcares.so.2 so:libcrypto.so.3 so:libidn2.so.0 so:libnghttp2.so.14 so:libpsl.so.5 so:libssl.so.3 so:libz.so.1 so:libzstd.so.1	so:libcurl.so.4=4.8.0
 main	libdaemon	0.14-r6	Q1BQosWcQLLRHpocy4hHAbOgrTFrM=	A lightweight C library which eases the writing of UNIX daemons	so:libc.musl-x86_64.so.1	so:libdaemon.so.0=0.5.0
 main	libdaemon-dev	0.14-r6	Q1a/JdnjuNkPT3n6sYaQCXUXqEx+g=	A lightweight C library which eases the writing of UNIX daemons (development files)	libdaemon=0.14-r6 pkgconfig	pc:libdaemon=0.14
 main	libdaemon-doc	0.14-r6	Q1NLCvTy3zD8rNfMTyYFGAAdUdRLs=	A lightweight C library which eases the writing of UNIX daemons (documentation)		

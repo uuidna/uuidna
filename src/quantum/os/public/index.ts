@@ -5,9 +5,10 @@ import { hexbitDoorOf } from '../../../hexbit/index.js'
 import { RESEARCH_SOURCE_NAMES } from '../research/index.js'
 import { EXTENDED_RESEARCH_PROBES } from '../research/index.js'
 import { SCHOOL_APIS, schoolApiRegistry } from '../school/index.js'
+import { JOURNAL_DOORS } from '../journals/index.js'
 
 export type PublicApiKind =
-  | 'research' | 'eu-education' | 'corpus' | 'weather' | 'news' | 'market' | 'registry' | 'metadata' | 'served'
+  | 'research' | 'eu-education' | 'corpus' | 'weather' | 'news' | 'market' | 'registry' | 'metadata' | 'served' | 'journal'
 
 export interface PublicApiEntry {
   id: string
@@ -73,12 +74,28 @@ const OTHER_APIS: PublicApiEntry[] = [
     honest: 'This repository SERVES uuidna.com — the hosted MCP, theorem pages, and trial POST. Not an external API.' },
 ]
 
+/** The scholarly doors, READ OFF the journals port rather than retyped — one catalogue, one source of truth, so
+ *  so a door added there is present here by construction. */
+const JOURNAL_APIS: PublicApiEntry[] = JOURNAL_DOORS.map((d) => ({
+  id: d.id,
+  host: d.host,
+  base: d.base,
+  kind: 'journal' as const,
+  access: d.access,
+  direction: 'fetched' as const,
+  sweep: false,
+  heartbeat: d.level !== 'lookup',
+  probe: { query: d.level === 'lookup' ? '10.1101/339747' : 'quantum' },
+  honest: d.honest,
+}))
+
 /** publicApiRegistry() → every named public API, grouped by kind, with one order-invariant receipt. Pure. */
 export function publicApiRegistry(): {
   research: PublicApiEntry[]
   euEducation: PublicApiEntry[]
   weather: PublicApiEntry[]
   news: PublicApiEntry[]
+  journals: PublicApiEntry[]
   other: PublicApiEntry[]
   count: number
   sweepCount: number
@@ -120,13 +137,14 @@ export function publicApiRegistry(): {
     honest: s.honest,
   }))
 
-  const all = [...research, ...euEducation, ...WEATHER_APIS, ...NEWS_APIS, ...OTHER_APIS]
+  const all = [...research, ...euEducation, ...WEATHER_APIS, ...NEWS_APIS, ...JOURNAL_APIS, ...OTHER_APIS]
   const receipt = merkleGravity(all.map((a) => toUuid(`${a.id}:${a.host}:${a.base}`)))
   return {
     research,
     euEducation,
     weather: WEATHER_APIS,
     news: NEWS_APIS,
+    journals: JOURNAL_APIS,
     other: OTHER_APIS,
     count: all.length,
     sweepCount: research.length,

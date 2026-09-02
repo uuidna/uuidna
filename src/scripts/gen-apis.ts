@@ -54,6 +54,13 @@ ${table(reg.weather)}
 
 ${table(reg.news)}
 
+## Scholarly journals
+
+Journal-level doors answer *which journals exist*; article-level doors answer *what was published*. The two are
+never summed.
+
+${table(reg.journals)}
+
 ## Other
 
 ${table(reg.other)}

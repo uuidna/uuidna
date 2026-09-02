@@ -4,7 +4,7 @@ aside: true
 outline: [2, 3]
 ---
 
-# Public APIs <Badge type="tip" text="30 doors" />
+# Public APIs <Badge type="tip" text="41 doors" />
 
 <!-- GENERATED from publicApiRegistry() by scripts/gen-apis — DO NOT EDIT. -->
 
@@ -13,7 +13,7 @@ Every keyless public door this repository names, probes, or sweeps — one catal
 [`two_coins`](/theorem/two_coins)). Empty `uuidna_api_mint` serves the same object at the edge. A host that is
 fetched under `src/` and is not here is a gap the tests name.
 
-**30 APIs** · sweep 13 · door [`9d6a949f`](https://uuidna.com/9d6a949f) · receipt `9d6a949f-adeb-88ca-ac62-897f2b5bc039`
+**41 APIs** · sweep 13 · door [`92b49ee5`](https://uuidna.com/92b49ee5) · receipt `92b49ee5-421b-829d-a1b7-7fcd9b24c555`
 
 EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a named public EU source answered when it was asked, and only a `by decide` theorem SEALS. The rows are passed through unaltered and are never fabricated — an unreachable source returns nothing, which is an absence, not a refutation. The parse and the addressing are pure, so the same bytes fold to the same receipt for anyone. Integrity, not truth.
 
@@ -62,6 +62,25 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 | --- | --- | --- | --- | --- | --- | --- |
 | `wikinews-rss` | en.wikinews.org | news | keyless | fetched | no | yes |
 
+## Scholarly journals
+
+Journal-level doors answer *which journals exist*; article-level doors answer *what was published*. The two are
+never summed.
+
+| id | host | kind | access | direction | sweep | heartbeat |
+| --- | --- | --- | --- | --- | --- | --- |
+| `doaj` | doaj.org | journal | keyless | fetched | no | yes |
+| `crossref-journals` | api.crossref.org | journal | mailto-polite | fetched | no | yes |
+| `openalex-sources` | api.openalex.org | journal | mailto-polite | fetched | no | yes |
+| `datacite` | api.datacite.org | journal | keyless | fetched | no | yes |
+| `hal` | api.archives-ouvertes.fr | journal | keyless | fetched | no | yes |
+| `europepmc` | www.ebi.ac.uk | journal | keyless | fetched | no | yes |
+| `pubmed` | eutils.ncbi.nlm.nih.gov | journal | keyless | fetched | no | yes |
+| `dblp` | dblp.org | journal | keyless | fetched | no | yes |
+| `inspirehep` | inspirehep.net | journal | keyless | fetched | no | yes |
+| `plos` | api.plos.org | journal | keyless | fetched | no | yes |
+| `biorxiv` | api.biorxiv.org | journal | keyless | fetched | no | no |
+
 ## Other
 
 | id | host | kind | access | direction | sweep | heartbeat |
@@ -72,4 +91,4 @@ EXTERNAL EVIDENCE, never a seal: each row is a provenance fingerprint of what a 
 | `nvd` | services.nvd.nist.gov | registry | keyless | fetched | no | no |
 | `uuidna-site` | uuidna.com | served | served-not-fetched | served | no | no |
 
-Cite handle `https://uuidna.com/9d6a949f`.
+Cite handle `https://uuidna.com/92b49ee5`.

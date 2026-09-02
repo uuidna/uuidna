@@ -21,6 +21,15 @@ export const ZENODO_COMMUNITIES = `${ZENODO_API}/communities`
 export const ZENODO_PROBE_QUERY = 'astronomy'
 /** this repository's own community — the standing deposit target the two-chain law mints into */
 export const UUIDNA_COMMUNITY = 'uuidna'
+/** the EU Open Research Repository — Zenodo's community for EU-funded outputs (zenodo.org/communities/eu) */
+export const EU_COMMUNITY = 'eu'
+
+/** Communities this tree cites BY NAME, each with why it is named. A slug in prose is a link; a slug here is a
+ *  door the port can open and a test can check, which is the difference between citing a community and having one. */
+export const NAMED_COMMUNITIES: readonly { slug: string; title: string; why: string }[] = [
+  { slug: UUIDNA_COMMUNITY, title: 'uuidna', why: 'this tree’s own community — the standing target the two-chain law mints into, and the listing that turns a deposit’s membership claim into a checkable receipt' },
+  { slug: EU_COMMUNITY, title: 'EU Open Research Repository', why: 'Zenodo’s community for EU-funded research output. It is the door that answers whether a funded result actually reached the open record, rather than whether someone said it would — and the one to check against a Horizon or NGI Zero commitment' },
+]
 
 export interface ZenodoCommunity {
   id: string          // the community's UUID as Zenodo assigns it

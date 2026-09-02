@@ -25,14 +25,14 @@
 | **Security checks** | 6 | Automated audits (axioms, gates, defences, Clay problems) |
 | **Gate clean** | 100% | Zero fabricated theorem citations |
 | **Determinism clean** | 100% | No Math.*/Date/RNG in core (non-harmonic boundary named) |
-| **Supported modules** | 1018/1018 | Every module reachable (no dead code) |
+| **Supported modules** | 1022/1022 | Every module reachable (no dead code) |
 | **Runtime dependencies** | 0 | Zero third-party code executes |
 | **Coins conserved** | ✓ | Fair-exchange invariant proven (two_coins theorem) |
 
 ### Scope & Capabilities
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **MCP tools** | 251 | In 41 categories |
+| **MCP tools** | 253 | In 41 categories |
 | **Publications** | 115 | Monographs linked to sealed theorems |
 | **Vocabulary terms** | 227 | `vocabulary()` — ledger domains and skills |
 | **Content addressing** | SHA-256 (cryptographic) + FNV-1a (non-cryptographic) | Two address spaces: cryptographic + deterministic |
@@ -88,7 +88,7 @@ Total theorems:       2582
 Axiom-free (decide):  2582 (100.0%)
 Principles:           115 domains
 Publications:         115 monographs
-MCP tools:            251 capabilities
+MCP tools:            253 capabilities
 Security checks:      6 automated
 Languages:            227 vocabulary terms
 Runtime deps:         0 (zero)

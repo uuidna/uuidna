@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="251 keys" />
+# MCP tools <Badge type="tip" text="253 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 251 tools below are read from the server's own tool list and
+is **built from the keys**: the 253 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · 4c08d921-6757-8fb8-97f2-0e972af7f871
+gate CLEAN f0 d0 v0 · 7a34190a-61a4-81f9-b43c-ae33e397eedd
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 251-tool registry folds to its
-order-invariant identity `78eaa275-5354-8dc9-bc5b-47f993ba2ef6` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 253-tool registry folds to its
+order-invariant identity `bb112658-7221-83ce-af90-70c8b3a637a9` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`251`" />
+## The grid <Badge type="tip" :text="`253`" />
 
-251 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 109 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+253 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 111 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>aas</code></a>
@@ -76,6 +76,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-development-vortex"><code>development_vortex</code></a>
 <a href="#uuidna-dictionary"><code>dictionary</code></a>
 <a href="#uuidna-discovery-train"><code>discovery_train</code></a>
+<a href="#uuidna-doi"><code>doi</code></a>
 <a href="#uuidna-domains"><code>domains</code></a>
 <a href="#uuidna-driver-state"><code>driver_state</code></a>
 <a href="#uuidna-due-process"><code>due_process</code></a>
@@ -97,6 +98,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-hero-animation"><code>hero_animation</code></a>
 <a href="#uuidna-image-provenance"><code>image_provenance</code></a>
 <a href="#uuidna-interface"><code>interface</code></a>
+<a href="#uuidna-journals"><code>journals</code></a>
 <a href="#uuidna-laws"><code>laws</code></a>
 <a href="#uuidna-lean-index"><code>lean_index</code></a>
 <a href="#uuidna-legal-facts"><code>legal_facts</code></a>
@@ -593,7 +595,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'119'" />
+## Other <Badge type="tip" :text="'121'" />
 
 *skill: other*
 
@@ -1829,6 +1831,37 @@ The research sweep already asks zenodo.org for records. Communities were the unw
 | `slug` | string | no |  |
 | `record` | string | no |  |
 | `size` | integer | no |  |
+
+### `uuidna_journals`
+
+Every keyless scholarly door this tree can ask, in one concurrent fan-out: DOAJ, Crossref /journals and OpenAlex /sources at the JOURNAL level; DataCite, HAL, Europe PMC, PubMed, DBLP, INSPIRE-HEP and PLOS at the ARTICLE level; bioRxiv as a DOI resolver. Pass {query} to sweep, {source} for one door, {all} to include the DOI resolver, or nothing for the coverage census.
+
+Two things are called a journal API and conflating them is the trap: a journal-level door answers WHICH JOURNALS EXIST (titles, ISSNs, publishers), an article-level door answers WHAT WAS PUBLISHED. A census that mixed them would report journals and have counted papers, so every door declares its level and the sweep reports the two separately. Subject breadth is each operator’s OWN published scope — DOAJ and Crossref and OpenAlex and DataCite and HAL take every subject, PubMed says biomedicine, DBLP says computer science — and that is the only thing the coverage claim rests on. Which specialist door is right for a given skill of THIS tree is a judgement made here, labelled editorial, and never folded into the breadth number; a skill with no specialist door is reported as breadth-only rather than as covered. The doors are asked concurrently, so the wait is ONE deadline rather than eleven, and every reader is total over a payload it does not recognise: an unexpected shape yields an empty page rather than a throw, and an empty page rather than a row it invented. A hit is provenance — someone published — never that the claim inside it is true.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `query` | string | no |  |
+| `source` | string | no |  |
+| `limit` | integer | no |  |
+| `all` | boolean | no |  |
+
+### `uuidna_doi`
+
+Tag a DOI with the prefix it is registered under and the organisation that owns it — the smallest fact that says who published, and a checkable one. Nothing: the prefix→door census. {subject}: the prior work the live journal doors find, every DOI tagged with its prefix and owner, with the credit order applied. {deposit:true}: this tree’s own deposits. {enrich:true}: resolve a prefix this tree does not name from the agency itself, rather than leaving the owner blank or growing a hand list. {verify:true}: every named prefix re-checked against its registration agency’s own API.
+
+A DOI is prefix/suffix and the PREFIX is registered to one organisation by one agency, so a prefix is the smallest fact that says who published — 10.3847 is the American Astronomical Society, 10.1088 is IOP Publishing (its publisher), 10.5281 is Zenodo. That makes a prefix the right tag for a door: it links a citation to the door that can serve it, and it is checkable. The owner names here are a CLAIM; the receipt is the agency itself, and verify asks it, reporting agreement, disagreement and unread as three states. Crossref NAMES an owner so agreement there is a name match; DataCite’s public prefix route confirms registration without naming one, so agreement there is the weaker claim and is reported as such. Prior art is computed from live doors rather than a hand-kept list: a subject with DOIs is a CREDIT and they come first, the captain last among claimants; a subject with none is the unclaimed, and the captain is then the only claimant. A claim outcome means THESE doors returned no DOI for THIS phrasing — the reach of a search, and a different phrasing routinely changes it.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `subject` | string | no |  |
+| `deposit` | boolean | no |  |
+| `verify` | boolean | no |  |
+| `enrich` | boolean | no |  |
+| `limit` | integer | no |  |
 
 ### `uuidna_port_all`
 

@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
-  UUIDNA_COMMUNITY, ZENODO_COMMUNITIES, ZENODO_PROBE_QUERY,
+  EU_COMMUNITY, NAMED_COMMUNITIES, UUIDNA_COMMUNITY, ZENODO_COMMUNITIES, ZENODO_PROBE_QUERY,
   renderZenodoCommunities, renderZenodoCommunity, renderZenodoCommunityClaim,
   verifyZenodoCommunityClaim, zenodoCommunities, zenodoCommunity,
 } from './index.js'
@@ -88,4 +88,19 @@ test('renderZenodoCommunities reports the page against the total, never one as t
   })
   assert.match(r, /^ANSWERING zenodo-communities · 1 of 1114 · query "astronomy"/)
   assert.match(r, /organization sochias: SOCHIAS/)
+})
+
+test('every NAMED community is a real public community, and says why it is named', async () => {
+  assert.ok(NAMED_COMMUNITIES.some((c) => c.slug === UUIDNA_COMMUNITY))
+  assert.ok(NAMED_COMMUNITIES.some((c) => c.slug === EU_COMMUNITY))
+  assert.equal(new Set(NAMED_COMMUNITIES.map((c) => c.slug)).size, NAMED_COMMUNITIES.length)
+  for (const c of NAMED_COMMUNITIES) assert.ok(c.why.length > 40, `${c.slug} must say why it is cited here`)
+  const views = await Promise.all(NAMED_COMMUNITIES.map((c) => zenodoCommunity(c.slug, 3)))
+  for (const [i, v] of views.entries()) {
+    const named = NAMED_COMMUNITIES[i]!
+    if (v.declined) { assert.ok(v.note.length > 0, `${named.slug}: an unread community must say why`); continue }
+    assert.ok(v.community, `${named.slug} must resolve to a public community — a cited slug that does not exist is a dead citation`)
+    assert.equal(v.community.slug, named.slug)
+    assert.ok(v.total >= 1, `${named.slug}: a community with nothing accepted is not a record of anything`)
+  }
 })
