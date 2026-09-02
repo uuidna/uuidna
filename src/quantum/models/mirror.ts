@@ -387,8 +387,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-chat-v3.1",
    "name": "DeepSeek: DeepSeek V3.1",
    "contextTokens": 163840,
-   "promptPrice": "0.00000055",
-   "completionPrice": "0.00000165"
+   "promptPrice": "0.00000025",
+   "completionPrice": "0.00000095"
   },
   {
    "id": "deepseek/deepseek-r1",
@@ -1332,8 +1332,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "nvidia/nemotron-3-ultra-550b-a55b",
    "name": "NVIDIA: Nemotron 3 Ultra",
    "contextTokens": 262144,
-   "promptPrice": "0.0000005",
-   "completionPrice": "0.0000022"
+   "promptPrice": "0.000000625",
+   "completionPrice": "0.000003125"
   },
   {
    "id": "nvidia/nemotron-3-ultra-550b-a55b:batch",
@@ -2823,8 +2823,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "z-ai/glm-5.2",
    "name": "Z.ai: GLM 5.2",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000119",
-   "completionPrice": "0.00000374"
+   "promptPrice": "0.000000966",
+   "completionPrice": "0.000003036"
   },
   {
    "id": "z-ai/glm-5.2:free",
@@ -2942,8 +2942,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0",
-   "completionPrice": "0"
+   "promptPrice": "0.00000117",
+   "completionPrice": "0.00000396"
   }
  ]
 }
