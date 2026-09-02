@@ -2736,7 +2736,7 @@
     "lean/reflection-manifest.json": "7935f62f983386bf",
     "lean/refusal-trials.json": "12249cc6098487f3",
     "lean/relativity-manifest.json": "e43928bb739f84e1",
-    "lean/remaining-alpine-port.json": "a5a25b23d7338e15",
+    "lean/remaining-alpine-port.json": "a1c8ffcecc878069",
     "lean/report-manifest.json": "d2a95082f567846c",
     "lean/research-ledger.json": "cd1a413da4d7822a",
     "lean/reversal-manifest.json": "3ba4b9c942c18f41",
@@ -2780,5 +2780,5 @@
     "lean/wave-queue.json": "bc136de9316b89f7",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "c17747c2-2dcd-8860-a3e5-908dd369dbd5"
+  "receipt": "19b123a8-8364-8a22-bb65-dda8e5ba69b1"
 }
