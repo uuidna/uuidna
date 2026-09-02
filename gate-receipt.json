@@ -1,7 +1,7 @@
 {
   "covers": {
     "src": "9f0e06c186c6f3a2708c2c358f76c747",
-    "lean": "26c07c09fd3a4af993e96255a949f598"
+    "lean": "43b5bd762adfa4e513d22bd40ab6e9d6"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -126,7 +126,7 @@
     "lean/alpine-apps.json": "0dc78c8f1f6e0be0",
     "lean/alpine-apps.md": "61c82d227a00f9c3",
     "lean/alpine-discovery.json": "d2e554ff74333755",
-    "lean/alpine-hexbit-monitor.json": "d6a71d1163dfcf26",
+    "lean/alpine-hexbit-monitor.json": "6ea7baa1a8ccfb67",
     "lean/anthem-manifest.json": "c5608e8f20ea26df",
     "lean/antifraud-manifest.json": "03571950d926e2b0",
     "lean/antikythera-manifest.json": "a8ec30f0e003d51c",
