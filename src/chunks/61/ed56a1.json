@@ -1,0 +1,12 @@
+{
+  "handle": "61ed56a1",
+  "address": "61ed56a1-7799-895a-be05-b172aab1df3e",
+  "statement": "(0 < 2533) ∧ (0 + 2533 = 2533)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

@@ -17,7 +17,7 @@
 // name. That is the one thing this ledger must never contain, so the claims were dropped and only the arithmetic that
 // stands on its own was kept, renamed for what it actually proves. A theorem's name is not its proof.
 // COMPUTE → GENERATE → VERIFY. Integrity.
-import { emit } from './lean-gen.js'
+import { emit, range } from './lean-gen.js'
 
 const FACTS = [
   { key: 'complement_fixes_the_half',
@@ -39,6 +39,15 @@ const FACTS = [
     why: 'The ratio of two lever arms is exact division when one divides the other: 8 / 4 = 2, and the ratio is recovered by multiplying back, 2 * 4 = 8. The arts describe a longer arm as an advantage; what is sealed is only that the RATIO is exact arithmetic — no force, no torque, no mechanical claim, which would need units and a model the ledger does not carry.',
     js: () => 8 / 4 === 2 && 2 * 4 === 8,
     lean: 'theorem lever_ratio_is_exact_division : (8 / 4 = 2) ∧ (2 * 4 = 8) := by decide' },
+
+  { key: 'complement_involution_at_every_width',
+    why: 'THE COMPLEMENT IS AN INVOLUTION AT EVERY WIDTH THIS WING NAMES, walked rather than instanced. A scoring or angular complement takes x to w − x, and applying it twice returns x — that is the claim, and it is made here for EVERY point of all four widths the wing states: 0..10, 0..90, 0..100, 0..180. The four ranges carry 10 + 90 + 100 + 180 = 380 points, and with their four widths named the table is 384. Two applications of a complement are the identity, on each of them, decided one point at a time. WHAT IT IS NOT: a claim about any particular art\u2019s rules — the widths are the ones this wing already states, and what is sealed is the arithmetic of the involution over them.',
+    js: () => range(11).every((x) => 10 - (10 - x) === x)
+      && range(91).every((x) => 90 - (90 - x) === x)
+      && range(101).every((x) => 100 - (100 - x) === x)
+      && range(181).every((x) => 180 - (180 - x) === x)
+      && 10 + 90 + 100 + 180 === 380 && 380 + 4 === 384,
+    lean: 'theorem complement_involution_at_every_width : ((List.range 11).all (fun x => 10 - (10 - x) == x)) ∧ ((List.range 91).all (fun x => 90 - (90 - x) == x)) ∧ ((List.range 101).all (fun x => 100 - (100 - x) == x)) ∧ ((List.range 181).all (fun x => 180 - (180 - x) == x)) ∧ (10 + 90 + 100 + 180 = 380) ∧ (380 + 4 = 384) := by decide' },
 ]
 
 emit({

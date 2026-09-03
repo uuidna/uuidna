@@ -6,7 +6,7 @@
 // Singleton bound (3 ≤ n−k+1 = 4). The (3,1) repetition code corrects one flip by majority; a linear XOR checksum
 // catches any single flip. the arithmetic and bounds.
 // COMPUTE each fact in JS, GENERATE its `by decide` theorem, VERIFY sorry-free. Integrity.
-import { emit, LXOR_DEF } from './lean-gen.js'
+import { emit, LXOR_DEF, range } from './lean-gen.js'
 
 const FACTS = [
   { key: 'hamming_seven_four',
@@ -48,6 +48,11 @@ const FACTS = [
     why: 'Correction needs room: 2⁴ = 16 codewords sit sparsely inside 2⁷ = 128 possible words (16 < 128) — the redundancy is exactly what lets a flipped word be traced back to its origin.',
     js: () => 2 ** 4 < 2 ** 7,
     lean: 'theorem codewords_sparse : 2^4 < 2^7 := by decide' },
+
+  { key: 'xor_checksum_is_involutive_over_every_nibble_pair',
+    why: 'THE XOR CHECKSUM IS ITS OWN UNDOING, OVER ALL 256 PAIRS. Applying a key twice returns the message — (a XOR b) XOR b = a — which is why XOR is a checksum and a cipher at once, and why it is never secrecy on its own. The claim is decided for every one of the 16 × 16 = 256 four-bit pairs, using this wing\u2019s own axiom-free lxor rather than Lean\u2019s native Nat.xor, whose well-founded recursion is not kernel-only.',
+    js: () => range(16).every((a) => range(16).every((b) => ((a ^ b) ^ b) === a)) && 16 * 16 === 256,
+    lean: 'theorem xor_checksum_is_involutive_over_every_nibble_pair : ((List.range 16).all (fun a => (List.range 16).all (fun b => lxor (lxor a b) b == a))) ∧ (16 * 16 = 256) := by decide' },
 ]
 
 emit({

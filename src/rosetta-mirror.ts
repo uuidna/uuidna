@@ -868,6 +868,7 @@ covering_seeds_are_named 27
 #Os.lean
 exact_copy_is_byte_equality 27
 single_byte_tamper_is_detected 27
+single_byte_tamper_space_is_enumerated 27
 truncation_is_detected 27
 byte_order_is_significant 27
 sha256_digest_is_256_bits 27

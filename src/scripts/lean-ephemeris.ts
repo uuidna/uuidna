@@ -6,7 +6,7 @@
 // Sun creeps just under a degree along the ecliptic per day; and a Julian Date is a continuous integer day count.
 // the arithmetic of calendars and mean motion — the time coordinate — not a perturbed ephemeris.
 // Distinct from the positional facts in Astronomy. COMPUTE → GENERATE → VERIFY. Integrity.
-import { emit } from './lean-gen.js'
+import { emit, range } from './lean-gen.js'
 
 const FACTS = [
   { key: 'seconds_per_day',
@@ -44,6 +44,15 @@ const FACTS = [
     why: 'A Julian Date is one continuous integer day count, so any interval is a plain subtraction: the epoch J2000 (JD 2451545) minus the day before (2451544) is 1 day. Time becomes a coordinate you can just subtract.',
     js: () => 2451545 - 2451544 === 1,
     lean: 'theorem julian_date_is_a_day_count : 2451545 - 2451544 = 1 := by decide' },
+
+  { key: 'gregorian_cycle_is_ninety_seven_leaps',
+    why: 'THE GREGORIAN 400-YEAR TABLE, COUNTED YEAR BY YEAR. The rule is three clauses — divisible by 4, except by 100, unless by 400 — and the cycle it produces is walked here in full: century block 0 carries 25 leap years (its century year IS divisible by 400) and blocks 1, 2 and 3 carry 24 each, so 25 + 24 + 24 + 24 = 97 leap and 400 − 97 = 303 common, summing back to 400. The walk is FACTORED as 4 centuries × 100 years, which is the calendar\u2019s own structure and also what keeps every term inside the kernel\u2019s default recursion depth. What is sealed is the count the rule yields, not any claim about which years a given locale adopted it.',
+    js: () => range(4).every((c) => range(100).filter((k) => {
+      const y = c * 100 + k
+      return (y % 4 === 0 && y % 100 !== 0) || y % 400 === 0
+    }).length === (c === 0 ? 25 : 24))
+      && 25 + 24 + 24 + 24 === 97 && 400 - 97 === 303 && 97 + 303 === 400,
+    lean: 'theorem gregorian_cycle_is_ninety_seven_leaps : ((List.range 4).all (fun c => ((List.range 100).filter (fun k => let y := c * 100 + k; (y % 4 == 0 && y % 100 != 0) || y % 400 == 0)).length == (if c == 0 then 25 else 24))) ∧ (25 + 24 + 24 + 24 = 97) ∧ (400 - 97 = 303) ∧ (97 + 303 = 400) := by decide' },
 ]
 
 // compute → generate → verify. The time coordinate — seconds per day, sidereal gain, the Julian and Gregorian

@@ -5,30 +5,30 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 2499,
-        "keys": 2582,
+        "distinct": 2500,
+        "keys": 2583,
         "renamings": 83,
         "principles": 115,
         "skills": 112,
         "coins": 2,
         "largestPrinciple": "The conveyor's first wave (906)",
         "smallestPrinciple": "The uuid mix space (2)",
-        "ledgerReceipt": "6730fb34-cf18-807a-b383-daff0ae87dcf"
+        "ledgerReceipt": "209a828d-9e43-81e8-a97b-9cc99ce5c374"
       },
-      "address": "f60e6be0-cbf6-8a40-9729-2ef46790362c"
+      "address": "7a50016a-6ed6-8e6f-9378-ae50dbf974c5"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 2582,
-        "ledgerKeys": 2582,
+        "theoremsMeasured": 2583,
+        "ledgerKeys": 2583,
         "unmeasured": 0,
         "decideStepsHexbits": 5,
         "decideStepsBits": 21
       },
-      "address": "42d81942-2538-8aee-8394-596b3ea4a4db"
+      "address": "bf426b08-ea4e-810b-a546-185c7be93c9a"
     },
     {
       "title": "Citation audit",
@@ -36,10 +36,10 @@
       "present": true,
       "facts": {
         "publications": 115,
-        "sealedTheorems": 2582,
+        "sealedTheorems": 2583,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "b67656c5-8d8b-8500-8919-b754bcb3f69c"
+      "address": "41a6ba18-9183-899d-b7cd-ff992e56ed78"
     },
     {
       "title": "Support audit",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "5726a7322135c8e3",
-        "unifiedFold": "b61b5f1cc09a3524",
+        "foldReceipt": "3cab2f9f9c9f7e80",
+        "unifiedFold": "8bd6352926d32057",
         "zeroEntropy": "true"
       },
-      "address": "619b327d-8bc1-8226-85c8-76f3d1b11be8"
+      "address": "e6ea5000-1731-8839-ac89-b2823742141c"
     },
     {
       "title": "Gate receipt",
@@ -94,74 +94,74 @@
         "analyticsReport": "absent (folded)",
         "gapsJson": "absent — count from coverage().uncoveredFiles",
         "uncoveredFiles": 0,
-        "captainClaimsTheorems": 2582,
+        "captainClaimsTheorems": 2583,
         "captainClaimsComplete": "present (twin of captain-claims.json)",
         "researchLeads": 0,
         "handleRoot": "src/handles live round-trip"
       },
-      "address": "9272b79a-f9eb-890a-9b3c-41a61e964eed"
+      "address": "3474604e-215f-8472-b90c-56fd9a7d2045"
     }
   ],
-  "receipt": "8d53aaeb-f4e1-8d98-b0d4-66fd060da1ba",
-  "handle": "8d53aaeb",
+  "receipt": "2c3c543e-e7eb-80bb-9276-f3b0e76ddecd",
+  "handle": "2c3c543e",
   "hexbits": [
-    8,
-    13,
-    5,
+    2,
+    12,
     3,
-    10,
-    10,
+    12,
+    5,
+    4,
+    3,
+    14,
+    14,
+    7,
     14,
     11,
-    15,
-    4,
-    14,
-    1,
     8,
-    13,
+    0,
+    11,
+    11,
     9,
-    8,
-    11,
-    0,
-    13,
-    4,
-    6,
+    2,
+    7,
     6,
     15,
-    13,
-    0,
-    6,
-    0,
-    13,
-    10,
-    1,
+    3,
     11,
-    10
+    0,
+    14,
+    7,
+    6,
+    13,
+    13,
+    14,
+    12,
+    13
   ],
-  "door": "https://uuidna.com/8d53aaeb",
+  "door": "https://uuidna.com/2c3c543e",
   "coin": [
-    8,
-    13,
-    5,
+    2,
+    12,
     3,
-    10,
-    10,
+    12,
+    5,
+    4,
+    3,
+    14,
+    14,
+    7,
     14,
     11,
-    15,
-    4,
-    14,
-    1,
     8,
-    13,
-    9,
-    8
+    0,
+    11,
+    11
   ],
   "place": {
-    "handle": "8d53aaeb",
-    "value": 2371070699,
+    "handle": "2c3c543e",
+    "value": 742151230,
     "span": 4294967296,
-    "residue": 8,
+    "residue": 7,
     "nilpotent": false,
     "hexbits": 8
   },

@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2582 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2583 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 - **Sufficient / insufficient.** Sufficient for finite `by decide` windows, axiom-free seals, falsifiers, receipts (verify ≪ recompute), handle capacity, captain-coin fair-exchange, Alpine/hexbit catalogue, and finite formal windows within climate/pandemic/poverty model-calcs — named on `docs/doctrine.md`. World solutions stack as waves of automation (`npm run wave` / hexbit-fast); waves do not erase ethics or politics. Insufficient for those domains as full problem types, and for unbounded Clay, nature-as-model, justice — same page; computational claims only. Related honesty: `window_not_universal`, `n_qubit_dimension`, `grover_quadratic_bound`, `provenance_integrity_not_content_truth`.
 
 ## Principles
@@ -74,7 +74,7 @@
 19. **The software-verifiable algebra** — `lean/Software.lean` · **16** theorems
    the algebraic correctness LAWS a program is verified against, one level up from the hardware layer, each a decidable axiom-free `by decide` particle: losslessness (split-and-recompose is the identity — serialisation loses nothing), structure preservation (map keeps length, filter never grows, append adds), idempotent normalisation, a TOTAL guarded division (no divide-by-zero crash), bounded termination (a shift loop halts), order-invariant reduction (safe to parallelise), the compare-swap that orders (every sort's basis), total safe indexing (no over-read), and reversibility (undo of undo is the identity). integrity, not truth — uuidna SEALS the spec an implementation is verified AGAINST; it does not write, compile, or run your program, nor prove an arbitrary program correct. A sealed spec, not the program
 
-20. **The OS-integrity algebra** — `lean/Os.lean` · **7** theorems
+20. **The OS-integrity algebra** — `lean/Os.lean` · **8** theorems
    the decidable facts a DEPLOYMENT is verified against, completing hardware → software → os, each an axiom-free `by decide` particle: exact-copy verification IS byte-equality, so a single-byte tamper, a truncation, or a REORDERING breaks the match (a provenance is a SEQUENCE, not a set); the SHA-256 digest is a fixed 256 bits, the content-address a fixed 128; and the non-determinism boundary is EXACTLY the two named modules (src/os, src/drivers). The runtime side (Alpine + driver provenance, portAllAlpine over the whole arch matrix) enforces it against real bytes with uuidna's own pure-TS SHA-256. integrity, not truth, and NOT execution — uuidna seals what an exact-copy verification decides; it does not boot, port the runtime, link, or run an operating system. A sealed integrity spec, not a booted OS
 
 21. **The exploit folds** — `lean/Exploits.lean` · **12** theorems

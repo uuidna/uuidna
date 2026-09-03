@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-02",
+  "generated": "2026-09-03",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2582,
-  "total_theorems": 2582,
+  "total_claimed": 2583,
+  "total_theorems": 2583,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3847,8 +3847,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "f3dcb746-774f-898e-8ec4-a15f291f5cf5",
-      "address": "a2504947-36dc-8d6b-b513-0e7ad0037de0",
+      "lineAddress": "bf50cc82-2518-833f-88ed-ac0708f13858",
+      "address": "0fa47be6-7ab2-8c5e-9f71-e1c8c362ac52",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -3859,8 +3859,8 @@
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "10af307b-dde1-8960-a8a4-ce00c24a7bff",
-      "address": "dc784ac2-d99c-8554-8005-6d9fc1d2327a",
+      "lineAddress": "6a57d467-6854-8a60-89ed-e755de876b9e",
+      "address": "63eac72e-6cc3-8215-8b59-226da03ced89",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4117,38 +4117,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "076536d2-1443-8bcd-bce3-478d91d604d5",
-      "address": "870789e8-64dc-8564-bdf4-73a92244d887",
+      "lineAddress": "1dc499be-38c3-8c6f-bf86-d0507ede4556",
+      "address": "c9cadad5-ae6f-89b2-b346-5231e1a6cd62",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "3fabb4bf-1dcc-8544-af5c-4c749d942e3c",
-      "address": "90f0c089-82ff-8dd9-94b2-3476251454e2",
+      "lineAddress": "60284251-1b17-8eb5-8a3e-4d4fca23d4f7",
+      "address": "7e9ecd9c-3ddb-8c75-b706-523f583dce55",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "f445af9a-4092-82c0-adaf-f7b30928d58a",
-      "address": "cc28ec66-a325-8648-b51f-0a17def7e73e",
+      "lineAddress": "c73ef2f9-d8d6-8df3-87ab-31fe65ce427e",
+      "address": "bd137ab4-193b-8282-8472-95ad8d98eb5d",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "59e85004-c28c-8eea-a553-be8d08f588c3",
-      "address": "961ca221-9994-83dd-af7b-140cdb192574",
+      "lineAddress": "92ef3916-b118-838b-8d45-9e6bfee360f5",
+      "address": "fb8cc035-a260-88fb-9d4b-a30d3d2144b4",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "2857a570-a764-870f-a8f4-6e8f0df6b0b4",
-      "address": "7d87da35-d867-8763-ac73-fd3fde17bf2b",
+      "lineAddress": "95bc5670-c2a9-8d59-a4c9-d07d7ea57e72",
+      "address": "4d6132b8-0bf9-8f1c-b745-97558c71e8a4",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "6bc8dce2-6d2a-895b-ab09-7ffbabf1b1e0",
-      "address": "f9a989bb-10ba-8f25-b7c2-cd13c8ac0eda",
+      "lineAddress": "8ee8ae27-22e5-8423-979d-f9152a0cd0e3",
+      "address": "7374a123-58de-8222-8f2e-69dc03a4eb64",
       "principle": "The detectors, proven"
     },
     {
@@ -4537,14 +4537,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "a9b118a9-e5a2-8227-80f8-69de1cfa4790",
-      "address": "ef62b250-7ca8-87ca-b982-a8d3f68a9962",
+      "lineAddress": "78a666ff-ec1b-8921-a52d-34791d002ecc",
+      "address": "2a49c2c1-c55e-8c78-bef5-4baeb3271d3d",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "c721b5c4-2f01-8fb8-b7f7-36f5c73fe365",
-      "address": "6ad00a69-d3fe-878f-ba4b-d56487f67a06",
+      "lineAddress": "a71a17c1-a1b9-871a-bbdc-f3fa189a1110",
+      "address": "31231798-91d6-8d71-b1a8-66d4517a6219",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -4575,6 +4575,12 @@
       "key": "single_byte_tamper_is_detected",
       "lineAddress": "2d190b90-4c74-877f-9a17-8484424a36b8",
       "address": "c634cedb-9c14-84de-87ec-3abdbd36e468",
+      "principle": "The OS-integrity algebra"
+    },
+    {
+      "key": "single_byte_tamper_space_is_enumerated",
+      "lineAddress": "ad9b5230-8e95-86f3-b1e1-33b07e0f7187",
+      "address": "d69d6a4a-986e-818f-965c-115149d63292",
       "principle": "The OS-integrity algebra"
     },
     {
@@ -14869,8 +14875,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "2b4d22ed-949d-83fc-84fe-e5f7593255d0",
-      "address": "1f7aceea-ac9a-8a5f-a44c-a07fc502c4f6",
+      "lineAddress": "db3d5b52-46f1-81c7-8cc3-42b34b1fab48",
+      "address": "84df9011-c1fe-811c-902a-39b06ddce11a",
       "principle": "The models"
     },
     {
@@ -15498,7 +15504,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "2a223765-b5b7-8462-96ed-277ea4a0d690",
+  "claim_receipt": "3113292e-1959-8798-950a-6b8af24cb761",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

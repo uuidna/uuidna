@@ -10,6 +10,25 @@ theorem exact_copy_is_byte_equality : ([1,2,3] : List Nat) = [1,2,3] := by decid
     upstream. -/
 theorem single_byte_tamper_is_detected : ([1,2,3,4] : List Nat) ≠ [1,2,0,4] := by decide
 
+/-- THE TAMPER SPACE, ENUMERATED RATHER THAN INSTANCED. single_byte_tamper_is_detected proves the claim on a
+    four-byte toy — one tamper, one case — while the object this boundary actually verifies is a single-byte
+    tamper over the PINNED 32-BYTE digest: Alpine's published SHA-256 for 3.24.1/x86_64. That space is walked
+    here position by position: for each of the 32 byte positions, EXACTLY 255 of the 256 byte values differ from
+    the pinned byte, so the space is 32 · 255 = 8160 tampers and nothing is left implicit. FACTORED THROUGH THE
+    NIBBLE, deliberately: a byte is two nibbles of 16 states (16 · 16 = 256, the lattice this whole tree
+    computes on), and enumerating 16 × 16 keeps every term inside the kernel's default recursion depth — a flat
+    `List.range 256` hits the ceiling, and buying depth with set_option is the thing this ledger refuses (the
+    raise census in lean-cube counts every instance). Restating the claim on the lattice is the cure, not
+    raising the limit. AND THE DIGEST RIDES INLINE rather than as a wing def: the falsifier leg is granted by an
+    INDEPENDENT evaluator whose grammar admits no wing-local name, so a statement naming `digestBytes` and `nth`
+    was re-decidable by the kernel and unreachable to the second implementation — it sealed with no falsifier
+    and the leg census caught it at 2582 of 2583. Walking the bytes BY VALUE says the same thing in a grammar
+    both can read. WHAT IT SEALS: the completeness and the cardinality of the tamper space, from the pinned
+    bytes themselves. WHAT IT DOES NOT: hash anything — that a tampered image FAILS the check follows from
+    byte-equality being pointwise (exact_copy_is_byte_equality, byte_order_is_significant), and verifying your
+    actual bytes is verifyAlpineRootfs's job with uuidna's own pure-TS SHA-256. -/
+theorem single_byte_tamper_space_is_enumerated : (([65,247,62,60,245,250,145,155,138,165,202,107,48,220,72,240,218,39,32,119,109,116,35,226,167,116,130,17,69,111,224,129] : List Nat).length = 32) ∧ (([65,247,62,60,245,250,145,155,138,165,202,107,48,220,72,240,218,39,32,119,109,116,35,226,167,116,130,17,69,111,224,129] : List Nat).all (fun b => b < 256)) ∧ (([65,247,62,60,245,250,145,155,138,165,202,107,48,220,72,240,218,39,32,119,109,116,35,226,167,116,130,17,69,111,224,129] : List Nat).all (fun b => ((List.range 16).map (fun hi => ((List.range 16).filter (fun lo => hi * 16 + lo != b)).length)).foldl (fun s n => s + n) 0 == 255)) ∧ (16 * 16 = 256) ∧ (32 * 255 = 8160) := by decide
+
 /-- A TRUNCATION is DETECTED: a short image does not equal the pinned bytes — [1,2,3] ≠ [1,2]. Dropping data
     breaks the exact-copy proof; you cannot pass off a partial base as the whole named release. -/
 theorem truncation_is_detected : ([1,2,3] : List Nat) ≠ [1,2] := by decide

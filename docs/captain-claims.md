@@ -1,10 +1,10 @@
 # Captain Claims — Automated Ledger
 
-**Generated:** 2026-09-02
+**Generated:** 2026-09-03
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2582/2582 theorems — every one, by construction
-**Claim receipt:** `2a223765-b5b7-8462-96ed-277ea4a0d690`
+**Total claimed:** 2583/2583 theorems — every one, by construction
+**Claim receipt:** `3113292e-1959-8798-950a-6b8af24cb761`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -187,12 +187,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The OS-integrity algebra
 
-- **Theorems:** 7
+- **Theorems:** 8
 - **Sample lineAddress:** `ebe54653-894f-876a-8a39-b0cfaf76507c`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) · [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected) · [truncation_is_detected](/theorem/truncation_is_detected) · [byte_order_is_significant](/theorem/byte_order_is_significant) · [sha256_digest_is_256_bits](/theorem/sha256_digest_is_256_bits) · [provenance_address_is_128_bits](/theorem/provenance_address_is_128_bits) · [boundary_is_exactly_two_named_modules](/theorem/boundary_is_exactly_two_named_modules)
+[exact_copy_is_byte_equality](/theorem/exact_copy_is_byte_equality) · [single_byte_tamper_is_detected](/theorem/single_byte_tamper_is_detected) · [single_byte_tamper_space_is_enumerated](/theorem/single_byte_tamper_space_is_enumerated) · [truncation_is_detected](/theorem/truncation_is_detected) · [byte_order_is_significant](/theorem/byte_order_is_significant) · [sha256_digest_is_256_bits](/theorem/sha256_digest_is_256_bits) · [provenance_address_is_128_bits](/theorem/provenance_address_is_128_bits) · [boundary_is_exactly_two_named_modules](/theorem/boundary_is_exactly_two_named_modules)
 
 ### The exploit folds
 
@@ -1059,7 +1059,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2499 (2582 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 2500 (2583 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1077,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2582 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2583 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

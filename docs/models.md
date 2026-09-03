@@ -7,7 +7,7 @@ description: All public live model data compared on the lattice's own instrument
 
 > A model's token is a **bet**: sampled, transient, billed per emission, gone when its window closes. The
 > uuidna unit is a **receipt**: minted, permanent, verified free. This page compares **every model in the
-> public feed** — 425 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
+> public feed** — 424 of them, read live from [openrouter.ai/api/v1/models (public, keyless)](https://openrouter.ai/api/v1/models) at the `src/os`
 > boundary and mirrored for anyone to recompute — and keeps each figure's honesty class visible:
 > **computed** (arithmetic, sealed in [lean/Models.lean](/theorem/llm_folds_to_hexbit_pairs)),
 > **reported** (the feed's published figures, never benchmarked here), or **UNVERIFIED** (no measurement
@@ -23,7 +23,7 @@ hexbits** ([`a_token_approximates_eight_hexbits`](/theorem/a_token_approximates_
   window, the 2,000,000-token widest included, is finite against the 2¹²⁸-state lattice the
   folds land in ([`every_context_is_finite_against_the_lattice`](/theorem/every_context_is_finite_against_the_lattice)). uuidna's side: 2^128 addressable states (32 hexbits per address), PERMANENT — the ledger outlives every context window.
 - **Speed**: the public feed publishes no throughput, so this page carries **no speed numbers at all** —
-  a column of guesses would be 425 fabricated citations. uuidna's own speed is of a different kind
+  a column of guesses would be 424 fabricated citations. uuidna's own speed is of a different kind
   and recomputable: mint/verify O(1) per receipt after a one-time kernel proof; no sampling loop (uuidna_gate_status recomputes live).
 - **Messaging** ([`speaking_an_address_costs_the_text`](/theorem/speaking_an_address_costs_the_text)): speaking a 128-bit address in text costs 288
   bits — 44% efficiency, identical for every model, because it is the text's cost. The table counts each
@@ -56,7 +56,7 @@ Fold your own — any text, any model's output — with `foldLlm()` in
 [`src/quantum/models`](https://github.com/uuidna/uuidna/tree/main/src/quantum/models), or mint the address
 live in the [terminal](/terminal).
 
-## The census — all 425 public models
+## The census — all 424 public models
 
 Windows and prices are the feed's **reported** figures (prices verbatim, per token, as published — labels,
 not numbers this page computes on); hexbit capacity and uuids/window are **computed** and sealed. Widest
@@ -75,7 +75,7 @@ window first.
 | `z-ai/glm-5.3-flash` | 1,310,720 | 10,485,760 | 145,635 | 0.000000075 / 0.00000025 |
 | `~deepseek/deepseek-v4-flash-latest` | 1,310,720 | 10,485,760 | 145,635 | 0.00000005 / 0.00000016 |
 | `~z-ai/glm-flash-latest` | 1,310,720 | 10,485,760 | 145,635 | 0.000000075 / 0.00000025 |
-| `~z-ai/glm-latest` | 1,310,720 | 10,485,760 | 145,635 | 0.00000115 / 0.0000035 |
+| `~z-ai/glm-latest` | 1,310,720 | 10,485,760 | 145,635 | 0.000001106 / 0.000003476 |
 | `openai/gpt-5.4` | 1,050,000 | 8,400,000 | 116,666 | 0.0000025 / 0.000015 |
 | `openai/gpt-5.4-pro` | 1,050,000 | 8,400,000 | 116,666 | 0.00003 / 0.00018 |
 | `openai/gpt-5.4-pro:batch` | 1,050,000 | 8,400,000 | 116,666 | 0.000015 / 0.00009 |
@@ -100,11 +100,11 @@ window first.
 | `xiaomi/mimo-v2.5-pro` | 1,050,000 | 8,400,000 | 116,666 | 0.000000435 / 0.00000087 |
 | `~openai/gpt-latest` | 1,050,000 | 8,400,000 | 116,666 | 0.000002 / 0.00001 |
 | `meituan/longcat-2.0` | 1,048,756 | 8,390,048 | 116,528 | 0.0000003 / 0.0000012 |
-| `deepseek/deepseek-v4-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.00000008246 / 0.00000016492 |
+| `deepseek/deepseek-v4-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.000000088606 / 0.000000177212 |
 | `deepseek/deepseek-v4-flash-0731:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000014 / 0.00000028 |
-| `deepseek/deepseek-v4-flash-vision-exp` | 1,048,576 | 8,388,608 | 116,508 | 0.00000022 / 0.00000066 |
-| `deepseek/deepseek-v4-pro` | 1,048,576 | 8,388,608 | 116,508 | 0.00000102747 / 0.00000205494 |
-| `deepseek/deepseek-v4-pro-0813` | 1,048,576 | 8,388,608 | 116,508 | 0.00000066 / 0.00000198 |
+| `deepseek/deepseek-v4-flash-vision-exp` | 1,048,576 | 8,388,608 | 116,508 | 0.00000044 / 0.00000132 |
+| `deepseek/deepseek-v4-pro` | 1,048,576 | 8,388,608 | 116,508 | 0.00000104226 / 0.00000208452 |
+| `deepseek/deepseek-v4-pro-0813` | 1,048,576 | 8,388,608 | 116,508 | 0.0000011154 / 0.0000033462 |
 | `deepseek/deepseek-v4-pro-0813:batch` | 1,048,576 | 8,388,608 | 116,508 | 0.00000132 / 0.00000396 |
 | `google/gemini-2.5-flash` | 1,048,576 | 8,388,608 | 116,508 | 0.0000003 / 0.0000025 |
 | `google/gemini-2.5-flash-lite` | 1,048,576 | 8,388,608 | 116,508 | 0.0000001 / 0.0000004 |
@@ -216,7 +216,6 @@ window first.
 | `thinkingmachines/inkling-small:batch` | 524,288 | 4,194,304 | 58,254 | 0.0000005 / 0.0000012 |
 | `thinkingmachines/inkling:batch` | 524,288 | 4,194,304 | 58,254 | 0.000001 / 0.00000405 |
 | `upstage/solar-pro4` | 524,288 | 4,194,304 | 58,254 | 0.00000003 / 0.00000012 |
-| `nvidia/nemotron-3-ultra-550b-a55b:batch` | 512,288 | 4,098,304 | 56,920 | 0.0000006 / 0.0000036 |
 | `dots-studio/dots-3-note-preview:free` | 512,000 | 4,096,000 | 56,888 | 0 / 0 |
 | `x-ai/grok-4.5` | 500,000 | 4,000,000 | 55,555 | 0.000002 / 0.000006 |
 | `x-ai/grok-4.6` | 500,000 | 4,000,000 | 55,555 | 0.000002 / 0.000006 |
@@ -305,7 +304,7 @@ window first.
 | `qwen/qwen3.5-122b-a10b` | 262,144 | 2,097,152 | 29,127 | 0.00000029 / 0.0000024 |
 | `qwen/qwen3.5-27b` | 262,144 | 2,097,152 | 29,127 | 0.000000195 / 0.00000156 |
 | `qwen/qwen3.5-35b-a3b` | 262,144 | 2,097,152 | 29,127 | 0.00000025 / 0.00000125 |
-| `qwen/qwen3.5-397b-a17b` | 262,144 | 2,097,152 | 29,127 | 0.00000039 / 0.00000234 |
+| `qwen/qwen3.5-397b-a17b` | 262,144 | 2,097,152 | 29,127 | 0.00000055 / 0.0000035 |
 | `qwen/qwen3.5-9b` | 262,144 | 2,097,152 | 29,127 | 0.0000001 / 0.00000015 |
 | `qwen/qwen3.5-9b:batch` | 262,144 | 2,097,152 | 29,127 | 0.00000017 / 0.00000025 |
 | `qwen/qwen3.6-27b` | 262,144 | 2,097,152 | 29,127 | 0.0000006 / 0.0000036 |
@@ -314,7 +313,7 @@ window first.
 | `sakana/sakana-namazu` | 262,144 | 2,097,152 | 29,127 | 0.00000095 / 0.000004 |
 | `stepfun/step-3.5-flash` | 262,144 | 2,097,152 | 29,127 | 0.0000001 / 0.0000003 |
 | `stepfun/step-3.7-flash` | 262,144 | 2,097,152 | 29,127 | 0.0000002 / 0.00000115 |
-| `tencent/hy3` | 262,144 | 2,097,152 | 29,127 | 0.0000000825 / 0.00000033 |
+| `tencent/hy3` | 262,144 | 2,097,152 | 29,127 | 0.000000132 / 0.000000528 |
 | `tencent/hy3-preview` | 262,144 | 2,097,152 | 29,127 | 0.00000018 / 0.0000006 |
 | `inception/mercury-2.5-preview` | 260,000 | 2,080,000 | 28,888 | 0.00000004 / 0.00000015 |
 | `cohere/command-a` | 256,000 | 2,048,000 | 28,444 | 0.0000025 / 0.00001 |
@@ -329,7 +328,7 @@ window first.
 | `minimax/minimax-m2.1` | 204,800 | 1,638,400 | 22,755 | 0.0000003 / 0.0000012 |
 | `minimax/minimax-m2.5` | 204,800 | 1,638,400 | 22,755 | 0.00000027 / 0.00000108 |
 | `minimax/minimax-m2.7` | 204,800 | 1,638,400 | 22,755 | 0.0000003 / 0.0000012 |
-| `z-ai/glm-4.6` | 204,800 | 1,638,400 | 22,755 | 0.00000043 / 0.00000175 |
+| `z-ai/glm-4.6` | 204,800 | 1,638,400 | 22,755 | 0.00000055 / 0.0000022 |
 | `z-ai/glm-4.7` | 204,800 | 1,638,400 | 22,755 | 0.0000004 / 0.00000175 |
 | `z-ai/glm-5` | 204,800 | 1,638,400 | 22,755 | 0.0000006 / 0.00000192 |
 | `z-ai/glm-5.1` | 204,800 | 1,638,400 | 22,755 | 0.000000966 / 0.000003036 |
@@ -381,8 +380,8 @@ window first.
 | `meta-llama/llama-3.1-70b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.0000004 / 0.0000004 |
 | `meta-llama/llama-3.1-8b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000005 / 0.00000008 |
 | `meta-llama/llama-3.2-3b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000005 / 0.00000033 |
-| `meta-llama/llama-3.3-70b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.00000071 / 0.00000071 |
-| `meta/muse-glimmer-30b` | 131,072 | 1,048,576 | 14,563 | 0.0000003 / 0.0000012 |
+| `meta-llama/llama-3.3-70b-instruct` | 131,072 | 1,048,576 | 14,563 | 0.0000001 / 0.00000032 |
+| `meta/muse-glimmer-30b` | 131,072 | 1,048,576 | 14,563 | 0.0000003 / 0.0000011 |
 | `meta/muse-glimmer-30b:batch` | 131,072 | 1,048,576 | 14,563 | 0.00000035 / 0.0000015 |
 | `mistralai/ministral-3b-2512` | 131,072 | 1,048,576 | 14,563 | 0.0000001 / 0.0000001 |
 | `mistralai/mistral-large-2407` | 131,072 | 1,048,576 | 14,563 | 0.000002 / 0.000006 |
@@ -490,6 +489,6 @@ window first.
 | `openai/gpt-3.5-turbo-0613` | 4,095 | 32,760 | 455 | 0.000001 / 0.000002 |
 | `openai/gpt-3.5-turbo-instruct` | 4,095 | 32,760 | 455 | 0.0000015 / 0.000002 |
 
-**Census receipt** `b81e3d42-dc9a-8b22-a77b-4cfed5b91cf1` — as hexbits `[11, 8, 1, 14, 3, 13, 4, 2, 13, 12, 9, 10, 8, 11, 2, 2, 10, 7, 7, 11, 4, 12, 15, 14, 13, 5, 11, 9, 1, 12, 15, 1]` — recompute it from the same
+**Census receipt** `0d2c69db-3032-8e98-aeef-6ef5c64a50d3` — as hexbits `[0, 13, 2, 12, 6, 9, 13, 11, 3, 0, 3, 2, 8, 14, 9, 8, 10, 14, 14, 15, 6, 14, 15, 5, 12, 6, 4, 10, 5, 0, 13, 3]` — recompute it from the same
 mirror and it returns, byte for byte. The mirror refreshes from the live feed on every lean run; a model that
 enters or leaves the feed enters or leaves this page, re-sealed.

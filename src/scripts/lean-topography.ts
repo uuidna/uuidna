@@ -11,7 +11,7 @@
 // safety guidance. The ledger seals only EXACT rational facts — the 3-4-5 slope triple, not the irrational length of
 // a general hillside — and Naismith's walking time is a rule-of-thumb ESTIMATE, demarcated where it appears.
 // COMPUTE → GENERATE → VERIFY. Integrity, not truth.
-import { emit } from './lean-gen.js'
+import { emit, range } from './lean-gen.js'
 
 const FACTS = [
   { key: 'contour_index_every_fifth',
@@ -108,6 +108,14 @@ const FACTS = [
     why: 'ROTATION SHAPES THE EARTH MORE THAN MOUNTAINS DO. Summit to trench — Everest at 8849 m above sea level (the 2020 joint China–Nepal survey, 8848.86 m) and Challenger Deep at 10935 m below it (Greenaway et al. 2021, ±6 m) — the whole topographic range is 19784 m. The equatorial bulge, the difference between the WGS 84 axes, is 21385 m: LARGER, by 1601 m. So the biggest departure from a sphere is not the terrain at all; it is the flattening a spinning body takes. Two measured extremes and one derived constant, compared in integers.',
     js: () => 8849 + 10935 === 19784 && 21385 > 19784,
     lean: 'theorem bulge_exceeds_relief : 8849 + 10935 = 19784 ∧ 21385 > 19784 := by decide' },
+
+  { key: 'back_bearing_is_involutive_on_every_bearing',
+    why: 'THE BACK BEARING IS AN INVOLUTION ON ALL 360 BEARINGS, enumerated. Reciprocal of a bearing b is (b + 180) mod 360, and taking it twice returns b — the fact every compass traverse closes on. It is decided here for every one of the 360 integer bearings, not for a sample: the walk is FACTORED as 36 × 10 because a flat List.range 360 exceeds the kernel\u2019s default recursion depth, and buying depth with set_option is refused in this tree (the raise census in lean-cube counts every instance). Restating the walk on a product keeps the same 360 points inside the ceiling.',
+    js: () => range(36).every((t) => range(10).every((u) => {
+      const b = t * 10 + u
+      return ((b + 180) % 360 + 180) % 360 === b
+    })) && 36 * 10 === 360 && 360 === 2 * 180,
+    lean: 'theorem back_bearing_is_involutive_on_every_bearing : ((List.range 36).all (fun t => (List.range 10).all (fun u => let b := t * 10 + u; ((b + 180) % 360 + 180) % 360 == b))) ∧ (36 * 10 = 360) ∧ (360 = 2 * 180) := by decide' },
 ]
 
 console.log('computing ' + FACTS.length + ' TOPOGRAPHY facts (the arithmetic of the map — not a survey, not a route planner) …')

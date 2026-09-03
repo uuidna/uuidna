@@ -93,7 +93,7 @@ When practice stalls on a theorem, the gap is almost never the theorem itself �
 skipped. The fix is never to invent a bridging theorem (a restatement is not a unity,
 [`unity_census_is_plural_and_needs_two`](/theorem/unity_census_is_plural_and_needs_two)); it is to **reorder the walk** so the sealed prerequisite comes
 first. And the prerequisite relation is not curated: it is scanned from the ledger itself — every sealed name
-that cites another sealed key IS a citation edge, 138 prerequisites over 166 edges at this
+that cites another sealed key IS a citation edge, 141 prerequisites over 169 edges at this
 generation, ranked by how many theorems rest on each. Walk the most-cited first; each row lists up to its first
 three citers alphabetically, and the count carries the rest.
 
@@ -128,6 +128,7 @@ three citers alphabetically, and the count carries the rest.
 | [`binary_kilo_drift_compounds`](/theorem/binary_kilo_drift_compounds) | 1 | [`the_buyer_sees_thirty_five_missing`](/theorem/the_buyer_sees_thirty_five_missing) |
 | [`blood_types_eight`](/theorem/blood_types_eight) | 1 | [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not) |
 | [`byte_holds_two_hexbits`](/theorem/byte_holds_two_hexbits) | 1 | [`byte_weight_splits_across_its_two_tiles`](/theorem/byte_weight_splits_across_its_two_tiles) |
+| [`byte_order_is_significant`](/theorem/byte_order_is_significant) | 1 | [`single_byte_tamper_space_is_enumerated`](/theorem/single_byte_tamper_space_is_enumerated) |
 | [`captain_computes_only_with_two_coins`](/theorem/captain_computes_only_with_two_coins) | 1 | [`trial_computes_only_with_two_coins`](/theorem/trial_computes_only_with_two_coins) |
 | [`captain_theorem_the_coins_buy_the_ring_and_one`](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) | 1 | [`hexagram_width_closes_rosetta_and_glagolitic`](/theorem/hexagram_width_closes_rosetta_and_glagolitic) |
 | [`cassini_golden_page`](/theorem/cassini_golden_page) | 1 | [`fibonacci_identity_sums_close_and_neighbours_are_coprime`](/theorem/fibonacci_identity_sums_close_and_neighbours_are_coprime) |
@@ -152,6 +153,7 @@ three citers alphabetically, and the count carries the rest.
 | [`eclipse_four_hundred`](/theorem/eclipse_four_hundred) | 1 | [`astronomy_eight_planets`](/theorem/astronomy_eight_planets) |
 | [`egyptian_five_harmonise_the_circle`](/theorem/egyptian_five_harmonise_the_circle) | 1 | [`seasons_return_in_eighteen_years`](/theorem/seasons_return_in_eighteen_years) |
 | [`epact_eleven_harmonised_by_meton`](/theorem/epact_eleven_harmonised_by_meton) | 1 | [`ramadan_walks_the_year_in_a_life`](/theorem/ramadan_walks_the_year_in_a_life) |
+| [`exact_copy_is_byte_equality`](/theorem/exact_copy_is_byte_equality) | 1 | [`single_byte_tamper_space_is_enumerated`](/theorem/single_byte_tamper_space_is_enumerated) |
 | [`fifth_cycles_all_twelve`](/theorem/fifth_cycles_all_twelve) | 1 | [`stride_cycle_is_modulus_over_gcd`](/theorem/stride_cycle_is_modulus_over_gcd) |
 | [`five_orbit_reverses_doubling`](/theorem/five_orbit_reverses_doubling) | 1 | [`reverse_walks_inverse`](/theorem/reverse_walks_inverse) |
 | [`flat_drift_is_quadratic`](/theorem/flat_drift_is_quadratic) | 1 | [`geography_degree_and_dozen`](/theorem/geography_degree_and_dozen) |
@@ -205,6 +207,7 @@ three citers alphabetically, and the count carries the rest.
 | [`seal_ten`](/theorem/seal_ten) | 1 | [`hextorus_deficit_is_the_ten`](/theorem/hextorus_deficit_is_the_ten) |
 | [`sealing_inverts_unverified`](/theorem/sealing_inverts_unverified) | 1 | [`silence_never_refutes`](/theorem/silence_never_refutes) |
 | [`sequence_and_coins_are_one`](/theorem/sequence_and_coins_are_one) | 1 | [`hextorus_is_coins_times_trinity`](/theorem/hextorus_is_coins_times_trinity) |
+| [`single_byte_tamper_is_detected`](/theorem/single_byte_tamper_is_detected) | 1 | [`single_byte_tamper_space_is_enumerated`](/theorem/single_byte_tamper_space_is_enumerated) |
 | [`song_six_verses_one_melody`](/theorem/song_six_verses_one_melody) | 1 | [`referrer_six_doors`](/theorem/referrer_six_doors) |
 | [`store_fold_order_invariant`](/theorem/store_fold_order_invariant) | 1 | [`merkle_sort_invariant`](/theorem/merkle_sort_invariant) |
 | [`t7_betti_row_is_the_uuid`](/theorem/t7_betti_row_is_the_uuid) | 1 | [`handle_capacity_is_quantum_by_architecture`](/theorem/handle_capacity_is_quantum_by_architecture) |
@@ -265,7 +268,7 @@ check — the transcript is [the deposit record](/trials) itself, and each pract
    fingerprint what their (principle, theorem set) already fixed — **1 hexbit** of pure restatement
    ([`hexbit_is_four_qubits`](/theorem/hexbit_is_four_qubits)), priced in the unit and not in milliseconds, because a wall-clock figure moves
    with the host and a practice carrying a number that moves goes stale.
-   **The boundary:** the same reasoning was turned on the 2582-frame aura film and it was wrong. The aura IS
+   **The boundary:** the same reasoning was turned on the 2583-frame aura film and it was wrong. The aura IS
    a pure function of the address, so the digests do move together — but folding addresses computes no aura, and the
    leaf keeps the name. An aura is only an aura if it is DERIVED from the algebra: ray from ℤ/7, wave from the ℤ/9
    vortex orbit, hue by the A432 step ([`z7rays_seven`](/theorem/z7rays_seven)). A value named for a computation must be computed by
@@ -762,7 +765,7 @@ or judgment — those stay with the student; the court decides meaning. Integrit
 <!-- wings: GENERATED by scripts/gen-school — every sealed wing, so none is invisible -->
 ## The wings — all 115, computed from the ledger
 
-Every wing the ledger seals, largest first: 2582 theorems across 115 wings and 107 skills.
+Every wing the ledger seals, largest first: 2583 theorems across 115 wings and 107 skills.
 This table is derived at generation — a wing sealed today appears here today, and one that is renamed cannot linger.
 Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 
@@ -829,6 +832,7 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The harmony of pairs | `Harmony.lean` | science-pairs | 8 | [`action_reaction_and_charge_cancel`](/theorem/action_reaction_and_charge_cancel) |
 | The matching | `Matching.lean` | matching | 8 | [`edges_are_half_the_degree_sum`](/theorem/edges_are_half_the_degree_sum) |
 | The denial drained | `Negation.lean` | negation | 8 | [`a_window_exhausts_only_itself`](/theorem/a_window_exhausts_only_itself) |
+| The OS-integrity algebra | `Os.lean` | os | 8 | [`boundary_is_exactly_two_named_modules`](/theorem/boundary_is_exactly_two_named_modules) |
 | The exposure | `Photography.lean` | photography | 8 | [`equivalent_exposure`](/theorem/equivalent_exposure) |
 | The instrument | `Psychology.lean` | psychology | 8 | [`big_five_factors_pentad`](/theorem/big_five_factors_pentad) |
 | The spectrum | `Spectrum.lean` | spectrum | 8 | [`inverse_at_fixed_c`](/theorem/inverse_at_fixed_c) |
@@ -838,7 +842,6 @@ Open any of them by its key; the skill column is the axis `uuidna_skill` serves.
 | The time coordinate | `Ephemeris.lean` | ephemeris | 7 | [`gregorian_leap_rule`](/theorem/gregorian_leap_rule) |
 | The models | `Models.lean` | models | 7 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen) |
 | The bond domain | `Molecular.lean` | molecular | 7 | [`bond_order_n2_o2`](/theorem/bond_order_n2_o2) |
-| The OS-integrity algebra | `Os.lean` | os | 7 | [`boundary_is_exactly_two_named_modules`](/theorem/boundary_is_exactly_two_named_modules) |
 | The report | `Report.lean` | reporting | 7 | [`a_claim_is_verified_or_unverified`](/theorem/a_claim_is_verified_or_unverified) |
 | The sanitise standards | `Sanitize.lean` | sanitize | 7 | [`sanitize_array_and_keys_are_ten_pow_five`](/theorem/sanitize_array_and_keys_are_ten_pow_five) |
 | The known universe, handled | `Universe.lean` | universe | 7 | [`eclipse_four_hundred`](/theorem/eclipse_four_hundred) |
@@ -1168,8 +1171,8 @@ spends to learn what the tree already knows. Each row prices one opening questio
 
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
-| how many theorems are sealed? | 341,958 | 6 | 56,993× | `theorems().length` |
-| what does the tree hold right now? | 362,047 | 225 | 1,609× | `npm run state` |
+| how many theorems are sealed? | 342,609 | 6 | 57,101× | `theorems().length` |
+| what does the tree hold right now? | 362,698 | 225 | 1,611× | `npm run state` |
 | which Alpine domains are ported? | 1,822,410 | 350 | 5,206× | `portsCensus()` |
 | is the tree green to release? | 80,318 | 65 | 1,235× | `leads-gate + gate-receipt --verify` |
 
@@ -1187,7 +1190,7 @@ fetched only if someone actually wants it.
 | The message is about | Payload (bytes) | Address (bytes) | Not sent |
 | --- | ---: | ---: | ---: |
 | the whole Alpine catalogue | 7,289,641 | 16 | 455,602× |
-| the sealed ledger | 1,367,834 | 16 | 85,489× |
+| the sealed ledger | 1,370,438 | 16 | 85,652× |
 | the leads record | 70,272 | 16 | 4,392× |
 
 This is NOT compression. Nothing is made smaller — the bytes are simply not sent, and stay fetchable at request

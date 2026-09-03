@@ -1,0 +1,12 @@
+{
+  "handle": "4a274cac",
+  "address": "4a274cac-e238-8285-aaf1-8b16c42b4cb6",
+  "statement": "(0 + 2533 = 2533) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_terminator_escaped"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}
