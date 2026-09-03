@@ -1172,7 +1172,7 @@ spends to learn what the tree already knows. Each row prices one opening questio
 | Question | Read (tokens) | Sealed call | Ratio | The door |
 | --- | ---: | ---: | ---: | --- |
 | how many theorems are sealed? | 343,996 | 6 | 57,332× | `theorems().length` |
-| what does the tree hold right now? | 364,084 | 225 | 1,618× | `npm run state` |
+| what does the tree hold right now? | 364,094 | 225 | 1,618× | `npm run state` |
 | which Alpine domains are ported? | 1,822,410 | 350 | 5,206× | `portsCensus()` |
 | is the tree green to release? | 80,426 | 65 | 1,237× | `leads-gate + gate-receipt --verify` |
 

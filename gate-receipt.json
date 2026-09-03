@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "13bbec8da869d3f4600e28497dee4658",
+    "src": "eaa33a59c7a547944de73a821443c5be",
     "lean": "41d1508ee9d59ad7c244f876f0d0acdc"
   },
   "files": {
@@ -3946,6 +3946,7 @@
     "src/scripts/hexbit-from-books.ts": "4b93ec9f5887309c",
     "src/scripts/impossibility-gaps.ts": "0eecbc089b825b5d",
     "src/scripts/index-test-imports.ts": "6e1099a4e0bc5e06",
+    "src/scripts/involute-modals.ts": "73014e42f9d989b1",
     "src/scripts/iq-books.ts": "7007db73db1e898c",
     "src/scripts/land.ts": "6ac34a258d1063a8",
     "src/scripts/landing-gaps.ts": "9a1e8e4ee19f82e7",
