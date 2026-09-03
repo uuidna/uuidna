@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "985ba134fb4f524b9686b8bd5d09def6",
+    "src": "d1937bcaa3ef9a15268e565c7d741675",
     "lean": "d23c149f0d10e032a02efa6aaf479326"
   },
   "files": {
@@ -3886,7 +3886,7 @@
     "src/scripts/gap-survey.test.ts": "967b9bf7918dfc40",
     "src/scripts/gate-all.test.ts": "f853d8d3498d8af9",
     "src/scripts/gate-all.ts": "f38d3514b3493e9d",
-    "src/scripts/gate-paths.test.ts": "e518b74635a252ef",
+    "src/scripts/gate-paths.test.ts": "52e7d5dc656bc2be",
     "src/scripts/gate-receipt.ts": "daded06a4a8b34a4",
     "src/scripts/gateways.ts": "335c1b47091d0b46",
     "src/scripts/gcp-analytics.ts": "50bb97627d5c81cc",
@@ -4117,7 +4117,7 @@
     "src/scripts/repair-test-imports.ts": "e392ab5d353ee4f8",
     "src/scripts/reserve.ts": "1cf2f61fa3dfb866",
     "src/scripts/rosetta.ts": "87e9757697a7a9b2",
-    "src/scripts/run.ts": "088ab0a7b17092e1",
+    "src/scripts/run.ts": "b6b22c424401a83f",
     "src/scripts/scout.ts": "0f8dedaeacd87d93",
     "src/scripts/seal-claims-audit.ts": "6a67db73914edcf6",
     "src/scripts/search-feed.test.ts": "f27f8ea539725e8f",

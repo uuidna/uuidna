@@ -14,6 +14,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readdirSync, readFileSync, existsSync } from 'node:fs'
+import { execFileSync } from 'node:child_process'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 
@@ -151,4 +152,36 @@ test('the table-enumeration lead names the single-wing loop, not just the goal',
   assert.match(next, /lean-one/, 'next’s leverage list must name it too — it is where a reader looks first')
   // and the dispatcher it names must exist, or the lead points at nothing
   assert.ok(existsSync(join(ROOT, 'src', 'scripts', 'lean-one.ts')), 'the named dispatcher must exist')
+})
+
+// ── THE DISPATCHER MUST SAY WHAT IT CAN RUN. Measured 2026-09-03: 299 runnable scripts, 227 of them reachable
+// ONLY through `npm run x -- <name>`, listed as bare filenames with no purpose and no search. Finding `lean-one`
+// — the single-wing Lean loop, 0.087s against ~5 minutes for the whole chain — required already knowing it
+// existed, and seven wings were enumerated the slow way for exactly that reason. The purposes were already
+// written in every script's own header; the listing simply never read them.
+test('the dispatcher drains each script’s own purpose, and can be searched by it', () => {
+  const src = readFileSync(join(ROOT, 'src', 'scripts', 'run.ts'), 'utf8')
+  assert.match(src, /export function purposeOf/, 'the purpose is DRAINED from the header, never authored here')
+  // both comment shapes, because reading only `//` manufactured a gap on a script with a /** */ block
+  assert.ok(src.includes("'/**'") || /\/\*\*/.test(src.replace('/**', '')) || src.includes('\\/\\*\\*'),
+    'block comments count too — reading only // manufactured a gap on a script whose header is a /** … */ block')
+  assert.match(src, /--find/, 'a 299-item list needs a search, and it must cover purposes as well as names')
+  assert.match(src, /--all/, 'the full list stays available for whoever wants it')
+  // a compiled test is not a runnable script — `all-run.test` sat in the list and could not be run
+  assert.match(src, /\.test\.js/, 'runnable() must exclude compiled tests')
+})
+
+// TESTED AS A CLI, BECAUSE IT IS ONE. The first version of this test imported `./run.js` to call purposeOf
+// directly — and importing a script entry point RUNS it: the dispatcher printed its whole listing and exited,
+// collapsing this file to a single test that asserted nothing. A CLI is exercised by running it.
+test('the listing names lean-one with its purpose, and every runnable script can say what it does', () => {
+  const out = execFileSync('node', [join(ROOT, 'dist', 'scripts', 'run.js'), '--all'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+  assert.match(out, /lean-one\s+run exactly ONE lean-<domain> generator/, 'the slow-loop trap is now findable by name')
+  assert.match(out, /crypto-measure\s+the EMPIRICAL companion/, 'a /** … */ header reads like a // one')
+  assert.doesNotMatch(out, /carry no header purpose/, 'every runnable script says what it does — a new silent one is the gap')
+  // a NAME ending in .test, not the substring anywhere: `repair-test-imports` and `index-test-imports` are real
+  // scripts, and a purpose sentence may say "TEST" — the first version of this assertion caught those and was wrong
+  assert.doesNotMatch(out, /^\s+\S+\.test\s/m, 'a compiled test is not a runnable script')
+  const found = execFileSync('node', [join(ROOT, 'dist', 'scripts', 'run.js'), '--find', 'single-domain'], { encoding: 'utf8' })
+  assert.match(found, /lean-one/, '--find must search PURPOSES, not only names')
 })
