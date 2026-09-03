@@ -95,3 +95,11 @@ theorem horizon_distance_finite : (5048 * 5048 <= 2 * 6371000 * 2 ∧ 2 * 637100
     is 21385 m: LARGER, by 1601 m. So the biggest departure from a sphere is not the terrain at all; it is the
     flattening a spinning body takes. Two measured extremes and one derived constant, compared in integers. -/
 theorem bulge_exceeds_relief : 8849 + 10935 = 19784 ∧ 21385 > 19784 := by decide
+
+/-- THE BACK BEARING IS AN INVOLUTION ON ALL 360 BEARINGS, enumerated. Reciprocal of a bearing b is (b + 180)
+    mod 360, and taking it twice returns b — the fact every compass traverse closes on. It is decided here for
+    every one of the 360 integer bearings, not for a sample: the walk is FACTORED as 36 × 10 because a flat
+    List.range 360 exceeds the kernel’s default recursion depth, and buying depth with set_option is refused in
+    this tree (the raise census in lean-cube counts every instance). Restating the walk on a product keeps the
+    same 360 points inside the ceiling. -/
+theorem back_bearing_is_involutive_on_every_bearing : ((List.range 36).all (fun t => (List.range 10).all (fun u => let b := t * 10 + u; ((b + 180) % 360 + 180) % 360 == b))) ∧ (36 * 10 = 360) ∧ (360 = 2 * 180) := by decide

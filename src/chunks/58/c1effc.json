@@ -1,0 +1,12 @@
+{
+  "handle": "58c1effc",
+  "address": "58c1effc-4766-84a1-9901-4654a22190d6",
+  "statement": "((List.range 10).all (fun a => (List.range 22).all (fun b => let j := a + 1; let m := b + 1; ((if m + 3 < 2 * j then 1 else 0) + (if m + 3 == 2 * j then 1 else 0) + (if 2 * j < m + 3 then 1 else 0)) == 1))) ∧ (10 * 22 = 220)",
+  "tactic": "decide",
+  "keys": [
+    "maxwell_trichotomy_is_total_over_the_grid"
+  ],
+  "files": [
+    "Structures.lean"
+  ]
+}

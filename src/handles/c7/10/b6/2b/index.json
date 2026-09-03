@@ -1,0 +1,12 @@
+{
+  "handle": "c710b62b",
+  "address": "c710b62b-fef1-8826-a67b-aa3a86fb4d67",
+  "kind": "chunk",
+  "keys": [
+    "back_bearing_is_involutive_on_every_bearing"
+  ],
+  "statement": "((List.range 36).all (fun t => (List.range 10).all (fun u => let b := t * 10 + u; ((b + 180) % 360 + 180) % 360 == b))) ∧ (36 * 10 = 360) ∧ (360 = 2 * 180)",
+  "files": [
+    "Topography.lean"
+  ]
+}

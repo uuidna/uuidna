@@ -54,7 +54,7 @@
       "origins": 67
     },
     {
-      "key": "xor_checksum_catches_flip",
+      "key": "xor_checksum_is_involutive_over_every_nibble_pair",
       "packages": 52,
       "origins": 35
     },

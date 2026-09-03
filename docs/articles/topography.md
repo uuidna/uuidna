@@ -1,15 +1,15 @@
 ---
 title: "The lay of the land"
-description: "Computed from lean/Topography.lean — 17 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Topography.lean — 18 sealed theorems, every claim citing its proof."
 ---
 
 # The lay of the land
 
-> TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. — held by [contour_index_every_fifth](/theorem/contour_index_every_fifth) and its 16 siblings below.
+> TOPOGRAPHY — the arithmetic that turns terrain into a map: contour intervals and the heavy index contour (every fifth line), elevation read by counting rings, gradient as rise-over-run, contour spacing as the inverse of slope, the Pythagorean slope distance (the walk exceeds the map), scale as a pure ratio (1:25000 → 1 cm is 250 m), the nested-tens grid reference, the back-bearing in ℤ/360, relief as max minus min, the surveyor's chain (80 to the mile, 10 sq chains to the acre), triangulation on the 180° triangle, vertical exaggeration, and Naismith's walking estimate. exact ratios, counts and cycles of the map — NOT a survey, a GPS fix, or safety guidance; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's time is a rule-of-thumb estimate, demarcated where it appears. — held by [contour_index_every_fifth](/theorem/contour_index_every_fifth) and its 17 siblings below.
 
-**17 theorems**, from [contour_index_every_fifth](/theorem/contour_index_every_fifth) onward, each proven `by decide` in [lean/Topography.lean](/lean/Topography.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 8 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [contour_index_every_fifth](/theorem/contour_index_every_fifth). A boundary stated here is decided.
+**18 theorems**, from [contour_index_every_fifth](/theorem/contour_index_every_fifth) onward, each proven `by decide` in [lean/Topography.lean](/lean/Topography.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 9 of its 18 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [contour_index_every_fifth](/theorem/contour_index_every_fifth). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FTopography.lean)** — nothing to install. The editor fetches `lean/Topography.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FTopography.lean)** — nothing to install. The editor fetches `lean/Topography.lean` from the repository and re-decides all 18 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### A contour joins points of equal height; every fifth line is drawn heavy — the index contour — so with a 10 m interval the heavy lines fall on multiples of 50 m: [50,100,150,200] all divide by 50, while an intermediate 30 m line does not. The map lets you read height without a number on every ring.
 The ledger holds this as [contour_index_every_fifth](/theorem/contour_index_every_fifth) — proven `by decide`, sorry-free:
@@ -128,6 +128,13 @@ The ledger holds this as [bulge_exceeds_relief](/theorem/bulge_exceeds_relief) �
 
 ```lean
 8849 + 10935 = 19784 ∧ 21385 > 19784
+```
+
+### THE BACK BEARING IS AN INVOLUTION ON ALL 360 BEARINGS, enumerated. Reciprocal of a bearing b is (b + 180) mod 360, and taking it twice returns b — the fact every compass traverse closes on. It is decided here for every one of the 360 integer bearings, not for a sample: the walk is FACTORED as 36 × 10 because a flat List.range 360 exceeds the kernel’s default recursion depth, and buying depth with set_option is refused in this tree (the raise census in lean-cube counts every instance). Restating the walk on a product keeps the same 360 points inside the ceiling.
+The ledger holds this as [back_bearing_is_involutive_on_every_bearing](/theorem/back_bearing_is_involutive_on_every_bearing) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 36).all (fun t => (List.range 10).all (fun u => let b := t * 10 + u; ((b + 180) % 360 + 180) % 360 == b))) ∧ (36 * 10 = 360) ∧ (360 = 2 * 180)
 ```
 
 

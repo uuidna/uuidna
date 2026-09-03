@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2583 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2588 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 - **Sufficient / insufficient.** Sufficient for finite `by decide` windows, axiom-free seals, falsifiers, receipts (verify ≪ recompute), handle capacity, captain-coin fair-exchange, Alpine/hexbit catalogue, and finite formal windows within climate/pandemic/poverty model-calcs — named on `docs/doctrine.md`. World solutions stack as waves of automation (`npm run wave` / hexbit-fast); waves do not erase ethics or politics. Insufficient for those domains as full problem types, and for unbounded Clay, nature-as-model, justice — same page; computational claims only. Related honesty: `window_not_universal`, `n_qubit_dimension`, `grover_quadratic_bound`, `provenance_integrity_not_content_truth`.
 
 ## Principles
@@ -95,7 +95,7 @@
 26. **Navigation — bounded geometry** — `lean/Navigation.lean` · **5** theorems
    straight-line distance is Pythagorean (3-4-5), the compass rose is ℤ/8 (eight 45° headings), the reciprocal bearing is +4 (an involution), a quarter turn is +2 (order 4), and dead reckoning is the vector sum of the legs — classical navigation as decidable algebra, not GPS-grade guidance and not a positioning claim about anyone
 
-27. **The lay of the land** — `lean/Topography.lean` · **17** theorems
+27. **The lay of the land** — `lean/Topography.lean` · **18** theorems
    topography as decidable arithmetic, the map beneath navigation — a contour joins points of equal height and every fifth line is the heavy index contour (multiples of 50 m at a 10 m interval), so elevation is read by COUNTING rings (5 × 20 = 100 m of ascent); gradient is rise over run (a 1-in-20 slope climbs 5 m in 100), contour spacing is its inverse (a steep 1-in-5 crowds the lines to 50 m, a gentle 1-in-10 spreads them to 100), and the slope distance is Pythagorean (a 400 m run up 300 m walks 500 m, longer than the map's flat shadow); scale is a pure ratio (1:25000 → 1 cm is 250 m, 4 cm a kilometre); a grid reference nests by tens (each 100 m square split ten ways to 10 m); a back-bearing is the forward turned 180° about the compass in ℤ/360; relief is the highest spot height less the lowest; Gunter's chain measures the mile and the acre whole (80 × 66 = 5280 ft, 22 × 220 = 4840 sq yd); triangulation rests on the 180° triangle; and a cross-section's vertical exaggeration stretches the slopes (500/100 = 5-fold). the arithmetic of the map — exact ratios, counts and cycles — NOT a survey, a GPS fix, or a route plan; the ledger seals only exact rational facts (the 3-4-5 slope triple, not a general hillside's irrational length), and Naismith's walking time is a rule-of-thumb ESTIMATE, demarcated and never staked on for safety
 
 28. **Command authentication** — `lean/Command.lean` · **7** theorems
@@ -137,7 +137,7 @@
 40. **The Glagolitic numerals & Pliska rosette** — `lean/Glagolitic.lean` · **10** theorems
    documented Glagolitic arithmetic and the seven-fold, demarcated — Cyril numbered the letters (units 1-9, tens, hundreds, additive: 500+80+3=583; teens written unit-before-ten), the nine units sum to 45 (digital root 9), the Pliska rosette turns on seven rays (ℤ/7, six residues sum 21 → digital root 3 the primitive root), and 7 is prime so ℤ/7 is a field — the numerals and geometry; the rosette meaning stays historically debated, not decoded
 
-41. **The time coordinate** — `lean/Ephemeris.lean` · **7** theorems
+41. **The time coordinate** — `lean/Ephemeris.lean` · **8** theorems
    the astronomical time coordinate as decidable arithmetic, demarcated — a day is 86400 seconds, the Earth gains one turn against the stars each year (366=365+1), the Julian calendar runs 1461 days per 4 years and the Gregorian 146097 per 400 (97 leap days), mean motion advances longitude linearly, eclipses recur on the Saros (~223 months), the Sun creeps under a degree per day, and a Julian Date is a continuous day count — calendar and mean-motion arithmetic, not a perturbed ephemeris, distinct from the positional facts in Astronomy
 
 42. **The pentagram & the Fibonacci digits** — `lean/Pentagram.lean` · **13** theorems
@@ -155,7 +155,7 @@
 46. **The document fold** — `lean/Editor.lean` · **4** theorems
    the SERIALIZER CONTRACT of a content-addressed document as decidable arithmetic — a Lexical-shaped node tree serialized to a node SEQUENCE and folded to one address. The honest opposite of the memory store: a store is a SET (order-invariant fold), a document is a SEQUENCE (order IS identity), so this fold is ORDER-SENSITIVE — reordering two distinct nodes MOVES the address, a changed node MOVES it, and on the bounded model the positional fold dfold is INJECTIVE (the address DETERMINES the node sequence, node for node). injective only where the base-8 place value cannot overflow (bounded values, fixed length); the real content-address (merkleRoot over uuids, src/editor.ts) is collision-RESISTANT, not collision-free — by pigeonhole 2^128 addresses < all documents. Editing is re-addressing. The arithmetic of the document fold, NOT a rich-text engine
 
-47. **The error-correcting codes** — `lean/Codes.lean` · **8** theorems
+47. **The error-correcting codes** — `lean/Codes.lean` · **9** theorems
    error-correcting codes as decidable arithmetic — Hamming(7,4) is 4 data + 3 parity = 7 bits with 2⁴ = 16 codewords, a PERFECT code (16 × 8 = 128 = 2⁷, every word within one error of exactly one codeword); minimum distance 3 corrects ⌊(3−1)/2⌋ = 1 error and detects 2, meeting the Singleton bound (3 ≤ n−k+1 = 4); the (3,1) repetition code corrects one flip by majority; and a linear XOR checksum catches any single flip — the counting and bounds of tamper-detection, NOT a decoder
 
 48. **The identifiers** — `lean/Identifiers.lean` · **6** theorems
@@ -170,10 +170,10 @@
 51. **The measures of type** — `lean/Typesetting.lean` · **13** theorems
    typesetting and bookbinding as decidable arithmetic, the craft beneath the publications — the printer's units close exactly (6 picas of 12 points make the 72-point inch) and the em is the type's own square with its half-en and third-thin (12/2 = 6, 12/3 = 4); a folded sheet is a folio (2 leaves, 4 pages), a quarto (8), an octavo (16), leaves doubling so pages run in powers of two and every bound signature is a multiple of four, the ISO A-series halving alike; the harmonious page is the 3:4 rectangle whose diagonal is a whole 5 (3²+4²=5²), or the Fibonacci page that Cassini's identity holds within one unit of the golden section (5²−3·8 = 1), its margins in the medieval 2:3:4:6 canon; the readable measure is 66 characters, inside the 45–75 a typographer keeps; leading exceeds its type (12 on 14) and snaps to a baseline grid (multiples of 4); the type scale rises by octaves (8→16, 9→18); a ream is 500 sheets (20 quires of 25); and a leaf has a recto (odd) and a verso (even) — the arithmetic of the page, NOT a layout engine or a font renderer, and the √2 A-series ratio is irrational, demarcated
 
-52. **Maxwell's rule** — `lean/Structures.lean` · **3** theorems
+52. **Maxwell's rule** — `lean/Structures.lean` · **4** theorems
    planar truss determinacy as decidable arithmetic (Maxwell 1864) — a pin-jointed truss is statically determinate exactly when members m = 2j − 3: the triangle (j=3, m=3) and the braced quad (j=4, m=5) balance exactly, one member over is one redundancy (a self-stress the analysis pays for), one member short is one mechanism (the open pipe of statics — it swings until the diagonal closes the path). Answering the searchers' own repeated query at the address they visit; the counting rule on sample structures, necessary not sufficient — NOT a stress analysis or a design code
 
-53. **The stance and the angle** — `lean/MartialArts.lean` · **4** theorems
+53. **The stance and the angle** — `lean/MartialArts.lean` · **5** theorems
    the arithmetic of stance and angle, drawn from the vocabulary of the martial arts and kept to what the numbers prove: the complement map c(x) = w − x fixes exactly the half, one law at three scales (90 − 45 = 45 for the angle, 100 − 50 = 50 for the weight split, and 10 − 5 = 5 which IS the ledger's diamond involution and its unique fixed point 5), the supplement pair completing the straight angle, the chain's off-by-one (n links, n − 1 joints), and the exact lever ratio. facts about NUMBERS — nothing about technique, force, injury, physiology or what wins a fight, and no theorem in this wing may be cited for such a claim; the named arts are the context the arithmetic came from, never validation of it
 
 54. **The cut** — `lean/Editing.lean` · **14** theorems

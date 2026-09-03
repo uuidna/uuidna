@@ -25,3 +25,12 @@ theorem chain_joints_are_links_minus_one : 5 - 1 = 4 := by decide
     only that the RATIO is exact arithmetic — no force, no torque, no mechanical claim, which would need units
     and a model the ledger does not carry. -/
 theorem lever_ratio_is_exact_division : (8 / 4 = 2) ∧ (2 * 4 = 8) := by decide
+
+/-- THE COMPLEMENT IS AN INVOLUTION AT EVERY WIDTH THIS WING NAMES, walked rather than instanced. A scoring or
+    angular complement takes x to w − x, and applying it twice returns x — that is the claim, and it is made
+    here for EVERY point of all four widths the wing states: 0..10, 0..90, 0..100, 0..180. The four ranges carry
+    10 + 90 + 100 + 180 = 380 points, and with their four widths named the table is 384. Two applications of a
+    complement are the identity, on each of them, decided one point at a time. WHAT IT IS NOT: a claim about any
+    particular art’s rules — the widths are the ones this wing already states, and what is sealed is the
+    arithmetic of the involution over them. -/
+theorem complement_involution_at_every_width : ((List.range 11).all (fun x => 10 - (10 - x) == x)) ∧ ((List.range 91).all (fun x => 90 - (90 - x) == x)) ∧ ((List.range 101).all (fun x => 100 - (100 - x) == x)) ∧ ((List.range 181).all (fun x => 180 - (180 - x) == x)) ∧ (10 + 90 + 100 + 180 = 380) ∧ (380 + 4 = 384) := by decide

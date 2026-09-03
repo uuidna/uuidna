@@ -1,15 +1,15 @@
 ---
 title: "The error-correcting codes"
-description: "Computed from lean/Codes.lean — 8 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Codes.lean — 9 sealed theorems, every claim citing its proof."
 ---
 
 # The error-correcting codes
 
-> THE ERROR-CORRECTING CODES — Hamming(7,4), the perfect-code sphere-packing, distance/correction bounds, and the XOR checksum, decidable. — held by [hamming_seven_four](/theorem/hamming_seven_four) and its 7 siblings below.
+> THE ERROR-CORRECTING CODES — Hamming(7,4), the perfect-code sphere-packing, distance/correction bounds, and the XOR checksum, decidable. — held by [hamming_seven_four](/theorem/hamming_seven_four) and its 8 siblings below.
 
-**8 theorems**, from [hamming_seven_four](/theorem/hamming_seven_four) onward, each proven `by decide` in [lean/Codes.lean](/lean/Codes.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [distance_three_detects_two](/theorem/distance_three_detects_two). A boundary stated here is decided.
+**9 theorems**, from [hamming_seven_four](/theorem/hamming_seven_four) onward, each proven `by decide` in [lean/Codes.lean](/lean/Codes.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 3 of its 9 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [distance_three_detects_two](/theorem/distance_three_detects_two). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCodes.lean)** — nothing to install. The editor fetches `lean/Codes.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCodes.lean)** — nothing to install. The editor fetches `lean/Codes.lean` from the repository and re-decides all 9 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### Hamming(7,4): 4 data bits + 3 parity bits = 7, carrying 2⁴ = 16 codewords — three redundant bits protect four.
 The ledger holds this as [hamming_seven_four](/theorem/hamming_seven_four) — proven `by decide`, sorry-free:
@@ -65,6 +65,13 @@ The ledger holds this as [codewords_sparse](/theorem/codewords_sparse) — prove
 
 ```lean
 2^4 < 2^7
+```
+
+### THE XOR CHECKSUM IS ITS OWN UNDOING, OVER ALL 256 PAIRS. Applying a key twice returns the message — (a XOR b) XOR b = a — which is why XOR is a checksum and a cipher at once, and why it is never secrecy on its own. The claim is decided for every one of the 16 × 16 = 256 four-bit pairs, using this wing’s own axiom-free lxor rather than Lean’s native Nat.xor, whose well-founded recursion is not kernel-only.
+The ledger holds this as [xor_checksum_is_involutive_over_every_nibble_pair](/theorem/xor_checksum_is_involutive_over_every_nibble_pair) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 16).all (fun a => (List.range 16).all (fun b => lxor (lxor a b) b == a))) ∧ (16 * 16 = 256)
 ```
 
 

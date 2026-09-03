@@ -40,3 +40,9 @@ theorem xor_checksum_catches_flip : (List.range 8).all (fun a => lxor (lxor a 5)
 /-- Correction needs room: 2⁴ = 16 codewords sit sparsely inside 2⁷ = 128 possible words (16 < 128) — the
     redundancy is exactly what lets a flipped word be traced back to its origin. -/
 theorem codewords_sparse : 2^4 < 2^7 := by decide
+
+/-- THE XOR CHECKSUM IS ITS OWN UNDOING, OVER ALL 256 PAIRS. Applying a key twice returns the message — (a XOR
+    b) XOR b = a — which is why XOR is a checksum and a cipher at once, and why it is never secrecy on its own.
+    The claim is decided for every one of the 16 × 16 = 256 four-bit pairs, using this wing’s own axiom-free
+    lxor rather than Lean’s native Nat.xor, whose well-founded recursion is not kernel-only. -/
+theorem xor_checksum_is_involutive_over_every_nibble_pair : ((List.range 16).all (fun a => (List.range 16).all (fun b => lxor (lxor a b) b == a))) ∧ (16 * 16 = 256) := by decide

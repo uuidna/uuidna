@@ -1,7 +1,7 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 2583,
- "distinct": 2500,
+ "keys": 2588,
+ "distinct": 2505,
  "skills": 112,
  "files": 115,
  "bySkill": [
@@ -70,6 +70,10 @@
    "n": 19
   },
   {
+   "name": "topography",
+   "n": 18
+  },
+  {
    "name": "vector-equilibrium",
    "n": 18
   },
@@ -87,10 +91,6 @@
   },
   {
    "name": "readings",
-   "n": 17
-  },
-  {
-   "name": "topography",
    "n": 17
   },
   {
@@ -190,6 +190,10 @@
    "n": 9
   },
   {
+   "name": "codes",
+   "n": 9
+  },
+  {
    "name": "optimisation",
    "n": 9
   },
@@ -210,11 +214,11 @@
    "n": 8
   },
   {
-   "name": "codes",
+   "name": "diving",
    "n": 8
   },
   {
-   "name": "diving",
+   "name": "ephemeris",
    "n": 8
   },
   {
@@ -251,10 +255,6 @@
   },
   {
    "name": "command",
-   "n": 7
-  },
-  {
-   "name": "ephemeris",
    "n": 7
   },
   {
@@ -398,6 +398,10 @@
    "n": 5
   },
   {
+   "name": "martial-arts",
+   "n": 5
+  },
+  {
    "name": "navigation",
    "n": 5
   },
@@ -430,15 +434,11 @@
    "n": 4
   },
   {
-   "name": "martial-arts",
+   "name": "structures",
    "n": 4
   },
   {
    "name": "foundational",
-   "n": 3
-  },
-  {
-   "name": "structures",
    "n": 3
   },
   {
@@ -508,6 +508,10 @@
    "n": 18
   },
   {
+   "name": "Topography.lean",
+   "n": 18
+  },
+  {
    "name": "VectorEquilibrium.lean",
    "n": 18
   },
@@ -533,10 +537,6 @@
   },
   {
    "name": "Readings.lean",
-   "n": 17
-  },
-  {
-   "name": "Topography.lean",
    "n": 17
   },
   {
@@ -828,6 +828,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "11633b45-1ed2-88b2-88d3-280abf613798",
+ "receipt": "7885f31d-2821-864e-ac70-54a0e55cd1bb",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }

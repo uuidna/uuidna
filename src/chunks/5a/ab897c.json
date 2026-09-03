@@ -1,0 +1,12 @@
+{
+  "handle": "5aab897c",
+  "address": "5aab897c-7ce1-8018-96f6-73ac848eaf93",
+  "statement": "((List.range 4).all (fun c => ((List.range 100).filter (fun k => let y := c * 100 + k; (y % 4 == 0 && y % 100 != 0) || y % 400 == 0)).length == (if c == 0 then 25 else 24))) ∧ (25 + 24 + 24 + 24 = 97) ∧ (400 - 97 = 303) ∧ (97 + 303 = 400)",
+  "tactic": "decide",
+  "keys": [
+    "gregorian_cycle_is_ninety_seven_leaps"
+  ],
+  "files": [
+    "Ephemeris.lean"
+  ]
+}

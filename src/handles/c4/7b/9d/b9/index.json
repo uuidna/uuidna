@@ -1,0 +1,12 @@
+{
+  "handle": "c47b9db9",
+  "address": "c47b9db9-6ea0-8c15-b41d-bfcd5600d134",
+  "kind": "chunk",
+  "keys": [
+    "xor_checksum_is_involutive_over_every_nibble_pair"
+  ],
+  "statement": "((List.range 16).all (fun a => (List.range 16).all (fun b => lxor (lxor a b) b == a))) ∧ (16 * 16 = 256)",
+  "files": [
+    "Codes.lean"
+  ]
+}

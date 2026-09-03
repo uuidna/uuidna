@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 2,500 distinct theorems · 2,583 keys · 112 skills · 115 Lean files.
+**Board (computed).** 2,505 distinct theorems · 2,588 keys · 112 skills · 115 Lean files.
 
-Receipt `11633b45-1ed2-88b2-88d3-280abf613798` · structured form [lean/unlocks.json](/lean/unlocks.json)
+Receipt `7885f31d-2821-864e-ac70-54a0e55cd1bb` · structured form [lean/unlocks.json](/lean/unlocks.json)
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -71,10 +71,10 @@ Receipt `11633b45-1ed2-88b2-88d3-280abf613798` · structured form [lean/unlocks.
 | `reflection` | 21 |
 | `hexbit` | 20 |
 | `neuro` | 19 |
+| `topography` | 18 |
 | `vector-equilibrium` | 18 |
 | `waves` | 18 |
 | `colour` | 17 |
-| `hardware` | 17 |
 
 ## Lean files (top 20)
 
@@ -93,13 +93,13 @@ Receipt `11633b45-1ed2-88b2-88d3-280abf613798` · structured form [lean/unlocks.
 | [`Chessgames.lean`](/lean/Chessgames.lean) | 24 |
 | [`Hexbit.lean`](/lean/Hexbit.lean) | 20 |
 | [`Neuro.lean`](/lean/Neuro.lean) | 18 |
+| [`Topography.lean`](/lean/Topography.lean) | 18 |
 | [`VectorEquilibrium.lean`](/lean/VectorEquilibrium.lean) | 18 |
 | [`Waves.lean`](/lean/Waves.lean) | 18 |
 | [`Audit.lean`](/lean/Audit.lean) | 17 |
 | [`BioPhysics.lean`](/lean/BioPhysics.lean) | 17 |
 | [`Colour.lean`](/lean/Colour.lean) | 17 |
 | [`Hardware.lean`](/lean/Hardware.lean) | 17 |
-| [`Readings.lean`](/lean/Readings.lean) | 17 |
 
 ## World solutions = waves of automation
 

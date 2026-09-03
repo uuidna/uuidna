@@ -267,6 +267,7 @@ distance_three_detects_two 27
 repetition_three_majority 27
 xor_checksum_catches_flip 27
 codewords_sparse 27
+xor_checksum_is_involutive_over_every_nibble_pair 27
 #Coins.lean
 minting_is_two_per_theorem 27
 fold_compresses_without_bound_and_never_recovers 27
@@ -506,6 +507,7 @@ gregorian_leap_rule 27
 mean_motion_linear 27
 saros_eclipse_cycle 27
 julian_date_is_a_day_count 27
+gregorian_cycle_is_ninety_seven_leaps 27
 #Exploits.lean
 fold_trojan_source_bidi 27
 fold_prototype_pollution 27
@@ -663,6 +665,7 @@ complement_fixes_the_half 27
 supplement_completes_the_straight 27
 chain_joints_are_links_minus_one 27
 lever_ratio_is_exact_division 27
+complement_involution_at_every_width 27
 #Matching.lean
 handshake_degree_sum_even 27
 edges_are_half_the_degree_sum 27
@@ -1626,6 +1629,7 @@ collisions_are_forced_by_the_ceiling 27
 maxwells_rule_truss 27
 redundancy_pays_one 27
 mechanism_lacks_one 27
+maxwell_trichotomy_is_total_over_the_grid 27
 #Subgroups.lean
 units_form_six 27
 four_subgroups_exhibited 27
@@ -1684,6 +1688,7 @@ wgs84_polar_shorter 31
 eratosthenes_fiftieth_circle 31
 horizon_distance_finite 27
 bulge_exceeds_relief 31
+back_bearing_is_involutive_on_every_bearing 27
 #Torus.lean
 hextorus_is_coins_times_trinity 27
 hextorus_deficit_is_the_ten 27
