@@ -407,6 +407,7 @@ the_coin_keeps_its_order_in_the_fused_ring 27
 the_fused_ring_is_all_ones 27
 hexagram_width_closes_rosetta_and_glagolitic 27
 hexagram_stride_totals_the_rosetta 27
+units_of_sixty_three_close_their_product_table 27
 #Discover.lean
 involution_census_self_explains 27
 happy_ending_verified_cases 27

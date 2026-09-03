@@ -1,0 +1,12 @@
+{
+  "handle": "220fd660",
+  "address": "220fd660-7485-8737-836e-7d4f4e4f4567",
+  "kind": "chunk",
+  "keys": [
+    "units_of_sixty_three_close_their_product_table"
+  ],
+  "statement": "(let u := (List.range 63).filter (fun k => Nat.gcd k 63 == 1); (u.length == 36) ∧ (u.all (fun a => u.all (fun b => Nat.gcd (a * b % 63) 63 == 1))) ∧ (u.all (fun a => ((u.map (fun b => a * b % 63)).eraseDups.length == 36)))) ∧ (63 = 7 * 9) ∧ (6 * 6 = 36)",
+  "files": [
+    "Crt.lean"
+  ]
+}

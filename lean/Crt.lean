@@ -82,3 +82,14 @@ theorem hexagram_width_closes_rosetta_and_glagolitic : (2^6 = 64) ∧ ((2^6) % 9
     geometries: the rosetta is generated; the vortex is partitioned. residue orbits of multiplication by 6. It
     does not claim a hexagram "means" a dimension, or that walking theorems at stride 6 is a ritual. -/
 theorem hexagram_stride_totals_the_rosetta : (Nat.gcd 6 7 = 1) ∧ (Nat.gcd 6 9 = 3) ∧ ((List.range 7).map (fun k => (k * 6) % 7)).eraseDups.length = 7 ∧ ((List.range 9).map (fun k => (k * 6) % 9)).eraseDups.length = 3 := by decide
+
+/-- THE 36 × 36 PRODUCT TABLE OF (Z/63)*, WALKED CELL BY CELL. 63 = 7 · 9 is the wing’s own CRT split, and the
+    units factor with it: φ(63) = φ(7) · φ(9) = 6 · 6 = 36. Those 36 residues are found here rather than listed
+    — every k below 63 coprime to it — and then the whole table they generate is decided: all 1296 products a ·
+    b mod 63 are again units (the table is CLOSED), and every ROW carries 36 DISTINCT entries, so multiplication
+    by a fixed unit permutes the units. That second half is the Latin-square property a group’s Cayley table
+    has, and it is what makes each unit invertible: a row that repeated a value could not cover the group.
+    Together they are the structure the Chinese Remainder decomposition predicts, checked against the residues
+    themselves instead of inferred from the factorisation. WHAT IT IS NOT: a theorem about (Z/n)* for every n —
+    the modulus here is 63, and what is sealed is its table. -/
+theorem units_of_sixty_three_close_their_product_table : (let u := (List.range 63).filter (fun k => Nat.gcd k 63 == 1); (u.length == 36) ∧ (u.all (fun a => u.all (fun b => Nat.gcd (a * b % 63) 63 == 1))) ∧ (u.all (fun a => ((u.map (fun b => a * b % 63)).eraseDups.length == 36)))) ∧ (63 = 7 * 9) ∧ (6 * 6 = 36) := by decide

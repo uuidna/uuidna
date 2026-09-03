@@ -1,15 +1,15 @@
 ---
 title: "The fused ring"
-description: "Computed from lean/Crt.lean — 10 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Crt.lean — 11 sealed theorems, every claim citing its proof."
 ---
 
 # The fused ring
 
-> THE FUSED RING — the rosette (Z/7) and the vortex (Z/9) are coprime, so by the Chinese Remainder Theorem they are ONE ring of 63 states, and its arithmetic explains the captain measure: the two coins buy 64 = 63 + 1, the whole fused structure plus the unit that closes it (63 = 111111, saturated in six bits; 64 = 1000000, the first bit beyond). The hexagram width 6 is the unit-group order of both tongues and the stride that totals the rosetta while partitioning the Glagolitic nine. — held by [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) and its 9 siblings below.
+> THE FUSED RING — the rosette (Z/7) and the vortex (Z/9) are coprime, so by the Chinese Remainder Theorem they are ONE ring of 63 states, and its arithmetic explains the captain measure: the two coins buy 64 = 63 + 1, the whole fused structure plus the unit that closes it (63 = 111111, saturated in six bits; 64 = 1000000, the first bit beyond). The hexagram width 6 is the unit-group order of both tongues and the stride that totals the rosetta while partitioning the Glagolitic nine. — held by [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) and its 10 siblings below.
 
-**10 theorems**, from [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) onward, each proven `by decide` in [lean/Crt.lean](/lean/Crt.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [hexagram_width_closes_rosetta_and_glagolitic](/theorem/hexagram_width_closes_rosetta_and_glagolitic). A boundary stated here is decided.
+**11 theorems**, from [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) onward, each proven `by decide` in [lean/Crt.lean](/lean/Crt.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 2 of its 11 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [hexagram_width_closes_rosetta_and_glagolitic](/theorem/hexagram_width_closes_rosetta_and_glagolitic). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCrt.lean)** — nothing to install. The editor fetches `lean/Crt.lean` from the repository and re-decides all 10 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FCrt.lean)** — nothing to install. The editor fetches `lean/Crt.lean` from the repository and re-decides all 11 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### captain_theorem_the_coins_buy_the_ring_and_one
 The ledger holds this as [captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) — proven `by decide`, sorry-free:
@@ -79,6 +79,13 @@ The ledger holds this as [hexagram_stride_totals_the_rosetta](/theorem/hexagram_
 
 ```lean
 (Nat.gcd 6 7 = 1) ∧ (Nat.gcd 6 9 = 3) ∧ ((List.range 7).map (fun k => (k * 6) % 7)).eraseDups.length = 7 ∧ ((List.range 9).map (fun k => (k * 6) % 9)).eraseDups.length = 3
+```
+
+### units_of_sixty_three_close_their_product_table
+The ledger holds this as [units_of_sixty_three_close_their_product_table](/theorem/units_of_sixty_three_close_their_product_table) — proven `by decide`, sorry-free:
+
+```lean
+(let u := (List.range 63).filter (fun k => Nat.gcd k 63 == 1); (u.length == 36) ∧ (u.all (fun a => u.all (fun b => Nat.gcd (a * b % 63) 63 == 1))) ∧ (u.all (fun a => ((u.map (fun b => a * b % 63)).eraseDups.length == 36)))) ∧ (63 = 7 * 9) ∧ (6 * 6 = 36)
 ```
 
 

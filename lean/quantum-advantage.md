@@ -30,7 +30,7 @@ the sweep is reported live by `uuidna_quantum_advantage`, where a measurement of
 | hexbit tile | 2^4 | declared | 10^1 ns per hexbit tile compiled from an address | 10^8 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | handle | 2^32 | declared | 10^2 ns per handle read to its value and residue | 10^7 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | uuid | 2^128 | declared | 10^3 ns per address folded from a distinct seed | 10^6 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
-| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 12940 | 0 | better than 1 in 12940 | 12 errors |
+| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 12945 | 0 | better than 1 in 12945 | 12 errors |
 
 ### The sealed quantum algebra, executed on this silicon
 
@@ -157,9 +157,9 @@ silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto spe
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `87b55fc7-ff6b-8e83-ac8e-f2c02d118372`.
+*exist* cannot see. Dispatch receipt: `0c8a6e17-983f-8097-8bbe-8bca0c965303`.
 
-Report receipt: `2f05181a-24a9-8f39-9978-e02b888e18a5` · measured-when as its own handle: `2f05181a`.
+Report receipt: `5f774cf4-7adb-83fc-9b4b-da76b551cbc4` · measured-when as its own handle: `5f774cf4`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->

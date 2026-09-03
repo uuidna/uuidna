@@ -3,8 +3,8 @@
 **Generated:** 2026-09-03
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2588/2588 theorems — every one, by construction
-**Claim receipt:** `97acd878-ca94-8b67-8b2e-5a723289f19b`
+**Total claimed:** 2589/2589 theorems — every one, by construction
+**Claim receipt:** `a6065221-16d1-8157-97f9-33691c402369`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -502,12 +502,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The fused ring
 
-- **Theorems:** 10
+- **Theorems:** 11
 - **Sample lineAddress:** `1aebb9ec-d7b8-871c-84de-63be1f021511`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) · [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) · [axes_stride_coprime](/theorem/axes_stride_coprime) · [residues_identify_digit](/theorem/residues_identify_digit) · [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) · [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) · [the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring) · [the_fused_ring_is_all_ones](/theorem/the_fused_ring_is_all_ones) · [hexagram_width_closes_rosetta_and_glagolitic](/theorem/hexagram_width_closes_rosetta_and_glagolitic) · [hexagram_stride_totals_the_rosetta](/theorem/hexagram_stride_totals_the_rosetta)
+[captain_theorem_the_coins_buy_the_ring_and_one](/theorem/captain_theorem_the_coins_buy_the_ring_and_one) · [rosette_and_vortex_are_coprime](/theorem/rosette_and_vortex_are_coprime) · [axes_stride_coprime](/theorem/axes_stride_coprime) · [residues_identify_digit](/theorem/residues_identify_digit) · [crt_pairs_are_a_bijection](/theorem/crt_pairs_are_a_bijection) · [fused_units_are_the_orbit_squared](/theorem/fused_units_are_the_orbit_squared) · [the_coin_keeps_its_order_in_the_fused_ring](/theorem/the_coin_keeps_its_order_in_the_fused_ring) · [the_fused_ring_is_all_ones](/theorem/the_fused_ring_is_all_ones) · [hexagram_width_closes_rosetta_and_glagolitic](/theorem/hexagram_width_closes_rosetta_and_glagolitic) · [hexagram_stride_totals_the_rosetta](/theorem/hexagram_stride_totals_the_rosetta) · [units_of_sixty_three_close_their_product_table](/theorem/units_of_sixty_three_close_their_product_table)
 
 ### The linear optimum
 
@@ -1059,7 +1059,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2505 (2588 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 2506 (2589 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1077,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2588 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2589 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still
