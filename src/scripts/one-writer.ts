@@ -40,7 +40,8 @@ const alive = (pid: number): boolean => { try { process.kill(pid, 0); return tru
 // moment finished in 22,628 ms. A deterministic defect does not vary by 449x. A pid collision under load does.
 //
 // So the lock now carries what only its true holder could have: the instant that process BEGAN. Two processes may
-// share a number; they cannot share a number and a start instant. THIS IS NOT A CLOCK, and the difference is the
+// share a number; they cannot share a number and a start instant, because the kernel stamps that instant at
+// exec and reissues only the number. THIS IS NOT A CLOCK, and the difference is the
 // whole reason it is admissible here — the stamp is never compared to now, no duration is computed from it, and
 // nothing times out. It is read once, written beside the pid, and afterwards only ever compared for EQUALITY.
 const born = new Map<number, string>()
@@ -175,7 +176,8 @@ export function working(pid: number): boolean {
   // THE PROBE IS THE HOST'S, NOT ONE HOST'S (os/host). This asked `pgrep -P` everywhere; where pgrep does not
   // exist the catch read the missing PROGRAM exactly as it reads a real "no children", so every holder answered
   // not-working and the stuck signal fired on precisely the busy landings it exists to protect. A verdict that
-  // cannot distinguish "no children" from "no instrument" is not a verdict.
+  // cannot distinguish "no children" from "no instrument" is not a verdict, because both arrive as the same
+  // empty list and only one of them means the holder is idle.
   const probe = childProbe()
   try {
     return probe.reads(execFileSync(probe.file, probe.args(pid), { encoding: 'utf8', stdio: 'pipe' }), 0)
@@ -257,7 +259,8 @@ if (isMain) {
     // They live here rather than in a script of their own for the reason a peer put plainly: a new top-level
     // script needs wiring, and its three doors are a package.json entry the scripts law refuses as a thin
     // wrapper, a 33rd line on a list whose own header says it MAY ONLY SHRINK, or a chain step that always
-    // exits 0 — which is an instrument that cannot fail, the exact thing this tree spent the day removing.
+    // exits 0 — which is an instrument that cannot fail, since a step with no failing branch agrees with
+    // whatever it measures; the exact thing this tree spent the day removing.
     // A verb on an already-wired dispatcher needs none of the three, and this dispatcher already owns the
     // subject: it is the shared-checkout coordination tool, and this is shared-checkout coordination.
     const sid = process.env.UUIDNA_SESSION ?? ''
@@ -325,7 +328,8 @@ export function openSession(sid: string): OpenManifest {
 }
 
 /** null when there is no manifest, and null means UNKNOWN rather than clean — see the three-answers note in
- *  src/dirty-paths.ts. An unreadable manifest is the same: it cannot speak, so it does not. */
+ *  src/dirty-paths.ts. An unreadable manifest is the same: it cannot speak, so it does not — a file that will
+ *  not open and a file that says "clean" are one answer to any reader that guesses. */
 export function readSession(sid: string): OpenManifest | null {
   if (!sid) return null
   try { return JSON.parse(readFileSync(sessionPath(ROOT, sid), 'utf8')) as OpenManifest } catch { return null }

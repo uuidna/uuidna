@@ -253,3 +253,116 @@ code.rcpt {
   animation: none !important;
   transition: none !important;
 }
+
+/* ── FORMULAS, SET AS MATHEMATICS ────────────────────────────────────────────────────────────────────────────
+   The statement arrives as native MathML (src/formula.ts derives it from the sealed Lean). No library and no
+   webfont are involved, so the formula is real text: it scales, it selects, screen readers read it, and the
+   printer sets it at the printer's resolution instead of rasterising a picture of it. */
+.vp-doc figure.formula {
+  margin: 1.6rem 0;
+  padding: 1.1rem 1rem;
+  text-align: center;
+  overflow-x: auto;
+  border-top: 1px solid var(--vp-c-divider);
+  border-bottom: 1px solid var(--vp-c-divider);
+}
+.vp-doc figure.formula math {
+  font-size: 1.5rem;
+  /* a serif face is what mathematics is set in; the numerals must not arrive as UI text */
+  font-family: 'Latin Modern Math', 'STIX Two Math', 'Cambria Math', 'Times New Roman', serif;
+}
+.vp-doc figure.formula math mo { color: var(--vp-c-text-2); }
+.vp-doc figure.formula figcaption { margin-top: 0.5rem; font-size: 0.82rem; color: var(--vp-c-text-3); }
+/* an engine without MathML support degrades to the inline run of numerals and operators, which is still
+   readable, and the Lean source sits directly beneath it regardless. */
+
+/* ── PRINT: THE PAGE AS A PAPER ──────────────────────────────────────────────────────────────────────────────
+   A theorem page printed on paper is a publication: the statement, its proof, its content-address and the DOI
+   to cite. Everything that only works on a screen — navigation, search, the interactive widgets, the sponsor
+   rail — is not "hidden to look tidy", it is *inert on paper* and would print as blank furniture. What survives
+   is the mathematics, the Lean the kernel decided, and the identifiers by which a reader recomputes it. */
+@media print {
+  :root {
+    /* black on white at full contrast: a theme's soft greys read as mud on paper */
+    --vp-c-bg: #fff;
+    --vp-c-bg-alt: #fff;
+    --vp-c-bg-soft: #fff;
+    --vp-c-text-1: #000;
+    --vp-c-text-2: #1a1a1a;
+    --vp-c-text-3: #333;
+    --vp-c-divider: #999;
+    --vp-c-brand-1: #000;
+    --vp-c-brand-2: #000;
+    --vp-c-brand-3: #000;
+  }
+  @page {
+    margin: 20mm 18mm;
+  }
+  html, body, .VPDoc, .vp-doc {
+    background: #fff !important;
+    color: #000 !important;
+  }
+  /* the screen-only furniture */
+  .VPNav, .VPLocalNav, .VPSidebar, .VPDocAside, .VPFooter, .VPDocFooter,
+  .VPSkipLink, .VPBackdrop, .VPSwitchAppearance, .DocSearch, .vp-doc .custom-block.tip .vp-copy-code,
+  .tray, .site-footer, .sponsor-card, .referrer-nav, .read-aloud, .object-crosslinks, .url-audit,
+  button, input, select, textarea, iframe, canvas, video, audio, .vp-code-group .tabs {
+    display: none !important;
+  }
+  .VPDoc, .VPDoc .container, .VPDoc .content, .vp-doc {
+    max-width: none !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  /* body text set for reading on paper */
+  .vp-doc {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 10.5pt;
+    line-height: 1.5;
+  }
+  .vp-doc h1 { font-size: 20pt; margin: 0 0 0.4rem; }
+  .vp-doc h2 { font-size: 13pt; margin: 1.1rem 0 0.4rem; border-top: 0.5pt solid #999; padding-top: 0.5rem; }
+  .vp-doc h3 { font-size: 11.5pt; }
+  /* headings keep their section with them, and a formula, a table or a proof is never split across a leaf */
+  .vp-doc h1, .vp-doc h2, .vp-doc h3 { break-after: avoid; page-break-after: avoid; }
+  .vp-doc figure.formula, .vp-doc pre, .vp-doc table, .vp-doc blockquote {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  .vp-doc figure.formula {
+    border-top: 0.5pt solid #999;
+    border-bottom: 0.5pt solid #999;
+    padding: 8pt 0;
+    margin: 12pt 0;
+  }
+  .vp-doc figure.formula math { font-size: 13pt; color: #000; }
+  .vp-doc figure.formula math mo { color: #000; }
+  /* the Lean stays legible in monospace, at a size that fits the measure without wrapping mid-term */
+  .vp-doc pre, .vp-doc code {
+    font-family: 'DejaVu Sans Mono', 'Courier New', monospace;
+    font-size: 8.5pt;
+    background: #fff !important;
+    color: #000 !important;
+  }
+  .vp-doc pre {
+    border: 0.5pt solid #999;
+    padding: 6pt;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .vp-doc table { font-size: 8.5pt; border-collapse: collapse; width: 100%; }
+  .vp-doc th, .vp-doc td { border: 0.5pt solid #999; padding: 3pt 5pt; }
+  .vp-doc blockquote { border-left: 1.5pt solid #000; padding-left: 8pt; font-style: italic; }
+  /* A CITATION MUST SURVIVE THE PRINTER. A paper carrying `see the handle` with the handle only in an href is
+     unciteable off-screen, so every link prints its target — except in-page anchors and the table cells, where
+     a repeated URL would flood the measure. */
+  .vp-doc a[href^="http"]::after {
+    content: ' <' attr(href) '>';
+    font-size: 7.5pt;
+    word-break: break-all;
+  }
+  .vp-doc a { color: #000 !important; text-decoration: none; }
+  .vp-doc table a[href^="http"]::after { content: ''; }
+  .vp-doc a[href^="#"]::after { content: ''; }
+}

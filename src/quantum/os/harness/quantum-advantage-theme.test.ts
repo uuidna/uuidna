@@ -157,23 +157,38 @@ test('the monitor does not import the package barrel; VitePress reads constructo
     assert.doesNotMatch(src, /from ['"][^'"]*dist\/index\.js['"]/, `${f} must import constructors, not the package barrel`)
   }
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
-  // THE SSG'S MEMORY IS A CONCURRENCY, AND THE HEAP FLAG IS THE WRONG LEVER — learned by pulling the wrong one.
+  const wranglerBuild = (): string => readFileSync(join(ROOT, 'src', 'scripts', 'ship-build.ts'), 'utf8')
+  // THE HEAP FLAG WAS THE WRONG LEVER, AND SO WAS THE CONCURRENCY. Two corrections live in this comment because
+  // both were once written here as the fix.
   //
-  // This pinned 4096 exactly, with the note that 8192 OOMs the 8 GiB Cloudflare VM. On 2026-09-02 a Workers
-  // Build died at 4096 with `Ineffective mark-compacts near heap limit` (5246 dynamic pages), and the obvious
-  // move was to raise the flag. Measured, that move is nearly useless: peak RSS came out 8.12 GB at cap 8192 and
-  // 8.56 GB at cap 6144 — HIGHER with the smaller cap — because the flag governs when V8 gives up, not what the
-  // process holds. VitePress renders 64 pages CONCURRENTLY by default; at `buildConcurrency: 8` the same site
-  // builds at the ORIGINAL 4096 cap (exit 0, 128s against 108s). So the pin stands, the earlier measurement of
-  // the upper bound stands, and the fix was one level down.
-  assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=4096/, 'SSG mill needs Node argv heap — Cloudflare strips NODE_OPTIONS and 8192 OOMs the 8 GiB VM')
-  assert.doesNotMatch(pkg.scripts['docs:build'] ?? '', /8192/)
-  // AND THE CONCURRENCY IS WHAT MAKES 4096 ENOUGH — pinned here, beside the flag it rescues, because raising one
-  // without the other is exactly the mistake this comment records.
+  // The flag first: raising it is nearly useless, because it governs when V8 gives up and not what the process
+  // holds — peak RSS came out 8.12 GB at cap 8192 and 8.56 GB at cap 6144, HIGHER with the smaller cap. 4096 is
+  // pinned for that reason, and it is what the local build uses green.
+  //
+  // Then the concurrency, which this comment used to call the rescue: `buildConcurrency: 8` does clear the site
+  // locally at 4096, so it read as the fix — but commit ae411b7e shipped concurrency 8 and the 2026-09-03T13:49
+  // Workers Build OOMed regardless. Measured directly, 64 → 2 moves peak RSS 8.17 → 7.75 GB, five percent. It is
+  // kept low because five percent is free, NOT because it makes the container fit.
+  //
+  // What actually governs it is the page count: 1200 pages build inside 2048, 5260 need more than 4096, and the
+  // render phase retains per page. 5260 × ~1.7 MB is the whole 8 GiB the container has, so no setting of either
+  // knob was ever going to clear it. The SSG runs locally now and wrangler's hook only verifies — see
+  // worker.test.ts, which holds that law and the rest of this measurement.
+  //
+  // AND THAT IS WHY THE PIN MOVED TO 8192. `8192 OOMs the 8 GiB VM` was the whole reason 4096 was pinned, and
+  // it stopped being a reason the moment the container stopped building: the flag is now bounded by the
+  // operator's machine, which has the memory the container never did. The move was forced rather than chosen —
+  // typesetting the statements (src/formula.ts) added MathML to every formula-shaped page — the count is
+  // formulaCensus()'s to report, not prose's — and that spent the last of a
+  // margin already measured at under 33%, so the local build OOMed at 4096 with peak RSS 7.49 GB. At 8192 the
+  // same site builds in 107.8s at 8.46 GB, with the dead-link check strict. The ceiling that remains is the
+  // machine's, and it is the honest one to be near.
+  assert.match(pkg.scripts['docs:build'] ?? '', /max-old-space-size=8192/, 'the SSG renders on the operator machine now; the 8 GiB container no longer bounds this flag')
+  assert.doesNotMatch(wranglerBuild(), /docs:build/, 'and nothing may put the SSG back inside the container')
   const vpConfig = readFileSync(join(ROOT, 'docs', '.vitepress', 'config.ts'), 'utf8')
   const conc = /buildConcurrency:\s*(\d+)/.exec(vpConfig)
-  assert.ok(conc, 'docs/.vitepress/config.ts must set buildConcurrency — the default 64 aborts at 5246 pages')
-  assert.ok(Number(conc[1]) <= 16, `buildConcurrency is ${conc[1]}; 8 was measured to build at 4096 and 64 was measured to abort`)
+  assert.ok(conc, 'docs/.vitepress/config.ts must set buildConcurrency — the default 64 was measured to abort')
+  assert.ok(Number(conc[1]) <= 16, `buildConcurrency is ${conc[1]}; low is free, but it is not what makes the build fit`)
   const wrangler = readFileSync(join(ROOT, 'wrangler.toml'), 'utf8')
   assert.doesNotMatch(wrangler, /max-old-space-size/)
   assert.doesNotMatch(wrangler, /command = .*seo-freeze-audit/)

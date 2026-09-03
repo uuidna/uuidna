@@ -1,7 +1,9 @@
 # uuidna.com — a static site served by Cloudflare Workers Assets.
-# `wrangler deploy` runs the [build] command below to GENERATE ./docs/.vitepress/dist (the DEFAULT VitePress outDir),
-# then serves it. The dist is generated (gitignored), so the build MUST run here — `npm run build` alone is only `tsc`.
-# docs:build does tsc + MCP catalog + `vitepress build docs` → ./docs/.vitepress/dist, then serves lean/ + the seeds.
+# `wrangler deploy` runs the [build] command below, which VERIFIES ./docs/.vitepress/dist (the DEFAULT VitePress
+# outDir) is already built and then generates the handle routes. It does NOT run the SSG: rendering 5260 dynamic
+# pages peaks at 7.75–8.56 GB of RSS and a deploy container has 8 GiB, so a build here can only OOM. Deploy from
+# the machine that has the memory — `npm run ship` (deploy-run.ts) builds the site, then uploads with
+# UUIDNA_SITE_BUILT=1, and keeps the contribute-first, origin-only and double-proof laws besides.
 name = "uuidna"
 compatibility_date = "2026-08-01"
 # The edge worker enforces the license domain rule: uuidna.com licenses itself and auto-licenses the first-party
@@ -10,7 +12,8 @@ compatibility_date = "2026-08-01"
 main = "worker.js"
 
 [build]
-# ship-build.ts: full docs:build when wrangler runs alone (CI); gen-handles only when deploy-run already built.
+# ship-build.ts: refuses in milliseconds when the dist is absent (a container cannot afford the SSG); otherwise
+# gen-handles only. UUIDNA_SITE_BUILT is no longer consulted — the dist itself is the reading.
 command = "node dist/scripts/ship-build.js"
 
 # Trial CRUD storage (opt-in). POST /trials persists a trial ONLY with explicit consent, into this KV namespace.

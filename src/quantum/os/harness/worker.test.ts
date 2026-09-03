@@ -79,29 +79,42 @@ test('the worker graph never static-imports Node builtins Cloudflare refuses (co
 })
 
 
-// ── THE CI-ONLY DEPLOY BRANCH, AND THE CEILING IT HIT. Measured 2026-09-02: a Cloudflare Workers Build ran
-// `npx wrangler deploy`, wrangler's [build] hook ran ship-build.js, and because CI has no UUIDNA_SITE_BUILT it
-// took the expensive branch — the whole docs:build inside wrangler — and the SSG died with
-// `FATAL ERROR: Ineffective mark-compacts near heap limit` at `--max-old-space-size=4096`, rendering 5246 dynamic
-// pages. Reproduced locally at 4096 (exit 134) and cleared at 6144 (exit 0, 108s), so the ceiling is the finding
-// and 6144 is the smallest step that cleared it.
+// ── THE CONTAINER CANNOT AFFORD THE SSG, AND TWO ROUNDS OF KNOBS PROVED IT.
 //
-// THE LOCAL PATH NEVER EXERCISES THIS. deploy-run builds the site first and sets UUIDNA_SITE_BUILT=1, so
-// ship-build's cheap branch runs and the SSG's memory is never paid inside wrangler. A branch only CI takes is a
-// branch only CI can fail on, which is why the flag is now held by a test rather than by whoever last edited the
-// script chain.
-test('the CI-only deploy branch is declared, and it is the one that pays the SSG', () => {
-  // NO NUMBER LIVES HERE. quantum-advantage-theme.test.ts owns both the heap flag and the render concurrency,
-  // with the measurements beside them; two tests asserting one value is the drift this tree spends its finders
-  // on. This holds the SHAPE: the branch exists, CI is the caller that takes it, and the site build is what it
-  // runs — which is why the SSG's memory is a CI problem and never a local one.
+// First reading (2026-09-02): a Workers Build died at `--max-old-space-size=4096` with `Ineffective
+// mark-compacts near heap limit`, and `buildConcurrency: 8` was measured to clear the same site locally at that
+// cap. That looked like the fix and it was not: commit ae411b7e carried concurrency 8 and the 2026-09-03T13:49
+// deploy OOMed anyway.
+//
+// Second reading, controlled — the knobs are exhausted and none of them is the cause:
+//   · concurrency 64 → 2 moved peak RSS 8.17 → 7.75 GB. Five percent. A quantity that barely answers a knob is
+//     not governed by it.
+//   · per-page params 61 → 50 MB (crosslinks stripped) moved nothing at all.
+//   · the heap requirement sits between 3072 (fails) and 4096 (passes) — under 33% of margin at CI's cap.
+//   · page count IS the driver: 1200 pages build inside 2048. 5260 do not fit any cap the container survives,
+//     because the render phase retains per page and 5260 × ~1.7 MB is the 8 GiB the container has in total.
+// The wall is the container, not the flag: peak RSS 7.75–8.56 GB against 8 GiB leaves no room at any setting,
+// which is why no node version and no concurrency ever cleared it.
+//
+// SO THE HOOK REFUSES. ship-build VERIFIES the dist and generates handles; it never runs the SSG. The site is
+// built where the memory is — `npm run ship` — which is also the only path that keeps the deploy's own laws
+// (contribute-first deposit, origin-only tree, derived double proof). Reducing the page count instead would mean
+// serving links VitePress could not resolve, and dead links are not ignored here.
+test('the [build] hook verifies the site and never pays the SSG inside the container', () => {
   const ship = readFileSync(join(ROOT, 'src', 'scripts', 'ship-build.ts'), 'utf8')
-  assert.match(ship, /UUIDNA_SITE_BUILT/, 'the cheap/expensive split is what makes the CI branch CI-only')
-  assert.match(ship, /docs:build/, 'the CI branch runs the full site build inside wrangler')
-  assert.match(ship, /gen-handles/, 'the cheap branch still seals the handles')
-  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
-  assert.match(pkg.scripts['docs:build'] ?? '', /vitepress\.js build docs/, 'the SSG is what the branch pays for')
-  // and the local path must keep setting the flag, or it starts paying the CI cost too
+  assert.doesNotMatch(ship, /docs:build/, 'the container cannot afford the SSG; a hook that runs it can only OOM')
+  assert.match(ship, /existsSync/, '"built" must be a READING of the dist, never an assumption from an env flag')
+  assert.match(ship, /process\.exit\(1\)/, 'an absent dist is a named refusal in milliseconds, not a 20-minute OOM')
+  assert.match(ship, /npm run ship/, 'the refusal must name the path that works')
+  assert.match(ship, /gen-handles/, 'a verified site still seals its handles')
+  // the local path is the one that pays the SSG, and it must keep doing so before it uploads
   const deployRun = readFileSync(join(ROOT, 'src', 'scripts', 'deploy-run.ts'), 'utf8')
-  assert.match(deployRun, /UUIDNA_SITE_BUILT/, 'the local path builds the site FIRST and says so')
+  assert.match(deployRun, /npm run docs:build/, 'deploy-run builds the site on the machine that has the memory')
+  assert.match(deployRun, /UUIDNA_SITE_BUILT/, 'and says so to wrangler')
+  const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { scripts: Record<string, string> }
+  assert.match(pkg.scripts['docs:build'] ?? '', /vitepress\.js build docs/, 'the SSG is what the local path pays for')
+  // and the dead-link check stays strict: dropping pages to fit a container would trade a build error for a
+  // broken link, which is the same defect served to a reader instead of to a log.
+  const vpConfig = readFileSync(join(ROOT, 'docs', '.vitepress', 'config.ts'), 'utf8')
+  assert.doesNotMatch(vpConfig, /ignoreDeadLinks:\s*true/, 'dead links are not ignored — a page that is linked must exist')
 })

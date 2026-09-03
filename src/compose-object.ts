@@ -11,6 +11,7 @@
 // Navigation chrome = stock VPDocFooter (prev/next) + ObjectBreadcrumbs (doc-before) + ObjectCrosslinks.
 // Crosslinks live in params; the client does not recompute them from the census. No hero YAML bag leak.
 import { theorems, PRINCIPLES, theoremAxioms } from './theorems/index.js'
+import { typeset, formulaCensus } from './formula.js'
 import { axiomWitness } from './axiom-witness.js'
 import { publications } from './publish.js'
 import { monographFaceOf, channelAudit } from './hexagram.js'
@@ -81,6 +82,41 @@ function legsRowOf(key) {
  * Breadcrumbs: Home → Theorems → key (handle as leaf annotation) — not the related graph.
  * Do NOT emit YAML frontmatter in content — VitePress injects @content after the
  * route template preamble, so gray-matter never sees it and the bag leaks into the body. */
+// DERIVED, never typed: how much of the sealed ledger typesets exactly. Computed once, on first use.
+let FAMILY = ''
+function formulaFamily() {
+  if (!FAMILY) {
+    const c = formulaCensus(ALL.map((t) => t.statement))
+    FAMILY = `${c.formula} of ${c.total}`
+  }
+  return FAMILY
+}
+
+/** statementSection(statement) → the statement set as mathematics when it IS mathematics, and as the Lean
+ *  computation it is when it is not. The Lean source stays on the page either way: the typeset line is derived
+ *  FROM it and the kernel decided THAT, so hiding it would leave the reader trusting the prettier copy. The
+ *  MathML is static and needs no script or webfont, which is what makes the printed page a paper. */
+function statementSection(statement) {
+  const t = typeset(statement, 'block')
+  const lean = '```lean\n' + statement + '\n```'
+  if (t.classification === 'program') {
+    return `${lean}
+
+This statement is a *computation* — a fold, a filter, a range — so it has no standard formula form and is left
+as the Lean the kernel decided. Only ${formulaFamily()} sealed statements are formulas; this is not one of
+them, and typesetting it as an equation would dress a program as mathematics.`
+  }
+  return `<figure class="formula">
+
+${t.mathml}
+
+</figure>
+
+${lean}
+
+For a manuscript: \`${t.tex}\``
+}
+
 export function composeTheorem(t) {
   const face = monographFaceOf(t.address)
   const handle = face.handle
@@ -119,11 +155,9 @@ export function composeTheorem(t) {
 
 > ${mdSafe(t.name)}
 
-## Statement (formula)
+## Statement
 
-\`\`\`lean
-${t.statement}
-\`\`\`
+${statementSection(t.statement)}
 
 ## Proof
 

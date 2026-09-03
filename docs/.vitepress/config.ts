@@ -37,7 +37,7 @@ export default defineConfig({
   // flag governs when V8 gives up rather than what the process holds. Lowering the concurrency is the lever that
   // moves the quantity: fewer pages in flight, proportionally less live at once, at the cost of build time.
   // The number is held by a finder (quantum-advantage-theme.test.ts) with the measurement beside it.
-  buildConcurrency: 8,
+  buildConcurrency: 2,
   // /lean/*.lean files are copied INTO the built site AFTER `vitepress build` (copy-lean-to-site.js), so at
   // check time these links are "dead" by construction — and alive in production. The REAL gate for them is
   // copy-lean-to-site's own forensic scan, which FAILS the build if any /lean link in the built HTML is broken

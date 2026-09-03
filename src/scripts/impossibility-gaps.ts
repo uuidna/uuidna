@@ -44,12 +44,52 @@ export interface Gap { what: string; fix: string }
 // the modal is about the WORLD or about THIS CODE. So the obligation forms are taken and the bare ones are not,
 // and the count lands at 606 — BELOW the impossibility-only baseline, because widening the justified sources
 // (a named project decision is a legitimate source) offsets more than the new modals add.
-const IMPOSSIBLE = /\b(cannot|can't|is unable to|are unable to|impossible|no way to|must always|must never|is required to|require[sd]? that)\b/i
+export const IMPOSSIBLE = /\b(cannot|can't|is unable to|are unable to|impossible|no way to|must always|must never|(?:is|are) required to|require[sd]? that)\b/i
 /** a claim of impossibility earns its place by naming a host fact, a law, or a construction */
 // a modal claim earns its place by naming a host fact, a law, a construction, or an explicit DECISION — the
 // last was added for the obligation class: a project rule is a legitimate source, it simply has to be named as
 // one rather than dressed as a necessity
-const JUSTIFIED = /\b(theorem [a-z0-9_]+|by construction|host|browser|no filesystem|secure context|determinism|hard-reject|kernel|physical device|edge|isolate|tab|upstream|vendored|this project|the captain|decision|convention|rule of this|chosen|deliberate)\b/i
+export const JUSTIFIED = /\b(theorem [a-z0-9_]+|by construction|host|browser|no filesystem|secure context|determinism|hard-reject|kernel|physical device|edge|isolate|tab|upstream|vendored|this project|the captain|decision|convention|rule of this|chosen|deliberate)\b/i
+
+// AND A REASON STATED AS A CLAUSE IS A NAMED REASON. The rule at the top of this file is "must name the reason
+// in the same breath" — but JUSTIFIED is a VOCABULARY, so a claim that gives its reason in plain English scored
+// as unjustified. Six of the eight in src/nobles/curve.ts read like this:
+//
+//   "we can't do 'P = GetCurvePoint<PC>': this is default value and doesn't constrain anything"
+//
+// The reason is right there, after the colon. Flagging it demanded a keyword, not evidence, and the only way to
+// clear it was to reword someone else's correct comment until it contained a word from a list — which is
+// gaming the finder, and would have taught the tree that the finder is the thing to satisfy.
+//
+// So a modal followed by an explicit reason clause — `because`, `since`, `so that`, `which is why`, or a colon
+// introducing a real explanation — is justified. DELIBERATELY NARROW: the colon must carry at least twelve
+// characters of clause, so `cannot: no` does not pass, and the bare forms this finder was built for — "cannot
+// flash firmware", "uuidna NEVER EXECUTES" — name no reason in any shape and still fail. The controls in
+// impossibility-gaps.test.ts hold that: this widening must clear the stated-reason class and NOTHING else.
+//
+// AND THE REASON RUNS BOTH WAYS, which the first version of this missed. All eight claims in one-writer.ts
+// state their reason — but the sentence puts it FIRST:
+//
+//   "A PID IS A NUMBER THE OS REISSUES, SO IT CANNOT BE AN IDENTITY"
+//   "Atomic-exclusive create (flag wx) so two simultaneous acquirers cannot both win"
+//   "A count cannot tell busy from stuck; a live child can"
+//
+// The first two put the cause before the effect and join it with `so`; the third states the claim and then the
+// contrast that makes it true. Reading only rightwards from the modal scored every one of them as a bare wall,
+// which would have had me rewrite eight correct comments backwards to satisfy a regex. So a cause introduced
+// BEFORE the modal by `so`/`therefore`/`hence`, and a clause introduced after it by a dash or semicolon, both
+// count — each with the same twelve-character floor, so a shrug (`cannot — sadly`) is not a reason.
+export const REASON_CLAUSE = new RegExp(
+  [
+    // the reason follows the claim: `cannot X: <clause>` or `cannot X because …`
+    String.raw`\b(cannot|can't|is unable to|are unable to|impossible|no way to|must always|must never|(?:is|are) required to|require[sd]? that)\b[^:.]{0,80}(?::\s*\S[^\n]{11,}|\s+(?:because|since|so that|which is why)\b)`,
+    // the reason follows after a dash or a semicolon: `cannot tell busy from stuck; a live child can`
+    String.raw`\b(cannot|can't|is unable to|are unable to|impossible|no way to|must always|must never|(?:is|are) required to|require[sd]? that)\b[^\n]{0,80}[—–;]\s*\S[^\n]{11,}`,
+    // the cause comes FIRST and joins with `so`: `the OS reissues it, so it cannot be an identity`
+    String.raw`\S[^\n]{11,}[,)]?\s+(?:so|therefore|hence)\s+[^\n]{0,30}?\b(cannot|can't|is unable to|are unable to|impossible|no way to|must always|must never|(?:is|are) required to|require[sd]? that)\b`,
+  ].join('|'),
+  'i',
+)
 const COMMENT = /^\s*(\/\/|\*)/
 
 /** impossibilityGaps(files, baseline) → bare impossibility claims not already declared. */
@@ -67,6 +107,11 @@ const SELF = new Set([
   // NOT the same as exempting a vendored file by provenance, which was proposed and REFUSED: this list is for
   // finders that must name what they hunt, never for source whose prose someone else wrote.
   'src/scripts/involute-modals.ts',
+  // THE CONTROLS FOR THIS FINDER, which must WRITE a bare wall in order to assert it is still caught. Eighth
+  // instance of mention-not-use, and the one that would have been most corrosive to fix the other way: the
+  // shortest path to a green guard was to soften my own controls until they no longer contained the forms they
+  // exist to catch, which is the finder marking its own homework.
+  'src/scripts/impossibility-gaps.test.ts',
 ])
 
 export function impossibilityGaps(files: readonly string[], baseline: ReadonlySet<string>): Gap[] {
@@ -81,7 +126,7 @@ export function impossibilityGaps(files: readonly string[], baseline: ReadonlySe
       if (!COMMENT.test(l) || !IMPOSSIBLE.test(l)) continue
       // the reason may sit on the line, or on the line before or after — a sentence wraps
       const window = [lines[i - 1] ?? '', l, lines[i + 1] ?? ''].join(' ')
-      if (JUSTIFIED.test(window)) continue
+      if (JUSTIFIED.test(window) || REASON_CLAUSE.test(l)) continue
       gaps.push({
         what: `${rel}:${i + 1} claims something CANNOT be done without naming why: ${l.trim().slice(0, 96)}`,
         fix: 'name the reason in the same breath — a host fact (no filesystem, not a secure context, no device), ' +
