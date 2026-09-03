@@ -502,6 +502,7 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["self_seal", "(1*1*1*8*7*5*1*2*9) = (2*2*2*7*5*3*2*3)"],
   ["seal_ten", "([0,1,2,4,8,7,5,3,6,9].length = 10) ∧ ((List.range 10).all (fun d => [0,1,2,4,8,7,5,3,6,9].contains d)) ∧ ([1,2,4,8,7,5].map (fun x => (x*2)%9) = [2,4,8,7,5,1]) ∧ ([0,1,2,4,8,7,5,3,6,9].map (fun x => if x == 0 then 0 else 10 - x) = [0,9,8,6,2,3,5,7,4,1])"],
   ["mirror_congruence", "(List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9)"],
+  ["the_mirror_is_not_defined_on_the_void", "((1 - 0) % 9 = 1) ∧ (9 % 9 = 0) ∧ (10 - 9 = 1) ∧ (1 ≠ 0)"],
   ["mirror_fixed_five", "((List.range' 1 9).filter (fun d => 10 - d == d)) = [5]"],
   ["agl_order_54", "((List.range 9).filter (fun a => (List.range 9).any (fun e => a*e % 9 == 1))).length * 9 = 54"],
   ["commutator_is_shift", "(List.range 9).all (fun x => ap 2 0 (ap 8 1 (ap 5 0 (ap 8 1 x))) == (x + 1) % 9)"],

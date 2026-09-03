@@ -157,5 +157,13 @@ if (isMain) {
   }, null, 2) + '\n')
   console.log(`\n✓ claim-unclaimed — ${domains.length} domain(s), ${named.length} named by their agency, ${onFile.length} already on file`)
   console.log(`  lean/doi-domains.json · receipt ${handleOf(domainReceipt)}`)
+
+  // THE VERDICTS EXIST TO BE ACTED ON, so the sweep hands them straight to the publisher — report-only, because
+  // writing a deposit artefact is a separate decision and minting its DOI is a third. This is the pipeline the
+  // captain asked for end to end (no prior art → publication → Zenodo gives the DOI), and it is also why
+  // publish-novelty is not a dormant script: establishing novelty and acting on it are one act in two halves.
+  console.log('')
+  const { spawnSync } = await import('node:child_process')
+  spawnSync('node', [join(ROOT, 'dist', 'scripts', 'publish-novelty.js')], { stdio: 'inherit' })
   }
 }

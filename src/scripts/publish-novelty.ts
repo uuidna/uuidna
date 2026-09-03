@@ -20,7 +20,7 @@
 import { writeFileSync, mkdirSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './api.js'
-import { THEOREMS } from '../theorems/index.js'
+import { THEOREMS, PRINCIPLES } from '../theorems/index.js'
 import { noveltyPaper, checkLatex, slugFor } from '../latex.js'
 
 const VERDICTS = join(ROOT, 'lean', 'doi-unclaimed.json')
@@ -39,7 +39,12 @@ const claimed = rec.claims.filter((c) => c.verdict === 'CLAIMED')
 const priorArt = rec.claims.filter((c) => c.verdict === 'PRIOR-ART')
 const unread = rec.claims.filter((c) => c.verdict === 'UNREAD')
 
-console.log(`publish-novelty — ${rec.claims.length} subject(s) on file: ${claimed.length} CLAIMED · ${priorArt.length} PRIOR-ART · ${unread.length} UNREAD`)
+// THE UNSEARCHED BALANCE RIDES WITH THE VERDICTS. `0 CLAIMED` alone reads as "everything already has an
+// author", which is not what was measured and not something this tree could establish: most subjects have not
+// been asked about at all. A count without its denominator is a concession dressed as a finding.
+const allSubjects = new Set(PRINCIPLES.map((p) => p[1])).size
+const unsearched = allSubjects - rec.claims.length
+console.log(`publish-novelty — ${rec.claims.length} of ${allSubjects} subject(s) searched: ${claimed.length} CLAIMED · ${priorArt.length} PRIOR-ART · ${unread.length} UNREAD · ${unsearched} NEVER SEARCHED`)
 
 // the subject a paper is written over is the PRINCIPLE, which is the same boundary the doors were asked about —
 // so the paper's scope and the prior-art verdict's scope are one thing, not two that happen to be near
@@ -51,9 +56,10 @@ for (const t of THEOREMS) {
 }
 
 if (claimed.length === 0) {
-  console.log('\n  NOTHING TO DEPOSIT, and that is the finding rather than a failure: every subject swept came back')
-  console.log('  defended by citable DOIs, so none of them is the captain\'s to claim. The credit order names those')
-  console.log('  publishers ahead of the captain. Widen the sweep to test more subjects:')
+  console.log(`\n  NOTHING TO DEPOSIT FROM THE ${rec.claims.length} SEARCHED, and that is a finding rather than a failure: every`)
+  console.log('  one came back defended by citable DOIs, so none of them is the captain\'s to claim, and the credit')
+  console.log(`  order names those publishers ahead of the captain. It is NOT a finding about the other ${unsearched}`)
+  console.log('  subjects — those have had no search at all, and silence about them is not a concession. Widen it:')
   console.log('      npm run x -- claim-unclaimed --limit 60 --write')
   process.exit(0)
 }

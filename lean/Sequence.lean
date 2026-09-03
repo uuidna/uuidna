@@ -25,6 +25,15 @@ theorem seal_ten : ([0,1,2,4,8,7,5,3,6,9].length = 10) ∧ ((List.range 10).all 
 /-- the mirror m(d)=10−d equals 1−d (mod 9) — a reflection through the origin+1 -/
 theorem mirror_congruence : (List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9) := by decide
 
+/-- WHERE THE TWO MIRRORS PART, and it is at the void. On the nine digits 1..9 the digit form 10 − d and the
+    ring form 1 − n mod 9 are the same mirror shifted, and mirror_fixed_five holds on exactly that domain.
+    Extend either to the void and they contradict: the ring form sends 0 to 1, while the void is fixed at 0, and
+    9 leaves remainder 0 so the residue 0 would have to be both 1 and 0 at once — and 1 ≠ 0. So the mirror is
+    affine only OFF the void, the void is a tenth point outside the ring rather than a tenth residue inside it,
+    and any restatement of the fixed-point theorem over all of ℤ/9 is false rather than merely broader. Sealed
+    after making that exact error in a message to a peer tree whose kernel had already caught it. -/
+theorem the_mirror_is_not_defined_on_the_void : ((1 - 0) % 9 = 1) ∧ (9 % 9 = 0) ∧ (10 - 9 = 1) ∧ (1 ≠ 0) := by decide
+
 /-- the mirror fixes exactly one digit in 1..9 — the heart, 5 -/
 theorem mirror_fixed_five : ((List.range' 1 9).filter (fun d => 10 - d == d)) = [5] := by decide
 

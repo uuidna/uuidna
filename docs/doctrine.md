@@ -61,7 +61,7 @@ executives, insurers, accountants, compliance officers, tax accountants, arbitra
 to the same primitive — *verify a claim against a record both sides can recompute* — which is what the ledger does at
 zero marginal cost. The detailed 11-domain walkthrough is retired to git history; the operational replacements are
 live and linked: [the trials](/trials) (adjudication), [the tests](/tests) (audit), [MCP tools](/mcp) (the working
-interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" data-receipt="f2768511-a90f-8fd4-9110-d91c97c30749">2513</span><!--/L--> distinct theorems under <!--L:keys--><span class="ledger" data-slot="keys" data-receipt="f2768511-a90f-8fd4-9110-d91c97c30749">2596</span><!--/L--> keys](/theorems) (the record itself). *Honest scope:* uuidna replaces the
+interface), and [all <!--L:distinct--><span class="ledger" data-slot="distinct" data-receipt="f451c66d-8743-8584-9e0b-f4a06a90fa81">2514</span><!--/L--> distinct theorems under <!--L:keys--><span class="ledger" data-slot="keys" data-receipt="f451c66d-8743-8584-9e0b-f4a06a90fa81">2597</span><!--/L--> keys](/theorems) (the record itself). *Honest scope:* uuidna replaces the
 **verification** these professions perform, not the judgment, advocacy, or human accountability they also carry.
 
 ## Sufficiency charter — what hexbit / uuidna *is* sufficient for

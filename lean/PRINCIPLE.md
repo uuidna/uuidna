@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2596 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2597 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 - **Sufficient / insufficient.** Sufficient for finite `by decide` windows, axiom-free seals, falsifiers, receipts (verify ≪ recompute), handle capacity, captain-coin fair-exchange, Alpine/hexbit catalogue, and finite formal windows within climate/pandemic/poverty model-calcs — named on `docs/doctrine.md`. World solutions stack as waves of automation (`npm run wave` / hexbit-fast); waves do not erase ethics or politics. Insufficient for those domains as full problem types, and for unbounded Clay, nature-as-model, justice — same page; computational claims only. Related honesty: `window_not_universal`, `n_qubit_dimension`, `grover_quadratic_bound`, `provenance_integrity_not_content_truth`.
 
 ## Principles
@@ -32,7 +32,7 @@
 5. **Ported from millennium-solutions** — `lean/Vortex.lean` · **16** theorems
    the honest ℤ/9 & ℤ/7 facts, ported to plain Lean (no Mathlib)
 
-6. **The sequence & reflection group** — `lean/Sequence.lean` · **32** theorems
+6. **The sequence & reflection group** — `lean/Sequence.lean` · **33** theorems
    the mirror, AGL(1,ℤ/9)=54, one strip, neighbours, the ± polarities, the crypt salt
 
 7. **Division by zero** — `lean/DivByZero.lean` · **13** theorems

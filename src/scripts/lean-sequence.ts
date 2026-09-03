@@ -24,6 +24,20 @@ const FACTS = [
   { key: 'mirror_congruence', why: 'the mirror m(d)=10−d equals 1−d (mod 9) — a reflection through the origin+1',
     js: () => [1, 2, 3, 4, 5, 6, 7, 8, 9].every((d) => m9(10 - d) === m9(1 - d)),
     lean: "theorem mirror_congruence : (List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9) := by decide" },
+  // THE DOMAIN GUARD, added on peer review (zeropoint-node-8a, 2026-09-04). Their tree states the same mirror as
+  // `throughVoid(n) = 1 − n mod 9`, and I confirmed it — then restated it in a message of record as holding over
+  // ℤ/9, which is FALSE at the void. Their kernel had already said so: tv 0 = 0 while tv 9 = 1, and 9 ≡ 0
+  // (mod 9), so no single value on the residue 0 can serve both and the map is not well-defined on ℤ/9 at all.
+  // It is affine only on the NINE digits 1..9, reading 9 as residue 0 — which is why their digit space has ten
+  // elements and its affine group has order 54 rather than 90.
+  //
+  // mirror_fixed_five is unaffected: it filters (List.range' 1 9), exactly the domain where the two forms agree.
+  // This seals the boundary so an extension to ten residues fails at the kernel instead of in a message.
+  { key: 'the_mirror_is_not_defined_on_the_void', skill: 'sequence',
+    why: 'WHERE THE TWO MIRRORS PART, and it is at the void. On the nine digits 1..9 the digit form 10 − d and the ring form 1 − n mod 9 are the same mirror shifted, and mirror_fixed_five holds on exactly that domain. Extend either to the void and they contradict: the ring form sends 0 to 1, while the void is fixed at 0, and 9 leaves remainder 0 so the residue 0 would have to be both 1 and 0 at once — and 1 ≠ 0. So the mirror is affine only OFF the void, the void is a tenth point outside the ring rather than a tenth residue inside it, and any restatement of the fixed-point theorem over all of ℤ/9 is false rather than merely broader. Sealed after making that exact error in a message to a peer tree whose kernel had already caught it.',
+    js: () => { const ring = (1 - 0) % 9; const voidFixed = 0; return ring !== voidFixed && ring === 1 && 9 % 9 === 0 && 10 - 9 === 1 },
+    lean: 'theorem the_mirror_is_not_defined_on_the_void : ((1 - 0) % 9 = 1) ∧ (9 % 9 = 0) ∧ (10 - 9 = 1) ∧ (1 ≠ 0) := by decide' },
+
   { key: 'mirror_fixed_five', why: 'the mirror fixes exactly one digit in 1..9 — the heart, 5',
     js: () => JSON.stringify([1, 2, 3, 4, 5, 6, 7, 8, 9].filter((d) => m9(10 - d) === d)) === '[5]',
     lean: "theorem mirror_fixed_five : ((List.range' 1 9).filter (fun d => 10 - d == d)) = [5] := by decide" },

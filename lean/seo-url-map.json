@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "42576316-4",
+  "generated": "53f41e73-a",
   "entries": [
     {
       "route": "/",
@@ -3238,9 +3238,9 @@
       "kind": "publication",
       "identity": "sequence",
       "canonical": "https://uuidna.com/publications/sequence",
-      "address": "40dd1b2b-889d-8956-a2fb-d53377a065b0",
-      "handle": "40dd1b2b",
-      "hexbitDoor": "https://uuidna.com/40dd1b2b"
+      "address": "4697d22a-0270-8c18-ae2c-83457154495f",
+      "handle": "4697d22a",
+      "hexbitDoor": "https://uuidna.com/4697d22a"
     },
     {
       "route": "/publications/singularity",
@@ -21315,6 +21315,15 @@
       "hexbitDoor": "https://uuidna.com/42f66c20"
     },
     {
+      "route": "/theorem/the_mirror_is_not_defined_on_the_void",
+      "kind": "theorem",
+      "identity": "the_mirror_is_not_defined_on_the_void",
+      "canonical": "https://uuidna.com/theorem/the_mirror_is_not_defined_on_the_void",
+      "address": "57dd53b7-87ba-83b4-b17e-a32391c7d842",
+      "handle": "57dd53b7",
+      "hexbitDoor": "https://uuidna.com/57dd53b7"
+    },
+    {
       "route": "/theorem/the_mix_space_is_its_own_mirror",
       "kind": "theorem",
       "identity": "the_mix_space_is_its_own_mirror",
@@ -27075,6 +27084,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "42576316-4a34-82da-a19c-fa992e3822ea",
+  "receipt": "53f41e73-a7ea-8301-a1ea-cf9414bcb361",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }
