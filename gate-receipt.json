@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "42777e2e16ee148c77febd064858d8ce",
+    "src": "556d4d1fdd93f682024e7ba554564a2b",
     "lean": "05bca2c201defa63579630fc266becee"
   },
   "files": {
@@ -3903,7 +3903,7 @@
     "src/scripts/gap-survey.test.ts": "967b9bf7918dfc40",
     "src/scripts/gate-all.test.ts": "f853d8d3498d8af9",
     "src/scripts/gate-all.ts": "6d77cd2475427c21",
-    "src/scripts/gate-paths.test.ts": "50a5b9911300bfcd",
+    "src/scripts/gate-paths.test.ts": "f6e5580bd7c372ae",
     "src/scripts/gate-receipt.ts": "daded06a4a8b34a4",
     "src/scripts/gateways.ts": "335c1b47091d0b46",
     "src/scripts/gcp-analytics.ts": "50bb97627d5c81cc",
@@ -3967,7 +3967,7 @@
     "src/scripts/index-test-imports.ts": "6e1099a4e0bc5e06",
     "src/scripts/involute-modals.ts": "73014e42f9d989b1",
     "src/scripts/iq-books.ts": "7007db73db1e898c",
-    "src/scripts/land.ts": "6ac34a258d1063a8",
+    "src/scripts/land.ts": "76195acd30a435d6",
     "src/scripts/landing-gaps.ts": "9a1e8e4ee19f82e7",
     "src/scripts/leads-gate.ts": "e57116785d5fab90",
     "src/scripts/leak-scan.ts": "71c5b3a958586dfe",

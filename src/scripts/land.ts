@@ -97,24 +97,13 @@ for (let round = 1; round <= ROUNDS; round++) {
   // the commit, so the fresh receipt is committed with the work it covers and the push passes on round 1. The
   // taught cure below stays as the fallback for the one case outside this check's reach by construction — a
   // neighbour moving the tree between the mint and the push, which is the case it was written for.
-  const covered = run('node dist/scripts/gate-receipt.js --verify')
-  if (!covered.ok) {
-    console.log('\nland — the heal moved the tree, so its receipt is stale; earning a new one before the push …')
-    const proof = run('npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests')
-    if (!proof.ok) {
-      // ANCHORED, because the first version of this filter matched test NAMES containing "GAP" and "FIX" and
-      // printed six PASSING lines while the real failure stayed in the discarded remainder. A marker means
-      // something only at the start of a line: `✖` and `not ok` are the suite's, `✗ guard` and `✗ gate-receipt`
-      // are the gates'. The tail rides along unconditionally, because a chain can also die without any marker.
-      console.error('✗ land — the tree does not prove green, so no receipt was minted. What it said:\n')
-      const lines = proof.out.split('\n')
-      const marked = lines.filter((l) => /^(✖|not ok|✗ (guard|gate-receipt|gen-packages)|# fail)/.test(l.trim()))
-      if (marked.length) console.error(marked.slice(0, 20).join('\n'))
-      console.error('\n  … the chain\u2019s last lines:\n' + lines.filter((l) => l.trim()).slice(-12).join('\n'))
-      process.exit(1)
-    }
-  }
-
+  //
+  // AND IT MUST BE MINTED AFTER THE STAGING, which the first version got wrong and which is why round 1 was
+  // still denied on any round that ADDED a file. The receipt's per-file manifest is built from the tracked set,
+  // so a brand-new file is invisible to a mint taken while it is still untracked — and then registers as drift
+  // the instant `git add` tracks it. The court said so in its own words, "the drift is only files appearing or
+  // disappearing", and three landings in a row named the newly-added sources as MOVED. Staging first makes the
+  // mint cover the same set the commit will carry.
   // ── THE COMMIT THIS FILE ALWAYS CLAIMED AND NEVER MADE (found 2026-09-01) ────────────────────────────────────
   //
   // The header above has described this loop as "{ develop (heal) → commit what the drain owns → push }" since it
@@ -129,6 +118,24 @@ for (let round = 1; round <= ROUNDS; round++) {
   const dirty = run('git status --porcelain').out.trim()
   if (dirty) {
     run('git add -A')
+    const covered = run('node dist/scripts/gate-receipt.js --verify')
+    if (!covered.ok) {
+      console.log('\nland — the heal moved the tree, so its receipt is stale; earning a new one before the push …')
+      const proof = run('npm run guard && npm test && node dist/scripts/gate-receipt.js --verified guard,tests')
+      if (!proof.ok) {
+        // ANCHORED, because the first version of this filter matched test NAMES containing "GAP" and "FIX" and
+        // printed six PASSING lines while the real failure stayed in the discarded remainder. A marker means
+        // something only at the start of a line: `✖` and `not ok` are the suite's, `✗ guard` and `✗ gate-receipt`
+        // are the gates'. The tail rides along unconditionally, because a chain can also die without any marker.
+        console.error('✗ land — the tree does not prove green, so no receipt was minted. What it said:\n')
+        const lines = proof.out.split('\n')
+        const marked = lines.filter((l) => /^(✖|not ok|✗ (guard|gate-receipt|gen-packages)|# fail)/.test(l.trim()))
+        if (marked.length) console.error(marked.slice(0, 20).join('\n'))
+        console.error('\n  … the chain\u2019s last lines:\n' + lines.filter((l) => l.trim()).slice(-12).join('\n'))
+        process.exit(1)
+      }
+    }
+    run('git add gate-receipt.json')
     // cites a sealed theorem so commit-msg can sign it; an unsignable automated commit is a hand-amend waiting
     const msg = 'Land: heal, re-derive and seal what the drain owns — gate-clean, unattended. Backed by theorem two_coins'
     const committed = run('git commit -m ' + JSON.stringify(msg))

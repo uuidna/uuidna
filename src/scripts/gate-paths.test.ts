@@ -215,3 +215,19 @@ test('a claim that IS a sealed theorem’s own prose counts as backed, and stays
   assert.ok(dz.isTheorem >= 1, 'the drained-theorem claim is counted as such, not as a pointer')
   assert.ok(dz.cited >= 1, 'and the pointers are still counted separately')
 })
+
+// THE MINT MUST FOLLOW THE STAGING, or round 1 is denied on every landing that adds a file. gate-receipt's
+// per-file manifest is built from the TRACKED set, so a brand-new source is invisible to a mint taken while it
+// is untracked and then registers as drift the moment `git add` tracks it — the court's own words were "the
+// drift is only files appearing or disappearing", and three landings in a row named the newly-added sources as
+// MOVED. Holding the ORDER rather than the presence: both calls existed before and the bug was which came first.
+test('land mints the receipt AFTER staging, so it covers the set the commit carries', () => {
+  const land = readFileSync(join(ROOT, 'src', 'scripts', 'land.ts'), 'utf8')
+  const stage = land.indexOf("run('git add -A')")
+  const mint = land.indexOf("gate-receipt.js --verify'")
+  const commit = land.indexOf("run('git commit -m '")
+  assert.ok(stage > 0 && mint > 0 && commit > 0, 'land must stage, mint and commit')
+  assert.ok(stage < mint, 'the staging must come FIRST — an untracked file is not in the manifest yet')
+  assert.ok(mint < commit, 'and the mint must precede the commit, so the fresh receipt rides with its work')
+  assert.ok(land.includes("run('git add gate-receipt.json')"), 'the minted receipt must itself be staged')
+})
