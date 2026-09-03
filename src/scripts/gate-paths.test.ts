@@ -138,3 +138,17 @@ test('land earns the receipt for the tree it healed BEFORE pushing, and keeps th
   assert.doesNotMatch(code, /--force(?!-)/, 'land integrates, it does not force')
   assert.match(src, /--no-verify does not appear in this file/, 'and the file still says so, which is why the scan reads code only')
 })
+
+// ── A LEAD MUST NAME THE COMMAND THAT ACTS ON IT. Measured 2026-09-03: seven table wings were enumerated by
+// running the whole `npm run lean` chain — ~5 minutes each, 66 other generators re-proved to sign one wing —
+// because the single-wing dispatcher (`lean-one`, 0.087s measured) is invisible unless you read lean-all's SKIP
+// set. The tree had the fast loop the whole time. A lead that says "enumerate the table" without naming the
+// command costs magnitudes to act on, so the finder below holds the naming by construction.
+test('the table-enumeration lead names the single-wing loop, not just the goal', () => {
+  const survey = readFileSync(join(ROOT, 'src', 'gap-survey.ts'), 'utf8')
+  assert.match(survey, /lean-one \$\{row\.wing\.toLowerCase\(\)\}/, 'the owes line must name the exact command for THAT wing')
+  const next = readFileSync(join(ROOT, 'src', 'scripts', 'next.ts'), 'utf8')
+  assert.match(next, /lean-one/, 'next’s leverage list must name it too — it is where a reader looks first')
+  // and the dispatcher it names must exist, or the lead points at nothing
+  assert.ok(existsSync(join(ROOT, 'src', 'scripts', 'lean-one.ts')), 'the named dispatcher must exist')
+})

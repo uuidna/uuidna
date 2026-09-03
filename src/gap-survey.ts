@@ -64,6 +64,13 @@ export function bareBoundaryProse(text: string, keys: ReadonlySet<string> = seal
 }
 
 // ── table-leads — tables.found vs sealed census. ──
+//
+// THE LEAD NAMES THE FAST LOOP, because not naming it cost seven full chain runs (2026-09-03). Enumerating one
+// wing is `npm run x -- lean-one <domain>`: it runs that ONE generator and drains the kernel call, measured at
+// 0.087s against ~5 minutes for `npm run lean`, which re-runs 66 other generators to prove one wing. lean-one has
+// existed the whole time and is invisible unless you read lean-all's SKIP set — so seven enumerations were walked
+// the slow way by someone who never asked what the tree already had. A lead that says "enumerate the table"
+// without naming the command is a lead that costs magnitudes to act on.
 
 export interface TableFound { wing: string; object: string; size: string }
 export interface TableLead {
@@ -114,7 +121,9 @@ export function tableLeadsFrom(
       stated,
       sealed,
       theorems,
-      owes: `${file} states ${row.object} (${stated}) and enumerates ${sealed} case(s) across ${theorems} theorem(s) — enumerate the table; desk proposes, kernel disposes`,
+      owes: `${file} states ${row.object} (${stated}) and enumerates ${sealed} case(s) across ${theorems} theorem(s)`
+        + ` — enumerate it: add the fact to src/scripts/lean-${row.wing.toLowerCase()}.ts, then \`npm run x -- lean-one ${row.wing.toLowerCase()}\``
+        + ` (ONE wing, kernel-proved, ~0.1s — not the whole \`npm run lean\` chain); desk proposes, kernel disposes`,
     })
   }
   return out.sort((a, b) => (b.stated - b.sealed) - (a.stated - a.sealed) || (a.wing < b.wing ? -1 : 1))

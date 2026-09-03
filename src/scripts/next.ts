@@ -378,7 +378,7 @@ try {
   })
   if (end.tableLeadTop) leverage.push({
     act: `enumerate ${end.tableLeadTop.file} (${end.tableLeadTop.object})`,
-    closes: `${end.tableShort} stating wing(s) still short of their tables.found object — largest gap ${end.tableLeadTop.gap} on ${end.tableLeadTop.file}; desk proposes, kernel enumerates`,
+    closes: `${end.tableShort} stating wing(s) still short of their tables.found object — largest gap ${end.tableLeadTop.gap} on ${end.tableLeadTop.file}; ONE wing at a time: add the fact to its src/scripts/lean-<wing>.ts, then \`npm run x -- lean-one <wing>\` (0.1s, kernel-proved) — the whole \`npm run lean\` chain re-proves 66 wings to sign one`,
   })
 } catch { /* gap survey is optional */ }
 leverage.push({ act: 'npm run ship   # build, wrangler deploy, cf:zone, live proof', closes: 'every MCP finding at once — the hosted surface is tested against what it serves, not what the tree holds; cf:zone attaches www + Always Use HTTPS when the token can write' })
