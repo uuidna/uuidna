@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "8730cc57e71f70092cdd2f8596bfa8a6",
+    "src": "8c90d9cf9cfec30296945bd29649d264",
     "lean": "918b30761d13d4f13768054296b8e1f3"
   },
   "files": {
@@ -310,6 +310,8 @@
     "src/books-shelf.test.ts": "7e80df4f3169a8bb",
     "src/books.test.ts": "cf74f1eb28b04146",
     "src/books.ts": "bea51a381caaa796",
+    "src/bound-perturbation.test.ts": "1d59657776b2eb33",
+    "src/bound-perturbation.ts": "0136bbc64879886f",
     "src/boundary.ts": "70021f1c02da120a",
     "src/calendar.test.ts": "0dbb4462b03413c9",
     "src/calendar.ts": "1fedf095d11b5b90",
