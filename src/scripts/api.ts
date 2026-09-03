@@ -432,6 +432,8 @@ export const DRAIN_PATHS: readonly string[] = [
   'lean/quantum-advantage.json', 'docs/public/quantum-advantage.jsonld',
   // final SEO URL freeze map (gen-seo-freeze) — route↔hexbit; post-freeze permanence = hexbit doors only
   'lean/seo-url-map.json',
+  // the ledger as a manuscript (gen-latex) — rewritten on every reconcile, so it is staged rather than left dirty
+  'docs/public/uuidna-ledger.tex',
   // the discovery and conveyor boards (gen-expose, gen-waves): the loop's two faces in the UI
   'docs/expose.md', 'docs/waves.md',
   // the unlock board (gen-unlocks): census from theorems(); home fragment injected into docs/index.md
@@ -556,6 +558,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'lean-axioms': ['lean/axioms.json'],
   'gen-mcp': ['docs/mcp.md'],
   'gen-apis': ['docs/apis.md'],
+  'gen-latex': ['docs/public/uuidna-ledger.tex'],
   'gen-quantum-capacity': ['lean/quantum-capacity.json', 'lean/quantum-capacity.md', 'docs/quantum.md'],
   'gen-quantum-advantage': ['lean/quantum-advantage.json', 'docs/public/quantum-advantage.jsonld'],
   'gen-seo-freeze': ['lean/seo-url-map.json'],
@@ -631,6 +634,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
 export const DOCS_BUILD_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-mcp': ['docs/mcp.md'],
   'gen-apis': ['docs/apis.md'],
+  'gen-latex': ['docs/public/uuidna-ledger.tex'],
   'gen-captain-claims': ['docs/captain-claims.json', 'docs/captain-claims.md'],
   'gen-sequence-field': ['docs/sequence-field.md'],
   'lean-payload-seeds': ['src/seeds'],   // the whole directory is one drain path — see stageDerived

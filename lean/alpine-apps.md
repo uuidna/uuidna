@@ -18,19 +18,20 @@ earn coverage by declining to look.
 report leads with, because it is the one that carries information: the ledger has sealed arithmetic for
 typesetting, calendars, codecs, checksums and ciphers, and none whatever for a Perl binding or a Kubernetes
 controller. A scheme that found a theorem for every package would have proved only that its patterns were
-loose. **1276 projects** (2032 packages) do harmonise, and each is
+loose. **1287 projects** (2052 packages) do harmonise, and each is
 bound to the heaviest sealed theorem of its skill as a witness.
 
 | skill | projects | packages | witness (sealed theorem) | fold of their addresses |
 |-------|----------|----------|--------------------------|-------------------------|
-| typesetting | 333 | 406 | [recto_odd_verso_even](https://uuidna.com/theorem/recto_odd_verso_even) | `95fc5979` |
+| typesetting | 333 | 406 | [the_congruence_form_is_the_modulus_form](https://uuidna.com/theorem/the_congruence_form_is_the_modulus_form) | `b29fca93` |
 | calendar | 207 | 342 | [a_gapless_index_admits_nothing_between](https://uuidna.com/theorem/a_gapless_index_admits_nothing_between) | `c67def38` |
 | security | 207 | 358 | [birthday_halves_the_exponent](https://uuidna.com/theorem/birthday_halves_the_exponent) | `695bedaf` |
-| music-production | 203 | 379 | [fifth_cycles_all_twelve](https://uuidna.com/theorem/fifth_cycles_all_twelve) | `e2705b1a` |
+| music-production | 202 | 378 | [fifth_cycles_all_twelve](https://uuidna.com/theorem/fifth_cycles_all_twelve) | `7bce33c2` |
 | editing | 176 | 320 | [frame_ring_undo_involutive](https://uuidna.com/theorem/frame_ring_undo_involutive) | `f0706aa7` |
 | colour | 67 | 92 | [complementary_hues_oppose](https://uuidna.com/theorem/complementary_hues_oppose) | `31bdab51` |
-| codes | 35 | 52 | [xor_checksum_catches_flip](https://uuidna.com/theorem/xor_checksum_catches_flip) | `8e82280e` |
+| codes | 35 | 52 | [xor_checksum_is_involutive_over_every_nibble_pair](https://uuidna.com/theorem/xor_checksum_is_involutive_over_every_nibble_pair) | `8e82280e` |
 | photography | 29 | 47 | [equivalent_exposure](https://uuidna.com/theorem/equivalent_exposure) | `42a47e8c` |
+| site-build | 12 | 21 | [render_retention_exceeds_the_container](https://uuidna.com/theorem/render_retention_exceeds_the_container) | `92274e9d` |
 | identifiers | 8 | 17 | [isbn13_valid_check](https://uuidna.com/theorem/isbn13_valid_check) | `95a16983` |
 | chess | 6 | 12 | [closed_knight_tour_even](https://uuidna.com/theorem/closed_knight_tour_even) | `bb9f09dd` |
 | reasoning | 4 | 6 | [manipulation_never_faster](https://uuidna.com/theorem/manipulation_never_faster) | `4f1a9599` |
@@ -45,11 +46,11 @@ verified. Nothing here reads a line of any app's code.
 packages and holds none of their bytes. What is ported is the published metadata, folded to an address —
 which is what makes a deployment able to *prove* which exact upstream releases it rests on.
 
-Catalogue root (every ported address, order-invariant): `5f0e6e44-8a6e-8315-90ad-f64570915193`
-Catalogue address: `76990a6b-4c43-8a71-86bb-02f94f7f52ac` · handle `76990a6b`
+Catalogue root (every ported address, order-invariant): `3a32a314-8258-8e4e-b335-5c815e2816ef`
+Catalogue address: `d2bfac51-3e95-8170-9c07-4d2351477a36` · handle `d2bfac51`
 
-Every line above left through the gate as a witnessed quantum message: 13 claims, each bound to a
-sealed theorem the claim itself cites, 0 refused. Dispatch receipt: `79a2728a-05bc-8e97-95e7-7a57027551be`.
+Every line above left through the gate as a witnessed quantum message: 14 claims, each bound to a
+sealed theorem the claim itself cites, 0 refused. Dispatch receipt: `61b7fd85-8d36-8dd8-9241-abcd67026b02`.
 
 *This report moves when upstream moves — it is a LIVE read of what Alpine calls latest-stable right now, which
 is honest at the `src/os` boundary and nowhere else in this tree.*

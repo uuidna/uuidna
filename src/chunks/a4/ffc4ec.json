@@ -1,0 +1,12 @@
+{
+  "handle": "a4ffc4ec",
+  "address": "a4ffc4ec-b972-805f-af04-9abd99543931",
+  "statement": "(2^3^2 = 512) ∧ ((2^3)^2 = 64) ∧ (512 ≠ 64)",
+  "tactic": "decide",
+  "keys": [
+    "exponent_associativity_changes_the_value"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "971a0f10",
+  "address": "971a0f10-2e10-86df-9442-4d65513ae8d4",
+  "kind": "chunk",
+  "keys": [
+    "the_congruence_form_is_the_modulus_form"
+  ],
+  "statement": "((List.range 63).all (fun x => ((x - x % 9) % 9 == 0) && (x % 9 < 9)))",
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

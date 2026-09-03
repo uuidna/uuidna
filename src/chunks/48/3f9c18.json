@@ -1,0 +1,12 @@
+{
+  "handle": "483f9c18",
+  "address": "483f9c18-7dd3-8046-9b6a-0c97fd695c22",
+  "statement": "(5260 = 5260 * 1) ∧ (5260 > 5000) ∧ (20 * 60 = 1200) ∧ (1200 > 1)",
+  "tactic": "decide",
+  "keys": [
+    "verify_costs_one_walk_against_the_whole_page_count"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

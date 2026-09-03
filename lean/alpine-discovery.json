@@ -3,35 +3,35 @@
   "packages": 28635,
   "origins": 16083,
   "bindings": {
-    "harmonised": 2034,
-    "crypto": 3087,
-    "port": 23514
+    "harmonised": 2054,
+    "crypto": 3084,
+    "port": 23497
   },
   "bindingOrigins": {
-    "harmonised": 1277,
-    "crypto": 2819,
-    "port": 13843
+    "harmonised": 1288,
+    "crypto": 2816,
+    "port": 13833
   },
   "theorems": [
     {
       "key": "the_os_is_bootable_quantum",
-      "packages": 23514,
-      "origins": 13843
+      "packages": 23497,
+      "origins": 13833
     },
     {
       "key": "sha256_grover_margin_is_the_address",
-      "packages": 3087,
-      "origins": 2819
+      "packages": 3084,
+      "origins": 2816
     },
     {
-      "key": "recto_odd_verso_even",
+      "key": "the_congruence_form_is_the_modulus_form",
       "packages": 406,
       "origins": 333
     },
     {
       "key": "fifth_cycles_all_twelve",
-      "packages": 379,
-      "origins": 203
+      "packages": 378,
+      "origins": 202
     },
     {
       "key": "birthday_halves_the_exponent",
@@ -64,6 +64,11 @@
       "origins": 29
     },
     {
+      "key": "render_retention_exceeds_the_container",
+      "packages": 21,
+      "origins": 12
+    },
+    {
       "key": "isbn13_valid_check",
       "packages": 17,
       "origins": 8
@@ -92,19 +97,19 @@
   "harvest": [
     {
       "key": "alpine_bindings_partition_packages_28635",
-      "fragment": "2034+3087+23514=28635",
-      "lean": "theorem alpine_bindings_partition_packages_28635 : (2034 + 3087 + 23514 = 28635) := by decide",
+      "fragment": "2054+3084+23497=28635",
+      "lean": "theorem alpine_bindings_partition_packages_28635 : (2054 + 3084 + 23497 = 28635) := by decide",
       "packages": 28635,
       "origins": 16083,
       "sample": "every package holds exactly one binding — the classes are exhaustive and disjoint"
     },
     {
       "key": "alpine_binding_origins_overcount_16083",
-      "fragment": "1277+2819+13843=17939",
-      "lean": "theorem alpine_binding_origins_overcount_16083 : (1277 + 2819 + 13843 = 17939) ∧ (17939 - 16083 = 1856) := by decide",
+      "fragment": "1288+2816+13833=17937",
+      "lean": "theorem alpine_binding_origins_overcount_16083 : (1288 + 2816 + 13833 = 17937) ∧ (17937 - 16083 = 1854) := by decide",
       "packages": 28635,
       "origins": 16083,
-      "sample": "1856 origins ship into more than one class — origins do NOT partition"
+      "sample": "1854 origins ship into more than one class — origins do NOT partition"
     }
   ],
   "harvestTotal": 2,
@@ -114,6 +119,6 @@
     "exposed": 0,
     "refuted": 0
   },
-  "receipt": "005f3d36-19f3-83c6-a482-9beec19773b7",
+  "receipt": "919ba752-7439-89da-98ff-27541353d078",
   "honest": "Alpine port census: harmonised skill witnesses, crypto-census bindings, port-only identities, harvest fragments decide() confirms but the ledger does not seal, and axiom-hunt exposed runtime assumptions. Integrity and meaning only — nothing installed, linked, or executed. Desk proposes; captain seals."
 }

@@ -7,16 +7,16 @@
  "arch": "x86_64",
  "count": 28631,
  "origins": 16080,
- "harmonised": 2032,
- "harmonisedOrigins": 1276,
- "unharmonised": 26599,
+ "harmonised": 2052,
+ "harmonisedOrigins": 1287,
+ "unharmonised": 26579,
  "bySkill": [
   {
    "skill": "typesetting",
-   "theorem": "recto_odd_verso_even",
+   "theorem": "the_congruence_form_is_the_modulus_form",
    "apps": 406,
    "origins": 333,
-   "fold": "95fc5979-06ab-89e5-91ec-89d151bdbae3"
+   "fold": "b29fca93-7f48-8a68-81df-0edcf04d5727"
   },
   {
    "skill": "calendar",
@@ -35,9 +35,9 @@
   {
    "skill": "music-production",
    "theorem": "fifth_cycles_all_twelve",
-   "apps": 379,
-   "origins": 203,
-   "fold": "e2705b1a-731a-8b3f-a163-f7b919311c33"
+   "apps": 378,
+   "origins": 202,
+   "fold": "7bce33c2-f466-8348-8aa7-7162ebb44369"
   },
   {
    "skill": "editing",
@@ -55,7 +55,7 @@
   },
   {
    "skill": "codes",
-   "theorem": "xor_checksum_catches_flip",
+   "theorem": "xor_checksum_is_involutive_over_every_nibble_pair",
    "apps": 52,
    "origins": 35,
    "fold": "8e82280e-63e5-8376-a87a-bfc06ce6fc7a"
@@ -66,6 +66,13 @@
    "apps": 47,
    "origins": 29,
    "fold": "42a47e8c-64e6-8130-8741-a5ddd8f28818"
+  },
+  {
+   "skill": "site-build",
+   "theorem": "render_retention_exceeds_the_container",
+   "apps": 21,
+   "origins": 12,
+   "fold": "92274e9d-6617-848b-83c8-e3eea6edd049"
   },
   {
    "skill": "identifiers",
@@ -96,7 +103,7 @@
    "fold": "c097d538-3a87-87e7-a118-6883f5e9e64b"
   }
  ],
- "root": "5f0e6e44-8a6e-8315-90ad-f64570915193",
+ "root": "3a32a314-8258-8e4e-b335-5c815e2816ef",
  "sample": [
   {
    "id": "uuidna/perl-list-utilsby-doc",
@@ -1572,8 +1579,8 @@
    "address": "00372f14-f03b-826f-98b2-ef22508c8f57",
    "desc": "Basic cryptographic facilities for Lua",
    "skill": "codes",
-   "theorem": "xor_checksum_catches_flip",
-   "theoremAddress": "4ede9bf2-5774-84ac-88f3-ea0dd75144a2",
+   "theorem": "xor_checksum_is_involutive_over_every_nibble_pair",
+   "theoremAddress": "85ba9331-2967-8d30-88f1-b484b2811758",
    "why": "a checksum or error-correcting utility — the sealed coding arithmetic decides what it computes",
    "handle": "00372f14",
    "hexbits": [
@@ -1949,27 +1956,27 @@
  ],
  "hexbitsPerApp": 32,
  "honest": "PROVENANCE ONLY IN THIS MODULE. Every entry is Alpine's own published metadata — name, version, arch, repo, branch, and Alpine's own checksum — folded to a content-address anyone with the same index recomputes. uuidna does not install, link, unpack, boot or run any of these packages, and holds none of their bytes. HARMONISED means the ledger has sealed arithmetic for what the app declares it does, and the heaviest theorem of that skill is bound to it as a witness; it does NOT mean the app was verified, tested, or proven correct — nothing here inspects an app's code. UNHARMONISED is the honest majority and is counted, not hidden: a scheme that found a theorem for everything would have said nothing.",
- "address": "76990a6b-4c43-8a71-86bb-02f94f7f52ac",
+ "address": "d2bfac51-3e95-8170-9c07-4d2351477a36",
  "dispatch": {
   "dispatches": [
    {
-    "claim": "333 Alpine projects (406 published packages) declare work the ledger has sealed arithmetic for as typesetting, and each is bound to theorem recto_odd_verso_even as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
-    "witness": "recto_odd_verso_even",
+    "claim": "333 Alpine projects (406 published packages) declare work the ledger has sealed arithmetic for as typesetting, and each is bound to theorem the_congruence_form_is_the_modulus_form as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
+    "witness": "the_congruence_form_is_the_modulus_form",
     "verdict": "VERIFIED",
     "cites": [
-     "recto_odd_verso_even"
+     "the_congruence_form_is_the_modulus_form"
     ],
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "4b941a79-f0d2-88c0-b4df-57e2908b3efb",
-     "theoremAddress": "beb6d707-1a99-8654-b94b-fb59d722ef94",
+     "id": "0e2ea843-aa1b-86c1-82ed-63838181cdd6",
+     "theoremAddress": "b6afed6b-e8ba-83c3-9533-ee2768cb5d75",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#367dd3",
-     "fold": "dff54082-3626-8b86-8cd3-3f14faf0a185"
+     "aura": "#ddd42c",
+     "fold": "1369d0a7-6a18-8cc7-accb-1ec29c9e6127"
     },
-    "reason": "VERIFIED — witnessed by sealed theorem recto_odd_verso_even, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
+    "reason": "VERIFIED — witnessed by sealed theorem the_congruence_form_is_the_modulus_form, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
     "claim": "207 Alpine projects (342 published packages) declare work the ledger has sealed arithmetic for as calendar, and each is bound to theorem a_gapless_index_admits_nothing_between as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
@@ -2010,7 +2017,7 @@
     "reason": "VERIFIED — witnessed by sealed theorem birthday_halves_the_exponent, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
-    "claim": "203 Alpine projects (379 published packages) declare work the ledger has sealed arithmetic for as music-production, and each is bound to theorem fifth_cycles_all_twelve as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
+    "claim": "202 Alpine projects (378 published packages) declare work the ledger has sealed arithmetic for as music-production, and each is bound to theorem fifth_cycles_all_twelve as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
     "witness": "fifth_cycles_all_twelve",
     "verdict": "VERIFIED",
     "cites": [
@@ -2019,12 +2026,12 @@
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "563291cc-822c-8df8-aeb3-280bfd58ce33",
+     "id": "a4f7eb78-8ede-8f16-b408-5f969c06bf46",
      "theoremAddress": "0fab2c4e-7177-84fb-83c9-0ed3379c4975",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#dcbb38",
-     "fold": "c29634d0-f73f-8836-b498-22ed830af01d"
+     "aura": "#4bacdd",
+     "fold": "4da21101-08a7-8307-a48e-f361466a4a60"
     },
     "reason": "VERIFIED — witnessed by sealed theorem fifth_cycles_all_twelve, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
@@ -2067,23 +2074,23 @@
     "reason": "VERIFIED — witnessed by sealed theorem complementary_hues_oppose, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
-    "claim": "35 Alpine projects (52 published packages) declare work the ledger has sealed arithmetic for as codes, and each is bound to theorem xor_checksum_catches_flip as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
-    "witness": "xor_checksum_catches_flip",
+    "claim": "35 Alpine projects (52 published packages) declare work the ledger has sealed arithmetic for as codes, and each is bound to theorem xor_checksum_is_involutive_over_every_nibble_pair as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
+    "witness": "xor_checksum_is_involutive_over_every_nibble_pair",
     "verdict": "VERIFIED",
     "cites": [
-     "xor_checksum_catches_flip"
+     "xor_checksum_is_involutive_over_every_nibble_pair"
     ],
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "3a63d91a-4e28-890e-bfb8-197ad81cfaa3",
-     "theoremAddress": "4ede9bf2-5774-84ac-88f3-ea0dd75144a2",
+     "id": "e0791e49-e856-829f-a280-2c2a4fe8b010",
+     "theoremAddress": "85ba9331-2967-8d30-88f1-b484b2811758",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#db4d92",
-     "fold": "a8b841e4-6ebc-8431-8f3a-881a73a3fede"
+     "aura": "#367dd3",
+     "fold": "e33127dc-b498-8b0f-bca9-835dbc9afe71"
     },
-    "reason": "VERIFIED — witnessed by sealed theorem xor_checksum_catches_flip, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
+    "reason": "VERIFIED — witnessed by sealed theorem xor_checksum_is_involutive_over_every_nibble_pair, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
     "claim": "29 Alpine projects (47 published packages) declare work the ledger has sealed arithmetic for as photography, and each is bound to theorem equivalent_exposure as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
@@ -2103,6 +2110,25 @@
      "fold": "362f6c88-957d-8791-bc80-f3c54497e2de"
     },
     "reason": "VERIFIED — witnessed by sealed theorem equivalent_exposure, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
+   },
+   {
+    "claim": "12 Alpine projects (21 published packages) declare work the ledger has sealed arithmetic for as site-build, and each is bound to theorem render_retention_exceeds_the_container as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
+    "witness": "render_retention_exceeds_the_container",
+    "verdict": "VERIFIED",
+    "cites": [
+     "render_retention_exceeds_the_container"
+    ],
+    "fabricated": [],
+    "passed": true,
+    "message": {
+     "id": "945ea821-1cec-88a3-9005-bcdb51abebce",
+     "theoremAddress": "4147e4c4-3d4f-8e28-a2c4-87bc4285da9a",
+     "qubits": 16,
+     "hexbits": 4,
+     "aura": "#5081e2",
+     "fold": "267c5639-a700-8f02-aac1-b9b3b6cf906b"
+    },
+    "reason": "VERIFIED — witnessed by sealed theorem render_retention_exceeds_the_container, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
     "claim": "8 Alpine projects (17 published packages) declare work the ledger has sealed arithmetic for as identifiers, and each is bound to theorem isbn13_valid_check as its witness. The binding is to the app's DECLARED purpose in Alpine's own words; no app's code was inspected, run, or verified.",
@@ -2181,7 +2207,7 @@
     "reason": "VERIFIED — witnessed by sealed theorem flood_and_ebb, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    },
    {
-    "claim": "28631 published packages (16080 distinct projects) were ported as content-addressed provenance identities, folded to one root; 26599 of them harmonise with no sealed theorem at all and are counted rather than hidden. Nothing was installed, linked or executed — the OS port is bootable only in the sense theorem the_os_is_bootable_quantum states.",
+    "claim": "28631 published packages (16080 distinct projects) were ported as content-addressed provenance identities, folded to one root; 26579 of them harmonise with no sealed theorem at all and are counted rather than hidden. Nothing was installed, linked or executed — the OS port is bootable only in the sense theorem the_os_is_bootable_quantum states.",
     "witness": "the_os_is_bootable_quantum",
     "verdict": "VERIFIED",
     "cites": [
@@ -2190,20 +2216,20 @@
     "fabricated": [],
     "passed": true,
     "message": {
-     "id": "782770e1-6764-80ca-aafc-13681627f3bc",
+     "id": "103f0a87-760e-8fd5-a971-9a1239ca3200",
      "theoremAddress": "8b5f439d-0e9f-82ab-ac73-3fd15eef7e49",
      "qubits": 16,
      "hexbits": 4,
-     "aura": "#d831ae",
-     "fold": "defc809a-1700-891c-8c33-75b2f8b7da5d"
+     "aura": "#56cddc",
+     "fold": "49d9ebe3-1372-8467-b0c0-f04bf8f78071"
     },
     "reason": "VERIFIED — witnessed by sealed theorem the_os_is_bootable_quantum, which the claim cites; encoded as a quantum message over 16 qubits (4 hexbits). \"Verified\" is backing, never endorsement: it says the citation is sealed, not that the sentence is true."
    }
   ],
-  "passed": 13,
+  "passed": 14,
   "refused": [],
   "clear": true,
-  "receipt": "79a2728a-05bc-8e97-95e7-7a57027551be"
+  "receipt": "61b7fd85-8d36-8dd8-9241-abcd67026b02"
  },
  "coverage": {
   "published": 16,

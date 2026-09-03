@@ -30,6 +30,7 @@ docs/quantum.md merge=derived
 lean/quantum-advantage.json merge=derived
 docs/public/quantum-advantage.jsonld merge=derived
 lean/seo-url-map.json merge=derived
+docs/public/uuidna-ledger.tex merge=derived
 docs/expose.md merge=derived
 docs/waves.md merge=derived
 docs/unlocks.md merge=derived

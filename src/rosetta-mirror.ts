@@ -1553,6 +1553,14 @@ surfaces_cost_one_fold 27
 agreement_is_decided_by_address 27
 drift_needs_two_to_hide_in 27
 the_singularity_is_the_dry_law_at_scale 27
+#SiteBuild.lean
+render_retention_exceeds_the_container 27
+the_concurrency_knob_cannot_close_the_gap 27
+the_params_are_not_the_retained_mass 27
+the_process_holds_more_than_the_container_allows 31
+verify_costs_one_walk_against_the_whole_page_count 27
+exponent_associativity_changes_the_value 27
+the_congruence_form_is_the_modulus_form 27
 #Software.lean
 codec_split_recompose_lossless 27
 map_preserves_length 27
@@ -2723,8 +2731,9 @@ landauer_bound_derived SI
 light_speed_rounds_to_300000 SI
 reversible_erases_nothing Landauer
 s4_parity_splits_evenly_its_involutions_do_not measured by
+the_process_holds_more_than_the_container_allows measured at
 two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 16, falsifier: 63 }
+export const FLOOR = { witness: 17, falsifier: 63 }

@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:45a02eaf-5c7c-848b-8388-54af51bb0e9c",
+  "@id": "urn:uuid:93ca858f-1fc0-8e7e-b1fd-c571572d4e8b",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -28586,6 +28586,223 @@
         },
         "sameAs": [
           "https://uuidna.com/5a496115"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:b8e43eb3-a328-81fa-b556-68ff33b3b384",
+        "@type": "ScholarlyArticle",
+        "headline": "render_retention_exceeds_the_container",
+        "abstract": "(5260 * 17 = 89420) ∧ (89420 > 81920) ∧ (1200 * 17 = 20400) ∧ (20400 < 20480) ∧ (89420 > 40960)",
+        "identifier": "4147e4c4-3d4f-8e28-a2c4-87bc4285da9a",
+        "url": "https://uuidna.com/theorem/render_retention_exceeds_the_container",
+        "keywords": "site-build, The site build as arithmetic",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/4147e4c4"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:49d4efe4-6845-8814-ada8-9b92717190a8",
+        "@type": "ScholarlyArticle",
+        "headline": "the_concurrency_knob_cannot_close_the_gap",
+        "abstract": "(8170 - 7750 = 420) ∧ (420 * 19 = 7980) ∧ (7980 < 8170) ∧ (8942 - 8192 = 750) ∧ (420 < 750)",
+        "identifier": "93122a9d-bed5-8747-a6ba-3bbeb379c9f2",
+        "url": "https://uuidna.com/theorem/the_concurrency_knob_cannot_close_the_gap",
+        "keywords": "site-build, The site build as arithmetic",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/93122a9d"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:a1c1c677-73fc-8c04-8dc7-ce6a40f2814a",
+        "@type": "ScholarlyArticle",
+        "headline": "the_params_are_not_the_retained_mass",
+        "abstract": "(61 - 50 = 11) ∧ (11 * 10 = 110) ∧ (110 * 800 = 88000) ∧ (88000 < 89420)",
+        "identifier": "f454796a-4280-864b-8ee9-a9195a7fe59d",
+        "url": "https://uuidna.com/theorem/the_params_are_not_the_retained_mass",
+        "keywords": "site-build, The site build as arithmetic",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/f454796a"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:4f9d6545-ea71-8a02-acc2-9a20f61779fd",
+        "@type": "ScholarlyArticle",
+        "headline": "the_process_holds_more_than_the_container_allows",
+        "abstract": "(8460 > 8192) ∧ (8460 - 8192 = 268) ∧ (10784 = 107 * 100 + 84)",
+        "identifier": "5685c991-6cef-8242-b9dd-66f76737b498",
+        "url": "https://uuidna.com/theorem/the_process_holds_more_than_the_container_allows",
+        "keywords": "site-build, The site build as arithmetic",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/5685c991"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:bdb53d0c-3d8b-8665-834b-8bf1c70f059e",
+        "@type": "ScholarlyArticle",
+        "headline": "verify_costs_one_walk_against_the_whole_page_count",
+        "abstract": "(5260 = 5260 * 1) ∧ (5260 > 5000) ∧ (20 * 60 = 1200) ∧ (1200 > 1)",
+        "identifier": "17eb468c-4b2d-8a99-9cd0-a96dc418db88",
+        "url": "https://uuidna.com/theorem/verify_costs_one_walk_against_the_whole_page_count",
+        "keywords": "site-build, The site build as arithmetic",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/17eb468c"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:949e7245-c4e7-884c-a130-252a1dfddd5a",
+        "@type": "ScholarlyArticle",
+        "headline": "exponent_associativity_changes_the_value",
+        "abstract": "(2^3^2 = 512) ∧ ((2^3)^2 = 64) ∧ (512 ≠ 64)",
+        "identifier": "60040fde-61b3-8b96-a3fd-c6d9337ca11e",
+        "url": "https://uuidna.com/theorem/exponent_associativity_changes_the_value",
+        "keywords": "typesetting, The site build as arithmetic",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/60040fde"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:2f954cf6-e83e-8694-b9c4-87d6aff94fdd",
+        "@type": "ScholarlyArticle",
+        "headline": "the_congruence_form_is_the_modulus_form",
+        "abstract": "((List.range 63).all (fun x => ((x - x % 9) % 9 == 0) && (x % 9 < 9)))",
+        "identifier": "b6afed6b-e8ba-83c3-9533-ee2768cb5d75",
+        "url": "https://uuidna.com/theorem/the_congruence_form_is_the_modulus_form",
+        "keywords": "typesetting, The site build as arithmetic",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/b6afed6b"
         ]
       }
     },

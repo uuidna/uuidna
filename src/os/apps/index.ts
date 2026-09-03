@@ -61,6 +61,14 @@ export const HARMONIES: readonly [RegExp, string, string][] = [
   // was a rule matching a WORD where the claim was about a SUBJECT. Loose rules inflate the harmonised count,
   // which is the flattering direction, so the bar is: would the sealed arithmetic actually decide anything this
   // package does?
+  // A STATIC SITE GENERATOR is the one kind of package whose cost this ledger measures directly rather than by
+  // domain vocabulary: render_retention_exceeds_the_container states that a paged render holds every page for
+  // the whole run, so its heap is the page count times a per-page constant against a ceiling — which is exactly
+  // what such a tool spends and exactly what killed this site's own build. Deliberately the PHRASE plus three
+  // unambiguous package names: `sphinx` was considered and REJECTED because CMU Sphinx is speech recognition,
+  // and a rule that matches a word where the claim is about a subject is the failure mode this table records.
+  [/\b(static (?:site|website) generator|site generator)\b|\b(hugo|jekyll|mkdocs)\b/i, 'site-build',
+    'a static site generator — the sealed render-retention arithmetic bounds what its page count costs'],
   [/\b(sha\d+|sha-\d+|md5|crc\d*|checksum|hashsum|message digest|parity|ecc|reed.?solomon|hamming)\b/i, 'codes',
     'a checksum or error-correcting utility — the sealed coding arithmetic decides what it computes'],
   [/\b(openssl|libressl|gnutls|gpg|gnupg|cipher|crypto(graphy|graphic)?|tls|ssl|nettle|libsodium|keyring)\b/i, 'security',

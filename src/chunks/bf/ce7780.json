@@ -1,0 +1,12 @@
+{
+  "handle": "bfce7780",
+  "address": "bfce7780-53d1-8d03-82a2-37c4890b78c9",
+  "statement": "(8460 > 8192) ∧ (8460 - 8192 = 268) ∧ (10784 = 107 * 100 + 84)",
+  "tactic": "decide",
+  "keys": [
+    "the_process_holds_more_than_the_container_allows"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

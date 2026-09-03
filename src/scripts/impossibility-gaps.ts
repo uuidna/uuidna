@@ -79,6 +79,11 @@ export const JUSTIFIED = /\b(theorem [a-z0-9_]+|by construction|host|browser|no 
 // which would have had me rewrite eight correct comments backwards to satisfy a regex. So a cause introduced
 // BEFORE the modal by `so`/`therefore`/`hence`, and a clause introduced after it by a dash or semicolon, both
 // count — each with the same twelve-character floor, so a shrug (`cannot — sadly`) is not a reason.
+//
+// AND IT READS THE SAME THREE-LINE WINDOW the keyword rule does, which the first version did not: this file's
+// own note says the reason "may sit on the line, or on the line before or after — a sentence wraps", and
+// applying the clause rule to the single line contradicted it. A wrapped comment whose colon landed on the next
+// line scored as a bare wall.
 export const REASON_CLAUSE = new RegExp(
   [
     // the reason follows the claim: `cannot X: <clause>` or `cannot X because …`
@@ -126,7 +131,7 @@ export function impossibilityGaps(files: readonly string[], baseline: ReadonlySe
       if (!COMMENT.test(l) || !IMPOSSIBLE.test(l)) continue
       // the reason may sit on the line, or on the line before or after — a sentence wraps
       const window = [lines[i - 1] ?? '', l, lines[i + 1] ?? ''].join(' ')
-      if (JUSTIFIED.test(window) || REASON_CLAUSE.test(l)) continue
+      if (JUSTIFIED.test(window) || REASON_CLAUSE.test(window)) continue
       gaps.push({
         what: `${rel}:${i + 1} claims something CANNOT be done without naming why: ${l.trim().slice(0, 96)}`,
         fix: 'name the reason in the same breath — a host fact (no filesystem, not a secure context, no device), ' +

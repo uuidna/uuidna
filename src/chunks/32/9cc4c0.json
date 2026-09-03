@@ -1,0 +1,12 @@
+{
+  "handle": "329cc4c0",
+  "address": "329cc4c0-0e73-8da9-bf23-e4db5293fe6b",
+  "statement": "(8170 - 7750 = 420) ∧ (420 * 19 = 7980) ∧ (7980 < 8170) ∧ (8942 - 8192 = 750) ∧ (420 < 750)",
+  "tactic": "decide",
+  "keys": [
+    "the_concurrency_knob_cannot_close_the_gap"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

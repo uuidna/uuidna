@@ -2,8 +2,8 @@
   "generated": "2026-09-03",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2589,
-  "total_theorems": 2589,
+  "total_claimed": 2596,
+  "total_theorems": 2596,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -5536,6 +5536,48 @@
       "lineAddress": "1190f5fd-f570-8ba2-94ab-ff17552c7f96",
       "address": "5a496115-97ec-8336-9ad5-5a835ce65d8f",
       "principle": "The field domain"
+    },
+    {
+      "key": "render_retention_exceeds_the_container",
+      "lineAddress": "b8e43eb3-a328-81fa-b556-68ff33b3b384",
+      "address": "4147e4c4-3d4f-8e28-a2c4-87bc4285da9a",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "the_concurrency_knob_cannot_close_the_gap",
+      "lineAddress": "49d4efe4-6845-8814-ada8-9b92717190a8",
+      "address": "93122a9d-bed5-8747-a6ba-3bbeb379c9f2",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "the_params_are_not_the_retained_mass",
+      "lineAddress": "a1c1c677-73fc-8c04-8dc7-ce6a40f2814a",
+      "address": "f454796a-4280-864b-8ee9-a9195a7fe59d",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "the_process_holds_more_than_the_container_allows",
+      "lineAddress": "4f9d6545-ea71-8a02-acc2-9a20f61779fd",
+      "address": "5685c991-6cef-8242-b9dd-66f76737b498",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "verify_costs_one_walk_against_the_whole_page_count",
+      "lineAddress": "bdb53d0c-3d8b-8665-834b-8bf1c70f059e",
+      "address": "17eb468c-4b2d-8a99-9cd0-a96dc418db88",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "exponent_associativity_changes_the_value",
+      "lineAddress": "949e7245-c4e7-884c-a130-252a1dfddd5a",
+      "address": "60040fde-61b3-8b96-a3fd-c6d9337ca11e",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "the_congruence_form_is_the_modulus_form",
+      "lineAddress": "2f954cf6-e83e-8694-b9c4-87d6aff94fdd",
+      "address": "b6afed6b-e8ba-83c3-9533-ee2768cb5d75",
+      "principle": "The site build as arithmetic"
     },
     {
       "key": "force_equilibrium",
@@ -15540,7 +15582,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "d3c00074-5b58-8118-88c1-36fa7ee29e9f",
+  "claim_receipt": "ef7f6425-9e33-80d3-b24a-56d8c1814a5a",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

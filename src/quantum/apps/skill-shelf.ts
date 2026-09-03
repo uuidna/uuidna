@@ -24,6 +24,7 @@ export const SKILL_SHELF: Record<string, { route: string; mount: string; label: 
   'crypt-salt': { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
   security: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
   typesetting: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
+  'site-build': { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
   calendar: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
   editing: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },
   colour: { route: '/catalogue', mount: 'CatalogueBrowser', label: 'Alpine catalogue' },

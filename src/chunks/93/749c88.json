@@ -1,0 +1,12 @@
+{
+  "handle": "93749c88",
+  "address": "93749c88-bfc3-8149-bd56-1b23f4b0c5f5",
+  "statement": "(61 - 50 = 11) ∧ (11 * 10 = 110) ∧ (110 * 800 = 88000) ∧ (88000 < 89420)",
+  "tactic": "decide",
+  "keys": [
+    "the_params_are_not_the_retained_mass"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

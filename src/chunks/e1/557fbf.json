@@ -1,0 +1,12 @@
+{
+  "handle": "e1557fbf",
+  "address": "e1557fbf-f0d3-8b2c-856d-9d7e45e1b0dc",
+  "statement": "(5260 * 17 = 89420) ∧ (89420 > 81920) ∧ (1200 * 17 = 20400) ∧ (20400 < 20480) ∧ (89420 > 40960)",
+  "tactic": "decide",
+  "keys": [
+    "render_retention_exceeds_the_container"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

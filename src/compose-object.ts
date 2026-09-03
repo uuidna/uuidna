@@ -114,7 +114,8 @@ ${t.mathml}
 
 ${lean}
 
-For a manuscript: \`${t.tex}\``
+For a manuscript: \`${t.tex}\` — or take the whole ledger as one XeLaTeX article,
+[uuidna-ledger.tex](/uuidna-ledger.tex) (every theorem, its Lean and its content-address; generated, never edited).`
 }
 
 export function composeTheorem(t) {

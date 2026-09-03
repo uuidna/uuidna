@@ -3,8 +3,8 @@
 **Generated:** 2026-09-03
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2589/2589 theorems — every one, by construction
-**Claim receipt:** `d3c00074-5b58-8118-88c1-36fa7ee29e9f`
+**Total claimed:** 2596/2596 theorems — every one, by construction
+**Claim receipt:** `ef7f6425-9e33-80d3-b24a-56d8c1814a5a`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -337,6 +337,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [plasma_fourth_state](/theorem/plasma_fourth_state) · [torus_closes_the_pipe](/theorem/torus_closes_the_pipe) · [containment_is_genus_one](/theorem/containment_is_genus_one) · [safety_factor_winding_closes](/theorem/safety_factor_winding_closes) · [kink_needs_q_above_one](/theorem/kink_needs_q_above_one) · [coulomb_sign](/theorem/coulomb_sign) · [ohms_law](/theorem/ohms_law) · [electric_power](/theorem/electric_power) · [series_resistance_adds](/theorem/series_resistance_adds) · [parallel_resistance](/theorem/parallel_resistance) · [kirchhoff_current](/theorem/kirchhoff_current) · [kirchhoff_voltage](/theorem/kirchhoff_voltage) · [faraday_needs_changing_flux](/theorem/faraday_needs_changing_flux)
+
+### The site build as arithmetic
+
+- **Theorems:** 7
+- **Sample lineAddress:** `b8e43eb3-a328-81fa-b556-68ff33b3b384`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[render_retention_exceeds_the_container](/theorem/render_retention_exceeds_the_container) · [the_concurrency_knob_cannot_close_the_gap](/theorem/the_concurrency_knob_cannot_close_the_gap) · [the_params_are_not_the_retained_mass](/theorem/the_params_are_not_the_retained_mass) · [the_process_holds_more_than_the_container_allows](/theorem/the_process_holds_more_than_the_container_allows) · [verify_costs_one_walk_against_the_whole_page_count](/theorem/verify_costs_one_walk_against_the_whole_page_count) · [exponent_associativity_changes_the_value](/theorem/exponent_associativity_changes_the_value) · [the_congruence_form_is_the_modulus_form](/theorem/the_congruence_form_is_the_modulus_form)
 
 ### The structures domain
 
@@ -1059,7 +1068,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2506 (2589 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 2513 (2596 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1077,7 +1086,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2589 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2596 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

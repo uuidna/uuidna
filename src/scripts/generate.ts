@@ -32,6 +32,7 @@ interface Gen { file: string; args: string[]; note: string }
 const GENERATORS: Gen[] = [
   { file: 'gen-mcp.js', args: [], note: 'the served catalog — every later surface reads it' },
   { file: 'gen-apis.js', args: [], note: 'the public API catalog — drained from publicApiRegistry(), no hand-typed /apis' },
+  { file: 'gen-latex.js', args: [], note: 'the ledger as one XeLaTeX article — derived from the seals, so a wing that lands today is in the paper today' },
   { file: 'gen-packages.js', args: [], note: 'the six workspace surfaces, computed from src/index.ts (guard step 3 rejects drift)' },
   { file: 'gen-zenodo.js', args: [], note: 'the archival record' },
   { file: 'gen-zenodo-seals.js', args: [], note: 'agnostic Zenodo publication seals (manifest + per-id metadata)' },
