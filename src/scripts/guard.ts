@@ -265,7 +265,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // in 0.087s and is what anyone actually runs for one wing, and it does not stamp. Measured on the landing that
   // added this: a wing of seven theorems left the doctrine page quoting the PREVIOUS census — two figures that
   // were true the day before and stale the moment the wing sealed — each beside a receipt vouching for it. The
-  // live values are stampDrift()'s to compute and no comment's to repeat. The provenance is
+  // live values are stampGaps()'s to compute and no comment's to repeat. The provenance is
   // precisely what invites a reader to trust the figure, so a drifted stamp is a forged credential, not a typo.
   // A SERVED DESCRIPTION IS THE MOST LOAD-BEARING SENTENCE IN THE TREE — it is what a model reads to decide
   // whether to call a tool, and audit-citations never saw it: that finder holds the citation law over

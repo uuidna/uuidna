@@ -34,4 +34,4 @@ The vocabulary an agent forms theorems in is extracted from the record itself, n
 with its own handle. Terms are how theorems get named here, so the set is the ledger's own working language.
 
 MCP: `https://uuidna.com/mcp` (http) or `npx @uuidna/uuidna` (stdio). Start with `uuidna_unify` — one call,
-whole status. 2596 theorems, 116 principles, 254 tools.
+whole status. 2596 theorems, 116 principles, 255 tools.

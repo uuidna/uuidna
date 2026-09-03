@@ -86,8 +86,9 @@ export function stampSurfaces(write = true): { file: string; slots: string[]; ch
 // seven theorems left docs/doctrine.md telling readers the ledger held 2589 keys and 2506 distinct statements
 // when it held 2596 and 2513, with a receipt beside the numbers vouching for them. A stamped number carrying a
 // stale receipt is worse than an unstamped one, because the provenance is what invites the reader to trust it.
-/** stampDrift() → the surfaces whose stamped numbers no longer match the ledger. Reads only; writes nothing. */
-export function stampDrift(): { file: string; slots: string[] }[] {
+/** the surfaces whose stamped numbers no longer match the ledger. Reads only; writes nothing. Internal: the
+ *  finder below is the one public door, so guard and state cannot drift onto two different readings. */
+function stampDrift(): { file: string; slots: string[] }[] {
   return stampSurfaces(false).filter((d) => d.changed).map(({ file, slots }) => ({ file, slots }))
 }
 

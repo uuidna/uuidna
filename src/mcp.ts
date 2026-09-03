@@ -26,6 +26,7 @@ import {
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll, publicApiRegistry, searchFeed, runSequence } from './index.js'
+import { typeset, formulaCensus } from './formula.js'
 import {
   throughVoid, foldVortexReflection, vortexStrokeGateways, decodeVortexDashAngles,
   computeVortexInvariantsHold, developmentVortex, walkTour, livingFieldReport,
@@ -691,6 +692,19 @@ const TOOLS: Tool[] = ([
     description: 'The doubling circuit 1→2→4→8→7→5 — the vortex orbit of the units under ×2 mod 9, the DNA of the fold (5→1 closes the loop). Returns the array.',
     inputSchema: { type: 'object', properties: {} },
     run: () => vortexOrbit() },
+  { name: 'uuidna_latex',
+    description: 'TYPESET a sealed statement for publication: standard MathML for a page and TeX for a manuscript, derived from the Lean by src/formula.ts. A statement that is a formula is set as mathematics; one that is a Lean COMPUTATION (a fold, a filter, a range) is refused that treatment by name and returned as the source the kernel decided, because dressing a program as an equation is the one dishonest option. Without {key}, returns the census: how much of the ledger typesets exactly. Returns {key,classification,mathml,tex,refused} or {total,formula,program,refused}.',
+    inputSchema: { type: 'object', properties: { key: { type: 'string', description: 'theorem key; omit for the whole-ledger census' } } },
+    run: ({ key }) => {
+      if (key === undefined || key === null || String(key) === '') {
+        const c = formulaCensus(theorems().map((t) => t.statement))
+        return { total: c.total, formula: c.formula, program: c.program, refused: c.refused.length, manuscript: 'https://uuidna.com/uuidna-ledger.tex' }
+      }
+      const t = theorems().find((x) => x.key === String(key))
+      if (!t) return { error: `no sealed theorem under key ${String(key)}` }
+      const set = typeset(t.statement, 'block')
+      return { key: t.key, statement: t.statement, classification: set.classification, mathml: set.mathml, tex: set.tex, refused: set.refused }
+    } },
   { name: 'uuidna_through_void',
     description: 'Mirror through the void — throughVoid(d)=1−d mod 9 on 1..9, void 0 fixed; involution fixed only at 5 (mirror_fixed_five). Returns the mirrored digit.',
     inputSchema: { type: 'object', properties: { d: { type: 'number', description: 'digit 0..9' } }, required: ['d'] },

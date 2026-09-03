@@ -25,7 +25,7 @@ test('the three zones are handled as themselves: math, prose, source', () => {
   const e = theoremLatex(formula)
   assert.equal(e.refused, null)
   assert.match(e.tex, /\\\[\n  1 \\cdot 7 \\equiv 7 \\pmod\{9\}\n\\\]/, 'math is set as mathematics')
-  assert.match(e.tex, /\\begin\{verbatim\}\ntheorem mul9_1_7/, 'the Lean the kernel read is passed through untouched')
+  assert.match(e.tex, /\\begin\{lstlisting\}\[language=lean\]\ntheorem mul9_1_7/, 'the Lean is SET as Lean, characters untouched')
   assert.match(e.tex, /Content-address \\texttt\{/, 'an entry a reader cannot recompute is not a seal')
   // a program-shaped statement is NOT dressed as an equation
   const program = THEOREMS.find((t) => t.statement.includes('List.range'))
@@ -64,7 +64,7 @@ test('CONTROLS — the structural checker can fail, or it is not an instrument',
 })
 
 test('a source line that would close the environment early is REFUSED, not written', () => {
-  const e = theoremLatex({ key: 'k', name: 'n', statement: 's', lean: 'x \\end{verbatim} y' })
+  const e = theoremLatex({ key: 'k', name: 'n', statement: 's', lean: 'x \\end{lstlisting} y' })
   assert.equal(e.tex, '')
   assert.match(e.refused ?? '', /close the environment early/)
 })

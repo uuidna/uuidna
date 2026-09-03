@@ -30,3 +30,28 @@ test('CONTROL — an unsealed key IS caught, or the clean report means nothing',
   assert.deepEqual([...'uuidna_through_void'.matchAll(CITATION)].map((m) => m[0]), [], 'and must NOT match a tool name')
   assert.deepEqual([...'a plain english sentence'.matchAll(CITATION)].map((m) => m[0]), [], 'nor ordinary prose')
 })
+
+// THE LATEX DOOR. The typesetting was computed, tested and unreachable: lead 111 named it, and a capability with
+// no door is a capability the ledger cannot be asked about. These hold the contract the description promises —
+// including the refusal, which is the half most likely to be quietly dropped.
+test('uuidna_latex answers the census, one statement, and a key that is not sealed', async () => {
+  const { callTool } = await import('./mcp.js')
+  const census = callTool('uuidna_latex') as { total: number; formula: number; program: number; refused: number }
+  assert.equal(census.formula + census.program, census.total, 'the split must partition the ledger')
+  assert.equal(census.refused, 0, 'a formula-shaped statement that will not typeset is a gap, not a rounding')
+
+  const f = callTool('uuidna_latex', { key: 'mul9_1_7' }) as { classification: string; tex: string; mathml: string }
+  assert.equal(f.classification, 'formula')
+  assert.equal(f.tex, '1 \\cdot 7 \\equiv 7 \\pmod{9}', 'the standard congruence form, not the remainder form')
+  assert.match(f.mathml, /^<math /)
+
+  // a Lean COMPUTATION must be refused the treatment BY NAME — returning pseudo-mathematics here is the one
+  // dishonest option, and it is the one a future edit is most likely to add for the sake of a fuller answer
+  const p = callTool('uuidna_latex', { key: 'z7rays_seven' }) as { classification: string; tex: null; mathml: null }
+  assert.equal(p.classification, 'program')
+  assert.equal(p.tex, null)
+  assert.equal(p.mathml, null)
+
+  const missing = callTool('uuidna_latex', { key: 'nope_nope_nope' }) as { error: string }
+  assert.match(missing.error, /no sealed theorem/)
+})
