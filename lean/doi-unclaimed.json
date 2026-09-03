@@ -1,0 +1,580 @@
+{
+  "definition": "uuidnaOS·doi·unclaimed",
+  "note": "A subject is CLAIMED only when every asked door ANSWERED and none returned a DOI. A declined door makes the subject UNREAD — the absence of evidence is not evidence of absence, and claiming on a rate-limited silence would put the captain's name on somebody else's work.",
+  "claims": [
+    {
+      "subject": "Applied structure — the science pairs",
+      "asked": 10,
+      "answering": 8,
+      "rows": 18,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429",
+        "dblp: responded 503"
+      ],
+      "priorArtDois": [
+        "10.83263/6s52-n233",
+        "10.5281/zenodo.18359260",
+        "10.5281/zenodo.18359261",
+        "10.1063/5.0173901",
+        "10.1002/anie.4944842",
+        "10.1016/j.jcis.2026.141371",
+        "10.1016/j.biosystems.2026.105881",
+        "10.1103/PhysRevC.102.024310",
+        "10.1109/ECIE65947.2025.11086805",
+        "10.1515/bams-2013-0106",
+        "10.1371/journal.pcbi.1006341",
+        "10.1371/journal.pone.0143245",
+        "10.1371/journal.pcbi.1008173"
+      ]
+    },
+    {
+      "subject": "Division by zero",
+      "asked": 10,
+      "answering": 9,
+      "rows": 21,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.18259923",
+        "10.5281/zenodo.22284657",
+        "10.5281/zenodo.21717018",
+        "10.36285/tm.53",
+        "10.20944/preprints202402.1134.v1",
+        "10.20944/preprints202304.0007.v1",
+        "10.64898/2026.08.26.747344",
+        "10.1080/00207721.2016.1139761",
+        "10.1007/S10849-025-09438-8",
+        "10.1007/S10849-024-09420-W",
+        "10.1103/PhysRevLett.127.270502",
+        "10.1038/s41467-023-37721-4",
+        "10.1371/journal.pone.0208203",
+        "10.1371/journal.pcbi.1012465",
+        "10.1371/journal.pcbi.1002889"
+      ]
+    },
+    {
+      "subject": "Ported from millennium-solutions",
+      "asked": 10,
+      "answering": 9,
+      "rows": 12,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.20415542",
+        "10.5281/zenodo.20108502",
+        "10.5281/zenodo.20101598",
+        "10.1002/mrm.70067",
+        "10.1371/journal.pone.0182565",
+        "10.1371/journal.pone.0097409",
+        "10.1371/journal.pmed.0040241"
+      ]
+    },
+    {
+      "subject": "Self-discovered",
+      "asked": 10,
+      "answering": 9,
+      "rows": 21,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.20318040",
+        "10.5281/zenodo.20318459",
+        "10.5281/zenodo.20667906",
+        "10.1109/iccw.2011.5963605",
+        "10.9734/bpi/etdhr/v7/15872D",
+        "10.9734/sajsse/2024/v21i4795",
+        "10.1097/ncc.0000000000000861",
+        "10.1136/bmjopen-2015-009863",
+        "10.1371/journal.pone.0110262",
+        "10.1109/TII.2025.3631442",
+        "10.48550/ARXIV.2604.07126",
+        "10.48550/ARXIV.2605.31053",
+        "10.1088/1742-6596/600/1/012003",
+        "10.1142/S0217979221500193",
+        "10.1016/0370-2693(93)90228-A",
+        "10.1371/journal.pcbi.1011509",
+        "10.1371/journal.pone.0113901",
+        "10.1371/journal.pone.0296088"
+      ]
+    },
+    {
+      "subject": "The 8×8 core",
+      "asked": 10,
+      "answering": 9,
+      "rows": 18,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.20725366",
+        "10.5281/zenodo.22288151",
+        "10.5281/zenodo.21499800",
+        "10.1016/j.talanta.2026.130450",
+        "10.1002/prp2.70286",
+        "10.1038/s41598-026-64385-z",
+        "10.1063/1.5117843",
+        "10.1145/3558583.3558846",
+        "10.1093/mnras/stz1030",
+        "10.1371/journal.pone.0331921",
+        "10.1371/journal.pone.0213158",
+        "10.1371/journal.pone.0123704"
+      ]
+    },
+    {
+      "subject": "The OS-integrity algebra",
+      "asked": 10,
+      "answering": 8,
+      "rows": 9,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429",
+        "dblp: responded 503"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.18359260",
+        "10.5281/zenodo.18359261",
+        "10.5281/zenodo.22285060",
+        "10.1177/15330338261426225",
+        "10.1097/md.0000000000046962",
+        "10.1371/journal.pone.0341637",
+        "10.1371/journal.pone.0262329",
+        "10.1371/journal.pone.0250939",
+        "10.1371/journal.pcbi.1005929"
+      ]
+    },
+    {
+      "subject": "The Platonic solids in every dimension",
+      "asked": 10,
+      "answering": 9,
+      "rows": 13,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.22160757",
+        "10.5281/zenodo.22160756",
+        "10.5281/zenodo.22160479",
+        "10.70675/8940a9d7z50faz4d9azbea3zf4b8218c214e",
+        "10.3390/molecules30030462",
+        "10.1038/s41598-024-75193-8",
+        "10.1098/rsta.2023.0352",
+        "10.1007/s00006-021-01139-2",
+        "10.1088/1751-8121/acd918",
+        "10.1371/journal.pcbi.1001125",
+        "10.1371/journal.pone.0313863",
+        "10.1371/journal.pone.0217270"
+      ]
+    },
+    {
+      "subject": "The algebra of the neuron",
+      "asked": 10,
+      "answering": 9,
+      "rows": 20,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.19166934",
+        "10.5281/zenodo.19166935",
+        "10.5281/zenodo.17681597",
+        "10.3389/fncel.2015.00067",
+        "10.3390/e28050498",
+        "10.1007/s00285-026-02415-0",
+        "10.22541/au.173990736.62275159/v1",
+        "10.1007/S12021-012-9146-1",
+        "10.1103/wvbd-j5rw",
+        "10.1142/S0219691320400019",
+        "10.1051/0004-6361/201321230",
+        "10.1371/journal.pcbi.1005922",
+        "10.1371/journal.pcbi.1003710",
+        "10.1371/journal.pone.0343312"
+      ]
+    },
+    {
+      "subject": "The audit game",
+      "asked": 10,
+      "answering": 9,
+      "rows": 20,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.21829217",
+        "10.5281/zenodo.21829218",
+        "10.5281/zenodo.20730146",
+        "10.21203/rs.3.rs-10068229/v1",
+        "10.21203/rs.3.rs-10024468/v1",
+        "10.21203/rs.3.rs-10232116/v1",
+        "10.37789/ICUSI.2024.12",
+        "10.1145/3549516",
+        "10.1038/s41467-026-74620-w",
+        "10.1371/journal.pone.0117212",
+        "10.1371/journal.pone.0276212",
+        "10.1371/journal.pone.0188358"
+      ]
+    },
+    {
+      "subject": "The cipher & the strand",
+      "asked": 10,
+      "answering": 9,
+      "rows": 13,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.83263/brbk-6t86",
+        "10.5281/zenodo.22150344",
+        "10.5281/zenodo.22150343",
+        "10.1002/advs.202409586",
+        "10.1038/s41467-025-66338-y",
+        "10.1186/s12981-025-00826-5",
+        "10.1109/MNET.2025.3645793",
+        "10.1371/journal.pone.0245506",
+        "10.1371/journal.pone.0306818",
+        "10.1371/journal.pone.0179173"
+      ]
+    },
+    {
+      "subject": "The detectors, proven",
+      "asked": 10,
+      "answering": 9,
+      "rows": 18,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.19673187",
+        "10.5281/zenodo.21717018",
+        "10.5281/zenodo.20130642",
+        "10.1088/1748-0221/13/02/C02021",
+        "10.1109/NSSMIC.2014.7431067",
+        "10.1039/d5mh02084k",
+        "10.3390/molecules31122013",
+        "10.1109/tcyb.2025.3641593",
+        "10.1016/0168-9002(96)00683-3",
+        "10.1371/journal.pone.0063096",
+        "10.1371/journal.pone.0255792",
+        "10.1371/journal.pone.0173666"
+      ]
+    },
+    {
+      "subject": "The exploit folds",
+      "asked": 10,
+      "answering": 8,
+      "rows": 18,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429",
+        "dblp: responded 503"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.20789774",
+        "10.5281/zenodo.20789775",
+        "10.48350/196061",
+        "10.1101/2024.05.17.594352",
+        "10.3847/1538-4365/ab6324",
+        "10.64898/2026.03.27.712717",
+        "10.1371/journal.ppat.1014382",
+        "10.1128/spectrum.03824-25",
+        "10.1007/s00220-024-05153-w",
+        "10.1007/JHEP04(2026)049",
+        "10.1371/journal.pone.0228439",
+        "10.1371/journal.pbio.0030370",
+        "10.1371/journal.pone.0287869"
+      ]
+    },
+    {
+      "subject": "The hardware-verifiable binary algebra",
+      "asked": 10,
+      "answering": 9,
+      "rows": 12,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.18359260",
+        "10.5281/zenodo.18359261",
+        "10.5281/zenodo.20640275",
+        "10.1038/s41598-025-34065-5",
+        "10.1038/s41598-026-39296-8",
+        "10.1038/s41598-026-48255-2",
+        "10.1371/journal.pone.0356172",
+        "10.1371/journal.pone.0330976",
+        "10.1371/journal.pone.0233625"
+      ]
+    },
+    {
+      "subject": "The legal vocabulary",
+      "asked": 10,
+      "answering": 9,
+      "rows": 16,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.23660/voado-681",
+        "10.5281/zenodo.21310402",
+        "10.5281/zenodo.21310403",
+        "10.70838/pemj.481008",
+        "10.1371/journal.pone.0352766",
+        "10.20944/preprints202608.0177.v1",
+        "10.1016/j.forsciint.2026.113110",
+        "10.1371/journal.pone.0206442",
+        "10.1371/journal.pone.0059601"
+      ]
+    },
+    {
+      "subject": "The physics infinities, made finite",
+      "asked": 10,
+      "answering": 9,
+      "rows": 15,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.18359260",
+        "10.5281/zenodo.18359261",
+        "10.5281/zenodo.17508635",
+        "10.3390/e26070604",
+        "10.1038/s41567-025-03086-2",
+        "10.3390/e28040425",
+        "10.1142/S0217751X14300075",
+        "10.1016/j.nuclphysb.2023.116172",
+        "10.1371/journal.pone.0274461",
+        "10.1371/journal.pone.0116993",
+        "10.1371/journal.pone.0308997"
+      ]
+    },
+    {
+      "subject": "The quantum computer",
+      "asked": 10,
+      "answering": 9,
+      "rows": 21,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.21861354",
+        "10.5281/zenodo.21861355",
+        "10.5281/zenodo.21820974",
+        "10.9734/bpi/ctmcs/v9/4204F",
+        "10.1038/d41586-026-01702-6",
+        "10.3390/e28070717",
+        "10.1126/science.aei2484",
+        "10.2200/S01014ED1V01Y202005CAC051",
+        "10.1142/14788",
+        "10.1007/S11128-019-2288-4",
+        "10.1038/nature23458",
+        "10.1109/HOST55118.2023.10133711",
+        "10.1371/journal.pone.0316274",
+        "10.1371/journal.pone.0304317",
+        "10.1371/journal.pone.0029417"
+      ]
+    },
+    {
+      "subject": "The ring ℤ/9",
+      "asked": 10,
+      "answering": 9,
+      "rows": 19,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.21418231",
+        "10.5281/zenodo.21385550",
+        "10.5281/zenodo.21861788",
+        "10.1016/j.finel.2010.04.004",
+        "10.21203/rs.3.rs-7435743/v1",
+        "10.21203/rs.3.rs-7417236/v1",
+        "10.1016/j.isci.2025.114256",
+        "10.1021/ACS.JCIM.1C00761",
+        "10.1021/CI00057A001",
+        "10.1016/J.JFRANKLIN.2023.02.003",
+        "10.1007/JHEP03(2024)119",
+        "10.1007/JHEP11(2016)101",
+        "10.1007/JHEP08(2026)141",
+        "10.1371/journal.pone.0318182"
+      ]
+    },
+    {
+      "subject": "The rosette ℤ/7",
+      "asked": 10,
+      "answering": 9,
+      "rows": 7,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.21819217",
+        "10.1051/0004-6361/201321235"
+      ]
+    },
+    {
+      "subject": "The sanitise standards",
+      "asked": 10,
+      "answering": 9,
+      "rows": 12,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.21056571",
+        "10.5281/zenodo.21056572",
+        "10.60692/cmdc2-tt603",
+        "10.1136/bmjopen-2025-102835",
+        "10.1136/bmjgh-2025-023363",
+        "10.1007/s13224-023-01836-x",
+        "10.1371/journal.pmed.1001700",
+        "10.1371/journal.pone.0236711",
+        "10.1371/journal.pone.0250269"
+      ]
+    },
+    {
+      "subject": "The sequence & reflection group",
+      "asked": 10,
+      "answering": 9,
+      "rows": 18,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.14788187",
+        "10.5281/zenodo.20102244",
+        "10.5281/zenodo.18359260",
+        "10.1051/0004-6361/201731494",
+        "10.1051/0004-6361:20078511",
+        "10.21203/rs.3.rs-9505300/v1",
+        "10.1039/d6sc01773h",
+        "10.3205/zma001856",
+        "10.1063/1.1665612",
+        "10.1007/s00031-015-9314-0",
+        "10.1103/PhysRevA.97.052314",
+        "10.1371/journal.pone.0086535",
+        "10.1371/journal.pone.0222064",
+        "10.1371/journal.pcbi.0020150"
+      ]
+    },
+    {
+      "subject": "The seven reflected",
+      "asked": 10,
+      "answering": 9,
+      "rows": 18,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.20446688",
+        "10.5281/zenodo.20446689",
+        "10.83263/raq5-n418",
+        "10.13009/AO4ELT7-2023-063",
+        "10.20944/preprints202608.0568.v1",
+        "10.7759/cureus.113590",
+        "10.3847/1538-4357/acca17",
+        "10.1103/PhysRevD.75.024024",
+        "10.1093/mnras/stt1721",
+        "10.1371/journal.pone.0143709",
+        "10.1371/journal.pone.0274217",
+        "10.1371/journal.pone.0096653"
+      ]
+    },
+    {
+      "subject": "The software-verifiable algebra",
+      "asked": 10,
+      "answering": 9,
+      "rows": 14,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.18359260",
+        "10.5281/zenodo.18359261",
+        "10.5281/zenodo.22070121",
+        "10.1038/s41598-026-40842-7",
+        "10.1038/s41586-025-09833-y",
+        "10.1371/journal.pone.0325950",
+        "10.1371/journal.pone.0326301",
+        "10.1371/journal.pcbi.1005751",
+        "10.1371/journal.pone.0327593"
+      ]
+    },
+    {
+      "subject": "The two coins & the 64",
+      "asked": 10,
+      "answering": 9,
+      "rows": 18,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.21756406",
+        "10.5281/zenodo.21756407",
+        "10.5281/zenodo.18233709",
+        "10.1111/desc.70205",
+        "10.47895/amp.vi0.12313",
+        "10.1186/s12984-026-01950-7",
+        "10.1209/0295-5075/124/60009",
+        "10.1038/s41534-021-00401-6",
+        "10.1371/journal.pone.0005206",
+        "10.1371/journal.pone.0274285",
+        "10.1371/journal.pone.0253751"
+      ]
+    },
+    {
+      "subject": "The vortex algebra",
+      "asked": 10,
+      "answering": 9,
+      "rows": 18,
+      "verdict": "PRIOR-ART",
+      "declined": [
+        "openalex-sources: responded 429"
+      ],
+      "priorArtDois": [
+        "10.5281/zenodo.22287840",
+        "10.5281/zenodo.22178675",
+        "10.5281/zenodo.19329315",
+        "10.1016/j.jcp.2016.06.050",
+        "10.1016/j.jcp.2015.09.045",
+        "10.20944/preprints202607.0073.v1",
+        "10.20944/preprints202605.1897.v1",
+        "10.1364/oe.22.011079",
+        "10.1103/PhysRevD.45.3690",
+        "10.1007/s00220-022-04375-0",
+        "10.1007/s11005-017-0986-3",
+        "10.1371/journal.pone.0225265",
+        "10.1371/journal.pone.0212442",
+        "10.1371/journal.pone.0301423"
+      ]
+    }
+  ],
+  "counts": {
+    "claimed": 0,
+    "priorArt": 24,
+    "unread": 0
+  },
+  "receipt": "d114ed41-ad49-8708-b562-2b9e8d0be979",
+  "handle": "d114ed41"
+}

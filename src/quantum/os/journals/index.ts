@@ -38,7 +38,7 @@ export interface JournalDoor {
   level: JournalLevel
   /** the operator's OWN published scope: 'all' subjects, or the fields it names */
   subjects: 'all' | readonly string[]
-  access: 'keyless' | 'mailto-polite'
+  access: 'keyless' | 'mailto-polite' | 'budgeted'
   honest: string
 }
 
@@ -98,8 +98,13 @@ export const JOURNAL_DOORS: readonly JournalDoor[] = [
     honest: 'The Directory of Open Access Journals — the journal-level index of peer-reviewed open access across every subject, each entry carrying its own LCC subject terms.' },
   { id: 'crossref-journals', host: 'api.crossref.org', base: 'https://api.crossref.org/journals', level: 'journal', subjects: 'all', access: 'mailto-polite',
     honest: 'Crossref at the JOURNAL level: titles, ISSNs and publishers for anything with a registered DOI prefix. The article half of this API is already in the research sweep.' },
-  { id: 'openalex-sources', host: 'api.openalex.org', base: 'https://api.openalex.org/sources', level: 'journal', subjects: 'all', access: 'mailto-polite',
-    honest: 'OpenAlex /sources — journals, conference series and repositories as first-class records with ISSN-L. The works half is already in the research sweep.' },
+  // BUDGETED, not polite — corrected 2026-09-04 by asking it. The mailto was configured and the requests were
+  // paced, and it still answered 429: "Insufficient budget. This request costs $0.001 but you only have $0
+  // remaining. Resets at midnight UTC", with retry-after 4414. So this door is metered now, and calling it
+  // mailto-polite told a reader the free pool was reachable when the free pool is a daily allowance that runs
+  // out. A sweep still ASKS it — a declined door is a real state and still forbids any claim of absence.
+  { id: 'openalex-sources', host: 'api.openalex.org', base: 'https://api.openalex.org/sources', level: 'journal', subjects: 'all', access: 'budgeted',
+    honest: 'OpenAlex /sources — journals, conference series and repositories as first-class records with ISSN-L. METERED: a daily budget in USD, and a request past it is refused until midnight UTC. The works half is already in the research sweep.' },
   { id: 'datacite', host: 'api.datacite.org', base: 'https://api.datacite.org/dois', level: 'article', subjects: 'all', access: 'keyless',
     honest: 'DataCite DOIs — datasets, software and preprints across every subject. A DOI is provenance; nothing here is peer review.' },
   { id: 'hal', host: 'api.archives-ouvertes.fr', base: 'https://api.archives-ouvertes.fr/search/', level: 'article', subjects: 'all', access: 'keyless',

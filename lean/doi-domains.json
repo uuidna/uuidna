@@ -1,0 +1,369 @@
+{
+  "definition": "uuidnaOS·doi·domains",
+  "note": "Every DOI domain the prior-art sweep met, with the owner as its AGENCY names it — Crossref first, then DataCite. A prefix neither agency names keeps an empty owner rather than a placeholder. Derived from the same sweep as lean/doi-unclaimed.json; DOI_PREFIXES stays the hand-verified core the code reasons about.",
+  "prefixes": 51,
+  "named": 51,
+  "alreadyOnFile": 7,
+  "priorArtDois": 276,
+  "domains": [
+    {
+      "prefix": "10.1371",
+      "count": 71,
+      "owner": "Public Library of Science (PLoS)",
+      "agency": "crossref",
+      "note": "on file"
+    },
+    {
+      "prefix": "10.5281",
+      "count": 64,
+      "owner": "Zenodo",
+      "agency": "datacite",
+      "note": "on file"
+    },
+    {
+      "prefix": "10.1007",
+      "count": 15,
+      "owner": "Springer Science and Business Media LLC",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1038",
+      "count": 14,
+      "owner": "Springer Science and Business Media LLC",
+      "agency": "crossref",
+      "note": "on file"
+    },
+    {
+      "prefix": "10.1016",
+      "count": 12,
+      "owner": "Elsevier BV",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1109",
+      "count": 7,
+      "owner": "Institute of Electrical and Electronics Engineers (IEEE)",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1103",
+      "count": 6,
+      "owner": "American Physical Society (APS)",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.20944",
+      "count": 6,
+      "owner": "MDPI AG",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.21203",
+      "count": 6,
+      "owner": "Research Square Platform LLC",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.3390",
+      "count": 6,
+      "owner": "MDPI AG",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1002",
+      "count": 4,
+      "owner": "Wiley",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1051",
+      "count": 4,
+      "owner": "EDP Sciences",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1142",
+      "count": 4,
+      "owner": "World Scientific Pub Co Pte Ltd",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1063",
+      "count": 3,
+      "owner": "AIP Publishing",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1088",
+      "count": 3,
+      "owner": "IOP Publishing",
+      "agency": "crossref",
+      "note": "on file"
+    },
+    {
+      "prefix": "10.1136",
+      "count": 3,
+      "owner": "BMJ",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.83263",
+      "count": 3,
+      "owner": "registered with DataCite",
+      "agency": "datacite",
+      "note": "resolved from DataCite"
+    },
+    {
+      "prefix": "10.9734",
+      "count": 3,
+      "owner": "Sciencedomain International",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1021",
+      "count": 2,
+      "owner": "American Chemical Society (ACS)",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1039",
+      "count": 2,
+      "owner": "Royal Society of Chemistry (RSC)",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1093",
+      "count": 2,
+      "owner": "Oxford University Press (OUP)",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1097",
+      "count": 2,
+      "owner": "Ovid Technologies (Wolters Kluwer Health)",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1145",
+      "count": 2,
+      "owner": "Association for Computing Machinery (ACM)",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1186",
+      "count": 2,
+      "owner": "Springer Science and Business Media LLC",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.3847",
+      "count": 2,
+      "owner": "American Astronomical Society",
+      "agency": "crossref",
+      "note": "on file"
+    },
+    {
+      "prefix": "10.48550",
+      "count": 2,
+      "owner": "registered with DataCite",
+      "agency": "datacite",
+      "note": "on file"
+    },
+    {
+      "prefix": "10.64898",
+      "count": 2,
+      "owner": "openRxiv",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1080",
+      "count": 1,
+      "owner": "Informa UK Limited",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1098",
+      "count": 1,
+      "owner": "The Royal Society",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1101",
+      "count": 1,
+      "owner": "Cold Spring Harbor Laboratory",
+      "agency": "crossref",
+      "note": "on file"
+    },
+    {
+      "prefix": "10.1111",
+      "count": 1,
+      "owner": "Wiley",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1126",
+      "count": 1,
+      "owner": "American Association for the Advancement of Science (AAAS)",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1128",
+      "count": 1,
+      "owner": "American Society for Microbiology",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1177",
+      "count": 1,
+      "owner": "SAGE Publications",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1209",
+      "count": 1,
+      "owner": "IOP Publishing",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.13009",
+      "count": 1,
+      "owner": "registered with DataCite",
+      "agency": "datacite",
+      "note": "resolved from DataCite"
+    },
+    {
+      "prefix": "10.1364",
+      "count": 1,
+      "owner": "Optica Publishing Group",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.1515",
+      "count": 1,
+      "owner": "Walter de Gruyter GmbH",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.2200",
+      "count": 1,
+      "owner": "Morgan & Claypool Publishers LLC",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.22541",
+      "count": 1,
+      "owner": "Authorea, Inc.",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.23660",
+      "count": 1,
+      "owner": "registered with DataCite",
+      "agency": "datacite",
+      "note": "resolved from DataCite"
+    },
+    {
+      "prefix": "10.3205",
+      "count": 1,
+      "owner": "registered with DataCite",
+      "agency": "datacite",
+      "note": "resolved from DataCite"
+    },
+    {
+      "prefix": "10.3389",
+      "count": 1,
+      "owner": "Frontiers Media SA",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.36285",
+      "count": 1,
+      "owner": "Transmathematica",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.37789",
+      "count": 1,
+      "owner": "Matrix Rom",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.47895",
+      "count": 1,
+      "owner": "University of the Philippines Manila",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.48350",
+      "count": 1,
+      "owner": "registered with DataCite",
+      "agency": "datacite",
+      "note": "resolved from DataCite"
+    },
+    {
+      "prefix": "10.60692",
+      "count": 1,
+      "owner": "registered with DataCite",
+      "agency": "datacite",
+      "note": "resolved from DataCite"
+    },
+    {
+      "prefix": "10.70675",
+      "count": 1,
+      "owner": "Agence Bibliographique de l'Enseignement Supérieur",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.70838",
+      "count": 1,
+      "owner": "Innovative Scholars and Researchers Alliance",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    },
+    {
+      "prefix": "10.7759",
+      "count": 1,
+      "owner": "Cureus, Inc.",
+      "agency": "crossref",
+      "note": "resolved from Crossref"
+    }
+  ],
+  "receipt": "59aa4127-6e0a-8e99-af7f-6394db7e7530",
+  "handle": "59aa4127"
+}

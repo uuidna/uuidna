@@ -15,7 +15,9 @@ export interface PublicApiEntry {
   host: string
   base: string
   kind: PublicApiKind
-  access: 'keyless' | 'mailto-polite' | 'post' | 'served-not-fetched' | 'metadata-only'
+  /** `budgeted` = metered in money: a daily allowance, and a request past it is refused until it resets
+   *  (OpenAlex, corrected 2026-09-04 by asking it — the mailto reaches a POOL, not an entitlement) */
+  access: 'keyless' | 'mailto-polite' | 'post' | 'served-not-fetched' | 'metadata-only' | 'budgeted'
   direction: 'fetched' | 'served' | 'metadata-only'
   sweep: boolean
   heartbeat: boolean

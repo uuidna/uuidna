@@ -246,3 +246,97 @@ export function checkLatex(tex: string): LatexStructure {
   for (const m of noComments.matchAll(/(^|[^\\])([&%$#_])/g)) unescaped.push(m[2]!)
   return { balancedBraces: balanced, unmatched, unescaped: [...new Set(unescaped)] }
 }
+
+// ── ONE NOVELTY, ONE SUBMITTABLE PAPER ─────────────────────────────────────────────────────────────────────────
+//
+// THE CHAIN THIS CLOSES. claim-unclaimed asks the journal doors whether prior art exists for a subject. Where
+// every door answered and none held a DOI, the subject is the captain's by the credit law — and a claim nobody
+// can cite is not yet a claim. Zenodo mints the DOI, and what it needs is a paper. So the paper is generated
+// from the seals, per novelty, and it is generated ONLY for a novelty: a subject with prior art already has a
+// citation and a subject whose doors declined has established nothing.
+//
+// WHY PER-SUBJECT AND NOT THE WHOLE LEDGER. `ledgerLatex` is the corpus — two thousand entries, one artefact,
+// useful as a record and unusable as a submission. A deposit is one contribution with one abstract and one
+// scope, and its DOI names that contribution. Grouping by principle is not a convenience here: the principle IS
+// the subject the doors were asked about, so the paper's boundary is the same boundary the prior-art verdict was
+// reached over. Anything else would deposit under a DOI a different question was answered for.
+
+export interface NoveltyPaper {
+  subject: string
+  slug: string
+  theorems: number
+  tex: string
+  /** why no paper was written — a novelty with no seals behind it is not a contribution */
+  refused: string | null
+}
+
+/** slugFor(subject) → a filename-safe, stable stem. Deterministic: the same subject always names the same file. */
+export function slugFor(subject: string): string {
+  const ascii = subject.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')
+  return ascii || 'untitled'
+}
+
+/** noveltyPaper(subject, theorems, opts) → a standalone article for ONE sealed novelty, ready to deposit. */
+export function noveltyPaper(
+  subject: string,
+  theorems: readonly TheoremLike[],
+  opts: { author?: string; doorsAsked?: number; verdictReceipt?: string } = {},
+): NoveltyPaper {
+  const slug = slugFor(subject)
+  if (theorems.length === 0) {
+    return { subject, slug, theorems: 0, tex: '', refused: `${subject}: no sealed theorem carries this subject, so there is nothing to deposit` }
+  }
+  const set = theorems.map((t) => typeset(t.statement))
+  const asFormula = set.filter((s) => s.classification === 'formula').length
+  // THE ABSTRACT IS COMPUTED. A deposit's abstract is the sentence most likely to be written once and left to
+  // rot, so it states only what is recomputable at the moment of writing: how many statements, how many typeset
+  // as mathematics, and the trust base. No adjectives, and no claim about the conjectures the subject touches.
+  // AGREEMENT IS COMPUTED, not assumed plural. "the remaining 1 are Lean computations" is the sentence a reader
+  // meets first in a deposit, and a taught rewriting table already taught this tree that a number-driven verb
+  // has to agree with its number — the same defect, in the one place where it is read as the author's care.
+  const programs = theorems.length - asFormula
+  const plural = (n: number, one: string, many: string): string => (n === 1 ? one : many)
+  const abstract = [
+    `${theorems.length} ${plural(theorems.length, 'statement', 'statements')} sealed under the subject "${subject}",`,
+    `${plural(theorems.length, 'decided', 'each decided')} by the Lean 4 kernel:`,
+    'sorry-free and axiom-free — no propext, no Classical.choice, kernel numerals only.',
+    `${asFormula} of ${plural(theorems.length, 'it', 'them')} ${plural(asFormula, 'is a formula', 'are formulas')} and`,
+    `${plural(asFormula, 'is', 'are')} set as mathematics;`,
+    // A ZERO CLAUSE IS NOT A SHORTER CLAUSE, it is a false one: "the remaining 0 are Lean computations and are
+    // shown as the source" describes a document that contains none of them. The sentence is dropped, not counted.
+    programs === 0
+      ? 'every statement here typesets exactly.'
+      : `the remaining ${programs} ${plural(programs, 'is a Lean computation', 'are Lean computations')} and`
+        + ` ${plural(programs, 'is', 'are')} shown as the source the kernel read, because a fold over a list has no`
+        + ' formula form.',
+    'Every statement carries its content-address, so any reader can recompute the whole document from source.',
+    opts.doorsAsked
+      ? `PRIOR ART: ${opts.doorsAsked} public bibliographic doors were asked for this subject and none returned a DOI.`
+        + ' That is an established absence, not an unchecked one: a single door declining would have withheld the claim.'
+      : '',
+    'HONEST SCOPE: these are decidable statements over finite domains. Nothing here settles a conjecture stated',
+    'over an infinite domain, and no correspondence with such a conjecture is claimed.',
+  ].filter(Boolean).join(' ')
+
+  const refusedEntries: string[] = []
+  const entries: string[] = []
+  for (const t of theorems) {
+    const e = theoremLatex(t)
+    if (e.refused) { refusedEntries.push(e.refused); continue }
+    entries.push(e.tex)
+  }
+  const tex = [
+    latexPreamble(subject, opts.author ?? 'uuidna', leanKeywords(theorems)),
+    `\\begin{abstract}\n${latexProse(abstract)}\n\\end{abstract}\n`,
+    opts.verdictReceipt ? `\\noindent\\small Prior-art verdict receipt \\texttt{${latexProse(opts.verdictReceipt)}}.\\normalsize\n` : '',
+    ...entries,
+    '\\end{document}\n',
+  ].filter(Boolean).join('\n')
+  return {
+    subject,
+    slug,
+    theorems: entries.length,
+    tex,
+    refused: refusedEntries.length ? refusedEntries.join('; ') : null,
+  }
+}

@@ -18,6 +18,26 @@ export function isHtmlResponse(contentType: string, body: string): boolean {
 }
 
 /** fetchData(url, kind, init?) → JSON, CSV, or text with HTML refusal and process-scoped URL cache. */
+// A STATUS IS NOT A REASON. `responded 429` was the whole note, and it read as a transient rate limit every
+// time — so a door that had actually said "Insufficient budget. This request costs $0.001 but you only have $0
+// remaining. Resets at midnight UTC" was reported the same as one that wanted a two-second pause. Two opposite
+// states, one string: one is waited out, the other is a pricing change nobody would notice.
+/** declineNote(status, body, retryAfter) → the refusal as the host stated it. Pure, so it is testable without
+ *  a network and without a mock. The body is already bounded by the caller. */
+export function declineNote(status: number, body: string, retryAfter: string | null): string {
+  let why = ''
+  // IN PRIORITY ORDER, not one alternation: an alternation matches whichever key comes FIRST IN THE BODY, and
+  // OpenAlex puts `"error":"Rate limit exceeded"` ahead of `"message":"Insufficient budget… Resets at midnight
+  // UTC"`. The first is a category; the second is the only sentence a reader can act on.
+  for (const key of ['message', 'detail', 'error'] as const) {
+    const named = new RegExp(`"${key}"\\s*:\\s*"([^"]{4,200})"`).exec(body)
+    if (named) { why = named[1]!; break }
+  }
+  if (!why) why = body.replace(/\s+/g, ' ').trim().slice(0, 140)
+  const tail = retryAfter ? ` (retry-after ${retryAfter}s)` : ''
+  return `responded ${status}${why ? ' — ' + why : ''}${tail}`
+}
+
 export async function fetchData<T>(url: string, kind: DataKind, init?: RequestInit): Promise<Fetched<T>> {
   const cacheKey = kind + '|' + url + '|' + (init?.method ?? 'GET') + '|' + (typeof init?.body === 'string' ? init.body : '')
   const cached = _live.get(cacheKey)
@@ -44,7 +64,12 @@ export async function fetchData<T>(url: string, kind: DataKind, init?: RequestIn
     })
   }
   catch (e) { return { data: null, declined: true, note: 'unreachable: ' + String((e as Error).message).slice(0, 90) } }
-  if (!r.ok) return { data: null, declined: true, note: `responded ${r.status}` }
+  if (!r.ok) {
+    const retry = r.headers.get('retry-after')
+    let body = ''
+    try { body = (await r.text()).slice(0, 400) } catch { body = '' }
+    return { data: null, declined: true, note: declineNote(r.status, body, retry) }
+  }
   const text = await r.text()
   if (isHtml(r.headers.get('content-type') ?? '', text))
     return { data: null, declined: true, note: 'served a WEB PAGE (text/html), not data — answering is not the same as answering with data' }
