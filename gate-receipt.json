@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "d184185d6c1ad8714dedd4dfe97a4160",
+    "src": "f7ccd1ac90bfbb9759abcd133e0ddbfb",
     "lean": "82db38e6aeb131e6cacd8f2ad63e6c1b"
   },
   "files": {
@@ -3618,7 +3618,7 @@
     "src/quantum/memory/index.ts": "c1a6fdac0fe707db",
     "src/quantum/message/index.ts": "0b9ec596de0c33f0",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "ea74100d66c6136b",
+    "src/quantum/models/mirror.ts": "8acf53265cb7200d",
     "src/quantum/os/aas/index.test.ts": "63b9d3e4bf6e7e75",
     "src/quantum/os/aas/index.ts": "5e5d581164c75e79",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",
@@ -3648,7 +3648,7 @@
     "src/quantum/os/chat/index.test.ts": "2c9c81ee992c4457",
     "src/quantum/os/chat/index.ts": "43858f60f86ac4a5",
     "src/quantum/os/cli/index.test.ts": "06f0496fc0a6d907",
-    "src/quantum/os/cli/index.ts": "e651710f2a1e566d",
+    "src/quantum/os/cli/index.ts": "2bb28f9a266a790b",
     "src/quantum/os/court/index.ts": "13e98700ecc5a60c",
     "src/quantum/os/coverage/index.ts": "15556178decd7114",
     "src/quantum/os/cryptoapps/index.test.ts": "a4b47fbefda571d2",

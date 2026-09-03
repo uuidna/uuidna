@@ -380,8 +380,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-chat",
    "name": "DeepSeek: DeepSeek V3",
    "contextTokens": 163840,
-   "promptPrice": "0.0000002574",
-   "completionPrice": "0.0000010287"
+   "promptPrice": "0.00000032",
+   "completionPrice": "0.00000089"
   },
   {
    "id": "deepseek/deepseek-chat-v3-0324",
@@ -464,8 +464,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash-vision-exp",
    "name": "DeepSeek: DeepSeek V4 Flash Vision Exp",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000044",
-   "completionPrice": "0.00000132"
+   "promptPrice": "0.00000022",
+   "completionPrice": "0.00000066"
   },
   {
    "id": "deepseek/deepseek-v4-pro",
@@ -2977,8 +2977,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.000001106",
-   "completionPrice": "0.000003476"
+   "promptPrice": "0.00000112",
+   "completionPrice": "0.00000352"
   }
  ]
 }
