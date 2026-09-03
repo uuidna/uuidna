@@ -6,6 +6,8 @@
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { landingGaps } from './landing-gaps.js'
 import { impossibilityGaps } from './impossibility-gaps.js'
+import { stampGaps } from './stamp.js'
+import { mcpCitationGaps } from '../mcp-citations.js'
 import { ratchetGaps } from './ratchet-gaps.js'
 import { leakGaps } from './leak-scan.js'
 import { RATCHETS } from './ratchets.js'
@@ -258,6 +260,19 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // A MEASURE MAY NOT BE LOOSENED TO FIT A RESULT. Runs the ratchets: each live measurement against the value
   // sealed in the ledger, and the measure's OWN address before the reading — because a number checked against a
   // ceiling set by a different ruler is worse than an unchecked number, it is a confident verdict about nothing.
+  // A STAMPED NUMBER WITH A STALE RECEIPT IS WORSE THAN AN UNSTAMPED ONE. stamp.js fills every ledger slot on
+  // every surface and runs inside `npm run lean` — the whole five-minute chain. `lean-one <wing>` seals one wing
+  // in 0.087s and is what anyone actually runs for one wing, and it does not stamp. Measured on the landing that
+  // added this: a wing of seven theorems left the doctrine page quoting the PREVIOUS census — two figures that
+  // were true the day before and stale the moment the wing sealed — each beside a receipt vouching for it. The
+  // live values are stampDrift()'s to compute and no comment's to repeat. The provenance is
+  // precisely what invites a reader to trust the figure, so a drifted stamp is a forged credential, not a typo.
+  // A SERVED DESCRIPTION IS THE MOST LOAD-BEARING SENTENCE IN THE TREE — it is what a model reads to decide
+  // whether to call a tool, and audit-citations never saw it: that finder holds the citation law over
+  // publications, and the honesty gate drains a CLAIM, not the catalogue's static prose. Zero fabricated today,
+  // hand-checked while following a peer lead; a clean hand-check that nothing enforces has a shelf life.
+  { name: 'mcpcite', run: () => mcpCitationGaps() },
+  { name: 'stamp', run: () => stampGaps() },
   { name: 'ratchet', run: () => ratchetGaps(RATCHETS) },
   // NOTHING LOOKED AT WHAT THE BYTES CONTAIN (the captain, 2026-09-02: "there are git leaks not caught pre
   // push"). pre-push ran guard, the court and reconcile, and not one of them read a committed file for a

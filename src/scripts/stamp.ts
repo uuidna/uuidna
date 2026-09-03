@@ -63,7 +63,7 @@ export function stampText(text: string): { out: string; slots: string[]; unknown
 }
 
 /** The surfaces are DISCOVERED— a file is stamped exactly when it declares a slot. */
-export function stampSurfaces(): { file: string; slots: string[]; changed: boolean }[] {
+export function stampSurfaces(write = true): { file: string; slots: string[]; changed: boolean }[] {
   const files = execSync('git ls-files', { cwd: ROOT, encoding: 'utf8' }).split('\n')
     .filter((f) => /\.(md|html|txt|json)$/.test(f) && !f.includes('package-lock'))
   const done: { file: string; slots: string[]; changed: boolean }[] = []
@@ -74,14 +74,33 @@ export function stampSurfaces(): { file: string; slots: string[]; changed: boole
     const { out, slots, unknown } = stampText(text)
     if (unknown.length) throw new Error(`stamp: ${f} declares unknown slot(s) ${unknown.join(', ')} — add it to SLOTS or fix the marker; a surface may not invent a fact`)
     const changed = out !== text
-    if (changed) writeFileSync(join(ROOT, f), out)
+    if (changed && write) writeFileSync(join(ROOT, f), out)
     done.push({ file: f, slots, changed })
   }
   return done
 }
 
+// THE STALE-STAMP FINDER, and the fast path is why it is needed. stamp.js runs inside `npm run lean`, the whole
+// five-minute chain over sixty-six wings. `lean-one <wing>` proves ONE wing in 0.087 seconds and is therefore
+// what anybody sealing a single wing actually runs — and it does not stamp. Measured on this landing: a wing of
+// seven theorems left docs/doctrine.md telling readers the ledger held 2589 keys and 2506 distinct statements
+// when it held 2596 and 2513, with a receipt beside the numbers vouching for them. A stamped number carrying a
+// stale receipt is worse than an unstamped one, because the provenance is what invites the reader to trust it.
+/** stampDrift() → the surfaces whose stamped numbers no longer match the ledger. Reads only; writes nothing. */
+export function stampDrift(): { file: string; slots: string[] }[] {
+  return stampSurfaces(false).filter((d) => d.changed).map(({ file, slots }) => ({ file, slots }))
+}
+
+/** stampGaps() → the same reading in the shape every other finder speaks, so guard and state read one function. */
+export function stampGaps(): { what: string; fix: string }[] {
+  return stampDrift().map((d) => ({
+    what: `${d.file} carries stamped ledger slot(s) (${d.slots.join(', ')}) that no longer match the ledger`,
+    fix: 'run `npm run x -- stamp` — the slots are generated from the live census, so the surface is corrected by recomputing it, never by editing the number',
+  }))
+}
+
 if (process.argv[1] && process.argv[1].endsWith('stamp.js')) {
-  const done = stampSurfaces()
+  const done = stampSurfaces(true)
   const moved = done.filter((d) => d.changed)
   for (const d of done) console.log(`  ${d.changed ? '↻' : '='} ${d.file} — ${d.slots.join(', ')}`)
   console.log(`✓ stamp — ${done.length} surface(s), ${moved.length} refreshed, at receipt ${RECEIPT}`)

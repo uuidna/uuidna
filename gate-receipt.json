@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "d6658abe3d2af9157b1ddca76dbc20c3",
+    "src": "42777e2e16ee148c77febd064858d8ce",
     "lean": "05bca2c201defa63579630fc266becee"
   },
   "files": {
@@ -3427,6 +3427,8 @@
     "src/market.ts": "0bb8260d729530b8",
     "src/mcp-a432.test.ts": "cd678f7ea7472cf0",
     "src/mcp-a432.ts": "76d921ea8059a033",
+    "src/mcp-citations.test.ts": "e414eed76f1aa49f",
+    "src/mcp-citations.ts": "1acea5cfc390197c",
     "src/mcp-coverage.test.ts": "cc0be905cde56030",
     "src/mcp-entanglement-gate.ts": "fcafeafd8d102a5a",
     "src/mcp-http.ts": "bcaf214617fbe577",
@@ -3956,7 +3958,7 @@
     "src/scripts/generate.ts": "abfdc7d673989a86",
     "src/scripts/green.ts": "e286a448ebf90fa5",
     "src/scripts/guard.test.ts": "28537249ce682000",
-    "src/scripts/guard.ts": "227be9ceae984513",
+    "src/scripts/guard.ts": "96aea7c158074c1c",
     "src/scripts/harmonic-scan.test.ts": "0bb9d22e5cb3c809",
     "src/scripts/harmonic-scan.ts": "b14e41db661b9a47",
     "src/scripts/hexbit-from-books.ts": "4b93ec9f5887309c",
@@ -4146,8 +4148,8 @@
     "src/scripts/session.ts": "8800791dcbd07cba",
     "src/scripts/ship-build.ts": "79dd1984dcef7637",
     "src/scripts/spin.ts": "739bd82087728abb",
-    "src/scripts/stamp.ts": "9648ff47da218e70",
-    "src/scripts/state.ts": "c141a1ba9db61afb",
+    "src/scripts/stamp.ts": "c4f2ca5c7e5bb0fd",
+    "src/scripts/state.ts": "9ac6769655b71c2f",
     "src/scripts/steady-state.ts": "f3d95b33e19271fb",
     "src/scripts/support.ts": "674df996bb2b4242",
     "src/scripts/sync-changelog.ts": "b154b566636295d7",
