@@ -47,7 +47,7 @@ export function leanDecls(text: string): LeanDecl[] {
   })
 }
 
-// ── USE VERSUS MENTION — THE LAW EVERY RAW-SOURCE CHECK MEETS. A finder that greps source cannot tell a line that
+// ── USE VERSUS MENTION — THE LAW EVERY RAW-SOURCE CHECK MEETS. A finder that greps source reads words rather than roles, so it reads alike a line that
 // DOES a thing from a line that TALKS ABOUT it. This bit four separate checks in one session (2026-08-19), in two
 // opposite directions, and both are now named so the fifth is recognised rather than rediscovered:
 //
@@ -68,20 +68,20 @@ export function leanDecls(text: string): LeanDecl[] {
 //   THE THIRD CASE, AND ITS REMEDY (2026-08-25). "There is no structural fix" above is true of a BANNED-TOKEN
 //   scan — if a token is forbidden, it is forbidden in prose, and the only cure is to describe it in words. It is
 //   NOT true of a scan that COUNTS or CITES, and reading it as general cost five sessions seven separate hours in
-//   one day. A counting scan has an anchor available, because an instance carries syntax a mention cannot:
+//   one day. A counting scan has an anchor available, because an instance carries syntax a mention lacks:
 //
 //     grep -c 'key:'        1691   ← matches `export interface LeanTheorem { key: string; … }`, the DECLARATION
-//     grep -c 'key: "'      1690   ← a string-literal value cannot appear in a type
-//     grep -c '^  { key:'   1690   ← an indentation and a brace prose cannot accidentally produce
+//     grep -c 'key: "'      1690   ← a string-literal value appears only in a value position
+//     grep -c '^  { key:'   1690   ← an indentation and a brace prose produces only on purpose
 //
 //   One too many, and one high is worse than wildly wrong: it survives review because it looks approximately
 //   correct, and an operator checking themselves against it confirms the error. The same shape hit a citation
 //   scan matching the words after "theorem" in ordinary prose, a deadkey finder reading a comment that documented
 //   purged keys as citations of them, and — twice — the notes explaining a ban by writing the banned token.
 //
-//   SO THE RULE, stated with its remedy rather than as an observation: A SCANNER THAT READS SOURCE CANNOT
+//   SO THE RULE, stated with its remedy rather than as an observation: A SCANNER THAT READS SOURCE READS WORDS, NOT ROLES, SO IT MUST
 //   DISTINGUISH A CITATION FROM A MENTION OF ONE. Every finder over prose therefore needs EITHER a structural
-//   anchor the prose cannot accidentally produce — a line start, an indent, a brace, a quote that only a value
+//   anchor prose produces only on purpose — a line start, an indent, a brace, a quote that only a value
 //   carries — OR an explicit exemption at the point of mention. Reach for the anchor first: an exemption is a
 //   list, and a list is the thing that goes stale. Where neither is possible the scan is a banned-token scan
 //   after all, and the convention above applies.
@@ -97,7 +97,7 @@ export function leanDecls(text: string): LeanDecl[] {
 // measuring the shape of its own implementation— and it will report success
 // forever, including on the day the thing it guards is broken.
 //
-// This cannot be detected statically in general: knowing how to mutate an input is domain knowledge.
+// This is undecidable statically in general: knowing how to mutate an input is domain knowledge.
 // So it is a discipline with a tool rather than a finder — falsify() below makes the mutation case uniform and
 // cheap enough that omitting it is a choice rather than an oversight. Compare the recompute audit that replaced
 // the vacuous one: an address is toUuid(key + ':' + statement), so tampering with either must break it, and
@@ -185,7 +185,7 @@ export const cleanGitEnv = (base: NodeJS.ProcessEnv = process.env): NodeJS.Proce
  *  exist, for a program that never produced one, and the reader then hunts a command that was never wrong.
  *
  *  The same two-state instrument answering a three-state question as the arc receipt (all-run.ts, phaseLeaf) and as
- *  green.ts's Verdict, which names the third state `unmeasured`. Here it cannot change control flow — both callers
+ *  green.ts's Verdict, which names the third state `unmeasured`. Here it leaves control flow alone by construction — both callers
  *  throw either way, and that is right: a step that could not run has not passed. What it changes is the EVIDENCE
  *  the throw carries, which is the whole of what a caller has to work from.
  */
@@ -251,7 +251,7 @@ export async function pool<T>(thunks: readonly (() => Promise<T>)[], limit: numb
 /** poolByHandle(items, run, lanes) → the same fan-out, assigned by ADDRESS instead of by arrival.
  *
  *  Each item carries the address of the thing it is work for; `laneOf` turns that into a lane, and each lane runs
- *  its own bucket in order. Results come back in the ORIGINAL order, so a caller cannot tell the difference except
+ *  its own bucket in order. Results come back in the ORIGINAL order, so a caller sees the original order, the difference showing only
  *  in the two ways that matter:
  *
  *    REPRODUCIBLE — the same work distributes the same way on every run and every host. `pool` assigns by whoever
@@ -392,7 +392,7 @@ export function teeStep(label: string, cmd: string, cwd: string = ROOT): StepRes
  *
  *  NOT a pipe to tee: `cmd | tee file` streams and captures, and swallows the exit code — the trap this tree
  *  keeps a pipes finder for, and the one that let a failed run report success earlier the same day. The code is
- *  read from the child's own 'close' event, where it cannot be lost.
+ *  read from the child's own 'close' event, where it survives by construction.
  *
  *  ASYNC by necessity: streaming means watching a process that is still alive, which a synchronous call
  *  forbids. teeStep stays exactly as it is for the short steps its callers were written around. */
@@ -462,7 +462,7 @@ export const DRAIN_PATHS: readonly string[] = [
   '.gitattributes',
   'packages', 'lean',
   // the archive's deposited metadata — generated since 2026-08-18, because a hand-written surface that
-  // becomes a permanent DOI is the one place a stale number cannot be corrected after the fact.
+  // becomes a permanent DOI is the one place a stale number stands uncorrected after the fact.
   '.zenodo.json',
   // agnostic Zenodo publication seals — workflow job zenodo-seals loops zenodo/manifest.json
   'zenodo',
@@ -641,7 +641,7 @@ export const DOCS_BUILD_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
 /** Stage ONLY the drain's own paths, then report what was left for a human. Returns the untouched paths so a caller
  *  can print them: a sibling's edit is neither swept into the drain's commit nor silently ignored — it is named. */
 export function stageDerived(cwd: string = ROOT): { staged: number; leftForHumans: string[] } {
-  // a pathspec with a glob is handed to git as-is — existsSync cannot answer for a pattern, and the set it
+  // a pathspec with a glob is handed to git as-is — existsSync answers for a path rather than a pattern, and the set it
   // matches (one manifest per wing) grows with the ledger, so listing them by name would rot on the next wing.
   // Skip gitignored paths: a build artifact on DRAIN_PATHS would make `git add` exit 1 and abort reconcile.
   const existing = DRAIN_PATHS.filter((p) => {

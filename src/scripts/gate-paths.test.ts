@@ -185,3 +185,33 @@ test('the listing names lean-one with its purpose, and every runnable script can
   const found = execFileSync('node', [join(ROOT, 'dist', 'scripts', 'run.js'), '--find', 'single-domain'], { encoding: 'utf8' })
   assert.match(found, /lean-one/, '--find must search PURPOSES, not only names')
 })
+
+// ── A CACHE MUST BE KEYED ON THE RULE, NOT ONLY THE INPUTS. Measured 2026-09-03: audit-citations keyed its cache
+// on the publication set alone, the SCAN was corrected, the publications had not moved, and the run reported
+// `cache HIT … 1 uncited` from the stale answer. A cache keyed on inputs but not on the function is a proxy for
+// the computation — the healthy case and the never-re-ran case print the same line.
+test('audit-citations keys its cache on its own source as well as its inputs', () => {
+  const src = readFileSync(join(ROOT, 'src', 'scripts', 'audit-citations.ts'), 'utf8')
+  const key = /const key = merkleFold\(\[[\s\S]*?\]\)/.exec(src)?.[0] ?? ''
+  assert.ok(key, 'the cache key must be a fold of more than one thing')
+  assert.match(key, /import\.meta\.url/, 'the auditor’s OWN bytes ride the key, or a corrected rule cannot be seen')
+  assert.match(key, /p\.address/, 'and the publications still do')
+})
+
+// ── PROSE THAT IS A THEOREM IS NOT UNCITED. The auditor asked "does this point AT a proof?" and reported the
+// answer as "is this backed BY one?" — two different questions. The div-by-zero publication read 12 of 13 cited,
+// and the thirteenth was the_six_motions_connect_the_whole_ring, sealed with 9 cases, whose name IS that claim.
+test('a claim that IS a sealed theorem’s own prose counts as backed, and stays distinguishable from a pointer', () => {
+  const report = JSON.parse(readFileSync(join(ROOT, 'audit-citations.json'), 'utf8')) as {
+    uncited: number; fabricated: number
+    perPublication: { slug: string; claims: number; cited: number; isTheorem: number; uncited: string[] }[]
+  }
+  assert.equal(report.fabricated, 0, 'a citation to a key not in the ledger is the one decidably-false thing')
+  assert.equal(report.uncited, 0, 'every claim either points at a proof or IS one')
+  for (const p of report.perPublication)
+    assert.equal(p.cited + p.isTheorem + p.uncited.length, p.claims, `${p.slug}: the three classes must partition its claims`)
+  // and the two backed kinds are NOT merged — pointing at a proof and being one are different facts
+  const dz = report.perPublication.find((p) => p.slug === 'div-by-zero')!
+  assert.ok(dz.isTheorem >= 1, 'the drained-theorem claim is counted as such, not as a pointer')
+  assert.ok(dz.cited >= 1, 'and the pointers are still counted separately')
+})

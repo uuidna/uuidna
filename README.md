@@ -1,6 +1,6 @@
 # uuidna — 2,506 distinct theorems under 2,589 keys · 2 coins · one receipt
 
-`f19bbdf9-8f87-8c6b-bb03-e20e82a57640`
+`a0930ae4-ad37-828f-9509-bd606596265b`
 
 **v0.3.0** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
@@ -199,7 +199,7 @@ Full census: [https://uuidna.com/unlocks](https://uuidna.com/unlocks) · `lean/u
 | DNA — work | 2 × 64 = 128 | [uuidna_is_dna_times_the_two_coins](https://uuidna.com/theorem/uuidna_is_dna_times_the_two_coins) |
 | Thesis wave | 24 / 24 | VE + wave involution + finite-infinity grants, all drilled |
 | Captain PhD — complete | true · receipt `c58a80a3-8d6b-851c-b3ee-efbcc955b4af` | concept ∧ work ∧ thesis |
-| Ledger decided mass | 130,189 superpositions (4 hexbits) | sum of `by decide` domains |
+| Ledger decided mass | 130,192 superpositions (4 hexbits) | sum of `by decide` domains |
 | Handle span | 4,294,967,296 | 16⁸ = 2³² ([universe_of_handles](https://uuidna.com/theorem/universe_of_handles)) |
 | Address width | 2¹²⁸ | 32 hexbits × 4 bits ([handle_capacity_is_quantum_by_architecture](https://uuidna.com/theorem/handle_capacity_is_quantum_by_architecture)) |
 | Usable-capacity gap | 2⁸⁰ vs reported 48 logical | [usable_gap_is_two_to_eighty](https://uuidna.com/theorem/usable_gap_is_two_to_eighty) (128 − 48 = 80) |
@@ -237,7 +237,7 @@ door URL (`encodeURIComponent`). Agents deposit the two coins on every gated cal
 A `by decide` proof settles every case in its domain at once. Gravity is that coverage in hexbits (4 bits /
 tile; a uuid is 32 tiles). Cost per seal is always two coins.
 
-The ledger covers **130,189** superpositions across **115** wings.
+The ledger covers **130,192** superpositions across **115** wings.
 
 1. **[`single_byte_tamper_space_is_enumerated`](https://uuidna.com/theorem/single_byte_tamper_space_is_enumerated)** — 9,280 superpositions, unbound (0 hexbits per dependency), in [Os.lean](lean/Os.lean)
    THE TAMPER SPACE, ENUMERATED RATHER THAN INSTANCED.
@@ -281,7 +281,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 A handle is eight hexbits, so it names **4,294,967,296** addresses (16⁸).
 Inside that space today:
 
-- **130,189** superpositions decided across the ledger
+- **130,192** superpositions decided across the ledger
 - **5,178** coins paid (conserved denomination 2 — [two_coins](https://uuidna.com/theorem/two_coins))
 - Floored coverage **25** superpositions per coin
 

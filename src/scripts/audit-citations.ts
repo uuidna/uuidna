@@ -20,10 +20,22 @@ import { ROOT } from './api.js'
 const OUT = join(ROOT, 'audit-citations.json')
 
 const sealed = new Set(theorems().map((t) => t.key))
+// the sealed statements' OWN prose — a publication drains these verbatim, so a claim matching one needs no
+// pointer: it already IS the theorem. Kept as full names; the scan compares a 60-character head.
+const sealedNames = new Set(theorems().map((t) => t.name.replace(/^[-*\s]+/, '').slice(0, 60)))
 const pubs = publications()
-// The cache key is the content-address of the whole publication set — each note's own address folded order-
-// invariantly, so any edit to any note moves the key and forces a re-scan; an unchanged set is a cache hit.
-const key = merkleFold(pubs.map((p) => p.address))
+// The cache key is the content-address of the whole publication set AND OF THIS AUDITOR'S OWN SOURCE.
+//
+// It was the publications alone, and that omitted the thing most likely to change: the RULE. Measured
+// 2026-09-03 — the scan was corrected so a claim that IS a sealed theorem's own prose stops reading as uncited,
+// the publications had not moved, and the run reported `cache HIT … 1 uncited` from the stale answer. A cache
+// keyed on the inputs but not on the function is a proxy standing in for the computation: the healthy case and
+// the un-rerun case return the same line. Folding this file's own bytes in means a corrected rule invalidates
+// its own cache, which is the only way the correction can be seen.
+const key = merkleFold([
+  ...pubs.map((p) => p.address),
+  toUuid(readFileSync(new URL(import.meta.url), 'utf8')),
+])
 
 // theorem keys can carry uppercase (e.g. air_ppO2_in_window_at_surface), so match case-insensitively — a
 // lowercase-only class truncates such a key mid-word and mis-reports a real citation as fabricated.
@@ -33,7 +45,7 @@ const CITE = /\/theorem\/([A-Za-z0-9_]+)/g
 const claimsOf = (markdown: string): string[] =>
   markdown.split('\n').map((l) => l.trim()).filter((l) => l.startsWith('- '))
 
-interface PubAudit { slug: string; claims: number; cited: number; uncited: string[]; fabricated: { claim: string; key: string }[] }
+interface PubAudit { slug: string; claims: number; cited: number; isTheorem: number; uncited: string[]; fabricated: { claim: string; key: string }[] }
 
 interface Harmonic { claims: number; theorems: number; bijection: boolean; digitalRoots: { claims: number; theorems: number; publications: number }; note: string }
 function scan(): { key: string; publications: number; sealedTheorems: number; fabricated: number; uncited: number; receipt: string; harmonic: Harmonic; perPublication: PubAudit[] } {
@@ -42,14 +54,36 @@ function scan(): { key: string; publications: number; sealedTheorems: number; fa
     const fabricated: { claim: string; key: string }[] = []
     let cited = 0
     const claims = claimsOf(p.markdown)
+    // A CLAIM THAT **IS** A SEALED THEOREM'S OWN WORDS IS NOT UNCITED — IT IS THE THEOREM.
+    //
+    // This asked one question ("does the prose POINT AT a proof?") and reported its answer as if it had asked
+    // another ("is the prose BACKED by a proof?"). Measured 2026-09-03: the div-by-zero publication showed
+    // 12 of 13 cited, and the thirteenth was `the_six_motions_connect_the_whole_ring` — a theorem sealed in
+    // DivByZero.lean with 9 cases, whose `name` IS that claim, drained into the publication verbatim. There was
+    // nothing to point at because the words were already the proof's own, and demanding a self-pointer would
+    // move the theorem's content-address to satisfy a scan. Same units error as the table-enumeration metric:
+    // the denominator was the wrong quantity.
+    //
+    // The two states stay APART rather than merged: `cited` is prose that points at a proof, `isTheorem` is prose
+    // that IS one. Both are backed; only the second needs no link. `uncited` now means what it says.
+    const theoremProse = new Set([...sealedNames].map((n) => n.slice(0, 60)))
+    const isTheoremProse = (claim: string): boolean => {
+      const head = claim.replace(/^[-*\s]+/, '').slice(0, 60)
+      return head.length >= 24 && theoremProse.has(head)
+    }
+    let isTheorem = 0
     for (const claim of claims) {
       const keys = [...claim.matchAll(CITE)].map((m) => m[1])
-      if (keys.length === 0) { uncited.push(claim.length > 140 ? claim.slice(0, 137) + '…' : claim); continue }
+      if (keys.length === 0) {
+        if (isTheoremProse(claim)) { isTheorem++; continue }
+        uncited.push(claim.length > 140 ? claim.slice(0, 137) + '…' : claim)
+        continue
+      }
       const fab = keys.filter((k) => !sealed.has(k))
       if (fab.length) fab.forEach((k) => fabricated.push({ claim: claim.slice(0, 100), key: k }))
       else cited++
     }
-    return { slug: p.slug, claims: claims.length, cited, uncited, fabricated }
+    return { slug: p.slug, claims: claims.length, cited, isTheorem, uncited, fabricated }
   })
   const fabricated = perPublication.reduce((n, p) => n + p.fabricated.length, 0)
   const uncited = perPublication.reduce((n, p) => n + p.uncited.length, 0)

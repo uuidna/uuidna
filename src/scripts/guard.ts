@@ -31,10 +31,10 @@ import { fold, legalGaps, proseGaps, dryGaps, countsGaps, expectedGaps, censusGa
 let failed = false
 
 // 1) the ledger sweep — pure, O(N), milliseconds
-// 0) THE WITNESS, and it runs BEFORE the ledger sweep because the sweep cannot supply one.
+// 0) THE WITNESS, and it runs BEFORE the ledger sweep because the sweep supplies none.
 //
 // The treason sweep's dna-recomputes check compares toUuid(key ":" statement) to t.address — which withDerived
-// DEFINED as that same expression. It compares a pure function to itself and cannot fail: a forged entry
+// DEFINED as that same expression. It compares a pure function to itself, so it is green by construction: a forged entry
 // {key:'totally_made_up_theorem', statement:'2 + 2 = 5'} passes it, because a forgery recomputes its own address
 // exactly as a real theorem does. Run as a pre-registered trial with that forgery as the control, the check
 // returns VOID about the theorem and REFUTED about itself.
@@ -70,7 +70,7 @@ try {
   // offenders is a MAP (address → the axioms it borrows) written by lean-axioms. Typed as string[]
   // here, `offenders.length` was ALWAYS undefined — so this check's offender arm never fired, and its error path
   // would have called .join() on an object and thrown instead of naming the traitor. The count comparison below
-  // still caught the class (axiomFree = audited − offender keys), but a condition that cannot fire is not a check.
+  // still caught the class (axiomFree = audited − offender keys), but a condition that never fires is not a check.
   const ax = JSON.parse(readFileSync(join(ROOT, 'lean', 'axioms.json'), 'utf8')) as { audited: number; axiomFree: number; offenders?: Record<string, string[]> }
   const N = theorems().length
   const offenders = Object.keys(ax.offenders ?? {})
@@ -88,7 +88,7 @@ try {
 // 1b) UNIQUENESS COMES FROM LEAN— a theorem is its statement, so two entries proving the same
 // proposition under different keys are one theorem wearing two names. The guard REPORTS both counts (so no surface
 // can quietly print the larger one) and NAMES every re-naming group. It does not fail on the standing ones — the
-// ℤ/9 table lives deliberately in both the core and the ring wing — but it makes the difference impossible to
+// ℤ/9 table lives deliberately in both the core and the ring wing — but it leaves the difference invisible to
 // overlook, and a NEW re-naming arrives named, at guard speed, instead of inflating the count in silence.
 {
   const c = statementCensus()
@@ -127,7 +127,7 @@ try {
   console.error('✗ guard — audit-packages detected configuration gaps in packages/* (see above)')
 }
 
-// 4d) THE HELD LINES — the session-born finders, wired so their gap classes cannot re-enter: coherent (no mixed
+// 4d) THE HELD LINES — the session-born finders, wired so their gap classes stay closed: coherent (no mixed
 // dist from interleaved writers), absence (no encryption-denial without the presence pointer), pipes (no gate's
 // exit code flowing into a pipe), actions (one major per action, tree-wide — the drift that hid a deprecated
 // runtime), micro (the JSON-LD layer honest — only when a built site exists to audit).
@@ -137,7 +137,7 @@ try {
 // three finders came to exist and never run: `dry`, `seo` and `vacuous` were invoked nowhere in the tree, and the
 // vacuous one was holding 12 real findings the moment it was first executed. Now every finder is one entry, called
 // in-process, and ALL objections are collected before the verdict — a failing run names every gap at once instead of
-// only the first. src/tests/finder-coverage.test.ts makes the dormant-finder class impossible: every exported *Gaps
+// only the first. src/tests/finder-coverage.test.ts closes the dormant-finder class: every exported *Gaps
 // must appear below or in ADVISORY with a stated reason.
 const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite?: boolean }[] = [
   { name: 'legal', run: () => legalGaps().gaps },
@@ -161,7 +161,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // A DERIVATION IN A COMMENT IS A DERIVATION NOTHING CHECKS: a literal whose own comment states the arithmetic
   // that produces it should compute it instead, or the value and its reason drift apart in silence.
   { name: 'constant', run: () => constantGaps() },
-  // a file grep cannot read is a file no finder above ever scanned.
+  // a file grep leaves unread is a file no finder above ever scanned.
   { name: 'binary', run: () => binaryGaps() },
   // a deleted generator whose build output survives still runs, against a ledger that has moved on.
   { name: 'orphan', run: () => orphanGaps() },
@@ -226,7 +226,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // THE 432 GRID IS A LIVE GATE. Its width falls out of two structures that can both move: the
   // six projected rays (the seventh, 'en', is the source the wings are written in, so it holds no seat) and the 72
   // wings the ledger carries. 6·w keeps digital root 9 only when w ≡ 0 (mod 3), so a SINGLE new wing would silently
-  // turn 432 into 438 and break the harmony that made the number natural. This finder makes that impossible to do
+  // turn 432 into 438 and break the harmony that made the number natural. This finder makes that visible the moment it is done
   // quietly: add wings three at a time, or the guard names the drift and the fix.
   // THE 42 PAIR GRID — every ordered direction between dimensions, by the SAME rule that makes 432: the full
   // product with the identity removed (7 × 7 = 49, minus the 7 self-pairs, = 7 × 6 = 42). The finder holds the
@@ -238,10 +238,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'drain', run: () => drainGaps() },
   // DERIVED WITHOUT ITS SOURCE IS A PROVENANCE INVERSION. The drain stages DRAIN_PATHS and never a source file, so a
   // tree can sit with the whole derived layer armed and the .lean wings that produced it unstaged; the commit then
-  // seals receipts for a ledger origin cannot recompute. Found live at 129 staged derived against 66 unstaged wings.
+  // seals receipts for a ledger origin has never recomputed. Found live at 129 staged derived against 66 unstaged wings.
   { name: 'precede', run: () => precedeGaps() },
   // THE DRY LAW REACHES package.json — 57 scripts were one hand-typed shape around a single dist script, and the
-  // family that had already rotted (lean:<domain>, 30 names for 66 domains) proves a typed list cannot track what
+  // family that had already rotted (lean:<domain>, 30 names for 66 domains) proves a typed list lags what
   // exists. `npm run x -- <script>` dispatches from discovery; an entry survives only when CI, a hook, the README
   // or a docs page calls it by name, and that set is recomputed here rather than declared.
   { name: 'stale', run: () => staleGaps() },
@@ -250,7 +250,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // described "heal → commit → push" while the commit step did not exist. Asks the one decidable question that
   // keeps costing landings: a script that mutates git must verify the mutation.
   { name: 'landing', run: () => landingGaps([...sourceGraph().keys()]) },
-  // A CLAIM THAT SOMETHING CANNOT BE DONE MUST SAY WHY. Six false walls were written and corrected in one
+  // A CLAIM THAT SOMETHING IS OUT OF REACH NAMES ITS REASON — the captain's law. Six false walls were written and corrected in one
   // session, none caught by a test: a negation that dresses a CHOICE as an IMPOSSIBILITY reads as rigour, so
   // nobody re-examines it and the work behind it never gets done. The existing 622 are a declared debt that may
   // only shrink; a NEW file claiming impossibility must name a host fact, a theorem, a boundary, or by-construction.
@@ -273,7 +273,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'mirror', run: () => mirrorGaps() },
   // A LANE AIMED AT A PATH THE BUILD NO LONGER WRITES DOES NOT FAIL — IT PASSES, AGAINST STALE OUTPUT. All six
   // packages ran from dist/test/ for a day after src/test became src/tests; 108 tests stayed green while testing
-  // frozen code. Existence-checked per referenced path, so the class cannot return.
+  // frozen code. Existence-checked per referenced path, so the class stays closed.
   { name: 'lanes', run: () => lanesGaps() },
   // A MEASURED QUANTITY OWES ITS AUTHORITY. Two sailing theorems were sealed from first-principles derivation and
   // both were wrong; the wing cited nothing. Grandfathered wings live in lean/uncited-wings.json and that list may
@@ -291,7 +291,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // EVERY AUTHORED PAGE REDUCES TO A THEOREM COMBINATION, or declares why it does not. 1399 of 1432 pages already
   // come from two templates with a computed sidebar; of the 33 authored ones, 28 fold to a real theorem set and the
   // rest compute from a data loader or are declared indexes/artifacts. A page that asserts while standing on nothing
-  // cannot be recomputed, so nothing would catch it drifting.
+  // is unrecomputable, so nothing would catch it drifting.
   { name: 'pages', run: () => pagesGaps() },
   // A LEDGER COUNT IN A COMMENT IS A TIME BOMB, even when it is right. No generator reaches source comments and
   // countsGaps reads prose surfaces, so this was the last place a number could rot unwatched — the README sat
@@ -315,7 +315,7 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
 const METER = Number(process.env.UUIDNA_METER ?? 200)
 const GATE_T0 = process.hrtime.bigint()
 // the ledger checks above (traitors, wing witness, axioms, uniqueness, harmonic-scan) run BEFORE this mark, so the
-// phase they cost was invisible; process.uptime() covers node boot and module load too, which the finder loop cannot.
+// phase they cost was invisible; process.uptime() covers node boot and module load too, which the finder loop leaves out.
 if (process.env.UUIDNA_METER) console.log(`    · boot + ledger checks ${(process.uptime() * 1000).toFixed(0)} ms`)
 for (const f of FINDERS) {
   if (f.needsBuiltSite && !existsSync(join(HERE, '../../docs/.vitepress/dist'))) {
@@ -341,7 +341,7 @@ const TAIL_T0 = process.hrtime.bigint()
 // ADVISORY FINDERS — they RUN every pass and print every finding, but do not fail the gate, and each states WHY in one
 // line. This tier exists so that "not blocking" is a declared decision instead of the accident it was: `seo` and
 // `vacuous` were invoked nowhere in the tree, and the moment `vacuous` first ran it named 12 real findings. A finder
-// that reports on every run cannot be forgotten; a finder nobody calls is a claim nobody checks.
+// that reports on every run stays in view; a finder nobody calls is a claim nobody checks.
 // ADVISORY — EMPTIED. Every entry here decided something OTHER than a Lean violation: `grid` a harmony of the wing
 // COUNT, `words` a cap on a theorem NAME, `sources` a citation demand, `seo` a description length. None of them can
 // refuse a proof, and a gate that cannot refuse a proof is custom logic over spelling, counting or presentation.

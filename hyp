@@ -4,7 +4,7 @@
 // gate-all — COMPUTE EVERY ARM AT ONCE INSTEAD OF ONE PER RUN.
 //
 // `npm run audit` is twenty-nine steps joined by `&&`, so it stops at the FIRST failure. That is correct for a
-// generator — a gen-lines that fails to write leaves everything after it meaningless — but it is wrong for a CHECK, because
+// generator — if gen-lines cannot write, everything after it is meaningless — but it is wrong for a CHECK, because
 // checks are independent of one another and all of their verdicts are available simultaneously. The chain reports
 // them serially anyway, so a tree with five gaps takes five full multi-minute passes to reveal five things it knew
 // on the first one.
@@ -22,7 +22,7 @@
 // Three classes, derived from the chain rather than copied — a hand-typed second list could only lag the first:
 //   GENERATOR     ordered, fail-fast. Later steps read what it writes.
 //   CHECK         read-only verdict. Fans out; every one runs whatever the others find.
-//   SERIAL CHECK  a verdict that needs the machine to itself. Two reasons, both measured:
+//   SERIAL CHECK  a verdict that cannot share the machine. Two reasons, both measured:
 //                 TREE — exercise-dormant runs 32 scripts and restores what they write, and `git diff` reads the
 //                 tree to decide. Run together, the first dirties the tree under the second's feet and the gate
 //                 reports drift that does not exist.
@@ -43,7 +43,7 @@ import { capacity, hostProfile, shellOrExit, renderSpeedup, speedup } from '../o
  *  Kept as SEPARATE patterns rather than one alternation on purpose. Collapsed into a single regex, a gate-name
  *  literal ends up directly before an alternation bar, and the pipes finder — which holds the law that a gate's
  *  exit code is captured raw— reads that bar as the pipe and flags this file. It is
- *  right to look: grepping source reads characters rather than grammar, so an alternation and a pipe read alike. One pattern per line, no ambiguity.
+ *  right to look: grepping source cannot tell an alternation from a pipe. One pattern per line, no ambiguity.
  *  (This note is deliberately written WITHOUT the offending characters: the first version of it described the
  *  pattern by quoting it, and so tripped the very finder it was explaining — the seventh use-versus-mention catch
  *  of the day. A comment is not exempt from the law it documents.) */
@@ -91,7 +91,7 @@ const GENERATOR_PATTERNS: readonly RegExp[] = [
   // steps — and one of the emitters it runs MEASURES ITSELF: gen-quantum-capacity times a sweep over the whole
   // ledger and seals the DECADE of the per-verify figure. Measured under contention that reading is a decade
   // slower, so the seal moved, and `spin` reported drift in a tree where nothing had actually changed. A step that
-  // measures time needs the machine to itself, for the same reason the test runners do — the number it returns
+  // measures time cannot share the machine, for the same reason the test runners cannot — the number it returns
   // would be about the load rather than about the tree.
   /\bgenerate\.js/,
   /\blean-axioms\.js/,
@@ -112,7 +112,7 @@ const GENERATOR_PATTERNS: readonly RegExp[] = [
   // missed generate.js (for want of a hyphen), `npm run axioms` (the chain named a script, the pattern named the
   // file behind it), `UUIDNA_PROVE_ALL=1 npm run lean` (an anchored regex against an env-prefixed command), and
   // now prove-all.js (a rename to a wrapper that matches nothing). kindOf's manifest resolution catches the npm
-  // form; it sees as far as the manifest reaches and stops at a node script that SPAWNS, where there is none to resolve. The durable
+  // form; it cannot see through a node script that SPAWNS, because there is no manifest to resolve. The durable
   // cure is a step DECLARING that it writes — prove-all.ts already declares `@non-harmonic: spawns the lean
   // chain`, so the vocabulary exists — and reading a declaration is not a change to make unilaterally at the end
   // of a long session. Recorded here as the finding; the pattern below is the stopgap.
@@ -143,7 +143,7 @@ const RECEIPT_COVERED: readonly RegExp[] = [
 /** An instrument the chain needs, and what goes dark without it.
  *
  *  WHY THIS LIST IS DECLARED AND NOT DERIVED. The programs a step spawns DIRECTLY can be read off the chain, but the
- *  ones that matter most stay out of it: `lean` is never named in package.json — lean-axioms spawns it, three layers down —
+ *  ones that matter most cannot: `lean` is never named in package.json — lean-axioms spawns it, three layers down —
  *  and it was precisely that invisible instrument whose absence produced the most confusing failures. A list derived
  *  only from what is visible would have been silent about the one that mattered. So each is declared WITH the arms
  *  it voids, and `covers` is what the report uses to separate "the tree is wrong" from "this host cannot tell". */
@@ -153,7 +153,7 @@ export interface Instrument {
   covers: readonly RegExp[]
   remedy: string
   /** where this tool commonly lives when it IS installed but is not on PATH — probed only after `command -v`
-   *  fails, so the preflight can tell "you do not have it" apart from "you have it and the check is blind to it". */
+   *  fails, so the preflight can tell "you do not have it" apart from "you have it and cannot see it". */
   alsoLookIn?: readonly string[]
 }
 
@@ -196,7 +196,7 @@ const matches = (pats: readonly RegExp[], cmd: string): boolean => pats.some((re
  *  inside the fan-out and passed standing alone, which is the signature of a race and not of a defect.
  *
  *  The note above `/\bgenerate\.js/` records this identical failure one level down ("for want of a hyphen") and
- *  cures it by adding a pattern. That works while the chain names a FILE, and stops working when the chain names an
+ *  cures it by adding a pattern. That works while the chain names a FILE; it cannot work when the chain names an
  *  npm script, because no pattern over the surface text can see through the manifest. So the resolution moves
  *  here, and the existing patterns start matching what they were always written to match.
  *
@@ -218,7 +218,7 @@ const matches = (pats: readonly RegExp[], cmd: string): boolean => pats.some((re
 const bare = (cmd: string): string => cmd.trim().replace(/^(?:[A-Za-z_][A-Za-z0-9_]*=(?:"[^"]*"|'[^']*'|\S*)\s+)+/, '')
 const expand = (cmd: string, scripts: Readonly<Record<string, string>>): string => {
   let seen = bare(cmd)
-  // bounded, because a manifest can name itself: three hops is deeper than any chain here, so the walk terminates by construction rather than spinning
+  // bounded, because a manifest can name itself: three hops is deeper than any chain here and cannot spin
   for (let hop = 0; hop < 3; hop++) {
     const m = /^npm run ([\w:@/-]+)$/.exec(bare(seen))
     const body = m ? scripts[m[1]!] : undefined
@@ -346,7 +346,7 @@ if (process.argv[1] && /gate-all\.(js|ts)$/.test(process.argv[1])) {
   console.log(`gate-all — host ${host.cpu} · ${host.logical} logical, ${host.memoryGiB} GiB, ${host.platform}/${host.arch} · shell ${shell.file} (${shell.source}) · receipt ${host.receipt}`)
   console.log(`gate-all — ${count('generator')} generators in order, then ${count('check')} checks CONCURRENTLY (-j ${limit} of ${host.logical}, ${host.reserved} lanes reserved), then ${count('serial-check')} alone …\n`)
   const started = Date.now()
-  // Every step's own duration AND the instants it spanned. The duration alone prices one step rather than the fan-out: with 29
+  // Every step's own duration AND the instants it spanned. The duration alone cannot price the fan-out: with 29
   // checks over 14 lanes the phase is longer than its slowest member (two full waves), so reporting the slowest
   // step AS the phase would state a speedup nobody measured. The span between the first check starting and the
   // last one finishing IS the phase, so it is recorded rather than inferred.

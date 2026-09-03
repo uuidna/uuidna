@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:ddf235ef-6d3b-8f67-a5c4-11e83beb549c",
+  "@id": "urn:uuid:45a02eaf-5c7c-848b-8388-54af51bb0e9c",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -77016,11 +77016,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:db3d5b52-46f1-81c7-8cc3-42b34b1fab48",
+        "@id": "urn:uuid:2b4d22ed-949d-83fc-84fe-e5f7593255d0",
         "@type": "ScholarlyArticle",
-        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 424 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 424, not the vendors.",
-        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 424) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
-        "identifier": "84df9011-c1fe-811c-902a-39b06ddce11a",
+        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 425 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 425, not the vendors.",
+        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 425) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+        "identifier": "1f7aceea-ac9a-8a5f-a44c-a07fc502c4f6",
         "url": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
         "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
@@ -77038,7 +77038,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/84df9011"
+          "https://uuidna.com/1f7aceea"
         ]
       }
     },
@@ -77049,7 +77049,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:c5806bc4-a861-8377-8035-c46d2660fb90",
         "@type": "ScholarlyArticle",
-        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 424 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
+        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 425 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
         "abstract": "(36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)",
         "identifier": "28b73899-48fa-86d1-93b4-4f6f2852b597",
         "url": "https://uuidna.com/theorem/speaking_an_address_costs_the_text",
@@ -77111,7 +77111,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:ddca61e3-57b1-87d0-b5bc-dd3138fd87a5",
         "@type": "ScholarlyArticle",
-        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 424 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
+        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 425 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
         "abstract": "(2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))",
         "identifier": "0958d5f7-a2df-878b-bbaf-72fefb4d60dd",
         "url": "https://uuidna.com/theorem/every_context_is_finite_against_the_lattice",

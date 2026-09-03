@@ -33,7 +33,7 @@ import { shellOrExit } from '../os/host/index.js'
 
 // ONE READ PER FILE, SHARED. `binary` scans bytes and `hexbit` scans text over the SAME tracked source, and each was
 // re-reading every file from disk — the cache-immutable-reads law applied to the read itself. The buffer is the one
-// authority; the text is decoded from it once. Within a single pass the tree cannot change, so this is exact.
+// authority; the text is decoded from it once. Within a single pass the tree is fixed by construction, so this is exact.
 const _buf = new Map<string, Buffer>()
 const _txt = new Map<string, string>()
 const fileBuf = (abs: string): Buffer => {
@@ -49,7 +49,7 @@ const fileText = (abs: string): string => {
 // AND THE SAME COMPUTATION REPORTS THE GAPS. Splitting a file into lines is the shape every per-file finder needs,
 // and each was doing it again over the same text — one read, then N identical splits. The split joins the read in the
 // cache, so the corpus is walked once and every finder reports off that one computation. Within a pass the tree
-// cannot change, so this is exact rather than approximate.
+// is fixed by construction, so this is exact rather than approximate.
 const _lines = new Map<string, string[]>()
 // the hexbit unit's LIVE export vocabulary — read from src/hexbit itself, once per run, so the gate that
 // enforces "if it is named a hexbit, the unit computed it" always knows the unit's whole current surface
@@ -125,7 +125,7 @@ export function legalGaps(): { gaps: Gap[]; facts: string } {
   // 8) LEGAL COMPLETENESS — the elements a complete terms-record must contain, each PRESENT in the terms surface
   // (license.md + captain.md; the CC legalcode link carries the formal termination/warranty machinery) or the
   // audit objects. Learned 2026-08-15 from a REAL miss: /doctrine claimed coverage the pages did not deliver —
-  // consistency checks cannot hear silence, so completeness is its own check. Presence.
+  // consistency checks answer only what is present, so completeness is its own check. Presence.
   const terms = (existsSync(join(ROOT, 'docs/license.md')) ? rd('docs/license.md') : '') + '\n' + (existsSync(join(ROOT, 'docs/captain.md')) ? rd('docs/captain.md') : '')
   const ELEMENTS: [string, RegExp, string][] = [
     ['parties-author', /Tsvetan Rouschev/, 'edit docs/license.md: name the author/licensor'],
@@ -214,8 +214,8 @@ function depositRecord(): { receipts: { id: string; statement: string }[] } {
 
 // ── migrate: THE FIXER FOR THE FINDER — executes exactly the prompts dry prescribes, mechanically: the known
 // boilerplate variants are removed and the api import inserted (multi-line-import-safe — the splice bug of the
-// first codemod is the lesson baked in; a re-export must bind locally — the lean-gen lesson too). What it cannot
-// match it leaves, honestly listed, for dry to keep objecting to. Idempotent: a second run touches nothing. ──
+// first codemod is the lesson baked in; a re-export must bind locally — the lean-gen lesson too). What it leaves
+// unmatched it lists honestly, for dry to keep objecting to. Idempotent: a second run touches nothing. ──
 export function migrate(): { touched: number; left: string[] } {
   const VARIANTS = [
     /^const HERE = dirname\(fileURLToPath\(import\.meta\.url\)\)\s*$/m,
@@ -417,7 +417,7 @@ export function countsGaps(): Gap[] {
   const allowed = new Set([keys, census.distinct, census.renamings, TARGET,
     ...Object.values(theoremCountByFile()), ...groupSizes('principle'), ...groupSizes('skill')].map(String))
   // THE SURFACES ARE DISCOVERED. The first cut of this finder named three files by hand, which is the
-  // same failure it exists to catch one level up: a fixed list cannot grow with the repo, and every surface it
+  // same failure it exists to catch one level up: a fixed list stays fixed while the repo grows, and every surface it
   // omits is free to publish a dead number. A surface is now anything TRACKED that makes a census claim — states a
   // theorem count or a principle count — minus the derived layer, whose numbers recompute on every reconcile and
   // whose staleness is its generator's fault's. That exemption is itself read from the declarations
@@ -569,7 +569,7 @@ export function censusGaps(): Gap[] {
  *
  *  So: the index records every reuse that exists, and this finder holds the ledger to it. A duplicate inside one
  *  file always fails. A cross-wing reuse fails unless the index already declares it — the list may only SHRINK,
- *  the same law the key-entropy backlog carries, so the count of duplication cannot quietly grow. */
+ *  the same law the key-entropy backlog carries, so the count of duplication only shrinks, by the ratchet. */
 export function linesGaps(): Gap[] {
   const gaps: Gap[] = []
   const census = statementCensus()
@@ -792,7 +792,7 @@ export function stateGaps(): Gap[] {
   // because it reads as complete. Compares guard's blocking `{ name: 'x', run: ... }` entries against state.ts's
   // own `['x', xGaps()...]` array — both read fresh from source.
   // SELF-EXEMPT, by name and reason— the same discipline finder-coverage.test.ts's ON_DEMAND
-  // uses. 'state' cannot report on itself (state.ts calling stateGaps() to build state.ts is not a check, it is
+  // uses. 'state' is excluded from its own report by decision (state.ts calling stateGaps() to build state.ts is not a check, it is
   // a loop). 'micro' needs a built site (needsBuiltSite in guard.ts) and state.ts never builds one, so it would
   // either always read clean-by-absence or force a site build on every `npm run state` call — the wrong cost for
   // a command whose whole point is to be cheap enough to ask before anything.
@@ -937,7 +937,7 @@ export function negationGaps(): Gap[] {
 // boundary statements must be PREFIXED `SCOPE:` and are exempted, because no Lean line can prove that nothing
 // further is claimed (the split VectorEquilibrium.lean's emitter already documents).
 //
-// HONEST WALL (same as treason.ts against fabricated-citation prose): lexical matching cannot tell a CLAIM from a
+// HONEST WALL (same as treason.ts against fabricated-citation prose): lexical matching reads words rather than intent, so it reads alike a CLAIM and a
 // NAME ('non-covering' is a name; 'rather than' is contrast). Measured on first run: hundreds of false positives
 // across the ledger. This finder ships as CLI / state report (`one-receipt lean-negation`) so the law is
 // enforceable by hand and the SCOPE: exempt path exists — it is NOT a blocking gate, because gating on a
@@ -962,7 +962,7 @@ export function leanNegationGaps(): Gap[] {
         .split(/(?<=[.!?])\s+|(?=\b(?:HONEST\s+)?SCOPE:)/)
         .map((c) => c.trim())
         .filter(Boolean)
-      // SCOPE: marks the rest of the doc-comment as boundary — a meta clause cannot be discharged mid-comment
+      // SCOPE: marks the rest of the doc-comment as boundary — a meta clause stays open to the end of the comment, by construction
       let scoped = false
       for (const clause of clauses) {
         if (/^(?:HONEST\s+)?SCOPE:/i.test(clause)) { scoped = true; continue }
@@ -1013,7 +1013,7 @@ export function drainGaps(): Gap[] {
   // AND THE DECLARATION MUST BE HEXBIT-COMPUTABLE. Naming a path proves nothing: a typo, a renamed artifact or a
   // generator that stopped writing all read the same as a correct declaration, because nothing ever measured the
   // thing declared. An output that EXISTS has a width — bytes fold to a hexbit magnitude through the unit — and a
-  // declaration whose subject cannot be measured is a claim about a file nobody has. Every reconcile generates
+  // declaration whose subject is unmeasurable is a claim about a file nobody has. Every reconcile generates
   // before this runs, so an absent output means the declaration is wrong, not that the run was early.
   for (const [g, outs] of Object.entries(RECONCILE_OUTPUTS))
     for (const o of outs as readonly string[])
@@ -1072,9 +1072,9 @@ export function drainGaps(): Gap[] {
 }
 
 // ── precede: THE SOURCE IS STAGED BEFORE WHAT IT DERIVES. The drain stages DRAIN_PATHS and nothing else, by
-// design — a sibling session's in-flight source edit must never be swept into a machine commit. The cost of that
+// design — a sibling session's in-flight source edit stays out of a machine commit, by decision. The cost of that
 // design is this inversion: with the derived layer staged and its Lean source still unstaged, a commit publishes
-// generated.ts, CHANGELOG, README and .zenodo.json describing wings origin cannot see. The receipts then seal a
+// generated.ts, CHANGELOG, README and .zenodo.json describing wings origin has never seen. The receipts then seal a
 // ledger state nobody can recompute — integrity claimed over source that was never published, which is the one
 // failure this repo cannot absorb, because every downstream proof cites those receipts.
 // CI checks out clean and stages nothing, so this finder returns green there by construction. It exists to hold the
@@ -1120,7 +1120,7 @@ export function precedeGaps(cwd: string = ROOT): Gap[] {
 // "<name>": "npm run build && node dist/scripts/<file>.js" — a hand-typed line per script, the same repetition the
 // `dry` finder refuses in source, living in JSON where no finder was looking. It had already rotted in the only way
 // a hand-typed list can: the lean:<domain> family named 30 domains for a ledger carrying 66, so most domains had no
-// entry and nothing said so. `npm run x -- <script>` dispatches all of them from DISCOVERY, so the list cannot lag
+// entry and nothing said so. `npm run x -- <script>` dispatches all of them from DISCOVERY, so the list tracks discovery by construction
 // what exists.
 // A thin wrapper KEEPS its own entry when something OUTSIDE package.json calls it by name — those are contracts with
 // CI, a git hook, or a reader following the README — and that set is COMPUTED here from every such surface at once
@@ -1139,7 +1139,7 @@ export function precedeGaps(cwd: string = ROOT): Gap[] {
 //
 // THE LAW, stated for the next generator rather than this one: a step that rewrites compiled SOURCE invalidates
 // dist, and dist must be rebuilt before anything reads it again. GENERATORS is named rather than discovered
-// because the guard cannot infer intent from a write — but once a step is named, the ORDER is held mechanically,
+// because the guard reads writes rather than intent — but once a step is named, the ORDER is held mechanically,
 // which is the part that was manual before.
 export function staleGaps(): Gap[] {
   const gaps: Gap[] = []
@@ -1345,7 +1345,7 @@ export function sourcesGaps(): Gap[] {
 //   2. adding execSync/hook scanning reported 97 — wrong, because lean-all.ts discovers every lean-*.ts by
 //      readdirSync, so 67 wings run on every build while being named nowhere at all;
 //   3. only after modelling BOTH discovery mechanisms does the number hold at 33.
-// A repo that invokes by discovery cannot be audited by grep — which is exactly why nothing caught books.ts.
+// A repo that invokes by discovery is audited by discovery, never by grep — which is exactly why nothing caught books.ts.
 
 
 export function dormantGaps(): Gap[] {
@@ -1375,7 +1375,7 @@ export function dormantGaps(): Gap[] {
   const declared: string[] = existsSync(listPath) ? (JSON.parse(fileText(listPath)) as { scripts: string[] }).scripts : []
 
   const live: string[] = []
-// PURE-EXPORTS HELPERS ARE NOT SCRIPTS, AND DORMANCY CANNOT APPLY TO THEM. This exemption named api.ts alone,
+// PURE-EXPORTS HELPERS ARE NOT SCRIPTS, AND DORMANCY IS A PROPERTY OF ENTRY POINTS. This exemption named api.ts alone,
 // which read as a special case for one file when it is really a CATEGORY: a module at the scripts boundary that
 // declares only exports has no entry point, so "nothing ever runs it" is true of it by construction and says
 // nothing about decay. It lives here rather than in src/ for a reason the library layer enforces — these helpers
@@ -1394,7 +1394,7 @@ const PURE_HELPERS = new Set(['api.ts', 'steady-state.ts', 'wave-supply.ts', 'he
   // and the same shape had already jammed precede (dirty lean files), the scripts law (an unwired npm entry) and
   // deadkey (a comment quoting purged keys) in one evening. Four episodes, one mistaken subject.
   //
-  // A script that is not in the commit is not shipping, so it cannot be dormant IN THE PUBLISHED TREE — and it
+  // A script that is not in the commit is not shipping, so its dormancy is a question about the working tree alone — and it
   // is judged the moment it is committed, which is the moment the question becomes real. This narrows the
   // SUBJECT and not the law: every tracked script is still held to exactly the same standard.
   //
@@ -1461,7 +1461,7 @@ export function pagesGaps(): Gap[] {
   // scanned the 34 top-level pages and never looked at the 148 beneath them — 81% of the docs tree, including
   // every article, was exempt by accident rather than by declaration. The articles happen to pass (each cites the
   // wing it was written from), and that is exactly why the hole survived: nothing was wrong, so nothing complained.
-  // A check that silently covers a fifth of what it names is the same failure shape as a gate that cannot fail.
+  // A check that silently covers a fifth of what it names is the same failure shape as a gate rigged to pass.
   const pages: string[] = []
   const walk = (dir: string, prefix: string): void => {
     for (const e of readdirSync(dir, { withFileTypes: true }).sort((a, b) => (a.name < b.name ? -1 : 1))) {
@@ -1936,7 +1936,7 @@ export function fold() {
   // is decoration, not physics — the numerology stays UNVERIFIED, exactly as the rosette page rules.
   const a = quantumAura(receiptCore)
   // THE COLOUR IS THE MESSAGE, PROVEN AT SEAL: decode the receipt's own hex back to its state — the fold OBJECTS
-  // if the colour goes mute (decode∘encode must be id over the whole 378-state alphabet; hue alone cannot carry
+  // if the colour goes mute (decode∘encode must be id over the whole 378-state alphabet; hue alone carries only part of
   // it — 9·7·6 > 360, pigeonhole — so saturation and lightness joined the code). The TEN animation dimensions
   // ride along from a.ten — seven compactified (pure functions of the three free ones). The 10D animation IS that record.
   const dec = auraDecode(a.rgb)
@@ -2177,7 +2177,7 @@ export function literalGaps(): Gap[] {
  *
  *  So the GATE scans the source of truth, where a control byte would actually blind another finder, and the AUDIT
  *  scans everything (`one-receipt binary --full`, wired into npm run audit). What the gate gives up: a control byte
- *  emitted INTO a generated payload is caught at audit time rather than before a reconcile. It cannot hide, because
+ *  emitted INTO a generated payload is caught at audit time rather than before a reconcile. It shows itself, because
  *  a byte only reaches a payload through a generator, and every generator's source is in the gate's scope. */
 export function binaryGaps(full = false): Gap[] {
   const gaps: Gap[] = []
@@ -2396,7 +2396,7 @@ export function deadkeyGaps(): Gap[] {
   // EVERY SURFACE A READER TRUSTS, not just the site. A dead key in a source comment or a package doc reads exactly
   // as authoritative as one on a page — the same violation, one layer over. TESTS ARE IN SCOPE NOW: exempting the
   // whole tree to spare a handful of negative fixtures hid two purged keys for as long as the exemption existed,
-  // and a finder that cannot see its own test suite cannot see the files most likely to quote a key that died.
+  // and a finder blind to its own test suite is blind to the files most likely to quote a key that died.
   // Generated trees are still skipped for the usual reason — fixing a copy is drift; the source it came from is
   // in scope.
   const walk = (d: string, ext: string): string[] => existsSync(d)
@@ -2455,7 +2455,7 @@ export function nameGaps(): Gap[] {
  *
  *  `export const BAR_MS = 252  // 9·7·4 — the four tongues' bar` states its own arithmetic in the comment and
  *  hardcodes the answer beside it. The comment can drift from the number it explains and nothing complains;
- *  `9 * 7 * 4` cannot. This tree already knows the rule — hexbit/index.ts: "if it is named a hexbit, the unit
+ *  `9 * 7 * 4` recomputes it. This tree already knows the rule — hexbit/index.ts: "if it is named a hexbit, the unit
  *  computes it"; handle.ts records the same lesson twice ("written three times before it was written once") —
  *  but nothing enforced it past the Lean boundary, so the law held in docstrings and not in code.
  *
@@ -2513,7 +2513,7 @@ export function constantGaps(): Gap[] {
       // worked example inside its own docstring. Blanking /* */ regions was tried first and was WORSE: this
       // file is full of regex literals holding the byte pairs that open and close a comment, so the pairing
       // mis-matched and silently blanked real code (it lost the genuine SAFE finding at line 992). Judging one
-      // line by its own shape needs no pairing at all, and cannot be fooled by a regex containing a slash-star.
+      // line by its own shape needs no pairing at all, and is immune by construction to a regex containing a slash-star.
       // a bare literal assigned, with a trailing comment. `= 16 ** X // 2^32` must NOT match: the code already
       // derives, and the literal is an operand — that line is the CONTROL this finder is measured against.
       if (/^\s*(\/\/|\*|\/\*)/.test(raw)) return
@@ -2543,7 +2543,7 @@ export function hexbitGaps(): Gap[] {
     try { src = fileText(join(ROOT, f)) } catch { continue }
     if (/GENERATED by|— GENERATED/.test(src.slice(0, 400))) continue
     // BOTH GAPS THIS FINDER RAISES NEED ONE OF TWO WORDS in the file: a value NAMED a hexbit, or a `while` loop
-    // taking a width a bit at a time. A file holding neither cannot produce either gap, so the per-line regex
+    // taking a width a bit at a time. A file holding neither produces neither gap, so the per-line regex
     // sweep is skipped whole — the same finding set, without scanning every line of every module to prove a
     // negative. This is the finder the captain named; it was the gate's most expensive.
     if (!src.includes('hexbit') && !src.includes('while')) continue
@@ -2562,7 +2562,7 @@ export function hexbitGaps(): Gap[] {
       // AND THE NAMING. The arithmetic is not the violation — mislabelling is. Something CALLED a hexbit that
       // was not computed by the unit is the error I made myself twice: once dividing hex characters by two and
       // reporting bytes as hexbits, once open-coding `(q - q % 4) / 4` in quantum/message hours after building
-      // src/hexbit to end exactly that. Broad patterns cannot catch this — a gate on the literals 32 and 128
+      // src/hexbit to end exactly that. Broad patterns miss this — a gate on the literals 32 and 128
       // fires 400+ times on correct code, because FNV really is a 32-bit hash and a hex decoder really does
       // halve a character count. What is narrow and true: if it is named a hexbit, the unit computed it.
       // an ASSIGNMENT of a value, not a type annotation (`hexbits: number`) and not prose (`'…TWO HEXBITS…'`),
@@ -2589,7 +2589,7 @@ export function hexbitGaps(): Gap[] {
  *
  *  A theorem whose NAME says every, never, reaches or generates is claiming something universal, and only a
  *  quantifier can carry that: `.all` over a range, a walked enumeration, a list decided element by element. A
- *  handful of point facts cannot, however true each one is.
+ *  handful of point facts stays a handful, however true each one is.
  *
  *  This was earned. a theorem claiming the void and the axis never reach each other was sealed here with the word REACH in its
  *  name while its Lean settled counts and its JS applied each motion ONCE from the seed — never closing the set

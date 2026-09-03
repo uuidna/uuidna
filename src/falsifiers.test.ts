@@ -2507,7 +2507,7 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["distance_is_symmetric", "(List.range 16).all (fun a => (List.range 16).all (fun b => (dist a b == dist b a) && ((dist a b == 0) == (a == b))))"],
   ["isometry_bounds_correction", "((3 - 1) / 2 = 1) ∧ (3 - 1 = 2) ∧ ((3 - 1) / 2 ≠ 2)"],
   ["a_token_approximates_eight_hexbits", "(4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4 * 8 = 32)"],
-  ["context_windows_are_transient_hexbits", "(((modelContextRows.map (fun r => r.length)).sum) = 424) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)"],
+  ["context_windows_are_transient_hexbits", "(((modelContextRows.map (fun r => r.length)).sum) = 425) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)"],
   ["speaking_an_address_costs_the_text", "(36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)"],
   ["crypto_widths_are_fixed_not_sampled", "(32 * 8 = 256) ∧ (16 * 8 = 128) ∧ (600000 = 6 * 100000)"],
   ["every_context_is_finite_against_the_lattice", "(2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))"],

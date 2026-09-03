@@ -15,7 +15,7 @@
 | **Axiom-free** | 2589/2589 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 115 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 112 | Capability axes across the ledger |
-| **Proof cost** | 1630642 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Proof cost** | 1630648 decide-steps | MEASURED per theorem in lean/heartbeats.json |
 | **Verification work** | 2589 addresses | one recomputed per theorem |
 | **Steps per address** | 629 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
@@ -57,7 +57,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 1630642 kernel decide-steps, measured
+- First push (prove): 1630648 kernel decide-steps, measured
 - Every later push (verify): 2589 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
@@ -106,7 +106,7 @@ table or it is not a measurement):
 | census | measured | where it is sealed / served |
 |---|---|---|
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
-| Public model feed | 424 models · widest window 2,000,000 tokens · 1,717,853,584 transient hexbits across all windows | [/models](/models) · `Models.lean` |
+| Public model feed | 425 models · widest window 2,000,000 tokens · 1,719,950,736 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
 | Ledger | 2589 theorems · 115 principles · 112 skills | [/theorems](/theorems) · every wing |
 

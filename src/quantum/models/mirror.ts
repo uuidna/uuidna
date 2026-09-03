@@ -10,7 +10,7 @@ export interface ModelsMirror { source: string; endpoint: string; count: number;
 export const MODELS_MIRROR: ModelsMirror = {
  "source": "openrouter.ai/api/v1/models (public, keyless)",
  "endpoint": "https://openrouter.ai/api/v1/models",
- "count": 424,
+ "count": 425,
  "models": [
   {
    "id": "aion-labs/aion-2.0",
@@ -394,8 +394,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-chat-v3.1",
    "name": "DeepSeek: DeepSeek V3.1",
    "contextTokens": 163840,
-   "promptPrice": "0.00000025",
-   "completionPrice": "0.00000095"
+   "promptPrice": "0.00000055",
+   "completionPrice": "0.00000165"
   },
   {
    "id": "deepseek/deepseek-r1",
@@ -443,8 +443,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-flash",
    "name": "DeepSeek: DeepSeek V4 Flash 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.000000088606",
-   "completionPrice": "0.000000177212"
+   "promptPrice": "0.00000007938",
+   "completionPrice": "0.00000015876"
   },
   {
    "id": "deepseek/deepseek-v4-flash-0731",
@@ -471,15 +471,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "deepseek/deepseek-v4-pro",
    "name": "DeepSeek: DeepSeek V4 Pro 0423",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000104226",
-   "completionPrice": "0.00000208452"
+   "promptPrice": "0.000001030776",
+   "completionPrice": "0.000002061552"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813",
    "name": "DeepSeek: DeepSeek V4 Pro 0813",
    "contextTokens": 1048576,
-   "promptPrice": "0.0000011154",
-   "completionPrice": "0.0000033462"
+   "promptPrice": "0.00000066",
+   "completionPrice": "0.00000198"
   },
   {
    "id": "deepseek/deepseek-v4-pro-0813:batch",
@@ -844,6 +844,13 @@ export const MODELS_MIRROR: ModelsMirror = {
    "contextTokens": 262144,
    "promptPrice": "0.000000021",
    "completionPrice": "0.000000063"
+  },
+  {
+   "id": "inclusionai/ling-3.0-flash-fin",
+   "name": "Ling 3.0 Flash Fin",
+   "contextTokens": 262144,
+   "promptPrice": "0.00000006",
+   "completionPrice": "0.00000018"
   },
   {
    "id": "inclusionai/ling-3.0-flash-fin:free",
@@ -2172,8 +2179,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen2.5-vl-72b-instruct",
    "name": "Qwen: Qwen2.5 VL 72B Instruct",
    "contextTokens": 128000,
-   "promptPrice": "0.00000025",
-   "completionPrice": "0.00000075"
+   "promptPrice": "0.0000008",
+   "completionPrice": "0.000001"
   },
   {
    "id": "qwen/qwen3-14b",
@@ -2487,8 +2494,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "qwen/qwen3.8-27b",
    "name": "Qwen: Qwen3.8 27B",
    "contextTokens": 1000000,
-   "promptPrice": "0.000000425",
-   "completionPrice": "0.00000255"
+   "promptPrice": "0.00000042",
+   "completionPrice": "0.000003"
   },
   {
    "id": "qwen/qwen3.8-flash",
@@ -2613,8 +2620,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "tencent/hy3",
    "name": "Tencent: Hy3",
    "contextTokens": 262144,
-   "promptPrice": "0.000000132",
-   "completionPrice": "0.000000528"
+   "promptPrice": "0.0000000825",
+   "completionPrice": "0.00000033"
   },
   {
    "id": "tencent/hy3-preview",
@@ -2942,8 +2949,8 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~moonshotai/kimi-latest",
    "name": "MoonshotAI Kimi Latest",
    "contextTokens": 1048576,
-   "promptPrice": "0.00000255",
-   "completionPrice": "0.00001275"
+   "promptPrice": "0.0000025",
+   "completionPrice": "0.000014"
   },
   {
    "id": "~openai/gpt-latest",
@@ -2970,15 +2977,15 @@ export const MODELS_MIRROR: ModelsMirror = {
    "id": "~z-ai/glm-flash-latest",
    "name": "Z.ai: GLM Flash Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.000000075",
-   "completionPrice": "0.00000025"
+   "promptPrice": "0.00000007125",
+   "completionPrice": "0.0000002375"
   },
   {
    "id": "~z-ai/glm-latest",
    "name": "Z.ai: GLM Latest",
    "contextTokens": 1310720,
-   "promptPrice": "0.00000112",
-   "completionPrice": "0.00000352"
+   "promptPrice": "0.000001148",
+   "completionPrice": "0.000003608"
   }
  ]
 }
