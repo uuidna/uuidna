@@ -60,7 +60,7 @@ export interface CoinCensus {
   totalCoins: number
   agents: AgentAccount[]
   /** whether these figures are an account or a silence — see CensusState. A reader that checks only `payments`
-   *  cannot tell an empty register from an absent one; this field is the whole difference. */
+   *  reads an empty register and an absent one alike; this field is the whole difference. */
   state: CensusState
   /** order-invariant fold of every payment row — any observer, any ordering, one receipt */
   receipt: string

@@ -1551,7 +1551,7 @@ function conjunction(c: Cursor): boolean {
 // a statement is never mutated in place. It stores the null verdict too: "this does not evaluate" is an answer
 // that costs a parse to reach, and the second caller deserves it as cheaply as the first.
 //
-// THIS IS THE CROSS-INVOLUTION SAVING, and it is the one census's own memo cannot make. That memo is keyed on
+// THIS IS THE CROSS-INVOLUTION SAVING, and it is the one the census's own memo leaves unmade. That memo is keyed on
 // the involution, so it correctly returns a held answer for a repeat of the SAME census and does nothing at all
 // for the next one — yet every census asks holds(t.statement) for every sealed theorem before it asks anything
 // about its involution. The statements are the shared work; the involution only decides what happens after.
@@ -1635,7 +1635,7 @@ export interface Census {
 // time, and the memo was dead code that looked like an optimisation. Measured before believing it.
 //
 // The size guard is sound HERE for a reason that does not hold there: the ledger is a static import with no
-// prime path, so it cannot change within a process. The catalogue can — primeCatalogue installs a different one
+// prime path, so it is fixed within a process. The catalogue can — primeCatalogue installs a different one
 // at runtime, possibly of the same size — which is exactly why that index is keyed on identity and this is not.
 const CENSUS = new Map<string, Census>()
 let CENSUS_SIZE = -1

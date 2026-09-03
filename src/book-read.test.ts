@@ -4,7 +4,7 @@
 // could never show you a page of it, which fails the law every surface answers to: the ledger exists FOR a person.
 //
 // THE PROOF IS WHAT MAKES IT MORE THAN A FILE. A plain text file can be altered silently; a chapter handed over with
-// its merkle inclusion proof cannot — change one character and `belongs` goes false against the original root. These
+// its merkle inclusion proof stays put — change one character and `belongs` goes false against the original root. These
 // tests assert exactly that: the words come back, and a forgery is caught. The machinery was already here
 // (merkleProof/verifyProof); only the return was missing.
 //
@@ -46,7 +46,7 @@ test('ONE altered character fails the proof — a forgery is caught', () => {
   const tampered = BOOK.replace('carpet-bag', 'carpet-bags')
   const forged = readChapter(tampered, 1)
   assert.notEqual(forged.address, original.address, 'the altered chapter has a different address')
-  // the forged chapter cannot verify against the ORIGINAL book's root
+  // the forged chapter fails verification against the ORIGINAL book's root
   assert.equal(verifyProof(forged.address, forged.proof, original.chapterRoot), false)
 })
 

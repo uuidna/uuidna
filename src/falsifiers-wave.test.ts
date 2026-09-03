@@ -3,7 +3,7 @@
 // A falsifier is not a restatement. Each test recomputes the theorem's property from scratch in JavaScript and
 // asserts it HOLDS; then it applies a deliberate mutation to that property — a plausible wrong algorithm, a
 // dropped hypothesis, a swapped constant — and asserts the mutated form FAILS. The second half is what makes the
-// first half worth anything: a check that cannot fail proves nothing.
+// first half worth anything: a check that is rigged to pass proves nothing.
 //
 // Every theorem key appears in executable text (the test title is a string literal, not a comment), because that
 // is where the leg census looks. No claim here is a claim about the world; these tests measure only whether the

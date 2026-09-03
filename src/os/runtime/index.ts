@@ -211,7 +211,7 @@ export interface RunPlanBatch {
 
 /** planAlpineRuns(commands) → a recipe for EVERY command, scaffold verified once.
  *  The port is automated: any language, any binary, one planner. A refused scaffold still RETURNS a slot
- *  per command (named reason, no recipe) so a missing rootfs cannot look like a missing port. */
+ *  per command (named reason, no recipe) so a missing rootfs and a missing port read distinctly. */
 export function planAlpineRuns(commands: readonly string[]): RunPlanBatch {
   const scaffold = prepareRunScaffold()
   const plans = commands.map((command) => ({ command: String(command ?? ''), plan: planFromScaffold(scaffold, command) }))

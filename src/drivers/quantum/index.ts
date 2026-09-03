@@ -127,7 +127,7 @@ const inner = (a: QState, b: QState): bigint =>
 
 /** multiply a whole state by i^k — a GLOBAL phase, which no gate in the simulator applies because a global
  *  phase is unobservable in any distribution. It is needed here for exactly one thing: counting the Pauli group,
- *  whose sixteen elements differ precisely by the phase a measurement cannot see. Exact Gaussian arithmetic:
+ *  whose sixteen elements differ precisely by the phase a measurement is blind to. Exact Gaussian arithmetic:
  *  i·(re + im·i) = −im + re·i. */
 const timesI = (s: QState, k: number): QState => {
   let amp = s.amp
@@ -303,7 +303,7 @@ export const WITNESSES: readonly Witness[] = [
   // THE NUMBERS COME FROM THE SEALED STATEMENT, NOT FROM THIS FILE — and the two wrong versions before this one
   // are why. First it read `=== 65536`, a literal duplicating the encoder's cap: change the cap and the witness
   // checks a stale ceiling while reporting EXACT. Then, de-duplicating it, it read
-  // `ket0(SIMULABLE_QUBITS).amp.length === (1 << SIMULABLE_QUBITS)` — which cannot fail, because ket0(n) builds
+  // `ket0(SIMULABLE_QUBITS).amp.length === (1 << SIMULABLE_QUBITS)` — which is rigged to pass, because ket0(n) builds
   // an array of length 1<<n BY CONSTRUCTION. Removing a hack had produced a tautology: a green check measuring
   // nothing, which is strictly worse than the duplicate it replaced.
   //
@@ -483,7 +483,7 @@ export const WITNESSES: readonly Witness[] = [
     } },
 
   // chsh_beats_classical and ym_quantum ARE DELIBERATELY ABSENT. chsh seals `((2:Nat)^2 < 2^3) ∧ (2^3 = 8)` —
-  // a witness would be `2 ** 2 === 4`, a constant that cannot fail. ym_quantum seals "no Nat sits strictly
+  // a witness would be `2 ** 2 === 4`, a constant that is rigged to pass. ym_quantum seals "no Nat sits strictly
   // between n and n+1" plus successive 1·k growth — the same shape of integer tautology, with no host algebra
   // to disagree with. Padding the denominator with cases that cannot come out otherwise games the bound the
   // battery exists to make honest. The two remain NAMED in coverage.unwitnessed. Traitor tests (DNA, dispatch,

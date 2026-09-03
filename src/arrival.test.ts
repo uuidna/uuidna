@@ -18,7 +18,7 @@ test('a coin per referrer — deterministic, 64 bits, and distinct per source', 
   assert.equal(coinOfReferer(A), coinOfReferer(A), 'the same referrer mints the same coin, always')
   assert.notEqual(coinOfReferer(A), coinOfReferer(B), 'two sources must not share a coin')
   assert.match(coinOfReferer(A), /^[0-9a-f]{16}$/, '64 bits, as coin64 mints them')
-  // NAMESPACED: a referrer must never collide with a SUBJECT url minting through coin64 directly
+  // NAMESPACED: a referrer stays clear of a SUBJECT url, by construction minting through coin64 directly
   assert.notEqual(coinOfReferer(A), coin64(A), 'a referrer coin and a subject coin for the same url are different things')
 })
 

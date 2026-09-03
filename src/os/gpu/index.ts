@@ -10,7 +10,7 @@
 //
 // WHAT THIS FILE HONESTLY IS. The shader below is real WGSL and the dispatch is a real WebGPU call, but NOTHING
 // HERE HAS EVER RUN ON A GPU IN THIS REPOSITORY. Node exposes no navigator.gpu and neither does a Worker, so
-// the suite can verify the detection, the refusal and the CPU reference — and cannot verify the dispatch. That
+// the suite can verify the detection, the refusal and the CPU reference — and stops short of verifying the dispatch. That
 // is stated in `honest` on every result and it is not a formality: code that has not run is not code that
 // works, and a measurement nobody has taken is not a speedup.
 //
@@ -28,7 +28,7 @@
 import { RING } from '../../hexbit/index.js'
 
 /** The compute shader: one invocation per handle value, residue mod RING. The modulus is injected from the
- *  sealed constant rather than written into the source, so the shader cannot drift from the lattice it serves. */
+ *  sealed constant rather than written into the source, so the shader stays pinned to the lattice it serves. */
 export const RESIDUE_WGSL = `
 @group(0) @binding(0) var<storage, read>       src : array<u32>;
 @group(0) @binding(1) var<storage, read_write> out : array<u32>;

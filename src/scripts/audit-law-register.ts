@@ -26,7 +26,7 @@
 //
 // THE PROPERTY THIS FILE MUST HOLD ABOUT ITSELF, because it is the whole point: A PARSER THAT READ NOTHING MUST
 // NOT REPORT "NO ENFORCEMENT". Every source below is required to yield at least one arm, and a source that
-// cannot be read or that parses to nothing REFUSES the run. Absence is never a clean result here — that is the
+// is unread, or that parses to nothing, REFUSES the run. Absence is never a clean result here — that is the
 // exact defect the audit exists to name, and an auditor holding it would be the last place to allow it.
 import { readFileSync, existsSync, readdirSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'

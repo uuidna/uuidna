@@ -154,7 +154,7 @@ function cmask(P: bigint, swap: bigint): bigint {
  * Computing `x_3'` independently as `((6P + x_2 - x_3) * mask + x_3) % P` is more symmetric.
  * On the tested Node/V8 build, it reduced the timing difference between keeping `(0, v)` and
  * swapping `(v, 0)`—both return `(0, v)`—from about 10%/13% for X25519/X448 to about 3%.
- * Successful calls cannot reach that zero-in-the-first-output case. For the case they can reach,
+ * Successful calls stop short of that zero-in-the-first-output case. For the case they can reach,
  * swapping `(0, v)` and keeping `(v, 0)` both return `(v, 0)`; the difference instead grew from
  * about 0.7%/1.1% to 2.7%/2.8%. The extra multiply/remainder also made public
  * `getSharedSecret()` about 16% slower. The retained one-remainder form measured about 2.5%

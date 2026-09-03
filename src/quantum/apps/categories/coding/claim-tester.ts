@@ -1,7 +1,7 @@
 // categories/coding/claim-tester — THE SCHOOL'S TESTING TOOL (lead 81: the testing tool of educated quantum
 // minds). Paste a claim, and the trial the ledger already runs on itself runs FOR you, in your browser: the three
 // pre-registered controls go first — a false arithmetic, a fabricated citation, a laundered real citation — and
-// if ANY control verifies the whole session is VOID (an instrument that cannot fail proves nothing); only then
+// if ANY control verifies the whole session is VOID (an instrument that is rigged to pass proves nothing); only then
 // is the subject adjudicated, and the verdict comes back with its receipt and its develop-plan. Pure hexbit-app
 // law: no network, no clock, no float — the same claim gives the same verdict and the same receipt on any
 // machine, which is what makes the tool a TEACHER: the student can recompute everything it says.

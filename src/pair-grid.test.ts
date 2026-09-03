@@ -9,7 +9,7 @@
 // which would make the two readings disagree.
 //
 // 42 IS DELIBERATELY NOT FOLDED INTO 432. It does not divide it and its digital root is 6; the tests assert
-// the NON-relationship so a later hand cannot quietly claim the two grids are one.
+// the NON-relationship so a later hand claiming the two grids are one does it in the open.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { PAIR_SEATS, pairs, pairSeat, pairName, transpose, pairsRoot, pairsGaps, pairsReport, DIMENSIONS, GRID_SEATS } from './index.js'

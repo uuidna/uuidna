@@ -485,7 +485,7 @@ test('the MCP surface serves the same computation, and refuses an empty call by 
 
 test('this suite actually exercised the negative paths — it is not green by never asking', () => {
   // Counted across every test above. If a future edit makes the routes stop refusing, or makes every computed flag
-  // come out true, this fails — which is the whole point: a check that cannot fail is not a check.
+  // come out true, this fails — which is the whole point: a check that always passes is not a check.
   assert.ok(observed.refusals >= 25, `only ${observed.refusals} REFUSED verdicts were observed — the refusing paths went unexercised`)
   assert.ok(observed.falseFlags >= 8, `only ${observed.falseFlags} computed flags came out false — every finding was affirmative, which is the defect this suite exists to catch`)
   assert.ok(observed.rejectedBrackets >= 4, `verifyBracket rejected only ${observed.rejectedBrackets} tampered brackets — a verifier that never rejects proves nothing`)

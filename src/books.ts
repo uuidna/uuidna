@@ -103,7 +103,7 @@ export function auditText(text: string, meta: { title?: string; authors?: string
  *  chooses — which is also why it is exported rather than inlined here.
  *
  *  HONEST ON FAILURE: a file with no markers is returned WHOLE with `stripped: false`, never truncated on a
- *  guess. A wrapper that cannot be located is not a wrapper that is absent, and the flag says which happened. */
+ *  guess. An unlocated wrapper is not an absent one, and the flag says which happened. */
 export interface StrippedText { work: string; stripped: boolean; headerWords: number; footerWords: number }
 
 const PG_START = /\*\*\*\s*START OF TH(?:E|IS) PROJECT GUTENBERG[^\n]*\n/i
@@ -176,7 +176,7 @@ export function extractDecidable(text: string, limit = 100): ExtractedFact[] {
   const operand = (s: string): number | null => (/^\d+$/.test(s) ? Number(s) : wordsToNumber(s))
   // COMPOUND GUARD — the grammar is BINARY (a op b = c). If the match is flanked by another arithmetic operator, it is
   // a FRAGMENT of a larger expression (e.g. "5 times 5 minus 3 times 8 is 1" would mis-scope to "3 times 8 is 1" and
-  // emit a false REFUTED). Refuse the fragment rather than settle a sub-expression uuidna cannot evaluate whole. The
+  // emit a false REFUTED). Refuse the fragment rather than settle a sub-expression uuidna leaves unread evaluate whole. The
   // separators "and"/";"/"," are NOT operators, so genuine adjacent binary claims still extract.
   const CONNECTOR_BEFORE = /(?:minus|plus|times|over|divided|div|[+\-−×÷*/])\s*$/i
   const CONNECTOR_AFTER = /^\s*(?:minus|plus|times|over|divided|div|[+\-−×÷*/])/i
@@ -255,7 +255,7 @@ const UNIT = '(?:degrees?|points?|cubits?|feet|foot|inches|spans?|handbreadths?|
 
 /** extractClaims(text) → every numeric claim the text STATES, as candidate leads. Two shapes are mined:
  *  UNIT-EQUIVALENCE ("45 degrees, or four points by compass") — the shape that carries domain knowledge and that
- *  extractDecidable cannot see, because the text never writes it as arithmetic; and MEASUREMENT ("300 cubits the
+ *  extractDecidable is blind to, because the text never writes it as arithmetic; and MEASUREMENT ("300 cubits the
  *  length"), the shape a scripture or a treatise states its dimensions in.
  *  this reports WHAT A TEXT SAYS, never whether the text is right, and
  *  never anything about the text's meaning or authority. A verdict is not attempted here — untested_stays_unproven

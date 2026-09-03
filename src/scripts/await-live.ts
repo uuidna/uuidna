@@ -31,7 +31,7 @@ export interface AwaitOutcome {
 }
 
 /** the bounded wait, with its two impure edges handed in — `probe` returns the observed value or null when the
- *  endpoint cannot be read at all (down, refused, malformed), and `sleep` is the delay between attempts. */
+ *  endpoint stays unread (down, refused, malformed), and `sleep` is the delay between attempts. */
 export async function awaitValue(opts: {
   probe: (attempt: number) => Promise<string | null>
   want: string

@@ -280,7 +280,7 @@
       "value": 0,
       "unitText": "messages",
       "measurementTechnique": "declared",
-      "citation": "ZERO BY CONSTRUCTION, not by tuning, and the construction is SEALED: theorem lanes_partition_the_work proves the residue map is a partition — summing what each of 14 lanes receives from 64 items returns 64, nothing lost and nothing counted twice — so the question a scheduler exists to answer cannot arise. merkleGravity is order-invariant, so lanes never need to agree on order either. Coordination overhead cannot grow with lane count because there is no coordination, and a channel that does not exist cannot be raced, starved, forged or observed. The price, named: residue routing is not work-conserving and costs about a tenth more wall-clock on an even workload"
+      "citation": "ZERO BY CONSTRUCTION, not by tuning, and the construction is SEALED: theorem lanes_partition_the_work proves the residue map is a partition — summing what each of 14 lanes receives from 64 items returns 64, nothing lost and nothing counted twice — so the question a scheduler exists to answer cannot arise. merkleGravity is order-invariant, so lanes never need to agree on order either. Coordination overhead cannot grow with lane count because there is no coordination, and a channel that does not exist is unraceable, unstarvable, unforgeable or observed. The price, named: residue routing is not work-conserving and costs about a tenth more wall-clock on an even workload"
     },
     {
       "@type": "PropertyValue",

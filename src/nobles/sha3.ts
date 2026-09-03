@@ -76,7 +76,7 @@ const rotlH = (h: number, l: number, s: number) => (s > 32 ? rotlBH(h, l, s) : r
 const rotlL = (h: number, l: number, s: number) => (s > 32 ? rotlBL(h, l, s) : rotlSL(h, l, s));
 
 // Reused Theta scratch buffer (column parities), same pattern as SHA256_W in sha2.
-// keccakP never calls user code, so the shared buffer cannot be observed mid-permutation.
+// keccakP never calls user code, so the shared buffer stays unobserved mid-permutation.
 const B = new Uint32Array(5 * 2);
 
 /**

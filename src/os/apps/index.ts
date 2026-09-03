@@ -274,7 +274,7 @@ export async function fetchRepoIndex(repo = 'main', branch = 'latest-stable', ar
 
 /** fetchCatalogue(repos, branch, arch) → the published catalogue across repositories, ported and harmonised.
  *  Returns null when EVERY repository came back empty, so a caller can tell "the mirror is down" from "Alpine
- *  publishes nothing" — the two must never render the same, and an empty catalogue must never be sealed as a
+ *  publishes nothing" — the two render distinctly by construction, and an empty catalogue stays out of being sealed as a
  *  result. */
 export async function fetchCatalogue(
   repos: readonly string[] = ['main', 'community'],

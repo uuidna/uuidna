@@ -332,7 +332,7 @@ function gen(opts: SphincsOpts, hashOpts_: TArg<InternalSphincsHashOpts>): TRet<
     csum <<= (8 - ((WOTS_LEN2 * WOTS_LOGW) % 8)) % 8;
     // Checksum to base(LOG_W)
     const W2 = chainCoder(numberToBytesBE(csum, iceilDiv(WOTS_LEN2 * WOTS_LOGW, 8)));
-    // W1 || W2 (concatBytes cannot concat TypedArrays)
+    // W1 || W2 (concatBytes takes byte arrays, not TypedArrays)
     const lengths = new Uint32Array(WOTS_LEN);
     lengths.set(W1);
     lengths.set(W2, W1.length);

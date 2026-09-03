@@ -117,8 +117,8 @@ export function oeapiProgrammes(): OeapiProgramme[] {
 /** The monographs as courses — one per proof wing, carrying its wing's theorems as learning outcomes, and the
  *  school's own MEASURED grading (school.ts's courses(): the decade of the wing's median kernel decide-step cost,
  *  and its place in the derived reading order) in `ext`. That grading is the one thing a reader of a bare course
- *  list cannot supply for themselves, and it is measured rather than assigned — so it is served, under a name that
- *  cannot be mistaken for the qualification level the spec's own `level` field means. */
+ *  list supplies for none of them, and it is measured rather than assigned — so it is served, under a name that
+ *  stays distinct from the qualification level the spec's own `level` field means. */
 export function oeapiCourses(): OeapiCourse[] {
   const T = theorems(), groups = skillGroups()
   const foldOfSkill = new Map(groups.map((g) => [g.skill, g.fold]))
@@ -177,7 +177,7 @@ const ABSENT: { resource: string; why: string; instead: string }[] = [
 ]
 
 // THE ABSENCE LAW, ONE LEVEL DOWN. The list above says which RESOURCES are absent. It said nothing about absent
-// FIELDS, so a reader of /programmes could not tell a field that is impossible here from one that was forgotten —
+// FIELDS, so a reader of /programmes read alike a field that is out of range here and one that was forgotten —
 // and measuring found both. These two are the impossible kind, and refusing them is the same law that keeps
 // `complexityLevel` out: the standard fixes not just the NAME of a field but what its VALUE must mean, and filling
 // one with a value of the wrong kind passes every name-vetting audit while lying to every consumer.

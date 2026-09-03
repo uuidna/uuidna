@@ -132,10 +132,10 @@ export function cryptoAddress(seed: string): string {
  *  The theorem was sealed here and never turned on the tree's own address width; doing so is what this function
  *  is for. Nothing about the theorem changes — it is applied, not amended.
  *
- *  So a surface that must survive a quantum adversary cannot use a uuid at all, and no choice of hash rescues it:
+ *  So a surface that must survive a quantum adversary needs more than a uuid, and no choice of hash rescues it:
  *  truncating SHA-256 to 122 usable bits throws away the margin before the mint is even asked. This returns all
  *  256 bits as hex — 2^128 quantum preimage after halving, which IS a post-quantum margin — and it is not a uuid
- *  precisely so that it cannot be silently substituted into a field expecting one.
+ *  precisely so that substituting it into a field expecting one shows up loudly.
  *
  *  WHERE IT IS AND IS NOT NEEDED. spin's drift detection and every routing address face no adversary and are
  *  correct as they are; a 122-bit content-address is an excellent name. Contract ids, rights imprints and bill

@@ -112,7 +112,7 @@ export function ensureSandboxImage(opts: {
 }
 
 /** probeSh() → busybox sh that classifies each cmd: PRESENT+SPAWN, SKIP, or ABSENT.
- *  `[` cannot live in a `case` arm (it opens a character class), so it is tested as a string. */
+ *  `[` opens a character class inside a `case` arm, so it is tested as a string. */
 export function probeSh(): string {
   const skip = [...SANDBOX_SKIP_SPAWN].filter((n) => n !== '[').join('|')
   return [

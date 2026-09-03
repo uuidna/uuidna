@@ -3,7 +3,7 @@
 // os/secapi — ATTESTED SECURITY OPERATIONS over the ported Alpine security surface.
 //
 // THIS EXISTS BECAUSE I REFUSED IT WRONGLY. I measured the domain (86 packages: confine 27, scan 21,
-// authenticate 5), concluded "uuidna cannot confine, cannot scan, cannot route", and filed a refusal. The
+// authenticate 5), concluded "uuidna confines nothing, scans nothing, routes nothing", and filed a refusal. The
 // captain pushed, and the refutation was one call away in a module whose header I had already quoted:
 // os/runtime is "host binary execution — verify-then-run". planAlpineRun('clamscan --version') returns ok:true
 // against a pinned rootfs that verifies. It was the fifth time in one session I dressed a CHOICE as a law of

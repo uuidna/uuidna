@@ -19,7 +19,7 @@ test('A BROKEN READER IS NOT AN EMPTY REPOSITORY — the distinction the [] retu
   const nothing = classifyIndex('main', 'nosucharch', true, 0, 0)
   assert.equal(nothing.outcome, 'absent')
 
-  // the two must NEVER share an outcome — that collapse is the bug
+  // the two carry distinct outcomes by construction — that collapse is the bug
   assert.notEqual(broken.outcome, nothing.outcome)
 })
 
@@ -27,7 +27,7 @@ test('UNREAD IS NOT A PASS AND NOT A FAILURE — it is the absence of evidence, 
   const c = classifyIndex('community', 'riscv64', false, 0, 0)
   assert.equal(c.outcome, 'unread')
   assert.match(c.why, /neither a pass nor a failure/)
-  // an unread cell must never be counted as read, however tempting the arithmetic
+  // an unread cell stays uncounted as read, by decision, however tempting the arithmetic
   const cov = coverageOf('latest-stable', [
     classifyIndex('main', 'x86_64', true, 528_239, 4200),
     classifyIndex('main', 'aarch64', false, 0, 0),

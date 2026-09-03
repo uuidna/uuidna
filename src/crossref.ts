@@ -17,7 +17,7 @@
 // bundles what it can reach, and a test that needs the internet to run is a test that fails on a train.
 //
 // resolving a DOI proves the RECORD EXISTS and says what the publisher deposited. It does not read
-// the paper, and it cannot tell whether the cited work supports the claim citing it — that is the same gap the
+// the paper, and it stays silent on whether the cited work supports the claim citing it — that is the same gap the
 // citation gate has, and no metadata service closes it. Integrity, not truth.
 
 /** What Crossref deposits about a work, reduced to the fields a citation is checked against. */
@@ -135,7 +135,7 @@ export interface CandidateSource { citation: Citation; judged: false }
  *  would then measure nothing at all. rosetta.ts calls that the vacuity trap and names the cost: destroy the only
  *  measurement that located today's errors. Scarcity is not this leg's weakness, it is what it MEASURES.
  *
- *  And the deeper reason is one this tree has already paid for. Citation-existence cannot tell a source that
+ *  And the deeper reason is one this tree has already paid for. Citation-existence reads alike a source that
  *  SUPPORTS a claim from one that DENIES it — the gate stamped "uuidna achieves quantum advantage" VERIFIED
  *  against theorem n_qubit_dimension — whose own name ends "it is NOT a speedup or a quantum advantage".
  *  WHAT THAT THEOREM STATES is a dimension and a COST, not an advantage: [1,2,3,4,5] qubits span [2,4,8,16,32]

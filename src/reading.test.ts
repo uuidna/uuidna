@@ -2,7 +2,7 @@
 //
 // Every test below asserts one of three things: that an aspect DISCRIMINATES (two texts it should separate get
 // different numbers), that it REFUSES (a text it cannot read returns `unread` WITH a reason rather than a zero),
-// or that it reports its own DENOMINATOR. The middle one is the important one: an instrument that cannot fail
+// or that it reports its own DENOMINATOR. The middle one is the important one: an instrument that is rigged to pass
 // cannot be trusted when it passes, and an instrument whose silence is indistinguishable from its success is the
 // defect this module exists to avoid.
 import { test } from 'node:test'

@@ -18,7 +18,7 @@
 //
 //   SO THE INTER-LANE MESSAGE COUNT IS ZERO, and it is zero by construction rather than by tuning. That is the
 //     efficiency claim: coordination overhead cannot grow with lane count because there is no coordination. And
-//     it is the security claim: a channel that does not exist cannot be raced, starved, forged or observed. The
+//     it is the security claim: a channel that does not exist is unraceable, unstarvable, unforgeable or observed. The
 //     only thing that crosses a lane boundary is a content-address, and a content-address is checkable by
 //     recomputation rather than by trust.
 //
@@ -71,7 +71,7 @@ export function balancerFigures(census: readonly number[], host: BalancerHost): 
       name: `executor seat — ${lane.name}`,
       value: lane.seat,
       // the seat's own honesty word maps exactly onto the figure's class, which is why the two vocabularies were
-      // worth aligning: a `specified` lane cannot be published as though it ran, and an `empty` one claims nothing
+      // worth aligning: a `specified` lane stays unpublished as though it ran, and an `empty` one claims nothing
       measurementTechnique: lane.seat === 'measured' ? 'measured' : lane.seat === 'specified' ? 'computed' : 'declared',
       citation: `${lane.admits} — ${lane.note}`,
     }
@@ -86,9 +86,9 @@ export function balancerFigures(census: readonly number[], host: BalancerHost): 
       measurementTechnique: 'measured',
       citation: `busiest lane held ${hi}, quietest held ${lo} — measured on the work that ran, not asserted from the key's uniformity` },
     { name: 'balancer — inter-lane messages', value: 0, unitText: 'messages', measurementTechnique: 'declared',
-      citation: 'ZERO BY CONSTRUCTION, not by tuning, and the construction is SEALED: theorem lanes_partition_the_work proves the residue map is a partition — summing what each of 14 lanes receives from 64 items returns 64, nothing lost and nothing counted twice — so the question a scheduler exists to answer cannot arise. merkleGravity is order-invariant, so lanes never need to agree on order either. Coordination overhead cannot grow with lane count because there is no coordination, and a channel that does not exist cannot be raced, starved, forged or observed. The price, named: residue routing is not work-conserving and costs about a tenth more wall-clock on an even workload' },
+      citation: 'ZERO BY CONSTRUCTION, not by tuning, and the construction is SEALED: theorem lanes_partition_the_work proves the residue map is a partition — summing what each of 14 lanes receives from 64 items returns 64, nothing lost and nothing counted twice — so the question a scheduler exists to answer cannot arise. merkleGravity is order-invariant, so lanes never need to agree on order either. Coordination overhead cannot grow with lane count because there is no coordination, and a channel that does not exist is unraceable, unstarvable, unforgeable or observed. The price, named: residue routing is not work-conserving and costs about a tenth more wall-clock on an even workload' },
     { name: 'balancer — worst-case lane imbalance', value: 1, unitText: 'item',
-      // COMPUTED, not measured: it is proven for every workload, so a run cannot be its evidence. Classing it
+      // COMPUTED, not measured: it is proven for every workload, so a run is the wrong evidence for it. Classing it
       // `measured` would offer this run as proof of a claim about all runs, which is the substitution the
       // honesty classes exist to prevent.
       measurementTechnique: 'computed',

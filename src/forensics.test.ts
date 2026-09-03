@@ -1,4 +1,4 @@
-// Forensics tests — audit agent statements against the receipts. A false trial cannot survive recomputation: a
+// Forensics tests — audit agent statements against the receipts. A false trial fails recomputation: a
 // fabricated citation, a false address, an unbacked legal claim, a drained overclaim are all recomputable facts about
 // the CLAIM, never accusations. A clean, backed statement passes. Integrity.
 import { test } from 'node:test'

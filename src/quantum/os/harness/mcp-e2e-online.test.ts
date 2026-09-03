@@ -117,7 +117,7 @@ for (const { source, args } of SOURCES)
     for (const row of body.results as Record<string, unknown>[]) {
       assert.equal(row.source, source, 'each row names its origin')
       assert.match(String(row.address), UUID, 'each row is content-addressed, so it can be cited and rechecked')
-      // the finding the live heartbeat cannot see: twelve EU endpoints serve HTML with a 200, two of them at /api/
+      // the finding the live heartbeat is blind to: twelve EU endpoints serve HTML with a 200, two of them at /api/
       assert.ok(!looksLikeHtml(JSON.stringify(row)), `${source} row carries HTML — that is a web page`)
     }
   })

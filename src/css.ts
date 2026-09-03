@@ -1,7 +1,7 @@
 // css — THE ONE DESIGN MATRIX, computed and served. Colour and type are the same arithmetic: the ℤ/9 sequence
 // anchored on its fixed point (5 → green, the heart the diamond reflection holds) sets every hue, and the vortex
 // orbit sets every rung of the type ladder. Nothing here is authored — no hex literal, no pixel value — so the
-// site, the design system and any MCP client read ONE standard that cannot drift between them. Emitted as CSS
+// site, the design system and any MCP client read ONE standard, so they stay in step by construction. Emitted as CSS
 // custom properties under `:root`, folded to a receipt: two surfaces rendering the same matrix compute the same
 // receipt, or they are not the same matrix. Exact integer arithmetic; no host intrinsics, no wall-clock.
 import { toUuid, vortexOrbit, digitalRoot, BASE, TRINITY, A432_STEP } from './address.js'

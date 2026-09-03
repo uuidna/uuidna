@@ -60,7 +60,7 @@ test('CONTROL — a fleet of none is refused by name, never divided by', () => {
 })
 
 // THE FINDERS, folded (2026-08-26 review): each of these passed before the fix and names the exact defect,
-// so the module cannot quietly grow the second voice back.
+// so the module grows the second voice back only in the open.
 test('CONTROL — the two voices agree on what a fleet is: shares refuses every fleet routeOf refuses', () => {
   const h = handleOf(toUuid('x'))
   for (const n of [0, -3, 1.5, NaN]) {
@@ -68,7 +68,7 @@ test('CONTROL — the two voices agree on what a fleet is: shares refuses every 
     assert.throws(() => shares(n), /not a fleet/, `and shares must refuse ${n} too — it once answered with a share`)
   }
   // the finder that could not fire: shares(-3) returned each = -1431655765, and -1431655765 * -3 + 1 is
-  // exactly 2^32, so the accounting invariant HELD for a fleet that cannot exist.
+  // exactly 2^32, so the accounting invariant HELD for a fleet that exists nowhere.
 })
 
 test('CONTROL — a non-handle is refused, never routed to NaN and silently dropped', () => {

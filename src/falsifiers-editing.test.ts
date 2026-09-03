@@ -3,7 +3,7 @@
 // A falsifier is not a restatement. Each test below RECOMPUTES the theorem's property from the editing rule that
 // produces it — the drop rule walked minute by minute, the timeline built as frame indices, the ring permutation
 // applied to all 24 frames — and only then compares against the sealed number. Then it MUTATES that rule and
-// asserts the mutated form FAILS. Both halves are required: a check that cannot go red measures nothing, which is
+// asserts the mutated form FAILS. Both halves are required: a check that stays green measures nothing, which is
 // the vacuity trap the leg census exists to detect.
 //
 // Nothing here is a witness. Every recomputation is this project's own arithmetic, and the project's own

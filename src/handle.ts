@@ -11,7 +11,7 @@
 // lexicographic order over the path IS numeric order over the handle.
 //
 // THE ROUND TRIP IS THE POINT. `handleOfPath(handlePath(h)) === h` for every valid handle, and the test proves it
-// over the live ledger rather than over examples. An address scheme that cannot be inverted is a naming scheme,
+// over the live ledger rather than over examples. An address scheme that is one-way is a naming scheme,
 // and a naming scheme drifts: today the site derived its structure one way and the MCP catalogue another, and the
 // two could not be checked against each other because neither could recover the other's identity. A reversible
 // path means the payload store and the tool that serves it are the same object seen twice.
@@ -67,11 +67,11 @@ export const seedOf = (address: string): number => parseInt(handleOf(address), 1
  *  bits are uniform by construction — which makes the residue a balanced shard key that needs no scheduler, no
  *  queue state and no coordination between lanes. The same input lands on the same lane on every host and every
  *  run, which is the property an arrival-order pool cannot offer: there, assignment depends on who finished first,
- *  so two runs of identical work distribute differently and a timing that moves cannot be attributed.
+ *  so two runs of identical work distribute differently and a timing that moves is unattributed.
  *
  *  This is the mod-9 router of src/hardware one level up — addressing as a residue rather than a range — and it
  *  is safe here for the same reason the fold tree is: merkleGravity is order-invariant, so which lane did which
- *  piece cannot change the result, only when it arrives.
+ *  piece leaves the result alone and moves only when it arrives.
  *
  *  WHAT IT COSTS, SAID PLAINLY. Deterministic assignment is NOT work-conserving. An arrival-order pool never lets
  *  a lane idle while work remains; a keyed one can finish five buckets and sit waiting on the sixth, because the

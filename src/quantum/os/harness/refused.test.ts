@@ -6,7 +6,7 @@
 //
 // These tests hold the two properties that make the finder worth having, and both can fail: that it FIRES on a
 // real reach, and that it does NOT fire on a mention. The second matters more than it looks — four finders in this
-// tree have been fooled by prose about the thing they police, so a finder that cannot tell a URL from a sentence
+// tree have been fooled by prose about the thing they police, so a finder that reads alike a URL from a sentence
 // would join them rather than help.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'

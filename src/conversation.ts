@@ -32,8 +32,8 @@ export const openRoom = (handles: string[], referer = ''): Room => conversationF
 
 /** Seal a message INTO the room's uuid stream at an advancing POSITION `step` (its index in the conversation), keyed
  *  by the room address + passphrase (local — nothing sent). The advancing step CLOSES THE EQUALITY LEAK: the same
- *  message at two positions seals to different uuid chains, so an observer cannot tell two room messages hold the same
- *  text (or recover their order). Omit `step` only for a one-shot send where repetition cannot occur. */
+ *  message at two positions seals to different uuid chains, so an observer reads alike two room messages hold the same
+ *  text (or recover their order). Omit `step` only for a one-shot send where repetition never occur. */
 export const sendToRoom = (room: Room, message: string, passphrase: string, step: number): string[] =>
   imprintTextChain(JSON.stringify(encryptSession(String(message), String(passphrase), room.address, step)))
 

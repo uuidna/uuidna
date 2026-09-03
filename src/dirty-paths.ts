@@ -19,7 +19,7 @@
 // CASE RETURNED THE SAME VALUE. `[]` from a down archive equalled `[]` from a clean one; VOID equalled
 // not-failed; a memo hit equalled a fold; a missing flag equalled not-an-ancestor; a recycled pid equalled a live
 // holder; a green `by receipt` equalled a green run. An instrument built to end that class must not commit it, so
-// "the manifest cannot speak about this path" is its own answer and is NOT "the path was clean". A path created
+// "the manifest is silent about this path" is its own answer and is NOT "the path was clean". A path created
 // after the session opened, a path outside the scanned scope, a missing manifest — each is UNKNOWN, and unknown
 // asks rather than assumes.
 
@@ -34,7 +34,7 @@
 // otherwise would be claiming a reading it cannot take — which is the whole disease. What narrows the hole is
 // opening EARLY: everything a session did not start is dirty at its open, so the earlier the open, the more of
 // the tree the answer covers. A session that opens on arrival has almost no hole; one that opens late has a
-// large one, and the tool cannot tell which it is.
+// large one, and the tool reads both alike.
 
 /** What a session found when it opened, and — just as importantly — what it looked at. */
 export interface OpenManifest {
@@ -48,7 +48,7 @@ export interface OpenManifest {
 
 /** mine — clean when I arrived, so whatever is in it now is mine to commit.
  *  foreign — already dirty when I arrived: a peer is mid-edit and this is not mine to publish.
- *  unknown — the manifest cannot speak about it. Ask; never assume either of the other two. */
+ *  unknown — the manifest is silent about it. Ask; never assume either of the other two. */
 export type Ownership = 'mine' | 'foreign' | 'unknown'
 
 /** does `root` cover `path`? Exact match, or a directory prefix — compared on '/' boundaries so that a root of

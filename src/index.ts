@@ -261,7 +261,7 @@ export { coinsJobs, COIN_JOBS, type CoinJob, type CoinJobsReport } from './capta
 // reports — EVERY REPORT AND AUDIT, CONSOLIDATED AND COMPUTED. The theorem accounting, heartbeat coverage,
 // citation audit, support audit, package inventory and deployment readiness in one structure, folded
 // order-invariantly to one receipt. Stored reports go stale silently (reports.json published 1195 theorems for
-// three days with no writer and no reader); a computed one cannot. A section whose artifact is absent says so.
+// three days with no writer and no reader); a computed one stays current. A section whose artifact is absent says so.
 export { reportAll, type ConsolidatedReports, type ReportSection } from './reports.js'
 
 // quantum — a CLASSICAL, EXACT state-vector simulator, ported from millennium-solutions and completed as the captain
@@ -388,7 +388,7 @@ export { legalFacts, type LegalFacts } from './legal.js'
 // much; non-commercial is free and needs no licence, commercial is billed the two conserved coins.
 export { license, grantAt, verifyGrant, verifyLicense, type License } from './license.js'
 // priorart — an IN-HOUSE defensive-publication record: what/who/integrity/terms, recomputable and self-contained; the
-// WHEN (priority-dating) it names as an external anchor, never faked. You cannot notarise your own document.
+// WHEN (priority-dating) it names as an external anchor, never faked. Notarising your own WHEN is worthless — a self-signed date proves nothing about own document.
 export { priorArt, type PriorArt, type PriorArtExhibit } from './priorart.js'
 // anchor — the external WHEN, verified in-house: fold a NIST Randomness Beacon pulse (signed, timestamped, archived)
 // into a record's address for a re-verifiable NOT-BEFORE bound — the rigorous "Schumann resonance at the time".
@@ -485,7 +485,7 @@ export { socialProfile, type SocialProfile } from './social.js'
 export { growLife, type GrowLife } from './grow.js'
 // cube — the QUANTUM-CUBE CHALLENGE: a symmetric, deterministic challenge-response whose visual answer is the A432
 // aura rendered as a spinning 3D cube. A holder of the shared secret reproduces the exact cube for a verifier's nonce;
-// an imitator cannot. Strength is the secret's entropy — NOT zero-knowledge, NOT biometric. Integrity, not truth.
+// an imitator fails. Strength is the secret's entropy — NOT zero-knowledge, NOT biometric. Integrity, not truth.
 export { quantumCubeChallenge, verifyQuantumCube, type QuantumCube } from './cube.js'
 // provenance — BYTE-LEVEL image/file provenance: the SHA-256 of the exact bytes (exact-copy + tamper-evidence) + a
 // uuidna handle + the container format from the magic bytes. Proves byte-identity, NEVER content authenticity — a
@@ -714,7 +714,7 @@ export {
 
 // THE UNIT, WHAT IT WEIGHS, WHAT IT FUSES, AND WHAT IT WOULD BE IN SILICON. Four modules built this session and
 // reachable from nowhere until now — the support finder named them dead code, and it was right: a module the
-// root cannot reach is a module no consumer can call, however green its own tests are.
+// root leaves unreached is a module no consumer can call, however green its own tests are.
 export {
   HEXBIT_BITS, HEXBIT_STATES, UUID_BITS, COINS, LEVERAGE, HANDLE_SPAN, HANDLE_HEXBITS, COIN_HEXBITS, valueOf, bitsOf, bitsToHexbits,
   qubitsToHexbits, spareOf, sha256IsFourSixtyfours, hexbitDoorOf,
@@ -781,7 +781,7 @@ export { planChange, renderPlan, commitChange, type InstallPlan, type CommitResu
 export { uiApi, renderUi, UI_CLASSES, type UiApiCensus, type UiClassRow } from './quantum/os/uiapi/index.js'
 // every package ported — identity for all, classification for those a pattern can honestly place
 export { portAll, renderPortAll, type PortAllCensus } from './quantum/os/portall/index.js'
-// the display gap — why a content-address catches what visual review cannot
+// the display gap — why a content-address catches what visual review misses
 export { displayGaps, homoglyphCensus, type DisplayGap, type HomoglyphCensus } from './quantum/os/homoglyph/index.js'
 // CERN open data — the port existed with no door on either surface, which is a capability nobody has
 export { fetchCernOpenData, cernPortSearch, renderCernPort, CERN_OD, CERN_PROBE_QUERY, type CernRecord, type CernFetchResult, type CernPortResult } from './quantum/os/cern/index.js'

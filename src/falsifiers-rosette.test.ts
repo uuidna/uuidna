@@ -9,7 +9,7 @@
 // succession, multiplication by repeated addition and powers by repeated multiplication — so the arithmetic that
 // answers here is not the arithmetic the kernel decided. Every test states the property, asserts it HOLDS, then
 // mutates it (a different modulus, a different generator, a lost direction) and asserts the mutated form FAILS.
-// A check that cannot go red is not evidence.
+// A check that stays green is not evidence.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 

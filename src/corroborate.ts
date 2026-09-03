@@ -53,7 +53,7 @@ const HONEST =
  *
  *  WHAT THIS STILL DOES NOT FIX, said plainly rather than left to be discovered: a uuidna coinage naming nothing
  *  outside this repository ("The 8x8 core") returns THREE independent sources and clears the bar honestly. Counting
- *  cannot see relevance. This closes the gibberish class and no more. */
+ *  is blind to relevance. This closes the gibberish class and no more. */
 export function corroborate(statement: string, evidence: ResearchEvidence[] = [], decidableTest?: () => boolean, reach?: Reach): Corroboration {
   const adj = adjudicate(statement, decidableTest)
   const local = adj.verdict

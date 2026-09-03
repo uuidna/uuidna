@@ -2,7 +2,7 @@
 //
 // The machine this tree runs on has more than one kind of executor, and the work is already shaped to be spread
 // across them: an address is a uniform 32-bit handle, so `laneOf` shards by residue with no scheduler and no
-// coordination, and `merkleGravity` is order-invariant, so which lane did which piece cannot change the answer.
+// coordination, and `merkleGravity` is order-invariant, so which lane did which piece leaves the result unchange the answer.
 // That is a genuine trinity of seats — and exactly two of them are real.
 //
 // WHAT THIS FILE IS. A SPECIFICATION, in the sense src/hardware/index.ts already means it: the datapath there is
@@ -86,7 +86,7 @@ export const LANES: readonly Lane[] = [
  *  seals them:
  *    lanes_partition_the_work       summing what each of 14 lanes receives from 64 items returns 64 — the residue
  *                                   map is a PARTITION, which is precisely why no coordination is needed: the
- *                                   question a scheduler exists to answer cannot arise.
+ *                                   question a scheduler exists to answer never arises.
  *    lanes_balance_within_one       those 64 give every lane 4 or 5, never fewer and never more, with no lane
  *                                   knowing what any other holds.
  *    lanes_even_on_complete_system  56 over 14 is exactly 4 each — the imbalance is never structural, only the
@@ -132,7 +132,7 @@ export { HANDLE_BITS, HANDLE_SPAN }
 // than asserted here. This paragraph used to end "around a few million addresses the transfer amortises", a
 // figure that appeared nowhere else and that nothing checked; when the arithmetic was finally written down it
 // disagreed with the sentence three lines above it, which puts the CPU at ~2,000 addresses in the time a device
-// round trip takes to begin. Both cannot be the break-even. They are answers to two different questions, and
+// round trip takes to begin. Only one of the two is the break-even. They are answers to two different questions, and
 // separating them is the whole of the fix:
 //
 //   STOPS LOSING — the point where a device lane is no longer worse. Pure arithmetic on two device figures,

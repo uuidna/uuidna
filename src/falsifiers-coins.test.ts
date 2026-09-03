@@ -1,6 +1,6 @@
 // coins-falsifiers — the FALSIFIER leg for the Coins.lean wing. Every test here recomputes its theorem's property
 // independently in JavaScript, asserts the honest form HOLDS, and then feeds a DELIBERATELY MUTATED model through
-// the SAME checker and asserts it FAILS. The mutation is the point: a check that cannot fail proves nothing, so a
+// the SAME checker and asserts it FAILS. The mutation is the point: a check that is rigged to pass proves nothing, so a
 // test that only restated the numeral would earn the leg while measuring nothing.
 //
 // Nothing is imported from the tree — the recomputation has to be independent to be worth anything, so the

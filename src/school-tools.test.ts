@@ -1,5 +1,5 @@
 // school-tools — the three coding-shelf instruments held to the hexbit-app law: deterministic, refusing loudly,
-// and each able to fail (a tool that cannot fail teaches nothing).
+// and each able to fail (a tool that is rigged to pass teaches nothing).
 import { test } from 'node:test'
 import assert from 'node:assert'
 import { testClaim } from './quantum/apps/categories/coding/claim-tester.js'

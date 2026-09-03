@@ -84,7 +84,7 @@ export const DOMAIN_PATTERNS: readonly DomainPattern[] = [
   {
     // TWO TERMS HERE ARE HOMONYMS AND THE FIRST PATTERN FELL FOR BOTH. A bare /\bmatrix\b/ collects cmatrix, the
     // terminal screensaver; a bare /\bsignal\b/ collects libsigc++, a C++ signal framework. Both are the wrong
-    // Matrix and the wrong Signal, and a name alone cannot tell which is meant. So the ambiguous product names
+    // Matrix and the wrong Signal, and a name alone reads both alike. So the ambiguous product names
     // are admitted only alongside a messaging word in the DESCRIPTION, while the unambiguous protocol and client
     // names (irc, xmpp, ejabberd, weechat, bitlbee…) stand on their own. 324 loose matches became 249 across 140
     // origins, keeping conduit and flare, dropping cmatrix and libsigc++.

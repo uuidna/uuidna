@@ -1,6 +1,6 @@
 // research-ledger — the findings, and the two rules that decide what each one may DO.
 //
-// EVERY CHECK HERE IS WRITTEN TO BE ABLE TO FAIL. Today's audits found four checks in this repo that cannot fail at
+// EVERY CHECK HERE IS WRITTEN TO BE ABLE TO FAIL. Today's audits found four checks in this repo that were rigged to pass at
 // all — a forged theorem `{key:'totally_made_up', statement:'2 + 2 = 5'}` passes the DNA-recompute check — so each
 // test below carries its own negative control: the same predicate applied to material that MUST be rejected. A
 // suite where every assertion is satisfied by shape is not evidence, and this ledger exists precisely because

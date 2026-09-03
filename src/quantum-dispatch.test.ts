@@ -1,4 +1,4 @@
-// quantum/dispatch — THE CONDITION THAT MATTERS IS THE ONE AN EXISTENCE CHECK CANNOT SEE.
+// quantum/dispatch — THE CONDITION THAT MATTERS IS THE ONE AN EXISTENCE CHECK IS BLIND TO.
 //
 // slimGate asks whether a claim's citations are SEALED. That catches a fabricated proof and nothing else. It
 // does not catch the move where a real, sealed theorem is attached to a sentence it has nothing to do with —

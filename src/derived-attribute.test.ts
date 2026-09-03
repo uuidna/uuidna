@@ -127,7 +127,7 @@ test('a generator that writes ANY path is INVOKED by the chain, or it is rot wai
     + 'complete was wired into generate.ts\'s manifest (2026-08-28). gen-quantum-advantage left this list when it was wired into '
     + 'generate.ts (verify-don\'t-remeasure on the push path; remasure stays the generator).')
 
-  // ── THE FLOOR, which catches what the probe above still cannot see.
+  // ── THE FLOOR, which catches what the probe above is still blind to.
   //
   // Widening the target shape closed the gap that cost a signed claim, but it did not make the probe general: it
   // reads `writeFileSync(`, so a generator writing through appendFileSync, fs.promises.writeFile, or any helper

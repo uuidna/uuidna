@@ -129,13 +129,13 @@ test('COMPOUND ASCRIPTIONS ARE STILL NOT ARITHMETIC — (expr : Nat|Int) stayed 
 })
 
 test('THE WIDENING DID NOT RELAX THE REFUSAL — half-parsed comes back unreached, never true', () => {
-  // the condition this widening was accepted under: a form it cannot FULLY parse must be null, because an
+  // the condition this widening was accepted under: a form it leaves PARTLY unparsed must be null, because an
   // `unreached` is a state a caller counts and a `true` is one they publish. A wider grammar that started
   // guessing would turn a countable absence into a claim — the exact defect this module exists to refuse.
   for (const partial of ['(2:Nat)^2 < 2^3 )junk', '1 = 1 ∧', '((2:Nat)^2', '2 = 2 trailing', '(3:Nat)']) {
     assert.equal(holds(partial), null, `must be unreached, not true: ${partial}`)
   }
-  // and it still decides falsity rather than refusing it — an instrument that cannot say false says nothing
+  // and it still decides falsity rather than refusing it — an instrument with no false to say says nothing
   assert.equal(holds('((2:Nat)^2 = 5)'), false)
 })
 
@@ -146,7 +146,7 @@ test('DIVISION IS LEAN NAT FLOOR — / was a pure-syntax gap that left sealed eq
   assert.equal(holds('(7 * 6) / 2 = 22'), false)
   assert.equal(holds('1000 / 0 = 0'), true, '÷0 = 0, same abstract zero as %')
   assert.equal(holds('256 / 2 = 128'), true)
-  // List forms still refuse — widening / must not start claiming what it cannot parse
+  // List forms still refuse — widening / must not start claiming what it leaves unparsed
   assert.equal(holds('(List.range 7).map (fun x => x) / 1 = 7'), null)  // map yields a list, not a numeral
 })
 
@@ -157,7 +157,7 @@ test('INEQUALITY IS LEAN ≠ — another pure-syntax gap that left sealed inequa
   assert.equal(holds('9 ≠ 9'), false)
   assert.equal(holds('9 ≠ 11'), true)
   assert.equal(holds('(2:Nat) ≠ 0'), true)
-  // List forms still refuse — widening ≠ must not start claiming what it cannot parse
+  // List forms still refuse — widening ≠ must not start claiming what it leaves unparsed
   assert.equal(holds('(List.range 7).filter (fun x => true) ≠ []'), true)
 })
 
@@ -171,7 +171,7 @@ test('NON-STRICT INEQUALITY IS ASCII <= AND >= — sealed windows stayed unreach
   assert.equal(holds('(11 >= 12)'), false)
   assert.equal(holds('(16 ≤ 21) ∧ (21 ≤ 160)'), true, 'Unicode ≤ still holds')
   assert.equal(holds('(11 ≥ 9)'), true, 'Unicode ≥ still holds')
-  // List forms still refuse — widening <= / >= must not start claiming what it cannot parse
+  // List forms still refuse — widening <= / >= must not start claiming what it leaves unparsed
   assert.equal(holds('(List.range 8).all (fun n => n <= 8)'), true)
 })
 
@@ -185,7 +185,7 @@ test('NEGATION IS LEAN ¬ — sealed denials stayed unreached for one character'
   assert.equal(holds('(¬ (18 >= 100))'), true)
   assert.equal(holds('(19 + 30 + 31 + 31 + 29 + 31 + 30 + 1 = 202) ∧ (1888 % 4 = 0) ∧ (¬ (1888 % 100 = 0))'), true)
   assert.equal(holds('(360 / 2 = 180) ∧ (360 / 3 = 120) ∧ (360 % 360 = 0) ∧ (¬ (180 % 360 = 0)) ∧ (¬ (120 % 360 = 0))'), true)
-  // List forms still refuse — widening ¬ must not start claiming what it cannot parse
+  // List forms still refuse — widening ¬ must not start claiming what it leaves unparsed
   assert.equal(holds('¬((List.range 10).all (fun n => n < 10))'), false)
 })
 
@@ -199,7 +199,7 @@ test('LXOR IS THE LEDGER 8-BIT XOR — sealed nim-sums stayed unreached for four
   assert.equal(holds('lxor 1 2 = 3'), true)
   assert.equal(holds('lxor 1 2 = 4'), false)
   assert.equal(holds('(lxor (lxor 1 2) 4 = 7) ∧ (lxor 7 4 = 3)'), true)
-  // List/fun forms still refuse — widening lxor must not start claiming what it cannot parse
+  // List/fun forms still refuse — widening lxor must not start claiming what it leaves unparsed
   assert.equal(holds('(List.range 8).all (fun n => lxor n n == 0)'), true)
   assert.equal(evaluable('(List.range 8).all (fun n => lxor n n == 0)'), true)
 })
@@ -213,7 +213,7 @@ test('NAT.GCD IS LEAN EUCLIDEAN GCD — sealed coprimality stayed unreached for 
   assert.equal(holds('Nat.gcd 110 108 = 2'), true)
   assert.equal(holds('Nat.gcd 9 6 = 1'), false)
   assert.equal(holds('(Nat.gcd 7 9 = 1) ∧ (Nat.gcd 7 14 = 7) ∧ (Nat.gcd 9 6 = 3)'), true)
-  // List/fun forms still refuse — widening Nat.gcd must not start claiming what it cannot parse
+  // List/fun forms still refuse — widening Nat.gcd must not start claiming what it leaves unparsed
   assert.equal(holds('(List.range 9).all (fun a => Nat.gcd a 9 == 1)'), false)  // 0,3,6,9 share factors with 9
   assert.equal(evaluable('(List.range 9).filter (fun a => Nat.gcd a 9 == 1)'), true)
 })
@@ -227,7 +227,7 @@ test('POP IS THE LEDGER 8-BIT POPCOUNT — sealed Hamming weight stayed unreache
   assert.equal(holds('pop 255 = 8'), true)
   assert.equal(holds('pop 63 = 5'), false)
   assert.equal(holds('((4:Nat)^3 = 64) ∧ ((2:Nat)^6 = 64) ∧ (3 * 2 = 6) ∧ (pop 63 = 6)'), true)
-  // List/fun forms still refuse — widening pop must not start claiming what it cannot parse
+  // List/fun forms still refuse — widening pop must not start claiming what it leaves unparsed
   assert.equal(holds('(List.range 4).all (fun x => pop x < 3)'), true)
   assert.equal(evaluable('(List.range 4).all (fun x => pop x < 3)'), true)
 })

@@ -67,7 +67,7 @@ test('AN OPTIONAL RULE NO ENTRY EXERCISES IS REPORTED — a check that never fir
   assert.equal(v.gaps.length, 0, 'nothing is wrong')
   assert.deepEqual(v.unexercised.sort(), ['cites', 'subtitle'],
     'and two rules have never once run, which the corpus being clean does not tell you')
-  // a required field is never listed: it fails loudly on every entry, so it cannot be quietly dead
+  // a required field is never listed: it fails loudly on every entry, so a dead one shows loudly rather than lying dead
   const req = validate(article, [{ id: 'z.md', data: { title: 'T', description: 'D' } }])
   assert.deepEqual(req.unexercised, [])
 })

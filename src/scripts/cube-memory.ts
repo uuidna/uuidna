@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// cube-memory — RUN THE CUBE MEMORY OVER THE LEAN ON DISK, and persist the one thing that cannot be recomputed
+// cube-memory — RUN THE CUBE MEMORY OVER THE LEAN ON DISK, and persist the one thing that is unrecomputable
 // from it: which neighbourhoods have already been sealed, and at what fold.
 //
 // THE CENSUS COMES FROM lean/*.lean. src/theorems/generated.ts is written by lean-ledger from

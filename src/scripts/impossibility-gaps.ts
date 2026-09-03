@@ -61,6 +61,12 @@ const SELF = new Set([
   'src/scripts/impossibility-gaps.ts',
   // classifies refusal boundaries BY these words, so it must name them — the mention case, fifth time today
   'src/school/refusals/index.ts',
+  // THE INVOLUTION TOOL, which carries the modal phrases as its TAUGHT TABLE and quotes the broken rewrites it
+  // measured — "claims that cannot fail" becoming "claims that is rigged to pass" is the evidence for why the
+  // table stays nine forms wide, and it can only be shown by writing it. Seventh instance of mention-not-use.
+  // NOT the same as exempting a vendored file by provenance, which was proposed and REFUSED: this list is for
+  // finders that must name what they hunt, never for source whose prose someone else wrote.
+  'src/scripts/involute-modals.ts',
 ])
 
 export function impossibilityGaps(files: readonly string[], baseline: ReadonlySet<string>): Gap[] {

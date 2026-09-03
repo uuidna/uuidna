@@ -2,7 +2,7 @@
 //
 // A second copy of a boundary is how boundaries drift: refuse a host in the ledger, forget to add it here, and the
 // finder that enforces the refusal silently stops covering it — a check that narrows without saying so. So this
-// parses the ledger's own list. If the file cannot be read the answer is an EMPTY list and the caller is told, so
+// parses the ledger's own list. An unread file answers with an EMPTY list and the caller is told, so
 // that "no refused hosts" and "could not read the refusals" are never the same value.
 //
 // Node-only by construction (it reads a file), and the edge never imports it.

@@ -1,7 +1,7 @@
 // cube — THE QUANTUM-CUBE CHALLENGE: a recomputable, deterministic challenge-response with the "spinning quantum cube"
 // (the A432 aura, rendered as a rotating 3D cube) as its visual answer. The verifier issues a NONCE; the holder of a
 // shared SECRET answers by folding secret+nonce to a content-address and computing its quantum aura — the exact cube.
-// A holder of the secret reproduces the exact cube for that nonce; an imitator cannot (a redirect or a copied cube for
+// A holder of the secret reproduces the exact cube for that nonce; an imitator fails (a redirect or a copied cube for
 // a DIFFERENT nonce fails). verifyQuantumCube recomputes and compares. Deterministic — no clock, no RNG (uuidna does
 // not GENERATE the nonce; the verifier supplies it from their own entropy, and uuidna RESPONDS).
 //

@@ -70,7 +70,7 @@ export function fsVerify(entries: readonly FsEntry[], sealed: FsManifest): FsVer
   const changed = [...has].filter(([p, d]) => was.has(p) && was.get(p) !== d).map(([p]) => p)
   const added = [...has.keys()].filter((p) => !was.has(p))
   const removed = [...was.keys()].filter((p) => !has.has(p))
-  // SAME FILES, SAME BYTES, DIFFERENT ORDER — the case a set-shaped check cannot see, and the reason the fold is
+  // SAME FILES, SAME BYTES, DIFFERENT ORDER — the case a set-shaped check is blind to, and the reason the fold is
   // taken over an ordered list. Everything below matched by name and digest, so only the sequence can have moved.
   // same names, same digests, different order — invisible to a set-shaped check, which is why the root binds
   // position. Everything below matched by name and by digest, so the sequence is the only thing left to move.

@@ -158,7 +158,7 @@ test('billing measures bits saved; coins are conserved; public interest is free'
   assert.equal(billUuidna({ commercial: true, recomputeOps: 5, verifyOps: 1 }).coins, 2)
   assert.equal(billUuidna({ commercial: false, recomputeOps: 1e6, verifyOps: 1 }).free, true)
   // the two-coins guard, folded in (21 tests, C(7,2), the 7-star rosette): Math.* is HARD REJECTED. A host
-  // intrinsic is not a local theorem — it cannot be recomputed or content-addressed, so it cannot settle the
+  // intrinsic is not a local theorem — it is a host read or a content-address, so it settles nothing on its own for
   // two coins (the conserved recompute⇄verify exchange). Redirect the author here; recompute the value from the
   // theorem instead (>>, comparison, integer division, BigInt).
   const root = ROOT
@@ -172,7 +172,7 @@ test('billing measures bits saved; coins are conserved; public interest is free'
   const mathOffenders = files.filter((f) => /\bMath\s*\.\s*[a-zA-Z]/.test(src.get(f)!)).map(rel)
   assert.deepEqual(mathOffenders, [], 'Math.* is hard-rejected — not a local theorem, it cannot settle the two coins (' + coins() + ')')
   // (2) NON-DETERMINISM is HARD REJECTED in the recomputable LIBRARY (scripts/ + test/ are build tooling, exempt — a
-  // heartbeat may TIME Lean). A wall-clock or RNG read cannot be recomputed identically by every observer, so it
+  // heartbeat may TIME Lean). A wall-clock or RNG read comes back different for every observer, so it
   // breaks the order-invariant receipt that IS the "quantum" property: the same fold for every ordering, no signalling
   // (bell_no_signaling). Forcing the library onto the pure decidable path is what keeps the quantum receipt exact.
   const NONDET = /\b(?:Date\s*\.\s*now|new\s+Date|performance\s*\.\s*now|process\s*\.\s*hrtime)\b/  // RNG reads already caught by rule (1) via Math.*

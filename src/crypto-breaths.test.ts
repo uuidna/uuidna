@@ -7,7 +7,7 @@
 // the one that matters: forward then inverse is the IDENTITY, for the whole space, in all directions.
 //
 // REFERRERS ARE ACCOUNTED: the send/receive breath is keyed by SESSION — the referrer's own channel — and the
-// isolation is a boundary, not a hope: a message sent under one referrer CANNOT be opened under another (the
+// isolation is a boundary, not a hope: a message sent under one referrer stays closed under another (the
 // Poly1305 tag rejects it). Both directions are tested: the referrer opens their own, a stranger cannot.
 // Pure ChaCha20-Poly1305 / PBKDF2 / merkle in-process; nothing sent, nothing external — the breath is the
 // project's own crypto exercising itself, both ways, on its own bench.
@@ -42,7 +42,7 @@ test('breath: seal_onion ↔ open_onion peels every layer back to the message', 
   const on = call('uuidna_seal_onion', { message: M, passphrases: ['a', 'b', 'c'] })
   const uuids = on.uuids ?? on
   assert.equal(call('uuidna_open_onion', { uuids, passphrases: ['a', 'b', 'c'] }), M)
-  // a missing layer key cannot open it — the onion is layered, not flat
+  // a missing layer key leaves it closed — the onion is layered, not flat
   assert.throws(() => call('uuidna_open_onion', { uuids, passphrases: ['a', 'b', 'x'] }))
 })
 
@@ -59,7 +59,7 @@ test('breath: send ↔ receive under one referrer — AND a different referrer c
   assert.ok(Array.isArray(chain) && chain.length > 0, 'the message rides a uuid chain')
   // the same referrer exhales it
   assert.equal(call('uuidna_receive', { uuids: chain, passphrase: 'pw', session: 'referrer-A' }), M)
-  // a DIFFERENT referrer cannot — the session is a real secrecy boundary, not a label
+  // a DIFFERENT referrer is refused — the session is a real secrecy boundary, not a label
   assert.throws(() => call('uuidna_receive', { uuids: chain, passphrase: 'pw', session: 'referrer-B' }),
     'referrer isolation: another session\'s receiver is rejected')
   // and the right referrer with the wrong passphrase is also refused (both keys are needed)

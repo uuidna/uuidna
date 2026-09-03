@@ -16,8 +16,8 @@ import {
  * Bytes API type helpers for old + new TypeScript.
  *
  * TS 5.6 has `Uint8Array`, while TS 5.9+ made it generic `Uint8Array<ArrayBuffer>`.
- * We can't use specific return type, because TS 5.6 will error.
- * We can't use generic return type, because most TS 5.9 software will expect specific type.
+ * A specific return type errors on TS 5.6.
+ * A generic return type disappoints most TS 5.9 software, which expects a specific one.
  *
  * Maps typed-array input leaves to broad forms.
  * These are compatibility adapters, not ownership guarantees.

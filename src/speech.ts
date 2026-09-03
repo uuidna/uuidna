@@ -76,7 +76,7 @@ export function speechCensus(keys: readonly string[]): { orbits: { title: string
 // against the numerals the walk measured, and called that derivation. It acquitted "this theorem proves the Riemann
 // hypothesis" (no digits, so nothing to compare, and [].every() is true), acquitted a lie assembled from measured
 // numbers, and acquitted the empty string — then reported 1371/1371 loyal, because the sentences it judged were
-// composed OUT OF the very numbers it checked for. An instrument that cannot fail, reporting its own passing as
+// composed OUT OF the very numbers it checked for. An instrument that is rigged to pass, reporting its own passing as
 // evidence. That is the laundering defect exactly: a name claiming what the statement cannot support.
 //
 // THE TEST THAT DECIDES. Prose is DERIVED iff it is what the algebra GENERATES — byte-identical to compose(facts).

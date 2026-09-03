@@ -41,7 +41,7 @@ function split(lst: bigint[], le = false): TRet<Uint32Array[]> {
 const toBig = (h: number, l: number): bigint => (BigInt(h >>> 0) << _32n) | BigInt(l >>> 0);
 // Split a JS number into u32 halves without a BigInt allocation. Exact only for integers
 // `0 <= n < 2**53`; callers use it on byte / bit counters, which JS length math caps far below
-// that (an ArrayBuffer cannot exceed 2**53 - 1 bytes).
+// that (an ArrayBuffer stops at 2**53 - 1 bytes).
 const fromNumH = (n: number): number => (n / 2 ** 32) | 0;
 const fromNumL = (n: number): number => n >>> 0;
 // Drop-in replacement for `view.setBigUint64(byteOffset, BigInt(n), isLE)` without the per-call
@@ -72,7 +72,7 @@ const rotr32L = (h: number, _l: number): number => h;
 // local copies so V8 inlines them into keccakP.
 
 // Add two split 64-bit words and return the split `{ h, l }` sum.
-// JS uses 32-bit signed integers for bitwise operations, so we cannot simply shift the carry out
+// JS uses 32-bit signed integers for bitwise operations, so simply shifting the carry out falls short — out
 // of the low sum and instead use division.
 function add(
   Ah: number,

@@ -20,8 +20,8 @@ import {
  * Bytes API type helpers for old + new TypeScript.
  *
  * TS 5.6 has `Uint8Array`, while TS 5.9+ made it generic `Uint8Array<ArrayBuffer>`.
- * We can't use specific return type, because TS 5.6 will error.
- * We can't use generic return type, because most TS 5.9 software will expect specific type.
+ * A specific return type errors on TS 5.6.
+ * A generic return type disappoints most TS 5.9 software, which expects a specific one.
  *
  * Maps typed-array input leaves to broad forms.
  * These are compatibility adapters, not ownership guarantees.
@@ -350,7 +350,7 @@ export const SIG_OPT_KEYS: readonly ['context', 'extraEntropy'] = /* @__PURE__ *
  *
  * @param opts - Options object to check.
  * @param allowed - The keys this call site accepts.
- * Returns a frozen null-prototype snapshot so later reads cannot fall through to a polluted
+ * Returns a frozen null-prototype snapshot so later reads stop short of a polluted
  * prototype. Like `checkOpts()` in noble-hashes, only enumerable own properties are copied.
  * @throws If any other copied key is present or the bag has a custom prototype. {@link TypeError}
  * @returns Sanitized snapshot of the enumerable own options.

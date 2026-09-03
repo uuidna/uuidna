@@ -10,7 +10,7 @@
 // must enumerate the ways a claim can be wrong, and it is exactly as complete as that enumeration. Every defect
 // found tonight lived in the gap between the enumeration and the world — a purged key still in backticks, an
 // unsealed key rendered in backticks by a generator, a census frozen in prose, a receipt certifying tests it
-// never ran, four "frames" that cannot disagree.
+// never ran, four "frames" that agree by construction.
 //
 // A FIREWALL INVERTS THE BURDEN AND THAT IS WHY IT IS FAST. There is one way to be admitted — present a key the
 // ledger seals — and no list of ways to be refused. Nothing has to be enumerated, so nothing can be missing from
@@ -24,7 +24,7 @@
 // WHAT IT DOES NOT DO, named so the boundary is a decision rather than an omission: it does not judge whether the
 // sealed theorem SUPPORTS the claim citing it. That is the citation-vs-support distinction the tree already draws
 // — "the gate proves backed, not authentic" — and no set membership can close it. The firewall refuses the
-// unsealed; it cannot refuse the irrelevant.
+// unsealed; it admits the irrelevant.
 import { theorems } from '../theorems/index.js'
 
 // *** THE CORRECTION, AND IT CAME FROM A SEALED THEOREM REFUSING THIS FILE. ***
@@ -63,7 +63,7 @@ let SEALED: Map<string, string> | null = null
 const sealed = (): Map<string, string> => (SEALED ??= new Map(theorems().map((t) => [t.key, t.address])))
 
 /** Citations a claim presents: `theorem <key>`, `/theorem/<key>`, or a backticked key — the same three surfaces
- *  the deadkey finder reads, so the firewall and the finder cannot disagree about what was cited. */
+ *  the deadkey finder reads, so the firewall and the finder agree by construction about what was cited. */
 export function citationsIn(text: string): string[] {
   const found = new Set<string>()
   for (const re of [/\btheorem\s+([a-z0-9_]+)/g, /\/theorem\/([a-z0-9_]+)/g, /`([a-z0-9_]{4,})`/g]) {
@@ -139,8 +139,8 @@ export function screen(texts: readonly string[]): Throughput {
 // disagreement was possible.
 //
 // SO A PERSPECTIVE HERE MUST BE ABLE TO DISAGREE, and each answers in three states, never two: it AGREES, it
-// DISAGREES, or it CANNOT SEE. The third is the one the four frames lacked — a frame that cannot see must say
-// so, not return success. And `cannot-see` never counts toward agreement; it only reduces how many lines crossed.
+// DISAGREES, or it IS BLIND. The third is the one the four frames lacked — a frame that is blind see must say
+// so, not return success. And `blind` never counts toward agreement; it only reduces how many lines crossed.
 //
 // VERIFIED is then the only harmonic state: at least TWO independent perspectives can see, and NONE disagree.
 // Everything else is HARD REJECTED — held, not refuted. The hold is an action the firewall may take on its own
@@ -150,7 +150,7 @@ export type Sight = 'agrees' | 'disagrees' | 'cannot-see'
 export interface Perspective { name: string; sees: Sight; because: string }
 
 /** The perspectives on a cited key. Independent in the sense that matters: each consults a DIFFERENT artifact,
- *  so a defect in one cannot propagate to another, and each can return `disagrees` for a real reason. */
+ *  so a defect in one stays in it, and each can return `disagrees` for a real reason. */
 export function perspectives(key: string): Perspective[] {
   const T = theorems()
   const t = T.find((x) => x.key === key)

@@ -14,7 +14,7 @@ import { cleanGitEnv } from './scripts/api.js'
 
 /** a throwaway repo carrying one Lean wing and the one file derived from it — no clock, and a UNIQUE path
  *  (mkdtempSync) rather than a fixed one: the directory name is the only thing here that varies, and it varies
- *  so that two sessions' suites cannot collide on it. Nothing the tests ASSERT depends on it.
+ *  so that two sessions' suites stay clear of each other on it. Nothing the tests ASSERT depends on it.
  *
  *  THE FIXTURE MUST PROVE ITS OWN ISOLATION BEFORE IT WRITES ANYTHING (2026-08-25). This helper ran `git init`,
  *  `git config user.*` and `git add -A` with `cwd: dir` and `stdio: 'ignore'`, trusting that the directory it

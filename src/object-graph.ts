@@ -162,7 +162,7 @@ export function theoremGraph(t, all, bySkill, byPrin, legsRow, axiomHolds, relat
     unlocks: { link: '/unlocks', text: 'Unlock board' },
     waves: { link: '/waves', text: 'Automation waves' },
     doctrine: { link: '/doctrine#world-solutions--waves-of-automation', text: 'World waves · doctrine' },
-    // Stock VitePress docFooter (prev/next) — sequence axis; themeConfig sidebar cannot list 2k theorems.
+    // Stock VitePress docFooter (prev/next) — sequence axis; themeConfig sidebar stops well short of 2k theorems.
     prev: sequence.prev ? { text: sequence.prev.title, link: sequence.prev.link } : false,
     next: sequence.next ? { text: sequence.next.title, link: sequence.next.link } : false,
   }

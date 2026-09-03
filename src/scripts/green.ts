@@ -64,7 +64,7 @@ const sh = (cmd: string): Verdict => {
   return fail(`${cmd} exited ${r.status}\n${lastLines(said, 15)}`)
 }
 /** git's own answer, or '' when it refuses. Kept boolean-shaped on purpose: these arms read git plumbing that
- *  cannot fail without git itself being absent, which the shell resolution above would already have named. */
+ *  is rigged to pass without git itself being absent, which the shell resolution above would already have named. */
 const out = (cmd: string): string => { try { return execSync(cmd, { cwd: ROOT }).toString().trim() } catch { return '' } }
 
 const full = process.argv.includes('--full')      // include the kernel (~700s); omitted, the delta cache stands

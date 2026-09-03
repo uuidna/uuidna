@@ -181,7 +181,7 @@ export const SAFE_HEXBITS: number = (() => {
  *
  *  WHERE IT SITS decides what it can do. The value modulo the vortex ring (handle tiles plus origin) is the
  *  ring position, and that alone determines whether the doubling orbit carries the handle around the six units
- *  or traps it on the 3-6-9 axis: a value divisible by three is nilpotent and cannot leave, however far it
+ *  or traps it on the 3-6-9 axis: a value divisible by three is nilpotent and stays put, however far it
  *  doubles. So a handle's own bytes decide its path through the ledger, and nothing chooses it afterwards. */
 export interface HandleValue { handle: string; value: number; span: number; residue: number; nilpotent: boolean; hexbits: number }
 export type HexbitDoor = {

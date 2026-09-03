@@ -65,7 +65,7 @@ test('reentrancy is the WALK, not just the holder: a descendant a REAL HOP away 
     'the holder\'s child must pass — refusing it IS lead 91, and it is what a broken ppid walk does')
   assert.equal(currentWriter(path)?.pid, process.ppid, 'and the lock stays the ANCESTOR\'s — a descendant never rewrites it')
 
-  // the control, so this cannot pass by simply never refusing: pid 1 is alive and is NOT our descendant.
+  // the control, so a run that simply never refuses fails here: pid 1 is alive and is NOT our descendant.
   writeFileSync(path, JSON.stringify({ pid: process.pid, purpose: 'audit' }))
   assert.equal(acquire('reconcile', 1, path).ok, false, 'a stranger is still refused — the walk did not become a yes-machine')
 })
@@ -119,7 +119,7 @@ test('a RECYCLED pid does not inherit the lock — the holder is identified, not
   assert.deepEqual(acquire('audit', process.pid, path), { ok: true },
     'and the tree is reclaimed, rather than held forever by a process that no longer exists')
 
-  // THE CONTROL, so this cannot pass by simply calling every holder stale: the same pid with the RIGHT stamp is
+  // THE CONTROL, so a run that simply calls every holder stale fails here: the same pid with the RIGHT stamp is
   // still the holder, and a stranger is still refused. acquire has just written the true stamp for us.
   const real = currentWriter(path)
   assert.equal(real?.pid, process.pid, 'a genuine holder survives the identity check')

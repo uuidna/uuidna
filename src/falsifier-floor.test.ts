@@ -8,7 +8,7 @@
 // executable text only, which dropped the honest count to 54, and these tests are the nine that were missing.
 //
 // Each one RECOMPUTES the theorem's arithmetic here and checks the sealed statement still says it, so mutating the
-// Lean breaks this file. Each carries a negative control, because a check that cannot fail is decoration.
+// Lean breaks this file. Each carries a negative control, because a check that always passes is decoration.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { theorems } from './index.js'

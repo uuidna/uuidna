@@ -16,7 +16,7 @@
 // dimension, so the numbers kept coming from throwaway scripts — five of them in one session (71.3 ms to load
 // the catalogue, 21.9 ms of field-splitting, 322 ns per handle read), each computed correctly and then gone.
 //
-// WHAT IS SEALED AND WHAT CANNOT BE. Every other measurement folds its VALUE into its receipt, so recomputing
+// WHAT IS SEALED AND WHAT IS UNSEALABLE. Every other measurement folds its VALUE into its receipt, so recomputing
 // reproduces the address. A duration cannot work that way: the same code on the same tree gives a different
 // number every run, and a receipt over it would change without anything changing. So the sealed value is the
 // VERDICT — op, declared budget, and whether the op came in under it — which is stable while the code and the

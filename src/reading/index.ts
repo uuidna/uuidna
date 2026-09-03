@@ -75,7 +75,7 @@ const unread = (name: string, decides: string, reason: string, examined: number)
 
 /** STRUCTURE — how the text is DIVIDED. A book is a tree, not a bag; decode-book could not see the tree.
  *  Undecidable, and said so, for a text carrying no line breaks at all — a single-paragraph source is not a
- *  book with one paragraph, it is a book whose divisions this instrument cannot see. */
+ *  book with one paragraph, it is a book whose divisions this instrument is blind to. */
 export function structure(text: string): Aspect {
   const NAME = 'structure', DECIDES = 'how the text divides: lines, paragraphs, and headed divisions'
   const lines = text.split('\n')

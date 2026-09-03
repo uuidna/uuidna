@@ -112,7 +112,7 @@ test('every handle in the source comes from handleOf — no site re-derives it i
         // all slice eight and none of them mint an identity. The receiver must be address-shaped and assigned.
         // NARROWED, because the first version could not tell an array slice from a string one. It flagged
         // minted.slice(0, 8) and uniq.slice(0, 8) — arrays — plus display truncation in HTML and log lines. A
-        // grep cannot distinguish use from mention, so the criterion is what the value BECOMES: a site that
+        // grep reads use and mention alike, so the criterion is what the value BECOMES: a site that
         // produces something *named* a handle must derive it, and everything else may slice for its own reasons.
         if (!/(?:\bhandle\b\s*[:=]|\bhandle[A-Z]\w*\s*=)[^,;]*\.slice\(0, ?8\)/.test(line)) return
         if (/handleOf|hex\.slice/.test(line)) return
@@ -168,7 +168,7 @@ test('the derivations that are deliberately NOT seedOf keep their own width and 
 //
 // chunkHandleOf used to call buildChunks() on every lookup and then scan the result linearly, so resolving the
 // ledger's own keys rebuilt every chunk once per key: 6.4 SECONDS for one sweep, and `live()` above sweeps in
-// every test — 35s of a 65s suite spent recomputing a map that cannot change. It was fixed by making the map
+// every test — 35s of a 65s suite spent recomputing a map that is fixed. It was fixed by making the map
 // the function. This test is why it stays fixed.
 //
 // NO CLOCK. A wall-time budget would assert the cure by measuring the machine, and would go flaky on a loaded

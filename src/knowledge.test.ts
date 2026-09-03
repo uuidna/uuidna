@@ -69,7 +69,7 @@ test('HOLDING IS NOT DISCOVERY — the chance bar rides beside the count', () =>
 test('THE LIMIT OF THE MERGE: it moves with a MEASURE, and is blind to edits that preserve all six', () => {
   // I claimed "change a word and the knowledge moves". That is FALSE in general and this test is why it is
   // stated as a limit now. `the` → `teh` preserves chars, words, sentences, distinct, vowels and lines, so the
-  // merge cannot see it at all. It is a six-integer fingerprint, NOT a content address — toUuid(text) is that.
+  // merge is blind to it at all. It is a six-integer fingerprint, NOT a content address — toUuid(text) is that.
   const a = computeMerge('the quick brown fox', 9)
   const b = computeMerge('teh quick brown fox', 9)
   assert.equal(a.address, b.address, 'blind to any edit preserving all six measures — the documented limit')

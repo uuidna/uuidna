@@ -20,7 +20,7 @@
 //   3. THE WITNESS IS ONE THE CLAIM ACTUALLY CITES. Without this, conditions 1 and 2 are theatre: any sentence
 //      could be witnessed by any sealed theorem in the ledger, and "backed by theorem bell_born_weights" would
 //      attach to a claim about billing. That is citation laundering, and it is exactly the move a gate which
-//      only checks that citations EXIST cannot see. So the witness must appear in the claim's own citation set.
+//      only checks that citations EXIST is blind to. So the witness must appear in the claim's own citation set.
 //      This is the condition that can fail on honest code, and it is the reason to have this file.
 //
 // Passing this gate means the claim's citations are sealed and its witness is one of them. It

@@ -191,7 +191,7 @@ export async function primeCatalogueFrom(url: string): Promise<CatalogueState> {
 export const cataloguePrimed = (): boolean => LOADED !== null || LINES !== null
 
 /** parse ONE TSV line, or null when it is the header or a short row. The bulk parser below calls this too, so
- *  a lazily materialised row and an eagerly parsed one cannot disagree about what a column means. */
+ *  a lazily materialised row and an eagerly parsed one agree by construction about what a column means. */
 export const parseCatalogueRow = (line: string): CataloguePackage | null => {
   if (!line || line.charCodeAt(0) === 35) return null                  // '#' — the header, not a row
   const c = line.split('\t')

@@ -1,4 +1,4 @@
-// agent/memory — MEMORY AN AGENT CANNOT MISREMEMBER, tested. The properties are the four things an agent normally
+// agent/memory — MEMORY THAT REMEMBERS ITSELF, tested. The properties are the four things an agent normally
 // asks its own model and gets an opinion for: is this the same fact, do I already hold it, do we agree, and is
 // what you handed me really what was stored. Each is arithmetic here, so each is tested WITH the mutation that
 // breaks it (scripts/api.ts's falsifiability law) — and the honest limit is tested too: exact identity is not

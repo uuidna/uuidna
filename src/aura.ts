@@ -77,7 +77,7 @@ const absN = (n: number): number => (n < 0 ? -n : n)
 const floorN = (n: number): number => n - (((n % 1) + 1) % 1)
 // hue → RGB (exact 60°-sector HSL→RGB) — pure arithmetic, no Math.*. S and L are now MESSAGE CHANNELS, not
 // constants: saturation carries the ray (62+2·ray %), lightness the wave index (50+2·i %) — the colour becomes a
-// REVERSIBLE harmonic message (auraDecode below): hue alone cannot carry the 378 states (9·7·6 > 360 — the
+// REVERSIBLE harmonic message (auraDecode below): hue alone carries only part of the 378 states (9·7·6 > 360 — the
 // ledger's own pigeonhole), so the two idle channels join the code and the hex speaks the whole state.
 const hslToRgb = (h: number, s = 68, l = 56): [number, number, number] => {
   const c = (1 - absN(2 * l - 100) / 100) * (s / 100)      // chroma

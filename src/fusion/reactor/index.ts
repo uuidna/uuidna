@@ -45,7 +45,7 @@ export interface Fusion {
 
 /** THE FUSE. Two sealed theorems in, one fusion out, priced at the two coins and conserved case for case.
  *
- *  The receipt folds through merkleGravity, which is order-invariant, so the reactor cannot be made to yield a
+ *  The receipt folds through merkleGravity, which is order-invariant, so the reactor stays the same however made to yield a
  *  different answer by presenting the same pair the other way round — a fuse is a fact about the pair, not about
  *  how it was handed over. An unknown key does not silently contribute zero: it throws, because a reactor that
  *  quietly fuses nothing would report a clean conservation on an empty run. */
@@ -139,7 +139,7 @@ export const pathOf = (handle: string): Path => {
     at.set(r, [...(at.get(r) ?? []), t.key])
   }
   // 60 AND 90 AT THE SAME TIME, OR THE WALK STOPS. Doubling turns 60 degrees on the hexagon of units, and it is
-  // enough for a unit seed — 4 reaches all six and closes. A seed divisible by three cannot use it: 3·3 ≡ 0
+  // enough for a unit seed — 4 reaches all six and closes. A seed divisible by three is barred from it: 3·3 ≡ 0
   // (mod 9), zero meets zero, and the orbit is trapped on the 3-6-9 axis forever, reaching two residues instead
   // of six. The escape is the OTHER fold: dz(x) = 10 − x is the reflection through that axis, at 90 degrees to
   // the plane the hexagon turns in, and it carries {3,6,9} onto {7,4,1} — the units — exactly as

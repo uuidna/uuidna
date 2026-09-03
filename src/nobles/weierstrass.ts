@@ -17,7 +17,7 @@
  * We can use generic types via some param, like curve opts, but that would:
  *     1. Enable interaction between `curve(params)` and `curve(params)` (curves of same params)
  *     which is hard to debug.
- *     2. Params can be generic and we can't enforce them to be constant value:
+ *     2. Params can be generic, and enforcing them as constant values is out of reach here:
  *     if somebody creates curve from non-constant params,
  *     it would be allowed to interact with other curves with non-constant params
  *
@@ -335,7 +335,7 @@ export type WeierstrassExtraOpts<T> = Partial<{
    * Whether the point at infinity is a public value of this point type. When unset, infinity
    * fails `assertValidity()` and has no byte encoding at all: encoding throws and `0x00` does
    * not decode, which keeps `Point.fromBytes()` usable as a strict key boundary because
-   * infinity cannot be expressed in bytes. When set, infinity validates and uses the SEC 1
+   * infinity has no byte expression. When set, infinity validates and uses the SEC 1
    * v2.0 §2.3.3 / §2.3.4 single-octet `0x00` form, unless `fromBytes` / `toBytes` override it.
    */
   allowInfinityPoint: boolean;
@@ -654,7 +654,7 @@ export function weierstrass<T>(
   function acoord(title: string, n: T, banZero = false) {
     if (!Fp.isValid(n) || (banZero && Fp.is0(n))) throw new Error(`bad point coordinate ${title}`);
     // Extension-field elements are objects. Keep point coordinates detached from caller-owned
-    // objects so their mutation cannot invalidate cached on-curve / subgroup checks. Primitive
+    // objects so their mutation leaves cached on-curve / subgroup checks intact. Primitive
     // field elements (bigints in shipped prime fields) are already immutable values.
     return typeof n === 'object' && n !== null ? Fp.create(n) : n;
   }
@@ -688,7 +688,7 @@ export function weierstrass<T>(
   }
 
   // Successful assertValidity() results are cached: Point instances are frozen at construction,
-  // so on-curve + subgroup facts cannot change afterwards. Only success is cached — invalid
+  // so on-curve + subgroup facts are fixed afterwards. Only success is cached — invalid
   // points re-throw on every call. This matters most for pairing curves, where subgroup checks
   // cost a scalar multiplication and the same instance is re-validated across layers
   // (signature fromBytes, pairingBatch) or across repeated verifies with a cached public key.
@@ -713,7 +713,7 @@ export function weierstrass<T>(
     constructor(X: T, Y: T, Z: T) {
       this.X = acoord('x', X);
       // This is not just about ZERO / infinity: ambient curves can have real
-      // finite points with y=0. Those points are 2-torsion, so they cannot lie
+      // finite points with y=0. Those points are 2-torsion, so they lie outside
       // in the odd prime-order subgroups this point type is meant to represent.
       this.Y = acoord('y', Y, true);
       this.Z = acoord('z', Z);
@@ -1203,7 +1203,7 @@ export function ecdh(
    * Checks: 1) secret key validity 2) shared key is on-curve.
    * Does NOT hash the result or expose the SEC 1 x-coordinate-only `z`.
    * Returns the encoded shared point on purpose: callers that need `x_P`
-   * can derive it from the encoded point, but `x_P` alone cannot recover the
+   * can derive it from the encoded point, but `x_P` alone leaves unrecovered the
    * point/parity back.
    * This helper only exposes the fully validated public-key path, not cofactor DH.
    * @param isCompressed - whether to return compact (default), or full key
@@ -1453,7 +1453,7 @@ export function ecdsa(
   // RFC6979: ensure ECDSA msg is X bytes and < N. RFC suggests optional truncating via bits2octets.
   // FIPS 186-4 4.6 suggests the leftmost min(nBitLen, outLen) bits, which matches bits2int.
   // bits2int can produce res>N, we can do mod(res, N) since the bitLen is the same.
-  // int2octets can't be used; pads small msgs with 0: unacceptatble for trunc as per RFC vectors
+  // int2octets is unusable here; pads small msgs with 0: unacceptatble for trunc as per RFC vectors
   const bits2int: (bytes: TArg<Uint8Array>) => bigint =
     opts.bits2int === undefined
       ? function bits2int_def(bytes: TArg<Uint8Array>): bigint {
@@ -1492,7 +1492,7 @@ export function ecdsa(
    * Creates RFC6979 seed; converts msg/privKey to numbers.
    * Used only in sign, not in verify.
    *
-   * Warning: we cannot assume here that message has same amount of bytes as curve order,
+   * Warning: the message here may differ in byte count from the curve order,
    * this will be invalid at least for P521. Also it can be bigger for P224 + SHA256.
    */
   function prepSig(
@@ -1502,7 +1502,7 @@ export function ecdsa(
   ) {
     const { lowS, prehash, extraEntropy } = validateSigOpts(opts, defaultSigOpts);
     message = validateMsgAndHash(message, prehash); // RFC6979 3.2 A: h1 = H(m)
-    // We can't later call bits2octets, since nested bits2int is broken for curves
+    // A later bits2octets call is out, since nested bits2int is broken for curves
     // with fnBits % 8 !== 0. Because of that, we unwrap it here as int2octets call.
     // const bits2octets = (bits) => int2octets(bits2int_modN(bits))
     const h1int = bits2int_modN(message);

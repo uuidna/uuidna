@@ -30,7 +30,7 @@ import { axiomHunt } from './axiom-hunt.js'
 
 /** How many INDEPENDENT legs the sealed corpus is still owed — a witness or a falsifier absent from a theorem
  *  that is already proved. Counted per missing leg rather than per theorem, because each leg is its own piece of
- *  work and each pays its own two coins. A mirror that cannot be read counts as nothing owed, never as nothing
+ *  work and each pays its own two coins. An unread mirror counts as nothing owed, never as nothing
  *  owing: the census reports supply, and an unreadable source supplies nothing it can name. */
 const missingLegs = (): number => {
   try {

@@ -165,7 +165,7 @@ test('A TWO-MEMBER GZIP IS READ TO THE END — the shape APKINDEX.tar.gz actuall
   // assert that the whole-buffer recipe REJECTS a concatenated gzip, and it carried its own expiry note: "if
   // this ever passes, the platform learned to concatenate members and the walk below is merely redundant."
   // Node 26 learned exactly that — DecompressionStream now returns BOTH members — so the assertion was failing
-  // on the platform improving, which is the one thing a control must never do. Redundant HERE is not redundant
+  // on the platform improving, which is the one thing a control stays clear of, by decision. Redundant HERE is not redundant
   // everywhere: workerd and older runtimes still stop at the first member, so the walk stays and is still the
   // decoder the tree ships; what the control now records is which of the two worlds it ran in.
   let naive: string | null = null

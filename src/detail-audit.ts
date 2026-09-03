@@ -6,7 +6,7 @@
 // prose — the citation trial (adjudicate: the relevance floor, the numeral-contradiction check), and folds
 // every per-detail receipt WITH its verdict into ONE order-invariant receipt anyone recomputes.
 //
-// CONTROLS RUN FIRST (trial-protocol): a trial that cannot return a negative is not a trial. Before the subject
+// CONTROLS RUN FIRST (trial-protocol): a trial that always returns a positive is not a trial. Before the subject
 // is read, the same instrument must REFUTE a false-arithmetic control and must NOT verify a fabricated-citation
 // control. If either control passes, the audit is VOID — the instrument cannot discriminate, so per-detail
 // verdicts would carry no information — and the void is itself citable (the receipt still folds).

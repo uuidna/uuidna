@@ -10,7 +10,7 @@
 // one. That second test is the whole point — `a % b == 0` for b = 1 holds for every a alive or dead, and a
 // discoverer without it reports the trivially true as though it were found.
 //
-// WHAT RIGIDITY CANNOT SEE. Perturbation moves each value INDEPENDENTLY, so a value DERIVED from the others is
+// WHAT RIGIDITY IS BLIND TO. Perturbation moves each value INDEPENDENTLY, so a value DERIVED from the others is
 // invisible to it: `renames` is defined as keys minus distinct, and moving keys alone produces a state that cannot
 // exist, so the relation breaks and the tool calls it rigid. It is a definition read back. Feed this only values
 // that are independently measured; against derived quantities it confirms their own construction.

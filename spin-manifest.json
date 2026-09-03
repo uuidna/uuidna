@@ -6,10 +6,10 @@
     "lean/axioms.json": "52d0ba89a48a8ae3",
     "docs/mcp.md": "c3fc907aac6d8c4f",
     "audit-citations.json": "0eb0c73d0a4385c4",
-    "support-audit.json": "dc1e58c0641f89fe",
-    "research-leads.json": "5d82e3404a2881d3",
+    "support-audit.json": "3cb9a995f23983d2",
+    "research-leads.json": "aca62ed3365a8bcf",
     ".zenodo.json": "449a26dcd99c815e",
-    "reports.json": "493a566b91ab8007",
+    "reports.json": "2fb70379d2b88399",
     "lean/statement-index.json": "818c4e258acc8bd9",
     "README.md": "7e5b502276c58325",
     "llm.txt": "0b221af57a0483a1",
@@ -1962,6 +1962,7 @@
     "src/chunks/c3/f17a7a.json": "3603c599c24f80f3",
     "src/chunks/c3/f7eb5e.json": "156724b28cd789a9",
     "src/chunks/c4/06b3f9.json": "089ddffb97e48421",
+    "src/chunks/c4/2326ec.json": "fdf0ffa7edab8eac",
     "src/chunks/c4/3f77fe.json": "ec468d23a8588237",
     "src/chunks/c4/5ba5f5.json": "eaa94829cbbd8b3b",
     "src/chunks/c4/7b9db9.json": "acfe3967d1258c5c",
@@ -2742,7 +2743,7 @@
     "lean/reflection-manifest.json": "7935f62f983386bf",
     "lean/refusal-trials.json": "12249cc6098487f3",
     "lean/relativity-manifest.json": "e43928bb739f84e1",
-    "lean/remaining-alpine-port.json": "a1c8ffcecc878069",
+    "lean/remaining-alpine-port.json": "1dba9441ce998b9e",
     "lean/report-manifest.json": "d2a95082f567846c",
     "lean/research-ledger.json": "cd1a413da4d7822a",
     "lean/reversal-manifest.json": "3ba4b9c942c18f41",
@@ -2786,5 +2787,5 @@
     "lean/wave-queue.json": "bc136de9316b89f7",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "960a084e-8746-8eff-af90-774639fbbe40"
+  "receipt": "ebcc6669-2589-8121-9b1d-ff024271da15"
 }

@@ -1,6 +1,6 @@
 // forensics — audit an agent's STATEMENTS against the RECEIPTS. When an agent (or a chat message) claims a proof, it
 // must cite a real one; when it claims an address, the text must recompute to it. Forensics recomputes and compares,
-// so a FALSE TRIAL — a claim dressed as sealed that the ledger does not back — cannot stand. Every violation is on
+// so a FALSE TRIAL — a claim dressed as sealed that the ledger does not back — falls. Every violation is on
 // the CLAIM, never on a person: it names a fabricated citation or a mismatched address, not a "traitor". The flag is
 // a recomputable fact anyone rechecks, which is exactly why it needs no accusation. Integrity.
 //

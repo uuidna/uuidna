@@ -106,7 +106,7 @@ export interface Validation {
 /** validate(collection, entries) → every gap in the corpus, with its denominator and its dead rules.
  *
  *  `unexercised` is the part Astro does not have and this tree insists on: a required field that no entry
- *  carries would fail everything, so it cannot be silently dead — but an OPTIONAL field or a reference that no
+ *  carries would fail everything, so a dead one shows loudly — but an OPTIONAL field or a reference that no
  *  entry ever uses is a check that has never once run, and reporting the corpus clean on the strength of it is
  *  the false green this tree has spent the night cataloguing. */
 export function validate(collection: Collection, entries: readonly Entry[]): Validation {

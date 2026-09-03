@@ -15,7 +15,7 @@
 //
 // UNPRIMED IS ITS OWN ANSWER and the reason this file can be trusted in a gate: a host that has handed over
 // nothing gets 'unprimed', never 'covered'. An unread source and a clean source return the same empty map, and a
-// check that cannot tell them apart is the instrument no_instrument_narrower_than_its_question forbids.
+// check that reads them alike is the instrument no_instrument_narrower_than_its_question forbids.
 
 export type CoverVerdict =
   | { state: 'covered'; moved: [] }

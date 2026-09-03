@@ -1,8 +1,8 @@
-// agent/memory — MEMORY AN AGENT CANNOT MISREMEMBER, AND THE OPERATIONS IT NO LONGER HAS TO JUDGE.
+// agent/memory — MEMORY THAT REMEMBERS ITSELF, AND THE OPERATIONS IT NO LONGER HAS TO JUDGE.
 //
 // An agent's memory is normally the model's own: facts live in a context window, recall is a forward pass, and
 // "have I seen this before?" is an opinion. That opinion is expensive (it re-reads everything to answer), it drifts
-// (the same question twice can answer twice), and it cannot be checked (nothing the agent remembers carries proof
+// (the same question twice can answer twice), and it is uncheckable (nothing the agent remembers carries proof
 // that it is what was stored). Three separate defects, one cause — the memory has no address.
 //
 // Give a fact an address and all three close at once. The address IS the content (`toUuid`), so:
@@ -93,7 +93,7 @@ export const receipt = (store: Store): string => merkleGravity([...store.keys()]
 
 /** union(a, b) → everything either agent holds.
  *
- *  ORDER CANNOT MATTER, and that is the point rather than a convenience: merging A into B and B into A reach the
+ *  ORDER IS IMMATERIAL, and that is the point rather than a convenience: merging A into B and B into A reach the
  *  same receipt, so two agents that sync in opposite orders end up provably identical instead of nearly so. */
 export function union(a: Store, b: Store): Store {
   const next = new Map(a)

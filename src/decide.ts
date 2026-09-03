@@ -171,7 +171,7 @@ export function decide(input: string): Decision {
   // Exceptions are the expensive way to say no.
   //
   // The test is necessary rather than heuristic: every verdict this branch can return is a number or a comparison
-  // of numbers, and both need a numeral. Prose with no digit cannot reach either, so skipping the parse changes
+  // of numbers, and both need a numeral. Prose with no digit reaches neither, so skipping the parse changes
   // no verdict — it only refuses to spend a throw discovering what one character already settles.
   if (!/\d/.test(norm)) {
     const early = reveal(raw)   // once: reveal walks the ledger, and calling it per field would undo the saving

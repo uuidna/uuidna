@@ -167,7 +167,7 @@ const unmeasuredLast = (level: number): number => level === 0 ? 1 : 0
  *  `cost` is the measured-cost map, defaulting to the recorded one — grading is a PURE FUNCTION of what has been
  *  measured, and injecting the map is what makes that claim checkable. It is not a convenience: the heartbeats
  *  currently cover the ledger exactly, so every unmeasured branch below is unreachable from live data, and a
- *  branch no test can reach is a check that cannot fail. Two real mutations (grading an unmeasured course as
+ *  branch no test can reach is a check that is rigged to pass. Two real mutations (grading an unmeasured course as
  *  level 1, and sorting an absent measure to the FRONT of the reading order) survived the whole suite until this
  *  parameter existed; both are caught now. */
 export function courses(cost?: Record<string, number>, measure: Basis['measure'] = 'kernel'): Course[] {

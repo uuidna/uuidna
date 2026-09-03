@@ -35,7 +35,7 @@ export interface Reveal {
    *  theorem DENIES the claim citing it. The demonstration: "uuidna achieves quantum advantage, by theorem
    *  n_qubit_dimension" returns VERIFIED, and n_qubit_dimension's own sealed prose ends "...this counts the
    *  simulation cost, it is NOT a speedup or a quantum advantage." The gate read the key and never read the
-   *  sentence. A citation that refutes its citer is the one move a citation-existence check cannot catch.
+   *  sentence. A citation that refutes its citer is the one move a citation-existence check is blind to catch.
    *
    *  WHY THIS IS NOT A CONTRADICTION-DETECTOR, and must not become one. The obvious repair — scan the cited prose
    *  for denials, scan the claim for the denied term, refuse on overlap — is the lexical honesty gate this file's
@@ -48,7 +48,7 @@ export interface Reveal {
    *  WHAT IT DOES INSTEAD, which is microdata's discipline applied to citation: the qualifier travels ATTACHED to
    *  the figure rather than narrated beside it. VERIFIED stops meaning "backed" in the abstract and starts meaning
    *  "backed BY THIS, WHICH SAYS THIS". The gate decides nothing new and refutes nothing — it stops letting a
-   *  citation be a bare token. A reader, human or model, who is shown the cited sentence cannot ship a claim that
+   *  citation be a bare token. A reader, human or model, who is shown the cited sentence needs no further ship a claim that
    *  sentence denies without doing it knowingly, and that is the honest limit of what a recomputable gate offers.
    *
    *  NOT TRUNCATED, deliberately. n_qubit_dimension's denial is the LAST clause of its prose; a head-clipped

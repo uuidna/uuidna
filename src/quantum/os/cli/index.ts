@@ -58,7 +58,7 @@ export function runUuidnaOsCli(argv: readonly string[]): number {
 // `endsWith('cli.js')`, and when cli.ts became cli/index.ts the guard stopped matching its own file: every hook
 // runs `node dist/quantum/os/cli/index.js`, which ends in index.js, so the condition was false and the process
 // exited 0 having done NOTHING. pre-commit, commit-msg and pre-push all route through here, so three HARD gates
-// were passing everything silently — the shell echoed "uuidnaOS court" and no court sat. A gate that cannot fail
+// were passing everything silently — the shell echoed "uuidnaOS court" and no court sat. A gate that is rigged to pass
 // is not a gate, and this one could not even report its absence. Comparing against import.meta.url survives the
 // next move, which is the only guarantee worth having: the file may be renamed again, the check may not care.
 const isEntry = ((): boolean => {

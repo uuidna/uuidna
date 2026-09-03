@@ -9,7 +9,7 @@
 // disclosure, and the number that sounds comprehensive is the one that most needs its denominator printed.
 //
 // THE FAILURE THIS EXISTS TO MAKE IMPOSSIBLE. `fetchRepoIndex` is best-effort by design and returns [] for a
-// down mirror, a shape drift, or a decoder that cannot read the format — the same [] a genuinely empty
+// down mirror, a shape drift, or a decoder that leaves the format unread — the same [] a genuinely empty
 // repository would give. That is not hypothetical: APKINDEX.tar.gz is TWO concatenated gzip members, and the
 // whole-buffer `DecompressionStream('gzip')` recipe decodes only the first (the signature), so every live read
 // came back as an empty catalogue for as long as that recipe was in the path. os/apps was cured with a member

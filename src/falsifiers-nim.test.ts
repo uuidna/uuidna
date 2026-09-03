@@ -6,7 +6,7 @@
 //   (b) it MUTATES that property — a flipped bit in the fold, a wrong place-weight, a non-commutative stand-in
 //       operator, a heap moved by one, a sealed value shifted by one bit — and asserts the mutated form FAILS.
 //
-// Half (b) is what separates a falsifier from a restatement. A test that cannot go red proves nothing.
+// Half (b) is what separates a falsifier from a restatement. A test that stays green proves nothing.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 

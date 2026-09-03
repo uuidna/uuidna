@@ -24,7 +24,7 @@ test('the pure KDF matches the published PBKDF2-HMAC-SHA256 vectors', () => {
   for (const [p, s, c, dk, want] of VECTORS) {
     assert.equal(hex(deriveKeyPure(enc(p), enc(s), c, dk)), want, `vector c=${c} must match the published answer`)
   }
-  // the control: a WRONG iteration count must NOT produce the published answer, or this test cannot fail
+  // the control: a WRONG iteration count must NOT produce the published answer, or this test is rigged to pass
   assert.notEqual(hex(deriveKeyPure(enc('password'), enc('salt'), 3, 32)), VECTORS[0]![4])
 })
 

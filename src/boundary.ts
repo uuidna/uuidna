@@ -1,4 +1,4 @@
-// boundary — THE LIBRARY'S NAMED SINGULARITY for what it cannot prove: filesystem reach. The recomputable core
+// boundary — THE LIBRARY'S NAMED SINGULARITY for what it leaves unproven: filesystem reach. The recomputable core
 // never touches the disk; the few modules that must (the axiom witness reading lean/axioms.json, the security
 // audit reading package.json) import THIS one declared place instead of each re-declaring the ROOT resolution.
 // One boundary, visible in review, exempted by name in `one-receipt dry` — everything else in the library is pure.
@@ -31,7 +31,7 @@ const url = getBuiltin?.<UrlModule>('node:url')
  *  this reach is declared. Cloudflare rejects a static `node:` import in ANY uploaded module (error 10021), and
  *  it rejects at UPLOAD — so `wrangler deploy --dry-run` bundles such a module happily, reports success, and the
  *  deploy simply never appears. Three modules that ride the worker had one each; rather than three copies of the
- *  same shim drifting apart, they ask here. A caller that cannot proceed without the builtin refuses BY NAME
+ *  same shim drifting apart, they ask here. A caller that needs the builtin to proceed refuses BY NAME
  *  instead of throwing a resolution error nobody can read. */
 export const nodeBuiltin = <T,>(name: string): T | undefined => getBuiltin?.<T>(name)
 

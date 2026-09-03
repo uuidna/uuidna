@@ -21,7 +21,7 @@ test('the seeded domains are ported and counted', () => {
 
 test('the domain and its complement ARE the catalogue — the sum is exact', () => {
   // against the REAL total, not against itself: the first draft of this line asserted
-  // `x === 28635 + (x - 28635)`, which is x === x — a test that cannot fail, written inside a module whose
+  // `x === 28635 + (x - 28635)`, which is x === x — a test that is rigged to pass, written inside a module whose
   // whole subject is refusing claims that cannot fail. Caught by reading it back rather than by it going red.
   const total = catalogue().length
   for (const d of allDomainCensuses()) {

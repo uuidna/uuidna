@@ -90,7 +90,7 @@ test('the census counts exactly, on rows whose answer is known in advance', () =
 })
 
 test('THE FLOOR MAY ONLY RISE, and the check FIRES when anchoring is lost', () => {
-  // the shipped floor must be a real bound: a floor of zero is a check that cannot fail
+  // the shipped floor must be a real bound: a floor of zero is a check that is rigged to pass
   assert.ok(FLOOR.witness > 0 && FLOOR.falsifier > 0, 'a zero floor would pass for any ledger, however unanchored')
   assert.deepEqual(floorGaps(live, FLOOR), [], 'the live census must stand at or above the floor it published')
   // THE NEGATIVE OUTCOME, which is the whole point: strip the witnesses and the floor must object, by name

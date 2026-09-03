@@ -17,7 +17,7 @@ export interface DomainWave {
   // from the theorem's own key and statement and compared, so a forged or edited entry is caught. `orderInvariant`
   // is kept because it is the receipt property callers rely on, but it is STRUCTURAL—
   // merkleFold sorts its leaves, so it is true for every input (checked over 492 permutations: never false).
-  // Reporting it as though it were an audit is the vacuous class: a check that cannot fail proves nothing.
+  // Reporting it as though it were an audit is the vacuous class: a check that is rigged to pass proves nothing.
   local: { theorems: number; fold: string; orderInvariant: boolean; recomputes: boolean; forged: string[]; handle: string; hexbits: number[]; door: string }
   external: Corroboration // the external free-research wave — evidence
   honest: string

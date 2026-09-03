@@ -55,7 +55,7 @@ export const RELEASE_ADDRESS_COUNT = 32
 // so in ESM, where every import is evaluated before one line of the importer's body, the call landed while
 // quantum/models had not run its own body yet. Every module-scope binding it needs was in its temporal dead zone,
 // and READING one throws: first `Cannot access 'CACHE' before initialization`, then `row` behind it — a queue of
-// them, because the whole body is what had not run. Hoisting a declaration cannot fix that and neither can moving
+// them, because the whole body is what had not run. Hoisting a declaration leaves that unfixed and neither can moving
 // the cache, since the body runs after the imports either way. Deferring the CALL is the fix: nothing is computed
 // while the cycle is open, and the first real caller runs after quantum/models is whole. Memoised, so the census
 // is still walked once. The same shape as the edge rule this tree already keeps — no module-scope registry calls.

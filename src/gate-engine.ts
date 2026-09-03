@@ -216,7 +216,7 @@ export interface GateSelfTest {
 }
 
 /** gateSelfTest — the gate proves ITSELF against the sealed spec, live: recompute the eight-state verdict table
- *  and require it equals both the sealed table and the boolean spec. The runtime cannot drift from the theorem
+ *  and require it equals both the sealed table and the boolean spec. The runtime stays pinned to the spec, rather than drifting from the theorem
  *  without this returning matchesSealedSpec: false — the enforcement enforcing itself. */
 export function gateSelfTest(toolNames: readonly string[]): GateSelfTest {
   const bits = (n: number): [number, number, number] => [n & 1, (n >> 1) & 1, (n >> 2) & 1]
@@ -251,7 +251,7 @@ export function gateStatus(toolNames: readonly string[], messaging?: GateMessagi
   // this reported healthy:false for the same surface. Two implementations of one rule is the drift the tree
   // refuses everywhere else, and here it had the sharper cost of making a self-audit contradict a gate.
   //
-  // The rate is the law: a frozen total punishes CAPABILITY and cannot see DENSITY. Adding a tool raises the
+  // The rate is the law: a frozen total punishes CAPABILITY and is blind to DENSITY. Adding a tool raises the
   // allowance lawfully; padding a description raises the rate and fails. The total is still reported, because a
   // reader wants to know what the wire actually costs — it is simply no longer the thing being judged.
   const bytes = wireBytes(messaging.wireTools)

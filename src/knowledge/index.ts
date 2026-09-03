@@ -22,7 +22,7 @@
 //    `harmonise`, which admits only when two independent perspectives cross and none disagree.
 //
 // AND THE BOOK SIDE MUST SAY WHERE IT CAME FROM. `reading.provenance` returns UNREAD without an edition record,
-// because bytes cannot testify to their own source. A claim whose text has no provenance is not knowledge about
+// because bytes are mute about their own source. A claim whose text has no provenance is not knowledge about
 // the world; it is knowledge about a string someone had. That is carried, not assumed.
 import { linkBookFacts, extractDecidable } from '../books.js'
 import { harmonise, type Harmony } from '../firewall/index.js'

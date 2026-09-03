@@ -2,7 +2,7 @@
 // alternating two things you can do, and you pay for it.
 //
 // Every assertion here is written to FAIL if the structure changes. That matters more than usual: today's audits
-// found four checks in this repo that cannot fail at all — a forged theorem `2 + 2 = 5` passes the DNA-recompute
+// found four checks in this repo that were rigged to pass at all — a forged theorem `2 + 2 = 5` passes the DNA-recompute
 // check — and a sealed theorem that was true by construction. A suite where everything passes by shape is the
 // defect this file exists to avoid, so each test carries its own negative control.
 import { test } from 'node:test'

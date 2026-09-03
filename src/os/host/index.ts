@@ -69,7 +69,7 @@ const WINDOWS_SH: readonly string[] = [
  *  and the environment left alone, the very first step died on `/usr/bin/env: 'bash': No such file or directory`,
  *  because npm's Unix entry point asks env for bash and bash sat unreachable in the shell's own directory. The
  *  interpreter and its coreutils are ONE thing; a recipe that hands over the first without the second has found a
- *  shell that cannot run anything. So the shell's own directory goes on the front of PATH — `sleep`, `env` and
+ *  shell that runs nothing. So the shell's own directory goes on the front of PATH — `sleep`, `env` and
  *  `bash` all live there — and nothing else is disturbed.
  *
  *  PATH IS MATCHED CASE-INSENSITIVELY. Windows spells it `Path` about as often as `PATH`, and writing the other
@@ -240,7 +240,7 @@ export interface ChildProbe {
 /** childProbe(platform) → the host's way of answering "is this holder actually working?"
  *
  *  WHY THIS IS A SAFETY QUESTION AND NOT A CONVENIENCE. The one-writer lock distinguishes a holder that is BUSY
- *  from one that is STUCK by asking whether it has a live child — a clock cannot tell those apart, and on
+ *  from one that is STUCK by asking whether it has a live child — a clock reads those alike, so it tells them apart, and on
  *  2026-08-24 a clock-based ceiling accused a holder whose children were `npm run lean` and `tsc`, mid-cure. The
  *  probe was `pgrep -P`, which Windows does not have, and the catch around it reads a missing program the same way
  *  it reads a real "no children": FALSE. So on this host every holder reads not-working, and the stuck signal
@@ -288,7 +288,7 @@ export function childProbe(platform: string = process.platform): ChildProbe {
  *  pid-collision under load does exactly that.
  *
  *  So the lock stops identifying its holder by a recycled handle and starts identifying it by something only that
- *  process could have: the moment it began. Two processes may share a number; they cannot share a number AND a
+ *  process could have: the moment it began. Two processes may share a number; they never share a number AND a
  *  start instant. */
 export interface BornProbe {
   file: string
@@ -302,7 +302,7 @@ export function bornProbe(platform: string = process.platform): BornProbe {
   if (platform !== 'win32') return {
     file: 'ps',
     // lstart is ABSOLUTE (the wall instant the process began) where etime is ELAPSED — etime changes every second
-    // and so cannot identify anything. The absolute one is stable for the life of the process, which is what an
+    // and so identifies nothing. The absolute one is stable for the life of the process, which is what an
     // identity needs and what a duration can never be.
     args: (pid) => ['-o', 'lstart=', '-p', String(pid)],
     reads: (stdout) => stdout.trim(),

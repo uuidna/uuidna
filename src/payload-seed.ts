@@ -121,7 +121,7 @@ export interface PayloadDoc {
  *  file) + one child per theorem, wired by the nested-docs `parent` slug. Feed them to Payload's Local/REST API
  *  upsert-by-slug; compare `uuidnaVersion` first and skip equal — the whole sync is recognition. */
 export function toPayloadDocs(seed: LeanPageSeed): PayloadDoc[] {
-  // the drafts field's values come from the one shared model, so the emitter and the sync cannot disagree
+  // the drafts field's values come from the one shared model, so the emitter and the sync stay in step, rather than disagree
   const status: 'published' | 'draft' = seed.status === 'usable' ? PAYLOAD.statuses.published : PAYLOAD.statuses.draft
   const rootChildren = seed.page.root.children ?? []
   const parentBody: EditorState = { root: { type: 'root', children: rootChildren.filter((n) => n.type !== 'page') } }

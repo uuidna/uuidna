@@ -42,7 +42,7 @@ const decimalDigits = (n: bigint): number => n.toString().length
 
 /** THE MUTATION HALF. A deliberate corruption of the property must FAIL. If the mutated claim still
  *  holds, assert.throws finds no exception and this helper is the thing that fails — which is the
- *  point: a check that cannot fail proves nothing. */
+ *  point: a check that is rigged to pass proves nothing. */
 const mutationMustFail = (mutated: boolean, what: string): void => {
   assert.throws(
     () => assert.ok(mutated, what),

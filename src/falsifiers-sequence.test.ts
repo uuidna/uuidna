@@ -103,7 +103,7 @@ test('ten_pairs — recompute d + m(d) = 10 over 1..9 with the mirror m; the pol
 test('polar_nine_pairs — recompute d + polar(d) = 9 over 1..8; the mirror dz must fail it', () => {
   const pairsToNine = (m: (d: number) => number): boolean => rangeFrom(1, 8).every((d) => d + m(d) === 9)
   assert.equal(pairsToNine(polar), true)
-  // MUTATION: the reflection through 10 is a different equilibrium and cannot sum to 9
+  // MUTATION: the reflection through 10 is a different equilibrium and sums elsewhere than 9
   assert.equal(pairsToNine(dz), false)
 })
 
@@ -242,7 +242,7 @@ test('five_orbit_reverses_doubling — recompute the ×5 orbit and the reversed 
   assert.deepEqual([...doublingOrbit(2)].reverse(), [5, 7, 8, 4, 2, 1])
   const reversesDoubling = (g: number): boolean => same(walk(g), [...doublingOrbit(2)].reverse())
   assert.equal(reversesDoubling(5), true)
-  // MUTATION: 4 is a unit but not 2⁻¹ — its walk repeats after three and cannot be the time-reversal
+  // MUTATION: 4 is a unit but not 2⁻¹ — its walk repeats after three, so it is other than the time-reversal
   assert.equal(reversesDoubling(4), false)
   assert.deepEqual(walk(4), [4, 7, 1, 4, 7, 1])
 })
@@ -305,7 +305,7 @@ test('tour_contra_rungs_sum_ten — recompute every rung of the walk as 10, rest
   const rungs = (m: (d: number) => number): boolean =>
     walk.every((d) => (d === 0 ? d + m(d) === 0 : d + m(d) === 10))
   assert.equal(rungs(dz), true)
-  // MUTATION: polar rungs rest at the void exactly the same way and sum to 9 elsewhere — the void case cannot carry the claim
+  // MUTATION: polar rungs rest at the void exactly the same way and sum to 9 elsewhere — the void case carries only part of the claim
   assert.equal(rungs(polar), false)
   assert.equal(0 + polar(0), 0)
   assert.equal(1 + polar(1), 9)

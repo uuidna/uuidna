@@ -1,5 +1,5 @@
 // use-versus-mention — the law four separate checks broke in one session (2026-08-19), in two opposite
-// directions. A finder that greps source cannot tell a line that DOES a thing from a line that TALKS ABOUT it.
+// directions. A finder that greps source reads alike a line that DOES a thing and a line that TALKS ABOUT it.
 // The general rule, stated in api.ts and locked here: EVIDENCE MUST COME FROM SOMEWHERE ELSE — a file is never
 // its own witness, and a check is never satisfied by the sentence describing it.
 import { test } from 'node:test'

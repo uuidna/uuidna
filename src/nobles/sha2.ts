@@ -30,8 +30,8 @@ const SHA256_W = /* @__PURE__ */ new Uint32Array(64);
 
 /** Internal SHA-224 / SHA-256 compression engine from RFC 6234 §6.2. */
 abstract class SHA2_32B<T extends SHA2_32B<T>> extends HashMD<T> {
-  // We cannot use array here since array allows indexing by variable
-  // which means optimizer/compiler cannot use registers.
+  // An array is unusable here since it allows indexing by variable
+  // which leaves the optimizer/compiler without registers.
   // Numeric initializers matter: starting the fields as `undefined` changes
   // V8's field representation and makes sha256 3x slower (measured).
   protected A = 0;
@@ -175,8 +175,8 @@ const SHA512_W_L = /* @__PURE__ */ new Uint32Array(80);
 
 /** Internal SHA-384 / SHA-512 compression engine from RFC 6234 §6.4. */
 abstract class SHA2_64B<T extends SHA2_64B<T>> extends HashMD<T> {
-  // We cannot use array here since array allows indexing by variable
-  // which means optimizer/compiler cannot use registers.
+  // An array is unusable here since it allows indexing by variable
+  // which leaves the optimizer/compiler without registers.
   // h -- high 32 bits, l -- low 32 bits
   // Numeric initializers matter: starting the fields as `undefined` changes
   // V8's field representation and slows hashing down (measured on sha256).

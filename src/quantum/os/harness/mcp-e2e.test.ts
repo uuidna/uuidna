@@ -2,7 +2,7 @@
 //
 // Every other MCP test in this suite calls the server IN-PROCESS — mcp-coverage and mcp-schema import callTool,
 // mcp-http imports handleMcpRpc. Those check the catalogue and the dispatch, which is most of the logic, and they
-// are fast. But they cannot see the layer a real client actually depends on: the handshake, the framing, the error
+// are fast. But they are blind to the layer a real client actually depends on: the handshake, the framing, the error
 // SHAPE on the wire, and whether the process is still serving after it has refused something. mcp-drive.ts does
 // spawn the real binary, and it is the only thing that does — but it drives three computations to recompute three
 // receipts, which is a proof about arithmetic.

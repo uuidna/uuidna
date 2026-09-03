@@ -15,7 +15,7 @@ test('the census names the host, because a verdict about speed is a verdict abou
 
 // ── WHAT MAY BE SEALED AND WHAT MAY NOT ──────────────────────────────────────────────────────────────────────
 // Every other measurement in this tree folds its VALUE into its receipt, so recomputing reproduces the address.
-// A duration cannot: the same code on the same tree gives a different number every run, and a receipt over it
+// A duration comes back different every run on the same code and the same tree, and a receipt over it
 // would move without anything changing. So the verdict is sealed and the nanoseconds are only reported.
 test('durations differ between runs and the receipt does NOT', () => {
   const a = timingCensus(ops)

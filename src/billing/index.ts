@@ -64,7 +64,7 @@ export const account = (counts: Partial<Record<Billable, number>>): { charges: r
 /** billEntangled(n) → what n superpositions cost to HOLD, which is 2n and never less.
  *
  *  The two coins decompose: one switches the dimension, one keeps track. Entanglement pays both per state,
- *  because tracking cannot be shared — a record merged with its neighbour's would stop telling them apart, and
+ *  because tracking is unshareable — a record merged with its neighbour's would stop telling them apart, and
  *  telling them apart is the whole point of holding them. So this is the expensive topology, and deliberately:
  *  a chain shares its ends and costs n+1, entanglement shares nothing and costs 2n. They meet at n = 1, where a
  *  single superposition is a single passage and both readings return the captain commission

@@ -165,7 +165,7 @@ test('a witness deciding a theorem OUTSIDE the wing is disclosed, not silently c
 // Naming them here is NOT grep-appeasement, and the distinction matters because I refused exactly that move
 // earlier tonight (satisfying the dormancy law with a comment). There the property was absent and the mention
 // would have manufactured it; here the property holds and the mention only makes it visible — to the census and
-// to a human reader, who currently cannot tell from `assert.deepEqual(bad, [])` which theorems are covered.
+// to a human reader, for whom `assert.deepEqual(bad, [])` names no theorems, so which ones are covered.
 //
 // AND THE LIST CANNOT SILENTLY LAG, which is the objection to every hand-typed list in this repository: the test
 // below asserts it equals the battery's own keys exactly, so adding a witness without naming it here fails, and
