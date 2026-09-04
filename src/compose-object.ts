@@ -115,7 +115,11 @@ ${t.mathml}
 ${lean}
 
 For a manuscript: \`${t.tex}\` — or take the whole ledger as one XeLaTeX article,
-[uuidna-ledger.tex](/uuidna-ledger.tex) (every theorem, its Lean and its content-address; generated, never edited).`
+<a href="/uuidna-ledger.tex">uuidna-ledger.tex</a> (every theorem, its Lean and its content-address; generated,
+never edited). The anchor is deliberate: the .tex is a PUBLIC ASSET, served from docs/public at that exact path,
+and VitePress's dead-link check resolves a markdown link as a ROUTE — so 1358 pages each reported a dead link for
+a file that is really there. Ignoring the check was not available (the captain: do not ignore dead links), and it
+should not be: stating the truth in a form the checker reads correctly is the fix, not silencing the checker.`
 }
 
 export function composeTheorem(t) {

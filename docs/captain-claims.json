@@ -1,9 +1,9 @@
 {
-  "generated": "2026-09-03",
+  "generated": "2026-09-04",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2596,
-  "total_theorems": 2596,
+  "total_claimed": 2599,
+  "total_theorems": 2599,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -2880,6 +2880,12 @@
       "principle": "The sequence & reflection group"
     },
     {
+      "key": "the_mirror_is_not_defined_on_the_void",
+      "lineAddress": "6593fb57-dd67-8f31-ac0c-844ac53d30d9",
+      "address": "57dd53b7-87ba-83b4-b17e-a32391c7d842",
+      "principle": "The sequence & reflection group"
+    },
+    {
       "key": "mirror_fixed_five",
       "lineAddress": "fdc56482-4a50-8b3e-b4da-c6c772e24509",
       "address": "e65b12ef-7de2-89c9-9912-83d9bac59af8",
@@ -5565,6 +5571,18 @@
       "key": "verify_costs_one_walk_against_the_whole_page_count",
       "lineAddress": "bdb53d0c-3d8b-8665-834b-8bf1c70f059e",
       "address": "17eb468c-4b2d-8a99-9cd0-a96dc418db88",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "a_floor_may_fall_to_what_is_anchored",
+      "lineAddress": "eef5b0c2-1bb8-88ba-842e-9b8c21867e35",
+      "address": "1e4df7c2-ce51-89e5-b45f-efb937a67d35",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "the_wire_rate_rose_by_restored_copy",
+      "lineAddress": "93f8bcc9-6c04-8681-94cc-4e4581d6ae91",
+      "address": "f0701d34-4485-86e2-a484-3f517ba40b8c",
       "principle": "The site build as arithmetic"
     },
     {
@@ -15582,7 +15600,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "ef7f6425-9e33-80d3-b24a-56d8c1814a5a",
+  "claim_receipt": "3608b317-47ee-8e65-a72e-7eac3c753ae8",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

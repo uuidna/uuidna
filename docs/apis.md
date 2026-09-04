@@ -71,7 +71,7 @@ never summed.
 | --- | --- | --- | --- | --- | --- | --- |
 | `doaj` | doaj.org | journal | keyless | fetched | no | yes |
 | `crossref-journals` | api.crossref.org | journal | mailto-polite | fetched | no | yes |
-| `openalex-sources` | api.openalex.org | journal | mailto-polite | fetched | no | yes |
+| `openalex-sources` | api.openalex.org | journal | budgeted | fetched | no | yes |
 | `datacite` | api.datacite.org | journal | keyless | fetched | no | yes |
 | `hal` | api.archives-ouvertes.fr | journal | keyless | fetched | no | yes |
 | `europepmc` | www.ebi.ac.uk | journal | keyless | fetched | no | yes |

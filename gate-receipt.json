@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "54ebfd91098403bec538590c57733738",
+    "src": "ff9def54b13f61975ef6f87d85900c2d",
     "lean": "60e6c9fc527a8e89cda4bb436ed8783b"
   },
   "files": {
@@ -336,7 +336,7 @@
     "src/collection/index.ts": "445954f76c91e03d",
     "src/components/QuantumNewsPortal.vue": "012c630251aa2c88",
     "src/compose-object.test.ts": "34b139bc736ed8c9",
-    "src/compose-object.ts": "74fec03a89f250fe",
+    "src/compose-object.ts": "666e1b5ced4277db",
     "src/conformance.ts": "723de44e0084b6db",
     "src/constants.ts": "b850ee4cbdd87b42",
     "src/context-budget.test.ts": "f164f6195018f0f4",

@@ -5,7 +5,7 @@ aside: true
 outline: [2, 3]
 ---
 
-# The living field <Badge type="tip" text="runtime · 32 Lean theorems" />
+# The living field <Badge type="tip" text="runtime · 33 Lean theorems" />
 
 > One structure, three surfaces: the **ten-digit strip** [`seal_ten`](/theorem/seal_ten) (`0124875369`), the **stroke**
 > `1\\2\\4\\8/7/5/3\\6\\9/0\\1` (computed, not typed), and the **numeric strands**
