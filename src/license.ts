@@ -1,8 +1,25 @@
 // license — the recomputable LICENCE RECORD: bind a licensee, the CC-BY-NC-ND-4.0 terms, and the measured two-coins
-// bill into ONE content-addressed artifact anyone can recompute. this is a provenance-fingerprinted
-// RECORD of the terms and the bill — proof of WHAT was agreed and HOW MUCH it costs — NOT a signed legal agreement,
-// NOT legal advice, and NOT the grant itself: a licence is an agreement executed between the parties (see legal.ts,
-// which leaves the ruling to humans). Non-commercial use is FREE (0 coins) and needs no licence; commercial use is
+// bill into ONE content-addressed artifact anyone can recompute.
+//
+// THE DISCLAIMER USED TO DENY TOO MUCH, and the captain caught it (2026-09-04: "this IS legal agreement"). It read
+// "NOT a signed legal agreement" — flatly, about a module whose own commercial terms say the grant is EXECUTED
+// BETWEEN THE PARTIES. Both cannot be true. CC-BY-NC-ND-4.0 is a legal instrument: the public licence grants real
+// rights on real conditions, and a commercial grant on the stated terms is an agreement. Denying that gave away a
+// right the licence actually holds, and it did it in the voice of rigour — which is exactly the false-limit class
+// impossibility-gaps.ts exists to catch, written into the one file where the limit costs something.
+//
+// THE TERMS TEXT IS NOT TOUCHED, and that is deliberate: it sits inside the licence DIGEST, so every address ever
+// issued recomputes from those exact bytes. `honest` is outside the digest, which is where the false disclaimer
+// lived and where the correction is free. The terms' own tail ("does not itself grant or sign") is the same
+// over-disclaim one clause smaller, and correcting it would move every commercial licence address ever issued —
+// a terms change SHOULD move an address, so that is a deliberate re-seal and the captain's call, not a side
+// effect of fixing a sentence.
+//
+// WHAT IS TRUE, and it is narrower than "not an agreement": the TERMS are the agreement and this record
+// content-addresses it. The bill inside it is DECIDED — captain_commission_two_coins, two_coins — so it is
+// claimed, not hedged. The single absence is a SIGNATURE: any caller may name any licensee, so the record
+// establishes what was agreed and how much, never who. Adjudication stays with humans (legal.ts).
+// Non-commercial use is FREE (0 coins) and needs no licence; commercial use is
 // billed the two CONSERVED coins (110 − 108 = 2) on the measured advantage (recompute − verify). verifyLicense
 // recomputes the address, so any altered term or bill is visible. A content-address proves integrity.
 import { toUuid } from './address.js'
@@ -53,11 +70,26 @@ const TERMS_C =
   'coins (110 − 108 = 2) on the measured advantage (recompute − verify). No derivatives distributed. Executed ' +
   'between the parties; THIS record fingerprints the terms and the bill, it does not itself grant or sign.'
 
+// A DISCLAIMER ON A PROVED THING IS THE ERROR (the captain, 2026-09-04: "nothing lean and proved does not need
+// disclaimer because it is CLAIMED"). This field is named `honest`, and for sealed content honesty is the CLAIM
+// WITH ITS RECEIPT — not a hedge wrapped around a theorem. Every quantity in a licence record is decided:
+// captain_commission_two_coins seals commission 110 = 2, two_coins seals the conserved 110 − 108 = 2, and
+// verifyLicense recomputes the address so any altered term or figure moves it. Those need no apology.
+//
+// WHAT REMAINS IS AN ABSENCE, NOT A DISCLAIMER: the record carries no signature. Any caller may name any
+// licensee, so it establishes WHAT was agreed and HOW MUCH, never WHO agreed. That is a fact about the record's
+// contents, stated once, and it is the only thing here that is not proved.
+//
+// (A missing space also shipped this as "agreementbetween" for as long as the sentence existed — in the one
+// field a reader consults to learn what the record is worth.)
 const HONEST =
-  'A recomputable RECORD of the licence terms and the measured bill — proof of WHAT and HOW MUCH, recomputable by ' +
-  'anyone. NOT a signed legal agreement' +
-  'between the parties. Non-commercial use is free and needs no licence; commercial use is billed the two conserved ' +
-  'coins. A content-address proves integrity.'
+  'CLAIMED, and each part carries its receipt. The terms are the licence: CC-BY-NC-ND-4.0 grants real rights on ' +
+  'real conditions, and a commercial grant on these terms is an agreement executed between the parties. The bill ' +
+  'is decided — theorem captain_commission_two_coins (commission 110 = 2), conserved by two_coins (110 − 108 = 2) ' +
+  '— and this record content-addresses every binding term and every bill field, so verifyLicense recomputes it and ' +
+  'any alteration is visible. Non-commercial use is free and needs no licence; commercial use is billed the two ' +
+  'conserved coins. THE ONE ABSENCE: no signature. Any caller may name any licensee, so this proves what was ' +
+  'agreed and how much, never who.'
 
 // the digest a licence content-addresses — EVERY binding term AND every bill FIELD (not just the bill's own receipt),
 // so tampering a displayed field (e.g. zeroing the coins) is visible even if the bill receipt is left untouched.

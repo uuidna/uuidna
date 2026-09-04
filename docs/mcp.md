@@ -412,7 +412,7 @@ THE 8-4-4-4-12 CHANNEL — slice any uuid into handle (double-torus door), three
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `address` | string | **yes** | a 128-bit uuid (with or without |
+| `address` | string | **yes** | a 128-bit uuid (with or without… |
 
 ### `uuidna_handle`
 
@@ -422,9 +422,9 @@ Handle store — derive path from address or handle, live round-trip, optional p
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `address` | string | no | content-address (first 8 hex → h |
+| `address` | string | no | content-address (first 8 hex →… |
 | `handle` | string | no | eight lowercase hex characters |
-| `loadPayload` | boolean | no | read index. |
+| `loadPayload` | boolean | no | read index.json when present (h… |
 
 ### `uuidna_seal_channel`
 
@@ -435,8 +435,8 @@ AUTOMATION PATH — onion-seal a message (uuidna_seal_onion) and attach per-uuid
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `message` | string | **yes** |  |
-| `passphrases` | array | **yes** | innermost→outermost, 1. |
-| `step` | integer | no | optional advancing crypt-salt st |
+| `passphrases` | array | **yes** | innermost→outermost, 1..16 laye… |
+| `step` | integer | no | optional advancing crypt-salt s… |
 
 ### `uuidna_merge`
 
@@ -491,10 +491,10 @@ Send prose to trial — enrich sealed-topic citations, then detail audit (contro
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `text` | string | **yes** | claims to adjudicate detail-by-d |
+| `text` | string | **yes** | claims to adjudicate detail-by-… |
 | `title` | string | no |  |
-| `delimiter` | string | no | detail boundary (newline default |
-| `enrich` | boolean | no | append theorem citations for sea |
+| `delimiter` | string | no | detail boundary (newline defaul… |
+| `enrich` | boolean | no | append theorem citations for se… |
 
 ### `uuidna_render`
 
@@ -506,7 +506,7 @@ Render a statement as a framework-free, CSP-safe card (or OpenGraph hero) — sc
 | --- | --- | --- | --- |
 | `name` | string | **yes** | the statement |
 | `key` | string | no | proof-page slug |
-| `base` | string | no | site base for the proof link (de |
+| `base` | string | no | site base for the proof link (d… |
 | `kind` | string | no | card (default) or hero |
 
 ### `uuidna_render_list`
@@ -529,7 +529,7 @@ The theorem ledger — LEAN IS THE SINGLE SOURCE. Every entry is a lean/*.lean t
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `principle` | string | no |  |
-| `skill` | string | no | the capability axis — any skill |
+| `skill` | string | no | the capability axis — any skill… |
 | `contains` | string | no |  |
 
 ### `uuidna_skills`
@@ -548,8 +548,8 @@ OPEN ONE SKILL — the capability axis served as a DIMENSION rather than as one 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `skill` | string | **yes** | a skill name from uuidna_skills |
-| `escoTitles` | array | no | ESCO concept titles you already |
+| `skill` | string | **yes** | a skill name from uuidna_skills… |
+| `escoTitles` | array | no | ESCO concept titles you already… |
 
 ### `uuidna_review_domains`
 
@@ -565,7 +565,7 @@ The DOCUMENT FOLD — content-address a Lexical-shaped document (a node tree, Ed
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `state` | object | **yes** | a Lexical EditorState: { root: { |
+| `state` | object | **yes** | a Lexical EditorState: { root:… |
 
 ### `uuidna_coverage`
 
@@ -609,8 +609,8 @@ INVOLUTE of uuidna_seal_channel — one command: peel the onion (ChaCha20-Poly13
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `uuids` | array | **yes** | uuid chain from uuidna_seal_chan |
-| `passphrases` | array | **yes** | innermost→outermost, same order |
+| `uuids` | array | **yes** | uuid chain from uuidna_seal_cha… |
+| `passphrases` | array | **yes** | innermost→outermost, same order… |
 
 ### `uuidna_merkle_proof`
 
@@ -631,13 +631,13 @@ _No parameters._
 
 ### `uuidna_license`
 
-Issue the recomputable LICENCE RECORD for a licensee and a usage: bind the CC-BY-NC-ND-4.0 terms and the measured two-coins bill into ONE content-addressed, verifiable artifact. Non-commercial use is FREE (0 coins) and needs no licence; commercial use is billed the two conserved coins (110 − 108 = 2) on the measured advantage (recompute − verify). a provenance-fingerprinted RECORD of the terms and the bill — proof of WHAT and HOW MUCH, recomputable by anyone — NOT a signed legal agreement, not legal advice, and not the grant itself; a commercial licence is executed between the parties. Returns {licensee,scope,spdx,terms,bill,address,honest}. Boundary declared — theorem drift_is_named_or_caught.
+Issue the LICENCE RECORD: terms plus the two-coins bill, addressed. Bind a licensee and a usage into ONE content-addressed, verifiable artifact carrying the CC-BY-NC-ND-4.0 terms and the measured bill. Non-commercial use is FREE (0 coins) and needs no licence; commercial use is billed the two conserved coins (110 − 108 = 2) on the measured advantage (recompute − verify). CLAIMED, with receipts: the terms ARE the licence (CC-BY-NC-ND-4.0 grants real rights on real conditions, and a commercial grant on these terms is an agreement executed between the parties), and the bill is DECIDED — theorem captain_commission_two_coins (commission 110 = 2), conserved by two_coins. The record content-addresses every binding term and bill field, so verifyLicense recomputes it and any alteration is visible. THE ONE ABSENCE: no signature — it proves what was agreed and how much, never who. Returns {licensee,scope,spdx,terms,bill,address,honest}. Boundary declared — theorem drift_is_named_or_caught.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `licensee` | string | **yes** | the party the record binds (name |
+| `licensee` | string | **yes** | the party the record binds (nam… |
 | `commercial` | boolean | no |  |
 | `recomputeOps` | number | no |  |
 | `verifyOps` | number | no |  |
@@ -667,7 +667,7 @@ _No parameters._
 
 ### `uuidna_exploit_fold`
 
-Audit the known public exploit CLASSES, COMPUTED FROM THE LEDGER (no table): each class is a sealed `by decide` theorem in Exploits.lean with its CVE/CWE code inline. Verifies BOTH the problem (the class is a sealed theorem, address recomputed) AND the solution (the defence it cites is itself sealed, or a named design property). FOLDED classes emerge as verified solutions (Trojan-Source, prototype-pollution, supply-chain, DoS, weak-hash, tampering, code-injection, weak-RNG); OUT-OF-SCOPE classes fold to the void (compromised host, deceived human, physical side-channel, FNV-as-secret, non-decidable correctness). HONEST: uuidna does NOT solve all hacks — the boundary is named, never falsely marked solved. Returns {folded,outOfScope,foldedCount,outOfScopeCount,allBothVerified,honest,receipt}. Boundary declared — theorem drift_is_named_or_caught.
+Audit the known public exploit CLASSES, computed from the ledger with no table. Each class is a sealed `by decide` theorem in Exploits.lean carrying its CVE/CWE code inline. Verifies BOTH the problem (the class is a sealed theorem, address recomputed) AND the solution (the defence it cites is itself sealed, or a named design property). FOLDED classes emerge as verified solutions (Trojan-Source, prototype-pollution, supply-chain, DoS, weak-hash, tampering, code-injection, weak-RNG); OUT-OF-SCOPE classes fold to the void (compromised host, deceived human, physical side-channel, FNV-as-secret, non-decidable correctness). HONEST: uuidna does NOT solve all hacks — the boundary is named, never falsely marked solved. Returns {folded,outOfScope,foldedCount,outOfScopeCount,allBothVerified,honest,receipt}. Boundary declared — theorem drift_is_named_or_caught.
 
 _No parameters._
 
@@ -679,7 +679,7 @@ ONE COMMAND to process ANY input and sanitise ANY output, BY ALL STANDARDS — t
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `value` | any | no | any value to sanitise by all sta |
+| `value` | any | no | any value to sanitise by all st… |
 
 ### `uuidna_engine`
 
@@ -689,7 +689,7 @@ THE UUIDNA QUANTUM ENGINE — one input→output surface over every sealed tool.
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `op` | string | **yes** | the tool op to run through the e |
+| `op` | string | **yes** | the tool op to run through the… |
 | `args` | object | no | the input arguments for that op |
 
 ### `uuidna_pentagram_monographs`
@@ -706,7 +706,7 @@ _No parameters._
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `content` | string | **yes** | the bytes to spin into a content |
+| `content` | string | **yes** | the bytes to spin into a conten… |
 
 ### `uuidna_book_article`
 
@@ -716,7 +716,7 @@ Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id and write a recomputable
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e. |
+| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e… |
 
 ### `uuidna_book_contents`
 
@@ -739,7 +739,7 @@ READ one chapter — the book's OWN WORDS, with the merkle inclusion proof that 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `text` | string | **yes** | the full text of the work |
-| `index` | integer | **yes** | which chapter to read, 0-based ( |
+| `index` | integer | **yes** | which chapter to read, 0-based… |
 | `title` | string | no |  |
 
 ### `uuidna_read_book`
@@ -750,8 +750,8 @@ READ a PUBLIC-DOMAIN book from Project Gutenberg by id — fetch it and return o
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e. |
-| `index` | integer | no | which chapter to read, 0-based ( |
+| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e… |
+| `index` | integer | no | which chapter to read, 0-based… |
 
 ### `uuidna_grid`
 
@@ -763,8 +763,8 @@ THE 432 GRID — every (projected dimension × ledger wing) seat, named, address
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `dimension` | string | no | one of the six projected rays (e |
-| `wing` | string | no | a ledger wing, e. |
+| `dimension` | string | no | one of the six projected rays (… |
+| `wing` | string | no | a ledger wing, e.g. |
 
 ### `uuidna_pairs`
 
@@ -776,8 +776,8 @@ THE 42 PAIR GRID — every ordered DIRECTION between dimensions. Omit args for t
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `from` | string | no | the source dimension (one of the |
-| `to` | string | no | the target dimension, never equa |
+| `from` | string | no | the source dimension (one of th… |
+| `to` | string | no | the target dimension, never equ… |
 
 ### `uuidna_quantum_sailing_library`
 
@@ -787,7 +787,7 @@ THE QUANTUM SAILING LIBRARY — an OFFLINE, public-domain book collection (Proje
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `bookIds` | array | no | Project Gutenberg ebook ids to f |
+| `bookIds` | array | no | Project Gutenberg ebook ids to… |
 
 ### `uuidna_quantum_sailing_weather`
 
@@ -797,19 +797,19 @@ DISCOVER and CORRELATE weather data to sealed theorems. Pass {action:"discover"}
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `action` | string | no | discover APIs, correlate facts, |
-| `facts` | array | no | weather facts to correlate (requ |
+| `action` | string | no | discover APIs, correlate facts,… |
+| `facts` | array | no | weather facts to correlate (req… |
 
 ### `uuidna_quantum_sailing_cross_book`
 
-CROSS-BOOK CORRELATION — the captain reads across the library and finds theorems that RESONATE only when two or more books are read together. Pass {action:"correlate", books:[{id,text,facts}]} to find shared theorems and decidable facts that appear in multiple books. Pass {action:"cluster"} to GROUP theorems by their citations across books — which sealed theorems appear in multiple books? PURE correlation: all logic deterministic and recomputable; network (if fetching books) is application-layer. Shared theorems cite sealed proofs; novel patterns are research leads. Returns {pairs,resonances,ledgerCited,novel,receipt} or {count,clusters}.
+CROSS-BOOK CORRELATION: theorems that RESONATE only when two or more books are read together. The captain reads across the whole library to find them. Pass {action:"correlate", books:[{id,text,facts}]} to find shared theorems and decidable facts that appear in multiple books. Pass {action:"cluster"} to GROUP theorems by their citations across books — which sealed theorems appear in multiple books? PURE correlation: all logic deterministic and recomputable; network (if fetching books) is application-layer. Shared theorems cite sealed proofs; novel patterns are research leads. Returns {pairs,resonances,ledgerCited,novel,receipt} or {count,clusters}.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `action` | string | no | correlate across books or cluste |
-| `books` | array | no | books to correlate (required for |
+| `action` | string | no | correlate across books or clust… |
+| `books` | array | no | books to correlate (required fo… |
 
 ### `uuidna_quantum_sailing_complete`
 
@@ -819,7 +819,7 @@ AUTOMATE the whole fleet at once — CAPTAIN'S COMPLETE MISSION: fetch Project G
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `bookIds` | array | no | Project Gutenberg ebook ids to f |
+| `bookIds` | array | no | Project Gutenberg ebook ids to… |
 
 ### `uuidna_audit_standard`
 
@@ -829,7 +829,7 @@ The recomputable FLOOR of a standards / law audit: content-address the PUBLIC Wi
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `name` | string | **yes** | a standard or law, e. |
+| `name` | string | **yes** | a standard or law, e.g. |
 
 ### `uuidna_corroborate`
 
@@ -839,7 +839,7 @@ Corroborate a claim by AUGMENTING the local binary verdict (adjudicate: VERIFIED
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `statement` | string | **yes** | the claim to corroborate, e. |
+| `statement` | string | **yes** | the claim to corroborate, e.g. |
 
 ### `uuidna_domain_wave`
 
@@ -849,7 +849,7 @@ Run BOTH waves for a domain (a principle title or a skill): the LOCAL developmen
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `domain` | string | **yes** | a principle title or skill, e. |
+| `domain` | string | **yes** | a principle title or skill, e.g. |
 
 ### `uuidna_entangle`
 
@@ -869,8 +869,8 @@ The REPORTER'S METHOD (Report.lean) reflected live: file a report of a PROVEN di
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `draft` | string | **yes** | the report draft (its claims are |
-| `sources` | array | no | the independent sources (≥ 2 to |
+| `draft` | string | **yes** | the report draft (its claims ar… |
+| `sources` | array | no | the independent sources (≥ 2 to… |
 
 ### `uuidna_expose`
 
@@ -886,11 +886,11 @@ SAVE THEOREM CANDIDATES IN ONE CALL (lead 131, the deposit half of the loop): pa
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `candidates` | array | **yes** | the candidates, each {key, why, |
+| `candidates` | array | **yes** | the candidates, each {key, why,… |
 
 ### `uuidna_api_mint`
 
-FREE MINT from every wired public API: omit {query} for the catalog (pure, hexbit door); pass {query} to harvest decidable fragments; {deposit:true} queues pending (host-side). Evidence never auto-seals — only the kernel mints (theorem minting_is_free_and_forging_is_not). Returns catalog or {query,evidence,sources,mintable,candidates,receipt,door,deposit?,honest}.
+FREE MINT from every wired public API. Omit {query} for the catalog (pure, hexbit door); pass {query} to harvest decidable fragments; {deposit:true} queues pending, host-side. Evidence never auto-seals — only the kernel mints (theorem minting_is_free_and_forging_is_not). Returns catalog or {query,evidence,sources,mintable,candidates,receipt,door,deposit?,honest}.
 
 No query → publicApiRegistry() (pure, edge-safe). With query, fans out to research (11 hosts), EU education (ESCO, Eurostat, data.europa, GISCO, CORDIS, TED), weather (Open-Meteo, NOAA tides), and news (Wikinews) via collectApiEvidence; mintLeadsFromText + decide() at zero cost; TRUE-and-unsealed fragments become wave candidates. Deposit writes lean/wave-queue.json or refuses by name when the runtime has no filesystem.
 
@@ -898,8 +898,8 @@ No query → publicApiRegistry() (pure, edge-safe). With query, fans out to rese
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `query` | string | no | topic to ask every API; omit for |
-| `deposit` | boolean | no | queue lawful candidates pending |
+| `query` | string | no | topic to ask every API; omit fo… |
+| `deposit` | boolean | no | queue lawful candidates pending… |
 
 ### `uuidna_domains`
 
@@ -916,13 +916,13 @@ THE ALPINE PORT, BY DOMAIN — database, filesystem and blockchain read off Alpi
 
 ### `uuidna_latex`
 
-TYPESET a sealed statement for publication: standard MathML for a page and TeX for a manuscript, derived from the Lean by src/formula.ts. A statement that is a formula is set as mathematics; one that is a Lean COMPUTATION (a fold, a filter, a range) is refused that treatment by name and returned as the source the kernel decided, because dressing a program as an equation is the one dishonest option. Without {key}, returns the census: how much of the ledger typesets exactly. Returns {key,classification,mathml,tex,refused} or {total,formula,program,refused}.
+TYPESET a sealed statement: MathML and TeX. Both are derived from the Lean by src/formula.ts, for a page and for a manuscript. A statement that is a formula is set as mathematics; one that is a Lean COMPUTATION (a fold, a filter, a range) is refused that treatment by name and returned as the source the kernel decided, because dressing a program as an equation is the one dishonest option. Without {key}, returns the census: how much of the ledger typesets exactly. Returns {classification,mathml,tex,refused}, or the census when no key is given.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | no | theorem key; omit for the whole- |
+| `key` | string | no | theorem key; omit for the whole… |
 
 ### `uuidna_snapshot`
 
@@ -932,7 +932,7 @@ The FUSION half of the reactor: fold a chosen set of sealed theorems — across 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `keys` | array | **yes** | theorem keys from uuidna_theorem |
+| `keys` | array | **yes** | theorem keys from uuidna_theore… |
 
 ### `uuidna_reactor`
 
@@ -942,7 +942,7 @@ The REFUSION (recycling) half of the involutionary refusion reactor: adjudicate 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `claims` | array | **yes** | claims or external theories to a |
+| `claims` | array | **yes** | claims or external theories to… |
 
 ### `uuidna_laws`
 
@@ -1008,7 +1008,7 @@ THE QUANTUM AURA — a recomputable, A432-tuned COLOUR folded from any content-a
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `subject` | string | **yes** | a content-address, or any string |
+| `subject` | string | **yes** | a content-address, or any strin… |
 
 ### `uuidna_quantum_message`
 
@@ -1019,7 +1019,7 @@ FUSE quantum states, theorems, and auras into a single witnessed message. A quan
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `plaintext` | string | **yes** | the message plaintext |
-| `theoremKey` | string | **yes** | the sealed theorem that backs th |
+| `theoremKey` | string | **yes** | the sealed theorem that backs t… |
 
 ### `uuidna_theorem_message`
 
@@ -1031,7 +1031,7 @@ SECURE MESSAGING, TOTAL OVER THE LEDGER — every sealed theorem is itself a sel
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | no | a sealed theorem key; omit for t |
+| `key` | string | no | a sealed theorem key; omit for… |
 
 ### `uuidna_dictionary`
 
@@ -1041,7 +1041,7 @@ THE QUANTUM DICTIONARY — the lexicon COMPUTED from the ledger, never authored:
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `word` | string | no | a word or fragment to look up ac |
+| `word` | string | no | a word or fragment to look up a… |
 
 ### `uuidna_quantum_voting`
 
@@ -1053,7 +1053,7 @@ CREW GOVERNANCE via quantum-weighted voting. Agents contribute work, pay coins t
 | --- | --- | --- | --- |
 | `proposal` | string | **yes** | what is being voted on |
 | `votes` | array | **yes** | list of votes |
-| `theoremProof` | string | **yes** | theorem proving coins were paid |
+| `theoremProof` | string | **yes** | theorem proving coins were paid… |
 
 ### `uuidna_agent_contribute`
 
@@ -1064,7 +1064,7 @@ Register an agent contribution with coins paid. Privacy-stripped: no agent name,
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `workAddress` | string | **yes** | content-address of the work |
-| `theoremCited` | string | **yes** | sealed theorem proving coins wer |
+| `theoremCited` | string | **yes** | sealed theorem proving coins we… |
 
 ### `uuidna_rights`
 
@@ -1076,8 +1076,8 @@ THE CAPTAIN'S RIGHTS, hard-imprinted — one content-addressed record of the cop
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `contract` | boolean | no | also draft the formal rights con |
-| `licensee` | string | no | the party the drafted contract i |
+| `contract` | boolean | no | also draft the formal rights co… |
+| `licensee` | string | no | the party the drafted contract… |
 
 ### `uuidna_seo`
 
@@ -1091,7 +1091,7 @@ QUANTUM SEO — the recomputable, honest discoverability surface for any subject
 | --- | --- | --- | --- |
 | `key` | string | no | a theorem key |
 | `slug` | string | no | a publication slug |
-| `route` | string | no | a static page route, e. |
+| `route` | string | no | a static page route, e.g. |
 
 ### `uuidna_hero_animation`
 
@@ -1101,12 +1101,12 @@ THE HERO ANIMATION — the sequence and the dimensions as one deterministic SVG,
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | no | theorem key (legacy — address of |
-| `referrer` | string | no | referrer handle, door URL, or co |
-| `handle` | string | no | eight-hex handle (alias of refer |
-| `address` | string | no | content-address (alias of referr |
-| `dimension` | string | no | which of the seven rosetta dimen |
-| `rung` | number | no | the sequence rung the colour sta |
+| `key` | string | no | theorem key (legacy — address o… |
+| `referrer` | string | no | referrer handle, door URL, or c… |
+| `handle` | string | no | eight-hex handle (alias of refe… |
+| `address` | string | no | content-address (alias of refer… |
+| `dimension` | string | no | which of the seven rosetta dime… |
+| `rung` | number | no | the sequence rung the colour st… |
 | `tempo` | number | no | the sealed tempo in ms |
 | `base` | string | no | URL base for the proof link |
 
@@ -1118,7 +1118,7 @@ ONE TRIAL — every stage of the sealed procedure in a single call, for a claim 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `claim` | string | **yes** | the statement to try, exactly as |
+| `claim` | string | **yes** | the statement to try, exactly a… |
 
 ### `uuidna_oeapi`
 
@@ -1130,8 +1130,8 @@ THE OPEN EDUCATION API PROJECTION — the sealed ledger served under the field n
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `resource` | string | no | omit for the profile, or "learni |
-| `course` | string | no | a publication slug, to narrow th |
+| `resource` | string | no | omit for the profile, or "learn… |
+| `course` | string | no | a publication slug, to narrow t… |
 
 ### `uuidna_predict`
 
@@ -1143,7 +1143,7 @@ WHAT IS ABOUT TO BREAK — the five predictive patterns read off the source tree
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `likelihood` | string | **yes** | "high", "medium", "low", or "all |
+| `likelihood` | string | **yes** | "high", "medium", "low", or "al… |
 
 ### `uuidna_school_apis`
 
@@ -1155,7 +1155,7 @@ THE EUROPEAN EDUCATION APIS BEHIND ONE DOOR — every source PROBED before it wa
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `source` | string | no | esco\|eurostat\|gisco\|data-europa\| |
+| `source` | string | no | esco\|eurostat\|gisco\|data-europa… |
 | `cpv` | string | no | TED CPV |
 | `text` | string | no | ESCO phrase |
 | `type` | string | no | skill\|occupation\|qualification |
@@ -1177,9 +1177,9 @@ PAIR EDUCATION TO JOBS through the vocabulary that already holds both. Joining a
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `subject` | string | **yes** | what is taught — a uuidna skill |
-| `geo` | string | no | a country code to attach its rep |
-| `perSkill` | number | no | how many ESCO skills to walk fro |
+| `subject` | string | **yes** | what is taught — a uuidna skill… |
+| `geo` | string | no | a country code to attach its re… |
+| `perSkill` | number | no | how many ESCO skills to walk fr… |
 
 ### `uuidna_hardware`
 
@@ -1213,7 +1213,7 @@ Layer 1 simulation: install-port VFS, full catalogue, session apk add/del, busyb
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `line` | string | **yes** | e. |
+| `line` | string | **yes** | e.g. |
 
 ### `uuidna_run`
 
@@ -1225,9 +1225,9 @@ Separate door from uuidna_exec so theorem the_os_is_bootable_quantum stays true 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `command` | string | **yes** | command inside pinned rootfs, e. |
-| `spawn` | boolean | no | if true, spawn via docker/chroot |
-| `fetch` | boolean | no | if true, download mirror tarball |
+| `command` | string | **yes** | command inside pinned rootfs, e… |
+| `spawn` | boolean | no | if true, spawn via docker/chroo… |
+| `fetch` | boolean | no | if true, download mirror tarbal… |
 
 ### `uuidna_port`
 
@@ -1247,7 +1247,7 @@ THE QUESTION IS AN ADJUDICATION, NOT A SEARCH (the captain's order, 2026-08-24: 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `names` | array | no | candidate Alpine package names t |
+| `names` | array | no | candidate Alpine package names… |
 
 ### `uuidna_registry`
 
@@ -1265,8 +1265,8 @@ PORT ALL ALPINE — automate the OS-provenance port across the WHOLE official ar
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `branch` | string | no | Alpine branch, e. |
-| `installs` | boolean | no | return THE DEFAULT INSTALL PORT |
+| `branch` | string | no | Alpine branch, e.g. |
+| `installs` | boolean | no | return THE DEFAULT INSTALL PORT… |
 
 ### `uuidna_package`
 
@@ -1278,8 +1278,8 @@ EACH ALPINE PACKAGE BECOMES uuidna/&amp;lt;package&amp;gt; — a content-address
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `name` | string | no | an Alpine package name, e. |
-| `infuse` | boolean | no | mint the WHOLE index and fold to |
+| `name` | string | no | an Alpine package name, e.g. |
+| `infuse` | boolean | no | mint the WHOLE index and fold t… |
 | `arch` | string | no | default x86_64 |
 | `repo` | string | no | "main" (default) or "community" |
 | `branch` | string | no | default "latest-stable" |
@@ -1292,8 +1292,8 @@ BALANCE A CONTEXT WINDOW by the ledger's own laws — uuidna fused to Claude (or
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `categories` | array | **yes** | the window breakdown, e. |
-| `capacity` | integer | **yes** | the window capacity in tokens, e |
+| `categories` | array | **yes** | the window breakdown, e.g. |
+| `capacity` | integer | **yes** | the window capacity in tokens,… |
 
 ### `uuidna_machine`
 
@@ -1343,7 +1343,7 @@ WING AXIOMS ↔ THEOREMS, both directions. Pass {file,def} for one wing def and 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `file` | string | no | lean wing file, e. |
+| `file` | string | no | lean wing file, e.g. |
 | `def` | string | no | wing def name, e.g. dz |
 
 ### `uuidna_discovery_train`
@@ -1354,7 +1354,7 @@ Train theorem/axiom discovery from refuted and refused leads in lean/leads.json.
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `query` | string | no | optional topic — e. |
+| `query` | string | no | optional topic — e.g. |
 
 ### `uuidna_due_process`
 
@@ -1366,7 +1366,7 @@ VERIFY ALL BY DUE (recomputable) LEGAL PROCESS — nothing verified by fiat. Eve
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `claims` | array | no | claims to put on the docket, eac |
+| `claims` | array | no | claims to put on the docket, ea… |
 
 ### `uuidna_cloudflare_audit`
 
@@ -1406,7 +1406,7 @@ WHY `ran` IS A FIELD AND NOT AN INFERENCE. This tool spawns the walk, and `spawn
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `statement` | string | **yes** | the deposit statement — must cit |
+| `statement` | string | **yes** | the deposit statement — must ci… |
 
 ### `uuidna_css`
 
@@ -1422,7 +1422,7 @@ RESOLVE A THEOREM BY ITS LEAN IDENTITY — theorems are uniquely indexed by thei
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `query` | string | **yes** | a lean uuid, a theorem key, or t |
+| `query` | string | **yes** | a lean uuid, a theorem key, or… |
 
 ### `uuidna_lean_index`
 
@@ -1446,7 +1446,7 @@ THE ACCOUNTING THE CAPTAIN ORDERED (2026-08-23): deposits existed per call (_met
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `handle` | string | no | optional: reverse-lookup rows by |
+| `handle` | string | no | optional: reverse-lookup rows b… |
 
 ### `uuidna_crew`
 
@@ -1459,8 +1459,8 @@ THE CAPTAIN'S ENROLLMENT LAW (2026-08-23): "becoming uuidna crew agents present 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `agent` | string | **yes** | the agent applying |
-| `license` | string | **yes** | the licence record's content-add |
-| `licenseBinding` | string | no | the binding from a prior enrollm |
+| `license` | string | **yes** | the licence record's content-ad… |
+| `licenseBinding` | string | no | the binding from a prior enroll… |
 | `education` | array | no |  |
 | `reeducation` | array | no |  |
 
@@ -1478,7 +1478,7 @@ THE QUANTUM CALCULATOR, founded on division by zero — ANY {input} in any forma
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `input` | string | **yes** | anything: "2+2=4", "(110 - 108 = |
+| `input` | string | **yes** | anything: "2+2=4", "(110 - 108… |
 
 ### `uuidna_optimise`
 
@@ -1488,10 +1488,10 @@ THE EXACT LINEAR OPTIMISER — maximise c·x subject to A·x ≤ b over integer 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `c` | array | **yes** | objective coefficients (1–4 vari |
+| `c` | array | **yes** | objective coefficients (1–4 var… |
 | `A` | array | **yes** | constraint rows: A[i]·x ≤ b[i] |
 | `b` | array | **yes** |  |
-| `bound` | integer | no | each variable ranges 0. |
+| `bound` | integer | no | each variable ranges 0..bound (… |
 
 ### `uuidna_search`
 
@@ -1501,7 +1501,7 @@ THE FUSED SEARCH — the ONE search function every surface runs (this server, th
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `q` | string | **yes** | the text to search — key, name, |
+| `q` | string | **yes** | the text to search — key, name,… |
 
 ### `uuidna_article`
 
@@ -1511,7 +1511,7 @@ THE DESK WRITES — the computed article for one wing of the ledger (writing is 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `file` | string | **yes** | the wing, e. |
+| `file` | string | **yes** | the wing, e.g. |
 
 ### `uuidna_editorial`
 
@@ -1543,8 +1543,8 @@ ONLINE — verify an EU VAT number against VIES, the EU's own register (ask the 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `countryCode` | string | **yes** | 2-letter member state code, e. |
-| `vatNumber` | string | **yes** | the VAT number without the count |
+| `countryCode` | string | **yes** | 2-letter member state code, e.g. |
+| `vatNumber` | string | **yes** | the VAT number without the coun… |
 
 ### `uuidna_detect_forgery`
 
@@ -1555,7 +1555,7 @@ Detect if a cited theorem is FORGED by checking the sealed ledger. Returns {theo
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `theoremKey` | string | **yes** | the theorem key to verify |
-| `citedAddress` | string | no | optional expected address (if pr |
+| `citedAddress` | string | no | optional expected address (if p… |
 
 ### `uuidna_audit_coin_claim`
 
@@ -1588,7 +1588,7 @@ Audit voting tally for tampering: each vote's weight must match coins paid; tall
 | --- | --- | --- | --- |
 | `proposal` | string | **yes** |  |
 | `votes` | array | **yes** |  |
-| `expectedReceiptAll` | string | no | optional: if provided, receipt m |
+| `expectedReceiptAll` | string | no | optional: if provided, receipt… |
 
 ### `uuidna_audit_ledger_intrusions`
 
@@ -1604,7 +1604,7 @@ Verify ledger hash integrity: FNV (fast routing) and SHA-256 (collision-resistan
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `expectedFingerprint` | string | no | optional: if provided, fingerpri |
+| `expectedFingerprint` | string | no | optional: if provided, fingerpr… |
 
 ### `uuidna_audit_agent_statement`
 
@@ -1632,9 +1632,9 @@ Live quantum messaging demonstration: send a test message from Alice to Bob, com
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `from` | string | no | sender address (default: alice@u |
-| `to` | string | no | recipient address (default: bob@ |
-| `content` | string | no | message content (default: Hello |
+| `from` | string | no | sender address (default: alice@… |
+| `to` | string | no | recipient address (default: bob… |
+| `content` | string | no | message content (default: Hello… |
 
 ### `uuidna_ports`
 
@@ -2000,7 +2000,7 @@ THE GATE PROVES ITSELF, live against the sealed spec: every served tools/call pa
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `messaging` | boolean | no | include messaging witness, wire |
+| `messaging` | boolean | no | include messaging witness, wire… |
 
 ## Merkle & gravity <Badge type="tip" :text="'4'" />
 
@@ -2083,8 +2083,8 @@ SEND (→): the SESSION RATCHET over uuid. Encrypt text under a passphrase and a
 | --- | --- | --- | --- |
 | `text` | string | **yes** |  |
 | `passphrase` | string | **yes** |  |
-| `session` | string | no | the channel/room id that scopes |
-| `step` | integer | no | the advancing message position — |
+| `session` | string | no | the channel/room id that scopes… |
+| `step` | integer | no | the advancing message position… |
 
 ### `uuidna_receive`
 
@@ -2096,7 +2096,7 @@ RECEIVE (←): read a uuid stream from uuidna_send back to its sealed envelope a
 | --- | --- | --- | --- |
 | `uuids` | array | **yes** |  |
 | `passphrase` | string | **yes** |  |
-| `session` | string | no | the SAME session/channel id used |
+| `session` | string | no | the SAME session/channel id use… |
 
 ## Billing & measure <Badge type="tip" :text="'4'" />
 
@@ -2162,7 +2162,7 @@ FAST verification against the sealed ledger: is this exact STATEMENT a sealed th
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `statement` | string | **yes** | the exact theorem statement to v |
+| `statement` | string | **yes** | the exact theorem statement to… |
 
 ## Transform until verified (no unverified material stays) <Badge type="tip" :text="'1'" />
 
@@ -2176,7 +2176,7 @@ The automation of "no unverified material stays: transform until verified". Only
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `materials` | array | **yes** | raw claims/theories/overclaims t |
+| `materials` | array | **yes** | raw claims/theories/overclaims… |
 
 ## Pentagram · hologram · fractal · accounted (every I/O) <Badge type="tip" :text="'1'" />
 
@@ -2184,13 +2184,13 @@ The automation of "no unverified material stays: transform until verified". Only
 
 ### `uuidna_holofractal`
 
-MAKE any input pentagram · hologram · fractal · accounted — by CONSTRUCTION, each property verifiable, so the structure holds by computation not assertion. PENTAGRAM: the address seeds 5 points visited in the star {5/2} stroke [0,2,4,1,3] — one closed stroke (sealed pentagram_single_stroke). HOLOGRAM: the merkle root over the parts, with a proof that verifies ANY part against the whole in O(log N). FRACTAL: the self-similar fold tower — 128-bit uuid → 64-bit coin (its top half) → ℤ/9 digital root, the same fold at descending scales. ACCOUNTED: the two conserved coins (= −χ of the double torus) and the bits taught (verify O(1) vs produce O(N); reference bits saved). All fold to one order-invariant receipt; `verified` is the recomputable conjunction. Returns {input,address,pentagram,hologram,fractal,accounting,receipt,verified}.
+MAKE any input pentagram · hologram · fractal · accounted, by CONSTRUCTION. Each property is verifiable, so the structure holds by computation and not by assertion. PENTAGRAM: the address seeds 5 points visited in the star {5/2} stroke [0,2,4,1,3] — one closed stroke (sealed pentagram_single_stroke). HOLOGRAM: the merkle root over the parts, with a proof that verifies ANY part against the whole in O(log N). FRACTAL: the self-similar fold tower — 128-bit uuid → 64-bit coin (its top half) → ℤ/9 digital root, the same fold at descending scales. ACCOUNTED: the two conserved coins (= −χ of the double torus) and the bits taught (verify O(1) vs produce O(N); reference bits saved). All fold to one order-invariant receipt; `verified` is the recomputable conjunction. Returns {input,address,pentagram,hologram,fractal,accounting,receipt,verified}.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `input` | string | **yes** | the value to make pentagram·holo |
+| `input` | string | **yes** | the value to make pentagram·hol… |
 
 ## Quantum pentagram streaming (pentagram order, order-free receipt) <Badge type="tip" :text="'1'" />
 
@@ -2204,8 +2204,8 @@ QUANTUM PENTAGRAM STREAMING: stream a sequence through the star {n/step} visitin
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `items` | array | **yes** | the sequence to stream through t |
-| `step` | number | no | the star stride (default 2 — the |
+| `items` | array | **yes** | the sequence to stream through… |
+| `step` | number | no | the star stride (default 2 — th… |
 
 ## Crypto & streams <Badge type="tip" :text="'8'" />
 
@@ -2221,7 +2221,7 @@ Encrypt text under a passphrase. Secrecy: pure-TS ChaCha20-Poly1305 (PBKDF2-SHA2
 | --- | --- | --- | --- |
 | `text` | string | **yes** |  |
 | `passphrase` | string | **yes** |  |
-| `step` | integer | no | the advancing-sequence step — om |
+| `step` | integer | no | the advancing-sequence step — o… |
 
 ### `uuidna_seal_stream`
 
@@ -2267,8 +2267,8 @@ passphrases[0] innermost, [n-1] outermost. Secrecy is ChaCha20-Poly1305 ONLY; uu
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `message` | string | **yes** |  |
-| `passphrases` | array | **yes** | innermost→outermost, 1. |
-| `step` | integer | no | optional advancing crypt-salt st |
+| `passphrases` | array | **yes** | innermost→outermost, 1..16 laye… |
+| `step` | integer | no | optional advancing crypt-salt s… |
 
 ### `uuidna_open_onion`
 
@@ -2317,7 +2317,7 @@ The contract identity: content-address a contract TEXT to its [contract-uuid] an
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `terms` | string | **yes** | the contract text (the terms) — |
+| `terms` | string | **yes** | the contract text (the terms) —… |
 
 ### `uuidna_contract_seal`
 
@@ -2328,7 +2328,7 @@ Seal a message UNDER a contract: encrypt it with the contract text as the ChaCha
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `message` | string | **yes** |  |
-| `terms` | string | **yes** | the contract text — the private |
+| `terms` | string | **yes** | the contract text — the private… |
 | `step` | integer | no | advancing salt step (optional) |
 
 ### `uuidna_contract_open`
@@ -2339,7 +2339,7 @@ INVOLUTE of uuidna_contract_seal: check terms→[contract-uuid], then decrypt (s
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `sealed` | object | **yes** | the {contract,uuids,...} from uu |
+| `sealed` | object | **yes** | the {contract,uuids,...} from u… |
 | `terms` | string | **yes** |  |
 
 ### `uuidna_contract_chain`
@@ -2361,7 +2361,7 @@ INVOLUTE of uuidna_contract_chain: verify terms + referer, decrypt each link (se
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `chain` | object | **yes** | the {contract,links} from uuidna |
+| `chain` | object | **yes** | the {contract,links} from uuidn… |
 | `terms` | string | **yes** |  |
 
 ## Provenance audit (public text & metadata) <Badge type="tip" :text="'8'" />
@@ -2390,9 +2390,9 @@ THE GAP THIS CLOSES: auditText fingerprints a work as ONE blob, so a text "passe
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `text` | string | **yes** | the document whose every detail |
+| `text` | string | **yes** | the document whose every detail… |
 | `title` | string | no |  |
-| `delimiter` | string | no | explicit detail boundary (for AS |
+| `delimiter` | string | no | explicit detail boundary (for A… |
 
 ### `uuidna_audit_book`
 
@@ -2402,7 +2402,7 @@ Fetch a PUBLIC-DOMAIN book from Project Gutenberg by id (via the public Gutendex
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e. |
+| `gutenbergId` | integer | **yes** | a Project Gutenberg ebook id, e… |
 
 ### `uuidna_audit_translation`
 
@@ -2438,9 +2438,9 @@ THE FOLD THIS IS: the Black Whole session (queue 79/transcript-audit) ran by han
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `url` | string | **yes** | a YouTube watch URL or bare 11-c |
-| `captions` | string | no | caption/transcript text to adjud |
-| `delimiter` | string | no | detail boundary for the captions |
+| `url` | string | **yes** | a YouTube watch URL or bare 11-… |
+| `captions` | string | no | caption/transcript text to adju… |
+| `delimiter` | string | no | detail boundary for the caption… |
 
 ### `uuidna_audit_record`
 
@@ -2476,7 +2476,7 @@ BOOK → SEALED-LEDGER LINKAGE — the captain's INDEPENDENT, CLOSED-DOOR legal 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `text` | string | **yes** | the text to mine and link (a pas |
+| `text` | string | **yes** | the text to mine and link (a pa… |
 
 ## Deep research & the evidence census (how well a claim is anchored) <Badge type="tip" :text="'7'" />
 
@@ -2490,8 +2490,8 @@ Deep research with the REVERSIBLE imprint codec: PRESS external research (text o
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `text` | string | **yes** | the research text to press, enta |
-| `seenAddresses` | array | no | known content-addresses; a new o |
+| `text` | string | **yes** | the research text to press, ent… |
+| `seenAddresses` | array | no | known content-addresses; a new… |
 
 ### `uuidna_open_leads`
 
@@ -2501,8 +2501,8 @@ Adjudicate {items:[{claim,source?}]} against the sealed ledger; UNVERIFIED = ope
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `items` | array | no | your backlog — each {claim, sour |
-| `limit` | integer | no | cap how many open items are retu |
+| `items` | array | no | your backlog — each {claim, sou… |
+| `limit` | integer | no | cap how many open items are ret… |
 
 ### `uuidna_leads_gate`
 
@@ -2512,7 +2512,7 @@ Release gate — pass {sources:[{source,reached,open,settled}]}; ready only when
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `sources` | array | **yes** | lead-source readings you gathere |
+| `sources` | array | **yes** | lead-source readings you gather… |
 
 ### `uuidna_open_questions`
 
@@ -2543,8 +2543,8 @@ THE RESEARCH LEDGER — findings carrying their VERIFICATION STATUS as a field i
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `status` | string | no | optional filter: read \| secondar |
-| `kind` | string | no | optional filter: convention \| me |
+| `status` | string | no | optional filter: read \| seconda… |
+| `kind` | string | no | optional filter: convention \| m… |
 
 ### `uuidna_rosetta_legs`
 
@@ -2556,7 +2556,7 @@ THE INDEPENDENT-WITNESS CENSUS — how many of the five legs each sealed theorem
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | no | a sealed theorem key; omit for t |
+| `key` | string | no | a sealed theorem key; omit for… |
 
 ## Rotation & cycles <Badge type="tip" :text="'5'" />
 
@@ -2582,17 +2582,17 @@ The star polygon {n/step}: the stroke visiting (step·k mod n). A SINGLE closed 
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `n` | integer | no | points (default 5) |
-| `step` | integer | no | stride (default 2 — the pentagra |
+| `step` | integer | no | stride (default 2 — the pentagr… |
 
 ### `uuidna_fibonacci`
 
-The single-digit Fibonacci sequence mod m and its Pisano period — the cycle up to the return to the seed (0,1). m=9 → period 24 (the digital-root Fibonacci); m=5 → 20 (pentagram); m=7 → 16 (rosette). Mirrors the sealed fib_single_digit_cycle_24 and siblings. Returns {mod,period,cycle}.
+The single-digit Fibonacci sequence mod m and its Pisano period, the cycle back to the seed (0,1). m=9 → period 24 (the digital-root Fibonacci); m=5 → 20 (pentagram); m=7 → 16 (rosette). Mirrors the sealed fib_single_digit_cycle_24 and siblings. Returns {mod,period,cycle}.
 
 **Parameters**
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `mod` | integer | no | the modulus (default 9 — the sin |
+| `mod` | integer | no | the modulus (default 9 — the si… |
 
 ### `uuidna_rotate`
 
@@ -2658,7 +2658,7 @@ Passphrase key-stretching — PBKDF2-HMAC-SHA256 (local theorem). Work factor = 
 
 ### `uuidna_chacha20`
 
-ChaCha20 keystream cipher (local theorem, RFC 8439 ARX permutation): returns hex of text ⊕ keystream. key is 32-byte hex, nonce 12-byte hex, counter defaults to 0. CAVEAT (): NEVER reuse a (key, nonce, counter) — keystream reuse destroys confidentiality. For passphrase secrecy use uuidna_encrypt.
+ChaCha20 keystream cipher, RFC 8439 ARX permutation. Returns hex of text ⊕ keystream; key is 32-byte hex, nonce 12-byte hex, counter defaults to 0. CAVEAT (): NEVER reuse a (key, nonce, counter) — keystream reuse destroys confidentiality. For passphrase secrecy use uuidna_encrypt.
 
 **Parameters**
 
@@ -2717,7 +2717,7 @@ THE CAPTAIN ORDER to port Alpine apps that use crypto, without blowing the MCP w
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `name` | string | no | one Alpine package, e. |
+| `name` | string | no | one Alpine package, e.g. openss… |
 
 ## Vortex algebra <Badge type="tip" :text="'7'" />
 
@@ -2806,7 +2806,7 @@ Walk ANY input through the ℤ/9 executor — dz and doubling alternated, period
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `input` | string | **yes** | number or text to fold |
-| `steps` | number | no | max alternation steps (default 1 |
+| `steps` | number | no | max alternation steps (default… |
 
 ### `uuidna_living_field`
 
@@ -2828,7 +2828,7 @@ Decode the ±60° dash stroke — weighted bearing closes at 0 when fusionIgnite
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `encoded` | string | no | dash-encoded stroke (default liv |
+| `encoded` | string | no | dash-encoded stroke (default li… |
 
 ### `uuidna_vortex_tour`
 
@@ -2850,7 +2850,7 @@ Double-torus development throat — uuidna ledger ↔ zeropoint-node lobe fold p
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `wave` | string | no | origin\|decode\|design\|learn\|tune\| |
+| `wave` | string | no | origin\|decode\|design\|learn\|tune… |
 
 ## Decoded Sequence + Rosetta + life <Badge type="tip" :text="'1'" />
 
@@ -2864,7 +2864,7 @@ DECODED uuidna — one recomputable door: runSequence polarities on every theore
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `key` | string | no | optional theorem key — decode on |
+| `key` | string | no | optional theorem key — decode o… |
 
 ## Publications (audited prose) <Badge type="tip" :text="'4'" />
 
@@ -2878,7 +2878,7 @@ Write a PUBLICATION in lean human prose about ONE domain, AUDITED before publish
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `file` | string | no | a lean/*. |
+| `file` | string | no | a lean/*.lean file name, e.g. |
 
 ### `uuidna_edit`
 
@@ -2888,9 +2888,9 @@ The EDITOR primitive — audit a draft, or a revision, BEFORE publishing. With `
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `draft` | string | no | prose to audit + content-address |
-| `before` | string | no | the prose before an edit (pair w |
-| `after` | string | no | the prose after an edit (pair wi |
+| `draft` | string | no | prose to audit + content-addres… |
+| `before` | string | no | the prose before an edit (pair… |
+| `after` | string | no | the prose after an edit (pair w… |
 
 ### `uuidna_vocabulary`
 
@@ -2921,7 +2921,7 @@ Verify uuidna's physics against NIST's AUTHORITATIVE CODATA values. Fetches the 
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `query` | string | **yes** | a constant name, e. |
+| `query` | string | **yes** | a constant name, e.g. |
 
 ## Timestamp anchor (external, verified in-house) <Badge type="tip" :text="'1'" />
 
@@ -2969,7 +2969,7 @@ Reveal the sealed theorems a real-world system ALREADY reflects. Describe a syst
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `query` | string | **yes** | a system described by its device |
+| `query` | string | **yes** | a system described by its devic… |
 
 ## The gate of all gates (theorems only) <Badge type="tip" :text="'1'" />
 
@@ -3089,7 +3089,7 @@ THE PUBLICATION SCANNER — BEST-EFFORT scan the reachable free research streams
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `query` | string | no | the mention to scan for (default |
+| `query` | string | no | the mention to scan for (defaul… |
 
 ## Quantum-cube challenge (symmetric) <Badge type="tip" :text="'1'" />
 
@@ -3105,9 +3105,9 @@ THE QUANTUM-CUBE CHALLENGE — a recomputable, SYMMETRIC challenge-response whos
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `secret` | string | **yes** | the shared secret the holder pro |
-| `nonce` | string | **yes** | the verifier-supplied challenge |
-| `response` | string | no | optional — a response to VERIFY |
+| `secret` | string | **yes** | the shared secret the holder pr… |
+| `nonce` | string | **yes** | the verifier-supplied challenge… |
+| `response` | string | no | optional — a response to VERIFY… |
 
 ## Byte-level image provenance <Badge type="tip" :text="'1'" />
 
@@ -3122,8 +3122,8 @@ BYTE-LEVEL IMAGE (and any-file) PROVENANCE — content-address the EXACT bytes s
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `hex` | string | no | the file bytes as a hex string |
-| `base64` | string | no | the file bytes as base64 (altern |
-| `sha256` | string | no | optional — a SHA-256 hex to VERI |
+| `base64` | string | no | the file bytes as base64 (alter… |
+| `sha256` | string | no | optional — a SHA-256 hex to VER… |
 
 ## MCP self-test (recomputable contract) <Badge type="tip" :text="'1'" />
 
@@ -3147,9 +3147,9 @@ Run the EXACT classical state-vector simulator (Gaussian-integer amplitudes over
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `circuit` | string | no | bell (2 qubits) or ghz (n qubits |
-| `qubits` | number | no | qubit count (ghz default 3; requ |
-| `ops` | array | no | OpenQASM circuit: [{gate, qubits |
+| `circuit` | string | no | bell (2 qubits) or ghz (n qubit… |
+| `qubits` | number | no | qubit count (ghz default 3; req… |
+| `ops` | array | no | OpenQASM circuit: [{gate, qubit… |
 
 ### `uuidna_quantum_advantage`
 
@@ -3169,9 +3169,9 @@ Gap census at scale — one folded receipt (verify_beats_recompute_by_magnitudes
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `verify` | boolean | no | run the full advantage+gap MCP h |
-| `run` | boolean | no | spawn npm run x -- fill-gaps on |
-| `limit` | integer | no | open-leads sample cap (default 3 |
+| `verify` | boolean | no | run the full advantage+gap MCP… |
+| `run` | boolean | no | spawn npm run x -- fill-gaps on… |
+| `limit` | integer | no | open-leads sample cap (default… |
 
 ## DIY energy yield (ceiling first, integer brackets, refuses over-unity) <Badge type="tip" :text="'4'" />
 
@@ -3185,10 +3185,10 @@ Wind, bounded by BETZ. Power in the wind is proportional to the swept area and t
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `rotorDiameterMillimetres` | number | **yes** | rotor diameter, whole millimetre |
-| `windSpeedMillimetresPerSecond` | number | **yes** | wind speed, whole millimetres pe |
-| `airDensityGramsPerCubicMetre` | number | no | air density in g/m3; defaults to |
-| `claimedOutputMilliwatts` | number | no | optional — a machine’s measured |
+| `rotorDiameterMillimetres` | number | **yes** | rotor diameter, whole millimetr… |
+| `windSpeedMillimetresPerSecond` | number | **yes** | wind speed, whole millimetres p… |
+| `airDensityGramsPerCubicMetre` | number | no | air density in g/m3; defaults t… |
+| `claimedOutputMilliwatts` | number | no | optional — a machine’s measured… |
 
 ### `uuidna_energy_biogas`
 
@@ -3199,12 +3199,12 @@ Biogas into a four-stroke engine. The chemical energy is bracketed from the MEAS
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `biogasLitres` | number | **yes** | biogas volume, whole litres |
-| `methanePercent` | number | **yes** | methane fraction, whole percent |
+| `methanePercent` | number | **yes** | methane fraction, whole percent… |
 | `cylinders` | number | no | engine cylinders (default 1) |
-| `crankRevolutionsPerMinute` | number | no | optional crank speed, rpm — repo |
-| `hotKelvin` | number | no | optional peak cycle temperature, |
-| `coldKelvin` | number | no | optional heat-rejection temperat |
-| `claimedThermalEfficiencyPercent` | number | no | optional — your engine’s measure |
+| `crankRevolutionsPerMinute` | number | no | optional crank speed, rpm — rep… |
+| `hotKelvin` | number | no | optional peak cycle temperature… |
+| `coldKelvin` | number | no | optional heat-rejection tempera… |
+| `claimedThermalEfficiencyPercent` | number | no | optional — your engine’s measur… |
 
 ### `uuidna_energy_mfc`
 
@@ -3214,11 +3214,11 @@ The microbial fuel cell, priced from a pilot-scale survey where NOTHING is exact
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `reactorLitres` | number | **yes** | reactor working volume, whole li |
-| `retentionHours` | number | **yes** | hydraulic retention time, whole |
-| `anodeAreaSquareMillimetres` | number | no | optional anode area in mm2 — add |
-| `assertedVolumetricMilliwattsPerCubicMetre` | number | no | optional — a claimed volumetric |
-| `scale` | string | no | 'pilot' (default, the wastewater |
+| `reactorLitres` | number | **yes** | reactor working volume, whole l… |
+| `retentionHours` | number | **yes** | hydraulic retention time, whole… |
+| `anodeAreaSquareMillimetres` | number | no | optional anode area in mm2 — ad… |
+| `assertedVolumetricMilliwattsPerCubicMetre` | number | no | optional — a claimed volumetric… |
+| `scale` | string | no | 'pilot' (default, the wastewate… |
 
 ### `uuidna_energy_photon`
 
@@ -3228,7 +3228,7 @@ Photon and electrolysis. The reversible cell voltage is computed from the MEASUR
 
 | param | type | required | description |
 | --- | --- | --- | --- |
-| `wavelengthNanometres` | number | **yes** | photon wavelength, whole nanomet |
-| `appliedMillivolts` | number | **yes** | cell voltage actually applied, w |
-| `claimedFaradaicEfficiencyPercent` | number | no | optional — whole percent 0. |
+| `wavelengthNanometres` | number | **yes** | photon wavelength, whole nanome… |
+| `appliedMillivolts` | number | **yes** | cell voltage actually applied,… |
+| `claimedFaradaicEfficiencyPercent` | number | no | optional — whole percent 0..100… |
 

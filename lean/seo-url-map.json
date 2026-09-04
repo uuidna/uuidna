@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "30679bad-5",
+  "generated": "cfc87481-2",
   "entries": [
     {
       "route": "/",
@@ -3256,9 +3256,9 @@
       "kind": "publication",
       "identity": "site-build",
       "canonical": "https://uuidna.com/publications/site-build",
-      "address": "11d8c8a1-8f20-8b40-8028-d77e05cb42c3",
-      "handle": "11d8c8a1",
-      "hexbitDoor": "https://uuidna.com/11d8c8a1"
+      "address": "bc02916e-d4b9-8638-b85f-6761a0ba3554",
+      "handle": "bc02916e",
+      "hexbitDoor": "https://uuidna.com/bc02916e"
     },
     {
       "route": "/publications/software",
@@ -21612,6 +21612,15 @@
       "hexbitDoor": "https://uuidna.com/a3ad1ade"
     },
     {
+      "route": "/theorem/the_wire_rate_rose_by_restored_copy",
+      "kind": "theorem",
+      "identity": "the_wire_rate_rose_by_restored_copy",
+      "canonical": "https://uuidna.com/theorem/the_wire_rate_rose_by_restored_copy",
+      "address": "f0701d34-4485-86e2-a484-3f517ba40b8c",
+      "handle": "f0701d34",
+      "hexbitDoor": "https://uuidna.com/f0701d34"
+    },
+    {
       "route": "/theorem/theorems_interact_as_faces",
       "kind": "theorem",
       "identity": "theorems_interact_as_faces",
@@ -27093,6 +27102,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "30679bad-5d5f-87da-a0fd-54e08a0b9285",
+  "receipt": "cfc87481-28c9-8a6a-bce3-5157c60bb300",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

@@ -51,7 +51,14 @@ export const sentences = (t: string): string[] => {
     if (c === '{' || c === '[' || c === '(') depth++
     if (c === '}' || c === ']' || c === ')') depth--
     buf += c
-    if (depth <= 0 && (c === '.' || c === '!' || c === '?') && !/^ [a-z]/.test(t.slice(i + 1, i + 3))) {
+    // A PERIOD BETWEEN CHARACTERS IS NOT A SENTENCE END. The guard here only refused a following lowercase WORD,
+    // so `CC-BY-NC-ND-4.0` split at the `.` before the `0` and the served description for uuidna_license ended
+    // mid-token: "bind the CC-BY-NC-ND-4." — 89 bytes of a sentence that stops inside a licence identifier, on
+    // tools/list, which is the copy a model reads to decide whether to call it. A sentence ends where a sentence
+    // ends: at whitespace or at the end of the text.
+    const after = t[i + 1]
+    const ends = after === undefined || after === ' ' || after === '\n'
+    if (depth <= 0 && (c === '.' || c === '!' || c === '?') && ends && !/^ [a-z]/.test(t.slice(i + 1, i + 3))) {
       out.push(buf.trim()); buf = ''
     }
   }
@@ -59,11 +66,17 @@ export const sentences = (t: string): string[] => {
   return out
 }
 
+// A TRUNCATION MUST LOOK LIKE ONE. This returned the slice bare, and clipWire then appended `Returns {…}` to it,
+// so an over-long first sentence ran straight into the next clause and served a FALSE sentence on tools/list:
+// "stream a sequence through the star Returns {…}", "THE QUANTUM SAILING LIBRARY — an Returns {…}", "Run BOTH
+// waves for a domain (a p Returns {…}". Measured across the catalogue: 41 of 255 read that way — sixteen percent
+// of the copy a model reads to decide whether to call a tool, each one grammatical enough to be believed and
+// saying something its author did not write. The ellipsis costs one character and makes the cut visible.
 const atSpace = (s: string, cap: number): string => {
   if (s.length <= cap) return s
-  let cut = cap
+  let cut = cap - 1 // room for the ellipsis, so the marked slice still fits the budget
   while (cut > HEAD_KEEP && s[cut] !== ' ') cut--
-  return s.slice(0, cut).trim()
+  return s.slice(0, cut).trim() + '…'
 }
 
 /** clipWire(text) → what belongs on tools/list: first sentence (sliced if needed) plus Returns when it fits. */

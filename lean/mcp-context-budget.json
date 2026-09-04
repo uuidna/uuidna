@@ -1,5 +1,5 @@
 {
-  "wireBytes": 77885,
-  "perToolHundredths": 32183,
-  "note": "THE CAP IS A RATE, not a total (2026-09-01). A frozen total punishes capability and cannot see density: ten new ports pushed the payload past its ceiling while the cost PER TOOL fell from 324.24 to 321.83. Carried in hundredths as an integer (32183 = 321.83 bytes/tool) because the determinism law refuses rounding helpers. The RATE may only shrink; the total may grow with the tool count. tools/list is names+descriptions+schemas, never detail."
+  "wireBytes": 82349,
+  "perToolHundredths": 32293,
+  "note": "THE CAP IS A RATE, not a total (2026-09-01). A frozen total punishes capability and cannot see density: ten new ports pushed the payload past its ceiling while the cost PER TOOL fell from 324.24 to 321.83. Carried in hundredths as an integer because the determinism law refuses rounding helpers. The RATE may only shrink; the total may grow with the tool count. tools/list is names+descriptions+schemas, never detail. RAISED ONCE, 321.83 to 322.93 (2026-09-04), and it cost a theorem: the_wire_rate_rose_by_restored_copy seals the decomposition. The total grew 4464 bytes, 13 new tools at the OLD rate account for 4184, and the remaining 280 is exactly 110 hundredths across 255 tools. The cause was a parser bug, not new prose — the sentence splitter read the period in a decimal as a sentence end, so CC-BY-NC-ND-4.0 cut at the dot and 45 tools served 23 to 56 characters where their author wrote a full first sentence. 41 of the 280 bytes are ellipses that mark a truncation instead of splicing a fragment into a Returns clause. A raise is the exception; state it in full or do not take it."
 }

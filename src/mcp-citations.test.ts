@@ -55,3 +55,34 @@ test('uuidna_latex answers the census, one statement, and a key that is not seal
   const missing = callTool('uuidna_latex', { key: 'nope_nope_nope' }) as { error: string }
   assert.match(missing.error, /no sealed theorem/)
 })
+
+// ── A SERVED DESCRIPTION MUST NOT SERVE A FALSE SENTENCE. clipWire slices an over-long first sentence to fit the
+// wire cap and then appends the Returns clause. It appended it to a BARE slice, so the two ran together and the
+// result read as one grammatical sentence saying something nobody wrote: "stream a sequence through the star
+// Returns {…}", "THE QUANTUM SAILING LIBRARY — an Returns {…}". Measured 41 of 255 — sixteen percent of the copy
+// a model reads to choose a tool, every one of them believable. The slice is marked now; this holds it marked.
+test('no served description splices a truncated fragment into its Returns clause', async () => {
+  const { MCP_CATALOG } = await import('./mcp.js')
+  const spliced = MCP_CATALOG.filter((t) => {
+    const d = t.description ?? ''
+    return / Returns \{/.test(d) && !/[.:…!?] Returns \{/.test(d)
+  }).map((t) => t.name)
+  assert.deepEqual(spliced, [], 'a truncated head must end in … before Returns, or the sentence lies')
+})
+
+test('and every served description fits the wire cap it was clipped to', async () => {
+  const { MCP_CATALOG } = await import('./mcp.js')
+  const { WIRE_CAP } = await import('./mcp-wire.js')
+  const over = MCP_CATALOG.filter((t) => (t.description ?? '').length > WIRE_CAP).map((t) => t.name)
+  assert.deepEqual(over, [], `nothing may exceed ${WIRE_CAP} bytes on tools/list`)
+})
+
+test('a period inside a token is not a sentence end', async () => {
+  const { sentences } = await import('./mcp-wire.js')
+  // CC-BY-NC-ND-4.0 split at the `.` and served "bind the CC-BY-NC-ND-4." — 89 bytes stopping inside a licence id
+  assert.deepEqual(sentences('bind the CC-BY-NC-ND-4.0 terms here.'), ['bind the CC-BY-NC-ND-4.0 terms here.'])
+  assert.deepEqual(sentences('version 2.0 shipped.'), ['version 2.0 shipped.'])
+  // and a real sentence boundary still splits
+  assert.equal(sentences('One thing. Another thing.').length, 2)
+  assert.equal(sentences('Ends here.').length, 1)
+})

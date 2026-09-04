@@ -18,6 +18,9 @@ theorem verify_costs_one_walk_against_the_whole_page_count : (5260 = 5260 * 1) �
 /-- 17 − 2 = 15: a floor standing on two unearned anchors exceeds what it can defend -/
 theorem a_floor_may_fall_to_what_is_anchored : (17 - 2 = 15) ∧ (17 - 1 = 16) ∧ (16 - 1 = 15) ∧ (17 > 15) := by decide
 
+/-- 32293 − 32183 = 110 hundredths per tool: 280 bytes of sentence a parser had been cutting -/
+theorem the_wire_rate_rose_by_restored_copy : (32293 - 32183 = 110) ∧ (255 - 242 = 13) ∧ (110 * 255 = 28050) ∧ (82349 - 77885 = 4464) ∧ (13 * 32183 = 418379) := by decide
+
 /-- 2^3^2 = 512, but (2^3)^2 = 64 -/
 theorem exponent_associativity_changes_the_value : (2^3^2 = 512) ∧ ((2^3)^2 = 64) ∧ (512 ≠ 64) := by decide
 
