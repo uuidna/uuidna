@@ -3,7 +3,7 @@
     "src/theorems/generated.ts": "c1a78d2c11d58216",
     "lean/PRINCIPLE.md": "8ec950414a448f37",
     "CHANGELOG.md": "3053b21ab7228464",
-    "lean/axioms.json": "24196e952cf98622",
+    "lean/axioms.json": "4ca57f11054d8ed1",
     "docs/mcp.md": "a3761dc4f76880a5",
     "audit-citations.json": "e94babb4285d834f",
     "support-audit.json": "f477be3314dc814c",
@@ -2798,5 +2798,5 @@
     "lean/wave-queue.json": "bc136de9316b89f7",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "057f4dbf-fd8f-87c5-8c8b-48c54c3b4022"
+  "receipt": "8ce8d4f5-73c3-8d9a-9b82-649a5e77d447"
 }

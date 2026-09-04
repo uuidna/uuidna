@@ -159,6 +159,13 @@ async function main() {
 
   // Fold: which theorems carry a DISALLOWED axiom, and did every theorem actually get a verdict (coverage)?
   const offenders: Record<string, string[]> = {} // address → the axioms it depends on
+  // THE DEPENDENCY SETS THEMSELVES, censused — because a record of counts and offenders cannot tell
+  // pass-by-absence from pass-by-evidence (a peer's finding, zeropoint-node-8a 2026-09-04: "verdict right, reason
+  // absent, so the two looked identical"). `offenders: {}` says nothing was found; this says what WAS found —
+  // every audited theorem's actual axiom set, folded to distinct sets with their counts. On this tree that is
+  // one entry, the empty set, times the whole ledger; the day a theorem inherits propext through a lemma the
+  // census names the set even before the offender list does, and a partial audit cannot look like a clean one.
+  const dependencySets: Record<string, number> = {}
   let audited = 0
   const unseen: string[] = []
   for (let i = 0; i < files.length; i++) {
@@ -166,6 +173,8 @@ async function main() {
     for (const key of byFile[files[i]]) {
       if (!(key in verdict)) { unseen.push(key); continue } // no stanza → not audited (missing/renamed)
       audited++
+      const set = verdict[key].length ? [...verdict[key]].sort().join(',') : '(none)'
+      dependencySets[set] = (dependencySets[set] ?? 0) + 1
       const bad = verdict[key].filter((a) => !ALLOWED.has(a))
       if (bad.length) offenders[addrOf[key]] = bad
     }
@@ -191,12 +200,15 @@ async function main() {
   // the drain means a run that has already decided it failed does not get to leave a receipt. A stale witness is
   // then the worst case, and a stale one is at least a statement somebody made about a tree that existed.
   const axiomFree = audited - Object.keys(offenders).length
-  const receipt = { audited, total: T.length, axiomFree, offenders, asked: askedKey }
+  const receipt = { audited, total: T.length, axiomFree, offenders, dependencySets, asked: askedKey }
 
   console.log('\n=== axiom audit — the whole ledger ===')
   console.log('theorems audited :', audited + '/' + T.length + (unseen.length ? ` (${unseen.length} UNSEEN)` : ''))
   console.log('axiom-free       :', axiomFree)
   console.log('trust base       : leanprover/lean4 kernel — allowed axioms: ∅')
+  // the EVIDENCE, not just the absence of a finding: what every audited theorem actually depends on
+  for (const [set, n] of Object.entries(dependencySets).sort((a, b) => b[1] - a[1]))
+    console.log('depends on       :', set, '×', n)
 
   // DRAIN: any dependency, or any theorem the audit could not see, fails the gate.
   const bad = Object.keys(offenders).length

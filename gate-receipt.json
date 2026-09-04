@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "21f34ff693e4ecf5d23dc18525eb5c28",
-    "lean": "7845a44b9774e28b09273fd1c1935ccd"
+    "src": "ed4c70d1af9286b024d592c4c432c956",
+    "lean": "5fd376e33bf40c072bcaa06b7610c7c5"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -134,7 +134,7 @@
     "lean/astronomy-manifest.json": "cd34575efcdd622b",
     "lean/audit-manifest.json": "5621c328fb4112f5",
     "lean/auditgame-manifest.json": "3a7e8de0ebca7e07",
-    "lean/axioms.json": "f5997385abf60dc6",
+    "lean/axioms.json": "1643ac7e00db0faa",
     "lean/billing-manifest.json": "fd5bfb580f6174b7",
     "lean/biophysics-manifest.json": "83eb428d27b61c57",
     "lean/book-trials.json": "873b1062733344c8",
@@ -3987,7 +3987,7 @@
     "src/scripts/lean-astronomy.ts": "27f89297592ad301",
     "src/scripts/lean-audit.ts": "cc4f95719d07e7d1",
     "src/scripts/lean-auditgame.ts": "74efb5d5d12b8d6f",
-    "src/scripts/lean-axioms.ts": "e2bfbbf7bfceb1a5",
+    "src/scripts/lean-axioms.ts": "117f574c14b00cd1",
     "src/scripts/lean-billing.ts": "bc6cd61af0dc867e",
     "src/scripts/lean-biophysics.ts": "22a0cb3458c66f9d",
     "src/scripts/lean-boolean.ts": "65fd2cc5fb373269",
