@@ -18,6 +18,9 @@ import { typeset } from './formula.js'
 import { graphNode, modulusOf, KIN } from './publication-graph.js'
 import { computes } from './gate.js'
 import { toUuid, merkleFold, gcd } from './address.js'
+import { handleOf } from './handle.js'
+import { CANONICAL_LICENSE_SPDX, CANONICAL_LICENSE_URL } from './publication-metadata.js'
+import { ZENODO_SEALS } from './zenodo-seals.js'
 
 /** A finding: a sentence that cites a FABRICATED theorem — the one decidably-false thing a note can do. */
 export interface PubFinding { unit: string; token: string; address: string }
@@ -218,6 +221,27 @@ export function composePublication(file: string): Publication {
         return `| [${k.slug}](/publications/${k.slug}) | ${why.join('; ')} |`
       }).join('\n')
     : 'No monograph in this corpus shares this wing\u2019s modulus or its rare terms. That is a fact about the corpus, not a gap in the page.'
+  // ── CREDIT AND CITATION, IN THE TEXT AND NOT ONLY IN THE HEAD. Measured 2026-09-04: the BUILT page carried the
+  // author, the archive DOI and the licence — the theme injects them, and the JSON-LD carries them for a crawler —
+  // while the monograph's own words named an author in 11 of 116 and a licence in 2. So a printed page, a copied
+  // excerpt or a PDF lost its attribution entirely, which is precisely the form a research record gets read in.
+  // Derived from the same primitives the deposit record uses, so the page and the deposit cannot drift apart.
+  //
+  // THE CONTENT-ADDRESS IS DELIBERATELY ABSENT FROM THIS BLOCK, and the reason is arithmetic rather than
+  // preference: the address IS the fold of this markdown, so printing it inside the markdown would change the
+  // text it addresses and no fixed point exists. The RECEIPT is safe — it folds the theorem addresses, not the
+  // prose — so the citation carries the receipt and says how the address is obtained instead of asserting it.
+  const concept = ZENODO_SEALS.find((z) => z.id === 'uuidna-software')?.conceptDoi ?? ''
+  const cite =
+    `Rouschev, Tsvetan (ORCID [0009-0000-7312-9778](https://orcid.org/0009-0000-7312-9778)). `
+    + `*${title}* — ${blurb}. uuidna, handle \`${handleOf(receipt)}\`.`
+    + `${concept ? ` Archived in the uuidna ledger, [doi:${concept}](https://doi.org/${concept}).` : ''}`
+    + ` Page: https://uuidna.com/publications/${slug}. Licence: ${CANONICAL_LICENSE_SPDX()} `
+    + `(${CANONICAL_LICENSE_URL()}).\n\n`
+    + `The ${ts.length} ${ts.length === 1 ? 'proof' : 'proofs'} cited above fold, order-invariant, to the receipt `
+    + `\`${receipt}\` — recompute it from the same ledger and it returns. This note also content-addresses to a `
+    + `uuid computed from its own text, so any edit to it is visible; the address is printed beside the page `
+    + `rather than inside it, because a text cannot state the fold of itself.`
   const markdown =
     `# ${title}\n\n` +
     `> ${blurb}\n\n` +
@@ -227,6 +251,7 @@ export function composePublication(file: string): Publication {
     `## The facts, each backed by its proof\n\n${body}\n\n` +
     `## The proofs\n\nEach statement as the kernel decided it — typeset where it is mathematics, and the exact Lean beneath it.\n\n${proofs}\n\n` +
     `## Related monographs\n\nDerived, not curated, by the [ranked kinship rule](/theorem/a_shared_modulus_outranks_a_shared_word) — a shared modulus outranks a shared constant, which outranks a shared term in the theorem names — ranked and cut at ${KIN}, with [every degree accounted for](/theorem/the_kin_shortlist_accounts_for_every_edge). Each row names the terms it rests on, so the kinship recomputes from the ledger.\n\n${related}\n\n` +
+    `## How to cite\n\n${cite}\n\n` +
     `## Provenance\n\n` +
     `These ${ts.length} proofs fold, order-invariant, to the receipt \`${receipt}\` — recompute it from the same ` +
     `ledger and it returns. The note itself content-addresses to a uuid, so any edit is visible. Writing descends ` +

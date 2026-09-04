@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "2c8dc425e92de2fdd49aae5e2f0d2414",
+    "src": "c8fa60869c2f31b564408619aff51959",
     "lean": "f4b36b9cf4e673ff76675652695e23e8"
   },
   "files": {
@@ -3588,7 +3588,7 @@
     "src/publication-prior-art.ts": "fd22eb9d017be0a1",
     "src/publish-shape.test.ts": "58495adc2a66280c",
     "src/publish.test.ts": "d6d09e97b5dde332",
-    "src/publish.ts": "eb9be531bbe34874",
+    "src/publish.ts": "51868312268523b8",
     "src/quantum-advantage-audit.test.ts": "d09d1723aef2841d",
     "src/quantum-advantage-traitors.test.ts": "030298feb9ee5b9b",
     "src/quantum-advantage.test.ts": "104d77e78e042603",
@@ -3732,7 +3732,7 @@
     "src/quantum/os/harness/index.ts": "652147c02c578c89",
     "src/quantum/os/harness/lanes.test.ts": "0e99402278e297f6",
     "src/quantum/os/harness/mcp-e2e-online.test.ts": "fdb886d2d5a66014",
-    "src/quantum/os/harness/mcp-e2e.test.ts": "78cb26b40ec33f77",
+    "src/quantum/os/harness/mcp-e2e.test.ts": "cdecb719292cb554",
     "src/quantum/os/harness/mcp-edge-coverage.test.ts": "16006c15c264bd83",
     "src/quantum/os/harness/mcp-http.test.ts": "d2c55ed2fd47e20b",
     "src/quantum/os/harness/mcp-schema.test.ts": "895f220bb25bd946",

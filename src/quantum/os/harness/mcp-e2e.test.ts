@@ -112,11 +112,14 @@ test('e2e: the same call twice returns the same receipt', async () => {
 })
 
 // THE NETWORK TOOL'S OWN DETERMINISM, with the dependency DECLARED rather than hidden inside a shared budget. A
-// cold external fetch was measured at 11.9s; the timeout here is generous on purpose, because the thing being
-// checked is that the receipt does not move, and a slow API is not a counterexample to that.
-test('e2e: a network-backed tool is deterministic too — receipt, not latency', { timeout: 90000 }, async () => {
-  const a = JSON.parse(callText(await rpc('tools/call', { name: 'uuidna_oeapi', arguments: {} }))) as { receipt: string }
-  const b = JSON.parse(callText(await rpc('tools/call', { name: 'uuidna_oeapi', arguments: {} }))) as { receipt: string }
+// cold external fetch was measured at 11.9s, so the budget is raised where it actually binds: `rpc` carries its
+// OWN 20-second cap, and that — not the test runner's option — is what was rejecting. Worth recording, because
+// it cost two wrong diagnoses: the first blamed the external API, the second blamed a ledger fold, and both were
+// real costs sitting UNDER a 20s ceiling nobody had looked at. A per-test timeout cannot lift a timeout that
+// lives in the helper, and the failure message said "no answer in 20000ms" the whole time.
+test('e2e: a network-backed tool is deterministic too — receipt, not latency', { timeout: 120000 }, async () => {
+  const a = JSON.parse(callText(await rpc('tools/call', { name: 'uuidna_oeapi', arguments: {} }, 60000))) as { receipt: string }
+  const b = JSON.parse(callText(await rpc('tools/call', { name: 'uuidna_oeapi', arguments: {} }, 60000))) as { receipt: string }
   assert.equal(a.receipt, b.receipt, 'a receipt that moves between identical calls is not recomputable')
 })
 
