@@ -152,6 +152,17 @@ export function uuidnaLs(path = '/'): LsResult {
 /** one applet run: the parsed line, its output as text lines AND as structured data, folded to one receipt. */
 export interface ExecResult {
   line: string; applet: string; args: string[]; ok: boolean
+  /** EXECUTED — a ported applet ran and this output is its result. ATTESTED — a catalogued Alpine package was
+   *  IDENTIFIED and this output is its provenance record; no program ran. The two were indistinguishable before
+   *  2026-09-04, and the captain asked the question that exposed it: what is the point of an app register if the
+   *  apps do not execute? Measured, the answer was worse than the question — `openssl version`, bare `openssl`
+   *  and `openssl this-is-not-a-subcommand` all returned the identical record with ok: true, because the app
+   *  branch never consulted args. A caller could not tell attestation from execution, and a nonsense subcommand
+   *  read as success. The register's purpose IS provenance, which is legitimate and deliberate; what was wrong
+   *  was a surface that looked like a shell. So the mode is now stated, and unrun arguments are reported. */
+  mode: 'executed' | 'attested'
+  /** arguments that were NOT run, when mode is 'attested'. Never silently dropped. */
+  unrunArgs: string[]
   output: string[]; data: unknown
   receipt: string; hexbits: number[]; sealed: string; honest: string
 }
@@ -216,6 +227,8 @@ export function uuidnaExec(line: string): ExecResult {
   let ok = true
   let output: string[] = []
   let data: unknown = null
+  let mode: 'executed' | 'attested' = 'executed'
+  let unrunArgs: string[] = []
 
   const emit = (o: string[], d: unknown): void => { output = o; data = d }
   const err = (msg: string): void => { ok = false; output = [msg]; data = { error: msg } }
@@ -697,7 +710,7 @@ export function uuidnaExec(line: string): ExecResult {
       'ls <path>  — install-port routes (/…) or full census (/catalogue, /catalogue/main|community|overlay)',
       'apk list · apk list --all · apk info · apk search · apk depends · apk rdepends · apk add · apk del · apk policy',
       'man <topic>  — Alpine documentation package → 32 hexbits (man→app→hexbit)',
-      '<package>  — use a published Alpine app (nginx, openssl, busybox); cmd: too (dotnet, omp)',
+      '<package>  — ATTEST a published Alpine app (nginx, openssl, busybox): its provenance record, not a run; cmd: too (dotnet, omp)',
       'cat · which · stat · pwd · echo · du  — busybox over virtual vfs + session files',
       'run <cmd>  — Alpine cmd: recipe (Layer 2 sandbox via uuidna_run; not a manual TS port)',
       'court [--court|--full|--probe|--msg file]  — uuidnaOS court (hex + MCP + playbook + commit-msg)',
@@ -717,6 +730,11 @@ export function uuidnaExec(line: string): ExecResult {
         break
       }
       const pkg = resolved.pkg
+      // ATTESTATION, NOT EXECUTION — declared rather than implied. uuidnaOS is a provenance filesystem: it can
+      // say what a package IS, with an address anyone recomputes, and it does not run binaries. Saying so is the
+      // difference between a register and a shell that lies.
+      mode = 'attested'
+      unrunArgs = args.slice()
       const compiled = catalogueCompile(pkg)
       const boot = specByName(pkg.name, specs)
       const state = boot ? 'INSTALLED' : sessionHasPackage(pkg.name) ? 'SESSION' : 'AVAILABLE'
@@ -737,15 +755,21 @@ export function uuidnaExec(line: string): ExecResult {
             ? `  man:      ${doc!.name} → ${witness.app} (${witness.via})`
             : `  man:      ${doc!.name} (orphan — ${witness.detail})`]
           : ['  man:      (no documentation package published)']),
+        `  ATTESTED, NOT EXECUTED — this is the package's provenance record; no program ran.`,
+        ...(args.length
+          ? [`  NOT RUN:  ${args.join(' ')} — arguments are not executed here. uuidnaOS is a provenance`,
+             `            filesystem, so it identifies a package rather than running it; for a host binary use uuidna_run.`]
+          : []),
       ], {
         kind: 'app', name: pkg.name, command: applet, via: resolved.via, version: pkg.version, repo: pkg.repo,
         meaning: pkg.desc, checksum: pkg.checksum, deps: pkg.deps, commands: cmds, route,
         address: compiled.address, hexbits: compiled.hexbits, id: compiled.id, state,
         man: doc?.name ?? null, app: witness?.app ?? pkg.name, witnessOk: witness ? witness.ok : true,
+        mode: 'attested', unrunArgs: args.slice(),
       })
     }
   }
 
   const receipt = toUuid('exec|' + execSessionStamp() + '|' + applet + '|' + args.join(' ') + '|' + (ok ? '0' : '1') + '|' + output.join('\n'))
-  return { line: String(line).trim(), applet, args, ok, output, data, receipt, ...hexbitDoorOf(receipt), sealed: os.receipt, honest: HONEST }
+  return { line: String(line).trim(), applet, args, ok, mode, unrunArgs, output, data, receipt, ...hexbitDoorOf(receipt), sealed: os.receipt, honest: HONEST }
 }

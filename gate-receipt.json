@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "4060663cb5661ddf7390da8d018f919f",
+    "src": "2c8dc425e92de2fdd49aae5e2f0d2414",
     "lean": "f4b36b9cf4e673ff76675652695e23e8"
   },
   "files": {
@@ -3709,7 +3709,7 @@
     "src/quantum/os/domains/index.ts": "283d15e5e1db3eed",
     "src/quantum/os/engapi/index.test.ts": "af16eccb93fb01bf",
     "src/quantum/os/engapi/index.ts": "d4e203e887b6d389",
-    "src/quantum/os/exec/index.ts": "933e67dcdf02a3ae",
+    "src/quantum/os/exec/index.ts": "09cb249d12342de6",
     "src/quantum/os/fetch/index.ts": "45fa2e96651061c5",
     "src/quantum/os/firmware/index.test.ts": "0c3cca5cc6cd86af",
     "src/quantum/os/firmware/index.ts": "9b1c8ad1335ad4ed",
@@ -3723,6 +3723,7 @@
     "src/quantum/os/harness/corroborate.test.ts": "e7bb7e1d5c2dadcc",
     "src/quantum/os/harness/crossref.test.ts": "82251d638aacaccf",
     "src/quantum/os/harness/cube-memory.test.ts": "f271f410faa976d3",
+    "src/quantum/os/harness/exec-attest.test.ts": "ffc1be4ad28daec6",
     "src/quantum/os/harness/exemptions.test.ts": "d368c5ceee648990",
     "src/quantum/os/harness/fill-gaps-advantage.test.ts": "82b5f499d54aadcb",
     "src/quantum/os/harness/firewall.test.ts": "dcf54bed647d4e4d",
