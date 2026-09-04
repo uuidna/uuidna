@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "03d3398df7fd665b4dcd1a6be897af1f",
-    "lean": "150f5dc0e1dad098c3da3389ca1e3ab1"
+    "src": "29419632dda65adc0b389412df1fbb9c",
+    "lean": "9e706e3cf56732287a09c38ac03ed0a8"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -269,7 +269,7 @@
     "lean/typesetting-manifest.json": "dff0960a7254f3da",
     "lean/uncited-wings.json": "d068edd2e9aeb82f",
     "lean/universe-manifest.json": "772012d133489901",
-    "lean/unlocks.json": "767f4d294d14b046",
+    "lean/unlocks.json": "5507cc231b9cf3bc",
     "lean/uuidmix-manifest.json": "5577aeffde1bee65",
     "lean/uuidna-manifest.json": "b821abd1860ea02d",
     "lean/vectorequilibrium-manifest.json": "a75f47cbba36d039",
@@ -3921,7 +3921,7 @@
     "src/scripts/gen-anthem.ts": "bcf1db241d238be4",
     "src/scripts/gen-apis.ts": "867eaf6732bd28cf",
     "src/scripts/gen-apps.ts": "5576e223f8dc5d82",
-    "src/scripts/gen-articles.ts": "b5e141f096a07742",
+    "src/scripts/gen-articles.ts": "939b9577ac45164b",
     "src/scripts/gen-captain-claims-complete.ts": "afbf8d2f407e79b6",
     "src/scripts/gen-captain-claims.ts": "017fb6c711dddce3",
     "src/scripts/gen-changelog-section.ts": "344f471110aa63e2",
@@ -3951,12 +3951,12 @@
     "src/scripts/gen-school.ts": "267d1537f13a3037",
     "src/scripts/gen-search-feed.ts": "53750675473a3f42",
     "src/scripts/gen-seo-freeze.ts": "550be1880d6b8458",
-    "src/scripts/gen-sequence-field.ts": "9010d1276f327e03",
-    "src/scripts/gen-song.ts": "7a5cb1f4818531bd",
+    "src/scripts/gen-sequence-field.ts": "895aece28f9e0b1b",
+    "src/scripts/gen-song.ts": "c8dd905884ec2610",
     "src/scripts/gen-store.ts": "2897ed99d94e0736",
     "src/scripts/gen-symphony.ts": "a737d35980f14a5a",
     "src/scripts/gen-terminology.ts": "c61f6fe4abdf5856",
-    "src/scripts/gen-unlocks.ts": "6fefaa608d35ef21",
+    "src/scripts/gen-unlocks.ts": "0d34f88798b712f8",
     "src/scripts/gen-utterances.ts": "a18e198f3c8556a7",
     "src/scripts/gen-waves.ts": "e42e3ebcceb81a30",
     "src/scripts/gen-zenodo-seals.ts": "740f99e37e49a0dc",
@@ -4133,7 +4133,7 @@
     "src/scripts/quantum-messaging-hybrid.ts": "55e871eca8cdea13",
     "src/scripts/quantum-operations-live.ts": "c87da15ae547596a",
     "src/scripts/quantum-rosetta-apis.ts": "ff6f768242fadef0",
-    "src/scripts/quantum-search-trial.ts": "d04bc74cecaf8c77",
+    "src/scripts/quantum-search-trial.ts": "82ae6a65b5bf77f4",
     "src/scripts/queue-wave.ts": "da3a8d6f730597c4",
     "src/scripts/ratchet-gaps.ts": "34f00a2717931348",
     "src/scripts/ratchets.ts": "b90633410d7bb612",

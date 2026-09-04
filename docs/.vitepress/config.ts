@@ -42,7 +42,12 @@ export default defineConfig({
   // check time these links are "dead" by construction — and alive in production. The REAL gate for them is
   // copy-lean-to-site's own forensic scan, which FAILS the build if any /lean link in the built HTML is broken
   // (it runs after the copy, so it sees the truth). Exempt ONLY that class; every other dead link still fails.
-  ignoreDeadLinks: [/^\/lean\//],
+  // NO IGNORE RULE. This carried [/^\/lean\//] so that markdown links to lean/*.lean — files copy-lean-to-site
+  // serves as ASSETS, live and answering 200 — would not be checked as ROUTES. That is an exception, and the
+  // captain's standing instruction is that dead links stay strict, so the exception went instead of the check:
+  // the six generators that emitted those links now emit HTML anchors, which state the same truth in the form
+  // the checker reads correctly. A fully strict build is the proof, and it is the same fix the .tex asset needed.
+  ignoreDeadLinks: false,
   title: SITE.name,
   titleTemplate: ':title · uuidna',
   description: SITE.description,

@@ -2789,7 +2789,7 @@
     "lean/typesetting-manifest.json": "d064de449faa837a",
     "lean/uncited-wings.json": "b218f52b5c59855b",
     "lean/universe-manifest.json": "b4db927913ae833d",
-    "lean/unlocks.json": "38dda599f4778aca",
+    "lean/unlocks.json": "4a15b3eb2c7888ec",
     "lean/uuidmix-manifest.json": "9d1deb66cf938800",
     "lean/uuidna-manifest.json": "eed4273248c289a4",
     "lean/vectorequilibrium-manifest.json": "30bfbfdb7a088795",
@@ -2798,5 +2798,5 @@
     "lean/wave-queue.json": "bc136de9316b89f7",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "43f4d1f2-f7a1-85c5-a548-0eeca36cc281"
+  "receipt": "385a4317-653d-8e7f-a480-e56b66859e04"
 }

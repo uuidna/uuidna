@@ -6,7 +6,7 @@ description: "The quantum search's findings for this wing, each held at trial �
 # The search on trial: The software-verifiable algebra
 
 **The quantum search finds; the trial decides; this page is what the trial returned.** Every research source was
-asked in parallel about *The software-verifiable algebra* — the wing sealed in [lean/Software.lean](/lean/Software.lean) with **16 theorems**. Each
+asked in parallel about *The software-verifiable algebra* — the wing sealed in `lean/Software.lean` with **16 theorems**. Each
 finding below is content-addressed and holds exactly the verdict the gate computes: alone, an external record cites
 no sealed proof, so it stays **UNVERIFIED** — evidence, never approval; held beside the wing's sealed backing, the
 combination is **VERIFIED** by the citations the ledger actually holds. Only a local `by decide` seal approves —

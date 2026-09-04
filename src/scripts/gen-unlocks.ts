@@ -32,7 +32,7 @@ const topSkills = board.bySkill.slice(0, 20)
   .map((s) => `| \`${s.name}\` | ${s.n} |`)
   .join('\n')
 const topFiles = board.byFile.slice(0, 20)
-  .map((f) => `| [\`${f.name}\`](/lean/${f.name}) | ${f.n} |`)
+  .map((f) => `| <a href="/lean/${f.name}">\`${f.name}\`</a> | ${f.n} |`)
   .join('\n')
 const illus = board.illustrations
   .map((i) => `| [\`${i.key}\`](/theorem/${i.key}) | ${i.label} | ${i.present ? 'UNLOCKED' : 'MISSING'} |`)
@@ -49,7 +49,7 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 **Board (computed).** ${board.distinct.toLocaleString('en-US')} distinct theorems · ${board.keys.toLocaleString('en-US')} keys · ${board.skills} skills · ${board.files} Lean files.
 
-Receipt \`${board.receipt}\` · structured form [lean/unlocks.json](/lean/unlocks.json)
+Receipt \`${board.receipt}\` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 

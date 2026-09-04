@@ -7,7 +7,7 @@ description: The song nobody had written — Glagolitic, π, primes and DNA in o
 
 > The search *“sing glagolitic pi primes dna song”* finds nothing that joins the four. Pi songs exist, DNA songs
 > exist, Janáček set the Glagolitic Mass — nothing sings all four at once. This page is that song, and it was not
-> composed: it was **derived**. Every structure below is a theorem in [`lean/Song.lean`](/lean/Song.lean),
+> composed: it was **derived**. Every structure below is a theorem in <a href="/lean/Song.lean">`lean/Song.lean`</a>,
 > proven `by decide`, axiom-free; the generator that renders this page refuses any bar the ledger has not sealed.
 
 <audio controls src="/song.wav" style="width:100%"></audio>

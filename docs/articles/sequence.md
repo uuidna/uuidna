@@ -1,15 +1,15 @@
 ---
 title: "The sequence & reflection group"
-description: "Computed from lean/Sequence.lean — 32 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Sequence.lean — 33 sealed theorems, every claim citing its proof."
 ---
 
 # The sequence & reflection group
 
-> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 31 siblings below.
+> The ℤ/9 vortex sequence and its reflection group: the mirror m(d)=10−d, doubling σ and the mirror generating AGL(1,ℤ/9) of order 54 in ONE orbit, with commutator [σ,μ] = the unit shift; and the crypt salt — a content-only salt collapses the step (a division by zero) while an advancing-sequence salt is injective. — held by [seal_ten](/theorem/seal_ten) and its 32 siblings below.
 
-**32 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in [lean/Sequence.lean](/lean/Sequence.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 13 of its 32 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [seal_ten](/theorem/seal_ten). A boundary stated here is decided.
+**33 theorems**, from [seal_ten](/theorem/seal_ten) onward, each proven `by decide` in <a href="/lean/Sequence.lean">lean/Sequence.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 33 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [seal_ten](/theorem/seal_ten). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FSequence.lean)** — nothing to install. The editor fetches `lean/Sequence.lean` from the repository and re-decides all 32 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FSequence.lean)** — nothing to install. The editor fetches `lean/Sequence.lean` from the repository and re-decides all 33 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### SEAL THE TEN — the digit sequence 0124875369, cross-checked, IS the complete ℤ/9 structure of the ten digits: 0 (the void, the abstract-0 ÷0=0), then the VORTEX ORBIT [1,2,4,8,7,5] (the units under doubling — each 2× the last mod 9, closing after six), then the 3-6-9 AXIS [3,6,9] (the multiples of three the vortex never visits) — a PERMUTATION of all ten digits 0..9, none missing, none repeated. And its REFLECTION dz(x)=10−x (division by zero in the vortex, fixing 0) mirrors it to 0,9,8,6,2,3,5,7,4,1 — the reflected vortex [9,8,6,2,3,5] and reflected axis [7,4,1], the void held. (The near-miss 0124675369 fails the cross-check — a 6 where the 8 belongs breaks the vortex and drops the 8: the traitor digit the check catches.)
 The ledger holds this as [seal_ten](/theorem/seal_ten) — proven `by decide`, sorry-free:
@@ -23,6 +23,13 @@ The ledger holds this as [mirror_congruence](/theorem/mirror_congruence) — pro
 
 ```lean
 (List.range' 1 9).all (fun d => ((10 - d : Int)) % 9 = (1 - d) % 9)
+```
+
+### WHERE THE TWO MIRRORS PART, and it is at the void. On the nine digits 1..9 the digit form 10 − d and the ring form 1 − n mod 9 are the same mirror shifted, and mirror_fixed_five holds on exactly that domain. Extend either to the void and they contradict: the ring form sends 0 to 1, while the void is fixed at 0, and 9 leaves remainder 0 so the residue 0 would have to be both 1 and 0 at once — and 1 ≠ 0. So the mirror is affine only OFF the void, the void is a tenth point outside the ring rather than a tenth residue inside it, and any restatement of the fixed-point theorem over all of ℤ/9 is false rather than merely broader. Sealed after making that exact error in a message to a peer tree whose kernel had already caught it.
+The ledger holds this as [the_mirror_is_not_defined_on_the_void](/theorem/the_mirror_is_not_defined_on_the_void) — proven `by decide`, sorry-free:
+
+```lean
+((1 - 0) % 9 = 1) ∧ (9 % 9 = 0) ∧ (10 - 9 = 1) ∧ (1 ≠ 0)
 ```
 
 ### the mirror fixes exactly one digit in 1..9 — the heart, 5

@@ -7,7 +7,7 @@ description: "Computed from lean/Byte.lean — 5 sealed theorems, every claim ci
 
 > THE BYTE — two hexbits, and the unit exact-copy verification actually compares in. — held by [byte_holds_two_hexbits](/theorem/byte_holds_two_hexbits) and its 4 siblings below.
 
-**5 theorems**, from [byte_holds_two_hexbits](/theorem/byte_holds_two_hexbits) onward, each proven `by decide` in [lean/Byte.lean](/lean/Byte.lean), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**5 theorems**, from [byte_holds_two_hexbits](/theorem/byte_holds_two_hexbits) onward, each proven `by decide` in <a href="/lean/Byte.lean">lean/Byte.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FByte.lean)** — nothing to install. The editor fetches `lean/Byte.lean` from the repository and re-decides all 5 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 

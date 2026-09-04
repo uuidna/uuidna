@@ -51,7 +51,7 @@ Honest scope: provenance and structure, never decryption or a judgement of merit
 
 ## Walk the living field
 
-The vortex sequence \`0\\1\\2\\4\\8/7/5/3\\6\\9/0\\1\` is sealed in [lean/Sequence.lean](/lean/Sequence.lean) and exposed at runtime:
+The vortex sequence \`0\\1\\2\\4\\8/7/5/3\\6\\9/0\\1\` is sealed in <a href="/lean/Sequence.lean">lean/Sequence.lean</a> and exposed at runtime:
 
 ```ts
 import {

@@ -55,7 +55,7 @@ outline: [2, 3]
 
 | Layer | Location | Role |
 | --- | --- | --- |
-| **Proof** | [lean/Sequence.lean](/lean/Sequence.lean) · [articles/sequence](/articles/sequence) | 32 theorems, each \`by decide\` |
+| **Proof** | <a href="/lean/Sequence.lean">lean/Sequence.lean</a> · [articles/sequence](/articles/sequence) | 32 theorems, each \`by decide\` |
 | **Living field** | [\`sequence-field.ts\`](../../src/sequence-field.ts) | Stroke, mirror, gateways, dash decode, invariant gate |
 | **Executor** | [\`sequence-run.ts\`](../../src/sequence-run.ts) | Walk any input through dz + doubling |
 | **Primitives** | [\`separation.ts\`](../../src/separation.ts) | \`dz\`, \`doubling\`, reach, period, singularity |

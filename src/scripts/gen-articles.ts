@@ -103,7 +103,7 @@ description: "Computed from lean/${file} — ${entries.length} sealed theorems, 
 
 > ${lede.replace(/\n/g, ' ')} — held by [${entries[0]!.key}](/theorem/${entries[0]!.key}) and its ${entries.length - 1} siblings below.
 
-**${entries.length} theorems**, from [${entries[0]!.key}](/theorem/${entries[0]!.key}) onward, each proven \`by decide\` in [lean/${file}](/lean/${file}), axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. ${boundaryLine(entries)}
+**${entries.length} theorems**, from [${entries[0]!.key}](/theorem/${entries[0]!.key}) onward, each proven \`by decide\` in <a href="/lean/${file}">lean/${file}</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. ${boundaryLine(entries)}
 
 **[Re-prove this wing in your browser ↗](${verifyLink(file)})** — nothing to install. The editor fetches \`lean/${file}\` from the repository and re-decides all ${entries.length} proofs on Lean ${LEAN_VERSION}, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
