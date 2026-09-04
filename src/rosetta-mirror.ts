@@ -2744,4 +2744,9 @@ export const FLOOR = { witness: 15, falsifier: 63 }
 // refusal is walk-past-able by editing the pattern it consults, which is the absolute refusal wearing a quieter
 // coat: a gate whose verdict the author controls by editing the thing it reads.
 export const RULE = "5ddc9622"
-export const RULE_DECLARED = "A bare 'measured (at|as|by)' says only that somebody measured, never who — and the law above it asks for something a stranger could consult. It anchored two theorems and neither was external: a stopwatch reading on one operator machine, and 'measured by inversion count', which is this project computing about itself. The legitimate case is already covered by 'bomb calorimetry'; anything genuinely measured elsewhere must name the elsewhere."
+export const RULE_DECLARED = "A bare 'measured (at|as|by)' says only that somebody measured, never who, and the law asks for something a stranger could consult. It anchored a stopwatch reading on one operator machine and 'measured by inversion count' — this project computing about itself. 'bomb calorimetry' already covers the legitimate case."
+// …and the digest it was declared FOR. A declaration is spent on ONE rule: honouring a standing one for the
+// next change lets a single declaration bless every future edit, which is the same walk-past hole one level up.
+// Measured: with the declaration for the `measured` removal on the record, deleting `Gutenberg` — an unrelated
+// alternative — was permitted and printed that reason beside a fall it had nothing to do with.
+export const RULE_DECLARED_FOR = "5ddc9622"

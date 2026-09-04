@@ -170,13 +170,6 @@ export function census(): Rosetta[] {
 // module scope must not touch the builtin registry (the edge loads this module and has none) — resolve lazily
 const mirrorPath = (): string => pathm().join(ROOT, 'src', 'rosetta-mirror.ts')
 
-/** The floor STATED in the current mirror, read from source (never from dist, which may lag a rebuild). */
-export function statedFloor(): { witness: number; falsifier: number } {
-  if (!fsm().existsSync(mirrorPath())) return { witness: 0, falsifier: 0 }
-  const src = fsm().readFileSync(mirrorPath(), 'utf8')
-  const m = /export const FLOOR = \{ witness: (\d+), falsifier: (\d+) \}/.exec(src)
-  return m ? { witness: Number(m[1]), falsifier: Number(m[2]) } : { witness: 0, falsifier: 0 }
-}
 
 export function renderMirror(rows: readonly Rosetta[]): string {
   const wings = [...new Set(rows.map((r) => r.wing))].sort()
@@ -216,6 +209,11 @@ export function renderMirror(rows: readonly Rosetta[]): string {
     '// coat: a gate whose verdict the author controls by editing the thing it reads.',
     `export const RULE = ${JSON.stringify(ruleDigest())}`,
     `export const RULE_DECLARED = ${JSON.stringify(declaredReason())}`,
+    '// …and the digest it was declared FOR. A declaration is spent on ONE rule: honouring a standing one for the',
+    '// next change lets a single declaration bless every future edit, which is the same walk-past hole one level up.',
+    '// Measured: with the declaration for the `measured` removal on the record, deleting `Gutenberg` — an unrelated',
+    '// alternative — was permitted and printed that reason beside a fall it had nothing to do with.',
+    `export const RULE_DECLARED_FOR = ${JSON.stringify(declaredReason() ? ruleDigest() : '')}`,
     '',
   ].join('\n')
 }
@@ -229,33 +227,49 @@ export function ruleDigest(): string {
   return handleOf(toUuid('witness-rule|' + (m ? m[0] : '')))
 }
 
-/** the reason a rule change was declared with, carried forward unless this run declares a new one */
-function declaredReason(): string {
-  const declared = argvm?.indexOf('--declare-rule-change') ?? -1
-  if (declared >= 0 && argvm?.[declared + 1]) return String(argvm[declared + 1])
-  if (!fsm().existsSync(mirrorPath())) return ''
-  const m = /export const RULE_DECLARED = ("(?:[^"\\]|\\.)*")/.exec(fsm().readFileSync(mirrorPath(), 'utf8'))
-  return m ? (JSON.parse(m[1]!) as string) : ''
+/** priorMirror() → EVERYTHING the current mirror records, from ONE read.
+ *
+ *  It was five: the floor, the declared reason, the rule digest, the per-key anchors and the per-key legs each
+ *  had its own existsSync and its own regex over the same file, and classifyFall called one of them twice. Five
+ *  readers of one file is not only four reads wasted — it is five chances to disagree about which state of the
+ *  file was seen, in the function whose whole job is deciding whether something changed. */
+interface PriorMirror {
+  legs: Map<string, Leg[]>
+  /** what earned each witness leg, as the mirror recorded it — the evidence a fall is classified against */
+  anchors: Map<string, string>
+  /** the WITNESS rule the legs were decided by, or '' when the mirror predates the field (UNKNOWN, not stable) */
+  rule: string
+  declared: string
+  /** the digest the declaration was made FOR — a declaration is spent on one rule, not on all future ones */
+  declaredFor: string
 }
 
-/** the RULE digest the current mirror was written under, or '' when it predates this field */
-function priorRule(): string {
-  if (!fsm().existsSync(mirrorPath())) return ''
-  const m = /export const RULE = "([0-9a-f]*)"/.exec(fsm().readFileSync(mirrorPath(), 'utf8'))
-  return m ? m[1]! : ''
-}
-
-/** the anchor the current mirror recorded per key — the evidence that says WHAT earned a witness leg */
-function priorClaims(): Map<string, string> {
-  const out = new Map<string, string>()
-  if (!fsm().existsSync(mirrorPath())) return out
-  const body = /export const CLAIMS = `([\s\S]*?)`/.exec(fsm().readFileSync(mirrorPath(), 'utf8'))
-  if (!body) return out
-  for (const line of body[1]!.split('\n')) {
-    const m = /^([a-z0-9_]+) (.+)$/.exec(line.trim())
-    if (m) out.set(m[1]!, m[2]!)
+function priorMirror(): PriorMirror {
+  const empty: PriorMirror = { legs: new Map(), anchors: new Map(), rule: '', declared: '', declaredFor: '' }
+  if (!fsm().existsSync(mirrorPath())) return empty
+  const src = fsm().readFileSync(mirrorPath(), 'utf8')
+  // `key value` lines, one shape for both blocks — the mirror's format is known in exactly this one place now
+  const rows = (re: RegExp): [string, string][] =>
+    (re.exec(src)?.[1] ?? '').split('\n').flatMap((line) => {
+      const m = /^([a-z0-9_]+) (.+)$/.exec(line.trim())
+      return m ? [[m[1], m[2]] as [string, string]] : []
+    })
+  const declared = /export const RULE_DECLARED = ("(?:[^"\\]|\\.)*")/.exec(src)?.[1]
+  return {
+    legs: new Map(rows(/export const MIRROR = `([\s\S]*?)`/).map(([k, v]) => [k, legsOfMask(Number(v))])),
+    anchors: new Map(rows(/export const CLAIMS = `([\s\S]*?)`/)),
+    rule: /export const RULE = "([0-9a-f]*)"/.exec(src)?.[1] ?? '',
+    declared: declared ? (JSON.parse(declared) as string) : '',
+    declaredFor: /export const RULE_DECLARED_FOR = "([0-9a-f]*)"/.exec(src)?.[1] ?? '',
   }
-  return out
+}
+
+/** the reason THIS run declares, or the one already on the record — but a recorded one counts only for the rule
+ *  it was made FOR. Once the rule moves again, that declaration is spent and a new one is required. */
+function declaredReason(prior = priorMirror()): string {
+  const at = argvm?.indexOf('--declare-rule-change') ?? -1
+  if (at >= 0 && argvm?.[at + 1]) return String(argvm[at + 1])
+  return prior.declaredFor === ruleDigest() ? prior.declared : ''
 }
 
 /** noteByKey() → the wing note above each sealed theorem, which is what the WITNESS rule is decided from. */
@@ -269,34 +283,7 @@ function noteByKey(): Map<string, string> {
   return out
 }
 
-/** Legs the CURRENT mirror records, key by key — the baseline a regression is measured against. */
-function priorLegs(): Map<string, Leg[]> {
-  const out = new Map<string, Leg[]>()
-  if (!fsm().existsSync(mirrorPath())) return out
-  const body = /export const MIRROR = `([\s\S]*?)`/.exec(fsm().readFileSync(mirrorPath(), 'utf8'))
-  if (!body) return out
-  for (const line of body[1].split('\n')) {
-    const m = /^([a-z0-9_]+) (\d+)$/.exec(line.trim())
-    if (m) out.set(m[1], legsOfMask(Number(m[2])))
-  }
-  return out
-}
 
-/** A THEOREM THAT NO LONGER EXISTS CANNOT LOSE ITS ANCHOR. The floor was an aggregate high-water mark, so an
- *  ordered purge — theorems whose statements compared bare literals and were removed on the captain's
- *  instruction — read as "a claim lost its external witness" and blocked the mirror from recording the change.
- *  What the ratchet is actually for is a SURVIVING theorem quietly dropping a leg, which is invisible in a total.
- *  So regressions are measured key by key, over the keys present in both censuses. */
-function regressions(rows: readonly Rosetta[]): string[] {
-  const prior = priorLegs()
-  const out: string[] = []
-  for (const r of rows) {
-    const was = prior.get(r.key)
-    if (!was) continue
-    for (const leg of was) if (!r.legs.includes(leg)) out.push(`${r.key} lost its ${leg} leg — it is still in the ledger, so this is a real regression, not a removal`)
-  }
-  return out
-}
 
 /** THE REFUSAL IS A THEOREM NOW, NOT AN AXIOM (the captain, 2026-09-04: it "needs to be replaced by theorems
  *  exactly as the axioms are replaced"). `a_floor_may_fall_to_what_is_anchored` seals the rule: a floor may rise
@@ -343,29 +330,35 @@ export interface Fall {
  *    · the note no longer contains the recorded anchor  → the author edited the claim
  *    · the note still contains it and the RULE digest moved → the instrument changed, and that must be DECLARED
  *    · the anchor stands and the rule stands            → the leg went for neither reason: a regression */
+// A THEOREM THAT NO LONGER EXISTS CANNOT LOSE ITS ANCHOR — why this walks KEY BY KEY and not by total. The floor
+// was once an aggregate high-water mark, so an ordered purge (theorems comparing bare literals, removed on the
+// captain's instruction) read as "a claim lost its external witness" and blocked the mirror from recording the
+// change. What a ratchet is actually for is a SURVIVING theorem quietly dropping a leg, which no total can see.
+// This replaced a separate `regressions()` that walked the same keys to reach one of the four answers below.
 export function classifyFall(rows: readonly Rosetta[]): Fall {
-  const prior = priorLegs()
-  const claims = priorClaims()
+  const prior = priorMirror()
   const notes = noteByKey()
-  const ruleChanged = priorRule() !== '' && priorRule() !== ruleDigest()
+  const ruleMoved = prior.rule !== '' && prior.rule !== ruleDigest()
+  const ruleUnknown = prior.rule === ''
   const fall: Fall = { authorEdited: [], ruleMoved: [], regressed: [], ruleUnknown: [] }
   for (const r of rows) {
-    const was = prior.get(r.key)
-    if (!was) continue
-    for (const leg of was) {
+    for (const leg of prior.legs.get(r.key) ?? []) {
       if (r.legs.includes(leg)) continue
+      const anchor = prior.anchors.get(r.key)
       const note = notes.get(r.key) ?? ''
-      const anchor = claims.get(r.key)
-      if (leg === 'witness' && anchor && !note.includes(anchor)) {
-        fall.authorEdited.push(`${r.key} lost its ${leg} leg: the note no longer carries the anchor the mirror recorded (${anchor}) — the claim's own text was edited`)
-      } else if (leg === 'witness' && anchor && priorRule() === '') {
-        fall.ruleUnknown.push(`${r.key} lost its ${leg} leg while its note still carries the recorded anchor (${anchor}), and this mirror predates the RULE digest — whether the instrument moved cannot be established. Seed the digest on a run where nothing falls, then the cause is decidable.`)
-      } else if (leg === 'witness' && anchor && ruleChanged) {
-        fall.ruleMoved.push(`${r.key} lost its ${leg} leg while its note STILL carries the recorded anchor (${anchor}) — the WITNESS rule moved, not the claim`)
-      } else if (leg === 'witness' && !anchor) {
-        fall.authorEdited.push(`${r.key} lost its ${leg} leg and the mirror recorded no anchor for it — nothing external was ever on the record`)
+      // ONE DECISION, in the order the evidence settles it. Only a WITNESS leg has recorded evidence to weigh;
+      // every other leg has nothing to appeal to, so its loss is a regression by default.
+      if (leg !== 'witness' || !anchor) {
+        if (leg === 'witness') fall.authorEdited.push(`${r.key} lost its witness leg and the mirror recorded no anchor for it — nothing external was ever on the record`)
+        else fall.regressed.push(`${r.key} lost its ${leg} leg with its anchor and the rule both unchanged — a real regression`)
+      } else if (!note.includes(anchor)) {
+        fall.authorEdited.push(`${r.key} lost its witness leg: the note no longer carries the anchor the mirror recorded (${anchor}) — the claim's own text was edited`)
+      } else if (ruleUnknown) {
+        fall.ruleUnknown.push(`${r.key} lost its witness leg while its note still carries the recorded anchor (${anchor}), and this mirror predates the RULE digest — whether the instrument moved cannot be established. Seed the digest on a run where nothing falls, then the cause is decidable.`)
+      } else if (ruleMoved) {
+        fall.ruleMoved.push(`${r.key} lost its witness leg while its note STILL carries the recorded anchor (${anchor}) — the WITNESS rule moved, not the claim`)
       } else {
-        fall.regressed.push(`${r.key} lost its ${leg} leg with its anchor and the rule both unchanged — a real regression`)
+        fall.regressed.push(`${r.key} lost its witness leg with its anchor and the rule both unchanged — a real regression`)
       }
     }
   }

@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "e396507442d81d2053aec8b6f2c8f675",
+    "src": "f1cb9feed1668376c13e259dcffd7d40",
     "lean": "d1c94802719bd0c742dcffee4d104982"
   },
   "files": {
@@ -3820,7 +3820,7 @@
     "src/rights-asserted.test.ts": "4f4b3a3acbd828d8",
     "src/rosetta-legs.test.ts": "0a1d9af49511e179",
     "src/rosetta-legs.ts": "69879f896a6573b7",
-    "src/rosetta-mirror.ts": "f67fba4873b353bb",
+    "src/rosetta-mirror.ts": "a2c8998b3d13ba2b",
     "src/sanitize.ts": "59a077f417ad23b2",
     "src/schema-org-vocab.ts": "5031b5bb0e7a22f8",
     "src/school-apis.ts": "26578a1fcd5054e8",
@@ -4144,7 +4144,7 @@
     "src/scripts/repair-fs-imports.ts": "304efc0694a57d12",
     "src/scripts/repair-test-imports.ts": "e392ab5d353ee4f8",
     "src/scripts/reserve.ts": "1cf2f61fa3dfb866",
-    "src/scripts/rosetta.ts": "753f9fecb2e01e31",
+    "src/scripts/rosetta.ts": "dbfa2640a01080be",
     "src/scripts/run.ts": "b6b22c424401a83f",
     "src/scripts/scout.ts": "0f8dedaeacd87d93",
     "src/scripts/seal-claims-audit.ts": "6a67db73914edcf6",
