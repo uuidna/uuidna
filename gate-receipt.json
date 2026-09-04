@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "c53f34bf612b50fd344c6dd425d0f569",
-    "lean": "01f2eb1c9f23b3723f8a7609fde068d9"
+    "src": "c31fd1f5e1728df72eade2c0667c4425",
+    "lean": "88e18293e01caf488ed9584f4d724fc5"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -165,7 +165,7 @@
     "lean/diving-manifest.json": "0a2fd9302a4568a9",
     "lean/doctrine-manifest.json": "8846630f994b47ad",
     "lean/doi-domains.json": "3b5d1938becb8181",
-    "lean/doi-harvest.json": "9726a854b1fb4440",
+    "lean/doi-harvest.json": "5e0f34b0ddfc72a2",
     "lean/doi-unclaimed.json": "d70f99ab6a37f66a",
     "lean/dormant-receipt.json": "271838d14f578904",
     "lean/dormant-scripts.json": "fc51e07440964bdc",
@@ -3880,8 +3880,8 @@
     "src/scripts/api.ts": "3d0a8bdb0fd09eef",
     "src/scripts/audit-articles-collection.ts": "4ffda18951817b06",
     "src/scripts/audit-citations.ts": "2be74d3d138e4f67",
-    "src/scripts/audit-doi-harvest.test.ts": "d3a99ef4d978721a",
-    "src/scripts/audit-doi-harvest.ts": "d1884d6bb545b953",
+    "src/scripts/audit-doi-harvest.test.ts": "019e9361d3f38ab7",
+    "src/scripts/audit-doi-harvest.ts": "d3a891202b810f21",
     "src/scripts/audit-exemptions.ts": "b1abaa5dbc4048c4",
     "src/scripts/audit-law-register.ts": "bb71b545a328be6b",
     "src/scripts/audit-lean-form.ts": "e8f7f3e2141c1328",

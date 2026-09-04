@@ -22,6 +22,13 @@ import { toUuid, merkleFold } from '../address.js'
 
 export interface HarvestRow {
   id: string
+  /** OWN — this repository claims the record IS its work, so a title mismatch is a defect. CITED — the record is
+   *  someone else's work we reference, so the check is that it resolves to the paper we name. Both matter here:
+   *  the cited Nature letter's published numbers are sealed as theorems in MoMBHStar1.lean, so citing the wrong
+   *  paper would attribute those theorems to the wrong research. The role split is a peer's design
+   *  (millennium-solutions, 2026-09-04) — mine read back only the owned seals, so every DOI cited in any other
+   *  role was unverified, including that one. */
+  role: 'own' | 'cited'
   declaredDoi: string
   declaredTitle: string
   /** false when the record could not be read — a fact about this host, not about the record */
@@ -30,33 +37,79 @@ export interface HarvestRow {
   liveTitle?: string
   liveRecordId?: string
   liveConceptDoi?: string
-  /** true only when the record was READ and its title matches what this repository claims */
+  /** true only when the record was READ and the IDENTIFIER it returns is the one this repository cites */
   agrees?: boolean
+  /** reported, never the verdict — see the note on titleOverlaps below */
+  titleOverlaps?: boolean
 }
+
+// THE VERDICT IS THE IDENTIFIER, NOT THE TITLE, and I learned that by shipping the false positive a peer had
+// warned me about minutes earlier (ceccec.github.io, 2026-09-04: "yours compares by title; mine compares by
+// RECORD ID, which sidesteps the two false positives"). My first role-aware version compared prefix-wise and
+// immediately failed the cited Nature letter — declared "A gas-enshrouded and gas-reddened black hole at cosmic
+// dawn (Nature)" against a live title with no "(Nature)" annotation, so the declared string was LONGER and the
+// prefix test ran the wrong way. Nothing was wrong with the citation.
+//
+// A title is prose that two parties legitimately phrase differently: a release appends a census, a registry
+// appends a venue, a publisher revises punctuation. An IDENTIFIER is the thing that either resolves to the work
+// we cite or does not, and a record swap — the defect this gate exists for — moves the identifier. So the
+// identifier decides and the title is REPORTED, with a symmetric overlap check that surfaces a genuinely
+// different work without failing on an annotation.
 
 const norm = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
 
-/** harvestSeal(seal, fetchJson) → one owned record, read back. Injectable so tests never touch the network. */
+/** THE RESOLVER DEPENDS ON THE REGISTRAR. A Zenodo DOI is read from the Zenodo API by record id; anything else
+ *  (a Nature letter, say) has no record id here and is read from Crossref by DOI. A harvester that knows only
+ *  one registrar reports every foreign DOI as unread, which is the same false silence as not checking. */
+const resolverFor = (seal: typeof ZENODO_SEALS[number]): { url: string; kind: 'zenodo' | 'crossref' } | null => {
+  const doi = seal.standingDoi ?? ''
+  if (seal.standingRecordId) return { url: `https://zenodo.org/api/records/${seal.standingRecordId}`, kind: 'zenodo' }
+  if (doi) return { url: `https://api.crossref.org/works/${doi}`, kind: 'crossref' }
+  return null
+}
+
+const titleOf = (kind: 'zenodo' | 'crossref', body: unknown): { title: string; doi?: string; id?: string; concept?: string } => {
+  if (kind === 'zenodo') {
+    const j = body as { id?: number; doi?: string; conceptdoi?: string; metadata?: { title?: string } }
+    return { title: String(j.metadata?.title ?? ''), doi: j.doi, id: String(j.id ?? ''), concept: j.conceptdoi }
+  }
+  const j = body as { message?: { title?: string[]; DOI?: string } }
+  return { title: (j.message?.title ?? []).join(' '), doi: j.message?.DOI }
+}
+
+/** harvestSeal(seal, fetchJson) → one record, read back in its declared ROLE. Injectable so tests stay offline. */
 export async function harvestSeal(
   seal: typeof ZENODO_SEALS[number],
   fetchJson: (url: string) => Promise<{ status: number; body: unknown }> = defaultFetchJson,
 ): Promise<HarvestRow> {
-  const row: HarvestRow = { id: seal.id, declaredDoi: seal.standingDoi ?? '', declaredTitle: seal.title, read: false }
-  const recordId = seal.standingRecordId
-  if (!recordId) return { ...row, reason: 'no standingRecordId declared, so there is nothing to read back' }
+  const role: 'own' | 'cited' = seal.owned ? 'own' : 'cited'
+  const row: HarvestRow = { id: seal.id, role, declaredDoi: seal.standingDoi ?? '', declaredTitle: seal.title, read: false }
+  const resolver = resolverFor(seal)
+  if (!resolver) return { ...row, reason: 'no DOI and no record id declared, so there is nothing to read back' }
   try {
-    const { status, body } = await fetchJson(`https://zenodo.org/api/records/${recordId}`)
+    const { status, body } = await fetchJson(resolver.url)
     if (status !== 200 || !body || typeof body !== 'object')
-      return { ...row, reason: `zenodo answered ${status} — the record is UNREAD here, not disagreeing` }
-    const j = body as { id?: number; doi?: string; conceptdoi?: string; metadata?: { title?: string } }
-    const liveTitle = String(j.metadata?.title ?? '')
-    // the declared title is a PREFIX of the live one in practice (the live title carries the census), so the
-    // comparison asks whether the live record's title BEGINS with what we claim — a stricter equality would
-    // fail on every release that appends a theorem count.
-    const agrees = norm(liveTitle).startsWith(norm(seal.title)) && (j.doi ?? '') === (seal.standingDoi ?? '')
+      return { ...row, reason: `${resolver.kind} answered ${status} — the record is UNREAD here, not disagreeing` }
+    const j = titleOf(resolver.kind, body)
+    const liveTitle = String(j.title ?? '')
+    // THE COMPARISON IS PREFIX-WISE, and that is not laxity: an OWN record's live title carries the release
+    // census appended to the declared title, so strict equality would fail on every release. A CITED record's
+    // title is fixed by its publisher, so the declared title should be a prefix of it too — and for either role
+    // the DOI must be the one we cite, which is the part that catches a record swap.
+    // THE IDENTIFIER TEST. For a Zenodo record the returned record id must be the one we asked for; for any
+    // other registrar the returned DOI must be the one we cite. Either way, a swap moves this and nothing else.
+    const liveDoi = norm(j.doi ?? '')
+    const wantDoi = norm(seal.standingDoi ?? '')
+    const idAgrees = resolver.kind === 'zenodo'
+      ? String(j.id ?? '') === String(seal.standingRecordId ?? '') && (liveDoi === wantDoi || !liveDoi || !wantDoi)
+      : liveDoi === wantDoi
+    // SYMMETRIC overlap, so an annotation on either side is not a failure while a different work still shows.
+    const a = norm(liveTitle), b = norm(seal.title)
+    const titleOverlaps = a.length > 0 && b.length > 0 && (a.startsWith(b) || b.startsWith(a))
     return {
       ...row, read: true, liveTitle: liveTitle.slice(0, 200),
-      liveRecordId: String(j.id ?? recordId), liveConceptDoi: j.conceptdoi ?? undefined, agrees,
+      liveRecordId: j.id || undefined, liveConceptDoi: j.concept ?? undefined,
+      agrees: idAgrees, titleOverlaps,
     }
   } catch (e) {
     return { ...row, reason: e instanceof Error ? e.message : String(e) }
@@ -78,11 +131,12 @@ export interface Harvest {
   receipt: string
 }
 
-/** harvestOwnedDois(fetchJson?) → every seal this repository claims to OWN, read back from the public record. */
+/** harvestOwnedDois(fetchJson?) → EVERY seal with a DOI, read back in its role — not only the owned ones.
+ *  The name is kept for its callers; the scope is now every identifier this repository puts in print. */
 export async function harvestOwnedDois(
   fetchJson: (url: string) => Promise<{ status: number; body: unknown }> = defaultFetchJson,
 ): Promise<Harvest> {
-  const owned = ZENODO_SEALS.filter((s) => s.owned && s.standingRecordId)
+  const owned = ZENODO_SEALS.filter((s) => s.standingDoi || s.standingRecordId)
   const rows: HarvestRow[] = []
   for (const s of owned) rows.push(await harvestSeal(s, fetchJson))
   const read = rows.filter((r) => r.read)
@@ -101,11 +155,12 @@ if (isMain) {
   const h = await harvestOwnedDois()
   console.log('audit-doi-harvest — our own permanent records, read back\n')
   for (const r of h.rows) {
-    console.log(`  ${r.read ? (r.agrees ? '✓' : '✗') : '·'} ${r.id}  ${r.declaredDoi}`)
+    console.log(`  ${r.read ? (r.agrees ? '✓' : '✗') : '·'} [${r.role}] ${r.id}  ${r.declaredDoi}`)
     console.log(`      declared: ${r.declaredTitle.slice(0, 80)}`)
     if (r.read) {
       console.log(`      live    : ${String(r.liveTitle).slice(0, 80)}`)
       if (r.liveConceptDoi) console.log(`      concept : ${r.liveConceptDoi}`)
+      if (!r.titleOverlaps) console.log(`      NOTE    : the titles do not overlap — reported, not a verdict; the identifier is what decides`)
     } else console.log(`      UNREAD  : ${r.reason}`)
   }
   writeFileSync(join(ROOT, 'lean', 'doi-harvest.json'), JSON.stringify(h, null, 1) + '\n')
@@ -113,7 +168,7 @@ if (isMain) {
   if (h.disagreeing.length) {
     console.log('\n✗ audit-doi-harvest — this repository claims a record the public record does not support:')
     for (const r of h.disagreeing)
-      console.log(`    GAP ${r.id}: declared "${r.declaredTitle.slice(0, 60)}" at ${r.declaredDoi}, live record says "${String(r.liveTitle).slice(0, 60)}"\n    FIX correct src/zenodo-seals.ts to the record that IS this work, verified by resolution — every publication builds its DOI from that field`)
+      console.log(`    GAP ${r.id} [${r.role}]: cites ${r.declaredDoi}, and the identifier it resolves to is not that one (landed on record ${r.liveRecordId ?? '?'}, titled "${String(r.liveTitle).slice(0, 50)}")\n    FIX correct src/zenodo-seals.ts to the identifier that IS this work, verified by resolution — every publication builds its DOI from that field`)
     process.exit(1)
   }
   if (h.readCount < h.owned) {

@@ -2702,7 +2702,7 @@
     "lean/diving-manifest.json": "636537af9f528b58",
     "lean/doctrine-manifest.json": "f09bac7f05c68f4e",
     "lean/doi-domains.json": "02d2e036b84e8059",
-    "lean/doi-harvest.json": "1902774679408246",
+    "lean/doi-harvest.json": "2bca8ca0b58c81d7",
     "lean/doi-unclaimed.json": "8a70dccdcc928a0d",
     "lean/dormant-receipt.json": "0c736611086a8ce1",
     "lean/dormant-scripts.json": "daadea139bfb8e24",
@@ -2815,5 +2815,5 @@
     "lean/wave-queue.json": "9a0e65f2c68a824f",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "5360f08f-6225-8569-877f-db53a665e1be"
+  "receipt": "6ac5ac1f-93cf-8fee-bf9a-51a39cfa64da"
 }
