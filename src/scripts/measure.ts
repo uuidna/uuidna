@@ -25,6 +25,7 @@ import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../index.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 import { benchHexbit, benchLattice } from './bench-hexbit.js'
+import { harvestCommunity } from '../zenodo-oai.js'
 
 export interface Measurement { name: string; what: string; run: () => Promise<unknown> | unknown }
 export interface Receipted { name: string; what: string; value: unknown; receipt: string }
@@ -217,6 +218,22 @@ export const MEASUREMENTS: readonly Measurement[] = [
   // composite door did not, and fixing that made it 4.9x faster; the hex FACE did not, and caching an
   // address-independent index made it 7x faster. The value recorded is the RATIO the face turns on — computing
   // every page's face costs milliseconds while shipping them costs hundreds of megabytes.
+  // THE COMMUNITY, HARVESTED FROM OUTSIDE. "Publish all in the uuidna community" is a claim about a remote
+  // registry, and no gate reading this filesystem can check it. OAI-PMH lists the set without a token, so the
+  // audit chain can ask. Safe here because an unreachable endpoint returns read: false rather than throwing —
+  // and an unread community is never reported as an empty one.
+  { name: 'zenodo-community', what: 'what the uuidna Zenodo community actually holds, harvested over OAI-PMH', run: async () => {
+    const h = await harvestCommunity('uuidna')
+    return h.read
+      ? {
+        read: true, records: h.records.length, declared: h.declared.length,
+        // superseded versions of our own work are a version history, not a finding; foreign works are the finding
+        supersededOurs: h.superseded.length, foreignWorks: h.foreign.map((r) => `${r.recordId} ${r.title.slice(0, 48)}`),
+        works: h.works.map((w) => `${w.versions.length}x ${w.title.slice(0, 44)}`),
+      }
+      : { read: false, reason: h.reason }
+  } },
+
   { name: 'hexbit-lattice', what: 'the hexbit unit, the door, and the 64-hexagram lattice — with the face\'s compute-vs-ship ratio', run: () => {
     const b = benchHexbit(20_000)
     const l = benchLattice(2_000)

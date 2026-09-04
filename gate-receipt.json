@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "10d8c5ec7f8f1049c2a88749fa3b29a2",
+    "src": "e157a61216096c275db9cb29c29108d7",
     "lean": "88e18293e01caf488ed9584f4d724fc5"
   },
   "files": {
@@ -3414,7 +3414,7 @@
     "src/harvest.ts": "da58bc361fdd355d",
     "src/hero-channel.test.ts": "b31746c518eeb322",
     "src/hex-line-css.test.ts": "2b38987a81b0b99f",
-    "src/hex-line-css.ts": "03d2be721b208b40",
+    "src/hex-line-css.ts": "7f2e538876ef8258",
     "src/hexagram-tongues.test.ts": "dec2a3ee2f6519a1",
     "src/hexagram.ts": "f54093c2ac65ed0f",
     "src/hexbit-door.test.ts": "c1bf52ba0cbe3384",
@@ -4140,7 +4140,7 @@
     "src/scripts/live-cloud-metrics.ts": "02f23138677e3fca",
     "src/scripts/machine.ts": "c7b17b9c41bbbc70",
     "src/scripts/mcp-drive.ts": "40250548eec9fba3",
-    "src/scripts/measure.ts": "cf39c982c98d9733",
+    "src/scripts/measure.ts": "5af1e472b6313cd5",
     "src/scripts/migrate-skills.ts": "de1cce1065eda0a6",
     "src/scripts/mine-books.ts": "d4a42e3285118c17",
     "src/scripts/mine-wikisource.ts": "0981f8d1cab1df52",
@@ -4289,6 +4289,8 @@
     "src/wave-deposit.test.ts": "e2ed3f3b18b87fcb",
     "src/wave-deposit.ts": "f8e401418d5e57e2",
     "src/wave-supply.test.ts": "6e5fd091583fe38a",
+    "src/zenodo-oai.test.ts": "3e7be2db5f258e7b",
+    "src/zenodo-oai.ts": "ba339fb9d0bef0af",
     "src/zenodo-publish.ts": "fa396413a9a6683c",
     "src/zenodo-seals.ts": "b97c17bb93522717"
   },

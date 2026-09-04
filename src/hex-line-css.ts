@@ -17,6 +17,19 @@
 // 46 KB of markup on every page. The generator below emits them and the test checks every one of the 128 x 6
 // cases against `(i >> b) & 1`, because a selector that is subtly wrong changes the face silently.
 
+// WHY THE SPANS THEMSELVES STAY, measured and decided rather than left as an obvious next step. After the
+// attributes came off, 768 bare spans remained at roughly 16 KB a page — another 86 MB across the site — and
+// painting the six lines from the gate's own background instead would remove them entirely. It was not done, and
+// the reason is layout rather than effort: the gate is a square with `flex-direction: column-reverse` and
+// `justify-content: space-evenly`, which positions six 2px bars correctly at ANY rendered size, and the board is
+// a responsive grid. A background-image equivalent needs percentage colour stops, so the bar positions would
+// become a function of the gate's rendered height and drift at viewport widths the flex version handles exactly.
+//
+// So the trade is 86 MB against responsive correctness, and correctness wins. The distinction worth keeping is
+// that the 46 KB removed above was PURE WASTE — attributes stating the binary expansion of their own position,
+// identical on every page — while what remains is elements doing real layout work. The two look alike in a byte
+// count and are not alike at all.
+
 /** How many lines a hexagram has. Mirrored as a plain number so this module stays free of a cycle. */
 export const HEX_LINES = 6
 
