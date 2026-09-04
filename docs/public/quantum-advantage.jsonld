@@ -1,11 +1,11 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:6c2f2758-8dce-80c7-a9af-64c8b698f763",
+  "@id": "urn:uuid:a8a81b3a-d139-81f6-ad7e-584a58a7efa8",
   "@type": "Dataset",
   "name": "uuidna quantum advantage report — measured per level",
   "description": "The architectural advantage measured at every level of the datapath — hexbit tile, handle, uuid, sealed ledger — on the host that ran the generator. Three axes per level, each figure carrying the technique it was determined by: REACH (declared by construction), COST (steady-state floor, measured) and FIDELITY (disagreements with Lean-sealed values over a stated execution count, measured; a bound, never a proof of zero). Measured usable-capacity quantum advantage is theorem usable_gap_is_two_to_eighty (2^80 vs reported logical platforms). TypeScript computes; VitePress monitors. n_qubit_dimension counts classical simulation cost and is not a Shor-class crypto speedup claim.",
   "url": "https://uuidna.com/quantum-advantage.jsonld",
-  "identifier": "7b99fcca-9dd8-858a-9048-a42350da329e",
+  "identifier": "f09aa423-897a-8963-9822-12021d173f1d",
   "isAccessibleForFree": true,
   "variableMeasured": [
     {
@@ -18,7 +18,7 @@
     {
       "@type": "PropertyValue",
       "name": "hexbit tile — operation cost",
-      "value": "10^1",
+      "value": "10^0",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
       "citation": "steady-state floor over 6553600 hexbit tile compiled from an address, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
@@ -90,7 +90,7 @@
       "value": "10^3",
       "unitText": "ns (order of magnitude)",
       "measurementTechnique": "measured",
-      "citation": "steady-state floor over 261200 theorem statement re-addressed in a full sweep, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
+      "citation": "steady-state floor over 261700 theorem statement re-addressed in a full sweep, warm-then-floor, batched so the stopwatch is amortised; the DECADE is published because a raw timing has no fixed point and the raw figure lives in the build log"
     },
     {
       "@type": "PropertyValue",
@@ -98,7 +98,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "13060 decisions executed; a bound of better than one in 13060, never a proof of zero"
+      "citation": "13085 decisions executed; a bound of better than one in 13085, never a proof of zero"
     },
     {
       "@type": "PropertyValue",

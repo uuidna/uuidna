@@ -1,0 +1,12 @@
+{
+  "handle": "08862a75",
+  "address": "08862a75-b357-83f1-96ed-adb6bc757e59",
+  "kind": "chunk",
+  "keys": [
+    "these_two_eight_tev_datasets_hold_more_events_than_these_two_seven"
+  ],
+  "statement": "(2301668 + 2745751 = 5047419) ∧ (2079006 + 1913190 = 3992196) ∧ (5047419 > 3992196) ∧ (5047419 + 3992196 = 9039615)",
+  "files": [
+    "Cern.lean"
+  ]
+}

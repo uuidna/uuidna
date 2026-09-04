@@ -3,8 +3,8 @@
 **Generated:** 2026-09-04
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2612/2612 theorems — every one, by construction
-**Claim receipt:** `9776e607-3309-8a33-b701-d6b641962df9`
+**Total claimed:** 2617/2617 theorems — every one, by construction
+**Claim receipt:** `3c55944d-7d1f-8611-8516-c865d84f6f60`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -373,6 +373,15 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
 [light_on_null_cone](/theorem/light_on_null_cone) · [interval_timelike_causal](/theorem/interval_timelike_causal) · [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) · [rest_energy_mc2](/theorem/rest_energy_mc2) · [causality_forbids_ftl](/theorem/causality_forbids_ftl) · [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) · [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) · [every_pythagorean_velocity_dilates_exactly](/theorem/every_pythagorean_velocity_dilates_exactly) · [exact_dilation_is_sparse_among_the_rationals](/theorem/exact_dilation_is_sparse_among_the_rationals) · [the_null_cone_carries_integer_events_in_three_dimensions](/theorem/the_null_cone_carries_integer_events_in_three_dimensions)
+
+### The CERN open-data records
+
+- **Theorems:** 5
+- **Sample lineAddress:** `82b5b0c9-946c-8675-931f-685b0e4eb06a`
+
+The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
+
+[cms_events_close_over_their_files](/theorem/cms_events_close_over_their_files) · [the_collision_energy_label_step_is_one_tev](/theorem/the_collision_energy_label_step_is_one_tev) · [the_open_data_embargo_ran_six_years_or_longer](/theorem/the_open_data_embargo_ran_six_years_or_longer) · [these_two_eight_tev_datasets_hold_more_events_than_these_two_seven](/theorem/these_two_eight_tev_datasets_hold_more_events_than_these_two_seven) · [the_four_cern_records_close_their_own_totals](/theorem/the_four_cern_records_close_their_own_totals)
 
 ### The Glagolitic numerals & Pliska rosette
 
@@ -1068,7 +1077,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2529 (2612 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 2534 (2617 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1086,7 +1095,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2612 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2617 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

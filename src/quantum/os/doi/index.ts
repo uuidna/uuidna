@@ -53,6 +53,8 @@ export const DOI_PREFIXES: readonly DoiPrefix[] = [
     why: 'AAS’s publisher. Named because the AAS door’s honest scope turns on the difference between what the society publishes about a journal and what its publisher publishes in it.' },
   { prefix: '10.5281', owner: 'Zenodo', agency: 'datacite', doors: ['datacite', 'zenodo-communities'],
     why: 'Zenodo, where this tree’s own deposits live — so ownDoiRecords and the community listing sit under one prefix.' },
+  { prefix: '10.7483', owner: 'CERN Open Data Portal', agency: 'datacite', doors: ['datacite'],
+    why: 'The CERN open-data record DOIs that lean/Cern.lean does arithmetic over. Named because this tree may not cite under a prefix it cannot name, and because the AGENCY matters here: Crossref answers 404 for 10.7483/OPENDATA.CMS.53FG.V2S9 while DataCite resolves it (title /SingleMu/Run2011A-v1/RAW, publisher CERN Open Data Portal), so a harvester that assumed Crossref would report a live identifier as unreadable. These are CITED SOURCES and not prior art: measured 2026-09-05, the record DOI declares resourceTypeGeneral "Dataset" and all 82385 CERN open-data records return zero hits for formal verification, Lean, kernel-verified proof or axiom-free — nobody there claims what this ledger claims.' },
   { prefix: '10.1371', owner: 'Public Library of Science (PLoS)', agency: 'crossref', doors: ['plos', 'europepmc', 'crossref-journals'],
     why: 'Every PLOS article. The PLOS door returns its own DOIs, so a row from it is already a citation.' },
   { prefix: '10.1101', owner: 'Cold Spring Harbor Laboratory', agency: 'crossref', doors: ['biorxiv', 'europepmc'],

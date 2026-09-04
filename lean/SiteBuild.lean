@@ -39,11 +39,11 @@ theorem exponent_associativity_changes_the_value : (2^3^2 = 512) ∧ ((2^3)^2 = 
 /-- x − (x mod 9) is divisible by 9 for every x below 63 -/
 theorem the_congruence_form_is_the_modulus_form : ((List.range 63).all (fun x => ((x - x % 9) % 9 == 0) && (x % 9 < 9))) := by decide
 
-/-- 116 monographs through a one-variable template give 27 abstracts — 89 of them duplicates, 76 percent -/
-theorem a_template_distinguishes_only_by_its_variable : (116 - 27 = 89) ∧ (89 * 100 / 116 = 76) ∧ (27 < 116) := by decide
+/-- 117 monographs through a one-variable template give 27 abstracts — 90 of them duplicates, 76 percent -/
+theorem a_template_distinguishes_only_by_its_variable : (117 - 27 = 90) ∧ (90 * 100 / 117 = 76) ∧ (27 < 117) := by decide
 
-/-- every one of 116 kin-degrees is between 1 and 5, and the 114 fives with two twos sum to all 574 edges -/
-theorem the_kin_shortlist_accounts_for_every_edge : ((List.replicate 114 5 ++ [2, 2]).length = 116) ∧ ((List.replicate 114 5 ++ [2, 2]).sum = 574) ∧ ((List.replicate 114 5 ++ [2, 2]).all (fun d => d ≤ 5 && d ≥ 1)) := by decide
+/-- every one of 117 kin-degrees is between 1 and 5, and the 115 fives with two twos sum to all 579 edges -/
+theorem the_kin_shortlist_accounts_for_every_edge : ((List.replicate 115 5 ++ [2, 2]).length = 117) ∧ ((List.replicate 115 5 ++ [2, 2]).sum = 579) ∧ ((List.replicate 115 5 ++ [2, 2]).all (fun d => d ≤ 5 && d ≥ 1)) := by decide
 
 /-- modulus 6 over constant 2 over word 1, and a basis relating 102 of 116 is no basis -/
 theorem a_shared_modulus_outranks_a_shared_word : (6 > 2) ∧ (2 > 1) ∧ (102 > 116 / 2) ∧ (28 < 116 / 2) := by decide

@@ -83,11 +83,15 @@ function draftFor(route: FundingRoute, today?: string): string {
     + `who distrusts the authors entirely can re-derive all ${pack.propositions} from the source and the kernel.\n`
 
   const notClaimed =
-    `## What is NOT claimed\n\n`
-    + `A proposal is a place where overreach is tempting, so the limits are stated rather than left to be found:\n\n`
-    + `- **No Clay-problem or open-conjecture result.** \`decide\` settles a decidable proposition over a FINITE `
-    + `domain; every famous open conjecture quantifies over an infinite one. What the corpus holds are finite `
-    + `instances and counting facts, each scoped in its own theorem name.\n`
+    `## What is claimed, and whose claim is whose\n\n`
+    + `Both halves at full strength. The results below are CLAIMED outright — ${pack.propositions} propositions, `
+    + `each closed by the Lean 4 kernel over its own finite domain with an empty trust base. What belongs to `
+    + `others is credited to them, and what no formal method can reach is named so a reviewer does not have to `
+    + `guess at the boundary:\n\n`
+    + `- **The finite instances are claimed; the open conjectures are not solved by anyone here.** \`decide\` `
+    + `settles a decidable proposition over a FINITE domain, and every famous open conjecture quantifies over an `
+    + `infinite one — so no such proof exists in this corpus or can. What the corpus DOES hold, and claims, are `
+    + `finite instances and counting facts adjacent to those problems, each scoped in its own theorem name.\n`
     + `- **No quantum-computational speedup.** The project's advantage claims are about verification costing less `
     + `than recomputation, in measured magnitudes, on ordinary hardware.\n`
     + `- **No claim that the formalised domains are complete.** A monograph proves what it proves and says so.\n`

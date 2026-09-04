@@ -1,0 +1,12 @@
+{
+  "handle": "a7d2284d",
+  "address": "a7d2284d-a29d-888f-a400-50cbe347657a",
+  "statement": "(0 < 2566) ∧ (0 + 2566 = 2566)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

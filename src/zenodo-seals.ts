@@ -99,6 +99,17 @@ export const ZENODO_SEALS: readonly ZenodoSeal[] = [
       { identifier: UUIDNA_REPO, relation: 'isSupplementTo', resource_type: 'software' },
       { identifier: UUIDNA_NPM, relation: 'isIdenticalTo', resource_type: 'software' },
       { identifier: '10.5281/zenodo.21970356', relation: 'isIdenticalTo', resource_type: 'software' },
+      // CERN OPEN DATA, REFERENCED AS CITED SOURCES — the four CMS primary datasets whose published integers
+      // lean/Cern.lean does arithmetic over. `references` is DataCite's relation for "this work uses that one",
+      // which is exactly what they are: data, credited. They are NOT prior art, and that is measured rather
+      // than assumed — CERN's record DOIs declare resourceTypeGeneral "Dataset", and all 16,241 CERN Open Data
+      // records return ZERO hits for formal verification, Lean, kernel-verified proof or axiom-free. Nobody
+      // there claims what this ledger claims, so filing them as prior art would imply a precedence that does
+      // not exist. All four are CC0-1.0, which is why their integers can be quoted without permission.
+      { identifier: '10.7483/OPENDATA.CMS.53FG.V2S9', relation: 'references', resource_type: 'dataset' },
+      { identifier: '10.7483/OPENDATA.CMS.RG9B.XJMD', relation: 'references', resource_type: 'dataset' },
+      { identifier: '10.7483/OPENDATA.CMS.I8HN.DF32', relation: 'references', resource_type: 'dataset' },
+      { identifier: '10.7483/OPENDATA.CMS.0LRL.BXG5', relation: 'references', resource_type: 'dataset' },
     ],
   },
   {

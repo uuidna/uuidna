@@ -61,14 +61,23 @@ const norm = (s: string): string => s.toLowerCase().replace(/[^a-z0-9]+/g, ' ').
 /** THE RESOLVER DEPENDS ON THE REGISTRAR. A Zenodo DOI is read from the Zenodo API by record id; anything else
  *  (a Nature letter, say) has no record id here and is read from Crossref by DOI. A harvester that knows only
  *  one registrar reports every foreign DOI as unread, which is the same false silence as not checking. */
-const resolverFor = (seal: typeof ZENODO_SEALS[number]): { url: string; kind: 'zenodo' | 'crossref' } | null => {
+const resolverFor = (seal: typeof ZENODO_SEALS[number]): { url: string; kind: 'zenodo' | 'crossref' | 'datacite' } | null => {
   const doi = seal.standingDoi ?? ''
   if (seal.standingRecordId) return { url: `https://zenodo.org/api/records/${seal.standingRecordId}`, kind: 'zenodo' }
+  // THE REGISTRAR IS CHOSEN BY THE PREFIX, because guessing one is how a verifiable DOI reports as unread.
+  // Measured 2026-09-05: Crossref answers 404 for 10.7483/OPENDATA.CMS.53FG.V2S9 while DataCite resolves it
+  // (title /SingleMu/Run2011A-v1/RAW, publisher CERN Open Data Portal). A harvester that knew only Crossref
+  // would have called every CERN record unreadable — a false absence on identifiers this ledger cites.
+  if (doi.startsWith('10.7483/') || doi.startsWith('10.5281/')) return { url: `https://api.datacite.org/dois/${doi}`, kind: 'datacite' }
   if (doi) return { url: `https://api.crossref.org/works/${doi}`, kind: 'crossref' }
   return null
 }
 
-const titleOf = (kind: 'zenodo' | 'crossref', body: unknown): { title: string; doi?: string; id?: string; concept?: string } => {
+const titleOf = (kind: 'zenodo' | 'crossref' | 'datacite', body: unknown): { title: string; doi?: string; id?: string; concept?: string } => {
+  if (kind === 'datacite') {
+    const a = (body as { data?: { attributes?: { doi?: string; titles?: { title?: string }[] } } }).data?.attributes
+    return { title: String(a?.titles?.[0]?.title ?? ''), doi: a?.doi }
+  }
   if (kind === 'zenodo') {
     const j = body as { id?: number; doi?: string; conceptdoi?: string; metadata?: { title?: string } }
     return { title: String(j.metadata?.title ?? ''), doi: j.doi, id: String(j.id ?? ''), concept: j.conceptdoi }

@@ -50,7 +50,21 @@ const REGISTRY: { pat: string; who: string; wiki: string }[] = [
   { pat: 'Born', who: 'Max Born (the Born rule)', wiki: 'https://en.wikipedia.org/wiki/Born_rule' },
 ]
 
-export interface Credit { who: string; link: string }
+/** ONE CREDIT SYSTEM, and the role rides the entry rather than living in a parallel list.
+ *
+ *  The captain's correction, 2026-09-05: "one credit system!" — and it was the right call. A first attempt kept
+ *  claimants in `creditOrder` and cited sources in a separate field, which is two systems disagreeing about what
+ *  crediting means. Now there is one ordered list and each entry says what KIND of credit it carries:
+ *
+ *    'prior-art'    — external work that claimed this first. Credited FIRST, ahead of the captain.
+ *    'claimant'     — whoever asserts the result. The captain is LAST among claimants, which is the standing law.
+ *    'cited-source' — external work whose data or numbers the result rests on. Credited, and not a claimant:
+ *                     citing a dataset is not conceding precedence to it.
+ *
+ *  `role` is optional so every existing credit reads as a claimant without rewriting the callers that predate it. */
+export type CreditRole = 'prior-art' | 'claimant' | 'cited-source'
+
+export interface Credit { who: string; link: string; role?: CreditRole }
 
 /** the captain credit — always present in creditOrder; alone when no prior art, NEXT after prior when there is */
 export const CAPTAIN_CREDIT: Credit = { who: 'the captain', link: 'https://uuidna.com/captain' }

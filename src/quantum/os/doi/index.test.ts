@@ -1,10 +1,21 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import {
+
   DOI_PREFIXES, creditOrderFor, doiPrefixOf, doiPrefixTag, doiTagCensus, involuteOutcome, outcomeOf,
   doorsMintingUntagged, ownDoiRecords, priorArtByDoi, renderDoiPrefixAudit, renderOwnDoiRecords, renderPriorArtByDoi, resolveDoiPrefix,
   tagDoi, untaggedOwnPrefixes, verifyDoiPrefixes, type DoiRecord,
 } from './index.js'
+
+// THE LAW IS "THE CAPTAIN IS LAST AMONG CLAIMANTS", and with one credit system carrying roles that is a filter
+// rather than a position. Cited sources sit in the same ordered list with role 'cited-source', so the last
+// ELEMENT may legitimately be a dataset while the last CLAIMANT is still the captain. Checking the position was
+// only ever a proxy for the law; the law itself is checked now.
+const lastClaimant = (order: readonly { who: string; role?: string }[]): string | undefined => {
+  const claimants = order.filter((c) => (c.role ?? 'claimant') === 'claimant')
+  return claimants.length ? claimants[claimants.length - 1]!.who : undefined
+}
+
 import { CAPTAIN_CREDIT } from '../../../captain/credits/index.js'
 
 const rec = (doi: string, owner = 'x'): DoiRecord => ({
@@ -134,7 +145,7 @@ test('uuidna_doi subject — prior art comes back as tagged DOIs with the credit
   assert.equal(p.notOutcome, involuteOutcome(p.outcome))
   assert.equal(p.claimedTheUnclaimed, p.records.length === 0)
   assert.equal(p.citableByDoi, p.records.length, 'the citable-by-DOI count IS the record set')
-  assert.equal(p.creditOrder[p.creditOrder.length - 1]!.who, CAPTAIN_CREDIT.who, 'the captain is always last')
+  assert.equal(lastClaimant(p.creditOrder), CAPTAIN_CREDIT.who, 'the captain is always last AMONG CLAIMANTS')
   for (const r of p.records) {
     assert.equal(r.prefix, doiPrefixOf(r.doi))
     assert.match(r.doi, /^10\.\d{4,9}\//, 'every record is a resolvable DOI, never a bare id')

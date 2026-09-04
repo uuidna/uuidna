@@ -1,0 +1,12 @@
+{
+  "handle": "1a34e9ab",
+  "address": "1a34e9ab-34c7-8863-bf1d-5d723ea531ba",
+  "statement": "(8 - 7 = 1) ∧ (8000 - 7000 = 1000) ∧ (7000 / 2 = 3500) ∧ (8000 / 2 = 4000) ∧ (4000 - 3500 = 500)",
+  "tactic": "decide",
+  "keys": [
+    "the_collision_energy_label_step_is_one_tev"
+  ],
+  "files": [
+    "Cern.lean"
+  ]
+}

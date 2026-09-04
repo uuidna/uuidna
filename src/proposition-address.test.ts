@@ -40,10 +40,10 @@ test('decidable equality written both ways is one relation', () => {
   assert.equal(propositionAddress('a == b'), propositionAddress('a = b'))
 })
 
-test('this ledger holds 2531 propositions over 2539 raw statements — the merge is real, not theoretical', () => {
+test('this ledger holds 2536 propositions over 2544 raw statements — the merge is real, not theoretical', () => {
   const c = propositionCensus(THEOREMS.map((t) => t.statement))
-  assert.equal(c.statements, 2539, 'raw distinct statements')
-  assert.equal(c.propositions, 2531, 'distinct propositions after normalisation')
+  assert.equal(c.statements, 2544, 'raw distinct statements')
+  assert.equal(c.propositions, 2536, 'distinct propositions after normalisation')
   assert.equal(c.merged.length, 8, 'eight statements are one proposition written two ways')
   for (const g of c.merged) {
     assert.ok(g.forms.length > 1)

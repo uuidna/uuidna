@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 2,529 distinct theorems · 2,612 keys · 113 skills · 116 Lean files.
+**Board (computed).** 2,534 distinct theorems · 2,617 keys · 114 skills · 117 Lean files.
 
-Receipt `1d59620b-01d3-8d9b-a548-787b79d71778` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `be38988d-33ac-8c77-aec9-45e745207236` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 

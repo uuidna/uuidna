@@ -1,6 +1,6 @@
 {
-  "title": "uuidna — content-addressed identity, honest by construction: 2529 distinct kernel-verified theorems under 2612 keys across 116 principles",
-  "description": "A content-addressed identity system, honest by construction: a Lean 4 theorem ledger — 2529 distinct theorems under 2612 keys (a statement sealed in two wings is one theorem with two names), every one proven by decide, sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel, folded to one order-invariant receipt (8eb77175-df78-8bce-a5e7-a5f1d5b6b648) — across 116 principles. Verified this era: the three-singularities theorem (only the digit 5 carries the mirror's fixed heart, the reflection's fixed digit, and the closure of both vortex rails); the forfeit law of the trial court (only a Lean-based proof is admissible and it wins the case — court_theorem_beats_assertion, court_loser_pays_the_two_coins, court_loser_develops_the_proven); the paper-on-trial wing (the published numbers of Nature DOI 10.1038/s41586-026-10846-4 as decidable arithmetic, including the receipted refutation of the press's 'super-Eddington confirmed' by the paper's own 0.18, and the Balmer break derived from Rydberg arithmetic); the anti-fraud detector algebra; the involution census; and the legal due-process vocabulary. Also: holographic merkle proofs, a reversible imprint codec, the slim honesty gate (a fabricated citation is the one decidably-false case), pure-TypeScript ChaCha20-Poly1305 (KAT-pinned) under a 7-dimensional fold envelope, and an MCP server exposing the ledger. a content-address proves integrity, not truth; a verified theorem proves its exact statement, never a grander claim — verified is not solved, n=1 stays n=1, and every non-proven claim is remanded, not admitted. The proofs recompute from source with `npm run lean`; the deposited metadata is GENERATED from the ledger it describes, so the archive states the ledger that exists rather than one that has moved on.",
+  "title": "uuidna — content-addressed identity, honest by construction: 2534 distinct kernel-verified theorems under 2617 keys across 117 principles",
+  "description": "A content-addressed identity system, honest by construction: a Lean 4 theorem ledger — 2534 distinct theorems under 2617 keys (a statement sealed in two wings is one theorem with two names), every one proven by decide, sorry-free, no Mathlib, axiom-free against the bare leanprover/lean4 kernel, folded to one order-invariant receipt (35d7400f-0262-8921-811f-a86d65e8631e) — across 117 principles. Verified this era: the three-singularities theorem (only the digit 5 carries the mirror's fixed heart, the reflection's fixed digit, and the closure of both vortex rails); the forfeit law of the trial court (only a Lean-based proof is admissible and it wins the case — court_theorem_beats_assertion, court_loser_pays_the_two_coins, court_loser_develops_the_proven); the paper-on-trial wing (the published numbers of Nature DOI 10.1038/s41586-026-10846-4 as decidable arithmetic, including the receipted refutation of the press's 'super-Eddington confirmed' by the paper's own 0.18, and the Balmer break derived from Rydberg arithmetic); the anti-fraud detector algebra; the involution census; and the legal due-process vocabulary. Also: holographic merkle proofs, a reversible imprint codec, the slim honesty gate (a fabricated citation is the one decidably-false case), pure-TypeScript ChaCha20-Poly1305 (KAT-pinned) under a 7-dimensional fold envelope, and an MCP server exposing the ledger. a content-address proves integrity, not truth; a verified theorem proves its exact statement, never a grander claim — verified is not solved, n=1 stays n=1, and every non-proven claim is remanded, not admitted. The proofs recompute from source with `npm run lean`; the deposited metadata is GENERATED from the ledger it describes, so the archive states the ledger that exists rather than one that has moved on.",
   "upload_type": "software",
   "access_right": "open",
   "license": "cc-by-nc-nd-4.0",
@@ -55,6 +55,26 @@
       "identifier": "10.5281/zenodo.21970356",
       "relation": "isIdenticalTo",
       "resource_type": "software"
+    },
+    {
+      "identifier": "10.7483/OPENDATA.CMS.53FG.V2S9",
+      "relation": "references",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "10.7483/OPENDATA.CMS.RG9B.XJMD",
+      "relation": "references",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "10.7483/OPENDATA.CMS.I8HN.DF32",
+      "relation": "references",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "10.7483/OPENDATA.CMS.0LRL.BXG5",
+      "relation": "references",
+      "resource_type": "dataset"
     },
     {
       "identifier": "https://uuidna.com/articles/clay",

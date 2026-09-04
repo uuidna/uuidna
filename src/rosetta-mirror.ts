@@ -156,6 +156,12 @@ the_gregorian_cycle_counted_in_weeks 27
 the_reform_is_exactly_three_days_in_four_hundred 27
 the_record_has_holes_the_rule_does_not 27
 a_gapless_index_admits_nothing_between 27
+#Cern.lean
+cms_events_close_over_their_files 27
+the_collision_energy_label_step_is_one_tev 31
+the_open_data_embargo_ran_six_years_or_longer 27
+these_two_eight_tev_datasets_hold_more_events_than_these_two_seven 27
+the_four_cern_records_close_their_own_totals 27
 #Channel.lean
 channel_multiplies_three 27
 element_costs_nine 27
@@ -2746,13 +2752,14 @@ kelvin_floor_carries_the_hundred SI
 landauer_bound_derived SI
 light_speed_rounds_to_300000 SI
 reversible_erases_nothing Landauer
+the_collision_energy_label_step_is_one_tev DOI
 the_defining_constants_are_exact_integers SI
 the_metre_is_defined_by_the_second SI
 two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 17, falsifier: 63 }
+export const FLOOR = { witness: 18, falsifier: 63 }
 
 // The WITNESS rule these legs were decided by, as a digest of its own source. A later run compares it: if the
 // digest moved and the anchored count FELL, the instrument changed rather than any claim, and that fall must be

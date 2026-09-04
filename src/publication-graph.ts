@@ -178,7 +178,21 @@ function computeGraph(theorems: readonly Theorem[]): PubNode[] {
       count: a.count,
       kin,
       isolated: kin.length === 0,
-      receipt: merkleFold([toUuid('pub-graph|' + a.slug), ...kin.map((k) => toUuid(a.slug + '>' + k.slug + '|' + k.score))]),
+      // THE RANK RIDES EACH LEAF, so the receipt witnesses the ORDERING and not merely the membership.
+      //
+      // A peer's tell (ceccec.github.io, 2026-09-05): any order-insensitive reduction — a sum, an xor, a set
+      // union, or merkleFold, which SORTS its leaves — discards order BY CONSTRUCTION and so cannot distinguish a
+      // permutation from the original; that is what "order-insensitive" means. Tested
+      // against this exact expression rather than assumed: two different orderings of the same (member, score)
+      // pairs folded to an IDENTICAL receipt. The ranking is the whole content of the kinship rule (a shared
+      // modulus outranks a shared constant, which outranks a shared term), and the receipt did not carry it.
+      //
+      // The exposure was LATENT rather than live: the comparator determines exactly one valid order for a given
+      // set of pairs, so the code could not emit two. But that is the point — if the comparator BROKE, the
+      // members and scores would be unchanged, the receipt would be unchanged, and the ranking would silently
+      // invert. The suite asserts sortedness separately; the receipt now does too. Their fix was to multiply by
+      // an odd constant before summing; the equivalent here is to make position part of what is folded.
+      receipt: merkleFold([toUuid('pub-graph|' + a.slug), ...kin.map((k, rank) => toUuid(a.slug + '>' + rank + '>' + k.slug + '|' + k.score))]),
     }
   })
 }

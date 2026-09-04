@@ -27,10 +27,10 @@ the sweep is reported live by `uuidna_quantum_advantage`, where a measurement of
 
 | level | reach | reach class | op cost (measured) | ops/s | estimates | decisions | disagreements | bound | baseline would predict |
 |-------|-------|-------------|--------------------|-------|-------------|-----------|---------------|-------|------------------------|
-| hexbit tile | 2^4 | declared | 10^1 ns per hexbit tile compiled from an address | 10^8 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
+| hexbit tile | 2^4 | declared | 10^0 ns per hexbit tile compiled from an address | 10^9 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | handle | 2^32 | declared | 10^2 ns per handle read to its value and residue | 10^7 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
 | uuid | 2^128 | declared | 10^3 ns per address folded from a distinct seed | 10^6 | 5/5 agree | 12000 | 0 | better than 1 in 12000 | 12 errors |
-| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 13060 | 0 | better than 1 in 13060 | 13 errors |
+| sealed ledger | whole ledger | declared | 10^3 ns per theorem statement re-addressed in a full sweep | 10^6 | 5/5 agree | 13085 | 0 | better than 1 in 13085 | 13 errors |
 
 ### The sealed quantum algebra, executed on this silicon
 
@@ -157,9 +157,9 @@ silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto spe
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `bf365744-0604-8d8c-888b-22b2c1bc9172`.
+*exist* cannot see. Dispatch receipt: `cfe95092-80fd-8151-a6cb-61844727b020`.
 
-Report receipt: `7b99fcca-9dd8-858a-9048-a42350da329e` · measured-when as its own handle: `7b99fcca`.
+Report receipt: `f09aa423-897a-8963-9822-12021d173f1d` · measured-when as its own handle: `f09aa423`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point
 of measuring per level.
 <!-- quantum-advantage:end -->

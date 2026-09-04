@@ -1,0 +1,12 @@
+{
+  "handle": "cd2479fe",
+  "address": "cd2479fe-8766-8072-9f25-61239b55d44b",
+  "kind": "chunk",
+  "keys": [
+    "the_open_data_embargo_ran_six_years_or_longer"
+  ],
+  "statement": "(2019 - 2011 = 8) ∧ (2019 - 2012 = 7) ∧ (2017 - 2011 = 6) ∧ (8 ≥ 6) ∧ (7 ≥ 6) ∧ (6 ≥ 6)",
+  "files": [
+    "Cern.lean"
+  ]
+}

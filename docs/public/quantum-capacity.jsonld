@@ -14,7 +14,7 @@
       "value": 128,
       "unitText": "qubits",
       "measurementTechnique": "declared",
-      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-2612-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
+      "citation": "all 2^128 addresses usable, deterministic, error-free by construction (quantum by architecture; TypeScript computes the fold — theorem handle_capacity_is_quantum_by_architecture); measured usable-capacity advantage vs largest reported logical platform is 2^80 (theorem usable_gap_is_two_to_eighty) — measured by this generator: full-2617-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts) — NOT VERIFIED SINCE PUBLICATION: no date recorded for when this figure was last checked against its source"
     },
     {
       "@type": "PropertyValue",
@@ -22,7 +22,7 @@
       "value": 1000,
       "unitText": "ns",
       "measurementTechnique": "measured",
-      "citation": "measured by this generator: full-2612-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
+      "citation": "measured by this generator: full-2617-theorem receipt sweep, per-verify decade 10^3 ns on the build host (raw figure in the build log only — a decade reseals, a raw number drifts)"
     },
     {
       "@type": "PropertyValue",
@@ -261,7 +261,7 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — work distributed",
-      "value": 2612,
+      "value": 2617,
       "unitText": "items",
       "measurementTechnique": "measured",
       "citation": "every piece the fan-out actually routed this run, counted from the lane census rather than from what was queued"
@@ -269,10 +269,10 @@
     {
       "@type": "PropertyValue",
       "name": "balancer — lane spread",
-      "value": 121,
+      "value": 122,
       "unitText": "% (busiest lane over quietest; 100 is even)",
       "measurementTechnique": "measured",
-      "citation": "busiest lane held 361, quietest held 296 — measured on the work that ran, not asserted from the key's uniformity"
+      "citation": "busiest lane held 362, quietest held 296 — measured on the work that ran, not asserted from the key's uniformity"
     },
     {
       "@type": "PropertyValue",

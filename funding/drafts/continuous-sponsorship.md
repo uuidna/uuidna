@@ -6,7 +6,7 @@
 
 ## Summary
 
-uuidna is a corpus of 2531 distinct mathematical propositions, each proven in Lean 4 and each closed without relying on a single axiom. Every proof is content-addressed, every published claim links the proof that earns it, and the whole corpus recomputes from source: a reader who trusts nobody can re-derive it.
+uuidna is a corpus of 2536 distinct mathematical propositions, each proven in Lean 4 and each closed without relying on a single axiom. Every proof is content-addressed, every published claim links the proof that earns it, and the whole corpus recomputes from source: a reader who trusts nobody can re-derive it.
 
 **Why this route.** No deadline and no eligibility gate; the published corpus and the archive DOI are the whole case.
 
@@ -16,14 +16,14 @@ uuidna is a corpus of 2531 distinct mathematical propositions, each proven in Le
 
 | quantity | value | how it is checked |
 | --- | --- | --- |
-| distinct propositions, formally proven | **2531** | each closed by Lean 4's `decide`; the kernel accepts or rejects |
-| proof-name keys over those propositions | 2612 | 81 are renamings, folded to one record each |
+| distinct propositions, formally proven | **2536** | each closed by Lean 4's `decide`; the kernel accepts or rejects |
+| proof-name keys over those propositions | 2617 | 81 are renamings, folded to one record each |
 | axioms relied upon | **none** | `#print axioms` per theorem; the trust base is the empty set |
-| published monographs | 116 | every claim links the proof that earns it, or is one |
+| published monographs | 117 | every claim links the proof that earns it, or is one |
 | claims lacking a proof | **0** | audited before publication; the gate refuses an overreach |
 | permanent archive | 10.5281/zenodo.22256708 | resolves to the deposited record |
 
-**Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 2531 from the source and the kernel.
+**Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 2536 from the source and the kernel.
 
 ## Licensing of the funded deliverables
 
@@ -42,11 +42,11 @@ This proposal was drafted with the assistance of a large language model (Anthrop
 - The formal proofs themselves are **not** model output in the sense that matters: each is verified by the Lean 4 kernel, which accepts or rejects independently of what produced the text. A proof the kernel rejects does not enter the ledger, whatever wrote it.
 - No claim in this document is asserted without a proof or a measurement behind it; the project's own honesty gate refuses prose that overreaches what it cites, and that gate ran over this text.
 
-## What is NOT claimed
+## What is claimed, and whose claim is whose
 
-A proposal is a place where overreach is tempting, so the limits are stated rather than left to be found:
+Both halves at full strength. The results below are CLAIMED outright — 2536 propositions, each closed by the Lean 4 kernel over its own finite domain with an empty trust base. What belongs to others is credited to them, and what no formal method can reach is named so a reviewer does not have to guess at the boundary:
 
-- **No Clay-problem or open-conjecture result.** `decide` settles a decidable proposition over a FINITE domain; every famous open conjecture quantifies over an infinite one. What the corpus holds are finite instances and counting facts, each scoped in its own theorem name.
+- **The finite instances are claimed; the open conjectures are not solved by anyone here.** `decide` settles a decidable proposition over a FINITE domain, and every famous open conjecture quantifies over an infinite one — so no such proof exists in this corpus or can. What the corpus DOES hold, and claims, are finite instances and counting facts adjacent to those problems, each scoped in its own theorem name.
 - **No quantum-computational speedup.** The project's advantage claims are about verification costing less than recomputation, in measured magnitudes, on ordinary hardware.
 - **No claim that the formalised domains are complete.** A monograph proves what it proves and says so.
 - **No peer-review status.** The corpus is archived and openly readable; that is provenance, not review.
@@ -59,4 +59,4 @@ No deadline: this route is rolling.
 
 ---
 
-Draft address `f097df34-772d-821f-b11b-16cf878f5009` — recomputes from the route, the ledger receipt and the date it was composed.
+Draft address `34130695-e4a6-8759-b9e8-7b1a3191d283` — recomputes from the route, the ledger receipt (undated: no countdown was requested).

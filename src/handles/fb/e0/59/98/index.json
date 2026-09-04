@@ -1,0 +1,12 @@
+{
+  "handle": "fbe05998",
+  "address": "fbe05998-27fc-8d62-b8ae-bb752fa671dc",
+  "kind": "chunk",
+  "keys": [
+    "the_four_cern_records_close_their_own_totals"
+  ],
+  "statement": "(2079006 + 2301668 + 1913190 + 2745751 = 9039615) ∧ (116 + 184 + 72 + 130 = 502)",
+  "files": [
+    "Cern.lean"
+  ]
+}

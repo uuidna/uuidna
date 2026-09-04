@@ -5,6 +5,7 @@ import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../../../boundary.js'
 import {
+
   publicationMetadataAudit,
   richPublicationMetadata,
   richZenodoDepositMetadata,
@@ -14,6 +15,15 @@ import {
 } from '../../../index.js'
 import { ZENODO_SEALS, depositableSeals } from '../../../index.js'
 import { ZENODO_SEALS_PUBLISH_JOB, ZENODO_PUBLISH_WORKFLOW } from '../../../zenodo-publish.js'
+
+// THE LAW IS "THE CAPTAIN IS LAST AMONG CLAIMANTS", and with one credit system carrying roles that is a filter
+// rather than a position. Cited sources now sit in the same ordered list with role 'cited-source', so the last
+// ELEMENT may legitimately be a dataset while the last CLAIMANT is still the captain. Checking the position was
+// only ever a proxy for the law; it is the law that is checked now.
+const lastClaimant = (order: readonly { who: string; role?: string }[]): string | undefined => {
+  const claimants = order.filter((c) => (c.role ?? 'claimant') === 'claimant')
+  return claimants.length ? claimants[claimants.length - 1]!.who : undefined
+}
 
 test('canonical license is CC-BY-NC-ND-4.0 and matches package.json', () => {
   assert.equal(CANONICAL_LICENSE_SPDX().toUpperCase(), 'CC-BY-NC-ND-4.0')
@@ -81,13 +91,17 @@ test('every seal researches prior art — credit (priors first, captain next) or
     assert.equal(rich.priorArt.researched, true)
     assert.ok(rich.priorArt.outcome === 'credit' || rich.priorArt.outcome === 'claim')
     assert.ok(rich.priorArt.creditOrder.length >= 1)
-    assert.equal(rich.priorArt.creditOrder[rich.priorArt.creditOrder.length - 1]!.who, 'the captain')
+    assert.equal(lastClaimant(rich.priorArt.creditOrder), 'the captain')
     if (rich.priorArt.outcome === 'credit') {
       assert.ok(rich.priorArt.priors.length >= 1)
       assert.notEqual(rich.priorArt.creditOrder[0]!.who, 'the captain')
       assert.ok(rich.keywords.includes('prior-art-credited'))
     } else {
-      assert.equal(rich.priorArt.priors.length, 0)
+      // A CLAIM MEANS NOBODY ARRIVED FIRST — not that nothing is cited. This asserted `priors.length === 0`,
+      // which conflated "no prior art" with "no sources at all", so citing a dataset forfeited the claim. The
+      // invariant that matters is that no external work CLAIMS this first; provenance and cited sources may be
+      // many, and here they are eight.
+      assert.equal(rich.priorArt.priorArt.length, 0, 'a claim outcome requires zero genuine prior art')
       assert.ok(rich.keywords.includes('captain-claim'))
     }
   }
@@ -135,5 +149,16 @@ test('clay-involution is an instance in the registry, not a one-off license', ()
   assert.equal(Object.prototype.hasOwnProperty.call(clay, 'license'), false)
   const rich = richPublicationMetadata(clay!)
   assert.equal(rich.license.toUpperCase(), 'CC-BY-NC-ND-4.0')
-  assert.equal(rich.priorArt.outcome, 'credit')
+  // OUTCOME IS 'claim', NOT 'credit', AND THAT IS THE CORRECTION RATHER THAN A REGRESSION. In this tree's credit
+  // law 'credit' means PRIOR ART IS CREDITED FIRST AND THE CAPTAIN COMES LAST — so it requires that somebody
+  // else claimed this first. Measured 2026-09-05: nobody did. The clay seal cites external sources (a Nature
+  // letter whose numbers are sealed as arithmetic, CERN datasets likewise) and every one of them is a CITED
+  // SOURCE rather than prior art — CERN's records declare resourceTypeGeneral "Dataset" and all 82385 of them
+  // return zero hits for formal verification, Lean, kernel-verified proof or axiom-free. The outcome test used
+  // to be `priors.length > 0`, so citing anything at all forfeited the claim, which is backwards.
+  assert.equal(rich.priorArt.outcome, 'claim', 'no external work claims this first, so the captain claims')
+  assert.equal(rich.priorArt.priorArt.length, 0, 'nothing is recorded as arriving first')
+  assert.ok(rich.priorArt.citedSources.length > 0, 'and the sources it does cite are credited as sources')
+  assert.deepEqual(rich.priorArt.creditOrder.filter((c) => (c.role ?? 'claimant') === 'claimant').map((c) => c.who),
+    ['the captain'], 'the captain is the only CLAIMANT; cited sources ride the same list with their own role')
 })

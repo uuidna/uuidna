@@ -42,7 +42,7 @@ twice and the film returns.
 
 ## The site's walk, measured
 
-The site's 3023 pages form one closed cycle — previous and next are total and mutually inverse from
+The site's 3030 pages form one closed cycle — previous and next are total and mutually inverse from
 every position ([`prev_undoes_next`](/theorem/prev_undoes_next),
 [`every_referrer_reaches_every_page`](/theorem/every_referrer_reaches_every_page)). Each page sounds its
 handle's first tile on the A432 lattice, and **every step's harmony is a measured, reduced ratio** — the tuning
@@ -50,16 +50,16 @@ cancels from every interval ([`tuning_cancels_from_every_interval`](/theorem/tun
 so consonance is the addresses' own arithmetic. Neighbouring tiles beat at exactly 432 Hz
 ([`adjacent_steps_beat_at_the_tuning`](/theorem/adjacent_steps_beat_at_the_tuning)).
 
-**The census of this walk's 3023 steps**: 188 unisons, 208 pure octaves,
-1859 coprime (irreducible) tensions. The most common reduced intervals:
+**The census of this walk's 3030 steps**: 189 unisons, 209 pure octaves,
+1862 coprime (irreducible) tensions. The most common reduced intervals:
 
 | interval | steps |
 |---|---|
-| 1:1 | 188 |
+| 1:1 | 189 |
 | 2:1 | 108 |
-| 1:2 | 100 |
-| 3:1 | 69 |
-| 1:3 | 65 |
+| 1:2 | 101 |
+| 3:1 | 70 |
+| 1:3 | 66 |
 | 2:3 | 56 |
 | 3:2 | 54 |
 | 4:1 | 52 |
@@ -70,7 +70,7 @@ so consonance is the addresses' own arithmetic. Neighbouring tiles beat at exact
 
 No audio file exists for this recording and none was fetched: the states above are the sidebar walk's own
 handles, and your browser just rendered them on the exact-integer lattice — one bar per **chapter**
-(64 bars), while the census above measures the full 3023-page cycle. Every bar
+(64 bars), while the census above measures the full 3030-page cycle. Every bar
 is 4032 samples = 9·7·64 = 63·64 = **24²·7** — twenty-four frame-slots of 168 samples inside every note, so
 what plays is also a frame-track: **the movie and the song are one**
 ([`the_movie_and_the_song_are_one`](/theorem/the_movie_and_the_song_are_one)).

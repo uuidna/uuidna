@@ -2,8 +2,8 @@
   "generated": "2026-09-04",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2612,
-  "total_theorems": 2612,
+  "total_claimed": 2617,
+  "total_theorems": 2617,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3853,14 +3853,14 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "6d0ef7f2-48fa-8dfb-bb4f-95ca878c611a",
-      "address": "22257149-be5c-88fa-8c75-60c37a1a50b5",
+      "lineAddress": "b752d467-1aa2-8e76-9b67-72dd839f9885",
+      "address": "0103ad8e-91cd-8340-83b1-1d9a5148022c",
       "principle": "The physics infinities, made finite"
     },
     {
       "key": "reach_quantifiers_bounded",
-      "lineAddress": "4518762b-a1c0-8287-a9b4-e76a291ea0b2",
-      "address": "ff3d0751-dab6-88a9-89ef-61e3d348fc7c",
+      "lineAddress": "81ed0d6e-d410-85d9-9d37-8e9675dab77b",
+      "address": "33fbb9b2-a6f5-80ca-98a5-e77fc2b4e8d6",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4129,38 +4129,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "1083098c-8bd3-84eb-aeef-d2b52657106a",
-      "address": "15d6422a-4509-819d-b938-acc06405ab20",
+      "lineAddress": "d8ae87b8-d7cc-8091-a2e0-4e09543866e3",
+      "address": "148758d7-a07d-8204-9e5b-70a8c4f6bb5b",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "25308712-377e-8427-b2b1-a4d06619a978",
-      "address": "3db76667-2456-8865-8f78-5a62992b829c",
+      "lineAddress": "942ad45b-2956-8bf1-bc91-67eea36afbdf",
+      "address": "b825a0e7-07f2-86bb-9262-e075e93b65ed",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "ac71bf4f-f146-8071-b60a-a6f2d1ac3e4d",
-      "address": "c61e09ce-04d9-8c02-af65-049238070279",
+      "lineAddress": "b66c7da7-7e06-8b81-beef-9d362d08ae1e",
+      "address": "822a2296-7617-80ed-93ce-9b1745768073",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "530dc06e-4905-80a0-8768-9fc7b72b818a",
-      "address": "94cc80b7-1482-84c9-84fe-fbb42cada55a",
+      "lineAddress": "2c83d4d1-31ba-86b5-a971-88a0f929921b",
+      "address": "c6dcaaab-54fc-89ce-8076-ffb03386db85",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "b7fab70c-1911-8979-bbb2-fcc4a800d876",
-      "address": "cc410654-43a5-8d2c-9e53-b77eb9694c26",
+      "lineAddress": "a37de694-21a3-8579-8157-e1bb8837dd5c",
+      "address": "2c793017-918b-8983-8982-16995481ac6d",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "14bf8b2a-829a-8e2c-a851-b378ae51bf74",
-      "address": "36551562-e7c1-8622-a18f-5f91f221ba37",
+      "lineAddress": "7a4e92d4-5586-8cf4-ac99-21fa3ec5ea49",
+      "address": "fb318859-6de3-8856-bf13-711dac1a2c8d",
       "principle": "The detectors, proven"
     },
     {
@@ -4549,14 +4549,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "81a8d016-cc4a-8f8b-807d-4b352b44eafc",
-      "address": "ed630224-da7e-826f-a83e-31edc0236cab",
+      "lineAddress": "d771fc1a-a4c1-8b0a-bc88-3e2a8cc5bdab",
+      "address": "26c8ca55-effa-86bd-9862-d133c0c58b4d",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "a855bbdd-96cf-83ec-aa28-34ffcf3f92c2",
-      "address": "69bdcfb2-3282-812b-b791-0fd6a9ffb5f4",
+      "lineAddress": "b0c99d93-f8dd-8ae8-a088-31ff453d5a6b",
+      "address": "6ba4d7b3-fbb3-8f6f-8206-6bb547b5b4ec",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -4573,8 +4573,8 @@
     },
     {
       "key": "no_wing_buys_its_own_ceiling",
-      "lineAddress": "632bf6f7-1cde-80d4-a9ed-3bd2d8fa5783",
-      "address": "d7398a9c-6d79-872d-b063-09dff3222eca",
+      "lineAddress": "8f8ec6ec-f596-88e4-b88c-7dd04bab5b35",
+      "address": "ee053afc-5a70-8c8e-b857-dbe0f21ca501",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -5629,14 +5629,14 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "0f4becc4-c723-8054-b5c5-6d0018d48e7f",
-      "address": "e3abdabd-95b3-89e4-97cf-a60b59e637f8",
+      "lineAddress": "5d94005e-61c8-8f51-890b-945eca534bfc",
+      "address": "d4f0095a-e5a6-8f75-9f9f-e7fc238d83a8",
       "principle": "The site build as arithmetic"
     },
     {
       "key": "the_kin_shortlist_accounts_for_every_edge",
-      "lineAddress": "2f662a44-61bf-8ed7-8dd0-a4c48ed00da6",
-      "address": "57c23667-bfb8-885c-9344-2fb33dd2a46d",
+      "lineAddress": "390758e5-b712-8a0d-9680-2e19f0a9598a",
+      "address": "078d90e3-bded-8343-8d42-a51dec1eef89",
       "principle": "The site build as arithmetic"
     },
     {
@@ -5812,6 +5812,36 @@
       "lineAddress": "35f110ef-4d50-855b-bcc9-a105e8aea421",
       "address": "f610a689-bd88-8439-bbba-5832ca1c085e",
       "principle": "The spacetime domain"
+    },
+    {
+      "key": "cms_events_close_over_their_files",
+      "lineAddress": "82b5b0c9-946c-8675-931f-685b0e4eb06a",
+      "address": "5e8d20a9-4a09-8fa8-8a06-df8a763aafc9",
+      "principle": "The CERN open-data records"
+    },
+    {
+      "key": "the_collision_energy_label_step_is_one_tev",
+      "lineAddress": "b88003e4-0073-8700-a32d-23d73c24c0df",
+      "address": "a5f897cc-c0fc-8425-8f1d-3204cca23d71",
+      "principle": "The CERN open-data records"
+    },
+    {
+      "key": "the_open_data_embargo_ran_six_years_or_longer",
+      "lineAddress": "1f2463dd-5cfe-8adb-b759-e7f8b2527d81",
+      "address": "86a991a3-a9a5-8bdc-90a6-a33b3c479b16",
+      "principle": "The CERN open-data records"
+    },
+    {
+      "key": "these_two_eight_tev_datasets_hold_more_events_than_these_two_seven",
+      "lineAddress": "76500cbe-d569-8343-a3bd-765490a207ce",
+      "address": "3e77eb85-d3aa-84ee-bc6b-178e16eb02ef",
+      "principle": "The CERN open-data records"
+    },
+    {
+      "key": "the_four_cern_records_close_their_own_totals",
+      "lineAddress": "a84f9670-bef6-8a53-9bb9-42d7370ae7d3",
+      "address": "3879b905-685c-8452-9c84-ca9a655b27e6",
+      "principle": "The CERN open-data records"
     },
     {
       "key": "glagolitic_units",
@@ -15678,7 +15708,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "9776e607-3309-8a33-b701-d6b641962df9",
+  "claim_receipt": "3c55944d-7d1f-8611-8516-c865d84f6f60",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

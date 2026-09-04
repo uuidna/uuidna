@@ -5,6 +5,7 @@ import {
   RARE_MAX, WORD_MIN, KIN, CONST_WEIGHT, MOD_WEIGHT,
 } from './publication-graph.js'
 import { publications } from './publish.js'
+import { merkleFold, toUuid } from './address.js'
 
 // THE INSTRUMENT MUST BE ABLE TO FAIL. Each check below names a property that a broken graph would violate —
 // a ranking that is not sorted, a score that does not follow from the shared terms, kinship claimed with no
@@ -117,16 +118,60 @@ test('the sealed degree sequence still IS the live graph', () => {
   const g = publicationGraph()
   const full = g.filter((n) => n.kin.length === KIN).length
   const short = g.filter((n) => n.kin.length !== KIN).map((n) => n.kin.length).sort()
-  assert.equal(g.length, 116, 'the theorem seals 116 monographs')
-  assert.equal(full, 114, 'the theorem seals 114 at the full shortlist')
+  assert.equal(g.length, 117, 'the theorem seals 117 monographs')
+  assert.equal(full, 115, 'the theorem seals 115 at the full shortlist')
   assert.deepEqual(short, [2, 2], 'the theorem seals exactly two wings at two kin')
-  assert.equal(graphCensus().edges, 574, 'the theorem seals 574 edges')
-  assert.equal(full * KIN + short.reduce((a, d) => a + d, 0), 574, 'and the identity must close')
+  assert.equal(graphCensus().edges, 579, 'the theorem seals 579 edges')
+  assert.equal(full * KIN + short.reduce((a, d) => a + d, 0), 579, 'and the identity must close')
 })
 
 test('the sealed template-collision figures still IS the live count', () => {
   const ps = publications()
-  assert.equal(ps.length, 116, 'the theorem a_template_distinguishes_only_by_its_variable seals 116')
+  assert.equal(ps.length, 117, 'the theorem a_template_distinguishes_only_by_its_variable seals 117')
   assert.equal(new Set(ps.map((p) => p.count)).size, 27, 'and 27 distinct theorem counts — the template’s ceiling')
   assert.equal(new Set(ps.map((p) => p.abstract)).size, ps.length, 'while the derived abstracts are all distinct')
+})
+
+// ── THE RECEIPT MUST WITNESS THE ORDERING, NOT ONLY THE MEMBERSHIP.
+//
+// A peer's tell (ceccec.github.io, 2026-09-05): an order-insensitive reduction discards order BY CONSTRUCTION,
+// so it cannot distinguish a permutation from
+// the original, and merkleFold SORTS its leaves. Tested against the real expression rather than assumed — two
+// different orderings of the same (member, score) pairs folded to an identical receipt, so the ranking, which is
+// the entire content of the kinship rule, was invisible to it.
+//
+// The exposure was latent: the comparator admits exactly one valid order per set of pairs, so the code could not
+// emit two. That is precisely why it mattered — a BROKEN comparator would leave members and scores untouched,
+// the receipt unchanged, and the ranking silently inverted. Position is now folded in, and this test perturbs
+// exactly that substitution so the guarantee has been watched failing rather than only watched passing.
+test('the node receipt distinguishes two orderings of the same members', () => {
+  const fold = (order: readonly { slug: string; score: number }[]): string =>
+    merkleFold([toUuid('pub-graph|core'), ...order.map((k, rank) => toUuid('core>' + rank + '>' + k.slug + '|' + k.score))])
+  const ring = { slug: 'ring', score: 6 }
+  const vortex = { slug: 'vortex', score: 6 }
+  assert.notEqual(fold([ring, vortex]), fold([vortex, ring]),
+    'a permutation of the kin list must move the receipt, or a broken comparator is invisible to it')
+  // and the same ordering must still fold to the same receipt, or nothing recomputes
+  assert.equal(fold([ring, vortex]), fold([ring, vortex]))
+})
+
+// THE CONTROL: the OLD expression, kept here to show what it could not see. Without this the fix above is a
+// claim; with it, the defect is demonstrated.
+test('CONTROL — the previous leaf shape could NOT see a permutation', () => {
+  const oldFold = (order: readonly { slug: string; score: number }[]): string =>
+    merkleFold([toUuid('pub-graph|core'), ...order.map((k) => toUuid('core>' + k.slug + '|' + k.score))])
+  const ring = { slug: 'ring', score: 6 }
+  const vortex = { slug: 'vortex', score: 6 }
+  assert.equal(oldFold([ring, vortex]), oldFold([vortex, ring]),
+    'this is the defect the rank was added to close — if this ever differs, the tell no longer applies')
+})
+
+test('every live node receipt still recomputes, and the rank is what makes it do so', () => {
+  for (const n of publicationGraph().slice(0, 40)) {
+    const recomputed = merkleFold([
+      toUuid('pub-graph|' + n.slug),
+      ...n.kin.map((k, rank) => toUuid(n.slug + '>' + rank + '>' + k.slug + '|' + k.score)),
+    ])
+    assert.equal(n.receipt, recomputed, `${n.slug}: the receipt does not recompute from its own ranked kin`)
+  }
 })

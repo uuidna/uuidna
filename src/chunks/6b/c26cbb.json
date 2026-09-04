@@ -1,0 +1,12 @@
+{
+  "handle": "6bc26cbb",
+  "address": "6bc26cbb-8d5b-835c-8e01-7083f40f78cc",
+  "statement": "(1*1 + 2*2 + 2*2 = 3*3) ∧ (2*2 + 3*3 + 6*6 = 7*7) ∧ (1*1 + 4*4 + 8*8 = 9*9) ∧ (4*4 + 4*4 + 7*7 = 9*9)",
+  "tactic": "decide",
+  "keys": [
+    "the_null_cone_carries_integer_events_in_three_dimensions"
+  ],
+  "files": [
+    "Relativity.lean"
+  ]
+}
