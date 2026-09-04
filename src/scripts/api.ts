@@ -651,10 +651,16 @@ export function stageDerived(cwd: string = ROOT): { staged: number; leftForHuman
   const existing = DRAIN_PATHS.filter((p) => {
     if (p.includes('*')) return true
     if (!fsm().existsSync(pathm().join(cwd, p))) return false
-    try {
-      cpm().execSync(`git check-ignore -q -- ${JSON.stringify(p)}`, { cwd, stdio: 'ignore' })
-      return false
-    } catch { return true }
+    // EXIT 1 IS AN ANSWER; 128 IS A BROKEN INSTRUMENT (measured: 0 = ignored, 1 = not ignored, 128 = no pathspec
+    // or not a repository). Catching every throw as "not ignored" conflates the two, so a git that cannot answer
+    // would make EVERY drain path look stageable and `git add` them all — the precise failure this filter exists
+    // to avoid. A peer's catalogue names the class: an error sentinel counted as evidence (zeropoint-node-8a,
+    // 2026-09-04). Only status 1 is read as a verdict; anything else rethrows, because an instrument that failed
+    // has established nothing about the path.
+    const probe = cpm().spawnSync('git', ['check-ignore', '-q', '--', p], { cwd, stdio: 'ignore' })
+    if (probe.status === 0) return false        // ignored — leave it out of the staging set
+    if (probe.status === 1) return true         // not ignored — stage it
+    throw new Error(`git check-ignore could not answer for ${p} (status ${String(probe.status)}${probe.error ? ': ' + probe.error.message : ''}) — an instrument that failed has established nothing`)
   })
   if (existing.length) cpm().execSync(`git add -- ${existing.map((p) => JSON.stringify(p)).join(' ')}`, { cwd })
   const staged = cpm().execSync('git diff --cached --name-only', { cwd, encoding: 'utf8' }).trim().split('\n').filter(Boolean).length

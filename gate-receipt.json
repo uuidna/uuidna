@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "c9d8e3361cfdbf4f4b7b3b5519603ad9",
+    "src": "ff02e285871a463055cc7b92a1a6f89d",
     "lean": "fceed266bd7879a03f96ee2ac30b80bb"
   },
   "files": {
@@ -3850,7 +3850,7 @@
     "src/scripts/all-run.ts": "81fb11acec274b4c",
     "src/scripts/alpine-discovery.ts": "5bba3f7ac631e788",
     "src/scripts/api-mint.ts": "4a6e6e4e6db2ee36",
-    "src/scripts/api.ts": "e46c43d15caff26b",
+    "src/scripts/api.ts": "3d0a8bdb0fd09eef",
     "src/scripts/audit-articles-collection.ts": "4ffda18951817b06",
     "src/scripts/audit-citations.ts": "2be74d3d138e4f67",
     "src/scripts/audit-exemptions.ts": "b1abaa5dbc4048c4",
