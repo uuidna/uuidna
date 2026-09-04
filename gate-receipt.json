@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "2dd2c4446ced1e1d2dc8a42a35b6af79",
+    "src": "03d3398df7fd665b4dcd1a6be897af1f",
     "lean": "150f5dc0e1dad098c3da3389ca1e3ab1"
   },
   "files": {
@@ -4153,7 +4153,7 @@
     "src/scripts/sentry.ts": "33ca4da29a6d2e9e",
     "src/scripts/seo-freeze-audit.ts": "9ffac439d5698cd3",
     "src/scripts/session.ts": "8800791dcbd07cba",
-    "src/scripts/ship-build.ts": "79dd1984dcef7637",
+    "src/scripts/ship-build.ts": "3011b920123fecf5",
     "src/scripts/spin.ts": "739bd82087728abb",
     "src/scripts/stamp.ts": "229588ad16e99500",
     "src/scripts/state.ts": "9ac6769655b71c2f",
