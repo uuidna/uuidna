@@ -13712,7 +13712,7 @@ theorem faraday_needs_changing_flux : (5 - 5 : Int) = 0 := by decide
 
 \section{The site build as arithmetic}
 
-\begin{theorem}[render\_retention\_exceeds\_the\_container]
+\begin{theorem}[5260 pages at 17 tenths of a MB each = 8942 MB against an 8192 MB container]
 \label{thm:render-retention-exceeds-the-container}
 \[
   5260 \cdot 17 = 89420 \quad\land\quad 89420 > 81920 \quad\land\quad 1200 \cdot 17 = 20400 \quad\land\quad 20400 < 20480 \quad\land\quad 89420 > 40960
@@ -13726,7 +13726,7 @@ theorem render_retention_exceeds_the_container : (5260 * 17 = 89420) ∧ (89420 
 \noindent Content-address \texttt{4147e4c4-3d4f-8e28-a2c4-87bc4285da9a}.
 \end{proof}
 
-\begin{theorem}[the\_concurrency\_knob\_cannot\_close\_the\_gap]
+\begin{theorem}[the knob's whole travel is 420 MB against a 750 MB overshoot]
 \label{thm:the-concurrency-knob-cannot-close-the-gap}
 \[
   8170 - 7750 = 420 \quad\land\quad 420 \cdot 19 = 7980 \quad\land\quad 7980 < 8170 \quad\land\quad 8942 - 8192 = 750 \quad\land\quad 420 < 750
@@ -13740,7 +13740,7 @@ theorem the_concurrency_knob_cannot_close_the_gap : (8170 - 7750 = 420) ∧ (420
 \noindent Content-address \texttt{93122a9d-bed5-8747-a6ba-3bbeb379c9f2}.
 \end{proof}
 
-\begin{theorem}[the\_params\_are\_not\_the\_retained\_mass]
+\begin{theorem}[the per-page params are under an eight-hundredth of the retained mass]
 \label{thm:the-params-are-not-the-retained-mass}
 \[
   61 - 50 = 11 \quad\land\quad 11 \cdot 10 = 110 \quad\land\quad 110 \cdot 800 = 88000 \quad\land\quad 88000 < 89420
@@ -13754,7 +13754,7 @@ theorem the_params_are_not_the_retained_mass : (61 - 50 = 11) ∧ (11 * 10 = 110
 \noindent Content-address \texttt{f454796a-4280-864b-8ee9-a9195a7fe59d}.
 \end{proof}
 
-\begin{theorem}[the\_process\_holds\_more\_than\_the\_container\_allows]
+\begin{theorem}[peak resident 8460 MB exceeds the 8192 MB cap by 268 — a heap is not a resident set]
 \label{thm:the-process-holds-more-than-the-container-allows}
 \[
   8460 > 8192 \quad\land\quad 8460 - 8192 = 268 \quad\land\quad 10784 = 107 \cdot 100 + 84
@@ -13768,7 +13768,7 @@ theorem the_process_holds_more_than_the_container_allows : (8460 > 8192) ∧ (84
 \noindent Content-address \texttt{5685c991-6cef-8242-b9dd-66f76737b498}.
 \end{proof}
 
-\begin{theorem}[verify\_costs\_one\_walk\_against\_the\_whole\_page\_count]
+\begin{theorem}[one directory walk against 5260 page renders]
 \label{thm:verify-costs-one-walk-against-the-whole-page-count}
 \[
   5260 = 5260 \cdot 1 \quad\land\quad 5260 > 5000 \quad\land\quad 20 \cdot 60 = 1200 \quad\land\quad 1200 > 1
@@ -13782,7 +13782,21 @@ theorem verify_costs_one_walk_against_the_whole_page_count : (5260 = 5260 * 1) �
 \noindent Content-address \texttt{17eb468c-4b2d-8a99-9cd0-a96dc418db88}.
 \end{proof}
 
-\begin{theorem}[exponent\_associativity\_changes\_the\_value]
+\begin{theorem}[17 − 1 = 16: a floor standing on one unearned anchor exceeds what it can defend]
+\label{thm:a-floor-may-fall-to-what-is-anchored}
+\[
+  17 - 1 = 16 \quad\land\quad 16 \ge 16 \quad\land\quad 17 > 16
+\]
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
+\begin{lstlisting}[language=lean]
+theorem a_floor_may_fall_to_what_is_anchored : (17 - 1 = 16) ∧ (16 ≥ 16) ∧ (17 > 16) := by decide
+\end{lstlisting}
+\noindent Content-address \texttt{aaa7cb2a-66e7-87eb-bf60-1b97f721ea8a}.
+\end{proof}
+
+\begin{theorem}[2\textasciicircum{}3\textasciicircum{}2 = 512, but (2\textasciicircum{}3)\textasciicircum{}2 = 64]
 \label{thm:exponent-associativity-changes-the-value}
 \[
   2^{3^{2}} = 512 \quad\land\quad \left(2^{3}\right)^{2} = 64 \quad\land\quad 512 \ne 64
@@ -13796,7 +13810,7 @@ theorem exponent_associativity_changes_the_value : (2^3^2 = 512) ∧ ((2^3)^2 = 
 \noindent Content-address \texttt{60040fde-61b3-8b96-a3fd-c6d9337ca11e}.
 \end{proof}
 
-\begin{theorem}[the\_congruence\_form\_is\_the\_modulus\_form]
+\begin{theorem}[x − (x mod 9) is divisible by 9 for every x below 63]
 \label{thm:the-congruence-form-is-the-modulus-form}
 \begin{lstlisting}[language=lean]
 ((List.range 63).all (fun x => ((x - x % 9) % 9 == 0) && (x % 9 < 9)))

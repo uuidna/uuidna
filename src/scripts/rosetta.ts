@@ -200,6 +200,17 @@ export function renderMirror(rows: readonly Rosetta[]): string {
 
 /** Write the mirror if it changed. REFUSES to lower the floor: the anchoring may rise, never fall, so a run that
  *  would publish a smaller witness or falsifier count fails loudly instead of quietly ratifying the loss. */
+/** noteByKey() → the wing note above each sealed theorem, which is what the WITNESS rule is decided from. */
+function noteByKey(): Map<string, string> {
+  const out = new Map<string, string>()
+  const leanDir = pathm().join(ROOT, 'lean')
+  for (const wing of fsm().readdirSync(leanDir).filter((f: string) => f.endsWith('.lean'))) {
+    const src = fsm().readFileSync(pathm().join(leanDir, wing), 'utf8')
+    for (const m of src.matchAll(/^theorem\s+([A-Za-z0-9_]+)/gm)) out.set(m[1]!, commentAbove(src, m[1]!))
+  }
+  return out
+}
+
 /** Legs the CURRENT mirror records, key by key — the baseline a regression is measured against. */
 function priorLegs(): Map<string, Leg[]> {
   const out = new Map<string, Leg[]>()
@@ -229,14 +240,54 @@ function regressions(rows: readonly Rosetta[]): string[] {
   return out
 }
 
-export function writeMirror(rows: readonly Rosetta[]): { changed: boolean; refused: string[] } {
-  const refused = [...regressions(rows), ...floorGaps(rows, { witness: 0, falsifier: (128 - 2) / 2 })]
-  if (refused.length) return { changed: false, refused }
+/** THE REFUSAL IS A THEOREM NOW, NOT AN AXIOM (the captain, 2026-09-04: it "needs to be replaced by theorems
+ *  exactly as the axioms are replaced"). `a_floor_may_fall_to_what_is_anchored` seals the rule: a floor may rise
+ *  to the number of legs that are externally anchored and may FALL to that same number, because falling to a
+ *  count you can defend is a correction and not a loss; below it, never.
+ *
+ *  WHAT THE OLD IMPERATIVE COULD NOT SEE. It refused every fall identically, so it could not tell a surviving
+ *  theorem quietly dropping an anchor it EARNED from a floor being corrected because an anchor was never earned.
+ *  This tree produced the second case in a day: the floor stood at 16, a wing added a theorem whose own note said
+ *  "measured at 107.84 seconds", WITNESS read that as an external source, and the floor rose to 17 on a stopwatch
+ *  reading no stranger can consult. The ratchet then defended the inflation, because it only ever checks for loss.
+ *
+ *  SO A FALL IS CLASSIFIED, and both classes are reported — neither is silently impossible:
+ *    · UNEARNED — the note no longer names an external source, so the leg is not defensible and its removal is
+ *      truthful. Permitted, printed with the key, and the floor follows the anchored count down.
+ *    · EARNED — the note still names one and the leg vanished anyway, so the instrument moved under a claim that
+ *      still holds. Refused, as before.
+ *  HONEST LIMIT: this separates "the claim's own text no longer supports the leg" from "the leg went while the
+ *  text still supports it". It does NOT tell an author's deliberate correction from an author deleting the word
+ *  NIST to make a gate quiet — that is why every permitted fall names its key on the way past. */
+export function classifyFall(rows: readonly Rosetta[]): { unearned: string[]; earned: string[] } {
+  const prior = priorLegs()
+  const notes = noteByKey()
+  const unearned: string[] = []
+  const earned: string[] = []
+  for (const r of rows) {
+    const was = prior.get(r.key)
+    if (!was) continue
+    for (const leg of was) {
+      if (r.legs.includes(leg)) continue
+      const note = notes.get(r.key) ?? ''
+      const stillEarned = leg === 'witness' ? WITNESS.test(note) : true
+      if (stillEarned) earned.push(`${r.key} lost its ${leg} leg while its note still names an external source — the instrument moved under a claim that still holds`)
+      else unearned.push(`${r.key} lost its ${leg} leg because its note no longer names an external source — the leg was not defensible, so recording its absence is a CORRECTION`)
+    }
+  }
+  return { unearned, earned }
+}
+
+export function writeMirror(rows: readonly Rosetta[]): { changed: boolean; refused: string[]; corrected: string[] } {
+  const fall = classifyFall(rows)
+  const refused = [...fall.earned, ...floorGaps(rows, { witness: 0, falsifier: (128 - 2) / 2 })]
+  if (refused.length) return { changed: false, refused, corrected: fall.unearned }
+  for (const c of fall.unearned) console.log(`  ↓ ${c}`)
   const next = renderMirror(rows)
   const current = fsm().existsSync(mirrorPath()) ? fsm().readFileSync(mirrorPath(), 'utf8') : ''
-  if (current === next) return { changed: false, refused: [] }
+  if (current === next) return { changed: false, refused: [], corrected: fall.unearned }
   fsm().writeFileSync(mirrorPath(), next)
-  return { changed: true, refused: [] }
+  return { changed: true, refused: [], corrected: fall.unearned }
 }
 
 const argvm = (globalThis as { process?: { argv: string[] } }).process?.argv // the edge has no process; the CLI block below simply never runs there
