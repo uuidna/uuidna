@@ -171,11 +171,33 @@ const cellsOf = (bits) => {
     <p class="hex-face-path" data-slot="handle-path">
       <code v-for="part in handleParts" :key="part">{{ part }}</code>
     </p>
+    <!-- TWO COIN READS, AND ONLY ONE OF THEM IS AN ADDRESS. Both values are eight hex characters and were
+         rendered identically, so a reader outside this project saw two handles side by side and could not tell
+         which was visitable. Tested from outside: uuidna.com/<referrer> answers 200 and
+         uuidna.com/<superposition> answers 404 — correctly, because the superposition read is the leading eight
+         nibbles of the SECOND coin and no record's address begins with it. The 404 was right and the display was
+         wrong, so each chip now says what it is.
+
+         `data-ray` replaced `data-door` here for the same reason: that number is the hexagram ray (0..5), and
+         calling it a door beside a resolvable URL invited exactly the wrong reading. -->
     <p v-if="hexPi.superposition.handle" class="hex-pi-handles" data-slot="hex-pi-handles">
-      <code data-slot="referrer-handle" :data-door="hexPi.referrer.door">{{ hexPi.referrer.handle }}</code>
-      <code data-slot="superposition-handle" :data-door="hexPi.superposition.door">{{ hexPi.superposition.handle }}</code>
+      <code
+        data-slot="referrer-handle"
+        data-addressable="1"
+        :data-ray="hexPi.referrer.door"
+        title="The address handle: the first eight nibbles of this content-address. This one resolves — it is the door below."
+      >{{ hexPi.referrer.handle }}</code>
+      <code
+        data-slot="superposition-handle"
+        data-addressable="0"
+        :data-ray="hexPi.superposition.door"
+        title="The superposition read: the leading eight nibbles of the SECOND 64-bit coin. A coordinate in this face, NOT a URL — no record's address begins with it, so it does not resolve."
+      >{{ hexPi.superposition.handle }}</code>
     </p>
-    <p class="hex-face-door"><a :href="door">{{ door }}</a></p>
+    <p class="hex-face-door">
+      <a :href="door">{{ door }}</a>
+      <span class="hex-door-note">the address handle above is the only one of the two that resolves</span>
+    </p>
 
     <div
       v-if="faces.length"
@@ -384,6 +406,11 @@ const cellsOf = (bits) => {
 }
 .hex-pi-handles [data-slot="referrer-handle"] { color: var(--face-aura); }
 .hex-pi-handles [data-slot="superposition-handle"] { color: var(--vp-c-text-2); opacity: calc(1 / var(--coins)); }
+/* THE DISTINCTION IS VISIBLE, not only in a title attribute: a reader outside this project cannot hover a
+   printed page or a scraped copy. An addressable handle is underlined the way a link is; a coordinate is not. */
+.hex-pi-handles [data-addressable="1"] { text-decoration: underline dotted; text-underline-offset: 3px; }
+.hex-pi-handles [data-addressable="0"] { font-style: italic; }
+.hex-door-note { display: block; font-size: 0.78em; color: var(--vp-c-text-3); }
 .hex-pi-ref { fill: var(--face-aura); font-weight: 600; }
 .hex-pi-sup { fill: var(--vp-c-text-2); font-weight: 600; }
 .hex-pi[data-paired="1"] .hex-pi-sup { fill: var(--face-aura); opacity: 1; }

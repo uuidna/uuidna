@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "e157a61216096c275db9cb29c29108d7",
+    "src": "560fc9d422adf1469b501a5fa53e8be8",
     "lean": "88e18293e01caf488ed9584f4d724fc5"
   },
   "files": {
@@ -457,6 +457,7 @@
     "src/grid.ts": "a386307d41d38905",
     "src/grow-milestone.test.ts": "4f7df5f0bcb7e611",
     "src/grow.ts": "a9fcd091f1daf021",
+    "src/handle-addressable.test.ts": "7416881a6d37bf57",
     "src/handle-chunks.test.ts": "1ef55b10a127b587",
     "src/handle-chunks.ts": "be417e3e89c63040",
     "src/handle-permanence.test.ts": "2dbe98a7eb0077fa",
