@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "5daa126c58719fac12e2059553b46db9",
+    "src": "e6baeabe608b093a6b0a4726c52c7bfd",
     "lean": "150f5dc0e1dad098c3da3389ca1e3ab1"
   },
   "files": {
@@ -3945,7 +3945,7 @@
     "src/scripts/gen-prose-evidence.ts": "23b66da618d622a3",
     "src/scripts/gen-quantum-advantage.ts": "8e24c8e88f654c3c",
     "src/scripts/gen-quantum-capacity.ts": "17b8c99ecba696c9",
-    "src/scripts/gen-readme.ts": "941ced4de86ac4b4",
+    "src/scripts/gen-readme.ts": "5290f6b581a311fc",
     "src/scripts/gen-referrer-song.ts": "d1570b354181a116",
     "src/scripts/gen-reports.ts": "7a29ed45b9b27aa2",
     "src/scripts/gen-school.ts": "267d1537f13a3037",

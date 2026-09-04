@@ -2,6 +2,8 @@
 
 `542d097a-8867-8484-8edc-5933e360ef89`
 
+**What every theorem carries, and what most do not.** proof · falsifier · address hold for 2,601 of 2,601; **witness 15 of 2,601** (0.5%), **symbol 1124 of 2,601** (43.2%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
+
 **v0.3.0** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
 ## Contents

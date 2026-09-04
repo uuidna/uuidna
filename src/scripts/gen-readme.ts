@@ -13,6 +13,7 @@ import {
   sha256IsFourSixtyfours,
 } from '../index.js'
 import { legalFacts } from '../legal.js'
+import { mirrorRows, LEGS } from '../rosetta-legs.js'
 import { CANONICAL_LICENSE_SPDX, CANONICAL_LICENSE_URL } from '../publication-metadata.js'
 import {
   CLAY_INVOLUTION_DOI, CLAY_INVOLUTION_DOI_URL, CLAY_INVOLUTION_RECORD_URL,
@@ -108,9 +109,34 @@ function generateReadme(): string {
     return `${i + 1}. **[\`${t.key}\`](https://uuidna.com/theorem/${t.key})** — ${decidedMass(t).toLocaleString('en-US')} superpositions, ${g}, in [${t.file}](lean/${t.file})\n   ${head}.`
   }).join('\n')
 
+  // THE CENSUS GOES AT THE DOOR, not in an appendix (a peer's finding, zeropoint-node-8a 2026-09-04, checked and
+  // reproduced here). The title gave the distinct-statement count over the key count — true, and the flattering
+  // half. The independent-witness leg, which the rosetta module's own words call the one that settles WHETHER A
+  // STRANGER CAN CHECK IT, is the scarcest in the ledger by a wide margin and appeared nowhere near the front;
+  // the word "witness" DID appear at the door, but only in the forge-cost sense (neighbour witnesses raising the
+  // cost of a forgery), which is its strong reading. So the door carried the confident use of the word and hid
+  // the scarce one. Every figure here is read from rosetta-legs at generation time, never written down.
+  //
+  // Their sentence for why neither of us caught it in our own trees: the rule is stated at the level of the item
+  // and the breach happens at the level of the summary, which is a different altitude and nobody is looking up.
+  // Every leg below is computed, so the unflattering ones cannot be dropped by an edit — only by a generator
+  // change, which is a different kind of act.
+  const rows = mirrorRows()
+  const legCensus = LEGS.map((l) => {
+    const n = rows.filter((r) => r.legs.includes(l)).length
+    // TENTHS, because an integer percent renders 15 of 2601 as "0%" — which reads as NONE and is the flattering
+    // direction reached by rounding. No Math.*: integer division, then the point placed by hand.
+    const permille = ((n * 1000) - ((n * 1000) % T.length)) / T.length
+    return { leg: l, n, pct: `${(permille - (permille % 10)) / 10}.${permille % 10}` }
+  })
+  const complete = legCensus.filter((c) => c.n === T.length).map((c) => c.leg)
+  const scarce = legCensus.filter((c) => c.n < T.length).sort((a, b) => a.n - b.n)
+
   return `# ${name} — ${census.distinct.toLocaleString('en-US')} distinct theorems under ${T.length.toLocaleString('en-US')} keys · ${coinN} coins · one receipt
 
 \`${receipt}\`
+
+**What every theorem carries, and what most do not.** ${complete.join(' · ')} hold for ${T.length.toLocaleString('en-US')} of ${T.length.toLocaleString('en-US')}${scarce.length ? '; ' + scarce.map((c) => `**${c.leg} ${c.n} of ${T.length.toLocaleString('en-US')}** (${c.pct}%)`).join(', ') : ''}. A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
 **v${pkg.version}** · License **${license}** ([${licenseUrl}](${licenseUrl})) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
 
