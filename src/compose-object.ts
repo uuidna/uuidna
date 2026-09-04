@@ -16,6 +16,7 @@ import { axiomWitness } from './axiom-witness.js'
 import { publications } from './publish.js'
 import { monographFaceOf, channelAudit } from './hexagram.js'
 import { handleOf } from './handle.js'
+import { STANDING_DOI } from './handle-permanence.js'   // the ONE place the archive DOI is written
 import { buildChunks } from './handle-chunks.js'
 import { mirrorRows, legsFor } from './rosetta-legs.js'
 import { rdRoot } from './boundary.js'
@@ -189,7 +190,7 @@ ${t.lean}
 
 <ClientOnly><TheoremUse /></ClientOnly>
 
-Re-verify with \`npm run lean\`. Cite DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144) and handle \`https://uuidna.com/${handle}\`.
+Re-verify with \`npm run lean\`. Cite DOI [${STANDING_DOI}](https://doi.org/${STANDING_DOI}) and handle \`https://uuidna.com/${handle}\`.
 `,
   }
 }
@@ -228,7 +229,7 @@ export function composePublication(p) {
 
 ${lead}${body}
 
-**Audited before published** · handle \`https://uuidna.com/${handle}\` · DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144) · receipt \`${handleOf(p.receipt)}\` · ${p.count} seals.
+**Audited before published** · handle \`https://uuidna.com/${handle}\` · DOI [${STANDING_DOI}](https://doi.org/${STANDING_DOI}) · receipt \`${handleOf(p.receipt)}\` · ${p.count} seals.
 `,
   }
 }

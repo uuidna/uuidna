@@ -1,3 +1,4 @@
+import { STANDING_DOI } from './handle-permanence.js'
 // seo — QUANTUM SEO: recomputable, honest discoverability derived from the sealed ledger. One function computes the
 // SEO surface for ANY subject (a theorem, a publication, or a static page): the canonical URL, a per-page description
 // drawn from the ONE verbose source (Lean — a theorem's own statement, a publication's abstract; everything else is
@@ -139,7 +140,7 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
       // above already resolves to the exact wing on GitHub, so the repository link was never missing.
       isPartOf: {
         '@type': 'Dataset', name: 'The uuidna ledger', url: `${HOST}/publications`,
-        sameAs: 'https://doi.org/10.5281/zenodo.21787144',
+        sameAs: `https://doi.org/${STANDING_DOI}`,
       },
       keywords: keywords.join(', '),
       inLanguage: 'en',

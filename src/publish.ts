@@ -231,7 +231,9 @@ export function composePublication(file: string): Publication {
   // preference: the address IS the fold of this markdown, so printing it inside the markdown would change the
   // text it addresses and no fixed point exists. The RECEIPT is safe — it folds the theorem addresses, not the
   // prose — so the citation carries the receipt and says how the address is obtained instead of asserting it.
-  const concept = ZENODO_SEALS.find((z) => z.id === 'uuidna-software')?.conceptDoi ?? ''
+  // THE VERSION DOI, NOT THE CONCEPT — the concept (…143) chains three distinct works, so it resolves to
+  // whichever was deposited last. See src/zenodo-seals.ts for the resolution that established this.
+  const concept = ZENODO_SEALS.find((z) => z.id === 'uuidna-software')?.standingDoi ?? ''
   const cite =
     `Rouschev, Tsvetan (ORCID [0009-0000-7312-9778](https://orcid.org/0009-0000-7312-9778)). `
     + `*${title}* — ${blurb}. uuidna, handle \`${handleOf(receipt)}\`.`

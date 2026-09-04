@@ -1,17 +1,17 @@
 {
   "coins": {
     "src/theorems/generated.ts": "76f22ee986a98bd5",
-    "lean/PRINCIPLE.md": "bcdbd60433a08795",
+    "lean/PRINCIPLE.md": "6cc53ae89e85863b",
     "CHANGELOG.md": "7404141a86068b38",
     "lean/axioms.json": "928a5273b5168280",
     "docs/mcp.md": "a3761dc4f76880a5",
-    "audit-citations.json": "6e7897977f7b8418",
+    "audit-citations.json": "a2af9cc9922f87df",
     "support-audit.json": "a93d436a73cf829f",
     "research-leads.json": "3838db9fba908535",
-    ".zenodo.json": "665b55696c09864d",
+    ".zenodo.json": "9f2d3846ec9a8644",
     "reports.json": "1370ca1a754a8f5f",
     "lean/statement-index.json": "929c292a064f8cf9",
-    "README.md": "af05016106ce81b6",
+    "README.md": "68a7af757cfd8e7e",
     "llm.txt": "a8d9600393d980cb",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
@@ -2702,6 +2702,7 @@
     "lean/diving-manifest.json": "636537af9f528b58",
     "lean/doctrine-manifest.json": "f09bac7f05c68f4e",
     "lean/doi-domains.json": "02d2e036b84e8059",
+    "lean/doi-harvest.json": "1902774679408246",
     "lean/doi-unclaimed.json": "8a70dccdcc928a0d",
     "lean/dormant-receipt.json": "0c736611086a8ce1",
     "lean/dormant-scripts.json": "daadea139bfb8e24",
@@ -2814,5 +2815,5 @@
     "lean/wave-queue.json": "9a0e65f2c68a824f",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "847ee45e-0b96-8aca-9c5a-c663716d64e4"
+  "receipt": "5360f08f-6225-8569-877f-db53a665e1be"
 }

@@ -44,7 +44,7 @@ These numbers are read from the sealed ledger at build time — the page cannot 
 
 **Rings (computational).** Hexbit lattice 16 = 2⁴; address width 128 = 2⁷; digital-root fold on ℤ/9; Pliska on ℤ/7 — joined only where CRT seals ([`rosette_and_vortex_are_coprime`](/theorem/rosette_and_vortex_are_coprime)).
 
-**Permanence.** Cite `https://uuidna.com/<handle>` (DOI-class; worker HANDLES). Archive DOI `10.5281/zenodo.21787144` — both in the site footer. Completeness cites handle and DOI.
+**Permanence.** Cite `https://uuidna.com/<handle>` (DOI-class; worker HANDLES). Archive DOI `10.5281/zenodo.22256708` — both in the site footer. Completeness cites handle and DOI.
 
 **Captain coins.** Deposit `https://revolut.me/ceccec?note=<referrer>` — referrer = this page's handle door (`encodeURIComponent`). Same license everywhere: [CC BY-NC-ND 4.0](/license).
 

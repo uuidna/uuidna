@@ -1,0 +1,29 @@
+{
+ "rows": [
+  {
+   "id": "uuidna-software",
+   "declaredDoi": "10.5281/zenodo.22256708",
+   "declaredTitle": "uuidna — content-addressed identity, honest by construction",
+   "read": true,
+   "liveTitle": "uuidna — content-addressed identity, honest by construction: 2499 distinct kernel-verified theorems under 2582 keys across 115 principles",
+   "liveRecordId": "22256708",
+   "liveConceptDoi": "10.5281/zenodo.21787143",
+   "agrees": true
+  },
+  {
+   "id": "clay-involution",
+   "declaredDoi": "10.5281/zenodo.21781603",
+   "declaredTitle": "All Seven Clay Millennium Problems Sealed via Universal σ-Involution",
+   "read": true,
+   "liveTitle": "All Seven Clay Millennium Problems Sealed via Universal σ-Involution",
+   "liveRecordId": "21781603",
+   "liveConceptDoi": "10.5281/zenodo.21781602",
+   "agrees": true
+  }
+ ],
+ "owned": 2,
+ "readCount": 2,
+ "agreeing": 2,
+ "disagreeing": [],
+ "receipt": "cdb88b2e-e96c-81a8-ba3b-8136ca80b883"
+}

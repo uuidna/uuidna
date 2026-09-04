@@ -2,6 +2,7 @@
 // src/scripts/gen-readme.ts — GENERATE README.md (published on every release / Zenodo path).
 // Every magnitude is computed from the ledger or a sealed JSON at generation. No hollow superlatives.
 // Edit THIS file — never README.md directly.
+import { STANDING_DOI } from '../handle-permanence.js'
 import { writeFileSync, readFileSync, existsSync } from 'fs'
 import { join } from 'path'
 import { ROOT as ROOT_DIR } from './api.js'
@@ -138,7 +139,7 @@ function generateReadme(): string {
 
 **What every theorem carries, and what most do not.** ${complete.join(' · ')} hold for ${T.length.toLocaleString('en-US')} of ${T.length.toLocaleString('en-US')}${scarce.length ? '; ' + scarce.map((c) => `**${c.leg} ${c.n} of ${T.length.toLocaleString('en-US')}** (${c.pct}%)`).join(', ') : ''}. A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
-**v${pkg.version}** · License **${license}** ([${licenseUrl}](${licenseUrl})) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
+**v${pkg.version}** · License **${license}** ([${licenseUrl}](${licenseUrl})) · Archive DOI [${STANDING_DOI}](https://doi.org/${STANDING_DOI})
 
 ## Contents
 

@@ -1,10 +1,10 @@
 # uuidna — 2,529 distinct theorems under 2,612 keys · 2 coins · one receipt
 
-`38e3b2e1-b5ec-8c3a-b6fa-666b23903e4b`
+`8eb77175-df78-8bce-a5e7-a5f1d5b6b648`
 
-**What every theorem carries, and what most do not.** proof · address hold for 2,612 of 2,612; **witness 17 of 2,612** (0.6%), **symbol 1135 of 2,612** (43.4%), **falsifier 2607 of 2,612** (99.8%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
+**What every theorem carries, and what most do not.** proof · falsifier · address hold for 2,612 of 2,612; **witness 17 of 2,612** (0.6%), **symbol 1135 of 2,612** (43.4%). A witness is an anchor OUTSIDE this repository that a stranger could consult — a published standard, a named author — so that fraction is the one to read first: the arithmetic is kernel-decided throughout, and independent corroboration is scarce. Nothing here is dropped for being unflattering; every figure is computed by [gen-readme](src/scripts/gen-readme.ts) from [rosetta-legs](src/rosetta-legs.ts).
 
-**v0.3.0** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144)
+**v0.3.0** · License **CC-BY-NC-ND-4.0** ([https://uuidna.com/license](https://uuidna.com/license)) · Archive DOI [10.5281/zenodo.22256708](https://doi.org/10.5281/zenodo.22256708)
 
 ## Contents
 

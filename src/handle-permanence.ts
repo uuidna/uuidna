@@ -13,8 +13,19 @@ import { rdRoot, existsRoot } from './boundary.js'
 
 export const HANDLE_HOST = 'https://uuidna.com'
 export const UUIDNA_HOSTNAME = 'uuidna.com'
-/** Standing archive DOI for the ledger deposit (workflow-minted). */
-export const STANDING_DOI = '10.5281/zenodo.21787144'
+/** Standing archive DOI for the ledger deposit (workflow-minted) — THE ONE PLACE IT IS WRITTEN.
+ *
+ *  CORRECTED 2026-09-04, VERIFIED BY RESOLUTION. This was 10.5281/zenodo.21787144, and resolving that DOI shows
+ *  it is "Quantum Proofs of the Clay Millennium Problems v1.0" — a different work. uuidna's actual record is
+ *  22256708 (creator Rouschev, version 0.3.0). The wrong value had been copied into five more places — the two
+ *  page footers in compose-object, the JSON-LD sameAs in seo, and the generated ledger prose — so the whole
+ *  published surface cited someone else's paper as its archive, and no gate on this filesystem could see it
+ *  because the contradicting fact lived only in the public record. Those copies now read THIS constant, and
+ *  scripts/audit-doi-harvest.ts reads the live record back and compares.
+ *
+ *  NOT THE CONCEPT DOI, deliberately: 10.5281/zenodo.21787143 is a Zenodo version chain that currently holds
+ *  three distinct works, and a concept always resolves to whichever was deposited last. */
+export const STANDING_DOI = '10.5281/zenodo.22256708'
 
 /** Hostname equality — `startsWith('https://uuidna.com')` accepts `https://uuidna.com.evil.com`. */
 export function isUuidnaUrl(s: string): boolean {

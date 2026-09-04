@@ -1,3 +1,4 @@
+import { STANDING_DOI } from './handle-permanence.js'
 // zenodo-seals — AGNOSTIC publication↔page↔DOI seal registry (captain, 2026-08-26).
 //
 // ONE loop for ALL owned Zenodo concepts: each seal is parameterized by identity (id, standing record,
@@ -66,9 +67,26 @@ export const ZENODO_SEALS: readonly ZenodoSeal[] = [
     role: 'software-archive',
     owned: true,
     title: 'uuidna — content-addressed identity, honest by construction',
-    standingDoi: '10.5281/zenodo.21787144',
+    // CORRECTED 2026-09-04, VERIFIED BY RESOLUTION rather than by reading this file. The standing record was
+    // declared as 21787144, and 21787144 is titled "Quantum Proofs of the Clay Millennium Problems v1.0" — a
+    // different work. uuidna's actual record is 22256708 (creator Rouschev, version 0.3.0), and its own DOI is
+    // 10.5281/zenodo.22256708. Every publication's metadata builds its `doi` from this field, so until now the
+    // whole corpus pointed at someone else's paper as its archive.
+    //
+    // NOTHING ON THIS FILESYSTEM COULD SEE IT. Every gate here reads the repository; the fact that contradicted
+    // this line lived only in the public record. A peer (millennium-solutions, 2026-09-04) hit the same class in
+    // their own tree — a deposit whose corrected repo never reached its permanent record — and their advice was
+    // to harvest your own DOI and read it back. Doing that is what found this. The check is now in mint-gate.
+    //
+    // THE CONCEPT DOI IS LEFT AS IT STANDS AND IS NOT SAFE TO CITE AS OURS: 10.5281/zenodo.21787143 is a Zenodo
+    // CONCEPT — a version chain — and it currently chains THREE DISTINCT WORKS (21787144 Clay proofs, 21819217
+    // the ℤ/9 Vortex Framework, 22256708 uuidna), because "New version" was used to publish different works.
+    // A concept DOI always resolves to the newest version, so citing it for uuidna hands a reader whichever work
+    // was published last. Deposit records therefore declare isPartOf the VERSION DOI, which is unambiguously
+    // ours. Untangling the chain is a Zenodo-side decision for the captain, not a code change.
+    standingDoi: STANDING_DOI,
     conceptDoi: '10.5281/zenodo.21787143',
-    standingRecordId: '21787144',
+    standingRecordId: STANDING_DOI.split('.').pop()!,
     conceptId: '21787143',
     pageUrl: HANDLE_HOST,
     uploadType: 'software',
@@ -120,7 +138,8 @@ export const ZENODO_SEALS: readonly ZenodoSeal[] = [
     ].join(' '),
     related: [
       { identifier: UUIDNA_REPO, relation: 'isSupplementedBy', resource_type: 'software', scheme: 'url' },
-      { identifier: '10.5281/zenodo.21787144', relation: 'isReferencedBy', resource_type: 'software' },
+      // THE uuidna RECORD, read from the one constant — this said 21787144, which is a different work entirely.
+      { identifier: STANDING_DOI, relation: 'isReferencedBy', resource_type: 'software' },
       { identifier: 'https://ceccec.psg.bg/millennium-solutions', relation: 'isSupplementedBy', resource_type: 'software-computationalnotebook', scheme: 'url' },
       { identifier: 'https://github.com/ceccec/zeropoint-node', relation: 'isSupplementTo', resource_type: 'software-computationalnotebook', scheme: 'url' },
     ],

@@ -143,9 +143,22 @@ const shared = (a: readonly string[], b: readonly string[]): string[] => {
   return a.filter((x) => set.has(x))
 }
 
+// CACHED FOR THE DEFAULT LEDGER, because it was not and the cost showed up two layers away: publicationGraph
+// costs ~100ms and graphNode calls it, so the deposit-record builder — which asks for a node three times per
+// monograph — spent about 35 seconds recomputing the same 116-node graph. A caller passing its OWN theorem list
+// bypasses the cache, so a test can still inject a different corpus and get an honest answer.
+let _graph: PubNode[] | null = null
+
 /** publicationGraph() → each monograph's nearest kin, ranked. Deterministic: ties break on slug, so the same
  *  ledger always returns the same graph and the receipt is recomputable by anyone. */
 export function publicationGraph(theorems: readonly Theorem[] = THEOREMS): PubNode[] {
+  if (theorems === THEOREMS && _graph) return _graph
+  const computed = computeGraph(theorems)
+  if (theorems === THEOREMS) _graph = computed
+  return computed
+}
+
+function computeGraph(theorems: readonly Theorem[]): PubNode[] {
   const terms = termsByPublication(theorems)
   return terms.map((a) => {
     const scored: Kin[] = []

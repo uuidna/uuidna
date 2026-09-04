@@ -3,6 +3,7 @@
 // computing principle) and writes src/theorems/generated.ts — the one derived ledger the package, the MCP tools,
 // the trial and the site all consume. No theorem is authored anywhere else: a theorem computes in Lean, or it is
 // not a theorem. Names come from the *-manifest.json emitted alongside each proof. Run by `npm run lean`.
+import { STANDING_DOI } from '../handle-permanence.js'
 import { writeFileSync, readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -233,7 +234,7 @@ ${keptPrinciples.map((p, i) => `${i + 1}. **${p[1]}** — \`lean/${p[0]}\` · **
 
 ---
 
-Catch-all surfaces: [uuidna.com/theorems](https://uuidna.com/theorems) · handle doors \`/<8-hex>\` · DOI [10.5281/zenodo.21787144](https://doi.org/10.5281/zenodo.21787144).
+Catch-all surfaces: [uuidna.com/theorems](https://uuidna.com/theorems) · handle doors \`/<8-hex>\` · DOI [${STANDING_DOI}](https://doi.org/${STANDING_DOI}).
 `
 writeFileSync(join(ROOT, 'lean', 'PRINCIPLE.md'), md)
 console.log('✓ src/theorems/generated.ts + lean/PRINCIPLE.md — ' + ledger.length + ' Lean theorems (single source), organised by ' + keptPrinciples.length + ' principles.')
