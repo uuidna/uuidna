@@ -17,10 +17,27 @@ test('the census names the host, because a verdict about speed is a verdict abou
 // Every other measurement in this tree folds its VALUE into its receipt, so recomputing reproduces the address.
 // A duration comes back different every run on the same code and the same tree, and a receipt over it
 // would move without anything changing. So the verdict is sealed and the nanoseconds are only reported.
+//
+// AND THIS ASSERTION WAS LOAD-SENSITIVE, which is the mirror of the error it guards against. The fold covers op,
+// budget and VERDICT — and the verdict is a comparison against a budget, so under contention one run can come in
+// over budget while the next comes in under, the verdicts differ, and the receipts differ for a reason that has
+// nothing to do with a duration being sealed. Observed once on a loaded machine and green on the three runs
+// after it. A test that reddens under load teaches the same lesson as a receipt that greens under load: the
+// number moved, nothing changed, and somebody believed the number.
+//
+// So the claim is stated precisely instead of loosely: EQUAL VERDICTS MUST GIVE EQUAL RECEIPTS. That is what
+// "durations are not sealed" actually means, it is what the fold actually promises, and it cannot flake — while
+// a verdict that DID differ is reported rather than swallowed, because that is a real finding about the host.
 test('durations differ between runs and the receipt does NOT', () => {
   const a = timingCensus(ops)
   const b = timingCensus(ops)
-  assert.equal(a.receipt, b.receipt, 'op, budget and verdict are what the fold covers')
+  if (a.within === b.within) {
+    assert.equal(a.receipt, b.receipt, 'equal verdicts must fold to equal receipts — durations are not sealed')
+  } else {
+    // not a failure of the law under test: the machine was loaded enough to change a budget verdict mid-test
+    console.log(`  timing verdict moved under load (${String(a.within)} then ${String(b.within)}) — the receipt is expected to move with it`)
+    assert.notEqual(a.receipt, b.receipt, 'a CHANGED verdict must move the receipt, or the verdict is not in the fold')
+  }
   assert.ok(a.timings[0]!.ns > 0 && b.timings[0]!.ns > 0, 'and the durations are still reported')
 })
 

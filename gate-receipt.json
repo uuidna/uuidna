@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "e6baeabe608b093a6b0a4726c52c7bfd",
+    "src": "2dd2c4446ced1e1d2dc8a42a35b6af79",
     "lean": "150f5dc0e1dad098c3da3389ca1e3ab1"
   },
   "files": {
@@ -3520,7 +3520,7 @@
     "src/os/runtime/sandbox/index.ts": "3de82e17ef9fa929",
     "src/os/secapi/index.test.ts": "d0ec36849fdc4945",
     "src/os/secapi/index.ts": "a1bbdc0e0bae3e18",
-    "src/os/timing/index.test.ts": "1d777bda4634f693",
+    "src/os/timing/index.test.ts": "58ed706ef8cb9924",
     "src/os/timing/index.ts": "4ea93a83ca1813e6",
     "src/os/webauthn/index.test.ts": "f5d2b7bf720c193d",
     "src/os/webauthn/index.ts": "df0c96d0f496b8cb",
