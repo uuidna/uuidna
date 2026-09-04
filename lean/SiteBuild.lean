@@ -27,6 +27,9 @@ theorem a_floor_may_fall_to_what_is_anchored : (17 - 2 = 15) ∧ (17 - 1 = 16) �
 /-- 32293 − 32183 = 110 hundredths per tool: 280 bytes of sentence a parser had been cutting -/
 theorem the_wire_rate_rose_by_restored_copy : (32293 - 32183 = 110) ∧ (255 - 242 = 13) ∧ (110 * 255 = 28050) ∧ (82349 - 77885 = 4464) ∧ (13 * 32183 = 418379) := by decide
 
+/-- a fixed-point-free involution on two states: (1 + 1) % 2 = 0 and nothing is its own opposite -/
+theorem the_two_sides_return_what_they_take : ((1 + 1) % 2 = 0) ∧ (1 - 0 ≠ 0) ∧ (1 - 1 ≠ 1) := by decide
+
 /-- 2^3^2 = 512, but (2^3)^2 = 64 -/
 theorem exponent_associativity_changes_the_value : (2^3^2 = 512) ∧ ((2^3)^2 = 64) ∧ (512 ≠ 64) := by decide
 

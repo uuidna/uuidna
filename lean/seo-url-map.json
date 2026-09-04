@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "e6f032d3-4",
+  "generated": "ba18c785-3",
   "entries": [
     {
       "route": "/",
@@ -3256,9 +3256,9 @@
       "kind": "publication",
       "identity": "site-build",
       "canonical": "https://uuidna.com/publications/site-build",
-      "address": "680344a6-5573-83fe-aaa6-a2f87f156f00",
-      "handle": "680344a6",
-      "hexbitDoor": "https://uuidna.com/680344a6"
+      "address": "426b2741-13e0-82ab-a886-c970f0f2c3b5",
+      "handle": "426b2741",
+      "hexbitDoor": "https://uuidna.com/426b2741"
     },
     {
       "route": "/publications/software",
@@ -21612,6 +21612,15 @@
       "hexbitDoor": "https://uuidna.com/4e5020c6"
     },
     {
+      "route": "/theorem/the_two_sides_return_what_they_take",
+      "kind": "theorem",
+      "identity": "the_two_sides_return_what_they_take",
+      "canonical": "https://uuidna.com/theorem/the_two_sides_return_what_they_take",
+      "address": "43b38bf7-c747-8023-87c7-17b7e619561a",
+      "handle": "43b38bf7",
+      "hexbitDoor": "https://uuidna.com/43b38bf7"
+    },
+    {
       "route": "/theorem/the_uuid_is_two_boards",
       "kind": "theorem",
       "identity": "the_uuid_is_two_boards",
@@ -27120,6 +27129,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "e6f032d3-444b-8acf-92a1-dc0bc9ec5f5e",
+  "receipt": "ba18c785-333b-89ca-80e1-fa642bf29d92",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

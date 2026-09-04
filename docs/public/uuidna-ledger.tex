@@ -13838,6 +13838,20 @@ theorem the_wire_rate_rose_by_restored_copy : (32293 - 32183 = 110) ∧ (255 - 2
 \noindent Content-address \texttt{f0701d34-4485-86e2-a484-3f517ba40b8c}.
 \end{proof}
 
+\begin{theorem}[a fixed-point-free involution on two states: (1 + 1) \% 2 = 0 and nothing is its own opposite]
+\label{thm:the-two-sides-return-what-they-take}
+\[
+  \left(1 + 1\right) \bmod 2 = 0 \quad\land\quad 1 - 0 \ne 0 \quad\land\quad 1 - 1 \ne 1
+\]
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
+\begin{lstlisting}[language=lean]
+theorem the_two_sides_return_what_they_take : ((1 + 1) % 2 = 0) ∧ (1 - 0 ≠ 0) ∧ (1 - 1 ≠ 1) := by decide
+\end{lstlisting}
+\noindent Content-address \texttt{43b38bf7-c747-8023-87c7-17b7e619561a}.
+\end{proof}
+
 \begin{theorem}[2\textasciicircum{}3\textasciicircum{}2 = 512, but (2\textasciicircum{}3)\textasciicircum{}2 = 64]
 \label{thm:exponent-associativity-changes-the-value}
 \[
