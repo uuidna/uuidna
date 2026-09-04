@@ -24,6 +24,7 @@ import { valueOf } from '../hexbit/index.js'
 import { merkleGravity } from '../gravity/index.js'
 import { toUuid } from '../index.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
+import { benchHexbit, benchLattice } from './bench-hexbit.js'
 
 export interface Measurement { name: string; what: string; run: () => Promise<unknown> | unknown }
 export interface Receipted { name: string; what: string; value: unknown; receipt: string }
@@ -205,6 +206,31 @@ export const MEASUREMENTS: readonly Measurement[] = [
         receipt: s.receipt,
       }
     } },
+
+  // THE HEXBIT AND THE 64-HEXAGRAM LATTICE. Registered here rather than given its own npm entry point, and the
+  // tree refused both alternatives on the way: left standing alone the benchmark was a DORMANT script (built,
+  // run by nothing), and wrapped in an npm script it was a THIN WRAPPER nothing outside package.json calls. Both
+  // refusals were right — a measurement nobody takes is a claim nobody checks — and `measure --all` is already
+  // in the audit chain, which is exactly where a performance regression should surface.
+  //
+  // WHAT IT ANSWERS: the captain's claim that hexbits compute faster than all else. They do, at the UNIT. The
+  // composite door did not, and fixing that made it 4.9x faster; the hex FACE did not, and caching an
+  // address-independent index made it 7x faster. The value recorded is the RATIO the face turns on — computing
+  // every page's face costs milliseconds while shipping them costs hundreds of megabytes.
+  { name: 'hexbit-lattice', what: 'the hexbit unit, the door, and the 64-hexagram lattice — with the face\'s compute-vs-ship ratio', run: () => {
+    const b = benchHexbit(20_000)
+    const l = benchLattice(2_000)
+    return {
+      fastest: b.fastest,
+      slowest: b.slowest,
+      unitIsFastest: b.unitIsFastest,
+      latticeStates: l.states,
+      faceMicroseconds: l.faceNs / 1000,
+      faceShippedBytes: l.faceShippedBytes,
+      shippedMegabytes: l.shippedMegabytes,
+      computeAllMilliseconds: l.computeAllMilliseconds,
+    }
+  } },
 ]
 
 if (process.argv[1] && /measure\.(js|ts)$/.test(process.argv[1])) {

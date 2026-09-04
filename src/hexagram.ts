@@ -477,22 +477,38 @@ export function occupancyOf(address: string): readonly number[] {
 }
 
 /** occupancyCitesOf(address) → each occupied count with the census keys that supply it. */
-export function occupancyCitesOf(address: string): readonly OccupancyCite[] {
-  const hits = occupancyOf(address)
-  const want = new Set(hits)
+// THE NUMBER→KEYS INDEX IS ADDRESS-INDEPENDENT, so it is built once. It was rebuilt on EVERY call, and the cost
+// was the dominant term in the whole hex face: measured 2026-09-04, occupancyCitesOf took 61 of the 67
+// microseconds hexFaceOf spends, because each call re-walked OCCUPANCY_KEYS and re-parsed every one of those
+// theorems' statements — work that depends only on the sealed ledger and the key list, neither of which can move
+// during a run. The address decides only WHICH numbers are looked up, not what the index contains.
+//
+// Equivalence is exact rather than approximate, and the reason is worth stating: the previous form filtered by
+// the address's own hits DURING construction, so its map held fewer entries — but the result only ever reads
+// entries for numbers that ARE hits, so the visible answer is identical. Key order is preserved too, since both
+// forms append in OCCUPANCY_KEYS order. Asserted over every address in the ledger in the test.
+let _occupancyIndex: Map<number, string[]> | null = null
+
+function occupancyIndex(): Map<number, string[]> {
+  if (_occupancyIndex) return _occupancyIndex
   const byN = new Map<number, string[]>()
   const byKey = theoremByKey()
   for (const key of OCCUPANCY_KEYS) {
     const t = byKey.get(key)
     if (!t) continue
     for (const n of countsInStatement(t.statement)) {
-      if (!want.has(n)) continue
       const ks = byN.get(n)
       if (ks) { if (!ks.includes(key)) ks.push(key) }
       else byN.set(n, [key])
     }
   }
-  return hits.map((n) => ({ n, keys: byN.get(n) ?? [] }))
+  _occupancyIndex = byN
+  return byN
+}
+
+export function occupancyCitesOf(address: string): readonly OccupancyCite[] {
+  const byN = occupancyIndex()
+  return occupancyOf(address).map((n) => ({ n, keys: byN.get(n) ?? [] }))
 }
 
 /** Unpack hexbits MSB-first into 128 bits — the uuid as two 64-bit coins. */

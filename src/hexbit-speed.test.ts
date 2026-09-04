@@ -3,7 +3,8 @@ import assert from 'node:assert/strict'
 import { compileToHexbits, hexbitDoorOf, UUID_HEXBITS } from './hexbit/index.js'
 import { handleOf } from './handle.js'
 import { THEOREMS } from './theorems/index.js'
-import { benchHexbit, timed } from './scripts/bench-hexbit.js'
+import { benchHexbit, benchLattice, timed } from './scripts/bench-hexbit.js'
+import { occupancyCitesOf, occupancyOf, hexagramsOf, hexFaceOf, OCCUPANCY_KEYS } from './hexagram.js'
 
 // TWO HOT-PATH FUNCTIONS WERE REWRITTEN FOR SPEED, AND A SPEED REWRITE IS ONLY SAFE IF THE OUTPUT IS IDENTICAL.
 // Both previously did their work by allocating throwaway strings and arrays — compileToHexbits ran
@@ -110,4 +111,43 @@ test('timed() reports the iterations it actually ran', () => {
   const r = timed('noop', () => 1 + 1, 500)
   assert.equal(r.iterations, 500)
   assert.ok(r.nsPerOp > 0)
+})
+
+// ── THE 64-HEXAGRAM LATTICE, and the compute-vs-ship ratio that justifies computing the face instead of
+// shipping it. occupancyCitesOf rebuilt an address-independent index on every call; cached, the whole face is
+// about seven times faster. As with the benchmark above, no ABSOLUTE timing is asserted — only the structural
+// facts and the arithmetic of the ratio, because a timing assertion fails for machine load.
+test('the lattice benchmark measures every operation and reports the ratio', () => {
+  const L = benchLattice(500)
+  assert.equal(L.states, 64, 'the hexagram lattice is 2^6')
+  assert.equal(L.bits, 6)
+  assert.ok(L.rows.length >= 6)
+  for (const r of L.rows) assert.ok(r.nsPerOp > 0, `${r.name}: a zero timing is not a measurement`)
+  assert.ok(L.faceNs > 0, 'the face must have been timed for the ratio to mean anything')
+  // the ratio arithmetic must follow from its own inputs, not be a remembered figure
+  assert.equal(L.shippedMegabytes, (L.faceShippedBytes * L.pages) / 1_048_576)
+  assert.equal(L.computeAllMilliseconds, (L.faceNs * L.pages) / 1_000_000)
+  assert.ok(L.shippedMegabytes > 300, 'the shipped payload is the thing worth removing')
+})
+
+test('the occupancy index is cached, so repeated cites cost no more than the first', () => {
+  const a = THEOREMS[0]!.address
+  const first = occupancyCitesOf(a)
+  const second = occupancyCitesOf(a)
+  assert.deepEqual(second, first, 'a cached index must not change the answer')
+  // and every cited key must be one of the declared occupancy keys: the index is BUILT from that list, so a key
+  // outside it could only come from somewhere else, which is what this check exists to notice
+  for (const c of first) {
+    assert.ok(Number.isInteger(c.n))
+    for (const k of c.keys) assert.ok(OCCUPANCY_KEYS.includes(k), `${k} is not a declared occupancy key`)
+  }
+})
+
+test('the face composes from the lattice parts, so a cached index cannot change it', () => {
+  for (const t of THEOREMS.slice(0, 120)) {
+    const f = hexFaceOf(t.address)
+    assert.deepEqual(f.occupancy, occupancyOf(t.address))
+    assert.deepEqual(f.hexagrams, hexagramsOf(t.address))
+    for (const h of f.hexagrams) assert.ok(h >= 0 && h < 64, `hexagram ${h} is outside the 64-lattice`)
+  }
 })

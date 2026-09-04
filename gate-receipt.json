@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "639b5c467470208fb6ce3a56f7a517a5",
+    "src": "c751f577de93d29bf2e52b80f85e0ce5",
     "lean": "88e18293e01caf488ed9584f4d724fc5"
   },
   "files": {
@@ -3414,13 +3414,13 @@
     "src/harvest.ts": "da58bc361fdd355d",
     "src/hero-channel.test.ts": "b31746c518eeb322",
     "src/hexagram-tongues.test.ts": "dec2a3ee2f6519a1",
-    "src/hexagram.ts": "e4fe339d8c130975",
+    "src/hexagram.ts": "f54093c2ac65ed0f",
     "src/hexbit-door.test.ts": "c1bf52ba0cbe3384",
     "src/hexbit-from-books.test.ts": "1f8c107f8e79c8cd",
     "src/hexbit-mass-gap.test.ts": "01c0edaf9398f393",
     "src/hexbit-player.test.ts": "d1b6ec61c0f10eb4",
     "src/hexbit-readings.test.ts": "5a4ed6248ec71cbd",
-    "src/hexbit-speed.test.ts": "b141dbed137d126f",
+    "src/hexbit-speed.test.ts": "1a2dfc631cd37e3c",
     "src/hexbit/index.test.ts": "8b12d0854074a1d0",
     "src/hexbit/index.ts": "a889eb7c2c107e3b",
     "src/hkdf.test.ts": "5ba6479fa2c989d2",
@@ -3903,7 +3903,7 @@
     "src/scripts/aws-analytics.ts": "b6dd37964d50f618",
     "src/scripts/axiom-hunt.ts": "b34b5d939b8c4cbc",
     "src/scripts/azure-analytics.ts": "6aa9824076a83585",
-    "src/scripts/bench-hexbit.ts": "bf8249f6f1749929",
+    "src/scripts/bench-hexbit.ts": "37ae2826f8c7e4c9",
     "src/scripts/books-run.ts": "8c5a3202b22c913d",
     "src/scripts/browser-apps-usable.ts": "ebd78aceb6eff24c",
     "src/scripts/captain-claim-algebra.ts": "2bfa84ab6ee2462e",
@@ -4138,7 +4138,7 @@
     "src/scripts/live-cloud-metrics.ts": "02f23138677e3fca",
     "src/scripts/machine.ts": "c7b17b9c41bbbc70",
     "src/scripts/mcp-drive.ts": "40250548eec9fba3",
-    "src/scripts/measure.ts": "1f8ae15098a09858",
+    "src/scripts/measure.ts": "cf39c982c98d9733",
     "src/scripts/migrate-skills.ts": "de1cce1065eda0a6",
     "src/scripts/mine-books.ts": "d4a42e3285118c17",
     "src/scripts/mine-wikisource.ts": "0981f8d1cab1df52",
