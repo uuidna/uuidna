@@ -8,6 +8,7 @@
 // monograph = any URL's relations + body. Layout never reads this module; transformPageData attaches
 // only the slice that URL is.
 import { theorems, PRINCIPLES, rosettaIndex, dependsOn, gravityOf, isUnbound, axiomIndex, type Theorem } from './theorems/index.js'
+import { typeset } from './formula.js'
 import { runTrial } from './trial-run.js'
 import { axiomWitness } from './axiom-witness.js'
 import { merkleGravity } from './gravity/index.js'
@@ -24,6 +25,10 @@ export type AxisMember = {
   key: string
   name: string
   statement: string
+  /** the statement as LaTeX, present only where it IS a formula. TeX and not MathML deliberately: MathML for
+   *  every row costs +205 KB of payload against 49 KB for the whole TeX set, and this list's filter searches the
+   *  statement AS TEXT, which markup would break. The MathML waits on the object's own page. */
+  tex: string | null
   skill: string
   principle: string
   aura: { hsl: string; ray: number }
@@ -222,6 +227,7 @@ function thinMember(t: Theorem): AxisMember {
     key: t.key,
     name: t.name,
     statement: t.statement,
+    tex: typeset(t.statement).tex,
     skill: t.skill,
     principle: t.principle,
     aura: { hsl: a.hsl, ray: a.ray },

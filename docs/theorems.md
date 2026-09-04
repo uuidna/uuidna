@@ -105,7 +105,7 @@ See also [**/axioms**](/axioms) — every wing def and which theorems cite it (t
     <span v-if="aura" class="tray tray-line" :style="{ backgroundColor: t.lineAura.hsl }" :title="`Lean line — ray ${t.lineAura.ray}`">{{ t.lineAura.ray }}</span>
     <span class="tbind" :class="{ kernel: t.unbound }" :title="t.unbound ? 'kernel only — no wing def cited' : t.dependsOn.join(' · ')">{{ depLabel(t) }}</span>
     <a :href="`/theorem/${t.key}`">{{ t.name }}</a>
-    <code class="tstmt">{{ t.statement }}</code>
+    <code class="tstmt" :title="t.statement">{{ t.tex || t.statement }}</code>
     <span class="tmeta">{{ t.principle }} · {{ t.skill }}<template v-if="!t.unbound"> · g={{ t.gravity }}</template></span>
   </li>
 </ul>

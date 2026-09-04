@@ -3,6 +3,12 @@
 /-- 5260 pages at 17 tenths of a MB each = 8942 MB against an 8192 MB container -/
 theorem render_retention_exceeds_the_container : (5260 * 17 = 89420) ∧ (89420 > 81920) ∧ (1200 * 17 = 20400) ∧ (20400 < 20480) ∧ (89420 > 40960) := by decide
 
+/-- 103030000 µs / 38 µs = 2711315: the render budget answered by counting, not by rendering -/
+theorem counting_beats_composing_by_six_magnitudes : (103030000 / 38 = 2711315) ∧ (2711315 > 1000000) ∧ (4352 / 26 = 167) ∧ (2599 + 2516 + 116 + 33 + 18 = 5282) := by decide
+
+/-- 12037 pages fit the 8192 cap and the site has 5260 — the margin is a page count, not a memory reading -/
+theorem the_page_budget_is_twice_the_ledger : (1367 + 2982 = 4349) ∧ (4349 < 4352) ∧ (8192 - 4352 = 3840) ∧ (12037 > 10520) ∧ (5260 * 2 = 10520) := by decide
+
 /-- the knob's whole travel is 420 MB against a 750 MB overshoot -/
 theorem the_concurrency_knob_cannot_close_the_gap : (8170 - 7750 = 420) ∧ (420 * 19 = 7980) ∧ (7980 < 8170) ∧ (8942 - 8192 = 750) ∧ (420 < 750) := by decide
 

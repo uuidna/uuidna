@@ -13726,6 +13726,34 @@ theorem render_retention_exceeds_the_container : (5260 * 17 = 89420) ∧ (89420 
 \noindent Content-address \texttt{4147e4c4-3d4f-8e28-a2c4-87bc4285da9a}.
 \end{proof}
 
+\begin{theorem}[103030000 µs / 38 µs = 2711315: the render budget answered by counting, not by rendering]
+\label{thm:counting-beats-composing-by-six-magnitudes}
+\[
+  \frac{103030000}{38} = 2711315 \quad\land\quad 2711315 > 1000000 \quad\land\quad \frac{4352}{26} = 167 \quad\land\quad 2599 + 2516 + 116 + 33 + 18 = 5282
+\]
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
+\begin{lstlisting}[language=lean]
+theorem counting_beats_composing_by_six_magnitudes : (103030000 / 38 = 2711315) ∧ (2711315 > 1000000) ∧ (4352 / 26 = 167) ∧ (2599 + 2516 + 116 + 33 + 18 = 5282) := by decide
+\end{lstlisting}
+\noindent Content-address \texttt{e06e2e7b-5ae5-8391-b6da-a0e56baa4e92}.
+\end{proof}
+
+\begin{theorem}[12037 pages fit the 8192 cap and the site has 5260 — the margin is a page count, not a memory reading]
+\label{thm:the-page-budget-is-twice-the-ledger}
+\[
+  1367 + 2982 = 4349 \quad\land\quad 4349 < 4352 \quad\land\quad 8192 - 4352 = 3840 \quad\land\quad 12037 > 10520 \quad\land\quad 5260 \cdot 2 = 10520
+\]
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
+\begin{lstlisting}[language=lean]
+theorem the_page_budget_is_twice_the_ledger : (1367 + 2982 = 4349) ∧ (4349 < 4352) ∧ (8192 - 4352 = 3840) ∧ (12037 > 10520) ∧ (5260 * 2 = 10520) := by decide
+\end{lstlisting}
+\noindent Content-address \texttt{b2c43155-c6e5-87ba-ae10-f754489eec95}.
+\end{proof}
+
 \begin{theorem}[the knob's whole travel is 420 MB against a 750 MB overshoot]
 \label{thm:the-concurrency-knob-cannot-close-the-gap}
 \[

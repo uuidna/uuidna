@@ -281,9 +281,7 @@ export function composeChunk(c) {
 
 ## Statement
 
-\`\`\`lean
-${c.statement}
-\`\`\`
+${statementSection(c.statement)}
 
 | field | value |
 | --- | --- |
@@ -334,9 +332,7 @@ function composeWingHandle(t, kind, kindLabel) {
 
 ## Statement
 
-\`\`\`lean
-${t.statement}
-\`\`\`
+${statementSection(t.statement)}
 
 | field | value |
 | --- | --- |
@@ -360,6 +356,23 @@ export function composeVe(t) {
 
 /** allObjectPaths() → every object for the catch-all [kind]/[id] route.
  *  Theorems + publications + sequence / chunk / VE handles — one ObjectPage, new kinds. */
+// COUNTING DOES NOT NEED COMPOSING, and the difference is two orders of magnitude. allObjectPaths() builds every
+// page's params to return them — 5282 composed objects, ~935 ms and 125 MB — and the render-budget guard was
+// calling it to ask ONE question: how many pages are there. The answer is five array lengths. This returns it
+// without composing anything, and objectPageCount() === allObjectPaths().length is asserted in the test, so the
+// cheap path can never quietly disagree with the expensive one it replaced.
+export function objectPageCount() {
+  const pubs = publications()
+  return {
+    theorem: ALL.length,
+    publications: pubs.length,
+    chunk: buildChunks().length,
+    sequence: ALL.filter((t) => t.file === 'Sequence.lean').length,
+    ve: ALL.filter((t) => t.file === 'VectorEquilibrium.lean').length,
+    get total() { return this.theorem + this.publications + this.chunk + this.sequence + this.ve },
+  }
+}
+
 export function allObjectPaths() {
   const pubs = publications()
   const refused = pubs.filter((p) => !p.publishable)

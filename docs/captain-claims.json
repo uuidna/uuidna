@@ -2,8 +2,8 @@
   "generated": "2026-09-04",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2599,
-  "total_theorems": 2599,
+  "total_claimed": 2601,
+  "total_theorems": 2601,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -5547,6 +5547,18 @@
       "key": "render_retention_exceeds_the_container",
       "lineAddress": "b8e43eb3-a328-81fa-b556-68ff33b3b384",
       "address": "4147e4c4-3d4f-8e28-a2c4-87bc4285da9a",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "counting_beats_composing_by_six_magnitudes",
+      "lineAddress": "483ea0ce-d754-8171-a942-cd8205af2bcc",
+      "address": "e06e2e7b-5ae5-8391-b6da-a0e56baa4e92",
+      "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "the_page_budget_is_twice_the_ledger",
+      "lineAddress": "3a0cd553-1c3d-8b72-bd2f-46d5c7aadb10",
+      "address": "b2c43155-c6e5-87ba-ae10-f754489eec95",
       "principle": "The site build as arithmetic"
     },
     {
@@ -15600,7 +15612,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "3608b317-47ee-8e65-a72e-7eac3c753ae8",
+  "claim_receipt": "173f7186-3ec2-8584-8e87-276059068132",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

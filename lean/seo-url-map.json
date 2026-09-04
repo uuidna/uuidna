@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "cfc87481-2",
+  "generated": "fb3071ea-5",
   "entries": [
     {
       "route": "/",
@@ -3256,9 +3256,9 @@
       "kind": "publication",
       "identity": "site-build",
       "canonical": "https://uuidna.com/publications/site-build",
-      "address": "bc02916e-d4b9-8638-b85f-6761a0ba3554",
-      "handle": "bc02916e",
-      "hexbitDoor": "https://uuidna.com/bc02916e"
+      "address": "ba226677-3104-88ae-a649-0096692b159e",
+      "handle": "ba226677",
+      "hexbitDoor": "https://uuidna.com/ba226677"
     },
     {
       "route": "/publications/software",
@@ -9388,6 +9388,15 @@
       "address": "5d7218ef-3bc9-8823-a94c-c93b1f6eab7d",
       "handle": "5d7218ef",
       "hexbitDoor": "https://uuidna.com/5d7218ef"
+    },
+    {
+      "route": "/theorem/counting_beats_composing_by_six_magnitudes",
+      "kind": "theorem",
+      "identity": "counting_beats_composing_by_six_magnitudes",
+      "canonical": "https://uuidna.com/theorem/counting_beats_composing_by_six_magnitudes",
+      "address": "e06e2e7b-5ae5-8391-b6da-a0e56baa4e92",
+      "handle": "e06e2e7b",
+      "hexbitDoor": "https://uuidna.com/e06e2e7b"
     },
     {
       "route": "/theorem/court_loser_develops_the_proven",
@@ -21369,6 +21378,15 @@
       "hexbitDoor": "https://uuidna.com/a2627210"
     },
     {
+      "route": "/theorem/the_page_budget_is_twice_the_ledger",
+      "kind": "theorem",
+      "identity": "the_page_budget_is_twice_the_ledger",
+      "canonical": "https://uuidna.com/theorem/the_page_budget_is_twice_the_ledger",
+      "address": "b2c43155-c6e5-87ba-ae10-f754489eec95",
+      "handle": "b2c43155",
+      "hexbitDoor": "https://uuidna.com/b2c43155"
+    },
+    {
       "route": "/theorem/the_pair_is_coins_times_rate",
       "kind": "theorem",
       "identity": "the_pair_is_coins_times_rate",
@@ -27102,6 +27120,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "cfc87481-28c9-8a6a-bce3-5157c60bb300",
+  "receipt": "fb3071ea-562a-8520-847b-49eac84b2d79",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }

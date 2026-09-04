@@ -947,6 +947,8 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["kirchhoff_voltage", "(12 - 4 - 8 : Int) = 0"],
   ["faraday_needs_changing_flux", "(5 - 5 : Int) = 0"],
   ["render_retention_exceeds_the_container", "(5260 * 17 = 89420) ∧ (89420 > 81920) ∧ (1200 * 17 = 20400) ∧ (20400 < 20480) ∧ (89420 > 40960)"],
+  ["counting_beats_composing_by_six_magnitudes", "(103030000 / 38 = 2711315) ∧ (2711315 > 1000000) ∧ (4352 / 26 = 167) ∧ (2599 + 2516 + 116 + 33 + 18 = 5282)"],
+  ["the_page_budget_is_twice_the_ledger", "(1367 + 2982 = 4349) ∧ (4349 < 4352) ∧ (8192 - 4352 = 3840) ∧ (12037 > 10520) ∧ (5260 * 2 = 10520)"],
   ["the_concurrency_knob_cannot_close_the_gap", "(8170 - 7750 = 420) ∧ (420 * 19 = 7980) ∧ (7980 < 8170) ∧ (8942 - 8192 = 750) ∧ (420 < 750)"],
   ["the_params_are_not_the_retained_mass", "(61 - 50 = 11) ∧ (11 * 10 = 110) ∧ (110 * 800 = 88000) ∧ (88000 < 89420)"],
   ["the_process_holds_more_than_the_container_allows", "(8460 > 8192) ∧ (8460 - 8192 = 268) ∧ (10784 = 107 * 100 + 84)"],

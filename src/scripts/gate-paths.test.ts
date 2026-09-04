@@ -231,3 +231,26 @@ test('land mints the receipt AFTER staging, so it covers the set the commit carr
   assert.ok(mint < commit, 'and the mint must precede the commit, so the fresh receipt rides with its work')
   assert.ok(land.includes("run('git add gate-receipt.json')"), 'the minted receipt must itself be staged')
 })
+
+// ── THE RENDER MARGIN IS A PAGE COUNT. I raised an alarm off peak resident memory — 8460 climbing to 8997 MB
+// against an 8192 MB heap cap — and it was the wrong comparison twice over: a resident set includes native
+// memory and collector semispaces so it exceeds the cap by nature, and re-measuring the SAME cap gave 7580 then
+// 9069, a 1489 MB swing that makes any two-sample trend noise. The reproducible quantity is the threshold: 5260
+// pages fail at a 4096 cap and build at 4352. theorem the_page_budget_is_twice_the_ledger seals what follows —
+// 3840 MB of the cap unused, and a fitted line reaching 12037 pages. This checks the count against that budget
+// in milliseconds, so nobody has to run a 100-second build to learn whether the site is near breaking.
+test('the dynamic page count sits inside the sealed render budget', async () => {
+  // the TYPED source, not the docs shim: the shim is plain JS with no declaration file, so importing it made tsc
+  // refuse to emit this whole test file — and the run that "passed" was the previous dist. A silent skip.
+  const { allObjectPaths, objectPageCount } = await import('../compose-object.js')
+  // COUNT, do not compose. allObjectPaths builds 5282 param objects to return them (915 ms, 119 MB); five array
+  // lengths answer the same question in 38 µs and 26 MB — theorem counting_beats_composing_by_six_magnitudes.
+  const pages = objectPageCount().total
+  // AND THE CHEAP PATH MAY NOT DRIFT FROM THE DEAR ONE. A fast answer that disagrees with the slow one it
+  // replaced is worse than the slow one, so the expensive path still runs HERE, once, purely as the control.
+  assert.equal(pages, allObjectPaths().length, 'objectPageCount must equal what composing every page returns')
+  const BUDGET = 12037 // theorem the_page_budget_is_twice_the_ledger, at the pinned 8192 cap
+  assert.ok(pages < BUDGET, `${pages} dynamic pages against a sealed budget of ${BUDGET} — the render breaks above it`)
+  // and the margin must stay a MAJORITY of the budget: below that, the next wing is the one that finds out
+  assert.ok(pages * 2 < BUDGET, `${pages} pages is over half the ${BUDGET} budget — trim the page set or re-measure the threshold before the next wing lands`)
+})

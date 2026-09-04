@@ -63564,6 +63564,92 @@
         },
         {
           "blockType": "theorem",
+          "slug": "theorem-counting_beats_composing_by_six_magnitudes",
+          "title": "theorem-counting_beats_composing_by_six_magnitudes",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "103030000 µs / 38 µs = 2711315: the render budget answered by counting, not by rendering"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(103030000 / 38 = 2711315) ∧ (2711315 > 1000000) ∧ (4352 / 26 = 167) ∧ (2599 + 2516 + 116 + 33 + 18 = 5282)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem counting_beats_composing_by_six_magnitudes : (103030000 / 38 = 2711315) ∧ (2711315 > 1000000) ∧ (4352 / 26 = 167) ∧ (2599 + 2516 + 116 + 33 + 18 = 5282) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "e14cbb26-05fd-8f4e-91f3-eb2fc7733ed0"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-the_page_budget_is_twice_the_ledger",
+          "title": "theorem-the_page_budget_is_twice_the_ledger",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "12037 pages fit the 8192 cap and the site has 5260 — the margin is a page count, not a memory reading"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(1367 + 2982 = 4349) ∧ (4349 < 4352) ∧ (8192 - 4352 = 3840) ∧ (12037 > 10520) ∧ (5260 * 2 = 10520)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem the_page_budget_is_twice_the_ledger : (1367 + 2982 = 4349) ∧ (4349 < 4352) ∧ (8192 - 4352 = 3840) ∧ (12037 > 10520) ∧ (5260 * 2 = 10520) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "470065c6-fb8e-80d6-9f77-bea1f8208edf"
+        },
+        {
+          "blockType": "theorem",
           "slug": "theorem-the_concurrency_knob_cannot_close_the_gap",
           "title": "theorem-the_concurrency_knob_cannot_close_the_gap",
           "content": {
@@ -63907,8 +63993,8 @@
           "uuidnaAddress": "e6a6dfbc-aa99-8d16-b361-11eed4efcc25"
         }
       ],
-      "uuidnaVersion": "c65c4023-e452-8655-9570-518087350000",
-      "uuidnaAddress": "9d6c0efa-3cab-8fa9-aaba-22e5e364fcb7"
+      "uuidnaVersion": "c65c4023-e455-8dda-9fb1-2fac89800000",
+      "uuidnaAddress": "c7647c5d-3e69-8fb2-93c7-08e87a5623c6"
     },
     {
       "slug": "software",

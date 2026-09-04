@@ -1556,6 +1556,8 @@ drift_needs_two_to_hide_in 27
 the_singularity_is_the_dry_law_at_scale 27
 #SiteBuild.lean
 render_retention_exceeds_the_container 27
+counting_beats_composing_by_six_magnitudes 27
+the_page_budget_is_twice_the_ledger 27
 the_concurrency_knob_cannot_close_the_gap 27
 the_params_are_not_the_retained_mass 27
 the_process_holds_more_than_the_container_allows 27
