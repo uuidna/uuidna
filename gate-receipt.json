@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "c751f577de93d29bf2e52b80f85e0ce5",
+    "src": "10d8c5ec7f8f1049c2a88749fa3b29a2",
     "lean": "88e18293e01caf488ed9584f4d724fc5"
   },
   "files": {
@@ -3413,6 +3413,8 @@
     "src/harvest.test.ts": "16558e16a810c9a4",
     "src/harvest.ts": "da58bc361fdd355d",
     "src/hero-channel.test.ts": "b31746c518eeb322",
+    "src/hex-line-css.test.ts": "2b38987a81b0b99f",
+    "src/hex-line-css.ts": "03d2be721b208b40",
     "src/hexagram-tongues.test.ts": "dec2a3ee2f6519a1",
     "src/hexagram.ts": "f54093c2ac65ed0f",
     "src/hexbit-door.test.ts": "c1bf52ba0cbe3384",
