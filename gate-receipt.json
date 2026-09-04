@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "b9b5e63645fbb8ea8d0383c56c91e707",
+    "src": "e65b599db9bc250950b95481a06bb8fb",
     "lean": "db6d1efb9d72710fb43c845c8a30c2d6"
   },
   "files": {
@@ -3822,7 +3822,7 @@
     "src/rosetta-legs.ts": "69879f896a6573b7",
     "src/rosetta-mirror.ts": "9ecca76203fcd82e",
     "src/sanitize.ts": "59a077f417ad23b2",
-    "src/schema-org-vocab.ts": "5031b5bb0e7a22f8",
+    "src/schema-org-vocab.ts": "91111798e2d852e3",
     "src/school-apis.ts": "26578a1fcd5054e8",
     "src/school-laboratory.test.ts": "029d4f9bddb8bba8",
     "src/school-leads.test.ts": "065f0b3749d98388",
@@ -4172,7 +4172,7 @@
     "src/seo-freeze.ts": "018dc841f889398c",
     "src/seo-package.ts": "aaf31eafeedfe2bd",
     "src/seo.test.ts": "93480f6aa43bcea7",
-    "src/seo.ts": "0ca7b129dcb801a3",
+    "src/seo.ts": "07e016057427fad5",
     "src/separation.test.ts": "c5776dcdf169c1e5",
     "src/separation.ts": "22eb0478207b25f6",
     "src/sequence-coverage.test.ts": "64831a6e95a349df",

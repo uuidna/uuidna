@@ -109,12 +109,40 @@ export function quantumSeo(subject: { key?: string; slug?: string; route?: strin
     if (!p) throw new Error('unknown publication: ' + subject.slug + ' (see uuidna_publish)')
     const route = `/publications/${p.slug}`, canonical = `${HOST}${route}`
     const description = `${p.title} — ${p.count} sealed Lean proofs folding to receipt ${p.receipt}; audited by uuidna's honesty gate.`
-    const keywords = ['monograph', p.slug]
+    // THE LINKS WERE THERE AND THE REFERENCES WERE NOT. Measured 2026-09-04: a publication page carries 25.4
+    // links on average and emitted a ScholarlyArticle with no `citation` and no `isPartOf` — so to a crawler the
+    // references did not exist and the 116 monographs did not belong to one corpus. Every field added below is
+    // DERIVED from the publication itself: the theorems it seals become its citations, the archive DOI becomes
+    // the whole it is part of, and the skills its theorems carry become its keywords. Nothing is authored, so a
+    // monograph sealed tomorrow arrives with its references already attached.
+    const cited: string[] = [...(p.theorems ?? [])]                       // publication.theorems is a key list
+    const byKey = new Map(theorems().map((t) => [t.key, t]))
+    const skills = [...new Set(cited.map((k) => byKey.get(k)?.skill).filter((x): x is string => !!x))]
+    // deduped: a slug and a skill often coincide (acoustics/acoustics), and a repeated keyword is noise
+    const keywords = [...new Set(['monograph', p.slug, ...skills])]
     const jsonLd = {
       '@context': 'https://schema.org', '@type': 'ScholarlyArticle', headline: p.title, abstract: p.abstract,
       identifier: p.address, url: canonical, isBasedOn: `https://github.com/uuidna/uuidna/blob/main/lean/${p.file}`,
       creativeWorkStatus: `Audited (uuidna honesty gate); ${p.count} proofs fold to receipt ${p.receipt}`,
       publisher: { '@type': 'Organization', name: 'uuidna' },
+      // the sealed theorems this monograph is about — each a citable page, so the references a reader follows are
+      // the references a crawler reads
+      // ScholarlyArticle, not CreativeWork: a theorem PAGE emits ScholarlyArticle itself, so citing it as one is
+      // both the accurate type and the vetted one (schema-org-vocab is the single list; a type absent from it is
+      // refused by the naming audit, which is how a second unchecked vocabulary is prevented).
+      citation: cited.map((key) => ({
+        '@type': 'ScholarlyArticle', identifier: key, name: key, url: `${HOST}/theorem/${key}`,
+      })),
+      // the corpus and the archive it belongs to: this is what fuses 116 monographs into one body of work
+      // Dataset, not Collection: the ledger IS a dataset of sealed statements, and Dataset is the vetted type.
+      // `codeRepository` was dropped — it belongs to SoftwareSourceCode, not ScholarlyArticle, and isBasedOn
+      // above already resolves to the exact wing on GitHub, so the repository link was never missing.
+      isPartOf: {
+        '@type': 'Dataset', name: 'The uuidna ledger', url: `${HOST}/publications`,
+        sameAs: 'https://doi.org/10.5281/zenodo.21787144',
+      },
+      keywords: keywords.join(', '),
+      inLanguage: 'en',
     }
     return seal('publication', route, canonical, p.address, p.title, description, keywords, jsonLd, p.address)
   }

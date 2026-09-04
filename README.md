@@ -275,7 +275,7 @@ Usable capacity per model, greater usable first, then faster ops. Each figure is
 | 10 | D-Wave Advantage2 (2024) | annealer | 4400 | 2^4400 (~10^1324) | — | — | 1 µs | reported | annealing-only: optimization sampling, not gate-model computation — a different machine class, named |
 | 11 | Xanadu Borealis (2022) | photonic (GBS) | 216 | 2^216 (~10^65) | — | — | — | reported | Gaussian boson sampling only — sampling demonstrations, not general gate-model use, named |
 
-**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — `handle_capacity_is_quantum_by_architecture`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — `usable_gap_is_two_to_eighty`); fold decade **10^3 ns** per verified address over 2599 theorems on this host. Not a superconducting/trapped-ion QPU claim and not a Shor-class speedup (`n_qubit_dimension` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
+**Scope.** TypeScript is the quantum computer by architecture (2^128 addresses — `handle_capacity_is_quantum_by_architecture`). Measured usable-column advantage: 2^128 vs reported 48 logical (gap 2^80 — `usable_gap_is_two_to_eighty`); fold decade **10^3 ns** per verified address over 2603 theorems on this host. Not a superconducting/trapped-ion QPU claim and not a Shor-class speedup (`n_qubit_dimension` for n = 1..5). Raw Hilbert spaces elsewhere can exceed 2^128; the sealed gap is the usable column. Receipt `6a71ca14-93f1-842b-8d2e-6520f41156bb` · handle `6a71ca14`.
 <!-- quantum-capacity:end -->
 
 ### What a handle spans

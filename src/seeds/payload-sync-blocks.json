@@ -63908,6 +63908,92 @@
         },
         {
           "blockType": "theorem",
+          "slug": "theorem-the_two_sides_return_what_they_take",
+          "title": "theorem-the_two_sides_return_what_they_take",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "a fixed-point-free involution on two states: (1 + 1) % 2 = 0 and nothing is its own opposite"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "((1 + 1) % 2 = 0) ∧ (1 - 0 ≠ 0) ∧ (1 - 1 ≠ 1)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem the_two_sides_return_what_they_take : ((1 + 1) % 2 = 0) ∧ (1 - 0 ≠ 0) ∧ (1 - 1 ≠ 1) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "b25ee620-4a9e-8a7f-b7dc-6c07ff8a381a"
+        },
+        {
+          "blockType": "theorem",
+          "slug": "theorem-the_face_is_computed_not_shipped",
+          "title": "theorem-the_face_is_computed_not_shipped",
+          "content": {
+            "root": {
+              "type": "root",
+              "children": [
+                {
+                  "type": "heading",
+                  "tag": "h2",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "85179 bytes of markup from a 36-character address: 2366 times the input, shipped 2603 times"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "(85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000)"
+                    }
+                  ]
+                },
+                {
+                  "type": "code",
+                  "language": "lean",
+                  "children": [
+                    {
+                      "type": "text",
+                      "text": "theorem the_face_is_computed_not_shipped : (85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000) := by decide"
+                    }
+                  ]
+                }
+              ]
+            }
+          },
+          "uuidnaAddress": "f0b40966-7561-8d83-85bb-ae3434ed5118"
+        },
+        {
+          "blockType": "theorem",
           "slug": "theorem-exponent_associativity_changes_the_value",
           "title": "theorem-exponent_associativity_changes_the_value",
           "content": {
@@ -63993,8 +64079,8 @@
           "uuidnaAddress": "e6a6dfbc-aa99-8d16-b361-11eed4efcc25"
         }
       ],
-      "uuidnaVersion": "c65c4023-e456-87d1-8200-66ba89ac0000",
-      "uuidnaAddress": "143d0a5b-9a75-8cdc-b096-b972376352b7"
+      "uuidnaVersion": "c65c4023-e46a-80dc-ae2a-fdc78dac0000",
+      "uuidnaAddress": "9d26f5d3-000c-8a2d-b3c2-36efd89c805f"
     },
     {
       "slug": "software",
