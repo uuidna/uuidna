@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "e65b599db9bc250950b95481a06bb8fb",
+    "src": "7401d271791e350401a84a49d0399a3d",
     "lean": "db6d1efb9d72710fb43c845c8a30c2d6"
   },
   "files": {
@@ -3565,7 +3565,7 @@
     "src/publication-prior-art.ts": "fd22eb9d017be0a1",
     "src/publish-shape.test.ts": "58495adc2a66280c",
     "src/publish.test.ts": "d6d09e97b5dde332",
-    "src/publish.ts": "0f75ce09a49f3885",
+    "src/publish.ts": "2885fd109d806352",
     "src/quantum-advantage-audit.test.ts": "d09d1723aef2841d",
     "src/quantum-advantage-traitors.test.ts": "030298feb9ee5b9b",
     "src/quantum-advantage.test.ts": "104d77e78e042603",

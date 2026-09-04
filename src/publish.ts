@@ -14,6 +14,7 @@
 // prose is elegant — only that it says nothing its theorems do not. Its content-address recomputes from the text;
 // the member proofs fold, order-invariantly, to one receipt anyone recomputes from the same ledger.
 import { THEOREMS, type Theorem, PRINCIPLES } from './theorems/index.js'
+import { typeset } from './formula.js'
 import { computes } from './gate.js'
 import { toUuid, merkleFold, gcd } from './address.js'
 
@@ -94,13 +95,37 @@ export function composePublication(file: string): Publication {
   // The body — each sealed theorem's own human sentence, BACKED by a link to its proof. The theorem name IS the
   // honest claim (it is authored beside the proof and audited on every theorem page), so the note reads as prose
   // while every load-bearing sentence points at the proof that earns it.
+  // THE PROOF IS SHOWN, NOT ONLY LINKED (the captain, 2026-09-04: "each theorem lean latex proof need to be
+  // visible in publication"). It used to be a name and a link, so a reader had to leave the monograph to see what
+  // sealed it — and a citing reader could not check the claim in the document that made it.
+  //
+  // AT TOP LEVEL, NOT NESTED IN THE LIST, and that is not a style choice: the first attempt put a `details` block
+  // inside each list item, indented two spaces, and markdown-it then handed Vue 116 pages of unbalanced tags —
+  // "Element is missing end tag", every publication. A block-level HTML element inside a markdown list item is
+  // not reliably a block. So the facts stay a clean list of names and links, and the proofs follow as their own
+  // section, one un-indented `details` each.
+  //
+  // COLLAPSED, and the reason is measured: inlining every proof adds 9 KB to the mean monograph and 349 KB to
+  // `wave`, which seals 906 theorems. Flat, that page is 906 proofs deep. Collapsed, the proof is in the HTML —
+  // a crawler and a citation resolver both see it — and the page still reads as prose. No page-count exception.
   const body = ts.map((t) => `- ${t.name} — [proof](/theorem/${t.key}).`).join('\n')
+  const proofs = ts.map((t) => {
+    const set = typeset(t.statement, 'block')
+    const shown = set.mathml
+      ? `${set.mathml}\n\nFor a manuscript: \`${set.tex}\``
+      : 'A computation rather than a formula — no standard formula form, so the Lean the kernel read stands alone.'
+    return `<details>\n<summary><code>${t.key}</code> — ${t.name.replace(/&/g, '&amp;').replace(/</g, '&lt;').slice(0, 120)}</summary>\n\n`
+      + `${shown}\n\n`
+      + '```lean\n' + t.lean + '\n```\n\n'
+      + `Sealed by \`${t.tactic}\`, axiom-free. Content-address \`${t.address}\`.\n\n</details>`
+  }).join('\n\n')
   const receipt = merkleFold(ts.map((t) => t.address))
   const markdown =
     `# ${title}\n\n` +
     `> ${blurb}\n\n` +
     `${abstract}\n\n` +
     `## The facts, each backed by its proof\n\n${body}\n\n` +
+    `## The proofs\n\nEach statement as the kernel decided it — typeset where it is mathematics, and the exact Lean beneath it.\n\n${proofs}\n\n` +
     `## Provenance\n\n` +
     `These ${ts.length} proofs fold, order-invariant, to the receipt \`${receipt}\` — recompute it from the same ` +
     `ledger and it returns. The note itself content-addresses to a uuid, so any edit is visible. Writing descends ` +
