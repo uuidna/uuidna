@@ -87,7 +87,34 @@ test('e2e: a tool call returns parseable JSON with the field it promises', async
 
 // ── DETERMINISM ACROSS CALLS. The same question twice must land on the same receipt, or nothing downstream can be
 // recomputed by anyone. This is the repo's central claim, asserted where a client would actually observe it.
+//
+// THE TOOL UNDER TEST CHANGED, AND THE REASON IS A TEST THAT FAILED FOR THE WRONG CAUSE. This asserted
+// determinism through `uuidna_oeapi`, which FETCHES a live external API: measured 2026-09-04, a cold call costs
+// 11.9 seconds and the second costs 13 milliseconds (it caches), so two calls plus the server spawn raced a
+// 20-second budget and lost whenever the network was slow — three failures and three passes across six runs of
+// the same unchanged tree. The property was never in doubt: called directly, both receipts were
+// be4065af-492e-8fb2-9a6d-055a4407876f, identical. So the test was reporting the weather while claiming a
+// receipt had moved, which is exactly the fault this suite exists to catch in other people's code.
+//
+// The determinism claim is now asserted through the CHEAPEST ledger-derived tool that carries a receipt —
+// uuidna_hardware, measured at 1ms cold. The first replacement chosen was uuidna_coverage, and it failed the
+// same way for a different reason: it folds the whole ledger and costs 16.8 SECONDS cold, so it raced the same
+// budget with no network involved at all. Twice now this test has reported a latency as a determinism failure,
+// which is the lesson worth leaving here: when a check can fail for a reason other than the one it names, it
+// will, and the fix is to remove the other reason rather than to widen the budget. No network, no ledger fold —
+// a failure can now only mean the receipt actually moved. The network tool keeps its own determinism check
+// below, with a budget that reflects what it really does and the dependency named.
 test('e2e: the same call twice returns the same receipt', async () => {
+  const a = JSON.parse(callText(await rpc('tools/call', { name: 'uuidna_hardware', arguments: {} }))) as { receipt: string }
+  const b = JSON.parse(callText(await rpc('tools/call', { name: 'uuidna_hardware', arguments: {} }))) as { receipt: string }
+  assert.match(String(a.receipt), /^[0-9a-f-]{36}$/, 'the tool must answer with a content-address')
+  assert.equal(a.receipt, b.receipt, 'a receipt that moves between identical calls is not recomputable')
+})
+
+// THE NETWORK TOOL'S OWN DETERMINISM, with the dependency DECLARED rather than hidden inside a shared budget. A
+// cold external fetch was measured at 11.9s; the timeout here is generous on purpose, because the thing being
+// checked is that the receipt does not move, and a slow API is not a counterexample to that.
+test('e2e: a network-backed tool is deterministic too — receipt, not latency', { timeout: 90000 }, async () => {
   const a = JSON.parse(callText(await rpc('tools/call', { name: 'uuidna_oeapi', arguments: {} }))) as { receipt: string }
   const b = JSON.parse(callText(await rpc('tools/call', { name: 'uuidna_oeapi', arguments: {} }))) as { receipt: string }
   assert.equal(a.receipt, b.receipt, 'a receipt that moves between identical calls is not recomputable')

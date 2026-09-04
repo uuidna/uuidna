@@ -1,17 +1,17 @@
 {
-  "key": "219375ea-3966-80a4-a8f0-d36cd4c3b983",
+  "key": "0b4f972c-3d86-8467-a909-8f2fa15ec7e6",
   "publications": 116,
-  "sealedTheorems": 2596,
+  "sealedTheorems": 2607,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2596,
-    "theorems": 2596,
+    "claims": 2607,
+    "theorems": 2607,
     "bijection": true,
     "digitalRoots": {
-      "claims": 4,
-      "theorems": 4,
+      "claims": 6,
+      "theorems": 6,
       "publications": 8
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -59,8 +59,8 @@
     },
     {
       "slug": "sequence",
-      "claims": 32,
-      "cited": 32,
+      "claims": 33,
+      "cited": 33,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -131,8 +131,8 @@
     },
     {
       "slug": "audit",
-      "claims": 17,
-      "cited": 17,
+      "claims": 18,
+      "cited": 18,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []
@@ -307,8 +307,8 @@
     },
     {
       "slug": "site-build",
-      "claims": 7,
-      "cited": 7,
+      "claims": 16,
+      "cited": 16,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

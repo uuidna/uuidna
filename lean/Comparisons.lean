@@ -1,16 +1,12 @@
 -- lean/Comparisons.lean — GENERATED. THE COMPLETE COMPARISONS — every pair, never samples (the one-step-is-not-a-walk law as architecture): kernel.org's eight channels totally ordered through a lossless integer encoding (28 strict pairs; the versions are the kernel's published data), the encoding's round-trip sealed, the register ladder 4→128 doubling completely (any two registers an exact number of coin-payments apart), and the pressure ladder of divers and astronauts closing on THE JEWEL: the surface is the geometric mean of the buddy depths, 180·20 = 60². Arithmetic only; published data named as data. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
--- nth / nthR — list indexing as decidable, AXIOM-FREE structural recursion. Lean's `List.getD` routes through the
--- `propext` axiom under `by decide`; this recursion does not (scripts/lean-axioms proves it). `nth l i` = the i-th
--- Nat of l (0 past the end); `nthR m i` = the i-th row of a Nat matrix ([] past the end).
+-- nth — list indexing as decidable, AXIOM-FREE structural recursion. Lean's `List.getD` routes through the
+-- `propext` axiom under `by decide`; this recursion does not (scripts/lean-axioms proves it). `nth l i` = the
+-- i-th Nat of l (0 past the end).
 def nth : List Nat → Nat → Nat
   | [], _ => 0
   | x :: _, 0 => x
   | _ :: xs, Nat.succ n => nth xs n
-def nthR : List (List Nat) → Nat → List Nat
-  | [], _ => []
-  | x :: _, 0 => x
-  | _ :: xs, Nat.succ n => nthR xs n
 
 /-- KERNEL.ORG'S CHANNELS, COMPARED COMPLETELY: the eight versioned release lines (mainline, stable,
     longterm-6.18, longterm-6.12, longterm-6.6, longterm-6.1, longterm-5.15, longterm-5.10), each encoded

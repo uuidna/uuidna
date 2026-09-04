@@ -83,6 +83,7 @@ sanitize_depth_bounded 27
 witnesses_locate_faults 27
 handle_splits_four 27
 drift_is_named_or_caught 27
+the_axiom_index_partitions_without_remainder 27
 prose_coverage_total 27
 prose_round_trips 27
 prose_terminator_escaped 27
@@ -1079,6 +1080,11 @@ interval_timelike_causal 27
 lorentz_gamma_triangle 27
 rest_energy_mc2 27
 causality_forbids_ftl 27
+the_metre_is_defined_by_the_second 31
+the_defining_constants_are_exact_integers 31
+every_pythagorean_velocity_dilates_exactly 27
+exact_dilation_is_sparse_among_the_rationals 27
+the_null_cone_carries_integer_events_in_three_dimensions 27
 #Report.lean
 five_ws_and_one_h 27
 timeline_is_chronological 27
@@ -1568,6 +1574,9 @@ the_two_sides_return_what_they_take 27
 the_face_is_computed_not_shipped 27
 exponent_associativity_changes_the_value 27
 the_congruence_form_is_the_modulus_form 27
+a_template_distinguishes_only_by_its_variable 27
+the_kin_shortlist_accounts_for_every_edge 27
+a_shared_modulus_outranks_a_shared_word 27
 #Software.lean
 codec_split_recompose_lossless 27
 map_preserves_length 27
@@ -2737,11 +2746,13 @@ kelvin_floor_carries_the_hundred SI
 landauer_bound_derived SI
 light_speed_rounds_to_300000 SI
 reversible_erases_nothing Landauer
+the_defining_constants_are_exact_integers SI
+the_metre_is_defined_by_the_second SI
 two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 15, falsifier: 63 }
+export const FLOOR = { witness: 17, falsifier: 63 }
 
 // The WITNESS rule these legs were decided by, as a digest of its own source. A later run compares it: if the
 // digest moved and the anchored count FELL, the instrument changed rather than any claim, and that fall must be

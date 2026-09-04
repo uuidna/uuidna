@@ -1,0 +1,12 @@
+{
+  "handle": "315665b8",
+  "address": "315665b8-4cba-8148-bbe7-130cf9ea8fb7",
+  "kind": "chunk",
+  "keys": [
+    "counting_beats_composing_by_six_magnitudes"
+  ],
+  "statement": "(103030000 / 38 = 2711315) ∧ (2711315 > 1000000) ∧ (4352 / 26 = 167) ∧ (2599 + 2516 + 116 + 33 + 18 = 5282)",
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

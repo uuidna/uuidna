@@ -1,0 +1,12 @@
+{
+  "handle": "74b46fb3",
+  "address": "74b46fb3-f971-853d-bd67-2766fc5dac1b",
+  "statement": "(93 + 15 + 0 = 108) ∧ (19 = 15 + 4) ∧ (112 - 4 = 108)",
+  "tactic": "decide",
+  "keys": [
+    "the_axiom_index_partitions_without_remainder"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

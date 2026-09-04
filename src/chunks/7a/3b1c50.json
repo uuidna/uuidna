@@ -1,0 +1,12 @@
+{
+  "handle": "7a3b1c50",
+  "address": "7a3b1c50-feaa-83ea-86df-a4eaa61b04fb",
+  "statement": "(1367 + 2982 = 4349) ∧ (4349 < 4352) ∧ (8192 - 4352 = 3840) ∧ (12037 > 10520) ∧ (5260 * 2 = 10520)",
+  "tactic": "decide",
+  "keys": [
+    "the_page_budget_is_twice_the_ledger"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

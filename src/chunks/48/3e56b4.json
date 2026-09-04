@@ -1,0 +1,12 @@
+{
+  "handle": "483e56b4",
+  "address": "483e56b4-f4a9-804d-bdbd-1e81bed3cb0b",
+  "statement": "((1 + 1) % 2 = 0) ∧ (1 - 0 ≠ 0) ∧ (1 - 1 ≠ 1)",
+  "tactic": "decide",
+  "keys": [
+    "the_two_sides_return_what_they_take"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

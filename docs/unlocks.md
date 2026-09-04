@@ -7,9 +7,9 @@ description: Each sealed by-decide theorem unlocks what it states — automated 
 
 > Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).
 
-**Board (computed).** 2,518 distinct theorems · 2,601 keys · 113 skills · 116 Lean files.
+**Board (computed).** 2,529 distinct theorems · 2,612 keys · 113 skills · 116 Lean files.
 
-Receipt `352b1151-ed85-886d-84e3-2a73ba5c3e54` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
+Receipt `1d59620b-01d3-8d9b-a548-787b79d71778` · structured form <a href="/lean/unlocks.json">lean/unlocks.json</a>
 
 ## Illustrations (presence-checked, not a closed set)
 
@@ -62,8 +62,8 @@ Receipt `352b1151-ed85-886d-84e3-2a73ba5c3e54` · structured form <a href="/lean
 | `quantum` | 57 |
 | `chess` | 37 |
 | `cipher` | 30 |
+| `audit` | 29 |
 | `sequence` | 29 |
-| `audit` | 28 |
 | `coins` | 27 |
 | `science-pairs` | 27 |
 | `reasoning` | 25 |
@@ -92,11 +92,11 @@ Receipt `352b1151-ed85-886d-84e3-2a73ba5c3e54` · structured form <a href="/lean
 | <a href="/lean/Reasoning.lean">`Reasoning.lean`</a> | 25 |
 | <a href="/lean/Chessgames.lean">`Chessgames.lean`</a> | 24 |
 | <a href="/lean/Hexbit.lean">`Hexbit.lean`</a> | 20 |
+| <a href="/lean/Audit.lean">`Audit.lean`</a> | 18 |
 | <a href="/lean/Neuro.lean">`Neuro.lean`</a> | 18 |
 | <a href="/lean/Topography.lean">`Topography.lean`</a> | 18 |
 | <a href="/lean/VectorEquilibrium.lean">`VectorEquilibrium.lean`</a> | 18 |
 | <a href="/lean/Waves.lean">`Waves.lean`</a> | 18 |
-| <a href="/lean/Audit.lean">`Audit.lean`</a> | 17 |
 | <a href="/lean/BioPhysics.lean">`BioPhysics.lean`</a> | 17 |
 | <a href="/lean/Colour.lean">`Colour.lean`</a> | 17 |
 | <a href="/lean/Hardware.lean">`Hardware.lean`</a> | 17 |

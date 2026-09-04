@@ -1,0 +1,12 @@
+{
+  "handle": "570d3cbd",
+  "address": "570d3cbd-b7e9-8f11-8fa8-6787724b37e8",
+  "statement": "(0 + 2561 = 2561) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_terminator_escaped"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

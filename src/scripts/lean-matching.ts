@@ -8,7 +8,7 @@
 // free involution (each partnered with exactly one other, no self-pairing), the introductions among n people number
 // n(n−1)/2, and — the honest ceiling — Gale–Shapley halts in AT MOST n² proposals (bounded; the same
 // "no maximum, only bounds" the Security domain proves). COMPUTE → GENERATE → VERIFY. Integrity.
-import { emit, NTH_DEF } from './lean-gen.js'
+import { emit, NTH_DEF, NTHR_DEF } from './lean-gen.js'
 
 const FACTS = [
   { key: 'handshake_degree_sum_even',
@@ -55,6 +55,6 @@ const FACTS = [
 emit({
   file: 'Matching.lean', skill: 'matching',
   header: 'THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching.',
-  defs: NTH_DEF,
+  defs: NTH_DEF + '\n' + NTHR_DEF,   // this wing indexes matrix ROWS as well as list entries
   facts: FACTS.map((f) => ({ ...f, name: f.why })),
 })

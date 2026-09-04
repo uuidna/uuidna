@@ -1,0 +1,12 @@
+{
+  "handle": "d2af1d76",
+  "address": "d2af1d76-63a4-8513-8097-36820913d6b8",
+  "kind": "chunk",
+  "keys": [
+    "the_metre_is_defined_by_the_second"
+  ],
+  "statement": "(299792458 * 60 = 17987547480) ∧ (299792458 * 3600 = 1079252848800) ∧ (17987547480 * 60 = 1079252848800)",
+  "files": [
+    "Relativity.lean"
+  ]
+}

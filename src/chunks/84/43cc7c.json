@@ -1,0 +1,12 @@
+{
+  "handle": "8443cc7c",
+  "address": "8443cc7c-6dbb-816b-b50d-7db99e5a8ede",
+  "statement": "(17 - 2 = 15) ∧ (17 - 1 = 16) ∧ (16 - 1 = 15) ∧ (17 > 15)",
+  "tactic": "decide",
+  "keys": [
+    "a_floor_may_fall_to_what_is_anchored"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

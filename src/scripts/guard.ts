@@ -10,6 +10,11 @@ import { stampGaps } from './stamp.js'
 import { mcpCitationGaps } from '../mcp-citations.js'
 import { ratchetGaps } from './ratchet-gaps.js'
 import { leakGaps } from './leak-scan.js'
+import { underreachGaps } from '../underreach.js'
+import { ledgerDrainGaps } from './audit-ledger-drain.js'
+import { axiomReachGaps } from '../axiom-reach.js'
+import { depositGaps } from '../deposit-records.js'
+import { geometryGaps } from '../three-geometry.js'
 import { RATCHETS } from './ratchets.js'
 import { sourceGraph } from '../test-paths.js'
 /** the declared debt — files already carrying bare impossibility claims. May only shrink. */
@@ -282,6 +287,21 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // hardware: a privacy leak caught by accident, and only because it happened to be non-reproducible. A
   // credential reproduces perfectly on every host and would never have been caught at all.
   { name: 'leak', run: () => leakGaps().map((l) => ({ what: `${l.file}:${l.line} — ${l.kind}`, fix: l.why })) },
+  // The gate refuses OVERREACH; this refuses the opposite fault. A statement decided over every case, hedged as
+  // though it were a guess, understates the ledger — and understating it is as false as overstating it.
+  { name: 'underreach', run: () => underreachGaps() },
+  // Proved in lean/ and absent from the served ledger is INVISIBLE work — caught live, three kernel-verified
+  // theorems the site could not see, because `generate` does not run the Lean-to-ledger drain.
+  { name: 'ledger-drain', run: () => ledgerDrainGaps() },
+  // A definition NO theorem reaches — directly or through a def that is cited — is vocabulary the research does
+  // not use. The index is full exactly when this is empty.
+  { name: 'axiom-reach', run: () => axiomReachGaps() },
+  // A DOI is permanent. A deposit candidate below the bar a citable scholarly record carries is REFUSED here,
+  // before anything is minted, because the shortfall would be archived forever under an identifier people cite.
+  { name: 'deposit-grade', run: () => depositGaps() },
+  // A three.js vertex placed by trigonometry cannot be verified by anyone. Every emitted position must satisfy
+  // its own integer identity — the float is transport, the integers are the claim.
+  { name: 'geometry-exact', run: () => geometryGaps() },
   // THE MIRROR MUST AGREE BY VALUE— a js mirror doing Number arithmetic past 2^53 can round to
   // the SAME wrong value as the Lean it is checked against and pass emit()'s comparison by luck. Three mirrors
   // needed BigInt in one session (2026-08-19); the third was caught by hand, which is what makes it a finder.

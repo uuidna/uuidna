@@ -14,6 +14,11 @@ import { stampGaps } from './stamp.js'
 import { mcpCitationGaps } from '../mcp-citations.js'
 import { ratchetGaps } from './ratchet-gaps.js'
 import { leakGaps } from './leak-scan.js'
+import { underreachGaps } from '../underreach.js'
+import { ledgerDrainGaps } from './audit-ledger-drain.js'
+import { axiomReachGaps } from '../axiom-reach.js'
+import { depositGaps } from '../deposit-records.js'
+import { geometryGaps } from '../three-geometry.js'
 import { RATCHETS } from './ratchets.js'
 import { rd } from './api.js'
 /** the declared impossibility debt — files already carrying bare claims. May only shrink. */
@@ -46,7 +51,8 @@ const finders: [string, number][] = [
   ['dry', dryGaps().gaps.length], ['coherent', (await coherentGaps()).length], ['absence', absenceGaps().length],
   ['pipes', pipeGaps().length], ['actions', actionsGaps().length], ['vacuous', vacuousGaps().length], ['citations', citationsGaps().length], ['literal', literalGaps().length], ['binary', binaryGaps().length], ['orphan', orphanGaps().length], ['unit', unitGaps().length], ['hexbit', hexbitGaps().length], ['incomplete', incompleteGaps().length], ['markup', markupGaps().length], ['name', nameGaps().length], ['deadkey', deadkeyGaps().length], ['constant', constantGaps().length],
   ['negation', negationGaps().length], ['lean-negation', leanNegationGaps().length], ['drain', drainGaps().length], ['precede', precedeGaps().length], ['frozen', frozenGaps().length], ['stale', staleGaps().length],
-  ['leak', leakGaps().length], ['folders', foldersGaps().length], ['imports', importGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['landing', landingGaps([...sourceGraph().keys()]).length], ['impossibility', impossibilityGaps([...sourceGraph().keys()], impossibilityBaseline()).length], ['stamp', stampGaps().length], ['mcpcite', mcpCitationGaps().length], ['ratchet', ratchetGaps(RATCHETS).length], ['mirror', mirrorGaps().length], ['lanes', lanesGaps().length], ['pages', pagesGaps().length], ['comments', commentsGaps().length],
+  ['leak', leakGaps().length], ['underreach', underreachGaps().length], ['ledger-drain', ledgerDrainGaps().length], ['axiom-reach', axiomReachGaps().length], ['deposit-grade', depositGaps().length], ['geometry-exact', geometryGaps().length],
+  ['folders', foldersGaps().length], ['imports', importGaps().length], ['blocks', blocksGaps().length], ['scripts', scriptsGaps().length], ['landing', landingGaps([...sourceGraph().keys()]).length], ['impossibility', impossibilityGaps([...sourceGraph().keys()], impossibilityBaseline()).length], ['stamp', stampGaps().length], ['mcpcite', mcpCitationGaps().length], ['ratchet', ratchetGaps(RATCHETS).length], ['mirror', mirrorGaps().length], ['lanes', lanesGaps().length], ['pages', pagesGaps().length], ['comments', commentsGaps().length],
   ['counts', countsGaps().length], ['expected', expectedGaps().length], ['census', censusGaps().length], ['lines', linesGaps().length],
   ['pairs', pairsGaps().length],
   ['context', contextGaps(MCP_CATALOG).length],

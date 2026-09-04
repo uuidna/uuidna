@@ -1,16 +1,12 @@
 -- lean/Installs.lean — GENERATED. THE DEFAULT INSTALL — uuidna.com's paths given their exact meaning: the specifications of the 25 packages a default Alpine install carries (alpine-base's dependency closure in the PUBLISHED latest-stable index, Alpine 3.24.1), ported in full, lowest level first, and sealed — closure, bijection with the paths, home the meta package, reachability from '/', the build order rising from the floor with the published cycle named, the terminal the toolbox, the foundation depending on nothing, every meaning verbatim, every spec compiled from source to 32 hexbit states, and the BOOT IMAGE sealed verbatim (832 on-lattice states, build-ordered, receipt-closed) — the OS bootable on the lattice, never on a CPU — and THE EXTERNAL ANCHOR the whole port rests on: Alpine's PUBLISHED rootfs SHA-256 for 3.24.1/x86_64, compiled to 64 on-lattice nibbles so the seal names which BYTES and not only which release. Integrity and meaning, loading rather than running. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
--- nth / nthR — list indexing as decidable, AXIOM-FREE structural recursion. Lean's `List.getD` routes through the
--- `propext` axiom under `by decide`; this recursion does not (scripts/lean-axioms proves it). `nth l i` = the i-th
--- Nat of l (0 past the end); `nthR m i` = the i-th row of a Nat matrix ([] past the end).
+-- nth — list indexing as decidable, AXIOM-FREE structural recursion. Lean's `List.getD` routes through the
+-- `propext` axiom under `by decide`; this recursion does not (scripts/lean-axioms proves it). `nth l i` = the
+-- i-th Nat of l (0 past the end).
 def nth : List Nat → Nat → Nat
   | [], _ => 0
   | x :: _, 0 => x
   | _ :: xs, Nat.succ n => nth xs n
-def nthR : List (List Nat) → Nat → List Nat
-  | [], _ => []
-  | x :: _, 0 => x
-  | _ :: xs, Nat.succ n => nthR xs n
 -- nthS — the same axiom-free structural indexing for String lists ("" past the end); scripts/lean-axioms proves it.
 def nthS : List String → Nat → String
   | [], _ => ""

@@ -1,0 +1,12 @@
+{
+  "handle": "3473c1ff",
+  "address": "3473c1ff-f2bf-8e73-aadf-fe7b61f40b79",
+  "statement": "(32293 - 32183 = 110) ∧ (255 - 242 = 13) ∧ (110 * 255 = 28050) ∧ (82349 - 77885 = 4464) ∧ (13 * 32183 = 418379)",
+  "tactic": "decide",
+  "keys": [
+    "the_wire_rate_rose_by_restored_copy"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

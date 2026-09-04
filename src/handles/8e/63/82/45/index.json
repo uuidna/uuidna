@@ -1,0 +1,12 @@
+{
+  "handle": "8e638245",
+  "address": "8e638245-4528-8a5e-900b-a71aa9a5bdb6",
+  "kind": "chunk",
+  "keys": [
+    "the_null_cone_carries_integer_events_in_three_dimensions"
+  ],
+  "statement": "(([(1,2,2,3),(2,3,6,7),(1,4,8,9),(4,4,7,9)] : List (Nat × Nat × Nat × Nat)).all (fun q => q.1*q.1 + q.2.1*q.2.1 + q.2.2.1*q.2.2.1 == q.2.2.2*q.2.2.2))",
+  "files": [
+    "Relativity.lean"
+  ]
+}

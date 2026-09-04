@@ -1,0 +1,12 @@
+{
+  "handle": "dfd48f17",
+  "address": "dfd48f17-54aa-82bb-83a1-ab146ca3b4e4",
+  "kind": "chunk",
+  "keys": [
+    "the_mirror_is_not_defined_on_the_void"
+  ],
+  "statement": "((1 - 0) % 9 = 1) ∧ (9 % 9 = 0) ∧ (10 - 9 = 1) ∧ (1 ≠ 0)",
+  "files": [
+    "Sequence.lean"
+  ]
+}

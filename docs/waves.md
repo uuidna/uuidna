@@ -29,7 +29,33 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 | candidate | status |
 |-----------|--------|
-| — the queue is drained — | |
+| **alpine domain language origins 7488** (not sealed) | awaiting the kernel |
+| **alpine dom da la ie 7772** (not sealed) | awaiting the kernel |
+| **alpine dom fi la ie 7687** (not sealed) | awaiting the kernel |
+| **alpine dom bl la ie 7510** (not sealed) | awaiting the kernel |
+| **alpine dom dr la ie 8057** (not sealed) | awaiting the kernel |
+| **alpine dom la ne ie 7771** (not sealed) | awaiting the kernel |
+| **alpine dom la sc ie 7546** (not sealed) | awaiting the kernel |
+| **alpine dom la me ie 7680** (not sealed) | awaiting the kernel |
+| **alpine dom la sh ie 8700** (not sealed) | awaiting the kernel |
+| **alpine dom la ch ie 7687** (not sealed) | awaiting the kernel |
+| **alpine dom la cr ie 7641** (not sealed) | awaiting the kernel |
+| **alpine dom la se ie 7565** (not sealed) | awaiting the kernel |
+| **alpine dom la ma ie 7522** (not sealed) | awaiting the kernel |
+| **alpine dom la ar ie 7536** (not sealed) | awaiting the kernel |
+| **alpine dom la bi ie 7488** (not sealed) | awaiting the kernel |
+| **alpine dom la ch ie 7491** (not sealed) | awaiting the kernel |
+| **alpine dom la ne ie 7496** (not sealed) | awaiting the kernel |
+| **alpine dom la as ie 7503** (not sealed) | awaiting the kernel |
+| **alpine dom la ph ie 7495** (not sealed) | awaiting the kernel |
+| **alpine dom la ge ie 7547** (not sealed) | awaiting the kernel |
+| **alpine dom la vi ie 7704** (not sealed) | awaiting the kernel |
+| **alpine dom la ga ie 7513** (not sealed) | awaiting the kernel |
+| **alpine dom la fo ie 7566** (not sealed) | awaiting the kernel |
+| **alpine dom la au ie 7684** (not sealed) | awaiting the kernel |
+| **alpine dom la bu ie 7737** (not sealed) | awaiting the kernel |
+| **alpine dom la so ie 7702** (not sealed) | awaiting the kernel |
+| **alpine dom la en ie 7517** (not sealed) | awaiting the kernel |
 
 ## Accepted — the cargo, each with its seal
 

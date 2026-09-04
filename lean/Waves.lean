@@ -1,16 +1,12 @@
 -- lean/Waves.lean — GENERATED. THE NIGHT'S HARVEST PORTED AS THEOREMS — the compass mandala (two hands summing ten, the 9-complement as a HALF-TURN of the doubling ring, five the unique developing center, the hex center EMPTY), the diving mathematics as integer skeletons (Boyle walking the harmonic series in exact sixtieths, pressure doubling down the octave, Haldane's 2:1 with his ladder sealed exactly as far as it doubles, the buddy pair squaring the failure, the thirds rule closing whole), and the fold-to-zero promotion chain 16→32→64→128. arithmetic only — no physiology, no medicine, no claim about any real event; published laws' integer skeletons, deviations named. SOURCES for the three empirical inputs: Boyle (1662) for the gas law; Boycott, Damant and Haldane, Journal of Hygiene 8, 342 (1908) for the 2:1 ratio and the half-time ladder; and, for the water column, the CGPM definitions of the standard atmosphere (101325 Pa exactly, 1954) and of standard gravity (9.80665 m/s², 1901), against which the ten-metres-one-atmosphere step is a rounding of 0.992 rather than an identity. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
--- nth / nthR — list indexing as decidable, AXIOM-FREE structural recursion. Lean's `List.getD` routes through the
--- `propext` axiom under `by decide`; this recursion does not (scripts/lean-axioms proves it). `nth l i` = the i-th
--- Nat of l (0 past the end); `nthR m i` = the i-th row of a Nat matrix ([] past the end).
+-- nth — list indexing as decidable, AXIOM-FREE structural recursion. Lean's `List.getD` routes through the
+-- `propext` axiom under `by decide`; this recursion does not (scripts/lean-axioms proves it). `nth l i` = the
+-- i-th Nat of l (0 past the end).
 def nth : List Nat → Nat → Nat
   | [], _ => 0
   | x :: _, 0 => x
   | _ :: xs, Nat.succ n => nth xs n
-def nthR : List (List Nat) → Nat → List Nat
-  | [], _ => []
-  | x :: _, 0 => x
-  | _ :: xs, Nat.succ n => nthR xs n
 
 /-- THE TWO HANDS OF THE MANDALA SUM TO TEN IN EVERY COLUMN: [1 2 4 8 7 5 3 6 9] over [9 8 6 2 3 5 7 4 1] — nine
     columns, one constant. The second line is the first DEVELOPED (film to paper), and two contrary voices

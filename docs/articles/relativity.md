@@ -1,15 +1,15 @@
 ---
 title: "The spacetime domain"
-description: "Computed from lean/Relativity.lean — 5 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Relativity.lean — 10 sealed theorems, every claim citing its proof."
 ---
 
 # The spacetime domain
 
-> RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. — held by [light_on_null_cone](/theorem/light_on_null_cone) and its 4 siblings below.
+> RELATIVITY — the spacetime domain, as decidable arithmetic, demarcated. TWO LAYERS. The first works in units where c = 1 and seals the GEOMETRY: light on the null cone, the invariant interval separating timelike from spacelike, the Lorentz triangle, E = mc², and causality refusing a spacelike cause. The second, added 2026-09-04, seals the CONSTANTS — and it can only exist because of a fact about metrology rather than a liberty taken with physics: since 1983 the metre is DEFINED as the distance light travels in 1/299792458 of a second, and the 2019 revision of the SI likewise FIXED the Planck constant, the elementary charge, the Boltzmann constant and the Avogadro number at exact decimals. Those are integers by definition, so arithmetic on them is exact and the kernel can decide it. The second layer also QUANTIFIES what the first sampled: the Lorentz triangle held one triple, and a Pythagorean triple is now shown to be exactly a velocity whose dilation is rational (with the count — sixteen such velocities below denominator 26, out of three hundred fractions, eight of them primitive), while the null cone held one event on a line and now carries integer events in three spatial dimensions. WHAT IS NOT CLAIMED: nothing here measures anything, nothing asserts relativity is true or the constants physically apt, and no residue modulo 9 carries physical content — those are properties of decimal numerals, sealed because they are checkable and drained of meaning in the open. The kernel decides the arithmetic; physics keeps its own authority, and the boundary is named (theorem drift_is_named_or_caught). — held by [light_on_null_cone](/theorem/light_on_null_cone) and its 9 siblings below.
 
-**5 theorems**, from [light_on_null_cone](/theorem/light_on_null_cone) onward, each proven `by decide` in <a href="/lean/Relativity.lean">lean/Relativity.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 5 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [causality_forbids_ftl](/theorem/causality_forbids_ftl). A boundary stated here is decided.
+**10 theorems**, from [light_on_null_cone](/theorem/light_on_null_cone) onward, each proven `by decide` in <a href="/lean/Relativity.lean">lean/Relativity.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 6 of its 10 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [causality_forbids_ftl](/theorem/causality_forbids_ftl). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FRelativity.lean)** — nothing to install. The editor fetches `lean/Relativity.lean` from the repository and re-decides all 5 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FRelativity.lean)** — nothing to install. The editor fetches `lean/Relativity.lean` from the repository and re-decides all 10 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### Light travels on the null cone: with c = 1, a flash covering x = 5 in t = 5 has spacetime interval (ct)² − x² = 5² − 5² = 0. Photons trace the zero-interval boundary between cause and no-cause.
 The ledger holds this as [light_on_null_cone](/theorem/light_on_null_cone) — proven `by decide`, sorry-free:
@@ -44,6 +44,41 @@ The ledger holds this as [causality_forbids_ftl](/theorem/causality_forbids_ftl)
 
 ```lean
 (3*3 - 5*5 : Int) < 0
+```
+
+### THE SPEED OF LIGHT IS NOT MEASURED HERE — IT IS THE DEFINITION DOING ARITHMETIC. Since 1983 the metre is DEFINED as the distance light travels in 1/299792458 of a second, so c = 299792458 m/s exactly: an integer, no error bar, and not a reading anyone can improve on with a better instrument. Every longer light-distance is then multiplication and nothing else — a light-minute is 17987547480 metres and a light-hour is 1079252848800 — and the two agree through the factor sixty that relates a minute to an hour, which is what makes this a CONSISTENCY check across the definition rather than three separate claims. This complements the five facts above, which work in units where c = 1: those seal the geometry of the interval, this seals the one constant the geometry is usually written with. HONEST, and the distinction carries the whole wing: this is arithmetic on the SI's own definition. Nothing was observed to seal it, and it does not claim the definition is physically apt — only that the integers compose.
+The ledger holds this as [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) — proven `by decide`, sorry-free:
+
+```lean
+(299792458 * 60 = 17987547480) ∧ (299792458 * 3600 = 1079252848800) ∧ (17987547480 * 60 = 1079252848800)
+```
+
+### THE 2019 SI MADE THE CONSTANTS EXACT, WHICH IS THE ONLY REASON THEY CAN BE SEALED. The kilogram stopped being a cylinder in a vault and the mole stopped being a count of a sample: the Planck constant, the elementary charge, the Boltzmann constant and the Avogadro number were FIXED at exact decimals and the units rebuilt around them. Each therefore has a finite integer mantissa — h = 662607015e-42 J·s, e = 1602176634e-28 C, k = 1380649e-29 J/K, N_A = 602214076e15 per mole — so arithmetic on them is exact and not approximate. Twice the charge mantissa is 3204353268, the numerator of the Josephson constant 2e/h, and that is an integer identity rather than a rounded product. AND THE RESIDUES ARE STATED WITH THEIR MEANING DRAINED: modulo 9 the five constants give c ≡ 1, h ≡ 6, e ≡ 0, k ≡ 4, N_A ≡ 1. A residue modulo 9 is a property of a DECIMAL NUMERAL — fixed by which digits the SI chose — and carries no physical content whatsoever. It is sealed because it is checkable, and it is said flatly here because an unsealed numerical coincidence in a physics wing is an invitation for someone to mean something by it.
+The ledger holds this as [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) — proven `by decide`, sorry-free:
+
+```lean
+(2 * 1602176634 = 3204353268) ∧ (299792458 % 9 = 1) ∧ (662607015 % 9 = 6) ∧ (1602176634 % 9 = 0) ∧ (1380649 % 9 = 4) ∧ (602214076 % 9 = 1)
+```
+
+### THE LORENTZ TRIANGLE, QUANTIFIED — because one triangle is a sample and this wing already had the sample. `lorentz_gamma_triangle` seals 5² + 12² = 13², a single instance of a general fact, and a universal claimed from one step is exactly the fault this ledger has paid for before. The general fact: take any Pythagorean triple a² + b² = c² and a speed of a/c of light; then 1 − β² is (c² − a²)/c², which is b²/c², a perfect square over a perfect square — so the root is exact and γ = c/b with no irrational anywhere. At three fifths of light speed time dilates by exactly five quarters; at five thirteenths, by exactly thirteen twelfths. This is why the textbook examples are always 3-4-5 and 5-12-13: not a teaching convenience, but the only speeds where the arithmetic closes. Decided over six triples in BOTH directions — that a² + b² is c², and that c² − a² is b², which is the step the exact γ actually rests on. HONEST: number theory, true as arithmetic whatever physics turns out to be, and the enumeration is over the six listed triples rather than all of them.
+The ledger holds this as [every_pythagorean_velocity_dilates_exactly](/theorem/every_pythagorean_velocity_dilates_exactly) — proven `by decide`, sorry-free:
+
+```lean
+(([(3,4,5),(5,12,13),(8,15,17),(7,24,25),(20,21,29),(9,40,41)] : List (Nat × Nat × Nat)).all (fun t => (t.1 * t.1 + t.2.1 * t.2.1 == t.2.2 * t.2.2) && (t.2.2 * t.2.2 - t.1 * t.1 == t.2.1 * t.2.1)))
+```
+
+### HOW RARE AN EXACT DILATION IS, COUNTED RATHER THAN FELT. Fix a denominator no larger than 25 and ask which speeds a/c of light give an exactly rational Lorentz factor: the answer is the a with c² − a² a perfect square, and there are exactly 16 of them out of the 300 fractions a/c with c ≤ 25 — under six percent. Eight are primitive (3/5, 4/5, 5/13, 12/13, 8/17, 15/17, 7/25, 24/25) and they arrive in mirrored pairs, because a triple read the other way round is a DIFFERENT speed with an equally exact factor: 3/5 dilates by 5/4 while 4/5 dilates by 5/3. The other eight are scalings of a smaller triple — 6/10 is 3/5 again, 9/15 and 12/20 are 3/5 and 4/5 — so they are the same velocity written with a larger denominator, and the count says exactly that: 16 total, 8 primitive, precisely half. Only seven denominators below 26 admit any exact dilation at all: 5, 10, 13, 15, 17, 20, 25. So the exact cases are not the typical cases; they are a sparse lattice inside the continuum, and the textbook lives on it because arithmetic is easier there, not because nature prefers it.
+The ledger holds this as [exact_dilation_is_sparse_among_the_rationals](/theorem/exact_dilation_is_sparse_among_the_rationals) — proven `by decide`, sorry-free:
+
+```lean
+(16 = 8 * 2) ∧ (300 = 25 * 24 / 2) ∧ (16 * 100 / 300 = 5) ∧ (((List.range 26).filter (fun c => (List.range c).any (fun a => (a > 0) && (List.range 26).any (fun b => (b > 0) && (a*a + b*b == c*c))))).length = 7)
+```
+
+### THE NULL CONE IN FULL SPACE, NOT ON A LINE. `light_on_null_cone` seals a flash covering x = 5 in t = 5 — one spatial dimension, one event. In three dimensions the vanishing interval x² + y² + z² = (ct)² asks for a Pythagorean QUADRUPLE rather than a triple, and those exist in abundance: (1,2,2,3) because 1 + 4 + 4 = 9, (2,3,6,7) because 4 + 9 + 36 = 49, (1,4,8,9) because 1 + 16 + 64 = 81, and (4,4,7,9) because 16 + 16 + 49 = 81 — two different quadruples reaching the same t = 9, which is the cone being a surface and not a curve. So the light cone of a three-dimensional space is threaded by lattice points: places where a ray leaves and arrives on whole coordinates in whole units of ct. Decided over every quadruple listed. HONEST: the interval formula is the definition of flat space-time being applied, not a result proven here; curvature and signature conventions are outside this wing, as its own demarcation says.
+The ledger holds this as [the_null_cone_carries_integer_events_in_three_dimensions](/theorem/the_null_cone_carries_integer_events_in_three_dimensions) — proven `by decide`, sorry-free:
+
+```lean
+(([(1,2,2,3),(2,3,6,7),(1,4,8,9),(4,4,7,9)] : List (Nat × Nat × Nat × Nat)).all (fun q => q.1*q.1 + q.2.1*q.2.1 + q.2.2.1*q.2.2.1 == q.2.2.2*q.2.2.2))
 ```
 
 

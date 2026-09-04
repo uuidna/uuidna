@@ -112,13 +112,22 @@ def lxorAux : Nat → Nat → Nat → Nat
   | 0, _, _ => 0
   | Nat.succ w, a, b => (if a % 2 == b % 2 then 0 else 1) + 2 * lxorAux w (a / 2) (b / 2)
 def lxor (a b : Nat) : Nat := lxorAux 8 a b`
-export const NTH_DEF = `-- nth / nthR — list indexing as decidable, AXIOM-FREE structural recursion. Lean's \`List.getD\` routes through the
--- \`propext\` axiom under \`by decide\`; this recursion does not (scripts/lean-axioms proves it). \`nth l i\` = the i-th
--- Nat of l (0 past the end); \`nthR m i\` = the i-th row of a Nat matrix ([] past the end).
+// nth AND nthR ARE TWO VOCABULARIES, NOT ONE, and shipping them as one block left four wings carrying a
+// definition no theorem in them reaches. Measured by src/axiom-reach.ts: of the five wings that include this
+// preamble, ALL use `nth` and only Matching uses `nthR`, so Comparisons, Installs, Software and Waves each
+// declared a matrix-row indexer nothing there indexes. The axiom index called them "unused defs" and it was
+// right about these four — unlike the fifteen helpers it also listed, which a cited def reaches one hop away.
+// A wing now includes exactly the vocabulary its theorems use.
+export const NTH_DEF = `-- nth — list indexing as decidable, AXIOM-FREE structural recursion. Lean's \`List.getD\` routes through the
+-- \`propext\` axiom under \`by decide\`; this recursion does not (scripts/lean-axioms proves it). \`nth l i\` = the
+-- i-th Nat of l (0 past the end).
 def nth : List Nat → Nat → Nat
   | [], _ => 0
   | x :: _, 0 => x
-  | _ :: xs, Nat.succ n => nth xs n
+  | _ :: xs, Nat.succ n => nth xs n`
+
+/** NTHR_DEF — matrix-row indexing, included ONLY by a wing whose theorems index rows. Independent of NTH_DEF. */
+export const NTHR_DEF = `-- nthR — the same recursion one level up: \`nthR m i\` = the i-th row of a Nat matrix ([] past the end).
 def nthR : List (List Nat) → Nat → List Nat
   | [], _ => []
   | x :: _, 0 => x

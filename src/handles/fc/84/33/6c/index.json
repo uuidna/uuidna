@@ -1,0 +1,12 @@
+{
+  "handle": "fc84336c",
+  "address": "fc84336c-a80d-89ec-80c3-24020cd8623d",
+  "kind": "chunk",
+  "keys": [
+    "the_defining_constants_are_exact_integers"
+  ],
+  "statement": "(2 * 1602176634 = 3204353268) ∧ (299792458 % 9 = 1) ∧ (662607015 % 9 = 6) ∧ (1602176634 % 9 = 0) ∧ (1380649 % 9 = 4) ∧ (602214076 % 9 = 1)",
+  "files": [
+    "Relativity.lean"
+  ]
+}

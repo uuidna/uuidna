@@ -1,0 +1,12 @@
+{
+  "handle": "74b46fb3",
+  "address": "74b46fb3-f971-853d-bd67-2766fc5dac1b",
+  "kind": "chunk",
+  "keys": [
+    "the_axiom_index_partitions_without_remainder"
+  ],
+  "statement": "(93 + 15 + 0 = 108) ∧ (19 = 15 + 4) ∧ (112 - 4 = 108)",
+  "files": [
+    "Audit.lean"
+  ]
+}

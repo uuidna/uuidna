@@ -1,0 +1,12 @@
+{
+  "handle": "0bb56ded",
+  "address": "0bb56ded-797d-8d61-aad0-9e3f0ff272fa",
+  "statement": "(16 = 8 * 2) ∧ (300 = 25 * 24 / 2) ∧ (16 * 100 / 300 = 5) ∧ (((List.range 26).filter (fun c => (List.range c).any (fun a => (a > 0) && (List.range 26).any (fun b => (b > 0) && (a*a + b*b == c*c))))).length = 7)",
+  "tactic": "decide",
+  "keys": [
+    "exact_dilation_is_sparse_among_the_rationals"
+  ],
+  "files": [
+    "Relativity.lean"
+  ]
+}

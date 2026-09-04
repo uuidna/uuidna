@@ -1,12 +1,13 @@
 -- lean/Matching.lean — GENERATED. THE MATCHING — connecting people as decidable arithmetic: the handshake lemma, mutual (symmetric) choice, fixed-point-free pairings and the bounded cost of stable matching. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
--- nth / nthR — list indexing as decidable, AXIOM-FREE structural recursion. Lean's `List.getD` routes through the
--- `propext` axiom under `by decide`; this recursion does not (scripts/lean-axioms proves it). `nth l i` = the i-th
--- Nat of l (0 past the end); `nthR m i` = the i-th row of a Nat matrix ([] past the end).
+-- nth — list indexing as decidable, AXIOM-FREE structural recursion. Lean's `List.getD` routes through the
+-- `propext` axiom under `by decide`; this recursion does not (scripts/lean-axioms proves it). `nth l i` = the
+-- i-th Nat of l (0 past the end).
 def nth : List Nat → Nat → Nat
   | [], _ => 0
   | x :: _, 0 => x
   | _ :: xs, Nat.succ n => nth xs n
+-- nthR — the same recursion one level up: `nthR m i` = the i-th row of a Nat matrix ([] past the end).
 def nthR : List (List Nat) → Nat → List Nat
   | [], _ => []
   | x :: _, 0 => x

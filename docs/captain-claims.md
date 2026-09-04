@@ -3,8 +3,8 @@
 **Generated:** 2026-09-04
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2603/2603 theorems — every one, by construction
-**Claim receipt:** `cb674bcb-a2fc-8d29-a636-a9e90fbf78e3`
+**Total claimed:** 2612/2612 theorems — every one, by construction
+**Claim receipt:** `9776e607-3309-8a33-b701-d6b641962df9`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -142,12 +142,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The detectors, proven
 
-- **Theorems:** 17
+- **Theorems:** 18
 - **Sample lineAddress:** `dbb130ad-3a9a-83ab-8dd4-9de755d6f4ca`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[wall_steady_state](/theorem/wall_steady_state) · [flag_truth_table](/theorem/flag_truth_table) · [flag_requires_hollow](/theorem/flag_requires_hollow) · [demarcation_clears](/theorem/demarcation_clears) · [backing_clears](/theorem/backing_clears) · [exactly_one_flag](/theorem/exactly_one_flag) · [flag_matches_spec](/theorem/flag_matches_spec) · [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) · [witnesses_locate_faults](/theorem/witnesses_locate_faults) · [handle_splits_four](/theorem/handle_splits_four) · [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) · [prose_coverage_total](/theorem/prose_coverage_total) · [prose_round_trips](/theorem/prose_round_trips) · [prose_terminator_escaped](/theorem/prose_terminator_escaped) · [prose_beats_restatement](/theorem/prose_beats_restatement) · [prose_folds_receipt](/theorem/prose_folds_receipt) · [prose_audit_total](/theorem/prose_audit_total)
+[wall_steady_state](/theorem/wall_steady_state) · [flag_truth_table](/theorem/flag_truth_table) · [flag_requires_hollow](/theorem/flag_requires_hollow) · [demarcation_clears](/theorem/demarcation_clears) · [backing_clears](/theorem/backing_clears) · [exactly_one_flag](/theorem/exactly_one_flag) · [flag_matches_spec](/theorem/flag_matches_spec) · [sanitize_depth_bounded](/theorem/sanitize_depth_bounded) · [witnesses_locate_faults](/theorem/witnesses_locate_faults) · [handle_splits_four](/theorem/handle_splits_four) · [drift_is_named_or_caught](/theorem/drift_is_named_or_caught) · [the_axiom_index_partitions_without_remainder](/theorem/the_axiom_index_partitions_without_remainder) · [prose_coverage_total](/theorem/prose_coverage_total) · [prose_round_trips](/theorem/prose_round_trips) · [prose_terminator_escaped](/theorem/prose_terminator_escaped) · [prose_beats_restatement](/theorem/prose_beats_restatement) · [prose_folds_receipt](/theorem/prose_folds_receipt) · [prose_audit_total](/theorem/prose_audit_total)
 
 ### The audit game
 
@@ -340,12 +340,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The site build as arithmetic
 
-- **Theorems:** 13
+- **Theorems:** 16
 - **Sample lineAddress:** `b8e43eb3-a328-81fa-b556-68ff33b3b384`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[render_retention_exceeds_the_container](/theorem/render_retention_exceeds_the_container) · [counting_beats_composing_by_six_magnitudes](/theorem/counting_beats_composing_by_six_magnitudes) · [the_page_budget_is_twice_the_ledger](/theorem/the_page_budget_is_twice_the_ledger) · [the_concurrency_knob_cannot_close_the_gap](/theorem/the_concurrency_knob_cannot_close_the_gap) · [the_params_are_not_the_retained_mass](/theorem/the_params_are_not_the_retained_mass) · [the_process_holds_more_than_the_container_allows](/theorem/the_process_holds_more_than_the_container_allows) · [verify_costs_one_walk_against_the_whole_page_count](/theorem/verify_costs_one_walk_against_the_whole_page_count) · [a_floor_may_fall_to_what_is_anchored](/theorem/a_floor_may_fall_to_what_is_anchored) · [the_wire_rate_rose_by_restored_copy](/theorem/the_wire_rate_rose_by_restored_copy) · [the_two_sides_return_what_they_take](/theorem/the_two_sides_return_what_they_take) · [the_face_is_computed_not_shipped](/theorem/the_face_is_computed_not_shipped) · [exponent_associativity_changes_the_value](/theorem/exponent_associativity_changes_the_value) · [the_congruence_form_is_the_modulus_form](/theorem/the_congruence_form_is_the_modulus_form)
+[render_retention_exceeds_the_container](/theorem/render_retention_exceeds_the_container) · [counting_beats_composing_by_six_magnitudes](/theorem/counting_beats_composing_by_six_magnitudes) · [the_page_budget_is_twice_the_ledger](/theorem/the_page_budget_is_twice_the_ledger) · [the_concurrency_knob_cannot_close_the_gap](/theorem/the_concurrency_knob_cannot_close_the_gap) · [the_params_are_not_the_retained_mass](/theorem/the_params_are_not_the_retained_mass) · [the_process_holds_more_than_the_container_allows](/theorem/the_process_holds_more_than_the_container_allows) · [verify_costs_one_walk_against_the_whole_page_count](/theorem/verify_costs_one_walk_against_the_whole_page_count) · [a_floor_may_fall_to_what_is_anchored](/theorem/a_floor_may_fall_to_what_is_anchored) · [the_wire_rate_rose_by_restored_copy](/theorem/the_wire_rate_rose_by_restored_copy) · [the_two_sides_return_what_they_take](/theorem/the_two_sides_return_what_they_take) · [the_face_is_computed_not_shipped](/theorem/the_face_is_computed_not_shipped) · [exponent_associativity_changes_the_value](/theorem/exponent_associativity_changes_the_value) · [the_congruence_form_is_the_modulus_form](/theorem/the_congruence_form_is_the_modulus_form) · [a_template_distinguishes_only_by_its_variable](/theorem/a_template_distinguishes_only_by_its_variable) · [the_kin_shortlist_accounts_for_every_edge](/theorem/the_kin_shortlist_accounts_for_every_edge) · [a_shared_modulus_outranks_a_shared_word](/theorem/a_shared_modulus_outranks_a_shared_word)
 
 ### The structures domain
 
@@ -367,12 +367,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The spacetime domain
 
-- **Theorems:** 5
+- **Theorems:** 10
 - **Sample lineAddress:** `8e88b5c1-01ae-86db-803c-48104968c767`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[light_on_null_cone](/theorem/light_on_null_cone) · [interval_timelike_causal](/theorem/interval_timelike_causal) · [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) · [rest_energy_mc2](/theorem/rest_energy_mc2) · [causality_forbids_ftl](/theorem/causality_forbids_ftl)
+[light_on_null_cone](/theorem/light_on_null_cone) · [interval_timelike_causal](/theorem/interval_timelike_causal) · [lorentz_gamma_triangle](/theorem/lorentz_gamma_triangle) · [rest_energy_mc2](/theorem/rest_energy_mc2) · [causality_forbids_ftl](/theorem/causality_forbids_ftl) · [the_metre_is_defined_by_the_second](/theorem/the_metre_is_defined_by_the_second) · [the_defining_constants_are_exact_integers](/theorem/the_defining_constants_are_exact_integers) · [every_pythagorean_velocity_dilates_exactly](/theorem/every_pythagorean_velocity_dilates_exactly) · [exact_dilation_is_sparse_among_the_rationals](/theorem/exact_dilation_is_sparse_among_the_rationals) · [the_null_cone_carries_integer_events_in_three_dimensions](/theorem/the_null_cone_carries_integer_events_in_three_dimensions)
 
 ### The Glagolitic numerals & Pliska rosette
 
@@ -1068,7 +1068,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2520 (2603 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 2529 (2612 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1086,7 +1086,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2603 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2612 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

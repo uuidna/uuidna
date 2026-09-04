@@ -1,0 +1,12 @@
+{
+  "handle": "648c1fc5",
+  "address": "648c1fc5-466d-88ee-9919-ec064bd602c4",
+  "statement": "(6 > 2) ∧ (2 > 1) ∧ (102 > 116 / 2) ∧ (28 < 116 / 2)",
+  "tactic": "decide",
+  "keys": [
+    "a_shared_modulus_outranks_a_shared_word"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

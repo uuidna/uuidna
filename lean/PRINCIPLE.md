@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2603 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2612 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 - **Sufficient / insufficient.** Sufficient for finite `by decide` windows, axiom-free seals, falsifiers, receipts (verify ≪ recompute), handle capacity, captain-coin fair-exchange, Alpine/hexbit catalogue, and finite formal windows within climate/pandemic/poverty model-calcs — named on `docs/doctrine.md`. World solutions stack as waves of automation (`npm run wave` / hexbit-fast); waves do not erase ethics or politics. Insufficient for those domains as full problem types, and for unbounded Clay, nature-as-model, justice — same page; computational claims only. Related honesty: `window_not_universal`, `n_qubit_dimension`, `grover_quadratic_bound`, `provenance_integrity_not_content_truth`.
 
 ## Principles
@@ -59,7 +59,7 @@
 14. **The cipher & the strand** — `lean/Cipher.lean` · **30** theorems
    crypto ∩ DNA, honest by construction — base-pairing is a fixed-key XOR (a one-time-pad step), the pad is self-inverse but key reuse leaks the plaintext XOR (why a step must rotate), a linear fold is malleable (a receipt is integrity, not a seal), the transport leaks message length, translation is lossy (never a cipher), an affine S-box is invertible but linear, and Grover only halves the key (256→128, not a break) — the shared algebra and its honest limits
 
-15. **The detectors, proven** — `lean/Audit.lean` · **17** theorems
+15. **The detectors, proven** — `lean/Audit.lean` · **18** theorems
    the provenance gate as decidable logic — flag(h,d,b)=h·(1−d)·(1−b): hollow prose is flagged only when neither demarcated nor backed by a sealed theorem, a demarcation clears it, a backing clears it, and of the eight states exactly one fires — the honesty detector, itself a theorem set
 
 16. **The audit game** — `lean/AuditGame.lean` · **11** theorems
@@ -125,7 +125,7 @@
 36. **The field domain** — `lean/Electromagnetism.lean` · **13** theorems
    electromagnetism as decidable arithmetic, demarcated — Coulomb sets the sign (like repel, opposite attract), Ohm's law V=I·R, power V·I=I²R, series resistance adds and parallel combines reciprocally, Kirchhoff conserves current at a node and voltage around a loop, and Faraday induces EMF only from a changing flux — circuit and field arithmetic, not a full Maxwell derivation, distinct from the light waves in Optics
 
-37. **The site build as arithmetic** — `lean/SiteBuild.lean` · **13** theorems
+37. **The site build as arithmetic** — `lean/SiteBuild.lean` · **16** theorems
    NINE OF THESE ELEVEN ARE PINNED, NOT FORCED, and that belongs before the numbers: a forced check has independent content and falls only for a law, a pinned one holds the expected answer inside itself and falls for a convention just as readily. Only exponent_associativity_changes_the_value and the_congruence_form_is_the_modulus_form are forced — arithmetic true whatever anyone measured. The other nine seal MEASUREMENTS taken on one machine (resident memory, byte counts, wall-clock, and a retention constant derived from the threshold it explains); each says so in its own text, and on another host the integers move. The kernel decides the arithmetic; a person measured the inputs. The render ceiling and its two false levers, sealed as integers instead of argued in comments. The render phase retains every page for the whole run, so the heap is the page count times 17 tenths of a megabyte: 5260 pages come to 8942 MB against a deploy container of 8192, while 1200 pages come to 2040 and DID build inside 2048 — one constant, three readings. Both knobs are sealed INSUFFICIENT rather than described as such: the concurrency's entire travel from 64 to 2 is 420 MB against a 750 MB overshoot, so full travel still leaves the build over the ceiling, and the per-page params are under a eight-hundredth of the retained mass, which is why removing a fifth of them moved nothing. Raising the flag to 8192 builds on an operator machine at peak 8460 MB — 268 over the container, because a heap cap is not a resident set — so the build left the container and wrangler's hook now walks the built directory once where the build paid every page. The wing also carries the arithmetic the typesetter is judged by, since the ledger referees its own presentation: exponents associate right (2^3^2 = 512, not 64) and a congruence is the remainder in another hand, checked over every case. HONEST SCOPE: these are the arithmetic of MEASUREMENTS taken on this tree, not laws of the renderer, and the retention constant was derived from the threshold it explains — so the first theorem seals CONSISTENCY across three readings, not an independent measurement.
 
 38. **The structures domain** — `lean/Statics.lean` · **8** theorems
@@ -134,7 +134,7 @@
 39. **The points-of-sail domain** — `lean/Sailing.lean` · **10** theorems
    sailing as decidable arithmetic, demarcated — the ~45° no-go zone (45+45=90), points of sail on multiples of 45°, the close-hauled 3-4-5 beating triangle at a distance penalty (5>3), apparent wind exceeding true (5>4), a balanced helm as moment equilibrium (8·3=6·4) so the boat holds course and the captain rests, two tacks cancelling leeway, and precise tacks compounding linearly — sailing geometry and balance, not aero/hydrodynamics
 
-40. **The spacetime domain** — `lean/Relativity.lean` · **5** theorems
+40. **The spacetime domain** — `lean/Relativity.lean` · **10** theorems
    special relativity as decidable arithmetic, demarcated — nothing exceeds c (the cosmic speed limit, no FTL), light rides the null cone (interval 0), the invariant interval classifies events timelike/causal or spacelike (no causal link without FTL), the Lorentz factor rides a Pythagorean triangle (β=5/13→γ=13/12), moving clocks dilate and lengths contract, and rest energy is E=mc² — spacetime arithmetic, not a full tensor or GR derivation
 
 41. **The Glagolitic numerals & Pliska rosette** — `lean/Glagolitic.lean` · **10** theorems

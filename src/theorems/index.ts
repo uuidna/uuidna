@@ -1,5 +1,5 @@
 // The theorem ledger — DERIVED, LEAN IS THE SINGLE SOURCE. Every theorem is authored in lean/*.lean and proven
-// `by decide` (verified sorry-free by `npm run lean`); scripts/lean-ledger.mjs parses them into ./generated.ts,
+// `by decide` (verified sorry-free by `npm run lean`); src/scripts/lean-ledger.ts parses them into ./generated.ts,
 // and this module is the typed, addressed view the package, the MCP tools, the trial and the site all consume.
 // No theorem is authored here. A theorem computes in Lean, or it is not a theorem. Integrity, not truth.
 import { hexbitsOf as hexbitUnit, UUID_HEXBITS as HEXBIT_UUID } from '../hexbit/index.js'

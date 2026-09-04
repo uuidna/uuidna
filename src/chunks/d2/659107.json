@@ -1,0 +1,12 @@
+{
+  "handle": "d2659107",
+  "address": "d2659107-7f6a-8458-9b47-5998f6abb78c",
+  "statement": "(([(3,4,5),(5,12,13),(8,15,17),(7,24,25),(20,21,29),(9,40,41)] : List (Nat × Nat × Nat)).all (fun t => (t.1 * t.1 + t.2.1 * t.2.1 == t.2.2 * t.2.2) && (t.2.2 * t.2.2 - t.1 * t.1 == t.2.1 * t.2.1)))",
+  "tactic": "decide",
+  "keys": [
+    "every_pythagorean_velocity_dilates_exactly"
+  ],
+  "files": [
+    "Relativity.lean"
+  ]
+}
