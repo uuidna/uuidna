@@ -420,6 +420,12 @@ export function streamStep(label: string, cmd: string, cwd: string = ROOT): Prom
  *  Staging explicit paths keeps the drain to what it computed. Anything else left dirty is somebody's work: the drain
  *  NAMES it and leaves it alone (see stageDerived). Add a path here only if a generator writes it. */
 export const DRAIN_PATHS: readonly string[] = [
+  // the openly-licensed funding drafts — composed from the ledger by gen-funding-drafts, so they are staged
+  // like any other derived surface rather than left to rot while git reports the tree clean
+  'funding/drafts/nlnet-ngi-zero.md',
+  'funding/drafts/harmonic-research.md',
+  'funding/drafts/ai-for-math.md',
+  'funding/drafts/continuous-sponsorship.md',
   // the declared derived layer (mirrors src/spin.ts DERIVED_FILES — spin seals exactly these)
   'src/theorems/generated.ts', 'lean/PRINCIPLE.md', 'CHANGELOG.md', 'lean/axioms.json',
   'docs/mcp.md', 'docs/apis.md', 'docs/leads.md', 'audit-citations.json', 'support-audit.json', 'research-leads.json',
@@ -559,6 +565,7 @@ export const RECONCILE_OUTPUTS: Readonly<Record<string, readonly string[]>> = {
   'gen-mcp': ['docs/mcp.md'],
   'gen-apis': ['docs/apis.md'],
   'gen-latex': ['docs/public/uuidna-ledger.tex'],
+  'gen-funding-drafts': ['funding/drafts/nlnet-ngi-zero.md', 'funding/drafts/harmonic-research.md', 'funding/drafts/ai-for-math.md', 'funding/drafts/continuous-sponsorship.md'],
   'gen-quantum-capacity': ['lean/quantum-capacity.json', 'lean/quantum-capacity.md', 'docs/quantum.md'],
   'gen-quantum-advantage': ['lean/quantum-advantage.json', 'docs/public/quantum-advantage.jsonld'],
   'gen-seo-freeze': ['lean/seo-url-map.json'],

@@ -54,6 +54,7 @@ const GENERATORS: Gen[] = [
   { file: 'gen-waves.js', args: [], note: 'the conveyor board — pending, accepted with seals, and the law school roster, from the queue\'s own record' },
   { file: 'gen-unlocks.js', args: [], note: 'the unlock board — every sealed by-decide theorem unlocks its statement; census from theorems()' },
   { file: 'gen-readme.js', args: [], note: 'the published capacity, every figure derived' },
+  { file: 'gen-funding-drafts.js', args: [], note: 'openly-licensed funding drafts, composed from the sealed ledger (undated: no countdown)' },
   { file: 'gen-llm.js', args: [], note: 'llm.txt' },
   { file: 'gen-leads.js', args: [], note: 'leads.md' },
   { file: 'gen-terminology.js', args: [], note: 'terminology.json' },

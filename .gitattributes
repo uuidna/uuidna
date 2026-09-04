@@ -7,6 +7,10 @@
 # The derived layer never merges: both sides of a conflict here are correct outputs of different sources, and the
 # true value is the recomputation from the merged source. Git keeps one side; reconcile/spin --seal then collapses
 # it to the computed value. Enable the driver once per clone: npm run setup:git
+funding/drafts/nlnet-ngi-zero.md merge=derived
+funding/drafts/harmonic-research.md merge=derived
+funding/drafts/ai-for-math.md merge=derived
+funding/drafts/continuous-sponsorship.md merge=derived
 src/theorems/generated.ts merge=derived
 lean/PRINCIPLE.md merge=derived
 CHANGELOG.md merge=derived
