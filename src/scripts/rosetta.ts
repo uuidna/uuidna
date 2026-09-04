@@ -39,12 +39,26 @@ const pathm = (): typeof import('node:path') => (process as unknown as { getBuil
 import { ROOT } from './api.js'
 import { listTestSources } from '../test-paths.js'
 import { LEGS, maskOfLegs, legsOfMask, floorGaps, type Leg, type Rosetta } from '../rosetta-legs.js'
+import { toUuid } from '../address.js'
+import { handleOf } from '../handle.js'
 
 export { LEGS, floorGaps, type Leg, type Rosetta }
 
 /** Named external anchors. A WITNESS must be something outside this repository that a stranger could consult —
- *  a published standard, a named author, a measured artefact. The project's own prose is not a witness to itself. */
-const WITNESS = /\b(NIST|CODATA|WGS ?84|IUPAC|SI\b|Gutenberg|Landauer|Eratosthenes|Fujishima|McCarty|Heidrich|Rossi|Runciman|Rathbun|Mathot|Day,|Wellman|ISO ?\d|RFC ?\d|doi|DOI|physics\.nist\.gov|measured (?:at|as|by)|bomb calorimetry)\b/
+ *  a published standard, a named author, a measured artefact. The project's own prose is not a witness to itself.
+ *
+ *  `measured (at|as|by)` WAS AN ALTERNATIVE HERE AND THE LAW ABOVE FORBADE IT. A bare "measured" says only that
+ *  somebody measured; it does not say WHO, and the law asks for something a stranger could consult. It anchored
+ *  exactly two theorems and neither was external: `the_process_holds_more_than_the_container_allows` by "measured
+ *  at 107.84 seconds", a stopwatch on one operator's machine, and `s4_parity_splits_evenly_its_involutions_do_not`
+ *  by "measured by inversion count", which is this project computing about itself — the sentence the law names as
+ *  the thing that is not a witness. The legitimate case it was reaching for is already covered: `bomb calorimetry`
+ *  names an external procedure, and anything else genuinely measured elsewhere must name the elsewhere.
+ *
+ *  Removing it takes the anchored count to 15, and the floor follows it down under
+ *  `a_floor_may_fall_to_what_is_anchored` — which is the point of having replaced the absolute refusal: a census
+ *  can now be corrected toward the law instead of being held at whatever it once mistakenly counted. */
+const WITNESS = /\b(NIST|CODATA|WGS ?84|IUPAC|SI\b|Gutenberg|Landauer|Eratosthenes|Fujishima|McCarty|Heidrich|Rossi|Runciman|Rathbun|Mathot|Day,|Wellman|ISO ?\d|RFC ?\d|doi|DOI|physics\.nist\.gov|bomb calorimetry)\b/
 
 // ATTRIBUTION IS COMPUTED, NOT ANNOTATED. The first attempt at this hand-wrote "Claimed by the captain" with a
 // date onto three theorems. Three things wrong with that, and the captain named all three: it is manual logic in a
@@ -195,11 +209,55 @@ export function renderMirror(rows: readonly Rosetta[]): string {
     '',
     `export const FLOOR = { witness: ${witness}, falsifier: ${falsifier} }`,
     '',
+    '// The WITNESS rule these legs were decided by, as a digest of its own source. A later run compares it: if the',
+    '// digest moved and the anchored count FELL, the instrument changed rather than any claim, and that fall must be',
+    '// DECLARED (rosetta --declare-rule-change "<reason>") rather than permitted as a side effect. Without this the',
+    '// refusal is walk-past-able by editing the pattern it consults, which is the absolute refusal wearing a quieter',
+    '// coat: a gate whose verdict the author controls by editing the thing it reads.',
+    `export const RULE = ${JSON.stringify(ruleDigest())}`,
+    `export const RULE_DECLARED = ${JSON.stringify(declaredReason())}`,
+    '',
   ].join('\n')
 }
 
 /** Write the mirror if it changed. REFUSES to lower the floor: the anchoring may rise, never fall, so a run that
  *  would publish a smaller witness or falsifier count fails loudly instead of quietly ratifying the loss. */
+/** ruleDigest() → a digest of the WITNESS source line, so a rule change is detectable without storing the rule. */
+export function ruleDigest(): string {
+  const src = fsm().readFileSync(pathm().join(ROOT, 'src', 'scripts', 'rosetta.ts'), 'utf8')
+  const m = /^const WITNESS = .*$/m.exec(src)
+  return handleOf(toUuid('witness-rule|' + (m ? m[0] : '')))
+}
+
+/** the reason a rule change was declared with, carried forward unless this run declares a new one */
+function declaredReason(): string {
+  const declared = argvm?.indexOf('--declare-rule-change') ?? -1
+  if (declared >= 0 && argvm?.[declared + 1]) return String(argvm[declared + 1])
+  if (!fsm().existsSync(mirrorPath())) return ''
+  const m = /export const RULE_DECLARED = ("(?:[^"\\]|\\.)*")/.exec(fsm().readFileSync(mirrorPath(), 'utf8'))
+  return m ? (JSON.parse(m[1]!) as string) : ''
+}
+
+/** the RULE digest the current mirror was written under, or '' when it predates this field */
+function priorRule(): string {
+  if (!fsm().existsSync(mirrorPath())) return ''
+  const m = /export const RULE = "([0-9a-f]*)"/.exec(fsm().readFileSync(mirrorPath(), 'utf8'))
+  return m ? m[1]! : ''
+}
+
+/** the anchor the current mirror recorded per key — the evidence that says WHAT earned a witness leg */
+function priorClaims(): Map<string, string> {
+  const out = new Map<string, string>()
+  if (!fsm().existsSync(mirrorPath())) return out
+  const body = /export const CLAIMS = `([\s\S]*?)`/.exec(fsm().readFileSync(mirrorPath(), 'utf8'))
+  if (!body) return out
+  for (const line of body[1]!.split('\n')) {
+    const m = /^([a-z0-9_]+) (.+)$/.exec(line.trim())
+    if (m) out.set(m[1]!, m[2]!)
+  }
+  return out
+}
+
 /** noteByKey() → the wing note above each sealed theorem, which is what the WITNESS rule is decided from. */
 function noteByKey(): Map<string, string> {
   const out = new Map<string, string>()
@@ -259,35 +317,80 @@ function regressions(rows: readonly Rosetta[]): string[] {
  *  HONEST LIMIT: this separates "the claim's own text no longer supports the leg" from "the leg went while the
  *  text still supports it". It does NOT tell an author's deliberate correction from an author deleting the word
  *  NIST to make a gate quiet — that is why every permitted fall names its key on the way past. */
-export function classifyFall(rows: readonly Rosetta[]): { unearned: string[]; earned: string[] } {
+export interface Fall {
+  /** the claim's own text stopped supporting the leg — the author edited it. Reported, permitted. */
+  authorEdited: string[]
+  /** the note still carries the anchor the mirror recorded, and the RULE digest moved — the instrument changed.
+   *  Refused unless declared, because otherwise the gate is walk-past-able by editing the pattern it reads. */
+  ruleMoved: string[]
+  /** the anchor stands, the rule stands, and the leg went anyway — a real regression. Always refused. */
+  regressed: string[]
+  /** the mirror predates the RULE digest, so whether the instrument moved CANNOT be established. Refused, and
+   *  named as unknown rather than reported as unchanged — an absent digest is not evidence of a stable rule, the
+   *  same unread-is-not-empty law the refused-host and prior-art readings keep. */
+  ruleUnknown: string[]
+}
+
+/** classifyFall(rows) → WHY each lost leg was lost, split by EVIDENCE rather than by the current pattern's opinion.
+ *
+ *  THE HOLE THIS CLOSES, and it was mine: the first version asked only whether the CURRENT rule still matches the
+ *  note. It printed "its note no longer names an external source" for a note that was byte-identical — I had
+ *  edited the WITNESS pattern, not the claim. So an instrument change was labelled a CORRECTION and permitted,
+ *  which means the refusal could be walked past by editing the regex it consults: a gate whose verdict its author
+ *  controls by editing the thing it reads. That is the absolute refusal's defect in a quieter coat.
+ *
+ *  The evidence needed is already in the mirror. CLAIMS records WHAT anchored each witness leg, so:
+ *    · the note no longer contains the recorded anchor  → the author edited the claim
+ *    · the note still contains it and the RULE digest moved → the instrument changed, and that must be DECLARED
+ *    · the anchor stands and the rule stands            → the leg went for neither reason: a regression */
+export function classifyFall(rows: readonly Rosetta[]): Fall {
   const prior = priorLegs()
+  const claims = priorClaims()
   const notes = noteByKey()
-  const unearned: string[] = []
-  const earned: string[] = []
+  const ruleChanged = priorRule() !== '' && priorRule() !== ruleDigest()
+  const fall: Fall = { authorEdited: [], ruleMoved: [], regressed: [], ruleUnknown: [] }
   for (const r of rows) {
     const was = prior.get(r.key)
     if (!was) continue
     for (const leg of was) {
       if (r.legs.includes(leg)) continue
       const note = notes.get(r.key) ?? ''
-      const stillEarned = leg === 'witness' ? WITNESS.test(note) : true
-      if (stillEarned) earned.push(`${r.key} lost its ${leg} leg while its note still names an external source — the instrument moved under a claim that still holds`)
-      else unearned.push(`${r.key} lost its ${leg} leg because its note no longer names an external source — the leg was not defensible, so recording its absence is a CORRECTION`)
+      const anchor = claims.get(r.key)
+      if (leg === 'witness' && anchor && !note.includes(anchor)) {
+        fall.authorEdited.push(`${r.key} lost its ${leg} leg: the note no longer carries the anchor the mirror recorded (${anchor}) — the claim's own text was edited`)
+      } else if (leg === 'witness' && anchor && priorRule() === '') {
+        fall.ruleUnknown.push(`${r.key} lost its ${leg} leg while its note still carries the recorded anchor (${anchor}), and this mirror predates the RULE digest — whether the instrument moved cannot be established. Seed the digest on a run where nothing falls, then the cause is decidable.`)
+      } else if (leg === 'witness' && anchor && ruleChanged) {
+        fall.ruleMoved.push(`${r.key} lost its ${leg} leg while its note STILL carries the recorded anchor (${anchor}) — the WITNESS rule moved, not the claim`)
+      } else if (leg === 'witness' && !anchor) {
+        fall.authorEdited.push(`${r.key} lost its ${leg} leg and the mirror recorded no anchor for it — nothing external was ever on the record`)
+      } else {
+        fall.regressed.push(`${r.key} lost its ${leg} leg with its anchor and the rule both unchanged — a real regression`)
+      }
     }
   }
-  return { unearned, earned }
+  return fall
 }
 
 export function writeMirror(rows: readonly Rosetta[]): { changed: boolean; refused: string[]; corrected: string[] } {
   const fall = classifyFall(rows)
-  const refused = [...fall.earned, ...floorGaps(rows, { witness: 0, falsifier: (128 - 2) / 2 })]
-  if (refused.length) return { changed: false, refused, corrected: fall.unearned }
-  for (const c of fall.unearned) console.log(`  ↓ ${c}`)
+  // A RULE CHANGE THAT LOWERS THE COUNT MUST BE DECLARED, with a reason that lands in the mirror and stays there.
+  // Permitting it silently is what made the first version of this gate walk-past-able.
+  const undeclared = fall.ruleMoved.length && !declaredReason()
+    ? [`the WITNESS rule changed and ${fall.ruleMoved.length} leg(s) fell with it, undeclared. A rule may be corrected — `
+      + `a_floor_may_fall_to_what_is_anchored — but not as a side effect: re-run with --declare-rule-change "<why the `
+      + `old rule was wrong>" so the fall is on the record with its reason.`]
+    : []
+  const refused = [...fall.regressed, ...fall.ruleUnknown, ...undeclared, ...floorGaps(rows, { witness: 0, falsifier: (128 - 2) / 2 })]
+  const corrected = [...fall.authorEdited, ...fall.ruleMoved]
+  if (refused.length) return { changed: false, refused, corrected }
+  for (const c of fall.authorEdited) console.log(`  ↓ ${c}`)
+  for (const c of fall.ruleMoved) console.log(`  ⚖ DECLARED — ${c}`)
   const next = renderMirror(rows)
   const current = fsm().existsSync(mirrorPath()) ? fsm().readFileSync(mirrorPath(), 'utf8') : ''
-  if (current === next) return { changed: false, refused: [], corrected: fall.unearned }
+  if (current === next) return { changed: false, refused: [], corrected }
   fsm().writeFileSync(mirrorPath(), next)
-  return { changed: true, refused: [], corrected: fall.unearned }
+  return { changed: true, refused: [], corrected }
 }
 
 const argvm = (globalThis as { process?: { argv: string[] } }).process?.argv // the edge has no process; the CLI block below simply never runs there

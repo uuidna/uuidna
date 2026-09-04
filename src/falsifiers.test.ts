@@ -951,7 +951,7 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["the_params_are_not_the_retained_mass", "(61 - 50 = 11) ∧ (11 * 10 = 110) ∧ (110 * 800 = 88000) ∧ (88000 < 89420)"],
   ["the_process_holds_more_than_the_container_allows", "(8460 > 8192) ∧ (8460 - 8192 = 268) ∧ (10784 = 107 * 100 + 84)"],
   ["verify_costs_one_walk_against_the_whole_page_count", "(5260 = 5260 * 1) ∧ (5260 > 5000) ∧ (20 * 60 = 1200) ∧ (1200 > 1)"],
-  ["a_floor_may_fall_to_what_is_anchored", "(17 - 1 = 16) ∧ (16 ≥ 16) ∧ (17 > 16)"],
+  ["a_floor_may_fall_to_what_is_anchored", "(17 - 2 = 15) ∧ (17 - 1 = 16) ∧ (16 - 1 = 15) ∧ (17 > 15)"],
   ["exponent_associativity_changes_the_value", "(2^3^2 = 512) ∧ ((2^3)^2 = 64) ∧ (512 ≠ 64)"],
   ["the_congruence_form_is_the_modulus_form", "((List.range 63).all (fun x => ((x - x % 9) % 9 == 0) && (x % 9 < 9)))"],
   ["force_equilibrium", "(10 - 6 - 4 : Int) = 0"],

@@ -1987,7 +1987,7 @@ agl9_fixed_point_census_gives_a_single_orbit 26
 agl9_exponent_is_eighteen_with_no_element_of_that_order 26
 involution_counts_obey_their_recurrence 26
 s4_fixed_point_and_cycle_census 26
-s4_parity_splits_evenly_its_involutions_do_not 30
+s4_parity_splits_evenly_its_involutions_do_not 26
 grid_rectangle_euler_is_one 26
 monotone_paths_are_pascal_entries 26
 path_column_differences_close 26
@@ -2732,9 +2732,16 @@ kelvin_floor_carries_the_hundred SI
 landauer_bound_derived SI
 light_speed_rounds_to_300000 SI
 reversible_erases_nothing Landauer
-s4_parity_splits_evenly_its_involutions_do_not measured by
 two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 16, falsifier: 63 }
+export const FLOOR = { witness: 15, falsifier: 63 }
+
+// The WITNESS rule these legs were decided by, as a digest of its own source. A later run compares it: if the
+// digest moved and the anchored count FELL, the instrument changed rather than any claim, and that fall must be
+// DECLARED (rosetta --declare-rule-change "<reason>") rather than permitted as a side effect. Without this the
+// refusal is walk-past-able by editing the pattern it consults, which is the absolute refusal wearing a quieter
+// coat: a gate whose verdict the author controls by editing the thing it reads.
+export const RULE = "5ddc9622"
+export const RULE_DECLARED = "A bare 'measured (at|as|by)' says only that somebody measured, never who — and the law above it asks for something a stranger could consult. It anchored two theorems and neither was external: a stopwatch reading on one operator machine, and 'measured by inversion count', which is this project computing about itself. The legitimate case is already covered by 'bomb calorimetry'; anything genuinely measured elsewhere must name the elsewhere."

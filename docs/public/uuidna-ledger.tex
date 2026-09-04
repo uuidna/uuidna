@@ -13782,18 +13782,18 @@ theorem verify_costs_one_walk_against_the_whole_page_count : (5260 = 5260 * 1) �
 \noindent Content-address \texttt{17eb468c-4b2d-8a99-9cd0-a96dc418db88}.
 \end{proof}
 
-\begin{theorem}[17 − 1 = 16: a floor standing on one unearned anchor exceeds what it can defend]
+\begin{theorem}[17 − 2 = 15: a floor standing on two unearned anchors exceeds what it can defend]
 \label{thm:a-floor-may-fall-to-what-is-anchored}
 \[
-  17 - 1 = 16 \quad\land\quad 16 \ge 16 \quad\land\quad 17 > 16
+  17 - 2 = 15 \quad\land\quad 17 - 1 = 16 \quad\land\quad 16 - 1 = 15 \quad\land\quad 17 > 15
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem a_floor_may_fall_to_what_is_anchored : (17 - 1 = 16) ∧ (16 ≥ 16) ∧ (17 > 16) := by decide
+theorem a_floor_may_fall_to_what_is_anchored : (17 - 2 = 15) ∧ (17 - 1 = 16) ∧ (16 - 1 = 15) ∧ (17 > 15) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{aaa7cb2a-66e7-87eb-bf60-1b97f721ea8a}.
+\noindent Content-address \texttt{1e4df7c2-ce51-89e5-b45f-efb937a67d35}.
 \end{proof}
 
 \begin{theorem}[2\textasciicircum{}3\textasciicircum{}2 = 512, but (2\textasciicircum{}3)\textasciicircum{}2 = 64]

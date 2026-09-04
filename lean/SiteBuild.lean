@@ -15,8 +15,8 @@ theorem the_process_holds_more_than_the_container_allows : (8460 > 8192) ∧ (84
 /-- one directory walk against 5260 page renders -/
 theorem verify_costs_one_walk_against_the_whole_page_count : (5260 = 5260 * 1) ∧ (5260 > 5000) ∧ (20 * 60 = 1200) ∧ (1200 > 1) := by decide
 
-/-- 17 − 1 = 16: a floor standing on one unearned anchor exceeds what it can defend -/
-theorem a_floor_may_fall_to_what_is_anchored : (17 - 1 = 16) ∧ (16 ≥ 16) ∧ (17 > 16) := by decide
+/-- 17 − 2 = 15: a floor standing on two unearned anchors exceeds what it can defend -/
+theorem a_floor_may_fall_to_what_is_anchored : (17 - 2 = 15) ∧ (17 - 1 = 16) ∧ (16 - 1 = 15) ∧ (17 > 15) := by decide
 
 /-- 2^3^2 = 512, but (2^3)^2 = 64 -/
 theorem exponent_associativity_changes_the_value : (2^3^2 = 512) ∧ ((2^3)^2 = 64) ∧ (512 ≠ 64) := by decide
