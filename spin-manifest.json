@@ -1,9 +1,9 @@
 {
   "coins": {
-    "src/theorems/generated.ts": "c1a78d2c11d58216",
-    "lean/PRINCIPLE.md": "8ec950414a448f37",
+    "src/theorems/generated.ts": "ae74b1f95ca58156",
+    "lean/PRINCIPLE.md": "2bee186b8fd587dc",
     "CHANGELOG.md": "3053b21ab7228464",
-    "lean/axioms.json": "4ca57f11054d8ed1",
+    "lean/axioms.json": "44149dfdaf1b844d",
     "docs/mcp.md": "a3761dc4f76880a5",
     "audit-citations.json": "e94babb4285d834f",
     "support-audit.json": "f477be3314dc814c",
@@ -2618,7 +2618,7 @@
     "lean/Security.lean": "93ff642fd387870d",
     "lean/Sequence.lean": "25a26915b26d87d7",
     "lean/Singularity.lean": "01ea20114a8c8ad8",
-    "lean/SiteBuild.lean": "57769fb12fac8980",
+    "lean/SiteBuild.lean": "59f4420066ba89ac",
     "lean/Software.lean": "7338ffeb43b68b32",
     "lean/Solids.lean": "d8a33f32a86f8385",
     "lean/Song.lean": "50d35ae9a6dd89b4",
@@ -2737,7 +2737,7 @@
     "lean/photography-manifest.json": "0d368abd272485df",
     "lean/pravets-manifest.json": "9d4323c794058edb",
     "lean/production-manifest.json": "020b56a2d3db8735",
-    "lean/proof-cache.json": "8bd6c945bc26828b",
+    "lean/proof-cache.json": "c9c2000585dc858c",
     "lean/propulsion-manifest.json": "dd4ce996a8f18260",
     "lean/prosetrial-manifest.json": "23892b099ad18e7b",
     "lean/psychology-manifest.json": "573f1cc3d653898b",
@@ -2764,7 +2764,7 @@
     "lean/search-feed.json": "556787467f478295",
     "lean/seats-manifest.json": "2c8a9c7a75fc815f",
     "lean/security-manifest.json": "959f67a719188dad",
-    "lean/seo-url-map.json": "e8650a4b3dfe8066",
+    "lean/seo-url-map.json": "911b3fdf60c68aa0",
     "lean/sequence-manifest.json": "0d28fc1fc7038a42",
     "lean/sessions.json": "9ee49bc069518933",
     "lean/singularity-manifest.json": "6a560503828d88c9",
@@ -2798,5 +2798,5 @@
     "lean/wave-queue.json": "bc136de9316b89f7",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "8ce8d4f5-73c3-8d9a-9b82-649a5e77d447"
+  "receipt": "ac3fc5e2-3a1b-8772-8211-5ed7bd1ad619"
 }
