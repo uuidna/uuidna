@@ -8819,7 +8819,7 @@ theorem teleportation_costs_two_coins : (2 ^ 1 < 2 ^ 2) ∧ (2 ^ 2 = 4) ∧ (2 *
 \begin{theorem}[QEC BRIDGE (Wave↔Quantum): the three-cell 2-of-3 majority table in Wave.lean is floor sum/2 — the repetition-code decode this wing reads as classical gate arithmetic, identical to three\_cell\_vote\_majority.]
 \label{thm:majority-vote-is-floor-half}
 \[
-  \frac{0 + 0 + 0}{2} = 0 \quad\land\quad \frac{1 + 0 + 0}{2} = 0 \quad\land\quad \frac{1 + 1 + 0}{2} = 1 \quad\land\quad \frac{1 + 1 + 1}{2} = 1
+  \frac{0 + 0 + 0}{2} = 0 \quad\land\quad \left\lfloor \frac{1 + 0 + 0}{2} \right\rfloor = 0 \quad\land\quad \frac{1 + 1 + 0}{2} = 1 \quad\land\quad \left\lfloor \frac{1 + 1 + 1}{2} \right\rfloor = 1
 \]
 \end{theorem}
 \begin{proof}
@@ -9569,7 +9569,7 @@ theorem xor_fold_is_malleable : (List.range 16).all (fun a => (List.range 16).al
 \begin{theorem}[The uuid transport leaks SIZE: a message of b bits occupies ⌈b/115⌉ uuids, a step function of length — content is hidden by the cipher, message LENGTH is not (the chain grows in whole-uuid quanta of 115 bits).]
 \label{thm:transport-leaks-length}
 \[
-  \frac{1 + 114}{115} = 1 \quad\land\quad \frac{115 + 114}{115} = 1 \quad\land\quad \frac{116 + 114}{115} = 2 \quad\land\quad \frac{230 + 114}{115} = 2 \quad\land\quad \frac{231 + 114}{115} = 3
+  \frac{1 + 114}{115} = 1 \quad\land\quad \left\lfloor \frac{115 + 114}{115} \right\rfloor = 1 \quad\land\quad \frac{116 + 114}{115} = 2 \quad\land\quad \left\lfloor \frac{230 + 114}{115} \right\rfloor = 2 \quad\land\quad \frac{231 + 114}{115} = 3
 \]
 \end{theorem}
 \begin{proof}
@@ -10465,7 +10465,7 @@ theorem safe_width_is_thirteen_hexbits : ((List.range 17).all (fun h => (4 * h <
 \begin{theorem}[THE BASE IS COMPUTED, NOT BORROWED. A heartbeat is one decide-step — the unit of WORK, distinct from the hexbit (space) and the handle (address), convertible to neither. A theorem’s share of the run is its steps over the ledger’s, and taking that share needs a base, which the first version simply assumed: ten thousand, finance’s unit. Measured against the actual distribution, ten thousand is WRONG here — the cheapest theorem cost 13 steps of 579,272, and at ten thousand parts it reports zero. The share was not floored, it was lost. Walking the powers of sixteen, 16³ = 4096 still loses it and 16⁴ = 65536 resolves it to one: FOUR HEXBITS is the smallest resolution this ledger’s own costs require. Sixteen to the fourth is also the register’s amplitude count and the ledger’s whole coverage in hexbits — stated as observed, not as cause. Integer division throughout: a fraction is a float and a float cannot be sealed.]
 \label{thm:heartbeat-share-resolves-at-four-hexbits}
 \[
-  16^{4} = 65536 \quad\land\quad 16^{3} = 4096 \quad\land\quad \frac{13 \cdot 4096}{579272} = 0 \quad\land\quad \frac{13 \cdot 65536}{579272} = 1 \quad\land\quad \frac{579272 \cdot 65536}{579272} = 65536
+  16^{4} = 65536 \quad\land\quad 16^{3} = 4096 \quad\land\quad \left\lfloor \frac{13 \cdot 4096}{579272} \right\rfloor = 0 \quad\land\quad \left\lfloor \frac{13 \cdot 65536}{579272} \right\rfloor = 1 \quad\land\quad \frac{579272 \cdot 65536}{579272} = 65536
 \]
 \end{theorem}
 \begin{proof}
@@ -12469,7 +12469,7 @@ theorem naismith_rule_estimate : (15 / 5) * 60 + (1200 / 600) * 60 = 300 := by d
 \begin{theorem}[THE POLAR RADIUS, DERIVED IN INTEGERS. From the two WGS 84 defining constants alone — a = 6378137 m and 1/f = 298.257223563 (scaled to the exact integer 298257223563 over 10⁹) — the semi-minor axis computes as a(1/f − 1)/(1/f) = 6356752 m, and the two axes differ by exactly 21385 m. So the pole sits about 21.4 km closer to the centre than the equator does, and that number is not read off a table: it falls out of the definition by division.]
 \label{thm:wgs84-polar-shorter}
 \[
-  \frac{6378137 \cdot \left(298257223563 - 1000000000\right)}{298257223563} = 6356752 \quad\land\quad 6378137 - 6356752 = 21385
+  \left\lfloor \frac{6378137 \cdot \left(298257223563 - 1000000000\right)}{298257223563} \right\rfloor = 6356752 \quad\land\quad 6378137 - 6356752 = 21385
 \]
 \end{theorem}
 \begin{proof}
@@ -13375,7 +13375,7 @@ theorem caesium_light_step : 299792458 * 100 > 9192631770 * 3 ∧ 299792458 * 10
 \begin{theorem}[THE FLOOR UNDER EVERY ERASURE, DERIVED FROM AN EXACT CONSTANT. Boltzmann's k is exact by SI definition (1.380649×10⁻²³ J/K, fixed in the 2019 redefinition), so at room temperature T = 300 K the thermal quantum is kT = 414194700×10⁻²⁹ J, and Landauer's minimum cost of erasing ONE bit is kT·ln2 = 287097813×10⁻²⁹ J ≈ 2.871×10⁻²¹ J. Computed here in exact integers with ln2 as 693147/1000000 — no measurement enters, only the definition and division.]
 \label{thm:landauer-bound-derived}
 \[
-  1380649 \cdot 300 = 414194700 \quad\land\quad \frac{414194700 \cdot 693147}{1000000} = 287097813
+  1380649 \cdot 300 = 414194700 \quad\land\quad \left\lfloor \frac{414194700 \cdot 693147}{1000000} \right\rfloor = 287097813
 \]
 \end{theorem}
 \begin{proof}
@@ -13729,7 +13729,7 @@ theorem render_retention_exceeds_the_container : (5260 * 17 = 89420) ∧ (89420 
 \begin{theorem}[103030000 µs / 38 µs = 2711315: the render budget answered by counting, not by rendering]
 \label{thm:counting-beats-composing-by-six-magnitudes}
 \[
-  \frac{103030000}{38} = 2711315 \quad\land\quad 2711315 > 1000000 \quad\land\quad \frac{4352}{26} = 167 \quad\land\quad 2599 + 2516 + 116 + 33 + 18 = 5282
+  \left\lfloor \frac{103030000}{38} \right\rfloor = 2711315 \quad\land\quad 2711315 > 1000000 \quad\land\quad \left\lfloor \frac{4352}{26} \right\rfloor = 167 \quad\land\quad 2599 + 2516 + 116 + 33 + 18 = 5282
 \]
 \end{theorem}
 \begin{proof}
@@ -13850,6 +13850,20 @@ Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 theorem the_two_sides_return_what_they_take : ((1 + 1) % 2 = 0) ∧ (1 - 0 ≠ 0) ∧ (1 - 1 ≠ 1) := by decide
 \end{lstlisting}
 \noindent Content-address \texttt{43b38bf7-c747-8023-87c7-17b7e619561a}.
+\end{proof}
+
+\begin{theorem}[85179 bytes of markup from a 36-character address: 2366 times the input, shipped 2603 times]
+\label{thm:the-face-is-computed-not-shipped}
+\[
+  \left\lfloor \frac{85179}{36} \right\rfloor = 2366 \quad\land\quad 2603 \cdot 85179 = 221720937 \quad\land\quad 2603 \cdot 36 = 93708 \quad\land\quad 221720937 > 187416000
+\]
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
+\begin{lstlisting}[language=lean]
+theorem the_face_is_computed_not_shipped : (85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000) := by decide
+\end{lstlisting}
+\noindent Content-address \texttt{9eb4d106-0b8e-8cbb-9ae1-0b6b865e9a00}.
 \end{proof}
 
 \begin{theorem}[2\textasciicircum{}3\textasciicircum{}2 = 512, but (2\textasciicircum{}3)\textasciicircum{}2 = 64]
@@ -18293,7 +18307,7 @@ theorem mombh_verified_ne_solved : (3 >= 1) ∧ (0 < 1) ∧ (30 > 3) := by decid
 \begin{theorem}[QUANTUM: E(n=2→∞) = 13.6/4 = 3.4 eV (×10: 136/4 = 34); λ = 12398/3.4 = 3646 Å (12398/34 = 364, ×10). The break sits at the n=2 ionisation edge.]
 \label{thm:mombh-quantum-balmer-edge-is-rydberg-quarter}
 \[
-  \frac{136}{4} = 34 \quad\land\quad \frac{12398}{34} = 364
+  \frac{136}{4} = 34 \quad\land\quad \left\lfloor \frac{12398}{34} \right\rfloor = 364
 \]
 \end{theorem}
 \begin{proof}
@@ -18307,7 +18321,7 @@ theorem mombh_quantum_balmer_edge_is_rydberg_quarter : (136 / 4 = 34) ∧ (12398
 \begin{theorem}[QUANTUM: 3646 Å × (1+z)=8.757 → 31927 Å = 3.19 μm (×1000: 3646·8757/10000 = 3192); F277W ends \textasciitilde{}3.1 μm, F356W starts \textasciitilde{}3.1 μm: 3100 < 3192 < 3560. The rest-frame edge 364 sits below the gap.]
 \label{thm:mombh-quantum-edge-redshifts-into-filter-gap}
 \[
-  \frac{3646 \cdot 8757}{10000} = 3192 \quad\land\quad 3100 < 3192 \quad\land\quad 3192 < 3560 \quad\land\quad 364 < 3100
+  \left\lfloor \frac{3646 \cdot 8757}{10000} \right\rfloor = 3192 \quad\land\quad 3100 < 3192 \quad\land\quad 3192 < 3560 \quad\land\quad 364 < 3100
 \]
 \end{theorem}
 \begin{proof}
@@ -18711,7 +18725,7 @@ theorem visible_seven_colours : (List.range 7).length = 7 := by decide
 \begin{theorem}[THE HEART DISCOVERY: each rosette ray offsets the hue wheel by 360/7 = 51°, and the FOURTH ray (index 3, counting the first as 1) lands at 3·51 = 153° — squarely the green band. The seven rays walk the wheel as seven stations, and the fourth is green — the arithmetic behind the observation that two seven-fold systems agree. the offset arithmetic is sealed; any chakra reading of it stays UNVERIFIED — the number is sealed, the meaning is not.]
 \label{thm:fourth-ray-is-green-band}
 \[
-  \frac{360}{7} = 51 \quad\land\quad 3 \cdot 51 = 153
+  \left\lfloor \frac{360}{7} \right\rfloor = 51 \quad\land\quad 3 \cdot 51 = 153
 \]
 \end{theorem}
 \begin{proof}
@@ -20269,7 +20283,7 @@ theorem the_mix_space_is_its_own_mirror : ([1,10,45,120,210,252,210,120,45,10,1]
 \begin{theorem}[THE OVERTURE. π cannot be sung to the end — irrational, infinite, no `by decide` object — but its rational roof can: 22/7 opens 3.142857, the familiar three-point-one-four and then the round begins. 22·10⁶ / 7 = 3142857 in exact integer division; the song starts where Archimedes left the bracket.]
 \label{thm:song-pi-roof-opens}
 \[
-  \frac{22 \cdot 1000000}{7} = 3142857
+  \left\lfloor \frac{22 \cdot 1000000}{7} \right\rfloor = 3142857
 \]
 \end{theorem}
 \begin{proof}
@@ -21439,7 +21453,7 @@ theorem denial_drains_to_the_last_coin : (64 - 63 = 1) ∧ (63 = 7 * 9) ∧ (1 +
 \begin{theorem}[THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.]
 \label{thm:a440-not-on-the-vortex}
 \[
-  432 \bmod 9 = 0 \quad\land\quad 440 \bmod 9 = 8 \quad\land\quad \frac{\frac{60000}{252}}{2} = 119
+  432 \bmod 9 = 0 \quad\land\quad 440 \bmod 9 = 8 \quad\land\quad \frac{\left\lfloor \frac{60000}{252} \right\rfloor}{2} = 119
 \]
 \end{theorem}
 \begin{proof}
@@ -21573,7 +21587,7 @@ theorem chubb_stood_thirty_three_years : (1851 - 1818 = 33) ∧ (7 < 25) := by d
 \begin{theorem}[THE BREATH-HOLD RUNGS OF THE LADDER: constant-weight 130 m (Molchanov) sits below No-Limits 214 m (Nitsch), and the deepest rung reads 1 + 214/10 = 22 atmospheres by the floor - a human on one breath of surface air holding two-tenths of a Comex saturation. The diving ladder's bottom rung for an unassisted lung, integer-exact at the literature's 10 m per atmosphere.]
 \label{thm:freedive-records-ascend}
 \[
-  130 < 214 \quad\land\quad 1 + \frac{214}{10} = 22
+  130 < 214 \quad\land\quad 1 + \left\lfloor \frac{214}{10} \right\rfloor = 22
 \]
 \end{theorem}
 \begin{proof}
@@ -21615,7 +21629,7 @@ theorem checklist_trial_two_dives_each : (1043 * 2 = 2086) ∧ (2041 < 2086) := 
 \begin{theorem}[MECHANICS DISCOVERS QUANTUM ELECTRONICS: the rebreather carries THREE oxygen cells and takes the 2-of-3 vote because one cell can lie — and the vote is floor arithmetic: the sum of three bits over 2 is the majority, [0,0,0]->0, [1,0,0]->0, [1,1,0]->1, [1,1,1]->1. This is the majority gate of electronics AND the decode of the three-qubit repetition code of quantum error correction: one flipped bit is outvoted, exactly one mechanical practice, one classical gate and one quantum code wearing the same table. From the rebreather research (DAN, Shearwater): the mechanical discipline preceded and predicts the electronic and quantum forms.]
 \label{thm:three-cell-vote-majority}
 \[
-  \frac{0 + 0 + 0}{2} = 0 \quad\land\quad \frac{1 + 0 + 0}{2} = 0 \quad\land\quad \frac{1 + 1 + 0}{2} = 1 \quad\land\quad \frac{1 + 1 + 1}{2} = 1
+  \frac{0 + 0 + 0}{2} = 0 \quad\land\quad \left\lfloor \frac{1 + 0 + 0}{2} \right\rfloor = 0 \quad\land\quad \frac{1 + 1 + 0}{2} = 1 \quad\land\quad \left\lfloor \frac{1 + 1 + 1}{2} \right\rfloor = 1
 \]
 \end{theorem}
 \begin{proof}
@@ -21629,7 +21643,7 @@ theorem three_cell_vote_majority : ((0 + 0 + 0) / 2 = 0) ∧ ((1 + 0 + 0) / 2 = 
 \begin{theorem}[WHY NEVER REPLACE ALL THREE CELLS AT ONCE: two cells from the same batch aging alike fail TOGETHER, and two liars outvote one honest witness — (0+0+1)/2 = 0 kills the true reading — the same reason correlated errors defeat the three-qubit repetition code. Diversity is not a preference: it is what the majority table requires to mean anything. The rebreather manuals (rEvo, DAN) state it as practice; the arithmetic states it as law.]
 \label{thm:correlated-failure-defeats-the-vote}
 \[
-  \frac{0 + 0 + 1}{2} = 0 \quad\land\quad \frac{1 + 1 + 0}{2} = 1
+  \left\lfloor \frac{0 + 0 + 1}{2} \right\rfloor = 0 \quad\land\quad \frac{1 + 1 + 0}{2} = 1
 \]
 \end{theorem}
 \begin{proof}
@@ -21777,7 +21791,7 @@ theorem literature_sonnet_measure : (14 * 10 = 140) ∧ (154 = 11 * 14) := by de
 \begin{theorem}[GEOGRAPHY CLASS: one degree of meridian is 111 kilometres by the floor — 40008 / 360 = 111 of the earth's polar circumference — and the map's first census is seven continents plus five oceans, a dozen great names. The flat chart's drift table (flat\_drift\_is\_quadratic) already priced this class's honesty.]
 \label{thm:geography-degree-and-dozen}
 \[
-  \frac{40008}{360} = 111 \quad\land\quad 7 + 5 = 12
+  \left\lfloor \frac{40008}{360} \right\rfloor = 111 \quad\land\quad 7 + 5 = 12
 \]
 \end{theorem}
 \begin{proof}
@@ -21961,7 +21975,7 @@ theorem binary_kilo_drift_compounds : (1024 - 1000 = 24) ∧ (1024 = 2 ^ 10) ∧
 \begin{theorem}[THE HUMAN EFFECT OF THE CONCERT-PITCH DRIFT (captain: 'compute the theorems explaining the effect on human', beside a440\_drifts\_eight\_from\_the\_lattice): the 8 Hz drift on 432 is 1000·8/432 = 18 per-mille of frequency — exactly 3 × the reported just-noticeable difference for pitch (\textasciitilde{}6 per-mille, the psychoacoustics literature's figure, REPORTED not sealed): a human ear plainly HEARS A440 against A432. The drift is above perception, which is why the convention needed deciding at all. the arithmetic seals; the JND is the literature's number and human hearing varies — the seal prices the drift against the reported threshold, never against any one ear.]
 \label{thm:a440-drift-is-heard}
 \[
-  \frac{1000 \cdot 8}{432} = 18 \quad\land\quad 3 \cdot 6 = 18
+  \left\lfloor \frac{1000 \cdot 8}{432} \right\rfloor = 18 \quad\land\quad 3 \cdot 6 = 18
 \]
 \end{theorem}
 \begin{proof}
@@ -21975,7 +21989,7 @@ theorem a440_drift_is_heard : (1000 * 8 / 432 = 18) ∧ (3 * 6 = 18) := by decid
 \begin{theorem}[WHY EQUAL TEMPERAMENT WORKED ON THE HUMAN EAR (captain: 'compute the theorems explaining the effect on human' + the captain's own figure 'about 2 cents', beside pythagorean\_comma\_is\_the\_drift): the whole comma is 1000·7153/524288 = 13 per-mille, and spread across twelve fifths each carries 13/12 = 1 per-mille — about 2 cents per fifth in the musician's unit, the captain's figure — UNDER the reported \textasciitilde{}6 per-mille JND: the harmonisation succeeds precisely because the per-step drift falls below human resolution, where A440's whole drift (18 per-mille, 3×JND) sits above it. The PAIR is the human law: a harmonisation is invisible when drift-per-step < JND, and a convention is audible when its drift exceeds it. floors of exact integers; cents and JND are the literature's units, reported.]
 \label{thm:the-comma-hides-below-hearing}
 \[
-  \frac{1000 \cdot 7153}{524288} = 13 \quad\land\quad \frac{13}{12} = 1 \quad\land\quad 1 < 6
+  \left\lfloor \frac{1000 \cdot 7153}{524288} \right\rfloor = 13 \quad\land\quad \left\lfloor \frac{13}{12} \right\rfloor = 1 \quad\land\quad 1 < 6
 \]
 \end{theorem}
 \begin{proof}
@@ -22017,7 +22031,7 @@ theorem gregory_deleted_ten_days : (14 - 5 + 1 = 10) ∧ (1582 - 325 = 1257) := 
 \begin{theorem}[THE LAWFUL UNHARMONISED DRIFT A HUMAN LIVES INSIDE (captain: 'compute the theorems explaining the effect on human', beside epact\_eleven\_harmonised\_by\_meton): the Islamic calendar keeps the pure lunar year BY CHOICE — the 11-day epact is never absorbed, so the months walk the whole solar year in 365/11 = 33 years, and in a long life (2·33 = 66 < 120) a person fasts Ramadan through every season TWICE. This is drift worn openly — the calendar never claims solar alignment, so there is no collision (the drift law's honest class, like the UFO's name carrying its own verdict): the human effect of a DECLARED drift is experience, not error. floor arithmetic on the civil epact; real lunations vary and the observed calendar follows the moon, reported.]
 \label{thm:ramadan-walks-the-year-in-a-life}
 \[
-  \frac{365}{11} = 33 \quad\land\quad 2 \cdot 33 = 66 \quad\land\quad 66 < 120
+  \left\lfloor \frac{365}{11} \right\rfloor = 33 \quad\land\quad 2 \cdot 33 = 66 \quad\land\quad 66 < 120
 \]
 \end{theorem}
 \begin{proof}
@@ -22031,7 +22045,7 @@ theorem ramadan_walks_the_year_in_a_life : (365 / 11 = 33) ∧ (2 * 33 = 66) ∧
 \begin{theorem}[THE HUMAN EFFECT OF AN UNNAMED DRIFT: THE MISSING GIGABYTES (captain: 'compute the theorems explaining the effect on human', beside binary\_kilo\_drift\_compounds): a person buys a '500 GB' disk (decimal), the operating system reports in binary, and 500·10\textasciicircum{}9 / 2\textasciicircum{}30 = 465 — the buyer SEES 500 − 465 = 35 units missing and reads theft where there is only an unnamed unit drift. This exact perception gap filed real lawsuits; the IEC naming (KiB/GiB) is the harmonisation because the human effect was never the 24-per-kilo arithmetic — it was the WORD 'gigabyte' meaning two different lattices at once. A drift a human can misread as fraud must be harmonised in vocabulary, not just accounted. the arithmetic seals; the litigation history is the record's, reported.]
 \label{thm:the-buyer-sees-thirty-five-missing}
 \[
-  \frac{500 \cdot 10^{9}}{2^{30}} = 465 \quad\land\quad 500 - 465 = 35
+  \left\lfloor \frac{500 \cdot 10^{9}}{2^{30}} \right\rfloor = 465 \quad\land\quad 500 - 465 = 35
 \]
 \end{theorem}
 \begin{proof}
@@ -34063,7 +34077,7 @@ theorem alpine_shell_applets_partition_20 : (6 + 4 + 10 = 20) := by decide
 \begin{theorem}[THE CAP AS A RATE. The MCP wire payload grew from 75224 to 77885 bytes when ten ports were given doors, and the cost PER TOOL fell from 324.24 to 321.83 (hundredths: 32424 to 32183). A ceiling on the TOTAL fails on growth and passes on bloat; a ceiling on the RATE does the opposite. Rates in hundredths as integers because the determinism law refuses rounding helpers.]
 \label{thm:mcp-wire-rate-fell-while-total-grew-32183}
 \[
-  77885 > 75224 \quad\land\quad 32183 < 32424 \quad\land\quad \frac{77885 \cdot 100}{242} = 32183
+  77885 > 75224 \quad\land\quad 32183 < 32424 \quad\land\quad \left\lfloor \frac{77885 \cdot 100}{242} \right\rfloor = 32183
 \]
 \end{theorem}
 \begin{proof}
@@ -34119,7 +34133,7 @@ theorem impossibility_claims_debt_622 : (6 + 0 = 6) ∧ (622 > 6) ∧ (291 < 622
 \begin{theorem}[THE LIST CAP, COUNTED. 315 packages of 28635 carried a list longer than the removed 40-entry cap and 28320 did not; the largest dependency list is 422 and the largest provides list 1162; the truncated share was 1 percent by integer division. The name states what the arithmetic proves — three counts — and does NOT claim a universal over the pages, which is what the first name did before the incomplete finder refused it.]
 \label{thm:alpine-page-list-cap-removed-315}
 \[
-  315 + 28320 = 28635 \quad\land\quad 422 < 1162 \quad\land\quad \frac{315 \cdot 100}{28635} = 1
+  315 + 28320 = 28635 \quad\land\quad 422 < 1162 \quad\land\quad \left\lfloor \frac{315 \cdot 100}{28635} \right\rfloor = 1
 \]
 \end{theorem}
 \begin{proof}
@@ -34975,7 +34989,7 @@ theorem truncated_run_counted_47 : (46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41) 
 \begin{theorem}[THE COMPLETE SURPRISE, ITS GAP NAMED: the sun is about four hundred moon-diameters wide — 400 · 3474 = 1,389,600 km against the measured 1,392,000, the \textasciitilde{}3\% gap stated rather than smoothed — and about 389 moon-distances away (149,600,000 / 384,400 = 389, floor-exact). Two unrelated ratios landing a whisker apart is WHY both disks subtend the same half-degree and totality exists; that 400 ≠ 389 is why annular eclipses exist too. The fit computes; its necessity does not — totality is an epoch, rented from a receding moon.]
 \label{thm:eclipse-four-hundred}
 \[
-  400 \cdot 3474 = 1389600 \quad\land\quad \frac{149600000}{384400} = 389 \quad\land\quad 400 \ne 389 \quad\land\quad 4 \bmod 9 = 4
+  400 \cdot 3474 = 1389600 \quad\land\quad \left\lfloor \frac{149600000}{384400} \right\rfloor = 389 \quad\land\quad 400 \ne 389 \quad\land\quad 4 \bmod 9 = 4
 \]
 \end{theorem}
 \begin{proof}
@@ -35151,7 +35165,7 @@ theorem saturation_deco_accounts : (13 + 24 = 37) ∧ (37 < 43) ∧ (43 - 37 = 6
 \begin{theorem}[WATER TRAINS SPACE AT SEVEN-ISH TO ONE, stated by the floor as Nat division demands: NASA's crews log \textasciitilde{}40 pool hours per \textasciitilde{}6 EVA hours, and 40 / 6 = 6 with remainder 4 — the floor is 6, the remainder is named, and no false 7 is sealed. The pool is 12 m deep: space is reached through two atmospheres of water. SOURCE for both figures: NASA's Neutral Buoyancy Laboratory at Johnson Space Center, which publishes the training ratio as roughly seven pool hours per EVA hour and the pool as 40 feet deep — about 12.2 m, ROUNDED to 12 here so the rung lands on an integer. The ratio is approximate at the source, which is precisely why the wing seals the floor and names the remainder instead of sealing a 7 the source never claimed exactly.]
 \label{thm:nbl-trains-by-the-floor}
 \[
-  \frac{40}{6} = 6 \quad\land\quad 40 \bmod 6 = 4 \quad\land\quad 1 + \frac{12}{10} = 2
+  \left\lfloor \frac{40}{6} \right\rfloor = 6 \quad\land\quad 40 \bmod 6 = 4 \quad\land\quad 1 + \left\lfloor \frac{12}{10} \right\rfloor = 2
 \]
 \end{theorem}
 \begin{proof}

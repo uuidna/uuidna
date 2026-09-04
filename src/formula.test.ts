@@ -112,3 +112,55 @@ test('congruenceOf reads the shape from either side, and only that shape', () =>
   const c = parseFormula('1 + 2 = 3')
   assert.ok(c.ok && congruenceOf(c.node) === null)
 })
+
+// ── `\frac` CLAIMS EXACTNESS THAT Nat DIVISION NEVER ASSERTS. This layer rendered `85179 / 36 = 2366` as
+// \frac{85179}{36} = 2366 — true in Lean, where `/` on Nat floors, and FALSE in print, where that quotient is
+// 2366.08. Found by typesetting a theorem sealed minutes earlier: the seal was honest and its rendering was not,
+// which is the worse direction, because a reader trusts set mathematics over the source printed beside it.
+test('a truncating division is FLOORED and an exact one is not', () => {
+  assert.equal(typeset('360 / 10 = 36').tex, '\\frac{360}{10} = 36')
+  assert.equal(typeset('85179 / 36 = 2366').tex, '\\left\\lfloor \\frac{85179}{36} \\right\\rfloor = 2366')
+  // an expression numerator is evaluated, not guessed: 7·6 = 42 divides by 2, so it stays a plain fraction
+  assert.equal(typeset('(7 * 6) / 2 = 21').tex, '\\frac{7 \\cdot 6}{2} = 21')
+  // and MathML gets real floor fences, not a bracket drawn with parentheses
+  assert.match(typeset('4352 / 26 = 167').mathml ?? '', /&#x230A;[\s\S]*mfrac[\s\S]*&#x230B;/)
+})
+
+// AND THE FIRST VERSION OF THIS CHECK WAS WRONG, NOT THE RENDERER — the fourth instrument-wrong-code-right of
+// the day, and a textbook regex over-capture. It re-derived exactness with /(\d+)\s*\/\s*(\d+)/ over the SOURCE,
+// so `72 * 71 / 2` (which parses left-associatively as (72·71)/2 = 5112/2, exact) was read as 71/2 and reported
+// as a misprint. A substring is not a subexpression. The check walks the PARSE TREE now, and evaluates operands
+// with THIS FILE'S own evaluator rather than calling formula.ts's — two separately written evaluators that must
+// agree, because a file is never its own witness.
+function divisions(n: Node): { exact: boolean }[] {
+  if (n.kind === 'num') return []
+  if (n.kind === 'neg' || n.kind === 'not') return divisions(n.of)
+  const here: { exact: boolean }[] = []
+  if (n.op === '/') {
+    const a = evaluate(n.left)
+    const b = evaluate(n.right)
+    if (typeof a === 'bigint' && typeof b === 'bigint' && b !== 0n) here.push({ exact: a % b === 0n })
+  }
+  return [...here, ...divisions(n.left), ...divisions(n.right)]
+}
+
+test('EVERY sealed division typesets to a form that is true as written', () => {
+  const wrong: string[] = []
+  for (const t of THEOREMS) {
+    if (classify(t.statement) !== 'formula' || !t.statement.includes('/')) continue
+    const p = parseFormula(t.statement)
+    if (!p.ok) continue
+    const r = typeset(t.statement)
+    if (!r.tex) continue
+    const divs = divisions(p.node)
+    if (!divs.length) continue
+    const inexact = divs.filter((d) => !d.exact).length
+    const floors = (r.tex.match(/\\lfloor/g) ?? []).length
+    // one floor per truncating division, and none for an exact one: a plain \frac asserts an exactness that
+    // Nat division does not have, and a floor on an exact quotient understates a fact the kernel does have
+    if (floors !== inexact) {
+      wrong.push(`${t.key}: ${inexact} truncating division(s) but ${floors} floor(s) — ${t.statement.slice(0, 60)}`)
+    }
+  }
+  assert.deepEqual(wrong, [], 'a rendering that misstates its own division is worse than an unrendered one')
+})

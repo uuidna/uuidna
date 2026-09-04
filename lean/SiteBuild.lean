@@ -30,6 +30,9 @@ theorem the_wire_rate_rose_by_restored_copy : (32293 - 32183 = 110) ∧ (255 - 2
 /-- a fixed-point-free involution on two states: (1 + 1) % 2 = 0 and nothing is its own opposite -/
 theorem the_two_sides_return_what_they_take : ((1 + 1) % 2 = 0) ∧ (1 - 0 ≠ 0) ∧ (1 - 1 ≠ 1) := by decide
 
+/-- 85179 bytes of markup from a 36-character address: 2366 times the input, shipped 2603 times -/
+theorem the_face_is_computed_not_shipped : (85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000) := by decide
+
 /-- 2^3^2 = 512, but (2^3)^2 = 64 -/
 theorem exponent_associativity_changes_the_value : (2^3^2 = 512) ∧ ((2^3)^2 = 64) ∧ (512 ≠ 64) := by decide
 

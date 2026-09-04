@@ -142,6 +142,42 @@ export function parseFormula(src: string): Parsed {
   return out
 }
 
+// ---- is a division EXACT? ----
+//
+// LEAN'S `/` ON Nat TRUNCATES, AND `\frac` CLAIMS IT DOES NOT. This layer rendered `85179 / 36 = 2366` as
+// \frac{85179}{36} = 2366 — true in Lean, where the division floors, and FALSE in print, where 85179/36 is
+// 2366.08. Found by typesetting a theorem I had just sealed: the seal was honest and its rendering was not, which
+// is the worse direction because the reader trusts the set mathematics over the source beside it.
+//
+// So exactness is DECIDED, not assumed: both operands of a `/` are closed numeral arithmetic in every sealed
+// statement, so evaluating them settles whether the quotient is exact. Exact divisions keep the built-up
+// fraction; truncating ones are set inside floor brackets, which is what Nat division actually means.
+function evalNode(n: Node): bigint | null {
+  if (n.kind === 'num') return BigInt(n.text)
+  if (n.kind === 'neg') { const v = evalNode(n.of); return v === null ? null : -v }
+  if (n.kind === 'not') return null
+  const a = evalNode(n.left)
+  const b = evalNode(n.right)
+  if (a === null || b === null) return null
+  switch (n.op) {
+    case '+': return a + b
+    case '-': return a - b
+    case '*': return a * b
+    case '/': return b === 0n ? null : a / b
+    case '%': return b === 0n ? null : a % b
+    case '^': return b < 0n ? null : a ** b
+    default: return null // a relation or a conjunction is not a value
+  }
+}
+
+/** exactDivision(node) → whether `a / b` divides without remainder. Unknown operands are treated as INEXACT, so
+ *  an unevaluable division is floored rather than presented as an exact fraction: the safe direction. */
+function exactDivision(left: Node, right: Node): boolean {
+  const a = evalNode(left)
+  const b = evalNode(right)
+  return a !== null && b !== null && b !== 0n && a % b === 0n
+}
+
 // ---- precedence, for bracketing only where print demands it ----
 const PREC: Record<BinOp, number> = { '∧': 1, '=': 2, '≠': 2, '≤': 2, '≥': 2, '<': 2, '>': 2, '%': 3, '+': 4, '-': 4, '*': 5, '/': 5, '^': 6 }
 
@@ -176,7 +212,10 @@ export function formulaTex(n: Node): string {
   if (n.kind === 'num') return n.text
   if (n.kind === 'neg') return '-' + formulaTex(n.of)
   if (n.kind === 'not') return '\\lnot ' + formulaTex(n.of)
-  if (n.op === '/') return `\\frac{${formulaTex(n.left)}}{${formulaTex(n.right)}}`
+  if (n.op === '/') {
+    const frac = `\\frac{${formulaTex(n.left)}}{${formulaTex(n.right)}}`
+    return exactDivision(n.left, n.right) ? frac : `\\left\\lfloor ${frac} \\right\\rfloor`
+  }
   if (n.op === '%') {
     const a = modNeedsBrackets(n.left) ? `\\left(${formulaTex(n.left)}\\right)` : formulaTex(n.left)
     return `${a} \\bmod ${formulaTex(n.right)}`
@@ -201,7 +240,12 @@ function ml(n: Node): string {
   if (n.kind === 'num') return `<mn>${n.text}</mn>`
   if (n.kind === 'neg') return `<mrow><mo form="prefix">−</mo>${ml(n.of)}</mrow>`
   if (n.kind === 'not') return `<mrow><mo form="prefix">¬</mo>${ml(n.of)}</mrow>`
-  if (n.op === '/') return `<mfrac><mrow>${ml(n.left)}</mrow><mrow>${ml(n.right)}</mrow></mfrac>`
+  if (n.op === '/') {
+    const frac = `<mfrac><mrow>${ml(n.left)}</mrow><mrow>${ml(n.right)}</mrow></mfrac>`
+    return exactDivision(n.left, n.right)
+      ? frac
+      : `<mrow><mo stretchy="true">&#x230A;</mo>${frac}<mo stretchy="true">&#x230B;</mo></mrow>`
+  }
   if (n.op === '%') {
     const a = modNeedsBrackets(n.left) ? bracket(n.left) : ml(n.left)
     return `<mrow>${a}<mo lspace="0.28em" rspace="0.28em">mod</mo>${ml(n.right)}</mrow>`

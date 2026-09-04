@@ -956,6 +956,7 @@ const DECIDED: readonly (readonly [string, string])[] = [
   ["a_floor_may_fall_to_what_is_anchored", "(17 - 2 = 15) ∧ (17 - 1 = 16) ∧ (16 - 1 = 15) ∧ (17 > 15)"],
   ["the_wire_rate_rose_by_restored_copy", "(32293 - 32183 = 110) ∧ (255 - 242 = 13) ∧ (110 * 255 = 28050) ∧ (82349 - 77885 = 4464) ∧ (13 * 32183 = 418379)"],
   ["the_two_sides_return_what_they_take", "((1 + 1) % 2 = 0) ∧ (1 - 0 ≠ 0) ∧ (1 - 1 ≠ 1)"],
+  ["the_face_is_computed_not_shipped", "(85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000)"],
   ["exponent_associativity_changes_the_value", "(2^3^2 = 512) ∧ ((2^3)^2 = 64) ∧ (512 ≠ 64)"],
   ["the_congruence_form_is_the_modulus_form", "((List.range 63).all (fun x => ((x - x % 9) % 9 == 0) && (x % 9 < 9)))"],
   ["force_equilibrium", "(10 - 6 - 4 : Int) = 0"],

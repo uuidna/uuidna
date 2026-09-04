@@ -1565,6 +1565,7 @@ verify_costs_one_walk_against_the_whole_page_count 27
 a_floor_may_fall_to_what_is_anchored 27
 the_wire_rate_rose_by_restored_copy 27
 the_two_sides_return_what_they_take 27
+the_face_is_computed_not_shipped 27
 exponent_associativity_changes_the_value 27
 the_congruence_form_is_the_modulus_form 27
 #Software.lean
