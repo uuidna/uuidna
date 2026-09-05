@@ -377,6 +377,11 @@
       "lead": "All quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA.",
       "boundary": "Shor has no target inside uuidna because the envelope is symmetric-only (no RSA/ECC/ECDSA on the wire; the referrer door is why public routing identities can be shown without exposing a Shor key). Grover is not gone: grover_quadratic_bound and sha256_grover_margin_is_the_address seal 256/2 = 128, and key_floor_is_one_uuid names that floor as one uuid. oos_physical_sidechannel is a named void (power/EM/timing). Bitcoin spend still reveals secp256k1; this ledger does not become that chain. Desk does not mint quantum_threat_gone.",
       "recorded": "2026-08-28"
+    },
+    {
+      "lead": "shadcn/ui distributes flat files through a served, schema-d, namespaced catalogue (registry.json + registry-item.json, 12 item types, @namespace/name, ${ENV} auth headers, an MCP door that installs). uuidna generates 255 MCP tools and six @uuidna/* surfaces reachable ONLY by calling its own MCP: no catalogue a downstream can resolve, no namespace under which anyone can pin and fetch a dependency closure. uuidna_registry exists as a TOOL; a registry as a SERVED ARTIFACT does not.",
+      "boundary": "An INVOLUTION, not a licence clash. shadcn gives the CODE away (MIT, the consumer owns the copy) and KEEPS the catalogue as its product surface; this tree keeps the CODE (CC-BY-NC-ND, no derivative, no commerce) and GIVES the catalogue away (read-only tools, free to call). Those are the two ends of one map. Adopting shadcn-s distribution while holding NC-ND would put this tree at NEITHER end, keeping both the code and the catalogue — the one position the involution has no fixed point for. The licence text is downstream of that, not the cause. Measured: npm shadcn 4.21.0, MIT; shadcn-ui/ui 123069 stars; both schemas fetched and their enums enumerated from the served JSON. NOT CLAIMED: that any downstream has asked for a registry — none has.",
+      "recorded": "2026-09-05"
     }
   ],
   "tables": {
