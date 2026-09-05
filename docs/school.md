@@ -99,7 +99,7 @@ three citers alphabetically, and the count carries the rest.
 
 | Walk this first | Cited by | Among its citers |
 | --- | ---: | --- |
-| [`window_not_universal`](/theorem/window_not_universal) | 4 | [`cubes_sum_to_square_of_triangle`](/theorem/cubes_sum_to_square_of_triangle), [`pluck_preserves_bound_at_the_window`](/theorem/pluck_preserves_bound_at_the_window), [`tet_semitone_no_rational_at_the_window`](/theorem/tet_semitone_no_rational_at_the_window) |
+| [`window_not_universal`](/theorem/window_not_universal) | 4 | [`cubes_sum_to_square_of_triangle`](/theorem/cubes_sum_to_square_of_triangle), [`pluck_preserves_bound_at_the_window`](/theorem/pluck_preserves_bound_at_the_window), [`team_pairs_triples_cover`](/theorem/team_pairs_triples_cover) |
 | [`codons_sixty_four`](/theorem/codons_sixty_four) | 3 | [`octave_codon_address`](/theorem/octave_codon_address), [`payload_aligns_where_the_name_does_not`](/theorem/payload_aligns_where_the_name_does_not), [`payload_carries_the_strand`](/theorem/payload_carries_the_strand) |
 | [`points_of_sail`](/theorem/points_of_sail) | 3 | [`eight_points_is_90`](/theorem/eight_points_is_90), [`sixteen_points_is_180`](/theorem/sixteen_points_is_180), [`twelve_points_is_135`](/theorem/twelve_points_is_135) |
 | [`rosette_quantum_doubling_is_two_coins`](/theorem/rosette_quantum_doubling_is_two_coins) | 3 | [`a_handle_is_eight_pairs_paid_it_is_sixteen`](/theorem/a_handle_is_eight_pairs_paid_it_is_sixteen), [`b2_is_trinity_rosette`](/theorem/b2_is_trinity_rosette), [`clay_gravity_equals_rosette`](/theorem/clay_gravity_equals_rosette) |

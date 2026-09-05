@@ -4,12 +4,12 @@ aside: true
 outline: [2, 3]
 ---
 
-# MCP tools <Badge type="tip" text="255 keys" />
+# MCP tools <Badge type="tip" text="256 keys" />
 
 <!-- GENERATED from src/mcp.ts by scripts/gen-mcp — DO NOT EDIT. Categories, skills and parameters are derived from the tool keys and their input schemas. -->
 
 Every tool the uuidna MCP server exposes — fuse uuidna into any harness (Claude, Cursor, any MCP client). This page
-is **built from the keys**: the 255 tools below are read from the server's own tool list and
+is **built from the keys**: the 256 tools below are read from the server's own tool list and
 organised into 41 categories and their skills, so the site search and this page's navigation stay in
 lockstep with the code. Each tool lists its **parameters** (name · type · required); where a description says
 "Returns …", that is the shape it yields. **This same path speaks the protocol**: a browser reading /mcp gets this
@@ -26,13 +26,13 @@ diagnosis, never a silent pass. This page's own generation was judged; the line 
 page was built:
 
 ```
-gate CLEAN f0 d0 v0 · fc2c0b32-310a-8800-a75e-e044f22733f6
+gate CLEAN f0 d0 v0 · e1224ef1-8280-8b3f-9c26-d018e0183c2c
 ```
 
 The gate proves itself against the sealed spec: the eight-state verdict table recomputes to
 **[1,0,0,0,0,0,0,0]** — the sealed table (matchesSealedSpec: **true**;
-1 clean state, 7 drained), and the 255-tool registry folds to its
-order-invariant identity `674b1c9f-81fc-8822-952b-321a98fc26a2` (the hosted subset serves the same gate over its own registry).
+1 clean state, 7 drained), and the 256-tool registry folds to its
+order-invariant identity `25e772cc-51f7-89f9-b4b9-9919c0ed7cb2` (the hosted subset serves the same gate over its own registry).
 Standing on: [`anti_fraud_check_deterministic`](/theorem/anti_fraud_check_deterministic) · [`conformance_failure_detects_intrusion`](/theorem/conformance_failure_detects_intrusion) · [`forgery_flags_every_mismatch`](/theorem/forgery_flags_every_mismatch) · [`honesty_gate_is_theorem_not_oracle`](/theorem/honesty_gate_is_theorem_not_oracle) · [`honesty_gate_passes_iff_all_sealed`](/theorem/honesty_gate_passes_iff_all_sealed) · [`overclaim_with_fake_cite_fails`](/theorem/overclaim_with_fake_cite_fails) · [`sealed_theorem_not_forged`](/theorem/sealed_theorem_not_forged).
 
 **And every call deposits immediately.** Contribute first, then take — the captain law, enforced by the protocol:
@@ -48,9 +48,9 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
   -d '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"uuidna_gate_status","arguments":{}}}'
 ```
 
-## The grid <Badge type="tip" :text="`255`" />
+## The grid <Badge type="tip" :text="`256`" />
 
-255 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 113 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
+256 tools, **ranked by usability — the reusable at the top** (fewest required keys first; the 113 zero-arg tools lead). The order EMERGES from `uuidna_mcp_benchmark`, not a hand-kept list. Each links to its entry below.
 
 <div class="mcp-grid">
 <a href="#uuidna-aas"><code>aas</code></a>
@@ -247,6 +247,7 @@ curl -s -X POST https://uuidna.com/mcp -H 'content-type: application/json' \
 <a href="#uuidna-snapshot"><code>snapshot</code></a>
 <a href="#uuidna-spin"><code>spin</code></a>
 <a href="#uuidna-strict"><code>strict</code></a>
+<a href="#uuidna-team"><code>team</code></a>
 <a href="#uuidna-theorem"><code>theorem</code></a>
 <a href="#uuidna-through-void"><code>through_void</code></a>
 <a href="#uuidna-transform"><code>transform</code></a>
@@ -597,7 +598,7 @@ Run the whole Lean ledger through the trial: every theorem VERIFIED by its `by d
 
 _No parameters._
 
-## Other <Badge type="tip" :text="'123'" />
+## Other <Badge type="tip" :text="'124'" />
 
 *skill: other*
 
@@ -923,6 +924,16 @@ TYPESET a sealed statement: MathML and TeX. Both are derived from the Lean by sr
 | param | type | required | description |
 | --- | --- | --- | --- |
 | `key` | string | no | theorem key; omit for the whole… |
+
+### `uuidna_team`
+
+THE TEAM AN APPLICATION OF ANY TYPE ACTUALLY NEEDS, computed from the sealed ledger — never a hand-written list. Pass {need} (the words describing the application: its domain, features or stack) and get back SEATS: groups of sealed capabilities the ledger's own citation graph entangles, because when the work in one capability cites the work in another the seam between them belongs inside one head. The seat COUNT is therefore not a choice — it is the number of connected components of that graph restricted to what was asked for, so an application whose needs fall in one component cannot be split by adding people. Each seat carries its skills, its sealed-theorem count, a learning order (most-cited first, since a foundation is what the rest rests on), the browser shelf where the capability is practised, its ESCO phrases and its handle. A need with no sealed capability behind it is returned as a named GAP, never absorbed into a neighbouring seat to make the answer look whole. PURE and offline; same need, same receipt. THIS IS NOT A STAFFING PLAN, a competence assessment, or a claim that anyone is qualified for anything, and the ESCO leg names what a capability is CALLED in the European Commission's taxonomy — never that any authority recognises or accredits it (theorem provenance_integrity_not_content_truth). Returns {need,seats,gaps,matchedSkills,seatsAreComponents,receipt,honest}.
+
+**Parameters**
+
+| param | type | required | description |
+| --- | --- | --- | --- |
+| `need` | array | **yes** | the words describing the applic… |
 
 ### `uuidna_snapshot`
 

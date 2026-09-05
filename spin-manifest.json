@@ -4,15 +4,15 @@
     "lean/PRINCIPLE.md": "b98fad27c8de8ee6",
     "CHANGELOG.md": "276de8069ab383f4",
     "lean/axioms.json": "1a94dc3fbe7e8b79",
-    "docs/mcp.md": "a3761dc4f76880a5",
+    "docs/mcp.md": "4975ffc363b58c1c",
     "audit-citations.json": "fdd10e74a92a8255",
-    "support-audit.json": "d2d6dab09fe8889e",
-    "research-leads.json": "f4b6020703c889e8",
+    "support-audit.json": "adeaf7cf96a982eb",
+    "research-leads.json": "e4d8eaaeb33989dd",
     ".zenodo.json": "e038736282fe833b",
-    "reports.json": "05a43020c67d8e42",
+    "reports.json": "a6aa254c582b88c5",
     "lean/statement-index.json": "92b12c737fbc86e9",
     "README.md": "c8ebd01e16938702",
-    "llm.txt": "f98f8f50e85586c2",
+    "llm.txt": "5d7305a5a67d8ee4",
     "src/chunks/00/082e72.json": "f0fba0cf1340876d",
     "src/chunks/00/0dae09.json": "81616fd94a688ddd",
     "src/chunks/00/25de8a.json": "7eefae312c7d8827",
@@ -2822,5 +2822,5 @@
     "lean/wave-queue.json": "9a0e65f2c68a824f",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "c5920c1c-4615-8261-9bb7-ad737347f115"
+  "receipt": "36dbe1ce-2093-84c8-8c20-bac12bb31238"
 }

@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "72d7208731a54b1de6c15e56fddeaf4e",
+    "src": "a62580ebe8d495758bb561f658bbb05a",
     "lean": "f972fa36012de6b88e4997e393c3950c"
   },
   "files": {
@@ -3479,7 +3479,7 @@
     "src/mcp-wire.test.ts": "91edd9ddd4cb27b2",
     "src/mcp-wire.ts": "fce9ac9952dab0f7",
     "src/mcp.test.ts": "2b8100729d7e1744",
-    "src/mcp.ts": "83a321649d11c363",
+    "src/mcp.ts": "427193fb34f22710",
     "src/measurement-sources.ts": "752a5e3a0decdc40",
     "src/measurement.test.ts": "3da9d489881e97d3",
     "src/measurement.ts": "b563d6e9dfe8bba0",
@@ -4009,7 +4009,7 @@
     "src/scripts/gen-readme.ts": "e40d48022d9fad2a",
     "src/scripts/gen-referrer-song.ts": "d1570b354181a116",
     "src/scripts/gen-reports.ts": "7a29ed45b9b27aa2",
-    "src/scripts/gen-school.ts": "267d1537f13a3037",
+    "src/scripts/gen-school.ts": "fd4b1094780f12f9",
     "src/scripts/gen-search-feed.ts": "53750675473a3f42",
     "src/scripts/gen-seo-freeze.ts": "550be1880d6b8458",
     "src/scripts/gen-sequence-field.ts": "895aece28f9e0b1b",
@@ -4282,7 +4282,7 @@
     "src/three-geometry.ts": "6204a6ec54bb57e7",
     "src/tool-debt.test.ts": "f577d8de1872748d",
     "src/tool-exercise.test.ts": "324aa53d2b6bdfeb",
-    "src/tool-scope.ts": "4f26d5d73b5114b7",
+    "src/tool-scope.ts": "5ebedd76f18662a3",
     "src/trading-shelf.test.ts": "d9ce7ee7bdd79b7c",
     "src/transform.ts": "f78e4a7843febc0b",
     "src/treason.ts": "78379a986c438646",
@@ -4322,7 +4322,7 @@
   },
   "verified": [
     "guard",
-    "tests"
+    "build"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."
