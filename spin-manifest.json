@@ -9,7 +9,7 @@
     "support-audit.json": "e649f3bda559845e",
     "research-leads.json": "c859883c3ce384a1",
     ".zenodo.json": "e038736282fe833b",
-    "reports.json": "35e4425fa5508485",
+    "reports.json": "90cd22a847908155",
     "lean/statement-index.json": "92b12c737fbc86e9",
     "README.md": "c8ebd01e16938702",
     "llm.txt": "f98f8f50e85586c2",
@@ -920,6 +920,7 @@
     "src/chunks/58/6da19b.json": "d7383af41b8a84bb",
     "src/chunks/58/78cb2d.json": "f466a72a3880803b",
     "src/chunks/58/7984a7.json": "1d6e115681f48bc9",
+    "src/chunks/58/9e93e6.json": "e2a7b5ad3272897d",
     "src/chunks/58/aaff82.json": "dc279eff01958715",
     "src/chunks/58/ae8500.json": "5b5d66864fb58f6f",
     "src/chunks/58/b1f3e9.json": "6265d40784558981",
@@ -1581,6 +1582,7 @@
     "src/chunks/98/932d9d.json": "6f6324159239885f",
     "src/chunks/98/a53377.json": "c48b8e62bf658d23",
     "src/chunks/98/ab8df0.json": "ee75bbbad91087dc",
+    "src/chunks/98/d4e596.json": "8b173dbd3ae58956",
     "src/chunks/98/de7229.json": "2344f0702edd8b6b",
     "src/chunks/98/fb25e3.json": "ba8d4e2066f6803d",
     "src/chunks/99/145ae3.json": "0e51fafa8f928ef8",
@@ -1682,6 +1684,7 @@
     "src/chunks/a3/afeb7a.json": "40930e76d7e98cd1",
     "src/chunks/a4/02b070.json": "6cf4335bf047866c",
     "src/chunks/a4/1f49eb.json": "df004280623b867f",
+    "src/chunks/a4/4a28d0.json": "4280723d5f3d818a",
     "src/chunks/a4/55ae6e.json": "2604ab52139f86e7",
     "src/chunks/a4/7cfc1a.json": "e8152b0df0d78f0f",
     "src/chunks/a4/858b27.json": "72f89b157fa886a6",
@@ -2199,6 +2202,7 @@
     "src/chunks/db/c66f70.json": "bd8b3399201286db",
     "src/chunks/db/ed9806.json": "2c0b535ece028b4c",
     "src/chunks/db/ee305b.json": "89bc0808ef918cdd",
+    "src/chunks/dc/1b5c81.json": "177bdd32682d88c2",
     "src/chunks/dc/38e4d7.json": "b415ea1078cc8608",
     "src/chunks/dc/6ca32b.json": "ba040b3f6c6285be",
     "src/chunks/dc/e0538f.json": "290a1f63021f8bb4",
@@ -2818,5 +2822,5 @@
     "lean/wave-queue.json": "9a0e65f2c68a824f",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "aa36fd68-01f9-85ce-9abb-d775bcdcc8aa"
+  "receipt": "f7bb56e4-c069-8a06-973d-68cc2bc44fb2"
 }
