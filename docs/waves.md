@@ -33,7 +33,7 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 ## Accepted — the cargo, each with its seal
 
-929 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+930 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -873,7 +873,6 @@ theorem page and recompute either.
 | [`alpine_dom_as_vi_ie_257`](/theorem/alpine_dom_as_vi_ie_257) | [`2ed3cf4f`](/theorem/alpine_dom_as_vi_ie_257) | `a23e6319` |
 | [`alpine_dom_as_ga_ie_50`](/theorem/alpine_dom_as_ga_ie_50) | [`5e3ddabf`](/theorem/alpine_dom_as_ga_ie_50) | `cfa42293` |
 | [`quantum_margin_after_both_advantages_73`](/theorem/quantum_margin_after_both_advantages_73) | [`8f825112`](/theorem/quantum_margin_after_both_advantages_73) | `14034eb7` |
-| [`alpine_security_ops_plannable_4`](/theorem/alpine_security_ops_plannable_4) | [`ff14f0e6`](/theorem/alpine_security_ops_plannable_4) | `0ce7950b` |
 | [`alpine_shell_applets_partition_20`](/theorem/alpine_shell_applets_partition_20) | [`7ce22496`](/theorem/alpine_shell_applets_partition_20) | `95bc90db` |
 | [`mcp_wire_rate_fell_while_total_grew_32183`](/theorem/mcp_wire_rate_fell_while_total_grew_32183) | [`dedc4833`](/theorem/mcp_wire_rate_fell_while_total_grew_32183) | `e09277f0` |
 | [`mcp_tool_coverage_partition_244`](/theorem/mcp_tool_coverage_partition_244) | [`ef76fa64`](/theorem/mcp_tool_coverage_partition_244) | `5b459720` |
@@ -968,6 +967,8 @@ theorem page and recompute either.
 | [`alpine_dom_la_so_ie_7702`](/theorem/alpine_dom_la_so_ie_7702) | [`66e94b6f`](/theorem/alpine_dom_la_so_ie_7702) | `599a0b09` |
 | [`alpine_dom_la_en_ie_7517`](/theorem/alpine_dom_la_en_ie_7517) | [`4f642ab3`](/theorem/alpine_dom_la_en_ie_7517) | `037cff69` |
 | [`merkle_advantage_starts_above_one_bit`](/theorem/merkle_advantage_starts_above_one_bit) | [`7fcddeac`](/theorem/merkle_advantage_starts_above_one_bit) | `22859641` |
+| [`alpine_shell_applets_partition_85`](/theorem/alpine_shell_applets_partition_85) | [`439bea18`](/theorem/alpine_shell_applets_partition_85) | `e9891eb7` |
+| [`alpine_security_ops_plannable_4`](/theorem/alpine_security_ops_plannable_4) | [`b3c05da4`](/theorem/alpine_security_ops_plannable_4) | `ffda0d5a` |
 
 ## Refused — the law school's enrollment roster
 

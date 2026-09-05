@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 934 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 935 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 933 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 934 siblings below.
 
-**934 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 753 of its 934 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
+**935 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 754 of its 935 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 934 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 935 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -5884,13 +5884,6 @@ The ledger holds this as [quantum_margin_after_both_advantages_73](/theorem/quan
 (128 / 2 = 64) ∧ (1000 <= 1024) ∧ (600000 > 524288) ∧ (64 - 10 + 19 = 73)
 ```
 
-### Alpine domain port (security-ops): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every named security operation is plannable against the pinned rootfs (4 of 4, none blocked) — the fact the withdrawn refusal denied
-The ledger holds this as [alpine_security_ops_plannable_4](/theorem/alpine_security_ops_plannable_4) — proven `by decide`, sorry-free:
-
-```lean
-(4 + 0 = 4) ∧ (0 = 0)
-```
-
 ### Alpine domain port (shell-applets): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (4), or uuidna's own (10) — exhaustive and disjoint
 The ledger holds this as [alpine_shell_applets_partition_20](/theorem/alpine_shell_applets_partition_20) — proven `by decide`, sorry-free:
 
@@ -6547,6 +6540,20 @@ The ledger holds this as [merkle_advantage_starts_above_one_bit](/theorem/merkle
 
 ```lean
 ((List.range' 1 12).all (fun p => (((List.range' 1 p).map (fun k => 2^(p-k))).sum == 2^p - 1))) ∧ ((List.range' 1 12).all (fun p => ((2^p - 1 > p) == (p > 1))))
+```
+
+### Alpine domain port (shell-applets): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (69), declared by Alpine elsewhere (6), or uuidna's own (10) — exhaustive and disjoint
+The ledger holds this as [alpine_shell_applets_partition_85](/theorem/alpine_shell_applets_partition_85) — proven `by decide`, sorry-free:
+
+```lean
+(69 + 6 + 10 = 85)
+```
+
+### Alpine domain port (security-ops): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the 4 named security operations are 4 DISTINCT ones — no two share an operation name or a binary, decided pairwise over both fingerprint lists — and all 4 are plannable against the pinned rootfs with 0 blocked, which the js witness checks because plannability is read from the surface rather than derived. The distinctness is what makes the count honest; the old statement asserted only that 4 + 0 = 4
+The ledger holds this as [alpine_security_ops_plannable_4](/theorem/alpine_security_ops_plannable_4) — proven `by decide`, sorry-free:
+
+```lean
+(([738, 1334, 1333, 919].eraseDups.length = 4)) ∧ (([838, 834, 328, 772].eraseDups.length = 4))
 ```
 
 

@@ -1,0 +1,12 @@
+{
+  "handle": "ef64b60b",
+  "address": "ef64b60b-7a9a-8357-be6e-a83d7fce1d81",
+  "statement": "(69 + 6 + 10 = 85)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_shell_applets_partition_85"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

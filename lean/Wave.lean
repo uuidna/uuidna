@@ -4985,13 +4985,6 @@ theorem alpine_dom_as_ga_ie_50 : (25 + 25 - 0 = 50) := by decide
     that does not exist — arithmetic over three named quantities, any of which can be argued with in public. -/
 theorem quantum_margin_after_both_advantages_73 : (128 / 2 = 64) ∧ (1000 <= 1024) ∧ (600000 > 524288) ∧ (64 - 10 + 19 = 73) := by decide
 
-/-- Alpine domain port (security-ops): exact arithmetic over the census counts. — membership is a pattern match
-    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
-    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
-    executed. every named security operation is plannable against the pinned rootfs (4 of 4, none blocked) — the
-    fact the withdrawn refusal denied -/
-theorem alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0) := by decide
-
 /-- Alpine domain port (shell-applets): exact arithmetic over the census counts. — membership is a pattern match
     over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
     what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
@@ -5551,3 +5544,19 @@ theorem alpine_dom_la_en_ie_7517 : (7488 + 30 - 1 = 7517) := by decide
     leaf parities verifying and cross-verification refused in both directions. One rung where the tally and the
     closed form part refutes this outright, and the instrument to find it ships here. -/
 theorem merkle_advantage_starts_above_one_bit : ((List.range' 1 12).all (fun p => (((List.range' 1 p).map (fun k => 2^(p-k))).sum == 2^p - 1))) ∧ ((List.range' 1 12).all (fun p => ((2^p - 1 > p) == (p > 1)))) := by decide
+
+/-- Alpine domain port (shell-applets): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. every uuidnaOS applet is declared by the shell domain (69), declared by Alpine elsewhere (6), or
+    uuidna's own (10) — exhaustive and disjoint -/
+theorem alpine_shell_applets_partition_85 : (69 + 6 + 10 = 85) := by decide
+
+/-- Alpine domain port (security-ops): exact arithmetic over the census counts. — membership is a pattern match
+    over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is
+    what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or
+    executed. the 4 named security operations are 4 DISTINCT ones — no two share an operation name or a binary,
+    decided pairwise over both fingerprint lists — and all 4 are plannable against the pinned rootfs with 0
+    blocked, which the js witness checks because plannability is read from the surface rather than derived. The
+    distinctness is what makes the count honest; the old statement asserted only that 4 + 0 = 4 -/
+theorem alpine_security_ops_plannable_4 : (([738, 1334, 1333, 919].eraseDups.length = 4)) ∧ (([838, 834, 328, 772].eraseDups.length = 4)) := by decide

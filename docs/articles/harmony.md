@@ -7,7 +7,7 @@ description: "Computed from lean/Harmony.lean — 8 sealed theorems, every claim
 
 > THE HARMONY OF PAIRS — the same complementary-pair arithmetic across biology, medicine, chemistry and physics (DNA bases, acid/base, agonist/antagonist, action/reaction, cation/anion), proven to be ONE reflection at different centres. — held by [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) and its 7 siblings below.
 
-**8 theorems**, from [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) onward, each proven `by decide` in <a href="/lean/Harmony.lean">lean/Harmony.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. This wing states what HOLDS and seals no boundary of its own — read its honest scope in the wing header, which is not a theorem.
+**8 theorems**, from [dna_bases_reflect_through_three](/theorem/dna_bases_reflect_through_three) onward, each proven `by decide` in <a href="/lean/Harmony.lean">lean/Harmony.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 1 of its 8 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [chargaff_strand_balance](/theorem/chargaff_strand_balance). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHarmony.lean)** — nothing to install. The editor fetches `lean/Harmony.lean` from the repository and re-decides all 8 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -18,11 +18,11 @@ The ledger holds this as [dna_bases_reflect_through_three](/theorem/dna_bases_re
 (List.range 4).all (fun c => 3 - (3 - c) == c) ∧ (List.range 4).all (fun c => 3 - c != c)
 ```
 
-### BIOLOGY: Chargaff's rule as counting — in a duplex #A = #T and #G = #C, so the purines (A+G) equal the pyrimidines (T+C). With [A,T,G,C] = [5,5,3,3]: A = T, G = C, and A+G = T+C. The strand balances its complement.
+### BIOLOGY: CHARGAFF'S FIRST RULE IS STRICTLY STRONGER THAN THE BALANCE IT PRODUCES, and that gap is the content. In a duplex #A = #T and #G = #C, from which the purines equal the pyrimidines: A + G = T + C. The implication is decided here over every quadruple in 0..5 — 1296 of them — and it holds. THE CONVERSE DOES NOT: [A,T,G,C] = [0,1,1,0] balances at A + G = 1 = T + C while A ≠ T, so a strand can carry the purine/pyrimidine balance WITHOUT being base-paired. Sealing only the balance would therefore seal the weaker half and read as the stronger. THE PREVIOUS STATEMENT SEALED NEITHER: it was (5 = 5) ∧ (3 = 3) ∧ (5 + 3 = 5 + 3), true whatever biology does, because the sample [5,5,3,3] was chosen with A = T and G = C already equal, so every conjunct collapsed to reflexivity. Found by the sibling session uuidna-87, whose recursive vacuity rule descends into conjunctions where the shipped finder splits on the top-level operator and stops.
 The ledger holds this as [chargaff_strand_balance](/theorem/chargaff_strand_balance) — proven `by decide`, sorry-free:
 
 ```lean
-(5 = 5) ∧ (3 = 3) ∧ (5 + 3 = 5 + 3)
+((List.range 6).all (fun a => (List.range 6).all (fun t => (List.range 6).all (fun g => (List.range 6).all (fun c => (!((a == t) && (g == c))) || (a + g == t + c)))))) ∧ (0 + 1 == 1 + 0) ∧ (0 != 1)
 ```
 
 ### CHEMISTRY: in a redox reaction the electrons lost by oxidation equal the electrons gained by reduction — the half-reactions balance, so their signed sum is zero: (+3) + (−3) = 0. Oxidation and reduction are one conserved pair.

@@ -1,0 +1,12 @@
+{
+  "handle": "04922835",
+  "address": "04922835-46bb-81db-8a20-e7d0f2230717",
+  "kind": "chunk",
+  "keys": [
+    "prose_terminator_escaped"
+  ],
+  "statement": "(List.range 2).all (fun i => !((1 + 2 * i == 1) && (3 - i == 2)))",
+  "files": [
+    "Audit.lean"
+  ]
+}

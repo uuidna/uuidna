@@ -1,0 +1,12 @@
+{
+  "handle": "bd7fe828",
+  "address": "bd7fe828-2674-83e3-af6f-91535d0e600e",
+  "statement": "(([738, 1334, 1333, 919].eraseDups.length = 4)) ∧ (([838, 834, 328, 772].eraseDups.length = 4))",
+  "tactic": "decide",
+  "keys": [
+    "alpine_security_ops_plannable_4"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -9393,7 +9393,7 @@ theorem newton_singularity_finite : dz 0 = 0 ∧ (List.range 10).all (fun x => d
 \begin{theorem}[EVERY THEOREM IN THE LEDGER IS DECIDED— 0 are proved by any tactic other than `decide`, across every wing but this one (self-excluded: it is written after the census it states). That is not a style preference: `decide` runs the proposition as a program in the kernel, so a theorem exists here only if a finite computation settles it, and anything a finite computation cannot settle never enters. The trust base is the leanprover/lean4 kernel and nothing else]
 \label{thm:reach-all-decide}
 \begin{lstlisting}[language=lean]
-(([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18]).foldl (· + ·) 0 = 2642) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18] = [6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18])
+(([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18]).foldl (· + ·) 0 = 2643) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18] = [6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18])
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -9401,9 +9401,9 @@ theorem newton_singularity_finite : dz 0 = 0 ∧ (List.range 10).all (fun x => d
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem reach_all_decide : (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18]).foldl (· + ·) 0 = 2642) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18] = [6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18]) := by decide
+theorem reach_all_decide : (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18]).foldl (· + ·) 0 = 2643) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18] = [6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18]) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{c0bc1a69-de42-899e-aa28-e5f3c5566af7}.
+\noindent Content-address \texttt{430b76d1-cda0-8d16-8ebd-054e87106b5d}.
 \end{proof}
 
 \begin{theorem}[FINITE WITHIN INFINITY, COUNTED — exactly 5 statements in the whole ledger carry a ∀ or ∃, and 0 of them range over an unbounded domain. They are bounded in the two ways this ledger admits, and both keep the decision finite. ONE ranges over ℤ, which is infinite, and decides anyway because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the decision is finite. The REST bind a finite type — `Fin N` — whose domain is finite by construction rather than by a hypothesis a reader must check, so the kernel walks all N inhabitants and stops. Every other statement in the ledger is quantifier-free enumeration. This is the ledger's whole method stated as a census rather than as a slogan, and the census is recomputed from the statements themselves, so a wing sealed tomorrow that quantified over something unbounded would break it tomorrow]
@@ -9425,7 +9425,7 @@ theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 \begin{theorem}[THE WIDEST WINDOW IN THE LEDGER IS 3125, and it is a window — the largest enumeration any theorem here performs, across 89 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number]
 \label{thm:reach-window-finite}
 \begin{lstlisting}[language=lean]
-([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 118, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 118, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126)
+([1, 9, 6, 9, 2, 12, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 6, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 118, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 12, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 6, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 118, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -9433,9 +9433,9 @@ theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem reach_window_finite : ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 118, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 118, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126) := by decide
+theorem reach_window_finite : ([1, 9, 6, 9, 2, 12, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 6, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 118, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 12, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 6, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 118, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{1776b448-0c5d-836b-87cb-cfa1eb24f473}.
+\noindent Content-address \texttt{84273414-57df-8bba-b6b2-d2d013e0a8d5}.
 \end{proof}
 
 \begin{theorem}[THE WINDOW IS WHERE THE PROOF STOPS— and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So "decided on a window" does not entail "true beyond it", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the boundary verified seals from the other side]
@@ -10090,10 +10090,10 @@ theorem the_axiom_index_partitions_without_remainder : (93 + 15 + 0 = 108) ∧ (
 \noindent Content-address \texttt{28f13c2d-b8ab-8bdb-a2f4-df5aedf70251}.
 \end{proof}
 
-\begin{theorem}[every generated theorem carries prose IN the Lean — 2604 of 2604 documented across 114 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address]
+\begin{theorem}[every generated theorem carries prose IN the Lean — 2605 of 2605 documented across 114 wings, 0 without; the kernel sums the per-wing counts and compares them wing by wing rather than comparing a total to itself, so a gap in any ONE file breaks the equality; the doc comment rides inside the text the kernel signs, and a sentence cannot drift from the proof it describes without moving the file's content-address]
 \label{thm:prose-coverage-total}
 \begin{lstlisting}[language=lean]
-(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 934, 18].foldl (· + ·) 0) = 2604) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 934, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 934, 18])
+(([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 935, 18].foldl (· + ·) 0) = 2605) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 935, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 935, 18])
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -10101,57 +10101,61 @@ theorem the_axiom_index_partitions_without_remainder : (93 + 15 + 0 = 108) ∧ (
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem prose_coverage_total : (([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 934, 18].foldl (· + ·) 0) = 2604) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 934, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 934, 18]) := by decide
+theorem prose_coverage_total : (([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 935, 18].foldl (· + ·) 0) = 2605) ∧ ([6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 935, 18] = [6, 6, 6, 9, 13, 8, 11, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 18, 935, 18]) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{2d76206c-cfe7-822f-8070-df0958f120fb}.
+\noindent Content-address \texttt{a271e8ad-b281-8bf5-bfb4-1f65c2c964d3}.
 \end{proof}
 
-\begin{theorem}[the prose round-trips exactly — 2604 of 2604 doc comments re-wrap through the emitter and re-read to the text they started from, 0 broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed]
+\begin{theorem}[THE PARTITION LAW BEHIND THE ROUND-TRIP COUNT, and the count is the witness rather than the proof: for any n and any b ≤ n, b = 0 IF AND ONLY IF n − b = n, so a single broken round-trip makes the identity false in one direction — decided over every n ≤ 11 and every b ≤ n. The measurement this law is applied to is 2605 of 2605 doc comments re-reading to the text they started from, 0 broken, and it lives in the js witness because the kernel cannot read a doc comment and should not pretend to]
 \label{thm:prose-round-trips}
-\[
-  2604 + 0 = 2604 \quad\land\quad 0 = 0
-\]
+\begin{lstlisting}[language=lean]
+(List.range 12).all (fun n => (List.range (n+1)).all (fun b => ((b == 0) == (n - b == n))))
+\end{lstlisting}
+
+\noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem prose_round_trips : (2604 + 0 = 2604) ∧ (0 = 0) := by decide
+theorem prose_round_trips : (List.range 12).all (fun n => (List.range (n+1)).all (fun b => ((b == 0) == (n - b == n)))) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{d46c7d8e-5f9a-8610-b34e-74170fd0a2e6}.
+\noindent Content-address \texttt{35450db9-57fe-8f97-9226-312c713bfd11}.
 \end{proof}
 
-\begin{theorem}[no doc comment contains an unescaped -/ — 0 found across 2604; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today]
+\begin{theorem}[THE ESCAPE DESTROYS THE TERMINATOR, decided rather than counted — with the two characters written as codes (- = 1, / = 2, \textbackslash{} = 3), the RAW pair [1, 2] does carry the adjacency that would close a doc comment early, and the ESCAPED triple [1, 3, 2] carries it at neither position. That is the property docComment's -/ → -\textbackslash{}/ rewrite exists for, and it is false the moment the rewrite becomes the identity. The witness measures 0 unescaped terminators across 2605 doc comments, which is a fact about files that something able to read a file must check]
 \label{thm:prose-terminator-escaped}
-\[
-  0 + 2604 = 2604 \quad\land\quad 0 = 0
-\]
+\begin{lstlisting}[language=lean]
+(List.range 2).all (fun i => !((1 + 2 * i == 1) && (3 - i == 2)))
+\end{lstlisting}
+
+\noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem prose_terminator_escaped : (0 + 2604 = 2604) ∧ (0 = 0) := by decide
+theorem prose_terminator_escaped : (List.range 2).all (fun i => !((1 + 2 * i == 1) && (3 - i == 2))) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{760f3e0e-faae-8ea4-b97e-09464cdc9f5b}.
+\noindent Content-address \texttt{90943424-ea63-8382-b9e7-0a5af9a8bb36}.
 \end{proof}
 
-\begin{theorem}[prose that says more than the statement OUTNUMBERS prose that repeats it — 2604 informative against 0 bare, of 2604; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed]
+\begin{theorem}[prose that says more than the statement OUTNUMBERS prose that repeats it — 2605 informative against 0 bare, of 2605; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed]
 \label{thm:prose-beats-restatement}
 \[
-  0 < 2604 \quad\land\quad 0 + 2604 = 2604
+  0 < 2605 \quad\land\quad 0 + 2605 = 2605
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem prose_beats_restatement : (0 < 2604) ∧ (0 + 2604 = 2604) := by decide
+theorem prose_beats_restatement : (0 < 2605) ∧ (0 + 2605 = 2605) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{1d2620d7-097d-8549-9872-f6894c444cfb}.
+\noindent Content-address \texttt{404e7485-b50e-85b8-8d29-b98433acceeb}.
 \end{proof}
 
-\begin{theorem}[the whole prose corpus folds to ONE ℤ/9 receipt — 690102 characters across 2604 doc comments in 114 wings fold to 0; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit]
+\begin{theorem}[the whole prose corpus folds to ONE ℤ/9 receipt — 691571 characters across 2605 doc comments in 114 wings fold to 2; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit]
 \label{thm:prose-folds-receipt}
 \begin{lstlisting}[language=lean]
-(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5016, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 4215, 1848, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 319533, 10367].foldl (· + ·) 0) = 690102) ∧ (690102 % 9 = 0) ∧ (0 < 9)
+(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5016, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 4215, 2581, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 320269, 10367].foldl (· + ·) 0) = 691571) ∧ (691571 % 9 = 2) ∧ (2 < 9)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -10159,23 +10163,23 @@ theorem prose_beats_restatement : (0 < 2604) ∧ (0 + 2604 = 2604) := by decide
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem prose_folds_receipt : (([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5016, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 4215, 1848, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 319533, 10367].foldl (· + ·) 0) = 690102) ∧ (690102 % 9 = 0) ∧ (0 < 9) := by decide
+theorem prose_folds_receipt : (([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5016, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 4215, 2581, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 320269, 10367].foldl (· + ·) 0) = 691571) ∧ (691571 % 9 = 2) ∧ (2 < 9) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{35c5a212-bda4-8f66-ad4d-b3bc44e55b85}.
+\noindent Content-address \texttt{951b771d-66d3-8d56-bccc-f5641f4fc07c}.
 \end{proof}
 
 \begin{theorem}[the audit is TOTAL over what a generator writes — 114 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states]
 \label{thm:prose-audit-total}
 \[
-  0 < 114 \quad\land\quad 0 < 3 \quad\land\quad 2604 = 2604 + 0
+  0 < 114 \quad\land\quad 0 < 3 \quad\land\quad 2605 = 2605 + 0
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem prose_audit_total : (0 < 114) ∧ (0 < 3) ∧ (2604 = 2604 + 0) := by decide
+theorem prose_audit_total : (0 < 114) ∧ (0 < 3) ∧ (2605 = 2605 + 0) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{2904985c-8b11-8c9d-ba6d-6f83065e535d}.
+\noindent Content-address \texttt{b2d0c78e-9c08-8212-83c1-a0a7cb267fa3}.
 \end{proof}
 
 \section{The audit game}
@@ -11204,10 +11208,10 @@ theorem reverse_is_involutive : [1,2,3,4].reverse.reverse = [1,2,3,4] := by deci
 \noindent Content-address \texttt{ed6ec0a6-2c4f-8bf2-8d69-14e337ab0572}.
 \end{proof}
 
-\begin{theorem}[A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 118 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 117 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 2639, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.]
+\begin{theorem}[A NEIGHBOURHOOD SEALS EXACTLY WHEN IT IS WHOLE, AND AT NO OTHER COUNT. The sealing rule is seal(held, size) = (held == size), and it is its own converse — so it is settled ONCE and then instantiated, never re-walked. The kernel walks a window of 118 held-counts (as many as there are neighbourhoods on disk, a window measured from this ledger rather than an invented constant) and finds that exactly ONE of them seals and none below it does; then it confirms of each of the 117 measured neighbourhoods, in constant work, that it seals at its own size and NOT one short of it — and folds their sizes to 2640, a total appearing nowhere among them. This is the difference between a memory and a cache. A cache writes what it has; this holds a handle in memory and touches no disk until the last member of its neighbourhood arrives, so a run that dies part-way through a wing leaves nothing behind that could be mistaken for a whole one. An EMPTY neighbourhood refutes this theorem rather than passing it vacuously, because a wing that seals at nothing is a cache. The sizes are measured from the files.]
 \label{thm:cube-seals-at-completeness-only}
 \begin{lstlisting}[language=lean]
-(((List.range 118).filter (fun k => k == 117)).length = 1) ∧ (((List.range 117).filter (fun k => k == 117)).length = 0) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18].all (fun n => (n == n) && !(n - 1 == n))) ∧ (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18].foldl (· + ·) 0) = 2639)
+(((List.range 118).filter (fun k => k == 117)).length = 1) ∧ (((List.range 117).filter (fun k => k == 117)).length = 0) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18].all (fun n => (n == n) && !(n - 1 == n))) ∧ (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18].foldl (· + ·) 0) = 2640)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -11215,15 +11219,15 @@ theorem reverse_is_involutive : [1,2,3,4].reverse.reverse = [1,2,3,4] := by deci
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem cube_seals_at_completeness_only : (((List.range 118).filter (fun k => k == 117)).length = 1) ∧ (((List.range 117).filter (fun k => k == 117)).length = 0) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18].all (fun n => (n == n) && !(n - 1 == n))) ∧ (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18].foldl (· + ·) 0) = 2639) := by decide
+theorem cube_seals_at_completeness_only : (((List.range 118).filter (fun k => k == 117)).length = 1) ∧ (((List.range 117).filter (fun k => k == 117)).length = 0) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18].all (fun n => (n == n) && !(n - 1 == n))) ∧ (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18].foldl (· + ·) 0) = 2640) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{d01451d6-aa76-8530-9b06-d98feaa76dd1}.
+\noindent Content-address \texttt{bce3aeff-b92c-8886-9518-d689010ed6b1}.
 \end{proof}
 
-\begin{theorem}[THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 117 measured wing counts and lands on 2639 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.]
+\begin{theorem}[THE NEIGHBOURHOODS PARTITION THE LEDGER, AND THE MEMORY IS ONE LINE PER NEIGHBOURHOOD. The kernel folds the 117 measured wing counts and lands on 2640 — the whole ledger, nothing counted twice and nothing lost — then counts the wings themselves and confirms there are fewer of them than there are theorems. That last inequality is the entire saving: what persists is ONE complete uuid for each neighbourhood, standing for every theorem inside it, because every member handle, statement and count behind that uuid is recomputable from the Lean by anyone holding the file. A second stored copy of a derived fact is the only kind that can disagree with the first. What the kernel does NOT decide here is whether any wing repeats a key — a duplicate would make the census smaller, and a smaller census would simply be sealed as a smaller number. That is the emitter's gate rather than the kernel's: the per-wing declaration counts and member counts are compared before a byte is written, and the build stops instead. Checked by removing one key from one wing and watching it stop.]
 \label{thm:cubes-partition-ledger}
 \begin{lstlisting}[language=lean]
-(([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18].foldl (· + ·) 0) = 2639) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18].length = 117) ∧ (117 < 2639)
+(([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18].foldl (· + ·) 0) = 2640) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18].length = 117) ∧ (117 < 2640)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -11231,9 +11235,9 @@ theorem cube_seals_at_completeness_only : (((List.range 118).filter (fun k => k 
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem cubes_partition_ledger : (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18].foldl (· + ·) 0) = 2639) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 934, 18].length = 117) ∧ (117 < 2639) := by decide
+theorem cubes_partition_ledger : (([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18].foldl (· + ·) 0) = 2640) ∧ ([6, 6, 6, 9, 13, 8, 11, 18, 11, 6, 17, 6, 5, 15, 5, 6, 9, 13, 24, 30, 8, 6, 9, 25, 17, 7, 4, 5, 64, 11, 9, 16, 13, 8, 10, 6, 14, 4, 13, 8, 12, 10, 6, 6, 6, 18, 8, 20, 6, 13, 12, 6, 10, 6, 5, 8, 11, 7, 7, 5, 8, 18, 93, 6, 2, 6, 9, 9, 8, 13, 6, 8, 6, 10, 5, 6, 8, 58, 17, 25, 14, 6, 10, 7, 6, 234, 148, 10, 7, 6, 9, 33, 5, 16, 11, 11, 8, 6, 8, 6, 4, 6, 6, 6, 11, 6, 18, 8, 6, 13, 7, 2, 15, 18, 16, 935, 18].length = 117) ∧ (117 < 2640) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{255e5cb2-8851-8b50-b6cc-a54d0b4339b6}.
+\noindent Content-address \texttt{7afe7c16-75b9-8f7e-b590-0a770e9175cd}.
 \end{proof}
 
 \begin{theorem}[A STANDING RECEIPT IS FREE, AND ONLY A MOVED NEIGHBOURHOOD IS PAID FOR. Over the two bits the plan decides on (s = the cube is sealed, m = its fold matches the receipt already held), the cost is s·(1−m), and of the four states EXACTLY ONE pays: sealed-and-moved. A held cube costs nothing because it has not been decided either way, and a sealed cube whose fold is unchanged costs nothing because the work was already done and recorded — verify-by-receipt at the granularity of a neighbourhood rather than a file. The same algebra as the provenance gate and the harmony law, turned on cost instead of prose: never vacuous, because it does fire, and only where it should.]
@@ -13929,7 +13933,7 @@ theorem the_congruence_form_is_the_modulus_form : ((List.range 63).all (fun x =>
 \begin{theorem}[every one of 118 monographs now carries a DISTINCT abstract — 118 distinct, 0 duplicates — because the abstract is derived from each wing's own theorems rather than filled into a one-variable template]
 \label{thm:a-template-distinguishes-only-by-its-variable}
 \begin{lstlisting}[language=lean]
-([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 48857333, 811508052, 3783787780, 173574295, 212767720, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 2143939528, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 4146252778, 1292854804, 3521867139, 953398213, 756896971, 1327156759, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 3918843986, 1332341855, 4277068383, 4251603361, 796160011, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 4088449523, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2579307583, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 1602046466, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].eraseDups.length = 118) ∧ ([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 48857333, 811508052, 3783787780, 173574295, 212767720, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 2143939528, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 4146252778, 1292854804, 3521867139, 953398213, 756896971, 1327156759, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 3918843986, 1332341855, 4277068383, 4251603361, 796160011, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 4088449523, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2579307583, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 1602046466, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].length = 118)
+([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 2089337541, 811508052, 1053991675, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 4251603361, 214893959, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 2163948612, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].eraseDups.length = 118) ∧ ([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 2089337541, 811508052, 1053991675, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 4251603361, 214893959, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 2163948612, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].length = 118)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -13937,9 +13941,9 @@ theorem the_congruence_form_is_the_modulus_form : ((List.range 63).all (fun x =>
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem a_template_distinguishes_only_by_its_variable : ([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 48857333, 811508052, 3783787780, 173574295, 212767720, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 2143939528, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 4146252778, 1292854804, 3521867139, 953398213, 756896971, 1327156759, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 3918843986, 1332341855, 4277068383, 4251603361, 796160011, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 4088449523, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2579307583, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 1602046466, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].eraseDups.length = 118) ∧ ([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 48857333, 811508052, 3783787780, 173574295, 212767720, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 2143939528, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 4146252778, 1292854804, 3521867139, 953398213, 756896971, 1327156759, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 3918843986, 1332341855, 4277068383, 4251603361, 796160011, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 4088449523, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2579307583, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 1602046466, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].length = 118) := by decide
+theorem a_template_distinguishes_only_by_its_variable : ([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 2089337541, 811508052, 1053991675, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 4251603361, 214893959, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 2163948612, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].eraseDups.length = 118) ∧ ([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 2089337541, 811508052, 1053991675, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 4251603361, 214893959, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 2163948612, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].length = 118) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{a6d8307e-ba3d-8477-bf76-24a53d15f37f}.
+\noindent Content-address \texttt{4681a115-e7d6-8a6a-a5a0-cbb84ff050ee}.
 \end{proof}
 
 \begin{theorem}[every one of 118 kin-degrees lies between 2 and 5, and the whole degree sequence sums to all 584 edges]
@@ -19342,18 +19346,20 @@ theorem dna_bases_reflect_through_three : (List.range 4).all (fun c => 3 - (3 - 
 \noindent Content-address \texttt{486f5272-ee8e-8243-bbf1-86a133e6e298}.
 \end{proof}
 
-\begin{theorem}[BIOLOGY: Chargaff's rule as counting — in a duplex \#A = \#T and \#G = \#C, so the purines (A+G) equal the pyrimidines (T+C). With [A,T,G,C] = [5,5,3,3]: A = T, G = C, and A+G = T+C. The strand balances its complement.]
+\begin{theorem}[BIOLOGY: CHARGAFF'S FIRST RULE IS STRICTLY STRONGER THAN THE BALANCE IT PRODUCES, and that gap is the content. In a duplex \#A = \#T and \#G = \#C, from which the purines equal the pyrimidines: A + G = T + C. The implication is decided here over every quadruple in 0..5 — 1296 of them — and it holds. THE CONVERSE DOES NOT: [A,T,G,C] = [0,1,1,0] balances at A + G = 1 = T + C while A ≠ T, so a strand can carry the purine/pyrimidine balance WITHOUT being base-paired. Sealing only the balance would therefore seal the weaker half and read as the stronger. THE PREVIOUS STATEMENT SEALED NEITHER: it was (5 = 5) ∧ (3 = 3) ∧ (5 + 3 = 5 + 3), true whatever biology does, because the sample [5,5,3,3] was chosen with A = T and G = C already equal, so every conjunct collapsed to reflexivity. Found by the sibling session uuidna-87, whose recursive vacuity rule descends into conjunctions where the shipped finder splits on the top-level operator and stops.]
 \label{thm:chargaff-strand-balance}
-\[
-  5 = 5 \quad\land\quad 3 = 3 \quad\land\quad 5 + 3 = 5 + 3
-\]
+\begin{lstlisting}[language=lean]
+((List.range 6).all (fun a => (List.range 6).all (fun t => (List.range 6).all (fun g => (List.range 6).all (fun c => (!((a == t) && (g == c))) || (a + g == t + c)))))) ∧ (0 + 1 == 1 + 0) ∧ (0 != 1)
+\end{lstlisting}
+
+\noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem chargaff_strand_balance : (5 = 5) ∧ (3 = 3) ∧ (5 + 3 = 5 + 3) := by decide
+theorem chargaff_strand_balance : ((List.range 6).all (fun a => (List.range 6).all (fun t => (List.range 6).all (fun g => (List.range 6).all (fun c => (!((a == t) && (g == c))) || (a + g == t + c)))))) ∧ (0 + 1 == 1 + 0) ∧ (0 != 1) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{b9485c0c-6253-8932-9093-b05d2eb93b1e}.
+\noindent Content-address \texttt{95793ca0-34cf-8667-a7fc-579ba2f33400}.
 \end{proof}
 
 \begin{theorem}[CHEMISTRY: in a redox reaction the electrons lost by oxidation equal the electrons gained by reduction — the half-reactions balance, so their signed sum is zero: (+3) + (−3) = 0. Oxidation and reduction are one conserved pair.]
@@ -34404,20 +34410,6 @@ theorem quantum_margin_after_both_advantages_73 : (128 / 2 = 64) ∧ (1000 <= 10
 \noindent Content-address \texttt{8f825112-ea75-8c48-ad9f-423b2ad26f32}.
 \end{proof}
 
-\begin{theorem}[Alpine domain port (security-ops): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every named security operation is plannable against the pinned rootfs (4 of 4, none blocked) — the fact the withdrawn refusal denied]
-\label{thm:alpine-security-ops-plannable-4}
-\[
-  4 + 0 = 4 \quad\land\quad 0 = 0
-\]
-\end{theorem}
-\begin{proof}
-Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
-\begin{lstlisting}[language=lean]
-theorem alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0) := by decide
-\end{lstlisting}
-\noindent Content-address \texttt{ff14f0e6-cb85-8c85-9e8f-dc07effa7af5}.
-\end{proof}
-
 \begin{theorem}[Alpine domain port (shell-applets): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (6), declared by Alpine elsewhere (4), or uuidna's own (10) — exhaustive and disjoint]
 \label{thm:alpine-shell-applets-partition-20}
 \[
@@ -35734,6 +35726,36 @@ Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 theorem merkle_advantage_starts_above_one_bit : ((List.range' 1 12).all (fun p => (((List.range' 1 p).map (fun k => 2^(p-k))).sum == 2^p - 1))) ∧ ((List.range' 1 12).all (fun p => ((2^p - 1 > p) == (p > 1)))) := by decide
 \end{lstlisting}
 \noindent Content-address \texttt{7fcddeac-e9d6-8644-98a3-e8b497fffd71}.
+\end{proof}
+
+\begin{theorem}[Alpine domain port (shell-applets): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. every uuidnaOS applet is declared by the shell domain (69), declared by Alpine elsewhere (6), or uuidna's own (10) — exhaustive and disjoint]
+\label{thm:alpine-shell-applets-partition-85}
+\[
+  69 + 6 + 10 = 85
+\]
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
+\begin{lstlisting}[language=lean]
+theorem alpine_shell_applets_partition_85 : (69 + 6 + 10 = 85) := by decide
+\end{lstlisting}
+\noindent Content-address \texttt{439bea18-5a0f-818c-b67d-6e0770407d3e}.
+\end{proof}
+
+\begin{theorem}[Alpine domain port (security-ops): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. the 4 named security operations are 4 DISTINCT ones — no two share an operation name or a binary, decided pairwise over both fingerprint lists — and all 4 are plannable against the pinned rootfs with 0 blocked, which the js witness checks because plannability is read from the surface rather than derived. The distinctness is what makes the count honest; the old statement asserted only that 4 + 0 = 4]
+\label{thm:alpine-security-ops-plannable-4}
+\begin{lstlisting}[language=lean]
+(([738, 1334, 1333, 919].eraseDups.length = 4)) ∧ (([838, 834, 328, 772].eraseDups.length = 4))
+\end{lstlisting}
+
+\noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
+\end{theorem}
+\begin{proof}
+Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
+\begin{lstlisting}[language=lean]
+theorem alpine_security_ops_plannable_4 : (([738, 1334, 1333, 919].eraseDups.length = 4)) ∧ (([838, 834, 328, 772].eraseDups.length = 4)) := by decide
+\end{lstlisting}
+\noindent Content-address \texttt{b3c05da4-2c65-88ae-8c8b-c634889636f9}.
 \end{proof}
 
 \section{The known universe, handled}

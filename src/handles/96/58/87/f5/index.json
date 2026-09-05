@@ -1,0 +1,12 @@
+{
+  "handle": "965887f5",
+  "address": "965887f5-2d02-818c-9f4e-90045b7bdd51",
+  "kind": "chunk",
+  "keys": [
+    "chargaff_strand_balance"
+  ],
+  "statement": "((List.range 6).all (fun a => (List.range 6).all (fun t => (List.range 6).all (fun g => (List.range 6).all (fun c => (!((a == t) && (g == c))) || (a + g == t + c)))))) ∧ (0 + 1 == 1 + 0) ∧ (0 != 1)",
+  "files": [
+    "Harmony.lean"
+  ]
+}

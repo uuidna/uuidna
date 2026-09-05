@@ -1,0 +1,12 @@
+{
+  "handle": "653f249d",
+  "address": "653f249d-d4af-856b-b96d-960d3874e4e7",
+  "statement": "(List.range 12).all (fun n => (List.range (n+1)).all (fun b => ((b == 0) == (n - b == n))))",
+  "tactic": "decide",
+  "keys": [
+    "prose_round_trips"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}
