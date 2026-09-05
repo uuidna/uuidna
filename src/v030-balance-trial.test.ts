@@ -3,7 +3,7 @@
 // Researched names, not invented: radial_equals_edge (THE EQUILIBRIUM ITSELF), lanes_even_on_complete_system,
 // digit_polarities_partition_ten, nine_is_plus_not_neutral, trial_computes_only_with_two_coins, two_coins,
 // trinity_edit_is_three, handles_balance_the_load_for_free, rounding_fee_closes_the_cube, keplers_harmonic_law,
-// VECTOR_EQUILIBRIUM_INVOLUTIONS (prepublishSeal — no gaps). A trial that cannot fail is void (trial-protocol).
+// VECTOR_EQUILIBRIUM_INVOLUTIONS (prepublishSeal — no gaps). A trial that is rigged to pass is void (trial-protocol).
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync, existsSync } from 'node:fs'

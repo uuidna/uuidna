@@ -1,6 +1,6 @@
 // domain-wave — the per-wing audit. Sending the wave across all 72 wings found its LOCAL half proved nothing:
 // `orderInvariant` compares a fold to the fold of the reversed input, but merkleFold SORTS its leaves, so it is
-// true for every input — checked over 492 permutations and never false. A check that cannot fail is the vacuous
+// true for every input — checked over 492 permutations and never false. A check that is rigged to pass is the vacuous
 // class, and reporting it as an audit is the failure this ledger names elsewhere. `recomputes` is the audit that
 // can fail: an address is toUuid(key + ':' + statement), so a forged or edited entry does not reproduce its own.
 import { test } from 'node:test'

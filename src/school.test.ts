@@ -67,7 +67,7 @@ test('the catalogue MOVES with the ledger — it is a reading', () => {
 })
 
 // ── GRADE LEVELS. Every test below was written to FAIL FIRST and then confirmed red against a real mutation of
-// src/school.ts, because a check that cannot fail is void. The mutation each one catches is named on
+// src/school.ts, because a check that is rigged to pass is void. The mutation each one catches is named on
 // the test, so a later reader can re-run the experiment instead of trusting this comment.
 
 // MUTATION CAUGHT: change `decade * 10 <= steps` to `<` (levelOf(100) drops to 10); or drop the `< 1` guard

@@ -60,6 +60,13 @@ const APPLIES = FORMS.filter((f) => !f.why.startsWith('PARTIAL'))
 const IMPOSSIBLE = /\b(cannot|can't|is unable to|are unable to|impossible|no way to|must always|must never|is required to|require[sd]? that)\b/i
 const JUSTIFIED = /\b(theorem [a-z0-9_]+|by construction|host|browser|no filesystem|secure context|determinism|hard-reject|kernel|physical device|edge|isolate|tab|upstream|vendored|this project|the captain|decision|convention|rule of this|chosen|deliberate)\b/i
 const COMMENT = /^\s*(\/\/|\*)/
+// A MODAL THAT NAMES ITS OWN REASON IS ALREADY JUSTIFIED, whatever words the reason happens to use. JUSTIFIED
+// above is a word list, and a word list can only recognise reasons it was told about — so "It cannot fail: a
+// tamper on the key or the statement moves BOTH sides together" read as BARE, and the taught form rewrote a line
+// PRAISING a robust check into one accusing it of fraud ("It is rigged to pass:"), which is the exact inversion
+// this tool exists to avoid. The shape is the signal: a colon, an em-dash, or "because" immediately after the
+// modal introduces the reason, and a claim that carries its reason is not asking to be believed.
+const REASONED = /\b(cannot|can't|is unable to|are unable to|impossible|no way to)\b[^.;]{0,40}?\s*(:|—|--|\bbecause\b|\bsince\b)/i
 
 export interface Involution { file: string; line: number; before: string; after: string }
 export interface Untaught { file: string; line: number; text: string }
@@ -70,9 +77,23 @@ export function involuteFile(text: string): { out: string; done: Involution[]; l
   const left: Untaught[] = []
   const lines = text.split('\n')
   const out = lines.map((line, i) => {
-    if (!COMMENT.test(line) || !IMPOSSIBLE.test(line) || JUSTIFIED.test(line)) return line
+    if (!COMMENT.test(line) || !IMPOSSIBLE.test(line) || JUSTIFIED.test(line) || REASONED.test(line)) return line
     let next = line
-    for (const f of APPLIES) next = next.replace(f.from, f.to)
+    // THE SUBJECT IS TO THE LEFT. The agreement guard below asks whether the sentence's subject agrees with the
+    // finite verb a form supplies, and the subject is whatever stands BEFORE the phrase being replaced — so the
+    // span the guard reads has to stop at the end of what we wrote. Scanning the whole rewritten line let the
+    // REPLACEMENT'S OWN TAIL act as a subject: "a test that cannot fail is not evidence" becomes "...is rigged to
+    // pass is not evidence", and the guard read "pass is" as a plural head and refused a correct rewrite. That is
+    // why `cannot fail is` sat at the top of this tool's own untaught report while the table that fixes it did
+    // nothing — the tool was rejecting itself, 12 times, and reporting the rejections as work for a human.
+    let guarded = line
+    for (const f of APPLIES) {
+      const before = next
+      next = next.replace(f.from, f.to)
+      if (next === before) continue
+      const at = before.search(f.from)
+      guarded = at < 0 ? next : next.slice(0, at + f.to.length)
+    }
     // THE GRAMMAR GUARD. A taught form still has to leave a sentence behind. These shapes are what a
     // locally-substituted form leaves when it needed the surrounding grammar it did not capture — and each was
     // produced by the first version of this table. A rewrite that trips the guard is REPORTED, never written.
@@ -85,7 +106,7 @@ export function involuteFile(text: string): { out: string; done: Involution[]; l
     const PLURAL_HEAD = /\b([a-z]+s|they|we|these|those|both)\s+(that\s+|which\s+)?is\b/i
     const BROKEN = [PLURAL_HEAD, /\bis (rigged|unusable|unrecomputable|unmeasurable|undetectable)\b\s*[.,;]/,
       /\bonly part of\b\s*[.,;]/, /\s{3,}/, /\binfers no\b\s*[.,;]/]
-    if (next !== line && BROKEN.some((b) => b.test(next))) {
+    if (next !== line && BROKEN.some((b) => b.test(guarded))) {
       left.push({ file: '', line: i + 1, text: line.trim() + '   ← taught form tripped the grammar guard' })
       return line
     }

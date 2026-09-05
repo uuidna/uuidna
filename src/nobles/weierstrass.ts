@@ -10,7 +10,7 @@
  *   `curve(params) !== curve(params)`: if somebody decided to monkey-patch their curve,
  *   it won't affect others
  *
- * TypeScript can't infer types for classes created inside a function. Classes is one instance
+ * TypeScript infers no types for classes created inside a function. Classes are one instance
  * of nominative types in TypeScript and interfaces only check for shape, so it's hard to create
  * unique type for every function call.
  *
