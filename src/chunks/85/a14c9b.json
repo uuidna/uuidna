@@ -1,0 +1,12 @@
+{
+  "handle": "85a14c9b",
+  "address": "85a14c9b-3350-8a06-b916-65e4b4190ca9",
+  "statement": "(4422 <= 7488) ∧ (7488 - 4422 = 3066)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_domain_language_origins_7488"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

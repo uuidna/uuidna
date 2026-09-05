@@ -1,0 +1,12 @@
+{
+  "handle": "dc8419dd",
+  "address": "dc8419dd-e653-8bbf-8d42-a387377f32c3",
+  "statement": "(7488 + 53 - 5 = 7536)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_la_ar_ie_7536"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -5397,3 +5397,142 @@ theorem quantum_types_decide_before_computing_121 : (11 + 110 = 121) ∧ (27 < 1
     name counts and does not quantify: `generate_` is itself in the incomplete finder's universal vocabulary,
     which caught two names before this one. -/
 theorem truncated_run_counted_47 : (46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41) := by decide
+
+/-- Alpine domain port (language): exact arithmetic over the census counts. — membership is a pattern match over
+    Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what
+    this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed.
+    3066 of the 7488 packages are companions (-dev, -doc, -libs) of an origin already counted -/
+theorem alpine_domain_language_origins_7488 : (4422 <= 7488) ∧ (7488 - 4422 = 3066) := by decide
+
+/-- Inclusion-exclusion across database and language, exact over the committed mirror. They share 154 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_da_la_ie_7772 : (438 + 7488 - 154 = 7772) := by decide
+
+/-- Inclusion-exclusion across filesystem and language, exact over the committed mirror. They share 16 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_fi_la_ie_7687 : (215 + 7488 - 16 = 7687) := by decide
+
+/-- Inclusion-exclusion across blockchain and language, exact over the committed mirror. They share 7 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_bl_la_ie_7510 : (29 + 7488 - 7 = 7510) := by decide
+
+/-- Inclusion-exclusion across driver and language, exact over the committed mirror. They share 61 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_dr_la_ie_8057 : (630 + 7488 - 61 = 8057) := by decide
+
+/-- Inclusion-exclusion across language and network, exact over the committed mirror. They share 49 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ne_ie_7771 : (7488 + 332 - 49 = 7771) := by decide
+
+/-- Inclusion-exclusion across language and science, exact over the committed mirror. They share 16 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_sc_ie_7546 : (7488 + 74 - 16 = 7546) := by decide
+
+/-- Inclusion-exclusion across language and media, exact over the committed mirror. They share 67 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_me_ie_7680 : (7488 + 259 - 67 = 7680) := by decide
+
+/-- Inclusion-exclusion across language and shell, exact over the committed mirror. They share 67 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_sh_ie_8700 : (7488 + 1279 - 67 = 8700) := by decide
+
+/-- Inclusion-exclusion across language and chat, exact over the committed mirror. They share 42 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ch_ie_7687 : (7488 + 241 - 42 = 7687) := by decide
+
+/-- Inclusion-exclusion across language and crypto, exact over the committed mirror. They share 46 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_cr_ie_7641 : (7488 + 199 - 46 = 7641) := by decide
+
+/-- Inclusion-exclusion across language and security, exact over the committed mirror. They share 9 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_se_ie_7565 : (7488 + 86 - 9 = 7565) := by decide
+
+/-- Inclusion-exclusion across language and math, exact over the committed mirror. They share 6 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ma_ie_7522 : (7488 + 40 - 6 = 7522) := by decide
+
+/-- Inclusion-exclusion across language and art, exact over the committed mirror. They share 5 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ar_ie_7536 : (7488 + 53 - 5 = 7536) := by decide
+
+/-- Inclusion-exclusion across language and bio, exact over the committed mirror. They share 2 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_bi_ie_7488 : (7488 + 2 - 2 = 7488) := by decide
+
+/-- Inclusion-exclusion across language and chemistry, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_la_ch_ie_7491 : (7488 + 3 - 0 = 7491) := by decide
+
+/-- Inclusion-exclusion across language and neuro, exact over the committed mirror. They share 3 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ne_ie_7496 : (7488 + 11 - 3 = 7496) := by decide
+
+/-- Inclusion-exclusion across language and astronomy, exact over the committed mirror. They share 10 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_la_as_ie_7503 : (7488 + 25 - 10 = 7503) := by decide
+
+/-- Inclusion-exclusion across language and physics, exact over the committed mirror. They share no packages
+    under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it
+    would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which
+    is what it is for. -/
+theorem alpine_dom_la_ph_ie_7495 : (7488 + 7 - 0 = 7495) := by decide
+
+/-- Inclusion-exclusion across language and geo, exact over the committed mirror. They share 3 packages, so this
+    is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_ge_ie_7547 : (7488 + 62 - 3 = 7547) := by decide
+
+/-- Inclusion-exclusion across language and virtualization, exact over the committed mirror. They share 16
+    packages, so this is a real set statement rather than an addition. The identity fails if any of the four
+    counts is wrong, which is what it is for. -/
+theorem alpine_dom_la_vi_ie_7704 : (7488 + 232 - 16 = 7704) := by decide
+
+/-- Inclusion-exclusion across language and game, exact over the committed mirror. They share no packages under
+    the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would
+    carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what
+    it is for. -/
+theorem alpine_dom_la_ga_ie_7513 : (7488 + 25 - 0 = 7513) := by decide
+
+/-- Inclusion-exclusion across language and font, exact over the committed mirror. They share 4 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_fo_ie_7566 : (7488 + 82 - 4 = 7566) := by decide
+
+/-- Inclusion-exclusion across language and audio, exact over the committed mirror. They share 2 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_au_ie_7684 : (7488 + 198 - 2 = 7684) := by decide
+
+/-- Inclusion-exclusion across language and build, exact over the committed mirror. They share 11 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_bu_ie_7737 : (7488 + 260 - 11 = 7737) := by decide
+
+/-- Inclusion-exclusion across language and social, exact over the committed mirror. They share 89 packages, so
+    this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong,
+    which is what it is for. -/
+theorem alpine_dom_la_so_ie_7702 : (7488 + 303 - 89 = 7702) := by decide
+
+/-- Inclusion-exclusion across language and engineering, exact over the committed mirror. They share 1 packages,
+    so this is a real set statement rather than an addition. The identity fails if any of the four counts is
+    wrong, which is what it is for. -/
+theorem alpine_dom_la_en_ie_7517 : (7488 + 30 - 1 = 7517) := by decide

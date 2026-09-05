@@ -2,8 +2,8 @@
   "generated": "2026-09-05",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2626,
-  "total_theorems": 2626,
+  "total_claimed": 2653,
+  "total_theorems": 2653,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -3853,8 +3853,8 @@
     },
     {
       "key": "reach_all_decide",
-      "lineAddress": "bc668b6a-0b0f-8c2b-999d-39f2d0b82d37",
-      "address": "3ab3e3d5-020c-8bce-b7cb-0f0b7e1855bc",
+      "lineAddress": "775af362-c90d-8e23-8312-981bba41aacb",
+      "address": "55a03e3a-5f27-85c3-9aab-4a8b42764cac",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -4129,38 +4129,38 @@
     },
     {
       "key": "prose_coverage_total",
-      "lineAddress": "0ad677ad-3621-8683-ac80-928bec219d58",
-      "address": "2a97c8db-d292-80be-84c4-23b6a440be38",
+      "lineAddress": "040ac48b-d52b-82dc-bf7c-5bcdda48008b",
+      "address": "0eb4ddfe-9e80-830a-84e0-cd2ac1c2b224",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_round_trips",
-      "lineAddress": "db329105-5fbd-800e-be7b-0dd498e597aa",
-      "address": "185cde98-2d9c-8c6f-a570-eed88fc132f6",
+      "lineAddress": "a9cbf6aa-8665-8beb-8066-a8b95ad93474",
+      "address": "0da1cf00-5114-8682-bdc6-fa3dfc089ee7",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_terminator_escaped",
-      "lineAddress": "6f432ec2-41de-87e2-8d75-0468dfc05fab",
-      "address": "04e7205e-72b0-8aa0-9b12-212d21d96408",
+      "lineAddress": "cf29c12f-6e05-8447-b164-5f1c9d91514f",
+      "address": "5826bd67-f824-86f3-a44a-ceade732c64c",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_beats_restatement",
-      "lineAddress": "e77fb6d4-eeb0-83b3-8805-3c3d351027fc",
-      "address": "8a0ec68b-0372-84f5-b22b-f6f9593a7a21",
+      "lineAddress": "c5b3cac2-7504-89f2-bfa5-c2ed10d5666c",
+      "address": "bbbb3c2b-dca1-88c1-a759-87e960368da2",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "8d8ebb49-8bfa-8c08-ae8f-60ca97f449c0",
-      "address": "f5258734-64d5-8593-8821-f116d0fc0df2",
+      "lineAddress": "b6ddebb8-0a75-8885-b0b4-058ee6570ed0",
+      "address": "f0b917e9-bb3b-8b8c-9730-77ea063b2f16",
       "principle": "The detectors, proven"
     },
     {
       "key": "prose_audit_total",
-      "lineAddress": "ea8f6979-5804-8b11-8e09-8b0fd65fe46b",
-      "address": "03cb3adc-8d04-89fc-ba22-c212c884a923",
+      "lineAddress": "30374f73-fd42-86e2-b9c9-127027cb94ee",
+      "address": "7cc34c61-23a1-8393-ac5e-06ced4220990",
       "principle": "The detectors, proven"
     },
     {
@@ -4549,14 +4549,14 @@
     },
     {
       "key": "cube_seals_at_completeness_only",
-      "lineAddress": "3cbb364a-1e2f-8786-bcbc-9309d8892ca4",
-      "address": "a106cf4b-820c-86ca-b12e-25235998fff4",
+      "lineAddress": "e26e7f56-dd03-8a79-a44d-b787c83c5a0c",
+      "address": "e59123a2-0a11-831d-8aa2-25965b660f53",
       "principle": "The software-verifiable algebra"
     },
     {
       "key": "cubes_partition_ledger",
-      "lineAddress": "9ad1b35d-8d6b-8ccc-ad01-08c097aa1c3a",
-      "address": "a296ef56-07ba-8fcf-b1db-e61527f6052d",
+      "lineAddress": "47938ec5-294e-8906-91aa-b42b67af2565",
+      "address": "1b937737-876e-88d4-a1d7-b40dbc44ad7e",
       "principle": "The software-verifiable algebra"
     },
     {
@@ -5629,8 +5629,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "1de3fdc0-6a1f-8f9d-a5ee-228d995380c7",
-      "address": "02c651a9-ce4b-8a2a-a8f1-f6f4296267a0",
+      "lineAddress": "93db7df0-644f-81a4-b736-6cc55416e14a",
+      "address": "99dfd97a-8bca-8f81-9548-9503e8de84d6",
       "principle": "The site build as arithmetic"
     },
     {
@@ -14154,6 +14154,168 @@
       "principle": "The conveyor's first wave"
     },
     {
+      "key": "alpine_domain_language_origins_7488",
+      "lineAddress": "2a61726a-0eb7-8298-8d40-25784ced44c5",
+      "address": "a3d37e0b-5aa7-846f-b3dd-f92a96388204",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_da_la_ie_7772",
+      "lineAddress": "6db24360-f4b4-89a8-aaf6-c2495bd03918",
+      "address": "511fbc56-5fbf-8093-bda6-faa203222041",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_fi_la_ie_7687",
+      "lineAddress": "dacc2841-196e-859f-816f-24d03dc74cea",
+      "address": "9e8821cf-d93b-8f6e-8f11-ec81160de6d4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_bl_la_ie_7510",
+      "lineAddress": "111577c4-1321-8405-b680-b38cf48d0e13",
+      "address": "ac7fbff8-2eef-8e6f-a8cd-91c61c70b207",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_dr_la_ie_8057",
+      "lineAddress": "b35a2169-fa8c-8ecb-9f04-b188d361d9fe",
+      "address": "3187877b-0a2c-858c-9e38-2bf636732774",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_ne_ie_7771",
+      "lineAddress": "30ccb850-d302-8b3c-93df-9bcf49057fb8",
+      "address": "2485193e-f3be-840d-bf4f-f9f4be88d835",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_sc_ie_7546",
+      "lineAddress": "31175373-ea1f-8ad3-85e5-762e6032056d",
+      "address": "c45fd79e-0575-8c7e-8d3a-6399080d4425",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_me_ie_7680",
+      "lineAddress": "b3aa2e29-1c8d-8071-90c2-b65ed6fc8d58",
+      "address": "22296356-8f72-8fbb-b51f-5a488f61e21e",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_sh_ie_8700",
+      "lineAddress": "2afaf342-79b9-823b-bdd2-05964bf8636b",
+      "address": "b532608b-c192-8512-8558-cd55c13fab9d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_ch_ie_7687",
+      "lineAddress": "bcf4f51b-e281-8b94-b4ba-b1788a89cc1a",
+      "address": "3156e865-a9ff-8fd7-89fc-e3a0ebe59f6a",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_cr_ie_7641",
+      "lineAddress": "1e0eda71-bf04-8a35-bc76-834836dd942d",
+      "address": "0563491a-ce9d-81ee-a3ef-1aa16ca914a5",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_se_ie_7565",
+      "lineAddress": "dd534077-1ce8-8be9-b655-95a3080d6ed9",
+      "address": "419bb4d6-b11b-8ea4-bfbd-80bca0f4f005",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_ma_ie_7522",
+      "lineAddress": "dbc84343-b53f-8fe7-a157-5ee6699683cd",
+      "address": "a0dcc07f-fbc6-8e7f-9d31-01638b71be62",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_ar_ie_7536",
+      "lineAddress": "2a725052-950f-8422-b496-49380bcd9726",
+      "address": "7b9802a2-9c8f-8b05-8f0d-6f45090f4726",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_bi_ie_7488",
+      "lineAddress": "02b0ab29-2278-84d8-9624-0737eb0e45eb",
+      "address": "1293a84d-b52a-838c-9c3c-d147a64c9993",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_ch_ie_7491",
+      "lineAddress": "2ae5ffa7-552b-8edd-9d9a-fefcf950aaa1",
+      "address": "7d09502e-8f63-8288-9185-dccbfbd6d050",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_ne_ie_7496",
+      "lineAddress": "8f28c40e-d987-82cb-a2fc-9357f4871b4d",
+      "address": "22576f87-e91a-884c-ba2a-37e7af7fb58f",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_as_ie_7503",
+      "lineAddress": "734cbdb3-8ecb-8263-9730-4845494cf675",
+      "address": "295f78f6-c1b8-805a-853c-343fc27506b1",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_ph_ie_7495",
+      "lineAddress": "0aa8a96a-b76c-8a60-8eeb-ead8bf30caed",
+      "address": "defb1f3a-9894-8caa-8a37-133c1f9e99dc",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_ge_ie_7547",
+      "lineAddress": "15245cfc-ebbb-8930-adc2-cf2bff578e74",
+      "address": "10fc6557-f24f-8e24-a0d5-06f023fd5007",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_vi_ie_7704",
+      "lineAddress": "359ae753-c434-8562-bd81-8c06cc53e3f4",
+      "address": "52bca187-3708-8c5c-a65c-6fd13965e45d",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_ga_ie_7513",
+      "lineAddress": "f8de2b9b-9b43-8202-9f3d-4ed5f3d59800",
+      "address": "1a1d3009-490d-8a80-9de6-78454de64cd5",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_fo_ie_7566",
+      "lineAddress": "f60fe1ec-06f5-8dc8-bfab-e20003c1a424",
+      "address": "ffbfbe91-ed4f-806e-94b2-e62f8f6c3896",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_au_ie_7684",
+      "lineAddress": "e140465b-b20e-88a7-a76c-c17577d1b1dd",
+      "address": "0dc18ca5-0eee-8cd0-a0e9-89b5714d9d54",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_bu_ie_7737",
+      "lineAddress": "79f945bd-0778-8bde-bb5e-22cc6efcf269",
+      "address": "d60184cc-bf81-85f2-a971-9933f5cecca6",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_so_ie_7702",
+      "lineAddress": "599a0b09-e90e-8966-9cb9-3de9fc47c144",
+      "address": "66e94b6f-187d-853c-8a9b-49ff52bc62c4",
+      "principle": "The conveyor's first wave"
+    },
+    {
+      "key": "alpine_dom_la_en_ie_7517",
+      "lineAddress": "037cff69-4e36-88e5-a92b-3986cf8dfd37",
+      "address": "4f642ab3-6a72-86ae-bf10-1a69253565f6",
+      "principle": "The conveyor's first wave"
+    },
+    {
       "key": "eclipse_four_hundred",
       "lineAddress": "f1a040b8-8dd3-80f1-9165-ccf2b7a04bdf",
       "address": "ca628f34-1810-8b0a-ae92-7fa9a2b30ea9",
@@ -15762,7 +15924,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "d363e3c1-6693-8653-b6e1-2b7b3793fad8",
+  "claim_receipt": "3891b37f-8586-8de9-ae17-f0f3788b1299",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

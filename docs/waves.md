@@ -29,37 +29,11 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 | candidate | status |
 |-----------|--------|
-| **alpine domain language origins 7488** (not sealed) | awaiting the kernel |
-| **alpine dom da la ie 7772** (not sealed) | awaiting the kernel |
-| **alpine dom fi la ie 7687** (not sealed) | awaiting the kernel |
-| **alpine dom bl la ie 7510** (not sealed) | awaiting the kernel |
-| **alpine dom dr la ie 8057** (not sealed) | awaiting the kernel |
-| **alpine dom la ne ie 7771** (not sealed) | awaiting the kernel |
-| **alpine dom la sc ie 7546** (not sealed) | awaiting the kernel |
-| **alpine dom la me ie 7680** (not sealed) | awaiting the kernel |
-| **alpine dom la sh ie 8700** (not sealed) | awaiting the kernel |
-| **alpine dom la ch ie 7687** (not sealed) | awaiting the kernel |
-| **alpine dom la cr ie 7641** (not sealed) | awaiting the kernel |
-| **alpine dom la se ie 7565** (not sealed) | awaiting the kernel |
-| **alpine dom la ma ie 7522** (not sealed) | awaiting the kernel |
-| **alpine dom la ar ie 7536** (not sealed) | awaiting the kernel |
-| **alpine dom la bi ie 7488** (not sealed) | awaiting the kernel |
-| **alpine dom la ch ie 7491** (not sealed) | awaiting the kernel |
-| **alpine dom la ne ie 7496** (not sealed) | awaiting the kernel |
-| **alpine dom la as ie 7503** (not sealed) | awaiting the kernel |
-| **alpine dom la ph ie 7495** (not sealed) | awaiting the kernel |
-| **alpine dom la ge ie 7547** (not sealed) | awaiting the kernel |
-| **alpine dom la vi ie 7704** (not sealed) | awaiting the kernel |
-| **alpine dom la ga ie 7513** (not sealed) | awaiting the kernel |
-| **alpine dom la fo ie 7566** (not sealed) | awaiting the kernel |
-| **alpine dom la au ie 7684** (not sealed) | awaiting the kernel |
-| **alpine dom la bu ie 7737** (not sealed) | awaiting the kernel |
-| **alpine dom la so ie 7702** (not sealed) | awaiting the kernel |
-| **alpine dom la en ie 7517** (not sealed) | awaiting the kernel |
+| — the queue is drained — | |
 
 ## Accepted — the cargo, each with its seal
 
-901 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+928 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -966,6 +940,33 @@ theorem page and recompute either.
 | [`alpine_eng_base_dimensions_7`](/theorem/alpine_eng_base_dimensions_7) | [`483b515f`](/theorem/alpine_eng_base_dimensions_7) | `7df6c230` |
 | [`quantum_types_decide_before_computing_121`](/theorem/quantum_types_decide_before_computing_121) | [`4d1dc7b2`](/theorem/quantum_types_decide_before_computing_121) | `3ae15e7c` |
 | [`truncated_run_counted_47`](/theorem/truncated_run_counted_47) | [`5ba2779e`](/theorem/truncated_run_counted_47) | `34c76b9d` |
+| [`alpine_domain_language_origins_7488`](/theorem/alpine_domain_language_origins_7488) | [`a3d37e0b`](/theorem/alpine_domain_language_origins_7488) | `2a61726a` |
+| [`alpine_dom_da_la_ie_7772`](/theorem/alpine_dom_da_la_ie_7772) | [`511fbc56`](/theorem/alpine_dom_da_la_ie_7772) | `6db24360` |
+| [`alpine_dom_fi_la_ie_7687`](/theorem/alpine_dom_fi_la_ie_7687) | [`9e8821cf`](/theorem/alpine_dom_fi_la_ie_7687) | `dacc2841` |
+| [`alpine_dom_bl_la_ie_7510`](/theorem/alpine_dom_bl_la_ie_7510) | [`ac7fbff8`](/theorem/alpine_dom_bl_la_ie_7510) | `111577c4` |
+| [`alpine_dom_dr_la_ie_8057`](/theorem/alpine_dom_dr_la_ie_8057) | [`3187877b`](/theorem/alpine_dom_dr_la_ie_8057) | `b35a2169` |
+| [`alpine_dom_la_ne_ie_7771`](/theorem/alpine_dom_la_ne_ie_7771) | [`2485193e`](/theorem/alpine_dom_la_ne_ie_7771) | `30ccb850` |
+| [`alpine_dom_la_sc_ie_7546`](/theorem/alpine_dom_la_sc_ie_7546) | [`c45fd79e`](/theorem/alpine_dom_la_sc_ie_7546) | `31175373` |
+| [`alpine_dom_la_me_ie_7680`](/theorem/alpine_dom_la_me_ie_7680) | [`22296356`](/theorem/alpine_dom_la_me_ie_7680) | `b3aa2e29` |
+| [`alpine_dom_la_sh_ie_8700`](/theorem/alpine_dom_la_sh_ie_8700) | [`b532608b`](/theorem/alpine_dom_la_sh_ie_8700) | `2afaf342` |
+| [`alpine_dom_la_ch_ie_7687`](/theorem/alpine_dom_la_ch_ie_7687) | [`3156e865`](/theorem/alpine_dom_la_ch_ie_7687) | `bcf4f51b` |
+| [`alpine_dom_la_cr_ie_7641`](/theorem/alpine_dom_la_cr_ie_7641) | [`0563491a`](/theorem/alpine_dom_la_cr_ie_7641) | `1e0eda71` |
+| [`alpine_dom_la_se_ie_7565`](/theorem/alpine_dom_la_se_ie_7565) | [`419bb4d6`](/theorem/alpine_dom_la_se_ie_7565) | `dd534077` |
+| [`alpine_dom_la_ma_ie_7522`](/theorem/alpine_dom_la_ma_ie_7522) | [`a0dcc07f`](/theorem/alpine_dom_la_ma_ie_7522) | `dbc84343` |
+| [`alpine_dom_la_ar_ie_7536`](/theorem/alpine_dom_la_ar_ie_7536) | [`7b9802a2`](/theorem/alpine_dom_la_ar_ie_7536) | `2a725052` |
+| [`alpine_dom_la_bi_ie_7488`](/theorem/alpine_dom_la_bi_ie_7488) | [`1293a84d`](/theorem/alpine_dom_la_bi_ie_7488) | `02b0ab29` |
+| [`alpine_dom_la_ch_ie_7491`](/theorem/alpine_dom_la_ch_ie_7491) | [`7d09502e`](/theorem/alpine_dom_la_ch_ie_7491) | `2ae5ffa7` |
+| [`alpine_dom_la_ne_ie_7496`](/theorem/alpine_dom_la_ne_ie_7496) | [`22576f87`](/theorem/alpine_dom_la_ne_ie_7496) | `8f28c40e` |
+| [`alpine_dom_la_as_ie_7503`](/theorem/alpine_dom_la_as_ie_7503) | [`295f78f6`](/theorem/alpine_dom_la_as_ie_7503) | `734cbdb3` |
+| [`alpine_dom_la_ph_ie_7495`](/theorem/alpine_dom_la_ph_ie_7495) | [`defb1f3a`](/theorem/alpine_dom_la_ph_ie_7495) | `0aa8a96a` |
+| [`alpine_dom_la_ge_ie_7547`](/theorem/alpine_dom_la_ge_ie_7547) | [`10fc6557`](/theorem/alpine_dom_la_ge_ie_7547) | `15245cfc` |
+| [`alpine_dom_la_vi_ie_7704`](/theorem/alpine_dom_la_vi_ie_7704) | [`52bca187`](/theorem/alpine_dom_la_vi_ie_7704) | `359ae753` |
+| [`alpine_dom_la_ga_ie_7513`](/theorem/alpine_dom_la_ga_ie_7513) | [`1a1d3009`](/theorem/alpine_dom_la_ga_ie_7513) | `f8de2b9b` |
+| [`alpine_dom_la_fo_ie_7566`](/theorem/alpine_dom_la_fo_ie_7566) | [`ffbfbe91`](/theorem/alpine_dom_la_fo_ie_7566) | `f60fe1ec` |
+| [`alpine_dom_la_au_ie_7684`](/theorem/alpine_dom_la_au_ie_7684) | [`0dc18ca5`](/theorem/alpine_dom_la_au_ie_7684) | `e140465b` |
+| [`alpine_dom_la_bu_ie_7737`](/theorem/alpine_dom_la_bu_ie_7737) | [`d60184cc`](/theorem/alpine_dom_la_bu_ie_7737) | `79f945bd` |
+| [`alpine_dom_la_so_ie_7702`](/theorem/alpine_dom_la_so_ie_7702) | [`66e94b6f`](/theorem/alpine_dom_la_so_ie_7702) | `599a0b09` |
+| [`alpine_dom_la_en_ie_7517`](/theorem/alpine_dom_la_en_ie_7517) | [`4f642ab3`](/theorem/alpine_dom_la_en_ie_7517) | `037cff69` |
 
 ## Refused — the law school's enrollment roster
 

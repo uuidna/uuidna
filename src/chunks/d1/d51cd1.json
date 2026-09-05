@@ -1,0 +1,12 @@
+{
+  "handle": "d1d51cd1",
+  "address": "d1d51cd1-d83e-84ea-acb6-cc9b123b822b",
+  "statement": "(0 < 2602) ∧ (0 + 2602 = 2602)",
+  "tactic": "decide",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

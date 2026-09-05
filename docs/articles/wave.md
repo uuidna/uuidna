@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 906 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 933 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 905 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 932 siblings below.
 
-**906 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 725 of its 906 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
+**933 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 752 of its 933 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 906 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 933 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -6351,6 +6351,195 @@ The ledger holds this as [truncated_run_counted_47](/theorem/truncated_run_count
 
 ```lean
 (46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41)
+```
+
+### Alpine domain port (language): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 3066 of the 7488 packages are companions (-dev, -doc, -libs) of an origin already counted
+The ledger holds this as [alpine_domain_language_origins_7488](/theorem/alpine_domain_language_origins_7488) — proven `by decide`, sorry-free:
+
+```lean
+(4422 <= 7488) ∧ (7488 - 4422 = 3066)
+```
+
+### Inclusion-exclusion across database and language, exact over the committed mirror. They share 154 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_da_la_ie_7772](/theorem/alpine_dom_da_la_ie_7772) — proven `by decide`, sorry-free:
+
+```lean
+(438 + 7488 - 154 = 7772)
+```
+
+### Inclusion-exclusion across filesystem and language, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_fi_la_ie_7687](/theorem/alpine_dom_fi_la_ie_7687) — proven `by decide`, sorry-free:
+
+```lean
+(215 + 7488 - 16 = 7687)
+```
+
+### Inclusion-exclusion across blockchain and language, exact over the committed mirror. They share 7 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_bl_la_ie_7510](/theorem/alpine_dom_bl_la_ie_7510) — proven `by decide`, sorry-free:
+
+```lean
+(29 + 7488 - 7 = 7510)
+```
+
+### Inclusion-exclusion across driver and language, exact over the committed mirror. They share 61 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_dr_la_ie_8057](/theorem/alpine_dom_dr_la_ie_8057) — proven `by decide`, sorry-free:
+
+```lean
+(630 + 7488 - 61 = 8057)
+```
+
+### Inclusion-exclusion across language and network, exact over the committed mirror. They share 49 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_ne_ie_7771](/theorem/alpine_dom_la_ne_ie_7771) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 332 - 49 = 7771)
+```
+
+### Inclusion-exclusion across language and science, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_sc_ie_7546](/theorem/alpine_dom_la_sc_ie_7546) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 74 - 16 = 7546)
+```
+
+### Inclusion-exclusion across language and media, exact over the committed mirror. They share 67 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_me_ie_7680](/theorem/alpine_dom_la_me_ie_7680) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 259 - 67 = 7680)
+```
+
+### Inclusion-exclusion across language and shell, exact over the committed mirror. They share 67 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_sh_ie_8700](/theorem/alpine_dom_la_sh_ie_8700) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 1279 - 67 = 8700)
+```
+
+### Inclusion-exclusion across language and chat, exact over the committed mirror. They share 42 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_ch_ie_7687](/theorem/alpine_dom_la_ch_ie_7687) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 241 - 42 = 7687)
+```
+
+### Inclusion-exclusion across language and crypto, exact over the committed mirror. They share 46 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_cr_ie_7641](/theorem/alpine_dom_la_cr_ie_7641) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 199 - 46 = 7641)
+```
+
+### Inclusion-exclusion across language and security, exact over the committed mirror. They share 9 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_se_ie_7565](/theorem/alpine_dom_la_se_ie_7565) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 86 - 9 = 7565)
+```
+
+### Inclusion-exclusion across language and math, exact over the committed mirror. They share 6 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_ma_ie_7522](/theorem/alpine_dom_la_ma_ie_7522) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 40 - 6 = 7522)
+```
+
+### Inclusion-exclusion across language and art, exact over the committed mirror. They share 5 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_ar_ie_7536](/theorem/alpine_dom_la_ar_ie_7536) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 53 - 5 = 7536)
+```
+
+### Inclusion-exclusion across language and bio, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_bi_ie_7488](/theorem/alpine_dom_la_bi_ie_7488) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 2 - 2 = 7488)
+```
+
+### Inclusion-exclusion across language and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_ch_ie_7491](/theorem/alpine_dom_la_ch_ie_7491) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 3 - 0 = 7491)
+```
+
+### Inclusion-exclusion across language and neuro, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_ne_ie_7496](/theorem/alpine_dom_la_ne_ie_7496) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 11 - 3 = 7496)
+```
+
+### Inclusion-exclusion across language and astronomy, exact over the committed mirror. They share 10 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_as_ie_7503](/theorem/alpine_dom_la_as_ie_7503) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 25 - 10 = 7503)
+```
+
+### Inclusion-exclusion across language and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_ph_ie_7495](/theorem/alpine_dom_la_ph_ie_7495) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 7 - 0 = 7495)
+```
+
+### Inclusion-exclusion across language and geo, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_ge_ie_7547](/theorem/alpine_dom_la_ge_ie_7547) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 62 - 3 = 7547)
+```
+
+### Inclusion-exclusion across language and virtualization, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_vi_ie_7704](/theorem/alpine_dom_la_vi_ie_7704) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 232 - 16 = 7704)
+```
+
+### Inclusion-exclusion across language and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_ga_ie_7513](/theorem/alpine_dom_la_ga_ie_7513) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 25 - 0 = 7513)
+```
+
+### Inclusion-exclusion across language and font, exact over the committed mirror. They share 4 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_fo_ie_7566](/theorem/alpine_dom_la_fo_ie_7566) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 82 - 4 = 7566)
+```
+
+### Inclusion-exclusion across language and audio, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_au_ie_7684](/theorem/alpine_dom_la_au_ie_7684) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 198 - 2 = 7684)
+```
+
+### Inclusion-exclusion across language and build, exact over the committed mirror. They share 11 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_bu_ie_7737](/theorem/alpine_dom_la_bu_ie_7737) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 260 - 11 = 7737)
+```
+
+### Inclusion-exclusion across language and social, exact over the committed mirror. They share 89 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_so_ie_7702](/theorem/alpine_dom_la_so_ie_7702) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 303 - 89 = 7702)
+```
+
+### Inclusion-exclusion across language and engineering, exact over the committed mirror. They share 1 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.
+The ledger holds this as [alpine_dom_la_en_ie_7517](/theorem/alpine_dom_la_en_ie_7517) — proven `by decide`, sorry-free:
+
+```lean
+(7488 + 30 - 1 = 7517)
 ```
 
 

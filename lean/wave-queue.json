@@ -1,141 +1,5 @@
 {
-  "pending": [
-    {
-      "key": "alpine_domain_language_origins_7488",
-      "why": "Alpine domain port (language): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 3066 of the 7488 packages are companions (-dev, -doc, -libs) of an origin already counted",
-      "lean": "theorem alpine_domain_language_origins_7488 : (4422 <= 7488) ∧ (7488 - 4422 = 3066) := by decide"
-    },
-    {
-      "key": "alpine_dom_da_la_ie_7772",
-      "why": "Inclusion-exclusion across database and language, exact over the committed mirror. They share 154 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_da_la_ie_7772 : (438 + 7488 - 154 = 7772) := by decide"
-    },
-    {
-      "key": "alpine_dom_fi_la_ie_7687",
-      "why": "Inclusion-exclusion across filesystem and language, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_fi_la_ie_7687 : (215 + 7488 - 16 = 7687) := by decide"
-    },
-    {
-      "key": "alpine_dom_bl_la_ie_7510",
-      "why": "Inclusion-exclusion across blockchain and language, exact over the committed mirror. They share 7 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_bl_la_ie_7510 : (29 + 7488 - 7 = 7510) := by decide"
-    },
-    {
-      "key": "alpine_dom_dr_la_ie_8057",
-      "why": "Inclusion-exclusion across driver and language, exact over the committed mirror. They share 61 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_dr_la_ie_8057 : (630 + 7488 - 61 = 8057) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ne_ie_7771",
-      "why": "Inclusion-exclusion across language and network, exact over the committed mirror. They share 49 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ne_ie_7771 : (7488 + 332 - 49 = 7771) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_sc_ie_7546",
-      "why": "Inclusion-exclusion across language and science, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_sc_ie_7546 : (7488 + 74 - 16 = 7546) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_me_ie_7680",
-      "why": "Inclusion-exclusion across language and media, exact over the committed mirror. They share 67 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_me_ie_7680 : (7488 + 259 - 67 = 7680) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_sh_ie_8700",
-      "why": "Inclusion-exclusion across language and shell, exact over the committed mirror. They share 67 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_sh_ie_8700 : (7488 + 1279 - 67 = 8700) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ch_ie_7687",
-      "why": "Inclusion-exclusion across language and chat, exact over the committed mirror. They share 42 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ch_ie_7687 : (7488 + 241 - 42 = 7687) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_cr_ie_7641",
-      "why": "Inclusion-exclusion across language and crypto, exact over the committed mirror. They share 46 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_cr_ie_7641 : (7488 + 199 - 46 = 7641) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_se_ie_7565",
-      "why": "Inclusion-exclusion across language and security, exact over the committed mirror. They share 9 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_se_ie_7565 : (7488 + 86 - 9 = 7565) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ma_ie_7522",
-      "why": "Inclusion-exclusion across language and math, exact over the committed mirror. They share 6 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ma_ie_7522 : (7488 + 40 - 6 = 7522) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ar_ie_7536",
-      "why": "Inclusion-exclusion across language and art, exact over the committed mirror. They share 5 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ar_ie_7536 : (7488 + 53 - 5 = 7536) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_bi_ie_7488",
-      "why": "Inclusion-exclusion across language and bio, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_bi_ie_7488 : (7488 + 2 - 2 = 7488) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ch_ie_7491",
-      "why": "Inclusion-exclusion across language and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ch_ie_7491 : (7488 + 3 - 0 = 7491) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ne_ie_7496",
-      "why": "Inclusion-exclusion across language and neuro, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ne_ie_7496 : (7488 + 11 - 3 = 7496) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_as_ie_7503",
-      "why": "Inclusion-exclusion across language and astronomy, exact over the committed mirror. They share 10 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_as_ie_7503 : (7488 + 25 - 10 = 7503) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ph_ie_7495",
-      "why": "Inclusion-exclusion across language and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ph_ie_7495 : (7488 + 7 - 0 = 7495) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ge_ie_7547",
-      "why": "Inclusion-exclusion across language and geo, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ge_ie_7547 : (7488 + 62 - 3 = 7547) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_vi_ie_7704",
-      "why": "Inclusion-exclusion across language and virtualization, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_vi_ie_7704 : (7488 + 232 - 16 = 7704) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_ga_ie_7513",
-      "why": "Inclusion-exclusion across language and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_ga_ie_7513 : (7488 + 25 - 0 = 7513) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_fo_ie_7566",
-      "why": "Inclusion-exclusion across language and font, exact over the committed mirror. They share 4 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_fo_ie_7566 : (7488 + 82 - 4 = 7566) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_au_ie_7684",
-      "why": "Inclusion-exclusion across language and audio, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_au_ie_7684 : (7488 + 198 - 2 = 7684) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_bu_ie_7737",
-      "why": "Inclusion-exclusion across language and build, exact over the committed mirror. They share 11 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_bu_ie_7737 : (7488 + 260 - 11 = 7737) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_so_ie_7702",
-      "why": "Inclusion-exclusion across language and social, exact over the committed mirror. They share 89 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_so_ie_7702 : (7488 + 303 - 89 = 7702) := by decide"
-    },
-    {
-      "key": "alpine_dom_la_en_ie_7517",
-      "why": "Inclusion-exclusion across language and engineering, exact over the committed mirror. They share 1 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
-      "lean": "theorem alpine_dom_la_en_ie_7517 : (7488 + 30 - 1 = 7517) := by decide"
-    }
-  ],
+  "pending": [],
   "accepted": [
     {
       "key": "wave_probe_eleven_thirteens",
@@ -5542,6 +5406,168 @@
       "why": "SILENT TRUNCATION, COUNTED. Of 47 listed generators exactly 1 ends with a module-scope exit call; loaded into the shared runner it ended that runner at 6 of 47 while the runner itself reported 0, skipping 41 — including gen-readme and gen-llm, so every published figure froze one ledger behind under a green gate. Each generator now runs isolated and the runner compares its result count to its list length. The defect class is this tree's recurring one: not a check that failed, but an ACTION THAT WAS ABSENT reporting success. The name counts and does not quantify: `generate_` is itself in the incomplete finder's universal vocabulary, which caught two names before this one.",
       "lean": "theorem truncated_run_counted_47 : (46 + 1 = 47) ∧ (6 < 47) ∧ (47 - 6 = 41) := by decide",
       "receipt": "34c76b9d-256a-864e-81cf-07d6baf22b7a"
+    },
+    {
+      "key": "alpine_domain_language_origins_7488",
+      "why": "Alpine domain port (language): exact arithmetic over the census counts.  — membership is a pattern match over Alpine's own name and description and is a MEASUREMENT with known failures; the counting over it is what this claim seals, never the membership. Provenance only: nothing is installed, mounted, linked or executed. 3066 of the 7488 packages are companions (-dev, -doc, -libs) of an origin already counted",
+      "lean": "theorem alpine_domain_language_origins_7488 : (4422 <= 7488) ∧ (7488 - 4422 = 3066) := by decide",
+      "receipt": "2a61726a-0eb7-8298-8d40-25784ced44c5"
+    },
+    {
+      "key": "alpine_dom_da_la_ie_7772",
+      "why": "Inclusion-exclusion across database and language, exact over the committed mirror. They share 154 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_da_la_ie_7772 : (438 + 7488 - 154 = 7772) := by decide",
+      "receipt": "6db24360-f4b4-89a8-aaf6-c2495bd03918"
+    },
+    {
+      "key": "alpine_dom_fi_la_ie_7687",
+      "why": "Inclusion-exclusion across filesystem and language, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_fi_la_ie_7687 : (215 + 7488 - 16 = 7687) := by decide",
+      "receipt": "dacc2841-196e-859f-816f-24d03dc74cea"
+    },
+    {
+      "key": "alpine_dom_bl_la_ie_7510",
+      "why": "Inclusion-exclusion across blockchain and language, exact over the committed mirror. They share 7 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_bl_la_ie_7510 : (29 + 7488 - 7 = 7510) := by decide",
+      "receipt": "111577c4-1321-8405-b680-b38cf48d0e13"
+    },
+    {
+      "key": "alpine_dom_dr_la_ie_8057",
+      "why": "Inclusion-exclusion across driver and language, exact over the committed mirror. They share 61 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_dr_la_ie_8057 : (630 + 7488 - 61 = 8057) := by decide",
+      "receipt": "b35a2169-fa8c-8ecb-9f04-b188d361d9fe"
+    },
+    {
+      "key": "alpine_dom_la_ne_ie_7771",
+      "why": "Inclusion-exclusion across language and network, exact over the committed mirror. They share 49 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ne_ie_7771 : (7488 + 332 - 49 = 7771) := by decide",
+      "receipt": "30ccb850-d302-8b3c-93df-9bcf49057fb8"
+    },
+    {
+      "key": "alpine_dom_la_sc_ie_7546",
+      "why": "Inclusion-exclusion across language and science, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_sc_ie_7546 : (7488 + 74 - 16 = 7546) := by decide",
+      "receipt": "31175373-ea1f-8ad3-85e5-762e6032056d"
+    },
+    {
+      "key": "alpine_dom_la_me_ie_7680",
+      "why": "Inclusion-exclusion across language and media, exact over the committed mirror. They share 67 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_me_ie_7680 : (7488 + 259 - 67 = 7680) := by decide",
+      "receipt": "b3aa2e29-1c8d-8071-90c2-b65ed6fc8d58"
+    },
+    {
+      "key": "alpine_dom_la_sh_ie_8700",
+      "why": "Inclusion-exclusion across language and shell, exact over the committed mirror. They share 67 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_sh_ie_8700 : (7488 + 1279 - 67 = 8700) := by decide",
+      "receipt": "2afaf342-79b9-823b-bdd2-05964bf8636b"
+    },
+    {
+      "key": "alpine_dom_la_ch_ie_7687",
+      "why": "Inclusion-exclusion across language and chat, exact over the committed mirror. They share 42 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ch_ie_7687 : (7488 + 241 - 42 = 7687) := by decide",
+      "receipt": "bcf4f51b-e281-8b94-b4ba-b1788a89cc1a"
+    },
+    {
+      "key": "alpine_dom_la_cr_ie_7641",
+      "why": "Inclusion-exclusion across language and crypto, exact over the committed mirror. They share 46 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_cr_ie_7641 : (7488 + 199 - 46 = 7641) := by decide",
+      "receipt": "1e0eda71-bf04-8a35-bc76-834836dd942d"
+    },
+    {
+      "key": "alpine_dom_la_se_ie_7565",
+      "why": "Inclusion-exclusion across language and security, exact over the committed mirror. They share 9 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_se_ie_7565 : (7488 + 86 - 9 = 7565) := by decide",
+      "receipt": "dd534077-1ce8-8be9-b655-95a3080d6ed9"
+    },
+    {
+      "key": "alpine_dom_la_ma_ie_7522",
+      "why": "Inclusion-exclusion across language and math, exact over the committed mirror. They share 6 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ma_ie_7522 : (7488 + 40 - 6 = 7522) := by decide",
+      "receipt": "dbc84343-b53f-8fe7-a157-5ee6699683cd"
+    },
+    {
+      "key": "alpine_dom_la_ar_ie_7536",
+      "why": "Inclusion-exclusion across language and art, exact over the committed mirror. They share 5 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ar_ie_7536 : (7488 + 53 - 5 = 7536) := by decide",
+      "receipt": "2a725052-950f-8422-b496-49380bcd9726"
+    },
+    {
+      "key": "alpine_dom_la_bi_ie_7488",
+      "why": "Inclusion-exclusion across language and bio, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_bi_ie_7488 : (7488 + 2 - 2 = 7488) := by decide",
+      "receipt": "02b0ab29-2278-84d8-9624-0737eb0e45eb"
+    },
+    {
+      "key": "alpine_dom_la_ch_ie_7491",
+      "why": "Inclusion-exclusion across language and chemistry, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ch_ie_7491 : (7488 + 3 - 0 = 7491) := by decide",
+      "receipt": "2ae5ffa7-552b-8edd-9d9a-fefcf950aaa1"
+    },
+    {
+      "key": "alpine_dom_la_ne_ie_7496",
+      "why": "Inclusion-exclusion across language and neuro, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ne_ie_7496 : (7488 + 11 - 3 = 7496) := by decide",
+      "receipt": "8f28c40e-d987-82cb-a2fc-9357f4871b4d"
+    },
+    {
+      "key": "alpine_dom_la_as_ie_7503",
+      "why": "Inclusion-exclusion across language and astronomy, exact over the committed mirror. They share 10 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_as_ie_7503 : (7488 + 25 - 10 = 7503) := by decide",
+      "receipt": "734cbdb3-8ecb-8263-9730-4845494cf675"
+    },
+    {
+      "key": "alpine_dom_la_ph_ie_7495",
+      "why": "Inclusion-exclusion across language and physics, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ph_ie_7495 : (7488 + 7 - 0 = 7495) := by decide",
+      "receipt": "0aa8a96a-b76c-8a60-8eeb-ead8bf30caed"
+    },
+    {
+      "key": "alpine_dom_la_ge_ie_7547",
+      "why": "Inclusion-exclusion across language and geo, exact over the committed mirror. They share 3 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ge_ie_7547 : (7488 + 62 - 3 = 7547) := by decide",
+      "receipt": "15245cfc-ebbb-8930-adc2-cf2bff578e74"
+    },
+    {
+      "key": "alpine_dom_la_vi_ie_7704",
+      "why": "Inclusion-exclusion across language and virtualization, exact over the committed mirror. They share 16 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_vi_ie_7704 : (7488 + 232 - 16 = 7704) := by decide",
+      "receipt": "359ae753-c434-8562-bd81-8c06cc53e3f4"
+    },
+    {
+      "key": "alpine_dom_la_ga_ie_7513",
+      "why": "Inclusion-exclusion across language and game, exact over the committed mirror. They share no packages under the seeded patterns, so the identity reduces to addition here — it still catches a miscount, and it would carry more if a pattern straddled them. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_ga_ie_7513 : (7488 + 25 - 0 = 7513) := by decide",
+      "receipt": "f8de2b9b-9b43-8202-9f3d-4ed5f3d59800"
+    },
+    {
+      "key": "alpine_dom_la_fo_ie_7566",
+      "why": "Inclusion-exclusion across language and font, exact over the committed mirror. They share 4 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_fo_ie_7566 : (7488 + 82 - 4 = 7566) := by decide",
+      "receipt": "f60fe1ec-06f5-8dc8-bfab-e20003c1a424"
+    },
+    {
+      "key": "alpine_dom_la_au_ie_7684",
+      "why": "Inclusion-exclusion across language and audio, exact over the committed mirror. They share 2 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_au_ie_7684 : (7488 + 198 - 2 = 7684) := by decide",
+      "receipt": "e140465b-b20e-88a7-a76c-c17577d1b1dd"
+    },
+    {
+      "key": "alpine_dom_la_bu_ie_7737",
+      "why": "Inclusion-exclusion across language and build, exact over the committed mirror. They share 11 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_bu_ie_7737 : (7488 + 260 - 11 = 7737) := by decide",
+      "receipt": "79f945bd-0778-8bde-bb5e-22cc6efcf269"
+    },
+    {
+      "key": "alpine_dom_la_so_ie_7702",
+      "why": "Inclusion-exclusion across language and social, exact over the committed mirror. They share 89 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_so_ie_7702 : (7488 + 303 - 89 = 7702) := by decide",
+      "receipt": "599a0b09-e90e-8966-9cb9-3de9fc47c144"
+    },
+    {
+      "key": "alpine_dom_la_en_ie_7517",
+      "why": "Inclusion-exclusion across language and engineering, exact over the committed mirror. They share 1 packages, so this is a real set statement rather than an addition. The identity fails if any of the four counts is wrong, which is what it is for.",
+      "lean": "theorem alpine_dom_la_en_ie_7517 : (7488 + 30 - 1 = 7517) := by decide",
+      "receipt": "037cff69-4e36-88e5-a92b-3986cf8dfd37"
     }
   ],
   "refused": [

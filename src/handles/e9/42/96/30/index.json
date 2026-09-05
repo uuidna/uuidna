@@ -1,0 +1,12 @@
+{
+  "handle": "e9429630",
+  "address": "e9429630-1884-828c-abe3-646bf602a6bd",
+  "kind": "chunk",
+  "keys": [
+    "alpine_dom_la_ga_ie_7513"
+  ],
+  "statement": "(7488 + 25 - 0 = 7513)",
+  "files": [
+    "Wave.lean"
+  ]
+}

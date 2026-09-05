@@ -1,0 +1,12 @@
+{
+  "handle": "14d95311",
+  "address": "14d95311-007b-8249-9470-f88d138eb4df",
+  "statement": "(7488 + 260 - 11 = 7737)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_la_bu_ie_7737"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "handle": "68cc2c1e",
+  "address": "68cc2c1e-f493-88c0-a623-f173d42be433",
+  "statement": "(7488 + 232 - 16 = 7704)",
+  "tactic": "decide",
+  "keys": [
+    "alpine_dom_la_vi_ie_7704"
+  ],
+  "files": [
+    "Wave.lean"
+  ]
+}
