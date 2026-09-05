@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "f33d0085157e01c54cf321f7bbd8b932",
+    "src": "b31d5bb5d3a5048752b570d4b756f285",
     "lean": "026a2c184cf290b7cb6e2dc67a3555e9"
   },
   "files": {
@@ -307,6 +307,8 @@
     "src/axiom-hunt-coins.test.ts": "53ee1f56e685bfb0",
     "src/axiom-reach.test.ts": "596ea214b71a6222",
     "src/axiom-reach.ts": "644af99c6648af5f",
+    "src/axiom-report.test.ts": "c2e3d883013303df",
+    "src/axiom-report.ts": "b3c1c4611106ddc4",
     "src/axiom-witness.ts": "65450665f2b287c7",
     "src/axis-monograph.ts": "1a6d314411509a19",
     "src/balancer.test.ts": "45a4b85d56503cb1",
@@ -4114,7 +4116,7 @@
     "src/scripts/lean-astronomy.ts": "27f89297592ad301",
     "src/scripts/lean-audit.ts": "25e30a30bc7e7485",
     "src/scripts/lean-auditgame.ts": "74efb5d5d12b8d6f",
-    "src/scripts/lean-axioms.ts": "117f574c14b00cd1",
+    "src/scripts/lean-axioms.ts": "0a533e732659385f",
     "src/scripts/lean-billing.ts": "bc6cd61af0dc867e",
     "src/scripts/lean-biophysics.ts": "22a0cb3458c66f9d",
     "src/scripts/lean-boolean.ts": "65fd2cc5fb373269",
@@ -4239,7 +4241,7 @@
     "src/scripts/mint-gate.ts": "bf8c62ae32e5d4a2",
     "src/scripts/multi-cloud-analytics.ts": "a35455a929934a58",
     "src/scripts/next.ts": "b10222802d838126",
-    "src/scripts/one-receipt.ts": "ca71a625fbd8ef69",
+    "src/scripts/one-receipt.ts": "9b925646752cfe99",
     "src/scripts/one-writer.ts": "abf11dde3b298eec",
     "src/scripts/org-fit.ts": "ccab0424f5518f6c",
     "src/scripts/outward.ts": "bbd798d9ac995e5a",
@@ -4266,7 +4268,7 @@
     "src/scripts/quantum-operations-live.ts": "c87da15ae547596a",
     "src/scripts/quantum-rosetta-apis.ts": "ff6f768242fadef0",
     "src/scripts/quantum-search-trial.ts": "82ae6a65b5bf77f4",
-    "src/scripts/queue-wave.ts": "da3a8d6f730597c4",
+    "src/scripts/queue-wave.ts": "3ae0938e6a5a2d31",
     "src/scripts/ratchet-gaps.ts": "34f00a2717931348",
     "src/scripts/ratchets.ts": "b90633410d7bb612",
     "src/scripts/reconcile.ts": "b72866a7dbd973b1",

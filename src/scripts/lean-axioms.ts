@@ -23,9 +23,12 @@ import { ROOT, MAXBUF } from './lean-gen.js'
 // conscious, documented decision; a `by decide` ledger should never need to.
 import { handleOf } from '../handle.js'
 import { toUuid } from '../address.js'
+import { ALLOWED_AXIOMS, parseAxiomReport } from '../axiom-report.js'
 const LEDGER_SRC = join(ROOT, 'src', 'theorems', 'generated.ts')
 
-const ALLOWED = new Set<string>()
+// THE TRUST BASE IS DECLARED ONCE, in src/axiom-report.ts, because the conveyor's deposit door now enforces it
+// too (queue-wave's probe carries `#print axioms`). Two copies of an allowed-axiom set is two trust bases.
+const ALLOWED = ALLOWED_AXIOMS
 
 const T = theorems()
 const addrOf: Record<string, string> = Object.fromEntries(T.map((t) => [t.key, t.address]))
@@ -51,15 +54,7 @@ for (const f of Object.keys(byFile))
 //   'name' does not depend on any axioms
 //   'name' depends on axioms: [Classical.choice, propext, Quot.sound]
 // Returns name → axiom list ([] = clean). Name equals the bare key (no namespace in these files).
-function parse(out: string): Record<string, string[]> {
-  const verdict: Record<string, string[]> = {}
-  // Capture the name LAZILY up to the verdict phrase — a prime in a Lean name (`foo'`) prints as `'foo''`, which a
-  // `'([^']+)'` class would truncate at the inner quote (dropping the theorem, then falsely draining as unseen).
-  for (const m of out.matchAll(/'(.+?)' does not depend on any axioms/g)) verdict[m[1]] = []
-  for (const m of out.matchAll(/'(.+?)' depends on axioms: \[([^\]]*)\]/g))
-    verdict[m[1]] = m[2].split(',').map((s) => s.trim()).filter(Boolean)
-  return verdict
-}
+const parse = parseAxiomReport
 
 // Run `lean probe` for the axiom report, hardened two ways:
 //  • A real Lean ELABORATION error (`: error:` in the output) fails HARD, even if `#print axioms` stanzas were also

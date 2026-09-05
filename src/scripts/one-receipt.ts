@@ -1134,6 +1134,31 @@ export function staleGaps(): Gap[] {
 export function scriptsGaps(): Gap[] {
   const gaps: Gap[] = []
   const pkg = JSON.parse(fileText(join(ROOT, 'package.json'))) as { scripts: Record<string, string> }
+
+  // A PIPELINE STEP THAT READS ANOTHER'S OUTPUT MUST RUN AFTER IT, and the composite scripts encode that order
+  // in a string where nothing checks it. `lean` ran `rosetta` BEFORE `gen-falsifiers`, so rosetta read
+  // falsifiers.test.ts before the row it was judging had a leg written — and refused with "lost its falsifier
+  // leg" on EVERY newly-sealed theorem, structurally, every time. Two sessions independently called it a false
+  // alarm; one of them rewrote a CORRECT statement to satisfy it before checking. A false alarm that fires on
+  // the normal path is worse than no alarm: it teaches the crew to disbelieve the instrument.
+  // Each row is (script, earlier, later, why) — the reason travels with the constraint, so a future reorder is
+  // argued against the reason rather than the line.
+  const ORDER: readonly (readonly [string, string, string, string])[] = [
+    ['lean', 'gen-falsifiers', 'rosetta', 'rosetta reads the falsifier legs out of falsifiers.test.ts, which gen-falsifiers writes; reversed, every freshly-sealed row looks legless'],
+    ['lean', 'lean-all', 'lean-heartbeats', 'the heartbeats are measured against the ledger lean-all regenerates'],
+    ['lean', 'lean-all', 'sync-changelog', 'the changelog stamps the theorem count, so it must read the ledger lean-all just wrote'],
+  ]
+  for (const [script, earlier, later, why] of ORDER) {
+    const body = pkg.scripts[script]
+    if (!body) continue
+    const a = body.indexOf(earlier + '.js'), b = body.indexOf(later + '.js')
+    if (a === -1 || b === -1) continue
+    if (a > b) gaps.push({
+      what: `npm script \`${script}\` runs ${later} BEFORE ${earlier} — ${why}`,
+      fix: `swap them in package.json so \`${earlier}.js\` runs first; the constraint and its reason are declared in scriptsGaps' ORDER table, so change the reason there if the order is genuinely meant to flip`,
+    })
+  }
+
   // a THIN WRAPPER runs exactly one dist script and nothing else — composites (audit, lean, docs:build) are real
   // pipelines and stay; `x` itself is the dispatcher.
   const THIN = /^(?:npm run build && )?node dist\/scripts\/[a-z0-9-]+\.js$/
