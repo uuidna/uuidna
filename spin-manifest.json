@@ -9,7 +9,7 @@
     "support-audit.json": "9c1168114f2f8db8",
     "research-leads.json": "2e1a2f1e4d58803a",
     ".zenodo.json": "561d9fad693d885d",
-    "reports.json": "e5a27f68626c87f1",
+    "reports.json": "ec63921d7a2b81f0",
     "lean/statement-index.json": "5d375020ec43887a",
     "README.md": "e6d393b84e0288af",
     "llm.txt": "a8180c1629468f9e",
@@ -1060,6 +1060,7 @@
     "src/chunks/63/7fd968.json": "6fc3a1a6c3a982ff",
     "src/chunks/63/9b37d1.json": "9fcdca21bc2e8d47",
     "src/chunks/63/a99451.json": "27e3fb5facbe8686",
+    "src/chunks/63/cb4776.json": "eb4be56485b28a50",
     "src/chunks/63/fcbf05.json": "167eed36281c89af",
     "src/chunks/64/1000cf.json": "d608f0a874f687ba",
     "src/chunks/64/117452.json": "5ace840924b589e7",
@@ -1796,6 +1797,7 @@
     "src/chunks/ad/cd6f10.json": "a2fe0e7413848c0a",
     "src/chunks/ad/da81a2.json": "a8b5d68bb5de88aa",
     "src/chunks/ad/ff5afe.json": "ee770675f8488db7",
+    "src/chunks/ae/37a8d8.json": "381da29654928168",
     "src/chunks/ae/4388db.json": "2304a63391dd84e2",
     "src/chunks/ae/50376d.json": "1a69a16a573d8b8a",
     "src/chunks/ae/905790.json": "0248adc197c681fa",
@@ -2860,5 +2862,5 @@
     "lean/wave-queue.json": "a0d06de0854b8406",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "22745bf2-8076-8a3e-8e8d-83f99d7a7b89"
+  "receipt": "9cd90e3a-6c2c-8de3-975c-8fa4258b7abb"
 }
