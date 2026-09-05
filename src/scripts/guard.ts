@@ -18,6 +18,8 @@ import { ledgerDrainGaps } from './audit-ledger-drain.js'
 import { axiomReachGaps } from '../axiom-reach.js'
 import { depositGaps } from '../deposit-records.js'
 import { geometryGaps } from '../three-geometry.js'
+// the pairing recovered from the facts, cross-checked against the index-mirror it cannot see
+import { involutionGaps } from '../mirror.js'
 import { RATCHETS } from './ratchets.js'
 import { sourceGraph } from '../test-paths.js'
 /** the declared debt — files already carrying bare impossibility claims. May only shrink. */
@@ -154,6 +156,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   { name: 'prose', run: () => proseGaps().gaps },
   { name: 'dry', run: () => dryGaps().gaps },
   { name: 'coherent', run: () => coherentGaps() },
+  // an index-mirror pairs whatever it is handed, so it cannot witness itself. This runs the axis-discovery
+  // beside it and refuses a divergence — css.ts picks its rules and grid.ts calls an involution broken from the
+  // index side alone, and a silent drift there is a wrong stylesheet and a wrong verdict, both confident.
+  { name: 'involution', run: () => involutionGaps() },
   { name: 'absence', run: () => absenceGaps() },
   { name: 'pipes', run: () => pipeGaps() },
   { name: 'actions', run: () => actionsGaps() },
