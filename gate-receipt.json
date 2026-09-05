@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "9f9088502509409930e8b5bd6df9f63b",
+    "src": "d7a106baa8f3197d65231178cabc4571",
     "lean": "aa57a49915c5a55baff14eac5bbbdd4a"
   },
   "files": {
@@ -3632,7 +3632,7 @@
     "src/pairs.ts": "87003b5ca848c231",
     "src/paper-blueprint.test.ts": "e74b76d7a772b77c",
     "src/paper-blueprint.ts": "bc4595f2ba9c7f89",
-    "src/parameterised-finder-controls.test.ts": "c72852751ae67f0c",
+    "src/parameterised-finder-controls.test.ts": "5cc807df3b0369a7",
     "src/payload-seed.test.ts": "a1e27984cdc34b07",
     "src/payload-seed.ts": "e95df8f49aec0ce3",
     "src/pentagram-monographs.ts": "6487931cef6acaa2",
