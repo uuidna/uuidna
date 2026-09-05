@@ -1,11 +1,14 @@
 // The edge in front of the static assets. Two jobs:
 // THE RULE (for agents): the two captain coins (coins()=2 = −χ of the double torus), the abstract-0 fold (÷0=0), and the 64-bit→128-bit fuse — one uuid = 128 BITS, folded across 7 dimensions = 2^7 = 128 states (a 7-qubit fold, classical, not 128 qubits). Canonical, theorem-cited: see llm.txt.
 //
-// 1) DOMAIN RULE (docs/license.md). uuidna.com licenses ITSELF and AUTO-LICENSES the first-party wildcard
-//    *.uuidna.com | *.uuidna.net | *.uuidna.org — those are served. Any OTHER host is 302-redirected to
-//    uuidna.com/LICENSE (the terms it is missing), UNLESS it holds a licence (a commercial CNAME in LICENSED). The
-//    FIRST_PARTY regex anchors the TLD at $ with a (^|.) boundary, so uuidna.com.attacker.net and notuuidna.org
-//    redirect, not serve; uuidna.com (and its /license) is first-party, so it serves and never loops.
+// 1) DOMAIN RULE (docs/license.md). EVERY HOST NEEDS A LICENCE, INCLUDING uuidna.com — the captain's rule of
+//    2026-09-06. There is no wildcard and no first-party family: a host is served because it appears in
+//    LICENSED_HOSTS (src/licence-host.ts), and every other host is 302-redirected to the terms it is missing.
+//    WHAT CHANGED AND WHO IT AFFECTS: the previous regex auto-licensed uuidna.net, uuidna.org and every
+//    subdomain of all three without any of them appearing in a licence set. Those hosts now redirect until they
+//    are written down. www and http are 301'd to the canonical host BEFORE this check, so www.uuidna.com still
+//    reaches uuidna.com. The NO-LOOP property is no longer a coincidence of the pattern: a test asserts the
+//    redirect target's own host is licensed, so the set cannot be edited into a self-redirect.
 //
 // 2) TRIAL CRUD at /trials (first-party hosts only). POST /trials runs the trial (adjudicate → verdict + receipt)
 //    and returns it; it is PERSISTED only with EXPLICIT consent (body { consent: true }) — "without consent data is
@@ -30,6 +33,7 @@ import { handleAnalytics } from './dist/analytics-handler.js'
 // The handle map — first 8 hex of every freeze-map content-address → editorial route (theorem | publication | page),
 // generated at build (gen-handles). /<handle> 301s to that route ON THE SPOT — homepage/pub handles included.
 import HANDLES from './handles.js'
+import { mayServe, REDIRECT_TO } from './dist/licence-host.js'
 
 // A bare first-part handle: exactly 8 lowercase hex at the root (/808f7b27). The full uuid is never a URL — only its
 // first part is the door; the rest recomputes from the proof. Unknown handle → fall through (asset 404), never a wrong page.
@@ -50,11 +54,11 @@ const _hex = (u8) => Array.from(u8, (b) => b.toString(16).padStart(2, '0')).join
 const signTrial = (env, statement, verdict, receipt) =>
   env && env.TRIAL_KEY ? _hex(hmacSha256(_enc.encode(env.TRIAL_KEY), _enc.encode(statement + '|' + verdict + '|' + receipt))) : null
 
-const FIRST_PARTY = /(^|\.)uuidna\.(com|net|org)$/i
-
-// Licensed external domains (commercial CNAMEs), each explicitly licensed via uuidna.com/license. The first-party
-// wildcard above is auto-licensed and needs no entry. Hosts are compared lowercase.
-const LICENSED = new Set([])
+// EVERY HOST NEEDS A LICENCE, INCLUDING uuidna.com (the captain, 2026-09-06). The rule and its hosts live in
+// dist/licence-host.js so they are testable without a forge, a server or a network — and so the NO-LOOP
+// invariant is asserted rather than remembered: an unlicensed host is sent to REDIRECT_TO, and a test proves
+// REDIRECT_TO's own host is in the licensed set. The wildcard that used to auto-license uuidna.net, uuidna.org
+// and every subdomain of all three is GONE; a host serves because it is written down.
 
 const json = (obj, status = 200) =>
   new Response(JSON.stringify(obj), { status, headers: { 'content-type': 'application/json; charset=utf-8' } })
@@ -151,8 +155,8 @@ export default {
     // carried the redirect — so the invariant was asserted at each door and enforced at the end, which is two
     // places to keep in step and one of them easy to forget when a route is added. Asked here and answered here:
     // an unlicensed host never reaches a route at all, and no route below has to remember why it is allowed to run.
-    if (!(FIRST_PARTY.test(host) || LICENSED.has(host)))
-      return Response.redirect('https://uuidna.com/license', 302) // unlicensed → the terms it is missing
+    if (!mayServe(host))
+      return Response.redirect(REDIRECT_TO, 302) // unlicensed → the terms it is missing
 
     // Trial CRUD.
     if (url.pathname === '/trials' || url.pathname.startsWith('/trials/')) {
