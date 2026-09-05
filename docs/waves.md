@@ -29,7 +29,7 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 | candidate | status |
 |-----------|--------|
-| — the queue is drained — | |
+| **merkle advantage starts above one bit** (not sealed) | awaiting the kernel |
 
 ## Accepted — the cargo, each with its seal
 

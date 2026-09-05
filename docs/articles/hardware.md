@@ -1,15 +1,15 @@
 ---
 title: "The hardware-verifiable binary algebra"
-description: "Computed from lean/Hardware.lean — 17 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Hardware.lean — 18 sealed theorems, every claim citing its proof."
 ---
 
 # The hardware-verifiable binary algebra
 
-> THE HARDWARE-VERIFIABLE BINARY ALGEBRA — the named nucleus of low-level combinational logic, each fact a decidable, axiom-free `by decide` particle. — held by [not_gate_truth_table](/theorem/not_gate_truth_table) and its 16 siblings below.
+> THE HARDWARE-VERIFIABLE BINARY ALGEBRA — the named nucleus of low-level combinational logic, each fact a decidable, axiom-free `by decide` particle. — held by [not_gate_truth_table](/theorem/not_gate_truth_table) and its 17 siblings below.
 
-**17 theorems**, from [not_gate_truth_table](/theorem/not_gate_truth_table) onward, each proven `by decide` in <a href="/lean/Hardware.lean">lean/Hardware.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 13 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [not_gate_truth_table](/theorem/not_gate_truth_table). A boundary stated here is decided.
+**18 theorems**, from [not_gate_truth_table](/theorem/not_gate_truth_table) onward, each proven `by decide` in <a href="/lean/Hardware.lean">lean/Hardware.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 14 of its 18 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [not_gate_truth_table](/theorem/not_gate_truth_table). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHardware.lean)** — nothing to install. The editor fetches `lean/Hardware.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FHardware.lean)** — nothing to install. The editor fetches `lean/Hardware.lean` from the repository and re-decides all 18 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### The NOT gate as arithmetic: NOT a = 1 − a over a bit. Its truth table is [0,1] ↦ [1,0] — the one-input inverter, sealed exactly.
 The ledger holds this as [not_gate_truth_table](/theorem/not_gate_truth_table) — proven `by decide`, sorry-free:
@@ -114,6 +114,13 @@ The ledger holds this as [lanes_partition_the_work](/theorem/lanes_partition_the
 
 ```lean
 (List.range 14).foldl (fun a l => a + ((List.range 64).filter (fun i => i % 14 == l)).length) 0 = 64
+```
+
+### THE SEAT ACCOUNTING, SEALED AFTER A LITERAL WAS FOUND WEARING ITS NAME. upgradeFirmware reported upgraded:true for every seat including the EMPTY one, so skipped was arithmetic on a constant and could not move off zero — an outcome published for an action never attempted. The cure is a three-answer domain, and this is the law it must satisfy: over the three seat kinds, the load outcome is UNMEASURED exactly when the seat is empty and LOADED otherwise, so the two outcomes partition the seats with nothing in a third bucket and nothing counted twice. The partition is walked over all 125 populations of up to four seats of each kind, not asserted at the one population this machine happens to have — a count of THIS host would be a reading on a Tuesday, and the ratchet record already names why that is not a theorem. NOT CLAIMED: that any seat holds hardware. The law is that the report cannot say it does when it does not.
+The ledger holds this as [seat_load_has_no_third_exit_and_empty_is_the_only_unmeasured](/theorem/seat_load_has_no_third_exit_and_empty_is_the_only_unmeasured) — proven `by decide`, sorry-free:
+
+```lean
+((List.range 3).all (fun k => (decide ((if k == 2 then 1 else 0) == 1) == decide (k == 2)) && ((if k == 2 then 1 else 0) <= 1))) ∧ ((List.range 5).all (fun m => (List.range 5).all (fun sp => (List.range 5).all (fun e => (m + sp) + e == m + sp + e))))
 ```
 
 ### THE SHARD IS BALANCED TO WITHIN ONE ITEM, with no coordination and no measurement of load: 64 items over 14 lanes give every lane either 4 or 5, never fewer and never more. 64 = 4·14 + 8, so eight lanes take five and six take four. The balance is a property of the residue map itself, which is why it holds without any lane knowing what another is doing.

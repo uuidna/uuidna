@@ -1,17 +1,17 @@
 {
-  "key": "622b0e55-3c85-8318-ac68-68bff5950068",
+  "key": "a784f688-c277-8910-bb71-d738a23cc9fe",
   "publications": 118,
-  "sealedTheorems": 2653,
+  "sealedTheorems": 2654,
   "fabricated": 0,
   "uncited": 0,
   "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39",
   "harmonic": {
-    "claims": 2653,
-    "theorems": 2653,
+    "claims": 2654,
+    "theorems": 2654,
     "bijection": true,
     "digitalRoots": {
-      "claims": 7,
-      "theorems": 7,
+      "claims": 8,
+      "theorems": 8,
       "publications": 1
     },
     "note": "digital roots are decidable ℤ/9 facts; any numerological meaning is UNVERIFIED. The bijection is a real integrity invariant."
@@ -155,8 +155,8 @@
     },
     {
       "slug": "hardware",
-      "claims": 17,
-      "cited": 17,
+      "claims": 18,
+      "cited": 18,
       "isTheorem": 0,
       "uncited": [],
       "fabricated": []

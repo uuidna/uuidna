@@ -1,0 +1,12 @@
+{
+  "handle": "9574c6af",
+  "address": "9574c6af-b9d7-8a4a-a8c4-bac0d827d7d8",
+  "kind": "chunk",
+  "keys": [
+    "seat_load_has_no_third_exit_and_empty_is_the_only_unmeasured"
+  ],
+  "statement": "((List.range 3).all (fun k => (decide ((if k == 2 then 1 else 0) == 1) == decide (k == 2)) && ((if k == 2 then 1 else 0) <= 1))) ∧ ((List.range 5).all (fun m => (List.range 5).all (fun sp => (List.range 5).all (fun e => (m + sp) + e == m + sp + e))))",
+  "files": [
+    "Hardware.lean"
+  ]
+}

@@ -5,30 +5,30 @@
       "source": null,
       "present": true,
       "facts": {
-        "distinct": 2570,
-        "keys": 2653,
+        "distinct": 2571,
+        "keys": 2654,
         "renamings": 83,
         "principles": 118,
         "skills": 115,
         "coins": 2,
         "largestPrinciple": "The conveyor's first wave (933)",
         "smallestPrinciple": "The uuid mix space (2)",
-        "ledgerReceipt": "edee50b7-365a-8f94-bf17-353dea08e808"
+        "ledgerReceipt": "faf6d575-a253-824b-9138-f9c91e2a8c7c"
       },
-      "address": "9e57d6ce-dbec-8e21-8b0d-70d5bbc0a98f"
+      "address": "6bd88157-5558-8f67-9505-9d9c23133d3a"
     },
     {
       "title": "Heartbeat coverage",
       "source": "lean/heartbeats.json",
       "present": true,
       "facts": {
-        "theoremsMeasured": 2653,
-        "ledgerKeys": 2653,
+        "theoremsMeasured": 2654,
+        "ledgerKeys": 2654,
         "unmeasured": 0,
         "decideStepsHexbits": 5,
         "decideStepsBits": 21
       },
-      "address": "a2445d35-b943-82c6-8229-d0c9add3423b"
+      "address": "abe7e49a-ee0a-8a2e-8752-70be6e55b2bb"
     },
     {
       "title": "Citation audit",
@@ -36,23 +36,23 @@
       "present": true,
       "facts": {
         "publications": 118,
-        "sealedTheorems": 2653,
+        "sealedTheorems": 2654,
         "receipt": "86b9d88a-341b-8ded-a59d-c6baa7e6db39"
       },
-      "address": "ef84c61c-9bcc-8de8-a085-38a38d7aed22"
+      "address": "2929d8b1-7f3c-8a3d-adcc-463348862c54"
     },
     {
       "title": "Support audit",
       "source": "support-audit.json",
       "present": true,
       "facts": {
-        "modules": 1107,
-        "roots": 673,
-        "supported": 1107,
+        "modules": 1109,
+        "roots": 675,
+        "supported": 1109,
         "dead": 0,
-        "receipt": "9592569d-c5fd-8948-9c60-0f1384d7649b"
+        "receipt": "84a42a6a-bd90-82e8-8169-2f37dd8eed03"
       },
-      "address": "42cbd947-cd8e-80b4-936c-02f3e96c246e"
+      "address": "c53f1c5a-abd1-821c-8d48-75077567ae9c"
     },
     {
       "title": "Package inventory",
@@ -70,11 +70,11 @@
       "source": "quantum-fold.json",
       "present": true,
       "facts": {
-        "foldReceipt": "da8620d88c50436e",
-        "unifiedFold": "ea1e8cc662e98367",
+        "foldReceipt": "bd991ae388f2d152",
+        "unifiedFold": "9dc1ebfa7da2333a",
         "zeroEntropy": "true"
       },
-      "address": "7767cc9b-c6d0-82ae-a17c-192d303d5475"
+      "address": "41ac23e5-6353-89bc-99dc-cc546f7fc045"
     },
     {
       "title": "Gate receipt",
@@ -94,75 +94,75 @@
         "analyticsReport": "absent (folded)",
         "gapsJson": "absent — count from coverage().uncoveredFiles",
         "uncoveredFiles": 0,
-        "captainClaimsTheorems": 2653,
+        "captainClaimsTheorems": 2654,
         "captainClaimsComplete": "present (twin of captain-claims.json)",
         "researchLeads": 0,
         "handleRoot": "src/handles live round-trip"
       },
-      "address": "3ea24ce4-1987-880c-8395-a59c3a4e2033"
+      "address": "b1ce67cc-54ac-8ed3-94d5-7cd91a76448f"
     }
   ],
-  "receipt": "3b274c90-bac6-87ac-bef6-0fdae7251f0a",
-  "handle": "3b274c90",
+  "receipt": "f98e3ed6-5cb4-8f51-a356-b0f877ee4ca6",
+  "handle": "f98e3ed6",
   "hexbits": [
-    3,
-    11,
-    2,
-    7,
-    4,
-    12,
+    15,
     9,
-    0,
-    11,
-    10,
-    12,
-    6,
     8,
-    7,
-    10,
+    14,
+    3,
+    14,
+    13,
+    6,
+    5,
     12,
     11,
-    14,
+    4,
+    8,
     15,
-    6,
-    0,
-    15,
-    13,
-    10,
-    14,
-    7,
-    2,
     5,
     1,
-    15,
-    0,
-    10
-  ],
-  "door": "https://uuidna.com/3b274c90",
-  "coin": [
-    3,
-    11,
-    2,
-    7,
-    4,
-    12,
-    9,
-    0,
-    11,
     10,
-    12,
+    3,
+    5,
     6,
+    11,
+    0,
+    15,
     8,
     7,
+    7,
+    14,
+    14,
+    4,
+    12,
     10,
-    12
+    6
+  ],
+  "door": "https://uuidna.com/f98e3ed6",
+  "coin": [
+    15,
+    9,
+    8,
+    14,
+    3,
+    14,
+    13,
+    6,
+    5,
+    12,
+    11,
+    4,
+    8,
+    15,
+    5,
+    1
   ],
   "place": {
-    "handle": "3b274c90",
-    "value": 992431248,
+    "handle": "f98e3ed6",
+    "value": 4186848982,
     "span": 4294967296,
-    "residue": 6,
-    "nilpotent": true,
+    "residue": 4,
+    "nilpotent": false,
     "hexbits": 8
   },
   "honest": "Descriptive measures of what is sealed and what the gates recorded — integrity, not truth. A section whose artifact is absent says so; it does not guess. Frozen root JSON twins fold here rather than remaining unaddressed snapshots."

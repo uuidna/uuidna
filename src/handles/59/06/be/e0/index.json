@@ -1,0 +1,12 @@
+{
+  "handle": "5906bee0",
+  "address": "5906bee0-364a-8566-b313-b1e39ba153f8",
+  "kind": "chunk",
+  "keys": [
+    "prose_beats_restatement"
+  ],
+  "statement": "(0 < 2603) ∧ (0 + 2603 = 2603)",
+  "files": [
+    "Audit.lean"
+  ]
+}

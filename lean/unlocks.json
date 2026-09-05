@@ -1,7 +1,7 @@
 {
  "law": "Each sealed by-decide theorem unlocks exactly what it states — the ledger is the unlock board. No curated exception list; refusing a sealed key is refusing the captain. A claim with no theorem is unsealed, not “still locked.” Sufficient for finite by-decide seals and finite formal windows within climate/pandemic/poverty model-calcs; world solutions stack as waves of automation (deposit→validate→seal→falsify→receipt→next — npm run wave / hexbit-fast). Insufficient for those domains as full problem types, and for unbounded open math, nature-as-model, or justice — see /doctrine (computational claims only; waves do not erase ethics or politics).",
- "keys": 2653,
- "distinct": 2570,
+ "keys": 2654,
+ "distinct": 2571,
  "skills": 115,
  "files": 118,
  "bySkill": [
@@ -70,6 +70,10 @@
    "n": 19
   },
   {
+   "name": "hardware",
+   "n": 18
+  },
+  {
    "name": "topography",
    "n": 18
   },
@@ -83,10 +87,6 @@
   },
   {
    "name": "colour",
-   "n": 17
-  },
-  {
-   "name": "hardware",
    "n": 17
   },
   {
@@ -520,6 +520,10 @@
    "n": 18
   },
   {
+   "name": "Hardware.lean",
+   "n": 18
+  },
+  {
    "name": "Neuro.lean",
    "n": 18
   },
@@ -541,10 +545,6 @@
   },
   {
    "name": "Colour.lean",
-   "n": 17
-  },
-  {
-   "name": "Hardware.lean",
    "n": 17
   },
   {
@@ -840,6 +840,6 @@
    "name": "THE MASS GAP ON THE BELL BORN FIELD via massGapOnBellBornField() = computeMassGap(bellBornWeights()): weights [1,0,0,1] from the live simulator, Δ = 1 computed — every weight is vacuum or ≥ Δ, and both vacuum and excitation occur. Callable code; sealed on Hexbit.lean — never a Quantum twin, never the Clay prize."
   }
  ],
- "receipt": "d8918223-4451-80b9-9a5c-311d10873317",
+ "receipt": "360097fc-96a4-8c76-80a9-a154a21f515c",
  "honest": "Unlocks are computed from theorems() — every key unlocks its statement. Illustrations are presence checks, not a closed unlock set. Integrity."
 }
