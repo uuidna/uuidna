@@ -102,18 +102,18 @@ The ledger holds this as [the_congruence_form_is_the_modulus_form](/theorem/the_
 ((List.range 63).all (fun x => ((x - x % 9) % 9 == 0) && (x % 9 < 9)))
 ```
 
-### 116 monographs through a one-variable template give 27 abstracts — 89 of them duplicates, 76 percent
+### 117 monographs through a one-variable template give 27 abstracts — 90 of them duplicates, 76 percent
 The ledger holds this as [a_template_distinguishes_only_by_its_variable](/theorem/a_template_distinguishes_only_by_its_variable) — proven `by decide`, sorry-free:
 
 ```lean
-(116 - 27 = 89) ∧ (89 * 100 / 116 = 76) ∧ (27 < 116)
+(117 - 27 = 90) ∧ (90 * 100 / 117 = 76) ∧ (27 < 117)
 ```
 
-### every one of 116 kin-degrees is between 1 and 5, and the 114 fives with two twos sum to all 574 edges
+### every one of 117 kin-degrees is between 1 and 5, and the 115 fives with two twos sum to all 579 edges
 The ledger holds this as [the_kin_shortlist_accounts_for_every_edge](/theorem/the_kin_shortlist_accounts_for_every_edge) — proven `by decide`, sorry-free:
 
 ```lean
-((List.replicate 114 5 ++ [2, 2]).length = 116) ∧ ((List.replicate 114 5 ++ [2, 2]).sum = 574) ∧ ((List.replicate 114 5 ++ [2, 2]).all (fun d => d ≤ 5 && d ≥ 1))
+((List.replicate 115 5 ++ [2, 2]).length = 117) ∧ ((List.replicate 115 5 ++ [2, 2]).sum = 579) ∧ ((List.replicate 115 5 ++ [2, 2]).all (fun d => d ≤ 5 && d ≥ 1))
 ```
 
 ### modulus 6 over constant 2 over word 1, and a basis relating 102 of 116 is no basis

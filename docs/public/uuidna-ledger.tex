@@ -9425,7 +9425,7 @@ theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 \begin{theorem}[THE WIDEST WINDOW IN THE LEDGER IS 3125, and it is a window — the largest enumeration any theorem here performs, across 89 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number]
 \label{thm:reach-window-finite}
 \begin{lstlisting}[language=lean]
-([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 116, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 116, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126)
+([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 117, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 117, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -9433,9 +9433,9 @@ theorem reach_quantifiers_bounded : ([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem reach_window_finite : ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 116, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 116, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126) := by decide
+theorem reach_window_finite : ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 117, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 117, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{957f342a-b33a-801a-8e6c-41d7f427b42a}.
+\noindent Content-address \texttt{43ab8e6e-03cb-80f3-8538-9a641d997d6c}.
 \end{proof}
 
 \begin{theorem}[THE WINDOW IS WHERE THE PROOF STOPS— and this is the one fact here that carries its own counterexample rather than a census. The predicate n < 10 holds for EVERY element of the ten-element window and is FALSE at the very next value: the kernel checks all ten, then checks the eleventh and refuses it. So "decided on a window" does not entail "true beyond it", proven rather than conceded. This is the structural reason no claim about an unbounded domain can arrive by this method: a statement about infinitely many cases is a different kind of statement from one a finite enumeration settles, and no amount of widening converts the second into the first. uuidna solves none of the seven, and this is WHY — the boundary verified seals from the other side]
@@ -37738,10 +37738,10 @@ theorem a_token_approximates_eight_hexbits : (4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4
 \noindent Content-address \texttt{59ce118e-1587-8dfb-bf58-c959f5739ac7}.
 \end{proof}
 
-\begin{theorem}[HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 425 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 425, not the vendors.]
+\begin{theorem}[HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 431 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 431, not the vendors.]
 \label{thm:context-windows-are-transient-hexbits}
 \begin{lstlisting}[language=lean]
-(((modelContextRows.map (fun r => r.length)).sum) = 425) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)
+(((modelContextRows.map (fun r => r.length)).sum) = 431) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -37749,12 +37749,12 @@ theorem a_token_approximates_eight_hexbits : (4 * 2 = 8) ∧ (8 * 4 = 32) ∧ (4
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 425) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide
+theorem context_windows_are_transient_hexbits : (((modelContextRows.map (fun r => r.length)).sum) = 431) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{1f7aceea-ac9a-8a5f-a44c-a07fc502c4f6}.
+\noindent Content-address \texttt{0be130d0-8814-8bf1-abdf-e883072a3bbc}.
 \end{proof}
 
-\begin{theorem}[MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, "Universally Unique IDentifiers (UUIDs)", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44\% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 425 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).]
+\begin{theorem}[MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, "Universally Unique IDentifiers (UUIDs)", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44\% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 431 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).]
 \label{thm:speaking-an-address-costs-the-text}
 \begin{lstlisting}[language=lean]
 (36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)
@@ -37784,7 +37784,7 @@ theorem crypto_widths_are_fixed_not_sampled : (32 * 8 = 256) ∧ (16 * 8 = 128) 
 \noindent Content-address \texttt{4daa3c87-c5cd-824e-8b81-10faf473d3a9}.
 \end{proof}
 
-\begin{theorem}[CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 425 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.]
+\begin{theorem}[CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 431 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.]
 \label{thm:every-context-is-finite-against-the-lattice}
 \begin{lstlisting}[language=lean]
 (2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))

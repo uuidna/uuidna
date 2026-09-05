@@ -1,7 +1,7 @@
 
 # uuidna — Advantage Metrics
 
-**Generated:** 2026-09-04
+**Generated:** 2026-09-05
 **Data source:** Live ledger (2617 sealed theorems)
 
 ---
@@ -15,9 +15,9 @@
 | **Axiom-free** | 2617/2617 (100%) | Kernel-only proofs, recomputable offline |
 | **Principles** | 117 | Mathematical domains (ring, rosette, quantum, etc.) |
 | **Skills** | 114 | Capability axes across the ledger |
-| **Proof cost** | 1648728 decide-steps | MEASURED per theorem in lean/heartbeats.json |
+| **Proof cost** | 1648709 decide-steps | MEASURED per theorem in lean/heartbeats.json |
 | **Verification work** | 2617 addresses | one recomputed per theorem |
-| **Steps per address** | 630 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
+| **Steps per address** | 629 | proving costs this much more than checking; no timings are asserted, only counts | <!-- every push |
 
 ### Security & Integrity
 | Metric | Value | Interpretation |
@@ -25,7 +25,7 @@
 | **Security checks** | 6 | Automated audits (axioms, gates, defences, Clay problems) |
 | **Gate clean** | 100% | Zero fabricated theorem citations |
 | **Determinism clean** | 100% | No Math.*/Date/RNG in core (non-harmonic boundary named) |
-| **Supported modules** | 1071/1071 | Every module reachable (no dead code) |
+| **Supported modules** | 1076/1076 | Every module reachable (no dead code) |
 | **Runtime dependencies** | 0 | Zero third-party code executes |
 | **Coins conserved** | ✓ | Fair-exchange invariant proven (two_coins theorem) |
 
@@ -57,7 +57,7 @@ Every theorem was proven by decidable computation. Run `npm run lean` yourself �
 **Competitive advantage:** Supply-chain attacks (log4shell, npm ecosystem infections, malicious dependencies) cannot reach uuidna. The whole system is auditable; the source is open; the proofs are sealed.
 
 ### 4. **Verification 80,000x Faster Than Proof**
-- First push (prove): 1648728 kernel decide-steps, measured
+- First push (prove): 1648709 kernel decide-steps, measured
 - Every later push (verify): 2617 address recomputations
 
 New theorems require proof-time; updates verify at speed-of-light (Merkle fold, order-invariant). Deploy without the CI latency tax.
@@ -106,7 +106,7 @@ table or it is not a measurement):
 | census | measured | where it is sealed / served |
 |---|---|---|
 | Default Alpine installs ported | 25 packages · 832 boot states (26 pages × 32) | [/os](/os) · `Installs.lean` |
-| Public model feed | 425 models · widest window 2,000,000 tokens · 1,719,950,736 transient hexbits across all windows | [/models](/models) · `Models.lean` |
+| Public model feed | 431 models · widest window 2,000,000 tokens · 1,761,812,880 transient hexbits across all windows | [/models](/models) · `Models.lean` |
 | Terminal singularity | 3 builtin words · 0 hardcoded tool names (the toolbox is learned live) | [/terminal](/terminal) · tested |
 | Ledger | 2617 theorems · 117 principles · 114 skills | [/theorems](/theorems) · every wing |
 

@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:a55e93d9-98ff-8496-9154-a43b3746d738",
+  "@id": "urn:uuid:41882527-b27b-8532-ba81-02597d3b6abc",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -19945,11 +19945,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:a07cc1e6-6577-8fff-a1c2-4f29624a614e",
+        "@id": "urn:uuid:e7b25391-dc3f-825f-877f-bc92d218d459",
         "@type": "ScholarlyArticle",
         "headline": "THE WIDEST WINDOW IN THE LEDGER IS 3125, and it is a window — the largest enumeration any theorem here performs, across 89 enumerations in every wing, folded by the kernel from the per-wing maxima. A window has an edge, and the edge is not a limit of effort: widening it costs more kernel steps and reaches a larger finite number",
-        "abstract": "([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 116, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 116, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126)",
-        "identifier": "957f342a-b33a-801a-8e6c-41d7f427b42a",
+        "abstract": "([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 117, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].all (fun w => w ≤ 3125)) ∧ ([1, 9, 6, 9, 2, 8, 8, 101, 16, 16, 20, 64, 27, 16, 12, 16, 33, 12, 9, 8, 1, 63, 9, 20, 2, 6, 24, 8, 100, 10, 2, 40, 17, 64, 4, 16, 101, 25, 16, 8, 9, 181, 4, 8, 27, 200, 16, 1, 10, 181, 5, 256, 7, 10, 6, 2, 12, 10, 5, 8, 16, 16, 16, 10, 26, 6, 10, 7, 10, 10, 4, 63, 117, 5, 9, 7, 1, 32, 22, 1, 9, 360, 7, 2, 64, 13, 11, 3125, 32].any (fun w => w == 3125)) ∧ (3125 < 3126)",
+        "identifier": "43ab8e6e-03cb-80f3-8538-9a641d997d6c",
         "url": "https://uuidna.com/theorem/reach_window_finite",
         "keywords": "infinity, The physics infinities, made finite",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Infinity.lean",
@@ -19967,7 +19967,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/957f342a"
+          "https://uuidna.com/43ab8e6e"
         ]
       }
     },
@@ -29059,11 +29059,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:0f4becc4-c723-8054-b5c5-6d0018d48e7f",
+        "@id": "urn:uuid:5d94005e-61c8-8f51-890b-945eca534bfc",
         "@type": "ScholarlyArticle",
-        "headline": "116 monographs through a one-variable template give 27 abstracts — 89 of them duplicates, 76 percent",
-        "abstract": "(116 - 27 = 89) ∧ (89 * 100 / 116 = 76) ∧ (27 < 116)",
-        "identifier": "e3abdabd-95b3-89e4-97cf-a60b59e637f8",
+        "headline": "117 monographs through a one-variable template give 27 abstracts — 90 of them duplicates, 76 percent",
+        "abstract": "(117 - 27 = 90) ∧ (90 * 100 / 117 = 76) ∧ (27 < 117)",
+        "identifier": "d4f0095a-e5a6-8f75-9f9f-e7fc238d83a8",
         "url": "https://uuidna.com/theorem/a_template_distinguishes_only_by_its_variable",
         "keywords": "site-build, The site build as arithmetic",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
@@ -29081,7 +29081,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/e3abdabd"
+          "https://uuidna.com/d4f0095a"
         ]
       }
     },
@@ -29090,11 +29090,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2f662a44-61bf-8ed7-8dd0-a4c48ed00da6",
+        "@id": "urn:uuid:390758e5-b712-8a0d-9680-2e19f0a9598a",
         "@type": "ScholarlyArticle",
-        "headline": "every one of 116 kin-degrees is between 1 and 5, and the 114 fives with two twos sum to all 574 edges",
-        "abstract": "((List.replicate 114 5 ++ [2, 2]).length = 116) ∧ ((List.replicate 114 5 ++ [2, 2]).sum = 574) ∧ ((List.replicate 114 5 ++ [2, 2]).all (fun d => d ≤ 5 && d ≥ 1))",
-        "identifier": "57c23667-bfb8-885c-9344-2fb33dd2a46d",
+        "headline": "every one of 117 kin-degrees is between 1 and 5, and the 115 fives with two twos sum to all 579 edges",
+        "abstract": "((List.replicate 115 5 ++ [2, 2]).length = 117) ∧ ((List.replicate 115 5 ++ [2, 2]).sum = 579) ∧ ((List.replicate 115 5 ++ [2, 2]).all (fun d => d ≤ 5 && d ≥ 1))",
+        "identifier": "078d90e3-bded-8343-8d42-a51dec1eef89",
         "url": "https://uuidna.com/theorem/the_kin_shortlist_accounts_for_every_edge",
         "keywords": "site-build, The site build as arithmetic",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
@@ -29112,7 +29112,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/57c23667"
+          "https://uuidna.com/078d90e3"
         ]
       }
     },
@@ -77884,11 +77884,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:2b4d22ed-949d-83fc-84fe-e5f7593255d0",
+        "@id": "urn:uuid:592d25f9-9ff4-8ef9-bab9-930f728b0024",
         "@type": "ScholarlyArticle",
-        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 425 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 425, not the vendors.",
-        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 425) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
-        "identifier": "1f7aceea-ac9a-8a5f-a44c-a07fc502c4f6",
+        "headline": "HEXBIT HANDLING CAPACITY, FOR THE WHOLE PUBLIC CENSUS, EXACT: every one of the 431 published context windows (the live feed's full list, 4,095 to 2,000,000 tokens) times 8 is that model's TRANSIENT hexbit capacity — held only until the window closes. The windows are the feed's REPORTED data (source-cited on the page); this seals the multiplication over all 431, not the vendors.",
+        "abstract": "(((modelContextRows.map (fun r => r.length)).sum) = 431) ∧ ((modelContextRows.map (fun r => r.map (fun c => c * 8))) = modelTransientRows)",
+        "identifier": "0be130d0-8814-8bf1-abdf-e883072a3bbc",
         "url": "https://uuidna.com/theorem/context_windows_are_transient_hexbits",
         "keywords": "models, The models",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Models.lean",
@@ -77906,7 +77906,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/1f7aceea"
+          "https://uuidna.com/0be130d0"
         ]
       }
     },
@@ -77917,7 +77917,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:c5806bc4-a861-8377-8035-c46d2660fb90",
         "@type": "ScholarlyArticle",
-        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 425 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
+        "headline": "MESSAGING, COUNTED AT THE WIRE — and the widths being counted are not this repo's to choose: RFC 9562, \"Universally Unique IDentifiers (UUIDs)\", which obsoletes RFC 4122, fixes a uuid at 128 bits and its printed form at 36 characters (32 hex digits and 4 hyphens). Naming the RFC says who fixes the spelling so a reader can go and check it; it proves nothing below, because what is sealed here is the arithmetic OVER those widths and the kernel decides arithmetic, never a specification. A uuid spelled as text is 36 characters = 288 bits carrying a 128-bit payload — 44% efficiency (128 of 288 bits), identical for EVERY model in the census, because it is the text's cost, not the model's. The per-window address-carrying capacities are sealed for all 431 (⌊tokens·4/36⌋ each). uuidna's own channel skips the text: the channel IS the uuid (128 payload bits per address, receipted).",
         "abstract": "(36 * 8 = 288) ∧ (288 > 128) ∧ ((modelContextRows.map (fun r => r.map (fun c => (c * 4) / 36))) = modelUuidCountRows)",
         "identifier": "28b73899-48fa-86d1-93b4-4f6f2852b597",
         "url": "https://uuidna.com/theorem/speaking_an_address_costs_the_text",
@@ -77979,7 +77979,7 @@
         "@context": "https://schema.org",
         "@id": "urn:uuid:ddca61e3-57b1-87d0-b5bc-dd3138fd87a5",
         "@type": "ScholarlyArticle",
-        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 425 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
+        "headline": "CAPACITY'S CEILING, OVER THE WHOLE CENSUS: the largest published window (2,000,000 tokens = 16,000,000 transient hexbits) — and with it every one of the 431 — is finite against the address space every fold lands in: 2¹²⁸ states. The ledger's side of the comparison is not a bigger window; it is no window at all.",
         "abstract": "(2 ^ 128 > 2000000 * 8) ∧ (modelContextRows.all (fun r => r.all (fun c => 2 ^ 128 > c * 8)))",
         "identifier": "0958d5f7-a2df-878b-bbaf-72fefb4d60dd",
         "url": "https://uuidna.com/theorem/every_context_is_finite_against_the_lattice",

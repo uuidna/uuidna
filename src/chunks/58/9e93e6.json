@@ -1,0 +1,12 @@
+{
+  "handle": "589e93e6",
+  "address": "589e93e6-d593-898b-b44e-9abb6cbe5146",
+  "statement": "((List.replicate 115 5 ++ [2, 2]).length = 117) ∧ ((List.replicate 115 5 ++ [2, 2]).sum = 579) ∧ ((List.replicate 115 5 ++ [2, 2]).all (fun d => d ≤ 5 && d ≥ 1))",
+  "tactic": "decide",
+  "keys": [
+    "the_kin_shortlist_accounts_for_every_edge"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}

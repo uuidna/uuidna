@@ -3865,8 +3865,8 @@
     },
     {
       "key": "reach_window_finite",
-      "lineAddress": "a07cc1e6-6577-8fff-a1c2-4f29624a614e",
-      "address": "957f342a-b33a-801a-8e6c-41d7f427b42a",
+      "lineAddress": "e7b25391-dc3f-825f-877f-bc92d218d459",
+      "address": "43ab8e6e-03cb-80f3-8538-9a641d997d6c",
       "principle": "The physics infinities, made finite"
     },
     {
@@ -15079,8 +15079,8 @@
     },
     {
       "key": "context_windows_are_transient_hexbits",
-      "lineAddress": "2b4d22ed-949d-83fc-84fe-e5f7593255d0",
-      "address": "1f7aceea-ac9a-8a5f-a44c-a07fc502c4f6",
+      "lineAddress": "592d25f9-9ff4-8ef9-bab9-930f728b0024",
+      "address": "0be130d0-8814-8bf1-abdf-e883072a3bbc",
       "principle": "The models"
     },
     {
@@ -15708,7 +15708,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "3c55944d-7d1f-8611-8516-c865d84f6f60",
+  "claim_receipt": "592875d4-0fa4-8bd5-932c-b6e702dcc6e9",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

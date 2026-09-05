@@ -1,0 +1,12 @@
+{
+  "handle": "98d4e596",
+  "address": "98d4e596-b0fb-8f57-8806-762fe8181492",
+  "statement": "(117 - 27 = 90) ∧ (90 * 100 / 117 = 76) ∧ (27 < 117)",
+  "tactic": "decide",
+  "keys": [
+    "a_template_distinguishes_only_by_its_variable"
+  ],
+  "files": [
+    "SiteBuild.lean"
+  ]
+}
