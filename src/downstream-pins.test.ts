@@ -3,6 +3,7 @@ import assert from 'node:assert/strict'
 import { readFileSync, existsSync } from 'node:fs'
 import { addressingContract, addressingProbes, pinDrift, CONTRACT_CONSTANTS, PROBE_INPUTS } from './downstream-pins.js'
 import { toUuid } from './address.js'
+import { handleOf } from './handle.js'
 
 test('every probe recomputes, and the contract folds to a stable receipt', () => {
   const a = addressingContract()
@@ -10,7 +11,11 @@ test('every probe recomputes, and the contract folds to a stable receipt', () =>
   assert.deepEqual(addressingContract().receipt, a.receipt, 'the contract must be a function of nothing but itself')
   for (const p of a.probes) {
     assert.match(p.uuid, /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/)
-    assert.equal(p.handle, p.uuid.slice(0, 8), 'the handle is the uuid\'s first eight hex, by construction')
+    // CHECKED AGAINST THE FUNCTION, not against a slice retyped here. This asserted p.uuid.slice(0, 8) and the
+    // one-handle-derivation law flagged it: re-deriving a handle inline is how seven places came to agree by
+    // coincidence rather than by construction. The contract's job is that its row equals what handleOf returns.
+    assert.equal(p.handle, handleOf(p.uuid), 'the contract row must equal what handleOf computes')
+    assert.equal(p.handle.length, 8, 'and a handle is eight hex — the width the law fixes')
     assert.equal(p.hexagrams.split(',').length, 16)
   }
 })

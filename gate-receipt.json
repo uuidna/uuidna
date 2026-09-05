@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "4d371f1444ef7736da431fb8ebbf92fb",
-    "lean": "4957488509c00ab862d2f3c4cbbff938"
+    "src": "22af9f74970b2b0f3d13f326dcf5edd9",
+    "lean": "70dbb07348e5de51c814aa9fdc85167e"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -171,7 +171,7 @@
     "lean/doi-domains.json": "3b5d1938becb8181",
     "lean/doi-harvest.json": "5e0f34b0ddfc72a2",
     "lean/doi-unclaimed.json": "d70f99ab6a37f66a",
-    "lean/dormant-receipt.json": "271838d14f578904",
+    "lean/dormant-receipt.json": "5e9619cf43c0f5e0",
     "lean/dormant-scripts.json": "acf2042321e6e74b",
     "lean/doubletorus-manifest.json": "0727ead29f711507",
     "lean/editing-manifest.json": "b3f3771d677ded37",
@@ -403,7 +403,7 @@
     "src/discover.ts": "25e7692bb2120caa",
     "src/domain-wave.test.ts": "803774bc4b04eb70",
     "src/domain-wave.ts": "7a82c9df4573c7bd",
-    "src/downstream-pins.test.ts": "07cee36bc606b436",
+    "src/downstream-pins.test.ts": "c73e59e1ba803ee9",
     "src/downstream-pins.ts": "158bb8c33c34dd8c",
     "src/drain-owners.test.ts": "88b87978733ad447",
     "src/driver.test.ts": "0d7217061eefdddb",
@@ -3872,7 +3872,7 @@
     "src/quantum/os/ports/index.ts": "e361fd5e5724270c",
     "src/quantum/os/public/index.ts": "afe32e5f32d524b5",
     "src/quantum/os/qc/index.test.ts": "1038a1494834a018",
-    "src/quantum/os/qc/index.ts": "8f57487c4e35563e",
+    "src/quantum/os/qc/index.ts": "bf7bb947816024fe",
     "src/quantum/os/refusals/index.test.ts": "5092622920c52699",
     "src/quantum/os/refusals/index.ts": "6cac44589cc0e2ca",
     "src/quantum/os/registry/index.test.ts": "65681ecad9467124",
@@ -4346,7 +4346,7 @@
     "src/theorems/generated.ts": "4ee28fcbbd927346",
     "src/theorems/index.ts": "8384bcddd70b0dbf",
     "src/three-geometry.test.ts": "5bccfe8450e6bdae",
-    "src/three-geometry.ts": "6204a6ec54bb57e7",
+    "src/three-geometry.ts": "28b948f10d7e61d0",
     "src/thresholds.test.ts": "cffe4ade5fd24543",
     "src/tool-debt.test.ts": "f577d8de1872748d",
     "src/tool-exercise.test.ts": "324aa53d2b6bdfeb",

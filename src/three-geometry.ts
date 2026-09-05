@@ -26,6 +26,7 @@
 // WHAT IS TRANSPORTED vs WHAT IS TRUE. `positions` are IEEE doubles because that is what a GPU buffer takes, and
 // 3/5 is not exact in binary. So each vertex also carries `exact` — its integer numerator triple and denominator
 // — and `verify()` re-decides the identity on the integers. The float is transport; the integers are the claim.
+import { seedOf } from './handle.js'
 import { THEOREMS } from './theorems/index.js'
 import { publicationGraph } from './publication-graph.js'
 import { toUuid, merkleFold } from './address.js'
@@ -136,7 +137,9 @@ export function ledgerGeometry(maxDen = 20): ThreeGeometry {
   const lattice = exactSpherePoints(maxDen).flatMap((p) => octantOrbit(p))
   const vertices: ThreeVertex[] = THEOREMS.map((t, i) => {
     // the address picks the direction — deterministic, and spread by the address's own hex rather than by an index
-    const pick = parseInt(t.address.replace(/-/g, '').slice(0, 8), 16) % lattice.length
+    // seedOf IS this expression — parseInt(handleOf(address), 16) — and calling it rather than retyping it is
+    // the one-handle-derivation law: the inline form is how several places came to agree by coincidence.
+    const pick = seedOf(t.address) % lattice.length
     const p = lattice[(pick + i) % lattice.length]!
     return { position: place(p), exact: p, label: t.key, address: t.address }
   })

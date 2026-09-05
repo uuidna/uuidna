@@ -336,7 +336,12 @@ export function qcVerdict(): QcVerdict {
     metrics,
     claims,
     refused: [
-      'quantum advantage or speedup claims',
+      // CITED, because a denial without a sealed citation is a claim a reader cannot check either way. What
+      // this tree DOES prove about speed is theorem verify_beats_recompute_by_magnitudes — verification is
+      // magnitudes cheaper than recomputation, which is a statement about a merkle path and not about
+      // hardware — and theorem n_qubit_dimension fixes why the simulation cannot be an advantage: n qubits
+      // span 2^n amplitudes, so this is exponential classical work by construction.
+      'quantum advantage or speedup claims (theorem n_qubit_dimension: n qubits span 2^n amplitudes, so the simulation is exponential classical work; the only speed this tree proves is theorem verify_beats_recompute_by_magnitudes, about a merkle path rather than hardware)',
       'that all quantum threat is gone with uuidna — including Grover, timing, and Bitcoin ECDSA',
       'rewriting IBM or Google hardware figures as this tree’s own',
     ],
