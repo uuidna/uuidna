@@ -4153,8 +4153,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "b6ddebb8-0a75-8885-b0b4-058ee6570ed0",
-      "address": "f0b917e9-bb3b-8b8c-9730-77ea063b2f16",
+      "lineAddress": "c26b09d2-9142-8de5-92ee-1d66b9a374ad",
+      "address": "6b0e7470-6cd4-85f8-b883-0f010b04bff0",
       "principle": "The detectors, proven"
     },
     {
@@ -15924,7 +15924,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "3891b37f-8586-8de9-ae17-f0f3788b1299",
+  "claim_receipt": "b1418e32-9c49-8987-b29b-edad16af02dd",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

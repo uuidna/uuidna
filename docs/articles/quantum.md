@@ -102,7 +102,7 @@ The ledger holds this as [z_involution](/theorem/z_involution) — proven `by de
 ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (-(-(p.1)) == p.1) && (-(-(p.2)) == p.2))
 ```
 
-### S·S† = I: the phase gate and its adjoint invert — S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the amplitude
+### S·S† = I on four sample Gaussian-integer amplitudes: the phase gate and its adjoint invert — S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the amplitude
 The ledger holds this as [s_dagger_inverse](/theorem/s_dagger_inverse) — proven `by decide`, sorry-free:
 
 ```lean

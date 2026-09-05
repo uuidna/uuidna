@@ -8256,7 +8256,7 @@ theorem z_involution : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fu
 \noindent Content-address \texttt{4e887a70-69d3-8653-b854-ec43e767806d}.
 \end{proof}
 
-\begin{theorem}[S·S† = I: the phase gate and its adjoint invert — S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the amplitude]
+\begin{theorem}[S·S† = I on four sample Gaussian-integer amplitudes: the phase gate and its adjoint invert — S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the amplitude]
 \label{thm:s-dagger-inverse}
 \begin{lstlisting}[language=lean]
 ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let s := (-(p.2), p.1); (s.2 == p.1) && (-(s.1) == p.2)))
@@ -10148,10 +10148,10 @@ theorem prose_beats_restatement : (0 < 2602) ∧ (0 + 2602 = 2602) := by decide
 \noindent Content-address \texttt{bbbb3c2b-dca1-88c1-a759-87e960368da2}.
 \end{proof}
 
-\begin{theorem}[the whole prose corpus folds to ONE ℤ/9 receipt — 687775 characters across 2602 doc comments in 114 wings fold to 4; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit]
+\begin{theorem}[the whole prose corpus folds to ONE ℤ/9 receipt — 687818 characters across 2602 doc comments in 114 wings fold to 2; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit]
 \label{thm:prose-folds-receipt}
 \begin{lstlisting}[language=lean]
-(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5016, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 3288, 1848, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14661, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 318176, 10367].foldl (· + ·) 0) = 687775) ∧ (687775 % 9 = 4) ∧ (4 < 9)
+(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5016, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 3288, 1848, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 318176, 10367].foldl (· + ·) 0) = 687818) ∧ (687818 % 9 = 2) ∧ (2 < 9)
 \end{lstlisting}
 
 \noindent\emph{A computation, not a formula — this statement folds a list, so it has no standard formula form and is shown as the Lean the kernel decided.}
@@ -10159,9 +10159,9 @@ theorem prose_beats_restatement : (0 < 2602) ∧ (0 + 2602 = 2602) := by decide
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem prose_folds_receipt : (([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5016, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 3288, 1848, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14661, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 318176, 10367].foldl (· + ·) 0) = 687775) ∧ (687775 % 9 = 4) ∧ (4 < 9) := by decide
+theorem prose_folds_receipt : (([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5016, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 3288, 1848, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 318176, 10367].foldl (· + ·) 0) = 687818) ∧ (687818 % 9 = 2) ∧ (2 < 9) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{f0b917e9-bb3b-8b8c-9730-77ea063b2f16}.
+\noindent Content-address \texttt{6b0e7470-6cd4-85f8-b883-0f010b04bff0}.
 \end{proof}
 
 \begin{theorem}[the audit is TOTAL over what a generator writes — 114 generated wings censused against 3 authored ones (OneLeap, Uuidna, Vortex), each classified by the GENERATED stamp emit puts in its own header rather than by a typed list; the authored wings are out of scope because no generator will ever write them a doc comment, and this wing excludes itself because it is written after the census it states]

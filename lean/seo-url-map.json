@@ -1,6 +1,6 @@
 {
   "frozen": true,
-  "generated": "3085a0e3-8",
+  "generated": "75ec7639-3",
   "entries": [
     {
       "route": "/",
@@ -2518,9 +2518,9 @@
       "kind": "publication",
       "identity": "audit",
       "canonical": "https://uuidna.com/publications/audit",
-      "address": "3200bf75-ee8b-8d95-9010-3dda0b5dc642",
-      "handle": "3200bf75",
-      "hexbitDoor": "https://uuidna.com/3200bf75"
+      "address": "369ce023-721a-81f8-8268-f24f351aee1c",
+      "handle": "369ce023",
+      "hexbitDoor": "https://uuidna.com/369ce023"
     },
     {
       "route": "/publications/audit-game",
@@ -3148,9 +3148,9 @@
       "kind": "publication",
       "identity": "quantum",
       "canonical": "https://uuidna.com/publications/quantum",
-      "address": "8f35213a-14a6-8bd2-adb0-8d1fbfce95fd",
-      "handle": "8f35213a",
-      "hexbitDoor": "https://uuidna.com/8f35213a"
+      "address": "2fd409c2-8a6a-83d3-af04-ceba7fe36e37",
+      "handle": "2fd409c2",
+      "hexbitDoor": "https://uuidna.com/2fd409c2"
     },
     {
       "route": "/publications/readings",
@@ -18718,9 +18718,9 @@
       "kind": "theorem",
       "identity": "prose_folds_receipt",
       "canonical": "https://uuidna.com/theorem/prose_folds_receipt",
-      "address": "f0b917e9-bb3b-8b8c-9730-77ea063b2f16",
-      "handle": "f0b917e9",
-      "hexbitDoor": "https://uuidna.com/f0b917e9"
+      "address": "6b0e7470-6cd4-85f8-b883-0f010b04bff0",
+      "handle": "6b0e7470",
+      "hexbitDoor": "https://uuidna.com/6b0e7470"
     },
     {
       "route": "/theorem/prose_round_trips",
@@ -27624,6 +27624,6 @@
       "hexbitDoor": "https://uuidna.com/9ae4d228"
     }
   ],
-  "receipt": "3085a0e3-8b3d-8993-a951-85451a092aa7",
+  "receipt": "75ec7639-397e-8e2a-b6bc-210c143f952b",
   "honest": "FINAL SEO FREEZE: editorial routes are sealed in lean/seo-url-map.json. Link permanence after freeze is solved ONLY via quantum hexbit doors (https://uuidna.com/<handle> = handleOf(content-address)). A route rename or identity move fails the audit; regenerate the map deliberately only when adding a NEW sealed subject, never to chase a slug edit."
 }
