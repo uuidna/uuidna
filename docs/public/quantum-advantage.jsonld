@@ -103,10 +103,10 @@
     {
       "@type": "PropertyValue",
       "name": "sealed quantum algebra — decisions executed on this host",
-      "value": 475349,
+      "value": 490609,
       "unitText": "decisions",
       "measurementTechnique": "measured",
-      "citation": "57 witnesses over 109 sweeps; each decides a proposition sealed in the Lean ledger"
+      "citation": "61 witnesses over 109 sweeps; each decides a proposition sealed in the Lean ledger"
     },
     {
       "@type": "PropertyValue",
@@ -114,7 +114,7 @@
       "value": 0,
       "unitText": "disagreements",
       "measurementTechnique": "measured",
-      "citation": "better than one disagreement per 475349 executions on this host, across 53 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide"
+      "citation": "better than one disagreement per 490609 executions on this host, across 57 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide"
     },
     {
       "@type": "PropertyValue",

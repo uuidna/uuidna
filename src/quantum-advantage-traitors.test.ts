@@ -137,18 +137,29 @@ test('uuidnaOS boot image matches the_os_is_bootable_quantum — an off-lattice 
   assert.doesNotThrow(() => callTool('uuidna_os', {}))
 })
 
-test('chsh_beats_classical and ym_quantum stay sealed with clean DNA — unwitnessed is not unforged', () => {
+test('chsh_beats_classical and ym_quantum stay sealed with clean DNA — and are now DECIDED, not merely unforged', () => {
+  // The DNA half of this test is unchanged and is the part that must never move: a theorem the battery cannot
+  // decide is still properly sealed, and that was the whole point while these two sat outside it.
   for (const key of ['chsh_beats_classical', 'ym_quantum']) {
     const t = theoremByKey().get(key)
     assert.ok(t, `${key} must remain sealed`)
     assert.equal(toUuid(t.key + ':' + t.statement), t.address)
     assert.ok(t.lean.includes(':= by decide'))
   }
+  // What changed: both are now decided on this host, so the assertion is strengthened from "named as a gap" to
+  // "run, with the disagreement count that makes naming it worth anything". Asserting they stay UNWITNESSED
+  // would now be a test defending a gap instead of measuring one.
   const p = proveHardwareQuantum(1)
-  assert.ok(p.coverage.unwitnessed.includes('chsh_beats_classical'))
-  assert.ok(p.coverage.unwitnessed.includes('ym_quantum'))
-  assert.ok(!p.coverage.unwitnessed.includes('served_qubit_ceiling'))
-  assert.ok(!p.coverage.unwitnessed.includes('usable_gap_eighty_bits'))
+  const decided = new Map(p.results.map((r) => [r.theorem, r]))
+  for (const key of ['chsh_beats_classical', 'ym_quantum']) {
+    const r = decided.get(key)
+    assert.ok(r, `${key} must now be decided by the battery`)
+    assert.equal(r.disagreements, 0, `${key}: this silicon disagreed with the sealed value`)
+    assert.ok(r.executed > 0, `${key}: decided with zero executions is a claim with no run behind it`)
+    assert.ok(!p.coverage.unwitnessed.includes(key))
+  }
+  assert.deepEqual(p.coverage.unwitnessed, [], 'the quantum wing is fully covered by the battery')
+  assert.equal(p.coverage.witnessed, p.coverage.wing)
   assert.equal(p.disagreements, 0)
   assert.equal(p.refused.length, 0)
 })

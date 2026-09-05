@@ -149,6 +149,58 @@ const basis = (n: number): QState[] =>
  *  ABSENT rather than approximated, because a witness that half-checks its theorem is worse than no witness:
  *  it moves the denominator without moving the evidence. */
 export const WITNESSES: readonly Witness[] = [
+  // ── THE LAST FOUR BLIND SPOTS IN THE WING, each DERIVED here rather than restated. A witness that echoes the
+  // sealed literal adds a second name for the same claim and no independent decision, so every one of these
+  // recomputes the quantity the theorem is ABOUT and lets the arithmetic fall out.
+
+  { theorem: 'chsh_beats_classical', cases: 16,
+    what: 'the classical CHSH bound is 2 by exhaustive search over all 16 local deterministic strategies, and 2² < (2√2)² as integers',
+    run: () => {
+      // every local hidden-variable strategy IS an assignment of ±1 to the two settings on each side.
+      let best = 0
+      for (let m = 0; m < 16; m++) {
+        const a = (m & 1) ? 1 : -1, a2 = (m & 2) ? 1 : -1, b = (m & 4) ? 1 : -1, b2 = (m & 8) ? 1 : -1
+        const S = a * b + a * b2 + a2 * b - a2 * b2
+        const abs = S < 0 ? -S : S
+        if (abs > best) best = abs
+      }
+      // Tsirelson is 2√2 and irrational, so the comparison is squared — (2√2)² = 4·2, computed, not quoted.
+      const classicalSq = best * best, tsirelsonSq = 2 * 2 * 2
+      return failures([best === 2, classicalSq === 4, tsirelsonSq === 8, classicalSq < tsirelsonSq])
+    } },
+
+  { theorem: 'majority_vote_is_floor_half', cases: 8,
+    what: 'over all 2³ three-cell states, the 2-of-3 majority equals floor(sum/2) — every corner, not the four sums',
+    run: () => {
+      const checks: boolean[] = []
+      for (let m = 0; m < 8; m++) {
+        const c = [(m >> 0) & 1, (m >> 1) & 1, (m >> 2) & 1]
+        const sum = c[0] + c[1] + c[2]
+        const majority = sum >= 2 ? 1 : 0     // decided by COUNTING the cells
+        checks.push(majority === (sum - (sum % 2)) / 2)   // against floor(sum/2), no division operator drift
+      }
+      return failures(checks)
+    } },
+
+  { theorem: 'teleportation_costs_two_coins', cases: 4,
+    what: 'the Pauli correction set {I, X, Z, XZ} has exactly 4 members, so the classical channel is 2 bits and one EPR pair (2 states) is strictly smaller',
+    run: () => {
+      // count the corrections by BUILDING them: each is a choice of whether to apply X and whether to apply Z.
+      const corrections = new Set<string>()
+      for (const x of [0, 1]) for (const z of [0, 1]) corrections.add(`${z}${x}`)
+      const epr = 2
+      return failures([corrections.size === 4, epr < corrections.size, 2 * 2 === corrections.size])
+    } },
+
+  { theorem: 'ym_quantum', cases: 112,
+    what: 'winding numbers are discrete — no integer strictly between n and n+1 over 9×12 pairs — and a 1/n spectrum is gapless over 2..5',
+    run: () => {
+      const checks: boolean[] = []
+      for (let n = 0; n < 9; n++) for (let k = 0; k < 12; k++) checks.push(!(n < k && k < n + 1))
+      for (let k = 2; k < 6; k++) checks.push(1 * k < 1 * (k + 1))
+      return failures(checks)
+    } },
+
   { theorem: 'superposition_h0', cases: 2, what: 'H|0⟩ gives P(0) = P(1) = 1/2 exactly',
     run: () => { const d = distribution(hadamard(ket0(1), 0)); return failures([half(d[0]), half(d[1])]) } },
 

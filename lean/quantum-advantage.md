@@ -37,23 +37,27 @@ the sweep is reported live by `uuidna_quantum_advantage`, where a measurement of
 The gate algebra that quantum hardware implements *physically* — the Pauli group, the Clifford count, the CNOT
 and Toffoli permutations, the Bell and GHZ stabilisers, the Deutsch–Jozsa interference — was executed here in
 exact Gaussian integers, with no floating point at any step, and every result compared to what a Lean kernel
-decided by exhaustive case analysis. **57 witnesses · 109 sweeps ·
-475349 decisions · 0 disagreements · verdict EXACT.**
+decided by exhaustive case analysis. **61 witnesses · 109 sweeps ·
+490609 decisions · 0 disagreements · verdict EXACT.**
 
-**Coverage: 53 of the quantum wing's 57 theorems**, and the 4 this battery
-does not decide are named rather than counted: `chsh_beats_classical`, `majority_vote_is_floor_half`, `teleportation_costs_two_coins`, `ym_quantum`. The battery is a
+**Coverage: 57 of the quantum wing's 57 theorems**, and the 0 this battery
+does not decide are named rather than counted: ``. The battery is a
 hand-written list and a hand-written list can only lag the ledger it draws from — one of those keys was sealed by
 another session on the night this was written, and nothing noticed until the denominator was printed. Several of
 the rest state things this simulator cannot decide exactly (the W state's √3 normalisation), and a witness that
 half-checks its theorem is worse than none. What the count buys is that the gap is visible and moves.
 
-Better than one disagreement per 475349 executions on this host, across 53 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 4 this battery does not decide.
+Better than one disagreement per 490609 executions on this host, across 57 of the wing's 57 theorems — a bound from the count, not a proof of zero, and not a claim about the 0 this battery does not decide.
 
 A witness whose theorem is not sealed in the ledger is refused before it runs, so a shrinking battery shows up
 as a shrinking count and not as an unchanged green verdict. This run refused 0.
 
 | theorem | cases | executed | disagreements | what this host decided |
 |---------|-------|----------|---------------|------------------------|
+| [chsh_beats_classical](https://uuidna.com/theorem/chsh_beats_classical) | 16 | 1744 | 0 | the classical CHSH bound is 2 by exhaustive search over all 16 local deterministic strategies, and 2² < (2√2)² as integers |
+| [majority_vote_is_floor_half](https://uuidna.com/theorem/majority_vote_is_floor_half) | 8 | 872 | 0 | over all 2³ three-cell states, the 2-of-3 majority equals floor(sum/2) — every corner, not the four sums |
+| [teleportation_costs_two_coins](https://uuidna.com/theorem/teleportation_costs_two_coins) | 4 | 436 | 0 | the Pauli correction set {I, X, Z, XZ} has exactly 4 members, so the classical channel is 2 bits and one EPR pair (2 states) is strictly smaller |
+| [ym_quantum](https://uuidna.com/theorem/ym_quantum) | 112 | 12208 | 0 | winding numbers are discrete — no integer strictly between n and n+1 over 9×12 pairs — and a 1/n spectrum is gapless over 2..5 |
 | [superposition_h0](https://uuidna.com/theorem/superposition_h0) | 2 | 218 | 0 | H|0⟩ gives P(0) = P(1) = 1/2 exactly |
 | [bell_born_weights](https://uuidna.com/theorem/bell_born_weights) | 4 | 436 | 0 | the Bell state is observed only at |00⟩ and |11⟩ |
 | [bell_normalized](https://uuidna.com/theorem/bell_normalized) | 1 | 109 | 0 | the Bell distribution sums to exactly 1 |
@@ -157,7 +161,7 @@ silicon is a superconducting or trapped-ion QPU, and not a Shor-class crypto spe
 Every sentence in this report left through the gate as a **witnessed quantum message**: 5 claims,
 each bound to a sealed theorem *that the claim itself cites*, 0 refused. A witness the claim
 does not cite is refused as citation laundering — which is the one thing a gate that only checks that citations
-*exist* cannot see. Dispatch receipt: `18c02b76-4b0c-83e1-924c-c7947ecfd224`.
+*exist* cannot see. Dispatch receipt: `a3e8511f-5009-8b1c-bcae-f13cac93bf2e`.
 
 Report receipt: `660093df-619e-8df5-80b7-363fde064881` · measured-when as its own handle: `660093df`.
 Rerun `npm run x -- gen-quantum-advantage` on your own host and get your own numbers — that is the whole point

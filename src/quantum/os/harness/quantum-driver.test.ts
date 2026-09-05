@@ -234,6 +234,14 @@ const FALSIFIED: readonly string[] = [
   'gate_error_baseline_class',
   'usable_gap_eighty_bits',
   'register_exceeds_served',
+  // THE BATTERY GREW BY FOUR AND THIS LIST LAGGED, which is the drift the test below exists to catch — and the
+  // list stays HAND-TYPED on purpose: deriving it from WITNESSES would make the comparison compare the battery
+  // with itself and pass whatever the battery did. An independent statement that must be updated by hand is the
+  // instrument; the cost of updating it is what the instrument is for.
+  'chsh_beats_classical',
+  'majority_vote_is_floor_half',
+  'teleportation_costs_two_coins',
+  'ym_quantum',
 ]
 
 test('THE FALSIFIED SET IS NAMED, AND CANNOT DRIFT FROM THE BATTERY IT DESCRIBES', () => {
