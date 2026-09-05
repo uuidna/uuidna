@@ -126,10 +126,31 @@ export function securityClaims(): SecClaim[] {
   const a = secApi()
   const plannable = a.ops.filter((o) => o.plannable).length
   const blocked = a.ops.length - plannable
+  // THE COUNT ONLY MEANS SOMETHING IF THE THINGS COUNTED ARE DISTINCT, and that is the part a kernel can decide.
+  //
+  // The previous statement was `(plannable + blocked = ops) ∧ (blocked = 0)`, which emits `(4 + 0 = 4) ∧ (0 = 0)`
+  // whenever nothing is blocked — two tautologies, true however the security surface behaves, under a key
+  // asserting every operation is plannable. uuidna-87 found it with a vacuity rule that descends into
+  // conjunctions; the shipped finder splits on the top-level operator and never sees a conjunction of vacuous
+  // parts. Sealing the partition law instead (as lean-prose.ts now does) would be a third copy of one law, so
+  // this seals what is specific here: FOUR operations are four only if their names and their binaries are
+  // pairwise distinct. Two ops sharing a binary would inflate the count while every old conjunct stayed true.
+  // Fingerprints are character-code sums — cheap, and enough to separate names that differ.
+  const sum = (t: string): number => [...t].reduce((n, ch) => n + ch.charCodeAt(0), 0)
+  const L = (ns: number[]): string => '[' + ns.join(', ') + ']'
+  const opCodes = a.ops.map((o) => sum(o.op))
+  const binCodes = a.ops.map((o) => sum(o.binary))
+  // ERASEDUPS, NOT getD. The pairwise form `(i == j) == (l.getD i 0 == l.getD j 0)` decides the same thing and
+  // the kernel accepts it — but the axiom audit refused it: it depends on PROPEXT, and this ledger's trust base
+  // is the bare Lean kernel with allowed axioms ∅, 2655 of 2656 rows kernel-only. A row that needs an axiom the
+  // ledger does not admit is not a row this ledger can carry, however true it is. `.eraseDups.length` says the
+  // same thing — n fingerprints reduce to n distinct ones, false the moment two collide — in the idiom
+  // a_template_distinguishes_only_by_its_variable already uses for exactly this shape.
+  const distinct = (ns: number[]): string => `(${L(ns)}.eraseDups.length = ${ns.length})`
   return [{
     key: `alpine_security_ops_plannable_${a.ops.length}`,
     fragment: `${plannable}+${blocked}=${a.ops.length}`,
-    lean: `theorem alpine_security_ops_plannable_${a.ops.length} : (${plannable} + ${blocked} = ${a.ops.length}) ∧ (${blocked} = 0) := by decide`,
-    says: `every named security operation is plannable against the pinned rootfs (${plannable} of ${a.ops.length}, none blocked) — the fact the withdrawn refusal denied`,
+    lean: `theorem alpine_security_ops_plannable_${a.ops.length} : (${distinct(opCodes)}) ∧ (${distinct(binCodes)}) := by decide`,
+    says: `the ${a.ops.length} named security operations are ${a.ops.length} DISTINCT ones — no two share an operation name or a binary, decided pairwise over both fingerprint lists — and all ${plannable} are plannable against the pinned rootfs with ${blocked} blocked, which the js witness checks because plannability is read from the surface rather than derived. The distinctness is what makes the count honest; the old statement asserted only that ${plannable} + 0 = ${plannable}`,
   }]
 }

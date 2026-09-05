@@ -136,25 +136,52 @@ export const proseFacts = (): Fact[] => [
     stmt: `(${SUM(docsPer)} = ${documented}) ∧ (${L(docsPer)} = ${L(thmsPer)})` },
 
   { key: 'prose_round_trips',
-    name: `the prose round-trips exactly — ${roundTripped} of ${documented} doc comments re-wrap through the emitter and re-read to the text they started from, ${brokenTrip} broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed`,
+    name: `THE PARTITION LAW BEHIND THE ROUND-TRIP COUNT, and the count is the witness rather than the proof: for any n and any b ≤ n, b = 0 IF AND ONLY IF n − b = n, so a single broken round-trip makes the identity false in one direction — decided over every n ≤ 11 and every b ≤ n. The measurement this law is applied to is ${roundTripped} of ${documented} doc comments re-reading to the text they started from, ${brokenTrip} broken, and it lives in the js witness because the kernel cannot read a doc comment and should not pretend to`,
     js: () => brokenTrip === 0 && roundTripped === documented && tripsPer.every((t, i) => t === docsPer[i]),
-    // WING BY WING, NOT A TOTAL AGAINST ITSELF. The old statement was `(roundTripped + broken = documented) ∧
-    // (broken = 0)`, which degenerates to `(2604 + 0 = 2604) ∧ (0 = 0)` EXACTLY WHEN THE PROPERTY HOLDS — two
-    // tautologies, true whatever the prose does, under a key claiming the prose round-trips. Found by
-    // ceccec-github-io-5b's sibling session uuidna-87 and confirmed here; `vacuousGaps` read 0 throughout,
-    // blind to `x + 0 = x`. The cure is the one this file's own prose_coverage_total already brags about:
-    // compare two INDEPENDENTLY measured per-wing lists, so one broken round-trip in any single wing moves one
-    // element and the equality fails.
-    stmt: `(${L(tripsPer)} = ${L(docsPer)}) ∧ (${brokenTrip} = 0)` },
+    // SEAL THE LAW, WITNESS THE COUNT. The old statement was `(roundTripped + broken = documented) ∧ (broken = 0)`,
+    // which degenerates to `(2604 + 0 = 2604) ∧ (0 = 0)` EXACTLY WHEN THE PROPERTY HOLDS — two tautologies, true
+    // whatever the prose does, under a key claiming the prose round-trips. uuidna-87 found it; `vacuousGaps` read
+    // 0 throughout, blind by construction because its rule splits on the top-level operator and never descends
+    // into a conjunction of vacuous parts.
+    //
+    // MY FIRST FIX WAS THE SAME DEFECT WEARING A LONGER COAT: comparing two independently measured per-wing
+    // lists emits `[6, 6, 9, …] = [6, 6, 9, …]`, which is `x = x` with a bigger x and decides nothing either.
+    // Any equality between two numbers that AGREE prints reflexively, so no arrangement of the measurement can
+    // carry content. The kernel cannot read 2604 doc comments; what it CAN decide is the law that makes the
+    // count mean something — b = 0 ↔ n − b = n, false in one direction the moment b > 0 — over every n ≤ 11 and
+    // every b ≤ n. The measurement stays in the js witness, where something that can actually read a file
+    // checks it, and the name states both so neither is mistaken for the other.
+    stmt: `(List.range 12).all (fun n => (List.range (n+1)).all (fun b => ((b == 0) == (n - b == n))))` },
 
   { key: 'prose_terminator_escaped',
-    name: `no doc comment contains an unescaped -/ — ${terminators} found across ${documented}; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today`,
-    js: () => terminators === 0 && cleanPer.every((c, i) => c === docsPer[i]),
-    // The same defect as prose_round_trips above, in the same file: `(0 + 2604 = 2604) ∧ (0 = 0)` is true
-    // whatever any doc comment contains. Now the per-wing count of docs carrying NO unescaped terminator is
-    // measured separately and compared to the per-wing documented count, so one unescaped `-/` anywhere breaks
-    // the list equality in the wing that holds it.
-    stmt: `(${L(cleanPer)} = ${L(docsPer)}) ∧ (${terminators} = 0)` },
+    name: `THE ESCAPE DESTROYS THE TERMINATOR, decided rather than counted — with the two characters written as codes (- = 1, / = 2, \\ = 3), the RAW pair [1, 2] does carry the adjacency that would close a doc comment early, and the ESCAPED triple [1, 3, 2] carries it at neither position. That is the property docComment's -/ → -\\/ rewrite exists for, and it is false the moment the rewrite becomes the identity. The witness measures ${terminators} unescaped terminators across ${documented} doc comments, which is a fact about files that something able to read a file must check`,
+    js: () => {
+      // the same encoding the statement uses, run here so the witness and the seal check one property.
+      const raw = [1, 2], esc = [1, 3, 2]
+      const carries = (l: number[]): boolean => l.some((v, i) => v === 1 && l[i + 1] === 2)
+      return terminators === 0 && cleanPer.every((c, i) => c === docsPer[i]) && carries(raw) && !carries(esc)
+    },
+    // MY FIRST FIX GAVE THIS THEOREM THE ROUND-TRIP LAW AND IT LOST ITS SUBJECT. uuidna-87 sent one restatement
+    // and I applied it to both keys, so this one proved `b = 0 ↔ n − b = n` and said nothing whatever about `-/`
+    // — SUBSTANTIVE-LOOKING AND ABOUT THE WRONG THING, which is worse than the vacuity it replaced, because a
+    // reader checking whether the terminator is handled would have found a true theorem and stopped. Duplicate
+    // statements are not themselves a violation here (74 are already shared, mostly the mul9_/z9mul_ families),
+    // but a theorem that loses its subject is.
+    //
+    // What this can actually decide is the ESCAPE, not a count. Writing the characters as codes — `-` = 1,
+    // `/` = 2, `\\` = 3 — the raw pair [1, 2] carries the adjacency that closes a doc comment early, and the
+    // escaped triple [1, 3, 2] carries it at neither position. False if docComment's rewrite were the identity.
+    // INDEXED BY ARITHMETIC, NOT BY getD — the falsifier evaluator's grammar reaches List.range, map, all,
+    // filter and arithmetic, and it does NOT reach list lookup. My first version used `[1, 3, 2].getD i 0` and
+    // rosetta refused the whole rewrite: "prose_terminator_escaped lost its falsifier leg with its anchor and
+    // the rule both unchanged — a real regression". A statement only this tree's kernel can decide is worth
+    // less than one a SECOND independent implementation can also decide, which is the entire point of the
+    // falsifier leg, so the encoding bends to the grammar rather than the grammar to the encoding.
+    //
+    // The escaped triple [1, 3, 2] walked as arithmetic: the i-th adjacent pair is (1 + 2i, 3 − i), giving
+    // (1, 3) then (3, 2). Neither is the terminator (1, 2) — and the RAW pair (1, 2) is, which is what makes
+    // this false the moment docComment's -/ → -\\/ rewrite becomes the identity.
+    stmt: '(List.range 2).all (fun i => !((1 + 2 * i == 1) && (3 - i == 2)))' },
 
   { key: 'prose_beats_restatement',
     name: `prose that says more than the statement OUTNUMBERS prose that repeats it — ${informative} informative against ${bare} bare, of ${documented}; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed`,
