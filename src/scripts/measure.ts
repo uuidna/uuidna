@@ -26,6 +26,7 @@ import { toUuid } from '../index.js'
 import { handleOf } from '../handle.js'   // THE one derivation — see handle.ts
 import { benchHexbit, benchLattice } from './bench-hexbit.js'
 import { harvestCommunity } from '../zenodo-oai.js'
+import { auditPackageInstall } from './audit-package-install.js'
 
 export interface Measurement { name: string; what: string; run: () => Promise<unknown> | unknown }
 export interface Receipted { name: string; what: string; value: unknown; receipt: string }
@@ -222,6 +223,18 @@ export const MEASUREMENTS: readonly Measurement[] = [
   // registry, and no gate reading this filesystem can check it. OAI-PMH lists the set without a token, so the
   // audit chain can ask. Safe here because an unreachable endpoint returns read: false rather than throwing —
   // and an unread community is never reported as an empty one.
+  // THE PUBLISHED ARTIFACT, IMPORTED FROM OUTSIDE THE REPOSITORY. This class of defect cannot be seen in-tree:
+  // package.json `files` shipped one json asset while the code imported seven, and a stranger's first import
+  // threw — on a package already published at 0.3.0. Every test, guard finder and build passed over it, because
+  // in the repository those files are simply on disk. Slow (a pack and an install), so it lives here where the
+  // audit chain takes it rather than in the fast suite.
+  { name: 'package-install', what: 'pack the package, install it outside the repo, import every declared subpath', run: () => {
+    const a = auditPackageInstall()
+    return a.ran
+      ? { ran: true, importable: a.importable, total: a.total, broken: a.broken.map((b) => `${b.subpath}: ${b.error}`) }
+      : { ran: false, reason: a.reason, note: 'UNREAD is not a pass — nothing was verified about the published artifact' }
+  } },
+
   { name: 'zenodo-community', what: 'what the uuidna Zenodo community actually holds, harvested over OAI-PMH', run: async () => {
     const h = await harvestCommunity('uuidna')
     return h.read

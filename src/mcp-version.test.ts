@@ -7,12 +7,16 @@ import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from './boundary.js'
+import { PKG_VERSION } from './package-version.js'
 
 test('the hosted MCP advertises the package version', () => {
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8')) as { version: string }
-  const src = readFileSync(join(ROOT, 'src', 'mcp-http.ts'), 'utf8')
-  const stated = /const SERVER = \{ name: 'uuidna', version: '([^']+)' \}/.exec(src)?.[1]
-  assert.ok(stated, 'the SERVER constant must remain readable to this check')
+  // READ FROM THE ONE CONSTANT NOW, not from a literal in mcp-http.ts. Both doors used to carry their own
+  // version string; the stdio one said '6.9.0' against a package at 0.3.0 while the edge one happened to be
+  // right, and nothing compared either to the package. This check used to parse the edge literal, so it could
+  // only ever have caught one of the two.
+  const stated = PKG_VERSION
+  assert.ok(stated, 'the version constant must remain readable to this check')
   assert.equal(stated, pkg.version,
-    `mcp-http.ts advertises ${stated} but package.json is ${pkg.version} — update the SERVER constant in src/mcp-http.ts to '${pkg.version}'. Every client calling initialize is being told the wrong version until you do.`)
+    `src/package-version.ts says ${stated} but package.json is ${pkg.version} — bump PKG_VERSION. BOTH MCP doors read it, so every client calling initialize is told the wrong version until you do.`)
 })

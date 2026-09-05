@@ -26,6 +26,7 @@ import {
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
   reAddress, type EditorState,
   articleFor, editorialState, publicationStatus, searchTrialFor, viesVerify, searchLedger, statementCensus, leanIndex, byLean, optimiseLinear, decide, coinsJobs, matrixCss, reportAll, publicApiRegistry, searchFeed, runSequence } from './index.js'
+import { PKG_VERSION } from './package-version.js'
 import { typeset, formulaCensus } from './formula.js'
 import {
   throughVoid, foldVortexReflection, vortexStrokeGateways, decodeVortexDashAngles,
@@ -104,7 +105,10 @@ import { secApi, planSecurityOp } from './os/secapi/index.js'
 import { primeMonitor, monitorCensus, compilerCensus, archMatrix } from './quantum/os/census/index.js'
 import { MONITOR_INVENTORY } from './quantum/os/census/inventory/index.js'
 
-const VERSION = '6.9.0'
+// READ FROM THE PACKAGE, never typed. This said '6.9.0' while the package was at 0.3.0, so the stdio door
+// misreported its own identity to every client that connected — and the hosted edge, which derives it, was
+// correct all along. A version literal beside a version field is drift with a release cycle.
+const VERSION = PKG_VERSION
 
 // A tool: JSON-in / JSON-out. Handler args arrive as untrusted JSON, so they enter as Record<string, unknown>
 // and the existing String()/Number()/cast coercions narrow them.
@@ -1945,8 +1949,29 @@ function handle(msg: RpcMessage) {
 // work Node's event loop drains and the process exits on its own.
 // GUARDED FOR A RUNTIME WITH NO PROCESS. The edge imports this module for its catalogue; a Worker has no
 // process.argv, and reaching for it here would throw before a single tool could be served.
-const isNodeMain = typeof process !== 'undefined' && Array.isArray(process.argv) && process.argv[1] !== undefined &&
-  import.meta.url === new URL(`file://${process.argv[1]}`).href
+// AM I THE ENTRY POINT? Decided WITHOUT touching the filesystem, and that constraint is not incidental: this
+// module is imported by the edge Worker, and a static `node:fs` import makes Cloudflare refuse the deploy with
+// code 10021. The tree's own worker-graph gate caught exactly that when the first version of this fix reached
+// for realpathSync — the fix would have traded a broken stdio door for a broken deploy.
+//
+// THE DEFECT BEING FIXED: the test was `import.meta.url === file://${process.argv[1]}`. A published invocation
+// runs node_modules/.bin/uuidna-mcp, a SYMLINK, so argv[1] is the link while import.meta.url is the resolved
+// file. They can never match, so the documented config
+// {"command":"npx","args":["-y","@uuidna/uuidna"]} started a process that served nothing and exited 0 — which an
+// MCP client reports as "no response", silent and exit-clean, the worst failure mode available.
+//
+// So it accepts EITHER: the exact URL match (a direct `node dist/mcp.js`), OR argv[1] whose final segment is the
+// declared bin name (the symlink case). Both are string comparisons, no filesystem, and neither can be true for
+// a Worker, which has no process.argv at all.
+const BIN_NAME = 'uuidna-mcp'
+const isNodeMain = (() => {
+  if (typeof process === 'undefined' || !Array.isArray(process.argv) || process.argv[1] === undefined) return false
+  const argv1 = String(process.argv[1])
+  if (import.meta.url === new URL(`file://${argv1}`).href) return true
+  const tail = argv1.split(/[\\/]/).pop() ?? ''
+  // the bin symlink, with or without an extension the launcher may add
+  return tail === BIN_NAME || tail === `${BIN_NAME}.js` || tail === `${BIN_NAME}.cmd`
+})()
 if (isNodeMain) {
   let buf = ''
   process.stdin.setEncoding('utf8')

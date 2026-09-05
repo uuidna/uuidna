@@ -9,6 +9,7 @@
 // the request; it cannot write, deploy, sign a commit, or reach the repo. A verdict is authoritative only when the
 // worker signs it (env.TRIAL_KEY); a fork recomputes the same result but cannot forge the signature. The tools carry
 // their own honest scope (the aura is art, image provenance is exact-copy not content-truth, the cube is symmetric).
+import { PKG_VERSION } from './package-version.js'
 import { adjudicate } from './adjudicate.js'
 import { bootOS } from './quantum/os/index.js'
 import { ensureEdgeCatalogue } from './quantum/os/boot/index.js'
@@ -52,7 +53,9 @@ const CATALOGUE_TOOLS = new Set(['uuidna_exec', 'uuidna_registry', 'uuidna_relat
 // src, and this runs at the Workers edge with no filesystem), so it is stated here and HELD to package.json by
 // src/tests/mcp-version.test.ts, which fails with the exact line to change. A stated constant is fine; an
 // unchecked one is how this drifted.
-const SERVER = { name: 'uuidna', version: '0.3.0' }
+// THE VERSION COMES FROM THE ONE CONSTANT, not a second literal. This one happened to be correct while the
+// stdio door's said '6.9.0'; two literals agreeing by luck is not one source.
+const SERVER = { name: 'uuidna', version: PKG_VERSION }
 
 interface HttpTool { name: string; description: string; detail?: string; inputSchema: Record<string, unknown>; run: (a: Record<string, unknown>) => unknown }
 

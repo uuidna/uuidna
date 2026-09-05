@@ -116,7 +116,18 @@ export function composePublication(file: string): Publication {
   const walked = walkers.reduce((a, t) => a + (t.cases ?? 0), 0)
   const identities = ts.length - walkers.length
   const moduli = [...new Set(ts.map((t) => modulusOf(String(t.statement))).filter((m): m is string => m !== null))].sort()
-  const formed = ts.filter((t) => typeset(t.statement, 'block').mathml !== '').length
+  // THE SENTINEL IS null, NOT THE EMPTY STRING — and comparing against '' made this test ALWAYS TRUE, so every
+  // one of the 117 monographs printed "All N have a standard formula form" whether or not that was so. A live
+  // falsehood on the most-cited surface in the corpus, introduced the same day, and found by a wave agent
+  // reading the comparison rather than the output. typeset() returns `mathml: null` for a statement that is a
+  // computation with no formula form (classification 'program', or an unparseable statement); `null !== ''` is
+  // true for all of them.
+  //
+  // The lesson is the shape, not the typo. A comparison against the wrong sentinel is TRUE FOR EVERY INPUT by
+  // construction, so it returns the same answer as a healthy check on a healthy corpus — and it sat inside the
+  // very sentence it was meant to qualify. Checked against the null sentinel now, and the honest distribution
+  // reaches the abstracts: 1373 of 2617 statements have a standard formula form, 52 percent, not all of them.
+  const formed = ts.filter((t) => typeset(t.statement, 'block').mathml !== null).length
   const tactics = [...new Set(ts.map((t) => t.tactic))].sort()
   const node = graphNode(slug)
   // A congruence wing says which ring it computes in; a wing of mixed statements says what it enumerates instead.
