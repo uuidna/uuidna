@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "d7a106baa8f3197d65231178cabc4571",
+    "src": "f8f45d7a4df2ab126015b433ec8e15b6",
     "lean": "aa57a49915c5a55baff14eac5bbbdd4a"
   },
   "files": {
@@ -452,6 +452,8 @@
     "src/firewall/index.ts": "ce8fa442968d92fa",
     "src/forensics.test.ts": "443fd453010685bf",
     "src/forensics.ts": "a619d9be687cd502",
+    "src/forge-verdict.test.ts": "7d1f47268d58c200",
+    "src/forge-verdict.ts": "4b1d26fc87b62a74",
     "src/forged-wings.test.ts": "3aaf51c6fbbd4e05",
     "src/formula.test.ts": "9440a2385c0e25be",
     "src/formula.ts": "0d1a965b3c6ea031",
@@ -3641,8 +3643,8 @@
     "src/phd-proofs.ts": "73cf759d8e2ec5e3",
     "src/polygraph.test.ts": "ee31024a4c39b326",
     "src/ports-tools.test.ts": "aec60e8919281c86",
-    "src/post-push.test.ts": "44432a3a3fda9f1f",
-    "src/post-push.ts": "8206e85a33d1173b",
+    "src/post-push.test.ts": "b30082e068c9442e",
+    "src/post-push.ts": "1b320699b17723f2",
     "src/pqc-hybrid.test.ts": "740971ecb25453bc",
     "src/pqc-nist.test.ts": "c57ca9b0706e12fd",
     "src/pqc/envelope/index.ts": "06cfedad44470108",
@@ -4210,7 +4212,7 @@
     "src/scripts/lean-security.ts": "d29d69ab60619738",
     "src/scripts/lean-sequence.ts": "8f951da8cbeaee6f",
     "src/scripts/lean-singularity.ts": "552439d733e18684",
-    "src/scripts/lean-sitebuild.ts": "b1dcf16f4e0ee947",
+    "src/scripts/lean-sitebuild.ts": "0339dcd9b34532f8",
     "src/scripts/lean-software.ts": "455d8b954a96aa78",
     "src/scripts/lean-solids.ts": "18409010a3d7edfc",
     "src/scripts/lean-song.ts": "a251e5ff81327c09",
@@ -4253,7 +4255,7 @@
     "src/scripts/package-at-a-time.ts": "a9c7eea805372fd1",
     "src/scripts/payload-sync.ts": "144234b6e57e6dd1",
     "src/scripts/port-update.ts": "7f9462049940d0fc",
-    "src/scripts/post-push.ts": "4c1b6a6353b2fba9",
+    "src/scripts/post-push.ts": "1013b87a678185c5",
     "src/scripts/predict-and-fill.ts": "20c3f35afe26d124",
     "src/scripts/prepublish-seal.ts": "af0f94199582d361",
     "src/scripts/prescribed-scripts.test.ts": "dc9bd2507e815496",

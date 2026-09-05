@@ -20,6 +20,12 @@ export interface RunRow {
   headSha: string
   status: string
   conclusion: string | null
+  // WHAT TRIGGERED THE RUN, and it is required rather than optional. A scheduled job carries the BRANCH HEAD's
+  // sha, so `next` failing nightly and a push landing cleanly are two runs on one commit — and judging the push
+  // by the schedule reports a clean landing as red. Measured on the forge: 69066484c carries
+  // `push deploy success` and `schedule next failure`; the arm called that push FAILED. The mirror image of the
+  // all-cancelled false pass, and the same defect underneath — a verdict that does not mean what its words say.
+  event: string
 }
 
 export interface PushVerdict {
@@ -34,6 +40,7 @@ export interface PushVerdict {
   failing: string[]      // workflow names whose conclusion is a real failure
   pending: string[]      // workflow names still running
   didNotJudge: string[]  // cancelled or skipped — reported ALWAYS, because what did not run is the reader's business
+  notThisPush: string[]  // runs on this sha triggered by something else — reported, NEVER judged
   reason: string
 }
 
@@ -49,7 +56,12 @@ export function pushVerdict(sha: string, rows: readonly RunRow[]): PushVerdict {
   // whole arm exists to prevent: a check whose verdict does not mean what its words say. Seven hex characters is
   // git's own floor for an unambiguous abbreviation; anything shorter is refused rather than guessed at.
   if (sha.length < 7) throw new Error(`post-push: "${sha}" is too short to identify a commit — give at least seven hex characters`)
-  const mine = rows.filter((r) => r.headSha === sha || r.headSha.startsWith(sha))
+  const onSha = rows.filter((r) => r.headSha === sha || r.headSha.startsWith(sha))
+  // ONLY A PUSH JUDGES A PUSH. A schedule, a workflow_dispatch and a pull_request can all land on this same
+  // commit and answer a different question about it. They are reported so nothing is hidden, never counted.
+  const mine = onSha.filter((r) => r.event === 'push')
+  const notThisPush = onSha.filter((r) => r.event !== 'push')
+    .map((r) => `${r.workflowName} (${r.event}: ${r.conclusion ?? r.status})`).sort()
   const pending = mine.filter((r) => r.status !== 'completed').map((r) => r.workflowName).sort()
   const failing = mine
     .filter((r) => r.status === 'completed' && !PASSED.has(r.conclusion ?? '') && !DID_NOT_JUDGE.has(r.conclusion ?? ''))
@@ -62,17 +74,20 @@ export function pushVerdict(sha: string, rows: readonly RunRow[]): PushVerdict {
   const measured = passed.length > 0 || failing.length > 0
   const settled = mine.length > 0 && pending.length === 0
   const ok = settled && passed.length > 0 && failing.length === 0
-  const aside = didNotJudge.length ? ` — and did NOT judge: ${didNotJudge.join(', ')}` : ''
+  const aside = (didNotJudge.length ? ` — and did NOT judge: ${didNotJudge.join(', ')}` : '')
+    + (notThisPush.length ? ` — and NOT this push: ${notThisPush.join(', ')}` : '')
   const reason = pending.length
     ? `still running for ${sha.slice(0, 9)}: ${pending.join(', ')}${aside}`
     : failing.length
       ? `FAILED for ${sha.slice(0, 9)}: ${failing.join(', ')}${aside}`
-      : !mine.length
-        ? `UNMEASURED: the forge reports no run at all for ${sha.slice(0, 9)} — this is not a pass. The runs may not have been queued yet; ask again.`
-        : !passed.length
-          ? `UNMEASURED: ${mine.length} run(s) for ${sha.slice(0, 9)} and NOT ONE JUDGED — ${didNotJudge.join(', ') || 'none completed'}. A cancelled scan is not a clean scan.`
-          : `${passed.length} workflow(s) passed for ${sha.slice(0, 9)}${aside}`
-  return { sha, measured, settled, ok, failing, pending, didNotJudge, reason }
+      : !onSha.length
+        ? `UNMEASURED: the forge reports no run at all for ${sha.slice(0, 9)} — this is not a pass. It may not be queued yet, or may sit outside the queried window; ask again, with a larger limit if the commit is old.`
+        : !mine.length
+          ? `UNMEASURED: ${onSha.length} run(s) sit on ${sha.slice(0, 9)} and NOT ONE WAS A PUSH — ${notThisPush.join(', ')}. A schedule answers a different question about the same commit.`
+          : !passed.length
+            ? `UNMEASURED: ${mine.length} push run(s) for ${sha.slice(0, 9)} and NOT ONE JUDGED — ${didNotJudge.join(', ') || 'none completed'}. A cancelled scan is not a clean scan.`
+            : `${passed.length} workflow(s) passed for ${sha.slice(0, 9)}${aside}`
+  return { sha, measured, settled, ok, failing, pending, didNotJudge, notThisPush, reason }
 }
 
 /** parseRunRows(json) → rows, refusing silently-malformed input rather than reading it as an empty (clean) list. */
@@ -81,7 +96,12 @@ export function parseRunRows(json: string): RunRow[] {
   if (!Array.isArray(raw)) throw new Error('post-push: `gh run list --json` did not return an array — refusing to read a malformed answer as "no failures"')
   return raw.map((r) => {
     const o = r as Record<string, unknown>
+    // NO DEFAULT FOR event. Guessing "push" would re-admit the schedule bug the moment the field is not asked
+    // for; guessing "not push" would drop real push runs and read as a pass. Neither guess is safe, so refuse.
+    if (o.event === undefined || o.event === null || String(o.event) === '')
+      throw new Error('post-push: a run row carries no `event` — ask `gh run list --json ...,event`. A run that cannot say what triggered it cannot be attributed to a push.')
     return {
+      event: String(o.event),
       workflowName: String(o.workflowName ?? o.name ?? '?'),
       headSha: String(o.headSha ?? ''),
       status: String(o.status ?? ''),

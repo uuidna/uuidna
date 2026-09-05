@@ -4,8 +4,8 @@ import { pushVerdict, parseRunRows, type RunRow } from './post-push.js'
 
 const SHA = '7fdb5c226aa11223344556677889900aabbccdde'
 const OTHER = '0000000011112222333344445555666677778888'
-const row = (workflowName: string, status: string, conclusion: string | null, headSha = SHA): RunRow =>
-  ({ workflowName, status, conclusion, headSha })
+const row = (workflowName: string, status: string, conclusion: string | null, headSha = SHA, event = 'push'): RunRow =>
+  ({ workflowName, status, conclusion, headSha, event })
 
 // THE ONE THAT MATTERS. A poll is always faster than a queue, so the first question a post-push check asks is
 // almost always answered "no runs yet". A check that read that as clean would report green on EVERY push while
@@ -93,12 +93,12 @@ test('parseRunRows refuses a malformed answer rather than reading it as "no fail
   assert.throws(() => parseRunRows('{"error":"gh not authenticated"}'), /did not return an array/)
   assert.deepEqual(parseRunRows('[]'), [])
   assert.deepEqual(
-    parseRunRows(JSON.stringify([{ workflowName: 'security', headSha: SHA, status: 'completed', conclusion: 'failure' }])),
+    parseRunRows(JSON.stringify([{ workflowName: 'security', headSha: SHA, status: 'completed', conclusion: 'failure', event: 'push' }])),
     [row('security', 'completed', 'failure')])
 })
 
 test('a missing conclusion field is null, not the string "undefined"', () => {
-  const [r] = parseRunRows(JSON.stringify([{ workflowName: 'x', headSha: SHA, status: 'in_progress' }]))
+  const [r] = parseRunRows(JSON.stringify([{ workflowName: 'x', headSha: SHA, status: 'in_progress', event: 'push' }]))
   assert.equal(r!.conclusion, null)
   assert.equal(pushVerdict(SHA, [r!]).pending.length, 1)
 })
@@ -126,4 +126,44 @@ test('a short sha matches its run rows by prefix', () => {
 
 test('a sha too short to identify a commit is refused, never guessed at', () => {
   assert.throws(() => pushVerdict('7fdb', [row('security', 'completed', 'success')]), /too short/)
+})
+
+// A SCHEDULED JOB CARRIES THE BRANCH HEAD'S SHA, so a nightly failure and a clean landing sit on one commit.
+// Measured on the forge: 69066484c carries `push deploy success` and `schedule next failure`, and this arm
+// reported that push FAILED — a false accusation, the mirror of the all-cancelled false pass. Only a push
+// judges a push; anything else on the sha is reported and never counted.
+test('a scheduled failure on the same sha does NOT fail the push — the real 69066484c rows', () => {
+  const v = pushVerdict(SHA, [
+    row('deploy', 'completed', 'success'),
+    row('next', 'completed', 'failure', SHA, 'schedule'),
+  ])
+  assert.equal(v.ok, true, 'the push deployed cleanly; the nightly is a different question about the same commit')
+  assert.deepEqual(v.failing, [], 'a scheduled failure is not this push’s failure')
+  assert.deepEqual(v.notThisPush, ['next (schedule: failure)'])
+  assert.match(v.reason, /NOT this push: next \(schedule: failure\)/, 'and it must be VISIBLE, not silently dropped')
+})
+
+test('a sha carrying ONLY non-push runs is UNMEASURED, not a pass', () => {
+  const v = pushVerdict(SHA, [row('books', 'completed', 'success', SHA, 'schedule')])
+  assert.equal(v.ok, false, 'a scheduled success says nothing about a push')
+  assert.equal(v.measured, false)
+  assert.match(v.reason, /NOT ONE WAS A PUSH/)
+})
+
+test('pull_request and workflow_dispatch runs are also not this push', () => {
+  const v = pushVerdict(SHA, [
+    row('security', 'completed', 'success'),
+    row('CodeQL Advanced', 'completed', 'failure', SHA, 'pull_request'),
+    row('books', 'completed', 'failure', SHA, 'workflow_dispatch'),
+  ])
+  assert.equal(v.ok, true)
+  assert.deepEqual(v.notThisPush, ['CodeQL Advanced (pull_request: failure)', 'books (workflow_dispatch: failure)'])
+})
+
+// REFUSING TO GUESS. "push" as a default re-admits the schedule bug the moment the field is not requested;
+// "not push" drops real runs and reads as a pass. Neither guess is safe, so the parser refuses.
+test('parseRunRows refuses a row with no event rather than defaulting it', () => {
+  assert.throws(
+    () => parseRunRows(JSON.stringify([{ workflowName: 'security', headSha: SHA, status: 'completed', conclusion: 'success' }])),
+    /carries no `event`/)
 })

@@ -18,7 +18,7 @@ const sh = (cmd: string): string => execSync(cmd, { cwd: ROOT, encoding: 'utf8',
 
 /** the forge, asked once. A `gh` that cannot answer is UNMEASURED — it is never read as an empty run list. */
 export function runsFor(limit = 30): RunRow[] {
-  return parseRunRows(sh(`gh run list --limit ${limit} --json workflowName,headSha,status,conclusion`))
+  return parseRunRows(sh(`gh run list --limit ${limit} --json workflowName,headSha,status,conclusion,event`))
 }
 
 // POLLING WITHOUT A CLOCK, which the determinism law requires: a bounded number of rounds, each waiting on the
@@ -31,11 +31,18 @@ const isMain = process.argv[1]?.endsWith('post-push.js') ?? false
 if (isMain) {
   const wait = process.argv.includes('--wait')
   const sha = process.argv.slice(2).find((a) => !a.startsWith('--')) ?? sh('git rev-parse HEAD').trim()
-  let verdict = pushVerdict(sha, runsFor())
+  // A SATURATED WINDOW IS NOT AN EMPTY FORGE. `gh run list --limit N` returning exactly N rows means the answer
+  // was TRUNCATED, and asking about an older commit then reports "no run at all" — which reads as "not queued
+  // yet" when it means "outside what I asked for". Two different silences wearing one sentence; the same
+  // conflation this arm exists to refuse. So the limit is reported whenever the window came back full.
+  const LIMIT = 30
+  let rows = runsFor(LIMIT)
+  let verdict = pushVerdict(sha, rows)
   for (let i = 0; wait && !verdict.settled && i < ROUNDS; i++) {
     console.log(`· post-push — ${verdict.reason}`)
     sh(`sleep ${PAUSE}`)
-    verdict = pushVerdict(sha, runsFor())
+    rows = runsFor(LIMIT)
+    verdict = pushVerdict(sha, rows)
   }
   if (verdict.ok) {
     console.log(`✓ post-push — ${verdict.reason}`)
@@ -46,6 +53,8 @@ if (isMain) {
   for (const p of verdict.pending) console.error(`    RUNNING ${p}`)
   console.error(verdict.measured
     ? '    FIX read the failing run — `gh run view --workflow=<name> --log-failed` — and land the cure. A local gate cannot see this; only asking the forge can.'
-    : `    FIX the forge reports nothing for this commit yet. Ask again (\`node dist/scripts/post-push.js ${sha.slice(0, 9)} --wait\`). Silence is UNMEASURED and must never be recorded as a pass.`)
+    : rows.length >= LIMIT
+      ? `    FIX the window came back FULL (${rows.length} of ${LIMIT} asked for), so this commit may simply be older than the answer. Ask with a larger limit before believing the silence — a truncated answer is not an empty forge.`
+      : `    FIX the forge reports nothing for this commit yet. Ask again (\`node dist/scripts/post-push.js ${sha.slice(0, 9)} --wait\`). Silence is UNMEASURED and must never be recorded as a pass.`)
   process.exit(1)
 }
