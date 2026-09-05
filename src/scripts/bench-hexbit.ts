@@ -23,11 +23,11 @@ import {
   HEXAGRAM_STATES, HEXAGRAM_BITS,
 } from '../hexagram.js'
 import { handleOf } from '../handle.js'
-import { toUuid, merkleFold } from '../address.js'
+import { toUuid, merkleFold, merge } from '../address.js'
 import { merkleRoot, merkleProof, verifyProof } from '../merkle.js'
 import { THEOREMS } from '../theorems/index.js'
 
-export interface CapacityRow { bits: number; leaves: number; recomputeMs: number; pathNodes: number; verifyMs: number; measured: number; structural: number }
+export interface CapacityRow { bits: number; leaves: number; recomputeMs: number; pathNodes: number; verifyMs: number; measured: number; structural: number; merges: number; mergesVerify: number }
 
 /** capacityCurve(bits[]) → VERIFY against RECOMPUTE up the address column, at the scales the theorem names.
  *
@@ -50,20 +50,48 @@ export function capacityCurve(bits: readonly number[]): CapacityRow[] {
     const root = merkleRoot(leaves)
     let t1 = process.hrtime.bigint()
     const recomputeMs = Number(t1 - t0) / 1e6
-    const idx = leaves.length >> 1
-    const proof = merkleProof(leaves, idx)
+    // AN EVEN LEAF AND AN ODD ONE, because they do not walk the same code. A right-hand leaf verifies with
+    // merge(sibling, acc) and a left-hand one with merge(acc, sibling) — different argument order into a
+    // non-commutative fold. This walked `leaves.length >> 1` alone, which is EVEN at every power-of-two scale,
+    // so the odd path was never exercised at any n. Found by ceccec-github-io-5b, who had hit exactly this in
+    // their own ladder; a benchmark that only ever takes one branch is measuring half an instrument.
+    const even = leaves.length >> 1
+    const odd = even + 1
+    const proof = merkleProof(leaves, even)
+    const oddProof = merkleProof(leaves, odd)
     const iterations = 20000
     t0 = process.hrtime.bigint()
     let ok = true
-    for (let i = 0; i < iterations; i++) ok = verifyProof(leaves[idx]!, proof, root) && ok
+    for (let i = 0; i < iterations; i++) ok = verifyProof(leaves[even]!, proof, root) && ok
     t1 = process.hrtime.bigint()
     const verifyMs = Number(t1 - t0) / 1e6 / iterations
     // A VERIFY THAT DOES NOT REFUSE A TAMPER IS NOT A VERIFY, so the run that produces the magnitude also proves
     // the instrument discriminates — a benchmark of a check that always passes measures nothing.
-    if (!ok || verifyProof(leaves[idx + 1]!, proof, root)) throw new Error(`capacity 2^${p}: the proof did not discriminate`)
+    if (!ok || !verifyProof(leaves[odd]!, oddProof, root)) throw new Error(`capacity 2^${p}: a valid proof did not verify`)
+    if (verifyProof(leaves[odd]!, proof, root) || verifyProof(leaves[even]!, oddProof, root))
+      throw new Error(`capacity 2^${p}: a proof verified a leaf it does not cover`)
+    // THE MERGE COUNT IS COUNTED, NOT ASSERTED. The closed form for a rebuild over 2^p leaves is 2^p − 1 merges
+    // and for a verify it is p — but writing the inequality down is not obtaining it. This mirrors merkleRoot's
+    // own loop, TALLIES each merge, and then checks the closed form against the tally rather than using it to
+    // produce one; the mirror is kept honest by requiring its root to equal the sealed merkleRoot's. A count is
+    // machine-independent, which is what makes 'this is not a hardware speedup' refutable instead of appended:
+    // a physical speedup carries a machine in it and drifts between runs, where a tally of discrete operations
+    // returns the same integer on every host by construction.
+    let merges = 0
+    let layer = leaves.map((l) => toUuid('leaf:' + l))
+    while (layer.length > 1) {
+      const next: string[] = []
+      for (let i = 0; i < layer.length; i += 2) {
+        if (i + 1 < layer.length) { next.push(merge(layer[i]!, layer[i + 1]!)); merges++ } else next.push(layer[i]!)
+      }
+      layer = next
+    }
+    if (layer[0] !== root) throw new Error(`capacity 2^${p}: the counting mirror disagrees with merkleRoot`)
+    if (merges !== leaves.length - 1) throw new Error(`capacity 2^${p}: counted ${merges} merges, closed form says ${leaves.length - 1}`)
+    if (proof.length !== p) throw new Error(`capacity 2^${p}: proof path ${proof.length}, expected ${p}`)
     const ratio = (a: number, b: number): number => { const r = a / b; return r - (r % 1) }
     rows.push({ bits: p, leaves: leaves.length, recomputeMs, pathNodes: proof.length, verifyMs,
-      measured: ratio(recomputeMs, verifyMs), structural: ratio(leaves.length, proof.length) })
+      measured: ratio(recomputeMs, verifyMs), structural: ratio(leaves.length, proof.length), merges, mergesVerify: proof.length })
   }
   return rows
 }

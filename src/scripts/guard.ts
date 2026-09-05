@@ -40,6 +40,38 @@ import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
 import { fold, legalGaps, proseGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps, thresholdGaps} from './one-receipt.js'
 
+// ── --quiet: PRINT WHAT THE CALLER ACTS ON, NOTHING ELSE. A clean run prints 6607 bytes and every caller in
+// practice pipes it through a grep for failures and the verdict — this session did exactly that on eight
+// consecutive calls, which is the tell that the default output is not what the caller needs.
+//
+// THE FIRST ATTEMPT SUPPRESSED THE WRONG THING. I assumed the bulk was the per-finder `✓ … clean` roll-call,
+// dropped exactly that, and measured 6607 → 4713: a 29% win against an assumed 90%. The roll-call is 1.9 KB of
+// 6.6 KB; the rest is the uniqueness census, the 26-file non-harmonic boundary roster, six package
+// confirmations, the meter timings and the fold block — each of them a report someone wants ON DEMAND and
+// nobody acts on per call. So quiet keeps three things and drops the rest: anything on STDERR (every ✗, passed
+// through untouched and never filtered), any ADVISORY finding with its detail lines, and the closing verdict.
+// A quiet run that prints only the verdict is a run with nothing to say, which is the whole point.
+//
+// AND IT DOES NOT REACH EVERYTHING, measured rather than claimed: 7719 bytes loud, 1222 on stdout quiet — 84%,
+// not the ~99% the mechanism suggests. The remainder is gen-packages and audit-packages, which are CHILD
+// PROCESSES whose stdout is inherited, so a console.log override in this process structurally never sees it.
+// Filtering those would mean capturing and re-emitting their output, which trades a real risk (swallowing a
+// child's failure message) for a kilobyte. Named here so the next reader does not mistake the gap for an
+// oversight and does not re-measure to find it.
+const QUIET = process.argv.includes('--quiet')
+if (QUIET) {
+  const through = console.log.bind(console)
+  let inAdvisory = false
+  console.log = (...a: unknown[]): void => {
+    const line = typeof a[0] === 'string' ? a[0] : ''
+    if (/ADVISORY/.test(line)) { inAdvisory = true; through(...a); return }
+    // an advisory's findings are the indented lines that follow it; anything unindented ends the block.
+    if (inAdvisory && /^\s+· /.test(line)) { through(...a); return }
+    inAdvisory = false
+    if (/^✓ guard — no traitors/.test(line) || /^✗/.test(line)) through(...a)
+  }
+}
+
 let failed = false
 
 // 1) the ledger sweep — pure, O(N), milliseconds

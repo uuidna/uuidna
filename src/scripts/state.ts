@@ -104,7 +104,13 @@ const state = {
   laws: { drained: ed.drained, usable: ed.usable, licenseLawHolds: pub.licenseLawHolds, conforms: pub.conforms, version: pub.version, broken },
   ledger: { theorems: t.length, axiomFree: ax.axiomFree, offenders: Object.keys(ax.offenders ?? {}).length, principles: new Set(t.map((x) => x.principle)).size, tools: MCP_CATALOG.length, distinct: census.distinct, renamings: census.renamings },
   sync: { ahead, behind, dirty: dirty.length },
-  finders: Object.fromEntries(finders),
+  // ONLY THE GAPS ARE NEWS, and this file's own header says why: the unit of cost is the TURN, and 93% of it is
+  // context re-read. Reporting all 56 finders by name cost 990 of state's 1491 bytes — two thirds of the most-
+  // called status surface in this tree spent on sixty lines each saying zero. A clean finder is not information;
+  // the COUNT of clean finders is, because it proves the battery ran and how wide it was. So: how many were
+  // asked, how many are clean, and the name-and-number of every one that is not. Nothing is hidden — a gap is
+  // named exactly as before, and a reader who wants the roster has `npm run guard`.
+  finders: { asked: finders.length, clean: finders.length - dirtyFinders.length, gaps: Object.fromEntries(dirtyFinders) },
   next,
 }
 // --assert makes it a GATE as well as an answer: CI asks the same question the operator does, and a broken law
