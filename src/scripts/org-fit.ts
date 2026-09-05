@@ -74,18 +74,37 @@ async function ghSearch<T>(path: string): Promise<T | null> {
 
 interface GhRepo { full_name?: string; description?: string | null; topics?: string[]; archived?: boolean; stargazers_count?: number; license?: { spdx_id?: string } | null }
 
-/** orgRepos(org, per) → the organisation's most-starred public repositories as OutsideRepo rows. The search endpoint
- *  is used because it is the one that orders by stars in a single request — one call per organisation, not a page walk. */
-export async function orgRepos(org: string, per: number): Promise<OutsideRepo[]> {
-  const json = await ghSearch<{ items?: GhRepo[] }>(`search/repositories?q=org:${encodeURIComponent(org)}&sort=stars&order=desc&per_page=${per}`)
-  const items = json?.items ?? []
-  return items.filter((r) => typeof r.full_name === 'string').map((r) => ({
+/** rowOf(r) → one GitHub repository object as an OutsideRepo row. The host's own words, lowercased, are the
+ *  surface we match against — read as DATA, never as instructions. */
+function rowOf(r: GhRepo): OutsideRepo {
+  return {
     fullName: r.full_name as string,
     license: r.license?.spdx_id ?? 'none',
     archived: r.archived === true,
     stars: r.stargazers_count ?? 0,
     text: [r.full_name, r.description ?? '', (r.topics ?? []).join(' ')].join(' ').toLowerCase(),
-  }))
+  }
+}
+
+/** namedRepo(fullName) → one repository asked for BY NAME, because an org-scoped sweep is blind to a repository
+ *  that left the org.
+ *
+ *  THE BLINDNESS WAS MEASURED, NOT IMAGINED. Sweeping `org:google` finds adk-go and misses C2SP/wycheproof —
+ *  Google's own crypto test-vector suite, moved out of the org — and misses it in the exact way that is hardest
+ *  to notice: the sweep returns a full, confident, plausible list with a hole in it. An instrument scoped
+ *  narrower than its question reports absence it never tested for, so the scope is widened here rather than
+ *  written down as a caveat nobody reads. */
+export async function namedRepo(fullName: string): Promise<OutsideRepo | null> {
+  const r = await ghSearch<GhRepo>(`repos/${fullName}`)
+  return r?.full_name === undefined ? null : rowOf(r)
+}
+
+/** orgRepos(org, per) → the organisation's most-starred public repositories as OutsideRepo rows. The search endpoint
+ *  is used because it is the one that orders by stars in a single request — one call per organisation, not a page walk. */
+export async function orgRepos(org: string, per: number): Promise<OutsideRepo[]> {
+  const json = await ghSearch<{ items?: GhRepo[] }>(`search/repositories?q=org:${encodeURIComponent(org)}&sort=stars&order=desc&per_page=${per}`)
+  const items = json?.items ?? []
+  return items.filter((r) => typeof r.full_name === 'string').map(rowOf)
 }
 
 /** claOf(fullName) → whether the host's CONTRIBUTING asks for a contributor licence agreement, when it can be read.
@@ -107,7 +126,10 @@ function render(fit: OrgFit, top: number): string[] {
   for (const r of fit.repos.slice(0, top)) {
     if (r.score === 0) continue
     const open = r.routes.filter((t) => t.open).map((t) => t.route).join(', ')
-    lines.push(`  · ${r.fullName} [${r.license}] ${r.stars}★ — names ${r.surfaces.join(', ')} — open: ${open}`)
+    // UNREAD is printed, never omitted: a blank where a CLA answer belongs reads as "no CLA", which is the one
+    // thing an unread CONTRIBUTING does not say.
+    const cla = r.claRequired === undefined ? 'cla unread' : r.claRequired ? 'CLA required' : 'no CLA named'
+    lines.push(`  · ${r.fullName} [${r.license}] ${r.stars}★ — names ${r.surfaces.join(', ')} — ${cla} — open: ${open}`)
   }
   lines.push(`  receipt ${fit.receipt}`)
   return lines
@@ -122,7 +144,10 @@ function ourLicence(): string {
 
 if (process.argv[1]?.endsWith('org-fit.js')) {
   const args = process.argv.slice(2)
-  const orgs = args.filter((a) => !a.startsWith('--'))
+  // an argument carrying a slash is a REPOSITORY, not an organisation — the widening that lead 153 named.
+  const targets = args.filter((a) => !a.startsWith('--'))
+  const named = targets.filter((a) => a.includes('/'))
+  const orgs = targets.filter((a) => !a.includes('/'))
   const per = 50
   const top = 12
   const surfaces = measureSurfaces()
@@ -130,7 +155,18 @@ if (process.argv[1]?.endsWith('org-fit.js')) {
   console.log('org-fit — WHERE THIS TREE COULD REACH AN OUTSIDE ORGANISATION, and where it provably could not.\n')
   for (const s of surfaces) console.log(`  surface ${s.name.padEnd(18)} ${String(s.magnitude).padStart(5)}  ${s.evidence}`)
   const fits: OrgFit[] = []
-  for (const org of (orgs.length ? orgs : DEFAULT_ORGS)) {
+  if (named.length) {
+    const rows = (await Promise.all(named.map(namedRepo))).filter((r): r is OutsideRepo => r !== null)
+    const missed = named.filter((n) => !rows.some((r) => r.fullName.toLowerCase() === n.toLowerCase()))
+    if (args.includes('--cla')) for (const r of rows) r.claRequired = await claOf(r.fullName)
+    if (rows.length) {
+      const fit = fitOrg('named', rows, surfaces, licence)
+      fits.push(fit)
+      for (const line of render(fit, rows.length)) console.log(line)
+    }
+    if (missed.length) console.log(`  UNREAD by name: ${missed.join(', ')} — no verdict is offered for a repository nobody managed to read.`)
+  }
+  for (const org of ((orgs.length || named.length) ? orgs : DEFAULT_ORGS)) {
     const repos = await orgRepos(org, per)
     if (!repos.length) { console.log(`\n${org} — UNREAD: the host answered nothing. No verdict is offered for an org nobody managed to read.`); continue }
     if (args.includes('--cla')) {

@@ -49,6 +49,7 @@ export interface RepoFit {
   fullName: string
   license: string
   stars: number
+  claRequired?: boolean  // undefined means UNREAD — an unread CONTRIBUTING and a CLA-free one are not one fact
   surfaces: string[]     // our surface names that this repository's own text reaches for
   routes: Route[]
   score: number          // how many of our surfaces it names — the only ranking that is about fit, not popularity
@@ -135,7 +136,7 @@ export function fitOrg(org: string, repos: readonly OutsideRepo[], surfaces: rea
   const derivativesAllowed = ourLicenceAllowsDerivatives(ourLicence)
   const fitted: RepoFit[] = repos.map((r) => {
     const named = surfacesNamed(r, surfaces)
-    return { fullName: r.fullName, license: r.license, stars: r.stars, surfaces: named, routes: routesFor(r, derivativesAllowed), score: named.length }
+    return { fullName: r.fullName, license: r.license, stars: r.stars, claRequired: r.claRequired, surfaces: named, routes: routesFor(r, derivativesAllowed), score: named.length }
   }).sort((a, b) => b.score - a.score || b.stars - a.stars || a.fullName.localeCompare(b.fullName))
   const donatable = fitted.filter((f) => f.routes.some((t) => t.route === 'donate-source' && t.open)).length
   const reachable = fitted.filter((f) => f.routes.some((t) => t.open)).length
