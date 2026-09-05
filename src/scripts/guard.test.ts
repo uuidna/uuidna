@@ -132,3 +132,25 @@ test('ADVISORY, SHRINK-ONLY: the set of finders never shown to fire may only get
   assert.ok(unproven.length <= baseline.size,
     `the unproven set grew ${baseline.size} → ${unproven.length}; it may only shrink`)
 })
+
+// THE DETECTOR NEEDED ITS OWN CONTROL, and it took uuidna-49 handing it a violation to find that out. It split
+// on `\btest\(`, which ALSO matches `.test(` — `.` is a non-word character, so the boundary holds — and every
+// RegExp.test() inside a test body cut that body in half, separating a finder's name from the assertion proving
+// it fires. The baseline therefore reported debt ALREADY PAID: lanesGaps had a control the detector could not
+// see. That is the worse direction for a shrink-only ratchet, because a real control looks absent and the number
+// stops meaning what it says. An instrument built to find uncontrolled instruments, uncontrolled.
+test('the split pattern separates test DECLARATIONS and never a RegExp.test() call', () => {
+  const SPLIT = /(?<![.\w])test\(/
+  assert.equal(SPLIT.test('  const m = /runs rosetta/.test(g.what)'), false, 'a .test( call must not split a body')
+  assert.equal(SPLIT.test('  if (RE.test(line)) return'), false)
+  assert.equal(SPLIT.test("\ntest('a finder fires', () => {"), true, 'a real declaration must still split')
+  assert.equal(/\btest\(/.test('x.test(y)'), true, 'the OLD pattern did match .test( — this is the regression')
+})
+
+test('finders with a demonstrable control are NOT reported as unproven', () => {
+  const unproven = new Set(findersWithoutAPositiveControl())
+  // each of these is exercised by a test that hands it, or its named helper, a crafted violation
+  for (const f of ['thresholdGaps', 'involutionGaps', 'lanesGaps', 'vacuousGaps']) {
+    assert.equal(unproven.has(f), false, `${f} has a positive control and the detector cannot see it — the split or CONTROLLED_VIA has drifted`)
+  }
+})
