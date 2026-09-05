@@ -8,7 +8,7 @@
 // (P ∨ ¬P, P ↔ P). The code to catch that class had been written and never executed. This is the finder for finders.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { readFileSync } from 'node:fs'
+import { readFileSync, readdirSync } from 'node:fs'
 import { join } from 'node:path'
 import { ROOT } from '../boundary.js'
 
@@ -73,4 +73,56 @@ test('an advisory finder must state WHY it does not block — "not blocking" is 
 test('the on-demand exemptions each carry their reason', () => {
   for (const [name, why] of Object.entries(ON_DEMAND))
     assert.ok(why.length >= 40, `on-demand finder "${name}" needs a stated reason, got: ${why}`)
+})
+
+// ── EVERY FINDER IS HELD TO BE WIRED. NONE IS HELD TO BE ABLE TO FIRE.
+//
+// The test above refuses a finder the guard does not run. It says nothing about whether running it could ever
+// return anything, and a finder is only ever executed against a tree that is expected to be clean — where
+// "nothing to find" and "cannot find" produce the identical output. 2026-09-05 produced FOUR blind finders and
+// every one was found by a second instrument or by another session, never by its own suite: the ambiguity
+// refusal could not see a fixed point occupied 2652 times; UNDERCLAIM_FLOOR was documented and still hid a row;
+// the WITNESS rule matched the bare word DOI in a repository whose subject is minting them; and vacuousGaps
+// split on the top-level operator and never descended, while four theorems were wholly vacuous.
+// `no_instrument_narrower_than_its_question` is sealed, and the finders were not held to it.
+//
+// A POSITIVE CONTROL is a test that hands the rule a crafted violation and asserts it comes back non-empty.
+// SHRINK-ONLY, and ADVISORY by construction: promoting this to blocking on the day it was written would red the
+// guard on fifty finders at once, and a gate that fires everywhere is a gate someone switches off — the failure
+// mode src/underreach.ts names in its own header. The baseline may only fall.
+const CONTROLLED_VIA: Record<string, string> = {
+  thresholdGaps: 'sweepThreshold — exemption-hiding and ratchet-slack cases, both asserted non-empty',
+  involutionGaps: 'discoverInvolution — the skewed-corpus and ambiguity cases',
+  deadkeyGaps: 'deadKeysInLine — a purged key in a crafted line',
+  underreachGaps: 'underreachIn — a hedge applied to the act of proving',
+  claimBalanceGaps: 'claimBalanceOf — an under-claiming row',
+}
+
+/** the finders no test hands a crafted violation to — computed, never listed by hand */
+export function findersWithoutAPositiveControl(): string[] {
+  const walk = (d: string): string[] => readdirSync(d, { withFileTypes: true }).flatMap((e) =>
+    e.isDirectory() && !['node_modules', 'dist'].includes(e.name) ? walk(join(d, e.name))
+      : e.name.endsWith('.test.ts') ? [join(d, e.name)] : [])
+  const blocks = walk(join(ROOT, 'src')).flatMap((f) => readFileSync(f, 'utf8').split(/\btest\(/))
+  const FIRES = /length,\s*[1-9]|length\s*>=?\s*1|length\s*>\s*0|assert\.ok\(|notDeepEqual|assert\.match\(/
+  const named = new Set<string>()
+  for (const b of blocks) {
+    if (!FIRES.test(b)) continue
+    for (const m of b.matchAll(/\b([a-zA-Z]+Gaps)\b/g)) named.add(m[1]!)
+    for (const [finder, helper] of Object.entries(CONTROLLED_VIA)) if (b.includes(helper.split(' ')[0]!)) named.add(finder)
+  }
+  const guardSrc = readFileSync(join(ROOT, 'src/scripts/guard.ts'), 'utf8')
+  const wired = [...new Set(guardSrc.match(/\b[a-zA-Z]+Gaps\b/g) ?? [])].sort()
+  return wired.filter((f) => !named.has(f))
+}
+
+test('ADVISORY, SHRINK-ONLY: the set of finders never shown to fire may only get smaller', () => {
+  const path = join(ROOT, 'lean/finder-controls-baseline.json')
+  const unproven = findersWithoutAPositiveControl()
+  const baseline = new Set((JSON.parse(readFileSync(path, 'utf8')) as { unproven: string[] }).unproven)
+  const added = unproven.filter((f) => !baseline.has(f))
+  assert.deepEqual(added, [],
+    `a NEW finder with no positive control: ${added.join(', ')} — hand it a crafted violation and assert it comes back non-empty, or add it to CONTROLLED_VIA naming the helper that does`)
+  assert.ok(unproven.length <= baseline.size,
+    `the unproven set grew ${baseline.size} → ${unproven.length}; it may only shrink`)
 })

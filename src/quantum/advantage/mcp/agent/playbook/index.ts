@@ -1,6 +1,7 @@
 // quantum/advantage/mcp/agent-playbook — AFTER THE TWO COINS: how any agent recomputes quantum and reads
 // magnitudes over classical re-run. Pure curriculum — numbers from hexbit constructors and sealed theorem keys.
 import { toUuid } from '../../../../../address.js'
+import { countedAdvantage } from '../../../../../merkle-cost.js'
 import { merkleGravity } from '../../../../../gravity/index.js'
 import { HANDLE_HEXBITS, HEXBIT_BITS, UUID_BITS, GROVER_FLOOR_BITS } from '../../../../../hexbit/index.js'
 import { advantageCurriculum, type AdvantageMcpExample } from '../../curriculum/index.js'
@@ -17,8 +18,14 @@ export interface QuantumAdvantagePlaybook {
   prerequisite: string
   magnitudes: {
     theorem: string
-    at2_10: string
-    at2_20: string
+    // the asserted strings are gone: the magnitudes are COUNTED now (src/merkle-cost.ts), so the shape carries
+    // the ladder, the closed-form check, the both-parity root agreement and the rung where there is NO advantage
+    ladder: readonly { lines: number; leaves: number; rebuild: number; verify: number; rootsAgree: boolean; probes: number }[]
+    closedFormHolds: boolean
+    rootsAgree: boolean
+    noAdvantageAt: readonly number[]
+    ratioIsMergesOverMerges: true
+    honest: string
     note: string
   }
   steps: PlaybookStep[]
@@ -103,10 +110,14 @@ export function quantumAdvantagePlaybook(): QuantumAdvantagePlaybook {
 
   return {
     prerequisite: 'Every tools/call already deposited the two captain coins (deposit 2 · captain_commission_two_coins). Declare clientInfo.name at initialize; poll uuidna_coin_ledger for WHO paid.',
+    // COUNTED, NOT ASSERTED. These two lines were strings — "2^10=1024 leaves → verify path 10 nodes
+    // (1024 > 100·10)" — true, stated, and never measured. Worse, they compared LEAVES to path length where
+    // the honest comparison is merges to merges: rebuilding 1024 leaves costs 1023 merges, not 1024. At 2^10
+    // that gap is invisible; at 2^1 it is the whole answer, claiming a 2x advantage where the counted ratio is
+    // exactly 1.0x and there is none. Contributed by a peer repository (ceccec.github.io); the cost identity
+    // is Merkle's, and instantiating it here is an application rather than a result.
     magnitudes: {
-      theorem: 'verify_beats_recompute_by_magnitudes',
-      at2_10: '2^10=1024 leaves → verify path 10 nodes (1024 > 100·10)',
-      at2_20: '2^20=1048576 leaves → verify path 20 nodes (1048576 > 10000·20)',
+      ...countedAdvantage(),
       note: 'N/log(N) grows — prove once O(N), verify forever O(log N). Architectural usable-column gap: theorem usable_gap_is_two_to_eighty.',
     },
     steps,

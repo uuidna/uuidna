@@ -116,13 +116,18 @@ const chars = all.reduce((a, t) => a + t.doc.length, 0)
 // recursion keeps it there (lean-axioms proves no wing borrows propext).
 const perWing = files.map((f) => {
   const c = census(texts.get(f)!)
-  return { file: f, thms: c.length, docs: c.filter((t) => t.doc.length > 0).length, chars: c.reduce((a, t) => a + t.doc.length, 0) }
+  return { file: f, thms: c.length, docs: c.filter((t) => t.doc.length > 0).length, chars: c.reduce((a, t) => a + t.doc.length, 0),
+    // PER WING, so the statement can compare two INDEPENDENT measurements rather than a total to itself.
+    trips: c.filter((t) => t.doc.length > 0 && reparse(t.doc) === t.doc).length,
+    clean: c.filter((t) => t.doc.length > 0 && !/(?<!\\)-\//.test(t.doc)).length }
 })
 const L = (ns: number[]): string => '[' + ns.join(', ') + ']'
 const SUM = (ns: number[]): string => `(${L(ns)}.foldl (· + ·) 0)`
 const docsPer = perWing.map((w) => w.docs)
 const thmsPer = perWing.map((w) => w.thms)
 const charsPer = perWing.map((w) => w.chars)
+const tripsPer = perWing.map((w) => w.trips)
+const cleanPer = perWing.map((w) => w.clean)
 
 export const proseFacts = (): Fact[] => [
   { key: 'prose_coverage_total',
@@ -132,13 +137,24 @@ export const proseFacts = (): Fact[] => [
 
   { key: 'prose_round_trips',
     name: `the prose round-trips exactly — ${roundTripped} of ${documented} doc comments re-wrap through the emitter and re-read to the text they started from, ${brokenTrip} broken; the .lean is the single source of a theorem's name only if reading it back returns what was written, so the identity is counted and not assumed`,
-    js: () => brokenTrip === 0 && roundTripped === documented,
-    stmt: `(${roundTripped} + ${brokenTrip} = ${documented}) ∧ (${brokenTrip} = 0)` },
+    js: () => brokenTrip === 0 && roundTripped === documented && tripsPer.every((t, i) => t === docsPer[i]),
+    // WING BY WING, NOT A TOTAL AGAINST ITSELF. The old statement was `(roundTripped + broken = documented) ∧
+    // (broken = 0)`, which degenerates to `(2604 + 0 = 2604) ∧ (0 = 0)` EXACTLY WHEN THE PROPERTY HOLDS — two
+    // tautologies, true whatever the prose does, under a key claiming the prose round-trips. Found by
+    // ceccec-github-io-5b's sibling session uuidna-87 and confirmed here; `vacuousGaps` read 0 throughout,
+    // blind to `x + 0 = x`. The cure is the one this file's own prose_coverage_total already brags about:
+    // compare two INDEPENDENTLY measured per-wing lists, so one broken round-trip in any single wing moves one
+    // element and the equality fails.
+    stmt: `(${L(tripsPer)} = ${L(docsPer)}) ∧ (${brokenTrip} = 0)` },
 
   { key: 'prose_terminator_escaped',
     name: `no doc comment contains an unescaped -/ — ${terminators} found across ${documented}; the terminator would close the comment early and the theorem beneath it would stop parsing as a theorem, so it is escaped on the way in and counted on the way out rather than assumed absent because none appear today`,
-    js: () => terminators === 0,
-    stmt: `(${terminators} + ${documented} = ${documented}) ∧ (${terminators} = 0)` },
+    js: () => terminators === 0 && cleanPer.every((c, i) => c === docsPer[i]),
+    // The same defect as prose_round_trips above, in the same file: `(0 + 2604 = 2604) ∧ (0 = 0)` is true
+    // whatever any doc comment contains. Now the per-wing count of docs carrying NO unescaped terminator is
+    // measured separately and compared to the per-wing documented count, so one unescaped `-/` anywhere breaks
+    // the list equality in the wing that holds it.
+    stmt: `(${L(cleanPer)} = ${L(docsPer)}) ∧ (${terminators} = 0)` },
 
   { key: 'prose_beats_restatement',
     name: `prose that says more than the statement OUTNUMBERS prose that repeats it — ${informative} informative against ${bare} bare, of ${documented}; a doc comment identical to its own Lean statement carries nothing the proof did not already say, and this is the remaining work counted rather than a target claimed`,
