@@ -24,7 +24,8 @@ test('uuidna_chat — census without text, sealed chain with it', () => {
 test('uuidna_shell — a known applet runs, an unknown one REFUSES by name', () => {
   const ok = callTool('uuidna_shell', { line: 'top' }) as { ok: boolean; output: string[] }
   assert.equal(ok.ok, true)
-  const no = callTool('uuidna_shell', { line: 'grep foo' }) as { ok: boolean; output: string[] }
+  // grep is an applet now; awk is the refusal — declared unportable because it interprets its own language.
+  const no = callTool('uuidna_shell', { line: 'awk /x/' }) as { ok: boolean; output: string[] }
   assert.equal(no.ok, false, 'an empty success would read as "no matches"')
   assert.match(no.output[0] ?? '', /not an applet/)
 })

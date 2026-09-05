@@ -100,7 +100,12 @@ if (out('git status --porcelain').length === 0) {
   // and reconcile REGENERATES lean/ — so a receipt written any earlier (green wrote it after its arms passed) is
   // stale by the time this commit exists, and would have shipped a proof of a tree that no longer was. Written here
   // it addresses the tree as staged, which is the only tree the tag can ever check.
-  run('node dist/scripts/gate-receipt.js')              // the push-time proof, fingerprinting the tree as it is about to be staged
+  // AND IT NAMES WHAT IT RAN. The bare call was refused here on 2026-09-05 — the same defect that was fixed in
+  // `next` and left standing in this chain, because the fix was made at one call site instead of being folded
+  // into a finder. reconcile runs the guard (line 51) and the build (line 59) and does NOT run the suite, so
+  // those two are exactly what it may attest. A receipt naming fewer arms is weaker and honest; one naming an
+  // arm nobody ran is the failure gate-receipt was hardened to refuse.
+  run('node dist/scripts/gate-receipt.js --verified guard,build')
   // explicit paths, never -A — the drain commits what IT regenerated; anything else belongs to whoever wrote it
   const staged = stageDerived(ROOT)
   if (staged.leftForHumans.length) console.log('· reconcile — left for a human (not staged' + staged.leftForHumans.join(', '))

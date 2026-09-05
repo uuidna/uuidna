@@ -6,6 +6,7 @@
 // Run it after any edit; the reconcile still runs the full gate. No manual pre-flight — one command. Integrity.
 import { landingGaps } from './landing-gaps.js'
 import { impossibilityGaps } from './impossibility-gaps.js'
+import { attestationGaps } from './attestation-gaps.js'
 import { stampGaps } from './stamp.js'
 import { mcpCitationGaps } from '../mcp-citations.js'
 import { ratchetGaps } from './ratchet-gaps.js'
@@ -276,6 +277,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // whether to call a tool, and audit-citations never saw it: that finder holds the citation law over
   // publications, and the honesty gate drains a CLAIM, not the catalogue's static prose. Zero fabricated today,
   // hand-checked while following a peer lead; a clean hand-check that nothing enforces has a shelf life.
+  // A RECEIPT THAT NAMES NOTHING. gate-receipt refuses a bare write; `next` was taught to name its arms and
+  // `reconcile` was not, so the fix lived at one call site and the second caller died at the receipt step after
+  // paying for the entire regeneration. The finder is the fold: no source may invoke the writer bare.
+  { name: 'attestation', run: () => attestationGaps([...sourceGraph().keys()]) },
   { name: 'mcpcite', run: () => mcpCitationGaps() },
   { name: 'stamp', run: () => stampGaps() },
   { name: 'ratchet', run: () => ratchetGaps(RATCHETS) },

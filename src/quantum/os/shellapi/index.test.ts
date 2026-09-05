@@ -10,7 +10,7 @@ test('APPLETS matches the live dispatcher — a list is not a surface unless it 
   // added, and then the coverage number is a story rather than a measurement — so it is read back from the
   // dispatcher itself. This is the cross-check the module's own comment promises.
   const src = readFileSync(join(ROOT, 'src/quantum/os/exec/index.ts'), 'utf8')
-  const cases = [...src.matchAll(/^\s{4}case '([a-z-]+)':/gm)].map((m) => m[1]!)
+  const cases = [...src.matchAll(/^\s{4}case '([a-z0-9-]+)':/gm)].map((m) => m[1]!)
   assert.ok(cases.length > 0, 'the dispatcher must expose cases, or this test proves nothing')
   assert.deepEqual([...APPLETS].sort(), [...new Set(cases)].sort(), 'APPLETS drifted from the dispatcher')
 })
@@ -36,7 +36,10 @@ test('every implemented applet is a command Alpine itself declares', () => {
 })
 
 test('an unknown applet REFUSES rather than answering emptily', () => {
-  const r = shellRun('grep foo')
+  // `grep` stood here until it was ported; the example moved to `awk`, which is refused on the record for a
+  // named reason (it is an interpreter for its own language, so porting it means porting a language). The check
+  // was never about grep — it is about a refusal being visible instead of arriving as a green empty answer.
+  const r = shellRun('awk /x/')
   assert.equal(r.ok, false, 'an empty success would read as "no matches" — the green-over-absent shape')
   assert.match(r.output[0] ?? '', /not an applet/)
   assert.equal((r.data as { error: string }).error, 'unknown-applet')

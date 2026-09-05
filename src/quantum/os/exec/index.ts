@@ -6,6 +6,7 @@
 // success while nothing shipped. The reach goes through boundary's one declared accessor; on the edge it is
 // simply absent, and the caller below refuses by name rather than dying on a resolution error.
 import { nodeBuiltin } from '../../../boundary.js'
+import * as CU from '../coreutils/index.js'
 import { planAlpineRun as planAlpineRunStatic } from '../../../os/runtime/index.js'
 type ModuleModule = { createRequire: (u: string) => (id: string) => unknown }
 const createRequire = (u: string): ((id: string) => unknown) => {
@@ -170,7 +171,11 @@ export interface ExecResult {
 /** THE APPLETS uuidna ports — busybox's filesystem/inspection family over the virtual OS. Kept to what a
  *  provenance filesystem can HONESTLY answer from the sealed spec; a utility with no meaning here is absent, not
  *  faked. Each is pure and total: a bad path is an honest error line, never a crash. */
-export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'monitor', 'top', 'compilers', 'help'] as const
+export const APPLETS = ['ls', 'apk', 'man', 'driver', 'device', 'cat', 'which', 'stat', 'pwd', 'echo', 'du', 'sequence', 'run', 'court', 'quantum-cover', 'acme', 'monitor', 'top', 'compilers', 'help',
+  // PORTED 2026-09-05 — the busybox text and arithmetic family, as pure logic over the virtual OS. They EXECUTE:
+  // an argument changes the answer. See ../coreutils for which applets cannot be ported and why (date and
+  // uptime read a clock this tree refuses; ps and kill have nothing to act on; awk and full sed are languages).
+  ...CU.CORE_APPLETS] as const
 export type Applet = (typeof APPLETS)[number]
 
 /** Legacy fold list — toys are ported again as pure logic over the virtual OS + session vfs. */
@@ -232,6 +237,9 @@ export function uuidnaExec(line: string): ExecResult {
 
   const emit = (o: string[], d: unknown): void => { output = o; data = d }
   const err = (msg: string): void => { ok = false; output = [msg]; data = { error: msg } }
+  // fault() is err for an applet that ALREADY named its own failure in its data — it keeps that structure
+  // (which code failed, and where) instead of flattening it to a message, and it keeps every printed line.
+  const fault = (lines: string[], d: unknown): void => { ok = false; output = lines; data = d }
 
   switch (applet) {
     case 'ls': {
@@ -712,6 +720,9 @@ export function uuidnaExec(line: string): ExecResult {
       'man <topic>  — Alpine documentation package → 32 hexbits (man→app→hexbit)',
       '<package>  — ATTEST a published Alpine app (nginx, openssl, busybox): its provenance record, not a run; cmd: too (dotnet, omp)',
       'cat · which · stat · pwd · echo · du  — busybox over virtual vfs + session files',
+      'wc · head · tail · sort · uniq · cut · tr · rev · tac · nl · fold · grep  — text, over a session file or the operands',
+      'seq · factor · expr · printf · basename · dirname · base64 · sha256sum · cksum · test · true · false · yes  — pure transforms',
+      'NOT ported, by law: date · uptime (a wall clock this tree refuses) · ps · kill · mount · dd (nothing to act on) · awk · sed (languages, not transforms)',
       'run <cmd>  — Alpine cmd: recipe (Layer 2 sandbox via uuidna_run; not a manual TS port)',
       'court [--court|--full|--probe|--msg file]  — uuidnaOS court (hex + MCP + playbook + commit-msg)',
       'quantum-cover [--sandbox]  — full crypto-related Alpine coverage (Layer 1 exec + Layer 2 plans)',
@@ -723,6 +734,165 @@ export function uuidnaExec(line: string): ExecResult {
       'Layer 1 simulates; Layer 2 executes pinned bytes when mirror rootfs is present'],
       { applets: APPLETS, apk: APK_VERBS, sessionStamp: execSessionStamp() }); break
     case '': err('exec: empty command — try `help`'); break
+    // ── THE PORTED BUSYBOX FAMILY. One dispatch rather than twenty-five cases, because they share a contract:
+    // each is a pure function of its text and its flags.
+    //
+    // WHERE THE TEXT COMES FROM, stated because there is no shell here and so no stdin. If an operand names a
+    // file in the session filesystem, that file's content IS the text; otherwise the operands ARE the text. No
+    // redirection is invented — `echo a > b` writes no file in this shell and never pretended to.
+    case 'wc':
+    case 'head':
+    case 'tail':
+    case 'sort':
+    case 'uniq':
+    case 'cut':
+    case 'tr':
+    case 'rev':
+    case 'tac':
+    case 'nl':
+    case 'fold':
+    case 'seq':
+    case 'factor':
+    case 'expr':
+    case 'basename':
+    case 'dirname':
+    case 'printf':
+    case 'base64':
+    case 'sha256sum':
+    case 'cksum':
+    case 'test':
+    case 'true':
+    case 'false':
+    case 'yes':
+    case 'grep':
+    case 'comm':
+    case 'join':
+    case 'paste':
+    case 'expand':
+    case 'unexpand':
+    case 'fmt':
+    case 'base32':
+    case 'od':
+    case 'sum':
+    case 'tsort':
+    case 'numfmt':
+    case 'pathchk': {
+      // ── OPERAND PARSING, and the first version got three things wrong that a run exposed immediately.
+      //
+      // (1) FLAG VALUES LEAKED INTO THE TEXT. `fold -w 4 abcdefghij` folded "4 abcdefghij" because the 4 was
+      //     read as the width AND left in the operands. A flag that takes a value must consume it.
+      // (2) A MINUS SIGN IS NOT ALWAYS A FLAG. `expr 2617 - 2536` reported a non-integer operand because the
+      //     operator was filtered out as a flag. expr and test take their operators positionally, so they get
+      //     the raw arguments and no flag parsing at all.
+      // (3) JOINING OPERANDS WITH SPACES MADE LINE APPLETS USELESS. `sort -n 10 2 33 4` sorted ONE line. For a
+      //     line-oriented applet each operand IS a line; for a text-oriented one they join. Which is which is
+      //     declared below rather than guessed per applet.
+      // FLAG ARITY IS PER-APPLET, and treating it globally cost a value: `sort -n 10 2 33 4` sorted only three
+      // numbers because -n consumed the 10 as its argument. In sort, -n is NUMERIC MODE and takes nothing; in
+      // head, tail and yes it is a COUNT and takes the next operand. Same spelling, different arity — so the
+      // table is keyed by applet and a flag not listed for this applet takes no value at all.
+      const VALUED_BY_APPLET: Record<string, readonly string[]> = {
+        head: ['-n'], tail: ['-n'], yes: ['-n'],
+        fold: ['-w'], cut: ['-f', '-d'],
+        expand: ['-t'], unexpand: ['-t'], fmt: ['-w'], join: ['-j'], paste: ['-d'], numfmt: ['--to'],
+      }
+      const VALUED = new Set(VALUED_BY_APPLET[applet] ?? [])
+      const POSITIONAL = new Set(['expr', 'test'])
+      const LINEWISE = new Set(['head', 'tail', 'sort', 'uniq', 'nl', 'tac', 'grep', 'cut', 'tsort'])
+      // TWO-INPUT APPLETS. comm, join and paste each read a PAIR, which the single `fromFile` lookup could not
+      // express: it finds the first readable operand and the second side would silently become text. Each side
+      // is resolved on its own — a session path becomes its content, anything else stands as its own literal.
+      const PAIRWISE = new Set(['comm', 'join', 'paste'])
+      const flags: string[] = []
+      const rest: string[] = []
+      const flagVal = new Map<string, string>()
+      if (POSITIONAL.has(applet)) {
+        rest.push(...args)
+      } else {
+        for (let i = 0; i < args.length; i++) {
+          const a = args[i]!
+          if (!a.startsWith('-') || a === '-') { rest.push(a); continue }
+          flags.push(a)
+          if (VALUED.has(a) && args[i + 1] !== undefined) { flagVal.set(a, args[i + 1]!); i++ }
+          else {
+            const m = /^(-[a-z])(\d+)$/.exec(a)   // the joined form, -n2
+            if (m && VALUED.has(m[1]!)) flagVal.set(m[1]!, m[2]!)
+          }
+        }
+      }
+      const flagNum = (f: string, dflt: number): number => {
+        const v = flagVal.get(f)
+        return v !== undefined && /^\d+$/.test(v) ? Number(v) : dflt
+      }
+      const has = (f: string): boolean => flags.includes(f)
+      const operands = rest
+      const fromFile = operands.map((a) => sessionRead(norm(a))).find((f) => f !== null)
+      // A LINE-ORIENTED APPLET TAKES EACH OPERAND AS A LINE; a text-oriented one joins them with a space.
+      const textOf = (): string => fromFile ? fromFile.content
+        : LINEWISE.has(applet) ? operands.join('\n') : operands.join(' ')
+      const sideOf = (i: number): string => {
+        const a = operands[i]
+        if (a === undefined) return ''
+        const f = sessionRead(norm(a))
+        return f ? f.content : a
+      }
+      const pair = PAIRWISE.has(applet) ? [sideOf(0), sideOf(1)] as const : ['', ''] as const
+      let r: CU.AppletOut
+      switch (applet) {
+        case 'wc': r = CU.wc(textOf()); break
+        case 'head': r = CU.head(textOf(), flagNum('-n', 10)); break
+        case 'tail': r = CU.tail(textOf(), flagNum('-n', 10)); break
+        case 'sort': r = CU.sortLines(textOf(), has('-n'), has('-r')); break
+        case 'uniq': r = CU.uniq(textOf(), has('-c')); break
+        case 'cut': r = CU.cut(textOf(), flagNum('-f', 1), flagVal.get('-d') ?? '\t'); break
+        // tr takes FROM and TO positionally, then its text — so the text is what follows them
+        case 'tr': r = CU.tr(fromFile ? fromFile.content : operands.slice(2).join(' '), operands[0] ?? '', operands[1] ?? ''); break
+        case 'rev': r = CU.rev(textOf()); break
+        case 'tac': r = CU.tac(textOf()); break
+        case 'nl': r = CU.nl(textOf()); break
+        case 'fold': r = CU.fold(textOf(), flagNum('-w', 80)); break
+        case 'seq': r = CU.seq(Number(operands[0] ?? 1), operands[1] === undefined ? undefined : Number(operands[1]), operands[2] === undefined ? undefined : Number(operands[2])); break
+        case 'factor': r = CU.factor(Number(operands[0] ?? NaN)); break
+        case 'expr': r = CU.expr(operands[0] ?? '', operands[1] ?? '', operands[2] ?? ''); break
+        case 'basename': r = CU.basename(operands[0] ?? '', operands[1] ?? ''); break
+        case 'dirname': r = CU.dirname(operands[0] ?? ''); break
+        case 'printf': r = CU.printf(operands[0] ?? '', operands.slice(1)); break
+        case 'base64': r = CU.base64(fromFile ? fromFile.content : operands.join(' '), has('-d')); break
+        case 'sha256sum': r = CU.sha256sum(textOf()); break
+        case 'cksum': r = CU.cksum(textOf()); break
+        case 'test': r = CU.testExpr(operands); break
+        case 'true': r = { lines: ['true'], data: { true: true } }; break
+        case 'false': r = { lines: ['false'], data: { true: false } }; break
+        // yes takes its count from -n or a bare integer, and the rest is the text it repeats
+        case 'comm': r = CU.comm(pair[0], pair[1]); break
+        case 'join': r = CU.join(pair[0], pair[1], flagNum('-j', 1)); break
+        case 'paste': r = CU.paste(pair[0], pair[1], flagVal.get('-d') ?? '\t'); break
+        case 'expand': r = CU.expand(textOf(), flagNum('-t', CU.TAB_DEFAULT)); break
+        case 'unexpand': r = CU.unexpand(textOf(), flagNum('-t', CU.TAB_DEFAULT)); break
+        case 'fmt': r = CU.fmt(textOf(), flagNum('-w', CU.FMT_WIDTH)); break
+        case 'base32': r = CU.base32(fromFile ? fromFile.content : operands.join(' '), has('-d')); break
+        case 'od': r = CU.od(textOf(), has('-c') ? 'c' : 'x1'); break
+        case 'sum': r = CU.sum(textOf()); break
+        case 'tsort': r = CU.tsort(textOf()); break
+        case 'numfmt': r = CU.numfmt(Number(operands[0] ?? NaN), has('--iec-i') ? 'iec-i' : has('--iec') ? 'iec' : has('--none') ? 'none' : 'si'); break
+        case 'pathchk': r = CU.pathchk(operands[0] ?? ''); break
+        case 'yes': r = CU.yes(operands.filter((a) => !/^\d+$/.test(a)).join(' '),
+          flagNum('-n', Number(operands.find((a) => /^\d+$/.test(a)) ?? 10))); break
+        // grep takes its PATTERN first, then the text or a file
+        default: r = CU.grep(fromFile ? fromFile.content : operands.slice(1).join('\n'), operands[0] ?? '',
+          { invert: has('-v'), count: has('-c'), ignoreCase: has('-i') })
+      }
+      // AN APPLET THAT NAMED A FAILURE MUST NOT RETURN GREEN. tsort's cycle, base32's invalid character and
+      // pathchk's non-portable path each print the fault and were still arriving as ok:true — the exact
+      // green-over-absent shape the refusal tests forbid one applet earlier. The applet declares the fault in
+      // its own data; the door reads it and fails there, so the two cannot drift apart.
+      const faulted = typeof r.data === 'object' && r.data !== null && 'error' in (r.data as Record<string, unknown>)
+      const payload = { applet, source: fromFile ? 'session-file' : 'operands', ...(typeof r.data === 'object' && r.data ? r.data : { value: r.data }) }
+      if (faulted) fault(r.lines, payload)
+      else emit(r.lines, payload)
+      break
+    }
+
     default: {
       const resolved = resolveAlpineApp(applet)
       if (!resolved) {
