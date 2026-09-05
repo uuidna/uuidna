@@ -171,6 +171,30 @@ export function census(): Rosetta[] {
 const mirrorPath = (): string => pathm().join(ROOT, 'src', 'rosetta-mirror.ts')
 
 
+
+/** UNREACHED — anchors this repository already holds that the census cannot see.
+ *
+ *  The WITNESS leg is decided from the WING note, and the wing note is emitted from a row's `name` alone: a row's
+ *  `why` may name NIST, CODATA, WGS 84 or a real DOI and none of it reaches the sealed `.lean` a stranger reads.
+ *  That is not scarcity, it is a reading error at the collection point, and publishing the leg fraction without it
+ *  invites the reader to conclude the corroboration does not exist. Counted here, from the same rule the leg is
+ *  decided by, so the two can never disagree. */
+export function unreachedAnchors(rows: readonly Rosetta[]): string[] {
+  const dir = pathm().join(ROOT, 'src', 'scripts')
+  const has = new Set(rows.filter((r) => r.legs.includes('witness')).map((r) => r.key))
+  const out: string[] = []
+  for (const f of fsm().readdirSync(dir).filter((n: string) => /^lean-.*\.ts$/.test(n))) {
+    const src = fsm().readFileSync(pathm().join(dir, f), 'utf8')
+    for (const part of src.split(/\{\s*key:\s*'/).slice(1)) {
+      const key = part.slice(0, part.indexOf("'"))
+      if (has.has(key)) continue
+      const why = /\n\s*why:\s*('[\s\S]*?'|`[\s\S]*?`),\n/.exec(part)
+      if (why && WITNESS.test(why[1])) out.push(key)
+    }
+  }
+  return [...new Set(out)].sort()
+}
+
 export function renderMirror(rows: readonly Rosetta[]): string {
   const wings = [...new Set(rows.map((r) => r.wing))].sort()
   const body: string[] = []
@@ -201,6 +225,11 @@ export function renderMirror(rows: readonly Rosetta[]): string {
     'export const CLAIMS = `' + claims.join('\n') + '`',
     '',
     `export const FLOOR = { witness: ${witness}, falsifier: ${falsifier} }`,
+    '',
+    '// Anchors the repository HOLDS and the census cannot reach: named in an emitter row\'s `why`, absent from the',
+    '// wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as',
+    '// an absence of corroboration.',
+    'export const UNREACHED: readonly string[] = ' + JSON.stringify(unreachedAnchors(rows)),
     '',
     '// The WITNESS rule these legs were decided by, as a digest of its own source. A later run compares it: if the',
     '// digest moved and the anchored count FELL, the instrument changed rather than any claim, and that fall must be',

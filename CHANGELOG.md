@@ -22,6 +22,29 @@ world-government OS claim.
 Everything before it is not: git is a DAG, not a line. Publishing is the involution's fixed point: after it, a version
 cannot be un-said.
 
+## [0.3.1] — instruments that can fail: a pairing recovered, a threshold swept, an empty seat that stops claiming
+
+_Ledger 2655 theorems, axiom-free; fold receipt `a005f020e568ed03`._
+
+- odometer: 0.3.0 → **0.3.1**
+- `src/mirror.ts` — an index-mirror pairs whatever it is handed, so it can confirm a symmetry and by construction
+  cannot find one. `discoverInvolution` recovers a pairing from an UNORDERED set and is cross-checked against the
+  index-mirror over the nine digits; a divergence in the 2-cycles, the centre or the witness count is a gap.
+  Degenerate classes are reported rather than refused as ambiguities — a crowd at one coordinate is a population
+- `thresholdGaps` — a comment on a threshold restates the choice, it is not evidence about it, so thresholds on a
+  detector's reporting path are SWEPT: an exemption must reveal nothing when widened, a ratchet must sit tight
+  against its own measurement. The two kinds prescribe moving the number in opposite directions
+- `seat_load_has_no_third_exit_and_empty_is_the_only_unmeasured` — the empty QPU seat reported `upgraded: true`
+  from a literal, so `skipped` was arithmetic on a constant. Now `loaded | unmeasured`, no `false`: a seat with no
+  hardware did not refuse the image, it was never asked. Found from outside by a peer reading the wire
+- uuidna QPU battery 53/57 → **57/57**, 490609 decisions, 0 disagreements; each new witness DERIVED, and all four
+  perturbation-controlled
+- the WITNESS rule required the bare word `DOI` in a tree whose subject matter is minting them — 22 occurrences
+  against 23 real identifiers. Now requires `10.[0-9]{4,9}/`; two legs fall, DECLARED as ruleMoved
+- lead 149 REFUSED with its boundary: a served registry and a gate-enforced door are the two ends of one
+  involution, and NC-ND would put this tree at neither end
+- surfaces: tag, npm and Zenodo this wave
+
 ## [0.3.0] — one compile into uuidnaOS; Sequence already walks it
 
 _Statistics from the calendar; identity DRY — tag not cut this wave._

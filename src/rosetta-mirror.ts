@@ -2798,6 +2798,11 @@ wgs84_polar_shorter WGS 84`
 
 export const FLOOR = { witness: 16, falsifier: 63 }
 
+// Anchors the repository HOLDS and the census cannot reach: named in an emitter row's `why`, absent from the
+// wing note the leg is decided from. Published so the witness fraction is read as a collection gap and not as
+// an absence of corroboration.
+export const UNREACHED: readonly string[] = []
+
 // The WITNESS rule these legs were decided by, as a digest of its own source. A later run compares it: if the
 // digest moved and the anchored count FELL, the instrument changed rather than any claim, and that fall must be
 // DECLARED (rosetta --declare-rule-change "<reason>") rather than permitted as a side effect. Without this the
