@@ -30,6 +30,19 @@
 // identical on every page — while what remains is elements doing real layout work. The two look alike in a byte
 // count and are not alike at all.
 
+// THE FOLD, 63 SELECTORS TO 21 (2026-09-05). The set "bit b of the position is set" has TWO exact descriptions,
+// and they are duals under bit-reversal of the index: 2^b arithmetic progressions of stride 2^(b+1), or 2^(6-b)
+// CONTIGUOUS RUNS of length 2^b. Where one is cheap the other is expensive, and they cross between line 4 and
+// line 5 — so paying stride cost for all six lines, as this generator first did, is optimal for the low lines
+// and eight times too expensive for the high ones. Line 6 shipped 32 clauses for a set that is two ranges:
+// positions 33-64 and 97-128. Taking the cheaper dual per line costs 1+2+4+8+4+2 = 21 selectors against
+// 1+2+4+8+16+32 = 63, paints identically on all 128 x 6 cases, and the stylesheet fell 4246 bytes to 2384.
+//
+// NOTHING IN THE DOM MOVED, and that is the honest limit of this fold. The 768 bare spans still ship on every
+// page for the reason stated above — they do real layout work — so this is kilobytes once, not the 86 MB that
+// would need the spans gone. A saving named for the wrong quantity is the same defect as a ceiling on the wrong
+// quantity.
+
 /** How many lines a hexagram has. Mirrored as a plain number so this module stays free of a cycle. */
 export const HEX_LINES = 6
 
@@ -57,10 +70,55 @@ export function nthClausesForBit(b: number): { stride: number; offset: number }[
 export const matchesNth = (n: number, stride: number, offset: number): boolean =>
   n >= offset && (n - offset) % stride === 0
 
-/** selectedByBit(gate, b) → does the generated clause set for bit b select this gate's position? */
-export function selectedByBit(gate: number, b: number): boolean {
+/** runsForBit(b, gates) → the CONTIGUOUS one-based position ranges whose bit b is set.
+ *
+ *  THE SAME SET, DESCRIBED THE OTHER WAY. "Bit b of the position is set" is simultaneously a stride cover
+ *  (2^b arithmetic progressions of stride 2^(b+1)) and a run cover (2^(6-b) contiguous blocks of length 2^b),
+ *  and the two descriptions are duals under bit-reversal of the position index: the cheap end of one is the
+ *  expensive end of the other. The generator paid stride cost for all six lines, which is optimal for the low
+ *  lines and eight times too expensive for the high ones — line 6 shipped 32 clauses where the same set is two
+ *  ranges. Enumerated rather than derived in closed form because a board length that is not a multiple of
+ *  2^(b+1) clips the last run, and an off-by-one here paints the wrong line on every page of the site. */
+export function runsForBit(b: number, gates: number): { from: number; to: number }[] {
+  const out: { from: number; to: number }[] = []
+  let from = 0
+  for (let n = 1; n <= gates; n++) {
+    const on = yangAt(n - 1, b)
+    if (on && from === 0) from = n
+    if (!on && from !== 0) { out.push({ from, to: n - 1 }); from = 0 }
+  }
+  if (from !== 0) out.push({ from, to: gates })
+  return out
+}
+
+/** The cover a line is painted with — whichever of the two duals costs fewer selectors. */
+export type Cover =
+  | { kind: 'stride'; clauses: { stride: number; offset: number }[] }
+  | { kind: 'runs'; runs: { from: number; to: number }[] }
+
+/** coverForBit(b, gates) → the cheaper of the two equivalent descriptions, counted in selectors.
+ *
+ *  A TIE GOES TO THE STRIDE. At line 4 both covers cost eight, and the stride form is the one the ledger's
+ *  arithmetic already speaks — `(i >> b) & 1` reads straight off it — so the tie-break keeps the reading that
+ *  needs no second explanation rather than the one that happens to be newer. */
+export function coverForBit(b: number, gates: number): Cover {
+  const clauses = nthClausesForBit(b).filter((c) => c.offset <= gates)
+  const runs = runsForBit(b, gates)
+  return runs.length < clauses.length ? { kind: 'runs', runs } : { kind: 'stride', clauses }
+}
+
+/** coverSelectors(cover) → how many selectors this cover ships. */
+export const coverSelectors = (cover: Cover): number =>
+  cover.kind === 'runs' ? cover.runs.length : cover.clauses.length
+
+/** selectedByBit(gate, b, gates) → does the EMITTED cover for bit b select this gate's position?
+ *  It evaluates whichever cover the generator chose, so the 128 x 6 check tests what actually ships. */
+export function selectedByBit(gate: number, b: number, gates = 128): boolean {
   const n = gate + 1
-  return nthClausesForBit(b).some((c) => matchesNth(n, c.stride, c.offset))
+  const cover = coverForBit(b, gates)
+  return cover.kind === 'runs'
+    ? cover.runs.some((r) => n >= r.from && n <= r.to)
+    : cover.clauses.some((c) => matchesNth(n, c.stride, c.offset))
 }
 
 /** hexLineCss(gates) → the stylesheet block: default yin, with the derived YANG overrides.
@@ -81,12 +139,13 @@ export function hexLineCss(gates = 128): string {
   lines.push('  background: linear-gradient(90deg, var(--face-aura) 38%, transparent 38%, transparent 62%, var(--face-aura) 62%);')
   lines.push('}')
   for (let b = 0; b < HEX_LINES; b++) {
-    const sel = nthClausesForBit(b)
-      .filter((c) => c.offset <= gates)
-      .map((c) => `.hex-board > :nth-child(${c.stride}n + ${c.offset}) > :nth-child(${b + 1})`)
-      .join(',\n')
+    const cover = coverForBit(b, gates)
+    const sel = (cover.kind === 'runs'
+      ? cover.runs.map((r) => `.hex-board > :nth-child(n + ${r.from}):nth-child(-n + ${r.to}) > :nth-child(${b + 1})`)
+      : cover.clauses.map((c) => `.hex-board > :nth-child(${c.stride}n + ${c.offset}) > :nth-child(${b + 1})`)
+    ).join(',\n')
     if (!sel) continue
-    lines.push(`/* line ${b + 1}: yang where bit ${b} of the gate index is set */`)
+    lines.push(`/* line ${b + 1}: yang where bit ${b} of the gate index is set — ${cover.kind} cover, ${coverSelectors(cover)} selector(s) */`)
     lines.push(`${sel} {`)
     lines.push('  background: var(--face-aura);')
     lines.push('}')

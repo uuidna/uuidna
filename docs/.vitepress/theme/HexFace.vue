@@ -530,23 +530,23 @@ const cellsOf = (bits) => {
   height: 2px;
   background: linear-gradient(90deg, var(--face-aura) 38%, transparent 38%, transparent 62%, var(--face-aura) 62%);
 }
-/* line 1: yang where bit 0 of the gate index is set */
+/* line 1: yang where bit 0 of the gate index is set — stride cover, 1 selector(s) */
 .hex-board > :nth-child(2n + 2) > :nth-child(1) {
   background: var(--face-aura);
 }
-/* line 2: yang where bit 1 of the gate index is set */
+/* line 2: yang where bit 1 of the gate index is set — stride cover, 2 selector(s) */
 .hex-board > :nth-child(4n + 3) > :nth-child(2),
 .hex-board > :nth-child(4n + 4) > :nth-child(2) {
   background: var(--face-aura);
 }
-/* line 3: yang where bit 2 of the gate index is set */
+/* line 3: yang where bit 2 of the gate index is set — stride cover, 4 selector(s) */
 .hex-board > :nth-child(8n + 5) > :nth-child(3),
 .hex-board > :nth-child(8n + 6) > :nth-child(3),
 .hex-board > :nth-child(8n + 7) > :nth-child(3),
 .hex-board > :nth-child(8n + 8) > :nth-child(3) {
   background: var(--face-aura);
 }
-/* line 4: yang where bit 3 of the gate index is set */
+/* line 4: yang where bit 3 of the gate index is set — stride cover, 8 selector(s) */
 .hex-board > :nth-child(16n + 9) > :nth-child(4),
 .hex-board > :nth-child(16n + 10) > :nth-child(4),
 .hex-board > :nth-child(16n + 11) > :nth-child(4),
@@ -557,58 +557,16 @@ const cellsOf = (bits) => {
 .hex-board > :nth-child(16n + 16) > :nth-child(4) {
   background: var(--face-aura);
 }
-/* line 5: yang where bit 4 of the gate index is set */
-.hex-board > :nth-child(32n + 17) > :nth-child(5),
-.hex-board > :nth-child(32n + 18) > :nth-child(5),
-.hex-board > :nth-child(32n + 19) > :nth-child(5),
-.hex-board > :nth-child(32n + 20) > :nth-child(5),
-.hex-board > :nth-child(32n + 21) > :nth-child(5),
-.hex-board > :nth-child(32n + 22) > :nth-child(5),
-.hex-board > :nth-child(32n + 23) > :nth-child(5),
-.hex-board > :nth-child(32n + 24) > :nth-child(5),
-.hex-board > :nth-child(32n + 25) > :nth-child(5),
-.hex-board > :nth-child(32n + 26) > :nth-child(5),
-.hex-board > :nth-child(32n + 27) > :nth-child(5),
-.hex-board > :nth-child(32n + 28) > :nth-child(5),
-.hex-board > :nth-child(32n + 29) > :nth-child(5),
-.hex-board > :nth-child(32n + 30) > :nth-child(5),
-.hex-board > :nth-child(32n + 31) > :nth-child(5),
-.hex-board > :nth-child(32n + 32) > :nth-child(5) {
+/* line 5: yang where bit 4 of the gate index is set — runs cover, 4 selector(s) */
+.hex-board > :nth-child(n + 17):nth-child(-n + 32) > :nth-child(5),
+.hex-board > :nth-child(n + 49):nth-child(-n + 64) > :nth-child(5),
+.hex-board > :nth-child(n + 81):nth-child(-n + 96) > :nth-child(5),
+.hex-board > :nth-child(n + 113):nth-child(-n + 128) > :nth-child(5) {
   background: var(--face-aura);
 }
-/* line 6: yang where bit 5 of the gate index is set */
-.hex-board > :nth-child(64n + 33) > :nth-child(6),
-.hex-board > :nth-child(64n + 34) > :nth-child(6),
-.hex-board > :nth-child(64n + 35) > :nth-child(6),
-.hex-board > :nth-child(64n + 36) > :nth-child(6),
-.hex-board > :nth-child(64n + 37) > :nth-child(6),
-.hex-board > :nth-child(64n + 38) > :nth-child(6),
-.hex-board > :nth-child(64n + 39) > :nth-child(6),
-.hex-board > :nth-child(64n + 40) > :nth-child(6),
-.hex-board > :nth-child(64n + 41) > :nth-child(6),
-.hex-board > :nth-child(64n + 42) > :nth-child(6),
-.hex-board > :nth-child(64n + 43) > :nth-child(6),
-.hex-board > :nth-child(64n + 44) > :nth-child(6),
-.hex-board > :nth-child(64n + 45) > :nth-child(6),
-.hex-board > :nth-child(64n + 46) > :nth-child(6),
-.hex-board > :nth-child(64n + 47) > :nth-child(6),
-.hex-board > :nth-child(64n + 48) > :nth-child(6),
-.hex-board > :nth-child(64n + 49) > :nth-child(6),
-.hex-board > :nth-child(64n + 50) > :nth-child(6),
-.hex-board > :nth-child(64n + 51) > :nth-child(6),
-.hex-board > :nth-child(64n + 52) > :nth-child(6),
-.hex-board > :nth-child(64n + 53) > :nth-child(6),
-.hex-board > :nth-child(64n + 54) > :nth-child(6),
-.hex-board > :nth-child(64n + 55) > :nth-child(6),
-.hex-board > :nth-child(64n + 56) > :nth-child(6),
-.hex-board > :nth-child(64n + 57) > :nth-child(6),
-.hex-board > :nth-child(64n + 58) > :nth-child(6),
-.hex-board > :nth-child(64n + 59) > :nth-child(6),
-.hex-board > :nth-child(64n + 60) > :nth-child(6),
-.hex-board > :nth-child(64n + 61) > :nth-child(6),
-.hex-board > :nth-child(64n + 62) > :nth-child(6),
-.hex-board > :nth-child(64n + 63) > :nth-child(6),
-.hex-board > :nth-child(64n + 64) > :nth-child(6) {
+/* line 6: yang where bit 5 of the gate index is set — runs cover, 2 selector(s) */
+.hex-board > :nth-child(n + 33):nth-child(-n + 64) > :nth-child(6),
+.hex-board > :nth-child(n + 97):nth-child(-n + 128) > :nth-child(6) {
   background: var(--face-aura);
 }
 .hex-stations {

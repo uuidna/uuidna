@@ -2,7 +2,7 @@ import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { yangAt, nthClausesForBit, matchesNth, selectedByBit, hexLineCss, HEX_LINES } from './hex-line-css.js'
+import { yangAt, nthClausesForBit, runsForBit, coverForBit, coverSelectors, matchesNth, selectedByBit, hexLineCss, HEX_LINES } from './hex-line-css.js'
 import { ROOT } from './boundary.js'
 
 // A SELECTOR THAT IS SUBTLY WRONG CHANGES THE FACE SILENTLY, so the generated clause set is checked against the
@@ -17,7 +17,7 @@ test('the generated clauses select exactly the gates whose bit is set — all 12
   assert.deepEqual(wrong, [], 'a mismatch here paints the wrong line on every page of the site')
 })
 
-test('the clause count per bit is 2^b, and 63 clauses cover all six lines', () => {
+test('the STRIDE cover costs 2^b per bit, 63 across the six lines — the price the generator used to pay for all of them', () => {
   let total = 0
   for (let b = 0; b < HEX_LINES; b++) {
     const c = nthClausesForBit(b)
@@ -65,6 +65,47 @@ test('the stylesheet declares a yin default and a yang override for each line', 
 test('the stylesheet is deterministic and small — it ships once, unlike the markup it replaces', () => {
   assert.equal(hexLineCss(128), hexLineCss(128))
   assert.ok(hexLineCss(128).length < 8000, 'a few kilobytes once, against 46 KB on each of 5606 pages')
+})
+
+// ── THE FOLD. "Bit b of the position is set" has two exact descriptions — 2^b strides, or 2^(6-b) contiguous
+// runs — dual under bit-reversal of the index. Painting every line by stride costs 63 selectors; taking the
+// cheaper dual per line costs 21, and paints identically. These check the duality itself, not just the count,
+// because a cover that is cheaper and WRONG is the only way this change can hurt.
+
+test('the two covers describe the SAME set, for every line and every one of the 128 positions', () => {
+  for (let b = 0; b < HEX_LINES; b++) {
+    const runs = runsForBit(b, 128)
+    const clauses = nthClausesForBit(b).filter((c) => c.offset <= 128)
+    for (let n = 1; n <= 128; n++) {
+      const byRun = runs.some((r) => n >= r.from && n <= r.to)
+      const byStride = clauses.some((c) => matchesNth(n, c.stride, c.offset))
+      assert.equal(byRun, byStride, `line ${b + 1} position ${n}: the duals disagree`)
+      assert.equal(byRun, yangAt(n - 1, b), `line ${b + 1} position ${n}: neither cover is the arithmetic`)
+    }
+  }
+})
+
+test('each line ships the cheaper dual, and the six together cost 21 selectors instead of 63', () => {
+  const kinds = Array.from({ length: HEX_LINES }, (_, b) => coverForBit(b, 128).kind)
+  assert.deepEqual(kinds, ['stride', 'stride', 'stride', 'stride', 'runs', 'runs'],
+    'the crossover is between line 4 and line 5; a tie at line 4 keeps the stride, which is the form the arithmetic already speaks')
+  const counts = Array.from({ length: HEX_LINES }, (_, b) => coverSelectors(coverForBit(b, 128)))
+  assert.deepEqual(counts, [1, 2, 4, 8, 4, 2])
+  assert.equal(counts.reduce((a, c) => a + c, 0), 21, '1+2+4+8+4+2 — where paying stride for all six is 63')
+})
+
+test('line 6 is two ranges and line 1 is one stride — the emitted stylesheet, not the plan', () => {
+  const css = hexLineCss(128)
+  assert.match(css, /:nth-child\(n \+ 33\):nth-child\(-n \+ 64\) > :nth-child\(6\)/, 'first half of line 6 as a range')
+  assert.match(css, /:nth-child\(n \+ 97\):nth-child\(-n \+ 128\) > :nth-child\(6\)/, 'second half of line 6 as a range')
+  assert.match(css, /:nth-child\(2n \+ 2\) > :nth-child\(1\)/, 'line 1 stays a single stride — 64 ranges would be worse')
+  assert.equal((css.match(/> :nth-child\(6\)/g) ?? []).length, 2, 'line 6 shipped 32 selectors before the fold')
+})
+
+test('a board shorter than a full block clips the last run rather than overrunning it', () => {
+  assert.deepEqual(runsForBit(5, 40), [{ from: 33, to: 40 }], 'the run stops at the board, not at 64')
+  for (let n = 1; n <= 40; n++)
+    assert.equal(selectedByBit(n - 1, 5, 40), yangAt(n - 1, 5), `clipped board, position ${n}`)
 })
 
 // ── THE COMPONENT MUST CARRY EXACTLY WHAT THE GENERATOR PRODUCES. The clauses live inside a .vue style block, so
