@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "5a97127d7c68b09bb19286292c573daa",
-    "lean": "99007318525fe02b1b912499ea7eb956"
+    "src": "e622be7676812a9777608f059d24d626",
+    "lean": "aa57a49915c5a55baff14eac5bbbdd4a"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -180,7 +180,7 @@
     "lean/ephemeris-manifest.json": "a8a053b434af3312",
     "lean/exploits-manifest.json": "d4b0fbf74b1ef52b",
     "lean/exposed-axioms.json": "15fcb47a610a3e42",
-    "lean/finder-controls-baseline.json": "8b0410c85512b255",
+    "lean/finder-controls-baseline.json": "b8308c30ee0e948a",
     "lean/findings.json": "fe4c144f1f1f2566",
     "lean/glagolitic-manifest.json": "5a3845b7343bf366",
     "lean/grid-manifest.json": "cfc900f30a93f529",
@@ -3632,6 +3632,7 @@
     "src/pairs.ts": "87003b5ca848c231",
     "src/paper-blueprint.test.ts": "e74b76d7a772b77c",
     "src/paper-blueprint.ts": "bc4595f2ba9c7f89",
+    "src/parameterised-finder-controls.test.ts": "c72852751ae67f0c",
     "src/payload-seed.test.ts": "a1e27984cdc34b07",
     "src/payload-seed.ts": "e95df8f49aec0ce3",
     "src/pentagram-monographs.ts": "6487931cef6acaa2",
@@ -3640,6 +3641,8 @@
     "src/phd-proofs.ts": "73cf759d8e2ec5e3",
     "src/polygraph.test.ts": "ee31024a4c39b326",
     "src/ports-tools.test.ts": "aec60e8919281c86",
+    "src/post-push.test.ts": "91beb7cafbf282eb",
+    "src/post-push.ts": "d7e8268d0db83c57",
     "src/pqc-hybrid.test.ts": "740971ecb25453bc",
     "src/pqc-nist.test.ts": "c57ca9b0706e12fd",
     "src/pqc/envelope/index.ts": "06cfedad44470108",
@@ -4104,7 +4107,7 @@
     "src/scripts/index-test-imports.ts": "6e1099a4e0bc5e06",
     "src/scripts/involute-modals.ts": "cc3eddd58d75bcb9",
     "src/scripts/iq-books.ts": "7007db73db1e898c",
-    "src/scripts/land.ts": "76195acd30a435d6",
+    "src/scripts/land.ts": "77d971e31a6f9df9",
     "src/scripts/landing-gaps.ts": "9a1e8e4ee19f82e7",
     "src/scripts/leads-gate.ts": "e57116785d5fab90",
     "src/scripts/leak-scan.ts": "71c5b3a958586dfe",
@@ -4250,6 +4253,7 @@
     "src/scripts/package-at-a-time.ts": "a9c7eea805372fd1",
     "src/scripts/payload-sync.ts": "144234b6e57e6dd1",
     "src/scripts/port-update.ts": "7f9462049940d0fc",
+    "src/scripts/post-push.ts": "4c1b6a6353b2fba9",
     "src/scripts/predict-and-fill.ts": "20c3f35afe26d124",
     "src/scripts/prepublish-seal.ts": "af0f94199582d361",
     "src/scripts/prescribed-scripts.test.ts": "dc9bd2507e815496",

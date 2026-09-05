@@ -156,7 +156,20 @@ for (let round = 1; round <= ROUNDS; round++) {
       console.error(`✗ land — push reported success but origin/main is ${remote.slice(0, 8)}, not ${before.slice(0, 8)}. NOTHING LANDED.`)
       process.exit(1)
     }
-    console.log(`✓ land — pushed on round ${round}: origin/main is now ${before.slice(0, 8)}. Landing complete.`)
+    // AND THE FORGE IS ASKED, because the court that just passed ran BEFORE the push and is structurally unable
+    // to see what happens after it. Measured 2026-09-05: `security` failed on 44 consecutive pushes across three
+    // sessions and a full day, every one of them under a green local gate, and nobody was blocked. A landing is
+    // not complete because the remote moved; it is complete when the forge agrees.
+    // NOT FATAL, and that is deliberate: the commit is already public, so exiting non-zero here would report a
+    // landing that happened as one that did not. The arm REPORTS and names the cure — the push cannot be recalled.
+    console.log(`✓ land — pushed on round ${round}: origin/main is now ${before.slice(0, 8)}.`)
+    const forge = run(`node dist/scripts/post-push.js ${before} --wait`)
+    console.log(forge.out.trim() || forge.out)
+    if (!forge.ok) {
+      console.error('✗ land — THE PUSH LANDED AND THE FORGE REFUSED IT. The commit is public; this needs a cure on top, not a retry.')
+      process.exit(1)
+    }
+    console.log('✓ land — the forge agrees. Landing complete.')
     process.exit(0)
   }
   // ── THE DENIAL IS READ ALOUD EVEN WHEN A CURE APPLIES (found 2026-09-02, by needing it and not having it).
