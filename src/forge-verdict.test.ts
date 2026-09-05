@@ -2,7 +2,7 @@
 // would equally pass a gate that refuses everything, which is the gate that gets switched off in a week.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { prePushForge, rosterGaps, absentMustJudge, mustJudge, MUST_JUDGE_BY_REF, NEED_NOT_JUDGE, type ForgeReceipt } from './forge-verdict.js'
+import { prePushForge, rosterGaps, absentMustJudge, staleExemptions, mustJudge, MUST_JUDGE_BY_REF, NEED_NOT_JUDGE, type ForgeReceipt } from './forge-verdict.js'
 
 const r = (over: Partial<ForgeReceipt> = {}): ForgeReceipt =>
   ({ sha: '7d9eae4e0abc', ok: true, measured: true, failing: [], notJudged: [], ...over })
@@ -62,14 +62,32 @@ test('the two columns are disjoint — a workflow cannot both must-judge and be 
 // uuidna-49 refuted the flat set from the forge: publish and release are TAG-triggered, so on a push to main
 // they produce NO ROW, and a must-judge workflow the event never triggers can never judge. Measured over 60
 // runs: deploy 19 / security 18 / CodeQL 18 on push+main; publish 1 / release 1, tag only.
-test('a TAG-only workflow is not required of a BRANCH push — the flat set refused every landing forever', () => {
-  assert.deepEqual(absentMustJudge(['security', 'deploy', 'CodeQL Advanced'], 'branch'), [],
-    'an ordinary push to main must be allowed: publish and release are not triggered by it')
-  assert.ok(mustJudge('tag').includes('publish'))
-  assert.ok(!mustJudge('branch').includes('publish'))
+// the real check-run set on origin/main, measured — three of these are jobs of ONE workflow run
+const LIVE = ['secret-scan', 'recomputable-audit', 'deploy', 'Analyze (actions)', 'Analyze (javascript-typescript)', 'dependency-review', 'Workers Builds: uuidna']
+
+test('the live check set is fully rostered — every name is claimed by exactly one column', () => {
+  assert.deepEqual(rosterGaps(LIVE), [], 'an unrostered check is a decision nobody made')
+  assert.deepEqual(absentMustJudge(LIVE, 'branch'), [], 'an ordinary landing must not be refused')
+  assert.deepEqual(staleExemptions(LIVE), [], 'every exemption is still arriving, so no reason is paperwork')
 })
 
-test('a must-judge workflow that produced NO ROW is caught — rosterGaps structurally cannot see a silence', () => {
-  assert.deepEqual(absentMustJudge(['deploy'], 'branch'), ['security'], 'security was never triggered and never judged')
+test('a must-judge check that produced NO ROW is caught — rosterGaps structurally cannot see a silence', () => {
+  assert.deepEqual(absentMustJudge(['deploy'], 'branch'), ['recomputable-audit', 'secret-scan'])
   assert.deepEqual(rosterGaps(['deploy']), [], 'the survey of what ARRIVED reports nothing about what did not')
+})
+
+test('the TAG column is EMPTY because it was never measured — it refuses nothing and invents nothing', () => {
+  assert.deepEqual(mustJudge('tag'), [], 'the v0.3.1 tag was deleted before its check names could be read')
+  assert.deepEqual(absentMustJudge([], 'tag'), [], 'an unmeasured column must not refuse a tag push')
+})
+
+test('an exemption whose check STOPS ARRIVING is reported — a repaired gap keeps no paperwork', () => {
+  const afterTheDashboardAct = LIVE.filter((n) => n !== 'Workers Builds: uuidna')
+  assert.deepEqual(staleExemptions(afterTheDashboardAct), ['Workers Builds: uuidna'],
+    'once disconnected, "it can never succeed" asserts something about a check that no longer exists')
+  assert.deepEqual(absentMustJudge(afterTheDashboardAct, 'branch'), [], 'and its absence must not refuse the push')
+})
+
+test('a NEW check nobody rostered is a gap — a second Worker mints a new name', () => {
+  assert.deepEqual(rosterGaps([...LIVE, 'Workers Builds: uuidna-edge']), ['Workers Builds: uuidna-edge'])
 })

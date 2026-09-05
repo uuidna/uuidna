@@ -17,44 +17,64 @@
 // so adding a workflow forces a decision instead of defaulting to permissive. Without that the list rots
 // silently, and it rots toward passing.
 
-/** WHICH WORKFLOWS MUST JUDGE IS A PROPERTY OF THE EVENT, not of the run and not of a flat list.
+/** THE ROSTER IS OVER CHECK RUNS, NOT WORKFLOWS, and that is forced by two measurements rather than chosen.
  *
- *  A flat set was the first design and uuidna-49 refuted it from the forge in one query: `publish` and `release`
- *  are TAG-triggered, so on a push to main they do not skip and do not cancel — THERE IS NO ROW FOR THEM AT ALL.
- *  A must-judge workflow that the event never triggers can never judge, so the flat set refused every ordinary
- *  landing, forever. Measured over 60 runs: deploy 19 and security 18 and CodeQL 18 on push/main; publish 1 and
- *  release 1, both only on the v0.3.1 tag.
+ *  1. A CHECK RUN IS A JOB. On origin/main, `secret-scan`, `recomputable-audit` and `dependency-review` are three
+ *     checks sharing ONE workflow run (33987294185, security); both `Analyze` checks share the CodeQL run. So the
+ *     two surfaces are not peers to union — the check surface is strictly FINER and strictly LARGER: every Actions
+ *     job, plus any foreign app. Judging on checks loses nothing; judging on both counts one failure twice.
+ *  2. A FOREIGN CHECK CANNOT BE EVENT-ATTRIBUTED. Every github-actions check carries its run id in details_url
+ *     (`actions/runs/33987294185/job/…`), so its event is recoverable by a join. `Workers Builds: uuidna` points
+ *     at dash.cloudflare.com and carries no run id, so no event filter can reach it and no default is safe.
+ *     The roster is therefore the ONLY place its verdict can be decided — these columns are forced, not a
+ *     convenience. (Both measured by uuidna-49 and confirmed here against the live commit.)
  *
- *  This is the third-column argument one level down. Which workflows must judge is not derivable from the rows,
- *  because the rows of an untriggered workflow do not exist — so it is declared, per event, and the absence of a
- *  declared one is itself the finding. */
+ *  WHICH ONES MUST JUDGE IS A PROPERTY OF THE EVENT. A flat set was the first design and the forge refuted it:
+ *  publish and release are TAG-triggered, so on a push to main they produce no row at all, and a must-judge
+ *  check the event never triggers can never judge — the flat set refused every ordinary landing forever. */
 export const MUST_JUDGE_BY_REF: Readonly<Record<'branch' | 'tag', readonly string[]>> = {
-  branch: ['security', 'deploy'],
-  tag: ['publish', 'release', 'deploy'],
+  // measured on origin/main: these three are the security and deploy jobs that judge every push
+  branch: ['secret-scan', 'recomputable-audit', 'deploy'],
+  // NOT MEASURED. The v0.3.1 tag was cut and deleted before its check names could be read, so this column is
+  // left empty ON PURPOSE rather than guessed from the workflow names. An empty column refuses nothing and
+  // rosterGaps reports whatever a tag push actually produces, which is how the names get declared honestly.
+  tag: [],
 }
-/** Workflows that legitimately do not judge every push, each with the reason it is exempt. */
+
+/** Checks that legitimately do not judge every push, each carrying the reason it is exempt. */
 export const NEED_NOT_JUDGE: Readonly<Record<string, string>> = {
   'dependency-review': 'PR-only; skips on every push to main by design',
-  'CodeQL Advanced': 'runs on every push to main but takes minutes longer than the rest, so it is routinely still queued when the others have settled',
-  books: 'scheduled, not triggered by a push',
-  next: 'scheduled, not triggered by a push',
+  'Analyze (actions)': 'CodeQL; takes minutes longer than the rest and is routinely still queued when they settle',
+  'Analyze (javascript-typescript)': 'CodeQL; same run as Analyze (actions), same lateness',
+  'Workers Builds: uuidna': 'git-connected Cloudflare container build; CANNOT render this site (5260 pages against an 8 GiB container) so it can never succeed, and disconnecting it is a dashboard act no repository change can perform',
 }
 
 export const mustJudge = (ref: 'branch' | 'tag'): readonly string[] => MUST_JUDGE_BY_REF[ref]
 
-/** rosterGaps(observed) → workflows the forge reported that NO column claims: a decision nobody made. */
+/** rosterGaps(observed) → checks the forge reported that NO column claims: a decision nobody made. */
 export function rosterGaps(observed: readonly string[]): string[] {
   const known = new Set([...MUST_JUDGE_BY_REF.branch, ...MUST_JUDGE_BY_REF.tag, ...Object.keys(NEED_NOT_JUDGE)])
   return [...new Set(observed)].filter((n) => !known.has(n)).sort()
 }
 
-/** absentMustJudge(observed, ref) → declared must-judge workflows with NO ROW AT ALL for this push.
+/** absentMustJudge(observed, ref) → declared must-judge checks with NO ROW AT ALL for this push.
  *
  *  rosterGaps cannot see this and never could: it reports what was OBSERVED in neither column, and an absent
- *  workflow is observed nowhere. A silence is the one thing a survey of what arrived can never report. */
+ *  check is observed nowhere. A survey of what arrived can never report a silence. */
 export function absentMustJudge(observed: readonly string[], ref: 'branch' | 'tag'): string[] {
   const seen = new Set(observed)
   return mustJudge(ref).filter((n) => !seen.has(n)).sort()
+}
+
+/** staleExemptions(observed) → need-not entries that STOPPED ARRIVING, so their stated reason is now paperwork.
+ *
+ *  uuidna-49's refinement, and it is absentMustJudge one column over. If the captain performs the dashboard act,
+ *  `Workers Builds: uuidna` disappears and its reason — "can never succeed" — becomes an assertion about a check
+ *  that no longer exists. A repaired gap keeps no paperwork, which is the rule the finder-controls baseline
+ *  already applies to itself. Reported, never refused: a check can be absent for one push and back the next. */
+export function staleExemptions(observed: readonly string[]): string[] {
+  const seen = new Set(observed)
+  return Object.keys(NEED_NOT_JUDGE).filter((n) => !seen.has(n)).sort()
 }
 
 /** What post-push learned about one pushed sha, as it persists it for the next court to read. */
