@@ -13885,15 +13885,15 @@ theorem the_two_sides_return_what_they_take : ((1 + 1) % 2 = 0) ∧ (1 - 0 ≠ 0
 \begin{theorem}[85179 bytes of markup from a 36-character address: 2366 times the input, shipped 2603 times]
 \label{thm:the-face-is-computed-not-shipped}
 \[
-  \left\lfloor \frac{85179}{36} \right\rfloor = 2366 \quad\land\quad 2603 \cdot 85179 = 221720937 \quad\land\quad 2603 \cdot 36 = 93708 \quad\land\quad 221720937 > 187416000
+  \left\lfloor \frac{85179}{36} \right\rfloor = 2366 \quad\land\quad 2603 \cdot 85179 = 221720937 \quad\land\quad 2603 \cdot 36 = 93708 \quad\land\quad 221720937 > 187416000 \quad\land\quad 3 \bmod 9 = 3
 \]
 \end{theorem}
 \begin{proof}
 Decided by the Lean 4 kernel, sorry-free (\texttt{by decide}):
 \begin{lstlisting}[language=lean]
-theorem the_face_is_computed_not_shipped : (85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000) := by decide
+theorem the_face_is_computed_not_shipped : ((85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000)) ∧ (3 % 9 = 3) := by decide
 \end{lstlisting}
-\noindent Content-address \texttt{9eb4d106-0b8e-8cbb-9ae1-0b6b865e9a00}.
+\noindent Content-address \texttt{525b7304-f5aa-8ddd-8589-18b831db470f}.
 \end{proof}
 
 \begin{theorem}[2\textasciicircum{}3\textasciicircum{}2 = 512, but (2\textasciicircum{}3)\textasciicircum{}2 = 64]

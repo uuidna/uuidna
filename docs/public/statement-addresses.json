@@ -10294,14 +10294,14 @@
   },
   {
    "key": "the_face_is_computed_not_shipped",
-   "statement": "(85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000)",
-   "normalised": "(85179/36=2366)∧(2603*85179=221720937)∧(2603*36=93708)∧(221720937>187416000)",
-   "rawLength": 96,
-   "normalisedLength": 76,
-   "rawBytes": 102,
-   "normalisedBytes": 82,
-   "address": "46f1f15f-934d-84e6-82ef-fb1651f3144d",
-   "sha256": "46b2807b6225abbf90b5ca241afe3d6589c688e4300e4f112ebc6878bf5fbce4"
+   "statement": "((85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000)) ∧ (3 % 9 = 3)",
+   "normalised": "((85179/36=2366)∧(2603*85179=221720937)∧(2603*36=93708)∧(221720937>187416000))∧(3%9=3)",
+   "rawLength": 112,
+   "normalisedLength": 86,
+   "rawBytes": 120,
+   "normalisedBytes": 94,
+   "address": "e193a589-de4a-864c-ae84-365b603b67be",
+   "sha256": "b374409a9e05319df201822e32bd231b1effa87d0180f1c3ec1657c459298d2e"
   },
   {
    "key": "exponent_associativity_changes_the_value",
