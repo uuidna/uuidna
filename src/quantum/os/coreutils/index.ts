@@ -21,6 +21,7 @@
 // EVERY FUNCTION HERE IS PURE: same input, same output, no clock, no randomness, no filesystem. The caller
 // supplies the text — from a session file or from the operands — so these can be tested without an OS at all.
 import { sha256 } from '../../../sha256.js'
+import { REFUSAL_FAMILIES } from '../refusals/index.js'
 
 /** the lines an applet returns, plus the structured data the receipt folds */
 export interface AppletOut { lines: string[]; data: unknown }
@@ -42,30 +43,20 @@ export const CORE_APPLETS = [
   'test', 'true', 'false', 'yes', 'grep',
   // second wave — two-input, column and encoding applets
   'comm', 'join', 'paste', 'expand', 'unexpand', 'fmt', 'base32', 'od', 'sum', 'tsort', 'numfmt', 'pathchk',
+  // third wave — pure applets, plus the two whose refusal reason turned out to be false
+  'basenc', 'ptx', 'pr', 'dircolors', 'realpath', 'split', 'tee', 'cp',
+  // and the busybox multiplexer's own names, plus the ls spellings
+  'busybox', 'coreutils', 'uutils', 'dir', 'vdir', 'find',
 ] as const
 export type CoreApplet = (typeof CORE_APPLETS)[number]
 
-/** APPLETS THAT CANNOT BE PORTED, with the reason each is refused. Named so the refusal is a declared boundary
- *  rather than an omission — and so nobody adds a faked one later. */
-export const UNPORTABLE: readonly { name: string; why: string }[] = [
-  { name: 'date', why: 'reads a wall clock; this tree hard-rejects the clock everywhere, so time enters as data or not at all' },
-  { name: 'uptime', why: 'reports elapsed time since a boot that never happened here, and reading a wall clock to compute it is refused tree-wide' },
-  { name: 'ps', why: 'there are no host processes here; a faked table would be attestation wearing execution\'s clothes' },
-  { name: 'kill', why: 'nothing to signal, and pretending otherwise would report success for an action never taken' },
-  { name: 'mount', why: 'no block devices; the filesystem is a provenance model, not storage' },
-  { name: 'dd', why: 'copies bytes between devices that do not exist here' },
-  { name: 'awk', why: 'an interpreter for its own language, not a transform — porting it means porting a language' },
-  { name: 'sed', why: 'the same, beyond `s///`; a partial sed that silently ignores a script is worse than none' },
-  { name: 'shuf', why: 'shuffles by randomness, and this tree admits no random source anywhere — a shuf with a fixed order would be a lie in its own name' },
-  { name: 'md5sum', why: 'this tree implements sha256 and nothing else; a hash written to fill a row of a table is a liability, not a port' },
-  { name: 'sha1sum', why: 'the same — and both md5 and sha1 are broken for the purpose people reach for them, so importing them to look complete would be the worse trade' },
-  { name: 'sha512sum', why: 'legitimate, but unwritten here: sha256 is the one hash this tree implements and audits, and a second implementation earns its place by being needed, not by being listed' },
-  { name: 'split', why: 'writes its pieces as files; the session filesystem is read-only to applets, so a split that reported success would have produced nothing' },
-  { name: 'tee', why: 'the same — its whole purpose is the side effect of writing, and an applet that cannot write cannot tee' },
-  { name: 'env', why: 'reads the host process environment, which is exactly the boundary uuidnaOS does not cross' },
-  { name: 'sleep', why: 'measures a duration against a clock, refused tree-wide; and a sleep that returns at once is not a sleep' },
-  { name: 'xargs', why: 'builds and runs command lines; the dispatcher runs one applet per call by design, and a nested runner is a shell, not an applet' },
-]
+/** APPLETS THAT ARE REFUSED, each with the reason, DERIVED from the one refusal register in ../refusals.
+ *  It was a second hand-kept list until 2026-09-05 and drifted within a day of being written: this file said
+ *  `split` could not be ported for a filesystem property the tree does not have, while the families said the
+ *  true cause. Two registers of the same fact is one register and one rumour, so this is now a projection of
+ *  the other — a name gains, loses or changes its reason in exactly one place. */
+export const UNPORTABLE: readonly { name: string; why: string }[] =
+  REFUSAL_FAMILIES.flatMap((f) => f.members.map((name) => ({ name, why: f.cause })))
 
 const digits = (s: string): boolean => /^-?\d+$/.test(s)
 const num = (s: string): number => Number.parseInt(s, 10)
@@ -524,4 +515,121 @@ export function pathchk(path: string): AppletOut {
   return bad.length
     ? ok(bad.map((b) => `pathchk: ${b}`), { error: 'not-portable', portable: false, faults: bad })
     : ok([`pathchk: ${path} is portable`], { portable: true, faults: [] })
+}
+
+// ── THIRD WAVE. Two of the refusals written in the second wave were WRONG, and the error is worth naming: the
+// register said `split` and `tee` could not be ported because "the session filesystem is read-only to applets".
+// It is not — session/index.ts exports sessionWrite, and the harness has been calling it since the first
+// coreutils test. A refusal with a false reason is worse than an unported applet: it closes the question with
+// something nobody re-checks. Both are ported below; what stays refused there is `rm`, `mv` and `rmdir`, for
+// the reason that is actually true — the session exports no file DELETE, only sessionWrite and sessionRead.
+
+const B16 = '0123456789ABCDEF'
+/** basenc(text, base, decode) → one door over the three RFC 4648 alphabets this tree implements. */
+export function basenc(text: string, base: 16 | 32 | 64, decode = false): AppletOut {
+  if (base === 64) return base64(text, decode)
+  if (base === 32) return base32(text, decode)
+  if (decode) {
+    const clean = text.replace(/\s+/g, '').toUpperCase()
+    if (clean.length % 2 !== 0) return ok(['basenc: base16 input has an odd length'], { error: 'invalid-base16' })
+    const out: number[] = []
+    for (let i = 0; i < clean.length; i += 2) {
+      const hi = B16.indexOf(clean[i]!), lo = B16.indexOf(clean[i + 1]!)
+      if (hi < 0 || lo < 0) return ok([`basenc: invalid character in base16 input`], { error: 'invalid-base16' })
+      out.push(hi * 16 + lo)
+    }
+    return ok([new TextDecoder().decode(new Uint8Array(out))], { bytes: out.length })
+  }
+  const hex = [...new TextEncoder().encode(text)].map((b) => B16[(b - (b % 16)) / 16]! + B16[b % 16]!).join('')
+  return ok([hex], { base16: hex })
+}
+
+/** ptx(text) → the permuted index: every line rotated to each of its words, sorted by the keyword. The classic
+ *  KWIC concordance, and the one output nobody can produce by eye for a document of any size. */
+export function ptx(text: string): AppletOut {
+  const rows: { key: string; line: string }[] = []
+  for (const line of text.split('\n')) {
+    const words = line.split(/\s+/).filter(Boolean)
+    for (let i = 0; i < words.length; i++) {
+      rows.push({ key: words[i]!.toLowerCase(), line: `${words.slice(0, i).join(' ')}   ${words.slice(i).join(' ')}`.trim() })
+    }
+  }
+  rows.sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : a.line < b.line ? -1 : a.line > b.line ? 1 : 0))
+  // the KEYS travel with the answer: in KWIC the keyword sits AFTER the gap, so the sort order is not visible
+  // in the rendered line — a caller (or a test) checking the order needs the keys themselves.
+  return ok(rows.map((r) => r.line), { entries: rows.length, keys: rows.map((r) => r.key) })
+}
+
+export const PR_LINES = 56
+/** pr(text, opts) → paginated with a header, WITHOUT THE DATE. Real `pr` stamps each header with the wall
+ *  clock; this tree refuses the clock, so the date field is omitted rather than faked, and the omission is the
+ *  documented difference. Everything else — page breaks, numbering, the header text — is pr's own behaviour. */
+export function pr(text: string, opts: { header?: string; lines?: number; noHeader?: boolean } = {}): AppletOut {
+  const perPage = atLeast(atMost(opts.lines ?? PR_LINES, 1000), 4)
+  const body = text.split('\n')
+  const out: string[] = []
+  let page = 0
+  for (let i = 0; i < body.length; i += perPage - (opts.noHeader ? 0 : 4)) {
+    page++
+    const chunk = body.slice(i, i + perPage - (opts.noHeader ? 0 : 4))
+    if (!opts.noHeader) out.push('', `${opts.header ?? ''}  Page ${page}`.trim(), '')
+    out.push(...chunk)
+  }
+  return ok(out, { pages: page, perPage, dateOmitted: !opts.noHeader })
+}
+
+const LS_COLOURS: readonly [string, string][] = [
+  ['di', '01;34'], ['ln', '01;36'], ['ex', '01;32'], ['fi', '00'], ['pi', '40;33'], ['so', '01;35'], ['bd', '40;33;01'],
+]
+/** dircolors() → the LS_COLORS assignment, which is a pure table rendered as a shell line. */
+export function dircolors(shell: 'sh' | 'csh' = 'sh'): AppletOut {
+  const body = LS_COLOURS.map(([k, v]) => `${k}=${v}`).join(':') + ':'
+  const line = shell === 'csh' ? `setenv LS_COLORS '${body}'` : `LS_COLORS='${body}';\nexport LS_COLORS`
+  return ok(line.split('\n'), { entries: LS_COLOURS.length, shell })
+}
+
+/** realpath(path) → LEXICAL normalization: `.` and `..` resolved against the path itself. Symbolic links are
+ *  not consulted because this filesystem has none to consult — see the refusal for `readlink`. */
+export function realpath(path: string): AppletOut {
+  const absolute = path.startsWith('/')
+  const parts: string[] = []
+  for (const seg of path.split('/')) {
+    if (seg === '' || seg === '.') continue
+    if (seg === '..') { if (parts.length && parts[parts.length - 1] !== '..') parts.pop(); else if (!absolute) parts.push('..') }
+    else parts.push(seg)
+  }
+  const out = (absolute ? '/' : '') + parts.join('/')
+  return ok([out === '' ? (absolute ? '/' : '.') : out], { path: out })
+}
+
+export const SPLIT_LINES = 1000
+/** splitPieces(text, lines) → the pieces `split` would write, named as split names them (xaa, xab, …). The
+ *  WRITING is the dispatcher's, because only it holds the session; the division is this pure function's. */
+export function splitPieces(text: string, lines = SPLIT_LINES, prefix = 'x'): { name: string; content: string }[] {
+  const n = atLeast(atMost(lines, 100_000), 1)
+  const body = text.split('\n')
+  const out: { name: string; content: string }[] = []
+  const letter = (i: number): string => 'abcdefghijklmnopqrstuvwxyz'[i] ?? 'z'
+  for (let i = 0, k = 0; i < body.length; i += n, k++) {
+    out.push({ name: `${prefix}${letter((k - (k % 26)) / 26)}${letter(k % 26)}`, content: body.slice(i, i + n).join('\n') })
+  }
+  return out
+}
+
+/** matchGlob(name, pattern) → the shell glob `find -name` takes: * for any run, ? for one character. Written as
+ *  a translation to a character walk rather than a regex build, so a pattern carrying regex metacharacters
+ *  matches them literally instead of being reinterpreted as a pattern of a different language. */
+export function matchGlob(name: string, pattern: string): boolean {
+  const walk = (i: number, j: number): boolean => {
+    if (j === pattern.length) return i === name.length
+    const p = pattern[j]!
+    if (p === '*') {
+      for (let k = i; k <= name.length; k++) if (walk(k, j + 1)) return true
+      return false
+    }
+    if (i === name.length) return false
+    if (p === '?' || p === name[i]) return walk(i + 1, j + 1)
+    return false
+  }
+  return walk(0, 0)
 }

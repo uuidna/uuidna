@@ -175,3 +175,51 @@ test('/catalogue boots locally; /terminal uses the MCP wire', () => {
   assert.match(term, /advantageCall/)
   assert.doesNotMatch(term, /exec-shell/)
 })
+
+// ── THE APPLETS THAT TOUCH THE SESSION. These cannot be checked in the pure suite because their whole point is
+// the effect; each is read back through a DIFFERENT door than the one that wrote it, so a write that only
+// updated the writer's own view would fail here.
+
+test('tee writes what it echoes, and cat reads back the same bytes', () => {
+  const r = exec('tee /tmp/tee-check hello')
+  assert.equal(r.ok, true)
+  assert.deepEqual((r.data as { wrote: string[] }).wrote, ['/tmp/tee-check'])
+  assert.equal(exec('cat /tmp/tee-check').output.join('\n'), 'hello', 'a different door must see the write')
+})
+
+test('split writes every piece, and the pieces rejoin to the original', () => {
+  sessionWrite('/tmp/split-src', 'l1\nl2\nl3\nl4\nl5')
+  const r = exec('split -l 2 /tmp/split-src')
+  const wrote = (r.data as { wrote: string[] }).wrote
+  assert.deepEqual(wrote, ['/xaa', '/xab', '/xac'])
+  const back = wrote.map((p) => exec('cat ' + p).output.join('\n')).join('\n')
+  assert.equal(back, 'l1\nl2\nl3\nl4\nl5', 'the split must be lossless when read back through cat')
+})
+
+test('cp copies, and REFUSES a source that does not exist instead of writing an empty file', () => {
+  sessionWrite('/tmp/cp-src', 'payload')
+  assert.equal(exec('cp /tmp/cp-src /tmp/cp-dst').ok, true)
+  assert.equal(exec('cat /tmp/cp-dst').output.join(''), 'payload')
+  const miss = exec('cp /tmp/definitely-absent /tmp/cp-x')
+  assert.equal(miss.ok, false, 'a copy from nothing must fail, not create an empty destination')
+  assert.equal(exec('cat /tmp/cp-x').ok, false, 'and it must not have written the destination at all')
+})
+
+test('find descends by whether a route LISTS CHILDREN, which is what a directory is here', () => {
+  const dirs = exec('find / -type d -maxdepth 1')
+  assert.ok(dirs.output.length > 0, 'a -type d that answers empty is the bug this test was written for')
+  const files = exec('find / -type f -maxdepth 1')
+  assert.equal(new Set([...dirs.output, ...files.output]).size, dirs.output.length + files.output.length,
+    'd and f must PARTITION the level, never overlap')
+  const named = exec('find / -name util* -maxdepth 3')
+  assert.ok(named.output.every((p) => p.split('/').pop()!.startsWith('util')), 'every hit must match the glob')
+})
+
+test('the busybox multiplexer dispatches into the one door, and carries an inner refusal out', () => {
+  assert.deepEqual(exec('busybox rev abc').output, exec('rev abc').output, 'busybox X is X')
+  assert.deepEqual(exec('coreutils factor 91').output, exec('factor 91').output)
+  const bare = exec('busybox')
+  assert.ok(bare.output[0]!.startsWith('applets:'), 'called bare it lists what it carries')
+  const bad = exec('busybox nosuchapplet')
+  assert.equal(bad.ok, false, 'an unknown inner applet must not be laundered into a green outer answer')
+})

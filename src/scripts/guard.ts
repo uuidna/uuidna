@@ -7,6 +7,7 @@
 import { landingGaps } from './landing-gaps.js'
 import { impossibilityGaps } from './impossibility-gaps.js'
 import { attestationGaps } from './attestation-gaps.js'
+import { accountingGaps } from './accounting-gaps.js'
 import { stampGaps } from './stamp.js'
 import { mcpCitationGaps } from '../mcp-citations.js'
 import { ratchetGaps } from './ratchet-gaps.js'
@@ -281,6 +282,12 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // `reconcile` was not, so the fix lived at one call site and the second caller died at the receipt step after
   // paying for the entire regeneration. The finder is the fold: no source may invoke the writer bare.
   { name: 'attestation', run: () => attestationGaps([...sourceGraph().keys()]) },
+  // A COVERAGE FRACTION IS NOT AN ACCOUNTING. The shell census read "55 of 345" and carried no verdict at all
+  // on the other 290 — 84% of the domain silent, which reads as progress and cannot be checked. Every command
+  // is now PORTED or REFUSED WITH A CAUSE, and this refuses the third state as well as the contradiction of
+  // being both. Two refusals written on 2026-09-05 were false; a register that can be checked is how that
+  // was found, and this is that check.
+  { name: 'accounting', run: () => accountingGaps() },
   { name: 'mcpcite', run: () => mcpCitationGaps() },
   { name: 'stamp', run: () => stampGaps() },
   { name: 'ratchet', run: () => ratchetGaps(RATCHETS) },

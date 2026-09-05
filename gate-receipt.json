@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "410ab8fdab93ed40d73c2ce68b22f334",
+    "src": "5fdc770ee762d902386cab9ad16222ba",
     "lean": "f972fa36012de6b88e4997e393c3950c"
   },
   "files": {
@@ -3813,6 +3813,8 @@
     "src/quantum/os/public/index.ts": "afe32e5f32d524b5",
     "src/quantum/os/qc/index.test.ts": "1038a1494834a018",
     "src/quantum/os/qc/index.ts": "8f57487c4e35563e",
+    "src/quantum/os/refusals/index.test.ts": "27db60562fc53db4",
+    "src/quantum/os/refusals/index.ts": "47c694b1cb13176a",
     "src/quantum/os/registry/index.test.ts": "65681ecad9467124",
     "src/quantum/os/registry/index.ts": "7eb5b381ab07e4ac",
     "src/quantum/os/related/index.test.ts": "c7fa161d7432f43d",
@@ -3893,6 +3895,7 @@
     "src/school/refusals/index.ts": "e67c10b42883e549",
     "src/school/sequence/index.ts": "1b33db49de600f91",
     "src/scripts/account.ts": "12d4b17d1045f90b",
+    "src/scripts/accounting-gaps.ts": "5378183832c0e6c1",
     "src/scripts/all-run.test.ts": "1e1a12751b7126c2",
     "src/scripts/all-run.ts": "81fb11acec274b4c",
     "src/scripts/alpine-discovery.ts": "5bba3f7ac631e788",
@@ -4315,7 +4318,7 @@
   },
   "verified": [
     "guard",
-    "build"
+    "tests"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."

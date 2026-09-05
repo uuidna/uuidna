@@ -776,7 +776,21 @@ export function uuidnaExec(line: string): ExecResult {
     case 'sum':
     case 'tsort':
     case 'numfmt':
-    case 'pathchk': {
+    case 'pathchk':
+    case 'basenc':
+    case 'ptx':
+    case 'pr':
+    case 'dircolors':
+    case 'realpath':
+    case 'split':
+    case 'tee':
+    case 'cp':
+    case 'find':
+    case 'dir':
+    case 'vdir':
+    case 'busybox':
+    case 'coreutils':
+    case 'uutils': {
       // ── OPERAND PARSING, and the first version got three things wrong that a run exposed immediately.
       //
       // (1) FLAG VALUES LEAKED INTO THE TEXT. `fold -w 4 abcdefghij` folded "4 abcdefghij" because the 4 was
@@ -795,6 +809,7 @@ export function uuidnaExec(line: string): ExecResult {
         head: ['-n'], tail: ['-n'], yes: ['-n'],
         fold: ['-w'], cut: ['-f', '-d'],
         expand: ['-t'], unexpand: ['-t'], fmt: ['-w'], join: ['-j'], paste: ['-d'], numfmt: ['--to'],
+        pr: ['-h', '-l'], split: ['-l'], basenc: ['--base'], find: ['-name', '-type', '-maxdepth'],
       }
       const VALUED = new Set(VALUED_BY_APPLET[applet] ?? [])
       const POSITIONAL = new Set(['expr', 'test'])
@@ -876,6 +891,95 @@ export function uuidnaExec(line: string): ExecResult {
         case 'tsort': r = CU.tsort(textOf()); break
         case 'numfmt': r = CU.numfmt(Number(operands[0] ?? NaN), has('--iec-i') ? 'iec-i' : has('--iec') ? 'iec' : has('--none') ? 'none' : 'si'); break
         case 'pathchk': r = CU.pathchk(operands[0] ?? ''); break
+        case 'basenc': r = CU.basenc(fromFile ? fromFile.content : operands.join(' '),
+          flagVal.get('--base') === '16' ? 16 : flagVal.get('--base') === '32' ? 32 : 64, has('-d')); break
+        case 'ptx': r = CU.ptx(textOf()); break
+        case 'pr': r = CU.pr(textOf(), { header: flagVal.get('-h'), lines: flagNum('-l', CU.PR_LINES), noHeader: has('-t') }); break
+        case 'dircolors': r = CU.dircolors(has('-c') ? 'csh' : 'sh'); break
+        case 'realpath': r = CU.realpath(operands[0] ?? sessionCwd()); break
+        // SPLIT AND TEE WRITE. The division and the content are pure (coreutils); only the session write lives
+        // here, because only the dispatcher holds the session. Each names the paths it actually created, so a
+        // caller can read them back — a split that printed nothing would be indistinguishable from one that
+        // wrote nothing, which is the same green-over-absent shape the fault branch above exists to refuse.
+        case 'split': {
+          const pieces = CU.splitPieces(textOf(), flagNum('-l', CU.SPLIT_LINES), operands[1] ?? 'x')
+          for (const p of pieces) sessionWrite(norm(p.name), p.content)
+          r = { lines: pieces.map((p) => norm(p.name)), data: { wrote: pieces.map((p) => norm(p.name)), pieces: pieces.length } }
+          break
+        }
+        case 'tee': {
+          const text = fromFile ? fromFile.content : operands.slice(1).join(' ')
+          const target = norm(operands[0] ?? '/tmp/tee.out')
+          sessionWrite(target, text)
+          r = { lines: text.split('\n'), data: { wrote: [target] } }
+          break
+        }
+        case 'cp': {
+          const src = sessionRead(norm(operands[0] ?? ''))
+          if (!src) { r = { lines: [`cp: cannot stat '${operands[0] ?? ''}': no such session file`], data: { error: 'no-such-file' } }; break }
+          const dest = norm(operands[1] ?? '')
+          sessionWrite(dest, src.content)
+          r = { lines: [`${norm(operands[0] ?? '')} -> ${dest}`], data: { wrote: [dest], bytes: src.content.length } }
+          break
+        }
+        // FIND WALKS THE INSTALL PORT, the same routes `ls` lists — so it finds what actually exists in the
+        // booted sandbox rather than a table written beside it. Depth is bounded because the walk is over a
+        // finite sealed port and an unbounded one would still terminate, but slowly and for no gain.
+        case 'find': {
+          const start = norm(operands[0] ?? sessionCwd())
+          const wantName = flagVal.get('-name')
+          const wantType = flagVal.get('-type')
+          const maxDepth = flagNum('-maxdepth', 6)
+          // WHAT COUNTS AS A DIRECTORY HERE, measured rather than assumed. The first version tested
+          // `kind === 'dir'` and found nothing and descended nowhere: every entry the install port lists
+          // carries kind 'pkg', so the test was false at every node and `-type d` silently answered empty.
+          // In this filesystem a route IS a directory exactly when it lists children, so that is the question
+          // asked — one ls per node, the same call `dir` and `vdir` answer with.
+          const childrenAt = (path: string): { name: string; kind: string }[] => {
+            try { return [...uuidnaLs(path).entries] } catch { return [] }
+          }
+          const hits: string[] = []
+          const walk = (path: string, depth: number): void => {
+            if (depth > maxDepth) return
+            for (const e of childrenAt(path)) {
+              const full = path === '/' ? '/' + e.name : path + '/' + e.name
+              const kids = childrenAt(full)
+              const isDir = kids.length > 0
+              const nameOk = wantName === undefined || CU.matchGlob(e.name, wantName)
+              const typeOk = wantType === undefined || (wantType === 'd' ? isDir : !isDir)
+              if (nameOk && typeOk) hits.push(full)
+              if (isDir) walk(full, depth + 1)
+            }
+          }
+          walk(start, 0)
+          r = { lines: hits, data: { found: hits.length, root: start, maxDepth } }
+          break
+        }
+        // dir and vdir ARE ls, in the two spellings coreutils ships: dir columns the names, vdir is the long
+        // form. Porting them as aliases is the honest reading — inventing different output would be a fork.
+        case 'dir':
+        case 'vdir': {
+          const l = uuidnaLs(operands[0] ?? sessionCwd())
+          r = applet === 'dir'
+            ? { lines: l.entries.map((e) => (e.kind === 'dir' ? e.name + '/' : e.name)), data: l }
+            : { lines: l.entries.map((e) => `${e.kind === 'dir' ? 'd' : '-'} ${e.name}`), data: l }
+          break
+        }
+        // THE MULTIPLEXER. busybox is ONE binary carrying many applets, and `busybox wc file` is how it is
+        // called; coreutils and uutils ship the same shape. Porting the multiplexer is porting the calling
+        // convention, so it dispatches into this very door rather than duplicating a table of its own.
+        case 'busybox':
+        case 'coreutils':
+        case 'uutils': {
+          if (operands.length === 0) {
+            r = { lines: ['applets: ' + APPLETS.join(' ')], data: { applets: [...APPLETS], count: APPLETS.length } }
+            break
+          }
+          const inner = uuidnaExec(operands.join(' '))
+          r = { lines: inner.output, data: { via: applet, ...(typeof inner.data === 'object' && inner.data ? inner.data : {}) } }
+          if (!inner.ok) r = { lines: inner.output, data: { via: applet, error: 'inner-applet-failed', ...(typeof inner.data === 'object' && inner.data ? inner.data : {}) } }
+          break
+        }
         case 'yes': r = CU.yes(operands.filter((a) => !/^\d+$/.test(a)).join(' '),
           flagNum('-n', Number(operands.find((a) => /^\d+$/.test(a)) ?? 10))); break
         // grep takes its PATTERN first, then the text or a file

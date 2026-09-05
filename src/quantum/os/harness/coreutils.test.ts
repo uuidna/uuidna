@@ -299,3 +299,66 @@ test('pathchk names WHICH component is unportable, and passes a plain path', () 
   assert.match(bad.faults[0]!, /'a b'/, 'the fault must name the offending component, not just fail')
   assert.match((CU.pathchk('/-x').data as { faults: string[] }).faults[0]!, /begins with '-'/)
 })
+
+// ── THIRD WAVE. Two of these exist because a refusal written yesterday was FALSE: split and tee were declared
+// unportable "because the filesystem is read-only", and it is not. So they are tested as what they are —
+// applets with an effect — by reading back what they wrote through a different door than the one that wrote it.
+
+test('basenc covers the three alphabets and each round-trips', () => {
+  for (const base of [16, 32, 64] as const) {
+    for (const s of ['', 'a', 'hi', 'hello world']) {
+      const enc = CU.basenc(s, base).lines[0]!
+      assert.equal(CU.basenc(enc, base, true).lines[0], s, `base${base} failed on ${JSON.stringify(s)}`)
+    }
+  }
+  assert.equal(CU.basenc('hi', 16).lines[0], '6869', 'base16 of "hi" is the two ASCII codes in hex')
+  assert.equal((CU.basenc('abc', 16, true).data as { error?: string }).error, 'invalid-base16', 'odd length is a fault')
+})
+
+test('ptx rotates each line to every one of its words, sorted by keyword', () => {
+  const r = CU.ptx('the quick fox')
+  assert.equal(r.lines.length, 3, 'three words is three rotations')
+  assert.equal((r.data as { entries: number }).entries, 3)
+  // the keyword sits AFTER the gap in KWIC, so the order lives in the keys, not in the line's first word
+  assert.deepEqual((r.data as { keys: string[] }).keys, ['fox', 'quick', 'the'], 'rows are sorted by keyword')
+  assert.match(r.lines[0]!, /   fox$/, 'the fox row places its keyword after the gap')
+  assert.equal(CU.ptx('one two\nthree').lines.length, 3, 'rotations are counted per line, then merged')
+})
+
+test('pr paginates and OMITS the date rather than faking one', () => {
+  const r = CU.pr('a\nb\nc\nd\ne\nf', { lines: 8, header: 'DOC' })
+  assert.equal((r.data as { dateOmitted: boolean }).dateOmitted, true, 'the clock is refused; the omission is declared')
+  assert.ok(r.lines.some((l) => l.includes('DOC') && l.includes('Page 1')))
+  for (const l of r.lines) assert.ok(!/\d{4}-\d{2}-\d{2}/.test(l), 'no date may appear anywhere in the output')
+  assert.equal((CU.pr('a\nb', { noHeader: true }).data as { pages: number }).pages, 1)
+})
+
+test('realpath resolves . and .. lexically, and never invents a link target', () => {
+  assert.equal(CU.realpath('/a/b/../c/./d').lines[0], '/a/c/d')
+  assert.equal(CU.realpath('/..').lines[0], '/', 'above the root is the root')
+  assert.equal(CU.realpath('a/../..').lines[0], '..', 'a relative path may climb out of itself')
+  assert.equal(CU.realpath('/').lines[0], '/')
+})
+
+test('matchGlob treats regex metacharacters as literals, not as a second pattern language', () => {
+  assert.ok(CU.matchGlob('core', 'c*'))
+  assert.ok(CU.matchGlob('core', '?ore'))
+  assert.ok(!CU.matchGlob('core', 'c?'))
+  assert.ok(CU.matchGlob('a.b', 'a.b'), 'a dot is a dot')
+  assert.ok(!CU.matchGlob('axb', 'a.b'), 'and it must NOT match any character, as a regex dot would')
+  assert.ok(CU.matchGlob('a+b', 'a+*'))
+})
+
+test('splitPieces divides exactly, names pieces as split names them, and loses nothing', () => {
+  const pieces = CU.splitPieces('a\nb\nc\nd\ne', 2)
+  assert.deepEqual(pieces.map((p) => p.name), ['xaa', 'xab', 'xac'])
+  assert.equal(pieces.map((p) => p.content).join('\n'), 'a\nb\nc\nd\ne', 'the pieces must rejoin to the original')
+  assert.equal(CU.splitPieces('a\nb', 1).length, 2)
+})
+
+test('dircolors renders the same table in both shell dialects', () => {
+  const sh = CU.dircolors('sh'), csh = CU.dircolors('csh')
+  assert.match(sh.lines[0]!, /^LS_COLORS=/)
+  assert.match(csh.lines[0]!, /^setenv LS_COLORS/)
+  assert.equal((sh.data as { entries: number }).entries, (csh.data as { entries: number }).entries)
+})
