@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "dba66da8ade6d8959a8fd4985452b512",
+    "src": "5a97127d7c68b09bb19286292c573daa",
     "lean": "99007318525fe02b1b912499ea7eb956"
   },
   "files": {
@@ -4094,7 +4094,7 @@
     "src/scripts/gen-zenodo.ts": "1c81442192a01f61",
     "src/scripts/generate.ts": "863df9b73582efb8",
     "src/scripts/green.ts": "e286a448ebf90fa5",
-    "src/scripts/guard.test.ts": "249ce6ae7cf91868",
+    "src/scripts/guard.test.ts": "249114e211b9f6ac",
     "src/scripts/guard.ts": "d4c7b19efe0ad6ea",
     "src/scripts/harmonic-scan.test.ts": "0bb9d22e5cb3c809",
     "src/scripts/harmonic-scan.ts": "b14e41db661b9a47",
