@@ -119,7 +119,7 @@ const FACTS = [
       const div = (n: number, d: number): number => (n - (n % d)) / d
       return div(markup, addr) === 2366 && 36 * 2366 <= markup && pages * markup === 221720937
         && pages * addr === 93708 && pages * markup > pages * addr * 2000 },
-    lean: 'theorem the_face_is_computed_not_shipped : (85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000) := by decide' },
+    lean: 'theorem the_face_is_computed_not_shipped : ((85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000)) \u2227 (85179 % 9 = 3) := by decide' },
 
   { key: 'exponent_associativity_changes_the_value', name: '2^3^2 = 512, but (2^3)^2 = 64', skill: 'typesetting',
     why: 'THE TYPESETTER\'S FIRST TRAP, AND THE LEDGER IS ITS REFEREE. A statement sealed as `2^3^2 = 512` is true only if the exponent associates to the RIGHT — 2^(3^2) is 2^9 = 512, while (2^3)^2 is 8^2 = 64 — and 512 and 64 are not the same number, so a typesetter that set the exponents left-associatively would render a sealed truth as a falsehood while looking perfectly typeset. This is what makes the ledger usable as a test of its own presentation: every statement is true by decide, so evaluating a parse of one is a check the kernel referees rather than a check the author marks. The formula layer was validated exactly this way and the associativity is the case that catches the error.',

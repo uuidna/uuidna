@@ -1,0 +1,12 @@
+{
+  "handle": "4c03b1b7",
+  "address": "4c03b1b7-fb90-87e9-a901-4459bfe963cb",
+  "statement": "(((List.range 9).drop 1).all (fun n => n % 9 != 0)) ∧ (9 % 9 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "nine_step_walk_closes_the_ring"
+  ],
+  "files": [
+    "Colour.lean"
+  ]
+}

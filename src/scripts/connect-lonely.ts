@@ -43,7 +43,14 @@ for (const key of lonely) {
   const line = new RegExp(`    lean: 'theorem ${key} : ([^']*) := by decide'`)
   const m = src.match(line)
   if (!m || /% 9/.test(m[1]!)) { read++; continue }
-  src = src.replace(m[0], `    lean: 'theorem ${key} : (${m[1]}) \\u2227 (${root} % 9 = ${root % 9}) := by decide'`)
+  // THE CONJUNCT MUST MENTION THE THEOREM'S OWN NUMBER. This emitted `(${root} % 9 = ${root % 9})` — the root's
+  // residue, not the VALUE's — so a theorem about 85179 was connected by `(3 % 9 = 3)`: true, and a fact about
+  // the number 3, which appears nowhere in the theorem. Worse, it is an IDENTITY (`a % b = a` for a < b, and
+  // `9 % 9 = 0`), so the conjunct could not be false for any theorem and every theorem of the same root received
+  // the same one. The lonely count fell 23 -> 10 on filler: a connection that connects nothing.
+  // `n % 9` equals the digital root mod 9 for every n, so naming the value keeps the statement true AND makes it
+  // say something only this theorem's number satisfies — which is what the header above always claimed it did.
+  src = src.replace(m[0], `    lean: 'theorem ${key} : (${m[1]}) \\u2227 (${first[0]} % 9 = ${root % 9}) := by decide'`)
   // THE GATE IS ON THE WRITE, not on the message. The first version printed "would" while calling
   // writeFileSync unconditionally, so the dry run applied every edit and the second invocation found nothing
   // left to do. A preview that mutates is worse than no preview: it is trusted precisely when it should not be.

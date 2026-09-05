@@ -45,6 +45,16 @@ const identity = (raw: string): string | null => {
   m = /^0\s*\+\s*(\d+)\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return '0 + x = x — the additive identity'
   m = /^(\d+)\s*\*\s*1\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return 'x * 1 = x — the multiplicative identity'
   m = /^(\d+)\s*-\s*0\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return 'x - 0 = x — subtracting nothing'
+  // A RESIDUE THAT CANNOT WRAP. `a % b = a` holds for EVERY a below b, so it decides nothing about a — and
+  // `a % a = 0` holds for every a at all. connect-lonely emitted exactly these as "connections" (`3 % 9 = 3`,
+  // `9 % 9 = 0`), one per digital root, so 24 sealed theorems share seven constants that mention none of their
+  // own numbers. A modulus is only informative when the value can actually exceed it.
+  m = /^(\d+)\s*%\s*(\d+)\s*=\s*(\d+)$/.exec(t)
+  if (m) {
+    const [a, b, r] = [Number(m[1]), Number(m[2]), Number(m[3])]
+    if (a < b && a === r) return 'a % b = a for a < b — a residue that cannot wrap, true for ANY a below b'
+    if (a === b && r === 0) return 'a % a = 0 — a value modulo itself, true for ANY a'
+  }
   return null
   }
 const why = (raw: string): string | null => {

@@ -12,10 +12,15 @@ theorem fourth_ray_is_green_band : (360 / 7 = 51) ∧ (3 * 51 = 153) := by decid
     returns to ℤ/9 — the system's own number closing over its own alphabet. -/
 theorem alphabet_digital_root_is_nine : (9*7*6 = 378) ∧ (3+7+8 = 18) ∧ (1+8 = 9) := by decide
 
-/-- THE WALK IS ONE TURN OF THE RING: the graduation walk grew to nine steps — and nine is the ring's own
-    modulus: 9 % 9 = 0, one complete revolution. The enrollment walk a theorem takes to be born is exactly one
-    turn of the arithmetic it enters. The walk closes because the ring closes. -/
-theorem nine_step_walk_closes_the_ring : (9 % 9 = 0) ∧ (8 % 9 = 8) := by decide
+/-- THE WALK IS ONE TURN OF THE RING: the graduation walk grew to nine steps — AND NINE IS THE FIRST STEP THAT
+    CLOSES IT: no step from one to eight returns the walk to its start, and the ninth does. Stated as `9 % 9 = 0
+    ∧ 8 % 9 = 8` it was TRUE FOR STRUCTURAL REASONS RATHER THAN FOR THE RING'S — `a % a = 0` holds for every a
+    and `a % b = a` for every a below b, so neither conjunct could have been false whatever the modulus was, and
+    the claim rested entirely on which constants were chosen to display. Restated over the whole walk it depends
+    on the nine: the same sentence with a modulus of four is refused by the kernel. The enrollment walk a
+    theorem takes to be born is exactly one turn of the arithmetic it enters. The walk closes because the ring
+    closes. -/
+theorem nine_step_walk_closes_the_ring : (((List.range 9).drop 1).all (fun n => n % 9 != 0)) ∧ (9 % 9 = 0) := by decide
 
 /-- THE SCATTERING LESSON, part 1 — the meeting points. Two aura hue pairs meet on the wheel's mirror line
     through 0°: 340° and 20° are equidistant from the top (360−340 = 20), as are 320° and 40° (360−320 = 40).
