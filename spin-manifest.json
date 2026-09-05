@@ -2751,7 +2751,7 @@
     "lean/doi-domains.json": "02d2e036b84e8059",
     "lean/doi-harvest.json": "2bca8ca0b58c81d7",
     "lean/doi-unclaimed.json": "8a70dccdcc928a0d",
-    "lean/dormant-receipt.json": "0c736611086a8ce1",
+    "lean/dormant-receipt.json": "c6f8ef460ac88afa",
     "lean/dormant-scripts.json": "14ec40b83ed18bbf",
     "lean/doubletorus-manifest.json": "5718f6c5aef782ed",
     "lean/editing-manifest.json": "e87a2cc25dd2891a",
@@ -2862,5 +2862,5 @@
     "lean/wave-queue.json": "a0d06de0854b8406",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "b8c3f816-c135-8883-8e4a-452db1b716eb"
+  "receipt": "26ab3d0c-193f-85c4-9941-226b591e10ca"
 }
