@@ -57,6 +57,34 @@ here is a choice — which domain to enumerate, which counterexample to exhibit,
 implementation can also decide. Facts are free. Choices among adequate expressions of a fact are expression, and
 expression is licensed, not given.
 
+## The commercial licence is SEPARATE, and the coins buy it
+
+**CC BY-NC-ND grants no commercial rights at all, so nothing paid under it can unlock them.** NonCommercial is a
+prohibition, not a toll. The two-coin contribution therefore does not make commercial use compliant with the
+public licence — it is the consideration for a **separate, non-exclusive commercial licence granted by the
+author**, under the rights reserved above. The public licence governs the free tier and nothing else.
+
+**What a coin is worth is derived, not quoted.** The obligation is the licensee's own revenue at 2 coins per
+110 (1/55), capped by their own profit at 2 coins per 108 (1/54) — see [the captain's message](/captain). A
+coin's fiat value is the spend it removes: one sealed receipt replaces re-reading the ledger, so a coin is worth
+half of what that reading would have cost on the licensee's own model. **Any figure quoted for a coin must carry
+the ledger size and the date it was computed at** — the ratio grows with the ledger, and a frozen number is
+wrong on the next landing.
+
+**Capacity is priced by position, not by volume.** Two coins per hexbit; 32 hexbits address the whole 2^128
+space for **64 coins**, which is `UUID_BITS / COINS` — the same 64 as *contribute 2, save up to 64*. Each hexbit
+multiplies capacity sixteenfold for a flat two coins, so the licence is linear in what is owned while the
+contribution scales with what is used.
+
+**No exclusivity, no warranty, no refunds.** A sealed receipt is final; a disputed one is *recomputed*, not
+negotiated.
+
+## The name
+
+**uuidna** is the author's mark for this work and its surfaces. Nothing on this page licenses its use as a name,
+a brand, or an endorsement. A licensed deployment carries the attribution this licence requires; it does not
+thereby acquire the right to present itself as uuidna.
+
 ## Canonical and the three domains
 
 - **uuidna.com** — the default, canonical home, and this license.
