@@ -58,7 +58,7 @@ export { LEGS, floorGaps, type Leg, type Rosetta }
  *  Removing it takes the anchored count to 15, and the floor follows it down under
  *  `a_floor_may_fall_to_what_is_anchored` — which is the point of having replaced the absolute refusal: a census
  *  can now be corrected toward the law instead of being held at whatever it once mistakenly counted. */
-const WITNESS = /\b(NIST|CODATA|WGS ?84|IUPAC|SI\b|Gutenberg|Landauer|Eratosthenes|Fujishima|McCarty|Heidrich|Rossi|Runciman|Rathbun|Mathot|Day,|Wellman|ISO ?\d|RFC ?\d|doi|DOI|physics\.nist\.gov|bomb calorimetry)\b/
+const WITNESS = /\b(NIST|CODATA|WGS ?84|IUPAC|SI\b|Gutenberg|Landauer|Eratosthenes|Fujishima|McCarty|Heidrich|Rossi|Runciman|Rathbun|Mathot|Day,|Wellman|ISO ?\d|RFC ?\d|physics\.nist\.gov|bomb calorimetry)\b|10\.\d{4,9}\/[^\s)'"]+/
 
 // ATTRIBUTION IS COMPUTED, NOT ANNOTATED. The first attempt at this hand-wrote "Claimed by the captain" with a
 // date onto three theorems. Three things wrong with that, and the captain named all three: it is manual logic in a
