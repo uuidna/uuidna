@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "bf0612ceffb39cd59e9fec9367b05b49",
-    "lean": "b5beb1fe77b7f4c47e1bbf189004c9dd"
+    "src": "4eda4cbd3f17e97dc5026f0d55838fa2",
+    "lean": "ded413ea0377719cd3fe3c9a2dd1156f"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -188,7 +188,7 @@
     "lean/hardware-manifest.json": "8a99cf7c1e76ae3d",
     "lean/harmony-manifest.json": "08e6c536fc09765f",
     "lean/heartbeats.json": "6c3ab73d63111422",
-    "lean/hexbit-manifest.json": "9b9c644972d0ada4",
+    "lean/hexbit-manifest.json": "4829fd993091ec36",
     "lean/identifiers-manifest.json": "ecb53ab71710bb0b",
     "lean/impossibility-baseline.json": "a85245f49f5c7eeb",
     "lean/infinity-manifest.json": "f076491998c2b8c7",
@@ -248,7 +248,7 @@
     "lean/search-feed.json": "1eaf611c7e08c4b5",
     "lean/seats-manifest.json": "d2c97a34b7ee8a13",
     "lean/security-manifest.json": "558595898351fdc2",
-    "lean/seo-url-map.json": "b6d2bb95bc328588",
+    "lean/seo-url-map.json": "620327b47e1b21a4",
     "lean/sequence-manifest.json": "eb2b6a48bff33ac5",
     "lean/sessions.json": "a2adb7cedcb4b7bb",
     "lean/singularity-manifest.json": "d685967c635eef3a",
@@ -1864,7 +1864,7 @@
     "src/handles/71/87/5d/73/index.json": "44cf3d8fa1705c17",
     "src/handles/71/9a/79/25/index.json": "7c132eed8ed2fd73",
     "src/handles/71/ed/9e/f4/index.json": "f2438f6d8cd78017",
-    "src/handles/72/15/be/71/index.json": "4a703ca08b2a8897",
+    "src/handles/72/15/be/71/index.json": "a8c68e7e9aa61ded",
     "src/handles/72/3d/bc/7e/index.json": "69ef677bb57a4697",
     "src/handles/72/62/b9/3f/index.json": "a48fddf580e149ee",
     "src/handles/72/7b/ec/02/index.json": "06de1cabbc7f0e9e",
@@ -2086,7 +2086,7 @@
     "src/handles/84/b8/94/cb/index.json": "6f946e0a8b47ef09",
     "src/handles/84/bb/c5/36/index.json": "25a45b37ccc0abd7",
     "src/handles/84/d8/63/eb/index.json": "74110164350428c0",
-    "src/handles/84/e9/fa/10/index.json": "29fc3bed414e7539",
+    "src/handles/84/e9/fa/10/index.json": "2694f9ed72cb92aa",
     "src/handles/84/eb/8c/58/index.json": "019cd09a7bbf5357",
     "src/handles/84/f4/1c/68/index.json": "9f6121bd790695e9",
     "src/handles/84/fd/6f/f1/index.json": "4c1738c3b6afe805",
@@ -3431,7 +3431,7 @@
     "src/handles/fd/5f/f7/43/index.json": "d9a65d8e6b280e41",
     "src/handles/fd/72/98/f2/index.json": "3be0ee7813e0ffb8",
     "src/handles/fd/72/f4/ce/index.json": "0614384eaf2087d1",
-    "src/handles/fd/76/93/07/index.json": "2242a382653b6d2e",
+    "src/handles/fd/76/93/07/index.json": "2f9b479f51f2a071",
     "src/handles/fd/76/f6/76/index.json": "e8ac88aa3142e199",
     "src/handles/fd/7b/11/81/index.json": "2597e7e4ee498939",
     "src/handles/fd/80/d1/ac/index.json": "1ebd5d0449225e22",
@@ -4341,7 +4341,7 @@
     "src/tests/vectors-mlkem768-x25519.json": "125b7b7274565007",
     "src/theorem-demos.test.ts": "4284ac7d9c0fe83a",
     "src/theorem-forms.ts": "90e2a0cb50c59f44",
-    "src/theorems/generated.ts": "8d0737c8b1d71424",
+    "src/theorems/generated.ts": "c6ba94ca292ee39b",
     "src/theorems/index.ts": "8384bcddd70b0dbf",
     "src/three-geometry.test.ts": "5bccfe8450e6bdae",
     "src/three-geometry.ts": "6204a6ec54bb57e7",
