@@ -9,4 +9,4 @@
 // so the stdio MCP door reported a version that has never existed to every client that connected — and
 // src/mcp-http.ts carried its own separate literal, which happened to be right. Two literals beside a version
 // field, one of them wrong by six major versions, and nothing compared either to the package.
-export const PKG_VERSION = '0.3.0'
+export const PKG_VERSION = '0.3.1'
