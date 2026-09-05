@@ -12,6 +12,7 @@
 // prose about events (a scattering, a colour), and history keeps its own numbers. Integrity.
 import { readFileSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
+import { citersOf } from '../citations/index.js'
 import { theorems, PRINCIPLES, coins, renderAdvantageMcpMarkdown } from '../index.js'
 import { hexbitsOf, bitsOf } from '../hexbit/index.js'
 import { schoolLeads, leadsCensus, renderSchoolLeads, type LeadsRecord } from '../school/leads/index.js'
@@ -130,17 +131,16 @@ for (const [, k] of CLAY) if (!byKey.has(k)) { console.error(`✗ gen-school —
 // from one practice batch, frozen in prose. So the relation is SCANNED from the names, never picked: every
 // snake_case token in a sealed name that is itself a sealed key is a citation, and the in-degree ranks the
 // foundations. A theorem sealed tomorrow that cites dz_table appears here tomorrow; no row can linger or hide.
-const keySet = new Set((theorems() as { key: string }[]).map((t) => t.key))
-const citersOf = new Map<string, string[]>()
-for (const t of theorems() as { key: string; name: string }[]) {
-  for (const m of t.name.matchAll(/\b[a-z][a-z0-9]*(?:_[a-z0-9]+)+\b/g)) {
-    const k = m[0]
-    if (k === t.key || !keySet.has(k)) continue
-    const arr = citersOf.get(k) ?? []
-    if (!arr.includes(t.key)) { arr.push(t.key); citersOf.set(k, arr) }
-  }
-}
-const prereqRows = [...citersOf.entries()]
+// THE SCAN NOW LIVES IN src/citations, because a second surface needed the same relation and the choice was
+// to copy this regex or to share it. A copied rule is two rules the moment either is edited — and the rule
+// itself is unchanged: every snake_case token in a sealed name that is itself a sealed key is a citation.
+// ONE ROW OF THIS TABLE MOVED with the extraction, and it moved to the RIGHT value: `citers.slice(0, 3).sort()`
+// displays three citers alphabetically but SELECTS them by whichever three were encountered first, so the
+// sample depended on ledger iteration order. The shared scan sorts its edges, so the three are now the
+// alphabetically first three — determined by the data instead of by the walk. window_not_universal's third
+// citer changed from tet_semitone_no_rational_at_the_window to team_pairs_triples_cover accordingly.
+const prereqIndex = citersOf()
+const prereqRows = [...prereqIndex.entries()]
   .sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]))
   .map(([k, citers]) => `| ${cite(k)} | ${citers.length} | ${citers.slice(0, 3).sort().map(cite).join(', ')} |`)
 
@@ -154,7 +154,7 @@ const prereqBlock = [
   'skipped. The fix is never to invent a bridging theorem (a restatement is not a unity,',
   cite('unity_census_is_plural_and_needs_two') + '); it is to **reorder the walk** so the sealed prerequisite comes',
   'first. And the prerequisite relation is not curated: it is scanned from the ledger itself — every sealed name',
-  `that cites another sealed key IS a citation edge, ${citersOf.size} prerequisites over ${[...citersOf.values()].reduce((n, c) => n + c.length, 0)} edges at this`,
+  `that cites another sealed key IS a citation edge, ${prereqIndex.size} prerequisites over ${[...prereqIndex.values()].reduce((n, c) => n + c.length, 0)} edges at this`,
   'generation, ranked by how many theorems rest on each. Walk the most-cited first; each row lists up to its first',
   'three citers alphabetically, and the count carries the rest.',
   '',

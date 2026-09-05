@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "a62580ebe8d495758bb561f658bbb05a",
+    "src": "c12bc9aa3a48da1c211368941a2aed1c",
     "lean": "f972fa36012de6b88e4997e393c3950c"
   },
   "files": {
@@ -331,6 +331,8 @@
     "src/census.test.ts": "8c605bff15c402f9",
     "src/chacha.ts": "ae747b4c1e5fca0f",
     "src/circle.test.ts": "9562e0f7b6d0f192",
+    "src/citations/index.test.ts": "c3fdc2e5405fb57c",
+    "src/citations/index.ts": "2590786dc3d7b085",
     "src/clay-involution.ts": "861ec8ca1cb37ea5",
     "src/cloudflare.ts": "5c10ed3961b1e973",
     "src/coin-ledger.test.ts": "da056965044bf652",
@@ -396,6 +398,8 @@
     "src/discover.ts": "25e7692bb2120caa",
     "src/domain-wave.test.ts": "fc5139ee3c7919e0",
     "src/domain-wave.ts": "7a82c9df4573c7bd",
+    "src/downstream-pins.test.ts": "07cee36bc606b436",
+    "src/downstream-pins.ts": "158bb8c33c34dd8c",
     "src/drain-owners.test.ts": "88b87978733ad447",
     "src/driver.test.ts": "0d7217061eefdddb",
     "src/drivers/driver/index.ts": "491d0498328428dd",
@@ -3479,7 +3483,7 @@
     "src/mcp-wire.test.ts": "91edd9ddd4cb27b2",
     "src/mcp-wire.ts": "fce9ac9952dab0f7",
     "src/mcp.test.ts": "2b8100729d7e1744",
-    "src/mcp.ts": "427193fb34f22710",
+    "src/mcp.ts": "09c51f2d28a0503c",
     "src/measurement-sources.ts": "752a5e3a0decdc40",
     "src/measurement.test.ts": "3da9d489881e97d3",
     "src/measurement.ts": "b563d6e9dfe8bba0",
@@ -4271,6 +4275,8 @@
     "src/study.ts": "327b8cb6d50ba822",
     "src/tamper-cost.test.ts": "d26f6026ca758169",
     "src/tamper-cost.ts": "0816e523c8ba1fd0",
+    "src/team/index.test.ts": "3b4158b337310704",
+    "src/team/index.ts": "7b9d58c2e278a868",
     "src/test-api.ts": "9c937cfbdf755d46",
     "src/test-paths.ts": "468b8c3a2a919131",
     "src/tests/vectors-mlkem768-x25519.json": "125b7b7274565007",
@@ -4322,7 +4328,7 @@
   },
   "verified": [
     "guard",
-    "build"
+    "tests"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."

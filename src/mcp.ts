@@ -46,6 +46,7 @@ import { apiMintHarvest, apiMintDeposit } from './api-mint.js'
 import { ROOT } from './scripts/api.js'  // repo root, edge-guarded (resolves '/' where no node registry exists)
 import { speak, speechCensus } from './speech.js' // what a handle SAYS, read off the sealed walk — no phrase table
 import { schoolApiRegistry, schoolApiFetch, pairEducationToJobs } from './school-apis.js' // the European education APIs behind one door — ESCO / Eurostat / GISCO fetched, OOAPI served
+import { teamFor } from './team/index.js' // THE TEAM AXIS — what building with these capabilities actually takes, and how many seats that is
 import { skillSurface, skillIndex } from './skills.js' // THE CAPABILITY AXIS, SERVED AS A DIMENSION — one computed surface over every skill the wings carry, never one tool per skill
 import { ledgerReport } from './research-ledger.js' // the findings, each carrying how well it was verified — the SAME report the hosted edge serves
 import { legCensus, legsFor, mirrorAgreement, mirrorRows, type Rosetta } from './rosetta-legs.js' // the leg census, interpreted by the one law both surfaces run
@@ -789,6 +790,15 @@ const TOOLS: Tool[] = ([
       skill: { type: 'string', description: 'a skill name from uuidna_skills (the live, recomputable list — never a fixed enum here, so it cannot go stale as wings are sealed)' },
       escoTitles: { type: 'array', items: { type: 'string' }, description: 'ESCO concept titles you already fetched, to be judged on-topic or homograph by the published whole-name rule' } }, required: ['skill'] },
     run: (a) => skillSurface(String(a.skill), Array.isArray(a.escoTitles) ? (a.escoTitles as Record<string, unknown>[]).map(String) : []) },
+  // ── THE TEAM AXIS. The capability axis answers "what does this tree know"; this answers "what does BUILDING
+  //    something with it actually take, and how many people is that". Derived: seats are the connected
+  //    components of the ledger's own citation graph restricted to the need, so the count is a property of the
+  //    work rather than a preference. Nothing is authored per application. ──
+  { name: 'uuidna_team',
+    description: 'THE TEAM AN APPLICATION OF ANY TYPE ACTUALLY NEEDS, computed from the sealed ledger: the seats are derived from the ledger\'s own citation graph, so the answer MOVES when a wing is sealed and no row can go stale. Pass {need} (the words describing the application: its domain, features or stack) and get back SEATS: groups of sealed capabilities the ledger\'s own citation graph entangles, because when the work in one capability cites the work in another the seam between them belongs inside one head. The seat COUNT is therefore not a choice — it is the number of connected components of that graph restricted to what was asked for, so an application whose needs fall in one component cannot be split by adding people. Each seat carries its skills, its sealed-theorem count, a learning order (most-cited first, since a foundation is what the rest rests on), the browser shelf where the capability is practised, its ESCO phrases and its handle. A need with no sealed capability behind it is returned as a named GAP, never absorbed into a neighbouring seat to make the answer look whole. PURE and offline; same need, same receipt. THIS IS NOT A STAFFING PLAN, a competence assessment, or a claim that anyone is qualified for anything, and the ESCO leg names what a capability is CALLED in the European Commission\'s taxonomy — never that any authority recognises or accredits it (theorem provenance_integrity_not_content_truth). Returns {need,seats,gaps,matchedSkills,seatsAreComponents,receipt,honest}.',
+    inputSchema: { type: 'object', properties: {
+      need: { type: 'array', items: { type: 'string' }, description: 'the words describing the application — domain terms, features, stack. Each is matched to sealed skills by WHOLE WORD, so "close" does not match the skill "os".' } }, required: ['need'] },
+    run: (a) => teamFor(Array.isArray(a.need) ? (a.need as unknown[]).map(String) : [String(a.need ?? '')]) },
   { name: 'uuidna_review_domains',
     description: 'LOCAL reviews — a recomputable review of every DOMAIN (skill) the ledger touches: its sealed-theorem count, their order-invariant fold, and the trial verdict (VERIFIED — every one is `by decide`, sorry-free), each folded to a review receipt. No server, no stored opinion; the review IS the ledger\'s own integrity per domain, recomputable by anyone. Returns [{domain,theorems,fold,verdict,receipt}].',
     inputSchema: { type: 'object', properties: {} },
