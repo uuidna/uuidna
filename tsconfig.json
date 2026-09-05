@@ -20,6 +20,12 @@
     // records what it compiled and reuses it, so an unchanged file is not retypechecked. Same law, cheaper judge.
     "incremental": true,
     "tsBuildInfoFile": "dist/.tsbuildinfo",
+    // PINNED, not inherited. tsc 5.x auto-includes every package under node_modules/@types; TypeScript 7 does not —
+    // microsoft/TypeScript#63054 (merged 2026-02-05, fixes #62195) sets the default `types` to []. Measured against
+    // @typescript/native-preview 7.0.0-dev.20260707.2: without this line every `node:fs`/`node:test` import in the tree
+    // fails TS2591 while tsc 5.9.3 reports nothing, so the break arrives on the day the compiler changes, not on the day
+    // this file does. Naming the one @types package this tree actually uses is the same verdict under both compilers.
+    "types": ["node"],
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true
