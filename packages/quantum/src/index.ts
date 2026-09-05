@@ -9,7 +9,7 @@ export { diamond, DIAMOND_FIXED, involute, involutionFixed } from '@uuidna/uuidn
 export { domainWave, type DomainWave } from '@uuidna/uuidna'
 export {
   ket0, hadamard, hadamardX, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
-  distribution, probability, marginal, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
+  distribution, probability, marginal, parity, parityWitness, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
   bellBornWeights, massGapOnBellBornField,
   runCircuit, isClassical, classicalMap, truthTable,
   report, fraction, label, type QState, type Prob, type Cx, type GateOp,

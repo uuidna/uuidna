@@ -21,6 +21,7 @@ import {
   harness, harness7, renderTheorem, renderHero, renderList,
   sha256, hmacSha256, pbkdf2Sha256, chacha20, poly1305, aeadEncrypt, aeadDecrypt,
   bellState, ghzState, distribution, marginal, receiptOf, fraction, label, runCircuit, isClassical, truthTable,
+  parityWitness,
   THEOREMS, runTrial, theorems, theoremNeighbours, theoremAxioms, axiomIndex, axiomExplain, axiomBalance, discoveryTrain, discoveryHints, credits, creditsSummary, laws, guardLessons, hardwareLayer, softwareLayer, quantumAnalytics, quantumSeo, heroAnimation, heroAnimationOf, tryClaim, oeapiProfile, oeapiLearningOutcomes, OEAPI_SPEC, OEAPI_VERSION, captainRights, draftContract, quantumAura, encodeMessage, agentContribute, tallyVotes, signCommitWithVoting, serializeCommitWithVoting, buildQuantumSailingLibrary, serializeQuantumSailingLibrary, getQuantumSailingLibrary, discoverQuantumSailingAPIs, correlateWeatherToTheorems, simulateQuantumSailingWeather, serializeWeatherCorrelation, correlateAcrossBooks, clusterByTheorem, serializeCrossBookCorrelation, serializeClusters, automateQuantumSailing, serializeQuantumSailingComplete, catchTraitors, axiomWitness, quantumProfile, socialProfile, growLife, scanPublications, quantumCubeChallenge, verifyQuantumCube, imageProvenance, verifyImageProvenance, bindCaptainRepos, reviewDomains,
   publications, composePublication, coverage, auditPublication, revisePublication, comparePublications, vocabulary, forensics, evidence, ledgerFingerprint, reason, reflects, slimGate, reveal, auditCloudflareBindings, dueProcess, signCommit, uuidnaDecode, decodeTheorem,
   snapshot, reactor, detectForgery, auditCoinClaim, detectDoubleSpends, auditVoting, auditLedgerIntrusions, auditLedgerFingerprint, auditAgentStatement, fullAntiFraudAudit,
@@ -1439,7 +1440,17 @@ const TOOLS: Tool[] = ([
       const outcomes: Record<string, string> = {}
       distribution(state).forEach((p, i) => { const f = fraction(p); if (f !== '0') outcomes[label(i, state.qubits)] = f })
       const marginals = Array.from({ length: state.qubits }, (_, q) => ({ qubit: q, p0: fraction(marginal(state, q, 0)), p1: fraction(marginal(state, q, 1)) }))
-      const out: Record<string, unknown> = { ...meta, qubits: state.qubits, outcomes, marginals, receipt: receiptOf(state), honest: 'classical state-vector simulation — 2^n amplitudes, exponential, the classical bound CONFIRMED by theorem n_qubit_dimension; not quantum hardware' }
+      // PARITY, BESIDE THE MARGINALS. A peer session measured that this tool's own output could not tell an
+      // entangled state from the classical correlation it is named for: GHZ-5 reports {00000: 1/2, 11111: 1/2}
+      // with a marginal of 1/2 on every qubit, and a coin that flips all five bits together reports the same
+      // outcomes AND the same marginals. Marginals never discriminate. Parity does — but only in the HADAMARD
+      // basis, so this runs that measurement rather than leaving the caller to know the trick.
+      const witness = parityWitness(state)
+      const asFraction = (r: typeof witness.measured): Record<string, unknown> => ({
+        even: fraction(r.even), odd: fraction(r.odd), support: r.support, concentrated: r.concentrated,
+      })
+      const out: Record<string, unknown> = { ...meta, qubits: state.qubits, outcomes, marginals,
+        parity: { measured: asFraction(witness.measured), hadamard: asFraction(witness.hadamard), separates: witness.separates, honest: witness.honest }, receipt: receiptOf(state), honest: 'classical state-vector simulation — 2^n amplitudes, exponential, the classical bound CONFIRMED by theorem n_qubit_dimension; not quantum hardware' }
       if (Array.isArray(ops) && isClassical(ops)) out.classical = truthTable(state.qubits, ops) // the reversible logic, for classical systems
       return out
     } },

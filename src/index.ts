@@ -271,7 +271,7 @@ export { reportAll, type ConsolidatedReports, type ReportSection } from './repor
 // exact classical cost CONFIRMED by theorem n_qubit_dimension; non-Clifford √-phase gates (T, controlled-H) need per-branch scaling — the honest boundary.
 export {
   ket0, hadamard, hadamardX, cnot, cz, swap, toffoli, ccz, pauliX, pauliY, pauliZ, phaseS, phaseSdg,
-  distribution, probability, marginal, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
+  distribution, probability, marginal, parity, parityWitness, amplitude, equalState, isInvolution, bellState, ghzState, receiptOf, quantumReceipt,
   bellBornWeights, massGapOnBellBornField,
   runCircuit, isClassical, classicalMap, truthTable,
   report, fraction, label, type QState, type Prob, type Cx, type GateOp,

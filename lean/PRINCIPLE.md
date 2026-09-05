@@ -12,7 +12,7 @@
 - **i18n.** Seven rays (`en|bg|de|fr|es|ru|zh` = `DIMENSIONS`). English is identity; other rays read the handle via `HEXBIT_WORDS` (Readings.lean). The fold is the translation.
 - **Quantum advantage.** Push verifies the sealed report (`lean/quantum-advantage.json`, `usable_gap_is_two_to_eighty`) — hexbit-fast, no remeasure. Remeasure is `gen-quantum-advantage`, off-path.
 - **Archive.** Zenodo minting is workflow-only (`publish.yml` `zenodo` / `zenodo-seals`). Local scripts regenerate seal metadata only.
-- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2653 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
+- **Proof.** Every theorem below is `by decide`, sorry-free via `npm run lean` — **2654 theorems** in derivation order. A theorem computes in Lean, or it is not a theorem.
 - **Sufficient / insufficient.** Sufficient for finite `by decide` windows, axiom-free seals, falsifiers, receipts (verify ≪ recompute), handle capacity, captain-coin fair-exchange, Alpine/hexbit catalogue, and finite formal windows within climate/pandemic/poverty model-calcs — named on `docs/doctrine.md`. World solutions stack as waves of automation (`npm run wave` / hexbit-fast); waves do not erase ethics or politics. Insufficient for those domains as full problem types, and for unbounded Clay, nature-as-model, justice — same page; computational claims only. Related honesty: `window_not_universal`, `n_qubit_dimension`, `grover_quadratic_bound`, `provenance_integrity_not_content_truth`.
 
 ## Principles
@@ -68,7 +68,7 @@
 17. **The two coins & the 64** — `lean/Coins.lean` · **25** theorems
    the honest billing/measure algebra — the two coins are the conserved fair-exchange invariant (110−108 = 2 = −χ of the double torus, genus 2), 64 = 2⁶ is the bit measure, contribute 2 to save up to 64 (leverage 32), n qubits give 2ⁿ direct outcomes reaching 64 at n=6, and the measured saving never goes negative — a measured unit of work saved, not a price and not a claim of speed
 
-18. **The hardware-verifiable binary algebra** — `lean/Hardware.lean` · **17** theorems
+18. **The hardware-verifiable binary algebra** — `lean/Hardware.lean` · **18** theorems
    the low-level combinational-logic identities every digital circuit is built from, each a decidable axiom-free `by decide` particle: the four gate truth tables as bit arithmetic (NOT a = 1−a, AND = a·b, OR = a+b−a·b, XOR = the axiom-free lxor), XOR = ℤ/2 parity, Boolean closure on the bit, NAND functional completeness (NAND rebuilds NOT/AND/OR — why chips are one repeated gate), De Morgan, the half- and full-adder (sum + 2·carry = the input sum), and the 2:1 multiplexer. All match the live published digital-logic spec. integrity, not truth — uuidna SEALS the spec a netlist is verified AGAINST; it does not fabricate a device, synthesise a netlist, or develop silicon. A sealed spec, not a chip
 
 19. **The software-verifiable algebra** — `lean/Software.lean` · **16** theorems

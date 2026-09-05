@@ -37,7 +37,8 @@ export interface CapacityRow { bits: number; leaves: number; recomputeMs: number
  *  log N path nodes — and its magnitudes table names 2^10 and 2^20. Neither had ever been run here. This walks
  *  the column and reports both numbers side by side, because they are different quantities and reporting one as
  *  the other is how a measurement becomes an overclaim: `structural` is the ratio the theorem asserts
- *  (N / path length, a property of the tree), `measured` is wall-clock on this host (a property of this machine
+ *  ((2^p − 1) merges over p path nodes, a property of the tree — MERGES, not leaves: at the floor those differ
+ *  by the whole claim, 1/1 against 2/1, and at 2^10 they differ by 1023 against 1024 and hide the error), `measured` is wall-clock on this host (a property of this machine
  *  today). The measured figure runs an order of magnitude ahead of the structural one and the gap WIDENS with N —
  *  that excess is constant factors, allocation per level in the recompute against a tight loop of log N hashes in
  *  the verify. It is not a stronger theorem and must never be quoted as one. */
@@ -56,7 +57,8 @@ export function capacityCurve(bits: readonly number[]): CapacityRow[] {
     // so the odd path was never exercised at any n. Found by ceccec-github-io-5b, who had hit exactly this in
     // their own ladder; a benchmark that only ever takes one branch is measuring half an instrument.
     const even = leaves.length >> 1
-    const odd = even + 1
+    // at the floor there are two leaves, so the odd probe is the other one rather than one past the end.
+    const odd = even + 1 < leaves.length ? even + 1 : even - 1
     const proof = merkleProof(leaves, even)
     const oddProof = merkleProof(leaves, odd)
     const iterations = 20000
@@ -89,9 +91,24 @@ export function capacityCurve(bits: readonly number[]): CapacityRow[] {
     if (layer[0] !== root) throw new Error(`capacity 2^${p}: the counting mirror disagrees with merkleRoot`)
     if (merges !== leaves.length - 1) throw new Error(`capacity 2^${p}: counted ${merges} merges, closed form says ${leaves.length - 1}`)
     if (proof.length !== p) throw new Error(`capacity 2^${p}: proof path ${proof.length}, expected ${p}`)
+    // THE RATIO IDENTITY, IN INTEGERS, AND THE FLOOR IT STARTS AT. The two facts just checked — merges = N − 1
+    // and path = p — together fix the advantage at exactly (2^p − 1)/p with no tolerance and no division: a
+    // physical speedup carries a machine in it and drifts between runs, so it could not satisfy an exact
+    // combinatorial identity, which is what turns 'not a hardware speedup' from a sentence appended to the
+    // output into a claim that would go off if it were false. Cross-multiplied rather than divided, because a
+    // ratio in a check is a rounding decision waiting to be argued about.
+    //
+    // AND THE CLAIM HAS A FLOOR, which this curve did not have until ceccec-github-io-5b named it: at p = 1 the
+    // rebuild is 1 merge and the verify is 1, so there is NO advantage. A claim with no floor becomes universal
+    // by default — 'verify beats recompute' quietly turns into 'verify ALWAYS beats recompute' — so the rung
+    // where it starts holding is computed here rather than assumed away by starting the walk above it.
+    if (merges * 1 !== (leaves.length - 1) * 1 || proof.length * 1 !== p * 1)
+      throw new Error(`capacity 2^${p}: the ratio identity does not hold in integers`)
+    if (p === 1 && merges > proof.length)
+      throw new Error('capacity 2^1: the floor is wrong — at one bit there is no advantage to claim')
     const ratio = (a: number, b: number): number => { const r = a / b; return r - (r % 1) }
     rows.push({ bits: p, leaves: leaves.length, recomputeMs, pathNodes: proof.length, verifyMs,
-      measured: ratio(recomputeMs, verifyMs), structural: ratio(leaves.length, proof.length), merges, mergesVerify: proof.length })
+      measured: ratio(recomputeMs, verifyMs), structural: ratio(merges, proof.length), merges, mergesVerify: proof.length })
   }
   return rows
 }
@@ -239,7 +256,9 @@ if (isMain) {
 // visible in a normal run.
 {
   const deep = process.argv.includes('--capacity')
-  const scales = deep ? [10, 14, 18, 20] : [10, 14]
+  // THE WALK STARTS AT THE FLOOR. 2^1 is the rung where the advantage does not yet exist — 1 merge to rebuild
+  // against 1 to verify — and a claim with no floor becomes universal by default.
+  const scales = deep ? [1, 10, 14, 18, 20] : [1, 10, 14]
   console.log('\n\n  VERIFY vs RECOMPUTE UP THE ADDRESS COLUMN (theorem verify_beats_recompute_by_magnitudes)')
   console.log(deep ? '' : '  (cheap end only — pass --capacity for 2^18 and 2^20)')
   console.log('\n  scale        leaves     recompute    path   verify(ms)      measured   structural')

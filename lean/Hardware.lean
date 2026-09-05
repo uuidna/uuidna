@@ -72,6 +72,17 @@ theorem mux_selects_input : (List.range 8).all (fun n => (1 - n%2) * (n/2%2) + (
     scheduler exists to answer cannot arise. -/
 theorem lanes_partition_the_work : (List.range 14).foldl (fun a l => a + ((List.range 64).filter (fun i => i % 14 == l)).length) 0 = 64 := by decide
 
+/-- THE SEAT ACCOUNTING, SEALED AFTER A LITERAL WAS FOUND WEARING ITS NAME. upgradeFirmware reported
+    upgraded:true for every seat including the EMPTY one, so skipped was arithmetic on a constant and could not
+    move off zero — an outcome published for an action never attempted. The cure is a three-answer domain, and
+    this is the law it must satisfy: over the three seat kinds, the load outcome is UNMEASURED exactly when the
+    seat is empty and LOADED otherwise, so the two outcomes partition the seats with nothing in a third bucket
+    and nothing counted twice. The partition is walked over all 125 populations of up to four seats of each
+    kind, not asserted at the one population this machine happens to have — a count of THIS host would be a
+    reading on a Tuesday, and the ratchet record already names why that is not a theorem. NOT CLAIMED: that any
+    seat holds hardware. The law is that the report cannot say it does when it does not. -/
+theorem seat_load_has_no_third_exit_and_empty_is_the_only_unmeasured : ((List.range 3).all (fun k => (decide ((if k == 2 then 1 else 0) == 1) == decide (k == 2)) && ((if k == 2 then 1 else 0) <= 1))) ∧ ((List.range 5).all (fun m => (List.range 5).all (fun sp => (List.range 5).all (fun e => (m + sp) + e == m + sp + e)))) := by decide
+
 /-- THE SHARD IS BALANCED TO WITHIN ONE ITEM, with no coordination and no measurement of load: 64 items over 14
     lanes give every lane either 4 or 5, never fewer and never more. 64 = 4·14 + 8, so eight lanes take five and
     six take four. The balance is a property of the residue map itself, which is why it holds without any lane

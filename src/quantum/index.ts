@@ -154,6 +154,93 @@ export function marginal(s: QState, q: number, val: 0 | 1): Prob {
   for (let i = 0; i < s.amp.length; i++) if (bit(i, q) === val) num += cabs2(s.amp[i])
   return reduce(num, den)
 }
+/** PARITY — the fold that separates an entangled state from the classical correlation it is named for.
+ *
+ *  WHY THIS EXISTS. A peer session measured what this simulator reports and found the gap: GHZ on 5 qubits gives
+ *  outcomes {00000: 1/2, 11111: 1/2} with a marginal of 1/2 on every qubit — and a classical coin that flips all
+ *  five bits together gives IDENTICAL outcomes and IDENTICAL marginals. Marginals never discriminate; they are
+ *  1/2 for GHZ, for a classical mixture, and for a product state under H. So the reported statistics separated
+ *  an entangled state from its classical impostor in no way at all, while printing a clean, confident number.
+ *
+ *  WHAT PARITY ADDS, and it costs nothing that is not already computed: the amplitudes are in hand when the
+ *  marginals are formed, so this is one more fold over the same array. After H on every qubit, a GHZ state's
+ *  support collapses onto the EVEN-parity strings only — {000, 011, 101, 110} at 1/4 each for n = 3 — while a
+ *  classical mixture of |000⟩ and |111⟩ under the same gates covers BOTH parities. One column, and the output
+ *  shows what it previously could not.
+ *
+ *  WHAT IT IS NOT. This is a property of the SIMULATED STATE, computed classically over 2^n exact amplitudes.
+ *  Nothing here is faster than the arithmetic that produced it and nothing here is a claim about hardware. */
+export interface ParityReport {
+  /** total probability on even-parity basis strings (an even number of 1s) */
+  even: Prob
+  /** total probability on odd-parity basis strings */
+  odd: Prob
+  /** how many basis strings of each parity carry non-zero probability */
+  support: { even: number; odd: number }
+  /** true when the whole distribution sits on ONE parity class — what a classical mixture cannot do */
+  concentrated: boolean
+}
+
+/** parityWitness(s) → the parity of the state AND of the same state after H on every qubit.
+ *
+ *  THE RAW PARITY DOES NOT DISCRIMINATE, and saying so is the point. GHZ on n qubits has |0…0⟩ (even) and
+ *  |1…1⟩ (even or odd with n), so its raw parity is 1/2 and 1/2 for odd n — exactly what a classical coin that
+ *  flips every bit together gives. The separation lives in the HADAMARD basis: after H on every qubit a GHZ
+ *  state's support collapses onto ONE parity class, and a classical mixture of |0…0⟩ and |1…1⟩ under the same
+ *  gates covers both. So this runs that measurement rather than expecting the caller to know the trick, which
+ *  is the difference between publishing a witness and publishing the ingredients for one.
+ *
+ *  A MIXTURE IS NOT SIMULATED HERE, and the reason is structural rather than a limit of effort: this simulator
+ *  carries a PURE state vector, and a mixture is a distribution over state vectors — a different object, needing
+ *  a density matrix. So the impostor is described rather than run. The claim is about what the H-basis parity of
+ *  THIS state is; that a mixture does not concentrate there is the standard argument, not a measurement this
+ *  tree performed. Stated so nobody reads the column as more than it is. */
+export interface ParityWitness {
+  measured: ParityReport
+  hadamard: ParityReport
+  /** true when the H-basis support sits on one parity class — the discriminating observation */
+  separates: boolean
+  honest: string
+}
+
+export function parityWitness(s: QState): ParityWitness {
+  let h = s
+  for (let q = 0; q < s.qubits; q++) h = hadamard(h, q)
+  const hp = parity(h)
+  return {
+    measured: parity(s),
+    hadamard: hp,
+    separates: hp.concentrated,
+    honest:
+      'Parity in the computational basis does NOT separate an entangled state from a classical mixture — both ' +
+      'give 1/2 and 1/2, exactly as the per-qubit marginals do. The separating observation is the parity AFTER ' +
+      'H on every qubit, reported here as `hadamard`: a state whose support concentrates on one parity class ' +
+      'there is not a classical mixture of the same outcomes. The mixture itself is NOT simulated — this ' +
+      'simulator carries a pure state vector — so that half is the standard argument and not a measurement ' +
+      'made here. Everything reported is computed classically over 2^n exact amplitudes and is not faster than ' +
+      'the arithmetic that produced it.',
+  }
+}
+
+export function parity(s: QState): ParityReport {
+  const den = 2n ** BigInt(s.scale)
+  let evenNum = 0n, oddNum = 0n, evenSup = 0, oddSup = 0
+  for (let i = 0; i < s.amp.length; i++) {
+    const w = cabs2(s.amp[i])
+    // popcount of the basis index IS the number of 1s in the string, so its low bit is the parity
+    let bits = i, ones = 0
+    while (bits !== 0) { ones += bits & 1; bits >>>= 1 }
+    if (ones % 2 === 0) { evenNum += w; if (w !== 0n) evenSup++ }
+    else { oddNum += w; if (w !== 0n) oddSup++ }
+  }
+  return {
+    even: reduce(evenNum, den),
+    odd: reduce(oddNum, den),
+    support: { even: evenSup, odd: oddSup },
+    concentrated: (evenNum === 0n) !== (oddNum === 0n),
+  }
+}
+
 /** The exact amplitude at basis index i, as its Gaussian-integer coefficients over √(2^scale). */
 export function amplitude(s: QState, i: number): { re: bigint; im: bigint; scale: number } {
   return { re: s.amp[i].re, im: s.amp[i].im, scale: s.scale }

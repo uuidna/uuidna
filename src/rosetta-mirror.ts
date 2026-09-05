@@ -587,6 +587,7 @@ half_adder_correct 27
 full_adder_correct 27
 mux_selects_input 27
 lanes_partition_the_work 27
+seat_load_has_no_third_exit_and_empty_is_the_only_unmeasured 3
 lanes_balance_within_one 27
 lanes_even_on_complete_system 27
 #Harmony.lean
