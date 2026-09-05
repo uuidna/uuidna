@@ -604,68 +604,13 @@ export function linesGaps(): Gap[] {
 // over spelling, and tuning its limit (3 -> the derived 6) was elaborating something that should not exist. The
 // naming law survives where it belongs: name the OPERATION, as Glagolitic does. That is a law for a person writing a
 // wing, not a gate on the kernel's output. lean/key-entropy.json and its test go with it.
+// the shared vacuity rule — see src/vacuity.ts
 export function vacuousGaps(): Gap[] {
-  // strip outer parens ONLY when the first '(' closes at the last ')' — a greedy strip mangles "(A) ∨ (B)"
-  // into "A) ∨ (B" and makes the detector miss what it exists to catch (measured: 1 found instead of 12)
-  const norm = (s: string): string => {
-    let t = s.trim().replace(/\s+/g, ' ')
-    for (;;) {
-      if (!(t.startsWith('(') && t.endsWith(')'))) return t
-      let d = 0
-      for (let i = 0; i < t.length; i++) {
-        if (t[i] === '(') d++
-        else if (t[i] === ')') { d--; if (d === 0 && i !== t.length - 1) return t }
-      }
-      t = t.slice(1, -1).trim()
-    }
-  }
-  const strip = (s: string): string => norm(norm(s).replace(/\s*:\s*(Nat|Int|Prop)\b/g, ''))
-  const split = (s: string, op: string): [string, string] | null => {
-    let d = 0
-    for (let i = 0; i < s.length; i++) {
-      if (s[i] === '(') d++
-      else if (s[i] === ')') d--
-      else if (d === 0 && s.startsWith(op, i)) return [s.slice(0, i), s.slice(i + op.length)]
-    }
-    return null
-  }
-  // AN ARITHMETIC IDENTITY IS TRUE FOR ITS OWN REASON, never for the theorem's. `x + 0 = x` decides nothing
-  // about whatever x was counted from, and a statement built only from these says nothing at all.
-  const identity = (raw: string): string | null => {
-    const t = strip(raw)
-    let m = /^(\d+)\s*\+\s*0\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return 'x + 0 = x — the additive identity'
-    m = /^0\s*\+\s*(\d+)\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return '0 + x = x — the additive identity'
-    m = /^(\d+)\s*\*\s*1\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return 'x * 1 = x — the multiplicative identity'
-    m = /^(\d+)\s*-\s*0\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return 'x - 0 = x — subtracting nothing'
-    return null
-  }
-  const why = (raw: string): string | null => {
-    const s = strip(raw)
-    if (s === 'True') return 'True — proves nothing at all'
-    const id = identity(s)
-    if (id) return id
-    for (const op of ['↔', '→', '∨', '∧', '=']) {
-      const parts = split(s, op)
-      if (!parts) continue
-      const [l, r] = [strip(parts[0]), strip(parts[1])]
-      if (op === '∨') {
-        if (strip(r.replace(/^¬\s*/, '')) === l) return 'P ∨ ¬P — excluded middle, true for ANY P'
-        if (l.includes('=') && r.includes('≠') && r.replace('≠', '=') === l) return 'P ∨ ¬P via ≠ — excluded middle, true for ANY P'
-        continue
-      }
-      // A CONJUNCTION IS VACUOUS WHEN EVERY PART IS, and the rule below could not see that: it split on the
-      // top-level operator and compared the two HALVES to each other, so `(2604 + 0 = 2604) ∧ (0 = 0)` split on
-      // ∧, found the halves unequal, and returned null. It never descended. A conjunction of tautologies read
-      // as a substantive statement — the finder blind to its own class, on the one shape it exists to catch.
-      if (op === '∧') {
-        const lw = why(l), rw = why(r)
-        if (lw && rw) return `every conjunct is vacuous — ${lw}; ${rw}`
-        continue
-      }
-      if (l === r) return op === '=' ? 'x = x — reflexivity, true for ANY x' : `P ${op} P — a tautology, true for ANY P`
-    }
-    return null
-  }
+  // THE RULE LIVES IN src/vacuity.ts NOW, because it could only ever run HERE — as a guard, after a candidate
+  // had been deposited, probed, accepted and sealed. The wave sealed a vacuous theorem on 2026-09-05 and this
+  // caught it afterwards; the conveyor's deposit door needed the same word and had none. One rule, two
+  // consumers: this and wave-deposit's validateCandidate.
+  const why = vacuityReason
   const gaps: Gap[] = []
   for (const t of theorems()) {
     if (t.key.startsWith('oos_')) continue // declared out-of-scope markers: void ON PURPOSE, and say so by name
@@ -1877,6 +1822,7 @@ export function seal(): void {
 import { dryGaps } from './dry-gaps.js'
 export { dryGaps } from './dry-gaps.js'
 import { LEGACY_TEST_DIR } from '../test-paths.js'
+import { vacuityReason } from '../vacuity.js'
 
 /** dryClean — relocate legacy src/tests/, migrate boilerplate onto api.js, rebuild when touched, re-run dry finder. */
 export function dryClean(): { gaps: Gap[]; scripts: number; migrated: number; rebuilt: boolean } {

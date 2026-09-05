@@ -15,6 +15,7 @@
 import { theoremByKey } from './theorems/index.js'
 import { toUuid } from './address.js'
 import { hexbitDoorOf, type HexbitDoor } from './hexbit/index.js'
+import { vacuityReason } from './vacuity.js'
 
 export interface WaveCandidate { key: string; why: string; lean: string }
 export interface DepositResult extends HexbitDoor {
@@ -62,6 +63,13 @@ export function validateCandidate(c: WaveCandidate, sealed: ReadonlyMap<string, 
   if (sealed.has(c.key)) return 'key already sealed in the ledger'
   const stmt = statementFromLean(c.lean)
   if (stmt && isBareLiteralStatement(stmt)) return 'comparison of bare literals — the claim its key makes is nowhere in the algebra (literal gap law)'
+  // VACUITY IS THE FAULT THAT SURVIVES EVERY OTHER DOOR LAW, because the statement is perfectly TRUE: it has a
+  // lawful key, prose, one theorem, a `by decide` proof the kernel accepts on the first try, and no literal to
+  // compare. On 2026-09-05 the conveyor sealed `alpine_security_ops_plannable_4 : (4 + 0 = 4) ∧ (0 = 0)` and only
+  // the post-seal guard had a word for it — the wrong end of the belt for an automation that runs unattended.
+  // The rule is one declaration in src/vacuity.ts; one-receipt's vacuousGaps is the other consumer.
+  const void_ = stmt ? vacuityReason(stmt) : null
+  if (void_) return `the statement is TRUE and says nothing — ${void_} (vacuity law)`
   return null
 }
 

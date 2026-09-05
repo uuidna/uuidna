@@ -94,7 +94,9 @@ export interface CostRung {
 }
 
 /** THE LADDER IS DERIVED, NOT TYPED — every line of the hexagram is a rung, then one trigram further and one
- *  hexagram further. A typed ladder stops where it flatters; a derived one cannot. */
+ *  hexagram further. A typed ladder stops where it flatters — the author picks the rungs, so the rungs can be
+ *  picked to look good — while a derived one has no such freedom: its rungs come from the hexagram's own
+ *  structure, which nobody here chose. */
 export const HEXBIT_LINES = 6
 export const TRIGRAM_LINES = 3
 export const COST_LADDER: readonly number[] = [
