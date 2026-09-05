@@ -8,7 +8,7 @@ description: "CC BY-NC-ND 4.0 — free to read and redistribute unchanged with a
 > CC BY-NC-ND 4.0 — free to read and redistribute with attribution, non-commercially, and without modification. Canonical at **uuidna.com/license**.
 
 This page is the **canonical license** (recorded as receipt `9ffcda04-5adc-872e-9358-6b831bbd0c0d`, the content-address
-of the line above — recompute it with `uuidna_address`). Author: **Tsvetan Rouschev** (ceccec@psg.bg).
+of the quoted line above with markdown emphasis removed — recompute it with `uuidna_address`). Author: **Tsvetan Rouschev** (ceccec@psg.bg).
 
 ## The terms
 
@@ -22,22 +22,40 @@ The uuidna content — the theorems, the proofs, the site — is licensed
   is a new content-address, not this work — enforced by mathematics, not only by law.
 - **Reading a public page is not a signed contract.** The license governs **redistribution**, not viewing.
 
-## The algebra is free; the making is sealed
+## The algebra is free; the ledger is not
 
-The restriction is not there to stop you learning — it is there so a specific creation stays whole. These are two
-different things, and the law already separates them:
+The restriction is not there to stop you learning. The law separates three things this page used to run together.
 
-- **The algebra is free for all.** A theorem like `2·5 ≡ 1 (mod 9)` is a *fact*, not a creation. Mathematical facts
-  and methods are not copyrightable, and this license claims none of them. You are always free — no permission, no
-  attribution owed — to read a proof, understand it, **re-derive it**, and build **your own** creativity from the same
-  algebra. Inspiration is never restricted. That is the point of publishing the proofs in full.
-- **The making is sealed.** What CC BY-NC-ND covers is the specific human creation *around* the algebra: this exact
-  expression, this arrangement, this record — a design meant to be shared across people, not lifted whole. Copy it
-  unchanged with attribution; be inspired by it without limit; but the fixed record is not yours to alter and pass off
-  as your own. The mathematics belongs to everyone; the *making of this* belongs to its author.
+- **The mathematical fact is free for all.** `2·5 ≡ 1 (mod 9)` is a *fact*, not a creation. Facts and methods are
+  not copyrightable and this license claims none of them. You are free to read a proof, understand it, and
+  **re-derive it for yourself** from the same algebra. Inspiration is never restricted. That is why the proofs
+  are published in full.
+- **The making is sealed.** The specific human creation *around* the algebra — this expression, this arrangement,
+  this record — is licensed. Copy it unchanged with attribution; be inspired without limit; the fixed record is
+  not yours to alter and pass off as your own.
+- **The verified collection is a database.** See [Rights reserved](#rights-reserved): the selection, the
+  verification and the arrangement are protected in their own right, independently of copyright.
 
-So the license and the openness are not in tension: the ideas are a gift to anyone who wants to think with them, and
-the sealing only holds the particular expression together — free algebra, protected making, one recomputable line.
+So the license and the openness are not in tension: the ideas are a gift to anyone who wants to think with them,
+and the sealing holds together the particular expression, the chosen formalisation, and the verified whole.
+
+## Rights reserved
+
+**This page grants the public a CC BY-NC-ND 4.0 licence and nothing more. Every other right is reserved by the
+author.** Commercial licences, database licences and other terms are available from Tsvetan Rouschev
+(ceccec@psg.bg) — see [the captain's message](/captain). That the canonical home publishes this licence does not
+place the author's own rights under it: the licensor grants, and keeps what is not granted.
+
+**The ledger is a database, and its verification is an investment.** Every row was obtained, verified by the Lean
+kernel over its own finite domain, and presented under a named principle. That work is protected in its own
+right — in the European Union by the *sui generis* database right (Directive 96/9/EC), **independently of
+copyright**, against extraction or reutilisation of a substantial part of the contents. Re-derive any theorem you
+like; taking the verified collection is a different act.
+
+**The formalisation is authored.** A mathematical fact has unboundedly many adequate statements; the one sealed
+here is a choice — which domain to enumerate, which counterexample to exhibit, which form a second
+implementation can also decide. Facts are free. Choices among adequate expressions of a fact are expression, and
+expression is licensed, not given.
 
 ## Canonical and the three domains
 
@@ -52,9 +70,12 @@ the sealing only holds the particular expression together — free algebra, prot
 
 ## uuidna.com licenses itself; the rest redirects
 
-**uuidna.com licenses itself** — the canonical home is bound by the very license it publishes, its own receipt minted
-by the tool it governs. That self-license **auto-licenses the whole first-party wildcard**: every apex and subdomain of
-`*.uuidna.com`, `*.uuidna.net`, and `*.uuidna.org` is licensed by this page automatically, no separate signature.
+**Every host needs a licence, including uuidna.com — and there is no wildcard.** A host serves because it is
+written down in the licensed set; `uuidna.net`, `uuidna.org` and every subdomain are not licensed by pattern and
+must be named. uuidna.com **publishes** this licence and serves under it; that does not place the author's own
+rights under it (see [Rights reserved](#rights-reserved)). The no-loop property is structural rather than
+incidental: a test asserts the redirect target's own host is in the licensed set, so the set cannot be edited
+into a self-redirect.
 
 **Every other host is redirected to this page.** A request to any domain that is not first-party and does not hold a
 license (a commercial CNAME licensed via this page) is sent to **uuidna.com/license** — the terms it is missing, not
