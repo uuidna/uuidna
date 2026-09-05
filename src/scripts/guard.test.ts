@@ -103,7 +103,13 @@ export function findersWithoutAPositiveControl(): string[] {
   const walk = (d: string): string[] => readdirSync(d, { withFileTypes: true }).flatMap((e) =>
     e.isDirectory() && !['node_modules', 'dist'].includes(e.name) ? walk(join(d, e.name))
       : e.name.endsWith('.test.ts') ? [join(d, e.name)] : [])
-  const blocks = walk(join(ROOT, 'src')).flatMap((f) => readFileSync(f, 'utf8').split(/\btest\(/))
+  // SPLIT ON A TEST DECLARATION, NOT ON ANY `test(`. `\btest\(` also matches `.test(` — `.` is a non-word
+  // character, so the word boundary holds — which means every RegExp.test() call inside a test body CUT THAT BODY
+  // IN HALF, separating the finder's name from the assertion that proves it fires. Measured 2026-09-05: a control
+  // handing scriptsGaps a crafted violation was not counted, because the block contained `/…/.test(g.what)`.
+  // An under-counting ratchet is the worse direction here: it reports debt that has already been paid, so real
+  // controls look absent and the list stops meaning what it says.
+  const blocks = walk(join(ROOT, 'src')).flatMap((f) => readFileSync(f, 'utf8').split(/(?<![.\w])test\(/))
   const FIRES = /length,\s*[1-9]|length\s*>=?\s*1|length\s*>\s*0|assert\.ok\(|notDeepEqual|assert\.match\(/
   const named = new Set<string>()
   for (const b of blocks) {

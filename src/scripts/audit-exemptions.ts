@@ -62,7 +62,7 @@ export function readScan(scriptDir = HERE): ScanReport {
   } catch (e) {
     const err = e as { stdout?: string; stderr?: string }
     const out = String(err.stdout ?? '')
-    if (!out) throw new Error(`audit-exemptions: harmonic-scan produced no output at all — ${String(err.stderr ?? 'no stderr')}`)
+    if (!out) throw new Error(`audit-exemptions: harmonic-scan produced no output at all — ${String(err.stderr || 'no stderr')}`)
     stdout = out                                   // it ran and FAILED a real rule; its report is still the truth
   }
   return parseScanReport(stdout)

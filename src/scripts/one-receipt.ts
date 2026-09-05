@@ -316,6 +316,37 @@ export async function cryptoGaps(): Promise<Gap[]> {
 // flow into a pipe. This finder holds that line over the repo's own scripts, workflows, and package manifest. ──
 export function pipeGaps(): Gap[] {
   const gaps: Gap[] = []
+
+  // THE SAME LAW ONE LAYER DOWN: a DIAGNOSTIC must survive too, not just an exit code.
+  // `err.stderr ?? err.message` looks correct and is correct on any runtime that prints diagnostics to stderr.
+  // Lean prints to STDOUT, so `err.stderr` was an EMPTY BUFFER — neither null nor undefined, so `??` never fell
+  // through — and String() of it is ''. queue-wave's caller is `if (bad) refused else accepted`, so EVERY
+  // candidate the kernel refused was filed as ACCEPTED with its diagnostic discarded (8e5e472d0; of thirty
+  // refusals on record, zero carried a kernel diagnostic). Two more instances were sitting in this tree: a
+  // broken package subpath reporting `error: ''`, and os/runtime reporting a failed run with `reason: ''`.
+  // THE RULE, and it is exact rather than a taste: coalescing a stream field is SAFE when the fallback is the
+  // empty string (`(err.stdout ?? '') + (err.stderr ?? '')` — '' is the identity for concatenation, so
+  // emptiness is harmless). It is UNSAFE when the fallback is a DIFFERENT SOURCE, because then emptiness is
+  // exactly the case the fallback exists for.
+  // AND THE OBVIOUS CURE IS WRONG: swapping in `||` does not fix a Buffer. `Buffer.alloc(0)` is a truthy
+  // OBJECT — it falls through NEITHER `??` nor `||`. Only String() collapses it to something `||` can see, so
+  // the shape that works is `String(x.stderr ?? '') || String(x.message ?? '')`. Bare `||` suffices only where
+  // the field is already a string, which is exactly the execFileSync-with-encoding sites.
+  const COALESCE = /\.(stderr|stdout)\s*\?\?\s*([^\n)]{1,60})/g
+  for (const rel of trackedFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts') && !isTestSource(f))) {
+    const text = executableSource(fileText(join(ROOT, rel)))   // USE, never MENTION — this arm's own comment quotes the pattern it hunts
+    for (const m of text.matchAll(COALESCE)) {
+      const fallback = m[2]!.trim()
+      // The safe fallback is the EMPTY STRING, however it is spelled: '' in source, \'\' inside another string
+      // literal (this arm's own `fix` text contains one). Strip the escaping before deciding, or the finder
+      // reports its own remedy — mention inside executable code, which stripping comments does not reach.
+      if (/^(['"`])\1/.test(fallback.replace(/\\/g, ''))) continue
+      gaps.push({
+        what: `${rel} coalesces .${m[1]} with \`??\` onto a non-empty fallback (\`${fallback.slice(0, 40)}\`) — an empty stream Buffer is neither null nor undefined, so \`??\` keeps it and the fallback never fires; the diagnostic stringifies to '' and reads as falsy`,
+        fix: 'STRINGIFY FIRST, then coalesce: `String(err.stderr ?? \'\') || String(err.message ?? \'\')` — or read both streams: `(String(err.stdout ?? \'\') + String(err.stderr ?? \'\')).trim() || String(err.message ?? \'\')`. Bare `||` is enough ONLY where the field is already a string (execFileSync with encoding: \'utf8\'); an empty Buffer is a truthy object and falls through NEITHER operator',
+      })
+    }
+  }
   const GATE = /(npm run (guard|next|lean|reconcile|build|test)|one-receipt\.js \w+)[^|&\n"']*\|(?!\|)/
   const check = (rel: string) => {
     const p = join(ROOT, rel)
@@ -1131,9 +1162,12 @@ export function staleGaps(): Gap[] {
   return gaps
 }
 
-export function scriptsGaps(): Gap[] {
+// `root` is injectable for ONE reason: so a test can hand this finder a crafted violation. It was on the
+// finder-controls baseline — wired, run daily, never once shown to FIRE — which is the population the conveyor's
+// dead kernel arm was hiding in. A finder proven only against a clean tree is a finder proven to stay quiet.
+export function scriptsGaps(root: string = ROOT): Gap[] {
   const gaps: Gap[] = []
-  const pkg = JSON.parse(fileText(join(ROOT, 'package.json'))) as { scripts: Record<string, string> }
+  const pkg = JSON.parse(fileText(join(root, 'package.json'))) as { scripts: Record<string, string> }
 
   // A PIPELINE STEP THAT READS ANOTHER'S OUTPUT MUST RUN AFTER IT, and the composite scripts encode that order
   // in a string where nothing checks it. `lean` ran `rosetta` BEFORE `gen-falsifiers`, so rosetta read
@@ -1848,6 +1882,7 @@ import { dryGaps } from './dry-gaps.js'
 export { dryGaps } from './dry-gaps.js'
 import { LEGACY_TEST_DIR } from '../test-paths.js'
 import { vacuityReason } from '../vacuity.js'
+import { executableSource } from '../executable-source.js'
 
 /** dryClean — relocate legacy src/tests/, migrate boilerplate onto api.js, rebuild when touched, re-run dry finder. */
 export function dryClean(): { gaps: Gap[]; scripts: number; migrated: number; rebuilt: boolean } {

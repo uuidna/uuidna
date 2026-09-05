@@ -279,7 +279,12 @@ export async function runAlpineCommand(command: string, opts: { spawn?: boolean;
   } catch (e: unknown) {
     const errObj = e as { stdout?: Buffer; stderr?: Buffer; code?: number; message?: string }
     const out = String(errObj.stdout ?? '')
-    const err = String(errObj.stderr ?? errObj.message ?? e)
+    // STRINGIFY FIRST, THEN COALESCE. This read `errObj.stderr ?? errObj.message ?? e` and reported a FAILED run
+    // with `reason: ''` — a failure that cannot say why, in the module that exists to say why. And `||` alone
+    // does NOT fix it: `Buffer.alloc(0)` is a truthy OBJECT, so it falls through neither operator. Only String()
+    // collapses an empty Buffer to a value that `||` can see. (`||` by itself is correct where the field is
+    // already a string — execFileSync with encoding: 'utf8' — and wrong here, where it is a Buffer.)
+    const err = String(errObj.stderr ?? '') || String(errObj.message ?? '') || String(e)
     const stdoutSha256 = hex(sha256(new TextEncoder().encode(out)))
     const stderrSha256 = hex(sha256(new TextEncoder().encode(err)))
     return {

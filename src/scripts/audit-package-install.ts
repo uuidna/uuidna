@@ -62,10 +62,13 @@ export function auditPackageInstall(): InstallAudit {
           { cwd: dir, encoding: 'utf8', timeout: 120_000, stdio: ['ignore', 'ignore', 'pipe'] })
         return { subpath: sp, ok: true }
       } catch (e) {
+        // `??` FALLS THROUGH ON null/undefined ONLY, so an empty stderr passes the guard and then reads as an
+        // empty diagnostic downstream — the shape that let queue-wave file every kernel refusal as an
+        // acceptance (8e5e472d0). `||` is the correct operator when the fallback exists for EMPTINESS.
         const err = e as { stderr?: string; message?: string }
-        const text = String(err.stderr ?? err.message ?? '')
+        const text = String(err.stderr || err.message || '')
         const spec = /Cannot find module '([^']+)'|ERR_MODULE_NOT_FOUND[\s\S]*?'([^']+)'/.exec(text)
-        return { subpath: sp, ok: false, error: (spec ? `missing ${spec[1] ?? spec[2]}` : text.split('\n')[0] ?? 'import failed').slice(0, 200) }
+        return { subpath: sp, ok: false, error: (spec ? `missing ${spec[1] ?? spec[2]}` : text.split('\n')[0] || 'import failed').slice(0, 200) }
       }
     })
     const broken = results.filter((r) => !r.ok)

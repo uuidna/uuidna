@@ -41,6 +41,7 @@ import { listTestSources } from '../test-paths.js'
 import { LEGS, maskOfLegs, legsOfMask, floorGaps, type Leg, type Rosetta } from '../rosetta-legs.js'
 import { toUuid } from '../address.js'
 import { handleOf } from '../handle.js'
+import { executableSource } from '../executable-source.js'
 
 export { LEGS, floorGaps, type Leg, type Rosetta }
 
@@ -127,8 +128,7 @@ export function census(): Rosetta[] {
   // a test's prose earned the falsifier leg — two of the keys the published floor rested on were named only as
   // examples in a test about key length, in a file that was then deleted. A leg that a comment can earn measures
   // nothing, so comment lines are stripped and only executable test text counts.
-  const executable = (src: string): string =>
-    src.replace(/\/\*[\s\S]*?\*\//g, '').split('\n').filter((l) => !/^\s*(\/\/|\*)/.test(l)).join('\n')
+  const executable = executableSource
   const tests = listTestSources(ROOT)
     .map((rel) => executable(fsm().readFileSync(pathm().join(ROOT, rel), 'utf8')))
     .join('\n')
