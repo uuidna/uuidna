@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "5fdc770ee762d902386cab9ad16222ba",
+    "src": "36820fd00043938b7a8699bc85c426be",
     "lean": "f972fa36012de6b88e4997e393c3950c"
   },
   "files": {
@@ -3715,7 +3715,7 @@
     "src/quantum/os/chat/index.ts": "43858f60f86ac4a5",
     "src/quantum/os/cli/index.test.ts": "06f0496fc0a6d907",
     "src/quantum/os/cli/index.ts": "18f660f37575d77b",
-    "src/quantum/os/coreutils/index.ts": "0e5d97d7413e387f",
+    "src/quantum/os/coreutils/index.ts": "cfbf65ca076e6a46",
     "src/quantum/os/court/index.ts": "13e98700ecc5a60c",
     "src/quantum/os/coverage/index.ts": "15556178decd7114",
     "src/quantum/os/cryptoapps/index.test.ts": "a4b47fbefda571d2",
@@ -3731,7 +3731,7 @@
     "src/quantum/os/domains/index.ts": "283d15e5e1db3eed",
     "src/quantum/os/engapi/index.test.ts": "af16eccb93fb01bf",
     "src/quantum/os/engapi/index.ts": "d4e203e887b6d389",
-    "src/quantum/os/exec/index.ts": "f5c1093b78b9c942",
+    "src/quantum/os/exec/index.ts": "21801bfe8d283b0e",
     "src/quantum/os/fetch/index.ts": "45fa2e96651061c5",
     "src/quantum/os/firmware/index.test.ts": "0c3cca5cc6cd86af",
     "src/quantum/os/firmware/index.ts": "9b1c8ad1335ad4ed",
@@ -3742,11 +3742,11 @@
     "src/quantum/os/harness/anthem-stream.test.ts": "2197748da6c16381",
     "src/quantum/os/harness/await-live.test.ts": "13b1c1d014e30e21",
     "src/quantum/os/harness/constant-gaps.test.ts": "14d86d3baeaefaa1",
-    "src/quantum/os/harness/coreutils.test.ts": "78cf9e829ad0bb2c",
+    "src/quantum/os/harness/coreutils.test.ts": "2d3a53c336299b8e",
     "src/quantum/os/harness/corroborate.test.ts": "e7bb7e1d5c2dadcc",
     "src/quantum/os/harness/crossref.test.ts": "82251d638aacaccf",
     "src/quantum/os/harness/cube-memory.test.ts": "f271f410faa976d3",
-    "src/quantum/os/harness/exec-attest.test.ts": "ffc1be4ad28daec6",
+    "src/quantum/os/harness/exec-attest.test.ts": "fe40ffaa151aa956",
     "src/quantum/os/harness/exemptions.test.ts": "d368c5ceee648990",
     "src/quantum/os/harness/fill-gaps-advantage.test.ts": "82b5f499d54aadcb",
     "src/quantum/os/harness/firewall.test.ts": "dcf54bed647d4e4d",
@@ -3813,8 +3813,8 @@
     "src/quantum/os/public/index.ts": "afe32e5f32d524b5",
     "src/quantum/os/qc/index.test.ts": "1038a1494834a018",
     "src/quantum/os/qc/index.ts": "8f57487c4e35563e",
-    "src/quantum/os/refusals/index.test.ts": "27db60562fc53db4",
-    "src/quantum/os/refusals/index.ts": "47c694b1cb13176a",
+    "src/quantum/os/refusals/index.test.ts": "5092622920c52699",
+    "src/quantum/os/refusals/index.ts": "f46c670bdfe420b9",
     "src/quantum/os/registry/index.test.ts": "65681ecad9467124",
     "src/quantum/os/registry/index.ts": "7eb5b381ab07e4ac",
     "src/quantum/os/related/index.test.ts": "c7fa161d7432f43d",
@@ -4318,7 +4318,7 @@
   },
   "verified": [
     "guard",
-    "tests"
+    "build"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."
