@@ -47,12 +47,28 @@ export interface Facet<T> {
   readonly label: string
 }
 
+/** a coordinate occupied by more than one element — reported, never silently refused as an ambiguity */
+export interface DegenerateClass<T> {
+  readonly axis: string
+  readonly pair: number
+  readonly facets: number
+  readonly members: readonly T[]
+  readonly sides: readonly string[]
+  /** always true: a coordinate only counts as a class when every member is on both sides, which makes each
+   *  member its own mirror. Carried explicitly so a reader of the result never has to infer it. */
+  readonly fixedPoint: boolean
+}
+
 export interface Discovery<T> {
   /** mirrors: shared axis, opposite pole, different side */
   readonly pairs: ReadonlyArray<readonly [Facet<T>, Facet<T>]>
   /** candidate fixed points: shared axis, SAME pole, different side — what a cross-side matcher cannot self-match */
   readonly agreements: ReadonlyArray<readonly [Facet<T>, Facet<T>]>
   readonly orphans: ReadonlyArray<Facet<T> & { readonly why: string }>
+  /** DEGENERATE CLASSES — many elements legitimately sharing one axis and pole on both sides. A tie between
+   *  distinct candidates is an ambiguity; a crowd at one coordinate is a population, and when every member of
+   *  that crowd contributes a facet to both sides, the crowd IS a fixed point with more than one occupant. */
+  readonly classes: ReadonlyArray<DegenerateClass<T>>
   /** does the recovered map satisfy m(m(x)) = x — the property that makes it an involution at all */
   readonly selfInverse: boolean
   readonly covered: number
@@ -97,7 +113,7 @@ export function discoverInvolution<T>(facets: readonly Facet<T>[]): Discovery<T>
   // ambiguity is settled by traversal order — the fault the refusal exists to prevent.
   const refused = new Set<number>()
   const pairs: Array<readonly [Facet<T>, Facet<T>]> = []
-  const orphans: Array<Facet<T> & { why: string; at: number }> = []
+  const orphans: Array<Facet<T> & { why: string; at: number; tied?: number }> = []
 
   for (const f of order) {
     const fi = idx.get(f) as number
@@ -114,7 +130,9 @@ export function discoverInvolution<T>(facets: readonly Facet<T>[]): Discovery<T>
     // by sort order is a pairing invented by the sort.
     if (cands.length > 1 && cands[0].overlap === cands[1].overlap) {
       refused.add(fi)
-      orphans.push({ ...f, why: `ambiguous — ${cands.length} candidates tied at overlap ${cands[0].overlap}`, at: fi }); continue
+      // the reason is settled in a SECOND PASS: from one item's view a crowd and a tie look identical, and
+      // calling it an ambiguity here is what hid 2652 rows sitting on a fixed point behind a refusal.
+      orphans.push({ ...f, why: `ambiguous — ${cands.length} candidates tied at overlap ${cands[0].overlap}`, at: fi, tied: cands.length }); continue
     }
     used.add(fi); used.add(idx.get(cands[0].g) as number)
     pairs.push([f, cands[0].g] as const)
@@ -129,12 +147,44 @@ export function discoverInvolution<T>(facets: readonly Facet<T>[]): Discovery<T>
     if (a.pole.pair === b.pole.pair && a.pole.side === b.pole.side && b.axes.some((x) => a.axes.includes(x))) agreements.push([a, b] as const)
   }
 
+  // SECOND PASS, and it reads the WHOLE facet set rather than the orphan list. From one item's view a crowd and
+  // a tie look identical, so the reason cannot be settled where the refusal is made — and the refusal being
+  // final (see `refused`) means only the first side of a crowd is ever marked, which is how 2652 ledger rows
+  // sitting on a fixed point came back as "ambiguous" and nothing else.
+  //
+  // A coordinate is a CLASS, not an ambiguity, only when every element there contributes a facet to BOTH sides:
+  // each member is then its own mirror, and the coordinate is a fixed point occupied many times over. An item
+  // present on one side only is a candidate competing for a partner, which is exactly a tie.
+  const coordOf = (f: Facet<T>): string => `${[...f.axes].sort().join('+')}#${f.pole ? f.pole.pair : 'none'}`
+  const crowds = new Map<string, Facet<T>[]>()
+  for (const f of order) {
+    if (!f.pole || f.axes.length === 0) continue
+    const k = coordOf(f)
+    const bucket = crowds.get(k)
+    if (bucket) bucket.push(f); else crowds.set(k, [f])
+  }
+  const classes: DegenerateClass<T>[] = []
+  for (const [k, fs] of [...crowds].sort((a, b) => a[0].localeCompare(b[0]))) {
+    if (fs.length < 3) continue
+    const members = [...new Set(fs.map((f) => f.item))]
+    const sides = [...new Set(fs.map((f) => f.side))].sort()
+    if (sides.length < 2) continue
+    const bothSides = members.every((it) => new Set(fs.filter((f) => f.item === it).map((f) => f.side)).size >= 2)
+    if (!bothSides) continue
+    classes.push({ axis: k.split('#')[0], pair: (fs[0].pole as { pair: number }).pair, facets: fs.length, members, sides, fixedPoint: true })
+  }
+  const inClass = new Set<string>(classes.map((c) => `${c.axis}#${c.pair}`))
+  for (const o of orphans) {
+    const k = coordOf(o)
+    if (inClass.has(k)) (o as { why: string }).why = `degenerate class of ${(crowds.get(k) as Facet<T>[]).length} at ${k.split('#')[0]} — a population at one coordinate, each member its own mirror, not a tie between candidates`
+  }
+
   const m = new Map<number, number>()
   for (const [a, b] of pairs) { m.set(idx.get(a) as number, idx.get(b) as number); m.set(idx.get(b) as number, idx.get(a) as number) }
   const selfInverse = [...m.keys()].every((k) => m.get(m.get(k) as number) === k)
 
   // an orphan that a LATER item claimed as its mirror is not an orphan — the traversal reached it first.
-  return { pairs, agreements, orphans: orphans.filter((o) => !used.has(o.at)), selfInverse, covered: m.size }
+  return { pairs, agreements, orphans: orphans.filter((o) => !used.has(o.at)), classes, selfInverse, covered: m.size }
 }
 
 /** the unordered pairing as a comparable signature — what two instruments must agree on */

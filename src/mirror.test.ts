@@ -110,6 +110,40 @@ test('axesOf reports every axis a text touches — overlap is what breaks ties',
 })
 
 // ── the finder itself
+// ── the blind spot the real ledger found: a crowd at one coordinate is not a tie between candidates
+test('a POPULATION at one coordinate is reported as a degenerate class, not refused as an ambiguity', () => {
+  const lex: Lexicon = { axes: ['centre'], poles: [['above', 'below']] }
+  // three elements, each contributing a facet to both sides at the same coordinate — a fixed point occupied
+  // three times over. Before this was folded, all six facets came back as "ambiguous" and nothing else.
+  const facets = ['x', 'y', 'z'].flatMap((id) => [
+    { item: id, side: 'low', axes: ['centre'], pole: { pair: 0, side: 0 as const, negated: false }, label: `${id}:low` },
+    { item: id, side: 'high', axes: ['centre'], pole: { pair: 0, side: 1 as const, negated: false }, label: `${id}:high` },
+  ])
+  const d = discoverInvolution(facets)
+  assert.equal(d.classes.length, 1)
+  assert.equal(d.classes[0].facets, 6)
+  assert.deepEqual([...d.classes[0].members].sort(), ['x', 'y', 'z'])
+  assert.equal(d.classes[0].fixedPoint, true, 'every member is on both sides — the class IS a fixed point')
+  assert.match(d.orphans.map((o) => o.why).join(' '), /degenerate class of 6/)
+  assert.doesNotMatch(d.orphans[0].why, /^ambiguous/)
+})
+
+test('a genuine TIE between two distinct candidates is still an ambiguity, not a class', () => {
+  const lex: Lexicon = { axes: ['code'], poles: [['gives', 'keeps']] }
+  const d = discoverInvolution(facetsOf([
+    { side: 'a', text: 'a gives the code' },
+    { side: 'b', text: 'b keeps the code' },
+    { side: 'b', text: 'b keeps the code as well' },
+  ], lex))
+  assert.equal(d.classes.length, 0, 'two candidates at one coordinate is a tie, not a population')
+  assert.match(d.orphans.map((o) => o.why).join(' '), /ambiguous/)
+})
+
+test('the digit corpus has NO degenerate class — one element per magnitude', () => {
+  const d = discoverInvolution(facetsOf(digitCorpus().map((r) => ({ side: r.side, text: r.text })), DIGIT_LEXICON))
+  assert.deepEqual(d.classes, [])
+})
+
 test('involutionGaps — the two instruments agree on this tree', () => {
   assert.deepEqual(involutionGaps(), [])
 })
