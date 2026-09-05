@@ -62,20 +62,18 @@ test('parity is exact and total: even + odd is 1 for every state, with no float 
   }
 })
 
-test('parityWitness runs the discriminating measurement itself, and says what it does not simulate', () => {
+test('parityWitness runs the measurement itself, and states what it does NOT witness', () => {
   for (const n of [2, 3, 4, 5]) {
     const w = parityWitness(ghzState(n))
-    assert.equal(w.separates, true, `GHZ-${n} must separate in the Hadamard basis`)
+    assert.equal(w.xBasisConcentrated, true, `GHZ-${n} must concentrate in the X basis`)
+    assert.equal(w.distinguishesFromEqualMixture, true)
     assert.equal(w.hadamard.concentrated, true)
   }
-  // THE CONTROL, AND MY FIRST ONE WAS SELF-DEFEATING: I fed it H⊗3|000⟩, and since parityWitness applies H⊗3
-  // ITSELF, the second application undid the first and returned |000⟩ — a single basis state, concentrated on
-  // even parity, so the witness fired and looked wrong when the test was wrong. A product state that has NOT
-  // already been H-transformed is the honest control: every computational basis state spreads over all eight
-  // strings under H⊗3 and covers both parities.
+  // A PRODUCT STATE THAT HAS NOT BEEN H-TRANSFORMED does not concentrate — so the measurement is not trivially
+  // true of everything.
   for (const ops of [[] as GateOp[], [{ gate: 'x' as const, qubits: [0] }], [{ gate: 'x' as const, qubits: [0] }, { gate: 'x' as const, qubits: [1] }]]) {
     const flat = parityWitness(runCircuit(3, ops))
-    assert.equal(flat.separates, false, 'a product state must NOT separate, or the witness fires on everything')
+    assert.equal(flat.xBasisConcentrated, false, 'a computational-basis state spreads under H, covering both parities')
     assert.deepEqual(flat.hadamard.support, { even: 4, odd: 4 })
   }
   const w = parityWitness(ghzState(5))
@@ -86,12 +84,46 @@ test('parityWitness runs the discriminating measurement itself, and says what it
 test('uuidna_quantum serves the parity column beside the marginals', () => {
   const r = callTool('uuidna_quantum', { circuit: 'ghz', qubits: 5 }) as {
     marginals: { p0: string }[]
-    parity: { measured: { even: string; concentrated: boolean }; hadamard: { even: string; concentrated: boolean }; separates: boolean; honest: string }
+    parity: { measured: { even: string; concentrated: boolean }; hadamard: { even: string; concentrated: boolean }; xBasisConcentrated: boolean; distinguishesFromEqualMixture: boolean; honest: string }
   }
   assert.equal(r.marginals[0]!.p0, '1/2', 'the marginal that cannot discriminate is still reported')
   assert.equal(r.parity.measured.even, '1/2', 'and so is the raw parity, which also cannot')
   assert.equal(r.parity.measured.concentrated, false)
-  assert.equal(r.parity.hadamard.even, '1', 'the H-basis parity is where the separation is')
-  assert.equal(r.parity.separates, true)
+  assert.equal(r.parity.hadamard.even, '1', 'the X-basis parity is where the information is')
+  assert.equal(r.parity.xBasisConcentrated, true)
+  assert.equal(r.parity.distinguishesFromEqualMixture, true, 'the claim that survives the refutation')
   assert.match(r.parity.honest, /standard argument/i)
+  assert.match(r.parity.honest, /DOES NOT WITNESS/i, 'the served answer must carry the limit, not just the source')
+})
+
+// ── THE COUNTEREXAMPLE, RESTORED AS A NAMED TEST because I deleted it once as a broken control.
+//
+// A peer computed against the first version of this claim and refuted it. |+++⟩ = H⊗3|000⟩ is a PRODUCT state —
+// |+⟩⊗|+⟩⊗|+⟩, zero entanglement, separable by inspection — and it concentrates MAXIMALLY under this witness:
+// one outcome of eight, tighter than GHZ_3's four of eight. So X-basis concentration does not imply
+// entanglement; it is alignment with the measurement basis, and separable states qualify.
+//
+// IT WAS ALREADY IN THIS FILE AS THE NEGATIVE CONTROL AND I REMOVED IT. Feeding H⊗3|000⟩ to a witness that
+// applies H⊗3 itself returns |000⟩, which concentrates. I read that as a control undoing itself, called the
+// test wrong, and replaced it with untransformed product states — deleting the one case that showed the
+// over-claim. The instrument was right and my expectation was wrong. It is a named test now, not a control,
+// so that removing it requires deleting a test whose title says what it is for.
+test('a PRODUCT state concentrates maximally — X-basis concentration is not an entanglement witness', () => {
+  const plus = runCircuit(3, H(3))                       // |+++⟩ — zero entanglement
+  const w = parityWitness(plus)
+  assert.equal(w.xBasisConcentrated, true, '|+++⟩ concentrates, and it is separable — so the two are independent')
+  assert.deepEqual(w.hadamard.support, { even: 1, odd: 0 }, 'ONE outcome of eight: tighter than GHZ_3')
+  const ghz = parityWitness(ghzState(3))
+  assert.deepEqual(ghz.hadamard.support, { even: 4, odd: 0 }, 'GHZ_3 concentrates on four of eight')
+  assert.ok(w.hadamard.support.even < ghz.hadamard.support.even,
+    'the product state is MORE concentrated than the entangled one, which is the whole refutation')
+})
+
+test('the honest field states the refutation, so a reader cannot take concentration for entanglement', () => {
+  const w = parityWitness(ghzState(5))
+  assert.match(w.honest, /does not witness|DOES NOT WITNESS/i)
+  assert.match(w.honest, /\|\+\+\+>/, 'the counterexample must be named in the tool\'s own answer')
+  assert.match(w.honest, /equal mixture/i, 'and the claim that DOES survive must be stated')
+  assert.equal(w.distinguishesFromEqualMixture, w.xBasisConcentrated,
+    'the surviving claim rides the same measurement — stated separately so the names cannot drift apart')
 })

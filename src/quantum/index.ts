@@ -183,7 +183,21 @@ export interface ParityReport {
 
 /** parityWitness(s) → the parity of the state AND of the same state after H on every qubit.
  *
- *  THE RAW PARITY DOES NOT DISCRIMINATE, and saying so is the point. GHZ on n qubits has |0…0⟩ (even) and
+ *  WHAT THIS WITNESSES AND WHAT IT DOES NOT — corrected after a peer computed against the first version and
+ *  refuted it. The field was called `separates` and read as an entanglement witness. It is not one: |+++> is a
+ *  product state, zero entanglement, separable by inspection, and it concentrates MAXIMALLY here — a single
+ *  outcome of eight against GHZ_3's four of eight. So X-basis concentration is ALIGNMENT WITH THE MEASUREMENT
+ *  BASIS, and entangled and separable states both qualify. The claim that survives is narrower and still worth
+ *  having: a concentrated state is not the equal MIXTURE of its own computational-basis outcomes.
+ *
+ *  THE COUNTEREXAMPLE WAS ALREADY IN THE TEST SUITE, as the negative control, and I removed it. Feeding
+ *  H⊗3|000> to a witness that applies H⊗3 itself returns |000>, which concentrates — I read that as a broken
+ *  control undoing itself and replaced it with untransformed product states. The control was right and the
+ *  expectation was wrong: |+++> IS the state on which an unentangled input fires the witness, and replacing it
+ *  deleted the one case that would have shown the over-claim. An instrument disagreeing with an expectation is
+ *  not automatically a broken instrument.
+ *
+ *  THE RAW PARITY DOES NOT DISCRIMINATE EITHER, and saying so is the point. GHZ on n qubits has |0…0⟩ (even) and
  *  |1…1⟩ (even or odd with n), so its raw parity is 1/2 and 1/2 for odd n — exactly what a classical coin that
  *  flips every bit together gives. The separation lives in the HADAMARD basis: after H on every qubit a GHZ
  *  state's support collapses onto ONE parity class, and a classical mixture of |0…0⟩ and |1…1⟩ under the same
@@ -198,8 +212,12 @@ export interface ParityReport {
 export interface ParityWitness {
   measured: ParityReport
   hadamard: ParityReport
-  /** true when the H-basis support sits on one parity class — the discriminating observation */
-  separates: boolean
+  /** true when the X-basis (post-H) support sits on ONE parity class. This is the measured property and it is
+   *  named for what it IS: concentration in the X basis. It is NOT an entanglement witness — see below. */
+  xBasisConcentrated: boolean
+  /** the claim that actually survives: a state concentrated in X is not the equal mixture of its own
+   *  computational-basis outcomes, because a mixture spreads over both parity classes there. */
+  distinguishesFromEqualMixture: boolean
   honest: string
 }
 
@@ -210,15 +228,20 @@ export function parityWitness(s: QState): ParityWitness {
   return {
     measured: parity(s),
     hadamard: hp,
-    separates: hp.concentrated,
+    xBasisConcentrated: hp.concentrated,
+    distinguishesFromEqualMixture: hp.concentrated,
     honest:
       'Parity in the computational basis does NOT separate an entangled state from a classical mixture — both ' +
-      'give 1/2 and 1/2, exactly as the per-qubit marginals do. The separating observation is the parity AFTER ' +
-      'H on every qubit, reported here as `hadamard`: a state whose support concentrates on one parity class ' +
-      'there is not a classical mixture of the same outcomes. The mixture itself is NOT simulated — this ' +
-      'simulator carries a pure state vector — so that half is the standard argument and not a measurement ' +
-      'made here. Everything reported is computed classically over 2^n exact amplitudes and is not faster than ' +
-      'the arithmetic that produced it.',
+      'give 1/2 and 1/2, exactly as the per-qubit marginals do. The informative reading is the parity AFTER H ' +
+      'on every qubit, reported as `hadamard`. WHAT IT WITNESSES, narrowly: a state concentrated on one parity ' +
+      'class there is NOT the equal mixture of its own computational-basis outcomes, because a mixture spreads ' +
+      'across both classes. WHAT IT DOES NOT WITNESS: entanglement. |+++> is a product state with zero ' +
+      'entanglement and it concentrates MAXIMALLY here — one outcome of eight, tighter than GHZ_3\'s four of ' +
+      'eight — so concentration is alignment with the measurement basis, and entangled and separable states ' +
+      'both qualify. The mixture itself is NOT simulated, because this carries a pure state vector and a ' +
+      'mixture is a distribution over state vectors, needing a density matrix; that half is the standard ' +
+      'argument, not a measurement made here. Everything is computed classically over 2^n exact amplitudes and ' +
+      'is not faster than the arithmetic that produced it.',
   }
 }
 

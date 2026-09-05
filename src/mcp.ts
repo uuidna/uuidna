@@ -1450,7 +1450,7 @@ const TOOLS: Tool[] = ([
         even: fraction(r.even), odd: fraction(r.odd), support: r.support, concentrated: r.concentrated,
       })
       const out: Record<string, unknown> = { ...meta, qubits: state.qubits, outcomes, marginals,
-        parity: { measured: asFraction(witness.measured), hadamard: asFraction(witness.hadamard), separates: witness.separates, honest: witness.honest }, receipt: receiptOf(state), honest: 'classical state-vector simulation — 2^n amplitudes, exponential, the classical bound CONFIRMED by theorem n_qubit_dimension; not quantum hardware' }
+        parity: { measured: asFraction(witness.measured), hadamard: asFraction(witness.hadamard), xBasisConcentrated: witness.xBasisConcentrated, distinguishesFromEqualMixture: witness.distinguishesFromEqualMixture, honest: witness.honest }, receipt: receiptOf(state), honest: 'classical state-vector simulation — 2^n amplitudes, exponential, the classical bound CONFIRMED by theorem n_qubit_dimension; not quantum hardware' }
       if (Array.isArray(ops) && isClassical(ops)) out.classical = truthTable(state.qubits, ops) // the reversible logic, for classical systems
       return out
     } },
