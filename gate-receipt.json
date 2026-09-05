@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "3634050b27382f58a2f58ef1ffc69afd",
-    "lean": "f972fa36012de6b88e4997e393c3950c"
+    "src": "7f36eb85e200391a45edaa05e45a1c52",
+    "lean": "61ef3c35b592a51eabeaa2027bfe47cd"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -128,7 +128,7 @@
     "lean/alpine-apps.json": "6f253ef38579ce12",
     "lean/alpine-apps.md": "0a62f5afcaac46bd",
     "lean/alpine-discovery.json": "a56bee2f1fb0a281",
-    "lean/alpine-hexbit-monitor.json": "905c594b08fdc78f",
+    "lean/alpine-hexbit-monitor.json": "cd2459881342851d",
     "lean/anthem-manifest.json": "c5608e8f20ea26df",
     "lean/antifraud-manifest.json": "03571950d926e2b0",
     "lean/antikythera-manifest.json": "a8ec30f0e003d51c",
@@ -3717,7 +3717,7 @@
     "src/quantum/os/cli/index.ts": "18f660f37575d77b",
     "src/quantum/os/codecs/index.test.ts": "630a4370aa74f0c9",
     "src/quantum/os/codecs/index.ts": "46089097826261d9",
-    "src/quantum/os/coreutils/index.ts": "cfbf65ca076e6a46",
+    "src/quantum/os/coreutils/index.ts": "e65ba5716cf03104",
     "src/quantum/os/court/index.ts": "13e98700ecc5a60c",
     "src/quantum/os/coverage/index.ts": "15556178decd7114",
     "src/quantum/os/cryptoapps/index.test.ts": "a4b47fbefda571d2",
@@ -3733,7 +3733,7 @@
     "src/quantum/os/domains/index.ts": "283d15e5e1db3eed",
     "src/quantum/os/engapi/index.test.ts": "af16eccb93fb01bf",
     "src/quantum/os/engapi/index.ts": "d4e203e887b6d389",
-    "src/quantum/os/exec/index.ts": "21801bfe8d283b0e",
+    "src/quantum/os/exec/index.ts": "90740315387c75c2",
     "src/quantum/os/fetch/index.ts": "45fa2e96651061c5",
     "src/quantum/os/firmware/index.test.ts": "0c3cca5cc6cd86af",
     "src/quantum/os/firmware/index.ts": "9b1c8ad1335ad4ed",
@@ -3744,7 +3744,7 @@
     "src/quantum/os/harness/anthem-stream.test.ts": "2197748da6c16381",
     "src/quantum/os/harness/await-live.test.ts": "13b1c1d014e30e21",
     "src/quantum/os/harness/constant-gaps.test.ts": "14d86d3baeaefaa1",
-    "src/quantum/os/harness/coreutils.test.ts": "2d3a53c336299b8e",
+    "src/quantum/os/harness/coreutils.test.ts": "2ddaca0a599e0ee7",
     "src/quantum/os/harness/corroborate.test.ts": "e7bb7e1d5c2dadcc",
     "src/quantum/os/harness/crossref.test.ts": "82251d638aacaccf",
     "src/quantum/os/harness/cube-memory.test.ts": "f271f410faa976d3",
@@ -3816,7 +3816,7 @@
     "src/quantum/os/qc/index.test.ts": "1038a1494834a018",
     "src/quantum/os/qc/index.ts": "8f57487c4e35563e",
     "src/quantum/os/refusals/index.test.ts": "5092622920c52699",
-    "src/quantum/os/refusals/index.ts": "f46c670bdfe420b9",
+    "src/quantum/os/refusals/index.ts": "ddd1e5ca9ae06fbf",
     "src/quantum/os/registry/index.test.ts": "65681ecad9467124",
     "src/quantum/os/registry/index.ts": "7eb5b381ab07e4ac",
     "src/quantum/os/related/index.test.ts": "c7fa161d7432f43d",
@@ -4201,7 +4201,7 @@
     "src/scripts/queue-wave.ts": "da3a8d6f730597c4",
     "src/scripts/ratchet-gaps.ts": "34f00a2717931348",
     "src/scripts/ratchets.ts": "b90633410d7bb612",
-    "src/scripts/reconcile.ts": "db8ff1560124dc27",
+    "src/scripts/reconcile.ts": "b72866a7dbd973b1",
     "src/scripts/refactor.ts": "3c3206002feac5b1",
     "src/scripts/release-cut.ts": "d4902ec331e35901",
     "src/scripts/relocate-tests.ts": "e38e6e2eec5f89ac",
@@ -4247,7 +4247,7 @@
     "src/sequence-run.ts": "4092ec14acd12686",
     "src/sessions.test.ts": "347940030d99111b",
     "src/sessions.ts": "0494b41e47cd4e1f",
-    "src/sha256.ts": "3f3e21528b4ea01c",
+    "src/sha256.ts": "97a03ba830f1d9f7",
     "src/shor-capacity.test.ts": "5b2bd46b61d9d4a3",
     "src/sign.ts": "af1c70f36c48397a",
     "src/site-contents.test.ts": "ec7183d033c082f8",
@@ -4320,7 +4320,7 @@
   },
   "verified": [
     "guard",
-    "tests"
+    "build"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."
