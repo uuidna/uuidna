@@ -17,9 +17,9 @@ test('the domain is FULLY accounted: every command is ported or refused, none is
 // the domain or the universe arrived empty, so the remainder is shown MOVING: one invented command must land in
 // unaccounted, and one real refusal must not.
 test('the accounting FIRES on a command no family covers, and stays quiet on one that is covered', () => {
-  const a = appletAccounting(['zzz-not-a-real-command', 'gzip', 'wc'], ['wc'])
+  const a = appletAccounting(['zzz-not-a-real-command', 'xz', 'wc'], ['wc'])
   assert.deepEqual(a.unaccounted, ['zzz-not-a-real-command'], 'an uncovered command must surface')
-  assert.deepEqual(a.refused, ['gzip'], 'a covered one must not')
+  assert.deepEqual(a.refused, ['xz'], 'a covered one must not')
   assert.deepEqual(a.ported, ['wc'])
 })
 
@@ -47,7 +47,9 @@ test('refusalOf answers with the family that carries the name, and null for a po
   assert.match(refusalOf('date')!.cause, /clock/)
   assert.equal(refusalOf('date')!.kind, 'law')
   assert.match(refusalOf('vim')!.cause, /INTERACTIVE/)
-  assert.match(refusalOf('gzip')!.cause, /COMPRESSION CODEC/)
+  // gzip was in this family until it was ported on 2026-09-05; xz stays, because no platform codec ships it
+  assert.match(refusalOf('xz')!.cause, /COMPRESSION CODEC/)
+  assert.equal(refusalOf('gzip'), null, 'a ported applet carries no refusal')
   for (const a of APPLETS) assert.equal(refusalOf(a), null, `${a} is ported; it can carry no refusal`)
 })
 

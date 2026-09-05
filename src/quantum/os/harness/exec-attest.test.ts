@@ -1,6 +1,6 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { uuidnaExec, APPLETS } from '../exec/index.js'
+import { uuidnaExec, uuidnaExecAsync, APPLETS, CODEC_APPLETS } from '../exec/index.js'
 
 // ── ATTESTED IS NOT EXECUTED, AND THE SURFACE MUST SAY WHICH.
 //
@@ -52,9 +52,10 @@ test('a nonsense subcommand no longer masquerades as a successful run', () => {
     'before this, these two were byte-identical — which is how a nonsense subcommand read as success')
 })
 
-test('every ported applet reports executed; no applet claims attestation', () => {
+test('every ported applet reports executed; no applet claims attestation', async () => {
   for (const applet of APPLETS) {
-    const r = uuidnaExec(applet)
+    // the codec applets are ported on the async door — see CODEC_APPLETS; the law is the same, the door is not
+    const r = (CODEC_APPLETS as readonly string[]).includes(applet) ? await uuidnaExecAsync(applet) : uuidnaExec(applet)
     assert.equal(r.mode, 'executed', `${applet}: a ported applet must run, not attest`)
     assert.deepEqual(r.unrunArgs, [], `${applet}: nothing was passed, so nothing may be reported unrun`)
   }

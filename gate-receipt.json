@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "36820fd00043938b7a8699bc85c426be",
+    "src": "3634050b27382f58a2f58ef1ffc69afd",
     "lean": "f972fa36012de6b88e4997e393c3950c"
   },
   "files": {
@@ -3715,6 +3715,8 @@
     "src/quantum/os/chat/index.ts": "43858f60f86ac4a5",
     "src/quantum/os/cli/index.test.ts": "06f0496fc0a6d907",
     "src/quantum/os/cli/index.ts": "18f660f37575d77b",
+    "src/quantum/os/codecs/index.test.ts": "630a4370aa74f0c9",
+    "src/quantum/os/codecs/index.ts": "46089097826261d9",
     "src/quantum/os/coreutils/index.ts": "cfbf65ca076e6a46",
     "src/quantum/os/court/index.ts": "13e98700ecc5a60c",
     "src/quantum/os/coverage/index.ts": "15556178decd7114",
@@ -4318,7 +4320,7 @@
   },
   "verified": [
     "guard",
-    "build"
+    "tests"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."

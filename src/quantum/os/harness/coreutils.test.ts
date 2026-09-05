@@ -1,7 +1,7 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import * as CU from '../coreutils/index.js'
-import { uuidnaExec, APPLETS } from '../exec/index.js'
+import { uuidnaExec, uuidnaExecAsync, APPLETS, CODEC_APPLETS } from '../exec/index.js'
 import { sessionWrite } from '../session/index.js'
 
 // ── THE PORTED BUSYBOX FAMILY. These applets EXECUTE — an argument changes the answer — which is the line drawn
@@ -9,10 +9,14 @@ import { sessionWrite } from '../session/index.js'
 // So every check below passes an argument and asserts the OUTPUT changed, because "it returned something" is
 // exactly the criterion-substitution this tree keeps paying for.
 
-test('every ported applet is registered, and executes rather than attests', () => {
+test('every ported applet is registered, and executes rather than attests', async () => {
   for (const a of CU.CORE_APPLETS) {
     assert.ok((APPLETS as readonly string[]).includes(a), `${a} is ported but not registered`)
-    const r = uuidnaExec(a === 'expr' ? 'expr 1 + 1' : a === 'factor' ? 'factor 6' : a)
+    // EACH THROUGH THE DOOR THAT OWNS IT. The codec applets run on the async door because the platform's gzip
+    // is a stream; testing them on the synchronous one would measure the wrong door and call the port broken.
+    const line = a === 'expr' ? 'expr 1 + 1' : a === 'factor' ? 'factor 6' : a
+    const isCodec = (CODEC_APPLETS as readonly string[]).includes(a)
+    const r = isCodec ? await uuidnaExecAsync(line) : uuidnaExec(line)
     assert.equal(r.mode, 'executed', `${a} must execute, not attest`)
   }
   assert.ok(APPLETS.length >= 45, `the surface grew: ${APPLETS.length} applets`)

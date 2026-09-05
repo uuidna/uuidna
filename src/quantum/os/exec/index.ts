@@ -734,6 +734,17 @@ export function uuidnaExec(line: string): ExecResult {
       'Layer 1 simulates; Layer 2 executes pinned bytes when mirror rootfs is present'],
       { applets: APPLETS, apk: APK_VERBS, sessionStamp: execSessionStamp() }); break
     case '': err('exec: empty command — try `help`'); break
+    // THE CODEC APPLETS ARE PORTED, AND NOT HERE. Letting them fall through to the default would report
+    // "not a ported applet", which is false — they run on the async door because the platform's gzip is a
+    // stream and this door is synchronous. A wrong refusal is worse than a pointed one: it sends a caller to
+    // implement what already exists. The list is CODEC_APPLETS, so the two cannot drift.
+    case 'gzip':
+    case 'gunzip':
+    case 'zcat':
+    case 'zgrep':
+    case 'tar':
+      err(`exec: ${applet} is ported on the ASYNC door — call uuidnaExecAsync('${line.trim()}'); the platform's gzip codec is a stream and this door is synchronous`)
+      break
     // ── THE PORTED BUSYBOX FAMILY. One dispatch rather than twenty-five cases, because they share a contract:
     // each is a pure function of its text and its flags.
     //
@@ -1046,4 +1057,82 @@ export function uuidnaExec(line: string): ExecResult {
 
   const receipt = toUuid('exec|' + execSessionStamp() + '|' + applet + '|' + args.join(' ') + '|' + (ok ? '0' : '1') + '|' + output.join('\n'))
   return { line: String(line).trim(), applet, args, ok, mode, unrunArgs, output, data, receipt, ...hexbitDoorOf(receipt), sealed: os.receipt, honest: HONEST }
+}
+
+// ── THE ASYNC DOOR. uuidnaExec is SYNCHRONOUS and stays so: every text and arithmetic applet is a pure
+// function and awaiting a `wc` would be a cost paid by every caller for the benefit of none. The platform's
+// gzip codec is a STREAM, so the four applets that need it get a door of their own that delegates everything
+// else straight through. A caller that does not use a codec never learns this exists.
+//
+// WHY THESE FOUR AND NOT THE WHOLE COMPRESSION FAMILY: the platform ships gzip and does not ship bzip2, xz,
+// lzma or zstd. Those stay refused, with the reason they always had. This ports what is actually available.
+import { compress, decompress, bytesToBase64, base64ToBytes, tarEntries } from '../codecs/index.js'
+
+/** the applets that need a codec stream, and therefore the async door */
+export const CODEC_APPLETS = ['gzip', 'gunzip', 'zcat', 'zgrep', 'tar'] as const
+
+/** uuidnaExecAsync(line) → the codec applets; anything else is handed to the synchronous door unchanged. */
+export async function uuidnaExecAsync(line: string): Promise<ExecResult> {
+  const parts = line.trim().split(/\s+/).filter(Boolean)
+  const applet = parts[0] ?? ''
+  if (!(CODEC_APPLETS as readonly string[]).includes(applet)) return uuidnaExec(line)
+  const args = parts.slice(1)
+  const flags = args.filter((a) => a.startsWith('-'))
+  const operands = args.filter((a) => !a.startsWith('-'))
+  const has = (f: string): boolean => flags.includes(f)
+  const base = { applet, mode: 'executed' as const, unrunArgs: [] as string[] }
+  const fail = (msg: string, data: unknown): ExecResult =>
+    ({ ...uuidnaExec('true'), ok: false, output: [msg], data, applet, mode: 'executed', unrunArgs: [] })
+  const done = (output: string[], data: unknown): ExecResult =>
+    ({ ...uuidnaExec('true'), ok: true, output, data: { ...base, ...(typeof data === 'object' && data ? data : {}) } })
+
+  // the source is a session file when the operand names one, and the literal operands otherwise — the same
+  // rule the synchronous door uses, so `gzip /tmp/x` and `gzip hello` mean what they mean everywhere else
+  const first = operands[0] ?? ''
+  const file = sessionRead(norm(first))
+  const sourceText = file ? file.content : operands.join(' ')
+
+  try {
+    if (applet === 'gzip') {
+      const gz = await compress(new TextEncoder().encode(sourceText))
+      const b64 = bytesToBase64(gz)
+      const target = file ? norm(first) + '.gz' : null
+      if (target) sessionWrite(target, b64)
+      return done([b64], { bytes: gz.length, from: sourceText.length, base64: true, wrote: target ? [target] : [] })
+    }
+    // ZGREP TAKES ITS PATTERN FIRST, so its source is the SECOND operand — it must be handled before the
+    // shared decode below, which reads the first. The first version decoded `alpha /tmp/doc.gz` as base64 and
+    // refused its own archive: the applet's calling convention decides where its input is, not the door's.
+    if (applet === 'zgrep') {
+      // zgrep IS gunzip then grep, and both halves are ported — so it composes them rather than reimplementing
+      // either. The pattern is the FIRST operand, as zgrep takes it; the archive is the second.
+      const pattern = operands[0] ?? ''
+      const archive = sessionRead(norm(operands[1] ?? ''))
+      if (!archive) return fail(`zgrep: cannot read '${operands[1] ?? ''}'`, { error: 'no-such-file' })
+      const raw = base64ToBytes(archive.content)
+      if (!raw) return fail('zgrep: archive is not base64', { error: 'not-base64' })
+      const text = new TextDecoder().decode(await decompress(raw))
+      const hits = text.split('\n').filter((l) => l.includes(pattern))
+      return done(hits, { matched: hits.length, pattern })
+    }
+    // gunzip, zcat and tar all DECODE the first operand; they differ only in what they do with the result
+    const bytes = base64ToBytes(sourceText)
+    if (!bytes) return fail(`${applet}: input is not base64 — compressed bytes travel as base64 in this filesystem`, { error: 'not-base64' })
+    const plain = new TextDecoder().decode(await decompress(bytes))
+    if (applet === 'gunzip' || applet === 'zcat') {
+      const target = applet === 'gunzip' && file ? norm(first).replace(/\.gz$/, '') : null
+      if (target) sessionWrite(target, plain)
+      return done(plain.split('\n'), { bytes: plain.length, wrote: target ? [target] : [] })
+    }
+    // tar: LIST the members. Extraction to the session is a write per member and is not what `tar -t` does.
+    const members = tarEntries(await decompress(bytes))
+    return done(members.map((m) => m.name), { members: members.length, entries: members })
+  } catch (e) {
+    // THE PLATFORM'S CODEC THROWS WITH AN EMPTY MESSAGE on a member that is not gzip at all, so reporting it
+    // verbatim printed `gunzip: ` — a refusal with no reason, which is precisely what this tree refuses
+    // everywhere else. When the platform says nothing, the applet says what it knows.
+    const why = e instanceof Error && e.message.trim() !== '' ? e.message
+      : 'the bytes decode from base64 but are not a valid ' + (applet === 'tar' ? 'gzipped tar' : 'gzip member')
+    return fail(`${applet}: ${why}`, { error: 'codec-failed', why })
+  }
 }

@@ -47,6 +47,8 @@ export const CORE_APPLETS = [
   'basenc', 'ptx', 'pr', 'dircolors', 'realpath', 'split', 'tee', 'cp',
   // and the busybox multiplexer's own names, plus the ls spellings
   'busybox', 'coreutils', 'uutils', 'dir', 'vdir', 'find',
+  // fourth wave — the platform's own gzip codec and the tar container, reached through the async door
+  'gzip', 'gunzip', 'zcat', 'zgrep', 'tar',
 ] as const
 export type CoreApplet = (typeof CORE_APPLETS)[number]
 
