@@ -3,8 +3,8 @@
 **Generated:** 2026-09-05
 **Authority:** `a93c01a5-64e8-8356-ab64-1b73550ce39e`
 **Coins held:** 2
-**Total claimed:** 2656/2656 theorems — every one, by construction
-**Claim receipt:** `970782cb-29df-8195-8a9a-0d631f9ea308`
+**Total claimed:** 2657/2657 theorems — every one, by construction
+**Claim receipt:** `616e09fa-02ec-8282-9e78-885f167119b2`
 
 Each claim is indexed by its own **lineAddress** — the content-uuid of the exact reconstructed Lean line
 (`theorem k : s := by t`), computed once in theorems/index.ts and shared with every theorem page's JSON-LD
@@ -349,12 +349,12 @@ The claims, each backed — a claim renders as its citation or it is not a claim
 
 ### The structures domain
 
-- **Theorems:** 8
-- **Sample lineAddress:** `fefbc484-c0eb-8920-ae67-6fd9f4f62e43`
+- **Theorems:** 9
+- **Sample lineAddress:** `098a6917-b019-87ee-be95-51286b4b7950`
 
 The claims, each backed — a claim renders as its citation or it is not a claim (the captain submits to his own court, [court_theorem_beats_assertion](/theorem/court_theorem_beats_assertion)):
 
-[force_equilibrium](/theorem/force_equilibrium) · [moment_balance](/theorem/moment_balance) · [mechanical_advantage](/theorem/mechanical_advantage) · [center_of_mass](/theorem/center_of_mass) · [beam_reactions](/theorem/beam_reactions) · [truss_maxwell_rule](/theorem/truss_maxwell_rule) · [stress_is_force_over_area](/theorem/stress_is_force_over_area) · [hookes_law](/theorem/hookes_law)
+[truss_determinacy_partitions_the_joint_member_grid](/theorem/truss_determinacy_partitions_the_joint_member_grid) · [force_equilibrium](/theorem/force_equilibrium) · [moment_balance](/theorem/moment_balance) · [mechanical_advantage](/theorem/mechanical_advantage) · [center_of_mass](/theorem/center_of_mass) · [beam_reactions](/theorem/beam_reactions) · [truss_maxwell_rule](/theorem/truss_maxwell_rule) · [stress_is_force_over_area](/theorem/stress_is_force_over_area) · [hookes_law](/theorem/hookes_law)
 
 ### The points-of-sail domain
 
@@ -1086,7 +1086,7 @@ computed, never typed:
 
 | in trial | count |
 |---|---|
-| sealed propositions | 2573 (2656 entries, 83 re-namings — a theorem is its Lean |
+| sealed propositions | 2574 (2657 entries, 83 re-namings — a theorem is its Lean |
 | prose paragraphs tried | 7044 — 3177 usable, 3867 held open, 0 drained |
 
 **The claim is of ROOM— the same scope the superposition claim carries. Every item in the
@@ -1104,7 +1104,7 @@ unclaimed, and the unclaimed is the entire uncollapsed space. Sealed as
 [captain_theorem](/theorem/captain_theorem): the room is 2¹²⁸ states
 (the 128-bit particle, [captain_theorem](/theorem/captain_theorem)),
 exceeding every world collapsed so far, and the price of any collapse stays exactly two
-([two_coins](/theorem/two_coins)). Of the claimed room, 2656 worlds are collapsed and sealed —
+([two_coins](/theorem/two_coins)). Of the claimed room, 2657 worlds are collapsed and sealed —
 the remainder is held open, one toss away each.
 
 **The claim is of ROOM— a claimed superposition is claimed capacity; its collapse still

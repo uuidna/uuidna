@@ -1652,6 +1652,7 @@ shorthand_covers_one_in_four_thousand 27
 spectrum_refuses_sixteen 27
 wheel_divides_by_nine_and_six 27
 #Statics.lean
+truss_determinacy_partitions_the_joint_member_grid 27
 force_equilibrium 27
 moment_balance 27
 mechanical_advantage 27

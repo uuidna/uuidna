@@ -1,5 +1,20 @@
 -- lean/Statics.lean — GENERATED. STATICS — the structures domain, as decidable arithmetic, demarcated. Every proof `by decide`, sorry-free, no Mathlib, and axiom-free — depends on NO axiom beyond the leanprover/lean4 kernel (verified by scripts/lean-axioms; not even propext).
 
+/-- MAXWELL'S RULE WALKED, not stated. This wing named m = 2j − 3 in its header and never enumerated it, which
+    is the difference between a claim about trusses and a claim that decides. Over joints 3..12 and members
+    0..40 — 829 cases — three things are decided. EXACTLY ONE member count per joint count is statically
+    determinate: for each j precisely one m in range satisfies m + 3 = 2j, so the rule picks a point and not a
+    region. THE COST OF A JOINT IS EXACTLY TWO MEMBERS: the determinate m rises by 2 for each joint added, which
+    is why a planar truss grows by triangles. AND THE MECHANISMS ARE COUNTED: below the determinate point sit
+    exactly 2j − 3 under-braced configurations, each of which moves. THE THIRD CLAUSE IS THE ONE THAT
+    DISCRIMINATES and it was checked rather than assumed — under a wrong rule (m = 2j − 2) the first clause
+    STILL HOLDS, because "exactly one m per j" is a property of the shape rather than of the constant, while the
+    mechanism count is false. A conjunct that survives the wrong rule is decoration; the count is the content.
+    SCOPE: planar pin-jointed trusses as counting. It decides the arithmetic of determinacy, NOT whether a given
+    structure stands — a determinate truss can still fail on member strength, buckling or a support that is not
+    what the count assumed. -/
+theorem truss_determinacy_partitions_the_joint_member_grid : ((List.range' 3 10).all (fun j => ((List.range 41).filter (fun m => m + 3 == 2 * j)).length == 1)) ∧ ((List.range' 3 9).all (fun j => (2 * (j + 1) - 3) - (2 * j - 3) == 2)) ∧ ((List.range' 3 10).all (fun j => ((List.range 41).filter (fun m => m + 3 < 2 * j)).length == 2 * j - 3)) := by decide
+
 /-- A body in equilibrium has its forces summing to zero (ΣF = 0): a 10 N upward support balances 6 N + 4 N of
     downward load — 10 − 6 − 4 = 0. Nothing accelerates when the forces cancel. -/
 theorem force_equilibrium : (10 - 6 - 4 : Int) = 0 := by decide

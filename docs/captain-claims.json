@@ -2,8 +2,8 @@
   "generated": "2026-09-05",
   "captain_authority": "a93c01a5-64e8-8356-ab64-1b73550ce39e",
   "coins_held": 2,
-  "total_claimed": 2656,
-  "total_theorems": 2656,
+  "total_claimed": 2657,
+  "total_theorems": 2657,
   "claims_list": [
     {
       "key": "mul9_1_1",
@@ -4153,8 +4153,8 @@
     },
     {
       "key": "prose_folds_receipt",
-      "lineAddress": "ff99c799-4a0d-8517-bb57-c8e948c15e99",
-      "address": "951b771d-66d3-8d56-bccc-f5641f4fc07c",
+      "lineAddress": "8851841c-2933-89ae-987e-57424cea16ea",
+      "address": "12367b56-729b-8438-8cd4-bcbb5351346d",
       "principle": "The detectors, proven"
     },
     {
@@ -5617,8 +5617,8 @@
     },
     {
       "key": "the_face_is_computed_not_shipped",
-      "lineAddress": "88efce32-384f-8901-ba1a-2bfcf6f4b401",
-      "address": "9eb4d106-0b8e-8cbb-9ae1-0b6b865e9a00",
+      "lineAddress": "e0864cb3-ef31-8055-84f1-6657edbf42f2",
+      "address": "5c7f6e3e-9877-8a2e-86c3-fca3a311363b",
       "principle": "The site build as arithmetic"
     },
     {
@@ -5635,8 +5635,8 @@
     },
     {
       "key": "a_template_distinguishes_only_by_its_variable",
-      "lineAddress": "8a269583-69b3-8599-9e02-7499bfd64f77",
-      "address": "4681a115-e7d6-8a6a-a5a0-cbb84ff050ee",
+      "lineAddress": "e1d475d4-454a-86d6-b7d1-ec5406effb1e",
+      "address": "fe80ee7b-efd2-87a1-a542-2264ee1eff27",
       "principle": "The site build as arithmetic"
     },
     {
@@ -5650,6 +5650,12 @@
       "lineAddress": "fcb9f948-e9db-8a5a-ab11-8eb022b83cc1",
       "address": "b2ab9267-94e0-83b2-ada4-8515e3e1b4ca",
       "principle": "The site build as arithmetic"
+    },
+    {
+      "key": "truss_determinacy_partitions_the_joint_member_grid",
+      "lineAddress": "098a6917-b019-87ee-be95-51286b4b7950",
+      "address": "6811b345-73a6-845f-b2f6-3274bafceafd",
+      "principle": "The structures domain"
     },
     {
       "key": "force_equilibrium",
@@ -7669,8 +7675,8 @@
     },
     {
       "key": "nine_step_walk_closes_the_ring",
-      "lineAddress": "0744125e-2ad1-8f47-9630-06515f94b92e",
-      "address": "b246e0d7-32a3-8b66-b301-a9204d8db590",
+      "lineAddress": "3ae19253-e088-87b1-8b9a-2677b01c13ec",
+      "address": "02a7776a-a00f-8c19-b786-19a041b76c6b",
       "principle": "The colour wheel"
     },
     {
@@ -15942,7 +15948,7 @@
       "principle": "The waves"
     }
   ],
-  "claim_receipt": "970782cb-29df-8195-8a9a-0d631f9ea308",
+  "claim_receipt": "616e09fa-02ec-8282-9e78-885f167119b2",
   "honest_scope": {
     "proves": [
       "Every theorem is claimed — the claim unit is the theorem itself (lineAddress)",

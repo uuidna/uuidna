@@ -1,6 +1,6 @@
 {
   "@context": "https://schema.org",
-  "@id": "urn:uuid:d5d11b2c-2159-8599-94d0-d1e8a62ac377",
+  "@id": "urn:uuid:05e71d5b-71ab-80b5-9d27-e73e68be84b0",
   "@type": "DataFeed",
   "name": "uuidna theorem ledger feed",
   "description": "Every sealed theorem, united in one feed — each item the SAME JSON-LD its own /theorem/<key> page ships (seo.ts, one source, no second copy). Integrity, not truth.",
@@ -21433,11 +21433,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:ff99c799-4a0d-8517-bb57-c8e948c15e99",
+        "@id": "urn:uuid:8851841c-2933-89ae-987e-57424cea16ea",
         "@type": "ScholarlyArticle",
-        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 691571 characters across 2605 doc comments in 114 wings fold to 2; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
-        "abstract": "(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5016, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 4215, 2581, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 320269, 10367].foldl (· + ·) 0) = 691571) ∧ (691571 % 9 = 2) ∧ (2 < 9)",
-        "identifier": "951b771d-66d3-8d56-bccc-f5641f4fc07c",
+        "headline": "the whole prose corpus folds to ONE ℤ/9 receipt — 692045 characters across 2605 doc comments in 114 wings fold to 8; the kernel sums the per-wing character counts itself and takes the residue, the ledger's own vortex arithmetic over its own sentences, so a single changed character in any wing moves the digit",
+        "abstract": "(([1078, 1237, 1545, 3403, 3345, 3111, 1892, 2906, 2142, 2947, 1487, 774, 6501, 796, 1774, 3811, 3451, 4156, 10068, 2753, 1597, 1647, 13765, 5490, 1389, 1736, 1372, 960, 5291, 1889, 2363, 5075, 1465, 5416, 1603, 3293, 761, 3008, 2038, 2171, 2848, 1506, 1335, 1330, 4215, 2581, 11146, 959, 4503, 5637, 1452, 3162, 2783, 2298, 1629, 1299, 3672, 1188, 753, 4555, 5728, 15957, 1575, 1245, 1833, 2098, 3162, 2602, 1479, 1572, 2341, 1800, 934, 1027, 2126, 14704, 9354, 10650, 6393, 1646, 6196, 1488, 1539, 3510, 3069, 2850, 789, 1488, 3198, 8336, 2244, 1336, 6903, 1937, 3396, 1946, 1544, 1412, 2571, 1638, 1453, 2419, 2104, 3304, 805, 6250, 2905, 1522, 3958, 3675, 1653, 5388, 320269, 10367].foldl (· + ·) 0) = 692045) ∧ (692045 % 9 = 8) ∧ (8 < 9)",
+        "identifier": "12367b56-729b-8438-8cd4-bcbb5351346d",
         "url": "https://uuidna.com/theorem/prose_folds_receipt",
         "keywords": "audit, The detectors, proven",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Audit.lean",
@@ -21455,7 +21455,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/951b771d"
+          "https://uuidna.com/12367b56"
         ]
       }
     },
@@ -28997,11 +28997,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:88efce32-384f-8901-ba1a-2bfcf6f4b401",
+        "@id": "urn:uuid:e0864cb3-ef31-8055-84f1-6657edbf42f2",
         "@type": "ScholarlyArticle",
         "headline": "85179 bytes of markup from a 36-character address: 2366 times the input, shipped 2603 times",
-        "abstract": "(85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000)",
-        "identifier": "9eb4d106-0b8e-8cbb-9ae1-0b6b865e9a00",
+        "abstract": "((85179 / 36 = 2366) ∧ (2603 * 85179 = 221720937) ∧ (2603 * 36 = 93708) ∧ (221720937 > 187416000)) ∧ (85179 % 9 = 3)",
+        "identifier": "5c7f6e3e-9877-8a2e-86c3-fca3a311363b",
         "url": "https://uuidna.com/theorem/the_face_is_computed_not_shipped",
         "keywords": "site-build, The site build as arithmetic",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
@@ -29019,7 +29019,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/9eb4d106"
+          "https://uuidna.com/5c7f6e3e"
         ]
       }
     },
@@ -29090,11 +29090,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:8a269583-69b3-8599-9e02-7499bfd64f77",
+        "@id": "urn:uuid:e1d475d4-454a-86d6-b7d1-ec5406effb1e",
         "@type": "ScholarlyArticle",
         "headline": "every one of 118 monographs now carries a DISTINCT abstract — 118 distinct, 0 duplicates — because the abstract is derived from each wing's own theorems rather than filled into a one-variable template",
-        "abstract": "([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 2089337541, 811508052, 1053991675, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 4251603361, 214893959, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 2163948612, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].eraseDups.length = 118) ∧ ([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 2089337541, 811508052, 1053991675, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 4251603361, 214893959, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 2163948612, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].length = 118)",
-        "identifier": "4681a115-e7d6-8a6a-a5a0-cbb84ff050ee",
+        "abstract": "([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 2089337541, 811508052, 1053991675, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 1275605280, 214893959, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 2163948612, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].eraseDups.length = 118) ∧ ([1512426110, 2423664848, 2800532167, 2316153544, 859681794, 688866759, 790203210, 3287502163, 1232503635, 2361209693, 2089337541, 811508052, 1053991675, 173574295, 3882145113, 3408460491, 3617319934, 1992797820, 2492946206, 2739694949, 574241658, 1568172890, 2375366548, 2582534254, 3803076375, 1918101649, 62062972, 42133168, 2714103410, 1625596715, 1596185573, 2066209403, 3210648311, 791189161, 2756033056, 1160645508, 2812192639, 314999764, 230339181, 2198364556, 1930939537, 3939310638, 3867350361, 2157653840, 1597910308, 2894005594, 2307115289, 2056740102, 1292854804, 3521867139, 2993956309, 756896971, 341325313, 3599169530, 1731003643, 3099648816, 2197441124, 2222771920, 3653457980, 3881282864, 1898679938, 1332341855, 3866620935, 1275605280, 214893959, 2051211530, 2679773531, 1059844443, 3106520644, 310646979, 3871008196, 1254359528, 3118326667, 318110582, 3720052728, 2044152415, 2724672723, 608311386, 2994231201, 2788298807, 1570305977, 1723938398, 1099731007, 2738817633, 2163948612, 4074107130, 1328950102, 4043042332, 863434700, 1906541921, 4140981702, 3871150635, 2339036565, 193229161, 1966113413, 223784435, 171914572, 587231060, 2975229393, 2087519408, 1417126388, 2485208394, 3742543858, 565505920, 911699107, 66137245, 4179464627, 113697884, 1903834002, 2459046576, 2438026848, 2154140704, 720564593, 2882299779, 3637356709, 2739963212, 4127462629, 1091139918].length = 118)",
+        "identifier": "fe80ee7b-efd2-87a1-a542-2264ee1eff27",
         "url": "https://uuidna.com/theorem/a_template_distinguishes_only_by_its_variable",
         "keywords": "site-build, The site build as arithmetic",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/SiteBuild.lean",
@@ -29112,7 +29112,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/4681a115"
+          "https://uuidna.com/fe80ee7b"
         ]
       }
     },
@@ -29175,6 +29175,37 @@
         },
         "sameAs": [
           "https://uuidna.com/b2ab9267"
+        ]
+      }
+    },
+    {
+      "@type": "DataFeedItem",
+      "dateCreated": "2025-01-01",
+      "item": {
+        "@context": "https://schema.org",
+        "@id": "urn:uuid:098a6917-b019-87ee-be95-51286b4b7950",
+        "@type": "ScholarlyArticle",
+        "headline": "MAXWELL'S RULE WALKED, not stated. This wing named m = 2j − 3 in its header and never enumerated it, which is the difference between a claim about trusses and a claim that decides. Over joints 3..12 and members 0..40 — 829 cases — three things are decided. EXACTLY ONE member count per joint count is statically determinate: for each j precisely one m in range satisfies m + 3 = 2j, so the rule picks a point and not a region. THE COST OF A JOINT IS EXACTLY TWO MEMBERS: the determinate m rises by 2 for each joint added, which is why a planar truss grows by triangles. AND THE MECHANISMS ARE COUNTED: below the determinate point sit exactly 2j − 3 under-braced configurations, each of which moves. THE THIRD CLAUSE IS THE ONE THAT DISCRIMINATES and it was checked rather than assumed — under a wrong rule (m = 2j − 2) the first clause STILL HOLDS, because \"exactly one m per j\" is a property of the shape rather than of the constant, while the mechanism count is false. A conjunct that survives the wrong rule is decoration; the count is the content. SCOPE: planar pin-jointed trusses as counting. It decides the arithmetic of determinacy, NOT whether a given structure stands — a determinate truss can still fail on member strength, buckling or a support that is not what the count assumed.",
+        "abstract": "((List.range' 3 10).all (fun j => ((List.range 41).filter (fun m => m + 3 == 2 * j)).length == 1)) ∧ ((List.range' 3 9).all (fun j => (2 * (j + 1) - 3) - (2 * j - 3) == 2)) ∧ ((List.range' 3 10).all (fun j => ((List.range 41).filter (fun m => m + 3 < 2 * j)).length == 2 * j - 3))",
+        "identifier": "6811b345-73a6-845f-b2f6-3274bafceafd",
+        "url": "https://uuidna.com/theorem/truss_determinacy_partitions_the_joint_member_grid",
+        "keywords": "statics, The structures domain",
+        "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Statics.lean",
+        "creativeWorkStatus": "Proven by decide in Lean 4, sorry-free, axiom-free",
+        "isPartOf": {
+          "@type": "Dataset",
+          "name": "uuidna theorem ledger",
+          "url": "https://uuidna.com/theorems"
+        },
+        "license": "https://uuidna.com/license",
+        "copyrightYear": 2025,
+        "creditText": "© 2025 Tsvetan Rouschev (ceccec@psg.bg)",
+        "copyrightHolder": {
+          "@type": "Person",
+          "name": "Tsvetan Rouschev (ceccec@psg.bg)"
+        },
+        "sameAs": [
+          "https://uuidna.com/6811b345"
         ]
       }
     },
@@ -39599,11 +39630,11 @@
       "dateCreated": "2025-01-01",
       "item": {
         "@context": "https://schema.org",
-        "@id": "urn:uuid:0744125e-2ad1-8f47-9630-06515f94b92e",
+        "@id": "urn:uuid:3ae19253-e088-87b1-8b9a-2677b01c13ec",
         "@type": "ScholarlyArticle",
-        "headline": "THE WALK IS ONE TURN OF THE RING: the graduation walk grew to nine steps — and nine is the ring's own modulus: 9 % 9 = 0, one complete revolution. The enrollment walk a theorem takes to be born is exactly one turn of the arithmetic it enters. The walk closes because the ring closes.",
-        "abstract": "(9 % 9 = 0) ∧ (8 % 9 = 8)",
-        "identifier": "b246e0d7-32a3-8b66-b301-a9204d8db590",
+        "headline": "THE WALK IS ONE TURN OF THE RING: the graduation walk grew to nine steps — AND NINE IS THE FIRST STEP THAT CLOSES IT: no step from one to eight returns the walk to its start, and the ninth does. Stated as `9 % 9 = 0 ∧ 8 % 9 = 8` it was TRUE FOR STRUCTURAL REASONS RATHER THAN FOR THE RING'S — `a % a = 0` holds for every a and `a % b = a` for every a below b, so neither conjunct could have been false whatever the modulus was, and the claim rested entirely on which constants were chosen to display. Restated over the whole walk it depends on the nine: the same sentence with a modulus of four is refused by the kernel. The enrollment walk a theorem takes to be born is exactly one turn of the arithmetic it enters. The walk closes because the ring closes.",
+        "abstract": "(((List.range 9).drop 1).all (fun n => n % 9 != 0)) ∧ (9 % 9 = 0)",
+        "identifier": "02a7776a-a00f-8c19-b786-19a041b76c6b",
         "url": "https://uuidna.com/theorem/nine_step_walk_closes_the_ring",
         "keywords": "colour, The colour wheel",
         "isBasedOn": "https://github.com/uuidna/uuidna/blob/main/lean/Colour.lean",
@@ -39621,7 +39652,7 @@
           "name": "Tsvetan Rouschev (ceccec@psg.bg)"
         },
         "sameAs": [
-          "https://uuidna.com/b246e0d7"
+          "https://uuidna.com/02a7776a"
         ]
       }
     },

@@ -7,7 +7,7 @@ description: "Computed from lean/Colour.lean — 17 sealed theorems, every claim
 
 > THE COLOUR WHEEL — colour theory as decidable arithmetic: the wheel is ℤ/12, complements oppose (+6), primaries and secondaries make six, the triad is thirds and the square is fourths, true colour is 24-bit, tint and shade complement to full value. — held by [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) and its 16 siblings below.
 
-**17 theorems**, from [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) onward, each proven `by decide` in <a href="/lean/Colour.lean">lean/Colour.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 4 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band). A boundary stated here is decided.
+**17 theorems**, from [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band) onward, each proven `by decide` in <a href="/lean/Colour.lean">lean/Colour.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 5 of its 17 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [fourth_ray_is_green_band](/theorem/fourth_ray_is_green_band). A boundary stated here is decided.
 
 **[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FColour.lean)** — nothing to install. The editor fetches `lean/Colour.lean` from the repository and re-decides all 17 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
@@ -25,11 +25,11 @@ The ledger holds this as [alphabet_digital_root_is_nine](/theorem/alphabet_digit
 (9*7*6 = 378) ∧ (3+7+8 = 18) ∧ (1+8 = 9)
 ```
 
-### THE WALK IS ONE TURN OF THE RING: the graduation walk grew to nine steps — and nine is the ring's own modulus: 9 % 9 = 0, one complete revolution. The enrollment walk a theorem takes to be born is exactly one turn of the arithmetic it enters. The walk closes because the ring closes.
+### THE WALK IS ONE TURN OF THE RING: the graduation walk grew to nine steps — AND NINE IS THE FIRST STEP THAT CLOSES IT: no step from one to eight returns the walk to its start, and the ninth does. Stated as `9 % 9 = 0 ∧ 8 % 9 = 8` it was TRUE FOR STRUCTURAL REASONS RATHER THAN FOR THE RING'S — `a % a = 0` holds for every a and `a % b = a` for every a below b, so neither conjunct could have been false whatever the modulus was, and the claim rested entirely on which constants were chosen to display. Restated over the whole walk it depends on the nine: the same sentence with a modulus of four is refused by the kernel. The enrollment walk a theorem takes to be born is exactly one turn of the arithmetic it enters. The walk closes because the ring closes.
 The ledger holds this as [nine_step_walk_closes_the_ring](/theorem/nine_step_walk_closes_the_ring) — proven `by decide`, sorry-free:
 
 ```lean
-(9 % 9 = 0) ∧ (8 % 9 = 8)
+(((List.range 9).drop 1).all (fun n => n % 9 != 0)) ∧ (9 % 9 = 0)
 ```
 
 ### THE SCATTERING LESSON, part 1 — the meeting points. Two aura hue pairs meet on the wheel's mirror line through 0°: 340° and 20° are equidistant from the top (360−340 = 20), as are 320° and 40° (360−320 = 40). Symmetric approach paths cross at the axis — where the totality check heard thunder: two states rendering one colour.
