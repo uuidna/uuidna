@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "89dc7da8d8466d4b40c58b0ddbb4c8e9",
-    "lean": "61ef3c35b592a51eabeaa2027bfe47cd"
+    "src": "72d7208731a54b1de6c15e56fddeaf4e",
+    "lean": "f972fa36012de6b88e4997e393c3950c"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -128,7 +128,7 @@
     "lean/alpine-apps.json": "6f253ef38579ce12",
     "lean/alpine-apps.md": "0a62f5afcaac46bd",
     "lean/alpine-discovery.json": "a56bee2f1fb0a281",
-    "lean/alpine-hexbit-monitor.json": "cd2459881342851d",
+    "lean/alpine-hexbit-monitor.json": "905c594b08fdc78f",
     "lean/anthem-manifest.json": "c5608e8f20ea26df",
     "lean/antifraud-manifest.json": "03571950d926e2b0",
     "lean/antikythera-manifest.json": "a8ec30f0e003d51c",
@@ -3684,7 +3684,7 @@
     "src/quantum/memory/index.ts": "c1a6fdac0fe707db",
     "src/quantum/message/index.ts": "0b9ec596de0c33f0",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "fadcc24aaf88d7a2",
+    "src/quantum/models/mirror.ts": "2bdb55b068d0e48e",
     "src/quantum/os/aas/index.test.ts": "63b9d3e4bf6e7e75",
     "src/quantum/os/aas/index.ts": "5e5d581164c75e79",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",
@@ -3715,9 +3715,9 @@
     "src/quantum/os/chat/index.ts": "43858f60f86ac4a5",
     "src/quantum/os/cli/index.test.ts": "06f0496fc0a6d907",
     "src/quantum/os/cli/index.ts": "18f660f37575d77b",
-    "src/quantum/os/codecs/index.test.ts": "630a4370aa74f0c9",
+    "src/quantum/os/codecs/index.test.ts": "0c1b10f3b8da04f3",
     "src/quantum/os/codecs/index.ts": "46089097826261d9",
-    "src/quantum/os/coreutils/index.ts": "e65ba5716cf03104",
+    "src/quantum/os/coreutils/index.ts": "c43b4b7c867d3792",
     "src/quantum/os/court/index.ts": "13e98700ecc5a60c",
     "src/quantum/os/coverage/index.ts": "15556178decd7114",
     "src/quantum/os/cryptoapps/index.test.ts": "a4b47fbefda571d2",
@@ -3733,7 +3733,7 @@
     "src/quantum/os/domains/index.ts": "283d15e5e1db3eed",
     "src/quantum/os/engapi/index.test.ts": "af16eccb93fb01bf",
     "src/quantum/os/engapi/index.ts": "d4e203e887b6d389",
-    "src/quantum/os/exec/index.ts": "90740315387c75c2",
+    "src/quantum/os/exec/index.ts": "89a7496efd83d234",
     "src/quantum/os/fetch/index.ts": "45fa2e96651061c5",
     "src/quantum/os/firmware/index.test.ts": "0c3cca5cc6cd86af",
     "src/quantum/os/firmware/index.ts": "9b1c8ad1335ad4ed",
@@ -3767,7 +3767,7 @@
     "src/quantum/os/harness/one-writer.test.ts": "8110b43ca68b44b9",
     "src/quantum/os/harness/os-catalogue.test.ts": "153dabc2e2531357",
     "src/quantum/os/harness/os-port.test.ts": "867d7160cffa2b82",
-    "src/quantum/os/harness/os.test.ts": "a9d4833ebd58801f",
+    "src/quantum/os/harness/os.test.ts": "d8be0000b3e2d123",
     "src/quantum/os/harness/proof-cache-sign.test.ts": "7817c74d509832bd",
     "src/quantum/os/harness/public-apis.test.ts": "0934dea6fde5a401",
     "src/quantum/os/harness/publication-metadata.test.ts": "a73b67f41021ea91",
@@ -3816,7 +3816,7 @@
     "src/quantum/os/qc/index.test.ts": "1038a1494834a018",
     "src/quantum/os/qc/index.ts": "8f57487c4e35563e",
     "src/quantum/os/refusals/index.test.ts": "5092622920c52699",
-    "src/quantum/os/refusals/index.ts": "ddd1e5ca9ae06fbf",
+    "src/quantum/os/refusals/index.ts": "6cac44589cc0e2ca",
     "src/quantum/os/registry/index.test.ts": "65681ecad9467124",
     "src/quantum/os/registry/index.ts": "7eb5b381ab07e4ac",
     "src/quantum/os/related/index.test.ts": "c7fa161d7432f43d",
@@ -3825,7 +3825,7 @@
     "src/quantum/os/routes/index.ts": "dd4e429b4c01330f",
     "src/quantum/os/school/index.ts": "f523f0d0378086fe",
     "src/quantum/os/session/index.ts": "f83e5df00574d05b",
-    "src/quantum/os/shellapi/index.test.ts": "ffa3216d682b9fcd",
+    "src/quantum/os/shellapi/index.test.ts": "7fb6b8a3d61d1976",
     "src/quantum/os/shellapi/index.ts": "67b9b0145c5c823f",
     "src/quantum/os/socialapi/index.test.ts": "5c3489682945a077",
     "src/quantum/os/socialapi/index.ts": "9afb5a60895f816d",
@@ -3897,7 +3897,7 @@
     "src/school/refusals/index.ts": "e67c10b42883e549",
     "src/school/sequence/index.ts": "1b33db49de600f91",
     "src/scripts/account.ts": "12d4b17d1045f90b",
-    "src/scripts/accounting-gaps.ts": "5378183832c0e6c1",
+    "src/scripts/accounting-gaps.ts": "c66a230abbedf463",
     "src/scripts/all-run.test.ts": "1e1a12751b7126c2",
     "src/scripts/all-run.ts": "81fb11acec274b4c",
     "src/scripts/alpine-discovery.ts": "5bba3f7ac631e788",
@@ -4322,7 +4322,7 @@
   },
   "verified": [
     "guard",
-    "tests"
+    "build"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."
