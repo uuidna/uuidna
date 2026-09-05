@@ -2,7 +2,7 @@
 // would equally pass a gate that refuses everything, which is the gate that gets switched off in a week.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { prePushForge, rosterGaps, absentMustJudge, staleExemptions, mustJudge, MUST_JUDGE_BY_REF, NEED_NOT_JUDGE, type ForgeReceipt } from './forge-verdict.js'
+import { prePushForge, rosterGaps, absentMustJudge, staleExemptions, ignoreFailure, mustJudge, MUST_JUDGE_BY_REF, NEED_NOT_JUDGE, type ForgeReceipt } from './forge-verdict.js'
 
 const r = (over: Partial<ForgeReceipt> = {}): ForgeReceipt =>
   ({ sha: '7d9eae4e0abc', ok: true, measured: true, failing: [], notJudged: [], ...over })
@@ -49,14 +49,19 @@ test('a verdict that is not ok and names nothing is refused — it cannot say wh
 })
 
 test('ROSTER: a workflow in neither column is a gap, so adding one forces a decision', () => {
-  assert.deepEqual(rosterGaps(['security', 'dependency-review']), [], 'both columns claim these')
-  assert.deepEqual(rosterGaps(['security', 'brand-new-workflow']), ['brand-new-workflow'])
+  // `security` is a WORKFLOW; the roster is over CHECK names, and secret-scan/recomputable-audit/deploy are
+  // the jobs inside it. The detector was right and this fixture was pre-migration.
+  assert.deepEqual(rosterGaps(['secret-scan', 'dependency-review']), [], 'both columns claim these')
+  assert.deepEqual(rosterGaps(['secret-scan', 'brand-new-check']), ['brand-new-check'])
 })
 
 test('the two columns are disjoint — a workflow cannot both must-judge and be exempt', () => {
   const every = [...MUST_JUDGE_BY_REF.branch, ...MUST_JUDGE_BY_REF.tag]
   assert.deepEqual(every.filter((n: string) => n in NEED_NOT_JUDGE), [])
-  for (const [name, why] of Object.entries(NEED_NOT_JUDGE)) assert.ok(why.length > 10, `${name} must carry its reason for being exempt`)
+  for (const [name, e] of Object.entries(NEED_NOT_JUDGE)) {
+    assert.ok(e.why.length > 10, `${name} must carry its reason for being exempt`)
+    assert.ok(e.kind === 'late' || e.kind === 'meaningless', `${name} must declare WHICH exemption it holds`)
+  }
 })
 
 // uuidna-49 refuted the flat set from the forge: publish and release are TAG-triggered, so on a push to main
@@ -90,4 +95,18 @@ test('an exemption whose check STOPS ARRIVING is reported — a repaired gap kee
 
 test('a NEW check nobody rostered is a gap — a second Worker mints a new name', () => {
   assert.deepEqual(rosterGaps([...LIVE, 'Workers Builds: uuidna-edge']), ['Workers Builds: uuidna-edge'])
+})
+
+// uuidna-49 measured a CodeQL FAILURE passing as merely "exempt". One word was answering two questions.
+test('a LATE check that FAILED has judged — its failure is a real finding and must not be ignored', () => {
+  assert.equal(ignoreFailure('Analyze (actions)'), false, 'CodeQL failing is a security finding, not lateness')
+  assert.equal(ignoreFailure('dependency-review'), false)
+})
+
+test('a MEANINGLESS check is ignored even when it fails — otherwise it refuses every landing forever', () => {
+  assert.equal(ignoreFailure('Workers Builds: uuidna'), true)
+})
+
+test('an UNROSTERED check is never ignored — silence is not an exemption', () => {
+  assert.equal(ignoreFailure('some-new-check'), false)
 })

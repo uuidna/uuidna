@@ -23,7 +23,8 @@
  *     checks sharing ONE workflow run (33987294185, security); both `Analyze` checks share the CodeQL run. So the
  *     two surfaces are not peers to union — the check surface is strictly FINER and strictly LARGER: every Actions
  *     job, plus any foreign app. Judging on checks loses nothing; judging on both counts one failure twice.
- *  2. A FOREIGN CHECK CANNOT BE EVENT-ATTRIBUTED. Every github-actions check carries its run id in details_url
+ *  2. A FOREIGN CHECK CANNOT BE EVENT-ATTRIBUTED — because the join needs a run id and it has none. Every
+ *     github-actions check carries its run id in details_url
  *     (`actions/runs/33987294185/job/…`), so its event is recoverable by a join. `Workers Builds: uuidna` points
  *     at dash.cloudflare.com and carries no run id, so no event filter can reach it and no default is safe.
  *     The roster is therefore the ONLY place its verdict can be decided — these columns are forced, not a
@@ -41,13 +42,33 @@ export const MUST_JUDGE_BY_REF: Readonly<Record<'branch' | 'tag', readonly strin
   tag: [],
 }
 
-/** Checks that legitimately do not judge every push, each carrying the reason it is exempt. */
-export const NEED_NOT_JUDGE: Readonly<Record<string, string>> = {
-  'dependency-review': 'PR-only; skips on every push to main by design',
-  'Analyze (actions)': 'CodeQL; takes minutes longer than the rest and is routinely still queued when they settle',
-  'Analyze (javascript-typescript)': 'CodeQL; same run as Analyze (actions), same lateness',
-  'Workers Builds: uuidna': 'git-connected Cloudflare container build; CANNOT render this site (5260 pages against an 8 GiB container) so it can never succeed, and disconnecting it is a dashboard act no repository change can perform',
+/** WHY a check is exempt, because one word was answering two questions and the absent case lost.
+ *
+ *  uuidna-49 measured it against this roster: `Analyze (actions)` FAILING came back ok=true, listed merely as
+ *  exempt. "Exempt" was spelling both "may not have judged YET" and "its verdict is MEANINGLESS", and read as
+ *  one word the first collapses into the second — so a real CodeQL security finding sailed through.
+ *
+ *  LATE        its ABSENCE must not block, and its FAILURE is a real finding that must.
+ *  MEANINGLESS its verdict says nothing whatever, so even a failure is ignored — otherwise a check that can
+ *              never succeed refuses every landing forever.
+ *
+ *  DECLARED, not derived. 49 closed it on their side by inferring MEANINGLESS from "foreign app, no run to
+ *  join", which is true of today's single case and couples two independent facts: a first-party check can be
+ *  meaningless, and a foreign one can carry a verdict worth believing. The kind is the decision; the app is not
+ *  evidence for it. */
+export type ExemptionKind = 'late' | 'meaningless'
+export interface Exemption { readonly kind: ExemptionKind; readonly why: string }
+
+export const NEED_NOT_JUDGE: Readonly<Record<string, Exemption>> = {
+  'dependency-review': { kind: 'late', why: 'PR-only; skips on every push to main by design' },
+  'Analyze (actions)': { kind: 'late', why: 'CodeQL; takes minutes longer than the rest and is routinely still queued when they settle' },
+  'Analyze (javascript-typescript)': { kind: 'late', why: 'CodeQL; same run as Analyze (actions), same lateness' },
+  'Workers Builds: uuidna': { kind: 'meaningless', why: 'git-connected Cloudflare container build; it CANNOT render this site — 5260 pages against an 8 GiB container that must also hold node and the bundler — so it can never succeed, and disconnecting it is a dashboard act no repository change can perform' },
 }
+
+/** ignoreFailure(name) → may a FAILING check be disregarded? Only a MEANINGLESS one. A late check that
+ *  actually failed has judged, and what it judged is exactly what this arm exists to carry. */
+export const ignoreFailure = (name: string): boolean => NEED_NOT_JUDGE[name]?.kind === 'meaningless'
 
 export const mustJudge = (ref: 'branch' | 'tag'): readonly string[] => MUST_JUDGE_BY_REF[ref]
 
