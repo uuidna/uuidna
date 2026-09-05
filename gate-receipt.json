@@ -1,7 +1,7 @@
 {
   "covers": {
-    "src": "c4c86eb9f81eb7f2389c2ddf46513338",
-    "lean": "0e9b1e46adb7610f52f9d7605bf9bb9b"
+    "src": "fc5f8fbba0f7476bc54410a83a564c53",
+    "lean": "2bbaf327568589c1d3ae59d72f9c6ca2"
   },
   "files": {
     "lean/Acoustics.lean": "1146878cb54d7db1",
@@ -225,9 +225,9 @@
     "lean/propulsion-manifest.json": "c9470e0344be84de",
     "lean/prosetrial-manifest.json": "5a48558b70ab5658",
     "lean/psychology-manifest.json": "dd0f5c4fc0aec5fe",
-    "lean/quantum-advantage-fields.json": "cda8bf6ae32b775e",
-    "lean/quantum-advantage.json": "d0f365562a261b4e",
-    "lean/quantum-advantage.md": "3c952e10d497fe56",
+    "lean/quantum-advantage-fields.json": "6c1936d2f8145e16",
+    "lean/quantum-advantage.json": "0258261a6354ab66",
+    "lean/quantum-advantage.md": "7a13ba5eacc4d554",
     "lean/quantum-capacity.json": "0a5eafbe959f0645",
     "lean/quantum-capacity.md": "065e61befb273aac",
     "lean/quantum-manifest.json": "a62ff02e0f90f23d",
@@ -409,7 +409,7 @@
     "src/drivers/driver/index.ts": "491d0498328428dd",
     "src/drivers/driverapi/index.test.ts": "17eab661a2f4077c",
     "src/drivers/driverapi/index.ts": "6f682cd1fa34c8ad",
-    "src/drivers/quantum/index.ts": "5843b864051952ed",
+    "src/drivers/quantum/index.ts": "ac4b973f6b0232d5",
     "src/due-process.test.ts": "b516ec7d88275ac8",
     "src/due-process.ts": "fdf2bb538d904fae",
     "src/editor.test.ts": "edfae161acc93c09",
@@ -3733,12 +3733,12 @@
     "src/quantum/clock/index.ts": "a0730dc364d71cf5",
     "src/quantum/context/index.ts": "2ddeb27120dcafea",
     "src/quantum/dispatch/index.ts": "87929b46509ac8dc",
-    "src/quantum/index.ts": "1c76d925d62a059d",
+    "src/quantum/index.ts": "1fdd859295f7c042",
     "src/quantum/machine/index.ts": "13ddc5af6230ba59",
     "src/quantum/memory/index.ts": "c1a6fdac0fe707db",
     "src/quantum/message/index.ts": "0b9ec596de0c33f0",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "f95de380d8664e1f",
+    "src/quantum/models/mirror.ts": "8ba741d5d83eea8c",
     "src/quantum/os/aas/index.test.ts": "63b9d3e4bf6e7e75",
     "src/quantum/os/aas/index.ts": "5e5d581164c75e79",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",

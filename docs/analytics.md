@@ -32,7 +32,7 @@
 ### Scope & Capabilities
 | Metric | Value | Interpretation |
 |--------|-------|-----------------|
-| **MCP tools** | 256 | In 41 categories |
+| **MCP tools** | 257 | In 41 categories |
 | **Publications** | 118 | Monographs linked to sealed theorems |
 | **Vocabulary terms** | 233 | `vocabulary()` — ledger domains and skills |
 | **Content addressing** | SHA-256 (cryptographic) + FNV-1a (non-cryptographic) | Two address spaces: cryptographic + deterministic |
@@ -88,7 +88,7 @@ Total theorems:       2653
 Axiom-free (decide):  2653 (100.0%)
 Principles:           118 domains
 Publications:         118 monographs
-MCP tools:            256 capabilities
+MCP tools:            257 capabilities
 Security checks:      6 automated
 Languages:            233 vocabulary terms
 Runtime deps:         0 (zero)
