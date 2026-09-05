@@ -2803,9 +2803,9 @@
     "lean/propulsion-manifest.json": "dd4ce996a8f18260",
     "lean/prosetrial-manifest.json": "23892b099ad18e7b",
     "lean/psychology-manifest.json": "573f1cc3d653898b",
-    "lean/quantum-advantage-fields.json": "c3b294ec0e5486cb",
-    "lean/quantum-advantage.json": "d0c591b47ea789ae",
-    "lean/quantum-advantage.md": "20bdc6c635118875",
+    "lean/quantum-advantage-fields.json": "683b2e79d6948b07",
+    "lean/quantum-advantage.json": "161a305b4f708d82",
+    "lean/quantum-advantage.md": "c2cf615f134d80fe",
     "lean/quantum-capacity.json": "10223cc35c828d70",
     "lean/quantum-capacity.md": "6c1f69d3e31b8e26",
     "lean/quantum-manifest.json": "e03d3e34ae2988c0",
@@ -2860,5 +2860,5 @@
     "lean/wave-queue.json": "e7813e4ffb2b8edf",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "7cc1b7a3-150e-8538-bd1d-db7850c7e3da"
+  "receipt": "4eb20af2-3497-8e51-86a8-10ba28da6728"
 }
