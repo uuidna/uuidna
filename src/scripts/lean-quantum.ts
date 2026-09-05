@@ -57,7 +57,7 @@ const FACTS = [
   { key: 'z_involution', why: 'Z² = I: the phase flip is its own inverse — negating an amplitude twice returns it, on sample Gaussian-integer amplitudes',
     js: () => CLIFFORD.every(([re, im]) => (-(-re)) === re && (-(-im)) === im),
     lean: 'theorem z_involution : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (-(-(p.1)) == p.1) && (-(-(p.2)) == p.2)) := by decide' },
-  { key: 's_dagger_inverse', why: 'S·S† = I: the phase gate and its adjoint invert — S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the amplitude',
+  { key: 's_dagger_inverse', why: 'S·S† = I on four sample Gaussian-integer amplitudes: the phase gate and its adjoint invert — S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the amplitude',
     js: () => CLIFFORD.every(([re, im]) => { const s = [-im, re]; return s[1] === re && (-s[0]) === im }),
     lean: 'theorem s_dagger_inverse : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let s := (-(p.2), p.1); (s.2 == p.1) && (-(s.1) == p.2))) := by decide' },
   // ── the INVOLUTIONS — the self-inverse gates (g∘g = I): each is its own undo, the quantum analogue of dz∘dz=id ──

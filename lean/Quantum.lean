@@ -57,8 +57,8 @@ theorem s_squared_is_z : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (
     Gaussian-integer amplitudes -/
 theorem z_involution : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (-(-(p.1)) == p.1) && (-(-(p.2)) == p.2)) := by decide
 
-/-- S·S† = I: the phase gate and its adjoint invert — S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the
-    amplitude -/
+/-- S·S† = I on four sample Gaussian-integer amplitudes: the phase gate and its adjoint invert —
+    S(re,im)=(−im,re) then S†(re,im)=(im,−re) returns the amplitude -/
 theorem s_dagger_inverse : ([(1,0),(0,1),(3,-5),(-2,7)] : List (Int × Int)).all (fun p => (let s := (-(p.2), p.1); (s.2 == p.1) && (-(s.1) == p.2))) := by decide
 
 /-- X² = I: the bit-flip is its own inverse — flip q0 twice (i ⊕ 1 ⊕ 1) returns every basis state; X is an

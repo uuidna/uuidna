@@ -125,11 +125,17 @@ test('it stays quiet on a sentence that states its scope, and on one that NARROW
     statement: '([(1,0),(0,1),(3,-5),(-2,7),(1,1),(2,2),(3,3),(4,4)] : List (Int × Int)).all (fun p => p)' }).direction, 'honest')
 })
 
-test('the floor is respected on the under side: a small domain left unstated is phrasing, not a lost claim', () => {
-  assert.deepEqual(claimImbalances([{ key: 'k', name: 'it holds.', statement: '(∀ x : Fin 4, x.val = x.val)' }]), [],
-    `below ${UNDERCLAIM_FLOOR} cases the rule does not insist`)
-  assert.equal(claimImbalances([{ key: 'k', name: 'it holds.', statement: '(∀ x : Fin 8, x.val = x.val)' }]).length, 1,
-    'at the floor it does')
+// THE FLOOR WAS SET TOO HIGH BY ME AND A PEER'S MEASUREMENT FOUND IT. At 8, `s_dagger_inverse` — four sample
+// amplitudes, no scope in its sentence — was invisible, while its sibling `z_involution` declares scope over the
+// SAME four. The tree's convention declares at four, so the floor is 2 now: the smallest domain where "how many"
+// is a question at all. A floor is a place for a fault to hide, so it is kept as low as it can honestly go.
+test('the floor is low enough that a four-case under-claim cannot hide beneath it', () => {
+  assert.equal(claimImbalances([{ key: 'k', name: 'it holds.', statement: '(∀ x : Fin 4, x.val = x.val)' }]).length, 1,
+    'four cases with no scope stated is exactly the fault that was hiding at the old floor of 8')
+  assert.equal(claimImbalances([{ key: 'k', name: 'it holds.', statement: '(∀ x : Fin 2, x.val = x.val)' }]).length, 1,
+    `the floor is ${UNDERCLAIM_FLOOR}, the smallest domain where the question exists`)
+  assert.deepEqual(claimImbalances([{ key: 'k', name: 'it holds.', statement: '(2 + 2 = 4)' }]), [],
+    'a closed identity quantifies over nothing, so there is no scope to state')
 })
 
 test('the live ledger sits ON the fixed point — no claim is off its own proof in either direction', () => {

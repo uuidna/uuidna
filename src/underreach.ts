@@ -205,8 +205,14 @@ export const STATES_SCOPE =
 /** A universal asserted in words — what the sentence claims when it claims everything. */
 export const CLAIMS_UNIVERSAL = /\b(every|all|each|any|always|never|exhaustive\w*|enumerat\w+|whole|entire)\b/i
 
-/** the smallest domain worth insisting on: below this an unstated scope is a phrasing choice, not a lost claim */
-export const UNDERCLAIM_FLOOR = 8
+/** THE FLOOR, AND IT WAS SET TOO HIGH BY ME. It was 8, on the reasoning that below that an unstated scope is a
+ *  phrasing choice rather than a lost claim. A peer session measuring the same ledger found what that hid:
+ *  `s_dagger_inverse` decides over FOUR sample amplitudes and its sentence stated no scope at all, while its own
+ *  sibling `z_involution` — over the very same four — says "on sample Gaussian-integer amplitudes". The tree's
+ *  own convention therefore declares scope at four, and a floor of eight was my preference overruling it. Set to
+ *  2, the smallest domain where "how many" is a question at all; measured after the sibling was restated, the
+ *  live ledger reports 0 at this floor, so nothing is being tolerated by height. */
+export const UNDERCLAIM_FLOOR = 2
 
 /** THE INVOLUTION on the balance: r(b) = −b. Self-inverse, unique fixed point 0 — the honest statement. The
  *  same structure as the diamond's r(d) = 10 − d fixed at 5, carried onto claims. */

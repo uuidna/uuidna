@@ -62,11 +62,26 @@ type LedgerRow = Pick<Theorem, 'key' | 'statement' | 'address' | 'lean' | 'file'
 const seal = (id: string, receipt: string, ok: boolean): TrialSeal => ({ id, receipt, ok })
 
 /** trialAdmit(c) → architectural gate: exact sealed ledger row, or refused. */
+// THE LEDGER IS INDEXED ONCE PER LEDGER, not scanned once per candidate. `ledger.find` here was a linear walk
+// over every sealed row for EVERY candidate — 2653 × 2653 comparisons when the whole ledger is admitted, which
+// is what publications() does to compose the monographs. Measured: 11.0s to build the corpus, ~3s of it inside
+// this one line, and it grows quadratically with the ledger. The index is keyed on the ledger ARRAY so a caller
+// that passes its own rows still gets its own index, and the default (THEOREMS) is built once for the process.
+const INDEX = new WeakMap<readonly LedgerRow[], Map<string, LedgerRow>>()
+const rowFor = (ledger: readonly LedgerRow[], key: string): LedgerRow | undefined => {
+  let ix = INDEX.get(ledger)
+  if (ix === undefined) {
+    ix = new Map(ledger.map((t) => [t.key, t]))
+    INDEX.set(ledger, ix)
+  }
+  return ix.get(key)
+}
+
 export function trialAdmit(
   c: TrialCandidate,
   ledger: readonly LedgerRow[] = THEOREMS,
 ): TrialAdmission {
-  const row = ledger.find((t) => t.key === c.key)
+  const row = rowFor(ledger, c.key)
   if (row && row.statement === c.statement && row.file === c.file) {
     const bound = c.lean.startsWith('theorem ' + c.key + ' ') || c.lean.startsWith('theorem ' + c.key + ':')
     if (bound && c.lean.includes(':= by decide') && toUuid(c.key + ':' + c.statement) === row.address) {
