@@ -56,6 +56,11 @@ const GENERATORS: Gen[] = [
   { file: 'gen-readme.js', args: [], note: 'the published capacity, every figure derived' },
   { file: 'gen-funding-drafts.js', args: [], note: 'openly-licensed funding drafts, composed from the sealed ledger (undated: no countdown)' },
   { file: 'gen-llm.js', args: [], note: 'llm.txt' },
+  // THE STATEMENT-ADDRESS MANIFEST — every sealed statement with its normalised form, both key framings and
+  // its character AND byte lengths, computed in one pass. It exists because peer repositories join corpora on
+  // this address, and a manifest that lags the ledger would have them joining against statements this tree no
+  // longer seals. Wired here rather than run by hand: a generator the chain does not invoke is rot waiting.
+  { file: 'gen-statement-fixture.js', args: [], note: 'docs/public/statement-addresses.json — the cross-repository join manifest' },
   { file: 'gen-leads.js', args: [], note: 'leads.md' },
   { file: 'gen-terminology.js', args: [], note: 'terminology.json' },
   { file: 'gen-feed.js', args: [], note: 'the feed' },

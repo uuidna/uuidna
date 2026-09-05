@@ -78,3 +78,36 @@ test('no two DIFFERENT propositions in this ledger collide — checked over the 
   const bad = [...byAddress].filter(([, forms]) => forms.size > 1)
   assert.deepEqual(bad.map(([a]) => a), [], 'one address covering two normalised statements is a false merge')
 })
+
+// ── THE IDENTIFIER CLASS. A peer repository joining statement addresses across four corpora measured an ASCII
+// character class corrupting 211 of 832 statements on one of them, and asked whether uuidna's rule had the same
+// defect. It did. These hold the fix, and the FIRST of them is the corruption itself: a space between two
+// non-Latin identifiers must survive, because deleting it merges two identifiers into a third that appears in
+// neither statement — silently, on the very key used to join repositories.
+
+test('a space BETWEEN two non-Latin identifiers survives — merging them would invent a third', () => {
+  assert.equal(normaliseProposition('α β = γ'), 'α β=γ', 'αβ is not α β; the ASCII class glued them')
+  assert.equal(normaliseProposition('∀ ℤ x, x = x'), '∀ℤ x,x=x', 'ℤ and x are two identifiers, not one')
+  assert.notEqual(normaliseProposition('α β = γ'), normaliseProposition('αβ = γ'),
+    'two identifiers and one identifier are DIFFERENT propositions and must not share an address')
+})
+
+test('a space adjacent to an operator is still dropped, whatever alphabet the operand is in', () => {
+  assert.equal(normaliseProposition('σ = 1'), 'σ=1')
+  assert.equal(normaliseProposition('(σ + τ) = 2'), '(σ+τ)=2')
+  assert.equal(normaliseProposition('H₁ = Σ₂ + χ'), 'H₁=Σ₂+χ', 'subscripted Greek is identifiers around operators')
+  assert.equal(normaliseProposition('十 = 10'), '十=10', 'CJK too — the corpus carries 十 and the digits 一..九')
+})
+
+// AND THE WIDENING PUBLISHED NOTHING NEW. Every address this repository has emitted is unchanged: on this
+// corpus the two classes never disagree, because the non-Latin characters here sit inside string literals where
+// both rules see a quote. Measured, not assumed — if this ever fails, a published address has moved.
+test('widening the class moved NO address in the live ledger', () => {
+  const ascii = (s: string): string => String(s).normalize('NFC').replace(/\s+/g, ' ').trim()
+    .replace(/\s(?![A-Za-z0-9_])|(?<![A-Za-z0-9_.])\s/g, '').replace(/==/g, '=').replace(/!=/g, '≠')
+  const moved = THEOREMS.filter((t) => normaliseProposition(t.statement) !== ascii(t.statement))
+  assert.deepEqual(moved.map((t) => t.key), [],
+    'a published statement address moving is a break for every downstream that stored one')
+  const nonAscii = THEOREMS.filter((t) => /[^\x00-\x7F]/.test(t.statement))
+  assert.ok(nonAscii.length > 500, `the corpus must actually exercise this: ${nonAscii.length} non-ASCII statements`)
+})
