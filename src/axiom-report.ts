@@ -33,6 +33,32 @@ export function parseAxiomReport(out: string): Record<string, string[]> {
   return verdict
 }
 
+/** THE ONE INADMISSIBLE FAMILY, MEASURED RATHER THAN GUESSED. Of fourteen List primitives probed against the
+ *  kernel on 2026-09-06, exactly TWO drag propext — and both are INDEXED ACCESS:
+ *
+ *      .getD      [1,2,3].getD 1 0 = 2      depends on axioms: [propext]
+ *      [i]!       [1,2,3][1]! = 2           depends on axioms: [propext]
+ *
+ *  while .sum .length .eraseDups .drop .take .reverse .map .filter .all .any .contains .head? are all clean.
+ *  The split has a reason: indexing with a default or a panic carries an out-of-bounds branch, and discharging
+ *  it needs proof irrelevance; the total, structural operations do not.
+ *
+ *  WHY THIS IS WORTH WRITING DOWN. Both peers hit propext tonight through `.getD` and both cured it by
+ *  RESTATING THE CLAIM — one moved to `.eraseDups`, the other rewrote a correct statement twice. The cure worked
+ *  for a reason neither had: it avoided indexing. Naming the construct turns a trial-and-error loop into a
+ *  one-line substitution, which is the whole difference between a gate that refuses and a gate that teaches.
+ *  Zero of the 2657 sealed theorems use either, so the audit has been holding this line without anyone stating
+ *  where the line was. */
+export const AXIOM_INADMISSIBLE: readonly { form: string; why: string; instead: string }[] = [
+  { form: '.getD', why: 'indexed access with a default carries an out-of-bounds branch; discharging it needs propext', instead: 'walk the list itself — .all / .any / .filter / .map — or compare structure with .eraseDups' },
+  { form: '[i]!', why: 'panic-indexed access, same out-of-bounds branch as .getD', instead: 'the same: state the claim over the whole list rather than at an index' },
+]
+
+/** inadmissibleIn(statement) → the forms present that can never be axiom-free here, each with its substitution. */
+export function inadmissibleIn(statement: string): readonly { form: string; why: string; instead: string }[] {
+  return AXIOM_INADMISSIBLE.filter((r) => statement.includes(r.form))
+}
+
 /** disallowedAxioms(out, key) → the axioms this key carries that the trust base does not allow, or null when the
  *  report says nothing about the key at all. NULL AND [] ARE DIFFERENT ANSWERS: [] is the kernel vouching for the
  *  term, null is no verdict — an absent instrument, which may never be read as a pass. */

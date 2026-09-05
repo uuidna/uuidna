@@ -1,7 +1,10 @@
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { execSync } from 'node:child_process'
-import { ALLOWED_AXIOMS, parseAxiomReport, disallowedAxioms } from './axiom-report.js'
+import { writeFileSync, unlinkSync } from 'node:fs'
+import { join } from 'node:path'
+import { tmpdir } from 'node:os'
+import { ALLOWED_AXIOMS, parseAxiomReport, disallowedAxioms, inadmissibleIn, AXIOM_INADMISSIBLE } from './axiom-report.js'
 import { probe } from './scripts/queue-wave.js'
 
 // A CANDIDATE CAN PASS `by decide` AND STILL DRAG AN AXIOM, and until now nothing could refuse it: the axiom
@@ -61,4 +64,48 @@ test('a candidate the kernel REFUSES still reports the kernel’s own diagnostic
   })
   assert.ok(bad, 'a false claim must not reach the wing')
   assert.doesNotMatch(bad, /absent instrument/, 'an elaboration failure is a refusal, not a missing verdict')
+})
+
+// ── THE ONE INADMISSIBLE FAMILY. Of fourteen List primitives probed against the kernel, exactly two drag
+// propext and both are INDEXED ACCESS. Two sessions hit this tonight and both cured it by restating the claim;
+// the cure worked because it stopped indexing, which neither of them knew. These hold the naming so the next
+// hand gets a substitution instead of a trial loop.
+import { theorems } from './theorems/index.js'
+
+test('inadmissibleIn names the construct and what to use instead', () => {
+  const hit = inadmissibleIn('theorem x : [1,2,3].getD 1 0 = 2 := by decide')
+  assert.equal(hit.length, 1)
+  assert.equal(hit[0]!.form, '.getD')
+  assert.match(hit[0]!.instead, /\.all|\.eraseDups/)
+})
+
+test('a statement that indexes nowhere names nothing — the control', () => {
+  assert.deepEqual(inadmissibleIn('theorem x : [1,2,2].eraseDups.length = 2 := by decide'), [])
+  assert.deepEqual(inadmissibleIn('theorem x : (List.range 7).all (fun i => i < 7) := by decide'), [])
+})
+
+test('every inadmissible form carries a cause and a substitution — no bare ban', () => {
+  for (const r of AXIOM_INADMISSIBLE) {
+    assert.ok(r.why.length > 20, `${r.form} states why`)
+    assert.ok(r.instead.length > 20, `${r.form} states what to use instead`)
+  }
+})
+
+// THE LEDGER HOLDS THE LINE, and this is the assertion that keeps it held: no sealed statement may index.
+// Zero of 2657 do today, and the audit has been refusing them one at a time without anyone naming the rule.
+test('no sealed theorem uses an inadmissible form', () => {
+  const offenders = theorems().filter((t) => inadmissibleIn(t.statement).length > 0)
+  assert.deepEqual(offenders.map((t) => t.key), [],
+    'a sealed statement that indexes would mean the axiom audit and this rule disagree — one of them would be wrong')
+})
+
+test('the KERNEL agrees: indexed access drags propext, structural access does not', { skip: !kernel && 'no lean toolchain' }, () => {
+  const ax = (stmt: string): string[] | null => {
+    const f = join(tmpdir(), 'uuidna-adm-probe.lean')
+    writeFileSync(f, `theorem adm_probe : ${stmt} := by decide\n#print axioms adm_probe\n`)
+    try { return disallowedAxioms(execSync(`lean ${JSON.stringify(f)}`, { encoding: 'utf8', stdio: ['ignore','pipe','pipe'] }), 'adm_probe') }
+    finally { try { unlinkSync(f) } catch { /* disposable */ } }
+  }
+  assert.deepEqual(ax('[1,2,3].getD 1 0 = 2'), ['propext'], 'the measured fact this rule exists for')
+  assert.deepEqual(ax('[1,2,2].eraseDups.length = 2'), [], 'and the substitution the rule prescribes is clean')
 })

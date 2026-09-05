@@ -13,7 +13,7 @@ import { ROOT } from './api.js'
 import { toUuid } from '../address.js'
 import { theoremByKey } from '../theorems/index.js'
 import { validateCandidate } from '../wave-deposit.js'   // THE ONE DECLARATION of the door laws — shared with the wire's deposit tool
-import { disallowedAxioms } from '../axiom-report.js'
+import { disallowedAxioms, inadmissibleIn } from '../axiom-report.js'
 
 const QUEUE = join(ROOT, 'lean', 'wave-queue.json')
 // ONE PROBE FILE PER PROCESS. The path was fixed, so two conveyors on this shared tree — or a test calling probe
@@ -81,7 +81,16 @@ export function probe(c: Candidate): string | null {
   // instrument may never be read as a pass — the same law the wave already obeys for an absent kernel (it VOIDS).
   const bad = disallowedAxioms(out, c.key)
   if (bad === null) return 'the kernel accepted the proof but printed no axiom verdict for ' + c.key + ' — an absent instrument is not a pass'
-  if (bad.length) return `the proof depends on ${bad.length === 1 ? 'a disallowed axiom' : 'disallowed axioms'}: [${bad.join(', ')}] — this ledger's trust base is the bare kernel (allowed axioms ∅). Restate it decidably: an equality of two Bool comparisons drags propext, where .eraseDups.length or a + b - 2*(a &&& b) does not`
+  if (bad.length) {
+    // NAME THE CONSTRUCT, not just the axiom. Two sessions hit propext through `.getD` tonight and both cured it
+    // by restating the claim; the cure worked because it stopped INDEXING, which neither of them knew. Measured:
+    // of fourteen List primitives, only .getD and [i]! drag propext.
+    const known = inadmissibleIn(c.lean)
+    const named = known.length
+      ? ` The cause is in your statement: ${known.map((k) => `\`${k.form}\` — ${k.why}; instead ${k.instead}`).join('; ')}.`
+      : ' No known-inadmissible form is present, so the cause is elsewhere in the term — bisect it with `#print axioms` on each conjunct.'
+    return `the proof depends on ${bad.length === 1 ? 'a disallowed axiom' : 'disallowed axioms'}: [${bad.join(', ')}] — this ledger's trust base is the bare kernel (allowed axioms ∅).${named}`
+  }
   return null
 }
 
