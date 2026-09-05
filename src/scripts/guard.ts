@@ -38,7 +38,7 @@ import { HERE, ROOT, type Gap, rd } from './api.js'
 import { contextGaps } from './context-budget.js'
 import { MCP_CATALOG } from '../mcp.js'
 // the finders, imported rather than spawned — one process, one list (see FINDERS below)
-import { fold, legalGaps, proseGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps} from './one-receipt.js'
+import { fold, legalGaps, proseGaps, dryGaps, countsGaps, expectedGaps, censusGaps, coherentGaps, absenceGaps, pipeGaps, actionsGaps, microGaps, vacuousGaps, negationGaps, frozenGaps, stateGaps, drainGaps, precedeGaps, foldersGaps, importGaps, blocksGaps, linesGaps, staleGaps, scriptsGaps, mirrorGaps, lanesGaps, dormantGaps, pagesGaps, commentsGaps, skillsGaps, citationsGaps, literalGaps, binaryGaps, orphanGaps, unitGaps, hexbitGaps, markupGaps, incompleteGaps, nameGaps, deadkeyGaps, constantGaps, thresholdGaps} from './one-receipt.js'
 
 let failed = false
 
@@ -160,6 +160,10 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // beside it and refuses a divergence — css.ts picks its rules and grid.ts calls an involution broken from the
   // index side alone, and a silent drift there is a wrong stylesheet and a wrong verdict, both confident.
   { name: 'involution', run: () => involutionGaps() },
+  // a threshold decides what a detector is allowed to report, and a comment beside it restates the choice
+  // rather than testing it. Swept by perturbation instead: an exemption must reveal nothing when widened, a
+  // ratchet must sit tight against its own measurement.
+  { name: 'threshold', run: () => thresholdGaps() },
   { name: 'absence', run: () => absenceGaps() },
   { name: 'pipes', run: () => pipeGaps() },
   { name: 'actions', run: () => actionsGaps() },

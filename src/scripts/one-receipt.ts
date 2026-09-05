@@ -29,6 +29,8 @@ import { handleMcpRpc } from '../mcp-http.js'
 import { orphanedSkills, skillNames, SKILL_TOOLS } from '../skills.js'
 import { ROOT, rd, cleanGitEnv, pauseSeconds, relRoot, importAbs, h16, foldOf, ray, report, teeStep as step, stageDerived, DRAIN_PATHS, DRAIN_WRITERS, RECONCILE_OUTPUTS, DOCS_BUILD_OUTPUTS, selfExcluded, invokesFile, type Gap } from './api.js'
 import { isTestSource } from '../test-paths.js'
+import { UNDERCLAIM_FLOOR, claimBalanceOf } from '../underreach.js'
+import { THEOREMS } from '../theorems/index.js'
 import { shellOrExit } from '../os/host/index.js'
 
 // ONE READ PER FILE, SHARED. `binary` scans bytes and `hexbit` scans text over the SAME tracked source, and each was
@@ -1252,6 +1254,24 @@ export function mirrorGaps(): Gap[] {
 // day stale, and all 108 package tests passed against frozen compiled code — green, and testing nothing current.
 // A lane that names a missing file fails loudly; a lane that names a STALE file passes quietly, which is worse.
 // So the check is existence against the live tree, per referenced path, for every workspace package.
+/** the referenced-test-file count the LANE_FLOOR ratchet is set against. Exported so the floor can be SWEPT
+ *  rather than trusted: a ratchet nobody re-measures goes slack silently, which is the fault it exists to catch. */
+export function lanesReferenced(): number {
+  let n = 0
+  const pkgDir = join(ROOT, 'packages')
+  if (!existsSync(pkgDir)) return n
+  for (const pkg of readdirSync(pkgDir).sort()) {
+    const manifest = join(pkgDir, pkg, 'package.json')
+    if (!existsSync(manifest)) continue
+    const j = JSON.parse(fileText(manifest)) as { scripts?: Record<string, string> }
+    for (const ref of j.scripts?.test?.match(/(?:\.\.\/)+dist\/[^\s]+/g) ?? []) {
+      if (ref.includes('*')) continue
+      if (existsSync(join(ROOT, ref.replace(/^(?:\.\.\/)+/, '')))) n++
+    }
+  }
+  return n
+}
+
 export function lanesGaps(): Gap[] {
   const gaps: Gap[] = []
   let referenced = 0
@@ -1286,8 +1306,118 @@ export function lanesGaps(): Gap[] {
     })
   return gaps
 }
-/** the referenced-test-file floor: measured, may only grow — see lanesGaps */
-const LANE_FLOOR = 21
+
+// ── thresholds: A THRESHOLD IS A PLACE FOR A FAULT TO HIDE, AND A COMMENT IS NOT AN AUDIT.
+//
+// UNDERCLAIM_FLOOR was 8, on the stated reasoning that below that an unstated scope is a phrasing choice rather
+// than a lost claim. That reasoning is precisely what hid s_dagger_inverse — four cases decided, no scope stated
+// — so this tree's own under-claim finder reported 0 where an instrument written elsewhere reported 1. The floor
+// carried a full paragraph of justification and was wrong anyway, which is the whole lesson: A COMMENT ON A
+// THRESHOLD RESTATES THE CHOICE, IT IS NOT EVIDENCE ABOUT IT. The audit has to be perturbation — move the number
+// and watch what appears.
+//
+// THE TWO KINDS ARE OPPOSITE, and one rule for both would cry wolf on the second (which gets a finder switched
+// off, and then the real fault walks through):
+//
+//   EXEMPTION (UNDERCLAIM_FLOOR)  suppresses findings below it. Correct when WIDENING reveals nothing: the number
+//                                 is not the thing deciding what gets reported. The fault is sitting above a step.
+//   RATCHET   (LANE_FLOOR)        fires when a measured count falls below it, and may only grow. Sitting ON its
+//                                 step is the POINT — tight against the measurement. The fault is SLACK: the
+//                                 measurement moved up and the floor did not, so a later drop goes uncaught.
+//
+// Only thresholds on a DETECTOR'S REPORTING PATH are in scope — a named constant, in a file that exports a
+// *Gaps function, used in a filter or a guard. The tree holds 347 inline numeric comparisons and naming those a
+// defect count would be the abundance error; they are triage, not this.
+export interface SweptThreshold {
+  readonly name: string
+  readonly where: string
+  readonly kind: 'exemption' | 'ratchet'
+  readonly live: number
+  /** how many findings the detector would report with the threshold set to v */
+  readonly reportsAt: (v: number) => number
+  /** the settings to sweep, live included */
+  readonly span: readonly number[]
+}
+
+const around = (live: number, below: number, above: number): number[] => {
+  const out: number[] = []
+  const from = live - below < 0 ? 0 : live - below   // no Math.*: the determinism gate refuses it, and a clamp is a comparison
+  for (let v = from; v <= live + above; v++) out.push(v)
+  return out
+}
+
+/** THE REGISTRY. Every threshold on a reporting path is named here with the sweep that audits it. */
+export const SWEPT_THRESHOLDS = (): SweptThreshold[] => [
+  {
+    name: 'UNDERCLAIM_FLOOR', where: 'src/underreach.ts', kind: 'exemption', live: UNDERCLAIM_FLOOR,
+    // what claimImbalances would report at each floor: the under-claims it does not exempt
+    reportsAt: (v) => (THEOREMS as readonly { key: string; name: string; statement: string }[])
+      .map(claimBalanceOf).filter((b) => b.direction === 'under' && b.proved >= v).length,
+    span: around(UNDERCLAIM_FLOOR, UNDERCLAIM_FLOOR, 24),
+  },
+  {
+    name: 'LANE_FLOOR', where: 'src/scripts/one-receipt.ts', kind: 'ratchet', live: LANE_FLOOR,
+    reportsAt: (v) => (lanesReferenced() < v ? 1 : 0),
+    span: around(LANE_FLOOR, 3, 12),
+  },
+]
+
+/** sweepThreshold — audit ONE threshold by perturbation. Exported so the rule can be tested against a threshold
+ *  that is genuinely hiding something: a finder only ever run on a clean tree has not been shown to fire. NOT
+ *  named *Gaps, deliberately — the wiring law reads that suffix as "a finder the guard must run", and this is
+ *  the rule thresholdGaps applies, not a finder of its own. */
+export function sweepThreshold(t: SweptThreshold): Gap[] {
+  const gaps: Gap[] = []
+  {
+    const at = new Map(t.span.map((v) => [v, t.reportsAt(v)]))
+    const here = at.get(t.live) ?? 0
+    if (t.kind === 'exemption') {
+      // widening must reveal nothing. The smallest wider setting that reveals more names the hiding place.
+      const reveals = t.span.filter((v) => v < t.live && (at.get(v) ?? 0) > here).sort((a, b) => b - a)[0]
+      if (reveals !== undefined) gaps.push({
+        what: `${t.name} = ${t.live} (${t.where}) HIDES ${(at.get(reveals) ?? 0) - here} finding(s): widened to ${reveals} the detector reports ${at.get(reveals)} where it now reports ${here}`,
+        fix: `the number is deciding what gets reported, which is what a threshold must never do silently. Lower it to ${reveals} and fix what appears, or name the exemption in the same breath — a documented floor is still a floor, and this one is standing on findings.`,
+      })
+    } else {
+      // a ratchet must be TIGHT: the next setting up should fire. Slack means the measurement moved and it did not.
+      let slack = 0
+      while (slack < t.span.length && (at.get(t.live + slack + 1) ?? 1) === 0) slack++
+      if (slack > 0) gaps.push({
+        what: `${t.name} = ${t.live} (${t.where}) is SLACK by ${slack}: the measurement has moved past it, and the floor would not catch a drop of ${slack}`,
+        fix: `raise it to ${t.live + slack}. A ratchet that only grows when a human remembers is a ratchet that quietly stops holding — the count it guards has already grown.`,
+      })
+    }
+  }
+  return gaps
+}
+
+/** thresholdGaps — sweep every registered threshold, and refuse a reporting-path threshold nobody registered. */
+export function thresholdGaps(): Gap[] {
+  const gaps: Gap[] = SWEPT_THRESHOLDS().flatMap(sweepThreshold)
+
+  // REGISTRY COMPLETENESS — a new threshold on a reporting path with no sweep can never be audited at all.
+  const known = new Set(SWEPT_THRESHOLDS().map((t) => t.name))
+  const DECL = /^\s*(?:export\s+)?const\s+([A-Z][A-Z0-9_]*(?:FLOOR|CEILING|THRESHOLD|LIMIT|CAP|BUDGET|_MIN|_MAX))\s*(?::\s*number\s*)?=\s*([0-9_]+)/
+  for (const rel of trackedFiles().filter((f) => f.startsWith('src/') && f.endsWith('.ts') && !isTestSource(f))) {
+    const text = fileText(join(ROOT, rel))
+    if (!/export (?:function|const) [a-zA-Z]+Gaps/.test(text)) continue   // not a detector's file
+    const lines = text.split('\n')
+    lines.forEach((line, i) => {
+      const m = DECL.exec(line)
+      if (!m || known.has(m[1])) return
+      const usedOnPath = lines.some((l, j) => j !== i && new RegExp(`\\b${m[1]}\\b`).test(l) && /\.filter\(|^\s*if\s*\(|\?\?|&&|\|\|/.test(l))
+      if (usedOnPath) gaps.push({
+        what: `${m[1]} = ${m[2]} (${rel}:${i + 1}) decides what a detector reports and NOTHING CAN SWEEP IT`,
+        fix: `register it in SWEPT_THRESHOLDS with its kind and a reportsAt(v), so the number is audited by perturbation instead of by the comment beside it. A threshold with neither a sweep nor an exemption has nothing behind it at all.`,
+      })
+    })
+  }
+
+  return gaps
+}
+
+/** the referenced-test-file floor: measured, may only grow — see lanesGaps, and swept by thresholdGaps */
+export const LANE_FLOOR = 21
 
 // ── sources: A WING THAT ASSERTS A REAL-WORLD QUANTITY MUST NAME ITS AUTHORITY. Pure arithmetic needs no source
 // (2 * 2 = 4 answers to the kernel alone), but the moment a wing states a MEASURED quantity — a distance in metres,
