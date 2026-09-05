@@ -629,9 +629,21 @@ export function vacuousGaps(): Gap[] {
     }
     return null
   }
+  // AN ARITHMETIC IDENTITY IS TRUE FOR ITS OWN REASON, never for the theorem's. `x + 0 = x` decides nothing
+  // about whatever x was counted from, and a statement built only from these says nothing at all.
+  const identity = (raw: string): string | null => {
+    const t = strip(raw)
+    let m = /^(\d+)\s*\+\s*0\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return 'x + 0 = x — the additive identity'
+    m = /^0\s*\+\s*(\d+)\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return '0 + x = x — the additive identity'
+    m = /^(\d+)\s*\*\s*1\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return 'x * 1 = x — the multiplicative identity'
+    m = /^(\d+)\s*-\s*0\s*=\s*(\d+)$/.exec(t); if (m && m[1] === m[2]) return 'x - 0 = x — subtracting nothing'
+    return null
+  }
   const why = (raw: string): string | null => {
     const s = strip(raw)
     if (s === 'True') return 'True — proves nothing at all'
+    const id = identity(s)
+    if (id) return id
     for (const op of ['↔', '→', '∨', '∧', '=']) {
       const parts = split(s, op)
       if (!parts) continue
@@ -639,6 +651,15 @@ export function vacuousGaps(): Gap[] {
       if (op === '∨') {
         if (strip(r.replace(/^¬\s*/, '')) === l) return 'P ∨ ¬P — excluded middle, true for ANY P'
         if (l.includes('=') && r.includes('≠') && r.replace('≠', '=') === l) return 'P ∨ ¬P via ≠ — excluded middle, true for ANY P'
+        continue
+      }
+      // A CONJUNCTION IS VACUOUS WHEN EVERY PART IS, and the rule below could not see that: it split on the
+      // top-level operator and compared the two HALVES to each other, so `(2604 + 0 = 2604) ∧ (0 = 0)` split on
+      // ∧, found the halves unequal, and returned null. It never descended. A conjunction of tautologies read
+      // as a substantive statement — the finder blind to its own class, on the one shape it exists to catch.
+      if (op === '∧') {
+        const lw = why(l), rw = why(r)
+        if (lw && rw) return `every conjunct is vacuous — ${lw}; ${rw}`
         continue
       }
       if (l === r) return op === '=' ? 'x = x — reflexivity, true for ANY x' : `P ${op} P — a tautology, true for ANY P`
