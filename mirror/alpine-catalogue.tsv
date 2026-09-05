@@ -22877,7 +22877,7 @@ main	ada	3.3.0-r0	Q15rwkp5Gal1usTAYnfnhfcWwID8U=	WHATWG-compliant and fast URL p
 main	ada-dev	3.3.0-r0	Q1XpSgmfC5M99IjsCadSVZwOW9+zA=	WHATWG-compliant and fast URL parser written in modern C++ (development files)	ada=3.3.0-r0 ada-libs=3.3.0-r0 pkgconfig	pc:ada=3.3.0
 main	ada-libs	3.3.0-r0	Q1Q5BjisvlN6jpfD+iiqEGLHhzaFY=	WHATWG-compliant and fast URL parser written in modern C++ (libraries)	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	so:libada.so.3=3.3.0
 main	ada-static	3.3.0-r0	Q1OuA6RMZXGO+JkfDBB9PZVVrm+xI=	WHATWG-compliant and fast URL parser written in modern C++ (static library)	ada-dev	
-main	agetty	2.42.1-r0	Q1y1kFf5ECvk10L9OMkFBN3MFoBQU=	agetty program from util-linux	so:libc.musl-x86_64.so.1 so:libeconf.so.0 so:libutmps.so.0.1	cmd:agetty=2.42.1-r0
+main	agetty	2.42.3-r0	Q1Tdmq/J9fUzigzR3Q55kiMeQSkSw=	agetty program from util-linux	so:libc.musl-x86_64.so.1 so:libeconf.so.0 so:libutmps.so.0.1	cmd:agetty=2.42.3-r0
 main	agetty-openrc	0.63.2-r0	Q1fEYDU8arVgf9rfReiRAt5CucUGA=	agetty program from util-linux (OpenRC init scripts)	ifupdown-any openrc-user=0.63.2-r0	
 main	akms	0.3.0-r0	Q1v+tdbRqeCWuyreqDc6TNav4lYYM=	Alpine Kernel Module Support	bubblewrap cmd:depmod kernel-hooks /bin/sh	cmd:akms=0.3.0-r0
 main	akms-doc	0.3.0-r0	Q1aw/lstOs7JA9wsvrrfl3MJicKIQ=	Alpine Kernel Module Support (documentation)		
@@ -23168,7 +23168,7 @@ main	binutils-s390x	2.45.1-r1	Q1GanMSVW5XeCobGpo6s9oVM3oE2g=	Tools necessary to 
 main	binutils-x86	2.45.1-r1	Q159UxDNIjlLtrTy9zrIBe4uCmzW8=	Tools necessary to build programs for x86	so:libc.musl-x86_64.so.1 so:libjansson.so.4 so:libz.so.1 so:libzstd.so.1	cmd:i586-alpine-linux-musl-addr2line=2.45.1-r1 cmd:i586-alpine-linux-musl-ar=2.45.1-r1 cmd:i586-alpine-linux-musl-as=2.45.1-r1 cmd:i586-alpine-linux-musl-c++filt=2.45.1-r1 cmd:i586-alpine-linux-musl-elfedit=2.45.1-r1 cmd:i586-alpine-linux-musl-gprof=2.45.1-r1 cmd:i586-alpine-linux-musl-ld.bfd=2.45.1-r1 cmd:i586-alpine-linux-musl-ld=2.45.1-r1 cmd:i586-alpine-linux-musl-nm=2.45.1-r1 cmd:i586-alpine-linux-musl-objcopy=2.45.1-r1 cmd:i586-alpine-linux-musl-objdump=2.45.1-r1 cmd:i586-alpine-linux-musl-ranlib=2.45.1-r1 cmd:i586-alpine-linux-musl-readelf=2.45.1-r1 cmd:i586-alpine-linux-musl-size=2.45.1-r1 cmd:i586-alpine-linux-musl-strings=2.45.1-r1 cmd:i586-alpine-linux-musl-strip=2.45.1-r1
 main	bison	3.8.2-r3	Q11bDGeDFggvqSrS1OAUVX87jrlYU=	The GNU general-purpose parser generator	m4 so:libc.musl-x86_64.so.1	cmd:bison=3.8.2-r3 cmd:yacc=3.8.2-r3
 main	bison-doc	3.8.2-r3	Q14clbq6RSMTeenV5avy4CthZOsJk=	The GNU general-purpose parser generator (documentation)		
-main	blkid	2.42.1-r0	Q13Qpsz4tgsjSk0yXGePY/baYNPtU=	Block device identification tool from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1	cmd:blkid=2.42.1-r0
+main	blkid	2.42.3-r0	Q1I3Ma9xxWtuK6jiVBKe60oAvHCBs=	Block device identification tool from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1	cmd:blkid=2.42.3-r0
 main	bluez	5.86-r2	Q1Ks+eOi8Ms0bhwnc/x3pvVa5dC6U=	Tools for the Bluetooth protocol stack	dbus so:libc.musl-x86_64.so.1 so:libdbus-1.so.3 so:libglib-2.0.so.0 so:libjson-c.so.5 so:libreadline.so.8 so:libudev.so.1	cmd:bluemoon=5.86-r2 cmd:bluetoothctl=5.86-r2 cmd:bluez-simple-agent=5.86-r2 cmd:btattach=5.86-r2 cmd:hex2hcd=5.86-r2 cmd:isotest=5.86-r2 cmd:l2ping=5.86-r2 cmd:l2test=5.86-r2 cmd:mesh-cfgclient=5.86-r2 cmd:mesh-cfgtest=5.86-r2 cmd:mpris-proxy=5.86-r2 cmd:rctest=5.86-r2
 main	bluez-btmgmt	5.86-r2	Q1Y4E6AYVJ6Idf1ia40R2WtldTp2U=	Bluez tool for the Bluetooth Management API	dbus so:libc.musl-x86_64.so.1 so:libreadline.so.8	cmd:btmgmt=5.86-r2
 main	bluez-btmon	5.86-r2	Q1l1L4XWsBPaiI/NebEKivTfbLIhc=	Bluez bluetooth monitor	dbus so:libc.musl-x86_64.so.1 so:libglib-2.0.so.0 so:libudev.so.1	cmd:btmon=5.86-r2
@@ -23312,7 +23312,7 @@ main	cdparanoia	10.2-r14	Q1f80S2eZM/ddLrOVK3HcffRHgfZA=	An audio CD extraction a
 main	cdparanoia-dev	10.2-r14	Q1rMfy2DGBLfNYEZTk+3QsrhFVYxQ=	An audio CD extraction application (development files)	cdparanoia-libs=10.2-r14	
 main	cdparanoia-doc	10.2-r14	Q1JwiLQbz1RzZoJoYjuRAkAU0uxI4=	An audio CD extraction application (documentation)		
 main	cdparanoia-libs	10.2-r14	Q1TI3PKIbsvrgN0V6dIzOzOIvSEKM=	Libraries for libcdda_paranoia (Paranoia III)	so:libc.musl-x86_64.so.1	so:libcdda_interface.so.0=0.10.2 so:libcdda_paranoia.so.0=0.10.2
-main	cfdisk	2.42.1-r0	Q12TcPgqh5TuLvUT3Wr/7aYtRM3Xs=	Curses based partition table manipulator from util-linux	so:libc.musl-x86_64.so.1 so:libfdisk.so.1 so:libmount.so.1 so:libncursesw.so.6 so:libsmartcols.so.1	cmd:cfdisk=2.42.1-r0
+main	cfdisk	2.42.3-r0	Q1auIl1KHE0a13fPBroStifJ4ARTQ=	Curses based partition table manipulator from util-linux	so:libc.musl-x86_64.so.1 so:libfdisk.so.1 so:libmount.so.1 so:libncursesw.so.6 so:libsmartcols.so.1	cmd:cfdisk=2.42.3-r0
 main	cgdb	0.8.0-r4	Q1cyVI1ziO+Z/TLrRtpk2q6GbWbAA=	The Curses Debugger	gdb so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libncursesw.so.6 so:libreadline.so.8 so:libstdc++.so.6	cmd:cgdb=0.8.0-r4
 main	cgdb-doc	0.8.0-r4	Q1cVXxqNt4yxQEf236Q/7k0tt5C9I=	The Curses Debugger (documentation)		
 main	cgit	1.3-r0	Q1oBReDweGpV16sEv4qmwFcTN9Fco=	A fast webinterface for git	so:libc.musl-x86_64.so.1 so:liblua-5.3.so.0 so:libz.so.1	
@@ -23537,7 +23537,7 @@ main	djbdns-doc	1.05-r55	Q1bSR+glF4Ca6URBnro5zByhV5eYo=	Excellent high-performan
 main	dkimproxy	1.4.1-r9	Q1k5fDu1uLFrtQBlJCejk79UljbmI=	SMTP-proxy that signs and/or verifies emails, using the Mail::DKIM module	perl-mail-dkim perl-net-server perl-error /bin/sh	cmd:dkim_responder=1.4.1-r9 cmd:dkimproxy.in=1.4.1-r9 cmd:dkimproxy.out=1.4.1-r9
 main	dkimproxy-doc	1.4.1-r9	Q1dguqbT8pGC5s0Lqyj57W6M6rMuo=	SMTP-proxy that signs and/or verifies emails, using the Mail::DKIM module (documentation)		
 main	dkimproxy-openrc	1.4.1-r9	Q1Y3GlokyEOiZ1Ae2c7e7lA7BaDbU=	SMTP-proxy that signs and/or verifies emails, using the Mail::DKIM module (OpenRC init scripts)		
-main	dmesg	2.42.1-r0	Q1lPPqkMVx8kqhBgB+RpXrG0wTgxQ=	dmesg tool from util-linux	so:libc.musl-x86_64.so.1 so:libncursesw.so.6	cmd:dmesg=2.42.1-r0
+main	dmesg	2.42.3-r0	Q11mDZS/qNIBQOLDfUxlrAVU6ZupI=	dmesg tool from util-linux	so:libc.musl-x86_64.so.1 so:libncursesw.so.6	cmd:dmesg=2.42.3-r0
 main	dmidecode	3.7-r0	Q1HXltLjrBBl8UQqjNNkrPf8QS1f8=	A utility for reporting system hardware as described by BIOS	so:libc.musl-x86_64.so.1	cmd:biosdecode=3.7-r0 cmd:dmidecode=3.7-r0 cmd:ownership=3.7-r0 cmd:vpddecode=3.7-r0
 main	dmidecode-bash-completion	3.7-r0	Q1bhzlr57LsEMYTQRDwzzEY6dnKEk=	Bash completions for dmidecode		
 main	dmidecode-doc	3.7-r0	Q15ASwqH3DvERdLRp8lqlbr8emC70=	A utility for reporting system hardware as described by BIOS (documentation)		
@@ -23738,7 +23738,7 @@ main	fido2	1.16.0-r4	Q1SJyj/BTbmm8hKcbmPwe1DxnuEd0=	commandline utilities for FI
 main	file	5.47-r2	Q1ityLcSZ9U7FF9Xzr4MpX502S6nI=	File type identification utility	so:libc.musl-x86_64.so.1 so:libmagic.so.1	cmd:file=5.47-r2
 main	file-dev	5.47-r2	Q1tXXm6t17q0vZee3jxqzLtRXyHG0=	File type identification utility (development files)	libmagic=5.47-r2 pkgconfig	pc:libmagic=5.47
 main	file-doc	5.47-r2	Q1jHwH6CUJCx7KehHJtdlUmPHMqKY=	File type identification utility (documentation)		
-main	findmnt	2.42.1-r0	Q1XOY3rw4/7k3EUx+yxZLdUEdTNZQ=	Find mount from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libmount.so.1 so:libsmartcols.so.1	cmd:findmnt=2.42.1-r0
+main	findmnt	2.42.3-r0	Q1sVEB2ln3EojUB0lFMyX+Tur22mc=	Find mount from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libmount.so.1 so:libsmartcols.so.1	cmd:findmnt=2.42.3-r0
 main	findutils	4.10.0-r1	Q171jbhmNtcCTt/7QWQqd5rPnfYzM=	GNU utilities for finding files	so:libc.musl-x86_64.so.1	cmd:find=4.10.0-r1 cmd:xargs=4.10.0-r1
 main	findutils-doc	4.10.0-r1	Q1fzRpvGkan/tLo5NNACxMpoGY1EQ=	GNU utilities for finding files (documentation)		
 main	findutils-locate	4.10.0-r1	Q14pPeKhuh/OTpqeQTd8+mP0AO58Y=	locate and updatedb from findutils	findutils=4.10.0-r1 so:libc.musl-x86_64.so.1	cmd:locate=4.10.0-r1 cmd:updatedb=4.10.0-r1
@@ -23760,7 +23760,7 @@ main	flex-libs	2.6.4-r8	Q1MP93QJwLCHaduAITWBdAptSzBa4=	A tool for generating tex
 main	flite	2.2-r6	Q1aawSF1aDUsMazqtrjIfzLQ98ikc=	Small, fast speech synthesis engine (text-to-speech)	so:libasound.so.2 so:libc.musl-x86_64.so.1	cmd:flite=2.2-r6 cmd:flite_cmu_time_awb=2.2-r6 cmd:flite_cmu_us_awb=2.2-r6 cmd:flite_cmu_us_kal16=2.2-r6 cmd:flite_cmu_us_kal=2.2-r6 cmd:flite_cmu_us_rms=2.2-r6 cmd:flite_cmu_us_slt=2.2-r6 cmd:flite_time=2.2-r6 so:libflite.so.1=2.2 so:libflite_cmu_grapheme_lang.so.1=2.2 so:libflite_cmu_grapheme_lex.so.1=2.2 so:libflite_cmu_indic_lang.so.1=2.2 so:libflite_cmu_indic_lex.so.1=2.2 so:libflite_cmu_time_awb.so.1=2.2 so:libflite_cmu_us_awb.so.1=2.2 so:libflite_cmu_us_kal.so.1=2.2 so:libflite_cmu_us_kal16.so.1=2.2 so:libflite_cmu_us_rms.so.1=2.2 so:libflite_cmu_us_slt.so.1=2.2 so:libflite_cmulex.so.1=2.2 so:libflite_usenglish.so.1=2.2
 main	flite-dev	2.2-r6	Q16dYk9ClpwPrHALKNlieAjvLKcUY=	Small, fast speech synthesis engine (text-to-speech) (development files)	flite=2.2-r6 pkgconfig	pc:flite=2.2
 main	flite-static	2.2-r6	Q1s0n5yLTygAvKkV6qHnnIh/d57wE=	Small, fast speech synthesis engine (text-to-speech) (static library)	flite-dev	
-main	flock	2.42.1-r0	Q1PSkOvRUN6B9gomq4k2vk45i6Y+4=	File locker from util-linux	so:libc.musl-x86_64.so.1	cmd:flock=2.42.1-r0
+main	flock	2.42.3-r0	Q1IZk61492gtsvyGefQVuLJzBYIPI=	File locker from util-linux	so:libc.musl-x86_64.so.1	cmd:flock=2.42.3-r0
 main	fmt	11.2.0-r1	Q1aJvvVE70mdng04/QdjR/4i1W9Ls=	Open-source formatting library for C++	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	so:libfmt.so.11=11.2.0
 main	fmt-dev	11.2.0-r1	Q1b1V6/oshIw9azRSa5Z6Q9o7TRj8=	Open-source formatting library for C++ (development files)	fmt=11.2.0-r1 pkgconfig	pc:fmt=11.2.0
 main	font-adobe-100dpi	1.0.4-r2	Q1MzGgHEMbTmbK3lhGoCzVBLOE3xM=	X.org adobe 100dpi font	encodings font-alias mkfontscale fontconfig	
@@ -23906,7 +23906,7 @@ main	fribidi-doc	1.0.16-r3	Q1UtLYRpJ7O3pMITDelZugyEBDg3o=	Free Implementation of
 main	fribidi-static	1.0.16-r3	Q1BsUn7XTghGmMgO6swU9yfaPoEIg=	Free Implementation of the Unicode Bidirectional Algorithm (static library)	fribidi-dev	
 main	fsarchiver	0.8.8-r0	Q1bYSfYxFA4sqerF4XuRGOj9F6+1A=	Safe and flexible file-system backup and deployment tool	so:libblkid.so.1 so:libbz2.so.1 so:libc.musl-x86_64.so.1 so:libe2p.so.2 so:libext2fs.so.2 so:libgcrypt.so.20 so:liblz4.so.1 so:liblzma.so.5 so:liblzo2.so.2 so:libuuid.so.1 so:libz.so.1 so:libzstd.so.1	cmd:fsarchiver=0.8.8-r0
 main	fsarchiver-doc	0.8.8-r0	Q1BiSVgDuKrxv2yWrft8ccHOQLUaI=	Safe and flexible file-system backup and deployment tool (documentation)		
-main	fstrim	2.42.1-r0	Q1RqUWcbVxodLQkjbU476HzYEvwmM=	File system trim from util-linux	so:libc.musl-x86_64.so.1 so:libmount.so.1	cmd:fstrim=2.42.1-r0
+main	fstrim	2.42.3-r0	Q1EANFwTOETbI5evObjVmgOlN6+js=	File system trim from util-linux	so:libc.musl-x86_64.so.1 so:libmount.so.1	cmd:fstrim=2.42.3-r0
 main	fstrm	0.6.1-r4	Q1Pyl7T2x8Mzkpk8PuSZ3L/xMihzE=	Frame Streams implementation in C	so:libc.musl-x86_64.so.1	so:libfstrm.so.0=0.1.0
 main	fstrm-dev	0.6.1-r4	Q11tQbO1HONibvVryaJpT18WOSqSI=	Frame Streams implementation in C (development files)	fstrm=0.6.1-r4 pkgconfig	pc:libfstrm=0.6.1
 main	fstrm-doc	0.6.1-r4	Q1C01JFPGw0fxa6j4rfOpKs6HYF3Y=	Frame Streams implementation in C (documentation)		
@@ -24159,7 +24159,7 @@ main	heimdal-openrc	7.8.0-r5	Q1DKryV085bKZ8drXrLlkfdM5Y1JE=	Implementation of Ke
 main	heimdal-su	7.8.0-r5	Q16AHggA05/MvQ1UlGq5uzp+i6VsQ=	Heimdal su binary with Kerberos support	krb5-conf so:libc.musl-x86_64.so.1 so:libhcrypto.so.4 so:libkafs.so.0 so:libkrb5.so.26 so:libroken.so.18	cmd:su=7.8.0-r5
 main	help2man	1.49.3-r2	Q1X26XdRqzjeA8Lh9hM5P2DC8akjY=	Create simple man pages from --help output	perl	cmd:help2man=1.49.3-r2
 main	help2man-doc	1.49.3-r2	Q1HZjhZxx/tK+BIeokeETYDDRfmEI=	Create simple man pages from --help output (documentation)		
-main	hexdump	2.42.1-r0	Q1MQ29XxOofx+PoldckvFHxZgj+H0=	Hexdump from util-linux	so:libc.musl-x86_64.so.1 so:libncursesw.so.6	cmd:hexdump=2.42.1-r0
+main	hexdump	2.42.3-r0	Q1miRyw/giJilSUFsSgA6rJF3p3sc=	Hexdump from util-linux	so:libc.musl-x86_64.so.1 so:libncursesw.so.6	cmd:hexdump=2.42.3-r0
 main	hicolor-icon-theme	0.18-r0	Q1gLT7OyOZbZxcpo8C7Rl+6/6fK3Q=	Freedesktop.org Hicolor icon theme	pkgconfig	pc:default-icon-theme=0.18
 main	highlight	4.19-r0	Q1gR5JVjILA3hhRdlp0NvhXG7NqNo=	Fast and flexible source code highlighter	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:liblua-5.4.so.0 so:libstdc++.so.6	cmd:highlight=4.19-r0
 main	highlight-bash-completion	4.19-r0	Q1gC6H1+YNcnRMLmo/yQW/ltJ9G2I=	Bash completions for highlight		
@@ -24544,7 +24544,7 @@ main	libavif	1.4.1-r0	Q1JB+v1cBXvVXlQqgzLnQ9LL8QYYM=	Library for encoding and de
 main	libavif-apps	1.4.1-r0	Q1rR/xSv9bqiXMD+m3IkJrs979Cnw=	Library for encoding and decoding .avif files	so:libavif.so.16 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libjpeg.so.8 so:libpng16.so.16 so:libstdc++.so.6	cmd:avifdec=1.4.1-r0 cmd:avifenc=1.4.1-r0 cmd:avifgainmaputil=1.4.1-r0
 main	libavif-dev	1.4.1-r0	Q1QPuE4wOS9ZBDfPf4EWtXTRk5R6M=	Library for encoding and decoding .avif files (development files)	libavif=1.4.1-r0 pc:aom pc:dav1d pkgconfig	pc:libavif=1.4.1
 main	libbase64	0.5.2-r2	Q1hoaX55n19hmJqbO3Z5Tr9zcLmaU=	Fast Base64 stream encoder/decoder in C99, with SIMD acceleration (libraries)	so:libc.musl-x86_64.so.1	so:libbase64.so.0=0.5.2
-main	libblkid	2.42.1-r0	Q1ySDSNsSWGdgX/NfRwpWpRRSHHPQ=	Block device identification library from util-linux	so:libc.musl-x86_64.so.1 so:libeconf.so.0	so:libblkid.so.1=1.1.0
+main	libblkid	2.42.3-r0	Q1DqV9ClR1mjFsbOTG8kx571kncCw=	Block device identification library from util-linux	so:libc.musl-x86_64.so.1 so:libeconf.so.0	so:libblkid.so.1=1.1.0
 main	libbpf	1.7.0-r1	Q190MZzjDmwzhVvdYZXcYyh9/kvgc=	A library for interacting with the Linux kernel's Berkeley Packet Filter (BPF) facility from user space	so:libc.musl-x86_64.so.1 so:libelf.so.1 so:libz.so.1	so:libbpf.so.1=1.7.0
 main	libbpf-dev	1.7.0-r1	Q1Blkz7mo6Alri0LTuth/cqC7HGrM=	A library for interacting with the Linux kernel's Berkeley Packet Filter (BPF) facility from user space (development files)	libbpf=1.7.0-r1 pc:libelf pc:zlib pkgconfig	pc:libbpf=1.7.0
 main	libbsd	0.12.2-r0	Q1gkX/ff7mAMnaZ+N1ehVr2FJ2QlE=	commonly-used BSD functions not implemented by all libcs	musl so:libc.musl-x86_64.so.1 so:libmd.so.0	so:libbsd.so.0=0.12.2
@@ -24634,7 +24634,7 @@ main	libexpat	2.8.4-r0	Q1o4t8+0GCLII7U4NbH8N7jm7pS3o=	XML Parser library written
 main	libfastjson	1.2304.0-r4	Q1dk9pBFVHu0KpyAuGLpQZwsMeJqg=	fork of the json-c library for rsyslog, optimized for liblognorm processing.	so:libc.musl-x86_64.so.1	so:libfastjson.so.4=4.3.0
 main	libfastjson-dbg	1.2304.0-r4	Q1K2d2nDP43F+nD8PUbP4XrEIbArI=	fork of the json-c library for rsyslog, optimized for liblognorm processing. (debug symbols)	!libfastjson<1.2304.0-r4 !libfastjson>1.2304.0-r4	
 main	libfastjson-dev	1.2304.0-r4	Q17j/IiTWpcWo0T7d3tg1rZDuqtV8=	fork of the json-c library for rsyslog, optimized for liblognorm processing. (development files)	libfastjson=1.2304.0-r4 pkgconfig	pc:libfastjson=1.2304.0
-main	libfdisk	2.42.1-r0	Q12XAicMNZa7XqBP2jIBrXgPhGzpY=	Partitioning library for fdisk-like programs	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libuuid.so.1	so:libfdisk.so.1=1.1.0
+main	libfdisk	2.42.3-r0	Q1eU1o+zqxukgt02GV/kT6q4s/b84=	Partitioning library for fdisk-like programs	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libuuid.so.1	so:libfdisk.so.1=1.1.0
 main	libfdt	1.7.2-r1	Q14o/McIyY7+8vO1FyKISvCuveBNk=	Device tree library	so:libc.musl-x86_64.so.1	so:libfdt.so.1=1.7.2
 main	libffi	3.5.2-r1	Q1L3smH3/OzE7r2LMw5/b7gHE7/jo=	portable, high level programming interface to various calling conventions.	so:libc.musl-x86_64.so.1	so:libffi.so.8=8.2.0
 main	libffi-dbg	3.5.2-r1	Q1iMa6mRTZrU3+rVBXTzYSZ6OvhUo=	portable, high level programming interface to various calling conventions. (debug symbols)	!libffi<3.5.2-r1 !libffi>3.5.2-r1	
@@ -24715,7 +24715,7 @@ main	libks-doc	2.0.11-r0	Q1Y0Y4VIsZnj2yH3tXZtQZUwdwaIY=	Foundational support for
 main	libksba	1.7.0-r0	Q1e0RBgneLyny55OHW0Ufx66T/y3o=	Libksba is a CMS and X.509 access library	so:libc.musl-x86_64.so.1 so:libgpg-error.so.0	so:libksba.so.8=8.15.0
 main	libksba-dev	1.7.0-r0	Q194lCEvJ22ieHdNg0V6POYu60Zxg=	Libksba is a CMS and X.509 access library (development files)	libksba=1.7.0-r0 pc:gpg-error pkgconfig	cmd:ksba-config=1.7.0-r0 pc:ksba=1.7.0
 main	libksba-doc	1.7.0-r0	Q1TLjd7TspmEUZjj/PSjpdbtOWXHw=	Libksba is a CMS and X.509 access library (documentation)		
-main	liblastlog2	2.42.1-r0	Q1cAKfjHUkfIS4cRN1No67zwTRXOY=	Y2038 safe version of lastlog	so:libc.musl-x86_64.so.1 so:libpam.so.0 so:libsqlite3.so.0	so:liblastlog2.so.2=2.0.0
+main	liblastlog2	2.42.3-r0	Q1mRQz5bi09v4XVgSlJONhBH6/SrY=	Y2038 safe version of lastlog	so:libc.musl-x86_64.so.1 so:libpam.so.0 so:libsqlite3.so.0	so:liblastlog2.so.2=2.0.0
 main	libldap	2.6.14-r0	Q1ES/zEHL0ERmEDnOcQZW28kif4Eg=	OpenLDAP libraries	so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libsasl2.so.3 so:libssl.so.3	so:liblber.so.2=2.0.200 so:libldap.so.2=2.0.200
 main	liblibdwarfp	2.1.0-r0	Q1z2V5MKoRTSBOKaNI5e3ybiK2WBo=	Parsing library for DWARF2 and later debugging file format	so:libc.musl-x86_64.so.1 so:libdwarf.so.2	so:libdwarfp.so.2=2.1.0
 main	liblksctp	1.0.19-r5	Q1cP4hQt84gHTh01cdlS90PJQEMk0=	User-space access to Linux Kernel SCTP (libraries)	so:libc.musl-x86_64.so.1	so:libsctp.so.1=1.0.19
@@ -24754,7 +24754,7 @@ main	libmilter-doc	1.0.2-r11	Q11ZJeyXg1K72fiZMFRQEn40hOcfw=	Sendmail Mail Filter
 main	libmnl	1.0.5-r2	Q1JwHVBHl62eyxjUSAYmd61L+OPZ0=	Library for minimalistic netlink	so:libc.musl-x86_64.so.1	so:libmnl.so.0=0.2.0
 main	libmnl-dev	1.0.5-r2	Q1LMvjONz0lIgEoEbFhtiOzuN5wno=	Library for minimalistic netlink (development files)	linux-headers libmnl=1.0.5-r2 pkgconfig	pc:libmnl=1.0.5
 main	libmnl-static	1.0.5-r2	Q13PEhze+q9P3JB0kCRMDcLRUTU4Q=	Library for minimalistic netlink (static library)	libmnl-dev	
-main	libmount	2.42.1-r0	Q1NSjLNSi2O0vAo56Ogb+Jaehdq6A=	Block device identification library from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1	so:libmount.so.1=1.1.0
+main	libmount	2.42.3-r0	Q1p2Kxxdjds2DEMcQDTv3WtsFVmwg=	Block device identification library from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1	so:libmount.so.1=1.1.0
 main	libncurses++	6.6_p20260516-r0	Q1/hqzQolg7QhVQf8KgXmfTtBSiS8=	Console display library (libncurses++)	ncurses-terminfo-base=6.6_p20260516-r0 so:libc.musl-x86_64.so.1 so:libformw.so.6 so:libgcc_s.so.1 so:libmenuw.so.6 so:libncursesw.so.6 so:libpanelw.so.6 so:libstdc++.so.6	so:libncurses++w.so.6=6.6
 main	libncursesw	6.6_p20260516-r0	Q1nzGObjJNaCcnSCkZTPasavut7RI=	Console display library (libncursesw)	ncurses-terminfo-base=6.6_p20260516-r0 so:libc.musl-x86_64.so.1	so:libncursesw.so.6=6.6
 main	libnet	1.3-r0	Q1Qim9WiWTn+10K9LInhv45O6+N7w=	A generic networking API that provides access to several protocols.	so:libc.musl-x86_64.so.1	so:libnet.so.9=9.0.0
@@ -24867,7 +24867,7 @@ main	libshout-static	2.4.6-r4	Q1W0xUV8vintnt47WXCSqb1HkCqr8=	Library for accessi
 main	libsm	1.2.6-r0	Q1rBqHA6oP4lVu2xMwkpIbuQ+JxsM=	X11 Session Management library	so:libICE.so.6 so:libc.musl-x86_64.so.1 so:libuuid.so.1	so:libSM.so.6=6.0.1
 main	libsm-dev	1.2.6-r0	Q158F/vbpSO35udqE5Mz7tk3xmeNc=	X11 Session Management library (development files)	libsm=1.2.6-r0 pc:ice pc:uuid pc:xproto pkgconfig	pc:sm=1.2.6
 main	libsm-doc	1.2.6-r0	Q1oxInJB2awaxy9b/KV+Gj8h2ks0c=	X11 Session Management library (documentation)		
-main	libsmartcols	2.42.1-r0	Q1IGtCHIW9C9EdpA7gQ11lNd+mss0=	Formatting library for ls-like programs	so:libc.musl-x86_64.so.1	so:libsmartcols.so.1=1.1.0
+main	libsmartcols	2.42.3-r0	Q1v2U9A7vCl+FjWBLaiRGinsjFPuk=	Formatting library for ls-like programs	so:libc.musl-x86_64.so.1	so:libsmartcols.so.1=1.1.0
 main	libsmbclient	4.23.8-r0	Q19etTPiwHjM3ASa6TVDJ+V37RDwU=	The SMB client library	samba-libs=4.23.8-r0 samba-util-libs=4.23.8-r0 so:libc.musl-x86_64.so.1 so:libcli-smb-common-private-samba.so so:libdcerpc-binding.so.0 so:libdcerpc-samba-private-samba.so so:libgenrand-private-samba.so so:libgse-private-samba.so so:liblibcli-lsa3-private-samba.so so:liblibsmb-private-samba.so so:libmsrpc3-private-samba.so so:libndr-standard.so.0 so:libndr.so.6 so:libreplace-private-samba.so so:libsamba-credentials.so.1 so:libsamba-debug-private-samba.so so:libsamba-errors.so.1 so:libsamba-hostconfig.so.0 so:libsamba-security-private-samba.so so:libsamba-util.so.0 so:libsamba3-util-private-samba.so so:libsecrets3-private-samba.so so:libsmbconf.so.0 so:libtalloc.so.2 so:libtevent-util.so.0 so:libtevent.so.0	so:libsmbclient.so.0=0.8.1
 main	libsndfile	1.2.2-r2	Q1hgnbWxtqFGgcpY4M4iugbzAncvQ=	C library for reading and writing files containing sampled sound	so:libFLAC.so.12 so:libasound.so.2 so:libc.musl-x86_64.so.1 so:libmp3lame.so.0 so:libmpg123.so.0 so:libogg.so.0 so:libopus.so.0 so:libvorbis.so.0 so:libvorbisenc.so.2	cmd:sndfile-cmp=1.2.2-r2 cmd:sndfile-concat=1.2.2-r2 cmd:sndfile-convert=1.2.2-r2 cmd:sndfile-deinterleave=1.2.2-r2 cmd:sndfile-info=1.2.2-r2 cmd:sndfile-interleave=1.2.2-r2 cmd:sndfile-metadata-get=1.2.2-r2 cmd:sndfile-metadata-set=1.2.2-r2 cmd:sndfile-play=1.2.2-r2 cmd:sndfile-salvage=1.2.2-r2 so:libsndfile.so.1=1.0.37
 main	libsndfile-dev	1.2.2-r2	Q1+Xk5vsODfRPfu52tReCAGStmVms=	C library for reading and writing files containing sampled sound (development files)	opus-dev libsndfile=1.2.2-r2 pc:flac pc:libmpg123 pc:ogg pc:opus pc:vorbis pc:vorbisenc pkgconfig	pc:sndfile=1.2.2
@@ -24936,7 +24936,7 @@ main	libusb-dev	1.0.30-r0	Q15togSLm0HWk7eV2xa4BWNOqQw2g=	Library that enables us
 main	libutempter	1.2.3-r1	Q1n0qKzRlEknYJ5ccWH5SLSoEftCk=	Library interface to record user sessions in utmp/wtmp files	so:libc.musl-x86_64.so.1 so:libskarnet.so.2.15 so:libutmps.so.0.1	so:libutempter.so.0=1.2.3
 main	libutempter-dev	1.2.3-r1	Q1iiyFbrNjzE35mo8+7TC2wiN484k=	Library interface to record user sessions in utmp/wtmp files (development files)	libutempter=1.2.3-r1	
 main	libutempter-doc	1.2.3-r1	Q11CyxvNuuQaFq8Vpbq7wqF1nI8Qo=	Library interface to record user sessions in utmp/wtmp files (documentation)		
-main	libuuid	2.42.1-r0	Q1assOJxEt+3hOb3zM6w6Wj6+glxM=	DCE compatible Universally Unique Identifier library	so:libc.musl-x86_64.so.1	so:libuuid.so.1=1.3.0
+main	libuuid	2.42.3-r0	Q1xiSViGe0lT93fs0SknA9IQddiBA=	DCE compatible Universally Unique Identifier library	so:libc.musl-x86_64.so.1	so:libuuid.so.1=1.3.0
 main	libuv	1.52.1-r0	Q1htHtaGu526x5ZXLBpvOUAO1pAA0=	Cross-platform asychronous I/O	so:libc.musl-x86_64.so.1	so:libuv.so.1=1.0.0
 main	libuv-dbg	1.52.1-r0	Q1i6Zz4JGS8vFRFGMWU/uC9hsZ2xw=	Cross-platform asychronous I/O (debug symbols)	!libuv<1.52.1-r0 !libuv>1.52.1-r0	
 main	libuv-dev	1.52.1-r0	Q1HcJODjM0JWkv0LP/4PvNXQ3H90Q=	Cross-platform asychronous I/O (development files)	libuv=1.52.1-r0 pkgconfig	pc:libuv=1.52.1
@@ -25304,15 +25304,15 @@ main	log4cplus-static	2.1.2-r0	Q1j03No9PUz+YMPOLNeB8d1BmCANg=	Logging Framework 
 main	log4cplus-unicode	2.1.2-r0	Q1DdjYE7nK+oR7NTJ1VVJGnsVhTjg=	Logging Framework for C++ (Unicode)	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	so:liblog4cplusU-2.1.so.9=9.1.1
 main	logcheck	1.4.7-r0	Q17B/LYGhdVPatyCV9VenHOFDezKE=	Bash scripts used to monitor system log files for anomalies	bash lockfile-progs perl /bin/sh	cmd:logcheck-test=1.4.7-r0 cmd:logcheck=1.4.7-r0 cmd:logtail2=1.4.7-r0 cmd:logtail=1.4.7-r0
 main	logcheck-doc	1.4.7-r0	Q1e30zWWgjZkqREpoli2u8weJndLs=	Bash scripts used to monitor system log files for anomalies (documentation)		
-main	logger	2.42.1-r0	Q1BDcoQLi9py7oD50VkhP8YNfBtr8=	Logger from util-linux	so:libc.musl-x86_64.so.1	cmd:logger=2.42.1-r0
+main	logger	2.42.3-r0	Q1esgePhJwvx8EajUWIxlAQ2X8ktA=	Logger from util-linux	so:libc.musl-x86_64.so.1	cmd:logger=2.42.3-r0
 main	logrotate	3.22.0-r0	Q1U44R9Qx0LLvgT5gXwtRIkjwcptQ=	Tool to rotate logfiles	/bin/sh so:libacl.so.1 so:libc.musl-x86_64.so.1 so:libpopt.so.0	cmd:logrotate=3.22.0-r0
 main	logrotate-doc	3.22.0-r0	Q1KGPyUttyQYLwb/L8uUfb5yocm1w=	Tool to rotate logfiles (documentation)		
 main	logrotate-openrc	3.22.0-r0	Q1P4oBAwKsvizcw1NEM1y203GHf+0=	Tool to rotate logfiles (OpenRC init scripts)		
 main	logrotate-syslog	3.22.0-r0	Q15UDnblPbf8I2JTAW2sFs0Pkpzp4=	Rotation for the main syslog file	logrotate	
 main	logtail	3.22-r3	Q1yYXKJpjYkw1FY9VqxqmYiETDTeg=	Print new lines in log file since the last run (sf.net logtail-v3 ver)	so:libc.musl-x86_64.so.1	cmd:logtail=3.22-r3
-main	losetup	2.42.1-r0	Q1p9U/QaueBmElT+3iC/gqY4tlAnU=	Loop disk setup from util-linux	so:libc.musl-x86_64.so.1 so:libsmartcols.so.1	cmd:losetup=2.42.1-r0
-main	lsblk	2.42.1-r0	Q12HC90/fWtysQ56QBLUwg6g7mCi0=	Block device list tool from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libmount.so.1 so:libncursesw.so.6 so:libsmartcols.so.1	cmd:lsblk=2.42.1-r0
-main	lscpu	2.42.1-r0	Q1P3sudpF0Fu53AnhqDnjhOqjYrXc=	CPU architecture information helper	so:libc.musl-x86_64.so.1 so:libsmartcols.so.1	cmd:lscpu=2.42.1-r0
+main	losetup	2.42.3-r0	Q1hpHWDszDeU47SeJREzU6k+VJIJY=	Loop disk setup from util-linux	so:libc.musl-x86_64.so.1 so:libsmartcols.so.1	cmd:losetup=2.42.3-r0
+main	lsblk	2.42.3-r0	Q1SFouf2Si0F+XPWVylgRpIBkQGWk=	Block device list tool from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libmount.so.1 so:libncursesw.so.6 so:libsmartcols.so.1	cmd:lsblk=2.42.3-r0
+main	lscpu	2.42.3-r0	Q1n9x7sOlO7eLF6XLX4d1sEc7hJt8=	CPU architecture information helper	so:libc.musl-x86_64.so.1 so:libsmartcols.so.1	cmd:lscpu=2.42.3-r0
 main	lsof	4.99.6-r0	Q1bkj0S7tyVSFfeAaJ7sICgaV2XBM=	LiSt Open Files	so:libc.musl-x86_64.so.1	cmd:lsof=4.99.6-r0
 main	lsof-doc	4.99.6-r0	Q1/FX1B0F3sKFfssDGeYyS2AEcFG0=	LiSt Open Files (documentation)		
 main	lsyncd	2.3.1-r1	Q1YZt1q+72ycZKgbBB+jVGTlR2R+c=	Live Syncing (Mirror) Daemon	rsync so:libc.musl-x86_64.so.1 so:liblua-5.4.so.0	cmd:lsyncd=2.3.1-r1
@@ -25836,7 +25836,7 @@ main	mbedtls-utils	4.1.1-r0	Q1H3D+tWbOGKI9+bF6W1xWcFJ1GR0=	Utilities for mbedtls
 main	mc	4.8.33-r3	Q1eONBHAgO6MvRd5fwFIqh5EvvJCs=	Filemanager/shell that emulates Norton Commander	so:libc.musl-x86_64.so.1 so:libe2p.so.2 so:libglib-2.0.so.0 so:libgpm.so.2 so:libintl.so.8 so:libslang.so.2 so:libssh2.so.1	cmd:mc=4.8.33-r3 cmd:mcdiff=4.8.33-r3 cmd:mcedit=4.8.33-r3 cmd:mcview=4.8.33-r3
 main	mc-doc	4.8.33-r3	Q13bsW+ztZMCFXwk9HXNLQyRkrOGY=	Filemanager/shell that emulates Norton Commander (documentation)		
 main	mc-lang	4.8.33-r3	Q1JGDftsKJoSTCOeKtyeZeYTFNZYg=	Languages for package mc		
-main	mcookie	2.42.1-r0	Q1cS39GKnY/hT44ZF0BRKjrdXaXcg=	Generate random numbers for xauth from util-linux	so:libc.musl-x86_64.so.1	cmd:mcookie=2.42.1-r0
+main	mcookie	2.42.3-r0	Q1kFLerqZMP3/miKy8igdXcU+UOMU=	Generate random numbers for xauth from util-linux	so:libc.musl-x86_64.so.1	cmd:mcookie=2.42.3-r0
 main	mdadm	4.3-r3	Q1zr2yrCJ6REC/OQ14+e3emuyfJE4=	a tool for managing Linux Software RAID arrays	lsblk so:libc.musl-x86_64.so.1	cmd:mdadm=4.3-r3 cmd:mdmon=4.3-r3 cmd:raid6check=4.3-r3
 main	mdadm-doc	4.3-r3	Q1eHFe0TN6ztuVP5R8Co8Ng0aAuxM=	a tool for managing Linux Software RAID arrays (documentation)		
 main	mdadm-misc	4.3-r3	Q1t917IRXHgRx5Mi2gyRP88/ap76I=	a tool for managing Linux Software RAID arrays (misc scripts)	mdadm bash	cmd:handle-mdadm-events=4.3-r3 cmd:mdcheck=4.3-r3
@@ -25912,7 +25912,7 @@ main	mosquitto-doc	2.1.2-r1	Q1iCna0JHAxYKnj+pRVQA0WST8kBk=	open source MQTT brok
 main	mosquitto-libs	2.1.2-r1	Q154+N3+9HTnTjQgUpx1zGe/rnGHE=	open source MQTT broker (libraries)	so:libc.musl-x86_64.so.1 so:libcares.so.2 so:libcjson.so.1 so:libcrypto.so.3 so:libssl.so.3	so:libmosquitto.so.1=1 so:libmosquitto_common.so.1=1
 main	mosquitto-libs++	2.1.2-r1	Q1YdDv1csPXWVf4v4Bm6wFwN/Vl7I=	C++ wrapper for libmosquitto	so:libmosquitto.so.1 so:libstdc++.so.6	so:libmosquittopp.so.1=1
 main	mosquitto-openrc	2.1.2-r1	Q1WaSsQ20rqM5lhTLj91O6kPS1LC8=	open source MQTT broker (OpenRC init scripts)		
-main	mount	2.42.1-r0	Q1ga2JEIHZ64wI8cLaJfINDN7QsNQ=	mount tool from util-linux	so:libc.musl-x86_64.so.1 so:libmount.so.1	cmd:mount=2.42.1-r0
+main	mount	2.42.3-r0	Q1dExj4LHQXsXPFIKPdN/Q9eyrLe4=	mount tool from util-linux	so:libc.musl-x86_64.so.1 so:libmount.so.1	cmd:mount=2.42.3-r0
 main	mpc1	1.3.1-r1	Q1zoHFOiiws36XfRdKmvFr3Q6g86U=	Multiprecision C library	so:libc.musl-x86_64.so.1 so:libgmp.so.10 so:libmpfr.so.6	so:libmpc.so.3=3.3.1
 main	mpc1-dev	1.3.1-r1	Q1N/sv5O8zkuGXnDoL5EdBrmU57mY=	Multiprecision C library (development files)	mpc1=1.3.1-r1	
 main	mpc1-doc	1.3.1-r1	Q1W8Xy3lHhVcnXpV0ykRB1AJqB7rM=	Multiprecision C library (documentation)		
@@ -26394,7 +26394,7 @@ main	parallel-zsh-completion	20260322-r0	Q1mLcFHKr5GXoTybCH4MDLADScwvw=	Zsh comp
 main	parted	3.7-r0	Q1xPpkwqN4YXqvgi6AVvwPi2JCjnM=	Utility to create, destroy, resize, check and copy partitions	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libdevmapper.so.1.02 so:libncursesw.so.6 so:libreadline.so.8 so:libuuid.so.1	cmd:parted=3.7-r0 cmd:partprobe=3.7-r0 so:libparted-fs-resize.so.0=0.0.5 so:libparted.so.2=2.0.5
 main	parted-dev	3.7-r0	Q1dakToJtvXVoYYMisrNXdv5XCH4Y=	Utility to create, destroy, resize, check and copy partitions (development files)	parted=3.7-r0 pkgconfig	pc:libparted-fs-resize=3.7 pc:libparted=3.7
 main	parted-doc	3.7-r0	Q1c0tWFJ+i7mDV4MPIcuGC1Bq/PYU=	Utility to create, destroy, resize, check and copy partitions (documentation)		
-main	partx	2.42.1-r0	Q1M4kUZxwAAvAFuMKdQ7AOVNzCB5c=	Tell the kernel about disk partition changes from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libsmartcols.so.1	cmd:partx=2.42.1-r0
+main	partx	2.42.3-r0	Q1cGFZLsZBi6nWDyj15+BUO6gsovM=	Tell the kernel about disk partition changes from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libsmartcols.so.1	cmd:partx=2.42.3-r0
 main	patch	2.8-r0	Q1IfHyFnSWD3glaiuO9vGoKMk6Hkk=	Utility to apply diffs to files	so:libc.musl-x86_64.so.1	cmd:patch=2.8-r0
 main	patch-doc	2.8-r0	Q15MQqFJllpHQUnAFOVUBpjn1ApPY=	Utility to apply diffs to files (documentation)		
 main	patchelf	0.18.0-r3	Q1j50i7rL5fd/7giFYptW7NFPxZ1o=	Small utility to modify the dynamic linker and RPATH of ELF executables	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libstdc++.so.6	cmd:patchelf=0.18.0-r3
@@ -27404,7 +27404,7 @@ main	py3-ldb	4.23.8-r0	Q1susJO3Ddaj4p8M45/TeuNKmWc4I=	Python 3 binding for the l
 main	py3-libcap-ng	0.8.5-r2	Q1AcwKfD0sIEYeygDEsqcPIWjrB4Q=	python bindings for libcap-ng	python3~3.14 so:libc.musl-x86_64.so.1 so:libcap-ng.so.0	py3.14:capng=0.8.5-r2
 main	py3-libfdt	1.7.2-r1	Q1Q7QXOHdYsEas0mZdq1jKxYc99xo=	Device tree library for Python 3	python3 python3~3.14 so:libc.musl-x86_64.so.1 so:libfdt.so.1	py3.14:libfdt=1.7.2-r1
 main	py3-libfdt-pyc	1.7.2-r1	Q1O7DSiVt7Bm76TbS0io4Jvnnlre0=	Precompiled Python bytecode for py3-libfdt	python3~3.14	
-main	py3-libmount	2.42.1-r0	Q1odNuzEmG3Pm8Ctqkl4W6HWPG2o4=	python3 bindings to libmount	python3~3.14 so:libc.musl-x86_64.so.1 so:libmount.so.1	py3.14:libmount=2.42.1-r0
+main	py3-libmount	2.42.3-r0	Q1oalJtGpyssRoiTEpzJbDqTr9yc0=	python3 bindings to libmount	python3~3.14 so:libc.musl-x86_64.so.1 so:libmount.so.1	py3.14:libmount=2.42.3-r0
 main	py3-libseccomp	2.6.0-r2	Q1VgmR9X+NxRfzhstDATW3HPC1lbI=	Python 3 bindings for libseccomp	python3~3.14 so:libc.musl-x86_64.so.1 so:libseccomp.so.2	
 main	py3-libxml2	2.13.9-r2	Q1nbVh9lTkZOSfbGa4sxHAMDWfgcU=	libxml2 python3 bindings	python3 python3~3.14 so:libc.musl-x86_64.so.1 so:libxml2.so.2	py3.14:drv_libxml2=2.13.9-r2 py3.14:libxml2=2.13.9-r2
 main	py3-libxml2-pyc	2.13.9-r2	Q1XDI1GbM9ZqDVU6GSBPnOTbfakZI=	Precompiled Python bytecode for py3-libxml2	python3~3.14	
@@ -27833,7 +27833,7 @@ main	ruby-typeprof	0.30.1-r0	Q1cKsTF5Jgg3jAZFUkLU9QoEPmXFs=	A type analysis tool
 main	ruby-typeprof-doc	0.30.1-r0	Q1gPxIYTZXHVGBO1O8lPFeysvV7gg=	A type analysis tool for Ruby code based on abstract interpretation (ri docs)	ruby ruby-rbs	
 main	run-parts	5.23.2-r1	Q1bl8RweEeS24j1vwvuGwlDicB+3g=	run-parts from the debianutils package	so:libc.musl-x86_64.so.1	cmd:run-parts=5.23.2-r1
 main	run-parts-doc	5.23.2-r1	Q1CSxYDYwpIxT3/A8uB6S3vu8H7Y0=	run-parts from the debianutils package (documentation)		
-main	runuser	2.42.1-r0	Q1LYq7UpvMa7X5rw7cCfgixQ0tycY=	Run a program with substitute user and group ID	so:libc.musl-x86_64.so.1 so:libeconf.so.0 so:libpam.so.0 so:libpam_misc.so.0 so:libutmps.so.0.1	cmd:runuser=2.42.1-r0
+main	runuser	2.42.3-r0	Q1HB2eX6reuIPSrI38asf4rKw9y8I=	Run a program with substitute user and group ID	so:libc.musl-x86_64.so.1 so:libeconf.so.0 so:libpam.so.0 so:libpam_misc.so.0 so:libutmps.so.0.1	cmd:runuser=2.42.3-r0
 main	rust	1.96.1-r0	Q17WK8ScOTeq1s4kOq/9WavN5cbX4=	Rust Programming Language toolchain	gcc musl-dev so:libLLVM.so.22.1 so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libscudo.so so:libstdc++.so.6	rust-bootstrap=1.96.1-r0 rust-stdlib=1.96.1-r0 cmd:rustc=1.96.1-r0 cmd:rustdoc=1.96.1-r0 so:librustc_driver-4c31742498abe731.so=0
 main	rust-bindgen	0.72.1-r1	Q1JWKeGBvLt18ZsaSbJEXslQ3YaxA=	automatically generates Rust FFI bindings to C (and some C++) libraries	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1	cmd:bindgen=0.72.1-r1
 main	rust-bindgen-bash-completion	0.72.1-r1	Q1SRsKFpLamiIf4M8DRlfsETRLocw=	Bash completions for rust-bindgen		
@@ -27947,13 +27947,13 @@ main	ser2net-doc	4.6.4-r0	Q1CtajmENgZCEJgsuWp8wn/0y+ydE=	A proxy that allows tel
 main	ser2net-openrc	4.6.4-r0	Q1GTpzSWv2fYSFmgtQdU7LjN42Ta0=	A proxy that allows telnet/tcp connections to be made to serial ports (OpenRC init scripts)		
 main	serf	1.3.10-r0	Q13bntk62OSAXxwaCsQR4VLd28oDw=	High-Performance Asynchronous HTTP Client Library	so:libapr-1.so.0 so:libaprutil-1.so.0 so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libssl.so.3 so:libz.so.1	so:libserf-1.so.1=1.3.0
 main	serf-dev	1.3.10-r0	Q1RtBrPBBjax41zTnCizY5IyYJr80=	High-Performance Asynchronous HTTP Client Library (development files)	serf=1.3.10-r0 pc:libcrypto pc:libssl pkgconfig	pc:serf-1=1.3.10
-main	setarch	2.42.1-r0	Q1odIjPq9CBNG74GUW0ygQaADBZMM=	setarch tool from util-linux	so:libc.musl-x86_64.so.1	cmd:setarch=2.42.1-r0
-main	setpriv	2.42.1-r0	Q1bKBT0X1gR9WCWPiRBdML5m9/lug=	Run a program with different Linux privilege settings	so:libc.musl-x86_64.so.1 so:libcap-ng.so.0 so:libeconf.so.0	cmd:setpriv=2.42.1-r0
+main	setarch	2.42.3-r0	Q1z1Q659iF8JXfgK0f8c6t5Urxs0Q=	setarch tool from util-linux	so:libc.musl-x86_64.so.1	cmd:setarch=2.42.3-r0
+main	setpriv	2.42.3-r0	Q10x7/tUZkzSUdR7DQlcK80nUjcT0=	Run a program with different Linux privilege settings	so:libc.musl-x86_64.so.1 so:libcap-ng.so.0 so:libeconf.so.0	cmd:setpriv=2.42.3-r0
 main	setup-box	1.0.1-r2	Q1Fm3oN2SB1Kmxar35mi2YehgN74U=	A tool to setup a variety of Alpine Linux Environments	jq	cmd:setup-box=1.0.1-r2
 main	setup-box-doc	1.0.1-r2	Q16YDNeTYgG5WnycDEBeAU5mcrMkw=	A tool to setup a variety of Alpine Linux Environments (documentation)		
 main	sfcapd	1.7.6-r1	Q1yltz+A8tqgbiWHu4ufrS/Floi40=	sFlow collector	so:libc.musl-x86_64.so.1 so:libnffile-1.7.6.so	cmd:sfcapd=1.7.6-r1
 main	sfcapd-openrc	1.7.6-r1	Q1iW9saeRt6hYaxNKsL74DzjofbXc=	Tools to collect and process netflow data (OpenRC init scripts)		
-main	sfdisk	2.42.1-r0	Q11gehbMTjXM4M+iHP7uuZXjebX+w=	Partition table manipulator from util-linux	so:libc.musl-x86_64.so.1 so:libfdisk.so.1 so:libncursesw.so.6 so:libsmartcols.so.1	cmd:sfdisk=2.42.1-r0
+main	sfdisk	2.42.3-r0	Q1U1NgGO2alvkECI8bWSCjP37ma9k=	Partition table manipulator from util-linux	so:libc.musl-x86_64.so.1 so:libfdisk.so.1 so:libncursesw.so.6 so:libsmartcols.so.1	cmd:sfdisk=2.42.3-r0
 main	sfic	0.1.7-r10	Q1vfD++8Qc4FsgjY3hb2GkPsyRV+I=	Small and Simple File Integrity Checker	so:libc.musl-x86_64.so.1 so:libtdb.so.1	cmd:sfic=0.1.7-r10
 main	sfic-doc	0.1.7-r10	Q1rCA/P82LYp/6CfZ5mqRywbZOMz8=	Small and Simple File Integrity Checker (documentation)		
 main	sgdisk	1.0.10-r1	Q1/auAG9Y4MXTfdWeQQJ9LcFbhq3s=	Command-line GUID partition table (GPT) manipulator	so:libc.musl-x86_64.so.1 so:libgcc_s.so.1 so:libpopt.so.0 so:libstdc++.so.6 so:libuuid.so.1	cmd:sgdisk=1.0.10-r1
@@ -28315,7 +28315,7 @@ main	ulogd-sqlite3	2.0.9-r0	Q1KbRrrCpD7WHvhkcx5AcijguEddo=	sqlite3 output for ul
 main	ulogd-xml	2.0.9-r0	Q1QewR5rSgvVCu44Ul8QhromWa658=	xml output for ulogd	ulogd=2.0.9-r0 so:libc.musl-x86_64.so.1 so:libnetfilter_acct.so.1 so:libnetfilter_conntrack.so.3 so:libnetfilter_log.so.1	
 main	umix	1.0.2-r10	Q1Pk2qVZDv0Ihlbvu6x5OMwFqf9ek=	Program for adjusting soundcard volumes	so:libc.musl-x86_64.so.1 so:libncursesw.so.6	cmd:umix=1.0.2-r10
 main	umix-doc	1.0.2-r10	Q1qrTIpL0ClWGjX3c1e51ZntUqThQ=	Program for adjusting soundcard volumes (documentation)		
-main	umount	2.42.1-r0	Q1x/hjwfu+kLw1NHkOEHkroog31Bg=	umount tool from util-linux	so:libc.musl-x86_64.so.1 so:libmount.so.1	cmd:umount=2.42.1-r0
+main	umount	2.42.3-r0	Q1aqiRv1pZ9ek0sV27hYn88PNAhtc=	umount tool from util-linux	so:libc.musl-x86_64.so.1 so:libmount.so.1	cmd:umount=2.42.3-r0
 main	unbound	1.25.2-r0	Q1gpzmxngFzvZOYT0S3ZX6VrsZ4Q8=	Unbound is a validating, recursive, and caching DNS resolver	dnssec-root /bin/sh so:libc.musl-x86_64.so.1 so:libcrypto.so.3 so:libevent-2.1.so.7 so:libexpat.so.1 so:libhiredis.so.1.3.0 so:libnghttp2.so.14 so:libprotobuf-c.so.1 so:libssl.so.3 so:libunbound.so.8	cmd:unbound-anchor=1.25.2-r0 cmd:unbound-checkconf=1.25.2-r0 cmd:unbound-control-setup=1.25.2-r0 cmd:unbound-control=1.25.2-r0 cmd:unbound-host=1.25.2-r0 cmd:unbound=1.25.2-r0
 main	unbound-dbg	1.25.2-r0	Q1tWOsPd1OO9bzPbW6bTYWOSvaKD4=	Unbound is a validating, recursive, and caching DNS resolver (debug symbols)	!py3-unbound<1.25.2-r0 !py3-unbound>1.25.2-r0 !unbound-libs<1.25.2-r0 !unbound-libs>1.25.2-r0 !unbound<1.25.2-r0 !unbound>1.25.2-r0	
 main	unbound-dev	1.25.2-r0	Q1FJPWXNl95Q5gzHsUZog+fLFieQw=	Unbound is a validating, recursive, and caching DNS resolver (development files)	expat-dev unbound-libs=1.25.2-r0 pc:libevent pc:python3 pkgconfig	pc:libunbound=1.25.2
@@ -28348,15 +28348,15 @@ main	userspace-rcu-dev	0.15.3-r0	Q1wc63wV+vEmFkDyrKv6Zed20xoJY=	Userspace RCU (r
 main	userspace-rcu-doc	0.15.3-r0	Q17MzuVoLLnGO7VJHQ+0KKLQWO5Us=	Userspace RCU (read-copy-update) library (documentation)		
 main	userspace-rcu-static	0.15.3-r0	Q1/WUZFYDhnRtQFtsUtZ4X+dKCez4=	Userspace RCU (read-copy-update) library (static libraries)		
 main	usr-merge-nag	3.7.2-r1	Q1XxOaR2rDBJppPFcScfGRPiOHKHE=	Alpine base dir structure and init scripts	alpine-baselayout-data=3.7.2-r1	
-main	util-linux	2.42.1-r0	Q1m+yMEN/fDaN1iJFzov/QInSb9hA=	Random collection of Linux utilities		
-main	util-linux-bash-completion	2.42.1-r0	Q1cYgAYeB2ag80qY5tFMLfMwcO2h4=	Bash completions for util-linux		
-main	util-linux-dev	2.42.1-r0	Q1aWz4kIkREiq8t8GX6CkNPi9zcAA=	Random collection of Linux utilities (development files)	libblkid=2.42.1-r0 libfdisk=2.42.1-r0 liblastlog2=2.42.1-r0 libmount=2.42.1-r0 libsmartcols=2.42.1-r0 libuuid=2.42.1-r0 pc:sqlite3 pkgconfig	pc:blkid=2.42.1 pc:fdisk=2.42.1 pc:lastlog2=2.42.1 pc:mount=2.42.1 pc:smartcols=2.42.1 pc:uuid=2.42.1
-main	util-linux-doc	2.42.1-r0	Q1KkRISdCvp5CGx8LKoLoIKFjR3zc=	Random collection of Linux utilities (documentation)		
-main	util-linux-login	2.42.1-r0	Q13OicJbrYAb3MYsbqRYXagopHv20=	Login utils from util-linux package: newgrp, last, lastb, lastlog2, login, lslogins, nologin, su, sulogin	runuser=2.42.1-r0 so:libc.musl-x86_64.so.1 so:libeconf.so.0 so:liblastlog2.so.2 so:libpam.so.0 so:libpam_misc.so.0 so:libsmartcols.so.1 so:libutmps.so.0.1	login-utils cmd:last=2.42.1-r0 cmd:lastb=2.42.1-r0 cmd:lastlog2=2.42.1-r0 cmd:login=2.42.1-r0 cmd:lslogins=2.42.1-r0 cmd:newgrp=2.42.1-r0 cmd:nologin=2.42.1-r0 cmd:su=2.42.1-r0 cmd:sulogin=2.42.1-r0
-main	util-linux-login-doc	2.42.1-r0	Q1xAZ6ocDaKFOmYI1fuK3EZoNrV9s=	Login utils from util-linux package (documentation)	!shadow-login-doc	
-main	util-linux-misc	2.42.1-r0	Q1eA4vNElyNhu2TZP0/5RKBeCSQdY=	Misc binaries for util-linux	/bin/sh setarch=2.42.1-r0 so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libfdisk.so.1 so:libmount.so.1 so:libncursesw.so.6 so:libsmartcols.so.1 so:libutmps.so.0.1 so:libuuid.so.1 so:libz.so.1	cmd:addpart=2.42.1-r0 cmd:bits=2.42.1-r0 cmd:blkdiscard=2.42.1-r0 cmd:blkpr=2.42.1-r0 cmd:blkzone=2.42.1-r0 cmd:blockdev=2.42.1-r0 cmd:cal=2.42.1-r0 cmd:chcpu=2.42.1-r0 cmd:chmem=2.42.1-r0 cmd:choom=2.42.1-r0 cmd:chrt=2.42.1-r0 cmd:colcrt=2.42.1-r0 cmd:colrm=2.42.1-r0 cmd:column=2.42.1-r0 cmd:copyfilerange=2.42.1-r0 cmd:coresched=2.42.1-r0 cmd:ctrlaltdel=2.42.1-r0 cmd:delpart=2.42.1-r0 cmd:eject=2.42.1-r0 cmd:enosys=2.42.1-r0 cmd:exch=2.42.1-r0 cmd:fadvise=2.42.1-r0 cmd:fallocate=2.42.1-r0 cmd:fdisk=2.42.1-r0 cmd:fincore=2.42.1-r0 cmd:findfs=2.42.1-r0 cmd:fsck.cramfs=2.42.1-r0 cmd:fsck.minix=2.42.1-r0 cmd:fsck=2.42.1-r0 cmd:fsfreeze=2.42.1-r0 cmd:getino=2.42.1-r0 cmd:getopt=2.42.1-r0 cmd:hardlink=2.42.1-r0 cmd:hwclock=2.42.1-r0 cmd:i386=2.42.1-r0 cmd:ionice=2.42.1-r0 cmd:ipcmk=2.42.1-r0 cmd:ipcrm=2.42.1-r0 cmd:ipcs=2.42.1-r0 cmd:irqtop=2.42.1-r0 cmd:isosize=2.42.1-r0 cmd:ldattach=2.42.1-r0 cmd:linux32=2.42.1-r0 cmd:linux64=2.42.1-r0 cmd:look=2.42.1-r0 cmd:lsclocks=2.42.1-r0 cmd:lsfd=2.42.1-r0 cmd:lsipc=2.42.1-r0 cmd:lsirq=2.42.1-r0 cmd:lslocks=2.42.1-r0 cmd:lsmem=2.42.1-r0 cmd:lsns=2.42.1-r0 cmd:mesg=2.42.1-r0 cmd:mkfs.bfs=2.42.1-r0 cmd:mkfs.cramfs=2.42.1-r0 cmd:mkfs.minix=2.42.1-r0 cmd:mkfs=2.42.1-r0 cmd:mkswap=2.42.1-r0 cmd:more=2.42.1-r0 cmd:mountpoint=2.42.1-r0 cmd:namei=2.42.1-r0 cmd:nsenter=2.42.1-r0 cmd:pipesz=2.42.1-r0 cmd:pivot_root=2.42.1-r0 cmd:prlimit=2.42.1-r0 cmd:readprofile=2.42.1-r0 cmd:rename=2.42.1-r0 cmd:renice=2.42.1-r0 cmd:resizepart=2.42.1-r0 cmd:rev=2.42.1-r0 cmd:rfkill=2.42.1-r0 cmd:rtcwake=2.42.1-r0 cmd:script=2.42.1-r0 cmd:scriptlive=2.42.1-r0 cmd:scriptreplay=2.42.1-r0 cmd:setpgid=2.42.1-r0 cmd:setsid=2.42.1-r0 cmd:setterm=2.42.1-r0 cmd:swaplabel=2.42.1-r0 cmd:swapoff=2.42.1-r0 cmd:swapon=2.42.1-r0 cmd:switch_root=2.42.1-r0 cmd:taskset=2.42.1-r0 cmd:uclampset=2.42.1-r0 cmd:ul=2.42.1-r0 cmd:uname26=2.42.1-r0 cmd:unshare=2.42.1-r0 cmd:utmpdump=2.42.1-r0 cmd:uuidparse=2.42.1-r0 cmd:waitpid=2.42.1-r0 cmd:wall=2.42.1-r0 cmd:wdctl=2.42.1-r0 cmd:whereis=2.42.1-r0 cmd:x86_64=2.42.1-r0 cmd:zramctl=2.42.1-r0
-main	util-linux-openrc	2.42.1-r0	Q1031OCECDGiCS9Q4mWVpWWnlgxuA=	Random collection of Linux utilities (OpenRC init scripts)		
-main	util-linux-static	2.42.1-r0	Q1TDoBjxGnxR9xVgjoaohfOi+7Mdo=	Random collection of Linux utilities (static library)	util-linux-dev	
+main	util-linux	2.42.3-r0	Q1KmZCajQP5lRX00PD5eC/WHpxkaI=	Random collection of Linux utilities		
+main	util-linux-bash-completion	2.42.3-r0	Q1Eigo8+00G8q7ToVwzKPhKUj6UeQ=	Bash completions for util-linux		
+main	util-linux-dev	2.42.3-r0	Q1uAGREZLvDmDZMezTlyJjrxRwRfo=	Random collection of Linux utilities (development files)	libblkid=2.42.3-r0 libfdisk=2.42.3-r0 liblastlog2=2.42.3-r0 libmount=2.42.3-r0 libsmartcols=2.42.3-r0 libuuid=2.42.3-r0 pc:sqlite3 pkgconfig	pc:blkid=2.42.3 pc:fdisk=2.42.3 pc:lastlog2=2.42.3 pc:mount=2.42.3 pc:smartcols=2.42.3 pc:uuid=2.42.3
+main	util-linux-doc	2.42.3-r0	Q1AoJu4ZdAwskCtdGFkUhKhGh/B00=	Random collection of Linux utilities (documentation)		
+main	util-linux-login	2.42.3-r0	Q1WZUYYZ0XOvVGXwbFLIZBUMym8C0=	Login utils from util-linux package: newgrp, last, lastb, lastlog2, login, lslogins, nologin, su, sulogin	runuser=2.42.3-r0 so:libc.musl-x86_64.so.1 so:libeconf.so.0 so:liblastlog2.so.2 so:libpam.so.0 so:libpam_misc.so.0 so:libsmartcols.so.1 so:libutmps.so.0.1	login-utils cmd:last=2.42.3-r0 cmd:lastb=2.42.3-r0 cmd:lastlog2=2.42.3-r0 cmd:login=2.42.3-r0 cmd:lslogins=2.42.3-r0 cmd:newgrp=2.42.3-r0 cmd:nologin=2.42.3-r0 cmd:su=2.42.3-r0 cmd:sulogin=2.42.3-r0
+main	util-linux-login-doc	2.42.3-r0	Q17UzHrKzKkE1SxOfHviXT2A/5TgU=	Login utils from util-linux package (documentation)	!shadow-login-doc	
+main	util-linux-misc	2.42.3-r0	Q1//rTG/BLsHTEu56aoHWC1D/qOJw=	Misc binaries for util-linux	/bin/sh setarch=2.42.3-r0 so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libfdisk.so.1 so:libmount.so.1 so:libncursesw.so.6 so:libsmartcols.so.1 so:libutmps.so.0.1 so:libuuid.so.1 so:libz.so.1	cmd:addpart=2.42.3-r0 cmd:bits=2.42.3-r0 cmd:blkdiscard=2.42.3-r0 cmd:blkpr=2.42.3-r0 cmd:blkzone=2.42.3-r0 cmd:blockdev=2.42.3-r0 cmd:cal=2.42.3-r0 cmd:chcpu=2.42.3-r0 cmd:chmem=2.42.3-r0 cmd:choom=2.42.3-r0 cmd:chrt=2.42.3-r0 cmd:colcrt=2.42.3-r0 cmd:colrm=2.42.3-r0 cmd:column=2.42.3-r0 cmd:copyfilerange=2.42.3-r0 cmd:coresched=2.42.3-r0 cmd:ctrlaltdel=2.42.3-r0 cmd:delpart=2.42.3-r0 cmd:eject=2.42.3-r0 cmd:enosys=2.42.3-r0 cmd:exch=2.42.3-r0 cmd:fadvise=2.42.3-r0 cmd:fallocate=2.42.3-r0 cmd:fdisk=2.42.3-r0 cmd:fincore=2.42.3-r0 cmd:findfs=2.42.3-r0 cmd:fsck.cramfs=2.42.3-r0 cmd:fsck.minix=2.42.3-r0 cmd:fsck=2.42.3-r0 cmd:fsfreeze=2.42.3-r0 cmd:getino=2.42.3-r0 cmd:getopt=2.42.3-r0 cmd:hardlink=2.42.3-r0 cmd:hwclock=2.42.3-r0 cmd:i386=2.42.3-r0 cmd:ionice=2.42.3-r0 cmd:ipcmk=2.42.3-r0 cmd:ipcrm=2.42.3-r0 cmd:ipcs=2.42.3-r0 cmd:irqtop=2.42.3-r0 cmd:isosize=2.42.3-r0 cmd:ldattach=2.42.3-r0 cmd:linux32=2.42.3-r0 cmd:linux64=2.42.3-r0 cmd:look=2.42.3-r0 cmd:lsclocks=2.42.3-r0 cmd:lsfd=2.42.3-r0 cmd:lsipc=2.42.3-r0 cmd:lsirq=2.42.3-r0 cmd:lslocks=2.42.3-r0 cmd:lsmem=2.42.3-r0 cmd:lsns=2.42.3-r0 cmd:mesg=2.42.3-r0 cmd:mkfs.bfs=2.42.3-r0 cmd:mkfs.cramfs=2.42.3-r0 cmd:mkfs.minix=2.42.3-r0 cmd:mkfs=2.42.3-r0 cmd:mkswap=2.42.3-r0 cmd:more=2.42.3-r0 cmd:mountpoint=2.42.3-r0 cmd:namei=2.42.3-r0 cmd:nsenter=2.42.3-r0 cmd:pipesz=2.42.3-r0 cmd:pivot_root=2.42.3-r0 cmd:prlimit=2.42.3-r0 cmd:readprofile=2.42.3-r0 cmd:rename=2.42.3-r0 cmd:renice=2.42.3-r0 cmd:resizepart=2.42.3-r0 cmd:rev=2.42.3-r0 cmd:rfkill=2.42.3-r0 cmd:rtcwake=2.42.3-r0 cmd:script=2.42.3-r0 cmd:scriptlive=2.42.3-r0 cmd:scriptreplay=2.42.3-r0 cmd:setpgid=2.42.3-r0 cmd:setsid=2.42.3-r0 cmd:setterm=2.42.3-r0 cmd:swaplabel=2.42.3-r0 cmd:swapoff=2.42.3-r0 cmd:swapon=2.42.3-r0 cmd:switch_root=2.42.3-r0 cmd:taskset=2.42.3-r0 cmd:uclampset=2.42.3-r0 cmd:ul=2.42.3-r0 cmd:uname26=2.42.3-r0 cmd:unshare=2.42.3-r0 cmd:utmpdump=2.42.3-r0 cmd:uuidparse=2.42.3-r0 cmd:waitpid=2.42.3-r0 cmd:wall=2.42.3-r0 cmd:wdctl=2.42.3-r0 cmd:whereis=2.42.3-r0 cmd:x86_64=2.42.3-r0 cmd:zramctl=2.42.3-r0
+main	util-linux-openrc	2.42.3-r0	Q1PXaJONS3N8UB05lnblEWVgSgggg=	Random collection of Linux utilities (OpenRC init scripts)		
+main	util-linux-static	2.42.3-r0	Q1g0LIBALrrnqFFn4K/54cVTtRHj8=	Random collection of Linux utilities (static library)	util-linux-dev	
 main	util-macros	1.20.2-r0	Q11jZnWd46u1qZjq+jZOMXdIhgVYg=	X.Org Autotools macros	pkgconfig	pc:xorg-macros=1.20.2
 main	utmps	0.1.3.3-r0	Q1ND7qIPJA/Ox38dWR22lWbJ6p2a8=	A secure utmp/wtmp implementation	s6-ipcserver /bin/sh so:libc.musl-x86_64.so.1 so:libskarnet.so.2.15	cmd:setup-utmp=0.1.3.3-r0 cmd:utmps-utmpd=0.1.3.3-r0 cmd:utmps-write=0.1.3.3-r0 cmd:utmps-wtmpd=0.1.3.3-r0
 main	utmps-dev	0.1.3.3-r0	Q1oy8PkKeEz0Fj/cuUMgRvFEwH/Hs=	A secure utmp/wtmp implementation (development files)	utmps-libs=0.1.3.3-r0 pc:libskarnet>=2.15.0.0 pkgconfig	pc:libutmps=0.1.3.3
@@ -28364,7 +28364,7 @@ main	utmps-doc	0.1.3.3-r0	Q1RDJpd9uVbAMM/G3iDX5aCNljA1c=	A secure utmp/wtmp impl
 main	utmps-libs	0.1.3.3-r0	Q1o3x0mgYD21qNWia9NcIKFbeWd70=	A secure utmp/wtmp implementation (libraries)	so:libc.musl-x86_64.so.1 so:libskarnet.so.2.15	so:libutmps.so.0.1=0.1.3.3
 main	utmps-openrc	0.1.3.3-r0	Q1KK9LnaQHVEf6gXnbu5Qtjf1iCOY=	A secure utmp/wtmp implementation (OpenRC init scripts)		
 main	utmps-static	0.1.3.3-r0	Q13ukk2cVO4o/s8DgeMa1voMpdHcc=	A secure utmp/wtmp implementation (static library)	skalibs-static	
-main	uuidgen	2.42.1-r0	Q1kqv7lRj/u0T3j8cr13dag600r0U=	UUID generator from util-linux	so:libc.musl-x86_64.so.1 so:libuuid.so.1	cmd:uuidgen=2.42.1-r0
+main	uuidgen	2.42.3-r0	Q1uRXswyQ122LeKEPRnJjvEv1QXyo=	UUID generator from util-linux	so:libc.musl-x86_64.so.1 so:libuuid.so.1	cmd:uuidgen=2.42.3-r0
 main	uvncrepeater	014-r11	Q1Ni3ChMtbPJcDrozXHeJNfdiOFWk=	VNC repeater based on ultravnc repeater	/bin/sh so:libc.musl-x86_64.so.1	cmd:repeater=014-r11
 main	uvncrepeater-openrc	014-r11	Q1jEEGS4OHAzhtZpGtqu5hYHahnkU=	VNC repeater based on ultravnc repeater (OpenRC init scripts)		
 main	uwsgi	2.0.31-r1	Q1TeE3l2J6Vgr8qKnOPOOovwotCJ8=	uWSGI application container server	mailcap /bin/sh so:libc.musl-x86_64.so.1 so:libcap.so.2 so:libcrypto.so.3 so:libjansson.so.4 so:libpcre2-8.so.0 so:libssl.so.3 so:libxml2.so.2 so:libz.so.1	cmd:uwsgi=2.0.31-r1
@@ -28500,7 +28500,7 @@ main	which	2.23-r0	Q1/MVEjmN3XiNXtyWZp2f02T29TLs=	A utility to show the full pat
 main	which-doc	2.23-r0	Q1Un5MpzdoMr+3QQpJ2c8BsrnONr8=	A utility to show the full path of commands (documentation)		
 main	wipe	2.3.1-r5	Q1xJNQLakaO16wZVgx9KEsBuVf/Qw=	Secure file wiping utility	so:libc.musl-x86_64.so.1	cmd:wipe=2.3.1-r5
 main	wipe-doc	2.3.1-r5	Q1v+mn6PbnaexfA/qB9iHD+XAqa/c=	Secure file wiping utility (documentation)		
-main	wipefs	2.42.1-r0	Q1pyFGqmi3FN1WAbcLVmaaY3qq0bU=	Utility to wipe filesystems from device from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libsmartcols.so.1	cmd:wipefs=2.42.1-r0
+main	wipefs	2.42.3-r0	Q1MoPvux+Caqb3hqIFux/pFBzYet0=	Utility to wipe filesystems from device from util-linux	so:libblkid.so.1 so:libc.musl-x86_64.so.1 so:libsmartcols.so.1	cmd:wipefs=2.42.3-r0
 main	wireguard-tools	1.0.20260223-r0	Q1q1shI2jxsKV557mTM8RlwEOP+UU=	Next generation secure network tunnel: userspace tools	wireguard-tools-wg wireguard-tools-wg-quick	
 main	wireguard-tools-bash-completion	1.0.20260223-r0	Q1H2N/JnTLcCGhOsW3LxHtuQOgJNs=	Bash completions for wireguard-tools		
 main	wireguard-tools-doc	1.0.20260223-r0	Q19KDwJUBibLhSf84X5jMJFLqh7pM=	Next generation secure network tunnel: userspace tools (documentation)		

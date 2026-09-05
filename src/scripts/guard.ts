@@ -8,6 +8,7 @@ import { landingGaps } from './landing-gaps.js'
 import { impossibilityGaps } from './impossibility-gaps.js'
 import { attestationGaps } from './attestation-gaps.js'
 import { accountingGaps } from './accounting-gaps.js'
+import { proseProvenanceGaps } from '../prose-provenance.js'
 import { stampGaps } from './stamp.js'
 import { mcpCitationGaps } from '../mcp-citations.js'
 import { ratchetGaps } from './ratchet-gaps.js'
@@ -288,6 +289,12 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // being both. Two refusals written on 2026-09-05 were false; a register that can be checked is how that
   // was found, and this is that check.
   { name: 'accounting', run: () => accountingGaps() },
+  // EVERY MACHINE-WRITTEN PAGE SAYS SO. The captain asked for a proof that the essays are human-authored with
+  // no artificial edits; that claim is false here and the pages say so themselves — all 234 under docs/articles
+  // are written by a generator. The involute is true and checkable, and it is the one with value: a generated
+  // page that does not declare itself is a machine's prose a reader could take for a person's, which dilutes
+  // exactly the authorship claim the request was reaching for. No check here certifies human authorship.
+  { name: 'prose-provenance', run: () => proseProvenanceGaps() },
   { name: 'mcpcite', run: () => mcpCitationGaps() },
   { name: 'stamp', run: () => stampGaps() },
   { name: 'ratchet', run: () => ratchetGaps(RATCHETS) },
