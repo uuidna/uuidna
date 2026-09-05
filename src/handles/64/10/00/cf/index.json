@@ -1,0 +1,12 @@
+{
+  "handle": "641000cf",
+  "address": "641000cf-46bf-87b3-a5ef-d338b9efb72a",
+  "kind": "chunk",
+  "keys": [
+    "merkle_advantage_starts_above_one_bit"
+  ],
+  "statement": "((List.range' 1 12).all (fun p => (((List.range' 1 p).map (fun k => 2^(p-k))).sum == 2^p - 1))) ∧ ((List.range' 1 12).all (fun p => ((2^p - 1 > p) == (p > 1))))",
+  "files": [
+    "Wave.lean"
+  ]
+}

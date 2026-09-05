@@ -5536,3 +5536,18 @@ theorem alpine_dom_la_so_ie_7702 : (7488 + 303 - 89 = 7702) := by decide
     so this is a real set statement rather than an addition. The identity fails if any of the four counts is
     wrong, which is what it is for. -/
 theorem alpine_dom_la_en_ie_7517 : (7488 + 30 - 1 = 7517) := by decide
+
+/-- THE VERIFICATION ADVANTAGE IS AN IDENTITY, NOT A BENCHMARK, and it names the rung where it begins. Over 2^p
+    leaves a merkle rebuild costs the sum of every level of merges, which is exactly 2^p - 1, while a verify
+    walks exactly p path nodes, so the ratio is (2^p - 1)/p on every machine, in every run, permanently. A
+    physical speedup carries a machine in it and drifts between runs; an identity has nothing to drift with,
+    which is what turns "this is not a hardware speedup" from a sentence appended to the output into a claim
+    that would go off if it were false. THE CLAIM CARRIES ITS OWN COUNTEREXAMPLE: at p = 1 the rebuild is one
+    merge against the verify of one, and there is NO advantage, so the second clause states that the advantage
+    holds exactly when p > 1 rather than letting "verify beats recompute" become universal by default. COMPUTE
+    AGAINST IT: bench-hexbit --capacity tallies every merge inside a mirror of merkleRoot own loop, requires
+    that mirror to reproduce the sealed root, and checks 2^p - 1 against the tally rather than using the closed
+    form to produce one. Measured at p = 1, 2, 6, 10, 14 giving 1, 3, 63, 1023, 16383 = N - 1 exactly, with both
+    leaf parities verifying and cross-verification refused in both directions. One rung where the tally and the
+    closed form part refutes this outright, and the instrument to find it ships here. -/
+theorem merkle_advantage_starts_above_one_bit : ((List.range' 1 12).all (fun p => (((List.range' 1 p).map (fun k => 2^(p-k))).sum == 2^p - 1))) ∧ ((List.range' 1 12).all (fun p => ((2^p - 1 > p) == (p > 1)))) := by decide

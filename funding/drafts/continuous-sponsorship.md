@@ -6,7 +6,7 @@
 
 ## Summary
 
-uuidna is a corpus of 2573 distinct mathematical propositions, each proven in Lean 4 and each closed without relying on a single axiom. Every proof is content-addressed, every published claim links the proof that earns it, and the whole corpus recomputes from source: a reader who trusts nobody can re-derive it.
+uuidna is a corpus of 2574 distinct mathematical propositions, each proven in Lean 4 and each closed without relying on a single axiom. Every proof is content-addressed, every published claim links the proof that earns it, and the whole corpus recomputes from source: a reader who trusts nobody can re-derive it.
 
 **Why this route.** No deadline and no eligibility gate; the published corpus and the archive DOI are the whole case.
 
@@ -16,14 +16,14 @@ uuidna is a corpus of 2573 distinct mathematical propositions, each proven in Le
 
 | quantity | value | how it is checked |
 | --- | --- | --- |
-| distinct propositions, formally proven | **2573** | each closed by Lean 4's `decide`; the kernel accepts or rejects |
-| proof-name keys over those propositions | 2654 | 81 are renamings, folded to one record each |
+| distinct propositions, formally proven | **2574** | each closed by Lean 4's `decide`; the kernel accepts or rejects |
+| proof-name keys over those propositions | 2655 | 81 are renamings, folded to one record each |
 | axioms relied upon | **none** | `#print axioms` per theorem; the trust base is the empty set |
 | published monographs | 118 | every claim links the proof that earns it, or is one |
 | claims lacking a proof | **0** | audited before publication; the gate refuses an overreach |
 | permanent archive | 10.5281/zenodo.22256708 | resolves to the deposited record |
 
-**Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 2573 from the source and the kernel.
+**Not a single theorem rests on an axiom.** That is the unusual property and it is worth stating flatly: the ledger's trust base is empty — not Mathlib, not `propext`, not `Classical.choice` — so every statement is settled by evaluation over its own finite domain rather than by appeal to anything. A reader who distrusts the authors entirely can re-derive all 2574 from the source and the kernel.
 
 ## Licensing of the funded deliverables
 
@@ -44,7 +44,7 @@ This proposal was drafted with the assistance of a large language model (Anthrop
 
 ## What is claimed, and whose claim is whose
 
-Both halves at full strength. The results below are CLAIMED outright — 2573 propositions, each closed by the Lean 4 kernel over its own finite domain with an empty trust base. What belongs to others is credited to them, and what no formal method can reach is named so a reviewer does not have to guess at the boundary:
+Both halves at full strength. The results below are CLAIMED outright — 2574 propositions, each closed by the Lean 4 kernel over its own finite domain with an empty trust base. What belongs to others is credited to them, and what no formal method can reach is named so a reviewer does not have to guess at the boundary:
 
 - **The finite instances are claimed; the open conjectures are not solved by anyone here.** `decide` settles a decidable proposition over a FINITE domain, and every famous open conjecture quantifies over an infinite one — so no such proof exists in this corpus or can. What the corpus DOES hold, and claims, are finite instances and counting facts adjacent to those problems, each scoped in its own theorem name.
 - **No quantum-computational speedup.** The project's advantage claims are about verification costing less than recomputation, in measured magnitudes, on ordinary hardware.
@@ -59,4 +59,4 @@ No deadline: this route is rolling.
 
 ---
 
-Draft address `2688efdb-2099-8daf-8492-7b82d4138e7e` — recomputes from the route, the ledger receipt (undated: no countdown was requested).
+Draft address `f5fc39ed-a390-8851-9ca1-82f625c0c169` — recomputes from the route, the ledger receipt (undated: no countdown was requested).

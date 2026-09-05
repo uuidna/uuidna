@@ -158,7 +158,7 @@ the_record_has_holes_the_rule_does_not 27
 a_gapless_index_admits_nothing_between 27
 #Cern.lean
 cms_events_close_over_their_files 27
-the_collision_energy_label_step_is_one_tev 31
+the_collision_energy_label_step_is_one_tev 27
 the_open_data_embargo_ran_six_years_or_longer 27
 these_two_eight_tev_datasets_hold_more_events_than_these_two_seven 27
 the_four_cern_records_close_their_own_totals 27
@@ -996,7 +996,7 @@ w_state_normalized 27
 bell_basis_orthogonal 27
 n_qubit_dimension 27
 served_qubit_ceiling 27
-gate_error_baseline_class 31
+gate_error_baseline_class 27
 tensor_dimension_multiplies 27
 pauli_group_order_16 27
 closure_is_coprime 27
@@ -2758,6 +2758,7 @@ alpine_dom_la_au_ie_7684 26
 alpine_dom_la_bu_ie_7737 26
 alpine_dom_la_so_ie_7702 26
 alpine_dom_la_en_ie_7517 26
+merkle_advantage_starts_above_one_bit 26
 #Waves.lean
 captains_columns_sum_to_ten 27
 nine_complement_half_turns_the_orbit 27
@@ -2778,36 +2779,34 @@ imaginings_meet_at_sixtyfour 27
 rounding_fee_closes_the_cube 27
 the_promotion_chain_doubles_home 27`
 
-export const CLAIMS = `abo_klein_four DOI
-blood_types_eight DOI
+export const CLAIMS = `abo_klein_four 10.1038/345229a0
+blood_types_eight 10.3181/00379727-43-11151
 bulge_exceeds_relief WGS 84
-codons_sixty_four DOI
-dna_base_pairing_involution DOI
+codons_sixty_four 10.1073/pnas.47.10.1588
+dna_base_pairing_involution 10.1038/171737a0
 eratosthenes_fiftieth_circle Eratosthenes
-gate_error_baseline_class DOI
 hardware_above_landauer Landauer
 kelvin_floor_carries_the_hundred SI
 landauer_bound_derived SI
 light_speed_rounds_to_300000 SI
 reversible_erases_nothing Landauer
-the_collision_energy_label_step_is_one_tev DOI
 the_defining_constants_are_exact_integers SI
 the_metre_is_defined_by_the_second SI
 two_coins_in_kilograms CODATA
 van_de_graaf_margins Gutenberg
 wgs84_polar_shorter WGS 84`
 
-export const FLOOR = { witness: 18, falsifier: 63 }
+export const FLOOR = { witness: 16, falsifier: 63 }
 
 // The WITNESS rule these legs were decided by, as a digest of its own source. A later run compares it: if the
 // digest moved and the anchored count FELL, the instrument changed rather than any claim, and that fall must be
 // DECLARED (rosetta --declare-rule-change "<reason>") rather than permitted as a side effect. Without this the
 // refusal is walk-past-able by editing the pattern it consults, which is the absolute refusal wearing a quieter
 // coat: a gate whose verdict the author controls by editing the thing it reads.
-export const RULE = "5ddc9622"
-export const RULE_DECLARED = "A bare 'measured (at|as|by)' says only that somebody measured, never who, and the law asks for something a stranger could consult. It anchored a stopwatch reading on one operator machine and 'measured by inversion count' — this project computing about itself. 'bomb calorimetry' already covers the legitimate case."
+export const RULE = "fd06d2cb"
+export const RULE_DECLARED = "The bare tokens doi|DOI matched this repository's own SUBJECT MATTER rather than a citation: DOI minting is what much of this tree is about, so the word appears 22x across the emitters against 23x for an actual 10.xxxx/ identifier. It matched sentences that say there is NO DOI - gate_error_baseline_class reads 'does not hold the wing empty waiting for a DOI' and earned the witness leg for saying so. A witness must be something a stranger can consult; the word naming the class of thing is not one. The rule now requires a real identifier, 10.[0-9]{4,9}/. Two legs fall: gate_error_baseline_class, which never had an external anchor, and the_collision_energy_label_step_is_one_tev, whose own note says 'the DOI it came from' while the CMS identifiers sit in a neighbouring note - the anchor exists in the file and not in the note rosetta reads, which is a real gap and not a false one."
 // …and the digest it was declared FOR. A declaration is spent on ONE rule: honouring a standing one for the
 // next change lets a single declaration bless every future edit, which is the same walk-past hole one level up.
 // Measured: with the declaration for the `measured` removal on the record, deleting `Gutenberg` — an unrelated
 // alternative — was permitted and printed that reason beside a fall it had nothing to do with.
-export const RULE_DECLARED_FOR = "5ddc9622"
+export const RULE_DECLARED_FOR = "fd06d2cb"

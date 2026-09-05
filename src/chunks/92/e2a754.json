@@ -1,0 +1,12 @@
+{
+  "handle": "92e2a754",
+  "address": "92e2a754-326e-8cae-874c-9903788cb788",
+  "statement": "(2604 + 0 = 2604) ∧ (0 = 0)",
+  "tactic": "decide",
+  "keys": [
+    "prose_round_trips"
+  ],
+  "files": [
+    "Audit.lean"
+  ]
+}

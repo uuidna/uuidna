@@ -136,8 +136,8 @@
  "time": {
   "communityCompileNsDecade": 10000000,
   "communityNsPerDecade": 100,
-  "manCompileNsDecade": 1000000,
-  "manNsPerDecade": 100
+  "manCompileNsDecade": 10000000,
+  "manNsPerDecade": 1000
  },
  "scale": {
   "usableAddressesPow2": 128,

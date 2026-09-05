@@ -29,11 +29,11 @@ Paired doctrine: [sufficiency charter](/doctrine#sufficiency-charter--what-hexbi
 
 | candidate | status |
 |-----------|--------|
-| **merkle advantage starts above one bit** (not sealed) | awaiting the kernel |
+| — the queue is drained — | |
 
 ## Accepted — the cargo, each with its seal
 
-928 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
+929 candidate(s) have ridden the conveyor. The receipt column is the address each candidate's
 Lean text folded to at acceptance; the seal column is the LEDGER's address once lifted — click through to the
 theorem page and recompute either.
 
@@ -967,6 +967,7 @@ theorem page and recompute either.
 | [`alpine_dom_la_bu_ie_7737`](/theorem/alpine_dom_la_bu_ie_7737) | [`d60184cc`](/theorem/alpine_dom_la_bu_ie_7737) | `79f945bd` |
 | [`alpine_dom_la_so_ie_7702`](/theorem/alpine_dom_la_so_ie_7702) | [`66e94b6f`](/theorem/alpine_dom_la_so_ie_7702) | `599a0b09` |
 | [`alpine_dom_la_en_ie_7517`](/theorem/alpine_dom_la_en_ie_7517) | [`4f642ab3`](/theorem/alpine_dom_la_en_ie_7517) | `037cff69` |
+| [`merkle_advantage_starts_above_one_bit`](/theorem/merkle_advantage_starts_above_one_bit) | [`7fcddeac`](/theorem/merkle_advantage_starts_above_one_bit) | `22859641` |
 
 ## Refused — the law school's enrollment roster
 

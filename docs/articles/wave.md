@@ -1,15 +1,15 @@
 ---
 title: "The conveyor's first wave"
-description: "Computed from lean/Wave.lean — 933 sealed theorems, every claim citing its proof."
+description: "Computed from lean/Wave.lean — 934 sealed theorems, every claim citing its proof."
 ---
 
 # The conveyor's first wave
 
-> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 932 siblings below.
+> WAVE — the conveyor's first wave over the sealable backlog: the headroom inside int16 with the mix budget closing exactly, the tuning schism's residues and the 119 BPM floor, the note-value doubling ladder and the Morris reversal, Nicomachus' cubes at the window, and the Lights-Out flip involution. Lifted where decidable; refused where judgment is owed. — held by [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) and its 933 siblings below.
 
-**933 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 752 of its 933 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
+**934 theorems**, from [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) onward, each proven `by decide` in <a href="/lean/Wave.lean">lean/Wave.lean</a>, axiom-free against the bare Lean kernel. This article is computed from the ledger — nothing here is authored, and every claim carries its citation. 753 of its 934 theorems seal a BOUNDARY rather than a capability — naming what the model does not do, where it fails, or what it excludes — starting with [involution_replaces_the_raised_ceiling](/theorem/involution_replaces_the_raised_ceiling). A boundary stated here is decided.
 
-**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 933 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
+**[Re-prove this wing in your browser ↗](https://live.lean-lang.org/#project=mathlib-stable&url=https%3A%2F%2Fraw.githubusercontent.com%2Fuuidna%2Fuuidna%2Frefs%2Fheads%2Fmain%2Flean%2FWave.lean)** — nothing to install. The editor fetches `lean/Wave.lean` from the repository and re-decides all 934 proofs on Lean v4.33.0, the toolchain this ledger is sealed against. The wing imports nothing, so what the reader runs is the whole input: a green run there is the reader's own verdict, not ours.
 
 ### THE TUNING SCHISM ON THE LEDGER'S OWN MARKER: A432 = 2⁴·3³ folds to the vortex axis (432 ≡ 0 mod 9) while the public A440 = 2³·5·11 lands at 8 — off the axis, a different residue class entirely — and the song's 252 ms beat reads as eighths at 119 BPM by the floor (60000 / 252 / 2 = 119), inside the public 60–180 band. The lattice's tuning and the world's differ by a residue the ring can see.
 The ledger holds this as [a440_not_on_the_vortex](/theorem/a440_not_on_the_vortex) — proven `by decide`, sorry-free:
@@ -6540,6 +6540,13 @@ The ledger holds this as [alpine_dom_la_en_ie_7517](/theorem/alpine_dom_la_en_ie
 
 ```lean
 (7488 + 30 - 1 = 7517)
+```
+
+### THE VERIFICATION ADVANTAGE IS AN IDENTITY, NOT A BENCHMARK, and it names the rung where it begins. Over 2^p leaves a merkle rebuild costs the sum of every level of merges, which is exactly 2^p - 1, while a verify walks exactly p path nodes, so the ratio is (2^p - 1)/p on every machine, in every run, permanently. A physical speedup carries a machine in it and drifts between runs; an identity has nothing to drift with, which is what turns "this is not a hardware speedup" from a sentence appended to the output into a claim that would go off if it were false. THE CLAIM CARRIES ITS OWN COUNTEREXAMPLE: at p = 1 the rebuild is one merge against the verify of one, and there is NO advantage, so the second clause states that the advantage holds exactly when p > 1 rather than letting "verify beats recompute" become universal by default. COMPUTE AGAINST IT: bench-hexbit --capacity tallies every merge inside a mirror of merkleRoot own loop, requires that mirror to reproduce the sealed root, and checks 2^p - 1 against the tally rather than using the closed form to produce one. Measured at p = 1, 2, 6, 10, 14 giving 1, 3, 63, 1023, 16383 = N - 1 exactly, with both leaf parities verifying and cross-verification refused in both directions. One rung where the tally and the closed form part refutes this outright, and the instrument to find it ships here.
+The ledger holds this as [merkle_advantage_starts_above_one_bit](/theorem/merkle_advantage_starts_above_one_bit) — proven `by decide`, sorry-free:
+
+```lean
+((List.range' 1 12).all (fun p => (((List.range' 1 p).map (fun k => 2^(p-k))).sum == 2^p - 1))) ∧ ((List.range' 1 12).all (fun p => ((2^p - 1 > p) == (p > 1))))
 ```
 
 
