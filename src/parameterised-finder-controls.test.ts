@@ -1,7 +1,8 @@
 // parameterised-finder-controls — HANDING A VIOLATION TO THE FINDERS THAT TAKE THEIR INPUT AS AN ARGUMENT.
 //
 // lean/finder-controls-baseline.json counts the finders no test has ever shown to FIRE. A finder run only
-// against a tree expected to be clean cannot tell "nothing to find" from "cannot find", and 2026-09-05 produced
+// against a tree expected to be clean cannot tell "nothing to find" from "cannot find" — BY CONSTRUCTION, since
+// both return the empty list and the finder emits nothing either way. 2026-09-05 produced
 // five blind ones, each caught by a second instrument or another session rather than by its own suite. The
 // conveyor's kernel arm was the worst of them: thirty refusals on record and the kernel behind none, because a
 // diagnostic arrived as an empty Buffer and `if (bad)` took the else branch.
