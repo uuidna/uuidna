@@ -2606,8 +2606,16 @@ export function incompleteGaps(): Gap[] {
   // and `connect\w*` flagged it because "connectives" starts the same way. The words below are the ones that
   // assert scope: reaches, connects, generates, and the quantifying adverbs.
   const UNIVERSAL = /(^|_)(every|never|always|reaches|reach|connects|connect|generates|generate|closed)(_|$)/
+  // A LEAN ∀ BINDER IS THE QUANTIFICATION, and this finder could not see it. The crypto wing sealed two
+  // statements of the form `∀ l : Fin 128, …` — a universal over a finite domain, closed by the kernel case by
+  // case, which is the strongest form of the thing this finder asks for — and both were reported as
+  // quantifying over nothing. The blind spot mattered in the ADMITTING direction of nuisance: a sound
+  // enumeration flagged as an over-claim teaches the reader to ignore the finder. The genuine over-claim in
+  // the same wing (a name saying "every dimension" over four listed dimensions) still fires, which is how this
+  // widening was checked rather than assumed.
   const quantifies = (s: string): boolean =>
     /\.(all|every|filter|map|flatMap)\b|List\.range/.test(s) || /\[[^\]]*,[^\]]*,[^\]]*\]/.test(s)
+    || /∀\s*\w+\s*:/.test(s)
   return theorems()
     .filter((t) => UNIVERSAL.test(t.key) && !quantifies(t.statement))
     .map((t) => ({

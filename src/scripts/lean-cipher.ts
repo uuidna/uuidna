@@ -47,7 +47,7 @@ const FACTS = [
     lean: 'theorem otp_key_reuse_leaks_xor : (List.range 8).all (fun m1 => (List.range 8).all (fun m2 => (List.range 8).all (fun k => (lxor (lxor m1 k) (lxor m2 k)) == (lxor m1 m2)))) := by decide' },
 
   { key: 'xor_fold_is_malleable',
-    why: 'A linear (XOR) fold is malleable: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing.',
+    why: 'A linear (XOR) fold is malleable, over every one of the sixteen four-bit inputs: flipping the input by d flips the fold by exactly d — (a⊕d)⊕a = d — so it binds nothing an adversary cannot adjust. A content-address is INTEGRITY/routing.',
     js: () => R(0, 16).every((a) => R(0, 16).every((d) => (((a ^ d) ^ a) === d))),
     lean: 'theorem xor_fold_is_malleable : (List.range 16).all (fun a => (List.range 16).all (fun d => lxor (lxor a d) a == d)) := by decide' },
 

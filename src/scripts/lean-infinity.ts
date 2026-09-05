@@ -106,7 +106,15 @@ const notDecided = LEDGER.filter((t) => !/^decide\b/.test(t.tactic)).length
 const quantified = LEDGER.filter((t) => /∀|∃/.test(t.statement))
 // a quantifier is BOUNDED when a finite membership hypothesis collapses it — `∀ c : Int, c ∈ [..] → …` ranges over
 // an infinite type and decides anyway, which is finite-within-infinity stated literally rather than as a slogan
-const unbounded = quantified.filter((t) => !/∈\s*\[/.test(t.statement)).length
+// WHAT COUNTS AS BOUNDED, and this rule was widened on 2026-09-05 for a reason worth stating. It recognised
+// only a membership hypothesis (`c ∈ [a, b, …]`), which was the single form the ledger then used. A `Fin N`
+// binder is bounded MORE strongly than that: it quantifies over a finite TYPE of exactly N inhabitants, so the
+// domain is finite by construction rather than by a hypothesis the reader must check. Refusing it would have
+// been the third time in one day that a rule failed to recognise a notation for the very thing it looks for —
+// `incomplete` could not see a ∀ binder, the claim measure could not see `List.range`, and this could not see
+// a finite type. The law is unchanged: every quantified statement in this ledger ranges over a bounded domain.
+const isBounded = (statement: string): boolean => /∈\s*\[/.test(statement) || /:\s*Fin\s+\d+/.test(statement)
+const unbounded = quantified.filter((t) => !isBounded(t.statement)).length
 // PER-WING MAXIMA, not every enumeration. The first version handed the kernel all 1,400-odd windows in the tree
 // and `decide` hit its recursion ceiling — the check was refused rather than passed, which is the delta gate doing
 // its job on my own arithmetic. One number per wing folds in the kernel comfortably and states the same fact.
@@ -130,7 +138,7 @@ const LIST = (ns: number[]): string => '[' + ns.join(', ') + ']'
 // avoid. Folding one number per wing makes the kernel walk every wing to reach the total, and the elementwise
 // comparison against a wing-length list of zeros fails if ANY single wing ever admits an unbounded quantifier.
 const quantPer = wingFiles.map((f) => LEDGER.filter((t) => t.file === f && /∀|∃/.test(t.statement)).length)
-const unboundPer = wingFiles.map((f) => LEDGER.filter((t) => t.file === f && /∀|∃/.test(t.statement) && !/∈\s*\[/.test(t.statement)).length)
+const unboundPer = wingFiles.map((f) => LEDGER.filter((t) => t.file === f && /∀|∃/.test(t.statement) && !isBounded(t.statement)).length)
 const ZEROS = wingFiles.map(() => 0)
 
 const REACH = [
@@ -140,7 +148,7 @@ const REACH = [
     lean: `theorem reach_all_decide : ((${LIST(decidedPer)}).foldl (· + ·) 0 = ${LEDGER.length}) ∧ (${LIST(decidedPer)} = ${LIST(thmsPer)}) := by decide` },
 
   { key: 'reach_quantifiers_bounded',
-    why: `FINITE WITHIN INFINITY, COUNTED — exactly ${quantified.length} statement in the whole ledger carries a ∀ or ∃, and ${unbounded} of those range over an unbounded domain. The quantified one ranges over ℤ, which is infinite, and decides anyway because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the decision is finite. Every other statement is quantifier-free enumeration. This is the ledger's whole method stated as a census rather than as a slogan`,
+    why: `FINITE WITHIN INFINITY, COUNTED — exactly ${quantified.length} statements in the whole ledger carry a ∀ or ∃, and ${unbounded} of them range over an unbounded domain. They are bounded in the two ways this ledger admits, and both keep the decision finite. ONE ranges over ℤ, which is infinite, and decides anyway because a membership hypothesis collapses it to seven values: the infinite domain is admitted and the decision is finite. The REST bind a finite type — \`Fin N\` — whose domain is finite by construction rather than by a hypothesis a reader must check, so the kernel walks all N inhabitants and stops. Every other statement in the ledger is quantifier-free enumeration. This is the ledger's whole method stated as a census rather than as a slogan, and the census is recomputed from the statements themselves, so a wing sealed tomorrow that quantified over something unbounded would break it tomorrow`,
     js: () => unbounded === 0 && quantified.length >= 1 && unboundPer.every((n) => n === 0),
     lean: `theorem reach_quantifiers_bounded : (${LIST(unboundPer)} = ${LIST(ZEROS)}) ∧ ((${LIST(quantPer)}).foldl (· + ·) 0 = ${quantified.length}) := by decide` },
 

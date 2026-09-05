@@ -12,6 +12,7 @@ import { trialSealContent, runTrial } from './index.js'
 import { THEOREMS } from './index.js'
 import {
   INVOLUTIONS, evaluable, holds, applyToElements, involutionSurvives, census, control, digitalRootOf,
+  desugarFinForall,
   stripAscriptions,
 } from './involution/index.js'
 
@@ -435,4 +436,41 @@ test('forged denial — key-collision before home mints', () => {
   })
   assert.equal(a.admitted, false)
   assert.equal(a.kind, 'key-collision')
+})
+
+// ── THE Fin BINDER. Four theorems sealed on 2026-09-05 bind a finite type, a grammar this evaluator had never
+// met: it returned null, gen-falsifiers emitted nothing, and the falsifier ceiling dropped from 2626 to 2622 in
+// one run. The cure was to teach the second machine the notation, because a theorem the kernel decides and no
+// independent implementation can re-decide is exactly the leg the ceiling exists to require.
+
+test('desugarFinForall rewrites a Fin binder into the enumeration it already is', () => {
+  assert.equal(desugarFinForall('(∀ i : Fin 3, i.val + 0 = i.val)').replace(/\s+/g, ' '),
+    '((List.range 3).all (fun i => i + 0 = i))')
+  // the body ends at the binder's OWN closing paren, so a conjunct after it survives untouched
+  assert.match(desugarFinForall('(∀ n : Fin 4, n.val = n.val) ∧ (2 + 2 = 4)'), /∧ \(2 \+ 2 = 4\)$/)
+  // nested parens inside the body are matched, not cut at the first close
+  assert.equal(desugarFinForall('(∀ i : Fin 2, (i.val + 1) = (1 + i.val))').replace(/\s+/g, ' '),
+    '((List.range 2).all (fun i => (i + 1) = (1 + i)))')
+  assert.equal(desugarFinForall('(2 + 2 = 4)'), '(2 + 2 = 4)', 'a statement with no binder is unchanged')
+  assert.equal(desugarFinForall('(∀ i : Fin 3, i.val = i.val'), '(∀ i : Fin 3, i.val = i.val',
+    'unbalanced input is left alone rather than guessed at')
+})
+
+test('the evaluator DECIDES a Fin-bound statement, and decides a false one false', () => {
+  assert.equal(holds('(∀ i : Fin 5, i.val + 0 = i.val)'), true)
+  assert.equal(holds('(∀ i : Fin 5, i.val + 1 = i.val)'), false, 'a false universal must come back false, not null')
+  assert.equal(holds('(∀ i : Fin 25, (24 - (24 - i.val) = i.val) ∧ (i.val = 12 ∨ 24 - i.val ≠ i.val)) ∧ (24 - 12 = 12)'), true,
+    'the claim involution, re-decided by the second machine')
+  // and the rewrite must not smuggle in a weaker domain: one case short and the verdict flips
+  assert.equal(holds('(∀ i : Fin 9, i.val < 8)'), false, 'the ninth inhabitant is walked, so this is false')
+  assert.equal(holds('(∀ i : Fin 8, i.val < 8)'), true)
+})
+
+test('every Fin-bound theorem in the ledger is re-decided TRUE by this second implementation', () => {
+  const fins = THEOREMS.filter((t) => /: Fin \d+/.test(t.statement))
+  assert.ok(fins.length > 0, 'if the ledger has no Fin binder this test has stopped measuring')
+  for (const t of fins) {
+    assert.equal(holds(t.statement), true,
+      `${t.key}: the kernel decided it and the independent evaluator must agree, or one of them is wrong`)
+  }
 })

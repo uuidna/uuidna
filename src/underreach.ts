@@ -130,3 +130,140 @@ export function underreachGaps(): { what: string; fix: string }[] {
     fix: 'state it at full strength — the proof is sealed, so the sentence may claim it outright; if the quantity really is empirical, say measured and the scope is honest rather than timid',
   }))
 }
+
+// ── THE CLAIM BALANCE: ONE SIGNED MEASURE, AND UNDER-CLAIM IS THE INVOLUTE OF OVER-CLAIM ───────────────────
+//
+// THE CAPTAIN, 2026-09-05, in two steps. First: "over-claims and under-claims are equally important." Then the
+// sharper form: "involuted over-claims are under-claims." That is not a remark about balance — it is the
+// STRUCTURE, and it says the two are not separate faults deserving separate finders. They are one fault with a
+// sign, and this tree's own involution carries them into each other.
+//
+// THE MEASURE. A theorem has a scope it PROVES (the domain the kernel decided over) and a scope it CLAIMS (what
+// the sentence tells a reader). The fault is the difference, signed:
+//
+//     balance = claimed − proved       positive = OVER-claim      negative = UNDER-claim      0 = honest
+//
+// The involution is negation, r(b) = −b: self-inverse, and its UNIQUE fixed point is 0 — the statement that
+// claims exactly what it proves. That is the same shape as the diamond's r(d) = 10 − d fixed at 5, applied to
+// claims instead of digits, and it makes the honest statement a FIXED POINT rather than a policy. An over-claim
+// of three cases and an under-claim of three cases are the same distance from honesty in opposite directions,
+// which is precisely what "equally important" means once it is arithmetic instead of an opinion.
+//
+// WHICH SIDE THIS MEASURES, AND WHY IT DOES NOT MEASURE BOTH. The UNDER side is this measure's: nothing in the
+// tree looked for a proof larger than its own sentence. The OVER side already has a tuned rule in one-receipt's
+// `incomplete`, which keys on the theorem's KEY with a narrow list of scope verbs — and re-deriving it here
+// from the SENTENCE instead was tried and was wrong within a minute: 1387 of 2625 fired, among them
+// `z7fermat` ("every non-zero ray to the sixth is 1 mod 7", decided over `List.range 7` — an exhaustive
+// universal correctly claimed) and `rosette_quantum_fortytwo` (whose "each pair" is prose, not a binder).
+// Two rules for one sign is the drift this file exists to avoid, so the over side stays where it is measured
+// well. The INVOLUTION is what makes them one fault: r(b) = −b carries this measure's findings onto
+// `incomplete`'s side and back, and the two are the two signs of a single distance from honesty rather than a
+// serious fault and a lesser one.
+//
+// THE RULE WAS MEASURED THREE TIMES BEFORE IT WAS KEPT, because the loose version is worse than none:
+//   · keyed on the terse KEY: 58 of 2625 fired, and most were laws named after their object — `toffoli_truth_
+//     table` IS all its rows, `z_involution` IS the law for all inputs. Naming a law after its object claims
+//     it in full, so the rule was wrong, not the ledger.
+//   · keyed on the claim SENTENCE, counting commas: 2 fired, both false — the domain measure counted commas
+//     INSIDE tuples, so `[(1,0),(0,1),(3,-5),(-2,7)]` read as eight cases when it is four.
+//   · elements counted properly, and an explicit narrowing read as the scope declaration it is: 0 fired. The
+//     ledger sits ON the fixed point, which is the honest result and the line this now holds.
+// A finder that reports zero with a control that fires is worth keeping; one that cries wolf gets switched off,
+// and then the real fault walks through in either direction.
+
+/** the size of the domain a statement decides over: a `∀ x : Fin N` binder, or an enumerated list's ELEMENTS. */
+export function decidedDomain(statement: string): number {
+  const forall = /∀\s*\w+\s*:\s*Fin\s+(\d+)/.exec(statement)
+  let n = forall ? Number(forall[1]) : 0
+  // `List.range N` IS a quantification and this measure could not see it, which mattered: 1387 theorems read
+  // as claiming a universal over nothing, among them z7fermat (`(List.range 7).all …`) and
+  // light_faster_than_uuidna (`(List.range 64).all …`) — both exhaustive over their domain. The same blind
+  // spot as the ∀ binder, in a second notation. One-receipt's `incomplete` already knew this form; this is the
+  // measure catching up to it rather than a new rule.
+  for (const r of statement.match(/List\.range\s+(\d+)/g) ?? []) {
+    const k = Number(/(\d+)/.exec(r)![1])
+    if (k > n) n = k
+  }
+  // ELEMENTS, not commas. A list of pairs carries a comma inside every element, so counting commas doubles a
+  // four-case enumeration into eight — which is how this rule reported two false findings before it was fixed.
+  for (const list of statement.match(/\[[^[\]]*(?:\([^)]*\)[^[\]]*)*\]/g) ?? []) {
+    const inner = list.slice(1, -1).trim()
+    if (inner === '') continue
+    const depth0 = inner.replace(/\([^)]*\)/g, 'E')       // collapse each parenthesised element to one token
+    const count = depth0.split(',').filter((x) => x.trim() !== '').length
+    if (count > n) n = count
+  }
+  return n
+}
+
+/** Does the claim sentence STATE its scope? A universal word, a count, or an explicit narrowing — because
+ *  "on sample Gaussian-integer amplitudes" is a scope declaration too, and a narrowing one: it claims LESS on
+ *  purpose and says so, which is precision rather than timidity. */
+export const STATES_SCOPE =
+  /\b(every|all|each|any|never|always|none|exhaustive\w*|enumerat\w+|whole|entire|both|sample[ds]?|these|those|respectiv\w+|\d+|zero|one|two|three|four|five|six|seven|eight|nine|ten|eleven|twelve|sixteen|twenty|sixty|hundred)\b/i
+
+/** A universal asserted in words — what the sentence claims when it claims everything. */
+export const CLAIMS_UNIVERSAL = /\b(every|all|each|any|always|never|exhaustive\w*|enumerat\w+|whole|entire)\b/i
+
+/** the smallest domain worth insisting on: below this an unstated scope is a phrasing choice, not a lost claim */
+export const UNDERCLAIM_FLOOR = 8
+
+/** THE INVOLUTION on the balance: r(b) = −b. Self-inverse, unique fixed point 0 — the honest statement. The
+ *  same structure as the diamond's r(d) = 10 − d fixed at 5, carried onto claims. */
+// written as 0 − b rather than −b: negating zero gives −0, which is a different value under Object.is and made
+// the fixed-point assertion fail. The fixed point must BE zero, not a signed variant of it.
+export const involuteClaim = (balance: number): number => 0 - balance
+
+export type ClaimDirection = 'over' | 'under' | 'honest'
+
+export interface ClaimBalance {
+  key: string
+  /** cases the kernel decided */
+  proved: number
+  /** cases the sentence tells a reader about */
+  claimed: number
+  /** claimed − proved: positive over-claims, negative under-claims, zero is the fixed point */
+  balance: number
+  direction: ClaimDirection
+  name: string
+}
+
+/** claimBalanceOf(row) → the signed distance from honesty for one theorem.
+ *
+ *  A sentence that asserts a universal claims the whole domain. One that states a scope some other way (a
+ *  count, an explicit narrowing) is taken at its word and sits on the fixed point — this measure judges whether
+ *  a scope was STATED, never whether the wording was the one a reader would have chosen. A sentence that states
+ *  nothing while the kernel decided a domain claims a single case, and under-claims by all the rest. */
+export function claimBalanceOf(row: { key: string; name: string; statement: string }): ClaimBalance {
+  const proved = decidedDomain(row.statement ?? '')
+  const name = row.name ?? ''
+  const claimed = CLAIMS_UNIVERSAL.test(name) || STATES_SCOPE.test(name) ? proved : (proved > 0 ? 1 : 0)
+  const balance = claimed - proved
+  return {
+    key: row.key, proved, claimed, balance,
+    direction: balance > 0 ? 'over' : balance < 0 ? 'under' : 'honest',
+    name: name.slice(0, 120),
+  }
+}
+
+/** claimImbalances(rows) → every theorem off the fixed point, both directions, from ONE measure. */
+export function claimImbalances(
+  rows: readonly { key: string; name: string; statement: string }[] = THEOREMS as readonly { key: string; name: string; statement: string }[],
+): ClaimBalance[] {
+  return rows
+    .map(claimBalanceOf)
+    // the UNDER side, at or above the floor. The over side is `incomplete`'s — see the note above.
+    .filter((b) => b.direction === 'under' && b.proved >= UNDERCLAIM_FLOOR)
+}
+
+/** the gaps, in the guard's shape — the direction is named, because the cure differs by sign */
+export const claimBalanceGaps = (): { what: string; fix: string }[] =>
+  claimImbalances().map((b) => b.direction === 'under'
+    ? {
+      what: `${b.key} UNDER-claims by ${-b.balance}: the kernel decided ${b.proved} cases and the sentence states no scope — "${b.name}"`,
+      fix: `state the scope the kernel actually decided ("over all ${b.proved} …", "every …"), or narrow it explicitly ("on sample …") if the domain is deliberately a sample. What is proved IS claimed; a universal left unstated is trusted less than the kernel earned, and it is the involute of an over-claim, not a lesser fault.`,
+    }
+    : {
+      what: `${b.key} OVER-claims: the sentence asserts a universal and the statement decides no domain — "${b.name}"`,
+      fix: 'quantify the statement over the domain the name implies, or drop the universal from the name. This is the involute of an under-claim and carries the same weight.',
+    })

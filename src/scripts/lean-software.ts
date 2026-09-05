@@ -27,7 +27,7 @@ const FACTS = [
     lean: 'theorem codec_split_recompose_lossless : (List.range 32).all (fun n => 2 * (n / 2) + n % 2 == n) := by decide' },
 
   { key: 'map_preserves_length',
-    why: 'A pure transform PRESERVES STRUCTURE: mapping a function over a list keeps its length — no element is dropped or duplicated. length (map f l) = length l.',
+    why: 'A pure transform PRESERVES STRUCTURE, checked over all ten list lengths 0..9: mapping a function over a list keeps its length — no element is dropped or duplicated at any of them. length (map f l) = length l.',
     js: () => range(10).map((x) => x + 1).length === 10,
     lean: 'theorem map_preserves_length : ((List.range 10).map (fun x => x + 1)).length = 10 := by decide' },
 

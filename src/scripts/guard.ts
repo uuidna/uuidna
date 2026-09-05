@@ -12,7 +12,7 @@ import { stampGaps } from './stamp.js'
 import { mcpCitationGaps } from '../mcp-citations.js'
 import { ratchetGaps } from './ratchet-gaps.js'
 import { leakGaps } from './leak-scan.js'
-import { underreachGaps } from '../underreach.js'
+import { underreachGaps, claimBalanceGaps } from '../underreach.js'
 import { ledgerDrainGaps } from './audit-ledger-drain.js'
 import { axiomReachGaps } from '../axiom-reach.js'
 import { depositGaps } from '../deposit-records.js'
@@ -302,6 +302,14 @@ const FINDERS: { name: string; run: () => Gap[] | Promise<Gap[]>; needsBuiltSite
   // The gate refuses OVERREACH; this refuses the opposite fault. A statement decided over every case, hedged as
   // though it were a guess, understates the ledger — and understating it is as false as overstating it.
   { name: 'underreach', run: () => underreachGaps() },
+  // THE CAPTAIN, 2026-09-05, in two steps: "over-claims and under-claims are equally important", then the
+  // structure behind it — "involuted over-claims are under-claims". So this is ONE SIGNED MEASURE rather than
+  // two finders that could disagree: balance = claimed − proved, positive over, negative under, and the
+  // involution r(b) = −b carries each direction to the other with 0 — the statement that claims exactly what it
+  // proves — as its unique fixed point, the same shape as the diamond's r(d) = 10 − d fixed at 5. It reports 0
+  // over the live ledger and its control fires in BOTH directions, which is the only way a zero is worth
+  // anything.
+  { name: 'claim-balance', run: () => claimBalanceGaps() },
   // Proved in lean/ and absent from the served ledger is INVISIBLE work — caught live, three kernel-verified
   // theorems the site could not see, because `generate` does not run the Lean-to-ledger drain.
   { name: 'ledger-drain', run: () => ledgerDrainGaps() },

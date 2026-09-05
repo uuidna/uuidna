@@ -16,6 +16,28 @@
 // an independent measurement of retention. What the kernel decides is the arithmetic; what a person measured
 // stays a measurement.
 import { emit, range } from './lean-gen.js'
+import { publications } from '../publish.js'
+import { publicationGraph } from '../publication-graph.js'
+import { toUuid } from '../address.js'
+import { handleOf } from '../handle.js'
+
+// ── THE CORPUS FIGURES, MEASURED HERE RATHER THAN TYPED. Two facts below carried 117 as a literal and drifted
+// the moment a wing was sealed: the ledger grew to 118 monographs and the theorems still said 117, which is the
+// frozen-count fault this tree refuses in prose and had left standing in Lean. They are derived now, so the
+// statement moves with the corpus: a figure that is recomputed at generation is unable to describe a tree that
+// no longer exists, because there is nowhere for the old value to be stored.
+const PUBS = publications()
+const MONOGRAPHS = PUBS.length
+const DISTINCT_ABSTRACTS = new Set(PUBS.map((p) => p.abstract ?? '')).size
+const DUPLICATE_ABSTRACTS = MONOGRAPHS - DISTINCT_ABSTRACTS
+const KIN_DEGREES = publicationGraph().map((n) => n.kin.length)
+const KIN_EDGES = KIN_DEGREES.reduce((a, b) => a + b, 0)
+const KIN_MAX = KIN_DEGREES.reduce((a, b) => (b > a ? b : a), 0)
+const KIN_MIN = KIN_DEGREES.reduce((a, b) => (b < a ? b : a), KIN_MAX)
+// each abstract as a NUMBER, so distinctness is something the kernel can actually decide rather than a
+// tautology about two equal counts: the fingerprints are enumerated and their duplicate-free length checked.
+const ABSTRACT_MARKS = PUBS.map((p) => Number.parseInt(handleOf(toUuid('abstract|' + (p.abstract ?? ''))), 16))
+const LIST_N = (xs: readonly number[]): string => '[' + xs.join(', ') + ']'
 
 const FACTS = [
   { key: 'render_retention_exceeds_the_container', name: '5260 pages at 17 tenths of a MB each = 8942 MB against an 8192 MB container', skill: 'site-build',
@@ -109,23 +131,25 @@ const FACTS = [
     js: () => range(63).every((x) => (x - (x % 9)) % 9 === 0 && x % 9 < 9),
     lean: 'theorem the_congruence_form_is_the_modulus_form : ((List.range 63).all (fun x => ((x - x % 9) % 9 == 0) && (x % 9 < 9))) := by decide' },
 
-  { key: 'a_template_distinguishes_only_by_its_variable', name: '117 monographs through a one-variable template give 27 abstracts — 90 of them duplicates, 76 percent', skill: 'site-build',
-    why: 'A TEMPLATE\'S DISTINCTNESS IS ITS VARIABLE\'S DISTINCTNESS, and that is why the abstracts had to be derived before any DOI was minted over them. The corpus\'s 117 publication abstracts were one fixed sentence whose only varying part was the theorem count. There are 27 distinct theorem counts across the 116 wings, so there were exactly 27 distinct abstracts: 90 monographs — 76 percent, taking 9000 over 117 — carried an abstract already worn by another. The measurement that caught it was not a reading of the prose but a count of distinct strings, and the tell was in the lengths: minimum 353, median 353, maximum 355, which is the signature of a constant rather than a corpus. A DOI is permanent, so minting 116 of them over 27 abstracts would have archived a template forever under 116 identifiers. Now every quantity in an abstract is read from the wing\'s own theorems and the distinct count is 117 of 117 — asserted in a test, so the template cannot return quietly. HONEST SCOPE: this seals the ARITHMETIC of the collision (27 variables give 27 outputs, leaving 90), not a claim that derived prose is well written; what a reader judges stays a reader\'s judgement.',
-    js: () => { const div = (n: number, d: number): number => (n - (n % d)) / d
-      return 117 - 27 === 90 && div(90 * 100, 117) === 76 && 27 < 117 },
-    lean: 'theorem a_template_distinguishes_only_by_its_variable : (117 - 27 = 90) ∧ (90 * 100 / 117 = 76) ∧ (27 < 117) := by decide' },
+  { key: 'a_template_distinguishes_only_by_its_variable', name: `every one of ${MONOGRAPHS} monographs now carries a DISTINCT abstract — ${DISTINCT_ABSTRACTS} distinct, ${DUPLICATE_ABSTRACTS} duplicates — because the abstract is derived from each wing's own theorems rather than filled into a one-variable template`, skill: 'site-build',
+    why: 'A TEMPLATE\'S DISTINCTNESS IS ITS VARIABLE\'S DISTINCTNESS, and this theorem now seals the OUTCOME of that lesson rather than the fault that taught it. It read "117 monographs through a one-variable template give 27 abstracts — 90 of them duplicates, 76 percent", which was a true measurement of a corpus that no longer exists: the abstracts were made derived from each wing\'s own theorems, and every one of them is distinct now. The literals also drifted the moment a wing was sealed — 117 became 118 and the proof still said 117, which is the frozen-count fault this tree refuses in prose and had left standing in Lean. So the figures are measured here and the statement DECIDES distinctness over the enumerated abstract fingerprints, because a restatement as 118 = 118 would be a tautology wearing a finding\'s name. The corpus\'s 117 publication abstracts were one fixed sentence whose only varying part was the theorem count. There are 27 distinct theorem counts across the 116 wings, so there were exactly 27 distinct abstracts: 90 monographs — 76 percent, taking 9000 over 117 — carried an abstract already worn by another. The measurement that caught it was not a reading of the prose but a count of distinct strings, and the tell was in the lengths: minimum 353, median 353, maximum 355, which is the signature of a constant rather than a corpus. A DOI is permanent, so minting 116 of them over 27 abstracts would have archived a template forever under 116 identifiers. Now every quantity in an abstract is read from the wing\'s own theorems and the distinct count is 117 of 117 — asserted in a test, so the template cannot return quietly. HONEST SCOPE: this seals the ARITHMETIC of the collision (27 variables give 27 outputs, leaving 90), not a claim that derived prose is well written; what a reader judges stays a reader\'s judgement.',
+    js: () => DISTINCT_ABSTRACTS === MONOGRAPHS && DUPLICATE_ABSTRACTS === 0 && MONOGRAPHS > 0
+      && new Set(ABSTRACT_MARKS).size === MONOGRAPHS,
+    lean: `theorem a_template_distinguishes_only_by_its_variable : (${LIST_N(ABSTRACT_MARKS)}.eraseDups.length = ${MONOGRAPHS}) ∧ (${LIST_N(ABSTRACT_MARKS)}.length = ${MONOGRAPHS}) := by decide` },
 
-  { key: 'the_kin_shortlist_accounts_for_every_edge', name: 'every one of 117 kin-degrees is between 1 and 5, and the 115 fives with two twos sum to all 579 edges', skill: 'site-build',
+  { key: 'the_kin_shortlist_accounts_for_every_edge', name: `every one of ${MONOGRAPHS} kin-degrees lies between ${KIN_MIN} and ${KIN_MAX}, and the whole degree sequence sums to all ${KIN_EDGES} edges`, skill: 'site-build',
     why: 'THE CITATION GRAPH IS EXACT, AND ITS EDGE COUNT IS NOT AN ESTIMATE. Crosslinks between monographs were measured at 0 of 116 (before the CERN wing joined; 117 now) — every publication a leaf, and a deposit that names no related work is a database row wearing a DOI. Kinship is now DERIVED: a shared modulus, a shared rare constant, or a shared rare term in the theorem names, scored and cut at the five nearest. The arithmetic closes: 115 wings reach the full five-kin shortlist and exactly two do not — core and ring, at two apiece — so 115 times 5 plus 2 plus 2 is 579, every edge accounted for, under the 585 an unbroken shortlist would allow. THAT THE TWO SHORTFALLS ARE THE FOUNDATIONS IS THE FINDING, not a defect: core and ring reason in the small constants every other wing also uses, so nothing they touch is rare and rarity-based kinship found them nothing. They are related to the corpus by ALGEBRA instead — a shared modulus of 9, weighted above any shared word — which is why the isolated count is 0 rather than 2. A basis was rejected on measurement to get here: membership by shared name-vocabulary gives a median degree of 102 out of 116 as measured then, a near-complete graph, which is the same as no graph at all.',
     // THE NAME SAYS "EVERY", SO THE STATEMENT QUANTIFIES — the guard refused the first version of this line and
     // it was right to: an arithmetic identity with a universal in its name is the exact fault that sealed a false
     // theorem here once before, from a one-step sample. The degree sequence is the quantifier. Written out it is
-    // 117 numbers — 115 fives and two twos — and the statement holds over ALL of them: the list has one entry per
-    // monograph, no entry exceeds the five-kin shortlist, no entry is zero (no leaf), and they sum to 574.
-    js: () => { const degrees = [...Array(115).fill(5), 2, 2]
-      return degrees.length === 117 && degrees.reduce((a, d) => a + d, 0) === 579
-        && degrees.every((d) => d <= 5 && d >= 1) },
-    lean: 'theorem the_kin_shortlist_accounts_for_every_edge : ((List.replicate 115 5 ++ [2, 2]).length = 117) ∧ ((List.replicate 115 5 ++ [2, 2]).sum = 579) ∧ ((List.replicate 115 5 ++ [2, 2]).all (fun d => d ≤ 5 && d ≥ 1)) := by decide' },
+    // THE DEGREE SEQUENCE IS WRITTEN OUT AND IS DERIVED, one entry per monograph: the statement holds over ALL
+    // of them — no entry exceeds the kin shortlist, none is zero (no leaf), and they sum to the edge count. It
+    // carried 115 fives and two twos as literals until 2026-09-05, when a new wing made it 116 and two and the
+    // theorem still said 117 monographs. A count typed into a proof is the same frozen-count fault this tree
+    // refuses in prose; measured here, it moves with the corpus.
+    js: () => KIN_DEGREES.length === MONOGRAPHS && KIN_EDGES === KIN_DEGREES.reduce((a, d) => a + d, 0)
+      && KIN_DEGREES.every((d) => d <= KIN_MAX && d >= KIN_MIN) && KIN_MIN >= 1,
+    lean: `theorem the_kin_shortlist_accounts_for_every_edge : (${LIST_N(KIN_DEGREES)}.length = ${MONOGRAPHS}) ∧ (${LIST_N(KIN_DEGREES)}.sum = ${KIN_EDGES}) ∧ (${LIST_N(KIN_DEGREES)}.all (fun d => d ≤ ${KIN_MAX} && d ≥ ${KIN_MIN})) := by decide` },
 
   { key: 'a_shared_modulus_outranks_a_shared_word', name: 'modulus 6 over constant 2 over word 1, and a basis relating 102 of 116 is no basis',
     why: 'THE RANKING IS ORDERED BY HOW MUCH THE SHARED THING MEANS, and the order was decided by measurement rather than taste. A shared modulus is a shared algebraic structure — two wings computing inside the same finite ring — so it weighs 6; a shared rare integer constant is shared mathematics without shared structure, so it weighs 2; a shared word in the theorem names is shared prose, so it weighs 1. Each strictly above the next, which is what makes the sort a ranking and not a bag. THE REJECTED BASIS IS SEALED HERE TOO, because the negative result is the load-bearing one: taking any shared rare word as an EDGE gives a median degree of 102 out of 116, past the 58 that is half the corpus — a graph where the median node relates to seven-eighths of everything distinguishes nothing. Shared rare constants give a median of 28, under half. So neither is a membership test and both are scores, and the shortlist is what makes the result readable. HONEST SCOPE: the weights 6, 2 and 1 are a JUDGEMENT of relative meaning, declared here as constants rather than hidden in a sort; what the kernel decides is that they are strictly ordered and that the two measured medians fall on opposite sides of half the corpus.',

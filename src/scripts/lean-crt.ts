@@ -30,17 +30,20 @@ const FACTS = [
     lean: 'theorem axes_stride_coprime : (3 + 3 + 1 = 7) ∧ (Nat.gcd 7 9 = 1) ∧ (7 * 9 = 63) ∧ (63 = 2^6 - 1) ∧ (Nat.gcd 2 8 = 2) := by decide' },
 
   { key: 'residues_identify_digit', skill: 'crt',
+    name: 'CLAIMED by walking all 256 ordered pairs from the sixteen hex digits: the two residues (mod 6, mod 9) identify a digit uniquely — no two of the sixteen share both — and the pair space is 18, two larger than the sixteen it must separate.',
     why: 'THE HERO CHANNEL IS EXACT, AND THE MARGIN IS THE TWO COINS. A theorem\'s animation transmits one hex digit per node in the two residues a viewer can see — which of the SIX sealed tempi it beats on and which of the NINE sequence rungs it wears — and readHero recovers the digit from that pair. Why it is exact, stated precisely rather than fashionably: 6 and 9 are NOT coprime (rosette_and_vortex_are_coprime seals gcd(9,6) = 3), so this is NOT the Chinese Remainder Theorem, which would require them to be. It is the LCM BOUND. A number is fixed modulo the common multiple 18, and 18 is not an arbitrary ceiling: 18 = 2 · 9 is THE TWO COINS ON THE RING (two_coins, the ring being ℤ/9), and the headroom over a hex digit is 18 − 16 = 2 — the two coins again. The channel is readable because the coins leave exactly that much room, and no more: widen the alphabet by three and the same theorem fails loudly. Proven by exhaustion over every pair of digits, so it cannot silently become lossy.',
     js: () => range(16).every((a) => range(16).every((b) => !(a % 6 === b % 6 && a % 9 === b % 9) || a === b))
       && 2 * 9 === 18 && 18 % 6 === 0 && 18 % 9 === 0 && 18 - 16 === 2,
     lean: 'theorem residues_identify_digit : ((List.range 16).all (fun a => (List.range 16).all (fun b => (!((a % 6 == b % 6) && (a % 9 == b % 9))) || (a == b)))) ∧ (2 * 9 = 18) ∧ (18 % 6 = 0) ∧ (18 % 9 = 0) ∧ (18 - 16 = 2) := by decide' },
 
   { key: 'crt_pairs_are_a_bijection', skill: 'crt',
+    name: 'CLAIMED over every one of the 63 residues: x ↦ (x mod 7, x mod 9) yields 63 distinct pairs, so the correspondence is a bijection and no residue collides with another.',
     why: 'THE CORRESPONDENCE IS EXACT — every residue mod 63 carries a unique pair (mod 7, mod 9), and all 63 pairs are distinct: the map x ↦ (x % 7, x % 9) is injective on 0..62, so it is a bijection onto the 7·9 pairs. Nothing in the fused ring is lost or doubled; a state of the rosette and a state of the vortex name exactly one state of the whole.',
     js: () => { const seen = new Set(range(63).map((x) => (x % 7) * 9 + (x % 9))); return seen.size === 63 },
     lean: 'theorem crt_pairs_are_a_bijection : (((List.range 63).map (fun x => (x % 7) * 9 + (x % 9))).eraseDups.length = 63) := by decide' },
 
   { key: 'fused_units_are_the_orbit_squared', skill: 'crt',
+    name: 'CLAIMED by counting units across all 63 residues: the fused ring has exactly 36 units, which is 6·6 — the vortex orbit length times the rosette orbit length, each of those six counted over its own whole ring.',
     why: 'THE UNITS COUNT IS THE ORBIT, SQUARED — the fused ring has φ(63) = 36 units, and 36 = 6·6: the vortex orbit length times the rosette orbit length, each of which is the order of its own generator. The invertible states of the whole are exactly the pairs of invertible states of the parts, which is the multiplicativity of φ read in the ledger\'s own numbers.',
     js: () => unitsOf(63).length === 36 && 6 * 6 === 36 && unitsOf(9).length === 6 && unitsOf(7).length === 6,
     lean: 'theorem fused_units_are_the_orbit_squared : (((List.range 63).filter (fun a => a > 0 && Nat.gcd a 63 == 1)).length = 36) ∧ (6 * 6 = 36) ∧ (((List.range 9).filter (fun a => a > 0 && Nat.gcd a 9 == 1)).length = 6) ∧ (((List.range 7).filter (fun a => a > 0 && Nat.gcd a 7 == 1)).length = 6) := by decide' },
@@ -70,6 +73,7 @@ const FACTS = [
     lean: 'theorem hexagram_stride_totals_the_rosetta : (Nat.gcd 6 7 = 1) ∧ (Nat.gcd 6 9 = 3) ∧ ((List.range 7).map (fun k => (k * 6) % 7)).eraseDups.length = 7 ∧ ((List.range 9).map (fun k => (k * 6) % 9)).eraseDups.length = 3 := by decide' },
 
   { key: 'units_of_sixty_three_close_their_product_table',
+    name: 'CLAIMED by walking all 1296 cells of the 36×36 Cayley table over the 63 residues: every product of two units is a unit, and every row is a permutation of the 36 — the group closes and no row repeats a value.',
     why: 'THE 36 × 36 PRODUCT TABLE OF (Z/63)*, WALKED CELL BY CELL. 63 = 7 · 9 is the wing\u2019s own CRT split, and the units factor with it: \u03c6(63) = \u03c6(7) · \u03c6(9) = 6 · 6 = 36. Those 36 residues are found here rather than listed — every k below 63 coprime to it — and then the whole table they generate is decided: all 1296 products a · b mod 63 are again units (the table is CLOSED), and every ROW carries 36 DISTINCT entries, so multiplication by a fixed unit permutes the units. That second half is the Latin-square property a group\u2019s Cayley table has, and it is what makes each unit invertible: a row that repeated a value could not cover the group. Together they are the structure the Chinese Remainder decomposition predicts, checked against the residues themselves instead of inferred from the factorisation. WHAT IT IS NOT: a theorem about (Z/n)* for every n — the modulus here is 63, and what is sealed is its table.',
     js: () => {
       const u = range(63).filter((k) => gcd(k, 63) === 1)

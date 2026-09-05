@@ -159,9 +159,43 @@ const stripFunBinders = (s: string): string => {
   return out.replace(/=>/g, ' ').replace(/:=/g, ' ').replace(/==/g, ' ').replace(/!=/g, ' ').replace(/\|\|/g, ' ')
     .replace(/;/g, ' ').replace(/×/g, ' ').replace(/\b_\b/g, ' ')
 }
+// ── `∀ x : Fin N, P` DESUGARED TO THE ENUMERATION IT IS ────────────────────────────────────────────────────
+//
+// WHY THIS EXISTS. The falsifier leg is a SECOND independent implementation re-deciding a sealed statement, and
+// the ceiling law is that every sealed theorem carries one. Four theorems sealed on 2026-09-05 bind a finite
+// type — `∀ i : Fin 25, …` — a grammar this evaluator had never met, so it returned null, gen-falsifiers
+// emitted nothing, and the ceiling dropped from 2626 to 2622 within one run. The cure is not to exempt them:
+// it is to teach the second machine the notation, because a theorem the kernel decides and no independent
+// implementation can re-decide is exactly the leg the ceiling exists to require.
+//
+// THE REWRITE IS FAITHFUL AND THAT IS THE WHOLE ARGUMENT: `∀ i : Fin N, P(i.val)` and
+// `(List.range N).all (fun i => P(i))` quantify over the same N inhabitants in the same order, and the second
+// is a form this evaluator already decides. Nothing is weakened — the same N cases are walked either way.
+export function desugarFinForall(statement: string): string {
+  let out = statement
+  for (let guard = 0; guard < 8; guard++) {
+    const m = /\(\s*∀\s*([A-Za-z][A-Za-z0-9_]*)\s*:\s*Fin\s+(\d+)\s*,/.exec(out)
+    if (!m) break
+    const open = m.index                       // the `(` that opens the binder
+    // find the paren that closes the binder's own group — the body ends exactly there
+    let depth = 0, close = -1
+    for (let i = open; i < out.length; i++) {
+      if (out[i] === '(') depth++
+      else if (out[i] === ')') { depth--; if (depth === 0) { close = i; break } }
+    }
+    if (close < 0) break                       // unbalanced: leave it alone rather than guess
+    const name = m[1]!, bound = m[2]!
+    const body = out.slice(open + m[0].length, close)
+    // `i.val` is the inhabitant's value; under the enumeration the binder IS the value
+    const rebound = body.replace(new RegExp('\\b' + name + '\\.val\\b', 'g'), name)
+    out = out.slice(0, open) + `((List.range ${bound}).all (fun ${name} => ${rebound}))` + out.slice(close + 1)
+  }
+  return out
+}
+
 export const evaluable = (statement: string): boolean =>
   /^[\s0-9()+*%/^=∧∨<>≤≥≠¬,.\[\]"\\&'|·?!;:→∈-]+$/.test(
-    stripFunBinders(stripStrings(stripAscriptions(stripComments(statement)))).replace(NAMED_OP, '').replace(/\+\+/g, '').replace(/\?/g, ''),
+    stripFunBinders(stripStrings(stripAscriptions(stripComments(desugarFinForall(statement))))).replace(NAMED_OP, '').replace(/\+\+/g, '').replace(/\?/g, ''),
   )
 
 
@@ -1566,7 +1600,7 @@ export function holds(statement: string): boolean | null {
 }
 
 function holdsUncached(statement: string): boolean | null {
-  const cleaned = stripComments(statement)
+  const cleaned = desugarFinForall(stripComments(statement))
   if (!evaluable(cleaned)) return null
   const src = stripAscriptions(cleaned)
   // Lean elaborates the whole chain as Int once any `: Int` ascription appears (expected type); Nat otherwise.

@@ -40,11 +40,18 @@ test('decidable equality written both ways is one relation', () => {
   assert.equal(propositionAddress('a == b'), propositionAddress('a = b'))
 })
 
-test('this ledger holds 2536 propositions over 2544 raw statements — the merge is real, not theoretical', () => {
+// THE MERGE IS CHECKED AS A RELATION, not against three literals. This asserted 2544/2536/8 and all three
+// moved when a wing was sealed — the frozen-count fault, in a test whose whole subject is that the merge is
+// real. What makes it real is the RELATION: normalisation can only reduce, the reduction is exactly the merged
+// forms, and every merged group normalises to one proposition. That holds at any ledger size.
+test('the merge is real, not theoretical: normalisation reduces, and the reduction IS the merged groups', () => {
   const c = propositionCensus(THEOREMS.map((t) => t.statement))
-  assert.equal(c.statements, 2544, 'raw distinct statements')
-  assert.equal(c.propositions, 2536, 'distinct propositions after normalisation')
-  assert.equal(c.merged.length, 8, 'eight statements are one proposition written two ways')
+  assert.ok(c.statements > 0)
+  assert.ok(c.propositions <= c.statements, 'normalisation may only merge, never split')
+  const collapsed = c.merged.reduce((n, g) => n + g.forms.length - 1, 0)
+  assert.equal(c.statements - c.propositions, collapsed,
+    'the drop from statements to propositions must BE the forms the merge groups collapsed, not a number beside it')
+  assert.ok(c.merged.length > 0, 'a ledger with no merged forms would make this whole surface theoretical')
   for (const g of c.merged) {
     assert.ok(g.forms.length > 1)
     // every merged form must normalise identically — that IS the merge

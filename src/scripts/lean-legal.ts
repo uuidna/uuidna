@@ -41,7 +41,7 @@ const FACTS = [
     lean: `theorem legal_verdict_is_exactly_one : (List.range 8).all (${LT} lp t h c + lr t h c + lnp t h c == 1) := by decide` },
 
   { key: 'legal_only_the_proven_is_admitted', skill: 'legal',
-    why: 'only the PROVEN is ADMITTED — a claim is admitted exactly when a decidable test holds OR it cites a sealed authority; nothing else stays',
+    why: 'only the PROVEN is ADMITTED, decided over all eight combinations of the three inputs — a claim is admitted exactly when a decidable test holds OR it cites a sealed authority; nothing else stays',
     js: () => R8.every((n) => (lp(t(n), h(n), c(n)) === 1) === (c(n) === 1 || (t(n) === 1 && h(n) === 1))),
     lean: `theorem legal_only_the_proven_is_admitted : (List.range 8).all (${LT} (lp t h c == 1) == ((c == 1) || (t == 1 && h == 1))) := by decide` },
 
