@@ -1,6 +1,6 @@
 {
   "covers": {
-    "src": "19f8cf36a8ef940077e4e29965fad771",
+    "src": "0ad1e07d5c90f45987be29f704c9b0ff",
     "lean": "cc9d01d05af70c3e09f6312dfb06f7bb"
   },
   "files": {
@@ -3613,8 +3613,8 @@
     "src/priorart.ts": "5774ecc39a87fb30",
     "src/profile.ts": "deb5ad21bee1cc2b",
     "src/proof-cache.test.ts": "b16e0c1f1992f8ed",
-    "src/proposition-address.test.ts": "aeac0653bdd1a8bc",
-    "src/proposition-address.ts": "069fcee35d479a96",
+    "src/proposition-address.test.ts": "440483cb5e3a69ad",
+    "src/proposition-address.ts": "79767186e50eee86",
     "src/prose-analysis.test.ts": "702afe9e4cb5d2d2",
     "src/prose-gate.test.ts": "777d3c69fa3c80a0",
     "src/prose-gate.ts": "090535c9c8ded219",
@@ -3701,7 +3701,7 @@
     "src/quantum/memory/index.ts": "c1a6fdac0fe707db",
     "src/quantum/message/index.ts": "0b9ec596de0c33f0",
     "src/quantum/models/index.ts": "a38c88a0605b6523",
-    "src/quantum/models/mirror.ts": "963a23ddb64f532a",
+    "src/quantum/models/mirror.ts": "9fd70bf4dca84f87",
     "src/quantum/os/aas/index.test.ts": "63b9d3e4bf6e7e75",
     "src/quantum/os/aas/index.ts": "5e5d581164c75e79",
     "src/quantum/os/acme/index.test.ts": "0790da708a2b2aa2",
@@ -3919,7 +3919,7 @@
     "src/scripts/all-run.ts": "81fb11acec274b4c",
     "src/scripts/alpine-discovery.ts": "5bba3f7ac631e788",
     "src/scripts/api-mint.ts": "4a6e6e4e6db2ee36",
-    "src/scripts/api.ts": "5608d969d2d0a0e3",
+    "src/scripts/api.ts": "dad61f5279b229ec",
     "src/scripts/attestation-gaps.test.ts": "509c082eca3059b8",
     "src/scripts/attestation-gaps.ts": "0ea2f051340f5222",
     "src/scripts/audit-articles-collection.ts": "4ffda18951817b06",
@@ -4039,7 +4039,7 @@
     "src/scripts/gen-waves.ts": "e42e3ebcceb81a30",
     "src/scripts/gen-zenodo-seals.ts": "740f99e37e49a0dc",
     "src/scripts/gen-zenodo.ts": "1c81442192a01f61",
-    "src/scripts/generate.ts": "4bb63ecc98391930",
+    "src/scripts/generate.ts": "88d2b8c8524d73cd",
     "src/scripts/green.ts": "e286a448ebf90fa5",
     "src/scripts/guard.test.ts": "28537249ce682000",
     "src/scripts/guard.ts": "8c732e1bb4761525",
@@ -4342,7 +4342,7 @@
   },
   "verified": [
     "guard",
-    "tests"
+    "build"
   ],
   "excludes": "src/seeds, src/chunks — generated payloads the tests and the guard never read",
   "honest": "Content-addresses src/ and lean/ — coarse covers for deploy, per-file manifest for delta test runs. Proves THIS TREE was verified at push time; one byte moved fails --verify unless only test files drifted (gate-receipt-index planTestRun runs the moved tests only)."
