@@ -2710,7 +2710,7 @@
     "lean/alpine-apps.json": "d0b3bed701048aab",
     "lean/alpine-apps.md": "7026bdfe11948cc2",
     "lean/alpine-discovery.json": "a340e09399d18c5f",
-    "lean/alpine-hexbit-monitor.json": "27a5eceacd36895f",
+    "lean/alpine-hexbit-monitor.json": "72f83f2e972880c3",
     "lean/anthem-manifest.json": "5918343cf4e985a1",
     "lean/antifraud-manifest.json": "4457805cd5078a11",
     "lean/antikythera-manifest.json": "be97e2330c018bcb",
@@ -2862,5 +2862,5 @@
     "lean/wave-queue.json": "a0d06de0854b8406",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "b8c3f816-c135-8883-8e4a-452db1b716eb"
+  "receipt": "9cd90e3a-6c2c-8de3-975c-8fa4258b7abb"
 }
