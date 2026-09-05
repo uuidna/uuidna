@@ -2,7 +2,7 @@
 // would equally pass a gate that refuses everything, which is the gate that gets switched off in a week.
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
-import { prePushForge, rosterGaps, MUST_JUDGE, NEED_NOT_JUDGE, type ForgeReceipt } from './forge-verdict.js'
+import { prePushForge, rosterGaps, absentMustJudge, mustJudge, MUST_JUDGE_BY_REF, NEED_NOT_JUDGE, type ForgeReceipt } from './forge-verdict.js'
 
 const r = (over: Partial<ForgeReceipt> = {}): ForgeReceipt =>
   ({ sha: '7d9eae4e0abc', ok: true, measured: true, failing: [], notJudged: [], ...over })
@@ -54,7 +54,22 @@ test('ROSTER: a workflow in neither column is a gap, so adding one forces a deci
 })
 
 test('the two columns are disjoint — a workflow cannot both must-judge and be exempt', () => {
-  const overlap = MUST_JUDGE.filter((n) => n in NEED_NOT_JUDGE)
-  assert.deepEqual(overlap, [])
+  const every = [...MUST_JUDGE_BY_REF.branch, ...MUST_JUDGE_BY_REF.tag]
+  assert.deepEqual(every.filter((n: string) => n in NEED_NOT_JUDGE), [])
   for (const [name, why] of Object.entries(NEED_NOT_JUDGE)) assert.ok(why.length > 10, `${name} must carry its reason for being exempt`)
+})
+
+// uuidna-49 refuted the flat set from the forge: publish and release are TAG-triggered, so on a push to main
+// they produce NO ROW, and a must-judge workflow the event never triggers can never judge. Measured over 60
+// runs: deploy 19 / security 18 / CodeQL 18 on push+main; publish 1 / release 1, tag only.
+test('a TAG-only workflow is not required of a BRANCH push — the flat set refused every landing forever', () => {
+  assert.deepEqual(absentMustJudge(['security', 'deploy', 'CodeQL Advanced'], 'branch'), [],
+    'an ordinary push to main must be allowed: publish and release are not triggered by it')
+  assert.ok(mustJudge('tag').includes('publish'))
+  assert.ok(!mustJudge('branch').includes('publish'))
+})
+
+test('a must-judge workflow that produced NO ROW is caught — rosterGaps structurally cannot see a silence', () => {
+  assert.deepEqual(absentMustJudge(['deploy'], 'branch'), ['security'], 'security was never triggered and never judged')
+  assert.deepEqual(rosterGaps(['deploy']), [], 'the survey of what ARRIVED reports nothing about what did not')
 })

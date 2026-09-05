@@ -17,18 +17,44 @@
 // so adding a workflow forces a decision instead of defaulting to permissive. Without that the list rots
 // silently, and it rots toward passing.
 
-/** Workflows whose verdict is load-bearing: cancelled or skipped is UNMEASURED, never a pass. */
-export const MUST_JUDGE: readonly string[] = ['security', 'deploy', 'publish', 'release']
-/** Workflows that legitimately do not judge every push, with the reason each is exempt. */
+/** WHICH WORKFLOWS MUST JUDGE IS A PROPERTY OF THE EVENT, not of the run and not of a flat list.
+ *
+ *  A flat set was the first design and uuidna-49 refuted it from the forge in one query: `publish` and `release`
+ *  are TAG-triggered, so on a push to main they do not skip and do not cancel — THERE IS NO ROW FOR THEM AT ALL.
+ *  A must-judge workflow that the event never triggers can never judge, so the flat set refused every ordinary
+ *  landing, forever. Measured over 60 runs: deploy 19 and security 18 and CodeQL 18 on push/main; publish 1 and
+ *  release 1, both only on the v0.3.1 tag.
+ *
+ *  This is the third-column argument one level down. Which workflows must judge is not derivable from the rows,
+ *  because the rows of an untriggered workflow do not exist — so it is declared, per event, and the absence of a
+ *  declared one is itself the finding. */
+export const MUST_JUDGE_BY_REF: Readonly<Record<'branch' | 'tag', readonly string[]>> = {
+  branch: ['security', 'deploy'],
+  tag: ['publish', 'release', 'deploy'],
+}
+/** Workflows that legitimately do not judge every push, each with the reason it is exempt. */
 export const NEED_NOT_JUDGE: Readonly<Record<string, string>> = {
   'dependency-review': 'PR-only; skips on every push to main by design',
-  'CodeQL Advanced': 'schedules independently of the push and may still be queued',
+  'CodeQL Advanced': 'runs on every push to main but takes minutes longer than the rest, so it is routinely still queued when the others have settled',
+  books: 'scheduled, not triggered by a push',
+  next: 'scheduled, not triggered by a push',
 }
 
-/** rosterGaps(names) → workflows the forge reported that no column claims. Each is a decision nobody made. */
+export const mustJudge = (ref: 'branch' | 'tag'): readonly string[] => MUST_JUDGE_BY_REF[ref]
+
+/** rosterGaps(observed) → workflows the forge reported that NO column claims: a decision nobody made. */
 export function rosterGaps(observed: readonly string[]): string[] {
-  const known = new Set([...MUST_JUDGE, ...Object.keys(NEED_NOT_JUDGE)])
+  const known = new Set([...MUST_JUDGE_BY_REF.branch, ...MUST_JUDGE_BY_REF.tag, ...Object.keys(NEED_NOT_JUDGE)])
   return [...new Set(observed)].filter((n) => !known.has(n)).sort()
+}
+
+/** absentMustJudge(observed, ref) → declared must-judge workflows with NO ROW AT ALL for this push.
+ *
+ *  rosterGaps cannot see this and never could: it reports what was OBSERVED in neither column, and an absent
+ *  workflow is observed nowhere. A silence is the one thing a survey of what arrived can never report. */
+export function absentMustJudge(observed: readonly string[], ref: 'branch' | 'tag'): string[] {
+  const seen = new Set(observed)
+  return mustJudge(ref).filter((n) => !seen.has(n)).sort()
 }
 
 /** What post-push learned about one pushed sha, as it persists it for the next court to read. */
