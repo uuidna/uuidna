@@ -2761,7 +2761,7 @@
     "lean/ephemeris-manifest.json": "d0201474f0a282ca",
     "lean/exploits-manifest.json": "4f83a8b31e6d82aa",
     "lean/exposed-axioms.json": "98e0337707ae8b6a",
-    "lean/finder-controls-baseline.json": "d6858fbe8c628e3a",
+    "lean/finder-controls-baseline.json": "dbff5f68901a8d79",
     "lean/findings.json": "c70d5de9f2ff8172",
     "lean/glagolitic-manifest.json": "6ce32e75c76b8257",
     "lean/grid-manifest.json": "f5202b834e90881f",
@@ -2864,5 +2864,5 @@
     "lean/wave-queue.json": "0c1ba188509a80b2",
     "lean/waves-manifest.json": "15135353213b8698"
   },
-  "receipt": "9420a11d-054e-8a1c-bc8d-ae30e694aaf3"
+  "receipt": "52096c17-a297-88cd-8ec1-623a7ced03d1"
 }
